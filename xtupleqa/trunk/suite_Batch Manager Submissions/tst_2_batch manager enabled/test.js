@@ -2,7 +2,7 @@
 
 function main()
 {
-  
+    
     //-----includes-----
     source(findFile("scripts","functions.js"));
     
@@ -718,7 +718,8 @@ function main()
     activateItem(":*.Schedule_QMenu", "Constraint Management");
     waitForObjectItem(":*.Constraint Management_QMenu", "Update Status");
     activateItem(":*.Constraint Management_QMenu", "Update Status");
-    snooze(0.5);
+    type(":*.Constraint Management_QMenu", "<Right>");
+    type(":*.Constraint Management_QMenu", "<Right>");
     waitForObjectItem(":*.Update Status_QMenu", "by Item...");
     activateItem(":*.Update Status_QMenu", "by Item...");
     

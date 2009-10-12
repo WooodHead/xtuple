@@ -104,6 +104,7 @@
 :Contact...._QPushButton	{container=':Incident.Contact_QGroupBox' name='_list' text='...' type='QPushButton' visible='1'}
 :Contact._titleLit_QLabel	{container=':Incident.Contact_QGroupBox' name='_titleLit' occurrence='2' type='QLabel' visible='1'}
 :Create Planned Transfer Orders._suppliedFromSite_WComboBox	{container=':Scheduling.Create Planned Transfer Orders_QGroupBox' name='_suppliedFromSite' type='WComboBox' visible='1'}
+:Create Recurring Invoices.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Create Recurring Invoices_createRecurringInvoices'}
 :Create Recurring Invoices.Submit_QPushButton	{name='_submit' text='Submit' type='QPushButton' visible='1' window=':Create Recurring Invoices_createRecurringInvoices'}
 :Create Recurring Invoices_createRecurringInvoices	{name='createRecurringInvoices' type='createRecurringInvoices' visible='1' windowTitle='Create Recurring Invoices'}
 :Customer.Attach_QPushButton	{container=':*.Customer_QWorkspaceChild' name='_attach' text='Attach' type='QPushButton' visible='1'}
@@ -268,11 +269,13 @@
 :Post Actual Costs by Item.Select all Costs_QPushButton	{name='_selectAll' text='Select all Costs' type='QPushButton' visible='1' window=':Post Actual Costs by Item_postCostsByItem'}
 :Post Actual Costs by Item.Submit_QPushButton	{name='_submit' text='Submit' type='QPushButton' visible='1' window=':Post Actual Costs by Item_postCostsByItem'}
 :Post Actual Costs by Item_postCostsByItem	{name='postCostsByItem' type='postCostsByItem' visible='1' windowTitle='Post Actual Costs by Item'}
+:Post Standard Journal Group.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Post Standard Journal Group_postStandardJournalGroup'}
 :Post Standard Journal Group.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':Post Standard Journal Group_postStandardJournalGroup'}
 :Post Standard Journal Group.Standard Journal Group:_QLabel	{name='_stdjrnlgrpLit' text='Standard Journal Group:' type='QLabel' visible='1' window=':Post Standard Journal Group_postStandardJournalGroup'}
 :Post Standard Journal Group.Submit_QPushButton	{name='_submit' text='Submit' type='QPushButton' visible='1' window=':Post Standard Journal Group_postStandardJournalGroup'}
 :Post Standard Journal Group.XDateEdit_XDateEdit	{name='XDateEdit' type='XDateEdit' visible='1' window=':Post Standard Journal Group_postStandardJournalGroup'}
 :Post Standard Journal Group_postStandardJournalGroup	{name='postStandardJournalGroup' type='postStandardJournalGroup' visible='1' windowTitle='Post Standard Journal Group'}
+:Post Standard Journal.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Post Standard Journal_postStandardJournal'}
 :Post Standard Journal.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':Post Standard Journal_postStandardJournal'}
 :Post Standard Journal.Post_QPushButton	{name='_post' text='Post' type='QPushButton' visible='1' window=':Post Standard Journal_postStandardJournal'}
 :Post Standard Journal.Standard Journal:_QLabel	{name='_standardJournalLit' text='Standard Journal:' type='QLabel' visible='1' window=':Post Standard Journal_postStandardJournal'}
@@ -281,8 +284,10 @@
 :Post Standard Journal_postStandardJournal	{name='postStandardJournal' type='postStandardJournal' visible='1' windowTitle='Post Standard Journal'}
 :Print Credit Memos.Print_QPushButton	{name='_print' text='Print' type='QPushButton' visible='1' window=':Print Credit Memos_printCreditMemos'}
 :Print Credit Memos_printCreditMemos	{name='printCreditMemos' type='printCreditMemos' visible='1' windowTitle='Print Credit Memos'}
+:Print Invoices by Ship Via.Cancel_QPushButton	{name='_cancel' text='Cancel' type='QPushButton' visible='1' window=':Print Invoices by Ship Via_printInvoicesByShipvia'}
 :Print Invoices by Ship Via.Print_QPushButton	{name='_print' text='Print' type='QPushButton' visible='1' window=':Print Invoices by Ship Via_printInvoicesByShipvia'}
 :Print Invoices by Ship Via_printInvoicesByShipvia	{name='printInvoicesByShipvia' type='printInvoicesByShipvia' visible='1' windowTitle='Print Invoices by Ship Via'}
+:Print Invoices.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Print Invoices_printInvoices'}
 :Print Invoices.Print_QPushButton	{name='_print' text='Print' type='QPushButton' visible='1' window=':Print Invoices_printInvoices'}
 :Print Invoices_printInvoices	{name='printInvoices' type='printInvoices' visible='1' windowTitle='Print Invoices'}
 :Print Purchase Order...._QPushButton	{text='...' type='QPushButton' unnamed='1' visible='1' window=':Print Purchase Order_printPurchaseOrder'}
@@ -334,6 +339,7 @@
 :Quote._schedGroup_QGroupBox	{container=':*.Quote_QWorkspaceChild' name='_schedGroup' type='QGroupBox' visible='1'}
 :Quote.qt_tabwidget_stackedwidget_QStackedWidget	{container=':*.Quote_QWorkspaceChild' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
 :Quote.qt_tabwidget_tabbar_QTabBar	{container=':*.Quote_QWorkspaceChild' name='qt_tabwidget_tabbar' type='QTabBar' visible='1'}
+:Re-Print Invoices.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Re-Print Invoices_reprintInvoices'}
 :Re-Print Invoices.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':Re-Print Invoices_reprintInvoices'}
 :Re-Print Invoices.Invoices:_QLabel	{name='_invoicesLit' text='Invoices:' type='QLabel' visible='1' window=':Re-Print Invoices_reprintInvoices'}
 :Re-Print Invoices.Print_QPushButton	{name='_print' text='Print' type='QPushButton' visible='1' window=':Re-Print Invoices_reprintInvoices'}
@@ -552,6 +558,7 @@
 :Update Actual Costs by Item.Select all Costs_QPushButton	{name='_selectAll' text='Select all Costs' type='QPushButton' visible='1' window=':Update Actual Costs by Item_updateActualCostsByItem'}
 :Update Actual Costs by Item.Submit_QPushButton	{name='_submit' text='Submit' type='QPushButton' visible='1' window=':Update Actual Costs by Item_updateActualCostsByItem'}
 :Update Actual Costs by Item_updateActualCostsByItem	{name='updateActualCostsByItem' type='updateActualCostsByItem' visible='1' windowTitle='Update Actual Costs by Item'}
+:Update Late Customer Credit Status.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Update Late Customer Credit Status_updateLateCustCreditStatus'}
 :Update Late Customer Credit Status.Submit_QPushButton	{name='_submit' text='Submit' type='QPushButton' visible='1' window=':Update Late Customer Credit Status_updateLateCustCreditStatus'}
 :Update Late Customer Credit Status_updateLateCustCreditStatus	{name='updateLateCustCreditStatus' type='updateLateCustCreditStatus' visible='1' windowTitle='Update Late Customer Credit Status'}
 :Update Order Up To Level by Item.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Update Order Up To Level by Item_updateOUTLevelByItem'}
@@ -566,6 +573,7 @@
 :Update Order Up To Levels by Class Code._classCode_ParameterGroup	{name='_classCode' type='ParameterGroup' visible='1' window=':Update Order Up To Levels by Class Code_updateOUTLevelsByClassCode'}
 :Update Order Up To Levels by Class Code._warehouse_WarehouseGroup	{name='_warehouse' type='WarehouseGroup' visible='1' window=':Update Order Up To Levels by Class Code_updateOUTLevelsByClassCode'}
 :Update Order Up To Levels by Class Code_updateOUTLevelsByClassCode	{name='updateOUTLevelsByClassCode' type='updateOUTLevelsByClassCode' visible='1' windowTitle='Update Order Up To Levels by Class Code'}
+:Update Order Up To Levels by Planner Code.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Update Order Up To Levels by Planner Code_updateOUTLevels'}
 :Update Order Up To Levels by Planner Code.Periods to Include in Analysis_QGroupBox	{name='_periodsToInclude' title='Periods to Include in Analysis' type='QGroupBox' visible='1' window=':Update Order Up To Levels by Planner Code_updateOUTLevels'}
 :Update Order Up To Levels by Planner Code.Submit_QPushButton	{name='_submit' text='Submit' type='QPushButton' visible='1' window=':Update Order Up To Levels by Planner Code_updateOUTLevels'}
 :Update Order Up To Levels by Planner Code.Update_QPushButton	{name='_update' text='Update' type='QPushButton' visible='1' window=':Update Order Up To Levels by Planner Code_updateOUTLevels'}
@@ -633,6 +641,8 @@
 :_classCode.All Class Codes_QRadioButton_3	{container=':Update Standard Costs By Class Code._classCode_ParameterGroup' name='_all' text='All Class Codes' type='QRadioButton' visible='1'}
 :_classCode.All Class Codes_QRadioButton_4	{container=':Update Order Up To Levels by Class Code._classCode_ParameterGroup' name='_all' text='All Class Codes' type='QRadioButton' visible='1'}
 :_criteriaTab.Cancel_QPushButton	{container=':qt_tabwidget_stackedwidget._criteriaTab_QWidget' name='_close' text='Cancel' type='QPushButton' visible='1'}
+:_criteriaTab.Cancel_QPushButton_2	{container=':qt_tabwidget_stackedwidget._criteriaTab_QWidget_2' name='_close' text='Cancel' type='QPushButton' visible='1'}
+:_criteriaTab.Cancel_QPushButton_3	{container=':qt_tabwidget_stackedwidget._criteriaTab_QWidget_3' name='_close' text='Cancel' type='QPushButton' visible='1'}
 :_criteriaTab.Query_QPushButton	{container=':qt_tabwidget_stackedwidget._criteriaTab_QWidget' name='_update' text='Query' type='QPushButton' visible='1'}
 :_criteriaTab.Submit_QPushButton	{container=':qt_tabwidget_stackedwidget._criteriaTab_QWidget' name='_submit' text='Submit' type='QPushButton' visible='1'}
 :_criteriaTab.Submit_QPushButton_2	{container=':qt_tabwidget_stackedwidget._criteriaTab_QWidget_2' name='_submit' text='Submit' type='QPushButton' visible='1'}
