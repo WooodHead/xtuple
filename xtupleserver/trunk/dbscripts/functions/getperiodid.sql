@@ -41,7 +41,7 @@ END;
 ' LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION getPeriodId(date)
-  RETURNS integer AS '
+  RETURNS integer AS $$
 DECLARE
   pPeriodDate ALIAS FOR $1;
   _returnVal INTEGER;
@@ -60,5 +60,4 @@ BEGIN
 
   RETURN _returnVal;
 END;
-' LANGUAGE 'plpgsql';
-
+$$ LANGUAGE 'plpgsql';
