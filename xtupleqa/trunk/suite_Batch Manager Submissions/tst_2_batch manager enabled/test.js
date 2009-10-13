@@ -396,16 +396,7 @@ function main()
     waitForObject(":_pohead_XTreeWidget");
     doubleClickItem(":_pohead_XTreeWidget", "20067", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Print Purchase Order.Print_QPushButton");
-    clickButton(":Print Purchase Order.Print_QPushButton");
-    snooze(1);
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");    
+    clickButton(":Print Purchase Order.Print_QPushButton");  
     snooze(1);	  
     nativeType("<Return>");
     
@@ -1990,17 +1981,8 @@ function main()
     
     waitForObject(":Print Invoices.Print_QPushButton");
     clickButton(":Print Invoices.Print_QPushButton");    
-    snooze(1);
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");    
     snooze(1);	  
-    nativeType("<Return>");
+    nativeType("<Return>");  
     
     waitForObject(":Review EDI Before Sending.Accept_QPushButton");
     clickButton(":Review EDI Before Sending.Accept_QPushButton");
@@ -2067,16 +2049,7 @@ function main()
     
     waitForObject(":Print Invoices by Ship Via.Print_QPushButton");
     clickButton(":Print Invoices by Ship Via.Print_QPushButton");
-    snooze(1);
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");    
-    snooze(1);	  
+    snooze(1); 
     nativeType("<Return>");
     
     waitForObject(":Review EDI Before Sending.Accept_QPushButton");
@@ -2112,16 +2085,7 @@ function main()
     waitForObject(":_invoice_XTreeWidget");
     clickItem(":_invoice_XTreeWidget", "TTOYS - Tremendous Toys Incorporated", 5, 5, 1, Qt.LeftButton);
     waitForObject(":Re-Print Invoices.Print_QPushButton");
-    clickButton(":Re-Print Invoices.Print_QPushButton");
-    snooze(1);
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");    
+    clickButton(":Re-Print Invoices.Print_QPushButton");   
     snooze(1);	  
     nativeType("<Return>");
     
@@ -2213,16 +2177,7 @@ function main()
     activateItem(":*.Forms_QMenu_4", "Print Invoices...");
     
     waitForObject(":Print Invoices.Print_QPushButton");
-    clickButton(":Print Invoices.Print_QPushButton");
-    snooze(1);
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");    
+    clickButton(":Print Invoices.Print_QPushButton");  
     snooze(1);	  
     nativeType("<Return>");
     
@@ -2259,16 +2214,7 @@ function main()
     waitForObject(":_invoice_XTreeWidget");
     clickItem(":_invoice_XTreeWidget", "TTOYS - Tremendous Toys Incorporated", 5, 5, 1, Qt.LeftButton);
     waitForObject(":Re-Print Invoices.Print_QPushButton");
-    clickButton(":Re-Print Invoices.Print_QPushButton");
-    snooze(1);
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");    
+    clickButton(":Re-Print Invoices.Print_QPushButton");   
     snooze(1);	  
     nativeType("<Return>");
     
@@ -2293,6 +2239,8 @@ function main()
     activateItem(":*.Accounting_QMenu", "Accounts Receivable");
     waitForObjectItem(":*.Accounts Receivable_QMenu", "Invoice");
     activateItem(":*.Accounts Receivable_QMenu", "Invoice");
+    type(":*.Accounts Receivable_QMenu", "<Right>");
+    type(":*.Accounts Receivable_QMenu", "<Right>");
     
     waitForObjectItem(":*.Invoice_QMenu", "Send Electronic Invoice...");
     activateItem(":*.Invoice_QMenu", "Send Electronic Invoice...");
@@ -2417,29 +2365,20 @@ function main()
     activateItem(":*.Reports_QMenu_4", "Open Receivables...");
     
     waitForObjectItem(":Open Receivables._select_XComboBox", "All Customers");
-    clickItem(":Open Receivables._select_XComboBox", "All Customers", 105, 6, 1, Qt.LeftButton);
-    waitForObject(":Show.Credits_QRadioButton");
-    clickButton(":Show.Credits_QRadioButton");
+    clickItem(":Open Receivables._select_XComboBox", "All Customers", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Show.Both_QRadioButton");
+    clickButton(":Show.Both_QRadioButton");
     if(!findObject(":Show.Unposted_XCheckBox").checked)
         clickButton(":Show.Unposted_XCheckBox");
     
     waitForObject(":Open Receivables.Query_QPushButton");
     clickButton(":Open Receivables.Query_QPushButton");
     waitForObject(":_frame._aropen_XTreeWidget");
-    clickItem(":_frame._aropen_XTreeWidget", "No", 5, 5, 1, Qt.LeftButton);
+    clickItem(":_frame._aropen_XTreeWidget", "TTOYS", 5, 5, 1, Qt.LeftButton);
     waitForObject(":_frame.Print_QPushButton");
     clickButton(":_frame.Print_QPushButton");
     waitForObject(":Open Receivables.Print_QPushButton");
     clickButton(":Open Receivables.Print_QPushButton");
-    snooze(1);
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");    
     snooze(1);	  
     nativeType("<Return>");
     
@@ -2474,16 +2413,7 @@ function main()
     waitForObject(":Print Statement by Customer.Print_QPushButton");
     clickButton(":Print Statement by Customer.Print_QPushButton");
     waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-    clickButton(":Review EDI Before Sending.Accept_QPushButton");
-    snooze(1);
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");    
+    clickButton(":Review EDI Before Sending.Accept_QPushButton");  
     snooze(1);	  
     nativeType("<Return>");
     
@@ -2513,21 +2443,62 @@ function main()
     waitForObject(":Print Statements by Customer Type.Print_QPushButton");
     clickButton(":Print Statements by Customer Type.Print_QPushButton"); 
     waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-    clickButton(":Review EDI Before Sending.Accept_QPushButton");
-    snooze(1);
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");    
+    clickButton(":Review EDI Before Sending.Accept_QPushButton");  
     snooze(1);	  
     nativeType("<Return>");
     
     waitForObject(":Print Statements by Customer Type.Close_QPushButton");
     clickButton(":Print Statements by Customer Type.Close_QPushButton");
+    
+    //-----Verify the submission in Batch Manager-----
+    var result = batchmanager();
+    
+    if(result == true)
+        test.pass("Batch Manager Submitted for Printing Statement by Customer Type");
+    
+    else test.fail("Batch Manager not responding");
+    
+    //-----Print CreditMemo-----
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
+    waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
+    activateItem(":*.Accounting_QMenu", "Accounts Receivable");
+    waitForObjectItem(":*.Accounts Receivable_QMenu", "Reports");
+    activateItem(":*.Accounts Receivable_QMenu", "Reports");
+    waitForObjectItem(":*.Reports_QMenu_4", "Open Receivables...");
+    activateItem(":*.Reports_QMenu_4", "Open Receivables...");
+    
+    waitForObjectItem(":Open Receivables._select_XComboBox", "All Customers");
+    clickItem(":Open Receivables._select_XComboBox", "All Customers", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Show.Both_QRadioButton");
+    clickButton(":Show.Both_QRadioButton");
+    if(!findObject(":Show.Unposted_XCheckBox").checked)
+        clickButton(":Show.Unposted_XCheckBox");
+    
+    waitForObject(":Open Receivables.Query_QPushButton");
+    clickButton(":Open Receivables.Query_QPushButton");
+    waitForObject(":_frame._aropen_XTreeWidget");
+    clickItem(":_frame._aropen_XTreeWidget", "TTOYS", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_frame.Print_QPushButton");
+    clickButton(":_frame.Print_QPushButton");
+    waitForObject(":Open Receivables.Print_QPushButton");
+    clickButton(":Open Receivables.Print_QPushButton");
+    snooze(1);	  
+    nativeType("<Return>");
+    
+    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+    clickButton(":Review EDI Before Sending.Accept_QPushButton");
+    
+    waitForObject(":Open Receivables.Close_QPushButton");
+    clickButton(":Open Receivables.Close_QPushButton");
+    
+    //-----Verify the submission in Batch Manager-----
+    var result = batchmanager();
+    
+    if(result == true)
+        test.pass("Batch Manager Submitted for Printing Credit Memo");
+    
+    else test.fail("Batch Manager not responding");
     
     //-----Operation Buffer Status-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Manufacture");
@@ -2560,59 +2531,6 @@ function main()
     
     if(result == true)
         test.pass("Batch Manager Submitted for Operation Buffer Status");
-    
-    else test.fail("Batch Manager not responding");
-    
-    //-----Display AR Open Items-----
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
-    activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
-    waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
-    activateItem(":*.Accounting_QMenu", "Accounts Receivable");
-    waitForObjectItem(":*.Accounts Receivable_QMenu", "Reports");
-    activateItem(":*.Accounts Receivable_QMenu", "Reports");
-    waitForObjectItem(":*.Reports_QMenu_4", "Open Receivables...");
-    activateItem(":*.Reports_QMenu_4", "Open Receivables...");
-    
-    waitForObject(":Open Receivables._select_XComboBox");
-    clickItem(":Open Receivables._select_XComboBox", "All Customers",5, 5, 1, Qt.LeftButton);
-    waitForObject(":Date Range.Document_QRadioButton");
-    clickButton(":Date Range.Document_QRadioButton");
-    if(findObject(":Show.Only Items with Incidents_XCheckBox").checked)
-        clickButton(":Show.Only Items with Incidents_XCheckBox");
-    if(findObject(":Show.Unposted_XCheckBox").checked)
-        clickButton(":Show.Unposted_XCheckBox");
-    waitForObject(":Open Receivables.Query_QPushButton");
-    clickButton(":Open Receivables.Query_QPushButton");
-    
-    waitForObject(":_frame._aropen_XTreeWidget");
-    openContextMenu(":_frame._aropen_XTreeWidget", 5, 5, 0);
-    waitForObjectItem(":*._menu_QMenu", "Print...");
-    activateItem(":*._menu_QMenu", "Print...");
-    waitForObject(":Open Receivables.Print_QPushButton");
-    clickButton(":Open Receivables.Print_QPushButton");
-    snooze(1);
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");    
-    snooze(1);	  
-    nativeType("<Return>");
-    
-    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-    clickButton(":Review EDI Before Sending.Accept_QPushButton");
-    
-    waitForObject(":Open Receivables.Close_QPushButton");
-    clickButton(":Open Receivables.Close_QPushButton");
-    
-    //-----Verify the submission in Batch Manager-----
-    var result = batchmanager();
-    
-    if(result == true)
-        test.pass("Batch Manager Submitted for Display AR Open Items");
     
     else test.fail("Batch Manager not responding");
     
@@ -2682,7 +2600,7 @@ function main()
     waitForObject(":List EDI Profiles.Review Before Sending_QCheckBox");
     clickButton(":List EDI Profiles.Review Before Sending_QCheckBox");
     waitForObject(":_emailTo_QLineEdit");
-    type(":_emailTo_QLineEdit", email);
+    type(":_emailTo_QLineEdit", fromemail);
     
     waitForObject(":_emailSubject_QLineEdit");
     type(":_emailSubject_QLineEdit", "Please find the Quote </docnumber> enclosed");

@@ -202,6 +202,7 @@
 :List Unposted Invoices.Close_QPushButton	{container=':*.List Unposted Invoices_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Unposted Invoices.New_QPushButton	{container=':*.List Unposted Invoices_QWorkspaceChild' name='_new' text='New' type='QPushButton' visible='1'}
 :List Unposted Purchase Orders.Close_QPushButton	{container=':*.List Unposted Purchase Orders_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
+:List Unposted Purchase Orders.Review EDI Before Sending_QDialog	{container=':*.List Unposted Purchase Orders_QWorkspaceChild' name='submitEDI' type='QDialog' visible='1' windowTitle='Review EDI Before Sending'}
 :List Unposted Purchase Orders._pohead_XTreeWidget	{container=':*.List Unposted Purchase Orders_QWorkspaceChild' name='_pohead' type='XTreeWidget' visible='1'}
 :List Users.Close_QPushButton	{container=':*.List Users_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Users.Email Address:_QLabel	{container=':*.List Users_QWorkspaceChild' name='_emailLit' text='Email Address:' type='QLabel' visible='1'}
@@ -413,6 +414,7 @@
 :Series G/L Journal Entry.Post_QPushButton	{name='_post' text='Post' type='QPushButton' visible='1' window=':Series G/L Journal Entry_glSeries'}
 :Series G/L Journal Entry.Submit_QPushButton	{name='_post' text='Submit' type='QPushButton' visible='1' window=':Series G/L Journal Entry_glSeries'}
 :Series G/L Journal Entry_glSeries	{name='glSeries' type='glSeries' visible='1' windowTitle='Series G/L Journal Entry'}
+:Show.Both_QRadioButton	{container=':Open Receivables.Show_QGroupBox' name='_both' text='Both' type='QRadioButton' visible='1'}
 :Show.Credits_QRadioButton	{container=':Open Receivables.Show_QGroupBox' name='_credits' text='Credits' type='QRadioButton' visible='1'}
 :Show.Only Items with Incidents_XCheckBox	{container=':Open Receivables.Show_QGroupBox' name='_incidentsOnly' text='Only Items with Incidents' type='XCheckBox' visible='1'}
 :Show.Unposted_XCheckBox	{container=':Open Receivables.Show_QGroupBox' name='_unposted' text='Unposted' type='XCheckBox' visible='1'}
