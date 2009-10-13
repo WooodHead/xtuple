@@ -139,10 +139,10 @@ function UpdateQOHWh(item, quant,wh)
     activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
     waitForObject(":_itemGroup...._QPushButton");
     clickButton(":_itemGroup...._QPushButton");
-    waitForObjectItem(":_warehouse_WComboBox_4", wh);
-    clickItem(":_warehouse_WComboBox_4", wh, 0, 0, 1, Qt.LeftButton);
     waitForObject(":_item_XTreeWidget");
     doubleClickItem(":_item_XTreeWidget", item , 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_warehouse_WComboBox_4");
+    clickItem(":_warehouse_WComboBox_4", wh, 0, 0, 1, Qt.LeftButton);
     waitForObject(":_adjustmentTypeGroup.Absolute_QRadioButton");
     clickButton(":_adjustmentTypeGroup.Absolute_QRadioButton");
     waitForObject(":_qtyGroup.*_XLabel");
@@ -357,9 +357,6 @@ function newPOWh(item, quant, ddate,Wh)
     clickButton(":_lineItemsPage.New_QPushButton_2");
     waitForObject(":groupBox_2...._QPushButton");
     clickButton(":groupBox_2...._QPushButton");
-    waitForObject(":groupBox_2._warehouse_WComboBox");
-    if(findObject(":groupBox_2._warehouse_WComboBox").currentText!=Wh)
-        clickItem(":groupBox_2._warehouse_WComboBox", Wh, 0, 0, 1, Qt.LeftButton);
     waitForObject(":groupBox_2.Buy Items Only_QCheckBox");
     if(findObject(":groupBox_2.Buy Items Only_QCheckBox").checked)
         clickButton(":groupBox_2.Buy Items Only_QCheckBox");
@@ -368,6 +365,9 @@ function newPOWh(item, quant, ddate,Wh)
         clickButton(":groupBox_2.Make Items Only_QCheckBox");
     waitForObject(":_item_XTreeWidget_7");
     doubleClickItem(":_item_XTreeWidget_7", item, 0, 0, 0, Qt.LeftButton);
+    waitForObject(":groupBox_2._warehouse_WComboBox");
+    if(findObject(":groupBox_2._warehouse_WComboBox").currentText!=Wh)
+        clickItem(":groupBox_2._warehouse_WComboBox", Wh, 0, 0, 1, Qt.LeftButton);
     waitForObject(":_ordered_XLineEdit");
     type(":_ordered_XLineEdit", quant);
     waitForObject(":_ordered_XLineEdit");
