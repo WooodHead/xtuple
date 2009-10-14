@@ -394,7 +394,7 @@ function main()
     waitForObject(":Print Purchase Order...._QPushButton");
     clickButton(":Print Purchase Order...._QPushButton");
     waitForObject(":_pohead_XTreeWidget");
-    doubleClickItem(":_pohead_XTreeWidget", "20067", 5, 5, 0, Qt.LeftButton);
+    doubleClickItem(":_pohead_XTreeWidget", ponumber, 5, 5, 0, Qt.LeftButton);
     waitForObject(":Print Purchase Order.Print_QPushButton");
     clickButton(":Print Purchase Order.Print_QPushButton");  
     snooze(1);	  
