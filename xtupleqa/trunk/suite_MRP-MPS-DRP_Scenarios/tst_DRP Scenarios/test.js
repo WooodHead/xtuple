@@ -1997,10 +1997,6 @@ function main()
     waitForObject(":Supply Rules.Site can purchase this Item_QCheckBox_2");
     if(!findObject(":Supply Rules.Site can purchase this Item_QCheckBox_2").checked)
         clickButton(":Supply Rules.Site can purchase this Item_QCheckBox_2");
-
-    
-    
-        
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -2136,8 +2132,6 @@ function main()
     if(!findObject(":Supply Rules.Site can manufacture this Item_QCheckBox_2").checked)
         clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox_2");
     
-    
-        
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -2153,6 +2147,10 @@ function main()
     type(":_maximumOrder_XLineEdit", "0");
     findObject(":_orderMultiple_XLineEdit").clear();
     type(":_orderMultiple_XLineEdit", "0");
+    waitForObject(":Scheduling._planningType_XComboBox");
+    if(findObject(":Scheduling._planningType_XComboBox").currentText!="MRP")
+        clickItem(":Scheduling._planningType_XComboBox","MRP", 0, 0, 1, Qt.LeftButton);
+    
     findObject(":Scheduling._safetyStock_XLineEdit").clear();
     type(":Scheduling._safetyStock_XLineEdit", "0");
     
@@ -2235,9 +2233,29 @@ function main()
     waitForObjectItem(":Scheduling._planningType_XComboBox", "None");
     if(findObject(":Scheduling._planningType_XComboBox").currentText!="None")
         clickItem(":Scheduling._planningType_XComboBox", "None", 0, 0, 1, Qt.LeftButton);
+    
+    
+    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
+    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
+    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox").checked)
+        type(":_planningTab.Enforce Order Parameters_QGroupBox"," ");
+    findObject(":_reorderLevel_XLineEdit").clear();
+    type(":_reorderLevel_XLineEdit", "400");
+    findObject(":_orderUpToQty_XLineEdit").clear();
+    type(":_orderUpToQty_XLineEdit", "4000");
+    findObject(":_minimumOrder_XLineEdit").clear();
+    type(":_minimumOrder_XLineEdit", "100");
+    findObject(":_maximumOrder_XLineEdit").clear();
+    type(":_maximumOrder_XLineEdit", "10000");
+    findObject(":_orderMultiple_XLineEdit").clear();
+    type(":_orderMultiple_XLineEdit", "4");
+    findObject(":Scheduling._safetyStock_XLineEdit").clear();
+    type(":Scheduling._safetyStock_XLineEdit", "0");
+    
+    
     waitForObject(":List Item Sites.Save_QPushButton");
     clickButton(":List Item Sites.Save_QPushButton");
-    
     
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
@@ -2322,7 +2340,7 @@ function main()
    test.log("DRP MULTILEVEL TEST");
    
    DelPlanOrdrs();
-   
+//   
     //-------Item site - change supplied from Site----
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
@@ -2335,9 +2353,12 @@ function main()
     doubleClickItem(":_itemSite_XTreeWidget","DTRUCK1", 0, 0, 0, Qt.LeftButton);
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
+    waitForObject(":Scheduling.Create Planned Transfer Orders_QGroupBox");
+    if(!findObject(":Scheduling.Create Planned Transfer Orders_QGroupBox").checked)
+        type(":Scheduling.Create Planned Transfer Orders_QGroupBox"," ");
     waitForObject(":Create Planned Transfer Orders._suppliedFromSite_WComboBox");
-    if(findObject(":Create Planned Transfer Orders._suppliedFromSite_WComboBox").currentText!="WH1")
-        clickItem(":Create Planned Transfer Orders._suppliedFromSite_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
+    if(findObject(":Create Planned Transfer Orders._suppliedFromSite_WComboBox").currentText!="WH2")
+        clickItem(":Create Planned Transfer Orders._suppliedFromSite_WComboBox", "WH2", 0, 0, 1, Qt.LeftButton);
     waitForObject(":List Item Sites.Save_QPushButton");
     clickButton(":List Item Sites.Save_QPushButton");
     waitForObject(":List Item Sites.Close_QPushButton");
