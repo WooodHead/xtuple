@@ -20,7 +20,7 @@ function main()
         role=testData.field(set[records],"ROLE")
              if(role=="CONFIGURE") break;     
     }
-  
+    
     //---find Application Edition------ 
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
@@ -108,7 +108,7 @@ function main()
     
     //-----login Application-----
     loginAppl("CONFIGURE"); 
-        
+    
     //-----Verify Batch Manager Status-----  
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
@@ -229,7 +229,7 @@ function main()
         test.fail("Submit Button exists in Create Planned Order by Plannercode screen");
     
     else test.pass("Submit Button does not exist in Create Planned Order by Plannercode screen");
-        
+    
     waitForObject(":Run MRP by Planner Code.Cancel_QPushButton");
     clickButton(":Run MRP by Planner Code.Cancel_QPushButton");
     
@@ -302,7 +302,7 @@ function main()
     if(object.exists(":Run Buffer Status by Item.Submit_QPushButton"))
         test.fail("Submit Button exists in Create Buffer status by Item screen");               
     else test.pass("Submit Button does not exists in Create Buffer status by Item screen");
-                
+    
     waitForObject(":Run Buffer Status by Item.Cancel_QPushButton");
     clickButton(":Run Buffer Status by Item.Cancel_QPushButton");
     
@@ -316,12 +316,12 @@ function main()
     
     if(object.exists(":Run MPS by Planner Code.Submit_QPushButton"))
         test.fail("Submit Button exists in Create Buffer status by Item screen");
-                
+    
     else test.pass("Submit Button does not exists in Create Buffer status by Item screen");        
     
     waitForObject(":Run MPS by Planner Code.Cancel_QPushButton");
     clickButton(":Run MPS by Planner Code.Cancel_QPushButton");
-          
+    
     //-----Releasing Planned Transfer Order-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
@@ -381,7 +381,7 @@ function main()
     activateItem(":*.Capacity Planning_QMenu", "Time-Phased Production");
     waitForObjectItem(":*.Time-Phased Production_QMenu", "by Item...");
     activateItem(":*.Time-Phased Production_QMenu", "by Item...");
-         
+    
     if(object.exists(":Time-Phased Production by Item.Submit_QPushButton"))
         test.fail("Submit button exists in Time Phased Production by Item screen");
     
@@ -399,10 +399,10 @@ function main()
     activateItem(":*.Reports_QMenu", "Time-Phased Availability...");
     
     if(object.exists(":Time-Phased Availability.Submit_QPushButton"))
-         test.fail("Submit button exists in Time Phased availability screen");
+        test.fail("Submit button exists in Time Phased availability screen");
     
     else test.pass("Submit button does not exist in Time Phased availability screen");
-   
+    
     waitForObject(":Time-Phased Availability.Close_QPushButton");
     clickButton(":Time-Phased Availability.Close_QPushButton");
     
@@ -415,7 +415,7 @@ function main()
     activateItem(":*.Analysis_QMenu", "Time-Phased Bookings");
     waitForObjectItem(":*.Time-Phased Bookings_QMenu", "by Customer...");
     activateItem(":*.Time-Phased Bookings_QMenu", "by Customer...");
-  
+    
     if(object.exists(":Time-Phased Bookings by Customer.Submit_QPushButton"))
         test.fail("Submit button exists in Time Phased Booking by customer screen");
     
@@ -505,7 +505,7 @@ function main()
     activateItem(":*.Analysis_QMenu", "Time Phased Sales History");
     waitForObjectItem(":*.Time Phased Sales History_QMenu", "by Customer by Item...");
     activateItem(":*.Time Phased Sales History_QMenu", "by Customer by Item...");
-   
+    
     if(object.exists(":Time-Phased Sales History by Customer by Item.Submit_QPushButton"))
         test.fail("Submit button exists in Time Phased Sales History by customer by item screen");
     
@@ -541,7 +541,7 @@ function main()
     activateItem(":*.Analysis_QMenu", "Time Phased Sales History");
     waitForObjectItem(":*.Time Phased Sales History_QMenu", "by Item...");
     activateItem(":*.Time Phased Sales History_QMenu", "by Item...");
-   
+    
     if(object.exists(":Time-Phased Sales History by Item.Submit_QPushButton"))
         test.fail("Submit button exists in Time Phased Sales History by Item screen");
     
@@ -557,7 +557,7 @@ function main()
     activateItem(":*.Inventory_QMenu", "Reports");
     waitForObjectItem(":*.Reports_QMenu_2", "Time Phased Usage Statistics...");
     activateItem(":*.Reports_QMenu_2", "Time Phased Usage Statistics...");
-  
+    
     if(object.exists(":Time-Phased Item Usage Statistics by Item.Submit_QPushButton"))
         test.fail("Submit button exists in Time Phased Usage Statistics by Item screen");
     
@@ -575,7 +575,7 @@ function main()
     activateItem(":*.Costing_QMenu", "Update Actual Costs");
     waitForObjectItem(":*.Update Actual Costs_QMenu", "by Item...");
     activateItem(":*.Update Actual Costs_QMenu", "by Item...");
-      
+    
     if(object.exists(":Update Actual Costs by Item.Submit_QPushButton"))
         test.fail("Submit button exists in Update Actual Costs by Item screen");
     
@@ -647,9 +647,9 @@ function main()
     activateItem(":*.Costing_QMenu", "Post Standard Costs");
     waitForObjectItem(":*.Post Standard Costs_QMenu", "by Item...");
     activateItem(":*.Post Standard Costs_QMenu", "by Item...");
-   
+    
     if(object.exists(":Submit Action to Batch Manager.Submit_QPushButton"))
-         test.fail("Submit button exists in Post Standard Costs by Item screen");
+        test.fail("Submit button exists in Post Standard Costs by Item screen");
     
     else test.pass("Submit button does not exist in Post Standard Costs by Item screen");
     
@@ -765,9 +765,9 @@ function main()
     activateItem(":*.Update Item Controls_QMenu", "Reorder Levels");
     waitForObjectItem(":*.Reorder Levels_QMenu", "by Planner Code...");
     activateItem(":*.Reorder Levels_QMenu", "by Planner Code...");
-   
+    
     if(object.exists(":_criteriaTab.Submit_QPushButton_2"))
-       test.fail("Submit button exists in Update ReOrder Upto Level by Planner code screen");
+        test.fail("Submit button exists in Update ReOrder Upto Level by Planner code screen");
     
     else test.pass("Submit button does not exist in Update ReOrder Upto Level by Planner code screen"); 
     
@@ -785,7 +785,7 @@ function main()
     activateItem(":*.Update Item Controls_QMenu", "Reorder Levels");
     waitForObjectItem(":*.Reorder Levels_QMenu", "by Class Code...");
     activateItem(":*.Reorder Levels_QMenu", "by Class Code...");
-   
+    
     if(object.exists(":_criteriaTab.Submit_QPushButton_3"))
         test.fail("Submit button exists in Update ReOrder Upto Level by Class code screen");
     
@@ -803,7 +803,7 @@ function main()
     activateItem(":*.Accounts Payable_QMenu", "Reports");
     waitForObjectItem(":*.Reports_QMenu_3", "Aging...");
     activateItem(":*.Reports_QMenu_3", "Aging...");
-   
+    
     if(object.exists(":Payables Aging.Submit_QPushButton"))
         test.fail("Submit button exists in Time Phased Open AP Items screen");
     
@@ -829,7 +829,7 @@ function main()
     
     waitForObject(":Receivables Aging.Close_QPushButton");
     clickButton(":Receivables Aging.Close_QPushButton");
-       
+    
     //-----Create Recurring Invoice-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
@@ -1035,7 +1035,7 @@ function main()
     activateItem(":*.Sales_QMenu", "Billing");
     waitForObjectItem(":*.Billing_QMenu", "Forms");
     activateItem(":*.Billing_QMenu", "Forms");
-        
+    
     snooze(1);
     menu = waitForObject(":*.Forms_QMenu_2");
     menuItem = "Send &Electronic Invoice...";
@@ -1117,7 +1117,7 @@ function main()
     waitForObject(":Print Invoices.Cancel_QPushButton");
     clickButton(":Print Invoices.Cancel_QPushButton");
     
-     //-----Re-Print Invoices(AR)-----
+    //-----Re-Print Invoices(AR)-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
@@ -1203,7 +1203,7 @@ function main()
     activateItem(":*.General Ledger_QMenu", "Standard Journals");
     waitForObjectItem(":*.Standard Journals_QMenu", "Post Group...");
     activateItem(":*.Standard Journals_QMenu", "Post Group...");
-      
+    
     if(object.exists(":Post Standard Journal Group.Submit_QPushButton"))
         test.fail("Submit button exists in Post Standard JournalGroup screen");
     
@@ -1244,7 +1244,7 @@ function main()
     doubleClickItem(":_listTab_XTreeWidget_12", "TTOYS", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Print Statement by Customer.Print_QPushButton");
     clickButton(":Print Statement by Customer.Print_QPushButton");
-   
+    
     nativeType("<Tab>"); 
     nativeType("<Tab>");
     nativeType("<Tab>"); 
@@ -1256,7 +1256,7 @@ function main()
     snooze(1);	  
     nativeType("<Return>");
     
-     if(object.exists(":Review EDI Before Sending.Accept_QPushButton"))
+    if(object.exists(":Review EDI Before Sending.Accept_QPushButton"))
         test.fail("Submit button exists in Print Statement by Customer screen");
     
     else test.pass("Submit button does not exist in Print Statement by Customer screen"); 
@@ -1276,7 +1276,7 @@ function main()
         test.fail("Submit button exists in Operation Buffer Status screen");
     
     else test.pass("Submit button does not exist in Operation Buffer Status screen"); 
-   
+    
     waitForObject(":Work Order Operation Buffer Status by Work Center.Close_QPushButton");
     clickButton(":Work Order Operation Buffer Status by Work Center.Close_QPushButton");
     
@@ -1298,6 +1298,6 @@ function main()
         if(actions.at(i).text == menuItem || i==actions.count()-1) break;
     if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+appEdition);
     else test.pass(menuItem+"not found in "+appEdition);    
-      
+    
    
 }
