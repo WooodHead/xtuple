@@ -116,7 +116,7 @@ function main()
     type(":_planGroup._sequence_XSpinBox", "20");
     waitForObject(":Save_QPushButton");
     clickButton(":Save_QPushButton");
-    test.log("Warehouse WH2 update");    
+    test.log("Warehouse WH2 updated");    
     
     //---Create new Site: WH3----
     waitForObject(":List Sites.New_QPushButton");
@@ -590,7 +590,6 @@ function main()
     findObject(":Scheduling._safetyStock_XLineEdit").clear();
     type(":Scheduling._safetyStock_XLineEdit", "0");
     
-    
     findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
     type(":Scheduling.qt_spinbox_lineedit_QLineEdit","1");
     waitForObject(":Scheduling._orderGroup_QSpinBox");
@@ -700,8 +699,6 @@ function main()
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
     
-    
-        
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
