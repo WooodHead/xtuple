@@ -1244,15 +1244,6 @@ function main()
     doubleClickItem(":_listTab_XTreeWidget_12", "TTOYS", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Print Statement by Customer.Print_QPushButton");
     clickButton(":Print Statement by Customer.Print_QPushButton");
-    
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>"); 
-    nativeType("<Tab>");    
     snooze(1);	  
     nativeType("<Return>");
     
