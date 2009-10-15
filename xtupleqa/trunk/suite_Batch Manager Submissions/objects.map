@@ -151,6 +151,8 @@
 :Incident_incident	{name='incident' type='incident' visible='1' windowTitle='Incident'}
 :Interface Options.Idle Timeout:_QLabel	{container=':_application.Interface Options_QGroupBox' name='_idleTimeoutLit' text='Idle Timeout:' type='QLabel' visible='1'}
 :Interface Options.qt_spinbox_lineedit_QLineEdit	{container=':_application.Interface Options_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
+:Invoice.Close_QPushButton	{container=':*.Invoice_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
+:Invoice.OK_QPushButton	{container=':*.Invoice_QWorkspaceChild' text='OK' type='QPushButton' unnamed='1' visible='1'}
 :Invoice.Save_QPushButton	{container=':*.Invoice_QWorkspaceChild' name='_save' occurrence='2' text='Save' type='QPushButton' visible='1'}
 :Invoice.Save_QPushButton_2	{container=':*.Invoice_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
 :Invoice._itemTypeGroup_QGroupBox	{container=':*.Invoice_QWorkspaceChild' name='_itemTypeGroup' type='QGroupBox' visible='1'}
@@ -201,6 +203,9 @@
 :List Sites.qt_tabwidget_tabbar_QTabBar	{container=':*.List Sites_QWorkspaceChild' name='qt_tabwidget_tabbar' type='QTabBar' visible='1'}
 :List Unposted Invoices.Close_QPushButton	{container=':*.List Unposted Invoices_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Unposted Invoices.New_QPushButton	{container=':*.List Unposted Invoices_QWorkspaceChild' name='_new' text='New' type='QPushButton' visible='1'}
+:List Unposted Invoices.Print_QPushButton	{container=':*.List Unposted Invoices_QWorkspaceChild' name='_print' text='Print' type='QPushButton' visible='1'}
+:List Unposted Invoices.Print_QPushButton_2	{container=':*.List Unposted Invoices_QWorkspaceChild' name='_print' occurrence='2' text='Print' type='QPushButton' visible='1'}
+:List Unposted Invoices.Unposted Invoices:_QLabel	{container=':*.List Unposted Invoices_QWorkspaceChild' name='_purchaseOrdersLit' text='Unposted Invoices:' type='QLabel' visible='1'}
 :List Unposted Purchase Orders.Close_QPushButton	{container=':*.List Unposted Purchase Orders_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Unposted Purchase Orders.Review EDI Before Sending_QDialog	{container=':*.List Unposted Purchase Orders_QWorkspaceChild' name='submitEDI' type='QDialog' visible='1' windowTitle='Review EDI Before Sending'}
 :List Unposted Purchase Orders._pohead_XTreeWidget	{container=':*.List Unposted Purchase Orders_QWorkspaceChild' name='_pohead' type='XTreeWidget' visible='1'}
@@ -209,6 +214,7 @@
 :List Users.Save_QPushButton	{container=':*.List Users_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
 :List Users._usr_XTreeWidget	{container=':*.List Users_QWorkspaceChild' name='_usr' type='XTreeWidget' visible='1'}
 :List Users.qt_tabwidget_stackedwidget_QStackedWidget	{container=':*.List Users_QWorkspaceChild' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
+:Log In.Aug 24 2009 09:05:21_QLabel	{name='_build' text='Aug 24 2009 09:05:21' type='QLabel' visible='1' window=':Log In_login2'}
 :Log In.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Log In_login2'}
 :Log In.Options..._QPushButton	{name='_options' text='Options...' type='QPushButton' visible='1' window=':Log In_login2'}
 :Log In.Recent_QPushButton	{name='_recent' text='Recent' type='QPushButton' visible='1' window=':Log In_login2'}
@@ -722,6 +728,8 @@
 :_interval_QSpinBox	{buddy=':Database Information.Auto Update Signal Interval:_QLabel' name='_interval' type='QSpinBox' visible='1'}
 :_invGroup.Qty. Ordered:_QLabel	{container=':Sales Order._invGroup_QGroupBox' name='_qtyOrderedLit' text='Qty. Ordered:' type='QLabel' visible='1'}
 :_invGroup.Qty. Ordered:_QLabel_2	{container=':Quote._invGroup_QGroupBox' name='_qtyOrderedLit' text='Qty. Ordered:' type='QLabel' visible='1'}
+:_invchead_XTreeWidget	{buddy=':List Unposted Invoices.Unposted Invoices:_QLabel' name='_invchead' type='XTreeWidget' visible='1'}
+:_invoiceNumber_XLineEdit	{buddy=':headerTab.Invoice #:_QLabel' name='_invoiceNumber' type='XLineEdit' visible='1'}
 :_invoice_XTreeWidget	{buddy=':Re-Print Invoices.Invoices:_QLabel' name='_invoice' type='XTreeWidget' visible='1'}
 :_itemGroup...._QPushButton	{container=':Planned Order._itemGroup_QGroupBox' name='_itemList' text='...' type='QPushButton' visible='1'}
 :_itemGroup...._QPushButton_2	{container=':Sales Order._itemGroup_QGroupBox' name='_itemList' text='...' type='QPushButton' visible='1'}
@@ -867,6 +875,7 @@
 :groupBox_2.Items:_QLabel	{container=':_typeGroup.groupBox_2_QGroupBox' name='_itemsLit' text='Items:' type='QLabel' visible='1'}
 :groupBox_2.XDateEdit_XDateEdit	{container=':Release Planned Orders by Planner Code.groupBox_2_QGroupBox' name='XDateEdit' type='XDateEdit' visible='1'}
 :headerTab...._QPushButton	{container=':qt_tabwidget_stackedwidget.headerTab_QWidget' name='_list' text='...' type='QPushButton' visible='1'}
+:headerTab.Invoice #:_QLabel	{container=':qt_tabwidget_stackedwidget.headerTab_QWidget' name='_invoiceNumberLit' text='Invoice #:' type='QLabel' visible='1'}
 :headerTab._titleLit_QLabel	{container=':qt_tabwidget_stackedwidget.headerTab_QWidget' name='_titleLit' type='QLabel' visible='1'}
 :lineItemsTab.New_QPushButton	{container=':qt_tabwidget_stackedwidget.lineItemsTab_QWidget' name='_new' text='New' type='QPushButton' visible='1'}
 :qt_tabwidget_stackedwidget.EDI Relationships_QWidget	{container=':Prospect.qt_tabwidget_stackedwidget_QStackedWidget' name='edirelation' type='QWidget' visible='1' windowTitle='EDI Relationships'}
