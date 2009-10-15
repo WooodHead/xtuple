@@ -38,7 +38,7 @@ function main()
     waitForObject(":Encryption Configuration.Save_QPushButton");
     clickButton(":Encryption Configuration.Save_QPushButton");
     
-    waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "System");
+    waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "System");    
     activateItem(":xTuple ERP: *_QMenuBar_3", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu_2", "Exit xTuple ERP...");
     activateItem(":xTuple ERP: *.System_QMenu_2", "Exit xTuple ERP...");
@@ -188,7 +188,7 @@ function main()
         type(":_schedGroup.XDateEdit_XDateEdit", "+7");
         
         var lotlineitem = findObject(":groupBox_2._itemNumber_ItemLineEdit").text;         
-        var lotquantity = findObject(":_ordered_XLineEdit").text;       
+        var lotqty = findObject(":_ordered_XLineEdit").text;       
         
         waitForObject(":Purchase Order.Save_QPushButton");
         clickButton(":Purchase Order.Save_QPushButton");
@@ -558,7 +558,7 @@ function main()
     
     var qoh = replaceSubstring(sNameOfRootItem4.latin1(),",","");
     
-    var sum = (parseInt(poquantity.toString()) + parseInt(result.toString()));
+    var sum = (parseInt(lotqty.toString()) + parseInt(result.toString()));
     
     if(parseInt(qoh.toString()) == parseInt(sum.toString())) 
         test.pass("QOH updated correctly for Receiving Purchase goods for Lot controlled item types");
@@ -587,7 +587,7 @@ function main()
     
     var qoh = replaceSubstring(sNameOfRootItem6.latin1(),",","");
     
-    var sum = (parseInt(poquantity.toString()) + parseInt(result.toString()));
+    var sum = (parseInt(serialqty.toString()) + parseInt(result.toString()));
     
     if(parseInt(qoh.toString()) == parseInt(sum.toString())) 
         test.pass("QOH updated correctly for Receiving Purchase goods for Serial controlled item types");
@@ -616,7 +616,7 @@ function main()
     
     var qoh = replaceSubstring(sNameOfRootItem8.latin1(),",","");
     
-    var sum = (parseInt(poquantity.toString()) + parseInt(result.toString()));
+    var sum = (parseInt(mlcqty.toString()) + parseInt(result.toString()));
     
     if(parseInt(qoh.toString()) == parseInt(sum.toString())) 
         test.pass("QOH updated correctly for Receiving Purchase goods for MLC item types");
@@ -705,8 +705,7 @@ function main()
     
     waitForObject(":Voucher.Cancel_QPushButton");
     clickButton(":Voucher.Cancel_QPushButton");
-    test.log("Voucher created successfully");
-    
+        
     //-----Posting Vouchers-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
@@ -719,7 +718,7 @@ function main()
     
     waitForObject(":List Open Vouchers._vohead_XTreeWidget");
     if(!clickItem(":List Open Vouchers._vohead_XTreeWidget", vounumber, 5, 5, 1, Qt.LeftButton))
-        test.pass(" Voucher created ");
+        test.pass(" Voucher created");
     else test.fail(" Voucher not created");
     
     waitForObject(":List Open Vouchers.Post_QPushButton");
