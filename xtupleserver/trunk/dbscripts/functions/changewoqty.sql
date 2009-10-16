@@ -36,10 +36,11 @@ BEGIN
 
   IF (woStatus IN (''E'',''R'',''I'')) THEN
     UPDATE womatl
-    SET womatl_qtyreq=(wo_qtyord * (womatl_qtyper * (1 + womatl_scrap)))
-    FROM wo
+    SET womatl_qtyreq=calcQtyReq(itemsite_item_id, wo_qtyord, womatl_qtyper, womatl_scrap)
+    FROM wo, itemsite
     WHERE ((womatl_wo_id=wo_id)
-     AND (wo_id=pWoid));
+      AND  (womatl_itemsite_id=itemsite_id)
+      AND  (wo_id=pWoid));
 
     IF ( ( SELECT (metric_value=''t'')
            FROM metric
