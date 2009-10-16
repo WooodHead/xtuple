@@ -23,6 +23,7 @@
 :Bills of Materials._bom_XTreeWidget	{container=':xTuple ERP:*.Bills of Materials_QWorkspaceChild' name='_bom' type='XTreeWidget' visible='1'}
 :Cannot Connect to xTuple ERP Server.OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':Cannot Connect to xTuple ERP Server_QMessageBox'}
 :Cannot Connect to xTuple ERP Server_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Cannot Connect to xTuple ERP Server'}
+:Cannot Save Item Site_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Cannot Save Item Site'}
 :Charge To:...._QPushButton	{container=':Miscellaneous Check.Charge To:_QGroupBox' name='_list' text='...' type='QPushButton' visible='1'}
 :Charge To:.Expense Categories_QLabel	{container=':Miscellaneous Check.Charge To:_QGroupBox' name='_titleLit' text='Expense Categories' type='QLabel' visible='1'}
 :Control.Cost Category:_QLabel	{container=':List Items.Control_QGroupBox' name='_costcatLit' text='Cost Category:' type='QLabel' visible='1'}
@@ -44,6 +45,18 @@
 :Delete Work Order_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Delete Work Order'}
 :Effectivity.XDateEdit_XDateEdit	{container=':Bill of Materials.Effectivity_QGroupBox' name='XDateEdit' type='XDateEdit' visible='1'}
 :Effectivity.XDateEdit_XDateEdit_2	{container=':Bill of Materials.Effectivity_QGroupBox' name='XDateEdit' occurrence='2' type='XDateEdit' visible='1'}
+:Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_aisleAlpha' text='Allow Alpha Characters' type='QCheckBox' visible='1'}
+:Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_2	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_rackAlpha' text='Allow Alpha Characters' type='QCheckBox' visible='1'}
+:Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_3	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_binAlpha' text='Allow Alpha Characters' type='QCheckBox' visible='1'}
+:Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_4	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_locationAlpha' text='Allow Alpha Characters' type='QCheckBox' visible='1'}
+:Enforce ARBL Naming Convention._aisleSize_QSpinBox	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_aisleSize' type='QSpinBox' visible='1'}
+:Enforce ARBL Naming Convention._binSize_QSpinBox	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_binSize' type='QSpinBox' visible='1'}
+:Enforce ARBL Naming Convention._locationSize_QSpinBox	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_locationSize' type='QSpinBox' visible='1'}
+:Enforce ARBL Naming Convention._rackSize_QSpinBox	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_rackSize' type='QSpinBox' visible='1'}
+:Enforce ARBL Naming Convention.qt_spinbox_lineedit_QLineEdit	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
+:Enforce ARBL Naming Convention.qt_spinbox_lineedit_QLineEdit_2	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='qt_spinbox_lineedit' occurrence='2' type='QLineEdit' visible='1'}
+:Enforce ARBL Naming Convention.qt_spinbox_lineedit_QLineEdit_3	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='qt_spinbox_lineedit' occurrence='3' type='QLineEdit' visible='1'}
+:Enforce ARBL Naming Convention.qt_spinbox_lineedit_QLineEdit_4	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='qt_spinbox_lineedit' occurrence='4' type='QLineEdit' visible='1'}
 :Enforce Order Parameters.Maximum Order:_QLabel	{container=':_planningTab.Enforce Order Parameters_QGroupBox' name='_maximumOrderLit' text='Maximum Order:' type='QLabel' visible='1'}
 :Enforce Order Parameters.Maximum Order:_QLabel_2	{container=':_planningTab.Enforce Order Parameters_QGroupBox_2' name='_maximumOrderLit' text='Maximum Order:' type='QLabel' visible='1'}
 :Enforce Order Parameters.Minimum Order:_QLabel	{container=':_planningTab.Enforce Order Parameters_QGroupBox' name='_minimumOrderLit' text='Minimum Order:' type='QLabel' visible='1'}
@@ -164,6 +177,7 @@
 :List Sites._addressGroup_QGroupBox	{container=':xTuple ERP:*.List Sites_QWorkspaceChild' name='_addressGroup' type='QGroupBox' visible='1'}
 :List Sites._warehouse_XTreeWidget	{container=':xTuple ERP:*.List Sites_QWorkspaceChild' name='_warehouse' type='XTreeWidget' visible='1'}
 :List Sites.qt_tabwidget_stackedwidget_QStackedWidget	{container=':xTuple ERP:*.List Sites_QWorkspaceChild' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
+:List Sites.qt_tabwidget_tabbar_QTabBar	{container=':xTuple ERP:*.List Sites_QWorkspaceChild' name='qt_tabwidget_tabbar' type='QTabBar' visible='1'}
 :List Unposted Purchase Orders.Close_QPushButton	{container=':xTuple ERP:*.List Unposted Purchase Orders_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Unposted Purchase Orders.Delete_QPushButton	{container=':xTuple ERP:*.List Unposted Purchase Orders_QWorkspaceChild' name='_delete' text='Delete' type='QPushButton' visible='1'}
 :List Unposted Purchase Orders.New_QPushButton	{container=':xTuple ERP:*.List Unposted Purchase Orders_QWorkspaceChild' name='_new' text='New' type='QPushButton' visible='1'}
@@ -426,6 +440,7 @@
 :_list_QScrollBar	{container=':_list_XTreeWidget_2' type='QScrollBar' unnamed='1' visible='1'}
 :_list_XTreeWidget	{buddy=':frame.Planned Items:_QLabel' name='_list' type='XTreeWidget' visible='1'}
 :_list_XTreeWidget_2	{buddy=':List Production Plans.Production Plans:_QLabel' name='_list' type='XTreeWidget' visible='1'}
+:_locationsTab.Enforce ARBL Naming Convention_QGroupBox	{container=':qt_tabwidget_stackedwidget._locationsTab_QWidget' name='_arblGroup' title='Enforce ARBL Naming Convention' type='QGroupBox' visible='1'}
 :_lotSerial_QLineEdit	{parentWidget=':Enter Miscellaneous Adjustment._lotSerial_XComboBox' type='QLineEdit' unnamed='1' visible='1'}
 :_maximumOrder_XLineEdit	{buddy=':Enforce Order Parameters.Maximum Order:_QLabel' name='_maximumOrder' type='XLineEdit' visible='1'}
 :_maximumOrder_XLineEdit_2	{buddy=':Enforce Order Parameters.Maximum Order:_QLabel_2' name='_maximumOrder' type='XLineEdit' visible='1'}
@@ -539,6 +554,7 @@
 :qt_tabwidget_stackedwidget._lineItemsPage_QWidget	{container=':Sales Order.qt_tabwidget_stackedwidget_QStackedWidget' name='_lineItemsPage' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._lineItemsPage_QWidget_2	{container=':Purchase Order.qt_tabwidget_stackedwidget_QStackedWidget' name='_lineItemsPage' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._lineItemsPage_QWidget_3	{container=':Transfer Order.qt_tabwidget_stackedwidget_QStackedWidget' name='_lineItemsPage' type='QWidget' visible='1'}
+:qt_tabwidget_stackedwidget._locationsTab_QWidget	{container=':List Sites.qt_tabwidget_stackedwidget_QStackedWidget' name='_locationsTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._planningTab_QWidget	{container=':List Item Sites.qt_tabwidget_stackedwidget_QStackedWidget' name='_planningTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._planningTab_QWidget_2	{container=':List Items.qt_tabwidget_stackedwidget_QStackedWidget' name='_planningTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._privTab_QWidget	{container=':List Users.qt_tabwidget_stackedwidget_QStackedWidget' name='_privTab' type='QWidget' visible='1'}
