@@ -703,9 +703,96 @@ function main()
     waitForObject(":Voucher.Save_QPushButton_3");
     clickButton(":Voucher.Save_QPushButton_3");
     
+    waitForObject(":_voucherGroup...._QPushButton");
+    clickButton(":_voucherGroup...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_3");
+    doubleClickItem(":_listTab_XTreeWidget_3", lotpo, 5, 5, 0, Qt.LeftButton);
+    
+    var lotvo = findObject(":_voucherNumber_XLineEdit").text;
+    
+    waitForObject(":_poitems._poitem_XTreeWidget");
+    doubleClickItem(":_poitems._poitem_XTreeWidget", "EA", 5, 5, 1, Qt.LeftButton);      
+    waitForObject(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget");
+    doubleClickItem(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_distTab.New_QPushButton");
+    clickButton(":_distTab.New_QPushButton");
+    waitForObject(":Voucher._currency_XLineEdit");
+    type(":Voucher._currency_XLineEdit", "25");
+    waitForObject(":Voucher.Save_QPushButton");
+    clickButton(":Voucher.Save_QPushButton");
+    waitForObject(":Voucher.Save_QPushButton_2");
+    clickButton(":Voucher.Save_QPushButton_2");  
+    waitForObject(":_amount._currency_XLineEdit");
+    type(":_amount._currency_XLineEdit",findObject(":_amount_XLineEdit").text );
+    
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_3");
+    type(":_dateGroup.XDateEdit_XDateEdit_3", "+0");
+    waitForObject(":_invoiceNum_XLineEdit");
+    type(":_invoiceNum_XLineEdit", "VO for" + lotpo);
+    waitForObject(":Voucher.Save_QPushButton_3");
+    clickButton(":Voucher.Save_QPushButton_3");
+    
+    waitForObject(":_voucherGroup...._QPushButton");
+    clickButton(":_voucherGroup...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_3");
+    doubleClickItem(":_listTab_XTreeWidget_3", serialpo, 5, 5, 0, Qt.LeftButton);
+    
+    var serialvo = findObject(":_voucherNumber_XLineEdit").text; 
+    
+    waitForObject(":_poitems._poitem_XTreeWidget");
+    doubleClickItem(":_poitems._poitem_XTreeWidget", "EA", 5, 5, 1, Qt.LeftButton);      
+    waitForObject(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget");
+    doubleClickItem(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_distTab.New_QPushButton");
+    clickButton(":_distTab.New_QPushButton");
+    waitForObject(":Voucher._currency_XLineEdit");
+    type(":Voucher._currency_XLineEdit", "25");
+    waitForObject(":Voucher.Save_QPushButton");
+    clickButton(":Voucher.Save_QPushButton");
+    waitForObject(":Voucher.Save_QPushButton_2");
+    clickButton(":Voucher.Save_QPushButton_2");  
+    waitForObject(":_amount._currency_XLineEdit");
+    type(":_amount._currency_XLineEdit",findObject(":_amount_XLineEdit").text );
+    
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_3");
+    type(":_dateGroup.XDateEdit_XDateEdit_3", "+0");
+    waitForObject(":_invoiceNum_XLineEdit");
+    type(":_invoiceNum_XLineEdit", "VO for" + serialpo);
+    waitForObject(":Voucher.Save_QPushButton_3");
+    clickButton(":Voucher.Save_QPushButton_3");
+    
+    waitForObject(":_voucherGroup...._QPushButton");
+    clickButton(":_voucherGroup...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_3");
+    doubleClickItem(":_listTab_XTreeWidget_3", mlcpo, 5, 5, 0, Qt.LeftButton);
+    
+    var mlcvo = findObject(":_voucherNumber_XLineEdit").text; 
+    
+    waitForObject(":_poitems._poitem_XTreeWidget");
+    doubleClickItem(":_poitems._poitem_XTreeWidget", "EA", 5, 5, 1, Qt.LeftButton);      
+    waitForObject(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget");
+    doubleClickItem(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_distTab.New_QPushButton");
+    clickButton(":_distTab.New_QPushButton");
+    waitForObject(":Voucher._currency_XLineEdit");
+    type(":Voucher._currency_XLineEdit", "25");
+    waitForObject(":Voucher.Save_QPushButton");
+    clickButton(":Voucher.Save_QPushButton");
+    waitForObject(":Voucher.Save_QPushButton_2");
+    clickButton(":Voucher.Save_QPushButton_2");  
+    waitForObject(":_amount._currency_XLineEdit");
+    type(":_amount._currency_XLineEdit",findObject(":_amount_XLineEdit").text );
+    
+    waitForObject(":_dateGroup.XDateEdit_XDateEdit_3");
+    type(":_dateGroup.XDateEdit_XDateEdit_3", "+0");
+    waitForObject(":_invoiceNum_XLineEdit");
+    type(":_invoiceNum_XLineEdit", "VO for" + mlcpo);
+    waitForObject(":Voucher.Save_QPushButton_3");
+    clickButton(":Voucher.Save_QPushButton_3"); 
+    
     waitForObject(":Voucher.Cancel_QPushButton");
     clickButton(":Voucher.Cancel_QPushButton");
-        
+    
     //-----Posting Vouchers-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
@@ -718,8 +805,38 @@ function main()
     
     waitForObject(":List Open Vouchers._vohead_XTreeWidget");
     if(!clickItem(":List Open Vouchers._vohead_XTreeWidget", vounumber, 5, 5, 1, Qt.LeftButton))
-        test.pass(" Voucher created");
-    else test.fail(" Voucher not created");
+        test.pass(" Voucher created for Regular item type");
+    else test.fail(" Voucher not created Regular item type");
+    
+    waitForObject(":List Open Vouchers.Post_QPushButton");
+    clickButton(":List Open Vouchers.Post_QPushButton");
+    waitForObject(":List Open Vouchers.Continue_QPushButton");
+    clickButton(":List Open Vouchers.Continue_QPushButton");
+    
+    waitForObject(":List Open Vouchers._vohead_XTreeWidget");
+    if(!clickItem(":List Open Vouchers._vohead_XTreeWidget", lotvo, 5, 5, 1, Qt.LeftButton))
+        test.pass(" Voucher created for Lot controlled item type");
+    else test.fail(" Voucher not created Lot controlled item type");
+    
+    waitForObject(":List Open Vouchers.Post_QPushButton");
+    clickButton(":List Open Vouchers.Post_QPushButton");
+    waitForObject(":List Open Vouchers.Continue_QPushButton");
+    clickButton(":List Open Vouchers.Continue_QPushButton");
+    
+    waitForObject(":List Open Vouchers._vohead_XTreeWidget");
+    if(!clickItem(":List Open Vouchers._vohead_XTreeWidget", serialvo, 5, 5, 1, Qt.LeftButton))
+        test.pass(" Voucher created for Serial controlled item type");
+    else test.fail(" Voucher not created Serial controlled item type");
+    
+    waitForObject(":List Open Vouchers.Post_QPushButton");
+    clickButton(":List Open Vouchers.Post_QPushButton");
+    waitForObject(":List Open Vouchers.Continue_QPushButton");
+    clickButton(":List Open Vouchers.Continue_QPushButton");
+    
+    waitForObject(":List Open Vouchers._vohead_XTreeWidget");
+    if(!clickItem(":List Open Vouchers._vohead_XTreeWidget", mlcvo, 5, 5, 1, Qt.LeftButton))
+        test.pass(" Voucher created for MLC item type");
+    else test.fail(" Voucher not created MLC item type");
     
     waitForObject(":List Open Vouchers.Post_QPushButton");
     clickButton(":List Open Vouchers.Post_QPushButton");
