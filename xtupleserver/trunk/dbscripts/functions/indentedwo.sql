@@ -90,7 +90,7 @@ BEGIN
 
          --expand opeartions
          FOR _opx IN
-           SELECT * FROM indentedwoops(pwoid,_level)
+           SELECT * FROM xtmfg.indentedwoops(pwoid,_level)
          LOOP
            RETURN NEXT _opx;
 
@@ -223,7 +223,7 @@ BEGIN
           
           --expand operations
           FOR _opx IN
-            SELECT * FROM indentedwoops(_x.wo_id,plevel)
+            SELECT * FROM xtmfg.indentedwoops(_x.wo_id,plevel)
           LOOP
             RETURN NEXT _opx;
 

@@ -56,7 +56,7 @@ BEGIN
             AND (itemsite_item_id=item_id)
             AND (wo_id=pWoid) ) ) ) THEN
       SELECT bbomitem_id INTO resultCode
-      FROM wo, bbomitem, itemsite
+      FROM wo, xtmfg.bbomitem, itemsite
       WHERE ( (wo_itemsite_id=itemsite_id)
        AND (itemsite_item_id=bbomitem_parent_item_id)
        AND (woEffectiveDate(wo_startdate) BETWEEN bbomitem_effective AND (bbomitem_expires - 1))
@@ -89,7 +89,7 @@ BEGIN
     womatl_picklist, womatl_createwo, womatl_issuemethod, womatl_notes, womatl_ref )
   SELECT wo_id, bomitem_id, bomitem_booitem_seq_id, bomitem_schedatwooper,
          cs.itemsite_id,
-         CASE WHEN bomitem_schedatwooper THEN COALESCE(calcWooperStart(wo_id,bomitem_booitem_seq_id), wo_startdate)
+         CASE WHEN bomitem_schedatwooper THEN COALESCE(xtmfg.calcWooperStart(wo_id,bomitem_booitem_seq_id), wo_startdate)
               ELSE wo_startdate
          END,
          bomitem_uom_id, bomitem_qtyper, bomitem_scrap,
@@ -136,12 +136,12 @@ BEGIN
 --  records for the Co-Products and By-Products
   IF (_bbom) THEN
 
-    INSERT INTO brddist
+    INSERT INTO xtmfg.brddist
     ( brddist_wo_id, brddist_wo_qty, brddist_itemsite_id,
       brddist_stdqtyper, brddist_qty, brddist_posted )
     SELECT wo_id, 0, cs.itemsite_id,
            bbomitem_qtyper, 0, FALSE
-    FROM wo, bbomitem,
+    FROM wo, xtmfg.bbomitem,
          itemsite AS ps, itemsite AS cs, item
     WHERE ( (bbomitem_parent_item_id=ps.itemsite_item_id)
      AND (wo_itemsite_id=ps.itemsite_id)
@@ -158,7 +158,7 @@ BEGIN
          FROM metric
          WHERE (metric_name='Routings') ) ) THEN
 
-    INSERT INTO wooper
+    INSERT INTO xtmfg.wooper
     ( wooper_wo_id, wooper_booitem_id, wooper_seqnumber,
       wooper_wrkcnt_id, wooper_stdopn_id,
       wooper_descrip1, wooper_descrip2, wooper_toolref,
@@ -194,7 +194,7 @@ BEGIN
            0::NUMERIC, booitem_instruc,
            (wo_startdate + booitem_execday - 1),
            booitem_wip_location_id
-    FROM booitem, wo, itemsite
+    FROM xtmfg.booitem, wo, itemsite
     WHERE ((wo_itemsite_id=itemsite_id)
      AND (itemsite_item_id=booitem_item_id)
      AND (booitem_rev_id=wo_boo_rev_id)
@@ -205,7 +205,7 @@ BEGIN
 --  bomitem record indicates a booitem issue link.
     UPDATE womatl
     SET womatl_wooper_id=wooper_id
-    FROM wo,wooper,booitem
+    FROM wo,xtmfg.wooper,xtmfg.booitem
     WHERE ((womatl_wooper_id=booitem_seq_id)
      AND (wooper_booitem_id=booitem_id)
      AND (womatl_wo_id=wo_id)
