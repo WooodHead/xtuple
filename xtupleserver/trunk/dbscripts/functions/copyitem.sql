@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION copyItem(INTEGER, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION copyItem(INTEGER, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pSItemid ALIAS FOR $1;
   pTItemNumber ALIAS FOR $2;
@@ -8,7 +8,7 @@ DECLARE
 
 BEGIN
 
-  SELECT NEXTVAL(''item_item_id_seq'') INTO _itemid;
+  SELECT NEXTVAL('item_item_id_seq') INTO _itemid;
   INSERT INTO item
   ( item_id, item_number, item_descrip1, item_descrip2,
     item_classcode_id, item_type,
@@ -29,17 +29,17 @@ BEGIN
 
   INSERT INTO imageass
   (imageass_source_id, imageass_source, imageass_image_id, imageass_purpose)
-  SELECT _itemid, ''I'', imageass_image_id, imageass_purpose
+  SELECT _itemid, 'I', imageass_image_id, imageass_purpose
   FROM imageass
   WHERE ((imageass_source_id=pSItemid)
-  AND (imageass_source=''I''));
+  AND (imageass_source='I'));
   
   INSERT INTO url
   (url_source_id, url_source, url_title, url_url)
-  SELECT _itemid, ''I'', url_title, url_url
+  SELECT _itemid, 'I', url_title, url_url
   FROM url
   WHERE ((url_source_id=pSItemid)
-  AND (url_source=''I''));
+  AND (url_source='I'));
 
   INSERT INTO itemtax
         (itemtax_item_id, itemtax_taxzone_id, itemtax_taxtype_id)
@@ -50,9 +50,9 @@ BEGIN
   INSERT INTO charass
   ( charass_target_type, charass_target_id,
     charass_char_id, charass_value )
-  SELECT ''I'', _itemid, charass_char_id, charass_value
+  SELECT 'I', _itemid, charass_char_id, charass_value
   FROM charass
-  WHERE ( (charass_target_type=''I'')
+  WHERE ( (charass_target_type='I')
    AND (charass_target_id=pSItemid) );
 
   FOR _r IN SELECT itemuomconv_id,
@@ -63,7 +63,7 @@ BEGIN
                    itemuomconv_fractional
               FROM itemuomconv
              WHERE(itemuomconv_item_id=pSItemid) LOOP
-    SELECT nextval(''itemuomconv_itemuomconv_id_seq'') INTO _id;
+    SELECT nextval('itemuomconv_itemuomconv_id_seq') INTO _id;
     INSERT INTO itemuomconv
           (itemuomconv_id, itemuomconv_item_id,
            itemuomconv_from_uom_id, itemuomconv_from_value,
@@ -84,41 +84,35 @@ BEGIN
   RETURN _itemid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-
-CREATE OR REPLACE FUNCTION copyItem(integer, text, boolean, boolean, boolean) RETURNS integer AS '
+CREATE OR REPLACE FUNCTION copyItem(INTEGER, TEXT, BOOLEAN, BOOLEAN, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pSItemid ALIAS FOR $1;
   pTItemNumber ALIAS FOR $2;
   pCopyBOM ALIAS FOR $3;
-  pCopyBOO ALIAS FOR $4;
+  pCopyBOO ALIAS FOR $4;        -- deprecated - xtmfg-specific
   pCopyCosts ALIAS FOR $5;
 BEGIN
-  RETURN copyItem(pSItemid, pTItemNumber, pCopyBOM, pCopyBOO, pCopyCosts, FALSE);
+  RAISE NOTICE 'copyItem(INTEGER, TEXT, BOOLEAN, BOOLEAN, BOOLEAN) has been deprecated.  Use copyItem(INTEGER, TEXT) or copyItem(INTEGER, TEXT, BOOLEAN, BOOLEAN) or a package-specific version instead.';
+  RETURN copyItem(pSItemid, pTItemNumber, pCopyBOM, pCopyCosts);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION copyItem(integer, text, boolean, boolean, boolean, boolean) RETURNS integer AS '
+CREATE OR REPLACE FUNCTION copyItem(INTEGER, TEXT, BOOLEAN, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
-  pSItemid ALIAS FOR $1;
-  pTItemNumber ALIAS FOR $2;
-  pCopyBOM ALIAS FOR $3;
-  pCopyBOO ALIAS FOR $4;
-  pCopyCosts ALIAS FOR $5;
-  pCopyUsedAt ALIAS FOR $6;
-  _itemid INTEGER;
+  pSItemid      ALIAS FOR $1;
+  pTItemNumber  ALIAS FOR $2;
+  pCopyBOM      ALIAS FOR $3;
+  pCopyCosts    ALIAS FOR $4;
 
+  _itemid       INTEGER;
 BEGIN
 
-  SELECT copyItem(pSItemid, pTItemNumber) INTO _itemid;
+  _itemid := copyItem(pSItemid, pTItemNumber);
 
   IF (pCopyBOM) THEN
-    PERFORM copyBOM(pSItemid, _itemid, (pCopyBOO AND pCopyUsedAt));
-  END IF;
-
-  IF (pCopyBOO) THEN
-    PERFORM copyBOO(pSItemid, _itemid);
+    PERFORM copyBOM(pSItemid, _itemid, FALSE);
   END IF;
 
   IF (pCopyCosts) THEN
@@ -136,4 +130,17 @@ BEGIN
   RETURN _itemid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION copyItem(INTEGER, TEXT, BOOLEAN, BOOLEAN, BOOLEAN, BOOLEAN) RETURNS INTEGER AS $$
+DECLARE
+  pSItemid ALIAS FOR $1;
+  pTItemNumber ALIAS FOR $2;
+  pCopyBOM ALIAS FOR $3;
+  pCopyBOO ALIAS FOR $4;        -- deprecated - xtmfg-specific
+  pCopyCosts ALIAS FOR $5;
+  pCopyUsedAt ALIAS FOR $6;     -- deprecated - xtmfg-specific
+BEGIN
+  RETURN copyItem(pSItemid, pTItemNumber, pCopyBOM, pCopyCosts);
+END;
+$$ LANGUAGE 'plpgsql';
