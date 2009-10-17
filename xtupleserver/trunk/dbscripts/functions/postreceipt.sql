@@ -67,7 +67,7 @@ BEGIN
 
     SELECT tohead_number AS orderhead_number, toitem_id AS orderitem_id,
 	   toitem_stdcost AS item_unitprice_base,
-	   1 AS invvenduomratio,
+	   1.0 AS invvenduomratio,
 	   tohead_orderdate AS orderdate
 	   INTO _o
     FROM recv, tohead, toitem
