@@ -80,7 +80,7 @@ BEGIN
         LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
         LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
       WHERE ((cust_id=NEW.cohead_cust_id)
-      AND (shipto_id=shipto_id));
+        AND  (shipto_id=NEW.cohead_shipto_id));
     END IF;
 
     -- If there is customer data, then we can get to work
@@ -322,8 +322,8 @@ BEGIN
 
         SELECT * INTO _a 
         FROM shiptoinfo
-          JOIN addr ON (addr_id=shipto_addr_id)
-          JOIN cntct ON (cntct_id=shipto_cntct_id)
+          LEFT OUTER JOIN addr ON (addr_id=shipto_addr_id)
+          LEFT OUTER JOIN cntct ON (cntct_id=shipto_cntct_id)
         WHERE (shipto_id=_shiptoId);
 
         NEW.cohead_shipto_cntct_id := _a.cntct_id;
