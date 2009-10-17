@@ -12,6 +12,7 @@ DECLARE
   pSonumber	ALIAS FOR $2;
 
   _r            RECORD;
+  _coitemid     INTEGER;
   _result       INTEGER;
 
 BEGIN
@@ -41,12 +42,15 @@ BEGIN
   END IF;
 
 -- Delete Sales Order Items
-  SELECT deleteSoItem(coitem_id) INTO _result
+  FOR _coitemid IN
+  SELECT coitem_id
   FROM coitem
-  WHERE (coitem_cohead_id=pSoheadid);
-  IF (_result < 0) THEN
-    RETURN _result;
-  END IF;
+  WHERE (coitem_cohead_id=pSoheadid) LOOP
+    SELECT deleteSoItem(_coitemid) INTO _result;
+    IF (_result < 0) THEN
+      RETURN _result;
+    END IF;
+  END LOOP;
 
   DELETE FROM cohead
   WHERE (cohead_id=pSoheadid);
