@@ -38,24 +38,6 @@ function main()
     waitForObject(":Encryption Configuration.Save_QPushButton");
     clickButton(":Encryption Configuration.Save_QPushButton");
     
-    waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "System");    
-    activateItem(":xTuple ERP: *_QMenuBar_3", "System");
-    waitForObjectItem(":xTuple ERP: *.System_QMenu_2", "Exit xTuple ERP...");
-    activateItem(":xTuple ERP: *.System_QMenu_2", "Exit xTuple ERP...");
-    
-    snooze(5);
-    
-    if(OS.name=="Linux")
-        startApplication("xtuple.bin");
-    
-    else
-        startApplication("xtuple");
-    
-    snooze(5);
-    
-    //-----login Application-----
-    loginAppl("CONFIGURE"); 
-    
     //-----Creating a Purchase Order-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Purchase");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Purchase");
@@ -83,10 +65,6 @@ function main()
     doubleClickItem(":_item_XTreeWidget", "TBOX1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_ordered_XLineEdit");
     type(":_ordered_XLineEdit", "100");
-    waitForObject(":_ordered_XLineEdit");
-    type(":_ordered_XLineEdit", "<Tab>");
-    waitForObject(":_priceGroup_XLineEdit");
-    type(":_priceGroup_XLineEdit", "<Tab>");
     waitForObject(":_schedGroup.XDateEdit_XDateEdit");
     type(":_schedGroup.XDateEdit_XDateEdit", "+7");
     
@@ -107,19 +85,6 @@ function main()
     waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
     clickButton(":List Unposted Purchase Orders.Close_QPushButton");
     
-    //---find Application Edition------ 
-    waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "System");
-    activateItem(":xTuple ERP: *_QMenuBar_3", "System");
-    waitForObjectItem(":xTuple ERP: *.System_QMenu_2", "Master Information");
-    activateItem(":xTuple ERP: *.System_QMenu_2", "Master Information");
-    waitForObjectItem(":xTuple ERP:*.Master Information_QMenu", "Database Information...");
-    activateItem(":xTuple ERP:*.Master Information_QMenu", "Database Information...");
-    
-    waitForObject(":Database Information.*_QLabel_2");
-    var appEdition = findObject(":Database Information.*_QLabel_2").text;
-    waitForObject(":Database Information.Save_QPushButton_2");
-    clickButton(":Database Information.Save_QPushButton_2");
-    
     if(appEdition =="Manufacturing")
     {
         
@@ -137,7 +102,8 @@ function main()
         if(!findObject(":_locationGroup.Multiple Location Control_QCheckBox").checked)
             clickButton(":_locationGroup.Multiple Location Control_QCheckBox");
         
-        if(findObject(":_locationGroup.Use Default Location_QGroupBox").checked)
+        waitForObject(":_locationGroup.Use Default Location_QGroupBox");
+        if(!findObject(":_locationGroup.Use Default Location_QGroupBox").checked)
             type(":_locationGroup.Use Default Location_QGroupBox", " ");    
         
         waitForObjectItem(":Use Default Location._locations_XComboBox", "01010101");
@@ -180,10 +146,6 @@ function main()
         doubleClickItem(":_item_XTreeWidget", "YPAINT1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_ordered_XLineEdit");
         type(":_ordered_XLineEdit", "10");
-        waitForObject(":_ordered_XLineEdit");
-        type(":_ordered_XLineEdit", "<Tab>");
-        waitForObject(":_priceGroup_XLineEdit");
-        type(":_priceGroup_XLineEdit", "<Tab>");
         waitForObject(":_schedGroup.XDateEdit_XDateEdit");
         type(":_schedGroup.XDateEdit_XDateEdit", "+7");
         
@@ -225,10 +187,6 @@ function main()
         doubleClickItem(":_item_XTreeWidget", "STRUCK1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_ordered_XLineEdit");
         type(":_ordered_XLineEdit", "3");
-        waitForObject(":_ordered_XLineEdit");
-        type(":_ordered_XLineEdit", "<Tab>");
-        waitForObject(":_priceGroup_XLineEdit");
-        type(":_priceGroup_XLineEdit", "<Tab>");
         waitForObject(":_schedGroup.XDateEdit_XDateEdit");
         type(":_schedGroup.XDateEdit_XDateEdit", "+7");
         
@@ -553,12 +511,13 @@ function main()
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     var sNameOfRootItem4 = obj_TreeTopLevelItem.text(3); 
+    var lotquantity = 1.25;
     
     var result = replaceSubstring(sNameOfRootItem3.latin1(), ",","");
     
     var qoh = replaceSubstring(sNameOfRootItem4.latin1(),",","");
     
-    var sum = (parseInt(lotqty.toString()) + parseInt(result.toString()));
+    var sum = (parseInt(lotquantity.toString()) + parseInt(result.toString()));
     
     if(parseInt(qoh.toString()) == parseInt(sum.toString())) 
         test.pass("QOH updated correctly for Receiving Purchase goods for Lot controlled item types");
@@ -711,7 +670,7 @@ function main()
     var lotvo = findObject(":_voucherNumber_XLineEdit").text;
     
     waitForObject(":_poitems._poitem_XTreeWidget");
-    doubleClickItem(":_poitems._poitem_XTreeWidget", "EA", 5, 5, 1, Qt.LeftButton);      
+    doubleClickItem(":_poitems._poitem_XTreeWidget", "GL", 5, 5, 1, Qt.LeftButton);      
     waitForObject(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget");
     doubleClickItem(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_distTab.New_QPushButton");
@@ -769,7 +728,7 @@ function main()
     var mlcvo = findObject(":_voucherNumber_XLineEdit").text; 
     
     waitForObject(":_poitems._poitem_XTreeWidget");
-    doubleClickItem(":_poitems._poitem_XTreeWidget", "EA", 5, 5, 1, Qt.LeftButton);      
+    doubleClickItem(":_poitems._poitem_XTreeWidget", "GL", 5, 5, 1, Qt.LeftButton);      
     waitForObject(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget");
     doubleClickItem(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_distTab.New_QPushButton");
@@ -863,6 +822,45 @@ function main()
     clickItem(":Select Payments._selectDate_XComboBox", "All", 5, 5, 1, Qt.LeftButton);
     waitForObject(":frame._apopen_XTreeWidget");
     clickItem(":frame._apopen_XTreeWidget", vounumber, 5, 5, 1, Qt.LeftButton);
+    waitForObject(":frame.Select..._QPushButton");
+    clickButton(":frame.Select..._QPushButton");
+    waitForObject(":_bankaccnt_XComboBox");
+    clickItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Select Payments.Save_QPushButton");
+    clickButton(":Select Payments.Save_QPushButton");
+    
+    waitForObject(":Select Payments._select_XComboBox");
+    clickItem(":Select Payments._select_XComboBox", "All Vendors", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Select Payments._selectDate_XComboBox");
+    clickItem(":Select Payments._selectDate_XComboBox", "All", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":frame._apopen_XTreeWidget");
+    clickItem(":frame._apopen_XTreeWidget", lotvo, 5, 5, 1, Qt.LeftButton);
+    waitForObject(":frame.Select..._QPushButton");
+    clickButton(":frame.Select..._QPushButton");
+    waitForObject(":_bankaccnt_XComboBox");
+    clickItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Select Payments.Save_QPushButton");
+    clickButton(":Select Payments.Save_QPushButton");
+    
+    waitForObject(":Select Payments._select_XComboBox");
+    clickItem(":Select Payments._select_XComboBox", "All Vendors", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Select Payments._selectDate_XComboBox");
+    clickItem(":Select Payments._selectDate_XComboBox", "All", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":frame._apopen_XTreeWidget");
+    clickItem(":frame._apopen_XTreeWidget", serialvo, 5, 5, 1, Qt.LeftButton);
+    waitForObject(":frame.Select..._QPushButton");
+    clickButton(":frame.Select..._QPushButton");
+    waitForObject(":_bankaccnt_XComboBox");
+    clickItem(":_bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Select Payments.Save_QPushButton");
+    clickButton(":Select Payments.Save_QPushButton");
+    
+    waitForObject(":Select Payments._select_XComboBox");
+    clickItem(":Select Payments._select_XComboBox", "All Vendors", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Select Payments._selectDate_XComboBox");
+    clickItem(":Select Payments._selectDate_XComboBox", "All", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":frame._apopen_XTreeWidget");
+    clickItem(":frame._apopen_XTreeWidget", mlcvo, 5, 5, 1, Qt.LeftButton);
     waitForObject(":frame.Select..._QPushButton");
     clickButton(":frame.Select..._QPushButton");
     waitForObject(":_bankaccnt_XComboBox");
@@ -971,7 +969,7 @@ function main()
     
     waitForObject(":View Check Run.Close_QPushButton");
     clickButton(":View Check Run.Close_QPushButton");
-    test.log("Posted Check for Voucher: 30070");
+    test.log("Posted Checks for Voucher");
     
     //-----Verification of G/L transaction (Posting Checks)-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
