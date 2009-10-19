@@ -2145,6 +2145,9 @@ function main()
     clickButton(":headerTab...._QPushButton");
     waitForObject(":_listTab_XTreeWidget_8");
     doubleClickItem(":_listTab_XTreeWidget_8", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    
+    var arinvoice = findObject(":_invoiceNumber_XLineEdit").text;
+    
     waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":lineItemsTab.New_QPushButton");
@@ -2163,29 +2166,23 @@ function main()
     waitForObject(":Invoice.Save_QPushButton_2");
     clickButton(":Invoice.Save_QPushButton_2");
     
-    waitForObject(":List Unposted Invoices.Close_QPushButton");
-    clickButton(":List Unposted Invoices.Close_QPushButton");  
-    
     //-----Print Invoices(AR)-----
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
-    activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
-    waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
-    activateItem(":*.Accounting_QMenu", "Accounts Receivable");
-    waitForObjectItem(":*.Accounts Receivable_QMenu", "Forms");
-    activateItem(":*.Accounts Receivable_QMenu", "Forms");
-    waitForObjectItem(":*.Forms_QMenu_4", "Print Invoices...");
-    activateItem(":*.Forms_QMenu_4", "Print Invoices...");
-    
-    waitForObject(":Print Invoices.Print_QPushButton");
-    clickButton(":Print Invoices.Print_QPushButton");  
+    waitForObject(":_invchead_XTreeWidget");
+    clickItem(":_invchead_XTreeWidget", arinvoice , 5, 5, 1, Qt.LeftButton);
+    waitForObject(":List Unposted Invoices.Print_QPushButton");
+    clickButton(":List Unposted Invoices.Print_QPushButton");
+    waitForObject(":List Unposted Invoices.Print_QPushButton_2");
+    clickButton(":List Unposted Invoices.Print_QPushButton_2");
     snooze(1);	  
     nativeType("<Return>");
     
     waitForObject(":Review EDI Before Sending.Accept_QPushButton");
     clickButton(":Review EDI Before Sending.Accept_QPushButton");
+    waitForObject(":List Unposted Invoices.Close_QPushButton");
+    clickButton(":List Unposted Invoices.Close_QPushButton");
     
-    waitForObject(":Mark Invoices as Printed?.Yes_QPushButton");
-    clickButton(":Mark Invoices as Printed?.Yes_QPushButton");
+    waitForObject(":List Unposted Invoices.Close_QPushButton");
+    clickButton(":List Unposted Invoices.Close_QPushButton");  
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
