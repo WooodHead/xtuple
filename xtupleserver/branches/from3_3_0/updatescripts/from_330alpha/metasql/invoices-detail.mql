@@ -1,0 +1,43 @@
+-- Group: invoices
+-- Name: detail
+-- Notes: used by reprintInvoices, unpostedInvoices
+
+SELECT invchead_id, cust_id,
+       invchead.*,
+       cust_number, cust_name,
+       (TEXT(cust_number) || ' - ' || cust_name) AS customer,
+       COALESCE(invchead_gldistdate, invchead_invcdate) AS gldistdate,
+       invoicetotal(invchead_id) AS extprice,
+       CASE WHEN (aropen_open) THEN (aropen_amount - aropen_paid)
+            ELSE 0
+       END AS balance,
+       'curr' AS extprice_xtnumericrole,
+       'curr' AS balance_xtnumericrole,
+       CASE WHEN (aropen_id IS NULL) THEN 'Unposted' END AS balance_qtdisplayrole
+FROM invchead JOIN cust ON (cust_id=invchead_cust_id)
+              LEFT OUTER JOIN aropen ON ( (aropen_doctype='I') AND (aropen_docnumber=invchead_invcnumber) )
+WHERE ( (true)
+<? if exists("unpostedOnly") ?>
+  AND   (NOT invchead_posted)
+<? endif ?>
+<? if exists("postedOnly") ?>
+  AND   (invchead_posted)
+<? endif ?>
+<? if exists("cust_id") ?>
+  AND   (invchead_cust_id=<? value("cust_id") ?>)
+<? endif ?>
+<? if exists("startDate") ?>
+  AND   (invchead_invcdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+<? endif ?>
+<? if exists("invc_pattern") ?>
+  AND   (invchead_invcnumber ~ <? value("invc_pattern") ?>)
+<? endif ?>
+<? if exists("balanceOnly") ?>
+  AND   (aropen_open AND (aropen_amount - aropen_paid > 0))
+<? endif ?>
+  AND   ((SELECT COUNT(*)
+          FROM invcitem, site()
+          WHERE ( (invcitem_invchead_id=invchead_id)
+            AND   ((warehous_id=invcitem_warehous_id) OR (invcitem_warehous_id=-1)) )) > 0) )
+ORDER BY invchead_invcnumber
+;
