@@ -676,7 +676,7 @@ function main()
     waitForObject(":_distTab.New_QPushButton");
     clickButton(":_distTab.New_QPushButton");
     waitForObject(":Voucher._currency_XLineEdit");
-    type(":Voucher._currency_XLineEdit", "25");
+    type(":Voucher._currency_XLineEdit", "1");
     waitForObject(":Voucher.Save_QPushButton");
     clickButton(":Voucher.Save_QPushButton");
     waitForObject(":Voucher.Save_QPushButton_2");
@@ -705,7 +705,7 @@ function main()
     waitForObject(":_distTab.New_QPushButton");
     clickButton(":_distTab.New_QPushButton");
     waitForObject(":Voucher._currency_XLineEdit");
-    type(":Voucher._currency_XLineEdit", "25");
+    type(":Voucher._currency_XLineEdit", "10");
     waitForObject(":Voucher.Save_QPushButton");
     clickButton(":Voucher.Save_QPushButton");
     waitForObject(":Voucher.Save_QPushButton_2");
