@@ -115,7 +115,7 @@ BEGIN
     END IF;
 
     IF (pdirectLabor) THEN    
-      PERFORM updateSorACost(_item.item_id, ''Direct Labor'', FALSE, directLaborCost(_item.item_id), pUpdateActual);
+      PERFORM updateSorACost(_item.item_id, ''Direct Labor'', FALSE, xtmfg.directLaborCost(_item.item_id), pUpdateActual);
     END IF;
 
     IF (plowerDirectLabor) THEN    
@@ -123,7 +123,7 @@ BEGIN
     END IF;
 
     IF (poverhead) THEN    
-      PERFORM updateSorACost(_item.item_id, ''Overhead'', FALSE, overheadCost(_item.item_id), pUpdateActual);
+      PERFORM updateSorACost(_item.item_id, ''Overhead'', FALSE, xtmfg.overheadCost(_item.item_id), pUpdateActual);
     END IF;
 
     IF (plowerOverhead) THEN    
@@ -131,7 +131,7 @@ BEGIN
     END IF;
 
     IF (pmachOverhead) THEN    
-      PERFORM updateSorACost(_item.item_id, ''Machine Overhead'', FALSE, machineOverheadCost(_item.item_id), pUpdateActual);
+      PERFORM updateSorACost(_item.item_id, ''Machine Overhead'', FALSE, xtmfg.machineOverheadCost(_item.item_id), pUpdateActual);
     END IF;
 
     IF (plowerMachOverhead) THEN    
