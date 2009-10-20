@@ -375,8 +375,9 @@ function main()
    waitForObjectItem(":xTuple ERP:*.Production Plan_QMenu", "List...");
    activateItem(":xTuple ERP:*.Production Plan_QMenu", "List...");
    waitForObject(":_list_XTreeWidget_2");
-   type(":_list_XTreeWidget_2"," ");
+   type(":_list_XTreeWidget_2"," ");   
    waitForObject(":_list_XTreeWidget_2");
+   clickItem(":_list_XTreeWidget_2","BTRUCK-TEST",0,0,1,Qt.LeftButton);
    sendEvent("QContextMenuEvent", ":_list_XTreeWidget_2", QContextMenuEvent.Keyboard, 0, 0, 0);
    waitForObject(":xTuple ERP:*._menu_QMenu");
    type(":xTuple ERP:*._menu_QMenu", "<Down>");    
