@@ -117,6 +117,7 @@ BEGIN
 	) SELECT
 		(CASE -- use a case here so we don't unnecessarily fetch a new invoice number
 			WHEN pNew.invoice_number IS NULL THEN CAST(fetchInvcNumber() AS TEXT)
+			WHEN pNew.invoice_number = '' THEN CAST(fetchInvcNumber() AS TEXT)
 			ELSE pNew.invoice_number
 		END),
 		pNew.order_number,
@@ -182,9 +183,9 @@ BEGIN
 				THEN getShiptoId(pNew.customer_number,pNew.shipto_number)
 			ELSE (SELECT shipto_id FROM shiptoinfo WHERE shipto_cust_id=cust_id AND shipto_default)
 		END))
-                LEFT OUTER JOIN cohead ON (cohead_id=getCoheadId(pNEW.order_number))
-                LEFT OUTER JOIN cntct ON (cntct_id=cust_cntct_id)
-                LEFT OUTER JOIN addr ON (addr_id=cntct_addr_id)
+               LEFT OUTER JOIN cohead ON (cohead_number=pNEW.order_number)
+               LEFT OUTER JOIN cntct ON (cntct_id=cust_cntct_id)
+               LEFT OUTER JOIN addr ON (addr_id=cntct_addr_id)
 	WHERE cust_id = (SELECT getCustId(pNew.customer_number));
 	RETURN TRUE;
 END;
