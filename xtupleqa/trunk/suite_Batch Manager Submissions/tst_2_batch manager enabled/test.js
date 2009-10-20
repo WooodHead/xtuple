@@ -2178,9 +2178,7 @@ function main()
     
     waitForObject(":Review EDI Before Sending.Accept_QPushButton");
     clickButton(":Review EDI Before Sending.Accept_QPushButton");
-    waitForObject(":List Unposted Invoices.Close_QPushButton");
-    clickButton(":List Unposted Invoices.Close_QPushButton");
-    
+        
     waitForObject(":List Unposted Invoices.Close_QPushButton");
     clickButton(":List Unposted Invoices.Close_QPushButton");  
     
