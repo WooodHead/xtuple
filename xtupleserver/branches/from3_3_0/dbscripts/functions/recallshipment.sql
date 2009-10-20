@@ -153,6 +153,13 @@ BEGIN
 	RETURN _invhistid;
       END IF;
 
+      -- post the inventory history if lot/serial or location control
+      PERFORM postInvHist(_invhistid)
+      FROM itemsite
+      WHERE ( (itemsite_item_id=_ti.toitem_item_id) AND
+              (itemsite_warehous_id=_to.tohead_trns_warehous_id) AND
+              ((itemsite_controlmethod IN ('L', 'S')) OR (itemsite_loccntrl)) );
+
       -- record inventory history and qoh changes at transit warehouse but
       -- there is only one g/l account to touch
       SELECT postInvTrans(ti.itemsite_id, 'TR', _ti.qty, 'I/M',
@@ -172,6 +179,13 @@ BEGIN
       IF (_invhistid < 0) THEN
 	RETURN _invhistid;
       END IF;
+
+      -- post the inventory history if lot/serial or location control
+      PERFORM postInvHist(_invhistid)
+      FROM itemsite
+      WHERE ( (itemsite_item_id=_ti.toitem_item_id) AND
+              (itemsite_warehous_id=_to.tohead_src_warehous_id) AND
+              ((itemsite_controlmethod IN ('L', 'S')) OR (itemsite_loccntrl)) );
 
       UPDATE toitem
       SET toitem_qty_shipped = (toitem_qty_shipped - _ti.qty)
