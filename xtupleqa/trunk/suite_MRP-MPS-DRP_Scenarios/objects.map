@@ -43,6 +43,7 @@
 :Delete Planned Orders by Planner Code._warehouse_WarehouseGroup	{name='_warehouse' type='WarehouseGroup' visible='1' window=':Delete Planned Orders by Planner Code_deletePlannedOrdersByPlannerCode'}
 :Delete Planned Orders by Planner Code_deletePlannedOrdersByPlannerCode	{name='deletePlannedOrdersByPlannerCode' type='deletePlannedOrdersByPlannerCode' visible='1' windowTitle='Delete Planned Orders by Planner Code'}
 :Delete Work Order_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Delete Work Order'}
+:Destination Site:.All Sites_QRadioButton	{container=':List Open Transfer Orders.Destination Site:_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
 :Effectivity.XDateEdit_XDateEdit	{container=':Bill of Materials.Effectivity_QGroupBox' name='XDateEdit' type='XDateEdit' visible='1'}
 :Effectivity.XDateEdit_XDateEdit_2	{container=':Bill of Materials.Effectivity_QGroupBox' name='XDateEdit' occurrence='2' type='XDateEdit' visible='1'}
 :Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox	{container=':_locationsTab.Enforce ARBL Naming Convention_QGroupBox' name='_aisleAlpha' text='Allow Alpha Characters' type='QCheckBox' visible='1'}
@@ -135,8 +136,10 @@
 :List Open Sales Orders.List Open Sales Orders_QWorkspaceTitleBar	{container=':xTuple ERP:*.List Open Sales Orders_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='List Open Sales Orders'}
 :List Open Sales Orders.OK_QPushButton	{container=':xTuple ERP:*.List Open Sales Orders_QWorkspaceChild' text='OK' type='QPushButton' unnamed='1' visible='1'}
 :List Open Sales Orders.Yes_QPushButton	{container=':xTuple ERP:*.List Open Sales Orders_QWorkspaceChild' text='Yes' type='QPushButton' unnamed='1' visible='1'}
+:List Open Sales Orders._warehouse_WarehouseGroup	{container=':xTuple ERP:*.List Open Sales Orders_QWorkspaceChild' name='_warehouse' type='WarehouseGroup' visible='1'}
 :List Open Sales Orders.frame_QFrame	{container=':xTuple ERP:*.List Open Sales Orders_QWorkspaceChild' name='frame' type='QFrame' visible='1'}
 :List Open Transfer Orders.Close_QPushButton	{container=':xTuple ERP:*.List Open Transfer Orders_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
+:List Open Transfer Orders.Destination Site:_WarehouseGroup	{container=':xTuple ERP:*.List Open Transfer Orders_QWorkspaceChild' name='_destWarehouse' title='Destination Site:' type='WarehouseGroup' visible='1'}
 :List Open Transfer Orders.Print_QPushButton	{container=':xTuple ERP:*.List Open Transfer Orders_QWorkspaceChild' name='_print' text='Print' type='QPushButton' visible='1'}
 :List Open Transfer Orders.Source Site:_WarehouseGroup	{container=':xTuple ERP:*.List Open Transfer Orders_QWorkspaceChild' name='_srcWarehouse' title='Source Site:' type='WarehouseGroup' visible='1'}
 :List Open Transfer Orders.Yes_QPushButton	{container=':xTuple ERP:*.List Open Transfer Orders_QWorkspaceChild' text='Yes' type='QPushButton' unnamed='1' visible='1'}
@@ -515,6 +518,7 @@
 :_warehouse.All Sites_QRadioButton_2	{container=':Planned Orders by Planner Code._warehouse_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
 :_warehouse.All Sites_QRadioButton_3	{container=':Run MPS by Planner Code._warehouse_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
 :_warehouse.All Sites_QRadioButton_4	{container=':Delete Planned Orders by Planner Code._warehouse_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
+:_warehouse.All Sites_QRadioButton_5	{container=':List Open Sales Orders._warehouse_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
 :_warehouse.Selected:_QRadioButton	{container=':List Item Sites._warehouse_WarehouseGroup' name='_selected' text='Selected:' type='QRadioButton' visible='1'}
 :_warehouse.Selected:_QRadioButton_2	{container=':Run MPS by Planner Code._warehouse_WarehouseGroup' name='_selected' text='Selected:' type='QRadioButton' visible='1'}
 :_warehouse._warehouses_WComboBox	{container=':List Item Sites._warehouse_WarehouseGroup' name='_warehouses' type='WComboBox' visible='1'}

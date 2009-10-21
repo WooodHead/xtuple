@@ -1247,77 +1247,92 @@
 //    
 //    newPOWh("DTRUCK1",25,"0","WH2");
 //    
-//    
-//    //----Setup Item site------
-//    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
-//    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
-//    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-//    activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-//    waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
-//    activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
-//
-//    waitForObject(":_warehouse.Selected:_QRadioButton");
-//    clickButton(":_warehouse.Selected:_QRadioButton");
-//    waitForObject(":_warehouse._warehouses_WComboBox");
-//    if(findObject(":_warehouse._warehouses_WComboBox").currentText!="WH2")
-//        clickItem(":_warehouse._warehouses_WComboBox", "WH2", 0, 0, 1, Qt.LeftButton);
-//    waitForObject(":_itemSite_XTreeWidget");
-//    doubleClickItem(":_itemSite_XTreeWidget", "TWHEEL1", 0, 0, 0, Qt.LeftButton);
-//
-//    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
-//    waitForObject(":Scheduling._planningType_XComboBox");
-//    if(findObject(":Scheduling._planningType_XComboBox").currentText!="None")
-//        clickItem(":Scheduling._planningType_XComboBox","None", 0, 0, 1, Qt.LeftButton);
-//    
-//    waitForObject(":List Item Sites.Save_QPushButton");
-//    clickButton(":List Item Sites.Save_QPushButton");
-//    test.log("Planning set to NONE for TWHEEL1");
-//    
-//    
-//    //----Setup Item site------
-//    waitForObject(":_itemSite_XTreeWidget");
-//    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
-//    waitForObject(":Supply Rules.Site can purchase this Item_QCheckBox_2");
-//    if(!findObject(":Supply Rules.Site can purchase this Item_QCheckBox_2").checked)
-//        clickButton(":Supply Rules.Site can purchase this Item_QCheckBox_2");
-//    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
-//    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
-//    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
-//    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox").checked)
-//        type(":_planningTab.Enforce Order Parameters_QGroupBox"," ");
-//    findObject(":_reorderLevel_XLineEdit").clear();
-//    type(":_reorderLevel_XLineEdit", "0");
-//    findObject(":_orderUpToQty_XLineEdit").clear();
-//    type(":_orderUpToQty_XLineEdit", "0");
-//    findObject(":_minimumOrder_XLineEdit").clear();
-//    type(":_minimumOrder_XLineEdit", "0");
-//    findObject(":_maximumOrder_XLineEdit").clear();
-//    type(":_maximumOrder_XLineEdit", "0");
-//    findObject(":_orderMultiple_XLineEdit").clear();
-//    type(":_orderMultiple_XLineEdit", "0");
-//    findObject(":Scheduling._safetyStock_XLineEdit").clear();
-//    type(":Scheduling._safetyStock_XLineEdit", "0");
-//    
-//    
-//    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
-//    type(":Scheduling.qt_spinbox_lineedit_QLineEdit","1");
-//    waitForObject(":Scheduling._orderGroup_QSpinBox");
-//    findObject(":Scheduling._orderGroup_QSpinBox").clear();
-//    type(":Scheduling._orderGroup_QSpinBox", "7");
-//    findObject(":_leadTime_QSpinBox").clear();
-//    type(":_leadTime_QSpinBox", "3");
-//    waitForObject(":Scheduling.First Group_QCheckBox");
-//    if(!findObject(":Scheduling.First Group_QCheckBox").checked)
-//        clickButton(":Scheduling.First Group_QCheckBox");
-//    waitForObject(":List Item Sites.Save_QPushButton");
-//    clickButton(":List Item Sites.Save_QPushButton");
-//    waitForObject(":List Item Sites.Close_QPushButton");
-//    clickButton(":List Item Sites.Close_QPushButton");
-//    test.log("Item Site setup for: DTRUCK1");    
-//    
-//    MRP("+99");
-//    
+    
+    //----Setup Item site------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+
+    waitForObject(":_warehouse.Selected:_QRadioButton");
+    clickButton(":_warehouse.Selected:_QRadioButton");
+    waitForObject(":_warehouse._warehouses_WComboBox");
+    if(findObject(":_warehouse._warehouses_WComboBox").currentText!="WH2")
+        clickItem(":_warehouse._warehouses_WComboBox", "WH2", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_itemSite_XTreeWidget");
+    doubleClickItem(":_itemSite_XTreeWidget", "TWHEEL1", 0, 0, 0, Qt.LeftButton);
+
+    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
+    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
+    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox").checked)
+        type(":_planningTab.Enforce Order Parameters_QGroupBox"," ");
+    findObject(":_reorderLevel_XLineEdit").clear();
+    type(":_reorderLevel_XLineEdit", "400");
+    findObject(":_orderUpToQty_XLineEdit").clear();
+    type(":_orderUpToQty_XLineEdit", "4000");
+    findObject(":_minimumOrder_XLineEdit").clear();
+    type(":_minimumOrder_XLineEdit", "100");
+    findObject(":_maximumOrder_XLineEdit").clear();
+    type(":_maximumOrder_XLineEdit", "10000");
+    findObject(":_orderMultiple_XLineEdit").clear();
+    type(":_orderMultiple_XLineEdit", "4");
+    findObject(":Scheduling._safetyStock_XLineEdit").clear();
+    type(":Scheduling._safetyStock_XLineEdit", "0");
+    waitForObject(":Scheduling._planningType_XComboBox");
+    if(findObject(":Scheduling._planningType_XComboBox").currentText!="None")
+        clickItem(":Scheduling._planningType_XComboBox","None", 0, 0, 1, Qt.LeftButton);
+    
+    waitForObject(":List Item Sites.Save_QPushButton");
+    clickButton(":List Item Sites.Save_QPushButton");
+    test.log("Planning set to NONE for TWHEEL1");
+    
+    
+    //----Setup Item site------
+    waitForObject(":_itemSite_XTreeWidget");
+    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Supply Rules.Site can purchase this Item_QCheckBox_2");
+    if(!findObject(":Supply Rules.Site can purchase this Item_QCheckBox_2").checked)
+        clickButton(":Supply Rules.Site can purchase this Item_QCheckBox_2");
+    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
+    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
+    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox").checked)
+        type(":_planningTab.Enforce Order Parameters_QGroupBox"," ");
+    findObject(":_reorderLevel_XLineEdit").clear();
+    type(":_reorderLevel_XLineEdit", "0");
+    findObject(":_orderUpToQty_XLineEdit").clear();
+    type(":_orderUpToQty_XLineEdit", "0");
+    findObject(":_minimumOrder_XLineEdit").clear();
+    type(":_minimumOrder_XLineEdit", "0");
+    findObject(":_maximumOrder_XLineEdit").clear();
+    type(":_maximumOrder_XLineEdit", "0");
+    findObject(":_orderMultiple_XLineEdit").clear();
+    type(":_orderMultiple_XLineEdit", "0");
+    findObject(":Scheduling._safetyStock_XLineEdit").clear();
+    type(":Scheduling._safetyStock_XLineEdit", "0");
+    
+    
+    findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
+    type(":Scheduling.qt_spinbox_lineedit_QLineEdit","1");
+    waitForObject(":Scheduling._orderGroup_QSpinBox");
+    findObject(":Scheduling._orderGroup_QSpinBox").clear();
+    type(":Scheduling._orderGroup_QSpinBox", "7");
+    findObject(":_leadTime_QSpinBox").clear();
+    type(":_leadTime_QSpinBox", "3");
+    waitForObject(":Scheduling.First Group_QCheckBox");
+    if(!findObject(":Scheduling.First Group_QCheckBox").checked)
+        clickButton(":Scheduling.First Group_QCheckBox");
+    waitForObject(":List Item Sites.Save_QPushButton");
+    clickButton(":List Item Sites.Save_QPushButton");
+    waitForObject(":List Item Sites.Close_QPushButton");
+    clickButton(":List Item Sites.Close_QPushButton");
+    test.log("Item Site setup for: DTRUCK1");    
+    
+    MRP("+99");
+    
     //------Verify generated Planned Orders-----
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
@@ -1623,7 +1638,7 @@
    test.log("DRP MULTILEVEL TEST");
    
    DelPlanOrdrs();
-//   
+ 
     //-------Item site - change supplied from Site----
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
