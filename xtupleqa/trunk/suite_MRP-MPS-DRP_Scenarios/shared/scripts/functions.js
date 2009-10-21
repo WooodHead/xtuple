@@ -565,6 +565,9 @@ function DelAllSO()
     waitForObjectItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
     activateItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
     
+    waitForObject(":_warehouse.All Sites_QRadioButton_5");
+    clickButton(":_warehouse.All Sites_QRadioButton_5");
+
     waitForObject(":frame._so_XTreeWidget");
     if(findObject(":frame._so_XTreeWidget").topLevelItemCount>0)
     {
@@ -905,23 +908,23 @@ function getForwardDate(Days)
         var CurrentYearFull = d.getFullYear();
         var CurrentMonth = 1+d.getMonth();
         var CurrentDate = d.getDate();
-        if(CurrentMonth == 12 && (CurrentDate + DaysFromToday > LeapYearMonths[CurrentMonth]))
+        if(CurrentMonth == 12 && (CurrentDate + DaysFromToday > LeapYearMonths[CurrentMonth-1]))
         {
-               CurrentDate = CurrentDate + DaysFromToday - LeapYearMonths[CurrentMonth];
+               CurrentDate = CurrentDate + DaysFromToday - LeapYearMonths[CurrentMonth-1];
                CurrentMonth = 1;
         }
         
         
-        if(IsLeapYear(CurrentYearFull) && (CurrentDate + DaysFromToday > LeapYearMonths[CurrentMonth]))
+        if(IsLeapYear(CurrentYearFull) && (CurrentDate + DaysFromToday > LeapYearMonths[CurrentMonth-1]))
         {
-               CurrentDate = CurrentDate + DaysFromToday - LeapYearMonths[CurrentMonth];
+               CurrentDate = CurrentDate + DaysFromToday - LeapYearMonths[CurrentMonth-1];
                CurrentMonth = CurrentMonth + 1;
         }
            
-        else if((!IsLeapYear(CurrentYearFull)) && (CurrentDate + DaysFromToday > NormalYearMonths[CurrentMonth]))
+        else if((!IsLeapYear(CurrentYearFull)) && (CurrentDate + DaysFromToday > NormalYearMonths[CurrentMonth-1]))
         {
-               CurrentDate = CurrentDate + DaysFromToday - NormalYearMonths[CurrentMonth];
-               CurrentMonth = CurrentMonth + 1;
+              CurrentDate = CurrentDate + DaysFromToday - NormalYearMonths[CurrentMonth-1];
+              CurrentMonth = CurrentMonth + 1;
                  
         }
         else
@@ -943,7 +946,12 @@ function DelAllTO()
     waitForObjectItem(":xTuple ERP:*.Transfer Order_QMenu", "List Open...");
     activateItem(":xTuple ERP:*.Transfer Order_QMenu", "List Open...");
     
-    waitForObject(":_frame._to_XTreeWidget");
+    waitForObject(":Destination Site:.All Sites_QRadioButton");
+    clickButton(":Destination Site:.All Sites_QRadioButton");
+    
+    waitForObject(":Source Site:.All Sites_QRadioButton");
+    clickButton(":Source Site:.All Sites_QRadioButton");
+
     waitForObject(":_frame._to_XTreeWidget");
     type(":_frame._to_XTreeWidget","<Space>");
     while(findObject(":_frame._to_XTreeWidget").topLevelItemCount>0)
