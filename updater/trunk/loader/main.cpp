@@ -15,6 +15,7 @@
 #include <QSqlError>
 #include <QStyleFactory>
 #include <QWindowsStyle>
+#include <QIcon>
 
 #ifdef Q_WS_MACX
 #include <QMacStyle>
@@ -43,6 +44,9 @@ int main(int argc, char* argv[])
 
   QApplication app(argc, argv);
   app.addLibraryPath(".");
+#ifndef Q_WS_MACX
+  app.setWindowIcon(QIcon(":/images/updater-32x32.png"));
+#endif
 
 #ifdef Q_WS_WIN
   if (QSysInfo::WindowsVersion == QSysInfo::WV_XP)
