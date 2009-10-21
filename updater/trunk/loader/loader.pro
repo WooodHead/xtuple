@@ -26,10 +26,18 @@ PRE_TARGETDEPS += ../lib/libupdatercommon.a ../$${OPENRPT_DIR}/lib/libcommon.a .
 
 DESTDIR = ../bin
 
+RC_FILE = rcloader.rc
+macx {
+  RC_FILE = ../images/updater.icns
+  QMAKE_INFO_PLIST = Info.plist
+}
+
 FORMS   += loaderwindow.ui
 HEADERS += loaderwindow.h
 SOURCES += loaderwindow.cpp \
            main.cpp
 
 QT += xml sql
+
+RESOURCES += loader.qrc
 
