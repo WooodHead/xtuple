@@ -1,4 +1,5 @@
-BEGIN;
+SELECT dropIfExists('FUNCTION', 'updatereorderlevel(integer[], integer, boolean, integer[])');
+SELECT dropIfExists('TYPE', 'reordlvl');
 
 CREATE TYPE reordlvl AS (
     reordlvl_itemsite_id 	integer,
@@ -12,5 +13,3 @@ CREATE TYPE reordlvl AS (
     reordlvl_total_days 	numeric,
     reordlvl_total_usage	numeric,
     reordlvl_calc_level 	numeric );
-
-COMMIT;

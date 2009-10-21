@@ -1,3 +1,6 @@
+SELECT dropIfExists('FUNCTION', 'orderhead()');
+SELECT dropIfExists('TYPE', 'ordhead');
+
 CREATE TYPE ordhead AS (
   orderhead_id integer,
   orderhead_type text,
