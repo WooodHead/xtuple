@@ -1,3 +1,6 @@
+SELECT dropIfExists('FUNCTION', 'orderitem()');
+SELECT dropIfExists('TYPE', 'orditem');
+
 CREATE TYPE orditem AS (
   orderitem_id integer,
   orderitem_orderhead_type text,

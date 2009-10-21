@@ -1,4 +1,6 @@
+SELECT dropIfExists('VIEW', 'salesorder', 'api');
 SELECT dropIfExists('FUNCTION', 'freightDetail(text, integer)', 'public');
+SELECT dropIfExists('FUNCTION', 'freightDetail(text, integer, integer, integer, date, text, integer)', 'public');
 SELECT dropIfExists('TYPE', 'freightData', 'public');
 
 CREATE TYPE freightData AS (

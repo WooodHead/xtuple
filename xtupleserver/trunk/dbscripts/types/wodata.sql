@@ -1,4 +1,4 @@
-
+SELECT dropIfExists('FUNCTION', 'indentedwo(integer, integer, integer, boolean, boolean)');
 SELECT dropIfExists('FUNCTION', 'indentedwo(integer, boolean, boolean, boolean)');
 SELECT dropIfExists('FUNCTION', 'indentedwo(integer, boolean, boolean)');
 SELECT dropIfExists('FUNCTION', 'indentedwomatl(integer, integer, integer)');
@@ -31,4 +31,3 @@ CREATE TYPE wodata AS
     wodata_notes text,
     wodata_ref text,
     wodata_level integer);
-

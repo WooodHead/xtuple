@@ -1,3 +1,6 @@
+SELECT dropIfExists('FUNCTION', 'taxassignments(integer,integer)');
+SELECT dropIfExists('TYPE', 'taxassign');
+
 CREATE TYPE taxassign AS
    (taxassign_taxzone_id integer,
     taxassign_taxtype_id integer,
