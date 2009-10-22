@@ -390,14 +390,21 @@ function main()
     clickButton(":_frame.Receive All_QPushButton"); 
     waitForObject(":Enter Order Receipts.Post_QPushButton");
     clickButton(":Enter Order Receipts.Post_QPushButton");
-    waitForObject(":Enter Order Receipts._lot_XLineEdit");
-    type(":Enter Order Receipts._lot_XLineEdit", "1");
-    waitForObject(":Enter Order Receipts._lot_XLineEdit");
-    type(":Enter Order Receipts._lot_XLineEdit", "<Tab>");
+    
+    waitForObject(":Enter Order Receipts._lotSerial_XComboBox");
+    type(":Enter Order Receipts._lotSerial_XComboBox", "1");
+    
+    waitForObject(":Enter Order Receipts._qtyToAssign_XLineEdit");
+    type(":Enter Order Receipts._qtyToAssign_XLineEdit", "1.25");
     waitForObject(":Enter Order Receipts.XDateEdit_XDateEdit");
     type(":Enter Order Receipts.XDateEdit_XDateEdit", "+7");
     waitForObject(":Enter Order Receipts.Assign_QPushButton");
     clickButton(":Enter Order Receipts.Assign_QPushButton");
+    waitForObjectItem(":Enter Order Receipts._itemlocdist_XTreeWidget", "1");
+    clickItem(":Enter Order Receipts._itemlocdist_XTreeWidget", "1", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Enter Order Receipts.Assign_QPushButton");
+    clickButton(":Enter Order Receipts.Assign_QPushButton");
+    
     
     waitForObject(":Enter Order Receipts...._QPushButton");
     clickButton(":Enter Order Receipts...._QPushButton");
@@ -434,16 +441,23 @@ function main()
     waitForObject(":_listTab_XTreeWidget_2");
     doubleClickItem(":_listTab_XTreeWidget_2", mlcpo, 5, 5, 0, Qt.LeftButton);
     waitForObject(":_frame.Receive All_QPushButton");
-    clickButton(":_frame.Receive All_QPushButton"); 
+    clickButton(":_frame.Receive All_QPushButton");
     waitForObject(":Enter Order Receipts.Post_QPushButton");
     clickButton(":Enter Order Receipts.Post_QPushButton");
-    waitForObject(":Enter Order Receipts._lot_XLineEdit");
-    type(":Enter Order Receipts._lot_XLineEdit", "2");
+    waitForObject(":Enter Order Receipts._lotSerial_XComboBox");
+    type(":Enter Order Receipts._lotSerial_XComboBox", "2");
     
+    waitForObject(":Enter Order Receipts._qtyToAssign_XLineEdit");
+    type(":Enter Order Receipts._qtyToAssign_XLineEdit", "10");
     waitForObject(":Enter Order Receipts.XDateEdit_XDateEdit");
     type(":Enter Order Receipts.XDateEdit_XDateEdit", "+7");
     waitForObject(":Enter Order Receipts.Assign_QPushButton");
     clickButton(":Enter Order Receipts.Assign_QPushButton");
+    waitForObjectItem(":Enter Order Receipts._itemlocdist_XTreeWidget", "2");
+    clickItem(":Enter Order Receipts._itemlocdist_XTreeWidget", "2", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Enter Order Receipts.Assign_QPushButton");
+    clickButton(":Enter Order Receipts.Assign_QPushButton");
+    
     waitForObject(":_frame._itemloc_XTreeWidget");
     doubleClick(":_frame._itemloc_XTreeWidget", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Enter Order Receipts.Distribute_QPushButton");
