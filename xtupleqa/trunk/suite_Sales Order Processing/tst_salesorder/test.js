@@ -34,8 +34,8 @@ function main()
     
     waitForObject(":frame.New_QPushButton");
     clickButton(":frame.New_QPushButton");
-    waitForObject(":_headerPage...._QPushButton");
-    clickButton(":_headerPage...._QPushButton");
+   waitForObject(":_headerPage...._QPushButton_3");
+    clickButton(":_headerPage...._QPushButton_3");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_headerPage._custPONumber_XLineEdit");
@@ -177,8 +177,8 @@ function main()
     
     waitForObject(":frame.New_QPushButton");
     clickButton(":frame.New_QPushButton");
-    waitForObject(":_headerPage...._QPushButton");
-    clickButton(":_headerPage...._QPushButton");
+   waitForObject(":_headerPage...._QPushButton_3");
+    clickButton(":_headerPage...._QPushButton_3");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "ZENPROSPECT", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_headerPage._custPONumber_XLineEdit");
@@ -279,8 +279,8 @@ function main()
     
     waitForObject(":frame.New_QPushButton");
     clickButton(":frame.New_QPushButton");
-    waitForObject(":_headerPage...._QPushButton");
-    clickButton(":_headerPage...._QPushButton");
+    waitForObject(":_headerPage...._QPushButton_3");
+    clickButton(":_headerPage...._QPushButton_3");
     waitForObject(":_listTab_XTreeWidget")
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_headerPage._custPONumber_XLineEdit");
@@ -386,8 +386,8 @@ function main()
     
     waitForObject(":frame.New_QPushButton_2");
     clickButton(":frame.New_QPushButton_2");
-    waitForObject(":_headerPage...._QPushButton_2");
-    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton_4");
+    clickButton(":_headerPage...._QPushButton_4");
     waitForObject(":_listTab_XTreeWidget_3");
     doubleClickItem(":_listTab_XTreeWidget_3", "TTOYS", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_headerPage._custPONumber_XLineEdit_2");
