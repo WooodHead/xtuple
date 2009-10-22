@@ -103,8 +103,8 @@ function main()
     
     waitForObject(":frame.New_QPushButton_2");
     clickButton(":frame.New_QPushButton_2");
-    waitForObject(":_headerPage...._QPushButton_2");
-    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton_4");
+    clickButton(":_headerPage...._QPushButton_4");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 0, Qt.LeftButton);
     
@@ -1553,9 +1553,11 @@ function main()
     waitForObject(":_item_XTreeWidget_6");
     doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     if(appEdition=="Manufacturing" || appEdition=="Standard")
-    {            
-        waitForObject(":_warehouse.All Sites_QRadioButton_7");
-        clickButton(":_warehouse.All Sites_QRadioButton_7");
+    {  
+       waitForObject(":_warehouse.Selected:_QRadioButton_6");
+       clickButton(":_warehouse.Selected:_QRadioButton_6");
+       waitForObjectItem(":_warehouse._warehouses_WComboBox_6", "WH1");
+       clickItem(":_warehouse._warehouses_WComboBox_6", "WH1", 5, 5, 1, Qt.LeftButton);
     }
     
     waitForObject(":Quantities on Hand by Item.Query_QPushButton");
@@ -1663,8 +1665,10 @@ function main()
     doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     if(appEdition=="Manufacturing" || appEdition=="Standard")
     {            
-        waitForObject(":_warehouse.All Sites_QRadioButton_7");
-        clickButton(":_warehouse.All Sites_QRadioButton_7");
+       waitForObject(":_warehouse.Selected:_QRadioButton_6");
+       clickButton(":_warehouse.Selected:_QRadioButton_6");
+       waitForObjectItem(":_warehouse._warehouses_WComboBox_6", "WH1");
+       clickItem(":_warehouse._warehouses_WComboBox_6", "WH1", 5, 5, 1, Qt.LeftButton);
     }
     
     waitForObject(":Quantities on Hand by Item.Query_QPushButton");
