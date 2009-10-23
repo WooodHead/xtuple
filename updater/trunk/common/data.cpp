@@ -24,7 +24,7 @@ QString _name = QObject::tr("Update Manager");
 
 
 QString _copyright = QObject::tr("Copyright (c) 2004-2009 OpenMFG, LLC., d/b/a xTuple.");
-QString _version = QObject::tr("2.2.0wip");
+QString _version = QObject::tr("2.2.0beta");
 
 QString _user;
 int     _usrid;
