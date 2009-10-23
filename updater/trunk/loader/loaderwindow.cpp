@@ -751,6 +751,7 @@ void LoaderWindow::sStart()
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
     }
+    XSqlQuery qry("SELECT updateCustomPrivs();");
     _text->append(tr("<p>Completed importing new Custom Commands.</p>"));
   }
   if (DEBUG)
