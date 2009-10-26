@@ -3,7 +3,6 @@ BEGIN;
 -- Drop columns in tax table
 
 ALTER TABLE tax DROP COLUMN tax_ratea CASCADE;
-ALTER TABLE tax DROP COLUMN tax_sales_accnt_id CASCADE;
 ALTER TABLE tax DROP COLUMN tax_freight CASCADE;
 ALTER TABLE tax DROP COLUMN tax_cumulative CASCADE;
 ALTER TABLE tax DROP COLUMN tax_rateb CASCADE;
