@@ -1,0 +1,3 @@
+
+DROP FUNCTION postcccredit(INTEGER);
+

@@ -1,0 +1,6 @@
+BEGIN;
+
+ALTER TABLE cmd ADD COLUMN cmd_name TEXT;
+
+COMMIT;
+

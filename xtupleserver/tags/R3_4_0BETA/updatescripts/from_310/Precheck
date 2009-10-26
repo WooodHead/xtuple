@@ -1,0 +1,4 @@
+-- Ensure all comments have valid comment types
+SELECT COUNT(*) = 0
+FROM comment
+WHERE comment_cmnttype_id NOT IN (SELECT cmnttype_id FROM cmnttype);
