@@ -101,6 +101,7 @@
 :Item.qt_tabwidget_stackedwidget_QStackedWidget	{container=':xTuple ERP:*.Item_QWorkspaceChild' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
 :Item.qt_tabwidget_tabbar_QTabBar	{container=':xTuple ERP:*.Item_QWorkspaceChild' name='qt_tabwidget_tabbar' type='QTabBar' visible='1'}
 :Level.Multiple Level Explosion_QRadioButton	{container=':Explode Work Order.Level_QGroupBox' name='_multipleLevel' text='Multiple Level Explosion' type='QRadioButton' visible='1'}
+:List Item Sites.Active_QCheckBox	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='_active' text='Active' type='QCheckBox' visible='1'}
 :List Item Sites.Cancel_QPushButton	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='_close' text='Cancel' type='QPushButton' visible='1'}
 :List Item Sites.Close_QPushButton	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Item Sites.Control_QGroupBox	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='_reporting' title='Control' type='QGroupBox' visible='1'}
@@ -108,6 +109,7 @@
 :List Item Sites.List Item Sites_itemSites	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='itemSites' type='itemSites' visible='1' windowTitle='List Item Sites'}
 :List Item Sites.OK_QPushButton	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' text='OK' type='QPushButton' unnamed='1' visible='1'}
 :List Item Sites.Save_QPushButton	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
+:List Item Sites.Show Inactive Item Sites_QCheckBox	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='_showInactive' text='Show Inactive Item Sites' type='QCheckBox' visible='1'}
 :List Item Sites.Site:  _QLabel	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='_warehouseLit' text='Site:  ' type='QLabel' visible='1'}
 :List Item Sites.Sold from this Site_QGroupBox	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='_sold' title='Sold from this Site' type='QGroupBox' visible='1'}
 :List Item Sites.Supply Rules_QGroupBox	{container=':xTuple ERP:*.List Item Sites_QWorkspaceChild' name='_supply' title='Supply Rules' type='QGroupBox' visible='1'}
@@ -367,6 +369,7 @@
 :_explosionGroup.Multiple Level Explosion_QRadioButton	{container=':List Planner Codes._explosionGroup_QGroupBox' name='_multipleLevel' text='Multiple Level Explosion' type='QRadioButton' visible='1'}
 :_frame.Copy_QPushButton	{container=':List Item Sites._frame_QFrame' name='_copy' text='Copy' type='QPushButton' visible='1'}
 :_frame.Delete_QPushButton	{container=':List Open Transfer Orders._frame_QFrame' name='_delete' text='Delete' type='QPushButton' visible='1'}
+:_frame.Edit_QPushButton	{container=':List Item Sites._frame_QFrame' name='_edit' text='Edit' type='QPushButton' visible='1'}
 :_frame.Item Sites:_QLabel	{container=':List Item Sites._frame_QFrame' name='_itemSitesLit' text='Item Sites:' type='QLabel' visible='1'}
 :_frame.New_QPushButton	{container=':View Check Run._frame_QFrame' name='_newMiscCheck' text='New' type='QPushButton' visible='1'}
 :_frame.Password:_QLabel	{container=':Log In._frame_QFrame' name='_passwordLit' text='Password:' type='QLabel' visible='1'}

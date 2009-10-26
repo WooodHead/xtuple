@@ -869,17 +869,7 @@ function main()
            var Qnty, DispDate, item;
            obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
            
-           var d = new Date();
-           var CurrentYearFull = d.getFullYear();
-           var CurrentMonth = 1+d.getMonth();
-           CurrentMonth = CurrentMonth>9?CurrentMonth:("0"+CurrentMonth);
-           var CurrentDate = d.getDate();
-           var ExptdDate = CurrentDate+7;
-           ExptdDate = ExptdDate>9?ExptdDate:("0"+ExptdDate);
-           var fDate = CurrentYearFull+"-"+CurrentMonth+"-"+ExptdDate;
-           
-           obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-           if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==fDate)
+           if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(7))
                test.pass("Expected Planned Order generated");
            else 
                test.fail("Incorrect Planned Order generated");
@@ -1069,9 +1059,7 @@ function main()
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
    test.log("Item Site setup for: TBOX1");
-   waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
-   clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-
+  
    
    MRP("+99");
    
@@ -1855,7 +1843,6 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     waitForObject(":Bills of Materials.Close_QPushButton");
     clickButton(":Bills of Materials.Close_QPushButton");
 
-   ExplodeTopWO();
    ImplodeTopWO();
    ExplodeTopWO();
    RescheduleWO("+10","+10");
@@ -2432,14 +2419,6 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     clickButton(":_itemGroup...._QPushButton_5");
     waitForObject(":_item_XTreeWidget_5");
     doubleClickItem(":_item_XTreeWidget_5", "TSUB1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":frame_2._bomitem_XTreeWidget");
-    clickItem(":frame_2._bomitem_XTreeWidget", "TBOX1", 0, 0, 1, Qt.LeftButton);
-    waitForObject(":frame_2.Expire_QPushButton");
-    clickButton(":frame_2.Expire_QPushButton");
-    waitForObject(":frame_2._bomitem_XTreeWidget");
-    clickItem(":frame_2._bomitem_XTreeWidget", "TINSERT1", 0, 0, 1, Qt.LeftButton);
-    waitForObject(":frame_2.Expire_QPushButton");
-    clickButton(":frame_2.Expire_QPushButton");
     waitForObject(":frame_2.New_QPushButton");
     clickButton(":frame_2.New_QPushButton");
     waitForObject(":Bill of Materials...._QPushButton");
@@ -2470,8 +2449,8 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     
     waitForObject(":frame.New_QPushButton");
     clickButton(":frame.New_QPushButton");
-    waitForObject(":_headerPage...._QPushButton");
-    clickButton(":_headerPage...._QPushButton");
+    waitForObject(":_headerPage...._QPushButton_2");
+    clickButton(":_headerPage...._QPushButton_2");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 0, 0, 0, Qt.LeftButton);
     waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
