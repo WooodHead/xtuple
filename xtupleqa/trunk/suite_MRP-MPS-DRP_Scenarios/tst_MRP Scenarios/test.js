@@ -1069,6 +1069,9 @@ function main()
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
    test.log("Item Site setup for: TBOX1");
+   waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
+   clickButton(":Planned Orders by Planner Code.Close_QPushButton");
+
    
    MRP("+99");
    
@@ -2709,6 +2712,55 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
 
+   
+       //------Restore the BOM of TSUB1--------
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products");
+    activateItem(":xTuple ERP:*_QMenuBar", "Products");
+    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
+    activateItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
+    waitForObjectItem(":xTuple ERP:*.Bill Of Materials_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Bill Of Materials_QMenu", "List...");
+    
+    waitForObject(":Bills of Materials._bom_XTreeWidget");
+    doubleClickItem(":Bills of Materials._bom_XTreeWidget", "TSUB1", 0, 0, 0, Qt.LeftButton);
+    waitForObjectItem(":frame_2._bomitem_XTreeWidget", "TSUB2");
+    clickItem(":frame_2._bomitem_XTreeWidget", "TSUB2", 0, 0, 1, Qt.LeftButton);
+    waitForObject(":frame_2.Expire_QPushButton");
+    clickButton(":frame_2.Expire_QPushButton");
+    waitForObject(":_itemGroup.Show Expired Components_QCheckBox");
+    clickButton(":_itemGroup.Show Expired Components_QCheckBox");
+    waitForObject(":frame_2._bomitem_XTreeWidget");
+    doubleClickItem(":frame_2._bomitem_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Effectivity.XDateEdit_XDateEdit");
+    findObject(":Effectivity.XDateEdit_XDateEdit").clear();
+    waitForObject(":Effectivity.XDateEdit_XDateEdit");
+    type(":Effectivity.XDateEdit_XDateEdit", "-1");
+    waitForObject(":Effectivity.XDateEdit_XDateEdit_2");
+    type(":Effectivity.XDateEdit_XDateEdit_2", "Never");
+    type(":Effectivity.XDateEdit_XDateEdit_2", "<Tab>");
+    waitForObject(":Bill of Materials.Save_QPushButton");
+    clickButton(":Bill of Materials.Save_QPushButton");
+    waitForObject(":frame_2._bomitem_XTreeWidget");
+    doubleClickItem(":frame_2._bomitem_XTreeWidget", "TINSERT1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Effectivity.XDateEdit_XDateEdit");
+    findObject(":Effectivity.XDateEdit_XDateEdit").clear();
+    waitForObject(":Effectivity.XDateEdit_XDateEdit");
+    type(":Effectivity.XDateEdit_XDateEdit", "-1");
+    waitForObject(":Effectivity.XDateEdit_XDateEdit_2");
+    type(":Effectivity.XDateEdit_XDateEdit_2", "Never");
+    waitForObject(":Effectivity.XDateEdit_XDateEdit_2");
+    type(":Effectivity.XDateEdit_XDateEdit_2", "<Tab>");
+    waitForObject(":Bill of Materials.Save_QPushButton");
+    clickButton(":Bill of Materials.Save_QPushButton");
+    waitForObject(":Bill of Materials.Save_QPushButton_2");
+    clickButton(":Bill of Materials.Save_QPushButton_2");
+    
+    waitForObject(":Bills of Materials.Close_QPushButton");
+    clickButton(":Bills of Materials.Close_QPushButton");
+    test.log("BOM of TSUB1 restored");
+
+
+   
    
 }
 
