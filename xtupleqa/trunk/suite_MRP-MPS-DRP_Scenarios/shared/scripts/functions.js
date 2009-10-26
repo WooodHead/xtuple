@@ -665,6 +665,42 @@ function NewWO(item, quant,leadd, ddate)
     test.log("new Work Order created");
 
 }
+function NewWOWh(item, quant,leadd, ddate, Wh)
+{
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Manufacture");
+    activateItem(":xTuple ERP:*_QMenuBar", "Manufacture");
+    waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Work Order");
+    activateItem(":xTuple ERP:*.Manufacture_QMenu", "Work Order");
+    waitForObjectItem(":xTuple ERP:*.Work Order_QMenu", "New...");
+    activateItem(":xTuple ERP:*.Work Order_QMenu", "New...");
+    
+    waitForObject(":_itemGroup...._QPushButton_3");
+    clickButton(":_itemGroup...._QPushButton_3");
+    waitForObject(":_itemGroup.Make Items Only_QCheckBox");
+    if(!findObject(":_itemGroup.Make Items Only_QCheckBox").checked)        
+        clickButton(":_itemGroup.Make Items Only_QCheckBox");
+    waitForObject(":_itemGroup.Buy Items Only_QCheckBox");
+    if(!findObject(":_itemGroup.Buy Items Only_QCheckBox").checked)
+        clickButton(":_itemGroup.Buy Items Only_QCheckBox");
+    waitForObject(":_item_XTreeWidget_3");
+    doubleClickItem(":_item_XTreeWidget_3", item, 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_qtyGroup._qty_XLineEdit");
+    type(":_qtyGroup._qty_XLineEdit", quant);
+    waitForObject(":_itemGroup._warehouse_WComboBox");
+    if(findObject(":_itemGroup._warehouse_WComboBox").currentText!=Wh)
+        clickItem(":_itemGroup._warehouse_WComboBox", Wh, 0, 0, 1, Qt.LeftButton);
+    waitForObject(":_schedGroup._leadTime_QSpinBox");
+    findObject(":_schedGroup._leadTime_QSpinBox").clear();
+    type(":_schedGroup._leadTime_QSpinBox", leadd);
+    waitForObject(":_schedGroup.XDateEdit_XDateEdit_2");
+    type(":_schedGroup.XDateEdit_XDateEdit_2", ddate);
+    type(":_schedGroup.XDateEdit_XDateEdit_2", "<Tab>");
+    waitForObject(":Work Order.Save_QPushButton");
+    clickButton(":Work Order.Save_QPushButton");
+    test.log("new Work Order created");
+
+}
+
 
 function DelAllWO()
 {
