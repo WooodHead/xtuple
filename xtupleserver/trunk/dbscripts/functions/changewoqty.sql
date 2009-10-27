@@ -46,14 +46,14 @@ BEGIN
            FROM metric
            WHERE (metric_name=''Routings'') ) ) THEN
 
-        UPDATE wooper
+        UPDATE xtmfg.wooper
            SET wooper_rntime = CASE WHEN ((booitem_rnqtyper = 0) OR (booitem_invproduomratio = 0)) THEN 0
                                     WHEN (NOT booitem_rnrpt) THEN 0
                                     ELSE ( ( booitem_rntime /
                                              booitem_rnqtyper /
                                              booitem_invproduomratio ) * wo_qtyord )
                                END
-          FROM booitem, wo
+          FROM xtmfg.booitem, wo
          WHERE ((wooper_wo_id=wo_id)
            AND  (wooper_booitem_id=booitem_id)
            AND  (wo_id=pWoid));
