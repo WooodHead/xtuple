@@ -20,7 +20,7 @@ BEGIN
 
   IF (_routings) THEN
     SELECT count(*) INTO _wotcCnt
-    FROM wotc
+    FROM xtmfg.wotc
     WHERE (wotc_wo_id=pWoid);
     IF (_wotcCnt > 0) THEN
       RETURN -1;
@@ -41,9 +41,9 @@ BEGIN
 
   IF _routings THEN
 
-    DELETE FROM wooper
+    DELETE FROM xtmfg.wooper
     WHERE (wooper_id IN ( SELECT wooper_id
-                          FROM wooper, wo
+                          FROM xtmfg.wooper, wo
                           WHERE ((wooper_wo_id=wo_id)
                            AND (wo_status=''E'')
                            AND (wo_id=pWoid)) ));
