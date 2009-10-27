@@ -3,7 +3,7 @@ CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, INTEGER, CH
                                           DATE, DATE,
                                           BOOL, INTEGER, BOOL, TEXT, CHAR, INTEGER,
                                           INTEGER, TEXT, TEXT, TEXT )
-                           RETURNS INTEGER AS '
+                           RETURNS INTEGER AS $$
 DECLARE
   pBomitemid ALIAS FOR $1;
   pParentItemid ALIAS FOR $2;
@@ -36,7 +36,7 @@ BEGIN
   END IF;
 
 --  Make sure that the parent is not used in the component at some level
-  IF ( SELECT (item_type IN (''M'', ''F''))
+  IF ( SELECT (item_type IN ('M', 'F'))
        FROM item
        WHERE (item_id=pComponentItemid) ) THEN
     SELECT indentedWhereUsed(pParentItemid) INTO _bomworksetid;
@@ -69,14 +69,14 @@ BEGIN
     pUomId, pQtyPer, pScrap,
     pEffective, pExpires,
     pCreateWo,
-    pBOOItemseqid, pSchedAtWooper,
+    pBOOItemseqid, COALESCE(pSchedAtWooper, FALSE),
     pECN, pSubType, CURRENT_DATE, pRevisionid,
     pCharId,pCharVal,pNotes, pRef );
 
   RETURN pBomitemid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, INTEGER, CHAR,
@@ -84,7 +84,7 @@ CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, INTEGER, CH
                                           DATE, DATE,
                                           BOOL, INTEGER, BOOL, TEXT, CHAR, INTEGER,
                                           INTEGER, TEXT )
-                           RETURNS INTEGER AS '
+                           RETURNS INTEGER AS $$
 DECLARE
   pBomitemid ALIAS FOR $1;
   pParentItemid ALIAS FOR $2;
@@ -119,7 +119,7 @@ BEGIN
   RETURN _bomitemid;
   
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
 
@@ -128,7 +128,7 @@ CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, CHAR,
                                           DATE, DATE,
                                           BOOL, INTEGER, BOOL, TEXT, CHAR(1), INTEGER,
                                           INTEGER, TEXT, TEXT, TEXT )
-                           RETURNS INTEGER AS '
+                           RETURNS INTEGER AS $$
 DECLARE
   pBomitemid ALIAS FOR $1;
   pParentItemid ALIAS FOR $2;
@@ -173,4 +173,4 @@ BEGIN
   RETURN _bomitemid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
