@@ -1453,7 +1453,7 @@ function main()
     waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
-    } catch { test.fail('exception ' + e + ' while handling ":Show Columns.Show % of Group Total_QCheckBox"'); }
+    } catch (e) { test.fail('exception ' + e + ' while handling ":Show Columns.Show % of Group Total_QCheckBox"'); }
     waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
