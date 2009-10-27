@@ -87,21 +87,21 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
 
     if (groupRE.indexIn(lines.at(i)) >= 0)
     {
-      _group = groupRE.cap(2);
+      _group = groupRE.cap(2).trimmed();
       if (DEBUG)
         qDebug("LoadMetasql::writeToDB() found group %s", qPrintable(_group));
     }
     else if (nameRE.indexIn(lines.at(i)) >= 0)
     {
-      _name = nameRE.cap(2);
+      _name = nameRE.cap(2).trimmed();
       if (DEBUG)
         qDebug("LoadMetasql::writeToDB() found name %s", qPrintable(_name));
     }
     else if (notesRE.indexIn(lines.at(i)) >= 0)
     {
-      _comment = notesRE.cap(2);
+      _comment = notesRE.cap(2).trimmed();
       while (dashdashRE.indexIn(lines.at(++i)) >= 0)
-        _comment += " " + dashdashRE.cap(2);
+        _comment += " " + dashdashRE.cap(2).trimmed();
       if (DEBUG)
         qDebug("LoadMetasql::writeToDB() found notes %s", qPrintable(_comment));
     }
