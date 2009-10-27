@@ -204,7 +204,7 @@ function main()
             test.pass("Purhcase order created successfully for a serial controlled item");
         else test.fail("Purchase order couldn't be created for a serial controlled item");
         
-        //----- Creating a Purchase Order for Lot Controlled Item Type-----
+        //----- Creating a Purchase Order for MLC Controlled Item Type-----
         waitForObject(":List Unposted Purchase Orders.New_QPushButton");
         clickButton(":List Unposted Purchase Orders.New_QPushButton");
         waitForObject(":_headerPage...._QPushButton");
