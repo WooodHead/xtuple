@@ -55,10 +55,35 @@ function loginAppl(userrole)
     waitForObject(":_password_QLineEdit");
     type(":_password_QLineEdit", "<Return>");
     test.log("Logged in Application");
-    waitForObject(":xTuple ERP: OpenMFG Edition_QWorkspace");
+    
+    // handle the app waiting for user to ack "The Translation Dictionaries [ are missing ]"
+    try {
+        waitForObject(":xTuple ERP: OpenMFG Edition_QWorkspace");
+    } catch (e) {
+        try {
+            waitForObject(":OK_QPushButton");
+            clickButton(":OK_QPushButton");
+            waitForObject(":xTuple ERP: OpenMFG Edition_QWorkspace");
+        } catch (f) { throw e; } // if not a simple dialog, throw the original exception
+    }
 }
 
+function findApplicationEdition()
+{
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+    snooze(0.1);
+    waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu");
+    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+    waitForObject(":Database Information.*_QLabel");
+    var appEdition = findObject(":Database Information.*_QLabel").text;
+    clickButton(":Database Information.Save_QPushButton");
+    //appEdition="Manufacturing";
 
+    return appEdition;
+}
 
 
 //-----------Assign All Privileges to the Admin User-----------------------
@@ -575,6 +600,7 @@ function defineTaxation()
     
     
     //-------verify saved Tax Code-----
+    try {
     waitForObject(":List Tax Codes._tax_XTreeWidget");
     doubleClickItem(":List Tax Codes._tax_XTreeWidget","TAXAUTH1-GM",0,0,0,Qt.LeftButton);
     waitForObject(":Tax Code._main_XLineEdit");
@@ -589,10 +615,9 @@ function defineTaxation()
     clickButton(":Tax Code Rate.Save_QPushButton");
     waitForObject(":Tax Code.Save_QPushButton");
     clickButton(":Tax Code.Save_QPushButton");
-    
     if(!clickItem(":List Tax Codes._tax_XTreeWidget", "TAXAUTH1-GM", 5, 5, 1, Qt.LeftButton))
          test.pass("Tax Code created:TAXAUTH1-GM");
-    
+    } catch (e) { test.fail("caught exception " + e + " looking for tax code TAXAUTH1-GM"); }
     
     waitForObject(":List Tax Codes.New_QPushButton");
     clickButton(":List Tax Codes.New_QPushButton");
@@ -612,6 +637,7 @@ function defineTaxation()
     clickButton(":Tax Code.Save_QPushButton");
         
     //-------verify saved Tax Code-----
+    try {
     waitForObject(":List Tax Codes._tax_XTreeWidget");
     doubleClickItem(":List Tax Codes._tax_XTreeWidget","TAXAUTH1-EDU",0,0,0,Qt.LeftButton);
     waitForObject(":Tax Code._main_XLineEdit");    
@@ -626,9 +652,9 @@ function defineTaxation()
     clickButton(":Tax Code Rate.Save_QPushButton");
     waitForObject(":Tax Code.Save_QPushButton");
     clickButton(":Tax Code.Save_QPushButton");
-
     if(!clickItem(":List Tax Codes._tax_XTreeWidget", "TAXAUTH1-EDU", 5, 5, 1, Qt.LeftButton))
          test.pass("Tax Code created:TAXAUTH1-EDU");
+    } catch (e) { test.fail("caught exception " + e + " looking for tax code TAXAUTH1-EDU"); }
     
     waitForObject(":List Tax Codes.Close_QPushButton");
     clickButton(":List Tax Codes.Close_QPushButton");

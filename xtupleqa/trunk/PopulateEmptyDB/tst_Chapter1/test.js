@@ -12,20 +12,7 @@ function main()
         
     //---login Application--------
     loginAppl("CONFIGURE"); 
-
-    //---find Application Edition------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
-    waitForObject(":Database Information.*_QLabel");
-    var appEdition = findObject(":Database Information.*_QLabel").text;
-    clickButton(":Database Information.Save_QPushButton");
-    
-    ///////----waiting on issue #9841
-    appEdition="Manufacturing";
+    var appEdition = findApplicationEdition();
 
     //-----create Entities-------
     createDept("MFG","Manufacturing");
@@ -303,6 +290,7 @@ function main()
     type(":List Currencies._currAbbr_QLineEdit", "EUR");
     waitForObject(":List Currencies.Save_QPushButton");
     clickButton(":List Currencies.Save_QPushButton"); 
+    try {
      waitForObject(":List Currencies._curr_XTreeWidget");
     if(!clickItem(":List Currencies._curr_XTreeWidget", "USD",5,5,1,Qt.LeftButton))
         test.pass("Currency: USD created");
@@ -311,6 +299,8 @@ function main()
     if(!clickItem(":List Currencies._curr_XTreeWidget", "EUR", 5, 5, 1, Qt.LeftButton))
         test.pass("Currency: EUR created");
     else test.fail("Currency: EUR not created");
+}
+    catch (e) { test.fail("Could not verify creation of USD and EUR currencies because of exception: " + e); }
     waitForObject(":List Currencies.Close_QPushButton");
     clickButton(":List Currencies.Close_QPushButton");
    
@@ -752,13 +742,17 @@ function main()
     {
         test.xverify(object.exists(":Manufacture Configuration.Auto Fill Post Operation Qty. to Balance_QCheckBox"),"Auto fill Post Operation - not visible");
     }
+    try {
     if(!findObject(":Manufacture Configuration.Post Work Order Changes to the Change Log_QCheckBox").checked)
         clickButton(":Manufacture Configuration.Post Work Order Changes to the Change Log_QCheckBox");    if(!findObject(":Explode W/O's Effective as of:.W/O Start Date_QRadioButton").checked)
         clickButton(":Explode W/O's Effective as of:.W/O Start Date_QRadioButton");
     if(!findObject(":Default W/O Explosion Level:.Multiple Level_QRadioButton_2").checked)
         clickButton(":Default W/O Explosion Level:.Multiple Level_QRadioButton_2");
+    } catch (e) { test.fail("exception " + e + " handling :Default W/O Explosion Level:.Multiple Level_QRadioButton"); }
+    try {
     if(!findObject(":Inventory Item Cost Defaults.Post Material Usage Variances_QCheckBox").checked)
         clickButton(":Inventory Item Cost Defaults.Post Material Usage Variances_QCheckBox");
+    } catch (e) { test.fail("exception " +  e + " handling :Inventory Item Cost Defaults.Post Material Usage Variances_QCheckBox"); }
     if(appEdition=="Manufacturing")
     {
         if(!findObject(":Inventory Item Cost Defaults.Post Labor Variances_QCheckBox").checked)

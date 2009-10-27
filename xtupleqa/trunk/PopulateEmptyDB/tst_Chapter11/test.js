@@ -5,7 +5,7 @@ function main()
 
      //---login Application--------
      loginAppl("RUNREGISTER");       
-    
+    var appEdition = findApplicationEdition();
   
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -1444,12 +1444,16 @@ function main()
     type(":Select one Account._main_XLineEdit", "01-01-4000-01");
     clickButton(":Operation.Add to Group Total_QRadioButton_2");
     clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
+    try {
     waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
     if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
         clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+    } catch (e) { test.fail('exception ' + e + ' while handling ":Show Columns.Show Beginning Balance_QCheckBox"'); }
+    try {
     waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+    } catch { test.fail('exception ' + e + ' while handling ":Show Columns.Show % of Group Total_QCheckBox"'); }
     waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
     if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
         clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
