@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION changeWoDates(INTEGER, DATE, DATE, BOOL) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION changeWoDates(INTEGER, DATE, DATE, BOOL) RETURNS INTEGER AS $$
 DECLARE 
   pWoid ALIAS FOR $1;
   pStartDate ALIAS FOR $2;
@@ -13,22 +13,22 @@ BEGIN
   FROM wo
   WHERE (wo_id=pWoid);
 
-  IF (_p.wo_status = ''C'') THEN 
+  IF (_p.wo_status = 'C') THEN 
     returnCode := 0;
 
-  ELSIF (_p.wo_status IN (''R'',''I'')) THEN
+  ELSIF (_p.wo_status IN ('R','I')) THEN
     INSERT INTO evntlog (evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
                          evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number,
                          evntlog_olddate, evntlog_newdate)
     SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
-           ''W'', wo_id, itemsite_warehous_id, formatWoNumber(wo_id),
+           'W', wo_id, itemsite_warehous_id, formatWoNumber(wo_id),
            wo_duedate, pDueDate
     FROM evntnot, evnttype, itemsite, item, wo
     WHERE ( (evntnot_evnttype_id=evnttype_id)
      AND (evntnot_warehous_id=itemsite_warehous_id)
      AND (wo_itemsite_id=itemsite_id)
      AND (itemsite_item_id=item_id)
-     AND (evnttype_name=''RWoDueDateRequestChange'')
+     AND (evnttype_name='RWoDueDateRequestChange')
      AND (wo_id=pWoid) );
 
      returnCode := 0;
@@ -36,12 +36,12 @@ BEGIN
   END IF;
   
 --  Reschedule operations if routings enabled
-  IF ( ( SELECT (metric_value=''t'')
+  IF ( ( SELECT (metric_value='t')
          FROM metric
-         WHERE (metric_name=''Routings'') ) ) THEN
+         WHERE (metric_name='Routings') ) ) THEN
 
 --    Reschedule wooper
-    UPDATE wooper
+    UPDATE xtmfg.wooper
     SET wooper_scheduled = (wooper_scheduled::DATE + (pStartDate - wo_startdate))
     FROM wo
     WHERE ( (wooper_wo_id=wo_id)
@@ -51,7 +51,7 @@ BEGIN
 --    and is set to be scheduled with the wooper in question
     UPDATE womatl
     SET womatl_duedate=wooper_scheduled
-    FROM wooper
+    FROM xtmfg.wooper
     WHERE ( (womatl_schedatwooper)
      AND (womatl_wooper_id=wooper_id)
      AND (womatl_wo_id=pWoid) );
@@ -74,7 +74,7 @@ BEGIN
     SELECT MAX(changeWoDates(wo_id, (pStartDate - itemsite_leadtime), pStartDate, TRUE)) INTO returnCode
     FROM wo, itemsite
     WHERE ( (wo_itemsite_id=itemsite_id)
-     AND (wo_ordtype=''W'')
+     AND (wo_ordtype='W')
      AND (wo_ordid=pWoid) );
   END IF;
 
@@ -85,4 +85,4 @@ BEGIN
   RETURN returnCode;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
