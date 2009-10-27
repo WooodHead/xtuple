@@ -21,6 +21,7 @@ function main()
     
     waitForObject(":Database Information.*_QLabel");
     var appEdition = findObject(":Database Information.*_QLabel").text;
+    
     waitForObject(":Database Information.Save_QPushButton");
     clickButton(":Database Information.Save_QPushButton");
     
@@ -103,8 +104,8 @@ function main()
     
     waitForObject(":frame.New_QPushButton_2");
     clickButton(":frame.New_QPushButton_2");
-    waitForObject(":_headerPage...._QPushButton_4");
-    clickButton(":_headerPage...._QPushButton_4");
+    waitForObject(":_headerPage...._QPushButton_5");
+    clickButton(":_headerPage...._QPushButton_5");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 0, Qt.LeftButton);
     
@@ -157,6 +158,7 @@ function main()
     
     waitForObject(":Database Information.*_QLabel");
     var appEdition = findObject(":Database Information.*_QLabel").text;
+    
     waitForObject(":Database Information.Save_QPushButton");
     clickButton(":Database Information.Save_QPushButton");
     
@@ -648,12 +650,7 @@ function main()
         
         waitForObject(":Enter Order Receipts.Post_QPushButton");
         clickButton(":Enter Order Receipts.Post_QPushButton");
-        waitForObject(":Distribute Stock To/From Site Locations._itemloc_XTreeWidget");
-        doubleClick(":Distribute Stock To/From Site Locations._itemloc_XTreeWidget", 5, 5, 0, Qt.LeftButton);
-        waitForObject(":Distribute to Location.Distribute_QPushButton");
-        clickButton(":Distribute to Location.Distribute_QPushButton");
-        waitForObject(":Distribute Stock To/From Site Locations.Post_QPushButton");
-        clickButton(":Distribute Stock To/From Site Locations.Post_QPushButton");
+
         waitForObject(":*.Close_QPushButton");
         clickButton(":*.Close_QPushButton");
         
@@ -1058,6 +1055,7 @@ function main()
     
     waitForObject(":Database Information.*_QLabel");
     var appEdition = findObject(":Database Information.*_QLabel").text;
+     
     waitForObject(":Database Information.Save_QPushButton");
     clickButton(":Database Information.Save_QPushButton");
     
@@ -1294,7 +1292,7 @@ function main()
     clickButton(":Post Production...._QPushButton");
     
     
-    if(appEdition=="Manufacturing")
+    if(appEdition== "Manufacturing")
     { 
         
         waitForObject(":Work Orders._wo_XTreeWidget");
@@ -1322,7 +1320,7 @@ function main()
             woquantity = findObject(":_qtyGroup.100.00_XLabel").text;
             
             type(":_qty_XLineEdit",woquantity);
-            waitForObject(":_optionsGroup.Close W/O after Posting_XCheckBox");
+            if(!findObject(":_optionsGroup.Close W/O after Posting_XCheckBox").checked)
             clickButton(":_optionsGroup.Close W/O after Posting_XCheckBox");
             
             waitForObject(":Post Production.Post_QPushButton");
