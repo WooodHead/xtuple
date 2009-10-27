@@ -24,7 +24,8 @@ function main()
     var appEdition = findObject(":Database Information.*_QLabel").text;
     clickButton(":Database Information.Save_QPushButton");
     
-
+    ///////----waiting on issue #9841
+    appEdition="Manufacturing";
 
     //-----create Entities-------
     createDept("MFG","Manufacturing");
@@ -535,7 +536,7 @@ function main()
     }
     clickButton(":Database Information.Save_QPushButton");
     test.log("Database Information Defined");
-    
+//    
     
     if(appEdition=="Manufacturing" || appEdition=="Standard")
     {
@@ -545,7 +546,7 @@ function main()
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
       
-      //----Configure EDI Profile-----------
+        //----Configure EDI Profile-----------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
@@ -637,7 +638,7 @@ function main()
         waitForObject(":List EDI Profiles._file_QLineEdit");
         type(":List EDI Profiles._file_QLineEdit", " PO</docnumber>_</poshipvia>");
         waitForObject(":List EDI Profiles._query_QTextEdit");
-        type(":List EDI Profiles._query_QTextEdit", "SELECT pohead_orderdate AS podate, pohead_shipvia AS poshipvia, warehous_descrip AS powarehous, vend_name AS povendor FROM pohead, warehous, vendinfo WHERE pohead_id = <? value(“docid”) ?> AND pohead_warehous_id = warehous_id AND pohead_vend_id = vend_id; ");
+        type(":List EDI Profiles._query_QTextEdit", "SELECT pohead_orderdate AS podate, pohead_shipvia AS poshipvia, warehous_descrip AS powarehous, vend_name AS povendor FROM pohead, warehous, vendinfo WHERE pohead_id = <? value('docid') ?> AND pohead_warehous_id = warehous_id AND pohead_vend_id = vend_id; ");
         waitForObject(":_reportReport_XComboBox");
         clickItem(":_reportReport_XComboBox", "PurchaseOrder", 0, 0, 1, Qt.LeftButton);
         waitForObject(":List EDI Profiles.OK_QPushButton");
@@ -740,38 +741,39 @@ function main()
     if(findObject(":Manufacture Configuration.Next Work Order #:_QLabel").currentText!="Automatic")
         type(":Manufacture Configuration.Next Work Order #:_QLabel","Automatic");
     if(!findObject(":Manufacture Configuration.Automatically Explode W/O's_QCheckBox").checked)
-        findObject(":Manufacture Configuration.Automatically Explode W/O's_QCheckBox").checked=true;
+        clickButton(":Manufacture Configuration.Automatically Explode W/O's_QCheckBox");
     if(appEdition=="Manufacturing")
     {
-        if(!findObject(":Manufacture Configuration.Auto fill Post Operation Qty. to Balance_QCheckBox").checked)
-            findObject(":Manufacture Configuration.Auto fill Post Operation Qty. to Balance_QCheckBox").checked=true;
+        if(!findObject(":Manufacture Configuration.Auto Fill Post Operation Qty. to Balance_QCheckBox").checked)
+            clickButton(":Manufacture Configuration.Auto Fill Post Operation Qty. to Balance_QCheckBox");
+  
     }
     else if(appEdition=="Standard"||appEdition=="PostBooks")
     {
-        test.xverify(object.exists(":Manufacture Configuration.Auto fill Post Operation Qty. to Balance_QCheckBox"),"Auto fill Post Operation - not visible");
+        test.xverify(object.exists(":Manufacture Configuration.Auto Fill Post Operation Qty. to Balance_QCheckBox"),"Auto fill Post Operation - not visible");
     }
     if(!findObject(":Manufacture Configuration.Post Work Order Changes to the Change Log_QCheckBox").checked)
-        findObject(":Manufacture Configuration.Post Work Order Changes to the Change Log_QCheckBox").checked=true;     if(!findObject(":Explode W/O's Effective as of:.W/O Start Date_QRadioButton").checked)
-        findObject(":Explode W/O's Effective as of:.W/O Start Date_QRadioButton").checked=true;
-    if(!findObject(":Default W/O Explosion Level:.Multiple Level_QRadioButton").checked)
-        findObject(":Default W/O Explosion Level:.Multiple Level_QRadioButton").checked=true;
+        clickButton(":Manufacture Configuration.Post Work Order Changes to the Change Log_QCheckBox");    if(!findObject(":Explode W/O's Effective as of:.W/O Start Date_QRadioButton").checked)
+        clickButton(":Explode W/O's Effective as of:.W/O Start Date_QRadioButton");
+    if(!findObject(":Default W/O Explosion Level:.Multiple Level_QRadioButton_2").checked)
+        clickButton(":Default W/O Explosion Level:.Multiple Level_QRadioButton_2");
     if(!findObject(":Inventory Item Cost Defaults.Post Material Usage Variances_QCheckBox").checked)
-        findObject(":Inventory Item Cost Defaults.Post Material Usage Variances_QCheckBox").checked=true;
+        clickButton(":Inventory Item Cost Defaults.Post Material Usage Variances_QCheckBox");
     if(appEdition=="Manufacturing")
     {
         if(!findObject(":Inventory Item Cost Defaults.Post Labor Variances_QCheckBox").checked)
-            findObject(":Inventory Item Cost Defaults.Post Labor Variances_QCheckBox").checked=true;
+            clickButton(":Inventory Item Cost Defaults.Post Labor Variances_QCheckBox");
     }
     else if(appEdition=="Standard"||appEdition=="PostBooks")
     {
         test.xverify(object.exists(":Inventory Item Cost Defaults.Post Labor Variances_QCheckBox"),"Post Labor Variances - not visible");
     }
     if(!findObject(":W/O Item Cost Recognition Defaults.Proportional_QRadioButton").checked)
-        findObject(":W/O Item Cost Recognition Defaults.Proportional_QRadioButton").checked=true;
+        clickButton(":W/O Item Cost Recognition Defaults.Proportional_QRadioButton");
     if(appEdition=="Manufacturing")
     {
         if(!findObject(":Shop Floor Workbench Posts:.Operations_QRadioButton").checked)
-            findObject(":Shop Floor Workbench Posts:.Operations_QRadioButton").checked=true;
+            clickButton(":Shop Floor Workbench Posts:.Operations_QRadioButton");
     }
     else if(appEdition=="Standard"||appEdition=="PostBooks")
     {
@@ -797,7 +799,7 @@ function main()
     type(":CRM Configuration._nextInNumber_XLineEdit", "<Del>");
     type(":CRM Configuration._nextInNumber_XLineEdit", "10000");
     if(!findObject(":CRM Configuration.Use Projects_QCheckBox").checked)
-        findObject(":CRM Configuration.Use Projects_QCheckBox").checked=true;
+        clickButton(":CRM Configuration.Use Projects_QCheckBox");
     waitForObject(":CRM Configuration.Save_QPushButton");
     clickButton(":CRM Configuration.Save_QPushButton");
     test.log("CRM Module configured");  
@@ -860,7 +862,7 @@ function main()
         type(":Schedule Configuration._nextPlanNumber_XLineEdit", "90000");
         clickItem(":Schedule Configuration._calendar_CalendarComboBox", "8WRELDAYFW", 0, 0, 1, Qt.LeftButton);
         if(!findObject(":Schedule Configuration.Enable Constraint Management_QCheckBox").checked)
-            findObject(":Schedule Configuration.Enable Constraint Management_QCheckBox").checked=true;
+            clickButton(":Schedule Configuration.Enable Constraint Management_QCheckBox");
         waitForObject(":Schedule Configuration.Save_QPushButton");
         clickButton(":Schedule Configuration.Save_QPushButton");
         test.log("Schedule Module Configured")
@@ -999,24 +1001,24 @@ function main()
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar", "Site Locations");
         waitForObject(":_locationsTab.Enforce ARBL Naming Convention_QGroupBox");    
         type(":_locationsTab.Enforce ARBL Naming Convention_QGroupBox","Space>");
-        findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox").checked=true;
+        clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox");
         type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "<Ctrl+A>");
         type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "<Del>");
         type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "2");
-        findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox").checked=true;
+        clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox");
         type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "<Ctrl+A>");
         type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "<Del>");
         type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "2");
-        findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_2").checked=true;
+        clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_2");
+
         type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "<Ctrl+A>");
         type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "<Del>");
         type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "2");
-        findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_3").checked=true;
+        clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_3");
         type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "<Ctrl+A>");
         type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "<Del>");
         type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "2");
-
-        findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_4").checked=true;
+        clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_4");
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar", "Site Zones");
         snooze(1);
         clickButton(":_zonesTab.New_QPushButton");
@@ -1158,23 +1160,23 @@ function main()
         
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar", "Site Locations");
         waitForObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox");
-        findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox").checked=true;
+        clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox");
         type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "<Ctrl+A>");
         type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "<Del>");
         type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "2");
-        findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox").checked=true;
+        clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox");
         type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "<Ctrl+A>");
         type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "<Del>");
         type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "2");
-        findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_2").checked=true;
+        clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_2");
         type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "<Del>");
         type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "2");
         type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "<Tab>");
-        findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_3").checked=true;
+        clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_3");
         type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "<Del>");
         type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "2");
         type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "<Tab>");
-        findObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_4").checked=true;
+        clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_4");
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar", "Site Zones");
         
         snooze(1);
@@ -1214,13 +1216,13 @@ function main()
     type(":_eventFence_QSpinBox", "<Del>");
     type(":_eventFence_QSpinBox", "30");
     if(!findObject(":_inventory.Post Item Site Changes to the Change Log_QCheckBox").checked)
-        findObject(":_inventory.Post Item Site Changes to the Change Log_QCheckBox").checked=true;
+        clickButton(":_inventory.Post Item Site Changes to the Change Log_QCheckBox");
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         if(!findObject(":Multiple Sites.Enable Shipping Interface from Transfer Order screen_QCheckBox").checked)
-            findObject(":Multiple Sites.Enable Shipping Interface from Transfer Order screen_QCheckBox").checked=true;
+            clickButton(":Multiple Sites.Enable Shipping Interface from Transfer Order screen_QCheckBox");
         if(!findObject(":Multiple Sites.Post Transfer Order Changes to the Change Log_QCheckBox").checked)
-            findObject(":Multiple Sites.Post Transfer Order Changes to the Change Log_QCheckBox").checked=true;
+            clickButton(":Multiple Sites.Post Transfer Order Changes to the Change Log_QCheckBox");
         while(findObject(":_toNumGeneration_QComboBox").currentText!="Automatic")
             type(":_toNumGeneration_QComboBox","<Down>");
         waitForObject(":_toNextNum_XLineEdit");
@@ -1230,7 +1232,7 @@ function main()
         waitForObject(":_toNextNum_XLineEdit");
         type(":_toNextNum_XLineEdit", "90000");
         if(!findObject(":_inventory.Enable Lot/Serial Control_QCheckBox").checked)
-            findObject(":_inventory.Enable Lot/Serial Control_QCheckBox").checked=true;
+            clickButton(":_inventory.Enable Lot/Serial Control_QCheckBox");
     }
     else if(appEdition=="PostBooks")
     {
@@ -1242,11 +1244,11 @@ function main()
 
     }
     if(!findObject(":Costing Methods Allowed.Average_QCheckBox").checked)
-        findObject(":Costing Methods Allowed.Average_QCheckBox").checked=true;
+        clickButton(":Costing Methods Allowed.Average_QCheckBox");
     if(!findObject(":When Count Tag Qty. exceeds Slip Qty..Do Not Post Count Tag_QRadioButton").checked)
-        findObject(":When Count Tag Qty. exceeds Slip Qty..Do Not Post Count Tag_QRadioButton").checked=true;
+        clickButton(":When Count Tag Qty. exceeds Slip Qty..Do Not Post Count Tag_QRadioButton");
     if(!findObject(":Count Slip # Auditing.Disallow All Slip # Duplications_QRadioButton").checked)
-        findObject(":Count Slip # Auditing.Disallow All Slip # Duplications_QRadioButton").checked=true;
+        clickButton(":Count Slip # Auditing.Disallow All Slip # Duplications_QRadioButton");
     waitForObject(":Inventory Configuration.Save_QPushButton");
     clickButton(":Inventory Configuration.Save_QPushButton");
     test.log("Inventory Module Configured");
@@ -1288,7 +1290,7 @@ var username;
             
   waitForObject(":Interface Options.Show windows as free-floating_QRadioButton");
   if(!findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked)
-  findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked=true;
+      clickButton(":Interface Options.Show windows as free-floating_QRadioButton");
   type(":_idleTimeout_QSpinBox", "<Ctrl+A>");
   type(":_idleTimeout_QSpinBox", "<Del>");
   type(":_idleTimeout_QSpinBox", "20");

@@ -1,4 +1,4 @@
-  function main()
+function main()
 {
 
     source(findFile("scripts","functions.js"));

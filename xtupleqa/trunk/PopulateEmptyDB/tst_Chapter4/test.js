@@ -18,6 +18,7 @@ function main()
      waitForObject(":Database Information.*_QLabel");
      var appEdition = findObject(":Database Information.*_QLabel").text;
      clickButton(":Database Information.Save_QPushButton");
+     appEdition="Manufacturing";
   
     if(appEdition=="Manufacturing")
     {
@@ -30,35 +31,35 @@ function main()
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
         activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
         
-        waitForObject(":List Standard Labor Rates.New_QPushButton_2");
-        clickButton(":List Standard Labor Rates.New_QPushButton_2");
-        waitForObject(":_code_XLineEdit_7");
-        type(":_code_XLineEdit_7", "Assembly");
-        waitForObject(":_description_XLineEdit_17");
-        type(":_description_XLineEdit_17", "Assembly Rate");
-        type(":_rate_XLineEdit_2", "12.00");
-        waitForObject(":Standard Labor Rate.Save_QPushButton");
-        clickButton(":Standard Labor Rate.Save_QPushButton");
-        waitForObject(":_lbrrate_XTreeWidget");
-        if(!clickItem(":_lbrrate_XTreeWidget", "Assembly", 5, 5, 1, Qt.LeftButton))
+        waitForObject(":List Standard Labor Rates.New_QPushButton_3");
+        clickButton(":List Standard Labor Rates.New_QPushButton_3");
+        waitForObject(":_code_XLineEdit_17");
+        type(":_code_XLineEdit_17", "Assembly");
+        waitForObject(":_description_XLineEdit_41");
+        type(":_description_XLineEdit_41", "Assembly Rate");
+        type(":_rate_XLineEdit_3", "12.00");
+        waitForObject(":Standard Labor Rate.Save_QPushButton_2");
+        clickButton(":Standard Labor Rate.Save_QPushButton_2");
+        waitForObject(":_lbrrate_XTreeWidget_2");
+        if(!clickItem(":_lbrrate_XTreeWidget_2", "Assembly", 5, 5, 1, Qt.LeftButton))
             test.pass("Standard Labor Rate created: Assembly");
         
-        waitForObject(":List Standard Labor Rates.New_QPushButton_2");
-        clickButton(":List Standard Labor Rates.New_QPushButton_2");
-        waitForObject(":_code_XLineEdit_7");
-        type(":_code_XLineEdit_7", "SETUP");
-        waitForObject(":_description_XLineEdit_17");
-        type(":_description_XLineEdit_17", "Setup Rate");
-        type(":_rate_XLineEdit_2", "15.00");
-        waitForObject(":Standard Labor Rate.Save_QPushButton");
-        clickButton(":Standard Labor Rate.Save_QPushButton");
+        waitForObject(":List Standard Labor Rates.New_QPushButton_3");
+        clickButton(":List Standard Labor Rates.New_QPushButton_3");
+        waitForObject(":_code_XLineEdit_17");
+        type(":_code_XLineEdit_17", "SETUP");
+        waitForObject(":_description_XLineEdit_41");
+        type(":_description_XLineEdit_41", "Setup Rate");
+        type(":_rate_XLineEdit_3", "15.00");
+        waitForObject(":Standard Labor Rate.Save_QPushButton_2");
+        clickButton(":Standard Labor Rate.Save_QPushButton_2");
         test.log("Standard Labor Rate: Setup Rate created");
-        waitForObject(":_lbrrate_XTreeWidget");
-        if(!clickItem(":_lbrrate_XTreeWidget", "SETUP", 5, 5, 1, Qt.LeftButton))
+        waitForObject(":_lbrrate_XTreeWidget_2");
+        if(!clickItem(":_lbrrate_XTreeWidget_2", "SETUP", 5, 5, 1, Qt.LeftButton))
             test.pass("Standard Labor Rate created: SETUP");
         
-        waitForObject(":List Standard Labor Rates.Close_QPushButton_2");
-        clickButton(":List Standard Labor Rates.Close_QPushButton_2");
+        waitForObject(":List Standard Labor Rates.Close_QPushButton_3");
+        clickButton(":List Standard Labor Rates.Close_QPushButton_3");
         
         
         //---------------Work Centers--------------------
@@ -136,8 +137,7 @@ function main()
         waitForObject(":List Work Centers.Copy_QPushButton_2");
         clickButton(":List Work Centers.Copy_QPushButton_2");
         waitForObject(":Work Center._code_XLineEdit_2");
-        type(":Work Center._code_XLineEdit_2", "<Ctrl+A>");
-        type(":Work Center._code_XLineEdit_2", "<Del>");
+        findObject(":Work Center._code_XLineEdit_2").clear();
         type(":Work Center._code_XLineEdit_2", "SHIPPING1");
         type(":Work Center._description_XLineEdit_2", "<Ctrl+A>");
         type(":Work Center._description_XLineEdit_2", "<Del>");
@@ -165,8 +165,7 @@ function main()
         waitForObject(":List Work Centers.Copy_QPushButton_2");
         clickButton(":List Work Centers.Copy_QPushButton_2");
         waitForObject(":Work Center._code_XLineEdit_2");
-        type(":Work Center._code_XLineEdit_2", "<Ctrl+A>");
-        type(":Work Center._code_XLineEdit_2", "<Del>");
+        findObject(":Work Center._code_XLineEdit_2").clear();
         type(":Work Center._code_XLineEdit_2", "PAINT1");
         type(":Work Center._description_XLineEdit_2", "<Ctrl+A>");
         type(":Work Center._description_XLineEdit_2", "<Del>");
@@ -266,17 +265,16 @@ function main()
         
         waitForObject(":List Standard Operations.Close_QPushButton");
         clickButton(":List Standard Operations.Close_QPushButton");
-
-
+      //
+        
         //-----------Define BOO for Items---------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
         activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Operations_QMenu", "List...");
-    
-    
+        waitForObjectItem(":xTuple ERP: *.Bill Of Operations_QMenu", "List...");
+        activateItem(":xTuple ERP: *.Bill Of Operations_QMenu", "List...");    
+        
         //-----------Define BOO for YTRUCK1---------------
         waitForObject(":Bills of Operations.New_QPushButton");
         clickButton(":Bills of Operations.New_QPushButton");
@@ -418,7 +416,7 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
  
         
-    }
+//    }
 
   //---------------Create BOM for Items---------------------
   waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");

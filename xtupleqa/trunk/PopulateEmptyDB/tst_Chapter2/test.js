@@ -17,8 +17,8 @@ function main()
      waitForObject(":Database Information.*_QLabel");
      var appEdition = findObject(":Database Information.*_QLabel").text;
      clickButton(":Database Information.Save_QPushButton");
-        
-     
+      
+   appEdition="Manufacturing";
  
      //-----------Chart Of Accounts------------------------
      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -748,7 +748,7 @@ function main()
     waitForObject(":List Characteristics.Close_QPushButton_2");
     clickButton(":List Characteristics.Close_QPushButton_2");
     
-    
+  
   if(appEdition=="Manufacturing")
   {
     
@@ -805,31 +805,32 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
         activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
-        waitForObject(":_warehouse.Selected:_QRadioButton_3");
-        clickButton(":_warehouse.Selected:_QRadioButton_3");
-        waitForObject(":_warehouse._warehouses_WComboBox_4");
-        clickItem(":_warehouse._warehouses_WComboBox_4", "WH1", 0, 0, 1, Qt.LeftButton);
-        waitForObject(":Site Work Week.Sunday_QCheckBox_2");
-        if(findObject(":Site Work Week.Sunday_QCheckBox_2").checked)
-            clickButton(":Site Work Week.Sunday_QCheckBox_2");
-        if(!findObject(":Site Work Week.Monday_QCheckBox_2").checked)
-            clickButton(":Site Work Week.Monday_QCheckBox_2");
-        if(!findObject(":Site Work Week.Monday_QCheckBox_2").checked)
-            clickButton(":Site Work Week.Monday_QCheckBox_2");
-        if(!findObject(":Site Work Week.Tuesday_QCheckBox_2").checked)
-            clickButton(":Site Work Week.Tuesday_QCheckBox_2");
-        if(!findObject(":Site Work Week.Wednesday_QCheckBox_2").checked)
-            clickButton(":Site Work Week.Wednesday_QCheckBox_2");
-        if(!findObject(":Site Work Week.Thursday_QCheckBox_2").checked)
-            clickButton(":Site Work Week.Thursday_QCheckBox_2");
-        if(!findObject(":Site Work Week.Friday_QCheckBox_2").checked)
-            clickButton(":Site Work Week.Friday_QCheckBox_2");
-        if(findObject(":Site Work Week.Saturday_QCheckBox_2").checked)
-            clickButton(":Site Work Week.Saturday_QCheckBox_2");
-        waitForObject(":Site Work Week.Save_QPushButton_2");
-        clickButton(":Site Work Week.Save_QPushButton_2");
+  
+        waitForObject(":_warehouse.Selected:_QRadioButton_6");
+        clickButton(":_warehouse.Selected:_QRadioButton_6");
+        waitForObject(":_warehouse._warehouses_WComboBox_7");
+        clickItem(":_warehouse._warehouses_WComboBox_7", "WH1", 0, 0, 1, Qt.LeftButton);
+        waitForObject(":Site Work Week.Sunday_QCheckBox_3");
+        if(findObject(":Site Work Week.Sunday_QCheckBox_3").checked)
+            clickButton(":Site Work Week.Sunday_QCheckBox_3");
+        if(!findObject(":Site Work Week.Monday_QCheckBox_3").checked)
+            clickButton(":Site Work Week.Monday_QCheckBox_3");
+        if(!findObject(":Site Work Week.Monday_QCheckBox_3").checked)
+            clickButton(":Site Work Week.Monday_QCheckBox_3");
+        if(!findObject(":Site Work Week.Tuesday_QCheckBox_3").checked)
+            clickButton(":Site Work Week.Tuesday_QCheckBox_3");
+        if(!findObject(":Site Work Week.Wednesday_QCheckBox_3").checked)
+            clickButton(":Site Work Week.Wednesday_QCheckBox_3");
+        if(!findObject(":Site Work Week.Thursday_QCheckBox_3").checked)
+            clickButton(":Site Work Week.Thursday_QCheckBox_3");
+        if(!findObject(":Site Work Week.Friday_QCheckBox_3").checked)
+            clickButton(":Site Work Week.Friday_QCheckBox_3");
+        if(findObject(":Site Work Week.Saturday_QCheckBox_3").checked)
+            clickButton(":Site Work Week.Saturday_QCheckBox_3");
+        waitForObject(":Site Work Week.Save_QPushButton_3");
+        clickButton(":Site Work Week.Save_QPushButton_3");
         test.log("Site Week created");
-        
+      
         
         //----------Schedule: Site Calendar Exceptions---------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
@@ -839,32 +840,33 @@ function main()
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Calendar Exceptions...");
         activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Calendar Exceptions...");
         
-        waitForObject(":List Site Calendar Exceptions.New_QPushButton_2");
-        clickButton(":List Site Calendar Exceptions.New_QPushButton_2");
-        waitForObject(":_warehouse.Selected:_QRadioButton_4");
-        clickButton(":_warehouse.Selected:_QRadioButton_4");
-        waitForObject(":_warehouse._warehouses_WComboBox_5");
-        clickItem(":_warehouse._warehouses_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
+        waitForObject(":List Site Calendar Exceptions.New_QPushButton_3");
+        clickButton(":List Site Calendar Exceptions.New_QPushButton_3");
+        waitForObject(":_warehouse.Selected:_QRadioButton_7");
+        clickButton(":_warehouse.Selected:_QRadioButton_7");
+        waitForObject(":_warehouse._warehouses_WComboBox_8");
+        clickItem(":_warehouse._warehouses_WComboBox_8", "WH1", 0, 0, 1, Qt.LeftButton);
         var d = new Date();
         var CurrentYearFull = d.getFullYear();
         var CurrentYear = CurrentYearFull.toString().slice(2);
         
-        waitForObject(":_description_QLineEdit_2");
-        type(":_description_QLineEdit_2", "Christmas "+CurrentYearFull);
-        waitForObject(":Site Calendar Exception.XDateEdit_XDateEdit");
-        findObject(":Site Calendar Exception.XDateEdit_XDateEdit").clear();
-        type(":Site Calendar Exception.XDateEdit_XDateEdit", "12/25/"+CurrentYear);
-        findObject(":Site Calendar Exception.XDateEdit_XDateEdit_2").clear();
-        type(":Site Calendar Exception.XDateEdit_XDateEdit_2", "12/26/"+CurrentYear);
-        type(":Site Calendar Exception.XDateEdit_XDateEdit_2", "<Tab>");
-        waitForObject(":Exception Type.Closed_QRadioButton_2");
-        clickButton(":Exception Type.Closed_QRadioButton_2");
-        waitForObject(":Site Calendar Exception.Save_QPushButton");
-        clickButton(":Site Calendar Exception.Save_QPushButton");
-        waitForObject(":List Site Calendar Exceptions.Close_QPushButton_2");
+        waitForObject(":_description_QLineEdit_3");
+        type(":_description_QLineEdit_3", "Christmas "+CurrentYearFull);
+        waitForObject(":Site Calendar Exception.XDateEdit_XDateEdit_3");
+        findObject(":Site Calendar Exception.XDateEdit_XDateEdit_3").clear();
+        type(":Site Calendar Exception.XDateEdit_XDateEdit_3", "12/25/"+CurrentYear);
+        findObject(":Site Calendar Exception.XDateEdit_XDateEdit_4").clear();
+        type(":Site Calendar Exception.XDateEdit_XDateEdit_4", "12/26/"+CurrentYear);
+        type(":Site Calendar Exception.XDateEdit_XDateEdit_4", "<Tab>");
+        waitForObject(":Exception Type.Closed_QRadioButton_3");
+        clickButton(":Exception Type.Closed_QRadioButton_3");
+        waitForObject(":Site Calendar Exception.Save_QPushButton_2");
+        clickButton(":Site Calendar Exception.Save_QPushButton_2");
+
+        waitForObject(":List Site Calendar Exceptions.Close_QPushButton_3");
         if(!clickItem(":List Site Calendar Exceptions._whsecal_XTreeWidget", "Christmas "+CurrentYearFull, 5, 5, 1, Qt.LeftButton))
             test.pass("Calendar Exception: Christmas "+CurrentYearFull+" created");
-        clickButton(":List Site Calendar Exceptions.Close_QPushButton_2");
+        clickButton(":List Site Calendar Exceptions.Close_QPushButton_3");
  
     }
   else if(appEdition=="PostBooks")

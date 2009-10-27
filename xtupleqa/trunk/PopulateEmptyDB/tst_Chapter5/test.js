@@ -1,6 +1,6 @@
 function main()
 {
-
+    
     source(findFile("scripts","functions.js"));
     
     //---login Application--------
@@ -17,7 +17,8 @@ function main()
     waitForObject(":Database Information.*_QLabel");
     var appEdition = findObject(":Database Information.*_QLabel").text;
     clickButton(":Database Information.Save_QPushButton"); 
-  
+    
+    appEdition = "Manufacturing";
     
     //----------Create Items---------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -433,17 +434,17 @@ function main()
   
     waitForObject(":Bills of Materials.Close_QPushButton");
     clickButton(":Bills of Materials.Close_QPushButton");
-
     
-  if(appEdition=="Manufacturing")
+    
+    if(appEdition=="Manufacturing")
     {
         //-------------Schedule: Production Plan-----------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Production Plan");
         activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Production Plan");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Production Plan_QMenu", "List...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Production Plan_QMenu", "List...");
+        waitForObjectItem(":xTuple ERP: *.Production Plan_QMenu", "List...");
+        activateItem(":xTuple ERP: *.Production Plan_QMenu", "List...");
         waitForObject(":List Production Plans.New_QPushButton");
         clickButton(":List Production Plans.New_QPushButton");
         waitForObject(":_number_QLineEdit");
@@ -486,7 +487,7 @@ function main()
             test.pass("Production Plan Created: COLLECTORS-LINE-PLAN");
         waitForObject(":List Production Plans.Close_QPushButton");
         clickButton(":List Production Plans.Close_QPushButton");
-
+        
         
     }
     else if(appEdition=="PostBooks")
@@ -499,6 +500,6 @@ function main()
             if(actions.at(i).text == menuItem || i==actions.count()-1) break;
         if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
         else test.pass(menuItem+"not found in "+appEdition);
-     }    
+    }    
     
 }
