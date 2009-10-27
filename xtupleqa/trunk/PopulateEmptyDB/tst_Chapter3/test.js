@@ -19,7 +19,8 @@ function main()
      var appEdition = findObject(":Database Information.*_QLabel").text;
      clickButton(":Database Information.Save_QPushButton");
     
-  
+     appEdition="Manufacturing";
+
     //-----------Chart Of Accounts-------------------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");

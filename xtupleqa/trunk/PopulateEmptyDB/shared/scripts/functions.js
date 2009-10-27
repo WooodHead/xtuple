@@ -572,7 +572,24 @@ function defineTaxation()
     clickButton(":Tax Code Rate.Save_QPushButton");
     waitForObject(":Tax Code.Save_QPushButton");
     clickButton(":Tax Code.Save_QPushButton");
+    
+    
+    //-------verify saved Tax Code-----
     waitForObject(":List Tax Codes._tax_XTreeWidget");
+    doubleClickItem(":List Tax Codes._tax_XTreeWidget","TAXAUTH1-GM",0,0,0,Qt.LeftButton);
+    waitForObject(":Tax Code._main_XLineEdit");
+    test.compare(findObject(":Tax Code._main_XLineEdit").text,"01-01-4050-01");
+    test.compare(findObject(":Tax Code._taxClass_XComboBox").currentText,"1-Legacy Class 1");
+    test.compare(findObject(":Tax Code._taxauth_XComboBox").currentText,"TAX-AUTH1");
+    waitForObject(":_frame._taxitems_XTreeWidget");
+    doubleClickItem(":_frame._taxitems_XTreeWidget","Always",0,0,0,Qt.LeftButton);
+    waitForObject(":_rateGroup._percent_XLineEdit");
+    test.compare(findObject(":_rateGroup._percent_XLineEdit").text,"10");
+    waitForObject(":Tax Code Rate.Save_QPushButton");
+    clickButton(":Tax Code Rate.Save_QPushButton");
+    waitForObject(":Tax Code.Save_QPushButton");
+    clickButton(":Tax Code.Save_QPushButton");
+    
     if(!clickItem(":List Tax Codes._tax_XTreeWidget", "TAXAUTH1-GM", 5, 5, 1, Qt.LeftButton))
          test.pass("Tax Code created:TAXAUTH1-GM");
     
@@ -593,10 +610,25 @@ function defineTaxation()
     clickButton(":Tax Code Rate.Save_QPushButton");
     waitForObject(":Tax Code.Save_QPushButton");
     clickButton(":Tax Code.Save_QPushButton");
+        
+    //-------verify saved Tax Code-----
     waitForObject(":List Tax Codes._tax_XTreeWidget");
+    doubleClickItem(":List Tax Codes._tax_XTreeWidget","TAXAUTH1-EDU",0,0,0,Qt.LeftButton);
+    waitForObject(":Tax Code._main_XLineEdit");    
+    test.compare(findObject(":Tax Code._main_XLineEdit").text,"01-01-4050-01");
+    test.compare(findObject(":Tax Code._taxClass_XComboBox").currentText,"1-Legacy Class 1");
+    test.compare(findObject(":Tax Code._taxauth_XComboBox").currentText,"TAX-AUTH1");
+    waitForObject(":_frame._taxitems_XTreeWidget");
+    doubleClickItem(":_frame._taxitems_XTreeWidget","Always",0,0,0,Qt.LeftButton);
+    waitForObject(":_rateGroup._percent_XLineEdit");
+    test.compare(findObject(":_rateGroup._percent_XLineEdit").text,"1");
+    waitForObject(":Tax Code Rate.Save_QPushButton");
+    clickButton(":Tax Code Rate.Save_QPushButton");
+    waitForObject(":Tax Code.Save_QPushButton");
+    clickButton(":Tax Code.Save_QPushButton");
+
     if(!clickItem(":List Tax Codes._tax_XTreeWidget", "TAXAUTH1-EDU", 5, 5, 1, Qt.LeftButton))
          test.pass("Tax Code created:TAXAUTH1-EDU");
-    
     
     waitForObject(":List Tax Codes.Close_QPushButton");
     clickButton(":List Tax Codes.Close_QPushButton");
