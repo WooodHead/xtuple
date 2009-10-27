@@ -5,21 +5,8 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER"); 
-    
-    
-    //---find Application Edition------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
-    waitForObject(":Database Information.*_QLabel");
-    var appEdition = findObject(":Database Information.*_QLabel").text;
-    clickButton(":Database Information.Save_QPushButton"); 
-    
-    appEdition = "Manufacturing";
-    
+    var appEdition = findApplicationEdition();
+
     //----------Create Items---------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -80,6 +67,7 @@ function main()
     waitForObject(":_taxtypesTab.New_QPushButton_10");
     clickButton(":_taxtypesTab.New_QPushButton_10");
     waitForObject(":_taxzone_XComboBox");
+    waitForObjectItem(":_taxzone_XComboBox", "TZONE1-Tax Zone1");
     clickItem(":_taxzone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
     clickItem(":_taxtype_XComboBox_4", "GM",0,0,1,Qt.LeftButton);
     waitForObject(":Item Tax.Save_QPushButton");

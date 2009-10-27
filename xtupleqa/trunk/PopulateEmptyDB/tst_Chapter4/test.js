@@ -3,23 +3,10 @@ function main()
     
     source(findFile("scripts","functions.js"));
     
-     //---login Application--------
-     loginAppl("RUNREGISTER"); 
+    //---login Application--------
+    loginAppl("RUNREGISTER"); 
+    var appEdition = findApplicationEdition();
     
-    
-     //---find Application Edition------
-     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-     snooze(0.1);
-     waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu");
-     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
-     waitForObject(":Database Information.*_QLabel");
-     var appEdition = findObject(":Database Information.*_QLabel").text;
-     clickButton(":Database Information.Save_QPushButton");
-     appEdition="Manufacturing";
-  
     if(appEdition=="Manufacturing")
     {
 
@@ -416,7 +403,7 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
  
         
-//    }
+  }
 
   //---------------Create BOM for Items---------------------
   waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -433,6 +420,7 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
   waitForObject(":_itemGroup...._QPushButton");
   clickButton(":_itemGroup...._QPushButton");
   waitForObject(":_item_XTreeWidget_2");
+  waitForObjectItem(":_item_XTreeWidget_2", "YTRUCK1");
   doubleClickItem(":_item_XTreeWidget_2","YTRUCK1",5,5,0,Qt.LeftButton);
 
   waitForObject(":frame_2.New_QPushButton");

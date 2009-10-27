@@ -5,6 +5,7 @@ function main()
 
      //---login Application--------
      loginAppl("RUNREGISTER");       
+    var appEdition = findApplicationEdition();
 
     //---------Assign Tax Authority for Customer----------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");

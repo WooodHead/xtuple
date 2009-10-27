@@ -2,8 +2,9 @@ function main()
 {
     source(findFile("scripts","functions.js"));    
     
-     //---login Application--------
-     loginAppl("RUNREGISTER");     
+    //---login Application--------
+    loginAppl("RUNREGISTER");     
+    var appEdition = findApplicationEdition();
 
    
 
