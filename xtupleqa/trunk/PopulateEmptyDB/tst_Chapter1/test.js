@@ -278,29 +278,37 @@ function main()
     clickButton(":List Currencies.Save_QPushButton");
     waitForObject(":List Currencies.Yes_QPushButton");
     clickButton(":List Currencies.Yes_QPushButton");
-   
-    //----------Create Foreign currency - EUR------------
-    waitForObject(":List Currencies.New_QPushButton");
-    clickButton(":List Currencies.New_QPushButton");
-    waitForObject(":List Currencies._currName_QLineEdit");
-    type(":List Currencies._currName_QLineEdit", "Euros");
-    waitForObject(":List Currencies._currSymbol_QLineEdit");
-    type(":List Currencies._currSymbol_QLineEdit", "EUR");
-    waitForObject(":List Currencies._currAbbr_QLineEdit");
-    type(":List Currencies._currAbbr_QLineEdit", "EUR");
-    waitForObject(":List Currencies.Save_QPushButton");
-    clickButton(":List Currencies.Save_QPushButton"); 
     try {
-     waitForObject(":List Currencies._curr_XTreeWidget");
-    if(!clickItem(":List Currencies._curr_XTreeWidget", "USD",5,5,1,Qt.LeftButton))
-        test.pass("Currency: USD created");
-    else test.fail("Currency: USD not created");
+        //----------Create Foreign currency - EUR------------
+        waitForObject(":List Currencies.New_QPushButton");
+        clickButton(":List Currencies.New_QPushButton");
+        waitForObject(":List Currencies._currName_QLineEdit");
+        type(":List Currencies._currName_QLineEdit", "Euros");
+        waitForObject(":List Currencies._currSymbol_QLineEdit");
+        type(":List Currencies._currSymbol_QLineEdit", "EUR");
+        waitForObject(":List Currencies._currAbbr_QLineEdit");
+        type(":List Currencies._currAbbr_QLineEdit", "EUR");
+        waitForObject(":List Currencies.Save_QPushButton");
+        clickButton(":List Currencies.Save_QPushButton"); 
+        try {
+            waitForObject(":List Currencies._curr_XTreeWidget");
+        } catch (e) {
+            // handle the app waiting for user to ack "Your system is configured to use multiple Currencies"
+            waitForObject(":OK_QPushButton");
+            clickButton(":OK_QPushButton");
+            waitForObject(":List Currencies._curr_XTreeWidget");
+        }
+        if(!clickItem(":List Currencies._curr_XTreeWidget", "USD",5,5,1,Qt.LeftButton))
+            test.pass("Currency: USD created");
+        else test.fail("Currency: USD not created");
     
-    if(!clickItem(":List Currencies._curr_XTreeWidget", "EUR", 5, 5, 1, Qt.LeftButton))
-        test.pass("Currency: EUR created");
-    else test.fail("Currency: EUR not created");
-}
-    catch (e) { test.fail("Could not verify creation of USD and EUR currencies because of exception: " + e); }
+        if(!clickItem(":List Currencies._curr_XTreeWidget", "EUR", 5, 5, 1, Qt.LeftButton))
+            test.pass("Currency: EUR created");
+        else test.fail("Currency: EUR not created");
+    }
+    catch (e) {
+        test.fail("Could not verify creation of currencies because of exception: " + e);
+    }
     waitForObject(":List Currencies.Close_QPushButton");
     clickButton(":List Currencies.Close_QPushButton");
    
