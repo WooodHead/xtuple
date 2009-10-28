@@ -430,8 +430,8 @@ function main()
     try {
     waitForObject(":Item Source._itemNumber_ItemLineEdit");
     type(":Item Source._itemNumber_ItemLineEdit", "TINSERT1");
-    waitForObject(":_vendorGroup._vendor_VendorLineEdit");
-    type(":_vendorGroup._vendor_VendorLineEdit", "TPARTS");
+    waitForObject(":_vendorGroup._vendorNumber_VendorLineEdit");
+    type(":_vendorGroup._vendorNumber_VendorLineEdit", "TPARTS");
     type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPINSERT01");
     type(":_vendorUOM_XLineEdit", "PCS");
     type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
@@ -460,8 +460,15 @@ function main()
     }
     catch (e) {
         test.fail("Exception creating item source for TINSERT1: " + e);
-        waitForObject(":Item Source.Cancel_QPushButton");
-        clickButton(":Item Source.Cancel_QPushButton");
+        try {
+            waitForObject(":Item Source.Cancel_QPushButton");
+            clickButton(":Item Source.Cancel_QPushButton");
+        } catch(f) {
+            waitForObject(":OK_QPushButton");
+            clickButton(":OK_QPushButton");
+            waitForObject(":Item Source.Cancel_QPushButton");
+            clickButton(":Item Source.Cancel_QPushButton");
+        }
     }
 
     //----Item source for TWHEEL1--------------
@@ -469,7 +476,7 @@ function main()
     clickButton(":_frame.New_QPushButton");
     waitForObject(":Item Source._itemNumber_ItemLineEdit");
     type(":Item Source._itemNumber_ItemLineEdit", "TWHEEL1");
-    type(":_vendorGroup._vendor_VendorLineEdit", "TPARTS");
+    type(":_vendorGroup._vendorNumber_VendorLineEdit", "TPARTS");
     type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPWHEEL01");
     type(":_vendorUOM_XLineEdit", "PCS");
     type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
@@ -501,7 +508,7 @@ function main()
     clickButton(":_frame.New_QPushButton");
     waitForObject(":Item Source._itemNumber_ItemLineEdit");
     type(":Item Source._itemNumber_ItemLineEdit", "YPAINT1");
-    type(":_vendorGroup._vendor_VendorLineEdit", "TPARTS");
+    type(":_vendorGroup._vendorNumber_VendorLineEdit", "TPARTS");
     type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPPAINT01");
     type(":_vendorUOM_XLineEdit", "PCS");
     type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
