@@ -1929,64 +1929,64 @@ function main()
         test.pass("Batch Manager Submitted for Creating Recurring Invoices");
     
     else test.fail("Batch Manager not responding");
-    
-    //-----Create an Invoice-----
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
-    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
-    waitForObjectItem(":*.Sales_QMenu", "Billing");
-    activateItem(":*.Sales_QMenu", "Billing");
-    waitForObjectItem(":*.Billing_QMenu", "Invoice");
-    activateItem(":*.Billing_QMenu", "Invoice");
-    type(":*.Billing_QMenu","<Right>");
-    type(":*.Billing_QMenu","<Right>");
-    waitForObjectItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
-    activateItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
-    waitForObject(":List Unposted Invoices.New_QPushButton");
-    clickButton(":List Unposted Invoices.New_QPushButton");
-    
-    waitForObject(":headerTab...._QPushButton");
-    clickButton(":headerTab...._QPushButton");
-    waitForObject(":_listTab_XTreeWidget_8");
-    doubleClickItem(":_listTab_XTreeWidget_8", "TTOYS", 5, 5, 0, Qt.LeftButton);
-    
-    var invoice = findObject(":_invoiceNumber_XLineEdit").text;
-    
-    waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
-    clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
-    waitForObject(":lineItemsTab.New_QPushButton");
-    clickButton(":lineItemsTab.New_QPushButton");
-    waitForObject(":Item...._QPushButton");
-    clickButton(":Item...._QPushButton");
-    waitForObject(":_item_XTreeWidget_6");
-    doubleClickItem(":_item_XTreeWidget_6", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":_ordered_XLineEdit_2");
-    type(":_ordered_XLineEdit_2", "25");
-    waitForObject(":_billed_XLineEdit");
-    type(":_billed_XLineEdit", "25");
-    
-    waitForObject(":Invoice.Save_QPushButton");
-    clickButton(":Invoice.Save_QPushButton");
-    waitForObject(":Invoice.Save_QPushButton_2");
-    clickButton(":Invoice.Save_QPushButton_2"); 
-    
-    //-----Print Invoices(Sales)-----
-    waitForObject(":_invchead_XTreeWidget");
-    clickItem(":_invchead_XTreeWidget", invoice, 5, 5, 1, Qt.LeftButton);
-    
-    waitForObject(":List Unposted Invoices.Print_QPushButton");
-    clickButton(":List Unposted Invoices.Print_QPushButton");
-    
-    waitForObject(":List Unposted Invoices.Print_QPushButton_2");
-    clickButton(":List Unposted Invoices.Print_QPushButton_2");
-    snooze(1);	  
-    nativeType("<Return>");  
-    
-    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-    clickButton(":Review EDI Before Sending.Accept_QPushButton");
-    
-    waitForObject(":List Unposted Invoices.Close_QPushButton");
-    clickButton(":List Unposted Invoices.Close_QPushButton");
-    
+  
+  //-----Create an Invoice-----
+  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+  activateItem(":xTuple ERP: *_QMenuBar", "Sales");
+  waitForObjectItem(":*.Sales_QMenu", "Billing");
+  activateItem(":*.Sales_QMenu", "Billing");
+  waitForObjectItem(":*.Billing_QMenu", "Invoice");
+  activateItem(":*.Billing_QMenu", "Invoice");
+  type(":*.Billing_QMenu","<Right>");
+  type(":*.Billing_QMenu","<Right>");
+  waitForObjectItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
+  activateItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
+  waitForObject(":List Unposted Invoices.New_QPushButton");
+  clickButton(":List Unposted Invoices.New_QPushButton");
+  
+  waitForObject(":headerTab...._QPushButton");
+  clickButton(":headerTab...._QPushButton");
+  waitForObject(":_listTab_XTreeWidget_8");
+  doubleClickItem(":_listTab_XTreeWidget_8", "TTOYS", 5, 5, 0, Qt.LeftButton);
+  
+  var invoice = findObject(":_invoiceNumber_XLineEdit").text;
+  
+  waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
+  clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
+  waitForObject(":lineItemsTab.New_QPushButton");
+  clickButton(":lineItemsTab.New_QPushButton");
+  waitForObject(":Item...._QPushButton");
+  clickButton(":Item...._QPushButton");
+  waitForObject(":_item_XTreeWidget_6");
+  doubleClickItem(":_item_XTreeWidget_6", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
+  waitForObject(":_ordered_XLineEdit_2");
+  type(":_ordered_XLineEdit_2", "25");
+  waitForObject(":_billed_XLineEdit");
+  type(":_billed_XLineEdit", "25");
+  
+  waitForObject(":Invoice.Save_QPushButton");
+  clickButton(":Invoice.Save_QPushButton");
+  waitForObject(":Invoice.Save_QPushButton_2");
+  clickButton(":Invoice.Save_QPushButton_2"); 
+  
+  //-----Print Invoices(Sales)-----
+  waitForObject(":_invchead_XTreeWidget");
+  clickItem(":_invchead_XTreeWidget", invoice, 5, 5, 1, Qt.LeftButton);
+  
+  waitForObject(":List Unposted Invoices.Print_QPushButton");
+  clickButton(":List Unposted Invoices.Print_QPushButton");
+  
+  waitForObject(":List Unposted Invoices.Print_QPushButton_2");
+  clickButton(":List Unposted Invoices.Print_QPushButton_2");
+  snooze(1);	  
+  nativeType("<Return>");  
+  
+  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+  clickButton(":Review EDI Before Sending.Accept_QPushButton");
+  
+  waitForObject(":List Unposted Invoices.Close_QPushButton");
+  clickButton(":List Unposted Invoices.Close_QPushButton");
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -1994,70 +1994,70 @@ function main()
         test.pass("Batch Manager Submitted for Printing Invoices from Sales");
     
     else test.fail("Batch Manager not responding");
-    
-    //-----Create an Invoice-----
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
-    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
-    waitForObjectItem(":*.Sales_QMenu", "Billing");
-    activateItem(":*.Sales_QMenu", "Billing");
-    waitForObjectItem(":*.Billing_QMenu", "Invoice");
-    activateItem(":*.Billing_QMenu", "Invoice");
-    type(":*.Billing_QMenu","<Right>");
-    type(":*.Billing_QMenu","<Right>");
-    waitForObjectItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
-    activateItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
-    
-    waitForObject(":List Unposted Invoices.New_QPushButton");
-    clickButton(":List Unposted Invoices.New_QPushButton");
-    waitForObject(":headerTab...._QPushButton");
-    clickButton(":headerTab...._QPushButton");
-    waitForObject(":_listTab_XTreeWidget_8");
-    doubleClickItem(":_listTab_XTreeWidget_8", "TTOYS", 5, 5, 0, Qt.LeftButton);
-    
-    var invoice =  findObject(":_invoiceNumber_XLineEdit").text;
-    
-    waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
-    clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
-    waitForObject(":lineItemsTab.New_QPushButton");
-    clickButton(":lineItemsTab.New_QPushButton");
-    waitForObject(":Item...._QPushButton");
-    clickButton(":Item...._QPushButton");
-    waitForObject(":_item_XTreeWidget_6");
-    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);   
-    waitForObject(":_ordered_XLineEdit_2");
-    type(":_ordered_XLineEdit_2", "25");
-    waitForObject(":_billed_XLineEdit");
-    type(":_billed_XLineEdit", "25");
-    
-    waitForObject(":Invoice.Save_QPushButton");
-    clickButton(":Invoice.Save_QPushButton");
-    waitForObject(":Invoice.Save_QPushButton_2");
-    clickButton(":Invoice.Save_QPushButton_2");
-    
-    waitForObject(":List Unposted Invoices.Close_QPushButton");
-    clickButton(":List Unposted Invoices.Close_QPushButton");
-    
-    //-----Print Invoice by Ship via-----
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
-    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
-    waitForObjectItem(":*.Sales_QMenu", "Billing");
-    activateItem(":*.Sales_QMenu", "Billing");
-    waitForObjectItem(":*.Billing_QMenu", "Forms");
-    activateItem(":*.Billing_QMenu", "Forms");
-    waitForObjectItem(":*.Forms_QMenu_2", "Print Invoices by Ship Via...");
-    activateItem(":*.Forms_QMenu_2", "Print Invoices by Ship Via...");
-    
-    waitForObject(":Print Invoices by Ship Via.Print_QPushButton");
-    clickButton(":Print Invoices by Ship Via.Print_QPushButton");
-    snooze(1); 
-    nativeType("<Return>");
-    
-    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-    clickButton(":Review EDI Before Sending.Accept_QPushButton");
-    
-    waitForObject(":Mark Invoices as Printed?.Yes_QPushButton");
-    clickButton(":Mark Invoices as Printed?.Yes_QPushButton");
-    
+  
+  //-----Create an Invoice-----
+  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+  activateItem(":xTuple ERP: *_QMenuBar", "Sales");
+  waitForObjectItem(":*.Sales_QMenu", "Billing");
+  activateItem(":*.Sales_QMenu", "Billing");
+  waitForObjectItem(":*.Billing_QMenu", "Invoice");
+  activateItem(":*.Billing_QMenu", "Invoice");
+  type(":*.Billing_QMenu","<Right>");
+  type(":*.Billing_QMenu","<Right>");
+  waitForObjectItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
+  activateItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
+  
+  waitForObject(":List Unposted Invoices.New_QPushButton");
+  clickButton(":List Unposted Invoices.New_QPushButton");
+  waitForObject(":headerTab...._QPushButton");
+  clickButton(":headerTab...._QPushButton");
+  waitForObject(":_listTab_XTreeWidget_8");
+  doubleClickItem(":_listTab_XTreeWidget_8", "TTOYS", 5, 5, 0, Qt.LeftButton);
+  
+  var invoice =  findObject(":_invoiceNumber_XLineEdit").text;
+  
+  waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
+  clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
+  waitForObject(":lineItemsTab.New_QPushButton");
+  clickButton(":lineItemsTab.New_QPushButton");
+  waitForObject(":Item...._QPushButton");
+  clickButton(":Item...._QPushButton");
+  waitForObject(":_item_XTreeWidget_6");
+  doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);   
+  waitForObject(":_ordered_XLineEdit_2");
+  type(":_ordered_XLineEdit_2", "25");
+  waitForObject(":_billed_XLineEdit");
+  type(":_billed_XLineEdit", "25");
+  
+  waitForObject(":Invoice.Save_QPushButton");
+  clickButton(":Invoice.Save_QPushButton");
+  waitForObject(":Invoice.Save_QPushButton_2");
+  clickButton(":Invoice.Save_QPushButton_2");
+  
+  waitForObject(":List Unposted Invoices.Close_QPushButton");
+  clickButton(":List Unposted Invoices.Close_QPushButton");
+  
+  //-----Print Invoice by Ship via-----
+  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+  activateItem(":xTuple ERP: *_QMenuBar", "Sales");
+  waitForObjectItem(":*.Sales_QMenu", "Billing");
+  activateItem(":*.Sales_QMenu", "Billing");
+  waitForObjectItem(":*.Billing_QMenu", "Forms");
+  activateItem(":*.Billing_QMenu", "Forms");
+  waitForObjectItem(":*.Forms_QMenu_2", "Print Invoices by Ship Via...");
+  activateItem(":*.Forms_QMenu_2", "Print Invoices by Ship Via...");
+  
+  waitForObject(":Print Invoices by Ship Via.Print_QPushButton");
+  clickButton(":Print Invoices by Ship Via.Print_QPushButton");
+  snooze(1); 
+  nativeType("<Return>");
+  
+  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+  clickButton(":Review EDI Before Sending.Accept_QPushButton");
+  
+  waitForObject(":Mark Invoices as Printed?.Yes_QPushButton");
+  clickButton(":Mark Invoices as Printed?.Yes_QPushButton");
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -2065,35 +2065,35 @@ function main()
         test.pass("Batch Manager Submitted for Printing Invoices by Shipvia");
     
     else test.fail("Batch Manager not responding");
-    
-    //-----Re-Print Invoices-----
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
-    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
-    waitForObjectItem(":*.Sales_QMenu", "Billing");
-    activateItem(":*.Sales_QMenu", "Billing");
-    waitForObjectItem(":*.Billing_QMenu", "Forms");
-    activateItem(":*.Billing_QMenu", "Forms");
-    waitForObjectItem(":*.Forms_QMenu_2", "Re-Print Invoices...");
-    activateItem(":*.Forms_QMenu_2", "Re-Print Invoices...");
-    
-    waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit");
-    type(":Re-Print Invoices.XDateEdit_XDateEdit", "-30"); 
-    waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit_2");
-    type(":Re-Print Invoices.XDateEdit_XDateEdit_2", "0");
-    waitForObject(":Re-Print Invoices.Query_QPushButton");
-    clickButton(":Re-Print Invoices.Query_QPushButton");
-    waitForObject(":_invoice_XTreeWidget");
-    clickItem(":_invoice_XTreeWidget", "TTOYS - Tremendous Toys Incorporated", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":Re-Print Invoices.Print_QPushButton");
-    clickButton(":Re-Print Invoices.Print_QPushButton");   
-    snooze(1);	  
-    nativeType("<Return>");
-    
-    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-    clickButton(":Review EDI Before Sending.Accept_QPushButton");
-    
-    waitForObject(":Re-Print Invoices.Close_QPushButton");
-    clickButton(":Re-Print Invoices.Close_QPushButton");
+  
+  //-----Re-Print Invoices-----
+  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+  activateItem(":xTuple ERP: *_QMenuBar", "Sales");
+  waitForObjectItem(":*.Sales_QMenu", "Billing");
+  activateItem(":*.Sales_QMenu", "Billing");
+  waitForObjectItem(":*.Billing_QMenu", "Forms");
+  activateItem(":*.Billing_QMenu", "Forms");
+  waitForObjectItem(":*.Forms_QMenu_2", "Re-Print Invoices...");
+  activateItem(":*.Forms_QMenu_2", "Re-Print Invoices...");
+  
+  waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit");
+  type(":Re-Print Invoices.XDateEdit_XDateEdit", "-30"); 
+  waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit_2");
+  type(":Re-Print Invoices.XDateEdit_XDateEdit_2", "0");
+  waitForObject(":Re-Print Invoices.Query_QPushButton");
+  clickButton(":Re-Print Invoices.Query_QPushButton");
+  waitForObject(":_invoice_XTreeWidget");
+  clickItem(":_invoice_XTreeWidget", "TTOYS - Tremendous Toys Incorporated", 5, 5, 1, Qt.LeftButton);
+  waitForObject(":Re-Print Invoices.Print_QPushButton");
+  clickButton(":Re-Print Invoices.Print_QPushButton");   
+  snooze(1);	  
+  nativeType("<Return>");
+  
+  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+  clickButton(":Review EDI Before Sending.Accept_QPushButton");
+  
+  waitForObject(":Re-Print Invoices.Close_QPushButton");
+  clickButton(":Re-Print Invoices.Close_QPushButton");
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -2102,23 +2102,23 @@ function main()
         test.pass("Batch Manager Submitted for Re-Printing Invoices from Sales");
     
     else test.fail("Batch Manager not responding");
-    
-    //-----Post Invoices(Sales)-----
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
-    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
-    waitForObjectItem(":*.Sales_QMenu", "Billing");
-    activateItem(":*.Sales_QMenu", "Billing");
-    waitForObjectItem(":*.Billing_QMenu", "Forms");
-    activateItem(":*.Billing_QMenu", "Forms");
-    
-    waitForObjectItem(":*.Forms_QMenu_2", "Send Electronic Invoice...");
-    activateItem(":*.Forms_QMenu_2", "Send Electronic Invoice...");
-    waitForObject(":_listTab_XTreeWidget_5");
-    doubleClickItem(":_listTab_XTreeWidget_5", "Tremendous Toys Incorporated", 5, 5, 0, Qt.LeftButton);
-    
-    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-    clickButton(":Review EDI Before Sending.Accept_QPushButton");
-    
+  
+  //-----Post Invoices(Sales)-----
+  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+  activateItem(":xTuple ERP: *_QMenuBar", "Sales");
+  waitForObjectItem(":*.Sales_QMenu", "Billing");
+  activateItem(":*.Sales_QMenu", "Billing");
+  waitForObjectItem(":*.Billing_QMenu", "Forms");
+  activateItem(":*.Billing_QMenu", "Forms");
+  
+  waitForObjectItem(":*.Forms_QMenu_2", "Send Electronic Invoice...");
+  activateItem(":*.Forms_QMenu_2", "Send Electronic Invoice...");
+  waitForObject(":_listTab_XTreeWidget_5");
+  doubleClickItem(":_listTab_XTreeWidget_5", "Tremendous Toys Incorporated", 5, 5, 0, Qt.LeftButton);
+  
+  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+  clickButton(":Review EDI Before Sending.Accept_QPushButton");
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -2126,61 +2126,61 @@ function main()
         test.pass("Batch Manager Submitted for Posting Invoices from Sales module");
     
     else test.fail("Batch Manager not responding");
-    
-    //-----Create an Invoice-----
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
-    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
-    waitForObjectItem(":*.Sales_QMenu", "Billing");
-    activateItem(":*.Sales_QMenu", "Billing");
-    waitForObjectItem(":*.Billing_QMenu", "Invoice");
-    activateItem(":*.Billing_QMenu", "Invoice");
-    type(":*.Billing_QMenu","<Right>");
-    type(":*.Billing_QMenu","<Right>");
-    waitForObjectItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
-    activateItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
-    waitForObject(":List Unposted Invoices.New_QPushButton");
-    clickButton(":List Unposted Invoices.New_QPushButton");
-    
-    waitForObject(":headerTab...._QPushButton");
-    clickButton(":headerTab...._QPushButton");
-    waitForObject(":_listTab_XTreeWidget_8");
-    doubleClickItem(":_listTab_XTreeWidget_8", "TTOYS", 5, 5, 0, Qt.LeftButton);
-    
-    var arinvoice = findObject(":_invoiceNumber_XLineEdit").text;
-    
-    waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
-    clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
-    waitForObject(":lineItemsTab.New_QPushButton");
-    clickButton(":lineItemsTab.New_QPushButton");
-    waitForObject(":Item...._QPushButton");
-    clickButton(":Item...._QPushButton");
-    waitForObject(":_item_XTreeWidget_6");
-    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-    waitForObject(":_ordered_XLineEdit_2");
-    type(":_ordered_XLineEdit_2", "25");
-    waitForObject(":_billed_XLineEdit");
-    type(":_billed_XLineEdit", "25");
-    
-    waitForObject(":Invoice.Save_QPushButton");
-    clickButton(":Invoice.Save_QPushButton");
-    waitForObject(":Invoice.Save_QPushButton_2");
-    clickButton(":Invoice.Save_QPushButton_2");
-    
-    //-----Print Invoices(AR)-----
-    waitForObject(":_invchead_XTreeWidget");
-    clickItem(":_invchead_XTreeWidget", arinvoice , 5, 5, 1, Qt.LeftButton);
-    waitForObject(":List Unposted Invoices.Print_QPushButton");
-    clickButton(":List Unposted Invoices.Print_QPushButton");
-    waitForObject(":List Unposted Invoices.Print_QPushButton_2");
-    clickButton(":List Unposted Invoices.Print_QPushButton_2");
-    snooze(1);	  
-    nativeType("<Return>");
-    
-    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-    clickButton(":Review EDI Before Sending.Accept_QPushButton");
-        
-    waitForObject(":List Unposted Invoices.Close_QPushButton");
-    clickButton(":List Unposted Invoices.Close_QPushButton");  
+  
+  //-----Create an Invoice-----
+  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+  activateItem(":xTuple ERP: *_QMenuBar", "Sales");
+  waitForObjectItem(":*.Sales_QMenu", "Billing");
+  activateItem(":*.Sales_QMenu", "Billing");
+  waitForObjectItem(":*.Billing_QMenu", "Invoice");
+  activateItem(":*.Billing_QMenu", "Invoice");
+  type(":*.Billing_QMenu","<Right>");
+  type(":*.Billing_QMenu","<Right>");
+  waitForObjectItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
+  activateItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
+  waitForObject(":List Unposted Invoices.New_QPushButton");
+  clickButton(":List Unposted Invoices.New_QPushButton");
+  
+  waitForObject(":headerTab...._QPushButton");
+  clickButton(":headerTab...._QPushButton");
+  waitForObject(":_listTab_XTreeWidget_8");
+  doubleClickItem(":_listTab_XTreeWidget_8", "TTOYS", 5, 5, 0, Qt.LeftButton);
+  
+  var arinvoice = findObject(":_invoiceNumber_XLineEdit").text;
+  
+  waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
+  clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
+  waitForObject(":lineItemsTab.New_QPushButton");
+  clickButton(":lineItemsTab.New_QPushButton");
+  waitForObject(":Item...._QPushButton");
+  clickButton(":Item...._QPushButton");
+  waitForObject(":_item_XTreeWidget_6");
+  doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+  waitForObject(":_ordered_XLineEdit_2");
+  type(":_ordered_XLineEdit_2", "25");
+  waitForObject(":_billed_XLineEdit");
+  type(":_billed_XLineEdit", "25");
+  
+  waitForObject(":Invoice.Save_QPushButton");
+  clickButton(":Invoice.Save_QPushButton");
+  waitForObject(":Invoice.Save_QPushButton_2");
+  clickButton(":Invoice.Save_QPushButton_2");
+  
+  //-----Print Invoices(AR)-----
+  waitForObject(":_invchead_XTreeWidget");
+  clickItem(":_invchead_XTreeWidget", arinvoice , 5, 5, 1, Qt.LeftButton);
+  waitForObject(":List Unposted Invoices.Print_QPushButton");
+  clickButton(":List Unposted Invoices.Print_QPushButton");
+  waitForObject(":List Unposted Invoices.Print_QPushButton_2");
+  clickButton(":List Unposted Invoices.Print_QPushButton_2");
+  snooze(1);	  
+  nativeType("<Return>");
+  
+  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+  clickButton(":Review EDI Before Sending.Accept_QPushButton");
+      
+  waitForObject(":List Unposted Invoices.Close_QPushButton");
+  clickButton(":List Unposted Invoices.Close_QPushButton");  
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -2189,36 +2189,36 @@ function main()
         test.pass("Batch Manager Submitted for Printing Invoices from AR module");
     
     else test.fail("Batch Manager not responding");
-    
-    //-----Re-Print Invoices(AR)-----
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
-    activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
-    waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
-    activateItem(":*.Accounting_QMenu", "Accounts Receivable");
-    waitForObjectItem(":*.Accounts Receivable_QMenu", "Forms");
-    activateItem(":*.Accounts Receivable_QMenu", "Forms");
-    waitForObjectItem(":*.Forms_QMenu_4", "Re-Print Invoices...");
-    activateItem(":*.Forms_QMenu_4", "Re-Print Invoices...");
-    
-    waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit");
-    type(":Re-Print Invoices.XDateEdit_XDateEdit", "-30");
-    waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit_2");
-    type(":Re-Print Invoices.XDateEdit_XDateEdit_2", "0");
-    waitForObject(":Re-Print Invoices.Query_QPushButton");
-    clickButton(":Re-Print Invoices.Query_QPushButton");
-    waitForObject(":_invoice_XTreeWidget");
-    clickItem(":_invoice_XTreeWidget", "TTOYS - Tremendous Toys Incorporated", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":Re-Print Invoices.Print_QPushButton");
-    clickButton(":Re-Print Invoices.Print_QPushButton");   
-    snooze(1);	  
-    nativeType("<Return>");
-    
-    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-    clickButton(":Review EDI Before Sending.Accept_QPushButton");
-    
-    waitForObject(":Re-Print Invoices.Close_QPushButton");
-    clickButton(":Re-Print Invoices.Close_QPushButton");
-    
+  
+  //-----Re-Print Invoices(AR)-----
+  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
+  activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
+  waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
+  activateItem(":*.Accounting_QMenu", "Accounts Receivable");
+  waitForObjectItem(":*.Accounts Receivable_QMenu", "Forms");
+  activateItem(":*.Accounts Receivable_QMenu", "Forms");
+  waitForObjectItem(":*.Forms_QMenu_4", "Re-Print Invoices...");
+  activateItem(":*.Forms_QMenu_4", "Re-Print Invoices...");
+  
+  waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit");
+  type(":Re-Print Invoices.XDateEdit_XDateEdit", "-30");
+  waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit_2");
+  type(":Re-Print Invoices.XDateEdit_XDateEdit_2", "0");
+  waitForObject(":Re-Print Invoices.Query_QPushButton");
+  clickButton(":Re-Print Invoices.Query_QPushButton");
+  waitForObject(":_invoice_XTreeWidget");
+  clickItem(":_invoice_XTreeWidget", "TTOYS - Tremendous Toys Incorporated", 5, 5, 1, Qt.LeftButton);
+  waitForObject(":Re-Print Invoices.Print_QPushButton");
+  clickButton(":Re-Print Invoices.Print_QPushButton");   
+  snooze(1);	  
+  nativeType("<Return>");
+  
+  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+  clickButton(":Review EDI Before Sending.Accept_QPushButton");
+  
+  waitForObject(":Re-Print Invoices.Close_QPushButton");
+  clickButton(":Re-Print Invoices.Close_QPushButton");
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -2226,25 +2226,25 @@ function main()
         test.pass("Batch Manager Submitted for Re-Printing Invoices from AR module");
     
     else test.fail("Batch Manager not responding");
-    
-    //-----Post Invoices(AR)-----
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
-    activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
-    waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
-    activateItem(":*.Accounting_QMenu", "Accounts Receivable");
-    waitForObjectItem(":*.Accounts Receivable_QMenu", "Invoice");
-    activateItem(":*.Accounts Receivable_QMenu", "Invoice");
-    type(":*.Accounts Receivable_QMenu", "<Right>");
-    type(":*.Accounts Receivable_QMenu", "<Right>");
-    
-    waitForObjectItem(":*.Invoice_QMenu", "Send Electronic Invoice...");
-    activateItem(":*.Invoice_QMenu", "Send Electronic Invoice...");
-    waitForObject(":_listTab_XTreeWidget_5");
-    doubleClickItem(":_listTab_XTreeWidget_5", "Tremendous Toys Incorporated", 5, 5, 0, Qt.LeftButton);
-    
-    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-    clickButton(":Review EDI Before Sending.Accept_QPushButton");
-    
+  
+  //-----Post Invoices(AR)-----
+  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
+  activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
+  waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
+  activateItem(":*.Accounting_QMenu", "Accounts Receivable");
+  waitForObjectItem(":*.Accounts Receivable_QMenu", "Invoice");
+  activateItem(":*.Accounts Receivable_QMenu", "Invoice");
+  type(":*.Accounts Receivable_QMenu", "<Right>");
+  type(":*.Accounts Receivable_QMenu", "<Right>");
+  
+  waitForObjectItem(":*.Invoice_QMenu", "Send Electronic Invoice...");
+  activateItem(":*.Invoice_QMenu", "Send Electronic Invoice...");
+  waitForObject(":_listTab_XTreeWidget_5");
+  doubleClickItem(":_listTab_XTreeWidget_5", "Tremendous Toys Incorporated", 5, 5, 0, Qt.LeftButton);
+  
+  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+  clickButton(":Review EDI Before Sending.Accept_QPushButton");
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
