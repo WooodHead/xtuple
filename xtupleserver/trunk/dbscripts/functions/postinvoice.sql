@@ -133,7 +133,7 @@ BEGIN
       IF (_r.itemsite_id IS NULL) THEN
 	SELECT salesaccnt_sales_accnt_id INTO _tmpAccntId
 	FROM salesaccnt
-	WHERE (salesaccnt_id=findSalesAccnt(_r.item_id, 'I',
+	WHERE (salesaccnt_id=findSalesAccnt(_r.invcitem_item_id, 'I',
 					    _p.invchead_cust_id));
       ELSE
 	SELECT salesaccnt_sales_accnt_id INTO _tmpAccntId
