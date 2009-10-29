@@ -9,9 +9,11 @@ DECLARE
   pshipheadid		ALIAS FOR $1;
   _timestamp		TIMESTAMP WITH TIME ZONE := $2;
   _allInvoiced		BOOLEAN;
+  _in                   RECORD;
   _co			RECORD;
   _cobill		RECORD;
   _h			RECORD;
+  _result               INTEGER;
   _invhistid		INTEGER;
   _itemlocSeries	INTEGER;
   _qty			NUMERIC;
@@ -50,6 +52,18 @@ BEGIN
     IF (_allInvoiced AND NOT hasPriv('RecallInvoicedShipment')) THEN
       RETURN -2;
     END IF;
+
+    -- Delete any associated unposted Invoices
+    FOR _in IN SELECT DISTINCT invchead_id
+                 FROM shipitem JOIN invcitem ON (invcitem_id=shipitem_invcitem_id)
+                               JOIN invchead ON ( (invchead_id=invcitem_invchead_id) AND
+                                                  (NOT invchead_posted) )
+                WHERE (shipitem_shiphead_id=pshipheadid) LOOP
+      SELECT deleteInvoice(_in.invchead_id) INTO _result;
+      IF (_result < 0) THEN
+        RETURN _result;
+      END IF;
+    END LOOP;
 
     FOR _co IN SELECT coitem_id, coitem_itemsite_id, coitem_qty_invuomratio, coitem_warranty, coitem_cos_accnt_id
                  FROM coitem
