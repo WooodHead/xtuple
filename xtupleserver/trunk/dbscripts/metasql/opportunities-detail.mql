@@ -45,7 +45,7 @@ SELECT ophead_id,
 <? if exists("username") ?>
    AND (ophead_owner_username=<? value("username") ?>)
 <? elseif exists("usr_pattern") ?>
-   AND (ophead_owner_username ~ <? value("username_pattern") ?>)
+   AND (ophead_owner_username ~ <? value("usr_pattern") ?>)
 <? endif ?>
 <? if exists("crmAccountId") ?>
    AND (ophead_crmacct_id = <? value("crmAccountId") ?>)
