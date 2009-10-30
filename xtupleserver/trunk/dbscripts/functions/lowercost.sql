@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION lowerCost(INTEGER, TEXT) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION lowerCost(INTEGER, TEXT) RETURNS NUMERIC AS $$
 DECLARE
   pItemid	ALIAS FOR $1;
   pCosttype	ALIAS FOR $2;
@@ -6,9 +6,9 @@ DECLARE
 BEGIN
     RETURN lowerCost(pItemid, pCosttype, TRUE);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION lowerCost(INTEGER, TEXT, BOOLEAN) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION lowerCost(INTEGER, TEXT, BOOLEAN) RETURNS NUMERIC AS $$
 DECLARE
   pItemid ALIAS FOR $1;
   pCosttype ALIAS FOR $2;
@@ -31,7 +31,7 @@ BEGIN
   WHERE (item_id=pItemid);
 
   -- find the lowercost in the base currency at the current conversion rate
-  IF (_type IN (''M'', ''F'', ''B'', ''T'')) THEN
+  IF (_type IN ('M', 'F', 'B', 'T')) THEN
     SELECT SUM( round(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE),6) * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) ),
            SUM( itemcost_stdcost * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) )
 	INTO _actCost, _stdCost
@@ -53,7 +53,7 @@ BEGIN
 	_cost  = _stdCost;
     END IF;
 
-  ELSIF (_type IN (''C'')) THEN
+  ELSIF (_type IN ('C')) THEN
     SELECT SUM(CASE WHEN (bbomitem_qtyper = 0) THEN 0
                     ELSE currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE) / bbomitem_qtyper * bbomitem_costabsorb
                END),
@@ -61,11 +61,11 @@ BEGIN
                     ELSE itemcost_stdcost / bbomitem_qtyper * bbomitem_costabsorb
                END)
 	INTO _actCost1, _stdCost1
-    FROM itemcost, costelem, bbomitem
+    FROM itemcost
+         JOIN costelem       ON (itemcost_costelem_id=costelem_id)
+         JOIN xtmfg.bbomitem ON (bbomitem_parent_item_id=itemcost_item_id)
     WHERE ( (bbomitem_item_id=pItemid)
      AND (CURRENT_DATE BETWEEN bbomitem_effective AND (bbomitem_expires - 1))
-     AND (bbomitem_parent_item_id=itemcost_item_id)
-     AND (itemcost_costelem_id=costelem_id)
      AND (costelem_type=pCosttype) );
 
     SELECT SUM(CASE WHEN (t.bbomitem_qtyper = 0) THEN 0
@@ -75,17 +75,17 @@ BEGIN
                     ELSE itemcost_stdcost * s.bbomitem_qtyper / t.bbomitem_qtyper * t.bbomitem_costabsorb
                END)
 	INTO _actCost2, _stdCost2
-    FROM itemcost, costelem, bbomitem AS t, bbomitem AS s, item
+    FROM costelem
+         JOIN itemcost            ON (costelem_id=itemcost_costelem_id)
+         JOIN xtmfg.bbomitem AS s ON (itemcost_item_id=s.bbomitem_item_id)
+         JOIN xtmfg.bbomitem AS t ON (s.bbomitem_parent_item_id=t.bbomitem_parent_item_id)
+         JOIN  item               ON (s.bbomitem_item_id=item_id)
     WHERE ( (t.bbomitem_item_id=pItemid)
      AND ( CURRENT_DATE BETWEEN s.bbomitem_effective
                         AND (s.bbomitem_expires - 1) )
      AND ( CURRENT_DATE BETWEEN t.bbomitem_effective
                         AND (t.bbomitem_expires - 1) )
-     AND (s.bbomitem_parent_item_id=t.bbomitem_parent_item_id)
-     AND (s.bbomitem_item_id=itemcost_item_id)
-     AND (s.bbomitem_item_id=item_id)
-     AND (item_type=''Y'')
-     AND (itemcost_costelem_id=costelem_id)
+     AND (item_type='Y')
      AND (costelem_type=pCosttype) );
 
     IF (pActual) THEN
@@ -111,4 +111,4 @@ BEGIN
   RETURN round(_cost,6);
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
