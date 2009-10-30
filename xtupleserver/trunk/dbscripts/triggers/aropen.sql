@@ -196,7 +196,6 @@ CREATE TRIGGER aropenTrigger BEFORE INSERT OR UPDATE ON aropen FOR EACH ROW EXEC
 CREATE OR REPLACE FUNCTION _aropenAfterTrigger() RETURNS TRIGGER AS $$
 DECLARE
   _openAmount NUMERIC;
-  _p RECORD;
   _lateCount INTEGER := 0;
   _graceDays INTEGER;
   _checkLate BOOLEAN := false;
@@ -204,10 +203,15 @@ DECLARE
   _id INTEGER;
 BEGIN
 
+  IF (TG_OP = 'INSERT') THEN
+    _id := NEW.aropen_id;
+  ELSE
+    _id := OLD.aropen_id;
+  END IF;
 -- If metric is set then auto close any associated incidents when AR is closed
   IF (fetchMetricBool('AutoCloseARIncident')) THEN
     IF (NEW.aropen_open = FALSE) THEN
-      UPDATE incdt SET incdt_status='L' WHERE (incdt_aropen_id=OLD.aropen_id);
+      UPDATE incdt SET incdt_status='L' WHERE (incdt_aropen_id=_id);
     END IF;
   END IF;
 
