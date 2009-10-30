@@ -1,13 +1,13 @@
-CREATE OR REPLACE FUNCTION updateLowerUserCosts(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION updateLowerUserCosts(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pItemid ALIAS FOR $1;
 
 BEGIN
     RETURN updateLowerUserCosts(pItemid, TRUE);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION updateLowerUserCosts(INTEGER, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION updateLowerUserCosts(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pItemid	ALIAS FOR $1;
   pUpdateActual	ALIAS FOR $2;
@@ -20,7 +20,7 @@ BEGIN
   FROM item
   WHERE (item_id=pItemid);
 
-  IF (_type IN (''M'', ''F'', ''B'', ''T'')) THEN
+  IF (_type IN ('M', 'F', 'B', 'T')) THEN
     FOR _bomitem IN SELECT DISTINCT costelem_type
                     FROM ( SELECT costelem_type
                            FROM itemcost, costelem, bomitem(pItemid)
@@ -40,10 +40,11 @@ BEGIN
 			      pUpdateActual);
     END LOOP;
 
-  ELSIF (_type = ''C'') THEN
+  ELSIF (_type = 'C') THEN
     FOR _bomitem IN SELECT DISTINCT costelem_type
                     FROM ( SELECT costelem_type
-                           FROM itemcost, costelem, bbomitem
+                           FROM itemcost, costelem,
+                                xtmfg.bbomitem
                            WHERE ( (bbomitem_item_id=pItemid)
                             AND ( CURRENT_DATE BETWEEN bbomitem_effective
                                                AND (bbomitem_expires - 1) )
@@ -53,7 +54,8 @@ BEGIN
 
                            UNION SELECT costelem_type
                            FROM itemcost, costelem,
-                                bbomitem AS t, bbomitem AS s
+                                xtmfg.bbomitem AS t,
+                                xtmfg.bbomitem AS s
                            WHERE ( (t.bbomitem_item_id=pItemid)
                             AND ( CURRENT_DATE BETWEEN s.bbomitem_effective
                                                AND (s.bbomitem_expires - 1) )
@@ -73,7 +75,7 @@ BEGIN
   RETURN 1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
 
