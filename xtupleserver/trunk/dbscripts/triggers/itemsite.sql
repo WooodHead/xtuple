@@ -112,8 +112,12 @@ DECLARE
   _maint BOOLEAN;
   _cost NUMERIC;
   _variance NUMERIC;
+  _application TEXT;
 
 BEGIN
+-- Cache Application
+  SELECT fetchMetricText('Application') INTO _application;
+
 -- Check if we are doing maintenance
   IF (TG_OP = 'INSERT') THEN
     _maint := TRUE;
@@ -370,7 +374,7 @@ BEGIN
     END IF;
 
 --  If Planning Type changed to None then delete all Planned Orders
-    IF (TG_OP = 'UPDATE') THEN
+    IF ( (_application = 'Standard') AND (TG_OP = 'UPDATE') ) THEN
       IF (NEW.itemsite_planning_type = 'N' AND OLD.itemsite_planning_type <> 'N') THEN
         PERFORM deletePlannedOrder(planord_id, TRUE)
         FROM planord
