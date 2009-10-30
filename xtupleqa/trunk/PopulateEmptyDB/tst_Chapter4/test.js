@@ -170,7 +170,7 @@ function main()
         
         waitForObject(":List Work Centers.Close_QPushButton_2");
         clickButton(":List Work Centers.Close_QPushButton_2");
-        
+      
         
         
         //---------------------Products: Standard Operation--------------------

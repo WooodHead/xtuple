@@ -332,24 +332,27 @@ function main()
     waitForObject(":List Vendors.Close_QPushButton");
     clickButton(":List Vendors.Close_QPushButton");
   
+
   
-    
-    //------------Create Item Sources------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-    activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
-    
+  //------------Create Item Sources------------------
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+  activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+  
     //----Item source for TBOX1--------------
     waitForObject(":_frame.New_QPushButton");
     clickButton(":_frame.New_QPushButton");
     waitForObject(":Item Source._itemNumber_ItemLineEdit");
     type(":Item Source._itemNumber_ItemLineEdit", "TBOX1");
-    waitForObject(":_vendorGroup._vendorNumber_VendorLineEdit");
-    type(":_vendorGroup._vendorNumber_VendorLineEdit", "TPARTS");
-    type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPBOX01");
+    waitForObject(":_vendorGroup...._QPushButton_2");
+    clickButton(":_vendorGroup...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_3");
+    doubleClickItem(":_listTab_XTreeWidget_3","TPARTS",0,0,0,Qt.LeftButton);
+    waitForObject(":_venditemGroup._vendorItemNumber_XLineEdit_2");
+    type(":_venditemGroup._vendorItemNumber_XLineEdit_2", "TPBOX01");
     type(":_vendorUOM_XLineEdit", "PCS");
     type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
     type(":_venditemGroup._minOrderQty_XLineEdit", "0");
@@ -395,7 +398,11 @@ function main()
     clickButton(":_frame.New_QPushButton");
     waitForObject(":Item Source._itemNumber_ItemLineEdit");
     type(":Item Source._itemNumber_ItemLineEdit", "TBODY1");
-    type(":_vendorGroup._vendorNumber_VendorLineEdit", "TPARTS");
+    waitForObject(":_vendorGroup...._QPushButton_2");
+    clickButton(":_vendorGroup...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_3");
+    doubleClickItem(":_listTab_XTreeWidget_3","TPARTS",0,0,0,Qt.LeftButton);
+
     type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPBODY01");
     type(":_vendorUOM_XLineEdit", "PCS");
     type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
@@ -430,8 +437,11 @@ function main()
     try {
     waitForObject(":Item Source._itemNumber_ItemLineEdit");
     type(":Item Source._itemNumber_ItemLineEdit", "TINSERT1");
-    waitForObject(":_vendorGroup._vendorNumber_VendorLineEdit");
-    type(":_vendorGroup._vendorNumber_VendorLineEdit", "TPARTS");
+    waitForObject(":_vendorGroup...._QPushButton_2");
+    clickButton(":_vendorGroup...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_3");
+    doubleClickItem(":_listTab_XTreeWidget_3","TPARTS",0,0,0,Qt.LeftButton);
+
     type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPINSERT01");
     type(":_vendorUOM_XLineEdit", "PCS");
     type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
@@ -476,7 +486,11 @@ function main()
     clickButton(":_frame.New_QPushButton");
     waitForObject(":Item Source._itemNumber_ItemLineEdit");
     type(":Item Source._itemNumber_ItemLineEdit", "TWHEEL1");
-    type(":_vendorGroup._vendorNumber_VendorLineEdit", "TPARTS");
+    waitForObject(":_vendorGroup...._QPushButton_2");
+    clickButton(":_vendorGroup...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_3");
+    doubleClickItem(":_listTab_XTreeWidget_3","TPARTS",0,0,0,Qt.LeftButton);
+
     type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPWHEEL01");
     type(":_vendorUOM_XLineEdit", "PCS");
     type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
@@ -508,7 +522,11 @@ function main()
     clickButton(":_frame.New_QPushButton");
     waitForObject(":Item Source._itemNumber_ItemLineEdit");
     type(":Item Source._itemNumber_ItemLineEdit", "YPAINT1");
-    type(":_vendorGroup._vendorNumber_VendorLineEdit", "TPARTS");
+    waitForObject(":_vendorGroup...._QPushButton_2");
+    clickButton(":_vendorGroup...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_3");
+    doubleClickItem(":_listTab_XTreeWidget_3","TPARTS",0,0,0,Qt.LeftButton);
+
     type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPPAINT01");
     type(":_vendorUOM_XLineEdit", "PCS");
     type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");

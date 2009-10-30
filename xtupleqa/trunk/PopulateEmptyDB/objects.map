@@ -536,6 +536,7 @@
 :Item Source.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Item Source_itemSource'}
 :Item Source._itemNumber_ItemLineEdit	{name='_itemNumber' type='ItemLineEdit' visible='1' window=':Item Source_itemSource'}
 :Item Source._venditemGroup_QGroupBox	{name='_venditemGroup' type='QGroupBox' visible='1' window=':Item Source_itemSource'}
+:Item Source._venditemGroup_QGroupBox_2	{name='_venditemGroup' type='QGroupBox' visible='1' window=':Item Source_itemSource_2'}
 :Item Source._vendorGroup_QGroupBox	{name='_vendorGroup' type='QGroupBox' visible='1' window=':Item Source_itemSource'}
 :Item Source._vendorGroup_QGroupBox_2	{name='_vendorGroup' type='QGroupBox' visible='1' window=':Item Source_itemSource_2'}
 :Item Source.qt_tabwidget_stackedwidget_QStackedWidget	{name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1' window=':Item Source_itemSource'}
@@ -1724,6 +1725,8 @@
 :Search For Customer.Select_QPushButton	{name='_select' text='Select' type='QPushButton' visible='1' window=':Search For Customer_CRMAcctList'}
 :Search For Customer._titleLit_QLabel	{name='_titleLit' type='QLabel' visible='1' window=':Search For Customer_CRMAcctList'}
 :Search For Customer_CRMAcctList	{name='CRMAcctList' type='CRMAcctList' visible='1' windowTitle='Search For Customer'}
+:Search For Vendor._titleLit_QLabel	{name='_titleLit' type='QLabel' visible='1' window=':Search For Vendor_CRMAcctList'}
+:Search For Vendor_CRMAcctList	{name='CRMAcctList' type='CRMAcctList' visible='1' windowTitle='Search For Vendor'}
 :Select Multiple Accounts by Segment._subType_XComboBox	{container=':_selection.Select Multiple Accounts by Segment_QGroupBox' name='_subType' type='XComboBox' visible='1'}
 :Select Multiple Accounts by Segment._type_XComboBox	{container=':_selection.Select Multiple Accounts by Segment_QGroupBox' name='_type' type='XComboBox' visible='1'}
 :Select one Account._main_XLineEdit	{container=':_selection.Select one Account_QGroupBox' name='_main' type='XLineEdit' visible='1'}
@@ -2659,6 +2662,7 @@
 :_lineItemsPage._soitem_XTreeWidget	{container=':qt_tabwidget_stackedwidget._lineItemsPage_QWidget' name='_soitem' type='XTreeWidget' visible='1'}
 :_listTab_XTreeWidget	{buddy=':Search For Customer._titleLit_QLabel' name='_listTab' type='XTreeWidget' visible='1'}
 :_listTab_XTreeWidget_2	{buddy=':_vendorGroup._titleLit_QLabel' name='_listTab' type='XTreeWidget' visible='1'}
+:_listTab_XTreeWidget_3	{buddy=':Search For Vendor._titleLit_QLabel' name='_listTab' type='XTreeWidget' visible='1'}
 :_list_XTreeWidget	{buddy=':List Production Plans.Production Plans:_QLabel' name='_list' type='XTreeWidget' visible='1'}
 :_locale_XComboBox	{buddy=':List Users.Locale:_QLabel' name='_locale' type='XComboBox' visible='1'}
 :_locale_XComboBox_2	{buddy=':List Employees.Locale:_QLabel' name='_locale' type='XComboBox' visible='1'}
@@ -3018,9 +3022,11 @@
 :_venditemGroup._leadTime_QSpinBox	{container=':Item Source._venditemGroup_QGroupBox' name='_leadTime' type='QSpinBox' visible='1'}
 :_venditemGroup._minOrderQty_XLineEdit	{container=':Item Source._venditemGroup_QGroupBox' name='_minOrderQty' type='XLineEdit' visible='1'}
 :_venditemGroup._vendorItemNumber_XLineEdit	{container=':Item Source._venditemGroup_QGroupBox' name='_vendorItemNumber' type='XLineEdit' visible='1'}
+:_venditemGroup._vendorItemNumber_XLineEdit_2	{container=':Item Source._venditemGroup_QGroupBox_2' name='_vendorItemNumber' type='XLineEdit' visible='1'}
 :_venditemGroup._vendorRanking_QSpinBox	{container=':Item Source._venditemGroup_QGroupBox' name='_vendorRanking' type='QSpinBox' visible='1'}
 :_venditemGroup.qt_spinbox_lineedit_QLineEdit	{container=':Item Source._venditemGroup_QGroupBox' name='qt_spinbox_lineedit' occurrence='2' type='QLineEdit' visible='1'}
 :_vendorGroup...._QPushButton	{container=':Item Source._vendorGroup_QGroupBox_2' text='...' type='QPushButton' unnamed='1' visible='1'}
+:_vendorGroup...._QPushButton_2	{container=':Item Source._vendorGroup_QGroupBox_2' name='_vendorList' text='...' type='QPushButton' visible='1'}
 :_vendorGroup._titleLit_QLabel	{container=':Item Source._vendorGroup_QGroupBox_2' name='_titleLit' type='QLabel' visible='1'}
 :_vendorGroup._vendorNumber_VendorLineEdit	{container=':Item Source._vendorGroup_QGroupBox_2' name='_vendorNumber' type='VendorLineEdit' visible='1'}
 :_vendorGroup._vendor_VendorLineEdit	{container=':Item Source._vendorGroup_QGroupBox' name='_vendor' type='VendorLineEdit' visible='1'}
