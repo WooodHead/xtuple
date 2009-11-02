@@ -89,7 +89,7 @@ BEGIN
     womatl_picklist, womatl_createwo, womatl_issuemethod, womatl_notes, womatl_ref )
   SELECT wo_id, bomitem_id, bomitem_booitem_seq_id, bomitem_schedatwooper,
          cs.itemsite_id,
-         CASE WHEN bomitem_schedatwooper THEN COALESCE(xtmfg.calcWooperStart(wo_id,bomitem_booitem_seq_id), wo_startdate)
+         CASE WHEN bomitem_schedatwooper THEN COALESCE(calcWooperStartStub(wo_id,bomitem_booitem_seq_id), wo_startdate)
               ELSE wo_startdate
          END,
          bomitem_uom_id, bomitem_qtyper, bomitem_scrap,
