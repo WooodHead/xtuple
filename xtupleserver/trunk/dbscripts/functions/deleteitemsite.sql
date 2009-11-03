@@ -75,7 +75,7 @@ BEGIN
   END IF;
 
   SELECT woopervar_id INTO _result
-  FROM woopervar
+  FROM xtmfg.woopervar
   WHERE (woopervar_parent_itemsite_id=pItemsiteid)
   LIMIT 1;
   IF (FOUND) THEN
@@ -84,7 +84,7 @@ BEGIN
 
   IF (_bbom) THEN
     SELECT brdvar_id INTO _result
-    FROM brdvar
+    FROM xtmfg.brdvar
     WHERE ( (brdvar_itemsite_id=pItemsiteid)
      OR (brdvar_parent_itemsite_id=pItemsiteid) )
     LIMIT 1;
@@ -196,8 +196,10 @@ BEGIN
   DELETE FROM itemlocdist
   WHERE (itemlocdist_itemsite_id=pItemsiteid);
 
-  DELETE FROM brddist
-  WHERE (brddist_itemsite_id=pItemsiteid);
+  IF (_bbom) THEN
+    DELETE FROM xtmfg.brddist
+    WHERE (brddist_itemsite_id=pItemsiteid);
+  END IF;
 
   DELETE FROM itemsite
   WHERE (itemsite_id=pItemsiteid);
