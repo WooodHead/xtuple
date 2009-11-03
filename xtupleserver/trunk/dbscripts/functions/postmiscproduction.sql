@@ -39,7 +39,7 @@ BEGIN
   SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
   SELECT postInvTrans( pItemsiteid, 'RM', _parentQty,
                        'W/O', 'WO', 'Misc.', pDocNumber,
-                       ('Receive from Misc. Production for Item Number ' || _p.item_number || '\n' || pComments),
+                       ('Receive from Misc. Production for Item Number ' || _p.item_number || E'\n' || pComments),
                        costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries ) INTO _invhistid
   FROM itemsite, costcat
   WHERE ( (itemsite_costcat_id=costcat_id)
@@ -69,7 +69,7 @@ BEGIN
   END IF;
 
   IF (fetchMetricBool('Routings')) THEN
-    _laborAndOverheadCost := (directLaborCost(_p.item_id) + overheadCost(_p.item_id)) * _parentQty;
+    _laborAndOverheadCost := (xtmfg.directLaborCost(_p.item_id) + xtmfg.overheadCost(_p.item_id)) * _parentQty;
 
     PERFORM insertGLTransaction('W/O', 'WO', 'Misc.',
 	      ('Direct Labor And Overhead Costs of Post to Misc. Production for Item Number ' || _p.item_number),
@@ -80,7 +80,7 @@ BEGIN
       AND  (itemsite_id=pItemsiteid));
 
     IF fetchmetrictext('TrackMachineOverhead') = 'M' THEN
-      _machineOverheadCost := machineoverheadCost(_p.item_id) * _parentQty;
+      _machineOverheadCost := xtmfg.machineoverheadCost(_p.item_id) * _parentQty;
       PERFORM insertGLTransaction('W/O', 'WO', 'Misc.',
 	      ('Machine Overhead Costs of Post to Misc. Production for Item Number ' || _p.item_number),
 	      costcat_laboroverhead_accnt_id, costcat_wip_accnt_id, _invhistid,
