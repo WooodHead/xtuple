@@ -27,7 +27,7 @@ BEGIN
        AND (parent.itemsite_id=pItemsiteid) );
 
       SELECT COALESCE(MAX(booitem_execday), 0) INTO _productionLeadTime
-      FROM booitem, itemsite
+      FROM xtmfg.booitem, itemsite
       WHERE ( (booitem_item_id=itemsite_item_id)
        AND (booitem_rev_id=getActiveRevId(''BOO'',booitem_item_id))
        AND (itemsite_id=pItemsiteid) );
