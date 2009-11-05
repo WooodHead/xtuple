@@ -98,8 +98,14 @@ BEGIN
     RAISE EXCEPTION 'Cannot Post Voucher #% with negative or zero distributions (%).',
 			_p.vohead_number, _tmpTotal;
   END IF;
+
   IF (_tmpTotal > _p.vohead_amount) THEN
     RAISE EXCEPTION 'Cannot Post Voucher #% with distributions greater than the voucher amount (% > %).',
+			_p.vohead_number, _tmpTotal, _p.vohead_amount;
+  END IF;
+
+  IF (_tmpTotal < _p.vohead_amount) THEN
+    RAISE EXCEPTION 'Cannot Post Voucher #% with distributions less than the voucher amount (% < %).',
 			_p.vohead_number, _tmpTotal, _p.vohead_amount;
   END IF;
 
