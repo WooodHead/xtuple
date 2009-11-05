@@ -80,7 +80,7 @@ function findApplicationEdition()
     waitForObject(":Database Information.*_QLabel");
     var appEdition = findObject(":Database Information.*_QLabel").text;
     clickButton(":Database Information.Save_QPushButton");
-    //appEdition="Manufacturing";
+    appEdition="Manufacturing";
 
     return appEdition;
 }
@@ -159,6 +159,7 @@ function createShift(ShiftNum, ShiftName)
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Shifts...");
     waitForObject(":List Shifts.New_QPushButton");
     clickButton(":List Shifts.New_QPushButton");
+
     waitForObject(":List Shifts._number_XLineEdit");
     type(":List Shifts._number_XLineEdit",ShiftNum);
     type(":List Shifts._name_XLineEdit", ShiftName);

@@ -737,7 +737,7 @@ function main()
     clickButton(":List Characteristics.Close_QPushButton_2");
     
   
-if(appEdition=="Manufacturing")
+(appEdition=="Manufacturing")
 {
     
         //----------------Schedule: Create Planner Code----------------
@@ -785,7 +785,7 @@ if(appEdition=="Manufacturing")
         clickButton(":List Planner Codes.Close_QPushButton_2");
         test.log("Planner Codes created");
         
-        
+       
         //--------------Schedule: Site week--------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
@@ -852,7 +852,8 @@ if(appEdition=="Manufacturing")
         clickButton(":Site Calendar Exception.Save_QPushButton_2");
 
         waitForObject(":List Site Calendar Exceptions.Close_QPushButton_3");
-        if(!clickItem(":List Site Calendar Exceptions._whsecal_XTreeWidget", "Christmas "+CurrentYearFull, 5, 5, 1, Qt.LeftButton))
+
+        if(!clickItem(":List Site Calendar Exceptions._whsecal_XTreeWidget_2", "Christmas "+CurrentYearFull, 5, 5, 1, Qt.LeftButton))
             test.pass("Calendar Exception: Christmas "+CurrentYearFull+" created");
         clickButton(":List Site Calendar Exceptions.Close_QPushButton_3");
  

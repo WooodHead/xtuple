@@ -1169,9 +1169,9 @@
 :List Sales Representatives_salesReps	{name='salesReps' type='salesReps' visible='1' windowTitle='List Sales Representatives'}
 :List Shifts.Close_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Shifts_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Shifts.New_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Shifts_QWorkspaceChild' name='_new' text='New' type='QPushButton' visible='1'}
-:List Shifts.Save_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Shifts_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
-:List Shifts._name_XLineEdit	{container=':xTuple ERP: OpenMFG Edition.List Shifts_QWorkspaceChild' name='_name' type='XLineEdit' visible='1'}
-:List Shifts._number_XLineEdit	{container=':xTuple ERP: OpenMFG Edition.List Shifts_QWorkspaceChild' name='_number' type='XLineEdit' visible='1'}
+:List Shifts.Save_QPushButton	{container=':Shift_XMainWindow' name='_save' text='Save' type='QPushButton' visible='1'}
+:List Shifts._name_XLineEdit	{container=':Shift_XMainWindow' name='_name' type='XLineEdit' visible='1'}
+:List Shifts._number_XLineEdit	{container=':Shift._number_XLineEdit' name='_number' type='XLineEdit' visible='1'}
 :List Shifts._shiftList_XTreeWidget	{container=':xTuple ERP: OpenMFG Edition.List Shifts_QWorkspaceChild' name='_shiftList' type='XTreeWidget' visible='1'}
 :List Ship Vias.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Ship Vias_shipVias'}
 :List Ship Vias.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Ship Vias_shipVias'}
@@ -1202,6 +1202,7 @@
 :List Site Calendar Exceptions.XDateEdit_XDateEdit_2	{container=':xTuple ERP: OpenMFG Edition.List Site Calendar Exceptions_QWorkspaceChild' name='XDateEdit' occurrence='2' type='XDateEdit' visible='1'}
 :List Site Calendar Exceptions._warehouse_WarehouseGroup	{container=':xTuple ERP: OpenMFG Edition.List Site Calendar Exceptions_QWorkspaceChild' name='_warehouse' type='WarehouseGroup' visible='1'}
 :List Site Calendar Exceptions._whsecal_XTreeWidget	{name='_whsecal' type='XTreeWidget' visible='1' window=':List Site Calendar Exceptions_whseCalendars'}
+:List Site Calendar Exceptions._whsecal_XTreeWidget_2	{name='_whsecal' type='XTreeWidget' visible='1' window=':List Site Calendar Exceptions_XMainWindow'}
 :List Site Calendar Exceptions_XMainWindow	{name='whseCalendars' type='XMainWindow' visible='1' windowTitle='List Site Calendar Exceptions'}
 :List Site Calendar Exceptions_whseCalendars	{name='whseCalendars' type='whseCalendars' visible='1' windowTitle='List Site Calendar Exceptions'}
 :List Site Locations.Aisle_QLabel	{container=':xTuple ERP: OpenMFG Edition.List Site Locations_QWorkspaceChild' name='_aisleLit' text='Aisle' type='QLabel' visible='1'}
@@ -1744,6 +1745,8 @@
 :Setup Labor Rate._setupRate_XLineEdit_2	{container=':_costsTab.Setup Labor Rate_QGroupBox_2' name='_setupRate' type='XLineEdit' visible='1'}
 :Setup Labor Rate._stdSetupRate_XComboBox	{container=':_costsTab.Setup Labor Rate_QGroupBox' name='_stdSetupRate' type='XComboBox' visible='1'}
 :Setup Labor Rate._stdSetupRate_XComboBox_2	{container=':_costsTab.Setup Labor Rate_QGroupBox_2' name='_stdSetupRate' type='XComboBox' visible='1'}
+:Shift._number_XLineEdit	{name='_number' type='XLineEdit' visible='1' window=':Shift_XMainWindow'}
+:Shift_XMainWindow	{name='shift' type='XMainWindow' visible='1' windowTitle='Shift'}
 :Ship Via.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Ship Via_shipVia'}
 :Ship Via._code_XLineEdit	{name='_code' type='XLineEdit' visible='1' window=':Ship Via_shipVia'}
 :Ship Via._description_XLineEdit	{name='_description' type='XLineEdit' visible='1' window=':Ship Via_shipVia'}
@@ -2661,7 +2664,7 @@
 :_leadTime_QSpinBox_3	{buddy=':_mrp.Lead Time:_QLabel_3' name='_leadTime' type='QSpinBox' visible='1'}
 :_lineItemsPage._soitem_XTreeWidget	{container=':qt_tabwidget_stackedwidget._lineItemsPage_QWidget' name='_soitem' type='XTreeWidget' visible='1'}
 :_listTab_XTreeWidget	{buddy=':Search For Customer._titleLit_QLabel' name='_listTab' type='XTreeWidget' visible='1'}
-:_listTab_XTreeWidget_2	{buddy=':_vendorGroup._titleLit_QLabel' name='_listTab' type='XTreeWidget' visible='1'}
+:_listTab_XTreeWidget_2	{buddy=':Search For Vendor._titleLit_QLabel' name='_listTab' type='XTreeWidget' visible='1'}
 :_listTab_XTreeWidget_3	{buddy=':Search For Vendor._titleLit_QLabel' name='_listTab' type='XTreeWidget' visible='1'}
 :_list_XTreeWidget	{buddy=':List Production Plans.Production Plans:_QLabel' name='_list' type='XTreeWidget' visible='1'}
 :_locale_XComboBox	{buddy=':List Users.Locale:_QLabel' name='_locale' type='XComboBox' visible='1'}
@@ -3026,7 +3029,7 @@
 :_venditemGroup._vendorRanking_QSpinBox	{container=':Item Source._venditemGroup_QGroupBox' name='_vendorRanking' type='QSpinBox' visible='1'}
 :_venditemGroup.qt_spinbox_lineedit_QLineEdit	{container=':Item Source._venditemGroup_QGroupBox' name='qt_spinbox_lineedit' occurrence='2' type='QLineEdit' visible='1'}
 :_vendorGroup...._QPushButton	{container=':Item Source._vendorGroup_QGroupBox_2' text='...' type='QPushButton' unnamed='1' visible='1'}
-:_vendorGroup...._QPushButton_2	{container=':Item Source._vendorGroup_QGroupBox_2' name='_vendorList' text='...' type='QPushButton' visible='1'}
+:_vendorGroup...._QPushButton_2	{container=':Item Source._vendorGroup_QGroupBox_2' text='...' type='QPushButton' visible='1'}
 :_vendorGroup._titleLit_QLabel	{container=':Item Source._vendorGroup_QGroupBox_2' name='_titleLit' type='QLabel' visible='1'}
 :_vendorGroup._vendorNumber_VendorLineEdit	{container=':Item Source._vendorGroup_QGroupBox_2' name='_vendorNumber' type='VendorLineEdit' visible='1'}
 :_vendorGroup._vendor_VendorLineEdit	{container=':Item Source._vendorGroup_QGroupBox' name='_vendor' type='VendorLineEdit' visible='1'}
