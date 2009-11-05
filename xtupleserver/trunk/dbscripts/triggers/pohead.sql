@@ -8,7 +8,8 @@ BEGIN
 
 -- Check if we are doing maintenance
   IF (TG_OP = 'UPDATE') THEN
-    IF (OLD.pohead_status           != NEW.pohead_status) THEN
+    IF ( (OLD.pohead_status           != NEW.pohead_status) OR
+         (OLD.pohead_printed          != NEW.pohead_printed) ) THEN
       _maint := FALSE;
     END IF;
   END IF;
@@ -16,6 +17,7 @@ BEGIN
   -- Check
   IF ( (NOT _maint) AND (NOT checkPrivilege('MaintainPurchaseOrders'))
                     AND (NOT checkPrivilege('PostPurchaseOrders'))
+                    AND (NOT checkPrivilege('PrintPurchaseOrders'))
                     AND (NOT checkPrivilege('PostVouchers')) ) THEN
     RAISE EXCEPTION 'You do not have privileges to alter a Purchase Order.';
   END IF;
