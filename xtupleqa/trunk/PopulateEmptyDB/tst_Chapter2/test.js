@@ -737,8 +737,8 @@ function main()
     clickButton(":List Characteristics.Close_QPushButton_2");
     
   
-(appEdition=="Manufacturing")
-{
+    if(appEdition=="Manufacturing")
+    {
     
         //----------------Schedule: Create Planner Code----------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
