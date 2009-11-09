@@ -8,6 +8,7 @@ AS
 		invcitem_linenumber AS line_number,
 		item_number,
 		invcitem_number AS misc_item_number,
+		warehous_code AS site,
 		invcitem_descrip AS misc_item_description,
 		salescat_name as sales_category,
 		invcitem_custpn AS customer_part_number,
@@ -21,6 +22,7 @@ AS
 	FROM invcitem
 		LEFT OUTER JOIN invchead ON (invcitem_invchead_id=invchead_id)
 		LEFT OUTER JOIN item ON (item_id=invcitem_item_id)
+		LEFT OUTER JOIN whsinfo ON (invcitem_warehous_id=warehous_id)
 		LEFT OUTER JOIN salescat ON (salescat_id=invcitem_salescat_id)
 		LEFT OUTER JOIN taxtype ON (taxtype_id=invcitem_taxtype_id)
 		LEFT OUTER JOIN uom AS qty_uom ON (qty_uom.uom_id=invcitem_qty_uom_id)
@@ -65,7 +67,7 @@ BEGIN
 			FROM invcitem WHERE (invcitem_invchead_id=invchead_id)
 		)),
 		COALESCE(item_id, -1),
-		-1,
+		COALESCE(getwarehousid(pNew.site,'ALL'),-1),
 		pNew.customer_part_number,
 		(CASE WHEN item_id IS NULL THEN pNew.misc_item_number ELSE NULL END),
 		(CASE WHEN item_id IS NULL THEN pNew.misc_item_description ELSE NULL END),
@@ -132,6 +134,7 @@ BEGIN
 		invcitem_item_id=COALESCE(item_id, -1),
 		invcitem_custpn=pNew.customer_part_number,
 		invcitem_number=(CASE WHEN item_id IS NULL THEN pNew.misc_item_number ELSE NULL END),
+		invcitem_warehous_id=(CASE WHEN invcitem_warehous_id IS NULL THEN COALESCE(getwarehousid(pNew.site,'ALL'),-1) ELSE NULL END),
 		invcitem_descrip=(CASE WHEN item_id IS NULL THEN pNew.misc_item_description ELSE NULL END),
 		invcitem_ordered=pNew.qty_ordered,
 		invcitem_billed=COALESCE(pNew.qty_billed, 0),
