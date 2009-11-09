@@ -7,8 +7,9 @@
       <primary>purchase orders</primary>
       <secondary>printing by agent</secondary>
     </indexterm>Print Purchase Orders by Agent</title>
-  <para>To print Purchase Orders by Agent, select the "Print Purchase Orders
-  by Agent" option. The following screen will appear:</para>
+  <para>To print any posted Purchase Orders which have not yet been printed by
+  Agent, select the "Print Purchase Orders by Agent" option. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -73,7 +74,8 @@
       <term>PRINT</term>
       <listitem>
         <para>Prints the specified number of copies of Purchase Orders by
-        Purchasing Agent.</para>
+        Purchasing Agent. Only posted Purchase Orders which have not yet been
+        printed will be printed.</para>
         <para role="standard">If the Vendor specified on the Purchase Order
         has an EDI Profile attached, you may encounter an EDI processing
         interface when printing the Purchase Order.</para>
