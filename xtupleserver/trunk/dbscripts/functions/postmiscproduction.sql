@@ -51,7 +51,8 @@ BEGIN
                      cs.itemsite_loccntrl AS c_itemsite_loccntrl,
                      cs.itemsite_controlmethod AS c_itemsite_controlmethod,
                      cs.itemsite_controlmethod AS c_controlmethod,
-                     roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id), (bomitem_qtyper * _parentQty * (1 + bomitem_scrap))) AS qty
+                     roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id),
+                              itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyper * _parentQty * (1 + bomitem_scrap)))) AS qty
               FROM itemsite AS ps, itemsite AS cs, item, bomitem
               WHERE ((cs.itemsite_item_id=item_id)
                AND (ps.itemsite_item_id=bomitem_parent_item_id)
