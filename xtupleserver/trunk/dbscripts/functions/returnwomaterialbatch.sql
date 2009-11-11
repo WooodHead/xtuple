@@ -28,7 +28,7 @@ BEGIN
               AND (womatl_wo_id=pWoid)) LOOP
 
       IF (_r.qty != 0) THEN
-        PERFORM returnWoMaterial(_r.womatl_id, _r.qty, _itemlocSeries);
+        PERFORM returnWoMaterial(_r.womatl_id, _r.qty, _itemlocSeries, now());
       END IF;
 
     END LOOP;

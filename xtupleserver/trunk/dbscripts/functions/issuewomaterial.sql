@@ -7,8 +7,22 @@ DECLARE
   _itemlocSeries INTEGER;
 
 BEGIN
+  RETURN issueWoMaterial(pWomatlid, pQty, pItemlocSeries,now());
+END;
+$$ LANGUAGE 'plpgsql';
 
-  SELECT issueWoMaterial(pWomatlid, pQty, pItemlocSeries) INTO _itemlocSeries;
+CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC, INTEGER, BOOLEAN, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+DECLARE
+  pWomatlid ALIAS FOR $1;
+  pQty ALIAS FOR $2;
+  pItemlocSeries ALIAS FOR $3;
+  pMarkPush ALIAS FOR $4;
+  pGlDistTS ALIAS FOR $5;
+  _itemlocSeries INTEGER;
+
+BEGIN
+
+  SELECT issueWoMaterial(pWomatlid, pQty, pItemlocSeries, pGlDistTS) INTO _itemlocSeries;
 
   IF (pMarkPush) THEN
     UPDATE womatl
@@ -36,13 +50,27 @@ BEGIN
 
 END;
 $$ LANGUAGE 'plpgsql';
-  
 
 CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pWomatlid ALIAS FOR $1;
   pQty ALIAS FOR $2;
   pItemlocSeries ALIAS FOR $3;
+  _p RECORD;
+  _invhistid INTEGER;
+  _itemlocSeries INTEGER;
+
+BEGIN
+  RETURN issueWoMaterial(pWomatlid, pQty, pItemlocSeries, now());
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+DECLARE
+  pWomatlid ALIAS FOR $1;
+  pQty ALIAS FOR $2;
+  pItemlocSeries ALIAS FOR $3;
+  pGlDistTS ALIAS FOR $4;
   _p RECORD;
   _invhistid INTEGER;
   _itemlocSeries INTEGER;
@@ -76,7 +104,7 @@ BEGIN
   END IF;
   SELECT postInvTrans( ci.itemsite_id, 'IM', _p.qty,
                       'W/O', 'WO', _p.woNumber, '', ('Material ' || item_number || ' Issue to Work Order'),
-                      pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries ) INTO _invhistid
+                      pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries, pGlDistTS ) INTO _invhistid
   FROM itemsite AS ci, itemsite AS pi,
        costcat AS cc, costcat AS pc,
        item
@@ -100,7 +128,7 @@ BEGIN
 
   UPDATE womatl
   SET womatl_qtyiss = (womatl_qtyiss + itemuomtouom(_p.itemsite_item_id, NULL, _p.womatl_uom_id, _p.qty)),
-      womatl_lastissue = CURRENT_DATE
+      womatl_lastissue = pGlDistTS::DATE
   WHERE (womatl_id=pWomatlid);
 
   UPDATE wo
@@ -112,7 +140,6 @@ BEGIN
 
 END;
 $$ LANGUAGE 'plpgsql';
-  
 
 CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
@@ -122,8 +149,21 @@ DECLARE
   _itemlocSeries INTEGER;
 
 BEGIN
+  RETURN issueWoMaterial(pWomatlid, pQty, pMarkPush, now());
+END;
+$$ LANGUAGE 'plpgsql';
 
-  SELECT issueWoMaterial(pWomatlid, pQty) INTO _itemlocSeries;
+CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC, BOOLEAN, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+DECLARE
+  pWomatlid ALIAS FOR $1;
+  pQty ALIAS FOR $2;
+  pMarkPush ALIAS FOR $3;
+  pGlDistTS ALIAS FOR $4;
+  _itemlocSeries INTEGER;
+
+BEGIN
+
+  SELECT issueWoMaterial(pWomatlid, pQty, 0, pGlDistTS) INTO _itemlocSeries;
   IF (_itemlocSeries < 0) THEN
     RETURN _itemlocSeries;
   END IF;
