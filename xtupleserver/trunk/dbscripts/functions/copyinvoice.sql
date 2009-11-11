@@ -72,31 +72,6 @@ BEGIN
          _i.invchead_taxzone_id,
          _i.invchead_adjtaxtype_id, _i.invchead_freighttaxtype_id );
 
-  INSERT INTO invcheadtax ( taxhist_parent_id,
-                            taxhist_taxtype_id,
-                            taxhist_tax_id,
-                            taxhist_basis,
-                            taxhist_basis_tax_id,
-                            taxhist_sequence,
-                            taxhist_percent,
-                            taxhist_amount,
-                            taxhist_tax,
-                            taxhist_docdate,
-                            taxhist_distdate )
-  SELECT _invcheadid,
-         taxhist_taxtype_id,
-         taxhist_tax_id,
-         taxhist_basis,
-         taxhist_basis_tax_id,
-         taxhist_sequence,
-         taxhist_percent,
-         taxhist_amount,
-         taxhist_tax,
-         taxhist_docdate,
-         taxhist_distdate
-  FROM invcheadtax
-  WHERE (taxhist_parent_id=pInvcheadid);
-
   FOR _l IN SELECT *
             FROM invcitem
             WHERE (invcitem_invchead_id=pInvcheadid) LOOP
@@ -127,30 +102,6 @@ BEGIN
          _l.invcitem_price_uom_id, _l.invcitem_price_invuomratio,
          _l.invcitem_coitem_id);
 
-    INSERT INTO invcitemtax ( taxhist_parent_id,
-                              taxhist_taxtype_id,
-                              taxhist_tax_id,
-                              taxhist_basis,
-                              taxhist_basis_tax_id,
-                              taxhist_sequence,
-                              taxhist_percent,
-                              taxhist_amount,
-                              taxhist_tax,
-                              taxhist_docdate,
-                              taxhist_distdate )
-    SELECT _invcitemid,
-           taxhist_taxtype_id,
-           taxhist_tax_id,
-           taxhist_basis,
-           taxhist_basis_tax_id,
-           taxhist_sequence,
-           taxhist_percent,
-           taxhist_amount,
-           taxhist_tax,
-           taxhist_docdate,
-           taxhist_distdate
-    FROM invcitemtax
-    WHERE (taxhist_parent_id=_l.invcitem_id);
   END LOOP;
 
   RETURN _invcheadid;
