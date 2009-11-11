@@ -1,21 +1,23 @@
 
 
-CREATE OR REPLACE FUNCTION scrapTopLevel(INTEGER, NUMERIC) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION scrapTopLevel(INTEGER, NUMERIC, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS '
 DECLARE
   pWoid		ALIAS FOR $1;
   pQty		ALIAS FOR $2;
+  pGlDistTS	ALIAS FOR $3;
 
 BEGIN
-  RETURN scrapTopLevel(pWoid, pQty, FALSE);
+  RETURN scrapTopLevel(pWoid, pQty, FALSE, pGLDistTS);
 END;
 ' LANGUAGE 'plpgsql';
 
 -- keep pIssueRepl code in sync with scrapWoMaterial above
-CREATE OR REPLACE FUNCTION scrapTopLevel(INTEGER, NUMERIC, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION scrapTopLevel(INTEGER, NUMERIC, BOOLEAN, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS '
 DECLARE
   pWoid		ALIAS FOR $1;
   pQty		ALIAS FOR $2;
   pIssueRepl	ALIAS FOR $3;
+  pGlDistTS 	ALIAS FOR $4;
   _toIssue		NUMERIC;
   _itemlocSeries	INTEGER := 0;
   _p			RECORD;
@@ -32,7 +34,7 @@ BEGIN
 		  AND  (itemsite_item_id=item_id)) LOOP
 	_toIssue := _p.toScrap - NoNeg(_p.preAlloc - _p.womatl_qtywipscrap);
 	IF (_toIssue > 0) THEN
-	  _itemlocSeries := issueWoMaterial(_p.womatl_id, _toIssue, _itemlocSeries);
+	  _itemlocSeries := issueWoMaterial(_p.womatl_id, _toIssue, _itemlocSeries, pGlDistTS);
 	  IF (_itemlocSeries < 0) THEN
 	    RETURN _itemlocSeries;
 	  END IF;
@@ -47,7 +49,7 @@ BEGIN
 
     -- BIG ASSUMPTION - the item to scrap has been received into inventory
     SELECT invScrap(itemsite_id, pQty, formatWoNumber(wo_id),
-		    ''Top Level Item'') INTO _itemlocSeries
+		    ''Top Level Item'', pGlDistTS) INTO _itemlocSeries
     FROM wo, itemsite
     WHERE ((wo_id=pWoid)
       AND  (itemsite_id=wo_itemsite_id));

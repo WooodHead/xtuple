@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION correctProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN) RETURNS INTEGER AS $$
 BEGIN
   RAISE NOTICE 'correctProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN) has been deprecated. Use corrrectProduction(INTEGER, NUMERIC, BOOLEAN, INTEGER) or a package-specific version instead.';
-  RETURN  correctProduction($1, $2, $3, 0);
+  RETURN  correctProduction($1, $2, $3, 0, now());
 END;
 $$ LANGUAGE 'plpgsql';
 
@@ -9,16 +9,17 @@ $$ LANGUAGE 'plpgsql';
 CREATE OR REPLACE FUNCTION correctProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN, INTEGER) RETURNS INTEGER AS $$
 BEGIN
   RAISE NOTICE 'correctProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN, INTEGER) has been deprecated. Use corrrectProduction(INTEGER, NUMERIC, BOOLEAN, INTEGER) or a package-specific version instead.';
-  RETURN correctProduction($1, $2, $3, $5);
+  RETURN correctProduction($1, $2, $3, $5, now());
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION correctProduction(INTEGER, NUMERIC, BOOLEAN, INTEGER) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION correctProduction(INTEGER, NUMERIC, BOOLEAN, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 DECLARE
   pWoid          ALIAS FOR $1;
   pQty           ALIAS FOR $2;
   pBackflush     ALIAS FOR $3;
   pItemlocSeries ALIAS FOR $4;
+  pGlDistTS      ALIAS FOR $5;
   _invhistid        INTEGER;
   _itemlocSeries    INTEGER;
   _r                RECORD;
@@ -93,7 +94,7 @@ BEGIN
       SELECT postInvTrans( itemsite_id, 'IM', (_invqty * -1),
                            'W/O', 'WO', formatwonumber(pWoid), '',
                            ('Correct Receive Inventory ' || item_number || ' ' || _sense || ' Manufacturing'),
-                           _parentWIPAccntid, costcat_asset_accnt_id, _itemlocSeries ) INTO _invhistid
+                           _parentWIPAccntid, costcat_asset_accnt_id, _itemlocSeries, pGlDistTS ) INTO _invhistid
       FROM itemsite, item, costcat
       WHERE ( (itemsite_item_id=item_id)
        AND (itemsite_costcat_id=costcat_id)
@@ -124,7 +125,7 @@ BEGIN
   SELECT postInvTrans( itemsite_id, 'RM', (_parentQty * -1),
                        'W/O', 'WO', formatwonumber(pWoid), '',
                        ('Correct Receive Inventory ' || item_number || ' ' || _sense || ' Manufacturing'),
-                       costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, CURRENT_DATE,
+                       costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, pGlDistTS,
                        CASE WHEN (wo_qtyrcv > 0) THEN
                        ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) * _parentQty -- only used when cost is average
                             ELSE 0 END

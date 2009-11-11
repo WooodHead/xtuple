@@ -93,7 +93,7 @@ BEGIN
 	    _qty * _m.womatl_qtyper + (_m.womatl_qtywipscrap - _m.preAlloc)
 	  ELSE
 	    _qty * _m.womatl_qtyper * (1 + _m.womatl_scrap)
-	  END, _itemlocSeries) INTO _itemlocSeries;
+	  END, _itemlocSeries, now()) INTO _itemlocSeries;
 
         UPDATE womatl
         SET womatl_issuemethod=''L''

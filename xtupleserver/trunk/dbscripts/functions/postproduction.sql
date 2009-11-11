@@ -1,9 +1,10 @@
-CREATE OR REPLACE FUNCTION postProduction(INTEGER, NUMERIC, BOOLEAN, INTEGER) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION postProduction(INTEGER, NUMERIC, BOOLEAN, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 DECLARE
   pWoid          ALIAS FOR $1;
   pQty           ALIAS FOR $2;
   pBackflush     ALIAS FOR $3;
   pItemlocSeries ALIAS FOR $4;
+  pGlDistTS      ALIAS FOR $5;
   _invhistid     INTEGER;
   _itemlocSeries INTEGER;
   _parentQty     NUMERIC;
@@ -68,7 +69,7 @@ BEGIN
 			       _parentQty * _r.womatl_qtyper + (_r.womatl_qtywipscrap - _r.preAlloc)
 			     ELSE
 			       _parentQty * _r.womatl_qtyper * (1 + _r.womatl_scrap)
-			     END, _itemlocSeries) INTO _itemlocSeries;
+			     END, _itemlocSeries, pGlDistTS ) INTO _itemlocSeries;
 
       UPDATE womatl
       SET womatl_issuemethod='L'
@@ -89,7 +90,7 @@ BEGIN
 
   SELECT postInvTrans( itemsite_id, 'RM', _parentQty,
                        'W/O', 'WO', _woNumber, '', ('Receive Inventory ' || item_number || ' ' || _sense || ' Manufacturing'),
-                       costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, CURRENT_DATE,
+                       costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, pGlDistTS,
                        -- the following is only actually used when the item is average costed
                        _wipPost ) INTO _invhistid
   FROM wo, itemsite, item, costcat
@@ -119,21 +120,21 @@ $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION postProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN) RETURNS INTEGER AS $$
 BEGIN
-  RAISE NOTICE 'postProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN) is deprecated. please use postProduction(INTEGER, NUMERIC, BOOLEAN, INTEGER) instead';
-  RETURN postProduction($1, $2, $3, 0);
+  RAISE NOTICE 'postProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN) is deprecated. please use postProduction(INTEGER, NUMERIC, BOOLEAN, INTEGER, TIMESTAMP WITH TIME ZONE) instead';
+  RETURN postProduction($1, $2, $3, 0, now());
 END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION postProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN, INTEGER) RETURNS INTEGER AS $$
 BEGIN
-  RAISE NOTICE 'postProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN, INTEGER) is deprecated. please use postProduction(INTEGER, NUMERIC, BOOLEAN, INTEGER) instead';
-  RETURN postProduction($1, $2, $3, $5);
+  RAISE NOTICE 'postProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN, INTEGER) is deprecated. please use postProduction(INTEGER, NUMERIC, BOOLEAN, INTEGER, TIMESTAMP WITH TIME ZONE) instead';
+  RETURN postProduction($1, $2, $3, $5, now());
 END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION postProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN, INTEGER, TEXT, TEXT) RETURNS INTEGER AS $$
 BEGIN
-  RAISE NOTICE 'postProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN, INTEGER, TEXT, TEXT) is deprecated. please use postProduction(INTEGER, NUMERIC, BOOLEAN, INTEGER) instead';
-  RETURN postProduction($1, $2, $3, $5);
+  RAISE NOTICE 'postProduction(INTEGER, NUMERIC, BOOLEAN, BOOLEAN, INTEGER, TEXT, TEXT) is deprecated. please use postProduction(INTEGER, NUMERIC, BOOLEAN, INTEGER, TIMESTAMP WITH TIME ZONE) instead';
+  RETURN postProduction($1, $2, $3, $5, now());
 END;
 $$ LANGUAGE 'plpgsql';

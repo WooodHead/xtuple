@@ -1,9 +1,10 @@
 
-CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 DECLARE
   pWomatlid ALIAS FOR $1;
   pQty ALIAS FOR $2;
   pItemlocSeries ALIAS FOR $3;
+  pGlDistTS ALIAS FOR $4;
   _woNumber TEXT;
   _invhistid INTEGER;
   _itemlocSeries INTEGER;
@@ -45,7 +46,7 @@ BEGIN
   SELECT postInvTrans( ci.itemsite_id, 'IM', (_qty * -1), 
                        'W/O', 'WO', _woNumber, '',
                        ('Return ' || item_number || ' from Work Order'),
-                       pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries, CURRENT_DATE,
+                       pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries, pGlDistTS,
                       (SELECT (SUM(invhist_value_before - invhist_value_after) / SUM(invhist_qoh_before - invhist_qoh_after) ) FROM invhist, womatlpost WHERE((womatlpost_womatl_id=womatl_id) AND (womatlpost_invhist_id=invhist_id) and (invhist_qoh_before > invhist_qoh_after))) * _qty
                      ) INTO _invhistid
     FROM womatl, wo,
@@ -86,16 +87,17 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 DECLARE
   pWomatlid ALIAS FOR $1;
   pQty ALIAS FOR $2;
+  pGlDistTS ALIAS FOR $3;
   _itemlocSeries INTEGER;
 
 BEGIN
 
   SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
-  RETURN returnWoMaterial(pWomatlid, pQty, _itemlocSeries);
+  RETURN returnWoMaterial(pWomatlid, pQty, _itemlocSeries, pGlDistTS);
 
 END;
 $$ LANGUAGE 'plpgsql';
