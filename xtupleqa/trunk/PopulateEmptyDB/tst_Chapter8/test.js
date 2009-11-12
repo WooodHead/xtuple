@@ -269,7 +269,7 @@ function main()
     type(":Tax Authority.City:_XLineEdit", "Richmond");
     type(":_state_QLineEdit_3", "VA");
     type(":groupBox.Postal Code:_XLineEdit", "24186");
-    type(":_country_QLineEdit_3", "United States");
+    clickItem(":groupBox._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
     clickButton(":Tax Authority.Save_QPushButton");
     waitForObject(":List Tax Authorities._taxauth_XTreeWidget");
     if(!clickItem(":List Tax Authorities._taxauth_XTreeWidget", "TAX-AUTH1", 5, 5, 1, Qt.LeftButton))
@@ -720,7 +720,7 @@ function main()
     type(":_addressStack.City:_XLineEdit_3", "Virginia");
     type(":_state_QLineEdit_5", "VA");
     type(":_addressStack.Postal Code:_XLineEdit_3", "2535635");
-    type(":_country_QLineEdit_5", "United States");
+    clickItem(":_addressStack._country_XComboBox_2", "United States", 0, 0, 1, Qt.LeftButton);
     clickButton(":_addressTab.Ship To_QRadioButton");
  
     waitForObject(":_addressStack.New_QPushButton_2");
@@ -736,7 +736,7 @@ function main()
     type(":Ship-To.City:_XLineEdit", "Alaska");
     type(":_state_QLineEdit_7", "WDC");
     type(":Ship-To.Postal Code:_XLineEdit", "235235");
-    type(":_country_QLineEdit_7", "United States");
+    clickItem(":Ship-To._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
     clickItem(":Ship-To._honorific_XComboBox", "Mr",0,0,1,Qt.LeftButton);
     type(":Ship-To._first_XLineEdit", "Kunal");
     type(":Ship-To._middle_XLineEdit", "R");
@@ -765,8 +765,7 @@ function main()
     type(":Ship-To.City:_XLineEdit", "Alaska");
     type(":_state_QLineEdit_7", "WDC");
     type(":Ship-To.Postal Code:_XLineEdit", "345235");
-    waitForObject(":_country_QLineEdit_7");
-    type(":_country_QLineEdit_7", "United States");
+    clickItem(":Ship-To._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
     waitForObject(":Ship-To._honorific_XComboBox");
     clickItem(":Ship-To._honorific_XComboBox", "Mr",0,0,1,Qt.LeftButton);
     waitForObject(":Ship-To._first_XLineEdit");
@@ -1057,7 +1056,7 @@ function main()
         type(":Site.City:_XLineEdit", "Pune");
         type(":_state_QLineEdit_6", "Maharastra");
         type(":_addressGroup.Postal Code:_XLineEdit", "534235");
-        type(":_country_QLineEdit_6", "india");
+        clickItem(":_addressGroup._country_XComboBox_2", "India", 0, 0, 1, Qt.LeftButton);
         clickTab(":Site.qt_tabwidget_tabbar_QTabBar","Contact");
        
         type(":_honorific_QLineEdit_3", "Mr");

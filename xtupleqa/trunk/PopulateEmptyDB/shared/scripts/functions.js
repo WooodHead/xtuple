@@ -80,7 +80,7 @@ function findApplicationEdition()
     waitForObject(":Database Information.*_QLabel");
     var appEdition = findObject(":Database Information.*_QLabel").text;
     clickButton(":Database Information.Save_QPushButton");
-    appEdition="Manufacturing";
+    test.log("Application Edition: " + appEdition);
 
     return appEdition;
 }
@@ -563,7 +563,7 @@ function defineTaxation()
     type(":Tax Authority.City:_XLineEdit", "VA");
     type(":_state_QLineEdit_3", "State1");
     type(":groupBox.Postal Code:_XLineEdit", "323525");
-    type(":_country_QLineEdit_3", "United States");
+    clickItem(":groupBox._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
     clickButton(":Tax Authority.Save_QPushButton");
     waitForObject(":List Tax Authorities._taxauth_XTreeWidget");
     if(!clickItem(":List Tax Authorities._taxauth_XTreeWidget", "TAX-AUTH1", 5, 5, 1, Qt.LeftButton))

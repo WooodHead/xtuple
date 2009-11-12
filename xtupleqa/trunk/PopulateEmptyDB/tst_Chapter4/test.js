@@ -437,7 +437,7 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
   {
       clickButton(":Bill of Materials Item...._QPushButton");
       waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-      doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Paint _1", 5, 5, 0, Qt.LeftButton);
+      doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Paint", 141, 10, 0, Qt.LeftButton);
       waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
       clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
   }
@@ -466,7 +466,7 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
   {
        clickButton(":Bill of Materials Item...._QPushButton");
        waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-       doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Paint _1", 5, 5, 0, Qt.LeftButton);
+       doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Paint", 5, 5, 0, Qt.LeftButton);
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
@@ -495,7 +495,7 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
  
        clickButton(":Bill of Materials Item...._QPushButton");
        waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-       doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly _1", 5, 5, 0, Qt.LeftButton);
+       doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly", 5, 5, 0, Qt.LeftButton);
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
@@ -526,7 +526,7 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
  
        clickButton(":Bill of Materials Item...._QPushButton");
        waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-       doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Shipping _1", 5, 5, 0, Qt.LeftButton);
+       doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Shipping", 5, 5, 0, Qt.LeftButton);
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
   }
@@ -572,7 +572,7 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
  
        clickButton(":Bill of Materials Item...._QPushButton");
        waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-       doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly _1", 5, 5, 0, Qt.LeftButton);
+       doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly", 5, 5, 0, Qt.LeftButton);
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
@@ -600,7 +600,7 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
   {
         clickButton(":Bill of Materials Item...._QPushButton");
        waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-       doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly _1", 5, 5, 0, Qt.LeftButton);
+       doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly", 5, 5, 0, Qt.LeftButton);
        waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
        clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
    }
