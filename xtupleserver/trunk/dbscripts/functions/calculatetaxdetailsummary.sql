@@ -24,7 +24,8 @@ BEGIN
                 ROUND((coitem_qtyord * coitem_qty_invuomratio) * (coitem_price / coitem_price_invuomratio),2) AS amount
               FROM cohead, coitem
               WHERE ( (coitem_cohead_id = ' || pOrderId || ')
-               AND (' || 'cohead_id = coitem_cohead_id) )';
+               AND (' || 'cohead_id = coitem_cohead_id) 
+               AND ( coitem_status != ''X'') )';
    ELSEIF  pOrderType = 'Q' THEN
      _qry := 'SELECT ' || 'COALESCE(quhead_taxzone_id, -1) AS taxzone_id, quhead_quotedate AS order_date,
                 quhead_curr_id AS curr_id, COALESCE(quitem_taxtype_id, -1) AS taxtype_id, 

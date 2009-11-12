@@ -104,6 +104,7 @@
   LEFT OUTER JOIN taxtype ON (taxtype_id=getFreightTaxTypeId())
   WHERE ((coitem_cohead_id=<? value("cohead_id") ?>)
     AND  (coitem_cohead_id=cohead_id)
+    AND  (coitem_status != 'X')
     AND  (coitem_itemsite_id=itemsite_id)
     AND  (itemsite_item_id=item_id))
   GROUP BY number, cohead_taxzone_id, curr_id, tax_curr_id,
