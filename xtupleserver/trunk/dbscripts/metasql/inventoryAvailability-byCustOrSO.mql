@@ -112,7 +112,7 @@ FROM (
             qtyAllocated(itemsite_id, coitem_scheddate) AS allocated,
             qtyOrdered(itemsite_id, coitem_scheddate) AS ordered,
             qtyatshipping(coitem_id) AS atshipping,
-            coitem_qtyreserved,
+            itemuomtouom(item_id, coitem_qty_uom_id, null, coitem_qtyreserved) AS coitem_qtyreserved,
             CAST(NULL AS DATE) AS orderdate, coitem_scheddate AS duedate,
             CAST(NULL AS INTEGER) AS pack_id,
             CASE WHEN(itemsite_useparams) THEN itemsite_reorderlevel
