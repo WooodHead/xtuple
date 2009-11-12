@@ -56,7 +56,6 @@ BEGIN
    AND (cohead_cust_id=cust_id)
    AND (cobmisc_id=pCobmiscid) );
 
-  
 	INSERT INTO invcheadtax(taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id, taxhist_basis, 
 			taxhist_basis_tax_id, taxhist_sequence, taxhist_percent, taxhist_amount, taxhist_tax, taxhist_docdate)
         SELECT _invcheadid,taxhist_taxtype_id, taxhist_tax_id, taxhist_basis, 
@@ -73,7 +72,8 @@ BEGIN
                    coitem_price_uom_id, coitem_price_invuomratio,
                    coitem_memo,
                    itemsite_item_id, itemsite_warehous_id,
-                   cobill_taxtype_id
+                   cobill_taxtype_id,
+                   formatSoItemNumber(coitem_id) AS ordnumber
             FROM coitem, cobill, itemsite
             WHERE ( (cobill_coitem_id=coitem_id)
              AND (coitem_itemsite_id=itemsite_id)
@@ -107,12 +107,9 @@ BEGIN
 --  Find and mark any Lot/Serial invdetail records associated with this bill
     UPDATE invdetail SET invdetail_invcitem_id = _invcitemid
      WHERE (invdetail_id IN (SELECT invdetail_id
-                               FROM coitem, cohead, invhist, invdetail
-                              WHERE ((coitem_cohead_id=cohead_id)
-                                AND  (invdetail_invhist_id=invhist_id)
-                                AND  (invhist_ordnumber = text(cohead_number||'-'||formatSoLineNumber(coitem_id)))
-                                AND  (invdetail_invcitem_id IS NULL)
-                                AND  (coitem_id=_r.coitem_id)) ) );
+                               FROM invhist JOIN invdetail ON (invdetail_invhist_id=invhist_id)
+                              WHERE ( (invhist_ordnumber = _r.ordnumber)
+                                AND   (invdetail_invcitem_id IS NULL) ) ));
 
 --  Mark any shipped, uninvoiced shipitems for the current coitem as invoiced
     _qtyToInvoice :=  _r.cobill_qty;
