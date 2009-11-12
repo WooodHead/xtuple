@@ -707,8 +707,7 @@ function main()
 
     findObject(":_state_QLineEdit").clear();
     type(":_state_QLineEdit", "VA");
-    findObject(":_country_QLineEdit").clear();
-    type(":_country_QLineEdit", "United States");
+    clickItem(":Remit-To Address._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
     type(":Remit-To Address._phone_XLineEdit", "<Del>");
     type(":Remit-To Address._phone_XLineEdit", "757-461-3022");
     if(!findObject(":_ar.Credit Warn Customers when Late_QGroupBox").checked)
@@ -978,7 +977,7 @@ function main()
         type(":List Sites.City:_XLineEdit", "City1");
         type(":_state_QLineEdit_2", "State1");
         type(":List Sites.Postal Code:_XLineEdit", "123-4324");
-        type(":_country_QLineEdit_2", "United");
+        clickItem(":_addressGroup._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar","Contact");
         waitForObject(":_honorific_QLineEdit");
         type(":_honorific_QLineEdit", "Mr");
@@ -1060,7 +1059,7 @@ function main()
         type(":Site.City:_XLineEdit", "city1");
         type(":_state_QLineEdit_6", "State1");
         type(":_addressGroup.Postal Code:_XLineEdit", "23234324");
-        type(":_country_QLineEdit_6", "US");
+        clickItem(":_addressGroup._country_XComboBox_2", "United States", 0, 0, 1, Qt.LeftButton);
         type(":_accountGroup._main_XLineEdit_2", "01-01-1950-01");
       
         clickTab(":Site.qt_tabwidget_tabbar_QTabBar","Contact");
@@ -1133,7 +1132,7 @@ function main()
         type(":List Sites.City:_XLineEdit", "City11");
         type(":_state_QLineEdit_6", "State11");
         type(":_addressGroup.Postal Code:_XLineEdit", "123-41324");
-        type(":_country_QLineEdit_6", "United");
+        clickItem(":_addressGroup._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
         
         clickTab(":Site.qt_tabwidget_tabbar_QTabBar","Contact");
         waitForObject(":_honorific_QLineEdit_3");

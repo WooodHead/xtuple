@@ -320,8 +320,7 @@ function main()
     type(":_state_QLineEdit_4", "WB");
     waitForObject(":_addressStack.Postal Code:_XLineEdit");
     type(":_addressStack.Postal Code:_XLineEdit", "300838");
-    waitForObject(":_country_QLineEdit_4");
-    type(":_country_QLineEdit_4", "India");
+    clickItem(":_addressStack._country_XComboBox", "India", 0, 0, 1, Qt.LeftButton);
     waitForObject(":Vendor.Save_QPushButton");
     clickButton(":Vendor.Save_QPushButton");
     snooze(2); //delay for allowing to save
