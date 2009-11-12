@@ -75,7 +75,7 @@ BEGIN
 --  Update the arcreditapply with the new amount to apply
       UPDATE arcreditapply
       SET arcreditapply_amount = (arcreditapply_amount + 
-          _applyAmount *  currRate(arcreditapply_curr_id) / _curr_rate)
+          _applyAmount *  currRate(arcreditapply_curr_id,_r.docdate) / _curr_rate)
       WHERE (arcreditapply_id=_p.arcreditapply_id);
 
     ELSE
