@@ -35,6 +35,7 @@ function main()
     waitForObject(":Database Information.Save_QPushButton");
     clickButton(":Database Information.Save_QPushButton");
     test.log("Application Edition: "+appEdition);
+    appEdition = "Manufacturing";
     
     //-----Assign All Privileges-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
@@ -264,47 +265,43 @@ function main()
     
     else test.pass("Submit Button does not exist in Release Planned Order by Plannercode screen");
     
-    waitForObject(":Release Planned Orders by Planner Code.Cancel_QPushButton");
-    clickButton(":Release Planned Orders by Planner Code.Cancel_QPushButton");
-    
+    waitForObject(":Release Planned Orders by Planner Code.Cancel_QPushButton_2");
+    clickButton(":Release Planned Orders by Planner Code.Cancel_QPushButton_2");
+  
     //-----Create Buffer Status by Plannercode-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Constraint Management");
     activateItem(":*.Schedule_QMenu", "Constraint Management");
-    type(":*.Schedule_QMenu","<Right>");
-    type(":*.Schedule_QMenu","<Right>");
-    waitForObjectItem(":*.Constraint Management_QMenu", "Update Status");
-    activateItem(":*.Constraint Management_QMenu", "Update Status");
-    waitForObjectItem(":*.Update Status_QMenu", "by Planner Code...");
-    activateItem(":*.Update Status_QMenu", "by Planner Code...");
+    waitForObjectItem(":*.Constraint Management_QMenu_2", "Update Status");
+    activateItem(":*.Constraint Management_QMenu_2", "Update Status");
+    waitForObjectItem(":*.Update Status_QMenu_2", "by Planner Code...");
+    activateItem(":*.Update Status_QMenu_2", "by Planner Code...");
     
     if(object.exists(":Run Buffer Status by Planner Code.Submit_QPushButton"))
         test.fail("Submit Button exists in Create Buffer status by Plannercode screen");
     
     else test.pass("Submit Button does not exist in Create Buffer status by Plannercode screen");
     
-    waitForObject(":Run Buffer Status by Planner Code.Cancel_QPushButton");
-    clickButton(":Run Buffer Status by Planner Code.Cancel_QPushButton");
+    waitForObject(":Run Buffer Status by Planner Code.Cancel_QPushButton_2");
+    clickButton(":Run Buffer Status by Planner Code.Cancel_QPushButton_2");
     
     //-----Create Buffer Status by Item-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
-    waitForObjectItem(":*.Schedule_QMenu", "Constraint Management");
-    activateItem(":*.Schedule_QMenu", "Constraint Management");
-    waitForObjectItem(":*.Constraint Management_QMenu", "Update Status");
-    activateItem(":*.Constraint Management_QMenu", "Update Status");
-    type(":*.Constraint Management_QMenu", "<Right>");
-    type(":*.Constraint Management_QMenu", "<Right>");
-    waitForObjectItem(":*.Update Status_QMenu", "by Item...");
-    activateItem(":*.Update Status_QMenu", "by Item...");
+    type(":*.Schedule_QMenu","<Down>");
+    type(":*.Schedule_QMenu","<Down>");    
+    type(":*.Schedule_QMenu","<Down>");        
+    type(":*.Schedule_QMenu","<Right>");
+    type(":*.Constraint Management_QMenu_2","<Right>");
+    type(":*.Update Status_QMenu_2","<Enter>");
     
     if(object.exists(":Run Buffer Status by Item.Submit_QPushButton"))
         test.fail("Submit Button exists in Create Buffer status by Item screen");               
     else test.pass("Submit Button does not exists in Create Buffer status by Item screen");
     
-    waitForObject(":Run Buffer Status by Item.Cancel_QPushButton");
-    clickButton(":Run Buffer Status by Item.Cancel_QPushButton");
+    waitForObject(":Run Buffer Status by Planner Code.Cancel_QPushButton_2");
+    clickButton(":Run Buffer Status by Planner Code.Cancel_QPushButton_2");
     
     //-----Run MPS by Plannercode-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
@@ -319,8 +316,8 @@ function main()
     
     else test.pass("Submit Button does not exists in Create Buffer status by Item screen");        
     
-    waitForObject(":Run MPS by Planner Code.Cancel_QPushButton");
-    clickButton(":Run MPS by Planner Code.Cancel_QPushButton");
+    waitForObject(":Run MPS by Planner Code.Cancel_QPushButton_2");
+    clickButton(":Run MPS by Planner Code.Cancel_QPushButton_2");
     
     //-----Releasing Planned Transfer Order-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
@@ -335,16 +332,16 @@ function main()
     
     else test.pass("Submit Button does not exist in Release Planned Order by Plannercode screen");
     
-    waitForObject(":Release Planned Orders by Planner Code.Cancel_QPushButton");
-    clickButton(":Release Planned Orders by Planner Code.Cancel_QPushButton");
+    waitForObject(":Release Planned Orders by Planner Code.Cancel_QPushButton_2");
+    clickButton(":Release Planned Orders by Planner Code.Cancel_QPushButton_2");
     
     //-----Time Phased Demand by Plannercode-----  
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Capacity Planning");
     activateItem(":*.Schedule_QMenu", "Capacity Planning");
-    waitForObjectItem(":*.Capacity Planning_QMenu", "Time-Phased Demand...");
-    activateItem(":*.Capacity Planning_QMenu", "Time-Phased Demand...");
+    waitForObjectItem(":*.Capacity Planning_QMenu_2", "Time-Phased Demand...");
+    activateItem(":*.Capacity Planning_QMenu_2", "Time-Phased Demand...");
     
     if(object.exists(":Time Phased Demand by Planner Code.Submit_QPushButton"))
         test.fail("Submit button exits in Time Phased Demand by Planner code");
@@ -359,10 +356,10 @@ function main()
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Capacity Planning");
     activateItem(":*.Schedule_QMenu", "Capacity Planning");
-    waitForObjectItem(":*.Capacity Planning_QMenu", "Time-Phased Production");
-    activateItem(":*.Capacity Planning_QMenu", "Time-Phased Production");
-    waitForObjectItem(":*.Time-Phased Production_QMenu", "by Planner Code...");
-    activateItem(":*.Time-Phased Production_QMenu", "by Planner Code...");
+    waitForObjectItem(":*.Capacity Planning_QMenu_2", "Time-Phased Production");
+    activateItem(":*.Capacity Planning_QMenu_2", "Time-Phased Production");
+    waitForObjectItem(":*.Time-Phased Production_QMenu_2", "by Planner Code...");
+    activateItem(":*.Time-Phased Production_QMenu_2", "by Planner Code...");
     
     if(object.exists(":Time-Phased Production by Planner Code.Submit_QPushButton"))
         test.fail("Submit button exists in Time Phased Production by Planner code screen");
@@ -377,10 +374,10 @@ function main()
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Capacity Planning");
     activateItem(":*.Schedule_QMenu", "Capacity Planning");
-    waitForObjectItem(":*.Capacity Planning_QMenu", "Time-Phased Production");
-    activateItem(":*.Capacity Planning_QMenu", "Time-Phased Production");
-    waitForObjectItem(":*.Time-Phased Production_QMenu", "by Item...");
-    activateItem(":*.Time-Phased Production_QMenu", "by Item...");
+    waitForObjectItem(":*.Capacity Planning_QMenu_2", "Time-Phased Production");
+    activateItem(":*.Capacity Planning_QMenu_2", "Time-Phased Production");
+    waitForObjectItem(":*.Time-Phased Production_QMenu_2", "by Item...");
+    activateItem(":*.Time-Phased Production_QMenu_2", "by Item...");
     
     if(object.exists(":Time-Phased Production by Item.Submit_QPushButton"))
         test.fail("Submit button exists in Time Phased Production by Item screen");
