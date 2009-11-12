@@ -50,6 +50,8 @@ function main()
     clickButton(":Database Information.Save_QPushButton");
     test.log("Application Edition: "+appEdition);
     test.log("Batch Manager Option enabled");
+  
+  appEdition = "Manufacturing";
     
     //-----Assign All Privileges-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
@@ -645,8 +647,8 @@ function main()
     waitForObjectItem(":*.Scheduling_QMenu", "Release Planned Orders...");
     activateItem(":*.Scheduling_QMenu", "Release Planned Orders...");
     
-    waitForObject(":_plannerCode.All Planner Codes_QRadioButton_2");
-    clickButton(":_plannerCode.All Planner Codes_QRadioButton_2");
+    waitForObject(":_plannerCode.All Planner Codes_QRadioButton_10");
+    clickButton(":_plannerCode.All Planner Codes_QRadioButton_10");
     waitForObject(":_warehouse.All Sites_QRadioButton_2");
     clickButton(":_warehouse.All Sites_QRadioButton_2");
     
@@ -674,12 +676,10 @@ function main()
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Constraint Management");
     activateItem(":*.Schedule_QMenu", "Constraint Management");
-    type(":*.Schedule_QMenu","<Right>");
-    type(":*.Schedule_QMenu","<Right>");
-    waitForObjectItem(":*.Constraint Management_QMenu", "Update Status");
-    activateItem(":*.Constraint Management_QMenu", "Update Status");
-    waitForObjectItem(":*.Update Status_QMenu", "by Planner Code...");
-    activateItem(":*.Update Status_QMenu", "by Planner Code...");
+    waitForObjectItem(":*.Constraint Management_QMenu_2", "Update Status");
+    activateItem(":*.Constraint Management_QMenu_2", "Update Status");
+    waitForObjectItem(":*.Update Status_QMenu_2", "by Planner Code...");
+    activateItem(":*.Update Status_QMenu_2", "by Planner Code...");
     
     waitForObject(":_plannerCode.All Planner Codes_QRadioButton_3");
     clickButton(":_plannerCode.All Planner Codes_QRadioButton_3");
@@ -707,12 +707,10 @@ function main()
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Constraint Management");
     activateItem(":*.Schedule_QMenu", "Constraint Management");
-    waitForObjectItem(":*.Constraint Management_QMenu", "Update Status");
-    activateItem(":*.Constraint Management_QMenu", "Update Status");
-    type(":*.Constraint Management_QMenu", "<Right>");
-    type(":*.Constraint Management_QMenu", "<Right>");
-    waitForObjectItem(":*.Update Status_QMenu", "by Item...");
-    activateItem(":*.Update Status_QMenu", "by Item...");
+    waitForObjectItem(":*.Constraint Management_QMenu_2", "Update Status");
+    activateItem(":*.Constraint Management_QMenu_2", "Update Status");
+    waitForObjectItem(":*.Update Status_QMenu_2", "by Item...");
+    activateItem(":*.Update Status_QMenu_2", "by Item...");
     
     waitForObject(":Run Buffer Status by Item...._QPushButton");
     clickButton(":Run Buffer Status by Item...._QPushButton");
@@ -734,7 +732,7 @@ function main()
         test.pass("Batch Manager Submitted for creating buffer status by Item");
     
     else test.fail("Batch Manager not responding");
-    
+  
     //-----Run MPS by Plannercode-----
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
@@ -898,9 +896,9 @@ function main()
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Capacity Planning");
     activateItem(":*.Schedule_QMenu", "Capacity Planning");
-    waitForObjectItem(":*.Capacity Planning_QMenu", "Time-Phased Demand...");
-    activateItem(":*.Capacity Planning_QMenu", "Time-Phased Demand...");
-    
+    waitForObjectItem(":*.Capacity Planning_QMenu_2", "Time-Phased Demand...");
+    activateItem(":*.Capacity Planning_QMenu_2", "Time-Phased Demand...");
+  
     waitForObject(":_warehouse.All Sites_QRadioButton_5");
     clickButton(":_warehouse.All Sites_QRadioButton_5");
     waitForObject(":_plannerCode.All Planner Codes_QRadioButton_5");
@@ -918,11 +916,11 @@ function main()
     waitForObject(":Time Phased Demand by Planner Code._email_XLineEdit");
     type(":Time Phased Demand by Planner Code._email_XLineEdit", toemail);
     
-    waitForObject(":Time Phased Demand by Planner Code.Submit_QPushButton_2");
-    clickButton(":Time Phased Demand by Planner Code.Submit_QPushButton_2");
+    waitForObject(":Submit Report to Batch Manager.Submit_QPushButton");
+    clickButton(":Submit Report to Batch Manager.Submit_QPushButton");
     
-    waitForObject(":Time Phased Demand by Planner Code.Close_QPushButton");
-    clickButton(":Time Phased Demand by Planner Code.Close_QPushButton");
+    waitForObject(":Time Phased Demand by Planner Code.Close_QPushButton_2");
+    clickButton(":Time Phased Demand by Planner Code.Close_QPushButton_2");
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -937,10 +935,10 @@ function main()
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Capacity Planning");
     activateItem(":*.Schedule_QMenu", "Capacity Planning");
-    waitForObjectItem(":*.Capacity Planning_QMenu", "Time-Phased Production");
-    activateItem(":*.Capacity Planning_QMenu", "Time-Phased Production");
-    waitForObjectItem(":*.Time-Phased Production_QMenu", "by Planner Code...");
-    activateItem(":*.Time-Phased Production_QMenu", "by Planner Code...");
+    waitForObjectItem(":*.Capacity Planning_QMenu_2", "Time-Phased Production");
+    activateItem(":*.Capacity Planning_QMenu_2", "Time-Phased Production");
+    waitForObjectItem(":*.Time-Phased Production_QMenu_2", "by Planner Code...");
+    activateItem(":*.Time-Phased Production_QMenu_2", "by Planner Code...");
     
     waitForObject(":_warehouse.All Sites_QRadioButton_6");
     clickButton(":_warehouse.All Sites_QRadioButton_6");
@@ -978,10 +976,10 @@ function main()
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Capacity Planning");
     activateItem(":*.Schedule_QMenu", "Capacity Planning");
-    waitForObjectItem(":*.Capacity Planning_QMenu", "Time-Phased Production");
-    activateItem(":*.Capacity Planning_QMenu", "Time-Phased Production");
-    waitForObjectItem(":*.Time-Phased Production_QMenu", "by Item...");
-    activateItem(":*.Time-Phased Production_QMenu", "by Item...");
+    waitForObjectItem(":*.Capacity Planning_QMenu_2", "Time-Phased Production");
+    activateItem(":*.Capacity Planning_QMenu_2", "Time-Phased Production");
+    waitForObjectItem(":*.Time-Phased Production_QMenu_2", "by Item...");
+    activateItem(":*.Time-Phased Production_QMenu_2", "by Item...");
     
     waitForObject(":_warehouse.All Sites_QRadioButton_7");
     clickButton(":_warehouse.All Sites_QRadioButton_7");
@@ -2052,8 +2050,13 @@ function main()
   snooze(1); 
   nativeType("<Return>");
   
+  snooze(1);
   waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-  clickButton(":Review EDI Before Sending.Accept_QPushButton");
+  while(object.exists(":Review EDI Before Sending.Accept_QPushButton"))
+  {
+      clickButton(":Review EDI Before Sending.Accept_QPushButton");
+      snooze(1);
+  }
   
   waitForObject(":Mark Invoices as Printed?.Yes_QPushButton");
   clickButton(":Mark Invoices as Printed?.Yes_QPushButton");
