@@ -66,12 +66,24 @@ BEGIN
   IF (_p.cashrcpt_fundstype IN ('A', 'D', 'M', 'V')) THEN
     SELECT ccpay_id INTO _ccpayid
     FROM ccpay
-    WHERE ((ccpay_order_number IN (CAST(pCashrcptid AS TEXT), _p.cashrcpt_docnumber))
+    WHERE ((ccpay_r_ordernum IN (CAST(pCashrcptid AS TEXT), _p.cashrcpt_docnumber))
        AND (ccpay_status IN ('C', 'A')));
 
-    IF (NOT FOUND) THEN
-      RETURN -8;
+    IF NOT FOUND THEN
+      -- the following select seems to work except for xikar - bug 8848. why?
+      -- raise warning so there is some visibility if people fall into this path.
+      SELECT ccpay_id INTO _ccpayid
+      FROM ccpay
+      WHERE ((ccpay_order_number IN (CAST(pCashrcptid AS TEXT), _p.cashrcpt_docnumber))
+         AND (ccpay_status IN ('C', 'A')));
+      IF (NOT FOUND) THEN
+        RETURN -8;
+      ELSE
+        RAISE NOTICE 'PostCashReceipt() found ccpay_id % for order number %/% (ref 8848).',
+                      _ccpayid, pCashrcptid, _p.cashrcpt_docnumber;
+      END IF;
     END IF;
+
     _debitAccntid := findPrepaidAccount(_p.cashrcpt_cust_id);
   ELSE
     SELECT accnt_id INTO _debitAccntid
