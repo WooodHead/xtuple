@@ -50,7 +50,7 @@ configured to run ttthe first automated test for xTuple ERP, PopulateEmptyDB.
 
 5) Load the test in the Squish GUI:
      File -> Open Test Suite...
-   Navigate to .../xtupleqa/[trunk]/automation/PopulateEmptyDB
+   Navigate to .../xtupleqa/[trunk]/PopulateEmptyDB
    Click on the file suite.conf
 
 6) Create a data file to drive the test in your environment. Right-click
