@@ -36,6 +36,9 @@ SELECT DISTINCT rahead_id, rahead_number, rahead_billtoname,
 <? if not exists("showClosed") ?> 
    AND ((raitem_status = 'O') OR (raitem_status IS NULL)) 
 <? endif ?>
+<? if not exists("showUnauthorized") ?> 
+   AND (raitem_qtyauthorized > 0) 
+<? endif ?>
 <? if not exists("showExpired") ?>
    AND (COALESCE(rahead_expiredate,CURRENT_DATE) >= CURRENT_DATE)
 <? endif ?>
