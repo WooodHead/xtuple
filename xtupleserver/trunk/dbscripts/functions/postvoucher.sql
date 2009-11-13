@@ -238,7 +238,7 @@ BEGIN
               WHERE ( (vodist_vohead_id=pVoheadid)
                AND (vodist_poitem_id=_g.poitem_id) ) LOOP
 
-       _pExplain := TRUE;
+       _pExplain := FALSE;
        SELECT * INTO _costx
          FROM itemcost
         WHERE ( (itemcost_item_id = _g.itemsite_item_id)
