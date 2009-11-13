@@ -105,7 +105,7 @@ BEGIN
 	WHERE ( (itemsite_costcat_id=costcat_id)
 	AND (itemsite_id=_c.itemsite_id) );
 
-	IF (_result < 0 && _result != -3) THEN -- ignore -3 as it just means it's not posting a 0 value
+	IF (_result < 0 AND _result != -3) THEN -- ignore -3 as it just means it's not posting a 0 value
 	  RETURN _result;
 	END IF;
 
