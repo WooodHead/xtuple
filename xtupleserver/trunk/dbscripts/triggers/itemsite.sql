@@ -27,7 +27,7 @@ BEGIN
         NEW.itemsite_datelastused := CURRENT_DATE;
       END IF;
 
-      IF ( (NEW.itemsite_qtyonhand < 0) AND (OLD.itemsite_qtyonhand >= 0) ) THEN
+      IF ( (NEW.itemsite_qtyonhand < 0) AND (OLD.itemsite_qtyonhand >= 0) AND (NEW.itemsite_eventfence > 0) ) THEN
         INSERT INTO evntlog
         ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
           evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id,
