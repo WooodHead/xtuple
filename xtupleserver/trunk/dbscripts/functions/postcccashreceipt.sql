@@ -27,9 +27,10 @@ BEGIN
   END IF;
 
   SELECT * INTO _c
-     FROM ccpay, ccard
+     FROM ccpay, ccard, custinfo
      WHERE ( (ccpay_id = pCCpay)
-       AND   (ccpay_ccard_id = ccard_id) );
+       AND   (ccpay_ccard_id = ccard_id)
+       AND   (ccpay_cust_id = cust_id) );
 
   IF (NOT FOUND) THEN
     RETURN -11;
@@ -85,7 +86,7 @@ BEGIN
 
   PERFORM insertGLTransaction(fetchJournalNumber(''C/R''), ''A/R'', ''CR'',
                               _ccOrderDesc, 
-                              (''Cash Receipt from Credit Card '' || _c.ccard_name),
+                              (''Cash Receipt from Credit Card '' || _c.cust_name),
                               findPrepaidAccount(_c.ccpay_cust_id),
                               _realaccnt,
                               NULL,
