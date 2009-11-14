@@ -85,7 +85,7 @@ BEGIN
 
   PERFORM insertGLTransaction(fetchJournalNumber(''C/R''), ''A/R'', ''CR'',
                               _ccOrderDesc, 
-                              ''Cash Receipt from Credit Card'',
+                              (''Cash Receipt from Credit Card '' || _c.ccard_name),
                               findPrepaidAccount(_c.ccpay_cust_id),
                               _realaccnt,
                               NULL,
