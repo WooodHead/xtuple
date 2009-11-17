@@ -13,13 +13,7 @@
 #include <QMessageBox>
 #include <QSqlDatabase>
 #include <QSqlError>
-#include <QStyleFactory>
-#include <QWindowsStyle>
 #include <QIcon>
-
-#ifdef Q_WS_MACX
-#include <QMacStyle>
-#endif
 
 #include <dbtools.h>
 #include <login2.h>
@@ -46,21 +40,6 @@ int main(int argc, char* argv[])
   app.addLibraryPath(".");
 #ifndef Q_WS_MACX
   app.setWindowIcon(QIcon(":/images/updater-32x32.png"));
-#endif
-
-#ifdef Q_WS_WIN
-  if (QSysInfo::WindowsVersion == QSysInfo::WV_XP)
-    app.setStyle(QStyleFactory::create("windowsxpstyle"));
-#if QT_VERSION >= 0x040300
-  else if (QSysInfo::WindowsVersion == QSysInfo::WV_VISTA)
-    app.setStyle(QStyleFactory::create("windowsvistastyle"));
-#endif
-  else
-    app.setStyle(new QWindowsStyle);
-#elif defined Q_WS_MACX
-  app.setStyle(new QMacStyle);
-#else
-  app.setStyle(new QWindowsStyle);
 #endif
 
   if (argc > 1)
