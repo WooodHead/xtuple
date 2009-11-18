@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION forwardUpdateTrialBalance(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION forwardUpdateTrialBalance(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pTrialbalid ALIAS FOR $1;
   _p RECORD;
@@ -11,7 +11,7 @@ DECLARE
 BEGIN
 
   SELECT trialbal_accnt_id, trialbal_ending,
-         period_end, accnt_type IN (''E'', ''R'') AS revexp INTO _p
+         period_end, accnt_type IN ('E', 'R') AS revexp INTO _p
   FROM trialbal, period, accnt
   WHERE ( (trialbal_period_id=period_id)
    AND (trialbal_accnt_id=accnt_id)
@@ -26,14 +26,13 @@ BEGIN
     _prevYear := -1;
   END IF;
 
---  Find all of the subsequent, but not future, periods and their trialbal, if they exist
+--  Find all of the subsequent periods and their trialbal, if they exist
   FOR _r IN SELECT period_id, period_end,
                    trialbal_id, trialbal_debits, trialbal_credits,
                    trialbal_yearend
             FROM period LEFT OUTER JOIN trialbal
                  ON ( (trialbal_period_id=period_id) AND (trialbal_accnt_id=_p.trialbal_accnt_id) )
-            WHERE ( (period_start > _p.period_end)
-             AND (period_start <= CURRENT_DATE) )
+            WHERE (period_start > _p.period_end)
             ORDER BY period_start LOOP
 
     SELECT yearperiod_id INTO _currYear
@@ -85,5 +84,5 @@ BEGIN
   RETURN pTrialbalid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
