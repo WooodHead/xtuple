@@ -38,6 +38,7 @@ public slots:
     virtual void setMultipleTransactions(bool);
     virtual void setDebugPkg(bool);
     virtual bool openFile(QString filename);
+    virtual void setWindowTitle();
 
 protected:
     Package * _package;
