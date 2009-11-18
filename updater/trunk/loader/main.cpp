@@ -24,6 +24,8 @@
 
 #include "loaderwindow.h"
 
+QString _databaseURL = "";
+
 int main(int argc, char* argv[])
 {
   QString username  = "";
@@ -33,8 +35,6 @@ int main(int argc, char* argv[])
   bool multitrans = false;
   bool debugpkg   = false;
   QString pkgfile = "";
-
-  QString databaseURL = "";
 
   QApplication app(argc, argv);
   app.addLibraryPath(".");
@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
 
       if (argument.startsWith("-databaseURL=", Qt::CaseInsensitive)) {
         haveDatabaseURL = TRUE;
-        databaseURL    = argument.right(argument.length() - 13);
+        _databaseURL    = argument.right(argument.length() - 13);
       }
       else if (argument.startsWith("-username=", Qt::CaseInsensitive))
       {
@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
         QApplication::exit(-1);
       }
 
-      parseDatabaseURL(databaseURL, protocol, hostName, dbName, port);
+      parseDatabaseURL(_databaseURL, protocol, hostName, dbName, port);
       db.setDatabaseName(dbName);
       db.setUserName(username);
       db.setPassword(passwd);
@@ -124,7 +124,7 @@ int main(int argc, char* argv[])
       params.append("username", _user);
 
     if (haveDatabaseURL)
-      params.append("databaseURL", databaseURL.toAscii().data());
+      params.append("databaseURL", _databaseURL.toAscii().data());
 
     if (_evaluation)
       params.append("evaluation");
@@ -136,7 +136,7 @@ int main(int argc, char* argv[])
       return -1;
     else
     {
-      databaseURL = newdlg._databaseURL;
+      _databaseURL = newdlg._databaseURL;
       _user = newdlg._user;
       _loggedIn = TRUE;
     }

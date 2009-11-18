@@ -23,6 +23,7 @@
 #include <QSqlError>
 #include <QTimerEvent>
 
+#include <dbtools.h>
 #include <gunzip.h>
 #include <createfunction.h>
 #include <createtable.h>
@@ -60,6 +61,8 @@
 #endif
 #endif
 
+extern QString _databaseURL;
+
 QString LoaderWindow::_rollbackMsg(tr("<p><font color=\"red\">The upgrade has "
                                       "been aborted due to an error and your "
                                       "database was rolled back to the state "
@@ -80,6 +83,8 @@ LoaderWindow::LoaderWindow(QWidget* parent, const char* name, Qt::WindowFlags fl
   _files = 0;
   _dbTimerId = startTimer(60000);
   fileNew();
+
+  setWindowTitle();
 }
 
 LoaderWindow::~LoaderWindow()
@@ -1251,3 +1256,37 @@ int LoaderWindow::enableTriggers()
 
   return _triggers.size();
 }
+
+void LoaderWindow::setWindowTitle()
+{
+  QString name;
+
+  XSqlQuery _q;
+  _q.exec( "SELECT metric_value, CURRENT_USER AS username "
+           "FROM metric "
+           "WHERE (metric_name='DatabaseName')" );
+  if (_q.first())
+  {
+    if (_q.value("metric_value").toString().isEmpty())
+      name = tr("Unnamed Database");
+    else
+      name = _q.value("metric_value").toString();
+
+    QString server;
+    QString protocol;
+    QString database;
+    QString port;
+    parseDatabaseURL(_databaseURL, protocol, server, database, port);
+
+    QMainWindow::setWindowTitle( tr("%1 %2 - %3 on %4/%5 AS %6")
+                               .arg(_name)
+                               .arg(_version)
+                               .arg(name)
+                               .arg(server)
+                               .arg(database)
+                               .arg(_q.value("username").toString()) );
+  }
+  else
+    QMainWindow::setWindowTitle(tr("%1 %2").arg(_name).arg(_version));
+}
+
