@@ -169,10 +169,11 @@ BEGIN
       ( itemcost_id, itemcost_item_id, itemcost_costelem_id, itemcost_lowlevel,
         itemcost_stdcost, itemcost_posted, itemcost_actcost, itemcost_updated,
         itemcost_curr_id )
-      VALUES
-      ( _itemcostid, pItemid, pCostelemid, pLevel,
-        0, startOfTime(), _cost, CURRENT_DATE,
-        _currId );
+      SELECT _itemcostid, pItemid, costelem_id, pLevel,
+             0, startOfTime(), _cost, CURRENT_DATE,
+             _currId
+      FROM costelem
+      WHERE (costelem_id=pCostelemid);
 
       RETURN _itemcostid;
 
