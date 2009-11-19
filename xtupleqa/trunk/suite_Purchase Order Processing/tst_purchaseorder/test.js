@@ -106,7 +106,7 @@ function main()
         if(!findObject(":_locationGroup.Use Default Location_QGroupBox").checked)
             type(":_locationGroup.Use Default Location_QGroupBox", " ");    
         
-        waitForObjectItem(":Use Default Location._locations_XComboBox", "01010101");
+        waitForObject(":Use Default Location._locations_XComboBox");
         clickItem(":Use Default Location._locations_XComboBox", "01010101", 5, 5, 1, Qt.LeftButton);
         waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
         clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
@@ -364,15 +364,17 @@ function main()
     
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
-    
-    //-----Receiving Purchase Goods-----
-    waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
-    activateItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
-    waitForObjectItem(":xTuple ERP: *.Inventory_QMenu", "Receiving");
-    activateItem(":xTuple ERP: *.Inventory_QMenu", "Receiving");
-    waitForObjectItem(":xTuple ERP: *.Receiving_QMenu", "New Receipt...");
-    activateItem(":xTuple ERP: *.Receiving_QMenu", "New Receipt...");
-    
+  
+  //-----Receiving Purchase Goods-----
+  waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
+  activateItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
+  waitForObjectItem(":xTuple ERP: *.Inventory_QMenu", "Receiving");
+  activateItem(":xTuple ERP: *.Inventory_QMenu", "Receiving");
+  waitForObjectItem(":xTuple ERP: *.Receiving_QMenu", "New Receipt...");
+  activateItem(":xTuple ERP: *.Receiving_QMenu", "New Receipt...");
+  
+    // Verification Point 'VP4'
+    test.compare(findObject(":Enter Order Receipts...._QPushButton_2").text, "...");
     waitForObject(":Enter Order Receipts...._QPushButton");
     clickButton(":Enter Order Receipts...._QPushButton");
     waitForObject(":_listTab_XTreeWidget_2");
