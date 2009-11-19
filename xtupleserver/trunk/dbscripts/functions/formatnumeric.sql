@@ -4,7 +4,7 @@ DECLARE
   _type         TEXT    := LOWER(COALESCE($2, 'curr'));
   _abs          NUMERIC;
   _magnitudecnt NUMERIC(1000);
-  _wholefmt     TEXT    := '9';
+  _wholefmt     TEXT    := '0';
   _scale        INTEGER;
   _neg          TEXT;
   _decimal      TEXT;
