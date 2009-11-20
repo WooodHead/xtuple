@@ -1,12 +1,13 @@
 SELECT dropIfExists('view', 'billingEditList');
 
+-- Billing header
 CREATE VIEW billingEditList AS
 SELECT cohead_id AS orderid, -2 AS itemid,
        CASE WHEN (COALESCE(cobmisc_invcnumber, -1) <> -1) THEN ('Invc-' || formatInvcNumber(cobmisc_id))
             ELSE '?'
        END AS documentnumber,
        cust_number, cohead_billtoname AS billtoname,
-       cohead_number::TEXT AS ordernumber, -1 AS linenumber,
+       cohead_number::TEXT AS ordernumber, -2 AS linenumber,
        '' AS item, '' AS itemdescrip, '' AS iteminvuom,
        CAST(NULL AS NUMERIC) AS qtytobill, '' AS f_qtytobill,
        CAST(NULL AS NUMERIC) AS price, '' AS f_price,
@@ -20,10 +21,11 @@ WHERE ( (cobmisc_cohead_id=cohead_id)
  AND (cohead_cust_id=cust_id)
  AND (NOT cobmisc_posted) )
 
-UNION SELECT cohead_id AS orderid, -1 AS itemid,
+-- Billing freight
+UNION SELECT cohead_id AS orderid, 0 AS itemid,
              '' AS documentnumber,
              '' AS cust_number, '' AS billtoname,
-             cohead_number::TEXT AS ordernumber, -1 AS linenumber,
+             cohead_number::TEXT AS ordernumber, 0 AS linenumber,
              'Freight' AS item, 'Freight Charge' AS itemdescrip, '' AS iteminvuom,
              NULL AS qtytobill, '' AS f_qtytobill,
              cobmisc_freight AS price, formatMoney(cobmisc_freight) AS f_price,
@@ -36,7 +38,8 @@ WHERE ( (cobmisc_cohead_id=cohead_id)
  AND (NOT cobmisc_posted)
  AND (cobmisc_freight <> 0) )
 
-UNION SELECT cohead_id AS orderid, -1 AS itemid,
+-- Billing misc charges
+UNION SELECT cohead_id AS orderid, 0 AS itemid,
              '' AS documentnumber,
              '' AS cust_number, '' AS billtoname,
              cohead_number::TEXT AS ordernumber, -1 AS linenumber,
@@ -52,6 +55,23 @@ WHERE ( (cobmisc_cohead_id=cohead_id)
  AND (NOT cobmisc_posted)
  AND (cobmisc_misc <> 0) )
 
+-- Billing tax
+UNION SELECT cohead_id AS orderid, 0 AS itemid,
+             '' AS documentnumber,
+             '' AS cust_number, '' AS billtoname,
+             cohead_number::TEXT AS ordernumber, -2 AS linenumber,
+             'Tax' AS item, '' AS itemdescrip, '' AS iteminvuom,
+             NULL AS qtytobill, '' AS f_qtytobill,
+             calcCobmiscTax(cobmisc_id) AS price, formatMoney(calcCobmiscTax(cobmisc_id)) AS f_price,
+             calcCobmiscTax(cobmisc_id) AS extprice, formatMoney(calcCobmiscTax(cobmisc_id)) AS f_extprice,
+             'Credit' AS sence,
+             '' AS account,
+             cobmisc_curr_id AS curr_id
+FROM cobmisc, cohead
+WHERE ( (cobmisc_cohead_id=cohead_id)
+ AND (NOT cobmisc_posted) )
+
+-- Billing lines
 UNION SELECT cohead_id AS orderid, coitem_id AS itemid,
              '' AS documentnumber,
              '' AS cust_number,
