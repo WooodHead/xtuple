@@ -14,10 +14,10 @@ SELECT source_id, order_number, scheddate,
 FROM (
 SELECT coitem_scheddate AS sortkey, 0 AS level, coitem_id AS source_id,
        formatSoNumber(coitem_id) AS order_number,
-       coitem_qtyord AS totalqty,
-       (coitem_qtyshipped + qtyAtShipping(coitem_id) - coitem_qtyreturned) as relievedqty,
-       coitem_qtyreserved AS reservedqty,
-       coitem_qtyreserved AS balanceqty,
+       (coitem_qtyord * coitem_qty_invuomratio) AS totalqty,
+       ((coitem_qtyshipped + qtyAtShipping(coitem_id) - coitem_qtyreturned) * coitem_qty_invuomratio) as relievedqty,
+       (coitem_qtyreserved * coitem_qty_invuomratio) AS reservedqty,
+       (coitem_qtyreserved * coitem_qty_invuomratio) AS balanceqty,
        coitem_scheddate AS scheddate
 FROM cohead, coitem, itemsite, item 
 WHERE((coitem_cohead_id=cohead_id)
@@ -30,7 +30,7 @@ UNION
 SELECT coitem_scheddate AS sortkey, 1 AS level, coitem_id AS source_id,
       (formatLocationName(itemloc_location_id) || ' ' || formatLotSerialNumber(itemloc_ls_id)) AS order_number,
        NULL AS totalqty, NULL AS relievedqty,
-       itemlocrsrv_qty AS reservedqty,
+       (itemlocrsrv_qty * coitem_qty_invuomratio) AS reservedqty,
        NULL AS balanceqty, NULL AS scheddate
 FROM itemlocrsrv, itemloc, coitem, itemsite
 WHERE ( (itemloc_id=itemlocrsrv_itemloc_id)
