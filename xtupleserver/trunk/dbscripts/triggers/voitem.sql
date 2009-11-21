@@ -44,7 +44,7 @@ BEGIN
                             NEW.voitem_taxtype_id,
                             COALESCE(_r.vohead_docdate, CURRENT_DATE),
                             COALESCE(_r.vohead_curr_id, -1),
-                            (vodist_amount * -1) )
+                            COALESCE(SUM(vodist_amount * -1), 0) )
   FROM vodist
   WHERE ( (vodist_vohead_id=_r.vohead_id)
     AND   (vodist_poitem_id=NEW.voitem_poitem_id) );
