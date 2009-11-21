@@ -88,6 +88,7 @@ WHERE ((brddist_wo_id=wo_id)
      )
 <? endif ?>
 
+<? if exists("Standard") ?>
 UNION
 SELECT toitem_id AS source_id, 3 AS type, TEXT('T/O') AS order_type,
        TEXT(tohead_number) AS order_number,
@@ -113,6 +114,8 @@ WHERE ((toitem_tohead_id=tohead_id)
   AND  (toitem_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? endif ?>
       )
+<? endif ?>
+
 ) AS data
 
 ORDER BY duedate;
