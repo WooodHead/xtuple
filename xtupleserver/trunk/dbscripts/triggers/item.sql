@@ -130,8 +130,8 @@ BEGIN
 
         IF (OLD.item_listprice <> NEW.item_listprice) THEN
           PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''List Price Changed from "'' || OLD.item_listprice ||
-                                 ''" to "'' || NEW.item_listprice || ''"'' ) );
+                               ( ''List Price Changed from "'' || formatSalesPrice(OLD.item_listprice) ||
+                                 ''" to "'' || formatSalesPrice(NEW.item_listprice) || ''"'' ) );
         END IF;
 
 -- Add New stuff
@@ -160,20 +160,20 @@ BEGIN
 
         IF (OLD.item_prodweight <> NEW.item_prodweight) THEN
           PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''Product Weight Changed from "'' || OLD.item_prodweight ||
-                                 ''" to "'' || NEW.item_prodweight || ''"'' ) );
+                               ( ''Product Weight Changed from "'' || formatWeight(OLD.item_prodweight) ||
+                                 ''" to "'' || formatWeight(NEW.item_prodweight) || ''"'' ) );
         END IF;
 
         IF (OLD.item_packweight <> NEW.item_packweight) THEN
           PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''Packaging Weight Changed from "'' || OLD.item_packweight ||
-                                 ''" to "'' || NEW.item_packweight || ''"'' ) );
+                               ( ''Packaging Weight Changed from "'' || formatWeight(OLD.item_packweight) ||
+                                 ''" to "'' || formatWeight(NEW.item_packweight) || ''"'' ) );
         END IF;
 
         IF (OLD.item_maxcost <> NEW.item_maxcost) THEN
           PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''Maximum Disired Cost Changed from "'' || OLD.item_maxcost ||
-                                 ''" to "'' || NEW.item_maxcost || ''"'' ) );
+                               ( ''Maximum Disired Cost Changed from "'' || formatCost(OLD.item_maxcost) ||
+                                 ''" to "'' || formatCost(NEW.item_maxcost) || ''"'' ) );
         END IF;
 -- End changes
 
