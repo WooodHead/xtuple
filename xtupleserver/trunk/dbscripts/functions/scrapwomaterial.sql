@@ -1,7 +1,15 @@
+
 CREATE OR REPLACE FUNCTION scrapWoMaterial(INTEGER, NUMERIC) RETURNS INTEGER AS $$
+BEGIN
+  RETURN scrapWoMaterial($1, $2, CURRENT_TIMESTAMP);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION scrapWoMaterial(INTEGER, NUMERIC, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 DECLARE
   pWomatlid	ALIAS FOR $1;
   pQty		ALIAS FOR $2;
+  pGlDistTS     ALIAS FOR $3;
   _costmethod         	CHAR(1);
   _scrapValue		NUMERIC;
   _r                   	RECORD;
@@ -60,7 +68,7 @@ BEGIN
   PERFORM insertGLTransaction( 'W/O', 'WO', formatWoNumber(womatl_wo_id),
 		 ('Scrap ' || item_number || ' from Work Order'),
 		 _r.costcat_wip_accnt_id, costcat_mfgscrap_accnt_id, -1,
-		 _scrapValue, CURRENT_DATE )
+		 _scrapValue, date(pGlDistTS) )
   FROM womatl, itemsite, item, costcat
   WHERE ( (womatl_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)
@@ -84,3 +92,4 @@ BEGIN
 
 END;
 $$ LANGUAGE 'plpgsql';
+
