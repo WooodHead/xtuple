@@ -173,6 +173,12 @@ BEGIN
     WHERE (itemsite_id=_p.itemsiteid);
   END IF;
 
+--  Check to see if there is anything left at the target Itemloc and delete if not
+--  Could be zero if relocate increased a negative quantity to zero
+  DELETE FROM itemloc
+  WHERE ( (itemloc_qty=0)
+   AND (itemloc_id=_targetItemlocid) );
+
 --  Return the invhist_id
   RETURN _invhistid;
 
