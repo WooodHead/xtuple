@@ -11,6 +11,12 @@ SELECT invchead_id, cust_id,
        CASE WHEN (aropen_open) THEN (aropen_amount - aropen_paid)
             ELSE 0
        END AS balance,
+       CASE WHEN (invchead_recurring_type='D') THEN <? value("day") ?>
+            WHEN (invchead_recurring_type='W') THEN <? value("week") ?>
+            WHEN (invchead_recurring_type='M') THEN <? value("month") ?>
+            WHEN (invchead_recurring_type='Y') THEN <? value("year") ?>
+            ELSE <? value("none") ?>
+       END AS recurring_type,
        'curr' AS extprice_xtnumericrole,
        'curr' AS balance_xtnumericrole,
        CASE WHEN (aropen_id IS NULL) THEN 'Unposted' END AS balance_qtdisplayrole
