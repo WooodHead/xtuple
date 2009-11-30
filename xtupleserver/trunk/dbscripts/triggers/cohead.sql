@@ -261,7 +261,7 @@ BEGIN
           NEW.cohead_billto_cntct_phone=COALESCE(NEW.cohead_billto_cntct_phone,_p.cntct_phone,'');
           NEW.cohead_billto_cntct_title=COALESCE(NEW.cohead_billto_cntct_title,_p.cntct_title,'');
           NEW.cohead_billto_cntct_fax=COALESCE(NEW.cohead_billto_cntct_fax,_p.cntct_fax,''); 
-          NEW.cohead_billto_cntct_email=COALESCE(NEW.cohead_billto_cntct_fax,_p.cntct_email,''); 
+          NEW.cohead_billto_cntct_email=COALESCE(NEW.cohead_billto_cntct_email,_p.cntct_email,''); 
           NEW.cohead_billtoname=COALESCE(NEW.cohead_billtoname,_p.cust_name,'');
           NEW.cohead_billtoaddress1=COALESCE(NEW.cohead_billtoaddress1,_p.addr_line1,'');
           NEW.cohead_billtoaddress2=COALESCE(NEW.cohead_billtoaddress2,_p.addr_line2,'');
