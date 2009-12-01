@@ -2,8 +2,8 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
-  <title id="scriptsTitle"><indexterm significance="normal">
+<section id="scriptsTitle">
+  <title><indexterm significance="normal">
       <primary>scripts</primary>
       <secondary>master list of</secondary>
     </indexterm>Scripts</title>
@@ -66,7 +66,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="scriptEditor.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="scriptEditor.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

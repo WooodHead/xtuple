@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="financialLayoutSpecial">
   <title>Financial Report Special</title>
-  <para>The Financial Reporting Engine (FRE) supports the
-  addition of a limited number of Special items, which may be used to extend
-  your reporting capabilities. A Special item can function as the child of a
-  Top-Level or other Group. <anchor id="Anchor576196" role="Index" xreflabel="financial reports:adding special items to"/> <indexterm significance="normal">
+  <para>The Financial Reporting Engine (FRE) supports the addition of a
+  limited number of Special items, which may be used to extend your reporting
+  capabilities. A Special item can function as the child of a Top-Level or
+  other Group. <indexterm significance="normal">
       <primary>financial reports</primary>
       <secondary>adding special items to</secondary>
     </indexterm>To add a new Special item to a Financial Report, select the
   ADD SPECIAL button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/financialLayoutSpecial.png"/>
+          <imagedata fileref="images/financialLayoutSpecial.png" />
         </imageobject>
-        <caption>Add Financial Report Special
-        Item</caption>
+        <caption>Add Financial Report Special Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When adding a Special item to a Financial Report, you
-  are presented with the following options:</para>
+    </screenshot></para>
+  <para>When adding a Special item to a Financial Report, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Name</term>
@@ -199,8 +197,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -217,9 +215,9 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>Because Ad Hoc reports are not required to conform
-    to the three standard statement formats, the "Column Layouts" tab is not
-    available for Ad Hoc reports. Column layouts may only be used by Financial
-    Reports which conform to these standard formats.</para>
+    <para>Because Ad Hoc reports are not required to conform to the three
+    standard statement formats, the "Column Layouts" tab is not available for
+    Ad Hoc reports. Column layouts may only be used by Financial Reports which
+    conform to these standard formats.</para>
   </note>
 </section>

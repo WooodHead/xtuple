@@ -3,7 +3,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518556">
-  <title id="imagesTitle" pagenum=""><indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>images</primary>
       <secondary>master list of</secondary>
     </indexterm>Images</title>
@@ -86,6 +86,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="image.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="image.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

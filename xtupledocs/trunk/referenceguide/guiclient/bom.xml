@@ -3,7 +3,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519286">
-  <title id="Anchor37267"><indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>bills of materials</primary>
       <secondary>creating new</secondary>
     </indexterm>Enter New Bill of Materials</title>
@@ -298,6 +298,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-    <xi:include href="bomItem.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="bomItem.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

@@ -2,16 +2,16 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
-  <title id="UpdateLateCustomerCreditStatus"><indexterm significance="normal">
+<section id="UpdateLateCustomerCreditStatus">
+  <title><indexterm significance="normal">
       <primary>customers</primary>
       <secondary>warning for lateness</secondary>
     </indexterm>Update Late Customer Credit Status</title>
   <para>The system can be configured to place Customers on credit warning when
   their A/R open items become past due. Instructions for setting up that
-  configuration can be found here: <xref linkend="configureGLTitle" />. To
-  take full advantage of this functionality, you will need to regularly run
-  the Update Late Customer Credit Status utility.</para>
+  configuration can be found here: <xref linkend="Section942568" />. To take
+  full advantage of this functionality, you will need to regularly run the
+  Update Late Customer Credit Status utility.</para>
   <note>
     <para>This utility will be hidden if your system is not configured to
     place Customers on credit warning when their A/R open items become past
