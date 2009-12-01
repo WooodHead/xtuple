@@ -10,17 +10,29 @@ cycle. Many thanks to all in the community who have sponsored
 new functionality and also contributed valuable testing,
 patches, and other feedback.
 
-The testing period for this Release Candidate will run for the
-next couple of weeks--after which time 3.4.0 Final will be
-released. 
+Here's an overview of the new features you will find in 3.4.0:
 
-NOTE: If you are upgrading your database to version 3.4.0Beta2,
-you must use the new Updater, version 2.2.0Beta. As always, please
-do not use beta software in a production environment. If you are 
-a subscriber to our XTN service (www.xtuple.com/xtn) and would
-like to be an active participant in the testing process, please
-contact us and we can help you set up a "sandbox" copy of your 
-database to test in.
+Manufacturing Edition functionality as scripted Package
+  * Full spec: http://www.xtuple.org/issuetracker/view.php?id=8333
+
+Script Debugger
+  * Full spec: http://www.xtuple.org/issuetracker/view.php?id=8189
+
+CRM
+  * Multiple enhancements to Opportunities
+
+Free Country Fix Utility
+  * Packaged utility called "fixCountry.gz"
+  * Loads with Updater
+  * Makes country codes in database conform to standard ISO naming
+    conventions
+
+NOTE: Be sure to use the latest version of the Updater if you
+are upgrading to 3.4.0RC. And if you are a subscriber to our 
+XTN service (www.xtuple.com/xtn) and would like to be an active 
+participant in the testing process, please contact us and we 
+can help you set up a "sandbox" copy of your database to test 
+in.
 
 ==================================
 
@@ -35,139 +47,139 @@ New Features:
 
 * [Accounting] Display recurring invoices
 * [Architectural] Integrate QT script debugger
-* [Architectural] Make free-floating mode the default for 
+* [Architectural] Make free-floating mode the default for
 Windows, Linux, and Mac
 * [Community] Add link to xChange in Community menu
 * [Manufacture] Add ability to backdate production posting
 * [Manufacture] Add function to calculate the working day date
-* [System] Improve connection error messages 
+* [System] Improve connection error messages
 * [System] Add toolbar icons for Community and xChange
 
 Bug Fixes:
 
-* [All] Pasting a value with commas doesn't work 
+* [All] Pasting a value with commas doesn't work
 * [All] Keyboard copy/cut/paste not working
-* [Accounting] Version # 3.3.1 Work Order Schedule reports 
+* [Accounting] Version # 3.3.1 Work Order Schedule reports
 do not match display
-* [Accounting] List label for g/l series should be moved 
-* [Accounting] Unreleased transaction lock in group.cpp can 
-lead to loss of data 
-* [Accounting] Voucher tax distribution not calculated 
-correctly on multi-cost elements 
-* [Accounting] Amount displayed in tax code rates doesn't 
-honor locale 
-* [Accounting] Selecting to edit invoice displays error in 
+* [Accounting] List label for g/l series should be moved
+* [Accounting] Unreleased transaction lock in group.cpp can
+lead to loss of data
+* [Accounting] Voucher tax distribution not calculated
+correctly on multi-cost elements
+* [Accounting] Amount displayed in tax code rates doesn't
+honor locale
+* [Accounting] Selecting to edit invoice displays error in
 Postbooks and Standard editions
-* [Accounting] Selecting to cancel voucher screen upon 
+* [Accounting] Selecting to cancel voucher screen upon
 creating a voucher displays irrelevant dialog
-* [Accounting] Basic income statement (trend, year) 
-generates all numbers of -1.00  
-* [Accounting] Print check run on Mac: printer selection 
-screen inaccessible 
-* [Accounting] Cash Receipts screen: Reverse button never 
-enables 
-* [Accounting] Reverse customer deposit recursive 
-* [Accounting] Problem creating new customers 
+* [Accounting] Basic income statement (trend, year)
+generates all numbers of -1.00
+* [Accounting] Print check run on Mac: printer selection
+screen inaccessible
+* [Accounting] Cash Receipts screen: Reverse button never
+enables
+* [Accounting] Reverse customer deposit recursive
+* [Accounting] Problem creating new customers
 * [Accounting] Hide "Payment Received" field on invoice
-* [Accounting] Accounts with no activity not forward 
+* [Accounting] Accounts with no activity not forward
 updating automatically
-* [Accounting] Trial balance only Debits & Credits have 
-format 
-* [Accounting] Cash Receipt from Credit Card - should write 
-Customer Name to GL trans 
-* [Accounting] Display multiple order numbers on invoice 
-* [Accounting] Misc. Check doesn't clear CM amount 
-* [CRM] Comments for Project Tasks can be added in view 
+* [Accounting] Trial balance only Debits & Credits have
+format
+* [Accounting] Cash Receipt from Credit Card - should write
+Customer Name to GL trans
+* [Accounting] Display multiple order numbers on invoice
+* [Accounting] Misc. Check doesn't clear CM amount
+* [CRM] Comments for Project Tasks can be added in view
 mode
-* [CRM] CRM Calendar Doesn't Default to current user log 
-in name 
-* [Inventory] User can only select warehouses that purchase 
-or manufacture items to transfer from 
-* [Inventory] View Orders generates a db log error in 
+* [CRM] CRM Calendar Doesn't Default to current user log
+in name
+* [Inventory] User can only select warehouses that purchase
+or manufacture items to transfer from
+* [Inventory] View Orders generates a db log error in
 PostBooks
-* [Inventory] Selecting to edit order from "Total" label 
-displays error message and generates DB log 
+* [Inventory] Selecting to edit order from "Total" label
+displays error message and generates DB log
 * [Inventory] Location details show up with qty zero
-* [Inventory] Premature screen message requiring item 
+* [Inventory] Premature screen message requiring item
 number
-* [Inventory] Premature screen message requiring customer 
+* [Inventory] Premature screen message requiring customer
 number
-* [Inventory] Some options on item site utility still 
+* [Inventory] Some options on item site utility still
 disable
-* [Inventory] Standard edition itemSite showing MPS time 
+* [Inventory] Standard edition itemSite showing MPS time
 fence
 * [Inventory] Options in "Create Item Sites" not available
-* [Inventory] Using Barcode to issue to shipping on Kit 
-BOM Items does not work 
+* [Inventory] Using Barcode to issue to shipping on Kit
+BOM Items does not work
 * [Inventory] Releasing TO from line item closes line
 * [Manufacture] SQL divide by zero in dspWoEffortByWorkOrder
-* [Manufacture] Mis-spelling on "Post Miscellaneous 
-Production" form 
-* [Manufacture] Application crashes when posting scrap from 
-post production window 
-* [Manufacture] Default focus for Distribute Stock for 
+* [Manufacture] Mis-spelling on "Post Miscellaneous
+Production" form
+* [Manufacture] Application crashes when posting scrap from
+post production window
+* [Manufacture] Default focus for Distribute Stock for
 serialized items should be on Lot/Serial input box
-* [Manufacture] workOrderOperations.ui button problems 
-* [Manufacture] Clocked out operations are displayed as 
-clocked in operations shop floor workbench screen 
+* [Manufacture] workOrderOperations.ui button problems
+* [Manufacture] Clocked out operations are displayed as
+clocked in operations shop floor workbench screen
 * [Manufacture] Enter does not Save on Work Order scree
-* [Manufacture] woTimeClock.ui: Unable to select an 
-operation 
-* [Manufacture] The operations menu is missing when you 
+* [Manufacture] woTimeClock.ui: Unable to select an
+operation
+* [Manufacture] The operations menu is missing when you
 right-click on an operation in the work order window
-* [Manufacture] Tab order on Issue Work Order Material Item 
-screen incorrect 
-* [Products] Item comments with numeric values don't honor 
+* [Manufacture] Tab order on Issue Work Order Material Item
+screen incorrect
+* [Products] Item comments with numeric values don't honor
 the locale
-* [Products] Selecting to print pending BOM changes 
-generates DB log error 
-* [Products] Selecting to edit Bill of operations doesn't 
+* [Products] Selecting to print pending BOM changes
+generates DB log error
+* [Products] Selecting to edit Bill of operations doesn't
 display items
 * [Products] Can not set Event Fence to 0
-* [Products] Voucher distribution costs updating as lower 
+* [Products] Voucher distribution costs updating as lower
 level costs
-* [Purchase] Duplicating expense category by "Copy" 
-generates DB log error 
-* [Purchase] Foreign key error when selecting costing 
-element "None" on voucher 
-* [Reports] Credit Memo total not displaying the correct 
+* [Purchase] Duplicating expense category by "Copy"
+generates DB log error
+* [Purchase] Foreign key error when selecting costing
+element "None" on voucher
+* [Reports] Credit Memo total not displaying the correct
 amount
-* [Sales] Item reservations window does not display unit 
-of measure 
-* [Sales] Start and end dates are not displayed in print 
+* [Sales] Item reservations window does not display unit
+of measure
+* [Sales] Start and end dates are not displayed in print
 report of summarized sales history
-* [Sales] Tax and freight not displayed in Billing Edit 
+* [Sales] Tax and freight not displayed in Billing Edit
 List
-* [Sales] Tax and total information missing on billing 
-selection screen 
-* [Sales] Selecting to query brief sales history by wild 
+* [Sales] Tax and total information missing on billing
+selection screen
+* [Sales] Selecting to query brief sales history by wild
 card patterns generates DB log error
-* [Sales] Reservations stock check does not consider and 
-convert sales UOM to stock UOM 
-* [Sales] Edit SO overrides WO order parameters 
-* [Sales] Edits to Characteristics are lost unless you 
+* [Sales] Reservations stock check does not consider and
+convert sales UOM to stock UOM
+* [Sales] Edit SO overrides WO order parameters
+* [Sales] Edits to Characteristics are lost unless you
 save immediately
-* [Sales] Create Quotes/SO do not honor customer default 
+* [Sales] Create Quotes/SO do not honor customer default
 tax zone
-* [Sales] Customer ship-to number assignment can cause 
-data loss 
-* [Sales] Can't see the quotes I create 
-* [Sales] Tab order problem on sales order header 
+* [Sales] Customer ship-to number assignment can cause
+data loss
+* [Sales] Can't see the quotes I create
+* [Sales] Tab order problem on sales order header
 information screen
-* [Sales] Return Authorizations not closing 
-* [Sales] Create invoice is much slower than previous 
-version 
-* [Sales] Sales Tax calculation in sales order includes 
+* [Sales] Return Authorizations not closing
+* [Sales] Create invoice is much slower than previous
+version
+* [Sales] Sales Tax calculation in sales order includes
 canceled items
-* [Sales] On inventory availability by customer type 
-reservation quantities are in sale UOM when all others 
+* [Sales] On inventory availability by customer type
+reservation quantities are in sale UOM when all others
 values are in inventory UOM
-* [Schedule] workCenter.ui: Save results in creation of a 
+* [Schedule] workCenter.ui: Save results in creation of a
 new record
 * [Schedule] workCenter.ui: Excessive decimal precision
-* [System] It is possible to edit employee in view mode 
+* [System] It is possible to edit employee in view mode
 * [System] formatNumeric function zero handling
-* [System] In Designer, the XComboBox type is always set 
+* [System] In Designer, the XComboBox type is always set
 to AddressCommentType
 * [System] pretty Vista theme doesn't appear in Windows7
 
