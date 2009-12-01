@@ -3,7 +3,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972122">
-  <title id="Anchor62146"><indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>countries</primary>
       <secondary>master list of</secondary>
     </indexterm>Countries</title>
@@ -48,9 +48,9 @@
       <listitem id="countriesEDIT">
         <para>Enables you to edit highlighted Country definitions. The edit
         screen is the same as that for creating a new Country
-        definition&mdash;except that when editing, the fields will contain Country
-        information. Double-clicking on a Country definition will also bring
-        you to the editing screen.</para>
+        definition&mdash;except that when editing, the fields will contain
+        Country information. Double-clicking on a Country definition will also
+        bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -68,6 +68,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="country.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="country.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

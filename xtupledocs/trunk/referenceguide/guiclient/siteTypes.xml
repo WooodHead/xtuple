@@ -2,15 +2,15 @@
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
-  <title id="siteTypesTitle"><indexterm significance="normal">
+<section id="siteTypesTitle">
+  <title><indexterm significance="normal">
       <primary>site types</primary>
       <secondary>master list of</secondary>
     </indexterm>Site Types</title>
-  <para>Because Sites may serve multiple purposes&horbar;as warehouses,
-  stores, etc.&horbar;the concept of Site Types allows you to categorize how
-  Sites are used. To access the master list of Site Types, select the "Site
-  Types" option. The following screen will appear.</para>
+  <para>Because Sites may serve multiple purposes―as warehouses, stores,
+  etc.―the concept of Site Types allows you to categorize how Sites are used.
+  To access the master list of Site Types, select the "Site Types" option. The
+  following screen will appear.</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -68,6 +68,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="siteType.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="siteType.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

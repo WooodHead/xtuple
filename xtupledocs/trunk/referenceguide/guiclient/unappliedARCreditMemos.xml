@@ -1,40 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524414">
-  <title>
-<indexterm significance="normal">
-      <primary id="Anchor30541">credit memos</primary>
+  <title><indexterm significance="normal">
+      <primary>credit memos</primary>
       <secondary>list of unapplied</secondary>
     </indexterm>List Unapplied Credit Memos</title>
   <para>Whenever a Credit Memo amount has not been applied to a specific
-  Invoice or Debit Memo&mdash;either in whole or in part&mdash;that Credit Memo will
-  appear on the list of unapplied Credit Memos. Both miscellaneous A/R Credit
-  Memos and unapplied Credit Memos generated from the Billing section may
-  appear on the list.</para>
+  Invoice or Debit Memo&mdash;either in whole or in part&mdash;that Credit
+  Memo will appear on the list of unapplied Credit Memos. Both miscellaneous
+  A/R Credit Memos and unapplied Credit Memos generated from the Billing
+  section may appear on the list.</para>
   <note>
     <para>A newly-entered miscellaneous Credit Memo is an unapplied Credit
     Memo by default. However, Credit Memos generated from the Billing section
-    may or may not be unapplied&mdash;depending on circumstances. For example, if
-    an S/O Credit Memo is applied to a specific Invoice when the Credit Memo
-    is created, then that Credit Memo is applied and will not appear on the
-    list of unapplied Credit Memos. However, if an S/O Credit Memo is not
+    may or may not be unapplied&mdash;depending on circumstances. For example,
+    if an S/O Credit Memo is applied to a specific Invoice when the Credit
+    Memo is created, then that Credit Memo is applied and will not appear on
+    the list of unapplied Credit Memos. However, if an S/O Credit Memo is not
     applied when it is created, it will subsequently appear on the unapplied
     list.</para>
   </note>
   <para>To access the master list of unapplied Credit Memos, select the "List
   Unapplied Credit Memos" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/unappliedARCreditMemos.png"/>
+          <imagedata fileref="images/unappliedARCreditMemos.png" />
         </imageobject>
-        <caption>Unapplied Credit Memos Master
-        List</caption>
+        <caption>Unapplied Credit Memos Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>The master list of unapplied Credit Memos displays basic information
   on all existing unapplied Credit Memos, including Document Number, Customer
   name, Document amount, applied amount, and amount available to apply.</para>
@@ -80,5 +77,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="applyARCreditMemo.xml" xpointer="element(/1)"/>
+  <xi:include href="applyARCreditMemo.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

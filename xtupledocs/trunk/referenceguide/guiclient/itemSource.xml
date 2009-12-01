@@ -3,7 +3,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520355">
-  <title id="itemSource"><indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>item sources</primary>
       <secondary>creating new</secondary>
     </indexterm> <indexterm significance="normal">
@@ -301,7 +301,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="itemSourcePrice.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="itemSourcePrice.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

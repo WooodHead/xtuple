@@ -55,17 +55,17 @@
           <secondary>in operations</secondary>
         </indexterm>Production UOM</term>
       <listitem>
-        <para>Specify the Unit of Measure to use for the Production UOM—or
-        enter a free-form UOM. Specify a UOM to be used optionally when Work
-        Order Operations are posted for the specified Operation. Operations
-        may be posted using either the Inventory or Production UOM. In
-        addition, different Operations in a single Bill of Operations may use
-        different Production UOMs. For example, if you are producing soup, you
-        might mix the soup in one Operation using UOM = BATCH. But when
-        canning the soup, the canning Operation might use UOM = CAN. If you
-        post Operations using the Production UOM, the Inventory/Production UOM
-        ratio normalizes the posting so that the Inventory impact is recorded
-        using the Inventory UOM.</para>
+        <para>Specify the Unit of Measure to use for the Production
+        UOM&mdash;or enter a free-form UOM. Specify a UOM to be used
+        optionally when Work Order Operations are posted for the specified
+        Operation. Operations may be posted using either the Inventory or
+        Production UOM. In addition, different Operations in a single Bill of
+        Operations may use different Production UOMs. For example, if you are
+        producing soup, you might mix the soup in one Operation using UOM =
+        BATCH. But when canning the soup, the canning Operation might use UOM
+        = CAN. If you post Operations using the Production UOM, the
+        Inventory/Production UOM ratio normalizes the posting so that the
+        Inventory impact is recorded using the Inventory UOM.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -81,7 +81,7 @@
         the Inventory/Production UOM ratio normalizes the posting so that the
         Inventory impact is recorded in the Inventory UOM. The ratio is set up
         in the same way as the Capacity/Inventory UOM ratio described in <xref
-        linkend="Anchor13555" />.</para>
+        linkend="Section518889" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
