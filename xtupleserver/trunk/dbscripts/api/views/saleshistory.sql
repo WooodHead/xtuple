@@ -47,8 +47,6 @@ BEGIN;
         'Misc. Charge'
       WHEN cohist_misc_type = 'F' THEN
         'Freight'
-      WHEN cohist_misc_type = 'T' THEN
-        'Tax'
       ELSE
         'Unknown'
      END AS misc_type,
@@ -58,13 +56,11 @@ BEGIN;
         ''
       WHEN cohist_misc_type = 'M' THEN
         formatglaccount(cohist_misc_id)
-      WHEN cohist_misc_type = 'T' THEN
-        tax_code
       ELSE
         'Unknown'
     END AS misc_info,
+    taxzone_code AS tax_zone,
     taxtype_name AS tax_type,
-    tax_code,
     CASE
       WHEN cohist_doctype = 'I' THEN
         'Invoice'
@@ -75,16 +71,13 @@ BEGIN;
     END AS document_type,
     curr_abbr AS currency,
     cohist_sequence AS gl_sequence,
-    cohist_tax_pcta * 100 AS tax_pct_a,
-    cohist_tax_pctb * 100 AS tax_pct_b,
-    cohist_tax_pctc * 100 AS tax_pct_c,
-    cohist_tax_ratea AS tax_rate_a,
-    cohist_tax_rateb AS tax_rate_b,
-    cohist_tax_ratec AS tax_rate_c
+    (SELECT SUM(taxhist_tax)
+     FROM cohisttax
+     WHERE (taxhist_parent_id=cohist_id)) AS tax
   FROM cohist
     LEFT OUTER JOIN custinfo ON (cohist_cust_id=cust_id)
     LEFT OUTER JOIN shiptoinfo ON (cohist_shipto_id=shipto_id)
-    LEFT OUTER JOIN tax ON (cohist_tax_id=tax_id)
+    LEFT OUTER JOIN taxzone ON (cohist_taxzone_id=taxzone_id)
     LEFT OUTER JOIN taxtype ON (cohist_taxtype_id=taxtype_id)
     LEFT OUTER JOIN salesrep ON (cohist_salesrep_id=salesrep_id)
     LEFT OUTER JOIN itemsite ON (cohist_itemsite_id=itemsite_id)
@@ -135,19 +128,13 @@ COMMENT ON VIEW api.saleshistory IS 'Sales History';
     cohist_misc_type,
     cohist_misc_descrip,
     cohist_misc_id,
-    cohist_tax_id,
     cohist_doctype,
     cohist_promisedate,
     cohist_ponumber,
     cohist_curr_id,
     cohist_sequence,
-    cohist_taxtype_id,
-    cohist_tax_pcta,
-    cohist_tax_pctb,
-    cohist_tax_pctc,
-    cohist_tax_ratea,
-    cohist_tax_rateb,
-    cohist_tax_ratec)
+    cohist_taxzone_id,
+    cohist_taxtype_id )
   VALUES (
     getCustId(NEW.customer_number),
     getItemsiteId(NEW.site_code,NEW.item_number),
@@ -185,17 +172,12 @@ COMMENT ON VIEW api.saleshistory IS 'Sales History';
         'M'
       WHEN NEW.misc_type = 'Freight' THEN
         'F'
-      WHEN NEW.misc_type = 'Tax' THEN
-        'T'
     END,
     NEW.misc_description,
     CASE
       WHEN NEW.misc_type = 'Misc. Charge' THEN
         getGlAccntId(NEW.misc_info)
-      WHEN NEW.misc_type = 'Tax' THEN
-        getTaxId(NEW.tax_code)
     END,
-    getTaxId(NEW.tax_code),
     CASE
       WHEN NEW.document_type = 'Invoice' THEN
         'I'
@@ -206,13 +188,8 @@ COMMENT ON VIEW api.saleshistory IS 'Sales History';
     NEW.purchase_order_number,
     COALESCE(getCurrId(NEW.currency),basecurrid()),
     NEW.gl_sequence,
-    getTaxtypeId(NEW.tax_type),
-    NEW.tax_pct_a * .01,
-    NEW.tax_pct_b * .01,
-    NEW.tax_pct_c * .01,
-    NEW.tax_rate_a,
-    NEW.tax_rate_b,
-    NEW.tax_rate_c);
+    getTaxzoneId(NEW.tax_zone),
+    getTaxtypeId(NEW.tax_type) );
  
   CREATE OR REPLACE RULE "_UPDATE" AS
   ON UPDATE TO api.saleshistory DO INSTEAD
