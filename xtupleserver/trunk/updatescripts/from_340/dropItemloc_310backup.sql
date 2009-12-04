@@ -1,0 +1,1 @@
+DROP TABLE itemloc_310backup;
