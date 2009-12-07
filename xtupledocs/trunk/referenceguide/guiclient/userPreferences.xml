@@ -546,6 +546,30 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To specify advanced user preferences, select the "Advanced" tab. The
+  following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/userPreferences_advancedTab.png" />
+    </imageobject>
+    <caption>Change Password Utility</caption>
+  </mediaobject>
+  <para>When specifying advanced user preferences, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Enable Script Debugging</term>
+      <listitem>
+        <para>Select to enable automatic script debugging using the <ulink
+        url="http://doc.trolltech.com/4.5/qtscriptdebugger-manual.html">Qt
+        Script debugger</ulink>. If selected, any custom script that contains
+        the "debugger" command will launch the Qt Script debugger at that
+        point. If you are trying to develop your own custom scripts and want
+        to use the Qt Script debugger, xTuple recommends starting your script
+        with this command.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <xi:include href="hotkey.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

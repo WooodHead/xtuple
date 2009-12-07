@@ -46,6 +46,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Package</term>
+      <listitem>
+        <para>Displays the name of the package the script belongs to, if
+        any.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Enabled</term>
       <listitem>
         <para>Select to enable the script. If not selected, the script will be
@@ -59,6 +66,21 @@
         <para>Enter the content of the script using QtScript. You may type the
         script directly into this window, or you may import a script using the
         IMPORT SCRIPT button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Line</term>
+      <listitem>
+        <para>The spin box in the lower left hand corner shows you the current
+        line number&mdash;and allows you to jump to specific line numbers
+        within the script.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Search</term>
+      <listitem>
+        <para>Enter a search term in the field and then select the FIND button
+        to locate matches within the script.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -75,6 +97,12 @@
       <term>SAVE</term>
       <listitem>
         <para>Saves the script and adds it to the scripts master list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>FIND</term>
+      <listitem>
+        <para>Select to locate search term matches within the script.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -97,10 +125,10 @@
         <para>Select to export the script shown in the script window to your
         local file system. You would use this option if you need or want to
         edit the script and do not have a copy stored locally on your system.
-        Once exported, the script can be edited using an external editor—and
-        then re-imported into the database using the import option. Whenever
-        you import a script file, it automatically replaces whatever script
-        was in place before it.</para>
+        Once exported, the script can be edited using an external
+        editor&mdash;and then re-imported into the database using the import
+        option. Whenever you import a script file, it automatically replaces
+        whatever script was in place before it.</para>
       </listitem>
     </varlistentry>
   </variablelist>
