@@ -68,30 +68,27 @@
     <varlistentry>
       <term>Interface Options</term>
       <listitem>
-        <para>Select one of the following default window behaviors:</para>
+        <para>Select one of the following window behaviors:</para>
         <variablelist>
           <varlistentry>
             <term>Show windows inside workspace</term>
             <listitem>
               <para>Select to make non-modal screens open within the main
-              desktop.</para>
+              desktop window.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Show windows as free-floating</term>
             <listitem>
-              <para>Select to allow all screens to be free-floating and not
-              constrained by the main desktop.</para>
+              <para>For new xTuple installations, this is the default
+              selection. With this option turned on, all screens will be
+              free-floating and not constrained by the main desktop.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>For a complete list of available toolbar buttons, see <xref
-    linkend="Section476479" />.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term>Ignore Missing Translations</term>
@@ -241,6 +238,10 @@
     </mediaobject></para>
   <para>When specifying a preferred menu style, you are presented with the
   following options:</para>
+  <note>
+    <para>For a complete list of all the toolbar buttons available for each
+    module, see <xref linkend="Section476479" />.</para>
+  </note>
   <variablelist>
     <varlistentry>
       <term>Show Inventory Menu</term>
