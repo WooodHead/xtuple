@@ -15,12 +15,18 @@
   without the need to recompile. To take advantage of this functionality, one
   should have a basic understanding of how to program using ECMAScript and
   create UI screens using <ulink
-  url="http://trolltech.com/products/qt/features/tools/designer">QtDesigner</ulink>.</para>
-  <note>
-    <para>To learn more about scripting for xTuple ERP, please see the <ulink
-    url="http://wiki.xtuple.org/ScriptingGuide">Scripting
-    Guide</ulink>.</para>
-  </note>
+  url="http://trolltech.com/products/qt/features/tools/designer">QtDesigner</ulink>.
+  To learn more about scripting for xTuple ERP, please see the <ulink
+  url="http://wiki.xtuple.org/ScriptingGuide">Scripting Guide</ulink>.</para>
+  <tip>
+    <para>You can enable automatic script debugging using the <ulink
+    url="http://doc.trolltech.com/4.5/qtscriptdebugger-manual.html">Qt Script
+    debugger</ulink> by setting a simple option on the "Advanced" tab of the
+    User Preferences screen. If you are trying to develop your own custom
+    scripts and want to use the Qt Script debugger, xTuple recommends starting
+    your script with this command. To learn more about the User Preferences
+    setting, see <xref linkend="Section941111" />.</para>
+  </tip>
   <para>To view the master list of available scripts, select the "Scripts"
   option. The following screen will appear:</para>
   <para><screenshot>
