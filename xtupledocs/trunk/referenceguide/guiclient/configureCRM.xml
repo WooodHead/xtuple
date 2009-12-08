@@ -58,6 +58,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Next #</term>
+      <listitem>
+        <para>Specify the next available CRM Account number. The next CRM
+        Account created will use the number specified here. Leave this field
+        blank if you will be creating CRM Account numbers manually. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Incident # Generation</term>
       <listitem>
         <para>By default, Incident numbers are generated automatically.
@@ -68,9 +76,8 @@
     <varlistentry>
       <term>Next #</term>
       <listitem>
-        <para>Specify the next available Incident number.</para>
-        <para>The next Incident entered will use the number specified
-        here.</para>
+        <para>Specify the next available Incident number. The next Incident
+        created will use the number specified here.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -84,6 +91,12 @@
       <listitem>
         <para>Select to allow the creation of Projects for Sales
         Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -170,7 +183,7 @@
     <varlistentry>
       <term>Default Country for Addresses</term>
       <listitem>
-        <para>When new addresses are created, set the country in those new
+        <para>When new addresses are created, set the Country in those new
         addresses to the value selected here unless the user overrides the
         selection when creating the address.</para>
       </listitem>
@@ -178,9 +191,9 @@
     <varlistentry>
       <term>Enforce Valid Country Names</term>
       <listitem>
-        <para>If this box is not checked, users can select from a list of
-        countries or type country names that are not in the list. When this
-        box is checked, users must select from a list of valid countries when
+        <para>If this option is not checked, users can select from a list of
+        Countries or type Country names that are not in the list. When this
+        box is checked, users must select from a list of valid Countries when
         creating or editing addresses; the application will warn you to fix
         the Country before it will save an Address with an invalid
         Country.</para>
@@ -197,14 +210,21 @@
           will be disabled and you cannot uncheck it.</para>
         </warning>
         <note>
-          <para>You can edit the list of countries by navigating to System
-          &gt; Master Information &gt; Countries.</para>
-          <para>To learn more, see <xref linkend="Section972122" />.</para>
+          <para>You can edit the list of Countries by navigating to System
+          &gt; Master Information &gt; Countries. To learn more, see <xref
+          linkend="Section972122" />.</para>
         </note>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/invalidCountries.png" />
+        </imageobject>
+        <caption>Invalid Countries Warning Message</caption>
+      </mediaobject>
+    </screenshot></para>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
