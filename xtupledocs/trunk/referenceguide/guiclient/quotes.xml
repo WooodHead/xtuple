@@ -87,14 +87,12 @@
         Line Items must have valid Item Sites for a Quote to be converted
         successfully. Also, you may not convert Quotes written for
         Prospects.</para>
+        <note>
+          <para>By default, the Quote Number will be assumed by the Sales
+          Order when a Quote is converted to a Sales Order.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>By default, the Quote Number will be assumed by the Sales Order when
-    a Quote is converted to a Sales Order.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>NEW</term>
       <listitem>
@@ -119,7 +117,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x18fbbc4">
+      <listitem>
         <para>Highlight a Quote and then select this button to remove the
         Quote from the list.</para>
       </listitem>
