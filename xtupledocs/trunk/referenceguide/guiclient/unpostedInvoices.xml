@@ -7,8 +7,9 @@
       <primary>invoices</primary>
       <secondary>unposted list of</secondary>
     </indexterm>List Unposted Invoices</title>
-  <para>To edit or post Orders selected for billing, select the "Unposted
-  Invoices" option. The following screen will appear:</para>
+  <para>To edit or post Sales Orders that have been selected for billing and
+  are ready to be invoiced, select the "Unposted Invoices" option. The
+  following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -69,31 +70,27 @@
         <para>Highlight an Invoice and then select this button to remove the
         Invoice from the list. Deleting an Invoice causes the source Sales
         Order to be returned to the Billing Selections list.</para>
+        <tip>
+          <para>Deleting an Invoice effectively reverses the transaction which
+          created it. In other words, when you delete an Invoice the source
+          Sales Order will be returned to the Billing Selections list. From
+          there, you have the ability to either A) cancel the Billing
+          Selection or B) re-create the Invoice.</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>Deleting an Invoice effectively reverses the transaction which
-    created it. In other words, when you delete an Invoice the source Sales
-    Order will be returned to the Billing Selections list. From there, you
-    have the ability to either A) cancel the Billing Selection or B) re-create
-    the Invoice.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term>PRINT</term>
       <listitem id="unpostedInvoicesPRINT">
         <para>Highlight one&mdash;or multiple&mdash;Invoices, then select this
         button to print the selected Invoice(s).</para>
+        <note>
+          <para>If the Customer specified on the Invoice has an EDI Profile
+          attached, you may encounter an EDI processing interface when
+          printing Invoices.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para role="standard"><note>
-      <para>If the Customer specified on the Invoice has an EDI Profile
-      attached, you may encounter an EDI processing interface when printing
-      Invoices.</para>
-    </note></para>
-  <variablelist>
     <varlistentry>
       <term>POST</term>
       <listitem id="unpostedInvoicesPOST">
