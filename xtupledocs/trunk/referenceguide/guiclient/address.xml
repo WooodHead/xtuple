@@ -39,7 +39,9 @@
     <varlistentry>
       <term>State</term>
       <listitem>
-        <para>Select a State from the list of available options.</para>
+        <para>Select a State from the list of available options. If a Country
+        is selected that has States or Provinces defined, the list will hold
+        only those States or Provinces defined for that Country.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -51,7 +53,10 @@
     <varlistentry>
       <term>Country</term>
       <listitem>
-        <para>Select a Country from the list of available options.</para>
+        <para>Select a Country from the list of available options. This will
+        automatically be set to the Default Country selected on the Configure
+        CRM window if one has been selected. See <xref
+        linkend="Section971138" /> for more information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
