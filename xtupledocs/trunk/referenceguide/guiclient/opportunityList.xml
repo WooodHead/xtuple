@@ -21,9 +21,118 @@
   with the following options:</para>
   <variablelist>
     <varlistentry>
+      <term>Search</term>
+      <listitem>
+        <para>To search for an Opportunity in the list, begin typing in the
+        search field. As you type, the list will automatically scroll toward
+        the Opportunity you are typing. You can also search for Opportunities
+        manually by scrolling through the list. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Show Inactive</term>
       <listitem>
         <para>Select to include inactive Opportunities in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Opportunity Sources</term>
+      <listitem>
+        <para>Select to display Opportunities from all Sources.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Source whose Opportunities you want to display</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Sources pattern to select a range of Opportunities for
+        those Sources. Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Users</term>
+      <listitem>
+        <para>Select to display Opportunities owned by all users.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify user whose Opportunities you want to display</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a user pattern to select a range of Opportunities for
+        those users. Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Opportunity Types</term>
+      <listitem>
+        <para>Select to display Opportunities for all Opportunity
+        Types.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Opportunity Type whose Opportunities you want to
+        display</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter an Opportunity Type pattern to select a range of
+        Opportunities for those Opportunity Types. Refine your search using
+        Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Opportunity Stages</term>
+      <listitem>
+        <para>Select to display Opportunities at all Stages.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Stage whose Opportunities you want to display</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Stage pattern to select a range of Opportunities for
+        those Stages. Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>First Target Date</term>
+      <listitem>
+        <para>Target dates falling on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Last Target Date</term>
+      <listitem>
+        <para>Target dates falling on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Opportunities</term>
+      <listitem>
+        <para>Display lists all available Opportunities, using the specified
+        parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -41,6 +150,14 @@
       <term>PRINT</term>
       <listitem>
         <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>MORE</term>
+      <listitem>
+        <para>Select to display extra information related to the Opportunity.
+        To hide the extra information, simply select the MORE button
+        again.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
