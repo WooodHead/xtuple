@@ -71,7 +71,12 @@
     <varlistentry>
       <term>Stage</term>
       <listitem>
-        <para>Specify the current stage of the Opportunity.</para>
+        <para>Specify the current Stage of the Opportunity. It's possible an
+        Opportunity will be automatically marked as inactive when it reaches a
+        certain stage, depending on how your system is configured. To learn
+        more about configuring your system to automatically mark Opportunities
+        as inactive when they reach a certain stage, see <xref
+        linkend="opportunityStage" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
