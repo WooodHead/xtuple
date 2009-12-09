@@ -604,7 +604,7 @@
   <para role="standard">The Electronic Data Interchange (EDI) system enables
   you to exchange information electronically with your Vendors. To set up a
   Vendor to receive Purchase Orders, select the "Transmission" tab and select
-  the "Purchase Orders" button. The following screen will appear:</para>
+  the "EDI Profiles" button. The following screen will appear:</para>
   <para role="standard"><screenshot>
       <mediaobject>
         <imageobject>
@@ -613,6 +613,11 @@
         <caption><para>Vendor Transmissions</para></caption>
       </mediaobject>
     </screenshot></para>
+  <note>
+    <para role="standard">The buttons to set up EDI Profiles are disabled when
+    creating a new Vendor. If you want to set up EDI for a new Vendor, save
+    the Vendor and edit it again.</para>
+  </note>
   <xi:include href="../widgets/edirelation.xml" xpointer="edirelationWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para role="standard">To enable Automated Clearing House (ACH) Check

@@ -298,6 +298,12 @@
         Invoices to Customers electronically&mdash;via email or FTP.
         Associating an EDI Profile with a Ship-To Address overrides the
         association of an EDI Profile with the Customer.</para>
+        <note>
+          <para role="standard">The buttons on the "Transmission" tab are
+          disabled when creating a new Ship-To Address. If you want to set up
+          EDI for a new Ship-To Address, save the Ship-To Address and edit it
+          again.</para>
+        </note>
         <xi:include href="../widgets/edirelation.xml"
                     xpointer="edirelationWidget"
                     xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -1374,6 +1380,11 @@
         <caption>Transmission Information for EDI</caption>
       </mediaobject>
     </screenshot></para>
+  <note>
+    <para role="standard">The buttons on the "Transmission" tab are disabled
+    when creating a new Customer. If you want to set up EDI for a new
+    Customer, save the Customer and edit it again.</para>
+  </note>
   <xi:include href="../widgets/edirelation.xml" xpointer="edirelationWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
