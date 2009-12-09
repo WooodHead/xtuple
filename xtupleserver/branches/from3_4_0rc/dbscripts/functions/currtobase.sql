@@ -5,7 +5,7 @@
 -- loss. now we have to use the same rate the user sees, so round the
 -- curr_rate.  see mantis #3901.
 
-CREATE OR REPLACE FUNCTION currToBase (integer, numeric, date) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION currToBase (integer, numeric, date) RETURNS NUMERIC AS $$
     DECLARE
 	pId     ALIAS FOR $1;
 	pValue  ALIAS FOR $2;
@@ -14,11 +14,13 @@ CREATE OR REPLACE FUNCTION currToBase (integer, numeric, date) RETURNS NUMERIC A
     BEGIN
 	_date := $3;
 	IF _date IS NULL THEN
-	    _date := ''now'';
+	    _date := 'now';
 	END IF;
 
 	IF pValue = 0 OR pValue IS NULL THEN
 	    _output := 0;
+	ELSIF (baseCurrId() = pId) THEN
+          _output := pValue;
 	ELSE
 	    SELECT pValue / curr_rate
 		INTO  _output
@@ -26,9 +28,9 @@ CREATE OR REPLACE FUNCTION currToBase (integer, numeric, date) RETURNS NUMERIC A
 		WHERE curr_id = pId
 		  AND _date BETWEEN curr_effective AND curr_expires;
 	    IF (_output IS NULL OR NOT FOUND) THEN
-	      RAISE EXCEPTION ''No exchange rate for % on %'', pId, _date;
+	      RAISE EXCEPTION 'No exchange rate for % on %', pId, _date;
 	    END IF;
 	END IF;
 	RETURN _output;
     END;
-' LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql;
