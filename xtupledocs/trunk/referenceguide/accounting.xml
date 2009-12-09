@@ -153,47 +153,16 @@
             <caption><para>E-mail Invoice Form</para></caption>
           </mediaobject>
         </screenshot>
-        <para>This window shows either a list or search window for Invoices
-        for those Customers configured to receive EDI. You are presented with
-        the following options:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Search for</term>
-            <listitem>
-              <para>Optionally enter an Invoice number here to find it in the
-              list.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Invoices</term>
-            <listitem>
-              <para>List of Invoices that can be sent by EDI.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        <para>Type the Invoice Number in the "Invoice" field. You may also
+        select one from a list by clicking on the "..." button, typing Ctrl-L
+        (Command-L on Mac), or typing Ctrl-S (Command-S on Mac). You will only
+        be shown Invoices for Customers who are set up to receive Invoices by
+        EDI.</para>
         <note>
           <para>Customers are set up to receive electronic deliveries of
           information using the "Transmission" tab on the Customer
           master.</para>
         </note>
-        <para>To the far right of the screen, the following buttons are
-        available:</para>
-        <variablelist>
-          <varlistentry>
-            <term>CANCEL</term>
-            <listitem>
-              <para>Closes the screen without scheduling an Invoice for
-              delivery, returning you to the application desktop.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>SELECT</term>
-            <listitem>
-              <para>Select the Invoice for delivery. This closes the window
-              and proceeds to sending the EDI.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
         <xi:include href="guiclient/submitEDI.xml" xpointer="submitEDI"
                     xmlns:xi="http://www.w3.org/2001/XInclude" />
       </section>
