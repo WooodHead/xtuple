@@ -33,14 +33,25 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Order</term>
+      <term>Grade</term>
       <listitem>
-        <para>Specify the ranking of the screen. Having an order is useful
-        when you have more than one screen with the same name&mdash;as when
-        testing different versions of the same screen, for example. The
-        version of the screen having the lowest number will be used (e.g., 0
-        will be executed before 1). To switch between screen versions, simply
-        give the screen you want to run the lowest number.</para>
+        <para>Specify the ranking of the screen. As with report definitions,
+        the screen having the highest grade is the one that will be
+        used.</para>
+        <note>
+          <para>Screens created with the same name as a core screen will be
+          ignored. Core C++ based screens can not be over-ridden with their
+          own UI. To over-ride a core screen, make a new screen with a new
+          name, remove the core screen menu action from the menu, and replace
+          with a new menu action that launches your new screen.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Package</term>
+      <listitem>
+        <para>Displays the name of the package the screen belongs to, if
+        any.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -192,7 +203,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="customCommand.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="customCommand.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

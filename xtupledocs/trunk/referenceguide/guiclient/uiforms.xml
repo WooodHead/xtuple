@@ -22,9 +22,9 @@
       url="http://www.xtuple.org">www.xtuple.org</ulink>.</para>
     </tip>When creating a new screen, the first thing to do is give it a name.
   This name is then used to find matching scripts. Screens can be enabled or
-  disabled—as well as have an order. You may have several screens with the
-  same name; however, only the lowest enabled screen is used. In addition, you
-  must export or import the UI file (i.e., you cannot edit the UI file
+  disabled&mdash;as well as have an order. You may have several screens with
+  the same name; however, only the lowest enabled screen is used. In addition,
+  you must export or import the UI file (i.e., you cannot edit the UI file
   directly on the database). And, creating a screen does not automatically
   make it available to users. You must first create a custom command to make
   sure the screen is added to the menu structure, as described here: <xref
@@ -45,7 +45,10 @@
       </mediaobject>
     </screenshot></para>
   <para>The screens master list displays information on all custom screens,
-  including screen name, description, order, and enabled status.</para>
+  including screen name, description, order, and enabled status. If the screen
+  is part of a larger package, the name of the parent package will be
+  displayed&mdash;with all the child screens appearing in a nested list below
+  it.</para>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
@@ -67,8 +70,8 @@
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted custom screens. The edit window
-        is the same as that for creating a new custom screen—except that when
-        editing, the fields will contain screen information.</para>
+        is the same as that for creating a new custom screen&mdash;except that
+        when editing, the fields will contain screen information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -85,8 +88,8 @@
         the screen in the xTuple ERP application. If successful, the
         highlighted screen will appear within the xTuple framework (e.g., on
         the desktop). If the screen does not appear, then check your
-        settings—and be sure you have imported your source UI file into the
-        database.</para>
+        settings&mdash;and be sure you have imported your source UI file into
+        the database.</para>
       </listitem>
     </varlistentry>
   </variablelist>
