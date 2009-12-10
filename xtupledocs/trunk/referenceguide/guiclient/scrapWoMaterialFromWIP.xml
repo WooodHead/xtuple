@@ -27,6 +27,13 @@
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
+      <term>Transaction Date</term>
+      <listitem>
+        <para>Specify the date you want the transaction to be posted to the
+        General Ledger. The current day's date will display by default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Work Order #</term>
       <listitem>
         <para>Enter the Work Order Number of the Work Order whose materials
@@ -78,12 +85,13 @@
       <listitem>
         <para>Enter the quantity of top-level finished Items you want to
         scrap. You may scrap top-level Items after they have been received
-        into Inventory—or before. Keep in mind that if you scrap top-level
-        Items prior to receiving them, material requirements for those Items
-        may or may not have been issued to the Work Order yet. You should make
-        any necessary adjustments to account for those requirements. For
-        example, you may need to issue the components—either manually or
-        through a material backflush—and then scrap them retroactively.</para>
+        into Inventory&mdash;or before. Keep in mind that if you scrap
+        top-level Items prior to receiving them, material requirements for
+        those Items may or may not have been issued to the Work Order yet. You
+        should make any necessary adjustments to account for those
+        requirements. For example, you may need to issue the
+        components&mdash;either manually or through a material
+        backflush&mdash;and then scrap them retroactively.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -147,14 +155,15 @@
       <listitem>
         <para>Displays the component quantity currently issued to the Work
         Order. You may only scrap components which have already been issued to
-        a Work Order—either manually or through a material backflush.</para>
+        a Work Order&mdash;either manually or through a material
+        backflush.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty. Scrapped from WIP</term>
       <listitem>
         <para>Displays a running total of the component quantity already
-        scrapped—if any.</para>
+        scrapped&mdash;if any.</para>
         <tip>
           <para>You may not scrap the full quantity of a Work Order Material
           Requirement from a Work Order.</para>
