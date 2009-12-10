@@ -534,21 +534,19 @@
         text. Once shipped, all Line Items revert to black text. For Kit
         Items, the Kit components will be given sub line numbers which will be
         displayed in an indented view.</para>
+        <note>
+          <para>Sales Order Line Items may exist in any of the following
+          statuses:</para>
+          <para>"O" = Open</para>
+          <para>"C" = Closed</para>
+          <para>"X" = Cancelled</para>
+          <para>"R" = Ready for Shipment (i.e., quantity available)</para>
+          <para>"I" = Invoiced</para>
+          <para>"P" = Partially-invoiced</para>
+          <para>"H" = On credit hold</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>Sales Order Line Items may exist in any of the following
-    statuses:</para>
-    <para>"O" = Open</para>
-    <para>"C" = Closed</para>
-    <para>"X" = Cancelled</para>
-    <para>"R" = Ready for Shipment (i.e., quantity available)</para>
-    <para>"I" = Invoiced</para>
-    <para>"P" = Partially-invoiced</para>
-    <para>"H" = On credit hold</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Require sufficient Inventory</term>
       <listitem>
@@ -614,16 +612,14 @@
         Before entering a miscellaneous charge amount, you must first assign
         the charge to a Sales Account and also enter a description of the
         charge.</para>
+        <tip>
+          <para>If you do not use Miscellaneous Charges at your site, you can
+          hide these fields so they are not visible when entering Sales
+          Orders. To do so, simply select the "Hide Misc. Charges" option in
+          the system-level configuration.</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>If you do not use Miscellaneous Charges at your site, you can hide
-    these fields so they are not visible when entering Sales Orders. To do so,
-    simply select the "Hide Misc. Charges" option in the system-level
-    configuration.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term>Misc. Charge Description</term>
       <listitem>
@@ -661,15 +657,13 @@
         Customer receives will indicate whether Credit Memos have been
         applied. In addition, the total due from the Customer will be
         automatically adjusted to reflect any applied credits.</para>
+        <note>
+          <para>The allocation of available Credit Memos occurs only
+          once&mdash;when a Sales Order is saved for the first time.
+          Subsequent saves will not result in additional allocations.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>The allocation of available Credit Memos occurs only once&mdash;when
-    a Sales Order is saved for the first time. Subsequent saves will not
-    result in additional allocations.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Outstanding C/Ms</term>
       <listitem>
@@ -722,15 +716,13 @@
       <term>Total</term>
       <listitem>
         <para>Displays the total amount of the Sales Order.</para>
+        <note>
+          <para>Any Sales Order Line Item may be shipped&mdash;even if the
+          Item or Item Site in question becomes inactive after the Sales Order
+          has been created.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>Any Sales Order Line Item may be shipped&mdash;even if the Item or
-    Item Site in question becomes inactive after the Sales Order has been
-    created.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Outstanding Balance</term>
       <listitem>
@@ -750,14 +742,12 @@
         <para>Select to clear the contents of the current Sales Order and open
         a fresh, new Sales Order for Order entry. The Order Number of the
         Order being cleared will display next to the CLEAR button.</para>
+        <note>
+          <para>Selecting the CLEAR button on the Sales Order header does not
+          delete any information which has been saved previously.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>Selecting the CLEAR button on the Sales Order header does not delete
-    any information which has been saved previously.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>SAVE</term>
       <listitem>
@@ -831,29 +821,59 @@
         issue quantity to Shipping. This button will not be visible if the
         system is configured to hide Shipping options at Sales Order
         entry.</para>
+        <tip>
+          <para>You may select multiple Line Items for issuing to Shipping by
+          highlighting them using your mouse&mdash;or a combination of your
+          mouse and either the SHIFT or CTRL keys.</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>You may select multiple Line Items for issuing to Shipping by
-    highlighting them using your mouse&mdash;or a combination of your mouse
-    and either the SHIFT or CTRL keys.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term>ISSUE LINE BAL.</term>
-      <listitem id="salesOrderISSUELINEBAL1">
+      <listitem>
         <para>Highlight a Sales Order Line Item and then select this button to
         issue the balance of the Line Item quantity to Shipping. This button
         will not be visible if the system is configured to hide Shipping
         options at Sales Order entry.</para>
+        <note>
+          <para>The Shipping-related options will not be visible if the system
+          is configured to hide Shipping options at Sales Order entry.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>The Shipping-related options will not be visible if the system is
-    configured to hide Shipping options at Sales Order entry.</para>
-  </note>
+  <para>To define or maintain relationships for Sales Orders, select the
+  "Relationships" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/salesOrder_relationshipsTab.png" />
+        </imageobject>
+        <caption>Sales Order Relationships</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When defining relationships for Sales Orders, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Project #</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Opportunity</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>From Quote</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>Order Notes added to a Sales Order are used for internal purposes
   only. If an Invoice results from the Sales Order, these Notes will be
   transferred to the Invoice. To add Notes to a Sales Order, select the "Order
@@ -950,14 +970,26 @@
       <listitem>
         <para>Closes the screen without creating a Shipping Note, returning
         you to the application desktop.</para>
+        <note>
+          <para>If your system is configured to use Credit Cards, the
+          "Payment" tab will be visible. This tab will not be visible if your
+          system is not configured to use Credit Cards.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>If your system is configured to use Credit Cards, the "Payment" tab
-    will be visible. This tab will not be visible if your system is not
-    configured to use Credit Cards.</para>
-  </note>
+  <para>To associate documents with a Sales Order, select the "Documents" tab.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/salesOrder_documentsTab.png" />
+        </imageobject>
+        <caption>Sales Order Documents</caption>
+      </mediaobject>
+    </screenshot></para>
+  <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para><indexterm significance="normal">
       <primary>credit cards</primary>
       <secondary>sales orders and</secondary>
