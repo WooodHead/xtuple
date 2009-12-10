@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section526408">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>simple entries</primary>
       <secondary>creating new</secondary>
     </indexterm> <indexterm significance="normal">
@@ -15,16 +15,14 @@
     </indexterm>Simple G/L Journal Entry</title>
   <para>To manually create a simple G/L journal entry, select the "Simple
   Journal Entry" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/glTransaction.png"/>
+          <imagedata fileref="images/glTransaction.png" />
         </imageobject>
         <caption>Create Simple G/L Journal Entry</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When creating a simple G/L journal entry, you are presented with the
   following options:</para>
   <variablelist>
@@ -35,21 +33,21 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Dist. Date</term>
+      <term>Distribution Date</term>
       <listitem>
         <para>Specify the date when you want the simple journal entry to be
         posted to the General Ledger.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Doc. Type</term>
+      <term>Document Type</term>
       <listitem>
         <para>Displays the system-defined document type (i.e., "JE") used to
         identify simple journal entries in the General Ledger.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Doc. Number</term>
+      <term>Document #</term>
       <listitem>
         <para>Specify a Document Number to be associated with the
         transaction.</para>
@@ -93,8 +91,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>simple entries</primary>
           <secondary>posting of</secondary>
         </indexterm> <indexterm significance="normal">
