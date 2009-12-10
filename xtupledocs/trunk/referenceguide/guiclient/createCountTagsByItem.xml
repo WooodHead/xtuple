@@ -76,15 +76,18 @@
         <para>Select to freeze Inventory. The Quantity on Hand value is not
         updated when a transaction is posted against a frozen Item Site.
         Instead, Inventory transactions are pooled and then posted later when
-        the Item Site is unfrozen—or thawed. The Quantity on Hand is updated
-        when the Item Site is thawed.</para>
+        the Item Site is unfrozen&mdash;or thawed. The Quantity on Hand is
+        updated when the Item Site is thawed.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>When an Item Site is frozen, any Site activity entered against that
-    Item Site—including Work Orders—will use the Quantity on Hand shown at the
-    time of freezing.</para>
+    <para>When an Item Site is frozen, any Inventory transactions entered
+    against that Item Site will not update the system-wide Quantity on Hand
+    until after the Item Site is thawed and its Count Tag posted. If an Item
+    Site is frozen when a Count Tag is created, both the Inventory count and
+    the corresponding General Ledger (G/L) transactions will use the Count Tag
+    created (i.e., frozen) date when the Count Tag is posted.</para>
   </note>
   <variablelist>
     <varlistentry>
