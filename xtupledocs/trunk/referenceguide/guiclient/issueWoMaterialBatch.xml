@@ -28,6 +28,13 @@
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
+      <term>Transaction Date</term>
+      <listitem>
+        <para>Specify the date you want the transaction to be posted to the
+        General Ledger. The current day's date will display by default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Work Order #</term>
       <listitem>
         <para>Enter the Work Order Number of the Work Order whose component
@@ -80,15 +87,16 @@
       <listitem>
         <para>Display lists Work Order Material Requirements. The display is
         color-coded for ease of use. If an Item's issue method is "Pull," then
-        that Item—and the entire row it sits on—will appear in blue type. The
-        blue type indicates that the batch issue utility will not affect these
-        Items. By definition, pulled Items are backflushed, not issued.
-        However, if an Item's issue method is "Push," then that Item—and the
-        row it sits on—will appear in black type. Rows with black type are
-        affected by the batch issue utility. One other color may also appear.
-        If the quantity required by the Work Order exceeds the Quantity on
-        Hand—meaning there is an Inventory shortage—the value in the "Short"
-        column will display in red.</para>
+        that Item&mdash;and the entire row it sits on&mdash;will appear in
+        blue type. The blue type indicates that the batch issue utility will
+        not affect these Items. By definition, pulled Items are backflushed,
+        not issued. However, if an Item's issue method is "Push," then that
+        Item&mdash;and the row it sits on&mdash;will appear in black type.
+        Rows with black type are affected by the batch issue utility. One
+        other color may also appear. If the quantity required by the Work
+        Order exceeds the Quantity on Hand&mdash;meaning there is an Inventory
+        shortage&mdash;the value in the "Short" column will display in
+        red.</para>
       </listitem>
     </varlistentry>
   </variablelist>
