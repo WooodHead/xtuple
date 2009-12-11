@@ -2,7 +2,7 @@
 -- Name: print
 -- Notes: used by printPackingListBatchByShipVia
 
-SELECT pack_head_id, pack_head_type, pack_shiphead_id, orderhead_status,
+SELECT DISTINCT pack_head_id, pack_head_type, pack_shiphead_id, orderhead_status,
        CASE WHEN (pack_head_type='SO') THEN findCustomerForm(orderhead_to_id, 'P')
 	   <? if exists("MultiWhs") ?>
             WHEN (pack_head_type='TO') THEN findTOForm(pack_head_id, 'P')
@@ -13,9 +13,12 @@ SELECT pack_head_id, pack_head_type, pack_shiphead_id, orderhead_status,
             WHEN (pack_head_type='TO') THEN findTOForm(pack_head_id, 'L')
 	   <? endif ?>
             ELSE '' END AS pickform
-FROM pack, orderhead
+FROM pack, orderhead JOIN orderitem ON (orderhead_id = orderitem_orderhead_id) 
 WHERE ( (NOT pack_printed)
   AND   (orderhead_id=pack_head_id)
   AND   (orderhead_type=pack_head_type)
+  AND   (orderhead_status <> 'C') 
   AND   (orderhead_shipvia=<? value("shipvia") ?>)
-  AND   ((orderhead_type='TO') OR (checkSOSitePrivs(orderhead_id))) );
+  AND   ((orderhead_type='TO') OR (checkSOSitePrivs(orderhead_id))) 
+  AND	(orderitem_scheddate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+);
