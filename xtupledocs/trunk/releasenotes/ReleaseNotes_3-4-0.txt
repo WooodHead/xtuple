@@ -5,9 +5,9 @@ Version 3.4.0
 December 15, 2009
 ==================================
 
-This is the final release in the 3.4.0 release cycle. Many 
-thanks to all in the community who have sponsored new 
-functionality and also contributed valuable testing, patches, 
+This is the final release in the 3.4.0 release cycle. Many
+thanks to all in the community who have sponsored new
+functionality and also contributed valuable testing, patches,
 and other feedback.
 
 Here's an overview of the new features you will find in 3.4.0:
@@ -27,11 +27,11 @@ Free Country Fix Utility
   * Makes country codes in database conform to standard ISO naming
     conventions
 
-NOTE: Be sure to use the final release of Upgrader 2.2.0 when 
-upgrading to this final release of xTuple ERP 3.4.0.  And if you are 
-a subscriber to our XTN service (www.xtuple.com/xtn) and would like 
-to test the new version before going live (highly recommended), please 
-contact us and we can help you set up a "sandbox" copy of your 
+NOTE: Be sure to use the final release of Upgrader 2.2.0 when
+upgrading to this final release of xTuple ERP 3.4.0.  And if you are
+a subscriber to our XTN service (www.xtuple.com/xtn) and would like
+to test the new version before going live (highly recommended), please
+contact us and we can help you set up a "sandbox" copy of your
 database to work with.
 
 ==================================
@@ -51,24 +51,36 @@ New Features:
 
 Bug Fixes:
 
-* [All] Demo data Vendor Addresses duplicate name in address field
-* [Accounting] It is possible to get 'no exchange rate' errors even in single-currency systems or single-currency transactions
-* [Accounting] Typo on Texts in the Simple G/L Journal Entry screen
+* [All] Demo data Vendor Addresses duplicate name in address 
+field
+* [Accounting] It is possible to get 'no exchange rate' errors 
+even in single-currency systems or single-currency transactions
+* [Accounting] Typo on Texts in the Simple G/L Journal Entry 
+screen
 * [Batch Manager] Submitted MRP/MPS date doesn't change
-* [CRM] Setting Default Country on CRM configuration to [ no default ] saves 't' instead
-* [Documentation] Accounting A/P Reports shows Unposted vouchers and should be vouchering edit list
-* [Documentation] Bank reconciliation history report screen has changed
+* [CRM] Setting Default Country on CRM configuration to [ no 
+default ] saves 't' instead
+* [Documentation] Accounting A/P Reports shows Unposted vouchers 
+and should be vouchering edit list
+* [Documentation] Bank reconciliation history report screen has 
+changed
 * [Documentation] remove references to OpenMFG in demo guide
 * [Documentation] Documentation image error
-* [Inventory] Selecting to create a new external shipping record crashes the application
-* [Inventory] Issue to Shipping SO Order Number Barcode Scan Crashes Client
-* [Manufacture] Right-click data not found in time clock by work order
+* [Inventory] Selecting to create a new external shipping record 
+crashes the application
+* [Inventory] Issue to Shipping SO Order Number Barcode Scan 
+Crashes Client
+* [Manufacture] Right-click data not found in time clock by work 
+order
 * [Manufacture] WOTC by user has empty right click options
 * [Manufacture] Cannot print WO traveller, routing
 * [Sales] Print Credit Memo doesn't print the memos
-* [Sales] Creating a Sales Order deletes customer contact information globally
-* [Sales] Print report of summarized sales history displays an irrelevant total field
-* [Sales] Tax calculating differently on printed invoice from System Invoice
+* [Sales] Creating a Sales Order deletes customer contact 
+information globally
+* [Sales] Print report of summarized sales history displays an 
+irrelevant total field
+* [Sales] Tax calculating differently on printed invoice from 
+System Invoice
 * [Sales] State and Country entry and validation
 * [System] Add an index to the usrpref table
 
