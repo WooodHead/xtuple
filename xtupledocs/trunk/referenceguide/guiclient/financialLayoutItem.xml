@@ -1,47 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="financialLayoutItem">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>financial reports</primary>
       <secondary>adding accounts to</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>accounts</primary>
       <secondary>adding to financial reports</secondary>
     </indexterm>Financial Report Item</title>
-  <para>To add a G/L Account to a Financial Report Group,
-  select the ADD ACCOUNT button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To add a G/L Account to a Financial Report Group, select the ADD
+  ACCOUNT button. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_FR_finLayItem.png"/>
+          <imagedata fileref="images/financialLayoutItem.png" />
         </imageobject>
-        <caption>Add Account to Financial Report
-        Group</caption>
+        <caption>Add Account to Financial Report Group</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When adding an Account(s) to a Financial Report Group,
-  you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When adding an Account(s) to a Financial Report Group, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Select One Account</term>
       <listitem>
         <para>Select when you want to add a single Account to a Financial
         Report Group.</para>
-        <para>Account: Select the G/L Account you want to add
-        to the Financial Report Group.</para>
+        <para>Account: Select the G/L Account you want to add to the Financial
+        Report Group.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Adding Accounts by segment or type or sub type
-    reduces the need for maintenance on your Financial Reports. Whenever new
-    Accounts are added or removed, your Financial Reports will automatically
-    use Accounts matching your selection criteria.</para>
+    <para>Adding Accounts by segment or type or sub type reduces the need for
+    maintenance on your Financial Reports. Whenever new Accounts are added or
+    removed, your Financial Reports will automatically use Accounts matching
+    your selection criteria.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -103,21 +99,18 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To specify additional options for your Financial
-  Report Item, select the "Options" tab. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To specify additional options for your Financial Report Item, select
+  the "Options" tab. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_FR_finLayItemOpt.png"/>
+          <imagedata fileref="images/financialLayoutItemOpt.png" />
         </imageobject>
         <caption>Select Account Options</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When specifying additional options for your Financial
-  Report Item, you are presented with the following:</para>
+    </screenshot></para>
+  <para>When specifying additional options for your Financial Report Item, you
+  are presented with the following:</para>
   <variablelist>
     <varlistentry>
       <term>Show Beginning Balance</term>
@@ -238,8 +231,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
