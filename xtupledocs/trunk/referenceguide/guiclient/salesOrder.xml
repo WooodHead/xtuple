@@ -21,7 +21,7 @@
     </screenshot></para>
   <tip>
     <para>Be sure to close all Sales Order windows before exiting the system.
-    This will prevent the creation of orphan Sales Order records.</para>
+    This will prevent the creation of orphaned Sales Order records.</para>
   </tip>
   <para>When creating a new Sales Order, you are presented with the following
   options:</para>
@@ -180,47 +180,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Project #</term>
-      <listitem>
-        <para>Select a Project Number to associate with the Sales Order. If a
-        Sales Order is created from a converted Quote&mdash;and the Quote had
-        a Project Number associated with it&mdash;then the Project Number from
-        the originating Quote will automatically be entered here. Once a
-        Project Number is associated with a Sales Order, any Work Orders or
-        Purchase Orders created by the Sales Order demand will automatically
-        be linked to the same Project Number as the Sales Order. In this way,
-        Sales Orders, Work Orders, and Purchase Orders may be linked to the
-        same Project. This field can be viewed upon selecting the MORE
-        button.</para>
-        <note>
-          <para>The option to associate a Project with a Sales Order will only
-          be visible if your site is configured to use Projects.</para>
-        </note>
-        <tip>
-          <para>If your site is configured to create Projects automatically
-          whenever new Sales Orders or Quotes are entered, the Projects
-          generated in this way will assume the number of the Sales Order or
-          Quote which caused their creation.</para>
-        </tip>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <variablelist>
-    <varlistentry>
-      <term>From Quote</term>
-      <listitem>
-        <para>If a Sales Order was converted from a Quote, the originating
-        Quote Number will display here. This field can be viewed upon
-        selecting the MORE button.</para>
-        <note>
-          <para>If the Sales Order was generated from a Return Authorization,
-          the Return Authorization Number will display here.</para>
-        </note>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <variablelist>
-    <varlistentry>
       <term>Customer #</term>
       <listitem>
         <para>Enter the Customer Number of the Customer to be billed for the
@@ -235,22 +194,20 @@
         "On Credit Warning." A red dollar sign ("$") indicates the Customer's
         credit Status is "On Credit Hold." You may also create a new Customer
         record by selecting the "+" button.</para>
+        <tip>
+          <para>A valid Customer Number must be entered in the "Customer #"
+          field before Line Items can be added to a Sales Order. If no valid
+          Customer Number is entered, you will not be able to add Line Items
+          to the Sales Order. Additionally, Sales Orders may only be entered
+          for active Customers.</para>
+        </tip>
+        <note>
+          <para>Sales Orders may not be entered for Customers whose credit
+          status is either "On Credit Warning" or "On Credit Hold." Only users
+          with special privileges may override these credit settings.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>A valid Customer Number must be entered in the "Customer #" field
-    before Line Items can be added to a Sales Order. If no valid Customer
-    Number is entered, you will not be able to add Line Items to the Sales
-    Order. Additionally, Sales Orders may only be entered for active
-    Customers.</para>
-  </tip>
-  <note>
-    <para>Sales Orders may not be entered for Customers whose credit status is
-    either "On Credit Warning" or "On Credit Hold." Only users with special
-    privileges may override these credit settings.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>sales orders</primary>
@@ -324,8 +281,6 @@
         linkend="Section560316" />.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term>F.O.B.</term>
       <listitem>
@@ -339,16 +294,14 @@
       <term>Cust. PO #</term>
       <listitem>
         <para>PO #: Enter a Customer Purchase Order Number, as needed.</para>
+        <note>
+          <para>You will be required to enter a Customer Purchase Order Number
+          for Customers who require them. If required, duplicate numbers will
+          only be allowed if the Customer uses blanket Purchase Orders. All
+          Customer requirements are specified on the Customer master.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>You will be required to enter a Customer Purchase Order Number for
-    Customers who require them. If required, duplicate numbers will only be
-    allowed if the Customer uses blanket Purchase Orders. All Customer
-    requirements are specified on the Customer master.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Ship Via</term>
       <listitem>
@@ -356,14 +309,13 @@
         the field. You may change the default Ship Via using the list. You may
         also enter a free-form Ship Via simply by typing the name of the Ship
         Via into the field.</para>
+        <tip>
+          <para>The system supports up-to-date shipment tracking with links to
+          the websites of many leading shipping companies (i.e., "Ship
+          Vias").</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>The system supports up-to-date shipment tracking with links to the
-    websites of many leading shipping companies (i.e., "Ship Vias").</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>hold types</primary>
@@ -419,8 +371,6 @@
         </variablelist>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>sales orders</primary>
@@ -858,19 +808,43 @@
     <varlistentry>
       <term>Project #</term>
       <listitem>
-        <para></para>
+        <para>Select a Project Number to associate with the Sales Order. If a
+        Sales Order is created from a converted Quote&mdash;and the Quote had
+        a Project Number associated with it&mdash;then the Project Number from
+        the originating Quote will automatically be entered here. Once a
+        Project Number is associated with a Sales Order, any Work Orders or
+        Purchase Orders created by the Sales Order demand will automatically
+        be linked to the same Project Number as the Sales Order. In this way,
+        Sales Orders, Work Orders, and Purchase Orders may be linked to the
+        same Project.</para>
+        <note>
+          <para>The option to associate a Project with a Sales Order will only
+          be visible if your site is configured to use Projects.</para>
+        </note>
+        <tip>
+          <para>If your site is configured to create Projects automatically
+          whenever new Sales Orders or Quotes are entered, the Projects
+          generated in this way will assume the number of the Sales Order or
+          Quote which caused their creation.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Opportunity</term>
       <listitem>
-        <para></para>
+        <para>Select an Opportunity to associate with the Sales Order, using
+        the browse button located to the right of the field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>From Quote</term>
       <listitem>
-        <para></para>
+        <para>If a Sales Order was converted from a Quote, the originating
+        Quote Number will display here.</para>
+        <note>
+          <para>If the Sales Order was generated from a Return Authorization,
+          the Return Authorization Number will display here.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -24,8 +24,10 @@
     </screenshot></para>
   <tip>
     <para>Be sure to close all Sales Order windows before exiting the system.
-    This will prevent the creation of orphan Sales Order records.</para>
+    This will prevent the creation of orphaned Sales Order records.</para>
   </tip>
+  <para>When creating a new Quote, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Order #</term>
@@ -36,12 +38,6 @@
         system level.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>By default, the Quote Number will be assumed by the Sales Order when
-    a Quote is converted to a Sales Order.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Order Date</term>
       <listitem>
@@ -51,12 +47,13 @@
     <varlistentry>
       <term>Scheduled Date</term>
       <listitem>
-        <para>Displays the Quote's earliest scheduled date. The scheduled date
+        <para>Displays the Order's earliest scheduled date. The scheduled date
         corresponds to the earliest scheduled date for an included Quote Item.
         Because Quotes may contain multiple Quote Items, the scheduled date
         indicates the most recent scheduled date. No scheduled date will
         display in the "Scheduled Date" field until a Quote Line Item has been
-        created and a scheduled date assigned to it.</para>
+        created and a scheduled date assigned to it. This field can be viewed
+        by selecting the MORE button</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -70,7 +67,18 @@
       <listitem>
         <para>The pack date is the same date as the ship date. Because the
         field can be edited, you have the ability to change the pack date and
-        make it different from the ship date.</para>
+        make it different from the ship date. This field can be viewed by
+        selecting the MORE button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>quotes</primary>
+          <secondary>setting terms for</secondary>
+        </indexterm>Terms</term>
+      <listitem>
+        <para>Specify the billing Terms associated with the Order. By default,
+        the Customer's standard billing Terms will appear in the field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -87,7 +95,7 @@
         master&mdash;either by a default setting or through the assignment of
         Ship-To Addresses. Each Ship-To Address may have a different Sales
         Representative associated with it. Consequently, the name of the Sales
-        Representative appearing on the Sales Order header will be the same as
+        Representative appearing on the Quote header will be the same as
         specified for the Ship-To Address being used.</para>
       </listitem>
     </varlistentry>
@@ -98,7 +106,8 @@
         master will be automatically entered in this field. If for some reason
         you select a non-default Sales Representative at Order entry, the
         commission rate will not change. To adjust the commission rate, you
-        must make the change manually.</para>
+        must make the change manually. This field can be viewed by selecting
+        the MORE button.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -109,44 +118,44 @@
       <listitem>
         <para>Specify the Tax Zone associated with the Quote. The Tax Zone for
         the specified Ship-To Address will be entered here by default.
-        Otherwise, the primary Tax Zone for the Customer will be
-        entered.</para>
+        Otherwise, the primary Tax Zone for the Customer will be entered. This
+        field can be viewed upon selecting the MORE button.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>quotes</primary>
-          <secondary>setting terms for</secondary>
-        </indexterm>Terms</term>
+      <term>Ship Complete</term>
       <listitem>
-        <para>Specify the billing Terms associated with the Order. By default,
-        the Customer's standard billing Terms will appear in the field.
-        Customer billing.</para>
-        <note>
-          <para>The option to associate a Project with a Quote will only be
-          visible if your site is configured to use Projects.</para>
-        </note>
+        <para>Select to require that all Quote Line Item quantities be issued
+        to Shipping before the Order is shipped. This feature is designed to
+        prevent partial shipments. If selected, users will be prevented from
+        shipping the Order unless all Line Item quantities have been issued to
+        Shipping. If not selected, partial shipments for the Order will be
+        allowed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print on Save</term>
+      <listitem>
+        <para>Select to automatically print the Quote when it is saved.</para>
+        <para role="standard">If the Customer specified on the Quote has an
+        EDI Profile attached, you may encounter an EDI processing interface
+        when printing the Quote.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Site</term>
       <listitem>
-        <para>Specify the shipping Site associated with the Quote. This Site
-        selection is for informational purposes only. A Site may be designated
-        as a shipping Site on the Site master.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Expire</term>
-      <listitem>
-        <para>Specify the date when the Quote expires, if applicable.</para>
+        <para>Specify the shipping Site associated with the Quote. The Site
+        selected here acts as the default free on board (FOB) location. A Site
+        may be designated as a shipping Site on the Site master. This field
+        can be viewed upon selecting the MORE button.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Originated By</term>
       <listitem>
-        <para>Specify the origin of the Order using the available
-        options:</para>
+        <para>Specify the origin of the Quote using the options below. This
+        field can be viewed upon selecting the MORE button.</para>
         <variablelist>
           <varlistentry>
             <term>Customer</term>
@@ -171,64 +180,33 @@
         </variablelist>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>Quotes may not be entered for Customers whose credit status is
-    either "On Credit Warning" or "On Credit Hold." Only users with special
-    privileges may override these credit settings.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
-      <term>Project #</term>
-      <listitem>
-        <para>Select a Project Number to associate with the Quote. If a Sales
-        Order is created from a converted Quote&mdash;and the Quote had a
-        Project Number associated with it&mdash;then the Project Number from
-        the originating Quote will automatically be entered here. Once a
-        Project Number is associated with a Sales Order, any Work Orders or
-        Purchase Orders created by the Sales Order demand will automatically
-        be linked to the same Project Number as the Sales Order. In this way,
-        Sales Orders, Work Orders, and Purchase Orders may be linked to the
-        same Project.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>If your site is configured to create Projects automatically whenever
-    new Sales Orders or Quotes are entered, the Projects generated in this way
-    will assume the number of the Sales Order or Quote which caused their
-    creation.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term>Customer #</term>
       <listitem>
-        <para>Enter the Customer Number of the Customer (or Prospect) you want
-        to create a Quote for. The browse button located to the right of the
-        field leads to a searchable Customers list. You may also access this
-        list using the keyboard shortcut "CTRL + L". Once a Customer Number is
-        entered, the Customer name and billing address will display. Select
-        the "?" or "$" symbol next to the browse button to view Customer
-        information for the specified Customer. If a Customer's credit is "In
-        Good Standing," the button will feature a black question mark ("?")
-        icon. If the icon turns to an orange dollar sign ("$"), the Customer's
-        credit Status is "On Credit Warning." A red dollar sign ("$")
-        indicates the Customer's credit Status is "On Credit Hold."</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>A valid Customer Number or Prospect Number must be entered in the
-    "Customer #" field before Line Items can be added to a Quote. If no valid
-    Number is entered, you will not be able to add Line Items to the Quote.
-    Additionally, Quotes may only be entered for active Customers and
-    Prospects.</para>
-  </tip>
-  <variablelist>
-    <varlistentry>
-      <term>Cust. Type</term>
-      <listitem>
-        <para>Displays the Customer Type for the specified Customer.</para>
+        <para>Enter the Customer Number of the Customer to be billed for the
+        sale. The browse button located to the right of the field leads to a
+        searchable Customers list. You may also access this list using the
+        keyboard shortcut "CTRL + L". Once a Customer Number is entered, the
+        Customer name and billing address will display. Select the "?" or "$"
+        symbol next to the browse button to view Customer information for the
+        specified Customer. If a Customer's credit is "In Good Standing," the
+        button will feature a black question mark ("?") icon. If the icon
+        turns to an orange dollar sign ("$"), the Customer's credit Status is
+        "On Credit Warning." A red dollar sign ("$") indicates the Customer's
+        credit Status is "On Credit Hold." You may also create a new Customer
+        record by selecting the "+" button.</para>
+        <tip>
+          <para>A valid Customer Number must be entered in the "Customer #"
+          field before Line Items can be added to a Quote. If no valid
+          Customer Number is entered, you will not be able to add Line Items
+          to the Quote. Additionally, Quotes may only be entered for active
+          Customers.</para>
+        </tip>
+        <note>
+          <para>Quotes may not be entered for Customers whose credit status is
+          either "On Credit Warning" or "On Credit Hold." Only users with
+          special privileges may override these credit settings.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -259,7 +237,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Copy to Ship-to</term>
+      <term>Copy to Ship-to -\&gt;</term>
       <listitem>
         <para>Select to copy contents of billing address into Ship-To address
         field. This option is enabled if the Customer master for the specified
@@ -274,8 +252,7 @@
         specified Customer indicates that free-form Ship-To's are allowed,
         then any address may be entered. If free-form Ship-To's are not
         allowed, then the Ship-To Address must be entered using the browse
-        button located to the right of the field. The browse button leads to a
-        searchable Ship-To Addresses list.</para>
+        button located to the right of the field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -305,31 +282,27 @@
         linkend="Section560316" />.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term>F.O.B.</term>
       <listitem>
-        <para>Enter free on board (FOB) Terms for the Order. By default,
-        F.O.B. Terms entered on the Shipping Site master will appear in this
-        field. The default Terms may be changed during Order entry&mdash;and
-        also at later stages during the billing cycle.</para>
+        <para>Enter free on board (FOB) Terms for the Order. By default, FOB.
+        Terms entered on the Shipping Site master will appear in this field.
+        The default Terms may be changed during Order entry&mdash;and also at
+        later stages during the billing cycle.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Cust. PO #</term>
       <listitem>
         <para>PO #: Enter a Customer Purchase Order Number, as needed.</para>
+        <note>
+          <para>You will be required to enter a Customer Purchase Order Number
+          for Customers who require them. If required, duplicate numbers will
+          only be allowed if the Customer uses blanket Purchase Orders. All
+          Customer requirements are specified on the Customer master.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>You will be required to enter a Customer Purchase Order Number for
-    Customers who require them. If required, duplicate numbers will only be
-    allowed if the Customer uses blanket Purchase Orders. All Customer
-    requirements are specified on the Customer master.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Ship Via</term>
       <listitem>
@@ -337,13 +310,102 @@
         the field. You may change the default Ship Via using the list. You may
         also enter a free-form Ship Via simply by typing the name of the Ship
         Via into the field.</para>
+        <tip>
+          <para>The system supports up-to-date shipment tracking with links to
+          the websites of many leading shipping companies (i.e., "Ship
+          Vias").</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>hold types</primary>
+          <secondary>for quotes</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>quotes</primary>
+          <secondary>hold types for</secondary>
+        </indexterm>Hold Type</term>
+      <listitem>
+        <para>Specify a hold type (if any) from the available options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>None</term>
+            <listitem>
+              <para>Indicates no hold is applied, meaning the Order may be
+              processed and shipped.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit</term>
+            <listitem>
+              <para>Indicates the open balance for the Customer has exceeded
+              the credit limit defined on their Customer master record. Users
+              will be prevented from issuing Stock to Shipping with this hold
+              type.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipping</term>
+            <listitem>
+              <para>Indicates a Shipping hold has been placed on the Order.
+              Users who attempt to ship an Order on Shipping hold will be
+              prevented from doing so.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Packing</term>
+            <listitem>
+              <para>Indicates a Packing hold has been placed on the Order.
+              Users who attempt to issue stock to Shipping for an Order on
+              Packing hold will be prevented from doing so.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Return</term>
+            <listitem>
+              <para>This hold type is set automatically when a Quote is
+              created from a Return Authorization and the disposition requires
+              Inventory to be received before the replacement Order can be
+              shipped.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>quotes</primary>
+          <secondary>shipping charges on</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>shipping</primary>
+          <secondary>charges on quotes</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>quotes</primary>
+          <secondary>shipping forms on</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>shipping forms</primary>
+          <secondary>selecting on quotes</secondary>
+        </indexterm>Shipping Chgs.</term>
+      <listitem>
+        <para>Specify the Shipping charges associated with the Order. The
+        preferred Shipping Charges Type for the Customer will appear in the
+        field. This field can be viewed upon selecting the MORE button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipping Form</term>
+      <listitem>
+        <para>Specify the Shipping Form associated with the Order. The
+        preferred Shipping Form for the Customer will appear in the field.
+        This field can be viewed upon selecting the MORE button.</para>
+        <note>
+          <para>Shipping defaults specified on the Customer master will
+          transfer to the Quote header when a new Quote is entered for a
+          Customer.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>The system supports up-to-date shipment tracking with links to the
-    websites of many leading shipping companies ((i.e., "Ship Vias").</para>
-  </tip>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
@@ -522,6 +584,51 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To define or maintain relationships for Quotes, select the
+  "Relationships" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/quote_relationshipsTab.png" />
+        </imageobject>
+        <caption>Quote Relationships</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When defining relationships for Quotes, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Project #</term>
+      <listitem>
+        <para>Select a Project Number to associate with the Quote. If a Sales
+        Order is created from a converted Quote&mdash;and the Quote had a
+        Project Number associated with it&mdash;then the Project Number from
+        the originating Quote will automatically be entered here. Once a
+        Project Number is associated with a Sales Order, any Work Orders or
+        Purchase Orders created by the Sales Order demand will automatically
+        be linked to the same Project Number as the Sales Order. In this way,
+        Sales Orders, Work Orders, and Purchase Orders may be linked to the
+        same Project.</para>
+        <note>
+          <para>The option to associate a Project with a Quote will only be
+          visible if your site is configured to use Projects.</para>
+        </note>
+        <tip>
+          <para>If your site is configured to create Projects automatically
+          whenever new Sales Orders or Quotes are entered, the Projects
+          generated in this way will assume the number of the Sales Order or
+          Quote which caused their creation.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Opportunity</term>
+      <listitem>
+        <para>Select an Opportunity to associate with the Quote, using the
+        browse button located to the right of the field.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>Order Notes added to a Quote are used for internal purposes only. To
   add Order Notes to a Quote, select the "Order Notes" tab at the top of the
   "New Quote" screen. The following screen will appear:</para>
@@ -618,6 +725,18 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To associate documents with a Quote, select the "Documents" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/quote_documentsTab.png" />
+        </imageobject>
+        <caption>Quote Documents</caption>
+      </mediaobject>
+    </screenshot></para>
+  <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <xi:include href="quoteItem.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
