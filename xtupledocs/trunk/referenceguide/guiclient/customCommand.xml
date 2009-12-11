@@ -91,8 +91,8 @@
           <para><code>!customuiform</code></para>
         </informalexample>
 
-        <para>If the Custom Command should open a web page, then the following
-        text should be entered:</para>
+        <para>If the Custom Command should open a file or web page, then the
+        following text should be entered:</para>
 
         <para><code>!openurl</code></para>
 
@@ -162,9 +162,11 @@
     </screenshot></para>
 
   <para>The arguments display lists all arguments defined for the specified
-  executable. When the executable is a web browser (i.e.,
-  <code>!openurl</code>), create a new argument and enter the URL of the web
-  page to open.</para>
+  executable. When trying top open a web page or file (i.e., the Executable is
+  set to <code>!openurl</code>), create a new argument and enter the URL to
+  open (see <ulink
+  url="http://qt.nokia.com/doc/4.5/qdesktopservices.html#openUrl">Qt's
+  documentation</ulink> for details).</para>
 
   <para>The following table shows the range of possible arguments if the
   executable is a custom screen (i.e., ui form):</para>
