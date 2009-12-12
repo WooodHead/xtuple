@@ -11,7 +11,7 @@ BEGIN
   WHERE (item_id=NEW.itemsite_item_id);
  
 -- Override values to avoid invalid data combinations
-  IF (_r.item_type IN ('J','R','S','T')) THEN
+  IF (_r.item_type IN ('J','R','S')) THEN
     NEW.itemsite_planning_type := 'N';
   END IF;
 

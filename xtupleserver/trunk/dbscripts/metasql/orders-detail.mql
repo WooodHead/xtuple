@@ -60,6 +60,38 @@ WHERE ((wo_status<>'C')
 <? endif ?>
       )
 
+-- Tooling is also supply on Work Orders
+UNION
+SELECT wo_id AS source_id, 2 AS type, TEXT('W/O') AS order_type,
+       formatWONumber(wo_id) AS order_number,
+       womatl_qtyreq AS totalqty,
+       COALESCE(sum(abs(invhist_invqty)),0) AS relievedqty,
+       noNeg(womatl_qtyreq - COALESCE(sum(abs(invhist_invqty)),0)) AS balanceqty,
+       wo_duedate AS duedate,
+       (wo_duedate < CURRENT_DATE) AS late 
+FROM womatl
+  JOIN wo ON (wo_id=womatl_wo_id)
+  JOIN itemsite ON (itemsite_id=womatl_itemsite_id)
+  JOIN item ON (item_id=itemsite_item_id)
+  LEFT OUTER JOIN womatlpost ON (womatl_id=womatlpost_womatl_id)
+  LEFT OUTER JOIN invhist ON ((womatlpost_invhist_id=invhist_id)
+                          AND (invhist_invqty < 0))
+WHERE ((wo_status<>'C')
+  AND  (itemsite_item_id=<? value("item_id") ?>)
+  AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
+  AND  (item_type = 'T')
+<? if exists("useLeadTime") ?>
+  AND  (wo_duedate <= (CURRENT_DATE + itemsite_leadtime))
+<? elseif exists("days") ?>
+  AND  (wo_duedate <= (CURRENT_DATE + <? value("days") ?>))
+<? elseif exists("date") ?>
+  AND  (wo_duedate<=<? value("date") ?>)
+<? elseif exists("startDate") ?>
+  AND  (wo_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+<? endif ?>
+      )
+GROUP BY wo_id, womatl_qtyreq, wo_duedate
+
 <? if exists("Manufacturing") ?>
 UNION
 SELECT wo_id AS source_id, 2 AS type, TEXT('W/O') AS order_type,

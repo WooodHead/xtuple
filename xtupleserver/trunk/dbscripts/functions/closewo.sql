@@ -4,6 +4,7 @@ DECLARE
   pPostMaterialVariances ALIAS FOR $2;
   _woNumber TEXT;
   _check CHAR;
+  _itemlocSeries INTEGER := 0;
 
 BEGIN
 
@@ -19,6 +20,15 @@ BEGIN
   END IF;
 
   SELECT formatWoNumber(pWoid) INTO _woNumber;
+
+-- If there are any tools issued on this job, return them
+  SELECT returnWoMaterial( womatl_id, womatl_qtyiss, _itemlocSeries, now() ) INTO _itemlocSeries
+  FROM womatl
+   JOIN wo ON (womatl_wo_id=wo_id)
+   JOIN itemsite ON (womatl_itemsite_id=itemsite_id)
+   JOIN item ON (itemsite_item_id=item_id)
+  WHERE ((wo_id=pWoid)
+  AND (item_type='T'));
 
 --  Distribute any remaining wo_wipvalue to G/L - debit Inventory Cost, credit WIP
   PERFORM insertGLTransaction( 'W/O', 'WO', _woNumber, ('Manufacturing Inventory Cost Variance for ' || item_number),
@@ -55,21 +65,24 @@ BEGIN
     INSERT INTO womatlvar ( womatlvar_number, womatlvar_subnumber, womatlvar_posted,
         womatlvar_parent_itemsite_id, womatlvar_component_itemsite_id,
         womatlvar_qtyord, womatlvar_qtyrcv,
-        womatlvar_qtyiss, womatlvar_qtyper,
+        womatlvar_qtyiss, womatlvar_qtyfxd, womatlvar_qtyper,
         womatlvar_scrap, womatlvar_wipscrap, womatlvar_bomitem_id,
         womatlvar_notes, womatlvar_ref )
       SELECT wo_number, wo_subnumber, CURRENT_DATE,
              wo_itemsite_id, womatl_itemsite_id,
              wo_qtyord, wo_qtyrcv,
              itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyiss),
+             itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyfxd),
              itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyper),
              womatl_scrap,
              itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtywipscrap),
              womatl_bomitem_id,
              womatl_notes, womatl_ref             
-      FROM wo, womatl, itemsite
+      FROM wo, womatl, itemsite, item
       WHERE ((womatl_wo_id=wo_id)
-       AND (womatl_itemsite_id=itemsite_id)      
+       AND (womatl_itemsite_id=itemsite_id)
+       AND (itemsite_item_id=item_id)
+       AND (item_type <> 'T')      
        AND (wo_id=pWoid));
     END IF;
   END IF;

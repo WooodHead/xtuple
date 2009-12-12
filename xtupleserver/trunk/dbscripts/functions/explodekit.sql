@@ -32,7 +32,7 @@ BEGIN
          item_price_uom_id,
          bomitem_uom_id,
          itemuomtouomratio(item_id, bomitem_uom_id, item_inv_uom_id) AS invuomratio,
-         roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id), (bomitem_qtyper * pQty * (1 + bomitem_scrap))) AS qty
+         roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id),(bomitem_qtyfxd + bomitem_qtyper * pQty) * (1 + bomitem_scrap)) AS qty
     FROM bomitem, item LEFT OUTER JOIN itemsite ON ((itemsite_item_id=item_id) AND (itemsite_warehous_id=_warehousid))
    WHERE((bomitem_parent_item_id=_itemid)
      AND (bomitem_item_id=item_id)

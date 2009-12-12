@@ -30,6 +30,7 @@ DECLARE
   _sense            TEXT;
   _status           TEXT;
   _type             TEXT;
+  _qtyfxd           NUMERIC := 0;
 
 BEGIN
 
@@ -73,9 +74,9 @@ BEGIN
     FOR _r IN SELECT item_id, item_fractional,
                       itemsite_id, itemsite_warehous_id,
                       itemsite_controlmethod, itemsite_loccntrl,
-                      itemsite_costmethod,
-                      womatl_id, womatl_qtyper, womatl_scrap,
-                      womatl_issuemethod, womatl_uom_id
+                      itemsite_costmethod, wo_qtyrcv,
+                      womatl_id, womatl_qtyfxd, womatl_qtyper,
+                      womatl_scrap, womatl_issuemethod, womatl_uom_id
                FROM womatl, wo, itemsite, item
                WHERE ( (womatl_wo_id=wo_id)
                 AND (womatl_itemsite_id=itemsite_id)
@@ -84,21 +85,30 @@ BEGIN
                 AND (wo_id=pWoid) ) FOR UPDATE LOOP
 
       --  Cache the qty to be issued
-      _qty = roundQty(_r.item_fractional, (_parentQty * _r.womatl_qtyper * (1 + _r.womatl_scrap)));
-      _invqty = itemuomtouom(_r.item_id, _r.womatl_uom_id, NULL, (_parentQty * _r.womatl_qtyper * (1 + _r.womatl_scrap)));
+      -- If going back to beginning, unissue fixed qty as well
+      IF (_r.wo_qtyrcv-pQty > 0) THEN
+        _qtyfxd := 0;
+      ELSE
+        _qtyfxd := _r.womatl_qtyfxd;
+      END IF;
+      
+      _qty = roundQty(_r.item_fractional, (_qtyfxd + _parentQty * _r.womatl_qtyper) * (1 + _r.womatl_scrap));
+      _invqty = itemuomtouom(_r.item_id, _r.womatl_uom_id, NULL, (_qtyfxd + _parentQty * _r.womatl_qtyper) * (1 + _r.womatl_scrap));
 
       IF (_itemlocSeries = 0) THEN
         SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
       END IF;
 
-      SELECT postInvTrans( itemsite_id, 'IM', (_invqty * -1),
-                           'W/O', 'WO', formatwonumber(pWoid), '',
-                           ('Correct Receive Inventory ' || item_number || ' ' || _sense || ' Manufacturing'),
-                           _parentWIPAccntid, costcat_asset_accnt_id, _itemlocSeries, pGlDistTS ) INTO _invhistid
-      FROM itemsite, item, costcat
-      WHERE ( (itemsite_item_id=item_id)
-       AND (itemsite_costcat_id=costcat_id)
-       AND (itemsite_id=_r.itemsite_id) );
+      IF (_invqty > 0) THEN
+        SELECT postInvTrans( itemsite_id, 'IM', (_invqty * -1),
+                             'W/O', 'WO', formatwonumber(pWoid), '',
+                             ('Correct Receive Inventory ' || item_number || ' ' || _sense || ' Manufacturing'),
+                             _parentWIPAccntid, costcat_asset_accnt_id, _itemlocSeries, pGlDistTS ) INTO _invhistid
+        FROM itemsite, item, costcat
+        WHERE ( (itemsite_item_id=item_id)
+         AND (itemsite_costcat_id=costcat_id)
+         AND (itemsite_id=_r.itemsite_id) );
+      END IF;
 
       --  Decrease the parent W/O's WIP value by the value of the returned components
       UPDATE wo

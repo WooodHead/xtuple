@@ -1,18 +1,18 @@
-CREATE OR REPLACE FUNCTION issueToShipping(INTEGER, NUMERIC) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION issueToShipping(INTEGER, NUMERIC) RETURNS INTEGER AS $$
 BEGIN
-  RETURN issueToShipping(''SO'', $1, $2, 0, CURRENT_TIMESTAMP);
+  RETURN issueToShipping('SO', $1, $2, 0, CURRENT_TIMESTAMP);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION issueToShipping(INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION issueToShipping(INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS $$
 BEGIN
-  RETURN issueToShipping(''SO'', $1, $2, $3, CURRENT_TIMESTAMP);
+  RETURN issueToShipping('SO', $1, $2, $3, CURRENT_TIMESTAMP);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION issueToShipping(TEXT, INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION issueToShipping(TEXT, INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 DECLARE
   pordertype		ALIAS FOR $1;
   pitemid		ALIAS FOR $2;
@@ -37,10 +37,10 @@ BEGIN
   END IF;
 
   IF (_itemlocSeries = 0) THEN
-    _itemlocSeries := NEXTVAL(''itemloc_series_seq'');
+    _itemlocSeries := NEXTVAL('itemloc_series_seq');
   END IF;
 
-  IF (pordertype = ''SO'') THEN
+  IF (pordertype = 'SO') THEN
 
     -- Check site security
     SELECT warehous_id INTO _warehouseid
@@ -73,7 +73,7 @@ BEGIN
       AND  (coitem_id=pitemid)
       AND  (shiphead_order_type=pordertype));
     IF (NOT FOUND) THEN
-      SELECT NEXTVAL(''shiphead_shiphead_id_seq'') INTO _shipheadid;
+      SELECT NEXTVAL('shiphead_shiphead_id_seq') INTO _shipheadid;
 
       _shipnumber := fetchShipmentNumber();
       IF (_shipnumber < 0) THEN
@@ -85,11 +85,11 @@ BEGIN
       WHERE ((cohead_id=coitem_cohead_id)
         AND  (coitem_id=pitemid));
 
-      IF (_coholdtype = ''C'') THEN
+      IF (_coholdtype = 'C') THEN
 	RETURN -12;
-      ELSIF (_coholdtype = ''P'') THEN
+      ELSIF (_coholdtype = 'P') THEN
 	RETURN -13;
-      ELSIF (_coholdtype = ''R'') THEN
+      ELSIF (_coholdtype = 'R') THEN
 	RETURN -14;
       END IF;
 
@@ -101,7 +101,7 @@ BEGIN
 	shiphead_shipdate, shiphead_notes, shiphead_shipform_id )
       SELECT _shipheadid, _shipnumber, coitem_cohead_id, pordertype,
 	     FALSE,
-	     ''N'', cohead_shipvia,
+	     'N', cohead_shipvia,
 	     CASE WHEN (cohead_shipchrg_id <= 0) THEN NULL
 	          ELSE cohead_shipchrg_id
 	     END,
@@ -120,7 +120,7 @@ BEGIN
       FROM coitem
       WHERE ((pack_head_id=coitem_cohead_id)
 	AND  (pack_shiphead_id IS NULL)
-	AND  (pack_head_type=''SO'')
+	AND  (pack_head_type='SO')
 	AND  (coitem_id=pitemid));
 
     ELSE
@@ -129,7 +129,7 @@ BEGIN
       FROM coitem
       WHERE ((pack_head_id=coitem_cohead_id)
 	AND  (pack_shiphead_id=_shipheadid)
-	AND  (pack_head_type=''SO'')
+	AND  (pack_head_type='SO')
 	AND  (coitem_id=pitemid));
     END IF;
 
@@ -141,12 +141,12 @@ BEGIN
     AND (itemsite_id=coitem_itemsite_id)
     AND (itemsite_item_id=item_id));
 
-    IF (_r.item_type != ''J'') THEN
+    IF (_r.item_type != 'J') THEN
       -- This is inventory so handle with g/l transaction
-      SELECT postInvTrans( itemsite_id, ''SH'', pQty * coitem_qty_invuomratio,
-			   ''S/R'', porderType,
+      SELECT postInvTrans( itemsite_id, 'SH', pQty * coitem_qty_invuomratio,
+			   'S/R', porderType,
 			   formatSoNumber(coitem_id), shiphead_number,
-                           (''Issue '' || item_number || '' to Shipping for customer '' || cohead_billtoname),
+                           ('Issue ' || item_number || ' to Shipping for customer ' || cohead_billtoname),
 			   costcat_shipasset_accnt_id, costcat_asset_accnt_id,
 			   _itemlocSeries, _timestamp ) INTO _invhistid
       FROM coitem, cohead, itemsite, item, costcat, shiphead
@@ -165,51 +165,54 @@ BEGIN
     -- This is a job so deal with costing and work order
     
        --Backflush eligble material
-      FOR _m IN SELECT womatl_id, womatl_qtyper, womatl_scrap, womatl_qtywipscrap,
-		     womatl_qtyreq - roundQty(item_fractional, womatl_qtyper * wo_qtyord) AS preAlloc
+      FOR _m IN SELECT womatl_id, womatl_qtyiss + 
+		     (CASE 
+		       WHEN (womatl_qtywipscrap >  ((womatl_qtyfxd + (pQty + wo_qtyrcv) * womatl_qtyper) * womatl_scrap)) THEN
+                         (womatl_qtyfxd + (pQty + wo_qtyrcv) * womatl_qtyper) * womatl_scrap
+		       ELSE 
+		         womatl_qtywipscrap 
+		      END) AS consumed,
+		     (womatl_qtyfxd + ((pQty + wo_qtyrcv) * womatl_qtyper)) * (1 + womatl_scrap) AS expected
 	      FROM womatl, wo, itemsite, item
-	      WHERE ((womatl_issuemethod IN (''L'', ''M''))
+	      WHERE ((womatl_issuemethod IN ('L', 'M'))
 		AND  (womatl_wo_id=wo_id)
 		AND  (womatl_itemsite_id=itemsite_id)
 		AND  (itemsite_item_id=item_id)
-		AND  (wo_ordtype = ''S'')
+		AND  (wo_ordtype = 'S')
 		AND  (wo_ordid = pitemid))
       LOOP
-        -- CASE says: don''t use scrap % if someone already entered actual scrap
-        SELECT issueWoMaterial(_m.womatl_id,
-	  CASE WHEN _m.womatl_qtywipscrap > _m.preAlloc THEN
-	    pQty * _m.womatl_qtyper + (_m.womatl_qtywipscrap - _m.preAlloc)
-	  ELSE
-	    pQty * _m.womatl_qtyper * (1 + _m.womatl_scrap)
-	  END, _itemlocSeries) INTO _itemlocSeries;
+        -- Don't issue more than should have already been consumed at this point
+        IF (noNeg(_m.expected - _m.consumed) > 0) THEN
+          SELECT issueWoMaterial(_m.womatl_id, noNeg(_m.expected - _m.consumed), _itemlocSeries) INTO _itemlocSeries;
 
-        UPDATE womatl
-        SET womatl_issuemethod=''L''
-        WHERE ( (womatl_issuemethod=''M'')
-          AND (womatl_id=_m.womatl_id) );
+          UPDATE womatl
+          SET womatl_issuemethod='L'
+          WHERE ( (womatl_issuemethod='M')
+            AND (womatl_id=_m.womatl_id) );
+        END IF;
     
       END LOOP;
       
       --Get Work Order Info
       SELECT
         wo_id, formatwonumber(wo_id) AS f_wonumber,wo_status, wo_qtyord, wo_qtyrcv,
-        CASE WHEN (wo_cosmethod = ''D'') THEN
+        CASE WHEN (wo_cosmethod = 'D') THEN
           COALESCE(wo_wipvalue, 0)
         ELSE
           COALESCE(round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord - wo_qtyrcv - pQty))),2), 0)
         END AS value INTO _p
       FROM wo
-      WHERE ((wo_ordtype = ''S'')
+      WHERE ((wo_ordtype = 'S')
       AND (wo_ordid = pitemid));
       IF (NOT FOUND) THEN
-        RAISE EXCEPTION ''Work order % not found and can not be shipped'',_p.f_wonumber;
+        RAISE EXCEPTION 'Work order % not found and can not be shipped',_p.f_wonumber;
       END IF;
-      IF (_p.wo_status = ''C'') THEN
-        RAISE EXCEPTION ''Work order % is closed and can not be shipped'',_p.f_wonumber;
+      IF (_p.wo_status = 'C') THEN
+        RAISE EXCEPTION 'Work order % is closed and can not be shipped',_p.f_wonumber;
       END IF;
 
   --  Distribute to G/L, debit Shipping Asset, credit WIP
-      PERFORM MIN(insertGLTransaction( ''S/R'', ''SO'', formatSoNumber(pItemid), ''Issue to Shipping'',
+      PERFORM MIN(insertGLTransaction( 'S/R', 'SO', formatSoNumber(pItemid), 'Issue to Shipping',
                                      costcat_wip_accnt_id,
 				     costcat_shipasset_accnt_id,
                                      -1, _p.value, current_date )) 
@@ -223,7 +226,7 @@ BEGIN
         wo_wipvalue = wo_wipvalue - _p.value,
         wo_status = 
           CASE WHEN (wo_qtyord - wo_qtyrcv - pQty <= 0) THEN
-            ''C''
+            'C'
           ELSE
             wo_status
           END
@@ -250,10 +253,10 @@ BEGIN
        SET coitem_qtyreserved = noNeg(coitem_qtyreserved - pQty)
      WHERE(coitem_id=pitemid);
 
-  ELSEIF (pordertype = ''TO'') THEN
+  ELSEIF (pordertype = 'TO') THEN
 
     -- Check site security
-    IF (fetchMetricBool(''MultiWhs'')) THEN
+    IF (fetchMetricBool('MultiWhs')) THEN
       SELECT warehous_id INTO _warehouseid
       FROM toitem, tohead, site()
       WHERE ( (toitem_id=pitemid)
@@ -265,8 +268,8 @@ BEGIN
       END IF;
     END IF;
 
-    SELECT postInvTrans( itemsite_id, ''SH'', pQty, ''S/R'',
-			 pordertype, CAST(tohead_number AS text), '''', ''Issue to Shipping'',
+    SELECT postInvTrans( itemsite_id, 'SH', pQty, 'S/R',
+			 pordertype, CAST(tohead_number AS text), '', 'Issue to Shipping',
 			 costcat_shipasset_accnt_id, costcat_asset_accnt_id,
 			 _itemlocSeries, _timestamp) INTO _invhistid
     FROM tohead, toitem, itemsite, costcat
@@ -284,7 +287,7 @@ BEGIN
       AND  (shiphead_order_type=pordertype));
 
     IF (NOT FOUND) THEN
-      _shipheadid := NEXTVAL(''shiphead_shiphead_id_seq'');
+      _shipheadid := NEXTVAL('shiphead_shiphead_id_seq');
 
       _shipnumber := fetchShipmentNumber();
       IF (_shipnumber < 0) THEN
@@ -299,7 +302,7 @@ BEGIN
 	shiphead_shipdate, shiphead_notes, shiphead_shipform_id )
       SELECT _shipheadid, _shipnumber, tohead_id, pordertype,
 	     FALSE,
-	     ''N'', tohead_shipvia, tohead_shipchrg_id,
+	     'N', tohead_shipvia, tohead_shipchrg_id,
 	     tohead_freight + SUM(toitem_freight), tohead_freight_curr_id,
 	     _timestamp::DATE, tohead_shipcomments, tohead_shipform_id
       FROM tohead, toitem
@@ -331,4 +334,4 @@ BEGIN
   RETURN _itemlocSeries;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

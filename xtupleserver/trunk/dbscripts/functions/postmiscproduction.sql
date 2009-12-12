@@ -39,7 +39,8 @@ BEGIN
   SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
   SELECT postInvTrans( pItemsiteid, 'RM', _parentQty,
                        'W/O', 'WO', 'Misc.', pDocNumber,
-                       ('Receive from Misc. Production for Item Number ' || _p.item_number || E'\n' || pComments),
+                       ('Receive from Misc. Production for Item Number ' || _p.item_number || '
+                       ' || pComments),
                        costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries ) INTO _invhistid
   FROM itemsite, costcat
   WHERE ( (itemsite_costcat_id=costcat_id)
@@ -52,7 +53,7 @@ BEGIN
                      cs.itemsite_controlmethod AS c_itemsite_controlmethod,
                      cs.itemsite_controlmethod AS c_controlmethod,
                      roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id),
-                              itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyper * _parentQty * (1 + bomitem_scrap)))) AS qty
+                              itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd * (1 + bomitem_scrap)) + (bomitem_qtyper * _parentQty * (1 + bomitem_scrap)))) AS qty
               FROM itemsite AS ps, itemsite AS cs, item, bomitem
               WHERE ((cs.itemsite_item_id=item_id)
                AND (ps.itemsite_item_id=bomitem_parent_item_id)
@@ -60,7 +61,8 @@ BEGIN
                AND (bomitem_rev_id=getActiveRevId('BOM',bomitem_parent_item_id))
                AND (ps.itemsite_warehous_id=cs.itemsite_warehous_id)
                AND (ps.itemsite_id=pItemsiteid)
-               AND (CURRENT_DATE BETWEEN bomitem_effective AND bomitem_expires))
+               AND (CURRENT_DATE BETWEEN bomitem_effective AND bomitem_expires)
+               AND (item_type NOT IN ('R','T')))
               ORDER BY bomitem_seqnumber LOOP
   
       _componentCost := (_componentCost + postMiscConsumption( _c.c_itemsite_id, _c.qty,

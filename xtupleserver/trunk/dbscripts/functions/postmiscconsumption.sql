@@ -22,7 +22,7 @@ BEGIN
 
     FOR _r IN SELECT cs.itemsite_id AS c_itemsite_id,
                      roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id),
-                              itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyper * _parentQty * (1 + bomitem_scrap)))) AS qty
+                              itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd + bomitem_qtyper * pQty) * (1 + bomitem_scrap))) AS qty
               FROM itemsite AS cs, itemsite AS ps, item, bomitem
               WHERE ( (cs.itemsite_item_id=item_id)
                AND (cs.itemsite_warehous_id=ps.itemsite_warehous_id)
@@ -30,7 +30,8 @@ BEGIN
                AND (bomitem_item_id=cs.itemsite_item_id)
                AND (bomitem_rev_id=getActiveRevId('BOM',bomitem_parent_item_id))
                AND (ps.itemsite_id=pItemsiteid) 
-               AND (CURRENT_DATE BETWEEN bomitem_effective AND bomitem_expires) )
+               AND (CURRENT_DATE BETWEEN bomitem_effective AND bomitem_expires)
+               AND (item_type NOT IN ('R','T')) )
               ORDER BY bomitem_seqnumber LOOP
 
       SELECT postMiscConsumption( _r.c_itemsite_id, _r.qty, pParentItemid,
@@ -40,7 +41,8 @@ BEGIN
   ELSE
     PERFORM postInvTrans( itemsite_id, 'IM', pQty,
                           'W/O', 'WO', 'Misc.', pDocNumber,
-                          ('Consumed during Misc. Production of Item Number ' || item_number || '\n' || pComments),
+                          ('Consumed during Misc. Production of Item Number ' || item_number || '
+                          ' || pComments),
                           pWIPAccntid, costcat_asset_accnt_id, pItemlocSeries )
     FROM itemsite, costcat, item
     WHERE ( (itemsite_costcat_id=costcat_id)

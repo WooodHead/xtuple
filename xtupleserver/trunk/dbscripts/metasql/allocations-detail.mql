@@ -1,6 +1,6 @@
 -- Group: allocations
 -- Name: detail
--- Notes: used by dspAllocations
+-- Notes: 
 
 SELECT source_id, type, order_number, item_number, totalqty, relievedqty, balanceqty, duedate,
        balanceqty AS runningbal,
@@ -15,18 +15,20 @@ FROM
 (
 SELECT womatl_id AS source_id, TEXT('W/O') AS type,
        formatWoNumber(wo_id) AS order_number,
-       item_number,
+       paritem.item_number,
        itemuomtouom(component.itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq)  AS totalqty,
        itemuomtouom(component.itemsite_item_id, womatl_uom_id, NULL, womatl_qtyiss) AS relievedqty,
        itemuomtouom(component.itemsite_item_id, womatl_uom_id, NULL, noNeg(womatl_qtyreq - womatl_qtyiss)) AS balanceqty,
        womatl_duedate AS duedate
 
-FROM womatl, wo, itemsite AS parent, itemsite AS component, item
+FROM womatl, wo, itemsite AS parent, itemsite AS component, item AS paritem, item AS compitem
 WHERE ((womatl_wo_id=wo_id)
   AND (wo_status<>'C')
   AND (wo_itemsite_id=parent.itemsite_id)
   AND (womatl_itemsite_id=component.itemsite_id)
-  AND (parent.itemsite_item_id=item_id)
+  AND (parent.itemsite_item_id=paritem.item_id)
+  AND (component.itemsite_item_id=compitem.item_id)
+  AND (compitem.item_type != 'T')
   AND (component.itemsite_warehous_id=<? value("warehous_id") ?>)
   AND (component.itemsite_item_id=<? value("item_id") ?>)
 <? if exists("leadTime") ?>
@@ -39,6 +41,42 @@ WHERE ((womatl_wo_id=wo_id)
   AND (womatl_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? endif ?>
 )
+
+UNION 
+
+-- Special handling for tools
+SELECT womatl_id AS source_id, TEXT('W/O') AS type,
+       formatWoNumber(wo_id) AS order_number,
+       paritem.item_number,
+       itemuomtouom(component.itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq)  AS totalqty,
+       COALESCE(sum(invhist_invqty),0) AS relievedqty,
+       noNeg(itemuomtouom(component.itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq) - COALESCE(sum(invhist_invqty),0)) AS balanceqty,
+       womatl_duedate AS duedate
+
+FROM itemsite AS parent, itemsite AS component, item paritem, item AS compitem, wo, womatl
+  LEFT OUTER JOIN womatlpost ON (womatl_id=womatlpost_womatl_id)
+  LEFT OUTER JOIN invhist ON ((womatlpost_invhist_id=invhist_id)
+                          AND (invhist_invqty > 0))
+WHERE ((womatl_wo_id=wo_id)
+  AND (wo_status<>'C')
+  AND (wo_itemsite_id=parent.itemsite_id)
+  AND (womatl_itemsite_id=component.itemsite_id)
+  AND (parent.itemsite_item_id=paritem.item_id)
+  AND (component.itemsite_item_id=compitem.item_id)
+  AND (compitem.item_type='T')
+  AND (component.itemsite_warehous_id=<? value("warehous_id") ?>)
+  AND (component.itemsite_item_id=<? value("item_id") ?>)
+<? if exists("leadTime") ?>
+  AND (womatl_duedate <= (CURRENT_DATE + component.itemsite_leadtime))
+<? elseif exists("days") ?>
+  AND (womatl_duedate <= (CURRENT_DATE + <? value("days") ?>))
+<? elseif exists("date") ?>
+  AND (womatl_duedate <= <? value("date") ?>)
+<? elseif exists("startDate") ?>
+  AND (womatl_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+<? endif ?>
+)
+GROUP BY womatl_id, wo_id, paritem.item_number, womatl_uom_id, womatl_qtyreq, womatl_duedate, component.itemsite_item_id
 
 UNION 
 SELECT coitem_id AS source_id, TEXT('S/O') AS type,

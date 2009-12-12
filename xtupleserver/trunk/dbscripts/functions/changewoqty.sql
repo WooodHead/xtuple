@@ -44,7 +44,7 @@ BEGIN
   WHERE (wo_id=pWoid);
 
   UPDATE womatl
-  SET womatl_qtyreq=calcQtyReq(itemsite_item_id, wo_qtyord, womatl_qtyper, womatl_scrap)
+  SET womatl_qtyreq=(womatl_qtyfxd + wo_qtyord * womatl_qtyper) * (1 + womatl_scrap)
   FROM wo, itemsite
   WHERE ((womatl_wo_id=wo_id)
     AND  (womatl_itemsite_id=itemsite_id)
