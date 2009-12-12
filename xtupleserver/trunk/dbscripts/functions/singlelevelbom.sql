@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION singlelevelBOM(INTEGER, INTEGER, INTEGER, INTEGER) RETURNS SETOF bomdata AS '
+CREATE OR REPLACE FUNCTION singlelevelBOM(INTEGER, INTEGER, INTEGER, INTEGER) RETURNS SETOF bomdata AS $$
 DECLARE
   pItemid ALIAS FOR $1;
   pRevisionid ALIAS FOR $2;
@@ -9,6 +9,7 @@ DECLARE
   _x RECORD;
   _check CHAR(1);
   _inactive BOOLEAN;
+  _batchsize NUMERIC;
 
 BEGIN
 
@@ -19,25 +20,34 @@ BEGIN
     SELECT rev_status INTO _check
     FROM rev
     WHERE ((rev_id=pRevisionid)
-    AND (rev_status=''I''));
+    AND (rev_status='I'));
     IF (FOUND) THEN
       _inactive := TRUE;
     END IF;
   END IF;
+ 
+  -- Get the batch quantity
+  SELECT COALESCE( (
+    SELECT bomhead_batchsize
+    FROM bomhead
+    WHERE ((bomhead_item_id=pItemId)
+    AND (bomhead_rev_id=pRevisionid))),1) INTO _batchsize;
  
   IF NOT (_inactive) THEN
     FOR _x IN
         SELECT bomitem_id, bomitem_seqnumber, bomitem_seqnumber AS f_bomitem_seqnumber,
                item_id, item_number, uom_name,
                item_descrip1, item_descrip2,
-               (item_descrip1 || '' '' || item_descrip2) AS itemdescription,
+               (item_descrip1 || ' ' || item_descrip2) AS itemdescription,
+               itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
+                            bomitem_qtyfxd) AS qtyfxd,
                itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
                             bomitem_qtyper) AS qtyper,
                bomitem_scrap, bomitem_createwo,
-               CASE WHEN (bomitem_issuemethod=''S'') THEN ''Push''
-                 WHEN (bomitem_issuemethod=''L'') THEN ''Pull''
-                 WHEN (bomitem_issuemethod=''M'') THEN ''Mixed''
-                 ELSE ''Special''
+               CASE WHEN (bomitem_issuemethod='S') THEN 'Push'
+                 WHEN (bomitem_issuemethod='L') THEN 'Pull'
+                 WHEN (bomitem_issuemethod='M') THEN 'Mixed'
+                 ELSE 'Special'
                END AS issuemethod,
                bomitem_effective, bomitem_expires,
                CASE WHEN (bomitem_expires <= CURRENT_DATE) THEN TRUE
@@ -48,8 +58,12 @@ BEGIN
                END AS future,
                actcost(bomitem_item_id) AS actunitcost,
                stdcost(bomitem_item_id) AS stdunitcost,
-               (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) * actcost(bomitem_item_id)) AS actextendedcost,
-               (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) * stdcost(bomitem_item_id)) AS stdextendedcost,
+               CASE WHEN item_type NOT IN ('R','T') THEN
+                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * actcost(bomitem_item_id)
+               ELSE 0 END AS actextendedcost,
+               CASE WHEN item_type NOT IN ('R','T') THEN
+                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * stdcost(bomitem_item_id)
+               ELSE 0 END AS stdextendedcost,
                bomitem_char_id, bomitem_value, bomitem_notes, bomitem_ref 
        FROM bomitem(pItemid,pRevisionid), item, uom 
        WHERE ( (item_inv_uom_id=uom_id)
@@ -57,9 +71,10 @@ BEGIN
        AND (bomitem_expires > (CURRENT_DATE - pExpiredDays))
        AND (bomitem_effective <= (CURRENT_DATE + pFutureDays)) )
        UNION
-       SELECT -1, -1, NULL, -1, costelem_type AS bomdata_item_number, '''',
-              '''', '''',
-              '''',
+       SELECT -1, -1, NULL, -1, costelem_type AS bomdata_item_number, '',
+              '', '',
+              '',
+              NULL,
               NULL,
               NULL, NULL,
               NULL,
@@ -84,6 +99,8 @@ BEGIN
         _row.bomdata_item_descrip1 := _x.item_descrip1;
         _row.bomdata_item_descrip2 := _x.item_descrip2;
         _row.bomdata_itemdescription := _x.itemdescription;
+        _row.bomdata_batchsize := _batchsize;
+        _row.bomdata_qtyfxd := _x.qtyfxd;
         _row.bomdata_qtyper := _x.qtyper;
         _row.bomdata_scrap := _x.bomitem_scrap;
         _row.bomdata_createchild := _x.bomitem_createwo;
@@ -110,13 +127,14 @@ BEGIN
         SELECT bomitem_id, bomitem_seqnumber, bomitem_seqnumber AS f_bomitem_seqnumber,
                item_id, item_number, uom_name,
                item_descrip1, item_descrip2,
-               (item_descrip1 || '' '' || item_descrip2) AS itemdescription,
+               (item_descrip1 || ' ' || item_descrip2) AS itemdescription,
+               itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyfxd) AS qtyfxd,
                itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper,
                bomitem_scrap, bomitem_createwo,
-               CASE WHEN (bomitem_issuemethod=''S'') THEN ''Push''
-                 WHEN (bomitem_issuemethod=''L'') THEN ''Pull''
-                 WHEN (bomitem_issuemethod=''M'') THEN ''Mixed''
-                 ELSE ''Special''
+               CASE WHEN (bomitem_issuemethod='S') THEN 'Push'
+                 WHEN (bomitem_issuemethod='L') THEN 'Pull'
+                 WHEN (bomitem_issuemethod='M') THEN 'Mixed'
+                 ELSE 'Special'
                END AS issuemethod,
                bomitem_effective, bomitem_expires,
                CASE WHEN (bomitem_expires <= CURRENT_DATE) THEN TRUE
@@ -127,8 +145,12 @@ BEGIN
                END AS future,
                actcost(bomitem_item_id) AS actunitcost,
                stdcost(bomitem_item_id) AS stdunitcost,
-               (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) * actcost(bomitem_item_id)) AS actextendedcost,
-               (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) * stdcost(bomitem_item_id)) AS stdextendedcost,
+               CASE WHEN item_type NOT IN ('R','T') THEN
+                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * actcost(bomitem_item_id)
+               ELSE 0 END AS actextendedcost,
+               CASE WHEN item_type NOT IN ('R','T') THEN
+                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * stdcost(bomitem_item_id)
+               ELSE 0 END AS stdextendedcost,
                bomitem_char_id, bomitem_value, bomitem_notes, bomitem_ref 
        FROM bomitem(pItemid,pRevisionid), item, uom 
        WHERE ( (item_inv_uom_id=uom_id)
@@ -136,9 +158,10 @@ BEGIN
        AND (bomitem_expires > (CURRENT_DATE - pExpiredDays))
        AND (bomitem_effective <= (CURRENT_DATE + pFutureDays)) )
        UNION
-       SELECT -1, -1, NULL, -1, costelem_type AS bomdata_item_number, '''',
-              '''', '''',
-              '''',
+       SELECT -1, -1, NULL, -1, costelem_type AS bomdata_item_number, '',
+              '', '',
+              '',
+              NULL,
               NULL,
               NULL, NULL,
               NULL,
@@ -151,7 +174,7 @@ BEGIN
               NULL, NULL, NULL, NULL
        FROM bomhist, costelem 
        WHERE ( (bomhist_item_id=costelem_id)
-       AND (bomhist_item_type=''E'')
+       AND (bomhist_item_type='E')
        AND (bomhist_rev_id=pRevisionid) )
        ORDER BY bomitem_seqnumber, bomitem_effective, item_number
     LOOP
@@ -163,6 +186,8 @@ BEGIN
         _row.bomdata_item_descrip1 := _x.item_descrip1;
         _row.bomdata_item_descrip2 := _x.item_descrip2;
         _row.bomdata_itemdescription := _x.itemdescription;
+        _row.bomdata_batchsize := _batchsize;
+        _row.bomdata_qtyfxd := _x.qtyfxd;
         _row.bomdata_qtyper := _x.qtyper;
         _row.bomdata_scrap := _x.bomitem_scrap;
         _row.bomdata_createchild := _x.bomitem_createwo;
@@ -185,4 +210,4 @@ BEGIN
 
   RETURN;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

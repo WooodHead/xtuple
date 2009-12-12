@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION copyBOM(INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION copyBOM(INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pSItemid ALIAS FOR $1;
   pTItemid ALIAS FOR $2;
@@ -11,9 +11,9 @@ BEGIN
   RETURN _result;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION copyBOM(INTEGER, INTEGER, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION copyBOM(INTEGER, INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pSItemid ALIAS FOR $1;
   pTItemid ALIAS FOR $2;
@@ -28,7 +28,7 @@ DECLARE
 BEGIN
 
 --  Make sure that the parent is not used in the component at some level
-  IF ( SELECT (item_type IN (''M'', ''F''))
+  IF ( SELECT (item_type IN ('M', 'F'))
        FROM item
        WHERE (item_id=pSItemid) ) THEN
     SELECT indentedWhereUsed(pTItemid) INTO _bomworksetid;
@@ -48,7 +48,7 @@ BEGIN
             FROM bomitem(pSItemid) 
             WHERE (bomitem_expires>CURRENT_DATE) LOOP
 
-    SELECT NEXTVAL(''bomitem_bomitem_id_seq'') INTO _bomitemid;
+    SELECT NEXTVAL('bomitem_bomitem_id_seq') INTO _bomitemid;
 
     IF (pCopyUsedAt) THEN
       _schedatwooper := _r.bomitem_schedatwooper;
@@ -60,14 +60,14 @@ BEGIN
 
     INSERT INTO bomitem
     ( bomitem_id, bomitem_parent_item_id, bomitem_seqnumber, bomitem_item_id,
-      bomitem_uom_id, bomitem_qtyper, bomitem_scrap, bomitem_schedatwooper,
+      bomitem_uom_id, bomitem_qtyfxd, bomitem_qtyper, bomitem_scrap, bomitem_schedatwooper,
       bomitem_booitem_seq_id,
       bomitem_effective, bomitem_expires, bomitem_ecn,
       bomitem_createwo, bomitem_issuemethod, bomitem_moddate, bomitem_subtype,
       bomitem_notes, bomitem_ref )
     VALUES
     ( _bomitemid, pTItemid, _r.bomitem_seqnumber, _r.bomitem_item_id,
-      _r.bomitem_uom_id, _r.bomitem_qtyper, _r.bomitem_scrap, _schedatwooper,
+      _r.bomitem_uom_id, _r.bomitem_qtyfxd, _r.bomitem_qtyper, _r.bomitem_scrap, _schedatwooper,
       _booitemseqid,
       CURRENT_DATE, _r.bomitem_expires, _r.bomitem_ecn,
       _r.bomitem_createwo, _r.bomitem_issuemethod, CURRENT_DATE, _r.bomitem_subtype,
@@ -86,4 +86,4 @@ BEGIN
   RETURN pTItemid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

@@ -78,6 +78,32 @@ WHERE ((wo_status<>'C')
   AND  (itemsite_item_id=<? value("item_id") ?>)
   AND  (item_type NOT IN ('C', 'Y')))
 
+UNION
+
+-- Tools on work orders to be returned
+SELECT wo_id AS orderid, -1 AS altorderid,
+       'W/O' AS ordertype,
+       formatWoNumber(wo_id) AS ordernumber,
+       1 AS sequence,
+       item_number,
+       wo_duedate AS duedate,
+       (wo_duedate < CURRENT_DATE) AS late,
+       womatl_qtyreq AS qtyordered,
+       COALESCE(SUM(abs(invhist_invqty)),0) AS qtyreceived,
+       noNeg(womatl_qtyreq - COALESCE(SUM(abs(invhist_invqty)),0)) AS balance
+FROM womatl
+  JOIN wo ON (wo_id=womatl_wo_id)
+  JOIN itemsite ON (womatl_itemsite_id=itemsite_id)
+  JOIN item ON (itemsite_item_id=item_id)
+  LEFT OUTER JOIN womatlpost ON (womatl_id=womatlpost_womatl_id)
+  LEFT OUTER JOIN invhist ON ((womatlpost_invhist_id=invhist_id)
+                          AND (invhist_invqty < 0))
+WHERE ((wo_status<>'C')
+  AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
+  AND  (itemsite_item_id=<? value("item_id") ?>)
+  AND  (item_type = 'T'))
+GROUP BY wo_id, wo_duedate, item_number, womatl_qtyreq
+
 <? if exists("Manufacturing") ?>
 UNION
 SELECT wo_id AS orderid, -1 AS altorderid,
@@ -106,20 +132,49 @@ SELECT wo_id AS orderid, womatl_id AS altorderid,
       'W/O' AS ordertype,
       formatWoNumber(wo_id) AS ordernumber,
       2 AS sequence,
-      item_number,
+      woi.item_number,
       womatl_duedate AS duedate,
       FALSE AS late,
       itemuomtouom(womatlis.itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq) AS qtyordered,
       itemuomtouom(womatlis.itemsite_item_id, womatl_uom_id, NULL, womatl_qtyiss) AS qtyreceived,
       itemuomtouom(womatlis.itemsite_item_id, womatl_uom_id, NULL, (noNeg(womatl_qtyreq - womatl_qtyiss) * -1)) AS balance
-FROM womatl, wo, itemsite AS wois, item, itemsite AS womatlis
+FROM womatl, wo, itemsite AS wois, item AS woi, itemsite AS womatlis, item AS womatli
 WHERE ((wo_status<>'C')
   AND  (wo_itemsite_id=wois.itemsite_id)
-  AND  (wois.itemsite_item_id=item_id)
+  AND  (wois.itemsite_item_id=woi.item_id)
+  AND  (womatlis.itemsite_item_id=womatli.item_id)
+  AND  (womatli.item_type != 'T')
   AND  (womatl_wo_id=wo_id)
   AND  (womatlis.itemsite_item_id=<? value("item_id") ?>)
   AND  (womatlis.itemsite_warehous_id=<? value("warehous_id") ?>)
   AND  (womatl_itemsite_id=womatlis.itemsite_id) )
+
+UNION
+-- Special handling for tools
+SELECT wo_id AS orderid, womatl_id AS altorderid,
+      'W/O' AS ordertype,
+      formatWoNumber(wo_id) AS ordernumber,
+      2 AS sequence,
+      woi.item_number,
+      womatl_duedate AS duedate,
+      FALSE AS late,
+      itemuomtouom(womatlis.itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq) AS qtyordered,
+      COALESCE(SUM(invhist_invqty),0) AS qtyreceived,
+      (itemuomtouom(womatlis.itemsite_item_id, womatl_uom_id, NULL, (noNeg(womatl_qtyreq))) - COALESCE(SUM(invhist_invqty),0)) * -1 AS balance
+FROM itemsite AS wois, item AS woi, itemsite AS womatlis, item AS womatli, wo, womatl
+  LEFT OUTER JOIN womatlpost ON (womatl_id=womatlpost_womatl_id)
+  LEFT OUTER JOIN invhist ON ((womatlpost_invhist_id=invhist_id)
+                          AND (invhist_invqty > 0))
+WHERE ((wo_status<>'C')
+  AND  (wo_itemsite_id=wois.itemsite_id)
+  AND  (wois.itemsite_item_id=woi.item_id)
+  AND  (womatlis.itemsite_item_id=womatli.item_id)
+  AND  (womatli.item_type = 'T')
+  AND  (womatl_wo_id=wo_id)
+  AND  (womatlis.itemsite_item_id=<? value("item_id") ?>)
+  AND  (womatlis.itemsite_warehous_id=<? value("warehous_id") ?>)
+  AND  (womatl_itemsite_id=womatlis.itemsite_id) )
+GROUP BY wo_id, woi.item_number, womatl_id, womatl_duedate, womatlis.itemsite_item_id, womatl_uom_id, womatl_qtyreq
 
 UNION
 SELECT pohead_id AS orderid, poitem_id AS altorderid,
@@ -200,6 +255,29 @@ WHERE ((planord_type='W')
   AND  (planord_itemsite_id=itemsite_id)
   AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
   AND  (itemsite_item_id=<? value("item_id") ?>) )
+
+UNION
+-- Tools on Planned Work Orders
+SELECT planord_id AS orderid, -1 AS altorderid,
+       CASE WHEN (planord_firm) THEN <? value("firmWo") ?> 
+	    ELSE <? value("plannedWo") ?> 
+       END AS ordertype,
+       CAST(planord_number AS text) AS ordernumber,
+       1 AS sequence,
+       item_number,
+       planord_duedate AS duedate,
+       FALSE AS late,
+       planreq_qty AS qtyordered,
+       NULL AS qtyreceived,
+       planreq_qty AS balance
+FROM planreq
+  JOIN itemsite ON (itemsite_id=planreq_itemsite_id)
+  JOIN item ON (item_id=itemsite_item_id)
+  JOIN planord ON ((planreq_source_id=planord_id)
+              AND (planreq_source='P'))
+WHERE ((itemsite_warehous_id=<? value("warehous_id") ?>)
+  AND  (itemsite_item_id=<? value("item_id") ?>)
+  AND  (item_type='T') )
 
 UNION
 SELECT planord_id AS orderid, -1 AS altorderid,

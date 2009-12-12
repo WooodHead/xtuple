@@ -55,21 +55,24 @@ BEGIN
   END IF;
 
   IF (pBackflush) THEN
-    FOR _r IN SELECT womatl_id, womatl_qtyper, womatl_scrap, womatl_qtywipscrap,
-		     womatl_qtyreq - roundQty(item_fractional, womatl_qtyper * wo_qtyord) AS preAlloc
+    FOR _r IN SELECT womatl_id, womatl_qtyiss + 
+		     (CASE 
+		       WHEN (womatl_qtywipscrap >  ((womatl_qtyfxd + (_parentQty + wo_qtyrcv) * womatl_qtyper) * womatl_scrap)) THEN
+                         (womatl_qtyfxd + (_parentQty + wo_qtyrcv) * womatl_qtyper) * womatl_scrap
+		       ELSE 
+		         womatl_qtywipscrap 
+		      END) AS consumed,
+		     (womatl_qtyfxd + ((_parentQty + wo_qtyrcv) * womatl_qtyper)) * (1 + womatl_scrap) AS expected
 	      FROM womatl, wo, itemsite, item
 	      WHERE ((womatl_issuemethod IN ('L', 'M'))
 		AND  (womatl_wo_id=pWoid)
 		AND  (womatl_wo_id=wo_id)
 		AND  (womatl_itemsite_id=itemsite_id)
 		AND  (itemsite_item_id=item_id)) LOOP
-      -- CASE says: don't use scrap % if someone already entered actual scrap
-      SELECT issueWoMaterial(_r.womatl_id,
-			     CASE WHEN _r.womatl_qtywipscrap > _r.preAlloc THEN
-			       _parentQty * _r.womatl_qtyper + (_r.womatl_qtywipscrap - _r.preAlloc)
-			     ELSE
-			       _parentQty * _r.womatl_qtyper * (1 + _r.womatl_scrap)
-			     END, _itemlocSeries, pGlDistTS ) INTO _itemlocSeries;
+      -- Don't issue more than should have already been consumed at this point
+      IF (noNeg(_r.expected - _r.consumed) > 0) THEN
+        SELECT issueWoMaterial(_r.womatl_id, noNeg(_r.expected - _r.consumed), _itemlocSeries) INTO _itemlocSeries;
+      END IF;
 
       UPDATE womatl
       SET womatl_issuemethod='L'
