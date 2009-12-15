@@ -380,77 +380,78 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Multiple Site installations have the option of defining user site
-  security. User site security provides a method for restricting a user to a
-  single or multiple Sites. All of the screens in the application will honor
-  this restriction. On the multiple site documents, such as Purchase Orders
-  and Sales Orders, the user will be able to view restricted Sites, however,
-  they will not be able to edit restricted Sites. To add user site security to
-  a user profile, select the "Sites" tab, as shown in the following
-  screen:</para>
-  <para><mediaobject>
+  <para role="standard">Multiple Site installations have the option of
+  defining user site security. User site security provides a method for
+  restricting a user to a single or multiple Sites. All of the screens in the
+  application will honor this restriction. On the multiple site documents,
+  such as Purchase Orders and Sales Orders, the user will be able to view
+  restricted Sites, however, they will not be able to edit restricted Sites.
+  To add user site security to a user profile, select the "Sites" tab, as
+  shown in the following screen:</para>
+  <para role="standard"><mediaobject>
       <imageobject>
         <imagedata fileref="images/user_siteTab.png" />
       </imageobject>
       <caption>User Site Security</caption>
-    </mediaobject>When adding user site security to a user profile, you are
-  presented with the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Grant Access to all Sites</term>
-      <listitem>
-        <para>Select this option if the user has full unrestricted access to
-        all Sites defined in the application.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Grand Access only to Selected Sites</term>
-      <listitem>
-        <para>Select this option if the user has restricted access to the
-        Sites defined in the application.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Available Sites</term>
-      <listitem>
-        <para>Select an available Site from the list. To grant access
-        privileges to a user, highlight an available Site and then click the
-        ADD button. The highlighted Site will be added to the user's list of
-        granted Sites. Double-clicking on a Site will also move it to the
-        granted Sites column.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Granted Sites</term>
-      <listitem>
-        <para>Displays granted Sites for the specified user. To remove a
-        granted Site from the user, highlight a granted Site and then click
-        the REVOKE button. The highlighted Site will be removed from the
-        user's list of granted Sites. Double-clicking on a Site will also
-        remove it from the granted Sites column.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>The following buttons are located between the Available Sites and
-  Granted Sites columns:</para>
-  <variablelist>
-    <varlistentry>
-      <term>ADD-&gt;</term>
-      <listitem>
-        <para>Highlight a specific Site in the available Sites column, then
-        select this button to transfer the Site to the granted Sites column.
-        Double-clicking on an available Site will also transfer it to the
-        granted Sites column.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>&lt;-REVOKE</term>
-      <listitem>
-        <para>Highlight a specific Site in the granted Sites column, then
-        select this button to remove the Site from the granted Sites column.
-        Double-clicking on a granted Site will also remove it from the granted
-        Sites column.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+    </mediaobject></para>
+  <para role="standard">When adding user site security to a user profile, you
+  are presented with the following options:</para>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term>Grant Access to all Sites</term>
+        <listitem>
+          <para>Select this option if the user has full unrestricted access to
+          all Sites defined in the application.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Grand Access only to Selected Sites</term>
+        <listitem>
+          <para>Select this option if the user has restricted access to the
+          Sites defined in the application.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Available Sites</term>
+        <listitem>
+          <para>Select an available Site from the list. To grant access
+          privileges to a user, highlight an available Site and then click the
+          ADD button. The highlighted Site will be added to the user's list of
+          granted Sites. Double-clicking on a Site will also move it to the
+          granted Sites column.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Granted Sites</term>
+        <listitem>
+          <para>Displays granted Sites for the specified user. To remove a
+          granted Site from the user, highlight a granted Site and then click
+          the REVOKE button. The highlighted Site will be removed from the
+          user's list of granted Sites. Double-clicking on a Site will also
+          remove it from the granted Sites column.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
+  <para role="standard">The following buttons are located between the
+  Available Sites and Granted Sites columns:</para>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term>ADD-&gt;</term>
+        <listitem>
+          <para>Highlight a specific Site in the available Sites column, then
+          select this button to transfer the Site to the granted Sites column.
+          Double-clicking on an available Site will also transfer it to the
+          granted Sites column.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>&lt;-REVOKE</term>
+        <listitem>
+          <para>Highlight a specific Site in the granted Sites column, then
+          select this button to remove the Site from the granted Sites column.
+          Double-clicking on a granted Site will also remove it from the
+          granted Sites column.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
 </section>

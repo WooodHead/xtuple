@@ -62,7 +62,7 @@
       <listitem>
         <para>Specify the next available CRM Account number. The next CRM
         Account created will use the number specified here. Leave this field
-        blank if you will be creating CRM Account numbers manually. </para>
+        blank if you will be creating CRM Account numbers manually.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -141,46 +141,43 @@
             <listitem>
               <para>When Comments are added to an Incident, Email notification
               is sent.</para>
-              <note>
-                <para>The following tokens are supported in EDI profile for
-                CRM Incidents:</para>
-                <itemizedlist>
-                  <listitem>
-                    <para>&lt;/email1&gt; = Incident owner email
-                    address</para>
-                  </listitem>
-                  <listitem>
-                    <para>&lt;/email2&gt; = Incident assignee email
-                    address</para>
-                  </listitem>
-                  <listitem>
-                    <para>&lt;/email3&gt; = Incident contact email
-                    address</para>
-                  </listitem>
-                  <listitem>
-                    <para>&lt;/description&gt; = Incident description</para>
-                  </listitem>
-                  <listitem>
-                    <para>&lt;/docnumber&gt; = Incident number</para>
-                  </listitem>
-                  <listitem>
-                    <para>&lt;/doctype&gt; = "INCDT"</para>
-                  </listitem>
-                  <listitem>
-                    <para>&lt;/docid&gt; = Incident primary key id</para>
-                  </listitem>
-                  <listitem>
-                    <para>&lt;/docbody&gt; = Builds text of fields, notes and
-                    history of incident record</para>
-                  </listitem>
-                  <listitem>
-                    <para>&lt;/comments&gt; = Incident comments</para>
-                  </listitem>
-                </itemizedlist>
-              </note>
             </listitem>
           </varlistentry>
         </variablelist>
+        <note>
+          <para>The following tokens are supported in EDI profile for CRM
+          Incidents:</para>
+          <itemizedlist>
+            <listitem>
+              <para>&lt;/email1&gt; = Incident owner email address</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/email2&gt; = Incident assignee email address</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/email3&gt; = Incident contact email address</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/description&gt; = Incident description</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/docnumber&gt; = Incident number</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/doctype&gt; = "INCDT"</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/docid&gt; = Incident primary key id</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/docbody&gt; = Builds text of fields, notes and
+              history of incident record</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/comments&gt; = Incident comments</para>
+            </listitem>
+          </itemizedlist>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>

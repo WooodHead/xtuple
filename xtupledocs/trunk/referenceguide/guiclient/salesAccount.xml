@@ -32,8 +32,8 @@
     <para>In the case of conflicts between Sales Account assignments, the
     system by default selects specific assignments before all-inclusive ones.
     For example, if there were a choice between an assignment featuring
-    "WHSE-1" as the supplying Site and another featuring "ANY" Site,
-    the more-specific "WHSE-1" would be selected.</para>
+    "WHSE-1" as the supplying Site and another featuring "ANY" Site, the
+    more-specific "WHSE-1" would be selected.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -104,7 +104,7 @@
         processing of a Sales Order Credit Memo.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Returns Account</term>
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
@@ -112,7 +112,7 @@
         when sales Credit Memos are posted.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Cost of Returns Account</term>
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
@@ -121,7 +121,7 @@
         received.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Cost of Warranty Account</term>
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default

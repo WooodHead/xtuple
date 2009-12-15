@@ -1263,7 +1263,7 @@
         Orders for Customers, see <xref linkend="Section519027" />.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Returns</term>
       <listitem>
         <para>Select to manage Returns associated with the Customer. On this
@@ -1380,10 +1380,10 @@
         <caption>Transmission Information for EDI</caption>
       </mediaobject>
     </screenshot></para>
-  <note>
-    <para role="standard">The buttons on the "Transmission" tab are disabled
-    when creating a new Customer. If you want to set up EDI for a new
-    Customer, save the Customer and edit it again.</para>
+  <note role="standard">
+    <para>The buttons on the "Transmission" tab are disabled when creating a
+    new Customer. If you want to set up EDI for a new Customer, save the
+    Customer and edit it again.</para>
   </note>
   <xi:include href="../widgets/edirelation.xml" xpointer="edirelationWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />

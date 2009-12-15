@@ -396,7 +396,7 @@
         will appear instead.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term><indexterm significance="normal">
           <primary>sites</primary>
           <secondary>for make-to-order</secondary>
@@ -536,7 +536,9 @@
         List Prices associated with them. As a result, when Characteristics
         are added to a Sales Order Item, the overall Price of the Item may
         increase. The Base Price shows the Price before any Characteristic
-        List Prices have been added to the Net Unit Price.</para>
+        List Prices have been added to the Net Unit Price. To learn more about
+        adding price Characteristics to configured Items, see <xref
+        linkend="configItemChar" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
