@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section971138">
+  <title><indexterm significance="normal">
+      <primary>configuration</primary>
+      <secondary>of crm module</secondary>
+    </indexterm>Configure CRM</title>
+  <para>To configure the CRM module, select the "Configure CRM" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureCRM.png" />
+        </imageobject>
+        <caption>Configure CRM Module</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When configuring the CRM module, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>crm accounts</primary>
+          <secondary>numbering of</secondary>
+        </indexterm>Account # Generation</term>
+      <listitem>
+        <para>Select one of the available CRM Account Number generation
+        methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Manual</term>
+            <listitem>
+              <para>CRM Account Numbers must be entered manually whenever you
+              create a new CRM Account.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic</term>
+            <listitem>
+              <para>CRM Account Numbers will be automatically incremented by 1
+              each time a new CRM Account is created. These
+              automatically-generated numbers may not be edited. They are
+              read-only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Allow Override</term>
+            <listitem>
+              <para>CRM Account Numbers will be automatically generated and
+              incremented, as under the "Automatic" option described above.
+              However, this option also allows you to manually override the
+              CRM Account Number at the time of CRM Account creation.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Next #</term>
+      <listitem>
+        <para>Specify the next available CRM Account number. The next CRM
+        Account created will use the number specified here. Leave this field
+        blank if you will be creating CRM Account numbers manually.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Incident # Generation</term>
+      <listitem>
+        <para>By default, Incident numbers are generated automatically.
+        However, you have the ability to specify the next available
+        number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Next #</term>
+      <listitem>
+        <para>Specify the next available Incident number. The next Incident
+        created will use the number specified here.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Project</term>
+      <listitem>
+        <para>Select to provide the ability to create Projects.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Automatically create Projects for Sales Orders</term>
+      <listitem>
+        <para>Select to allow the creation of Projects for Sales
+        Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Opportunity Changes to the Change Log</term>
+      <listitem>
+        <para>Select to have the system automatically log changes made to
+        Opportunity records under the "Comments" tab for each Opportunity
+        where the changes are made. If not selected, Opportunity changes will
+        not be tracked automatically.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Email Delivery when Incident</term>
+      <listitem>
+        <para>Select the options below to trigger Email notifications when
+        Incident Events occur.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Created</term>
+            <listitem>
+              <para>When Incident is created, Email notification is
+              sent.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Assigned</term>
+            <listitem>
+              <para>When user is assigned to Incident, Email notification is
+              sent.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Status Changed</term>
+            <listitem>
+              <para>When status of an Incident is changed, Email notification
+              is sent.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Updated</term>
+            <listitem>
+              <para>When Incident is updated, Email notification is
+              sent.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Comments Added</term>
+            <listitem>
+              <para>When Comments are added to an Incident, Email notification
+              is sent.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <note>
+          <para>The following tokens are supported in EDI profile for CRM
+          Incidents:</para>
+          <itemizedlist>
+            <listitem>
+              <para>&lt;/email1&gt; = Incident owner email address</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/email2&gt; = Incident assignee email address</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/email3&gt; = Incident contact email address</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/description&gt; = Incident description</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/docnumber&gt; = Incident number</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/doctype&gt; = "INCDT"</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/docid&gt; = Incident primary key id</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/docbody&gt; = Builds text of fields, notes and
+              history of incident record</para>
+            </listitem>
+            <listitem>
+              <para>&lt;/comments&gt; = Incident comments</para>
+            </listitem>
+          </itemizedlist>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Country for Addresses</term>
+      <listitem>
+        <para>When new addresses are created, set the Country in those new
+        addresses to the value selected here unless the user overrides the
+        selection when creating the address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Enforce Valid Country Names</term>
+      <listitem>
+        <para>If this option is not checked, users can select from a list of
+        Countries or type Country names that are not in the list. When this
+        box is checked, users must select from a list of valid Countries when
+        creating or editing addresses; the application will warn you to fix
+        the Country before it will save an Address with an invalid
+        Country.</para>
+        <warning>
+          <para>When you click in this box to turn on the Enforce Valid
+          Country Names feature, the application warns you if you have any
+          addresses with invalid Country names. This includes Addresses, Sales
+          Orders, Invoices, and other data. The warning message refers to a
+          fixCountry.gz extension package. You can download this free package
+          from the <ulink url="???">xTuple xChange</ulink>.</para>
+        </warning>
+        <warning>
+          <para>Once this box is checked and you save the configuration, it
+          will be disabled and you cannot uncheck it.</para>
+        </warning>
+        <note>
+          <para>You can edit the list of Countries by navigating to System
+          &gt; Master Information &gt; Countries. To learn more, see <xref
+          linkend="Section972122" />.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/invalidCountries.png" />
+        </imageobject>
+        <caption>Invalid Countries Warning Message</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Cancels any configuration settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Saves the configuration settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

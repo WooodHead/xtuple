@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm>
+      <primary>terms</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Billing Term</title>
+  <para id="Para567231">To create new billing Terms, select the NEW button.
+  The following screen will appear:</para>
+  <para id="Para567235"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/terms.png" />
+        </imageobject>
+        <caption>Create New Billing Terms</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para567237">When creating new billing Term, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para567238">Code</term>
+      <listitem>
+        <para>Enter a code number to identify the billing Terms.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567239">Description</term>
+      <listitem>
+        <para>Enter a description to identify the billing Terms.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567240">Type</term>
+      <listitem>
+        <para>Select one from the list below by clicking on the radio button
+        to the left of the option.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Days</term>
+            <listitem>
+              <para>Select if payment is expected within a certain number of
+              days from the date the Invoice was issued.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm>
+                <primary>terms</primary>
+                <secondary>proximo as</secondary>
+              </indexterm> <indexterm>
+                <primary>proximo</primary>
+                <secondary>as billing term</secondary>
+              </indexterm>Proximo</term>
+            <listitem>
+              <para>Select if payment is expected on a certain day of the
+              month (e.g., the first day of the month, the fifteenth day of
+              the month, etc.).</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567244">Used in A/P</term>
+      <listitem>
+        <para>Select if billing Terms are used for Accounts Payable.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para567246">A/P billing Terms may be applied and Discounts taken
+    when selecting a posted Voucher for payment.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para567247">Used in A/R</term>
+      <listitem>
+        <para>Select if billing Terms are used for Accounts Receivable.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567248">Due Days</term>
+      <listitem>
+        <para>Select a number using the arrow buttons, or manually enter a
+        value up to a maximum of 999. If the Terms type is "Days," then this
+        refers to the number of days after the document (Invoice, Voucher,
+        etc.) date which a payment is considered overdue. If the Terms type is
+        "Proximo," then the setting refers to the day of the month of the
+        document (Invoice, Voucher, etc.) date on which payment is due.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567251"><anchor id="Anchor567250" role="Index"
+      xreflabel="terms:discounting options for;discounts:terms for" />
+      <indexterm significance="normal" zone="Anchor567250">
+          <primary>terms</primary>
+          <secondary>discounting options for</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor567250">
+          <primary>discounts</primary>
+          <secondary>terms for</secondary>
+        </indexterm>Discnt. Days</term>
+      <listitem>
+        <para>Days: Select a number using the arrow buttons, or manually enter
+        a value up to a maximum of 999. Specifies the number of days within
+        which a payment must be made or received to take advantage of any
+        Terms discount.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567253">Discount %</term>
+      <listitem>
+        <para>Specify the amount of any early payment discount.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567254">Cut-off Day</term>
+      <listitem>
+        <para>Specify the day of the month on or after which the due date will
+        advance to the next month.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para567255">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para567256">CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating new billing Terms, returning
+        you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567257">SAVE</term>
+      <listitem>
+        <para>Creates the billing Terms and enters the information into the
+        master list of billing Terms.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section589675">
+  <title><indexterm significance="normal">
+      <primary>bills of materials</primary>
+      <secondary>sequenced view of</secondary>
+    </indexterm>Sequenced Bill of Materials</title>
+  <para>To view how Bill of Materials component Items correspond sequentially
+  to their associated Bill of Operations, select the "Sequenced Bill of
+  Materials" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspSequencedBOM.png" />
+        </imageobject>
+        <caption>Sequenced Bill of Materials</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying a sequenced Bill of Materials, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the manufactured Item you would like to
+        view a sequenced Bill of Materials for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Revision</term>
+      <listitem>
+        <para>If Revision Control is enabled at your site, specify the Bill of
+        Materials Revision Number you want to view. If none exists, simply
+        enter a value to create one. The status of the Revision will also be
+        displayed. The following statuses apply to Revisions:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Active</term>
+            <listitem>
+              <para>This is the current, default Revision used for costing and
+              Material Requirements Planning (MRP). Only one Revision can be
+              active at the same time. Active Revisions may be modified.
+              However, once a Revision becomes inactive, it may no longer be
+              changed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Expired Components</term>
+      <listitem>
+        <para>Select to cause expired components to be listed in the "Bill of
+        Materials" display. Expired components will display in red
+        font.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Future Components</term>
+      <listitem>
+        <para>Select to cause future components to be listed in the "Bill of
+        Materials" display. Future components will display in blue
+        font.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bill of Materials</term>
+      <listitem>
+        <para>Display lists sequenced Bill of Materials components, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section556323">
+  <title>
+<indexterm significance="normal">
+      <primary>deposits</primary>
+
+      <secondary>register of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>registers</primary>
+
+      <secondary>for deposits</secondary>
+    </indexterm>Deposits Register</title>
+
+  <para>To view the records of posted Cash Receipts, select the "Deposits
+  Register" option. The following screen will appear:</para>
+
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspDepositsRegister.png"/>
+        </imageobject>
+
+        <caption>Deposits Register</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+
+  <para>When displaying the Deposits Register, you are presented with the
+  following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>Start Date</term>
+
+      <listitem>
+        <para>Cash Receipts posted on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>End Date</term>
+
+      <listitem>
+        <para>Cash Receipts posted on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Transactions</term>
+
+      <listitem>
+        <para>Display lists posted Cash Receipts, using the specified
+        parameters. The totals for the received and A/R application amounts
+        will display at the bottom of the screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <note>
+    <para>The balance due amount displayed here refers to any open amount
+    remaining on the A/R open item which the Cash Receipt was applied to. No
+    balance due will appear for prepaid transactions.</para>
+  </note>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>QUERY</term>
+
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>PRINT</term>
+
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
