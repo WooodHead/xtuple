@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section971614">
+   <title>
+       
+      <indexterm significance="normal">
+         <primary>purchase orders</primary>
+         <secondary>history of</secondary>
+      </indexterm>P/O History</title>
+   <para>To view Purchase Order history, select the "P/O
+  History" option. The following screen will appear:</para>
+   <para>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/dspPoHistory.png"/>
+            </imageobject>
+            <caption>Purchase Order History</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <para>When displaying Purchase Order history, you are
+  presented with the following options:</para>
+   <variablelist>
+      <varlistentry>
+         <term>P/O #</term>
+         <listitem>
+            <para>Enter the Purchase Order Number of the Purchase Order whose
+        history you want to view.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>P/O Items</term>
+         <listitem>
+            <para>Display lists Purchase Order history for the specified Purchase
+        Order.</para>
+         </listitem>
+      </varlistentry>
+   </variablelist>
+   <para>To the far right of the screen, the following buttons
+  are available:</para>
+   <variablelist>
+      <varlistentry>
+         <term>CLOSE</term>
+         <listitem>
+            <para>Closes the screen, returning you to the application
+        desktop.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>PRINT</term>
+         <listitem>
+            <para>Runs the report associated with this screen.</para>
+         </listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>COPY</term>
+         <listitem>
+            <para>Select to create a copy of the specified Purchase Order. Once a
+        Purchase Order is copied, the copy will appear&mdash;with a new Purchase
+        Order Number&mdash;on the List Unposted Purchase Orders screen.</para>
+         </listitem>
+      </varlistentry>
+   </variablelist>
+   <tip>
+      <para>The copy functionality can be used as a 
+         <indexterm significance="normal">
+            <primary>purchase orders</primary>
+            <secondary>templates for</secondary>
+         </indexterm> 
+         <indexterm significance="normal">
+            <primary>purchase orders</primary>
+            <secondary>handling repetitive</secondary>
+         </indexterm>templating mechanism for repetitive Purchase Orders.
+    Consider creating a template P/O and then simply copy it whenever you need
+    to send out a new one.</para>
+   </tip>
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="copyPurchaseOrder.xml" xpointer="element(Section955035)"/>
+</section>

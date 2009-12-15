@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="itemGroup">
+  <title><indexterm significance="normal">
+      <primary>item groups</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Item Group</title>
+  <para>To create a new Item Group, select the NEW button. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemGroup.png" />
+        </imageobject>
+        <caption>Create New Item Group</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>Create your Item Groups using a logical, hierarchical structure.
+    This will make it easier to retrieve Item Group information in the
+    future.</para>
+  </tip>
+  <para>When creating a new Item Group, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a unique name for the Item Group.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a description to further identify the Item Group.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Member Items</term>
+      <listitem>
+        <para>Display lists member Items of the Item Group.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the list, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Item Group and adds it to the master list of Item
+        Groups.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens a searchable Item list. Select an Item from the list to
+        have the Item added to the Item Group</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight an Item Group and then select this button to remove
+        the Item Group from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

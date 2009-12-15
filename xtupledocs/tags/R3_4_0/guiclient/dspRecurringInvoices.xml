@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="dspRecurringInvoices">
+  <title><indexterm significance="normal">
+      <primary>invoices</primary>
+      <secondary>recurring list of</secondary>
+    </indexterm>List Recurring Invoices</title>
+  <para>Invoices may be set as recurring on the "Advanced" tab of the Invoice
+  screen. On that tab you can specify how frequently you want an Invoice to
+  recur&mdash;and for how long. For more information, see <xref
+  linkend="invoiceAdvancedTab" />. Once an Invoice has been made recurring,
+  you can monitor and manage these Invoices on the Recurring Invoices screen.
+  To view the complete list of your recurring Invoices, select the "List
+  Recurring Invoices" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspRecurringInvoices.png" />
+        </imageobject>
+        <caption>List Recurring Invoices</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The recurring Invoices list displays information on all your recurring
+  Invoices, including the Invoice Number, Customer, date, interval, type,
+  duration, and amount.</para>
+  <tip>
+    <para>Using the "Edit" option on the right-click menu, you can change the
+    frequency of an Invoice's recurrence. You can also turn off the recurring
+    option on the "Advanced" tab of the Invoice.</para>
+  </tip>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Invoice.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted recurring Invoices. The edit
+        screen is the same as that for selecting a new Invoice&mdash;except
+        that when editing, the fields will contain recurring Invoice
+        information. Double-clicking on a recurring Invoice will also bring
+        you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a recurring Invoice and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

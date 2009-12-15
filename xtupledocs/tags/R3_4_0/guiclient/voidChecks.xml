@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section524366">
+  <title>
+<indexterm significance="normal">
+      <primary>check runs</primary>
+
+      <secondary>voiding of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>accounts payable</primary>
+
+      <secondary>voiding check runs for</secondary>
+    </indexterm>Void Check Run</title>
+
+  <para>You may occasionally have a need to void an entire Check Run&mdash;if, for
+  example, you print the Check Run on the wrong kind of paper, etc. To void a
+  Check Run, select the "Void Check Run" option. The following screen will
+  appear:</para>
+
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/voidChecks.png"/>
+        </imageobject>
+
+        <caption>Void Check Run</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+
+  <para>When voiding a Check Run, you are presented with the following
+  options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>Bank Account</term>
+
+      <listitem>
+        <para>Specify the Bank Account whose associated Check Run you want to
+        void.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>First Check #</term>
+
+      <listitem>
+        <para>Displays the first Check Number in the Check Run for the
+        specified Bank Account.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term># of Checks to Void</term>
+
+      <listitem>
+        <para>Indicates the number of Checks in the Check Run to be voided.
+        Check Numbers increment in intervals of one (1) beginning with the
+        first Check Number displayed above.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>
+<indexterm significance="normal">
+          <primary>checks</primary>
+
+          <secondary>replacing voided</secondary>
+        </indexterm>Issue Replacement Checks</term>
+
+      <listitem>
+        <para>Select to issue replacement Checks for the Checks being
+        voided.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+
+      <listitem>
+        <para>Closes the screen without voiding the Check Run, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>VOID</term>
+
+      <listitem>
+        <para>Voids the Check Run, using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

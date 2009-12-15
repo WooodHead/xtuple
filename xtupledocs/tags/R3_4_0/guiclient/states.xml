@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="states">
+  <title><indexterm>
+      <primary>states</primary>
+      <secondary>master list of</secondary>
+    </indexterm><indexterm>
+      <primary>provinces</primary>
+      <secondary>master list of</secondary>
+    </indexterm>States and Provinces</title>
+  <para>A simple list of State and Province definitions is provided with the
+  system for use in Address records. To access or edit the master list of
+  States and Provinces, select System &gt; Master Information &gt; States and
+  Provinces... The following screen will appear:<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/states.png" />
+        </imageobject>
+        <caption><para>States and Provinces Master List</para></caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "List States and Provinces" screen displays information on all
+  defined States or Provinces, including the Abbreviation, full Name, and
+  parent Country.</para>
+  <para>When viewing the list of States and Provinces, you are presented with
+  the following option:<variablelist>
+      <varlistentry>
+        <term>States and Provinces in</term>
+        <listitem>
+          <para>Select a Country from the list of available options to show
+          only those states and provinces already defined for that
+          Country.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new State or Province
+        definition.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted State or Province definitions.
+        The edit screen is the same as that for creating a new State or
+        Province definition&mdash;except that when editing, the fields will
+        contain State or Province information. Double-clicking on a State or
+        Province definition will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a State or Province definition and then select this
+        button to reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a State or Province definition and then select this
+        button to remove the State or Province from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="state.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

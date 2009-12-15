@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>freight classes</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Freight Class</title>
+  <para>To create a new Freight Class, select the NEW button. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/freightClass.png" />
+        </imageobject>
+        <caption>Create New Freight Class</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>Create your Freight Classes using a logical, hierarchical structure.
+    This will make it easier to retrieve Freight Class information in the
+    future.</para>
+  </tip>
+  <para>When creating a new Freight Class, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Freight Class</term>
+      <listitem>
+        <para>Enter a unique code to identify the Freight Class.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a description to further identify the Freight
+        Class.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a Freight Class, returning
+        you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Class Code and adds it to the master list of Freight
+        Classes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

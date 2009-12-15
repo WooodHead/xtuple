@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="correctPoReceipt">
+  <title>
+<indexterm significance="normal">
+      <primary>receipts</primary>
+      <secondary>correction of</secondary>
+    </indexterm>Correct P/O Receipt</title>
+  <para>To make corrections to a Purchase Order Receipt,
+  select the "Correct Receiving" option from the right-click menu. The
+  following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/correctPoReceipt.png"/>
+        </imageobject>
+        <caption>Correct Purchase Order Receipt</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When correcting a Purchase Order Receipt, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>P/O Number</term>
+      <listitem>
+        <para>Displays the selected Purchase Order Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Line #</term>
+      <listitem>
+        <para>Displays the selected Line Item Number from the specified
+        Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays Item Number associated with the specified Line Item
+        Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vend. Item Number</term>
+      <listitem>
+        <para>Displays the Item Number the Vendor uses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor Item Description</term>
+      <listitem>
+        <para>Displays the description for the Vendor Item Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor UOM</term>
+      <listitem>
+        <para>Displays the Unit of Measure the Vendor uses for the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Inventory/Vendor UOM Ratio</term>
+      <listitem>
+        <para>/Vendor UOM Ratio: Displays the ratio between Inventory and
+        Vendor Units of Measure.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The Inv./Vendor UOM Ratio specifies the ratio
+    between Inventory and Vendor Units of Measure (UOM). For example, if you
+    store an Item in single units, but a Vendor sells you the Item in cases of
+    12, then the ratio would be 12—or 12:1. When an Inv./Vend. ratio is
+    specified, the system allows you to purchase Items using the Vendor's UOM;
+    however, when the Items are received, the system will automatically
+    convert the Inventory to your Inventory UOM.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Displays the date when the Line Item is due.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Ordered</term>
+      <listitem>
+        <para>Displays the original Line Item quantity ordered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Received</term>
+      <listitem>
+        <para>Displays the total Line Item quantity received to date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Correct Qty. to</term>
+      <listitem>
+        <para>Enter the quantity you want to correct the received quantity to.
+        This correction will create adjusting General Ledger entries when the
+        CORRECT button is selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>
+<indexterm significance="normal">
+          <primary>freight</primary>
+          <secondary>correcting for purchasing</secondary>
+        </indexterm>Correct Freight to</term>
+      <listitem>
+        <para>Enter the amount you want to correct the Line Item freight to.
+        This correction will create adjusting General Ledger entries when the
+        CORRECT button is selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the correction.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without entering a correction, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CORRECT</term>
+      <listitem>
+        <para>Select to post the correction. This action will result in
+        adjusting General Ledger transactions.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
