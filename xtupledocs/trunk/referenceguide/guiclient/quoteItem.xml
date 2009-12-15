@@ -325,7 +325,7 @@
         </note>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term><indexterm significance="normal">
           <primary>sites</primary>
           <secondary>for make-to-order</secondary>
@@ -437,6 +437,20 @@
         pre-defined Value; or 4) make no selection. Making no selection means
         the Characteristics will not be associated with the Quote Line
         Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Base Price</term>
+      <listitem>
+        <para>If the Quote Item is a configured Item (i.e., Job or Reference
+        Item), the "Base Price" option will be shown. Characteristics
+        associated with configured Items may have additional List Prices
+        associated with them. As a result, when Characteristics are added to a
+        Quote Item, the overall Price of the Item may increase. The Base Price
+        shows the Price before any Characteristic List Prices have been added
+        to the Net Unit Price. To learn more about adding price
+        Characteristics to configured Items, see <xref
+        linkend="configItemChar" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -32,7 +32,10 @@
     <varlistentry>
       <term>Bank Account</term>
       <listitem>
-        <para>Specify the Bank Account for the Check you want to print.</para>
+        <para>Specify the Bank Account for the Check you want to print. If the
+        specified Bank Account is configured to use Automated Clearing House
+        (ACH), the CREATE ACH FILE button will be enabled on this
+        screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -69,7 +72,9 @@
     <varlistentry role="standard">
       <term>CREATE ACH FILE</term>
       <listitem>
-        <para>Select to create an Automated Clearing House (ACH) file.</para>
+        <para>Select to create an Automated Clearing House (ACH) file. This
+        button will be enabled only for Bank Accounts which are configured to
+        use ACH.</para>
       </listitem>
     </varlistentry>
   </variablelist>

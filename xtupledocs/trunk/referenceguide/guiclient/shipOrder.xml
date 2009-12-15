@@ -75,16 +75,14 @@
         If this option is not used, Transfer Order Items must be received
         manually at the Destination Site. This option will be disabled if a
         Sales Order is specified.</para>
+        <tip>
+          <para>The system will move Transfer Order Items to the specified
+          Transit Site when the Order is shipped. If the Order is marked to be
+          received immediately, the system will then receive Inventory at the
+          Destination Site.</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>The system will move Transfer Order Items to the specified Transit
-    Site when the Order is shipped. If the Order is marked to be received
-    immediately, the system will then receive Inventory at the Destination
-    Site.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term>Bill To</term>
       <listitem>
@@ -96,15 +94,13 @@
       <term>Ship To</term>
       <listitem>
         <para>Displays the appropriate Ship-To Address.</para>
+        <tip>
+          <para>If your site integrates UPS WorldShip with the system, you
+          should process Orders in WorldShip after they have been issued to
+          Shipping&mdash;but before they have been shipped.</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>If your site integrates UPS WorldShip with the system, you should
-    process Orders in WorldShip after they have been issued to
-    Shipping&mdash;but before they have been shipped.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term>Items to Ship</term>
       <listitem>
@@ -132,30 +128,28 @@
         <para>Enter the amount of freight charge to be added to the specified
         Order. Freight charges may be entered during the creation or
         modification of an Order&mdash;or at the time of shipment.</para>
+        <note>
+          <para>The system supports up-to-date shipment tracking with links to
+          the websites of many leading shipping companies (i.e., "Ship
+          Vias").</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>The system supports up-to-date shipment tracking with links to the
-    websites of many leading shipping companies (i.e., "Ship Vias").</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Ship Via</term>
       <listitem>
         <para>Specify the Ship Via for the Order. The Ship Via field supports
         free-form Ship Vias. If you want to enter a free-form Ship Via, simply
         type the name of the Ship Via into the field.</para>
+        <tip>
+          <para>Get the most up-to-date tracking information directly from the
+          shipper's website by using the "Query Shipment Status" option found
+          in the "Shipments by Sales Order" report. This feature is enabled
+          for a limited number of shipping companies (i.e., "Ship
+          Vias")</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>Get the most up-to-date tracking information directly from the
-    shipper's website by using the "Query Shipment Status" option found in the
-    "Shipments by Sales Order" report. This feature is enabled for a limited
-    number of shipping companies (i.e., "Ship Vias")</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term>Tracking Number</term>
       <listitem>

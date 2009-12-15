@@ -48,13 +48,10 @@
     <varlistentry>
       <term>PRINT</term>
       <listitem>
-        <para>Runs the report associated with this screen.</para>
+        <para>Runs the report associated with this screen. If the specified
+        Customer has an EDI Profile attached, you may encounter an EDI
+        processing interface when printing the Customer Statement.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para role="standard"><tip>
-      <para>If the specified Customer has an EDI Profile attached, you may
-      encounter an EDI processing interface when printing the Customer
-      Statement.</para>
-    </tip></para>
 </section>
