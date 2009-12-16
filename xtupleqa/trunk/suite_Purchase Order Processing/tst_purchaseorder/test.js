@@ -300,6 +300,7 @@ function main()
     var sWidgetTreeControl = ":_qoh_XTreeWidget";
     waitForObject(sWidgetTreeControl);
     var obj_TreeWidget = findObject(sWidgetTreeControl);
+    obj_TreeWidget = cast(obj_TreeWidget, QTreeWidget);
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
@@ -364,15 +365,15 @@ function main()
     
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
-  
-  //-----Receiving Purchase Goods-----
-  waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
-  activateItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
-  waitForObjectItem(":xTuple ERP: *.Inventory_QMenu", "Receiving");
-  activateItem(":xTuple ERP: *.Inventory_QMenu", "Receiving");
-  waitForObjectItem(":xTuple ERP: *.Receiving_QMenu", "New Receipt...");
-  activateItem(":xTuple ERP: *.Receiving_QMenu", "New Receipt...");
-  
+    
+    //-----Receiving Purchase Goods-----
+    waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
+    activateItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
+    waitForObjectItem(":xTuple ERP: *.Inventory_QMenu", "Receiving");
+    activateItem(":xTuple ERP: *.Inventory_QMenu", "Receiving");
+    waitForObjectItem(":xTuple ERP: *.Receiving_QMenu", "New Receipt...");
+    activateItem(":xTuple ERP: *.Receiving_QMenu", "New Receipt...");
+    
     // Verification Point 'VP4'
     test.compare(findObject(":Enter Order Receipts...._QPushButton_2").text, "...");
     waitForObject(":Enter Order Receipts...._QPushButton");
@@ -494,6 +495,7 @@ function main()
     var sWidgetTreeControl = ":_qoh_XTreeWidget";
     waitForObject(sWidgetTreeControl);
     var obj_TreeWidget = findObject(sWidgetTreeControl);
+    obj_TreeWidget = cast(obj_TreeWidget, QTreeWidget);
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
@@ -523,6 +525,7 @@ function main()
     var sWidgetTreeControl = ":_qoh_XTreeWidget";
     waitForObject(sWidgetTreeControl);
     var obj_TreeWidget = findObject(sWidgetTreeControl);
+    obj_TreeWidget = cast(obj_TreeWidget, QTreeWidget);
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
@@ -553,6 +556,7 @@ function main()
     var sWidgetTreeControl = ":_qoh_XTreeWidget";
     waitForObject(sWidgetTreeControl);
     var obj_TreeWidget = findObject(sWidgetTreeControl);
+    obj_TreeWidget = cast(obj_TreeWidget, QTreeWidget);
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
@@ -582,6 +586,7 @@ function main()
     var sWidgetTreeControl = ":_qoh_XTreeWidget";
     waitForObject(sWidgetTreeControl);
     var obj_TreeWidget = findObject(sWidgetTreeControl);
+    obj_TreeWidget = cast(obj_TreeWidget, QTreeWidget);    
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
@@ -618,7 +623,7 @@ function main()
     type(":_dateGroup.XDateEdit_XDateEdit_2", "0");
     waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
     clickButton(":_sourceGroup.Selected Source:_QRadioButton");
-    waitForObjectItem(":_sourceGroup._source_XComboBox", "S/R");
+    waitForObject(":_sourceGroup._source_XComboBox");
     clickItem(":_sourceGroup._source_XComboBox", "S/R", 5, 5, 1, Qt.LeftButton);
     waitForObject(":General Ledger Transactions.Query_QPushButton");
     clickButton(":General Ledger Transactions.Query_QPushButton");
@@ -627,6 +632,7 @@ function main()
     var sWidgetTreeControl = ":_gltrans_XTreeWidget";
     waitForObject(sWidgetTreeControl);
     var obj_TreeWidget = findObject(sWidgetTreeControl);
+    obj_TreeWidget = cast(obj_TreeWidget, QTreeWidget);    
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     type(sWidgetTreeControl,"<Space>");
@@ -658,8 +664,8 @@ function main()
     
     waitForObject(":_poitems._poitem_XTreeWidget");
     doubleClickItem(":_poitems._poitem_XTreeWidget", "EA", 5, 5, 1, Qt.LeftButton);      
-    waitForObject(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget");
-    doubleClickItem(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Uninvoiced Recepts and Returns._uninvoiced_XTreeWidget");
+    doubleClickItem(":Uninvoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_distTab.New_QPushButton");
     clickButton(":_distTab.New_QPushButton");
     waitForObject(":Voucher._currency_XLineEdit");
@@ -687,8 +693,8 @@ function main()
     
     waitForObject(":_poitems._poitem_XTreeWidget");
     doubleClickItem(":_poitems._poitem_XTreeWidget", "GL", 5, 5, 1, Qt.LeftButton);      
-    waitForObject(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget");
-    doubleClickItem(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Uninvoiced Recepts and Returns._uninvoiced_XTreeWidget");
+    doubleClickItem(":Uninvoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_distTab.New_QPushButton");
     clickButton(":_distTab.New_QPushButton");
     waitForObject(":Voucher._currency_XLineEdit");
@@ -716,8 +722,8 @@ function main()
     
     waitForObject(":_poitems._poitem_XTreeWidget");
     doubleClickItem(":_poitems._poitem_XTreeWidget", "EA", 5, 5, 1, Qt.LeftButton);      
-    waitForObject(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget");
-    doubleClickItem(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Uninvoiced Recepts and Returns._uninvoiced_XTreeWidget");
+    doubleClickItem(":Uninvoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_distTab.New_QPushButton");
     clickButton(":_distTab.New_QPushButton");
     waitForObject(":Voucher._currency_XLineEdit");
@@ -745,8 +751,8 @@ function main()
     
     waitForObject(":_poitems._poitem_XTreeWidget");
     doubleClickItem(":_poitems._poitem_XTreeWidget", "GL", 5, 5, 1, Qt.LeftButton);      
-    waitForObject(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget");
-    doubleClickItem(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Uninvoiced Recepts and Returns._uninvoiced_XTreeWidget");
+    doubleClickItem(":Uninvoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_distTab.New_QPushButton");
     clickButton(":_distTab.New_QPushButton");
     waitForObject(":Voucher._currency_XLineEdit");
@@ -898,7 +904,7 @@ function main()
     waitForObjectItem(":xTuple ERP: *.Payments_QMenu", "Prepare Check Run...");
     activateItem(":xTuple ERP: *.Payments_QMenu", "Prepare Check Run...");
     
-    waitForObjectItem(":Prepare Check Run._bankaccnt_XComboBox", "EBANK-eBank Checking Account");
+    waitForObject(":Prepare Check Run._bankaccnt_XComboBox");
     clickItem(":Prepare Check Run._bankaccnt_XComboBox", "EBANK-eBank Checking Account", 5, 5, 1, Qt.LeftButton);
     waitForObject(":Prepare Check Run.Prepare_QPushButton");
     clickButton(":Prepare Check Run.Prepare_QPushButton");
@@ -1005,7 +1011,7 @@ function main()
     type(":_dateGroup.XDateEdit_XDateEdit_2", "0");
     waitForObject(":_sourceGroup.Selected Source:_QRadioButton");
     clickButton(":_sourceGroup.Selected Source:_QRadioButton");
-    waitForObjectItem(":_sourceGroup._source_XComboBox", "A/P");
+    waitForObject(":_sourceGroup._source_XComboBox");
     clickItem(":_sourceGroup._source_XComboBox", "A/P", 5, 5, 1, Qt.LeftButton);
     waitForObject(":General Ledger Transactions.Query_QPushButton");
     clickButton(":General Ledger Transactions.Query_QPushButton");
@@ -1014,6 +1020,7 @@ function main()
     var sWidgetTreeControl = ":_gltrans_XTreeWidget";
     waitForObject(sWidgetTreeControl);
     var obj_TreeWidget = findObject(sWidgetTreeControl);
+    obj_TreeWidget = cast(obj_TreeWidget, QTreeWidget);        
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     type(sWidgetTreeControl,"<Space>");

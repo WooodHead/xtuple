@@ -127,6 +127,7 @@
 :Select Payments._select_XComboBox	{container=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin.Select Payments_QWorkspaceChild' name='_select' type='XComboBox' visible='1'}
 :Select Payments.frame_QFrame	{container=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin.Select Payments_QWorkspaceChild' name='frame' type='QFrame' visible='1'}
 :System Message (printChecks.cpp at 447)_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='System Message (printChecks.cpp at 447)'}
+:Uninvoiced Recepts and Returns._uninvoiced_XTreeWidget	{container=':[*]Voucher.Uninvoiced Recepts and Returns_QGroupBox' name='_uninvoiced' type='XTreeWidget' visible='1'}
 :Univoiced Recepts and Returns._uninvoiced_XTreeWidget	{container=':Voucher.Univoiced Recepts and Returns_QGroupBox' name='_uninvoiced' type='XTreeWidget' visible='1'}
 :Use Default Location._locations_XComboBox	{container=':_locationGroup.Use Default Location_QGroupBox' name='_locations' type='XComboBox' visible='1'}
 :Vendor.Save_QPushButton	{container=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin.Vendor_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
@@ -159,6 +160,7 @@
 :Voucher._voucherGroup_QGroupBox	{container=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin.Voucher_QWorkspaceChild' name='_voucherGroup' type='QGroupBox' visible='1'}
 :Voucher.qt_tabwidget_stackedwidget_QStackedWidget	{container=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin.Voucher_QWorkspaceChild' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
 :Voucher.qt_tabwidget_stackedwidget_QStackedWidget_2	{container=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin.Voucher_QWorkspaceChild' name='qt_tabwidget_stackedwidget' occurrence='2' type='QStackedWidget' visible='1'}
+:[*]Voucher.Uninvoiced Recepts and Returns_QGroupBox	{container=':xTuple ERP:*.[*]Voucher_QWorkspaceChild' name='_uninvoicedGroup' title='Uninvoiced Recepts and Returns' type='QGroupBox' visible='1'}
 :[*]Voucher._voucherGroup_QGroupBox	{container=':xTuple ERP:*.[*]Voucher_QWorkspaceChild' name='_voucherGroup' type='QGroupBox' visible='1'}
 :_QMenu	{type='QMenu' unnamed='1' visible='1'}
 :_accountGroup.All Accounts_QRadioButton	{container=':General Ledger Transactions._accountGroup_QGroupBox' name='_allAccounts' text='All Accounts' type='QRadioButton' visible='1'}
