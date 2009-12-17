@@ -36,6 +36,7 @@ SELECT -1 AS id,
        invchead_ordernumber AS ordernumber,
        cohead_id AS ordernumber_xtidrole,
        <? value("invoice") ?>  AS doctype,
+       NULL AS doctype_qtforegroundrole,
        invoicetotal(invchead_id) AS amount,
        0 AS paid,
        0 AS balance,
@@ -103,6 +104,8 @@ SELECT -1 AS id,
        NULL::text AS ordernumber,
        -1 AS ordernumber_xtidrole,
        <? value("creditMemo") ?>  AS doctype,
+       CASE WHEN (NOT cmhead_posted) THEN 'emphasis'
+       END AS doctype_qtforegroundrole,
        creditmemototal(cmhead_id) AS amount,
        0 AS paid,
        0 AS balance,
@@ -176,6 +179,10 @@ SELECT aropen_id AS id,
             WHEN (aropen_doctype='R') THEN <? value("cashdeposit") ?>
             ELSE <? value("other") ?>
        END AS doctype,
+       CASE WHEN (aropen_doctype='C') THEN 'emphasis' 
+         ELSE CASE WHEN(aropen_doctype='R')THEN 'altemphasis'
+         END
+       END AS doctype_qtforegroundrole,
        aropen_amount AS amount,
        (aropen_paid + (COALESCE(SUM(arapply_target_paid),0)) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) AS paid,
@@ -274,6 +281,7 @@ SELECT -1,
        CAST(incdt_number AS text) AS ordernumber,
        incdt_id AS ordernumber_xtidrole,
        NULL AS doctype,
+       NULL AS doctype_qtforegroundrole,
        NULL AS amount,
        NULL AS paid,
        NULL AS balance,
