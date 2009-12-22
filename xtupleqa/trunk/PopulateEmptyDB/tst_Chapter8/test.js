@@ -90,6 +90,7 @@ function main()
     doubleClickItem(":_frame._emp_XTreeWidget_2", username, 0, 0, 0, Qt.LeftButton);
     waitForObject(":Employee.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Employee.qt_tabwidget_tabbar_QTabBar", "Detail");
+    waitForObject(":_relationshipsGroup._salesrep_XCheckBox_2");
     if(!findObject(":_relationshipsGroup._salesrep_XCheckBox_2").checked)
         clickButton(":_relationshipsGroup._salesrep_XCheckBox_2");
     waitForObject(":_relationshipsGroup.Sales Rep..._QPushButton_2");
@@ -547,6 +548,7 @@ function main()
         clickItem(":Form._key_XComboBox", "Sales Orders",0,0,1,Qt.LeftButton);
     waitForObject(":Form.Save_QPushButton");
     clickButton(":Form.Save_QPushButton");
+    snooze(1);
     waitForObject(":List Forms._form_XTreeWidget");
     if(!clickItem(":List Forms._form_XTreeWidget", "SO-Acknowledge", 5, 5, 1, Qt.LeftButton))
         test.pass("Form Created: SO-Acknowledge");
@@ -820,7 +822,7 @@ function main()
     waitForObject(":List Customer Groups._custgrp_XTreeWidget");
     if(!clickItem(":List Customer Groups._custgrp_XTreeWidget", "US-VA", 5, 5, 1, Qt.LeftButton))
         test.pass("Customer Group Created");
-    
+    snooze(1);
     waitForObject(":List Customer Groups.Close_QPushButton");
     clickButton(":List Customer Groups.Close_QPushButton");
   
@@ -861,13 +863,13 @@ function main()
     clickButton(":List Reason Codes.Close_QPushButton");
  
   
-    //---------------Define Pricing Schedule---------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
-    activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
+  //---------------Define Pricing Schedule---------------
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+  activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
   
     waitForObject(":List Pricing Schedules.New_QPushButton");
     clickButton(":List Pricing Schedules.New_QPushButton");

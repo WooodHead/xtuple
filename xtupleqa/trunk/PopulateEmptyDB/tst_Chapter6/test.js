@@ -16,7 +16,7 @@ function main()
     waitForObject(":xTuple ERP: OpenMFG Edition.Costing_QMenu");
     activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "User-Defined Costing Elements...");
     
-    snooze(1);
+    waitForObject(":List User-Defined Costing Elements.New_QPushButton");
     clickButton(":List User-Defined Costing Elements.New_QPushButton");
     waitForObject(":_name_XLineEdit_7");
     type(":_name_XLineEdit_7", "Special Handling");
@@ -37,7 +37,7 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
     activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
-   
+ 
     waitForObject(":Maintain Item Costs...._QPushButton");
     clickButton(":Maintain Item Costs...._QPushButton");
     waitForObject(":_item_XTreeWidget_4");
@@ -54,12 +54,12 @@ function main()
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for TBODY1 defined");    
-    
-    
+  
+    snooze(1);
     waitForObject(":Maintain Item Costs...._QPushButton");
     clickButton(":Maintain Item Costs...._QPushButton");
     waitForObject(":_item_XTreeWidget_4");
-    doubleClickItem(":_item_XTreeWidget_4","TBOX1",0,0,1,Qt.LeftButton);    
+    doubleClickItem(":_item_XTreeWidget_4","TBOX1",0,0,1,Qt.LeftButton);  
     waitForObject(":Maintain Item Costs.New Cost_QPushButton");
     clickButton(":Maintain Item Costs.New Cost_QPushButton");
     waitForObject(":Create Item Cost._costelem_XComboBox");
@@ -71,7 +71,7 @@ function main()
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for TBOX1 defined");    
-      
+//    snooze(1);  
     waitForObject(":Maintain Item Costs...._QPushButton");
     clickButton(":Maintain Item Costs...._QPushButton");
     waitForObject(":_item_XTreeWidget_4");
@@ -87,8 +87,8 @@ function main()
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for TINSERT1 defined");    
-    
-    
+  
+    snooze(1);
     waitForObject(":Maintain Item Costs...._QPushButton");
     clickButton(":Maintain Item Costs...._QPushButton");
     waitForObject(":_item_XTreeWidget_4");
@@ -105,7 +105,7 @@ function main()
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for TWHEEL1 defined");    
     
-  
+    snooze(1);
     waitForObject(":Maintain Item Costs...._QPushButton");
     clickButton(":Maintain Item Costs...._QPushButton");
     waitForObject(":_item_XTreeWidget_4");
@@ -122,7 +122,7 @@ function main()
     clickButton(":Create Item Cost.Save_QPushButton");
     test.log("Material cost for YPAINT1 defined");    
    
-   
+   snooze(1);
     waitForObject(":Maintain Item Costs...._QPushButton");
     clickButton(":Maintain Item Costs...._QPushButton");
     waitForObject(":_item_XTreeWidget_4");
@@ -137,12 +137,13 @@ function main()
     type(":Create Item Cost._currency_XLineEdit", "2.00");
     clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
     clickButton(":Create Item Cost.Save_QPushButton");
+    snooze(1);
     test.log("Special Handling cost for YPAINT1 defined");    
     waitForObject(":Maintain Item Costs.Close_QPushButton");
     clickButton(":Maintain Item Costs.Close_QPushButton");
     
-  
-     //---------Update Actual Costs-------------
+
+    //---------Update Actual Costs-------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");

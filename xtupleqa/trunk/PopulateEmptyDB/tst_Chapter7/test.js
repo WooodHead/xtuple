@@ -60,8 +60,7 @@ function main()
     waitForObject(":Inventory Configuration.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Inventory Configuration.qt_tabwidget_tabbar_QTabBar", "Shipping and Receiving");
     waitForObject(":_nextShipmentNum_XLineEdit");
-    type(":_nextShipmentNum_XLineEdit", "<Ctrl+A>");
-    type(":_nextShipmentNum_XLineEdit", "<Del>");
+    findObject(":_nextShipmentNum_XLineEdit").clear();
     type(":_nextShipmentNum_XLineEdit", "10000");
     if(findObject(":tab_2.Disallow P/O Receipt of Qty greater than ordered_QCheckBox").checked)
         clickButton(":tab_2.Disallow P/O Receipt of Qty greater than ordered_QCheckBox");
@@ -69,9 +68,9 @@ function main()
         clickButton(":tab_2.Warn if P/O Receipt Qty differs from receivable Qty_QCheckBox");
     waitForObject(":_tolerance_QLineEdit");
     type(":_tolerance_QLineEdit", "5");
-    type(":_shipformNumOfCopies_QSpinBox", "<Ctrl+A>");
-    type(":_shipformNumOfCopies_QSpinBox", "<Del>");
+    findObject(":_shipformNumOfCopies_QSpinBox").clear();
     type(":_shipformNumOfCopies_QSpinBox", "2");
+    snooze(2);
     doubleClickItem(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget", "Copy #1",5,5,0,Qt.LeftButton);
     waitForObject(":Invoice/Credit Memo Watermark._watermark_XLineEdit");
     type(":Invoice/Credit Memo Watermark._watermark_XLineEdit", "Customer");
@@ -332,15 +331,15 @@ function main()
     clickButton(":List Vendors.Close_QPushButton");
   
 
-  
-  //------------Create Item Sources------------------
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-  activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
-  activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
-  
+
+//------------Create Item Sources------------------
+waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+
     //----Item source for TBOX1--------------
     waitForObject(":_frame.New_QPushButton");
     clickButton(":_frame.New_QPushButton");
@@ -401,7 +400,7 @@ function main()
     clickButton(":_vendorGroup...._QPushButton_2");
     waitForObject(":_listTab_XTreeWidget_3");
     doubleClickItem(":_listTab_XTreeWidget_3","TPARTS",0,0,0,Qt.LeftButton);
-
+    waitForObject(":_venditemGroup._vendorItemNumber_XLineEdit");
     type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPBODY01");
     type(":_vendorUOM_XLineEdit", "PCS");
     type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");

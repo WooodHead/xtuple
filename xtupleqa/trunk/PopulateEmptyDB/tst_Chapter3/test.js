@@ -19,7 +19,7 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
 
     COA("01","01","4050","01","State Sales Tax Revenue","Revenue","SO");
-    waitForObject(":_account_XTreeWidget_2");
+    waitForObject(":_account_XTreeWidget_2", 2);
     if(!clickItem(":_account_XTreeWidget_2", "State Sales Tax Revenue", 5, 5, 1, Qt.LeftButton))
         test.pass("COA Created for: State Sales Tax Revenue");
     
@@ -29,13 +29,13 @@ function main()
     //-----Define Taxation------
     defineTaxation();
 
-    //----------Create Items---------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
-    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
+  //----------Create Items---------------------
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
+  activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
+  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
+  activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
 
 
     //-----------Create Item YTRUCK1---------------
@@ -67,6 +67,7 @@ function main()
     type(":_prodWeight_XLineEdit_3", "3.5");
     type(":_packWeight_XLineEdit_3", ".25");
    
+    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
     clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8","Characteristics");
     waitForObject(":_characteristicsTab.New_QPushButton_6");
     clickButton(":_characteristicsTab.New_QPushButton_6");
@@ -89,12 +90,19 @@ function main()
     waitForObject(":Item Characteristic.Save_QPushButton");
     clickButton(":Item Characteristic.Save_QPushButton");
     waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
+    snooze(1);
     clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8","Tax Types");    
     waitForObject(":_taxtypesTab.New_QPushButton_10");
     clickButton(":_taxtypesTab.New_QPushButton_10");
     waitForObject(":_taxzone_XComboBox");
-    clickItem(":_taxzone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
-    clickItem(":_taxtype_XComboBox_4", "EDU", 0, 0, 1, Qt.LeftButton);
+    type(":_taxzone_XComboBox", "TZONE1-Tax Zone1");
+    while(findObject(":_taxzone_XComboBox").currentText!="TZONE1-Tax Zone1")
+        snooze(0.1);
+    waitForObject(":_taxtype_XComboBox_4");
+    type(":_taxtype_XComboBox_4", "EDU");
+    while(findObject(":_taxtype_XComboBox_4").currentText!="EDU")
+        snooze(0.1);
+  
     waitForObject(":Item Tax.Save_QPushButton");
     clickButton(":Item Tax.Save_QPushButton");
       
@@ -225,7 +233,7 @@ function main()
     waitForObject(":List Items._item_XTreeWidget_3");
     if(!clickItem(":List Items._item_XTreeWidget_3", "TSUB1", 5, 5, 1, Qt.LeftButton))
         test.pass("Item Created: TSUB1");
-    
+   
     
     
     //----------Create Item TBOX1------------
@@ -289,13 +297,13 @@ function main()
   
 
 
-    //---------------Create Item sites------------------------------ 
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+---------------Create Item sites------------------------------ 
+itForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+tivateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+itForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+tivateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+itForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+tivateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
 
     //---------Item site: YTRUCK1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
@@ -318,9 +326,9 @@ function main()
     type(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3","<Del>");
     type(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3","1");
     clickButton(":Costing Method.Standard_QRadioButton_3");
-    clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);                    
-    clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);                    
-    clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton);                    
+    clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);  
+    
+    clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);                   clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton);                    
     waitForObject(":_inventory.Stocked_QCheckBox_3");
     if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
         clickButton(":_inventory.Stocked_QCheckBox_3");
@@ -331,12 +339,18 @@ function main()
     type(":_cycleCountFreq_QSpinBox_3", "30");
     type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
     type(":_eventFence_QSpinBox_4", "<Del>");
-    type(":_eventFence_QSpinBox_4", "10");type(":_locationGroup._locationComments_XLineEdit_3", "FG-01-01-01");
+    type(":_eventFence_QSpinBox_4", "10");
+    type(":_locationGroup._locationComments_XLineEdit_3", "FG-01-01-01");
+    snooze(2);
     waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
+    while(!object.exists(":_planningTab.Enforce Order Parameters_QGroupBox_3"))
+        snooze(0.1);
+    snooze(1);
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
     if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
-        type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+        type(":_planningTab.Enforce Order Parameters_QGroupBox_3", " ");
+    
     waitForObject(":_reorderLevel_XLineEdit_3");
     type(":_reorderLevel_XLineEdit_3", "0.00");
     type(":_orderUpToQty_XLineEdit_3", "0.00");
@@ -407,6 +421,7 @@ function main()
     type(":_eventFence_QSpinBox_4", "<Del>");
     type(":_eventFence_QSpinBox_4", "10");
     type(":_locationGroup._locationComments_XLineEdit_3", "FG-01-01-01");
+    snooze(2); 
     waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
@@ -455,7 +470,8 @@ function main()
     
     
     //---------Item site: TINSERT1----------------------
-    waitForObject(":List Item Sites.New_QPushButton_3");
+    snooze(1);
+    waitForObject(":List Item Sites.New_QPushButton_3",2);
     clickButton(":List Item Sites.New_QPushButton_3");
     waitForObject(":Item Site...._QPushButton");
     clickButton(":Item Site...._QPushButton");
@@ -484,8 +500,10 @@ function main()
     type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
     type(":_eventFence_QSpinBox_4", "<Del>");
     type(":_eventFence_QSpinBox_4", "10");type(":_locationGroup._locationComments_XLineEdit_3", "FG-01-01-01");
+    snooze(2);  
     waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
+    snooze(1);
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
     if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
         type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
@@ -528,7 +546,7 @@ function main()
     if(!clickItem(":_itemSite_XTreeWidget_2", "TINSERT1", 5, 5, 1, Qt.LeftButton))
         test.pass("Item Site Created: TINSERT1");
     
-    
+  
     //---------Item site: TWHEEL1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
     clickButton(":List Item Sites.New_QPushButton_3");
@@ -564,8 +582,10 @@ function main()
     type(":_eventFence_QSpinBox_4", "<Del>");
     type(":_eventFence_QSpinBox_4", "10");
     type(":_locationGroup._locationComments_XLineEdit_3", "FG-01-01-01");
+    snooze(2);      
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
+    snooze(1);
     if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
         type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
     waitForObject(":_reorderLevel_XLineEdit_3");
@@ -639,7 +659,9 @@ function main()
     type(":_eventFence_QSpinBox_4", "<Del>");
     type(":_eventFence_QSpinBox_4", "10");
     type(":_locationGroup._locationComments_XLineEdit_3", "WP-01-01-01");
+    snooze(2);
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
+    snooze(1);
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
     if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
         type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
@@ -715,6 +737,9 @@ function main()
     clickButton(":_locationGroup.Multiple Location Control_QCheckBox_3");
     type(":_locationGroup.Use Default Location_QGroupBox_3","01010103");
     type(":_locationGroup._locationComments_XLineEdit_3", "RM-01-01-01");
+    snooze(2);
+    waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
+    snooze(1);
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
     if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
@@ -792,6 +817,9 @@ function main()
     findObject(":_eventFence_QSpinBox_4").clear();
     type(":_eventFence_QSpinBox_4", "10");
     type(":_locationGroup._locationComments_XLineEdit_3", "RM-01-01-01");
+    snooze(2);
+    waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
+    snooze(1);
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");	
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
     if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)

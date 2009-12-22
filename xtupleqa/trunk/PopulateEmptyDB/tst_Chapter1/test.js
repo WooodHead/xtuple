@@ -5,15 +5,15 @@
 
 function main()
 {
-
+    
     
     //-----declarations------
     source(findFile("scripts","functions.js"));
-        
+    
     //---login Application--------
     loginAppl("CONFIGURE"); 
     var appEdition = findApplicationEdition();
-
+  
     //-----create Entities-------
     createDept("MFG","Manufacturing");
     assignPrivileges();
@@ -41,8 +41,8 @@ function main()
     }
     createLocale("MYLOCALE","My Locale For Class");
     createGroup("SUPER","Super User Group");
-  
-
+    
+    
     //-------------Configure: Accounting Module----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -66,7 +66,7 @@ function main()
         findObject(":_companySegmentSize_QSpinBox_2").clear();
         type(":_companySegmentSize_QSpinBox_2", "2");
     }
-   
+    
     if(findObject(":_subaccountSize_QSpinBox_2").currentText!="2")
     {
         findObject(":_subaccountSize_QSpinBox_2").clear();    
@@ -120,7 +120,7 @@ function main()
     //-------Create Company: Prodiem---------
     createCompany("01","Prodiem");
     
-
+    
     //-------------Accounting-Profit Center Number---------------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -136,28 +136,15 @@ function main()
     waitForObject(":List Profit Centers.Save_QPushButton");
     clickButton(":List Profit Centers.Save_QPushButton");
     
-    var sWidgetTreeControl = ":List Profit Centers._prftcntr_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    for(i=1;sNameOfRootItem!="01" || i<iNumberOfRootItems ;i++)
-    {
-        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
-        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-        type(sWidgetTreeControl,"<Down>"); 
-    }
-    if(sNameOfRootItem=="01")
+    waitForObject(":List Profit Centers._prftcntr_XTreeWidget");
+    if(findObject(":_prftcntr.01_QModelIndex").text== "01")
         test.pass("Profit Center Number: 01 created");
     else
         test.fail("Profit Center Number: 01 not created");
     waitForObject(":List Profit Centers.Close_QPushButton");
     clickButton(":List Profit Centers.Close_QPushButton");
-
-  
+    
+    
     //--------------Accounting-Account-SubAccount Numbers-----------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -176,6 +163,7 @@ function main()
     var sWidgetTreeControl = ":List Subaccounts._subaccnt_XTreeWidget";
     waitForObject(sWidgetTreeControl);
     var obj_TreeWidget = findObject(sWidgetTreeControl);
+    obj_TreeWidget = cast(obj_TreeWidget, QTreeWidget);
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     type(sWidgetTreeControl,"<Space>");
@@ -194,9 +182,9 @@ function main()
     waitForObject(":List Subaccounts.Close_QPushButton");
     clickButton(":List Subaccounts.Close_QPushButton");
     test.log("SubAccount: 01-General created");
-
-  
-  
+    
+    
+    
     //------------Account-Account-SubAccount Types-----------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -230,7 +218,8 @@ function main()
     
     var sWidgetTreeControl = ":List G/L Subaccount Types._subaccnttypes_XTreeWidget";
     waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
+        var obj_TreeWidget = findObject(sWidgetTreeControl);
+    obj_TreeWidget = cast(obj_TreeWidget, QTreeWidget);
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     type(sWidgetTreeControl,"<Space>");
@@ -332,7 +321,7 @@ function main()
     waitForObject(":List Currency Exchange Rates.Save_QPushButton");
     clickButton(":List Currency Exchange Rates.Save_QPushButton");
     waitForObject(":List Currency Exchange Rates._conversionRates_XTreeWidget");
-    if(!clickItem(":List Currency Exchange Rates._conversionRates_XTreeWidget", "EUR - EUR", 5, 5, 1, Qt.LeftButton))
+    if(findObject(":_conversionRates.EUR - €_QModelIndex").text== "EUR - EUR")
         test.pass("Exchange Rate of EUR created");
     else test.fail("Exchange Rate of EUR not created");
     waitForObject(":List Currency Exchange Rates.Close_QPushButton");
@@ -534,16 +523,27 @@ function main()
     }
     clickButton(":Database Information.Save_QPushButton");
     test.log("Database Information Defined");
-//    
+    
     
     if(appEdition=="Manufacturing" || appEdition=="Standard")
     {
-        //-----------Rescan privileges--------------
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
-      
+        waitForObject(":xTuple ERP: OpenMFG Edition.System_QMenu");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit xTuple ERP...");
+        
+        snooze(5);
+        
+        if(OS.name=="Linux")
+            startApplication("xtuple.bin");
+        
+        else
+            startApplication("xtuple");
+        
+        snooze(2);
+        
+        loginAppl("CONFIGURE"); 
+        
         //----Configure EDI Profile-----------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -739,6 +739,7 @@ function main()
         type(":Manufacture Configuration.Next Work Order #:_QLabel","Automatic");
     if(!findObject(":Manufacture Configuration.Automatically Explode W/O's_QCheckBox").checked)
         clickButton(":Manufacture Configuration.Automatically Explode W/O's_QCheckBox");
+    snooze(1);
     if(appEdition=="Manufacturing")
     {
         if(!findObject(":Manufacture Configuration.Auto Fill Post Operation Qty. to Balance_QCheckBox").checked)
@@ -826,18 +827,25 @@ function main()
         clickButton(":List Calendars.New_QPushButton_2");
         waitForObject(":List Calendars._name_XLineEdit_2");
         type(":List Calendars._name_XLineEdit_2", "WEEK"+ (i+1));
-        findObject(":List Calendars._offsetCount_QSpinBox").clear();
-        waitForObject(":List Calendars._offsetCount_QSpinBox");
-        type(":List Calendars._offsetCount_QSpinBox",i);
+       
+        findObject(":List Calendars.qt_spinbox_lineedit_QLineEdit_2").clear();
+        waitForObject(":List Calendars.qt_spinbox_lineedit_QLineEdit_2");
+        type(":List Calendars.qt_spinbox_lineedit_QLineEdit_2",i);
         waitForObject(":List Calendars._offsetType_QComboBox");
         type(":List Calendars._offsetType_QComboBox", "Weeks");
-        waitForObject(":List Calendars._periodCount_QSpinBox");
-        findObject(":List Calendars._periodCount_QSpinBox").clear();
-        type(":List Calendars._periodCount_QSpinBox",1);
+        waitForObject(":List Calendars.qt_spinbox_lineedit_QLineEdit");
+        findObject(":List Calendars.qt_spinbox_lineedit_QLineEdit").clear();
+        type(":List Calendars.qt_spinbox_lineedit_QLineEdit",1);
         waitForObject(":List Calendars._periodType_QComboBox");
-        clickItem(":List Calendars._periodType_QComboBox", "Weeks", 0, 0, 1, Qt.LeftButton);
+        type(":List Calendars._periodType_QComboBox", "Weeks");
         waitForObject(":List Calendars.Save_QPushButton");
-        clickButton(":List Calendars.Save_QPushButton");    
+        clickButton(":List Calendars.Save_QPushButton");
+        
+        var CalObj = "{column='0' container=':List Calendars._calitem_XTreeWidget' text='WEEK"+(i+1)+"' type='QModelIndex'}";
+        while(!object.exists(CalObj))
+            snooze(0.1);
+            
+
     }
     waitForObject(":List Calendars.Save_QPushButton_2");
     clickButton(":List Calendars.Save_QPushButton_2");
@@ -951,12 +959,12 @@ function main()
     waitForObject(":List Site Types.Close_QPushButton");
     clickButton(":List Site Types.Close_QPushButton");
  
-
- 
-  //-----------Create Inventory Site: WH1-----------------
+    
+    
+    //-----------Create Inventory Site: WH1-----------------
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
-    
+        
       waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
       activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
       waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
@@ -989,7 +997,7 @@ function main()
         type(":_contactGroup._fax_XLineEdit", "54321");
         type(":_contactGroup._email_XLineEdit", "demo@openmfg.com");
         type(":List Sites._main_XLineEdit", "01-01-1950-01");
-  
+        
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar","General");
         waitForObject(":_whsTypeStack._bolNumber_XLineEdit");
         type(":_whsTypeStack._bolNumber_XLineEdit", "10000");
@@ -998,26 +1006,20 @@ function main()
         clickButton(":_whsTypeStack.Force the use of Count Slips_QCheckBox");
         clickButton(":_whsTypeStack.Enforce the use of Zones_QCheckBox");
         type(":_whsTypeStack._shipcomm_XLineEdit", "0.00");
-      
+        
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar", "Site Locations");
         waitForObject(":_locationsTab.Enforce ARBL Naming Convention_QGroupBox");    
         type(":_locationsTab.Enforce ARBL Naming Convention_QGroupBox","Space>");
-        clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox");
-        type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "<Ctrl+A>");
-        type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "<Del>");
+        findObject(":Enforce ARBL Naming Convention._aisleSize_QSpinBox").clear();
         type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "2");
         clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox");
-        type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "<Ctrl+A>");
-        type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "<Del>");
+        findObject(":Enforce ARBL Naming Convention._rackSize_QSpinBox").clear();
         type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "2");
         clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_2");
-
-        type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "<Ctrl+A>");
-        type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "<Del>");
+        findObject(":Enforce ARBL Naming Convention._binSize_QSpinBox").clear();
         type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "2");
         clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_3");
-        type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "<Ctrl+A>");
-        type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "<Del>");
+        findObject(":Enforce ARBL Naming Convention._locationSize_QSpinBox");
         type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "2");
         clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_4");
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar", "Site Zones");
@@ -1038,8 +1040,8 @@ function main()
         waitForObject(":List Sites._warehouse_XTreeWidget");
         if(!clickItem(":List Sites._warehouse_XTreeWidget", "Prodiem Toys Site1", 5, 5, 1, Qt.LeftButton))
             test.pass("Site: Prodiem Toys Site1 created ");
-
- 
+        
+        
     }
     else if(appEdition=="PostBooks")
     {
@@ -1061,7 +1063,7 @@ function main()
         type(":_addressGroup.Postal Code:_XLineEdit", "23234324");
         clickItem(":_addressGroup._country_XComboBox_2", "United States", 0, 0, 1, Qt.LeftButton);
         type(":_accountGroup._main_XLineEdit_2", "01-01-1950-01");
-      
+        
         clickTab(":Site.qt_tabwidget_tabbar_QTabBar","Contact");
         waitForObject(":_honorific_QLineEdit_3");
         type(":_honorific_QLineEdit_3", "Mr");
@@ -1072,7 +1074,7 @@ function main()
         type(":_contactGroup._phone_XLineEdit_2", "34335");
         type(":_contactGroup._fax_XLineEdit_2", "5433421");
         type(":_contactGroup._email_XLineEdit_2", "john@test.com");
-      
+        
         
         clickTab(":Site.qt_tabwidget_tabbar_QTabBar","General");
         waitForObject(":_numberGroup._bolNumber_XLineEdit");
@@ -1085,12 +1087,16 @@ function main()
         
         clickTab(":Site.qt_tabwidget_tabbar_QTabBar", "Site Locations");
         waitForObject(":Enforce ARBL Naming Convention._aisleSize_QSpinBox_2");
+        findObject(":Enforce ARBL Naming Convention._aisleSize_QSpinBox_2").clear();
         type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox_2", "2");
         clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_5");
+        findObject(":Enforce ARBL Naming Convention._rackSize_QSpinBox_2").clear();
         type(":Enforce ARBL Naming Convention._rackSize_QSpinBox_2","2");
         clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_6");
+        findObject(":Enforce ARBL Naming Convention._binSize_QSpinBox_2").clear();
         type(":Enforce ARBL Naming Convention._binSize_QSpinBox_2","2");
         clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_7");
+        findObject(":Enforce ARBL Naming Convention._locationSize_QSpinBox_2").clear();
         type(":Enforce ARBL Naming Convention._locationSize_QSpinBox_2","2");
         clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_8");
         clickTab(":Site.qt_tabwidget_tabbar_QTabBar", "Site Zones");
@@ -1100,21 +1106,21 @@ function main()
         type(":_name_XLineEdit_31", "FG1");
         type(":_description_XLineEdit_38", "Finished Goods Zone1");
         clickButton(":Site Zone.Save_QPushButton");
- 
+        
         snooze(1);
         clickButton(":_zonesTab.New_QPushButton_2");
         waitForObject(":_name_XLineEdit_31");
-    
+        
         type(":_name_XLineEdit_31", "RM1");
         type(":_description_XLineEdit_38", "Raw Materials Zone1");
         clickButton(":Site Zone.Save_QPushButton");
- 
+        
         waitForObject(":Save_QPushButton_2");
         clickButton(":Save_QPushButton_2");
         test.log("site created:WH1");
         
     }
-         
+    
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         
@@ -1161,22 +1167,17 @@ function main()
         
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar", "Site Locations");
         waitForObject(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox");
-        clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox");
-        type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "<Ctrl+A>");
-        type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "<Del>");
+        findObject(":Enforce ARBL Naming Convention._aisleSize_QSpinBox").clear();
         type(":Enforce ARBL Naming Convention._aisleSize_QSpinBox", "2");
         clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox");
-        type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "<Ctrl+A>");
-        type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "<Del>");
+        findObject(":Enforce ARBL Naming Convention._rackSize_QSpinBox").clear();
         type(":Enforce ARBL Naming Convention._rackSize_QSpinBox", "2");
         clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_2");
-        type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "<Del>");
+        findObject(":Enforce ARBL Naming Convention._binSize_QSpinBox").clear();
         type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "2");
-        type(":Enforce ARBL Naming Convention._binSize_QSpinBox", "<Tab>");
         clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_3");
-        type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "<Del>");
+        findObject(":Enforce ARBL Naming Convention._locationSize_QSpinBox").clear();
         type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "2");
-        type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "<Tab>");
         clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_4");
         clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar", "Site Zones");
         
@@ -1202,7 +1203,7 @@ function main()
         waitForObject(":List Sites.Close_QPushButton");
         clickButton(":List Sites.Close_QPushButton");
     }
- 
+    
     
     
     //----------Configure: Inventory Module-----------------
@@ -1242,7 +1243,7 @@ function main()
         test.xverify(object.exists(":_toNumGeneration_QComboBox"),"To Number Generation combobox - not visible");
         test.xverify(object.exists(":_toNextNum_XLineEdit"),"To Next number - not visible");
         test.xverify(object.exists(":_inventory.Enable Lot/Serial Control_QCheckBox"),"Enable Lot/Serial Control - not visible");        
-
+        
     }
     if(!findObject(":Costing Methods Allowed.Average_QCheckBox").checked)
         clickButton(":Costing Methods Allowed.Average_QCheckBox");
@@ -1253,128 +1254,133 @@ function main()
     waitForObject(":Inventory Configuration.Save_QPushButton");
     clickButton(":Inventory Configuration.Save_QPushButton");
     test.log("Inventory Module Configured");
-
-
-//---Create User by Role--
-createUserByRole("RUNREGISTER");
-
-//----Read Username based on Role------
-var set = testData.dataset("login.tsv");
-var username;
-  for (var records in set)
-  {
-      username=testData.field(set[records],"USERNAME");
-      role=testData.field(set[records],"ROLE");
-      if(role=="RUNREGISTER") break;
-      
-  }
-
-  
-  //-------------User Preferences------------------------
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Preferences...");
-  activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Preferences...");
-  waitForObject(":User.Selected User:_QRadioButton");
-  clickButton(":User.Selected User:_QRadioButton");
-  waitForObject(":User._user_XComboBox");
-  clickItem(":User._user_XComboBox", username, 0, 0, 1, Qt.LeftButton);
-  if(appEdition=="Manufacturing"||appEdition=="Standard")
-  {
-      waitForObject(":Background Image.Image:_QRadioButton");
-      clickButton(":Background Image.Image:_QRadioButton");
-      waitForObject(":Background Image...._QPushButton");
-      clickButton(":Background Image...._QPushButton");    
-      waitForObject(":Image List._image_XTreeWidget");
-      doubleClickItem(":Image List._image_XTreeWidget","BACKGROUND",0,0,1,Qt.LeftButton);
-  }
-            
-  waitForObject(":Interface Options.Show windows as free-floating_QRadioButton");
-  if(!findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked)
-      clickButton(":Interface Options.Show windows as free-floating_QRadioButton");
-  type(":_idleTimeout_QSpinBox", "<Ctrl+A>");
-  type(":_idleTimeout_QSpinBox", "<Del>");
-  type(":_idleTimeout_QSpinBox", "20");
-  type(":_idleTimeout_QSpinBox", "<Tab>");
-  if(!findObject(":Interface Options.Ignore Missing Translations_QCheckBox").checked)
-      clickButton(":Interface Options.Ignore Missing Translations_QCheckBox");
-  if(appEdition=="Manufacturing"||appEdition=="Standard")
-      clickButton(":Preferred Site:.Site:_QRadioButton");
-  else if(appEdition=="PostBooks")
-      test.xverify(object.exists(":Preferred Site:.Site:_QRadioButton"),"Preferred Site - not visible");
-  waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
-  clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar", "Menu");
-  waitForObject(":_menu.Show Inventory Menu_QCheckBox");
-  clickButton(":_menu.Show Inventory Menu_QCheckBox");
-  waitForObject(":_menu.Show Inventory Toolbar_QCheckBox");
-  clickButton(":_menu.Show Inventory Toolbar_QCheckBox");
-  waitForObject(":_menu.Show Products Menu_QCheckBox");
-  clickButton(":_menu.Show Products Menu_QCheckBox");
-  waitForObject(":_menu.Show Products Toolbar_QCheckBox");
-  clickButton(":_menu.Show Products Toolbar_QCheckBox");
-  if(appEdition=="Manufacturing")
-  {
-      waitForObject(":_menu.Show Schedule Menu_QCheckBox");
-      clickButton(":_menu.Show Schedule Menu_QCheckBox");
-      waitForObject(":_menu.Show Schedule Toolbar_QCheckBox");
-      clickButton(":_menu.Show Schedule Toolbar_QCheckBox");
-  }
- else if(appEdition=="Standard"||appEdition=="PostBooks")
-  {
-      test.xverify(object.exists(":_menu.Show Schedule Menu_QCheckBox"),"Show Schedule Menu_QCheckBox - not visible");
-      test.xverify(object.exists(":_menu.Show Schedule Toolbar_QCheckBox"),"Show Schedule Toolbar - not visible");
-  }
-  waitForObject(":_menu.Show Purchase Menu_QCheckBox");
-  clickButton(":_menu.Show Purchase Menu_QCheckBox");
-  waitForObject(":_menu.Show Purchase Toolbar_QCheckBox");
-  clickButton(":_menu.Show Purchase Toolbar_QCheckBox");
-  waitForObject(":_menu.Show Manufacture Menu_QCheckBox");
-  clickButton(":_menu.Show Manufacture Menu_QCheckBox");
-  waitForObject(":_menu.Show Manufacture Toolbar_QCheckBox");
-  clickButton(":_menu.Show Manufacture Toolbar_QCheckBox");
-  waitForObject(":_menu.Show CRM Menu_QCheckBox");
-  clickButton(":_menu.Show CRM Menu_QCheckBox");
-  waitForObject(":_menu.Show CRM Toolbar_QCheckBox");
-  clickButton(":_menu.Show CRM Toolbar_QCheckBox");
-  waitForObject(":_menu.Show Sales Menu_QCheckBox");
-  clickButton(":_menu.Show Sales Menu_QCheckBox");
-  waitForObject(":_menu.Show Sales Toolbar_QCheckBox");
-  clickButton(":_menu.Show Sales Toolbar_QCheckBox");
-  waitForObject(":_menu.Show Accounting Menu_QCheckBox");
-  clickButton(":_menu.Show Accounting Menu_QCheckBox");
-  waitForObject(":_menu.Show Accountng Toolbar_QCheckBox");
-  clickButton(":_menu.Show Accountng Toolbar_QCheckBox");
-     
-  waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
-  if(appEdition=="Manufacturing")
-  {
-      clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar", "Events");
-      
-      var sWidgetTreeControl = ":_events._event_XTreeWidget";
-      waitForObject(sWidgetTreeControl);
-      var obj_TreeWidget = findObject(sWidgetTreeControl);
-      var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-      var iNumberOfRootItems = obj_TreeRootItem.childCount();
-      type(sWidgetTreeControl,"<Space>");
-      var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-      var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-      for(i=0; i<=iNumberOfRootItems ;i++)
-      {
-          clickItem(":_events._warehouses_XTreeWidget", "WH1", 5, 5, 1, Qt.LeftButton);
-          type(sWidgetTreeControl,"<Down>"); 
-      }
-      clickItem(":_events._warehouses_XTreeWidget", "WH1", 5, 5, 1, Qt.LeftButton); 
-  }	
-  waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
-  clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar","Alarms");
-  waitForObject(":Default Actions.Event_XCheckBox");
-  clickButton(":Default Actions.Event_XCheckBox");
-  clickButton(":Default Actions.System Message_XCheckBox");
-  
-  waitForObject(":User Preferences.Save_QPushButton");
-  clickButton(":User Preferences.Save_QPushButton");
     
-  test.log("User Preferences of "+username +":saved");
+    
+  //---Create User by Role--
+  createUserByRole("RUNREGISTER");
   
-
+    //----Read Username based on Role------
+    var set = testData.dataset("login.tsv");
+    var username;
+    for (var records in set)
+    {
+        username=testData.field(set[records],"USERNAME");
+        role=testData.field(set[records],"ROLE");
+        if(role=="RUNREGISTER") break;
+        
+    }
+    
+    
+    //-------------User Preferences------------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Preferences...");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Preferences...");
+    waitForObject(":User.Selected User:_QRadioButton");
+    clickButton(":User.Selected User:_QRadioButton");
+    waitForObject(":User._user_XComboBox");
+    clickItem(":User._user_XComboBox", username, 0, 0, 1, Qt.LeftButton);
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
+    {
+        waitForObject(":Background Image.Image:_QRadioButton");
+        clickButton(":Background Image.Image:_QRadioButton");
+        while(findObject(":Background Image.Image:_QRadioButton").checked!=true)
+            snooze(0.1);
+        while(findObject(":Background Image...._QPushButton").enabled!=true)
+            snooze(0.1);
+        waitForObject(":Background Image...._QPushButton");
+        clickButton(":Background Image...._QPushButton");    
+        waitForObject(":Image List._image_XTreeWidget");
+        doubleClickItem(":Image List._image_XTreeWidget","BACKGROUND",0,0,1,Qt.LeftButton);
+    }
+    
+    waitForObject(":Interface Options.Show windows as free-floating_QRadioButton");
+    if(!findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked)
+        clickButton(":Interface Options.Show windows as free-floating_QRadioButton");
+    type(":_idleTimeout_QSpinBox", "<Ctrl+A>");
+    type(":_idleTimeout_QSpinBox", "<Del>");
+    type(":_idleTimeout_QSpinBox", "20");
+    type(":_idleTimeout_QSpinBox", "<Tab>");
+    if(!findObject(":Interface Options.Ignore Missing Translations_QCheckBox").checked)
+        clickButton(":Interface Options.Ignore Missing Translations_QCheckBox");
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
+        clickButton(":Preferred Site:.Site:_QRadioButton");
+    else if(appEdition=="PostBooks")
+        test.xverify(object.exists(":Preferred Site:.Site:_QRadioButton"),"Preferred Site - not visible");
+    waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar", "Menu");
+    waitForObject(":_menu.Show Inventory Menu_QCheckBox");
+    clickButton(":_menu.Show Inventory Menu_QCheckBox");
+    waitForObject(":_menu.Show Inventory Toolbar_QCheckBox");
+    clickButton(":_menu.Show Inventory Toolbar_QCheckBox");
+    waitForObject(":_menu.Show Products Menu_QCheckBox");
+    clickButton(":_menu.Show Products Menu_QCheckBox");
+    waitForObject(":_menu.Show Products Toolbar_QCheckBox");
+    clickButton(":_menu.Show Products Toolbar_QCheckBox");
+    if(appEdition=="Manufacturing")
+    {
+        waitForObject(":_menu.Show Schedule Menu_QCheckBox");
+        clickButton(":_menu.Show Schedule Menu_QCheckBox");
+        waitForObject(":_menu.Show Schedule Toolbar_QCheckBox");
+        clickButton(":_menu.Show Schedule Toolbar_QCheckBox");
+    }
+    else if(appEdition=="Standard"||appEdition=="PostBooks")
+    {
+        test.xverify(object.exists(":_menu.Show Schedule Menu_QCheckBox"),"Show Schedule Menu_QCheckBox - not visible");
+        test.xverify(object.exists(":_menu.Show Schedule Toolbar_QCheckBox"),"Show Schedule Toolbar - not visible");
+    }
+    waitForObject(":_menu.Show Purchase Menu_QCheckBox");
+    clickButton(":_menu.Show Purchase Menu_QCheckBox");
+    waitForObject(":_menu.Show Purchase Toolbar_QCheckBox");
+    clickButton(":_menu.Show Purchase Toolbar_QCheckBox");
+    waitForObject(":_menu.Show Manufacture Menu_QCheckBox");
+    clickButton(":_menu.Show Manufacture Menu_QCheckBox");
+    waitForObject(":_menu.Show Manufacture Toolbar_QCheckBox");
+    clickButton(":_menu.Show Manufacture Toolbar_QCheckBox");
+    waitForObject(":_menu.Show CRM Menu_QCheckBox");
+    clickButton(":_menu.Show CRM Menu_QCheckBox");
+    waitForObject(":_menu.Show CRM Toolbar_QCheckBox");
+    clickButton(":_menu.Show CRM Toolbar_QCheckBox");
+    waitForObject(":_menu.Show Sales Menu_QCheckBox");
+    clickButton(":_menu.Show Sales Menu_QCheckBox");
+    waitForObject(":_menu.Show Sales Toolbar_QCheckBox");
+    clickButton(":_menu.Show Sales Toolbar_QCheckBox");
+    waitForObject(":_menu.Show Accounting Menu_QCheckBox");
+    clickButton(":_menu.Show Accounting Menu_QCheckBox");
+    waitForObject(":_menu.Show Accountng Toolbar_QCheckBox");
+    clickButton(":_menu.Show Accountng Toolbar_QCheckBox");
+    
+    waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
+    if(appEdition=="Manufacturing")
+    {
+           clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar", "Events");
+        
+        var sWidgetTreeControl = ":_events._event_XTreeWidget";
+        waitForObject(sWidgetTreeControl);
+        var obj_TreeWidget = findObject(sWidgetTreeControl);
+        obj_TreeWidget = cast(obj_TreeWidget, QTreeWidget);
+        var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
+        var iNumberOfRootItems = obj_TreeRootItem.childCount();
+        type(sWidgetTreeControl,"<Space>");
+        var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+        var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
+        for(i=0; i<=iNumberOfRootItems ;i++)
+        {
+            clickItem(":_events._warehouses_XTreeWidget", "WH1", 5, 5, 1, Qt.LeftButton);
+            type(sWidgetTreeControl,"<Down>"); 
+        }
+        clickItem(":_events._warehouses_XTreeWidget", "WH1", 5, 5, 1, Qt.LeftButton); 
+    }	
+    waitForObject(":User Preferences.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":User Preferences.qt_tabwidget_tabbar_QTabBar","Alarms");
+    waitForObject(":Default Actions.Event_XCheckBox");
+    clickButton(":Default Actions.Event_XCheckBox");
+    clickButton(":Default Actions.System Message_XCheckBox");
+    
+    waitForObject(":User Preferences.Save_QPushButton");
+    clickButton(":User Preferences.Save_QPushButton");
+    
+    test.log("User Preferences of "+username +":saved");
+    
+    
 }

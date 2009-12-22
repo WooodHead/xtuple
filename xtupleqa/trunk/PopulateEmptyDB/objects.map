@@ -722,6 +722,7 @@
 :List A/R Account Assignments_arAccountAssignments	{name='arAccountAssignments' type='arAccountAssignments' visible='1' windowTitle='List A/R Account Assignments'}
 :List Accounting Periods.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Accounting Periods_accountingPeriods'}
 :List Accounting Periods.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Accounting Periods_accountingPeriods'}
+:List Accounting Periods._period_XTreeWidget	{name='_period' type='XTreeWidget' visible='1' window=':List Accounting Periods_accountingPeriods'}
 :List Accounting Periods_accountingPeriods	{name='accountingPeriods' type='accountingPeriods' visible='1' windowTitle='List Accounting Periods'}
 :List Adjustment Types.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Adjustment Types_bankAdjustmentTypes'}
 :List Adjustment Types.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Adjustment Types_bankAdjustmentTypes'}
@@ -739,6 +740,7 @@
 :List Calendars.Save_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Calendars_QWorkspaceChild' name='_save' occurrence='2' text='Save' type='QPushButton' visible='1'}
 :List Calendars.Save_QPushButton_2	{container=':xTuple ERP: OpenMFG Edition.List Calendars_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
 :List Calendars._calhead_XTreeWidget	{container=':xTuple ERP: OpenMFG Edition.List Calendars_QWorkspaceChild' name='_calhead' type='XTreeWidget' visible='1'}
+:List Calendars._calitem_XTreeWidget	{container=':xTuple ERP: OpenMFG Edition.List Calendars_QWorkspaceChild' name='_calitem' type='XTreeWidget' visible='1'}
 :List Calendars._descrip_XLineEdit	{container=':xTuple ERP: OpenMFG Edition.List Calendars_QWorkspaceChild' name='_descrip' type='XLineEdit' visible='1'}
 :List Calendars._name_XLineEdit	{container=':xTuple ERP: OpenMFG Edition.List Calendars_QWorkspaceChild' name='_name' type='XLineEdit' visible='1'}
 :List Calendars._name_XLineEdit_2	{container=':xTuple ERP: OpenMFG Edition.List Calendars_QWorkspaceChild' name='_name' occurrence='2' type='XLineEdit' visible='1'}
@@ -2098,6 +2100,7 @@
 :_DCalendarPopup	{type='DCalendarPopup' unnamed='1' visible='1'}
 :_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' WindowTitle?='*'}
 :_QMessageBox_2	{type='QMessageBox' unnamed='1' visible='1' WindowTitle?='*'}
+:_account.*_QModelIndex	{column='2' container=':_account_XTreeWidget_2' text='8995' type='QModelIndex'}
 :_accountGroup.Post Unassigned Transactions to:_QLabel	{container=':Site._accountGroup_QGroupBox' name='_accountLit' text='Post Unassigned Transactions to:' type='QLabel' visible='1'}
 :_accountGroup._main_XLineEdit	{container=':Bank Account._accountGroup_QGroupBox' name='_main' type='XLineEdit' visible='1'}
 :_accountGroup._main_XLineEdit_2	{container=':Site._accountGroup_QGroupBox' name='_main' type='XLineEdit' visible='1'}
@@ -2208,6 +2211,8 @@
 :_boo_XTreeWidget	{buddy=':Bills of Operations.Routers:_QLabel' name='_boo' type='XTreeWidget' visible='1'}
 :_calendar_QComboBoxListView	{type='QComboBoxListView' unnamed='1' visible='1' window=':_calendar_QComboBoxPrivateContainer'}
 :_calendar_QComboBoxPrivateContainer	{parentWidget=':Schedule Configuration._calendar_CalendarComboBox' type='QComboBoxPrivateContainer' unnamed='1' visible='1'}
+:_calitem.WEEK*_QModelIndex	{column='0' container=':List Calendars._calitem_XTreeWidget' text='WEEK1' type='QModelIndex'}
+:_calitem.WEEK1_QModelIndex	{column='0' container=':List Calendars._calitem_XTreeWidget' text='WEEK1' type='QModelIndex'}
 :_category_XLineEdit	{buddy=':List Expense Categories.Category:_QLabel' name='_category' type='XLineEdit' visible='1'}
 :_category_XLineEdit_2	{buddy=':Expense Category.Category:_QLabel' name='_category' type='XLineEdit' visible='1'}
 :_category_XLineEdit_3	{buddy=':Sales Category.Category:_QLabel' name='_category' type='XLineEdit' visible='1'}
@@ -2252,6 +2257,7 @@
 :_comments_QTextEdit_2	{buddy=':frame.Comments:_QLabel' name='_comments' type='QTextEdit' visible='1'}
 :_comments_QTextEdit_3	{buddy=':Account Number.Comments:_QLabel' name='_comments' type='QTextEdit' visible='1'}
 :_commission_XLineEdit	{buddy=':Ship-To.Commission:_QLabel' name='_commission' type='XLineEdit' visible='1'}
+:_company.01_QModelIndex	{column='0' container=':List Companies._company_XTreeWidget' text='01' type='QModelIndex'}
 :_companyGroup.Company Segment Size:_QLabel	{container=':_gl._companyGroup_QGroupBox' name='_companySizeLit' text='Company Segment Size:' type='QLabel' visible='1'}
 :_companyGroup.Enable External Company Consolidation_QCheckBox	{container=':_gl._companyGroup_QGroupBox' name='_externalConsolidation' text='Enable External Company Consolidation' type='QCheckBox' visible='1'}
 :_companyGroup.qt_spinbox_lineedit_QLineEdit	{container=':_gl._companyGroup_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
@@ -2312,6 +2318,7 @@
 :_contactTab._title_XLineEdit	{container=':qt_tabwidget_stackedwidget._contactTab_QWidget' name='_title' type='XLineEdit' visible='1'}
 :_contacttab._contactGroup_QGroupBox	{container=':qt_tabwidget_stackedwidget._contacttab_QWidget' name='_contactGroup' type='QGroupBox' visible='1'}
 :_contacttab._contactGroup_QGroupBox_2	{container=':qt_tabwidget_stackedwidget._contacttab_QWidget_2' name='_contactGroup' type='QGroupBox' visible='1'}
+:_conversionRates.EUR - €_QModelIndex	{column='0' container=':List Currency Exchange Rates._conversionRates_XTreeWidget' text='EUR - EUR' type='QModelIndex'}
 :_costScale_QSpinBox	{buddy=':List Locales.Cost:_QLabel' name='_costScale' type='QSpinBox' visible='1'}
 :_costcat_XComboBox	{buddy=':Control.Cost Category:_QLabel' name='_costcat' type='XComboBox' visible='1'}
 :_costcat_XComboBox_2	{buddy=':Control.Cost Category:_QLabel_2' name='_costcat' type='XComboBox' visible='1'}
@@ -2810,6 +2817,7 @@
 :_passwd_XLineEdit	{buddy=':List Users.Password:_QLabel' name='_passwd' type='XLineEdit' visible='1'}
 :_passwd_XLineEdit_2	{buddy=':List Employees.Password:_QLabel' name='_passwd' type='XLineEdit' visible='1'}
 :_password_QLineEdit	{buddy=':_frame.Password:_QLabel' name='_password' type='QLineEdit' visible='1'}
+:_period.*_QModelIndex	{column='0' container=':List Accounting Periods._period_XTreeWidget' text='2009-01' type='QModelIndex'}
 :_planGroup.qt_spinbox_lineedit_QLineEdit	{container=':_whsTypeStack._planGroup_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
 :_plannerCode_XComboBox	{buddy=':Control.Planner Code:_QLabel' name='_plannerCode' type='XComboBox' visible='1'}
 :_plannerCode_XComboBox_2	{buddy=':Control.Planner Code:_QLabel_2' name='_plannerCode' type='XComboBox' visible='1'}
@@ -2822,6 +2830,7 @@
 :_planningTab._mrp_QGroupBox_3	{container=':qt_tabwidget_stackedwidget._planningTab_QWidget_3' name='_mrp' type='QGroupBox' visible='1'}
 :_port_QLineEdit	{buddy=':Login Options.Port:_QLabel' name='_port' type='QLineEdit' visible='1'}
 :_prNumberGeneration_QComboBox	{buddy=':Purchase Configuration.P/R # Generation:_QLabel' name='_prNumberGeneration' type='QComboBox' visible='1'}
+:_prftcntr.01_QModelIndex	{column='0' container=':List Profit Centers._prftcntr_XTreeWidget' text='01' type='QModelIndex'}
 :_privTab.Add All->>_QPushButton	{container=':qt_tabwidget_stackedwidget._privTab_QWidget' name='_addAll' text='Add All->>' type='QPushButton' visible='1'}
 :_privTab.Add All->>_QPushButton_2	{container=':qt_tabwidget_stackedwidget._privTab_QWidget_2' name='_addAll' text='Add All->>' type='QPushButton' visible='1'}
 :_privTab.Add All->>_QPushButton_3	{container=':qt_tabwidget_stackedwidget._privTab_QWidget_3' name='_addAll' text='Add All->>' type='QPushButton' visible='1'}
@@ -2905,6 +2914,7 @@
 :_settingsStack.groupBox_4_QGroupBox	{container=':_settingsTab._settingsStack_QStackedWidget' name='groupBox_4' type='QGroupBox' visible='1'}
 :_settingsTab.Terms_QRadioButton	{container=':qt_tabwidget_stackedwidget._settingsTab_QWidget' name='_termsButton' text='Terms' type='QRadioButton' visible='1'}
 :_settingsTab._settingsStack_QStackedWidget	{container=':qt_tabwidget_stackedwidget._settingsTab_QWidget' name='_settingsStack' type='QStackedWidget' visible='1'}
+:_shiftList.1ST_QModelIndex	{column='0' container=':List Shifts._shiftList_XTreeWidget' text='1ST' type='QModelIndex'}
 :_shipToNumber_XLineEdit	{buddy=':Ship-To.Ship-To #:_QLabel' name='_shipToNumber' type='XLineEdit' visible='1'}
 :_shipViaFreightGroup.All Ship Vias_QRadioButton	{container=':_widgetStack._shipViaFreightGroup_QGroupBox' name='_allShipViasFreight' text='All Ship Vias' type='QRadioButton' visible='1'}
 :_shipViaFreightGroup.All Ship Vias_QRadioButton_2	{container=':_widgetStack._shipViaFreightGroup_QGroupBox_2' name='_allShipViasFreight' text='All Ship Vias' type='QRadioButton' visible='1'}
@@ -2964,6 +2974,7 @@
 :_taxZone_XLineEdit_2	{buddy=':Tax Zone.Code:_QLabel' name='_taxZone' type='XLineEdit' visible='1'}
 :_tax_XComboBox	{buddy=':List Tax Selections.Tax Code:_QLabel' name='_tax' type='XComboBox' visible='1'}
 :_tax_XComboBox_2	{buddy=':Tax Selection.Tax Code:_QLabel' name='_tax' type='XComboBox' visible='1'}
+:_taxauth.TAX-AUTH1_QModelIndex	{column='0' container=':List Tax Authorities._taxauth_XTreeWidget' text='TAX-AUTH1' type='QModelIndex'}
 :_taxauth_QComboBoxPrivateContainer	{parentWidget=':_taxauth_XComboBox_5' type='QComboBoxPrivateContainer' unnamed='1' visible='1'}
 :_taxauth_XComboBox	{buddy=':_gl.Default Tax Authority:_QLabel' name='_taxauth' type='XComboBox' visible='1'}
 :_taxauth_XComboBox_2	{buddy=':List Tax Selections.Tax Authority:_QLabel' name='_taxauth' type='XComboBox' visible='1'}

@@ -6,7 +6,7 @@ function main()
     //---login Application--------
     loginAppl("RUNREGISTER"); 
     var appEdition = findApplicationEdition();
-    
+  
     if(appEdition=="Manufacturing")
     {
 
@@ -49,14 +49,14 @@ function main()
         clickButton(":List Standard Labor Rates.Close_QPushButton_3");
         
         
-        //---------------Work Centers--------------------
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers...");
-        
+      //---------------Work Centers--------------------
+      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+      waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+      activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+      waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers...");
+      activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers...");
+      
         waitForObject(":List Work Centers.New_QPushButton_2");
         clickButton(":List Work Centers.New_QPushButton_2");
         waitForObject(":Work Center._code_XLineEdit_2");
@@ -114,14 +114,15 @@ function main()
         type(":_notesTab._comments_QTextEdit_2", "Assembly Work Center Number 1");
         waitForObject(":Work Center.Save_QPushButton_2");
         clickButton(":Work Center.Save_QPushButton_2");
-        waitForObject(":List Work Centers._wrkcnt_XTreeWidget_2");
+        waitForObject(":List Work Centers._wrkcnt_XTreeWidget_2",2);
+        
         if(!clickItem(":List Work Centers._wrkcnt_XTreeWidget_2", "ASSEMBLY1", 5, 5, 1, Qt.LeftButton))
             test.pass("Work Center created: ASSEMBLY1");
         
-        
+       
         waitForObjectItem(":List Work Centers._wrkcnt_XTreeWidget_2", "Assembly Work Center #1");
         clickItem(":List Work Centers._wrkcnt_XTreeWidget_2", "Assembly Work Center #1", 5, 5, 1, Qt.LeftButton);
-        waitForObject(":List Work Centers.Copy_QPushButton_2");
+        waitForObject(":List Work Centers.Copy_QPushButton_2",2);
         clickButton(":List Work Centers.Copy_QPushButton_2");
         waitForObject(":Work Center._code_XLineEdit_2");
         findObject(":Work Center._code_XLineEdit_2").clear();
@@ -147,7 +148,7 @@ function main()
             test.pass("Work Center created: SHIPPING1");
         
         
-        waitForObjectItem(":List Work Centers._wrkcnt_XTreeWidget_2", "Assembly Work Center #1");
+        waitForObjectItem(":List Work Centers._wrkcnt_XTreeWidget_2", "Assembly Work Center #1",2);
         clickItem(":List Work Centers._wrkcnt_XTreeWidget_2", "Assembly Work Center #1", 5, 5, 1, Qt.LeftButton);
         waitForObject(":List Work Centers.Copy_QPushButton_2");
         clickButton(":List Work Centers.Copy_QPushButton_2");
@@ -252,7 +253,7 @@ function main()
         
         waitForObject(":List Standard Operations.Close_QPushButton");
         clickButton(":List Standard Operations.Close_QPushButton");
-      //
+     
         
         //-----------Define BOO for Items---------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -413,7 +414,7 @@ else if(appEdition=="PostBooks" || appEdition=="Standard")
   waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
   activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
   
-  
+
   //---------------Create BOM for YTRUCK1---------------
   waitForObject(":Bills of Materials.New_QPushButton");
   clickButton(":Bills of Materials.New_QPushButton");

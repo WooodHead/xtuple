@@ -737,9 +737,9 @@ function main()
     clickButton(":List Characteristics.Close_QPushButton_2");
     
   
-    if(appEdition=="Manufacturing")
-    {
-    
+(appEdition=="Manufacturing")
+{
+  
         //----------------Schedule: Create Planner Code----------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
@@ -818,7 +818,7 @@ function main()
         waitForObject(":Site Work Week.Save_QPushButton_3");
         clickButton(":Site Work Week.Save_QPushButton_3");
         test.log("Site Week created");
-      
+     
         
         //----------Schedule: Site Calendar Exceptions---------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
