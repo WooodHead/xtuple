@@ -112,6 +112,8 @@ function assignPrivileges()
     waitForObject(":List Users.Close_QPushButton_2");
     clickButton(":List Users.Close_QPushButton_2");
     test.log("Admin User assigned with all Privileges");
+    
+    
     //------------Rescan Privileges----------------------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -163,23 +165,10 @@ function createShift(ShiftNum, ShiftName)
     waitForObject(":List Shifts._number_XLineEdit");
     type(":List Shifts._number_XLineEdit",ShiftNum);
     type(":List Shifts._name_XLineEdit", ShiftName);
+    waitForObject(":List Shifts.Save_QPushButton");
     clickButton(":List Shifts.Save_QPushButton");
    
-    var sWidgetTreeControl = ":List Shifts._shiftList_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    for(i=1;sNameOfRootItem!="1ST" || i<iNumberOfRootItems ;i++)
-    {
-        type(sWidgetTreeControl,"<Down>");           
-        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
-        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    }
-    if(sNameOfRootItem=="1ST")
+    if(findObject(":_shiftList.1ST_QModelIndex").text== "1ST")
         test.pass("New Shift:"+ ShiftNum + " created");
     else
         test.fail("New Shift:"+ ShiftNum + "not created")
@@ -211,9 +200,8 @@ function createLocale(LocaleCode,LocaleDesc)
     type(":_language_XComboBox", "English");
     snooze(0.5);
     waitForObject(":_country_XComboBox");
-    type(":_country_XComboBox", "United");	
-    waitForObject(":_country_XComboBox");
-    type(":_country_XComboBox", "u");
+    clickItem(":_country_XComboBox", "United States",0,0,1,Qt.LeftButton);	
+    
     waitForObject(":_currencyScale_QSpinBox");
     if(findObject(":_currencyScale_QSpinBox").text!=2)
     {
@@ -465,27 +453,13 @@ function createCompany(CompNum, CompDesc)
     clickButton(":List Companies.Save_QPushButton");
   
     var sWidgetTreeControl = ":List Companies._company_XTreeWidget";
-    waitForObject(sWidgetTreeControl);
-    var obj_TreeWidget = findObject(sWidgetTreeControl);
-    var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
-    var iNumberOfRootItems = obj_TreeRootItem.childCount();
-    type(sWidgetTreeControl,"<Space>");
-    var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    var sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-    for(i=1;sNameOfRootItem!=CompNum || i<iNumberOfRootItems ;i++)
-    {
-        obj_TreeTopLevelItem = obj_TreeRootItem.child(i);
-        sNameOfRootItem = obj_TreeTopLevelItem.text(0);
-        type(sWidgetTreeControl,"<Down>"); 
-    }
-    if(sNameOfRootItem==CompNum)
+    if(findObject(":_company.01_QModelIndex").text == "01")
         test.pass("Company: "+CompDesc+" created");
     else
         test.fail("Company: "+CompDesc+"not created");
      
     waitForObject(":List Companies.Close_QPushButton");
     clickButton(":List Companies.Close_QPushButton");
-    test.log("Company: "+CompNum+" created");
 
 }
 
@@ -497,21 +471,28 @@ function COA(COACompany,COAProfit,COANumber,COASub,COADesc,COAType,COASubType)
     clickButton(":Chart of Accounts.New_QPushButton_2");
     waitForObject(":Account Number._company_XComboBox");
     if(findObject(":Account Number._company_XComboBox").currentText!=COACompany)
-        clickItem(":Chart of Accounts._company_XComboBox_2", "01", 0, 0, 1, Qt.LeftButton);
+       type(":Chart of Accounts._company_XComboBox_2", "01");
+    waitForObject(":Account Number._profit_XComboBox");
     if(findObject(":Account Number._profit_XComboBox").currentText!=COAProfit)
-        clickItem(":Account Number._profit_XComboBox", "01", 0, 0, 1, Qt.LeftButton);
+        type(":Account Number._profit_XComboBox", "01");
+    waitForObject(":Account Number._sub_XComboBox");
+    snooze(0.5);
     if(findObject(":Account Number._sub_XComboBox").currentText!=COASub)
-        clickItem(":Chart of Accounts._sub_XComboBox", "01", 0, 0, 1, Qt.LeftButton);
+        type(":Chart of Accounts._sub_XComboBox", "01");
     type(":_number_XLineEdit_3", COANumber);
     type(":_description_XLineEdit_11", COADesc);
-    
     type(":_extReference_XLineEdit_2", COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub);
+    waitForObject(":Account Number._type_XComboBox");
     clickItem(":Account Number._type_XComboBox", COAType, 0, 0, 1, Qt.LeftButton);
     waitForObject(":Account Number._subType_XComboBox");
     type(":Account Number._subType_XComboBox", COASubType);
     clickButton(":Account Number.Save_QPushButton");
     test.log("Acc: "+COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub+" created");
-    waitForObject(":_account_XTreeWidget_2");
+      
+    createdCOA = "{column='2' container=':_account_XTreeWidget_2' text='"+COANumber+"' type='QModelIndex'}";
+    //wait till save
+    while(!object.exists(createdCOA))
+        snooze(0.1);
 }
 
 //--------check if the year is a leap year--------
@@ -566,8 +547,9 @@ function defineTaxation()
     clickItem(":groupBox._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
     clickButton(":Tax Authority.Save_QPushButton");
     waitForObject(":List Tax Authorities._taxauth_XTreeWidget");
-    if(!clickItem(":List Tax Authorities._taxauth_XTreeWidget", "TAX-AUTH1", 5, 5, 1, Qt.LeftButton))
-        test.pass("Tax Authority created:TAX-AUTH1");
+    if(object.exists(":_taxauth.TAX-AUTH1_QModelIndex"))
+         test.pass("Tax Authority created:TAX-AUTH1");
+    else test.fail("Tax Authority not created:TAX-AUTH1");
     
     waitForObject(":List Tax Authorities.Close_QPushButton");
     clickButton(":List Tax Authorities.Close_QPushButton");
@@ -711,7 +693,7 @@ function defineTaxation()
     clickButton(":Tax Zone.Save_QPushButton");
     
     waitForObject(":List Tax Zones.Close_QPushButton_2");
-    clickButton(":List Tax Zones.Close_QPushButton_2");
+//    clickButton(":List Tax Zones.Close_QPushButton_2");
    
     
     //--------Tax Assignments-------
@@ -725,11 +707,17 @@ function defineTaxation()
     waitForObject(":_frame.New_QPushButton_4");
     clickButton(":_frame.New_QPushButton_4");
     waitForObject(":Tax Assignment._taxZone_XComboBox");
-    clickItem(":Tax Assignment._taxZone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
+    type(":Tax Assignment._taxZone_XComboBox", "TZONE1");
+    while(findObject(":Tax Assignment._taxZone_XComboBox").currentText!="TZONE1-Tax Zone1")
+        snooze(0.1);
     waitForObject(":Tax Assignment._taxType_XComboBox");
-    clickItem(":Tax Assignment._taxType_XComboBox", "EDU", 0, 0, 1, Qt.LeftButton);
+    type(":Tax Assignment._taxType_XComboBox", "EDU");
+    while(findObject(":Tax Assignment._taxType_XComboBox").currentText!="EDU")
+        snooze(0.1);
     waitForObject(":_frame._taxCodeOption_XTreeWidget_2");
     clickItem(":_frame._taxCodeOption_XTreeWidget_2", "TAXAUTH1-EDU", 0, 0, 1, Qt.LeftButton);
+    while(!findObject(":_frame.Add->_QPushButton_2").enabled)
+        snooze(0.1);
     waitForObject(":_frame.Add->_QPushButton_2");
     clickButton(":_frame.Add->_QPushButton_2");
     waitForObject(":Tax Assignment.Close_QPushButton");
@@ -739,10 +727,16 @@ function defineTaxation()
     clickButton(":_frame.New_QPushButton_4");
     waitForObject(":Tax Assignment._taxZone_XComboBox");
     clickItem(":Tax Assignment._taxZone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
+     while(findObject(":Tax Assignment._taxZone_XComboBox").currentText!="TZONE1-Tax Zone1")
+        snooze(0.1);
     waitForObject(":Tax Assignment._taxType_XComboBox");
     clickItem(":Tax Assignment._taxType_XComboBox", "GM", 0, 0, 1, Qt.LeftButton);
+    while(findObject(":Tax Assignment._taxType_XComboBox").currentText!="GM")
+        snooze(0.1);
     waitForObject(":_frame._taxCodeOption_XTreeWidget_2");
     clickItem(":_frame._taxCodeOption_XTreeWidget_2", "TAXAUTH1-GM", 0, 0, 1, Qt.LeftButton);
+    while(!findObject(":_frame.Add->_QPushButton_2").enabled)
+        snooze(0.1);
     waitForObject(":_frame.Add->_QPushButton_2");
     clickButton(":_frame.Add->_QPushButton_2");    
     waitForObject(":Tax Assignment.Close_QPushButton");

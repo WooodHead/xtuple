@@ -232,14 +232,14 @@ function main()
     waitForObject(":List Fiscal Years.New_QPushButton");
     clickButton(":List Fiscal Years.New_QPushButton");
     waitForObject(":Fiscal Year.XDateEdit_XDateEdit");
-    var d = new Date();
-    var CurrentYearFull = d.getFullYear();
-    var CurrentYear = CurrentYearFull.toString().slice(2);
+  var d = new Date();
+  var CurrentYearFull = d.getFullYear();
+  var CurrentYear = CurrentYearFull.toString().slice(2);
     type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+CurrentYearFull);
     type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+CurrentYearFull);
     waitForObject(":Fiscal Year.Save_QPushButton");
     clickButton(":Fiscal Year.Save_QPushButton");
-    var NxtYear = CurrentYearFull+1;
+  var NxtYear = CurrentYearFull+1;
     snooze(0.5);
     waitForObject(":List Fiscal Years.New_QPushButton");
     clickButton(":List Fiscal Years.New_QPushButton");
@@ -257,7 +257,7 @@ function main()
 
     waitForObject(":List Fiscal Years.Close_QPushButton");
     clickButton(":List Fiscal Years.Close_QPushButton");
-    
+  
   
     //-------------Define: Fiscal Calendar--------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -279,33 +279,52 @@ function main()
       {
         waitForObject(":List Accounting Periods.New_QPushButton");
         clickButton(":List Accounting Periods.New_QPushButton");
-        waitForObject(":_year_XComboBox");
+        
+         waitForObject(":_year_XComboBox");
         if(findObject(":_year_XComboBox").currentText!="01/01/"+CurrentYear+"-12/31/"+CurrentYear)
-            type(":_year_XComboBox", "01admin	/01/"+CurrentYear+"-12/31/"+CurrentYear);
-        waitForObject(":_name_QLineEdit");
-        snooze(0.1);
-        findObject(":_name_QLineEdit").clear();
-        type(":_name_QLineEdit", CurrentYearFull+"-");
-        type(":_name_QLineEdit", (j<10?"0"+j:j));
-        waitForObject(":Accounting Period.XDateEdit_XDateEdit");
+            clickItem(":_year_XComboBox", "01/01/"+CurrentYear+"-12/31/"+CurrentYear,0,0,1,Qt.LeftButton);
+        while(findObject(":_year_XComboBox").currentText!="01/01/"+CurrentYear+"-12/31/"+CurrentYear)
+            snooze(0.1);
+        
+        
+         waitForObject(":Accounting Period.XDateEdit_XDateEdit");
         findObject(":Accounting Period.XDateEdit_XDateEdit").clear();
         type(":Accounting Period.XDateEdit_XDateEdit", j+"/1/"+i);
         waitForObject(":Accounting Period.XDateEdit_XDateEdit_2");
         findObject(":Accounting Period.XDateEdit_XDateEdit_2").clear();        
         type(":Accounting Period.XDateEdit_XDateEdit_2", j+"/"+YearSet[j-1]+"/"+i);
-        waitForObject(":_quarter_QSpinBox");
-        snooze(0.2);
-        findObject(":_quarter_QSpinBox").clear();
+        type(":Accounting Period.XDateEdit_XDateEdit_2", "<Tab>");
+        while(findObject(":Accounting Period.XDateEdit_XDateEdit_2").text!=j+"/"+YearSet[j-1]+"/"+i)
+            snooze(0.1);
+        
+        
+        snooze(0.5);
+        waitForObject(":_name_QLineEdit");
+        findObject(":_name_QLineEdit").clear();
+        type(":_name_QLineEdit", CurrentYearFull+"-");
+        type(":_name_QLineEdit", (j<10?"0"+j:j));
+        
+       
+        
+        
+        waitForObject(":Accounting Period.qt_spinbox_lineedit_QLineEdit");
+        findObject(":Accounting Period.qt_spinbox_lineedit_QLineEdit").clear();
         if(j>=1 && j<=3)
-            type(":_quarter_QSpinBox", "1");
+            type(":Accounting Period.qt_spinbox_lineedit_QLineEdit", "1");
         else if(j>=4 && j<=6)
-            type(":_quarter_QSpinBox", "2");
+            type(":Accounting Period.qt_spinbox_lineedit_QLineEdit", "2");
         else if(j>=7 && j<=9)
-            type(":_quarter_QSpinBox", "3");
+            type(":Accounting Period.qt_spinbox_lineedit_QLineEdit", "3");
         else if(j>=10 && j<=12)
-            type(":_quarter_QSpinBox", "4");
-        waitForObject(":_quarter_QSpinBox");
+            type(":Accounting Period.qt_spinbox_lineedit_QLineEdit", "4");
+        
+       
+       
+        waitForObject(":Accounting Period.Save_QPushButton");
         clickButton(":Accounting Period.Save_QPushButton");
+        //wait till save
+        while(!object.exists("{column='0' container=':List Accounting Periods._period_XTreeWidget' text='"+CurrentYearFull+"-"+(j<10?"0"+j:j)+"' type='QModelIndex'}"))
+            snooze(0.1);
       }
 
     }

@@ -40,6 +40,7 @@ function main()
     type(":Incident Category._descrip_QTextEdit", "Customer related incidents");
     waitForObject(":Incident Category.Save_QPushButton");
     clickButton(":Incident Category.Save_QPushButton");
+    snooze(1);
     waitForObject(":List Incident Categories._incidentCategories_XTreeWidget");
     if(clickItem(":List Incident Categories._incidentCategories_XTreeWidget", "Customer", 5, 5, 1, Qt.LeftButton))
         test.pass("Incident Categories created for: Customer");
