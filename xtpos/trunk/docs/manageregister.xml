@@ -27,10 +27,10 @@
     <para>The first task at hand each day after turning on the lights and
     before unlocking the doors of your store is to open your Cash Register
     terminals for business. For the scenarios described in this chapter, we
-    will assume we have all privileges on all Cash Registers—and that we are
-    running a multi-Site retail operation. The following path will get you to
-    the list of Cash Register terminals: <guimenuitem>Sales &gt; Retail &gt;
-    Cash Registers</guimenuitem>.</para>
+    will assume we have all privileges on all Cash Registers&mdash;and that we
+    are running a multi-Site retail operation. The following path will get you
+    to the list of Cash Register terminals: <guimenuitem>Sales &gt; Retail
+    &gt; Cash Registers</guimenuitem>.</para>
     <para>As the following screenshot illustrates, our sample retail operation
     consists of five registers (TERMINALS 1A-2B) spread across two different
     Sites (ST1 and ST2):</para>
@@ -43,7 +43,8 @@
     <para>For this exercise, we will assume we are managing Store Front 1
     (ST1). We expect it will be a slow shopping day. And at this point all we
     want to do is open the TERMINAL 1A Cash Register. As you can see, all the
-    Cash Registers are currently closed—and all have a $0 balance.</para>
+    Cash Registers are currently closed&mdash;and all have a $0
+    balance.</para>
     <para>To open TERMINAL 1A, follow these steps:</para>
     <orderedlist>
       <listitem>
@@ -65,8 +66,8 @@
       <caption>Cash Register Terminal</caption>
     </mediaobject>
     <para>The main register screen provides information about pending Sales
-    for the register—as well as links to other features will we will explore
-    in other sections.</para>
+    for the register&mdash;as well as links to other features will we will
+    explore in other sections.</para>
     <para>Meanwhile, let's continue our focus on basic Cash Register
     maintenance. To reach the maintenance area, select the "Maintain" tab. The
     following screen will appear:</para>
@@ -77,8 +78,8 @@
       <caption>Maintain Terminal</caption>
     </mediaobject>
     <para>Our task this morning is to open TERMINAL 1A with a balance of
-    $250—and that's exactly what we are going to do. As you can see in the
-    screenshot, the maintenance screen allows for bank transfers and also
+    $250&mdash;and that's exactly what we are going to do. As you can see in
+    the screenshot, the maintenance screen allows for bank transfers and also
     adjustments. For now, we will focus on bank transfers, because we want to
     get the register open and ready for business. Later, we will discuss how
     to handle miscellaneous adjustments.</para>
@@ -100,7 +101,8 @@
         going <emphasis>into</emphasis> the terminal</para>
       </listitem>
       <listitem>
-        <para>Note the New Balance amount—and make sure it is correct</para>
+        <para>Note the New Balance amount&mdash;and make sure it is
+        correct</para>
       </listitem>
       <listitem>
         <para>Make sure the "Print Receipt" option is selected</para>
@@ -135,10 +137,10 @@
     <para>It's not uncommon for a Cash Register to be thrown out of balance
     during the course of the business day. Sometimes the balance due is
     counted out wrong, and sometimes you'll have a customer who wants the
-    store to keep the change. In these instances—when overages or losses are
-    encountered—it's important to have a mechanism enabling managers to make
-    minor adjustments. Once again, user permissions define who in the store
-    has the ability to adjust the register balance.</para>
+    store to keep the change. In these instances&mdash;when overages or losses
+    are encountered&mdash;it's important to have a mechanism enabling managers
+    to make minor adjustments. Once again, user permissions define who in the
+    store has the ability to adjust the register balance.</para>
     <para>If a Cash Register adjustment is required, use the "Adjustment"
     section of the maintenance window, as shown in the following
     screen:</para>
@@ -149,8 +151,8 @@
       <caption>Adjust Cash Register Terminal</caption>
     </mediaobject>
     <para>The adjustment process is similar to opening a register. For this
-    example, let's say the Cash Register is over by $0.85—due to a transaction
-    error. To adjust for an overage, follow these steps:</para>
+    example, let's say the Cash Register is over by $0.85&mdash;due to a
+    transaction error. To adjust for an overage, follow these steps:</para>
     <orderedlist>
       <listitem>
         <para>From the "Action" field, select the "Adjust" option</para>
@@ -183,7 +185,12 @@
   <section>
     <title>Closing the Cash Register</title>
     <para>Once the business day is over, you are ready to close and reconcile
-    the Cash Register.</para>
+    the Cash Register. Closing the Cash Register also updates the General
+    Ledger (G/L) with all the sales and cash transaction information generated
+    during the course of the day. This final accounting for sales and cash
+    information only hits the G/L when the Cash Register is closed. By
+    contrast, inventory movement is tracked in the G/L on a sale-by-sale
+    basis. </para>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/cashregisterclose.png" />
@@ -191,9 +198,9 @@
       <caption>Close Cash Register Terminal</caption>
     </mediaobject>
     <para>For this example, we will be transferring all the cash out of the
-    TERMINAL 1A Cash Register—and depositing it into our Bank Account. We will
-    also plan to deposit any Checks we have received during the day. To do
-    this, follow these steps:</para>
+    TERMINAL 1A Cash Register&mdash;and depositing it into our Bank Account.
+    We will also plan to deposit any Checks we have received during the day.
+    To do this, follow these steps:</para>
     <orderedlist>
       <listitem>
         <para>From the "Action" field, select the "Close" option</para>
