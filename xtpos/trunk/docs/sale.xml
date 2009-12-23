@@ -169,7 +169,7 @@
       <para>If you add a Sale Item in error, simply highlight the line item
       and select the REMOVE button. This will remove the Item from the Sale.
       You may need to add the replacement item first, if there are no other
-      line items on the Sale. </para>
+      line items on the Sale.</para>
     </tip>
     <para>You have several methods available to you when it comes to entering
     Sale Items:</para>
@@ -244,8 +244,12 @@
   </section>
   <section>
     <title>Payment Processing</title>
-    <para>Now that the Sale is complete, we are ready to process payment. To
-    do this, follow these steps:</para>
+    <para>Now that the Sale is complete, we are ready to process payment. From
+    an accounting perspective, any inventory movement will be tracked in the
+    General Ledger (G/L) as soon as you process the payment. The final
+    accounting&mdash;including sale and cash information&mdash;will not hit
+    the G/L until the point when the Cash Register is closed. </para>
+    <para>To process a payment, follow these steps:</para>
     <orderedlist>
       <listitem>
         <para>Select the PAYMENT button</para>
