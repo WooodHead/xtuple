@@ -45,7 +45,7 @@ SELECT arapply_id, 1 AS type, '' AS cashrcpt_number, cust_number, cust_name,
        0 AS base_applied_xttotalrole,
        currConcat(arapply_curr_id) AS currAbbr,
        arapply_postdate AS sortdate
-FROM cust, arapply
+FROM cust LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id), arapply
   LEFT OUTER JOIN cashrcptitem ON ((arapply_reftype='CRA')
                                AND (arapply_ref_id=cashrcptitem_id))
   LEFT OUTER JOIN cashrcptmisc ON ((arapply_reftype='CRD')
@@ -57,6 +57,8 @@ WHERE ( (arapply_cust_id=cust_id)
   AND   (cust_id=<? value("cust_id") ?>)
 <? elseif exists("custtype_id") ?>
   AND   (cust_custtype_id=<? value("custtype_id") ?>)
+<? elseif exists("custgrp_id") ?>
+  AND   (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)
 <? elseif exists("custtype_pattern") ?>
   AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
 <? endif ?>
@@ -92,7 +94,7 @@ SELECT cashrcpt_id, 2 AS type, '' AS cashrcpt_number, cust_number, cust_name,
        0 AS base_applied_xttotalrole,
        currConcat(cashrcpt_curr_id) AS currAbbr,
        cashrcpt_distdate AS sortdate
-FROM cashrcpt, cust
+FROM cashrcpt, cust LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
 WHERE ( (NOT cashrcpt_posted)
   AND   (cashrcpt_cust_id=cust_id)
   AND   (cashrcpt_distdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
@@ -100,6 +102,8 @@ WHERE ( (NOT cashrcpt_posted)
   AND   (cust_id=<? value("cust_id") ?>)
 <? elseif exists("custtype_id") ?>
   AND   (cust_custtype_id=<? value("custtype_id") ?>)
+<? elseif exists("custgrp_id") ?>
+  AND   (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)
 <? elseif exists("custtype_pattern") ?>
   AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
 <? endif ?>
@@ -139,7 +143,7 @@ SELECT aropen_id, 3 AS type, '' AS cashrcpt_number, cust_number, cust_name,
        0 AS base_applied_xttotalrole,
        currConcat(aropen_curr_id) AS currAbbr,
        aropen_duedate AS sortdate
-FROM cust, aropen
+FROM cust LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id), aropen
   JOIN cashrcptitem ON (aropen_id=cashrcptitem_aropen_id)
 WHERE ( (aropen_cust_id=cust_id)
   AND   (aropen_doctype IN ('R','C'))
@@ -148,6 +152,8 @@ WHERE ( (aropen_cust_id=cust_id)
   AND   (cust_id=<? value("cust_id") ?>)
 <? elseif exists("custtype_id") ?>
   AND   (cust_custtype_id=<? value("custtype_id") ?>)
+<? elseif exists("custgrp_id") ?>
+  AND   (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)
 <? elseif exists("custtype_pattern") ?>
   AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
 <? endif ?>
@@ -203,12 +209,14 @@ SELECT cashrcpt_id AS id, 0 AS type, cashrcpt_number, cust_number, cust_name,
        currConcat(cashrcpt_curr_id) AS currAbbr,
        cashrcpt_distdate AS sortdate,
        0 AS base_applied_xttotalrole
-FROM cashrcpt JOIN cust ON (cust_id=cashrcpt_cust_id)
+FROM cashrcpt JOIN cust ON (cust_id=cashrcpt_cust_id) LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
 WHERE ( (cashrcpt_distdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? if exists("cust_id") ?>
   AND   (cust_id=<? value("cust_id") ?>)
 <? elseif exists("custtype_id") ?>
   AND   (cust_custtype_id=<? value("custtype_id") ?>)
+<? elseif exists("custgrp_id") ?>
+  AND   (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)
 <? elseif exists("custtype_pattern") ?>
   AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
 <? endif ?>
@@ -233,6 +241,7 @@ SELECT cashrcpt_id AS id, 1 AS type, '', '', '',
        cashrcpt_distdate AS sortdate,
        -1 AS base_applied_xttotalrole
 FROM cashrcpt JOIN cust ON (cust_id=cashrcpt_cust_id)
+              LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
               JOIN cashrcptitem ON (cashrcptitem_cashrcpt_id=cashrcpt_id)
               JOIN aropen ON (aropen_id=cashrcptitem_aropen_id)
               LEFT OUTER JOIN arapply ON (arapply_target_aropen_id=aropen_id AND
@@ -243,6 +252,8 @@ WHERE ( (cashrcpt_distdate BETWEEN <? value("startDate") ?> AND <? value("endDat
   AND   (cust_id=<? value("cust_id") ?>)
 <? elseif exists("custtype_id") ?>
   AND   (cust_custtype_id=<? value("custtype_id") ?>)
+<? elseif exists("custgrp_id") ?>
+  AND   (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)
 <? elseif exists("custtype_pattern") ?>
   AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
 <? endif ?>
@@ -262,6 +273,7 @@ SELECT cashrcpt_id AS id, 1 AS type, '', '', '',
        cashrcpt_distdate AS sortdate,
        -1 AS base_applied_xttotalrole
 FROM cashrcpt JOIN cust ON (cust_id=cashrcpt_cust_id)
+              LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
               JOIN cashrcptmisc ON (cashrcptmisc_cashrcpt_id=cashrcpt_id)
               LEFT OUTER JOIN arapply ON (arapply_reftype='CRD' AND
                                           arapply_ref_id=cashrcptmisc_id)
@@ -270,6 +282,8 @@ WHERE ( (cashrcpt_distdate BETWEEN <? value("startDate") ?> AND <? value("endDat
   AND   (cust_id=<? value("cust_id") ?>)
 <? elseif exists("custtype_id") ?>
   AND   (cust_custtype_id=<? value("custtype_id") ?>)
+<? elseif exists("custgrp_id") ?>
+  AND   (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)
 <? elseif exists("custtype_pattern") ?>
   AND   (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
 <? endif ?>
