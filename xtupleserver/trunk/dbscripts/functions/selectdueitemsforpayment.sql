@@ -16,6 +16,7 @@ BEGIN
               FROM apopen
              WHERE((apopen_duedate <= CURRENT_DATE)
                AND (apopen_open)
+               AND ((apopen_status <> ''H'') OR COALESCE(apopen_status, '''') = '''')
                AND (apopen_doctype IN (''V'', ''D''))
                AND (apopen_vend_id=pVendid)
                AND (apopen_curr_id=_currid) ) LOOP

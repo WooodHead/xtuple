@@ -20,6 +20,24 @@ BEGIN
 
   NEW.apopen_open := NEW.apopen_amount > NEW.apopen_paid;
 
+  IF (TG_OP = 'INSERT') THEN
+    IF (NEW.apopen_open=FALSE) THEN
+      NEW.apopen_status='C';
+    ELSE
+      NEW.apopen_status='O';
+    END IF;
+  END IF;
+  
+  IF (TG_OP = 'UPDATE') THEN
+    IF ((OLD.apopen_open=TRUE) AND (NEW.apopen_open=FALSE)) THEN
+      NEW.apopen_status='C';
+    END IF;
+    
+    IF ((OLD.apopen_open=FALSE) AND (NEW.apopen_open=TRUE)) THEN
+      NEW.apopen_status='O';
+    END IF;
+  END IF;
+
   RETURN NEW;
 
 END;
