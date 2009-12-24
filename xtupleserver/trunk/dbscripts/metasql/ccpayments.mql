@@ -37,6 +37,7 @@ SELECT ccpay_id AS id,
          ON (payco_ccpay_id=ccpay_id)
       JOIN cust ON (ccpay_cust_id=cust_id)
       JOIN custtype ON (cust_custtype_id=custtype_id)
+      JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
   WHERE ((true)
 <? if exists("processed") ?>
   AND (ccpay_status != 'A')
@@ -55,5 +56,8 @@ SELECT ccpay_id AS id,
 <? endif ?>
 <? if exists("custtype_pattern") ?>
   AND   (custtype_code~<? value("custtype_pattern") ?>)
+<? endif ?>
+<? if exists("custgrp_id") ?>
+  AND   (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)
 <? endif ?>)
  ORDER BY ccpay_transaction_datetime;

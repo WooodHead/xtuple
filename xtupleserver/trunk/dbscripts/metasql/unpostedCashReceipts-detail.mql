@@ -24,17 +24,22 @@ SELECT cashrcpt_id,
               WHEN (cashrcpt_fundstype ='O') THEN <? value("other") ?>
          END AS cashrcpt_fundstype,
        'curr' AS cashrcpt_amount_xtnumericrole 
-FROM cashrcpt, bankaccnt, custinfo, custtype 
+FROM cashrcpt, bankaccnt, custinfo, custtype, custgrpitem
 WHERE ( (NOT cashrcpt_posted)
   AND   (NOT cashrcpt_void)
   AND   (cashrcpt_bankaccnt_id=bankaccnt_id)
   AND   (cashrcpt_cust_id=cust_id)
   AND   (cust_custtype_id=custtype_id)
+  AND   (custgrpitem_cust_id=cust_id)
+
 <? if exists("cust_id") ?>
   AND   (cashrcpt_cust_id=<? value("cust_id") ?>)
 <? endif ?>
 <? if exists("custtype_id") ?>
   AND   (custtype_id=<? value("custtype_id") ?>)
+<? endif ?>
+<? if exists("custgrp_id") ?>
+  AND   (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)
 <? endif ?>
 <? if exists("custtype_pattern") ?>
   AND   (custtype_code~<? value("custtype_pattern") ?>)

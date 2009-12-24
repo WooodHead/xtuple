@@ -9,6 +9,7 @@ SELECT SUM(CASE WHEN (aropen_doctype IN ('C', 'R')) THEN
            END) AS total_balance
 FROM aropen JOIN custinfo ON (aropen_cust_id=cust_id)
             LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
+	    LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
 WHERE ( (aropen_open)
 <? if exists("cust_id") ?>
   AND   (aropen_cust_id=<? value("cust_id") ?>)
@@ -18,6 +19,9 @@ WHERE ( (aropen_open)
 <? endif ?>
 <? if exists("custtype_pattern") ?>
   AND   (custtype_code~<? value("custtype_pattern") ?>)
+<? endif ?>
+<? if exists("custgrp_id") ?>
+  AND   (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)
 <? endif ?>
       )
 ;
@@ -67,6 +71,7 @@ FROM invchead
            LEFT OUTER JOIN cohead ON (invchead_ordernumber=cohead_number)
            JOIN custinfo ON (invchead_cust_id=cust_id)
            JOIN custtype ON (cust_custtype_id=custtype_id)
+	   JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
 WHERE ((NOT invchead_posted)
 <? if exists("cust_id") ?>
   AND   (invchead_cust_id=<? value("cust_id") ?>)
@@ -76,6 +81,9 @@ WHERE ((NOT invchead_posted)
 <? endif ?>
 <? if exists("custtype_pattern") ?>
   AND   (custtype_code~<? value("custtype_pattern") ?>)
+<? endif ?>
+<? if exists("custgrp_id") ?>
+  AND   (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)
 <? endif ?>
 <? if exists("startDate") ?>
   AND   (invchead_invcdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
@@ -135,6 +143,7 @@ SELECT -1 AS id,
 FROM cmhead
             JOIN custinfo ON (cmhead_cust_id=cust_id)
             JOIN custtype ON (cust_custtype_id=custtype_id)
+	    JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
 WHERE ((NOT cmhead_posted)
 <? if exists("cust_id") ?>
   AND   (cmhead_cust_id=<? value("cust_id") ?>)
@@ -144,6 +153,9 @@ WHERE ((NOT cmhead_posted)
 <? endif ?>
 <? if exists("custtype_pattern") ?>
   AND   (custtype_code~<? value("custtype_pattern") ?>)
+<? endif ?>
+<? if exists("custgrp_id") ?>
+  AND   (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)
 <? endif ?>
 <? if exists("startDate") ?>
   AND   (cmhead_docdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
@@ -222,6 +234,7 @@ FROM aropen
 <? endif ?>
             JOIN custinfo ON (aropen_cust_id=cust_id)
             JOIN custtype ON (cust_custtype_id=custtype_id)
+	    JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
             LEFT OUTER JOIN invchead ON ((aropen_docnumber=invchead_invcnumber)
                                    AND (aropen_doctype='I'))
             LEFT OUTER JOIN cohead ON (invchead_ordernumber=cohead_number)
@@ -248,6 +261,9 @@ WHERE ((true)
 <? endif ?>
 <? if exists("custtype_id") ?>
   AND   (custtype_id=<? value("custtype_id") ?>)
+<? endif ?>
+<? if exists("custgrp_id") ?>
+  AND   (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)
 <? endif ?>
 <? if exists("custtype_pattern") ?>
   AND   (custtype_code~<? value("custtype_pattern") ?>)
@@ -311,6 +327,7 @@ SELECT -1,
 FROM incdt JOIN aropen ON (aropen_id=incdt_aropen_id)
            JOIN custinfo ON (aropen_cust_id=cust_id)
            JOIN custtype ON (cust_custtype_id=custtype_id)
+	   JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
 WHERE ((true)
 <? if not exists("showClosed") ?>
   AND (aropen_docdate <= COALESCE(<? value ("asofDate") ?>,current_date))
@@ -330,6 +347,9 @@ WHERE ((true)
 <? endif ?>
 <? if exists("custtype_pattern") ?>
   AND   (custtype_code~<? value("custtype_pattern") ?>)
+<? endif ?>
+<? if exists("custgrp_id") ?>
+  AND   (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)
 <? endif ?>
 <? if exists("startDate") ?>
   AND   (aropen_docdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
