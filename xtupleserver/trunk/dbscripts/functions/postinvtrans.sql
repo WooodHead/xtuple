@@ -42,7 +42,7 @@ DECLARE
   _xferwhsid	 INTEGER;
 
 BEGIN
-
+  
   SELECT CASE WHEN(itemsite_costmethod='A') THEN COALESCE(abs(pCostOvrld / pQty), avgcost(itemsite_id))
               ELSE stdCost(itemsite_item_id)
          END AS cost,
@@ -52,7 +52,6 @@ BEGIN
          ( (item_type IN ('R','J')) OR (itemsite_controlmethod = 'N') ) AS nocontrol,
          (itemsite_controlmethod IN ('L', 'S')) AS lotserial,
          (itemsite_loccntrl) AS loccntrl,
-         (((NOT itemsite_controlmethod IN ('L', 'S')) AND (NOT itemsite_loccntrl)) OR (pItemlocseries = 0)) AS post,
          itemsite_freeze AS frozen INTO _r
   FROM itemsite, item
   WHERE ( (itemsite_item_id=item_id)
@@ -60,6 +59,10 @@ BEGIN
 
   --  Post the Inventory Transactions
   IF (NOT _r.nocontrol) THEN
+
+    IF (COALESCE(pItemlocSeries,0) = 0) THEN
+      RAISE EXCEPTION 'Transaction series must be provided';
+    END IF;
 
     SELECT NEXTVAL('invhist_invhist_id_seq') INTO _invhistid;
 
@@ -125,24 +128,19 @@ BEGIN
       invhist_qoh_after,
       invhist_costmethod, invhist_value_before, invhist_value_after,
       invhist_ordtype, invhist_ordnumber, invhist_docnumber, invhist_comments,
-      invhist_invuom, invhist_unitcost, invhist_xfer_warehous_id, invhist_posted )
+      invhist_invuom, invhist_unitcost, invhist_xfer_warehous_id, invhist_posted,
+      invhist_series )
     SELECT
       _invhistid, itemsite_id, pTransType, _timestamp,
       pQty, itemsite_qtyonhand,
       (itemsite_qtyonhand + (_sense * pQty)),
       itemsite_costmethod, itemsite_value, itemsite_value + (_r.cost * _sense * pQty),
       pOrderType, pOrderNumber, pDocNumber, pComments,
-      uom_name, _r.cost, _xferwhsid, FALSE
+      uom_name, _r.cost, _xferwhsid, FALSE, pItemlocSeries
     FROM itemsite, item, uom
     WHERE ( (itemsite_item_id=item_id)
      AND (item_inv_uom_id=uom_id)
      AND (itemsite_id=pItemsiteid) );
-
-    --  If not lot/serial/location controlled or frozen Adjust QOH now, 
-    --  otherwise it will happen later
-    IF ((_r.post) AND (NOT _r.frozen)) THEN
-      PERFORM postInvHist(_invhistid);
-    END IF;
 
     IF (pCreditid IN (SELECT accnt_id FROM accnt)) THEN
       _creditid = pCreditid;
@@ -166,12 +164,11 @@ BEGIN
     IF (_creditid <> _debitid) THEN
       SELECT insertGLTransaction(pModule, pOrderType, pOrderNumber, pComments,
 				 _creditid, _debitid, _invhistid,
-				 (_r.cost * pQty), _timestamp::DATE, _r.post) INTO _glreturn;
+				 (_r.cost * pQty), _timestamp::DATE, FALSE) INTO _glreturn;
     END IF;
 
     --  Distribute this if this itemsite is controlled
-    IF ( (_r.lotserial OR _r.loccntrl)
-        AND (pItemlocSeries > 0) ) THEN
+    IF ( _r.lotserial OR _r.loccntrl ) THEN
 
       INSERT INTO itemlocdist
       ( itemlocdist_itemsite_id, itemlocdist_source_type,
@@ -193,13 +190,13 @@ BEGIN
                  getSalesLineItemId(pOrderNumber)
                ELSE NULL
              END;
-
-    -- These records will be used for posting G/L transactions to trial balance after records committed.
-    -- If we try to do it now concurrency locking prevents any transacitons while
-    -- user enters item distribution information.  Cant have that.
-      INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
-      VALUES ( _glreturn, pItemlocSeries );
     END IF;
+
+  -- These records will be used for posting G/L transactions to trial balance after records committed.
+  -- If we try to do it now concurrency locking prevents any transacitons while
+  -- user enters item distribution information.  Cant have that.
+    INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
+    VALUES ( _glreturn, pItemlocSeries );
 
     RETURN _invhistid;
   ELSE

@@ -25,7 +25,6 @@ DECLARE
   _itemlocdistid INTEGER;
   _r RECORD;
   _m RECORD;
-  _ils INTEGER;
 
 BEGIN
 
@@ -40,14 +39,6 @@ BEGIN
     IF (_itemlocSeries = 0) THEN
       _itemlocSeries := NEXTVAL('itemloc_series_seq');
     END IF;  
-  
-  --  If no inventory history, the transaction predates new lot/serial return functionality and have
-  --  to handle the old way
-    IF (_oldinvhistid IS NULL)  THEN
-      _ils := _itemlocSeries;
-    ELSE
-      _ils := 0;
-    END IF;
 
     IF (pordertype = 'SO') THEN
       IF (SELECT (item_type != 'J')
@@ -59,7 +50,7 @@ BEGIN
 			  'S/R', pordertype, formatSoNumber(pitemid),
 			  shiphead_number, 'Return from Shipping',
 			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
-			  _ils, _timestamp, _value ) INTO _invhistid
+			  _itemlocSeries, _timestamp, _value ) INTO _invhistid
         FROM coitem, itemsite, costcat, shiphead, shipitem
         WHERE ( (coitem_itemsite_id=itemsite_id)
          AND (itemsite_costcat_id=costcat_id)
@@ -67,6 +58,9 @@ BEGIN
          AND (shiphead_order_type=pordertype)
          AND (shiphead_id=shipitem_shiphead_id)
          AND (shipitem_orderitem_id=pitemid) );
+
+      -- Going to handle distribution automatically later so remove the distribution records
+      DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
       
       ELSE
         SELECT insertGLTransaction( 'S/R', 'RS', formatSoNumber(pItemid), 'Return from Shipping',
@@ -121,13 +115,16 @@ BEGIN
 			  'S/R', pordertype, tohead_number,
 			  '', 'Return from Shipping',
 			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
-			  _ils, _timestamp, _value ) INTO _invhistid
+			  _itemlocSeries, _timestamp, _value ) INTO _invhistid
       FROM toitem, tohead, itemsite, costcat
       WHERE ((toitem_item_id=itemsite_item_id)
         AND  (toitem_tohead_id=tohead_id)
 	AND  (tohead_src_warehous_id=itemsite_warehous_id)
         AND  (itemsite_costcat_id=costcat_id)
         AND  (toitem_id=pitemid) );
+
+      -- Going to handle distribution automatically later so remove the distribution records
+      DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
 
     ELSE
       RETURN -11;
@@ -203,7 +200,7 @@ BEGIN
 			      AND  (shiphead_order_type=pordertype)
 			      AND  (shipitem_orderitem_id=pitemid)) ) );
 
-    RETURN _ils;
+    RETURN _itemlocSeries;
   ELSE
     RETURN 0;
   END IF;

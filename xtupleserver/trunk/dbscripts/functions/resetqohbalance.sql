@@ -1,19 +1,20 @@
-CREATE OR REPLACE FUNCTION resetQOHBalance(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION resetQOHBalance(INTEGER) RETURNS INTEGER AS $$
 BEGIN
   RETURN resetQOHBalance($1, CURRENT_TIMESTAMP);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION resetQOHBalance(INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION resetQOHBalance(INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 DECLARE
   pItemsiteid   ALIAS FOR $1;
   pGlDistTS     ALIAS FOR $2;
   _invhistid    INTEGER;
+  _itemlocSeries INTEGER;
 
 BEGIN
 
-  IF ( ( SELECT ( (itemsite_controlmethod IN (''L'', ''S'')) OR
-                  (item_type IN (''R'', ''J'')) OR
+  IF ( ( SELECT ( (itemsite_controlmethod IN ('L', 'S')) OR
+                  (item_type IN ('R', 'J')) OR
                   (itemsite_loccntrl) OR
                   (itemsite_qtyonhand > 0) )
          FROM itemsite, item
@@ -22,16 +23,20 @@ BEGIN
     RETURN 0;
   END IF;
 
-  SELECT postInvTrans( itemsite_id, ''AD'', (itemsite_qtyonhand * -1),
-                       ''I/M'', '''', '''', ''RESET'',
-                       ''Reset QOH Balance to 0'',
+  _itemlocSeries := NEXTVAL('itemloc_series_seq');
+
+  SELECT postInvTrans( itemsite_id, 'AD', (itemsite_qtyonhand * -1),
+                       'I/M', '', '', 'RESET',
+                       'Reset QOH Balance to 0',
                        costcat_asset_accnt_id, costcat_adjustment_accnt_id,
-                       0, pGlDistTS ) INTO _invhistid
+                       _itemlocSeries, pGlDistTS ) INTO _invhistid
   FROM itemsite, costcat
   WHERE ( (itemsite_costcat_id=costcat_id)
    AND (itemsite_id=pItemsiteid) );
 
+  PERFORM postItemLocSeries(_itemlocSeries);
+
   RETURN _invhistid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
