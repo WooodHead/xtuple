@@ -20,7 +20,6 @@ DECLARE
   _orderitemid		INTEGER;
   _ordertype		TEXT;
   _qty			NUMERIC;
-  _ils                 INTEGER;
   _r                   RECORD;
   _m                   RECORD;
   _itemlocdistid       INTEGER;
@@ -36,14 +35,6 @@ BEGIN
   IF (_itemlocSeries = 0) THEN
     _itemlocSeries := NEXTVAL('itemloc_series_seq');
   END IF;
-  
-  --  If no inventory history, the transaction predates new lot/serial return functionality and have
-  --  to handle the old way
-  IF (_invhistid IS NULL)  THEN
-    _ils := _itemlocSeries;
-  ELSE
-    _ils := 0;
-  END IF;
 
   IF (_ordertype = 'SO') THEN
 
@@ -56,13 +47,16 @@ BEGIN
 			 'S/R', _ordertype, formatSoNumber(coitem_id), shiphead_number,
 			 'Return from Shipping',
 			 costcat_asset_accnt_id, costcat_shipasset_accnt_id,
-			 _ils, _timestamp, _value ) INTO _invhistid
+			 _itemlocSeries, _timestamp, _value ) INTO _invhistid
       FROM coitem, itemsite, costcat, shiphead, shipitem
       WHERE ((_orderitemid=coitem_id)
       AND  (coitem_itemsite_id=itemsite_id)
       AND  (itemsite_costcat_id=costcat_id)
       AND  (shiphead_id=shipitem_shiphead_id)
       AND  (shipitem_id=pshipitemid));
+
+      -- Going to handle distribution automatically later so remove the distribution records
+      DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
       
     ELSE
       SELECT insertGLTransaction( 'S/R', 'RS', formatSoNumber(_orderitemid), 'Return from Shipping',
@@ -123,6 +117,9 @@ BEGIN
       AND  (tohead_src_warehous_id=itemsite_warehous_id)
       AND  (itemsite_costcat_id=costcat_id)
       AND  (toitem_id=_orderitemid) );
+
+    -- Going to handle distribution automatically later so remove the distribution records
+    DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
 
   END IF;
 
@@ -187,7 +184,7 @@ BEGIN
   DELETE FROM shipitem
   WHERE (shipitem_id=pshipitemid);
 
-  RETURN _ils;
+  RETURN _itemlocSeries;
 
 END;
 $$ LANGUAGE 'plpgsql';

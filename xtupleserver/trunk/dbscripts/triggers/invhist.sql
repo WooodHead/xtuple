@@ -14,6 +14,11 @@ BEGIN
   -- never change the created timestamp, which defaults to CURRENT_TIMESTAMP
   IF (TG_OP != 'INSERT') THEN
     NEW.invhist_created = OLD.invhist_created;
+  ELSE
+    -- Always need a series id for distribution posting
+    IF (NEW.invhist_series IS NULL) THEN
+      RAISE EXCEPTION 'Column invhist_series may not be null.';
+    END IF;
   END IF;
 
   RETURN NEW;
