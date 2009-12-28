@@ -1,12 +1,12 @@
 
-CREATE OR REPLACE FUNCTION formatLocationBarcode(INTEGER) RETURNS TEXT IMMUTABLE AS '
+CREATE OR REPLACE FUNCTION formatLocationBarcode(INTEGER) RETURNS TEXT IMMUTABLE AS $$
 DECLARE
   pLocationid ALIAS FOR $1;
   _barcode TEXT;
 BEGIN
 
-  SELECT ( ''\138LOXX'' ||
-           LENGTH(warehous_code)::TEXT || LTRIM(TO_CHAR(LENGTH(location_name::TEXT), ''00'')) ||
+  SELECT ( E'\138LOXX' ||
+           LENGTH(warehous_code)::TEXT || LTRIM(TO_CHAR(LENGTH(location_name::TEXT), '00')) ||
            warehous_code || location_name ) INTO _barcode
   FROM location, warehous
   WHERE ( (location_warehous_id=warehous_id)
@@ -15,5 +15,5 @@ BEGIN
   RETURN _barcode;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

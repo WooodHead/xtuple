@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION postCountSlip(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postCountSlip(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pCntslipid ALIAS FOR $1;
   _p RECORD;
@@ -16,12 +16,12 @@ BEGIN
    AND (cntslip_id=pCntslipid) );
 
   IF (NOT _p.cntslip_posted) THEN
-    SELECT ( ''\nCount Slip #'' || _p.cntslip_number ||
-             '' counted '' || formatQty(_p.cntslip_qty) ) INTO _comments;
+    SELECT ( E'\nCount Slip #' || _p.cntslip_number ||
+             ' counted ' || formatQty(_p.cntslip_qty) ) INTO _comments;
 
 --  Add the Location name if the itemsite is MLC
     IF (_p.itemsite_loccntrl) THEN
-      SELECT ( '', Location:'' || location_name ) INTO _temp
+      SELECT ( ', Location:' || location_name ) INTO _temp
       FROM location, cntslip
       WHERE ( (cntslip_location_id=location_id)
        AND (cntslip_id=pCntslipid) );
@@ -30,13 +30,13 @@ BEGIN
     END IF;
 
 --  Add the Lot/Serial if the itemsite is Lot or Serial controlled
-    IF (_p.itemsite_controlmethod = ''L'') THEN
-      _comments := (_comments || ( '', Lot #:'' || _p.cntslip_lotserial));
-    ELSIF (_p.itemsite_controlmethod = ''S'') THEN
-      _comments := (_comments || ( '', Serial #:'' || _p.cntslip_lotserial));
+    IF (_p.itemsite_controlmethod = 'L') THEN
+      _comments := (_comments || ( ', Lot #:' || _p.cntslip_lotserial));
+    ELSIF (_p.itemsite_controlmethod = 'S') THEN
+      _comments := (_comments || ( ', Serial #:' || _p.cntslip_lotserial));
     END IF;
 
-    _comments := (_comments || '' '' || _p.cntslip_comments);
+    _comments := (_comments || ' ' || _p.cntslip_comments);
 
     UPDATE cntslip
     SET cntslip_posted=TRUE
@@ -56,4 +56,4 @@ BEGIN
   END IF;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
