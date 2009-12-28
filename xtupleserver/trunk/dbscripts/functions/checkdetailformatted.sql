@@ -188,12 +188,12 @@ BEGIN
     END IF;
 
     _rowcount := _rowcount + 1;
-    _docnumber := _docnumber || _checkdetail.docnumber || '\n';
-    _docreference := _docreference || _checkdetail.docreference || '\n';
-    _docdate := _docdate || _checkdetail.docdate || '\n';
-    _docamount := _docamount || _checkdetail.docamount || '\n';
-    _docdiscount := _docdiscount || _checkdetail.docdiscount || '\n';
-    _docnetamount := _docnetamount || _checkdetail.docnetamount || '\n';
+    _docnumber := _docnumber || _checkdetail.docnumber || E'\n';
+    _docreference := _docreference || _checkdetail.docreference || E'\n';
+    _docdate := _docdate || _checkdetail.docdate || E'\n';
+    _docamount := _docamount || _checkdetail.docamount || E'\n';
+    _docdiscount := _docdiscount || _checkdetail.docdiscount || E'\n';
+    _docnetamount := _docnetamount || _checkdetail.docnetamount || E'\n';
   END LOOP;
 
   _row.checkdata_docnumber := _docnumber;
