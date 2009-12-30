@@ -223,7 +223,7 @@ function MPS(period)
     activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
     waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "Run MPS...");
     activateItem(":xTuple ERP:*.Scheduling_QMenu", "Run MPS...");
-    waitForObject(":_plannerCode.All Planner Codes_QRadioButton_2");
+    waitForObject(":_plannerCode.All Planner Codes_QRadioButton_5");
     clickButton(":_plannerCode.All Planner Codes_QRadioButton_2");
     waitForObject(":Run MPS by Planner Code.XDateEdit_XDateEdit");
     type(":Run MPS by Planner Code.XDateEdit_XDateEdit", period);
@@ -325,6 +325,9 @@ function newPO(item, quant, ddate)
     type(":_schedGroup.XDateEdit_XDateEdit_3", "<Tab>");
     waitForObject(":Purchase Order.Save_QPushButton");
     clickButton(":Purchase Order.Save_QPushButton");
+    snooze(2);
+    if(object.exists(":Purchase Order.Continue_QPushButton"))
+        clickButton(":Purchase Order.Continue_QPushButton");
     waitForObject(":Purchase Order.Save_QPushButton_2");
     clickButton(":Purchase Order.Save_QPushButton_2");
     waitForObject(":Purchase Order.Close_QPushButton");
@@ -477,8 +480,8 @@ function NewSO(item, quant)
     
     waitForObject(":frame.New_QPushButton");
     clickButton(":frame.New_QPushButton");
-    waitForObject(":_headerPage...._QPushButton_2");
-    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton");
+    clickButton(":_headerPage...._QPushButton");
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 0, 0, 0, Qt.LeftButton);
     waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
@@ -521,8 +524,8 @@ function NewSOWh(item, quant, Wh)
     
     waitForObject(":frame.New_QPushButton");
     clickButton(":frame.New_QPushButton");
-    waitForObject(":_headerPage...._QPushButton_2");
-    clickButton(":_headerPage...._QPushButton_2");
+    waitForObject(":_headerPage...._QPushButton");
+    clickButton(":_headerPage...._QPushButton");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 0, 0, 0, Qt.LeftButton);
     waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
@@ -581,7 +584,7 @@ function DelAllSO()
     while(findObject(":frame._so_XTreeWidget").topLevelItemCount>0)
     {
         waitForObject(":frame._so_XTreeWidget");
-        type(":frame._so_XTreeWidget","<Down>");
+        type(":frame._so_XTreeWidget","<Space>");
         waitForObject(":frame.Delete_QPushButton");
         clickButton(":frame.Delete_QPushButton");
         waitForObject(":List Open Sales Orders.Yes_QPushButton");
@@ -719,6 +722,9 @@ function DelAllWO()
     waitForObject(":xTuple ERP:*.Work Order Schedule_QMenu");
     type(":xTuple ERP:*.Work Order Schedule_QMenu", "<Return>");
     
+    waitForObject(":_warehouse.All Sites_QRadioButton_7");
+    clickButton(":_warehouse.All Sites_QRadioButton_7");
+    
     waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
     clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
     waitForObject(":frame._wo_XTreeWidget");
@@ -841,12 +847,7 @@ function NewScheduledWO(item, quant, dued, lead)
 function FirmPlndOrder()
 {
 
-    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
-    activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
-    waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
-    activateItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
-    waitForObject(":xTuple ERP:*.Reports_QMenu");
-    activateItem(":xTuple ERP:*.Reports_QMenu", "");
+   
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
@@ -855,6 +856,7 @@ function FirmPlndOrder()
     activateItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders");
     waitForObjectItem(":xTuple ERP:*.Planned Orders_QMenu", "by Planner Code...");
     activateItem(":xTuple ERP:*.Planned Orders_QMenu", "by Planner Code...");
+    
     waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
     clickButton(":Planned Orders by Planner Code.Query_QPushButton");
     waitForObject(":frame._planord_XTreeWidget");
@@ -937,7 +939,7 @@ return false;
 
 function getForwardDate(Days)
 {
-    //Currently works for forward date less than 30
+    
     var DaysFromToday = parseInt(Days);        
     var d = new Date();
         var LeapYearMonths = new Array(31,29,31,30,31,30,31,31,30,31,30,31);
@@ -945,29 +947,70 @@ function getForwardDate(Days)
         var CurrentYearFull = d.getFullYear();
         var CurrentMonth = 1+d.getMonth();
         var CurrentDate = d.getDate();
-        if(CurrentMonth == 12 && (CurrentDate + DaysFromToday > LeapYearMonths[CurrentMonth-1]))
+    
+        if(IsLeapYear(CurrentYearFull))
         {
-               CurrentDate = CurrentDate + DaysFromToday - LeapYearMonths[CurrentMonth-1];
-               CurrentMonth = 1;
+            while(DaysFromToday > LeapYearMonths[CurrentMonth-1])
+            {
+                DaysFromToday = DaysFromToday - LeapYearMonths[CurrentMonth-1];
+                CurrentMonth++;
+                if(CurrentMonth > 12)
+                {
+                    CurrentYearFull++;
+                    CurrentMonth = 1;
+                }
+            }
+            
         }
         
+        if(!IsLeapYear(CurrentYearFull))
+        {
+            while(DaysFromToday > NormalYearMonths[CurrentMonth-1])
+            {
+                DaysFromToday = DaysFromToday - NormalYearMonths[CurrentMonth-1];
+                CurrentMonth++;
+                if(CurrentMonth > 12)
+                {
+                    CurrentYearFull++;
+                    CurrentMonth = 1;
+                }
+            }
+        }
+        
+    
         
         if(IsLeapYear(CurrentYearFull) && (CurrentDate + DaysFromToday > LeapYearMonths[CurrentMonth-1]))
         {
                CurrentDate = CurrentDate + DaysFromToday - LeapYearMonths[CurrentMonth-1];
-               CurrentMonth = CurrentMonth + 1;
+               if(CurrentMonth ==12)
+               {
+                   CurrentMonth = 1;
+                   CurrentYearFull++;
+               }
+               else
+                   CurrentMonth = CurrentMonth + 1;
         }
            
         else if((!IsLeapYear(CurrentYearFull)) && (CurrentDate + DaysFromToday > NormalYearMonths[CurrentMonth-1]))
         {
               CurrentDate = CurrentDate + DaysFromToday - NormalYearMonths[CurrentMonth-1];
-              CurrentMonth = CurrentMonth + 1;
+              
+              if(CurrentMonth == 12)
+               {
+                   CurrentMonth = 1;
+                   CurrentYearFull++;
+               }
+               else
+                   CurrentMonth = CurrentMonth + 1;
                  
         }
         else
             CurrentDate = CurrentDate+DaysFromToday;
         CurrentDate = CurrentDate>9?CurrentDate:("0"+CurrentDate);
         CurrentMonth = CurrentMonth>9?CurrentMonth:("0"+CurrentMonth);
+        
+        
+        var returnString = CurrentYearFull+"-"+CurrentMonth+"-"+CurrentDate;
         return(CurrentYearFull+"-"+CurrentMonth+"-"+CurrentDate);
 
     
