@@ -15,6 +15,7 @@ DECLARE
   _sales RECORD;
   _freightid INTEGER;
   _totalprice NUMERIC;
+  _includepkgweight BOOLEAN := FALSE;
   _freight RECORD;
   _debug BOOLEAN := false;
 BEGIN
@@ -27,6 +28,8 @@ BEGIN
     RAISE NOTICE 'pShipVia = %', pShipVia;
     RAISE NOTICE 'pCurrId = %', pCurrId;
   END IF;
+
+  SELECT fetchMetricBool('IncludePackageWeight') INTO _includepkgweight;
 
   --Get the order header information need to match
   --against price schedules
@@ -80,7 +83,10 @@ BEGIN
   --Get a list of aggregated weights from sites and
   --freight classes used on order lines
   FOR _weights IN
-    SELECT SUM(orderitem_qty_ordered * (item_prodweight + item_packweight)) AS weight,
+    SELECT CASE WHEN (_includePkgWeight) THEN
+                      SUM(orderitem_qty_ordered * (item_prodweight + item_packweight))
+                ELSE  SUM(orderitem_qty_ordered * item_prodweight)
+           END AS weight,
            itemsite_warehous_id, item_freightclass_id
     FROM salesquoteitem JOIN itemsite ON (itemsite_id=orderitem_itemsite_id)
                         JOIN item ON (item_id=itemsite_item_id)
