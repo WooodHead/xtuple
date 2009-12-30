@@ -193,6 +193,7 @@
 :List Users._usr_XTreeWidget	{container=':xTuple ERP:*.List Users_QWorkspaceChild' name='_usr' type='XTreeWidget' visible='1'}
 :List Users.qt_tabwidget_stackedwidget_QStackedWidget	{container=':xTuple ERP:*.List Users_QWorkspaceChild' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
 :Log In.Aug 24 2009 09:05:21_QLabel	{name='_build' text='Aug 24 2009 09:05:21' type='QLabel' visible='1' window=':Log In_login2'}
+:Log In.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Log In_login2'}
 :Log In.Copyright (c) 1999-2009, OpenMFG, LLC._QLabel	{name='_copyrightLit' text='Copyright (c) 1999-2009, OpenMFG, LLC.' type='QLabel' visible='1' window=':Log In_login2'}
 :Log In.Log in to server I specify_QRadioButton	{name='_otherOption' text='Log in to server I specify' type='QRadioButton' visible='1' window=':Log In_login2'}
 :Log In.Login_QPushButton	{name='_login' text='Login' type='QPushButton' visible='1' window=':Log In_login2'}
@@ -214,6 +215,7 @@
 :Miscellaneous Check.XDateEdit_XDateEdit	{container=':xTuple ERP:*.Miscellaneous Check_QWorkspaceChild' name='XDateEdit' type='XDateEdit' visible='1'}
 :Miscellaneous Check._currency_XComboBox	{container=':xTuple ERP:*.Miscellaneous Check_QWorkspaceChild' name='_currency' type='XComboBox' visible='1'}
 :Miscellaneous Check._currency_XLineEdit	{container=':xTuple ERP:*.Miscellaneous Check_QWorkspaceChild' leftWidget=':Miscellaneous Check._currency_XComboBox' type='XLineEdit' unnamed='1' visible='1'}
+:Order #_HeaderViewItem	{container=':_planord_QHeaderView' text='Order #' type='HeaderViewItem'}
 :Planned Order.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':Planned Order_plannedOrder'}
 :Planned Order.Save_QPushButton	{name='_create' text='Save' type='QPushButton' visible='1' window=':Planned Order_plannedOrder'}
 :Planned Order._itemGroup_QGroupBox	{name='_itemGroup' type='QGroupBox' visible='1' window=':Planned Order_plannedOrder'}
@@ -264,8 +266,11 @@
 :Run MPS by Planner Code.Create_QPushButton	{name='_create' text='Create' type='QPushButton' visible='1' window=':Run MPS by Planner Code_runMPSByPlannerCode'}
 :Run MPS by Planner Code.XDateEdit_XDateEdit	{name='XDateEdit' type='XDateEdit' visible='1' window=':Run MPS by Planner Code_runMPSByPlannerCode'}
 :Run MPS by Planner Code._plannerCode_ParameterGroup	{name='_plannerCode' type='ParameterGroup' visible='1' window=':Run MPS by Planner Code_runMPSByPlannerCode'}
+:Run MPS by Planner Code._plannerCode_ParameterGroup_2	{name='_plannerCode' type='ParameterGroup' visible='1' window=':Run MPS by Planner Code_XMainWindow'}
 :Run MPS by Planner Code._warehouse_WarehouseGroup	{name='_warehouse' type='WarehouseGroup' visible='1' window=':Run MPS by Planner Code_runMPSByPlannerCode'}
-:Run MPS by Planner Code_runMPSByPlannerCode	{name='runMPSByPlannerCode' type='runMPSByPlannerCode' visible='1' windowTitle='Run MPS by Planner Code'}
+:Run MPS by Planner Code._warehouse_WarehouseGroup_2	{name='_warehouse' type='WarehouseGroup' visible='1' window=':Run MPS by Planner Code_XMainWindow'}
+:Run MPS by Planner Code_XMainWindow	{name='runMPSByPlannerCode' type='XMainWindow' visible='1' windowTitle='Run MPS by Planner Code'}
+:Run MPS by Planner Code_runMPSByPlannerCode	{name='runMPSByPlannerCode' type='XMainWindow' visible='1' windowTitle='Run MPS by Planner Code'}
 :Run MRP by Planner Code.Create_QPushButton	{name='_create' text='Create' type='QPushButton' visible='1' window=':Run MRP by Planner Code_createPlannedOrdersByPlannerCode'}
 :Run MRP by Planner Code._optionsGroup_QGroupBox	{name='_optionsGroup' type='QGroupBox' visible='1' window=':Run MRP by Planner Code_createPlannedOrdersByPlannerCode'}
 :Run MRP by Planner Code._plannerCode_ParameterGroup	{name='_plannerCode' type='ParameterGroup' visible='1' window=':Run MRP by Planner Code_createPlannedOrdersByPlannerCode'}
@@ -335,6 +340,7 @@
 :W/O Schedule by Planner Code.Query_QPushButton	{container=':xTuple ERP:*.W/O Schedule by Planner Code_QWorkspaceChild' name='_query' text='Query' type='QPushButton' visible='1'}
 :W/O Schedule by Planner Code.W/O Schedule by Planner Code_QWorkspaceTitleBar	{container=':xTuple ERP:*.W/O Schedule by Planner Code_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='W/O Schedule by Planner Code'}
 :W/O Schedule by Planner Code.Yes_QPushButton	{container=':xTuple ERP:*.W/O Schedule by Planner Code_QWorkspaceChild' text='Yes' type='QPushButton' unnamed='1' visible='1'}
+:W/O Schedule by Planner Code._warehouse_WarehouseGroup	{container=':xTuple ERP:*.W/O Schedule by Planner Code_QWorkspaceChild' name='_warehouse' type='WarehouseGroup' visible='1'}
 :W/O Schedule by Planner Code.frame_QFrame	{container=':xTuple ERP:*.W/O Schedule by Planner Code_QWorkspaceChild' name='frame' type='QFrame' visible='1'}
 :Work Order.Save_QPushButton	{container=':xTuple ERP:*.Work Order_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
 :Work Order.Yes_QPushButton	{container=':xTuple ERP:*.Work Order_QWorkspaceChild' text='Yes' type='QPushButton' unnamed='1' visible='1'}
@@ -474,12 +480,16 @@
 :_plannerCode.All Planner Codes_QRadioButton_2	{container=':Run MPS by Planner Code._plannerCode_ParameterGroup' name='_all' text='All Planner Codes' type='QRadioButton' visible='1'}
 :_plannerCode.All Planner Codes_QRadioButton_3	{container=':Planned Orders by Planner Code._plannerCode_ParameterGroup' name='_all' text='All Planner Codes' type='QRadioButton' visible='1'}
 :_plannerCode.All Planner Codes_QRadioButton_4	{container=':Delete Planned Orders by Planner Code._plannerCode_ParameterGroup' name='_all' text='All Planner Codes' type='QRadioButton' visible='1'}
+:_plannerCode.All Planner Codes_QRadioButton_5	{container=':Run MPS by Planner Code._plannerCode_ParameterGroup_2' name='_all' text='All Planner Codes' type='QRadioButton' visible='1'}
 :_plannerCode_XComboBox	{buddy=':Control.Planner Code:_QLabel' name='_plannerCode' type='XComboBox' visible='1'}
 :_plannerCode_XComboBox_2	{buddy=':Control.Planner Code:_QLabel_2' name='_plannerCode' type='XComboBox' visible='1'}
 :_planningTab.Enforce Order Parameters_QGroupBox	{container=':qt_tabwidget_stackedwidget._planningTab_QWidget' name='_useParameters' title='Enforce Order Parameters' type='QGroupBox' visible='1'}
 :_planningTab.Enforce Order Parameters_QGroupBox_2	{container=':qt_tabwidget_stackedwidget._planningTab_QWidget_2' name='_useParameters' title='Enforce Order Parameters' type='QGroupBox' visible='1'}
 :_planningTab.Scheduling_QGroupBox	{container=':qt_tabwidget_stackedwidget._planningTab_QWidget' name='groupBox' title='Scheduling' type='QGroupBox' visible='1'}
 :_planningTab.Scheduling_QGroupBox_2	{container=':qt_tabwidget_stackedwidget._planningTab_QWidget_2' name='groupBox' title='Scheduling' type='QGroupBox' visible='1'}
+:_planord.Col1_QModelIndex	{column='0' container=':frame._planord_XTreeWidget' text?='*' type='QModelIndex' row='0'}
+:_planord.Col2_QModelIndex	{column='0' container=':frame._planord_XTreeWidget' text?='*' type='QModelIndex' row='1'}
+:_planord_QHeaderView	{container=':frame._planord_XTreeWidget' orientation='1' type='QHeaderView' unnamed='1' visible='1'}
 :_pohead_XTreeWidget	{buddy=':Purchase Orders.Purchase Orders:_QLabel' name='_pohead' type='XTreeWidget' visible='1'}
 :_port_QLineEdit	{buddy=':Login Options.Port:_QLabel' name='_port' type='QLineEdit' visible='1'}
 :_privTab.Add All->>_QPushButton	{container=':qt_tabwidget_stackedwidget._privTab_QWidget' name='_addAll' text='Add All->>' type='QPushButton' visible='1'}
@@ -522,6 +532,8 @@
 :_warehouse.All Sites_QRadioButton_3	{container=':Run MPS by Planner Code._warehouse_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
 :_warehouse.All Sites_QRadioButton_4	{container=':Delete Planned Orders by Planner Code._warehouse_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
 :_warehouse.All Sites_QRadioButton_5	{container=':List Open Sales Orders._warehouse_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
+:_warehouse.All Sites_QRadioButton_6	{container=':Run MPS by Planner Code._warehouse_WarehouseGroup_2' name='_all' text='All Sites' type='QRadioButton' visible='1'}
+:_warehouse.All Sites_QRadioButton_7	{container=':W/O Schedule by Planner Code._warehouse_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
 :_warehouse.Selected:_QRadioButton	{container=':List Item Sites._warehouse_WarehouseGroup' name='_selected' text='Selected:' type='QRadioButton' visible='1'}
 :_warehouse.Selected:_QRadioButton_2	{container=':Run MPS by Planner Code._warehouse_WarehouseGroup' name='_selected' text='Selected:' type='QRadioButton' visible='1'}
 :_warehouse._warehouses_WComboBox	{container=':List Item Sites._warehouse_WarehouseGroup' name='_warehouses' type='WComboBox' visible='1'}
