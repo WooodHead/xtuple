@@ -18,7 +18,7 @@ DECLARE
   _includepkgweight BOOLEAN := FALSE;
   _freight RECORD;
   _qry TEXT;
-  _debug BOOLEAN := true;
+  _debug BOOLEAN := false;
 BEGIN
   IF (_debug) THEN
     RAISE NOTICE 'pOrderType = %', pOrderType;
