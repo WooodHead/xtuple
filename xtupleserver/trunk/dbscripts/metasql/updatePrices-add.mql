@@ -1,0 +1,15 @@
+-- Group: updateprices
+-- Name: add
+-- Notes:
+
+  INSERT INTO selsched
+<? if exists("ipshead_id") ?>
+  VALUES (<? value("ipshead_id") ?>);
+<? else ?>
+  SELECT ipshead_id
+  FROM ipshead
+  WHERE ipshead_id NOT IN (
+    SELECT selsched_ipshead_id
+    FROM selsched
+    WHERE (selsched_ipshead_id=ipshead_id));
+<? endif ?>
