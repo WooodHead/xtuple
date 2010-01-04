@@ -1,6 +1,0 @@
--- Group: replaceprices
--- Name: replace
--- Notes:
-
-SELECT replacepricingschedule(selsched_ipshead_id, <? value("effective") ?>)
-FROM selsched;
