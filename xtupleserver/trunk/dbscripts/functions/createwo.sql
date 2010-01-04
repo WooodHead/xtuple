@@ -164,12 +164,12 @@ BEGIN
       IF (_parentType != 'S') THEN
         RAISE EXCEPTION 'Work Orders for item type Job must be created from a sales order';
       ELSE
-        _cosmethod := COALESCE(fetchmetrictext('JobItemCosDefault'),'D');
+        SELECT COALESCE(itemsite_cosdefault,fetchmetrictext('JobItemCosDefault'),'D') INTO _cosmethod FROM itemsite WHERE itemsite_id=pItemsiteid;
       END IF;
     ELSIF (SELECT (itemsite_costmethod = 'A')
              FROM itemsite
             WHERE (itemsite_id = pItemsiteid)) THEN
-      _cosmethod := COALESCE(fetchmetrictext('JobItemCosDefault'),'D');
+      SELECT COALESCE(itemsite_cosdefault,fetchmetrictext('JobItemCosDefault'),'D') INTO _cosmethod FROM itemsite WHERE itemsite_id=pItemsiteid;
     END IF;
   END IF;
 
