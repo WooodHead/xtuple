@@ -1,7 +1,0 @@
--- Group: replaceprices
--- Name: selsched
--- Notes:
-
-SELECT selsched_ipshead_id, ipshead_descrip AS ipshead_name
-FROM selsched
- JOIN ipshead ON (selsched_ipshead_id=ipshead_id)
