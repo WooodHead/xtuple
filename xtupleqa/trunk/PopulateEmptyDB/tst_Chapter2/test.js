@@ -103,7 +103,7 @@ function main()
           
     waitForObject(":Chart of Accounts.Close_QPushButton_2");
     clickButton(":Chart of Accounts.Close_QPushButton_2");
- 
+
  
  
     //---------------Create Inventory - new Cost Catergory------------
@@ -172,10 +172,11 @@ function main()
     waitForObject(":List Cost Categories.Close_QPushButton_2");
     if(!clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCINTRAN", 5, 5, 1, Qt.LeftButton))
         test.pass("Cost Category: CCINTRAN created");
+    waitForObject(":List Cost Categories.Close_QPushButton_2");
     clickButton(":List Cost Categories.Close_QPushButton_2");
     test.log("Inventory Cost Category CCINTRAN created");
     
-    
+  
     //----------Inventory-Cost Categories: copy and create for WH2------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
@@ -348,9 +349,11 @@ function main()
     type(":_location_XLineEdit_2", "01");
     type(":_description_QTextEdit_3", "Location 01-01-01-01 in Zone FG1");
     clickButton(":Location.Save_QPushButton");
+    snooze(2);
     waitForObject(":List Site Locations._location_XTreeWidget");
     if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-01 in Zone FG1", 5, 5, 1, Qt.LeftButton))
         test.pass("Location 01-01-01-01 in Zone FG1 created");
+    
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
@@ -365,9 +368,12 @@ function main()
     type(":_location_XLineEdit_2", "02");
     type(":_description_QTextEdit_3", "Location 01-01-01-02 in Zone FG1");
     clickButton(":Location.Save_QPushButton");
+    snooze(2);
     waitForObject(":List Site Locations._location_XTreeWidget");
     if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-02 in Zone FG1", 5, 5, 1, Qt.LeftButton))
         test.pass("Location 01-01-01-02 in Zone FG1 created");
+    
+    
     waitForObject(":List Site Locations.New_QPushButton_2");
     clickButton(":List Site Locations.New_QPushButton_2");
     waitForObject(":_whsezone_XComboBox_2");
@@ -382,6 +388,7 @@ function main()
     type(":_location_XLineEdit_2", "03");
     type(":_description_QTextEdit_3", "Location 01-01-01-03 in Zone FG1");
     clickButton(":Location.Save_QPushButton");
+    snooze(2);
      waitForObject(":List Site Locations._location_XTreeWidget");
     if(!clickItem(":List Site Locations._location_XTreeWidget", "Location 01-01-01-03 in Zone FG1", 5, 5, 1, Qt.LeftButton))
         test.pass("Location 01-01-01-03 in Zone FG1 created");
@@ -485,15 +492,16 @@ function main()
     
     waitForObject(":Conversion.Save_QPushButton");
     clickButton(":Conversion.Save_QPushButton");
-    
+    snooze(0.5);
     waitForObject(":Unit of Measure.Save_QPushButton");
     clickButton(":Unit of Measure.Save_QPushButton");
+    snooze(1);
     waitForObject(":List Units of Measure.Close_QPushButton_2");
     clickButton(":List Units of Measure.Close_QPushButton_2");
     test.log("Unit of Measures created");
   
-  
-  
+
+
     //----------Define: Class Codes------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -502,6 +510,7 @@ function main()
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Class Codes...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Class Codes...");
     
+    snooze(1);
     waitForObject(":List Class Codes.New_QPushButton_2");
     clickButton(":List Class Codes.New_QPushButton_2");
     waitForObject(":_classCode_XLineEdit_2");
@@ -540,7 +549,7 @@ function main()
     waitForObject(":List Class Codes.Close_QPushButton_2");
     clickButton(":List Class Codes.Close_QPushButton_2");
   
-  
+
     //-----------Define: Product Categories----------------
     waitForObject(":xTuple ERP: OpenMFG Edition_QWorkspace");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -737,8 +746,8 @@ function main()
     clickButton(":List Characteristics.Close_QPushButton_2");
     
   
-(appEdition=="Manufacturing")
-{
+     if(appEdition=="Manufacturing")
+     {
   
         //----------------Schedule: Create Planner Code----------------
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
@@ -767,6 +776,7 @@ function main()
         
         waitForObject(":List Planner Codes.New_QPushButton_2");
         clickButton(":List Planner Codes.New_QPushButton_2");
+        snooze(1);
         waitForObject(":_code_XLineEdit_6");
         type(":_code_XLineEdit_6", "MRP-ITEMS");
         type(":_description_XLineEdit_16", "MRP Items");
@@ -791,6 +801,7 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
         activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
+        snooze(0.1);
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
         activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
   

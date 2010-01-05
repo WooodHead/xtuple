@@ -329,17 +329,17 @@ function main()
 
     waitForObject(":List Vendors.Close_QPushButton");
     clickButton(":List Vendors.Close_QPushButton");
-  
-
-
-//------------Create Item Sources------------------
-waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
-activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
-
+    
+    
+    
+    //------------Create Item Sources------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+    activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+    
     //----Item source for TBOX1--------------
     waitForObject(":_frame.New_QPushButton");
     clickButton(":_frame.New_QPushButton");

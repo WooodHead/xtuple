@@ -56,16 +56,20 @@ function loginAppl(userrole)
     type(":_password_QLineEdit", "<Return>");
     test.log("Logged in Application");
     
-    // handle the app waiting for user to ack "The Translation Dictionaries [ are missing ]"
-    try {
-        waitForObject(":xTuple ERP: OpenMFG Edition_QWorkspace");
-    } catch (e) {
-        try {
-            waitForObject(":OK_QPushButton");
-            clickButton(":OK_QPushButton");
-            waitForObject(":xTuple ERP: OpenMFG Edition_QWorkspace");
-        } catch (f) { throw e; } // if not a simple dialog, throw the original exception
-    }
+    snooze(2);
+    if(object.exists(":OK_QPushButton"))
+      clickButton(":OK_QPushButton");  
+   
+//    // handle the app waiting for user to ack "The Translation Dictionaries [ are missing ]"
+//    try {
+//         waitForObject(":xTuple ERP: OpenMFG Edition_QWorkspace");
+//    } catch (e) {
+//        try {
+//            waitForObject(":OK_QPushButton");
+//            clickButton(":OK_QPushButton");
+//            waitForObject(":xTuple ERP: OpenMFG Edition_QWorkspace");
+//        } catch (f) { throw e; } // if not a simple dialog, throw the original exception
+//    }
 }
 
 function findApplicationEdition()
@@ -93,7 +97,9 @@ function assignPrivileges()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObject(":xTuple ERP: OpenMFG Edition.System_QMenu");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
+   
     waitForObject(":List Users._usr_XTreeWidget_2");
+    mouseClick(":_usr.admin_QModelIndex",10,10,0,Qt.LeftButton);
     type(":List Users._usr_XTreeWidget_2","<Space>");
     waitForObject(":List Users.Edit_QPushButton_2");
     clickButton(":List Users.Edit_QPushButton_2");
@@ -113,13 +119,23 @@ function assignPrivileges()
     clickButton(":List Users.Close_QPushButton_2");
     test.log("Admin User assigned with all Privileges");
     
-    
-    //------------Rescan Privileges----------------------------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    //---Restarting Application--
+    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
- 
+    waitForObject(":xTuple ERP: OpenMFG Edition.System_QMenu");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit xTuple ERP...");
+    
+    snooze(5);
+    
+    if(OS.name=="Linux")
+        startApplication("xtuple.bin");
+    
+    else
+        startApplication("xtuple");
+    
+    snooze(2);
+    
+    loginAppl("CONFIGURE"); 
 
 }
 
@@ -168,7 +184,8 @@ function createShift(ShiftNum, ShiftName)
     waitForObject(":List Shifts.Save_QPushButton");
     clickButton(":List Shifts.Save_QPushButton");
    
-    if(findObject(":_shiftList.1ST_QModelIndex").text== "1ST")
+    snooze(2);
+    if(object.exists(":_shiftList.1ST_QModelIndex"))
         test.pass("New Shift:"+ ShiftNum + " created");
     else
         test.fail("New Shift:"+ ShiftNum + "not created")
@@ -197,7 +214,7 @@ function createLocale(LocaleCode,LocaleDesc)
     type(":_description_XLineEdit", LocaleDesc);   
     snooze(0.5);
     waitForObject(":_language_XComboBox");
-    type(":_language_XComboBox", "English");
+    clickItem(":_language_XComboBox", "English",0,0,1,Qt.LeftButton);
     snooze(0.5);
     waitForObject(":_country_XComboBox");
     clickItem(":_country_XComboBox", "United States",0,0,1,Qt.LeftButton);	
@@ -267,6 +284,7 @@ function createGroup(GrpName, GrpDesc)
 {
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    snooze(0.1);
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Groups...");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Groups...");
     waitForObject(":List Groups.New_QPushButton");
@@ -376,10 +394,12 @@ function createUserByRole(userrole)
     waitForObject(":_contactTab._country_XComboBox");
     type(":_contactTab._country_XComboBox", "india");
     waitForObject(":Employee.qt_tabwidget_tabbar_QTabBar");
-    
+    snooze(1);
     clickTab(":Employee.qt_tabwidget_tabbar_QTabBar", "Detail");
+    snooze(1);
     waitForObject(":_memberGroup._site_WComboBox");
     clickItem(":_memberGroup._site_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
+    snooze(1);
     waitForObject(":_timeclockGroup.VirtualClusterLineEdit_DeptClusterLineEdit");
     type(":_timeclockGroup.VirtualClusterLineEdit_DeptClusterLineEdit", "MFG");
     waitForObject(":_timeclockGroup.VirtualClusterLineEdit_ShiftClusterLineEdit");
@@ -445,13 +465,14 @@ function createCompany(CompNum, CompDesc)
     waitForObject(":List Companies.New_QPushButton");
     clickButton(":List Companies.New_QPushButton");
     waitForObject(":_number_XLineEdit");
-    type(":_number_XLineEdit", "<Del>");
+    findObject(":_number_XLineEdit").clear();
     type(":_number_XLineEdit", CompNum);
-    type(":_descrip_XTextEdit", "<Del>");
+    findObject(":_descrip_XTextEdit").clear();
     type(":_descrip_XTextEdit", CompDesc);
     waitForObject(":List Companies.Save_QPushButton");
     clickButton(":List Companies.Save_QPushButton");
   
+    snooze(1);
     var sWidgetTreeControl = ":List Companies._company_XTreeWidget";
     if(findObject(":_company.01_QModelIndex").text == "01")
         test.pass("Company: "+CompDesc+" created");
@@ -469,23 +490,29 @@ function COA(COACompany,COAProfit,COANumber,COASub,COADesc,COAType,COASubType)
 
     waitForObject(":Chart of Accounts.New_QPushButton_2");
     clickButton(":Chart of Accounts.New_QPushButton_2");
+    snooze(1);
     waitForObject(":Account Number._company_XComboBox");
     if(findObject(":Account Number._company_XComboBox").currentText!=COACompany)
-       type(":Chart of Accounts._company_XComboBox_2", "01");
+       clickItem(":Account Number._company_XComboBox","01",0,0,1,Qt.LeftButton);
+    snooze(1);
     waitForObject(":Account Number._profit_XComboBox");
     if(findObject(":Account Number._profit_XComboBox").currentText!=COAProfit)
-        type(":Account Number._profit_XComboBox", "01");
+       clickItem(":Account Number._profit_XComboBox", "01",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Account Number._sub_XComboBox");
     snooze(0.5);
     if(findObject(":Account Number._sub_XComboBox").currentText!=COASub)
-        type(":Chart of Accounts._sub_XComboBox", "01");
+        clickItem(":Chart of Accounts._sub_XComboBox", "01",0,0,1,Qt.LeftButton);
+    snooze(0.5);
     type(":_number_XLineEdit_3", COANumber);
     type(":_description_XLineEdit_11", COADesc);
     type(":_extReference_XLineEdit_2", COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub);
     waitForObject(":Account Number._type_XComboBox");
     clickItem(":Account Number._type_XComboBox", COAType, 0, 0, 1, Qt.LeftButton);
+    snooze(0.5);
     waitForObject(":Account Number._subType_XComboBox");
     type(":Account Number._subType_XComboBox", COASubType);
+    snooze(0.5);
     clickButton(":Account Number.Save_QPushButton");
     test.log("Acc: "+COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub+" created");
       
@@ -693,8 +720,8 @@ function defineTaxation()
     clickButton(":Tax Zone.Save_QPushButton");
     
     waitForObject(":List Tax Zones.Close_QPushButton_2");
-//    clickButton(":List Tax Zones.Close_QPushButton_2");
-   
+    clickButton(":List Tax Zones.Close_QPushButton_2");
+//   
     
     //--------Tax Assignments-------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -770,6 +797,7 @@ function defineTaxation()
     type(":_frame._notes_XTextEdit_2", "tax reg1");
     waitForObject(":Tax Registration Information.Save_QPushButton");
     clickButton(":Tax Registration Information.Save_QPushButton");
+    snooze(1);
     waitForObject(":List Tax Registrations.Close_QPushButton_2");
     clickButton(":List Tax Registrations.Close_QPushButton_2");
  

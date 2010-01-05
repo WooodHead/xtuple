@@ -367,6 +367,7 @@ function main()
       clickItem(":_report_XComboBox", "PackingList-Shipment",0,0,1,Qt.LeftButton);
     waitForObject(":Shipping Form.Save_QPushButton");
     clickButton(":Shipping Form.Save_QPushButton");
+    snooze(1);
     
     waitForObject(":List Shipping Forms._bolformat_XTreeWidget");
     if(!clickItem(":List Shipping Forms._bolformat_XTreeWidget", "INTRAN-PACKING-LIST", 97, 3, 1, Qt.LeftButton))
@@ -825,14 +826,15 @@ function main()
     snooze(1);
     waitForObject(":List Customer Groups.Close_QPushButton");
     clickButton(":List Customer Groups.Close_QPushButton");
-  
-    
+    snooze(1);
+ 
     
     //-----------------Define: Reason Codes---------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
+    snooze(0.5);
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Reason Codes...");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Reason Codes...");
     
@@ -862,15 +864,15 @@ function main()
     waitForObject(":List Reason Codes.Close_QPushButton");
     clickButton(":List Reason Codes.Close_QPushButton");
  
-  
-  //---------------Define Pricing Schedule---------------
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
-  activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
-  activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
-  
+
+//---------------Define Pricing Schedule---------------
+waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
+activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
+
     waitForObject(":List Pricing Schedules.New_QPushButton");
     clickButton(":List Pricing Schedules.New_QPushButton");
     waitForObject(":GroupBox1._name_XLineEdit_2");
@@ -944,15 +946,17 @@ function main()
     waitForObject(":_ipshead_XTreeWidget");
     if(!clickItem(":_ipshead_XTreeWidget", "FREIGHT-BULK", 5, 5, 1, Qt.LeftButton))
         test.pass("Pricing Schedule created:FREIGHT-BULK");
-    
+  
   
     //-----------Pricing Schedule: FREIGHT-TTOYS-BULK-------------
     waitForObject(":List Pricing Schedules.New_QPushButton");
     clickButton(":List Pricing Schedules.New_QPushButton");
     waitForObject(":GroupBox1._name_XLineEdit_2");
     type(":GroupBox1._name_XLineEdit_2", "FREIGHT-TTOYS-BULK");
+    waitForObject(":GroupBox1._descrip_XLineEdit_2");
     type(":GroupBox1._descrip_XLineEdit_2", "Freight Pricing for Bulk Toys");
     
+    waitForObject(":Pricing Schedule.New_QPushButton");
     clickButton(":Pricing Schedule.New_QPushButton");
     waitForObject(":Type.Freight_QRadioButton_2");
     clickButton(":Type.Freight_QRadioButton_2");

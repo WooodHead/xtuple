@@ -19,25 +19,23 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
 
     COA("01","01","4050","01","State Sales Tax Revenue","Revenue","SO");
-    waitForObject(":_account_XTreeWidget_2", 2);
-    if(!clickItem(":_account_XTreeWidget_2", "State Sales Tax Revenue", 5, 5, 1, Qt.LeftButton))
-        test.pass("COA Created for: State Sales Tax Revenue");
+  
     
     waitForObject(":Chart of Accounts.Close_QPushButton_2");
     clickButton(":Chart of Accounts.Close_QPushButton_2");
     
     //-----Define Taxation------
     defineTaxation();
-
-  //----------Create Items---------------------
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-  activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
-  activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
-  waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
-  activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
-
-
+    
+    //----------Create Items---------------------
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
+    activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
+    
+    
     //-----------Create Item YTRUCK1---------------
     waitForObject(":List Items.New_QPushButton_2");
     clickButton(":List Items.New_QPushButton_2");
@@ -54,9 +52,9 @@ function main()
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
     if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
-         type(":_itemGroup.Fractional_QCheckBox_3"," ");
+        type(":_itemGroup.Fractional_QCheckBox_3"," ");
     type(":_itemGroup_XLineEdit_3", "5.00");
-
+    
     if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
         type(":Item.Item is Sold_QGroupBox_3"," ");
     type(":_prodcat_XComboBox_2", "CLASSIC-METAL");
@@ -294,16 +292,16 @@ function main()
    
     waitForObject(":List Items.Close_QPushButton_3");
     clickButton(":List Items.Close_QPushButton_3");
+
+    
   
-
-
----------------Create Item sites------------------------------ 
-itForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-tivateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-itForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-tivateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-itForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
-tivateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+//---------------Create Item sites------------------------------ 
+waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+activateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
 
     //---------Item site: YTRUCK1----------------------
     waitForObject(":List Item Sites.New_QPushButton_3");
@@ -344,6 +342,7 @@ tivateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
     snooze(2);
     waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
+    snooze(1)
     while(!object.exists(":_planningTab.Enforce Order Parameters_QGroupBox_3"))
         snooze(0.1);
     snooze(1);
@@ -425,8 +424,10 @@ tivateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
     waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
+    snooze(2);
     if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
         type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+    snooze(1);
     waitForObject(":_reorderLevel_XLineEdit_3");
     type(":_reorderLevel_XLineEdit_3", "0.00");
     type(":_orderUpToQty_XLineEdit_3", "0.00");
@@ -438,6 +439,7 @@ tivateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
     {
         
         clickItem(":Scheduling._planningType_XComboBox","MRP",1,0,0,Qt.LeftButton);
+        waitForObject(":Scheduling.qt_spinbox_lineedit_QLineEdit");
         findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
         type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
         
@@ -546,236 +548,237 @@ tivateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
     if(!clickItem(":_itemSite_XTreeWidget_2", "TINSERT1", 5, 5, 1, Qt.LeftButton))
         test.pass("Item Site Created: TINSERT1");
     
-  
-    //---------Item site: TWHEEL1----------------------
-    waitForObject(":List Item Sites.New_QPushButton_3");
-    clickButton(":List Item Sites.New_QPushButton_3");
-    waitForObject(":Item Site...._QPushButton");
-    clickButton(":Item Site...._QPushButton");
-    waitForObject(":_item_XTreeWidget_4");
-    doubleClickItem(":_item_XTreeWidget_4","TWHEEL1",0,0,0,Qt.LeftButton);
-    waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
-    if(appEdition=="Manufacturing"||appEdition=="Standard")
-        clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
-    else if(appEdition=="PostBooks")
-        test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
-    if(!findObject(":Supply Rules.Site can manufacture this Item_QCheckBox").checked)
-        clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox");
-    type(":Item Site.Sold from this Site_QGroupBox"," ");
-    clickButton(":Costing Method.Standard_QRadioButton_3");
-    waitForObject(":Control._controlMethod_XComboBox_3");
-    clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);
-    waitForObject(":_plannerCode_XComboBox_2");
-    clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);
-    waitForObject(":_costcat_XComboBox_3");
-    clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton);    
-    waitForObject(":_inventory.Stocked_QCheckBox_3");
-    waitForObject(":_inventory.Stocked_QCheckBox_3");    
-    if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
-        clickButton(":_inventory.Stocked_QCheckBox_3");
-    if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_3").checked)
-        clickButton(":_inventory.Allow Automatic Updates_QCheckBox_3");
-    type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
-    type(":_cycleCountFreq_QSpinBox_3", "<Del>");
-    type(":_cycleCountFreq_QSpinBox_3", "30");
-    type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
-    type(":_eventFence_QSpinBox_4", "<Del>");
-    type(":_eventFence_QSpinBox_4", "10");
-    type(":_locationGroup._locationComments_XLineEdit_3", "FG-01-01-01");
-    snooze(2);      
-    clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
-    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
-    snooze(1);
-    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
-        type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
-    waitForObject(":_reorderLevel_XLineEdit_3");
-    type(":_reorderLevel_XLineEdit_3", "0.00");
-    type(":_orderUpToQty_XLineEdit_3", "0.00");
-    type(":_minimumOrder_XLineEdit_3", "100");
-    type(":_maximumOrder_XLineEdit_3", "10000");
-    type(":_orderMultiple_XLineEdit_3", "100");
-    clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
-    if(appEdition=="Manufacturing")
-    {
+   
+      
+        //---------Item site: TWHEEL1----------------------
+        waitForObject(":List Item Sites.New_QPushButton_3");
+        clickButton(":List Item Sites.New_QPushButton_3");
+        waitForObject(":Item Site...._QPushButton");
+        clickButton(":Item Site...._QPushButton");
+        waitForObject(":_item_XTreeWidget_4");
+        doubleClickItem(":_item_XTreeWidget_4","TWHEEL1",0,0,0,Qt.LeftButton);
+        waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
+        if(appEdition=="Manufacturing"||appEdition=="Standard")
+            clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
+        else if(appEdition=="PostBooks")
+            test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
+        if(!findObject(":Supply Rules.Site can manufacture this Item_QCheckBox").checked)
+            clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox");
+        type(":Item Site.Sold from this Site_QGroupBox"," ");
+        clickButton(":Costing Method.Standard_QRadioButton_3");
+        waitForObject(":Control._controlMethod_XComboBox_3");
+        clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);
+        waitForObject(":_plannerCode_XComboBox_2");
+        clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);
+        waitForObject(":_costcat_XComboBox_3");
+        clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton);    
+        waitForObject(":_inventory.Stocked_QCheckBox_3");
+        waitForObject(":_inventory.Stocked_QCheckBox_3");    
+        if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
+            clickButton(":_inventory.Stocked_QCheckBox_3");
+        if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_3").checked)
+            clickButton(":_inventory.Allow Automatic Updates_QCheckBox_3");
+        type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
+        type(":_cycleCountFreq_QSpinBox_3", "<Del>");
+        type(":_cycleCountFreq_QSpinBox_3", "30");
+        type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
+        type(":_eventFence_QSpinBox_4", "<Del>");
+        type(":_eventFence_QSpinBox_4", "10");
+        type(":_locationGroup._locationComments_XLineEdit_3", "FG-01-01-01");
+        snooze(2);      
+        clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
+        waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
+        snooze(1);
+        if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
+            type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+        waitForObject(":_reorderLevel_XLineEdit_3");
+        type(":_reorderLevel_XLineEdit_3", "0.00");
+        type(":_orderUpToQty_XLineEdit_3", "0.00");
+        type(":_minimumOrder_XLineEdit_3", "100");
+        type(":_maximumOrder_XLineEdit_3", "10000");
+        type(":_orderMultiple_XLineEdit_3", "100");
+        clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
+        if(appEdition=="Manufacturing")
+        {
+            
+            clickItem(":Scheduling._planningType_XComboBox","MRP",1,0,0,Qt.LeftButton);
+            findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
+            type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
+            
+        }
+        else if(appEdition=="PostBooks" || appEdition=="Standard")
+        {
+            test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
+            test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
+        }  
+        if(appEdition=="Manufacturing" || appEdition=="Standard")
+        {
+            findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
+            type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+        }
+        waitForObject(":Item Site.Save_QPushButton");
+        clickButton(":Item Site.Save_QPushButton");
+        if(appEdition=="Manufacturing"||appEdition=="Standard")
+        {
+            
+            waitForObject(":Item Site.Cancel_QPushButton");
+            clickButton(":Item Site.Cancel_QPushButton");
+        }
         
-        clickItem(":Scheduling._planningType_XComboBox","MRP",1,0,0,Qt.LeftButton);
-        findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
-        type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
+        waitForObject(":_itemSite_XTreeWidget_2");
+        if(!clickItem(":_itemSite_XTreeWidget_2", "TWHEEL1", 5, 5, 1, Qt.LeftButton))
+            test.pass("Item Site Created: TWHEEL1");
         
-    }
-    else if(appEdition=="PostBooks" || appEdition=="Standard")
-    {
-        test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
-        test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
-    }  
-    if(appEdition=="Manufacturing" || appEdition=="Standard")
-    {
-        findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
-        type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
-    }
-    waitForObject(":Item Site.Save_QPushButton");
-    clickButton(":Item Site.Save_QPushButton");
-    if(appEdition=="Manufacturing"||appEdition=="Standard")
-    {
+         
+        //---------Item site: TSUB1----------------------
+        waitForObject(":List Item Sites.New_QPushButton_3");
+        clickButton(":List Item Sites.New_QPushButton_3");
+        waitForObject(":Item Site...._QPushButton");
+        clickButton(":Item Site...._QPushButton");
+        waitForObject(":_item_XTreeWidget_4");
+        doubleClickItem(":_item_XTreeWidget_4","TSUB1",0,0,0,Qt.LeftButton);
+        waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
+        if(appEdition=="Manufacturing"||appEdition=="Standard")
+            clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
+        else if(appEdition=="PostBooks")
+            test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
+        if(!findObject(":Supply Rules.Site can manufacture this Item_QCheckBox").checked)
+            clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox");
+        type(":Item Site.Sold from this Site_QGroupBox"," ");
+        clickButton(":Costing Method.Standard_QRadioButton_3");
+        clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);
+        clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);
+        clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton);    
+        waitForObject(":_inventory.Stocked_QCheckBox_3");    
+        if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
+            clickButton(":_inventory.Stocked_QCheckBox_3");
+        if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_3").checked)
+            clickButton(":_inventory.Allow Automatic Updates_QCheckBox_3");
+        type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
+        type(":_cycleCountFreq_QSpinBox_3", "<Del>");
+        type(":_cycleCountFreq_QSpinBox_3", "30");
+        type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
+        type(":_eventFence_QSpinBox_4", "<Del>");
+        type(":_eventFence_QSpinBox_4", "10");
+        type(":_locationGroup._locationComments_XLineEdit_3", "WP-01-01-01");
+        snooze(2);
+        clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
+        snooze(1);
+        waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
+        if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
+            type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+        waitForObject(":_reorderLevel_XLineEdit_3");
+        type(":_reorderLevel_XLineEdit_3", "0.00");
+        type(":_orderUpToQty_XLineEdit_3", "0.00");
+        type(":_minimumOrder_XLineEdit_3", "100");
+        type(":_maximumOrder_XLineEdit_3", "10000");
+        type(":_orderMultiple_XLineEdit_3", "100");
+        clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
+        if(appEdition=="Manufacturing" )
+        {
+            clickItem(":Scheduling._planningType_XComboBox","MRP",1,0,0,Qt.LeftButton);
+            findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
+            type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
+            
+        }
+        else if(appEdition=="PostBooks" || appEdition=="Standard")
+        {
+            test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
+            test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
+        }  
+        if(appEdition=="Manufacturing" || appEdition=="Standard")
+        {  
+            findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
+            type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+        }
         
-        waitForObject(":Item Site.Cancel_QPushButton");
-        clickButton(":Item Site.Cancel_QPushButton");
-    }
-    
-    waitForObject(":_itemSite_XTreeWidget_2");
-    if(!clickItem(":_itemSite_XTreeWidget_2", "TWHEEL1", 5, 5, 1, Qt.LeftButton))
-        test.pass("Item Site Created: TWHEEL1");
-    
-    
-    
-    //---------Item site: TSUB1----------------------
-    waitForObject(":List Item Sites.New_QPushButton_3");
-    clickButton(":List Item Sites.New_QPushButton_3");
-    waitForObject(":Item Site...._QPushButton");
-    clickButton(":Item Site...._QPushButton");
-    waitForObject(":_item_XTreeWidget_4");
-    doubleClickItem(":_item_XTreeWidget_4","TSUB1",0,0,0,Qt.LeftButton);
-    waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
-    if(appEdition=="Manufacturing"||appEdition=="Standard")
-        clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
-    else if(appEdition=="PostBooks")
-        test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
-    if(!findObject(":Supply Rules.Site can manufacture this Item_QCheckBox").checked)
-        clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox");
-    type(":Item Site.Sold from this Site_QGroupBox"," ");
-    clickButton(":Costing Method.Standard_QRadioButton_3");
-    clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);
-    clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);
-    clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton);    
-    waitForObject(":_inventory.Stocked_QCheckBox_3");    
-    if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
-        clickButton(":_inventory.Stocked_QCheckBox_3");
-    if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_3").checked)
-        clickButton(":_inventory.Allow Automatic Updates_QCheckBox_3");
-    type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
-    type(":_cycleCountFreq_QSpinBox_3", "<Del>");
-    type(":_cycleCountFreq_QSpinBox_3", "30");
-    type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
-    type(":_eventFence_QSpinBox_4", "<Del>");
-    type(":_eventFence_QSpinBox_4", "10");
-    type(":_locationGroup._locationComments_XLineEdit_3", "WP-01-01-01");
-    snooze(2);
-    clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
-    snooze(1);
-    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
-    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
-        type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
-    waitForObject(":_reorderLevel_XLineEdit_3");
-    type(":_reorderLevel_XLineEdit_3", "0.00");
-    type(":_orderUpToQty_XLineEdit_3", "0.00");
-    type(":_minimumOrder_XLineEdit_3", "100");
-    type(":_maximumOrder_XLineEdit_3", "10000");
-    type(":_orderMultiple_XLineEdit_3", "100");
-    clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
-    if(appEdition=="Manufacturing" )
-    {
-        clickItem(":Scheduling._planningType_XComboBox","MRP",1,0,0,Qt.LeftButton);
-        findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
-        type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
+        waitForObject(":Item Site.Save_QPushButton");
+        clickButton(":Item Site.Save_QPushButton");
+        if(appEdition=="Manufacturing"||appEdition=="Standard")
+        {
+            
+            waitForObject(":Item Site.Cancel_QPushButton");
+            clickButton(":Item Site.Cancel_QPushButton");
+        }
         
-    }
-    else if(appEdition=="PostBooks" || appEdition=="Standard")
-    {
-        test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
-        test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
-    }  
-    if(appEdition=="Manufacturing" || appEdition=="Standard")
-    {  
-        findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
-        type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
-    }
-    
-    waitForObject(":Item Site.Save_QPushButton");
-    clickButton(":Item Site.Save_QPushButton");
-    if(appEdition=="Manufacturing"||appEdition=="Standard")
-    {
+        waitForObject(":_itemSite_XTreeWidget_2");
+        if(!clickItem(":_itemSite_XTreeWidget_2", "TSUB1", 5, 5, 1, Qt.LeftButton))
+            test.pass("Item Site Created: TSUB1");
         
-        waitForObject(":Item Site.Cancel_QPushButton");
-        clickButton(":Item Site.Cancel_QPushButton");
-    }
-    
-    waitForObject(":_itemSite_XTreeWidget_2");
-    if(!clickItem(":_itemSite_XTreeWidget_2", "TSUB1", 5, 5, 1, Qt.LeftButton))
-        test.pass("Item Site Created: TSUB1");
-    
-    
-    //---------Item site: TBOX1----------------------
-    waitForObject(":List Item Sites.New_QPushButton_3");
-    clickButton(":List Item Sites.New_QPushButton_3");
-    waitForObject(":Item Site...._QPushButton");
-    clickButton(":Item Site...._QPushButton");
-    waitForObject(":_item_XTreeWidget_4");
-    doubleClickItem(":_item_XTreeWidget_4","TBOX1",0,0,0,Qt.LeftButton);
-    waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
-    if(appEdition=="Manufacturing"||appEdition=="Standard")
-        clickItem(":_warehouse_WComboBox_5", "WH1", 5, 5, 1, Qt.LeftButton);
-    else if(appEdition=="PostBooks")
-        test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
-    if(!findObject(":Supply Rules.Site can manufacture this Item_QCheckBox").checked)
-        clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox");
-    type(":Item Site.Sold from this Site_QGroupBox"," ");
-    clickButton(":Costing Method.Standard_QRadioButton_3");
-    clickItem(":Control._controlMethod_XComboBox_3", "Regular", 5, 5, 1, Qt.LeftButton);
-    clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 5, 5, 1, Qt.LeftButton);
-    clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":_inventory.Stocked_QCheckBox_3");    
-    if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
-        clickButton(":_inventory.Stocked_QCheckBox_3");
-    if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_3").checked)
-        clickButton(":_inventory.Allow Automatic Updates_QCheckBox_3");
-    type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
-    type(":_cycleCountFreq_QSpinBox_3", "<Del>");
-    type(":_cycleCountFreq_QSpinBox_3", "30");
-    type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
-    type(":_eventFence_QSpinBox_4", "<Del>");
-    type(":_eventFence_QSpinBox_4", "10");
-    clickButton(":_locationGroup.Multiple Location Control_QCheckBox_3");
-    type(":_locationGroup.Use Default Location_QGroupBox_3","01010103");
-    type(":_locationGroup._locationComments_XLineEdit_3", "RM-01-01-01");
-    snooze(2);
-    waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
-    snooze(1);
-    clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
-    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
-    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
-        type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
-    waitForObject(":_reorderLevel_XLineEdit_3");
-    type(":_reorderLevel_XLineEdit_3", "0.00");
-    type(":_orderUpToQty_XLineEdit_3", "0.00");
-    type(":_minimumOrder_XLineEdit_3", "100");
-    type(":_maximumOrder_XLineEdit_3", "10000");
-    type(":_orderMultiple_XLineEdit_3", "100");
-    clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
-    if(appEdition=="Manufacturing")
-    {
         
-        clickItem(":Scheduling._planningType_XComboBox","MRP",1,0,0,Qt.LeftButton);
-        findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
-        type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
+        //---------Item site: TBOX1----------------------
+        waitForObject(":List Item Sites.New_QPushButton_3");
+        clickButton(":List Item Sites.New_QPushButton_3");
+        waitForObject(":Item Site...._QPushButton");
+        clickButton(":Item Site...._QPushButton");
+        waitForObject(":_item_XTreeWidget_4");
+        doubleClickItem(":_item_XTreeWidget_4","TBOX1",0,0,0,Qt.LeftButton);
+        waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
+        if(appEdition=="Manufacturing"||appEdition=="Standard")
+            clickItem(":_warehouse_WComboBox_5", "WH1", 5, 5, 1, Qt.LeftButton);
+        else if(appEdition=="PostBooks")
+            test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
+        if(!findObject(":Supply Rules.Site can manufacture this Item_QCheckBox").checked)
+            clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox");
+        type(":Item Site.Sold from this Site_QGroupBox"," ");
+        clickButton(":Costing Method.Standard_QRadioButton_3");
+        clickItem(":Control._controlMethod_XComboBox_3", "Regular", 5, 5, 1, Qt.LeftButton);
+        clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 5, 5, 1, Qt.LeftButton);
+        clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 5, 5, 1, Qt.LeftButton);
+        waitForObject(":_inventory.Stocked_QCheckBox_3");    
+        if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
+            clickButton(":_inventory.Stocked_QCheckBox_3");
+        if(!findObject(":_inventory.Allow Automatic Updates_QCheckBox_3").checked)
+            clickButton(":_inventory.Allow Automatic Updates_QCheckBox_3");
+        type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
+        type(":_cycleCountFreq_QSpinBox_3", "<Del>");
+        type(":_cycleCountFreq_QSpinBox_3", "30");
+        type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
+        type(":_eventFence_QSpinBox_4", "<Del>");
+        type(":_eventFence_QSpinBox_4", "10");
+        clickButton(":_locationGroup.Multiple Location Control_QCheckBox_3");
+        type(":_locationGroup.Use Default Location_QGroupBox_3","01010103");
+        type(":_locationGroup._locationComments_XLineEdit_3", "RM-01-01-01");
+        snooze(2);
+        waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
+        snooze(1);
+        clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
+        waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
+        if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
+            type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+        waitForObject(":_reorderLevel_XLineEdit_3");
+        type(":_reorderLevel_XLineEdit_3", "0.00");
+        type(":_orderUpToQty_XLineEdit_3", "0.00");
+        type(":_minimumOrder_XLineEdit_3", "100");
+        type(":_maximumOrder_XLineEdit_3", "10000");
+        type(":_orderMultiple_XLineEdit_3", "100");
+        clickButton(":Enforce Order Parameters.Enforce on Manual Orders_QCheckBox_3");
+        if(appEdition=="Manufacturing")
+        {
+            
+            clickItem(":Scheduling._planningType_XComboBox","MRP",1,0,0,Qt.LeftButton);
+            findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit").clear();
+            type(":Scheduling.qt_spinbox_lineedit_QLineEdit", "7");
+            
+        }
+        else if(appEdition=="PostBooks" || appEdition=="Standard")
+        {
+            test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
+            test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
+        }  
+        if(appEdition=="Manufacturing" || appEdition=="Standard")
+        {
+            waitForObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2");
+            findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
+            type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
+        }
         
-    }
-    else if(appEdition=="PostBooks" || appEdition=="Standard")
-    {
-        test.xverify(object.exists(":_mrp._orderGroup_QSpinBox_3"), "MRP order group not found");
-        test.xverify(object.exists(":_mrp._mpsTimeFence_QSpinBox_3"), "MPS time fence not found");
-    }  
-    if(appEdition=="Manufacturing" || appEdition=="Standard")
-    {
-        findObject(":Scheduling.qt_spinbox_lineedit_QLineEdit_2").clear();
-        type(":Scheduling.qt_spinbox_lineedit_QLineEdit_2", "1");
-    }
-    
-    waitForObject(":Item Site.Save_QPushButton");
-    clickButton(":Item Site.Save_QPushButton");
-    if(appEdition=="Manufacturing"||appEdition=="Standard")
-    {
-        
-        waitForObject(":Item Site.Cancel_QPushButton");
+        waitForObject(":Item Site.Save_QPushButton");
+        clickButton(":Item Site.Save_QPushButton");
+        if(appEdition=="Manufacturing"||appEdition=="Standard")
+        {
+            
+            waitForObject(":Item Site.Cancel_QPushButton");
         clickButton(":Item Site.Cancel_QPushButton");
     }
     
@@ -785,8 +788,10 @@ tivateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
     
     
     //---------Item site: YPAINT1----------------------
+    snooze(1);
     waitForObject(":List Item Sites.New_QPushButton_3");
     clickButton(":List Item Sites.New_QPushButton_3");
+    snooze(0.5);
     waitForObject(":Item Site...._QPushButton");
     clickButton(":Item Site...._QPushButton");
     waitForObject(":_item_XTreeWidget_4");
@@ -819,8 +824,9 @@ tivateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
     type(":_locationGroup._locationComments_XLineEdit_3", "RM-01-01-01");
     snooze(2);
     waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
-    snooze(1);
+    snooze(2);
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");	
+    snooze(1);
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
     if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
         type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
