@@ -7,6 +7,8 @@ function main()
     loginAppl("RUNREGISTER"); 
     var appEdition = findApplicationEdition();
 
+        
+        
     //----------Create Items---------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -14,8 +16,10 @@ function main()
     activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
     waitForObject(":xTuple ERP: OpenMFG Edition.Item_QMenu");
     activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
-
-
+    
+    
+    
+    
     //-----------Create Item RTRUCK1---------------
     waitForObject(":List Items.New_QPushButton_2");
     clickButton(":List Items.New_QPushButton_2");
@@ -31,53 +35,65 @@ function main()
     if(!findObject(":_itemGroup.Pick List_QCheckBox_3").checked)
         type(":_itemGroup.Pick List_QCheckBox_3"," ");
     if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
-         type(":_itemGroup.Fractional_QCheckBox_3"," ");
+        type(":_itemGroup.Fractional_QCheckBox_3"," ");
     type(":_itemGroup_XLineEdit_3", "5.00");
-
+    
     if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
         type(":Item.Item is Sold_QGroupBox_3"," ");
+    snooze(2);
+    waitForObject(":_prodcat_XComboBox_2");
     clickItem(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line",0,0,1,Qt.LeftButton);
+    snooze(1);
+    waitForObject(":Item is Sold._upcCode_XLineEdit_3");
     type(":Item is Sold._upcCode_XLineEdit_3", "1234-5432");
+    waitForObject(":Item is Sold._listprice_XLineEdit_3");
     type(":Item is Sold._listprice_XLineEdit_3", "10.99");
     waitForObject(":Item is Sold._priceUOM_XComboBox_3");
     clickItem(":Item is Sold._priceUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);  
     type(":Item is Sold._warranty_QSpinBox_2", "365");
     type(":_prodWeight_XLineEdit_3", "3.5");
     type(":_packWeight_XLineEdit_3", ".25");
+    snooze(2);
     clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Characteristics");
-    
+    snooze(1);
     waitForObject(":_characteristicsTab.New_QPushButton_6");
     clickButton(":_characteristicsTab.New_QPushButton_6");
+    snooze(1);
     waitForObject(":_char_XComboBox_2");
     clickItem(":_char_XComboBox_2", "I-COLOR - Product Color",0,0,1,Qt.LeftButton);
+    snooze(1);
+    waitForObject(":_value_XLineEdit_3");
     type(":_value_XLineEdit_3", "PL-126");
     waitForObject(":Item Characteristic.Save_QPushButton");
     clickButton(":Item Characteristic.Save_QPushButton");
     
-    waitForObject(":_characteristicsTab.New_QPushButton_6",2);
+    snooze(2);
+    waitForObject(":_characteristicsTab.New_QPushButton_6");
     clickButton(":_characteristicsTab.New_QPushButton_6");
     waitForObject(":_char_XComboBox_2");
     clickItem(":_char_XComboBox_2", "I-COLOR - Product Color",0,0,1,Qt.LeftButton);
+    snooze(1);
     type(":_value_XLineEdit_3", "PL-227");
     waitForObject(":Item Characteristic.Save_QPushButton");    
     clickButton(":Item Characteristic.Save_QPushButton");
-    
+    snooze(1);
     waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
     clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Tax Types");
+    snooze(1);
     waitForObject(":_taxtypesTab.New_QPushButton_10");
     clickButton(":_taxtypesTab.New_QPushButton_10");
-
+    
     waitForObject(":_taxzone_XComboBox");
     clickItem(":_taxzone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
     while(findObject(":_taxzone_XComboBox").currentText!="TZONE1-Tax Zone1")
-        snooze(0.1);
+        snooze(0.5);
     waitForObject(":_taxtype_XComboBox_4");
     clickItem(":_taxtype_XComboBox_4", "GM",0,0,1,Qt.LeftButton);
     while(findObject(":_taxtype_XComboBox_4").currentText!="GM")
-        snooze(0.1);
+        snooze(1);
     waitForObject(":Item Tax.Save_QPushButton");
     clickButton(":Item Tax.Save_QPushButton");
-       
+    
     waitForObject(":Item.Save_QPushButton_5");
     clickButton(":Item.Save_QPushButton_5");
     waitForObject(":_itemGroup.Yes_QPushButton");
@@ -87,7 +103,7 @@ function main()
     {
         waitForObject(":_warehouse_WComboBox_5");
         type(":_warehouse_WComboBox_5", "WH1");
-
+        
     }
     else if(appEdition=="PostBooks")
     {
@@ -98,7 +114,9 @@ function main()
     clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
     waitForObject(":_costcat_XComboBox_3");
     clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
+    snooze(1);
     clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
+    snooze(1);
     waitForObject(":Item Site.Save_QPushButton");
     clickButton(":Item Site.Save_QPushButton");
     if(appEdition=="Manufacturing"|| appEdition=="Standard")
@@ -110,10 +128,11 @@ function main()
     {
         test.xverify(object.exists(":Item Site.Cancel_QPushButton"), "Cancel button not found");
     }
-      
+    
     waitForObject(":List Items._item_XTreeWidget_3");
     if(!clickItem(":List Items._item_XTreeWidget_3", "RTRUCK1", 5, 5, 1, Qt.LeftButton))
         test.pass("Item Created: RTRUCK1");
+    
 
   
     //-----------Create Item BTRUCK1---------------
@@ -144,8 +163,9 @@ function main()
     type(":Item is Sold._warranty_QSpinBox_2", "365");
     type(":_prodWeight_XLineEdit_3", "3.5");
     type(":_packWeight_XLineEdit_3", ".25");
+    snooze(1);
     clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Characteristics");
-    
+    snooze(1);
     waitForObject(":_characteristicsTab.New_QPushButton_6");
     clickButton(":_characteristicsTab.New_QPushButton_6");
     waitForObject(":_char_XComboBox_2");
@@ -191,9 +211,7 @@ function main()
     clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
     waitForObject(":_costcat_XComboBox_3");
     clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
-    waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
-    clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
-
+    snooze(1);
     waitForObject(":Item Site.Save_QPushButton");
     clickButton(":Item Site.Save_QPushButton");
     if(appEdition=="Manufacturing"||appEdition=="Standard")
@@ -259,8 +277,10 @@ function main()
     waitForObject(":Item Characteristic.Save_QPushButton");    
     clickButton(":Item Characteristic.Save_QPushButton");
        
-    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8",5);
+    snooze(2);
+    waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
     clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Tax Types");
+    snooze(1);
     waitForObject(":_taxtypesTab.New_QPushButton_10",5);
     clickButton(":_taxtypesTab.New_QPushButton_10");
     waitForObject(":_taxzone_XComboBox");
@@ -418,6 +438,7 @@ function main()
     clickButton(":frame_2.New_QPushButton");
     waitForObject(":Bill of Materials Item...._QPushButton_2");
     clickButton(":Bill of Materials Item...._QPushButton_2");
+    snooze(1);
     waitForObject(":_item_XTreeWidget_3");
     doubleClickItem(":_item_XTreeWidget_3", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_qtyPer_XLineEdit");

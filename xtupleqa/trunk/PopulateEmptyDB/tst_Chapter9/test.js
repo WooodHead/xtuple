@@ -6,7 +6,7 @@ function main()
     //---login Application--------
     loginAppl("RUNREGISTER");       
     var appEdition = findApplicationEdition();
-  
+
     //---------Define: Incident Categories----------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
@@ -241,8 +241,8 @@ function main()
     clickButton(":List Priorities.Close_QPushButton_2");
     test.log("CRM Priorities created");
     
-    
-    
+  
+  
     //-------------CRM Characteristics-----------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
@@ -253,8 +253,9 @@ function main()
     
     waitForObject(":List Characteristics.New_QPushButton_2");
     clickButton(":List Characteristics.New_QPushButton_2");
-    waitForObject(":May be used on:.Opportunity_QCheckBox_2");
+    waitForObject(":_name_XLineEdit_6");
     type(":_name_XLineEdit_6", "RFP#");
+    waitForObject(":May be used on:.Opportunity_QCheckBox_2");
     clickButton(":May be used on:.Opportunity_QCheckBox_2");
     type(":_description_QTextEdit_6", "Request For Quote #");
     waitForObject(":_mask_QLineEdit");
@@ -264,8 +265,9 @@ function main()
     
     waitForObject(":List Characteristics.New_QPushButton_2");
     clickButton(":List Characteristics.New_QPushButton_2");
+    waitForObject(":_name_XLineEdit_6");
+    type(":_name_XLineEdit_6", "START"); 
     waitForObject(":May be used on:.Employee_QCheckBox_2");
-    type(":_name_XLineEdit_6", "START");
     clickButton(":May be used on:.Employee_QCheckBox_2");
     type(":_description_QTextEdit_6", "Employee Start Date");
     waitForObject(":_mask_QLineEdit");
