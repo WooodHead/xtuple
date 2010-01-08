@@ -130,6 +130,7 @@ DECLARE
   _custName TEXT;
   _arAccntid INTEGER;
   _prepaidAccntid INTEGER;
+  _discountAccntid INTEGER;
   _salescatid INTEGER;
   _accntid INTEGER;
   _glSequence INTEGER;
@@ -139,10 +140,12 @@ DECLARE
   _cohistid INTEGER;
   _test INTEGER;
   _taxBaseValue NUMERIC;
+  _applyDiscount BOOLEAN;
 
 BEGIN
 
   _aropenid := pId;
+  _applyDiscount := FALSE;
 
   IF (pAmount <= 0) THEN
     RETURN 0;
@@ -150,6 +153,10 @@ BEGIN
 
   SELECT findARAccount(pCustid) INTO _arAccntid;
   SELECT findPrepaidAccount(pCustid) INTO _prepaidAccntid;
+  IF (pAccntid = (SELECT findardiscountaccount(pCustid))) THEN
+    _discountAccntid := pAccntid;
+    _applyDiscount := TRUE;
+  END IF;
 
   _accntid := pAccntid;
   _salescatid := pSalescatid;
@@ -235,6 +242,14 @@ BEGIN
   UPDATE aropentax SET taxhist_journalnumber = _journalNumber
   WHERE taxhist_parent_id=_aropenid;
 
+  IF (_applyDiscount) THEN
+    -- Debit the A/R Discount account
+    SELECT insertIntoGLSeries ( _glSequence, ''A/R'', ''CM'',
+                                pDocNumber, _discountAccntid,
+                                round(currToBase(pCurrId, pAmount * -1, pDocDate) + _taxBaseValue * -1, 2),
+                                pDocDate, (_custName || '' '' || pNotes)) INTO _test;
+  END IF;
+
   -- Debit the Prepaid account for the basis amount
   -- Note, _taxBaseValue is negative so it is added to pAmount
   SELECT insertIntoGLSeries ( _glSequence, ''A/R'', ''CM'',
@@ -290,4 +305,3 @@ BEGIN
 
 END;
 ' LANGUAGE 'plpgsql';
-
