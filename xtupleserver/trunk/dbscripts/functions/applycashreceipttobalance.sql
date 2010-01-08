@@ -21,7 +21,7 @@ BEGIN
 
 --  Find the balance to apply
   SELECT (currToCurr(pCurrId, cashrcpt_curr_id, pAmount, cashrcpt_distdate) -
-              COALESCE(SUM(cashrcptitem_amount), 0)) INTO _amount
+              (COALESCE(SUM(cashrcptitem_amount), 0) + COALESCE(SUM(cashrcptitem_discount), 0))) INTO _amount
   FROM cashrcpt LEFT OUTER JOIN cashrcptitem ON (cashrcptitem_cashrcpt_id = cashrcpt_id)
   WHERE (cashrcpt_id=pCashrcptid)
   GROUP BY cashrcpt_curr_id, cashrcpt_distdate;
@@ -39,16 +39,31 @@ BEGIN
   FOR _r IN SELECT aropen_id,
                currToCurr(aropen_curr_id, cashrcpt_curr_id,
                aropen_amount - aropen_paid, aropen_docdate) -
-               COALESCE((SELECT SUM(cashrcptitem_amount)
+               COALESCE((SELECT SUM(cashrcptitem_amount) + SUM(cashrcptitem_discount)
                            FROM cashrcptitem, cashrcpt
                            WHERE ((cashrcpt_id=cashrcptitem_cashrcpt_id)
                              AND  (NOT cashrcpt_void)
                              AND  (NOT cashrcpt_posted)
                              AND  (cashrcpt_id != pCashrcptId)
                              AND  (cashrcptitem_aropen_id=aropen_id))), 0) AS balance,
-                   s.cashrcptitem_id AS cashrcptitem_id
+                   s.cashrcptitem_id AS cashrcptitem_id,
+
+                   noNeg(aropen_amount * 
+                   CASE WHEN (CURRENT_DATE <= (aropen_docdate + terms_discdays)) THEN terms_discprcnt 
+                     ELSE 0.00 
+                   END - applied) AS discount
+
             FROM cashrcpt, aropen LEFT OUTER JOIN
                  cashrcptitem s ON (s.cashrcptitem_aropen_id=aropen_id AND s.cashrcptitem_cashrcpt_id=pCashrcptId)
+
+                 LEFT OUTER JOIN terms ON (aropen_terms_id=terms_id),
+                 (SELECT COALESCE(SUM(arapply_applied), 0.00) AS applied  
+                  FROM arapply, aropen 
+                  WHERE ((arapply_target_aropen_id=aropen_id) 
+                    AND (arapply_source_aropen_id=aropen_id) 
+                    AND  (aropen_discount) )
+                 ) AS data
+
             WHERE ( (aropen_cust_id=cashrcpt_cust_id)
              AND (aropen_doctype IN ('I', 'D'))
              AND (aropen_open)
@@ -56,10 +71,10 @@ BEGIN
             ORDER BY aropen_duedate, aropen_amount, balance LOOP
 
 --  Determine the amount to apply
-    IF (_r.balance > _amount) THEN
-      _applyAmount := _amount;
+    IF ((_r.balance - _r.discount) > _amount) THEN
+      _applyAmount := _amount - _r.discount;
     ELSE
-      _applyAmount := _r.balance;
+      _applyAmount := _r.balance - _r.discount;
     END IF;
 
     IF (_applyAmount > 0) THEN
@@ -67,15 +82,16 @@ BEGIN
       IF (_r.cashrcptitem_id IS NOT NULL) THEN
 --  Update the cashrcptitem with the new amount to apply
         UPDATE cashrcptitem
-        SET cashrcptitem_amount = round(cashrcptitem_amount + _applyAmount, 2)
+        SET cashrcptitem_amount = round(cashrcptitem_amount + _applyAmount, 2),
+            cashrcptitem_discount = round(_r.discount, 2)
         WHERE (cashrcptitem_id=_r.cashrcptitem_id);
       ELSE
 --  Create a new cashrcptitem
         INSERT INTO cashrcptitem
         ( cashrcptitem_aropen_id, cashrcptitem_cashrcpt_id,
-          cashrcptitem_amount )
+          cashrcptitem_amount, cashrcptitem_discount )
         VALUES
-        ( _r.aropen_id, pCashrcptid, round(_applyAmount, 2) );
+        ( _r.aropen_id, pCashrcptid, round(_applyAmount, 2), round(_r.discount, 2) );
       END IF;
 
       _amount := (_amount - _applyAmount);
@@ -90,4 +106,3 @@ BEGIN
 
 END;
 $$ LANGUAGE 'plpgsql';
-

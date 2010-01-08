@@ -11,7 +11,7 @@ BEGIN
   WHERE (aropen_id=paropenid);
 
   SELECT SUM(currToCurr(cashrcpt_curr_id, _aropencurrid,
-                        cashrcptitem_amount, CURRENT_DATE)) INTO _cashrcptsum
+                        cashrcptitem_amount + cashrcptitem_discount, CURRENT_DATE)) INTO _cashrcptsum
   FROM cashrcptitem, cashrcpt
   WHERE ((cashrcptitem_cashrcpt_id=cashrcpt_id)
     AND  (NOT cashrcpt_posted)

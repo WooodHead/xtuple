@@ -35,7 +35,8 @@ CREATE OR REPLACE VIEW api.cashreceiptapply AS
     formatDate(aropen_duedate) AS due_date,
     curr_abbr AS currency,
     aropen_amount AS open_amount,
-    cashrcptitem_amount AS amount_to_apply
+    cashrcptitem_amount AS amount_to_apply,
+    cashrcptitem_discount
   FROM cashrcptitem
     LEFT OUTER JOIN cashrcpt ON (cashrcpt_id=cashrcptitem_cashrcpt_id)
     LEFT OUTER JOIN custinfo ON (cust_id=cashrcpt_cust_id)
@@ -58,7 +59,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
   INSERT INTO cashrcptitem (
     cashrcptitem_cashrcpt_id,
     cashrcptitem_aropen_id,
-    cashrcptitem_amount
+    cashrcptitem_amount,
+    cashrcptitem_discount
     )
   VALUES (
     getCashrcptId(NEW.customer_number,
@@ -88,14 +90,16 @@ CREATE OR REPLACE RULE "_INSERT" AS
     getAropenId(NEW.customer_number,
                 NEW.doc_type,
                 NEW.doc_number),
-    COALESCE(NEW.amount_to_apply, 0)
+    COALESCE(NEW.amount_to_apply, 0),
+    COALESCE(NEW.cashrcptitem_discount, 0)
     );
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
   ON UPDATE TO api.cashreceiptapply DO INSTEAD
 
   UPDATE cashrcptitem SET
-    cashrcptitem_amount=NEW.amount_to_apply
+    cashrcptitem_amount=NEW.amount_to_apply,
+    cashrcptitem_discount=NEW.cashrcptitem_discount
     WHERE ( (cashrcptitem_cashrcpt_id=getCashrcptId(
                        OLD.customer_number,
                        CASE
