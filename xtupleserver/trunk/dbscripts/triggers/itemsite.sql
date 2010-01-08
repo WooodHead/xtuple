@@ -160,7 +160,8 @@ BEGIN
      OR (OLD.itemsite_createwo          != NEW.itemsite_createwo)
      OR (OLD.itemsite_warrpurc          != NEW.itemsite_warrpurc)
      OR (OLD.itemsite_costmethod        != NEW.itemsite_costmethod)
-     OR (OLD.itemsite_autoreg           != NEW.itemsite_autoreg) ) THEN
+     OR (OLD.itemsite_autoreg           != NEW.itemsite_autoreg)
+     OR (OLD.itemsite_lsseq_id          != NEW.itemsite_lsseq_id) ) THEN
       IF (OLD.itemsite_item_id != NEW.itemsite_item_id) THEN
         RAISE EXCEPTION 'The item number on an itemsite may not be changed.';
       ELSIF (OLD.itemsite_warehous_id != NEW.itemsite_warehous_id) THEN
