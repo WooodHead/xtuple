@@ -1,22 +1,23 @@
 -- Group: updateprices
--- Name: update
--- Notes:
+-- Name: updatechar
+-- Notes: used by updatePrices
 
-UPDATE ipsitem SET
-  ipsitem_price=
+UPDATE ipsitemchar SET
+  ipsitemchar_price=
 <? if exists("updateByValue") ?>
-  ipsitem_price + <? value("updateBy") ?>
+  ipsitemchar_price + <? value("updateBy") ?>
 <? else ?>
-  roundSale(ipsitem_price * (1.0 + (<? value("updateBy") ?> / 100.0)))
+  roundSale(ipsitemchar_price * (1.0 + (<? value("updateBy") ?> / 100.0)))
 <? endif ?>
-FROM selsched, item
+FROM selsched, item, ipsitem
 <? if reExists("itemgrp") ?>
   JOIN itemgrpitem ON (itemgrpitem_item_id=item_id)
   JOIN itemgrp ON (itemgrpitem_itemgrp_id=itemgrp_id)
 <? elseif reExists("prodcat") ?>
   JOIN prodcat ON (prodcat_id=item_prodcat_id)
 <? endif ?>
-WHERE ( ipsitem_item_id=item_id
+WHERE ( ipsitemchar_ipsitem_id=ipsitem_id
+  AND ipsitem_item_id=item_id
   AND selsched_ipshead_id=ipsitem_ipshead_id
 <? if exists("item_id") ?>
   AND item_id=<? value("item_id") ?>
