@@ -1,6 +1,19 @@
 CREATE OR REPLACE FUNCTION applyARCreditMemoToBalance(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pAropenid ALIAS FOR $1;
+
+BEGIN
+
+  RETURN applyARCreditMemoToBalance(pAropenid, NULL);
+
+END;
+$$ LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION applyARCreditMemoToBalance(INTEGER, INTEGER) RETURNS INTEGER AS $$
+DECLARE
+  pSourceAropenid ALIAS FOR $1;
+  pTargetAropenid ALIAS FOR $2;
   _amount NUMERIC;
   _amountcurrid INTEGER;
   _applyAmount NUMERIC;
@@ -26,7 +39,7 @@ BEGIN
                                 AND  (NOT checkhead_void))
                                GROUP BY aropen_id) AS sub1
                       ON (prepared_aropen_id=aropen_id)
-  WHERE (aropen_id=pAropenid)
+  WHERE (aropen_id=pSourceAropenid)
   GROUP BY aropen_amount, aropen_paid, aropen_curr_id, aropen_curr_rate, prepared;
 
   IF (_amount < 0) THEN
@@ -44,7 +57,8 @@ BEGIN
             WHERE ( (source.aropen_cust_id=target.aropen_cust_id)
              AND (target.aropen_doctype IN ('D', 'I'))
              AND (target.aropen_open)
-             AND (source.aropen_id=pAropenid) )
+             AND (source.aropen_id=pSourceAropenid)
+             AND ((pTargetAropenid IS NULL) OR (target.aropen_id=pTargetAropenid)) )
             ORDER BY target.aropen_duedate, target.aropen_docnumber LOOP
 
 --  Determine the amount to apply
@@ -63,7 +77,7 @@ BEGIN
                       arcreditapply_amount_applycurr INTO _p
     FROM arcreditapply
     WHERE ( (arcreditapply_target_aropen_id=_r.aropenid)
-     AND (arcreditapply_source_aropen_id=pAropenid) );
+     AND (arcreditapply_source_aropen_id=pSourceAropenid) );
 
     IF (FOUND) THEN
 --  Offset the amount to apply by the amount already applied
@@ -84,7 +98,7 @@ BEGIN
       ( arcreditapply_source_aropen_id, arcreditapply_target_aropen_id,
         arcreditapply_amount, arcreditapply_curr_id )
       VALUES
-      ( pAropenid, _r.aropenid, _applyAmount, _applycurrid );
+      ( pSourceAropenid, _r.aropenid, _applyAmount, _applycurrid );
     END IF;
 
     _amount := _amount - currToCurr(_applycurrid, _amountcurrid, _applyAmount, _r.docdate);
