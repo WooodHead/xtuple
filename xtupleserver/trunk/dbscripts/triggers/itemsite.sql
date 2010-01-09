@@ -195,7 +195,8 @@ BEGIN
       UPDATE itemsite SET
         itemsite_perishable = FALSE,
         itemsite_warrpurc = FALSE,
-        itemsite_autoreg = FALSE
+        itemsite_autoreg = FALSE,
+        itemsite_lsseq_id = NULL
       WHERE (itemsite_id=NEW.itemsite_id);
     END IF;
 
