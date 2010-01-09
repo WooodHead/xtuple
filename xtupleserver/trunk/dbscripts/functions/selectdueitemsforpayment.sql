@@ -1,4 +1,3 @@
-
 CREATE OR REPLACE FUNCTION selectDueItemsForPayment(INTEGER, INTEGER) RETURNS INTEGER AS '
 DECLARE
   pVendid ALIAS FOR $1;
@@ -16,7 +15,7 @@ BEGIN
               FROM apopen
              WHERE((apopen_duedate <= CURRENT_DATE)
                AND (apopen_open)
-               AND ((apopen_status <> ''H'') OR COALESCE(apopen_status, '''') = '''')
+               AND (apopen_status = ''O'')
                AND (apopen_doctype IN (''V'', ''D''))
                AND (apopen_vend_id=pVendid)
                AND (apopen_curr_id=_currid) ) LOOP
@@ -27,4 +26,3 @@ BEGIN
 
 END;
 ' LANGUAGE 'plpgsql';
-
