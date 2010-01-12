@@ -2720,6 +2720,8 @@ function main()
 
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
+    //Prepare the DB for DRP scenarios execution
+    UpdateQOHWh("TWHEEL1",24000,"WH1");
 
     
     MPS("+150");
@@ -2878,8 +2880,7 @@ function main()
     waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
     clickButton(":Planned Orders by Planner Code.Close_QPushButton");
  
-    //Prepare the DB for DRP scenarios execution
-    UpdateQOHWh("TWHEEL1",24000,"WH1");
+    
 
     
 }//end main
