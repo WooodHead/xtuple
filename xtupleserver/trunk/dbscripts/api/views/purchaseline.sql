@@ -127,3 +127,4 @@ FROM pohead, poitem, charass, char, itemsite, item
   WHERE (poitem_id=getPoitemId(OLD.order_number::text,OLD.line_number));
 
 COMMIT;
+

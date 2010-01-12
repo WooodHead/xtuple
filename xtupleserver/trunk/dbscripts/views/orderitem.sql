@@ -1,3 +1,4 @@
+
 SELECT dropIfExists('view', 'orderitem');
 CREATE VIEW orderitem AS
   SELECT poitem_id		AS orderitem_id,
