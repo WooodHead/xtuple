@@ -19,4 +19,7 @@ WHERE ( (ipshead_id NOT IN (
 <? if not exists("showExpired") ?>
   AND (ipshead_expires > CURRENT_DATE)
 <? endif ?>
+<? if not exists("showCurrent") ?>
+  AND (CURRENT_DATE NOT BETWEEN ipshead_effective AND ipshead_expires -1)
+<? endif ?>
  );
