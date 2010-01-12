@@ -1,6 +1,6 @@
 BEGIN;
 
--- Item Source Price
+-- Item Source Price View
 
 SELECT dropIfExists('VIEW', 'itemsourceprice', 'api');
 
