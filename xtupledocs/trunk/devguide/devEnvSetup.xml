@@ -33,31 +33,43 @@
       <varlistentry>
         <term>Subversion</term>
         <listitem>
-          <para></para>
+          <para>The source code management tool xTuple uses for version
+          control.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Software Development Environment</term>
         <listitem>
-          <para></para>
+          <para>The particular development tools that xTuple uses or
+          recommends are described below in the sections on particular
+          operating systems. In general, however, the development environment
+          must include a C++ compiler and an application build tool similar
+          tomake.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Qt</term>
         <listitem>
-          <para></para>
+          <para>This is the Graphical User Interface toolkit used to build the
+          xTupleERP, and OpenRPT applications. Qt is available with a free
+          LGPL license.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>PostgreSQL</term>
         <listitem>
-          <para></para>
+          <para>PostgreSQL is an open-source database engine at the heart of
+          the xTuple ERP applications. Most of the logic of the application is
+          written in PL/pgSQL, the PostgreSQL stored procedure
+          language.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>cURL</term>
         <listitem>
-          <para></para>
+          <para>cURL is a library and command line file transfer utility that
+          we use because it can retrieve files from the Internet given their
+          URL's.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -81,6 +93,34 @@
     the beginning of each step. This is immediately followed by
     platform-specific information.</para>
     <section>
+      <title>Operating System and basic software</title>
+      <para>Your computer will need an operating system installed and at least
+      a few basic utilities like a web browser. If you are installing an
+      operating system on your hardware, here are a few suggestions for
+      installation options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Microsoft Windows</term>
+          <listitem>
+            <para>The steps in this document were tested using Windows XP and
+            the Firefox web browser.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <variablelist>
+        <varlistentry>
+          <term>Linux</term>
+          <listitem>
+            <para>In addition to the basic workstation packages, install X11
+            and development tools. The following steps were performed on a
+            computer with the basic Fedora Core 5 installation plus the
+            software development tools selected during the
+            installation.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+    <section>
       <title>Basic Development Tools</title>
       <para>The GUI client is a large application built in C++. You will need
       a C++ compiler and a version of the make utility.</para>
@@ -96,15 +136,929 @@
             http://sourceforge.net/projects/mingw/</para>
           </listitem>
           <listitem>
-            <para></para>
+            <para>Click on Download -&gt; SF File Release -&gt;
+            MinGW-version.exe</para>
           </listitem>
           <listitem>
-            <para></para>
+            <para>Run the downloaded installer. When it asks which components
+            to install, select at least MinGW base tools, g++ compiler, and
+            MinGW make. Otherwise accept all of the defaults</para>
+          </listitem>
+          <listitem>
+            <para>If you want to build PostgreSQL from source, see
+            below.</para>
           </listitem>
         </orderedlist>
       </section>
       <section>
         <title>Microsoft Windows using Visual C++ Express Edition</title>
+        <para>xTuple recommends using MinGW to build xTuple ERP on Windows.
+        Microsoft Visual C++ Express can be used. There were a number of
+        additional steps necessary to distribute binaries to non-build
+        machines or to run off of file servers. Also, you must start with a
+        source distribution of PostgreSQL and build the parts you need. These
+        problems do not seem to occur when using MinGW.</para>
+        <orderedlist>
+          <listitem>
+            <para>point your browser to Microsoft Visual C++ Express web
+            page</para>
+          </listitem>
+          <listitem>
+            <para>click on Download Now and follow the instructions</para>
+          </listitem>
+          <listitem>
+            <para>accept the defaults (including "Graphical IDE" and
+            excluding</para>
+          </listitem>
+          <listitem>
+            <para>both MSDN 2005 Express Edition and SQL Server 2005 Express
+            Edition.</para>
+          </listitem>
+          <listitem>
+            <para>Download and install the Microsoft Platform SDK.</para>
+          </listitem>
+        </orderedlist>
+      </section>
+      <section>
+        <title>Macintosh OS X</title>
+        <para>Get and install Xcode. The operating system installation DVD
+        should have it. If not:</para>
+        <orderedlist>
+          <listitem>
+            <para>http://developer.apple.com/</para>
+          </listitem>
+          <listitem>
+            <para>click Xcode Development Tools -&gt; Tools Downloads -&gt;
+            Xcode version and either sign in if you are an Apple Developer
+            Connection member or sign up if you are not a member yet. This is
+            a huge download (just under 1 Gb), so be prepared to wait for a
+            while and possibly restart the download. You must get Xcode 2.2 or
+            better for Qt versions 4.1 and higher.</para>
+          </listitem>
+          <listitem>
+            <para>mount the Xcode disk image</para>
+          </listitem>
+        </orderedlist>
+      </section>
+      <section>
+        <title>Linux</title>
+        <para>This step is not necessary if you installed software development
+        tools as part of your Linux operating system installation. If they
+        were not installed at that time, update your installation with
+        packages for C++, build tools, and SVN.</para>
+        <note>
+          <para>Find the precise procedure and package names for supported
+          Linux distributions.</para>
+        </note>
+      </section>
+    </section>
+    <section>
+      <title>Get and install Subversion</title>
+      <para>You can find binary packages of Subversion for many operating
+      systems at http://subversion.tigris.org/project_packages.html. If you
+      need a graphical user interface environment for Subversion, xTuple
+      suggests using RapidSVN. Several of our developers use it in-house, so
+      we may be able to answer questions about it.</para>
+      <section>
+        <title>Microsoft Windows using MinGW</title>
+        <para>SVN can be used from the command line or RapidSVN if you choose
+        to install that.</para>
+      </section>
+      <section>
+        <title>Microsoft Windows using Visual C++ Express Edition</title>
+        <para>same as Microsoft Windows using MinGW</para>
+      </section>
+      <section>
+        <title>Macintosh OS X</title>
+        <para>The command line utilities for Subversion are installed with
+        Xcode. You'll need to get RapidSVN separately if you choose to use
+        it.</para>
+      </section>
+      <section>
+        <title>Linux</title>
+        <para>Install the SVN package(s) for your Linux distribution. You'll
+        need to get RapidSVN separately if you choose to use it.</para>
+      </section>
+    </section>
+    <section>
+      <title>Get and install PostgreSQL</title>
+      <para>Even if you don't run a PostgreSQL database server of your own but
+      instead connect to an existing database server instance, you will need
+      some header files and the libpq library to build xTuple ERP. You can use
+      binary installations on some platforms but xTuple recommends using
+      source installations whenever possible. In any case, start by
+      downloading a distribution:</para>
+      <orderedlist>
+        <listitem>
+          <para>Point your web browser to www.postgresql.org, click on
+          Downloads, then File Browser.</para>
+        </listitem>
+        <listitem>
+          <para>If downloading sources, click on the source folder and then
+          click the folder named with the version number from the table below.
+          You need to choose which file format to download based on the
+          compression software you have installed. xTuple recommends
+          downloading the whole distribution (postgresql-version.tar.suffix)
+          as opposed to individual pieces (*base*, *docs*, and *opt*)</para>
+        </listitem>
+      </orderedlist>
+      <para>See the platform-specific information below if you need to get
+      binary distributions.</para>
+      <section>
+        <title>PostgreSQL compatibility</title>
+        <table>
+          <title></title>
+          <tgroup cols="4">
+            <tbody>
+              <row>
+                <entry>xTuple ERP</entry>
+                <entry>PostgreSQL</entry>
+                <entry>Configuration Parameters</entry>
+                <entry>Add for Macintosh</entry>
+              </row>
+              <row>
+                <entrytbl cols="2">
+                  <tbody>
+                    <row>
+                      <entry>From</entry>
+                      <entry>To</entry>
+                    </row>
+                  </tbody>
+                </entrytbl>
+                <entrytbl cols="3">
+                  <tbody>
+                    <row>
+                      <entry>Min</entry>
+                      <entry>Max</entry>
+                      <entry>Built With</entry>
+                    </row>
+                  </tbody>
+                </entrytbl>
+                <entry></entry>
+                <entrytbl cols="1">
+                  <tbody>
+                    <row>
+                      <entry></entry>
+                    </row>
+                  </tbody>
+                </entrytbl>
+              </row>
+              <row>
+                <entrytbl cols="2">
+                  <tbody>
+                    <row>
+                      <entry>3.0</entry>
+                      <entry>3.1.0</entry>
+                    </row>
+                  </tbody>
+                </entrytbl>
+                <entrytbl cols="3">
+                  <tbody>
+                    <row>
+                      <entry>8.0</entry>
+                      <entry>8.3</entry>
+                      <entry></entry>
+                    </row>
+                  </tbody>
+                </entrytbl>
+                <entrytbl cols="1">
+                  <tbody>
+                    <row>
+                      <entry>--without-openssl
+                      --prefix=/dir/where/you/want/to/install/postgresql</entry>
+                    </row>
+                  </tbody>
+                </entrytbl>
+                <entry> --with-bonjour</entry>
+              </row>
+              <row>
+                <entrytbl cols="2">
+                  <tbody>
+                    <row>
+                      <entry>3.2.0</entry>
+                      <entry>???</entry>
+                    </row>
+                  </tbody>
+                </entrytbl>
+                <entrytbl cols="3">
+                  <tbody>
+                    <row>
+                      <entry>8.0</entry>
+                      <entry>8.4</entry>
+                      <entry>8.3.3</entry>
+                    </row>
+                  </tbody>
+                </entrytbl>
+                <entry>--with-krb5 --with-pam --with-ldap --with-openssl
+                --with-readline
+                --prefix=/dir/where/you/want/to/install/postgresql</entry>
+                <entrytbl cols="1">
+                  <tbody>
+                    <row>
+                      <entry>--with-bonjour</entry>
+                    </row>
+                  </tbody>
+                </entrytbl>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <section>
+          <title>Microsoft Windows with MinGW</title>
+          <para>Install the PostgreSQL binary distribution.</para>
+          <orderedlist>
+            <listitem>
+              <para>Click on binary -&gt; version number -&gt; win32 -&gt;
+              postgresql-version-1.zip</para>
+            </listitem>
+            <listitem>
+              <para>Extract the contents of the archive to a temporary
+              location, such as your desktop or
+              C:\WINDOWS\Temp\postgres</para>
+            </listitem>
+            <listitem>
+              <para>If you just want the development libraries and header
+              files, look inside the extracted directory and copy the folder
+              pgsql to C:\Qt.</para>
+            </listitem>
+            <listitem>
+              <para>If you want to install the entire PostgreSQL system,
+              continue with the following steps:</para>
+              <orderedlist>
+                <listitem>
+                  <para>Double-click postgresql-version.msi</para>
+                </listitem>
+                <listitem>
+                  <para>At minimum you must install the Development packages
+                  and the pgcrypto contributed software. You may install more
+                  if you like.</para>
+                </listitem>
+              </orderedlist>
+            </listitem>
+          </orderedlist>
+        </section>
+        <section>
+          <title>Microsoft Windows using Visual C++ Express Edition</title>
+          <para>Use a PostgreSQL source distribution. Microsoft Visual C++
+          Express is not supported by PostgreSQL and you cannot build the
+          entire database server with it but you can still build the pieces
+          you need.</para>
+          <orderedlist>
+            <listitem>
+              <para>Extract the contents of the archive to
+              C:\postgresql</para>
+            </listitem>
+            <listitem>
+              <para>Build libpq:</para>
+              <programlisting>cd \postgresql\postgresql-version\src\interfaces\libpq</programlisting>
+              <itemizedlist>
+                <listitem>
+                  <para>disable the inline keyword by adding the following
+                  line at the beginning of ../../backend/mb/wchar.c:</para>
+                </listitem>
+              </itemizedlist>
+              <programlisting>#define inline</programlisting>
+              <programlisting>nmake /f win32.mak</programlisting>
+            </listitem>
+            <listitem>
+              <para>Build and install the pgcrypto contributed software for
+              use with credit card processing in the contrib\pgcrypto
+              directory of the distribution.</para>
+            </listitem>
+          </orderedlist>
+        </section>
+        <section>
+          <title>Macintosh OS X binary installation</title>
+          <para>We typically recommend a source installation, but it might be
+          possible to use a binary installation of PostgreSQL. Some of our VAR
+          partners report that the Entropy distribution is good, although we
+          have not tried this for a development environment. You can find it
+          here:http://www.entropy.ch/software/macosx/postgresql/.</para>
+          <section>
+            <title>Macintosh OS X source installation</title>
+            <programlisting>mkdir /opt/postgresql
+cd /opt/postgresql
+tar xzvf download-directory/postgresql-version.tar.gz
+cd postgresql-version
+./configure # see table above for options
+make
+make check
+cd contrib/pgcrypto
+make
+cd ../..
+su
+make install
+cd contrib/pgcrypto
+make install</programlisting>
+            <orderedlist>
+              <listitem>
+                <para>Build and install PostgreSQL by following the directions
+                in the INSTALL file up through and including the gmake install
+                step.</para>
+              </listitem>
+              <listitem>
+                <para>Create a directory to hold the PostgreSQL
+                installation.</para>
+              </listitem>
+              <listitem>
+                <para>As noted in the INSTALL file, gmake does not exist, so
+                build using make.</para>
+              </listitem>
+              <listitem>
+                <para>The 'make check' command tests the binaries to make sure
+                they work before you install them.</para>
+              </listitem>
+            </orderedlist>
+          </section>
+          <section>
+            <title>Modifications for universal binaries on the
+            Macintosh</title>
+            <para>If you need to build universal binaries of PostgreSQL, see
+            Mark Liyanage's blog.</para>
+          </section>
+        </section>
+        <section>
+          <title>Linux</title>
+          <programlisting>mkdir /opt/postgresql
+cd /opt/postgresql
+tar xzvf download-directory/postgresql-version.tar.gz
+cd postgresql-version
+./configure # see table above for options
+make
+make check
+su
+make install
+cd contrib/pgcrypto
+make install</programlisting>
+          <orderedlist>
+            <listitem>
+              <para>Build and install PostgreSQL by following the directions
+              in the INSTALL file up through and including the gmake install
+              step.</para>
+            </listitem>
+            <listitem>
+              <para>Create a directory to hold the PostgreSQL
+              installation.</para>
+            </listitem>
+            <listitem>
+              <para>If gmake does not exist, use make instead.</para>
+            </listitem>
+            <listitem>
+              <para>make check tests the binaries to make sure they work
+              before you install them.</para>
+            </listitem>
+          </orderedlist>
+          <tip>
+            <para>While you are at the PostgreSQL web site, you might want to
+            get the pgadmin GUI client as well. After your download of the
+            PostgreSQL source code is complete, back up your web browser two
+            levels and then click on pgadmin3 -&gt; release -&gt; latest
+            version -&gt; os-name -&gt; pgadmin3-version.suffix and install
+            from this bundle.</para>
+          </tip>
+        </section>
+      </section>
+    </section>
+    <section>
+      <title>Get Qt from Trolltech</title>
+      <para>Get and install Trolltech's Qt. The examples here show the
+      commands for the commercial edition of Qt, but the commands to build and
+      install Qt are the same for the free version. Building Qt takes a long
+      time (measured in hours, even on fairly fast machines); start your Qt
+      build when you have lots of other work to do or before leaving work for
+      the day (or before going to bed, if you're the sort who works from home
+      at night:-).</para>
+      <table>
+        <title></title>
+        <tgroup cols="4">
+          <tbody>
+            <row>
+              <entry>xTuple ERP</entry>
+              <entry>Qt</entry>
+              <entry>Configuration Parameters</entry>
+              <entry>Add for Macintosh</entry>
+            </row>
+            <row>
+              <entrytbl cols="2">
+                <tbody>
+                  <row>
+                    <entry>From</entry>
+                    <entry>To</entry>
+                  </row>
+                </tbody>
+              </entrytbl>
+              <entry></entry>
+              <entry></entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entrytbl cols="2">
+                <tbody>
+                  <row>
+                    <entry>??</entry>
+                    <entry>??</entry>
+                  </row>
+                </tbody>
+              </entrytbl>
+              <entrytbl cols="1">
+                <tbody>
+                  <row>
+                    <entry>4.1</entry>
+                  </row>
+                </tbody>
+              </entrytbl>
+              <entry>-plugin-sql-psql -qt-gif
+              -I/path/to/postgresql/include-L/path/to/postgresql/lib</entry>
+              <entry>-no-framework</entry>
+            </row>
+            <row>
+              <entrytbl cols="2">
+                <tbody>
+                  <row>
+                    <entry>2.1.0</entry>
+                    <entry>2.2.1</entry>
+                  </row>
+                </tbody>
+              </entrytbl>
+              <entry>4.2.3</entry>
+              <entry>-shared-release-qt-sql-psql-qt-sql-odbc-qt-zlib -qt-gif
+              -qt-libpng-qt-libjpeg
+              -I/path/to/postgresql/include-L/path/to/postgresql/lib</entry>
+              <entry>-no-framework -universal</entry>
+            </row>
+            <row>
+              <entrytbl cols="2">
+                <tbody>
+                  <row>
+                    <entry>2.3.0</entry>
+                    <entry>3.1.0</entry>
+                  </row>
+                </tbody>
+              </entrytbl>
+              <entry>4.3.2</entry>
+              <entry>-shared -release -qt-sql-psql -qt-sql-odbc -qt-zlib
+              -qt-gif -qt-libpng -qt-libjpeg -I/path/to/postgresql/include
+              -L/path/to/postgresql/lib</entry>
+              <entry>-no-framework -universal</entry>
+            </row>
+            <row>
+              <entrytbl cols="2">
+                <tbody>
+                  <row>
+                    <entry>3.2.0</entry>
+                    <entry>3.2.2</entry>
+                  </row>
+                </tbody>
+              </entrytbl>
+              <entry>4.4.3</entry>
+              <entry>-plugin-sql-psql -plugin-sql-odbc -plugin-sql-sqlite
+              -qt-zlib -qt-gif -qt-libtiff -qt-libpng -qt-libmng -qt-libjpeg
+              -I/path/to/postgresql/include -L/path/to/postgresql/lib</entry>
+              <entry>-no-framework -universal</entry>
+            </row>
+            <row>
+              <entrytbl cols="2">
+                <tbody>
+                  <row>
+                    <entry>3.3.0</entry>
+                    <entry>???</entry>
+                  </row>
+                </tbody>
+              </entrytbl>
+              <entry>4.5.1 or Qt SDK 2009.04</entry>
+              <entry>-plugin-sql-psql -plugin-sql-odbc -plugin-sql-sqlite
+              -qt-zlib -qt-gif -qt-libtiff -qt-libpng -qt-libmng -qt-libjpeg
+              -I/path/to/postgresql/include -L/path/to/postgresql/lib</entry>
+              <entry>-no-framework -universal</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <section>
+        <title>Windows with MinGW</title>
+        <para>Download the Qt Open Source Library and Toolkit for Windows from
+        Qt's web site. Install the Qt SDK, accepting the default options. This
+        will create a C:\Qt folder containing 2009.04.</para>
+        <para>If you want to build from Qt sources, download the source .zip
+        file and follow these steps:</para>
+        <orderedlist>
+          <listitem>
+            <para>Extract the .zip file to c:\qt</para>
+          </listitem>
+          <listitem>
+            <para>In a command window</para>
+            <programlisting>cd \qt\qt-win-commercial-src-4.5.1
+configure.exe [ Configuration Parameters from above ] -qt-style-windowsxp -platform win32-g++
+mingw32-make</programlisting>
+          </listitem>
+          <listitem>
+            <para>When Qt has successfully built, add the following values to
+            your environment variables:</para>
+            <programlisting>PATH
+c:\qt\qt-win-commercial-src-4.5.1\bin
+
+INCLUDE
+c:\qt\qt-win-commercial-src-4.5.1\include
+
+LIB
+c:\qt\qt-win-commercial-src-4.5.1\lib</programlisting>
+            <tip>
+              <para>If the Qt build quits without finishing successfully, try
+              adding these environment variables before rebuilding.</para>
+            </tip>
+            <tip>
+              <para>If you use Trolltech's Qt installer to install Qt then you
+              will not have the PostgreSQL drivers available by default. You
+              can however build the drivers after the installation.</para>
+              <para>To do this you must have installed PostgreSQL with the
+              development headers and libraries and have the PATH, INCLUDE,
+              and LIBRARY_PATH environment variable setup correctly as
+              described above. Starting a Qt Command Prompt, cd
+              src/plugins/sqldrivers/psql, then make.</para>
+            </tip>
+          </listitem>
+        </orderedlist>
+      </section>
+      <section>
+        <title>Windows with VisualC++ Express Edition</title>
+        <orderedlist>
+          <listitem>
+            <para>Extract the .zip file to</para>
+            <programlisting>c:\qt\qt-win-commercial-src-4.5.1 .</programlisting>
+          </listitem>
+          <listitem>
+            <para>Start -&gt; Programs -&gt; Microsoft Visual C++ Express
+            Edition -&gt; Visual Studio Tools -&gt; Visual Studio 2005 Command
+            Prompt</para>
+          </listitem>
+          <listitem>
+            <programlisting>cd \qt\qt-win-commercial-src-4.5.1
+configure.exe [ Configuration Parameters from above ] -qt-style-windowsxp -platform win32-msvc</programlisting>
+          </listitem>
+          <listitem>
+            <para>The configure step will probably fail with a link error in
+            the src\sql subdirectory. If this happens then edit
+            src\sql\Makefile.Release and change the reference from libpq.lib
+            to libpqdll.lib on line ~22, then run nmake from the top
+            level.</para>
+          </listitem>
+        </orderedlist>
+      </section>
+      <section>
+        <title>Macintosh OS X</title>
+        <para>On the Macintosh you have a choice of installing a binary or
+        source-code version of Qt. xTuple recommends installing the
+        source-code version. If you are familiar with Xcode and its build
+        framework then you can use the binary distribution of Qt, but xTuple
+        does not support this environment. We have had problems with qmake's
+        handling of nested projects and directory recursion with Xcode and
+        xcodebuild files, which is the build scheme for the Qt binary
+        distributions.</para>
+        <programlisting>mkdir /opt/qt
+cd /opt/qt
+tar xzf wherever-the-tarball-is/qt-mac-commercial-src-version.tar.gz
+cd qt-mac-commercial-src-version
+./configure -prefix-install -prefix /opt/qt/Qt-version [ Configuration Parameters from above ]
+make
+su
+make install</programlisting>
+        <para>The -no-framework argument to configure has been selected to
+        reduce the risk of conflict between binary and source installations of
+        Qt. The -I and -L options are not necessary if you installed
+        PostgreSQL in /usr.</para>
+        <caution>
+          <para>Make sure you give yourself permissions to write to the folder
+          /opt/qt/qt-mac-commercial-src-version/plugins/designer. When xTuple
+          is compiled it will need to create a library here for xTuple widget
+          plugins. Without adequate permissions the library will not be
+          created and you will not be able to properly edit and use files
+          using xTuple widgets in Qt Designer.</para>
+        </caution>
+        <tip>
+          <para>If you want to build universal binaries, then add -universal
+          at the end of the command line. If you do so then you must have
+          built PostgreSQL universal binaries as well. If you want to be able
+          to debug the application all the way down into the Qt libraries then
+          add the --debug-and-release option to the configure command.</para>
+        </tip>
+      </section>
+      <section>
+        <title>Linux</title>
+        <para>xTuple has not tried building PostBooks and OpenMFG using Qt
+        directly from Linux distribution installations, such as RPMs. If you
+        try doing this then you are on your own.</para>
+        <programlisting>mkdir /opt/qt
+cd /opt/qt
+tar xzf whereever-the-tarball-is/qt-x11-commercial-src-version.tar.gz
+cd qt-x11-commercial-src-version
+./configure -prefix /opt/qt/Qt-version [ Configuration Parameters from above ] -v
+make
+su
+make install</programlisting>
+        <para>The -I and -L options are not necessary if you installed
+        PostgreSQL in /usr.</para>
+        <para>Get and install cURL</para>
+        <para>Download either the source distribution or the the
+        platform-specific binary distribution of cURL from
+        http://www.haxx.se/curl.</para>
+      </section>
+      <section>
+        <title>Microsoft Windows with MinGW</title>
+        <para>Download the binary cURL distribution, which consists of the two
+        files curl-version-win32-ssl.zip and libcurl-version-ssl-sspi-sspi.zip
+        and extract the contents of these two .zip files to c:\curl.</para>
+      </section>
+      <section>
+        <title>Windows with VisualC++ Express Edition</title>
+        <orderedlist>
+          <listitem>
+            <para>Download the source cURL distribution and extract the .zip
+            file contents to c:\curl, then read and follow the directions in
+            docs\INSTALL, in the section named "MSVC from command
+            line":</para>
+          </listitem>
+          <listitem>
+            <programlisting>cd c:\curl\curl-version
+vcvars32.bat
+nmake vc</programlisting>
+          </listitem>
+        </orderedlist>
+      </section>
+      <section>
+        <title>Macintosh</title>
+        <para>cURL is installed as part of Xcode.</para>
+      </section>
+      <section>
+        <title>Linux</title>
+        <orderedlist>
+          <listitem>
+            <para>Download the source distribution</para>
+          </listitem>
+          <listitem>
+            <programlisting>cd /opt/curl
+tar xzvf download-directory/curl-version.tar.gz</programlisting>
+          </listitem>
+          <listitem>
+            <para>Build and install cURL with</para>
+            <programlisting>cd /opt/curl/curl-version
+./configure --prefix=/opt
+make
+su
+make install</programlisting>
+          </listitem>
+        </orderedlist>
+      </section>
+    </section>
+    <section>
+      <title>Set your environment variables</title>
+      <para>After installing all of this software, you will probably have to
+      change your environment variables so the build processes can find all of
+      the right pieces. All three of the major platforms use the same variable
+      names: PATH, INCLUDE, and LIB. The differences are in the syntax you
+      must use to specify the values, and where you have to set them. There
+      may also be an additional variable or two to set on particular
+      platforms.</para>
+      <note>
+        <para>In the following examples, environment variables are listed with
+        spaces and newlines for readability. When you set these values, make
+        sure you have no spaces and no newlines in your values.</para>
+      </note>
+      <note>
+        <para>the following needs work to clarify what's dependent on actions
+        taken in previous steps</para>
+      </note>
+      <section>
+        <title>Microsoft Windows using MinGW</title>
+        <para>The general syntax for Windows environment variables containing
+        several directory paths is</para>
+        <programlisting>VARIABLE=drive:path1;drive:path2;...</programlisting>
+        <para>If you are setting the value in the System Properties window,
+        you won't have to type the VARIABLE=.</para>
+        <para>Make sure you use the 8.3 file names, not the long filenames,
+        when setting these environment variables. For example, you may need to
+        type C:\PROGRA~1 instead of C:\Program Files.</para>
+        <programlisting>PATH=C:\Qt\pgsql\bin;
+     C:\Qt\2009.04;
+     C:\Qt\2009.04\mingw\bin;     # C:\mingw\bin if you installed MinGW
+     C:\Qt\2009.04\qt\bin;
+     C:\curl\libcurl-7.15.4\bin
+
+INCLUDE=C:\Qt\2009.04\qt\include;
+        C:\Qt\pgsql\include;
+        C:\curl\libcurl-7.15.4\include;
+        C:\mingw\include          # only if you installed MinGW
+
+LIB=C:\Qt\pgsql\lib;
+    C:\Qt\2009.04\qt\lib;
+    C:\curl\libcurl-7.15.4\lib;
+    C:\mingw\lib                  # only if you installed MinGW</programlisting>
+        <para>In addition to the normal Windows environment settings, Qt has a
+        special Qt Command Prompt command which overrides the PATH set in the
+        System Properties. You will need to edit C:\Qt\2009.04\bin\qtenv.bat
+        with a text editor to change the PATH set in that .bat file. Add the
+        following lines:</para>
+        <programlisting>set PATH=%PATH%;C:\Qt\pgsql\bin
+set PATH=%PATH%;C:\Qt\2009.03\qt</programlisting>
+      </section>
+      <section>
+        <title>Microsoft Windows using Visual C++ Express Edition</title>
+        <para>As with Windows using MinGW, make sure you use the 8.3
+        filenames</para>
+        <programlisting>PATH=C:\Program Files\Microsoft Visual Studio 8\VC\bin;
+     C:\Program Files\Microsoft Visual Studio 8\Common\IDE;
+     C:\Program Files\Microsoft Platform SDK for Windows Server 2003 R2\Bin;
+     C:\postgresql\postgresql-version\src\interfaces\libpq\Release;
+     C:\qt\qt-win-commercial-src-4.5.1\bin
+INCLUDE=C:\Program Files\Microsoft Visual Studio 8\VC\include;
+        C:\Program Files\Microsoft Platform SDK for Windows Server 2003 R2\Include;
+        C:\postgresql\postgresql-version\src\include;
+        C:\postgresql\postgresql-version\src\interfaces\libpq;
+        C:\qt\qt-win-commercial-src-4.5.1\include;
+        C:\curl\curl-7.15.4\lib
+LIB=C:\Program Files\Microsoft Platform SDK for Windows Server 2003 R2\Lib;
+    C:\postgresql\postgresql-version\src\interfaces\libpq\Release;
+    C:\qt\qt-win-commercial-src-4.5.1\lib;
+    C:\curl\curl-7.15.4\lib</programlisting>
+      </section>
+      <section>
+        <title>Macintosh OS X</title>
+        <programlisting>PATH=/opt/postgresql/pg-version/bin:
+     /opt/qt/qt-version/bin:
+     /opt/curl/bin</programlisting>
+      </section>
+      <section>
+        <title>Linux</title>
+        <programlisting>PATH=/opt/bin:/opt/qt/Qt-version/bin
+INCLUDE=/opt/include:/opt/qt/Qt-version/include
+LD_LIBRARY_PATH=/opt/lib:/opt/qt/Qt-version/lib</programlisting>
+      </section>
+    </section>
+    <section>
+      <title>Add PostgreSQL support to Qt</title>
+      <para>If you installed Qt from a binary package you'll need to build and
+      install the Qt plugin for PostgreSQL and the sqldrivers.</para>
+      <section>
+        <title>Microsoft Windows using MinGW</title>
+        <para>(but this looks an awful lot like building from source!)</para>
+        <para>From the Start menu, select Programs -&gt; Qt SDK -&gt; Qt
+        Command Prompt</para>
+        <para>In the cmd window that appears, execute the following
+        commands:</para>
+        <programlisting>&gt; cd src\plugins\sqldrivers\psql
+&gt; qmake "INCLUDEPATH+=C:\Qt\pgsql\include" "LIBS+=C:\Qt\pgsql\lib\libpq.lib"
+     &gt; mingw32-make</programlisting>
+        <para>We must now build QT to include the sqldrivers. ;Before doing
+        so, we must remove two files lest we encounter the dreaded "***
+        [sub-webkit-make_default-ordered] Error 2":</para>
+        <programlisting>C:\Qt\2009.03\qt\src\3rdparty\webkit\WebCore\tmp\moc\debug_shared\mocinclude.tmp
+            C:\Qt\2009.03\qt\src\3rdparty\webkit\WebCore\tmp\moc\release_shared\mocinclude.tmp</programlisting>
+        <para>Once those two files are deleted, run Qt Command Prompt and
+        execute the following command:</para>
+        <programlisting>&gt; configure.exe -debug-and-release -plugin-sql-psql -plugin-sql-odbc -plugin-sql-sqlite -qt-zlib -qt-gif -qt-libtiff -qt-libpng -qt-libmng -qt-libjpeg -qt-style-windowsxp -platform win32-g++ -L C:\Qt\pgsql\lib -I C:\Qt\pgsql\include</programlisting>
+        <para>You will be prompted for the edition of Qt you want to use, and
+        then the license agreement. The configure command will take a few
+        minutes to complete. Now run this command:</para>
+        <programlisting>&gt; mingw32-make</programlisting>
+        <para>The mingw32-make process will take several hours, even on a
+        fairly fast machine.</para>
+      </section>
+      <section>
+        <title>Microsoft Windows using Visual C++ Express Edition</title>
+        <para>Not necessary because you built from source.</para>
+      </section>
+      <section>
+        <title>Macintosh OS X</title>
+        <para>Not necessary because you built from source.</para>
+      </section>
+      <section>
+        <title>Linux</title>
+        <para>Not necessary because you built from source.</para>
+      </section>
+    </section>
+    <section>
+      <title>Check out the PostBooks and OpenRPT source code</title>
+      <para>The example here shows one possible arrangement of source code.
+      There are several that will work. This example uses command line
+      tools</para>
+      <programlisting>mkdir postbooks-checkout-area
+cd postbooks-checkout-area
+svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtuple/trunk xtuple
+svn co https://openrpt.svn.sourceforge.net/svnroot/openrpt/openrpt/trunk openrpt</programlisting>
+      <para>Here is an example using RapidSVN on Windows. It places the source
+      files in C:\Qt\xTuple-src. </para>
+      <para>Start RapidSVN. </para>
+      <para>In RapidSVN click REPOSITORY - CHECKOUT. Enter the URL and
+      destination directory. Do this twice with the following URL/Directory
+      combinations:</para>
+      <programlisting>https://openrpt.svn.sourceforge.net/svnroot/openrpt/openrpt/trunk C:\Qt\xTuple-src\openrpt
+https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtuple/trunk C:\Qt\xTuple-src\xtuple </programlisting>
+      <para>Accept a security key for each host when you connect. Once both
+      sources are downloaded, you can close RapidSVN. Note that it is
+      necessary for OpenRPT and xTuple folders to be together in a folder, so
+      that:</para>
+      <programlisting>&lt;PARENT FOLDER&gt;
+  + OpenRPT
+  + xTuple</programlisting>
+      <para>In our example, our folder structure is:</para>
+      <programlisting>C:\Qt
+  + 2009.03
+  + pgsql
+  - xTuple-src
+     + OpenRpt
+     + xTuple</programlisting>
+      <para>The OpenRPT and xTuple root folders must reside in the same folder
+      for the compile process to succeed (not really, but close
+      enough).</para>
+    </section>
+    <section>
+      <title>Build OpenRPT</title>
+      <para>Next build OpenRPT:</para>
+      <programlisting>cd OpenRPT-checkout-dir
+qmake
+make
+</programlisting>
+      <section>
+        <title>Microsoft Windows with MinGW</title>
+        <para>Replace make with mingw32-make</para>
+      </section>
+      <section>
+        <title>Microsoft Windows with Visual C++ Express Edition</title>
+        <para>Replace make with nmake</para>
+      </section>
+      <section>
+        <title>Macintosh</title>
+        <para>If you are NOT making a universal binary, edit the macx section
+        of the global.pri by removing the processor entry, x86 or PPC, that is
+        NOT applicable to your system. Do this for both OpenRPT and xTuple
+        projects.</para>
+      </section>
+      <section>
+        <title>Linux</title>
+        <para>You might need to use gmake instead of make.</para>
+        <para>When complete, verify that OpenRPT works. Go to your
+        OpenRPT-checkout-dir/bin and run OpenRPT.exe (or openrpt on Linux or
+        openrpt.app on Mac). Select DATABASE - CONNECT TO DATABASE from the
+        program's menu. Click the OPTIONS button and enter your database
+        information. If the PostgreSQL driver does not appear in the list,
+        then it has failed to load probably because of some missing
+        dependencies. See the troubleshooting section below for help resolving
+        these dependency problems. Make sure that you can connect to your
+        database before continuing.</para>
+      </section>
+    </section>
+    <section>
+      <title>Build the main xTuple application</title>
+      <programlisting>cd xtuple-checkout-dir
+qmake
+make
+</programlisting>
+      <para>The same platform-specific qualifiers apply as when building
+      OpenRPT. </para>
+      <para>If you want to distribute your compiled xTuple ERP binaries to
+      other machines, you'll need to bundle the necessary shared libraries and
+      distribute the whole collection.</para>
+      <section>
+        <title>Microsoft Windows with MinGW</title>
+        <programlisting>ECHO *** BEGIN ***
+
+COPY c:\qt\2009.03\mingw\bin\MINGWM10.DLL c:\qt\xtuple-src\xtuple\bin\
+
+COPY c:\qt\2009.03\qt\bin\QT3SUPPORT4.DLL c:\qt\xtuple-src\xtuple\bin\
+
+COPY c:\qt\2009.03\qt\bin\QTASSISTANTCLIENT4.DLL c:\qt\xtuple-src\xtuple\bin\
+
+COPY c:\qt\2009.03\qt\bin\QTCORE4.DLL c:\qt\xtuple-src\xtuple\bin\
+
+COPY c:\qt\2009.03\qt\bin\QTDESIGNER4.DLL c:\qt\xtuple-src\xtuple\bin\
+
+COPY c:\qt\2009.03\qt\bin\QTDESIGNERCOMPONENTS4.DLL c:\qt\xtuple-src\xtuple\bin\
+
+COPY c:\qt\2009.03\qt\bin\QTGUI4.DLL c:\qt\xtuple-src\xtuple\bin\
+
+COPY c:\qt\2009.03\qt\bin\QTNETWORK4.DLL c:\qt\xtuple-src\xtuple\bin\
+
+COPY c:\qt\2009.03\qt\bin\QTSCRIPT4.DLL c:\qt\xtuple-src\xtuple\bin\
+
+COPY c:\qt\2009.03\qt\bin\QTSCRIPTTOOLS4.DLL c:\qt\xtuple-src\xtuple\bin\
+
+COPY c:\qt\2009.03\qt\bin\QTSQL4.DLL c:\qt\xtuple-src\xtuple\bin\
+
+COPY c:\qt\2009.03\qt\bin\QTWEBKIT4.DLL c:\qt\xtuple-src\xtuple\bin\
+
+COPY c:\qt\2009.03\qt\bin\QTXML4.DLL c:\qt\xtuple-src\xtuple\bin\
+
+ECHO *** END ***</programlisting>
+      </section>
+      <section>
+        <title>Microsoft Windows with Visual C++ Express Edition</title>
+        <para></para>
+      </section>
+      <section>
+        <title>Macintosh</title>
+        <para></para>
+      </section>
+      <section>
+        <title>Linux</title>
         <para></para>
       </section>
     </section>
