@@ -65,7 +65,7 @@
     information from xTuple before you begin:</para>
     <itemizedlist>
       <listitem>
-        <para> Subversion tags to use when checking out the source code for
+        <para>Subversion tags to use when checking out the source code for
         OpenRPT and xTuple ERP.</para>
       </listitem>
       <listitem>
@@ -82,8 +82,31 @@
     platform-specific information.</para>
     <section>
       <title>Basic Development Tools</title>
-      <para></para>
-      <para></para>
+      <para>The GUI client is a large application built in C++. You will need
+      a C++ compiler and a version of the make utility.</para>
+      <section>
+        <title>Microsoft Windows using MinGW</title>
+        <para>xTuple recommends using MinGW for developing on Windows although
+        we have also tried Microsoft Visual C++ Express. Newer versions of the
+        Qt SDK include MinGW.</para>
+        <para>If you need to obtain MinGW separately:</para>
+        <orderedlist>
+          <listitem>
+            <para>Point your browser to
+            http://sourceforge.net/projects/mingw/</para>
+          </listitem>
+          <listitem>
+            <para></para>
+          </listitem>
+          <listitem>
+            <para></para>
+          </listitem>
+        </orderedlist>
+      </section>
+      <section>
+        <title>Microsoft Windows using Visual C++ Express Edition</title>
+        <para></para>
+      </section>
     </section>
   </section>
 </article>
