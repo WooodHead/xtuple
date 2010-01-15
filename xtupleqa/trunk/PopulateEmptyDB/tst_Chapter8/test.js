@@ -863,7 +863,7 @@ function main()
         waitForObject(":Reason Code.Save_QPushButton");
         clickButton(":Reason Code.Save_QPushButton");
         waitForObject(":List Reason Codes._rsncode_XTreeWidget");
-        if(object.exists({column='0' container=':List Reason Codes._rsncode_XTreeWidget' text='SO-DAMAGED-RETURNED' type='QModelIndex'}))
+        if(object.exists("{column='0' container=':List Reason Codes._rsncode_XTreeWidget' text='SO-DAMAGED-RETURNED' type='QModelIndex'}"))
                 test.pass("Reason Code Created:SO-DAMAGED-RETURNED");
         else test.fail("Reason Code not Created:SO-DAMAGED-RETURNED");
         

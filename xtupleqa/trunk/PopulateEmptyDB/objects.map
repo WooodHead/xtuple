@@ -2209,6 +2209,9 @@
 :_bankGroup.Currency:_QLabel	{container=':Bank Account._bankGroup_QGroupBox' name='_currencyLit' text='Currency:' type='QLabel' visible='1'}
 :_bankGroup.Type:_QLabel	{container=':Bank Account._bankGroup_QGroupBox' name='_typeLit' text='Type:' type='QLabel' visible='1'}
 :_bankName_XLineEdit	{buddy=':_bankGroup.Bank Name:_QLabel' name='_bankName' type='XLineEdit' visible='1'}
+:_bankaccnt.EBANK_QModelIndex	{column='0' container=':List Bank Accounts._bankaccnt_XTreeWidget' text='EBANK' type='QModelIndex'}
+:_bankaccnt.EURBANK_QModelIndex	{column='0' container=':List Bank Accounts._bankaccnt_XTreeWidget' text='EURBANK' type='QModelIndex'}
+:_bankadjtype.BANKFEE_QModelIndex	{column='0' container=':List Adjustment Types._bankadjtype_XTreeWidget' text='BANKFEE' type='QModelIndex'}
 :_baseTab.Qty. Break:_XLabel	{container=':qt_tabwidget_stackedwidget._baseTab_QWidget' name='_qtyBreakLit' text='Qty. Break:' type='XLabel' visible='1'}
 :_baseTab_XLineEdit	{container=':qt_tabwidget_stackedwidget._baseTab_QWidget' occurrence='2' type='XLineEdit' unnamed='1' visible='1'}
 :_batchEmail_QLineEdit	{buddy=':Batch Manager.Default From Email Address:_QLabel' name='_batchEmail' type='QLineEdit' visible='1'}
@@ -2512,6 +2515,8 @@
 :_extReference_XLineEdit	{buddy=':Chart of Accounts.Ext. Reference:_QLabel' name='_extReference' type='XLineEdit' visible='1'}
 :_extReference_XLineEdit_2	{buddy=':Account Number.Ext. Reference:_QLabel' name='_extReference' type='XLineEdit' visible='1'}
 :_extref_XLineEdit	{buddy=':Tax Authority.Ext. Ref.:_QLabel' name='_extref' type='XLineEdit' visible='1'}
+:_flhead.Official Balance Sheet_QModelIndex	{column='0' container=':List Financial Reports._flhead_XTreeWidget' text='Official Balance Sheet' type='QModelIndex'}
+:_flhead.Official Income Statement_QModelIndex	{column='0' container=':List Financial Reports._flhead_XTreeWidget' text='Official Income Statement' type='QModelIndex'}
 :_flhead_QHeaderView	{container=':List Financial Reports._flhead_XTreeWidget' type='QHeaderView' unnamed='1' visible='1'}
 :_form.SO-Acknowledge_QModelIndex	{column='0' container=':List Forms._form_XTreeWidget' text='SO-Acknowledge' type='QModelIndex'}
 :_frame.Add->_QPushButton	{container=':List Tax Assignments._frame_QFrame_2' name='_add' text='Add->' type='QPushButton' visible='1'}
@@ -2850,6 +2855,8 @@
 :_passwd_XLineEdit_2	{buddy=':List Employees.Password:_QLabel' name='_passwd' type='XLineEdit' visible='1'}
 :_password_QLineEdit	{buddy=':_frame.Password:_QLabel' name='_password' type='QLineEdit' visible='1'}
 :_period.*_QModelIndex	{column='0' container=':List Accounting Periods._period_XTreeWidget' text='2009-01' type='QModelIndex'}
+:_period.No_QModelIndex	{column='2' container=':List Fiscal Years._period_XTreeWidget' text='No' type='QModelIndex'}
+:_period.No_QModelIndex_2	{column='2' container=':List Fiscal Years._period_XTreeWidget' occurrence='2' text='No' type='QModelIndex'}
 :_planGroup.qt_spinbox_lineedit_QLineEdit	{container=':_whsTypeStack._planGroup_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
 :_plancode.MPS-ITEMS_QModelIndex	{column='0' container=':List Planner Codes._plancode_XTreeWidget' text='MPS-ITEMS' type='QModelIndex'}
 :_plannerCode_XComboBox	{buddy=':Control.Planner Code:_QLabel' name='_plannerCode' type='XComboBox' visible='1'}
