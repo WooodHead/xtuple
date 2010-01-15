@@ -413,12 +413,12 @@ function main()
         {
             waitForObject(":Item Site.Cancel_QPushButton");
             clickButton(":Item Site.Cancel_QPushButton");
-//        }
+        }
         waitForObject(":_itemSite_XTreeWidget_2");
         if(object.exists(":_itemSite.YTRUCK1_QModelIndex"))
             test.pass("Item Site Created: YTRUCK1");
         else test.fail("Item Site Created: YTRUCK1");
-    }catch(e){test.fail("Exception in creating Item site of YTRUCK1:"+e)}
+    }catch(e){test.fail("Exception in creating Item site of YTRUCK1:"+e);}
     
     
     //---------Item site: TBODY1----------------------

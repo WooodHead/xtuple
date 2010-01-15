@@ -196,7 +196,7 @@ function main()
         if(object.exists(":_oplist.LOST_QModelIndex"))
             test.pass("Opportunity stage: LOST created");
         else test.fail("Opportunity stage: LOST not created");
-        if(object.exists("{column='0' container=':List Opportunity Stages._oplist_XTreeWidget' text='ORDER' type='QModelIndex'}");)
+        if(object.exists("{column='0' container=':List Opportunity Stages._oplist_XTreeWidget' text='ORDER' type='QModelIndex'}"))
             test.pass("Opportunity Stage: ORDER created");
         else test.fail("Opportunity Stage: ORDER not created");
         if(object.exists("{column='0' container=':List Opportunity Stages._oplist_XTreeWidget' text='RFQ' type='QModelIndex'}");)
