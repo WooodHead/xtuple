@@ -17,6 +17,20 @@ DECLARE
   _item RECORD;
 
 BEGIN
+  RETURN customerCanPurchase(pitemid, pCustid, -1, CURRENT_DATE);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION customerCanPurchase(INTEGER, INTEGER, INTEGER, DATE) RETURNS BOOL AS $$
+DECLARE
+  pitemid ALIAS FOR $1;
+  pCustid ALIAS FOR $2;
+  pShiptoid AlIAS FOR $3;
+  pAsOf ALIAS FOR $4;
+  _id INTEGER;
+  _item RECORD;
+
+BEGIN
 
   SELECT item_sold, item_exclusive
     INTO _item
@@ -39,7 +53,7 @@ BEGIN
       FROM ipsitem, ipshead, ipsass
      WHERE((ipsitem_ipshead_id=ipshead_id)
        AND (ipsass_ipshead_id=ipshead_id)
-       AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+       AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
        AND (ipsitem_item_id=pItemid)
        AND (ipsass_shipto_id != -1)
        AND (ipsass_shipto_id=pShiptoid))
@@ -52,7 +66,7 @@ BEGIN
      WHERE((ipsprodcat_ipshead_id=ipshead_id)
        AND (ipsprodcat_prodcat_id = item_prodcat_id)
        AND (ipsass_ipshead_id=ipshead_id)
-       AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+       AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
        AND (item_id=pItemid)
        AND (ipsass_shipto_id != -1)
        AND (ipsass_shipto_id=pShiptoid))
@@ -66,7 +80,7 @@ BEGIN
       FROM ipsitem, ipshead, ipsass, shipto
      WHERE((ipsitem_ipshead_id=ipshead_id)
        AND (ipsass_ipshead_id=ipshead_id)
-       AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+       AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
        AND (COALESCE(length(ipsass_shipto_pattern), 0) > 0)
        AND (shipto_num ~ ipsass_shipto_pattern)
        AND (ipsass_cust_id=pCustid)
@@ -81,7 +95,7 @@ BEGIN
      WHERE((ipsprodcat_ipshead_id=ipshead_id)
        AND (ipsprodcat_prodcat_id = item_prodcat_id)
        AND (ipsass_ipshead_id=ipshead_id)
-       AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+       AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
        AND (COALESCE(length(ipsass_shipto_pattern), 0) > 0)
        AND (shipto_num ~ ipsass_shipto_pattern)
        AND (ipsass_cust_id=pCustid)
@@ -98,7 +112,7 @@ BEGIN
     FROM ipsitem, ipshead, ipsass
    WHERE((ipsitem_ipshead_id=ipshead_id)
      AND (ipsass_ipshead_id=ipshead_id)
-     AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+     AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
      AND (ipsitem_item_id=pItemid)
      AND (COALESCE(length(ipsass_shipto_pattern), 0) = 0)
      AND (ipsass_cust_id=pCustid))
@@ -111,7 +125,7 @@ BEGIN
    WHERE((ipsprodcat_ipshead_id=ipshead_id)
      AND (ipsprodcat_prodcat_id = item_prodcat_id)
      AND (ipsass_ipshead_id=ipshead_id)
-     AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+     AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
      AND (item_id=pItemid)
      AND (COALESCE(length(ipsass_shipto_pattern), 0) = 0)
      AND (ipsass_cust_id=pCustid))
@@ -127,7 +141,7 @@ BEGIN
      AND  (ipsass_ipshead_id=ipshead_id)
      AND  (ipsass_custtype_id != -1)
      AND  (cust_custtype_id = ipsass_custtype_id)
-     AND  (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+     AND  (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
      AND  (ipsitem_item_id=pItemid)
      AND  (cust_id=pCustid))
     LIMIT 1;
@@ -141,7 +155,7 @@ BEGIN
      AND  (ipsass_ipshead_id=ipshead_id)
      AND  (ipsass_custtype_id != -1)
      AND  (cust_custtype_id = ipsass_custtype_id)
-     AND  (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+     AND  (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
      AND  (item_id=pItemid)
      AND  (cust_id=pCustid))
     LIMIT 1;
@@ -157,7 +171,7 @@ BEGIN
      AND (coalesce(length(ipsass_custtype_pattern), 0) > 0)
      AND (custtype_code ~ ipsass_custtype_pattern)
      AND (cust_custtype_id=custtype_id)
-     AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+     AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
      AND (ipsitem_item_id=pItemid)
      AND (cust_id=pCustid))
    LIMIT 1;
@@ -172,7 +186,7 @@ BEGIN
      AND (coalesce(length(ipsass_custtype_pattern), 0) > 0)
      AND (custtype_code ~ ipsass_custtype_pattern)
      AND (cust_custtype_id=custtype_id)
-     AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+     AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
      AND (item_id=pItemid)
      AND (cust_id=pCustid))
    LIMIT 1;

@@ -31,15 +31,36 @@ DECLARE
   pPriceUOM ALIAS FOR $6;
   pCurrid ALIAS FOR $7;
   pEffective ALIAS FOR $8;
+
+BEGIN
+  RETURN itemPrice(pItemid, pCustid, pShiptoid, pQty, pQtyUOM, pPriceUOM, pCurrid, pEffective, CURRENT_DATE);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION itemPrice(INTEGER, INTEGER, INTEGER, NUMERIC, INTEGER, INTEGER, INTEGER, DATE, DATE) RETURNS NUMERIC AS $$
+DECLARE
+  pItemid ALIAS FOR $1;
+  pCustid ALIAS FOR $2;
+  pShiptoid ALIAS FOR $3;
+  pQty ALIAS FOR $4;
+  pQtyUOM ALIAS FOR $5;
+  pPriceUOM ALIAS FOR $6;
+  pCurrid ALIAS FOR $7;
+  pEffective ALIAS FOR $8;
+  pAsOf ALIAS FOR $9;
   _price NUMERIC;
   _sales NUMERIC;
   _item RECORD;
   _iteminvpricerat NUMERIC;
   _qty NUMERIC;
+  _asof DATE;
 
 BEGIN
 -- Return the itemPrice in the currency passed in as pCurrid
   _qty := itemuomtouom(pItemid, pQtyUOM, NULL, pQty);
+
+-- If no as of passed, use current date
+  _asof := COALESCE(pAsOf, CURRENT_DATE);
 
 -- Get a value here so we do not have to call the function several times
   SELECT itemuomtouomratio(pItemid, pPriceUOM, NULL) AS ratio
@@ -68,7 +89,7 @@ BEGIN
         ipsprice, ipshead, sale, custinfo
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (sale_ipshead_id=ipshead_id)
-   AND (CURRENT_DATE BETWEEN sale_startdate AND sale_enddate)
+   AND (_asof BETWEEN sale_startdate AND sale_enddate)
    AND (ipsprice_qtybreak <= _qty)
    AND (cust_id=pCustid) )
   ORDER BY uommatched DESC, ipsprice_qtybreak DESC, ipsprice_price ASC
@@ -93,7 +114,7 @@ BEGIN
         ipsprice, ipshead, ipsass
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
-   AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+   AND (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
    AND (ipsprice_qtybreak <= _qty)
    AND (ipsass_shipto_id != -1)
    AND (ipsass_shipto_id=pShiptoid) )
@@ -126,7 +147,7 @@ BEGIN
         ipsprice, ipshead, ipsass, shipto
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
-   AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+   AND (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
    AND (ipsprice_qtybreak <= _qty)
    AND (COALESCE(length(ipsass_shipto_pattern), 0) > 0)
    AND (shipto_num ~ ipsass_shipto_pattern)
@@ -161,7 +182,7 @@ BEGIN
         ipsprice, ipshead, ipsass
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
-   AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+   AND (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
    AND (ipsprice_qtybreak <= _qty)
    AND (COALESCE(length(ipsass_shipto_pattern), 0) = 0)
    AND (ipsass_cust_id=pCustid) )
@@ -195,7 +216,7 @@ BEGIN
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
    AND (ipsass_custtype_id=cust_custtype_id)
-   AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+   AND (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
    AND (ipsprice_qtybreak <= _qty)
    AND (cust_id=pCustid) )
   ORDER BY uommatched DESC, ipsprice_qtybreak DESC, ipsprice_price ASC
@@ -230,7 +251,7 @@ BEGIN
    AND (coalesce(length(ipsass_custtype_pattern), 0) > 0)
    AND (custtype_code ~ ipsass_custtype_pattern)
    AND (cust_custtype_id=custtype_id)
-   AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+   AND (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
    AND (ipsprice_qtybreak <= _qty)
    AND (cust_id=pCustid) )
   ORDER BY uommatched DESC, ipsprice_qtybreak DESC, ipsprice_price ASC
