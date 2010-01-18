@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION itemCharPrice(INTEGER, INTEGER, TEXT, INTEGER, NUMERIC) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION itemCharPrice(INTEGER, INTEGER, TEXT, INTEGER, NUMERIC) RETURNS NUMERIC AS $$
 DECLARE
   pItemid ALIAS FOR $1;
   pCharid ALIAS FOR $2;
@@ -9,9 +9,9 @@ DECLARE
 BEGIN
   RETURN itemCharPrice(pItemid, pCharid, pCharValue, pCustid, -1, pQty, baseCurrId(), CURRENT_DATE);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION itemCharPrice(INTEGER, INTEGER, TEXT, INTEGER, INTEGER, NUMERIC) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION itemCharPrice(INTEGER, INTEGER, TEXT, INTEGER, INTEGER, NUMERIC) RETURNS NUMERIC AS $$
 DECLARE
   pItemid ALIAS FOR $1;
   pCharid ALIAS FOR $2;
@@ -23,9 +23,9 @@ DECLARE
 BEGIN
   RETURN itemCharPrice(pItemid, pCharid, pCharValue, pCustid, pShiptoid, pQty, baseCurrId(), CURRENT_DATE);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION itemCharPrice(INTEGER, INTEGER, TEXT, INTEGER, INTEGER, NUMERIC, INTEGER) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION itemCharPrice(INTEGER, INTEGER, TEXT, INTEGER, INTEGER, NUMERIC, INTEGER) RETURNS NUMERIC AS $$
 DECLARE
   pItemid ALIAS FOR $1;
   pCharid ALIAS FOR $2;
@@ -38,7 +38,7 @@ DECLARE
 BEGIN
   RETURN itemCharPrice(pItemid, pCharid, pCharValue, pCustid, pShiptoid, pQty, pCurrid, CURRENT_DATE);
 END;
-' LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION itemCharPrice(INTEGER, INTEGER, TEXT, INTEGER, INTEGER, NUMERIC, INTEGER, DATE) RETURNS NUMERIC AS $$
 DECLARE
@@ -50,6 +50,23 @@ DECLARE
   pQty ALIAS FOR $6;
   pCurrid ALIAS FOR $7;
   pEffective ALIAS FOR $8;
+
+BEGIN
+  RETURN itemCharPrice(pItemid, pCharid, pCharValue, pCustid, pShiptoid, pQty, pCurrid, CURRENT_DATE, CURRENT_DATE);
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION itemCharPrice(INTEGER, INTEGER, TEXT, INTEGER, INTEGER, NUMERIC, INTEGER, DATE, DATE) RETURNS NUMERIC AS $$
+DECLARE
+  pItemid ALIAS FOR $1;
+  pCharid ALIAS FOR $2;
+  pCharValue ALIAS FOR $3;
+  pCustid ALIAS FOR $4;
+  pShiptoid ALIAS FOR $5;
+  pQty ALIAS FOR $6;
+  pCurrid ALIAS FOR $7;
+  pEffective ALIAS FOR $8;
+  pAsOf ALIAS FOR $9;
   _price NUMERIC;
   _sales NUMERIC;
   _item RECORD;
@@ -81,7 +98,7 @@ BEGIN
         ipsprice, ipshead, sale, custinfo
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (sale_ipshead_id=ipshead_id)
-   AND (CURRENT_DATE BETWEEN sale_startdate AND sale_enddate)
+   AND (pAsOf BETWEEN sale_startdate AND sale_enddate)
    AND (ipsprice_qtybreak <= pQty)
    AND (cust_id=pCustid) )
   ORDER BY ipsprice_qtybreak DESC, ipsprice_price ASC
@@ -102,7 +119,7 @@ BEGIN
         ipsprice, ipshead, ipsass
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
-   AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+   AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
    AND (ipsprice_qtybreak <= pQty)
    AND (ipsass_shipto_id != -1)
    AND (ipsass_shipto_id=pShiptoid) )
@@ -131,7 +148,7 @@ BEGIN
         ipsprice, ipshead, ipsass, shipto
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
-   AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+   AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
    AND (ipsprice_qtybreak <= pQty)
    AND (COALESCE(length(ipsass_shipto_pattern), 0) > 0)
    AND (shipto_num ~ ipsass_shipto_pattern)
@@ -162,7 +179,7 @@ BEGIN
         ipsprice, ipshead, ipsass
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
-   AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+   AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
    AND (ipsprice_qtybreak <= pQty)
    AND (COALESCE(length(ipsass_shipto_pattern), 0) = 0)
    AND (ipsass_cust_id=pCustid) )
@@ -192,7 +209,7 @@ BEGIN
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
    AND (ipsass_custtype_id=cust_custtype_id)
-   AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+   AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
    AND (ipsprice_qtybreak <= pQty)
    AND (cust_id=pCustid) )
   ORDER BY ipsprice_qtybreak DESC, ipsprice_price ASC
@@ -223,7 +240,7 @@ BEGIN
    AND (coalesce(length(ipsass_custtype_pattern), 0) > 0)
    AND (custtype_code ~ ipsass_custtype_pattern)
    AND (cust_custtype_id=custtype_id)
-   AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+   AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
    AND (ipsprice_qtybreak <= pQty)
    AND (cust_id=pCustid) )
   ORDER BY ipsprice_qtybreak DESC, ipsprice_price ASC
