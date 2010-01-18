@@ -31,8 +31,8 @@ function main()
         clickButton(":Check Format.Save_QPushButton");
         waitForObject(":List Check Formats._form_XTreeWidget");
         if(object.exists(":_form.GENERIC-CHECK_QModelIndex"))
-            test.pass("Incident Resolution created : Replace");
-        else test.fail("Incident Resolution not created : Replace");
+            test.pass("Check Format created: GENERIC-CHECK");
+        else test.fail("Check Format not created: GENERIC-CHECK");
         waitForObject(":List Check Formats.Close_QPushButton");
         clickButton(":List Check Formats.Close_QPushButton");
     }catch(e){test.fail("Exception in creating Check Format:"+e);}
@@ -201,7 +201,7 @@ try{
 }catch(e){test.fail("Exception in defining Bank Accounts:"+e)}  
 
 
---------------Create: Adjustment Types--------------
+//--------------Create: Adjustment Types--------------
 try{
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");

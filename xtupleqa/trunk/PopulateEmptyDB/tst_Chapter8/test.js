@@ -1139,11 +1139,13 @@ function main()
             clickItem(":_defaultTransWhs_WComboBox", "INTRAN",0,0,1,Qt.LeftButton);
             clickButton(":Inventory Configuration.Save_QPushButton");
             test.log("Configure Module: Inventory");
-            
-        }
+        }catch(e){test.fail("Exception in configuring Inventory module:"+e);}
         
-        else if(appEdition="PostBooks")
-        {
+    }
+        
+    else if(appEdition=="PostBooks")
+    {
+        try{
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
@@ -1157,10 +1159,10 @@ function main()
                 if(actions.at(i).text == menuItem || i==actions.count()-1) break;
             if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
             else test.pass(menuItem+"not found in "+appEdition);
-            
-            
-        } 
-    }catch(e){test.fail("Exception in configuring Inventory module:"+e);}
+        }catch(e){test.fail("Exception in verifying menu in postbooks:"+e);}
+        
+    } 
+    
     
     
 }

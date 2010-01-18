@@ -125,7 +125,7 @@ function main()
         clickButton(":List Incident Resolutions.Close_QPushButton");
     }catch(e){test.fail("Exception in defining Incident Resolution:"+e);}
     
-    
+  
     //------------CRM Oppurtunity Sources---------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
@@ -150,12 +150,14 @@ function main()
         type(":_name_XLineEdit_27", "TRADE");
         type(":_description_XLineEdit_35", "Trade Show");
         clickButton(":Opportunity Source.Save_QPushButton");
+        waitForObject(":List Opportunity Sources._oplist_XTreeWidget");
        if(object.exists(":_oplist.TRADE_QModelIndex"))
-           test.pass("Opportunity Source saved");
-       else test.fail("Opportunity Source not saved");
-       if(object.exists("{column='0' container=':List Opportunity Sources._oplist_XTreeWidget' text='AVERT' type='QModelIndex'}"))
-           test.pass("Opportunity Avert saved");
-       else test.fail("Opportunity Avert not saved");
+           test.pass("Opportunity Trade saved");
+       else test.fail("Opportunity trade not saved");
+       
+       if(object.exists("{column='0' container=':List Opportunity Sources._oplist_XTreeWidget' text='ADVERT' type='QModelIndex'}"))
+           test.pass("Opportunity Advert saved");
+       else test.fail("Opportunity Advert not saved");
         waitForObject(":List Opportunity Sources.Close_QPushButton_2");
         clickButton(":List Opportunity Sources.Close_QPushButton_2");
        
@@ -199,7 +201,7 @@ function main()
         if(object.exists("{column='0' container=':List Opportunity Stages._oplist_XTreeWidget' text='ORDER' type='QModelIndex'}"))
             test.pass("Opportunity Stage: ORDER created");
         else test.fail("Opportunity Stage: ORDER not created");
-        if(object.exists("{column='0' container=':List Opportunity Stages._oplist_XTreeWidget' text='RFQ' type='QModelIndex'}");)
+        if(object.exists("{column='0' container=':List Opportunity Stages._oplist_XTreeWidget' text='RFQ' type='QModelIndex'}"))
             test.pass("Opportunity Stage: RFQ created ");
         else test.fail("Opportunity Stage: RFQ not created ");
                     
@@ -277,7 +279,7 @@ function main()
         type(":Priority.qt_spinbox_lineedit_QLineEdit", "60");
         type(":Priority._descrip_QTextEdit", "Priority not set.");
         clickButton(":Priority.Save_QPushButton");
-       if(object.exists(":_incidentPriorities.Priority not set._QModelIndex")
+       if(object.exists(":_incidentPriorities.Priority not set._QModelIndex"))
            test.pass("Incident Priorities created");
        else test.fail("Incident Priorities not created");
         waitForObject(":List Priorities.Close_QPushButton_2");
