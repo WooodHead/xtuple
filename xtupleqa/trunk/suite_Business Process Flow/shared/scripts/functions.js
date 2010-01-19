@@ -3,6 +3,8 @@
 
 
 //--------Login into Appl----------
+try
+{
 function loginAppl(userrole)
 {
    
@@ -28,8 +30,8 @@ function loginAppl(userrole)
         exit(1);
     }
  
-    
-    waitForObject(":Log In.Options..._QPushButton");
+
+   waitForObject(":Log In.Options..._QPushButton");
     clickButton(":Log In.Options..._QPushButton");
     waitForObject(":_server_QLineEdit");
     if(findObject(":_server_QLineEdit").text!= url)
@@ -60,9 +62,15 @@ function loginAppl(userrole)
     waitForObject(":xTuple ERP:*.Products Tools_QWorkspace");
     
 }
-
+  }
+catch(e)
+   {
+      test.fail("Error in logging to application" + e);
+    }
 
 //--------To Calculate Absolute Value of QOH ----------
+try
+{ 
 function replaceSubstring(inputString, fromString, toString) 
 {
    // Goes through the inputString and replaces every occurrence of fromString with toString
@@ -122,10 +130,11 @@ function replaceSubstring(inputString, fromString, toString)
    return temp; // Send the updated string back to the user
 } // Ends the "replaceSubstring" function
 
-
-
-
-
+}
+catch(e)
+{
+    test.fail("Error in calculating the absolute value of QOH" + e);
+}
 
 
 
