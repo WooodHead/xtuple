@@ -130,7 +130,7 @@ BEGIN
   END IF;
   
 --  Check to see if the C/R is over applied
-  IF ((_postToAR + _postToMisc + _postToCM) > _p.cashrcpt_amount) THEN
+  IF ((_postToAR + _postToMisc) > _p.cashrcpt_amount) THEN
     RETURN -1;
   END IF;
 
@@ -182,6 +182,7 @@ BEGIN
         FROM tax 
              JOIN calculateTaxDetailSummary('I', _t.invcheadid, 'T') ON (taxdetail_tax_id=tax_id)
         GROUP BY tax_id, tax_sales_accnt_id LOOP
+
           INSERT INTO aropentax(taxhist_parent_id, taxhist_tax_id, taxhist_basis,
              taxhist_percent, taxhist_amount, taxhist_tax, taxhist_docdate)
           VALUES (_r.aropen_id, _v.tax_id, 0.00, 

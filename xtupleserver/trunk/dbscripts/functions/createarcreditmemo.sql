@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pCustid ALIAS FOR $1;
   pDocNumber ALIAS FOR $2;
@@ -10,10 +10,10 @@ DECLARE
 BEGIN
   RETURN createARCreditMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, -1, -1, -1, pDocDate, -1, -1, 0, NULL, baseCurrId() );
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER)
-RETURNS INTEGER AS '
+RETURNS INTEGER AS $$
 DECLARE
   pCustid ALIAS FOR $1;
   pDocNumber ALIAS FOR $2;
@@ -25,9 +25,9 @@ DECLARE
 BEGIN
   RETURN createARCreditMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, -1, -1, -1, pDocDate, -1, -1, 0, NULL, pCurrId);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pCustid ALIAS FOR $1;
   pDocNumber ALIAS FOR $2;
@@ -41,9 +41,9 @@ DECLARE
 BEGIN
   RETURN createARCreditMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDocDate, -1, -1, 0, NULL, baseCurrId() );
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC) RETURNS INTEGER AS $$
 DECLARE
   pCustid ALIAS FOR $1;
   pDocNumber ALIAS FOR $2;
@@ -62,9 +62,9 @@ DECLARE
 BEGIN
   RETURN createARCreditMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, NULL, baseCurrId() );
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pCustid ALIAS FOR $1;
   pDocNumber ALIAS FOR $2;
@@ -84,9 +84,9 @@ DECLARE
 BEGIN
   RETURN createARCreditMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, NULL, pCurrId );
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pId ALIAS FOR $1;
   pCustid ALIAS FOR $2;
@@ -107,9 +107,9 @@ DECLARE
 BEGIN
   RETURN createARCreditMemo(pId, pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, NULL, pCurrId );
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pId ALIAS FOR $1;
   pCustid ALIAS FOR $2;
@@ -130,7 +130,6 @@ DECLARE
   _custName TEXT;
   _arAccntid INTEGER;
   _prepaidAccntid INTEGER;
-  _discountAccntid INTEGER;
   _salescatid INTEGER;
   _accntid INTEGER;
   _glSequence INTEGER;
@@ -140,12 +139,10 @@ DECLARE
   _cohistid INTEGER;
   _test INTEGER;
   _taxBaseValue NUMERIC;
-  _applyDiscount BOOLEAN;
 
 BEGIN
 
   _aropenid := pId;
-  _applyDiscount := FALSE;
 
   IF (pAmount <= 0) THEN
     RETURN 0;
@@ -153,10 +150,6 @@ BEGIN
 
   SELECT findARAccount(pCustid) INTO _arAccntid;
   SELECT findPrepaidAccount(pCustid) INTO _prepaidAccntid;
-  IF (pAccntid = (SELECT findardiscountaccount(pCustid))) THEN
-    _discountAccntid := pAccntid;
-    _applyDiscount := TRUE;
-  END IF;
 
   _accntid := pAccntid;
   _salescatid := pSalescatid;
@@ -186,7 +179,7 @@ BEGIN
   END IF;
 
   IF(pJournalNumber IS NULL) THEN
-    SELECT fetchJournalNumber(''AR-MISC'') INTO _journalNumber;
+    SELECT fetchJournalNumber('AR-MISC') INTO _journalNumber;
   ELSE
     _journalNumber := pJournalNumber;
   END IF;
@@ -197,17 +190,17 @@ BEGIN
   IF (_aropenid IS NOT NULL) THEN
     UPDATE aropen SET
       aropen_username=CURRENT_USER, aropen_journalnumber=_journalNumber,
-      aropen_cust_id=pCustid, aropen_docnumber=pDocNumber, aropen_doctype=''C'', 
+      aropen_cust_id=pCustid, aropen_docnumber=pDocNumber, aropen_doctype='C', 
       aropen_ordernumber=pOrderNumber,aropen_docdate=pDocDate, aropen_duedate=pDueDate, 
       aropen_distdate=pDocDate, aropen_terms_id=pTermsid, 
       aropen_salesrep_id=pSalesrepid, aropen_amount=round(pAmount, 2), aropen_paid=0, 
       aropen_commission_due=pCommissiondue, aropen_commission_paid=FALSE,
-      aropen_applyto='''', aropen_ponumber='''', aropen_cobmisc_id=-1,
+      aropen_applyto='', aropen_ponumber='', aropen_cobmisc_id=-1,
       aropen_open=TRUE, aropen_notes=pNotes, aropen_rsncode_id=pRsncodeid,
       aropen_salescat_id=_salescatid, aropen_accnt_id=_accntid, aropen_curr_id=pCurrId
     WHERE aropen_id = pId;
   ELSE
-    SELECT NEXTVAL(''aropen_aropen_id_seq'') INTO _aropenid;
+    SELECT NEXTVAL('aropen_aropen_id_seq') INTO _aropenid;
     INSERT INTO aropen
     ( aropen_id, aropen_username, aropen_journalnumber,
       aropen_cust_id, aropen_docnumber, aropen_doctype, aropen_ordernumber,
@@ -218,55 +211,47 @@ BEGIN
       aropen_salescat_id, aropen_accnt_id, aropen_curr_id )
     VALUES
     ( _aropenid, CURRENT_USER, _journalNumber,
-      pCustid, pDocNumber, ''C'', pOrderNumber,
+      pCustid, pDocNumber, 'C', pOrderNumber,
       pDocDate, pDueDate, pDocDate, pTermsid, pSalesrepid,
       round(pAmount, 2), 0, pCommissiondue, FALSE,
-      '''', '''', -1,
+      '', '', -1,
       TRUE, pNotes, pRsncodeid,
       _salescatid, _accntid, pCurrId );
   END IF;
 
   -- Credit the A/R account for the full amount
-  SELECT insertIntoGLSeries ( _glSequence, ''A/R'', ''CM'',
+  SELECT insertIntoGLSeries ( _glSequence, 'A/R', 'CM',
                               pDocNumber, _arAccntid,
                               round(currToBase(pCurrId, pAmount, pDocDate), 2),
-                              pDocDate, (_custName || '' '' || pNotes)) INTO _test;
+                              pDocDate, (_custName || ' ' || pNotes)) INTO _test;
 
   -- Debit the Tax account for the tax amount
   _taxBaseValue := addTaxToGLSeries(_glSequence,
-				      ''A/R'', ''CM'', pDocNumber,
+				      'A/R', 'CM', pDocNumber,
 				      pCurrId, pDocDate, pDocDate,
-                                      ''aropentax'', _aropenid,
-                                      _custName);
+                                      'aropentax', _aropenid,
+                                      (_custName || ' ' || pNotes));
 
   UPDATE aropentax SET taxhist_journalnumber = _journalNumber
   WHERE taxhist_parent_id=_aropenid;
 
-  IF (_applyDiscount) THEN
-    -- Debit the A/R Discount account
-    SELECT insertIntoGLSeries ( _glSequence, ''A/R'', ''CM'',
-                                pDocNumber, _discountAccntid,
-                                round(currToBase(pCurrId, pAmount * -1, pDocDate) + _taxBaseValue * -1, 2),
-                                pDocDate, (_custName || '' '' || pNotes)) INTO _test;
-  END IF;
-
   -- Debit the Prepaid account for the basis amount
   -- Note, _taxBaseValue is negative so it is added to pAmount
-  SELECT insertIntoGLSeries ( _glSequence, ''A/R'', ''CM'',
+  SELECT insertIntoGLSeries ( _glSequence, 'A/R', 'CM',
                               pDocNumber, _prepaidAccntid,
                               round(currToBase(pCurrId, pAmount * -1, pDocDate) + _taxBaseValue * -1, 2),
-                              pDocDate, (_custName || '' '' || pNotes)) INTO _test;
+                              pDocDate, (_custName || ' ' || pNotes)) INTO _test;
 
   --  Commit the GLSeries;
   SELECT postGLSeries(_glSequence, _journalNumber) INTO _test;
   IF (_test < 0) THEN
     DELETE FROM aropen WHERE (aropen_id=_aropenid);
     PERFORM deleteGLSeries(_glSequence);
-    RAISE EXCEPTION ''postGLSeries commit failed with %'', _test;
+    RAISE EXCEPTION 'postGLSeries commit failed with %', _test;
   END IF;
 
   --  Record Sales History
-  SELECT nextval(''cohist_cohist_id_seq'') INTO _cohistid;
+  SELECT nextval('cohist_cohist_id_seq') INTO _cohistid;
   INSERT INTO cohist
   ( cohist_id, cohist_cust_id, cohist_itemsite_id, cohist_shipto_id,
     cohist_misc_type, cohist_misc_descrip,
@@ -278,10 +263,10 @@ BEGIN
     cohist_curr_id, cohist_sequence )
   SELECT
     _cohistid, cust_id, -1, -1,
-    ''M'', ''A/R Misc Credit Memo'',
-    pDocDate, '''',
-    '''', '''', pDocDate,
-    ''M'', pDocNumber, pDocDate,
+    'M', 'A/R Misc Credit Memo',
+    pDocDate, '',
+    '', '', pDocDate,
+    'M', pDocNumber, pDocDate,
     1, (pAmount - _taxBaseValue) * -1, 0,
     cust_salesrep_id, (cust_commprcnt * (pAmount - _taxBaseValue) * -1), FALSE,
     pCurrId, _glSequence
@@ -304,4 +289,4 @@ BEGIN
   RETURN _aropenid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
