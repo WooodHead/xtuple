@@ -64,21 +64,28 @@ BEGIN
              AND (cashrcpt_id=pCashrcptid) )
             ORDER BY aropen_duedate, aropen_amount, balance LOOP
 
---  Determine Discount as per Terms
-        SELECT  noNeg(least(_amount, _r.balance) * 
-              CASE WHEN (CURRENT_DATE <= (aropen_docdate + terms_discdays)) THEN terms_discprcnt 
-              ELSE 0.00 END - applied) INTO _discount
-              FROM aropen LEFT OUTER JOIN terms ON (aropen_terms_id=terms_id), 
-                   (SELECT COALESCE(SUM(arapply_applied), 0.00) AS applied  
-		            FROM arapply, aropen 
-                    WHERE ((arapply_target_aropen_id=_r.aropen_id) 
-                    AND (arapply_source_aropen_id=_r.aropen_id) 
-                    AND  (aropen_discount) )
-                   ) AS data 
-              WHERE (aropen_id=_r.aropen_id) ;
+--  Determine Max Discount as per Terms
+    SELECT  noNeg(_r.balance * 
+            CASE WHEN (CURRENT_DATE <= (aropen_docdate + terms_discdays)) THEN terms_discprcnt 
+            ELSE 0.00 END - applied),  terms_discprcnt  INTO _discount
+            FROM aropen LEFT OUTER JOIN terms ON (aropen_terms_id=terms_id), 
+                 (SELECT COALESCE(SUM(arapply_applied), 0.00) AS applied  
+		          FROM arapply, aropen 
+                  WHERE ((arapply_target_aropen_id=_r.aropen_id) 
+                  AND (arapply_source_aropen_id=_r.aropen_id) 
+                  AND  (aropen_discount) )
+                 ) AS data 
+            WHERE (aropen_id=_r.aropen_id);
 
 --  Determine the amount to apply
-    _applyAmount := least(_amount , _r.balance - _discount);
+    IF (_amount + _discount = _r.balance) THEN
+      _applyAmount := _amount;
+    ELSIF (_amount + _discount > _r.balance) THEN
+      _applyAmount := _amount - _discount;
+    ELSE
+      _discount := _discount * (_amount / _r.balance);
+      _applyAmount := _amount;
+    END IF;
 
     IF (_applyAmount > 0) THEN
 --  Does an cashrcptitem already exist?
