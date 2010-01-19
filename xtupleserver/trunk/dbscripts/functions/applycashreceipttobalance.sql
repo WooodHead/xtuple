@@ -15,6 +15,7 @@ DECLARE
   pCurrId ALIAS FOR $3;
   _amount NUMERIC;
   _applyAmount NUMERIC;
+  _discount NUMERIC;
   _r RECORD;
 
 BEGIN
@@ -46,16 +47,9 @@ BEGIN
                              AND  (NOT cashrcpt_posted)
                              AND  (cashrcpt_id != pCashrcptId)
                              AND  (cashrcptitem_aropen_id=aropen_id))), 0) AS balance,
-                   s.cashrcptitem_id AS cashrcptitem_id,
-
-                   noNeg(aropen_amount * 
-                   CASE WHEN (CURRENT_DATE <= (aropen_docdate + terms_discdays)) THEN terms_discprcnt 
-                     ELSE 0.00 
-                   END - applied) AS discount
-
+                   s.cashrcptitem_id AS cashrcptitem_id
             FROM cashrcpt, aropen LEFT OUTER JOIN
                  cashrcptitem s ON (s.cashrcptitem_aropen_id=aropen_id AND s.cashrcptitem_cashrcpt_id=pCashrcptId)
-
                  LEFT OUTER JOIN terms ON (aropen_terms_id=terms_id),
                  (SELECT COALESCE(SUM(arapply_applied), 0.00) AS applied  
                   FROM arapply, aropen 
@@ -70,12 +64,21 @@ BEGIN
              AND (cashrcpt_id=pCashrcptid) )
             ORDER BY aropen_duedate, aropen_amount, balance LOOP
 
+--  Determine Discount as per Terms
+        SELECT  noNeg(least(_amount, _r.balance) * 
+              CASE WHEN (CURRENT_DATE <= (aropen_docdate + terms_discdays)) THEN terms_discprcnt 
+              ELSE 0.00 END - applied) INTO _discount
+              FROM aropen LEFT OUTER JOIN terms ON (aropen_terms_id=terms_id), 
+                   (SELECT COALESCE(SUM(arapply_applied), 0.00) AS applied  
+		            FROM arapply, aropen 
+                    WHERE ((arapply_target_aropen_id=_r.aropen_id) 
+                    AND (arapply_source_aropen_id=_r.aropen_id) 
+                    AND  (aropen_discount) )
+                   ) AS data 
+              WHERE (aropen_id=_r.aropen_id) ;
+
 --  Determine the amount to apply
-    IF ((_r.balance - _r.discount) > _amount) THEN
-      _applyAmount := _amount - _r.discount;
-    ELSE
-      _applyAmount := _r.balance - _r.discount;
-    END IF;
+    _applyAmount := least(_amount , _r.balance - _discount);
 
     IF (_applyAmount > 0) THEN
 --  Does an cashrcptitem already exist?
@@ -83,7 +86,7 @@ BEGIN
 --  Update the cashrcptitem with the new amount to apply
         UPDATE cashrcptitem
         SET cashrcptitem_amount = round(cashrcptitem_amount + _applyAmount, 2),
-            cashrcptitem_discount = round(_r.discount, 2)
+            cashrcptitem_discount = round(_discount, 2)
         WHERE (cashrcptitem_id=_r.cashrcptitem_id);
       ELSE
 --  Create a new cashrcptitem
@@ -91,7 +94,7 @@ BEGIN
         ( cashrcptitem_aropen_id, cashrcptitem_cashrcpt_id,
           cashrcptitem_amount, cashrcptitem_discount )
         VALUES
-        ( _r.aropen_id, pCashrcptid, round(_applyAmount, 2), round(_r.discount, 2) );
+        ( _r.aropen_id, pCashrcptid, round(_applyAmount, 2), round(_discount, 2) );
       END IF;
 
       _amount := (_amount - _applyAmount);

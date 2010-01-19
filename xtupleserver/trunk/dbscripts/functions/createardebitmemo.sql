@@ -119,7 +119,7 @@ BEGIN
 				      'A/R', 'DM', pDocNumber,
 				      pCurrId, pDocDate, pDocDate,
                                       'aropentax', _aropenid,
-                                      _custName);
+                                      (_custName || ' ' || pNotes));
 
   UPDATE aropentax SET taxhist_journalnumber = _journalNumber
   WHERE taxhist_parent_id=_aropenid;

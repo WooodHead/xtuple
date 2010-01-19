@@ -28,7 +28,7 @@ BEGIN
   FROM cashrcptmisc
   WHERE (cashrcptmisc_cashrcpt_id=pCashrcptid);
 
-RAISE NOTICE 'Amount (%)', _amount;
+-- RAISE NOTICE 'Amount (%)', _amount;
 
   IF (_amount = 0) THEN
     RETURN 0;
@@ -49,7 +49,7 @@ RAISE NOTICE 'Amount (%)', _amount;
             AND (cashrcpt_id=pCashrcptId));
 
 --  Determine Discount as per Terms
-        SELECT  noNeg(aropen_amount * 
+        SELECT  noNeg(least(_amount,_balance) * 
               CASE WHEN (CURRENT_DATE <= (aropen_docdate + terms_discdays)) THEN terms_discprcnt 
               ELSE 0.00 END - applied) INTO _discount
               FROM aropen LEFT OUTER JOIN terms ON (aropen_terms_id=terms_id), 
@@ -62,11 +62,7 @@ RAISE NOTICE 'Amount (%)', _amount;
               WHERE (aropen_id=pAropenId) ;
 
 --  Determine the amount to apply
-    IF (_amount > (_balance - _discount)) THEN
-      _applyAmount := (_balance - _discount);
-    ELSE
-      _applyAmount := (_amount - _discount);
-    END IF;
+    _applyAmount := least(_amount, _balance - _discount);
 
     IF (_applyAmount > 0) THEN
 --  Create a new cashrcptitem
