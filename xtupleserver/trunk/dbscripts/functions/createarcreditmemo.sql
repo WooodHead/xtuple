@@ -266,7 +266,7 @@ BEGIN
     'M', 'A/R Misc Credit Memo',
     pDocDate, '',
     '', '', pDocDate,
-    'M', pDocNumber, pDocDate,
+    'C', pDocNumber, pDocDate,
     1, (pAmount - _taxBaseValue) * -1, 0,
     cust_salesrep_id, (cust_commprcnt * (pAmount - _taxBaseValue) * -1), FALSE,
     pCurrId, _glSequence
