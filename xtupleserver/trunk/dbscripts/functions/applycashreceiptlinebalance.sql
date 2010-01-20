@@ -51,7 +51,7 @@ BEGIN
 --  Determine Max Discount as per Terms
   SELECT  noNeg(_balance * 
           CASE WHEN (CURRENT_DATE <= (aropen_docdate + terms_discdays)) THEN terms_discprcnt 
-          ELSE 0.00 END - applied),  terms_discprcnt INTO _discount
+          ELSE 0.00 END - applied) INTO _discount
   FROM aropen LEFT OUTER JOIN terms ON (aropen_terms_id=terms_id), 
        (SELECT COALESCE(SUM(arapply_applied), 0.00) AS applied  
 	FROM arapply, aropen 
@@ -60,12 +60,10 @@ BEGIN
          AND  (aropen_discount) )
            ) AS data 
   WHERE (aropen_id=pAropenId);
-
+  
 --  Determine the amount to apply
-  IF (_amount + _discount = _balance) THEN
-    _applyAmount := _amount;
-  ELSIF (_amount + _discount > _balance) THEN
-    _applyAmount := _amount - _discount;
+  IF (_balance < _amount + _discount) THEN
+    _applyAmount := _balance - _discount;
   ELSE
     _discount := _discount * (_amount / _balance);
     _applyAmount := _amount;

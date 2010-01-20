@@ -6,7 +6,7 @@ SELECT *,
        'curr' AS balance_xtnumericrole,
        'curr' AS applied_xtnumericrole,
        'curr' AS pending_xtnumericrole,
-       CASE WHEN (pending > balance) 
+       CASE WHEN (pending - applied - discount > balance) 
 <? if exists("cashrcpt_id") ?>
        AND NOT cashrcpt_posted
 <? endif ?>  
