@@ -54,28 +54,11 @@ BEGIN
       AND   (shipitem_orderitem_id=pitemid) );
 
     IF (pordertype = 'SO') THEN
-      IF (SELECT (item_type != 'J')
-          FROM coitem, itemsite, item
+      IF (SELECT (itemsite_costmethod = 'J' AND itemsite_controlmethod = 'N' )
+          FROM coitem, itemsite
           WHERE ((coitem_id=pItemid)
-          AND (coitem_itemsite_id=itemsite_id)
-          AND (itemsite_item_id=item_id))) THEN
-        SELECT postInvTrans( itemsite_id, 'RS', _qty * coitem_qty_invuomratio,
-			  'S/R', pordertype, formatSoNumber(pitemid),
-			  shiphead_number, 'Return from Shipping',
-			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
-			  _itemlocSeries, _timestamp, _value, _r.undoinvhistid ) INTO _invhistid
-        FROM coitem, itemsite, costcat, shiphead, shipitem
-        WHERE ( (coitem_itemsite_id=itemsite_id)
-         AND (itemsite_costcat_id=costcat_id)
-         AND (coitem_id=pitemid)
-         AND (shiphead_order_type=pordertype)
-         AND (shiphead_id=shipitem_shiphead_id)
-         AND (shipitem_orderitem_id=pitemid) );
-
-      -- Going to handle distribution automatically later so remove the distribution records
-      -- DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
-      
-      ELSE
+          AND (coitem_itemsite_id=itemsite_id))) THEN
+  -- Handle Job cost that is not inventory controlled
         SELECT insertGLTransaction( 'S/R', 'RS', formatSoNumber(pItemid), 'Return from Shipping',
                                      costcat_shipasset_accnt_id,
 				     costcat_wip_accnt_id,
@@ -121,6 +104,24 @@ BEGIN
         WHERE ((wo_ordtype = 'S')
         AND (wo_ordid = pItemid)
         AND (coitem_id = pItemid));
+
+      ELSE
+      -- Handle regular inventory transaction
+              SELECT postInvTrans( itemsite_id, 'RS', _qty * coitem_qty_invuomratio,
+			  'S/R', pordertype, formatSoNumber(pitemid),
+			  shiphead_number, 'Return from Shipping',
+			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
+			  _itemlocSeries, _timestamp, _value, _r.undoinvhistid ) INTO _invhistid
+        FROM coitem, itemsite, costcat, shiphead, shipitem
+        WHERE ( (coitem_itemsite_id=itemsite_id)
+         AND (itemsite_costcat_id=costcat_id)
+         AND (coitem_id=pitemid)
+         AND (shiphead_order_type=pordertype)
+         AND (shiphead_id=shipitem_shiphead_id)
+         AND (shipitem_orderitem_id=pitemid) );
+
+      -- Going to handle distribution automatically later so remove the distribution records
+      -- DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
       END IF;
 
     ELSEIF (pordertype = 'TO') THEN

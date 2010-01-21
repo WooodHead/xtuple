@@ -157,12 +157,12 @@ BEGIN
   IF (pCosMethod IN ('D', 'P')) THEN
     _cosmethod := pCosMethod;
   ELSE
-    IF (SELECT (item_type = 'J')
+    IF (SELECT (itemsite_costmethod = 'J')
          FROM itemsite, item
          WHERE ((itemsite_id = pItemsiteid)
          AND (itemsite_item_id = item_id))) THEN
       IF (_parentType != 'S') THEN
-        RAISE EXCEPTION 'Work Orders for item type Job must be created from a sales order';
+        RAISE EXCEPTION 'Work Orders for Item Sites that are Job cost must be created from a sales order';
       ELSE
         SELECT COALESCE(itemsite_cosdefault,fetchmetrictext('JobItemCosDefault'),'D') INTO _cosmethod FROM itemsite WHERE itemsite_id=pItemsiteid;
       END IF;

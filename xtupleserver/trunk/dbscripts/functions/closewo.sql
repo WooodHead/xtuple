@@ -9,12 +9,11 @@ DECLARE
 BEGIN
 
   --If this is item type Job then we cannot close here
-  SELECT item_type INTO _check
-  FROM wo,itemsite,item
+  SELECT itemsite_costmethod INTO _check
+  FROM wo,itemsite
   WHERE ((wo_id=pWoid)
   AND (wo_itemsite_id=itemsite_id)
-  AND (itemsite_item_id=item_id)
-  AND (item_type = 'J'));
+  AND (itemsite_costmethod = 'J'));
   IF (FOUND) THEN
     RAISE EXCEPTION 'Work orders for Job items are closed when all quantities are shipped';
   END IF;

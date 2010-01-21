@@ -341,7 +341,7 @@ BEGIN
       AND (wo_ordid=OLD.coitem_id)
       AND (itemsite_id=wo_itemsite_id)
       AND (item_id=itemsite_item_id)
-      AND (item_type = 'J'));
+      AND (itemsite_costmethod = 'J'));
 
       IF (FOUND) THEN
         IF (_r.wo_wipvalue > 0) THEN
@@ -378,7 +378,7 @@ BEGIN
          AND (wo_ordid=NEW.coitem_id)
          AND (wo_itemsite_id=itemsite_id)
          AND (itemsite_item_id=item_id)
-         AND (item_type='J'));
+         AND (itemsite_costmethod='J'));
     END IF;
 
 --  Handle links to Return Authorization
