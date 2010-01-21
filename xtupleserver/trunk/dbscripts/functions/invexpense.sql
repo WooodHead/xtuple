@@ -28,7 +28,9 @@ BEGIN
   SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
   SELECT postInvTrans( itemsite_id, 'EX', pQty,
                        'I/M', 'EX', pDocumentNumber, '',
-                       ('Material Expense for item ' || item_number || E'\n' ||  pComments),
+                       CASE WHEN (pQty < 0) THEN ('Reverse Material Expense for item ' || item_number || E'\n' ||  pComments)
+                            ELSE  ('Material Expense for item ' || item_number || E'\n' ||  pComments)
+                       END,
                        expcat_exp_accnt_id, costcat_asset_accnt_id,
                        _itemlocSeries, pGlDistTS) INTO _invhistid
   FROM itemsite, item, costcat, expcat
