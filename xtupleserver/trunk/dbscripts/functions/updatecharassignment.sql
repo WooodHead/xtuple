@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION updateCharAssignment(TEXT, INTEGER, INTEGER, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION updateCharAssignment(TEXT, INTEGER, INTEGER, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pTargetType ALIAS FOR $1;
   pTargetId ALIAS FOR $2;
@@ -13,9 +13,9 @@ BEGIN
   RETURN _charassid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION updateCharAssignment(TEXT, INTEGER, INTEGER, TEXT, NUMERIC) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION updateCharAssignment(TEXT, INTEGER, INTEGER, TEXT, NUMERIC) RETURNS INTEGER AS $$
 DECLARE
   pTargetType ALIAS FOR $1;
   pTargetId ALIAS FOR $2;
@@ -30,13 +30,13 @@ DECLARE
 BEGIN
 
   -- Check for Valid Assignment
-  IF (pTargetType=''SI'') THEN
-    SELECT (item_type=''J'' AND wo_status != ''O'') INTO _explodedJob
+  IF (pTargetType='SI') THEN
+    SELECT (item_config AND wo_status != 'O') INTO _explodedJob
         FROM coitem,itemsite,item,wo
         WHERE ((coitem_id=pTargetId)
         AND (itemsite_id=coitem_itemsite_id)
         AND (item_id=itemsite_item_id)
-        AND (wo_ordtype=''S'')
+        AND (wo_ordtype='S')
         AND (wo_ordid=coitem_id));
   END IF;
   
@@ -48,8 +48,8 @@ BEGIN
    LIMIT 1;
   IF (FOUND) THEN
     IF (_explodedJob AND pValue != _value) THEN
-      RAISE EXCEPTION  ''Characteristic may not be updated for Job Item with exploded Work Order.'';
-    ELSIF(COALESCE(pValue, '''')!='''') THEN
+      RAISE EXCEPTION  'Characteristic may not be updated for Configured Item with exploded Work Order.';
+    ELSIF(COALESCE(pValue, '')!='') THEN
         UPDATE charass
         SET charass_value = pValue,
             charass_price = pPrice
@@ -62,9 +62,9 @@ BEGIN
     END IF;
   ELSE
     IF (_explodedJob) THEN
-      RAISE EXCEPTION  ''Characteristics may not be updated for Job Item with exploded Work Order.'';
-    ELSIF(COALESCE(pValue, '''')!='''') THEN
-      SELECT nextval(''charass_charass_id_seq'') INTO _charassid;
+      RAISE EXCEPTION  'Characteristics may not be updated for Configured Item with exploded Work Order.';
+    ELSIF(COALESCE(pValue, '')!='') THEN
+      SELECT nextval('charass_charass_id_seq') INTO _charassid;
       INSERT INTO charass
             (charass_id, charass_target_type, charass_target_id,
              charass_char_id, charass_value, charass_price)
@@ -78,5 +78,5 @@ BEGIN
   RETURN _charassid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

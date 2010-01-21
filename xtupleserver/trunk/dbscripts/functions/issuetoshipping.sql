@@ -133,37 +133,16 @@ BEGIN
 	AND  (coitem_id=pitemid));
     END IF;
 
-    --See if this is inventory or job item and value accordingly
+    --See if this is job cost item and value accordingly
     SELECT coitem_itemsite_id, coitem_qty_invuomratio,
-           item_id, item_type, itemsite_costmethod INTO _r
+           item_id, itemsite_costmethod, itemsite_costmethod INTO _r
     FROM coitem, itemsite, item
     WHERE ((coitem_id=pitemid)
     AND (itemsite_id=coitem_itemsite_id)
     AND (itemsite_item_id=item_id));
 
-    IF (_r.item_type != 'J') THEN
-      -- This is inventory so handle with g/l transaction
-      SELECT postInvTrans( itemsite_id, 'SH', pQty * coitem_qty_invuomratio,
-			   'S/R', porderType,
-			   formatSoNumber(coitem_id), shiphead_number,
-                           ('Issue ' || item_number || ' to Shipping for customer ' || cohead_billtoname),
-			   costcat_shipasset_accnt_id, costcat_asset_accnt_id,
-			   _itemlocSeries, _timestamp ) INTO _invhistid
-      FROM coitem, cohead, itemsite, item, costcat, shiphead
-      WHERE ( (coitem_cohead_id=cohead_id)
-       AND (coitem_itemsite_id=itemsite_id)
-       AND (itemsite_item_id=item_id)
-       AND (itemsite_costcat_id=costcat_id)
-       AND (coitem_id=pitemid)
-       AND (shiphead_id=_shipheadid) );
-
-      SELECT (invhist_unitcost * invhist_invqty) INTO _value
-      FROM invhist
-      WHERE (invhist_id=_invhistid);
-      
-    ELSE
-    -- This is a job so deal with costing and work order
-    
+    IF (_r.itemsite_costmethod!= 'J' AND _r.itemsite_controlmethod='N') THEN
+    -- This is job cost with no inventory trans, so deal with costing and work order directly
        --Backflush eligble material
       FOR _m IN SELECT womatl_id, womatl_qtyiss + 
 		     (CASE 
@@ -233,6 +212,27 @@ BEGIN
       WHERE (wo_id=_p.wo_id);
 
       _value := _p.value;
+
+    ELSE
+      -- This is inventory control so handle with normal g/l transaction
+      SELECT postInvTrans( itemsite_id, 'SH', pQty * coitem_qty_invuomratio,
+			   'S/R', porderType,
+			   formatSoNumber(coitem_id), shiphead_number,
+                           ('Issue ' || item_number || ' to Shipping for customer ' || cohead_billtoname),
+			   costcat_shipasset_accnt_id, costcat_asset_accnt_id,
+			   _itemlocSeries, _timestamp ) INTO _invhistid
+      FROM coitem, cohead, itemsite, item, costcat, shiphead
+      WHERE ( (coitem_cohead_id=cohead_id)
+       AND (coitem_itemsite_id=itemsite_id)
+       AND (itemsite_item_id=item_id)
+       AND (itemsite_costcat_id=costcat_id)
+       AND (coitem_id=pitemid)
+       AND (shiphead_id=_shipheadid) );
+
+      SELECT (invhist_unitcost * invhist_invqty) INTO _value
+      FROM invhist
+      WHERE (invhist_id=_invhistid);
+      
     END IF;
 
     INSERT INTO shipitem

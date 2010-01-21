@@ -30,13 +30,12 @@ BEGIN
   END IF;
 
   --If this is item type Job then we are using the wrong function
-  IF (EXISTS(SELECT item_type
-             FROM wo,itemsite,item
+  IF (EXISTS(SELECT itemsite_costmethod
+             FROM wo,itemsite
              WHERE ((wo_id=pWoid)
                 AND (wo_itemsite_id=itemsite_id)
-                AND (itemsite_item_id=item_id)
-                AND (item_type = 'J')))) THEN
-    RAISE EXCEPTION 'Work orders for job items are posted when quantities are shipped on the associated sales order';
+                AND (itemsite_costmethod = 'J')))) THEN
+    RAISE EXCEPTION 'Work orders for Job costed item sites are posted when quantities are shipped on the associated sales order';
   END IF;
 
   SELECT formatWoNumber(pWoid) INTO _woNumber;

@@ -1,10 +1,10 @@
-CREATE OR REPLACE FUNCTION relocateInventory(INTEGER, INTEGER, INTEGER, NUMERIC, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION relocateInventory(INTEGER, INTEGER, INTEGER, NUMERIC, TEXT) RETURNS INTEGER AS $$
 BEGIN
   RETURN relocateInventory($1, $2, $3, $4, $5, CURRENT_TIMESTAMP);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION relocateInventory(INTEGER, INTEGER, INTEGER, NUMERIC, TEXT, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION relocateInventory(INTEGER, INTEGER, INTEGER, NUMERIC, TEXT, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 DECLARE
   pSourceItemlocid      ALIAS FOR $1;
   pTargetLocationid     ALIAS FOR $2;
@@ -24,7 +24,7 @@ BEGIN
     END IF;
 
 --  Make sure the passed itemsite points to a real item
-  IF ( ( SELECT (item_type IN (''R'', ''F'', ''J''))
+  IF ( ( SELECT (item_type IN ('R', 'F') OR itemsite_costmethod = 'J')
          FROM itemsite, item
          WHERE ( (itemsite_item_id=item_id)
           AND (itemsite_id=pItemsiteid) ) ) ) THEN
@@ -50,7 +50,7 @@ BEGIN
   END IF;
 
 --  Create the RL transaction
-  SELECT NEXTVAL(''invhist_invhist_id_seq'') INTO _invhistid;
+  SELECT NEXTVAL('invhist_invhist_id_seq') INTO _invhistid;
   INSERT INTO invhist
   ( invhist_id, invhist_itemsite_id,
     invhist_transtype, invhist_invqty,
@@ -59,18 +59,18 @@ BEGIN
     invhist_invuom, invhist_unitcost, invhist_costmethod,
     invhist_value_before, invhist_value_after) 
   SELECT _invhistid, itemsite_id,
-         ''RL'', 0,
+         'RL', 0,
          itemsite_qtyonhand, itemsite_qtyonhand,
          pComments, _GlDistTS,
          uom_name,
-         CASE WHEN (itemsite_costmethod=''A'') THEN avgcost(itemsite_id)
+         CASE WHEN (itemsite_costmethod='A') THEN avgcost(itemsite_id)
               ELSE stdCost(item_id)
          END, itemsite_costmethod,
          itemsite_value, itemsite_value
   FROM item, itemsite, uom
   WHERE ((itemsite_item_id=item_id)
    AND (item_inv_uom_id=uom_id)
-   AND (itemsite_controlmethod <> ''N'')
+   AND (itemsite_controlmethod <> 'N')
    AND (itemsite_id=pItemsiteid));
 
 --  Relocate the inventory from the source and record the transactions
@@ -106,7 +106,7 @@ BEGIN
    AND (itemloc_location_id=pTargetLocationid) );
 
   IF (NOT FOUND) THEN
-    SELECT NEXTVAL(''itemloc_itemloc_id_seq'') INTO _targetItemlocid;
+    SELECT NEXTVAL('itemloc_itemloc_id_seq') INTO _targetItemlocid;
     INSERT INTO itemloc
     ( itemloc_id, itemloc_itemsite_id, itemloc_location_id,
       itemloc_ls_id, itemloc_expiration, itemloc_warrpurc, itemloc_qty )
@@ -153,18 +153,18 @@ BEGIN
       invhist_invuom, invhist_unitcost, invhist_costmethod,
       invhist_value_before, invhist_value_after) 
     SELECT itemsite_id,
-           ''NN'', (_qty * -1),
+           'NN', (_qty * -1),
            itemsite_qtyonhand, (itemsite_qtyonhand - _qty),
-           '''', '''', _GlDistTS,
+           '', '', _GlDistTS,
            uom_name,
-           CASE WHEN (itemsite_costmethod=''A'') THEN avgcost(itemsite_id)
+           CASE WHEN (itemsite_costmethod='A') THEN avgcost(itemsite_id)
                 ELSE stdCost(item_id)
            END, itemsite_costmethod,
            itemsite_value, itemsite_value
     FROM item, itemsite, uom
     WHERE ( (itemsite_item_id=item_id)
      ANd (item_inv_uom_id=uom_id)
-     AND (itemsite_controlmethod <> ''N'')
+     AND (itemsite_controlmethod <> 'N')
      AND (itemsite_id=_p.itemsiteid) );
 
     UPDATE itemsite
@@ -183,4 +183,4 @@ BEGIN
   RETURN _invhistid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

@@ -62,7 +62,7 @@ BEGIN
          itemsite_costmethod,
          itemsite_qtyonhand,
 	 itemsite_warehous_id,
-         ( (item_type IN ('R','J')) OR (itemsite_controlmethod = 'N') ) AS nocontrol,
+         ( (item_type = 'R') OR (itemsite_controlmethod = 'N') ) AS nocontrol,
          (itemsite_controlmethod IN ('L', 'S')) AS lotserial,
          (itemsite_loccntrl) AS loccntrl,
          itemsite_freeze AS frozen INTO _r

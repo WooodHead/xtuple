@@ -38,27 +38,11 @@ BEGIN
 
   IF (_ordertype = 'SO') THEN
 
-    IF (SELECT (item_type != 'J')
-        FROM coitem, itemsite, item
+    IF (SELECT (itemsite_costmethod = 'J' AND itemiste_controlmethod = 'N')
+        FROM coitem, itemsite
         WHERE ((coitem_id=_orderitemid)
-          AND (coitem_itemsite_id=itemsite_id)
-          AND (itemsite_item_id=item_id))) THEN
-      SELECT postInvTrans( itemsite_id, 'RS', _qty * coitem_qty_invuomratio,
-			 'S/R', _ordertype, formatSoNumber(coitem_id), shiphead_number,
-			 'Return from Shipping',
-			 costcat_asset_accnt_id, costcat_shipasset_accnt_id,
-			 _itemlocSeries, _timestamp, _value ) INTO _invhistid
-      FROM coitem, itemsite, costcat, shiphead, shipitem
-      WHERE ((_orderitemid=coitem_id)
-      AND  (coitem_itemsite_id=itemsite_id)
-      AND  (itemsite_costcat_id=costcat_id)
-      AND  (shiphead_id=shipitem_shiphead_id)
-      AND  (shipitem_id=pshipitemid));
-
-      -- Going to handle distribution automatically later so remove the distribution records
-      DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
-      
-    ELSE
+          AND (coitem_itemsite_id=itemsite_id))) THEN
+    -- Handle Non-inventory job cost item
       SELECT insertGLTransaction( 'S/R', 'RS', formatSoNumber(_orderitemid), 'Return from Shipping',
                                      costcat_shipasset_accnt_id,
 				     costcat_wip_accnt_id,
@@ -103,6 +87,24 @@ BEGIN
       WHERE ((wo_ordtype = 'S')
       AND (wo_ordid = _orderitemid)
       AND (coitem_id = _orderitemid));
+
+   ELSE
+  --  Handle regular inventory
+      SELECT postInvTrans( itemsite_id, 'RS', _qty * coitem_qty_invuomratio,
+			 'S/R', _ordertype, formatSoNumber(coitem_id), shiphead_number,
+			 'Return from Shipping',
+			 costcat_asset_accnt_id, costcat_shipasset_accnt_id,
+			 _itemlocSeries, _timestamp, _value ) INTO _invhistid
+      FROM coitem, itemsite, costcat, shiphead, shipitem
+      WHERE ((_orderitemid=coitem_id)
+      AND  (coitem_itemsite_id=itemsite_id)
+      AND  (itemsite_costcat_id=costcat_id)
+      AND  (shiphead_id=shipitem_shiphead_id)
+      AND  (shipitem_id=pshipitemid));
+
+      -- Going to handle distribution automatically later so remove the distribution records
+      DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
+      
     END IF;
 
   ELSEIF (_ordertype = 'TO') THEN
