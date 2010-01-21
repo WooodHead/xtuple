@@ -14,35 +14,48 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
+                                         TEXT, TEXT, TEXT, TEXT, TEXT,
+                                         INTEGER, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE,
+                                         NUMERIC) RETURNS INTEGER AS $$
+BEGIN
+  RETURN postInvTrans($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, NULL);
+END;
+$$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
                                          TEXT, TEXT, TEXT, TEXT, TEXT,
-                                         INTEGER, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE, NUMERIC) RETURNS INTEGER AS $$
+                                         INTEGER, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE,
+                                         NUMERIC, INTEGER) RETURNS INTEGER AS $$
 DECLARE
-  pItemsiteid	ALIAS FOR $1;
-  pTransType	ALIAS FOR $2;
-  pQty		ALIAS FOR $3;
-  pModule	ALIAS FOR $4;
-  pOrderType	ALIAS FOR $5;
-  pOrderNumber	ALIAS FOR $6;
-  pDocNumber	ALIAS FOR $7;
-  pComments	ALIAS FOR $8;
-  pDebitid	ALIAS FOR $9;
-  pCreditid	ALIAS FOR $10;
-  pItemlocSeries ALIAS FOR $11;
-  _timestamp    TIMESTAMP WITH TIME ZONE := $12;
-  pCostOvrld    ALIAS FOR $13;
-  _creditid	 INTEGER;
-  _debitid	 INTEGER;
-  _glreturn	 INTEGER;
-  _invhistid	 INTEGER;
-  _r		 RECORD;
-  _sense	 INTEGER;	-- direction in which to adjust inventory QOH
-  _t		 RECORD;
-  _xferwhsid	 INTEGER;
+  pItemsiteid	     ALIAS FOR $1;
+  pTransType	     ALIAS FOR $2;
+  pQty		     ALIAS FOR $3;
+  pModule	     ALIAS FOR $4;
+  pOrderType	     ALIAS FOR $5;
+  pOrderNumber	     ALIAS FOR $6;
+  pDocNumber	     ALIAS FOR $7;
+  pComments	     ALIAS FOR $8;
+  pDebitid	     ALIAS FOR $9;
+  pCreditid	     ALIAS FOR $10;
+  pItemlocSeries     ALIAS FOR $11;
+  pTimestamp         TIMESTAMP WITH TIME ZONE := $12;
+  pCostOvrld         ALIAS FOR $13;
+  pInvhistid         ALIAS FOR $14;  -- original transaction to be returned, reversed, etc.
+
+  _creditid	     INTEGER;
+  _debitid	     INTEGER;
+  _glreturn	     INTEGER;
+  _invhistid	     INTEGER;
+  _itemlocdistid     INTEGER;
+  _r		     RECORD;
+  _sense	     INTEGER;  -- direction in which to adjust inventory QOH
+  _t		     RECORD;
+  _xferwhsid	     INTEGER;
 
 BEGIN
-  
+
+  --  Cache item and itemsite info  
   SELECT CASE WHEN(itemsite_costmethod='A') THEN COALESCE(abs(pCostOvrld / pQty), avgcost(itemsite_id))
               ELSE stdCost(itemsite_item_id)
          END AS cost,
@@ -53,9 +66,8 @@ BEGIN
          (itemsite_controlmethod IN ('L', 'S')) AS lotserial,
          (itemsite_loccntrl) AS loccntrl,
          itemsite_freeze AS frozen INTO _r
-  FROM itemsite, item
-  WHERE ( (itemsite_item_id=item_id)
-    AND  (itemsite_id=pItemsiteid) );
+  FROM itemsite JOIN item ON (item_id=itemsite_item_id)
+  WHERE (itemsite_id=pItemsiteid);
 
   --  Post the Inventory Transactions
   IF (NOT _r.nocontrol) THEN
@@ -66,8 +78,8 @@ BEGIN
 
     SELECT NEXTVAL('invhist_invhist_id_seq') INTO _invhistid;
 
-    IF ((_timestamp IS NULL) OR (CAST(_timestamp AS date)=CURRENT_DATE)) THEN
-      _timestamp := CURRENT_TIMESTAMP;
+    IF ((pTimestamp IS NULL) OR (CAST(pTimestamp AS date)=CURRENT_DATE)) THEN
+      pTimestamp := CURRENT_TIMESTAMP;
     END IF;
 
     IF (pTransType = 'TS' OR pTransType = 'TR') THEN
@@ -131,7 +143,7 @@ BEGIN
       invhist_invuom, invhist_unitcost, invhist_xfer_warehous_id, invhist_posted,
       invhist_series )
     SELECT
-      _invhistid, itemsite_id, pTransType, _timestamp,
+      _invhistid, itemsite_id, pTransType, pTimestamp,
       pQty, itemsite_qtyonhand,
       (itemsite_qtyonhand + (_sense * pQty)),
       itemsite_costmethod, itemsite_value, itemsite_value + (_r.cost * _sense * pQty),
@@ -164,33 +176,64 @@ BEGIN
     IF (_creditid <> _debitid) THEN
       SELECT insertGLTransaction(pModule, pOrderType, pOrderNumber, pComments,
 				 _creditid, _debitid, _invhistid,
-				 (_r.cost * pQty), _timestamp::DATE, FALSE) INTO _glreturn;
+				 (_r.cost * pQty), pTimestamp::DATE, FALSE) INTO _glreturn;
     END IF;
 
     --  Distribute this if this itemsite is controlled
     IF ( _r.lotserial OR _r.loccntrl ) THEN
 
+      _itemlocdistid := nextval('itemlocdist_itemlocdist_id_seq');
       INSERT INTO itemlocdist
-      ( itemlocdist_itemsite_id, itemlocdist_source_type,
+      ( itemlocdist_id,
+        itemlocdist_itemsite_id,
+        itemlocdist_source_type,
         itemlocdist_reqlotserial,
         itemlocdist_distlotserial,
         itemlocdist_expiration,
         itemlocdist_qty,
-        itemlocdist_series, itemlocdist_invhist_id,
-        itemlocdist_order_type, itemlocdist_order_id )
-      SELECT pItemsiteid, 'O',
+        itemlocdist_series,
+        itemlocdist_invhist_id,
+        itemlocdist_order_type,
+        itemlocdist_order_id )
+      SELECT _itemlocdistid,
+             pItemsiteid,
+             'O',
              (((pQty * _sense) > 0)  AND _r.lotserial),
 	     ((pQty * _sense) < 0),
              endOfTime(),
              (_sense * pQty),
-             pItemlocSeries, _invhistid,
+             pItemlocSeries,
+             _invhistid,
              pOrderType, 
-             CASE 
-               WHEN pOrderType='SO' THEN
-                 getSalesLineItemId(pOrderNumber)
-               ELSE NULL
+             CASE WHEN pOrderType='SO' THEN getSalesLineItemId(pOrderNumber)
+                  ELSE NULL
              END;
-    END IF;
+
+      -- populate distributions if invhist_id parameter passed to undo
+      IF (pInvhistid IS NOT NULL) THEN
+
+        INSERT INTO itemlocdist
+          ( itemlocdist_itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
+            itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
+            itemlocdist_qty, itemlocdist_series, itemlocdist_invhist_id ) 
+        SELECT _itemlocdistid, 'L', COALESCE(invdetail_location_id, -1),
+               invhist_itemsite_id, invdetail_ls_id,  COALESCE(invdetail_expiration, startoftime()),
+               (invdetail_qty * -1.0), pItemlocSeries, _invhistid
+        FROM invhist JOIN invdetail ON (invdetail_invhist_id=invhist_id)
+        WHERE (invhist_id=pInvhistid);
+
+        IF ( _r.lotserial)  THEN          
+          INSERT INTO lsdetail 
+            ( lsdetail_itemsite_id, lsdetail_ls_id, lsdetail_created,
+              lsdetail_source_type, lsdetail_source_id, lsdetail_source_number ) 
+          SELECT invhist_itemsite_id, invdetail_ls_id, CURRENT_TIMESTAMP,
+                 'I', _itemlocdistid, ''
+          FROM invhist JOIN invdetail ON (invdetail_invhist_id=invhist_id)
+          WHERE (invhist_id=pInvhistid);
+        END IF;
+      END IF;
+
+    END IF;   -- end of distributions
 
   -- These records will be used for posting G/L transactions to trial balance after records committed.
   -- If we try to do it now concurrency locking prevents any transacitons while

@@ -19,6 +19,7 @@ DECLARE
   _timestamp		TIMESTAMP WITH TIME ZONE	:= $4;
   _qty NUMERIC;
   _value NUMERIC;
+  _undoinvhistid INTEGER;
   _invhistid INTEGER;
   _itemtype CHAR(1);
   _oldinvhistid INTEGER;
@@ -40,6 +41,18 @@ BEGIN
       _itemlocSeries := NEXTVAL('itemloc_series_seq');
     END IF;  
 
+  --  Find out if there is location or lot/serial detail to undo
+    SELECT shipitem_invhist_id AS undoinvhistid,
+           (itemsite_controlmethod IN ('L', 'S')) AS lotserial,
+           (itemsite_loccntrl) AS loccntrl
+      INTO _r
+    FROM shiphead JOIN shipitem ON (shipitem_shiphead_id=shiphead_id)
+                  JOIN invhist ON (invhist_id=shipitem_invhist_id)
+                  JOIN itemsite ON (itemsite_id=invhist_itemsite_id)
+    WHERE ( (NOT shiphead_shipped)
+      AND   (shiphead_order_type=pordertype)
+      AND   (shipitem_orderitem_id=pitemid) );
+
     IF (pordertype = 'SO') THEN
       IF (SELECT (item_type != 'J')
           FROM coitem, itemsite, item
@@ -50,7 +63,7 @@ BEGIN
 			  'S/R', pordertype, formatSoNumber(pitemid),
 			  shiphead_number, 'Return from Shipping',
 			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
-			  _itemlocSeries, _timestamp, _value ) INTO _invhistid
+			  _itemlocSeries, _timestamp, _value, _r.undoinvhistid ) INTO _invhistid
         FROM coitem, itemsite, costcat, shiphead, shipitem
         WHERE ( (coitem_itemsite_id=itemsite_id)
          AND (itemsite_costcat_id=costcat_id)
@@ -60,7 +73,7 @@ BEGIN
          AND (shipitem_orderitem_id=pitemid) );
 
       -- Going to handle distribution automatically later so remove the distribution records
-      DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
+      -- DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
       
       ELSE
         SELECT insertGLTransaction( 'S/R', 'RS', formatSoNumber(pItemid), 'Return from Shipping',
@@ -115,7 +128,7 @@ BEGIN
 			  'S/R', pordertype, tohead_number,
 			  '', 'Return from Shipping',
 			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
-			  _itemlocSeries, _timestamp, _value ) INTO _invhistid
+			  _itemlocSeries, _timestamp, _value, _r.undoinvhistid ) INTO _invhistid
       FROM toitem, tohead, itemsite, costcat
       WHERE ((toitem_item_id=itemsite_item_id)
         AND  (toitem_tohead_id=tohead_id)
@@ -124,65 +137,65 @@ BEGIN
         AND  (toitem_id=pitemid) );
 
       -- Going to handle distribution automatically later so remove the distribution records
-      DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
+      -- DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
 
     ELSE
       RETURN -11;
     END IF;
 
   --  Find out if there is location or lot/serial detail to undo and handle it 
-    FOR _r IN 
-      SELECT  itemsite_id, invdetail_ls_id, (invdetail_qty * -1) AS invdetail_qty,
-        invdetail_location_id, invdetail_expiration,
-        (itemsite_controlmethod IN ('L', 'S')) AS lotserial,
-        (itemsite_loccntrl) AS loccntrl
-      FROM shiphead, shipitem, invdetail, invhist, itemsite
-      WHERE ( (shipitem_invhist_id=invhist_id)
-        AND  (invhist_id=invdetail_invhist_id)
-        AND  (invhist_itemsite_id=itemsite_id)
-        AND  (shipitem_shiphead_id=shiphead_id)
-        AND  (NOT shiphead_shipped)
-        AND  (shiphead_order_type=pordertype)
-        AND  (shipitem_orderitem_id=pitemid) )
-    LOOP
-      _itemlocdistid := nextval('itemlocdist_itemlocdist_id_seq');
+--    FOR _r IN 
+--      SELECT  itemsite_id, invdetail_ls_id, (invdetail_qty * -1) AS invdetail_qty,
+--        invdetail_location_id, invdetail_expiration,
+--        (itemsite_controlmethod IN ('L', 'S')) AS lotserial,
+--        (itemsite_loccntrl) AS loccntrl
+--      FROM shiphead, shipitem, invdetail, invhist, itemsite
+--      WHERE ( (shipitem_invhist_id=invhist_id)
+--        AND  (invhist_id=invdetail_invhist_id)
+--        AND  (invhist_itemsite_id=itemsite_id)
+--        AND  (shipitem_shiphead_id=shiphead_id)
+--        AND  (NOT shiphead_shipped)
+--        AND  (shiphead_order_type=pordertype)
+--        AND  (shipitem_orderitem_id=pitemid) )
+--    LOOP
+--      _itemlocdistid := nextval('itemlocdist_itemlocdist_id_seq');
           
-      IF (( _r.lotserial) AND (NOT _r.loccntrl))  THEN          
-        INSERT INTO itemlocdist
-          ( itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
-            itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
-            itemlocdist_qty, itemlocdist_series, itemlocdist_invhist_id ) 
-          VALUES (_itemlocdistid, 'L', -1,
-                  _r.itemsite_id, _r.invdetail_ls_id,  COALESCE(_r.invdetail_expiration,startoftime()),
-                  _r.invdetail_qty, _itemlocSeries, _invhistid );
+--      IF (( _r.lotserial) AND (NOT _r.loccntrl))  THEN          
+--        INSERT INTO itemlocdist
+--          ( itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
+--            itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
+--            itemlocdist_qty, itemlocdist_series, itemlocdist_invhist_id ) 
+--          VALUES (_itemlocdistid, 'L', -1,
+--                  _r.itemsite_id, _r.invdetail_ls_id,  COALESCE(_r.invdetail_expiration,startoftime()),
+--                  _r.invdetail_qty, _itemlocSeries, _invhistid );
 
-        INSERT INTO lsdetail 
-          ( lsdetail_itemsite_id, lsdetail_ls_id, lsdetail_created,
-            lsdetail_source_type, lsdetail_source_id, lsdetail_source_number ) 
-          VALUES ( _r.itemsite_id, _r.invdetail_ls_id, CURRENT_TIMESTAMP,
-                   'I', _itemlocdistid, '');
+--        INSERT INTO lsdetail 
+--          ( lsdetail_itemsite_id, lsdetail_ls_id, lsdetail_created,
+--            lsdetail_source_type, lsdetail_source_id, lsdetail_source_number ) 
+--          VALUES ( _r.itemsite_id, _r.invdetail_ls_id, CURRENT_TIMESTAMP,
+--                   'I', _itemlocdistid, '');
 
         PERFORM distributeitemlocseries(_itemlocSeries);
-      ELSE
-        INSERT INTO itemlocdist
-          ( itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
-            itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
-            itemlocdist_qty, itemlocdist_series, itemlocdist_invhist_id ) 
-        VALUES (_itemlocdistid, 'O', -1,
-                _r.itemsite_id, _r.invdetail_ls_id, COALESCE(_r.invdetail_expiration,startoftime()),
-                _r.invdetail_qty, _itemlocSeries, _invhistid );
+--      ELSE
+--        INSERT INTO itemlocdist
+--          ( itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
+--            itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
+--            itemlocdist_qty, itemlocdist_series, itemlocdist_invhist_id ) 
+--        VALUES (_itemlocdistid, 'O', -1,
+--                _r.itemsite_id, _r.invdetail_ls_id, COALESCE(_r.invdetail_expiration,startoftime()),
+--                _r.invdetail_qty, _itemlocSeries, _invhistid );
  
-        INSERT INTO itemlocdist
-          ( itemlocdist_itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
-            itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
-            itemlocdist_qty) 
-        VALUES (_itemlocdistid, 'L', _r.invdetail_location_id,
-                _r.itemsite_id, _r.invdetail_ls_id, COALESCE(_r.invdetail_expiration,startoftime()),
-                _r.invdetail_qty);
+--        INSERT INTO itemlocdist
+--          ( itemlocdist_itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
+--            itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
+--            itemlocdist_qty) 
+--        VALUES (_itemlocdistid, 'L', _r.invdetail_location_id,
+--                _r.itemsite_id, _r.invdetail_ls_id, COALESCE(_r.invdetail_expiration,startoftime()),
+--                _r.invdetail_qty);
 
-        PERFORM distributetolocations(_itemlocdistid);
-      END IF;
-    END LOOP;
+--        PERFORM distributetolocations(_itemlocdistid);
+--      END IF;
+--    END LOOP;
 
     UPDATE shiphead
     SET shiphead_sfstatus='D'

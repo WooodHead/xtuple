@@ -1,24 +1,27 @@
-CREATE OR REPLACE FUNCTION initialDistribution(INTEGER, INTEGER) RETURNS INTEGER  AS '
+CREATE OR REPLACE FUNCTION initialDistribution(INTEGER, INTEGER) RETURNS INTEGER  AS $$
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pLocationid ALIAS FOR $2;
   _itemlocid INTEGER;
   _invhistid INTEGER;
+  _itemlocSeries INTEGER;
   _r RECORD;
 
 BEGIN
 
 --  Make sure the passed itemsite points to a real item
-  IF ( ( SELECT (item_type IN (''R'', ''F'',''J''))
+  IF ( ( SELECT (item_type IN ('R', 'F','J'))
          FROM itemsite, item
          WHERE ( (itemsite_item_id=item_id)
           AND (itemsite_id=pItemsiteid) ) ) ) THEN
     RETURN 0;
   END IF;
 
+  _itemlocSeries := NEXTVAL('itemloc_series_seq');
+
 --  Reassign the location_id for all existing itemlocs if
 --  the passed itemsite is already lot/serial controlled
-  IF ( ( SELECT (itemsite_controlmethod IN (''L'', ''S''))
+  IF ( ( SELECT (itemsite_controlmethod IN ('L', 'S'))
          FROM itemsite
          WHERE (itemsite_id=pItemsiteid) ) ) THEN
 
@@ -27,24 +30,24 @@ BEGIN
               WHERE (itemloc_itemsite_id=pItemsiteid) LOOP
 
 --  Create the RL transaction
-      SELECT NEXTVAL(''invhist_invhist_id_seq'') INTO _invhistid;
+      SELECT NEXTVAL('invhist_invhist_id_seq') INTO _invhistid;
       INSERT INTO invhist
-      ( invhist_id, invhist_itemsite_id,
+      ( invhist_id, invhist_itemsite_id, invhist_series,
         invhist_transtype, invhist_invqty,
         invhist_qoh_before, invhist_qoh_after,
         invhist_comments,
         invhist_invuom, invhist_unitcost, invhist_hasdetail,
         invhist_costmethod, invhist_value_before, invhist_value_after ) 
-      SELECT _invhistid, itemsite_id,
-             ''RL'', 0,
+      SELECT _invhistid, itemsite_id, _itemlocSeries,
+             'RL', 0,
              _r.itemloc_qty, _r.itemloc_qty,
-             ''Initial Distribution'',
+             'Initial Distribution',
              uom_name, stdCost(item_id), TRUE,
              itemsite_costmethod, itemsite_value, itemsite_value
       FROM item, itemsite, uom
       WHERE ( (itemsite_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
-       AND (itemsite_controlmethod <> ''N'')
+       AND (itemsite_controlmethod <> 'N')
        AND (itemsite_id=pItemsiteid) );
 
 --  Update the itemloc
@@ -66,22 +69,22 @@ BEGIN
            WHERE (location_id=pLocationid) ) THEN
 
         INSERT INTO invhist
-        ( invhist_itemsite_id,
+        ( invhist_itemsite_id, invhist_series,
           invhist_transtype, invhist_invqty,
           invhist_qoh_before, invhist_qoh_after,
           invhist_comments,
           invhist_invuom, invhist_unitcost,
           invhist_costmethod, invhist_value_before, invhist_value_after  ) 
-        SELECT itemsite_id,
-               ''NN'', (_r.itemloc_qty * -1),
+        SELECT itemsite_id, _itemlocSeries,
+               'NN', (_r.itemloc_qty * -1),
                _r.itemloc_qty, 0,
-               ''Initial Distribution'',
+               'Initial Distribution',
                uom_name, stdCost(item_id),
                itemsite_costmethod, itemsite_value, itemsite_value
         FROM itemsite, item, uom
         WHERE ( (itemsite_item_id=item_id)
          AND (item_inv_uom_id=uom_id)
-         AND (itemsite_controlmethod <> ''N'')
+         AND (itemsite_controlmethod <> 'N')
          AND (itemsite_id=pItemsiteid) );
 
         UPDATE itemsite
@@ -100,28 +103,28 @@ BEGIN
     WHERE (itemloc_itemsite_id=pItemsiteid);
 
 --  Create the RL transaction
-    SELECT NEXTVAL(''invhist_invhist_id_seq'') INTO _invhistid;
+    SELECT NEXTVAL('invhist_invhist_id_seq') INTO _invhistid;
     INSERT INTO invhist
-    ( invhist_id, invhist_itemsite_id,
+    ( invhist_id, invhist_itemsite_id, invhist_series,
       invhist_transtype, invhist_invqty,
       invhist_qoh_before, invhist_qoh_after,
       invhist_comments,
       invhist_invuom, invhist_unitcost, invhist_hasdetail,
       invhist_costmethod, invhist_value_before, invhist_value_after  ) 
-    SELECT _invhistid, itemsite_id,
-           ''RL'', 0,
+    SELECT _invhistid, itemsite_id, _itemlocSeries,
+           'RL', 0,
            itemsite_qtyonhand, itemsite_qtyonhand,
-           ''Initial Distribution'',
+           'Initial Distribution',
            uom_name, stdCost(item_id), TRUE,
            itemsite_costmethod, itemsite_value, itemsite_value
     FROM item, itemsite, uom
     WHERE ( (itemsite_item_id=item_id)
      AND (item_inv_uom_id=uom_id)
-     AND (itemsite_controlmethod <> ''N'')
+     AND (itemsite_controlmethod <> 'N')
      AND (itemsite_id=pItemsiteid) );
 
 --  Create the itemloc
-    SELECT NEXTVAL(''itemloc_itemloc_id_seq'') INTO _itemlocid;
+    SELECT NEXTVAL('itemloc_itemloc_id_seq') INTO _itemlocid;
     INSERT INTO itemloc
     ( itemloc_id, itemloc_itemsite_id, itemloc_location_id,
       itemloc_expiration, itemloc_qty )
@@ -145,22 +148,22 @@ BEGIN
          WHERE (location_id=pLocationid) ) THEN
 
       INSERT INTO invhist
-      ( invhist_itemsite_id,
+      ( invhist_itemsite_id, invhist_series,
         invhist_transtype, invhist_invqty,
         invhist_qoh_before, invhist_qoh_after,
         invhist_comments,
         invhist_invuom, invhist_unitcost,
         invhist_costmethod, invhist_value_before, invhist_value_after  ) 
-      SELECT itemsite_id,
-             ''NN'', (itemloc_qty * -1),
+      SELECT itemsite_id, _itemlocSeries,
+             'NN', (itemloc_qty * -1),
              itemloc_qty, 0,
-             ''Initial Distribution'',
+             'Initial Distribution',
              uom_name, stdCost(item_id),
              itemsite_costmethod, itemsite_value, itemsite_value
       FROM itemloc, itemsite, item, uom
       WHERE ( (itemsite_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
-       AND (itemsite_controlmethod <> ''N'')
+       AND (itemsite_controlmethod <> 'N')
        AND (itemloc_itemsite_id=itemsite_id)
        AND (itemloc_id=_itemlocid) );
 
@@ -178,4 +181,4 @@ BEGIN
   RETURN _itemlocid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
