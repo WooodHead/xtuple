@@ -27,7 +27,9 @@ BEGIN
   SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
   SELECT postInvTrans( itemsite_id, 'SI', pQty,
                        'I/M', 'SI', pDocumentNumber, '',
-                       ('Material Scrap for item ' || item_number || E'\n' ||  pComments),
+                       CASE WHEN (pQty < 0) THEN ('Reverse Material Scrap for item ' || item_number || E'\n' ||  pComments)
+                            ELSE ('Material Scrap for item ' || item_number || E'\n' ||  pComments)
+                       END,
                        costcat_scrap_accnt_id, costcat_asset_accnt_id,
                        _itemlocSeries, pGlDistTS) INTO _invhistid
   FROM itemsite, item, costcat
