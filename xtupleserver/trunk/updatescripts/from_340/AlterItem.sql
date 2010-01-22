@@ -1,3 +1,4 @@
+ALTER TABLE item DISABLE TRIGGER ALL;
 UPDATE item SET item_type = 'M' WHERE (item_type = 'J');
 ALTER TABLE item DROP CONSTRAINT item_item_type_check;
 ALTER TABLE item ADD CONSTRAINT item_item_type_check CHECK (
@@ -13,3 +14,4 @@ ALTER TABLE item ADD CONSTRAINT item_item_type_check CHECK (
   item_type = 'Y'::bpchar OR 
   item_type = 'C'::bpchar OR 
   item_type = 'K'::bpchar);
+ALTER TABLE item ENABLE TRIGGER ALL;

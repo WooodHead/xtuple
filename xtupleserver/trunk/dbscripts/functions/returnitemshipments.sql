@@ -176,7 +176,7 @@ BEGIN
 --          VALUES ( _r.itemsite_id, _r.invdetail_ls_id, CURRENT_TIMESTAMP,
 --                   'I', _itemlocdistid, '');
 
-        PERFORM distributeitemlocseries(_itemlocSeries);
+--        PERFORM distributeitemlocseries(_itemlocSeries);
 --      ELSE
 --        INSERT INTO itemlocdist
 --          ( itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,

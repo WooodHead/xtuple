@@ -34,7 +34,7 @@ BEGIN
              FROM wo,itemsite
              WHERE ((wo_id=pWoid)
                 AND (wo_itemsite_id=itemsite_id)
-                AND (itemsite_costmethod = 'J')))) THEN
+                AND (itemsite_costmethod = 'J' AND itemsite_controlmethod = 'N')))) THEN
     RAISE EXCEPTION 'Work orders for Job costed item sites are posted when quantities are shipped on the associated sales order';
   END IF;
 

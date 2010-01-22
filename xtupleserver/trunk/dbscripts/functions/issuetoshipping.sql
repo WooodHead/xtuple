@@ -4,21 +4,26 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-
 CREATE OR REPLACE FUNCTION issueToShipping(INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS $$
 BEGIN
   RETURN issueToShipping('SO', $1, $2, $3, CURRENT_TIMESTAMP);
 END;
 $$ LANGUAGE 'plpgsql';
 
-
 CREATE OR REPLACE FUNCTION issueToShipping(TEXT, INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+BEGIN
+  RETURN issueToShipping('SO', $1, $2, $3, CURRENT_TIMESTAMP, NULL);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION issueToShipping(TEXT, INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pordertype		ALIAS FOR $1;
   pitemid		ALIAS FOR $2;
   pQty			ALIAS FOR $3;
-  _itemlocSeries	INTEGER			 := $4;
+  _itemlocSeries	INTEGER	:= $4;
   _timestamp		TIMESTAMP WITH TIME ZONE := $5;
+  pinvhistid		ALIAS FOR $6;
   _coholdtype		TEXT;
   _invhistid		INTEGER;
   _shipheadid		INTEGER;
@@ -135,13 +140,13 @@ BEGIN
 
     --See if this is job cost item and value accordingly
     SELECT coitem_itemsite_id, coitem_qty_invuomratio,
-           item_id, itemsite_costmethod, itemsite_costmethod INTO _r
+           item_id, itemsite_costmethod, itemsite_controlmethod INTO _r
     FROM coitem, itemsite, item
     WHERE ((coitem_id=pitemid)
     AND (itemsite_id=coitem_itemsite_id)
     AND (itemsite_item_id=item_id));
 
-    IF (_r.itemsite_costmethod!= 'J' AND _r.itemsite_controlmethod='N') THEN
+    IF (_r.itemsite_costmethod = 'J' AND _r.itemsite_controlmethod = 'N') THEN
     -- This is job cost with no inventory trans, so deal with costing and work order directly
        --Backflush eligble material
       FOR _m IN SELECT womatl_id, womatl_qtyiss + 
@@ -220,7 +225,7 @@ BEGIN
 			   formatSoNumber(coitem_id), shiphead_number,
                            ('Issue ' || item_number || ' to Shipping for customer ' || cohead_billtoname),
 			   costcat_shipasset_accnt_id, costcat_asset_accnt_id,
-			   _itemlocSeries, _timestamp ) INTO _invhistid
+			   _itemlocSeries, _timestamp, NULL, pinvhistid ) INTO _invhistid
       FROM coitem, cohead, itemsite, item, costcat, shiphead
       WHERE ( (coitem_cohead_id=cohead_id)
        AND (coitem_itemsite_id=itemsite_id)
