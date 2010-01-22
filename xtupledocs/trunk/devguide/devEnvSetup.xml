@@ -1194,6 +1194,11 @@ make
         <filename>macx.pri</filename> file in the top level of the xtuple
         sources to get universal binaries. Add a line that looks like
         this:<programlisting>CONFIG += ppc x86</programlisting></para>
+
+        <para userlevel="installfrompkg">By default the qmake that comes with
+        Qt binary installations try to create Xcode project files instead of
+        Makefiles. To work around this, use the -spec argument when you run
+        qmake at the top level before building OpenRPT:<programlisting>$ qmake -spec macx-g++</programlisting></para>
       </section>
 
       <section os="linux">
@@ -1262,7 +1267,12 @@ ECHO *** END ***</programlisting>
       <section os="macosx">
         <title>Macintosh</title>
 
-        <para userlevel="installfromsrc">We don't yet know how to bundle
+        <para userlevel="installfrompkg">By default the qmake that comes with
+        Qt binary installations try to create Xcode project files instead of
+        Makefiles. To work around this, use the -spec argument when you run
+        qmake at the top level before building OpenRPT:<programlisting>$ qmake -spec macx-g++</programlisting></para>
+
+        <para userlevel="installfrompkg">We don't yet know how to bundle
         binaries for distribution if Qt was installed with a binary package.
         Why not? Because we've been building Qt with -no-framework for years
         but the binary distributions use Mac Frameworks. It shouldn't be hard
