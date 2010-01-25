@@ -11,6 +11,8 @@ function main()
     var ponumber, vounumber, polineitem, poquantity;
     
     //---find Application Edition------ 
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "System");
     activateItem(":xTuple ERP: *_QMenuBar_3", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu_2", "Master Information");
@@ -22,8 +24,15 @@ function main()
     var appEdition = findObject(":Database Information.*_QLabel_2").text;
     waitForObject(":Database Information.Save_QPushButton_2");
     clickButton(":Database Information.Save_QPushButton_2");
+    }
+    catch(e)
+    {
+        test.fail("Error in identifying application edition" + e);
+    }
     
     //-----Setting Encryption Key----- 
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "System");
     activateItem(":xTuple ERP: *_QMenuBar_3", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu_2", "Master Information");
@@ -37,8 +46,16 @@ function main()
     
     waitForObject(":Encryption Configuration.Save_QPushButton");
     clickButton(":Encryption Configuration.Save_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in setting the encryption configuration" + e);
+    }
+    
     
     //-----Creating a Purchase Order-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Purchase");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Purchase");
     waitForObjectItem(":xTuple ERP: *.Purchase_QMenu", "Purchase Order");
@@ -77,18 +94,27 @@ function main()
     clickButton(":Purchase Order.Save_QPushButton_2");
     waitForObject(":Purchase Order.Close_QPushButton");
     clickButton(":Purchase Order.Close_QPushButton");
-    
-    if(!clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", ponumber, 5, 5, 0, Qt.LeftButton))
+    waitForObject(":List Unposted Purchase Orders._pohead_XTreeWidget");
+    if(object.exists("{column='0' container=':List Unposted Purchase Orders._pohead_XTreeWidget' text= '"+ponumber+"' type='QModelIndex'}"))
+   
         test.pass("Purhcase order created successfully");
-    else test.fail("Purchase order couldn't be created");
+    else 
+        test.fail("Purchase order couldn't be created");
     
     waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
     clickButton(":List Unposted Purchase Orders.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in creating purchase order" + e);
+    }
     
     if(appEdition =="Manufacturing")
     {
         
         //-----Creating a MLC item-----        
+        try
+        {
         waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
         activateItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
         waitForObjectItem(":xTuple ERP: *.Inventory_QMenu", "Item Site");
@@ -118,8 +144,15 @@ function main()
         waitForObject(":List Item Sites.Close_QPushButton");
         clickButton(":List Item Sites.Close_QPushButton");
         test.log("MLC Item created");
+        }
+       catch(e)
+       {
+        test.fail("Error in creating MLC item" + e);
+       }
         
         //----- Creating a Purchase Order for Lot Controlled Item Type-----
+        try
+        {
         waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Purchase");
         activateItem(":xTuple ERP: *_QMenuBar_3", "Purchase");
         waitForObjectItem(":xTuple ERP: *.Purchase_QMenu", "Purchase Order");
@@ -158,12 +191,20 @@ function main()
         clickButton(":Purchase Order.Save_QPushButton_2");
         waitForObject(":Purchase Order.Close_QPushButton");
         clickButton(":Purchase Order.Close_QPushButton");
-        
-        if(!clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", lotpo, 5, 5, 0, Qt.LeftButton))
+         waitForObject(":List Unposted Purchase Orders._pohead_XTreeWidget");
+    if(object.exists("{column='0' container=':List Unposted Purchase Orders._pohead_XTreeWidget' text= '"+lotpo+"' type='QModelIndex'}"))
+       
             test.pass("Purhcase order created successfully for a lot controlled item");
         else test.fail("Purchase order couldn't be created for a lot controlled item");
+        }
+        catch(e)
+      {
+        test.fail("Error in creating purchase order for lot controlled item" + e);
+      }
         
         //----- Creating a Purchase Order for Serial Controlled Item Type-----
+        try
+        {
         waitForObject(":List Unposted Purchase Orders.New_QPushButton");
         clickButton(":List Unposted Purchase Orders.New_QPushButton");
         waitForObject(":_headerPage...._QPushButton");
@@ -200,11 +241,20 @@ function main()
         waitForObject(":Purchase Order.Close_QPushButton");
         clickButton(":Purchase Order.Close_QPushButton");
         
-        if(!clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", serialpo, 5, 5, 0, Qt.LeftButton))
+         waitForObject(":List Unposted Purchase Orders._pohead_XTreeWidget");
+    if(object.exists("{column='0' container=':List Unposted Purchase Orders._pohead_XTreeWidget' text= '"+serialpo+"' type='QModelIndex'}"))
+       
             test.pass("Purhcase order created successfully for a serial controlled item");
         else test.fail("Purchase order couldn't be created for a serial controlled item");
+        }
+        catch(e)
+        {
+        test.fail("Error in creating purchase order for serial controlled item" + e);
+        }
         
         //----- Creating a Purchase Order for MLC Controlled Item Type-----
+        try
+        {
         waitForObject(":List Unposted Purchase Orders.New_QPushButton");
         clickButton(":List Unposted Purchase Orders.New_QPushButton");
         waitForObject(":_headerPage...._QPushButton");
@@ -237,13 +287,21 @@ function main()
         waitForObject(":Purchase Order.Close_QPushButton");
         clickButton(":Purchase Order.Close_QPushButton");
         
-        if(!clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", mlcpo, 5, 5, 0, Qt.LeftButton))
+         waitForObject(":List Unposted Purchase Orders._pohead_XTreeWidget");
+    if(object.exists("{column='0' container=':List Unposted Purchase Orders._pohead_XTreeWidget' text= '"+mlcpo+"' type='QModelIndex'}"))
+       
             test.pass("Purhcase order created successfully for a MLC item");
         else test.fail("Purchase order couldn't be created for a MLC item");
-        
+        }
+        catch(e)
+        {
+        test.fail("Error in creating purchase order for MLC controlled item" + e);
+        }
     }
     
     //-----Posting Purchase Orders-----
+    try
+    {
     waitForObject(":List Unposted Purchase Orders._pohead_XTreeWidget"); 
     clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", ponumber, 5, 5, 0, Qt.LeftButton);
     waitForObject(":List Unposted Purchase Orders.Post_QPushButton");
@@ -275,8 +333,15 @@ function main()
     waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
     clickButton(":List Unposted Purchase Orders.Close_QPushButton");
     test.log("Purchase Orders Posted successfully");
+    }
+    catch(e)
+    {
+        test.fail("Error in posting purchase orders" + e);
+    }
     
     //-----Verification of QOH by Item (Receiving Purchase Goods)-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
     waitForObjectItem(":xTuple ERP: *.Inventory_QMenu", "Reports");
@@ -365,8 +430,15 @@ function main()
     
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in verifying QOH by item" + e);
+    }
     
     //-----Receiving Purchase Goods-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
     waitForObjectItem(":xTuple ERP: *.Inventory_QMenu", "Receiving");
@@ -374,8 +446,6 @@ function main()
     waitForObjectItem(":xTuple ERP: *.Receiving_QMenu", "New Receipt...");
     activateItem(":xTuple ERP: *.Receiving_QMenu", "New Receipt...");
     
-    // Verification Point 'VP4'
-    test.compare(findObject(":Enter Order Receipts...._QPushButton_2").text, "...");
     waitForObject(":Enter Order Receipts...._QPushButton");
     clickButton(":Enter Order Receipts...._QPushButton");
     waitForObject(":_listTab_XTreeWidget_2");
@@ -470,8 +540,16 @@ function main()
     
     waitForObject(":Enter Order Receipts.Close_QPushButton");
     clickButton(":Enter Order Receipts.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in receiving purchase order line items" + e);
+    }
+    
     
     //-----Verification of updated QOH by Item (Receiving Purchase Goods)-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Inventory");
     waitForObjectItem(":xTuple ERP: *.Inventory_QMenu", "Reports");
@@ -604,8 +682,15 @@ function main()
     
     waitForObject(":Quantities on Hand by Item.Close_QPushButton");
     clickButton(":Quantities on Hand by Item.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in verifying QOH by item" + e);
+    }
     
-    //-----Verification of G/L transaction (Receiving PO)----- 
+    //-----Verification of G/L transaction (Receiving PO)-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     waitForObjectItem(":xTuple ERP: *.Accounting_QMenu", "General Ledger");
@@ -644,8 +729,15 @@ function main()
     
     waitForObject(":General Ledger Transactions.Close_QPushButton");
     clickButton(":General Ledger Transactions.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in verifying G/L entry" + e);
+    }
     
     //-----Entering a Voucher-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     waitForObjectItem(":xTuple ERP: *.Accounting_QMenu", "Accounts Payable");
@@ -773,8 +865,15 @@ function main()
     
     waitForObject(":Voucher.Cancel_QPushButton");
     clickButton(":Voucher.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in creating vouchers for purchase orders" + e);
+    }
     
     //-----Posting Vouchers-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     waitForObjectItem(":xTuple ERP: *.Accounting_QMenu", "Accounts Payable");
@@ -785,40 +884,48 @@ function main()
     activateItem(":xTuple ERP: *.Voucher_QMenu", "List Unposted...");
     
     waitForObject(":List Open Vouchers._vohead_XTreeWidget");
-    if(!clickItem(":List Open Vouchers._vohead_XTreeWidget", vounumber, 5, 5, 1, Qt.LeftButton))
+    if(object.exists("{column='0' container=':List Open Vouchers._vohead_XTreeWidget' text='"+vounumber+"' type='QModelIndex'}"))
+    
         test.pass(" Voucher created for Regular item type");
     else test.fail(" Voucher not created Regular item type");
     
+    clickItem(":List Open Vouchers._vohead_XTreeWidget", vounumber, 5, 5, 1, Qt.LeftButton);
     waitForObject(":List Open Vouchers.Post_QPushButton");
     clickButton(":List Open Vouchers.Post_QPushButton");
     waitForObject(":List Open Vouchers.Continue_QPushButton");
     clickButton(":List Open Vouchers.Continue_QPushButton");
     
     waitForObject(":List Open Vouchers._vohead_XTreeWidget");
-    if(!clickItem(":List Open Vouchers._vohead_XTreeWidget", lotvo, 5, 5, 1, Qt.LeftButton))
+    if(object.exists("{column='0' container=':List Open Vouchers._vohead_XTreeWidget' text='"+lotvo+"' type='QModelIndex'}"))
+    
         test.pass(" Voucher created for Lot controlled item type");
     else test.fail(" Voucher not created Lot controlled item type");
     
+    clickItem(":List Open Vouchers._vohead_XTreeWidget", lotvo, 5, 5, 1, Qt.LeftButton);
     waitForObject(":List Open Vouchers.Post_QPushButton");
     clickButton(":List Open Vouchers.Post_QPushButton");
     waitForObject(":List Open Vouchers.Continue_QPushButton");
     clickButton(":List Open Vouchers.Continue_QPushButton");
     
     waitForObject(":List Open Vouchers._vohead_XTreeWidget");
-    if(!clickItem(":List Open Vouchers._vohead_XTreeWidget", serialvo, 5, 5, 1, Qt.LeftButton))
+    if(object.exists("{column='0' container=':List Open Vouchers._vohead_XTreeWidget' text='"+serialvo+"' type='QModelIndex'}"))
+    
         test.pass(" Voucher created for Serial controlled item type");
     else test.fail(" Voucher not created Serial controlled item type");
     
+    clickItem(":List Open Vouchers._vohead_XTreeWidget", serialvo, 5, 5, 1, Qt.LeftButton);
     waitForObject(":List Open Vouchers.Post_QPushButton");
     clickButton(":List Open Vouchers.Post_QPushButton");
     waitForObject(":List Open Vouchers.Continue_QPushButton");
     clickButton(":List Open Vouchers.Continue_QPushButton");
     
     waitForObject(":List Open Vouchers._vohead_XTreeWidget");
-    if(!clickItem(":List Open Vouchers._vohead_XTreeWidget", mlcvo, 5, 5, 1, Qt.LeftButton))
+    if(object.exists("{column='0' container=':List Open Vouchers._vohead_XTreeWidget' text='"+mlcvo+"' type='QModelIndex'}"))
+   
         test.pass(" Voucher created for MLC item type");
     else test.fail(" Voucher not created MLC item type");
     
+    clickItem(":List Open Vouchers._vohead_XTreeWidget", mlcvo, 5, 5, 1, Qt.LeftButton);
     waitForObject(":List Open Vouchers.Post_QPushButton");
     clickButton(":List Open Vouchers.Post_QPushButton");
     waitForObject(":List Open Vouchers.Continue_QPushButton");
@@ -827,8 +934,15 @@ function main()
     waitForObject(":List Open Vouchers.Close_QPushButton");
     clickButton(":List Open Vouchers.Close_QPushButton");
     test.log("Posted Voucher successfully");
+    }
+    catch(e)
+    {
+        test.fail("Error in posting vouchers" + e);
+    }
     
     //---Selecting Voucher for Payment---
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     waitForObjectItem(":xTuple ERP: *.Accounting_QMenu", "Accounts Payable");
@@ -893,8 +1007,16 @@ function main()
     waitForObject(":Select Payments.Close_QPushButton");
     clickButton(":Select Payments.Close_QPushButton");
     test.log("Selected Voucher for Payment");
+    }
+    catch(e)
+    {
+        test.fail("Error in selecting voucher for payment" + e);
+    }
+    
     
     //-----Prepare Check run-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     waitForObjectItem(":xTuple ERP: *.Accounting_QMenu", "Accounts Payable");
@@ -909,12 +1031,18 @@ function main()
     waitForObject(":Prepare Check Run.Prepare_QPushButton");
     clickButton(":Prepare Check Run.Prepare_QPushButton");
     test.log("Check run prepared successfully");
-    
+    }
+    catch(e)
+    {
+        test.fail("Error in preparing check run" + e);
+    }
     snooze(2);
     
     //-----Extracting OS Name-----
     var linuxPath, winPath;
     
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "System");
     activateItem(":xTuple ERP: *_QMenuBar_3", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu_2", "Master Information");
@@ -932,8 +1060,15 @@ function main()
     
     waitForObject(":Encryption Configuration.Cancel_QPushButton");
     clickButton(":Encryption Configuration.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in setting the encryption configuration" + e);
+    }
     
     //-----View Check run-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     waitForObjectItem(":xTuple ERP: *.Accounting_QMenu", "Accounts Payable");
@@ -962,6 +1097,7 @@ function main()
     
     waitForObject(":View Check Run.Save_QPushButton");
     clickButton(":View Check Run.Save_QPushButton");
+   
     
     snooze(2);
     
@@ -979,8 +1115,15 @@ function main()
     clickButton(":View Check Run.Cancel_QPushButton");
     
     snooze(0.5);
+     }
+    catch(e)
+    {
+        test.fail("Error in viewing check run" + e);
+    }
     
     //-----Post Check run-----
+    try
+    {
     waitForObject(":_frame._check_XTreeWidget");
     clickItem(":_frame._check_XTreeWidget", "No", 5, 5, 1, Qt.LeftButton);
     
@@ -992,8 +1135,15 @@ function main()
     waitForObject(":View Check Run.Close_QPushButton");
     clickButton(":View Check Run.Close_QPushButton");
     test.log("Posted Checks for Voucher");
+     }
+    catch(e)
+    {
+        test.fail("Error in posting check run" + e);
+    }
     
     //-----Verification of G/L transaction (Posting Checks)-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar_3", "Accounting");
     waitForObjectItem(":xTuple ERP: *.Accounting_QMenu", "General Ledger");
@@ -1032,6 +1182,10 @@ function main()
     
     waitForObject(":General Ledger Transactions.Close_QPushButton");
     clickButton(":General Ledger Transactions.Close_QPushButton");              
-    
+     }
+    catch(e)
+    {
+        test.fail("Error in verifying G/L entry for posted check" + e);
+    }
         
 }

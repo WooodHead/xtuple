@@ -3,6 +3,8 @@
 
 
 //--------Login into Appl----------
+try
+{
 function loginAppl(userrole)
 {
    
@@ -57,12 +59,18 @@ function loginAppl(userrole)
     waitForObject(":_password_QLineEdit");
     type(":_password_QLineEdit", "<Return>");
     test.log("Logged in Application");
-
-       
+   }
+    
+}
+catch(e)
+{
+        test.fail("Error in logging to application" + e);
 }
 
 
 //--------To Calculate Absolute Value of QOH ----------
+try
+{
 function replaceSubstring(inputString, fromString, toString) 
 {
    // Goes through the inputString and replaces every occurrence of fromString with toString
@@ -120,7 +128,15 @@ function replaceSubstring(inputString, fromString, toString)
       }
    } // Ends the check to see if the string being replaced is part of the replacement string or not
    return temp; // Send the updated string back to the user
-} // Ends the "replaceSubstring" function
+ // Ends the "replaceSubstring" function
+
+}
+
+}
+catch(e)
+{
+        test.fail("Error in absolute QOH " + e);
+} 
 
 
     
