@@ -3,6 +3,8 @@
 
 
 //--------Login into Appl----------
+try
+{
 function loginAppl(userrole)
 {
     
@@ -59,15 +61,16 @@ function loginAppl(userrole)
     test.log("Logged in Application");
     
 }
-
-
-function handleCrash()
-{
-    test.log("The application Crashed - exiting Execution");
 }
-
+catch(e)
+{
+        test.fail("Error in logging in to application " + e);
+}
+    
 
 //-----Verify the submission in Batch Manager-----
+try
+{
 function batchmanager( )
 {
     
@@ -130,5 +133,10 @@ function batchmanager( )
     
 }
     
-    
+}
+catch(e)
+{
+        test.fail("Error in Submitting to Batch Manager" + e);
+}
+        
     

@@ -22,6 +22,8 @@ function main()
     }
     
     //---find Application Edition------ 
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Master Information");
@@ -35,9 +37,16 @@ function main()
     waitForObject(":Database Information.Save_QPushButton");
     clickButton(":Database Information.Save_QPushButton");
     test.log("Application Edition: "+appEdition);
+    }
+    catch(e)
+    {
+        test.fail("Error in finding application edition" + e);
+    }
     appEdition = "Manufacturing";
     
     //-----Assign All Privileges-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Maintain Users...");
@@ -61,8 +70,15 @@ function main()
     waitForObject(":List Users.Close_QPushButton");
     clickButton(":List Users.Close_QPushButton");
     test.log("Assigned all privileges to the user: Admin");
+    }
+    catch(e)
+    {
+        test.fail("Error in assigning privileges" + e);
+    }
     
-    //-----System Preferrences-----
+    //-----System Preferences-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Preferences...");
@@ -75,8 +91,15 @@ function main()
     
     waitForObject(":User Preferences.Save_QPushButton");
     clickButton(":User Preferences.Save_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in assigning preferences" + e);
+    }
     
     //-----Enable Sales Reservations-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Configure Modules");
@@ -90,13 +113,24 @@ function main()
     waitForObject(":Sales Configuration.Save_QPushButton");
     clickButton(":Sales Configuration.Save_QPushButton");
     test.log("Enabled Sales Reservations");
+    }
+    catch(e)
+    {
+        test.fail("Error in enabling sales reservations" + e);
+    }
     
     //-----Exit the Application-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Exit xTuple ERP...");
     activateItem(":xTuple ERP: *.System_QMenu", "Exit xTuple ERP...");
-    
+    }
+    catch(e)
+    {
+        test.fail("Error in exiting the application" + e);
+    }
     snooze(5);
     
     if(OS.name=="Linux")
@@ -111,6 +145,8 @@ function main()
     loginAppl("CONFIGURE"); 
     
     //-----Verify Batch Manager Status-----  
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Master Information");
@@ -127,6 +163,12 @@ function main()
     
     waitForObject(":Database Information.Save_QPushButton");
     clickButton(":Database Information.Save_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in verifying Batch Manager status" + e);
+    }
+    
     
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
@@ -140,11 +182,18 @@ function main()
     if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+appEdition);
     else test.pass(menuItem+"not found in "+appEdition);
     
+    
+    
+    
     //-----Purchase Order-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Purchase");
+    activateItem(":xTuple ERP: *_QMenuBar", "Purchase");
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Purchase");
     activateItem(":xTuple ERP: *_QMenuBar", "Purchase");
     waitForObjectItem(":*.Purchase_QMenu", "Forms");
-    activateItem(":*.Purchase_QMenu", "Forms");   
+    activateItem(":*.Purchase_QMenu", "Forms");  
     snooze(1);
     menu = waitForObject(":*.Forms_QMenu");
     menuItem = "Send &Electronic Purchase Order...";
@@ -154,8 +203,13 @@ function main()
         if(actions.at(i).text == menuItem || i==actions.count()-1) break;
     if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
     else test.pass(menuItem+"not found in "+appEdition);
+     
+     
+    
     
     //-----Print Purchase Order-----
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Purchase");
+    activateItem(":xTuple ERP: *_QMenuBar", "Purchase");
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Purchase");
     activateItem(":xTuple ERP: *_QMenuBar", "Purchase");
     waitForObjectItem(":*.Purchase_QMenu", "Forms");
@@ -170,7 +224,11 @@ function main()
     if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
     else test.pass(menuItem+"not found in "+appEdition);
     
+   
+    
     //-----Electronic Sales Order Form-----
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Forms");
@@ -184,8 +242,19 @@ function main()
         if(actions.at(i).text == menuItem || i==actions.count()-1) break;
     if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
     else test.pass(menuItem+"not found in "+appEdition);
+    }
+    catch(e)
+    {
+        test.fail("Error in verifying electronic sales order form" + e);
+    }
+   
+    
     
     //-----Electronic Quote-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Forms");
@@ -199,8 +268,18 @@ function main()
         if(actions.at(i).text == menuItem || i==actions.count()-1) break;
     if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
     else test.pass(menuItem+"not found in "+appEdition);
+    }
+    catch(e)
+    {
+        test.fail("Error in verifying Electronic quote form" + e);
+    }
+    
     
     //-----Allocate Reservations-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Utilities");
@@ -215,26 +294,15 @@ function main()
     
     waitForObject(":Allocate Reservations.Cancel_QPushButton");
     clickButton(":Allocate Reservations.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in verifying Allocate Reservations screen" + e);
+    }
     
     //-----Create Planned Orders by Plannercode-----
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
-    activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
-    waitForObjectItem(":*.Schedule_QMenu", "Scheduling");
-    activateItem(":*.Schedule_QMenu", "Scheduling");
-    waitForObjectItem(":*.Scheduling_QMenu", "Run MRP");
-    activateItem(":*.Scheduling_QMenu", "Run MRP");
-    waitForObjectItem(":*.Run MRP_QMenu", "by Planner Code...");
-    activateItem(":*.Run MRP_QMenu", "by Planner Code...");
-    
-    if(!object.exists(":Run MRP by Planner Code.Submit_QPushButton"))
-        test.fail("Submit Button exists in Create Planned Order by Plannercode screen");
-    
-    else test.pass("Submit Button does not exist in Create Planned Order by Plannercode screen");
-    
-    waitForObject(":Run MRP by Planner Code.Cancel_QPushButton");
-    clickButton(":Run MRP by Planner Code.Cancel_QPushButton");
-    
-    //-----Create Planned Orders by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Scheduling");
@@ -251,8 +319,40 @@ function main()
     
     waitForObject(":Run MRP by Planner Code.Cancel_QPushButton");
     clickButton(":Run MRP by Planner Code.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in creating planned order" + e);
+    }
+    
+    //-----Create Planned Orders by Plannercode-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
+    activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
+    waitForObjectItem(":*.Schedule_QMenu", "Scheduling");
+    activateItem(":*.Schedule_QMenu", "Scheduling");
+    waitForObjectItem(":*.Scheduling_QMenu", "Run MRP");
+    activateItem(":*.Scheduling_QMenu", "Run MRP");
+    waitForObjectItem(":*.Run MRP_QMenu", "by Planner Code...");
+    activateItem(":*.Run MRP_QMenu", "by Planner Code...");
+    
+    if(object.exists(":Run MRP by Planner Code.Submit_QPushButton"))
+        test.fail("Submit Button exists in Create Planned Order by Plannercode screen");
+    
+    else test.pass("Submit Button does not exist in Create Planned Order by Plannercode screen");
+    
+    waitForObject(":Run MRP by Planner Code.Cancel_QPushButton");
+    clickButton(":Run MRP by Planner Code.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in creating planned order" + e);
+    }
     
     //-----Release Planned Orders by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Scheduling");
@@ -267,8 +367,16 @@ function main()
     
     waitForObject(":Release Planned Orders by Planner Code.Cancel_QPushButton_2");
     clickButton(":Release Planned Orders by Planner Code.Cancel_QPushButton_2");
-  
+    }
+    catch(e)
+    {
+        test.fail("Error in releasing planned order" + e);
+    }
+    
+    
     //-----Create Buffer Status by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Constraint Management");
@@ -285,8 +393,16 @@ function main()
     
     waitForObject(":Run Buffer Status by Planner Code.Cancel_QPushButton_2");
     clickButton(":Run Buffer Status by Planner Code.Cancel_QPushButton_2");
+    }
+    catch(e)
+    {
+        test.fail("Error in creating buffer status  by planner code" + e);
+    }
+    
     
     //-----Create Buffer Status by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     type(":*.Schedule_QMenu","<Down>");
@@ -302,8 +418,16 @@ function main()
     
     waitForObject(":Run Buffer Status by Planner Code.Cancel_QPushButton_2");
     clickButton(":Run Buffer Status by Planner Code.Cancel_QPushButton_2");
+    }
+    catch(e)
+    {
+        test.fail("Error in creating buffer status by item" + e);
+    }
+    
     
     //-----Run MPS by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Scheduling");
@@ -318,8 +442,16 @@ function main()
     
     waitForObject(":Run MPS by Planner Code.Cancel_QPushButton_2");
     clickButton(":Run MPS by Planner Code.Cancel_QPushButton_2");
+    }
+    catch(e)
+    {
+        test.fail("Error in running MPS" + e);
+    }
+    
     
     //-----Releasing Planned Transfer Order-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Scheduling");
@@ -334,8 +466,16 @@ function main()
     
     waitForObject(":Release Planned Orders by Planner Code.Cancel_QPushButton_2");
     clickButton(":Release Planned Orders by Planner Code.Cancel_QPushButton_2");
+    }
+    catch(e)
+    {
+        test.fail("Error in releasing planned transfer order" + e);
+    }
+    
     
     //-----Time Phased Demand by Plannercode-----  
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Capacity Planning");
@@ -348,10 +488,18 @@ function main()
     
     else test.pass("Submit button does not exit in Time Phased Demand by Planner code");
     
-    waitForObject(":Time Phased Demand by Planner Code.Close_QPushButton");
-    clickButton(":Time Phased Demand by Planner Code.Close_QPushButton");
+    waitForObject(":Time Phased Demand by Planner Code.Close_QPushButton_2");
+    clickButton(":Time Phased Demand by Planner Code.Close_QPushButton_2");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Demand by planner code screen " + e);
+    }
+    
     
     //-----Time Phased Production by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Capacity Planning");
@@ -368,8 +516,15 @@ function main()
     
     waitForObject(":Time-Phased Production by Planner Code.Close_QPushButton");
     clickButton(":Time-Phased Production by Planner Code.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Production by planner code screen " + e);
+    }
     
     //-----Time Phased Production by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Capacity Planning");
@@ -386,8 +541,15 @@ function main()
     
     waitForObject(":Time-Phased Production by Item.Close_QPushButton");
     clickButton(":Time-Phased Production by Item.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased production by Item screen " + e);
+    }
     
     //-----Time Phased Availability-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Reports");
@@ -402,8 +564,16 @@ function main()
     
     waitForObject(":Time-Phased Availability.Close_QPushButton");
     clickButton(":Time-Phased Availability.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Availability screen " + e);
+    }
+    
     
     //-----Time Phased Booking by Customer-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -420,8 +590,15 @@ function main()
     
     waitForObject(":Time-Phased Bookings by Customer.Close_QPushButton");
     clickButton(":Time-Phased Bookings by Customer.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Booking by customer screen " + e);
+    }
     
     //-----Time Phased Booking by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -438,8 +615,15 @@ function main()
     
     waitForObject(":Time-Phased Bookings by Item.Close_QPushButton");
     clickButton(":Time-Phased Bookings by Item.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Booking by Item screen " + e);
+    }
     
     //-----Time Phased Bookings by Product Category-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -456,8 +640,15 @@ function main()
     
     waitForObject(":Time-Phased Bookings by Product Category.Close_QPushButton");
     clickButton(":Time-Phased Bookings by Product Category.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Booking by product category screen " + e);
+    }
     
     //-----Time Phased Sales History by Customer Group-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -474,8 +665,16 @@ function main()
     
     waitForObject(":Time-Phased Sales History by Customer Group.Close_QPushButton");
     clickButton(":Time-Phased Sales History by Customer Group.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Sales History by customer group screen " + e);
+    }
+    
     
     //-----Time Phased Sales History by Customer-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -492,8 +691,16 @@ function main()
     
     waitForObject(":Time-Phased Sales History by Customer.Close_QPushButton");
     clickButton(":Time-Phased Sales History by Customer.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Sales History by customer screen " + e);
+    }
+    
     
     //-----Time Phased Sales History by Customer by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -510,8 +717,16 @@ function main()
     
     waitForObject(":Time-Phased Sales History by Customer by Item.Close_QPushButton");
     clickButton(":Time-Phased Sales History by Customer by Item.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Sales History by customer by Item screen " + e);
+    }
+    
     
     //-----Time Phased Sales History by Product Category-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -528,8 +743,15 @@ function main()
     
     waitForObject(":Time-Phased Sales History by Product Category.Close_QPushButton");
     clickButton(":Time-Phased Sales History by Product Category.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Sales History by Product Category screen " + e);
+    }
     
     //-----Time Phased Sales History by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -546,8 +768,15 @@ function main()
     
     waitForObject(":Time-Phased Sales History by Item.Close_QPushButton");
     clickButton(":Time-Phased Sales History by Item.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Sales History by Item screen " + e);
+    }
     
     //-----Time Phased Usage Statistics by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Reports");
@@ -562,8 +791,15 @@ function main()
     
     waitForObject(":Time-Phased Item Usage Statistics by Item.Close_QPushButton");
     clickButton(":Time-Phased Item Usage Statistics by Item.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Usage Statistics screen " + e);
+    }
     
     //-----Update Actual Costs by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products");
     activateItem(":xTuple ERP: *_QMenuBar", "Products");
     waitForObjectItem(":*.Products_QMenu", "Costing");
@@ -580,8 +816,16 @@ function main()
     
     waitForObject(":Update Actual Costs by Item.Cancel_QPushButton");
     clickButton(":Update Actual Costs by Item.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Actual Costs by Item " + e);
+    }
+    
     
     //-----Update Actual Costs by Classcode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products");
     activateItem(":xTuple ERP: *_QMenuBar", "Products");
     waitForObjectItem(":*.Products_QMenu", "Costing");
@@ -598,8 +842,15 @@ function main()
     
     waitForObject(":Update Actual Costs by Class Code.Cancel_QPushButton");
     clickButton(":Update Actual Costs by Class Code.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Actual Costs by class code " + e);
+    }
     
     //-----Post Actual Costs by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products");
     activateItem(":xTuple ERP: *_QMenuBar", "Products");
     waitForObjectItem(":*.Products_QMenu", "Costing");
@@ -616,8 +867,15 @@ function main()
     
     waitForObject(":Post Actual Costs by Item.Cancel_QPushButton");
     clickButton(":Post Actual Costs by Item.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Posting Actual Costs by Item " + e);
+    }
     
     //-----Post Actual Costs by Classcode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products");
     activateItem(":xTuple ERP: *_QMenuBar", "Products");
     waitForObjectItem(":*.Products_QMenu", "Costing");
@@ -634,8 +892,15 @@ function main()
     
     waitForObject(":Post Actual Costs by Class Code.Cancel_QPushButton");
     clickButton(":Post Actual Costs by Class Code.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Posting Actual Costs by class code " + e);
+    }
     
     //-----Post Standard Costs by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products");
     activateItem(":xTuple ERP: *_QMenuBar", "Products");
     waitForObjectItem(":*.Products_QMenu", "Costing");
@@ -652,8 +917,15 @@ function main()
     
     waitForObject(":Update Standard Costs By Item.Cancel_QPushButton");
     clickButton(":Update Standard Costs By Item.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Posting Standard Costs by Item " + e);
+    }
     
     //-----Post Standard Costs by Classcode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products");
     activateItem(":xTuple ERP: *_QMenuBar", "Products");
     waitForObjectItem(":*.Products_QMenu", "Costing");
@@ -670,8 +942,15 @@ function main()
     
     waitForObject(":Update Standard Costs By Class Code.Cancel_QPushButton");
     clickButton(":Update Standard Costs By Class Code.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Posting Standard Costs by class code " + e);
+    }
     
     //-----Update Order Upto Level by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
@@ -690,8 +969,16 @@ function main()
     
     waitForObject(":Update Order Up To Level by Item.Cancel_QPushButton");
     clickButton(":Update Order Up To Level by Item.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Order Upto Level by Item " + e);
+    }
     
-    //-----Update Order Upto Level by Plannercode-----   
+    
+    //-----Update Order Upto Level by Plannercode----- 
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
@@ -710,8 +997,15 @@ function main()
     
     waitForObject(":Update Order Up To Levels by Planner Code.Cancel_QPushButton");
     clickButton(":Update Order Up To Levels by Planner Code.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Order Upto Level by Planner code " + e);
+    }
     
     //-----Update Order Upto Level by Classcode-----    
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
@@ -730,8 +1024,16 @@ function main()
     
     waitForObject(":Update Order Up To Levels by Class Code.Cancel_QPushButton");
     clickButton(":Update Order Up To Levels by Class Code.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Order Upto Level by Class code " + e);
+    }
+    
     
     //-----Update Reorder Level by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
@@ -750,11 +1052,21 @@ function main()
     
     waitForObject(":_criteriaTab.Cancel_QPushButton");
     clickButton(":_criteriaTab.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Reorder Level by Item " + e);
+    }
+    
     
     //-----Update Reorder Level by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
+    activateItem(":*.Inventory_QMenu", "Utilities");
+     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
     activateItem(":*.Inventory_QMenu", "Utilities");
     waitForObjectItem(":*.Utilities_QMenu_2", "Update Item Controls");
     activateItem(":*.Utilities_QMenu_2", "Update Item Controls");
@@ -770,11 +1082,21 @@ function main()
     
     waitForObject(":_criteriaTab.Cancel_QPushButton_2");
     clickButton(":_criteriaTab.Cancel_QPushButton_2");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Reorder Level by planner code " + e);
+    }
+    
     
     //-----Update Reorder Level by Classcode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
+    activateItem(":*.Inventory_QMenu", "Utilities");
+     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
     activateItem(":*.Inventory_QMenu", "Utilities");
     waitForObjectItem(":*.Utilities_QMenu_2", "Update Item Controls");
     activateItem(":*.Utilities_QMenu_2", "Update Item Controls");
@@ -790,8 +1112,15 @@ function main()
     
     waitForObject(":_criteriaTab.Cancel_QPushButton_3");
     clickButton(":_criteriaTab.Cancel_QPushButton_3");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Reorder Level by Class code " + e);
+    }
     
     //-----Time Phased Open AP Items------
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Payable");
@@ -808,8 +1137,15 @@ function main()
     
     waitForObject(":Payables Aging.Close_QPushButton");
     clickButton(":Payables Aging.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Open AP Items screen " + e);
+    }
     
-    //-----Time Phased Open AR Items------   
+    //-----Time Phased Open AR Items------
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
@@ -826,8 +1162,15 @@ function main()
     
     waitForObject(":Receivables Aging.Close_QPushButton");
     clickButton(":Receivables Aging.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Time Phased Open AR Items screen " + e);
+    }
     
     //-----Create Recurring Invoice-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Utilities");
@@ -842,8 +1185,15 @@ function main()
     
     waitForObject(":Create Recurring Invoices.Cancel_QPushButton");
     clickButton(":Create Recurring Invoices.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Create Recurring Invoices  screen " + e);
+    }
     
     //-----Create an Invoice-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Billing");
@@ -881,8 +1231,15 @@ function main()
     
     waitForObject(":List Unposted Invoices.Close_QPushButton");
     clickButton(":List Unposted Invoices.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in creating invoice " + e);
+    }
     
     //-----Print Invoices(Sales)-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Billing");
@@ -913,8 +1270,16 @@ function main()
     
     waitForObject(":Print Invoices.Cancel_QPushButton");
     clickButton(":Print Invoices.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in printing invoices " + e);
+    }
+    
     
     //-----Create an Invoice-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Billing");
@@ -952,8 +1317,16 @@ function main()
     
     waitForObject(":List Unposted Invoices.Close_QPushButton");
     clickButton(":List Unposted Invoices.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in creating invoice " + e);
+    }
+    
     
     //-----Print Invoice by Ship via-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Billing");
@@ -984,8 +1357,15 @@ function main()
     
     waitForObject(":Print Invoices by Ship Via.Cancel_QPushButton");
     clickButton(":Print Invoices by Ship Via.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in printing invoice  by ship via" + e);
+    }
     
     //-----Re-Print Invoices-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Billing");
@@ -1024,8 +1404,15 @@ function main()
     
     waitForObject(":Re-Print Invoices.Cancel_QPushButton");
     clickButton(":Re-Print Invoices.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Re Printing invoice " + e);
+    }
     
     //-----Post Invoices(Sales)-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Billing");
@@ -1042,8 +1429,18 @@ function main()
         if(actions.at(i).text == menuItem || i==actions.count()-1) break;
     if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+appEdition);
     else test.pass(menuItem+"not found in "+appEdition);
+    }
+    catch(e)
+    {
+        test.fail("Error in posting invoice " + e);
+    }
+    
     
     //-----Create an Invoice-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Billing");
@@ -1081,8 +1478,16 @@ function main()
     
     waitForObject(":List Unposted Invoices.Close_QPushButton");
     clickButton(":List Unposted Invoices.Close_QPushButton");  
+    }
+    catch(e)
+    {
+        test.fail("Error in creating invoice " + e);
+    }
+    
     
     //-----Print Invoices(AR)-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
@@ -1113,8 +1518,15 @@ function main()
     
     waitForObject(":Print Invoices.Cancel_QPushButton");
     clickButton(":Print Invoices.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in printing invoice " + e);
+    }
     
     //-----Re-Print Invoices(AR)-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
@@ -1153,8 +1565,15 @@ function main()
     
     waitForObject(":Re-Print Invoices.Cancel_QPushButton");
     clickButton(":Re-Print Invoices.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Re printing invoice " + e);
+    }
     
     //-----Post Invoices(AR)-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
@@ -1172,8 +1591,17 @@ function main()
         if(actions.at(i).text == menuItem || i==actions.count()-1) break;
     if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+appEdition);
     else test.pass(menuItem+"not found in "+appEdition);
+    }
+    catch(e)
+    {
+        test.fail("Error in posting invoice " + e);
+    }
     
     //-----Post Standard Journal-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "General Ledger");
@@ -1190,8 +1618,15 @@ function main()
     
     waitForObject(":Post Standard Journal.Cancel_QPushButton");
     clickButton(":Post Standard Journal.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in posting standard journal " + e);
+    }
     
     //-----Post Standard Journal Group-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "General Ledger");
@@ -1208,8 +1643,15 @@ function main()
     
     waitForObject(":Post Standard Journal Group.Cancel_QPushButton");
     clickButton(":Post Standard Journal Group.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in posting standard journal group" + e);
+    }
     
     //-----Update Late Customer Credit Status-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Utilities");
@@ -1224,8 +1666,15 @@ function main()
     
     waitForObject(":Update Late Customer Credit Status.Cancel_QPushButton");
     clickButton(":Update Late Customer Credit Status.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Late Customer Credit Status " + e);
+    }
     
-    //-----Print Statement by Customer----- 
+    //-----Print Statement by Customer-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
@@ -1251,8 +1700,16 @@ function main()
     
     waitForObject(":Print Statement by Customer.Close_QPushButton");
     clickButton(":Print Statement by Customer.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in printing statement by customer " + e);
+    }
+    
     
     //-----Operation Buffer Status-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Manufacture");
     activateItem(":xTuple ERP: *_QMenuBar", "Manufacture");
     waitForObjectItem(":*.Manufacture_QMenu", "Reports");
@@ -1267,8 +1724,15 @@ function main()
     
     waitForObject(":Work Order Operation Buffer Status by Work Center.Close_QPushButton");
     clickButton(":Work Order Operation Buffer Status by Work Center.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Operation buffer status screen " + e);
+    }
     
     //-----Send Electronic Invoice-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
@@ -1286,6 +1750,11 @@ function main()
         if(actions.at(i).text == menuItem || i==actions.count()-1) break;
     if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+appEdition);
     else test.pass(menuItem+"not found in "+appEdition);    
+    }
+    catch(e)
+    {
+        test.fail("Error in Sending Electronic invoice " + e);
+    }
     
    
 }

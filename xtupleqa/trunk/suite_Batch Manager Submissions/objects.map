@@ -49,7 +49,7 @@
 :*.Prospect_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin_GUIClient' windowTitle='Prospect'}
 :*.Purchase Order_QMenu	{name='menu.purch.orders' title='Purchase Order' type='QMenu' visible='1' window=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin_GUIClient'}
 :*.Purchase Order_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin_GUIClient' windowTitle='Purchase Order'}
-:*.Purchase_QMenu	{name='menu.purch' title='Purchase' type='QMenu' visible='1' window=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin_GUIClient'}
+:*.Purchase_QMenu	{name='menu.purch' title='Purchase' type='QMenu' visible='1'}
 :*.Quote_QMenu	{name='menu.sales.quotes' title='Quote' type='QMenu' visible='1' window=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin_GUIClient'}
 :*.Quote_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin_GUIClient' windowTitle='Quote'}
 :*.Receivables Aging_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin_GUIClient' windowTitle='Receivables Aging'}
@@ -196,6 +196,7 @@
 :List Item Sites.Close_QPushButton	{container=':*.List Item Sites_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Item Sites.Save_QPushButton	{container=':*.List Item Sites_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
 :List Item Sites.Site:  _QLabel	{container=':*.List Item Sites_QWorkspaceChild' name='_warehouseLit' text='Site:  ' type='QLabel' visible='1'}
+:List Item Sites.Supply Rules_QGroupBox	{container=':*.List Item Sites_QWorkspaceChild' name='_supply' title='Supply Rules' type='QGroupBox' visible='1'}
 :List Item Sites._frame_QFrame	{container=':*.List Item Sites_QWorkspaceChild' name='_frame' type='QFrame' visible='1'}
 :List Item Sites._warehouse_WarehouseGroup	{container=':*.List Item Sites_QWorkspaceChild' name='_warehouse' type='WarehouseGroup' visible='1'}
 :List Item Sites.qt_tabwidget_stackedwidget_QStackedWidget	{container=':*.List Item Sites_QWorkspaceChild' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
@@ -319,6 +320,8 @@
 :Print Statements by Customer Type.Print_QPushButton	{name='_print' text='Print' type='QPushButton' visible='1' window=':Print Statements by Customer Type_printStatementsByCustomerType'}
 :Print Statements by Customer Type._customerTypes_ParameterGroup	{name='_customerTypes' type='ParameterGroup' visible='1' window=':Print Statements by Customer Type_printStatementsByCustomerType'}
 :Print Statements by Customer Type_printStatementsByCustomerType	{name='printStatementsByCustomerType' type='printStatementsByCustomerType' visible='1' windowTitle='Print Statements by Customer Type'}
+:Print Vendor Form.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Print Vendor Form_printVendorForm'}
+:Print Vendor Form_printVendorForm	{name='printVendorForm' type='printVendorForm' visible='1' windowTitle='Print Vendor Form'}
 :Prospect...._QPushButton	{container=':*.Prospect_QWorkspaceChild' name='_list' text='...' type='QPushButton' visible='1'}
 :Prospect.Attach_QPushButton	{container=':*.Prospect_QWorkspaceChild' name='_attach' text='Attach' type='QPushButton' visible='1'}
 :Prospect.Cancel_QPushButton	{container=':*.Prospect_QWorkspaceChild' name='_close' occurrence='2' text='Cancel' type='QPushButton' visible='1'}
@@ -381,6 +384,7 @@
 :Release Planned Orders by Planner Code_releasePlannedOrdersByPlannerCode	{name='releasePlannedOrdersByPlannerCode' type='XMainWindow' visible='1' windowTitle='Release Planned Orders by Planner Code'}
 :Release Planned Orders by Planner Code_releasePlannedOrdersByPlannerCode_2	{name='releasePlannedOrdersByPlannerCode' type='releasePlannedOrdersByPlannerCode' visible='1' windowTitle='Release Planned Orders by Planner Code'}
 :Review EDI Before Sending.Accept_QPushButton	{name='_accept' text='Accept' type='QPushButton' visible='1' window=':Review EDI Before Sending_XMainWindow'}
+:Review EDI Before Sending.Cancel_QPushButton	{name='_cancel' text='Cancel' type='QPushButton' visible='1' window=':Review EDI Before Sending_XMainWindow'}
 :Review EDI Before Sending._docstack_QStackedWidget	{name='_docstack' type='QStackedWidget' visible='1' window=':Review EDI Before Sending_XMainWindow'}
 :Review EDI Before Sending_XMainWindow	{name='submitEDI' type='XMainWindow' visible='1' windowTitle='Review EDI Before Sending'}
 :Run Buffer Status by Item...._QPushButton	{name='_itemList' text='...' type='QPushButton' visible='1' window=':Run Buffer Status by Item_createBufferStatusByItem'}
@@ -452,7 +456,8 @@
 :Submit Report to Batch Manager_submitReport	{name='submitReport' type='submitReport' visible='1' windowTitle='Submit Report to Batch Manager'}
 :Submitted By:.All Users_QRadioButton	{container=':Batch Manager.Submitted By:_QGroupBox' name='_allUsers' text='All Users' type='QRadioButton' visible='1'}
 :Submitted By:.Current User_QRadioButton	{container=':Batch Manager.Submitted By:_QGroupBox' name='_currentUser' text='Current User' type='QRadioButton' visible='1'}
-:Time Phased Demand by Planner Code.Close_QPushButton	{container=':*.Time Phased Demand by Planner Code_QWorkspaceChild' name='_close' type='QPushButton' visible='1'}
+:Supply Rules.Site can purchase this Item_QCheckBox	{container=':List Item Sites.Supply Rules_QGroupBox' name='_poSupply' text='Site can purchase this Item' type='QCheckBox' visible='1'}
+:Time Phased Demand by Planner Code.Close_QPushButton	{container=':*.Time Phased Demand by Planner Code_QWorkspaceChild' name='_close' type='QPushButton' visible='1' text='Close'}
 :Time Phased Demand by Planner Code.Close_QPushButton_2	{container=':*.Time Phased Demand by Planner Code_QWorkspaceChild_2' name='_close' text='Close' type='QPushButton' visible='1'}
 :Time Phased Demand by Planner Code.Query_QPushButton	{container=':*.Time Phased Demand by Planner Code_QWorkspaceChild_2' name='_query' text='Query' type='QPushButton' visible='1'}
 :Time Phased Demand by Planner Code.Scheduled_QGroupBox	{container=':*.Time Phased Demand by Planner Code_QWorkspaceChild' name='_scheduledGroup' title='Scheduled' type='QGroupBox' visible='1'}
@@ -639,6 +644,7 @@
 :Work Order Operation Buffer Status by Work Center.Work Center:_QLabel	{container=':*.Work Order Operation Buffer Status by Work Center_QWorkspaceChild' name='_workCenterLit' text='Work Center:' type='QLabel' visible='1'}
 :Work Order Operation Buffer Status by Work Center._email_XLineEdit	{container=':*.Work Order Operation Buffer Status by Work Center_QWorkspaceChild' name='_email' type='XLineEdit' visible='1'}
 :Work Order Operation Buffer Status by Work Center._fromEmail_XLineEdit	{container=':*.Work Order Operation Buffer Status by Work Center_QWorkspaceChild' name='_fromEmail' type='XLineEdit' visible='1'}
+:_QMenu	{type='QMenu' unnamed='1' visible='1'}
 :_accountGroup.Post Unassigned Transactions to:_QLabel	{container=':List Sites._accountGroup_QGroupBox' name='_accountLit' text='Post Unassigned Transactions to:' type='QLabel' visible='1'}
 :_alarmGroup.Email_XCheckBox	{container=':_alarmTab._alarmGroup_QGroupBox' name='_emailAlarm' text='Email' type='XCheckBox' visible='1'}
 :_alarmGroup.Email_XCheckBox_2	{container=':_alarmTab._alarmGroup_QGroupBox_2' name='_emailAlarm' text='Email' type='XCheckBox' visible='1'}
@@ -700,6 +706,8 @@
 :_description_QLineEdit	{buddy=':Incident.Description:_QLabel' name='_description' type='QLineEdit' visible='1'}
 :_discountFromCust_XLineEdit	{buddy=':_amountGroup.Cust Discount %_QLabel' name='_discountFromCust' type='XLineEdit' visible='1'}
 :_discountFromCust_XLineEdit_2	{buddy=':_amountGroup.Cust Discount %_QLabel_2' name='_discountFromCust' type='XLineEdit' visible='1'}
+:_docstack...._QPushButton	{container=':Review EDI Before Sending._docstack_QStackedWidget' name='_list' text='...' type='QPushButton' visible='1'}
+:_docstack.Cancel_QPushButton	{container=':Review EDI Before Sending._docstack_QStackedWidget' name='_close' text='Cancel' type='QPushButton' visible='1'}
 :_docstack.Invoices_QLabel	{container=':Review EDI Before Sending._docstack_QStackedWidget' name='_titleLit' text='Invoices' type='QLabel' visible='1'}
 :_docstack.Orders_QLabel	{container=':Review EDI Before Sending._docstack_QStackedWidget' name='_titleLit' text='Orders' type='QLabel' visible='1'}
 :_docstack.Quotes_QLabel	{container=':Review EDI Before Sending._docstack_QStackedWidget' name='_titleLit' text='Quotes' type='QLabel' visible='1'}
@@ -761,6 +769,7 @@
 :_itemGroup.Items:_QLabel	{container=':Sales Order._itemGroup_QGroupBox' name='_itemsLit' text='Items:' type='QLabel' visible='1'}
 :_itemGroup.Items:_QLabel_2	{container=':Time-Phased Item Usage Statistics by Item._itemGroup_QGroupBox' name='_itemsLit' text='Items:' type='QLabel' visible='1'}
 :_itemGroup.Items:_QLabel_3	{container=':Quote._itemGroup_QGroupBox' name='_itemsLit' text='Items:' type='QLabel' visible='1'}
+:_itemSite.BTRUCK1_QModelIndex	{column='0' container=':_itemSite_XTreeWidget' text='BTRUCK1' type='QModelIndex'}
 :_itemSite_XTreeWidget	{buddy=':_frame.Item Sites:_QLabel' name='_itemSite' type='XTreeWidget' visible='1'}
 :_itemTypeGroup.Item_QGroupBox	{container=':Invoice._itemTypeGroup_QGroupBox' name='_itemGroup' title='Item' type='QGroupBox' visible='1'}
 :_item_QScrollBar	{container=':_item_XTreeWidget_4' type='QScrollBar' unnamed='1' visible='1'}
@@ -888,6 +897,7 @@
 :_warehouse.Selected:_QRadioButton_2	{container=':Time Phased Demand by Planner Code._warehouse_WarehouseGroup_2' name='_selected' text='Selected:' type='QRadioButton' visible='1'}
 :_warehouse._warehouses_WComboBox	{container=':List Item Sites._warehouse_WarehouseGroup' name='_warehouses' type='WComboBox' visible='1'}
 :_warehouse_WComboBox	{buddy=':List Item Sites.Site:  _QLabel' name='_warehouse' type='WComboBox' visible='1'}
+:_warehouses.WH2_QModelIndex	{container=':_warehouse._warehouses_WComboBox' text='WH2' type='QModelIndex'}
 :_whsTypeStack._defaultGroup_QGroupBox	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_defaultGroup' type='QGroupBox' visible='1'}
 :_whsTypeStack._planGroup_QGroupBox	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_planGroup' type='QGroupBox' visible='1'}
 :_wrkcnt_XComboBox	{buddy=':Work Order Operation Buffer Status by Work Center.Work Center:_QLabel' name='_wrkcnt' type='XComboBox' visible='1'}
