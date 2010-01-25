@@ -3,6 +3,8 @@
 
 
 //--------Login into Appl----------
+try
+{
 function loginAppl(userrole)
 {
    
@@ -59,9 +61,15 @@ function loginAppl(userrole)
     test.log("Logged in Application");
     
 }
-
+}
+catch(e)
+{
+    test.fail("Error in logging to application" + e);
+}
    
 //--------To Calculate Absolute Value of QOH ----------
+try
+{
 function replaceSubstring(inputString, fromString, toString) 
 {
    // Goes through the inputString and replaces every occurrence of fromString with toString
@@ -121,11 +129,44 @@ function replaceSubstring(inputString, fromString, toString)
    return temp; // Send the updated string back to the user
 } // Ends the "replaceSubstring" function
     
+}
+catch(e)
+{
+    test.fail("Error in calculating the absolute value of QOH" + e);
+}
 
+//-----------------To verify the QOH by item-------------
 
-
-  
-   
+try
+{
+    function queryQoh(inputString)
+    {
+        waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
+        activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
+        waitForObjectItem(":xTuple ERP: *.Inventory_QMenu", "Reports");
+        activateItem(":xTuple ERP: *.Inventory_QMenu", "Reports");
+        waitForObjectItem(":xTuple ERP: *_.Reports_QMenu", "Quantities On Hand");
+        activateItem(":xTuple ERP: *_.Reports_QMenu", "Quantities On Hand");
+        waitForObjectItem(":xTuple ERP: *.Quantities On Hand_QMenu", "by Item...");
+        activateItem(":xTuple ERP: *.Quantities On Hand_QMenu", "by Item...");
+        waitForObject(":_itemGroup...._QPushButton_3");
+        clickButton(":_itemGroup...._QPushButton_3");
+        waitForObject(":_item_XTreeWidget_3");
+        doubleClickItem(":_item_XTreeWidget_3",inputString,0,0,0,Qt.LeftButton);
+        waitForObject(":Quantities on Hand by Item.Query_QPushButton");
+        clickButton(":Quantities on Hand by Item.Query_QPushButton");
+        waitForObject(":_qoh_QModelIndex");
+        var qoh=findObject(":_qoh_QModelIndex").text;
+        var qohi=parseInt(replaceSubstring(qoh,",",""));
+        waitForObject(":Quantities on Hand by Item.Close_QPushButton");
+        clickButton(":Quantities on Hand by Item.Close_QPushButton");
+        return qohi;
+   }
+}
+catch(e)
+{
+    test.fail("Error in querying QOH by item");
+}
     
 
 
