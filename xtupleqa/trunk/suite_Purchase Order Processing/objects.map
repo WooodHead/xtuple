@@ -89,6 +89,7 @@
 :List Vendors.List Vendors_QWorkspaceTitleBar	{container=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin.List Vendors_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='List Vendors'}
 :List Vendors._vendor_XTreeWidget	{container=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin.List Vendors_QWorkspaceChild' name='_vendor' type='XTreeWidget' visible='1'}
 :Log In.Options..._QPushButton	{name='_options' text='Options...' type='QPushButton' visible='1' window=':Log In_login2'}
+:Log In.Recent_QPushButton	{name='_recent' text='Recent' type='QPushButton' visible='1' window=':Log In_login2'}
 :Log In._frame_QFrame	{name='_frame' type='QFrame' visible='1' window=':Log In_login2'}
 :Log In._logo_QLabel	{name='_logo' type='QLabel' visible='1' window=':Log In_login2'}
 :Log In_login2	{name='login2' type='login2' visible='1' windowTitle='Log In'}
@@ -210,6 +211,7 @@
 :_ordered_XLineEdit	{buddy=':_qtyGroup.Qty. Ordered:_QLabel' name='_ordered' type='XLineEdit' visible='1'}
 :_password_QLineEdit	{buddy=':_frame.Password:_QLabel' name='_password' type='QLineEdit' visible='1'}
 :_planningTab.Enforce Order Parameters_QGroupBox	{container=':qt_tabwidget_stackedwidget._planningTab_QWidget' name='_useParameters' title='Enforce Order Parameters' type='QGroupBox' visible='1'}
+:_pohead.20091_QModelIndex	{column='0' container=':List Unposted Purchase Orders._pohead_XTreeWidget' type='QModelIndex' text='20091'}
 :_pohead_QHeaderView	{container=':List Unposted Purchase Orders._pohead_XTreeWidget' type='QHeaderView' unnamed='1' visible='1'}
 :_poitems.Distributions..._QPushButton	{container=':qt_tabwidget_stackedwidget._poitems_QWidget' name='_distributions' text='Distributions...' type='QPushButton' visible='1'}
 :_poitems._poitem_XTreeWidget	{container=':qt_tabwidget_stackedwidget._poitems_QWidget' name='_poitem' type='XTreeWidget' visible='1'}
@@ -229,6 +231,7 @@
 :_taxzone_XComboBox	{buddy=':taxTab.Default Tax Zone:_QLabel' name='_taxzone' type='XComboBox' visible='1'}
 :_typeGroup.groupBox_2_QGroupBox	{container=':Purchase Order._typeGroup_QGroupBox' name='groupBox_2' type='QGroupBox' visible='1'}
 :_username_QLineEdit	{buddy=':_frame.Username:_QLabel' name='_username' type='QLineEdit' visible='1'}
+:_vohead.30098_QModelIndex	{column='0' container=':List Open Vouchers._vohead_XTreeWidget' text='30098' type='QModelIndex'}
 :_voucherGroup...._QPushButton	{container=':Voucher._voucherGroup_QGroupBox' name='_list' text='...' type='QPushButton' visible='1'}
 :_voucherGroup...._QPushButton_2	{container=':[*]Voucher._voucherGroup_QGroupBox' name='_list' text='...' type='QPushButton' visible='1'}
 :_voucherGroup.Orders_QLabel	{container=':Voucher._voucherGroup_QGroupBox' name='_titleLit' text='Orders' type='QLabel' visible='1'}
