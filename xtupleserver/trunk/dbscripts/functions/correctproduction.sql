@@ -20,6 +20,19 @@ DECLARE
   pBackflush     ALIAS FOR $3;
   pItemlocSeries ALIAS FOR $4;
   pGlDistTS      ALIAS FOR $5;
+BEGIN
+  RETURN correctProduction($1, $2, $3, $4, $5, NULL);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION correctProduction(INTEGER, NUMERIC, BOOLEAN, INTEGER, TIMESTAMP WITH TIME ZONE, INTEGER) RETURNS INTEGER AS $$
+DECLARE
+  pWoid          ALIAS FOR $1;
+  pQty           ALIAS FOR $2;
+  pBackflush     ALIAS FOR $3;
+  pItemlocSeries ALIAS FOR $4;
+  pGlDistTS      ALIAS FOR $5;
+  pInvhistId     ALIAS FOR $6;
   _invhistid        INTEGER;
   _itemlocSeries    INTEGER;
   _r                RECORD;
@@ -139,7 +152,7 @@ BEGIN
                        CASE WHEN (wo_qtyrcv > 0) THEN
                        ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) * _parentQty -- only used when cost is average
                             ELSE 0 END
-                       ) INTO _invhistid
+                       , pInvhistId) INTO _invhistid
   FROM wo, itemsite, item, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)

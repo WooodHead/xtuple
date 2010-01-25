@@ -9,7 +9,9 @@ BEGIN
   IF (pordertype = 'SO') THEN
     FOR _s IN SELECT coitem_id
 	        FROM coitem
-	       WHERE(coitem_cohead_id=porderid) LOOP
+	         JOIN itemsite ON (coitem_itemsite_id=itemsite_id)
+	       WHERE((coitem_cohead_id=porderid) 
+	        AND (itemsite_costmethod != 'J')) LOOP
       _returnVal := sufficientInventoryToShipItem(pordertype, _s.coitem_id);
       EXIT WHEN (_returnVal < 0);
     END LOOP;
