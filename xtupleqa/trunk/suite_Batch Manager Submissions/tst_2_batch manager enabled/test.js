@@ -1,4 +1,9 @@
-//--***--This script is developed to execute Batch Manager Submissions(when Batch Manager is enabled)--***--
+//--***--This script is developed to execute Batch Manager Submissions only in Windows Environment--***--
+
+//**********PRE-REQUISITES ***********
+
+// (1) Ensure that the Batch Manager is running before executing this script
+// (2) Install a dummy printer
 
 function main()
 {
@@ -19,9 +24,10 @@ function main()
              if(role=="CONFIGURE") break;     
     }
     
-    installEventHandler("Crash", "handleCrash");
-    
+     
     //---find Application Edition and Enable Batch Manager------ 
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Master Information");
@@ -51,9 +57,16 @@ function main()
     test.log("Application Edition: "+appEdition);
     test.log("Batch Manager Option enabled");
   
-  appEdition = "Manufacturing";
+    appEdition = "Manufacturing";
+    }
+    catch(e)
+    {
+        test.fail("Error in finding Application Edition" + e);
+    }
     
     //-----Assign All Privileges-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Maintain Users...");
@@ -77,8 +90,15 @@ function main()
     waitForObject(":List Users.Close_QPushButton");
     clickButton(":List Users.Close_QPushButton");
     test.log("Assigned all privileges to the user: Admin");
+    }
+    catch(e)
+    {
+        test.fail("Error in assigning privileges" + e);
+    }
     
     //-----System Preferrences-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Preferences...");
@@ -91,8 +111,15 @@ function main()
     
     waitForObject(":User Preferences.Save_QPushButton");
     clickButton(":User Preferences.Save_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in assigning preferences" + e);
+    }
     
     //-----Enable Sales Reservations-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Configure Modules");
@@ -106,13 +133,24 @@ function main()
     waitForObject(":Sales Configuration.Save_QPushButton");
     clickButton(":Sales Configuration.Save_QPushButton");
     test.log("Enabled Sales Reservations");
+    }
+    catch(e)
+    {
+        test.fail("Error in enabling sales reservation" + e);
+    }
     
     //-----Exit the Application-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Exit xTuple ERP...");
     activateItem(":xTuple ERP: *.System_QMenu", "Exit xTuple ERP...");
-    
+    }
+    catch(e)
+    {
+        test.fail("Error in exiting the Application " + e);
+    }
     snooze(5);
     
     if(OS.name=="Linux")
@@ -123,10 +161,13 @@ function main()
     
     snooze(2);
     
+    
     //-----login Application-----
     loginAppl("CONFIGURE"); 
     
     //-----Batch Manager-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Batch Manager...");
@@ -140,8 +181,15 @@ function main()
     waitForObject(":Batch Manager.Close_QPushButton");
     clickButton(":Batch Manager.Close_QPushButton");
     test.log("Batch Manager enabled");
+    }
+    catch(e)
+    {
+        test.fail("Error in verifying the status of batch manager" + e);
+    }
     
     //-----Setup EDI Profiles-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Master Information");
@@ -192,8 +240,16 @@ function main()
     
     waitForObject(":List EDI Profiles.Close_QPushButton");
     clickButton(":List EDI Profiles.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in setting EDI profiles" + e);
+    }
+    
     
     //-----Attach EDI Profiles to Customer-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Customer");
@@ -294,23 +350,36 @@ function main()
     clickButton(":Customer.Save_QPushButton_2");
     waitForObject(":List Customers.Close_QPushButton");
     clickButton(":List Customers.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in attaching EDI profiles to customer" + e);
+    }
     
     
     //--------Batch Manager Submissions--------
     
     //-----Purchase Order-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Purchase");
     activateItem(":xTuple ERP: *_QMenuBar", "Purchase");
     waitForObjectItem(":*.Purchase_QMenu", "Forms");
     activateItem(":*.Purchase_QMenu", "Forms");
     waitForObjectItem(":*.Forms_QMenu", "Send Electronic Purchase Order...");
     activateItem(":*.Forms_QMenu", "Send Electronic Purchase Order...");
-    
+   waitForObject(":_docstack...._QPushButton");
+    clickButton(":_docstack...._QPushButton");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "PO", 5, 5, 0, Qt.LeftButton);
     
     waitForObject(":Review EDI Before Sending.Accept_QPushButton");
     clickButton(":Review EDI Before Sending.Accept_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting electronic purchase order" + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -320,7 +389,9 @@ function main()
     
     else test.fail("Batch Manager not responding");
     
-    //-----Create a Purchase Order-----  
+    //-----Create a Purchase Order----- 
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Purchase");
     activateItem(":xTuple ERP: *_QMenuBar", "Purchase");
     waitForObjectItem(":*.Purchase_QMenu", "Purchase Order");
@@ -357,8 +428,16 @@ function main()
     
     waitForObject(":Purchase Order.Close_QPushButton");
     clickButton(":Purchase Order.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in creating purchase order" + e);
+    }
+    
     
     //-----Unposted Purchase Order-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Purchase");
     activateItem(":xTuple ERP: *_QMenuBar", "Purchase");
     waitForObjectItem(":*.Purchase_QMenu", "Purchase Order");
@@ -376,6 +455,11 @@ function main()
     
     waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
     clickButton(":List Unposted Purchase Orders.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting unposted purchase order" + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -386,6 +470,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Print Purchase Order-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Purchase");
     activateItem(":xTuple ERP: *_QMenuBar", "Purchase");
     waitForObjectItem(":*.Purchase_QMenu", "Forms");
@@ -407,6 +493,11 @@ function main()
     
     waitForObject(":Print Purchase Order.Cancel_QPushButton");
     clickButton(":Print Purchase Order.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in printing purchase order" + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -417,6 +508,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Create a Sales Order-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Sales Order");
@@ -457,8 +550,15 @@ function main()
     
     waitForObject(":Sales Order.Cancel_QPushButton");
     clickButton(":Sales Order.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in creating sales order" + e);
+    }
     
     //-----Open Sales Order-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Sales Order");
@@ -476,6 +576,11 @@ function main()
     
     waitForObject(":List Open Sales Orders.Close_QPushButton");
     clickButton(":List Open Sales Orders.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in sending electronic acknowledgement of sales order" + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -484,8 +589,10 @@ function main()
         test.pass("Batch Manager Submitted for Open Sales Order");
     
     else test.fail("Batch Manager not responding");
-    
+  
     //-----Electronic Sales Order Form-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Forms");
@@ -493,11 +600,19 @@ function main()
     
     waitForObjectItem(":*.Forms_QMenu_3", "Send Electronic Sales Order Form ...");
     activateItem(":*.Forms_QMenu_3", "Send Electronic Sales Order Form ...");
+    waitForObject(":_docstack...._QPushButton");
+    clickButton(":_docstack...._QPushButton");
     waitForObject(":_listTab_XTreeWidget");
     doubleClickItem(":_listTab_XTreeWidget", "SO", 5, 5, 0, Qt.LeftButton);
     
     waitForObject(":Review EDI Before Sending.Accept_QPushButton");
     clickButton(":Review EDI Before Sending.Accept_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in sending electronic sales order form" + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -508,6 +623,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Create a Quote-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Quote");
@@ -548,8 +665,15 @@ function main()
     
     waitForObject(":Quote.Cancel_QPushButton");
     clickButton(":Quote.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in creating a quote" + e);
+    }
     
     //-----Electronic Quote-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Forms");
@@ -557,11 +681,18 @@ function main()
     
     waitForObjectItem(":*.Forms_QMenu_3", "Send Electronic Quote ...");
     activateItem(":*.Forms_QMenu_3", "Send Electronic Quote ...");
+    waitForObject(":_docstack...._QPushButton");
+    clickButton(":_docstack...._QPushButton");
     waitForObject(":_listTab_XTreeWidget_7");
     doubleClickItem(":_listTab_XTreeWidget_7", "TTOYS", 5, 5, 0, Qt.LeftButton);
     
     waitForObject(":Review EDI Before Sending.Accept_QPushButton");
     clickButton(":Review EDI Before Sending.Accept_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in sending electronic quote" + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -572,6 +703,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Allocate Reservations-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Utilities");
@@ -597,6 +730,11 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Allocate Reservations screnn" + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -607,6 +745,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Create Planned Orders by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Scheduling");
@@ -630,6 +770,11 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in creating planned order" + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -640,6 +785,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Release Planned Orders by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Scheduling");
@@ -662,6 +809,11 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in releasing planned order" + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -672,6 +824,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Create Buffer Status by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Constraint Management");
@@ -693,6 +847,12 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Creating Buffer Status by Planner code" + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -702,7 +862,10 @@ function main()
     
     else test.fail("Batch Manager not responding");
     
-    //-----Create Buffer Status by Item-----
+    
+      //-----Create Buffer Status by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Constraint Management");
@@ -724,7 +887,11 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
-    
+    }
+    catch(e)
+    {
+        test.fail("Error in Creating Buffer Status by Item" + e);
+    }
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -734,6 +901,8 @@ function main()
     else test.fail("Batch Manager not responding");
   
     //-----Run MPS by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Scheduling");
@@ -755,6 +924,11 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Creating Buffer Status by Planner code" + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -765,6 +939,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Enabling Sites for creating Planned Transfer Order-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Site");
@@ -794,8 +970,15 @@ function main()
     
     waitForObject(":List Sites.Close_QPushButton");
     clickButton(":List Sites.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in enabling item sites " + e);
+    }
     
     //-----Creating a Supply site for the Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Item Site");
@@ -829,10 +1012,31 @@ function main()
     waitForObject(":List Item Sites.Save_QPushButton");
     clickButton(":List Item Sites.Save_QPushButton");
     
+     waitForObject(":_warehouse.Selected:_QRadioButton");
+    clickButton(":_warehouse.Selected:_QRadioButton");
+    waitForObject(":_warehouse._warehouses_WComboBox");
+    clickItem(":_warehouse._warehouses_WComboBox", "WH2", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":_itemSite_XTreeWidget");
+    doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 5, 5, 0, Qt.LeftButton); 
+   
+    waitForObject(":Supply Rules.Site can purchase this Item_QCheckBox");
+    if(!findObject(":Supply Rules.Site can purchase this Item_QCheckBox").checked)
+    clickButton(":Supply Rules.Site can purchase this Item_QCheckBox");
+    
+    waitForObject(":List Item Sites.Save_QPushButton");
+     clickButton(":List Item Sites.Save_QPushButton");
+    
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Creating supply site for item" + e);
+    }
     
     //-----Creating Planned Transfer Order-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Scheduling");
@@ -859,8 +1063,15 @@ function main()
     waitForObject(":Planned Order.Close_QPushButton");
     clickButton(":Planned Order.Close_QPushButton");
     test.log("Planned Transfer Order created");
+    }
+    catch(e)
+    {
+        test.fail("Error in Creating Planned Transfer Order " + e);
+    }
     
     //-----Releasing Planned Transfer Order-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Scheduling");
@@ -882,6 +1093,11 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Releasing Planned Transfer Order " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -891,7 +1107,9 @@ function main()
     
     else test.fail("Batch Manager not responding");
     
-    //-----Time Phased Demand by Plannercode-----  
+    //-----Time Phased Demand by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Capacity Planning");
@@ -921,6 +1139,11 @@ function main()
     
     waitForObject(":Time Phased Demand by Planner Code.Close_QPushButton_2");
     clickButton(":Time Phased Demand by Planner Code.Close_QPushButton_2");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Demand by Planner Code " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -931,6 +1154,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Time Phased Production by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Capacity Planning");
@@ -962,6 +1187,11 @@ function main()
     
     waitForObject(":Time-Phased Production by Planner Code.Close_QPushButton");
     clickButton(":Time-Phased Production by Planner Code.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Production by Planner Code " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -972,6 +1202,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Time Phased Production by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Capacity Planning");
@@ -1003,6 +1235,11 @@ function main()
     
     waitForObject(":Time-Phased Production by Item.Close_QPushButton");
     clickButton(":Time-Phased Production by Item.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Production by Item " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1013,6 +1250,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Time Phased Availability-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Schedule");
     activateItem(":xTuple ERP: *_QMenuBar", "Schedule");
     waitForObjectItem(":*.Schedule_QMenu", "Reports");
@@ -1042,6 +1281,11 @@ function main()
     
     waitForObject(":Time-Phased Availability.Close_QPushButton");
     clickButton(":Time-Phased Availability.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Availability " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1052,6 +1296,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Time Phased Booking by Customer-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -1081,6 +1327,11 @@ function main()
     
     waitForObject(":Time-Phased Bookings by Customer.Close_QPushButton");
     clickButton(":Time-Phased Bookings by Customer.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Booking by Customer " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1091,6 +1342,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Time Phased Booking by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -1122,6 +1375,11 @@ function main()
     
     waitForObject(":Time-Phased Bookings by Item.Close_QPushButton");
     clickButton(":Time-Phased Bookings by Item.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Booking by Item " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1132,6 +1390,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Time Phased Bookings by Product Category-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -1165,6 +1425,12 @@ function main()
     
     waitForObject(":Time-Phased Bookings by Product Category.Close_QPushButton");
     clickButton(":Time-Phased Bookings by Product Category.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Bookings by Product Category " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1175,6 +1441,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Time Phased Sales History by Customer Group-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -1206,6 +1474,11 @@ function main()
     
     waitForObject(":Time-Phased Sales History by Customer Group.Close_QPushButton");
     clickButton(":Time-Phased Sales History by Customer Group.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Sales History by Customer Group " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1216,6 +1489,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Time Phased Sales History by Customer-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -1247,6 +1522,12 @@ function main()
     
     waitForObject(":Time-Phased Sales History by Customer.Close_QPushButton");
     clickButton(":Time-Phased Sales History by Customer.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Sales History by Customer " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1257,6 +1538,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Time Phased Sales History by Customer by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -1288,6 +1571,11 @@ function main()
     
     waitForObject(":Time-Phased Sales History by Customer by Item.Close_QPushButton");
     clickButton(":Time-Phased Sales History by Customer by Item.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Sales History by Customer by Item " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1298,6 +1586,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Time Phased Sales History by Product Category-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -1329,6 +1619,11 @@ function main()
     
     waitForObject(":Time-Phased Sales History by Product Category.Close_QPushButton");
     clickButton(":Time-Phased Sales History by Product Category.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Sales History by Product Category " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1339,6 +1634,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Time Phased Sales History by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Analysis");
@@ -1370,6 +1667,12 @@ function main()
     
     waitForObject(":Time-Phased Sales History by Item.Close_QPushButton");
     clickButton(":Time-Phased Sales History by Item.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Sales History by Item " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1380,6 +1683,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Time Phased Usage Statistics by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Reports");
@@ -1411,7 +1716,11 @@ function main()
     
     waitForObject(":Time-Phased Item Usage Statistics by Item.Close_QPushButton");
     clickButton(":Time-Phased Item Usage Statistics by Item.Close_QPushButton");
-    
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Usage Statistics by Item " + e);
+    }
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -1421,6 +1730,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Update Actual Costs by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products");
     activateItem(":xTuple ERP: *_QMenuBar", "Products");
     waitForObjectItem(":*.Products_QMenu", "Costing");
@@ -1444,6 +1755,12 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Actual Costs by Item " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1454,6 +1771,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Update Actual Costs by Classcode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products");
     activateItem(":xTuple ERP: *_QMenuBar", "Products");
     waitForObjectItem(":*.Products_QMenu", "Costing");
@@ -1475,6 +1794,11 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Actual Costs by Class Code " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1485,6 +1809,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Post Actual Costs by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products");
     activateItem(":xTuple ERP: *_QMenuBar", "Products");
     waitForObjectItem(":*.Products_QMenu", "Costing");
@@ -1508,6 +1834,12 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Posting Actual Costs by Item " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1518,6 +1850,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Post Actual Costs by Classcode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products");
     activateItem(":xTuple ERP: *_QMenuBar", "Products");
     waitForObjectItem(":*.Products_QMenu", "Costing");
@@ -1539,6 +1873,11 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Posting Actual Costs by Class Code " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1549,6 +1888,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Post Standard Costs by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products");
     activateItem(":xTuple ERP: *_QMenuBar", "Products");
     waitForObjectItem(":*.Products_QMenu", "Costing");
@@ -1572,6 +1913,12 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Posting Standard Costs by Item " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1582,6 +1929,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Post Standard Costs by Classcode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products");
     activateItem(":xTuple ERP: *_QMenuBar", "Products");
     waitForObjectItem(":*.Products_QMenu", "Costing");
@@ -1603,6 +1952,11 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Posting Standard Costs by Class Code " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1613,6 +1967,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Update Order Upto Level by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
@@ -1640,6 +1996,12 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Order Upto Level by Item " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1649,7 +2011,9 @@ function main()
     
     else test.fail("Batch Manager not responding");
     
-    //-----Update Order Upto Level by Plannercode-----   
+    //-----Update Order Upto Level by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
@@ -1675,6 +2039,12 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Order Upto Level by Planner Code " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1685,6 +2055,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Update Order Upto Level by Classcode-----    
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
@@ -1710,6 +2082,11 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Order Upto Level by Class Code  " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1720,6 +2097,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Update Reorder Level by Item-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
@@ -1749,6 +2128,12 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Reorder Level by Item " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1759,6 +2144,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Update Reorder Level by Plannercode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
@@ -1786,6 +2173,12 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Reorder Level by Planner Code  " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1796,6 +2189,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Update Reorder Level by Classcode-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
     activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
     waitForObjectItem(":*.Inventory_QMenu", "Utilities");
@@ -1823,6 +2218,11 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Reorder Level by Class Code " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1833,6 +2233,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Time Phased Open AP Items------
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Payable");
@@ -1859,6 +2261,11 @@ function main()
     
     waitForObject(":Payables Aging.Close_QPushButton");
     clickButton(":Payables Aging.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in submitting Time Phased Open AP Items " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1868,7 +2275,9 @@ function main()
     
     else test.fail("Batch Manager not responding");
     
-    //-----Time Phased Open AR Items------   
+    //-----Time Phased Open AR Items------  
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
@@ -1895,6 +2304,12 @@ function main()
     
     waitForObject(":Receivables Aging.Close_QPushButton");
     clickButton(":Receivables Aging.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in  submitting Time Phased Open AR Items " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1905,6 +2320,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Create Recurring Invoice-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Utilities");
@@ -1919,6 +2336,11 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Creating Recurring Invoices " + e);
+    }
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -1928,63 +2350,79 @@ function main()
     
     else test.fail("Batch Manager not responding");
   
-  //-----Create an Invoice-----
-  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
-  activateItem(":xTuple ERP: *_QMenuBar", "Sales");
-  waitForObjectItem(":*.Sales_QMenu", "Billing");
-  activateItem(":*.Sales_QMenu", "Billing");
-  waitForObjectItem(":*.Billing_QMenu", "Invoice");
-  activateItem(":*.Billing_QMenu", "Invoice");
-  type(":*.Billing_QMenu","<Right>");
-  type(":*.Billing_QMenu","<Right>");
-  waitForObjectItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
-  activateItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
-  waitForObject(":List Unposted Invoices.New_QPushButton");
-  clickButton(":List Unposted Invoices.New_QPushButton");
-  
-  waitForObject(":headerTab...._QPushButton");
-  clickButton(":headerTab...._QPushButton");
-  waitForObject(":_listTab_XTreeWidget_8");
-  doubleClickItem(":_listTab_XTreeWidget_8", "TTOYS", 5, 5, 0, Qt.LeftButton);
-  
-  var invoice = findObject(":_invoiceNumber_XLineEdit").text;
-  
-  waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
-  clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
-  waitForObject(":lineItemsTab.New_QPushButton");
-  clickButton(":lineItemsTab.New_QPushButton");
-  waitForObject(":Item...._QPushButton");
-  clickButton(":Item...._QPushButton");
-  waitForObject(":_item_XTreeWidget_6");
-  doubleClickItem(":_item_XTreeWidget_6", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
-  waitForObject(":_ordered_XLineEdit_2");
-  type(":_ordered_XLineEdit_2", "25");
-  waitForObject(":_billed_XLineEdit");
-  type(":_billed_XLineEdit", "25");
-  
-  waitForObject(":Invoice.Save_QPushButton");
-  clickButton(":Invoice.Save_QPushButton");
-  waitForObject(":Invoice.Save_QPushButton_2");
-  clickButton(":Invoice.Save_QPushButton_2"); 
-  
-  //-----Print Invoices(Sales)-----
-  waitForObject(":_invchead_XTreeWidget");
-  clickItem(":_invchead_XTreeWidget", invoice, 5, 5, 1, Qt.LeftButton);
-  
-  waitForObject(":List Unposted Invoices.Print_QPushButton");
-  clickButton(":List Unposted Invoices.Print_QPushButton");
-  
-  waitForObject(":List Unposted Invoices.Print_QPushButton_2");
-  clickButton(":List Unposted Invoices.Print_QPushButton_2");
-  snooze(1);	  
-  nativeType("<Return>");  
-  
-  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-  clickButton(":Review EDI Before Sending.Accept_QPushButton");
-  
-  waitForObject(":List Unposted Invoices.Close_QPushButton");
-  clickButton(":List Unposted Invoices.Close_QPushButton");
-  
+    //-----Create an Invoice-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
+    waitForObjectItem(":*.Sales_QMenu", "Billing");
+    activateItem(":*.Sales_QMenu", "Billing");
+    waitForObjectItem(":*.Billing_QMenu", "Invoice");
+    activateItem(":*.Billing_QMenu", "Invoice");
+    type(":*.Billing_QMenu","<Right>");
+    type(":*.Billing_QMenu","<Right>");
+    waitForObjectItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
+    activateItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
+    waitForObject(":List Unposted Invoices.New_QPushButton");
+    clickButton(":List Unposted Invoices.New_QPushButton");
+    
+    waitForObject(":headerTab...._QPushButton");
+    clickButton(":headerTab...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_8");
+    doubleClickItem(":_listTab_XTreeWidget_8", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    
+    var invoice = findObject(":_invoiceNumber_XLineEdit").text;
+    
+    waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
+    waitForObject(":lineItemsTab.New_QPushButton");
+    clickButton(":lineItemsTab.New_QPushButton");
+    waitForObject(":Item...._QPushButton");
+    clickButton(":Item...._QPushButton");
+    waitForObject(":_item_XTreeWidget_6");
+    doubleClickItem(":_item_XTreeWidget_6", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_ordered_XLineEdit_2");
+    type(":_ordered_XLineEdit_2", "25");
+    waitForObject(":_billed_XLineEdit");
+    type(":_billed_XLineEdit", "25");
+    
+    waitForObject(":Invoice.Save_QPushButton");
+    clickButton(":Invoice.Save_QPushButton");
+    waitForObject(":Invoice.Save_QPushButton_2");
+    clickButton(":Invoice.Save_QPushButton_2"); 
+    }
+    catch(e)
+    {
+        test.fail("Error in Creating Invoice " + e);
+    }
+    
+    
+    //-----Print Invoices(Sales)-----
+    try
+    {
+    waitForObject(":_invchead_XTreeWidget");
+    clickItem(":_invchead_XTreeWidget", invoice, 5, 5, 1, Qt.LeftButton);
+    
+    waitForObject(":List Unposted Invoices.Print_QPushButton");
+    clickButton(":List Unposted Invoices.Print_QPushButton");
+    
+    waitForObject(":List Unposted Invoices.Print_QPushButton_2");
+    clickButton(":List Unposted Invoices.Print_QPushButton_2");
+    snooze(1);	  
+    nativeType("<Return>");  
+    
+    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+    clickButton(":Review EDI Before Sending.Accept_QPushButton");
+    
+    waitForObject(":List Unposted Invoices.Close_QPushButton");
+    clickButton(":List Unposted Invoices.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in printing Invoice " + e);
+    }
+    
+    
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -1992,75 +2430,91 @@ function main()
         test.pass("Batch Manager Submitted for Printing Invoices from Sales");
     
     else test.fail("Batch Manager not responding");
-  
-  //-----Create an Invoice-----
-  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
-  activateItem(":xTuple ERP: *_QMenuBar", "Sales");
-  waitForObjectItem(":*.Sales_QMenu", "Billing");
-  activateItem(":*.Sales_QMenu", "Billing");
-  waitForObjectItem(":*.Billing_QMenu", "Invoice");
-  activateItem(":*.Billing_QMenu", "Invoice");
-  type(":*.Billing_QMenu","<Right>");
-  type(":*.Billing_QMenu","<Right>");
-  waitForObjectItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
-  activateItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
-  
-  waitForObject(":List Unposted Invoices.New_QPushButton");
-  clickButton(":List Unposted Invoices.New_QPushButton");
-  waitForObject(":headerTab...._QPushButton");
-  clickButton(":headerTab...._QPushButton");
-  waitForObject(":_listTab_XTreeWidget_8");
-  doubleClickItem(":_listTab_XTreeWidget_8", "TTOYS", 5, 5, 0, Qt.LeftButton);
-  
-  var invoice =  findObject(":_invoiceNumber_XLineEdit").text;
-  
-  waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
-  clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
-  waitForObject(":lineItemsTab.New_QPushButton");
-  clickButton(":lineItemsTab.New_QPushButton");
-  waitForObject(":Item...._QPushButton");
-  clickButton(":Item...._QPushButton");
-  waitForObject(":_item_XTreeWidget_6");
-  doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);   
-  waitForObject(":_ordered_XLineEdit_2");
-  type(":_ordered_XLineEdit_2", "25");
-  waitForObject(":_billed_XLineEdit");
-  type(":_billed_XLineEdit", "25");
-  
-  waitForObject(":Invoice.Save_QPushButton");
-  clickButton(":Invoice.Save_QPushButton");
-  waitForObject(":Invoice.Save_QPushButton_2");
-  clickButton(":Invoice.Save_QPushButton_2");
-  
-  waitForObject(":List Unposted Invoices.Close_QPushButton");
-  clickButton(":List Unposted Invoices.Close_QPushButton");
-  
-  //-----Print Invoice by Ship via-----
-  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
-  activateItem(":xTuple ERP: *_QMenuBar", "Sales");
-  waitForObjectItem(":*.Sales_QMenu", "Billing");
-  activateItem(":*.Sales_QMenu", "Billing");
-  waitForObjectItem(":*.Billing_QMenu", "Forms");
-  activateItem(":*.Billing_QMenu", "Forms");
-  waitForObjectItem(":*.Forms_QMenu_2", "Print Invoices by Ship Via...");
-  activateItem(":*.Forms_QMenu_2", "Print Invoices by Ship Via...");
-  
-  waitForObject(":Print Invoices by Ship Via.Print_QPushButton");
-  clickButton(":Print Invoices by Ship Via.Print_QPushButton");
-  snooze(1); 
-  nativeType("<Return>");
-  
-  snooze(1);
-  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-  while(object.exists(":Review EDI Before Sending.Accept_QPushButton"))
-  {
-      clickButton(":Review EDI Before Sending.Accept_QPushButton");
-      snooze(1);
-  }
-  
-  waitForObject(":Mark Invoices as Printed?.Yes_QPushButton");
-  clickButton(":Mark Invoices as Printed?.Yes_QPushButton");
-  
+    
+    //-----Create an Invoice-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
+    waitForObjectItem(":*.Sales_QMenu", "Billing");
+    activateItem(":*.Sales_QMenu", "Billing");
+    waitForObjectItem(":*.Billing_QMenu", "Invoice");
+    activateItem(":*.Billing_QMenu", "Invoice");
+    type(":*.Billing_QMenu","<Right>");
+    type(":*.Billing_QMenu","<Right>");
+    waitForObjectItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
+    activateItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
+    
+    waitForObject(":List Unposted Invoices.New_QPushButton");
+    clickButton(":List Unposted Invoices.New_QPushButton");
+    waitForObject(":headerTab...._QPushButton");
+    clickButton(":headerTab...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_8");
+    doubleClickItem(":_listTab_XTreeWidget_8", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    
+    var invoice =  findObject(":_invoiceNumber_XLineEdit").text;
+    
+    waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
+    waitForObject(":lineItemsTab.New_QPushButton");
+    clickButton(":lineItemsTab.New_QPushButton");
+    waitForObject(":Item...._QPushButton");
+    clickButton(":Item...._QPushButton");
+    waitForObject(":_item_XTreeWidget_6");
+    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);   
+    waitForObject(":_ordered_XLineEdit_2");
+    type(":_ordered_XLineEdit_2", "25");
+    waitForObject(":_billed_XLineEdit");
+    type(":_billed_XLineEdit", "25");
+    
+    waitForObject(":Invoice.Save_QPushButton");
+    clickButton(":Invoice.Save_QPushButton");
+    waitForObject(":Invoice.Save_QPushButton_2");
+    clickButton(":Invoice.Save_QPushButton_2");
+    
+    waitForObject(":List Unposted Invoices.Close_QPushButton");
+    clickButton(":List Unposted Invoices.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Creating Invoice " + e);
+    }
+    
+    
+    //-----Print Invoice by Ship via-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
+    waitForObjectItem(":*.Sales_QMenu", "Billing");
+    activateItem(":*.Sales_QMenu", "Billing");
+    waitForObjectItem(":*.Billing_QMenu", "Forms");
+    activateItem(":*.Billing_QMenu", "Forms");
+    waitForObjectItem(":*.Forms_QMenu_2", "Print Invoices by Ship Via...");
+    activateItem(":*.Forms_QMenu_2", "Print Invoices by Ship Via...");
+    
+    waitForObject(":Print Invoices by Ship Via.Print_QPushButton");
+    clickButton(":Print Invoices by Ship Via.Print_QPushButton");
+    snooze(1); 
+    nativeType("<Return>");
+    
+    snooze(1);
+    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+    while(object.exists(":Review EDI Before Sending.Accept_QPushButton"))
+    {
+        clickButton(":Review EDI Before Sending.Accept_QPushButton");
+        snooze(1);
+    }
+    
+    waitForObject(":Mark Invoices as Printed?.Yes_QPushButton");
+    clickButton(":Mark Invoices as Printed?.Yes_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Printing Invoice by Ship via " + e);
+    }
+    
+    
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -2068,35 +2522,44 @@ function main()
         test.pass("Batch Manager Submitted for Printing Invoices by Shipvia");
     
     else test.fail("Batch Manager not responding");
-  
-  //-----Re-Print Invoices-----
-  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
-  activateItem(":xTuple ERP: *_QMenuBar", "Sales");
-  waitForObjectItem(":*.Sales_QMenu", "Billing");
-  activateItem(":*.Sales_QMenu", "Billing");
-  waitForObjectItem(":*.Billing_QMenu", "Forms");
-  activateItem(":*.Billing_QMenu", "Forms");
-  waitForObjectItem(":*.Forms_QMenu_2", "Re-Print Invoices...");
-  activateItem(":*.Forms_QMenu_2", "Re-Print Invoices...");
-  
-  waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit");
-  type(":Re-Print Invoices.XDateEdit_XDateEdit", "-30"); 
-  waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit_2");
-  type(":Re-Print Invoices.XDateEdit_XDateEdit_2", "0");
-  waitForObject(":Re-Print Invoices.Query_QPushButton");
-  clickButton(":Re-Print Invoices.Query_QPushButton");
-  waitForObject(":_invoice_XTreeWidget");
-  clickItem(":_invoice_XTreeWidget", "TTOYS - Tremendous Toys Incorporated", 5, 5, 1, Qt.LeftButton);
-  waitForObject(":Re-Print Invoices.Print_QPushButton");
-  clickButton(":Re-Print Invoices.Print_QPushButton");   
-  snooze(1);	  
-  nativeType("<Return>");
-  
-  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-  clickButton(":Review EDI Before Sending.Accept_QPushButton");
-  
-  waitForObject(":Re-Print Invoices.Close_QPushButton");
-  clickButton(":Re-Print Invoices.Close_QPushButton");
+    
+    //-----Re-Print Invoices-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
+    waitForObjectItem(":*.Sales_QMenu", "Billing");
+    activateItem(":*.Sales_QMenu", "Billing");
+    waitForObjectItem(":*.Billing_QMenu", "Forms");
+    activateItem(":*.Billing_QMenu", "Forms");
+    waitForObjectItem(":*.Forms_QMenu_2", "Re-Print Invoices...");
+    activateItem(":*.Forms_QMenu_2", "Re-Print Invoices...");
+    
+    waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit");
+    type(":Re-Print Invoices.XDateEdit_XDateEdit", "-30"); 
+    waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit_2");
+    type(":Re-Print Invoices.XDateEdit_XDateEdit_2", "0");
+    waitForObject(":Re-Print Invoices.Query_QPushButton");
+    clickButton(":Re-Print Invoices.Query_QPushButton");
+    waitForObject(":_invoice_XTreeWidget");
+    clickItem(":_invoice_XTreeWidget", "TTOYS - Tremendous Toys Incorporated", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Re-Print Invoices.Print_QPushButton");
+    clickButton(":Re-Print Invoices.Print_QPushButton");   
+    snooze(1);	  
+    nativeType("<Return>");
+    
+    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+    clickButton(":Review EDI Before Sending.Accept_QPushButton");
+    
+    waitForObject(":Re-Print Invoices.Close_QPushButton");
+    clickButton(":Re-Print Invoices.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Re Printing Invoice " + e);
+    }
+    
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -2105,23 +2568,33 @@ function main()
         test.pass("Batch Manager Submitted for Re-Printing Invoices from Sales");
     
     else test.fail("Batch Manager not responding");
-  
-  //-----Post Invoices(Sales)-----
-  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
-  activateItem(":xTuple ERP: *_QMenuBar", "Sales");
-  waitForObjectItem(":*.Sales_QMenu", "Billing");
-  activateItem(":*.Sales_QMenu", "Billing");
-  waitForObjectItem(":*.Billing_QMenu", "Forms");
-  activateItem(":*.Billing_QMenu", "Forms");
-  
-  waitForObjectItem(":*.Forms_QMenu_2", "Send Electronic Invoice...");
-  activateItem(":*.Forms_QMenu_2", "Send Electronic Invoice...");
-  waitForObject(":_listTab_XTreeWidget_5");
-  doubleClickItem(":_listTab_XTreeWidget_5", "Tremendous Toys Incorporated", 5, 5, 0, Qt.LeftButton);
-  
-  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-  clickButton(":Review EDI Before Sending.Accept_QPushButton");
-  
+    
+    //-----Post Invoices(Sales)-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
+    waitForObjectItem(":*.Sales_QMenu", "Billing");
+    activateItem(":*.Sales_QMenu", "Billing");
+    waitForObjectItem(":*.Billing_QMenu", "Forms");
+    activateItem(":*.Billing_QMenu", "Forms");
+    
+    waitForObjectItem(":*.Forms_QMenu_2", "Send Electronic Invoice...");
+    activateItem(":*.Forms_QMenu_2", "Send Electronic Invoice...");
+     waitForObject(":_docstack...._QPushButton");
+    clickButton(":_docstack...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_5");
+    doubleClickItem(":_listTab_XTreeWidget_5", "Tremendous Toys Incorporated", 5, 5, 0, Qt.LeftButton);
+    
+    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+    clickButton(":Review EDI Before Sending.Accept_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Posting Invoice " + e);
+    }
+    
+    
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -2129,61 +2602,77 @@ function main()
         test.pass("Batch Manager Submitted for Posting Invoices from Sales module");
     
     else test.fail("Batch Manager not responding");
-  
-  //-----Create an Invoice-----
-  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
-  activateItem(":xTuple ERP: *_QMenuBar", "Sales");
-  waitForObjectItem(":*.Sales_QMenu", "Billing");
-  activateItem(":*.Sales_QMenu", "Billing");
-  waitForObjectItem(":*.Billing_QMenu", "Invoice");
-  activateItem(":*.Billing_QMenu", "Invoice");
-  type(":*.Billing_QMenu","<Right>");
-  type(":*.Billing_QMenu","<Right>");
-  waitForObjectItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
-  activateItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
-  waitForObject(":List Unposted Invoices.New_QPushButton");
-  clickButton(":List Unposted Invoices.New_QPushButton");
-  
-  waitForObject(":headerTab...._QPushButton");
-  clickButton(":headerTab...._QPushButton");
-  waitForObject(":_listTab_XTreeWidget_8");
-  doubleClickItem(":_listTab_XTreeWidget_8", "TTOYS", 5, 5, 0, Qt.LeftButton);
-  
-  var arinvoice = findObject(":_invoiceNumber_XLineEdit").text;
-  
-  waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
-  clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
-  waitForObject(":lineItemsTab.New_QPushButton");
-  clickButton(":lineItemsTab.New_QPushButton");
-  waitForObject(":Item...._QPushButton");
-  clickButton(":Item...._QPushButton");
-  waitForObject(":_item_XTreeWidget_6");
-  doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
-  waitForObject(":_ordered_XLineEdit_2");
-  type(":_ordered_XLineEdit_2", "25");
-  waitForObject(":_billed_XLineEdit");
-  type(":_billed_XLineEdit", "25");
-  
-  waitForObject(":Invoice.Save_QPushButton");
-  clickButton(":Invoice.Save_QPushButton");
-  waitForObject(":Invoice.Save_QPushButton_2");
-  clickButton(":Invoice.Save_QPushButton_2");
-  
-  //-----Print Invoices(AR)-----
-  waitForObject(":_invchead_XTreeWidget");
-  clickItem(":_invchead_XTreeWidget", arinvoice , 5, 5, 1, Qt.LeftButton);
-  waitForObject(":List Unposted Invoices.Print_QPushButton");
-  clickButton(":List Unposted Invoices.Print_QPushButton");
-  waitForObject(":List Unposted Invoices.Print_QPushButton_2");
-  clickButton(":List Unposted Invoices.Print_QPushButton_2");
-  snooze(1);	  
-  nativeType("<Return>");
-  
-  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-  clickButton(":Review EDI Before Sending.Accept_QPushButton");
-      
-  waitForObject(":List Unposted Invoices.Close_QPushButton");
-  clickButton(":List Unposted Invoices.Close_QPushButton");  
+    
+    //-----Create an Invoice-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: *_QMenuBar", "Sales");
+    waitForObjectItem(":*.Sales_QMenu", "Billing");
+    activateItem(":*.Sales_QMenu", "Billing");
+    waitForObjectItem(":*.Billing_QMenu", "Invoice");
+    activateItem(":*.Billing_QMenu", "Invoice");
+    type(":*.Billing_QMenu","<Right>");
+    type(":*.Billing_QMenu","<Right>");
+    waitForObjectItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
+    activateItem(":*.Invoice_QMenu_2", "List Unposted Invoices...");
+    waitForObject(":List Unposted Invoices.New_QPushButton");
+    clickButton(":List Unposted Invoices.New_QPushButton");
+    
+    waitForObject(":headerTab...._QPushButton");
+    clickButton(":headerTab...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_8");
+    doubleClickItem(":_listTab_XTreeWidget_8", "TTOYS", 5, 5, 0, Qt.LeftButton);
+    
+    var arinvoice = findObject(":_invoiceNumber_XLineEdit").text;
+    
+    waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
+    waitForObject(":lineItemsTab.New_QPushButton");
+    clickButton(":lineItemsTab.New_QPushButton");
+    waitForObject(":Item...._QPushButton");
+    clickButton(":Item...._QPushButton");
+    waitForObject(":_item_XTreeWidget_6");
+    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_ordered_XLineEdit_2");
+    type(":_ordered_XLineEdit_2", "25");
+    waitForObject(":_billed_XLineEdit");
+    type(":_billed_XLineEdit", "25");
+    
+    waitForObject(":Invoice.Save_QPushButton");
+    clickButton(":Invoice.Save_QPushButton");
+    waitForObject(":Invoice.Save_QPushButton_2");
+    clickButton(":Invoice.Save_QPushButton_2");
+    }
+    catch(e)
+    {
+        test.fail("Error in Creating Invoice " + e);
+    }
+    
+    
+    //-----Print Invoices(AR)-----
+    try
+    {
+    waitForObject(":_invchead_XTreeWidget");
+    clickItem(":_invchead_XTreeWidget", arinvoice , 5, 5, 1, Qt.LeftButton);
+    waitForObject(":List Unposted Invoices.Print_QPushButton");
+    clickButton(":List Unposted Invoices.Print_QPushButton");
+    waitForObject(":List Unposted Invoices.Print_QPushButton_2");
+    clickButton(":List Unposted Invoices.Print_QPushButton_2");
+    snooze(1);	  
+    nativeType("<Return>");
+    
+    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+    clickButton(":Review EDI Before Sending.Accept_QPushButton");
+    
+    waitForObject(":List Unposted Invoices.Close_QPushButton");
+    clickButton(":List Unposted Invoices.Close_QPushButton");  
+    }
+    catch(e)
+    {
+        test.fail("Error in printing Invoice " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -2192,36 +2681,45 @@ function main()
         test.pass("Batch Manager Submitted for Printing Invoices from AR module");
     
     else test.fail("Batch Manager not responding");
-  
-  //-----Re-Print Invoices(AR)-----
-  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
-  activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
-  waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
-  activateItem(":*.Accounting_QMenu", "Accounts Receivable");
-  waitForObjectItem(":*.Accounts Receivable_QMenu", "Forms");
-  activateItem(":*.Accounts Receivable_QMenu", "Forms");
-  waitForObjectItem(":*.Forms_QMenu_4", "Re-Print Invoices...");
-  activateItem(":*.Forms_QMenu_4", "Re-Print Invoices...");
-  
-  waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit");
-  type(":Re-Print Invoices.XDateEdit_XDateEdit", "-30");
-  waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit_2");
-  type(":Re-Print Invoices.XDateEdit_XDateEdit_2", "0");
-  waitForObject(":Re-Print Invoices.Query_QPushButton");
-  clickButton(":Re-Print Invoices.Query_QPushButton");
-  waitForObject(":_invoice_XTreeWidget");
-  clickItem(":_invoice_XTreeWidget", "TTOYS - Tremendous Toys Incorporated", 5, 5, 1, Qt.LeftButton);
-  waitForObject(":Re-Print Invoices.Print_QPushButton");
-  clickButton(":Re-Print Invoices.Print_QPushButton");   
-  snooze(1);	  
-  nativeType("<Return>");
-  
-  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-  clickButton(":Review EDI Before Sending.Accept_QPushButton");
-  
-  waitForObject(":Re-Print Invoices.Close_QPushButton");
-  clickButton(":Re-Print Invoices.Close_QPushButton");
-  
+    
+    //-----Re-Print Invoices(AR)-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
+    waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
+    activateItem(":*.Accounting_QMenu", "Accounts Receivable");
+    waitForObjectItem(":*.Accounts Receivable_QMenu", "Forms");
+    activateItem(":*.Accounts Receivable_QMenu", "Forms");
+    waitForObjectItem(":*.Forms_QMenu_4", "Re-Print Invoices...");
+    activateItem(":*.Forms_QMenu_4", "Re-Print Invoices...");
+    
+    waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit");
+    type(":Re-Print Invoices.XDateEdit_XDateEdit", "-30");
+    waitForObject(":Re-Print Invoices.XDateEdit_XDateEdit_2");
+    type(":Re-Print Invoices.XDateEdit_XDateEdit_2", "0");
+    waitForObject(":Re-Print Invoices.Query_QPushButton");
+    clickButton(":Re-Print Invoices.Query_QPushButton");
+    waitForObject(":_invoice_XTreeWidget");
+    clickItem(":_invoice_XTreeWidget", "TTOYS - Tremendous Toys Incorporated", 5, 5, 1, Qt.LeftButton);
+    waitForObject(":Re-Print Invoices.Print_QPushButton");
+    clickButton(":Re-Print Invoices.Print_QPushButton");   
+    snooze(1);	  
+    nativeType("<Return>");
+    
+    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+    clickButton(":Review EDI Before Sending.Accept_QPushButton");
+    
+    waitForObject(":Re-Print Invoices.Close_QPushButton");
+    clickButton(":Re-Print Invoices.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Re Printing Invoice " + e);
+    }
+    
+    
+    
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -2229,25 +2727,36 @@ function main()
         test.pass("Batch Manager Submitted for Re-Printing Invoices from AR module");
     
     else test.fail("Batch Manager not responding");
-  
-  //-----Post Invoices(AR)-----
-  waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
-  activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
-  waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
-  activateItem(":*.Accounting_QMenu", "Accounts Receivable");
-  waitForObjectItem(":*.Accounts Receivable_QMenu", "Invoice");
-  activateItem(":*.Accounts Receivable_QMenu", "Invoice");
-  type(":*.Accounts Receivable_QMenu", "<Right>");
-  type(":*.Accounts Receivable_QMenu", "<Right>");
-  
-  waitForObjectItem(":*.Invoice_QMenu", "Send Electronic Invoice...");
-  activateItem(":*.Invoice_QMenu", "Send Electronic Invoice...");
-  waitForObject(":_listTab_XTreeWidget_5");
-  doubleClickItem(":_listTab_XTreeWidget_5", "Tremendous Toys Incorporated", 5, 5, 0, Qt.LeftButton);
-  
-  waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-  clickButton(":Review EDI Before Sending.Accept_QPushButton");
-  
+    
+    //-----Post Invoices(AR)-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
+    activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
+    waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
+    activateItem(":*.Accounting_QMenu", "Accounts Receivable");
+    waitForObjectItem(":*.Accounts Receivable_QMenu", "Invoice");
+    activateItem(":*.Accounts Receivable_QMenu", "Invoice");
+    type(":*.Accounts Receivable_QMenu", "<Right>");
+    type(":*.Accounts Receivable_QMenu", "<Right>");
+     waitForObject(":_docstack...._QPushButton");
+    clickButton(":_docstack...._QPushButton");
+    waitForObjectItem(":*.Invoice_QMenu", "Send Electronic Invoice...");
+    activateItem(":*.Invoice_QMenu", "Send Electronic Invoice...");
+    waitForObject(":_docstack...._QPushButton");
+    clickButton(":_docstack...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_5");
+    doubleClickItem(":_listTab_XTreeWidget_5", "Tremendous Toys Incorporated", 5, 5, 0, Qt.LeftButton);
+    
+    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+    clickButton(":Review EDI Before Sending.Accept_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Posting Invoice " + e);
+    }
+    
+    
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -2257,6 +2766,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Post Standard Journal-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "General Ledger");
@@ -2283,6 +2794,12 @@ function main()
     
     waitForObject(":Post Standard Journal.Close_QPushButton");
     clickButton(":Post Standard Journal.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Posting Standard Journal " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -2293,6 +2810,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Post Standard Journal Group-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "General Ledger");
@@ -2319,6 +2838,13 @@ function main()
     
     waitForObject(":Post Standard Journal Group.Close_QPushButton");
     clickButton(":Post Standard Journal Group.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Posting Standard Journal Group " + e);
+    }
+    
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -2329,6 +2855,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Update Late Customer Credit Status-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Utilities");
@@ -2343,6 +2871,12 @@ function main()
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
     clickButton(":Submit Action to Batch Manager.Submit_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Late Customer Credit Status"+ e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -2353,6 +2887,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Print CreditMemo-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
@@ -2385,6 +2921,12 @@ function main()
     
     waitForObject(":Open Receivables.Close_QPushButton");
     clickButton(":Open Receivables.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in printing Credit Memo " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -2395,6 +2937,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Print Statement by Customer-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
@@ -2417,6 +2961,12 @@ function main()
     
     waitForObject(":Print Statement by Customer.Close_QPushButton");
     clickButton(":Print Statement by Customer.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Print Statement by Customer " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -2427,6 +2977,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Print Statement by Customer Type-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
@@ -2447,6 +2999,12 @@ function main()
     
     waitForObject(":Print Statements by Customer Type.Close_QPushButton");
     clickButton(":Print Statements by Customer Type.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Print Statement by Customer Type " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -2455,8 +3013,10 @@ function main()
         test.pass("Batch Manager Submitted for Printing Statement by Customer Type");
     
     else test.fail("Batch Manager not responding");
-    
+  
     //-----Print CreditMemo-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
     waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
@@ -2489,6 +3049,12 @@ function main()
     
     waitForObject(":Open Receivables.Close_QPushButton");
     clickButton(":Open Receivables.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Printing Credit Memo  " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -2499,6 +3065,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Operation Buffer Status-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Manufacture");
     activateItem(":xTuple ERP: *_QMenuBar", "Manufacture");
     waitForObjectItem(":*.Manufacture_QMenu", "Reports");
@@ -2523,6 +3091,12 @@ function main()
     
     waitForObject(":Work Order Operation Buffer Status by Work Center.Close_QPushButton");
     clickButton(":Work Order Operation Buffer Status by Work Center.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Updating Operation Buffer Status " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -2533,6 +3107,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //-----Incident-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "CRM");
     activateItem(":xTuple ERP: *_QMenuBar", "CRM");
     waitForObjectItem(":*.CRM_QMenu", "Incident");
@@ -2573,6 +3149,12 @@ function main()
     waitForObject(":Incident.Save_QPushButton");
     clickButton(":Incident.Save_QPushButton");
     test.log("Created an Incident with alarms");
+    }
+    catch(e)
+    {
+        test.fail("Error in Creating Incident " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
@@ -2583,6 +3165,8 @@ function main()
     else test.fail("Batch Manager not responding");
     
     //------Create an EDI Profile-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: *.System_QMenu", "Master Information");
@@ -2628,8 +3212,16 @@ function main()
     waitForObject(":List EDI Profiles.Close_QPushButton");
     clickButton(":List EDI Profiles.Close_QPushButton");
     test.log("EDI Profile for ZTOYS-Quote is created");
+    }
+    catch(e)
+    {
+        test.fail("Error in Creating EDI profile " + e);
+    }
+    
     
     //-----Create a Prospect-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Prospect");
@@ -2657,8 +3249,16 @@ function main()
     if(!clickItem(":List Prospects._prospect_XTreeWidget", "ZTOYS", 5, 5, 1, Qt.LeftButton))
         test.pass("Prospect - ZTOYS created"); 
     else test.fail("Prospect - ZTOYS not created");
+    }
+    catch(e)
+    {
+        test.fail("Error in Creating Prospect " + e);
+    }
+    
     
     //-----Attach an EDI Profile to Prospect-----
+    try
+    {
     waitForObject(":List Prospects._prospect_XTreeWidget");
     doubleClickItem(":List Prospects._prospect_XTreeWidget", "ZTOYS", 5, 5, 0, Qt.LeftButton);
     
@@ -2680,8 +3280,16 @@ function main()
     
     waitForObject(":List Prospects.Close_QPushButton");
     clickButton(":List Prospects.Close_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in attaching EDI profile to Prospect " + e);
+    }
+    
     
     //-----Create a Quote using Prospect-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Quote");
@@ -2723,8 +3331,16 @@ function main()
     
     waitForObject(":Quote.Cancel_QPushButton"); 
     clickButton(":Quote.Cancel_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Creating Quote by Prospect " + e);
+    }
+    
     
     //-----Electronic Quote for Prospect-----
+    try
+    {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Forms");
@@ -2732,11 +3348,19 @@ function main()
     waitForObjectItem(":*.Forms_QMenu_3", "Send Electronic Quote ...");
     activateItem(":*.Forms_QMenu_3", "Send Electronic Quote ...");
     
+    waitForObject(":_docstack...._QPushButton");
+    clickButton(":_docstack...._QPushButton");
     waitForObject(":_listTab_XTreeWidget_7");
     doubleClickItem(":_listTab_XTreeWidget_7", quote, 5, 5, 0, Qt.LeftButton);
     
     waitForObject(":Review EDI Before Sending.Accept_QPushButton");
     clickButton(":Review EDI Before Sending.Accept_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in Submitting Electronic Quote " + e);
+    }
+    
     
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
