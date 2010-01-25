@@ -1,6 +1,5 @@
 function main()
 {
-    
     source(findFile("scripts","functions.js"));
     
     //---login Application--------
@@ -9,46 +8,192 @@ function main()
     
     if(appEdition=="Manufacturing")
     {
+      
+            //-------------Standard Labor Rate -------------------
+            try{
+                waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+                activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+                waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+                activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+                waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
+                activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
+                
+                waitForObject(":List Standard Labor Rates.New_QPushButton_3");
+                clickButton(":List Standard Labor Rates.New_QPushButton_3");
+                waitForObject(":_code_XLineEdit_17");
+                type(":_code_XLineEdit_17", "Assembly");
+                waitForObject(":_description_XLineEdit_41");
+                type(":_description_XLineEdit_41", "Assembly Rate");
+                type(":_rate_XLineEdit_3", "12.00");
+                waitForObject(":Standard Labor Rate.Save_QPushButton_2");
+                clickButton(":Standard Labor Rate.Save_QPushButton_2");
+                waitForObject(":_lbrrate_XTreeWidget_2");
+                if(object.exists("{column='0' container=':_lbrrate_XTreeWidget_2' text='Assembly' type='QModelIndex'}"))
+                    test.pass("Standard Labor Rate created: Assembly");
+                
+                waitForObject(":List Standard Labor Rates.New_QPushButton_3");
+                clickButton(":List Standard Labor Rates.New_QPushButton_3");
+                waitForObject(":_code_XLineEdit_17");
+                type(":_code_XLineEdit_17", "SETUP");
+                waitForObject(":_description_XLineEdit_41");
+                type(":_description_XLineEdit_41", "Setup Rate");
+                type(":_rate_XLineEdit_3", "15.00");
+                waitForObject(":Standard Labor Rate.Save_QPushButton_2");
+                clickButton(":Standard Labor Rate.Save_QPushButton_2");
+                waitForObject(":_lbrrate_XTreeWidget_2");
+                if(object.exists(":_lbrrate.SETUP_QModelIndex"))
+                    test.pass("Standard Labor Rate created: SETUP");
+                else test.fail("Standard Labor Rate not created: SETUP");
+                
+                waitForObject(":List Standard Labor Rates.Close_QPushButton_3");
+                clickButton(":List Standard Labor Rates.Close_QPushButton_3");
+            }catch(e){test.fail("Exception in creating Standard Labor Rate:"+e);}
         
-        //-------------Standard Labor Rate -------------------
-        try{
+            try{
+            //---------Create Work Centers------------
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
             activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
-            activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers...");
+            activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers...");
             
-            waitForObject(":List Standard Labor Rates.New_QPushButton_3");
-            clickButton(":List Standard Labor Rates.New_QPushButton_3");
-            waitForObject(":_code_XLineEdit_17");
-            type(":_code_XLineEdit_17", "Assembly");
-            waitForObject(":_description_XLineEdit_41");
-            type(":_description_XLineEdit_41", "Assembly Rate");
-            type(":_rate_XLineEdit_3", "12.00");
-            waitForObject(":Standard Labor Rate.Save_QPushButton_2");
-            clickButton(":Standard Labor Rate.Save_QPushButton_2");
-            waitForObject(":_lbrrate_XTreeWidget_2");
-            if(object.exists("{column='0' container=':_lbrrate_XTreeWidget_2' text='Assembly' type='QModelIndex'}"))
-                test.pass("Standard Labor Rate created: Assembly");
+            waitForObject(":List Work Centers.New_QPushButton");
+            clickButton(":List Work Centers.New_QPushButton");
+            waitForObject(":Work Center._code_XLineEdit");
+            type(":Work Center._code_XLineEdit", "ASSEMBLY1");
+            waitForObject(":Work Center._description_XLineEdit");
+            type(":Work Center._description_XLineEdit", "Assembly Work Center #1");
+            waitForObject(":Work Center._warehouse_WComboBox");
+            clickItem(":Work Center._warehouse_WComboBox","WH1",0,0,0,Qt.LeftButton);
+            waitForObject(":Setup Labor Rate.Specify Labor Rate:_QRadioButton");
+            clickButton(":Setup Labor Rate.Specify Labor Rate:_QRadioButton");
+            waitForObject(":Setup Labor Rate._setupRate_XLineEdit");
+            findObject(":Setup Labor Rate._setupRate_XLineEdit").clear();
+            type(":Setup Labor Rate._setupRate_XLineEdit", "10");
+            waitForObject(":Run Labor Rate.Specify Labor Rate:_QRadioButton");
+            clickButton(":Run Labor Rate.Specify Labor Rate:_QRadioButton");
+            waitForObject(":Run Labor Rate._runRate_XLineEdit");
+            findObject(":Run Labor Rate._runRate_XLineEdit").clear();
+            type(":Run Labor Rate._runRate_XLineEdit", "10");
+            waitForObject(":Overhead._numOfMachines_QSpinBox");
+            findObject(":Overhead._numOfMachines_QSpinBox").clear();
+            type(":Overhead._numOfMachines_QSpinBox", "1");
+            waitForObject(":Overhead._numOfPeople_QSpinBox");
+            findObject(":Overhead._numOfPeople_QSpinBox").clear()
+                    type(":Overhead._numOfPeople_QSpinBox", "1");
+            waitForObject(":Overhead._overheadPrcntOfLabor_XLineEdit");
+            findObject(":Overhead._overheadPrcntOfLabor_XLineEdit").clear();
+            type(":Overhead._overheadPrcntOfLabor_XLineEdit", "10");
+            waitForObject(":Overhead._overheadPerLaborHour_XLineEdit");
+            findObject(":Overhead._overheadPerLaborHour_XLineEdit").clear();
+            type(":Overhead._overheadPerLaborHour_XLineEdit", "0");
+            waitForObject(":Overhead._overheadPerMachHour_XLineEdit");
+            findObject(":Overhead._overheadPerMachHour_XLineEdit").clear();
+            type(":Overhead._overheadPerMachHour_XLineEdit", "0");
+            waitForObject(":Overhead._overheadPerUnit_XLineEdit");
+            findObject(":Overhead._overheadPerUnit_XLineEdit").clear();
+            type(":Overhead._overheadPerUnit_XLineEdit", "0");
             
-            waitForObject(":List Standard Labor Rates.New_QPushButton_3");
-            clickButton(":List Standard Labor Rates.New_QPushButton_3");
-            waitForObject(":_code_XLineEdit_17");
-            type(":_code_XLineEdit_17", "SETUP");
-            waitForObject(":_description_XLineEdit_41");
-            type(":_description_XLineEdit_41", "Setup Rate");
-            type(":_rate_XLineEdit_3", "15.00");
-            waitForObject(":Standard Labor Rate.Save_QPushButton_2");
-            clickButton(":Standard Labor Rate.Save_QPushButton_2");
-            waitForObject(":_lbrrate_XTreeWidget_2");
-            if(object.exists(":_lbrrate.SETUP_QModelIndex"))
-                test.pass("Standard Labor Rate created: SETUP");
-            else test.fail("Standard Labor Rate not created: SETUP");
+            waitForObject(":Work Center.qt_tabwidget_tabbar_QTabBar");
+            clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar", "Scheduling");
+            snooze(1);
+            waitForObject(":Department.VirtualClusterLineEdit_DeptClusterLineEdit");
+            type(":Department.VirtualClusterLineEdit_DeptClusterLineEdit", "mfg");
+            waitForObject(":Department.VirtualClusterLineEdit_DeptClusterLineEdit");
+            type(":Department.VirtualClusterLineEdit_DeptClusterLineEdit", "<Tab>");
+            waitForObject(":Average._avgQueueDays_QSpinBox");
+            findObject(":Average._avgQueueDays_QSpinBox").clear();
+            type(":Average._avgQueueDays_QSpinBox", "0");
+            waitForObject(":Average._avgSetup_XLineEdit");
+            findObject(":Average._avgSetup_XLineEdit").clear();
+            type(":Average._avgSetup_XLineEdit", "6");
+            waitForObject(":Average._setupType_XComboBox");
+            clickItem(":Average._setupType_XComboBox","Labor Time",0,0,0,Qt.LeftButton);
+            waitForObject(":Capacity._dailyCapacity_XLineEdit");
+            findObject(":Capacity._dailyCapacity_XLineEdit").clear();
+            type(":Capacity._dailyCapacity_XLineEdit", "480");
+            waitForObject(":Capacity._efficiencyFactor_XLineEdit");
+            type(":Capacity._efficiencyFactor_XLineEdit", "100");
             
-            waitForObject(":List Standard Labor Rates.Close_QPushButton_3");
-            clickButton(":List Standard Labor Rates.Close_QPushButton_3");
-        }catch(e){test.fail("Exception in creating Standard Labor Rate:"+e);}
+            waitForObject(":Work Center.qt_tabwidget_tabbar_QTabBar");
+            clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar", "Notes");
+            waitForObject(":_notesTab._comments_QTextEdit");
+            findObject(":_notesTab._comments_QTextEdit").clear();
+            type(":_notesTab._comments_QTextEdit", "Assembly Work Center Number 1");
+            waitForObject(":Work Center.Save_QPushButton");
+            clickButton(":Work Center.Save_QPushButton");
+            waitForObject(":List Work Centers._wrkcnt_XTreeWidget");
+            if(object.exists(":_wrkcnt.ASSEMBLY1_QModelIndex_2"))
+                test.pass("Work Center created: ASSEMBLY1");
+            else test.fail("Work Center not created: ASSEMBLY1");
+            mouseClick(":_wrkcnt.ASSEMBLY1_QModelIndex_2", 0, 0, 0, Qt.LeftButton);
+            // Verification Point 'VP5'
+            test.compare(findObject(":_wrkcnt.ASSEMBLY1_QModelIndex_2").text, "ASSEMBLY1");
+            waitForObject(":List Work Centers.Copy_QPushButton");
+            clickButton(":List Work Centers.Copy_QPushButton");
+            
+            waitForObject(":Work Center._code_XLineEdit");
+            findObject(":Work Center._code_XLineEdit").clear();
+            type(":Work Center._code_XLineEdit", "PAINT1");
+            waitForObject(":Work Center._description_XLineEdit");
+            findObject(":Work Center._description_XLineEdit").clear();
+            type(":Work Center._description_XLineEdit", "Paint Work Center #1");
+            waitForObject(":Work Center.qt_tabwidget_tabbar_QTabBar");
+            clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar", "Scheduling");
+            snooze(1);
+            waitForObject(":Department.VirtualClusterLineEdit_DeptClusterLineEdit");
+            type(":Department.VirtualClusterLineEdit_DeptClusterLineEdit", "mfg");
+            waitForObject(":Work Center.qt_tabwidget_tabbar_QTabBar");
+            clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar", "Notes");
+            waitForObject(":_notesTab._comments_QTextEdit");
+            findObject(":_notesTab._comments_QTextEdit").clear();
+            type(":_notesTab._comments_QTextEdit", "Paint Work Center Number 1");
+            waitForObject(":Work Center.Save_QPushButton");
+            clickButton(":Work Center.Save_QPushButton");
+            waitForObject(":List Work Centers._wrkcnt_XTreeWidget");
+            if(object.exists("{column='1' container=':List Work Centers._wrkcnt_XTreeWidget' text='PAINT1' type='QModelIndex'}"))
+                test.pass("Work Center created: PAINT1");
+            else test.fail("Work Center not created: PAINT1");
+            mouseClick(":_wrkcnt.ASSEMBLY1_QModelIndex_2", 0, 0, 0, Qt.LeftButton);
+            waitForObject(":List Work Centers.Copy_QPushButton");
+            clickButton(":List Work Centers.Copy_QPushButton");
+            
+            waitForObject(":Work Center._code_XLineEdit");
+            findObject(":Work Center._code_XLineEdit").clear();
+            type(":Work Center._code_XLineEdit", "SHIPPING1");
+            waitForObject(":Work Center._description_XLineEdit");
+            findObject(":Work Center._description_XLineEdit").clear();
+            type(":Work Center._description_XLineEdit", "Shipping Work Center #1");
+            waitForObject(":Setup Labor Rate.Select Standard Rate:_QRadioButton");
+            clickButton(":Setup Labor Rate.Select Standard Rate:_QRadioButton");
+            clickItem(":Setup Labor Rate._stdSetupRate_XComboBox_4","Assembly",0,0,0,Qt.LeftButton);
+            clickButton(":Run Labor Rate.Select Standard Rate:_QRadioButton");
+            clickItem(":Run Labor Rate._stdRunRate_XComboBox_3","SETUP",0,0,0,Qt.LeftButton);
+            
+            waitForObject(":Work Center.qt_tabwidget_tabbar_QTabBar");
+            clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar", "Scheduling");
+            snooze(1);
+            waitForObject(":Department.VirtualClusterLineEdit_DeptClusterLineEdit");
+            type(":Department.VirtualClusterLineEdit_DeptClusterLineEdit", "mfg");
+            
+            waitForObject(":Work Center.qt_tabwidget_tabbar_QTabBar");
+            clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar", "Notes");
+            snooze(1);
+            waitForObject(":_notesTab._comments_QTextEdit");
+            findObject(":_notesTab._comments_QTextEdit").clear();
+            type(":_notesTab._comments_QTextEdit", "Shipping Work Center Number 1");
+            waitForObject(":Work Center.Save_QPushButton");
+            clickButton(":Work Center.Save_QPushButton");
+            waitForObject(":List Work Centers._wrkcnt_XTreeWidget");
+            if(object.exists("{column='1' container=':List Work Centers._wrkcnt_XTreeWidget' text='SHIPPING1' type='QModelIndex'}"))
+                test.pass("Work Center created: SHIPPING1");
+            else test.fail("Work Center not created: SHIPPING1");
+            
+            waitForObject(":List Work Centers.Close_QPushButton");
+            clickButton(":List Work Centers.Close_QPushButton");
+        }catch(e){test.fail("Exception in creating work center:"+e)}
+        
         
         //---------------------Products: Standard Operation--------------------
         try{
@@ -517,6 +662,8 @@ function main()
         waitForObject(":Bills of Materials.Close_QPushButton");
         clickButton(":Bills of Materials.Close_QPushButton");
     }catch(e){test.fail("Exception in creating BOM for Item TSUB1"+e);}
+    
+    
     
     
     
