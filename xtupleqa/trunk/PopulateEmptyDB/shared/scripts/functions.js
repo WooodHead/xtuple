@@ -79,6 +79,7 @@ function findApplicationEdition()
     snooze(0.1);
     waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu");
     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+    snooze(1);
     waitForObject(":Database Information.*_QLabel");
     var appEdition = findObject(":Database Information.*_QLabel").text;
     clickButton(":Database Information.Save_QPushButton");
@@ -477,7 +478,7 @@ function createUserByRole(userrole)
         waitForObject(":List Employees.Save_QPushButton");
         clickButton(":List Employees.Save_QPushButton");
         waitForObject(":Employee.Save_QPushButton");
-//        clickButton(":Employee.Save_QPushButton");
+        clickButton(":Employee.Save_QPushButton");
         snooze(2);
         waitForObject(":_frame._emp_XTreeWidget");
         if(object.exists("{column='1' container=':_frame._emp_XTreeWidget' text='"+username+"' type='QModelIndex'}"))
@@ -551,7 +552,7 @@ function COA(COACompany,COAProfit,COANumber,COASub,COADesc,COAType,COASubType)
         type(":_extReference_XLineEdit_2", COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub);
         waitForObject(":Account Number._type_XComboBox");
         clickItem(":Account Number._type_XComboBox", COAType, 0, 0, 1, Qt.LeftButton);
-        snooze(0.5);
+        snooze(1);
         waitForObject(":Account Number._subType_XComboBox");
         type(":Account Number._subType_XComboBox", COASubType);
         snooze(0.5);
@@ -616,6 +617,7 @@ function defineTaxAuth(ta)
     type(":groupBox.Postal Code:_XLineEdit", "323525");
     clickItem(":groupBox._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
     clickButton(":Tax Authority.Save_QPushButton");
+    snooze(2);
     waitForObject(":List Tax Authorities._taxauth_XTreeWidget");
     if(object.exists(":_taxauth.TAX-AUTH1_QModelIndex"))
         test.pass("Tax Authority created:TAX-AUTH1");
@@ -637,6 +639,7 @@ function defineTaxCode(tc)
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Codes...");
         activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Codes...");
+        
         
         waitForObject(":List Tax Codes.New_QPushButton");
         clickButton(":List Tax Codes.New_QPushButton");
@@ -677,8 +680,8 @@ function defineTaxCode(tc)
         clickButton(":Tax Code Rate.Save_QPushButton");
         waitForObject(":Tax Code.Save_QPushButton");
         clickButton(":Tax Code.Save_QPushButton");
-        if(!clickItem(":List Tax Codes._tax_XTreeWidget", "TAXAUTH1-GM", 5, 5, 1, Qt.LeftButton))
-            test.pass("Tax Code created:TAXAUTH1-GM");
+        if(object.exists("{column='0' container=':List Tax Codes._tax_XTreeWidget' text='TAXAUTH1-GM' type='QModelIndex'}"))
+                test.pass("Tax Code created:TAXAUTH1-GM");
     } catch (e) { test.fail("caught exception " + e + " looking for tax code TAXAUTH1-GM"); }
     
     try{
@@ -717,7 +720,7 @@ function defineTaxCode(tc)
         clickButton(":Tax Code Rate.Save_QPushButton");
         waitForObject(":Tax Code.Save_QPushButton");
         clickButton(":Tax Code.Save_QPushButton");
-        if(!clickItem(":List Tax Codes._tax_XTreeWidget", "TAXAUTH1-EDU", 5, 5, 1, Qt.LeftButton))
+        if(object.exists("{column='0' container=':List Tax Codes._tax_XTreeWidget' text='TAXAUTH1-EDU' type='QModelIndex'}"))
             test.pass("Tax Code created:TAXAUTH1-EDU");
     } catch (e) { test.fail("caught exception " + e + " looking for tax code TAXAUTH1-EDU"); }
     
@@ -747,7 +750,7 @@ function defineTaxType(name, desc)
         type(":Tax Type._description_XLineEdit", desc);
         clickButton(":Tax Type.Save_QPushButton");
         waitForObject(":List Tax Types._taxtype_XTreeWidget");
-        if(!clickItem(":List Tax Types._taxtype_XTreeWidget", "GM", 5, 5, 1, Qt.LeftButton))
+        if(object.exists(":_taxtype.GM_QModelIndex"))
             test.pass("Tax Type created:GM");
         
         waitForObject(":List Tax Types.Close_QPushButton_2");
@@ -907,6 +910,7 @@ function defineChartcs(name,desc,ctype)
         
         waitForObject(":Characteristic.Save_QPushButton");
         clickButton(":Characteristic.Save_QPushButton");
+        snooze(2);
         waitForObject(":List Characteristics._char_XTreeWidget");
         if(object.exists("{column='0' container=':List Characteristics._char_XTreeWidget' text='"+name+"' type='QModelIndex'}"))                 
             test.pass("Characteristics:"+ name+" created");

@@ -102,6 +102,7 @@ function main()
             clickButton(":_relationshipsGroup._salesrep_XCheckBox_2");
         waitForObject(":_relationshipsGroup.Sales Rep..._QPushButton_2");
         clickButton(":_relationshipsGroup.Sales Rep..._QPushButton_2");
+        snooze(1);
         if(object.exists(":Cancel.Yes_QPushButton"))
         {
             waitForObject(":Cancel.Yes_QPushButton");
@@ -678,7 +679,7 @@ function main()
         clickButton(":List Sales Account Assignments.Close_QPushButton");
         test.log("Sales Account Assignments done");
     }catch(e){test.fail("Exception in Sales Account assignment");}
-    
+  
     
     //----------------Create new Customer---------------
     try{
@@ -811,7 +812,7 @@ function main()
         clickButton(":Customer.Cancel_QPushButton");
         test.log("Customer: TTOYS created");
         snooze(1);
-    }catch(e){test.fail("Exception in creating Customer");} 
+    }catch(e){test.fail("Exception in creating Customer:"+e);} 
     
     
     //----------------Create Customer Group---------------
@@ -843,7 +844,7 @@ function main()
         waitForObject(":List Customer Groups.Close_QPushButton");
         clickButton(":List Customer Groups.Close_QPushButton");
         snooze(1);
-    }catch(e){test.fail("Exception in creating Customer Groups");}   
+    }catch(e){test.fail("Exception in creating Customer Groups:"+e);}   
     
     //-----------------Define: Reason Codes---------------
     try{

@@ -99,7 +99,7 @@ function main()
             type(":_gl.Use Subaccounts_QGroupBox"," ");
         waitForObject(":Use Subaccounts.Allow Free-Form Subaccounts_QCheckBox");
         if(findObject(":Use Subaccounts.Allow Free-Form Subaccounts_QCheckBox").checked)
-            findObject(":Use Subaccounts.Allow Free-Form Subaccounts_QCheckBox").checked=false;
+            clickButton(":Use Subaccounts.Allow Free-Form Subaccounts_QCheckBox");
         if(findObject(":_profitCenterSize_QSpinBox_2").currentText!="2")
         {
             waitForObject(":_profitCenterSize_QSpinBox_2");
@@ -195,7 +195,7 @@ function main()
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Types...");
         activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Types...");
         
-        
+      
         //--SubAccount Types: SO-Revenue-Other Revenue--
         waitForObject(":List G/L Subaccount Types.New_QPushButton");
         clickButton(":List G/L Subaccount Types.New_QPushButton");
@@ -217,6 +217,7 @@ function main()
         waitForObject(":List G/L Subaccount Types.Save_QPushButton");
         clickButton(":List G/L Subaccount Types.Save_QPushButton");
         snooze(1);
+        waitForObject(":List G/L Subaccount Types.Close_QPushButton");
         
         if(object.exists(":_subaccnttypes.SO_QModelIndex"))
             test.pass("SubAccountL:SO Revenue created");
@@ -231,7 +232,7 @@ function main()
         waitForObject(":List G/L Subaccount Types.Close_QPushButton");
         clickButton(":List G/L Subaccount Types.Close_QPushButton");
     }
-    catch(e){test.fail("Exception in creating Subaccounts");}
+    catch(e){test.fail("Exception in creating Subaccounts:"+e);}
     
      
     
@@ -482,8 +483,7 @@ function main()
             waitForObject(":_description_XLineEdit_4");
             if(findObject(":_description_XLineEdit_4").text!="Practice Database")
             {
-                type(":_description_XLineEdit_4", "<Right>");
-                type(":_description_XLineEdit_4", "<Ctrl+Backspace>");
+                findObject(":_description_XLineEdit_4").clear();
                 type(":_description_XLineEdit_4", "Practice Database");        
             }
             if(appEdition=="Manufacturing"||appEdition=="Standard")
@@ -513,7 +513,7 @@ function main()
             }
             if(!findObject(":Database Information.Disallow mismatched client versions_QCheckBox").checked)
                 clickButton(":Database Information.Disallow mismatched client versions_QCheckBox");
-            
+            snooze(0.5);
             if(findObject(":_comments_QTextEdit_2").plainText!="Settings for practice database")
             {
                 findObject(":_comments_QTextEdit_2").clear();
@@ -832,7 +832,8 @@ function main()
             test.log("CRM Module configured");  
         }catch(e){test.fail("Exception in configuring CRM:"+e);}
 
- 
+        snooze(2);
+        
         //--------------Create Calendars------------------
         try{
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -854,8 +855,8 @@ function main()
                 clickButton(":List Calendars.New_QPushButton_2");
                 waitForObject(":List Calendars._name_XLineEdit_2");
                 type(":List Calendars._name_XLineEdit_2", "WEEK"+ (i+1));
-                snooze(0.5);
                 findObject(":List Calendars.qt_spinbox_lineedit_QLineEdit_2").clear();
+                snooze(0.5);
                 waitForObject(":List Calendars.qt_spinbox_lineedit_QLineEdit_2");
                 type(":List Calendars.qt_spinbox_lineedit_QLineEdit_2",i);
                 waitForObject(":List Calendars._offsetType_QComboBox");
@@ -984,7 +985,7 @@ function main()
             type(":List Site Types._description_XLineEdit", "Intransit Site");
             clickButton(":List Site Types.Save_QPushButton");
             waitForObject(":List Site Types._sitetype_XTreeWidget");
-            snooze(1);
+            snooze(2);
             if(object.exists("{column='0' container=':List Site Types._sitetype_XTreeWidget' text='INTRAN' type='QModelIndex'}"))
           
             
@@ -995,7 +996,7 @@ function main()
             type(":List Site Types._description_XLineEdit", "Storage Site");
             clickButton(":List Site Types.Save_QPushButton");
             waitForObject(":List Site Types._sitetype_XTreeWidget");
-            snooze(1);
+            snooze(2);
             if(object.exists("{column='0' container=':List Site Types._sitetype_XTreeWidget' text='STORAGE' type='QModelIndex'}"))
             
             waitForObject(":List Site Types.Close_QPushButton");

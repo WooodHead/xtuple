@@ -33,7 +33,7 @@ function main()
     assignTax("TZONE1","EDU","TAXAUTH1-EDU");
     assignTax("TZONE1","GM","TAXAUTH1-GM");
     RegTax("TZONE1","tax reg1");
-    
+  
     
     //----------Create Items---------------------
     try{
@@ -323,22 +323,23 @@ function main()
         clickButton(":List Items.Close_QPushButton_3");
     }catch(e){test.fail("Exception in creating item: TISNERT1")}
 
-  
 
-    //---------------Create Item sites------------------------------
-    try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-        activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+
+//---------------Create Item sites------------------------------
+  try{
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
       
         //---------Item site: YTRUCK1----------------------
         waitForObject(":List Item Sites.New_QPushButton_3");
         clickButton(":List Item Sites.New_QPushButton_3");
         waitForObject(":Item Site...._QPushButton");
         clickButton(":Item Site...._QPushButton");
+        snooze(1);
         waitForObject(":_item_XTreeWidget_4");
         doubleClickItem(":_item_XTreeWidget_4","YTRUCK1",0,0,0,Qt.LeftButton);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
@@ -421,6 +422,8 @@ function main()
     }catch(e){test.fail("Exception in creating Item site of YTRUCK1:"+e);}
     
     
+    snooze(1);
+    
     //---------Item site: TBODY1----------------------
     try{
         waitForObject(":List Item Sites.New_QPushButton_3");
@@ -497,7 +500,7 @@ function main()
             waitForObject(":Item Site.Cancel_QPushButton");
             clickButton(":Item Site.Cancel_QPushButton");
         }
-        
+        snooze(1);
         waitForObject(":_itemSite_XTreeWidget_2");
         if(object.exists("{column='0' container=':_itemSite_XTreeWidget_2' text='TBODY1' type='QModelIndex'}"))
             test.pass("Item Site Created: TBODY1");
@@ -505,7 +508,7 @@ function main()
     }catch(e){test.fail("Exception in creating TBODY1:"+e)}
     
     
-    
+
     
     //---------Item site: TINSERT1----------------------
     snooze(1);
@@ -587,7 +590,7 @@ function main()
         else test.fail("Item site not created for TINSERT1");
     }catch(e){test.fail("Exception in creating item TINSERT1:"+e);}
     
-   
+   snooze(1);
       
     //---------Item site: TWHEEL1----------------------
     try{
@@ -671,7 +674,8 @@ function main()
          else test.fail("Item site not created for TWHEEL1");
         
     }catch(e){test.fail("Exception in creating item TWHEEL1:"+e);}
-        
+      
+    snooze(1);
     
     //---------Item site: TSUB1----------------------
     try{
@@ -752,6 +756,7 @@ function main()
             test.pass("Item Site Created: TSUB1");
     }catch(e){test.fail("Exception in creating Item site for TSUB1:"+e);}
         
+    snooze(1);
     
     //---------Item site: TBOX1----------------------
     try{
@@ -845,6 +850,7 @@ function main()
         snooze(0.5);
         waitForObject(":Item Site...._QPushButton");
         clickButton(":Item Site...._QPushButton");
+        snooze(1);
         waitForObject(":_item_XTreeWidget_4");
         doubleClickItem(":_item_XTreeWidget_4","YPAINT1",0,0,0,Qt.LeftButton);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");

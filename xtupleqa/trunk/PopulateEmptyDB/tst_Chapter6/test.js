@@ -100,7 +100,7 @@ function main()
         clickButton(":Maintain Item Costs...._QPushButton");
         snooze(1);
         waitForObject(":_item_XTreeWidget_4");
-        doubleClickItem(":_item_XTreeWidget_4","TWHEEL1",0,0,1,Qt.LeftButton);
+        doubleClickItem(":_item_XTreeWidget_4","TWHEEL1",0,0,0,Qt.LeftButton);
         snooze(1);
         waitForObject(":Maintain Item Costs.New Cost_QPushButton");
         clickButton(":Maintain Item Costs.New Cost_QPushButton");
