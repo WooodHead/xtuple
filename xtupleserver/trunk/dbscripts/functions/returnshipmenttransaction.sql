@@ -16,177 +16,123 @@ DECLARE
   pshipitemid		ALIAS FOR $1;
   _itemlocSeries	INTEGER			 := $2;
   _timestamp		TIMESTAMP WITH TIME ZONE := $3;
-  _invhistid		INTEGER;
-  _orderitemid		INTEGER;
-  _ordertype		TEXT;
-  _qty			NUMERIC;
-  _r                   RECORD;
-  _m                   RECORD;
-  _itemlocdistid       INTEGER;
-  _value               NUMERIC;
+  _invhistid INTEGER;
+  _rows INTEGER;
+  _r RECORD;
 
 BEGIN
-  SELECT DISTINCT shiphead_order_type, shipitem_orderitem_id, shipitem_qty, shipitem_invhist_id, shipitem_value INTO
-		_ordertype, _orderitemid, _qty, _invhistid, _value
-  FROM shiphead, shipitem
-  WHERE ((shiphead_id=shipitem_shiphead_id)
-    AND  (shipitem_id=pshipitemid));
 
-  IF (_itemlocSeries = 0) THEN
-    _itemlocSeries := NEXTVAL('itemloc_series_seq');
-  END IF;
-
-  IF (_ordertype = 'SO') THEN
-
-    IF (SELECT (itemsite_costmethod = 'J' AND itemiste_controlmethod = 'N')
-        FROM coitem, itemsite
-        WHERE ((coitem_id=_orderitemid)
-          AND (coitem_itemsite_id=itemsite_id))) THEN
-    -- Handle Non-inventory job cost item
-      SELECT insertGLTransaction( 'S/R', 'RS', formatSoNumber(_orderitemid), 'Return from Shipping',
-                                     costcat_shipasset_accnt_id,
-				     costcat_wip_accnt_id,
-                                     -1, _value, current_date ) INTO _invhistid
-      FROM coitem, itemsite, costcat
-      WHERE ( (coitem_itemsite_id=itemsite_id)
-       AND (itemsite_costcat_id=costcat_id)
-       AND (coitem_id=pshipitemid) )
-      GROUP BY costcat_shipasset_accnt_id,costcat_wip_accnt_id;
-      
-   --  Reverse Backflush eligble material
-      FOR _m IN SELECT item_id, item_fractional,
-                        itemsite_id, itemsite_warehous_id,
-                        itemsite_controlmethod, itemsite_loccntrl,
-                        itemsite_costmethod, wo_qtyrcv,
-                        womatl_id, womatl_qtyfxd, womatl_qtyper, 
-                        womatl_scrap, womatl_issuemethod, womatl_uom_id
-                 FROM womatl, wo, itemsite, item, shipitem
-	        WHERE ((womatl_issuemethod = 'L')
-	  	  AND  (womatl_wo_id=wo_id)
-	  	  AND  (womatl_itemsite_id=itemsite_id)
-		  AND  (itemsite_item_id=item_id)
-		  AND  (wo_ordtype = 'S')
-		  AND  (wo_ordid = shipitem_orderitem_id)
-		  AND  (shipitem_id=pshipitemid)) FOR UPDATE LOOP
-
-        _qty = roundQty(_m.item_fractional,(_m.womatl_qtyfxd + _m.wo_qtyrcv * _m.womatl_qtyper) * (1 + _m.womatl_scrap));
-        
-        IF (_qty > 0) THEN
-          SELECT returnWoMaterial(_m.womatl_id, _qty , _itemlocSeries, now()) INTO _itemlocSeries;
-        END IF;
-    
-      END LOOP;
-
-
-  --  Update the work order about what happened
-      UPDATE wo SET 
-        wo_qtyrcv = 0,
-        wo_wipvalue = wo_wipvalue + _value,
-        wo_status ='I'
-      FROM coitem
-      WHERE ((wo_ordtype = 'S')
-      AND (wo_ordid = _orderitemid)
-      AND (coitem_id = _orderitemid));
-
-   ELSE
-  --  Handle regular inventory
-      SELECT postInvTrans( itemsite_id, 'RS', _qty * coitem_qty_invuomratio,
-			 'S/R', _ordertype, formatSoNumber(coitem_id), shiphead_number,
-			 'Return from Shipping',
-			 costcat_asset_accnt_id, costcat_shipasset_accnt_id,
-			 _itemlocSeries, _timestamp, _value ) INTO _invhistid
-      FROM coitem, itemsite, costcat, shiphead, shipitem
-      WHERE ((_orderitemid=coitem_id)
-      AND  (coitem_itemsite_id=itemsite_id)
-      AND  (itemsite_costcat_id=costcat_id)
-      AND  (shiphead_id=shipitem_shiphead_id)
+    IF (COALESCE(_itemlocSeries,0) = 0 ) THEN
+      _itemlocSeries := NEXTVAL('itemloc_series_seq');
+    END IF;
+  
+    -- Find the shipment transaction record
+    SELECT shipitem_id, shipitem_qty, shipitem_invhist_id, shipitem_value,
+      shipitem_orderitem_id,
+      shiphead_order_id, shiphead_id, shiphead_order_type,
+      itemsite_loccntrl, itemsite_costmethod, itemsite_controlmethod
+      INTO _r
+    FROM shipitem
+      JOIN shiphead ON (shiphead_id=shipitem_shiphead_id)
+      JOIN invhist ON (invhist_id=shipitem_invhist_id)
+      JOIN itemsite ON (itemsite_id=invhist_itemsite_id)
+    WHERE ((NOT shiphead_shipped)
       AND  (shipitem_id=pshipitemid));
-
-      -- Going to handle distribution automatically later so remove the distribution records
-      DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
       
-    END IF;
+    GET DIAGNOSTICS _rows = ROW_COUNT;
+    
+    IF (_rows > 0 ) THEN  
+      IF (_r.shiphead_order_type = 'SO') THEN
 
-  ELSEIF (_ordertype = 'TO') THEN
-    SELECT postInvTrans( itemsite_id, 'RS', _qty,
-			'S/R', _ordertype, tohead_number, '',
-			'Return from Shipping',
-			costcat_asset_accnt_id, costcat_shipasset_accnt_id,
-			_itemlocSeries, _timestamp, _value ) INTO _invhistid
-    FROM toitem, tohead, itemsite, costcat
-    WHERE ((toitem_item_id=itemsite_item_id)
-      AND  (toitem_tohead_id=tohead_id)
-      AND  (tohead_src_warehous_id=itemsite_warehous_id)
-      AND  (itemsite_costcat_id=costcat_id)
-      AND  (toitem_id=_orderitemid) );
-
-    -- Going to handle distribution automatically later so remove the distribution records
-    DELETE FROM itemlocdist WHERE (itemlocdist_series=_itemlocSeries);
-
-  END IF;
-
-  --  Find out if there is location or lot/serial detail to undo and handle it 
-  FOR _r IN 
-    SELECT  itemsite_id, invdetail_ls_id, (invdetail_qty * -1) AS invdetail_qty,
-      invdetail_location_id, invdetail_expiration,
-      (itemsite_controlmethod IN ('L', 'S')) AS lotserial,
-      (itemsite_loccntrl) AS loccntrl
-    FROM shipitem, invdetail, invhist, itemsite
-    WHERE ( (shipitem_invhist_id=invhist_id)
-      AND  (invhist_id=invdetail_invhist_id)
-      AND  (invhist_itemsite_id=itemsite_id)
-      AND  (shipitem_id=pshipitemid) )
-  LOOP
-    _itemlocdistid := nextval('itemlocdist_itemlocdist_id_seq');
-          
-    IF (( _r.lotserial) AND (NOT _r.loccntrl))  THEN          
-      INSERT INTO itemlocdist
-        ( itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
-          itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
-          itemlocdist_qty, itemlocdist_series, itemlocdist_invhist_id ) 
-        VALUES (_itemlocdistid, 'L', -1,
-                _r.itemsite_id, _r.invdetail_ls_id,  COALESCE(_r.invdetail_expiration,startoftime()),
-                _r.invdetail_qty, _itemlocSeries, _invhistid );
-
-      INSERT INTO lsdetail 
-        ( lsdetail_itemsite_id, lsdetail_ls_id, lsdetail_created,
-          lsdetail_source_type, lsdetail_source_id, lsdetail_source_number ) 
-        VALUES ( _r.itemsite_id, _r.invdetail_ls_id, CURRENT_TIMESTAMP,
-                 'I', _itemlocdistid, '');
-
-      PERFORM distributeitemlocseries(_itemlocSeries);
-    ELSE
-      INSERT INTO itemlocdist
-        ( itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
-          itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
-          itemlocdist_qty, itemlocdist_series, itemlocdist_invhist_id ) 
-      VALUES (_itemlocdistid, 'O', -1,
-              _r.itemsite_id, _r.invdetail_ls_id, COALESCE(_r.invdetail_expiration,startoftime()),
-              _r.invdetail_qty, _itemlocSeries, _invhistid );
+        IF (_r.itemsite_controlmethod != 'N') THEN
+        -- Handle regular inventory transaction
+          SELECT postInvTrans( itemsite_id, 'RS', _r.shipitem_qty * coitem_qty_invuomratio,
+			  'S/R', _r.shiphead_order_type, formatSoNumber(_r.shipitem_orderitem_id),
+			  shiphead_number, 'Return from Shipping',
+			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
+			  _itemlocSeries, _timestamp, _r.shipitem_value, _r.shipitem_invhist_id ) INTO _invhistid
+          FROM coitem, itemsite, costcat, shiphead, shipitem
+          WHERE ( (coitem_itemsite_id=itemsite_id)
+           AND (itemsite_costcat_id=costcat_id)
+           AND (coitem_id=_r.shipitem_orderitem_id)
+           AND (shiphead_order_type=_r.shiphead_order_type)
+           AND (shiphead_id=shipitem_shiphead_id)
+           AND (shipitem_orderitem_id=_r.shipitem_orderitem_id) );
+         
+        END IF;
  
-      INSERT INTO itemlocdist
-        ( itemlocdist_itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
-          itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
-          itemlocdist_qty) 
-      VALUES (_itemlocdistid, 'L', _r.invdetail_location_id,
-              _r.itemsite_id, _r.invdetail_ls_id, COALESCE(_r.invdetail_expiration,startoftime()),
-              _r.invdetail_qty);
+        IF (_r.itemsite_costmethod = 'J') THEN
 
-      PERFORM distributetolocations(_itemlocdistid);
+          --  Return eligble material
+          PERFORM returnWoMaterial(womatlpost_womatl_id, _itemlocSeries, _timestamp, womatlpost_invhist_id)
+          FROM womatlpost, invhist m, invhist s 
+          WHERE ((womatlpost_invhist_id=m.invhist_id)
+           AND (m.invhist_series=s.invhist_series)
+           AND (m.invhist_transtype='IM')
+           AND (s.invhist_id=_r.shipitem_invhist_id));
+
+          -- Handle Job cost that is not inventory controlled
+          IF ( _r.itemsite_controlmethod = 'N') THEN
+            SELECT insertGLTransaction( 'S/R', 'RS', formatSoNumber(_r.shipitem_orderitem_id), 'Return from Shipping',
+                                       costcat_shipasset_accnt_id,
+	  			        costcat_wip_accnt_id,
+                                       -1, _r.shipitem_value, current_date ) INTO _invhistid
+            FROM coitem, itemsite, costcat
+            WHERE ( (coitem_itemsite_id=itemsite_id)
+             AND (itemsite_costcat_id=costcat_id)
+             AND (coitem_id=_r.shipitem_order_id) )
+            GROUP BY costcat_shipasset_accnt_id,costcat_wip_accnt_id;
+
+            --  Update the work order about what happened
+            UPDATE wo SET 
+              wo_qtyrcv = 0,
+              wo_wipvalue = wo_wipvalue + _r.shipitem_value,
+              wo_status ='I'
+            FROM coitem
+            WHERE ((wo_ordtype = 'S')
+            AND (wo_ordid = coitem_order_id)
+            AND (coitem_id = _r.shipitem_orderitem_id) );
+
+          ELSE
+        
+          --  Lot/Serial controlled job item, so correct Production Posting referencing original receipt for reverse info.
+          PERFORM correctProduction(wo_id, r.invhist_invqty, false, _itemlocSeries, _timestamp, r.invhist_id)
+            FROM wo, invhist r, invhist s
+            WHERE ((wo_ordtype = 'S')
+            AND (wo_ordid = _r.shipitem_orderitem_id) 
+            AND (r.invhist_series=s.invhist_series)
+            AND (r.invhist_transtype='RM')
+            AND (s.invhist_id=_r.shipitem_invhist_id));
+          END IF;
+        END IF;
+
+      ELSIF (_r.shiphead_order_type = 'TO') THEN
+        SELECT postInvTrans( itemsite_id, 'RS', _r.shipitem_qty,
+			  'S/R', _r.shiphead_order_type, tohead_number,
+			  '', 'Return from Shipping',
+			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
+			  _itemlocSeries, _timestamp, _r.shipitem_value, _r.shipitem_invhist_id ) INTO _invhistid
+        FROM toitem, tohead, itemsite, costcat
+        WHERE ((toitem_item_id=itemsite_item_id)
+          AND  (toitem_tohead_id=tohead_id)
+  	  AND  (tohead_src_warehous_id=itemsite_warehous_id)
+          AND  (itemsite_costcat_id=costcat_id)
+          AND  (toitem_id=_r.shipitem_orderitem_id) );
+
+      ELSE
+        -- Don't know what kind of order this is
+        RETURN -11;
+      END IF;
+
+      UPDATE shiphead
+      SET shiphead_sfstatus='D'
+      WHERE ((shiphead_id=_r.shiphead_id)
+        AND  (shiphead_sfstatus='P'));
+
+      DELETE FROM shipitem WHERE (shipitem_id = _r.shipitem_id );
     END IF;
-  END LOOP;
 
-  UPDATE shiphead
-  SET shiphead_sfstatus='D'
-  FROM shipitem
-  WHERE ( (shipitem_shiphead_id=shiphead_id)
-   AND (shiphead_sfstatus='P')
-   AND (shipitem_id=pshipitemid) );
-
-  DELETE FROM shipitem
-  WHERE (shipitem_id=pshipitemid);
-
-  RETURN _itemlocSeries;
+    RETURN _itemlocSeries;
 
 END;
 $$ LANGUAGE 'plpgsql';
