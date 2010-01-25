@@ -23,6 +23,11 @@ BEGIN
 
   IF (pordertype = 'SO') THEN
     IF ( SELECT fetchMetricBool('EnableSOReservations') ) THEN
+      IF (SELECT (itemsite_costmethod = 'J')
+          FROM coitem JOIN itemsite ON (coitem_itemsite_id=itemsite_id)
+          WHERE (coitem_id=porderitemid)) THEN
+        RETURN 0;
+      END IF;
       SELECT (((COALESCE(pqty, roundQty(item_fractional,
 		      noNeg(coitem_qtyord - coitem_qtyshipped +
 			    coitem_qtyreturned - qtyAtShipping(pordertype, coitem_id)
