@@ -56,7 +56,7 @@ DECLARE
 BEGIN
 
   --  Cache item and itemsite info  
-  SELECT CASE WHEN(itemsite_costmethod='A') THEN COALESCE(abs(pCostOvrld / pQty), avgcost(itemsite_id))
+  SELECT CASE WHEN(itemsite_costmethod IN ('A','J')) THEN COALESCE(abs(pCostOvrld / pQty), avgcost(itemsite_id))
               ELSE stdCost(itemsite_item_id)
          END AS cost,
          itemsite_costmethod,

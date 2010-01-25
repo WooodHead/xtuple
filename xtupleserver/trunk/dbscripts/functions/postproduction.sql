@@ -29,7 +29,7 @@ BEGIN
     RETURN -1;
   END IF;
 
-  --If this is item type Job then we are using the wrong function
+  --If this is a job not lot/serial controlled then we are using the wrong function
   IF (EXISTS(SELECT itemsite_costmethod
              FROM wo,itemsite
              WHERE ((wo_id=pWoid)
@@ -93,7 +93,7 @@ BEGIN
   SELECT postInvTrans( itemsite_id, 'RM', _parentQty,
                        'W/O', 'WO', _woNumber, '', ('Receive Inventory ' || item_number || ' ' || _sense || ' Manufacturing'),
                        costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, pGlDistTS,
-                       -- the following is only actually used when the item is average costed
+                       -- the following is only actually used when the item is average or job costed
                        _wipPost ) INTO _invhistid
   FROM wo, itemsite, item, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)

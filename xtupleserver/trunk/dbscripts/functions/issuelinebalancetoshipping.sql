@@ -10,16 +10,19 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION issueLineBalanceToShipping(TEXT, INTEGER, TIMESTAMP WITH TIME ZONE, INTEGER) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION issueLineBalanceToShipping(TEXT, INTEGER, TIMESTAMP WITH TIME ZONE, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pordertype		ALIAS FOR $1;
   pitemid		ALIAS FOR $2;
   ptimestamp		ALIAS FOR $3;
-  pinvhistid		ALIAS FOR $4;
+  pitemlocseries       	ALIAS FOR $4;
+  pinvhistid		ALIAS FOR $5;
   _itemlocSeries	INTEGER := 0;
   _qty			NUMERIC;
 
 BEGIN
+  _itemlocSeries := COALESCE(pitemlocseries,0);
+  
   IF (pordertype = 'SO') THEN
     SELECT noNeg( coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned - 
                 ( SELECT COALESCE(SUM(shipitem_qty), 0)
@@ -43,7 +46,7 @@ BEGIN
   END IF;
 
   IF (_qty > 0) THEN
-    _itemlocSeries := issueToShipping(pordertype, pitemid, _qty, 0, ptimestamp, pinvhistid);
+    _itemlocSeries := issueToShipping(pordertype, pitemid, _qty, _itemlocSeries, ptimestamp, pinvhistid);
   END IF;
 
   RETURN _itemlocSeries;
