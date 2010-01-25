@@ -1,3 +1,17 @@
+CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+DECLARE
+  pWomatlid ALIAS FOR $1;
+  pQty ALIAS FOR $2;
+  pGlDistTS ALIAS FOR $3;
+  _itemlocSeries INTEGER;
+
+BEGIN
+
+  SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
+  RETURN returnWoMaterial(pWomatlid, pQty, _itemlocSeries, pGlDistTS);
+
+END;
+$$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 DECLARE
@@ -5,10 +19,36 @@ DECLARE
   pQty ALIAS FOR $2;
   pItemlocSeries ALIAS FOR $3;
   pGlDistTS ALIAS FOR $4;
+  
+BEGIN
+  RETURN returnWoMaterial(pWomatlid, pQty, pItemlocSeries, pGlDistTS, NULL);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE, INTEGER) RETURNS INTEGER AS $$
+DECLARE
+  pWomatlid ALIAS FOR $1;
+  pItemlocSeries ALIAS FOR $2;
+  pGlDistTS ALIAS FOR $3;
+  pInvhistID ALIAS FOR $4;
+  
+BEGIN
+  RETURN returnWoMaterial(pWomatlid, 0, pItemlocSeries, pGlDistTS, pInvhistId);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE, INTEGER) RETURNS INTEGER AS $$
+DECLARE
+  pWomatlid ALIAS FOR $1;
+  pQty ALIAS FOR $2;
+  pItemlocSeries ALIAS FOR $3;
+  pGlDistTS ALIAS FOR $4;
+  pInvhistId ALIAS FOR $5;
   _woNumber TEXT;
   _invhistid INTEGER;
   _itemlocSeries INTEGER;
   _qty NUMERIC;
+  _cost NUMERIC := 0;
 
 BEGIN
 
@@ -25,13 +65,15 @@ BEGIN
     RETURN pItemlocSeries;
   END IF;
 
-  SELECT itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)
-    INTO _qty
-    FROM womatl, itemsite
-   WHERE((womatl_itemsite_id=itemsite_id)
-     AND (womatl_id=pWomatlid));
-  IF (NOT FOUND) THEN
-    _qty := pQty;
+  IF (pInvhistId IS NULL) THEN
+    SELECT itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)
+      INTO _qty
+      FROM womatl, itemsite
+     WHERE((womatl_itemsite_id=itemsite_id)
+       AND (womatl_id=pWomatlid));
+    IF (NOT FOUND) THEN
+      _qty := pQty;
+    END IF;
   END IF;
 
   SELECT formatWoNumber(womatl_wo_id) INTO _woNumber
@@ -43,12 +85,28 @@ BEGIN
   ELSE
     _itemlocSeries = pItemlocSeries;
   END IF;
+
+  -- If we are reversing a specific historical transaction, get the cost and quantity from that one otherwise, get average
+  IF (pInvhistId IS NOT NULL) THEN
+    SELECT invhist_invqty, invhist_invqty * invhist_unitcost INTO _qty, _cost
+    FROM invhist
+    WHERE (invhist_id=pInvhistId);
+  ELSE
+    SELECT SUM(invhist_value_before - invhist_value_after) / SUM(invhist_qoh_before - invhist_qoh_after)  * _qty INTO _cost
+    FROM invhist, womatlpost, womatl 
+    WHERE((womatlpost_womatl_id=womatl_id) 
+    AND (womatlpost_invhist_id=invhist_id) 
+    AND (invhist_qoh_before > invhist_qoh_after)
+    AND (womatl_id=pWomatlId));
+  END IF;
+
+  -- Post the transaction
   SELECT postInvTrans( ci.itemsite_id, 'IM', (_qty * -1), 
                        'W/O', 'WO', _woNumber, '',
                        ('Return ' || item_number || ' from Work Order'),
                        pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries, pGlDistTS,
-                      (SELECT (SUM(invhist_value_before - invhist_value_after) / SUM(invhist_qoh_before - invhist_qoh_after) ) FROM invhist, womatlpost WHERE((womatlpost_womatl_id=womatl_id) AND (womatlpost_invhist_id=invhist_id) and (invhist_qoh_before > invhist_qoh_after))) * _qty
-                     ) INTO _invhistid
+                       -- Cost will be ignored by Standard Cost items sites
+                       _cost, pInvhistId) INTO _invhistid
     FROM womatl, wo,
          itemsite AS ci, costcat AS cc,
          itemsite AS pi, costcat AS pc,
@@ -69,8 +127,8 @@ BEGIN
 
 --  Decrease the parent W/O's WIP value by the value of the returned components
   UPDATE wo
-  SET wo_wipvalue = (wo_wipvalue - (CASE WHEN(itemsite_costmethod='A') THEN avgcost(itemsite_id) ELSE stdcost(itemsite_item_id) END * _qty)),
-      wo_postedvalue = (wo_postedvalue - (CASE WHEN(itemsite_costmethod='A') THEN avgcost(itemsite_id) ELSE stdcost(itemsite_item_id) END * _qty))
+  SET wo_wipvalue = (wo_wipvalue - (CASE WHEN(itemsite_costmethod IN ('A','J')) THEN _cost ELSE stdcost(itemsite_item_id) * _qty END )),
+      wo_postedvalue = (wo_postedvalue - (CASE WHEN(itemsite_costmethod IN ('A','J')) THEN _cost ELSE stdcost(itemsite_item_id) * _qty END ))
   FROM womatl, itemsite
   WHERE ( (wo_id=womatl_wo_id)
    AND (womatl_itemsite_id=itemsite_id)
@@ -86,18 +144,3 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-
-CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
-DECLARE
-  pWomatlid ALIAS FOR $1;
-  pQty ALIAS FOR $2;
-  pGlDistTS ALIAS FOR $3;
-  _itemlocSeries INTEGER;
-
-BEGIN
-
-  SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
-  RETURN returnWoMaterial(pWomatlid, pQty, _itemlocSeries, pGlDistTS);
-
-END;
-$$ LANGUAGE 'plpgsql';
