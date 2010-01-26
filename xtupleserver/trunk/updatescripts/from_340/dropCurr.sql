@@ -1,1 +1,1 @@
-DROP table curr;
+SELECT dropIfExists('TABLE', 'curr');

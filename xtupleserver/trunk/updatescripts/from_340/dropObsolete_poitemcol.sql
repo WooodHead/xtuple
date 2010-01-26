@@ -1,1 +1,1 @@
-DROP TABLE obsolete_poitemcol;
+SELECT dropIfExists('TABLE', 'obsolete_poitemcol');

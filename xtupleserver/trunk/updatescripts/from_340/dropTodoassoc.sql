@@ -1,1 +1,1 @@
-DROP TABLE todoassoc;
+SELECT dropIfExists('TABLE', 'todoassoc');
