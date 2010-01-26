@@ -1,16 +1,17 @@
-CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER) RETURNS INTEGER AS $$
 BEGIN
   RETURN postCCCashReceipt($1, NULL, NULL);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER, TEXT) RETURNS INTEGER AS
-'
+$$
 DECLARE
   pCCpay        ALIAS FOR $1;
   pdocid        ALIAS FOR $2;
   pdoctype      ALIAS FOR $3;
   _aropenid     INTEGER;
+  _bankaccnt_id INTEGER;
   _c            RECORD;
   _cashrcptid   INTEGER;
   _ccOrderDesc  TEXT;
@@ -18,14 +19,6 @@ DECLARE
   _return       INTEGER := 0;
 
 BEGIN
-  SELECT bankaccnt_accnt_id INTO _realaccnt
-  FROM bankaccnt
-  WHERE (bankaccnt_id=fetchmetricvalue(''CCDefaultBank'')::INTEGER);
-
-  IF (NOT FOUND) THEN
-    RETURN -10;
-  END IF;
-
   SELECT * INTO _c
      FROM ccpay, ccard, custinfo
      WHERE ( (ccpay_id = pCCpay)
@@ -36,12 +29,20 @@ BEGIN
     RETURN -11;
   END IF;
 
-  _ccOrderDesc := (_c.ccard_type || ''-'' || _c.ccpay_order_number::TEXT ||
-		   ''-'' || _c.ccpay_order_number_seq::TEXT);
+  SELECT bankaccnt_id, bankaccnt_accnt_id INTO _bankaccnt_id, _realaccnt
+  FROM ccbank JOIN bankaccnt ON (ccbank_bankaccnt_id=bankaccnt_id)
+  WHERE (ccbank_ccard_type=_c.ccard_type);
 
-  IF (pdoctype = ''cashrcpt'') THEN
+  IF (NOT FOUND) THEN
+    RETURN -10;
+  END IF;
+
+  _ccOrderDesc := (_c.ccard_type || '-' || _c.ccpay_order_number::TEXT ||
+		   '-' || _c.ccpay_order_number_seq::TEXT);
+
+  IF (pdoctype = 'cashrcpt') THEN
     IF (COALESCE(pdocid, -1) < 0) THEN
-      _cashrcptid := NEXTVAL(''cashrcpt_cashrcpt_id_seq'');
+      _cashrcptid := NEXTVAL('cashrcpt_cashrcpt_id_seq');
       INSERT INTO cashrcpt (
         cashrcpt_id, cashrcpt_cust_id,   cashrcpt_amount,     cashrcpt_curr_id,
         cashrcpt_fundstype, cashrcpt_docnumber,  cashrcpt_notes,
@@ -49,7 +50,7 @@ BEGIN
       ) VALUES (
         _cashrcptid, _c.ccpay_cust_id,   _c.ccpay_amount,     _c.ccpay_curr_id,
         _c.ccard_type,      _c.ccpay_r_ordernum, _ccOrderDesc,
-        CURRENT_DATE,       fetchmetricvalue(''CCDefaultBank'')::INTEGER);
+        CURRENT_DATE,       _bankaccnt_id);
       _return := _cashrcptid;
     ELSE
       UPDATE cashrcpt
@@ -60,15 +61,15 @@ BEGIN
           cashrcpt_docnumber=_c.ccpay_r_ordernum,
           cashrcpt_notes=_ccOrderDesc,
           cashrcpt_distdate=CURRENT_DATE,
-          cashrcpt_bankaccnt_id=fetchmetricvalue(''CCDefaultBank'')::INTEGER
+          cashrcpt_bankaccnt_id=_bankaccnt_id
       WHERE (cashrcpt_id=pdocid);
       _return := pdocid;
     END IF;
 
-  ELSIF (pdoctype = ''cohead'') THEN
+  ELSIF (pdoctype = 'cohead') THEN
     _aropenid := createARCreditMemo(_c.ccpay_cust_id, fetchArMemoNumber(),
-                                    '''', CURRENT_DATE, _c.ccpay_amount,
-                                    ''Unapplied from '' || _ccOrderDesc );
+                                    '', CURRENT_DATE, _c.ccpay_amount,
+                                    'Unapplied from ' || _ccOrderDesc );
     IF (_aropenid < 0) THEN
       RETURN _aropenid;
     END IF;
@@ -84,9 +85,9 @@ BEGIN
     _return := _aropenid;
   END IF;
 
-  PERFORM insertGLTransaction(fetchJournalNumber(''C/R''), ''A/R'', ''CR'',
+  PERFORM insertGLTransaction(fetchJournalNumber('C/R'), 'A/R', 'CR',
                               _ccOrderDesc, 
-                              (''Cash Receipt from Credit Card '' || _c.cust_name),
+                              ('Cash Receipt from Credit Card ' || _c.cust_name),
                               findPrepaidAccount(_c.ccpay_cust_id),
                               _realaccnt,
                               NULL,
@@ -97,4 +98,4 @@ BEGIN
 
   RETURN _return;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
