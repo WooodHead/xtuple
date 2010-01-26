@@ -47,7 +47,14 @@ message("Looking for xTuple code in $${XTUPLE_DIR}.")
 INCLUDEPATH += ../common ../$${OPENRPT_DIR}/common ../$${OPENRPT_DIR}/MetaSQL
 DEPENDPATH  += ../common ../$${OPENRPT_DIR}/common ../$${OPENRPT_DIR}/MetaSQL
 
-macx {
-  CONFIG += x86 ppc
-  CONFIG += release
+macx:exists(macx.pri) {
+  include(macx.pri)
+}
+
+win32:exists(win32.pri) {
+  include(win32.pri)
+}
+
+unix:exists(unix.pri) {
+  include(unix.pri)
 }
