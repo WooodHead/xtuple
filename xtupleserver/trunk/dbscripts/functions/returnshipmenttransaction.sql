@@ -43,26 +43,33 @@ BEGIN
     
     IF (_rows > 0 ) THEN  
       IF (_r.shiphead_order_type = 'SO') THEN
-
-        IF (_r.itemsite_controlmethod != 'N') THEN
-        -- Handle regular inventory transaction
-          SELECT postInvTrans( itemsite_id, 'RS', _r.shipitem_qty * coitem_qty_invuomratio,
-			  'S/R', _r.shiphead_order_type, formatSoNumber(_r.shipitem_orderitem_id),
+        -- Handle inventory transaction
+        SELECT postInvTrans( itemsite_id, 'RS', _r.shipitem_qty * coitem_qty_invuomratio,
+        		  'S/R', _r.shiphead_order_type, formatSoNumber(_r.shipitem_orderitem_id),
 			  shiphead_number, 'Return from Shipping',
 			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
 			  _itemlocSeries, _timestamp, _r.shipitem_value, _r.shipitem_invhist_id ) INTO _invhistid
-          FROM coitem, itemsite, costcat, shiphead, shipitem
-          WHERE ( (coitem_itemsite_id=itemsite_id)
-           AND (itemsite_costcat_id=costcat_id)
-           AND (coitem_id=_r.shipitem_orderitem_id)
-           AND (shiphead_order_type=_r.shiphead_order_type)
-           AND (shiphead_id=shipitem_shiphead_id)
-           AND (shipitem_orderitem_id=_r.shipitem_orderitem_id) );
-         
-        END IF;
+        FROM coitem, itemsite, costcat, shiphead, shipitem
+        WHERE ( (coitem_itemsite_id=itemsite_id)
+         AND (itemsite_costcat_id=costcat_id)
+         AND (coitem_id=_r.shipitem_orderitem_id)
+         AND (shiphead_order_type=_r.shiphead_order_type)
+         AND (shiphead_id=shipitem_shiphead_id)
+         AND (shipitem_orderitem_id=_r.shipitem_orderitem_id) );   
  
-        IF (_r.itemsite_costmethod = 'J') THEN
-
+        IF (_r.itemsite_costmethod = 'J') THEN   
+          -- Reopen the work order
+          UPDATE wo SET wo_status = 'I' WHERE ((wo_ordtype='S') AND (wo_ordid=_r.shipitem_orderitem_id));
+          
+          --  Job cost, so correct Production Posting referencing original receipt for reverse info.
+          PERFORM correctProduction(wo_id, r.invhist_invqty, false, _itemlocSeries, _timestamp, r.invhist_id)
+          FROM wo, invhist r, invhist s
+          WHERE ((wo_ordtype = 'S')
+             AND (wo_ordid = _r.shipitem_orderitem_id) 
+             AND (r.invhist_series=s.invhist_series)
+             AND (r.invhist_transtype='RM')
+             AND (s.invhist_id=_r.shipitem_invhist_id));
+             
           --  Return eligble material
           PERFORM returnWoMaterial(womatlpost_womatl_id, _itemlocSeries, _timestamp, womatlpost_invhist_id)
           FROM womatlpost, invhist m, invhist s 
@@ -70,40 +77,7 @@ BEGIN
            AND (m.invhist_series=s.invhist_series)
            AND (m.invhist_transtype='IM')
            AND (s.invhist_id=_r.shipitem_invhist_id));
-
-          -- Handle Job cost that is not inventory controlled
-          IF ( _r.itemsite_controlmethod = 'N') THEN
-            SELECT insertGLTransaction( 'S/R', 'RS', formatSoNumber(_r.shipitem_orderitem_id), 'Return from Shipping',
-                                       costcat_shipasset_accnt_id,
-	  			        costcat_wip_accnt_id,
-                                       -1, _r.shipitem_value, current_date ) INTO _invhistid
-            FROM coitem, itemsite, costcat
-            WHERE ( (coitem_itemsite_id=itemsite_id)
-             AND (itemsite_costcat_id=costcat_id)
-             AND (coitem_id=_r.shipitem_order_id) )
-            GROUP BY costcat_shipasset_accnt_id,costcat_wip_accnt_id;
-
-            --  Update the work order about what happened
-            UPDATE wo SET 
-              wo_qtyrcv = 0,
-              wo_wipvalue = wo_wipvalue + _r.shipitem_value,
-              wo_status ='I'
-            FROM coitem
-            WHERE ((wo_ordtype = 'S')
-            AND (wo_ordid = coitem_order_id)
-            AND (coitem_id = _r.shipitem_orderitem_id) );
-
-          ELSE
-        
-          --  Lot/Serial controlled job item, so correct Production Posting referencing original receipt for reverse info.
-          PERFORM correctProduction(wo_id, r.invhist_invqty, false, _itemlocSeries, _timestamp, r.invhist_id)
-            FROM wo, invhist r, invhist s
-            WHERE ((wo_ordtype = 'S')
-            AND (wo_ordid = _r.shipitem_orderitem_id) 
-            AND (r.invhist_series=s.invhist_series)
-            AND (r.invhist_transtype='RM')
-            AND (s.invhist_id=_r.shipitem_invhist_id));
-          END IF;
+           
         END IF;
 
       ELSIF (_r.shiphead_order_type = 'TO') THEN

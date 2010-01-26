@@ -29,7 +29,6 @@ DECLARE
   _shipheadid		INTEGER;
   _shipnumber		INTEGER;
   _cntctid              INTEGER;
-  _r                    RECORD;
   _p                    RECORD;
   _m                    RECORD;
   _value                NUMERIC;
@@ -138,107 +137,24 @@ BEGIN
 	AND  (coitem_id=pitemid));
     END IF;
 
-    --See if this is job cost item and value accordingly
-    SELECT coitem_itemsite_id, coitem_qty_invuomratio,
-           item_id, itemsite_costmethod, itemsite_controlmethod INTO _r
-    FROM coitem, itemsite, item
-    WHERE ((coitem_id=pitemid)
-    AND (itemsite_id=coitem_itemsite_id)
-    AND (itemsite_item_id=item_id));
-
-    IF (_r.itemsite_costmethod = 'J' AND _r.itemsite_controlmethod = 'N') THEN
-    -- This is job cost with no inventory trans, so deal with costing and work order directly
-       --Backflush eligble material
-      FOR _m IN SELECT womatl_id, womatl_qtyiss + 
-		     (CASE 
-		       WHEN (womatl_qtywipscrap >  ((womatl_qtyfxd + (pQty + wo_qtyrcv) * womatl_qtyper) * womatl_scrap)) THEN
-                         (womatl_qtyfxd + (pQty + wo_qtyrcv) * womatl_qtyper) * womatl_scrap
-		       ELSE 
-		         womatl_qtywipscrap 
-		      END) AS consumed,
-		     (womatl_qtyfxd + ((pQty + wo_qtyrcv) * womatl_qtyper)) * (1 + womatl_scrap) AS expected
-	      FROM womatl, wo, itemsite, item
-	      WHERE ((womatl_issuemethod IN ('L', 'M'))
-		AND  (womatl_wo_id=wo_id)
-		AND  (womatl_itemsite_id=itemsite_id)
-		AND  (itemsite_item_id=item_id)
-		AND  (wo_ordtype = 'S')
-		AND  (wo_ordid = pitemid))
-      LOOP
-        -- Don't issue more than should have already been consumed at this point
-        IF (noNeg(_m.expected - _m.consumed) > 0) THEN
-          SELECT issueWoMaterial(_m.womatl_id, noNeg(_m.expected - _m.consumed), _itemlocSeries) INTO _itemlocSeries;
-
-          UPDATE womatl
-          SET womatl_issuemethod='L'
-          WHERE ( (womatl_issuemethod='M')
-            AND (womatl_id=_m.womatl_id) );
-        END IF;
-    
-      END LOOP;
-      
-      --Get Work Order Info
-      SELECT
-        wo_id, formatwonumber(wo_id) AS f_wonumber,wo_status, wo_qtyord, wo_qtyrcv,
-        CASE WHEN (wo_cosmethod = 'D') THEN
-          COALESCE(wo_wipvalue, 0)
-        ELSE
-          COALESCE(round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord - wo_qtyrcv - pQty))),2), 0)
-        END AS value INTO _p
-      FROM wo
-      WHERE ((wo_ordtype = 'S')
-      AND (wo_ordid = pitemid));
-      IF (NOT FOUND) THEN
-        RAISE EXCEPTION 'Work order % not found and can not be shipped',_p.f_wonumber;
-      END IF;
-      IF (_p.wo_status = 'C') THEN
-        RAISE EXCEPTION 'Work order % is closed and can not be shipped',_p.f_wonumber;
-      END IF;
-
-  --  Distribute to G/L, debit Shipping Asset, credit WIP
-      PERFORM MIN(insertGLTransaction( 'S/R', 'SO', formatSoNumber(pItemid), 'Issue to Shipping',
-                                     costcat_wip_accnt_id,
-				     costcat_shipasset_accnt_id,
-                                     -1, _p.value, current_date )) 
-      FROM itemsite, costcat
-      WHERE ( (itemsite_costcat_id=costcat_id)
-      AND (itemsite_id=_r.coitem_itemsite_id) );
-
-  --  Update the work order about what happened
-      UPDATE wo SET 
-        wo_qtyrcv = wo_qtyrcv + pQty * _r.coitem_qty_invuomratio,
-        wo_wipvalue = wo_wipvalue - _p.value,
-        wo_status = 
-          CASE WHEN (wo_qtyord - wo_qtyrcv - pQty <= 0) THEN
-            'C'
-          ELSE
-            wo_status
-          END
-      WHERE (wo_id=_p.wo_id);
-
-      _value := _p.value;
-
-    ELSE
-      -- This is inventory control so handle with normal g/l transaction
-      SELECT postInvTrans( itemsite_id, 'SH', pQty * coitem_qty_invuomratio,
+    -- Handle g/l transaction
+    SELECT postInvTrans( itemsite_id, 'SH', pQty * coitem_qty_invuomratio,
 			   'S/R', porderType,
 			   formatSoNumber(coitem_id), shiphead_number,
                            ('Issue ' || item_number || ' to Shipping for customer ' || cohead_billtoname),
 			   costcat_shipasset_accnt_id, costcat_asset_accnt_id,
 			   _itemlocSeries, _timestamp, NULL, pinvhistid ) INTO _invhistid
-      FROM coitem, cohead, itemsite, item, costcat, shiphead
-      WHERE ( (coitem_cohead_id=cohead_id)
-       AND (coitem_itemsite_id=itemsite_id)
-       AND (itemsite_item_id=item_id)
-       AND (itemsite_costcat_id=costcat_id)
-       AND (coitem_id=pitemid)
-       AND (shiphead_id=_shipheadid) );
+    FROM coitem, cohead, itemsite, item, costcat, shiphead
+    WHERE ( (coitem_cohead_id=cohead_id)
+     AND (coitem_itemsite_id=itemsite_id)
+     AND (itemsite_item_id=item_id)
+     AND (itemsite_costcat_id=costcat_id)
+     AND (coitem_id=pitemid)
+     AND (shiphead_id=_shipheadid) );
 
-      SELECT (invhist_unitcost * invhist_invqty) INTO _value
-      FROM invhist
-      WHERE (invhist_id=_invhistid);
-      
-    END IF;
+    SELECT (invhist_unitcost * invhist_invqty) INTO _value
+    FROM invhist
+    WHERE (invhist_id=_invhistid);
 
     INSERT INTO shipitem
     ( shipitem_shiphead_id, shipitem_orderitem_id, shipitem_qty,

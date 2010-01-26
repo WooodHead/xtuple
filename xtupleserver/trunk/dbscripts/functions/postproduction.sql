@@ -29,15 +29,6 @@ BEGIN
     RETURN -1;
   END IF;
 
-  --If this is a job not lot/serial controlled then we are using the wrong function
-  IF (EXISTS(SELECT itemsite_costmethod
-             FROM wo,itemsite
-             WHERE ((wo_id=pWoid)
-                AND (wo_itemsite_id=itemsite_id)
-                AND (itemsite_costmethod = 'J' AND itemsite_controlmethod = 'N')))) THEN
-    RAISE EXCEPTION 'Work orders for Job costed item sites are posted when quantities are shipped on the associated sales order';
-  END IF;
-
   SELECT formatWoNumber(pWoid) INTO _woNumber;
 
   SELECT roundQty(item_fractional, pQty) INTO _parentQty
@@ -104,7 +95,7 @@ BEGIN
 --  Increase this W/O's received qty decrease its WIP value
   UPDATE wo
   SET wo_qtyrcv = (wo_qtyrcv + _parentQty),
-      wo_wipvalue = (wo_wipvalue - (CASE WHEN (itemsite_costmethod='A') THEN _wipPost ELSE (stdcost(itemsite_item_id) * _parentQty)  END))
+      wo_wipvalue = (wo_wipvalue - (CASE WHEN (itemsite_costmethod IN ('A','J')) THEN _wipPost ELSE (stdcost(itemsite_item_id) * _parentQty)  END))
   FROM itemsite, item
   WHERE ((wo_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)

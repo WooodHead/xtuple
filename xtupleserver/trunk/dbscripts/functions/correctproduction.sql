@@ -126,11 +126,11 @@ BEGIN
       --  Decrease the parent W/O's WIP value by the value of the returned components
       UPDATE wo
       SET wo_wipvalue = (wo_wipvalue -
-                         (CASE WHEN(_r.itemsite_costmethod='A')
+                         (CASE WHEN(_r.itemsite_costmethod IN ('A','J'))
                                       THEN avgcost(_r.itemsite_id)
                                       ELSE stdcost(_r.item_id) END * _invqty)),
           wo_postedvalue = (wo_postedvalue -
-                            (CASE WHEN(_r.itemsite_costmethod='A')
+                            (CASE WHEN(_r.itemsite_costmethod IN ('A','J'))
                                       THEN avgcost(_r.itemsite_id)
                                       ELSE stdcost(_r.item_id) END * _invqty))
       WHERE (wo_id=pWoid);
@@ -162,7 +162,7 @@ BEGIN
   --  Decrease this W/O's qty. received and increase its WIP value
   UPDATE wo
   SET wo_qtyrcv = (wo_qtyrcv - _parentQty),
-      wo_wipvalue = (wo_wipvalue + (CASE WHEN(itemsite_costmethod='A') THEN ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) ELSE stdcost(itemsite_item_id) END * _parentQty))
+      wo_wipvalue = (wo_wipvalue + (CASE WHEN(itemsite_costmethod IN ('A','J')) THEN ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) ELSE stdcost(itemsite_item_id) END * _parentQty))
   FROM itemsite, item
   WHERE ( (wo_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)
