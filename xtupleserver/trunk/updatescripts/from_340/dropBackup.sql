@@ -1,2 +1,2 @@
-DROP TABLE backup_ccpay;
-DROP TABLE backup_payco;
+SELECT dropIfExists('TABLE', 'backup_ccpay');
+SELECT dropIfExists('TABLE', 'backup_payco');

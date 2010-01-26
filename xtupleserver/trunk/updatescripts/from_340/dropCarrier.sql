@@ -1,1 +1,1 @@
-DROP TABLE carrier;
+SELECT dropIfExists('TABLE', 'carrier');

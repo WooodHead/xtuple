@@ -1,4 +1,4 @@
-DROP TABLE workglhead;
-DROP TABLE workglitem;
-DROP TABLE workgltotal;
-DROP TABLE workgltotaleq;
+SELECT dropIfExists('TABLE', 'workglhead');
+SELECT dropIfExists('TABLE', 'workglitem');
+SELECT dropIfExists('TABLE', 'workgltotal');
+SELECT dropIfExists('TABLE', 'workgltotaleq');

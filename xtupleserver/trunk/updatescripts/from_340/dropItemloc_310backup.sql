@@ -1,1 +1,1 @@
-DROP TABLE itemloc_310backup;
+SELECT dropIfExists('TABLE', 'itemloc_310backup');

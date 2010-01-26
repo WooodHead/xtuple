@@ -1,1 +1,1 @@
-DROP TABLE obsolete_boohead;
+SELECT dropIfExists('TABLE', 'obsolete_boohead');

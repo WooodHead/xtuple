@@ -1,1 +1,1 @@
-DROP TABLE obsolete_poheadcol;
+SELECT dropIfExists('TABLE', 'obsolete_poheadcol');

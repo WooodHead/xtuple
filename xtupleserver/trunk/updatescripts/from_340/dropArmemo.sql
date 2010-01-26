@@ -1,1 +1,1 @@
-DROP TABLE armemo;
+SELECT dropIfExists('TABLE', 'armemo');
