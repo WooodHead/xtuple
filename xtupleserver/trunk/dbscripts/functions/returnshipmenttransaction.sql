@@ -28,7 +28,7 @@ BEGIN
   
     -- Find the shipment transaction record
     SELECT shipitem_id, shipitem_qty, shipitem_invhist_id, shipitem_value,
-      shipitem_orderitem_id,
+      shipitem_orderitem_id, invhist_series,
       shiphead_order_id, shiphead_id, shiphead_order_type,
       itemsite_loccntrl, itemsite_costmethod, itemsite_controlmethod
       INTO _r
@@ -56,19 +56,21 @@ BEGIN
          AND (shiphead_order_type=_r.shiphead_order_type)
          AND (shiphead_id=shipitem_shiphead_id)
          AND (shipitem_orderitem_id=_r.shipitem_orderitem_id) );   
+         
+        -- We know the distribution so post this through so the any w/o activity knows about it
+        PERFORM postItemlocseries(_itemlocSeries);
  
         IF (_r.itemsite_costmethod = 'J') THEN   
           -- Reopen the work order
           UPDATE wo SET wo_status = 'I' WHERE ((wo_ordtype='S') AND (wo_ordid=_r.shipitem_orderitem_id));
           
           --  Job cost, so correct Production Posting referencing original receipt for reverse info.
-          PERFORM correctProduction(wo_id, r.invhist_invqty, false, _itemlocSeries, _timestamp, r.invhist_id)
-          FROM wo, invhist r, invhist s
+          PERFORM correctProduction(wo_id, invhist_invqty, false, _itemlocSeries, _timestamp, invhist_id)
+          FROM wo, invhist
           WHERE ((wo_ordtype = 'S')
              AND (wo_ordid = _r.shipitem_orderitem_id) 
-             AND (r.invhist_series=s.invhist_series)
-             AND (r.invhist_transtype='RM')
-             AND (s.invhist_id=_r.shipitem_invhist_id));
+             AND (invhist_series=_r.invhist_series)
+             AND (invhist_transtype='RM'));
              
           --  Return eligble material
           PERFORM returnWoMaterial(womatlpost_womatl_id, _itemlocSeries, _timestamp, womatlpost_invhist_id)
@@ -77,7 +79,7 @@ BEGIN
            AND (m.invhist_series=s.invhist_series)
            AND (m.invhist_transtype='IM')
            AND (s.invhist_id=_r.shipitem_invhist_id));
-           
+
         END IF;
 
       ELSIF (_r.shiphead_order_type = 'TO') THEN
