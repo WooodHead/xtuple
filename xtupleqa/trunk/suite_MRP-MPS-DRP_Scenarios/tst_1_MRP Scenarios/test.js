@@ -4,7 +4,9 @@ function main()
     source(findFile("scripts","functions.js"));
     
     
-    //-----Log into Applicaiton---    
+    //-----Log into Applicaiton---  
+    try
+    {
     var set = testData.dataset("login.tsv");
     var url, db, port, pwd,realname,username;
     db=pwd=port=url=realname=username="";
@@ -56,10 +58,16 @@ function main()
     waitForObject(":Log In.Login_QPushButton");
     clickButton(":Log In.Login_QPushButton");
     test.log("Logged in Application");
-    
+    }
+    catch(e)
+    {
+        test.fail("Error in logging to application" + e);
+    }
     
 
     //-------Assign all Privileges------
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
     activateItem(":xTuple ERP:*_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP:*.System_QMenu", "Maintain Users...");
@@ -78,9 +86,15 @@ function main()
     clickButton(":List Users.Save_QPushButton");
     waitForObject(":List Users.Close_QPushButton");
     clickButton(":List Users.Close_QPushButton");
-    
+    }
+    catch(e)
+    {
+        test.fail("Error in assigning privileges" + e);
+    }
     
     //------Remove Application Time out----    
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
     activateItem(":xTuple ERP:*_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP:*.System_QMenu", "Preferences...");
@@ -90,20 +104,33 @@ function main()
     type(":_idleTimeout_QSpinBox", "0");
     waitForObject(":User Preferences.Save_QPushButton");
     clickButton(":User Preferences.Save_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in assigning user preferences" + e);
+    }
     
     //-----System Rescan Privileges-    
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
     activateItem(":xTuple ERP:*_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP:*.System_QMenu", "Rescan Privileges");
     activateItem(":xTuple ERP:*.System_QMenu", "Rescan Privileges");
-
+    }
+    catch(e)
+    {
+        test.fail("Error in rescanning privileges" + e);
+    }
     
     
         
     MRP("+999");
     MPS("+999");
     
-    //--------View Planned Orders----    
+    //--------View Planned Orders----  
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -125,7 +152,11 @@ function main()
     else test.fail("Planned Order generated");
     waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
     clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-    
+    }
+    catch(e)
+    {
+        test.fail("Error in viewing planned orders" + e);
+    }
     
     
     //MRP NO DEMAND / REORDER POINT / SAFETY STOCK TEST    
@@ -134,6 +165,8 @@ function main()
     QOHZero("TBOX1");    
     
     //----Setup Item site-----    
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
     waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -169,11 +202,18 @@ function main()
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
     test.log("Item Site setup for: TBOX1");
-
+    }
+    catch(e)
+    {
+        test.fail("Error in setting up  Item Site of TBOX1" + e);
+    } 
+    
     MRP("+99");
   
     
     //--------View Planned Orders----        
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -195,7 +235,11 @@ function main()
     else test.fail("Planned Order generated");
     waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
     clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-
+    }
+    catch(e)
+    {
+        test.fail("Error in viewing planned orders" + e);
+    }
     
     //MRP REORDER POINT TEST   
     test.log("MRP REORDER POINT TEST");
@@ -204,7 +248,9 @@ function main()
     
     QOHZero("TBOX1");    
     
-    //----Setup Item site-----    
+    //----Setup Item site-----  
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
     waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -239,10 +285,17 @@ function main()
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
     test.log("Item Site setup for: TBOX1");
-
+    }
+    catch(e)
+    {
+        test.fail("Error in setting up Item Site of TBOX1" + e);
+    } 
+     
     MRP("+99");
    
     //--------Verify generated Planned Orders-----
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -287,7 +340,11 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     else test.fail("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-
+   }
+    catch(e)
+    {
+        test.fail("Error in viewing planned orders" + e);
+    }
 
     
     
@@ -299,6 +356,8 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     QOHZero("TBOX1");
     
     //----Setup Item site------
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
     waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -333,10 +392,17 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
     test.log("Item Site setup for: TBOX1");
-
+    }
+    catch(e)
+    {
+        test.fail("Error in setting up Item Site of TBOX1" + e);
+    }
+    
         MRP("+99");
     
     //--------Verify generated Planned Orders-----
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -379,7 +445,11 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     else test.fail("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-
+   }
+    catch(e)
+    {
+        test.fail("Error in viewing planned orders" + e);
+    }
 
     
     //MRP MINIMUM ORDER QUANTITY TEST
@@ -390,6 +460,8 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     QOHZero("TBOX1");
     
     //----Setup Item site------
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
     waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -424,10 +496,17 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
     test.log("Item Site setup for: TBOX1");
+    }
+    catch(e)
+    {
+        test.fail("Error in setting up Item site of TBOX1" + e);
+    }
 
     MRP("+99");
     
     //--------Verify generated Planned Orders-----
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -468,8 +547,12 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     else test.fail("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-
-    
+   }
+    catch(e)
+    {
+        test.fail("Error in viewing planned orders" + e);
+    }
+      
     
     //MRP MAXIMUM ORDER QUANTITY TEST
     test.log("MRP MAXIMUM ORDER QUANTITY TEST");
@@ -478,6 +561,8 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     QOHZero("TBOX1");
     
     //----Setup Item site------
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
     waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -513,11 +598,18 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
     test.log("Item Site setup for: TBOX1");
-
+    }
+    catch(e)
+    {
+        test.fail("Error in setting up Item Site of TBOX1" + e);
+    } 
+    
     MRP("+99");
     
     
     //--------Verify generated Planned Orders-----
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -569,7 +661,11 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    else test.fail("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-   
+   }
+    catch(e)
+    {
+        test.fail("Error in viewing planned orders" + e);
+    }
    
    
    //MRP ORDER MULTIPLE QUANTITY TEST
@@ -580,6 +676,8 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    QOHZero("TBOX1");
    
    //----Setup Item site------
+   try
+   {
    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -614,11 +712,18 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
    test.log("Item Site setup for: TBOX1");
+   }
+    catch(e)
+    {
+        test.fail("Error in setting up Item Site of TBOX1" + e);
+    }
    
    MRP("+99");
    
  
    //--------Verify generated Planned Orders-----
+   try
+   {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -629,8 +734,8 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
     type(":xTuple ERP:*.Reports_QMenu", "<Right>");
     type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
-   waitForObject(":_warehouse.All Sites_QRadioButton_2");
-   clickButton(":_warehouse.All Sites_QRadioButton_2");
+    waitForObject(":_warehouse.All Sites_QRadioButton_2");
+    clickButton(":_warehouse.All Sites_QRadioButton_2");
    waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
    clickButton(":Planned Orders by Planner Code.Query_QPushButton"); 
     
@@ -660,66 +765,80 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    else test.fail("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
- 
+   }
+    catch(e)
+    {
+        test.fail("Error in viewing planned orders" + e);
+    }
  
 
- //MRP SAFETY STOCK TEST
- test.log("MRP SAFETY STOCK TEST");
- 
- DelPlanOrdrs();
- 
- QOHZero("TBOX1");
- 
- //----Setup Item site------
- waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
- activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
- waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
- activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
- waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
- activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
- waitForObject(":_itemSite_XTreeWidget");
- doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
- waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
- clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
- findObject(":_reorderLevel_XLineEdit").clear();
- type(":_reorderLevel_XLineEdit", "0");
- findObject(":_orderUpToQty_XLineEdit").clear();
- type(":_orderUpToQty_XLineEdit", "0");
- findObject(":_minimumOrder_XLineEdit").clear();
- type(":_minimumOrder_XLineEdit", "0");
- findObject(":_maximumOrder_XLineEdit").clear();
- type(":_maximumOrder_XLineEdit", "0");
- findObject(":_orderMultiple_XLineEdit").clear();
- type(":_orderMultiple_XLineEdit", "0");
- findObject(":Scheduling._safetyStock_XLineEdit").clear();
- type(":Scheduling._safetyStock_XLineEdit", "100");
- findObject(":Scheduling._orderGroup_QSpinBox").clear();
- type(":Scheduling._orderGroup_QSpinBox", "7");
- findObject(":_leadTime_QSpinBox").clear();
- type(":_leadTime_QSpinBox", "3");
- waitForObject(":Scheduling.First Group_QCheckBox");
- if(!findObject(":Scheduling.First Group_QCheckBox").checked)
-     clickButton(":Scheduling.First Group_QCheckBox");
- waitForObject(":List Item Sites.Save_QPushButton");
- clickButton(":List Item Sites.Save_QPushButton");
- waitForObject(":List Item Sites.Close_QPushButton");
- clickButton(":List Item Sites.Close_QPushButton");
- test.log("Item Site setup for: TBOX1");
- 
- MRP("+99");
+    //MRP SAFETY STOCK TEST
+    test.log("MRP SAFETY STOCK TEST");
+    
+    DelPlanOrdrs();
+    
+    QOHZero("TBOX1");
+    
+    //----Setup Item site------
+    try
+    {
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
+    waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+    activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
+    waitForObject(":_itemSite_XTreeWidget");
+    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
+    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
+    findObject(":_reorderLevel_XLineEdit").clear();
+    type(":_reorderLevel_XLineEdit", "0");
+    findObject(":_orderUpToQty_XLineEdit").clear();
+    type(":_orderUpToQty_XLineEdit", "0");
+    findObject(":_minimumOrder_XLineEdit").clear();
+    type(":_minimumOrder_XLineEdit", "0");
+    findObject(":_maximumOrder_XLineEdit").clear();
+    type(":_maximumOrder_XLineEdit", "0");
+    findObject(":_orderMultiple_XLineEdit").clear();
+    type(":_orderMultiple_XLineEdit", "0");
+    findObject(":Scheduling._safetyStock_XLineEdit").clear();
+    type(":Scheduling._safetyStock_XLineEdit", "100");
+    findObject(":Scheduling._orderGroup_QSpinBox").clear();
+    type(":Scheduling._orderGroup_QSpinBox", "7");
+    findObject(":_leadTime_QSpinBox").clear();
+    type(":_leadTime_QSpinBox", "3");
+    waitForObject(":Scheduling.First Group_QCheckBox");
+    if(!findObject(":Scheduling.First Group_QCheckBox").checked)
+        clickButton(":Scheduling.First Group_QCheckBox");
+    waitForObject(":List Item Sites.Save_QPushButton");
+    clickButton(":List Item Sites.Save_QPushButton");
+    waitForObject(":List Item Sites.Close_QPushButton");
+    clickButton(":List Item Sites.Close_QPushButton");
+   test.log("Item Site setup for: TBOX1");
+   }
+    catch(e)
+    {
+        test.fail("Error in setting up Item Site for TBOX1" + e);
+    } 
+   
+   
+   MRP("+99");
  
  
  //--------Verify generated Planned Orders-----
-  waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
-  activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
-  type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-  type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-  type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-  type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-  type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
-  type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
-  type(":xTuple ERP:*.Reports_QMenu", "<Right>");
-  type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
+   try
+   {
+ waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
+ activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
+ type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+ type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+ type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+ type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+ type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
+ type(":xTuple ERP:*.Schedule_QMenu", "<Right>");
+ type(":xTuple ERP:*.Reports_QMenu", "<Right>");
+ type(":xTuple ERP:*.Planned Orders_QMenu", "<Return>");
  waitForObject(":_warehouse.All Sites_QRadioButton_2");
  clickButton(":_warehouse.All Sites_QRadioButton_2");
  waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
@@ -736,7 +855,7 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
          var Qnty, DispDate, item;
          obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
          
-
+         
          obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
          if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3))
              test.pass("Expected Planned Order generated");
@@ -750,6 +869,11 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
  else test.fail("No Planned Order generated");
  waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
  clickButton(":Planned Orders by Planner Code.Close_QPushButton");
+ }
+    catch(e)
+    {
+        test.fail("Error in viewing planned orders" + e);
+    }
  
  
 
@@ -761,6 +885,8 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    QOHZero("TBOX1");
    
    //----Setup Item site------
+   try
+   {
    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -796,11 +922,19 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
    test.log("Item Site setup for: TBOX1");
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item Site of TBOX1" + e);
+   }
+   
    
    MRP("+99");
    
  
    //--------Verify generated Planned Orders-----
+   try
+   {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -840,7 +974,11 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    else test.fail("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-   
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   }
 
    
    //MRP PLANNING SYSTEM NONE TEST
@@ -853,6 +991,8 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    QOHZero("TBOX1");
    
    //----Setup Item site------
+   try
+   {
    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -882,11 +1022,19 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
    test.log("Item Site setup for: TBOX1");
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item site of TBOX1" + e);
+   }
+   
    
    MRP("+99");
    
  
    //--------Verify generated Planned Orders-----
+   try
+   {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -912,6 +1060,11 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
        test.pass("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   }
    
    
    //MRP ENFORCE ORDER PARAMETERS OFF TEST
@@ -924,6 +1077,8 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    QOHZero("TBOX1");
    
    //----Setup Item site------
+   try
+   {
    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -951,11 +1106,18 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
    test.log("Item Site setup for: TBOX1");
+   }
+   catch(e)
+   {
+        test.fail("Error in setting  up Item Site of TBOX1 " + e);
+   }
    
    MRP("+99");
    
  
    //--------Verify generated Planned Orders-----
+   try
+   {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -981,7 +1143,11 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
        test.pass("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-   
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   }
     
    
    
@@ -996,6 +1162,8 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    QOHZero("TBOX1");
    
    //----Setup Item site------
+   try
+   {
    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -1023,12 +1191,19 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
    test.log("Item Site setup for: TBOX1");
-  
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item Site of TBOX1" + e);
+   }
+   
    
  MRP("+99");
    
  
    //--------Verify generated Planned Orders-----
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -1068,7 +1243,11 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    else test.fail("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-   
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   }
  
    //MRP SUPPLY SIDE NETTING
    test.log("MRP SUPPLY SIDE NETTING");
@@ -1085,6 +1264,8 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    newPO("TBOX1",50,0)
    
    //----Setup Item site------
+   try
+   {
    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -1122,11 +1303,19 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
    test.log("Item Site setup for: TBOX1");
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item site of TBOX1" + e);
+   }
+   
    
    MRP("+99");
    
  
    //--------Verify generated Planned Orders-----
+   try
+   {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -1166,7 +1355,11 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    else test.fail("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   }
  
  
    //MRP DEMAND SIDE NETTING - SALES ORDER
@@ -1180,6 +1373,8 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    NewSO("TBOX1",500);   
    
    //----Setup Item site------
+   try
+   {
    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -1217,12 +1412,18 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
    test.log("Item Site setup for: TBOX1");
-   
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item Site of TBOX1" + e);
+   }
            
    MRP("+99");
    
  
    //--------Verify generated Planned Orders-----
+   try
+   {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -1261,7 +1462,11 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    else test.fail("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   }
            
            
    //MRP DEMAND SIDE NETTING - WORK ORDER
@@ -1276,6 +1481,8 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
 
    
    //----Setup Item site------
+   try
+   {
    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -1310,9 +1517,17 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
        clickButton(":Scheduling.First Group_QCheckBox");
    waitForObject(":List Item Sites.Save_QPushButton");
    clickButton(":List Item Sites.Save_QPushButton");
-   test.log("Item Site setup for: TBOX1");
+   test.log("Item Site setup for: TSUB1");
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item site of TSUB1" + e);
+   }
+   
    
    //----Setup Item site------   
+   try
+   {        
    waitForObject(":_itemSite_XTreeWidget");
    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
@@ -1344,13 +1559,21 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
 
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
-
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item Site of TBOX1" + e);
+   }
+   
+   
    NewWO("TSUB1",300,0,0)
    
    
    MRP("+99");
 
    //------Verify generated Planned Orders-----
+   try
+   {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -1389,7 +1612,11 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
    else test.fail("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   }
 
 
 
@@ -1405,6 +1632,8 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    SetQtyScrp("TBOX1","1.00", "20.00");
    
    //----Setup Item site------   
+   try
+   {
    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -1440,8 +1669,16 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
        clickButton(":Scheduling.First Group_QCheckBox");
    waitForObject(":List Item Sites.Save_QPushButton");
    clickButton(":List Item Sites.Save_QPushButton");
-
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item Site of TSUB1" + e);
+   }
+   
+   
    //----Setup Item site------   
+   try
+   {
    waitForObject(":_itemSite_XTreeWidget");
    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
@@ -1473,12 +1710,20 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
 
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
-
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item Site of TBOX1" + e);
+   }
+   
+   
    NewWO("TSUB1",350,0,0);
    
    MRP("+99");
 
    //------Verify generated Planned Orders-----
+   try
+   {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -1519,7 +1764,11 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    else test.fail("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
- 
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   }
 
    SetQtyScrp("TBOX1","1.00", "0.00");
  
@@ -1534,6 +1783,8 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    DelAllWO();
    
    //----Define Conversion---
+   try
+   {
    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products");
    activateItem(":xTuple ERP:*_QMenuBar", "Products");
    waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Item");
@@ -1575,10 +1826,18 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    clickButton(":Item.Save_QPushButton");
    waitForObject(":List Items.Close_QPushButton");
    clickButton(":List Items.Close_QPushButton");
+   }
+   catch(e)
+   {
+        test.fail("Error in defining conversion for TBOX1" + e);
+   }
+   
    
    SetQtyScrp("TBOX1","0.20", "0.00");
    
    //---change UOM in BOM--
+   try
+   {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products");
     activateItem(":xTuple ERP:*_QMenuBar", "Products");
     waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
@@ -1599,13 +1858,19 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     clickButton(":Bill of Materials.Save_QPushButton_2");
     waitForObject(":Bills of Materials.Close_QPushButton");
     clickButton(":Bills of Materials.Close_QPushButton");
-
+    }
+   catch(e)
+   {
+        test.fail("Error in changing UOM of TBOX1" + e);
+   }
    
    
    NewWO("TSUB1",300,0,0)
 
    
    //----Setup Item site------   
+   try
+   {
    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -1641,8 +1906,15 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
        clickButton(":Scheduling.First Group_QCheckBox");
    waitForObject(":List Item Sites.Save_QPushButton");
    clickButton(":List Item Sites.Save_QPushButton");
-
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item Site of TSUB1" + e);
+   }
+   
    //----Setup Item site------   
+   try
+   {
    waitForObject(":_itemSite_XTreeWidget");
    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
@@ -1674,11 +1946,17 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
 
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
-   
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item Site of TBOX1" + e);
+   }
    
    MRP("+99");
    
    //------Verify generated Planned Orders-----
+   try
+   {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -1718,8 +1996,12 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    else test.fail("No Planned Order generated");
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-
-
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   }
+   
 
    //MRP DEMAND SIDE NETTING – WORK ORDER (RESCHEDULED)
    
@@ -1732,7 +2014,9 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    SetQtyScrp("TBOX1","1.00", "0.00");
    
    //---change UOM in BOM--
-    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products");
+   try
+   {
+   waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products");
     activateItem(":xTuple ERP:*_QMenuBar", "Products");
     waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
     activateItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
@@ -1752,7 +2036,13 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     clickButton(":Bill of Materials.Save_QPushButton_2");
     waitForObject(":Bills of Materials.Close_QPushButton");
     clickButton(":Bills of Materials.Close_QPushButton");
-
+    }
+   catch(e)
+   {
+        test.fail("Error in changing UOM of TBOX1" + e);
+   }
+    
+    
    ImplodeTopWO();
    ExplodeTopWO();
    RescheduleWO("+10","+10");
@@ -1760,6 +2050,8 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    MRP("+99");
 
    //------Verify generated Planned Orders-----
+   try
+   {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -1811,7 +2103,11 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    else test.fail("No Planned Order generated");   
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-   
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   }
  
  
    //MRP DEMAND SIDE NETTING – FIRM PLANNED WORK ORDER
@@ -1825,6 +2121,8 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    MRP("+99");
 
  //------Verify generated Planned Orders-----
+   try
+   {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -1888,7 +2186,11 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    else test.fail("No Planned Order generated");   
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   }
  
    //MRP MULTILEVEL DEMAND – SIMPLE
    test.log("MRP MULTILEVEL DEMAND – SIMPLE");
@@ -1900,6 +2202,8 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    DelAllSO();
    
    //----Setup Item site------   
+   try
+   {
    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
    activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
    waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -1938,7 +2242,15 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
        clickButton(":Scheduling.First Group_QCheckBox");
    waitForObject(":List Item Sites.Save_QPushButton");
    clickButton(":List Item Sites.Save_QPushButton");
-
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item Site of YTRUCK1"+ e);
+   }
+   
+   
+   try
+   {
    waitForObject(":_itemSite_XTreeWidget");
    doubleClickItem(":_itemSite_XTreeWidget", "TSUB1", 0, 0, 0, Qt.LeftButton);
    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
@@ -1970,8 +2282,15 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
        clickButton(":Scheduling.First Group_QCheckBox");
    waitForObject(":List Item Sites.Save_QPushButton");
    clickButton(":List Item Sites.Save_QPushButton");
-
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item site of TSUB1" + e);
+   }
    
+   
+   try
+   {
    waitForObject(":_itemSite_XTreeWidget");
    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
@@ -2005,12 +2324,19 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
 
    waitForObject(":List Item Sites.Close_QPushButton");
    clickButton(":List Item Sites.Close_QPushButton");
+   }
+   catch(e)
+   {
+        test.fail("Error in setting up Item Site of TSUB1" + e);
+   }
    
    NewSO("YTRUCK1",200);
    
    MRP("+99");
  
    //------Verify generated Planned Orders-----
+   try
+   {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -2079,7 +2405,11 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    else test.fail("No Planned Order generated");   
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   }
  
    
    //MRP MULTILEVEL DEMAND – ADVANCED
@@ -2093,7 +2423,9 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
   
    
     //-----Copy TSUB1 into 3 items-------
-    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products");
+   try
+   {
+   waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products");
     activateItem(":xTuple ERP:*_QMenuBar", "Products");
     waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Item");
     activateItem(":xTuple ERP:*.Products_QMenu", "Item");
@@ -2269,10 +2601,16 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     
     waitForObject(":List Items.Close_QPushButton");
     clickButton(":List Items.Close_QPushButton");
-
-  
+    }
+   catch(e)
+   {
+        test.fail("Error in copying BOM of TSUB1" + e);
+   }
+     
   
     //---------Create BOM for the newly created 3 items--------
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products");
     activateItem(":xTuple ERP:*_QMenuBar", "Products");
     waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
@@ -2347,10 +2685,15 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     
     waitForObject(":Bills of Materials.Close_QPushButton");
     clickButton(":Bills of Materials.Close_QPushButton");
-    
+    }
+   catch(e)
+   {
+        test.fail("Error in creating BOM" + e);
+   } 
   
     
-    
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Sales");
     activateItem(":xTuple ERP:*_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
@@ -2392,11 +2735,18 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     clickButton(":Sales Order.Cancel_QPushButton");
     waitForObject(":List Open Sales Orders.Close_QPushButton");
     clickButton(":List Open Sales Orders.Close_QPushButton");
+    }
+   catch(e)
+   {
+        test.fail("Error in creating sales order" + e);
+   }
     
     
     MRP("+99");
 
     //------Verify generated Planned Orders-----
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -2482,9 +2832,15 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     else test.fail("No Planned Order generated");   
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   } 
   
     //-----Edit the scheduled date for the Sales order-----
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Sales");
     activateItem(":xTuple ERP:*_QMenuBar", "Sales");
     waitForObjectItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
@@ -2512,10 +2868,18 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     clickButton(":Sales Order.Save_QPushButton_2");
     waitForObject(":List Open Sales Orders.Close_QPushButton");
     clickButton(":List Open Sales Orders.Close_QPushButton");
+    }
+   catch(e)
+   {
+        test.fail("Error in editing scheduled date of sales order" + e);
+   }
+    
     
     MRP("+99");
 
     //------Verify generated Planned Orders-----
+    try
+    {        
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
     activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
     type(":xTuple ERP:*.Schedule_QMenu", "<Down>");
@@ -2602,9 +2966,15 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     else test.fail("No Planned Order generated");   
    waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
    clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-
+   }
+   catch(e)
+   {
+        test.fail("Error in viewing planned orders" + e);
+   }
    
        //------Restore the BOM of TSUB1--------
+    try
+    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products");
     activateItem(":xTuple ERP:*_QMenuBar", "Products");
     waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Bill Of Materials");
@@ -2649,7 +3019,11 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     waitForObject(":Bills of Materials.Close_QPushButton");
     clickButton(":Bills of Materials.Close_QPushButton");
     test.log("BOM of TSUB1 restored");
-
+    }
+   catch(e)
+   {
+        test.fail("Error in restoring BOM of TSUB1" + e);
+   } 
 
    
    
