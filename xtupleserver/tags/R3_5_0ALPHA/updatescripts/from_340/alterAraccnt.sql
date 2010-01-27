@@ -1,0 +1,1 @@
+ALTER TABLE araccnt ADD COLUMN araccnt_discount_accnt_id INTEGER;
