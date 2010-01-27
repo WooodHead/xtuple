@@ -4,19 +4,20 @@ SELECT dropIfExists('TRIGGER', 'pkgmetasqlbeforetrigger');
 CREATE OR REPLACE FUNCTION _pkgmetasqlbeforetrigger() RETURNS "trigger" AS $$
 DECLARE
   _metasqlid    INTEGER;
-  _debug        BOOL := false;
+  _isdba        BOOLEAN := false;
 
 BEGIN
-  IF (NOT checkPrivilege('MaintainMetaSQL')) THEN
-    RAISE EXCEPTION 'You do not have privileges to maintain MetaSQL statements.';
+  SELECT rolsuper INTO _isdba FROM pg_roles WHERE (rolname=CURRENT_USER);
+
+  IF (NOT (_isdba OR checkPrivilege('MaintainMetaSQL'))) THEN
+    RAISE EXCEPTION '% does not have privileges to maintain MetaSQL statements in %.% (DBA=%)',
+                CURRENT_USER, TG_TABLE_SCHEMA, TG_TABLE_NAME, _isdba;
   END IF;
 
   IF (TG_OP = 'UPDATE') THEN
-    IF (_debug) THEN
-      RAISE NOTICE 'update OLD %-%, NEW %-%',
-                   OLD.metasql_group, OLD.metasql_name,
-                   NEW.metasql_group, NEW.metasql_name;
-    END IF;
+    RAISE DEBUG 'update OLD %-%, NEW %-%',
+                 OLD.metasql_group, OLD.metasql_name,
+                 NEW.metasql_group, NEW.metasql_name;
 
     IF (NEW.metasql_name != OLD.metasql_name OR NEW.metasql_group != OLD.metasql_group) THEN
       SELECT metasql_id INTO _metasqlid
@@ -28,9 +29,8 @@ BEGIN
     END IF;
 
   ELSIF (TG_OP = 'INSERT') THEN
-    IF (_debug) THEN
-      RAISE NOTICE 'insert NEW %-%', NEW.metasql_group, NEW.metasql_name, NEW.metasql_grade;
-    END IF;
+    RAISE DEBUG 'insert NEW %-% %',
+                 NEW.metasql_group, NEW.metasql_name, NEW.metasql_grade;
     SELECT metasql_id INTO _metasqlid
     FROM metasql
     WHERE metasql_name=NEW.metasql_name AND metasql_group=NEW.metasql_group AND metasql_grade=NEW.metasql_grade;
@@ -48,7 +48,12 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgmetasqlalterTrigger() RETURNS TRIGGER AS $$
+DECLARE
+  _isdba        BOOLEAN := false;
+
 BEGIN
+  SELECT rolsuper INTO _isdba FROM pg_roles WHERE (rolname=CURRENT_USER);
+
   IF (pkgMayBeModified(TG_TABLE_SCHEMA)) THEN
     IF (TG_OP = 'DELETE') THEN
       RETURN OLD;
@@ -59,17 +64,17 @@ BEGIN
 
   -- cannot combine IF's because plpgsql does not always evaluate left-to-right
   IF (TG_OP = 'INSERT') THEN
-    IF (NEW.metasql_grade <= 0) THEN
+    IF (NEW.metasql_grade <= 0 AND NOT _isdba) THEN
       RAISE EXCEPTION 'You may not create grade 0 MetaSQL statements in packages except using the xTuple Updater utility';
     END IF;
 
   ELSIF (TG_OP = 'UPDATE') THEN
-    IF (NEW.metasql_grade <= 0) THEN
+    IF (NEW.metasql_grade <= 0 AND NOT _isdba) THEN
       RAISE EXCEPTION 'You may not alter grade 0 MetaSQL statements in packages except using the xTuple Updater utility';
     END IF;
 
   ELSIF (TG_OP = 'DELETE') THEN
-    IF (OLD.metasql_grade <= 0) THEN
+    IF (OLD.metasql_grade <= 0 AND NOT _isdba) THEN
       RAISE EXCEPTION 'You may not delete grade 0 MetaSQL statements from packages. Try deleting or disabling the package.';
     ELSE
       RETURN OLD;
