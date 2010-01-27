@@ -872,7 +872,7 @@ function defineChartcs(name,desc,ctype)
         type(":_name_XLineEdit_6", name);
         waitForObject(":_description_QTextEdit_6");
         type(":_description_QTextEdit_6", desc);
-        
+        snooze(1);
         
         switch(ctype)
         {
