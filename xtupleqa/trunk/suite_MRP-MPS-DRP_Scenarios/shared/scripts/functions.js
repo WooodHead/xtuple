@@ -1,3 +1,7 @@
+
+
+try
+{
 function QOHZero(item)
 {
     //--------Reset the QOH of an Item to Zero--------
@@ -31,7 +35,15 @@ function QOHZero(item)
     }
 
 }
+}
+   catch(e)
+   {
+        test.fail("Error in resetting QOH of an item to zero" + e);
+   }
 
+   
+try
+{
 function QOHZeroWh(item,wh)
 {
     //--------Reset the QOH of an Item within a Warehouse specified to Zero--------
@@ -68,10 +80,15 @@ function QOHZeroWh(item,wh)
     }
 
 }
+}
+   catch(e)
+   {
+        test.fail("Error in resetting QOH of an item within to warehouse to zero" + e);
+   }
 
 
-
-
+try
+{
 function UpdateQOH(item, quant)
 {
     //--------Reset the QOH of an Item to Zero--------
@@ -127,7 +144,15 @@ function UpdateQOH(item, quant)
 
     test.log("QOH of "+item+" adjusted to "+quant);
 }
+}
+   catch(e)
+   {
+        test.fail("Error in updating QOH of an item" + e);
+   }
 
+
+try
+{
 function UpdateQOHWh(item, quant,wh)
 {
     //--------Reset the QOH of an Item to Zero--------
@@ -185,10 +210,16 @@ function UpdateQOHWh(item, quant,wh)
 
     test.log("QOH of "+item+" adjusted to "+quant);
 }
+}
+   catch(e)
+   {
+        test.fail("Error in updating QOH of an item within a warehouse" + e);
+   }
 
 
 
-
+try
+{
 function MRP(period)
 {
     //--------Run MRP---------
@@ -212,8 +243,14 @@ function MRP(period)
     test.log("MRP run for period of "+period+" days");
 
 }
+}
+   catch(e)
+   {
+        test.fail("Error in running MRP" + e);
+   }
 
-
+try
+{
 function MPS(period)
 {
     //---------Run MPS----------
@@ -234,7 +271,14 @@ function MPS(period)
 
 }
 
+}
+   catch(e)
+   {
+        test.fail("Error in running MPS" + e);
+   }
 
+try
+{
 function DelPlanOrdrs()
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
@@ -260,7 +304,14 @@ function DelPlanOrdrs()
     clickButton(":Delete Planned Orders by Planner Code.Delete_QPushButton");
     test.log("All Planned Orders deleted");
 }
+}
+   catch(e)
+   {
+        test.fail("Error in  deleting planned orders" + e);
+   }
 
+try
+{
 function SetPlng(item, plng)
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
@@ -284,8 +335,15 @@ function SetPlng(item, plng)
     clickButton(":List Item Sites.Close_QPushButton");
     test.log("Planning for Item:"+item+" set to "+plng);
 }
+}
+   catch(e)
+   {
+        test.fail("Error in setting planning system of an item" + e);
+   }
 
-
+   
+try
+{
 function newPO(item, quant, ddate)    
 {
     
@@ -337,8 +395,15 @@ function newPO(item, quant, ddate)
     test.log("new Purchase Order created");
 
 }
+}
+   catch(e)
+   {
+        test.fail("Error in creating a new purchase order" + e);
+   }
 
-
+   
+try
+{
 function newPOWh(item, quant, ddate,Wh)    
 {
     
@@ -390,9 +455,15 @@ function newPOWh(item, quant, ddate,Wh)
     test.log("new Purchase Order created");
 
 }
+}
+   catch(e)
+   {
+        test.fail("Error in creating a new purchase order" + e);
+   }
 
 
-
+try
+{
 function DelAllPO()
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Purchase");
@@ -421,9 +492,16 @@ function DelAllPO()
     waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
     clickButton(":List Unposted Purchase Orders.Close_QPushButton");
     test.log("Deleted All Purchase Orders");
-
 }
+}
+   catch(e)
+   {
+        test.fail("Error in deleting purchase orders" + e);
+   }
 
+
+try
+{
 function CheckSaleable(item)
 {
     //---Check in Item Master if the item is Saleable and Not Exclusive-----
@@ -445,7 +523,7 @@ function CheckSaleable(item)
     clickButton(":Item.Save_QPushButton");
     waitForObject(":List Items.Close_QPushButton");
     clickButton(":List Items.Close_QPushButton");
-    
+     
     
     //---Check in the Item site if the Item is Saleable from the site---
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
@@ -467,7 +545,15 @@ function CheckSaleable(item)
 
     test.log("check Saleable checkbox for Item:"+ item);
 }
+}
+   catch(e)
+   {
+        test.fail("Error in setting up Item" + e);
+   }
 
+
+try
+{
 function NewSO(item, quant)
 {
 
@@ -511,7 +597,16 @@ function NewSO(item, quant)
     test.log("new Sales Order created");
 
 }
+}
+   catch(e)
+   {
+        test.fail("Error in creating a sales order" + e);
+   }
 
+   
+   
+try
+{
 function NewSOWh(item, quant, Wh)
 {
 
@@ -558,8 +653,15 @@ function NewSOWh(item, quant, Wh)
     test.log("new Sales Order created");
 
 }
+}
+   catch(e)
+   {
+        test.fail("Error in creating a sales order" + e);
+   }
 
 
+try
+{
 function DelAllSO()
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Sales");
@@ -596,7 +698,14 @@ function DelAllSO()
     test.log("Deleted All Sales Order");
     
 }
+}
+   catch(e)
+   {
+        test.fail("Error in deleting sales orders" + e);
+   }
 
+try
+{
 function SetQtyScrp(item, qty, scrap)
 {
     
@@ -631,8 +740,14 @@ function SetQtyScrp(item, qty, scrap)
     clickButton(":Bills of Materials.Close_QPushButton");
     test.log("Scrap Quantity set for Item:"+item);
 }
+}
+   catch(e)
+   {
+        test.fail("Error in setting scrap quantity of an item" + e);
+   }
 
-
+try
+{
 function NewWO(item, quant,leadd, ddate)
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Manufacture");
@@ -668,6 +783,14 @@ function NewWO(item, quant,leadd, ddate)
     test.log("new Work Order created");
 
 }
+}
+   catch(e)
+   {
+        test.fail("Error in creating a work order" + e);
+   }
+
+try
+{
 function NewWOWh(item, quant,leadd, ddate, Wh)
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Manufacture");
@@ -703,8 +826,14 @@ function NewWOWh(item, quant,leadd, ddate, Wh)
     test.log("new Work Order created");
 
 }
+}
+   catch(e)
+   {
+        test.fail("Error in creating a work order" + e);
+   }
 
-
+try
+{
 function DelAllWO()
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Manufacture");
@@ -744,8 +873,15 @@ function DelAllWO()
     test.log("Deleted all Work Orders");
 
 }
+}
+   catch(e)
+   {
+        test.fail("Error in deleting work orders" + e);
+   }
 
 
+try
+{
 function ImplodeTopWO()
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Manufacture");
@@ -763,7 +899,15 @@ function ImplodeTopWO()
     clickButton(":Implode Work Order.Implode_QPushButton");
     test.log("Imploded Work Order");
 }
- 
+}
+   catch(e)
+   {
+        test.fail("Error in imploding work order" + e);
+   }
+
+   
+try
+{
 function ExplodeTopWO()
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Manufacture");
@@ -785,7 +929,14 @@ function ExplodeTopWO()
     test.log("Exploded Work Order");
 
 }
+}
+   catch(e)
+   {
+        test.fail("Error in exploding work order" + e);
+   }
 
+try
+{
 function RescheduleWO(startd, dued)    
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Manufacture");
@@ -812,7 +963,14 @@ function RescheduleWO(startd, dued)
     clickButton(":Reschedule Work Order.Close_QPushButton");
     test.log("Rescheduled Work Order");
 }
+}
+   catch(e)
+   {
+        test.fail("Error in rescheduling work order" + e);
+   }
 
+try
+{
 function NewScheduledWO(item, quant, dued, lead)    
 {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
@@ -843,7 +1001,14 @@ function NewScheduledWO(item, quant, dued, lead)
     clickButton(":Planned Order.Close_QPushButton");
     test.log("Schedule-Work Order created");
 }
+}
+   catch(e)
+   {
+        test.fail("Error in creating work order" + e);
+   }
 
+try
+{
 function FirmPlndOrder()
 {
 
@@ -869,9 +1034,14 @@ function FirmPlndOrder()
     clickButton(":Planned Orders by Planner Code.Close_QPushButton");
     test.log("Firm Planned Orders");
 }
+}
+   catch(e)
+   {
+        test.fail("Error in creating firm planned orders" + e);
+   }
 
-
-
+try
+{
 function replaceSubstring(inputString, fromString, toString) 
 {
    // Goes through the inputString and replaces every occurrence of fromString with toString
@@ -916,8 +1086,16 @@ function replaceSubstring(inputString, fromString, toString)
    } // Ends the check to see if the string being replaced is part of the replacement string or not
    return temp; // Send the updated string back to the user
 } // Ends the "replaceSubstring" function
+}
+   catch(e)
+   {
+        test.fail("Error in calculating absolute value of QOH" + e);
+   }
 
-//--------check if the year is a leap year--------
+
+try
+{
+//--------check if the year is a leap year--------   
 function IsLeapYear(datea)
 {
 	datea = parseInt(datea);
@@ -1015,7 +1193,16 @@ function getForwardDate(Days)
 
     
 }
+}
+   catch(e)
+   {
+        test.fail("Error in leap year function" + e);
+   }
 
+
+
+try
+{
 function DelAllTO()
 {
     //------Del All Transfer Order--------
@@ -1048,5 +1235,9 @@ function DelAllTO()
     test.log("Deleted All Transfer Orders");
 
 }
-
+}
+   catch(e)
+   {
+        test.fail("Error in deleting transfer orders" + e);
+   }
 
