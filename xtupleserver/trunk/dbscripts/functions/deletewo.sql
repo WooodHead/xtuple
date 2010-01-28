@@ -26,7 +26,7 @@ BEGIN
   WHERE (wo_id=pWoid);
 
   IF (NOT woStatus IN ('O', 'E')) THEN
-    RETURN -1;
+    RETURN -3;
   END IF;
 
   IF (NOT deleteForce) THEN

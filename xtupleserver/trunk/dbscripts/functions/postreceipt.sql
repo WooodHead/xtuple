@@ -192,8 +192,8 @@ BEGIN
       SELECT postInvTrans(_r.itemsite_id, 'RR',
 			  (_r.recv_qty * _o.invvenduomratio),
 			  'S/R',
-			  _r.recv_order_type, _o.orderhead_number::TEXT,
-			  _ra.rahead_number::TEXT || '-' || _ra.raitem_linenumber::TEXT,
+			  _r.recv_order_type, _ra.rahead_number::TEXT || '-' || _ra.raitem_linenumber::TEXT,
+			  '',
 			  'Receive Inventory from ' || _ordertypeabbr,
 			  costcat_asset_accnt_id,
                           CASE WHEN(COALESCE(_ra.raitem_cos_accnt_id, -1) != -1) THEN _ra.raitem_cos_accnt_id
