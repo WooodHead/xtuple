@@ -36,17 +36,18 @@ function main()
         if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
             type(":_itemGroup.Fractional_QCheckBox_3"," ");
         type(":_itemGroup_XLineEdit_3", "5.00");
-        
+
         if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
             type(":Item.Item is Sold_QGroupBox_3"," ");
         snooze(2);
         waitForObject(":_prodcat_XComboBox_2");
         clickItem(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line",0,0,1,Qt.LeftButton);
         snooze(1);
-        waitForObject(":Item is Sold._upcCode_XLineEdit_3");
-        type(":Item is Sold._upcCode_XLineEdit_3", "1234-5432");
+        waitForObject(":_itemGroup._upcCode_XLineEdit");
+        type(":_itemGroup._upcCode_XLineEdit", "1234-5432");
         waitForObject(":Item is Sold._listprice_XLineEdit_3");
         type(":Item is Sold._listprice_XLineEdit_3", "10.99");
+       
         waitForObject(":Item is Sold._priceUOM_XComboBox_3");
         clickItem(":Item is Sold._priceUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);  
         type(":Item is Sold._warranty_QSpinBox_2", "365");
@@ -156,8 +157,9 @@ function main()
         if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
             type(":Item.Item is Sold_QGroupBox_3"," ");
         type(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line");
-        waitForObject(":Item is Sold._upcCode_XLineEdit_3");
-        type(":Item is Sold._upcCode_XLineEdit_3", "1234-5432");
+    
+        waitForObject(":_itemGroup._upcCode_XLineEdit");
+        type(":Item is Sold._warranty_QSpinBox_2", "1234-5432");
         type(":Item is Sold._listprice_XLineEdit_3", "10.99");
         clickItem(":Item is Sold._priceUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);
         type(":Item is Sold._warranty_QSpinBox_2", "365");
@@ -257,7 +259,7 @@ function main()
         if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
             type(":Item.Item is Sold_QGroupBox_3"," ");
         clickItem(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line",0,0,1,Qt.LeftButton);
-        type(":Item is Sold._upcCode_XLineEdit_3", "1234-5432");
+        type(":_itemGroup._upcCode_XLineEdit", "1234-5432");
         type(":Item is Sold._listprice_XLineEdit_3", "10.99");
         clickItem(":Item is Sold._priceUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);
         type(":Item is Sold._warranty_QSpinBox_2", "365");

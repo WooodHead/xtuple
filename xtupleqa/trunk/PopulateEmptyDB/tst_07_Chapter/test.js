@@ -25,7 +25,7 @@ function main()
         type(":_nextVcNumber_XLineEdit", "<Ctrl+A>");
         type(":_nextVcNumber_XLineEdit", "<Del>");
         type(":_nextVcNumber_XLineEdit", "30000");
-        if(findObject(":_prNumberGeneration_QComboBox").currentText!="Automatic")
+        if(findObject(":_prNumberGeneration_QComboBox_2").currentText!="Automatic")
             type(":_prNumberGeneration_QComboBox", "Automatic");
         type(":_nextPrNumber_XLineEdit", "<Ctrl+A>");
         type(":_nextPrNumber_XLineEdit", "<Del>");
@@ -34,16 +34,18 @@ function main()
             clickButton(":Default P/O Copies:.Vendor_QCheckBox");
         if(findObject(":Default P/O Copies:.Internal_QCheckBox").checked)
             clickButton(":Default P/O Copies:.Internal_QCheckBox");
-        if(!findObject(":Purchase Configuration.Post P/O Changes to the Change Log_QCheckBox"))
-            clickButton(":Purchase Configuration.Post P/O Changes to the Change Log_QCheckBox");
+       
+        if(!findObject(":Purchase Configuration.Post Purchase Order Changes to the Change Log_QCheckBox"))
+            clickButton(":Purchase Configuration.Post Purchase Order Changes to the Change Log_QCheckBox");
         if(!findObject(":Purchase Configuration.Post Vendor Changes to the Change Log_QCheckBox"))
             clickButton(":Purchase Configuration.Post Vendor Changes to the Change Log_QCheckBox");
-        if(!findObject(":Purchase Configuration.Use Earliest Avail. as Due Date for P/O Item_QCheckBox"))
-            clickButton(":Purchase Configuration.Use Earliest Avail. as Due Date for P/O Item_QCheckBox");
-        if(!findObject(":Purchase Configuration.Prevent P/O Items when no Std. Cost Exists_QCheckBox"))
-            clickButton(":Purchase Configuration.Prevent P/O Items when no Std. Cost Exists_QCheckBox");
-        if(!findObject(":Purchase Configuration.Check Print P/O on Save by Default_QCheckBox"))
-            clickButton(":Purchase Configuration.Check Print P/O on Save by Default_QCheckBox");
+      
+        if(!findObject(":Purchase Configuration.Use Earliest Avail. as Due Date for Purchase Order Item_QCheckBox"))
+            clickButton(":Purchase Configuration.Use Earliest Avail. as Due Date for Purchase Order Item_QCheckBox");
+        if(!findObject(":Purchase Configuration.Prevent Purchase Order Items when no Std. Cost Exists_QCheckBox"))
+            clickButton(":Purchase Configuration.Prevent Purchase Order Items when no Std. Cost Exists_QCheckBox");
+        if(!findObject(":Purchase Configuration.Check Print Purchase Order on Save by Default_QCheckBox"))
+            clickButton(":Purchase Configuration.Check Print Purchase Order on Save by Default_QCheckBox");
         type(":_defaultShipVia_XLineEdit", "<Ctrl+A>");    
         type(":_defaultShipVia_XLineEdit", "<Del>");
         type(":_defaultShipVia_XLineEdit", "UPS Account 1234567");
@@ -53,6 +55,7 @@ function main()
     
     //-------------Configure: Inventory Module---------------------
     try{
+ 
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
@@ -91,7 +94,7 @@ function main()
         clickButton(":Inventory Configuration.Save_QPushButton");
         test.log("Inventory Module configured");
     }catch(e){test.log("Exception in configuring Inventory module:"+e)}
-    
+  
     //---------Configure: Accounting-Account Payble---------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");

@@ -18,7 +18,7 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
         activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-        
+      
         COA("01","01","1250","01","Warehouse 1 Asset","Asset","IN");
         COA("01","01","1252","01","Intransit Asset","Asset","IN");
         COA("01","01","1254","01","Warehouse 2 Asset","Asset","IN");

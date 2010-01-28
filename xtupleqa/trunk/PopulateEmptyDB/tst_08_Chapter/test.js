@@ -481,6 +481,7 @@ function main()
         type(":A/R Account Assignment._main_XLineEdit_3", "01-01-4060-01");
         type(":A/R Account Assignment._main_XLineEdit_4", "01-01-2445-01");
         type(":A/R Account Assignment._main_XLineEdit_4", "<Tab>");
+        type(":A/R Account Assignment._main_XLineEdit_5", "01-01-4800-01");
         
         clickButton(":A/R Account Assignment.Save_QPushButton");
         waitForObject(":List A/R Account Assignments._araccnt_XTreeWidget");
@@ -593,13 +594,15 @@ function main()
             type(":Sales Configuration._creditMemoNumGeneration_QComboBox", "Automatic,");
         type(":Sales Configuration._nextCmNumber_XLineEdit", "70000");
         type(":Sales Configuration._nextInNumber_XLineEdit", "60000");
-        if(!findObject(":Credit Control.Automatically Allocate Credit Memos to New Sales Order on Save_QCheckBox").checked)		
-            clickButton(":Credit Control.Automatically Allocate Credit Memos to New Sales Order on Save_QCheckBox");
+       
+        if(!findObject(":Credit Control.Allocate Credit Memos to New Sales Order on Save_QCheckBox").checked)		
+            clickButton(":Credit Control.Allocate Credit Memos to New Sales Order on Save_QCheckBox");
         if(!findObject(":general.Check Print Sales Order on Save by Default_QCheckBox").checked)
             clickButton(":general.Check Print Sales Order on Save by Default_QCheckBox");
         if(!findObject(":Date Control.Enable Promise Dates_QCheckBox").checked)
             clickButton(":Date Control.Enable Promise Dates_QCheckBox");
-        clickButton(":Pricing on Line Item Edits.Prompt before Updating Price_QRadioButton");
+       
+        clickButton(":Pricing on Line Item Edits.Prompt before Updating_QRadioButton");
         clickTab(":Sales Configuration.qt_tabwidget_tabbar_QTabBar", "Invoice");
         waitForObject(":Invoice Date Source.Shipped Date_QRadioButton");
         clickButton(":Invoice Date Source.Shipped Date_QRadioButton");
@@ -636,7 +639,7 @@ function main()
         
         clickButton(":Sales Configuration.Save_QPushButton");
         test.log("Sales Module Configured");
-    }catch(e){test.fail("Exception in configuring Sales Module");}   
+    }catch(e){test.fail("Exception in configuring Sales Module:"+e);}   
     
     
     //------------Sales: Account Assignments-----------------
@@ -680,7 +683,7 @@ function main()
         test.log("Sales Account Assignments done");
     }catch(e){test.fail("Exception in Sales Account assignment");}
   
-    
+  
     //----------------Create new Customer---------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");

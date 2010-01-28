@@ -9,7 +9,7 @@ function main()
     loginAppl("RUNREGISTER");       
     var appEdition = findApplicationEdition();
     
-    
+  
     //--------------Define: Check Formats-------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -135,71 +135,71 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Bank Accounts...");
         activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Bank Accounts...");
-  
-    waitForObject(":List Bank Accounts.New_QPushButton");
-    clickButton(":List Bank Accounts.New_QPushButton");
-    waitForObject(":_name_XLineEdit_18");
-    type(":_name_XLineEdit_18", "EBANK");
-    type(":_description_XLineEdit_27", "eBank Checking Account");
-    type(":_bankName_XLineEdit", "eBank");
-    type(":_accountNumber_XLineEdit_2", "123456");
-    if(!findObject(":_currency_XComboBox").currentText!= "USD -$");
-    type(":_currency_XComboBox","USD");
-    waitForObject(":_type_XComboBox");
-    if(findObject(":_type_XComboBox").currentText!="Checking")
-        type(":_type_XComboBox","Checking");
-    if(!findObject(":_useGroup.Used in Accounts Payable_QCheckBox").checked)
-        clickButton(":_useGroup.Used in Accounts Payable_QCheckBox");
-    waitForObject(":_useGroup._nextCheckNum_XLineEdit");
-    type(":_useGroup._nextCheckNum_XLineEdit", "3000");
-    waitForObject(":_useGroup._form_XComboBox_2");
-    if(!findObject(":_useGroup._form_XComboBox_2").currentText!= "GENERIC-CHECK")
-        clickItem(":_useGroup._form_XComboBox_2","GENERIC-CHECK",0,0,1,Qt.LeftButton);
-    waitForObject(":_useGroup.Used in Accounts Receivable_QCheckBox");
-    if(!findObject(":_useGroup.Used in Accounts Receivable_QCheckBox").checked)
-        clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
-    waitForObject(":_accountGroup._main_XLineEdit");
-    type(":_accountGroup._main_XLineEdit", "01-01-1000-01");
-    clickButton(":Bank Account.Save_QPushButton");
-    snooz(2)
-    waitForObject(":List Bank Accounts._bankaccnt_XTreeWidget");
-    if(object.exists(":_bankaccnt.EBANK_QModelIndex"))
-        test.pass("Bank Account created: EBANK");
-    else test.fail("Bank Account not created: EBANK");
-    
-    waitForObject(":List Bank Accounts.New_QPushButton");
-    clickButton(":List Bank Accounts.New_QPushButton");
-    waitForObject(":_name_XLineEdit_18");
-    type(":_name_XLineEdit_18", "EURBANK");
-    type(":_description_XLineEdit_27", "Euro Bank Checking");
-    type(":_bankName_XLineEdit", "Euro Bank");
-    type(":_accountNumber_XLineEdit_2", "654321");
-    if(!findObject(":_currency_XComboBox").currentText!= "EUR -EUR");
-    type(":_currency_XComboBox","EUR");
-    if(findObject(":_type_XComboBox").currentText!="Checking")
-        type(":Bank Account._bankGroup_QGroupBox","Checking");
-    if(!findObject(":_useGroup.Used in Accounts Payable_QCheckBox").checked)
-        clickButton(":_useGroup.Used in Accounts Payable_QCheckBox");
-    waitForObject(":_useGroup._nextCheckNum_XLineEdit");
-    type(":_useGroup._nextCheckNum_XLineEdit", "9000");
-    waitForObject(":_useGroup._form_XComboBox_2");
-    if(!findObject(":_useGroup._form_XComboBox_2").currentText!= "GENERIC-CHECK")
-        clickItem(":_useGroup._form_XComboBox_2","GENERIC-CHECK",0,0,1,Qt.LeftButton);
-    waitForObject(":_useGroup.Used in Accounts Receivable_QCheckBox");
-    if(!findObject(":_useGroup.Used in Accounts Receivable_QCheckBox").checked)
-        clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
-    type(":_accountGroup._main_XLineEdit", "01-01-1010-01");
-    waitForObject(":Bank Account.Save_QPushButton");
-    clickButton(":Bank Account.Save_QPushButton");
-    snooze(1);
-    waitForObject(":List Bank Accounts._bankaccnt_XTreeWidget");
-    if(object.exists(":_bankaccnt.EURBANK_QModelIndex"))
-        test.pass("Bank Account created: EURBANK");
-    else test.fail("Bank Account not created: EURBANK");
-    
-    waitForObject(":List Bank Accounts.Close_QPushButton");
-    clickButton(":List Bank Accounts.Close_QPushButton");
-}catch(e){test.fail("Exception in defining Bank Accounts:"+e)}  
+        
+        waitForObject(":List Bank Accounts.New_QPushButton");
+        clickButton(":List Bank Accounts.New_QPushButton");
+        waitForObject(":_name_XLineEdit_18");
+        type(":_name_XLineEdit_18", "EBANK");
+        type(":_description_XLineEdit_27", "eBank Checking Account");
+        type(":_bankName_XLineEdit", "eBank");
+        type(":_accountNumber_XLineEdit_2", "123456");
+        if(!findObject(":_currency_XComboBox").currentText!= "USD -$");
+        type(":_currency_XComboBox","USD");
+        waitForObject(":_type_XComboBox");
+        if(findObject(":_type_XComboBox").currentText!="Checking")
+            type(":_type_XComboBox","Checking");
+        if(!findObject(":_useGroup.Used in Accounts Payable_QCheckBox").checked)
+            clickButton(":_useGroup.Used in Accounts Payable_QCheckBox");
+        waitForObject(":_useGroup._nextCheckNum_XLineEdit");
+        type(":_useGroup._nextCheckNum_XLineEdit", "3000");
+        waitForObject(":_useGroup._form_XComboBox_2");
+        if(!findObject(":_useGroup._form_XComboBox_2").currentText!= "GENERIC-CHECK")
+            clickItem(":_useGroup._form_XComboBox_2","GENERIC-CHECK",0,0,1,Qt.LeftButton);
+        waitForObject(":_useGroup.Used in Accounts Receivable_QCheckBox");
+        if(!findObject(":_useGroup.Used in Accounts Receivable_QCheckBox").checked)
+            clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
+        waitForObject(":_accountGroup._main_XLineEdit");
+        type(":_accountGroup._main_XLineEdit", "01-01-1000-01");
+        clickButton(":Bank Account.Save_QPushButton");
+        snooze(2);
+        waitForObject(":List Bank Accounts._bankaccnt_XTreeWidget");
+        if(object.exists(":_bankaccnt.EBANK_QModelIndex"))
+            test.pass("Bank Account created: EBANK");
+        else test.fail("Bank Account not created: EBANK");
+        
+        waitForObject(":List Bank Accounts.New_QPushButton");
+        clickButton(":List Bank Accounts.New_QPushButton");
+        waitForObject(":_name_XLineEdit_18");
+        type(":_name_XLineEdit_18", "EURBANK");
+        type(":_description_XLineEdit_27", "Euro Bank Checking");
+        type(":_bankName_XLineEdit", "Euro Bank");
+        type(":_accountNumber_XLineEdit_2", "654321");
+        if(!findObject(":_currency_XComboBox").currentText!= "EUR -EUR");
+        type(":_currency_XComboBox","EUR");
+        if(findObject(":_type_XComboBox").currentText!="Checking")
+            type(":Bank Account._bankGroup_QGroupBox","Checking");
+        if(!findObject(":_useGroup.Used in Accounts Payable_QCheckBox").checked)
+            clickButton(":_useGroup.Used in Accounts Payable_QCheckBox");
+        waitForObject(":_useGroup._nextCheckNum_XLineEdit");
+        type(":_useGroup._nextCheckNum_XLineEdit", "9000");
+        waitForObject(":_useGroup._form_XComboBox_2");
+        if(!findObject(":_useGroup._form_XComboBox_2").currentText!= "GENERIC-CHECK")
+            clickItem(":_useGroup._form_XComboBox_2","GENERIC-CHECK",0,0,1,Qt.LeftButton);
+        waitForObject(":_useGroup.Used in Accounts Receivable_QCheckBox");
+        if(!findObject(":_useGroup.Used in Accounts Receivable_QCheckBox").checked)
+            clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
+        type(":_accountGroup._main_XLineEdit", "01-01-1010-01");
+        waitForObject(":Bank Account.Save_QPushButton");
+        clickButton(":Bank Account.Save_QPushButton");
+        snooze(1);
+        waitForObject(":List Bank Accounts._bankaccnt_XTreeWidget");
+        if(object.exists(":_bankaccnt.EURBANK_QModelIndex"))
+            test.pass("Bank Account created: EURBANK");
+        else test.fail("Bank Account not created: EURBANK");
+        
+        waitForObject(":List Bank Accounts.Close_QPushButton");
+        clickButton(":List Bank Accounts.Close_QPushButton");
+    }catch(e){test.fail("Exception in defining Bank Accounts:"+e)}  
 
 
 //--------------Create: Adjustment Types--------------
@@ -239,9 +239,9 @@ try{
         waitForObject(":List Fiscal Years.New_QPushButton");
         clickButton(":List Fiscal Years.New_QPushButton");
         waitForObject(":Fiscal Year.XDateEdit_XDateEdit");
-      var d = new Date();
-      var CurrentYearFull = d.getFullYear();
-      var CurrentYear = CurrentYearFull.toString().slice(2);
+    var d = new Date();
+    var CurrentYearFull = d.getFullYear();
+    var CurrentYear = CurrentYearFull.toString().slice(2);
         type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+CurrentYearFull);
         type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+CurrentYearFull);
         waitForObject(":Fiscal Year.Save_QPushButton");
@@ -267,7 +267,7 @@ try{
         waitForObject(":List Fiscal Years.Close_QPushButton");
         clickButton(":List Fiscal Years.Close_QPushButton");
     }catch(e){test.fail("Exception in creating Fiscal Year");}
-    
+  
     //-------------Define: Fiscal Calendar--------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
