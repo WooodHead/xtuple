@@ -62,7 +62,7 @@ BEGIN
   WHERE (aropen_id=pAropenId);
   
 --  Determine the amount to apply
-  IF (_balance < _amount + _discount) THEN
+  IF (_balance <= _amount + _discount) THEN
     _applyAmount := _balance - _discount;
   ELSE
     _discount := _discount * (_amount / _balance);
