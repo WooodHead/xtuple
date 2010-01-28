@@ -308,15 +308,15 @@ function createLocale(LocaleCode,LocaleDesc)
 
 
 //----------------Create new Group----------------
-function createGroup(GrpName, GrpDesc)
+function createRole(GrpName, GrpDesc)
 {
     
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         snooze(0.1);
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Groups...");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Groups...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Roles...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Roles...");
         waitForObject(":List Groups.New_QPushButton");
         clickButton(":List Groups.New_QPushButton");
         waitForObject(":_name_XLineEdit");
@@ -468,7 +468,7 @@ function createUserByRole(userrole)
             clickButton(":List Employees.Can Create System Users_QCheckBox");  
         clickItem(":_locale_XComboBox_2","MYLOCALE",0,0,1,Qt.LeftButton);
         waitForObject(":List Employees.qt_tabwidget_tabbar_QTabBar");
-        clickTab(":List Employees.qt_tabwidget_tabbar_QTabBar", "Groups");
+        clickTab(":List Employees.qt_tabwidget_tabbar_QTabBar", "Roles");
         snooze(1);
         waitForObject(":_groupTab._availableGroup_XTreeWidget_2");
         sWidgetTreeControl = ":_groupTab._availableGroup_XTreeWidget_2";

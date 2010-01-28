@@ -127,9 +127,8 @@ function main()
             if(object.exists(":_wrkcnt.ASSEMBLY1_QModelIndex_2"))
                 test.pass("Work Center created: ASSEMBLY1");
             else test.fail("Work Center not created: ASSEMBLY1");
+            waitForObject(":_wrkcnt.ASSEMBLY1_QModelIndex_2");
             mouseClick(":_wrkcnt.ASSEMBLY1_QModelIndex_2", 0, 0, 0, Qt.LeftButton);
-            // Verification Point 'VP5'
-            test.compare(findObject(":_wrkcnt.ASSEMBLY1_QModelIndex_2").text, "ASSEMBLY1");
             waitForObject(":List Work Centers.Copy_QPushButton");
             clickButton(":List Work Centers.Copy_QPushButton");
             
