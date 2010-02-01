@@ -82,6 +82,14 @@ BEGIN
      AND (poitem_pohead_id=NEW.pohead_id));
   END IF;
 
+  IF (TG_OP = 'UPDATE') THEN
+    IF (OLD.pohead_status != NEW.pohead_status) THEN
+      UPDATE poitem
+      SET poitem_status=NEW.pohead_status
+      WHERE (poitem_pohead_id=NEW.pohead_id);
+    END IF;
+  END IF;
+
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
