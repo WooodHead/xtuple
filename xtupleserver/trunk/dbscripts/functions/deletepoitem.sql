@@ -1,4 +1,5 @@
-CREATE OR REPLACE FUNCTION deletepoitem(integer) RETURNS integer AS '
+
+CREATE OR REPLACE FUNCTION deletepoitem(integer) RETURNS integer AS $$
 DECLARE
   pPoitemid ALIAS FOR $1;
   _poheadid INTEGER := -1;
@@ -13,14 +14,14 @@ BEGIN
   FROM poitem
   WHERE (poitem_id=pPoitemid);
 
-  IF ( _status = ''U'' ) THEN
+  IF ( _status = 'U' ) THEN
     DELETE FROM poitem
     WHERE (poitem_id=pPoitemid);
   ELSE   
-    IF ( _status = ''O'' ) THEN
+    IF ( _status = 'O' ) THEN
       PERFORM recv_id
       FROM recv
-      WHERE ( (recv_order_type=''PO'')
+      WHERE ( (recv_order_type='PO')
        AND (recv_orderitem_id=pPoitemid) );
       IF (FOUND) THEN
         RETURN -10;
@@ -44,4 +45,4 @@ BEGIN
   RETURN 0;
 
 END;
-' LANGUAGE 'plpgsql' VOLATILE;
+$$ LANGUAGE 'plpgsql' VOLATILE;

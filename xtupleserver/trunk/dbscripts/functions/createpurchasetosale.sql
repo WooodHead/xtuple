@@ -1,4 +1,5 @@
-CREATE OR REPLACE FUNCTION createPurchaseToSale(INTEGER, INTEGER, BOOLEAN) RETURNS INTEGER AS '
+
+CREATE OR REPLACE FUNCTION createPurchaseToSale(INTEGER, INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pCoitemId ALIAS FOR $1;
   pItemSourceId ALIAS FOR $2;
@@ -9,10 +10,10 @@ BEGIN
   RETURN createPurchaseToSale(pCoitemId, pItemSourceId, pDropShip, NULL);
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createPurchaseToSale(INTEGER, INTEGER, BOOLEAN, NUMERIC) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createPurchaseToSale(INTEGER, INTEGER, BOOLEAN, NUMERIC) RETURNS INTEGER AS $$
 DECLARE
   pCoitemId ALIAS FOR $1;
   pItemSourceId ALIAS FOR $2;
@@ -68,14 +69,14 @@ BEGIN
     SELECT COALESCE(pohead_id, -1) INTO _temp
     FROM pohead
     WHERE ( (COALESCE(pohead_cohead_id, -1) = _s.cohead_id)
-      AND (pohead_status = ''U'')
+      AND (pohead_status = 'U')
       AND (pohead_vend_id = _i.itemsrc_vend_id)
       AND (pohead_shiptoddress_id = _s.shipto_addr_id) );
   ELSE
     SELECT COALESCE(pohead_id, -1) INTO _temp
     FROM pohead
     WHERE ( (COALESCE(pohead_cohead_id, -1) = _s.cohead_id)
-      AND (pohead_status = ''U'')
+      AND (pohead_status = 'U')
       AND (pohead_vend_id = _i.itemsrc_vend_id)
       AND (pohead_shiptoddress_id = _w.addr_id) );
   END IF;
@@ -86,7 +87,7 @@ BEGIN
     SET pohead_dropship = pDropShip
     WHERE (pohead_id = _poheadid);
   ELSE
-    SELECT NEXTVAL(''pohead_pohead_id_seq'') INTO _poheadid;
+    SELECT NEXTVAL('pohead_pohead_id_seq') INTO _poheadid;
     SELECT fetchPoNumber() INTO _ponumber;
 
     IF (pDropShip) THEN
@@ -116,10 +117,10 @@ BEGIN
           pohead_vendcity, pohead_vendstate,
           pohead_vendzipcode, pohead_vendcountry )
       VALUES
-        ( _poheadid, _ponumber, ''U'', pDropShip,
+        ( _poheadid, _ponumber, 'U', pDropShip,
           CURRENT_USER, _i.itemsrc_vend_id, _i.vend_taxzone_id,
 	  CURRENT_DATE, COALESCE(_i.vend_curr_id, basecurrid()), _s.cohead_id,
-          COALESCE(_s.cohead_warehous_id, -1), COALESCE(_i.vend_shipvia, TEXT('''')),
+          COALESCE(_s.cohead_warehous_id, -1), COALESCE(_i.vend_shipvia, TEXT('')),
           COALESCE(_i.vend_terms_id, -1), COALESCE(_s.cohead_shipto_cntct_id, _shipto.shipto_cntct_id),
           COALESCE(_s.cohead_shipto_cntct_honorific, _shipto.cntct_honorific), COALESCE(_s.cohead_shipto_cntct_first_name, _shipto.cntct_first_name),
           COALESCE(_s.cohead_shipto_cntct_middle, _shipto.cntct_middle), COALESCE(_s.cohead_shipto_cntct_last_name, _shipto.cntct_last_name),
@@ -127,19 +128,19 @@ BEGIN
           COALESCE(_s.cohead_shipto_cntct_title, _shipto.cntct_title), COALESCE(_s.cohead_shipto_cntct_fax, _shipto.cntct_fax),
           COALESCE(_s.cohead_shipto_cntct_email, _shipto.cntct_email), COALESCE(_s.shipto_addr_id, _shipto.addr_id),
           COALESCE(_s.cohead_shiptoaddress1, _shipto.addr_line1),
-          COALESCE((_s.cohead_shiptoaddress2 || '' '' || _s.cohead_shiptoaddress3), _shipto.addr_line2),
-          COALESCE((_s.cohead_shiptoaddress4 || '' '' || _s.cohead_shiptoaddress5), _shipto.addr_line3),
+          COALESCE((_s.cohead_shiptoaddress2 || ' ' || _s.cohead_shiptoaddress3), _shipto.addr_line2),
+          COALESCE((_s.cohead_shiptoaddress4 || ' ' || _s.cohead_shiptoaddress5), _shipto.addr_line3),
           COALESCE(_s.cohead_shiptocity, _shipto.addr_city),
           COALESCE(_s.cohead_shiptostate, _shipto.addr_state), COALESCE(_s.cohead_shiptozipcode, _shipto.addr_postalcode),
           COALESCE(_s.cohead_shiptocountry, _shipto.addr_country), COALESCE(_i.cntct_id, -1),
-          COALESCE(_i.cntct_honorific, TEXT('''')), COALESCE(_i.cntct_first_name, TEXT('''')),
-          COALESCE(_i.cntct_middle, TEXT('''')), COALESCE(_i.cntct_last_name, TEXT('''')),
-          COALESCE(_i.cntct_suffix, TEXT('''')), COALESCE(_i.cntct_phone, TEXT('''')),
-          COALESCE(_i.cntct_title, TEXT('''')), COALESCE(_i.cntct_fax, TEXT('''')),
-          COALESCE(_i.cntct_email, TEXT('''')), COALESCE(_i.addr_line1, TEXT('''')),
-          COALESCE(_i.addr_line2, TEXT('''')), COALESCE(_i.addr_line3, TEXT('''')),
-          COALESCE(_i.addr_city, TEXT('''')), COALESCE(_i.addr_state, TEXT('''')),
-          COALESCE(_i.addr_postalcode, TEXT('''')), COALESCE(_i.addr_country, TEXT('''')) );
+          COALESCE(_i.cntct_honorific, TEXT('')), COALESCE(_i.cntct_first_name, TEXT('')),
+          COALESCE(_i.cntct_middle, TEXT('')), COALESCE(_i.cntct_last_name, TEXT('')),
+          COALESCE(_i.cntct_suffix, TEXT('')), COALESCE(_i.cntct_phone, TEXT('')),
+          COALESCE(_i.cntct_title, TEXT('')), COALESCE(_i.cntct_fax, TEXT('')),
+          COALESCE(_i.cntct_email, TEXT('')), COALESCE(_i.addr_line1, TEXT('')),
+          COALESCE(_i.addr_line2, TEXT('')), COALESCE(_i.addr_line3, TEXT('')),
+          COALESCE(_i.addr_city, TEXT('')), COALESCE(_i.addr_state, TEXT('')),
+          COALESCE(_i.addr_postalcode, TEXT('')), COALESCE(_i.addr_country, TEXT('')) );
     ELSE
       INSERT INTO pohead
         ( pohead_id, pohead_number, pohead_status, pohead_dropship,
@@ -167,10 +168,10 @@ BEGIN
           pohead_vendcity, pohead_vendstate,
           pohead_vendzipcode, pohead_vendcountry )
       VALUES
-        ( _poheadid, _ponumber, ''U'', pDropShip,
+        ( _poheadid, _ponumber, 'U', pDropShip,
           CURRENT_USER, _i.itemsrc_vend_id, _i.vend_taxzone_id,
 	  CURRENT_DATE, COALESCE(_i.vend_curr_id, basecurrid()), _s.cohead_id,
-          COALESCE(_s.cohead_warehous_id, -1), COALESCE(_i.vend_shipvia, TEXT('''')),
+          COALESCE(_s.cohead_warehous_id, -1), COALESCE(_i.vend_shipvia, TEXT('')),
           COALESCE(_i.vend_terms_id, -1), _w.cntct_id,
           _w.cntct_honorific, _w.cntct_first_name,
           _w.cntct_middle, _w.cntct_last_name,
@@ -183,18 +184,18 @@ BEGIN
           _w.addr_city,
           _w.addr_state, _w.addr_postalcode,
           _w.addr_country, COALESCE(_i.cntct_id, -1),
-          COALESCE(_i.cntct_honorific, TEXT('''')), COALESCE(_i.cntct_first_name, TEXT('''')),
-          COALESCE(_i.cntct_middle, TEXT('''')), COALESCE(_i.cntct_last_name, TEXT('''')),
-          COALESCE(_i.cntct_suffix, TEXT('''')), COALESCE(_i.cntct_phone, TEXT('''')),
-          COALESCE(_i.cntct_title, TEXT('''')), COALESCE(_i.cntct_fax, TEXT('''')),
-          COALESCE(_i.cntct_email, TEXT('''')), COALESCE(_i.addr_line1, TEXT('''')),
-          COALESCE(_i.addr_line2, TEXT('''')), COALESCE(_i.addr_line3, TEXT('''')),
-          COALESCE(_i.addr_city, TEXT('''')), COALESCE(_i.addr_state, TEXT('''')),
-          COALESCE(_i.addr_postalcode, TEXT('''')), COALESCE(_i.addr_country, TEXT('''')) );
+          COALESCE(_i.cntct_honorific, TEXT('')), COALESCE(_i.cntct_first_name, TEXT('')),
+          COALESCE(_i.cntct_middle, TEXT('')), COALESCE(_i.cntct_last_name, TEXT('')),
+          COALESCE(_i.cntct_suffix, TEXT('')), COALESCE(_i.cntct_phone, TEXT('')),
+          COALESCE(_i.cntct_title, TEXT('')), COALESCE(_i.cntct_fax, TEXT('')),
+          COALESCE(_i.cntct_email, TEXT('')), COALESCE(_i.addr_line1, TEXT('')),
+          COALESCE(_i.addr_line2, TEXT('')), COALESCE(_i.addr_line3, TEXT('')),
+          COALESCE(_i.addr_city, TEXT('')), COALESCE(_i.addr_state, TEXT('')),
+          COALESCE(_i.addr_postalcode, TEXT('')), COALESCE(_i.addr_country, TEXT('')) );
     END IF;
   END IF;
 
-    SELECT NEXTVAL(''poitem_poitem_id_seq'') INTO _poitemid;
+    SELECT NEXTVAL('poitem_poitem_id_seq') INTO _poitemid;
 
     SELECT (COALESCE(MAX(poitem_linenumber), 0) + 1) INTO _polinenumber
     FROM poitem
@@ -225,17 +226,17 @@ BEGIN
         poitem_manuf_name, poitem_manuf_item_number, 
         poitem_manuf_item_descrip, poitem_taxtype_id )
     VALUES
-      ( _poitemid, ''U'', _poheadid, _polinenumber,
+      ( _poitemid, 'U', _poheadid, _polinenumber,
         CURRENT_DATE + COALESCE(_s.itemsite_leadtime, 0), _s.coitem_itemsite_id,
-        COALESCE(_i.itemsrc_vend_item_descrip, TEXT('''')), COALESCE(_i.itemsrc_vend_uom, TEXT('''')),
+        COALESCE(_i.itemsrc_vend_item_descrip, TEXT('')), COALESCE(_i.itemsrc_vend_uom, TEXT('')),
         COALESCE(_i.itemsrc_invvendoruomratio, 1.00), COALESCE(_s.coitem_qtyord, 0.00),
-        _price, COALESCE(_i.itemsrc_vend_item_number, TEXT('''')),
+        _price, COALESCE(_i.itemsrc_vend_item_number, TEXT('')),
         pItemSourceId, pCoitemId, _s.cohead_prj_id, stdcost(_i.itemsrc_item_id),
-        COALESCE(_i.itemsrc_manuf_name, TEXT('''')), COALESCE(_i.itemsrc_manuf_item_number, TEXT('''')),
-        COALESCE(_i.itemsrc_manuf_item_descrip, TEXT('''')), _taxtypeid );
+        COALESCE(_i.itemsrc_manuf_name, TEXT('')), COALESCE(_i.itemsrc_manuf_item_number, TEXT('')),
+        COALESCE(_i.itemsrc_manuf_item_descrip, TEXT('')), _taxtypeid );
 
     UPDATE coitem
-    SET coitem_order_type = ''P'',
+    SET coitem_order_type = 'P',
         coitem_order_id = _poitemid
     WHERE ( coitem_id = pCoitemId );
 
@@ -244,4 +245,4 @@ BEGIN
   RETURN _poitemid;
 
 END;
-' LANGUAGE 'plpgsql' VOLATILE;
+$$ LANGUAGE 'plpgsql' VOLATILE;

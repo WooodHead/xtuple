@@ -1,4 +1,5 @@
-CREATE OR REPLACE FUNCTION deleteSoItem(INTEGER) RETURNS INTEGER AS '
+
+CREATE OR REPLACE FUNCTION deleteSoItem(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pSoitemid	ALIAS FOR $1;
 
@@ -29,7 +30,7 @@ BEGIN
   END IF;
 
 -- Cannot delete if returned
-  IF (fetchMetricBool(''MultiWhs'')) THEN
+  IF (fetchMetricBool('MultiWhs')) THEN
     SELECT raitem_id INTO _result
     FROM raitem
     WHERE ( (raitem_orig_coitem_id=pSoitemid)
@@ -44,18 +45,18 @@ BEGIN
   SELECT invhist_id INTO _result
   FROM invhist
   WHERE ( (invhist_ordnumber=formatSoNumber(pSoitemid))
-    AND   (invhist_ordtype=''SO'') )
+    AND   (invhist_ordtype='SO') )
   LIMIT 1;
   IF (FOUND) THEN
     RETURN -105;
   END IF;
 
-  SELECT (item_type=''J'') INTO _jobItem
+  SELECT (item_type='J') INTO _jobItem
   FROM coitem JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
               JOIN item ON (item_id=itemsite_item_id)
   WHERE (coitem_id=pSoitemid);
 
-  IF (_jobItem AND _r.coitem_order_type=''W'') THEN
+  IF (_jobItem AND _r.coitem_order_type='W') THEN
 -- Delete associated Work Order
     SELECT deleteWo(_r.coitem_order_id, TRUE, TRUE) INTO _result;
     IF (_result < 0) THEN
@@ -63,17 +64,17 @@ BEGIN
     END IF;
   ELSE
 -- Break association
-    IF (_r.coitem_order_type=''R'') THEN
+    IF (_r.coitem_order_type='R') THEN
       UPDATE pr SET pr_prj_id=-1
       WHERE (pr_id=_r.coitem_order_id);
     ELSE
-      IF (_r.coitem_order_type=''W'') THEN
+      IF (_r.coitem_order_type='W') THEN
         PERFORM changeWoProject(_r.coitem_order_id, -1, TRUE);
       END IF;
     END IF;
   END IF;
 
-  IF (_r.coitem_order_type=''P'') THEN
+  IF (_r.coitem_order_type='P') THEN
 -- Delete associated Purchase Order Item
     SELECT deletepoitem(_r.coitem_order_id) INTO _result;
     IF (_result = -10) THEN
@@ -95,4 +96,4 @@ BEGIN
   RETURN 0;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
