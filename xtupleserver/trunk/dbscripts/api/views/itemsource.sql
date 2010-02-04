@@ -9,6 +9,7 @@ CREATE VIEW api.itemsource AS
        vendinfo.vend_number::VARCHAR AS vendor, 
        itemsrc.itemsrc_vend_item_number AS vendor_item_number, 
        itemsrc.itemsrc_active AS active,
+       itemsrc.itemsrc_default AS itemsrc_default,
        itemsrc.itemsrc_vend_uom AS vendor_uom, 
        itemsrc.itemsrc_invvendoruomratio AS inventory_vendor_uom_ratio, 
        itemsrc.itemsrc_minordqty AS minimum_order, 
@@ -46,6 +47,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     itemsrc_leadtime, 
     itemsrc_ranking, 
     itemsrc_active,
+    itemsrc_default,
     itemsrc_manuf_name,
     itemsrc_manuf_item_number,
     itemsrc_manuf_item_descrip) 
@@ -62,6 +64,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.lead_time, 
     NEW.vendor_ranking, 
     COALESCE(NEW.active, true),
+    COALESCE(NEW.itemsrc_default, true),
     COALESCE(NEW.manufacturer_name,''),
     COALESCE(NEW.manufacturer_item_number,''),
     NEW.manufacturer_description);
@@ -80,6 +83,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     itemsrc_leadtime = NEW.lead_time, 
     itemsrc_ranking = NEW.vendor_ranking, 
     itemsrc_active = NEW.active,
+    itemsrc_default = NEW.itemsrc_default,
     itemsrc_manuf_name = NEW.manufacturer_name,
     itemsrc_manuf_item_number = NEW.manufacturer_item_number,
     itemsrc_manuf_item_descrip = NEW.manufacturer_description

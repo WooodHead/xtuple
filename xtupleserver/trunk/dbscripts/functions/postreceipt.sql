@@ -11,6 +11,9 @@ DECLARE
   _recvvalue		NUMERIC := 0;
   _tmp			INTEGER;
   _toitemitemid		INTEGER;
+  _soitemid		INTEGER;
+  _invhistid		INTEGER;
+  _shipheadid		INTEGER;
 
 BEGIN
   SELECT recv_id, recv_order_type, recv_orderitem_id, recv_qty,
@@ -42,7 +45,7 @@ BEGIN
 	   currToBase(pohead_curr_id, poitem_unitprice,
 		    recv_date::DATE) AS item_unitprice_base,
 	   poitem_invvenduomratio AS invvenduomratio,
-	   pohead_orderdate AS orderdate INTO _o
+	   pohead_orderdate AS orderdate, pohead_dropship INTO _o
     FROM recv, pohead, poitem
     WHERE ((recv_orderitem_id=poitem_id)
       AND  (poitem_pohead_id=pohead_id)
@@ -298,6 +301,138 @@ BEGIN
   UPDATE recv
   SET recv_value=_recvvalue, recv_posted=TRUE, recv_gldistdate=_glDate::DATE
   WHERE (recv_id=precvid);
+
+  IF (_r.recv_order_type = 'PO') THEN
+    -- If this is a drop-shipped PO, then Issue the item to Shipping and Ship the item
+    IF (_o.pohead_dropship = TRUE) THEN
+      
+      -- Get the Sales Order Item ID
+      SELECT coitem_id INTO _soitemid
+      FROM coitem JOIN poitem ON (coitem_order_id = poitem_id)
+      WHERE (poitem_id=_o.orderitem_id);
+
+      IF (NOT FOUND) THEN
+	RETURN -16;
+      END IF;
+
+      -- If this is a lot/serial controlled job item, we need to post production first
+      IF(_r.itemsite_costmethod='J') THEN
+        SELECT postSoItemProduction(_soitemid, _r.recv_qty, _glDate::DATE) INTO _tmp;
+        IF (_tmp < 0) THEN
+          RETURN _tmp;
+        END IF;
+
+        -- Need to get the inventory history id so we can auto reverse the distribution when issuing
+        SELECT invhist_id INTO _invhistid
+        FROM invhist
+        WHERE ((invhist_series = _itemlocSeries)
+          AND (invhist_transtype = 'RM'));
+
+        IF (NOT FOUND) THEN
+	  RETURN -17;
+        END IF;
+      END IF;
+
+      -- Issue the item to Shipping
+      SELECT issueToShipping( 'SO', _soitemid, _r.recv_qty, _itemlocSeries, _glDate::DATE, _invhistid ) INTO _tmp;
+      IF (_tmp = -1) THEN
+        RETURN -20;
+      ELSIF (_tmp = -10) THEN
+        RETURN -21;
+      ELSIF (_tmp = -12) THEN
+        RETURN -22;
+      ELSIF (_tmp = -13) THEN
+        RETURN -23;
+      ELSIF (_tmp = -14) THEN
+        RETURN -24;
+      ELSIF (_tmp = -15) THEN
+        RETURN -25;
+      END IF;
+
+      -- Fetch the Shiphead ID
+      SELECT shiphead_id INTO _shipheadid
+      FROM shiphead JOIN shipitem ON (shiphead_id = shipitem_shiphead_id)
+      WHERE (shipitem_orderitem_id = _soitemid);
+
+      -- Check for hold type
+      SELECT cohead_holdtype,
+             cohead_curr_id, cohead_freight INTO _r
+      FROM cohead JOIN coitem ON (cohead_id = coitem_cohead_id)
+      WHERE (coitem_id = _soitemid);
+
+      IF (_r.cohead_holdtype = 'C') THEN
+        RETURN -26;
+      ELSIF (_r.cohead_holdtype = 'P') THEN
+        RETURN -27;
+      ELSIF (_r.cohead_holdtype = 'R') THEN
+        RETURN -28;
+      ELSIF (_r.cohead_holdtype = 'S') THEN
+        RETURN -29;
+      END IF;
+
+      -- Set freight
+      UPDATE shiphead
+        SET shiphead_freight = _r.cohead_freight,
+	    shiphead_freight_curr_id = _r.cohead_curr_id
+      WHERE (shiphead_id = _shipheadid);
+
+      -- Ship the item
+      SELECT shipShipment(_shipheadid, _glDate::DATE) INTO _tmp;
+      IF (_tmp = -1) THEN
+        RETURN -30;
+      ELSIF (_tmp = -3) THEN
+        RETURN -31;
+      ELSIF (_tmp = -4) THEN
+        RETURN -32;
+      ELSIF (_tmp = -5) THEN
+        RETURN -33;
+      ELSIF (_tmp = -6) THEN
+        RETURN -34;
+      ELSIF (_tmp = -8) THEN
+        RETURN -35;
+      ELSIF (_tmp = -12) THEN
+        RETURN -26;
+      ELSIF (_tmp = -13) THEN
+        RETURN -27;
+      ELSIF (_tmp = -14) THEN
+        RETURN -28;
+      ELSIF (_tmp = -15) THEN
+        RETURN -29;
+      ELSIF (_tmp = -50) THEN
+        RETURN -36;
+      ELSIF (_tmp = -99) THEN
+        RETURN -37;
+      END IF;
+
+      -- Generate the PoItemDropShipped event
+      INSERT INTO evntlog
+      ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
+        evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, 
+        evntlog_number )
+      SELECT
+        CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
+        'P', _o.orderitem_id, evntnot_warehous_id,
+        (pohead_number || '-' || poitem_linenumber || ': ' || item_number)
+      FROM evntnot JOIN evnttype ON (evntnot_evnttype_id = evnttype_id)
+           JOIN itemsite ON (evntnot_warehous_id = itemsite_warehous_id) 
+           JOIN item ON (itemsite_item_id = item_id)
+           JOIN poitem ON (poitem_itemsite_id = itemsite_id)
+           JOIN pohead ON (poitem_pohead_id = pohead_id)
+      WHERE( (poitem_id = _o.orderitem_id)
+      AND (poitem_duedate <= (CURRENT_DATE + itemsite_eventfence))
+      AND (evnttype_name = 'PoItemDropShipped') );
+
+      -- If Purchase Configuration set to Select for Billing
+      IF (fetchmetricbool('BillDropShip')) THEN
+        -- Select item for billing
+        SELECT selectUninvoicedShipment(_shipheadid) INTO _tmp;
+        IF (_tmp < 0) THEN
+          RETURN _tmp;
+        END IF;
+      END IF;
+
+    END IF;
+  END IF;
 
   RETURN _itemlocSeries;
 

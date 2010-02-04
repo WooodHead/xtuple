@@ -37,6 +37,12 @@ AS
        ELSE
          true
      END AS create_order,
+     CASE
+       WHEN (coitem_order_id = -1) THEN
+         ''
+       ELSE
+         (pohead_number || '-' || poitem_linenumber)
+     END AS create_po,
      coitem_prcost AS overwrite_po_price,
      coitem_memo AS notes,
      CASE WHEN (coitem_cos_accnt_id IS NOT NULL) THEN
@@ -46,7 +52,9 @@ AS
      END AS alternate_cos_account
   FROM cohead, coitem
     LEFT OUTER JOIN itemsite isb ON (coitem_substitute_item_id=isb.itemsite_id)
-    LEFT OUTER JOIN item s ON (isb.itemsite_item_id=s.item_id),
+    LEFT OUTER JOIN item s ON (isb.itemsite_item_id=s.item_id)
+    LEFT OUTER JOIN (poitem JOIN pohead ON (poitem_pohead_id=pohead_id))
+      ON (poitem_id=coitem_order_id),
   itemsite il, item l, whsinfo, uom q, uom p
   WHERE ((cohead_id=coitem_cohead_id)
   AND (coitem_itemsite_id=il.itemsite_id)
@@ -118,8 +126,11 @@ CREATE OR REPLACE RULE "_INSERT" AS
            ((NEW.create_order IS NULL) AND itemsite_createwo)) THEN
         'W'
       WHEN ((NEW.create_order AND (item_type = 'P')) OR 
-           ((NEW.create_order IS NULL) AND itemsite_createpr)) THEN
+           ((NEW.create_order IS NULL) AND itemsite_createsopr)) THEN
         'R'
+      WHEN ((NEW.create_order AND (item_type = 'P') AND (itemsite_createsopo)) OR 
+           ((NEW.create_order IS NULL) AND itemsite_createsopo)) THEN
+        'P'
     END,
     getItemsiteId(warehous_code,NEW.substitute_for),
     NEW.overwrite_po_price,
@@ -153,6 +164,8 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     CASE
       WHEN (NOT OLD.create_order AND NEW.create_order  AND (item_type = 'M')) THEN
         'W'
+      WHEN (NOT OLD.create_order AND NEW.create_order AND (item_type = 'P') AND (itemsite_createsopo)) THEN
+        'P' 
       WHEN (NOT OLD.create_order AND NEW.create_order AND (item_type = 'P')) THEN
         'R'     
     END,
@@ -166,7 +179,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     END,
     coitem_warranty=NEW.warranty,
     coitem_cos_accnt_id=getGlAccntId(NEW.alternate_cos_account)
-   FROM item
+   FROM item JOIN itemsite ON (item_id=itemsite_item_id)
    WHERE ((item_number=OLD.item_number)
    AND (coitem_cohead_id=getCoheadId(OLD.order_number))
    AND (coitem_id=getCoitemId(OLD.order_number,OLD.line_number))
