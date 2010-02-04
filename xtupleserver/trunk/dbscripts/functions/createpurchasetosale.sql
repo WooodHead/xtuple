@@ -240,7 +240,22 @@ BEGIN
         coitem_order_id = _poitemid
     WHERE ( coitem_id = pCoitemId );
 
--- TO DO: Generate the PoItemCreatedBySo event notice
+    -- Generate the PoItemCreatedBySo event notice
+    INSERT INTO evntlog
+                ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
+                  evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id,
+                  evntlog_number )
+    SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id ,
+           'P', poitem_id, itemsite_warehous_id,
+           (pohead_number || '-' || poitem_linenumber || ': ' || item_number)
+    FROM evntnot JOIN evnttype ON (evntnot_evnttype_id=evnttype_id)
+         JOIN itemsite ON (evntnot_warehous_id=itemsite_warehous_id)
+         JOIN item ON (itemsite_item_id=item_id)
+         JOIN poitem ON (poitem_itemsite_id=itemsite_id)
+         JOIN pohead ON (poitem_pohead_id=pohead_id)
+    WHERE ( (poitem_id=_poitemid)
+      AND (poitem_duedate <= (CURRENT_DATE + itemsite_eventfence))
+      AND (evnttype_name='PoItemCreatedBySo') );
 
   RETURN _poitemid;
 

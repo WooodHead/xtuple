@@ -20,3 +20,25 @@ END;
 
 SELECT dropifexists('TRIGGER', 'itemsrcTrigger');
 CREATE TRIGGER itemsrcTrigger BEFORE INSERT OR UPDATE ON itemsrc FOR EACH ROW EXECUTE PROCEDURE _itemsrcTrigger();
+
+CREATE OR REPLACE FUNCTION _itemsrcAfterTrigger () RETURNS TRIGGER AS '
+BEGIN
+
+-- Privilege Checks
+  IF (NOT checkPrivilege(''MaintainItemSources'')) THEN
+    RAISE EXCEPTION ''You do not have privileges to maintain Item Sources.'';
+  END IF;
+
+-- Set default to false for other item sources of this item
+  IF (COALESCE(NEW.itemsrc_default, FALSE) = TRUE) THEN
+    UPDATE itemsrc SET itemsrc_default = FALSE
+    WHERE ( (itemsrc_item_id = NEW.itemsrc_item_id)
+      AND (itemsrc_id <> NEW.itemsrc_id) );
+  END IF;
+
+  RETURN NEW;
+END;
+' LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('trigger', 'itemsrcAfterTrigger');
+CREATE TRIGGER itemsrcAfterTrigger AFTER INSERT OR UPDATE ON itemsrc FOR EACH ROW EXECUTE PROCEDURE _itemsrcAfterTrigger();
