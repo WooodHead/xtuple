@@ -111,6 +111,7 @@ WHERE ((toitem_item_id=item_id)
   AND  (tohead_dest_warehous_id=warehous_id)
   AND  (toitem_item_id=itemsite_item_id)
   AND  (toitem_status NOT IN ('C','X'))
+  AND  (toitem_qty_shipped > toitem_qty_received)
 <? if exists("selectedOnly") ?>
  AND (usrsite_username=current_user) 
 <? endif ?>

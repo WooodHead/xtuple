@@ -29,7 +29,11 @@
 <? else ?>
   SELECT enterReceipt(orderitem_orderhead_type,
                       orderitem_id,
+<? if exists("tohead_id") ?>
+                      (orderitem_qty_shipped - orderitem_qty_received),
+<? else ?>
                       (orderitem_qty_ordered - orderitem_qty_received),
+<? endif ?>
                       (orderitem_freight - orderitem_freight_received),
                       '',
                       orderitem_freight_curr_id,
@@ -44,6 +48,9 @@
                               AND ('RA' = orderitem_orderhead_type))
 <? endif ?>
   WHERE (orderitem_status NOT IN ('C', 'X'))
+<? if exists("tohead_id") ?>
+    AND (orderitem_qty_shipped > orderitem_qty_received)
+<? endif ?>
 <? if exists("EnableReturnAuth") ?>
     AND (((orderitem_orderhead_type != 'RA') OR (raitem_disposition IN (NULL,'R','V','P'))))
 <? endif ?>
