@@ -2,7 +2,6 @@ CREATE OR REPLACE FUNCTION formatCntctName(INTEGER) RETURNS TEXT AS $$
 DECLARE
   pCntctId ALIAS FOR $1;
   _r RECORD;
-  _name TEXT := '';
   _rows NUMERIC;
 
 BEGIN
@@ -14,39 +13,55 @@ BEGIN
 
   GET DIAGNOSTICS _rows = ROW_COUNT;
   IF (_rows = 0) THEN
-    RETURN _name;
+    RETURN '';
   END IF;
 
-  IF (LENGTH(TRIM(both from _r.cntct_honorific)) > 0) THEN
-    _name:=_r.cntct_honorific || '.';
+  RETURN formatCntctName(_r.cntct_honorific, _r.cntct_first_name, _r.cntct_middle, _r.cntct_last_name, _r.cntct_suffix);
+
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION formatCntctName(TEXT, TEXT, TEXT, TEXT, TEXT) RETURNS TEXT AS $$ 
+DECLARE
+  pHonorific ALIAS FOR $1;
+  pFirstName ALIAS FOR $2;
+  pMiddle ALIAS FOR $3;
+  pLastName ALIAS FOR $4;
+  pSuffix ALIAS FOR $5;
+  _name TEXT := '';
+
+BEGIN
+
+  IF (LENGTH(TRIM(both from COALESCE(pHonorific,''))) > 0) THEN
+    _name:= pHonorific || '.';
   END IF;
 
-  IF (LENGTH(TRIM(both from _r.cntct_first_name)) > 0)  THEN
+  IF (LENGTH(TRIM(both from COALESCE(pFirstName,''))) > 0)  THEN
         IF (LENGTH(TRIM(both from _name)) > 0) THEN
                 _name:=_name || ' ';
         END IF;
-    _name:=_name || _r.cntct_first_name;
+    _name:=_name || pFirstName;
   END IF;
 
-  IF (LENGTH(TRIM(both from _r.cntct_middle)) > 0)  THEN
+  IF (LENGTH(TRIM(both from COALESCE(pMiddle,''))) > 0)  THEN
         IF (LENGTH(TRIM(both from _name)) > 0) THEN
                 _name:=_name || ' ';
         END IF;
-    _name:=_name || _r.cntct_middle || '.';
+    _name:=_name || pMiddle || '.';
   END IF;
 
-  IF (LENGTH(TRIM(both from _r.cntct_last_name)) > 0)  THEN
+  IF (LENGTH(TRIM(both from COALESCE(pLastName,''))) > 0)  THEN
         IF (LENGTH(TRIM(both from _name)) > 0) THEN
                 _name:=_name || ' ';
         END IF;
-    _name:=_name || _r.cntct_last_name;
+    _name:=_name || pLastName;
   END IF;
 
-  IF (LENGTH(TRIM(both from _r.cntct_suffix)) > 0)  THEN
+  IF (LENGTH(TRIM(both from COALESCE(pSuffix,''))) > 0)  THEN
         IF (LENGTH(TRIM(both from _name)) > 0) THEN
                 _name:=_name || ' ';
         END IF;
-    _name:=_name || _r.cntct_suffix;
+    _name:=_name || pSuffix;
   END IF;
 
   RETURN _name;
