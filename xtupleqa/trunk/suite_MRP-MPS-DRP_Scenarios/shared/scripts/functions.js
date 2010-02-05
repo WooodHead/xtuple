@@ -124,10 +124,11 @@ function UpdateQOH(item, quant)
             type(":Enter Miscellaneous Adjustment._qtyToAssign_XLineEdit", lot_quant);
             waitForObject(":Enter Miscellaneous Adjustment.XDateEdit_XDateEdit");
             type(":Enter Miscellaneous Adjustment.XDateEdit_XDateEdit", "+30");
-            waitForObject(":Enter Miscellaneous Adjustment.Assign_QPushButton");
-            clickButton(":Enter Miscellaneous Adjustment.Assign_QPushButton");
-            waitForObject(":Enter Miscellaneous Adjustment.Assign_QPushButton");
-            clickButton(":Enter Miscellaneous Adjustment.Assign_QPushButton");
+            waitForObject(":Enter Miscellaneous Adjustment.OK_QPushButton");
+             clickButton(":Enter Miscellaneous Adjustment.OK_QPushButton");
+             waitForObject(":Enter Miscellaneous Adjustment.OK_QPushButton");
+            clickButton(":Enter Miscellaneous Adjustment.OK_QPushButton");
+            
             
         }
        
@@ -193,7 +194,7 @@ function UpdateQOHWh(item, quant,wh)
             waitForObject(":Enter Miscellaneous Adjustment.Assign_QPushButton");
             clickButton(":Enter Miscellaneous Adjustment.Assign_QPushButton");
             waitForObject(":Enter Miscellaneous Adjustment.Assign_QPushButton");
-            clickButton(":Enter Miscellaneous Adjustment.Assign_QPushButton");
+            clickButton(":Enter Miscellaneous Adjustment.Assign_QPushButton"); 
             
         }
        
@@ -353,8 +354,8 @@ function newPO(item, quant, ddate)
     activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
     waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
     activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-    waitForObject(":List Unposted Purchase Orders.New_QPushButton");
-    clickButton(":List Unposted Purchase Orders.New_QPushButton");
+    waitForObject(":List Open Purchase Orders.New_QPushButton");
+    clickButton(":List Open Purchase Orders.New_QPushButton");
     waitForObject(":_headerPage...._QPushButton_3");
     clickButton(":_headerPage...._QPushButton_3");
     waitForObject(":_listTab_XTreeWidget_2");
@@ -390,8 +391,8 @@ function newPO(item, quant, ddate)
     clickButton(":Purchase Order.Save_QPushButton_2");
     waitForObject(":Purchase Order.Close_QPushButton");
     clickButton(":Purchase Order.Close_QPushButton");
-    waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
-    clickButton(":List Unposted Purchase Orders.Close_QPushButton");
+   waitForObject(":List Open Purchase Orders.Close_QPushButton");
+    clickButton(":List Open Purchase Orders.Close_QPushButton");
     test.log("new Purchase Order created");
 
 }
@@ -413,8 +414,8 @@ function newPOWh(item, quant, ddate,Wh)
     activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
     waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
     activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-    waitForObject(":List Unposted Purchase Orders.New_QPushButton");
-    clickButton(":List Unposted Purchase Orders.New_QPushButton");
+    waitForObject(":List Open Purchase Orders.New_QPushButton");
+    clickButton(":List Open Purchase Orders.New_QPushButton");
     waitForObject(":_headerPage...._QPushButton_3");
     clickButton(":_headerPage...._QPushButton_3");
     waitForObject(":_listTab_XTreeWidget_2");
@@ -450,8 +451,8 @@ function newPOWh(item, quant, ddate,Wh)
     clickButton(":Purchase Order.Save_QPushButton_2");
     waitForObject(":Purchase Order.Close_QPushButton");
     clickButton(":Purchase Order.Close_QPushButton");
-    waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
-    clickButton(":List Unposted Purchase Orders.Close_QPushButton");
+    waitForObject(":List Open Purchase Orders.Close_QPushButton");
+    clickButton(":List Open Purchase Orders.Close_QPushButton");
     test.log("new Purchase Order created");
 
 }
@@ -472,25 +473,25 @@ function DelAllPO()
     activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
     waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
     activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-    if(findObject(":List Unposted Purchase Orders._pohead_XTreeWidget").topLevelItemCount>0)
+    if(findObject(":List Open Purchase Orders._pohead_XTreeWidget").topLevelItemCount>0)
     {
-        waitForObject(":List Unposted Purchase Orders._pohead_XTreeWidget");
-        type(":List Unposted Purchase Orders._pohead_XTreeWidget","<Space>");
+        waitForObject(":List Open Purchase Orders._pohead_XTreeWidget");
+        type(":List Open Purchase Orders._pohead_XTreeWidget","<Space>");
     }
        
-    while(findObject(":List Unposted Purchase Orders._pohead_XTreeWidget").topLevelItemCount>0)
+    while(findObject(":List Open Purchase Orders._pohead_XTreeWidget").topLevelItemCount>0)
     {
-        waitForObject(":List Unposted Purchase Orders.Delete_QPushButton");
-        clickButton(":List Unposted Purchase Orders.Delete_QPushButton");
-        waitForObject(":List Unposted Purchase Orders.Yes_QPushButton");
-        clickButton(":List Unposted Purchase Orders.Yes_QPushButton");
+         waitForObject(":List Open Purchase Orders.Delete_QPushButton");
+         clickButton(":List Open Purchase Orders.Delete_QPushButton");
+         waitForObject(":List Open Purchase Orders.Yes_QPushButton");
+         clickButton(":List Open Purchase Orders.Yes_QPushButton");
         snooze(0.5); //delay allowed to delete
-        waitForObject(":List Unposted Purchase Orders._pohead_XTreeWidget");
-        type(":List Unposted Purchase Orders._pohead_XTreeWidget","<Down>");
+        waitForObject(":List Open Purchase Orders._pohead_XTreeWidget");
+        type(":List Open Purchase Orders._pohead_XTreeWidget","<Down>");
     
     }
-    waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
-    clickButton(":List Unposted Purchase Orders.Close_QPushButton");
+    waitForObject(":List Open Purchase Orders.Close_QPushButton");
+    clickButton(":List Open Purchase Orders.Close_QPushButton");
     test.log("Deleted All Purchase Orders");
 }
 }

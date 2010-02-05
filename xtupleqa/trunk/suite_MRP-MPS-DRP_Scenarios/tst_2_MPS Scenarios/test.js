@@ -108,7 +108,7 @@ function main()
     //----Setup Item site------
    try
    {
-   waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
     waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
     activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -116,9 +116,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -264,9 +264,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -383,9 +383,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -548,9 +548,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -659,9 +659,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     snooze(2);
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
@@ -787,9 +787,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -910,9 +910,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -1020,9 +1020,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -1142,9 +1142,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -1250,9 +1250,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -1384,9 +1384,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -1446,12 +1446,9 @@ function main()
     
    
     waitForObject(":Order #_HeaderViewItem");
-   
     mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
-   
     if(findObject(":_planord.Col1_QModelIndex").text> findObject(":_planord.Col2_QModelIndex").text)
-       
-        mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
+    mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
     
     waitForObject(":frame._planord_XTreeWidget");
     var sWidgetTreeControl = ":frame._planord_XTreeWidget";
@@ -1505,9 +1502,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":Scheduling._planningType_XComboBox");
@@ -1594,9 +1591,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":Scheduling._planningType_XComboBox");
@@ -1694,9 +1691,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":Scheduling._planningType_XComboBox");
@@ -1750,11 +1747,8 @@ function main()
     
    
     waitForObject(":Order #_HeaderViewItem");
-   
     mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
-   
     if(findObject(":_planord.Col1_QModelIndex").text> findObject(":_planord.Col2_QModelIndex").text)
-       
     mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
     
     waitForObject(":frame._planord_XTreeWidget");
@@ -1812,9 +1806,9 @@ function main()
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":Scheduling._planningType_XComboBox");
@@ -2976,7 +2970,7 @@ function main()
     
     DelPlanOrdrs();
     
-      NewWO("BTRUCK1",250, 0, "+14");
+    NewWO("BTRUCK1",250, 0, "+14");
     
     MPS("+150");
 
@@ -3005,7 +2999,7 @@ function main()
    
     if(findObject(":_planord.Col1_QModelIndex").text> findObject(":_planord.Col2_QModelIndex").text)
       
-        mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
+     mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
     
     waitForObject(":frame._planord_XTreeWidget");
     var sWidgetTreeControl = ":frame._planord_XTreeWidget";
@@ -3043,7 +3037,7 @@ function main()
    {
         test.fail("Error in viewing planned orders" + e);
    }
-    
+  
     //MPS/MRP – TIME PHASED PRODUCTION SCHEDULE LINES – NETTED TO W/O
     test.log("MPS/MRP – TIME PHASED PRODUCTION SCHEDULE LINES – NETTED TO W/O");
     
@@ -3101,9 +3095,9 @@ function main()
     
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "TSUB1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-    if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+    if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":Scheduling._planningType_XComboBox");
@@ -3169,12 +3163,9 @@ function main()
     
    
     waitForObject(":Order #_HeaderViewItem");
-   
     mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
-   
-    if(findObject(":_planord.Col1_QModelIndex").text> findObject(":_planord.Col2_QModelIndex").text)
-       
-        mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
+   if(findObject(":_planord.Col1_QModelIndex").text> findObject(":_planord.Col2_QModelIndex").text)
+    mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
     
     waitForObject(":frame._planord_XTreeWidget");
     var sWidgetTreeControl = ":frame._planord_XTreeWidget";

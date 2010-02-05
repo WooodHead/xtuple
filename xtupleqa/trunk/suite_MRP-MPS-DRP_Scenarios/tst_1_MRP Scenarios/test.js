@@ -121,7 +121,7 @@ function main()
     catch(e)
     {
         test.fail("Error in rescanning privileges" + e);
-    }
+  }
     
     
         
@@ -2162,7 +2162,7 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
             var StartDate = CurrentYearFull+"-"+CurrentMonth+"-"+CurrentDate;
                       
            obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-           if(obj_TreeTopLevelItem.text(4)=="TSUB1" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(10) && obj_TreeTopLevelItem.text(7)==getForwardDate(7))
+           if(obj_TreeTopLevelItem.text(4)=="TSUB1" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(10) )
                test.pass("Expected Planned Order generated");
            else 
                test.fail("Incorrect Planned Order generated");
@@ -2214,9 +2214,9 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    waitForObject(":_itemSite_XTreeWidget");
    doubleClickItem(":_itemSite_XTreeWidget", "YTRUCK1", 0, 0, 0, Qt.LeftButton);
    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
-   waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-   if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+   waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+   if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox").checked)
@@ -2253,9 +2253,9 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    {
    waitForObject(":_itemSite_XTreeWidget");
    doubleClickItem(":_itemSite_XTreeWidget", "TSUB1", 0, 0, 0, Qt.LeftButton);
-   waitForObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
-   if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+   waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+   if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
    clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -2294,8 +2294,8 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    waitForObject(":_itemSite_XTreeWidget");
    doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
-   if(findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").enabled && findObject(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-        clickButton(":Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox");
+   if(findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").enabled && findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
    waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
    if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox").checked)
@@ -2444,9 +2444,12 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     clickButton(":List Items.Copy_QPushButton_2");
     waitForObject(":List Items.Yes_QPushButton");
     clickButton(":List Items.Yes_QPushButton");
-    waitForObject(":Supply Rules.Site can manufacture this Item_QCheckBox");
-    if(!findObject(":Supply Rules.Site can manufacture this Item_QCheckBox").checked)
-        clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox");
+    waitForObject(":List Items.Site can manufacture this Item_QGroupBox");
+    mouseClick(":List Items.Site can manufacture this Item_QGroupBox", 18, 9, 0, Qt.LeftButton);
+    snooze(0.5);
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox_2");
+    if(!findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox_2").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox_2");
     waitForObjectItem(":_warehouse_WComboBox", "WH1");
     clickItem(":_warehouse_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_plannerCode_XComboBox" );
@@ -2500,9 +2503,12 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     clickButton(":List Items.Copy_QPushButton_2");
     waitForObject(":List Items.Yes_QPushButton");
     clickButton(":List Items.Yes_QPushButton");
-    waitForObject(":Supply Rules.Site can manufacture this Item_QCheckBox");
-    if(!findObject(":Supply Rules.Site can manufacture this Item_QCheckBox").checked)
-        clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox");
+    waitForObject(":List Items.Site can manufacture this Item_QGroupBox");
+    mouseClick(":List Items.Site can manufacture this Item_QGroupBox", 18, 9, 0, Qt.LeftButton);
+    snooze(0.5);
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox_2");
+    if(!findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox_2").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox_2");
     waitForObjectItem(":_warehouse_WComboBox", "WH1");
     clickItem(":_warehouse_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_plannerCode_XComboBox" );
@@ -2555,10 +2561,13 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     waitForObject(":List Items.Copy_QPushButton_2");
     clickButton(":List Items.Copy_QPushButton_2");
     waitForObject(":List Items.Yes_QPushButton");
-    clickButton(":List Items.Yes_QPushButton");
-    waitForObject(":Supply Rules.Site can manufacture this Item_QCheckBox");
-    if(!findObject(":Supply Rules.Site can manufacture this Item_QCheckBox").checked)
-        clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox");
+    clickButton(":List Items.Yes_QPushButton");   
+    waitForObject(":List Items.Site can manufacture this Item_QGroupBox");
+    mouseClick(":List Items.Site can manufacture this Item_QGroupBox", 18, 9, 0, Qt.LeftButton);
+    snooze(0.5);
+    waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox_2");
+    if(!findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox_2").checked)
+        clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox_2");
     waitForObjectItem(":_warehouse_WComboBox", "WH1");
     clickItem(":_warehouse_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_plannerCode_XComboBox" );

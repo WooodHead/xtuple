@@ -287,10 +287,10 @@ function main()
     clickButton(":List Items.Copy_QPushButton_2");
     waitForObject(":List Items.Yes_QPushButton");
     clickButton(":List Items.Yes_QPushButton");
-    waitForObject(":Supply Rules.Site can purchase this Item_QCheckBox");
-    clickButton(":Supply Rules.Site can purchase this Item_QCheckBox");
-    waitForObject(":Supply Rules.Site can manufacture this Item_QCheckBox");
-    clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox");
+    waitForObject(":List Items.Site can manufacture this Item_QGroupBox");
+    mouseClick(":List Items.Site can manufacture this Item_QGroupBox", 13, 9, 0, Qt.LeftButton);
+    waitForObject(":List Items.Site can Purchase this item_QGroupBox");
+    mouseClick(":List Items.Site can Purchase this item_QGroupBox", 16, 11, 0, Qt.LeftButton);
     waitForObjectItem(":_warehouse_WComboBox", "WH1");
     clickItem(":_warehouse_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
     waitForObjectItem(":_plannerCode_XComboBox", "MRP-MRP Items");
@@ -324,7 +324,7 @@ function main()
     }
    catch(e)
    {
-        test.fail("Error in creating item DTRUICK1" + e);
+        test.fail("Error in creating item DTRUCK1" + e);
    }
 
     //-------Create Item Sites for DTRUCK1-----
@@ -342,12 +342,12 @@ function main()
     clickButton(":_frame.Copy_QPushButton");
     waitForObject(":_warehouse_WComboBox_3");
     clickItem(":_warehouse_WComboBox_3", "WH2", 0, 0, 1, Qt.LeftButton);
-    waitForObject(":Supply Rules.Site can purchase this Item_QCheckBox_2");
-    if(!findObject(":Supply Rules.Site can purchase this Item_QCheckBox_2").checked)
-        clickButton(":Supply Rules.Site can purchase this Item_QCheckBox_2");
-    waitForObject(":Supply Rules.Site can manufacture this Item_QCheckBox_2");
-    if(!findObject(":Supply Rules.Site can manufacture this Item_QCheckBox_2").checked)
-        clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox_2");
+    waitForObject(":List Item Sites.Site can Purchase this item_QGroupBox");
+    if(!findObject(":List Item Sites.Site can Purchase this item_QGroupBox").checked)
+    mouseClick(":List Items.Site can Purchase this item_QGroupBox", 16, 11, 0, Qt.LeftButton);
+    waitForObject(":List Item Sites.Site can manufacture this Item_QGroupBox");
+    if(!findObject(":List Item Sites.Site can manufacture this Item_QGroupBox").checked)
+     mouseClick(":List Items.Site can manufacture this Item_QGroupBox", 13, 9, 0, Qt.LeftButton);
     waitForObjectItem(":Control._controlMethod_XComboBox", "None");
     clickItem(":Control._controlMethod_XComboBox", "None", 0, 0, 1, Qt.LeftButton);
     waitForObjectItem(":Control._controlMethod_XComboBox", "Regular");
@@ -1409,7 +1409,7 @@ function main()
    waitForObject(":Order #_HeaderViewItem");
    mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
    if(findObject(":_planord.Col1_QModelIndex").text> findObject(":_planord.Col2_QModelIndex").text)
-      mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
+    mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
     
     waitForObject(":frame._planord_XTreeWidget");
     var sWidgetTreeControl = ":frame._planord_XTreeWidget";
@@ -1469,17 +1469,17 @@ function main()
         test.fail("Error in viewing planned orders" + e);
    }
   
-    
-    //DRP S/O DEMAND P/O SUPPLY NETTING TEST
-    test.log("DRP S/O DEMAND P/O SUPPLY NETTING TEST");
-    
+  
+  //DRP S/O DEMAND P/O SUPPLY NETTING TEST
+  test.log("DRP S/O DEMAND P/O SUPPLY NETTING TEST");
+  
     DelPlanOrdrs();
     DelAllSO();
     DelAllPO();
     
     NewSOWh("DTRUCK1",150,"WH2");
     NewSOWh("DTRUCK1",100,"WH3");
-    
+  
     newPOWh("DTRUCK1",25,"0","WH2");
     
     
@@ -1543,9 +1543,9 @@ function main()
    {
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Site can purchase this Item_QCheckBox_2");
-    if(!findObject(":Supply Rules.Site can purchase this Item_QCheckBox_2").checked)
-        clickButton(":Supply Rules.Site can purchase this Item_QCheckBox_2");
+    waitForObject(":List Item Sites.Site can Purchase this item_QGroupBox");
+    if(!findObject(":List Item Sites.Site can Purchase this item_QGroupBox").checked)
+        mouseClick(":List Item Sites.Site can Purchase this item_QGroupBox", 14, 5, 0, Qt.LeftButton);
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -1694,12 +1694,12 @@ function main()
         clickItem(":_warehouse._warehouses_WComboBox", "WH2", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":Supply Rules.Site can purchase this Item_QCheckBox_2");
-    if(!findObject(":Supply Rules.Site can purchase this Item_QCheckBox_2").checked)
-        clickButton(":Supply Rules.Site can purchase this Item_QCheckBox_2");
-    waitForObject(":Supply Rules.Site can manufacture this Item_QCheckBox_2");
-    if(!findObject(":Supply Rules.Site can manufacture this Item_QCheckBox_2").checked)
-        clickButton(":Supply Rules.Site can manufacture this Item_QCheckBox_2");
+    waitForObject(":List Item Sites.Site can Purchase this item_QGroupBox");
+    if(!findObject(":List Item Sites.Site can Purchase this item_QGroupBox").checked)
+        mouseClick(":List Item Sites.Site can Purchase this item_QGroupBox", 14, 5, 0, Qt.LeftButton);
+    waitForObject(":List Item Sites.Site can manufacture this Item_QGroupBox");
+    if(!findObject(":List Item Sites.Site can manufacture this Item_QGroupBox").checked)
+         mouseClick(":List Item Sites.Site can manufacture this Item_QGroupBox", 16, 6, 0, Qt.LeftButton);
     
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
@@ -1955,7 +1955,7 @@ function main()
    waitForObject(":Order #_HeaderViewItem");
    mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
    if(findObject(":_planord.Col1_QModelIndex").text> findObject(":_planord.Col2_QModelIndex").text)
-     mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
+      mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
     
     waitForObject(":frame._planord_XTreeWidget");
     var sWidgetTreeControl = ":frame._planord_XTreeWidget";
