@@ -56,7 +56,7 @@ BEGIN
 -- call a separate function so as not to affect
 -- the existing functionality.
     IF (_p.invcnt_location_id IS NOT NULL) THEN
-      RETURN postCountTagLocation(pInvcntid, pThaw);
+      RETURN postCountTagLocation(pInvcntid, pThaw, pAvgCostingMethod);
     END IF;
 
     SELECT NEXTVAL('invhist_invhist_id_seq') INTO _invhistid;
