@@ -2,11 +2,25 @@ CREATE OR REPLACE FUNCTION postCountTag(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pInvcntid ALIAS FOR $1;
   pThaw ALIAS FOR $2;
+
+BEGIN
+
+  RETURN postCountTag(pInvcntid, pThaw, 'STD');
+
+END;
+$$ LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION postCountTag(INTEGER, BOOLEAN, TEXT) RETURNS INTEGER AS $$
+DECLARE
+  pInvcntid ALIAS FOR $1;
+  pThaw ALIAS FOR $2;
+  pAvgCostingMethod ALIAS FOR $3;
   _invhistid INTEGER;
   _postDate TIMESTAMP;
   _runningQty NUMERIC;
   _errorCode INTEGER;
-  _itemlocSeries INTEGER;
+  _itemlocSeries INTEGER := 0;
   _hasDetail BOOLEAN;
   _p RECORD;
   _itemloc RECORD;
@@ -21,7 +35,14 @@ BEGIN
          itemsite_id, itemsite_freeze,
          itemsite_qtyonhand,
          itemsite_loccntrl, itemsite_location_id,
-         stdcost(itemsite_item_id) AS cost,
+         CASE WHEN (itemsite_costmethod = 'N') THEN 0
+              WHEN ( (itemsite_costmethod = 'A') AND
+                     (itemsite_qtyonhand = 0) AND
+                     (pAvgCostingMethod = 'ACT') ) THEN actcost(itemsite_item_id)
+              WHEN ( (itemsite_costmethod = 'A') AND
+                     (pAvgCostingMethod IN ('ACT', 'AVG')) ) THEN avgcost(itemsite_id)
+              ELSE stdcost(itemsite_item_id)
+         END AS cost, itemsite_costmethod,
          itemsite_controlmethod,
          itemsite_value INTO _p
   FROM invcnt, itemsite, item
@@ -193,21 +214,22 @@ BEGIN
     WHERE (invcnt_id=pInvcntid);
 
 --  Create the CC transaction
---  All counts are posted using Standard Cost method
     INSERT INTO invhist
      ( invhist_id, invhist_itemsite_id,
        invhist_transdate, invhist_transtype, invhist_invqty,
        invhist_qoh_before, invhist_qoh_after,
        invhist_docnumber, invhist_comments,
        invhist_invuom, invhist_unitcost, invhist_hasdetail,
-       invhist_costmethod, invhist_value_before, invhist_value_after )
+       invhist_costmethod, invhist_value_before, invhist_value_after,
+       invhist_series )
     SELECT _invhistid, itemsite_id,
            _postDate, 'CC', (invcnt_qoh_after - invcnt_qoh_before),
            invcnt_qoh_before, invcnt_qoh_after,
            invcnt_tagnumber, invcnt_comments,
            uom_name, _p.cost, _hasDetail,
-           'S', _p.itemsite_value, 
-           _p.itemsite_value + (_p.cost * (invcnt_qoh_after - invcnt_qoh_before))
+           _p.itemsite_costmethod, _p.itemsite_value, 
+           _p.itemsite_value + (_p.cost * (invcnt_qoh_after - invcnt_qoh_before)),
+           _itemlocSeries
     FROM itemsite, invcnt, item, uom
     WHERE ( (invcnt_itemsite_id=itemsite_id)
      AND (itemsite_item_id=item_id)
