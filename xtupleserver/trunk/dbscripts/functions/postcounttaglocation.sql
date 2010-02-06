@@ -1,12 +1,13 @@
-CREATE OR REPLACE FUNCTION postCountTagLocation(INTEGER, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postCountTagLocation(INTEGER, BOOLEAN, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pInvcntid ALIAS FOR $1;
   pThaw ALIAS FOR $2;
+  pAvgCostingMethod ALIAS FOR $3;
   _invhistid INTEGER;
   _postDate TIMESTAMP;
   _runningQty NUMERIC;
   _errorCode INTEGER;
-  _itemlocSeries INTEGER;
+  _itemlocSeries INTEGER := 0;
   _hasDetail BOOLEAN;
   _p RECORD;
   _itemloc RECORD;
@@ -22,7 +23,14 @@ BEGIN
          itemsite_id, itemsite_freeze,
          itemsite_qtyonhand,
          itemsite_loccntrl, COALESCE(invcnt_location_id, -1) AS itemsite_location_id,
-         stdcost(itemsite_item_id) AS cost,
+         CASE WHEN (itemsite_costmethod = 'N') THEN 0
+              WHEN ( (itemsite_costmethod = 'A') AND
+                     (itemsite_qtyonhand = 0) AND
+                     (pAvgCostingMethod = 'ACT') ) THEN actcost(itemsite_item_id)
+              WHEN ( (itemsite_costmethod = 'A') AND
+                     (pAvgCostingMethod IN ('ACT', 'AVG')) ) THEN avgcost(itemsite_id)
+              ELSE stdcost(itemsite_item_id)
+         END AS cost, itemsite_costmethod,
          itemsite_controlmethod, itemsite_value INTO _p
   FROM invcnt, itemsite, item
   WHERE ( (invcnt_itemsite_id=itemsite_id)
@@ -45,7 +53,7 @@ BEGIN
     _netable := TRUE;
   END IF;
 
-  SELECT NEXTVAL(''invhist_invhist_id_seq'') INTO _invhistid;
+  SELECT NEXTVAL('invhist_invhist_id_seq') INTO _invhistid;
 
   IF (_p.itemsite_freeze) THEN
     _postDate := _p.invcnt_tagdate;
@@ -57,9 +65,9 @@ BEGIN
 
 --  Post the detail indicated by cntslips
   IF ( (_p.itemsite_loccntrl) OR
-       (_p.itemsite_controlmethod IN (''L'', ''S'')) ) THEN
+       (_p.itemsite_controlmethod IN ('L', 'S')) ) THEN
 
-    SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
+    SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
 
 --  Adjust any existing detail to 0
     FOR _itemloc IN SELECT itemloc_id, itemloc_location_id,
@@ -76,7 +84,7 @@ BEGIN
         itemlocdist_expiration,
         itemlocdist_itemsite_id, itemlocdist_invhist_id, itemlocdist_flush )
       VALUES
-      ( _itemlocSeries, ''I'', _itemloc.itemloc_id,
+      ( _itemlocSeries, 'I', _itemloc.itemloc_id,
         endOfTime(),
         _p.itemsite_id, _invhistid, TRUE );
 
@@ -106,7 +114,7 @@ BEGIN
         AND (UPPER(ls_number)=UPPER(_cntslip.cntslip_lotserial)));
 
         IF (NOT FOUND) THEN
-          _lsid := NEXTVAL(''ls_ls_id_seq'');
+          _lsid := NEXTVAL('ls_ls_id_seq');
           INSERT INTO ls
           VALUES (_lsid,_cntslip.itemsite_item_id,UPPER(_cntslip.cntslip_lotserial));
         END IF;
@@ -123,7 +131,7 @@ BEGIN
         itemlocdist_ls_id, itemlocdist_expiration, itemlocdist_warranty,
         itemlocdist_qty, itemlocdist_invhist_id )
       VALUES
-      ( _itemlocSeries, ''L'', _cntslip.cntslip_location_id,
+      ( _itemlocSeries, 'L', _cntslip.cntslip_location_id,
         _p.itemsite_id,
         _lsid, COALESCE(_cntslip.cntslip_lotserial_expiration, endOfTime()),
         _cntslip.cntslip_lotserial_warrpurc,
@@ -133,30 +141,30 @@ BEGIN
 
     IF (_runningQty > _p.invcnt_qoh_after) THEN
 --  The total Count Slip Qty is greater than the Count Tag Qty,
---  Don''t post the Count.
+--  Don't post the Count.
       _errorCode = -1;
 
     ELSIF ( (_runningQty < _p.invcnt_qoh_after) AND
-            (_p.itemsite_controlmethod IN (''L'', ''S'')) ) THEN
+            (_p.itemsite_controlmethod IN ('L', 'S')) ) THEN
 --  The total Count Slip Qty is less than the Count Tag Qty,
 --  and the Item Site is Lot/Serial controlled.
---  Don''t post the Count.
+--  Don't post the Count.
       _errorCode = -2;
 
     ELSIF (_runningQty < _p.invcnt_qoh_after) THEN
       IF ( (NOT _p.itemsite_loccntrl) OR
            (_p.itemsite_location_id = -1) ) THEN
 --  The total Count Slip Qty is less than the Count Tag Qty,
---  and there isn''t a default location to post into.
---  Don''t post the Count.
+--  and there isn't a default location to post into.
+--  Don't post the Count.
         _errorCode = -3;
 
-      ELSIF ( SELECT (metric_value=''f'')
+      ELSIF ( SELECT (metric_value='f')
               FROM metric
-              WHERE (metric_name=''PostCountTagToDefault'') ) THEN
+              WHERE (metric_name='PostCountTagToDefault') ) THEN
 --  The total Count Slip Qty is less than the Count Tag Qty,
---  and we don''t post Count Tags to default Locations
---  Don''t post the Count.
+--  and we don't post Count Tags to default Locations
+--  Don't post the Count.
         _errorCode = -4;
 
       ELSE
@@ -166,7 +174,7 @@ BEGIN
           itemlocdist_itemsite_id,
           itemlocdist_ls_id, itemlocdist_expiration,
           itemlocdist_qty, itemlocdist_invhist_id )
-        SELECT _itemlocSeries, ''L'', _p.itemsite_location_id,
+        SELECT _itemlocSeries, 'L', _p.itemsite_location_id,
                _p.itemsite_id,
                _lsid, endOfTime(),
                (_p.invcnt_qoh_after - _runningQty), _invhistid;
@@ -179,7 +187,7 @@ BEGIN
       _errorCode = 0;
     END IF;
 
---  If we shouldn''t post the count then delete the itemlocdist records,
+--  If we shouldn't post the count then delete the itemlocdist records,
 --  and return with the error.
     IF (_errorCode <> 0) THEN
       DELETE FROM itemlocdist
@@ -200,26 +208,27 @@ BEGIN
   WHERE (invcnt_id=pInvcntid);
 
 --  Create the CC transaction
---  All counts are posted using Standard Cost method
   INSERT INTO invhist
    ( invhist_id, invhist_itemsite_id,
      invhist_transdate, invhist_transtype, invhist_invqty,
      invhist_qoh_before, invhist_qoh_after,
      invhist_docnumber, invhist_comments,
      invhist_invuom, invhist_unitcost, invhist_hasdetail,
-     invhist_costmethod, invhist_value_before, invhist_value_after )
+     invhist_costmethod, invhist_value_before, invhist_value_after,
+     invhist_series )
   SELECT _invhistid, itemsite_id,
-         _postDate, ''CC'', (invcnt_qoh_after - invcnt_qoh_before),
+         _postDate, 'CC', (invcnt_qoh_after - invcnt_qoh_before),
          invcnt_qoh_before, invcnt_qoh_after,
          invcnt_tagnumber, invcnt_comments,
          uom_name, _p.cost, _hasDetail,
-         ''S'', _p.itemsite_value,
-         _p.itemsite_value + (_p.cost * (invcnt_qoh_after - invcnt_qoh_before))
+         _p.itemsite_costmethod, _p.itemsite_value,
+         _p.itemsite_value + (_p.cost * (invcnt_qoh_after - invcnt_qoh_before)),
+         _itemlocSeries
   FROM itemsite, invcnt, item, uom
   WHERE ( (invcnt_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)
    AND (item_inv_uom_id=uom_id)
-   AND (itemsite_controlmethod <> ''N'')
+   AND (itemsite_controlmethod <> 'N')
    AND (invcnt_id=pInvcntid) );
 
 --  Update the QOH
@@ -241,7 +250,7 @@ BEGIN
     PERFORM distributeItemlocSeries(_itemlocSeries);
   END IF;
 
---  Thaw the itemsite if it''s frozen
+--  Thaw the itemsite if it's frozen
   IF (pThaw) THEN
     PERFORM thawItemSite(invcnt_itemsite_id) 
     FROM invcnt
@@ -249,7 +258,7 @@ BEGIN
   END IF;
 
 --  Distribute to G/L
-  PERFORM insertGLTransaction( ''I/M'', ''CT'', _p.invcnt_tagnumber, (''Post Count Tag #'' || _p.invcnt_tagnumber || '' for Item '' || _p.item_number),
+  PERFORM insertGLTransaction( 'I/M', 'CT', _p.invcnt_tagnumber, ('Post Count Tag #' || _p.invcnt_tagnumber || ' for Item ' || _p.item_number),
                                costcat_adjustment_accnt_id, costcat_asset_accnt_id, _invhistid,
                                ( (_p.invcnt_qoh_after - _origLocQty) * _p.cost), CURRENT_DATE )
   FROM invcnt, itemsite, costcat
@@ -259,4 +268,4 @@ BEGIN
 
   RETURN 0;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
