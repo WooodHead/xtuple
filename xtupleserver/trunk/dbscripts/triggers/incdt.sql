@@ -44,13 +44,53 @@ BEGIN
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
-  
+
 SELECT dropIfExists('TRIGGER', 'incdtbeforetrigger');
 CREATE TRIGGER incdtbeforetrigger
   BEFORE INSERT OR UPDATE
   ON incdt
   FOR EACH ROW
   EXECUTE PROCEDURE _incdtBeforeTrigger();
+
+CREATE OR REPLACE FUNCTION _incdtBeforeDeleteTrigger() RETURNS TRIGGER AS $$
+DECLARE
+  _recurid     INTEGER;
+  _newparentid INTEGER;
+BEGIN
+  IF (TG_OP = 'DELETE') THEN
+    SELECT recur_id INTO _recurid
+      FROM recur
+     WHERE ((recur_parent_id=OLD.incdt_id)
+        AND (recur_parent_type='INCDT'));
+
+     IF (_recurid IS NOT NULL) THEN
+       SELECT MIN(incdt_id) INTO _newparentid
+         FROM incdt
+        WHERE ((incdt_recurring_incdt_id=OLD.inctd_id)
+           AND (incdt_id!=OLD.incdt_id));
+
+      -- client is responsible for warning about deleting a recurring incdt
+      IF (_newparentid IS NULL) THEN
+        DELETE FROM recur WHERE recur_id=_recurid;
+      ELSE
+        UPDATE recur SET recur_parent_id=_newparentid
+         WHERE recur_id=_recurid;
+      END IF;
+    END IF;
+
+    RETURN OLD;
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'incdtbeforedeletetrigger');
+CREATE TRIGGER incdtbeforedeletetrigger
+  BEFORE DELETE
+  ON incdt
+  FOR EACH ROW
+  EXECUTE PROCEDURE _incdtBeforeDeleteTrigger();
 
 CREATE OR REPLACE FUNCTION _incdttrigger() RETURNS "trigger" AS $$
 DECLARE

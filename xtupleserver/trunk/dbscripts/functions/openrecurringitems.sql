@@ -22,12 +22,12 @@ BEGIN
         AND (todoitem_due_date >= pDatetime)
         AND (todoitem_recurring_todoitem_id=pParentid));
 
---ELSIF (pType = 'INCDT') THEN
---  SELECT COUNT(*) INTO _count
---    FROM incdt
---   WHERE ((incdt_status!='L') -- cLosed
---      AND (incdt_timestamp>=pDatetime)
---      AND (incdt_recurring_incdt_id=pParentid));
+  ELSIF (pType = 'INCDT') THEN
+    SELECT COUNT(*) INTO _count
+      FROM incdt
+     WHERE ((incdt_status='N') -- cLosed
+        AND (incdt_timestamp>=pDatetime)
+        AND (incdt_recurring_incdt_id=pParentid));
 
   ELSE
     RETURN -10; -- unrecognized pType
@@ -37,4 +37,3 @@ BEGIN
   RETURN _count;
 END;
 $$ LANGUAGE 'plpgsql';
-

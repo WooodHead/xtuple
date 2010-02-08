@@ -10,10 +10,16 @@ BEGIN
        AND  (recur_parent_type='TODO'));
 
     IF (_recurid IS NOT NULL) THEN
-      SELECT MIN(todoitem_id) INTO _newparentid
+      RAISE DEBUG 'recur_id for deleted todoitem = %', _recurid;
+
+      SELECT todoitem_id INTO _newparentid
         FROM todoitem
        WHERE ((todoitem_recurring_todoitem_id=OLD.todoitem_id)
-          AND (todoitem_id!=OLD.todoitem_id));
+          AND (todoitem_id!=OLD.todoitem_id))
+       ORDER BY todoitem_due_date
+       LIMIT 1;
+
+      RAISE DEBUG '_newparentid for deleted todoitem = %', COALESCE(_newparentid, NULL);
 
       -- client is responsible for warning about deleting a recurring todoitem
       IF (_newparentid IS NULL) THEN
@@ -25,6 +31,8 @@ BEGIN
         UPDATE todoitem SET todoitem_recurring_todoitem_id=_newparentid
          WHERE todoitem_recurring_todoitem_id=OLD.todoitem_id
            AND todoitem_id != OLD.todoitem_id;
+
+        RAISE DEBUG 'reparented recurrence';
       END IF;
     END IF;
 
