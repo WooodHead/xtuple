@@ -20,11 +20,20 @@ BEGIN
         AND (todoitem_due_date > pDatetime))
      ORDER BY todoitem_due_date
      LIMIT 1;
+  ELSIF (pType = 'INCDT') THEN
+    SELECT incdt_id INTO _newparentid
+      FROM incdt
+     WHERE ((incdt_recurring_incdt_id=pParentid)
+        AND (incdt_status='N')
+        AND (incdt_timestamp > pDatetime))
+     ORDER BY incdt_timestamp
+     LIMIT 1;
   ELSE
     RETURN -10; -- unrecognized pType
   END IF;
 
-  IF (_newparentid = pParentid) THEN
+  -- if nothing to split
+  IF (_newparentid = pParentid OR _newparentid IS NULL) THEN
     SELECT recur_id INTO _newrecurid
       FROM recur
      WHERE ((recur_parent_id=pParentid)
@@ -51,6 +60,11 @@ BEGIN
        WHERE ((todoitem_recurring_todoitem_id=pParentid)
           AND (todoitem_completed_date IS NULL)
           AND (todoitem_due_date > pDatetime));
+    ELSIF (pType = 'INCDT') THEN
+      UPDATE incdt SET incdt_recurring_incdt_id=_newparentid
+       WHERE ((incdt_recurring_incdt_id=pParentid)
+          AND (incdt_status='N')
+          AND (incdt_timestamp > pDatetime));
     ELSE
       RETURN -10; -- unrecognized pType
     END IF;

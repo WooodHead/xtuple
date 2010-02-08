@@ -45,12 +45,12 @@ BEGIN
     IF (UPPER(_r.recur_parent_type) = 'TODO') THEN
       SELECT COUNT(*) INTO _existcnt 
         FROM todoitem
-       WHERE todoitem_recurring_todoitem_id=_r.recur_parent_id
-         AND todoitem_completed_date IS NULL
-         AND (checkPrivilege('MaintainOtherTodoList')
-              OR (checkPrivilege('MaintainPersonalTodoList') AND
-                  CURRENT_USER IN (todoitem_owner_username, todoitem_username))
-             );
+       WHERE ((todoitem_recurring_todoitem_id=_r.recur_parent_id)
+          AND (todoitem_completed_date IS NULL)
+          AND (checkPrivilege('MaintainOtherTodoList')
+               OR (checkPrivilege('MaintainPersonalTodoList') AND
+                   CURRENT_USER IN (todoitem_owner_username, todoitem_username))
+              ));
       SELECT MAX(todoitem_due_date) INTO _last
         FROM todoitem
        WHERE todoitem_recurring_todoitem_id=_r.recur_parent_id
@@ -59,8 +59,15 @@ BEGIN
                   CURRENT_USER IN (todoitem_owner_username, todoitem_username))
              );
 
---  ELSIF (UPPER(_r.recur_parent_type) = 'INCDT') THEN
---    _existcnt  := _r.recur_max + 1; -- do nothing yet TODO: write me
+    ELSIF (UPPER(_r.recur_parent_type) = 'INCDT') THEN
+      SELECT COUNT(*) INTO _existcnt
+        FROM incdt
+       WHERE ((incdt_recurring_incdt_id=_r.recur_parent_id)
+          AND (incdt_status='N'));
+      SELECT MAX(incdt_timestamp) INTO _last
+        FROM incdt
+       WHERE (incdt_recurring_incdt_id=_r.recur_parent_id);
+
     ELSE
       RETURN -10;
     END IF;
@@ -70,16 +77,16 @@ BEGIN
                CAST(_r.recur_freq * (_r.recur_max - _existcnt ) || _interval AS INTERVAL);
 
       IF (_next BETWEEN _r.recur_start AND _r.recur_end) THEN
-        _id := CASE _r.recur_parent_type
-                 WHEN 'TODO' THEN
-                    copyTodoItem(_r.recur_parent_id, CAST(_next AS DATE), NULL)
---                 WHEN 'INCDT' THEN
---                    copyIncdt(_r.recur_parent_id, _next, TRUE)
-                 ELSE NULL
-               END;
-        IF (_id IS NOT NULL) THEN
-          _count := _count + 1;
+        IF (_r.recur_parent_type = 'TODO') THEN
+          _id := copyTodoItem(_r.recur_parent_id, CAST(_next AS DATE), NULL);
+        ELSIF (_r.recur_parent_type = 'INCDT') THEN
+          _id := copyIncdt(_r.recur_parent_id, _next);
+        ELSE
+          RETURN -10;
         END IF;
+        RAISE DEBUG 'Copying for % returned %', _next, _id;
+
+        _count := _count + 1;
       END IF;
 
       _existcnt := _existcnt + 1;
