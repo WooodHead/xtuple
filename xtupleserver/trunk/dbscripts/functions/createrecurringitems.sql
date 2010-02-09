@@ -13,7 +13,8 @@ DECLARE
   _r         RECORD;
 
 BEGIN
-  
+  RAISE DEBUG 'createRecurringItems(%, %) entered', pParentid, pType;
+
   -- TODO: special case for now
   IF (pType = 'INVOICE') THEN
     RETURN createRecurringInvoices();
@@ -68,6 +69,15 @@ BEGIN
         FROM incdt
        WHERE (incdt_recurring_incdt_id=_r.recur_parent_id);
 
+    ELSIF (UPPER(_r.recur_parent_type) = 'J') THEN
+      SELECT COUNT(*) INTO _existcnt
+        FROM prj
+       WHERE ((prj_recurring_prj_id=_r.recur_parent_id)
+          AND (prj_completed_date IS NULL));
+      SELECT MAX(prj_due_date) INTO _last
+        FROM prj
+       WHERE (prj_recurring_prj_id=_r.recur_parent_id);
+
     ELSE
       RETURN -10;
     END IF;
@@ -81,6 +91,8 @@ BEGIN
           _id := copyTodoItem(_r.recur_parent_id, CAST(_next AS DATE), NULL);
         ELSIF (_r.recur_parent_type = 'INCDT') THEN
           _id := copyIncdt(_r.recur_parent_id, _next);
+        ELSIF (_r.recur_parent_type = 'J') THEN
+          _id := copyPrj(_r.recur_parent_id, CAST(_next AS DATE));
         ELSE
           RETURN -10;
         END IF;

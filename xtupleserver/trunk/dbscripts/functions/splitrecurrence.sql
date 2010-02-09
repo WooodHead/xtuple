@@ -28,6 +28,14 @@ BEGIN
         AND (incdt_timestamp > pDatetime))
      ORDER BY incdt_timestamp
      LIMIT 1;
+  ELSIF (pType = 'J') THEN
+    SELECT prj_id INTO _newparentid
+      FROM prj
+     WHERE ((prj_recurring_prj_id=pParentid)
+        AND (prj_completed_date IS NULL)
+        AND (prj_due_date > pDatetime))
+     ORDER BY prj_due_date
+     LIMIT 1;
   ELSE
     RETURN -10; -- unrecognized pType
   END IF;
@@ -65,6 +73,11 @@ BEGIN
        WHERE ((incdt_recurring_incdt_id=pParentid)
           AND (incdt_status='N')
           AND (incdt_timestamp > pDatetime));
+    ELSIF (pType = 'J') THEN
+      UPDATE prj SET prj_recurring_prj_id=_newparentid
+       WHERE ((prj_recurring_prj_id=pParentid)
+          AND (prj_completed_date IS NULL)
+          AND (prj_due_date > pDatetime));
     ELSE
       RETURN -10; -- unrecognized pType
     END IF;
