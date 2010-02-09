@@ -29,6 +29,13 @@ BEGIN
         AND (incdt_timestamp>=pDatetime)
         AND (incdt_recurring_incdt_id=pParentid));
 
+  ELSIF (pType = 'J') THEN
+    SELECT COUNT(*) INTO _count
+      FROM prj
+     WHERE ((prj_completed_date IS NULL)
+        AND (prj_due_date >= pDatetime)
+        AND (prj_recurring_prj_id=pParentid));
+
   ELSE
     RETURN -10; -- unrecognized pType
 

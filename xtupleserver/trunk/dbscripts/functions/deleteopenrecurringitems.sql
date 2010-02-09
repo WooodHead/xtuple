@@ -64,6 +64,29 @@ BEGIN
       _count := _count + 1;
     END IF;
 
+  ELSIF (pType = 'J') THEN
+    DELETE FROM prj
+          USING recur
+     WHERE ((prj_completed_date IS NULL)
+        AND (prj_due_date >= pDatetime)
+        AND (prj_recurring_prj_id=recur_parent_id)
+        AND (recur_parent_type='J')
+        AND (prj_id!=recur_parent_id));
+    GET DIAGNOSTICS _count = ROW_COUNT;
+
+    -- separate delete to avoid problems with reparenting if parent deleted first
+    IF (pInclParent) THEN
+      DELETE FROM prj
+            USING recur
+       WHERE ((prj_completed_date IS NULL)
+          AND (prj_due_date >= pDatetime)
+          AND (prj_recurring_prj_id=recur_parent_id)
+          AND (recur_parent_type='J')
+          AND (prj_id=recur_parent_id));
+      GET DIAGNOSTICS _tmp = ROW_COUNT;
+      _count := _count + _tmp;
+    END IF;
+
   ELSE
     RETURN -10; -- pType not handled
   END IF;
