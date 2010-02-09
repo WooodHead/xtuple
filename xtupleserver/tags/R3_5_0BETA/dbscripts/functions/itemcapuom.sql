@@ -1,0 +1,8 @@
+CREATE OR REPLACE FUNCTION itemCapUOM(INTEGER) RETURNS TEXT AS '
+DECLARE
+  pItemid ALIAS FOR $1;
+
+BEGIN
+  RETURN itemUOMByType(pItemid, ''Capacity'');
+END;
+' LANGUAGE 'plpgsql';
