@@ -38,6 +38,7 @@ FROM (SELECT
        currConcat(cashrcpt_curr_id) AS applied_curr,
 <? elseif exists("source_aropen_id") ?>
        COALESCE(arcreditapply_amount, 0) AS applied,
+       0 AS discount,
        currConcat(arcreditapply_curr_id) AS applied_curr,
 <? endif ?>
        calcpendingarapplications(aropen_id) AS pending,
