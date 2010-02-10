@@ -20,6 +20,10 @@ DECLARE
 
 BEGIN
 
+  IF (COALESCE(pTaxTypeId,-1) = -1) THEN
+    RETURN;
+  END IF;
+
   SELECT DISTINCT
     COALESCE(taxass_taxzone_id, -1) AS taxzone_id,
     COALESCE(taxass_taxtype_id, -1) AS taxtype_id,
