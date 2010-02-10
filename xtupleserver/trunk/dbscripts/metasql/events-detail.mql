@@ -7,9 +7,8 @@ SELECT evntlog_id, evntlog_ord_id, evntlog_newdate,
        evntlog_evnttime,
        evntlog_dispatched,
        evnttype_name, evntlog_number 
-FROM evntlog, evnttype, warehous 
+  FROM evnttype, evntlog LEFT OUTER JOIN warehous ON (evntlog_warehous_id=warehous_id)
 WHERE ( (evntlog_evnttype_id=evnttype_id)
- AND (evntlog_warehous_id=warehous_id)
  AND (evntlog_username=<? value("username") ?>)
 <? if exists("warehous_id") ?>
  AND (warehous_id=<? value("warehous_id") ?>)
