@@ -67,10 +67,8 @@ function main()
     waitForObjectItem(":xTuple ERP:*.Bills of Materials_QMenu", "Indented...");
     activateItem(":xTuple ERP:*.Bills of Materials_QMenu", "Indented...");
     
-    waitForObject(":Indented Bill of Materials...._QPushButton");
-    clickButton(":Indented Bill of Materials...._QPushButton");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    type(":Indented Bill of Materials.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
+    type(":Indented Bill of Materials.VirtualClusterLineEdit_ItemLineEdit", "<Tab>");
     waitForObject(":Indented Bill of Materials.Query_QPushButton_2");
     clickButton(":Indented Bill of Materials.Query_QPushButton_2");
     
@@ -150,16 +148,13 @@ function main()
     if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
         clickButton(":_headerPage.Print on Save_QCheckBox");   
     waitForObject(":_headerPage._custPONumber_XLineEdit");
-    type(":_headerPage._custPONumber_XLineEdit", "001");
+    type(":_headerPage._custPONumber_XLineEdit", "002");
     waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar_3");
     clickTab(":Quote.qt_tabwidget_tabbar_QTabBar_3", "Line Items");
     waitForObject(":_lineItemsPage.New_QPushButton");
     clickButton(":_lineItemsPage.New_QPushButton");
-    waitForObject(":_itemGroup...._QPushButton_2");
-    clickButton(":_itemGroup...._QPushButton_2");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "YTRUCK1", 5, 5 , 0, Qt.LeftButton);
-    waitForObject(":_qtyOrdered_XLineEdit_2");
+    type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
+     type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "<Tab>");
     type(":_qtyOrdered_XLineEdit_2", "100");
     
     soquantity = findObject(":_qtyOrdered_XLineEdit_2").text;
@@ -409,37 +404,44 @@ function main()
         activateItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
         waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
         activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-        waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-        activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-                    
-        waitForObject(":List Unposted Purchase Orders._pohead_XTreeWidget");
-        if(object.exists("{column='0' container=':List Unposted Purchase Orders._pohead_XTreeWidget' text='"+ponumber+"' type='QModelIndex'}"))
+       waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
+       activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
+          
+       
+        waitForObject(":Show.Unreleased_XCheckBox");
+    if(!findObject(":Show.Unreleased_XCheckBox").checked)
+        clickButton(":Show.Unreleased_XCheckBox");
+        waitForObject(":List Open Purchase Orders._pohead_XTreeWidget");
+       if(object.exists("{column='0' container=':List Open Purchase Orders._pohead_XTreeWidget' text='"+ponumber+"' type='QModelIndex'}"))
             test.pass(" Purchase Order Created ");
         else
             test.fail("Purchase  order is not created");
            
-        doubleClickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", ponumber, 5, 5, 0, Qt.LeftButton);
+        doubleClickItem(":List Open Purchase Orders._pohead_XTreeWidget", ponumber, 5, 5, 0, Qt.LeftButton);
         waitForObject(":Purchase Order.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
+        
+        polineitem=findObject(":_poitem_QModelIndex").text;
+        poquantity=findObject(":_poitem.100.00_QModelIndex").text;
         waitForObject(":_lineItemsPage._poitem_XTreeWidget");
         doubleClickItem(":_lineItemsPage._poitem_XTreeWidget", "1", 5, 5, 0, Qt.LeftButton);
-        waitForObject(":Purchase Order Item.Save_QPushButton");    
+          
         
-        polineitem = findObject(":_typeGroup._itemNumber_ItemLineEdit").text;
-        poquantity = findObject(":_ordered_XLineEdit").text;
         
-        clickButton(":Purchase Order Item.Save_QPushButton");
-        waitForObject(":Purchase Order.Save_QPushButton");
-        clickButton(":Purchase Order.Save_QPushButton");
+      waitForObject(":Purchase Order Item.Save_QPushButton");
+      clickButton(":Purchase Order Item.Save_QPushButton");
+       waitForObject(":Purchase Order.Save_QPushButton");
+      clickButton(":Purchase Order.Save_QPushButton");
         
-        clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", ponumber, 5, 5, 0, Qt.LeftButton);
-        waitForObject(":List Unposted Purchase Orders.Post_QPushButton");
-        clickButton(":List Unposted Purchase Orders.Post_QPushButton");
-        waitForObject(":List Unposted Purchase Orders.Yes_QPushButton");
-        clickButton(":List Unposted Purchase Orders.Yes_QPushButton");
         
-        waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
-        clickButton(":List Unposted Purchase Orders.Close_QPushButton");
+        
+        clickItem(":List Open Purchase Orders._pohead_XTreeWidget", ponumber, 5, 5, 0, Qt.LeftButton);
+       waitForObject(":List Open Purchase Orders.Release_QPushButton");
+       clickButton(":List Open Purchase Orders.Release_QPushButton");
+       waitForObject(":List Open Sales Orders.Yes_QPushButton");
+       clickButton(":List Open Sales Orders.Yes_QPushButton");
+        waitForObject(":*.Close_QPushButton");
+        clickButton(":*.Close_QPushButton");
         test.log("Purchase Orders Posted successfully");
         }
         catch(e)
@@ -452,6 +454,7 @@ function main()
         //-----Verification of QOH by Item (Receiving Purchase Goods)-----
         try
         {
+    
         waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
         activateItem(":xTuple ERP:*_QMenuBar_2", "Inventory");
         waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Reports");
@@ -461,10 +464,8 @@ function main()
         waitForObjectItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         activateItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         
-        waitForObject(":Quantities on Hand by Item...._QPushButton");
-        clickButton(":Quantities on Hand by Item...._QPushButton");
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", polineitem, 5, 5, 0, Qt.LeftButton);
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2",polineitem );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");
         waitForObject(":_warehouse._warehouses_WComboBox_6");
         clickItem(":_warehouse._warehouses_WComboBox_6", "WH1", 5, 5, 1, Qt.LeftButton);
         waitForObject(":Quantities on Hand by Item.Query_QPushButton");
@@ -484,6 +485,8 @@ function main()
         }
         catch(e)
         {
+       
+        
         test.fail("Error in verifying QOH by item" + e);
         }
         
@@ -498,10 +501,17 @@ function main()
         
         waitForObjectItem(":xTuple ERP:*.Receiving_QMenu", "New Receipt...");
         activateItem(":xTuple ERP:*.Receiving_QMenu", "New Receipt...");
-        waitForObject(":Enter Order Receipts...._QPushButton");
-        clickButton(":Enter Order Receipts...._QPushButton");
-        waitForObject(":_listTab_XTreeWidget_3");
-        doubleClickItem(":_listTab_XTreeWidget_3",ponumber, 5, 5, 0, Qt.LeftButton);
+        
+        
+         waitForObject(":Enter Order Receipts_QLabel");
+         sendEvent("QMouseEvent", ":Enter Order Receipts_QLabel", QEvent.MouseButtonPress, 14, 14, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+         activateItem(":_QMenu", "List...");
+        waitForObject(":_listTab_XTreeWidget");
+        doubleClickItem(":_listTab_XTreeWidget", ponumber, 5, 5, 0, Qt.LeftButton);
+   
+    
+        
         waitForObject(":Enter Order Receipts.Receive All_QPushButton");
         clickButton(":Enter Order Receipts.Receive All_QPushButton");
         waitForObject(":Enter Order Receipts.Post_QPushButton");
@@ -528,10 +538,8 @@ function main()
         waitForObjectItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         activateItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         
-        waitForObject(":Quantities on Hand by Item...._QPushButton");
-        clickButton(":Quantities on Hand by Item...._QPushButton");
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", polineitem, 5, 5, 0, Qt.LeftButton);
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2",polineitem );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");
         waitForObject(":_warehouse._warehouses_WComboBox_6");
         clickItem(":_warehouse._warehouses_WComboBox_6", "WH1", 5, 5, 1, Qt.LeftButton);
         waitForObject(":Quantities on Hand by Item.Query_QPushButton");
@@ -624,10 +632,15 @@ function main()
         waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "New...");
         activateItem(":xTuple ERP:*.Voucher_QMenu", "New...");
         
-        waitForObject(":_voucherGroup...._QPushButton_4");
-        clickButton(":_voucherGroup...._QPushButton_4");            
+        waitForObject(":_voucherGroup_QLabel");
+        sendEvent("QMouseEvent", ":_voucherGroup_QLabel", QEvent.MouseButtonPress, 15, 8, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");
+        
+        
         waitForObject(":_listTab_XTreeWidget");
-        doubleClickItem(":_listTab_XTreeWidget", ponumber , 5, 5, 0, Qt.LeftButton);
+        doubleClickItem(":_listTab_XTreeWidget", ponumber, 5, 5, 0, Qt.LeftButton);
+        
       
         vounumber = findObject(":_voucherNumber_XLineEdit_2").text; 
         
@@ -669,7 +682,7 @@ function main()
     }
     if(appEdition=="PostBooks" || appEdition=="Standard")
     {
-        
+      
         //-----Creating a Purchase Order-----
         try
         {
@@ -677,11 +690,16 @@ function main()
         activateItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
         waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
         activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-        waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-        activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+       waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
+       activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
+       
+        waitForObject(":Show.Unreleased_XCheckBox");
+    if(!findObject(":Show.Unreleased_XCheckBox").checked)
+        clickButton(":Show.Unreleased_XCheckBox");
         
-        waitForObject(":List Unposted Purchase Orders.New_QPushButton");
-        clickButton(":List Unposted Purchase Orders.New_QPushButton");
+        
+        waitForObject(":List Open Purchase Orders.New_QPushButton");
+        clickButton(":List Open Purchase Orders.New_QPushButton");
         waitForObject(":_headerPage...._QPushButton_3");
         clickButton(":_headerPage...._QPushButton_3");
         waitForObject(":_listTab_XTreeWidget_4");
@@ -693,33 +711,33 @@ function main()
         clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
         waitForObject(":_lineItemsPage.New_QPushButton_3");
         clickButton(":_lineItemsPage.New_QPushButton_3");
-        waitForObject(":_typeGroup...._QPushButton");
-        clickButton(":_typeGroup...._QPushButton");
-        waitForObject(":_item_XTreeWidget_3");
-        doubleClickItem(":_item_XTreeWidget_3", "TBOX1", 5, 5, 0, Qt.LeftButton);
+        type(":groupBox_2.VirtualClusterLineEdit_ItemLineEdit", "TBOX1");
+        type(":groupBox_2.VirtualClusterLineEdit_ItemLineEdit", "<Tab>");
         waitForObject(":_ordered_XLineEdit");
         type(":_ordered_XLineEdit", "100");
         waitForObject(":_schedGroup.XDateEdit_XDateEdit");
         type(":_schedGroup.XDateEdit_XDateEdit", "+7");
         
-        var polineitem = findObject(":_typeGroup._itemNumber_ItemLineEdit").text;
+        var polineitem = findObject(":groupBox_2.VirtualClusterLineEdit_ItemLineEdit").text;
         var poquantity = findObject(":_ordered_XLineEdit").text;
         
         waitForObject(":Purchase Order Item.Save_QPushButton");
         clickButton(":Purchase Order Item.Save_QPushButton");
         waitForObject(":Purchase Order.Save_QPushButton");
         clickButton(":Purchase Order.Save_QPushButton");
+        
+        waitForObject(":Purchase Order.Close_QPushButton");
+        clickButton(":Purchase Order.Close_QPushButton");
          
-        if(object.exists("{column='0' container=':List Unposted Purchase Orders._pohead_XTreeWidget' text='"+purchaseorder+"' type='QModelIndex'}"))
+        if(object.exists("{column='0' container=':List Open Purchase Orders._pohead_XTreeWidget' text='"+purchaseorder+"' type='QModelIndex'}"))
            test.pass("Purhcase order created successfully");
         else
             test.fail("Purchase order couldn't be created");
         
+        
+        
         waitForObject(":*.Close_QPushButton");
         clickButton(":*.Close_QPushButton");
-        
-        waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
-        clickButton(":List Unposted Purchase Orders.Close_QPushButton");
         }
         catch(e)
         {
@@ -734,18 +752,23 @@ function main()
         activateItem(":xTuple ERP:*_QMenuBar_2", "Purchase");
         waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
         activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-        waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-        activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+       waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
+       activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
+       
+        waitForObject(":Show.Unreleased_XCheckBox");
+    if(!findObject(":Show.Unreleased_XCheckBox").checked)
+        clickButton(":Show.Unreleased_XCheckBox");
         
-        waitForObject(":List Unposted Purchase Orders._pohead_XTreeWidget"); 
-        clickItem(":List Unposted Purchase Orders._pohead_XTreeWidget", purchaseorder, 5, 5, 0, Qt.LeftButton);
-        waitForObject(":List Unposted Purchase Orders.Post_QPushButton");
-        clickButton(":List Unposted Purchase Orders.Post_QPushButton");
-        waitForObject(":List Unposted Purchase Orders.Yes_QPushButton");
-        clickButton(":List Unposted Purchase Orders.Yes_QPushButton");
+        waitForObject(":List Open Purchase Orders._pohead_XTreeWidget"); 
+        clickItem(":List Open Purchase Orders._pohead_XTreeWidget", purchaseorder, 5, 5, 0, Qt.LeftButton);
         
-        waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
-        clickButton(":List Unposted Purchase Orders.Close_QPushButton");
+       waitForObject(":List Open Purchase Orders.Release_QPushButton");
+       clickButton(":List Open Purchase Orders.Release_QPushButton");
+       waitForObject(":List Open Sales Orders.Yes_QPushButton");
+       clickButton(":List Open Sales Orders.Yes_QPushButton");
+        waitForObject(":*.Close_QPushButton");
+        clickButton(":*.Close_QPushButton");
+        
         test.log("Purchase Orders Posted successfully");
         }
         catch(e)
@@ -753,7 +776,7 @@ function main()
         test.fail("Error in posting purchase order" + e);
         }
         
-        
+      
         //-----Verification of QOH by Item (Receiving Purchase Goods)-----
         try
         {
@@ -766,10 +789,9 @@ function main()
         waitForObjectItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         activateItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         
-        waitForObject(":Quantities on Hand by Item...._QPushButton");
-        clickButton(":Quantities on Hand by Item...._QPushButton");
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", polineitem, 5, 5, 0, Qt.LeftButton);
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2",polineitem );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");
+        
         if(appEdition=="Manufacturing" || appEdition=="Standard")
         {            
             waitForObject(":_warehouse.All Sites_QRadioButton_7");
@@ -807,10 +829,12 @@ function main()
         
         waitForObjectItem(":xTuple ERP:*.Receiving_QMenu", "New Receipt...");
         activateItem(":xTuple ERP:*.Receiving_QMenu", "New Receipt...");
-        waitForObject(":Enter Order Receipts...._QPushButton");
-        clickButton(":Enter Order Receipts...._QPushButton");
-        waitForObject(":_listTab_XTreeWidget_3");
-        doubleClickItem(":_listTab_XTreeWidget_3",purchaseorder, 5, 5, 0, Qt.LeftButton);
+        waitForObject(":Enter Order Receipts_QLabel");
+         sendEvent("QMouseEvent", ":Enter Order Receipts_QLabel", QEvent.MouseButtonPress, 14, 14, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+         activateItem(":_QMenu", "List...");
+        waitForObject(":_listTab_XTreeWidget");
+        doubleClickItem(":_listTab_XTreeWidget",  purchaseorder, 5, 5, 0, Qt.LeftButton);
         waitForObject(":Enter Order Receipts.Receive All_QPushButton");
         clickButton(":Enter Order Receipts.Receive All_QPushButton");
         
@@ -824,8 +848,8 @@ function main()
         {
         test.fail("Error in receiving PO item" + e);
         }
-        
-        
+      
+      
         //-----Verification of updated QOH by Item (Receiving Purchase Goods)-----
         try
         {
@@ -838,10 +862,8 @@ function main()
         waitForObjectItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         activateItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         
-        waitForObject(":Quantities on Hand by Item...._QPushButton");
-        clickButton(":Quantities on Hand by Item...._QPushButton");
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", polineitem, 5, 5, 0, Qt.LeftButton);
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2",polineitem );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");
         if(appEdition=="Manufacturing" || appEdition=="Standard")
         {            
             waitForObject(":_warehouse.All Sites_QRadioButton_7");
@@ -871,8 +893,8 @@ function main()
         {
         test.fail("Error in verifying updated QOH by item" + e);
         }
-        
-        
+      
+      
         //-----Verification of G/L transaction (Receiving PO)-----
         try
         {
@@ -938,7 +960,7 @@ function main()
         test.fail("Error in verification of G/L entry" + e);
         }
         
-        
+      
         //-----Entering a Voucher-----
         try
         {
@@ -951,17 +973,23 @@ function main()
         waitForObjectItem(":xTuple ERP:*.Voucher_QMenu", "New...");
         activateItem(":xTuple ERP:*.Voucher_QMenu", "New...");
         
+        
+        waitForObject(":_voucherGroup_QLabel");
+        sendEvent("QMouseEvent", ":_voucherGroup_QLabel", QEvent.MouseButtonPress, 15, 8, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");
+        
         waitForObject(":_voucherGroup...._QPushButton_4");
         clickButton(":_voucherGroup...._QPushButton_4");
         waitForObject(":_listTab_XTreeWidget");
-        doubleClickItem(":_listTab_XTreeWidget", purchaseorder , 5, 5, 0, Qt.LeftButton);
+        doubleClickItem(":_listTab_XTreeWidget",  purchaseorder , 5, 5, 0, Qt.LeftButton);
         
         vounumber = findObject(":_voucherNumber_XLineEdit").text; 
         
         waitForObject(":_poitems._poitem_XTreeWidget_2");
         doubleClickItem(":_poitems._poitem_XTreeWidget_2", "EA", 5, 5, 0, Qt.LeftButton);
-        waitForObject(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget_2");
-        doubleClickItem(":Univoiced Recepts and Returns._uninvoiced_XTreeWidget_2", "Receiving", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":Uninvoiced Recepts and Returns._uninvoiced_XTreeWidget");
+        doubleClickItem(":Uninvoiced Recepts and Returns._uninvoiced_XTreeWidget", "Receiving", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_distTab.New_QPushButton_2");
         clickButton(":_distTab.New_QPushButton_2");
         waitForObject(":[*]Voucher._currency_XLineEdit");
@@ -1279,8 +1307,8 @@ function main()
         test.fail("Error in verifying G/L entry" + e);
         }     
         
-        
-        //-----Releasing WorkOrders-----
+      
+      //-----Releasing WorkOrders-----
         try
         {
         waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
@@ -1311,29 +1339,29 @@ function main()
         test.fail("Error in releasing work orders" + e);
         }    
         
+      
+      //---find Application Edition------ 
+      try
+      {        
+      waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
+      activateItem(":xTuple ERP:*_QMenuBar_2", "System");
+      waitForObjectItem(":xTuple ERP:*.System_QMenu", "Master Information");
+      activateItem(":xTuple ERP:*.System_QMenu", "Master Information");
+      waitForObjectItem(":xTuple ERP:*.Master Information_QMenu", "Database Information...");
+      activateItem(":xTuple ERP:*.Master Information_QMenu", "Database Information...");
         
-        //---find Application Edition------ 
-        try
-        {        
-        waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
-        activateItem(":xTuple ERP:*_QMenuBar_2", "System");
-        waitForObjectItem(":xTuple ERP:*.System_QMenu", "Master Information");
-        activateItem(":xTuple ERP:*.System_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP:*.Master Information_QMenu", "Database Information...");
-        activateItem(":xTuple ERP:*.Master Information_QMenu", "Database Information...");
+      waitForObject(":Database Information.*_QLabel");
+      var appEdition = findObject(":Database Information.*_QLabel").text;
           
-        waitForObject(":Database Information.*_QLabel");
-        var appEdition = findObject(":Database Information.*_QLabel").text;
-            
-        waitForObject(":Database Information.Save_QPushButton");
-        clickButton(":Database Information.Save_QPushButton");
-        }
-        catch(e)
-        {
-        test.fail("Error in finding application edition" + e);
-        }
-        
-        
+      waitForObject(":Database Information.Save_QPushButton");
+      clickButton(":Database Information.Save_QPushButton");
+      }
+      catch(e)
+      {
+      test.fail("Error in finding application edition" + e);
+      }
+      
+      
          //-----Issuing Work Order Materials-----
         try
         {
@@ -1395,7 +1423,7 @@ function main()
         }    
             
         
-        
+      
         //-----Verification of G/L transaction (Issue WO materials)-----
         try
         {
@@ -1440,7 +1468,7 @@ function main()
         {
         test.fail("Error in verification of G/L entry after issuing WO materials" + e);
         }    
-        
+       
         
         //-----Verification of QOH by Item (Post Production)-----
         try
@@ -1454,13 +1482,13 @@ function main()
         waitForObjectItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         activateItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
           
-        waitForObject(":Quantities on Hand by Item...._QPushButton");
-        clickButton(":Quantities on Hand by Item...._QPushButton");
+
             
         if(appEdition=="Manufacturing")
-        {            
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", "TSUB1", 5, 5, 0, Qt.LeftButton);
+        { 
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2","TSUB1" );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");
+
         waitForObject(":_warehouse.All Sites_QRadioButton_7");
         clickButton(":_warehouse.All Sites_QRadioButton_7");
         }
@@ -1469,15 +1497,18 @@ function main()
         {  
         if(appEdition=="Standard")
         {
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2","YTRUCK1" );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");
+
         waitForObject(":_warehouse.All Sites_QRadioButton_7");
         clickButton(":_warehouse.All Sites_QRadioButton_7");
         }        
         else
         {
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+            
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2","YTRUCK1" );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");   
+
         }
          }   
           
@@ -1530,6 +1561,9 @@ function main()
         clickButton(":_optionsGroup.Close W/O after Posting_XCheckBox");
         waitForObject(":Post Production.Post_QPushButton");
         clickButton(":Post Production.Post_QPushButton");
+         waitForObject(":Post Production.Close_QPushButton");
+        clickButton(":Post Production.Close_QPushButton");
+        test.log("Work orders post production successful");
                 
         }
             
@@ -1555,6 +1589,9 @@ function main()
         clickButton(":Distribute to Location.Distribute_QPushButton");
         waitForObject(":Distribute Stock To/From Site Locations.Post_QPushButton");
         clickButton(":Distribute Stock To/From Site Locations.Post_QPushButton");
+         waitForObject(":Post Production.Close_QPushButton");
+        clickButton(":Post Production.Close_QPushButton");
+        test.log("Work orders post production successful");
          }
                 
          else
@@ -1574,9 +1611,7 @@ function main()
            }
             
             
-        waitForObject(":Post Production.Close_QPushButton");
-        clickButton(":Post Production.Close_QPushButton");
-        test.log("Work orders post production successful");
+       
         }
         catch(e)
         {
@@ -1597,13 +1632,14 @@ function main()
         waitForObjectItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         activateItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
          
-        waitForObject(":Quantities on Hand by Item...._QPushButton");
-        clickButton(":Quantities on Hand by Item...._QPushButton");
+
             
         if(appEdition=="Manufacturing")
-         {            
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", "TSUB1", 5, 5, 0, Qt.LeftButton);
+         { 
+            
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2","TSUB1" );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");    
+
         waitForObject(":_warehouse.All Sites_QRadioButton_7");
         clickButton(":_warehouse.All Sites_QRadioButton_7");
          }
@@ -1612,15 +1648,18 @@ function main()
          {  
         if(appEdition=="Standard")
           {
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+            
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2","YTRUCK1" );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");    
+
         waitForObject(":_warehouse.All Sites_QRadioButton_7");
         clickButton(":_warehouse.All Sites_QRadioButton_7");
           }        
         else
          {
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+            type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2","YTRUCK1" );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");  
+
           }
             }   
             
@@ -1714,11 +1753,10 @@ function main()
         activateItem(":xTuple ERP:*.Reports_QMenu_5", "Quantities On Hand");
         waitForObjectItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         activateItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
-          
-        waitForObject(":Quantities on Hand by Item...._QPushButton");
-        clickButton(":Quantities on Hand by Item...._QPushButton");
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+        
+        
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2","YTRUCK1" );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");  
         if(appEdition=="Manufacturing" || appEdition=="Standard")
         {            
         waitForObject(":_warehouse.Selected:_QRadioButton_6");
@@ -1812,11 +1850,11 @@ function main()
         activateItem(":xTuple ERP:*.Reports_QMenu_5", "Quantities On Hand");
         waitForObjectItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         activateItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
-         
-        waitForObject(":Quantities on Hand by Item...._QPushButton");
-        clickButton(":Quantities on Hand by Item...._QPushButton");
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+        
+        
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2","YTRUCK1" );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");  
+
         if(appEdition=="Manufacturing" || appEdition=="Standard")
          {  
         waitForObject(":_warehouse.Selected:_QRadioButton_6");
@@ -1867,11 +1905,11 @@ function main()
         activateItem(":xTuple ERP:*.Reports_QMenu_5", "Quantities On Hand");
         waitForObjectItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         activateItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
-         
-        waitForObject(":Quantities on Hand by Item...._QPushButton");
-        clickButton(":Quantities on Hand by Item...._QPushButton");
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+        
+        
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2","YTRUCK1" );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");  
+
         if(appEdition=="Manufacturing" || appEdition=="Standard")
         {            
         waitForObject(":_warehouse.Selected:_QRadioButton_6");
@@ -1911,25 +1949,28 @@ function main()
         waitForObjectItem(":xTuple ERP:*.Shipping_QMenu", "Issue to Shipping...");
         activateItem(":xTuple ERP:*.Shipping_QMenu", "Issue to Shipping...");
            
-        waitForObject(":Issue to Shipping...._QPushButton");
-        clickButton(":Issue to Shipping...._QPushButton");
-        waitForObject(":_listTab_XTreeWidget_5");
-        doubleClickItem(":_listTab_XTreeWidget_5", sonumber, 5, 5, 0, Qt.LeftButton);
-        waitForObject(":frame.Issue All Bal._QPushButton");
-        clickButton(":frame.Issue All Bal._QPushButton");
-        waitForObject(":Issue to Shipping.Ship Order_QPushButton");
-        clickButton(":Issue to Shipping.Ship Order_QPushButton");
+        type(":_stackedWidget.VirtualClusterLineEdit_OrderLineEdit", sonumber);
+        type(":_stackedWidget.VirtualClusterLineEdit_OrderLineEdit", "<Enter>");
+       
+        
+        waitForObject(":_frame.Issue All_QPushButton");
+        clickButton(":_frame.Issue All_QPushButton");
+        
+        waitForObject(":Issue to Shipping.Ship_QPushButton");
+       clickButton(":Issue to Shipping.Ship_QPushButton");
+        
         waitForObject(":groupBox.Select for Billing_QCheckBox");
         if(findObject(":groupBox.Select for Billing_QCheckBox").checked)
             clickButton(":groupBox.Select for Billing_QCheckBox");
         waitForObject(":groupBox.Print Packing List_XCheckBox");
         if(findObject(":groupBox.Print Packing List_XCheckBox").checked)
             clickButton(":groupBox.Print Packing List_XCheckBox");
-        waitForObject(":Issue to Shipping.Ship_QPushButton");
-        clickButton(":Issue to Shipping.Ship_QPushButton");
+           waitForObject(":Issue to Shipping.Ship_QPushButton_2");
+             clickButton(":Issue to Shipping.Ship_QPushButton_2");
             
-        waitForObject(":Issue to Shipping.Close_QPushButton");
-        clickButton(":Issue to Shipping.Close_QPushButton");
+       
+        waitForObject(":*.Close_QPushButton");
+        clickButton(":*.Close_QPushButton");
         test.log("Sales order Stock issued");
         }
         catch(e)
@@ -1949,11 +1990,11 @@ function main()
         activateItem(":xTuple ERP:*.Reports_QMenu_5", "Quantities On Hand");
         waitForObjectItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
         activateItem(":xTuple ERP:*.Quantities On Hand_QMenu", "by Item...");
-          
-        waitForObject(":Quantities on Hand by Item...._QPushButton");
-        clickButton(":Quantities on Hand by Item...._QPushButton");
-        waitForObject(":_item_XTreeWidget_6");
-        doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+        
+        
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2","YTRUCK1" );
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "<Enter>");  
+
         if(appEdition=="Manufacturing" || appEdition=="Standard")
         {            
         waitForObject(":_warehouse.Selected:_QRadioButton_6");
@@ -2169,17 +2210,19 @@ function main()
         clickButton(":Cash Receipt...._QPushButton");
         waitForObject(":_listTab_XTreeWidget");
         doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 0, Qt.LeftButton);
+        var amt=findObject(":_aropen._QModelIndex").text;
         waitForObject(":_applicationsTab._aropen_XTreeWidget");
         doubleClickItem(":_applicationsTab._aropen_XTreeWidget", sonumber, 5, 5, 1, Qt.LeftButton);
-        waitForObject(":Cash Receipt_XLineEdit");
+        waitForObject(":Cash Receipt._currency_XLineEdit");
            
-        amount = findObject(":Cash Receipt_XLineEdit_2").text;
-            
-        type(":Cash Receipt_XLineEdit", amount);
+        amount = findObject(":Cash Receipt._currency_XLineEdit").text;
+         
+        waitForObject(":Cash Receipt_XLineEdit");
+        type(":Cash Receipt_XLineEdit", amt);
         waitForObject(":Cash Receipt.Save_QPushButton");
         clickButton(":Cash Receipt.Save_QPushButton");
         waitForObject(":_amountGroup_XLineEdit");
-        type(":_amountGroup_XLineEdit", amount);
+        type(":_amountGroup_XLineEdit", amt);
         waitForObject(":Cash Receipt.Save_QPushButton_2");
         clickButton(":Cash Receipt.Save_QPushButton_2");
         test.log("Cash receipt created for the Invoice");
@@ -2240,7 +2283,7 @@ function main()
         var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
         var iNumberOfRootItems = obj_TreeRootItem.childCount();
         type(sWidgetTreeControl,"<Space>");
-        var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
+        var obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
         var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
         if(sNameOfRootItem == "CR")
            test.pass("Posting Cash Receipts has a GL entry");
@@ -2293,4 +2336,4 @@ function main()
         test.fail("Error in viewing customer history" + e);
         }    
             
-        }
+}
