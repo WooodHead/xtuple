@@ -1,0 +1,1 @@
+SELECT setMetric('ACHSupported', 't');
