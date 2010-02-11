@@ -74,14 +74,6 @@ BEGIN
     RETURN -2;
   END IF;
 
-  SELECT woopervar_id INTO _result
-  FROM xtmfg.woopervar
-  WHERE (woopervar_parent_itemsite_id=pItemsiteid)
-  LIMIT 1;
-  IF (FOUND) THEN
-    RETURN -2;
-  END IF;
-
   IF (_bbom) THEN
     SELECT brdvar_id INTO _result
     FROM xtmfg.brdvar
@@ -176,6 +168,15 @@ BEGIN
     IF (FOUND) THEN
       RETURN -6;
     END IF;
+
+    SELECT woopervar_id INTO _result
+    FROM xtmfg.woopervar
+    WHERE (woopervar_parent_itemsite_id=pItemsiteid)
+    LIMIT 1;
+    IF (FOUND) THEN
+      RETURN -2;
+    END IF;
+    
   END IF;
 
   IF (_mfg OR _standard) THEN
