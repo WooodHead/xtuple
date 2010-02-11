@@ -61,7 +61,7 @@ FROM vohead, vodist, poitem, expcat LEFT JOIN accnt ON expcat.expcat_liability_a
 WHERE vodist.vodist_vohead_id = vohead.vohead_id
   AND vodist.vodist_poitem_id <> -1
   AND vodist.vodist_poitem_id = poitem.poitem_id
-  AND poitem.poitem_itemsite_id = -1
+  AND (poitem.poitem_itemsite_id = -1 OR poitem.poitem_itemsite_id IS NULL)
   AND expcat_id = poitem_expcat_id
   AND NOT vohead.vohead_posted
 
