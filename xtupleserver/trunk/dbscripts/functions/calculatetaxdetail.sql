@@ -20,7 +20,7 @@ DECLARE
 
 BEGIN
 
-  IF (COALESCE(pTaxTypeId,-1) = -1) THEN
+  IF ((COALESCE(pTaxTypeId,-1) = -1) OR (COALESCE(pTaxZoneId,-1) = -1)) THEN
     RETURN;
   END IF;
 
