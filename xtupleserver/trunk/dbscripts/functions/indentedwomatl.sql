@@ -52,7 +52,7 @@ BEGIN
     _qry := _qry || 'AND (womatl_wooper_id=' || pwooperid  || ')';
   END IF;
 
-  _qry := _qry || ');';
+  _qry := _qry || ') ORDER BY item_number;';
   
   _level := plevel + 1;    
   SELECT wo_status FROM wo WHERE wo_id = pwoid  LIMIT 1 INTO _status;
