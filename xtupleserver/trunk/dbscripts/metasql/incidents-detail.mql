@@ -1,52 +1,49 @@
--- Group: incidents
+-- Group: incidents 
 -- Name: detail
 -- Notes:
 
 SELECT incdt_id,
-                     incdt_number, DATE(incdt_timestamp) AS incdt_timestamp,
-	             crmacct_name,
-                     CASE WHEN(incdt_status='N') THEN <? value("new") ?>
-                          WHEN(incdt_status='F') THEN <? value("feedback") ?>
-                          WHEN(incdt_status='C') THEN <? value("confirmed") ?>
-                          WHEN(incdt_status='A') THEN <? value("assigned") ?>
-                          WHEN(incdt_status='R') THEN <? value("resolved") ?>
-                          WHEN(incdt_status='L') THEN <? value("closed") ?>
-                          ELSE incdt_status
-                     END,
-                     incdt_assigned_username, incdt_owner_username,
-                     incdt_summary 
-                FROM incdt, crmacct
-               WHERE ((incdt_crmacct_id=crmacct_id)
- 		<? if exists("ownedBy") ?> 
-		<? if exists("username") ?> 
-		AND (incdt_owner_username=<? value("username") ?>) 
-		<? elseif exists("usr_pattern" ?>
-		AND (incdt_owner_username ~ <? value("usr_pattern") ?>) 
-                <? endif ?>
-                <? else ?>	
-		<? if exists("username") ?> 	  
-                AND (incdt_assigned_username=<? value("username") ?>) 
-		<? elseif exists("usr_pattern" ?>
-		AND (incdt_assigned_username ~ <? value("usr_pattern") ?>) 
-                <? endif ?>
-		<? endif ?>	       
-                AND (incdt_status IN ('' 
-	        <? if exists("isnew") ?>, 'N' <? endif ?> 
-	        <? if exists("isfeedback") ?>, 'F' <? endif ?> 
-	        <? if exists("isconfirmed") ?>, 'C' <? endif ?> 
-	        <? if exists("isassigned") ?>,	'A' <? endif ?> 
-	        <? if exists("isresolved") ?>,	'R' <? endif ?> 
-	        <? if exists("isclosed") ?>, 'L' <? endif ?> 
-	       ))
-	       <? if exists("pattern") ?> 
-	       AND ((incdt_number::text ~* <? value("pattern") ?>)
-                OR  (incdt_summary ~* <? value("pattern") ?>)
-	        OR  (incdt_descrip ~* <? value("pattern") ?>)
-	        OR  (incdt_id IN (SELECT comment_source_id
-	                   FROM comment
-	                  WHERE((comment_source='INCDT')
-                            AND (comment_text ~* <? value("pattern") ?>)))))
-	       <? endif ?>
-	       AND (incdt_timestamp BETWEEN <? value("startDate") ?> 
-	      				 AND <? value("endDate") ?>) 
-	      ) ORDER BY incdt_number;
+incdt_number, DATE(incdt_timestamp) AS incdt_timestamp,
+crmacct_name,
+CASE WHEN(incdt_status='N') THEN <? value("new") ?>
+WHEN(incdt_status='F') THEN <? value("feedback") ?>
+WHEN(incdt_status='C') THEN <? value("confirmed") ?>
+WHEN(incdt_status='A') THEN <? value("assigned") ?>
+WHEN(incdt_status='R') THEN <? value("resolved") ?>
+WHEN(incdt_status='L') THEN <? value("closed") ?>
+ELSE incdt_status
+END,
+incdt_assigned_username, incdt_owner_username,
+incdt_summary 
+FROM incdt, crmacct
+WHERE ((incdt_crmacct_id=crmacct_id)
+<? if exists("owner_username") ?> 
+AND (incdt_owner_username=<? value("owner_username") ?>) 
+<? elseif exists("owner_usr_pattern" ?>
+AND (incdt_owner_username ~ <? value("owner_usr_pattern") ?>) 
+<? endif ?>
+<? if exists("assigned_username") ?> 
+AND (incdt_assigned_username=<? value("assigned_username") ?>) 
+<? elseif exists("assigned_usr_pattern" ?>
+AND (incdt_assigned_username ~ <? value("assigned_usr_pattern") ?>) 
+<? endif ?> 
+AND (incdt_status IN ('' 
+<? if exists("isnew") ?>, 'N' <? endif ?> 
+<? if exists("isfeedback") ?>, 'F' <? endif ?> 
+<? if exists("isconfirmed") ?>, 'C' <? endif ?> 
+<? if exists("isassigned") ?>, 'A' <? endif ?> 
+<? if exists("isresolved") ?>, 'R' <? endif ?> 
+<? if exists("isclosed") ?>, 'L' <? endif ?> 
+))
+<? if exists("pattern") ?> 
+AND ((incdt_number::text ~* <? value("pattern") ?>)
+OR (incdt_summary ~* <? value("pattern") ?>)
+OR (incdt_descrip ~* <? value("pattern") ?>)
+OR (incdt_id IN (SELECT comment_source_id
+FROM comment
+WHERE((comment_source='INCDT')
+AND (comment_text ~* <? value("pattern") ?>)))))
+<? endif ?>
+AND (incdt_timestamp BETWEEN <? value("startDate") ?> 
+AND <? value("endDate")?> ) 
+) ORDER BY incdt_number;
