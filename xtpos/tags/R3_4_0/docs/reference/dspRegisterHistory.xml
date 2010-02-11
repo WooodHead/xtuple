@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section role="standard">
+  <title>Display Register History</title>
+  <para>To review detailed information regarding all transactions which took
+  place on a Cash Register (including who conducted the transaction what the
+  start and end balance were and which journal entry they were posted to),
+  follow this path: <guimenuitem>Sales &gt; Reports &gt; Register
+  History</guimenuitem>. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspRegisterHistory.png" />
+        </imageobject>
+        <caption>Register History</caption>
+      </mediaobject>
+    </screenshot>When reviewing Cash Register history, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display Cash Register history for all Sites.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Cash Register history you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Transactions conducted on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Transactions conducted on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Register Posting Detail</term>
+      <listitem>
+        <para>Display lists Cash Register transaction history, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
