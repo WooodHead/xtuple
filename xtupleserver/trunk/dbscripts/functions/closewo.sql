@@ -2,6 +2,19 @@ CREATE OR REPLACE FUNCTION closeWo(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pWoid ALIAS FOR $1;
   pPostMaterialVariances ALIAS FOR $2;
+
+BEGIN
+  
+  RETURN closeWo(pWoid, pPostMaterialVariances, CURRENT_DATE);
+END;
+$$ LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION closeWo(INTEGER, BOOLEAN, DATE) RETURNS INTEGER AS $$
+DECLARE
+  pWoid ALIAS FOR $1;
+  pPostMaterialVariances ALIAS FOR $2;
+  pTransDate ALIAS FOR $3;
   _woNumber TEXT;
   _check CHAR;
   _itemlocSeries INTEGER := 0;
@@ -32,7 +45,7 @@ BEGIN
 --  Distribute any remaining wo_wipvalue to G/L - debit Inventory Cost, credit WIP
   PERFORM insertGLTransaction( 'W/O', 'WO', _woNumber, ('Manufacturing Inventory Cost Variance for ' || item_number),
                                costcat_wip_accnt_id, costcat_invcost_accnt_id, -1,
-                               wo_wipvalue, CURRENT_DATE )
+                               wo_wipvalue, pTransDate )
   FROM wo, itemsite, item, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)
@@ -46,7 +59,7 @@ BEGIN
                                     ELSE costcat_invcost_accnt_id
                                END,
                                -1,
-                               wo_brdvalue, CURRENT_DATE )
+                               wo_brdvalue, pTransDate )
   FROM wo, itemsite, item, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)
@@ -67,7 +80,7 @@ BEGIN
         womatlvar_qtyiss, womatlvar_qtyfxd, womatlvar_qtyper,
         womatlvar_scrap, womatlvar_wipscrap, womatlvar_bomitem_id,
         womatlvar_notes, womatlvar_ref )
-      SELECT wo_number, wo_subnumber, CURRENT_DATE,
+      SELECT wo_number, wo_subnumber, pTransDate,
              wo_itemsite_id, womatl_itemsite_id,
              wo_qtyord, wo_qtyrcv,
              itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyiss),
