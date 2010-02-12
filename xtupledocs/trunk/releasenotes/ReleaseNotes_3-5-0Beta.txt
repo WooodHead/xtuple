@@ -6,23 +6,26 @@ February 12, 2010
 ==================================
 
 This is the first beta release in the 3.5.0 release cycle. Anyone
-who has not registered yet for haxTuple (our 2d annual bug 
+who has not registered yet for haxTuple (our 2d annual bug
 derby), there's still time to get involved. The contest runs from
 February 15th to March 8th. Learn more about the rules and the
-prizes being offered here: http://www.xtuple.org/haxtuple-2010 
+prizes being offered here: http://www.xtuple.org/haxtuple-2010
 
 Of course, you don't have to be a developer to get involved.
 We are also looking for feedback from community beta testers. So
-load up your sandboxes and test away!
+load up your sandboxes and test away! NOTE: If you are testing
+the Manufacturing Edition, the upgrade from 3.5.0Alpha to 
+3.5.0Beta does not require an upgrade script for the xtmfg
+package--only the std350alphato350beta.gz script is required.
 
-Sure to be of interest to everyone are the new enhancements to 
+Sure to be of interest to everyone are the new enhancements to
 the virtual (search) cluster. Beginning with 3.5.0Beta, users
 will find auto-complete functionality in lookup fields
 throughout the applications. Legacy lookup buttons will still be
 supported. But auto-recognition of partially-entered strings
 is now supported.
 
-Also, don't forget to check out and test the new features 
+Also, don't forget to check out and test the new features
 introduced in the alpha:
 
 Expanded Pricing Effectivity Support
@@ -42,7 +45,7 @@ Also of note:
 ==================================
 
 The following features and bug fixes have been added to the
-applications since the release of 3.5.0Alpha. Additional detail 
+applications since the release of 3.5.0Alpha. Additional detail
 for each item listed below may be found on our community website
 (www.xtuple.org). Simply go to the Issue Tracker and select the
 "Changelog" option.
@@ -50,31 +53,31 @@ for each item listed below may be found on our community website
 
 New Features:
 
-* [Accounting] Add List Open Vouchers tab to AP workbench 
+* [Accounting] Add List Open Vouchers tab to AP workbench
 * [Architectural] Enhancements to virtual (search) cluster
 * [Architectural] Subclass item cluster from virtual cluster
 * [CRM] Add recurring capability to activities in CRM
-* [Inventory] Allow purchase receipts by bar code 
-* [Inventory] Avoid receive Transfer Order lines if has not been 
+* [Inventory] Allow purchase receipts by bar code
+* [Inventory] Avoid receive Transfer Order lines if has not been
 shipped
-* [Inventory] Inventory distribution should present list of 
+* [Inventory] Inventory distribution should present list of
 existing lots for lot-controlled items being adjusted in
 
 Bug Fixes:
 
-* [All] Cannot highlight by dragging across text in Item Number 
-field 
+* [All] Cannot highlight by dragging across text in Item Number
+field
 * [All] xLineEdit copy always copies everything
 * [Accounting] AR open items do not show up on screen
-* [Accounting] Apply cash with discount rounding problem in 
+* [Accounting] Apply cash with discount rounding problem in
 function
-* [Architectural] User cluster loses user information when user 
-inactivated or deleted 
-* [Inventory] Average costing should use average cost on physical 
-counts 
-* [Sales] Returns don't properly handle Job Costed items 
-* [System] Updater fails to load Metasql with error after new 
-Metasql trigger implemented 
+* [Architectural] User cluster loses user information when user
+inactivated or deleted
+* [Inventory] Average costing should use average cost on physical
+counts
+* [Sales] Returns don't properly handle Job Costed items
+* [System] Updater fails to load Metasql with error after new
+Metasql trigger implemented
 
 ==================================
 
