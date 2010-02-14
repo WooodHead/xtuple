@@ -124,6 +124,15 @@ BEGIN
     RETURN OLD;
   END IF;
 
+  -- Link Primary and Secondary Contacts to this Account if they are not already
+  IF (TG_OP IN ('INSERT', 'UPDATE') AND NEW.crmacct_cntct_id_1 IS NOT NULL) THEN
+    UPDATE cntct SET cntct_crmacct_id = NEW.crmacct_id WHERE cntct_id=NEW.crmacct_cntct_id_1;
+  END IF;
+
+  IF (TG_OP IN ('INSERT', 'UPDATE') AND NEW.crmacct_cntct_id_2 IS NOT NULL) THEN
+    UPDATE cntct SET cntct_crmacct_id = NEW.crmacct_id WHERE cntct_id=NEW.crmacct_cntct_id_2;
+  END IF;
+
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
