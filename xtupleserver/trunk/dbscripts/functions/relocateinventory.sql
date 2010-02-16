@@ -16,6 +16,7 @@ DECLARE
   _invhistid            INTEGER;
   _p RECORD;
   _qty NUMERIC;
+  _itemlocSeries INTEGER := NEXTVAL('itemloc_series_seq');
 
 BEGIN
 
@@ -57,7 +58,7 @@ BEGIN
     invhist_qoh_before, invhist_qoh_after,
     invhist_comments,   invhist_transdate,
     invhist_invuom, invhist_unitcost, invhist_costmethod,
-    invhist_value_before, invhist_value_after) 
+    invhist_value_before, invhist_value_after, invhist_series) 
   SELECT _invhistid, itemsite_id,
          'RL', 0,
          itemsite_qtyonhand, itemsite_qtyonhand,
@@ -66,7 +67,7 @@ BEGIN
          CASE WHEN (itemsite_costmethod='A') THEN avgcost(itemsite_id)
               ELSE stdCost(item_id)
          END, itemsite_costmethod,
-         itemsite_value, itemsite_value
+         itemsite_value, itemsite_value, _itemlocSeries
   FROM item, itemsite, uom
   WHERE ((itemsite_item_id=item_id)
    AND (item_inv_uom_id=uom_id)
@@ -151,7 +152,7 @@ BEGIN
       invhist_qoh_before, invhist_qoh_after,
       invhist_docnumber, invhist_comments, invhist_transdate,
       invhist_invuom, invhist_unitcost, invhist_costmethod,
-      invhist_value_before, invhist_value_after) 
+      invhist_value_before, invhist_value_after, invhist_series) 
     SELECT itemsite_id,
            'NN', (_qty * -1),
            itemsite_qtyonhand, (itemsite_qtyonhand - _qty),
@@ -160,7 +161,7 @@ BEGIN
            CASE WHEN (itemsite_costmethod='A') THEN avgcost(itemsite_id)
                 ELSE stdCost(item_id)
            END, itemsite_costmethod,
-           itemsite_value, itemsite_value
+           itemsite_value, itemsite_value, _itemlocSeries
     FROM item, itemsite, uom
     WHERE ( (itemsite_item_id=item_id)
      ANd (item_inv_uom_id=uom_id)
