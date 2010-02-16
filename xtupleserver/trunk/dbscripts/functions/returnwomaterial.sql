@@ -189,7 +189,7 @@ BEGIN
                        ('Return ' || item_number || ' from Work Order'),
                        pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries, pGlDistTS,
                        -- Cost will be ignored by Standard Cost items sites
-                       _cost, pInvhistId) INTO _invhistid
+                       _cost) INTO _invhistid
     FROM womatl, wo,
          itemsite AS ci, costcat AS cc,
          itemsite AS pi, costcat AS pc,
