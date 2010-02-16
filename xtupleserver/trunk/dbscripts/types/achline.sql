@@ -1,4 +1,6 @@
-SELECT dropIfExists('FUNCTION', 'formatachcheck(integer,text,text,boolean)',
+SELECT dropIfExists('FUNCTION', 'formatachcheck(integer, integer, text)',
+                    'public');
+SELECT dropIfExists('FUNCTION', 'formatabachecks(integer, integer, text)',
                     'public');
 
 CREATE TYPE achline AS (achline_checkhead_id  INTEGER,
