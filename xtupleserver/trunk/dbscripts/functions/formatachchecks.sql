@@ -312,7 +312,7 @@ BEGIN
     RETURN NEXT _row;
   END IF;
 
-  -- file control record
+  -- and end with a file control record
   _rowcount := _rowcount + 1;
   _row.achline_checkhead_id := NULL;
   _row.achline_batch := _filenum;
