@@ -2,6 +2,7 @@ CREATE OR REPLACE FUNCTION _bomitemTrigger() RETURNS TRIGGER AS $$
 DECLARE
   _cmnttypeid INTEGER;
   _parentType CHAR(1);
+  _configured BOOLEAN;
 BEGIN
 
 -- Privilege Checks
@@ -60,14 +61,14 @@ BEGIN
       END IF;
     END IF;
 
-   SELECT item_type INTO _parentType
+   SELECT item_type, item_config INTO _parentType, _configured
    FROM item
    WHERE (item_id=NEW.bomitem_parent_item_id);
          
 -- Disallow configuration parameters if parent is not a job item
    IF (NEW.bomitem_char_id IS NOT NULL) THEN
-     IF (_parentType != 'J') THEN
-       RAISE EXCEPTION 'Configuration characteristics may only be defined for Job Items';
+     IF (NOT _configured) THEN
+       RAISE EXCEPTION 'Configuration characteristics may only be defined for Configured Items';
      END IF;
    END IF;
 
