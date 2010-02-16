@@ -64,10 +64,10 @@ BEGIN
          (NEW.invchead_curr_id <> OLD.invchead_curr_id) ) THEN
   -- Calculate invcitem Tax
       IF (COALESCE(NEW.invchead_taxzone_id,-1) <> COALESCE(OLD.invchead_taxzone_id,-1)) THEN
-    -- Invcitem trigger will calculate tax
+
         UPDATE invcitem SET invcitem_taxtype_id=getItemTaxType(invcitem_item_id,NEW.invchead_taxzone_id)
         WHERE (invcitem_invchead_id=NEW.invchead_id);
-      ELSE
+
         PERFORM calculateTaxHist( 'invcitemtax',
                                   invcitem_id,
                                   NEW.invchead_taxzone_id,
