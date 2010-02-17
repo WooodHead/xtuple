@@ -190,7 +190,7 @@ BEGIN
     END IF;
 
     SELECT postInvTrans( itemsite_id, 'SH', pQty, 'S/R',
-			 pordertype, CAST(tohead_number AS text), '', 'Issue to Shipping',
+			 pordertype, formatToNumber(toitem_id), '', 'Issue to Shipping',
 			 costcat_shipasset_accnt_id, costcat_asset_accnt_id,
 			 _itemlocSeries, _timestamp) INTO _invhistid
     FROM tohead, toitem, itemsite, costcat
