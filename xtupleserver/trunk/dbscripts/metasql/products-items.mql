@@ -20,6 +20,7 @@ SELECT item_id, item_number, (item_descrip1 || ' ' || item_descrip2) AS descrip,
             WHEN (item_type='T') THEN <? value("tooling") ?>
             WHEN (item_type='O') THEN <? value("outside") ?>
             WHEN (item_type='K') THEN <? value("kit") ?>
+            WHEN (item_type='L') THEN <? value("planning") ?>
             ELSE <? value("error") ?>
        END AS type_qtdisplayrole,
        uom_name
