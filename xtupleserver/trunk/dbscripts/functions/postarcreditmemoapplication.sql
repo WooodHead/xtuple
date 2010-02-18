@@ -48,6 +48,7 @@ BEGIN
 
   FOR _r IN SELECT arcreditapply_id, arcreditapply_target_aropen_id,
                    arcreditapply_amount AS arcreditapply_amountSource,
+                   arcreditapply_reftype, arcreditapply_ref_id,
                    currToCurr(arcreditapply_curr_id, aropen_curr_id,
                               arcreditapply_amount, _applyDate) AS arcreditapply_amountTarget,
                    aropen_id, aropen_doctype, aropen_docnumber, aropen_docdate, aropen_curr_rate
@@ -81,14 +82,16 @@ BEGIN
         arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
         arapply_fundstype, arapply_refnumber,
         arapply_applied, arapply_closed, arapply_postdate, arapply_distdate,
-        arapply_journalnumber, arapply_username, arapply_curr_id )
+        arapply_journalnumber, arapply_username, arapply_curr_id,
+        arapply_reftype, arapply_ref_id )
       VALUES
       ( _p.aropen_cust_id,
         pAropenid, _p.aropen_doctype, _p.aropen_docnumber,
         _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
         '', '',
         round(_r.arcreditapply_amountSource, 2), TRUE, _applyDate, _applyDate,
-        0, CURRENT_USER, _p.aropen_curr_id );
+        0, CURRENT_USER, _p.aropen_curr_id, 
+        _r.arcreditapply_reftype, _r.arcreditapply_ref_id );
 
     END IF;
 
