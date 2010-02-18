@@ -17,7 +17,7 @@ BEGIN
     RETURN 0;
   END IF;
 
-  IF (NOT _r.wo_status IN ('E','R','I')) THEN
+  IF (NOT _r.wo_status IN ('O','E','R','I')) THEN
     RETURN 1;
   END IF;
 
