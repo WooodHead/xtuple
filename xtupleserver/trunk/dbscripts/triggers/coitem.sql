@@ -36,7 +36,7 @@ BEGIN
      AND (itemsite_id=_rec.coitem_itemsite_id));
   _kit := COALESCE(_kit, false);
   _shipped := false;
-  IF(_kit) THEN
+  IF(_kit AND OLD.coitem_status <> 'C' AND OLD.coitem_status <> 'X') THEN
     SELECT coitem_id
       INTO _tmp
       FROM coitem LEFT OUTER JOIN coship ON (coship_coitem_id=coitem_id)
