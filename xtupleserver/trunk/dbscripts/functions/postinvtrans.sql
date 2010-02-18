@@ -105,7 +105,7 @@ BEGIN
 
 
     -- increase inventory: AD RM RT RP RR RS RX RB TR
-    -- decrease inventory: IM IB IT SH SI EX
+    -- decrease inventory: IM IB IT SH SI EX RI
     -- TS and TR are special: shipShipment and recallShipment should not change
     -- QOH at the Transfer Order src whs (as this was done by issueToShipping)
     -- but postReceipt should change QOH at the transit whs
