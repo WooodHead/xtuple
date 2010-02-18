@@ -551,7 +551,8 @@ BEGIN
                                 currRate(aropenco_curr_id,_firstExchDate))
 			  ELSE (aropen_amount - aropen_paid)
 		     END AS balance,
-		     aropen_curr_id, aropen_curr_rate
+		     aropen_curr_id, aropen_curr_rate,
+		     aropenco_cohead_id
                 FROM aropenco, aropen, cohead
                WHERE ( (aropenco_aropen_id=aropen_id)
                  AND   (aropenco_cohead_id=cohead_id)
@@ -573,8 +574,8 @@ BEGIN
         -- c/m whichever is greater.
         INSERT INTO arcreditapply
               (arcreditapply_source_aropen_id, arcreditapply_target_aropen_id,
-	       arcreditapply_amount, arcreditapply_curr_id)
-        VALUES(_r.aropen_id, _aropenid, _appliedAmount, _tmpCurrId);
+	       arcreditapply_amount, arcreditapply_curr_id, arcreditapply_reftype, arcreditapply_ref_id)
+        VALUES(_r.aropen_id, _aropenid, _appliedAmount, _tmpCurrId, 'S',  _r.aropenco_cohead_id);
 
         -- call postARCreditMemoApplication(aropen_id of C/M)
         SELECT postARCreditMemoApplication(_r.aropen_id) into _test;
