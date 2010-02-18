@@ -14,7 +14,9 @@ SELECT shiphead_id AS parent_id, cohead_id AS child_id,
        cust_number AS dest, cust_name AS description,
        shiphead_shipvia, NULL AS uom_name,
        NULL AS shipqty, NULL AS shipvalue,
+<? if exists("includeFormatted") ?>
        NULL AS f_shipqty, NULL AS f_shipvalue,
+<? endif ?>
        cohead_holdtype AS holdtype,
        shiphead_number AS shiphead_number_qtdisplayrole,
        'SO' AS ordertype_qtdisplayrole,
@@ -35,7 +37,7 @@ WHERE ((NOT shiphead_shipped)
  AND (cohead_cust_id=cust_id)
 ) 
 -- order line info
-UNION
+UNION ALL
 SELECT cohead_id AS parent_id, coitem_id AS child_id,
        '' AS shiphead_number, CAST(coitem_linenumber AS TEXT) AS linenumber,
        'SO' AS ordertype,
@@ -44,8 +46,10 @@ SELECT cohead_id AS parent_id, coitem_id AS child_id,
        NULL AS shiphead_shipvia, uom_name,
        qtyAtShipping('SO', coitem_id) AS shipqty,
        valueAtShipping('SO', coitem_id) AS shipvalue,
+<? if exists("includeFormatted") ?>
        formatQty(qtyAtShipping('SO', coitem_id)) AS f_shipqty,
        formatCost(valueAtShipping('SO', coitem_id)) AS f_shipvalue,
+<? endif ?>
        cohead_holdtype AS holdtype,
        NULL AS shiphead_number_qtdisplayrole,
        NULL AS ordertype_qtdisplayrole,
@@ -68,7 +72,7 @@ WHERE ((NOT shiphead_shipped)
  <? endif ?>
 ) 
 -- shipitem info
-UNION
+UNION ALL
 SELECT shiphead_id AS parent_id, shipitem_id AS child_id,
        '' AS shiphead_number, '' AS linenumber,
        'SO' AS ordertype,
@@ -78,8 +82,10 @@ SELECT shiphead_id AS parent_id, shipitem_id AS child_id,
        '' AS shiphead_shipvia, '' AS uom_name,
        shipitem_qty AS shipqty,
        NULL AS shipvalue,
+<? if exists("includeFormatted") ?>
        formatQty(shipitem_qty) AS f_shipqty,
        NULL AS f_shipvalue,
+<? endif ?>
        '' AS holdtype,
        NULL AS shiphead_number_qtdisplayrole,
        NULL AS ordertype_qtdisplayrole,
@@ -101,7 +107,7 @@ WHERE ((NOT shiphead_shipped)
 ) 
 
 <? if exists("MultiWhs") ?>
-UNION
+UNION ALL
 -- order header info
 SELECT shiphead_id AS parent_id, tohead_id AS child_id,
        shiphead_number, tohead_number AS linenumber,
@@ -114,7 +120,9 @@ SELECT shiphead_id AS parent_id, tohead_id AS child_id,
        tohead_destname AS dest, tohead_destcntct_name AS description,
        shiphead_shipvia, NULL AS uom_name,
        NULL AS shipqty, NULL AS shipvalue,
+<? if exists("includeFormatted") ?>
        NULL AS f_shipqty, NULL AS f_shipvalue,
+<? endif ?>
        'TO' AS holdtype,
        shiphead_number AS shiphead_number_qtdisplayrole,
        'TO' AS ordertype_qtdisplayrole,
@@ -134,7 +142,7 @@ WHERE ((NOT shiphead_shipped)
  AND (shiphead_order_id=tohead_id)
 ) 
 -- order line info
-UNION
+UNION ALL
 SELECT tohead_id AS parent_id, toitem_id AS child_id,
        '' AS shiphead_number, CAST(toitem_linenumber AS TEXT) AS linenumber,
        'TO' AS ordertype,
@@ -143,8 +151,10 @@ SELECT tohead_id AS parent_id, toitem_id AS child_id,
        NULL AS shiphead_shipvia, toitem_uom AS uom_name,
        qtyAtShipping('TO', toitem_id) AS shipqty,
        valueAtShipping('TO', toitem_id) AS shipvalue,
+<? if exists("includeFormatted") ?>
        formatQty(qtyAtShipping('TO', toitem_id)) AS f_shipqty,
        formatCost(valueAtShipping('TO', toitem_id)) AS f_shipvalue,
+<? endif ?>
        'TO' AS holdtype,
        NULL AS shiphead_number_qtdisplayrole,
        NULL AS ordertype_qtdisplayrole,
@@ -176,8 +186,10 @@ SELECT shiphead_id AS parent_id, shipitem_id AS child_id,
        '' AS shiphead_shipvia, '' AS uom_name,
        shipitem_qty AS shipqty,
        NULL AS shipvalue,
+<? if exists("includeFormatted") ?>
        formatQty(shipitem_qty) AS f_shipqty,
        NULL AS f_shipvalue,
+<? endif ?>
        '' AS holdtype,
        NULL AS shiphead_number_qtdisplayrole,
        NULL AS ordertype_qtdisplayrole,
