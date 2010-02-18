@@ -39,16 +39,7 @@ BEGIN
 
 --  Cache some parameters
   SELECT cmhead.*,
-         findARAccount(cmhead_cust_id) AS ar_accnt_id,
-         ( SELECT COALESCE(SUM(taxhist_tax), 0)
-           FROM cmheadtax
-           WHERE ( (taxhist_parent_id = cmhead_id)
-             AND   (taxhist_taxtype_id = getFreightTaxtypeId()) ) ) AS freighttax,
-         ( SELECT COALESCE(SUM(taxhist_tax), 0)
-           FROM cmheadtax
-           WHERE ( (taxhist_parent_id = cmhead_id)
-             AND   (taxhist_taxtype_id = getAdjustmentTaxtypeId()) ) ) AS adjtax
-         INTO _p
+         findARAccount(cmhead_cust_id) AS ar_accnt_id INTO _p
   FROM cmhead
   WHERE (cmhead_id=pCmheadid);
 
@@ -360,7 +351,7 @@ BEGIN
 
   END IF;
 
-  _totalAmount := _totalAmount + _p.freighttax * -1 + _p.adjtax * -1;
+  _totalAmount := _totalAmount;
 
 --  Credit the A/R for the total Amount
   IF (_totalAmount <> 0) THEN
