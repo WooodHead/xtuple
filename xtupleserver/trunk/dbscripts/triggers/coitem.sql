@@ -556,8 +556,8 @@ BEGIN
 
   IF (_purchase) THEN
     --For purchase item processing
-    IF (fetchmetricbool('EnableDropShipments')) THEN
-      --Dropship processing
+--    IF (fetchmetricbool('EnableDropShipments')) THEN
+--      --Dropship processing
       IF(_po) THEN
         IF (TG_OP = 'UPDATE') THEN
           IF ((NEW.coitem_qtyord <> OLD.coitem_qtyord) OR (NEW.coitem_scheddate <> OLD.coitem_scheddate)) THEN
@@ -606,7 +606,7 @@ BEGIN
           END IF;
         END IF;
       END IF; 
-    END IF;
+--    END IF;
   END IF;
 
   IF (_rec.coitem_subnumber > 0) THEN
