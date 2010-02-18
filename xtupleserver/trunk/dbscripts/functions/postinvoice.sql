@@ -183,7 +183,7 @@ BEGIN
     VALUES
     ( _cohistid, _p.invchead_cust_id, _r.itemsite_id, _p.invchead_shipto_id,
       _p.invchead_shipdate, _p.invchead_shipvia,
-      _p.invchead_ordernumber, _p.invchead_ponumber, _p.invchead_orderdate,
+      COALESCE(_p.invchead_ordernumber, _r.cohead_number), _p.invchead_ponumber, _p.invchead_orderdate,
       'I', _p.invchead_invcnumber, _p.invchead_invcdate,
       _r.qty, _r.unitprice, _r.unitcost,
       _p.invchead_salesrep_id, (_p.invchead_commission * _r.extprice), FALSE,
@@ -261,7 +261,7 @@ BEGIN
     ( _cohistid, _p.invchead_cust_id, -1, _p.invchead_shipto_id,
       'M', (_r.invcitem_number || '-' || _r.invcitem_descrip),
       _p.invchead_shipdate, _p.invchead_shipvia,
-      _p.invchead_ordernumber, _p.invchead_ponumber, _p.invchead_orderdate,
+      COALESCE(_p.invchead_ordernumber, _r.cohead_number), _p.invchead_ponumber, _p.invchead_orderdate,
       'I', _p.invchead_invcnumber, _p.invchead_invcdate,
       _r.qty, _r.unitprice, 0,
       _p.invchead_salesrep_id, (_p.invchead_commission * _r.extprice), FALSE,
