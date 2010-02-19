@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION summarizeTransactions(INTEGER, DATE, DATE) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION summarizeTransactions(INTEGER, DATE, DATE) RETURNS INTEGER AS $$
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pStartDate ALIAS FOR $2;
@@ -8,6 +8,7 @@ DECLARE
   _invhist RECORD;
   _itemuom TEXT;
   _transCounter INTEGER;
+  _itemlocSeries INTEGER;
 
 BEGIN
 
@@ -18,7 +19,7 @@ BEGIN
     AND (item_inv_uom_id=uom_id)
     AND (itemsite_id=pItemsiteid));
 
---  Can''t summarize into the future...
+--  Can't summarize into the future...
   IF (pEndDate > CURRENT_DATE) THEN
     _endDate := CURRENT_DATE;
   ELSE
@@ -52,6 +53,7 @@ BEGIN
   END IF;
 
   _transCounter := 0;
+  _itemlocSeries := NEXTVAL('itemloc_series_seq');
 
   FOR _invhist IN SELECT invhist_transtype, invhist_costmethod, SUM(invhist_invqty) AS qty
                   FROM invhist
@@ -68,12 +70,14 @@ BEGIN
     ( invhist_itemsite_id, invhist_transdate, invhist_transtype,
       invhist_invqty, invhist_qoh_before, invhist_qoh_after,
       invhist_invuom, invhist_user, invhist_ordnumber,
-      invhist_costmethod, invhist_value_before, invhist_value_after )
+      invhist_costmethod, invhist_value_before, invhist_value_after,
+      invhist_series )
     VALUES
     ( pItemsiteid, _endDate, _invhist.invhist_transtype,
       _invhist.qty, 0, 0,
-      _itemuom, CURRENT_USER, ''Summary'',
-      _invhist.invhist_costmethod, 0, 0 );
+      _itemuom, CURRENT_USER, 'Summary',
+      _invhist.invhist_costmethod, 0, 0,
+      _itemlocSeries );
 
     _transCounter := (_transCounter + 1);
 
@@ -82,4 +86,4 @@ BEGIN
   RETURN _transCounter;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
