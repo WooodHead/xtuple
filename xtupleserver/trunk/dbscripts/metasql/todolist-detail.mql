@@ -23,14 +23,40 @@
                   LEFT OUTER JOIN cust ON (cust_id=crmacct_cust_id) 
                   LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=todoitem_priority_id) 
    WHERE((true)
-  <? if exists("startStartDate") ?> 
-      AND (todoitem_start_date BETWEEN <? value("startStartDate") ?>
-                                   AND <? value("startEndDate") ?>)
+  <? if exists("startStartDate") ?>
+      <? if exists("startEndDate") ?> 
+          --AND (todoitem_start_date BETWEEN <? value("startStartDate") ?>
+          --                         AND <? value("startEndDate") ?>)
+          AND (todoitem_start_date <= <? value("startStartDate") ?> 
+              AND todoitem_start_date >= <? value("startEndDate") ?>)
+      <? elseif not exists("startEndDate") ?>
+          AND (todoitem_start_date <= <? value("startStartDate") ?>)
+      <? endif ?>
   <? endif ?>
-  <? if exists("dueStartDate") ?> 
-      AND   (todoitem_due_date BETWEEN <? value("dueStartDate") ?> 
-                                   AND <? value("dueEndDate") ?>) 
+
+  <? if exists("startEndDate") ?>
+      <? if not exists("startStartDate") ?>
+          AND (todoitem_start_date >= <? value("startEndDate") ?>)
+      <? endif ?>
   <? endif ?>
+
+  <? if exists("dueStartDate") ?>
+      <? if exists("dueEndDate") ?> 
+          --AND   (todoitem_due_date BETWEEN <? value("dueStartDate") ?> 
+          --                         AND <? value("dueEndDate") ?>)
+          AND (todoitem_due_date <= <? value("dueStartDate") ?>
+              AND todoitem_due_date >= <? value("dueEndDate") ?>)
+      <? elseif not exists("dueEndDate") ?>
+          AND   (todoitem_due_date <= <? value("dueStartDate") ?>)
+      <? endif ?>
+  <? endif ?>
+
+  <? if exists("dueEndDate") ?>
+      <? if not exists("dueStartDate") ?>
+          AND (todoitem_due_date >= <? value("dueEndDate") ?>)
+      <? endif ?>
+  <? endif ?>
+
   <? if exists("crmAccountId") ?>
       AND   (todoitem_crmacct_id =<? value("crmAccountId") ?>)
   <? endif ?>
@@ -72,10 +98,23 @@
                LEFT OUTER JOIN cust ON (cust_id=crmacct_cust_id) 
                LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=incdt_incdtpriority_id) 
    WHERE((true) 
-  <? if exists("startStartDate") ?> 
-      AND (incdt_timestamp BETWEEN <? value("startStartDate") ?>
-                               AND <? value("startEndDate") ?>)
+  <? if exists("startStartDate") ?>
+      <? if exists("startEndDate") ?>  
+          --AND (incdt_timestamp BETWEEN <? value("startStartDate") ?>
+          --                     AND <? value("startEndDate") ?>)
+	  AND (incdt_timestamp <= <? value("startStartDate") ?>
+              AND incdt_timestamp >= <? value("startEndDate") ?>)
+      <? elseif not exists("startEndDate") ?>
+          AND (incdt_timestamp <= <? value("startStartDate") ?>)
+      <? endif ?>
   <? endif ?>
+
+  <? if exists("startEndDate") ?>
+      <? if not exists("startStartDate") ?>
+          AND (incdt_timestamp >= <? value("startEndDate") ?>)
+      <? endif ?>
+  <? endif ?>
+
   <? if exists("crmAccountId") ?>
       AND   (incdt_crmacct_id =<? value("crmAccountId") ?>)
   <? endif ?>
@@ -119,14 +158,40 @@
            END AS due_qtforegroundrole 
       FROM prj, prjtask 
      WHERE((prj_id=prjtask_prj_id) 
-    <? if exists("startStartDate") ?> 
-      AND (prjtask_start_date BETWEEN <? value("startStartDate") ?>
-                                  AND <? value("startEndDate") ?>)
+    <? if exists("startStartDate") ?>
+      <? if exists("startEndDate") ?> 
+          --AND (prjtask_start_date BETWEEN <? value("startStartDate") ?>
+          --                        AND <? value("startEndDate") ?>)
+	  AND (prjtask_start_date <= <? value("startStartDate") ?>
+	       AND prjtask_start_date >= <? value("startEndDate") ?>)
+      <? elseif not exists("startEndDate") ?>
+          AND (prjtask_start_date <= <? value("startStartDate") ?>)
+      <? endif ?>
     <? endif ?>
-    <? if exists("dueStartDate") ?> 
-      AND (prjtask_due_date BETWEEN <? value("dueStartDate") ?>
-                                AND <? value("dueEndDate") ?>)
+
+   <? if exists("startEndDate") ?>
+      <? if not exists("startStartDate") ?>
+          AND (prjtask_start_date >= <? value("startEndDate") ?>)
+      <? endif ?>
+   <? endif ?>
+
+    <? if exists("dueStartDate") ?>
+      <? if exists("dueEndDate") ?> 
+          --AND (prjtask_due_date BETWEEN <? value("dueStartDate") ?>
+          --                      AND <? value("dueEndDate") ?>)
+	  AND (prjtask_due_date <= <? value("dueStartDate") ?>
+	       AND prjtask_due_date >= <? value("dueEndDate") ?>)
+      <? elseif not exists("dueEndDate") ?>
+          AND (prjtask_due_date <= <? value("dueStartDate") ?>)
+      <? endif ?>
     <? endif ?>
+
+    <? if exists("dueEndDate") ?>
+      <? if not exists("dueStartDate") ?>
+          AND (prjtask_due_date >= <? value("dueEndDate") ?>)
+      <? endif ?>
+    <? endif ?>
+
     <? if not exists("completed") ?> 
       AND (prjtask_status != 'C')
     <? endif ?>
@@ -160,14 +225,40 @@
            END AS due_qtforegroundrole 
       FROM prj 
      WHERE((true) 
-    <? if exists("startStartDate") ?> 
-      AND (prj_start_date BETWEEN <? value("startStartDate") ?>
-                              AND <? value("startEndDate") ?>)
+    <? if exists("startStartDate") ?>
+      <? if exists("startEndDate") ?> 
+          --AND (prj_start_date BETWEEN <? value("startStartDate") ?>
+           --                   AND <? value("startEndDate") ?>)
+	  AND (prj_start_date <= <? value("startStartDate") ?>
+	       AND prj_start_date >= <? value("startEndDate") ?>)
+      <? elseif not exists("startEndDate") ?>
+          AND (prj_start_date <= <? value("startStartDate") ?>)
+      <? endif ?>
     <? endif ?>
-    <? if exists("dueStartDate") ?> 
-      AND (prj_due_date BETWEEN <? value("dueStartDate") ?>
-                            AND <? value("dueEndDate") ?>)
+
+    <? if exists("startEndDate") ?>
+      <? if not exists("startStartDate") ?>
+          AND (prj_start_date >= <? value("startEndDate") ?>)
+      <? endif ?>
     <? endif ?>
+
+    <? if exists("dueStartDate") ?>
+      <? if exists("dueEndDate") ?> 
+          --AND (prj_due_date BETWEEN <? value("dueStartDate") ?>
+           --                 AND <? value("dueEndDate") ?>)
+	 AND (prj_due_date <= <? value("dueStartDate") ?>
+	      AND prj_due_date >= <? value("dueEndDate") ?>) 
+      <? elseif not exists("dueEndDate") ?>
+          AND (prj_due_date <= <? value("dueStartDate") ?>)
+      <? endif ?>
+    <? endif ?>
+
+    <? if exists("dueEndDate") ?>
+      <? if not exists("dueStartDate") ?>
+          AND (prj_due_date >= <? value("dueEndDate") ?>)
+      <? endif ?>
+    <? endif ?>
+
     <? if not exists("completed") ?> 
       AND (prj_status != 'C')
     <? endif ?>
@@ -185,6 +276,6 @@
       <? endif ?>
     
           )
-  <? endif ?> 
+  <? endif ?>
+ORDER BY due, seq, usr; 
 <? endif ?>
-ORDER BY due, seq, usr;
