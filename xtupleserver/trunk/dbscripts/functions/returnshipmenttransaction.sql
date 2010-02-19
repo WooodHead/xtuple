@@ -84,8 +84,8 @@ BEGIN
 
       ELSIF (_r.shiphead_order_type = 'TO') THEN
         SELECT postInvTrans( itemsite_id, 'RS', _r.shipitem_qty,
-			  'S/R', _r.shiphead_order_type, tohead_number,
-			  '', 'Return from Shipping',
+			  'S/R', _r.shiphead_order_type, formatToNumber(toitem_id),
+			  tohead_number, 'Return from Shipping',
 			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
 			  _itemlocSeries, _timestamp, _r.shipitem_value, _r.shipitem_invhist_id ) INTO _invhistid
         FROM toitem, tohead, itemsite, costcat
