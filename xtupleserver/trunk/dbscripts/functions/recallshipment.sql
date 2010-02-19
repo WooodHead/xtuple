@@ -138,14 +138,7 @@ BEGIN
 	RETURN -3;
       END IF;
 
-      IF (SELECT (itemsite_loccntrl OR itemsite_controlmethod IN ('L', 'S'))
-	  FROM itemsite
-	  WHERE ((itemsite_item_id=_ti.toitem_item_id)
-	    AND  (itemsite_warehous_id=_to.tohead_trns_warehous_id))) THEN
-	IF (_itemlocSeries = 0 OR _itemlocSeries IS NULL) THEN
-	  _itemlocSeries := NEXTVAL('itemloc_series_seq');
-	END IF;
-      END IF;
+      _itemlocSeries := NEXTVAL('itemloc_series_seq');
       
       SELECT postInvTrans(si.itemsite_id, 'TS', _ti.qty, 'I/M',
 			  _shiphead.shiphead_order_type, _to.tohead_number,
