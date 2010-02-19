@@ -133,11 +133,6 @@ BEGIN
 	      GROUP BY toitem_id, toitem_item_id,
 		       toitem_qty_received, toitem_qty_ordered LOOP
 
-      -- don't allow recall if it's already been received at the dest
-      IF (_ti.qty > _ti.toitem_qty_ordered - _ti.toitem_qty_received) THEN
-	RETURN -3;
-      END IF;
-
       _itemlocSeries := NEXTVAL('itemloc_series_seq');
       
       SELECT postInvTrans(si.itemsite_id, 'TS', _ti.qty, 'I/M',
