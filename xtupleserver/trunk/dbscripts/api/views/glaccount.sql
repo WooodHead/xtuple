@@ -90,6 +90,6 @@ UPDATE accnt SET
   accnt_closedpost=NEW.allow_posting_to_closed_periods,
   accnt_forwardupdate=NEW.forward_update_trial_balances,
   accnt_subaccnttype_code=NEW.sub_type
-WHERE accnt_id=getGLAccntId(OLD.account_number);
+WHERE accnt.accnt_id = getglaccntid(old.company::text,old.profit_center::text,old.account_number::text,old.sub_account::text);
 
 COMMIT;
