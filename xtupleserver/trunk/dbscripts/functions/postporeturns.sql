@@ -15,7 +15,6 @@ BEGIN
 		   currToBase(pohead_curr_id, poitem_unitprice,
 			      pohead_orderdate) AS poitem_unitprice_base,
                    COALESCE(itemsite_id, -1) AS itemsiteid, poitem_invvenduomratio,
-		   COALESCE(stdcost(itemsite_id),currToBase(pohead_curr_id,poitem_unitprice,current_date)) AS stdcost,
                    SUM(poreject_qty) AS totalqty,
                    itemsite_item_id, itemsite_costmethod
             FROM poreject, pohead, poitem 
@@ -54,8 +53,10 @@ BEGIN
        AND (itemsite_id=_p.itemsiteid) );
 
       UPDATE poreject
-      SET poreject_posted=TRUE, poreject_value=(stdcost(_p.itemsite_item_id) *_p.totalqty * _p.poitem_invvenduomratio)
-      WHERE (poreject_id=_p.poreject_id);
+      SET poreject_posted=TRUE, poreject_value=(invhist_unitcost *_p.totalqty * _p.poitem_invvenduomratio)
+      FROM invhist
+      WHERE ((poreject_id=_p.poreject_id)
+      AND (invhist_id=_returnval));
 
     END IF;
 
