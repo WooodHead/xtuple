@@ -42,6 +42,7 @@ BEGIN
     _ordertypeabbr := ('P/O for ' || _r.vend_name);
 
     SELECT pohead_number AS orderhead_number, poitem_id AS orderitem_id,
+           poitem_linenumber AS orderitem_linenumber,
 	   currToBase(pohead_curr_id, poitem_unitprice,
 		    recv_date::DATE) AS item_unitprice_base,
 	   poitem_invvenduomratio AS invvenduomratio,
@@ -55,6 +56,7 @@ BEGIN
     _ordertypeabbr := 'R/A';
 
     SELECT rahead_number AS orderhead_number, raitem_id AS orderitem_id,
+           raitem_linenumber AS orderitem_linenumber,
 	   currToBase(rahead_curr_id, raitem_unitprice,
 		    recv_date::DATE) AS item_unitprice_base,
 	   raitem_qty_invuomratio AS invvenduomratio,
@@ -69,6 +71,7 @@ BEGIN
      _ordertypeabbr := 'T/O';
 
     SELECT tohead_number AS orderhead_number, toitem_id AS orderitem_id,
+           toitem_linenumber AS orderitem_linenumber,
 	   toitem_stdcost AS item_unitprice_base,
 	   1.0 AS invvenduomratio,
 	   tohead_orderdate AS orderdate
@@ -143,7 +146,7 @@ BEGIN
       SELECT postInvTrans( itemsite_id, 'RP'::TEXT,
 			   (_r.recv_qty * _o.invvenduomratio),
 			   'S/R'::TEXT,
-			   _r.recv_order_type::TEXT, _o.orderhead_number::TEXT,
+			   _r.recv_order_type::TEXT, _o.orderhead_number::TEXT || '-' || _o.orderitem_linenumber::TEXT,
 			   ''::TEXT,
 			   'Receive Inventory from ' || _ordertypeabbr,
 			   costcat_asset_accnt_id, costcat_liability_accnt_id,
@@ -258,7 +261,7 @@ BEGIN
     ELSIF (_r.recv_order_type = 'TO' AND fetchMetricBool('MultiWhs')) THEN
       SELECT interWarehouseTransfer(toitem_item_id, tohead_trns_warehous_id,
             tohead_dest_warehous_id, _r.recv_qty, 
-            'TO', tohead_number, 'Receive from Transit To Dest Warehouse', _itemlocSeries, _glDate ) INTO _tmp
+            'TO', formatToNumber(toitem_id), 'Receive from Transit To Dest Warehouse', _itemlocSeries, _glDate ) INTO _tmp
       FROM tohead, toitem
       WHERE ((tohead_id=toitem_tohead_id)
         AND  (toitem_id=_r.recv_orderitem_id));     

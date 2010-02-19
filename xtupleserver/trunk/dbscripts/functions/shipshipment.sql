@@ -209,9 +209,9 @@ BEGIN
 
       _itemlocSeries := NEXTVAL('itemloc_series_seq');
 
-      SELECT postInvTrans(si.itemsite_id, 'TS', _ti.qty, 'I/M',
-			  _shiphead.shiphead_order_type, _to.tohead_number,
-			  _to.tohead_number,
+      SELECT postInvTrans(si.itemsite_id, 'TS', _ti.qty,
+                          'I/M', _shiphead.shiphead_order_type,
+                          formatToNumber(_ti.toitem_id), _to.tohead_number,
 			  'Ship from Src to Transit Warehouse',
 			  tc.costcat_asset_accnt_id,
 			  sc.costcat_shipasset_accnt_id,
@@ -237,9 +237,9 @@ BEGIN
 
       -- record inventory history and qoh changes at transit warehouse but
       -- there is only one g/l account to touch
-      SELECT postInvTrans(ti.itemsite_id, 'TR', _ti.qty, 'I/M',
-			  _shiphead.shiphead_order_type, _to.tohead_number,
-			  _to.tohead_number,
+      SELECT postInvTrans(ti.itemsite_id, 'TR', _ti.qty,
+                          'I/M', _shiphead.shiphead_order_type,
+                          formatToNumber(_ti.toitem_id), _to.tohead_number,
 			  'Ship from Src to Transit Warehouse',
 			  tc.costcat_asset_accnt_id,
 			  tc.costcat_asset_accnt_id,
