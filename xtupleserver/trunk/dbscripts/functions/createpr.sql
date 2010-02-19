@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION createPr(INTEGER, INTEGER, NUMERIC, DATE, TEXT, CHARACTER(1), INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createPr(INTEGER, INTEGER, NUMERIC, DATE, TEXT, CHARACTER(1), INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pOrderNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -11,23 +11,23 @@ DECLARE
 
 BEGIN
 
-  SELECT NEXTVAL(''pr_pr_id_seq'') INTO _prid;
+  SELECT NEXTVAL('pr_pr_id_seq') INTO _prid;
   INSERT INTO pr
   ( pr_id, pr_number, pr_subnumber, pr_status,
     pr_order_type, pr_order_id,
     pr_itemsite_id, pr_qtyreq, pr_duedate )
   VALUES
-  ( _prid, pOrderNumber, nextPrSubnumber(pOrderNumber), ''O'',
+  ( _prid, pOrderNumber, nextPrSubnumber(pOrderNumber), 'O',
     pOrderType, pOrderId,
     pItemsiteid, pQty, pDuedate );
 
   RETURN _prid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createPr(INTEGER, INTEGER, NUMERIC, DATE, TEXT) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createPr(INTEGER, INTEGER, NUMERIC, DATE, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pOrderNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -38,23 +38,23 @@ DECLARE
 
 BEGIN
 
-  SELECT NEXTVAL(''pr_pr_id_seq'') INTO _prid;
+  SELECT NEXTVAL('pr_pr_id_seq') INTO _prid;
   INSERT INTO pr
   ( pr_id, pr_number, pr_subnumber, pr_status,
     pr_order_type, pr_order_id,
     pr_itemsite_id, pr_qtyreq, pr_duedate )
   VALUES
-  ( _prid, pOrderNumber, nextPrSubnumber(pOrderNumber), ''O'',
-    ''M'', -1,
+  ( _prid, pOrderNumber, nextPrSubnumber(pOrderNumber), 'O',
+    'M', -1,
     pItemsiteid, pQty, pDuedate );
 
   RETURN _prid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createPr(INTEGER, CHAR, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createPr(INTEGER, CHAR, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pOrderNumber ALIAS FOR $1;
   pParentType ALIAS FOR $2;
@@ -71,7 +71,7 @@ BEGIN
     _orderNumber := pOrderNumber;
   END IF;
 
-  IF (pParentType = ''W'') THEN
+  IF (pParentType = 'W') THEN
     SELECT womatl_itemsite_id AS itemsiteid,
            itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq) AS qty, womatl_duedate AS duedate INTO _parent
     FROM wo, womatl, itemsite
@@ -79,14 +79,14 @@ BEGIN
      AND (womatl_itemsite_id=itemsite_id)
      AND (womatl_id=pParentId));
 
-  ELSIF (pParentType = ''S'') THEN
+  ELSIF (pParentType = 'S') THEN
     SELECT coitem_itemsite_id AS itemsiteid,
            (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) AS qty,
            coitem_scheddate AS duedate INTO _parent
     FROM coitem
     WHERE ((coitem_id=pParentId));
 
-  ELSIF (pParentType = ''F'') THEN
+  ELSIF (pParentType = 'F') THEN
     SELECT planord_itemsite_id AS itemsiteid,
            planord_qty AS qty,
            planord_duedate AS duedate INTO _parent
@@ -101,23 +101,23 @@ BEGIN
     RETURN -1;
   END IF;
 
-  SELECT NEXTVAL(''pr_pr_id_seq'') INTO _prid;
+  SELECT NEXTVAL('pr_pr_id_seq') INTO _prid;
   INSERT INTO pr
   ( pr_id, pr_number, pr_subnumber, pr_status,
     pr_order_type, pr_order_id,
     pr_itemsite_id, pr_qtyreq, pr_duedate )
   VALUES
-  ( _prid, _orderNumber, nextPrSubnumber(_orderNumber), ''O'',
+  ( _prid, _orderNumber, nextPrSubnumber(_orderNumber), 'O',
     pParentType, pParentId,
     _parent.itemsiteid, _parent.qty, _parent.duedate );
 
   RETURN _prid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createPr(CHAR, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createPr(CHAR, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pParentType ALIAS FOR $1;
   pParentId ALIAS FOR $2;
@@ -126,19 +126,19 @@ DECLARE
 
 BEGIN
 
-  IF (pParentType = ''W'') THEN
+  IF (pParentType = 'W') THEN
     SELECT wo_number INTO _orderNumber
     FROM wo, womatl
     WHERE ((womatl_wo_id=wo_id)
      AND (womatl_id=pParentId));
 
-  ELSIF (pParentType = ''S'') THEN
+  ELSIF (pParentType = 'S') THEN
     SELECT CAST(cohead_number AS INTEGER) INTO _orderNumber
     FROM cohead, coitem
     WHERE ((coitem_cohead_id=cohead_id)
      AND (coitem_id=pParentId));
 
-  ELSIF (pParentType = ''F'') THEN
+  ELSIF (pParentType = 'F') THEN
     SELECT fetchPrNumber() INTO _orderNumber;
 
   ELSE
@@ -154,4 +154,68 @@ BEGIN
   RETURN _prid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION createpr(INTEGER, CHARACTER, INTEGER, TEXT) RETURNS INTEGER AS $$
+DECLARE
+  pOrderNumber ALIAS FOR $1;
+  pParentType ALIAS FOR $2;
+  pParentId ALIAS FOR $3;
+  pParentNotes ALIAS FOR $4;
+  _parent RECORD;
+  _prid INTEGER;
+  _orderNumber INTEGER;
+
+BEGIN
+
+  IF (pOrderNumber = -1) THEN
+    SELECT fetchPrNumber() INTO _orderNumber;
+  ELSE
+    _orderNumber := pOrderNumber;
+  END IF;
+
+  IF (pParentType = 'W') THEN
+    SELECT womatl_itemsite_id AS itemsiteid,
+           itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq) AS qty, womatl_duedate AS duedate INTO _parent
+    FROM wo, womatl, itemsite
+    WHERE ((womatl_wo_id=wo_id)
+     AND (womatl_itemsite_id=itemsite_id)
+     AND (womatl_id=pParentId));
+
+  ELSIF (pParentType = 'S') THEN
+    SELECT coitem_itemsite_id AS itemsiteid,
+           (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) AS qty,
+           coitem_scheddate AS duedate INTO _parent
+    FROM coitem
+    WHERE ((coitem_id=pParentId));
+
+  ELSIF (pParentType = 'F') THEN
+    SELECT planord_itemsite_id AS itemsiteid,
+           planord_qty AS qty,
+           planord_duedate AS duedate 
+           INTO _parent
+    FROM planord
+    WHERE (planord_id=pParentId);
+
+  ELSE
+    RETURN -2;
+  END IF;
+
+  IF (NOT FOUND) THEN
+    RETURN -1;
+  END IF;
+
+  SELECT NEXTVAL('pr_pr_id_seq') INTO _prid;
+  INSERT INTO pr
+  ( pr_id, pr_number, pr_subnumber, pr_status,
+    pr_order_type, pr_order_id,
+    pr_itemsite_id, pr_qtyreq, pr_duedate, pr_releasenote )
+  VALUES
+  ( _prid, _orderNumber, nextPrSubnumber(_orderNumber), 'O',
+    pParentType, pParentId,
+    _parent.itemsiteid, _parent.qty, _parent.duedate, pParentNotes );
+
+  RETURN _prid;
+
+END;
+$$ LANGUAGE 'plpgsql';
