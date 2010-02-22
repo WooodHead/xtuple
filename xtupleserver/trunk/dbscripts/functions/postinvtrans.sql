@@ -121,7 +121,7 @@ BEGIN
 			   WHERE (tohead_number=pOrderNumber)) THEN 0
 			   ELSE 1
 			   END;
-    ELSIF (pTransType IN ('IM', 'IB', 'IT', 'SH', 'SI', 'EX')) THEN
+    ELSIF (pTransType IN ('IM', 'IB', 'IT', 'SH', 'SI', 'EX', 'RI')) THEN
       _sense := -1;
 
     ELSE
