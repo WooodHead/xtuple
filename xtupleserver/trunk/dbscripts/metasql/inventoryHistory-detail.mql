@@ -69,6 +69,7 @@ SELECT invhist.*, 0 AS level,
             WHEN (invhist_transtype='SV') THEN whs1.warehous_code
 	    WHEN (invhist_transtype='TR') THEN whs2.warehous_code
 	    WHEN (invhist_transtype='TS') THEN whs1.warehous_code
+	    WHEN (invhist_transtype='RI') THEN whs1.warehous_code
             ELSE ''
        END AS locfrom,
        CASE WHEN (invhist_transtype='TW') THEN whs2.warehous_code
@@ -89,6 +90,7 @@ SELECT invhist.*, 0 AS level,
             WHEN (invhist_transtype='SV') THEN 'SHIP'
 	    WHEN (invhist_transtype='TR') THEN whs1.warehous_code
 	    WHEN (invhist_transtype='TS') THEN whs2.warehous_code
+	 WHEN (invhist_transtype='RI') THEN 'WIP'
             ELSE ''
        END AS locto 
 FROM itemsite, item, warehous AS whs1, invhist LEFT OUTER JOIN

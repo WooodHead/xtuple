@@ -211,7 +211,6 @@ BEGIN
 
       -- populate distributions if invhist_id parameter passed to undo
       IF (pInvhistid IS NOT NULL) THEN
-	-- raise exception 'stop!';
         INSERT INTO itemlocdist
           ( itemlocdist_itemlocdist_id, itemlocdist_source_type, itemlocdist_source_id,
             itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
