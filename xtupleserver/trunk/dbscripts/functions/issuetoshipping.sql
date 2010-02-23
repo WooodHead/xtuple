@@ -32,7 +32,8 @@ DECLARE
   _p                    RECORD;
   _m                    RECORD;
   _value                NUMERIC;
-  _warehouseid		 INTEGER;
+  _warehouseid		INTEGER;
+  _shipitemid     	INTEGER;
 
 BEGIN
 
@@ -156,12 +157,13 @@ BEGIN
     FROM invhist
     WHERE (invhist_id=_invhistid);
 
+    _shipitemid := nextval('shipitem_shipitem_id_seq');
     INSERT INTO shipitem
-    ( shipitem_shiphead_id, shipitem_orderitem_id, shipitem_qty,
+    ( shipitem_id, shipitem_shiphead_id, shipitem_orderitem_id, shipitem_qty,
       shipitem_transdate, shipitem_trans_username, shipitem_invoiced,
       shipitem_value, shipitem_invhist_id )
     VALUES
-    ( _shipheadid, pitemid, pQty,
+    ( _shipitemid, _shipheadid, pitemid, pQty,
       _timestamp, CURRENT_USER, FALSE,
       _value, 
       CASE WHEN _invhistid = -1 THEN
@@ -170,9 +172,22 @@ BEGIN
         _invhistid
       END );
 
-    UPDATE coitem
-       SET coitem_qtyreserved = noNeg(coitem_qtyreserved - pQty)
-     WHERE(coitem_id=pitemid);
+    -- Handle reservation
+    IF (fetchmetricbool('EnableSOReservations')) THEN
+      -- Remember what was reserved so we can re-reserve if this issue is returned
+      INSERT INTO shipitemrsrv 
+        (shipitemrsrv_shipitem_id, shipitemrsrv_qty)
+      SELECT _shipitemid, least(pQty,coitem_qtyreserved)
+      FROM coitem
+      WHERE ((coitem_id=pitemid)
+      AND (coitem_qtyreserved > 0));
+
+      -- Update sales order
+      UPDATE coitem
+        SET coitem_qtyreserved = noNeg(coitem_qtyreserved - pQty)
+      WHERE(coitem_id=pitemid);
+
+    END IF;
 
   ELSEIF (pordertype = 'TO') THEN
 
