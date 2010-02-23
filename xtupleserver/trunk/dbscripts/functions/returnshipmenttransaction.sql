@@ -105,6 +105,15 @@ BEGIN
       WHERE ((shiphead_id=_r.shiphead_id)
         AND  (shiphead_sfstatus='P'));
 
+       -- Handle reservation if applicable
+      IF (fetchmetricbool('EnableSOReservations')) THEN
+        UPDATE coitem
+          SET coitem_qtyreserved = coitem_qtyreserved + shipitemrsrv_qty
+        FROM shipitemrsrv
+        WHERE ((coitem_id=_r.shipitem_orderitem_id)
+        AND (shipitemrsrv_shipitem_id=_r.shipitem_id));
+      END IF;
+      
       DELETE FROM shipitem WHERE (shipitem_id = _r.shipitem_id );
     END IF;
 
