@@ -29,26 +29,29 @@
       <term>Default Customer for Retail Sales</term>
       <listitem>
         <para>Select this option to identify a default Customer to be used for
-        all retail transactions. Use this option if you do not want to track
-        individual Customer information at the point of sale.</para>
+        all Retail Sales. Use this option if you do not want to track
+        individual Customer information at the point of sale. The default
+        Customer specified here will always be used for Retail
+        transactions&mdash;meaning, you won't need to collect and enter
+        Customer information every time you make a Sale.</para>
         <variablelist>
           <varlistentry>
             <term>Customer #</term>
             <listitem>
               <para>Select a Customer to be used as the default Customer. The
               specified Customer will automatically be used for every Retail
-              Sale. You will have the option to select a different Customer at
-              the point of sale, assuming the ability to choose a Customer has
-              not been disabled.</para>
+              Sale. If you don't hide the "Customer" tab on the Retail Sale
+              screen, the default Customer information will be shown. This
+              gives you the flexibility to add new Customer information if you
+              choose to.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Disable Choosing Customer at Cash Register</term>
             <listitem>
-              <para>Select if you want to prevent users from choosing a
-              Customer other than the default Customer at the point of sale.
-              If this option is selected, the "Customer" tab on the Retail
-              Sale screen will be hidden. </para>
+              <para>Select to hide the "Customer" tab on the Retail Sale
+              screen. The specified default Customer will always be used in
+              the background.</para>
             </listitem>
           </varlistentry>
         </variablelist>
