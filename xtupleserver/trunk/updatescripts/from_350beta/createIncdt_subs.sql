@@ -1,7 +1,4 @@
-﻿-- Table: incdt_subs
-
--- DROP TABLE incdt_subs;
-
+﻿
 CREATE TABLE incdt_subs
 (
   incdt_subs_idx serial NOT NULL,
@@ -17,7 +14,5 @@ CREATE TABLE incdt_subs
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE incdt_subs OWNER TO "admin";
-GRANT ALL ON TABLE incdt_subs TO "admin";
 GRANT ALL ON TABLE incdt_subs TO xtrole;
 COMMENT ON TABLE incdt_subs IS 'Incident Subscribers Helper Table';
