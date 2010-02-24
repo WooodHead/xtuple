@@ -26,6 +26,15 @@ AND (incdt_owner_username ~ <? value("owner_usr_pattern") ?>)
 AND (incdt_assigned_username=<? value("assigned_username") ?>) 
 <? elseif exists("assigned_usr_pattern" ?>
 AND (incdt_assigned_username ~ <? value("assigned_usr_pattern") ?>) 
+<? endif ?>
+<? if exists("category_id") ?> 
+AND (incdt_incdtcat_id=<? value("category_id") ?>) 
+<? endif ?> 
+<? if exists("severity_id") ?> 
+AND (incdt_incdtseverity_id=<? value("severity_id") ?>) 
+<? endif ?>
+<? if exists("crmAccountId") ?> 
+AND (incdt_crmacct_id=<? value("crmAccountId") ?>) 
 <? endif ?> 
 AND (incdt_status IN ('' 
 <? if exists("isnew") ?>, 'N' <? endif ?> 
@@ -35,6 +44,7 @@ AND (incdt_status IN (''
 <? if exists("isresolved") ?>, 'R' <? endif ?> 
 <? if exists("isclosed") ?>, 'L' <? endif ?> 
 ))
+ 
 <? if exists("pattern") ?> 
 AND ((incdt_number::text ~* <? value("pattern") ?>)
 OR (incdt_summary ~* <? value("pattern") ?>)
