@@ -92,6 +92,32 @@ function main()
         test.fail("Error in assigning privileges" + e);
     }
     
+    
+    //------------Editing the preferences-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
+    activateItem(":xTuple ERP:*_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Preferences...");
+    activateItem(":xTuple ERP:*.System_QMenu", "Preferences...");
+    if(object.exists(":Search Navigation.Buttons_QRadioButton"))
+    {
+    waitForObject(":Search Navigation.Buttons_QRadioButton");
+    if(!findObject(":Search Navigation.Buttons_QRadioButton").checked)
+    clickButton(":Search Navigation.Buttons_QRadioButton");
+    }
+    waitForObject(":User Preferences.Save_QPushButton");
+    clickButton(":User Preferences.Save_QPushButton");
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
+    activateItem(":xTuple ERP:*_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Rescan Privileges");
+    activateItem(":xTuple ERP:*.System_QMenu", "Rescan Privileges");   
+        
+    }
+    catch(e)
+    {
+        test.fail("Error in editingthe preferences" + e);
+    }
     //------Remove Application Time out----    
     try
     {
@@ -2444,6 +2470,7 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     clickButton(":List Items.Copy_QPushButton_2");
     waitForObject(":List Items.Yes_QPushButton");
     clickButton(":List Items.Yes_QPushButton");
+    
     waitForObject(":List Items.Site can manufacture this Item_QGroupBox");
     mouseClick(":List Items.Site can manufacture this Item_QGroupBox", 18, 9, 0, Qt.LeftButton);
     snooze(0.5);
@@ -2616,7 +2643,7 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
         test.fail("Error in copying BOM of TSUB1" + e);
    }
      
-  
+
     //---------Create BOM for the newly created 3 items--------
     try
     {
@@ -2629,16 +2656,16 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
   
     waitForObject(":Bills of Materials.New_QPushButton");
     clickButton(":Bills of Materials.New_QPushButton");
-    waitForObject(":_itemGroup...._QPushButton_5");
-    clickButton(":_itemGroup...._QPushButton_5");
-    waitForObject(":_item_XTreeWidget_5");
-    doubleClickItem(":_item_XTreeWidget_5", "TSUB3", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_itemGroup...._QPushButton_12");
+    clickButton(":_itemGroup...._QPushButton_12");
+    waitForObject(":_listTab_XTreeWidget_12");
+    doubleClickItem(":_listTab_XTreeWidget_12", "TSUB3", 0, 0, 0, Qt.LeftButton);
     waitForObject(":frame_2.New_QPushButton");
     clickButton(":frame_2.New_QPushButton");
-    waitForObject(":Bill of Materials...._QPushButton");
-    clickButton(":Bill of Materials...._QPushButton");
-    waitForObject(":_item_XTreeWidget_6");
-    doubleClickItem(":_item_XTreeWidget_6", "TSUB4", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Bill of Materials...._QPushButton_3");
+    clickButton(":Bill of Materials...._QPushButton_3");
+    waitForObject(":_listTab_XTreeWidget_13");
+    doubleClickItem(":_listTab_XTreeWidget_13", "TSUB4", 0, 0, 0, Qt.LeftButton);
     waitForObject(":_qtyPer_XLineEdit");
     type(":_qtyPer_XLineEdit", "1");
     waitForObject(":_scrap_XLineEdit");
@@ -2651,16 +2678,16 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     
     waitForObject(":Bills of Materials.New_QPushButton");
     clickButton(":Bills of Materials.New_QPushButton");
-    waitForObject(":_itemGroup...._QPushButton_5");
-    clickButton(":_itemGroup...._QPushButton_5");
-    waitForObject(":_item_XTreeWidget_5");
-    doubleClickItem(":_item_XTreeWidget_5", "TSUB2", 0, 0, 0, Qt.LeftButton);
+   waitForObject(":_itemGroup...._QPushButton_12");
+    clickButton(":_itemGroup...._QPushButton_12");
+    waitForObject(":_listTab_XTreeWidget_12");
+    doubleClickItem(":_listTab_XTreeWidget_12", "TSUB2", 0, 0, 0, Qt.LeftButton);
     waitForObject(":frame_2.New_QPushButton");
     clickButton(":frame_2.New_QPushButton");
-    waitForObject(":Bill of Materials...._QPushButton");
-    clickButton(":Bill of Materials...._QPushButton");
-    waitForObject(":_item_XTreeWidget_6");
-    doubleClickItem(":_item_XTreeWidget_6", "TSUB3", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Bill of Materials...._QPushButton_3");
+    clickButton(":Bill of Materials...._QPushButton_3");
+    waitForObject(":_listTab_XTreeWidget_13");
+    doubleClickItem(":_listTab_XTreeWidget_13", "TSUB3", 0, 0, 0, Qt.LeftButton);
     waitForObject(":_qtyPer_XLineEdit");
     type(":_qtyPer_XLineEdit", "1");
     waitForObject(":_scrap_XLineEdit");
@@ -2673,16 +2700,16 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     
     waitForObject(":Bills of Materials.New_QPushButton");
     clickButton(":Bills of Materials.New_QPushButton");
-    waitForObject(":_itemGroup...._QPushButton_5");
-    clickButton(":_itemGroup...._QPushButton_5");
-    waitForObject(":_item_XTreeWidget_5");
-    doubleClickItem(":_item_XTreeWidget_5", "TSUB1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_itemGroup...._QPushButton_12");
+    clickButton(":_itemGroup...._QPushButton_12");
+    waitForObject(":_listTab_XTreeWidget_12");
+    doubleClickItem(":_listTab_XTreeWidget_12", "TSUB1", 0, 0, 0, Qt.LeftButton);
     waitForObject(":frame_2.New_QPushButton");
     clickButton(":frame_2.New_QPushButton");
-    waitForObject(":Bill of Materials...._QPushButton");
-    clickButton(":Bill of Materials...._QPushButton");
-    waitForObject(":_item_XTreeWidget_6");
-    doubleClickItem(":_item_XTreeWidget_6", "TSUB2", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":Bill of Materials...._QPushButton_3");
+    clickButton(":Bill of Materials...._QPushButton_3");
+    waitForObject(":_listTab_XTreeWidget_13");
+    doubleClickItem(":_listTab_XTreeWidget_13", "TSUB2", 0, 0, 0, Qt.LeftButton);
     waitForObject(":_qtyPer_XLineEdit");
     type(":_qtyPer_XLineEdit", "1");
     waitForObject(":_scrap_XLineEdit");
@@ -2699,8 +2726,8 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
    {
         test.fail("Error in creating BOM" + e);
    } 
+
   
-    
     try
     {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Sales");
@@ -2721,16 +2748,18 @@ test.log("MRP DEMAND SIDE NETTING – WORK ORDER – SCRAP %");
     waitForObject(":_lineItemsPage.New_QPushButton");
     clickButton(":_lineItemsPage.New_QPushButton");
     
-    waitForObject(":_itemGroup...._QPushButton_2");
-    clickButton(":_itemGroup...._QPushButton_2");
-    waitForObject(":_item_XTreeWidget_2");
-    doubleClickItem(":_item_XTreeWidget_2", "YTRUCK1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_itemGroup...._QPushButton_8");
+    clickButton(":_itemGroup...._QPushButton_8");
+    waitForObject(":_listTab_XTreeWidget_8");
+    doubleClickItem(":_listTab_XTreeWidget_8", "YTRUCK1", 0, 0, 0, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit");
     type(":_qtyOrdered_XLineEdit", "300");
     type(":_qtyOrdered_XLineEdit", "<Tab>");
     waitForObject(":_schedGroup.XDateEdit_XDateEdit");
     type(":_schedGroup.XDateEdit_XDateEdit", "0");
     type(":_schedGroup.XDateEdit_XDateEdit", "<Tab>");
+    waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar_2");
+    clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar_2", "Supply");
     waitForObject(":_availabilityStack.Create Work Order_QGroupBox");
     if(findObject(":_availabilityStack.Create Work Order_QGroupBox").checked)
         type(":_availabilityStack.Create Work Order_QGroupBox"," ");

@@ -11,10 +11,10 @@ function QOHZero(item)
     activateItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
     waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
     activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
-    waitForObject(":_itemGroup...._QPushButton");
-    clickButton(":_itemGroup...._QPushButton");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", item , 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_itemGroup...._QPushButton_7");
+    clickButton(":_itemGroup...._QPushButton_7");
+    waitForObject(":_listTab_XTreeWidget_6");
+    doubleClickItem(":_listTab_XTreeWidget_6", item , 5, 5, 0, Qt.LeftButton);
     waitForObject(":_adjustmentTypeGroup.Absolute_QRadioButton");
     clickButton(":_adjustmentTypeGroup.Absolute_QRadioButton");
     waitForObject(":_qtyGroup.*_XLabel");
@@ -53,10 +53,10 @@ function QOHZeroWh(item,wh)
     activateItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
     waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
     activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
-    waitForObject(":_itemGroup...._QPushButton");
-    clickButton(":_itemGroup...._QPushButton");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", item , 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_itemGroup...._QPushButton_7");
+    clickButton(":_itemGroup...._QPushButton_7");
+    waitForObject(":_listTab_XTreeWidget_6");
+    doubleClickItem(":_listTab_XTreeWidget_6", item , 5, 5, 0, Qt.LeftButton);
     waitForObject(":_warehouse_WComboBox_4");
     if(findObject(":_warehouse_WComboBox_4").currentText!=wh)
         type(":_warehouse_WComboBox_4",wh);
@@ -98,10 +98,10 @@ function UpdateQOH(item, quant)
     activateItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
     waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
     activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
-    waitForObject(":_itemGroup...._QPushButton");
-    clickButton(":_itemGroup...._QPushButton");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", item , 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_itemGroup...._QPushButton_7");
+    clickButton(":_itemGroup...._QPushButton_7");
+    waitForObject(":_listTab_XTreeWidget_6");
+    doubleClickItem(":_listTab_XTreeWidget_6", item , 5, 5, 0, Qt.LeftButton);
     waitForObject(":_adjustmentTypeGroup.Absolute_QRadioButton");
     clickButton(":_adjustmentTypeGroup.Absolute_QRadioButton");
     waitForObject(":_qtyGroup.*_XLabel");
@@ -163,10 +163,10 @@ function UpdateQOHWh(item, quant,wh)
     activateItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
     waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
     activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
-    waitForObject(":_itemGroup...._QPushButton");
-    clickButton(":_itemGroup...._QPushButton");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", item , 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_itemGroup...._QPushButton_7");
+    clickButton(":_itemGroup...._QPushButton_7");
+    waitForObject(":_listTab_XTreeWidget_6");
+    doubleClickItem(":_listTab_XTreeWidget_6", item , 5, 5, 0, Qt.LeftButton);
     waitForObject(":_warehouse_WComboBox_4");
     clickItem(":_warehouse_WComboBox_4", wh, 0, 0, 1, Qt.LeftButton);
     waitForObject(":_adjustmentTypeGroup.Absolute_QRadioButton");
@@ -348,12 +348,20 @@ try
 function newPO(item, quant, ddate)    
 {
     
+   
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Purchase");
     activateItem(":xTuple ERP:*_QMenuBar", "Purchase");
     waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
     activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
+    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
+    if(object.exists(":Show.Unreleased_XCheckBox"))
+    {
+    waitForObject(":Show.Unreleased_XCheckBox");
+    if(!findObject(":Show.Unreleased_XCheckBox").checked)
+    clickButton(":Show.Unreleased_XCheckBox");
+     }
+    
     waitForObject(":List Open Purchase Orders.New_QPushButton");
     clickButton(":List Open Purchase Orders.New_QPushButton");
     waitForObject(":_headerPage...._QPushButton_3");
@@ -364,16 +372,16 @@ function newPO(item, quant, ddate)
     clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage.New_QPushButton_2");
     clickButton(":_lineItemsPage.New_QPushButton_2");
-    waitForObject(":groupBox_2...._QPushButton");
-    clickButton(":groupBox_2...._QPushButton");
+    waitForObject(":groupBox_2...._QPushButton_2");
+    clickButton(":groupBox_2...._QPushButton_2");
     waitForObject(":groupBox_2.Buy Items Only_QCheckBox");
     if(findObject(":groupBox_2.Buy Items Only_QCheckBox").checked)
         clickButton(":groupBox_2.Buy Items Only_QCheckBox");
     waitForObject(":groupBox_2.Make Items Only_QCheckBox");
     if(findObject(":groupBox_2.Make Items Only_QCheckBox").checked)
         clickButton(":groupBox_2.Make Items Only_QCheckBox");
-    waitForObject(":_item_XTreeWidget_7");
-    doubleClickItem(":_item_XTreeWidget_7", item, 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_listTab_XTreeWidget_7");
+    doubleClickItem(":_listTab_XTreeWidget_7", item, 0, 0, 0, Qt.LeftButton);
     waitForObject(":_ordered_XLineEdit");
     type(":_ordered_XLineEdit", quant);
     waitForObject(":_ordered_XLineEdit");
@@ -412,8 +420,14 @@ function newPOWh(item, quant, ddate,Wh)
     activateItem(":xTuple ERP:*_QMenuBar", "Purchase");
     waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
     activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
+    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
+    if(object.exists(":Show.Unreleased_XCheckBox"))
+    {
+    waitForObject(":Show.Unreleased_XCheckBox");
+    if(!findObject(":Show.Unreleased_XCheckBox").checked)
+    clickButton(":Show.Unreleased_XCheckBox");
+     }
     waitForObject(":List Open Purchase Orders.New_QPushButton");
     clickButton(":List Open Purchase Orders.New_QPushButton");
     waitForObject(":_headerPage...._QPushButton_3");
@@ -424,16 +438,16 @@ function newPOWh(item, quant, ddate,Wh)
     clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage.New_QPushButton_2");
     clickButton(":_lineItemsPage.New_QPushButton_2");
-    waitForObject(":groupBox_2...._QPushButton");
-    clickButton(":groupBox_2...._QPushButton");
+    waitForObject(":groupBox_2...._QPushButton_2");
+    clickButton(":groupBox_2...._QPushButton_2");
     waitForObject(":groupBox_2.Buy Items Only_QCheckBox");
     if(findObject(":groupBox_2.Buy Items Only_QCheckBox").checked)
         clickButton(":groupBox_2.Buy Items Only_QCheckBox");
     waitForObject(":groupBox_2.Make Items Only_QCheckBox");
     if(findObject(":groupBox_2.Make Items Only_QCheckBox").checked)
         clickButton(":groupBox_2.Make Items Only_QCheckBox");
-    waitForObject(":_item_XTreeWidget_7");
-    doubleClickItem(":_item_XTreeWidget_7", item, 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_listTab_XTreeWidget_7");
+    doubleClickItem(":_listTab_XTreeWidget_7", item, 0, 0, 0, Qt.LeftButton);
     waitForObject(":groupBox_2._warehouse_WComboBox");
     if(findObject(":groupBox_2._warehouse_WComboBox").currentText!=Wh)
         clickItem(":groupBox_2._warehouse_WComboBox", Wh, 0, 0, 1, Qt.LeftButton);
@@ -471,8 +485,14 @@ function DelAllPO()
     activateItem(":xTuple ERP:*_QMenuBar", "Purchase");
     waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
     activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
-    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
-    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Unposted...");
+    waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
+    activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
+    if(object.exists(":Show.Unreleased_XCheckBox"))
+    {
+    waitForObject(":Show.Unreleased_XCheckBox");
+    if(!findObject(":Show.Unreleased_XCheckBox").checked)
+    clickButton(":Show.Unreleased_XCheckBox");
+     }
     if(findObject(":List Open Purchase Orders._pohead_XTreeWidget").topLevelItemCount>0)
     {
         waitForObject(":List Open Purchase Orders._pohead_XTreeWidget");
@@ -575,10 +595,10 @@ function NewSO(item, quant)
     waitForObject(":_lineItemsPage.New_QPushButton");
     clickButton(":_lineItemsPage.New_QPushButton");
     
-    waitForObject(":_itemGroup...._QPushButton_2");
-    clickButton(":_itemGroup...._QPushButton_2");
-    waitForObject(":_item_XTreeWidget_2");
-    doubleClickItem(":_item_XTreeWidget_2", item, 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_itemGroup...._QPushButton_8");
+    clickButton(":_itemGroup...._QPushButton_8");
+    waitForObject(":_listTab_XTreeWidget_8");
+    doubleClickItem(":_listTab_XTreeWidget_8", item, 0, 0, 0, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit");
     type(":_qtyOrdered_XLineEdit", quant);
     type(":_qtyOrdered_XLineEdit", "<Tab>");
@@ -629,10 +649,10 @@ function NewSOWh(item, quant, Wh)
     waitForObject(":_lineItemsPage.New_QPushButton");
     clickButton(":_lineItemsPage.New_QPushButton");
     
-    waitForObject(":_itemGroup...._QPushButton_2");
-    clickButton(":_itemGroup...._QPushButton_2");
-    waitForObject(":_item_XTreeWidget_2");
-    doubleClickItem(":_item_XTreeWidget_2", item, 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_itemGroup...._QPushButton_8");
+    clickButton(":_itemGroup...._QPushButton_8");
+    waitForObject(":_listTab_XTreeWidget_8");
+    doubleClickItem(":_listTab_XTreeWidget_8", item, 0, 0, 0, Qt.LeftButton);
     waitForObjectItem(":_warehouse_WComboBox_5", Wh);
     clickItem(":_warehouse_WComboBox_5", Wh, 0, 0, 1, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit");
@@ -758,16 +778,16 @@ function NewWO(item, quant,leadd, ddate)
     waitForObjectItem(":xTuple ERP:*.Work Order_QMenu", "New...");
     activateItem(":xTuple ERP:*.Work Order_QMenu", "New...");
     
-    waitForObject(":_itemGroup...._QPushButton_3");
-    clickButton(":_itemGroup...._QPushButton_3");
+     waitForObject(":_itemGroup...._QPushButton_9");
+    clickButton(":_itemGroup...._QPushButton_9");
     waitForObject(":_itemGroup.Make Items Only_QCheckBox");
     if(!findObject(":_itemGroup.Make Items Only_QCheckBox").checked)        
         clickButton(":_itemGroup.Make Items Only_QCheckBox");
     waitForObject(":_itemGroup.Buy Items Only_QCheckBox");
     if(!findObject(":_itemGroup.Buy Items Only_QCheckBox").checked)
         clickButton(":_itemGroup.Buy Items Only_QCheckBox");
-    waitForObject(":_item_XTreeWidget_3");
-    doubleClickItem(":_item_XTreeWidget_3", item, 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_listTab_XTreeWidget_9");
+    doubleClickItem(":_listTab_XTreeWidget_9", item, 0, 0, 0, Qt.LeftButton);
     waitForObject(":_qtyGroup._qty_XLineEdit");
     type(":_qtyGroup._qty_XLineEdit", quant);
     waitForObject(":_itemGroup._warehouse_WComboBox");
@@ -801,16 +821,16 @@ function NewWOWh(item, quant,leadd, ddate, Wh)
     waitForObjectItem(":xTuple ERP:*.Work Order_QMenu", "New...");
     activateItem(":xTuple ERP:*.Work Order_QMenu", "New...");
     
-    waitForObject(":_itemGroup...._QPushButton_3");
-    clickButton(":_itemGroup...._QPushButton_3");
+     waitForObject(":_itemGroup...._QPushButton_9");
+    clickButton(":_itemGroup...._QPushButton_9");
     waitForObject(":_itemGroup.Make Items Only_QCheckBox");
     if(!findObject(":_itemGroup.Make Items Only_QCheckBox").checked)        
         clickButton(":_itemGroup.Make Items Only_QCheckBox");
     waitForObject(":_itemGroup.Buy Items Only_QCheckBox");
     if(!findObject(":_itemGroup.Buy Items Only_QCheckBox").checked)
         clickButton(":_itemGroup.Buy Items Only_QCheckBox");
-    waitForObject(":_item_XTreeWidget_3");
-    doubleClickItem(":_item_XTreeWidget_3", item, 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_listTab_XTreeWidget_9");
+    doubleClickItem(":_listTab_XTreeWidget_9", item, 0, 0, 0, Qt.LeftButton);
     waitForObject(":_qtyGroup._qty_XLineEdit");
     type(":_qtyGroup._qty_XLineEdit", quant);
     waitForObject(":_itemGroup._warehouse_WComboBox");
@@ -980,11 +1000,10 @@ function NewScheduledWO(item, quant, dued, lead)
     activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
     waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
     activateItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
-    
-    waitForObject(":_itemGroup...._QPushButton_4");
-    clickButton(":_itemGroup...._QPushButton_4");
-    waitForObject(":_item_XTreeWidget_4");
-    doubleClickItem(":_item_XTreeWidget_4", item, 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_itemGroup...._QPushButton_11");
+    clickButton(":_itemGroup...._QPushButton_11");
+    waitForObject(":_listTab_XTreeWidget_11");
+    doubleClickItem(":_listTab_XTreeWidget_11", item, 0, 0, 0, Qt.LeftButton);
     waitForObject(":_typeGroup.Work Order_QRadioButton");
     clickButton(":_typeGroup.Work Order_QRadioButton");
     waitForObject(":_qtyGroup._qty_XLineEdit_2");

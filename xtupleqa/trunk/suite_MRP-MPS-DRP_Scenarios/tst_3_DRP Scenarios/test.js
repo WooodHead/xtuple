@@ -619,7 +619,7 @@ function main()
    waitForObject(":Order #_HeaderViewItem");
    mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
    if(findObject(":_planord.Col1_QModelIndex").text> findObject(":_planord.Col2_QModelIndex").text)
-      mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
+     mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
     
     waitForObject(":frame._planord_XTreeWidget");
     var sWidgetTreeControl = ":frame._planord_XTreeWidget";
@@ -1951,7 +1951,7 @@ function main()
     clickButton(":_warehouse.All Sites_QRadioButton_2");
     waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
     clickButton(":Planned Orders by Planner Code.Query_QPushButton");
-    
+     snooze(0.5);
    waitForObject(":Order #_HeaderViewItem");
    mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
    if(findObject(":_planord.Col1_QModelIndex").text> findObject(":_planord.Col2_QModelIndex").text)
