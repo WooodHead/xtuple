@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>697</width>
-    <height>702</height>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -828,17 +828,38 @@
            </layout>
           </item>
           <item row="5" column="0">
-           <widget class="XCheckBox" name="_printReceipt">
-            <property name="text">
-             <string>Print Receipt</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-            <property name="forgetful">
-             <bool>true</bool>
-            </property>
-           </widget>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="XCheckBox" name="_printReceipt">
+              <property name="text">
+               <string>Print Receipt</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="_options">
+              <property name="text">
+               <string>Options...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>

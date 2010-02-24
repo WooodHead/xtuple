@@ -36,6 +36,7 @@ var _transferGroup	= mywindow.findChild("_transferGroup");
 var _view		= mywindow.findChild("_view");
 var _selectedSale       = mywindow.findChild("_selectedSale");
 var _number             = mywindow.findChild("_number");
+var _options           = mywindow.findChild("_options");
 
 _selectedSale.visible = false;
 
@@ -86,29 +87,6 @@ with (_sales)
   setColumn(qsTr("Tax"), 60, 0, false, "tax");
   setColumn(qsTr("Total"), 60, 0, false, "total");
 }
-
-// Terminal connections
-_action["newID(int)"].connect(actionChanged);
-_action["newID(int)"].connect(setDepositFlag);
-_adjustAmt.valueChanged.connect(calcBalance);
-_adjustDirection["newID(int)"].connect(calcBalance);
-_adjustDirection["newID(int)"].connect(setDepositFlag);
-_close.clicked.connect(mywindow, "close");
-_post.clicked.connect(post);
-_print.clicked.connect(printSaleReceipt);
-_search.clicked.connect(search);
-_transferAmt.valueChanged.connect(calcBalance);
-_transferDirection["newID(int)"].connect(calcBalance);
-_transferDirection["newID(int)"].connect(setDepositFlag);
-
-// Pending sales list connections
-_new.clicked.connect(saleNew);
-_edit.clicked.connect(saleEdit);
-_view.clicked.connect(saleView);
-_delete.clicked.connect(saleDelete);
-_sales["rowSelected(int)"].connect(setIndex);
-_tab["currentChanged(int)"].connect(handleTab);
-
 
 // Check Metrics
 if (metrics.value("MultiWhs") != "t")
@@ -174,6 +152,17 @@ function calcBalance()
   _currentBalance.localValue + transfer + adjust;
 }
 
+function checkOptions()
+{
+  if (settingsValue("shipOrder.default"))
+  {
+    _printReceipt.checked = false;   
+    _printReceipt.hide();
+  }
+  else
+    _printReceipt.show();
+}
+
 function handleTab(index)
 {
   if (index = 1)
@@ -190,6 +179,17 @@ function refresh()
   _cashRegister.select();
   _cashRegister.setCurrentIndex(idx);
   populate();
+}
+
+function options()
+{
+  var params = new Object;
+  params.parentName = "cashRegister";
+
+  var newdlg = toolbox.openWindow("printOptions");
+  newdlg.set(params);
+  newdlg.exec();
+  printSettings();
 }
 
 function populate()
@@ -282,13 +282,52 @@ function post()
 
 function printReceipt(detailId)
 {
-  params = new Object();
+  var printer = new QPrinter(QPrinter.HighResolution);
+  var presetPrinter = settingsValue("cashRegister.defaultPrinter");
+  var userCanceled = false;
+
+  if (presetPrinter.length)
+  { 
+    printer.setPrinterName(presetPrinter);
+    orReport.beginMultiPrint(printer);
+  }
+  else if (orReport.beginMultiPrint(printer, userCanceled) == false)
+  {
+    if (!userCanceled)
+      QMessageBox.critical(mywindow, qsTr("Database Error"),
+                           qsTr("Could not initialize printing system for "
+                              + "multiple reports."));
+    return;
+  }
+
+  var params = new Object();
   params.regdetail_id  = detailId;
   params.mastercard 	= "Master Card";
   params.visa	= "Visa";
   params.amex	= "American Express";
   params.discover	= "Discover";
-  toolbox.printReport("RetailRegisterReceipt",params);
+
+  var report = new orReport("RetailRegisterReceipt", params);
+  if (! report.isValid() || ! report.print(printer, true))
+    report.reportError(mywindow);
+
+  orReport.endMultiPrint(printer);
+}
+
+function printSettings()
+{
+  var autoPrint = settingsValue("cashRegister.autoPrint");
+  if (autoPrint == "true")
+  {
+    _printReceipt.forgetful = true;
+    _printReceipt.enabled = false;
+    _printReceipt.checked = true;
+  }
+  else
+  {
+    _printReceipt.forgetful = false;
+    _printReceipt.enabled = true;
+  }
 }
 
 function printSaleReceipt()
@@ -409,3 +448,28 @@ function setIndex(idx)
   _saleCurrIdx = idx;
   _selectedSale.setCurrentIndex(idx);
 }
+
+// Terminal connections
+_action["newID(int)"].connect(actionChanged);
+_action["newID(int)"].connect(setDepositFlag);
+_adjustAmt.valueChanged.connect(calcBalance);
+_adjustDirection["newID(int)"].connect(calcBalance);
+_adjustDirection["newID(int)"].connect(setDepositFlag);
+_close.clicked.connect(mywindow, "close");
+_post.clicked.connect(post);
+_print.clicked.connect(printSaleReceipt);
+_search.clicked.connect(search);
+_transferAmt.valueChanged.connect(calcBalance);
+_transferDirection["newID(int)"].connect(calcBalance);
+_transferDirection["newID(int)"].connect(setDepositFlag);
+_options.clicked.connect(options);
+
+// Pending sales list connections
+_new.clicked.connect(saleNew);
+_edit.clicked.connect(saleEdit);
+_view.clicked.connect(saleView);
+_delete.clicked.connect(saleDelete);
+_sales["rowSelected(int)"].connect(setIndex);
+_tab["currentChanged(int)"].connect(handleTab);
+
+printSettings();
