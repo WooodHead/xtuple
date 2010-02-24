@@ -157,7 +157,7 @@ function main()
    } 
     
     
-  //------Create Production Plan---------
+//------Create Production Plan---------
    try
    {
   waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
@@ -186,10 +186,11 @@ function main()
   type(":List Production Plans.XDateEdit_XDateEdit_2", "<Tab>");
   waitForObject(":frame.New_QPushButton_2");
   clickButton(":frame.New_QPushButton_2");
-  waitForObject(":List Production Plans...._QPushButton");
-  clickButton(":List Production Plans...._QPushButton");
-  waitForObject(":_item_XTreeWidget_8");
-  doubleClickItem(":_item_XTreeWidget_8", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
+    
+ waitForObject(":List Production Plans...._QPushButton_2");
+  clickButton(":List Production Plans...._QPushButton_2");
+  waitForObject(":_listTab_XTreeWidget_14");
+  doubleClickItem(":_listTab_XTreeWidget_14", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
   waitForObject(":List Production Plans.XDateEdit_XDateEdit_3");
   type(":List Production Plans.XDateEdit_XDateEdit_3", "+21");
   waitForObject(":List Production Plans.XDateEdit_XDateEdit_3");
@@ -242,7 +243,7 @@ function main()
         test.fail("Error in viewing planned orders" + e);
    } 
         
-        
+//        
         //MPS – PLAN STATUS “U” - REORDER POINT TEST
     test.log("MPS – PLAN STATUS “U” - REORDER POINT TEST");
     DelPlanOrdrs();
@@ -722,14 +723,14 @@ function main()
     clickButton(":_warehouse.All Sites_QRadioButton_2");
     waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
     clickButton(":Planned Orders by Planner Code.Query_QPushButton");
+    snooze(0.5);
     waitForObject(":Order #_HeaderViewItem");
    
     mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
-  
-    if(findObject(":_planord.Col1_QModelIndex").text > findObject(":_planord.Col2_QModelIndex").text)
-      
-    mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);    
-   
+ 
+    if(findObject(":_planord.Col1_QModelIndex").text> findObject(":_planord.Col2_QModelIndex").text)
+       
+     mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
       
     waitForObject(":frame._planord_XTreeWidget");
     var sWidgetTreeControl = ":frame._planord_XTreeWidget";
@@ -1746,10 +1747,13 @@ function main()
     clickButton(":Planned Orders by Planner Code.Query_QPushButton");
     
    
-    waitForObject(":Order #_HeaderViewItem");
+   waitForObject(":Order #_HeaderViewItem");
+   
     mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
+ 
     if(findObject(":_planord.Col1_QModelIndex").text> findObject(":_planord.Col2_QModelIndex").text)
-    mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
+       
+     mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
     
     waitForObject(":frame._planord_XTreeWidget");
     var sWidgetTreeControl = ":frame._planord_XTreeWidget";
@@ -2341,10 +2345,10 @@ function main()
     clickTab(":Transfer Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage.New_QPushButton_3");
     clickButton(":_lineItemsPage.New_QPushButton_3");
-    waitForObject(":_itemGroup...._QPushButton_6");
-    clickButton(":_itemGroup...._QPushButton_6");
-    waitForObject(":_item_XTreeWidget_9");
-    doubleClickItem(":_item_XTreeWidget_9", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":_itemGroup...._QPushButton_10");
+    clickButton(":_itemGroup...._QPushButton_10");
+    waitForObject(":_listTab_XTreeWidget_10");
+    doubleClickItem(":_listTab_XTreeWidget_10", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit_2");
     type(":_qtyOrdered_XLineEdit_2", "5");
     waitForObject(":_dateGroup.XDateEdit_XDateEdit");
@@ -2455,7 +2459,7 @@ function main()
         test.fail("Error in viewing planned orders" + e);
    }
   
-    //MPS – DEMAND SIDE NETTING – SALES ORDER, INSIDE TIME FENCE
+  //MPS – DEMAND SIDE NETTING – SALES ORDER, INSIDE TIME FENCE
     test.log("MPS – DEMAND SIDE NETTING – SALES ORDER, INSIDE TIME FENCE");
     DelAllSO();
     DelAllTO();
@@ -2542,10 +2546,10 @@ function main()
     clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage.New_QPushButton");
     clickButton(":_lineItemsPage.New_QPushButton");
-    waitForObject(":_itemGroup...._QPushButton_2");
-    clickButton(":_itemGroup...._QPushButton_2");
-    waitForObject(":_item_XTreeWidget_2");
-    doubleClickItem(":_item_XTreeWidget_2", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
+     waitForObject(":_itemGroup...._QPushButton_8");
+    clickButton(":_itemGroup...._QPushButton_8");
+    waitForObject(":_listTab_XTreeWidget_8");
+    doubleClickItem(":_listTab_XTreeWidget_8", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit");
     type(":_qtyOrdered_XLineEdit", "75");
     waitForObject(":_schedGroup.XDateEdit_XDateEdit");
@@ -2725,10 +2729,10 @@ function main()
     clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage.New_QPushButton");
     clickButton(":_lineItemsPage.New_QPushButton");
-    waitForObject(":_itemGroup...._QPushButton_2");
-    clickButton(":_itemGroup...._QPushButton_2");
-    waitForObject(":_item_XTreeWidget_2");
-    doubleClickItem(":_item_XTreeWidget_2", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
+     waitForObject(":_itemGroup...._QPushButton_8");
+    clickButton(":_itemGroup...._QPushButton_8");
+    waitForObject(":_listTab_XTreeWidget_8");
+    doubleClickItem(":_listTab_XTreeWidget_8", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit");
     type(":_qtyOrdered_XLineEdit", "125");
     waitForObject(":_schedGroup.XDateEdit_XDateEdit");
@@ -2823,10 +2827,10 @@ function main()
     
     waitForObject(":frame.New_QPushButton_2");
     clickButton(":frame.New_QPushButton_2");
-    waitForObject(":List Production Plans...._QPushButton");
-    clickButton(":List Production Plans...._QPushButton");
-    waitForObject(":_item_XTreeWidget_8");
-    doubleClickItem(":_item_XTreeWidget_8", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":List Production Plans...._QPushButton_2");
+    clickButton(":List Production Plans...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_14");
+    doubleClickItem(":_listTab_XTreeWidget_14", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
     waitForObject(":List Production Plans.XDateEdit_XDateEdit_3");
     type(":List Production Plans.XDateEdit_XDateEdit_3", "+21");
     waitForObject(":List Production Plans.XDateEdit_XDateEdit_3");
@@ -2838,10 +2842,10 @@ function main()
     
     waitForObject(":frame.New_QPushButton_2");
     clickButton(":frame.New_QPushButton_2");
-    waitForObject(":List Production Plans...._QPushButton");
-    clickButton(":List Production Plans...._QPushButton");
-    waitForObject(":_item_XTreeWidget_8");
-    doubleClickItem(":_item_XTreeWidget_8", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
+    waitForObject(":List Production Plans...._QPushButton_2");
+    clickButton(":List Production Plans...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_14");
+    doubleClickItem(":_listTab_XTreeWidget_14", "BTRUCK1", 0, 0, 0, Qt.LeftButton);
     waitForObject(":List Production Plans.XDateEdit_XDateEdit_3");
     type(":List Production Plans.XDateEdit_XDateEdit_3", "+35");
     waitForObject(":List Production Plans.XDateEdit_XDateEdit_3");
