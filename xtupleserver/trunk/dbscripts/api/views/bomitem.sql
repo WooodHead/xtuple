@@ -165,6 +165,9 @@ COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
       WHERE (bomitem_id = OLD.id);
 
     CREATE OR REPLACE RULE "_DELETE" AS
-    ON DELETE TO api.bomitem DO INSTEAD NOTHING;
+    ON DELETE TO api.bomitem DO INSTEAD
+
+    DELETE FROM bomitem
+    WHERE (bomitem_id = OLD.id);;
 
 COMMIT;
