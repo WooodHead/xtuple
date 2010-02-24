@@ -15,8 +15,19 @@ ELSE incdt_status
 END,
 incdt_assigned_username, incdt_owner_username,
 incdt_summary 
-FROM incdt, crmacct
+FROM incdt, crmacct, status
 WHERE ((incdt_crmacct_id=crmacct_id)
+AND (status_type='INCDT')
+AND (incdt_status=status_code)
+<? if exists("status_equal") ?> 
+AND (status_seq < <? value("status_equal") ?>) 
+<? endif ?>
+<? if exists("status_above") ?> 
+AND (status_seq < <? value("status_above") ?>) 
+<? endif ?>
+<? if exists("cntct_id") ?> 
+AND (incdt_cntct_id = <? value("cntct_id") ?>) 
+<? endif ?>
 <? if exists("owner_username") ?> 
 AND (incdt_owner_username=<? value("owner_username") ?>) 
 <? elseif exists("owner_usr_pattern" ?>
