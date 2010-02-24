@@ -15,16 +15,13 @@ DECLARE
   _posted NUMERIC := 0;
   _sequence INTEGER;
   _aropenid INTEGER;
-  _ardiscountid INTEGER;
   _arMemoNumber TEXT;
   _arAccntid INTEGER;
   _closed BOOLEAN;
   _debitAccntid INTEGER;
-  _discountAccntid INTEGER;
   _exchGain NUMERIC;
-  _comment      TEXT;
+  _comment TEXT;
   _predist BOOLEAN;
-  _discprcnt NUMERIC;
   _check INTEGER;
 
 BEGIN
@@ -117,8 +114,6 @@ BEGIN
       RETURN -6;
     END IF;
   END IF;
-
-  _discountAccntid := findardiscountaccount(_p.cashrcpt_cust_id);
 
 --  Determine the amount to post to A/R Open Items
   SELECT COALESCE(SUM(cashrcptitem_amount), 0) INTO _postToAR

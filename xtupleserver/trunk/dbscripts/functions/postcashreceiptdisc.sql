@@ -14,6 +14,8 @@ DECLARE
   _check INTEGER;
 
 BEGIN
+
+    -- Fetch base records for processing
     SELECT aropen_id, aropen_doctype, aropen_amount,
       cashrcptitem_discount,
       cashrcpt_cust_id, cashrcpt_distdate, cashrcpt_applydate,
@@ -24,6 +26,9 @@ BEGIN
       JOIN cashrcpt ON (cashrcptitem_cashrcpt_id=cashrcpt_id)
       JOIN aropen ON ( (aropen_id=cashrcptitem_aropen_id) AND (aropen_doctype IN ('I', 'D')) )
     WHERE (cashrcptitem_id=pCashrcptItemId);
+
+    -- Get discount account
+    _discountAccntid := findardiscountaccount(_r.cashrcpt_cust_id);
   
     IF (_r.cashrcptitem_discount > 0) THEN
       --  Determine discount percentage
