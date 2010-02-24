@@ -8,6 +8,8 @@ status_seq integer
 grant all on table status to xtrole;
 grant all on sequence status_status_id_seq to xtrole;
 
+ALTER TABLE status ADD UNIQUE (status_type, status_code);
+
 insert into status (status_type, status_code, status_name, status_seq) values ('INCDT', 'N', 'New', 0);
 insert into status (status_type, status_code, status_name, status_seq) values ('INCDT', 'F', 'Feedback', 1);
 insert into status (status_type, status_code, status_name, status_seq) values ('INCDT', 'C', 'Confirmed', 2);
