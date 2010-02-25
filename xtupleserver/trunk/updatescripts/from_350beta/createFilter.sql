@@ -15,8 +15,6 @@ CREATE TABLE filter
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE filter OWNER TO "admin";
-GRANT ALL ON TABLE filter TO "admin";
 GRANT ALL ON TABLE filter TO xtrole;
 GRANT ALL ON SEQUENCE filter_filter_id_seq TO xtrole;
 -- Index: filter_idx

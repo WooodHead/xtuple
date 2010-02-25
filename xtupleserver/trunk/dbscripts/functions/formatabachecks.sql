@@ -256,4 +256,3 @@ BEGIN
 END;
 $BODY$
   LANGUAGE 'plpgsql' VOLATILE;
-ALTER FUNCTION formatabachecks(integer, integer, text) OWNER TO admin;
