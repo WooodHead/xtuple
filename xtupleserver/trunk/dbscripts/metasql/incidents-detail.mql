@@ -16,7 +16,7 @@ WHEN(incdt_status='L') THEN <? value("closed") ?>
 ELSE incdt_status
 END,
 incdt_assigned_username, incdt_owner_username,
-incdt_summary, cntct_name,
+incdt_summary, cntct_name, incdt_updated::date AS incdt_updated,
 status_color AS qtbackgroundrole 
 FROM crmacct, status, incdt
   JOIN cntct ON (incdt_cntct_id=cntct_id)
