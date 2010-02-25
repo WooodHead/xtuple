@@ -3,7 +3,8 @@ status_id serial,
 status_type text NOT NULL,
 status_code char(1) NOT NULL,
 status_name text,
-status_seq integer
+status_seq integer,
+status_color text
 );
 grant all on table status to xtrole;
 grant all on sequence status_status_id_seq to xtrole;

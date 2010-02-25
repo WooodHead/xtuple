@@ -41,6 +41,8 @@ BEGIN
     RAISE EXCEPTION 'You must supply a valid Contact.';
   END IF;
 
+  NEW.incdt_updated := now();
+
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
