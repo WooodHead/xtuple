@@ -18,6 +18,9 @@ CREATE TABLE qryitem(qryitem_id         SERIAL,
 REVOKE ALL ON qryitem FROM PUBLIC;
 GRANT  ALL ON qryitem TO   xtrole;
 
+REVOKE ALL ON qryitem_qryitem_id_seq FROM PUBLIC;
+GRANT  ALL ON qryitem_qryitem_id_seq TO   xtrole;
+
 COMMENT ON TABLE qryitem IS 'The description of a query to be run as part of a set (see qryhead).';
 COMMENT ON COLUMN qryitem.qryitem_id IS 'The primary key, holding an internal value used to cross-reference this table.';
 COMMENT ON COLUMN qryitem.qryitem_qryhead_id IS 'The primary key of the query set to which this individual query belongs.';

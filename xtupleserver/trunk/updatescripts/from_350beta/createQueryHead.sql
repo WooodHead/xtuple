@@ -7,6 +7,9 @@ CREATE TABLE qryhead (qryhead_id       SERIAL PRIMARY KEY,
 REVOKE ALL ON qryhead FROM PUBLIC;
 GRANT  ALL ON qryhead TO   xtrole;
 
+REVOKE ALL ON qryhead_qryhead_id_seq FROM PUBLIC;
+GRANT  ALL ON qryhead_qryhead_id_seq TO   xtrole;
+
 COMMENT ON TABLE qryhead IS 'A header record for a set of queries to be run sequentially. One use is for data export.';
 COMMENT ON COLUMN qryhead.qryhead_id IS 'The primary key, holding an internal value used to cross-reference this table.';
 COMMENT ON COLUMN qryhead.qryhead_name IS 'The user-assigned short name for this set of queries.';
