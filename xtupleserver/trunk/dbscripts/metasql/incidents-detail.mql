@@ -4,7 +4,9 @@
 
 SELECT incdt_id,
 incdt_number, DATE(incdt_timestamp) AS incdt_timestamp,
-crmacct_name,
+crmacct_name, incdt_owner_username,  
+incdtcat_name, incdtseverity_name,  
+incdtpriority_name, crmacct_name, 
 CASE WHEN(incdt_status='N') THEN <? value("new") ?>
 WHEN(incdt_status='F') THEN <? value("feedback") ?>
 WHEN(incdt_status='C') THEN <? value("confirmed") ?>
@@ -14,13 +16,18 @@ WHEN(incdt_status='L') THEN <? value("closed") ?>
 ELSE incdt_status
 END,
 incdt_assigned_username, incdt_owner_username,
-incdt_summary 
-FROM incdt, crmacct, status
+incdt_summary, cntct_name,
+status_color AS qtbackgroundrole 
+FROM crmacct, status, incdt
+  JOIN cntct ON (incdt_cntct_id=cntct_id)
+  LEFT OUTER JOIN incdtcat ON (incdtcat_id=incdt_incdtcat_id) 
+  LEFT OUTER JOIN incdtseverity ON (incdtseverity_id=incdt_incdtseverity_id) 
+  LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=incdt_incdtpriority_id) 
 WHERE ((incdt_crmacct_id=crmacct_id)
 AND (status_type='INCDT')
 AND (incdt_status=status_code)
 <? if exists("status_equal") ?> 
-AND (status_seq < <? value("status_equal") ?>) 
+AND (status_seq = <? value("status_equal") ?>) 
 <? endif ?>
 <? if exists("status_above") ?> 
 AND (status_seq < <? value("status_above") ?>) 
@@ -47,14 +54,7 @@ AND (incdt_incdtseverity_id=<? value("severity_id") ?>)
 <? if exists("crmAccountId") ?> 
 AND (incdt_crmacct_id=<? value("crmAccountId") ?>) 
 <? endif ?> 
-AND (incdt_status IN ('' 
-<? if exists("isnew") ?>, 'N' <? endif ?> 
-<? if exists("isfeedback") ?>, 'F' <? endif ?> 
-<? if exists("isconfirmed") ?>, 'C' <? endif ?> 
-<? if exists("isassigned") ?>, 'A' <? endif ?> 
-<? if exists("isresolved") ?>, 'R' <? endif ?> 
-<? if exists("isclosed") ?>, 'L' <? endif ?> 
-))
+)
  
 <? if exists("pattern") ?> 
 AND ((incdt_number::text ~* <? value("pattern") ?>)
@@ -67,4 +67,4 @@ AND (comment_text ~* <? value("pattern") ?>)))))
 <? endif ?>
 AND (incdt_timestamp BETWEEN <? value("startDate") ?> 
 AND <? value("endDate")?> ) 
-) ORDER BY incdt_number;
+ORDER BY incdt_number;
