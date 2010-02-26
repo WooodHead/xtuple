@@ -76,7 +76,13 @@ BEGIN
            WHEN (wo_cosmethod = 'D') THEN
              wo_wipvalue
            ELSE
-             round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord - wo_qtyrcv - pQty))),2)
+             round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord -
+               CASE
+                 WHEN (wo_qtyord < wo_qtyrcv + pQty) THEN
+                       wo_qtyord
+                 ELSE
+                       wo_qtyrcv + pQty
+                 END ))),2)
          END INTO _wipPost
   FROM wo
   WHERE (wo_id=pWoid);
