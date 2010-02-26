@@ -39,7 +39,12 @@ BEGIN
 
 --  Cache some parameters
   SELECT cmhead.*,
-         findARAccount(cmhead_cust_id) AS ar_accnt_id INTO _p
+         findARAccount(cmhead_cust_id) AS ar_accnt_id,
+         ( SELECT COALESCE(SUM(taxhist_tax), 0)
+           FROM cmheadtax
+           WHERE ( (taxhist_parent_id = cmhead_id)
+             AND   (taxhist_taxtype_id = getAdjustmentTaxtypeId()) ) ) AS adjtax
+         INTO _p
   FROM cmhead
   WHERE (cmhead_id=pCmheadid);
 
