@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION distributeVoucherLine(INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION distributeVoucherLine(INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pVoucherId ALIAS FOR $1;
   pPoitemId ALIAS FOR $2;
@@ -44,7 +44,7 @@ BEGIN
         ELSE
                 SELECT costelem_id INTO _costelemId
                         FROM costelem
-                        WHERE (costelem_type=''Material'');
+                        WHERE (costelem_type='Material');
         END IF;
 
 
@@ -53,7 +53,7 @@ BEGIN
         UPDATE recv SET recv_vohead_id=NULL, recv_voitem_id=NULL
                 WHERE ((recv_vohead_id=pVoucherId)
                 AND (recv_orderitem_id=pPoitemId)
-		AND (recv_order_type=''PO''));
+		AND (recv_order_type='PO'));
         UPDATE poreject SET poreject_vohead_id=NULL, poreject_voitem_id=NULL
                 WHERE ((poreject_vohead_id=pVoucherId)
                 AND (poreject_poitem_id=pPoitemId));
@@ -81,7 +81,7 @@ BEGIN
                 WHERE ( (recv_vohead_id IS NULL)
                         AND (poitem_id=recv_orderitem_id)
                         AND (NOT recv_invoiced)
-			AND (recv_order_type=''PO'')
+			AND (recv_order_type='PO')
                         AND (recv_orderitem_id=pPoitemId) )
 
                 UNION ALL
@@ -142,7 +142,7 @@ BEGIN
         FROM poitem
         WHERE (poitem_id=pPoitemId);
 
-        SELECT NEXTVAL(''voitem_voitem_id_seq'') INTO _voitemId;
+        SELECT NEXTVAL('voitem_voitem_id_seq') INTO _voitemId;
 
         INSERT INTO voitem (voitem_id,voitem_vohead_id,voitem_poitem_id,voitem_close,voitem_qty,voitem_freight, voitem_taxtype_id)
                 VALUES (_voitemId,pVoucherId,pPoitemId,_close,(_r.qty_received -_r.qty_rejected),_r.freight, _taxtypeid);
@@ -152,16 +152,17 @@ BEGIN
         UPDATE recv
         SET recv_vohead_id=pVoucherId, recv_voitem_id=_voitemId
         WHERE ((recv_orderitem_id=pPoitemId)
-	  AND  (recv_order_type=''PO'')
+	  AND  (recv_order_type='PO')
           AND  (recv_vohead_id IS NULL));
 
         UPDATE poreject
         SET poreject_vohead_id=pVoucherId,poreject_voitem_id=_voitemId
         WHERE ((poreject_poitem_id=pPoitemId)
+        AND (NOT poreject_invoiced)
         AND (poreject_vohead_id IS NULL));
 
 
   RETURN 1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
