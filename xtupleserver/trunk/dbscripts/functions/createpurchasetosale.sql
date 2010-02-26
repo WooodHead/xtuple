@@ -195,27 +195,47 @@ BEGIN
     END IF;
   END IF;
 
-    SELECT NEXTVAL('poitem_poitem_id_seq') INTO _poitemid;
+  SELECT NEXTVAL('poitem_poitem_id_seq') INTO _poitemid;
 
-    SELECT (COALESCE(MAX(poitem_linenumber), 0) + 1) INTO _polinenumber
-    FROM poitem
-    WHERE (poitem_pohead_id = _poheadid);
+  SELECT (COALESCE(MAX(poitem_linenumber), 0) + 1) INTO _polinenumber
+  FROM poitem
+  WHERE (poitem_pohead_id = _poheadid);
 
-    SELECT COALESCE(itemtax_taxtype_id, -1) INTO _taxtypeid
-    FROM itemtax
-    WHERE (itemtax_item_id = _i.itemsrc_item_id);
+  SELECT COALESCE(itemtax_taxtype_id, -1) INTO _taxtypeid
+  FROM itemtax
+  WHERE (itemtax_item_id = _i.itemsrc_item_id);
 
-    IF (pPrice = NULL) THEN
-      SELECT currToCurr(itemsrcp_curr_id, _i.vend_curr_id, itemsrcp_price, CURRENT_DATE) INTO _price
-      FROM itemsrcp
-      WHERE ( (itemsrcp_itemsrc_id = pItemSourceId)
-        AND (itemsrcp_qtybreak <= _s.coitem_qtyord) )
-      ORDER BY itemsrcp_qtybreak DESC
-      LIMIT 1;
-    ELSE
-      _price := pPrice;
-    END IF;
+  IF (pPrice = NULL) THEN
+    SELECT currToCurr(itemsrcp_curr_id, _i.vend_curr_id, itemsrcp_price, CURRENT_DATE) INTO _price
+    FROM itemsrcp
+    WHERE ( (itemsrcp_itemsrc_id = pItemSourceId)
+      AND (itemsrcp_qtybreak <= _s.coitem_qtyord) )
+    ORDER BY itemsrcp_qtybreak DESC
+    LIMIT 1;
+  ELSE
+    _price := pPrice;
+  END IF;
 
+  IF (pDropShip) THEN
+    INSERT INTO poitem
+      ( poitem_id, poitem_status, poitem_pohead_id, poitem_linenumber, 
+        poitem_duedate, poitem_itemsite_id,
+        poitem_vend_item_descrip, poitem_vend_uom,
+        poitem_invvenduomratio, poitem_qty_ordered, 
+        poitem_unitprice, poitem_vend_item_number, 
+        poitem_itemsrc_id, poitem_soitem_id, poitem_prj_id, poitem_stdcost, 
+        poitem_manuf_name, poitem_manuf_item_number, 
+        poitem_manuf_item_descrip, poitem_taxtype_id )
+    VALUES
+      ( _poitemid, 'U', _poheadid, _polinenumber,
+        _s.coitem_scheddate, _s.coitem_itemsite_id,
+        COALESCE(_i.itemsrc_vend_item_descrip, TEXT('')), COALESCE(_i.itemsrc_vend_uom, TEXT('')),
+        COALESCE(_i.itemsrc_invvendoruomratio, 1.00), COALESCE(_s.coitem_qtyord, 0.00),
+        _price, COALESCE(_i.itemsrc_vend_item_number, TEXT('')),
+        pItemSourceId, pCoitemId, _s.cohead_prj_id, stdcost(_i.itemsrc_item_id),
+        COALESCE(_i.itemsrc_manuf_name, TEXT('')), COALESCE(_i.itemsrc_manuf_item_number, TEXT('')),
+        COALESCE(_i.itemsrc_manuf_item_descrip, TEXT('')), _taxtypeid );
+  ELSE
     INSERT INTO poitem
       ( poitem_id, poitem_status, poitem_pohead_id, poitem_linenumber, 
         poitem_duedate, poitem_itemsite_id,
@@ -234,28 +254,29 @@ BEGIN
         pItemSourceId, pCoitemId, _s.cohead_prj_id, stdcost(_i.itemsrc_item_id),
         COALESCE(_i.itemsrc_manuf_name, TEXT('')), COALESCE(_i.itemsrc_manuf_item_number, TEXT('')),
         COALESCE(_i.itemsrc_manuf_item_descrip, TEXT('')), _taxtypeid );
+  END IF;
 
-    UPDATE coitem
-    SET coitem_order_type = 'P',
-        coitem_order_id = _poitemid
-    WHERE ( coitem_id = pCoitemId );
+  UPDATE coitem
+  SET coitem_order_type = 'P',
+      coitem_order_id = _poitemid
+  WHERE ( coitem_id = pCoitemId );
 
-    -- Generate the PoItemCreatedBySo event notice
-    INSERT INTO evntlog
-                ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
-                  evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id,
-                  evntlog_number )
-    SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id ,
-           'P', poitem_id, itemsite_warehous_id,
-           (pohead_number || '-' || poitem_linenumber || ': ' || item_number)
-    FROM evntnot JOIN evnttype ON (evntnot_evnttype_id=evnttype_id)
-         JOIN itemsite ON (evntnot_warehous_id=itemsite_warehous_id)
-         JOIN item ON (itemsite_item_id=item_id)
-         JOIN poitem ON (poitem_itemsite_id=itemsite_id)
-         JOIN pohead ON (poitem_pohead_id=pohead_id)
-    WHERE ( (poitem_id=_poitemid)
-      AND (poitem_duedate <= (CURRENT_DATE + itemsite_eventfence))
-      AND (evnttype_name='PoItemCreatedBySo') );
+  -- Generate the PoItemCreatedBySo event notice
+  INSERT INTO evntlog
+              ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
+                evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id,
+                evntlog_number )
+  SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id ,
+         'P', poitem_id, itemsite_warehous_id,
+         (pohead_number || '-' || poitem_linenumber || ': ' || item_number)
+  FROM evntnot JOIN evnttype ON (evntnot_evnttype_id=evnttype_id)
+       JOIN itemsite ON (evntnot_warehous_id=itemsite_warehous_id)
+       JOIN item ON (itemsite_item_id=item_id)
+       JOIN poitem ON (poitem_itemsite_id=itemsite_id)
+       JOIN pohead ON (poitem_pohead_id=pohead_id)
+  WHERE ( (poitem_id=_poitemid)
+    AND (poitem_duedate <= (CURRENT_DATE + itemsite_eventfence))
+    AND (evnttype_name='PoItemCreatedBySo') );
 
   RETURN _poitemid;
 
