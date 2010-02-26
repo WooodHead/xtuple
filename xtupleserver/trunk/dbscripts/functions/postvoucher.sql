@@ -40,8 +40,13 @@ DECLARE
   _firstExchDateFreight	DATE;
   _tmpTotal		NUMERIC;
   _glDate		DATE;
+  _debug BOOLEAN := false;
 
 BEGIN
+
+  if (_debug) then
+    raise notice 'postVoucher, pVoheadid=%', pVoheadid;
+  end if;
 
   _pPostCosts := TRUE;
   _totalAmount_base := 0;
@@ -135,6 +140,10 @@ BEGIN
                                 _r.taxbasevalue,
                                 _glDate, _p.glnotes );
 
+    if (_debug) then
+      raise notice 'postVoucher, _r.tax=%', _r.tax;
+    end if;
+
     _totalAmount_base := (_totalAmount_base - _r.taxbasevalue);
     _totalAmount := (_totalAmount - _r.tax);
      
@@ -172,7 +181,7 @@ BEGIN
 --  Loop through the vodist records for the passed vohead that
 --  are posted against a P/O Item
   FOR _g IN SELECT DISTINCT poitem_id, voitem_id, voitem_qty, poitem_expcat_id,
-                            poitem_invvenduomratio, vodist_discountable,
+                            poitem_invvenduomratio,
                             COALESCE(itemsite_id, -1) AS itemsiteid,
                             COALESCE(itemsite_costcat_id, -1) AS costcatid,
                             COALESCE(itemsite_item_id, -1) AS itemsite_item_id,
@@ -230,7 +239,7 @@ BEGIN
     _itemAmount := 0;
 
 --  Figure out the total posted value for this line item
-    FOR _d IN SELECT vodist_id, vodist_amount,
+    FOR _d IN SELECT vodist_id, vodist_amount, vodist_discountable,
 		     _p.vohead_curr_id, vodist_costelem_id,
 		     currToBase(_p.vohead_curr_id, vodist_amount,
 				_p.vohead_distdate) AS vodist_amount_base
@@ -257,8 +266,15 @@ BEGIN
       END IF;
 
 --  Add the Distribution Amount to the Item Amount
+      if (_debug) then
+        raise notice 'postVoucher, _d.vodist_amount=%', _d.vodist_amount;
+      end if;
+
       _itemAmount_base := _itemAmount_base + ROUND(_d.vodist_amount_base, 2);
       _itemAmount := _itemAmount + _d.vodist_amount;
+      IF (_d.vodist_discountable) THEN
+        _totalDiscountableAmount := (_totalDiscountableAmount + _d.vodist_amount);
+      END IF;
 
     END LOOP;
 
@@ -300,11 +316,12 @@ BEGIN
     END IF;
 
 --  Add the distribution amount to the total amount to distribute
+    if (_debug) then
+      raise notice 'postVoucher, _itemAmount=%', _itemAmount;
+    end if;
+
     _totalAmount_base := (_totalAmount_base + _itemAmount_base + _g.voitem_freight_base);
     _totalAmount := (_totalAmount + _itemAmount + _g.voitem_freight);
-    IF (_g.vodist_discountable) THEN
-      _totalDiscountableAmount := (_totalDiscountableAmount + _itemAmount);
-    END IF;
 
 --  Post all the Tagged Receivings for this P/O Item as Invoiced and
 --  record the purchase and receive costs
@@ -362,6 +379,10 @@ BEGIN
     END IF;
 
 --  Add the Distribution Amount to the Total Amount
+    if (_debug) then
+      raise notice 'postVoucher, _d.vodist_amount=%', _d.vodist_amount;
+    end if;
+
     _totalAmount_base := _totalAmount_base + ROUND(_d.vodist_amount_base, 2);
     _totalAmount := _totalAmount + _d.vodist_amount;
     IF (_d.vodist_discountable) THEN
@@ -383,6 +404,11 @@ BEGIN
   PERFORM postGLSeries(_sequence, pJournalNumber);
 
 --  Create the A/P Open Item
+  if (_debug) then
+    raise notice 'postVoucher, _totalAmount=%', _totalAmount;
+    raise notice 'postVoucher, _totalDiscountableAmount=%', _totalDiscountableAmount;
+  end if;
+
   INSERT INTO apopen
   ( apopen_journalnumber, apopen_docdate, apopen_duedate, apopen_distdate, apopen_open,
     apopen_terms_id, apopen_vend_id, apopen_doctype,
