@@ -41,9 +41,9 @@
       cmitem_price_invuomratio), 2)) AS line, 
       cmhead_freight AS freight, 
       getFreightTaxTypeId() AS freightTax, getAdjustmentTaxTypeId() AS adjTax 
-  FROM cmitem 
-      LEFT OUTER JOIN cmhead ON (cmitem_cmhead_id=cmhead_id) 
-  WHERE (cmitem_cmhead_id=<? value("cmhead_id") ?>) 
+  FROM cmhead 
+      LEFT OUTER JOIN cmitem ON (cmitem_cmhead_id=cmhead_id) 
+  WHERE (cmhead_id=<? value("cmhead_id") ?>) 
   GROUP BY number, taxzone_id, curr_id, tax_curr_id, date, freight, freightTax, adjTax) head, 
   (SELECT ROUND(SUM(cmitemtax.taxhist_tax * -1),2) AS total_tax 
    FROM cmitemtax 
