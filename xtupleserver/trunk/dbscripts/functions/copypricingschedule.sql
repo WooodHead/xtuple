@@ -1,13 +1,15 @@
-CREATE OR REPLACE FUNCTION copypricingschedule(INTEGER) RETURNS INTEGER AS '
+
+CREATE OR REPLACE FUNCTION copypricingschedule(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pIpsheadId ALIAS FOR $1;
   _ipsheadid INTEGER;
   _ipsitemid INTEGER;
+  _ipsfreightid INTEGER;
   _x RECORD;
 
 BEGIN
 
-  _ipsheadid := nextval(''ipshead_ipshead_id_seq'');
+  _ipsheadid := nextval('ipshead_ipshead_id_seq');
   INSERT INTO ipshead 
   ( ipshead_id, ipshead_name, ipshead_descrip,
     ipshead_effective, ipshead_expires, 
@@ -23,7 +25,7 @@ BEGIN
   FOR _x IN
     SELECT ipsitem_id FROM ipsitem WHERE (ipsitem_ipshead_id=pIpsheadid)
   LOOP 
-      _ipsitemid := nextval(''ipsitem_ipsitem_id_seq'');
+      _ipsitemid := nextval('ipsitem_ipsitem_id_seq');
       INSERT INTO ipsitem 
           (ipsitem_id, ipsitem_ipshead_id, ipsitem_item_id, 
            ipsitem_qtybreak, ipsitem_price,
@@ -43,6 +45,26 @@ BEGIN
       WHERE (ipsitemchar_ipsitem_id=_x.ipsitem_id);
   END LOOP;
 
+  FOR _x IN
+    SELECT ipsfreight_id FROM ipsfreight WHERE (ipsfreight_ipshead_id=pIpsheadid)
+  LOOP 
+      _ipsfreightid := nextval('ipsfreight_ipsfreight_id_seq');
+      INSERT INTO ipsfreight
+          (ipsfreight_id, ipsfreight_ipshead_id, 
+           ipsfreight_qtybreak, ipsfreight_price,
+           ipsfreight_type, ipsfreight_warehous_id,
+           ipsfreight_shipzone_id,ipsfreight_freightclass_id,
+           ipsfreight_shipvia) 
+      SELECT _ipsfreightid, _ipsheadid, ipsfreight_qtybreak, 
+           ipsfreight_price,ipsfreight_type, 
+           ipsfreight_warehous_id,ipsfreight_shipzone_id,
+           ipsfreight_freightclass_id,ipsfreight_shipvia
+      FROM ipsfreight
+      WHERE (ipsfreight_id=_x.ipsfreight_id); 
+
+  END LOOP;
+
+
   INSERT INTO ipsprodcat 
         (ipsprodcat_ipshead_id, ipsprodcat_prodcat_id, 
          ipsprodcat_qtybreak, ipsprodcat_discntprcnt) 
@@ -54,4 +76,5 @@ BEGIN
   RETURN _ipsheadid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
+
