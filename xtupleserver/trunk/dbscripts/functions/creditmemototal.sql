@@ -1,4 +1,5 @@
-CREATE OR REPLACE FUNCTION creditmemoTotal(INTEGER) RETURNS NUMERIC AS $$
+
+CREATE OR REPLACE FUNCTION creditmemototal(integer) RETURNS numeric AS $$
 DECLARE
   pCreditmemoId ALIAS FOR $1;
   _result NUMERIC;
@@ -15,7 +16,7 @@ BEGIN
              FROM cmheadtax
             WHERE (taxhist_parent_id=pCreditmemoId)
            ) +
-         ( SELECT COALESCE(SUM(taxhist_tax), 0.0) 
+         ( SELECT COALESCE(SUM(-taxhist_tax), 0.0) 
              FROM cmitemtax
                JOIN cmitem ON (cmitem_id=taxhist_parent_id)
             WHERE (cmitem_cmhead_id=pCreditmemoId)
@@ -31,3 +32,4 @@ BEGIN
 
 END;
 $$ LANGUAGE 'plpgsql';
+
