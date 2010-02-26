@@ -1,12 +1,21 @@
-CREATE OR REPLACE FUNCTION deletePo(INTEGER) RETURNS BOOLEAN AS '
+CREATE OR REPLACE FUNCTION deletePo(INTEGER) RETURNS BOOLEAN AS $$
 DECLARE
   pPoheadid ALIAS FOR $1;
+  _poitemid INTEGER;
 
 BEGIN
 
   IF ( ( SELECT pohead_status
          FROM pohead
-         WHERE (pohead_id=pPoheadid) ) = ''U'' ) THEN
+         WHERE (pohead_id=pPoheadid) ) = 'U' ) THEN
+
+    -- Unlink from any Sales Orders
+    UPDATE coitem SET coitem_order_type=NULL,
+                      coitem_order_id=NULL
+    FROM poitem 
+    WHERE ( (coitem_order_type='P')
+      AND   (coitem_order_id=poitem_id)
+      AND   (poitem_pohead_id=pPoheadid) );
 
     DELETE FROM poitem
     WHERE (poitem_pohead_id=pPoheadid);
@@ -21,4 +30,4 @@ BEGIN
   END IF;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
