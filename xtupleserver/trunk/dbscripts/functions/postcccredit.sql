@@ -7,11 +7,13 @@ DECLARE
   _c		RECORD;
   _ccOrderDesc	TEXT;
   _closed       BOOLEAN;
-  _glaccnt	INTEGER;
+  _cglaccnt     INTEGER;
+  _dglaccnt	INTEGER;
   _journalNum	INTEGER;
   _notes	TEXT := 'Credit Customer via Credit Card';
   _r		aropen%ROWTYPE;
   _sequence	INTEGER;
+  _dmaropenid	INTEGER;
 
 BEGIN
   IF ((preftype = 'cohead') AND NOT EXISTS(SELECT cohead_id
@@ -34,7 +36,13 @@ BEGIN
     RETURN -3;
   END IF;
 
-  SELECT bankaccnt_accnt_id INTO _glaccnt
+  IF (preftype = 'cohead') THEN
+    _dglaccnt := findPrepaidAccount(_c.ccpay_cust_id);
+  ELSE
+    _dglaccnt := findARAccount(_c.ccpay_cust_id);
+  END IF;
+
+  SELECT bankaccnt_accnt_id INTO _cglaccnt
   FROM bankaccnt
   WHERE (bankaccnt_id=_c.ccbank_bankaccnt_id);
 
@@ -56,14 +64,14 @@ BEGIN
   END IF;
 
   PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CC', _ccOrderDesc,
-			     findARAccount(_c.ccpay_cust_id),
+			     _dglaccnt,
 			     ROUND(currToBase(_c.ccpay_curr_id,
 					      _c.ccpay_amount,
 					      _c.ccpay_transaction_datetime::DATE), 2) * -1,
 			     CURRENT_DATE, _notes );
 
   PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CC', _ccOrderDesc,
-			      _glaccnt,
+			      _cglaccnt,
 			      ROUND(currToBase(_c.ccpay_curr_id,
 					       _c.ccpay_amount,
 					       _c.ccpay_transaction_datetime::DATE),2),
@@ -78,42 +86,30 @@ BEGIN
 
   ELSE
     SELECT aropen.* INTO _r
-    FROM aropen
-    WHERE ((aropen_doctype IN ('C', 'R'))
-      AND  (aropen_docnumber=_c.ccpay_r_ref)
-      AND  (ROUND(aropen_amount - aropen_paid, 2) <=
-                ROUND(currToCurr(_c.ccpay_curr_id, aropen_curr_id,_c.ccpay_amount,
-                                 _c.ccpay_transaction_datetime::DATE), 2))
-          );
+    FROM ccpay n
+      JOIN ccpay o  ON (o.ccpay_id=n.ccpay_ccpay_id)
+      JOIN payaropen ON (payaropen_ccpay_id=o.ccpay_id)
+      JOIN aropen ON (payaropen_aropen_id=aropen_id)
+    WHERE (n.ccpay_id=pCCpay);
   END IF;
 
   IF (FOUND) THEN
-    _amountclosed := ROUND(currToCurr(_c.ccpay_curr_id,
-                                      _r.aropen_curr_id,
-                                      _c.ccpay_amount,
-                                      _c.ccpay_transaction_datetime::DATE), 2);
-    _closed := ROUND(_r.aropen_paid + _amountclosed, 2) >= ROUND(_r.aropen_amount, 2);
-    UPDATE aropen
-    SET aropen_paid=ROUND(aropen_paid + _amountclosed, 2),
-	aropen_open=(NOT _closed)
-    WHERE (aropen_id=_r.aropen_id);
+  -- create debit memo for refund that offsets original credit memo
+    SELECT createardebitmemo(
+            NULL, 
+            _r.aropen_cust_id, NULL, fetchARMemoNumber(),
+            _r.aropen_ordernumber, current_date, _r.aropen_amount,
+            'Reverse credit for voided Sales Order',
+            -1, -1, -1, current_date, -1, -1, 0, 
+            _r.aropen_curr_id) INTO _dmaropenid;
 
-    INSERT INTO arapply (
-      arapply_cust_id,
-      arapply_source_aropen_id, arapply_source_doctype, arapply_source_docnumber,
-      arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
-      arapply_fundstype, arapply_refnumber,
-      arapply_applied, arapply_closed,
-      arapply_postdate, arapply_distdate, arapply_journalnumber, arapply_username,
-      arapply_curr_id )
-    VALUES
-    ( _c.ccpay_cust_id,
-      _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
-      -1, 'R', 'Credit Card Credit',
-      _c.ccard_type, _c.ccpay_order_number,
-      ROUND(_c.ccpay_amount, 2), _closed,
-      CURRENT_DATE, _c.ccpay_transaction_datetime::DATE, fetchJournalNumber('AR-CM'), CURRENT_USER,
-      _c.ccpay_curr_id );
+    -- See if the original credit memo is still open
+    IF (_r.aropen_open) THEN
+      -- Apply original as much of  orignial credit memo to new debit memo as possible
+      PERFORM applyARCreditMemoToBalance(_r.aropen_id, _dmaropenid);
+      PERFORM postARCreditMemoApplication(_r.aropen_id);
+    END IF;
+    
   END IF;
 
   IF (preftype = 'cohead') THEN
