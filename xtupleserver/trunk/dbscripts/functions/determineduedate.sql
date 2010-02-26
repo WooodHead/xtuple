@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION determineDueDate(INTEGER, DATE) RETURNS DATE AS '
+CREATE OR REPLACE FUNCTION determineDueDate(INTEGER, DATE) RETURNS DATE AS $$
 DECLARE
   pTermsid ALIAS FOR $1;
   pSourceDate ALIAS FOR $2;
@@ -14,15 +14,15 @@ BEGIN
     _dueDate := pSourceDate;
 
 --  Handle type D terms
-  ELSIF (_p.terms_type = ''D'') THEN
+  ELSIF (_p.terms_type = 'D') THEN
     _dueDate := (pSourceDate + _p.terms_duedays);
 
 --  Handle type P terms
-  ELSIF (_p.terms_type = ''P'') THEN
-    IF (date_part(''day'', pSourceDate) <= _p.terms_cutoffday) THEN
-      _dueDate := (DATE(date_trunc(''month'', pSourceDate)) + (_p.terms_duedays - 1));
+  ELSIF (_p.terms_type = 'P') THEN
+    IF (date_part('day', pSourceDate) <= _p.terms_cutoffday) THEN
+      _dueDate := (DATE(date_trunc('month', pSourceDate)) + (_p.terms_duedays - 1));
     ELSE
-      _dueDate := (DATE(date_trunc(''month'', pSourceDate)) + (_p.terms_duedays - 1) + INTERVAL ''1 month'');
+      _dueDate := (DATE(date_trunc('month', pSourceDate)) + (_p.terms_duedays - 1) + INTERVAL '1 month');
     END IF;
 
 --  Handle unknown terms
@@ -33,4 +33,4 @@ BEGIN
   RETURN _dueDate;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
