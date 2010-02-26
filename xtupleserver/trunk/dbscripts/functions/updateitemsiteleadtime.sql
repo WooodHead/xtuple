@@ -14,8 +14,7 @@ BEGIN
   WHERE ( (itemsite_item_id=item_id)
    AND (itemsite_id=pitemsiteid) );
   
-  IF ( (_p.item_type IN ('M', 'P')) AND
-       (_p.itemsite_wosupply) ) THEN
+  IF ( (_p.item_type IN ('M', 'P')) ) THEN
 
     IF (_p.item_type = 'M') THEN
       SELECT COALESCE(MAX(component.itemsite_leadtime), 0) INTO _materialLeadTime
