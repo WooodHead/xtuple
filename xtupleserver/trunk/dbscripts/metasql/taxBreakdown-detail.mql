@@ -17,7 +17,7 @@
       LEFT OUTER JOIN item ON (invcitem_item_id=item_id) 
   WHERE (invchead_id=<? value("invchead_id") ?>) 
   GROUP BY number, taxzone_id, curr_id, tax_curr_id, date, freight, freightTax, adjTax) head, 
-  (SELECT SUM(ROUND(invcitemtax.taxhist_tax,2)) AS total_tax 
+  (SELECT ROUND(SUM(invcitemtax.taxhist_tax),2) AS total_tax 
    FROM invcitemtax 
     LEFT OUTER JOIN invcitem ON (taxhist_parent_id = invcitem_id) 
    WHERE (invcitem_invchead_id=<? value("invchead_id") ?>)) linetax,
@@ -157,7 +157,7 @@
          tohead_freight_curr_id AS tax_curr_id,
          tohead_orderdate AS date,
          SUM(ROUND(toitem_freight, 2)) AS line,
-         COALESCE(SUM(ROUND(calculateTax(tohead_taxzone_id, getfreighttaxtypeid(), tohead_orderdate, baseCurrId(), toitem_freight),2)),0) as total_tax,  
+         COALESCE(ROUND(SUM(calculateTax(tohead_taxzone_id, getfreighttaxtypeid(), tohead_orderdate, baseCurrId(), toitem_freight)),2),0) as total_tax,  
          tohead_freight +  SUM(ROUND(toitem_freight, 2)) AS freight,
          tohead_freighttax_id AS freightTax,
          COALESCE(ROUND(SUM(calculateTax(tohead_taxzone_id, getfreighttaxtypeid(), tohead_orderdate, baseCurrId(), toitem_freight)),2),0) +
