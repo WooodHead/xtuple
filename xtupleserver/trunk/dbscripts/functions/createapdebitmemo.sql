@@ -207,13 +207,13 @@ BEGIN
     ( apopen_id, apopen_username, apopen_journalnumber,
       apopen_vend_id, apopen_docnumber, apopen_doctype, apopen_ponumber,
       apopen_docdate, apopen_duedate, apopen_distdate, apopen_terms_id,
-      apopen_amount, apopen_paid, apopen_open, apopen_notes, apopen_accnt_id, apopen_curr_id,
+      apopen_amount, apopen_paid, apopen_discountable_amount, apopen_open, apopen_notes, apopen_accnt_id, apopen_curr_id,
       apopen_closedate )
     VALUES
     ( _apopenid, CURRENT_USER, _journalNumber,
       pVendid, pDocNumber, 'D', pPoNumber,
       pDocDate, pDueDate, pDocDate, pTermsid,
-      pAmount, 0, (pAmount <> 0), pNotes, _accntid, pCurrId,
+      pAmount, 0, 0, (pAmount <> 0), pNotes, _accntid, pCurrId,
       CASE WHEN (pAmount = 0) THEN pDocDate END );
   END IF;
 
