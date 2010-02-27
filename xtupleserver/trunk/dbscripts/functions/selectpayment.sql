@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION selectPayment(INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION selectPayment(INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pApopenid ALIAS FOR $1;
   pBankaccntid ALIAS FOR $2;
@@ -22,7 +22,9 @@ BEGIN
                           AND (checkitem_apopen_id=apopen_id)
                           AND (NOT checkhead_void)
                           AND (NOT checkhead_posted)) ),0) AS balance,
-         noNeg(apopen_discountable_amount * CASE WHEN (CURRENT_DATE <= (apopen_docdate + terms_discdays)) THEN terms_discprcnt ELSE 0.0 END - discount_applied) AS discount_available
+         noNeg(COALESCE(apopen_discountable_amount, 0) *
+               CASE WHEN (CURRENT_DATE <= determineDiscountDate(apopen_terms_id, apopen_docdate)) THEN terms_discprcnt
+                    ELSE 0.0 END - discount_applied) AS discount_available
     INTO _p
     FROM apopen LEFT OUTER JOIN terms ON (apopen_terms_id=terms_id),
          (SELECT COALESCE(SUM(apapply_amount),0) AS discount_applied
@@ -31,7 +33,7 @@ BEGIN
              AND (apapply_source_apopen_id=apopen_id)
              AND (apopen_discount)) ) AS data
    WHERE(apopen_id=pApopenid);
-  IF(NOT FOUND OR (NOT _p.apopen_doctype IN (''V'',''D''))) THEN
+  IF(NOT FOUND OR (NOT _p.apopen_doctype IN ('V','D'))) THEN
     RETURN -1;
   END IF;
 
@@ -54,7 +56,7 @@ BEGIN
              apselect_curr_id = _p.apopen_curr_id
        WHERE(apselect_id=_apselectid);
     ELSE
-      SELECT NEXTVAL(''apselect_apselect_id_seq'') INTO _apselectid;
+      SELECT NEXTVAL('apselect_apselect_id_seq') INTO _apselectid;
 
       INSERT INTO apselect
       ( apselect_id, apselect_apopen_id,
@@ -74,5 +76,4 @@ BEGIN
   RETURN _apselectid;
 
 END;
-' LANGUAGE 'plpgsql';
-
+$$ LANGUAGE 'plpgsql';
