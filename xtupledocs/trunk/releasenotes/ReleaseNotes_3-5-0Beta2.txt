@@ -55,13 +55,19 @@ for each item listed below may be found on our community website
 
 New Features:
 
-* 
+* [Accounting] Add "Post All" button to Checks tab on AP Workbench 
+* [Architectural] Expose OpenRPT option to pass printer to scripting 
+* [CRM] Add advanced incident workbench features to the core 
+* [CRM] Contact cluster should behave like other search clusters 
+* [CRM] Show total hours and expenses on Project header 
+* [Products] Enable DELETE BOM Item 
+* [Purchase] Add support for drop ship to purchase orders 
+* [Sales] Port Issue 9987 to core: Enhance changelog tracking for changes to a customer's ship-to's
+* [System] Complete the XML Export functionality 
 
 Bug Fixes:
 
 * [Accounting] Sales rep number requires employee name (or code) not his/her number
-* [Accounting] Tax Breakdown does not match invoice tax
-* [Accounting] Tax distribution of voucher is not calculated correctly on multi-cost elements 
 * [Accounting] Zero balance option should disable when single account selected
 * [Accounting] Add show unposted option to AR workbench 
 * [Accounting] Post Invoice After Printing generates warning message
@@ -95,19 +101,15 @@ Bug Fixes:
 * [Accounting] Cash Receipt Journal does NOT print
 * [Accounting] Invoice does not recalculate tax when tax zone is changed
 * [Accounting] Australian ABA file generation function for Electronic Checking formatABAChecks
-* [Accounting] Add "Post All" button to Checks tab on AP Workbench 
 * [Accounting] "Total" field on Invoice doesn't have comma formatting
 * [Accounting] voucheringeditlist view is faulty
 * [Accounting] Taxes are generated when they shouldn't be 
 * [Accounting] PreAuth to Charged Credit Cards cause Unbalanced Bank Reconciliation 
 * [Accounting] move ACH functionality in A/P to PostBooks 
 * [Accounting] Can not apply credit memos in A/R workbench
-* [Architectural] Expose OpenRPT option to pass printer to scripting 
 * [Architectural] Work center cluster does not auto complete
 * [Architectural] Packages -> Load does not check correct location for Updater
 * [Architectural] Short cut keys don't open Alias search on item cluster
-* [CRM] Add advanced incident workbench features to the core 
-* [CRM] Contact cluster should behave like other search clusters 
 * [CRM] Opportunity Tab on CRM Account has extra clutter
 * [CRM] Error using pattern search in Opportunity screen
 * [CRM] Show balance of Hours and Expense budgeted as columns on Project Task tab 
@@ -117,10 +119,8 @@ Bug Fixes:
 * [CRM] Contact details are not saved 
 * [CRM] UsernameCluster or CRMAcctCluster do not emit signals until focus is lost 
 * [CRM] Contact cluster duplicate check returns too many results 
-* [CRM] Show total hours and expenses on Project header 
 * [Documentation] Unable to prove statement on opening closed line on PO
 * [Documentation] Docs refer to shopfloor workbench in postbooks 
-* [Inventory] Update Lead time does not work if "Can manufacture Item" is not checked 
 * [Inventory] 'Selected' option is not disabled if 'pattern' option is selected in detailed inventory history screen 
 * [Inventory] Performance slow on print packing list by ship via
 * [Inventory] Missing ship vias in print packing list by ship vias
@@ -148,7 +148,6 @@ Bug Fixes:
 * [Inventory] Can't delete any item sit
 * [Inventory] DB Error on itemsite Delete in postbooks 
 * [Inventory] Shipping Hold Type not displayed 
-* [Manufacture] Child work orders would show better if indented 
 * [Manufacture] postproduction function does not handle backflush of operations correctly 
 * [Manufacture] Manufacture->Transaction->Scrap does not work for controlled finished items
 * [Manufacture] Cannot Add Operations in Work Order Screen 
@@ -176,7 +175,6 @@ Bug Fixes:
 * [Manufacture] Work Order indented screen Materials not sorted 
 * [Products] Unable to create a kit item site record
 * [Products] xtmfg.schema is not referencing xmfg 
-* [Products] Enable DELETE BOM Item 
 * [Products] Expired BOM Component causing a recursive BOM error -- no way to get around
 * [Products] Can not delete items 
 * [Products] Typo on texts in print report of single level where used 
@@ -189,21 +187,14 @@ Bug Fixes:
 * [Products] Incorrect Expiry dates after mass expire are displayed in BOM 
 * [Products] Selecting to Mass Replace an item displays error message
 * [Products] Selecting to print pending BOM changes generates DB log error
-* [Purchase] Drop ship: scheduled date on SO line should set the due date on PO line 
-* [Purchase] Need warning when deleting drop ship PO 
-* [Purchase] System error deleting SO linked to PO 
-* [Purchase] Deleted drop ship PO not cleaning up linked SO 
 * [Purchase] Selecting to reopen a purchase order unchecks the 'Drop Ship' option
 * [Purchase] Bold cursor in PO field if method is manual 
 * [Purchase] Saving a purchase order doesn't reset the 'subtotal' field
-* [Purchase] Add support for drop ship to purchase orders 
 * [Purchase] Vendor Delete does not give user a second chance 
 * [Purchase] Make the vendor currency read only on item source 
 * [Purchase] Username on purchase orders defaults to login name not proper name 
 * [Reports] Invoice Report does not display Total Due when no tax is applied 
 * [Reports] Submitted report of Credit Memo is empty
-* [Sales] Remove payment received field on billing selection 
-* [Sales] Observation:Credit card amount charged for RA doesn't include tax 
 * [Sales] Column header on Sales Report displays S/O # and should have CM as well 
 * [Sales] 'Selected customer' option is not disabled if 'customer ship-to' option is selected in Allocate Reservations screen
 * [Sales] Choosing [caluclated freight] or [manual freight] on sales order doesn't update sales order
@@ -223,7 +214,6 @@ Bug Fixes:
 * [Sales] Selecting to purge invoices generates DB log error
 * [Sales] Set default cursor focus to Customer Number Field on Customer Info Workbench
 * [Sales] Pricing and items on sales report does not reflect the change of a customer in a sales order 
-* [Sales] Port Issue 9987 to core: Enhance changelog tracking for changes to a customer's ship-to's
 * [Sales] Duplicated tax when processing a paymen
 * [Sales] Sales credit allocation does not work correctly 
 * [Schedule] Create Planned Order defaults to Work Order not item type
@@ -231,7 +221,6 @@ Bug Fixes:
 * [Schedule] Enforce no multi-level MRP on planner codes in STD Edition 
 * [Schedule] Standard DB Version throws error whr "Run MRP by Planner" is used
 * [Schedule] Time phase production by item report do not honor selected warehouse 
-* [System] Complete the XML Export functionality 
 * [System] Config Modules / Accounting - toggle "Require Vendor Invoice #" 
 * [System] Edit Comment of Type Genera
 * [System] Fix serial columns screen accessed by non-admin user 
