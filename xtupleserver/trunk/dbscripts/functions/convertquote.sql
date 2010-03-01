@@ -1,3 +1,4 @@
+
 CREATE OR REPLACE FUNCTION convertQuote(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pQuheadid ALIAS FOR $1;
@@ -129,6 +130,14 @@ BEGIN
   WHERE ( (quhead_cust_id=cust_id)
   AND (quhead_id=pQuheadid) );
 
+  UPDATE url SET url_source_id = _soheadid,
+		 url_source = 'S'
+	    WHERE url_source_id = pQuheadid;
+
+  UPDATE imageass SET imageass_source_id = _soheadid,
+		imageass_source = 'S'
+	    WHERE imageass_source_id = pQuheadid;
+
   FOR _r IN SELECT quitem.*,
                    quhead_number, quhead_prj_id,
                    itemsite_item_id, itemsite_leadtime, item_type
@@ -206,3 +215,4 @@ BEGIN
 
 END;
 $$ LANGUAGE 'plpgsql';
+
