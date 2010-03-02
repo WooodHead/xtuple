@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION createAccountingPeriod(DATE, DATE) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createAccountingPeriod(DATE, DATE) RETURNS INTEGER AS $$
 DECLARE
   pStartDate ALIAS FOR $1;
   pEndDate ALIAS FOR $2;
@@ -9,9 +9,9 @@ BEGIN
   RETURN createAccountingPeriod(pStartDate, pEndDate, NULL, NULL);
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION createaccountingperiod(DATE, DATE, INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION createaccountingperiod(DATE, DATE, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pStartDate ALIAS FOR $1;
   pEndDate ALIAS FOR $2;
@@ -21,10 +21,11 @@ DECLARE
   _check INTEGER;
   _r RECORD;
   _initial BOOLEAN;
+  _number INTEGER;
 
 BEGIN
 
---  Make that the passed start date doesn''t fall into any existing period
+--  Make that the passed start date doesn't fall into any existing period
   SELECT period_id INTO _check
   FROM period
   WHERE (pStartDate BETWEEN period_start AND period_end);
@@ -32,7 +33,7 @@ BEGIN
     RETURN -1;
   END IF;
 
---  Make that the passed end date doesn''t fall into any existing period
+--  Make that the passed end date doesn't fall into any existing period
   SELECT period_id INTO _check
   FROM period
   WHERE (pEndDate BETWEEN period_start AND period_end);
@@ -40,7 +41,7 @@ BEGIN
     RETURN -2;
   END IF;
 
---  Make that the passed start and end dates don''t enclose an existing period
+--  Make that the passed start and end dates don't enclose an existing period
   SELECT period_id INTO _check
   FROM period
   WHERE ( (period_start >= pStartDate)
@@ -65,12 +66,18 @@ BEGIN
          END INTO _initial
   FROM period;
 
+-- Determine the next number
+  SELECT COALESCE(MAX(period_number),0) + 1 INTO _number
+  FROM period
+  WHERE (period_yearperiod_id=pYearPeriodId);
+
 --  Create the new accounting period
-  SELECT NEXTVAL(''period_period_id_seq'') INTO _periodid;
+  SELECT NEXTVAL('period_period_id_seq') INTO _periodid;
   INSERT INTO period
-  ( period_id, period_start, period_end, period_closed, period_freeze, period_initial, period_yearperiod_id, period_quarter )
+  ( period_id, period_start, period_end, period_closed, period_freeze, 
+    period_initial, period_number, period_yearperiod_id, period_quarter )
   VALUES
-  ( _periodid, pStartDate, pEndDate, FALSE, FALSE, _initial, pYearPeriodId, pQuarter );
+  ( _periodid, pStartDate, pEndDate, FALSE, FALSE, _initial, _number, pYearPeriodId, pQuarter );
 
 --  Post any unposted G/L Transactions into the new period
   FOR _r IN SELECT DISTINCT gltrans_sequence
@@ -83,5 +90,5 @@ BEGIN
   RETURN _periodid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

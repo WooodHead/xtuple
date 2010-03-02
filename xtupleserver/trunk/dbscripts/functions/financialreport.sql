@@ -304,7 +304,9 @@ BEGIN
                                 SELECT COALESCE(pp.period_id,-1) INTO _priorMoPeriodId
                                 FROM period cp, period pp
                                 WHERE ((cp.period_id=pPeriodId)
-                                AND ((cp.period_start - interval '1 year') >= pp.period_start))
+                                AND (cp.period_id != pp.period_id)
+                                AND (cp.period_start > pp.period_start)
+                                AND (cp.period_number = pp.period_number))
                                 ORDER BY pp.period_start DESC LIMIT 1;
 
                                 IF (_priorMoPeriodId IS NOT NULL) THEN
