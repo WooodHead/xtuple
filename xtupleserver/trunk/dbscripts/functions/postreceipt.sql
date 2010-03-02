@@ -21,7 +21,7 @@ BEGIN
 	       2) AS recv_freight_base,
 	 recv_freight, recv_freight_curr_id, recv_date, recv_gldistdate,
 	 itemsite_id, itemsite_item_id, item_inv_uom_id, itemsite_costmethod,
-         vend_name
+         itemsite_controlmethod, vend_name
 	 INTO _r
   FROM recv LEFT OUTER JOIN itemsite ON (recv_itemsite_id=itemsite_id)
             LEFT OUTER JOIN item ON (itemsite_item_id=item_id)
@@ -100,20 +100,34 @@ BEGIN
 
   _glDate := COALESCE(_r.recv_gldistdate, _r.recv_date);
 
-  IF (_r.itemsite_id = -1 OR _r.itemsite_id IS NULL) THEN
+  IF (_r.itemsite_id = -1 OR _r.itemsite_id IS NULL OR _r.itemsite_controlmethod = 'N') THEN
     IF (_r.recv_order_type != 'PO') THEN
       RETURN -14;	-- otherwise how to we get the accounts?
     END IF;
 
-    SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
-				'Receive Non-Inventory from ' || _ordertypeabbr,
-				 expcat_liability_accnt_id,
-				 expcat_exp_accnt_id, -1,
-				 round((_o.item_unitprice_base * _r.recv_qty),2),
-				 _glDate::DATE ) INTO _tmp
-    FROM poitem, expcat
-    WHERE((poitem_expcat_id=expcat_id)
-      AND (poitem_id=_o.orderitem_id));
+    IF (_r.itemsite_id IS NOT NULL) THEN
+      SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+	  			  'Receive Non-Controlled Inventory from ' || _ordertypeabbr,
+				   costcat_liability_accnt_id,
+				   costcat_exp_accnt_id, -1,
+				   round((_o.item_unitprice_base * _r.recv_qty),2),
+				   _glDate::DATE ) INTO _tmp
+      FROM poitem, itemsite, costcat
+      WHERE((poitem_itemsite_id=itemsite_id)
+        AND (itemsite_costcat_id=costcat_id)
+        AND (poitem_id=_o.orderitem_id));
+    ELSE
+      SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+	  			  'Receive Non-Inventory from ' || _ordertypeabbr,
+				   expcat_liability_accnt_id,
+				   expcat_exp_accnt_id, -1,
+				   round((_o.item_unitprice_base * _r.recv_qty),2),
+				   _glDate::DATE ) INTO _tmp
+      FROM poitem, expcat
+      WHERE((poitem_expcat_id=expcat_id)
+        AND (poitem_id=_o.orderitem_id));
+    END IF;
+      
 
     IF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
       RETURN _tmp;
