@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION findCustomerForm(INTEGER, CHARACTER(1)) RETURNS TEXT AS '
+CREATE OR REPLACE FUNCTION findCustomerForm(INTEGER, CHARACTER(1)) RETURNS TEXT AS $$
 DECLARE
   pCustid ALIAS FOR $1;
   pFormtype ALIAS FOR $2;
@@ -32,53 +32,41 @@ BEGIN
   END IF;
 
   IF (_found) THEN
-    IF ( (pFormType = ''I'') AND (_f.custform_invoice_report_id <> -1) ) THEN
-      RETURN ( SELECT report_name
-               FROM report
-               WHERE (report_id=_f.custform_invoice_report_id) );
+    IF ( (pFormType = 'I') AND (_f.custform_invoice_report_name IS NOT NULL) ) THEN
+      RETURN _f.custform_invoice_report_name;
 
-    ELSIF ( (pFormType = ''C'') AND (_f.custform_creditmemo_report_id <> -1) ) THEN
-      RETURN ( SELECT report_name
-               FROM report
-               WHERE (report_id=_f.custform_creditmemo_report_id) );
+    ELSIF ( (pFormType = 'C') AND (_f.custform_creditmemo_report_name IS NOT NULL) ) THEN
+      RETURN _f.custform_creditmemo_report_name;
 
-    ELSIF ( (pFormType = ''S'') AND (_f.custform_statement_report_id <> -1) ) THEN
-      RETURN ( SELECT report_name
-               FROM report
-               WHERE (report_id=_f.custform_statement_report_id) );
+    ELSIF ( (pFormType = 'S') AND (_f.custform_statement_report_name IS NOT NULL) ) THEN
+      RETURN _f.custform_statement_report_name;
 
-    ELSIF ( (pFormType = ''Q'') AND (_f.custform_quote_report_id <> -1) ) THEN
-      RETURN ( SELECT report_name
-               FROM report
-               WHERE (report_id=_f.custform_quote_report_id) );
+    ELSIF ( (pFormType = 'Q') AND (_f.custform_quote_report_name IS NOT NULL) ) THEN
+      RETURN _f.custform_quote_report_name;
 
-    ELSIF ( (pFormType = ''P'') AND (_f.custform_packinglist_report_id <> -1) ) THEN
-      RETURN ( SELECT report_name
-               FROM report
-               WHERE (report_id=_f.custform_packinglist_report_id) );
+    ELSIF ( (pFormType = 'P') AND (_f.custform_packinglist_report_name IS NOT NULL) ) THEN
+      RETURN _f.custform_packinglist_report_name;
 
-    ELSIF ( (pFormType = ''L'') AND (_f.custform_sopicklist_report_id <> -1) ) THEN
-      RETURN ( SELECT report_name
-               FROM report
-               WHERE (report_id=_f.custform_sopicklist_report_id) );
+    ELSIF ( (pFormType = 'L') AND (_f.custform_sopicklist_report_name IS NOT NULL) ) THEN
+      RETURN _f.custform_sopicklist_report_name;
     END IF;
 
 
   END IF;
 
-  IF (pFormType = ''I'') THEN
-    RETURN ''Invoice'';
-  ELSIF (pFormType = ''C'') THEN
-    RETURN ''CreditMemo'';
-  ELSIF (pFormType = ''S'') THEN
-    RETURN ''Statement'';
-  ELSIF (pFormType = ''Q'') THEN
-    RETURN ''Quote'';
-  ELSIF (pFormType = ''P'') THEN
-    RETURN ''PackingList-Shipment'';
-  ELSIF (pFormType = ''L'') THEN
-    RETURN ''PackingList'';
+  IF (pFormType = 'I') THEN
+    RETURN 'Invoice';
+  ELSIF (pFormType = 'C') THEN
+    RETURN 'CreditMemo';
+  ELSIF (pFormType = 'S') THEN
+    RETURN 'Statement';
+  ELSIF (pFormType = 'Q') THEN
+    RETURN 'Quote';
+  ELSIF (pFormType = 'P') THEN
+    RETURN 'PackingList-Shipment';
+  ELSIF (pFormType = 'L') THEN
+    RETURN 'PackingList';
   END IF;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
