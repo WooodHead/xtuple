@@ -6,7 +6,7 @@ $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION issueLineBalanceToShipping(TEXT, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 BEGIN
-  RETURN issueLineBalanceToShipping('SO', $1, NULL, NULL);
+  RETURN issueLineBalanceToShipping($1, $2, $3, 0, NULL);
 END;
 $$ LANGUAGE 'plpgsql';
 
