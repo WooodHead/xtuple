@@ -95,7 +95,7 @@ BEGIN
                 AND (womatl_itemsite_id=itemsite_id)
                 AND (itemsite_item_id=item_id)
                 AND (womatl_issuemethod = 'L')
-                AND (wo_id=pWoid) ) FOR UPDATE LOOP
+                AND (wo_id=pWoid) ) LOOP
 
       --  Cache the qty to be issued
       -- If going back to beginning, unissue fixed qty as well
