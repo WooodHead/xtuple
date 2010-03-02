@@ -302,7 +302,7 @@ BEGIN
   END IF;
 
   UPDATE recv
-  SET recv_value=_recvvalue, recv_posted=TRUE, recv_gldistdate=_glDate::DATE
+  SET recv_value=_recvvalue, recv_recvcost=_recvvalue / recv_qty, recv_posted=TRUE, recv_gldistdate=_glDate::DATE
   WHERE (recv_id=precvid);
 
   IF (_r.recv_order_type = 'PO') THEN
