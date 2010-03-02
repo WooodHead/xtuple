@@ -11,6 +11,7 @@ DECLARE
   _itemid INTEGER;
   _warehousid INTEGER;
   _item RECORD;
+  _type TEXT;
 BEGIN
 
   SELECT getActiveRevId('BOM',itemsite_item_id), itemsite_warehous_id, itemsite_item_id
@@ -30,6 +31,7 @@ BEGIN
          item_id,
          item_type,
          item_price_uom_id,
+         itemsite_createpr,itemsite_createwo,itemsite_createsopo,
          bomitem_uom_id,
          itemuomtouomratio(item_id, bomitem_uom_id, item_inv_uom_id) AS invuomratio,
          roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id),(bomitem_qtyfxd + bomitem_qtyper * pQty) * (1 + bomitem_scrap)) AS qty
@@ -47,6 +49,15 @@ BEGIN
       SELECT explodeKit(pSoheadid, pLinenumber, _subnumber, _item.itemsite_id, _item.qty)
         INTO _subnumber;
     ELSE
+      IF (_item.itemsite_createpr) THEN
+        _type := 'R';
+      END IF;
+      IF (_item.itemsite_createsopo) THEN
+        _type := 'P';
+      END IF;
+      IF (_item.itemsite_createwo) THEN
+        _type := 'W';
+      END IF;
       _subnumber := _subnumber + 1;
       INSERT INTO coitem
             (coitem_cohead_id,
@@ -68,7 +79,7 @@ BEGIN
              0, 0,
              stdCost(_item.item_id), 0,
              0, _item.item_price_uom_id, 1,
-             '', -1,
+             _type, -1,
              '', '',
              0);
     END IF;
