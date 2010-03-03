@@ -242,9 +242,8 @@ function main()
    {
         test.fail("Error in viewing planned orders" + e);
    } 
-        
-//        
-        //MPS – PLAN STATUS “U” - REORDER POINT TEST
+                
+     //MPS – PLAN STATUS “U” - REORDER POINT TEST
     test.log("MPS – PLAN STATUS “U” - REORDER POINT TEST");
     DelPlanOrdrs();
     DelAllSO();
@@ -1750,6 +1749,7 @@ function main()
    waitForObject(":Order #_HeaderViewItem");
    
     mouseClick(":Order #_HeaderViewItem", 10, 10, 0, Qt.LeftButton);
+    snooze(0.5);
  
     if(findObject(":_planord.Col1_QModelIndex").text> findObject(":_planord.Col2_QModelIndex").text)
        
@@ -2327,6 +2327,7 @@ function main()
         test.fail("Error in creating Item site" + e);
    }
     
+ 
     //---Create and Release the TO------
    try
    {
@@ -2339,8 +2340,8 @@ function main()
     
     waitForObject(":Transfer Order.*_QLabel");
     var TO = findObject(":Transfer Order.*_QLabel").text;
-    waitForObjectItem(":_srcWhs_WComboBox", "WH2");
-    clickItem(":_srcWhs_WComboBox", "WH2", 0, 0, 1, Qt.LeftButton);
+    waitForObjectItem(":_srcWhs_WComboBox_2", "WH2");
+    clickItem(":_srcWhs_WComboBox_2", "WH2", 0, 0, 1, Qt.LeftButton);
     waitForObject(":Transfer Order.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Transfer Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage.New_QPushButton_3");
@@ -2383,6 +2384,7 @@ function main()
     }
    catch(e)
    {
+        
         test.fail("Error in creating and releasing transfer order" + e);
    }
     
