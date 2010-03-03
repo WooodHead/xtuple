@@ -32,11 +32,11 @@ BEGIN
     ELSE
       _sense := 1;
     END IF;
-    
+
     --Update itemsite qoh and change posted flag
     UPDATE itemsite SET 
       itemsite_qtyonhand = (itemsite_qtyonhand + (invhist_invqty * _sense)),
-      itemsite_value = (itemsite_value + (invhist_invqty * invhist_unitcost * _sense))
+      itemsite_value = itemsite_value + invhist_value_after - invhist_value_before
     FROM invhist
     WHERE ( (itemsite_id=invhist_itemsite_id)
     AND (invhist_id=pInvhistId)
