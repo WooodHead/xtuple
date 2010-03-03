@@ -327,6 +327,7 @@
 :Scheduling.qt_spinbox_lineedit_QLineEdit_4	{container=':_planningTab.Scheduling_QGroupBox_2' name='qt_spinbox_lineedit' occurrence='2' type='QLineEdit' visible='1'}
 :Scheduling.qt_spinbox_lineedit_QLineEdit_5	{container=':_planningTab.Scheduling_QGroupBox' name='qt_spinbox_lineedit' occurrence='3' type='QLineEdit' visible='1'}
 :Search Navigation.Buttons_QRadioButton	{container=':_application.Search Navigation_QGroupBox' name='_clusterButtons' text='Buttons' type='QRadioButton' visible='1'}
+:Ship From.     Site:_QLabel	{container=':_headerPage.Ship From_QGroupBox' name='_srcWhseLit' text='     Site:' type='QLabel' visible='1'}
 :Show.Unreleased_XCheckBox	{container=':List Open Purchase Orders.Show_QGroupBox' name='_showUnreleased' text='Unreleased' type='XCheckBox' visible='1'}
 :Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox	{container=':List Item Sites.Site can manufacture this Item_QGroupBox' name='_createWo' text='Create Work Orders linked to Sales Orders' type='QCheckBox' visible='1'}
 :Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox_2	{container=':List Items.Site can manufacture this Item_QGroupBox' name='_createWo' text='Create Work Orders linked to Sales Orders' type='QCheckBox' visible='1'}
@@ -417,6 +418,7 @@
 :_headerPage...._QPushButton_2	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget' name='_list' occurrence='2' text='...' type='QPushButton' visible='1'}
 :_headerPage...._QPushButton_3	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget_2' name='_list' text='...' type='QPushButton' visible='1'}
 :_headerPage.From Site:_QLabel	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget_3' name='_srcWhseLit' text='From Site:' type='QLabel' visible='1'}
+:_headerPage.Ship From_QGroupBox	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget_3' name='_shipFromGroup' title='Ship From' type='QGroupBox' visible='1'}
 :_headerPage.To Site:_QLabel	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget_3' name='_dstWhsLit' text='To Site:' type='QLabel' visible='1'}
 :_headerPage._customerNumber_CLineEdit	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget' name='_customerNumber' type='CLineEdit' visible='1'}
 :_headerPage._titleLit_QLabel	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget' name='_titleLit' type='QLabel' visible='1'}
@@ -587,6 +589,7 @@
 :_sitetype_XComboBox	{buddy=':List Sites.Type:_QLabel' name='_sitetype' type='XComboBox' visible='1'}
 :_so_QScrollBar	{container=':frame._so_XTreeWidget' type='QScrollBar' unnamed='1' visible='1'}
 :_srcWhs_WComboBox	{buddy=':_headerPage.From Site:_QLabel' name='_srcWhs' type='WComboBox' visible='1'}
+:_srcWhs_WComboBox_2	{buddy=':Ship From.     Site:_QLabel' name='_srcWhs' type='WComboBox' visible='1'}
 :_tabUOM.New_QPushButton	{container=':qt_tabwidget_stackedwidget._tabUOM_QWidget' name='_newUOM' text='New' type='QPushButton' visible='1'}
 :_targetItemNumber_XLineEdit	{buddy=':List Items.Target Item Number:_QLabel' name='_targetItemNumber' type='XLineEdit' visible='1'}
 :_typeFrame.Add >_QPushButton	{container=':Item._typeFrame_QFrame' name='_add' text='Add >' type='QPushButton' visible='1'}
