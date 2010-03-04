@@ -26,6 +26,25 @@ BEGIN
   IF (FOUND) THEN
     RAISE EXCEPTION 'itemcost already exists for this Item and Cost Element';
   END IF;
+
+-- Check for valid combination of item_type and costelem_type
+  IF (SELECT (COUNT(*) > 0)
+      FROM item, costelem
+      WHERE (item_id=pItemId)
+        AND (costelem_id=pCostElemId)
+        AND (item_type IN ('M', 'F', 'B', 'C', 'T'))
+        AND (costelem_type IN ('Material'))) THEN
+    RAISE EXCEPTION 'itemcost of this type is invalid for Manufactured Item';
+  END IF;
+  
+  IF (SELECT (COUNT(*) > 0)
+      FROM item, costelem
+      WHERE (item_id=pItemId)
+        AND (costelem_id=pCostElemId)
+        AND (item_type IN ('O', 'P'))
+        AND (costelem_type IN ('Direct Labor', 'Overhead', 'Machine Overhead'))) THEN
+    RAISE EXCEPTION 'itemcost of this type is invalid for Purchased Item';
+  END IF;
   
   IF (pCost > 0) THEN
     SELECT NEXTVAL('itemcost_itemcost_id_seq') INTO _itemcost_id;
