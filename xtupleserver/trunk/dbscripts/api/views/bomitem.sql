@@ -168,6 +168,7 @@ COMMENT ON VIEW api.bomitem IS 'Bill of Material Item';
     ON DELETE TO api.bomitem DO INSTEAD
 
     DELETE FROM bomitem
-    WHERE (bomitem_id = OLD.id);;
+    WHERE ((bomitem_id = OLD.id)
+    AND (fetchMetricBool('AllowBOMItemDelete')));
 
 COMMIT;
