@@ -1,6 +1,7 @@
+
 CREATE OR REPLACE FUNCTION deleteSo(INTEGER) RETURNS INTEGER AS $$
 DECLARE
-  pSoheadid	ALIAS FOR $1;
+  pSoheadid    ALIAS FOR $1;
 BEGIN
   RETURN deleteSo(pSoheadid, NULL);
 END;
@@ -52,6 +53,9 @@ BEGIN
     END IF;
   END LOOP;
 
+  DELETE FROM pack
+  WHERE (pack_head_id=pSoheadid and pack_head_type = 'SO');
+
   DELETE FROM cohead
   WHERE (cohead_id=pSoheadid);
 
@@ -76,3 +80,4 @@ BEGIN
 
 END;
 $$ LANGUAGE 'plpgsql';
+
