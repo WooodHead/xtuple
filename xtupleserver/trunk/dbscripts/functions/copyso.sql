@@ -21,7 +21,7 @@ BEGIN
     cohead_ordercomments, cohead_shipcomments,
     cohead_imported, cohead_curr_id, cohead_taxzone_id, cohead_taxtype_id, cohead_ophead_id )
   SELECT _soheadid, fetchSoNumber(), cohead_cust_id, cohead_prj_id,
-         CURRENT_DATE, cohead_packdate, cohead_origin, cohead_fob,
+         CURRENT_DATE, COALESCE(pSchedDate, cohead_packdate), cohead_origin, cohead_fob,
          cohead_warehous_id, cohead_terms_id, cohead_salesrep_id,
          cohead_custponumber, cohead_shipvia, cohead_shipchrg_id, cohead_shipform_id, cohead_holdtype,
          cohead_shipto_id, cohead_shiptoname, cohead_shiptoaddress1, cohead_shiptoaddress2, cohead_shiptoaddress3,
