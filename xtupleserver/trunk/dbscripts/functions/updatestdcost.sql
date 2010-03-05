@@ -37,7 +37,7 @@ BEGIN
             WHERE ( (itemsite_item_id=itemcost_item_id)
              AND (itemsite_costcat_id=costcat_id)
              AND (itemsite_costmethod != 'A')
-             AND ((itemsite_qtyonhand + itemsite_nnqoh) > 0)
+             AND ((itemsite_qtyonhand + itemsite_nnqoh) <> 0)
              AND (itemcost_id=pItemcostid) ) LOOP
 --    IF (_newcost <> _oldcost) THEN
 --      RAISE NOTICE 'itemcost_id = %, Qty = %, Old Cost = %, New Cost = %', pItemcostid, _r.totalQty, _oldcost, _newcost;
