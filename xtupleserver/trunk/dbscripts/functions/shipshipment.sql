@@ -240,7 +240,7 @@ BEGIN
       SELECT postInvTrans(ti.itemsite_id, 'TR', _ti.qty,
                           'I/M', _shiphead.shiphead_order_type,
                           formatToNumber(_ti.toitem_id), _to.tohead_number,
-			  'Ship from Src to Transit Warehouse',
+			  'Receive into Transit from Src Warehouse',
 			  tc.costcat_asset_accnt_id,
 			  tc.costcat_asset_accnt_id,
 			  _itemlocSeries, _timestamp, 
