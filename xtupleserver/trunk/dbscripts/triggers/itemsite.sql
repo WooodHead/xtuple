@@ -299,6 +299,15 @@ BEGIN
         _state := _state + 4;
       END IF;
 
+      IF (_state IN (41, 43, 14, 34, 24, 42, 44)) THEN
+        -- Check for Reservations
+        IF (SELECT COUNT(*) > 0
+            FROM itemloc JOIN itemlocrsrv ON (itemlocrsrv_itemloc_id=itemloc_id)
+            WHERE (itemloc_itemsite_id=OLD.itemsite_id)) THEN
+          RAISE EXCEPTION 'Sales Order Reservations by Location exist for this Item Site';
+        END IF;
+      END IF;
+
       IF (_state IN (41, 43)) THEN
         PERFORM consolidateLotSerial(OLD.itemsite_id);
       ELSIF (_state IN (14, 34)) THEN
