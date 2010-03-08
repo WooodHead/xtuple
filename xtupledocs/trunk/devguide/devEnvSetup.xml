@@ -1183,17 +1183,16 @@ make
       <section os="macosx">
         <title>Macintosh</title>
 
-        <para>If you are building xTuple ERP versions 3.4.0 and earlier and
-        you are <emphasis>not</emphasis> making a universal binary, edit the
+        <para>If you are building OpenRPT versions 3.1.1 and earlier and you
+        are <emphasis>not</emphasis> making a universal binary, edit the
         <filename>global.pri</filename> file and remove the processor entry,
         x86 or ppc, that is <emphasis>not</emphasis> applicable to your system
-        from the macx section. Do this for both OpenRPT and xTuple
-        projects.</para>
+        from the macx section.</para>
 
-        <para>In versions after 3.4.0, you need to add a special
-        <filename>macx.pri</filename> file in the top level of the xtuple
-        sources to get universal binaries. Add a line that looks like
-        this:<programlisting>CONFIG += ppc x86</programlisting></para>
+        <para>In versions 3.1.2 and later (specifically tags after R3_1_2DEV2)
+        you need to add a special <filename>macx.pri</filename> file in the
+        top level of the openrpt sources to get universal binaries. Add a line
+        that looks something like this:<programlisting>CONFIG += ppc x86 x86_64</programlisting></para>
 
         <para userlevel="installfrompkg">By default the qmake that comes with
         Qt binary installations try to create Xcode project files instead of
@@ -1266,6 +1265,19 @@ ECHO *** END ***</programlisting>
 
       <section os="macosx">
         <title>Macintosh</title>
+
+        <para>If you are building xTuple ERP versions 3.4.0 and earlier and
+        you are <emphasis>not</emphasis> making a universal binary, edit the
+        <filename>global.pri</filename> file and remove the processor entry,
+        x86 or ppc, that is <emphasis>not</emphasis> applicable to your system
+        from the macx section.</para>
+
+        <para>In versions after 3.4.0, you need to add a special
+        <filename>macx.pri</filename> file in the top level of the xtuple
+        sources to get universal binaries. Add a line that looks like
+        this:<programlisting>CONFIG += ppc x86 x86_64</programlisting>The
+        exact text will differ depending on the architectures you want to
+        build for and the way PostgreSQL and Qt were built.</para>
 
         <para userlevel="installfrompkg">By default the qmake that comes with
         Qt binary installations try to create Xcode project files instead of
