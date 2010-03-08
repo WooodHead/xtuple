@@ -9,6 +9,7 @@ DECLARE
   _amount NUMERIC;
   _applyAmount NUMERIC;
   _discount NUMERIC;
+  _docDate DATE;
   _r RECORD;
 
 BEGIN
@@ -19,10 +20,12 @@ BEGIN
   DELETE FROM cashrcptitem WHERE ((cashrcptitem_cashrcpt_id=pCashrcptId) AND (cashrcptitem_aropen_id=pAropenId));
 
 --  Find the balance to apply
-  SELECT (pAmount - (COALESCE(SUM(cashrcptitem_amount), 0) + COALESCE(SUM(cashrcptitem_discount), 0)) )INTO _amount
+  SELECT (pAmount - (COALESCE(SUM(cashrcptitem_amount), 0) + COALESCE(SUM(cashrcptitem_discount), 0)) ),
+    COALESCE(cashrcpt_docdate, current_date)
+    INTO _amount, _docDate
   FROM cashrcpt LEFT OUTER JOIN cashrcptitem ON (cashrcptitem_cashrcpt_id = cashrcpt_id)
   WHERE (cashrcpt_id=pCashrcptid)
-  GROUP BY cashrcpt_curr_id, cashrcpt_distdate;
+  GROUP BY cashrcpt_curr_id, cashrcpt_distdate, cashrcpt_docdate;
 
   SELECT (_amount - COALESCE(SUM(cashrcptmisc_amount), 0)) INTO _amount
   FROM cashrcptmisc
@@ -50,7 +53,7 @@ BEGIN
             
 --  Determine Max Discount as per Terms
   SELECT  noNeg(_balance * 
-          CASE WHEN (CURRENT_DATE <= (aropen_docdate + terms_discdays)) THEN terms_discprcnt 
+          CASE WHEN (_docDate <= (aropen_docdate + terms_discdays)) THEN terms_discprcnt 
           ELSE 0.00 END - applied) INTO _discount
   FROM aropen LEFT OUTER JOIN terms ON (aropen_terms_id=terms_id), 
        (SELECT COALESCE(SUM(arapply_applied), 0.00) AS applied  
