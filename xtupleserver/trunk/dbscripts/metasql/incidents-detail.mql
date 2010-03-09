@@ -65,6 +65,5 @@ FROM comment
 WHERE((comment_source='INCDT')
 AND (comment_text ~* <? value("pattern") ?>)))))
 <? endif ?>
-AND (incdt_timestamp BETWEEN <? value("startDate") ?> 
-AND <? value("endDate")?> ) 
+AND (incdt_timestamp BETWEEN <? value("startDate") ?> AND DATE <? value("endDate") ?>+1) 
 ORDER BY incdt_number;
