@@ -11,6 +11,7 @@ DECLARE
   _totalDays INTEGER;
   _reorderLevel NUMERIC;
   _averageUsage NUMERIC;
+  _result	TEXT;
 
 BEGIN
 
@@ -39,6 +40,11 @@ BEGIN
   IF (_totalDays > 0) THEN
     _reorderLevel := round(_totalUsage / _totalDays * pDays);
 
+    SELECT itemsite_stocked INTO _result from itemsite WHERE (itemsite_id=pItemsiteIds[_icursor]);
+    IF (_reorderLevel = 0 AND _result='t') THEN
+      _reorderLevel := 1;
+    END IF;
+    
     IF (_reorderLevel > 0) THEN
       UPDATE itemsite
       SET itemsite_reorderlevel = _reorderLevel
@@ -55,7 +61,7 @@ BEGIN
   END IF;
 
 END;
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION updateReorderLevel(INTEGER[], INTEGER, BOOLEAN, INTEGER[]) RETURNS SETOF reordlvl AS $$
 DECLARE
@@ -68,6 +74,7 @@ DECLARE
   _totalUsage 		NUMERIC := 0;
   _totalDays 		INTEGER := 0;
   _reorderLevel 	NUMERIC := 0;
+  _result		TEXT;
   _usage		NUMERIC;
   _averageUsage 	NUMERIC;
   _row reordlvl		%ROWTYPE;
@@ -137,6 +144,11 @@ BEGIN
         _reorderLevel := 0;
       END IF;
 
+      SELECT itemsite_stocked INTO _result from itemsite WHERE (itemsite_id=pItemsiteIds[_icursor]);
+      IF (_reorderLevel = 0 AND _result='t') THEN
+        _reorderLevel := 1;
+      END IF;
+
       -- Set values
       _row.reordlvl_total_days		:= _totalDays;
       _row.reordlvl_total_usage	:= _totalUsage;
@@ -154,4 +166,5 @@ BEGIN
 
   RETURN;
 END;
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE 'plpgsql';
+
