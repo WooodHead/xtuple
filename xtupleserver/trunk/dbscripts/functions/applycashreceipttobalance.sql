@@ -16,6 +16,7 @@ DECLARE
   _amount NUMERIC;
   _applyAmount NUMERIC;
   _discount NUMERIC;
+  _discprct NUMERIC;
   _docDate DATE;
   _r RECORD;
 
@@ -68,9 +69,11 @@ BEGIN
             ORDER BY aropen_duedate, aropen_amount, balance LOOP
 
 --  Determine Max Discount as per Terms
-    SELECT  noNeg(_r.balance * 
+    SELECT  round(noNeg(_r.balance * 
             CASE WHEN (_docDate <= (aropen_docdate + terms_discdays)) THEN terms_discprcnt 
-            ELSE 0.00 END - applied),  terms_discprcnt  INTO _discount
+            ELSE 0.00 END - applied),2),
+            CASE WHEN (_docDate <= (aropen_docdate + terms_discdays)) THEN terms_discprcnt 
+            ELSE 0.00 END INTO _discount, _discprct
             FROM aropen LEFT OUTER JOIN terms ON (aropen_terms_id=terms_id), 
                  (SELECT COALESCE(SUM(arapply_applied), 0.00) AS applied  
 		          FROM arapply, aropen 
@@ -84,7 +87,7 @@ BEGIN
     IF (_r.balance <= _amount + _discount) THEN
       _applyAmount := _r.balance - _discount;
     ELSE
-      _discount := _discount * (_amount / _r.balance);
+      _discount := round((_amount / (1 - _discprct)) - _amount, 2);
       _applyAmount := _amount;
     END IF;
 
