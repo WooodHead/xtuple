@@ -1,4 +1,5 @@
-CREATE OR REPLACE FUNCTION formatBooSeq(INTEGER, INTEGER) RETURNS TEXT AS '
+
+CREATE OR REPLACE FUNCTION formatBooSeq(INTEGER, INTEGER) RETURNS TEXT AS $$
 DECLARE
   pItemid ALIAS FOR $1;
   pBooitemSeqId ALIAS FOR $2;
@@ -6,9 +7,9 @@ DECLARE
   
 BEGIN
 
-  IF (fetchMetricBool(''Routings'')) THEN
+  IF (fetchMetricBool('Routings')) THEN
     SELECT booitem_seqnumber::text INTO _result
-    FROM booitem(pItemid)
+    FROM xtmfg.booitem(pItemid)
     WHERE (booitem_seq_id=pBooitemSeqId);
 
     RETURN _result;
@@ -17,4 +18,5 @@ BEGIN
   END IF;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
+
