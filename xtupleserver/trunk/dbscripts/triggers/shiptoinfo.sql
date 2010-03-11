@@ -30,14 +30,14 @@ BEGIN
                                ( NEW.shipto_name || ': Ship To ShipVia Changed from "' || COALESCE(OLD.shipto_shipvia, '') ||
                                  '" to "' || COALESCE(NEW.shipto_shipvia, '') || '"' ) );
         END IF;
-        IF (OLD.shipto_taxzone_id <> NEW.shipto_taxzone_id) THEN
+        IF (COALESCE(OLD.shipto_taxzone_id, -1) <> COALESCE(NEW.shipto_taxzone_id, -1)) THEN
           PERFORM postComment( _cmnttypeid, 'C', NEW.shipto_cust_id,
-                               ( NEW.shipto_name || ': Ship To Tax Zone Changed from "' || (SELECT taxzone_code
+                               ( NEW.shipto_name || ': Ship To Tax Zone Changed from "' || COALESCE((SELECT taxzone_code
                                                                                             FROM taxzone
-                                                                                            WHERE taxzone_id=OLD.shipto_taxzone_id) ||
-                                 '" to "' || (SELECT taxzone_code
+                                                                                            WHERE taxzone_id=OLD.shipto_taxzone_id), 'None') ||
+                                 '" to "' || COALESCE((SELECT taxzone_code
                                               FROM taxzone
-                                              WHERE taxzone_id=NEW.shipto_taxzone_id) || '"' ) );
+                                              WHERE taxzone_id=NEW.shipto_taxzone_id), 'None') || '"' ) );
         END IF;
         IF (OLD.shipto_shipzone_id <> NEW.shipto_shipzone_id) THEN
           PERFORM postComment( _cmnttypeid, 'C', NEW.shipto_cust_id,
