@@ -7,7 +7,7 @@ SELECT * FROM (
     SELECT addr.*, COALESCE(crmacct_id,-1) AS crmacct_id, crmacct_number, crmacct_name 
     FROM addr 
     LEFT OUTER JOIN cntct ON (cntct_addr_id=addr_id) 
-    LEFT OUTER JOIN crmacct ON (crmacct_id=cntct_addr_id) 
+    LEFT OUTER JOIN crmacct ON (crmacct_id=cntct_crmacct_id) 
     -- Exclude addresses tied directly to crm accounts 
     -- that will be included in UNION below later
     EXCEPT 
