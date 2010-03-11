@@ -22,4 +22,5 @@ WHERE ( (ipshead_id NOT IN (
 <? if not exists("showCurrent") ?>
   AND (CURRENT_DATE NOT BETWEEN ipshead_effective AND ipshead_expires -1)
 <? endif ?>
- );
+ )
+ORDER BY ipshead_effective, ipshead_name;
