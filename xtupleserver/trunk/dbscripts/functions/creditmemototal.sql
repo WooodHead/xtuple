@@ -12,11 +12,11 @@ BEGIN
              FROM cmitem
             WHERE (cmitem_cmhead_id=pCreditmemoId)
            ) +
-         ( SELECT COALESCE(SUM(taxhist_tax),0.0) 
+         ( SELECT COALESCE(SUM(taxhist_tax * -1.0),0.0) 
              FROM cmheadtax
             WHERE (taxhist_parent_id=pCreditmemoId)
            ) +
-         ( SELECT COALESCE(SUM(-taxhist_tax), 0.0) 
+         ( SELECT COALESCE(SUM(taxhist_tax * -1.0), 0.0) 
              FROM cmitemtax
                JOIN cmitem ON (cmitem_id=taxhist_parent_id)
             WHERE (cmitem_cmhead_id=pCreditmemoId)
