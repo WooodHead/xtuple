@@ -18,7 +18,7 @@ DECLARE
   _includepkgweight BOOLEAN := FALSE;
   _freight RECORD;
   _qry TEXT;
-  _debug BOOLEAN := false;
+  _debug BOOLEAN := true;
 BEGIN
   IF (_debug) THEN
     RAISE NOTICE 'pOrderType = %', pOrderType;
@@ -151,7 +151,8 @@ BEGIN
     AND   ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=_weights.item_freightclass_id))
     AND   ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=_order.shipzone_id))
     AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=_order.shipvia))
-    AND   (CURRENT_DATE BETWEEN sale_startdate AND sale_enddate) )
+    AND   (CURRENT_DATE BETWEEN sale_startdate AND sale_enddate)
+    AND   (_order.cust_id IS NOT NULL) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
 
