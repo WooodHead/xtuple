@@ -1,12 +1,12 @@
-CREATE OR REPLACE FUNCTION _imageassTrigger () RETURNS TRIGGER AS $$
+CREATE OR REPLACE FUNCTION _docassTrigger () RETURNS TRIGGER AS $$
 BEGIN
-  IF (NEW.imageass_source = 'INCDT') THEN
-    UPDATE incdt SET incdt_updated = now() WHERE incdt_id = NEW.imageass_source_id;
+  IF (NEW.docass_source_type = 'INCDT') THEN
+    UPDATE incdt SET incdt_updated = now() WHERE incdt_id = NEW.docass_source_id;
   END IF;
 
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
 
-SELECT dropifexists('TRIGGER' ,'imageassTrigger');
-CREATE TRIGGER imageassTrigger AFTER INSERT OR UPDATE ON imageass FOR EACH ROW EXECUTE PROCEDURE _imageassTrigger();
+SELECT dropifexists('TRIGGER' ,'docassTrigger');
+CREATE TRIGGER docassTrigger AFTER INSERT OR UPDATE ON docass FOR EACH ROW EXECUTE PROCEDURE _docassTrigger();
