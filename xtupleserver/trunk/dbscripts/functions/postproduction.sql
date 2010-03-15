@@ -107,6 +107,39 @@ BEGIN
    AND (itemsite_item_id=item_id)
    AND (wo_id=pWoid));
 
+--  ROB Increase this W/O's WIP value for custom costing
+  UPDATE wo
+  SET wo_wipvalue = (wo_wipvalue + (itemcost_stdcost * _parentQty)) 
+FROM costelem, itemcost, costcat, itemsite, item
+WHERE 
+  ((wo_id=pWoid) AND
+  (wo_itemsite_id=itemsite_id) AND
+  (itemsite_item_id=item_id) AND
+  (costelem_id = itemcost_costelem_id) AND
+  (itemcost_item_id = itemsite_item_id) AND
+  (itemsite_costcat_id = costcat_id) AND
+  (costelem_exp_accnt_id) IS NOT NULL  AND 
+  (costelem_sys = false));
+
+--  ROB Distribute to G/L - create Cost Variance, debit WIP
+  PERFORM insertGLTransaction( 'W/O', 'WO', _woNumber,
+                               ('Post Other Cost ' || item_number || ' ' || _sense || ' Manufacturing'),
+                               costelem_exp_accnt_id, costcat_wip_accnt_id, _invhistid,
+			       (itemcost_stdcost * _parentQty),
+                               CURRENT_DATE )
+FROM wo, costelem, itemcost, costcat, itemsite, item
+WHERE 
+  ((wo_id=pWoid) AND
+  (wo_itemsite_id=itemsite_id) AND
+  (itemsite_item_id=item_id) AND
+  (costelem_id = itemcost_costelem_id) AND
+  (itemcost_item_id = itemsite_item_id) AND
+  (itemsite_costcat_id = costcat_id) AND
+  (costelem_exp_accnt_id) IS NOT NULL  AND 
+  (costelem_sys = false));
+--End
+
+
 --  Make sure the W/O is at issue status
   UPDATE wo
   SET wo_status='I'
