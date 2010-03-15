@@ -99,6 +99,24 @@ BEGIN
     _machineOverheadCost := 0;
   END IF;
 
+
+--  ROB Distribute to G/L - create Misc Labor Cost
+  PERFORM insertGLTransaction( 'W/O', 'WO', 'Misc.',
+                               ('Post Other Cost to Misc. Production for Item Number ' || _p.item_number),
+                               costelem_exp_accnt_id, costcat_wip_accnt_id, _invhistid,
+			       (itemcost_stdcost * _parentQty - _laborAndOverheadCost - _machineOverheadCost - _componentCost),
+                               CURRENT_DATE )
+FROM costelem, itemcost, costcat, itemsite
+WHERE 
+  ((itemsite_id=pItemsiteid) AND
+  (costelem_id = itemcost_costelem_id) AND
+  (itemcost_item_id = itemsite_item_id) AND
+  (itemsite_costcat_id = costcat_id) AND
+  (costelem_exp_accnt_id) IS NOT NULL  AND 
+  (costelem_sys = false));
+
+
+
 --  Distribute to G/L - create Cost Variance, debit WIP
   PERFORM insertGLTransaction( 'W/O', 'WO', 'Misc.',
                                ('Cost Variance of Post to Misc. Production for Item Number ' || _p.item_number),
