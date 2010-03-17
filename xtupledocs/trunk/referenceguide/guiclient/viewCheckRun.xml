@@ -91,7 +91,7 @@
             <term><indexterm significance="normal">
                 <primary>check runs</primary>
                 <secondary>printing of</secondary>
-              </indexterm> <indexterm significance="normal">
+              </indexterm><indexterm significance="normal">
                 <primary>checks</primary>
                 <secondary>printing multiple</secondary>
               </indexterm>Check Run</term>
@@ -113,13 +113,21 @@
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>checks</primary>
-          <secondary>posting individual</secondary>
+          <secondary>posting of</secondary>
         </indexterm>POST</term>
       <listitem>
         <para>Highlight a Check in the list of Checks and then select this
         button to post the Check. A Check must be printed before it can be
         posted. See the "Printed" column in the display to determine a Check's
-        printed status.</para>
+        printed status. The following additional option is
+        provided:<variablelist>
+            <varlistentry>
+              <term>POST ALL</term>
+              <listitem>
+                <para>Select to post all Checks available for posting.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist></para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -162,7 +170,7 @@
       <term><indexterm significance="normal">
           <primary>checks</primary>
           <secondary>replacing in check run</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>check runs</primary>
           <secondary>replacing checks in</secondary>
         </indexterm>REPLACE</term>
