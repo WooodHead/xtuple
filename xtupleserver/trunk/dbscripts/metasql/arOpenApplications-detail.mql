@@ -6,11 +6,9 @@ SELECT *,
        'curr' AS balance_xtnumericrole,
        'curr' AS applied_xtnumericrole,
        'curr' AS pending_xtnumericrole,
+       CASE WHEN (pending - applied - discount > balance) 
 <? if exists("cashrcpt_id") ?>
-       CASE WHEN (pending - currtobase(cashrcpt_curr_id, applied, cashrcpt_distdate) - discount > balance) 
        AND NOT cashrcpt_posted
-<? else ?>
-       CASE WHEN (pending - applied_base - discount > balance) 
 <? endif ?>  
        THEN 'error' END AS qtforegroundrole
 FROM (SELECT
@@ -18,8 +16,6 @@ FROM (SELECT
 <? if exists("cashrcpt_id") ?>
        COALESCE(s.cashrcptitem_id, -1) AS alt_id,
        COALESCE(cashrcpt_posted,FALSE) AS cashrcpt_posted,
-       cashrcpt_curr_id,
-       cashrcpt_distdate,
 <? endif ?>
        CASE WHEN (aropen_doctype='D') THEN <? value("debitMemo") ?>
             WHEN (aropen_doctype='I') THEN <? value("invoice") ?>
