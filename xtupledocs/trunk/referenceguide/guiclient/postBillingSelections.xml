@@ -4,36 +4,34 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section600014">
   <title><indexterm significance="normal">
-      <primary>billing selections</primary>
-      <secondary>posting of</secondary>
-    </indexterm>Post Billing Selections</title>
-  <para>To create an Invoice, an Order selected for billing must first be
-  posted. Once the Order selected for billing is posted, an Invoice for that
-  selected Order is created. To post Orders selected for billing in batch
-  mode, select the "Post Billing Selections" option. The following screen will
+      <primary>invoices</primary>
+      <secondary>creation of</secondary>
+    </indexterm>Create Invoices</title>
+  <para>Invoices are created from Sales Orders that have been selected for
+  billing. To create Invoices for Orders which have been selected for billing,
+  choose the "Create Invoices" option. The following screen will
   appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/postBillingSelections.png" />
         </imageobject>
-        <caption>Post Billing Selections</caption>
+        <caption>Create Invoices</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When posting billing selections, you are presented with the following
+  <para>When creating Invoices, you are presented with the following
   options:</para>
   <variablelist>
     <varlistentry>
       <term>All Customer Types</term>
       <listitem>
-        <para>Select to post billing selections for all Customer Types.</para>
+        <para>Select to create Invoices for all Customer Types.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Selected</term>
       <listitem>
-        <para>Specify Customer Type whose billing selections you want to
-        post.</para>
+        <para>Specify Customer Type whose Invoices you want to create.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -67,17 +65,15 @@
     <varlistentry>
       <term>CANCEL</term>
       <listitem>
-        <para>Closes the screen without posting billing selections, returning
-        you to the application desktop.</para>
+        <para>Closes the screen without creating Invoices, returning you to
+        the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>POST</term>
+      <term>CREATE INVOICES</term>
       <listitem>
-        <para>Select this button to post all Orders selected for
-        billing.</para>
-        <para>When Orders selected for billing are posted, Invoices are
-        created for the billing selections.</para>
+        <para>Select this button to create Invoices for all Orders selected
+        for billing.</para>
       </listitem>
     </varlistentry>
   </variablelist>
