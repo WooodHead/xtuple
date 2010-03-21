@@ -196,7 +196,7 @@ SELECT aropen_id AS id,
          END
        END AS doctype_qtforegroundrole,
        aropen_amount AS amount,
-       ((COALESCE(SUM(arapply_target_paid),0)) *
+       (aropen_paid + (COALESCE(SUM(arapply_target_paid),0)) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) AS paid,
         (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0))) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) AS balance,
@@ -242,7 +242,7 @@ FROM aropen
                                    AND (aropen_doctype='C'))
             LEFT OUTER JOIN arapply ON (((aropen_id=arapply_source_aropen_id)
                              OR (aropen_id=arapply_target_aropen_id))
-                             AND (arapply_distdate <= COALESCE(<? value("asofDate") ?>,current_date)))
+                             AND (arapply_distdate>COALESCE(<? value("asofDate") ?>,current_date)))
             LEFT OUTER JOIN payaropen ON (payaropen_aropen_id=aropen_id)
             LEFT OUTER JOIN ccpay     ON (payaropen_ccpay_id=ccpay_id)
             LEFT OUTER JOIN ccard     ON (ccpay_ccard_id=ccard_id)
