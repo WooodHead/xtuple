@@ -222,13 +222,13 @@
         application modules are included in the list.</para>
         <tip>
           <para>You can dramatically speed up the process of adding new users
-          by adding privileges by user group.</para>
+          by adding privileges by user role.</para>
         </tip>
         <note>
           <para>If individual user privileges appear to be disabled, that
-          means the user is assigned to a user group. The only way to change
+          means the user is assigned to a user role. The only way to change
           individual privileges in this case is to remove the user from the
-          group.</para>
+          role.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -302,37 +302,37 @@
     </varlistentry>
   </variablelist>
   <para>While you may assign individual privileges by user, you also have the
-  option to add user privileges by user group. Adding user privileges by user
-  group can dramatically speed up the process of adding new users. You can
-  learn more about user groups here <xref linkend="groupsTitle" />. To add
-  user group privileges to a user profile, select the "Groups" tab, as shown
-  in the following screen:</para>
+  option to add user privileges by user role. Adding user privileges by user
+  role can dramatically speed up the process of adding new users. You can
+  learn more about user roles here <xref linkend="groupsTitle" />. To add user
+  role privileges to a user profile, select the "Roles" tab, as shown in the
+  following screen:</para>
   <para><mediaobject>
       <imageobject>
         <imagedata fileref="images/user_groupTab.png" />
       </imageobject>
-      <caption>User Group Information</caption>
-    </mediaobject>When adding user group privileges to a user profile, you are
+      <caption>User Role Information</caption>
+    </mediaobject>When adding user role privileges to a user profile, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Available Groups</term>
+      <term>Available Roles</term>
       <listitem>
-        <para>Select an available user group from the list. To grant user
-        group privileges to a user, highlight an available group and then
-        click the ADD button. The highlighted group will be added to the
-        user's list of granted groups. Double-clicking on a group will also
-        move it to the granted groups column.</para>
+        <para>Select an available user role from the list. To grant user role
+        privileges to a user, highlight an available role and then click the
+        ADD button. The highlighted role will be added to the user's list of
+        granted roles. Double-clicking on a role will also move it to the
+        granted roles column.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Granted Groups</term>
+      <term>Granted Roles</term>
       <listitem>
-        <para>Displays granted groups for the specified user. To remove a
-        granted group from the user, highlight a granted group and then click
-        the REVOKE button. The highlighted group will be removed from the
-        user's list of granted groups. Double-clicking on a group will also
-        remove it from the granted groups column.</para>
+        <para>Displays granted roles for the specified user. To remove a
+        granted role from the user, highlight a granted role and then click
+        the REVOKE button. The highlighted role will be removed from the
+        user's list of granted roles. Double-clicking on a role will also
+        remove it from the granted roles column.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -342,19 +342,19 @@
     <varlistentry>
       <term>ADD-&gt;</term>
       <listitem>
-        <para>Highlight a specific group in the available groups column, then
-        select this button to transfer the group to the granted groups column.
-        Double-clicking on an available group will also transfer it to the
-        granted groups column.</para>
+        <para>Highlight a specific role in the available roles column, then
+        select this button to transfer the role to the granted roles column.
+        Double-clicking on an available role will also transfer it to the
+        granted roles column.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>&lt;-REVOKE</term>
       <listitem>
-        <para>Highlight a specific group in the granted groups column, then
-        select this button to remove the group from the granted groups column.
-        Double-clicking on a granted group will also remove it from the
-        granted groups column.</para>
+        <para>Highlight a specific role in the granted roles column, then
+        select this button to remove the role from the granted roles column.
+        Double-clicking on a granted role will also remove it from the granted
+        roles column.</para>
       </listitem>
     </varlistentry>
   </variablelist>
