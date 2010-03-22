@@ -37,7 +37,7 @@ SELECT ccpay_id AS id,
          ON (payco_ccpay_id=ccpay_id)
       JOIN cust ON (ccpay_cust_id=cust_id)
       JOIN custtype ON (cust_custtype_id=custtype_id)
-      JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
+      LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
   WHERE ((true)
 <? if exists("processed") ?>
   AND (ccpay_status != 'A')
