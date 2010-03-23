@@ -60,7 +60,7 @@
       <term><indexterm significance="normal">
           <primary>pack dates</primary>
           <secondary>for quotes</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>quotes</primary>
           <secondary>pack dates for</secondary>
         </indexterm>Pack Date</term>
@@ -85,7 +85,7 @@
       <term><indexterm significance="normal">
           <primary>sales representatives</primary>
           <secondary>commissions for</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>quotes</primary>
           <secondary>commissions on</secondary>
         </indexterm>Sales Rep.</term>
@@ -183,18 +183,20 @@
     <varlistentry>
       <term>Customer #</term>
       <listitem>
-        <para>Enter the Customer Number of the Customer to be billed for the
-        sale. The browse button located to the right of the field leads to a
-        searchable Customers list. You may also access this list using the
-        keyboard shortcut "CTRL + L". Once a Customer Number is entered, the
-        Customer name and billing address will display. Select the "?" or "$"
-        symbol next to the browse button to view Customer information for the
-        specified Customer. If a Customer's credit is "In Good Standing," the
-        button will feature a black question mark ("?") icon. If the icon
-        turns to an orange dollar sign ("$"), the Customer's credit Status is
-        "On Credit Warning." A red dollar sign ("$") indicates the Customer's
-        credit Status is "On Credit Hold." You may also create a new Customer
-        record by selecting the "+" button.</para>
+        <para>Enter the Customer Number of the Customer (or Prospect) to be
+        billed for the sale. The browse button located to the right of the
+        field leads to a searchable Customers list. The browse button will be
+        disabled if the Quote is entered for a Prospect. You may also access
+        the Customer list using the keyboard shortcut "CTRL + L". Once a
+        Customer Number is entered, the Customer name and billing address will
+        display. Select the "?" or "$" symbol next to the browse button to
+        view Customer information for the specified Customer. If a Customer's
+        credit is "In Good Standing," the button will feature a black question
+        mark ("?") icon. If the icon turns to an orange dollar sign ("$"), the
+        Customer's credit Status is "On Credit Warning." A red dollar sign
+        ("$") indicates the Customer's credit Status is "On Credit Hold." You
+        may also create a new Customer record by selecting the "+"
+        button.</para>
         <tip>
           <para>A valid Customer Number must be entered in the "Customer #"
           field before Line Items can be added to a Quote. If no valid
