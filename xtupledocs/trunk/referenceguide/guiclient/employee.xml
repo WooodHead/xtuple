@@ -115,27 +115,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Type</term>
-      <listitem>
-        <para>Specify whether the Employee is paid hourly or on a salary
-        basis.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Rate</term>
-      <listitem>
-        <para>Specify the Employee's compensation rate.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Per</term>
-      <listitem>
-        <para>Specify the period of time corresponding to the Employee's pay
-        rate. The following options are available: Hour, Day, Week, Bi-Weekly,
-        Year</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>User</term>
       <listitem>
         <para>If you have the ability to create new xTuple ERP system users,
@@ -158,8 +137,44 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Notes to an Employee, select the "Notes" tab. The following
-  screen will appear:</para>
+  <para>To view financial information related to an Employee, select the
+  "Financial" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/employee_financialTab.png" />
+        </imageobject>
+        <caption>Employee Financial Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing financial information related to an Employee, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Specify whether the Employee is paid hourly or on a salary
+        basis.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Compensation</term>
+      <listitem>
+        <para>Enter the amount of the Employee's compensation. The amount may
+        be specified per hour, day, week, bi-weekly, or year.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>External Billing Rate</term>
+      <listitem>
+        <para>Enter the rate used when billing Customers for the Employee's
+        time. The rate may be specified per hour, day, week, bi-weekly, or
+        year.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Notes to an Employee record, select the "Notes" tab. The
+  following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
