@@ -58,31 +58,48 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>All</term>
+      <term>All Materials</term>
       <listitem>
-        <para>Select to include all availability, including Items showing
-        shortages and insufficient Inventory</para>
+        <para>Select to include all Inventory availability, including Items
+        showing shortages and insufficient Inventory</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Shortages</term>
       <listitem>
-        <para>Select to only include Items having shortages in the
-        display.</para>
+        <para>Select to include only Inventory which is short in the display.
+        Inventory is considered short if its Availability is negative</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Insufficient Inventory</term>
       <listitem>
-        <para>Select to only include Items having insufficient Inventory in
-        the display.</para>
+        <para>Select to include only Inventory having insufficient Inventory
+        in the display. Inventory is considered insufficient if existing
+        Quantity on Hand will not meet the specified demand; however,
+        replenishment orders do exist in the system―and, once these
+        replenishment orders are received, the demand will be satisfied.
+        Insufficient Inventory has positive Availability.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Child Work Orders</term>
+      <term>Parent Work Order Only</term>
       <listitem>
-        <para>Select to include child Work Orders for any subassemblies in the
-        display.</para>
+        <para>Select to include only parent Work Orders in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Summarized Parent/Child Work Orders</term>
+      <listitem>
+        <para>Select to include a summarized view of materials for all related
+        Work Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Indented Work Orders</term>
+      <listitem>
+        <para>Select to show child Work Orders as nested in an indented list
+        below the parent Work Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
