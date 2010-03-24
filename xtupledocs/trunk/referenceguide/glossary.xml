@@ -1023,6 +1023,23 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
+        <primary>insufficient inventory</primary>
+        <secondary>defined</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>inventory</primary>
+        <secondary>insufficiency defined</secondary>
+      </indexterm>insufficient Inventory</glossterm>
+    <glossdef>
+      <para>Inventory is considered insufficient if existing Quantity on Hand
+      will not meet the specified demand; however, replenishment orders do
+      exist in the system―and, once these replenishment orders are received,
+      the demand will be satisfied. Insufficient Inventory will have positive
+      Availability, distinguishing it from short Inventory, whose Availability
+      is negative.</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
+    <glossterm><indexterm significance="normal">
         <primary>inventory</primary>
         <secondary>defined</secondary>
       </indexterm>Inventory</glossterm>
@@ -2192,7 +2209,7 @@
         <secondary>shortage defined</secondary>
       </indexterm>shortage</glossterm>
     <glossdef>
-      <para>A term used to describe Inventory quantity whose Availability is
+      <para>A term used to describe Inventory whose Availability is
       negative.</para>
     </glossdef>
   </glossentry>
