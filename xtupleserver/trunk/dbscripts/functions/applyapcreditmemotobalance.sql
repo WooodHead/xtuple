@@ -89,7 +89,7 @@ BEGIN
 --  Update the apcreditapply with the new amount to apply
       UPDATE apcreditapply
       SET apcreditapply_amount = (apcreditapply_amount + 
-          _applyAmount *  currRate(apcreditapply_curr_id) / _curr_rate)
+          _applyAmount *  currRate(apcreditapply_curr_id,_docdate) / _curr_rate)
       WHERE (apcreditapply_id=_p.apcreditapply_id);
 
     ELSE
