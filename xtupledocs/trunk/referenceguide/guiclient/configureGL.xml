@@ -304,10 +304,10 @@
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
-      <term>Enable ACH Check Printing</term>
+      <term>Enable EFT Check Printing</term>
       <listitem>
-        <para>Select to enable Automated Check Clearinghouse (ACH), which is
-        automated electronic funds transfer and clearing.</para>
+        <para>Select to enable Electronic Funds Transfer (EFT) capability
+        within the Accounts Payable module.</para>
         <variablelist>
           <varlistentry>
             <term>Next Batch #</term>
@@ -356,10 +356,83 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Default File Suffix</term>
+            <term>Select an EFT Format</term>
             <listitem>
-              <para>Specifies file format used for check printing based on
-              items in drop down list.</para>
+              <para>The following information is shown for each of the
+              possible EFT formats: default suffix, routing number format,
+              account number format, and formatting procedure.</para>
+              <variablelist>
+                <varlistentry>
+                  <term>ACH</term>
+                  <listitem>
+                    <para></para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>ABA</term>
+                  <listitem>
+                    <para></para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Custom</term>
+                  <listitem>
+                    <para>The following custom suffixes are allowed:</para>
+                    <variablelist>
+                      <varlistentry>
+                        <term>.aba</term>
+                        <listitem>
+                          <para></para>
+                        </listitem>
+                      </varlistentry>
+                      <varlistentry>
+                        <term>.ach</term>
+                        <listitem>
+                          <para></para>
+                        </listitem>
+                      </varlistentry>
+                      <varlistentry>
+                        <term>.dat</term>
+                        <listitem>
+                          <para></para>
+                        </listitem>
+                      </varlistentry>
+                      <varlistentry>
+                        <term>.txt</term>
+                        <listitem>
+                          <para></para>
+                        </listitem>
+                      </varlistentry>
+                    </variablelist>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Require Vendor Invoice # on:</term>
+      <listitem>
+        <para>You have the option to specify whether you want users to be
+        required to enter a Vendor Invoice Number when they are creating
+        Vouchers.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Regular Vouchers</term>
+            <listitem>
+              <para>Select to require a Vendor Invoice Number when creating
+              Purchase Order Vouchers. If not selected, Vendor Invoice Numbers
+              will not be required.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Miscellaneous Vouchers</term>
+            <listitem>
+              <para>Select to require a Vendor Invoice Number when creating
+              Miscellaneous Vouchers. If not selected, Vendor Invoice Numbers
+              will not be required.</para>
             </listitem>
           </varlistentry>
         </variablelist>
