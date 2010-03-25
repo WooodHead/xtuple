@@ -26,7 +26,11 @@ FROM crmacct, status, incdt
 WHERE ((incdt_crmacct_id=crmacct_id)
 AND (status_type='INCDT')
 AND (incdt_status=status_code)
-<? if exists("status_equal") ?> 
+<? if exists("statuslist") ?>
+AND (status_seq IN (-1
+  <? foreach("statuslist") ?> , <? value("statuslist") ?> <? endforeach ?>
+  ))
+<? elseif exists("status_equal") ?> 
 AND (status_seq = <? value("status_equal") ?>) 
 <? endif ?>
 <? if exists("status_above") ?> 
