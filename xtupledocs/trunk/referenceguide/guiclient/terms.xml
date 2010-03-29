@@ -49,7 +49,7 @@
             <term><indexterm>
                 <primary>terms</primary>
                 <secondary>proximo as</secondary>
-              </indexterm> <indexterm>
+              </indexterm><indexterm>
                 <primary>proximo</primary>
                 <secondary>as billing term</secondary>
               </indexterm>Proximo</term>
@@ -92,12 +92,11 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para567251"><anchor id="Anchor567250" role="Index"
-      xreflabel="terms:discounting options for;discounts:terms for" />
-      <indexterm significance="normal" zone="Anchor567250">
+      <term id="Para567251"><indexterm significance="normal"
+          zone="Anchor567250">
           <primary>terms</primary>
           <secondary>discounting options for</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor567250">
+        </indexterm><indexterm significance="normal" zone="Anchor567250">
           <primary>discounts</primary>
           <secondary>terms for</secondary>
         </indexterm>Discnt. Days</term>
@@ -118,7 +117,9 @@
       <term id="Para567254">Cut-off Day</term>
       <listitem>
         <para>Specify the day of the month on or after which the due date will
-        advance to the next month.</para>
+        advance to the next month. Putting "0" in this field will enable
+        Proximo invoices to calculate properly on the first of the
+        month.</para>
       </listitem>
     </varlistentry>
   </variablelist>
