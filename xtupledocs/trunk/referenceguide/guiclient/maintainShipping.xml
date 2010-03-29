@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520522">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>shipping</primary>
       <secondary>maintaining contents at</secondary>
     </indexterm> <indexterm significance="normal">
@@ -14,17 +14,15 @@
   maintain these Shipping contents in one central location, by Site. To
   maintain Shipping contents, select the "Maintain Shipping Contents" option.
   The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/maintainShipping.png"/>
+          <imagedata fileref="images/maintainShipping.png" />
         </imageobject>
         <caption id="maintainShippingContents">Maintain Shipping
         Contents</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When maintaining Shipping contents, you are presented with the
   following options:</para>
   <variablelist>
@@ -67,12 +65,25 @@
       <listitem>
         <para>Closes the screen without maintaining Shipping contents,
         returning you to the application desktop.</para>
+        <tip>
+          <para>Before a Sales Order can be shipped successfully, Sales
+          Account and A/R Account Assignments for the specified Customer must
+          be in place.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>Before a Sales Order can be shipped successfully, Sales Account and
-    A/R Account Assignments for the specified Customer must be in
-    place.</para>
-  </tip>
 </section>
