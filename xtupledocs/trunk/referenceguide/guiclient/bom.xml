@@ -37,7 +37,7 @@
       <term><indexterm significance="normal">
           <primary>components</primary>
           <secondary>expired from BOMs</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>bills of materials</primary>
           <secondary>expired components in</secondary>
         </indexterm> <indexterm significance="normal">
@@ -54,7 +54,7 @@
       <term><indexterm significance="normal">
           <primary>components</primary>
           <secondary>adding to BOMs in future</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>bills of materials</primary>
           <secondary>adding components in future</secondary>
         </indexterm> <indexterm significance="normal">
@@ -279,6 +279,14 @@
       <listitem id="bomEXPIRE">
         <para>Highlight a component and then select this button to expire the
         Item from the Bill of Materials.</para>
+        <tip>
+          <para><indexterm significance="normal">
+              <primary>bills of materials</primary>
+              <secondary>deleting items from</secondary>
+            </indexterm>If your site is configured to allow the deletion of
+          BOM Items, you will see a "Delete" option in the right-click menu on
+          this screen.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>

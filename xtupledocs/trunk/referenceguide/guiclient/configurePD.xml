@@ -98,6 +98,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Allow deletion of Items from Bill of Material</term>
+      <listitem>
+        <para>Select if you want to globally allow users to delete Items from
+        Bills of Materials (BOMs). The delete option will be found in the
+        right-click menu on the BOM header screen. If you do not select this
+        option, users will be able to expire but not delete BOM Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Defaults</term>
       <listitem>
         <para>Specify preferences for the following defaults:</para>
@@ -135,8 +144,8 @@
                   <term>Mixed</term>
                   <listitem>
                     <para>Select to issue materials to a Work Order based on
-                    the issue method applied to the materials initially&mdash;that
-                    is, either pull or push.</para>
+                    the issue method applied to the materials
+                    initially&mdash;that is, either pull or push.</para>
                   </listitem>
                 </varlistentry>
               </variablelist>
@@ -147,9 +156,12 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>The default settings "Set Sold Items as Exclusive" and "W/O Material
-    Issue Method" only apply to newly-created Items. They cannot be used to
-    retroactively update already existing Items.</para>
+    <para><indexterm significance="normal">
+        <primary>bills of materials</primary>
+        <secondary>deleting items from</secondary>
+      </indexterm>The default settings "Set Sold Items as Exclusive" and "W/O
+    Material Issue Method" only apply to newly-created Items. They cannot be
+    used to retroactively update already existing Items.</para>
   </tip>
   <para>To the far right of the screen, the following buttons are
   available:</para>
