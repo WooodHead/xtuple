@@ -12,6 +12,9 @@ DECLARE
   _warehousid INTEGER;
   _item RECORD;
   _type TEXT;
+  _coitemid INTEGER;
+  _count INTEGER;
+  _itemsrcid INTEGER;
 BEGIN
 
   SELECT getActiveRevId('BOM',itemsite_item_id), itemsite_warehous_id, itemsite_item_id
@@ -34,7 +37,8 @@ BEGIN
          itemsite_createpr,itemsite_createwo,itemsite_createsopo,
          bomitem_uom_id,
          itemuomtouomratio(item_id, bomitem_uom_id, item_inv_uom_id) AS invuomratio,
-         roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id),(bomitem_qtyfxd + bomitem_qtyper * pQty) * (1 + bomitem_scrap)) AS qty
+         roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id),(bomitem_qtyfxd + bomitem_qtyper * pQty) * (1 + bomitem_scrap)) AS qty,
+         itemsite_createsopo, itemsite_dropship
     FROM bomitem, item LEFT OUTER JOIN itemsite ON ((itemsite_item_id=item_id) AND (itemsite_warehous_id=_warehousid))
    WHERE((bomitem_parent_item_id=_itemid)
      AND (bomitem_item_id=item_id)
@@ -51,16 +55,18 @@ BEGIN
     ELSE
       IF (_item.itemsite_createpr) THEN
         _type := 'R';
-      END IF;
-      IF (_item.itemsite_createsopo) THEN
+      ELSIF (_item.itemsite_createsopo) THEN
         _type := 'P';
-      END IF;
-      IF (_item.itemsite_createwo) THEN
+      ELSIF (_item.itemsite_createwo) THEN
         _type := 'W';
+      ELSE
+        _type := NULL;
       END IF;
       _subnumber := _subnumber + 1;
+      _coitemid = nextval('coitem_coitem_id_seq');
+      raise notice 'coitem id: %',_coitemid;
       INSERT INTO coitem
-            (coitem_cohead_id,
+            (coitem_id, coitem_cohead_id,
              coitem_linenumber, coitem_subnumber,
              coitem_itemsite_id, coitem_status,
              coitem_scheddate, coitem_promdate,
@@ -71,7 +77,7 @@ BEGIN
              coitem_order_type, coitem_order_id,
              coitem_custpn, coitem_memo,
              coitem_prcost)
-      VALUES(pSoheadid,
+      VALUES (_coitemid, pSoheadid,
              pLinenumber, _subnumber,
              _item.itemsite_id, 'O',
              CURRENT_DATE, NULL,
@@ -82,6 +88,21 @@ BEGIN
              _type, -1,
              '', '',
              0);
+            
+      IF (_item.itemsite_createsopo) THEN
+        SELECT itemsrc_id INTO _itemsrcid
+        FROM itemsrc
+        WHERE ((itemsrc_item_id=_item.item_id)
+        AND (itemsrc_default));
+
+        GET DIAGNOSTICS _count = ROW_COUNT;
+        IF (_count > 0) THEN
+          PERFORM createPurchaseToSale(_coitemid, _itemsrcid, _item.itemsite_dropship);
+        ELSE
+          RAISE EXCEPTION 'Could not explode kit.  One or more items are flagged as purchase-to-order for this site, but no default item source is defined.';
+        END IF;
+      END IF;
+     
     END IF;
   END LOOP;
 
