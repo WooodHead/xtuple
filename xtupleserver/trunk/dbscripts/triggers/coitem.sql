@@ -453,6 +453,8 @@ DECLARE
   _rec RECORD;
   _kstat TEXT;
   _pstat TEXT;
+  _result INTEGER;
+  _coitemid INTEGER;
 BEGIN
 
   IF(TG_OP = 'DELETE') THEN
@@ -513,10 +515,19 @@ BEGIN
     IF (TG_OP = 'UPDATE') THEN
       IF (NEW.coitem_qtyord <> OLD.coitem_qtyord) THEN
   -- Recreate Sub Lines for Kit Components
-        DELETE FROM coitem
-         WHERE ( (coitem_cohead_id=OLD.coitem_cohead_id)
-           AND   (coitem_linenumber=OLD.coitem_linenumber)
-           AND   (coitem_subnumber > 0) );
+      FOR _coitemid IN
+        SELECT coitem_id
+        FROM coitem
+        WHERE ( (coitem_cohead_id=OLD.coitem_cohead_id)
+          AND   (coitem_linenumber=OLD.coitem_linenumber)
+          AND   (coitem_subnumber > 0) )
+        LOOP
+          SELECT deleteSoItem(_coitemid) INTO _result;
+          IF (_result < 0) THEN
+             RAISE EXCEPTION 'Error deleting kit components: deleteSoItem(integer) Error:%', _result;
+          END IF;
+        END LOOP;
+
         PERFORM explodeKit(NEW.coitem_cohead_id, NEW.coitem_linenumber, 0, NEW.coitem_itemsite_id, NEW.coitem_qtyord);
       END IF;
       IF ( (NEW.coitem_qtyord <> OLD.coitem_qtyord) OR
@@ -547,10 +558,18 @@ BEGIN
     END IF;
     IF (TG_OP = 'DELETE') THEN
   -- Delete Sub Lines for Kit Components
-      DELETE FROM coitem
-       WHERE((coitem_cohead_id=OLD.coitem_cohead_id)
-         AND (coitem_linenumber=OLD.coitem_linenumber)
-         AND (coitem_subnumber > 0));
+     FOR _coitemid IN
+        SELECT coitem_id
+        FROM coitem
+        WHERE ( (coitem_cohead_id=OLD.coitem_cohead_id)
+          AND   (coitem_linenumber=OLD.coitem_linenumber)
+          AND   (coitem_subnumber > 0) )
+      LOOP
+        SELECT deleteSoItem(_coitemid) INTO _result;
+        IF (_result < 0) THEN
+           RAISE EXCEPTION 'Error deleting kit components: deleteSoItem(integer) Error:%', _result;
+        END IF;
+      END LOOP;
     END IF;
   END IF;
 
