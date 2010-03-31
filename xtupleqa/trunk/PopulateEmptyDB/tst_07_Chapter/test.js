@@ -26,7 +26,7 @@ function main()
         type(":_nextVcNumber_XLineEdit", "<Del>");
         type(":_nextVcNumber_XLineEdit", "30000");
         if(findObject(":_prNumberGeneration_QComboBox_2").currentText!="Automatic")
-            type(":_prNumberGeneration_QComboBox", "Automatic");
+            type(":_prNumberGeneration_QComboBox_2", "Automatic");
         type(":_nextPrNumber_XLineEdit", "<Ctrl+A>");
         type(":_nextPrNumber_XLineEdit", "<Del>");
         type(":_nextPrNumber_XLineEdit", "10000");
@@ -34,12 +34,10 @@ function main()
             clickButton(":Default P/O Copies:.Vendor_QCheckBox");
         if(findObject(":Default P/O Copies:.Internal_QCheckBox").checked)
             clickButton(":Default P/O Copies:.Internal_QCheckBox");
-       
-        if(!findObject(":Purchase Configuration.Post Purchase Order Changes to the Change Log_QCheckBox"))
+     if(!findObject(":Purchase Configuration.Post Purchase Order Changes to the Change Log_QCheckBox"))
             clickButton(":Purchase Configuration.Post Purchase Order Changes to the Change Log_QCheckBox");
         if(!findObject(":Purchase Configuration.Post Vendor Changes to the Change Log_QCheckBox"))
             clickButton(":Purchase Configuration.Post Vendor Changes to the Change Log_QCheckBox");
-      
         if(!findObject(":Purchase Configuration.Use Earliest Avail. as Due Date for Purchase Order Item_QCheckBox"))
             clickButton(":Purchase Configuration.Use Earliest Avail. as Due Date for Purchase Order Item_QCheckBox");
         if(!findObject(":Purchase Configuration.Prevent Purchase Order Items when no Std. Cost Exists_QCheckBox"))
@@ -53,9 +51,8 @@ function main()
         test.log("Purchase Module Configured");
     }catch(e){test.fail("Exception in configuring Product Module:"+e);}
     
-    //-------------Configure: Inventory Module---------------------
+  //-------------Configure: Inventory Module---------------------
     try{
- 
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
@@ -67,10 +64,10 @@ function main()
         waitForObject(":_nextShipmentNum_XLineEdit");
         findObject(":_nextShipmentNum_XLineEdit").clear();
         type(":_nextShipmentNum_XLineEdit", "10000");
-        if(findObject(":tab_2.Disallow P/O Receipt of Qty greater than ordered_QCheckBox").checked)
-            clickButton(":tab_2.Disallow P/O Receipt of Qty greater than ordered_QCheckBox");
-        if(!findObject(":tab_2.Warn if P/O Receipt Qty differs from receivable Qty_QCheckBox").checked)
-            clickButton(":tab_2.Warn if P/O Receipt Qty differs from receivable Qty_QCheckBox");
+      if(findObject(":tab_2.Disallow Purchase Order Receipt of Qty greater than ordered_QCheckBox").checked)
+            clickButton(":tab_2.Disallow Purchase Order Receipt of Qty greater than ordered_QCheckBox");
+        if(!findObject(":tab_2.Warn if Purchase Order Receipt Qty differs from receivable Qty_QCheckBox").checked)
+            clickButton(":tab_2.Warn if Purchase Order Receipt Qty differs from receivable Qty_QCheckBox");
         waitForObject(":_tolerance_QLineEdit");
         type(":_tolerance_QLineEdit", "5");
         findObject(":_shipformNumOfCopies_QSpinBox").clear();
@@ -94,7 +91,7 @@ function main()
         clickButton(":Inventory Configuration.Save_QPushButton");
         test.log("Inventory Module configured");
     }catch(e){test.log("Exception in configuring Inventory module:"+e)}
-  
+    
     //---------Configure: Accounting-Account Payble---------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -267,7 +264,7 @@ function main()
         clickButton(":List A/P Account Assignments.Close_QPushButton");
         
     }catch(e){test.fail("Exception in Assigning Accounts:"+e);}
-    
+  
     //--------------Create new Vendor-------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
@@ -287,7 +284,7 @@ function main()
         type(":_name_XLineEdit_8", "Toy Parts Inc");
         type(":_accountNumber_XLineEdit", "110022");
         if(findObject(":Default._defaultTerms_XComboBox").currentText!="2-10N30-2% Discount in 10 Days - Net 30 Days")
-            clickItem(":Default._defaultTerms_XComboBox", "2-10N30-2% Discount in 10 Days - Net 30 Days",0,0,1,Qt.LeftButton);
+         clickItem(":Default._defaultTerms_XComboBox", "2-10N30-2% Discount in 10 Days - Net 30 Days",0,0,1,Qt.LeftButton);
         clickButton(":Default FOB.Receiving Site_QRadioButton");
         if(findObject(":_settingsGroup.Sells Purchase Order Items_QCheckBox").checked)
             clickButton(":_settingsGroup.Sells Purchase Order Items_QCheckBox");
@@ -297,24 +294,6 @@ function main()
             clickButton(":_settingsGroup.Check for matching Voucher and Purchase Order amounts_QCheckBox");
         if(findObject(":_settingsGroup.May only Sell Items defined by an Item Source_QCheckBox").checked)
             clickButton(":_settingsGroup.May only Sell Items defined by an Item Source_QCheckBox");
-        clickTab(":Vendor.qt_tabwidget_tabbar_QTabBar", "Contacts");
-        waitForObject(":_contact1Box._honorific_XComboBox");
-        clickItem(":_contact1Box._honorific_XComboBox", "Mr",0,0,1,Qt.LeftButton);
-        type(":_contact1Box._first_XLineEdit", "Ramesh");
-        type(":_contact1Box._middle_XLineEdit", "K");
-        type(":_contact1Box._last_XLineEdit", "Thapar");
-        type(":_contact1Box._title_XLineEdit", "Senior Executive");
-        type(":_contact1Box._phone_XLineEdit", "124645987");
-        type(":_contact1Box._fax_XLineEdit", "435433434");
-        type(":_contact1Box._email_XLineEdit", "thappar@testing.com");
-        clickItem(":_contact2Box._honorific_XComboBox", "Miss",0,0,1,Qt.LeftButton);
-        type(":_contact2Box._first_XLineEdit", "Sunita");
-        type(":_contact2Box._middle_XLineEdit", "S");
-        type(":_contact2Box._last_XLineEdit", "Bhaglani");
-        type(":_contact2Box._title_XLineEdit", "Financial Advisor");
-        type(":_contact2Box._phone_XLineEdit", "234533534");
-        type(":_contact2Box._fax_XLineEdit", "5436735654");
-        type(":_contact2Box._email_XLineEdit", "sunita@testing.com");
         clickTab(":Vendor.qt_tabwidget_tabbar_QTabBar", "Order Notes");
         waitForObject(":ponotesTab._poComments_QTextEdit");
         type(":ponotesTab._poComments_QTextEdit", "Default Vendor Notes From Vendor Master");
@@ -355,8 +334,12 @@ function main()
         //----Item source for TBOX1--------------
         waitForObject(":_frame.New_QPushButton");
         clickButton(":_frame.New_QPushButton");
-        waitForObject(":Item Source._itemNumber_ItemLineEdit");
-        type(":Item Source._itemNumber_ItemLineEdit", "TBOX1");
+        
+        waitForObject(":List Item Sources...._QPushButton");
+        clickButton(":List Item Sources...._QPushButton");
+        waitForObject(":_listTab_XTreeWidget_6");
+        doubleClickItem(":_listTab_XTreeWidget_6","TBOX1",0,0,0,Qt.LeftButton);
+                
         waitForObject(":_vendorGroup...._QPushButton_2");
         clickButton(":_vendorGroup...._QPushButton_2");
         waitForObject(":_listTab_XTreeWidget_3");
@@ -408,8 +391,10 @@ function main()
     try{
         waitForObject(":_frame.New_QPushButton");
         clickButton(":_frame.New_QPushButton");
-        waitForObject(":Item Source._itemNumber_ItemLineEdit");
-        type(":Item Source._itemNumber_ItemLineEdit", "TBODY1");
+         waitForObject(":List Item Sources...._QPushButton");
+        clickButton(":List Item Sources...._QPushButton");
+        waitForObject(":_listTab_XTreeWidget_6");
+        doubleClickItem(":_listTab_XTreeWidget_6","TBODY1",0,0,0,Qt.LeftButton);
         waitForObject(":_vendorGroup...._QPushButton_2");
         clickButton(":_vendorGroup...._QPushButton_2");
         waitForObject(":_listTab_XTreeWidget_3");
@@ -449,11 +434,12 @@ function main()
     try{
         waitForObject(":_frame.New_QPushButton");
         clickButton(":_frame.New_QPushButton");
-        try {
-            waitForObject(":Item Source._itemNumber_ItemLineEdit");
-            type(":Item Source._itemNumber_ItemLineEdit", "TINSERT1");
+        waitForObject(":List Item Sources...._QPushButton");
+        clickButton(":List Item Sources...._QPushButton");
+        waitForObject(":_listTab_XTreeWidget_6");
+        doubleClickItem(":_listTab_XTreeWidget_6","TINSERT1",0,0,0,Qt.LeftButton);
             waitForObject(":_vendorGroup...._QPushButton_2");
-            clickButton(":_vendorGroup...._QPushButton_2");
+         clickButton(":_vendorGroup...._QPushButton_2");
             waitForObject(":_listTab_XTreeWidget_3");
             doubleClickItem(":_listTab_XTreeWidget_3","TPARTS",0,0,0,Qt.LeftButton);
             
@@ -486,25 +472,18 @@ function main()
         }
         catch (e) {
             test.fail("Exception creating item source for TINSERT1: " + e);
-            try {
-                waitForObject(":Item Source.Cancel_QPushButton");
-                clickButton(":Item Source.Cancel_QPushButton");
-            } catch(f) {
-                waitForObject(":OK_QPushButton");
-                clickButton(":OK_QPushButton");
-                waitForObject(":Item Source.Cancel_QPushButton");
-                clickButton(":Item Source.Cancel_QPushButton");
-            }
         }
-    }catch(e){test.fail("Exception in defining Item sources for TINSERT1:"+e);}
+
     
     
     //----Item source for TWHEEL1--------------
     try{
         waitForObject(":_frame.New_QPushButton");
         clickButton(":_frame.New_QPushButton");
-        waitForObject(":Item Source._itemNumber_ItemLineEdit");
-        type(":Item Source._itemNumber_ItemLineEdit", "TWHEEL1");
+        waitForObject(":List Item Sources...._QPushButton");
+        clickButton(":List Item Sources...._QPushButton");
+        waitForObject(":_listTab_XTreeWidget_6");
+        doubleClickItem(":_listTab_XTreeWidget_6","TWHEEL1",0,0,0,Qt.LeftButton);
         waitForObject(":_vendorGroup...._QPushButton_2");
         clickButton(":_vendorGroup...._QPushButton_2");
         waitForObject(":_listTab_XTreeWidget_3");
@@ -542,8 +521,11 @@ function main()
     try{
         waitForObject(":_frame.New_QPushButton");
         clickButton(":_frame.New_QPushButton");
-        waitForObject(":Item Source._itemNumber_ItemLineEdit");
-        type(":Item Source._itemNumber_ItemLineEdit", "YPAINT1");
+       waitForObject(":List Item Sources...._QPushButton");
+        clickButton(":List Item Sources...._QPushButton");
+        waitForObject(":_listTab_XTreeWidget_6");
+        doubleClickItem(":_listTab_XTreeWidget_6","YPAINT1",0,0,0,Qt.LeftButton);
+
         waitForObject(":_vendorGroup...._QPushButton_2");
         clickButton(":_vendorGroup...._QPushButton_2");
         waitForObject(":_listTab_XTreeWidget_3");

@@ -8,7 +8,7 @@ function main()
     
     if(appEdition=="Manufacturing")
     {
-      
+    
             //-------------Standard Labor Rate -------------------
             try{
                 waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -279,8 +279,10 @@ function main()
             waitForObject(":List Standard Operations.Close_QPushButton");
             clickButton(":List Standard Operations.Close_QPushButton");
         }catch(e){test.fail("Exception in creating Standard Operations:"+e);}
-        
-        //-----------Define BOO for Items---------------
+      
+      
+    
+      //-----------Define BOO for Items---------------
         try{
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -292,10 +294,11 @@ function main()
             //-----------Define BOO for YTRUCK1---------------
             waitForObject(":Bills of Operations.New_QPushButton");
             clickButton(":Bills of Operations.New_QPushButton");
-            waitForObject(":itemGroup...._QPushButton");
-            clickButton(":itemGroup...._QPushButton");
-            waitForObject(":_item_XTreeWidget_4");
-            doubleClickItem(":_item_XTreeWidget_4", "YTRUCK1",0,0,0,Qt.LeftButton);
+                      
+            waitForObject(":itemGroup...._QPushButton_3");
+            clickButton(":itemGroup...._QPushButton_3");
+            waitForObject(":_listTab_XTreeWidget_4");
+            doubleClickItem(":_listTab_XTreeWidget_4", "YTRUCK1",0,0,0,Qt.LeftButton);
             
             waitForObject(":frame.New_QPushButton_2");
             clickButton(":frame.New_QPushButton_2");
@@ -338,10 +341,10 @@ function main()
         try{
             waitForObject(":Bills of Operations.New_QPushButton");
             clickButton(":Bills of Operations.New_QPushButton");
-            waitForObject(":itemGroup...._QPushButton");
-            clickButton(":itemGroup...._QPushButton");
-            waitForObject(":_item_XTreeWidget_4");
-            doubleClickItem(":_item_XTreeWidget_4", "TSUB1",0,0,0,Qt.LeftButton);        
+            waitForObject(":itemGroup...._QPushButton_3");
+            clickButton(":itemGroup...._QPushButton_3");
+            waitForObject(":_listTab_XTreeWidget_4");
+            doubleClickItem(":_listTab_XTreeWidget_4", "TSUB1",0,0,0,Qt.LeftButton);        
             waitForObject(":frame.New_QPushButton_2");
             clickButton(":frame.New_QPushButton_2");
             waitForObject(":_stdopn_XComboBox");
@@ -436,7 +439,7 @@ function main()
         
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        
+       
     }
     
     
@@ -453,19 +456,25 @@ function main()
         //---------------Create BOM for YTRUCK1---------------
         waitForObject(":Bills of Materials.New_QPushButton");
         clickButton(":Bills of Materials.New_QPushButton");
-        waitForObject(":_itemGroup...._QPushButton");
-        clickButton(":_itemGroup...._QPushButton");
-        waitForObject(":_item_XTreeWidget_2");
-        waitForObjectItem(":_item_XTreeWidget_2", "YTRUCK1");
-        doubleClickItem(":_item_XTreeWidget_2","YTRUCK1",5,5,0,Qt.LeftButton);
+       waitForObject(":_itemGroup...._QPushButton_2");
+        clickButton(":_itemGroup...._QPushButton_2");
+    
+        
+        waitForObject(":_listTab_XTreeWidget_4");
+        waitForObjectItem(":_listTab_XTreeWidget_4", "YTRUCK1");
+        doubleClickItem(":_listTab_XTreeWidget_4","YTRUCK1",5,5,0,Qt.LeftButton);
+        
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
-        waitForObject(":Bill of Materials Item...._QPushButton_2");
-        clickButton(":Bill of Materials Item...._QPushButton_2");
-        waitForObject(":_item_XTreeWidget_3");
-        doubleClickItem(":_item_XTreeWidget_3", "TBODY1", 5, 5, 0, Qt.LeftButton);
+       
+       
+        waitForObject(":Bill of Materials...._QPushButton_2");
+        clickButton(":Bill of Materials...._QPushButton_2");
+        
+        waitForObject(":_listTab_XTreeWidget_5");
+        doubleClickItem(":_listTab_XTreeWidget_5", "TBODY1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "1");
         type(":_scrap_XLineEdit", "0");
@@ -491,10 +500,11 @@ function main()
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials Item...._QPushButton_2");
-        clickButton(":Bill of Materials Item...._QPushButton_2");
-        waitForObject(":_item_XTreeWidget_3");
-        doubleClickItem(":_item_XTreeWidget_3", "YPAINT1", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":Bill of Materials...._QPushButton_2");
+        clickButton(":Bill of Materials...._QPushButton_2");
+
+        waitForObject(":_listTab_XTreeWidget_5");
+        doubleClickItem(":_listTab_XTreeWidget_5", "YPAINT1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".01");
         type(":_scrap_XLineEdit", "0");
@@ -519,10 +529,11 @@ function main()
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials Item...._QPushButton_2");
-        clickButton(":Bill of Materials Item...._QPushButton_2");
-        waitForObject(":_item_XTreeWidget_3");
-        doubleClickItem(":_item_XTreeWidget_3", "TWHEEL1", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":Bill of Materials...._QPushButton_2");
+        clickButton(":Bill of Materials...._QPushButton_2");
+
+        waitForObject(":_listTab_XTreeWidget_5");
+        doubleClickItem(":_listTab_XTreeWidget_5", "TWHEEL1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "4");
         type(":_scrap_XLineEdit", "0");
@@ -548,10 +559,11 @@ function main()
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials Item...._QPushButton_2");
-        clickButton(":Bill of Materials Item...._QPushButton_2");
-        waitForObject(":_item_XTreeWidget_3");
-        doubleClickItem(":_item_XTreeWidget_3", "TSUB1", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":Bill of Materials...._QPushButton_2");
+        clickButton(":Bill of Materials...._QPushButton_2");
+
+        waitForObject(":_listTab_XTreeWidget_5");
+        doubleClickItem(":_listTab_XTreeWidget_5", "TSUB1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_qtyPer_XLineEdit"); 
         type(":_qtyPer_XLineEdit", "1");
         type(":_scrap_XLineEdit", "0");
@@ -588,17 +600,19 @@ function main()
     try{
         waitForObject(":Bills of Materials.New_QPushButton");
         clickButton(":Bills of Materials.New_QPushButton");
-        waitForObject(":_itemGroup...._QPushButton");
-        clickButton(":_itemGroup...._QPushButton");
-        waitForObject(":_item_XTreeWidget_2");
-        doubleClickItem(":_item_XTreeWidget_2","TSUB1",5,5,0,Qt.LeftButton);
+
+         waitForObject(":_itemGroup...._QPushButton_2");
+        clickButton(":_itemGroup...._QPushButton_2");
+        waitForObject(":_listTab_XTreeWidget_4");
+        doubleClickItem(":_listTab_XTreeWidget_4","TSUB1",5,5,0,Qt.LeftButton);
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials Item...._QPushButton_2");
-        clickButton(":Bill of Materials Item...._QPushButton_2");
-        waitForObject(":_item_XTreeWidget_3");
-        doubleClickItem(":_item_XTreeWidget_3", "TBOX1", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":Bill of Materials...._QPushButton_2");
+        clickButton(":Bill of Materials...._QPushButton_2");
+
+        waitForObject(":_listTab_XTreeWidget_5");
+        doubleClickItem(":_listTab_XTreeWidget_5", "TBOX1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_qtyPer_XLineEdit"); 
         type(":_qtyPer_XLineEdit", "1");
         type(":_scrap_XLineEdit", "0");
@@ -624,10 +638,11 @@ function main()
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials Item...._QPushButton_2");
-        clickButton(":Bill of Materials Item...._QPushButton_2");
-        waitForObject(":_item_XTreeWidget_3");
-        doubleClickItem(":_item_XTreeWidget_3", "TINSERT1", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":Bill of Materials...._QPushButton_2");
+        clickButton(":Bill of Materials...._QPushButton_2");
+
+        waitForObject(":_listTab_XTreeWidget_5");
+        doubleClickItem(":_listTab_XTreeWidget_5", "TINSERT1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_qtyPer_XLineEdit"); 
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "1");

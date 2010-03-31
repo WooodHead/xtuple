@@ -9,7 +9,7 @@ function main()
     loginAppl("RUNREGISTER");       
     var appEdition = findApplicationEdition();
     
-  
+    
     //--------------Define: Check Formats-------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -65,6 +65,7 @@ function main()
     
     
     
+        
     
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
@@ -80,25 +81,21 @@ function main()
             
             waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
             clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
-            waitForObject(":tab.Enable ACH Check Printing_QGroupBox");
-            if(!findObject(":tab.Enable ACH Check Printing_QGroupBox").checked)
-                type(":tab.Enable ACH Check Printing_QGroupBox"," ");
-            waitForObject(":_nextACHBatchNumber_XLineEdit");
-            type(":_nextACHBatchNumber_XLineEdit", "<Ctrl+A>");
-            type(":_nextACHBatchNumber_XLineEdit", "<Del>");
-            type(":_nextACHBatchNumber_XLineEdit", "10000");
-            type(":_companyId_XLineEdit", "<Ctrl+A>");
-            type(":_companyId_XLineEdit", "<Del>");
-            type(":_companyId_XLineEdit", "987654");
-            clickButton(":Enable ACH Check Printing.Other_QRadioButton");
-            type(":_companyName_XLineEdit", "ProDiem Inc.");
-            waitForObject(":Enable ACH Check Printing._achSuffix_QComboBox");
-            type(":Enable ACH Check Printing._achSuffix_QComboBox","<Ctrl+A>");
-            type(":Enable ACH Check Printing._achSuffix_QComboBox","<Del>");
-            type(":Enable ACH Check Printing._achSuffix_QComboBox",".dat");
+          
+            waitForObject(":tab.Enable EFT Check Printing_QGroupBox");
+            mouseClick(":tab.Enable EFT Check Printing_QGroupBox",10,10,0,Qt.LeftButton);
+            waitForObject(":_nextACHBatchNumber_XLineEdit_2");
+            type(":_nextACHBatchNumber_XLineEdit_2", "<Ctrl+A>");
+            type(":_nextACHBatchNumber_XLineEdit_2", "<Del>");
+            type(":_nextACHBatchNumber_XLineEdit_2", "10000");
+            type(":_companyId_XLineEdit_2", "<Ctrl+A>");
+            type(":_companyId_XLineEdit_2", "<Del>");
+            type(":_companyId_XLineEdit_2", "987654");
+            clickButton(":Enable EFT Check Printing.Other_QRadioButton");
+            type(":_companyName_XLineEdit_2", "ProDiem Inc.");
             clickButton(":Accounting Configuration.Save_QPushButton");
             test.log("Accounting for ACH configured");
-        }catch(e){test.fail("Exception in configuring Accounting");}
+        }catch(e){test.fail("Exception in configuring Accounting" + e);}
         
     }
     else if(appEdition=="PostBooks")
@@ -124,10 +121,11 @@ function main()
     if(object.exists(":No_QPushButton"))
         clickButton(":No_QPushButton");
     
-    
-    
-    
+  
+  
+  
     //---------------Define: Bank Accounts------------------
+   
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -135,7 +133,7 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Bank Accounts...");
         activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Bank Accounts...");
-        
+  
         waitForObject(":List Bank Accounts.New_QPushButton");
         clickButton(":List Bank Accounts.New_QPushButton");
         waitForObject(":_name_XLineEdit_18");
@@ -200,32 +198,32 @@ function main()
         waitForObject(":List Bank Accounts.Close_QPushButton");
         clickButton(":List Bank Accounts.Close_QPushButton");
     }catch(e){test.fail("Exception in defining Bank Accounts:"+e)}  
-
-
-//--------------Create: Adjustment Types--------------
-try{
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Adjustment Types...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Adjustment Types...");
-    waitForObject(":List Adjustment Types.New_QPushButton");
-    clickButton(":List Adjustment Types.New_QPushButton");
-    waitForObject(":_name_XLineEdit_19");
-    type(":_name_XLineEdit_19", "BANKFEE");
-    type(":_description_XLineEdit_28", "Bank Account Fee");
-    type(":Adjustment Type._main_XLineEdit", "01-01-6750-01");
-    clickButton(":Type.Debit_QRadioButton");
-    clickButton(":Adjustment Type.Save_QPushButton");
-    waitForObject(":List Adjustment Types._bankadjtype_XTreeWidget");
-    if(object.exists(":_bankadjtype.BANKFEE_QModelIndex"))
-        test.pass("Adjustment Type created: BANKFEE");
-    else test.fail("Adjustment Type not created: BANKFEE");
     
-    waitForObject(":List Adjustment Types.Close_QPushButton");
-    clickButton(":List Adjustment Types.Close_QPushButton");
-}catch(e){test.fail("Exception in defining Adjustment types:"+e);}
+    
+    //--------------Create: Adjustment Types--------------
+    try{
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
+        activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Adjustment Types...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Adjustment Types...");
+        waitForObject(":List Adjustment Types.New_QPushButton");
+        clickButton(":List Adjustment Types.New_QPushButton");
+        waitForObject(":_name_XLineEdit_19");
+        type(":_name_XLineEdit_19", "BANKFEE");
+        type(":_description_XLineEdit_28", "Bank Account Fee");
+        type(":Adjustment Type._main_XLineEdit", "01-01-6750-01");
+        clickButton(":Type.Debit_QRadioButton");
+        clickButton(":Adjustment Type.Save_QPushButton");
+        waitForObject(":List Adjustment Types._bankadjtype_XTreeWidget");
+        if(object.exists(":_bankadjtype.BANKFEE_QModelIndex"))
+            test.pass("Adjustment Type created: BANKFEE");
+        else test.fail("Adjustment Type not created: BANKFEE");
+        
+        waitForObject(":List Adjustment Types.Close_QPushButton");
+        clickButton(":List Adjustment Types.Close_QPushButton");
+    }catch(e){test.fail("Exception in defining Adjustment types:"+e);}
 
     //------------Define: Fiscal Year----------------
     try{
@@ -239,9 +237,9 @@ try{
         waitForObject(":List Fiscal Years.New_QPushButton");
         clickButton(":List Fiscal Years.New_QPushButton");
         waitForObject(":Fiscal Year.XDateEdit_XDateEdit");
-    var d = new Date();
-    var CurrentYearFull = d.getFullYear();
-    var CurrentYear = CurrentYearFull.toString().slice(2);
+         var d = new Date();
+         var CurrentYearFull = d.getFullYear();
+         var CurrentYear = CurrentYearFull.toString().slice(2);
         type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+CurrentYearFull);
         type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+CurrentYearFull);
         waitForObject(":Fiscal Year.Save_QPushButton");
@@ -267,7 +265,7 @@ try{
         waitForObject(":List Fiscal Years.Close_QPushButton");
         clickButton(":List Fiscal Years.Close_QPushButton");
     }catch(e){test.fail("Exception in creating Fiscal Year");}
-  
+    
     //-------------Define: Fiscal Calendar--------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -314,17 +312,17 @@ try{
                 type(":_name_QLineEdit", CurrentYearFull+"-");
                 type(":_name_QLineEdit", (j<10?"0"+j:j));
                 snooze(0.5);
-                waitForObject(":Accounting Period.qt_spinbox_lineedit_QLineEdit");
-                findObject(":Accounting Period.qt_spinbox_lineedit_QLineEdit").clear();
+                waitForObject(":List Accounting Periods.qt_spinbox_lineedit_QLineEdit");
+                findObject(":List Accounting Periods.qt_spinbox_lineedit_QLineEdit").clear();
                 snooze(1);
                 if(j>=1 && j<=3)
-                    type(":Accounting Period.qt_spinbox_lineedit_QLineEdit", "1");
+                    type(":List Accounting Periods.qt_spinbox_lineedit_QLineEdit", "1");
                 else if(j>=4 && j<=6)
-                    type(":Accounting Period.qt_spinbox_lineedit_QLineEdit", "2");
+                    type(":List Accounting Periods.qt_spinbox_lineedit_QLineEdit", "2");
                 else if(j>=7 && j<=9)
-                    type(":Accounting Period.qt_spinbox_lineedit_QLineEdit", "3");
+                    type(":List Accounting Periods.qt_spinbox_lineedit_QLineEdit", "3");
                 else if(j>=10 && j<=12)
-                    type(":Accounting Period.qt_spinbox_lineedit_QLineEdit", "4");
+                    type(":List Accounting Periods.qt_spinbox_lineedit_QLineEdit", "4");
                 
                 
                 
