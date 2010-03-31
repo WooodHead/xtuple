@@ -33,9 +33,9 @@ function main()
     assignTax("TZONE1","EDU","TAXAUTH1-EDU");
     assignTax("TZONE1","GM","TAXAUTH1-GM");
     RegTax("TZONE1","tax reg1");
+
   
-    
-    //----------Create Items---------------------
+  //----------Create Items---------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -44,8 +44,8 @@ function main()
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
         activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
         
-        
-        //-----------Create Item YTRUCK1---------------
+      
+      //-----------Create Item YTRUCK1---------------
         waitForObject(":List Items.New_QPushButton_2");
         clickButton(":List Items.New_QPushButton_2");
         waitForObject(":_itemNumber_XLineEdit_3");
@@ -67,7 +67,6 @@ function main()
         if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
             type(":Item.Item is Sold_QGroupBox_3"," ");
         type(":_prodcat_XComboBox_2", "CLASSIC-METAL");
-        type(":_itemGroup._upcCode_XLineEdit", "1234-5432");
         type(":Item is Sold._listprice_XLineEdit_3", "10.99");
         waitForObject(":Item is Sold._priceUOM_XComboBox_3");
         clickItem(":Item is Sold._priceUOM_XComboBox_3", "EA", 0, 0, 1, Qt.LeftButton);
@@ -335,10 +334,10 @@ function main()
         waitForObject(":List Items.Close_QPushButton_3");
         clickButton(":List Items.Close_QPushButton_3");
     }catch(e){test.fail("Exception in creating item: TINSERT1")}
-    
   
-    
-    //---------------Create Item sites------------------------------
+  
+  
+  //---------------Create Item sites------------------------------
     try{
       waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
       activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
@@ -350,20 +349,23 @@ function main()
         //---------Item site: YTRUCK1----------------------
         waitForObject(":List Item Sites.New_QPushButton_3");
         clickButton(":List Item Sites.New_QPushButton_3");
-        waitForObject(":Item Site...._QPushButton");
-        clickButton(":Item Site...._QPushButton");
+                   
+        
+        waitForObject(":List Item Sites...._QPushButton_2");
+        clickButton(":List Item Sites...._QPushButton_2");
         snooze(1);
-        waitForObject(":_item_XTreeWidget_4");
-        doubleClickItem(":_item_XTreeWidget_4","YTRUCK1",0,0,0,Qt.LeftButton);
+        
+        waitForObject(":_listTab_XTreeWidget_4");
+        doubleClickItem(":_listTab_XTreeWidget_4","YTRUCK1",0,0,0,Qt.LeftButton);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
             clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);  
         else if(appEdition=="PostBooks")
             test.xverify(object.exists(":_warehouse_WComboBox_5"), "Warehouse ComboBox not found");
-       
-        if(!findObject(":Item Site.Site can manufacture this Item_QGroupBox").checked)
-            type(":Item Site.Site can manufacture this Item_QGroupBox"," ");
-        snooze(1);
+       waitForObject(":Item Site.Site can manufacture this Item_QGroupBox");
+      if(!findObject(":Item Site.Site can manufacture this Item_QGroupBox").checked)
+        mouseClick(":Item Site.Site can manufacture this Item_QGroupBox", 13, 7, 0, Qt.LeftButton);
+        waitForObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
         if(!findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
             clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
         type(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3","<Ctrl+A>");
@@ -372,11 +374,11 @@ function main()
         clickButton(":Costing Method.Standard_QRadioButton_3");
         clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);  
         
-        clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);                   clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton);                    
+        clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);                   
+        clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton); 
         waitForObject(":_inventory.Stocked_QCheckBox_3");
         if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
             clickButton(":_inventory.Stocked_QCheckBox_3");
-        
         if(!findObject(":Settings.Allow Automatic ABC Updates_QCheckBox").checked)
             clickButton(":Settings.Allow Automatic ABC Updates_QCheckBox");
         type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
@@ -385,10 +387,7 @@ function main()
         type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
         type(":_eventFence_QSpinBox_4", "<Del>");
         type(":_eventFence_QSpinBox_4", "10");
-        waitForObject(":qt_tabwidget_tabbar.Location_TabItem");
-        clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar","Location");
-        type(":Control._locationComments_XLineEdit", "FG-01-01-01");
-        snooze(2);
+          snooze(2);
         waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
         snooze(1)
@@ -442,38 +441,36 @@ function main()
     snooze(1);
     
     //---------Item site: TBODY1----------------------
+    
     try{
-        
-
         waitForObject(":List Item Sites.New_QPushButton_3");
         clickButton(":List Item Sites.New_QPushButton_3");
-        waitForObject(":Item Site...._QPushButton");
-        clickButton(":Item Site...._QPushButton");
-        waitForObject(":_item_XTreeWidget_4");
-        doubleClickItem(":_item_XTreeWidget_4","TBODY1",0,0,0,Qt.LeftButton);
+         waitForObject(":List Item Sites...._QPushButton_2");
+        clickButton(":List Item Sites...._QPushButton_2");
+        waitForObject(":_listTab_XTreeWidget_4");
+        doubleClickItem(":_listTab_XTreeWidget_4","TBODY1",0,0,0,Qt.LeftButton);
         waitForObject(":Item Site.Sold from this Site_QGroupBox");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
             clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
         else if(appEdition=="PostBooks")
             test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
-        snooze(1);
-       if(!findObject(":Item Site.Site can manufacture this Item_QGroupBox").checked)
-            type(":Item Site.Site can manufacture this Item_QGroupBox"," ");
-        snooze(1);
-       
+        if(!findObject(":Item Site.Site can manufacture this Item_QGroupBox").checked)
+             mouseClick(":Item Site.Site can manufacture this Item_QGroupBox", 13, 7, 0, Qt.LeftButton);
         
         type(":Item Site.Sold from this Site_QGroupBox"," ");
         snooze(1);
         waitForObject(":Costing Method.Standard_QRadioButton_3");
         clickButton(":Costing Method.Standard_QRadioButton_3");
         waitForObject(":Control._controlMethod_XComboBox_3");
-        clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);                    	waitForObject(":_plannerCode_XComboBox_2");
-        clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);                   waitForObject(":_costcat_XComboBox_3");
+        clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);                    	
+        waitForObject(":_plannerCode_XComboBox_2");
+        clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);                   
+        waitForObject(":_costcat_XComboBox_3");
         clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton);                        
         waitForObject(":_inventory.Stocked_QCheckBox_3");
         if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
             clickButton(":_inventory.Stocked_QCheckBox_3");
-         if(!findObject(":Settings.Allow Automatic ABC Updates_QCheckBox").checked)
+        if(!findObject(":Settings.Allow Automatic ABC Updates_QCheckBox").checked)
             clickButton(":Settings.Allow Automatic ABC Updates_QCheckBox");
         type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
         type(":_cycleCountFreq_QSpinBox_3", "<Del>");
@@ -481,9 +478,7 @@ function main()
         type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
         type(":_eventFence_QSpinBox_4", "<Del>");
         type(":_eventFence_QSpinBox_4", "10");
-        clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar","Location");
-        type(":Control._locationComments_XLineEdit", "FG-01-01-01");
-        snooze(2); 
+         snooze(2); 
         waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
         waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
@@ -541,38 +536,38 @@ function main()
     try{
         waitForObject(":List Item Sites.New_QPushButton_3",2);
         clickButton(":List Item Sites.New_QPushButton_3");
-        waitForObject(":Item Site...._QPushButton");
-        clickButton(":Item Site...._QPushButton");
-        waitForObject(":_item_XTreeWidget_4");
-        doubleClickItem(":_item_XTreeWidget_4","TINSERT1",0,0,0,Qt.LeftButton);
+        waitForObject(":List Item Sites...._QPushButton_2");
+        clickButton(":List Item Sites...._QPushButton_2");
+        waitForObject(":_listTab_XTreeWidget_4");
+        doubleClickItem(":_listTab_XTreeWidget_4","TINSERT1",0,0,0,Qt.LeftButton);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
             clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
         else if(appEdition=="PostBooks")
             test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
-      if(!findObject(":Item Site.Site can manufacture this Item_QGroupBox").checked)
-            type(":Item Site.Site can manufacture this Item_QGroupBox"," ");
-        snooze(1);
+        if(!findObject(":Item Site.Site can manufacture this Item_QGroupBox").checked)
+             mouseClick(":Item Site.Site can manufacture this Item_QGroupBox", 13, 7, 0, Qt.LeftButton);
         type(":Item Site.Sold from this Site_QGroupBox"," ");
         snooze(1);
         clickButton(":Costing Method.Standard_QRadioButton_3");
         waitForObject(":Control._controlMethod_XComboBox_3");
-        clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);                    	waitForObject(":_plannerCode_XComboBox_2");
-        clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);                   waitForObject(":_costcat_XComboBox_3");
+        clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);                    	
+        waitForObject(":_plannerCode_XComboBox_2");
+        clickItem(":_plannerCode_XComboBox_2", "MRP-ITEMS-MRP Items", 0, 0, 1, Qt.LeftButton);                   
+        waitForObject(":_costcat_XComboBox_3");
         clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1", 0, 0, 1, Qt.LeftButton);                    
         waitForObject(":_inventory.Stocked_QCheckBox_3");    
         if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
             clickButton(":_inventory.Stocked_QCheckBox_3");
-       if(!findObject(":Settings.Allow Automatic ABC Updates_QCheckBox").checked)
+        if(!findObject(":Settings.Allow Automatic ABC Updates_QCheckBox").checked)
             clickButton(":Settings.Allow Automatic ABC Updates_QCheckBox");
         type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
         type(":_cycleCountFreq_QSpinBox_3", "<Del>");
         type(":_cycleCountFreq_QSpinBox_3", "30");
         type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
         type(":_eventFence_QSpinBox_4", "<Del>");
-         clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar","Location");
-        type(":Control._locationComments_XLineEdit", "FG-01-01-01");
-        snooze(2);  
+        type(":_eventFence_QSpinBox_4", "10");
+          snooze(2);  
         waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
         snooze(1);
@@ -626,18 +621,17 @@ function main()
     try{
         waitForObject(":List Item Sites.New_QPushButton_3");
         clickButton(":List Item Sites.New_QPushButton_3");
-        waitForObject(":Item Site...._QPushButton");
-        clickButton(":Item Site...._QPushButton");
-        waitForObject(":_item_XTreeWidget_4");
-        doubleClickItem(":_item_XTreeWidget_4","TWHEEL1",0,0,0,Qt.LeftButton);
+       waitForObject(":List Item Sites...._QPushButton_2");
+        clickButton(":List Item Sites...._QPushButton_2");
+        waitForObject(":_listTab_XTreeWidget_4");
+        doubleClickItem(":_listTab_XTreeWidget_4","TWHEEL1",0,0,0,Qt.LeftButton);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
             clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
         else if(appEdition=="PostBooks")
             test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
-     if(!findObject(":Item Site.Site can manufacture this Item_QGroupBox").checked)
-            type(":Item Site.Site can manufacture this Item_QGroupBox"," ");
-        snooze(1);
+        if(!findObject(":Item Site.Site can manufacture this Item_QGroupBox").checked)
+             mouseClick(":Item Site.Site can manufacture this Item_QGroupBox", 13, 7, 0, Qt.LeftButton);
         type(":Item Site.Sold from this Site_QGroupBox"," ");
         clickButton(":Costing Method.Standard_QRadioButton_3");
         waitForObject(":Control._controlMethod_XComboBox_3");
@@ -658,9 +652,7 @@ function main()
         type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
         type(":_eventFence_QSpinBox_4", "<Del>");
         type(":_eventFence_QSpinBox_4", "10");
-        clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar","Location");
-        type(":Control._locationComments_XLineEdit", "FG-01-01-01");
-        snooze(2);      
+         snooze(2);      
         clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
         waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
         snooze(1);
@@ -713,20 +705,17 @@ function main()
     try{
         waitForObject(":List Item Sites.New_QPushButton_3");
         clickButton(":List Item Sites.New_QPushButton_3");
-        waitForObject(":Item Site...._QPushButton");
-        clickButton(":Item Site...._QPushButton");
-        waitForObject(":_item_XTreeWidget_4");
-        doubleClickItem(":_item_XTreeWidget_4","TSUB1",0,0,0,Qt.LeftButton);
+      waitForObject(":List Item Sites...._QPushButton_2");
+        clickButton(":List Item Sites...._QPushButton_2");
+        waitForObject(":_listTab_XTreeWidget_4");
+        doubleClickItem(":_listTab_XTreeWidget_4","TSUB1",0,0,0,Qt.LeftButton);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
             clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
         else if(appEdition=="PostBooks")
             test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
-  if(!findObject(":Item Site.Site can manufacture this Item_QGroupBox").checked)
-            type(":Item Site.Site can manufacture this Item_QGroupBox"," ");
-        snooze(1);
-        if(!findObject(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox").checked)
-            clickButton(":Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox");
+        if(!findObject(":Item Site.Site can manufacture this Item_QGroupBox").checked)
+             mouseClick(":Item Site.Site can manufacture this Item_QGroupBox", 13, 7, 0, Qt.LeftButton);
         type(":Item Site.Sold from this Site_QGroupBox"," ");
         clickButton(":Costing Method.Standard_QRadioButton_3");
         clickItem(":Control._controlMethod_XComboBox_3", "Regular", 0, 0, 1, Qt.LeftButton);
@@ -735,7 +724,7 @@ function main()
         waitForObject(":_inventory.Stocked_QCheckBox_3");    
         if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
             clickButton(":_inventory.Stocked_QCheckBox_3");
-       if(!findObject(":Settings.Allow Automatic ABC Updates_QCheckBox").checked)
+        if(!findObject(":Settings.Allow Automatic ABC Updates_QCheckBox").checked)
             clickButton(":Settings.Allow Automatic ABC Updates_QCheckBox");
         type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
         type(":_cycleCountFreq_QSpinBox_3", "<Del>");
@@ -743,9 +732,7 @@ function main()
         type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
         type(":_eventFence_QSpinBox_4", "<Del>");
         type(":_eventFence_QSpinBox_4", "10");
-       clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar","Location");
-        type(":Control._locationComments_XLineEdit", "WP-01-01-01");
-        snooze(2);
+         snooze(2);
         clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
         snooze(1);
         waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
@@ -798,19 +785,17 @@ function main()
     try{
         waitForObject(":List Item Sites.New_QPushButton_3");
         clickButton(":List Item Sites.New_QPushButton_3");
-        waitForObject(":Item Site...._QPushButton");
-        clickButton(":Item Site...._QPushButton");
-        waitForObject(":_item_XTreeWidget_4");
-        doubleClickItem(":_item_XTreeWidget_4","TBOX1",0,0,0,Qt.LeftButton);
+       waitForObject(":List Item Sites...._QPushButton_2");
+        clickButton(":List Item Sites...._QPushButton_2");
+        waitForObject(":_listTab_XTreeWidget_4");
+        doubleClickItem(":_listTab_XTreeWidget_4","TBOX1",0,0,0,Qt.LeftButton);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
             clickItem(":_warehouse_WComboBox_5", "WH1", 5, 5, 1, Qt.LeftButton);
         else if(appEdition=="PostBooks")
             test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
-    if(!findObject(":Item Site.Site can manufacture this Item_QGroupBox").checked)
-            type(":Item Site.Site can manufacture this Item_QGroupBox"," ");
-        snooze(1);
-     
+        if(!findObject(":Item Site.Site can manufacture this Item_QGroupBox").checked)
+             mouseClick(":Item Site.Site can manufacture this Item_QGroupBox", 13, 7, 0, Qt.LeftButton);
         type(":Item Site.Sold from this Site_QGroupBox"," ");
         clickButton(":Costing Method.Standard_QRadioButton_3");
         clickItem(":Control._controlMethod_XComboBox_3", "Regular", 5, 5, 1, Qt.LeftButton);
@@ -819,7 +804,7 @@ function main()
         waitForObject(":_inventory.Stocked_QCheckBox_3");    
         if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
             clickButton(":_inventory.Stocked_QCheckBox_3");
-    if(!findObject(":Settings.Allow Automatic ABC Updates_QCheckBox").checked)
+        if(!findObject(":Settings.Allow Automatic ABC Updates_QCheckBox").checked)
             clickButton(":Settings.Allow Automatic ABC Updates_QCheckBox");
         type(":_cycleCountFreq_QSpinBox_3", "<Ctrl+A>");
         type(":_cycleCountFreq_QSpinBox_3", "<Del>");
@@ -830,22 +815,10 @@ function main()
         snooze(2);
         waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
         snooze(1);
-        
-       
-        clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar","Location");
-        type(":Control._locationComments_XLineEdit", "RM-01-01-01");
-         waitForObject(":Control.Multiple Location Control_QCheckBox");
-        clickButton(":Control.Multiple Location Control_QCheckBox");
-       
-        waitForObject(":Control.Use Default Location_QGroupBox");
-        if(!findObject(":Control.Use Default Location_QGroupBox").checked)
-            type(":Control.Use Default Location_QGroupBox"," ");
-        
-        type(":Use Default Location._locations_XComboBox_2","01010103");
         clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
-        snooze(2);
         waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
-        type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
+        if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
+            type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
         waitForObject(":_reorderLevel_XLineEdit_3");
         type(":_reorderLevel_XLineEdit_3", "0.00");
         type(":_orderUpToQty_XLineEdit_3", "0.00");
@@ -895,19 +868,18 @@ function main()
         waitForObject(":List Item Sites.New_QPushButton_3");
         clickButton(":List Item Sites.New_QPushButton_3");
         snooze(0.5);
-        waitForObject(":Item Site...._QPushButton");
-        clickButton(":Item Site...._QPushButton");
+      waitForObject(":List Item Sites...._QPushButton_2");
+        clickButton(":List Item Sites...._QPushButton_2");
         snooze(1);
-        waitForObject(":_item_XTreeWidget_4");
-        doubleClickItem(":_item_XTreeWidget_4","YPAINT1",0,0,0,Qt.LeftButton);
+        waitForObject(":_listTab_XTreeWidget_4");
+        doubleClickItem(":_listTab_XTreeWidget_4","YPAINT1",0,0,0,Qt.LeftButton);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
             clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
         else if(appEdition=="PostBooks")
             test.xverify(object.exists(":_warehouse_WComboBox_5"), " Warehouse ComboBox not found");
         if(!findObject(":Item Site.Site can manufacture this Item_QGroupBox").checked)
-            type(":Item Site.Site can manufacture this Item_QGroupBox"," ");
-        snooze(1);
+             mouseClick(":Item Site.Site can manufacture this Item_QGroupBox", 13, 7, 0, Qt.LeftButton);
         type(":Item Site.Sold from this Site_QGroupBox"," ");
         clickButton(":Costing Method.Standard_QRadioButton_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
@@ -919,16 +891,14 @@ function main()
         waitForObject(":_inventory.Stocked_QCheckBox_3");    
         if(findObject(":_inventory.Stocked_QCheckBox_3").checked)
             clickButton(":_inventory.Stocked_QCheckBox_3");
-       if(!findObject(":Settings.Allow Automatic ABC Updates_QCheckBox").checked)
+        if(!findObject(":Settings.Allow Automatic ABC Updates_QCheckBox").checked)
             clickButton(":Settings.Allow Automatic ABC Updates_QCheckBox");
         waitForObject(":_cycleCountFreq_QSpinBox_3");
         findObject(":_cycleCountFreq_QSpinBox_3").clear();
         type(":_cycleCountFreq_QSpinBox_3", "30");
         findObject(":_eventFence_QSpinBox_4").clear();
         type(":_eventFence_QSpinBox_4", "10");
-        clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar","Location");
-        type(":Control._locationComments_XLineEdit", "RM-01-01-01");
-        snooze(2);
+          snooze(2);
         waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
         snooze(2);
         clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");	

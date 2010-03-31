@@ -12,6 +12,44 @@ function main()
     
     //---login Application--------
     loginAppl("CONFIGURE"); 
+    
+    //-----Editing the preferences----
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Preferences...");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Preferences...");
+    waitForObject(":Interface Options.Show windows inside workspace_QRadioButton");
+    if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
+      clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
+    snooze(0.1);
+    waitForObject(":Search Navigation.Buttons_QRadioButton");
+    if(!findObject(":Search Navigation.Buttons_QRadioButton").checked)
+      clickButton(":Search Navigation.Buttons_QRadioButton");
+       waitForObject(":User Preferences.Save_QPushButton");
+    clickButton(":User Preferences.Save_QPushButton");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
+    
+    
+    //---Restarting Application--
+    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObject(":xTuple ERP: OpenMFG Edition.System_QMenu");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit xTuple ERP...");
+    
+    snooze(5);
+    
+    if(OS.name=="Linux")
+        startApplication("xtuple.bin");
+    
+    else
+        startApplication("xtuple");
+    
+    snooze(2);
+    
+    loginAppl("CONFIGURE"); 
    
     var appEdition = findApplicationEdition();
 
@@ -43,6 +81,8 @@ function main()
         catch(e){test.fail("Exception in verifying Shifts Menu");}
         
     }
+    
+    var appEdition = findApplicationEdition();
     createLocale("MYLOCALE","My Locale For Class");
     createRole("SUPER","Super User Group");
   
@@ -523,7 +563,7 @@ function main()
             test.log("Database Information Defined");
             
         }
-        catch(e){test.fail("Exception while setting database optins:"+e);}
+        catch(e){test.fail("Exception while setting database options:"+e);}
         
         
         //----Configure EDI Profile----
@@ -953,8 +993,8 @@ function main()
             clickButton(":List Titles.Close_QPushButton");
         }catch(e){test.fail("Exception in defining Title:"+e);}
 
-   
-        //-------------Create Site Types------------------
+ 
+      //-------------Create Site Types------------------
         try{
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
@@ -962,7 +1002,7 @@ function main()
             activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Site Types...");
             activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Site Types...");
-            
+          
             waitForObject(":List Site Types.New_QPushButton");
             clickButton(":List Site Types.New_QPushButton");
             waitForObject(":List Site Types._code_XLineEdit");
@@ -977,7 +1017,7 @@ function main()
             waitForObject(":List Site Types._sitetype_XTreeWidget");
             if(object.exists(":_sitetype.WHSE_QModelIndex"))
                 test.pass("Site Type: WHSE created");
-           
+         
             waitForObject(":List Site Types.New_QPushButton");
             clickButton(":List Site Types.New_QPushButton");
             waitForObject(":List Site Types._code_XLineEdit");
@@ -1003,10 +1043,10 @@ function main()
             clickButton(":List Site Types.Close_QPushButton");
         }catch(e){test.fail("Exception in Creating Site:"+e);}
     
-        //---find Application Edition---
-        var appEdition = findApplicationEdition();
-    
-    
+      //---find Application Edition---
+      var appEdition = findApplicationEdition();
+  
+  
         //-----------Create Inventory Site: WH1-----------------
         try{
             if(appEdition=="Manufacturing"|| appEdition=="Standard")
@@ -1033,19 +1073,13 @@ function main()
                 type(":_state_QLineEdit_2", "State1");
                 type(":List Sites.Postal Code:_XLineEdit", "123-4324");
                 clickItem(":_addressGroup._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
-                clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar","Contact");
-                waitForObject(":_honorific_QLineEdit");
-                type(":_honorific_QLineEdit", "Mr");
-                type(":_contactGroup._first_XLineEdit", "John ");
-                type(":_contactGroup._middle_XLineEdit", "K");
-                type(":_contactGroup._last_XLineEdit", "Smith");
-                type(":_contactGroup._title_XLineEdit", "Senior Executive");
-                type(":_contactGroup._phone_XLineEdit", "12345");
-                type(":_contactGroup._fax_XLineEdit", "54321");
-                type(":_contactGroup._email_XLineEdit", "demo@openmfg.com");
                 type(":List Sites._main_XLineEdit", "01-01-1950-01");
                 
                 clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar","General");
+                 waitForObject(":_generalTab.Transit Site_QRadioButton");
+                 clickButton(":_generalTab.Transit Site_QRadioButton");
+                 waitForObject(":_generalTab.Inventory Site_QRadioButton");
+               clickButton(":_generalTab.Inventory Site_QRadioButton");
                 waitForObject(":_whsTypeStack._bolNumber_XLineEdit");
                 type(":_whsTypeStack._bolNumber_XLineEdit", "10000");
                 type(":_whsTypeStack._countTagNumber_XLineEdit", "20000");
@@ -1112,19 +1146,12 @@ function main()
                 clickItem(":_addressGroup._country_XComboBox_2", "United States", 0, 0, 1, Qt.LeftButton);
                 type(":_accountGroup._main_XLineEdit_2", "01-01-1950-01");
                 
-                clickTab(":Site.qt_tabwidget_tabbar_QTabBar","Contact");
-                waitForObject(":_honorific_QLineEdit_3");
-                type(":_honorific_QLineEdit_3", "Mr");
-                type(":_contactGroup._first_XLineEdit_2", "John ");
-                type(":_contactGroup._middle_XLineEdit_2", "K");
-                type(":_contactGroup._last_XLineEdit_2", "Stapleton");
-                type(":_contactGroup._title_XLineEdit_2", "Job Title 1");
-                type(":_contactGroup._phone_XLineEdit_2", "34335");
-                type(":_contactGroup._fax_XLineEdit_2", "5433421");
-                type(":_contactGroup._email_XLineEdit_2", "john@test.com");
-                
-                
-                clickTab(":Site.qt_tabwidget_tabbar_QTabBar","General");
+               
+                clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar","General");
+                 waitForObject(":_generalTab.Transit Site_QRadioButton");
+                 clickButton(":_generalTab.Transit Site_QRadioButton");
+                 waitForObject(":_generalTab.Inventory Site_QRadioButton");
+               clickButton(":_generalTab.Inventory Site_QRadioButton");
                 waitForObject(":_numberGroup._bolNumber_XLineEdit");
                 type(":_numberGroup._bolNumber_XLineEdit", "1000");
                 type(":_countTagPrefix_XLineEdit_2", "shw1");
@@ -1195,19 +1222,13 @@ function main()
                 type(":_addressGroup.Postal Code:_XLineEdit", "123-41324");
                 clickItem(":_addressGroup._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
                 
-                clickTab(":Site.qt_tabwidget_tabbar_QTabBar","Contact");
-                waitForObject(":_honorific_QLineEdit_3");
-                type(":_honorific_QLineEdit_3", "Mr");
-                type(":_contactGroup._first_XLineEdit_2", "John ");
-                type(":_contactGroup._middle_XLineEdit_2", "K");
-                type(":_contactGroup._last_XLineEdit_2", "Stapleton");
-                type(":_contactGroup._title_XLineEdit_2", "Junior Executive");
-                type(":_contactGroup._phone_XLineEdit_2", "12345");
-                type(":_contactGroup._fax_XLineEdit_2", "54321");
-                type(":_contactGroup._email_XLineEdit_2", "demo@openmfg.com");
                 type(":List Sites._main_XLineEdit", "01-01-1950-01");
                 
-                clickTab(":Site.qt_tabwidget_tabbar_QTabBar","General");
+                clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar","General");
+                 waitForObject(":_generalTab.Transit Site_QRadioButton");
+                 clickButton(":_generalTab.Transit Site_QRadioButton");
+                 waitForObject(":_generalTab.Inventory Site_QRadioButton");
+               clickButton(":_generalTab.Inventory Site_QRadioButton");
                 waitForObject(":_numberGroup._bolNumber_XLineEdit");
                 findObject(":_numberGroup._bolNumber_XLineEdit").clear();
                 type(":_numberGroup._bolNumber_XLineEdit", "WH2");
@@ -1315,7 +1336,7 @@ function main()
             test.log("Inventory Module Configured");
         }catch(e){test.fail("Exception in configuring Inventory");}
   
-     
+   
         //---Create User by Role--
         createUserByRole("RUNREGISTER");
  
@@ -1345,6 +1366,12 @@ function main()
             clickButton(":User.Selected User:_QRadioButton");
             waitForObject(":User._user_XComboBox");
             clickItem(":User._user_XComboBox", username, 0, 0, 1, Qt.LeftButton);
+            if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
+            clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
+           snooze(0.1);
+            waitForObject(":Search Navigation.Buttons_QRadioButton");
+              if(!findObject(":Search Navigation.Buttons_QRadioButton").checked)
+           clickButton(":Search Navigation.Buttons_QRadioButton");
             if(appEdition=="Manufacturing"||appEdition=="Standard")
             {
                 snooze(1);
@@ -1360,13 +1387,9 @@ function main()
                 doubleClickItem(":Image List._image_XTreeWidget","BACKGROUND",0,0,1,Qt.LeftButton);
             }
             
-            waitForObject(":Interface Options.Show windows as free-floating_QRadioButton");
-            if(!findObject(":Interface Options.Show windows as free-floating_QRadioButton").checked)
-                clickButton(":Interface Options.Show windows as free-floating_QRadioButton");
-            type(":_idleTimeout_QSpinBox", "<Ctrl+A>");
-            type(":_idleTimeout_QSpinBox", "<Del>");
-            type(":_idleTimeout_QSpinBox", "20");
-            type(":_idleTimeout_QSpinBox", "<Tab>");
+            snooze(0.1);
+            findObject(":_idleTimeout_QSpinBox").clear();
+
             if(!findObject(":Interface Options.Ignore Missing Translations_QCheckBox").checked)
                 clickButton(":Interface Options.Ignore Missing Translations_QCheckBox");
             if(appEdition=="Manufacturing"||appEdition=="Standard")

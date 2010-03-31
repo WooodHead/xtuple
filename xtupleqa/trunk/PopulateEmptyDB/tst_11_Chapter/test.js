@@ -24,7 +24,7 @@ function main()
         type(":Target Report:_QLineEdit", "Official Income Statement");
         clickButton(":Copy Financial Report.OK_QPushButton");
         waitForObject(":List Financial Reports._flhead_XTreeWidget");
-      doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "Official Income Statement", 5, 5, 0, Qt.LeftButton);
+        doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "Official Income Statement", 5, 5, 0, Qt.LeftButton);
         snooze(1);
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "INCOME", 5, 5, 1, Qt.LeftButton);
@@ -48,7 +48,7 @@ function main()
         type(":_altSubtotalLabel_QLineEdit", "Total Gross Revenue");
         clickButton(":Operation.Add to Group Total_QRadioButton");
         clickButton(":Financial Report Group.Save_QPushButton");
-        snooze(2);
+        
         waitForObject(":frame._layout_XTreeWidget");
         waitForObject(":frame.Add Top Level Group_QPushButton");
         clickButton(":frame.Add Top Level Group_QPushButton");
@@ -4130,7 +4130,8 @@ function main()
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
-        if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
+        ":Show Columns.Show Beginning Balance_QCheckBox"
+                if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
                     clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
         waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
         if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)

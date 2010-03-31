@@ -395,7 +395,7 @@ function createUserByRole(userrole)
         waitForObject(":_code_XLineEdit_16");
         type(":_code_XLineEdit_16", username);
         waitForObject(":List Employees._number_XLineEdit");
-        type(":List Employees._number_XLineEdit", "15001");
+        type(":List Employees._number_XLineEdit", username);
         waitForObject(":_contactTab._honorific_XComboBox");
         type(":_contactTab._honorific_XComboBox", "MR");
         waitForObject(":_contactTab._first_XLineEdit");
@@ -437,12 +437,6 @@ function createUserByRole(userrole)
         type(":_timeclockGroup.VirtualClusterLineEdit_DeptClusterLineEdit", "MFG");
         waitForObject(":_timeclockGroup.VirtualClusterLineEdit_ShiftClusterLineEdit");
         type(":_timeclockGroup.VirtualClusterLineEdit_ShiftClusterLineEdit", "1ST");
-        waitForObject(":_rateGroup._wagetype_XComboBox");
-        clickItem(":_rateGroup._wagetype_XComboBox", "Hourly", 0, 0, 1, Qt.LeftButton);
-        waitForObject(":_rateGroup_XLineEdit");
-        type(":_rateGroup_XLineEdit", "100000");
-        waitForObject(":_rateGroup._per_XComboBox");
-        clickItem(":_rateGroup._per_XComboBox", "Year", 0, 0, 1, Qt.LeftButton);
         if(!findObject(":_relationshipsGroup._user_XCheckBox").checked)
             clickButton(":_relationshipsGroup._user_XCheckBox");
         waitForObject(":_relationshipsGroup.User..._QPushButton");
@@ -460,6 +454,8 @@ function createUserByRole(userrole)
         type(":_email_XLineEdit_2", "demo@openmfg.com");
         findObject(":_passwd_XLineEdit_2").clear();
         type(":_passwd_XLineEdit_2", pwd);
+        snooze(0.5);
+        findObject(":_verify_XLineEdit_2").clear();
         findObject(":_verify_XLineEdit_2");
         type(":_verify_XLineEdit_2", pwd);
         if(!findObject(":List Employees.Purchasing Agent_QCheckBox").checked)

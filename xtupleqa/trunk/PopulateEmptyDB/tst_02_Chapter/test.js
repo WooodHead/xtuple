@@ -18,7 +18,7 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
         activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-      
+        
         COA("01","01","1250","01","Warehouse 1 Asset","Asset","IN");
         COA("01","01","1252","01","Intransit Asset","Asset","IN");
         COA("01","01","1254","01","Warehouse 2 Asset","Asset","IN");
@@ -44,8 +44,8 @@ function main()
         waitForObject(":Chart of Accounts.Close_QPushButton_2");
         clickButton(":Chart of Accounts.Close_QPushButton_2");
     }catch(e){test.fail("Exception while creating Chart of Accounts:"+e);}
-    
-    
+  
+
     //---------------Create Inventory - new Cost Catergory------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
@@ -81,6 +81,7 @@ function main()
             type(":Cost Category._main_XLineEdit_13", "01-01-2480-01");
         else if(appEdition=="Standard"||appEdition=="PostBooks")
             test.xverify(object.exists(":Cost Category._main_XLineEdit_13"),"Cost Category text field - not visible");
+        type(":List Cost Categories._main_XLineEdit_14", "01-01-2320-01");
         
         waitForObject(":Cost Category.Save_QPushButton");
         clickButton(":Cost Category.Save_QPushButton");
@@ -157,8 +158,8 @@ function main()
         clickButton(":List Cost Categories.Close_QPushButton_2");
     }catch(e){test.fail("Exception in Creating Cost Categories:"+e);}
     
-    
-    
+  
+  
     //------------Inventory: create Expense Categories---------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
@@ -613,6 +614,7 @@ function main()
         clickButton(":List Freight Classes.New_QPushButton_2");
         waitForObject(":_freightClass_XLineEdit_2");
         type(":_freightClass_XLineEdit_2", "BULK");
+        mouseClick(":_description_XLineEdit_34", 40, 16, 0, Qt.LeftButton);
         type(":_description_XLineEdit_34", "Bulk Freight");
         waitForObject(":Freight Class.Save_QPushButton");
         clickButton(":Freight Class.Save_QPushButton");
@@ -637,8 +639,8 @@ function main()
     
     
 
-if(appEdition=="Manufacturing")
-{
+   if(appEdition=="Manufacturing")
+   {
       
         //----------------Schedule: Create Planner Code----------------
         try{
@@ -647,7 +649,8 @@ if(appEdition=="Manufacturing")
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
             activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Planner Codes...");	     activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Planner Codes...");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Planner Codes...");	     
+            activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Planner Codes...");
             
             waitForObject(":List Planner Codes.New_QPushButton_2");
             clickButton(":List Planner Codes.New_QPushButton_2");
