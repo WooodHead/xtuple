@@ -9,18 +9,20 @@ SELECT ccpay_id AS id,
        END AS altid, cohead_id,
        ccpay.*,
        cust_number, cust_name,       
+       ccpay_type AS type,       
        CASE WHEN (ccpay_type='A') THEN <? value("preauth") ?>
             WHEN (ccpay_type='C') THEN <? value("charge") ?>
             WHEN (ccpay_type='R') THEN <? value("refund") ?>
             ELSE ccpay_type
-       END AS type,
+       END AS type_qtdisplayrole,
+       ccpay_status AS status,
        CASE WHEN (ccpay_status='A') THEN <? value("authorized") ?>
             WHEN (ccpay_status='C') THEN <? value("approved") ?>
             WHEN (ccpay_status='D') THEN <? value("declined") ?>
             WHEN (ccpay_status='V') THEN <? value("voided") ?>
             WHEN (ccpay_status='X') THEN <? value("noapproval") ?>
             ELSE ccpay_status
-       END AS status,
+       END AS status_qtdisplayrole,
        currConcat(ccpay_curr_id) AS currAbbr,
        COALESCE(cohead_number, ccpay_order_number) AS docnumber,
        ABS(COALESCE(payco_amount, ccpay_amount)) AS allocated,
@@ -37,7 +39,7 @@ SELECT ccpay_id AS id,
          ON (payco_ccpay_id=ccpay_id)
       JOIN cust ON (ccpay_cust_id=cust_id)
       JOIN custtype ON (cust_custtype_id=custtype_id)
-      JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
+      LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
   WHERE ((true)
 <? if exists("processed") ?>
   AND (ccpay_status != 'A')
