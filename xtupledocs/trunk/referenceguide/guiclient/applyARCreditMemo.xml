@@ -7,8 +7,8 @@
       <primary>credit memos</primary>
       <secondary>applying unapplied</secondary>
     </indexterm>Apply A/R Credit Memo</title>
-  <para>To apply a Credit Memo amount, select the APPLY button. The following
-  screen will appear:</para>
+  <para>To apply a Credit Memo amount, select the APPLY button on the List
+  Unapplied A/R Credit Memos screen. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -108,6 +108,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>APPLY LINE BAL.</term>
+      <listitem>
+        <para>Highlight an open Item and then select this button to apply the
+        credit to the balance for the line.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>APPLY</term>
       <listitem>
         <para>Highlight an Item and then select this button to apply an amount
@@ -122,7 +129,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="arCreditMemoApplication.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="arCreditMemoApplication.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
