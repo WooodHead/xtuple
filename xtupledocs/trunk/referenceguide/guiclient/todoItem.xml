@@ -10,18 +10,18 @@
       <primary>customer relationship management</primary>
       <secondary>creating to-dos for</secondary>
     </indexterm>New To-Do List Item</title>
-  <para>To enter a new To-Do List item, select the "New To-Do List Item"
-  option. The following screen will appear:</para>
+  <para>To enter a new To-Do item, select the "New To-Do Item" option. The
+  following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/todoItem.png" />
         </imageobject>
-        <caption>To-Do List Item</caption>
+        <caption>To-Do Item</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When entering a new To-Do List item, you are presented with the
-  following options:</para>
+  <para>When entering a new To-Do item, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Task Name</term>
@@ -33,95 +33,119 @@
     <varlistentry>
       <term>Active</term>
       <listitem>
-        <para>Select to indicate the To-Do List item is active.</para>
+        <para>Select to indicate the To-Do item is active.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Description</term>
       <listitem>
-        <para>Enter a brief description of the To-Do List item.</para>
+        <para>Enter a brief description of the To-Do item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Priority</term>
       <listitem>
         <para>Enter a priority from the drop down list to help you prioritize
-        your To-Do List items. Priority options include, Very High, High,
-        Normal, Low, Very Low</para>
+        your To-Do items. Priority options include, Very High, High, Normal,
+        Low, Very Low</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Owner</term>
+      <listitem>
+        <para>By default, a new To-Do item is owned by the user who creates
+        it. Once a To-Do item has been created, it may be reassigned to
+        another user.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Assigned to</term>
       <listitem>
-        <para>By default, a new To-Do List item is assigned to the user who
-        creates it. Once a To-Do List item has been created, it may be
-        reassigned to another user.</para>
+        <para>To assign a To-Do item to another user, use the browse button
+        located to the right of the field. </para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Reassign to User</term>
+      <term>Due</term>
       <listitem>
-        <para>To reassign the To-Do List item to another user, use the browse
-        button located to the right of the field. By default, To-Do List items
-        are assigned originally to the user who creates them.</para>
+        <para>Specify the date when the To-Do item is due.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Date Due</term>
+      <term>Assigned</term>
       <listitem>
-        <para>Specify the date when the To-Do List item is due.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Date Assigned</term>
-      <listitem>
-        <para>Specify the date when the To-Do List item was assigned&mdash;or
+        <para>Specify the date when the To-Do item was assigned&mdash;or
         reassigned.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Date Started</term>
+      <term>Started</term>
       <listitem>
-        <para>Specify the date when work on the To-Do List item was
-        started.</para>
+        <para>Specify the date when work on the To-Do item was started.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Date Completed</term>
+      <term>Completed</term>
       <listitem>
-        <para>Specify the date when work on the To-Do List item was
+        <para>Specify the date when work on the To-Do item was
         completed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Status</term>
+      <term>Pending Input</term>
       <listitem>
-        <para>Specify one of the following statuses to assign to the To-Do
-        List item:</para>
+        <para>Select to indicate the To-Do item is pending input. To-Do items
+        having this status will display a "P" in the status column when they
+        appear on the To-Do List.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Deferred</term>
+      <listitem>
+        <para>Select to indicate the To-Do item is deferred. To-Do items
+        having this status will display a "D" in the status column when they
+        appear on the To-Do List.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Neither</term>
+      <listitem>
+        <para>Select to indicate the To-Do item is neither pending input nor
+        deferred. To-Do items having this status will display an "I" in the
+        status column when they appear on the To-Do List.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Recurring</term>
+      <listitem>
+        <para>Select to indicate you want the To-Do item to be a recurring
+        To-Do item, using the frequency settings you specify below. This
+        feature enables you to automatically generate copies of To-Do items on
+        a recurring basis (e.g., the same day of every month). Recurring To-Do
+        items are generated when you run the recurring items utility, which is
+        described in more detail here: <xref
+        linkend="createRecurringItems" />.</para>
         <variablelist>
           <varlistentry>
-            <term>Pending Input</term>
+            <term>Every</term>
             <listitem>
-              <para>Select to indicate the To-Do List item is pending input.
-              To-Do List items having this status will display a "P" in the
-              status column when they appear on the To-Do List.</para>
+              <para>Specify how frequently you want the To-Do item to recur.
+              For example, once (1) per month, six (6) times per year,
+              etc.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Deferred</term>
+            <term>Until</term>
             <listitem>
-              <para>Select to indicate the To-Do List item is deferred. To-Do
-              List items having this status will display a "D" in the status
-              column when they appear on the To-Do List.</para>
+              <para>Specify when the recurrence should stop. For example, on
+              the last day of the year, at the end of six months, etc.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Neither</term>
+            <term>Create no more than</term>
             <listitem>
-              <para>Select to indicate the To-Do List item is neither pending
-              input nor deferred. To-Do List items having this status will
-              display an "I" in the status column when they appear on the
-              To-Do List.</para>
+              <para>Specify the maximum number of To-Do item copies you want
+              created when the recurring items utility is run.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -134,45 +158,44 @@
     <varlistentry>
       <term>CANCEL</term>
       <listitem>
-        <para>Closes the screen without creating a To-Do List item, returning
-        you to the previous screen.</para>
+        <para>Closes the screen without creating a To-Do item, returning you
+        to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
       <listitem>
-        <para>Creates the To-Do List item and adds it to the To-Do
-        List.</para>
+        <para>Creates the To-Do item and adds it to the To-Do List.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To enter notes for a To-Do List Item, select the "Notes" tab at the
-  bottom of the screen, as shown below:</para>
+  <para>To enter notes for a To-Do Item, select the "Notes" tab at the bottom
+  of the screen, as shown below:</para>
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/todoItem_notes.png" />
     </imageobject>
-    <caption>To-Do List Item Notes</caption>
+    <caption>To-Do Item Notes</caption>
   </mediaobject>
   <variablelist>
     <varlistentry>
       <term>Notes</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
-        Notes related to the To-Do List item.</para>
+        Notes related to the To-Do item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To create associations for a To-Do List Item to other records, select
-  the "Relationships" tab at the bottom of the screen, as shown below:</para>
+  <para>To create associations for a To-Do Item to other records, select the
+  "Relationships" tab at the bottom of the screen, as shown below:</para>
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/todoItem_relationships.png" />
     </imageobject>
-    <caption>To-Do List Item Relationships</caption>
+    <caption>To-Do Item Relationships</caption>
   </mediaobject>
-  <para>When defining To-Do List Item relationships, you are presented with
-  the following options:</para>
+  <para>When defining To-Do Item relationships, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Account</term>
@@ -185,27 +208,27 @@
       <term>Opportunity</term>
       <listitem>
         <para>Select an Opportunity (if applicable) to associate with the
-        To-Do List Item.</para>
+        To-Do Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Incident</term>
       <listitem>
         <para>Select an Incident (if applicable) to associate with the To-Do
-        List Item.</para>
+        Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To create reminder Alarms for a To-Do List Item, select the "Alarms"
-  tab at the bottom of the screen, as shown below:</para>
+  <para>To create reminder Alarms for a To-Do Item, select the "Alarms" tab at
+  the bottom of the screen, as shown below:</para>
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/todoItem_alarms.png" />
     </imageobject>
-    <caption>To-Do List Item Alarms</caption>
+    <caption>To-Do Item Alarms</caption>
   </mediaobject>
-  <para>When creating reminder Alarms for To-Do List Items, you are presented
-  with the following options:</para>
+  <para>When creating reminder Alarms for To-Do Items, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Alarms</term>
@@ -248,13 +271,13 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Comments to a To-Do List Item, select the "Comments" tab. The
+  <para>To add Comments to a To-Do Item, select the "Comments" tab. The
   following screen will appear:</para>
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/todoItem_commentsTab.png" />
     </imageobject>
-    <caption>To-Do List Item Comments</caption>
+    <caption>To-Do Item Comments</caption>
   </mediaobject>
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />

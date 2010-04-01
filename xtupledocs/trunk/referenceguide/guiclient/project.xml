@@ -75,88 +75,107 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Users</term>
+      <term>Owner</term>
       <listitem>
-        <para>Identify which users are associated with this project.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Owner</term>
-            <listitem>
-              <para>Select Project Owner.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Assigned To</term>
-            <listitem>
-              <para>Identify who this Project has been Assigned to.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        <para>Specify the Project Owner.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Assigned to</term>
+      <listitem>
+        <para>Identify the user assigned to the Project.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Status</term>
       <listitem>
-        <para>Specify status details regarding schedule.</para>
+        <para>Specify one of the following statuses to characterize the
+        Project:</para>
         <variablelist>
           <varlistentry>
-            <term>Status</term>
+            <term>Concept</term>
             <listitem>
-              <para>Specify one of the following statuses to characterize the
-              Project:</para>
-              <variablelist>
-                <varlistentry>
-                  <term>Concept</term>
-                  <listitem>
-                    <para>Use this status to indicate the Project has not yet
-                    begun.</para>
-                  </listitem>
-                </varlistentry>
-                <varlistentry>
-                  <term>In-Process</term>
-                  <listitem>
-                    <para>Use this status to indicate the Project is
-                    in-process.</para>
-                  </listitem>
-                </varlistentry>
-                <varlistentry>
-                  <term>Complete</term>
-                  <listitem>
-                    <para>Use this status to indicate the Project is
-                    complete.</para>
-                  </listitem>
-                </varlistentry>
-              </variablelist>
-              <note>
-                <para>Projects generated automatically when a new Sales Order
-                or Quote is entered will be assigned the status "Undefined" at
-                first. To remove this initial status, simply edit a Project
-                and assign an appropriate status to it.</para>
-              </note>
+              <para>Use this status to indicate the Project has not yet
+              begun.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Due</term>
+            <term>In-Process</term>
             <listitem>
-              <para>Date project is due.</para>
+              <para>Use this status to indicate the Project is
+              in-process.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Assigned</term>
+            <term>Complete</term>
             <listitem>
-              <para>Date project was assigned.</para>
+              <para>Use this status to indicate the Project is
+              complete.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <note>
+          <para>Projects generated automatically when a new Sales Order or
+          Quote is entered will be assigned the status "Undefined" at first.
+          To remove this initial status, simply edit a Project and assign an
+          appropriate status to it.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due</term>
+      <listitem>
+        <para>Date Project is due.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Assigned</term>
+      <listitem>
+        <para>Date Project was assigned.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Started</term>
+      <listitem>
+        <para>Date Project was actually started.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Completed</term>
+      <listitem>
+        <para>Date Project was actually completed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Recurring</term>
+      <listitem>
+        <para>Select to indicate you want the Project to be a recurring
+        Project, using the frequency settings you specify below. This feature
+        enables you to automatically generate copies of Projects on a
+        recurring basis (e.g., the same day of every month). Recurring
+        Projects are generated when you run the recurring items utility, which
+        is described in more detail here: <xref
+        linkend="createRecurringItems" />.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Every</term>
+            <listitem>
+              <para>Specify how frequently you want the Project to recur. For
+              example, once (1) per month, six (6) times per year, etc.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Started</term>
+            <term>Until</term>
             <listitem>
-              <para>Date project was actually started.</para>
+              <para>Specify when the recurrence should stop. For example, on
+              the last day of the year, at the end of six months, etc.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Completed</term>
+            <term>Create no more than</term>
             <listitem>
-              <para>Date project was actually completed.</para>
+              <para>Specify the maximum number of Project copies you want
+              created when the recurring items utility is run.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -178,6 +197,59 @@
       <listitem>
         <para>Creates the new Project and adds it to the master list of
         Projects.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view a time and expenses summary of the Project, select the
+  "Summary" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/project_tab.png" />
+        </imageobject>
+        <caption>Project Summary</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing the time and expenses summary for a Project, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Total Hours Budgeted</term>
+      <listitem>
+        <para>Displays the total Task hours budgeted for the Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total Hours Actual</term>
+      <listitem>
+        <para>Displays the actual Task hours used for the Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Balance</term>
+      <listitem>
+        <para>Displays the balance difference between budgeted and actual Task
+        hours for the Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total Expenses Budgeted</term>
+      <listitem>
+        <para>Displays the total Task expenses budgeted for the
+        Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total Expenses Actual</term>
+      <listitem>
+        <para>Displays the actual Task expenses used for the Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Balance</term>
+      <listitem>
+        <para>Displays the balance difference between budgeted and actual Task
+        expenses for the Project.</para>
       </listitem>
     </varlistentry>
   </variablelist>

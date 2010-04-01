@@ -71,12 +71,10 @@
         <para>Any other processes that require tracking</para>
       </listitem>
     </orderedlist>
-    <xi:include href="guiclient/incident.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/incidentWorkbench.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/incident.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/incidentWorkbench.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section569077">
     <title><indexterm significance="normal">
@@ -88,15 +86,12 @@
       </indexterm>To-Do</title>
     <para>Having a To-Do List enables you to organize and prioritize various
     Tasks and Incidents assigned to yourself or other users.</para>
-    <xi:include href="guiclient/todoItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/todoList.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/todoListCalendar.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/todoItem.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/todoList.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/todoListCalendar.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section556344">
     <title>Project</title>
@@ -106,115 +101,109 @@
     Orders generated to meet Sales Order demand. At the Project level, you
     also have the ability to enter descriptive information, as well as to-do
     items (i.e., Tasks) related to the Project.</para>
-    <xi:include href="guiclient/project.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/projects.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/project.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/projects.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section574766">
     <title>Opportunity</title>
     <para>Whenever you have a chance to make a sale, it is considered an
     Opportunity. The xTuple Applications make it easy to track these revenue
     opportunities with the Opportunity Management system.</para>
-    <xi:include href="guiclient/opportunity.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/opportunityList.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/opportunity.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/opportunityList.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
     <title>Reports</title>
     <para>Reports for the module are stored here.</para>
     <xi:include href="guiclient/dspOrderActivityByProject.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/dspIncidentsByCRMAccount.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/dspTodoByUserAndIncident.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
     <title>Account</title>
     <para>CRM Account section.</para>
-    <xi:include href="guiclient/crmaccount.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/crmaccounts.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/crmaccount.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/crmaccounts.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/searchForCRMAccount.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
     <title>Contact</title>
     <para>CRM Contact section.</para>
-    <xi:include href="guiclient/contact.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/contacts.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/searchForContact.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/contact.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/contacts.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/searchForContact.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
     <title>Address</title>
     <para>CRM Address section.</para>
-    <xi:include href="guiclient/address.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/addresses.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/address.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/addresses.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section525906">
     <title><indexterm significance="normal">
         <primary>master information</primary>
-        <secondary>for a/r module</secondary>
+        <secondary>for crm module</secondary>
       </indexterm>Master Information</title>
     <para>Each Master Information category gives you the ability to define and
     maintain essential data needed to support the module.</para>
-    <xi:include href="guiclient/honorifics.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/honorifics.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
       <title>Incident</title>
       <para>Incident Master Information section.</para>
       <xi:include href="guiclient/incidentCategories.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/incidentPriorities.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/incidentSeverities.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/incidentResolutions.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <section>
       <title>Opportunity</title>
       <para>Opportunity Master Information section.</para>
       <xi:include href="guiclient/opportunitySources.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/opportunityStages.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
-      <xi:include href="guiclient/opportunityTypes.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1)" />
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/opportunityTypes.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <xi:include href="guiclient/characteristics.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <xi:include href="guiclient/characteristics.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section>
+    <title>Utilities</title>
+    <para>This section includes information about utilities used by the CRM
+    module.</para>
+    <xi:include href="guiclient/createRecurringItems.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
 </chapter>
