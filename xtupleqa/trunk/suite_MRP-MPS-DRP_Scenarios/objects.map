@@ -91,6 +91,7 @@
 :Implode Work Order.Implode_QPushButton	{name='_implode' text='Implode' type='QPushButton' visible='1' window=':Implode Work Order_implodeWo'}
 :Implode Work Order_implodeWo	{name='implodeWo' type='implodeWo' visible='1' windowTitle='Implode Work Order'}
 :Interface Options.Idle Timeout:_QLabel	{container=':_application.Interface Options_QGroupBox' name='_idleTimeoutLit' text='Idle Timeout:' type='QLabel' visible='1'}
+:Interface Options.Show windows inside workspace_QRadioButton	{container=':_application.Interface Options_QGroupBox' name='_interfaceWorkspace' text='Show windows inside workspace' type='QRadioButton' visible='1'}
 :Interface Options.qt_spinbox_lineedit_QLineEdit	{container=':_application.Interface Options_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
 :Item Site_itemSite	{name='itemSite' type='itemSite' visible='1' windowTitle='Item Site'}
 :Item is Sold.Exclusive_QCheckBox	{container=':Item.Item is Sold_QGroupBox' name='_exclusive' text='Exclusive' type='QCheckBox' visible='1'}
@@ -417,6 +418,7 @@
 :_headerPage...._QPushButton	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget' name='_list' text='...' type='QPushButton' visible='1'}
 :_headerPage...._QPushButton_2	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget' name='_list' occurrence='2' text='...' type='QPushButton' visible='1'}
 :_headerPage...._QPushButton_3	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget_2' name='_list' text='...' type='QPushButton' visible='1'}
+:_headerPage...._QPushButton_4	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget_2' text='...' type='QPushButton' unnamed='1' visible='1'}
 :_headerPage.From Site:_QLabel	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget_3' name='_srcWhseLit' text='From Site:' type='QLabel' visible='1'}
 :_headerPage.Ship From_QGroupBox	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget_3' name='_shipFromGroup' title='Ship From' type='QGroupBox' visible='1'}
 :_headerPage.To Site:_QLabel	{container=':qt_tabwidget_stackedwidget._headerPage_QWidget_3' name='_dstWhsLit' text='To Site:' type='QLabel' visible='1'}

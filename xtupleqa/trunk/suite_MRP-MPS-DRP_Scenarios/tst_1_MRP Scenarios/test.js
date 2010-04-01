@@ -4,67 +4,55 @@ function main()
     source(findFile("scripts","functions.js"));
     
     
-    //-----Log into Applicaiton---  
+    //-----login Application-----
+    loginAppl("CONFIGURE"); 
+    
+     //------------Editing the preferences-----
     try
     {
-    var set = testData.dataset("login.tsv");
-    var url, db, port, pwd,realname,username;
-    db=pwd=port=url=realname=username="";
-    var userrole="CONFIGURE";
-    for(var records in set)
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
+    activateItem(":xTuple ERP:*_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Preferences...");
+    activateItem(":xTuple ERP:*.System_QMenu", "Preferences...");
+    if(object.exists(":Search Navigation.Buttons_QRadioButton"))
     {
-        url=testData.field(set[records],"HOST");
-        db=testData.field(set[records],"DB");
-        port=testData.field(set[records],"PORT");
-        pwd=testData.field(set[records],"PASSWORD");
-        role=testData.field(set[records],"ROLE");
-        username=testData.field(set[records],"USERNAME");
-        realname=testData.field(set[records],"REALNAME");
-        if(userrole==role) break;
-              
+    waitForObject(":Interface Options.Show windows inside workspace_QRadioButton");
+    if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
+    clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
     }
-
-    if(userrole!=role)
-    {
-        test.fatal("Please enter user details in login.tsv for the role: "+userrole);
-        exit(1);
-    }
-      
-    waitForObject(":Log In.Options..._QPushButton");
-    clickButton(":Log In.Options..._QPushButton");
-    waitForObject(":_server_QLineEdit");
-    if(findObject(":_server_QLineEdit").text!= url)
-    {
-        findObject(":_server_QLineEdit").text=url;
-        test.log("URL Changed to: "+url);
-    }
-    if(findObject(":_database_QLineEdit").text!=db)
-    {
-        findObject(":_database_QLineEdit").text=db;
-        test.log("Database Changed to: "+db);
-    }
-    if(findObject(":_port_QLineEdit").text!=port)
-    {
-        findObject(":_port_QLineEdit").text=port;
-        test.log("Port Changed to:" + port);
-    }
-    clickButton(":Login Options.Save_QPushButton");
-    waitForObject(":_username_QLineEdit");    
-    type(":_username_QLineEdit", username);
-    waitForObject(":_username_QLineEdit");
-    type(":_username_QLineEdit", "<Tab>");
-    waitForObject(":_password_QLineEdit");
-    type(":_password_QLineEdit", pwd);
-    waitForObject(":Log In.Login_QPushButton");
-    clickButton(":Log In.Login_QPushButton");
-    test.log("Logged in Application");
+    waitForObject(":User Preferences.Save_QPushButton");
+    clickButton(":User Preferences.Save_QPushButton");
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
+    activateItem(":xTuple ERP:*_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Rescan Privileges");
+    activateItem(":xTuple ERP:*.System_QMenu", "Rescan Privileges");   
+        
     }
     catch(e)
     {
-        test.fail("Error in logging to application" + e);
+        test.fail("Error in editing the preferences" + e);
     }
     
-
+    //------Restart the application--
+    waitForObjectItem(":xTuple ERP:*_QMenuBar", "System");
+    activateItem(":xTuple ERP:*_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP:*.System_QMenu", "Exit xTuple ERP...");
+    activateItem(":xTuple ERP:*.System_QMenu", "Exit xTuple ERP...");
+    
+    snooze(5);
+    
+    if(OS.name=="Linux")
+        startApplication("xtuple.bin");
+    
+    else
+        startApplication("xtuple");
+    
+    snooze(2);
+    
+    loginAppl("CONFIGURE"); 
+    
+    
+    
     //-------Assign all Privileges------
     try
     {
@@ -116,8 +104,11 @@ function main()
     }
     catch(e)
     {
-        test.fail("Error in editingthe preferences" + e);
+        test.fail("Error in editing the preferences" + e);
     }
+  
+  
+     
     //------Remove Application Time out----    
     try
     {
@@ -496,7 +487,7 @@ obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "TBOX1", 0, 0, 0, Qt.LeftButton);
-    waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
+     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     findObject(":_reorderLevel_XLineEdit").clear();
     type(":_reorderLevel_XLineEdit", "100");
