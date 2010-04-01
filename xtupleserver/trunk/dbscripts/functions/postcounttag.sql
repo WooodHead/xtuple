@@ -1,21 +1,10 @@
+SELECT dropIfExists('FUNCTION', 'postCountTag(integer, boolean, text)', 'public');
+
 CREATE OR REPLACE FUNCTION postCountTag(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pInvcntid ALIAS FOR $1;
   pThaw ALIAS FOR $2;
-
-BEGIN
-
-  RETURN postCountTag(pInvcntid, pThaw, 'STD');
-
-END;
-$$ LANGUAGE 'plpgsql';
-
-
-CREATE OR REPLACE FUNCTION postCountTag(INTEGER, BOOLEAN, TEXT) RETURNS INTEGER AS $$
-DECLARE
-  pInvcntid ALIAS FOR $1;
-  pThaw ALIAS FOR $2;
-  pAvgCostingMethod ALIAS FOR $3;
+  _avgCostingMethod TEXT;
   _invhistid INTEGER;
   _postDate TIMESTAMP;
   _runningQty NUMERIC;
@@ -29,6 +18,8 @@ DECLARE
 
 BEGIN
 
+  SELECT COALESCE(fetchMetricText('CountAvgCostMethod'), 'STD') INTO _avgCostingMethod;
+
   SELECT invcnt_id, invcnt_tagnumber, invcnt_qoh_after,
          invcnt_location_id,
          item_number,
@@ -38,9 +29,9 @@ BEGIN
          CASE WHEN (itemsite_costmethod = 'N') THEN 0
               WHEN ( (itemsite_costmethod = 'A') AND
                      (itemsite_qtyonhand = 0) AND
-                     (pAvgCostingMethod = 'ACT') ) THEN actcost(itemsite_item_id)
+                     (_avgCostingMethod = 'ACT') ) THEN actcost(itemsite_item_id)
               WHEN ( (itemsite_costmethod = 'A') AND
-                     (pAvgCostingMethod IN ('ACT', 'AVG')) ) THEN avgcost(itemsite_id)
+                     (_avgCostingMethod IN ('ACT', 'AVG')) ) THEN avgcost(itemsite_id)
               ELSE stdcost(itemsite_item_id)
          END AS cost, itemsite_costmethod,
          itemsite_controlmethod,
@@ -56,7 +47,7 @@ BEGIN
 -- call a separate function so as not to affect
 -- the existing functionality.
     IF (_p.invcnt_location_id IS NOT NULL) THEN
-      RETURN postCountTagLocation(pInvcntid, pThaw, pAvgCostingMethod);
+      RETURN postCountTagLocation(pInvcntid, pThaw);
     END IF;
 
     SELECT NEXTVAL('invhist_invhist_id_seq') INTO _invhistid;

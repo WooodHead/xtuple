@@ -1,8 +1,8 @@
-CREATE OR REPLACE FUNCTION postCountTagLocation(INTEGER, BOOLEAN, TEXT) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION postCountTagLocation(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pInvcntid ALIAS FOR $1;
   pThaw ALIAS FOR $2;
-  pAvgCostingMethod ALIAS FOR $3;
+  _avgCostingMethod TEXT;
   _invhistid INTEGER;
   _postDate TIMESTAMP;
   _runningQty NUMERIC;
@@ -17,6 +17,8 @@ DECLARE
   _lsid INTEGER;
 BEGIN
 
+  SELECT COALESCE(fetchMetricText('CountAvgCostMethod'), 'STD') INTO _avgCostingMethod;
+
   SELECT invcnt_id, invcnt_tagnumber, invcnt_qoh_after,
          invcnt_location_id, invcnt_tagdate,
          item_number,
@@ -26,9 +28,9 @@ BEGIN
          CASE WHEN (itemsite_costmethod = 'N') THEN 0
               WHEN ( (itemsite_costmethod = 'A') AND
                      (itemsite_qtyonhand = 0) AND
-                     (pAvgCostingMethod = 'ACT') ) THEN actcost(itemsite_item_id)
+                     (_avgCostingMethod = 'ACT') ) THEN actcost(itemsite_item_id)
               WHEN ( (itemsite_costmethod = 'A') AND
-                     (pAvgCostingMethod IN ('ACT', 'AVG')) ) THEN avgcost(itemsite_id)
+                     (_avgCostingMethod IN ('ACT', 'AVG')) ) THEN avgcost(itemsite_id)
               ELSE stdcost(itemsite_item_id)
          END AS cost, itemsite_costmethod,
          itemsite_controlmethod, itemsite_value INTO _p
