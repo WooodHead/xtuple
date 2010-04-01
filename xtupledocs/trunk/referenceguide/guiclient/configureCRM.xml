@@ -81,7 +81,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Use Project</term>
+      <term>Use Projects</term>
       <listitem>
         <para>Select to provide the ability to create Projects.</para>
       </listitem>
@@ -100,6 +100,13 @@
         Opportunity records under the "Comments" tab for each Opportunity
         where the changes are made. If not selected, Opportunity changes will
         not be tracked automatically.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Default Incident Email Delivery Profile</term>
+      <listitem>
+        <para>Specify the default EDI email delivery profile you want to use
+        when emailing Incidents.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -178,6 +185,60 @@
             </listitem>
           </itemizedlist>
         </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Incident Status Colors</term>
+      <listitem>
+        <para>The Incident color configuration option supports simple color
+        names (e.g., red, blue, green, etc.), as well as the full range of
+        hexadecimal codes (e.g., #FFA0A0, #FF50A8, etc.). Specify how you want
+        Incidents on the Incident Workbench to appear according to their
+        various statuses:</para>
+        <variablelist>
+          <varlistentry>
+            <term>New</term>
+            <listitem>
+              <para>Specify the color for Incidents whose status is
+              "New".</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Feedback</term>
+            <listitem>
+              <para>Specify the color for Incidents whose status is
+              "Feedback".</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Confirmed</term>
+            <listitem>
+              <para>Specify the color for Incidents whose status is
+              "Confirmed".</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Assigned</term>
+            <listitem>
+              <para>Specify the color for Incidents whose status is
+              "Assigned".</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Resolved</term>
+            <listitem>
+              <para>Specify the color for Incidents whose status is
+              "Resolved".</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Closed</term>
+            <listitem>
+              <para>Specify the color for Incidents whose status is
+              "Closed".</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
