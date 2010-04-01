@@ -149,10 +149,10 @@ try
         activateItem(":xTuple ERP: *_.Reports_QMenu", "Quantities On Hand");
         waitForObjectItem(":xTuple ERP: *.Quantities On Hand_QMenu", "by Item...");
         activateItem(":xTuple ERP: *.Quantities On Hand_QMenu", "by Item...");
-        waitForObject(":_itemGroup...._QPushButton_3");
-        clickButton(":_itemGroup...._QPushButton_3");
-        waitForObject(":_item_XTreeWidget_3");
-        doubleClickItem(":_item_XTreeWidget_3",inputString,0,0,0,Qt.LeftButton);
+        waitForObject(":_itemGroup...._QPushButton_7");
+       clickButton(":_itemGroup...._QPushButton_7");
+        waitForObject(":_listTab_XTreeWidget_9");
+        doubleClickItem(":_listTab_XTreeWidget_9",inputString,0,0,0,Qt.LeftButton);
         waitForObject(":Quantities on Hand by Item.Query_QPushButton");
         clickButton(":Quantities on Hand by Item.Query_QPushButton");
         waitForObject(":_qoh_QModelIndex");

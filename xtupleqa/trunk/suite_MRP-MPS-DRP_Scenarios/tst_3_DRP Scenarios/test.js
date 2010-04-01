@@ -3,63 +3,9 @@ function main()
     //-----declarations------
     source(findFile("scripts","functions.js"));
     
-    try
-    {
-    //-----Log into Applicaiton---    
-    var set = testData.dataset("login.tsv");
-    var url, db, port, pwd,realname,username;
-    db=pwd=port=url=realname=username="";
-    var userrole="CONFIGURE";
-    for(var records in set)
-    {
-        url=testData.field(set[records],"HOST");
-        db=testData.field(set[records],"DB");
-        port=testData.field(set[records],"PORT");
-        pwd=testData.field(set[records],"PASSWORD");
-        role=testData.field(set[records],"ROLE");
-        username=testData.field(set[records],"USERNAME");
-        realname=testData.field(set[records],"REALNAME");
-        if(userrole==role) break;
-              
-    }
-
-    if(userrole!=role)
-    {
-        test.fatal("Please enter user details in login.tsv for the role: "+userrole);
-        exit(1);
-    }
-      
-    waitForObject(":Log In.Options..._QPushButton");
-    clickButton(":Log In.Options..._QPushButton");
-    waitForObject(":_server_QLineEdit");
-    if(findObject(":_server_QLineEdit").text!= url)
-    {
-        findObject(":_server_QLineEdit").text=url;
-        test.log("URL Changed to: "+url);
-    }
-    if(findObject(":_database_QLineEdit").text!=db)
-    {
-        findObject(":_database_QLineEdit").text=db;
-        test.log("Database Changed to: "+db);
-    }
-    if(findObject(":_port_QLineEdit").text!=port)
-    {
-        findObject(":_port_QLineEdit").text=port;
-        test.log("Port Changed to:" + port);
-    }
-    clickButton(":Login Options.Save_QPushButton");
-    waitForObject(":_username_QLineEdit");    
-    type(":_username_QLineEdit", username);
-    waitForObject(":_password_QLineEdit");
-    type(":_password_QLineEdit", pwd);
-    waitForObject(":Log In.Login_QPushButton");
-    clickButton(":Log In.Login_QPushButton");
-    test.log("Logged in Application");
-    }
-   catch(e)
-   {
-        test.fail("Error in logging to application" + e);
-   }
+    //-----login Application-----
+    loginAppl("CONFIGURE"); 
+   
 
     
     DelAllWO();
@@ -268,7 +214,7 @@ function main()
         test.fail("Error in creating new planner code" + e);
    }
   
-    //----------Copy YTRUCK1 to DTRUCK1-------
+    //----------Copy YTRUCK1 to DTRUCK2-------
    try
    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products");
@@ -282,7 +228,7 @@ function main()
     waitForObject(":List Items.Copy_QPushButton");
     clickButton(":List Items.Copy_QPushButton");
     waitForObject(":_targetItemNumber_XLineEdit");
-    type(":_targetItemNumber_XLineEdit", "DTRUCK1");
+    type(":_targetItemNumber_XLineEdit", "DTRUCK2");
     waitForObject(":List Items.Copy_QPushButton_2");
     clickButton(":List Items.Copy_QPushButton_2");
     waitForObject(":List Items.Yes_QPushButton");
@@ -320,14 +266,14 @@ function main()
     clickButton(":List Items.Cancel_QPushButton");
     waitForObject(":List Items.Close_QPushButton");
     clickButton(":List Items.Close_QPushButton");
-    test.log("New Item created: DTRUCK1");
+    test.log("New Item created: DTRUCK2");
     }
    catch(e)
    {
-        test.fail("Error in creating item DTRUCK1" + e);
+        test.fail("Error in creating item DTRUCK2" + e);
    }
 
-    //-------Create Item Sites for DTRUCK1-----
+    //-------Create Item Sites for DTRUCK2-----
    try
    {
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
@@ -336,8 +282,8 @@ function main()
     activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
     waitForObjectItem(":xTuple ERP:*.Item Site_QMenu", "List...");
     activateItem(":xTuple ERP:*.Item Site_QMenu", "List...");
-    waitForObjectItem(":_itemSite_XTreeWidget", "DTRUCK1");
-    clickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 1, Qt.LeftButton);
+    waitForObjectItem(":_itemSite_XTreeWidget", "DTRUCK2");
+    clickItem(":_itemSite_XTreeWidget", "DTRUCK2", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_frame.Copy_QPushButton");
     clickButton(":_frame.Copy_QPushButton");
     waitForObject(":_warehouse_WComboBox_3");
@@ -394,8 +340,8 @@ function main()
     waitForObject(":List Item Sites.Save_QPushButton");
     clickButton(":List Item Sites.Save_QPushButton");
     
-    waitForObjectItem(":_itemSite_XTreeWidget", "DTRUCK1");
-    clickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 1, Qt.LeftButton);
+    waitForObjectItem(":_itemSite_XTreeWidget", "DTRUCK2");
+    clickItem(":_itemSite_XTreeWidget", "DTRUCK2", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_frame.Copy_QPushButton");
     clickButton(":_frame.Copy_QPushButton");
     waitForObjectItem(":_warehouse_WComboBox_3", "WH3");
@@ -445,7 +391,7 @@ function main()
     }
    catch(e)
    {
-        test.fail("Error in creating Item Sites for DTRUCK1" + e);
+        test.fail("Error in creating Item Sites for DTRUCK2" + e);
    }
       
   
@@ -504,7 +450,7 @@ function main()
     if(findObject(":_warehouse._warehouses_WComboBox").currentText!="WH1")
         clickItem(":_warehouse._warehouses_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_itemSite_XTreeWidget");
-    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
+    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK2", 0, 0, 0, Qt.LeftButton);
     
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
@@ -539,7 +485,7 @@ function main()
     clickButton(":List Item Sites.Save_QPushButton");
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
-    test.log("Item Site setup for: DTRUCK1");
+    test.log("Item Site setup for: DTRUCK2");
     waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
     activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
     waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -553,7 +499,7 @@ function main()
     if(findObject(":_warehouse._warehouses_WComboBox").currentText!="WH2")
         clickItem(":_warehouse._warehouses_WComboBox", "WH2", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_itemSite_XTreeWidget");
-    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
+    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK2", 0, 0, 0, Qt.LeftButton);
         
         
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
@@ -588,11 +534,11 @@ function main()
     clickButton(":List Item Sites.Save_QPushButton");
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
-    test.log("Item Site setup for: DTRUCK1");
+    test.log("Item Site setup for: DTRUCK2");
     }
    catch(e)
    {
-        test.fail("Error in setting up Item Site of DTRUCK1 " + e);
+        test.fail("Error in setting up Item Site of DTRUCK2 " + e);
    }
      
     
@@ -632,14 +578,14 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -674,9 +620,9 @@ function main()
     //DRP REORDER POINT TEST 2
     test.log("DRP REORDER POINT TEST 2");
     DelPlanOrdrs();
-    QOHZeroWh("DTRUCK1","WH1");
-    QOHZeroWh("DTRUCK1","WH2");
-    QOHZeroWh("DTRUCK1","WH3");
+    QOHZeroWh("DTRUCK2","WH1");
+    QOHZeroWh("DTRUCK2","WH2");
+    QOHZeroWh("DTRUCK2","WH3");
   
     //----Setup Item site------
     try
@@ -694,7 +640,7 @@ function main()
     if(findObject(":_warehouse._warehouses_WComboBox").currentText!="WH1")
         clickItem(":_warehouse._warehouses_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_itemSite_XTreeWidget");
-    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
+    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK2", 0, 0, 0, Qt.LeftButton);
     
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
@@ -729,11 +675,11 @@ function main()
     clickButton(":List Item Sites.Save_QPushButton");
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
-    test.log("Item Site setup for: DTRUCK1");
+    test.log("Item Site setup for: DTRUCK2");
     }
    catch(e)
    {
-        test.fail("Error in setting up Item site of DTRUCK1" + e);
+        test.fail("Error in setting up Item site of DTRUCK2" + e);
    }
     
     MRP("+99");
@@ -773,14 +719,14 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="1,000.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="1,000.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -835,7 +781,7 @@ function main()
     if(findObject(":_warehouse._warehouses_WComboBox").currentText!="WH3")
         clickItem(":_warehouse._warehouses_WComboBox", "WH3", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_itemSite_XTreeWidget");
-    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
+    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK2", 0, 0, 0, Qt.LeftButton);
     
     
         
@@ -871,11 +817,11 @@ function main()
     clickButton(":List Item Sites.Save_QPushButton");
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
-    test.log("Item Site setup for: DTRUCK1");
+    test.log("Item Site setup for: DTRUCK2");
      }
    catch(e)
    {
-        test.fail("Error in setting up Item Site of DTRUCK1" + e);
+        test.fail("Error in setting up Item Site of DTRUCK2" + e);
    }
     
     MRP("+99");
@@ -914,21 +860,21 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="1,000.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="1,000.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -983,7 +929,7 @@ function main()
     if(findObject(":_warehouse._warehouses_WComboBox").currentText!="WH1")
         clickItem(":_warehouse._warehouses_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_itemSite_XTreeWidget");
-    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
+    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK2", 0, 0, 0, Qt.LeftButton);
     
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
@@ -1018,11 +964,11 @@ function main()
     clickButton(":List Item Sites.Save_QPushButton");
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
-    test.log("Item Site setup for: DTRUCK1");
+    test.log("Item Site setup for: DTRUCK2");
     }
    catch(e)
    {
-        test.fail("Error in setting up Item Site of DTRUCK1" + e);
+        test.fail("Error in setting up Item Site of DTRUCK2" + e);
    }
     
     MRP("+99");
@@ -1060,21 +1006,21 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="300.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="300.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1111,8 +1057,8 @@ function main()
     test.log("DRP QOH NETTING TEST");
     
     DelPlanOrdrs();
-    UpdateQOHWh("DTRUCK1",50,"WH2");
-    UpdateQOHWh("DTRUCK1",50,"WH3");
+    UpdateQOHWh("DTRUCK2",50,"WH2");
+    UpdateQOHWh("DTRUCK2",50,"WH3");
 
     
     //----Setup Item site------
@@ -1131,7 +1077,7 @@ function main()
     if(findObject(":_warehouse._warehouses_WComboBox").currentText!="WH1")
         clickItem(":_warehouse._warehouses_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_itemSite_XTreeWidget");
-    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
+    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK2", 0, 0, 0, Qt.LeftButton);
     
     
         
@@ -1168,11 +1114,11 @@ function main()
     clickButton(":List Item Sites.Save_QPushButton");
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
-    test.log("Item Site setup for: DTRUCK1");
+    test.log("Item Site setup for: DTRUCK2");
     }
    catch(e)
    {
-        test.fail("Error in setting up Item site of DTRUCK1" + e);
+        test.fail("Error in setting up Item site of DTRUCK2" + e);
    } 
     
     
@@ -1212,21 +1158,21 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="50.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="150.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="150.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="200.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1263,8 +1209,8 @@ function main()
     test.log("DRP S/O DEMAND AGREGATING TEST");
     
     DelPlanOrdrs();
-    QOHZeroWh("DTRUCK1","WH2");
-    QOHZeroWh("DTRUCK1","WH3");
+    QOHZeroWh("DTRUCK2","WH2");
+    QOHZeroWh("DTRUCK2","WH3");
     
     //----Setup Item site------
     try
@@ -1282,7 +1228,7 @@ function main()
     if(findObject(":_warehouse._warehouses_WComboBox").currentText!="WH2")
         clickItem(":_warehouse._warehouses_WComboBox", "WH2", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_itemSite_XTreeWidget");
-    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
+    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK2", 0, 0, 0, Qt.LeftButton);
     waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
     waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox");
@@ -1316,11 +1262,11 @@ function main()
     clickButton(":List Item Sites.Save_QPushButton");
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
-    test.log("Item Site setup for: DTRUCK1");
+    test.log("Item Site setup for: DTRUCK2");
     }
    catch(e)
    {
-        test.fail("Error in setting up Item site of DTRUCK1" + e);
+        test.fail("Error in setting up Item site of DTRUCK2" + e);
    } 
 
     //----Setup Item site------
@@ -1339,7 +1285,7 @@ function main()
     if(findObject(":_warehouse._warehouses_WComboBox").currentText!="WH3")
         clickItem(":_warehouse._warehouses_WComboBox", "WH3", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_itemSite_XTreeWidget");
-    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
+    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK2", 0, 0, 0, Qt.LeftButton);
     
     
         
@@ -1376,15 +1322,15 @@ function main()
     clickButton(":List Item Sites.Save_QPushButton");
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
-    test.log("Item Site setup for: DTRUCK1");
+    test.log("Item Site setup for: DTRUCK2");
     }
    catch(e)
    {
-        test.fail("Error in setting up Item site of DTRUCK1" + e);
+        test.fail("Error in setting up Item site of DTRUCK2" + e);
    }
     
-    NewSOWh("DTRUCK1",150,"WH2");
-    NewSOWh("DTRUCK1",100,"WH3");
+    NewSOWh("DTRUCK2",150,"WH2");
+    NewSOWh("DTRUCK2",100,"WH3");
         
     MRP("+99");
     
@@ -1422,21 +1368,21 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="150.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="150.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1477,10 +1423,10 @@ function main()
     DelAllSO();
     DelAllPO();
     
-    NewSOWh("DTRUCK1",150,"WH2");
-    NewSOWh("DTRUCK1",100,"WH3");
+    NewSOWh("DTRUCK2",150,"WH2");
+    NewSOWh("DTRUCK2",100,"WH3");
   
-    newPOWh("DTRUCK1",25,"0","WH2");
+    newPOWh("DTRUCK2",25,"0","WH2");
     
     
     //----Setup Item site------
@@ -1542,7 +1488,7 @@ function main()
    try
    {
     waitForObject(":_itemSite_XTreeWidget");
-    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
+    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK2", 0, 0, 0, Qt.LeftButton);
     waitForObject(":List Item Sites.Site can Purchase this item_QGroupBox");
     if(!findObject(":List Item Sites.Site can Purchase this item_QGroupBox").checked)
         mouseClick(":List Item Sites.Site can Purchase this item_QGroupBox", 14, 5, 0, Qt.LeftButton);
@@ -1579,11 +1525,11 @@ function main()
     clickButton(":List Item Sites.Save_QPushButton");
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
-    test.log("Item Site setup for: DTRUCK1");    
+    test.log("Item Site setup for: DTRUCK2");    
     }
    catch(e)
    {
-        test.fail("Error in setting up Item Site of DTRUCK1" + e);
+        test.fail("Error in setting up Item Site of DTRUCK2" + e);
    }
     
     MRP("+99");
@@ -1622,14 +1568,14 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="125.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="125.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1637,7 +1583,7 @@ function main()
             
                         
             obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="225.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="225.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1675,7 +1621,7 @@ function main()
     DelPlanOrdrs();
     DelAllSO();
     DelAllWO();
-    NewSOWh("DTRUCK1",100,"WH2");
+    NewSOWh("DTRUCK2",100,"WH2");
     
     //----Setup Item site------
     try
@@ -1693,7 +1639,7 @@ function main()
     if(findObject(":_warehouse._warehouses_WComboBox").currentText!="WH2")
         clickItem(":_warehouse._warehouses_WComboBox", "WH2", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_itemSite_XTreeWidget");
-    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
+    doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK2", 0, 0, 0, Qt.LeftButton);
     waitForObject(":List Item Sites.Site can Purchase this item_QGroupBox");
     if(!findObject(":List Item Sites.Site can Purchase this item_QGroupBox").checked)
         mouseClick(":List Item Sites.Site can Purchase this item_QGroupBox", 14, 5, 0, Qt.LeftButton);
@@ -1737,11 +1683,11 @@ function main()
     clickButton(":List Item Sites.Save_QPushButton");
     waitForObject(":List Item Sites.Close_QPushButton");
     clickButton(":List Item Sites.Close_QPushButton");
-    test.log("Item Site setup for: DTRUCK1");    
+    test.log("Item Site setup for: DTRUCK2");    
     }
    catch(e)
    {
-        test.fail("Error in setting up Item Site of DTRUCK1" + e);
+        test.fail("Error in setting up Item Site of DTRUCK2" + e);
    }
 
   //------Copy Item Sites and set planning to None---
@@ -1806,7 +1752,7 @@ function main()
         test.fail("Error in Item Sites set up" + e);
    }
   
-    NewWOWh("DTRUCK1",33,0,0,"WH2");
+    NewWOWh("DTRUCK2",33,0,0,"WH2");
     
     MRP("+99");
     
@@ -1844,7 +1790,7 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="42.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="42.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1853,7 +1799,7 @@ function main()
                       
                         
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="42.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="42.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1908,7 +1854,7 @@ function main()
     if(findObject(":_warehouse._warehouses_WComboBox").currentText!="WH3")
     clickItem(":_warehouse._warehouses_WComboBox", "WH3", 0, 0, 1, Qt.LeftButton);
     waitForObject(":_itemSite_XTreeWidget");
-     doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK1", 0, 0, 0, Qt.LeftButton);
+     doubleClickItem(":_itemSite_XTreeWidget", "DTRUCK2", 0, 0, 0, Qt.LeftButton);
     
      waitForObject(":List Item Sites.qt_tabwidget_tabbar_QTabBar");
     clickTab(":List Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
@@ -1928,7 +1874,7 @@ function main()
         test.fail("Error in set up of Item sites" + e);
    }
     
-    NewSOWh("DTRUCK1",100,"WH3");
+    NewSOWh("DTRUCK2",100,"WH3");
    
 
    MRP("+99");
@@ -1968,14 +1914,14 @@ function main()
         {
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="42.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="42.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
             
             
             obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
@@ -1983,7 +1929,7 @@ function main()
             
                         
             obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-            if(obj_TreeTopLevelItem.text(4)=="DTRUCK1" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="42.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+            if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="42.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
                 test.pass("Expected Planned Order generated");
             else 
                 test.fail("Incorrect Planned Order generated");
