@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="createRecurringItems">
+  <title><indexterm significance="normal">
+      <primary>incidents</primary>
+      <secondary>create recurring</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>to-dos</primary>
+      <secondary>create recurring</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>projects</primary>
+      <secondary>create recurring</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>invoices</primary>
+      <secondary>create recurring</secondary>
+    </indexterm>Create Recurring Items</title>
+  <para>Several document types may be marked as recurring: Invoices,
+  Incidents, To-Do Items, and Projects. Recurring means these documents have
+  the capacity to be recreated over and over again on a periodic basis. To
+  process recurring documents, you need to run the recurring items utility.
+  When the utility is run, copies will be created of any documents marked as
+  recurring. The frequency of the recurrence is defined on the parent document
+  itself.</para>
+  <tip>
+    <para>Once the recurring flag is set on a parent document, all subsequent
+    copies will be marked in the database as children of the original parent
+    document. If you need to make changes to the frequency of a recurring
+    document, you must go back to the original parent document and make the
+    changes there. Frequency changes made at the parent level will propagate
+    to the child level.</para>
+  </tip>
+  <para>To create recurring items, select the "Create Recurring Items" option.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images\createRecurringItems.png" />
+        </imageobject>
+        <caption>Create Recurring Items</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating recurring items, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Invoices</term>
+      <listitem>
+        <para>Select to create recurring Invoices for any Invoices marked as
+        recurring. The frequency of the recurrence is defined at the parent
+        level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Incidents</term>
+      <listitem>
+        <para>Select to create recurring Incidents for any Incidents marked as
+        recurring. The frequency of the recurrence is defined at the parent
+        level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>To-Do Items</term>
+      <listitem>
+        <para>Select to create recurring To-Do Items for any To-Do Items
+        marked as recurring. The frequency of the recurrence is defined at the
+        parent level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Projects</term>
+      <listitem>
+        <para>Select to create recurring Projects for any Projects marked as
+        recurring. The frequency of the recurrence is defined at the parent
+        level.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating any recurring items,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CREATE</term>
+      <listitem>
+        <para>Select to create recurring items for the selected document
+        types.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -153,6 +153,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>SAVE</term>
       <listitem>
         <para>Creates the Incident and closes the screen, returning you to the
@@ -164,8 +170,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To views or edit links an Incident has to other records, select the
-  "Relationships" tab. The following screen will appear:</para>
+  <para>To define Item and Accounting relationships for an Incident, select
+  the "Relationships" tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -174,13 +180,14 @@
         <caption>Incident Relationships Information</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When linking an Incident to a specific Item or Lot/Serial Number, you
+  <para>When defining Item and Accounting relationships for an Incident, you
   are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Item</term>
       <listitem>
-        <para></para>
+        <para>Use the following fields to link an Incident to a specific Item
+        or Lot/Serial Number:</para>
         <variablelist>
           <varlistentry>
             <term>Item Number</term>
@@ -209,10 +216,10 @@
     <varlistentry>
       <term>Receivable</term>
       <listitem>
-        <para>Incidents may be linked to a specific Receivable Item from the
-        A/R Open Items and A/R Open Items by Customer displays. When an
-        Incident is linked to a specific Receivable Item, you are presented
-        with the following options:</para>
+        <para>Incidents may be linked to a specific Receivable item from the
+        right-click menu on the <link linkend="Section556338">Open Receivables
+        screen</link>. When an Incident is linked to a specific Receivable
+        item, you are presented with the following options:</para>
         <variablelist>
           <varlistentry>
             <term>Type</term>
@@ -234,14 +241,39 @@
     <varlistentry>
       <term>Recurring</term>
       <listitem>
-        <para></para>
+        <para>Select to indicate you want the Incident to be a recurring
+        Incident, using the frequency settings you specify below. This feature
+        enables you to automatically generate copies of Incidents on a
+        recurring basis (e.g., the same day of every month). Recurring
+        Incidents are generated when you run the recurring items utility,
+        which is described in more detail here: <xref
+        linkend="createRecurringItems" />. </para>
+        <variablelist>
+          <varlistentry>
+            <term>Every</term>
+            <listitem>
+              <para>Specify how frequently you want the Incident to recur. For
+              example, once (1) per month, six (6) times per year, etc.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Until</term>
+            <listitem>
+              <para>Specify when the recurrence should stop. For example, on
+              the last day of the year, at the end of six months, etc.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Create no more than</term>
+            <listitem>
+              <para>Specify the maximum number of Incident copies you want
+              created when the recurring items utility is run.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Incidents may be linked to a specific Receivable Item from the A/R
-  Open Items and A/R Open Items by Customer displays. When an Incident is
-  linked to a specific Receivable Item, you are presented with the following
-  options:</para>
   <para>To the far right of the screen, the following button is
   available:</para>
   <variablelist>
