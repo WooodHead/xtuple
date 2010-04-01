@@ -17,20 +17,29 @@
       LEFT OUTER JOIN item ON (invcitem_item_id=item_id) 
   WHERE (invchead_id=<? value("invchead_id") ?>) 
   GROUP BY number, taxzone_id, curr_id, tax_curr_id, date, freight, freightTax, adjTax) head, 
-  (SELECT ROUND(SUM(invcitemtax.taxhist_tax),2) AS total_tax 
-   FROM invcitemtax 
-    LEFT OUTER JOIN invcitem ON (taxhist_parent_id = invcitem_id) 
-   WHERE (invcitem_invchead_id=<? value("invchead_id") ?>)) linetax,
-  (SELECT ROUND(SUM(taxhist_tax),2) AS freighttaxamt 
-   FROM invchead 
-   LEFT OUTER JOIN invcheadtax ON (taxhist_parent_id = invchead_id 
-   AND taxhist_taxtype_id = getfreighttaxtypeid()) 
-   WHERE invchead_id=<? value("invchead_id") ?>) freighttax,  
-  (SELECT  ROUND(SUM(taxhist_tax),2) AS adjtaxamt 
-   FROM invchead 
-    LEFT OUTER JOIN invcheadtax ON (taxhist_parent_id = invchead_id 
-                                AND taxhist_taxtype_id = getadjustmenttaxtypeid()) 
-   WHERE invchead_id=<? value("invchead_id") ?>) adjtax;
+  (SELECT ROUND(SUM(group_tax), 2) AS total_tax FROM
+    (SELECT ROUND(SUM(invcitemtax.taxhist_tax),2) AS group_tax 
+     FROM invcitemtax 
+     LEFT OUTER JOIN invcitem ON (taxhist_parent_id = invcitem_id) 
+     WHERE (invcitem_invchead_id=<? value("invchead_id") ?>)
+     GROUP BY taxhist_tax_id) AS data
+  ) linetax,
+  (SELECT ROUND(SUM(group_tax), 2) AS freighttaxamt FROM
+    (SELECT ROUND(SUM(taxhist_tax),2) AS group_tax 
+     FROM invchead 
+     LEFT OUTER JOIN invcheadtax ON (taxhist_parent_id = invchead_id 
+     AND taxhist_taxtype_id = getfreighttaxtypeid()) 
+     WHERE (invchead_id=<? value("invchead_id") ?>)
+     GROUP BY taxhist_tax_id) AS data
+  ) freighttax,  
+  (SELECT ROUND(SUM(group_tax), 2) AS adjtaxamt FROM
+    (SELECT  ROUND(SUM(taxhist_tax),2) AS group_tax 
+     FROM invchead 
+     LEFT OUTER JOIN invcheadtax ON (taxhist_parent_id = invchead_id 
+                                 AND taxhist_taxtype_id = getadjustmenttaxtypeid()) 
+     WHERE (invchead_id=<? value("invchead_id") ?>)
+     GROUP BY taxhist_tax_id) AS data
+  ) adjtax;
 <? elseif exists("cmhead_id") ?>
   SELECT head.*, linetax.*, freighttax.*, adjtax.* 
   FROM
@@ -45,20 +54,29 @@
       LEFT OUTER JOIN cmitem ON (cmitem_cmhead_id=cmhead_id) 
   WHERE (cmhead_id=<? value("cmhead_id") ?>) 
   GROUP BY number, taxzone_id, curr_id, tax_curr_id, date, freight, freightTax, adjTax) head, 
-  (SELECT ROUND(SUM(cmitemtax.taxhist_tax * -1),2) AS total_tax 
-   FROM cmitemtax 
-    LEFT OUTER JOIN cmitem ON (taxhist_parent_id = cmitem_id) 
-   WHERE (cmitem_cmhead_id=<? value("cmhead_id") ?>)) linetax,
-  (SELECT ROUND(SUM(taxhist_tax * -1),2) AS freighttaxamt 
-   FROM cmhead 
-   LEFT OUTER JOIN cmheadtax ON (taxhist_parent_id = cmhead_id 
-   AND taxhist_taxtype_id = getfreighttaxtypeid()) 
-   WHERE cmhead_id=<? value("cmhead_id") ?>) freighttax, 
-  (SELECT  ROUND(SUM(taxhist_tax * -1),2) AS adjtaxamt 
-   FROM cmhead 
-    LEFT OUTER JOIN cmheadtax ON (taxhist_parent_id = cmhead_id 
-                                AND taxhist_taxtype_id = getadjustmenttaxtypeid()) 
-   WHERE cmhead_id=<? value("cmhead_id") ?>) adjtax;
+  (SELECT ROUND(SUM(group_tax), 2) AS total_tax FROM
+    (SELECT ROUND(SUM(cmitemtax.taxhist_tax * -1),2) AS group_tax 
+     FROM cmitemtax 
+     LEFT OUTER JOIN cmitem ON (taxhist_parent_id = cmitem_id) 
+     WHERE (cmitem_cmhead_id=<? value("cmhead_id") ?>)
+     GROUP BY taxhist_tax_id) AS data
+  ) linetax,
+  (SELECT ROUND(SUM(group_tax), 2) AS freighttaxamt FROM
+    (SELECT ROUND(SUM(taxhist_tax * -1),2) AS group_tax 
+     FROM cmhead 
+     LEFT OUTER JOIN cmheadtax ON (taxhist_parent_id = cmhead_id 
+                               AND taxhist_taxtype_id = getfreighttaxtypeid()) 
+     WHERE (cmhead_id=<? value("cmhead_id") ?>)
+     GROUP BY taxhist_tax_id) AS data
+  ) freighttax, 
+  (SELECT ROUND(SUM(group_tax), 2) AS adjtaxamt FROM
+    (SELECT  ROUND(SUM(taxhist_tax * -1),2) AS group_tax 
+     FROM cmhead 
+     LEFT OUTER JOIN cmheadtax ON (taxhist_parent_id = cmhead_id 
+                               AND taxhist_taxtype_id = getadjustmenttaxtypeid()) 
+     WHERE (cmhead_id=<? value("cmhead_id") ?>)
+     GROUP BY taxhist_tax_id) AS data
+  ) adjtax;
 <? elseif exists("cobmisc_id") ?>
  SELECT head.*, linetax.*, frighttax.*, adjtax.*   
  FROM 
@@ -77,15 +95,27 @@
     WHERE (cobmisc_id=<? value("cobmisc_id") ?>) 
     GROUP BY number, cobmisc_taxzone_id, curr_id, tax_curr_id, 
       date, freight, freightTax,adjTax) head, 
-   (SELECT ROUND(SUM(cobilltax.taxhist_tax),2) AS total_tax FROM cobilltax LEFT OUTER JOIN 
-      cobill ON (cobill_id=taxhist_parent_id) 
-    WHERE (cobill_cobmisc_id=<? value("cobmisc_id") ?>)) linetax, 
-   (SELECT ROUND(SUM(taxhist_tax),2) AS freighttaxamt FROM cobmisctax LEFT OUTER JOIN 
-      cobmisc ON (taxhist_parent_id = cobmisc_id AND taxhist_taxtype_id = getfreighttaxtypeid()) 
-    WHERE (cobmisc_id=<? value("cobmisc_id") ?>)) frighttax, 
-   (SELECT  ROUND(SUM(taxhist_tax),2) AS adjtaxamt FROM cobmisctax LEFT OUTER JOIN 
-      cobmisc ON (taxhist_parent_id = cobmisc_id AND taxhist_taxtype_id = getadjustmenttaxtypeid()) 
-    WHERE (cobmisc_id=<? value("cobmisc_id") ?>)) adjtax;
+   (SELECT ROUND(SUM(group_tax), 2) AS total_tax FROM
+     (SELECT ROUND(SUM(cobilltax.taxhist_tax),2) AS group_tax
+      FROM cobilltax
+      LEFT OUTER JOIN cobill ON (cobill_id=taxhist_parent_id) 
+      WHERE (cobill_cobmisc_id=<? value("cobmisc_id") ?>)
+      GROUP BY taxhist_tax_id) AS data
+   ) linetax, 
+   (SELECT ROUND(SUM(group_tax), 2) AS freighttaxamt FROM
+     (SELECT ROUND(SUM(taxhist_tax),2) AS group_tax
+      FROM cobmisctax
+      LEFT OUTER JOIN cobmisc ON (taxhist_parent_id = cobmisc_id AND taxhist_taxtype_id = getfreighttaxtypeid()) 
+      WHERE (cobmisc_id=<? value("cobmisc_id") ?>)
+      GROUP BY taxhist_tax_id) AS data
+   ) frighttax, 
+   (SELECT ROUND(SUM(group_tax), 2) AS adjtaxamt FROM
+     (SELECT  ROUND(SUM(taxhist_tax),2) AS group_tax
+      FROM cobmisctax
+      LEFT OUTER JOIN cobmisc ON (taxhist_parent_id = cobmisc_id AND taxhist_taxtype_id = getadjustmenttaxtypeid()) 
+      WHERE (cobmisc_id=<? value("cobmisc_id") ?>)
+      GROUP BY taxhist_tax_id) AS data
+   ) adjtax;
 <? elseif exists("cohead_id") ?>
   SELECT cohead_number AS number,
          cohead_taxzone_id AS taxzone_id,
