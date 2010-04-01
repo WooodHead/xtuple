@@ -1,5 +1,6 @@
 CREATE OR REPLACE FUNCTION _invcitemBeforeTrigger() RETURNS "trigger" AS $$
 DECLARE
+  _itemfractional BOOLEAN;
 
 BEGIN
   IF (TG_OP = 'DELETE') THEN
@@ -7,6 +8,21 @@ BEGIN
     WHERE (taxhist_parent_id=OLD.invcitem_id);
 
     RETURN OLD;
+  END IF;
+
+  -- If regular Item then enforce item_fractional
+  IF (COALESCE(NEW.invcitem_item_id, -1) <> -1) THEN
+    SELECT item_fractional INTO _itemfractional
+    FROM item
+    WHERE (item_id=NEW.invcitem_item_id);
+    IF (NOT _itemfractional) THEN
+      IF (TRUNC(NEW.invcitem_ordered) <> NEW.invcitem_ordered) THEN
+        RAISE EXCEPTION 'Item does not support fractional quantities';
+      END IF;
+      IF (TRUNC(NEW.invcitem_billed) <> NEW.invcitem_billed) THEN
+        RAISE EXCEPTION 'Item does not support fractional quantities';
+      END IF;
+    END IF;
   END IF;
 
   RETURN NEW;
