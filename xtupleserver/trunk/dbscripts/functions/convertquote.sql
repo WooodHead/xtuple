@@ -7,6 +7,9 @@ DECLARE
   _orderid INTEGER;
   _ordertype CHARACTER(1);
   _creditstatus	TEXT;
+  _usespos BOOLEAN := false;
+  _blanketpos BOOLEAN := true;
+  _duplicatepo BOOLEAN := false;
   _prospectid	INTEGER;
   _r RECORD;
   _soNum INTEGER;
@@ -39,7 +42,8 @@ BEGIN
     RETURN -1;
   END IF;
 
-  SELECT cust_creditstatus INTO _creditstatus
+  SELECT cust_creditstatus, cust_usespos, cust_blanketpos
+    INTO _creditstatus, _usespos, _blanketpos
   FROM quhead, custinfo
   WHERE ((quhead_cust_id=cust_id)
     AND  (quhead_id=pQuheadid));
@@ -60,6 +64,16 @@ BEGIN
     RETURN -5;
   END IF;
 
+  IF ( (_usespos) AND (NOT _blanketpos) ) THEN
+    PERFORM cohead_id
+    FROM quhead JOIN cohead ON ( (cohead_cust_id=quhead_cust_id) AND
+                                 (UPPER(cohead_custponumber)=UPPER(quhead_custponumber)) )
+    WHERE (quhead_id=pQuheadid);
+    IF (FOUND) THEN
+      _duplicatepo := true;
+    END IF;
+  END IF;
+  
   PERFORM quhead_number, cohead_id 
   FROM quhead, cohead 
   WHERE quhead_id = pQuheadid
@@ -103,7 +117,8 @@ BEGIN
     cohead_billto_cntct_fax, cohead_billto_cntct_email, cohead_ophead_id )
   SELECT _soheadid, _soNum, quhead_cust_id,
          CURRENT_DATE, quhead_packdate,
-         quhead_custponumber, quhead_warehous_id,
+         CASE WHEN (_duplicatepo) THEN NULL ELSE quhead_custponumber END,
+         quhead_warehous_id,
          quhead_billtoname, quhead_billtoaddress1,
          quhead_billtoaddress2, quhead_billtoaddress3,
          quhead_billtocity, quhead_billtostate, quhead_billtozip,
@@ -126,9 +141,8 @@ BEGIN
 	 quhead_billto_cntct_honorific, quhead_billto_cntct_first_name, quhead_billto_cntct_middle,
 	 quhead_billto_cntct_last_name, quhead_billto_cntct_suffix, quhead_billto_cntct_phone,
 	 quhead_billto_cntct_title, quhead_billto_cntct_fax, quhead_billto_cntct_email, quhead_ophead_id
-  FROM quhead, cust
-  WHERE ( (quhead_cust_id=cust_id)
-  AND (quhead_id=pQuheadid) );
+  FROM quhead JOIN custinfo ON (cust_id=quhead_cust_id)
+  WHERE (quhead_id=pQuheadid);
 
   UPDATE url SET url_source_id = _soheadid,
 		 url_source = 'S'
