@@ -21,6 +21,77 @@ function main()
              if(role=="CONFIGURE") break;     
     }
     
+    //-----Edit User Preferences----
+    try
+    {
+     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
+    activateItem(":xTuple ERP: *_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: *.System_QMenu", "Preferences...");
+    activateItem(":xTuple ERP: *.System_QMenu", "Preferences...");
+    if(object.exists(":Interface Options.Show windows inside workspace_QRadioButton"))
+    {
+        if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
+      clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
+    }
+    if(object.exists(":Search Navigation.Buttons_QRadioButton"))
+    {
+        if(!findObject(":Search Navigation.Buttons_QRadioButton").checked)
+      clickButton(":Search Navigation.Buttons_QRadioButton");
+    }
+     waitForObject(":User Preferences.Save_QPushButton");
+    clickButton(":User Preferences.Save_QPushButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in assigning preferences" + e);
+    }
+     //-----Enable Sales Reservations-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
+    activateItem(":xTuple ERP: *_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: *.System_QMenu", "Configure Modules");
+    activateItem(":xTuple ERP: *.System_QMenu", "Configure Modules");
+    waitForObjectItem(":*.Configure Modules_QMenu", "Sales...");
+    activateItem(":*.Configure Modules_QMenu", "Sales...");
+    
+    if(!findObject(":general.Enable Sales Reservations_QCheckBox").checked)
+        clickButton(":general.Enable Sales Reservations_QCheckBox");
+    
+    waitForObject(":Sales Configuration.Save_QPushButton");
+    clickButton(":Sales Configuration.Save_QPushButton");
+    test.log("Enabled Sales Reservations");
+    }
+    catch(e)
+    {
+        test.fail("Error in enabling sales reservations" + e);
+    }
+    
+  //-----Exit the Application-----
+    try
+    {
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
+    activateItem(":xTuple ERP: *_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: *.System_QMenu", "Exit xTuple ERP...");
+    activateItem(":xTuple ERP: *.System_QMenu", "Exit xTuple ERP...");
+    }
+    catch(e)
+    {
+        test.fail("Error in exiting the application" + e);
+    }
+    snooze(5);
+    
+    if(OS.name=="Linux")
+        startApplication("xtuple.bin");
+    
+    else
+        startApplication("xtuple");
+    
+    snooze(2);
+    
+    //-----login Application-----
+    loginAppl("CONFIGURE"); 
+    
     //---find Application Edition------ 
     try
     {
@@ -55,6 +126,7 @@ function main()
     waitForObject(":List Users._usr_XTreeWidget");
     doubleClickItem(":List Users._usr_XTreeWidget", "admin", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_email_XLineEdit");
+    findObject(":_email_XLineEdit").clear();
     type(":_email_XLineEdit", fromemail);
     waitForObject(":_module_XComboBox");
     for(i = findObject(":_module_XComboBox").count;i>0;i--)
@@ -97,52 +169,7 @@ function main()
         test.fail("Error in assigning preferences" + e);
     }
     
-    //-----Enable Sales Reservations-----
-    try
-    {
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
-    activateItem(":xTuple ERP: *_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: *.System_QMenu", "Configure Modules");
-    activateItem(":xTuple ERP: *.System_QMenu", "Configure Modules");
-    waitForObjectItem(":*.Configure Modules_QMenu", "Sales...");
-    activateItem(":*.Configure Modules_QMenu", "Sales...");
-    
-    if(!findObject(":general.Enable Sales Reservations_QCheckBox").checked)
-        clickButton(":general.Enable Sales Reservations_QCheckBox");
-    
-    waitForObject(":Sales Configuration.Save_QPushButton");
-    clickButton(":Sales Configuration.Save_QPushButton");
-    test.log("Enabled Sales Reservations");
-    }
-    catch(e)
-    {
-        test.fail("Error in enabling sales reservations" + e);
-    }
-    
-    //-----Exit the Application-----
-    try
-    {
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
-    activateItem(":xTuple ERP: *_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: *.System_QMenu", "Exit xTuple ERP...");
-    activateItem(":xTuple ERP: *.System_QMenu", "Exit xTuple ERP...");
-    }
-    catch(e)
-    {
-        test.fail("Error in exiting the application" + e);
-    }
-    snooze(5);
-    
-    if(OS.name=="Linux")
-        startApplication("xtuple.bin");
-    
-    else
-        startApplication("xtuple");
-    
-    snooze(2);
-    
-    //-----login Application-----
-    loginAppl("CONFIGURE"); 
+
     
     //-----Verify Batch Manager Status-----  
     try
@@ -1215,10 +1242,11 @@ function main()
     clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":lineItemsTab.New_QPushButton");
     clickButton(":lineItemsTab.New_QPushButton");
-    waitForObject(":Item...._QPushButton");
-    clickButton(":Item...._QPushButton");
-    waitForObject(":_item_XTreeWidget_6");
-    doubleClickItem(":_item_XTreeWidget_6", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
+   
+     waitForObject(":Item...._QPushButton_2");
+    clickButton(":Item...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_13");
+    doubleClickItem(":_listTab_XTreeWidget_13", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_ordered_XLineEdit_2");
     type(":_ordered_XLineEdit_2", "25");
     waitForObject(":_billed_XLineEdit");
@@ -1301,10 +1329,10 @@ function main()
     clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":lineItemsTab.New_QPushButton");
     clickButton(":lineItemsTab.New_QPushButton");
-    waitForObject(":Item...._QPushButton");
-    clickButton(":Item...._QPushButton");
-    waitForObject(":_item_XTreeWidget_6");
-    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);   
+    waitForObject(":Item...._QPushButton_2");
+    clickButton(":Item...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_13");
+    doubleClickItem(":_listTab_XTreeWidget_13", "YTRUCK1", 5, 5, 0, Qt.LeftButton);   
     waitForObject(":_ordered_XLineEdit_2");
     type(":_ordered_XLineEdit_2", "25");
     waitForObject(":_billed_XLineEdit");
@@ -1462,10 +1490,10 @@ function main()
     clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":lineItemsTab.New_QPushButton");
     clickButton(":lineItemsTab.New_QPushButton");
-    waitForObject(":Item...._QPushButton");
-    clickButton(":Item...._QPushButton");
-    waitForObject(":_item_XTreeWidget_6");
-    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Item...._QPushButton_2");
+    clickButton(":Item...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_13");
+    doubleClickItem(":_listTab_XTreeWidget_13", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_ordered_XLineEdit_2");
     type(":_ordered_XLineEdit_2", "25");
     waitForObject(":_billed_XLineEdit");
