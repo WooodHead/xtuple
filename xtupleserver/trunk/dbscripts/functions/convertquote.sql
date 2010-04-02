@@ -9,7 +9,6 @@ DECLARE
   _creditstatus	TEXT;
   _usespos BOOLEAN := false;
   _blanketpos BOOLEAN := true;
-  _duplicatepo BOOLEAN := false;
   _prospectid	INTEGER;
   _r RECORD;
   _soNum INTEGER;
@@ -70,7 +69,7 @@ BEGIN
                                  (UPPER(cohead_custponumber)=UPPER(quhead_custponumber)) )
     WHERE (quhead_id=pQuheadid);
     IF (FOUND) THEN
-      _duplicatepo := true;
+      RAISE EXCEPTION 'Duplicate Customer PO';
     END IF;
   END IF;
   
@@ -117,8 +116,7 @@ BEGIN
     cohead_billto_cntct_fax, cohead_billto_cntct_email, cohead_ophead_id )
   SELECT _soheadid, _soNum, quhead_cust_id,
          CURRENT_DATE, quhead_packdate,
-         CASE WHEN (_duplicatepo) THEN NULL ELSE quhead_custponumber END,
-         quhead_warehous_id,
+         quhead_custponumber, quhead_warehous_id,
          quhead_billtoname, quhead_billtoaddress1,
          quhead_billtoaddress2, quhead_billtoaddress3,
          quhead_billtocity, quhead_billtostate, quhead_billtozip,
