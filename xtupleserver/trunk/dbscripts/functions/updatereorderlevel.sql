@@ -40,7 +40,7 @@ BEGIN
   IF (_totalDays > 0) THEN
     _reorderLevel := round(_totalUsage / _totalDays * pDays);
 
-    SELECT itemsite_stocked INTO _result from itemsite WHERE (itemsite_id=pItemsiteIds[_icursor]);
+    SELECT itemsite_stocked INTO _result from itemsite WHERE (itemsite_id=pItemsiteid);
     IF (_reorderLevel = 0 AND _result='t') THEN
       _reorderLevel := 1;
     END IF;
