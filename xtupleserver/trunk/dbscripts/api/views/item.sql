@@ -17,6 +17,8 @@ BEGIN;
         'Manufactured'
       WHEN item_type = 'J' THEN
         'Job'
+      WHEN item_type = 'K' THEN
+        'Kit'
       WHEN item_type = 'F' THEN
         'Phantom'
       WHEN item_type = 'R' THEN
@@ -102,6 +104,8 @@ COMMENT ON VIEW api.item IS 'Item';
 	        'M'
 	      WHEN NEW.item_type = 'Job' THEN
 	        'J'
+	      WHEN NEW.item_type = 'Kit' THEN
+	        'K'
 	      WHEN NEW.item_type = 'Phantom' THEN
 	        'F'
 	      WHEN NEW.item_type = 'Reference' THEN
@@ -153,6 +157,8 @@ COMMENT ON VIEW api.item IS 'Item';
 	        'M'
 	      WHEN NEW.item_type = 'Job' THEN
 	        'J'
+	      WHEN NEW.item_type = 'Kit' THEN
+	        'K'
 	      WHEN NEW.item_type = 'Phantom' THEN
 	        'F'
 	      WHEN NEW.item_type = 'Reference' THEN
