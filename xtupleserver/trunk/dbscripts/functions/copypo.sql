@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION copyPO(INTEGER, INTEGER, DATE, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION copyPO(INTEGER, INTEGER, DATE, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pSrcid		ALIAS FOR $1;
   pVendid		ALIAS FOR $2;
@@ -22,7 +22,7 @@ BEGIN
   END IF;
   IF (_head.pohead_vend_id != pVendid) THEN
     RETURN -2;		-- not supported now but should be in the future
-  END IF;		-- when enabled, set pRecheckVendinfo if vendors don''t match
+  END IF;		-- when enabled, set pRecheckVendinfo if vendors don't match
 
   IF (pOrderdate IS NULL) THEN
     _orderdate := CURRENT_DATE;
@@ -31,24 +31,62 @@ BEGIN
   END IF;
 
   INSERT INTO pohead (pohead_status, pohead_number,
-		      pohead_orderdate,
+		      pohead_orderdate, pohead_vend_id,
 		      pohead_fob, pohead_shipvia,
 		      pohead_freight, pohead_printed,
 		      pohead_terms_id, pohead_warehous_id,
 		      pohead_vendaddr_id, pohead_agent_username,
-		      pohead_curr_id, pohead_saved, pohead_vend_id,
-                      pohead_taxtype_id, pohead_taxzone_id
+		      pohead_curr_id, pohead_saved,
+                      pohead_taxtype_id, pohead_taxzone_id,
+                      pohead_dropship, pohead_vend_cntct_id,
+                      pohead_vend_cntct_honorific, pohead_vend_cntct_first_name,
+                      pohead_vend_cntct_middle, pohead_vend_cntct_last_name,
+                      pohead_vend_cntct_suffix, pohead_vend_cntct_phone,
+                      pohead_vend_cntct_title, pohead_vend_cntct_fax,
+                      pohead_vend_cntct_email, pohead_vendaddress1,
+                      pohead_vendaddress2, pohead_vendaddress3,
+                      pohead_vendcity, pohead_vendstate,
+                      pohead_vendzipcode, pohead_vendcountry,
+                      pohead_shipto_cntct_id,
+                      pohead_shipto_cntct_honorific, pohead_shipto_cntct_first_name,
+                      pohead_shipto_cntct_middle, pohead_shipto_cntct_last_name,
+                      pohead_shipto_cntct_suffix, pohead_shipto_cntct_phone,
+                      pohead_shipto_cntct_title, pohead_shipto_cntct_fax,
+                      pohead_shipto_cntct_email, pohead_shiptoddress_id,
+                      pohead_shiptoaddress1,
+                      pohead_shiptoaddress2, pohead_shiptoaddress3,
+                      pohead_shiptocity, pohead_shiptostate,
+                      pohead_shiptozipcode, pohead_shiptocountry
 	      ) VALUES (
-		      ''U'', fetchPoNumber(),
-		      _orderdate,
+		      'U', fetchPoNumber(),
+		      _orderdate, _head.pohead_vend_id,
 		      _head.pohead_fob, _head.pohead_shipvia,
 		      _head.pohead_freight, false,
 		      _head.pohead_terms_id, _head.pohead_warehous_id,
 		      _head.pohead_vendaddr_id, _head.pohead_agent_username,
-		      _head.pohead_curr_id, true, _head.pohead_vend_id,
-                      _head.pohead_taxtype_id, _head.pohead_taxzone_id);	-- should pohead_saved be false?
+		      _head.pohead_curr_id, true,
+                      _head.pohead_taxtype_id, _head.pohead_taxzone_id,
+                      false, _head.pohead_vend_cntct_id,
+                      _head.pohead_vend_cntct_honorific, _head.pohead_vend_cntct_first_name,
+                      _head.pohead_vend_cntct_middle, _head.pohead_vend_cntct_last_name,
+                      _head.pohead_vend_cntct_suffix, _head.pohead_vend_cntct_phone,
+                      _head.pohead_vend_cntct_title, _head.pohead_vend_cntct_fax,
+                      _head.pohead_vend_cntct_email, _head.pohead_vendaddress1,
+                      _head.pohead_vendaddress2, _head.pohead_vendaddress3,
+                      _head.pohead_vendcity, _head.pohead_vendstate,
+                      _head.pohead_vendzipcode, _head.pohead_vendcountry,
+                      _head.pohead_shipto_cntct_id,
+                      _head.pohead_shipto_cntct_honorific, _head.pohead_shipto_cntct_first_name,
+                      _head.pohead_shipto_cntct_middle, _head.pohead_shipto_cntct_last_name,
+                      _head.pohead_shipto_cntct_suffix, _head.pohead_shipto_cntct_phone,
+                      _head.pohead_shipto_cntct_title, _head.pohead_shipto_cntct_fax,
+                      _head.pohead_shipto_cntct_email, _head.pohead_shiptoddress_id,
+                      _head.pohead_shiptoaddress1,
+                      _head.pohead_shiptoaddress2, _head.pohead_shiptoaddress3,
+                      _head.pohead_shiptocity, _head.pohead_shiptostate,
+                      _head.pohead_shiptozipcode, _head.pohead_shiptocountry);
 
-  _tgtid := CURRVAL(''pohead_pohead_id_seq'');
+  _tgtid := CURRVAL('pohead_pohead_id_seq');
 
   IF (pRecheckVendinfo) THEN
     SELECT vend_restrictpurch INTO _vend_restrictpurch
@@ -118,7 +156,7 @@ BEGIN
 			  poitem_manuf_item_descrip,
                           poitem_taxtype_id
 		    ) VALUES (
-			  ''U'', _tgtid, _lineitem.poitem_linenumber,
+			  'U', _tgtid, _lineitem.poitem_linenumber,
 			  _orderdate + COALESCE(_itemsrc.itemsrc_leadtime, 0),
 			  _lineitem.poitem_itemsite_id,
 			  COALESCE(_itemsrc.itemsrc_vend_item_descrip,
@@ -153,7 +191,7 @@ BEGIN
 			poitem_stdcost, poitem_manuf_name, 
 			poitem_manuf_item_number, poitem_manuf_item_descrip,
                         poitem_taxtype_id
-		) SELECT ''U'', _tgtid, poitem_linenumber,
+		) SELECT 'U', _tgtid, poitem_linenumber,
 			_orderdate + COALESCE(itemsrc_leadtime, 0), poitem_itemsite_id,
 			poitem_vend_item_descrip, poitem_vend_uom,
 			poitem_invvenduomratio, poitem_qty_ordered,
@@ -174,4 +212,4 @@ BEGIN
   RETURN _tgtid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
