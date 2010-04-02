@@ -24,7 +24,7 @@ function main()
              if(role=="CONFIGURE") break;     
     }
     
-     
+       
     //---find Application Edition and Enable Batch Manager------ 
     try
     {
@@ -75,6 +75,7 @@ function main()
     waitForObject(":List Users._usr_XTreeWidget");
     doubleClickItem(":List Users._usr_XTreeWidget", "admin", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_email_XLineEdit");
+    findObject(":_email_XLineEdit").clear();
     type(":_email_XLineEdit", fromemail);
     waitForObject(":_module_XComboBox");
     for(i = findObject(":_module_XComboBox").count;i>0;i--)
@@ -389,7 +390,6 @@ function main()
     
     else test.fail("Batch Manager not responding");
     
-    //-----Create a Purchase Order----- 
     try
     {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Purchase");
@@ -399,8 +399,8 @@ function main()
     waitForObjectItem(":*.Purchase Order_QMenu", "New...");
     activateItem(":*.Purchase Order_QMenu", "New...");
     
-    waitForObject(":_headerPage...._QPushButton");
-    clickButton(":_headerPage...._QPushButton");
+    waitForObject(":_headerPage...._QPushButton_4");
+    clickButton(":_headerPage...._QPushButton_4");
     waitForObject(":_listTab_XTreeWidget_3");
     doubleClickItem(":_listTab_XTreeWidget_3", "TPARTS", 5, 5, 0, Qt.LeftButton);
     
@@ -410,15 +410,16 @@ function main()
     clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage.New_QPushButton");
     clickButton(":_lineItemsPage.New_QPushButton");
-    waitForObject(":groupBox_2...._QPushButton");
-    clickButton(":groupBox_2...._QPushButton");
-    waitForObject(":_item_XTreeWidget_2");
-    doubleClickItem(":_item_XTreeWidget_2", "TBOX1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":groupBox_2...._QPushButton_2");
+    clickButton(":groupBox_2...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_14");
+    doubleClickItem(":_listTab_XTreeWidget_14", "TBOX1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_ordered_XLineEdit");
     type(":_ordered_XLineEdit", "100");
     waitForObject(":_ordered_XLineEdit");
     type(":_ordered_XLineEdit", "<Tab>");
     waitForObject(":_schedGroup.XDateEdit_XDateEdit");
+    findObject(":_schedGroup.XDateEdit_XDateEdit").clear();
     type(":_schedGroup.XDateEdit_XDateEdit", "+7");
     
     waitForObject(":Purchase Order.Save_QPushButton");
@@ -442,19 +443,23 @@ function main()
     activateItem(":xTuple ERP: *_QMenuBar", "Purchase");
     waitForObjectItem(":*.Purchase_QMenu", "Purchase Order");
     activateItem(":*.Purchase_QMenu", "Purchase Order");
-    waitForObjectItem(":*.Purchase Order_QMenu", "List Unposted...");
-    activateItem(":*.Purchase Order_QMenu", "List Unposted...");
+    waitForObjectItem(":*.Purchase Order_QMenu", "List Open...");
+    activateItem(":*.Purchase Order_QMenu", "List Open...");
+    waitForObject(":Show.Unreleased_XCheckBox");
+    if(!findObject(":Show.Unreleased_XCheckBox").checked)
+    clickButton(":Show.Unreleased_XCheckBox");
+    snooze(1);
     
-    waitForObject(":List Unposted Purchase Orders._pohead_XTreeWidget");
-    openContextMenu(":List Unposted Purchase Orders._pohead_XTreeWidget", 5, 5, 0);
+    waitForObject(":List Open Purchase Orders._pohead_XTreeWidget");
+    openContextMenu(":List Open Purchase Orders._pohead_XTreeWidget", 5, 5, 0);
     waitForObjectItem(":*._menu_QMenu", "Send Electronic Purchase Order...");
     activateItem(":*._menu_QMenu", "Send Electronic Purchase Order...");
     
     waitForObject(":Review EDI Before Sending.Accept_QPushButton");
     clickButton(":Review EDI Before Sending.Accept_QPushButton");
     
-    waitForObject(":List Unposted Purchase Orders.Close_QPushButton");
-    clickButton(":List Unposted Purchase Orders.Close_QPushButton");
+    waitForObject(":List Open Purchase Orders.Close_QPushButton");
+    clickButton(":List Open Purchase Orders.Close_QPushButton");
     }
     catch(e)
     {
@@ -526,10 +531,11 @@ function main()
     
     waitForObject(":_lineItemsPage.New_QPushButton_2");
     clickButton(":_lineItemsPage.New_QPushButton_2");
-    waitForObject(":_itemGroup...._QPushButton_2");
-    clickButton(":_itemGroup...._QPushButton_2");
-    waitForObject(":_item_XTreeWidget_3");
-    doubleClickItem(":_item_XTreeWidget_3", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    
+     waitForObject(":_itemGroup...._QPushButton_6");
+    clickButton(":_itemGroup...._QPushButton_6");
+    waitForObject(":_listTab_XTreeWidget_15");
+    doubleClickItem(":_listTab_XTreeWidget_15", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit");
     type(":_qtyOrdered_XLineEdit", "100"); 
     waitForObject(":_qtyOrdered_XLineEdit");
@@ -589,7 +595,7 @@ function main()
         test.pass("Batch Manager Submitted for Open Sales Order");
     
     else test.fail("Batch Manager not responding");
-  
+    
     //-----Electronic Sales Order Form-----
     try
     {
@@ -637,14 +643,14 @@ function main()
     waitForObject(":_listTab_XTreeWidget_6");
     doubleClickItem(":_listTab_XTreeWidget_6", "TTOYS", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar");
-    clickTab(":Quote.qt_tabwidget_tabbar_QTabBar", "Line Items");
-    
+    clickTab(":Quote.qt_tabwidget_tabbar_QTabBar", "Line Items");    
     waitForObject(":_lineItemsPage.New_QPushButton_3");
-    clickButton(":_lineItemsPage.New_QPushButton_3");
-    waitForObject(":_itemGroup...._QPushButton_5");
-    clickButton(":_itemGroup...._QPushButton_5");
-    waitForObject(":_item_XTreeWidget_5");
-    doubleClickItem(":_item_XTreeWidget_5", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
+    clickButton(":_lineItemsPage.New_QPushButton_3");   
+    
+    waitForObject(":_itemGroup...._QPushButton_7");
+    clickButton(":_itemGroup...._QPushButton_7");
+    waitForObject(":_listTab_XTreeWidget_16");
+    doubleClickItem(":_listTab_XTreeWidget_16", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit_2");
     type(":_qtyOrdered_XLineEdit_2", "50");
     waitForObject(":_qtyOrdered_XLineEdit_2");
@@ -726,6 +732,7 @@ function main()
     waitForObject(":Allocate Reservations.Submit_QPushButton");
     clickButton(":Allocate Reservations.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -766,6 +773,7 @@ function main()
     waitForObject(":Run MRP by Planner Code.Submit_QPushButton");
     clickButton(":Run MRP by Planner Code.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -805,6 +813,7 @@ function main()
     waitForObject(":Release Planned Orders by Planner Code.Submit_QPushButton");
     clickButton(":Release Planned Orders by Planner Code.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -843,6 +852,7 @@ function main()
     waitForObject(":Run Buffer Status by Planner Code.Submit_QPushButton");
     clickButton(":Run Buffer Status by Planner Code.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -874,15 +884,16 @@ function main()
     activateItem(":*.Constraint Management_QMenu_2", "Update Status");
     waitForObjectItem(":*.Update Status_QMenu_2", "by Item...");
     activateItem(":*.Update Status_QMenu_2", "by Item...");
-    
-    waitForObject(":Run Buffer Status by Item...._QPushButton");
-    clickButton(":Run Buffer Status by Item...._QPushButton");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+        
+    waitForObject(":Run Buffer Status by Item...._QPushButton_2");
+    clickButton(":Run Buffer Status by Item...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_17");
+    doubleClickItem(":_listTab_XTreeWidget_17", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     
     waitForObject(":Run Buffer Status by Item.Submit_QPushButton");
     clickButton(":Run Buffer Status by Item.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -920,6 +931,7 @@ function main()
     waitForObject(":Run MPS by Planner Code.Submit_QPushButton");
     clickButton(":Run MPS by Planner Code.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -938,7 +950,7 @@ function main()
     
     else test.fail("Batch Manager not responding");
     
-    //-----Enabling Sites for creating Planned Transfer Order-----
+   //-----Enabling Sites for creating Planned Transfer Order-----
     try
     {
     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
@@ -950,6 +962,11 @@ function main()
     
     waitForObject(":List Sites._warehouse_XTreeWidget");
     doubleClickItem(":List Sites._warehouse_XTreeWidget", "WH1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_generalTab.Transit Site_QRadioButton");
+    clickButton(":_generalTab.Transit Site_QRadioButton");
+    waitForObject(":_generalTab.Inventory Site_QRadioButton");
+    clickButton(":_generalTab.Inventory Site_QRadioButton");
+    snooze(0.1);
     waitForObject(":_planGroup._sequence_XSpinBox");
     findObject(":_planGroup._sequence_XSpinBox").clear();
     waitForObject(":_planGroup._sequence_XSpinBox");
@@ -960,6 +977,11 @@ function main()
     
     waitForObject(":List Sites._warehouse_XTreeWidget");
     doubleClickItem(":List Sites._warehouse_XTreeWidget", "WH2", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_generalTab.Transit Site_QRadioButton");
+    clickButton(":_generalTab.Transit Site_QRadioButton");
+    waitForObject(":_generalTab.Inventory Site_QRadioButton");
+    clickButton(":_generalTab.Inventory Site_QRadioButton");
+    snooze(0.1);
     waitForObject(":_planGroup._sequence_XSpinBox");
     findObject(":_planGroup._sequence_XSpinBox").clear();
     waitForObject(":_planGroup._sequence_XSpinBox");
@@ -1019,9 +1041,10 @@ function main()
     waitForObject(":_itemSite_XTreeWidget");
     doubleClickItem(":_itemSite_XTreeWidget", "BTRUCK1", 5, 5, 0, Qt.LeftButton); 
    
-    waitForObject(":Supply Rules.Site can purchase this Item_QCheckBox");
-    if(!findObject(":Supply Rules.Site can purchase this Item_QCheckBox").checked)
-    clickButton(":Supply Rules.Site can purchase this Item_QCheckBox");
+   
+    waitForObject(":List Item Sites.Site can Purchase this item_QGroupBox");
+    if(!findObject(":List Item Sites.Site can Purchase this item_QGroupBox").checked)
+    type(":List Item Sites.Site can Purchase this item_QGroupBox"," ");
     
     waitForObject(":List Item Sites.Save_QPushButton");
      clickButton(":List Item Sites.Save_QPushButton");
@@ -1042,12 +1065,12 @@ function main()
     waitForObjectItem(":*.Schedule_QMenu", "Scheduling");
     activateItem(":*.Schedule_QMenu", "Scheduling");
     waitForObjectItem(":*.Scheduling_QMenu", "New Planned Order...");
-    activateItem(":*.Scheduling_QMenu", "New Planned Order...");
-    
-    waitForObject(":_itemGroup...._QPushButton");
-    clickButton(":_itemGroup...._QPushButton");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
+    activateItem(":*.Scheduling_QMenu", "New Planned Order...");   
+       
+    waitForObject(":_itemGroup...._QPushButton_8");
+    clickButton(":_itemGroup...._QPushButton_8");
+    waitForObject(":_listTab_XTreeWidget_18");
+    doubleClickItem(":_listTab_XTreeWidget_18", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_typeGroup.Transfer Order_QRadioButton");
     clickButton(":_typeGroup.Transfer Order_QRadioButton");
     waitForObjectItem(":_typeGroup._fromWarehouse_WComboBox", "WH2");
@@ -1089,6 +1112,7 @@ function main()
     waitForObject(":Release Planned Orders by Planner Code.Submit_QPushButton");
     clickButton(":Release Planned Orders by Planner Code.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -1130,8 +1154,10 @@ function main()
     clickButton(":Time Phased Demand by Planner Code.Submit_QPushButton");
     
     waitForObject(":Time Phased Demand by Planner Code._fromEmail_XLineEdit");
+    findObject(":Time Phased Demand by Planner Code._fromEmail_XLineEdit").clear();
     type(":Time Phased Demand by Planner Code._fromEmail_XLineEdit", fromemail);
     waitForObject(":Time Phased Demand by Planner Code._email_XLineEdit");
+     findObject(":Time Phased Demand by Planner Code._email_XLineEdit").clear();
     type(":Time Phased Demand by Planner Code._email_XLineEdit", toemail);
     
     waitForObject(":Submit Report to Batch Manager.Submit_QPushButton");
@@ -1178,8 +1204,10 @@ function main()
     clickButton(":Time-Phased Production by Planner Code.Submit_QPushButton");
     
     waitForObject(":Time-Phased Production by Planner Code._fromEmail_XLineEdit");
+    findObject(":Time-Phased Production by Planner Code._fromEmail_XLineEdit").clear();
     type(":Time-Phased Production by Planner Code._fromEmail_XLineEdit", fromemail);
     waitForObject(":Time-Phased Production by Planner Code._email_XLineEdit");
+    findObject(":Time-Phased Production by Planner Code._email_XLineEdit").clear();
     type(":Time-Phased Production by Planner Code._email_XLineEdit", toemail);
     
     waitForObject(":Time-Phased Production by Planner Code.Submit_QPushButton_2");
@@ -1226,8 +1254,10 @@ function main()
     clickButton(":Time-Phased Production by Item.Submit_QPushButton");
     
     waitForObject(":Time-Phased Production by Item._fromEmail_XLineEdit");
+     findObject(":Time-Phased Production by Item._fromEmail_XLineEdit").clear();
     type(":Time-Phased Production by Item._fromEmail_XLineEdit", fromemail);
     waitForObject(":Time-Phased Production by Item._email_XLineEdit");
+     findObject(":Time-Phased Production by Item._email_XLineEdit").clear();
     type(":Time-Phased Production by Item._email_XLineEdit", toemail);
     
     waitForObject(":Time-Phased Production by Item.Submit_QPushButton_2");
@@ -1271,11 +1301,12 @@ function main()
     waitForObject(":Time-Phased Availability.Submit_QPushButton");
     clickButton(":Time-Phased Availability.Submit_QPushButton");
     
-    waitForObject(":Time-Phased Availability._fromEmail_XLineEdit");
+   waitForObject(":Time-Phased Availability._fromEmail_XLineEdit");
+    findObject(":Time-Phased Availability._fromEmail_XLineEdit").clear();
     type(":Time-Phased Availability._fromEmail_XLineEdit", fromemail);
     waitForObject(":Time-Phased Availability._email_XLineEdit");
+     findObject(":Time-Phased Availability._email_XLineEdit").clear();
     type(":Time-Phased Availability._email_XLineEdit", toemail);
-    
     waitForObject(":Time-Phased Availability.Submit_QPushButton_2");
     clickButton(":Time-Phased Availability.Submit_QPushButton_2");
     
@@ -1318,8 +1349,10 @@ function main()
     clickButton(":Time-Phased Bookings by Customer.Submit_QPushButton");
     
     waitForObject(":Time-Phased Bookings by Customer._fromEmail_XLineEdit");
+    findObject(":Time-Phased Bookings by Customer._fromEmail_XLineEdit").clear();
     type(":Time-Phased Bookings by Customer._fromEmail_XLineEdit", fromemail);
     waitForObject(":Time-Phased Bookings by Customer._email_XLineEdit");
+    findObject(":Time-Phased Bookings by Customer._email_XLineEdit").clear();
     type(":Time-Phased Bookings by Customer._email_XLineEdit", toemail);
     
     waitForObject(":Time-Phased Bookings by Customer.Submit_QPushButton_2");
@@ -1366,8 +1399,10 @@ function main()
     clickButton(":Time-Phased Bookings by Item.Submit_QPushButton");
     
     waitForObject(":Time-Phased Bookings by Item._fromEmail_XLineEdit");
+    findObject(":Time-Phased Bookings by Item._fromEmail_XLineEdit").clear();
     type(":Time-Phased Bookings by Item._fromEmail_XLineEdit", fromemail);
     waitForObject(":Time-Phased Bookings by Item._email_XLineEdit");
+    findObject(":Time-Phased Bookings by Item._email_XLineEdit").clear();
     type(":Time-Phased Bookings by Item._email_XLineEdit", toemail);
     
     waitForObject(":Time-Phased Bookings by Item.Submit_QPushButton_2");
@@ -1416,8 +1451,10 @@ function main()
     clickButton(":Time-Phased Bookings by Product Category.Submit_QPushButton");
     
     waitForObject(":Time-Phased Bookings by Product Category._fromEmail_XLineEdit");
+    findObject(":Time-Phased Bookings by Product Category._fromEmail_XLineEdit").clear();
     type(":Time-Phased Bookings by Product Category._fromEmail_XLineEdit", fromemail);
     waitForObject(":Time-Phased Bookings by Product Category._email_XLineEdit");
+    findObject(":Time-Phased Bookings by Product Category._email_XLineEdit").clear();
     type(":Time-Phased Bookings by Product Category._email_XLineEdit", toemail);
     
     waitForObject(":Time-Phased Bookings by Product Category.Submit_QPushButton_2");
@@ -1465,8 +1502,10 @@ function main()
     clickButton(":Time-Phased Sales History by Customer Group.Submit_QPushButton");
     
     waitForObject(":Time-Phased Sales History by Customer Group._fromEmail_XLineEdit");
+    findObject(":Time-Phased Sales History by Customer Group._fromEmail_XLineEdit").clear();
     type(":Time-Phased Sales History by Customer Group._fromEmail_XLineEdit", fromemail);
     waitForObject(":Time-Phased Sales History by Customer Group._email_XLineEdit");
+    findObject(":Time-Phased Sales History by Customer Group._email_XLineEdit").clear();
     type(":Time-Phased Sales History by Customer Group._email_XLineEdit", toemail);
     
     waitForObject(":Time-Phased Sales History by Customer Group.Submit_QPushButton_2");
@@ -1513,8 +1552,10 @@ function main()
     clickButton(":Time-Phased Sales History by Customer.Submit_QPushButton");
     
     waitForObject(":Time-Phased Sales History by Customer._fromEmail_XLineEdit");
+    findObject(":Time-Phased Sales History by Customer._fromEmail_XLineEdit").clear();
     type(":Time-Phased Sales History by Customer._fromEmail_XLineEdit", fromemail);
     waitForObject(":Time-Phased Sales History by Customer._email_XLineEdit");
+    findObject(":Time-Phased Sales History by Customer._email_XLineEdit").clear();
     type(":Time-Phased Sales History by Customer._email_XLineEdit", toemail);
     
     waitForObject(":Time-Phased Sales History by Customer.Submit_QPushButton_2");
@@ -1561,10 +1602,13 @@ function main()
     waitForObject(":Time-Phased Sales History by Customer by Item.Submit_QPushButton");
     clickButton(":Time-Phased Sales History by Customer by Item.Submit_QPushButton");
     
-    waitForObject(":Time-Phased Sales History by Customer by Item._fromEmail_XLineEdit");
+     waitForObject(":Time-Phased Sales History by Customer by Item._fromEmail_XLineEdit");
+    findObject(":Time-Phased Sales History by Customer by Item._fromEmail_XLineEdit").clear();
     type(":Time-Phased Sales History by Customer by Item._fromEmail_XLineEdit", fromemail);
     waitForObject(":Time-Phased Sales History by Customer by Item._email_XLineEdit");
+    findObject(":Time-Phased Sales History by Customer by Item._email_XLineEdit").clear();
     type(":Time-Phased Sales History by Customer by Item._email_XLineEdit", toemail);
+    
     
     waitForObject(":Time-Phased Sales History by Customer by Item.Submit_QPushButton_2");
     clickButton(":Time-Phased Sales History by Customer by Item.Submit_QPushButton_2");
@@ -1610,8 +1654,10 @@ function main()
     clickButton(":Time-Phased Sales History by Product Category.Submit_QPushButton");
     
     waitForObject(":Time-Phased Sales History by Product Category._fromEmail_XLineEdit");
+    findObject(":Time-Phased Sales History by Product Category._fromEmail_XLineEdit").clear();
     type(":Time-Phased Sales History by Product Category._fromEmail_XLineEdit", fromemail);
     waitForObject(":Time-Phased Sales History by Product Category._email_XLineEdit");
+    findObject(":Time-Phased Sales History by Product Category._email_XLineEdit").clear();
     type(":Time-Phased Sales History by Product Category._email_XLineEdit", toemail);
     
     waitForObject(":Time-Phased Sales History by Product Category.Submit_QPushButton_2");
@@ -1658,8 +1704,10 @@ function main()
     clickButton(":Time-Phased Sales History by Item.Submit_QPushButton");
     
     waitForObject(":Time-Phased Sales History by Item._fromEmail_XLineEdit");
+    findObject(":Time-Phased Sales History by Item._fromEmail_XLineEdit").clear();
     type(":Time-Phased Sales History by Item._fromEmail_XLineEdit", fromemail);
     waitForObject(":Time-Phased Sales History by Item._email_XLineEdit");
+    findObject(":Time-Phased Sales History by Item._email_XLineEdit").clear();
     type(":Time-Phased Sales History by Item._email_XLineEdit", toemail);
     
     waitForObject(":Time-Phased Sales History by Item.Submit_QPushButton_2");
@@ -1691,11 +1739,11 @@ function main()
     activateItem(":*.Inventory_QMenu", "Reports");
     waitForObjectItem(":*.Reports_QMenu_2", "Time Phased Usage Statistics...");
     activateItem(":*.Reports_QMenu_2", "Time Phased Usage Statistics...");
-    
-    waitForObject(":_itemGroup...._QPushButton_3");
-    clickButton(":_itemGroup...._QPushButton_3");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "YTRUCK1", 26, 6, 0, Qt.LeftButton);
+     
+    waitForObject(":_itemGroup...._QPushButton_9");
+    clickButton(":_itemGroup...._QPushButton_9");
+    waitForObject(":_listTab_XTreeWidget_19");
+    doubleClickItem(":_listTab_XTreeWidget_19", "YTRUCK1", 26, 6, 0, Qt.LeftButton);
     waitForObject(":_warehouse.All Sites_QRadioButton_13");
     clickButton(":_warehouse.All Sites_QRadioButton_13");
     waitForObject(":Time-Phased Item Usage Statistics by Item._calendar_CalendarComboBox");
@@ -1707,8 +1755,10 @@ function main()
     clickButton(":Time-Phased Item Usage Statistics by Item.Submit_QPushButton");
     
     waitForObject(":Time-Phased Item Usage Statistics by Item._fromEmail_XLineEdit");
+    findObject(":Time-Phased Item Usage Statistics by Item._fromEmail_XLineEdit").clear();
     type(":Time-Phased Item Usage Statistics by Item._fromEmail_XLineEdit", fromemail);
     waitForObject(":Time-Phased Item Usage Statistics by Item._email_XLineEdit");
+    findObject(":Time-Phased Item Usage Statistics by Item._email_XLineEdit").clear();
     type(":Time-Phased Item Usage Statistics by Item._email_XLineEdit",toemail);
     
     waitForObject(":Time-Phased Item Usage Statistics by Item.Submit_QPushButton_2");
@@ -1740,17 +1790,18 @@ function main()
     activateItem(":*.Costing_QMenu", "Update Actual Costs");
     waitForObjectItem(":*.Update Actual Costs_QMenu", "by Item...");
     activateItem(":*.Update Actual Costs_QMenu", "by Item...");
-    
-    waitForObject(":Update Actual Costs by Item...._QPushButton");
-    clickButton(":Update Actual Costs by Item...._QPushButton");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
+   
+    waitForObject(":Update Actual Costs by Item...._QPushButton_2");
+    clickButton(":Update Actual Costs by Item...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_20");
+    doubleClickItem(":_listTab_XTreeWidget_20", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Update Actual Costs by Item.Select all Costs_QPushButton");
     clickButton(":Update Actual Costs by Item.Select all Costs_QPushButton");
     
     waitForObject(":Update Actual Costs by Item.Submit_QPushButton");
     clickButton(":Update Actual Costs by Item.Submit_QPushButton"); 
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -1790,6 +1841,7 @@ function main()
     waitForObject(":Update Actual Costs by Class Code.Submit_QPushButton");
     clickButton(":Update Actual Costs by Class Code.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+     findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -1819,17 +1871,19 @@ function main()
     activateItem(":*.Costing_QMenu", "Post Actual Costs");
     waitForObjectItem(":*.Post Actual Costs_QMenu", "by Item...");
     activateItem(":*.Post Actual Costs_QMenu", "by Item...");
+     
     
-    waitForObject(":Post Actual Costs by Item...._QPushButton");
-    clickButton(":Post Actual Costs by Item...._QPushButton");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "CTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Post Actual Costs by Item...._QPushButton_2");
+    clickButton(":Post Actual Costs by Item...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_20");
+    doubleClickItem(":_listTab_XTreeWidget_20", "CTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Post Actual Costs by Item.Select all Costs_QPushButton");
     clickButton(":Post Actual Costs by Item.Select all Costs_QPushButton");
     
     waitForObject(":Post Actual Costs by Item.Submit_QPushButton");
     clickButton(":Post Actual Costs by Item.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+     findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -1869,6 +1923,7 @@ function main()
     waitForObject(":Post Actual Costs by Class Code.Submit_QPushButton");
     clickButton(":Post Actual Costs by Class Code.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -1898,17 +1953,18 @@ function main()
     activateItem(":*.Costing_QMenu", "Post Standard Costs");
     waitForObjectItem(":*.Post Standard Costs_QMenu", "by Item...");
     activateItem(":*.Post Standard Costs_QMenu", "by Item...");
-    
-    waitForObject(":Update Standard Costs By Item...._QPushButton");
-    clickButton(":Update Standard Costs By Item...._QPushButton");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+     
+     waitForObject(":Update Standard Costs By Item...._QPushButton_2");
+    clickButton(":Update Standard Costs By Item...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_20");
+    doubleClickItem(":_listTab_XTreeWidget_20", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Update Standard Costs By Item.Select all Costs_QPushButton");
     clickButton(":Update Standard Costs By Item.Select all Costs_QPushButton");
     
     waitForObject(":Update Standard Costs By Item.Submit_QPushButton");
     clickButton(":Update Standard Costs By Item.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -1948,6 +2004,7 @@ function main()
     waitForObject(":Update Standard Costs By Class Code.Submit_QPushButton");
     clickButton(":Update Standard Costs By Class Code.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -1979,11 +2036,11 @@ function main()
     activateItem(":*.Update Item Controls_QMenu", "Order Up To Levels");
     waitForObjectItem(":*.Order Up To Levels_QMenu", "by Item...");
     activateItem(":*.Order Up To Levels_QMenu", "by Item...");
-    
-    waitForObject(":_itemGroup...._QPushButton_4");
-    clickButton(":_itemGroup...._QPushButton_4");
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
+        
+    waitForObject(":_itemGroup...._QPushButton_10");
+    clickButton(":_itemGroup...._QPushButton_10");
+    waitForObject(":_listTab_XTreeWidget_20");
+    doubleClickItem(":_listTab_XTreeWidget_20", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_warehouse.All Sites_QRadioButton_14");
     clickButton(":_warehouse.All Sites_QRadioButton_14");
     waitForObject(":Periods to Include in Analysis._calendar_CalendarComboBox");
@@ -1992,6 +2049,7 @@ function main()
     waitForObject(":Update Order Up To Level by Item.Submit_QPushButton");
     clickButton(":Update Order Up To Level by Item.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -2035,6 +2093,7 @@ function main()
     waitForObject(":Update Order Up To Levels by Planner Code.Submit_QPushButton");
     clickButton(":Update Order Up To Levels by Planner Code.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -2078,6 +2137,7 @@ function main()
     waitForObject(":Update Order Up To Levels by Class Code.Submit_QPushButton");
     clickButton(":Update Order Up To Levels by Class Code.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -2109,11 +2169,12 @@ function main()
     activateItem(":*.Update Item Controls_QMenu", "Reorder Levels");
     waitForObjectItem(":*.Reorder Levels_QMenu", "by Item...");
     activateItem(":*.Reorder Levels_QMenu", "by Item...");
-    
-    waitForObject(":_stack...._QPushButton");
-    clickButton(":_stack...._QPushButton"); 
-    waitForObject(":_item_XTreeWidget");
-    doubleClickItem(":_item_XTreeWidget", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+       
+   
+    waitForObject(":_stack...._QPushButton_2");
+    clickButton(":_stack...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_20");
+    doubleClickItem(":_listTab_XTreeWidget_20", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Site Selection.All Sites_QRadioButton");
     clickButton(":Site Selection.All Sites_QRadioButton");
     waitForObject(":Options.Update Immediately_QRadioButton");
@@ -2124,6 +2185,7 @@ function main()
     waitForObject(":_criteriaTab.Submit_QPushButton");
     clickButton(":_criteriaTab.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -2169,6 +2231,7 @@ function main()
     waitForObject(":_criteriaTab.Submit_QPushButton_2");
     clickButton(":_criteriaTab.Submit_QPushButton_2");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -2214,6 +2277,7 @@ function main()
     waitForObject(":_criteriaTab.Submit_QPushButton_3");
     clickButton(":_criteriaTab.Submit_QPushButton_3");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -2252,8 +2316,10 @@ function main()
     waitForObject(":Payables Aging.Submit_QPushButton");
     clickButton(":Payables Aging.Submit_QPushButton");
     waitForObject(":Payables Aging._fromEmail_XLineEdit");
+    findObject(":Payables Aging._fromEmail_XLineEdit").clear();
     type(":Payables Aging._fromEmail_XLineEdit", fromemail);
     waitForObject(":Payables Aging._email_XLineEdit");
+    findObject(":Payables Aging._email_XLineEdit").clear();
     type(":Payables Aging._email_XLineEdit", toemail);
     
     waitForObject(":Payables Aging.Submit_QPushButton_2");
@@ -2295,8 +2361,10 @@ function main()
     waitForObject(":Receivables Aging.Submit_QPushButton");
     clickButton(":Receivables Aging.Submit_QPushButton");
     waitForObject(":Receivables Aging._fromEmail_XLineEdit");
+    findObject(":Receivables Aging._fromEmail_XLineEdit").clear();
     type(":Receivables Aging._fromEmail_XLineEdit", fromemail);
     waitForObject(":Receivables Aging._email_XLineEdit");
+    findObject(":Receivables Aging._email_XLineEdit").clear();
     type(":Receivables Aging._email_XLineEdit", toemail);
     
     waitForObject(":Receivables Aging.Submit_QPushButton_2");
@@ -2332,6 +2400,7 @@ function main()
     waitForObject(":Create Recurring Invoices.Submit_QPushButton");
     clickButton(":Create Recurring Invoices.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+    findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -2377,10 +2446,10 @@ function main()
     clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":lineItemsTab.New_QPushButton");
     clickButton(":lineItemsTab.New_QPushButton");
-    waitForObject(":Item...._QPushButton");
-    clickButton(":Item...._QPushButton");
-    waitForObject(":_item_XTreeWidget_6");
-    doubleClickItem(":_item_XTreeWidget_6", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
+     waitForObject(":Item...._QPushButton_2");
+    clickButton(":Item...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_13");
+    doubleClickItem(":_listTab_XTreeWidget_13", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_ordered_XLineEdit_2");
     type(":_ordered_XLineEdit_2", "25");
     waitForObject(":_billed_XLineEdit");
@@ -2458,10 +2527,11 @@ function main()
     clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":lineItemsTab.New_QPushButton");
     clickButton(":lineItemsTab.New_QPushButton");
-    waitForObject(":Item...._QPushButton");
-    clickButton(":Item...._QPushButton");
-    waitForObject(":_item_XTreeWidget_6");
-    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);   
+    
+     waitForObject(":Item...._QPushButton_2");
+    clickButton(":Item...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_13");
+    doubleClickItem(":_listTab_XTreeWidget_13", "YTRUCK1", 5, 5, 0, Qt.LeftButton);   
     waitForObject(":_ordered_XLineEdit_2");
     type(":_ordered_XLineEdit_2", "25");
     waitForObject(":_billed_XLineEdit");
@@ -2630,10 +2700,11 @@ function main()
     clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":lineItemsTab.New_QPushButton");
     clickButton(":lineItemsTab.New_QPushButton");
-    waitForObject(":Item...._QPushButton");
-    clickButton(":Item...._QPushButton");
-    waitForObject(":_item_XTreeWidget_6");
-    doubleClickItem(":_item_XTreeWidget_6", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    
+    waitForObject(":Item...._QPushButton_2");
+    clickButton(":Item...._QPushButton_2");
+    waitForObject(":_listTab_XTreeWidget_13");
+    doubleClickItem(":_listTab_XTreeWidget_13", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_ordered_XLineEdit_2");
     type(":_ordered_XLineEdit_2", "25");
     waitForObject(":_billed_XLineEdit");
@@ -2739,8 +2810,7 @@ function main()
     activateItem(":*.Accounts Receivable_QMenu", "Invoice");
     type(":*.Accounts Receivable_QMenu", "<Right>");
     type(":*.Accounts Receivable_QMenu", "<Right>");
-     waitForObject(":_docstack...._QPushButton");
-    clickButton(":_docstack...._QPushButton");
+    
     waitForObjectItem(":*.Invoice_QMenu", "Send Electronic Invoice...");
     activateItem(":*.Invoice_QMenu", "Send Electronic Invoice...");
     waitForObject(":_docstack...._QPushButton");
@@ -2787,6 +2857,7 @@ function main()
     waitForObject(":Series G/L Journal Entry.Submit_QPushButton");
     clickButton(":Series G/L Journal Entry.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+     findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -2831,6 +2902,7 @@ function main()
     waitForObject(":Series G/L Journal Entry.Submit_QPushButton");
     clickButton(":Series G/L Journal Entry.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+     findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -2867,6 +2939,7 @@ function main()
     waitForObject(":Update Late Customer Credit Status.Submit_QPushButton");
     clickButton(":Update Late Customer Credit Status.Submit_QPushButton");
     waitForObject(":Submit Action to Batch Manager._email_XLineEdit");
+     findObject(":Submit Action to Batch Manager._email_XLineEdit").clear();
     type(":Submit Action to Batch Manager._email_XLineEdit", toemail);
     
     waitForObject(":Submit Action to Batch Manager.Submit_QPushButton");
@@ -2907,10 +2980,10 @@ function main()
     
     waitForObject(":Open Receivables.Query_QPushButton");
     clickButton(":Open Receivables.Query_QPushButton");
-    waitForObject(":_frame._aropen_XTreeWidget");
-    clickItem(":_frame._aropen_XTreeWidget", "TTOYS", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":_frame.Print_QPushButton");
-    clickButton(":_frame.Print_QPushButton");
+    waitForObject(":_frame._aropen_XTreeWidget_2");
+    clickItem(":_frame._aropen_XTreeWidget_2", "TTOYS", 5, 5, 1, Qt.LeftButton);
+       waitForObject(":_frame.Print_QPushButton_2");
+    clickButton(":_frame.Print_QPushButton_2");
     waitForObject(":Open Receivables.Print_QPushButton");
     clickButton(":Open Receivables.Print_QPushButton");
     snooze(1);	  
@@ -2976,44 +3049,44 @@ function main()
     
     else test.fail("Batch Manager not responding");
     
-    //-----Print Statement by Customer Type-----
-    try
-    {
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
-    activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
-    waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
-    activateItem(":*.Accounting_QMenu", "Accounts Receivable");
-    waitForObjectItem(":*.Accounts Receivable_QMenu", "Forms");
-    activateItem(":*.Accounts Receivable_QMenu", "Forms");
-    waitForObjectItem(":*.Forms_QMenu_4", "Print Statements by Customer Type...");
-    activateItem(":*.Forms_QMenu_4", "Print Statements by Customer Type...");
+//    //-----Print Statement by Customer Type-----
+//    try
+//    {
+//    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
+//    activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
+//    waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
+//    activateItem(":*.Accounting_QMenu", "Accounts Receivable");
+//    waitForObjectItem(":*.Accounts Receivable_QMenu", "Forms");
+//    activateItem(":*.Accounts Receivable_QMenu", "Forms");
+//    waitForObjectItem(":*.Forms_QMenu_4", "Print Statements by Customer Type...");
+//    activateItem(":*.Forms_QMenu_4", "Print Statements by Customer Type...");
+//    
+//    waitForObject(":_customerTypes.All Customer Types_QRadioButton");
+//    clickButton(":_customerTypes.All Customer Types_QRadioButton");
+//    waitForObject(":Print Statements by Customer Type.Print_QPushButton");
+//    clickButton(":Print Statements by Customer Type.Print_QPushButton"); 
+//    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
+//    clickButton(":Review EDI Before Sending.Accept_QPushButton");  
+//    snooze(1);	  
+//    nativeType("<Return>");
+//    
+//    waitForObject(":Print Statements by Customer Type.Close_QPushButton");
+//    clickButton(":Print Statements by Customer Type.Close_QPushButton");
+//    }
+//    catch(e)
+//    {
+//        test.fail("Error in Print Statement by Customer Type " + e);
+//    }
+//    
+//    
+//    //-----Verify the submission in Batch Manager-----
+//    var result = batchmanager();
+//    
+//    if(result == true)
+//        test.pass("Batch Manager Submitted for Printing Statement by Customer Type");
+//    
+//    else test.fail("Batch Manager not responding");
     
-    waitForObject(":_customerTypes.All Customer Types_QRadioButton");
-    clickButton(":_customerTypes.All Customer Types_QRadioButton");
-    waitForObject(":Print Statements by Customer Type.Print_QPushButton");
-    clickButton(":Print Statements by Customer Type.Print_QPushButton"); 
-    waitForObject(":Review EDI Before Sending.Accept_QPushButton");
-    clickButton(":Review EDI Before Sending.Accept_QPushButton");  
-    snooze(1);	  
-    nativeType("<Return>");
-    
-    waitForObject(":Print Statements by Customer Type.Close_QPushButton");
-    clickButton(":Print Statements by Customer Type.Close_QPushButton");
-    }
-    catch(e)
-    {
-        test.fail("Error in Print Statement by Customer Type " + e);
-    }
-    
-    
-    //-----Verify the submission in Batch Manager-----
-    var result = batchmanager();
-    
-    if(result == true)
-        test.pass("Batch Manager Submitted for Printing Statement by Customer Type");
-    
-    else test.fail("Batch Manager not responding");
-  
     //-----Print CreditMemo-----
     try
     {
@@ -3035,10 +3108,10 @@ function main()
     
     waitForObject(":Open Receivables.Query_QPushButton");
     clickButton(":Open Receivables.Query_QPushButton");
-    waitForObject(":_frame._aropen_XTreeWidget");
-    clickItem(":_frame._aropen_XTreeWidget", "TTOYS", 5, 5, 1, Qt.LeftButton);
-    waitForObject(":_frame.Print_QPushButton");
-    clickButton(":_frame.Print_QPushButton");
+    waitForObject(":_frame._aropen_XTreeWidget_2");
+    clickItem(":_frame._aropen_XTreeWidget_2", "TTOYS", 5, 5, 1, Qt.LeftButton);
+       waitForObject(":_frame.Print_QPushButton_2");
+    clickButton(":_frame.Print_QPushButton_2");
     waitForObject(":Open Receivables.Print_QPushButton");
     clickButton(":Open Receivables.Print_QPushButton");
     snooze(1);	  
@@ -3082,8 +3155,10 @@ function main()
     waitForObject(":Work Order Operation Buffer Status by Work Center.Submit_QPushButton");
     clickButton(":Work Order Operation Buffer Status by Work Center.Submit_QPushButton");
     waitForObject(":Work Order Operation Buffer Status by Work Center._fromEmail_XLineEdit");
+    findObject(":Work Order Operation Buffer Status by Work Center._fromEmail_XLineEdit").clear();
     type(":Work Order Operation Buffer Status by Work Center._fromEmail_XLineEdit", fromemail);
     waitForObject(":Work Order Operation Buffer Status by Work Center._email_XLineEdit");
+     findObject(":Work Order Operation Buffer Status by Work Center._email_XLineEdit").clear();
     type(":Work Order Operation Buffer Status by Work Center._email_XLineEdit", toemail);
     
     waitForObject(":Work Order Operation Buffer Status by Work Center.Submit_QPushButton_2");
@@ -3126,8 +3201,8 @@ function main()
     doubleClickItem(":_listTab_XTreeWidget_9", "TTOYS", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Contact...._QPushButton");
     clickButton(":Contact...._QPushButton");
-    waitForObject(":_listTab_XTreeWidget_10");
-    doubleClickItem(":_listTab_XTreeWidget_10", "Mike", 5, 5, 0, Qt.LeftButton);
+     waitForObject(":_listTab_XTreeWidget_21");
+    doubleClickItem(":_listTab_XTreeWidget_21", "Mike", 5, 5, 0, Qt.LeftButton);
     
     waitForObject(":Incident.qt_tabwidget_tabbar_QTabBar");
     clickTab(":Incident.qt_tabwidget_tabbar_QTabBar", "Alarms");
@@ -3238,10 +3313,12 @@ function main()
     waitForObjectItem(":_salesrep_XComboBox", "1000-Sam Masters");
     clickItem(":_salesrep_XComboBox", "1000-Sam Masters", 5, 5, 1, Qt.LeftButton);
     
-    waitForObject(":Prospect...._QPushButton");
-    clickButton(":Prospect...._QPushButton");
-    waitForObject(":_listTab_XTreeWidget_11");
-    doubleClickItem(":_listTab_XTreeWidget_11", "Colin", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":Prospect.Prospect_QWorkspaceTitleBar");
+    mouseDrag(":Prospect.Prospect_QWorkspaceTitleBar", 162, 16, 223, 90, 1, Qt.LeftButton);
+    waitForObject(":_contactTab...._QPushButton");
+    clickButton(":_contactTab...._QPushButton");
+    waitForObject(":_listTab_XTreeWidget_22");
+    doubleClickItem(":_listTab_XTreeWidget_22", "Colin", 5, 5, 0, Qt.LeftButton);
     waitForObject(":Prospect.Save_QPushButton");
     clickButton(":Prospect.Save_QPushButton");
     
@@ -3290,7 +3367,7 @@ function main()
     //-----Create a Quote using Prospect-----
     try
     {
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
+     waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
     activateItem(":xTuple ERP: *_QMenuBar", "Sales");
     waitForObjectItem(":*.Sales_QMenu", "Quote");
     activateItem(":*.Sales_QMenu", "Quote");
@@ -3308,10 +3385,11 @@ function main()
     clickTab(":Quote.qt_tabwidget_tabbar_QTabBar", "Line Items");
     waitForObject(":_lineItemsPage.New_QPushButton_3");
     clickButton(":_lineItemsPage.New_QPushButton_3");
-    waitForObject(":_itemGroup...._QPushButton_5");
-    clickButton(":_itemGroup...._QPushButton_5");
-    waitForObject(":_item_XTreeWidget_5");
-    doubleClickItem(":_item_XTreeWidget_5", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+    waitForObject(":_itemGroup...._QPushButton_7");
+    clickButton(":_itemGroup...._QPushButton_7");
+       
+    waitForObject(":_listTab_XTreeWidget_16");
+    doubleClickItem(":_listTab_XTreeWidget_16", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
     waitForObject(":_qtyOrdered_XLineEdit_2");
     type(":_qtyOrdered_XLineEdit_2", "100");
     
