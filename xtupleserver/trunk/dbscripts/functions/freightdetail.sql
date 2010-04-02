@@ -122,6 +122,7 @@ BEGIN
   _qry := _qry || '
     WHERE ( (orderitem_orderhead_type=' || quote_literal(pOrderType) || ')
       AND   (orderitem_orderhead_id=' || quote_literal(pOrderId) || ')
+      AND   (orderitem_status <> ''X'')
       AND   (item_freightclass_id IS NOT NULL) )
     GROUP BY itemsite_warehous_id, item_freightclass_id;';
   
