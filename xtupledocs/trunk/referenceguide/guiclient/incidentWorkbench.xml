@@ -6,14 +6,14 @@
   <title><indexterm significance="normal">
       <primary>incidents</primary>
       <secondary>workbench for</secondary>
-    </indexterm> <indexterm significance="normal">
+    </indexterm><indexterm significance="normal">
       <primary>customer relationship management</primary>
       <secondary>incident workbench and</secondary>
     </indexterm>Incident Workbench</title>
   <para>The Incident Workbench enables you to monitor and take action on the
   full range of Incidents entered in your system. For ease of use, the rows in
   the workbench can be color-coded based on their status. To learn more about
-  color-coding the Incident Workbench, see: <xref
+  color-coding for the Incident Workbench, see: <xref
   linkend="Section971138" /></para>
   <para><screenshot>
       <mediaobject>
@@ -25,117 +25,19 @@
     </screenshot></para>
   <para>When using the Incident Workbench, you are presented with the
   following options:</para>
+  <note>
+    <para>The system-defined default filter on the Incident Workbench shows
+    Incidents assigned to the logged-in user having a status above "Resolved."
+    </para>
+  </note>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <variablelist>
-    <varlistentry>
-      <term>Assigned to</term>
-      <listitem>
-        <para>Select to include Incidents assigned to the specified
-        user(s).</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Owned by</term>
-      <listitem>
-        <para>Select to include Incidents owned by the specified
-        user(s).</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>All Users</term>
-      <listitem>
-        <para>Select to display Incidents for all users.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected User</term>
-      <listitem>
-        <para>Specify the user whose Incidents you want to display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Pattern</term>
-      <listitem>
-        <para>Enter a user pattern to select a range of users.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Status</term>
-      <listitem>
-        <para>Specify which of the following system-defined Incident statuses
-        you want to include in the display. Not selecting a status means
-        Incidents having that status will not be included in the
-        display:</para>
-        <variablelist>
-          <varlistentry>
-            <term>New</term>
-            <listitem>
-              <para>Select to include Incidents having "New" status in the
-              display. This is the default Incident status when a new Incident
-              is entered.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Feedback</term>
-            <listitem>
-              <para>Select to include Incidents having "Feedback" status in
-              the display. This status can be used for Incidents which require
-              more information before they can be confirmed.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Confirmed</term>
-            <listitem>
-              <para>Select to include Incidents having "Confirmed" status in
-              the display. A confirmed Incident is ready to be acted
-              on.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Assigned</term>
-            <listitem>
-              <para>Select to include Incidents having "Assigned" status in
-              the display. When Incidents are assigned to a user, they become
-              that user's responsibility.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Resolved</term>
-            <listitem>
-              <para>Select to include Incidents having "Resolved" status in
-              the display. A resolved Incident is ready to be closed.
-              Typically, users work to resolve the Incidents assigned to
-              them.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Closed</term>
-            <listitem>
-              <para>Select to include Incidents having "Closed" status in the
-              display. This is the final status and indicates an Incident
-              requires no further action. It is completed.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Start Date</term>
-      <listitem>
-        <para>Incidents created on or after this date will be included in the
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>End Date</term>
-      <listitem>
-        <para>Incidents created on or before this date will be included in the
-        display.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>Search</term>
       <listitem>
-        <para>Enter a text pattern to locate keywords found in Incident
+        <para>Enter a text pattern to locate keywords found in existing
+        Incidents. The search will locate matching text strings found in the
         "Number," "Summary" and/or "Description" fields.</para>
       </listitem>
     </varlistentry>
@@ -183,4 +85,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

@@ -20,90 +20,16 @@
         <caption>To-Do List</caption>
       </mediaobject>
     </screenshot></para>
+  <para>When working with the To-Do List, you are presented with the following
+  options:</para>
   <note>
     <para>Black type indicates the To-Do has been completed&mdash;or it is due
     on the current day. Red To-Dos are late. Green To-Dos are not yet
     due.</para>
   </note>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <variablelist>
-    <varlistentry>
-      <term>Assigned to</term>
-      <listitem>
-        <para>Select to include To-Do List items assigned to the specified
-        user(s).</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Owned by</term>
-      <listitem>
-        <para>Select to include To-Do List items owned by the specified
-        user(s).</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>All Users</term>
-      <listitem>
-        <para>Select to display To-Do List items for all users.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected User</term>
-      <listitem>
-        <para>Select user whose To-Do List items you want to display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Pattern</term>
-      <listitem>
-        <para>Enter a user pattern to select a range of users.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Only Start Dates Between</term>
-      <listitem>
-        <para>Select check box to identify date range filter for start date of
-        To-Do items.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Start Date</term>
-            <listitem>
-              <para>To-Do start date created on or after this date will be
-              included in the display.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>End Date</term>
-            <listitem>
-              <para>To-Do start date created on or before this date will be
-              included in the display.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Only Due Dates Between</term>
-      <listitem>
-        <para>Select check box to identify date range filter for due date of
-        To-Do items.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Start Date</term>
-            <listitem>
-              <para>To-Do due date created on or after this date will be
-              included in the display.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>End Date</term>
-            <listitem>
-              <para>To-Do due date created on or before this date will be
-              included in the display.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>Show</term>
       <listitem>
@@ -138,6 +64,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>To-Dos</term>
+      <listitem>
+        <para>Display lists To-Do List items, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Automatically Update</term>
       <listitem>
         <para>Select to automatically update the display every five
@@ -147,7 +80,8 @@
     <varlistentry>
       <term>Total</term>
       <listitem>
-        <para>Lists the total number of To-Do's listed in the search.</para>
+        <para>Displays the total number of To-Do's listed in the
+        search.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -162,33 +96,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>NEW</term>
-      <listitem id="todoListNEW2">
-        <para>Opens screen for creating a new To-Do List item.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem id="todoListEDIT2">
-        <para>Enables you to edit highlighted To-Do List items. The edit
-        screen is the same as that for creating a new To-Do List
-        item&mdash;except that when editing, the fields will contain To-Do
-        List item information. Double-clicking on a To-Do List item will also
-        bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>VIEW</term>
-      <listitem id="todoListVIEW2">
-        <para>Highlight a To-Do List item and then select this button to reach
-        a read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>DELETE</term>
-      <listitem id="todoListDELETE2">
-        <para>Highlight a To-Do List item and then select this button to
-        remove the To-Do List item from the list.</para>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -197,5 +108,46 @@
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem id="todoListNEW2">
+        <para>Opens screen for creating a new To-Do List item or new
+        Incident.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="todoListEDIT2">
+        <para>Enables you to edit highlighted To-Do List items and Incidents.
+        The edit screen is the same as that for creating a new To-Do List item
+        or Incident&mdash;except that when editing, the fields will contain
+        To-Do List item or Incident information. Double-clicking on a To-Do
+        List item or Incident will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="todoListVIEW2">
+        <para>Highlight a To-Do List item or Incident and then select this
+        button to reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>COPY TO-DO</term>
+      <listitem>
+        <para>Highlight a To-Do List item and then select this button to reach
+        a screen for making a copy of the To-Do item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="todoListDELETE2">
+        <para>Highlight a To-Do List item or Incident and then select this
+        button to remove the To-Do List item or Incident from the list.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
+  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
