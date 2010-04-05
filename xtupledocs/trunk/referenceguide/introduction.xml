@@ -495,7 +495,7 @@
     <title><indexterm significance="normal">
         <primary>application fundamentals</primary>
       </indexterm>Application Fundamentals</title>
-    <para>xTuple ERPs contain a number of fundamental features designed to
+    <para>xTuple ERP contains a number of fundamental features designed to
     simplify your use of the software. In this section, we describe those
     fundamentals in an effort to familiarize you with their use.</para>
     <para>Let's look first at a sample Bill of Materials screen, as shown
@@ -513,7 +513,7 @@
     <section id="Section456193">
       <title><indexterm significance="normal">
           <primary>browse button</primary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>lookup</primary>
           <see>browse button</see>
         </indexterm>Browse Button</title>
@@ -593,7 +593,7 @@
     <section id="Section456208">
       <title><indexterm significance="normal">
           <primary>right-click</primary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>mouse options</primary>
         </indexterm>Right-Click Options</title>
       <para>Going back to our Bill of Materials example, let's look at another
@@ -675,190 +675,6 @@
       already available within the screen. This will not always be the case,
       though. Often, the right-click feature reveals important and useful
       functionality not to be found on the main display screen.</para>
-    </section>
-    <section id="Section486620">
-      <title><indexterm significance="normal">
-          <primary>columns</primary>
-          <secondary>size remembered for</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>memory</primary>
-          <secondary>for columns</secondary>
-        </indexterm>Column Memory</title>
-      <para>The system gives you the ability to customize the column layout of
-      screens&mdash;and once customized, the columns will remember your
-      preferences the next time you visit. To customize the column layout of a
-      screen which supports this feature, simply right-click on any column
-      header, as shown below:</para>
-      <para><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/INTRO_colMemory.png" />
-            </imageobject>
-            <caption>Typical Report Screen With Column Memory
-            Options</caption>
-          </mediaobject>
-        </screenshot></para>
-      <note>
-        <para>The column configuration options will vary depending on the
-        current status of the screen. And of course, individual column names
-        will differ from screen to screen.</para>
-      </note>
-      <para>When right-clicking on a column header to configure the column
-      settings, you are presented with the following options:</para>
-      <variablelist>
-        <varlistentry>
-          <term>Reset this Width</term>
-          <listitem>
-            <para>Select this option to reset the selected column to its
-            default, system-defined width. You will only see this option if
-            the width of column has been changed (i.e., made wider or
-            narrower).</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Reset all Widths</term>
-          <listitem>
-            <para>Select this option to reset all columns on the screen to the
-            default settings.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Do Not Remember Widths</term>
-          <listitem>
-            <para>Select this option if you do not want the screen to remember
-            column width changes made during active sessions.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Remember Widths</term>
-          <listitem>
-            <para>Select this option if you want the screen to remember column
-            width changes made during active sessions.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-      <para>Beneath the column width options, you will see a list of all the
-      column names in the screen. As a further customization, you may choose
-      to show or hide as many columns as you want. For example, if you do not
-      need the username in the G/L Transactions screen, simply de-select the
-      "Username" option in the list. The screen will only display columns
-      which have a check mark next to them in the column configuration
-      list.</para>
-      <para>Another feature of lists is the ability to sort the list by any
-      column simply by clicking on the column header. The first click on the
-      column header will sort the list in ascending order by the contents of
-      the selected column. The second click will sort the list in descending
-      order. Plus, once you've sorted the columns the way you want them, the
-      screen will remember your sort preference the next time you visit the
-      screen.</para>
-    </section>
-    <section>
-      <title><indexterm significance="normal">
-          <primary>check boxes</primary>
-          <secondary>setting for remembered</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>memory</primary>
-          <secondary>for check boxes</secondary>
-        </indexterm>Check Box Memory</title>
-      <para>On many screens where there are check box options (i.e.,
-      parameters used for filtering data displayed on a screen), the system
-      will remember your preferred settings. An example of this functionality
-      is shown in the following screen:</para>
-      <para><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/INTRO_checkBoxMemory.png" />
-            </imageobject>
-            <caption>Check Box Memory</caption>
-          </mediaobject>
-        </screenshot></para>
-      <para>A shaded bullet symbol indicates whether a check box supports the
-      memory feature. In our example, the "Show All Unvouchered P/Os" check
-      box has a shaded bullet next to it. When you see a shaded bullet next to
-      a check box it means your preferences will be remembered by the system.
-      If you select the check box, then it will remain selected the next time
-      you open the screen. Conversely, if you don't select the check box, it
-      won't be selected when the screen is next used.</para>
-      <tip>
-        <para>The Check Box memory feature can be de-activated by de-selecting
-        the "Remember Check Box Settings" option on the user Preferences
-        screen. Turning this setting off will hide the shaded bullet symbols
-        from view.</para>
-      </tip>
-    </section>
-    <section>
-      <title><indexterm significance="normal">
-          <primary>screens</primary>
-          <secondary>size remembered for</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>memory</primary>
-          <secondary>for screen sizes</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>memory</primary>
-          <secondary>for screen position</secondary>
-        </indexterm>Screen Position/Size Memory</title>
-      <para>The system gives you the ability to specify a default screen size
-      and position on a screen-by-screen basis. This feature applies to all
-      Window screens, but not to Dialog screens. A Dialog screen is a screen
-      which holds the focus when it is open and prevents you from working on
-      other screens at the same time. The controls for the screen position and
-      size memory are located under the Windows menu, as shown in the
-      following screen:</para>
-      <para><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/INTRO_screenMemory.png" />
-            </imageobject>
-            <caption>Setting Screen Position/Size Memory</caption>
-          </mediaobject>
-        </screenshot></para>
-      <note>
-        <para>Unless you specify otherwise, the system will always remember
-        the size of all Window screens&mdash;and also the position where the
-        screen was located&mdash;when you last used it.</para>
-      </note>
-      <para>When opening the Windows menu to set your screen position or size,
-      you are presented with the following options:</para>
-      <variablelist>
-        <varlistentry>
-          <term>Remember Position</term>
-          <listitem>
-            <para>Select to have the system remember the position of the
-            specified screen. If selected, the system will remember the
-            position of the screen where it was last located. Un-selecting
-            this option means the screen position will not be
-            remembered&mdash;and the default position will be used
-            instead.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Remember Size</term>
-          <listitem>
-            <para>Select to have the system remember the size of the specified
-            screen. If selected, the system will remember the size of the
-            screen where it was last located. Un-selecting this option means
-            the screen size will not be remembered&mdash;and the default size
-            will be used instead.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </section>
-    <section id="Section483123">
-      <title><indexterm significance="normal">
-          <primary>keyboard shortcuts</primary>
-          <secondary>drag-and-drop</secondary>
-        </indexterm>Drag-and-Drop</title>
-      <para>The application supports drag-and-drop functionality for screens
-      which use the Item Number widget. Using this functionality, you have the
-      ability to drag an Item Number from one screen to another screen.</para>
-      <para>For example, let's say you have two xTuple ERP screens open on
-      your desktop at the same time: The Bill of Materials (BOM) for Item XYZ
-      and also the Quantity on Hand (QOH) by Item display. In this example,
-      the QOH display does not have an Item Number entered in it yet.</para>
-      <para>To drag Item Number XYZ from the BOM screen to the QOH display,
-      simply click your mouse on the Item Number in the BOM&mdash;and then
-      drag the Item Number over to the Item Number field on the QOH display.
-      You may now QUERY the display to get QOH information on Item XYZ.</para>
     </section>
     <section id="Section456222">
       <title><indexterm significance="normal">
@@ -1625,6 +1441,255 @@
           buttons.</para>
         </tip>
       </section>
+    </section>
+    <section id="introSearchFilters">
+      <title>Search Filters</title>
+      <para>On several screens throughout xTuple ERP you are able to
+      create&mdash;and save&mdash;custom search filters for getting at the
+      data you really need. This search capability can be found, for example,
+      on the Incident Workbench in the CRM Module. The following graphic shows
+      the features of the search filter:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_parameterwidget.png" />
+            </imageobject>
+            <caption>Build Custom Searches with Search Filter</caption>
+          </mediaobject>
+        </screenshot>You build custom searches using the "+" and "-" buttons
+      featured on the search widget, as shown above. Use the "+" button to add
+      new search parameters. (There's no limit to the number of parameters you
+      can add.) And use the "-" button to remove those parameters you don't
+      want.</para>
+      <para>Search filters can be saved&mdash;and also shared with other
+      users. And when you're done building a query, simply save it. When
+      saving you will have the option to share the filter, or not, depending
+      on your preference.</para>
+      <para>The MANAGE button brings you to the list of saved
+      filters&mdash;both your private ones and any others that are shared
+      across your organization. If a filter appears in the "Apply Filter"
+      drop-down list, that means it's a saved filter. Only saved filters will
+      appear in that list. When managing your filters you can choose to either
+      share them or remove them from the list. </para>
+      <caution>
+        <para>Think twice before deleting a shared filter. Other people may be
+        using it.</para>
+      </caution>
+      <para>The search filter handles date values in two different ways. Dates
+      may be either absolute or relative.</para>
+      <variablelist>
+        <varlistentry>
+          <term>Absolute dates</term>
+          <listitem>
+            <para>An absolute date is always the date that you entered. For
+            example, it you enter a date using the calendar tool&mdash;or
+            manually type in 04/05/2010&mdash;the filter will honor that date
+            always.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Relative dates</term>
+          <listitem>
+            <para>Relative dates shift over time. So, for example, you may
+            want to always search for information that is new <emphasis
+            role="bold">today</emphasis>. Rather than manually entering
+            today's date, then, you would enter "0" in the search parameter
+            date field. Today's date will appear there today. But tomorrow,
+            the date will be tomorrow's date. And so on, with the current date
+            always being used by that parameter. To learn more about the full
+            range of date shortcuts available for entering relative dates,
+            please see <xref linkend="Section474757" />.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>Once you've created a working catalog of search filters, you may
+      decide you don't want to always see the details. The MORE button allows
+      you to show or hide parameter details, as you wish. Click the MORE
+      button once to reveal the underlying parameter details. Click it again
+      tol hide them.</para>
+    </section>
+    <section id="Section486620">
+      <title><indexterm significance="normal">
+          <primary>columns</primary>
+          <secondary>size remembered for</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>memory</primary>
+          <secondary>for columns</secondary>
+        </indexterm>Column Memory</title>
+      <para>The system gives you the ability to customize the column layout of
+      screens&mdash;and once customized, the columns will remember your
+      preferences the next time you visit. To customize the column layout of a
+      screen which supports this feature, simply right-click on any column
+      header, as shown below:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_colMemory.png" />
+            </imageobject>
+            <caption>Typical Report Screen With Column Memory
+            Options</caption>
+          </mediaobject>
+        </screenshot></para>
+      <note>
+        <para>The column configuration options will vary depending on the
+        current status of the screen. And of course, individual column names
+        will differ from screen to screen.</para>
+      </note>
+      <para>When right-clicking on a column header to configure the column
+      settings, you are presented with the following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Reset this Width</term>
+          <listitem>
+            <para>Select this option to reset the selected column to its
+            default, system-defined width. You will only see this option if
+            the width of column has been changed (i.e., made wider or
+            narrower).</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Reset all Widths</term>
+          <listitem>
+            <para>Select this option to reset all columns on the screen to the
+            default settings.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Do Not Remember Widths</term>
+          <listitem>
+            <para>Select this option if you do not want the screen to remember
+            column width changes made during active sessions.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Remember Widths</term>
+          <listitem>
+            <para>Select this option if you want the screen to remember column
+            width changes made during active sessions.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>Beneath the column width options, you will see a list of all the
+      column names in the screen. As a further customization, you may choose
+      to show or hide as many columns as you want. For example, if you do not
+      need the username in the G/L Transactions screen, simply de-select the
+      "Username" option in the list. The screen will only display columns
+      which have a check mark next to them in the column configuration
+      list.</para>
+      <para>Another feature of lists is the ability to sort the list by any
+      column simply by clicking on the column header. The first click on the
+      column header will sort the list in ascending order by the contents of
+      the selected column. The second click will sort the list in descending
+      order. Plus, once you've sorted the columns the way you want them, the
+      screen will remember your sort preference the next time you visit the
+      screen.</para>
+    </section>
+    <section>
+      <title><indexterm significance="normal">
+          <primary>screens</primary>
+          <secondary>size remembered for</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>memory</primary>
+          <secondary>for screen sizes</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>memory</primary>
+          <secondary>for screen position</secondary>
+        </indexterm>Screen Position/Size Memory</title>
+      <para>The system gives you the ability to specify a default screen size
+      and position on a screen-by-screen basis. This feature applies to all
+      Window screens, but not to Dialog screens. A Dialog screen is a screen
+      which holds the focus when it is open and prevents you from working on
+      other screens at the same time. The controls for the screen position and
+      size memory are located under the Windows menu, as shown in the
+      following screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_screenMemory.png" />
+            </imageobject>
+            <caption>Setting Screen Position/Size Memory</caption>
+          </mediaobject>
+        </screenshot></para>
+      <note>
+        <para>Unless you specify otherwise, the system will always remember
+        the size of all Window screens&mdash;and also the position where the
+        screen was located&mdash;when you last used it.</para>
+      </note>
+      <para>When opening the Windows menu to set your screen position or size,
+      you are presented with the following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Remember Position</term>
+          <listitem>
+            <para>Select to have the system remember the position of the
+            specified screen. If selected, the system will remember the
+            position of the screen where it was last located. Un-selecting
+            this option means the screen position will not be
+            remembered&mdash;and the default position will be used
+            instead.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Remember Size</term>
+          <listitem>
+            <para>Select to have the system remember the size of the specified
+            screen. If selected, the system will remember the size of the
+            screen where it was last located. Un-selecting this option means
+            the screen size will not be remembered&mdash;and the default size
+            will be used instead.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+    <section>
+      <title><indexterm significance="normal">
+          <primary>check boxes</primary>
+          <secondary>setting for remembered</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>memory</primary>
+          <secondary>for check boxes</secondary>
+        </indexterm>Check Box Memory</title>
+      <para>On many screens where there are check box options (i.e.,
+      parameters used for filtering data displayed on a screen), the system
+      will remember your preferred settings. An example of this functionality
+      is shown in the following screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_checkBoxMemory.png" />
+            </imageobject>
+            <caption>Check Box Memory</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>A shaded bullet symbol indicates whether a check box supports the
+      memory feature. In our example, the "Show All Unvouchered P/Os" check
+      box has a shaded bullet next to it. When you see a shaded bullet next to
+      a check box it means your preferences will be remembered by the system.
+      If you select the check box, then it will remain selected the next time
+      you open the screen. Conversely, if you don't select the check box, it
+      won't be selected when the screen is next used.</para>
+      <tip>
+        <para>The Check Box memory feature can be de-activated by de-selecting
+        the "Remember Check Box Settings" option on the user Preferences
+        screen. Turning this setting off will hide the shaded bullet symbols
+        from view.</para>
+      </tip>
+    </section>
+    <section id="Section483123">
+      <title><indexterm significance="normal">
+          <primary>drag-and-drop</primary>
+        </indexterm>Drag-and-Drop</title>
+      <para>The application supports drag-and-drop functionality for screens
+      which use the Item Number widget. Using this functionality, you have the
+      ability to drag an Item Number from one screen to another screen.</para>
+      <para>For example, let's say you have two xTuple ERP screens open on
+      your desktop at the same time: The Bill of Materials (BOM) for Item XYZ
+      and also the Quantity on Hand (QOH) by Item display. In this example,
+      the QOH display does not have an Item Number entered in it yet.</para>
+      <para>To drag Item Number XYZ from the BOM screen to the QOH display,
+      simply click your mouse on the Item Number in the BOM&mdash;and then
+      drag the Item Number over to the Item Number field on the QOH display.
+      You may now QUERY the display to get QOH information on Item XYZ.</para>
     </section>
     <section id="Section456244">
       <title><indexterm significance="normal">
