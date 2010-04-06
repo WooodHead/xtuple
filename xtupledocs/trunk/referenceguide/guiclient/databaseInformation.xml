@@ -48,30 +48,27 @@
       <listitem>
         <para>Displays the unique network address assigned to the server. This
         will typically show a TCP/IP Address or Network Host Name.</para>
+        <note>
+          <para>The network address for the server is set using the OPTIONS
+          button found on the login screen you see when logging into the
+          application. The server address initially assigned to a user will
+          display in the "Server Address" field. If the server address is ever
+          changed, you will need to notify all users to update their login
+          options.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>The network address for the server is set using the OPTIONS button
-    found on the login screen you see when logging into the application. The
-    server address initially assigned to a user will display in the "Server
-    Address" field. If the server address is ever changed, you will need to
-    notify all users to update their login options.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Database Name</term>
       <listitem>
         <para>Displays the default name of the database running on your
         server.</para>
+        <tip>
+          <para>If you ever change or rename your database, you will need to
+          notify all users to update their login options.</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>If you ever change or rename your database, you will need to notify
-    all users to update their login options.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term>Database Version</term>
       <listitem>
@@ -100,6 +97,15 @@
       <listitem>
         <para>This flag prevents users from running client versions that are
         different than the version the database is running on.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Disable Auto Complete</term>
+      <listitem>
+        <para>Select if you want to disable the auto-complete functionality
+        for anyone using the "Menu" search navigation option. Not selecting
+        this check box will make auto-complete available to those
+        users.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -196,14 +202,14 @@
       <listitem>
         <para>Displays the number of licenses available for your
         server.</para>
+        <note>
+          <para>Only users with the appropriate privileges will be permitted
+          to change Database information. For all other users, this screen
+          will be view-only.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>Only users with the appropriate privileges will be permitted to
-    change Database information. For all other users, this screen will be
-    view-only.</para>
-  </note>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
