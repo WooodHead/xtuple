@@ -498,183 +498,178 @@
     <para>xTuple ERP contains a number of fundamental features designed to
     simplify your use of the software. In this section, we describe those
     fundamentals in an effort to familiarize you with their use.</para>
-    <para>Let's look first at a sample Bill of Materials screen, as shown
-    below. We will use this Bill of Materials screen to illustrate several of
-    the application fundamentals to be found throughout the
-    application&mdash;across multiple screens and modules.</para>
-    <para><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/INTRO_bomScreen.png" />
-          </imageobject>
-          <caption>Sample Bill of Materials</caption>
-        </mediaobject>
-      </screenshot></para>
-    <section id="Section456193">
-      <title><indexterm significance="normal">
-          <primary>browse button</primary>
-        </indexterm><indexterm significance="normal">
-          <primary>lookup</primary>
-          <see>browse button</see>
-        </indexterm>Browse Button</title>
-      <para>Next to the "Item Number" field in the sample Bill of Materials
-      screen is a square box with an ellipsis in the center of it. That square
-      box is called a "browse button," and it looks like this:</para>
-      <para><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/INTRO_browseButton.png" />
-            </imageobject>
-            <caption>Browse Button</caption>
-          </mediaobject>
-        </screenshot></para>
-      <para>Whenever you see a browse button in the application, you have the
-      ability to locate information in an efficient manner. Using this feature
-      saves time because rather than having to remember detailed strings of
-      numbers or codes, you can look them up&mdash;browse for them&mdash;using
-      the browse button tool.</para>
-      <para><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/INTRO_browseCallout.png" />
-            </imageobject>
-            <caption>Browse Button Detail</caption>
-          </mediaobject>
-        </screenshot></para>
-      <para>In the case of our Bill of Materials example, the browse button is
-      located next to the "Item Number" field. Obviously, you need to link an
-      Item to a Bill of Materials. If that Item happens to be a "Boys 27 Speed
-      Mountain Bike," you might not know the Item Number off the top of your
-      head. Simply select the browse button, and you will automatically be
-      brought to a searchable master list of Items. The master list shows not
-      only Item Numbers but also Item descriptions. The list is displayed in
-      ascending order by Item Number. If your master list of Items is
-      extensive, you can scroll through the list using the scroll bar to the
-      right of the screen. Or, simply begin typing the first letters or
-      numbers of the Item Number in the "Search" field. The list will
-      automatically begin scrolling toward your Item in sequential
-      order.</para>
-      <para>As noted above, the application contains numerous screens where
-      browse buttons are available. Browse buttons can be used to look up Item
-      Numbers&mdash;as in the Bill of Materials example&mdash;or use them to
-      look up a wide range of other references. The following list indicates a
-      small sampling of references you can access using the browse
-      button:</para>
-      <itemizedlist>
-        <listitem>
-          <para>Item Numbers</para>
-        </listitem>
-        <listitem>
-          <para>Item Aliases</para>
-        </listitem>
-        <listitem>
-          <para>Component Parts</para>
-        </listitem>
-        <listitem>
-          <para>Sites</para>
-        </listitem>
-        <listitem>
-          <para>Sales Orders</para>
-        </listitem>
-        <listitem>
-          <para>Customers</para>
-        </listitem>
-        <listitem>
-          <para>Purchase Orders</para>
-        </listitem>
-        <listitem>
-          <para>Vendors</para>
-        </listitem>
-        <listitem>
-          <para>And more....</para>
-        </listitem>
-      </itemizedlist>
+    <section>
+      <title>Search Navigation</title>
+      <para>Every time you look up an Order or a Customer or an Item, you are
+      using search navigation. The system allows you to configure by user
+      preference how these lookups operate. The two available choices are the
+      "Menu" (auto complete) and "Button" search navigation options. In this
+      section, we'll discuss how each of these search methods works.</para>
+      <section>
+        <title><indexterm significance="normal">
+            <primary>auto complete</primary>
+          </indexterm>Menu (Auto-Complete)</title>
+        <para>The "Menu" option is the default search navigation method for
+        xTuple ERP. If enabled, search (or lookup) fields will feature a
+        magnifying glass in them. Clicking on the magnifying glass will bring
+        up a list of menu options. These options will generally include "List"
+        and "Search," though other options may also be available. Choosing
+        this option also gives you access to auto-complete functionality,
+        assuming it is enabled on the Database Information screen. With
+        auto-complete turned on, the system will automatically complete search
+        strings for you as you type. The following screenshot shows the
+        Incident screen, with an auto-complete action underway:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/INTRO_menuSearch.png" />
+              </imageobject>
+              <caption>Auto-Complete Search</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>As you can see in the example, we simply typed the letter "m"
+        into the search field and were met with four possible results. Typing
+        "ma" would limit the results to two. And the string "mar" would give
+        us the Contact record we are looking for. Auto-complete searching can
+        be far more efficient than the legacy browse button search method,
+        because it removes the need to open a separate list to search for
+        records you are looking for. Plus, if you don't know what you're
+        looking for, you can always click on the magnifying glass to reveal
+        additional options:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/INTRO_listSearch.png" />
+              </imageobject>
+              <caption>Menu Options on Magnifying Glass</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>The options in the menu will generally always include "List" and
+        "Search," but other options may also be available depending on the
+        context.</para>
+      </section>
+      <section id="Section456193">
+        <title><indexterm significance="normal">
+            <primary>browse button</primary>
+          </indexterm><indexterm significance="normal">
+            <primary>lookup</primary>
+            <see>browse button</see>
+          </indexterm>Browse Button</title>
+        <para>If you select the "Button" option on your User Preferences
+        screen, you will see browse buttons located next to fields where
+        search navigation is required. The browse button looks like
+        this:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/INTRO_browseButton.png" />
+              </imageobject>
+              <caption>Browse Button</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>The browse button search navigation is legacy functionality
+        which will ultimately be replaced by the auto-complete capability of
+        the Menu search option. However, the browse button is still
+        supported&mdash;and wherever you see the button, you can manually
+        click on it to reveal underlying lists of information. The following
+        screenshot illustrates how clicking on a browse button launches a
+        detailed list:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/INTRO_browseCallout.png" />
+              </imageobject>
+              <caption>Browse Button Detail</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>The browse button in our example is located next to the "Item
+        Number" field on the Bill of Materials screen. To search for an Item
+        Number, select the browse button. This will bring up an Item list,
+        which you can then scroll through to find the Item you are looking
+        for. Or, simply begin typing the first letters or numbers of the Item
+        Number in the "Search" field. The list will automatically begin
+        scrolling toward your Item in sequential order.</para>
+        <para>Use of the "Button"</para>
+      </section>
     </section>
-    <section id="Section456208">
+    <section id="introSearchFilters">
       <title><indexterm significance="normal">
-          <primary>right-click</primary>
-        </indexterm><indexterm significance="normal">
-          <primary>mouse options</primary>
-        </indexterm>Right-Click Options</title>
-      <para>Going back to our Bill of Materials example, let's look at another
-      fundamental feature involving the right-click button on your computer
-      mouse. For a complete list of all the right-click menu options used in
-      xTuple ERP, please see <xref linkend="rightClickMenuOptions" />.</para>
-      <note>
-        <para>For Macintosh users who don"t have a dual button mouse, use the
-        CTRL key on your keyboard when clicking on a record to reveal the
-        right-click options.</para>
-      </note>
-      <para>xTuple ERP is full of displays similar to our sample Bill of
-      Materials example. Display screens feature parameter settings at the top
-      of the screen&mdash;and a main display area located toward the bottom of
-      the screen. Whenever you encounter a display like this, you can
-      right-click on a line in the display to reveal a host of additional
-      options, as shown in the following screen:</para>
+          <primary>search filters</primary>
+          <secondary>explained</secondary>
+        </indexterm>Search Filters</title>
+      <para>On several screens throughout xTuple ERP you are able to
+      create&mdash;and save&mdash;custom search filters for getting at the
+      data you really need. This search capability can be found, for example,
+      on the Incident Workbench in the CRM Module. The following graphic shows
+      the basic features of the search filter:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="guiclient/images/bom.png" />
+              <imagedata fileref="images/INTRO_parameterwidget.png" />
             </imageobject>
-            <caption>Bill of Materials with Right-Click Detail</caption>
+            <caption>Build Custom Searches with Search Filter</caption>
           </mediaobject>
-        </screenshot></para>
-      <para>As you can see, right-clicking on a component Item in the Bill of
-      Materials screen gives you access to the following options:</para>
-      <itemizedlist>
-        <listitem>
-          <para><emphasis role="bold">View</emphasis>: Gives you a read-only
-          view of the Item.</para>
-        </listitem>
-        <listitem>
-          <para><emphasis role="bold">Edit</emphasis>: Enables you to edit the
-          Item.</para>
-        </listitem>
-        <listitem>
-          <para><emphasis role="bold">Delete</emphasis>: Deletes the
-          Item.</para>
-        </listitem>
-        <listitem>
-          <para><emphasis role="bold">Replace</emphasis>: Replaces one Item
-          with another Item.</para>
-        </listitem>
-        <listitem>
-          <para><emphasis role="bold">Move Up</emphasis>: Moves the Item up
-          the Bill of Materials sequence.</para>
-        </listitem>
-        <listitem>
-          <para><emphasis role="bold">Move Down</emphasis>: Moves the Item
-          down the Bill of Materials sequence.</para>
-        </listitem>
-        <listitem>
-          <para><emphasis role="bold">Copy All</emphasis>: Copies the header
-          and all visible columns and rows to the clipboard in plain-text,
-          TAB-separated format with a carriage return after each row.</para>
-        </listitem>
-        <listitem>
-          <para><emphasis role="bold">Copy Row</emphasis>: Copies all visible
-          columns in the selected rows to the clipboard in plain-text,
-          TAB-separated format without the header information.</para>
-        </listitem>
-        <listitem>
-          <para><emphasis role="bold">Copy Cell</emphasis>: Copies all visible
-          information in the selected cell to the clipboard in plain-text,
-          TAB-separated format without the header information.</para>
-        </listitem>
-        <listitem>
-          <para><emphasis role="bold">Export Contents</emphasis>: Export the
-          data displayed on the screen into your choice of plain-text, CSV,
-          ODF (e.g., Open Office), or HTML file formats. The plain text and
-          CSV files may subsequently be opened in a spreadsheet or other
-          text-editing tool.</para>
-        </listitem>
-      </itemizedlist>
-      <para>Right-click options will vary from screen to screen―and from
-      edition to edition. In our sample Bill of Materials example, the
-      right-click options basically mirror the functionality of buttons
-      already available within the screen. This will not always be the case,
-      though. Often, the right-click feature reveals important and useful
-      functionality not to be found on the main display screen.</para>
+        </screenshot>You build custom searches using the "+" and "-" buttons
+      featured on the search widget, as shown above. Use the "+" button to add
+      new search parameters. (There's no limit to the number of parameters you
+      can add.) And use the "-" button to remove those parameters you don't
+      want.</para>
+      <para>Search filters can be saved&mdash;and also shared with other
+      users. And when you're done building a query, simply save it. When
+      saving you will have the option to share the filter, or not, depending
+      on your preference.</para>
+      <tip>
+        <para>Some parameter lists allow you to select multiple options from
+        the same list. Look for drop-down lists that remain expanded after you
+        select them. This indicates you may choose more than one parameter
+        from the list of available options.</para>
+      </tip>
+      <para>The MANAGE button brings you to the list of saved
+      filters&mdash;both your private ones and any others that are shared
+      across your organization. When managing your filters you can choose to
+      either share them or remove them from the list. If a filter appears in
+      the "Apply Filter" drop-down list, that means it's a saved filter. Only
+      saved filters will appear in that list.</para>
+      <caution>
+        <para>Think twice before deleting a shared filter. Other people may be
+        using it.</para>
+      </caution>
+      <para>The search filter handles date values in two different ways. Dates
+      may be either absolute or relative.</para>
+      <variablelist>
+        <varlistentry>
+          <term>Absolute dates</term>
+          <listitem>
+            <para>An absolute date is always the date that you entered. For
+            example, it you enter a date using the calendar tool&mdash;or
+            manually type in 04/05/2010&mdash;the filter will honor that date
+            always.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Relative dates</term>
+          <listitem>
+            <para>Relative dates shift over time. So, for example, you may
+            want to always search for information that is new <emphasis
+            role="bold">today</emphasis>. Rather than manually entering
+            today's date, then, you would enter "0" in the search parameter
+            date field. Today's date will appear there today. But tomorrow,
+            the date will be tomorrow's date. And so on, with the current date
+            always being used by that parameter. To learn more about the full
+            range of date shortcuts available for entering relative dates,
+            please see <xref linkend="Section474757" />.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>Once you've created a working catalog of search filters, you may
+      decide you don't want to always see the details. The MORE button allows
+      you to show or hide parameter details, as you wish. Click the MORE
+      button once to reveal the underlying parameter details. Click it again
+      to hide them.</para>
+      <note>
+        <para>The "Default" filter will vary on a screen-by-screen
+        basis.</para>
+      </note>
     </section>
     <section id="Section456222">
       <title><indexterm significance="normal">
@@ -1442,77 +1437,91 @@
         </tip>
       </section>
     </section>
-    <section id="introSearchFilters">
-      <title>Search Filters</title>
-      <para>On several screens throughout xTuple ERP you are able to
-      create&mdash;and save&mdash;custom search filters for getting at the
-      data you really need. This search capability can be found, for example,
-      on the Incident Workbench in the CRM Module. The following graphic shows
-      the features of the search filter:</para>
+    <section id="Section456208">
+      <title><indexterm significance="normal">
+          <primary>right-click</primary>
+        </indexterm><indexterm significance="normal">
+          <primary>mouse options</primary>
+        </indexterm>Right-Click Options</title>
+      <para>Going back to our Bill of Materials example, let's look at another
+      fundamental feature involving the right-click button on your computer
+      mouse. For a complete list of all the right-click menu options used in
+      xTuple ERP, please see <xref linkend="rightClickMenuOptions" />.</para>
+      <note>
+        <para>For Macintosh users who don"t have a dual button mouse, use the
+        CTRL key on your keyboard when clicking on a record to reveal the
+        right-click options.</para>
+      </note>
+      <para>xTuple ERP is full of displays similar to our sample Bill of
+      Materials example. Display screens feature parameter settings at the top
+      of the screen&mdash;and a main display area located toward the bottom of
+      the screen. Whenever you encounter a display like this, you can
+      right-click on a line in the display to reveal a host of additional
+      options, as shown in the following screen:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/INTRO_parameterwidget.png" />
+              <imagedata fileref="guiclient/images/bom.png" />
             </imageobject>
-            <caption>Build Custom Searches with Search Filter</caption>
+            <caption>Bill of Materials with Right-Click Detail</caption>
           </mediaobject>
-        </screenshot>You build custom searches using the "+" and "-" buttons
-      featured on the search widget, as shown above. Use the "+" button to add
-      new search parameters. (There's no limit to the number of parameters you
-      can add.) And use the "-" button to remove those parameters you don't
-      want.</para>
-      <para>Search filters can be saved&mdash;and also shared with other
-      users. And when you're done building a query, simply save it. When
-      saving you will have the option to share the filter, or not, depending
-      on your preference.</para>
-      <tip>
-        <para>Some parameter lists allow you to select multiple options from
-        the same list. Look for drop-down lists that remain expanded after you
-        select them. This indicates you may choose more than one parameter
-        from the list of available options.</para>
-      </tip>
-      <para>The MANAGE button brings you to the list of saved
-      filters&mdash;both your private ones and any others that are shared
-      across your organization. If a filter appears in the "Apply Filter"
-      drop-down list, that means it's a saved filter. Only saved filters will
-      appear in that list. When managing your filters you can choose to either
-      share them or remove them from the list.</para>
-      <caution>
-        <para>Think twice before deleting a shared filter. Other people may be
-        using it.</para>
-      </caution>
-      <para>The search filter handles date values in two different ways. Dates
-      may be either absolute or relative.</para>
-      <variablelist>
-        <varlistentry>
-          <term>Absolute dates</term>
-          <listitem>
-            <para>An absolute date is always the date that you entered. For
-            example, it you enter a date using the calendar tool&mdash;or
-            manually type in 04/05/2010&mdash;the filter will honor that date
-            always.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Relative dates</term>
-          <listitem>
-            <para>Relative dates shift over time. So, for example, you may
-            want to always search for information that is new <emphasis
-            role="bold">today</emphasis>. Rather than manually entering
-            today's date, then, you would enter "0" in the search parameter
-            date field. Today's date will appear there today. But tomorrow,
-            the date will be tomorrow's date. And so on, with the current date
-            always being used by that parameter. To learn more about the full
-            range of date shortcuts available for entering relative dates,
-            please see <xref linkend="Section474757" />.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-      <para>Once you've created a working catalog of search filters, you may
-      decide you don't want to always see the details. The MORE button allows
-      you to show or hide parameter details, as you wish. Click the MORE
-      button once to reveal the underlying parameter details. Click it again
-      to hide them.</para>
+        </screenshot></para>
+      <para>As you can see, right-clicking on a component Item in the Bill of
+      Materials screen gives you access to the following options:</para>
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="bold">View</emphasis>: Gives you a read-only
+          view of the Item.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Edit</emphasis>: Enables you to edit the
+          Item.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Delete</emphasis>: Deletes the
+          Item.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Replace</emphasis>: Replaces one Item
+          with another Item.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Move Up</emphasis>: Moves the Item up
+          the Bill of Materials sequence.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Move Down</emphasis>: Moves the Item
+          down the Bill of Materials sequence.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Copy All</emphasis>: Copies the header
+          and all visible columns and rows to the clipboard in plain-text,
+          TAB-separated format with a carriage return after each row.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Copy Row</emphasis>: Copies all visible
+          columns in the selected rows to the clipboard in plain-text,
+          TAB-separated format without the header information.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Copy Cell</emphasis>: Copies all visible
+          information in the selected cell to the clipboard in plain-text,
+          TAB-separated format without the header information.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Export Contents</emphasis>: Export the
+          data displayed on the screen into your choice of plain-text, CSV,
+          ODF (e.g., Open Office), or HTML file formats. The plain text and
+          CSV files may subsequently be opened in a spreadsheet or other
+          text-editing tool.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Right-click options will vary from screen to screen―and from
+      edition to edition. In our sample Bill of Materials example, the
+      right-click options basically mirror the functionality of buttons
+      already available within the screen. This will not always be the case,
+      though. Often, the right-click feature reveals important and useful
+      functionality not to be found on the main display screen.</para>
     </section>
     <section id="Section486620">
       <title><indexterm significance="normal">

@@ -88,8 +88,6 @@
         </variablelist>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term>Ignore Missing Translations</term>
       <listitem>
@@ -110,7 +108,7 @@
       <term><indexterm significance="normal">
           <primary>users</primary>
           <secondary>setting idle timeout for</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>idle timeout</primary>
         </indexterm>Idle Timeout</term>
       <listitem>
@@ -148,25 +146,36 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Defaults</term>
+      <term>Search Navigation</term>
       <listitem>
-        <para>Specify preferences for the following defaults:</para>
+        <para>Specify your preference for how you want to look up
+        information:</para>
         <variablelist>
           <varlistentry>
-            <term>List Numeric Item Numbers First</term>
+            <term><indexterm significance="normal">
+                <primary>auto complete</primary>
+                <secondary>configuration for</secondary>
+              </indexterm>Menu</term>
             <listitem>
-              <para>Select to list numeric Item Numbers before alphabetic Item
-              Numbers in displays featuring Item Numbers.</para>
+              <para>This is the default search option. If enabled, search (or
+              lookup) fields will feature a magnifying glass in them. Clicking
+              on the magnifying glass will bring up a list of menu options.
+              These options will generally include "List" and "Search," though
+              other options may also be available. Choosing this option also
+              gives you access to auto-complete functionality, assuming it is
+              enabled on the Database Information screen.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Default Ellipses Action</term>
+            <term><indexterm significance="normal">
+                <primary>browse buttons</primary>
+                <secondary>configuration for</secondary>
+              </indexterm>Buttons</term>
             <listitem>
-              <para>Specify whether you want to launch a List view or a Search
-              view after selecting the lookup feature to look up information. The
-              List view corresponds to the standard CTRL+L keyboard shortcut
-              functionality; whereas the Search view corresponds to CTRL+S
-              functionality.</para>
+              <para>Select this option to enable browse buttons. Instead of
+              having auto-complete, you will need to click on a browse button
+              to manually locate records you are looking for. This is legacy
+              xTuple functionality.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -191,6 +200,31 @@
             <listitem>
               <para>Select to copy only the most basic text information for
               pasting into simple text editors.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Defaults</term>
+      <listitem>
+        <para>Specify preferences for the following defaults:</para>
+        <variablelist>
+          <varlistentry>
+            <term>List Numeric Item Numbers First</term>
+            <listitem>
+              <para>Select to list numeric Item Numbers before alphabetic Item
+              Numbers in displays featuring Item Numbers.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Default Ellipses Action</term>
+            <listitem>
+              <para>Specify whether you want to launch a List view or a Search
+              view after selecting the lookup feature to look up information.
+              The List view corresponds to the standard CTRL+L keyboard
+              shortcut functionality; whereas the Search view corresponds to
+              CTRL+S functionality.</para>
             </listitem>
           </varlistentry>
         </variablelist>
