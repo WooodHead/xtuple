@@ -42,7 +42,7 @@
           <varlistentry>
             <term>Item</term>
             <listitem>
-              <para>The browse button located to the right of the field leads
+              <para>The lookup feature located to the right of the field leads
               to a searchable list of Inventory Items. The list will contain
               sold Items available for purchase by the specified Customer. The
               list of available Items may vary from Customer to Customer,
@@ -141,7 +141,7 @@
         the time of Order entry. The specificity of Pricing Schedule
         Assignments is determined in the following descending order: By
         Customer Ship-To Address (most specific), by Customer, by Customer
-        Type, by Customer Type pattern, by all Customers. The browse button
+        Type, by Customer Type pattern, by all Customers. The lookup feature
         located to the right of the field leads to a Price List screen.</para>
         <note>
           <para>For Inventory Items having assigned Pricing Schedules, the Net
@@ -150,9 +150,9 @@
           entered manually.</para>
         </note>
         <para>If your Pricing Schedule has multiple Units of Measure (UOM) on
-        it―or if several Pricing Schedules share the same level of Price
-        specificity, but they have different UOMs―then the UOM which matches
-        the selected UOM will be chosen―that is, as long as the quantity break
+        it?or if several Pricing Schedules share the same level of Price
+        specificity, but they have different UOMs?then the UOM which matches
+        the selected UOM will be chosen?that is, as long as the quantity break
         does not exceed the quantity being priced. If no entry matches the UOM
         with a quantity break less than the quantity being priced, then the
         lowest value Price for any UOM will be chosen. To make sure a specific
