@@ -57,7 +57,7 @@
       <term><indexterm significance="normal">
           <primary>pack dates</primary>
           <secondary>for sales orders</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>pack dates for</secondary>
         </indexterm>Pack Date</term>
@@ -82,7 +82,7 @@
       <term><indexterm significance="normal">
           <primary>sales representatives</primary>
           <secondary>commissions for</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>commissions on</secondary>
         </indexterm>Sales Rep.</term>
@@ -180,59 +180,69 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Customer #</term>
-      <listitem>
-        <para>Enter the Customer Number of the Customer to be billed for the
-        sale. The lookup feature located to the right of the field leads to a
-        searchable Customers list. You may also access this list using the
-        keyboard shortcut "CTRL + L". Once a Customer Number is entered, the
-        Customer name and billing address will display. Select the "?" or "$"
-        symbol to view Customer information for the
-        specified Customer. If a Customer's credit is "In Good Standing," the
-        button will feature a black question mark ("?") icon. If the icon
-        turns to an orange dollar sign ("$"), the Customer's credit Status is
-        "On Credit Warning." A red dollar sign ("$") indicates the Customer's
-        credit Status is "On Credit Hold." You may also create a new Customer
-        record by selecting the "+" button.</para>
-        <tip>
-          <para>A valid Customer Number must be entered in the "Customer #"
-          field before Line Items can be added to a Sales Order. If no valid
-          Customer Number is entered, you will not be able to add Line Items
-          to the Sales Order. Additionally, Sales Orders may only be entered
-          for active Customers.</para>
-        </tip>
-        <note>
-          <para>Sales Orders may not be entered for Customers whose credit
-          status is either "On Credit Warning" or "On Credit Hold." Only users
-          with special privileges may override these credit settings.</para>
-        </note>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>billing information for</secondary>
-        </indexterm>Bill-To Name</term>
+        </indexterm>Bill-To</term>
       <listitem>
-        <para>Displays the Customer's Bill-To name.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Bill-To Phone</term>
-      <listitem>
-        <para>Displays the Customer's Bill-To phone number.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Address</term>
-      <listitem>
-        <para>Displays the Customer's Bill-To Address. You may manually
-        override the displayed Address information in the fields
-        below&mdash;or use the lookup feature to select another Address. If a
-        new Address is manually entered here, that Address will be added
-        automatically to the master list of Addresses. For additional
-        documentation related to creating Addresses, see <xref
-        linkend="Section560316" />.</para>
+        <para>Specify the Customer billing information below:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Customer #</term>
+            <listitem>
+              <para>Enter the Customer Number of the Customer to be billed for
+              the sale. The lookup feature located to the right of the field
+              leads to a searchable Customers list. You may also access this
+              list using the keyboard shortcut "CTRL + L". Once a Customer
+              Number is entered, the Customer name and billing address will
+              display. Select the "?" or "$" symbol to view Customer
+              information for the specified Customer. If a Customer's credit
+              is "In Good Standing," the button will feature a black question
+              mark ("?") icon. If the icon turns to an orange dollar sign
+              ("$"), the Customer's credit Status is "On Credit Warning." A
+              red dollar sign ("$") indicates the Customer's credit Status is
+              "On Credit Hold." You may also create a new Customer record by
+              selecting the "+" button.</para>
+              <tip>
+                <para>A valid Customer Number must be entered in the "Customer
+                #" field before Line Items can be added to a Sales Order. If
+                no valid Customer Number is entered, you will not be able to
+                add Line Items to the Sales Order. Additionally, Sales Orders
+                may only be entered for active Customers.</para>
+              </tip>
+              <note>
+                <para>Sales Orders may not be entered for Customers whose
+                credit status is either "On Credit Warning" or "On Credit
+                Hold." Only users with special privileges may override these
+                credit settings.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Address</term>
+            <listitem>
+              <para>Displays the Customer's Bill-To Address. You may manually
+              override the displayed Address information in the fields
+              below&mdash;or use the lookup feature to select another Address.
+              If a new Address is manually entered here, that Address will be
+              added automatically to the master list of Addresses. For
+              additional documentation related to creating Addresses, see
+              <xref linkend="Section560316" />.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Billing Contact</term>
+            <listitem>
+              <para>Displays the Customer's billing Contact. You may manually
+              override the displayed Contact information in the fields
+              below&mdash;or use the lookup feature to select another Contact.
+              If a new Contact is manually entered here, that Contact will be
+              added automatically to the master list of Contacts. For
+              additional documentation related to creating Addresses, see
+              <xref linkend="contactTitle" />.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -244,41 +254,50 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Ship-To #</term>
-      <listitem>
-        <para>Enter the number of the preferred Ship-To Address. Customers may
-        maintain multiple Ship-To Addresses. If the Customer master for the
-        specified Customer indicates that free-form Ship-To's are allowed,
-        then any address may be entered. If free-form Ship-To's are not
-        allowed, then the Ship-To Address must be entered using the browse
-        button located to the right of the field.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>ship-to details for</secondary>
-        </indexterm>Ship-To Name</term>
+        </indexterm>Ship-To</term>
       <listitem>
-        <para>Displays the name for the specified Ship-To.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Ship-To Phone</term>
-      <listitem>
-        <para>Displays the phone number for the specified Ship-To.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Address</term>
-      <listitem>
-        <para>Displays the specified Ship-To Address. You may manually
-        override the displayed Address information in the fields
-        below&mdash;or use the lookup feature to select another Address. If a
-        new Address is manually entered here, that Address will be added
-        automatically to the master list of Addresses. For additional
-        documentation related to creating Addresses, see <xref
-        linkend="Section560316" />.</para>
+        <para>Specify shipping details below:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Ship-To #</term>
+            <listitem>
+              <para>Enter the number of the preferred Ship-To Address.
+              Customers may maintain multiple Ship-To Addresses. If the
+              Customer master for the specified Customer indicates that
+              free-form Ship-To's are allowed, then any address may be
+              entered. If free-form Ship-To's are not allowed, then the
+              Ship-To Address must be entered using the browse button located
+              to the right of the field.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Address</term>
+            <listitem>
+              <para>Displays the specified Ship-To Address. You may manually
+              override the displayed Address information in the fields
+              below&mdash;or use the lookup feature to select another Address.
+              If a new Address is manually entered here, that Address will be
+              added automatically to the master list of Addresses. For
+              additional documentation related to creating Addresses, see
+              <xref linkend="contactTitle" />.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipping Contact</term>
+            <listitem>
+              <para>Displays the shipping Contact for the Ship-To Address. You
+              may manually override the displayed Contact information in the
+              fields below&mdash;or use the lookup feature to select another
+              Contact. If a new Contact is manually entered here, that Contact
+              will be added automatically to the master list of Contacts. For
+              additional documentation related to creating Addresses, see
+              <xref linkend="contactTitle" />.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -320,7 +339,7 @@
       <term><indexterm significance="normal">
           <primary>hold types</primary>
           <secondary>for sales orders</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>hold types for</secondary>
         </indexterm>Hold Type</term>
@@ -375,13 +394,13 @@
       <term><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>shipping charges on</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>shipping</primary>
           <secondary>charges on sales orders</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>shipping forms on</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>shipping forms</primary>
           <secondary>selecting on sales orders</secondary>
         </indexterm>Shipping Chgs.</term>
