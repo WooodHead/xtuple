@@ -155,6 +155,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter the name of the company that will receive shipments at
+        this Ship-To Address. Customers may maintain multiple Ship-To
+        Addresses with diverse destinations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Active</term>
       <listitem>
         <para>Select to activate the Ship-To Address. If this option is not
@@ -169,16 +177,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Name</term>
-      <listitem>
-        <para>Enter the name of the company that will receive shipments at
-        this Ship-To Address. Customers may maintain multiple Ship-To
-        Addresses with diverse destinations.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <variablelist>
-    <varlistentry>
       <term>Address</term>
       <listitem>
         <para>Manually enter delivery Address information in the fields
@@ -189,8 +187,6 @@
         linkend="Section560316" />.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>ship-to addresses</primary>
@@ -207,39 +203,39 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Sales Rep</term>
-      <listitem>
-        <para>Specify the Sales Representative for the Ship-To Address. When
-        entering Orders for a Customer, the name of the Sales Representative
-        specified on the Ship-To Address will be used if it is different from
-        the Customer default.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Commission</term>
-      <listitem>
-        <para>Field accepts up to 4 whole numbers and 2 decimals. Enter the
-        Commission rate to be used when Sales Orders for this Customer are
-        shipped to the specified Ship-To Address.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Ship Zone</term>
-      <listitem>
-        <para>Specify the Shipping Zone for the Ship-To Address.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Tax Zone</term>
-      <listitem>
-        <para>Specify Tax Zone to be used for Ship-To Address.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Defaults</term>
       <listitem>
-        <para>Specify the following Shipping-related defaults:</para>
+        <para>Specify the following Ship-To Address defaults:</para>
         <variablelist>
+          <varlistentry>
+            <term>Sales Rep</term>
+            <listitem>
+              <para>Specify the Sales Representative for the Ship-To Address.
+              When entering Orders for a Customer, the name of the Sales
+              Representative specified on the Ship-To Address will be used if
+              it is different from the Customer default.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Commission</term>
+            <listitem>
+              <para>Field accepts up to 4 whole numbers and 2 decimals. Enter
+              the Commission rate to be used when Sales Orders for this
+              Customer are shipped to the specified Ship-To Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Ship Zone</term>
+            <listitem>
+              <para>Specify the Shipping Zone for the Ship-To Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Tax Zone</term>
+            <listitem>
+              <para>Specify Tax Zone to be used for Ship-To Address.</para>
+            </listitem>
+          </varlistentry>
           <varlistentry>
             <term>Ship Via</term>
             <listitem>
