@@ -47,8 +47,13 @@
       <term>Active</term>
       <listitem>
         <para>Select to mark the user as Active. Not selecting marks the user
-        as Inactive. Users cannot be deleted from the system, but marking them
-        Inactive prevents them from logging into the application.</para>
+        as Inactive. Users cannot be deleted from the system; however, marking
+        them Inactive prevents them from logging into the application. In some
+        cases, inactive users may still be associated with valid documents in
+        the system. Whenever that is the case, the user's name will appear
+        with horizontal lines striking through it. Re-saving documents with
+        this inactive user relationship may cause the username to be dropped
+        from the record. </para>
       </listitem>
     </varlistentry>
     <varlistentry>
