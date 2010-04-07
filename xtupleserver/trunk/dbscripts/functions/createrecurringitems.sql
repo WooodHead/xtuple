@@ -3,14 +3,18 @@ DECLARE
   pParentid  ALIAS FOR $1;      -- if NULL then all items with the given pType
   pType      TEXT := UPPER($2); -- if NULL then all types
                                 -- if both are null then all items of all types
+  _copystmt  TEXT;
   _count     INTEGER := 0;
+  _countstmt TEXT;
+  _existcnt  INTEGER;
   _id        INTEGER;
   _interval  TEXT;
-  _existcnt  INTEGER;
   _last      TIMESTAMP WITH TIME ZONE;
-  _max       INTEGER := CAST(fetchMetricValue('RecurringInvoiceBuffer') AS INTEGER);
+  _maxstmt   TEXT;
   _next      TIMESTAMP WITH TIME ZONE;
   _r         RECORD;
+  _rt        RECORD;
+  _tmp       INTEGER;
 
 BEGIN
   RAISE DEBUG 'createRecurringItems(%, %) entered', pParentid, pType;
@@ -26,7 +30,11 @@ BEGIN
                 AND (pParentid IS NULL OR recur_parent_id=pParentid)
                 AND (pType IS NULL OR UPPER(recur_parent_type)=pType)) LOOP
 
-    _r.recur_max := COALESCE(_r.recur_max, _max, 1);
+    RAISE DEBUG 'createRecurringItems looking at recur %, %',
+                _r.recur_id, _r.recur_parent_type;
+    _r.recur_max := COALESCE(_r.recur_max,
+                             CAST(fetchMetricValue('RecurringInvoiceBuffer') AS INTEGER),
+                             1);
     _interval := CASE _r.recur_period WHEN 'Y' THEN ' year'
                                       WHEN 'M' THEN ' month'
                                       WHEN 'W' THEN ' week'
@@ -42,62 +50,67 @@ BEGIN
                       _r.recur_parent_type, _r.recur_parent_id;
     END IF;
 
-    -- Get the latest recurrence timestamp of the current recurring item
-    IF (UPPER(_r.recur_parent_type) = 'TODO') THEN
-      SELECT COUNT(*) INTO _existcnt 
-        FROM todoitem
-       WHERE ((todoitem_recurring_todoitem_id=_r.recur_parent_id)
-          AND (todoitem_completed_date IS NULL)
-          AND (checkPrivilege('MaintainOtherTodoList')
-               OR (checkPrivilege('MaintainPersonalTodoList') AND
-                   CURRENT_USER IN (todoitem_owner_username, todoitem_username))
-              ));
-      SELECT MAX(todoitem_due_date) INTO _last
-        FROM todoitem
-       WHERE todoitem_recurring_todoitem_id=_r.recur_parent_id
-         AND (checkPrivilege('MaintainOtherTodoList')
-              OR (checkPrivilege('MaintainPersonalTodoList') AND
-                  CURRENT_USER IN (todoitem_owner_username, todoitem_username))
-             );
-
-    ELSIF (UPPER(_r.recur_parent_type) = 'INCDT') THEN
-      SELECT COUNT(*) INTO _existcnt
-        FROM incdt
-       WHERE ((incdt_recurring_incdt_id=_r.recur_parent_id)
-          AND (incdt_status='N'));
-      SELECT MAX(incdt_timestamp) INTO _last
-        FROM incdt
-       WHERE (incdt_recurring_incdt_id=_r.recur_parent_id);
-
-    ELSIF (UPPER(_r.recur_parent_type) = 'J') THEN
-      SELECT COUNT(*) INTO _existcnt
-        FROM prj
-       WHERE ((prj_recurring_prj_id=_r.recur_parent_id)
-          AND (prj_completed_date IS NULL));
-      SELECT MAX(prj_due_date) INTO _last
-        FROM prj
-       WHERE (prj_recurring_prj_id=_r.recur_parent_id);
-
-    ELSE
+    SELECT * INTO _rt FROM recurtype WHERE (UPPER(recurtype_type)=pType);
+    GET DIAGNOSTICS _count = ROW_COUNT;
+    IF (_count <= 0) THEN
       RETURN -10;
     END IF;
 
+    -- build statements dynamically from the recurtype table because packages
+    -- might also require recurring items. this way the algorithm is fixed
+    -- and the details are data-driven
+    _countstmt := 'SELECT COUNT(*) FROM [fulltable]' 
+               || ' WHERE (($1=[table]_recurring_[table]_id)'
+               || ' AND NOT([done]) '
+               || ' AND ([limit]));';
+    _countstmt := REPLACE(_countstmt, '[fulltable]', _rt.recurtype_table);
+    _countstmt := REPLACE(_countstmt, '[table]',
+                          REGEXP_REPLACE(_rt.recurtype_table, E'.*\\.', ''));
+    _countstmt := REPLACE(_countstmt, '[done]',  _rt.recurtype_donecheck);
+    _countstmt := REPLACE(_countstmt, '[limit]',
+                          COALESCE(_rt.recurtype_limit, 'TRUE'));
+
+    _maxstmt := 'SELECT MAX([schedcol]) FROM [fulltable]'
+               || ' WHERE (($1=[table]_recurring_[table]_id)'
+               || '    AND ([limit]));';
+    _maxstmt := REPLACE(_maxstmt, '[schedcol]', _rt.recurtype_schedcol);
+    _maxstmt := REPLACE(_maxstmt, '[fulltable]',_rt.recurtype_table);
+    _maxstmt := REPLACE(_maxstmt, '[table]',
+                          REGEXP_REPLACE(_rt.recurtype_table, E'.*\\.', ''));
+    _maxstmt := REPLACE(_maxstmt, '[limit]', COALESCE(_rt.recurtype_limit,
+                                                     'TRUE'));
+
+    _copystmt := 'SELECT [copy]($1, ''[datetime]'' [more]);';
+    _copystmt := REPLACE(_copystmt, '[copy]', _rt.recurtype_copyfunc);
+    _copystmt := REPLACE(_copystmt, '[datetime]',
+                         CASE WHEN UPPER(_rt.recurtype_copyargs[2])='DATE' THEN
+                                    'CAST($2) AS DATE'
+                              ELSE '$2' END);
+    -- 8.4+:
+    -- _copystmt := REPLACE(_copystmt, '[more]',
+    --                      REPEAT(', NULL',
+    --                             array_length(_rt.recurtype_copyargs) - 2));
+    _tmp := CAST(REPLACE(REGEXP_REPLACE(array_dims(_rt.recurtype_copyargs),
+                                        '.*:', ''), ']', '') AS INTEGER);
+    _copystmt := REPLACE(_copystmt, '[more]', REPEAT(', NULL', _tmp - 2));
+
+    EXECUTE REPLACE(_countstmt, '$1', _r.recur_parent_id::TEXT) INTO _existcnt;
+    EXECUTE REPLACE(_maxstmt,   '$1', _r.recur_parent_id::TEXT) INTO _last;
+    RAISE DEBUG E'% got %, % got %', _countstmt, _existcnt, _maxstmt, _last;
+
     WHILE (_existcnt < _r.recur_max) LOOP
+      RAISE DEBUG 'createrecurringitems looping, existcnt = %, max = %',
+                  _existcnt, _r.recur_max;
       _next := _last +
                CAST(_r.recur_freq * (_r.recur_max - _existcnt ) || _interval AS INTERVAL);
 
       IF (_next BETWEEN _r.recur_start AND _r.recur_end) THEN
-        IF (_r.recur_parent_type = 'TODO') THEN
-          _id := copyTodoItem(_r.recur_parent_id, CAST(_next AS DATE), NULL);
-        ELSIF (_r.recur_parent_type = 'INCDT') THEN
-          _id := copyIncdt(_r.recur_parent_id, _next);
-        ELSIF (_r.recur_parent_type = 'J') THEN
-          _id := copyPrj(_r.recur_parent_id, CAST(_next AS DATE));
-        ELSE
-          RETURN -10;
-        END IF;
+        RAISE DEBUG 'createrecurringitems executing % with % and %',
+                    _copystmt, _r.recur_parent_id, _next;
+        -- 8.4+: EXECUTE _copystmt INTO _id USING _r.recur_parent_id, _next;
+        EXECUTE REPLACE(REPLACE(_copystmt, '$1', _r.recur_parent_id::TEXT),
+                                           '$2', _next::TEXT) INTO _id;
         RAISE DEBUG 'Copying for % returned %', _next, _id;
-
         _count := _count + 1;
       END IF;
 
