@@ -678,8 +678,11 @@
         </indexterm>Keyboard Shortcuts</title>
       <para>Many people prefer to use keyboard shortcuts&mdash;instead of a
       mouse&mdash;when navigating within a software application. xTuple ERP
-      features a number of keyboard shortcuts designed just for this
-      purpose.</para>
+      features a number of keyboard shortcuts designed just for this purpose.
+      Keyboard shortcuts are available at several points throughout the
+      application. In fields where you see the magnifying class (e.g., Contact
+      lookup), you can click on the magnifying glass to see the full menu of
+      shortcuts available for that field.</para>
       <section id="Section456225">
         <title><indexterm significance="normal">
             <primary>TAB key</primary>
@@ -710,14 +713,11 @@
             <primary>keyboard shortcuts</primary>
             <secondary>CTRL key</secondary>
           </indexterm>CTRL Key</title>
-        <para>Three keyboard shortcuts are available at several points
-        throughout the application when you place the cursor in an "Item
-        Number" field. You saw the "Item Number" field in the Bill of
-        Materials example above. The "Item Number" field appears frequently
-        throughout the application. Use the CTRL key&mdash;usually located on
-        the bottom left-hand corner of your keyboard&mdash;in combination with
-        either "L", "A", or "S" to reach the three screens shown in the
-        following examples:</para>
+        <para>The majority of on-screen shortcuts begin with the CTRL key, in
+        combination with either the "L", "A", or "SHIFT" keys. For CRTL
+        shortcuts to work, you must place your cursor in the field you want to
+        use. The following screenshots illustrate the most most common CTRL
+        operations:</para>
         <tip>
           <para>Macintosh users should substitute the APPLE key for the CTRL
           key to achieve the results described in this section.</para>
@@ -727,37 +727,16 @@
               <imageobject>
                 <imagedata fileref="images/INTRO_CTRL-L.png" />
               </imageobject>
-              <caption>Item Lookup (CTRL + L)</caption>
+              <caption>List Lookup</caption>
             </mediaobject>
           </screenshot></para>
         <variablelist>
           <varlistentry>
-            <term>List (CTRL + L)</term>
+            <term>List (CTRL + SHIFT +L)</term>
             <listitem>
-              <para>This is the same Item lookup you would reach if you
-              clicked your mouse on the browse button located next to the
-              "Item Number" field.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-        <para><screenshot>
-            <mediaobject>
-              <imageobject>
-                <imagedata fileref="images/INTRO_CTRL-A.png" />
-              </imageobject>
-              <caption>Item Alias Lookup (CTRL + A)</caption>
-            </mediaobject>
-          </screenshot></para>
-        <variablelist>
-          <varlistentry>
-            <term><indexterm significance="normal">
-                <primary>item aliases</primary>
-                <secondary>keyboard shortcut for</secondary>
-              </indexterm>Aliases (CTRL + A)</term>
-            <listitem>
-              <para>Locate an Item using its Item Alias. Item Aliases may
-              correspond to a Customer Item Number&mdash;or some other
-              equivalence.</para>
+              <para>Brings up a master list of documents or items. This is the
+              same kind of list you would see if you clicked your mouse on a
+              browse button located next to the field.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -766,31 +745,39 @@
               <imageobject>
                 <imagedata fileref="images/INTRO_CTRL-S.png" />
               </imageobject>
-              <caption>Searchable List (CTRL + S)</caption>
+              <caption>Searchable List </caption>
             </mediaobject>
           </screenshot></para>
         <variablelist>
           <varlistentry>
-            <term>Search (CTRL + S)</term>
+            <term>Search (CTRL + SHIFT + SPACE)</term>
             <listitem>
-              <para>Search for Items using a variety of search criteria. This
-              shortcut enables you to look up Manufactured Items using partial
-              values. In the above example, the user selected all available
-              search options&mdash;except for the "Show Inactive Items"
-              option&mdash;to search for a match for "MB-B." In this case, the
-              application will search the master list of Items for any Item
-              containing "MB-B" in either the Item Number, the first line of
-              the Item description, and/or the second line of the Item
-              description.</para>
-              <para>You can also search for matches using any one or a
-              combination of these search options. For example, let's say you
-              are looking for any Manufactured Item containing the word "Bike"
-              in the first line of the Item description. To perform this
-              search, simply enter the word "Bike" in the "Search For" field,
-              then select the "Search through Description 1" option. Leave the
-              other options unchecked. Any Item containing the word "Bike" in
-              the first line of its Item description will display in the
-              results.</para>
+              <para>Brings up a searchable list. Depending on the context,
+              searchable lists give you access to various parameters you can
+              use to more efficiently locate the documents or items you are
+              looking for.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/INTRO_CTRL-A.png" />
+              </imageobject>
+              <caption>Item Alias Lookup</caption>
+            </mediaobject>
+          </screenshot></para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>item aliases</primary>
+                <secondary>keyboard shortcut for</secondary>
+              </indexterm>Aliases (CTRL + SHIFT + A)</term>
+            <listitem>
+              <para>Brings up a list of Item Aliases. Item Aliases are used to
+              map your internal Item Numbers to the different Numbers (or
+              Codes) your Customers use to identify the same things in their
+              organizations.</para>
             </listitem>
           </varlistentry>
         </variablelist>
