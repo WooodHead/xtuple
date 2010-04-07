@@ -26,35 +26,9 @@
   options:</para>
   <variablelist>
     <varlistentry>
-      <term>Title</term>
+      <term>Number</term>
       <listitem>
-        <para>Select a Title from the list of available Titles.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>First</term>
-      <listitem>
-        <para>Enter the Contact's first name.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Last</term>
-      <listitem>
-        <para>Enter the Contact's last name.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Initials</term>
-      <listitem>
-        <para>Enter the Contact's initials.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>CRM Account</term>
-      <listitem>
-        <para>Specify the CRM Account the Contact is associated with (if any).
-        Contacts may also be attached to a CRM Account on the Account
-        master.</para>
+        <para>Displays </para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -62,6 +36,38 @@
       <listitem>
         <para>Select if you are actively doing business with this Contact. Not
         selecting makes the Contact inactive.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter the following details for the Contact's name:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Title</term>
+            <listitem>
+              <para>Select a Title from the list of available Titles.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>First Name</term>
+            <listitem>
+              <para>Enter the Contact's first name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Last Name</term>
+            <listitem>
+              <para>Enter the Contact's last name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Initials</term>
+            <listitem>
+              <para>Enter the Contact's initials.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -110,11 +116,26 @@
       <term>Address</term>
       <listitem>
         <para>Manually enter Address information in the fields below&mdash;or
-        use the lookup feature to select pre-existing Address information. If a
-        new Address is manually entered here, that Address will be added
+        use the lookup feature to select pre-existing Address information. If
+        a new Address is manually entered here, that Address will be added
         automatically to the master list of Addresses. For additional
         documentation related to creating Addresses, see <xref
         linkend="Section560316" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Account #</term>
+      <listitem>
+        <para>Specify the CRM Account the Contact is associated with (if any).
+        Contacts may also be attached to a CRM Account on the Account
+        master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Owner</term>
+      <listitem>
+        <para>Specify the user who is the Owner of the Contact (if
+        any).</para>
       </listitem>
     </varlistentry>
     <varlistentry>

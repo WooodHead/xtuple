@@ -57,7 +57,7 @@
       <term><indexterm significance="normal">
           <primary>pack dates</primary>
           <secondary>for transfer orders</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>transfer orders</primary>
           <secondary>pack dates for</secondary>
         </indexterm>Pack Date</term>
@@ -119,29 +119,82 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>From Site</term>
+      <term>Ship From</term>
       <listitem>
-        <para>Select a Source Site from the available options. If the
-        following Contact and Address information is defined on the Site
-        master, then it will be entered automatically; otherwise you may enter
-        that information manually. If new Contact and/or Address information
-        is manually entered here, that information will be added automatically
-        to the master list of Contacts and/or Addresses. For additional
-        documentation related to creating Contacts and Addresses, see <xref
-        linkend="contactTitle" /> and <xref linkend="Section560316" />.</para>
+        <para>Specify the following details related to the Site the order is
+        being shipped from:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Site</term>
+            <listitem>
+              <para>Select a source Site from the available options.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Address</term>
+            <listitem>
+              <para>Displays the default Address for the specified ship-from
+              Site. You may manually override the displayed Address
+              information in the fields below&mdash;or use the lookup feature
+              to select another Address. If a new Address is manually entered
+              here, that Address will be added automatically to the master
+              list of Addresses. For additional documentation related to
+              creating Addresses, see <xref linkend="Section560316" />.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Site Contact</term>
+            <listitem>
+              <para>Displays the default Contact for the specified ship-from
+              Site. You may manually override the displayed Contact
+              information in the fields below&mdash;or use the lookup feature
+              to select another Contact. If a new Contact is manually entered
+              here, that Contact will be added automatically to the master
+              list of Contacts. For additional documentation related to
+              creating Addresses, see <xref linkend="contactTitle" />.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>To Site</term>
+      <term>Ship-To</term>
       <listitem>
-        <para>Select a Destination Site from the available options. If the
-        following Contact and Address information is defined on the Site
-        master, then it will be entered automatically; otherwise you may enter
-        that information manually. If new Contact and/or Address information
-        is manually entered here, that information will be added automatically
-        to the master list of Contacts and/or Addresses. For additional
-        documentation related to creating Contacts and Addresses, see <xref
-        linkend="contactTitle" /> and <xref linkend="Section560316" />.</para>
+        <para>Specify the following details related to the Site the order is
+        being shipped to:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Site</term>
+            <listitem>
+              <para>Select a destination Site from the available
+              options.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Address</term>
+            <listitem>
+              <para>Displays the default Address for the specified ship-to
+              Site. You may manually override the displayed Address
+              information in the fields below&mdash;or use the lookup feature
+              to select another Address. If a new Address is manually entered
+              here, that Address will be added automatically to the master
+              list of Addresses. For additional documentation related to
+              creating Addresses, see <xref linkend="Section560316" />.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Site Contact</term>
+            <listitem>
+              <para>Displays the default Contact for the specified ship-to
+              Site. You may manually override the displayed Contact
+              information in the fields below&mdash;or use the lookup feature
+              to select another Contact. If a new Contact is manually entered
+              here, that Contact will be added automatically to the master
+              list of Contacts. For additional documentation related to
+              creating Addresses, see <xref linkend="contactTitle" />.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
