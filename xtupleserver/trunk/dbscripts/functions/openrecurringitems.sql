@@ -5,6 +5,8 @@ DECLARE
   pDatetime  TIMESTAMP WITH TIME ZONE := COALESCE($3, CURRENT_TIMESTAMP);
 
   _count     INTEGER := -1;
+  _countstmt TEXT;
+  _rt        RECORD;
 
 BEGIN
   IF (pParentid IS NULL) THEN
@@ -14,32 +16,27 @@ BEGIN
   -- TODO: special case for now
   IF (pType = 'INVOICE') THEN
     RETURN -12;
-
-  ELSIF (pType = 'TODO') THEN
-    SELECT COUNT(*) INTO _count
-      FROM todoitem
-     WHERE ((todoitem_completed_date IS NULL)
-        AND (todoitem_due_date >= pDatetime)
-        AND (todoitem_recurring_todoitem_id=pParentid));
-
-  ELSIF (pType = 'INCDT') THEN
-    SELECT COUNT(*) INTO _count
-      FROM incdt
-     WHERE ((incdt_status='N') -- cLosed
-        AND (incdt_timestamp>=pDatetime)
-        AND (incdt_recurring_incdt_id=pParentid));
-
-  ELSIF (pType = 'J') THEN
-    SELECT COUNT(*) INTO _count
-      FROM prj
-     WHERE ((prj_completed_date IS NULL)
-        AND (prj_due_date >= pDatetime)
-        AND (prj_recurring_prj_id=pParentid));
-
-  ELSE
-    RETURN -10; -- unrecognized pType
-
   END IF;
+
+  SELECT * INTO _rt FROM recurtype WHERE (UPPER(recurtype_type)=pType);
+  GET DIAGNOSTICS _count = ROW_COUNT;
+  IF (_count <= 0) THEN
+    RETURN -10;
+  END IF;
+
+  _countstmt := 'SELECT COUNT(*) FROM [fulltable]'
+             || ' WHERE (NOT ([done])'
+             || '    AND ([schedcol]>=''$1'')'
+             || '    AND ([table]_recurring_[table]_id=''$2''));';
+  _countstmt := REPLACE(_countstmt, '[fulltable]',    _rt.recurtype_table);
+  _countstmt := REPLACE(_countstmt, '[table]',
+                        REGEXP_REPLACE(_rt.recurtype_table, E'.*\\.', ''));
+  _countstmt := REPLACE(_countstmt, '[done]',     _rt.recurtype_donecheck);
+  _countstmt := REPLACE(_countstmt, '[schedcol]', _rt.recurtype_schedcol);
+
+  -- 8.4+: EXECUTE _countstmt INTO _count USING pDatetime, pParentid;
+  EXECUTE REPLACE(REPLACE(_countstmt, '$1', pDatetime::TEXT),
+                                      '$2', pParentid::TEXT) INTO _count;
 
   RETURN _count;
 END;

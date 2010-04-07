@@ -4,41 +4,49 @@ DECLARE
   pType         TEXT := UPPER($2);
   pDatetime     TIMESTAMP WITH TIME ZONE := COALESCE($3, CURRENT_TIMESTAMP);
 
-  _newrecurid   INTEGER;
-  _newparentid  INTEGER;
+  _count         INTEGER;
+  _newrecurid    INTEGER;
+  _newparentid   INTEGER;
+  _newparentstmt TEXT;
+  _rt            RECORD;
+  _updchildstmt  TEXT;
 
 BEGIN
   IF (pParentid IS NULL) THEN
     RETURN -11;
   END IF;
 
-  IF (pType = 'TODO') THEN
-    SELECT todoitem_id INTO _newparentid
-      FROM todoitem
-     WHERE ((todoitem_recurring_todoitem_id=pParentid)
-        AND (todoitem_completed_date IS NULL)
-        AND (todoitem_due_date > pDatetime))
-     ORDER BY todoitem_due_date
-     LIMIT 1;
-  ELSIF (pType = 'INCDT') THEN
-    SELECT incdt_id INTO _newparentid
-      FROM incdt
-     WHERE ((incdt_recurring_incdt_id=pParentid)
-        AND (incdt_status='N')
-        AND (incdt_timestamp > pDatetime))
-     ORDER BY incdt_timestamp
-     LIMIT 1;
-  ELSIF (pType = 'J') THEN
-    SELECT prj_id INTO _newparentid
-      FROM prj
-     WHERE ((prj_recurring_prj_id=pParentid)
-        AND (prj_completed_date IS NULL)
-        AND (prj_due_date > pDatetime))
-     ORDER BY prj_due_date
-     LIMIT 1;
-  ELSE
-    RETURN -10; -- unrecognized pType
+  SELECT * INTO _rt FROM recurtype WHERE (UPPER(recurtype_type)=pType);
+  GET DIAGNOSTICS _count = ROW_COUNT;
+  IF (_count <= 0) THEN
+    RETURN -10;
   END IF;
+
+  _newparentstmt := 'SELECT [table]_id FROM [fulltable]'
+                 || ' WHERE (([table]_recurring_[table]_id=$1)'
+                 || '    AND NOT ([done])'
+                 || '    AND ([schedcol]>''$2''))'
+                 || ' ORDER BY [schedcol]'
+                 || ' LIMIT 1;';
+  _newparentstmt := REPLACE(_newparentstmt, '[fulltable]', _rt.recurtype_table);
+  _newparentstmt := REPLACE(_newparentstmt, '[table]',
+                            REGEXP_REPLACE(_rt.recurtype_table, E'.*\\.', ''));
+  _newparentstmt := REPLACE(_newparentstmt, '[done]',  _rt.recurtype_donecheck);
+  _newparentstmt := REPLACE(_newparentstmt, '[schedcol]', _rt.recurtype_schedcol);
+  _updchildstmt := 'UPDATE [fulltable] SET [table]_recurring_[table]_id=$1'
+                || ' WHERE (([table]_recurring_[table]_id=$2)'
+                || '   AND NOT ([done])'
+                || '   AND ([schedcol] > ''$3''));';
+  _updchildstmt := REPLACE(_updchildstmt, '[fulltable]', _rt.recurtype_table);
+  _updchildstmt := REPLACE(_updchildstmt, '[table]',
+                           REGEXP_REPLACE(_rt.recurtype_table, E'.*\\.', ''));
+  _updchildstmt := REPLACE(_updchildstmt, '[done]',  _rt.recurtype_donecheck);
+  _updchildstmt := REPLACE(_updchildstmt, '[schedcol]', _rt.recurtype_schedcol);
+
+  -- 8.4+: EXECUTE _newparentstmt INTO _newparentid USING pParentid, pDatetime;
+  EXECUTE REPLACE(REPLACE(_newparentstmt, '$1', pParentid::TEXT),
+                                          '$2', pDatetime::TEXT)
+          INTO _newparentid;
 
   -- if nothing to split
   IF (_newparentid = pParentid OR _newparentid IS NULL) THEN
@@ -63,24 +71,10 @@ BEGIN
     WHERE ((recur_parent_id=pParentid)
        AND (recur_parent_type=pType));
 
-    IF (pType = 'TODO') THEN
-      UPDATE todoitem SET todoitem_recurring_todoitem_id=_newparentid
-       WHERE ((todoitem_recurring_todoitem_id=pParentid)
-          AND (todoitem_completed_date IS NULL)
-          AND (todoitem_due_date > pDatetime));
-    ELSIF (pType = 'INCDT') THEN
-      UPDATE incdt SET incdt_recurring_incdt_id=_newparentid
-       WHERE ((incdt_recurring_incdt_id=pParentid)
-          AND (incdt_status='N')
-          AND (incdt_timestamp > pDatetime));
-    ELSIF (pType = 'J') THEN
-      UPDATE prj SET prj_recurring_prj_id=_newparentid
-       WHERE ((prj_recurring_prj_id=pParentid)
-          AND (prj_completed_date IS NULL)
-          AND (prj_due_date > pDatetime));
-    ELSE
-      RETURN -10; -- unrecognized pType
-    END IF;
+    -- 8.4+: EXECUTE _updchildstmt USING _newparentid, pParentid, pDatetime;
+    EXECUTE REPLACE(REPLACE(REPLACE(_updchildstmt, '$1', _newparentid::TEXT),
+                                                   '$2', pParentid::TEXT),
+                                                   '$3', pDatetime::TEXT);
   END IF;
 
   RETURN _newrecurid;
