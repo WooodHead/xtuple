@@ -54,30 +54,36 @@ BEGIN
                    || ' WHERE (NOT ([done])'
                    || '    AND ([schedcol]>''$2'')'
                    || '    AND ([table]_id!=recur_parent_id));';
+    _delchildstmt  := REPLACE(_delchildstmt,  '[delfunc]', _rt.recurtype_delfunc);
+    _delparentstmt := REPLACE(_delparentstmt, '[delfunc]', _rt.recurtype_delfunc);
   END IF;
+
+  RAISE DEBUG '_delchildstmt has been set to %', _delchildstmt;
 
   _delchildstmt := REPLACE(_delchildstmt, '[fulltable]', _rt.recurtype_table);
   _delchildstmt := REPLACE(_delchildstmt, '[table]',
                             REGEXP_REPLACE(_rt.recurtype_table, E'.*\\.', ''));
   _delchildstmt := REPLACE(_delchildstmt, '[done]',  _rt.recurtype_donecheck);
   _delchildstmt := REPLACE(_delchildstmt, '[schedcol]', _rt.recurtype_schedcol);
-  _delchildstmt := REPLACE(_delchildstmt, '[delfunc]',  _rt.recurtype_delfunc);
 
   _delparentstmt := REPLACE(_delparentstmt, '[fulltable]', _rt.recurtype_table);
   _delparentstmt := REPLACE(_delparentstmt, '[table]',
                             REGEXP_REPLACE(_rt.recurtype_table, E'.*\\.', ''));
   _delparentstmt := REPLACE(_delparentstmt, '[done]',  _rt.recurtype_donecheck);
   _delparentstmt := REPLACE(_delparentstmt, '[schedcol]', _rt.recurtype_schedcol);
-  _delparentstmt := REPLACE(_delparentstmt, '[delfunc]',  _rt.recurtype_delfunc);
+
+  RAISE DEBUG 'substitutions changed _delchildstmt to %', _delchildstmt;
 
   IF (_rt.recurtype_delfunc IS NULL) THEN
     -- 8.4+: EXECUTE _delchildstmt  USING pDatetime, pType;
+    RAISE DEBUG '% with % and %', _delchildstmt, pType, pDatetime;
     EXECUTE REPLACE(REPLACE(_delchildstmt, '$1', pType::TEXT),
                                            '$2', pDatetime::TEXT);
     GET DIAGNOSTICS _count = ROW_COUNT;
 
     IF (pInclParent) THEN
       -- 8.4+: EXECUTE _delparentstmt USING pDatetime, pType;
+      RAISE DEBUG '% with % and %', _delparentstmt, pType, pDatetime;
       EXECUTE REPLACE(REPLACE(_delparentstmt, '$1', pType::TEXT),
                                               '$2', pDatetime::TEXT);
       GET DIAGNOSTICS _tmp   = ROW_COUNT;
