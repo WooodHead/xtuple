@@ -7,9 +7,9 @@ April 7 2010
 ==================================
 
 This is the official Release Candidate for the 3.5.0 release. Thanks
-to all in the community who contributed their time and resources to 
-make this release possible. And a particular note of thanks to everyone 
-who participated in the haxTuple bug derby contest! Here's an overview 
+to all in the community who contributed their time and resources to
+make this release possible. And a particular note of thanks to everyone
+who participated in the haxTuple bug derby contest! Here's an overview
 of the many new features you will find in this release:
 
 Drop Ship Purchasing
@@ -23,9 +23,6 @@ Embedded MetaSQL Editor
 
 Tooling Management
   * Full spec: http://www.xtuple.org/node/2197
-  * 3.5.0RC contains known tooling bug
-    - See: http://www.xtuple.org/issuetracker/view.php?id=11101
-    - Will be fixed for 3.5.0Final
 
 Also of note:
   * Auto-complete when searching
@@ -35,57 +32,57 @@ Also of note:
   * Support for Postgres 8.4
 
 ==================================
-The following bug fixes have been added to the applications since 
-the release of 3.5.0Beta3. Additional detail for each item listed 
-below may be found on our community website (www.xtuple.org). 
+The following bug fixes have been added to the applications since
+the release of 3.5.0Beta3. Additional detail for each item listed
+below may be found on our community website (www.xtuple.org).
 Simply go to the Issue Tracker and select the "Changelog" option.
 
 
 Bug Fixes:
 
-* [All] Saving Parameter Widget Filters crashes client after save 
-(appears to be Linux only) 
+* [All] Saving Parameter Widget Filters crashes client after save
+(appears to be Linux only)
 * [All] Cannot view Documents
-* [All] Selecting a filter that was saved prior recent changes 
+* [All] Selecting a filter that was saved prior recent changes
 causes crash
 * [Accounting] Apply to Balance generates error
-* [Accounting] CC payment items do not show if customer is not 
-part of group 
+* [Accounting] CC payment items do not show if customer is not
+part of group
 * [Accounting] Multi-currency cash receipt does not work
-* [Accounting] Clicking detach on documents widget when no 
+* [Accounting] Clicking detach on documents widget when no
 documents are selected causes crash
-* [Architectural] User cluster loses user information when user 
-inactivated or deleted 
-* [Architectural] Short cut keys on search cluster conflict with 
-shortcut standards 
-* [Architectural] Recent fixes to parameter widget cause it to 
+* [Architectural] User cluster loses user information when user
+inactivated or deleted
+* [Architectural] Short cut keys on search cluster conflict with
+shortcut standards
+* [Architectural] Recent fixes to parameter widget cause it to
 be misaligned on Mac
 * [CRM] Parameter widget: cannot set a blank filte
-* [CRM] Saving multiple statuses on parameter widget crashes app 
-* [CRM] Parameter widget: cannot select multiple values for a 
-single query field 
-* [CRM] Cannot filter by same filter twice 
-* [CRM] Parameter widget filter option mis-labeled 
-* [CRM] Cannot delete contacts in list contacts 
-* [CRM] Contacts List needs to be updated so the Delete button 
+* [CRM] Saving multiple statuses on parameter widget crashes app
+* [CRM] Parameter widget: cannot select multiple values for a
+single query field
+* [CRM] Cannot filter by same filter twice
+* [CRM] Parameter widget filter option mis-labeled
+* [CRM] Cannot delete contacts in list contacts
+* [CRM] Contacts List needs to be updated so the Delete button
 uses the MaintainContacts privilege
-* [Inventory] Selecting to create item site displays error 
-message 
-* [Inventory] Editing a posted count slip quantity does not 
+* [Inventory] Selecting to create item site displays error
+message
+* [Inventory] Editing a posted count slip quantity does not
 update Count tag Count Qty
-* [Inventory] Item site setting settings should not allow a group 
+* [Inventory] Item site setting settings should not allow a group
 order setting of zero
 * [Manufacture] Cannot specify operator when posting Operation
 * [Manufacture] Child work orders would show better if indented
-* [Products] Item auto-complete not filtering and validating 
-correctly 
+* [Products] Item auto-complete not filtering and validating
+correctly
 * [Purchase] Old Purchase Order address and contact info missing
-* [Sales] List Open Sales Orders - Close button closes and locks 
-open Sales Order window as well 
+* [Sales] List Open Sales Orders - Close button closes and locks
+open Sales Order window as well
 * [Sales] Cannot reprint cc receip
-* [Sales] Ship-To number is not saved 
+* [Sales] Ship-To number is not saved
 * [Sales] Can't save Ship-To Addresse
-* [Sales] Cannot save Sales Order once Opportunity is assigned 
+* [Sales] Cannot save Sales Order once Opportunity is assigned
 * [System] Apostrophe character breaks XML import
 
 ==================================
