@@ -30,7 +30,7 @@ INSERT INTO recurtype (recurtype_type, recurtype_table, recurtype_donecheck,
            'todoitem_due_date',
            'checkprivilege(''MaintainOtherTodoList'') OR '
             || '(checkprivilege(''MaintainPersonalTodoList'') AND '
-            || 'CURRENT_USER IN (todoiteim_owner_username, todoitem_username))',
+            || 'CURRENT_USER IN (todoitem_owner_username, todoitem_username))',
            'copytodoitem', '{int,date,null}', NULL),
 
           ('INCDT', 'incdt', 'incdt_status<>''N''',

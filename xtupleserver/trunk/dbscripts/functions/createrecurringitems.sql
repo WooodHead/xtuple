@@ -80,12 +80,12 @@ BEGIN
     _maxstmt := REPLACE(_maxstmt, '[limit]', COALESCE(_rt.recurtype_limit,
                                                      'TRUE'));
 
-    _copystmt := 'SELECT [copy]($1, ''[datetime]'' [more]);';
+    _copystmt := 'SELECT [copy]($1, [datetime] [more]);';
     _copystmt := REPLACE(_copystmt, '[copy]', _rt.recurtype_copyfunc);
     _copystmt := REPLACE(_copystmt, '[datetime]',
                          CASE WHEN UPPER(_rt.recurtype_copyargs[2])='DATE' THEN
-                                    'CAST($2) AS DATE'
-                              ELSE '$2' END);
+                                    'CAST(''$2'' AS DATE)'
+                              ELSE '''$2''' END);
     -- 8.4+:
     -- _copystmt := REPLACE(_copystmt, '[more]',
     --                      REPEAT(', NULL',
