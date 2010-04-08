@@ -7,7 +7,7 @@ DECLARE
 BEGIN
 
   RAISE NOTICE 'postBillingselectionConsolidated(integer) has been deprecated.  Please use createInvoiceConsolidated(integer).';
-  RETURN createInvoiceConsolidated(pCobmiscid);
+  RETURN createInvoiceConsolidated(pCustid);
 
 END;
 $BODY$
