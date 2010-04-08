@@ -1,4 +1,4 @@
-﻿
+
 CREATE OR REPLACE FUNCTION createInvoiceConsolidated(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pCustid ALIAS FOR $1;
