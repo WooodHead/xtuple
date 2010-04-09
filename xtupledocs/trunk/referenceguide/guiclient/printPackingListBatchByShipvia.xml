@@ -15,7 +15,7 @@
     </indexterm>Print Packing List Batch by Ship Via</title>
   <para>If you want to print batches of Packing Lists according to their Ship
   Via method, select the "Print Packing List Batch by Ship Via" option. Keep
-  in mind this screen only works if you have unprinted Orders already queued
+  in mind: This feature only works if you have unprinted Orders already queued
   up on the Packing List Batch.</para>
   <tip>
     <para>If you don't see any Ship Vias appearing in the Ship Via list, open
@@ -47,13 +47,56 @@
     <varlistentry>
       <term>Form</term>
       <listitem>
-        <para></para>
+        <para>Specify which type of Packing List form you want to
+        print:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Auto Select</term>
+            <listitem>
+              <para>Select to have the system automatically determine which
+              form should be used, based on the state of the Order at the time
+              the report is printed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Packing List</term>
+            <listitem>
+              <para>Select to have the defined Packing List form printed. This
+              form is used if an Order has a Shipment Number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Pick List</term>
+            <listitem>
+              <para>Select to have the S/O Pick List form printed. If the
+              Order does not have a Shipment Number, this form is used.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Scheduled Date Range</term>
       <listitem>
-        <para></para>
+        <para>Specify a date range for Orders you want to print Packing Lists
+        for:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Unprinted Orders on the Packing List Batch having Line
+              Items schedule on or after this date will be printed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Unprinted Orders on the Packing List Batch having Line
+              Items schedule on or before this date will be included in the
+              report.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

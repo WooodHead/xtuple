@@ -7,15 +7,12 @@
       <primary>packing lists</primary>
       <secondary>printing of</secondary>
     </indexterm>Print Packing List</title>
-  <para>To print a Packing List or Sales Order Pick List, select the "Print
-  Packing List" option. The following screen will appear:</para>
-  <note>
-    <para>A Sales Order Pick List will be printed if the Sales Order does not
-    yet have a Shipment Number associated with it&mdash;that is, if no Line
-    Item quantity has been issued to shipping. If stock has been issued to
-    Shipping, then the Packing List report definition will be used. Report
-    definitions (i.e., Forms) are assigned by Customer Type.</para>
-  </note>
+  <para>To print a Packing List or Sales Order (S/O) Pick List, select the
+  "Print Packing List" option. If the order has a Shipment Number, the Packing
+  List form should be used. If there is no Shipment Number&mdash;that is, if
+  no Line Item quantity has been issued to shipping&mdash;then the S/O Pick
+  List form should be used. Both forms are defined under <guimenuitem>Sales
+  &gt; Master Information &gt; Customer Form Assignments</guimenuitem>.</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -24,43 +21,54 @@
         <caption>Print Packing List</caption>
       </mediaobject>
     </screenshot></para>
-  <tip>
-    <para>The system includes two alternate Sales Order Pick List report
-    definitions:</para>
-    <para>"PickingListSOClosedLines.xml"</para>
-    <para>"PickingListNoClosedLines.xml"</para>
-    <para>The first includes already closed Sales Order Line Items in the
-    report; the other excludes closed Line Items.</para>
-  </tip>
   <para>When printing a Packing List, you are presented with the following
   options:</para>
   <variablelist>
     <varlistentry>
-      <term>Sales Order #</term>
+      <term>Form</term>
       <listitem>
-        <para>Enter the Sales Order Number of the Sales Order whose Packing
-        List you want to print.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Transfer Order #</term>
-      <listitem>
-        <para>Enter the Transfer Order Number of the Transfer Order whose
-        Packing List you want to print.</para>
+        <para>Specify which type of Packing List form you want to
+        print:</para>
         <variablelist>
           <varlistentry>
-            <term>From</term>
+            <term>Auto Select</term>
             <listitem>
-              <para>Displays the source Site for the transfer.</para>
+              <para>Select to have the system automatically determine which
+              form should be used, based on the state of the Order at the time
+              the report is printed.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>To</term>
+            <term>Packing List</term>
             <listitem>
-              <para>Displays the destination Site for the transfer.</para>
+              <para>Select to have the defined Packing List form printed. This
+              form is used if an Order has a Shipment Number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Pick List</term>
+            <listitem>
+              <para>Select to have the S/O Pick List form printed. If the
+              Order does not have a Shipment Number, this form is used.</para>
             </listitem>
           </varlistentry>
         </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reprint</term>
+      <listitem>
+        <para>Select this option if you want to print a Packing List which has
+        already been printed. Once a Packing List has been printed, you must
+        use this option if you want to print it again.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order #</term>
+      <listitem>
+        <para>Enter the Order Number of the Order whose Packing List you want
+        to print. The Order may be either a Sales Order or a Transfer
+        Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -74,27 +82,27 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Order Date</term>
-      <listitem>
-        <para>Displays the Order date for the Sales Order.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Cust. Name</term>
+      <term>Customer Name</term>
       <listitem>
         <para>Displays the Customer's name.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Cust. Phone</term>
+      <term>Customer Phone</term>
       <listitem>
         <para>Displays the Customer's phone number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>P/O Number</term>
+      <term>Purchase Order Number</term>
       <listitem>
         <para>Displays the Customer's Purchase Order Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Date</term>
+      <listitem>
+        <para>Displays the Order date for the Sales Order.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -112,12 +120,26 @@
       <term>PRINT</term>
       <listitem>
         <para>Prints a copy of either the Packing List or Sales Order Pick
-        List for the specified Sales Order. A Sales Order Pick List will be
-        printed if the Sales Order does not yet have a Shipment Number
-        associated with it&mdash;that is, if no Line Item quantity has been
-        issued to shipping. If stock has been issued to Shipping, then the
-        Packing List report definition will be used.</para>
+        List for the specified Order. A Sales Order Pick List will be printed
+        if the Sales Order does not yet have a Shipment Number associated with
+        it&mdash;that is, if no Line Item quantity has been issued to
+        shipping. If stock has been issued to Shipping, then the Packing List
+        report definition will be used.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+  <tip>
+    <para>The system includes two alternate S/O Pick List report
+    definitions:</para>
+    <itemizedlist>
+      <listitem>
+        <para>PickingListSOClosedLines.xml</para>
+      </listitem>
+      <listitem>
+        <para>PickingListNoClosedLines.xml</para>
+      </listitem>
+    </itemizedlist>
+    <para>The first includes already closed Sales Order Line Items in the
+    report; the other excludes closed Line Items.</para>
+  </tip>
 </section>
