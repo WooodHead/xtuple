@@ -82,11 +82,13 @@ BEGIN
      AND (poitem_pohead_id=NEW.pohead_id));
   END IF;
 
+  -- Do not update closed poitems
   IF (TG_OP = 'UPDATE') THEN
     IF (OLD.pohead_status != NEW.pohead_status) THEN
       UPDATE poitem
       SET poitem_status=NEW.pohead_status
-      WHERE (poitem_pohead_id=NEW.pohead_id);
+      WHERE ( (poitem_pohead_id=NEW.pohead_id)
+        AND   (poitem_status <> 'C') );
     END IF;
   END IF;
 
