@@ -16,6 +16,9 @@ SELECT ophead_id,
        currConcat(ophead_curr_id) As f_currency,
        ophead_target_date,
        ophead_actual_date,
+       formatMoney(ophead_amount) AS f_amount,
+       formatDate(ophead_target_date) AS f_targetdate,
+       formatDate(ophead_actual_date) AS f_actualdate,
        'extprice' AS ophead_amount_xtnumericrole,
        'percent' AS ophead_probability_prcnt_xtnumericrole
   FROM ophead
