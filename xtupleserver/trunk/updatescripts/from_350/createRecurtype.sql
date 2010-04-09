@@ -1,6 +1,6 @@
 CREATE TABLE recurtype (recurtype_id        SERIAL PRIMARY KEY,
                         recurtype_type      TEXT NOT NULL UNIQUE,
-                        recurtype_table     TEXT NOT NULL UNIQUE,
+                        recurtype_table     TEXT NOT NULL,
                         recurtype_donecheck TEXT NOT NULL,
                         recurtype_schedcol  TEXT NOT NULL,
                         recurtype_limit     TEXT,
