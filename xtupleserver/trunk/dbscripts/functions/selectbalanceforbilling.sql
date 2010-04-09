@@ -8,24 +8,33 @@ DECLARE
 
 BEGIN
 
-  FOR _soitem IN SELECT cust_partialship, coitem_id,
-                        coitem_linenumber,
-                        COALESCE(item_type,'') AS item_type,
-                        SUM(coship_qty) AS qty,
-                        ( (SUM(coship_qty) >= (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned + SUM(coship_qty))) OR
-                          (NOT cust_partialship) ) AS toclose
-  FROM cohead, coship, cosmisc, cust,
-       coitem LEFT OUTER JOIN (itemsite JOIN item ON (itemsite_item_id=item_id)) ON (coitem_itemsite_id=itemsite_id)
-  WHERE ( (coitem_cohead_id=cohead_id)
-   AND (cohead_cust_id=cust_id)
-   AND (coship_coitem_id=coitem_id)
-   AND (coship_cosmisc_id=cosmisc_id)
-   AND (cosmisc_shipped)
-   AND (NOT coship_invoiced)
-   AND (cohead_id=pSoheadid) )
-  GROUP BY cust_partialship, coitem_id,
-           coitem_linenumber, item_type,
-           coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned LOOP
+  FOR _soitem IN
+    -- Get the shipments for this SO.  Kits are not shipped
+    SELECT cust_partialship, coitem_id,
+           coitem_linenumber, 'NOTK' AS item_type,
+           SUM(coship_qty) AS qty,
+           ( (SUM(coship_qty) >= (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned + SUM(coship_qty))) OR
+             (NOT cust_partialship) ) AS toclose
+    FROM cohead JOIN custinfo ON (cust_id=cohead_cust_id)
+                JOIN coitem ON (coitem_cohead_id=cohead_id)
+                JOIN coship ON ( (coship_coitem_id=coitem_id) AND (NOT coship_invoiced) )
+                JOIN cosmisc ON ( (cosmisc_id=coship_cosmisc_id) AND (cosmisc_shipped) )
+    WHERE (cohead_id=pSoheadid)
+    GROUP BY cust_partialship, coitem_id, item_type,
+             coitem_linenumber, coitem_qtyord,
+             coitem_qtyshipped, coitem_qtyreturned
+    UNION
+    -- Get the Kits for this SO
+    SELECT cust_partialship, coitem_id,
+           coitem_linenumber, 'K' AS item_type,
+           coitem_qtyord AS qty,
+           TRUE AS toclose
+    FROM cohead JOIN custinfo ON (cust_id=cohead_cust_id)
+                JOIN coitem ON (coitem_cohead_id=cohead_id)
+                JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
+                JOIN item ON ( (item_id=itemsite_item_id) AND (item_type='K') )
+    WHERE (cohead_id=pSoheadid)
+  LOOP
 
     _doSelect := true;
     IF(_soitem.item_type = 'K') THEN
