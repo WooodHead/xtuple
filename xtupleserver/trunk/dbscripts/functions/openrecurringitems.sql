@@ -13,11 +13,6 @@ BEGIN
     RETURN -11;
   END IF;
   
-  -- TODO: special case for now
-  IF (pType = 'INVOICE') THEN
-    RETURN -12;
-  END IF;
-
   SELECT * INTO _rt FROM recurtype WHERE (UPPER(recurtype_type)=pType);
   GET DIAGNOSTICS _count = ROW_COUNT;
   IF (_count <= 0) THEN

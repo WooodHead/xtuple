@@ -19,11 +19,6 @@ DECLARE
 BEGIN
   RAISE DEBUG 'createRecurringItems(%, %) entered', pParentid, pType;
 
-  -- TODO: special case for now
-  IF (pType = 'INVOICE') THEN
-    RETURN createRecurringInvoices();
-  END IF;
-
   FOR _r IN SELECT *
               FROM recur
              WHERE ((COALESCE(recur_end, endOfTime()) >= CURRENT_TIMESTAMP)

@@ -54,7 +54,7 @@ SELECT -1 AS id,
        formatMoney(0) AS f_balance,
 <? endif ?>
        cust_id, cust_number, cust_name,
-       invchead_recurring AS recurring,
+       (invchead_recurring_invchead_id IS NOT NULL) AS recurring,
        false AS open,
        NULL AS ccard_number,
        'curr' AS amount_xtnumericrole,
