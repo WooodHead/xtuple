@@ -70,7 +70,9 @@
     <varlistentry>
       <term>Discount</term>
       <listitem>
-        <para></para>
+        <para>Displays the amount of any Discounts given when cash is applied
+        to open A/R items inside the billing Discount period for those
+        items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -275,7 +277,8 @@
       <term>APPLY LINE BAL.</term>
       <listitem>
         <para>Highlight an open Item and then select this button to apply cash
-        to the balance for the line.</para>
+        to the balance for the line. This will all cause any eligible
+        Discounts to be applied.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -290,7 +293,8 @@
       <listitem>
         <para>Select to apply the available balance to A/R open items. If the
         applied balance exceeds the amount due on an open Item, the remaining
-        balance will be applied to the next open amount.</para>
+        balance will be applied to the next open amount. This will all cause
+        any eligible Discounts to be applied.</para>
       </listitem>
     </varlistentry>
   </variablelist>
