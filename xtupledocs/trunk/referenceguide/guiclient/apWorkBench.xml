@@ -5,34 +5,143 @@
 <section>
   <title><indexterm significance="normal">
       <primary>payables workbench</primary>
-    </indexterm> <indexterm significance="normal">
+    </indexterm><indexterm significance="normal">
       <primary>accounts payable</primary>
       <secondary>information about</secondary>
-    </indexterm> <indexterm significance="normal">
+    </indexterm><indexterm significance="normal">
       <primary>workbenches</primary>
       <secondary>for payables</secondary>
     </indexterm> Payables Workbench</title>
   <para>The Payables Workbench groups together in one location a range of
-  current payables information. To access the Payables Workbench, select the
-  "Workbench" option. The following screen will appear:</para>
-  <para><screenshot>
+  current payables information, giving you the option to sort this information
+  by individual Vendor&mdash;or by all Vendors or smaller subsets of Vendors.
+  To access the Payables Workbench, select the "Workbench" option. The
+  following screen will appear:<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/apWorkBench.png" />
         </imageobject>
-        <caption>Payables Workbench</caption>
+        <caption>Unposted Vouchers</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying the list of Payables associated with the Vendor(s),
-  you are presented with the following options:</para>
+  <para>The "Vouchers" tab displays information on all unposted Vouchers,
+  including Voucher Number, Purchase Order Number, Vendor Number/Vendor name,
+  Vendor Invoice Number, and distribution date. Users with the appropriate
+  privilege will also see the G/L distribution date column.</para>
+  <note>
+    <para>Actual Costs for purchased Items will be automatically updated when
+    Vouchers are posted if there are differences between current Actual Costs
+    and the vouchered Costs for the Items in question. Please keep in mind
+    that Actual Costs only will be updated at posting. For new Costs to be
+    recognized as Standard Costs, Actual Costs must be posted to
+    Standard.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
-      <term>Vendor</term>
+      <term>CLOSE</term>
       <listitem>
-        <para>Select all or specific Vendors whose payables you would like to
-        view.</para>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Voucher.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW MISC.</term>
+      <listitem>
+        <para>Opens screen for creating a new Miscellaneous Voucher.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="openVouchersEDIT">
+        <para>Enables you to edit highlighted Vouchers. The edit screen is the
+        same as that for creating a new Voucher&mdash;except that when
+        editing, the fields will contain Voucher information. Double-clicking
+        on a Voucher will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="openVouchersVIEW">
+        <para>Highlight a Voucher and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If you have a Purchase Order Voucher that was corrupted by, for
+    example, a sudden power outage, you can clear the record by running the
+    Post Vouchers screen. In most cases, this action will remove the corrupted
+    record and allow you to voucher the Purchase Order with a fresh
+    Voucher.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>POST</term>
+      <listitem id="openVouchersPOST">
+        <para>Highlight one&mdash;or multiple&mdash;Vouchers, then select this
+        button to post the selected Voucher(s). By default, Vouchers post to
+        the General Ledger (G/L) on their distribution date. However, users
+        with the appropriate privilege may change the G/L distribution date to
+        an alternate date during the Voucher posting process. If used,
+        Vouchers will post on the alternate date. The ability privileged users
+        have to change the distribution date applies to the posting of both
+        individual and also batches of Vouchers from this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="openVouchersDELETE">
+        <para>Highlight a Voucher and then select this button to remove the
+        Voucher from the list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print Journal after Post</term>
+      <listitem>
+        <para>Select if you want to print a copy of the Payables Journal after
+        the selected Vouchers are posted.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>You may select multiple Vouchers for posting by highlighting them
+    using your mouse&mdash;or a combination of your mouse and either the SHIFT
+    or CTRL keys.</para>
+  </tip>
+  <para>To view the list of open Payables, select the "Payables" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/apWorkBench_payablesTab.png" />
+        </imageobject>
+        <caption>Open Payables</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing the list of open Payables, you are presented with the
+  following options:</para>
+  <variablelist>
     <varlistentry>
       <term>Due Date</term>
       <listitem>
@@ -42,12 +151,16 @@
     <varlistentry>
       <term>Open Items</term>
       <listitem>
-        <para>Display lists A/P open items. If a Document is past due, the
-        line for that Document will display in red type.</para>
+        <para>Display lists open A/P items. If a Document is past due or on
+        hold, the line for that Document will display in red type.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
+  <para><note>
+      <para>Open items may be placed on hold&mdash;or reopened&mdash; using
+      the right-click menu on this screen. When on hold, open items may not be
+      selected for payment.</para>
+    </note>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
     <varlistentry>
@@ -66,7 +179,7 @@
     <varlistentry>
       <term>SELECT</term>
       <listitem>
-        <para>Highlight an A/P open item and then click this button to
+        <para>Highlight an open A/P item and then click this button to
         manually review and select the Item for payment. This option brings
         you to the individual Select Payment screen, where you will find the
         full range of payment options.</para>
@@ -75,7 +188,7 @@
     <varlistentry>
       <term>SELECT LINE</term>
       <listitem>
-        <para>Highlight an A/P open item and then click this button to
+        <para>Highlight an open A/P item and then click this button to
         automatically select the open item for payment. Any available Terms
         Discount will also be applied automatically.</para>
       </listitem>
@@ -83,7 +196,7 @@
     <varlistentry>
       <term>CLEAR SELECTION</term>
       <listitem>
-        <para>Highlight an A/P open item and then select this button to clear
+        <para>Highlight an open A/P item and then select this button to clear
         the selected payment. This option effectively reverses the action of
         the SELECT option.</para>
       </listitem>
@@ -91,7 +204,7 @@
     <varlistentry>
       <term>SELECT ALL DUE</term>
       <listitem>
-        <para>Select this button to select for payment all A/P open items
+        <para>Select this button to select for payment all open A/P items
         whose Payment Date is due or past due and whose Currency is the same
         as the Bank Account's Currency.</para>
       </listitem>
@@ -99,7 +212,7 @@
     <varlistentry>
       <term>SELECT ALL DISCOUNTS</term>
       <listitem>
-        <para>Select this option to automatically select all A/P open items
+        <para>Select this option to automatically select all open A/P items
         which are eligible for a Terms Discount and whose Currency is the same
         as the Bank Account's Currency. The Terms Discount will be applied
         automatically to all selected open items.</para>
@@ -155,7 +268,7 @@
       <term>VIEW</term>
       <listitem>
         <para>Highlight an unapplied Credit Memo and then select this button
-        to reach a read-only view of the A/P open item.</para>
+        to reach a read-only view of the open A/P item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -266,7 +379,7 @@
               <para>Highlight a Check in the list of Checks and then select
               this button to print the Check.</para>
               <tip>
-                <para>f Checks being printed contain reference lines which
+                <para>If Checks being printed contain reference lines which
                 spill over and exceed one standard page, then consider using
                 the report definition CheckMultiPage.xml. This Check Form is
                 designed to support multiple pages for one Check
