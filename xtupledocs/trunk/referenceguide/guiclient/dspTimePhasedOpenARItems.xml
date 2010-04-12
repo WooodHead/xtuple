@@ -11,24 +11,23 @@
       <secondary>aging report for</secondary>
     </indexterm>A/R Aging</title>
   <para>The A/R Aging report gives you the ability to view A/R open items in a
-  bucketed, time-phased perspective. And this perspective is portable,
-  allowing you to view point-in-time snapshots of open balances.</para>
-  <para>An open Item is recognized by the A/R Aging report "as of" the item's
-  document date. In the case of Invoices, the document date is the Invoice
-  date—not the date the Invoice is distributed to the General Ledger (G/L)
-  nor the date on which the Invoice is posted. (A/R Debit/Credit Memos are
-  recognized on their document date.) For example, if you post an Invoice on
-  January 1, but the Invoice date is February 15, then the "as of" date for
-  that open item will be February 15. This means, if you run the A/R Aging
-  report with an "as of" date in January, the open item with an Invoice date
-  of February 15 will not appear in the report. In fact, it will not appear in
-  the report until an "as of" date of February 15 or later is
-  specified.</para>
+  bucketed, time-phased perspective. An open Item is recognized by the A/R
+  Aging report "as of" the item's document or distribution date, depending on
+  your preference. In the case of Invoices, the document date is the Invoice
+  date. The distribution date is the date the Invoice shows up in the General
+  Ledger (G/L). For example, if you post an Invoice on January 1, but the
+  Invoice date is February 15, then the "as of" document date will be February
+  15. This means, if you run the A/R Aging report with an "as of" document
+  date in January, the open item with an Invoice date of February 15 will not
+  appear in the report. In fact, it will not appear in the report until an "as
+  of" document date of February 15 or later is specified. Conversely, using
+  the distribution date option, the Invoice would appear "as of" January
+  1.</para>
   <tip>
     <para>You can view the document date for an open item by right-clicking on
     a line in the A/R Aging display. You can also find open item details on
-    other screens—for example, A/R Workbench, Customer History, Open Items by
-    Customer, etc.</para>
+    other screens&mdash;for example, A/R Workbench, Customer History, Open
+    Items by Customer, etc.</para>
   </tip>
   <para>The grouping of open items into time-phased buckets is driven by a
   document's due date. In other words, if a due date falls within 0-30 days of
@@ -37,14 +36,13 @@
   specified "as of" date, then the open item will appear in the second bucket.
   And so on. But again, keep in mind that the document date for an A/R open
   item (e.g., Invoice date) must be on or before the specified "as of" date
-  for the item to be recognized by the report.</para>
-  <para>To view open Accounts Receivable (A/R) open items from an aging
-  perspective, select the "A/R Aging" option. The following screen will
-  appear:</para>
+  for the item to be recognized by the report. To view open Accounts
+  Receivable (A/R) open items from an aging perspective, select the "A/R
+  Aging" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspTimePhasedOpenARItems_custom.png" />
+          <imagedata fileref="images/dspTimePhasedOpenARItems.png" />
         </imageobject>
         <caption>A/R Aging</caption>
       </mediaobject>
@@ -53,33 +51,14 @@
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term>All Customers</term>
+      <term>Customer</term>
       <listitem>
-        <para>Select to display A/R open items for all Customers.</para>
+        <para>Select all or specific Customers whose A/R information you want
+        to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Selected Customer</term>
-      <listitem>
-        <para>Select to display A/R open items for a selected Customer.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected Customer Type</term>
-      <listitem>
-        <para>Specify Customer Type whose A/R open items you want to
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Customer Type Pattern</term>
-      <listitem>
-        <para>Enter a Customer Type pattern to select a range of Customer
-        Types.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>As of Date</term>
+      <term>As of</term>
       <listitem>
         <para>Specify the date you want the A/R open items to be relative to.
         The report will include any A/R items which were open&mdash;that is,
@@ -98,6 +77,28 @@
         <para>If selected, the screen will present a series of different
         options, including the option to select a Calendar and associated
         periods.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use</term>
+      <listitem>
+        <para>Specify your date preference:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Document Date</term>
+            <listitem>
+              <para>Select to include open items as of their document
+              date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Distribution Date</term>
+            <listitem>
+              <para>Select to include open items as of their document
+              date.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
