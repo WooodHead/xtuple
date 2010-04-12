@@ -371,8 +371,9 @@ BEGIN
 
                 SELECT COALESCE(pp.period_id,-1) INTO _priorYrPeriodId
                 FROM period cp, period pp
-                WHERE ((cp.period_id=pPeriodId)
-                AND ((cp.period_start - interval '1 year') >= pp.period_start))
+                WHERE ((cp.period_id = pPeriodId)
+                AND (cp.period_number = pp.period_number)
+                AND (cp.period_id != pp.period_id))
                 ORDER BY pp.period_start DESC LIMIT 1;
 
                 IF (_priorYrPeriodId IS NOT NULL) THEN
