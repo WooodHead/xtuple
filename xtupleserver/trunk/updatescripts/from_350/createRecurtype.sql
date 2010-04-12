@@ -41,6 +41,11 @@ INSERT INTO recurtype (recurtype_type, recurtype_table, recurtype_donecheck,
           ('J', 'prj', 'prj_completed_date IS NOT NULL',
            'prj_due_date',
            NULL,
-           'copyprj', '{int,date}', NULL)
+           'copyprj', '{int,date}', NULL),
+
+          ('I', 'invchead', 'invchead_posted',
+           'invchead_invcdate',
+           NULL,
+           'copyinvoice', '{integer,date}', 'deleteinvoice')
 
           ;

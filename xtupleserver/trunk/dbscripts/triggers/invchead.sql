@@ -1,10 +1,35 @@
 CREATE OR REPLACE FUNCTION _invcheadBeforeTrigger() RETURNS "trigger" AS $$
 DECLARE
+  _recurid     INTEGER;
+  _newparentid INTEGER;
 
 BEGIN
   IF (TG_OP = 'DELETE') THEN
     DELETE FROM invcheadtax
     WHERE (taxhist_parent_id=OLD.invchead_id);
+
+    SELECT recur_id INTO _recurid
+      FROM recur
+     WHERE ((recur_parent_id=OLD.invchead_id)
+        AND (recur_parent_type='I'));
+    IF (_recurid IS NOT NULL) THEN
+      SELECT invchead_id INTO _newparentid
+        FROM invchead
+       WHERE ((invchead_recurring_invchead_id=OLD.invchead_id)
+          AND (invchead_id!=OLD.invchead_id))
+       ORDER BY invchead_invcdate
+       LIMIT 1;
+
+      IF (_newparentid IS NULL) THEN
+        DELETE FROM recur WHERE recur_id=_recurid;
+      ELSE
+        UPDATE recur SET recur_parent_id=_newparentid
+         WHERE recur_id=_recurid;
+        UPDATE invchead SET invchead_recurring_invchead_id=_newparentid
+         WHERE invchead_recurring_invchead_id=OLD.invchead_id
+           AND invchead_id!=OLD.invchead_id;
+      END IF;
+    END IF;
 
     RETURN OLD;
   END IF;
