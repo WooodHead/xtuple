@@ -276,7 +276,7 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Disallow Override of Sales Price on Sales Order Entry</term>
+            <term>Disallow Override of Sales Price on Sales Order</term>
             <listitem>
               <para>Select to prevent all users from overriding the Sales
               Price when entering Sales Order Line Items. This is a
@@ -300,13 +300,43 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Pricing on Editing Line Items</term>
+      <term>Price Effective Date</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Current</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Order</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Scheduled</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pricing on Line Item Edits</term>
       <listitem>
         <para>Select one of the following as your preferred response when
         users change Sales Order Line Item quantities:</para>
+        <note>
+          <para>The Sales Order Line Item pricing options apply only when
+          editing Line Item quantity.</para>
+        </note>
         <variablelist>
           <varlistentry>
-            <term>Update Price on Line Item Edit</term>
+            <term>Update Price</term>
             <listitem>
               <para>If selected, the system will automatically update the Net
               Unit Price for the Line Item, adjusting to accommodate the
@@ -314,24 +344,28 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Prompt before Updating Price</term>
+            <term>Do not Update Price</term>
+            <listitem>
+              <para>If selected, the Net Unit Price will not be changed when
+              Line Item quantity is changed on EDIT&mdash;and users will not
+              be prompted to consider changing the Price.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Prompt before Updating</term>
             <listitem>
               <para>If selected, the system will ask users if they want to
               update the Net Unit Price (YES/NO). If they answer "YES" because
               they do want to update the Price, then they will have to
               manually make the Price adjustment.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Do not Update Price on Line Edit</term>
-            <listitem>
-              <para>If selected, the Net Unit Price will not be changed when
-              Line Item quantity is changed on EDIT&mdash;and users will not
-              be prompted to consider changing the Price.</para>
-              <note>
-                <para>The Sales Order Line Item pricing options apply only
-                when editing Line Item quantity.</para>
-              </note>
+              <variablelist>
+                <varlistentry>
+                  <term>Ignore if Discounted</term>
+                  <listitem>
+                    <para></para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -362,6 +396,26 @@
               <para>Select to display a Promised Date field on the Sales Order
               Line Item screen, by default. If not selected, there will be no
               Promised Date field shown on that screen.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Freight Pricing</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Use calculated Freight values by default</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Include Package Weight in Freight Calculation</term>
+            <listitem>
+              <para></para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -429,13 +483,19 @@
         <variablelist>
           <varlistentry>
             <term>Always show "Save and Add to Packing List" button on Sales
-            Order screen</term>
+            Order</term>
             <listitem>
               <para>Select if you want the SAVE AND ADD TO PACKING LIST button
               to always be displayed on the Sales Order header screen. If this
               option is not selected, the SAVE AND ADD TO PACKING LIST button
               will only be displayed for newly-entered Sales Orders which have
               not yet been saved.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Firm Sales Orders when added to Packing List Batch</term>
+            <listitem>
+              <para></para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -450,8 +510,7 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Automatically check "Select for Billing" option on Ship
-            Order screen</term>
+            <term>Check "Select for Billing" option on Ship Order</term>
             <listitem>
               <para>Select if you want the "Select for Billing" option to be
               selected by default whenever you ship Sales Order Line Items.
@@ -472,14 +531,14 @@
         <para>Select from the following change log options</para>
         <variablelist>
           <varlistentry>
-            <term>Post Customer Changes to the Change Log</term>
+            <term>Post Customer Changes</term>
             <listitem>
               <para>Select to post to the Change Log any changes made to
               Customer masters.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Post Sales Order Changes to the Change Log</term>
+            <term>Post Sales Order Changes</term>
             <listitem>
               <para>Select to post to the Change Log any changes made to Sales
               Orders.</para>
@@ -507,8 +566,7 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Automatically Allocate Credit Memos to New Sales Order on
-            Save</term>
+            <term>Allocate Credit Memos to New Sales Order on Save</term>
             <listitem>
               <para>Select to have open Credit Memos for a Customer
               automatically allocated to any new Sales Orders entered for that
