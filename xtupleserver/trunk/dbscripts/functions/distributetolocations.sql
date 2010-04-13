@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION distributeToLocations(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION distributeToLocations(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pItemlocdistid ALIAS FOR $1;
   _distCounter INTEGER;
@@ -40,7 +40,7 @@ BEGIN
                              p.itemlocdist_order_id AS orderid
                       FROM itemlocdist AS c, itemlocdist AS p, itemsite
                       WHERE ( (c.itemlocdist_itemlocdist_id=p.itemlocdist_id)
-                       AND (p.itemlocdist_source_type=''O'')
+                       AND (p.itemlocdist_source_type='O')
                        AND (p.itemlocdist_itemsite_id=itemsite_id)
                        AND (p.itemlocdist_id=pItemlocdistid) ) LOOP
 
@@ -48,7 +48,7 @@ BEGIN
 
 --  If the target for this itemlocdist is a location, check to see if the
 --  required itemloc already exists
-    IF (_itemlocdist.type = ''L'') THEN
+    IF (_itemlocdist.type = 'L') THEN
       SELECT itemloc_id INTO _itemlocid
       FROM itemloc
       WHERE ( (itemloc_itemsite_id=_itemlocdist.itemsiteid)
@@ -59,7 +59,7 @@ BEGIN
 
 --  Nope, make it
       IF (NOT FOUND) THEN
-        SELECT NEXTVAL(''itemloc_itemloc_id_seq'') INTO _itemlocid;
+        SELECT NEXTVAL('itemloc_itemloc_id_seq') INTO _itemlocid;
         INSERT INTO itemloc
         ( itemloc_id, itemloc_itemsite_id,
           itemloc_location_id, itemloc_qty,
@@ -102,14 +102,33 @@ BEGIN
 
       PERFORM postInvHist(_itemlocdist.invhistid);
 
---  Update the itemloc reservation
-      IF ( (SELECT fetchMetricBool(''EnableSOReservationsByLocation'')) AND
+--  Handle reservation data
+      IF ( (SELECT fetchMetricBool('EnableSOReservationsByLocation')) AND
            (_itemlocdist.qty < 0) ) THEN
+
+--  If a shipment on a sales order, record reservation change before updating
+--  so it can be reversed later if necessary
+        IF (_itemlocdist.ordertype = 'SO') THEN
+          INSERT INTO shipitemlocrsrv
+          SELECT nextval('shipitemlocrsrv_shipitemlocrsrv_id_seq'),
+            shipitem_id, itemloc_itemsite_id, itemloc_location_id,
+            itemloc_ls_id, itemloc_expiration, itemloc_warrpurc,
+            least(_itemlocdist.qty, itemlocrsrv_qty)
+          FROM shipitem, itemloc
+            JOIN itemlocrsrv ON (itemloc_id=itemlocrsrv_itemloc_id)
+          WHERE ( (shipitem_invhist_id=_itemlocdist.invhistid)
+            AND   (itemloc_id=_itemlocid)
+            AND   (itemlocrsrv_source=_itemlocdist.ordertype)
+            AND   (itemlocrsrv_source_id=_itemlocdist.orderid) );
+        END IF;
+
+--  Update the itemloc reservation
         UPDATE itemlocrsrv
         SET itemlocrsrv_qty = (itemlocrsrv_qty + _itemlocdist.qty)
         WHERE ( (itemlocrsrv_itemloc_id=_itemlocid)
           AND   (itemlocrsrv_source=_itemlocdist.ordertype)
           AND   (itemlocrsrv_source_id=_itemlocdist.orderid) );
+          
 --  Delete reservation if fully distributed
         DELETE FROM itemlocrsrv
         WHERE ( (itemlocrsrv_itemloc_id=_itemlocid)
@@ -134,18 +153,18 @@ BEGIN
         invhist_invuom, invhist_unitcost,
         invhist_costmethod, invhist_value_before, invhist_value_after )
       SELECT itemsite_id,
-             ''NN'', (_itemlocdist.qty * -1),
+             'NN', (_itemlocdist.qty * -1),
              itemsite_qtyonhand, (itemsite_qtyonhand - _itemlocdist.qty),
              invhist_docnumber, invhist_comments,
              uom_name, stdCost(item_id),
              itemsite_costmethod, itemsite_value,
-             (itemsite_value + (_itemlocdist.qty * -1 * CASE WHEN(itemsite_costmethod=''A'') THEN avgcost(itemsite_id)
+             (itemsite_value + (_itemlocdist.qty * -1 * CASE WHEN(itemsite_costmethod='A') THEN avgcost(itemsite_id)
                                                              ELSE stdCost(itemsite_item_id)
                                                         END))
       FROM item, itemsite, invhist, uom
       WHERE ( (itemsite_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
-       AND (itemsite_controlmethod <> ''N'')
+       AND (itemsite_controlmethod <> 'N')
        AND (itemsite_id=_itemlocdist.itemsiteid)
        AND (invhist_id=_itemlocdist.invhistid) );
 
@@ -194,4 +213,4 @@ BEGIN
   RETURN _distCounter;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
