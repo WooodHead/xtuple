@@ -9,7 +9,7 @@
     </indexterm> <indexterm significance="normal">
       <primary>product categories</primary>
       <secondary>list prices updated by</secondary>
-    </indexterm>Update List Prices by Product Category</title>
+    </indexterm>Update List Prices</title>
   <para>To update List Prices by Product Category, select the "Update List
   Prices by Product Category" option. The following screen will appear:</para>
   <para><screenshot>
@@ -46,8 +46,25 @@
     <varlistentry>
       <term>Update Prices by</term>
       <listitem>
-        <para>Specify the percentage you want to update your List Prices by.
-        The percentage can be either positive or negative.</para>
+        <para>Enter a positive or negative value to indicate how much you want
+        to update your List Prices by. The value represents either a
+        percentage or fixed amount update, based on the following
+        selection:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Percent</term>
+            <listitem>
+              <para>Select to update List Prices by a percentage
+              amount.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Fixed Amount</term>
+            <listitem>
+              <para>Select to update List Prices by a fixed amount.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
