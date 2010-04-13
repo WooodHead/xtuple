@@ -116,12 +116,34 @@
       <term>PRINT</term>
       <listitem>
         <para>Runs the report associated with this screen.</para>
+        <note>
+          <para>If the status of a highlighted Work Order is "O," then the
+          posting/printing buttons at the bottom of the screen will be
+          disabled. Work Orders must be exploded ("E") before these options
+          are available.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST PRODUCTION</term>
+      <listitem>
+        <para>Highlight a Work Order in the list and then select this button
+        to post Production for the Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="manufacturing">
+      <term>POST OPERATIONS</term>
+      <listitem>
+        <para>Highlight a Work Order in the list and then select this button
+        to post Operations for the Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT TRAVELER</term>
+      <listitem>
+        <para>Highlight a Work Order in the list and then select this button
+        to print the Work Order Traveler.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>If the status of a highlighted Work Order is "O," then the buttons
-    at the bottom of the screen will be disabled. Work Orders must be exploded
-    ("E") before these options are available.</para>
-  </note>
 </section>
