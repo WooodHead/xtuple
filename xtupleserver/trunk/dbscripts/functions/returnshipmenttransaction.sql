@@ -17,8 +17,11 @@ DECLARE
   _itemlocSeries	INTEGER			 := $2;
   _timestamp		TIMESTAMP WITH TIME ZONE := $3;
   _invhistid INTEGER;
+  _itemlocrsrvid INTEGER;
+  _coheadid INTEGER;
   _rows INTEGER;
   _r RECORD;
+  _rsrv RECORD;
 
 BEGIN
 
@@ -29,7 +32,7 @@ BEGIN
     -- Find the shipment transaction record
     SELECT shipitem_id, shipitem_qty, shipitem_invhist_id, shipitem_value,
       shipitem_orderitem_id, invhist_series,
-      shiphead_order_id, shiphead_id, shiphead_order_type,
+      shiphead_id, shiphead_order_type,
       itemsite_loccntrl, itemsite_costmethod, itemsite_controlmethod
       INTO _r
     FROM shipitem
@@ -112,6 +115,44 @@ BEGIN
         FROM shipitemrsrv
         WHERE ((coitem_id=_r.shipitem_orderitem_id)
         AND (shipitemrsrv_shipitem_id=_r.shipitem_id));
+
+        -- Handle location reservations if applicable
+        FOR _rsrv IN
+          SELECT *
+          FROM shipitemlocrsrv
+          WHERE (shipitemlocrsrv_shipitem_id=_r.shipitem_id)
+        LOOP
+          -- See if a reservation record still exists
+          SELECT itemlocrsrv_id, itemlocrsrv_qty INTO _itemlocrsrvid
+          FROM itemlocrsrv
+            JOIN itemloc ON (itemlocrsrv_itemloc_id=itemloc_id)
+          WHERE ((itemlocrsrv_source = 'SO')
+            AND (itemlocrsrv_source_id = _r.shipitem_orderitem_id )
+            AND (itemloc_itemsite_id=_rsrv.shipitemlocrsrv_itemsite_id)
+            AND (itemloc_location_id=_rsrv.shipitemlocrsrv_location_id)
+            AND (COALESCE(itemloc_ls_id, -1)=COALESCE(_rsrv.shipitemlocrsrv_ls_id, -1))
+            AND (COALESCE(itemloc_expiration,endOfTime())=COALESCE(_rsrv.shipitemlocrsrv_expiration,endOfTime()))
+            AND (COALESCE(itemloc_warrpurc,endoftime())=COALESCE(_rsrv.shipitemlocrsrv_warrpurc,endoftime())) );
+
+          GET DIAGNOSTICS _rows = ROW_COUNT;
+          IF (_rows > 0 ) THEN  
+            -- Update existing
+            UPDATE itemlocrsrv
+            SET itemlocrsrv_qty = itemlocrsrv_qty + _rsrv.shipitemlocrsrv_qty
+            WHERE (itemlocrsrv_id=_itemlocrsvrid);
+          ELSE
+            -- Recreate record
+            INSERT INTO itemlocrsrv
+            SELECT nextval('itemlocrsrv_itemlocrsrv_id_seq'), 'SO', _r.shipitem_orderitem_id,
+              itemloc_id, _rsrv.shipitemlocrsrv_qty
+            FROM itemloc
+            WHERE ((itemloc_itemsite_id=_rsrv.shipitemlocrsrv_itemsite_id)
+              AND (itemloc_location_id=_rsrv.shipitemlocrsrv_location_id)
+              AND (COALESCE(itemloc_ls_id, -1)=COALESCE(_rsrv.shipitemlocrsrv_ls_id, -1))
+              AND (COALESCE(itemloc_expiration,endOfTime())=COALESCE(_rsrv.shipitemlocrsrv_expiration,endOfTime()))
+              AND (COALESCE(itemloc_warrpurc,endoftime())=COALESCE(_rsrv.shipitemlocrsrv_warrpurc,endoftime())) );
+          END IF;
+        END LOOP;
       END IF;
       
       DELETE FROM shipitem WHERE (shipitem_id = _r.shipitem_id );
