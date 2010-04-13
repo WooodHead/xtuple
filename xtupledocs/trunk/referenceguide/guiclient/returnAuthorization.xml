@@ -304,9 +304,9 @@
       <term>Customer #</term>
       <listitem>
         <para>Enter the Customer Number of the Customer whose return you are
-        authorizing. The lookup feature located to the right of the field leads
-        to a searchable Customers list. You may also access this list using
-        the keyboard shortcut "CTRL + L".</para>
+        authorizing. The lookup feature located to the right of the field
+        leads to a searchable Customers list. You may also access this list
+        using the keyboard shortcut "CTRL + L".</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -513,13 +513,20 @@
       <term><indexterm significance="normal">
           <primary>freight</primary>
           <secondary>on return authorizations</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>return authorizations</primary>
           <secondary>freight charges on</secondary>
         </indexterm>Freight</term>
       <listitem>
         <para>Enter the amount of freight charge to be credited on the
-        specified Return Authorization.</para>
+        specified Return Authorization. The freight amount displayed here
+        represents the total for all Line Items. To get a detailed view of the
+        freight calculation, click on the Freight link using your mouse.
+        Freight charges may be entered during the creation or modification of
+        a Return Authorization&mdash;or at the time of shipment. The system
+        can be configured to automatically calculate freight amounts per
+        quantity and Shipment. To learn more about freight configuration, see
+        <xref linkend="configureSO_freightPricing" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

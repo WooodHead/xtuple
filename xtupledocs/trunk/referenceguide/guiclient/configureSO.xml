@@ -404,8 +404,8 @@
     <varlistentry id="configureSO_freightPricing">
       <term>Freight Pricing</term>
       <listitem>
-        <para>Specify how you want freight charges to be handled at
-        Shipping:</para>
+        <para>Specify how you want freight charges to be handled when shipping
+        Orders and Returns:</para>
         <variablelist>
           <varlistentry>
             <term>Use calculated Freight values by default</term>
@@ -414,7 +414,7 @@
               against Pricing Schedules to determine the actual freight for a
               given Shipment based on shipping quantities and weight rather
               than assuming all freight should be billed. If not selected, the
-              freight amount on an Order will be billed on every
+              freight amount on an Order or Return will be billed on every
               Shipment.</para>
             </listitem>
           </varlistentry>
