@@ -454,7 +454,7 @@
     <title><indexterm significance="normal">
         <primary>items</primary>
         <secondary>pricing for</secondary>
-      </indexterm>Item Pricing</title>
+      </indexterm>Pricing</title>
     <para>Item Pricing section.</para>
     <xi:include href="guiclient/itemListPrice.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -464,21 +464,13 @@
     <xi:include href="guiclient/itemPricingSchedules.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/updatePrices.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/pricingScheduleAssignments.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/sales.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section>
-      <title>Update Prices</title>
-      <para>Update Prices section.</para>
-      <xi:include href="guiclient/updatePricesByProductCategory.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/updatePricesByPricingSchedule.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
     <section id="Section519777">
       <title>Reports</title>
       <para>Item Pricing Reports section.</para>
