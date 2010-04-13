@@ -302,24 +302,28 @@
     <varlistentry>
       <term>Price Effective Date</term>
       <listitem>
-        <para></para>
+        <para>Specify one of the following options for when Item Prices should
+        be effective as of:</para>
         <variablelist>
           <varlistentry>
             <term>Current</term>
             <listitem>
-              <para></para>
+              <para>Select if you want Item Prices to be effective as of the
+              current date.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Order</term>
             <listitem>
-              <para></para>
+              <para>Select if you want Item Prices to be effective as of the
+              Order date.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Scheduled</term>
             <listitem>
-              <para></para>
+              <para>Select if you want Item Prices to be effective as of the
+              scheduled date.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -362,7 +366,11 @@
                 <varlistentry>
                   <term>Ignore if Discounted</term>
                   <listitem>
-                    <para></para>
+                    <para>Select if you want Price update warnings to be
+                    ignored when Line Items being edited are already
+                    discounted. Also, if Sales Order header changes cause
+                    Prices to be updated, any discounted Line Items will not
+                    be updated.</para>
                   </listitem>
                 </varlistentry>
               </variablelist>
