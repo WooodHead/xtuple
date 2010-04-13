@@ -401,21 +401,29 @@
         </variablelist>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry id="configureSO_freightPricing">
       <term>Freight Pricing</term>
       <listitem>
-        <para></para>
+        <para>Specify how you want freight charges to be handled at
+        Shipping:</para>
         <variablelist>
           <varlistentry>
             <term>Use calculated Freight values by default</term>
             <listitem>
-              <para></para>
+              <para>If selected, Items issued to Shipping will be checked
+              against Pricing Schedules to determine the actual freight for a
+              given Shipment based on shipping quantities and weight rather
+              than assuming all freight should be billed. If not selected, the
+              freight amount on an Order will be billed on every
+              Shipment.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Include Package Weight in Freight Calculation</term>
             <listitem>
-              <para></para>
+              <para>Select to include package weight in the freight
+              calculations. If not selected, package weight will be
+              excluded.</para>
             </listitem>
           </varlistentry>
         </variablelist>
