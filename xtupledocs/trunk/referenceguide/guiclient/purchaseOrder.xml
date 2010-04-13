@@ -89,9 +89,9 @@
       <term>Print on Save</term>
       <listitem>
         <para>Check Print on Save to automatically print the Purchase Order
-        when the Save button is pressed. If the Vendor specified on the Purchase Order
-        has an EDI Profile attached, you may encounter an EDI processing
-        interface when printing the Purchase Order.</para>
+        when the Save button is pressed. If the Vendor specified on the
+        Purchase Order has an EDI Profile attached, you may encounter an EDI
+        processing interface when printing the Purchase Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -257,10 +257,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>DELETE</term>
+      <term>DELETE/CLOSE</term>
       <listitem>
         <para>Highlight a Purchase Order Line Item and then select this button
-        to remove the Purchase Order Line Item from the list.</para>
+        to remove the Purchase Order Line Item from the list. If the Purchase
+        Order is "Unreleased," then the DELETE button will be shown. For
+        "Open" Purchase Orders, the CLOSE button will be shown instead.</para>
       </listitem>
     </varlistentry>
   </variablelist>
