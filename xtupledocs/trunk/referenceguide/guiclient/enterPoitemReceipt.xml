@@ -20,8 +20,12 @@
     <varlistentry>
       <term>Order Type</term>
       <listitem>
-        <para>Displays whether receipts is for a Purchase Order (P/O),
-        Transfer Order (T/O) or Return (R/A).</para>
+        <para>Displays whether receipt is for a Purchase Order (P/O), Transfer
+        Order (T/O) or Return (R/A).</para>
+        <para role="standard"><note>
+            <para>Transfer Orders may not be received before they have been
+            shipped.</para>
+          </note></para>
       </listitem>
     </varlistentry>
     <varlistentry>
