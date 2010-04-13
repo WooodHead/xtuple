@@ -666,15 +666,21 @@
           <secondary>freight charges on</secondary>
         </indexterm>Freight</term>
       <listitem>
-        <para>Enter the amount of freight charges to be added to the specified
-        Order. The freight amount displayed here represents the total for all
-        Line Items. To get a detailed view of the freight calculation, click
-        on the Freight link using your mouse. Freight charges may be entered
-        during the creation or modification of a Sales Order&mdash;or at the
-        time of shipment. The system can be configured to automatically
+        <para>Manually enter the amount of freight charges to be added to the
+        specified Order, unless the freight amount is automatically
+        calculated. The freight amount displayed here represents the total for
+        all Line Items. To get a detailed view of the freight calculation,
+        click on the Freight link using your mouse. Freight charges may be
+        entered during the creation or modification of a Sales Order&mdash;or
+        at the time of shipment. The system can be configured to automatically
         calculate freight amounts per quantity and Shipment. To learn more
         about freight configuration, see <xref
         linkend="configureSO_freightPricing" />.</para>
+        <note>
+          <para>If you are manually entering freight, all freight charges will
+          be added to the initial Shipment for an Order. Any subsequent
+          backorder Shipments will not include freight.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
