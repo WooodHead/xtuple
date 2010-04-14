@@ -62,10 +62,10 @@
       <term>Next #</term>
       <listitem>
         <para>The next sequentially available Purchase Order Number will
-        display here. You may change the number&mdash;creating a new basis for the
-        next Purchase Order Number&mdash;by typing the new number into this field.
-        Any changes you make here will be reflected the next time a new
-        Purchase Order is created in the P/O module.</para>
+        display here. You may change the number&mdash;creating a new basis for
+        the next Purchase Order Number&mdash;by typing the new number into
+        this field. Any changes you make here will be reflected the next time
+        a new Purchase Order is created in the P/O module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -82,10 +82,10 @@
       <term>Next #</term>
       <listitem>
         <para>The next sequentially available Voucher Number will display
-        here. You may change the number&mdash;creating a new basis for the next
-        Voucher Number&mdash;by typing the new number into this field. Any changes
-        you make here will be reflected the next time a new Voucher is created
-        in the P/O module.</para>
+        here. You may change the number&mdash;creating a new basis for the
+        next Voucher Number&mdash;by typing the new number into this field.
+        Any changes you make here will be reflected the next time a new
+        Voucher is created in the P/O module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -130,10 +130,10 @@
       <term>Next #</term>
       <listitem>
         <para>The next sequentially available Purchase Request Number will
-        display here. You may change the number&mdash;creating a new basis for the
-        next Purchase Request Number&mdash;by typing the new number into this
-        field. Any changes you make here will be reflected the next time you
-        issue a new Purchase Request within the P/O module.</para>
+        display here. You may change the number&mdash;creating a new basis for
+        the next Purchase Request Number&mdash;by typing the new number into
+        this field. Any changes you make here will be reflected the next time
+        you issue a new Purchase Request within the P/O module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -165,7 +165,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Post P/O Changes to the Change Log</term>
+      <term>Post Purchase Order Changes to the Change Log</term>
       <listitem>
         <para>Select to post to the Change Log any changes made to Purchase
         Orders.</para>
@@ -184,9 +184,9 @@
         <para>Select to use Item Source Earliest Available dates as the
         default due date when entering manual Purchase Order Line Items. If
         not selected, the due date field will be left blank when entering
-        Purchase Order Line Items&mdash;requiring users to enter the date manually.
-        Earliest Available dates are determined by adding Item Source Lead
-        Times to the current date.</para>
+        Purchase Order Line Items&mdash;requiring users to enter the date
+        manually. Earliest Available dates are determined by adding Item
+        Source Lead Times to the current date.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -197,7 +197,7 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term>Prevent P/O Items when no Std. Cost Exists</term>
+      <term>Prevent Purchase Order Items when no Std. Cost Exists</term>
       <listitem>
         <para>Select if you want to prevent users from entering Purchase Order
         Line Items for Items which have no Standard Cost. If selected, users
@@ -206,12 +206,29 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Check Print P/O on Save by Default</term>
+      <term>Check Print Purchase Order on Save by Default</term>
       <listitem>
         <para>Select to prompt users to print Purchase Orders whenever
         Purchase Orders are saved. If selected, users will be presented with a
         Purchase Order print screen whenever a Purchase Order is saved. To
         bypass this feature, do not select this option.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Enable Drop Shipments</term>
+      <listitem>
+        <para>Select to enable drop ship functionality in the system.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Select Drop Shipped Orders for Billing on Receipt</term>
+            <listitem>
+              <para>Select to have drop ship Items automatically shipped and
+              selected for billing at the point when they are received. If not
+              selected, drop ship Items will need to be manually shipped and
+              selected for billing after receipt.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
