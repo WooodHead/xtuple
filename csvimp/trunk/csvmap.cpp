@@ -12,7 +12,7 @@
 
 #include <QDomDocument>
 #include <QDomElement>
-#include <Q3ValueList>
+#include <QList>
 
 CSVMap::CSVMap(const QString & name)
 {
@@ -110,7 +110,7 @@ QDomElement CSVMap::createElement(QDomDocument & doc)
     elem.appendChild(elemThis);
   }
 
-  Q3ValueList<CSVMapField>::iterator it;
+  QList<CSVMapField>::iterator it;
   for(it = _fields.begin(); it != _fields.end(); ++it)
   {
     if(!(*it).isDefault())
@@ -155,12 +155,11 @@ void CSVMap::setField(const CSVMapField & f)
 
 bool CSVMap::removeField(const QString & name)
 {
-  Q3ValueList<CSVMapField>::iterator it;
-  for(it = _fields.begin(); it != _fields.end(); ++it)
+  for (int i = 0; i < _fields.size(); i++)
   {
-    if((*it).name() == name)
+    if(_fields.at(i).name() == name)
     {
-      it = _fields.remove(it);
+      _fields.removeAt(i);
       return TRUE;
     }
   }
@@ -169,7 +168,7 @@ bool CSVMap::removeField(const QString & name)
 
 CSVMapField CSVMap::field(const QString & name) const
 {
-  Q3ValueList<CSVMapField>::const_iterator it;
+  QList<CSVMapField>::const_iterator it;
   for(it = _fields.begin(); it != _fields.end(); ++it)
   {
     if((*it).name() == name)
@@ -181,7 +180,7 @@ CSVMapField CSVMap::field(const QString & name) const
 QStringList CSVMap::fieldList() const
 {
   QStringList list;
-  Q3ValueList<CSVMapField>::const_iterator it;
+  QList<CSVMapField>::const_iterator it;
   for(it = _fields.begin(); it != _fields.end(); ++it)
   {
     list.append((*it).name());
@@ -206,13 +205,14 @@ void CSVMap::setSqlPost(const QString & sql)
 
 void CSVMap::simplify()
 {
-  Q3ValueList<CSVMapField>::iterator it = _fields.begin();
-  while(it != _fields.end())
+  QList<CSVMapField>::iterator it = _fields.begin();
+  for (int i = 0; i < _fields.size(); i++)
   {
-    if((*it).isDefault())
-      it = _fields.remove(it);
-    else
-      ++it;
+    if(_fields.at(i).isDefault())
+    {
+      _fields.removeAt(i);
+      i--;
+    }
   }
 }
 
@@ -278,7 +278,7 @@ CSVMapField::CSVMapField(const QDomElement & elem)
     else if(elemThis.tagName() == "isKey")
       setIsKey(TRUE);
     else if(elemThis.tagName() == "Type")
-      setType(QVariant::nameToType(elemThis.text()));
+      setType(QVariant::nameToType(elemThis.text().toAscii().data()));
     else if(elemThis.tagName() == "Action")
       action = nameToAction(elemThis.text());
     else if(elemThis.tagName() == "Column")

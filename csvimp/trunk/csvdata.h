@@ -14,13 +14,13 @@
 #include <QObject>
 #include <QString>
 #include <QStringList>
-#include <Q3ValueList>
 
 class QWidget;
 
 class CSVData : public QObject
 {
   Q_OBJECT
+
   public:
     CSVData(QObject * = 0, const char * = 0);
     virtual ~CSVData();
@@ -43,7 +43,7 @@ class CSVData : public QObject
    // unsigned int _numColumns;
     int _numColumns;
 
-    Q3ValueList<QStringList> _rows;
+    QList<QStringList> _rows;
 };
 
 #endif

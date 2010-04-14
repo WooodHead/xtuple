@@ -8,40 +8,66 @@
  * to be bound by its terms.
  */
 
-#include <QApplication>
+#include "csvtoolwindow.h"
+
 #include <QDateTime>
-#include <QStatusBar>
+#include <QFileDialog>
 #include <QInputDialog>
-#include <QSqlQuery>
+#include <QList>
 #include <QMap>
-#include <QSqlError>
-#include <QSqlDatabase>
-#include <QVariant>
-#include <Q3ProgressBar>
-#include <QLabel>
-#include <Q3TextEdit>
-#include <QTimerEvent>
-#include <Q3ValueList>
+#include <QMessageBox>
 #include <QPixmap>
+#include <QProgressDialog>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QStatusBar>
+#include <QTimerEvent>
+#include <QVariant>
 
 #include "csvatlas.h"
-#include <csvimportprogress.h>
+#include "csvatlaswindow.h"
+#include "csvdata.h"
+#include "data.h"
+#include "logwindow.h"
 
 #include "images/CSVimpIcon.xpm"
+
+CSVToolWindow::CSVToolWindow(QWidget *parent)
+  : QMainWindow(parent)
+{
+  setupUi(this);
+
+  setWindowIcon(QPixmap(CSVimpIcon));
+  _atlasWindow = new CSVAtlasWindow(this);
+  _log = new LogWindow(this);
+  _data = 0;
+  _dbTimerId = startTimer(60000);
+}
+
+CSVToolWindow::~CSVToolWindow()
+{
+}
+
+void CSVToolWindow::languageChange()
+{
+  retranslateUi(this);
+}
 
 void CSVToolWindow::fileNew()
 {
   QMessageBox::information(this, tr("Not Yet Implemented"), tr("This function has not been implemented."));
 }
 
-
 void CSVToolWindow::fileOpen()
 {
   fileOpenAction->setEnabled(FALSE);
   _firstRowHeader->setEnabled(FALSE);
-  QString fileName = Q3FileDialog::getOpenFileName(QString::null, QString::null, this);
+  QString fileName = QFileDialog::getOpenFileName(this, tr("Select CSV File"),
+                                                  QString::null,
+                                                  QString("CSV Files (*.csv);;All files (*)"));
   if(!fileName.isEmpty()) {
-    statusBar()->message(tr("Loading..."));
+    statusBar()->showMessage(tr("Loading %1...").arg(fileName));
 
     if(_data == 0)
       _data = new CSVData(this);
@@ -49,16 +75,15 @@ void CSVToolWindow::fileOpen()
     {
       delete _data;
       _data = new CSVData(this);
-      _table->setNumRows(0);
-      _table->setNumCols(0);
     }
 
     _data->load(fileName, this);
     _data->setFirstRowHeaders(_firstRowHeader->isChecked());
     int rows = _data->rows();
     int cols = _data->columns();
-    _table->setNumRows(rows);
-    _table->setNumCols(cols);
+    _table->setColumnCount(cols);
+    _table->setRowCount(rows);
+
     if(_firstRowHeader->isChecked())
     {
       QString header;
@@ -66,99 +91,81 @@ void CSVToolWindow::fileOpen()
       {
         QString header = _data->header(h);
         if(header.isEmpty())
-          header = QString("%1").arg(h+1);
+          header = QString(h + 1);
         else
           header = QString("%1 (%2)").arg(h+1).arg(header);
-        _table->horizontalHeader()->setLabel(h, header);
+        _table->setHorizontalHeaderItem(h, new QTableWidgetItem(header));
       }
     }
+    // TODO: replace with qprogressdialog?
     QTime time;
     time.start();
     QString v = QString::null;
-    for(int r = 0; r < rows; r++)
+    for (int r = 0; r < rows; r++)
     {
       for(int c = 0; c < cols; c++)
       {
         v = _data->value(r, c);
         if(QString::null == v)
           v = tr("(NULL)");
-        _table->setText(r, c, v);
+        _table->setItem(r, c, new QTableWidgetItem(v));
       }
       if(time.elapsed() > 200)
       {
-        statusBar()->message(tr("Displaying Record %1 of %2").arg(r+1).arg(rows));
+        statusBar()->showMessage(tr("Displaying Record %1 of %2").arg(r+1).arg(rows));
         qApp->processEvents();
         time.restart();
       }
     }
-  }  
-  statusBar()->clear();
+    statusBar()->showMessage(tr("Done loading %1").arg(fileName));
+  }
   _firstRowHeader->setEnabled(TRUE);
   fileOpenAction->setEnabled(TRUE);
 }
-
 
 void CSVToolWindow::fileSave()
 {
   QMessageBox::information(this, tr("Not Yet Implemented"), tr("This function has not been implemented."));
 }
 
-
 void CSVToolWindow::fileSaveAs()
 {
   QMessageBox::information(this, tr("Not Yet Implemented"), tr("This function has not been implemented."));
 }
-
 
 void CSVToolWindow::filePrint()
 {
   QMessageBox::information(this, tr("Not Yet Implemented"), tr("This function has not been implemented."));
 }
 
-
 void CSVToolWindow::fileExit()
 {
   qApp->closeAllWindows();
 }
-
 
 void CSVToolWindow::helpIndex()
 {
   QMessageBox::information(this, tr("Not Yet Implemented"), tr("This function has not been implemented."));
 }
 
-
 void CSVToolWindow::helpContents()
 {
   QMessageBox::information(this, tr("Not Yet Implemented"), tr("This function has not been implemented."));
 }
 
-
 void CSVToolWindow::helpAbout()
 {
-  QMessageBox::about(this, tr("About %1").arg(_name),
+  QMessageBox::about(this, tr("About %1").arg(CSVImp::name),
     tr("%1 version %2"
        "\n\n%3 is a tool for importing CSV files into a database."
-       "\n\n%4, All Rights Reserved").arg(_name).arg(_version).arg(_name).arg(_copyright));
+       "\n\n%4, All Rights Reserved")
+          .arg(CSVImp::name, CSVImp::version, CSVImp::name, CSVImp::copyright));
 }
-
 
 void CSVToolWindow::mapEdit()
 {
   _atlasWindow->show();
 }
-
-
-void CSVToolWindow::init()
-{
-  setIcon(QPixmap(CSVimpIcon));
-  _table->setNumRows(0);
-  _atlasWindow = new CSVAtlasWindow(this);
-  _log = new LogWindow(this);
-  _data = 0;
-  _dbTimerId = startTimer(60000);
-}
-
 
 void CSVToolWindow::sFirstRowHeader( bool yes )
 {
@@ -173,33 +180,32 @@ void CSVToolWindow::sFirstRowHeader( bool yes )
       {
         QString header = _data->header(h);
         if(header.isEmpty())
-          header = QString("%1").arg(h+1);
+          header = QString(h + 1);
         else
           header = QString("%1 (%2)").arg(h+1).arg(header);
-        _table->horizontalHeader()->setLabel(h, header);
+        _table->setHorizontalHeaderItem(h, new QTableWidgetItem(header));
       }
       _table->removeRow(0);
     }
     else
     {
       for(int h = 0; h < cols; h++)
-        _table->horizontalHeader()->setLabel(h, QString("%1").arg(h+1));
+        _table->horizontalHeaderItem(h)->setData(Qt::DisplayRole, QString(h+1));
       if(_data->rows() > 0)
       {
-        _table->insertRows(0);
+        _table->insertRow(0);
         QString v = QString::null;
         for(int c = 0; c < cols; c++)
         {
           v = _data->value(0, c);
           if(QString::null == v)
             v = tr("(NULL)");
-          _table->setText(0, c, v);
+          _table->item(0, c)->setData(Qt::DisplayRole, v);
         }
       }
     }
   }
 }
-
 
 void CSVToolWindow::importStart()
 {
@@ -216,24 +222,25 @@ void CSVToolWindow::importStart()
 
   mList.sort();
   bool valid;
-  QString name = QInputDialog::getItem(tr("Select Map"), tr("Select Map:"), mList, 0, FALSE, &valid, this);
+  QString name = QInputDialog::getItem(this, tr("Select Map"), tr("Select Map:"), mList, 0, FALSE, &valid);
   if(!valid)
     return;
 
   CSVMap map = atlas->map(name);
   map.simplify();
-  Q3ValueList<CSVMapField> fields = map.fields();
+  QList<CSVMapField> fields = map.fields();
 
-  if(map.name() != name || fields.isEmpty())
+  if (map.name() != name || fields.isEmpty())
   {
-    QMessageBox::warning(this, tr("Invalid Map"), tr("The selected map does not appear to be valid."));
+    QMessageBox::warning(this, tr("Invalid Map"),
+                         tr("<p>The selected map does not appear to be valid."));
     return;
   }
 
   CSVMap::Action action = map.action();
   if(action != CSVMap::Insert)
   {
-    QMessageBox::warning(this, tr("Action not implimented"),
+    QMessageBox::warning(this, tr("Action not implemented"),
       tr("The action %1 for this map is not supported yet.").arg(CSVMap::actionToName(action)));
     return;
   }
@@ -247,9 +254,8 @@ void CSVToolWindow::importStart()
   int total = _data->rows();
   int current = 0, error = 0, ignored = 0;
 
-  /////
   QString errMsg;
-  if(!map.sqlPre().stripWhiteSpace().isEmpty())
+  if(!map.sqlPre().trimmed().isEmpty())
   {
     QSqlQuery pre;
     if(!pre.exec(map.sqlPre()))
@@ -262,28 +268,21 @@ void CSVToolWindow::importStart()
         _log->_log->append(tr("\n\nContinuing with rest of import\n\n"));
       else
       {
-        QMessageBox::warning(this, tr("Error"), tr("There was an error running the pre sql query.\nPlease see the log for more details. Aborting transaction."));
+        QMessageBox::warning(this, tr("Error"),
+                             tr("<p>There was an error running the pre sql "
+                                "query. Please see the log for more details. "
+                                "Aborting transaction."));
         return;
       }
     }
   }
 
-  QTime time;
-
-  CSVImportProgress * progress = new CSVImportProgress(this);
-  progress->setModal(TRUE);
-  progress->_map->setText(map.name());
-  progress->_action->setText(CSVMap::actionToName(action));
-  progress->_total->setText(QString("%1").arg(total));
-  progress->_current->setText("0");
-  progress->_error->setText("0");
-  progress->_ignored->setText("0");
-  progress->_progress->setProgress(0, total);
-
-  progress->show();
-  qApp->processEvents();
-
-  time.start();
+  QString progresstext(tr("Loading %1: %2 rows out of %3"));
+  int expected = total;
+  QProgressDialog *progress = new QProgressDialog(progresstext
+                                        .arg(map.name()).arg(0).arg(expected),
+                                        tr("Cancel"), 0, expected, this);
+  progress->setWindowModality(Qt::WindowModal);
 
   QString query;
   QString front;
@@ -296,38 +295,26 @@ void CSVToolWindow::importStart()
   
   for(current = 0; current < total; ++current)
   {
-    if(time.elapsed() > 200)
-    {
-      qApp->processEvents();
-
-      if(!progress->isShown())
-        break; // leave the loop
-
-      progress->_current->setText(QString("%1").arg(current));
-      progress->_error->setText(QString("%1").arg(error));
-      progress->_ignored->setText(QString("%1").arg(ignored));
-      progress->_progress->setProgress(current);
-
-      time.restart();
-    }
+    if(! (current % 100))
+      progress->setLabelText(progresstext.arg(map.name()).arg(current).arg(expected));
 
     if(action == CSVMap::Insert)
     {
       query = QString("INSERT INTO %1 ").arg(map.table());
       front = "(";
       back = " VALUES(";
-      Q3ValueList<CSVMapField>::iterator it;
+      QList<CSVMapField> fields = map.fields();
       QMap<QString,QVariant> values;
-      for(it = fields.begin(); it != fields.end(); ++it)
+      for (int i = 0; i < fields.size(); i++)
       {
-        switch((*it).action())
+        switch(fields.at(i).action())
         {
           case CSVMapField::Action_UseColumn:
           {
-            value = _data->value(current, (*it).column()-1);
+            value = _data->value(current, fields.at(i).column()-1);
             if(value.isNull())
             {
-              switch ((*it).ifNullAction())
+              switch (fields.at(i).ifNullAction())
               {
                 case CSVMapField::UseDefault:
                   continue;
@@ -338,15 +325,15 @@ void CSVToolWindow::importStart()
                 }
                 case CSVMapField::UseAlternateValue:
                 {
-                  var = QVariant((*it).valueAlt());
+                  var = QVariant(fields.at(i).valueAlt());
                   break;
                 }
                 case CSVMapField::UseAlternateColumn:
                 {
-                  value = _data->value(current, (*it).columnAlt()-1);
+                  value = _data->value(current, fields.at(i).columnAlt()-1);
                   if(value.isNull())
                   {
-                    switch ((*it).ifNullActionAlt())
+                    switch (fields.at(i).ifNullActionAlt())
                     {
                       case CSVMapField::UseDefault:
                         continue;
@@ -357,7 +344,7 @@ void CSVToolWindow::importStart()
                       }
                       case CSVMapField::UseAlternateValue:
                       {
-                        var = QVariant((*it).valueAlt());
+                        var = QVariant(fields.at(i).valueAlt());
                         break;
                       }
                       default: // Nothing
@@ -383,7 +370,7 @@ void CSVToolWindow::importStart()
           }
           case CSVMapField::Action_UseAlternateValue:
           {
-            var = QVariant((*it).valueAlt());
+            var = QVariant(fields.at(i).valueAlt());
             break;
           }
           case CSVMapField::Action_UseNull:
@@ -395,14 +382,14 @@ void CSVToolWindow::importStart()
             continue;
         }
 
-        label = ":" + (*it).name();
+        label = ":" + fields.at(i).name();
         if(!values.empty())
         {
           front += ", ";
           back  += ", ";
         }
         values.insert(label, var);
-        front += (*it).name();
+        front += fields.at(i).name();
         back  += label;
       }
 
@@ -422,7 +409,7 @@ void CSVToolWindow::importStart()
       
       QMap<QString,QVariant>::iterator vit;
       for(vit = values.begin(); vit != values.end(); ++vit)
-        qry.bindValue(vit.key(), vit.data());
+        qry.bindValue(vit.key(), vit.value());
 
       if(!qry.exec())
       {
@@ -432,10 +419,9 @@ void CSVToolWindow::importStart()
       }
       //_log->_log->append("\n\n" + qry.executedQuery());
     }
+    progress->setValue(current);
   }
-
-  delete progress;
-  progress = 0;
+  progress->setValue(total);
 
   // do some reporting here on the results including error message and
   // marking any unprocessed records and the like
@@ -454,7 +440,7 @@ void CSVToolWindow::importStart()
     _log->show();
   }
 
-  if(!map.sqlPost().stripWhiteSpace().isEmpty())
+  if(!map.sqlPost().trimmed().isEmpty())
   {
     QSqlQuery post;
     if(!post.exec(map.sqlPost()))
@@ -470,12 +456,10 @@ void CSVToolWindow::importStart()
 
 }
 
-
 void CSVToolWindow::sImportViewLog()
 {
   _log->show();
 }
-
 
 void CSVToolWindow::timerEvent( QTimerEvent * e )
 {

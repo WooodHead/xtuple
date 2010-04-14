@@ -43,7 +43,7 @@ exists(../openrpt) {
 TEMPLATE = app
 CONFIG += qt warn_on release
 INCLUDEPATH += $${XTUPLE_DIR}/common
-INCLUDEPATH += $${OPENRPT_DIR}/common
+INCLUDEPATH += $${OPENRPT_DIR}/common $${OPENRPT_DIR}/MetaSQL
 win32:INCLUDEPATH += .
 
 TARGET = csvimp
@@ -53,39 +53,63 @@ MOC_DIR     = tmp
 UI_DIR      = tmp
 
 LIBS += -L$${XTUPLE_DIR}/lib -lxtuplecommon
-LIBS += -L$${OPENRPT_DIR}/lib -lcommon
+LIBS += -L$${OPENRPT_DIR}/lib -lcommon -lMetaSQL
+
+win32-msvc* {
+  PRE_TARGETDEPS += $${XTUPLE_DIR}/lib/xtuplecommon.lib \
+                    $${OPENRPT_DIR}/lib/common.lib      \
+                    $${OPENRPT_DIR}/lib/MetaSQL.lib     \
+
+} else {
+  PRE_TARGETDEPS += $${XTUPLE_DIR}/lib/libxtuplecommon.a \
+                    $${OPENRPT_DIR}/lib/libcommon.a      \
+                    $${OPENRPT_DIR}/lib/libMetaSQL.a     \
+}
+
 
 # Input
-#The following line was changed from FORMS to FORMS3 by qt3to4
-FORMS3   += csvtoolwindow.ui \
-           csvloadprogress.ui \
+FORMS   += \
+           csvatlaswindow.ui    \
            csvimportprogress.ui \
+           csvtoolwindow.ui \
            logwindow.ui \
            missingfield.ui \
-           csvatlaswindow.ui
 
-HEADERS += csvdata.h \
-           csvmap.h \
+HEADERS += \
            csvatlas.h \
+           csvatlaswindow.h     \
+           csvdata.h \
+           csvmap.h \
+           csvtoolwindow.h \
+           data.h \
+           logwindow.h \
+           missingfield.h \
            rowcontroller.h \
-           data.h
 
-SOURCES += csvdata.cpp \
-           csvmap.cpp \
+SOURCES += \
            csvatlas.cpp \
-           rowcontroller.cpp \
+           csvatlaswindow.cpp \
+           csvdata.cpp \
+           csvmap.cpp \
+           csvtoolwindow.cpp \
            data.cpp \
-           main.cpp
+           logwindow.cpp \
+           main.cpp \
+           missingfield.cpp \
+           rowcontroller.cpp \
 
-#The following line was inserted by qt3to4
-QT += xml  sql 
-#The following line was inserted by qt3to4
-CONFIG += uic3
+QT += xml sql 
 
 RESOURCES += csvimp.qrc
 
-QT += qt3support
-macx {
-  CONFIG += x86 ppc
+macx:exists(macx.pri) {
+  include(macx.pri)
 }
 
+win32:exists(win32.pri) {
+  include(win32.pri)
+}
+
+unix:exists(unix.pri) {
+  include(unix.pri)
+}

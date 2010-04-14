@@ -9,7 +9,7 @@
  */
 
 #include <QApplication>
-#include <Q3MainWindow>
+#include <QMainWindow>
 #include <QWindowsStyle>
 #include <QSqlDatabase>
 #include <QStyleFactory>
@@ -27,7 +27,7 @@
 
 #include <data.h>
 
-#include <csvtoolwindow.h>
+#include "csvtoolwindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -123,10 +123,10 @@ int main(int argc, char *argv[])
   if(!loggedIn)
   {
     ParameterList params;
-    params.append("name", _name);
-    params.append("copyright", _copyright);
-    params.append("version", _version);
-    params.append("build", QString("%1 %2").arg(__DATE__).arg(__TIME__));
+    params.append("name",      CSVImp::name);
+    params.append("copyright", CSVImp::copyright);
+    params.append("version",   CSVImp::version);
+    params.append("build",     CSVImp::build);
 
     if (haveUsername)
       params.append("username", username);
@@ -145,7 +145,6 @@ int main(int argc, char *argv[])
   CSVToolWindow * mainwin = new CSVToolWindow();
   mainwin->show();
 
-  app.setMainWidget(mainwin);
+  QObject::connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
   return app.exec();
 }
-

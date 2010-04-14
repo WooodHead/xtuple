@@ -13,7 +13,7 @@
 
 #include <QString>
 #include <QStringList>
-#include <Q3ValueList>
+#include <QList>
 
 #include "csvmap.h"
 
@@ -38,7 +38,7 @@ class CSVAtlas
     QDomElement createElement(QDomDocument &);
 
   protected:
-    Q3ValueList<CSVMap> _maps;
+    QList<CSVMap> _maps;
     QString _description;
 
     bool _valid;

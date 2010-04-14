@@ -11,12 +11,13 @@
 #ifndef __CSVMAP_H__
 #define __CSVMAP_H__
 
+#include <QDomDocument>
+#include <QDomElement>
+#include <QList>
+#include <QSqlField>
 #include <QString>
 #include <QStringList>
 #include <QVariant>
-#include <Q3ValueList>
-#include <QDomDocument>
-#include <QDomElement>
 
 class CSVMapField
 {
@@ -110,7 +111,7 @@ class CSVMap
     bool removeField(const QString &);
     CSVMapField field(const QString &) const;
     QStringList fieldList() const;
-    Q3ValueList<CSVMapField> fields() const { return _fields; }
+    QList<CSVMapField> fields() const { return _fields; }
 
     void setSqlPre(const QString &);
     QString sqlPre() const { return _sqlPre; }
@@ -129,7 +130,7 @@ class CSVMap
     static Action nameToAction(const QString &);
 
   protected:
-    Q3ValueList<CSVMapField> _fields;
+    QList<CSVMapField> _fields;
 
   private:
     QString _sqlPre;

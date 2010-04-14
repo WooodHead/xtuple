@@ -8,17 +8,24 @@
  * to be bound by its terms.
  */
 
-#ifndef __CSVTOOLS_DATA_H__
-#define __CSVTOOLS_DATA_H__
+#ifndef MISSINGFIELD_H
+#define MISSINGFIELD_H
 
+#include "ui_missingfield.h"
+
+#include <QSqlRecord>
 #include <QString>
 
-class CSVImp {
+class MissingField : public QDialog, public Ui::MissingField
+{
+  Q_OBJECT
+
   public:
-    static QString build;
-    static QString name;
-    static QString copyright;
-    static QString version;
+    MissingField(QWidget *parent, const QString &field, const QSqlRecord &record);
+    ~MissingField();
+
+  protected slots:
+    void languageChange();
 };
 
 #endif

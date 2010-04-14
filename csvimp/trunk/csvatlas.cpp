@@ -13,7 +13,7 @@
 #include <QDomElement>
 #include <QDomNodeList>
 #include <QDomDocument>
-#include <Q3ValueList>
+#include <QList>
 
 CSVAtlas::CSVAtlas()
 {
@@ -54,9 +54,12 @@ QDomElement CSVAtlas::createElement(QDomDocument & doc)
     elem.appendChild(desc);
   }
 
-  Q3ValueList<CSVMap>::iterator it;
-  for(it = _maps.begin(); it != _maps.end(); ++it)
-    elem.appendChild((*it).createElement(doc));
+  for(int i = 0; i < _maps.size(); i++)
+  {
+    // tmp required because appendChild expects a const CSVMap
+    CSVMap tmp = _maps.at(i);
+    elem.appendChild(tmp.createElement(doc));
+  }
 
   return elem;
 }
@@ -81,12 +84,11 @@ void CSVAtlas::setMap(const CSVMap & m)
 
 bool CSVAtlas::removeMap(const QString & name)
 {
-  Q3ValueList<CSVMap>::iterator it;
-  for(it = _maps.begin(); it != _maps.end(); ++it)
+  for (int i = 0; i < _maps.size(); i++)
   {
-    if((*it).name() == name)
+    if(_maps.at(i).name() == name)
     {
-      it = _maps.remove(it);
+      _maps.removeAt(i);
       return TRUE;
     }
   }
@@ -95,11 +97,10 @@ bool CSVAtlas::removeMap(const QString & name)
 
 CSVMap CSVAtlas::map(const QString & name) const
 {
-  Q3ValueList<CSVMap>::const_iterator it;
-  for(it = _maps.begin(); it != _maps.end(); ++it)
+  for (int i = 0; i < _maps.size(); i++)
   {
-    if((*it).name() == name)
-      return *it;
+    if(_maps.at(i).name() == name)
+      return _maps.at(i);
   }
   return CSVMap();
 }
@@ -107,11 +108,8 @@ CSVMap CSVAtlas::map(const QString & name) const
 QStringList CSVAtlas::mapList() const
 {
   QStringList list;
-  Q3ValueList<CSVMap>::const_iterator it;
-  for(it = _maps.begin(); it != _maps.end(); ++it)
-  {
-    list.append((*it).name());
-  }
+  for (int i = 0; i < _maps.size(); i++)
+    list.append(_maps.at(i).name());
+
   return list;
 }
-

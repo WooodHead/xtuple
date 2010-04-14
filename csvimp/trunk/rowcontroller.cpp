@@ -10,9 +10,16 @@
 
 #include "rowcontroller.h"
 
-RowController::RowController(Q3Table * table, int row, QObject * parent, const char * name)
-  : QObject(parent, name)
+#include <QComboBox>
+#include <QSpinBox>
+#include <QTableWidget>
+#include <QTableWidgetItem>
+
+RowController::RowController(QTableWidget *table, int row, QObject *parent, const char * name)
+  : QObject(parent)
 {
+  setObjectName(name ?
+                name : QString("_rowController%1").arg(row).toAscii().data());
   _row = row;
   _action = 0;
   _column = 0;
@@ -20,7 +27,7 @@ RowController::RowController(Q3Table * table, int row, QObject * parent, const c
   _altColumn = 0;
   _altIfNull = 0;
   _altValue = 0;
-  connect(table, SIGNAL(valueChanged(int, int)), this, SLOT(valueChanged(int, int)));
+  connect(table, SIGNAL(cellChanged(int, int)), this, SLOT(valueChanged(int, int)));
 }
 
 RowController::~RowController()
@@ -34,32 +41,37 @@ RowController::~RowController()
   _altValue = 0;
 }
 
-void RowController::setAction(Q3ComboTableItem * combo)
+void RowController::setAction(QComboBox *combo)
 {
   _action = combo;
+  connect(_action, SIGNAL(currentIndexChanged(int)), this, SLOT(finishSetup()));
 }
 
-void RowController::setColumn(QSpinBox * spinner)
+void RowController::setColumn(QSpinBox *spinner)
 {
   _column = spinner;
+  connect(_column, SIGNAL(valueChanged(int)), this, SLOT(finishSetup()));
 }
 
-void RowController::setIfNull(Q3ComboTableItem * combo)
+void RowController::setIfNull(QComboBox *combo)
 {
   _ifNull = combo;
+  connect(_ifNull, SIGNAL(currentIndexChanged(int)), this, SLOT(finishSetup()));
 }
 
-void RowController::setAltColumn(QSpinBox * spinner)
+void RowController::setAltColumn(QSpinBox *spinner)
 {
   _altColumn = spinner;
+  connect(_altColumn, SIGNAL(valueChanged(int)), this, SLOT(finishSetup()));
 }
 
-void RowController::setAltIfNull(Q3ComboTableItem * combo)
+void RowController::setAltIfNull(QComboBox *combo)
 {
   _altIfNull = combo;
+  connect(_altIfNull, SIGNAL(currentIndexChanged(int)), this, SLOT(finishSetup()));
 }
 
-void RowController::setAltValue(Q3TableItem * item)
+void RowController::setAltValue(QTableWidgetItem *item)
 {
   _altValue = item;
 }
@@ -79,7 +91,7 @@ void RowController::finishSetup()
     _ifNull->setEnabled(FALSE);
     _altColumn->setEnabled(FALSE);
     _altIfNull->setEnabled(FALSE);
-    _altValue->setEnabled(FALSE);
+    _altValue->setFlags(_altValue->flags() & (~ Qt::ItemIsEditable));
   }
   else if(str == "UseColumn")
   {
@@ -91,13 +103,13 @@ void RowController::finishSetup()
     {
       _altColumn->setEnabled(FALSE);
       _altIfNull->setEnabled(FALSE);
-      _altValue->setEnabled(FALSE);
+      _altValue->setFlags(_altValue->flags() & (~ Qt::ItemIsEditable));
     }
     else if(str == "UseAlternateValue")
     {
       _altColumn->setEnabled(FALSE);
       _altIfNull->setEnabled(FALSE);
-      _altValue->setEnabled(TRUE);
+      _altValue->setFlags(_altValue->flags() | Qt::ItemIsEditable);
     }
     else if(str == "UseAlternateColumn")
     {
@@ -106,9 +118,9 @@ void RowController::finishSetup()
 
       str = _altIfNull->currentText();
       if(str == "UseAlternateValue")
-        _altValue->setEnabled(TRUE);
+        _altValue->setFlags(_altValue->flags() | Qt::ItemIsEditable);
       else
-        _altValue->setEnabled(FALSE);
+        _altValue->setFlags(_altValue->flags() & (~ Qt::ItemIsEditable));
     }
   }
   else if(str == "UseAlternateValue")
@@ -117,7 +129,7 @@ void RowController::finishSetup()
     _ifNull->setEnabled(FALSE);
     _altColumn->setEnabled(FALSE);
     _altIfNull->setEnabled(FALSE);
-    _altValue->setEnabled(TRUE);
+    _altValue->setFlags(_altValue->flags() | Qt::ItemIsEditable);
   }
 }
 
