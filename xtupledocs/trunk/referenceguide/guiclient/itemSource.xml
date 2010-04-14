@@ -6,7 +6,7 @@
   <title><indexterm significance="normal">
       <primary>item sources</primary>
       <secondary>creating new</secondary>
-    </indexterm> <indexterm significance="normal">
+    </indexterm><indexterm significance="normal">
       <primary>source vendors</primary>
       <see>item sources</see>
     </indexterm>Enter New Item Source</title>
@@ -40,6 +40,19 @@
       <term>Active</term>
       <listitem>
         <para>Identifies whether the Item is currently active.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default</term>
+      <listitem>
+        <para>Select this option to distinguish an Item Source from other Item
+        Sources for the same Item Number. If selected, the default Item Source
+        will be selected automatically when releasing Purchase Requests or
+        creating drop shipments. If no default Item Source is specified, users
+        will be asked to select Item Sources from a list of available Item
+        Sources when releasing Purchase Requests or creating drop shipments.
+        When this option is selected and saved, any other Item Sources for the
+        Item flagged as the default will be unchecked.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -111,13 +124,13 @@
       <term><indexterm significance="normal">
           <primary>vendor ranking</primary>
           <secondary>for item sources</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>item sources</primary>
           <secondary>ranking of</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>vendors</primary>
           <secondary>ranking of</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>ranking</primary>
           <secondary>of vendors</secondary>
         </indexterm>Vendor Ranking</term>
