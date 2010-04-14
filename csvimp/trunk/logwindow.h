@@ -8,12 +8,21 @@
  * to be bound by its terms.
  */
 
-#include <Q3SqlRecordInfo>
+#ifndef LOGWINDOW_H
+#define LOGWINDOW_H
 
-void MissingField::init( const QString & field, const Q3SqlRecordInfo & recinfo)
+#include "ui_logwindow.h"
+
+class LogWindow : public QMainWindow, public Ui::LogWindow
 {
-  _lblField->setText(field);
-  Q3SqlRecordInfo::const_iterator it;
-  for(it = recinfo.begin(); it != recinfo.end(); ++it)
-    _fields->insertItem((*it).name());
-}
+  Q_OBJECT
+
+  public:
+    LogWindow(QWidget *parent = 0);
+    ~LogWindow();
+
+  protected slots:
+    void languageChange();
+};
+
+#endif

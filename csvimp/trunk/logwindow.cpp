@@ -8,17 +8,18 @@
  * to be bound by its terms.
  */
 
-#ifndef __CSVTOOLS_DATA_H__
-#define __CSVTOOLS_DATA_H__
+#include "logwindow.h"
 
-#include <QString>
+LogWindow::LogWindow(QWidget *parent) : QMainWindow(parent)
+{
+  setupUi(this);
+}
 
-class CSVImp {
-  public:
-    static QString build;
-    static QString name;
-    static QString copyright;
-    static QString version;
-};
+LogWindow::~LogWindow()
+{
+}
 
-#endif
+void LogWindow::languageChange()
+{
+  retranslateUi(this);
+}

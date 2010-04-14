@@ -10,20 +10,18 @@
 
 #include "csvdata.h"
 
-#include <QFile>
-#include <QWidget>
-#include <Q3TextStream>
 #include <QApplication>
-#include <QDateTime>
-#include <QMessageBox>
+#include <QFile>
 #include <QLabel>
-#include <Q3ProgressBar>
-
-#include <csvloadprogress.h>
+#include <QMessageBox>
+#include <QProgressDialog>
+#include <QTextStream>
+#include <QWidget>
 
 CSVData::CSVData(QObject * parent, const char * name)
-  : QObject(parent, name)
+  : QObject(parent)
 {
+  setObjectName(name ? name : "_CSVData");
   _firstRowHeaders = FALSE;
   _numColumns = 0;
 }
@@ -87,58 +85,41 @@ bool CSVData::load(QString filename, QWidget * parent)
 {
   QFile file;
 
-  file.setName(filename);
+  file.setFileName(filename);
   if(!file.open(QIODevice::ReadOnly))
   {
     if(parent)
       QMessageBox::critical(parent, tr("Open Failed"),
-        tr("Could not open file for reading: %1").arg(qApp->translate("QFile", file.errorString())));
+        tr("Could not open file for reading: %1").arg(file.errorString()));
     return FALSE;
   }
 
-  CSVLoadProgress * progress = 0;
-  QTime time;
+  QString progresstext(tr("Loading %1: %2 bytes out of %3, %4 records"));
+  QProgressDialog *progress = 0;
+  int expected = file.size();
   if(parent)
   {
-    progress = new CSVLoadProgress(parent, "csv load progress");
-    progress->setModal(TRUE);
-    progress->_file->setText(filename);
-    progress->_totBytes->setText(QString("%1").arg(file.size()));
-    progress->_readBytes->setText(QString("%1").arg(file.at()));
-    progress->_readRecords->setText("0");
-    progress->_progressBar->setProgress(file.at(), file.size());
-
-    progress->show();
-    qApp->processEvents();
+    progress = new QProgressDialog(progresstext
+                                     .arg(filename).arg(0).arg(expected).arg(0),
+                                   tr("Stop"), 0, expected, parent);
+    progress->setWindowModality(Qt::WindowModal);
   }
-  time.start();
 
-  Q3TextStream in(&file);
+  QTextStream in(&file);
 
+  int  actual  = 0;
+  int  lines   = 0;
   bool inQuote = FALSE;
   bool haveText = FALSE;
   bool peeked = FALSE;
   QString field = QString::null;
   QChar c = QChar();
   QStringList row = QStringList();
+
   while(!in.atEnd())
   {
-    if(progress && time.elapsed() > 200)
-    {
-      qApp->processEvents();
-
-      if(!progress->isShown())
-      {
-        delete progress;
-        return FALSE; // True for False?
-      }
-
-      progress->_readBytes->setText(QString("%1").arg(file.at()));
-      progress->_readRecords->setText(QString("%1").arg(rows()));
-      progress->_progressBar->setProgress(file.at());
-
-      time.restart();
-    }
+    if(progress)
+      progress->setValue(actual);
 
     if(peeked)
       peeked = FALSE;
@@ -169,7 +150,7 @@ bool CSVData::load(QString filename, QWidget * parent)
       {
         // end of field processing
         if(!field.isNull() && haveText)
-          field = field.stripWhiteSpace();
+          field = field.trimmed();
 
         row.append(field);
 
@@ -187,9 +168,11 @@ bool CSVData::load(QString filename, QWidget * parent)
           }
 
           // end of line processing
-          _numColumns = QMAX(_numColumns, row.count());
+          _numColumns = qMax(_numColumns, row.count());
           _rows.append(row);
           row = QStringList();
+          progress->setLabelText(progresstext
+                         .arg(filename).arg(actual).arg(expected).arg(++lines));
         }
       }
       else if('"' == c)
@@ -213,22 +196,16 @@ bool CSVData::load(QString filename, QWidget * parent)
   if(!field.isNull())
   {
     if(haveText)
-      field = field.stripWhiteSpace();
+      field = field.trimmed();
     row.append(field);
   }
   if(!row.isEmpty())
   {
-    _numColumns = QMAX(_numColumns, row.count());
+    _numColumns = qMax(_numColumns, row.count());
     _rows.append(row);
   }
 
-  if(progress)
-  {
-    progress->close();
-    qApp->processEvents();
-    delete progress;
-  }
+  progress->setValue(expected);
 
   return TRUE;
 }
-

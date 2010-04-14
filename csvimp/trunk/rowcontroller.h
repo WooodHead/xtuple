@@ -12,23 +12,28 @@
 #define __ROWCONTROLLER_H__
 
 #include <QObject>
-#include <Q3Table>
-#include <QSpinBox>
+
+class QComboBox;
+class QSpinBox;
+class QTableWidget;
+class QTableWidgetItem;
 
 class RowController : public QObject
 {
   Q_OBJECT
+
   public:
-    RowController(Q3Table * table, int row, QObject* parent, const char * name = 0);
+    RowController(QTableWidget * table, int row, QObject* parent, const char * name = 0);
     virtual ~RowController();
 
-    void setAction(Q3ComboTableItem*);
+    void setAction(QComboBox*);
     void setColumn(QSpinBox*);
-    void setIfNull(Q3ComboTableItem*);
+    void setIfNull(QComboBox*);
     void setAltColumn(QSpinBox*);
-    void setAltIfNull(Q3ComboTableItem*);
-    void setAltValue(Q3TableItem*);
+    void setAltIfNull(QComboBox*);
+    void setAltValue(QTableWidgetItem*);
 
+  public slots:
     void finishSetup();
 
   protected slots:
@@ -36,12 +41,12 @@ class RowController : public QObject
 
   private:
     int _row;
-    Q3ComboTableItem * _action;    // 4
-    QSpinBox * _column;           // 5
-    Q3ComboTableItem * _ifNull;    // 6
-    QSpinBox * _altColumn;        // 7
-    Q3ComboTableItem * _altIfNull; // 8
-    Q3TableItem * _altValue;       // 9
+    QComboBox        *_action;    // 4
+    QSpinBox         *_column;    // 5
+    QComboBox        *_ifNull;    // 6
+    QSpinBox         *_altColumn; // 7
+    QComboBox        *_altIfNull; // 8
+    QTableWidgetItem *_altValue;  // 9
 };
 
 #endif
