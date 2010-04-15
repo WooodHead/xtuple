@@ -97,7 +97,7 @@ bool CSVData::load(QString filename, QWidget * parent)
   QString progresstext(tr("Loading %1: %2 bytes out of %3, %4 records"));
   QProgressDialog *progress = 0;
   int expected = file.size();
-  if(parent)
+  if (parent)
   {
     progress = new QProgressDialog(progresstext
                                      .arg(filename).arg(0).arg(expected).arg(0),
@@ -107,7 +107,6 @@ bool CSVData::load(QString filename, QWidget * parent)
 
   QTextStream in(&file);
 
-  int  actual  = 0;
   int  lines   = 0;
   bool inQuote = FALSE;
   bool haveText = FALSE;
@@ -116,11 +115,8 @@ bool CSVData::load(QString filename, QWidget * parent)
   QChar c = QChar();
   QStringList row = QStringList();
 
-  while(!in.atEnd())
+  for (int actual = 0; !in.atEnd(); actual++)
   {
-    if(progress)
-      progress->setValue(actual);
-
     if(peeked)
       peeked = FALSE;
     else
@@ -171,8 +167,12 @@ bool CSVData::load(QString filename, QWidget * parent)
           _numColumns = qMax(_numColumns, row.count());
           _rows.append(row);
           row = QStringList();
-          progress->setLabelText(progresstext
+          if (progress)
+          {
+            progress->setValue(actual);
+            progress->setLabelText(progresstext
                          .arg(filename).arg(actual).arg(expected).arg(++lines));
+          }
         }
       }
       else if('"' == c)
@@ -205,7 +205,8 @@ bool CSVData::load(QString filename, QWidget * parent)
     _rows.append(row);
   }
 
-  progress->setValue(expected);
+  if (progress)
+    progress->setValue(expected);
 
   return TRUE;
 }
