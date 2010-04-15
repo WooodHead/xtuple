@@ -10,7 +10,6 @@
 
 #include "csvtoolwindow.h"
 
-#include <QDateTime>
 #include <QFileDialog>
 #include <QInputDialog>
 #include <QList>
@@ -69,13 +68,9 @@ void CSVToolWindow::fileOpen()
   if(!fileName.isEmpty()) {
     statusBar()->showMessage(tr("Loading %1...").arg(fileName));
 
-    if(_data == 0)
-      _data = new CSVData(this);
-    else
-    {
+    if (_data != 0)
       delete _data;
-      _data = new CSVData(this);
-    }
+    _data = new CSVData(this);
 
     _data->load(fileName, this);
     _data->setFirstRowHeaders(_firstRowHeader->isChecked());
@@ -97,12 +92,17 @@ void CSVToolWindow::fileOpen()
         _table->setHorizontalHeaderItem(h, new QTableWidgetItem(header));
       }
     }
-    // TODO: replace with qprogressdialog?
-    QTime time;
-    time.start();
+    QString progresstext(tr("Displaying Record %1 of %2"));
+    QProgressDialog *progress = new QProgressDialog(progresstext.arg(0).arg(rows),
+                                                    tr("Cancel"), 0, rows, this);
+    progress->setWindowModality(Qt::WindowModal);
+
     QString v = QString::null;
     for (int r = 0; r < rows; r++)
     {
+      if (! (r % 100))
+        progress->setLabelText(progresstext.arg(0).arg(rows));
+
       for(int c = 0; c < cols; c++)
       {
         v = _data->value(r, c);
@@ -110,13 +110,9 @@ void CSVToolWindow::fileOpen()
           v = tr("(NULL)");
         _table->setItem(r, c, new QTableWidgetItem(v));
       }
-      if(time.elapsed() > 200)
-      {
-        statusBar()->showMessage(tr("Displaying Record %1 of %2").arg(r+1).arg(rows));
-        qApp->processEvents();
-        time.restart();
-      }
+      progress->setValue(r);
     }
+    progress->setValue(rows);
     statusBar()->showMessage(tr("Done loading %1").arg(fileName));
   }
   _firstRowHeader->setEnabled(TRUE);
