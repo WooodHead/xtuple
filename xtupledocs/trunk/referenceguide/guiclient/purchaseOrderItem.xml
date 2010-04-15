@@ -446,4 +446,25 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To view demand information for Purchase Order Items linked to Sales
+  Orders or Work Orders, select the "Demand" tab. The following screen will
+  appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/purchaseOrderItem_demandTab.png" />
+      </imageobject>
+      <caption>Line Item Demand Source</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
+    <varlistentry>
+      <term>Demand</term>
+      <listitem>
+        <para>Displays information about the Sales Order or the Work Order the
+        Purchase Order Item is linked to. If the Purchase Order Item is not
+        linked, the "Demand" tab will be disabled.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

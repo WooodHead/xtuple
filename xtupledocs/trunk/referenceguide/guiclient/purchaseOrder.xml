@@ -36,9 +36,16 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Status</term>
+      <term>Vendor #</term>
       <listitem>
-        <para>The Purchase Order status will display here.</para>
+        <para>Enter the Vendor number of the Vendor you are issuing the
+        Purchase Order to.</para>
+        <note>
+          <para>A valid Vendor number must be entered in the "Vendor #" field
+          before Line Items can be added to the Purchase Order. If no valid
+          Vendor number is entered, you will not be able to add Line Items to
+          the Purchase Order.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -59,20 +66,10 @@
         default, the Tax Zone associated with the Vendor will be used.</para>
       </listitem>
     </varlistentry>
-    <varlistentry role="standard">
-      <term>Receiving Site</term>
+    <varlistentry>
+      <term>Status</term>
       <listitem>
-        <para>Specify the Site where materials from the Purchase Order will be
-        received. By default, all active Sites are available for selection as
-        Receiving Sites. No special designation needs to be made in the Site
-        master or elsewhere to indicate that a Site may be used for receiving
-        purposes.</para>
-        <tip>
-          <para>The receiving Site may differ from the supplying Site(s) for
-          some Purchase Order Line Items. To update your Inventory records to
-          indicate that Items have been moved from the receiving to the
-          supplied from Site, perform an Inter-Site Transfer.</para>
-        </tip>
+        <para>The status of the Purchase Order will display here.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -95,32 +92,98 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Vendor #</term>
+      <term>Sales Order #</term>
       <listitem>
-        <para>Enter the Vendor number of the Vendor you are issuing the
-        Purchase Order to.</para>
-        <note>
-          <para>A valid Vendor number must be entered in the "Vendor #" field
-          before Line Items can be added to the Purchase Order. If no valid
-          Vendor number is entered, you will not be able to add Line Items to
-          the Purchase Order.</para>
-        </note>
+        <para>Displays information about linked Sales Orders. This field is
+        only used if the Purchase Order was created from a Sales Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Main Address</term>
+      <term>Vendor Address</term>
       <listitem>
-        <para>Displays the main address for the specified Vendor. The main
-        address information is the primary Vendor address stored on the Vendor
-        master.</para>
+        <para>Specify the Vendor Address information:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Main Address</term>
+            <listitem>
+              <para>Displays the Vendor's main Address. You may manually
+              override the displayed Address information in the fields
+              below&mdash;or use the lookup feature to select another Address.
+              If a new Address is manually entered here, that Address will be
+              added automatically to the master list of Addresses. For
+              additional documentation related to creating Addresses, see
+              <xref linkend="Section560316" />.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Primary Contact</term>
+            <listitem>
+              <para>Displays the Vendor's primary Contact. You may manually
+              override the displayed Contact information in the fields
+              below&mdash;or use the lookup feature to select another Contact.
+              If a new Contact is manually entered here, that Contact will be
+              added automatically to the master list of Contacts. For
+              additional documentation related to creating Addresses, see
+              <xref linkend="contactTitle" />.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Alt. Address</term>
+      <term>Ship To</term>
       <listitem>
-        <para>Enter the number of an alternate Address. By default, the
-        alternate Address will be used as the Ship-To Address when the
-        Purchase Order is printed.</para>
+        <para>Specify the Ship-To Address information:</para>
+        <variablelist>
+          <varlistentry role="standard">
+            <term>Receiving Site</term>
+            <listitem>
+              <para>Specify the Site where materials from the Purchase Order
+              will be received. By default, all active Sites are available for
+              selection as Receiving Sites.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry role="standard">
+            <term>Drop Ship</term>
+            <listitem>
+              <para>If the Purchase Order was created as a drop ship Order
+              from a Sales Order, this option will be selected. This option is
+              only available for drop ship Purchase Orders linked to Sales
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Ship-To Address</term>
+            <listitem>
+              <para>Displays either the Site Address for the specified
+              receiving Site or, when there is a linked Sales Order, the
+              Customer Ship-To Address. When Purchase Orders are linked to
+              Sales Orders, the Ship-To Address is inherited from the linked
+              Sales Order. You may manually override the displayed Address
+              information in the fields below&mdash;or use the lookup feature
+              to select another Address. If a new Address is manually entered
+              here, that Address will be added automatically to the master
+              list of Addresses. For additional documentation related to
+              creating Addresses, see <xref linkend="contactTitle" />.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipping Contact</term>
+            <listitem>
+              <para>Displays either the Contact information for the specified
+              receiving Site or, when there is a linked Sales Order, the
+              Contact for the Customer Ship-To Address. When Purchase Orders
+              are linked to Sales Orders, the Shipping Contact information is
+              inherited from the linked Sales Order. You may manually override
+              the displayed Contact information in the fields below&mdash;or
+              use the lookup feature to select another Contact. If a new
+              Contact is manually entered here, that Contact will be added
+              automatically to the master list of Contacts. For additional
+              documentation related to creating Addresses, see <xref
+              linkend="contactTitle" />.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
