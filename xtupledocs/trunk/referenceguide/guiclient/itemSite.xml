@@ -94,7 +94,7 @@
               purchased and outside-process Items. If you select this option,
               you are indicating that you want Purchase Requests to be
               automatically generated for the Item in question whenever
-              quantities are demanded by Work Orders. </para>
+              quantities are demanded by Work Orders.</para>
               <note>
                 <para>Purchase Requests created to meet Work Order or Sales
                 Order demand will be created regardless of Item
@@ -111,21 +111,38 @@
               purchased and outside-process Items. If you select this option,
               you are indicating that you want Purchase Requests to be
               automatically generated for the Item in question whenever
-              quantities are demanded by Sales Orders</para>
+              quantities are demanded by Sales Orders. This option and the
+              "Create Purchase Orders linked to Sales Orders" option are
+              mutually exclusive.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Create Purchase Orders linked to Sales Orders</term>
+            <term><indexterm significance="normal">
+                <primary>drop shipping</primary>
+                <secondary>item site settings for</secondary>
+              </indexterm>Create Purchase Orders linked to Sales Orders</term>
             <listitem>
-              <para></para>
-              <variablelist>
-                <varlistentry>
-                  <term>Drop ship Items by default</term>
-                  <listitem>
-                    <para></para>
-                  </listitem>
-                </varlistentry>
-              </variablelist>
+              <para>Select to create Purchase Orders linked to Sales Orders.
+              You must have at least one Item Source defined for the Item to
+              use this option. Linking Purchase Orders to Sales Order creates
+              the basic foundation for drop shipment functionality. This
+              option and the "Create Purchase Requests for Sales Orders"
+              option are mutually exclusive. If your site is configured to use
+              drop shipping, the following additional option will also be
+              available:</para>
+              <para role="standard"><variablelist>
+                  <varlistentry>
+                    <term>Drop ship Items by default</term>
+                    <listitem>
+                      <para>If selected, the "Drop Ship" flag will always be
+                      turned ON when Sales Order Line Items are created for
+                      drop ship Items. Do not select this option if you want
+                      users to manually select the "Drop Ship" flag when
+                      entering Sales Orders. This option will only be visible
+                      if your site is configured to use drop shipping.</para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist></para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -287,7 +304,7 @@
     <varlistentry>
       <term>Settings</term>
       <listitem>
-        <para></para>
+        <para>Select from the following settings options:</para>
         <variablelist>
           <varlistentry>
             <term>Stocked</term>
