@@ -6,7 +6,7 @@ BEGIN
     NEW.item_picklist := FALSE;
   END IF;
 
-  IF (NEW.item_type IN ('F','S','T','O','L','B')) THEN
+  IF (NEW.item_type IN ('F','S','O','L','B')) THEN
     NEW.item_picklist := FALSE;
     NEW.item_sold := FALSE;
     NEW.item_prodcat_id := -1;
