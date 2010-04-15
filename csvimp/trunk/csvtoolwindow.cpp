@@ -42,6 +42,7 @@ CSVToolWindow::CSVToolWindow(QWidget *parent)
   _log = new LogWindow(this);
   _data = 0;
   _dbTimerId = startTimer(60000);
+  _stopped = false;
 }
 
 CSVToolWindow::~CSVToolWindow()
@@ -94,14 +95,16 @@ void CSVToolWindow::fileOpen()
     }
     QString progresstext(tr("Displaying Record %1 of %2"));
     QProgressDialog *progress = new QProgressDialog(progresstext.arg(0).arg(rows),
-                                                    tr("Cancel"), 0, rows, this);
+                                                    tr("Stop"), 0, rows, this);
+    connect(progress, SIGNAL(canceled()), this, SLOT(sUserCanceled()));
+    _stopped = false;
     progress->setWindowModality(Qt::WindowModal);
 
     QString v = QString::null;
-    for (int r = 0; r < rows; r++)
+    for (int r = 0; r < rows && ! _stopped; r++)
     {
       if (! (r % 100))
-        progress->setLabelText(progresstext.arg(0).arg(rows));
+        progress->setLabelText(progresstext.arg(r).arg(rows));
 
       for(int c = 0; c < cols; c++)
       {
@@ -250,9 +253,12 @@ void CSVToolWindow::importStart()
   int total = _data->rows();
   int current = 0, error = 0, ignored = 0;
 
+  QSqlQuery begin("BEGIN;");
+
   QString errMsg;
   if(!map.sqlPre().trimmed().isEmpty())
   {
+    QSqlQuery savepoint("SAVEPOINT presql;");
     QSqlQuery pre;
     if(!pre.exec(map.sqlPre()))
     {
@@ -260,10 +266,16 @@ void CSVToolWindow::importStart()
       _log->_log->append("\n\n----------------------\n");
       _log->_log->append(errMsg);
       _log->show();
+      _log->raise();
       if(map.sqlPreContinueOnError())
+      {
         _log->_log->append(tr("\n\nContinuing with rest of import\n\n"));
+        QSqlQuery sprollback("ROLLBACK TO SAVEPOINT presql;");
+        QSqlQuery savepoint("RELEASE SAVEPOINT presql;");
+      }
       else
       {
+        QSqlQuery rollback("ROLLBACK;");
         QMessageBox::warning(this, tr("Error"),
                              tr("<p>There was an error running the pre sql "
                                 "query. Please see the log for more details. "
@@ -278,6 +290,8 @@ void CSVToolWindow::importStart()
   QProgressDialog *progress = new QProgressDialog(progresstext
                                         .arg(map.name()).arg(0).arg(expected),
                                         tr("Cancel"), 0, expected, this);
+  connect(progress, SIGNAL(canceled()), this, SLOT(sUserCanceled()));
+  _stopped = false;
   progress->setWindowModality(Qt::WindowModal);
 
   QString query;
@@ -289,11 +303,12 @@ void CSVToolWindow::importStart()
 
   QStringList errorList;
   
-  for(current = 0; current < total; ++current)
+  for(current = 0; current < total && ! _stopped; ++current)
   {
     if(! (current % 100))
       progress->setLabelText(progresstext.arg(map.name()).arg(current).arg(expected));
 
+    QSqlQuery savepoint("SAVEPOINT csvinsert;");
     if(action == CSVMap::Insert)
     {
       query = QString("INSERT INTO %1 ").arg(map.table());
@@ -409,34 +424,35 @@ void CSVToolWindow::importStart()
 
       if(!qry.exec())
       {
+        QSqlQuery sprollback("ROLLBACK TO SAVEPOINT csvinsert;");
         error++;
         errMsg = QString("ERROR Record %1: %2").arg(current+1).arg(qry.lastError().text());
         errorList.append(errMsg);
       }
-      //_log->_log->append("\n\n" + qry.executedQuery());
     }
     progress->setValue(current);
   }
   progress->setValue(total);
 
-  // do some reporting here on the results including error message and
-  // marking any unprocessed records and the like
-  if(error == 0 && ignored == 0)
-    QMessageBox::information(this, tr("Import Complete"), tr("Your import was completed successfully."));
-  else
+  if (error || ignored)
   {
-    _log->_log->append("\n\n------------------\n");
-    errMsg = QString("Map: %1\nTable: %2\nMethod: %3\n\n").arg(map.name(), map.table(), CSVMap::actionToName(map.action()));
-    errMsg += QString("Total Records: %1\n").arg(total);
-    errMsg += QString("# Processed:   %1\n").arg(current);
-    errMsg += QString("# Ignored:     %1\n").arg(ignored);
-    errMsg += QString("# Errors:      %1\n\n").arg(error);
+    _log->_log->append(tr("Map: %1\n"
+                          "Table: %2\n"
+                          "Method: %3\n\n"
+                          "Total Records: %4\n"
+                          "# Processed:   %5\n"
+                          "# Ignored:     %6\n"
+                          "# Errors:      %7\n\n")
+                          .arg(map.name()).arg(map.table())
+                          .arg(CSVMap::actionToName(map.action()))
+                          .arg(total).arg(current).arg(ignored).arg(error));
     _log->_log->append(errMsg);
     _log->_log->append(errorList.join("\n"));
     _log->show();
+    _log->raise();
   }
 
-  if(!map.sqlPost().trimmed().isEmpty())
+  if (! _stopped && ! map.sqlPost().trimmed().isEmpty())
   {
     QSqlQuery post;
     if(!post.exec(map.sqlPost()))
@@ -445,11 +461,28 @@ void CSVToolWindow::importStart()
       _log->_log->append("\n\n----------------------\n");
       _log->_log->append(errMsg);
       _log->show();
-      QMessageBox::warning(this, tr("Error"), tr("There was an error running the post sql query.\nPlease see the log for more details."));
+      _log->raise();
+      QSqlQuery rollback("ROLLBACK;");
+      QMessageBox::warning(this, tr("Error"),
+                           tr("<p>There was an error running the post sql "
+                              "query and changes were rolled back. "
+                              "Please see the log for more details."));
       return;
     }
   }
 
+  if (_stopped)
+  {
+    QSqlQuery rollback("ROLLBACK;");
+    _log->_log->append(tr("\n\nImport canceled by user. Changes were rolled back."));
+  }
+  else
+  {
+    QSqlQuery commit("COMMIT");
+    if (! error)
+      QMessageBox::information(this, tr("Import Complete"),
+                               tr("Your import was completed successfully."));
+  }
 }
 
 void CSVToolWindow::sImportViewLog()
@@ -468,4 +501,9 @@ void CSVToolWindow::timerEvent( QTimerEvent * e )
     }
     // if we are not connected then we have some problems!
   }
+}
+
+void CSVToolWindow::sUserCanceled()
+{
+  _stopped = true;
 }

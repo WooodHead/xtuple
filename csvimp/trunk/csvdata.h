@@ -36,7 +36,11 @@ class CSVData : public QObject
 
     bool load(QString, QWidget* = 0);
 
+  protected slots:
+    void sUserCanceled();
+
   protected:
+    bool _stopped;
 
   private:
     bool _firstRowHeaders;
