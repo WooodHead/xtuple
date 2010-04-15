@@ -11,6 +11,7 @@
 #include <QApplication>
 #include <QMainWindow>
 #include <QWindowsStyle>
+#include <QSplashScreen>
 #include <QSqlDatabase>
 #include <QStyleFactory>
 #include <QMessageBox>
@@ -21,7 +22,7 @@
 
 #include <xsqlquery.h>
 #include <dbtools.h>
-#include <login2.h>
+#include <login.h>
 
 #include <parameter.h>
 
@@ -134,9 +135,11 @@ int main(int argc, char *argv[])
     if (haveDatabaseURL)
       params.append("databaseURL", databaseURL);
 
-    login2 newdlg(0, "", TRUE);
-    newdlg.setLogo(QImage(":/images/splashCSVimp.png"));
-    newdlg.set(params, 0);
+    login newdlg(0, "", TRUE);
+    QPixmap tmpPixmap(":/images/splashCSVimp.png");
+    newdlg._logo->setPixmap(tmpPixmap);
+    QSplashScreen splash(tmpPixmap);
+    newdlg.set(params, &splash);
 
     if (newdlg.exec() == QDialog::Rejected)
       return -1;

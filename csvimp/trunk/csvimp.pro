@@ -8,24 +8,6 @@
 # to be bound by its terms.
 #
 
-exists(../../../xtuple) {
-  XTUPLE_DIR = ../../../xtuple
-}
-exists(../../xtuple) {
-  XTUPLE_DIR = ../../xtuple
-}
-exists(../xtuple) {
-  XTUPLE_DIR = ../xtuple
-}
-
-exists($${XTUPLE_DIR}/trunk) {
-  XTUPLE_DIR = $${XTUPLE_DIR}/trunk
-}
-
-! exists($${XTUPLE_DIR}) {
-  error("Could not set the XTUPLE_DIR qmake variable.")
-}
-
 exists(../../../openrpt) {
   OPENRPT_DIR = ../../../openrpt
 }
@@ -42,7 +24,6 @@ exists(../openrpt) {
 
 TEMPLATE = app
 CONFIG += qt warn_on release
-INCLUDEPATH += $${XTUPLE_DIR}/common
 INCLUDEPATH += $${OPENRPT_DIR}/common $${OPENRPT_DIR}/MetaSQL
 win32:INCLUDEPATH += .
 
@@ -52,17 +33,14 @@ OBJECTS_DIR = tmp
 MOC_DIR     = tmp
 UI_DIR      = tmp
 
-LIBS += -L$${XTUPLE_DIR}/lib -lxtuplecommon
 LIBS += -L$${OPENRPT_DIR}/lib -lcommon -lMetaSQL
 
 win32-msvc* {
-  PRE_TARGETDEPS += $${XTUPLE_DIR}/lib/xtuplecommon.lib \
-                    $${OPENRPT_DIR}/lib/common.lib      \
+  PRE_TARGETDEPS += $${OPENRPT_DIR}/lib/common.lib      \
                     $${OPENRPT_DIR}/lib/MetaSQL.lib     \
 
 } else {
-  PRE_TARGETDEPS += $${XTUPLE_DIR}/lib/libxtuplecommon.a \
-                    $${OPENRPT_DIR}/lib/libcommon.a      \
+  PRE_TARGETDEPS += $${OPENRPT_DIR}/lib/libcommon.a      \
                     $${OPENRPT_DIR}/lib/libMetaSQL.a     \
 }
 
@@ -98,7 +76,7 @@ SOURCES += \
            missingfield.cpp \
            rowcontroller.cpp \
 
-QT += xml sql 
+QT += xml sql
 
 RESOURCES += csvimp.qrc
 
