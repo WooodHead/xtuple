@@ -24,6 +24,7 @@ CSVData::CSVData(QObject * parent, const char * name)
   setObjectName(name ? name : "_CSVData");
   _firstRowHeaders = FALSE;
   _numColumns = 0;
+  _stopped    = false;
 }
 
 CSVData::~CSVData() {
@@ -96,6 +97,7 @@ bool CSVData::load(QString filename, QWidget * parent)
 
   QString progresstext(tr("Loading %1: %2 bytes out of %3, %4 records"));
   QProgressDialog *progress = 0;
+  _stopped = false;
   int expected = file.size();
   if (parent)
   {
@@ -103,6 +105,7 @@ bool CSVData::load(QString filename, QWidget * parent)
                                      .arg(filename).arg(0).arg(expected).arg(0),
                                    tr("Stop"), 0, expected, parent);
     progress->setWindowModality(Qt::WindowModal);
+    connect(progress, SIGNAL(canceled()), this, SLOT(sUserCanceled()));
   }
 
   QTextStream in(&file);
@@ -115,7 +118,7 @@ bool CSVData::load(QString filename, QWidget * parent)
   QChar c = QChar();
   QStringList row = QStringList();
 
-  for (int actual = 0; !in.atEnd(); actual++)
+  for (int actual = 0; ! in.atEnd() && ! _stopped; actual++)
   {
     if(peeked)
       peeked = FALSE;
@@ -209,4 +212,9 @@ bool CSVData::load(QString filename, QWidget * parent)
     progress->setValue(expected);
 
   return TRUE;
+}
+
+void CSVData::sUserCanceled()
+{
+  _stopped = true;
 }

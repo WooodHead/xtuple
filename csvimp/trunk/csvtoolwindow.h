@@ -41,10 +41,12 @@ class CSVToolWindow : public QMainWindow, public Ui::CSVToolWindow
 
   protected slots:
     void languageChange();
+    void sUserCanceled();
 
   protected:
     CSVAtlasWindow *_atlasWindow;
     CSVData        *_data;
     int             _dbTimerId;
     LogWindow      *_log;
+    bool            _stopped;
 };
