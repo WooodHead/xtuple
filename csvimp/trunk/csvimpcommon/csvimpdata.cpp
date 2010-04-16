@@ -8,7 +8,7 @@
  * to be bound by its terms.
  */
 
-#include "data.h"
+#include "csvimpdata.h"
 
 #include <QObject>
 

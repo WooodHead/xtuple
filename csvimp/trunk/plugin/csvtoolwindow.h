@@ -8,6 +8,9 @@
  * to be bound by its terms.
  */
 
+#ifndef CSVTOOLWINDOW_H
+#define CSVTOOLWINDOW_H
+
 #include "ui_csvtoolwindow.h"
 
 class CSVAtlasWindow;
@@ -20,7 +23,7 @@ class CSVToolWindow : public QMainWindow, public Ui::CSVToolWindow
   Q_OBJECT
     
   public:
-    CSVToolWindow(QWidget *parent = 0);
+    CSVToolWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0);
     ~CSVToolWindow();
 
   public slots:
@@ -50,3 +53,5 @@ class CSVToolWindow : public QMainWindow, public Ui::CSVToolWindow
     LogWindow      *_log;
     bool            _stopped;
 };
+
+#endif

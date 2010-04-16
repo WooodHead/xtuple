@@ -27,13 +27,13 @@
 #include "csvatlas.h"
 #include "csvatlaswindow.h"
 #include "csvdata.h"
-#include "data.h"
+#include "csvimpdata.h"
 #include "logwindow.h"
 
-#include "images/CSVimpIcon.xpm"
+#include "CSVimpIcon.xpm"
 
-CSVToolWindow::CSVToolWindow(QWidget *parent)
-  : QMainWindow(parent)
+CSVToolWindow::CSVToolWindow(QWidget *parent, Qt::WindowFlags flags)
+  : QMainWindow(parent, flags)
 {
   setupUi(this);
 
@@ -240,13 +240,16 @@ void CSVToolWindow::importStart()
   if(action != CSVMap::Insert)
   {
     QMessageBox::warning(this, tr("Action not implemented"),
-      tr("The action %1 for this map is not supported yet.").arg(CSVMap::actionToName(action)));
+                         tr("The action %1 for this map is not supported yet.")
+                         .arg(CSVMap::actionToName(action)));
     return;
   }
 
   if(!_data || _data->rows() < 1)
   {
-    QMessageBox::warning(this, tr("No data"), tr("There is no data to process. Load a CSV file before continuing."));
+    QMessageBox::warning(this, tr("No data"),
+                         tr("<p>There is no data to process. "
+                            "Load a CSV file before continuing."));
     return;
   }
 

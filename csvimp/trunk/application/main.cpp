@@ -9,12 +9,14 @@
  */
 
 #include <QApplication>
+#include <QDir>
 #include <QMainWindow>
-#include <QWindowsStyle>
+#include <QMessageBox>
+#include <QPluginLoader>
 #include <QSplashScreen>
 #include <QSqlDatabase>
 #include <QStyleFactory>
-#include <QMessageBox>
+#include <QWindowsStyle>
 
 #ifdef Q_WS_MACX
 #include <qmacstyle_mac.h>
@@ -26,9 +28,34 @@
 
 #include <parameter.h>
 
-#include <data.h>
+#include "csvimpdata.h"
+#include "csvimpplugininterface.h"
 
-#include "csvtoolwindow.h"
+CSVImpPluginInterface *csvimpInterface = 0;
+
+bool loadPlugin()
+{
+  QDir pluginsDir(QApplication::applicationDirPath());
+
+  while (! pluginsDir.exists("plugins") && pluginsDir.cdUp())
+    ;
+  if (! pluginsDir.cd("plugins"))
+    return false;
+
+  foreach (QString fileName, pluginsDir.entryList(QDir::Files))
+  {
+    QPluginLoader pluginLoader(pluginsDir.absoluteFilePath(fileName));
+    QObject *plugin = pluginLoader.instance();
+    if (plugin)
+    {
+      csvimpInterface = qobject_cast<CSVImpPluginInterface*>(plugin);
+      if (csvimpInterface)
+        return true;
+    }
+  }
+
+  return false;
+}
 
 int main(int argc, char *argv[])
 {
@@ -52,6 +79,13 @@ int main(int argc, char *argv[])
 #else
   app.setStyle(new QWindowsStyle);
 #endif
+
+  if (!loadPlugin())
+  {
+    QMessageBox::critical(0, QObject::tr("Plugin Error"),
+                             QObject::tr("Could not load the CSVImp plugin"));
+    exit(1);
+  }
 
   if (argc > 1)
   {
@@ -95,7 +129,10 @@ int main(int argc, char *argv[])
       db = QSqlDatabase::addDatabase("QPSQL7");
       if (!db.isValid())
       {
-        QMessageBox::critical(0, QObject::tr("Can not load database driver"), QObject::tr("Unable to load the databse driver. Please contact your systems adminstrator."));
+        QMessageBox::critical(0, QObject::tr("Can not load database driver"),
+                              QObject::tr("<p>Unable to load the database "
+                                          "driver. Please contact your systems "
+                                          "adminstrator."));
         QApplication::exit(-1);
       }
 
@@ -112,13 +149,14 @@ int main(int argc, char *argv[])
       
       if (!db.open())
       {
-        QMessageBox::critical(0, QObject::tr("Unable to connect to database"), QObject::tr("Unable to connect to the database with the given information."));
+        QMessageBox::critical(0, QObject::tr("Unable to connect to database"),
+                              QObject::tr("<p>Unable to connect to the database "
+                                          "with the given information."));
         QApplication::exit(-1);
       }
       else
         loggedIn = TRUE;
     }
-
   }
 
   if(!loggedIn)
@@ -145,7 +183,7 @@ int main(int argc, char *argv[])
       return -1;
   }
 
-  CSVToolWindow * mainwin = new CSVToolWindow();
+  QMainWindow *mainwin = csvimpInterface->CSVToolWindow();
   mainwin->show();
 
   QObject::connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
