@@ -39,7 +39,7 @@
  <createfunction file="dropifexists.sql" name="dropifexists" />
  <createtrigger  file="pkgtesttrigger.sql" name="pkgtestbefore" />
  <createview     file="pkgtestview.sql" name="pkgtestview" />
- <loadmetasql    file="telephonelookup.mql" >
+ <loadmetasql    file="telephonelookup.mql" grade="10" >
   comment on metasql
  </loadmetasql>
  <loadreport     grade="0" file="telephonelookup.xml" />

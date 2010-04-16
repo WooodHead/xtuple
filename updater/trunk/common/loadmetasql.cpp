@@ -46,14 +46,6 @@ LoadMetasql::LoadMetasql(const QDomElement &elem, const bool system,
   if (elem.hasAttribute("group"))
     _group = elem.attribute("group");
 
-  if (elem.hasAttribute("grade") || elem.hasAttribute("order"))
-  {
-    msg.append(TR("Node %1 '%2' has a 'grade' or 'order' attribute "
-                           "but these are ignored for MetaSQL statements.")
-                           .arg(elem.nodeName()).arg(elem.attribute("name")));
-    fatal.append(false);
-  }
-
   if (elem.hasAttribute("enabled"))
   {
     msg.append(TR("Node %1 '%2' has an 'enabled' "
@@ -126,13 +118,14 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
   int metasqlid = -1;
 
   upsert.prepare("SELECT saveMetasql(:group, :name, :notes, :query, "
-                 "                   :system, :schema) AS result;");
+                 "                   :system, :schema, :grade) AS result;");
   upsert.bindValue(":group", _group);
   upsert.bindValue(":name",  _name);
   upsert.bindValue(":notes", _comment);
   upsert.bindValue(":query", metasqlStr);
   upsert.bindValue(":system",_system);
   upsert.bindValue(":schema",destschema);
+  upsert.bindValue(":grade", _grade);
 
   upsert.exec();
   if (upsert.first())
