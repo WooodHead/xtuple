@@ -182,6 +182,25 @@ BEGIN
                                ( 'Qty. Ordered Changed from ' || formatQty(OLD.poitem_qty_ordered) ||
                                  ' to ' || formatQty(NEW.poitem_qty_ordered ) ) );
         END IF;
+        IF (NEW.poitem_unitprice <> OLD.poitem_unitprice) THEN
+          PERFORM postComment( _cmnttypeid, 'PI', NEW.poitem_id,
+                               ( 'Unit Price Changed from ' || formatPurchPrice(OLD.poitem_unitprice) ||
+                                 ' to ' || formatPurchPrice(NEW.poitem_unitprice ) ) );
+        END IF;
+        IF (NEW.poitem_duedate <> OLD.poitem_duedate) THEN
+          PERFORM postComment( _cmnttypeid, 'PI', NEW.poitem_id,
+                               ( 'Due Date Changed from ' || formatDate(OLD.poitem_duedate) ||
+                                 ' to ' || formatDate(NEW.poitem_duedate ) ) );
+        END IF;
+        IF (COALESCE(OLD.poitem_taxtype_id, -1) <> COALESCE(NEW.poitem_taxtype_id, -1)) THEN
+          PERFORM postComment( _cmnttypeid, 'PI', NEW.poitem_id,
+                               ( 'Tax Type Changed from "' ||
+                                 COALESCE((SELECT taxtype_name FROM taxtype WHERE taxtype_id=OLD.poitem_taxtype_id), 'None') ||
+                                 '" (' || COALESCE(OLD.poitem_taxtype_id, 0) ||
+                                 ') to "' ||
+                                 COALESCE((SELECT taxtype_name FROM taxtype WHERE taxtype_id=NEW.poitem_taxtype_id), 'None') ||
+                                 '" (' || COALESCE(NEW.poitem_taxtype_id, 0) || ')' ) );
+        END IF;
 
       ELSIF (TG_OP = 'DELETE') THEN
         PERFORM postComment(_cmnttypeid, 'P', OLD.poitem_pohead_id, ('Deleted Line #' || OLD.poitem_linenumber::TEXT));
