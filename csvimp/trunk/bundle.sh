@@ -8,7 +8,7 @@
 # to be bound by its terms.
 #
 PROG=`basename $0`
-VERFILE=data.cpp
+VERFILE=csvimpcommon/csvimpdata.cpp
 APP=csvimp.app
 BUILD=false
 DEMO=false
