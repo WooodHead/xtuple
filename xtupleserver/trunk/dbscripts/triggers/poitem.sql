@@ -42,7 +42,7 @@ BEGIN
       FROM itemsite, item
       WHERE ((itemsite_id=NEW.poitem_itemsite_id)
       AND (itemsite_item_id=item_id)
-      AND (item_type IN ('P','O','M')));
+      AND (item_type IN ('P','O','M','T')));
       IF NOT (_check) THEN
         RAISE EXCEPTION 'The item is not a purchasable item type';
       END IF;
