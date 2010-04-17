@@ -80,11 +80,19 @@ BEGIN
      AND (apcreditapply_source_apopen_id=pApopenid) );
 
     IF (FOUND) THEN
---  Offset the amount to apply by the amount already applied
-      _applyAmount := (_applyAmount - _p.apcreditapply_amount);
-      IF (_applyAmount < 0) THEN
-        _applyAmount := 0;
+--  Recalculate the amount to apply
+      IF ((_r.balance - _p.apcreditapply_amount) > _amount) THEN
+        _applyAmount := _amount;
+      ELSE
+        _applyAmount := (_r.balance - _p.apcreditapply_amount);
       END IF;
+
+--  Replace the following with the above recalculation
+--  Offset the amount to apply by the amount already applied
+--      _applyAmount := (_applyAmount - _p.apcreditapply_amount);
+--      IF (_applyAmount < 0) THEN
+--        _applyAmount := 0;
+--      END IF;
 
 --  Update the apcreditapply with the new amount to apply
       UPDATE apcreditapply
