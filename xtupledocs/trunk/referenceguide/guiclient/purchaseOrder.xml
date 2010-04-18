@@ -156,31 +156,28 @@
             <term>Ship-To Address</term>
             <listitem>
               <para>Displays either the Site Address for the specified
-              receiving Site or, when there is a linked Sales Order, the
-              Customer Ship-To Address. When Purchase Orders are linked to
-              Sales Orders, the Ship-To Address is inherited from the linked
-              Sales Order. You may manually override the displayed Address
-              information in the fields below&mdash;or use the lookup feature
-              to select another Address. If a new Address is manually entered
-              here, that Address will be added automatically to the master
-              list of Addresses. For additional documentation related to
-              creating Addresses, see <xref linkend="contactTitle" />.</para>
+              receiving Site or, for drop ship Orders, the Customer Ship-To
+              Address from the linked Sales Order. You may manually override
+              the displayed Address information in the fields below&mdash;or
+              use the lookup feature to select another Address. If a new
+              Address is manually entered here, that Address will be added
+              automatically to the master list of Addresses. For additional
+              documentation related to creating Addresses, see <xref
+              linkend="contactTitle" />.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Shipping Contact</term>
             <listitem>
               <para>Displays either the Contact information for the specified
-              receiving Site or, when there is a linked Sales Order, the
-              Contact for the Customer Ship-To Address. When Purchase Orders
-              are linked to Sales Orders, the Shipping Contact information is
-              inherited from the linked Sales Order. You may manually override
-              the displayed Contact information in the fields below&mdash;or
-              use the lookup feature to select another Contact. If a new
-              Contact is manually entered here, that Contact will be added
-              automatically to the master list of Contacts. For additional
-              documentation related to creating Addresses, see <xref
-              linkend="contactTitle" />.</para>
+              receiving Site or, for drop ship Orders, the Contact for the
+              Customer Ship-To Address on the linked Sales Order. You may
+              manually override the displayed Contact information in the
+              fields below&mdash;or use the lookup feature to select another
+              Contact. If a new Contact is manually entered here, that Contact
+              will be added automatically to the master list of Contacts. For
+              additional documentation related to creating Addresses, see
+              <xref linkend="contactTitle" />.</para>
             </listitem>
           </varlistentry>
         </variablelist>
