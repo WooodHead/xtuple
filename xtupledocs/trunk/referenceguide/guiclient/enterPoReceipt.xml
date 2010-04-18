@@ -5,7 +5,7 @@
 <section id="Section531874">
   <title id="Anchor28097"><indexterm significance="normal">
       <primary>receiving</primary>
-      <secondary>entering of receipts</secondary>
+      <secondary>entering receipts</secondary>
     </indexterm>Enter Receipt</title>
   <para>To receive Orders into Inventory, select the "Enter Receipt" option.
   The following screen will appear:</para>
@@ -28,6 +28,16 @@
         The lookup feature located to the right of the field leads to a
         searchable list of Purchase Orders available for receiving. This
         option will be disabled if a Transfer Order is specified.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Drop Ship</term>
+      <listitem>
+        <para>If your system is configured to use drop shipping, this
+        informational, read-only field will be displayed. It will be selected
+        if the Purchase Order entered is a drop ship Order. When receipts for
+        drop ship items are posted, the linked Sales Order items will be
+        automatically shipped.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">

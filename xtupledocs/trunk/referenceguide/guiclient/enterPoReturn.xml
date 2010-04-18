@@ -25,9 +25,9 @@
     Memo in the amount of the Return when the Return is posted. This option is
     available when returning against closed Purchase Order Line Items. Closed
     Purchase Orders will be reopened automatically in this scenario to allow
-    for future Receipts. If the option is not used&mdash;or if a Line Item is not
-    closed at the time of a Return&mdash;then the Return may be processed normally
-    from the "Uninvoiced Receipts and Returns" screen.</para>
+    for future Receipts. If the option is not used&mdash;or if a Line Item is
+    not closed at the time of a Return&mdash;then the Return may be processed
+    normally from the "Uninvoiced Receipts and Returns" screen.</para>
   </tip>
   <para>When entering a Purchase Order Return, you are presented with the
   following options:</para>
@@ -37,6 +37,14 @@
       <listitem>
         <para>Enter the Purchase Order Number of the Purchase Order whose Line
         Item(s) you want to return.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Drop Ship</term>
+      <listitem>
+        <para>If your system is configured to use drop shipping, this
+        informational, read-only field will be displayed. It will be selected
+        if the Purchase Order entered was a drop ship Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -112,7 +120,6 @@
       </indexterm>Multiple Location Control (MLC) Item, you will be prompted
     to specify the Location you want to issue the stock from.</para>
   </note>
-  <xi:include href="enterPoitemReturn.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="enterPoitemReturn.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
