@@ -32,17 +32,22 @@
 
 #include "CSVimpIcon.xpm"
 
+#define DEBUG false
+
 CSVToolWindow::CSVToolWindow(QWidget *parent, Qt::WindowFlags flags)
   : QMainWindow(parent, flags)
 {
   setupUi(this);
+  if (objectName().isEmpty())
+    setObjectName("CSVToolWindow");
 
   setWindowIcon(QPixmap(CSVimpIcon));
   _atlasWindow = new CSVAtlasWindow(this);
-  _log = new LogWindow(this);
-  _data = 0;
-  _dbTimerId = startTimer(60000);
-  _stopped = false;
+  _log         = new LogWindow(this);
+  _data        = 0;
+  _dbTimerId   = startTimer(60000);
+  _stopped     = false;
+  _currentDir  = QString::null;
 }
 
 CSVToolWindow::~CSVToolWindow()
@@ -64,9 +69,11 @@ void CSVToolWindow::fileOpen()
   fileOpenAction->setEnabled(FALSE);
   _firstRowHeader->setEnabled(FALSE);
   QString fileName = QFileDialog::getOpenFileName(this, tr("Select CSV File"),
-                                                  QString::null,
+                                                  _currentDir,
                                                   QString("CSV Files (*.csv);;All files (*)"));
-  if(!fileName.isEmpty()) {
+  if (! fileName.isEmpty())
+  {
+    _currentDir = fileName;
     statusBar()->showMessage(tr("Loading %1...").arg(fileName));
 
     if (_data != 0)
@@ -491,6 +498,13 @@ void CSVToolWindow::importStart()
 void CSVToolWindow::sImportViewLog()
 {
   _log->show();
+}
+
+void CSVToolWindow::setDir(QString dirname)
+{
+  if (DEBUG)
+    qDebug("%s::setDir(%s)", qPrintable(objectName()), qPrintable(dirname));
+  _currentDir = dirname;
 }
 
 void CSVToolWindow::timerEvent( QTimerEvent * e )

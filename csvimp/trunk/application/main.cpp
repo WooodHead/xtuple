@@ -183,7 +183,7 @@ int main(int argc, char *argv[])
       return -1;
   }
 
-  QMainWindow *mainwin = csvimpInterface->CSVToolWindow();
+  QMainWindow *mainwin = csvimpInterface->getCSVToolWindow();
   mainwin->show();
 
   QObject::connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
