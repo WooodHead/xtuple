@@ -21,7 +21,7 @@ BEGIN
 
   -- Over Application
   SELECT round(currToCurr(aropen_curr_id, cashrcpt_curr_id,
-               aropen_amount - aropen_paid, aropen_docdate) -
+               aropen_amount - aropen_paid, cashrcpt_distdate) -
                COALESCE((SELECT SUM(cashrcptitem_amount)
                            FROM cashrcptitem, cashrcpt
                            WHERE ((cashrcpt_id=cashrcptitem_cashrcpt_id)
@@ -35,6 +35,7 @@ BEGIN
   IF (NEW.cashrcptitem_amount > _openAmount) THEN
     RAISE EXCEPTION 'You may not apply more than the balance of this item.';
   END IF;
+
 
   RETURN NEW;
 
