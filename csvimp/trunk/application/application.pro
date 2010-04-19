@@ -22,6 +22,7 @@ UI_DIR      = tmp
 INCLUDEPATH += ../csvimpcommon ../plugin \
                ../$${OPENRPT_DIR}/common ../$${OPENRPT_DIR}/MetaSQL
 win32:INCLUDEPATH += .
+DEPENDPATH  += $${INCLUDEPATH}
 
 LIBS += -L../$${OPENRPT_DIR}/lib -lcommon -lMetaSQL
 

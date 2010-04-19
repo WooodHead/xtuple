@@ -40,6 +40,7 @@ class CSVToolWindow : public QMainWindow, public Ui::CSVToolWindow
     void mapEdit();
     void sFirstRowHeader(bool yes);
     void sImportViewLog();
+    void setDir(QString dirname);
     void timerEvent(QTimerEvent *e);
 
   protected slots:
@@ -51,6 +52,7 @@ class CSVToolWindow : public QMainWindow, public Ui::CSVToolWindow
     CSVData        *_data;
     int             _dbTimerId;
     LogWindow      *_log;
+    QString         _currentDir;
     bool            _stopped;
 };
 

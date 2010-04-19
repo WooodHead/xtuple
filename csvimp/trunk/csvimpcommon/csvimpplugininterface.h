@@ -18,7 +18,7 @@ class CSVImpPluginInterface
   public:
     virtual ~CSVImpPluginInterface() {};
 
-    virtual QMainWindow *CSVToolWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0) = 0;
+    virtual QMainWindow *getCSVToolWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0) = 0;
     virtual void clearImportLog() = 0;
     virtual bool deleteMap()      = 0;
     virtual void editAtlas()      = 0;
@@ -34,6 +34,7 @@ class CSVImpPluginInterface
     virtual bool saveAtlasAs()    = 0;
     virtual bool saveCSV()        = 0;
     virtual bool saveCSVAs()      = 0;
+    virtual void setCSVDir(QString dirname) = 0;
     virtual void viewImportLog()  = 0;
 };
 

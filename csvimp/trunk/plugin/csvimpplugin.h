@@ -14,13 +14,17 @@
 #include <QObject>
 #include "csvimpplugininterface.h"
 
-class CSVImpPlugin : public QObject, CSVImpPluginInterface
+#include "csvtoolwindow.h"
+
+class CSVImpPlugin : public QObject, public CSVImpPluginInterface
 {
   Q_OBJECT
   Q_INTERFACES(CSVImpPluginInterface)
 
   public:
-    virtual QMainWindow *CSVToolWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0);
+    CSVImpPlugin(QObject *parent = 0);
+
+    virtual QMainWindow *getCSVToolWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0);
     virtual void clearImportLog();
     virtual bool deleteMap();
     virtual void editAtlas();
@@ -36,8 +40,14 @@ class CSVImpPlugin : public QObject, CSVImpPluginInterface
     virtual bool saveAtlasAs();
     virtual bool saveCSV();
     virtual bool saveCSVAs();
+    virtual void setCSVDir(QString dirname);
     virtual void viewImportLog();
 
+  protected slots:
+    virtual void cleanupDestroyedObject(QObject *object);
+
+  protected:
+    CSVToolWindow *_csvtoolwindow;
 };
 
 #endif

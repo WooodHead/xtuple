@@ -17,10 +17,23 @@
 
 #include "csvtoolwindow.h"
 
-QMainWindow *CSVImpPlugin::CSVToolWindow(QWidget *parent, Qt::WindowFlags flags)
+#define DEBUG false
+
+CSVImpPlugin::CSVImpPlugin(QObject *parent)
+  : QObject(parent)
 {
-  QMainWindow *tmp = new CSVToolWindow::CSVToolWindow(parent, flags);
-  return tmp;
+  _csvtoolwindow = 0;
+}
+
+QMainWindow *CSVImpPlugin::getCSVToolWindow(QWidget *parent, Qt::WindowFlags flags)
+{
+  if (! _csvtoolwindow)
+  {
+    _csvtoolwindow = new CSVToolWindow(parent, flags);
+    connect(_csvtoolwindow, SIGNAL(destroyed(QObject*)), this, SLOT(cleanupDestroyedObject(QObject*)));
+  }
+
+  return _csvtoolwindow;
 }
 
 void CSVImpPlugin::clearImportLog()
@@ -111,9 +124,24 @@ bool CSVImpPlugin::saveCSVAs()
   return false;
 }
 
+void CSVImpPlugin::setCSVDir(QString dirname)
+{
+  if (_csvtoolwindow)
+    _csvtoolwindow->setDir(dirname);
+}
+
 void CSVImpPlugin::viewImportLog()
 {
   QMessageBox::information(0, "viewImportLog", "viewImportLog not implemented through plugin");
+}
+
+void CSVImpPlugin::cleanupDestroyedObject(QObject *object)
+{
+  if (DEBUG)
+    qDebug("CSVImpPlugin::cleanupDestroyedObject(%s %p)",
+           object ? object->metaObject()->className() : "[unknown]", object);
+  if (object == _csvtoolwindow)
+    _csvtoolwindow = 0;
 }
 
 Q_EXPORT_PLUGIN2(csvimpplugin, CSVImpPlugin);
