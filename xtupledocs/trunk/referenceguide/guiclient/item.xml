@@ -34,15 +34,13 @@
         use the Item within the application. If you don"t select this option,
         the Item will be unavailable for use. To activate an inactive Item,
         simply open the Item master and mark the Item as active.</para>
+        <note>
+          <para>An inactive Item may still be used in a Sales Order, Work
+          Order, or Purchase Order if the Item was de-activated after the
+          Order was created.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>An inactive Item may still be used in a Sales Order, Work Order, or
-    Purchase Order if the Item was de-activated after the Order was
-    created.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Description #1</term>
       <listitem>
@@ -64,36 +62,34 @@
         the first line. However, the two lines will be concatenated (i.e.,
         "joined together") when they are displayed on-screen within the
         application.</para>
+        <tip>
+          <para>Develop a logical, hierarchical numbering strategy before
+          assigning Numbers to your Items. Using an hierarchical approach will
+          greatly enhance your ability to display and search for information
+          within the database. An hierarchical numbering scheme might look
+          something like the following:</para>
+          <itemizedlist>
+            <listitem>
+              <para>MB-26-1</para>
+            </listitem>
+            <listitem>
+              <para>MB-26-2</para>
+            </listitem>
+            <listitem>
+              <para>MB-26-3</para>
+            </listitem>
+          </itemizedlist>
+          <para>In this case, similar Items have been assigned sequential Item
+          Numbers. By extension, similar categories of Items may be identified
+          by similar numbers.</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>Develop a logical, hierarchical numbering strategy before assigning
-    Numbers to your Items. Using an hierarchical approach will greatly enhance
-    your ability to display and search for information within the database. An
-    hierarchical numbering scheme might look something like the
-    following:</para>
-    <itemizedlist>
-      <listitem>
-        <para>MB-26-1</para>
-      </listitem>
-      <listitem>
-        <para>MB-26-2</para>
-      </listitem>
-      <listitem>
-        <para>MB-26-3</para>
-      </listitem>
-    </itemizedlist>
-    <para>In this case, similar Items have been assigned sequential Item
-    Numbers. By extension, similar categories of Items may be identified by
-    similar numbers.</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>item types</primary>
           <secondary>master list of</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>items</primary>
           <secondary>list of types</secondary>
         </indexterm>Item Type</term>
@@ -111,15 +107,35 @@
               Order for this Item Type.</para>
             </listitem>
           </varlistentry>
-          <varlistentry>
+          <varlistentry id="manufacturedItemType">
             <term><indexterm significance="normal">
                 <primary>manufactured</primary>
                 <secondary>as item type</secondary>
+              </indexterm><indexterm significance="normal">
+                <primary>job items</primary>
+                <secondary>as manufactured items</secondary>
               </indexterm>Manufactured</term>
             <listitem>
               <para>Select if the Item is an Item you make. A Work Order is
               the normal supply order. However, you may enter a Purchase Order
-              for this Item Type.</para>
+              for this Item Type. Job Items are considered to be manufactured
+              Items. Use the Job costing option at the Item Site level to
+              distinguish Job Items from regular manufactured Items. Job Items
+              are specifically for make-to-order scenarios where simplified
+              production is required. Job Items cannot be maintained in
+              Inventory. Job Items also have no concept of Standard Cost or
+              Cost variances. All Costs for Job Items are Actual. The Work
+              Orders which create Job Items can only be created via a Sales
+              Order. The Costs for Job Item Work Orders are accumulated to
+              WIP, and then transferred directly to Cost of Sales when the job
+              is shipped. Production for a Job Item Work Order is posted when
+              the linked Sales Order Item is issued to Shipping. BOM and BOO
+              Items may be assigned to Job Items; however, they will not roll
+              up to a Standard Cost for Job Items. Job Items may be
+              configured. This means you can add List Prices to any Job Item
+              Characteristics. These Characteristic Prices are then added to
+              the Base Price of Sales Order Items when the Characteristic is
+              selected at Sales Order entry.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -253,29 +269,6 @@
           </varlistentry>
           <varlistentry>
             <term><indexterm significance="normal">
-                <primary>job items</primary>
-                <secondary>as item type</secondary>
-              </indexterm>Job</term>
-            <listitem>
-              <para>Job Items are specifically for make-to-order scenarios
-              where simplified production is required. Job Items cannot be
-              maintained in Inventory. And they also have no concept of
-              Standard Cost or Cost variances. All Costs for Job Items are
-              Actual. The Work Orders which create Job Items can only be
-              created via a Sales Order. The Costs for Job Item Work Orders
-              are accumulated to WIP, and then transferred directly to Cost of
-              Sales when the job is shipped. Production for a Job Item Work
-              Order is posted when the linked Sales Order Item is issued to
-              Shipping. BOM and BOO Items may be assigned to Job Items;
-              however, they will not roll up to a Standard Cost for Job Items.
-              Job Items may be configured. This means you can add List Prices
-              to any Job Item Characteristics. These Characteristic Prices are
-              then added to the Base Price of Sales Order Items when the
-              Characteristic is selected at Sales Order entry.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term><indexterm significance="normal">
                 <primary>kits</primary>
                 <secondary>as item type</secondary>
               </indexterm>Kit</term>
@@ -378,8 +371,6 @@
         Configurator Topic</ulink>.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term>Item is Sold</term>
       <listitem>
@@ -387,8 +378,6 @@
         associated fields will be disabled.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term>Product Category</term>
       <listitem>
@@ -425,10 +414,10 @@
       <term><indexterm significance="normal">
           <primary>exclusive</primary>
           <secondary>item master control</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>items</primary>
           <secondary>exclusive for customers</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>customers</primary>
           <secondary>exclusive items for</secondary>
         </indexterm>Exclusive</term>
@@ -465,15 +454,13 @@
       <term>UPC Code</term>
       <listitem>
         <para>Enter the Universal Product Code for the Item.</para>
+        <note>
+          <para>Standard bar code formats supported by the system include the
+          following: Code 3of9, Code 3of9 Extended, Code 128, UPC-A, UPC-E,
+          EAN-8, EAN-13.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>Standard bar code formats supported by the system include the
-    following: Code 3of9, Code 3of9 Extended, Code 128, UPC-A, UPC-E, EAN-8,
-    EAN-13.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Weight</term>
       <listitem>

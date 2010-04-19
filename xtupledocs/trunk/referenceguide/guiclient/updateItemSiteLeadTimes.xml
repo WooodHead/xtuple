@@ -66,11 +66,11 @@
         describe how Lead Times for different Item Types are handled:</para>
         <itemizedlist>
           <listitem>
-            <para><emphasis role="bold">Manufactured and Job Items:</emphasis>
-            The utility first scans the Bill of Materials for the Item and
-            finds the component Item having the longest lead time. It then
-            scans the Bill of Operations for the Item and finds the Operation
-            having the latest execution day. Finally it performs the following
+            <para><emphasis role="bold">Manufactured Items:</emphasis> The
+            utility first scans the Bill of Materials for the Item and finds
+            the component Item having the longest lead time. It then scans the
+            Bill of Operations for the Item and finds the Operation having the
+            latest execution day. Finally it performs the following
             calculation:</para>
             <informalexample>
               <para>Longest Component Item Lead Time + Execution Day + Pad
