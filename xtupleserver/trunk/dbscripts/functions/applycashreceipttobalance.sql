@@ -43,7 +43,7 @@ BEGIN
 --  aropen items that are open, for the current customer and have an outstanding balance
   FOR _r IN SELECT aropen_id,
                currToCurr(aropen_curr_id, cashrcpt_curr_id,
-               aropen_amount - aropen_paid, aropen_docdate) -
+               aropen_amount - aropen_paid, cashrcpt_distdate) -
                COALESCE((SELECT SUM(cashrcptitem_amount) + SUM(cashrcptitem_discount)
                            FROM cashrcptitem, cashrcpt
                            WHERE ((cashrcpt_id=cashrcptitem_cashrcpt_id)
