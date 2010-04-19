@@ -116,7 +116,7 @@ BEGIN
              _c.cobmisc_freighttaxtype_id
              );
  
-    _lastlinenumber := 0;
+    _lastlinenumber := 1;
     FOR _i IN SELECT cobmisc_id
                 FROM cobmisc, cohead, cust
                WHERE((cobmisc_cohead_id=cohead_id)
@@ -158,10 +158,12 @@ BEGIN
                          coitem_memo,
                          itemsite_item_id, itemsite_warehous_id,
                          cobill_taxtype_id
-                    FROM coitem, cobill, itemsite
+                    FROM cohead, coitem, cobill, itemsite
                    WHERE((cobill_coitem_id=coitem_id)
+                     AND (cohead_id=coitem_cohead_id)
                      AND (coitem_itemsite_id=itemsite_id)
-                     AND (cobill_cobmisc_id=_i.cobmisc_id) ) LOOP
+                     AND (cobill_cobmisc_id=_i.cobmisc_id) ) 
+                   ORDER BY cohead_number, coitem_linenumber, coitem_subnumber LOOP
       
           SELECT NEXTVAL('invcitem_invcitem_id_seq') INTO _invcitemid;
           INSERT INTO invcitem
@@ -177,7 +179,7 @@ BEGIN
             invcitem_coitem_id )
           VALUES
           ( _invcitemid, _invcheadid,
-            _lastlinenumber + CASE WHEN(_r.coitem_subnumber > 0) THEN (_r.coitem_linenumber * 1000) + _r.coitem_subnumber ELSE _r.coitem_linenumber END,
+            _lastlinenumber,
             _r.itemsite_item_id, _r.itemsite_warehous_id,
             _r.coitem_custpn, '', '',
             _r.coitem_qtyord, _r.cobill_qty,
@@ -187,7 +189,7 @@ BEGIN
             _r.coitem_memo,
             _r.cobill_taxtype_id,
             _r.coitem_id );
-      
+          
       --  Find and mark any Lot/Serial invdetail records associated with this bill
           UPDATE invdetail SET invdetail_invcitem_id = _invcitemid
            WHERE (invdetail_id IN (SELECT invdetail_id
@@ -218,17 +220,20 @@ BEGIN
 	      EXIT;
             END IF;
           END LOOP;
-    
-        END LOOP;
-    
-        UPDATE cobill SET cobill_invcnum=cobmisc_invcnumber,
+
+          UPDATE cobill SET cobill_invcnum=cobmisc_invcnumber,
 		          cobill_invcitem_id=invcitem_id
-        FROM invcitem, coitem, cobmisc
-        WHERE ((invcitem_linenumber=(_lastlinenumber + CASE WHEN(_r.coitem_subnumber > 0) THEN (_r.coitem_linenumber * 1000) + _r.coitem_subnumber ELSE _r.coitem_linenumber END))
-          AND  (coitem_id=cobill_coitem_id)
-          AND  (cobmisc_id=cobill_cobmisc_id)
-          AND  (cobill_cobmisc_id=_i.cobmisc_id)
-          AND  (invcitem_invchead_id=_invcheadid));
+          FROM invcitem, coitem, cobmisc
+          WHERE ((invcitem_linenumber=_lastlinenumber )
+            AND  (coitem_id=cobill_coitem_id)
+            AND  (cobmisc_id=cobill_cobmisc_id)
+            AND  (cobill_cobmisc_id=_i.cobmisc_id)
+            AND  (invcitem_invchead_id=_invcheadid));
+
+
+          _lastlinenumber := _lastlinenumber + 1;
+          
+        END LOOP;
   
       --  Close all requested coitem's
         IF ( ( SELECT cobmisc_closeorder
@@ -254,10 +259,6 @@ BEGIN
         UPDATE cobmisc
         SET cobmisc_posted=TRUE, cobmisc_invchead_id=_invcheadid
         WHERE (cobmisc_id=_i.cobmisc_id);
-
-      SELECT COALESCE(max(invcitem_linenumber),0) INTO _lastlinenumber
-        FROM invcitem
-       WHERE(invcitem_invchead_id=_invcheadid);
     
       --  All done
         _count := (_count + 1);
