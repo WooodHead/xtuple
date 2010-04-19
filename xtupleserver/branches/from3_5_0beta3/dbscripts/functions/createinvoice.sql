@@ -7,7 +7,8 @@ DECLARE
   _qtyToInvoice	NUMERIC;
   _r		RECORD;
   _s		RECORD;
-
+  _lastlinenumber INTEGER := 1;
+  
 BEGIN
 
   IF ( ( SELECT cobmisc_posted
@@ -76,7 +77,8 @@ BEGIN
             FROM coitem, cobill, itemsite
             WHERE ( (cobill_coitem_id=coitem_id)
              AND (coitem_itemsite_id=itemsite_id)
-             AND (cobill_cobmisc_id=pCobmiscid) ) LOOP
+             AND (cobill_cobmisc_id=pCobmiscid) )
+            ORDER BY coitem_linenumber, coitem_subnumber LOOP
 
     SELECT NEXTVAL('invcitem_invcitem_id_seq') INTO _invcitemid;
     INSERT INTO invcitem
@@ -92,7 +94,7 @@ BEGIN
       invcitem_coitem_id )
     VALUES
     ( _invcitemid, _invcheadid,
-      CASE WHEN(_r.coitem_subnumber > 0) THEN (_r.coitem_linenumber * 1000) + _r.coitem_subnumber ELSE _r.coitem_linenumber END,
+      _lastlinenumber,
       _r.itemsite_item_id, _r.itemsite_warehous_id,
       _r.coitem_custpn, '', '',
       _r.coitem_qtyord, _r.cobill_qty,
@@ -131,16 +133,18 @@ BEGIN
       END IF;
     END LOOP;
 
-  END LOOP;
+    UPDATE cobill SET cobill_invcnum=cobmisc_invcnumber,
+		      cobill_invcitem_id=invcitem_id
+    FROM invcitem, coitem, cobmisc
+    WHERE ((invcitem_linenumber=_lastlinenumber)
+      AND  (coitem_id=cobill_coitem_id)
+      AND  (cobmisc_id=cobill_cobmisc_id)
+      AND  (cobill_cobmisc_id=pCobmiscid)
+      AND  (invcitem_invchead_id=_invcheadid));
+    
+    _lastlinenumber := _lastlinenumber + 1;
 
-  UPDATE cobill SET cobill_invcnum=cobmisc_invcnumber,
-		    cobill_invcitem_id=invcitem_id
-  FROM invcitem, coitem, cobmisc
-  WHERE ((invcitem_linenumber=CASE WHEN(coitem_subnumber > 0) THEN (coitem_linenumber * 1000) + coitem_subnumber ELSE coitem_linenumber END)
-    AND  (coitem_id=cobill_coitem_id)
-    AND  (cobmisc_id=cobill_cobmisc_id)
-    AND  (cobill_cobmisc_id=pCobmiscid)
-    AND  (invcitem_invchead_id=_invcheadid));
+  END LOOP;
 
 --  Close all requested coitem's
   IF ( ( SELECT cobmisc_closeorder

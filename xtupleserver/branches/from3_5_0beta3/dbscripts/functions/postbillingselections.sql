@@ -1,69 +1,28 @@
-CREATE OR REPLACE FUNCTION postBillingSelections() RETURNS INTEGER AS '
-DECLARE
-  _counter INTEGER;
-  _cobmisc RECORD;
-
+CREATE OR REPLACE FUNCTION postBillingSelections() RETURNS INTEGER AS $$
 BEGIN
 
-  _counter := 0;
-
-  FOR _cobmisc IN SELECT cobmisc_id
-                  FROM cobmisc
-                  WHERE (NOT cobmisc_posted) LOOP
-
-    PERFORM postBillingSelection(_cobmisc.cobmisc_id);
-    _counter := (_counter + 1);
-
-  END LOOP;
-
-  RETURN _counter;
+  RAISE NOTICE 'postBillingselections() has been deprecated.  Please use createInvoices().';
+  RETURN createInvoices();
+  
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION postBillingSelections(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postBillingSelections(INTEGER) RETURNS INTEGER AS $$
 BEGIN
-  RETURN postBillingSelections($1, false);
+  RAISE NOTICE 'postBillingselections(int) has been deprecated.  Please use createInvoices(int).';
+  RETURN createInvoices($1, false);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION postBillingSelections(INTEGER, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION postBillingSelections(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pCustTypeId ALIAS FOR $1;
   pConsolidate ALIAS FOR $2;
-  _counter INTEGER;
-  _tcounter INTEGER;
-  _cobmisc RECORD;
 
 BEGIN
 
-  _counter := 0;
-
-  IF (pConsolidate) THEN
-    FOR _cobmisc IN SELECT DISTINCT cust_id
-                      FROM cobmisc, cohead, custinfo
-                     WHERE((NOT cobmisc_posted)
-                       AND (cohead_id=cobmisc_cohead_id)
-                       AND (cust_id=cohead_cust_id)
-                       AND (cust_custtype_id=pCustTypeId)) LOOP
-
-      SELECT postBillingSelectionConsolidated(_cobmisc.cust_id)
-        INTO _tcounter;
-      _counter := (_counter + _tcounter);
-    END LOOP;
-  ELSE
-    FOR _cobmisc IN SELECT cobmisc_id
-                      FROM cobmisc, cohead, custinfo
-                     WHERE((NOT cobmisc_posted)
-                       AND (cohead_id=cobmisc_cohead_id)
-                       AND (cust_id=cohead_cust_id)
-                       AND (cust_custtype_id=pCustTypeId)) LOOP
+  RAISE NOTICE 'postBillingselections(int,bool) has been deprecated.  Please use createInvoices(int,bool).';
+  RETURN createInvoices(pCustTypeId, pConsolidate);
   
-      PERFORM postBillingSelection(_cobmisc.cobmisc_id);
-      _counter := (_counter + 1);
-
-    END LOOP;
-  END IF;
-
-  RETURN _counter;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
