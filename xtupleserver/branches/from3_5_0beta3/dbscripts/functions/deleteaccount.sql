@@ -1,6 +1,6 @@
 
 CREATE OR REPLACE FUNCTION deleteAccount(integer) RETURNS integer
-    AS '
+    AS $$
 DECLARE
   pAccntid ALIAS FOR $1;
   _check INTEGER;
@@ -151,14 +151,6 @@ BEGIN
     RETURN -99;
   END IF;
 
-  SELECT armemo_accnt_id INTO _check
-  FROM armemo
-  WHERE (armemo_accnt_id=pAccntid)
-  LIMIT 1;
-  IF (FOUND) THEN
-    RETURN -99;
-  END IF;
-
 --  Delete any non-critical use
   DELETE FROM flitem
   WHERE (flitem_accnt_id=pAccntid);
@@ -176,5 +168,5 @@ BEGIN
   RETURN 0;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
