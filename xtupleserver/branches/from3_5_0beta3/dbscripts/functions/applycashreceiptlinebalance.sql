@@ -40,7 +40,7 @@ BEGIN
 
 --  Determine Line balance
   SELECT currToCurr(aropen_curr_id, cashrcpt_curr_id,
-         aropen_amount - aropen_paid, aropen_docdate) -
+         aropen_amount - aropen_paid, cashrcpt_distdate) -
          COALESCE((SELECT (SUM(cashrcptitem_amount) + SUM(cashrcptitem_discount))
                    FROM cashrcptitem, cashrcpt
                    WHERE ((cashrcpt_id=cashrcptitem_cashrcpt_id)
