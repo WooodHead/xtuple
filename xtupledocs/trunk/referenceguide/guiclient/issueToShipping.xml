@@ -51,18 +51,24 @@
   options:</para>
   <variablelist>
     <varlistentry>
+      <term>Shipment #</term>
+      <listitem>
+        <para>Displays the Shipment Number for the Order, if any.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Transaction Date</term>
+      <listitem>
+        <para>Specify the date you want the transaction to be posted to the
+        General Ledger. The current day's date will display by default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Order #</term>
       <listitem>
         <para>Enter the Order Number of the Order whose Stock you want to
         issue to Shipping. Sales Orders and Transfer Orders may be issued to
         Shipping.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Issue Date</term>
-      <listitem>
-        <para>Specify the date you want the transaction to be posted to the
-        General Ledger. The current day's date will display by default.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -148,7 +154,7 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term>SHIP ORDER</term>
+      <term>SHIP</term>
       <listitem>
         <para>Select to Ship the specified Sales Order, as described in <xref
         linkend="Section518568" />.</para>
@@ -175,7 +181,7 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term>ISSUE LINE BAL.</term>
+      <term>ISSUE LINE</term>
       <listitem>
         <para>Highlight a Line Item, then select this button to issue the
         balance of the Line to shipping.</para>
@@ -200,7 +206,7 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term>ISSUE ALL BAL.</term>
+      <term>ISSUE ALL</term>
       <listitem>
         <para>Select to issue all Line Items to Shipping
         simultaneously.</para>
