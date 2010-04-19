@@ -379,14 +379,15 @@
             </listitem>
           </itemizedlist>
           <para>In either case, you will be given the option to override any
-          Item Source Price(s) which are in place. If your site is configured
-          to use drop shipping, an additional "Drop Ship" flag will also be
-          shown for linked Purchase Orders. The drop ship function will search
-          for an existing Purchase Order linked to the Sales Order with a
-          matching Ship-To Address and add the Line Item to that
-          Order&mdash;or create a new Order if none exists. Drop ship Purchase
-          Orders inherit the Ship-To Address and Contact information from the
-          Sales Order.</para>
+          Item Source Price(s) which are in place. Also, linked Purchase
+          Orders will be updated when Sales Order details are changed. If your
+          site is configured to use drop shipping, an additional "Drop Ship"
+          flag will also be shown for linked Purchase Orders. The drop ship
+          function will search for an existing Purchase Order linked to the
+          Sales Order with a matching Ship-To Address and add the Line Item to
+          that Order&mdash;or create a new Order if none exists. Drop ship
+          Purchase Orders inherit the Ship-To Address and Contact information
+          from the Sales Order.</para>
         </note>
       </listitem>
     </varlistentry>
