@@ -33,14 +33,15 @@ BEGIN
 
   SELECT formatWoNumber(pWoid) INTO _woNumber;
 
--- If there are any tools issued on this job, return them
-  SELECT returnWoMaterial( womatl_id, womatl_qtyiss, _itemlocSeries, now() ) INTO _itemlocSeries
-  FROM womatl
-   JOIN wo ON (womatl_wo_id=wo_id)
-   JOIN itemsite ON (womatl_itemsite_id=itemsite_id)
-   JOIN item ON (itemsite_item_id=item_id)
-  WHERE ((wo_id=pWoid)
-  AND (item_type='T'));
+-- If there are any tools issued on this job then we cannot close here
+  IF ( SELECT (count(*) > 0)
+       FROM womatl
+       JOIN itemsite ON (womatl_itemsite_id=itemsite_id)
+       JOIN item ON ((itemsite_item_id=item_id) AND (item_type='T'))
+       WHERE ((womatl_wo_id=pWoid)
+         AND  (womatl_qtyiss > 0)) ) THEN
+    RAISE EXCEPTION 'All Tools must be returned before the W/O can be closed';
+  END IF;
 
 --  Distribute any remaining wo_wipvalue to G/L - debit Inventory Cost, credit WIP
   PERFORM insertGLTransaction( 'W/O', 'WO', _woNumber, ('Manufacturing Inventory Cost Variance for ' || item_number),
