@@ -104,12 +104,21 @@
             <term>Service</term>
             <listitem>
               <para>Select to authorize the servicing of an Item for the
-              specified quantity. This disposition is valid only for Items
-              having the Job Items. The Price controls will be disabled for
-              this disposition. A new corresponding Sales Order and line will
-              be created if one does not already exist. If any money is to be
-              billed for the service, this should be set at the new Sales
-              Order line item.</para>
+              specified quantity. This disposition is valid only for Job
+              Items. Price controls will be disabled for this disposition. A
+              new Sales Order with linked Work Order(s) will be created to
+              track work and shipping on the repair or service. Service or
+              repair items should first be received by the Return
+              Authorization. If the Job Item is Lot/Serial controlled, you
+              will be prompted to assign Lot/Serial numbers when the receipt
+              is posted. This assignment of Lot/Serial Numbers can be
+              simplified if you link authorized line items with existing
+              Lot/Serial Numbers at the line item level. For more information,
+              please see <xref linkend="returnAuthItemLotSerial" />.</para>
+              <note>
+                <para>Money to be billed for service or repair should be set
+                at the New Sales Order.</para>
+              </note>
             </listitem>
           </varlistentry>
           <varlistentry>

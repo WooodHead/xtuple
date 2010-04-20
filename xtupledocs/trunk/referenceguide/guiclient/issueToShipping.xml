@@ -20,7 +20,9 @@
   to Shipping serves a dual purpose. On the one hand, quantity is issued to
   Shipping. But at the same time, production for the linked Job Item Work
   Order is also posted. Issuing to Shipping is the only way to post production
-  for a Job Item Work Order.</para>
+  for a Job Item Work Order. If the Job Item is Lot/Serial controlled, you
+  will be prompted to assign Lot/Serial numbers when quantity is issued to
+  Shipping.</para>
   <para><indexterm significance="normal">
       <primary>kits</primary>
       <secondary>issuing to shipping</secondary>

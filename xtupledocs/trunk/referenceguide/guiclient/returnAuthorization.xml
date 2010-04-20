@@ -60,7 +60,7 @@
       <term><indexterm significance="normal">
           <primary>sales representatives</primary>
           <secondary>commissions for</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>return authorizations</primary>
           <secondary>commissions on</secondary>
         </indexterm>Sales Rep.</term>
@@ -154,12 +154,21 @@
             <listitem>
               <para>Select to authorize the repair or service of Items
               returned by the specified Customer. To isolate costing
-              implications, only Items of type Job may be selected. Service or
-              repair items will first be received by the Return Authorization.
-              A new Sales Order with linked Work Order(s) will be created to
-              track work and shipping on the repair or service. Money to be
-              billed for service or repair should be set at the New Sales
-              Order.</para>
+              implications, only Job Items may be selected. A new Sales Order
+              with linked Work Order(s) will be created to track work and
+              shipping on the repair or service. Service or repair items
+              should first be received by the Return Authorization. If the Job
+              Item is Lot/Serial controlled, you will be prompted to assign
+              Lot/Serial numbers when the receipt is posted. This assignment
+              of Lot/Serial Numbers can be simplified if you link authorized
+              line items with existing Lot/Serial Numbers at the line item
+              level. For more information, please see <xref
+              linkend="returnAuthItemLotSerial" />.</para>
+              <note>
+                <para>Money to be billed for service or repair should be set
+                at the New Sales Order.</para>
+              </note>
+              <para> </para>
             </listitem>
           </varlistentry>
           <varlistentry>
