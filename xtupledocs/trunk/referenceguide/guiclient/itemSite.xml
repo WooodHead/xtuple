@@ -424,10 +424,28 @@
         </variablelist>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Automatic Lot/Serial Numbering</term>
       <listitem>
-        <para></para>
+        <para>If you want Lot/Serial Numbers to be automatically generated
+        whenever Inventory is received into the Item Site, then select a
+        Lot/Serial sequence to associate with the Item Site. Automatically
+        generated Lot/Serial Numbers may be overridden manually, if necessary.
+        Items that require expiration or warranty information will still
+        require that information to be entered on the Create Lot/Serial
+        screen. For more information, please see <xref
+        linkend="lotSerialSequences" />.</para>
+        <note>
+          <para>If a user cancels, deletes, or over-writes an automatically
+          assigned Lot/Serial Number, the automatically incremented number
+          will not be rolled back or reused. This is because there is no way
+          to ensure number issuance integrity in an environment where multiple
+          users are posting simultaneously&mdash;other than to issue new
+          unused numbers during every transaction. The system will, however,
+          check each number it attempts to issue. If it finds any existing
+          matches already in the database for the given Item, it will skip
+          past them until it finds a previously unused number. </para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
