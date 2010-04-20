@@ -52,20 +52,9 @@ WOMaterialAvailabilityByWorkOrder
 WOMaterialRequirementsByComponentItem
 WOMaterialRequirementsByWorkOrder
 
- 
+
  ====================================================================
  REPORT: APOpenItemsByVendor
- QUERY: head
- SELECT vend_name,
-        vend_number,
-        currConcat(baseCurrId()) AS baseCurr,
-        formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate,
-        formatDate(<? value("asofDate") ?>) AS asofDate
-   FROM vend
-  WHERE (vend_id=<? value("vend_id") ?>);
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT apopen_id, apopen_ponumber, apopen_docnumber,
                      CASE WHEN (apopen_doctype='C') THEN <? value("creditMemo") ?>
@@ -74,19 +63,19 @@ WOMaterialRequirementsByWorkOrder
                           ELSE <? value("other") ?>
                      END AS f_doctype,
                      apopen_invcnumber AS invoicenumber,
-                     formatDate(apopen_docdate) AS f_docdate, 
-                     formatDate(apopen_duedate) AS f_duedate, 
+                     formatDate(apopen_docdate) AS f_docdate,
+                     formatDate(apopen_duedate) AS f_duedate,
                      formatMoney(apopen_amount) AS f_amount,
                      formatMoney(apopen_paid - COALESCE(SUM(apapply_target_paid),0)) AS f_paid,
-                     formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) * 
-                     CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1 
+                     formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) *
+                     CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1
                      END) AS f_balance,
                      currConcat(apopen_curr_id) AS currAbbr,
-                     (apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) 
-                     / apopen_curr_rate * (CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1 
+                     (apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0))
+                     / apopen_curr_rate * (CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1
                           END) AS base_balance,
-                     formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) 
-                     / apopen_curr_rate * (CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1 
+                     formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0))
+                     / apopen_curr_rate * (CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1
 -                         END)) AS f_base_balance
 +                         END)) AS f_base_balance,
 +                  CASE WHEN (apopen_status='O') THEN TEXT('Open')
@@ -95,26 +84,23 @@ WOMaterialRequirementsByWorkOrder
 +                      END
 +                    END
 +                  END AS status
-              FROM apopen 
-                LEFT OUTER JOIN apapply ON (((apopen_id=apapply_target_apopen_id) 
-                                        OR (apopen_id=apapply_source_apopen_id)) 
-                                        AND (apapply_postdate > <? value("asofDate") ?>)) 
-               WHERE ( (COALESCE(apopen_closedate,date <? value("asofDate") ?> + integer '1')><? value("asofDate") ?>) 
+              FROM apopen
+                LEFT OUTER JOIN apapply ON (((apopen_id=apapply_target_apopen_id)
+                                        OR (apopen_id=apapply_source_apopen_id))
+                                        AND (apapply_postdate > <? value("asofDate") ?>))
+               WHERE ( (COALESCE(apopen_closedate,date <? value("asofDate") ?> + integer '1')><? value("asofDate") ?>)
                  AND   (apopen_docdate<=<? value("asofDate") ?>)
-                 AND   (apopen_vend_id=<? value("vend_id") ?>) 
-                 AND   (apopen_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>) ) 
-               GROUP BY apopen_id, apopen_ponumber, apopen_docnumber,apopen_doctype, apopen_invcnumber, apopen_docdate, 
--                apopen_duedate, apopen_docdate, apopen_amount, apopen_paid, apopen_curr_id, apopen_curr_rate 
-+                apopen_duedate, apopen_docdate, apopen_amount, apopen_paid, apopen_curr_id, apopen_curr_rate, apopen_status 
+                 AND   (apopen_vend_id=<? value("vend_id") ?>)
+                 AND   (apopen_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>) )
+               GROUP BY apopen_id, apopen_ponumber, apopen_docnumber,apopen_doctype, apopen_invcnumber, apopen_docdate,
+-                apopen_duedate, apopen_docdate, apopen_amount, apopen_paid, apopen_curr_id, apopen_curr_rate
++                apopen_duedate, apopen_docdate, apopen_amount, apopen_paid, apopen_curr_id, apopen_curr_rate, apopen_status
                ORDER BY apopen_docdate;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: ARAging
  QUERY: detail
- SELECT 
+ SELECT
  	araging_docdate,
  	araging_duedate,
  	araging_ponumber,
@@ -144,14 +130,11 @@ WOMaterialRequirementsByWorkOrder
  <? elseif exists("custtype_pattern") ?>
     WHERE (araging_custtype_code ~ <? value("custtype_pattern") ?>)
  <? endif ?>;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: AROpenItems
  QUERY: head
- SELECT 
+ SELECT
  formatDate(<? value("asofDate") ?>) AS asOfDate,
  <? if exists("creditsOnly") ?>
    'Credits Only' AS type,
@@ -167,7 +150,7 @@ WOMaterialRequirementsByWorkOrder
  <? elseif exists("custtype_pattern") ?>
    ('Customer Type pattern = ' || <? value("custtype_pattern") ?>) AS selection,
 +<? elseif exists("custgrp_id") ?>
-+  (SELECT custgrp_name FROM custgrp WHERE 
++  (SELECT custgrp_name FROM custgrp WHERE
 + custgrp_id=<? value("custgrp_id") ?>) AS selection,
  <? else ?>
    'All Customers' AS selection,
@@ -176,7 +159,7 @@ WOMaterialRequirementsByWorkOrder
        'Start Doc Date:' AS start_label,
        'End Doc Date:' AS end_label,
  <? else ?>
-       'Start Due Date:' AS start_label,   
+       'Start Due Date:' AS start_label,
        'End Due Date:' AS end_label,
  <? endif ?>
         formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
@@ -187,14 +170,7 @@ WOMaterialRequirementsByWorkOrder
  <? else ?>
    'No' AS incidentsOnly
  <? endif ?>;
- --------------------------------------------------------------------
-   
- QUERY: detail
- == MetaSQL statement arOpenItems-detail
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: BillingEditList
  QUERY: detail
@@ -219,7 +195,7 @@ WOMaterialRequirementsByWorkOrder
                     WHERE (accnt_id=findARAccount(cust_id)) ), 'Not Assigned') AS debit,
         '' AS credit,
         currConcat(cobmisc_curr_id)      AS currabbr
- FROM cobmisc, cohead, cust 
+ FROM cobmisc, cohead, cust
  WHERE ( (cobmisc_cohead_id=cohead_id)
   AND (cohead_cust_id=cust_id)
   AND (NOT cobmisc_posted)
@@ -229,7 +205,7 @@ WOMaterialRequirementsByWorkOrder
   AND (NOT cobmisc_printed)
  <? endif ?>
  )
- 
+
  UNION
  SELECT cohead_id 			AS orderid,
         -1 				AS itemid,
@@ -259,14 +235,14 @@ WOMaterialRequirementsByWorkOrder
   AND (NOT cobmisc_printed)
  <? endif ?>
  )
- 
+
  UNION
- SELECT cohead_id 								AS orderid, 
+ SELECT cohead_id 								AS orderid,
  	-1 									AS itemid,
-         '' 									AS documentnumber, 
-         'Misc. Charge'								AS name, 
+         '' 									AS documentnumber,
+         'Misc. Charge'								AS name,
  	cohead_misc_descrip 							AS descrip,
-         ''		 							AS f_ordernumber, 
+         ''		 							AS f_ordernumber,
  	cohead_number								AS ordernumber,
  	-1 									AS linenumber,
  	'' 									AS iteminvuom,
@@ -289,15 +265,15 @@ WOMaterialRequirementsByWorkOrder
   AND (NOT cobmisc_printed)
  <? endif ?>
  )
- 
+
  UNION
- SELECT  cohead_id 								AS orderid, 
+ SELECT  cohead_id 								AS orderid,
  	-1 									AS itemid,
-         '' 									AS documentnumber, 
+         '' 									AS documentnumber,
          'Sales Tax'								AS name,
 -	tax_descrip	 							AS descrip,
 +	''		 							AS descrip,
-         ''		 							AS f_ordernumber, 
+         ''		 							AS f_ordernumber,
  	cohead_number								as ordernumber,
  	-1				 					AS linenumber,
  	''						 			AS iteminvuom,
@@ -314,7 +290,7 @@ WOMaterialRequirementsByWorkOrder
 -        (formatGLAccount(taxaccnt.accnt_id) || ' - ' || taxaccnt.accnt_descrip) AS credit,
 +       '' AS credit,
          currConcat(cobmisc_tax_curr_id)     AS currabbr
--FROM cobmisc, cohead, coitem, tax, accnt AS taxaccnt 
+-FROM cobmisc, cohead, coitem, tax, accnt AS taxaccnt
 +FROM cobmisc, cohead
  WHERE ( (cobmisc_cohead_id=cohead_id)
 - AND (coitem_cohead_id=cohead_id)
@@ -328,15 +304,15 @@ WOMaterialRequirementsByWorkOrder
   AND (NOT cobmisc_printed)
  <? endif ?>
  )
- 
+
  UNION
- SELECT  cohead_id 								AS orderid, 
+ SELECT  cohead_id 								AS orderid,
  	coitem_id 								AS itemid,
-         '' 									AS documentnumber, 
-         item_number								AS name, 
+         '' 									AS documentnumber,
+         item_number								AS name,
  	(item_descrip1 || ' ' || item_descrip2)					AS descrip,
-         ''		 							AS f_ordernumber, 
-         cohead_number	 							AS ordernumber, 
+         ''		 							AS f_ordernumber,
+         cohead_number	 							AS ordernumber,
  	coitem_linenumber 							AS linenumber,
  	uom_name AS iteminvuom,
          formatQty(cobill_qty) 							AS qtytobill,
@@ -365,9 +341,9 @@ WOMaterialRequirementsByWorkOrder
   AND (NOT cobmisc_printed)
  <? endif ?>
  )
- 
+
  UNION
- SELECT 	cmhead_id 					AS orderid, 
+ SELECT 	cmhead_id 					AS orderid,
  	-2 						AS itemid,
          ('C/M-' || formatCreditMemoNumber(cmhead_id)) 	AS documentnumber,
          cust_number					AS name,
@@ -396,15 +372,15 @@ WOMaterialRequirementsByWorkOrder
   AND (NOT cmhead_printed)
  <? endif ?>
  )
- 
+
  UNION
  SELECT  cmhead_id 								AS orderid,
  	-1 									AS itemid,
-         '' 									AS documentnumber, 
-         'Freight'								AS name, 
+         '' 									AS documentnumber,
+         'Freight'								AS name,
  	'Freight Charge'							AS descrip,
-         ''		 							AS f_ordernumber, 
-         cmhead_number	 							AS ordernumber, 
+         ''		 							AS f_ordernumber,
+         cmhead_number	 							AS ordernumber,
  	-1 									AS linenumber,
  	'' 									AS iteminvuom,
          '' 									AS qtytobill,
@@ -426,15 +402,15 @@ WOMaterialRequirementsByWorkOrder
   AND (NOT cmhead_printed)
  <? endif ?>
  )
- 
+
  UNION
- SELECT  cmhead_id 								AS orderid, 
+ SELECT  cmhead_id 								AS orderid,
  	cmitem_id 								AS itemid,
-         '' 									AS documentnumber, 
+         '' 									AS documentnumber,
          item_number								AS name,
  	(item_descrip1 || ' ' || item_descrip2)					AS descrip,
-         ''		 							AS f_ordernumber, 
-         cmhead_number	 							AS ordernumber, 
+         ''		 							AS f_ordernumber,
+         cmhead_number	 							AS ordernumber,
  	cmitem_linenumber 							AS linenumber,
  	uom_name                                                                AS iteminvuom,
          formatQty(cmitem_qtycredit) 						AS qtytobill,
@@ -442,9 +418,9 @@ WOMaterialRequirementsByWorkOrder
          formatExtPrice((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio)) 	AS extprice,
  	((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio) * -1)			AS subextprice,
  	currtobase(cmhead_curr_id, ((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio) * -1), cmhead_gldistdate) AS runningextprice,
-         COALESCE( ( SELECT (formatGLAccount(accnt_id) || ' - ' || accnt_descrip) 
-                     FROM accnt, salesaccnt 
-                     WHERE ((salesaccnt_sales_accnt_id=accnt_id) 
+         COALESCE( ( SELECT (formatGLAccount(accnt_id) || ' - ' || accnt_descrip)
+                     FROM accnt, salesaccnt
+                     WHERE ((salesaccnt_sales_accnt_id=accnt_id)
                       AND (salesaccnt_id=findSalesAccnt(itemsite_id, cmhead_cust_id)))), 'Not Assigned') AS credit,
          '' AS debit,
          currConcat(cmhead_curr_id)     AS currabbr
@@ -461,28 +437,11 @@ WOMaterialRequirementsByWorkOrder
   AND (NOT cmhead_printed)
  <? endif ?>
  )
- 
+
  ORDER BY ordernumber, linenumber;
- 
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: BriefEarnedCommissions
- QUERY: head
- SELECT <? if exists("salesrep_id") ?>
-          ( SELECT salesrep_name
-              FROM salesrep
-             WHERE (salesrep_id=<? value("salesrep_id") ?>) )
-        <? else ?>
-          text('All Sales Reps')
-        <? endif ?>
-        AS salesrep,
-        formatDate(<? value("startDate") ?>) AS startdate,
-        formatDate(<? value("endDate") ?>) AS enddate;
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT cohist_salesrep_id, salesrep_number, salesrep_name, cust_number, cust_name,
         cohist_ordernumber, cohist_invcnumber, formatDate(cohist_invcdate) AS f_invcdate, currAbbr,
@@ -497,12 +456,12 @@ WOMaterialRequirementsByWorkOrder
  <? endif ?>
  WHERE ( (cohist_commission <> 0)
    AND (cohist_invcdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
- 
+
  <? if exists("includeMisc") ?>
    AND (COALESCE(cohist_misc_type, '') <> 'T')
    AND (COALESCE(cohist_misc_type, '') <> 'F')
  <? endif ?>
- 
+
  <? if exists("salesrep_id") ?>
 -  AND (salesrep_id=<? value("salesrep_id") ?>)
 +  AND (cohist_salesrep_id=<? value("salesrep_id") ?>)
@@ -511,11 +470,7 @@ WOMaterialRequirementsByWorkOrder
  GROUP BY cohist_salesrep_id, salesrep_number, salesrep_name, cust_number, cust_name,
           cohist_ordernumber, cohist_invcnumber, cohist_invcdate, currAbbr
  ORDER BY salesrep_number, cust_number, cohist_invcdate
- 
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: CashReceiptsJournal
  QUERY: detail
@@ -549,10 +504,7 @@ WOMaterialRequirementsByWorkOrder
 -   AND  (aropen_journalnumber=<? value("journalNumber") ?>)
 + WHERE ((aropen_journalnumber=<? value("journalNumber") ?>)
  )
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: CostedIndentedBOM
  QUERY: head
@@ -566,7 +518,7 @@ WOMaterialRequirementsByWorkOrder
           text('Using Standard Costs')
         <? endif ?>
         AS lbl_usecosts,
-+       (select formatCost(sum(extendedcost)) from 
++       (select formatCost(sum(extendedcost)) from
 +(select CASE WHEN(bomdata_bomwork_parent_id=-1) THEN bomdata_stdextendedcost
 +            ELSE 0
 +       END AS extendedcost,
@@ -576,9 +528,9 @@ WOMaterialRequirementsByWorkOrder
         formatCost(stdcost(item_id)) AS f_standard
    FROM item JOIN uom ON (uom_id=item_inv_uom_id)
   WHERE (item_id=<? value("item_id") ?>);
-     
+
  --------------------------------------------------------------------
-   
+
  QUERY: detail
  select (REPEAT(' ',(bomdata_bomwork_level-1)*3) || bomdata_bomwork_seqnumber) AS f_seqnumber,
         1 AS seq_ord,
@@ -592,7 +544,7 @@ WOMaterialRequirementsByWorkOrder
 +       formatQtyPer(bomdata_qtyreq) AS qtyreq,
         formatScrap(bomdata_scrap) AS scrap,
         CASE WHEN COALESCE(bomdata_effective, startOfTime()) <= startOfTime() THEN
-                  <? value("always") ?> 
+                  <? value("always") ?>
              ELSE formatDate(bomdata_effective)
         END AS effective,
         CASE WHEN COALESCE(bomdata_expires, endOfTime()) <= endOfTime() THEN
@@ -614,39 +566,9 @@ WOMaterialRequirementsByWorkOrder
  <? endif ?>
         bomdata_bomwork_level
  FROM indentedBOM(<? value("item_id") ?>,<? value("revision_id") ?>,0,0);
- 
- --------------------------------------------------------------------
-   
- QUERY: bomhead
- SELECT bomhead_docnum, bomhead_revision,
- formatDate(bomhead_revisiondate) AS f_revisiondate
- FROM bomhead
- WHERE ((bomhead_item_id=<? value("item_id") ?>)
- AND (bomhead_rev_id=<? value("revision_id") ?>));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: CostedSingleLevelBOM
- QUERY: head
- SELECT item_number,
-        uom_name AS item_invuom,
-        item_descrip1,
-        item_descrip2,
-        formatCost(stdcost(item_id)) AS standardcost,
-        formatCost(actcost(item_id)) AS actualcost,
-        <? if exists("useActualCosts") ?>
-          text('Actual Cost')
-        <? else ?>
-          text('Standard Cost')
-        <? endif ?>
-        AS costtype
-   FROM item JOIN uom ON (uom_id=item_inv_uom_id)
-  WHERE (item_id=<? value("item_id") ?>);
-     
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT bomdata_bomwork_seqnumber AS orderby,
    CASE WHEN bomdata_bomwork_seqnumber > 0 THEN
@@ -663,8 +585,8 @@ WOMaterialRequirementsByWorkOrder
    formatScrap(bomdata_scrap) AS scrap,
    CASE
      WHEN item_inv_uom_id IS NOT NULL THEN
--      formatqtyper(bomitem_qtyper * (1 + bomitem_scrap) * itemuomtouomratio(bomitem_item_id,bomitem_uom_id,item_inv_uom_id)) 
-+      formatqtyper((bomitem_qtyfxd + bomitem_qtyper) * (1 + bomitem_scrap) * itemuomtouomratio(bomitem_item_id,bomitem_uom_id,item_inv_uom_id)) 
+-      formatqtyper(bomitem_qtyper * (1 + bomitem_scrap) * itemuomtouomratio(bomitem_item_id,bomitem_uom_id,item_inv_uom_id))
++      formatqtyper((bomitem_qtyfxd + bomitem_qtyper) * (1 + bomitem_scrap) * itemuomtouomratio(bomitem_item_id,bomitem_uom_id,item_inv_uom_id))
      ELSE
        ''
    END AS qtyreq,
@@ -692,36 +614,9 @@ WOMaterialRequirementsByWorkOrder
    LEFT OUTER JOIN bomitem ON (bomdata_bomitem_id=bomitem_id)
    LEFT OUTER JOIN item ON (bomitem_item_id=item_id)
  ORDER BY orderby;
-     
- --------------------------------------------------------------------
-   
- QUERY: bomhead
- SELECT bomhead_docnum, bomhead_revision,
- formatDate(bomhead_revisiondate) AS f_revisiondate
- FROM bomhead
- WHERE ((bomhead_item_id=<? value("item_id") ?>)
- AND (bomhead_rev_id=<? value("revision_id") ?>));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: CostedSummarizedBOM
- QUERY: head
- SELECT item_number,
-        uom_name AS item_invuom,
-        item_descrip1,
-        item_descrip2,
- <? if exists("useActualCosts") ?>
-        text('Actual Costs') AS f_costtype
- <? else ?>
-        text('Standard Costs') AS f_costtype
- <? endif ?>
-   FROM item JOIN uom ON (uom_id=item_inv_uom_id)
-  WHERE (item_id=<? value("item_id") ?>);
-     
- --------------------------------------------------------------------
-   
  QUERY: detail
  select bomdata_item_number AS item_number,
         bomdata_uom_name AS item_invuom,
@@ -737,57 +632,14 @@ WOMaterialRequirementsByWorkOrder
         formatCost(bomdata_stdextendedcost) AS f_extcost
  <? endif ?>
    FROM summarizedBOM(<? value("item_id") ?>,<? value("revision_id") ?>,<? value("expiredDays") ?>,<? value("futureDays") ?>);
- --------------------------------------------------------------------
-   
- QUERY: bomhead
- SELECT bomhead_docnum, bomhead_revision,
- formatDate(bomhead_revisiondate) AS f_revisiondate
- FROM bomhead
- WHERE ((bomhead_item_id=<? value("item_id") ?>)
- AND (bomhead_rev_id=<? value("revision_id") ?>));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: CountTagEditList
- QUERY: head
- SELECT <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-                    FROM warehous
-                    WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse,
-        <? if exists("classcode_id") ?>
-          ( SELECT (classcode_code ||'-'||classcode_descrip)
-              FROM classcode
-             WHERE (classcode_id=<? value("classcode_id") ?>) ) AS code,
- 	  text('Class Code:') AS codelbl
-        <? elseif exists("classcode_pattern") ?>
-          text(<? value("classcode_pattern") ?>) AS code,
-          text('Class Code:') AS codelbl
-        <? elseif exists("plancode_id") ?>
-          ( SELECT (plancode_code ||'-'|| plancode_name)
-              FROM plancode
-             WHERE (plancode_id=<? value("plancode_id") ?>) ) AS code,
- 	  text('Planner Code:') AS codelbl
-        <? elseif exists("plancode_pattern") ?>
-          text(<? value("plancode_pattern") ?>) AS code,
-          text('Planner Code:') AS codelbl
-        <? else ?>
-          text('') AS code,
-          text('') AS codelbl
-        <? endif ?>
-        
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT formatBoolYN(invcnt_priority) AS f_priority,
         CASE WHEN (invcnt_tagnumber IS NULL) THEN 'Misc.'
              ELSE invcnt_tagnumber
-        END AS f_tagnumber, 
+        END AS f_tagnumber,
         formatDate(invcnt_tagdate) AS f_tagdate,
         item_number,
         item_descrip1,
@@ -847,10 +699,7 @@ WOMaterialRequirementsByWorkOrder
  <? if exists("maxTags") ?>
      LIMIT <? value("maxTags") ?>
  <? endif ?>
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: CreditMemo
  QUERY: GroupHead
@@ -869,7 +718,7 @@ WOMaterialRequirementsByWorkOrder
                    COALESCE(cmhead_shipto_city,'') ||'  '|| COALESCE(cmhead_shipto_state,'') || '  '|| COALESCE(cmhead_shipto_zipcode,''),
                    cmhead_shipto_country)
                    AS f_shiptoaddr,
-        CASE 
+        CASE
           WHEN (cmhead_invcnumber='-1') THEN ''
           --note: must now set explicit type for Postgres 8.3+
           --add ' '
@@ -887,7 +736,7 @@ WOMaterialRequirementsByWorkOrder
 +       AND (cmhead_id=<? value("cmhead_id") ?>))
  ORDER BY cmhead_number;
  --------------------------------------------------------------------
-   
+
  QUERY: Detail
  SELECT cmitem_linenumber,
         formatQty(cmitem_qtycredit) AS qtycredit,
@@ -907,7 +756,7 @@ WOMaterialRequirementsByWorkOrder
 +   AND (cmitem_cmhead_id=<? value("cmhead_id") ?>))
  ORDER BY cmitem_linenumber;
  --------------------------------------------------------------------
-   
+
  QUERY: GroupFoot
  SELECT formatExtPrice(SUM((cmitem_qtycredit * cmitem_qty_invuomratio) * cmitem_unitprice / cmitem_price_invuomratio)) AS extprice
    FROM cmhead, cmitem, itemsite, item
@@ -917,7 +766,7 @@ WOMaterialRequirementsByWorkOrder
 -   AND (cmhead_id=%1));
 +   AND (cmhead_id=<? value("cmhead_id") ?>));
  --------------------------------------------------------------------
-   
+
  QUERY: GroupExtended
  SELECT formatExtPrice( COALESCE(cmhead_freight,0.0) +
                         ( SELECT COALESCE(SUM(tax * -1.0), 0)
@@ -929,8 +778,8 @@ WOMaterialRequirementsByWorkOrder
                         ( SELECT COALESCE(SUM((cmitem_qtycredit * cmitem_qty_invuomratio) *
                                                cmitem_unitprice / cmitem_price_invuomratio), 0.0)
                           FROM cmitem
--                         WHERE (cmitem_cmhead_id=%1) ) 
-+                         WHERE (cmitem_cmhead_id=<? value("cmhead_id") ?>) ) 
+-                         WHERE (cmitem_cmhead_id=%1) )
++                         WHERE (cmitem_cmhead_id=<? value("cmhead_id") ?>) )
                       ) AS totaldue,
         formatExtPrice(COALESCE(cmhead_freight,0.0)) AS freight,
         ( SELECT formatExtPrice(COALESCE(SUM(tax * -1.0), 0))
@@ -942,44 +791,9 @@ WOMaterialRequirementsByWorkOrder
    FROM cmhead
 - WHERE (cmhead_id=%1);
 + WHERE (cmhead_id=<? value("cmhead_id") ?>);
- 
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: GLTransactions
- QUERY: head
- SELECT formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate,
-        <? if exists("source") ?>
-          text(<? value("source") ?>)
-        <? else ?>
-          text('All Sources')
-        <? endif  ?>
-        AS source,
-        <? if exists("accnt_id") ?>
-          ( SELECT (accnt_number || '-' || accnt_descrip)
-              FROM accnt
-             WHERE (accnt_id=<? value("accnt_id") ?>) )
-        <? else ?>
-          text('All Accounts')
-        <? endif ?>
-        AS accnt,
-        <? if exists("showUsernames") ?>
-          text('Username')
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_username
- --------------------------------------------------------------------
-   
  QUERY: detail
  <? if exists("beginningBalance") ?>
  SELECT -1 AS gltrans_id,
@@ -995,7 +809,7 @@ WOMaterialRequirementsByWorkOrder
                       ABS(<? value("beginningBalance") ?>)
              ELSE 0
         END AS debit_amt,
- 
+
         CASE WHEN (<? value("beginningBalance") ?> > 0) THEN
                       formatMoney(ABS(<? value("beginningBalance") ?>))
              ELSE ''
@@ -1014,7 +828,7 @@ WOMaterialRequirementsByWorkOrder
   WHERE (accnt_id=<? value("accnt_id") ?>)
  UNION
  <? endif ?>
- 
+
  SELECT gltrans_id,
         gltrans_created, formatDate(gltrans_date) AS transdate,
         gltrans_source, gltrans_doctype, gltrans_docnumber, invhist_docnumber,
@@ -1023,10 +837,10 @@ WOMaterialRequirementsByWorkOrder
  -- Debits:
         CASE WHEN (gltrans_amount < 0) THEN formatMoney(ABS(gltrans_amount))
              ELSE ''
-        END AS f_debit,       
+        END AS f_debit,
         CASE WHEN (gltrans_amount < 0) THEN ABS(gltrans_amount)
              ELSE 0
-        END AS debit_amt, 
+        END AS debit_amt,
  --Credits:
         CASE WHEN (gltrans_amount > 0) THEN formatMoney(gltrans_amount)
              ELSE ''
@@ -1038,7 +852,7 @@ WOMaterialRequirementsByWorkOrder
         gltrans_amount * -1 as balance_amt,
  --
         gltrans_amount,
-        CASE WHEN accnt_type IN ('A','E') THEN 
+        CASE WHEN accnt_type IN ('A','E') THEN
           gltrans_amount * -1
         ELSE gltrans_amount END AS running,
         formatBoolYN(gltrans_posted) AS f_posted,
@@ -1059,25 +873,11 @@ WOMaterialRequirementsByWorkOrder
         )
  ORDER BY gltrans_created <? if not exists("beginningBalance") ?> DESC <? endif ?>,
          gltrans_sequence, gltrans_amount
- 
+
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: IndentedBOM
- QUERY: head
- SELECT item_number,
-        uom_name AS item_invuom,
-        item_descrip1,
-        item_descrip2
-   FROM item, uom
-  WHERE ((item_id=<? value("item_id") ?>)
-  AND (item_inv_uom_id=uom_id));
-     
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT (REPEAT(' ',(bomdata_bomwork_level-1)*3) || bomdata_bomwork_seqnumber) AS f_seqnumber,
         bomdata_item_number AS item_number,
@@ -1099,31 +899,9 @@ WOMaterialRequirementsByWorkOrder
         END AS expires
  FROM indentedBOM(<? value("item_id") ?>,<? value("revision_id") ?>,<? value("expiredDays") ?>,<? value("futureDays") ?>)
  WHERE (bomdata_item_id>0);
- --------------------------------------------------------------------
-   
- QUERY: bomhead
- SELECT bomhead_docnum, bomhead_revision,
- formatDate(bomhead_revisiondate) AS f_revisiondate
- FROM bomhead
- WHERE ((bomhead_item_id=<? value("item_id") ?>)
- AND (bomhead_rev_id=<? value("revision_id") ?>));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: IndentedWhereUsed
- QUERY: head
- SELECT item_number,
-        uom_name AS item_invuom,
-        item_descrip1,
-        item_descrip2
-   FROM item, uom
-  WHERE ((item_id=<? value("item_id") ?>)
-  AND (item_inv_uom_id=uom_id));
-     
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT (REPEAT(' ',(bomwork_level-1)*3) || bomwork_seqnumber) AS f_seqnumber,
         bomworkitemsequence(bomwork_id) AS seqord,
@@ -1146,10 +924,7 @@ WOMaterialRequirementsByWorkOrder
  <? endif ?>
  )
  ORDER BY seqord;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: Invoice
  QUERY: GroupHead
@@ -1229,47 +1004,7 @@ WOMaterialRequirementsByWorkOrder
  AND (invchead_id=<? value("invchead_id") ?>) )
  ORDER BY ordernumber;
  --------------------------------------------------------------------
-   
- QUERY: Detail
- SELECT invcitem_linenumber,
-       formatQty(invcitem_billed) AS f_billed,
-       (select uom_name from uom where uom_id = invcitem_qty_uom_id) AS invuom,
-       CASE WHEN (item_number IS NULL) THEN invcitem_number
-            WHEN (invcitem_custpn != '') THEN invcitem_custpn
-            else item_number
-       END AS number,
-       CASE WHEN (item_number IS NULL) THEN invcitem_descrip
-            WHEN (invcitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip1
-            ELSE item_descrip1
-       END AS descrip1,
-       CASE WHEN (invcitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip2
-            ELSE item_descrip2
-       END AS descrip2,
-       formatPrice(invcitem_qty_invuomratio * invcitem_price / COALESCE(invcitem_price_invuomratio,1)) AS f_unitprice,
-       formatMoney(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / COALESCE(invcitem_price_invuomratio,1)),2)) AS f_extprice,
-       invcitem_notes,
-       getInvcitemLotSerial(invcitem_id) AS lotserial,
- --Sub-select updated for 3.1 to support kitting
-       characteristicsToString('SI',(SELECT coitem_id FROM coitem, cohead, invchead, itemsite 
-       WHERE (cohead_number=invchead_ordernumber and invchead_id=<? value("invchead_id") ?>
-       and coitem_cohead_id=cohead_id 
-       and invcitem_item_id = item_id
-       and coitem_itemsite_id = itemsite_id
-       and itemsite_item_id = item_id
-       and coitem_linenumber=invcitem_linenumber)
-       ), '=', ', ') 
-       AS coitem_characteristics
- FROM invcitem LEFT OUTER JOIN (item JOIN uom ON (item_inv_uom_id=uom_id)) ON (invcitem_item_id=item_id) LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=invcitem_custpn)
- WHERE (invcitem_invchead_id=<? value("invchead_id") ?>)
- ORDER BY invcitem_linenumber;
- --------------------------------------------------------------------
-   
- QUERY: foot
- SELECT formatMoney(SUM(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / COALESCE(invcitem_price_invuomratio,1)),2))) AS f_extprice
- FROM invcitem LEFT OUTER JOIN item on (invcitem_item_id=item_id)
- WHERE (invcitem_invchead_id=<? value("invchead_id") ?>);
- --------------------------------------------------------------------
-   
+
  QUERY: GroupExtended
  SELECT *,
         formatMoney(invchead_misc_amount) AS f_misc,
@@ -1284,11 +1019,11 @@ WOMaterialRequirementsByWorkOrder
         formatMoney(total_allocated) AS f_allocated
   FROM (SELECT invchead_misc_amount, invchead_freight,
                invchead_payment, invchead_notes, invchead_misc_descrip,
--              (SELECT SUM(tax) 
-+              (SELECT COALESCE(SUM(tax),0) 
+-              (SELECT SUM(tax)
++              (SELECT COALESCE(SUM(tax),0)
                  FROM (
-                 SELECT ROUND(SUM(taxdetail_tax),2) AS tax 
-                 FROM tax 
+                 SELECT ROUND(SUM(taxdetail_tax),2) AS tax
+                 FROM tax
                   JOIN calculateTaxDetailSummary('I', <? value("invchead_id") ?>, 'T') ON (taxdetail_tax_id=tax_id)
  	   GROUP BY tax_id) AS data) AS tax,
                SUM(COALESCE(ROUND(invcitem_billed *
@@ -1334,7 +1069,7 @@ WOMaterialRequirementsByWorkOrder
   ) AS dummy_outer
   ;
  --------------------------------------------------------------------
-   
+
  QUERY: allocatedCMs
  SELECT cohead_id,
        aropen_docnumber,
@@ -1418,35 +1153,7 @@ WOMaterialRequirementsByWorkOrder
    AND   (invchead_posted)
    AND   (invchead_id=<? value("invchead_id") ?>) )
  ORDER BY aropen_docnumber;
- --------------------------------------------------------------------
-   
- QUERY: currency
- SELECT
- curr_symbol
- FROM
-    invchead,
-    curr_symbol
- WHERE (invchead_id = <? value("invchead_id") ?>) AND
-      invchead_curr_id = curr_id;
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
- QUERY: tracknum
- select formatdate(cosmisc_shipdate) AS f_shipdate, cosmisc_tracknum, cosmisc_shipvia from cohead, cosmisc, invchead 
- where 
- cohead_id = cosmisc_cohead_id
- and cohead_number = invchead_ordernumber
- and invchead_id = <? value("invchead_id") ?>
- order by cosmisc_shipdate;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: ItemsByCharacteristic
  QUERY: detail
@@ -1497,23 +1204,7 @@ WOMaterialRequirementsByWorkOrder
  <? endif ?>
  )
  ORDER BY item_number;
- --------------------------------------------------------------------
-   
- QUERY: head
- SELECT char_name,
-        text(<? value("value") ??>) AS charvalue,
-        <? if exists("showInactive") ?>
-          text('Showing Active and Inactive Items')
-        <? else ?>
-          text('Showing Active Items')
-        <? endif ?>
-        AS lbl_show
-   FROM char
-  WHERE (char_id=<? value("char_id") ?>);
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: ItemsByClassCode
  QUERY: detail
@@ -1565,23 +1256,7 @@ WOMaterialRequirementsByWorkOrder
  <? endif ?>
  )
  ORDER BY item_number;
- --------------------------------------------------------------------
-   
- QUERY: head
- SELECT <? if exists("classcode_id") ?>
-          ( SELECT (classcode_code||'-'||classcode_descrip)
-              FROM classcode
-             WHERE (classcode_id=<? value("classcode_id") ?>) )
-        <? elseif exists("classcode_pattern") ?>
-          text(<? value("classcode_pattern") ?>)
-        <? else ?>
-          text('All Class Codes')
-        <? endif ?>
-        AS classcode;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: ItemsByProductCategory
  QUERY: detail
@@ -1633,23 +1308,7 @@ WOMaterialRequirementsByWorkOrder
  <? endif ?>
  )
  ORDER BY item_number;
- --------------------------------------------------------------------
-   
- QUERY: head
- SELECT <? if exists("prodcat_id") ?>
-          ( SELECT (prodcat_code||'-'||prodcat_descrip)
-              FROM prodcat
-             WHERE (prodcat_id=<? value("prodcat_id") ?>) )
-        <? elseif exists("prodcat_pattern") ?>
-          text(<? value("prodcat_pattern") ?>)
-        <? else ?>
-          text('All Product Categories')
-        <? endif ?>
-        AS prodcat;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: MaterialUsageVarianceByBOMItem
  QUERY: head
@@ -1677,16 +1336,16 @@ WOMaterialRequirementsByWorkOrder
     AND (child.item_inv_uom_id=cuom.uom_id)
 -   AND (bomitem_id=<? value("component_item_id") ?>) );
 +   AND (bomitem_id=<? value("bomitem_id") ?>) );
- 
+
  --------------------------------------------------------------------
-   
+
  QUERY: detail
  SELECT formatDate(posted) AS f_posted,
         formatQty(ordered) AS f_ordered,
         formatQty(received) AS f_produced,
         formatQty(projreq) AS f_projreq,
         formatQtyPer(projqtyper) AS f_projqtyper,
-        formatQty(actiss) AS f_actiss, 
+        formatQty(actiss) AS f_actiss,
         formatQtyPer(actqtyper) AS f_actqtyper,
         formatQtyPer(actqtyper - projqtyper) AS f_qtypervar,
         CASE WHEN (actqtyper=projqtyper) THEN formatPrcnt(0)
@@ -1698,7 +1357,7 @@ WOMaterialRequirementsByWorkOrder
                  womatlvar_qtyrcv AS received,
                  (womatlvar_qtyrcv * (womatlvar_qtyper * (1 + womatlvar_scrap))) AS projreq,
                  womatlvar_qtyper AS projqtyper,
-                 (womatlvar_qtyiss) AS actiss, (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper 
+                 (womatlvar_qtyiss) AS actiss, (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper
             FROM womatlvar, itemsite AS component,
                  itemsite AS parent
            WHERE ((womatlvar_parent_itemsite_id=parent.itemsite_id)
@@ -1712,10 +1371,7 @@ WOMaterialRequirementsByWorkOrder
                  )
         ) AS data
  ORDER BY posted;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: MaterialUsageVarianceByComponentItem
  QUERY: head
@@ -1736,9 +1392,9 @@ WOMaterialRequirementsByWorkOrder
    FROM item JOIN uom ON (item_inv_uom_id=uom_id)
 - WHERE (item_id=<? value("item_id") ?>);
 + WHERE (item_id=<? value("component_item_id") ?>);
- 
+
  --------------------------------------------------------------------
-   
+
  QUERY: detail
 -SELECT formatDate(posted) AS f_posted,
 -       item_number, item_descrip1, item_descrip2, uom_name,
@@ -1746,7 +1402,7 @@ WOMaterialRequirementsByWorkOrder
 -       formatQty(received) AS f_produced,
 -       formatQty(projreq) AS f_projreq,
 -       formatQtyPer(projqtyper) AS f_projqtyper,
--       formatQty(actiss) AS f_actiss, 
+-       formatQty(actiss) AS f_actiss,
 -       formatQtyPer(actqtyper) AS f_actqtyper,
 -       formatQtyPer(actqtyper - projqtyper) AS f_qtypervar,
 -       CASE WHEN (actqtyper=projqtyper) THEN formatPrcnt(0)
@@ -1761,7 +1417,7 @@ WOMaterialRequirementsByWorkOrder
 -                (womatlvar_qtyrcv * (womatlvar_qtyper * (1 + womatlvar_scrap))) AS projreq,
 -                womatlvar_qtyper AS projqtyper,
 -                (womatlvar_qtyiss) AS actiss,
--                (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper 
+-                (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper
 -           FROM womatlvar, itemsite AS component,
 -                itemsite AS parent, item, uom
 -          WHERE ((womatlvar_parent_itemsite_id=parent.itemsite_id)
@@ -1777,32 +1433,9 @@ WOMaterialRequirementsByWorkOrder
 -       ) AS data
 -ORDER BY posted;
 +== MetaSQL statement workOrderVariance-material
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: MaterialUsageVarianceByItem
- QUERY: head
- SELECT item_number,
-        item_descrip1,
-        item_descrip2,
-        uom_name,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse,
-        formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate
-   FROM item JOIN uom ON (item_inv_uom_id=uom_id)
-  WHERE (item_id=<? value("item_id") ?>);
- 
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT formatDate(posted) AS f_posted,
 -       item_number, item_descrip1, item_descrip2, uom_name,
@@ -1810,7 +1443,7 @@ WOMaterialRequirementsByWorkOrder
 -       formatQty(received) AS f_produced,
 -       formatQty(projreq) AS f_projreq,
 -       formatQtyPer(projqtyper) AS f_projqtyper,
--       formatQty(actiss) AS f_actiss, 
+-       formatQty(actiss) AS f_actiss,
 -       formatQtyPer(actqtyper) AS f_actqtyper,
 -       formatQtyPer(actqtyper - projqtyper) AS f_qtypervar,
 -       CASE WHEN (actqtyper=projqtyper) THEN formatPrcnt(0)
@@ -1825,7 +1458,7 @@ WOMaterialRequirementsByWorkOrder
 -                (womatlvar_qtyrcv * (womatlvar_qtyper * (1 + womatlvar_scrap))) AS projreq,
 -                womatlvar_qtyper AS projqtyper,
 -                (womatlvar_qtyiss) AS actiss,
--                (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper 
+-                (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper
 -           FROM womatlvar, itemsite AS component,
 -                itemsite AS parent, item, uom
 -          WHERE ((womatlvar_parent_itemsite_id=parent.itemsite_id)
@@ -1841,25 +1474,9 @@ WOMaterialRequirementsByWorkOrder
 -       ) AS data
 -ORDER BY posted;
 +== MetaSQL statement workOrderVariance-material
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: MaterialUsageVarianceByWarehouse
- QUERY: head
- SELECT formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse;
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT formatDate(posted) AS f_posted,
 -       parent_number, parent_descrip1, parent_descrip2, parent_invuom,
@@ -1868,7 +1485,7 @@ WOMaterialRequirementsByWorkOrder
 -       formatQty(received) AS f_produced,
 -       formatQty(projreq) AS f_projreq,
 -       formatQtyPer(projqtyper) AS f_projqtyper,
--       formatQty(actiss) AS f_actiss, 
+-       formatQty(actiss) AS f_actiss,
 -       formatQtyPer(actqtyper) AS f_actqtyper,
 -       formatQtyPer(actqtyper - projqtyper) AS f_qtypervar,
 -       CASE WHEN (actqtyper=projqtyper) THEN formatPrcnt(0)
@@ -1889,7 +1506,7 @@ WOMaterialRequirementsByWorkOrder
 -                (womatlvar_qtyrcv * (womatlvar_qtyper * (1 + womatlvar_scrap))) AS projreq,
 -                womatlvar_qtyper AS projqtyper,
 -                (womatlvar_qtyiss) AS actiss,
--                (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper 
+-                (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper
 -           FROM womatlvar, itemsite AS componentsite, itemsite AS parentsite,
 -                item AS componentitem, item AS parentitem, uom AS puom, uom AS cuom
 -          WHERE ((womatlvar_parent_itemsite_id=parentsite.itemsite_id)
@@ -1906,25 +1523,9 @@ WOMaterialRequirementsByWorkOrder
 -       ) AS data
 -ORDER BY posted;
 +== MetaSQL statement workOrderVariance-material
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: MaterialUsageVarianceByWorkOrder
- QUERY: head
- SELECT formatWONumber(wo_id) AS wonumber,
-        warehous_code, item_number, uom_name,
-        item_descrip1, item_descrip2,
-        wo_status
-   FROM wo, itemsite, item, warehous, uom
-  WHERE ((wo_itemsite_id=itemsite_id)
-    AND (itemsite_item_id=item_id)
-    AND (item_inv_uom_id=uom_id)
-    AND (itemsite_warehous_id=warehous_id)
-    AND (wo_id=<? value("wo_id") ?>))
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT formatDate(posted) AS f_posted,
 -       item_number, item_descrip1, item_descrip2, uom_name,
@@ -1932,7 +1533,7 @@ WOMaterialRequirementsByWorkOrder
 -       formatQty(received) AS f_produced,
 -       formatQty(projreq) AS f_projreq,
 -       formatQtyPer(projqtyper) AS f_projqtyper,
--       formatQty(actiss) AS f_actiss, 
+-       formatQty(actiss) AS f_actiss,
 -       formatQtyPer(actqtyper) AS f_actqtyper,
 -       formatQtyPer(actqtyper - projqtyper) AS f_qtypervar,
 -       CASE WHEN (actqtyper=projqtyper) THEN formatPrcnt(0)
@@ -1947,7 +1548,7 @@ WOMaterialRequirementsByWorkOrder
 -                (womatlvar_qtyrcv * (womatlvar_qtyper * (1 + womatlvar_scrap))) AS projreq,
 -                womatlvar_qtyper AS projqtyper,
 -                (womatlvar_qtyiss) AS actiss,
--                (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper 
+-                (womatlvar_qtyiss / (womatlvar_qtyrcv * (1 + womatlvar_scrap))) AS actqtyper
 -           FROM womatlvar, itemsite, item, wo, uom
 -          WHERE ((womatlvar_component_itemsite_id=itemsite_id)
 -            AND (itemsite_item_id=item_id)
@@ -1957,24 +1558,15 @@ WOMaterialRequirementsByWorkOrder
 -            AND (wo_id=<? value("wo_id") ?>) ) ) AS data
 -ORDER BY item_number;
 +== MetaSQL statement workOrderVariance-material
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: OrderActivityByProject
- QUERY: head
- SELECT prj_name, prj_number
-   FROM prj
-  WHERE (prj_id=<? value("prj_id") ?>);
- --------------------------------------------------------------------
-   
  QUERY: detail
  <? if exists("showSo") ?>
- SELECT quhead_id AS id, 
+ SELECT quhead_id AS id,
         10 AS typeid,
         text('Section 1 - Pro Forma Revenue (Quotes)') AS section,
-        text('Quote') AS type, 
+        text('Quote') AS type,
         text(quhead_number) || '-' || text(quitem_linenumber) AS ordernumber,
         CASE WHEN quhead_origin = 'C'  THEN 'Customer'
              WHEN quhead_origin = 'S'  THEN 'Sales Rep'
@@ -1990,14 +1582,14 @@ WOMaterialRequirementsByWorkOrder
          AND (quitem_quhead_id = quhead_id)
          AND (quitem_itemsite_id = itemsite_id)
          AND (itemsite_item_id = item_id))
- 
+
  UNION
- 
- SELECT 
-        cohead_id AS id, 
+
+ SELECT
+        cohead_id AS id,
         20 AS typeid,
         text('Section 2 - Booked Revenue') AS section,
-        text('Sales Order - See Invoice Section for Closed Line Amounts') AS type, 
+        text('Sales Order - See Invoice Section for Closed Line Amounts') AS type,
         text(cohead_number) || '-' || text(coitem_linenumber) AS ordernumber,
         CASE WHEN cohead_holdtype = 'N'  THEN 'Not On Hold'
              WHEN cohead_holdtype = 'C'  THEN 'On Credit Hold'
@@ -2006,37 +1598,37 @@ WOMaterialRequirementsByWorkOrder
              WHEN cohead_holdtype = 'R'  THEN 'On Return Hold'
         END AS status,
         item_number AS item,
-        
+
         formatQty(coitem_qtyord) AS f_qty,
         CASE WHEN coitem_status = 'C' THEN 'SO Line Closed - See Invoice'
              WHEN coitem_status <> 'C' THEN formatQty((coitem_qtyord * coitem_qty_invuomratio) * (coitem_price * coitem_price_invuomratio))
         END AS f_value,
-        
+
         CASE WHEN coitem_status = 'C' THEN 0
              WHEN coitem_status <> 'C' THEN (coitem_qtyord * coitem_qty_invuomratio) * (coitem_price * coitem_price_invuomratio)
         END AS amt_value,
-   
+
         CASE WHEN coitem_status = 'C' THEN 0
              WHEN coitem_status <> 'C' THEN (coitem_qtyord * coitem_qty_invuomratio) * (coitem_price * coitem_price_invuomratio)
         END AS amt_report
- 
-   FROM cohead, coitem, itemsite, item 
-  WHERE ((cohead_prj_id = <? value("prj_id"?>) 
+
+   FROM cohead, coitem, itemsite, item
+  WHERE ((cohead_prj_id = <? value("prj_id"?>)
          AND (coitem_cohead_id = cohead_id)
          AND (coitem_itemsite_id = itemsite_id)
          AND (itemsite_item_id = item_id))
- 
+
  UNION
- 
- SELECT invchead_id AS id, 
+
+ SELECT invchead_id AS id,
         40 AS typeid,
         text('Section 3 - Invoiced Revenue') AS section,
-        text('Invoice - Closed Sales Order Lines') AS type, 
+        text('Invoice - Closed Sales Order Lines') AS type,
         text(invchead_invcnumber) || '-' || text(invcitem_linenumber) AS ordernumber,
         CASE WHEN invchead_printed = 'Y'  THEN 'Printed'
              WHEN invchead_printed = 'N'  THEN 'Not Printed'
         END AS status,
-        
+
         CASE WHEN invcitem_id <> '-1'  THEN item_number
               WHEN invcitem_id = '-1'  THEN invcitem_number
         END AS item,
@@ -2044,24 +1636,24 @@ WOMaterialRequirementsByWorkOrder
         formatQty((invcitem_ordered * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio)) AS f_value,
         (invcitem_ordered * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio) AS amt_value,
         (invcitem_ordered * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio) AS amt_report
- 
+
    FROM invchead, invcitem, item
    WHERE ((invchead_prj_id= <? value("prj_id") ?> )
          AND (invcitem_invchead_id = invchead_id)
          AND (invcitem_item_id = item_id)
          AND (invchead_ordernumber in (select cohead_number from coitem, cohead where coitem_cohead_id = cohead_id AND coitem_status = 'C')))
- 
+
  UNION
- 
- SELECT invchead_id AS id, 
+
+ SELECT invchead_id AS id,
         45 AS typeid,
         text('Section 3 - Invoiced Revenue') AS section,
-        text('Invoice - Open Sales Order Lines') AS type, 
+        text('Invoice - Open Sales Order Lines') AS type,
         text(invchead_invcnumber) || '-' || text(invcitem_linenumber) AS ordernumber,
         CASE WHEN invchead_printed = 'Y'  THEN 'Printed'
              WHEN invchead_printed = 'N'  THEN 'Not Printed'
         END AS status,
-        
+
         CASE WHEN invcitem_id <> '-1'  THEN item_number
               WHEN invcitem_id = '-1'  THEN invcitem_number
         END AS item,
@@ -2069,70 +1661,70 @@ WOMaterialRequirementsByWorkOrder
         text('SO Line Open - See Sales Order') AS f_value,
         0 AS amt_value,
         0 AS amt_report
- 
+
    FROM invchead, invcitem, item
    WHERE ((invchead_prj_id= <? value("prj_id") ?> )
          AND (invcitem_invchead_id = invchead_id)
          AND (invcitem_item_id = item_id)
          AND (invchead_ordernumber in (select cohead_number from coitem, cohead where coitem_cohead_id = cohead_id AND coitem_status <> 'C')))
- 
+
  UNION
- 
- SELECT invchead_id AS id, 
+
+ SELECT invchead_id AS id,
         50 AS typeid,
         text('Section 3 - Invoiced Revenue') AS section,
-        text('Invoice - Misc., No SO Number - User Defined Item') AS type, 
+        text('Invoice - Misc., No SO Number - User Defined Item') AS type,
         text(invchead_invcnumber) || '-' || text(invcitem_linenumber) AS ordernumber,
         CASE WHEN invchead_printed = 'Y'  THEN 'Printed'
              WHEN invchead_printed = 'N'  THEN 'Not Printed'
         END AS status,
-               
+
         invcitem_number AS item,
         formatQty(invcitem_billed) AS f_qty,
         formatQty((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio)) AS f_value,
         (invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio) AS amt_value,
         (invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio) AS amt_report
- 
+
    FROM invchead, invcitem
    WHERE ((invchead_prj_id= <? value("prj_id") ?>)
          AND (invcitem_invchead_id = invchead_id)
          AND (invchead_ordernumber is null))
- 
- 
+
+
  UNION
- 
- SELECT invchead_id AS id, 
+
+ SELECT invchead_id AS id,
         52 AS typeid,
         text('Section 3 - Invoiced Revenue') AS section,
-        text('Invoice - Misc., User SO Number - User Defined Item ') AS type, 
+        text('Invoice - Misc., User SO Number - User Defined Item ') AS type,
         text(invchead_invcnumber) || '-' || text(invcitem_linenumber) AS ordernumber,
         CASE WHEN invchead_printed = 'Y'  THEN 'Printed'
              WHEN invchead_printed = 'N'  THEN 'Not Printed'
         END AS status,
-               
+
         invcitem_number AS item,
         formatQty(invcitem_billed) AS f_qty,
         formatQty((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio)) AS f_value,
         (invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio) AS amt_value,
         (invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio) AS amt_report
- 
+
    FROM invchead, invcitem
    WHERE ((invchead_prj_id= <? value("prj_id") ?>)
          AND (invcitem_invchead_id = invchead_id)
          AND (invchead_ordernumber is not null)
          AND (invcitem_item_id = -1))
- 
+
  UNION
- 
- SELECT invchead_id AS id, 
+
+ SELECT invchead_id AS id,
         56 AS typeid,
         text('Section 3 - Invoiced Revenue') AS section,
-        text('Invoice - Misc., User SO Number - Normal Item') AS type, 
+        text('Invoice - Misc., User SO Number - Normal Item') AS type,
         text(invchead_invcnumber) || '-' || text(invcitem_linenumber) AS ordernumber,
         CASE WHEN invchead_printed = 'Y'  THEN 'Printed'
              WHEN invchead_printed = 'N'  THEN 'Not Printed'
         END AS status,
-        
+
         CASE WHEN invcitem_id <> '-1'  THEN item_number
               WHEN invcitem_id = '-1'  THEN invcitem_number
         END AS item,
@@ -2140,91 +1732,91 @@ WOMaterialRequirementsByWorkOrder
         formatQty((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio)) AS f_value,
         (invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio) AS amt_value,
         (invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio) AS amt_report
- 
+
    FROM invchead, invcitem, item
    WHERE ((invchead_prj_id= <? value("prj_id") ?> )
          AND (invcitem_invchead_id = invchead_id)
          AND (invcitem_item_id = item_id)
          AND (invchead_ordernumber not in (select cohead_number from coitem, cohead where coitem_cohead_id = cohead_id)
          AND (invchead_ordernumber is not null)))
- 
- 
+
+
  <? endif ?>
- 
- 
+
+
  <? if exists("showWo") ?>
- 
+
  <?   if exists("showSo") ?>
- 
+
  UNION
- 
+
  <?   endif ?>
- 
- SELECT wo_id AS id, 
+
+ SELECT wo_id AS id,
         90 AS typeid,
         text('Section 6 - Work Order Expense') AS section,
-        text('Work Orders') AS type, 
+        text('Work Orders') AS type,
         formatWoNumber(wo_id) AS ordernumber,
-        wo_status AS status, 
+        wo_status AS status,
         item_number AS item,
         formatQty(wo_qtyord) AS f_qty,
-              
+
         CASE WHEN wo_status <> 'I'  THEN formatQty(wo_postedvalue)
              WHEN wo_status  = 'I' THEN formatQty(wo_wipvalue)
         END AS f_value,
-        
-        CASE WHEN wo_status <> 'I'  THEN wo_postedvalue 
+
+        CASE WHEN wo_status <> 'I'  THEN wo_postedvalue
              WHEN wo_status  = 'I' THEN wo_wipvalue
         END AS amt_value,
- 
+
         CASE WHEN wo_status <> 'I'  THEN wo_postedvalue * -1
              WHEN wo_status  = 'I' THEN wo_wipvalue * -1
-        END AS amt_report 
-       
+        END AS amt_report
+
    FROM wo, itemsite, item
   WHERE ((wo_prj_id=<? value("prj_id") ?>)
         AND (wo_itemsite_id = itemsite_id)
         AND (itemsite_item_id = item_id))
  <? endif ?>
- 
- 
+
+
  <? if exists("showPo") ?>
  <?   if exists("showSo") ?>
   UNION
  <? elseif exists("showWo") ?>
   UNION
- 
+
  <? endif ?>
- 
- SELECT pr_id AS id, 
+
+ SELECT pr_id AS id,
         60 AS typeid,
         text('Section 4 - Pro Forma Expense (Purchase Requests)') AS section,
-        text('Purchase Requests - Values At Standard') AS type, 
+        text('Purchase Requests - Values At Standard') AS type,
         text(pr_number) AS ordernumber,
-        pr_status AS status, 
+        pr_status AS status,
         item_number AS item,
         formatQty(pr_qtyreq) AS f_qty,
         formatQty(stdcost(item_id) * pr_qtyreq) AS f_value,
         stdcost(item_id) * pr_qtyreq AS amt_value,
-        stdcost(item_id) * pr_qtyreq * -1 AS amt_report 
+        stdcost(item_id) * pr_qtyreq * -1 AS amt_report
    FROM pr, item, itemsite
   WHERE ((pr_prj_id=<? value("prj_id") ?>)
         AND (pr_itemsite_id = itemsite_id)
         AND (itemsite_item_id = item_id)
         AND (pr_itemsite_id = itemsite_id)
         AND (itemsite_item_id = item_id))
- 
+
  UNION
- 
- SELECT poitem_id AS id, 
+
+ SELECT poitem_id AS id,
         70 AS typeid,
         text('Section 5 - Purchase Expense') AS section,
-        text('Purchase Order - Stocked Items') AS type, 
+        text('Purchase Order - Stocked Items') AS type,
         (text(pohead_number) || '-' || text(poitem_linenumber)) AS ordernumber,
-        poitem_status AS status, 
- 
+        poitem_status AS status,
+
         item_number AS item,
- 
+
         formatQty(poitem_qty_ordered) AS f_qty,
         formatQty(poitem_qty_ordered * poitem_unitprice) AS f_value,
         poitem_qty_ordered * poitem_unitprice AS amt_value,
@@ -2234,279 +1826,57 @@ WOMaterialRequirementsByWorkOrder
     AND  (poitem_prj_id = <? value("prj_id") ?>)
     AND  (poitem_itemsite_id = itemsite_id)
     AND  (itemsite_item_id = item_id))
- 
+
  UNION
- 
- SELECT poitem_id AS id, 
+
+ SELECT poitem_id AS id,
         80 AS typeid,
         text('Section 5 - Purchase Expense') AS section,
--       text('Purcahse Order - Inventory Items') AS type, 
-+       text('Purchase Order - Inventory Items') AS type, 
+-       text('Purcahse Order - Inventory Items') AS type,
++       text('Purchase Order - Inventory Items') AS type,
         (text(pohead_number) || '-' || text(poitem_linenumber)) AS ordernumber,
-        poitem_status AS status, 
- 
+        poitem_status AS status,
+
         poitem_vend_item_number AS item,
- 
+
         formatQty(poitem_qty_ordered) AS f_qty,
         formatQty(poitem_qty_ordered * poitem_unitprice) AS f_value,
         poitem_qty_ordered * poitem_unitprice AS amt_value,
         poitem_qty_ordered * poitem_unitprice * -1 AS amt_report
- 
+
    FROM pohead, poitem
   WHERE ((poitem_pohead_id = pohead_id)
     AND  (poitem_prj_id = <? value("prj_id") ?>)
 -   AND  (poitem_itemsite_id = '-1'))
 +   AND  (poitem_itemsite_id is null))
- 
+
  <? endif ?>
- 
+
  ORDER BY section, typeid, ordernumber;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: PackingList-Shipment
- QUERY: head
- SELECT shiphead_number, 'S/O #:' AS ordertype,
-        cohead_number AS ordernumber,
-        formatsobarcode(cohead_id) AS order_barcode,
-        COALESCE(shiphead_shipvia, cohead_shipvia) AS shipvia,
-        cohead_shiptophone AS shiptophone,
-        cohead_custponumber,
-        formatDate(cohead_orderdate) AS orderdate,
-        cohead_shipcomments AS shipcomments,   
-        cohead_billtoname AS billtoname,
-        formataddr(cohead_billtoaddress1, cohead_billtoaddress2,
-                   cohead_billtoaddress3,
-                   (cohead_billtocity || '  ' ||   cohead_billtostate ||
-                   '  ' || cohead_billtozipcode), cohead_billtocountry) AS billing_address,
-        cohead_shiptoname AS shiptoname,
-        formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2,
-                   cohead_shiptoaddress3,
-                   (cohead_shiptocity || '  ' ||   cohead_shiptostate ||
-                   '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
- 
-        cust_number,
-        cust_contact,
-        cust_phone,
-        terms_descrip
-   FROM shiphead, cohead, cust, terms
-  WHERE ((cohead_cust_id=cust_id)
-    AND (cohead_terms_id=terms_id)
-    AND (cohead_id=shiphead_order_id)
-    AND (shiphead_order_type='SO')
-    AND (shiphead_id=<? value("shiphead_id") ?>)
- )
- <? if exists("MultiWhs") ?>
- UNION
- SELECT shiphead_number, 'T/O #:' AS ordertype,
-        tohead_number AS ordernumber,
-        formattobarcode(tohead_id) AS order_barcode,
-        shiphead_shipvia AS shipvia,
-        tohead_destphone AS shiptophone,
-        TEXT(tohead_number) AS cohead_custponumber,
-        formatDate(tohead_orderdate) AS orderdate,
-        tohead_shipcomments AS shipcomments,
-        tohead_srcname AS billtoname,
-        formataddr(tohead_srcaddress1, tohead_srcaddress2,
-                    tohead_srcaddress3,
-                   (tohead_srccity || ' ' || tohead_srcstate ||
-                    ' ' || tohead_srcpostalcode), tohead_srccountry) AS billing_address,
-        tohead_destname AS shiptoname,
-        formataddr(tohead_destaddress1, tohead_destaddress2,
-                    tohead_destaddress3,
-                   (tohead_destcity || ' ' || tohead_deststate ||
-                    ' ' || tohead_destpostalcode), tohead_destcountry) AS shipping_address,
-        'Transfer Order' AS cust_number,
-        tohead_destcntct_name AS cust_contact,
-        tohead_destphone AS cust_phone,
-        '' AS terms_descrip
-   FROM shiphead, tohead
-  WHERE ((tohead_id=shiphead_order_id)
-    AND  (shiphead_order_type='TO')
-    AND  (shiphead_id=<? value("shiphead_id") ?>)
- )
- <? endif ?>;
- --------------------------------------------------------------------
-   
- QUERY: scheddate
- SELECT formatDate(MIN(coitem_scheddate)) AS scheddate
-   FROM coitem, coship
-  WHERE ((coitem_status <> 'X')
-    AND  (coitem_id=coship_coitem_id)
-    AND  (coship_cosmisc_id=<? value("coship_cosmisc_id") ?>));
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 1 AS groupby,
- --     coitem_linenumber AS linenumber,
- --     In 3.1 replace line above with line below to support 
- --     kitting functionality
-        formatsolinenumber(coitem_id) AS linenumber,
-        coitem_memo AS memo,
-        CASE WHEN (coitem_custpn != '') THEN coitem_custpn
-             ELSE item_number
-        END AS item_number,
-        formatitemsitebarcode(itemsite_id) AS item_barcode,
-        formatsoitembarcode(coitem_id) AS orderitem_barcode,
- --     In 2.3 replaced the next line:
- --     uom_name,
- --     with:
-        (select uom_name from uom where uom_id = coitem_qty_uom_id) AS uom_name,
-        itemsellinguom(item_id) AS shipuom,
-        CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip1
-             ELSE item_descrip1
-        END AS item_descrip1,
-        CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip2
-             ELSE item_descrip2
-        END AS item_descrip2,
- 
-        formatQty(coitem_qtyord) AS ordered,
-        (SELECT formatQty(SUM(coship_qty)) FROM coship WHERE ((coship_cosmisc_id=<? value("cosmisc_id") ?>) AND (coship_coitem_id=coitem_id))) AS shipped,
- 
-        CASE WHEN (coitem_status='O' AND (SELECT cust_creditstatus
-                                            FROM cust,cohead
-                                           WHERE coitem_cohead_id=cohead_id
-                                             AND cust_id=cohead_cust_id)='H') THEN 'H'
-             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
-                                             FROM cohead, invchead, invcitem
-                                            WHERE ((invchead_ordernumber=cohead_number)
-                                              AND  (invcitem_invchead_id=invchead_id)
-                                              AND  (invcitem_item_id=item_id)
-                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
-                                              AND  (invcitem_linenumber=coitem_linenumber)
-                                              AND  (cohead_id=coitem_cohead_id))) >= coitem_qtyord)) THEN 'I'
-             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
-                                             FROM cohead, invchead, invcitem
-                                            WHERE ((invchead_ordernumber=cohead_number)
-                                              AND  (invcitem_invchead_id=invchead_id)
-                                              AND  (invcitem_item_id=item_id)
-                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
-                                              AND  (invcitem_linenumber=coitem_linenumber)
-                                              AND  (cohead_id=coitem_cohead_id))) > 0)) THEN 'P'
-             WHEN (coitem_status='O' AND (itemsite_qtyonhand - qtyAllocated(itemsite_id, CURRENT_DATE)
-                                          + qtyOrdered(itemsite_id, CURRENT_DATE))
-                                           >= (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned)) THEN 'R'
-             ELSE coitem_status
-        END AS f_status,
-        CASE
-          WHEN (getPacklistItemLotSerial(coship_cosmisc_id, coitem_id) = '') THEN
-            ''
-          ELSE
-            'Serial #/Lot Information:'
-        END AS lotserial_title,
-        getPacklistItemLotSerial(coship_cosmisc_id, coitem_id) AS lotserial,
-        CASE
-          WHEN (getPacklistCharName(coship_cosmisc_id, coitem_id) = '') THEN
-            ''
-          ELSE
-            'Characteristics:'
-        END AS char_title,
-        getPacklistCharName(coship_cosmisc_id, coitem_id) AS char_name,
-        getPacklistCharValue(coship_cosmisc_id, coitem_id) AS char_value
-   FROM coship
-        JOIN coitem ON (coitem_id=coship_coitem_id)
-        JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
-        JOIN item ON (item_id=itemsite_item_id)
-        JOIN uom ON (uom_id=item_inv_uom_id)
-        LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=coitem_custpn) 
-  WHERE ( (coitem_status <> 'X')
-    AND (coship_cosmisc_id=<? value("cosmisc_id") ?>)
- )
- <? if exists("MultiWhs") ?>
- UNION
- SELECT 2 AS groupby,
- --     For 3.1 added CAST to match column type of corresponding column in other SELECT 
- --     in this UNION
-        CAST(toitem_linenumber AS text) AS linenumber,
-        toitem_notes AS memo,
-        item_number,
-        formatitemsitebarcode(itemsite_id) AS item_barcode,
-        formattoitembarcode(toitem_id) AS orderitem_barcode,
-        uom_name,
-        itemsellinguom(item_id) AS shipuom,
-        item_descrip1,
-        item_descrip2,
- 
-        formatQty(toitem_qty_ordered) AS ordered,
- 
-        (SELECT formatQty(SUM(shipitem_qty))
-         FROM shipitem
-         WHERE ((shipitem_shiphead_id=<? value("shiphead_id") ?>)
-           AND  (shipitem_orderitem_id=toitem_id))
-        ) AS shipped,
- 
-        toitem_status AS f_status,
-        CASE
-          WHEN (getPacklistItemLotSerial(shiphead_id, toitem_id) = '') THEN
-            ''
-          ELSE
-            'Serial #/Lot Information:'
-        END AS lotserial_title,
-        getPacklistItemLotSerial(shiphead_id, toitem_id) AS lotserial,
-        '' AS char_title,
-        '' AS char_name,
-        '' AS char_value
-   FROM itemsite, item, toitem, tohead, shipitem, shiphead, uom
-  WHERE ((toitem_item_id=item_id)
-    AND  (item_inv_uom_id=uom_id)
-    AND  (item_id=itemsite_item_id)
-    AND  (toitem_tohead_id=tohead_id)
-    AND  (toitem_status <> 'X')
-    AND  (tohead_src_warehous_id=itemsite_warehous_id)
-    AND  (toitem_id=shipitem_orderitem_id)
-    AND  (shipitem_shiphead_id=shiphead_id)
-    AND  (shiphead_order_type='TO')
-    AND  (shiphead_id=<? value("shiphead_id") ?>)
- )
- <? endif ?>
- ORDER BY linenumber;
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
  QUERY: so_ra_relation
  --added in 2.3 to show RA link to S/O if the SO
  --was created as the result of a replacement RA
 +<? if exists("EnableReturnAuth") ?>
- select 
+ select
  'RA #' AS ratext,
  rahead_number
  from
  rahead, cohead, shiphead
- where 
+ where
  rahead_new_cohead_id = cohead_id
  and cohead_id = shiphead_order_id
  and shiphead_id = <? value("shiphead_id") ?>;
 +<? else ?>
-+select 
++select
 +'' AS ratext,
 +'' AS rahead_number
 +<? endif ?>
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: PendingBOMChanges
- QUERY: head
- SELECT item_number,
-        uom_name,
-        item_descrip1,
-        item_descrip2,
-        CASE WHEN (<? value("cutOffDate") ?> >= date('2099-12-31')) THEN text('Latest')
-             ELSE formatDate(<? value("cutOffDate") ?>)
-        END AS cutoffdate
-   FROM item JOIN uom ON (item_inv_uom_id=uom_id)
-  WHERE (item_id=<? value("item_id") ?>);
-     
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT formatDate(bomitem_effective) as actiondate,
         'Effective' AS action,
@@ -2553,35 +1923,9 @@ WOMaterialRequirementsByWorkOrder
   AND (bomitem_expires BETWEEN CURRENT_DATE AND <? value("cutOffDate") ?>)
  )
  ORDER BY action, actiondate, bomitem_seqnumber;
-     
- --------------------------------------------------------------------
-   
- QUERY: bomhead
- SELECT bomhead_docnum, bomhead_revision,
- formatDate(bomhead_revisiondate) AS f_revisiondate
- FROM bomhead
- WHERE ((bomhead_item_id=<? value("item_id") ?>)
- AND (bomhead_rev_id=<? value("revision_id") ?>));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: PendingWOMaterialAvailability
- QUERY: head
- SELECT item_number, item_descrip1, item_descrip2,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse
-   FROM item
- WHERE (item_id=<? value("item_id") ?>);
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT bomitem_seqnumber, item_number, item_descrip1, item_descrip2, uom_name,
         formatQty(pendalloc) AS pendalloc,
@@ -2605,10 +1949,7 @@ WOMaterialRequirementsByWorkOrder
  WHERE ((qoh + ordered - (totalalloc + pendalloc)) < 0.0)
  <? endif ?>
  ORDER BY bomitem_seqnumber;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: PurchaseOrder
  QUERY: Head
@@ -2647,73 +1988,7 @@ WOMaterialRequirementsByWorkOrder
     AND (pohead_warehous_id = warehous_id)
     AND (pohead_id=<? value("pohead_id") ?>) );
  --------------------------------------------------------------------
-   
- QUERY: Detail
- SELECT poitem_linenumber,
-        poitem_comments,
-        poitem_linenumber AS f_line,
-        item_number,
-        poitem_vend_item_number, 
-        CASE WHEN (LENGTH(TRIM(BOTH '	' FROM poitem_vend_item_descrip)) <= 0) THEN
-           (item_descrip1 || '' || item_descrip2)
-        ELSE (poitem_vend_item_descrip)
-        END AS itemdescription,
-        formatQty(poitem_qty_ordered) AS f_ordered,
-        CASE WHEN (poitem_vend_uom LIKE '') THEN (uom_name)
-             ELSE (poitem_vend_uom)
-        END AS itemuom,
-        formatPrice(poitem_unitprice) AS f_price,
-        formatExtPrice(poitem_unitprice * poitem_qty_ordered) AS f_extended,
-        formatDate(poitem_duedate) AS f_duedate,
-        characteristicsToString('PI', poitem_id, '=', ', ') AS poitem_characteristics
- FROM poitem
- 	LEFT OUTER JOIN itemsite ON (poitem_itemsite_id = itemsite_id)
- 	LEFT OUTER JOIN (item JOIN uom ON (item_inv_uom_id=uom_id)) ON (itemsite_item_id = item_id)
- WHERE 	(poitem_pohead_id=<? value("pohead_id") ?>) 
- ORDER BY poitem_linenumber;
- --------------------------------------------------------------------
-   
- QUERY: Foot
- SELECT formatExtPrice(COALESCE(SUM(poitem_qty_ordered * poitem_unitprice), 0)) AS f_subtotal,
-        formatExtPrice(COALESCE(SUM(poitem_freight)+pohead_freight,0)) AS f_totalfreight,
-        formatExtPrice(COALESCE(pohead_tax,0)) AS f_tax,
-        formatExtPrice(COALESCE(SUM(poitem_qty_ordered * poitem_unitprice), 0)+COALESCE(SUM(poitem_freight)+pohead_freight,0)+COALESCE(pohead_tax,0)) AS f_totaldue
-   FROM poitem, pohead
-  WHERE ( (poitem_pohead_id=<? value("pohead_id") ?>)
-   AND (pohead_id=poitem_pohead_id) )
-  GROUP BY pohead_freight, pohead_tax;
- --------------------------------------------------------------------
-   
- QUERY: Logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
- QUERY: Currency
- SELECT
-  curr_symbol
- FROM
-     pohead,
-     curr_symbol
- WHERE (pohead_id = <? value("pohead_id") ?>) AND
-       pohead_curr_id = curr_id;
- --------------------------------------------------------------------
-   
- QUERY: Address
- SELECT
-      warehous_descrip,
-      formatAddr(addr_line1, addr_line2, addr_line3, ( addr_city || '  ' || addr_state || '  ' || addr_postalcode), addr_country) AS warehouse_address
- FROM
-      whsinfo, 
-      addr, 
-      pohead
- WHERE 
-      addr_id = warehous_addr_id
-      and pohead_warehous_id = warehous_id
-      AND pohead_id=<? value("pohead_id") ?> ;
- --------------------------------------------------------------------
-   
+
  QUERY: ShipToAddress
  SELECT pohead_number,
 -
@@ -2731,12 +2006,12 @@ WOMaterialRequirementsByWorkOrder
 -END
 -AS warehous_address
 -
--FROM 
--pohead 
+-FROM
+-pohead
 -LEFT OUTER JOIN vendaddr ON (pohead_vendaddr_id = vendaddr_id),
 -vend,
 -whsinfo
--LEFT OUTER JOIN addr ON (warehous_addr_id = addr_id) 
+-LEFT OUTER JOIN addr ON (warehous_addr_id = addr_id)
 -WHERE ((pohead_vend_id=vend_id) AND
 -       (pohead_warehous_id = warehous_id) AND
 -        (pohead_id=<? value("pohead_id") ?>)
@@ -2773,35 +2048,9 @@ WOMaterialRequirementsByWorkOrder
 + WHERE ((pohead_vend_id=vend_id)
 +   AND (pohead_warehous_id = warehous_id)
 +   AND (pohead_id=<? value("pohead_id") ?>) );
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: PurchaseReqsByPlannerCode
- QUERY: head
- SELECT <? if exists("plancode_id") ?>
-          ( SELECT (plancode_code||'-'||plancode_name)
-              FROM plancode
-             WHERE plancode_id=<? value("plancode_id") ?>)
-        <? elseif exists("plancode_pattern") ?>
-          text(<? value("plancode_pattern") ?>)
-        <? else ?>
-          text('All Planner Codes')
-        <? endif ?>
-        AS plancode,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE warehous_id=<? value("warehous_id") ?>)
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse,
-        formatDate(<? value("startDate") ?>) AS startdate,
-        formatDate(<? value("endDate") ?>) AS enddate;
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT pr_number || '-' || pr_subnumber AS pr_number,
         item_number,
@@ -2836,29 +2085,9 @@ WOMaterialRequirementsByWorkOrder
  <? endif ?>
  )
  ORDER BY pr_duedate;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: PurchaseRequestsByItem
- QUERY: head
- SELECT item_number,
-        item_descrip1,
-        item_descrip2,
-        uom_name,
-        <? if exists("warehous_id") ?>
-          (select warehous_code
-             from warehous
-            where warehous_id=<? value("warehous_id") ?>)
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse
-   FROM item JOIN uom ON (item_inv_uom_id=uom_id)
-  WHERE (item_id=<? value("item_id") ?>);
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT pr_status,
         pr_number || '-' || pr_subnumber AS pr_number,
@@ -2875,18 +2104,15 @@ WOMaterialRequirementsByWorkOrder
 -       formatQty(pr_qtyreq) as f_qtyreq
 +       formatQty(pr_qtyreq) as f_qtyreq,
 +        pr_releasenote as f_notes
-   FROM pr, itemsite 
+   FROM pr, itemsite
   WHERE ((pr_itemsite_id=itemsite_id)
     AND (itemsite_item_id=<? value("item_id") ?>)
  <? if exists("warehous_id") ?>
     AND (itemsite_warehous_id=<? value("warehous_id") ?>)
  <? endif ?>
-  ) 
+  )
  ORDER BY pr_duedate;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: QOHByParameterList
  QUERY: head
@@ -2980,132 +2206,7 @@ WOMaterialRequirementsByWorkOrder
           text('')
         <? endif ?>
         AS showvalues;
- 
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT itemsite_id,
-        detail,
-        item_number,
-        item_descrip1,
-        item_descrip2,
-        uom_name,
-        warehous_code,
-        formatQty(reorderlevel) AS f_reorderlevel,
-        formatQty(qoh) AS f_qoh,
-        CASE WHEN (NOT useDefaultLocation(itemsite_id)) THEN 'None'
-                  ELSE defaultLocationName(itemsite_id)
-        END AS defaultlocation,
-        formatQty(nonnetable) AS f_nonnetable,
-        <? if exists("showValue") ?>
-          formatCost(standardcost)
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_unitcost,
-        <? if exists("showValue") ?>
-          formatExtPrice(noNeg(standardcost * qoh))
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_value,
-        <? if exists("showValue") ?>
-          CASE WHEN (itemsite_loccntrl) THEN formatExtPrice(noNeg(standardcost * nonnetable))
-               ELSE 'N/A'
-          END
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_nonnetvalue,
-        standardcost,
-        qoh,
-        nonnetable,
-        noNeg(qoh) AS r_qoh,
-        noNeg(nonnetable) AS r_nonnetable,
-        <? if exists("showValue") ?>
-          noNeg(standardcost * qoh)
-        <? else ?>
-          0
-        <? endif ?>
-        AS r_value,
-        <? if exists("showValue") ?>
-          CASE WHEN (itemsite_loccntrl) THEN noNeg(standardcost * nonnetable)
-               ELSE 0
-          END
-        <? else ?>
-          0
-        <? endif ?>
-        AS r_nonnetvalue,
-        <? if exists("showValue") ?>
-          <? if exists("usePostedCosts") ?>
-            CASE WHEN(itemsite_costmethod='A') THEN text('Average')
-                 WHEN(itemsite_costmethod='S') THEN text('Standard')
-                 WHEN(itemsite_costmethod='J') THEN text('Job')
-                 WHEN(itemsite_costmethod='N') THEN text('None')
-                 ELSE text('UNKNOWN')
-            END
-          <? else ?>
-            text('')
-          <? endif ?>
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_costmethod
- FROM ( SELECT itemsite_id, itemsite_costmethod,
-               item_number,
-               item_descrip1, item_descrip2, itemsite_loccntrl,
-               warehous_code,
-               uom_name,
-               CASE WHEN(itemsite_useparams) THEN itemsite_reorderlevel ELSE 0.0 END AS reorderlevel,
-               itemsite_qtyonhand AS qoh,
-               CASE WHEN ((itemsite_loccntrl) OR (itemsite_controlmethod IN ('L', 'S'))) THEN 1
-                    ELSE 0
-               END AS detail,
-               itemsite_nnqoh AS nonnetable,
-               <? if exists("useActualCosts") ?>
-                 actcost(itemsite_item_id)
-               <? elseif exists("useStandardCosts") ?>
-                 stdcost(itemsite_item_id)
-               <? else ?>
-                 (itemsite_value / CASE WHEN(itemsite_qtyonhand=0) THEN 1 ELSE itemsite_qtyonhand END)
-               <? endif ?>
-               AS standardcost
-          FROM itemsite, item, uom, warehous
-         WHERE ((itemsite_item_id=item_id)
-           AND (item_inv_uom_id=uom_id)
-           AND (itemsite_warehous_id=warehous_id)
-           AND (itemsite_active)
- <? if exists("classcode_id") ?>
-           AND (item_classcode_id=<? value("classcode_id") ?>)
- <? elseif exists("classcode_pattern") ?>
-           AND (item_classcode_id IN (SELECT classcode_id
-                                        FROM classcode
-                                       WHERE (classcode_code ~ <? value("classcode_pattern") ?>) ) )
- <? elseif exists("itemgrp_id") ?>
-           AND (item_id IN (SELECT itemgrpitem_item_id FROM itemgrpitem WHERE (itemgrpitem_itemgrp_id=<? value("itemgrp_id") ?>)))
- <? elseif exists("itemgrp_pattern") ?>
-           AND (item_id IN (SELECT itemgrpitem_item_id
-                              FROM itemgrpitem, itemgrp
-                             WHERE ( (itemgrpitem_itemgrp_id=itemgrp_id)
-                               AND (itemgrp_name ~ <? value("itemgrp_pattern") ?>) ) ))
- <? elseif exists("itemgrp") ?>
-           AND (item_id IN (SELECT DISTINCT itemgrpitem_item_id FROM itemgrpitem))
- <? endif ?>
- <? if exists("onlyShowPositive") ?>
-           AND (itemsite_qtyonhand > 0)
- <? elseif exists("onlyShowNegative") ?>
-           AND (itemsite_qtyonhand < 0)
- <? endif ?>
- <? if exists("warehous_id") ?>
-           AND (itemsite_warehous_id=<? value("warehous_id") ?>)
- <? endif ?>
- ) ) AS data
- ORDER BY warehous_code, item_number;
- 
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: SelectPaymentsList
  QUERY: detail
@@ -3156,44 +2257,9 @@ WOMaterialRequirementsByWorkOrder
 +         apopen_duedate, apopen_docdate, apopen_amount, apopen_paid, apopen_curr_id, apopen_status) AS data
   WHERE (amount <> 0.0)
  ORDER BY apopen_duedate, amount DESC;
- --------------------------------------------------------------------
-   
- QUERY: head
- SELECT <? if exists("vend_id") ?>
-          ( SELECT vend_name
-              FROM vend
-             WHERE (vend_id=<? value("vend_id") ?>) )
-        <? elseif exists("vendtype_id") ?>
-          ( SELECT (vendtype_code || '-' || vendtype_descrip)
-              FROM vendtype
-             WHERE (vendtype_id=<? value("vendtype_id") ?>) )
-        <? elseif exists("vendtype_pattern") ?>
-          text(<? value("vendtype_pattern") ?>)
-        <? else ?>
-          text('All Vendors')
-        <? endif ?>
-        AS f_value,
-        <? if reExists("vendtype_.*") ?>
-          text('Vendor Type:')
-        <? else ?>
-          text('Vendor:')
-        <? endif ?>
-        AS f_label;
-        
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: SingleLevelBOM
- QUERY: head
- SELECT item_number, uom_name AS item_invuom, item_descrip1, item_descrip2
- FROM item, uom
- WHERE ((item_id=<? value("item_id") ?>)
- AND (item_inv_uom_id=uom_id));
-     
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT bomitem_seqnumber, item_number,
         invuom.uom_name AS invuomname, issueuom.uom_name AS issueuomname,
@@ -3228,51 +2294,18 @@ WOMaterialRequirementsByWorkOrder
  <? else ?>
   AND (bomitem_expires > CURRENT_DATE)
  <? endif ?>
- 
+
  <? if exists("effectiveDays") ?>
   AND (bomitem_effective <= (CURRENT_DATE + <? value("effectiveDays") ?>))
  <? else ?>
   AND (bomitem_effective <= CURRENT_DATE)
  <? endif ?>
- 
+
  )
  ORDER BY bomitem_seqnumber, bomitem_effective;
- 
- --------------------------------------------------------------------
-   
- QUERY: bomhead
- SELECT bomhead_docnum, bomhead_revision,
-        formatDate(bomhead_revisiondate) AS f_revisiondate
- FROM bomhead
- WHERE ((bomhead_item_id=<? value("item_id") ?>)
- <? if exists("revision_id") ?>
- AND (bomhead_rev_id=<? value("revision_id") ?>)
- <? else ?>
- AND (bomhead_rev_id=getActiveRevId('BOM',<? value("item_id") ?>))
- <? endif ?>
- );
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: SingleLevelWhereUsed
- QUERY: head
- SELECT item_number,
-        uom_name,
-        item_descrip1,
-        item_descrip2,
-        <? if exists("effective") ?>
-          formatDate(<? value("effective") ?>)
-        <? else ?>
-          text('Now')
-        <? endif ?>
-        AS effective
-   FROM item JOIN uom ON (item_inv_uom_id=uom_id)
-  WHERE (item_id=<? value("item_id") ?>);
-     
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT bomitem_seqnumber, item_number,
         item_descrip1, item_descrip2, uom_name,
@@ -3301,23 +2334,9 @@ WOMaterialRequirementsByWorkOrder
  <? endif ?>
  )
  ORDER BY item_number;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: SummarizedBOM
- QUERY: head
- SELECT item_number,
-        uom_name AS item_invuom,
-        item_descrip1,
-        item_descrip2
-   FROM item, uom
-  WHERE ((item_id=<? value("item_id") ?>)
-  AND (item_inv_uom_id=uom_id));
-     
- --------------------------------------------------------------------
-   
  QUERY: detail
  select bomdata_item_number AS item_number,
         bomdata_uom_name AS item_invuom,
@@ -3326,20 +2345,7 @@ WOMaterialRequirementsByWorkOrder
 -       formatQtyPer(bomdata_qtyper) AS qtyper
 +       formatQtyPer(bomdata_qtyreq) AS qtyreq
    FROM summarizedBOM(<? value("item_id") ?>,<? value("revision_id") ?>,<? value("expiredDays") ?>,<? value("futureDays") ?>)
- 
- 
- --------------------------------------------------------------------
-   
- QUERY: bomhead
- SELECT bomhead_docnum, bomhead_revision,
- formatDate(bomhead_revisiondate) AS f_revisiondate
- FROM bomhead
- WHERE ((bomhead_item_id=<? value("item_id") ?>)
- AND (bomhead_rev_id=<? value("revision_id") ?>));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: TimePhasedOpenARItems
  QUERY: head
@@ -3369,9 +2375,9 @@ WOMaterialRequirementsByWorkOrder
           text('Customer:')
         <? endif ?>
         AS f_label;
-        
+
  --------------------------------------------------------------------
-   
+
  QUERY: detail
  SELECT pstart, pend,
         period,
@@ -3430,25 +2436,9 @@ WOMaterialRequirementsByWorkOrder
    ) AS data
   WHERE (value != 0)
  ORDER BY pstart, pend, cust_number
- 
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: UninvoicedShipments
- QUERY: head
- SELECT <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse;
- 
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT cohead_id, coship_id, cohead_number, coitem_linenumber,
         item_number, item_descrip1, item_descrip2,
@@ -3490,29 +2480,9 @@ WOMaterialRequirementsByWorkOrder
 + WHERE (selected = 0)
 +<? endif ?>
 +;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: ValidLocationsByItem
- QUERY: head
- SELECT item_number,
-        item_descrip1,
-        item_descrip2,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-                    FROM warehous
-                    WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse
-   FROM item
-  WHERE (item_id=<? value("item_id") ?>);
- 
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT warehous_code,
         formatLocationName(location_id) AS locationname,
@@ -3554,17 +2524,14 @@ WOMaterialRequirementsByWorkOrder
  )
 +
  ORDER BY warehous_code, locationname;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: WOMaterialAvailabilityByWorkOrder
  QUERY: head
  SELECT formatWONumber(wo_id) AS wonumber,
         warehous_code as warehouse,
         item_number, item_descrip1, item_descrip2, uom_name,
-        wo_status AS status,        
+        wo_status AS status,
         <? if exists("onlyShowShortages") ?>
           text('Only Show Shortages')
         <? elseif exists("onlyShowInsufficientInventory") ?>
@@ -3589,7 +2556,7 @@ WOMaterialRequirementsByWorkOrder
     AND (itemsite_warehous_id=warehous_id)
     AND (wo_id=<? value("wo_id") ?>) );
  --------------------------------------------------------------------
-   
+
  QUERY: detail
 -SELECT item_number, item_descrip1, item_descrip2, uom_name,
 -               formatQty(qoh) AS adjqoh,
@@ -3613,49 +2580,31 @@ WOMaterialRequirementsByWorkOrder
 -        ) AS data
 +SELECT *, (REPEAT(' ',(woinvav_level-1)*3) || woinvav_item_wo_number) AS itemwonumber FROM woinvavail(<? value("wo_id") ?>,
 +<? if exists("IndentedParentChild") ?>
-+true, 
++true,
 + <? else ?>
-+false, 
++false,
 +<? endif ?>
 +<? if exists("summarizedParentChild") ?>
-+true, 
++true,
 + <? else ?>
-+false, 
++false,
 +<? endif ?>
  <? if exists("onlyShowShortages") ?>
 - WHERE ( ((qoh + ordered - allocated) < 0) OR ((qoh + ordered - wobalance) < 0) )
-+true, 
++true,
 + <? else ?>
-+false, 
++false,
  <? endif ?>
  <? if exists("onlyShowInsufficientInventory") ?>
--   WHERE ( ((qoh - allocated) < 0)OR ((qoh - wobalance) < 0) ) 
-+true) 
+-   WHERE ( ((qoh - allocated) < 0)OR ((qoh - wobalance) < 0) )
++true)
 + <? else ?>
-+false) 
++false)
  <? endif ?>
 -ORDER BY item_number;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: WOMaterialRequirementsByComponentItem
- QUERY: head
- SELECT item_number, item_descrip1, item_descrip2,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse
-   FROM item
-  WHERE (item_id=<? value("item_id") ?>);
- 
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT formatWONumber(wo_id) AS wonumber,
                 item_number, item_descrip1, item_descrip2,
@@ -3686,8 +2635,7 @@ WOMaterialRequirementsByWorkOrder
   )
  ORDER BY wo_startdate;
  --------------------------------------------------------------------
-   
-\ No newline at end of file
+
 +QUERY: total
 +SELECT formatQty(SUM(womatl_qtyreq)) AS required,
 +       formatQty(SUM(womatl_qtyiss)) AS issued,
@@ -3706,25 +2654,10 @@ WOMaterialRequirementsByWorkOrder
 + )
 +;
 +--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
++
+
  ====================================================================
  REPORT: WOMaterialRequirementsByWorkOrder
- QUERY: head
- SELECT formatWONumber(wo_id) AS wonumber,
-        warehous_code as warehouse,
-        item_number, item_descrip1,
-        item_descrip2, uom_name,
-        wo_status AS status
-   FROM wo, itemsite, item, uom, warehous
-  WHERE ((wo_itemsite_id=itemsite_id)
-    AND (itemsite_item_id=item_id)
-    AND (item_inv_uom_id=uom_id)
-    AND (itemsite_warehous_id=warehous_id)
-    AND (wo_id=<? value("wo_id") ?>) );
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT womatl_id, item_number,
         item_descrip1, item_descrip2,
@@ -3748,6 +2681,5 @@ WOMaterialRequirementsByWorkOrder
   AND (itemsite_item_id=item_id)
   AND (wo_id=<? value("wo_id") ?>) )
  ORDER BY item_number;
+
  --------------------------------------------------------------------
-   
-\ No newline at end of file
