@@ -82,6 +82,7 @@ FROM vend, poreject LEFT OUTER JOIN
     (itemsite JOIN
      item ON (itemsite_item_id=item_id)) ON (poreject_itemsite_id=itemsite_id)
 WHERE ( (poreject_vend_id=vend_id)
+ AND (poreject_posted)
  AND (DATE(poreject_date) BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? if exists("vend_id") ?>
  AND (vend_id=<? value ("vend_id") ?>)
@@ -94,6 +95,10 @@ WHERE ( (poreject_vend_id=vend_id)
 <? endif ?>
 <? if exists("agentUsername") ?>
  AND (poreject_agent_username=<? value("agentUsername") ?>)
+<? endif ?>
+<? if not exists("showUnvouchered") ?>
+ AND (poreject_vohead_id IS NOT NULL)
+ AND (poreject_invoiced)
 <? endif ?>
 )
 ORDER BY sortdate DESC;
