@@ -190,6 +190,10 @@ WOMaterialRequirementsByWorkOrder
  --------------------------------------------------------------------
    
  QUERY: detail
+ == MetaSQL statement arOpenItems-detail
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
  
  ====================================================================
  REPORT: BillingEditList
@@ -1772,8 +1776,9 @@ WOMaterialRequirementsByWorkOrder
 -                )
 -       ) AS data
 -ORDER BY posted;
----------------------------------------------------------------------
--  
++== MetaSQL statement workOrderVariance-material
+ --------------------------------------------------------------------
+   
 \ No newline at end of file
  
  ====================================================================
@@ -1835,8 +1840,9 @@ WOMaterialRequirementsByWorkOrder
 -                )
 -       ) AS data
 -ORDER BY posted;
----------------------------------------------------------------------
--  
++== MetaSQL statement workOrderVariance-material
+ --------------------------------------------------------------------
+   
 \ No newline at end of file
  
  ====================================================================
@@ -1899,8 +1905,9 @@ WOMaterialRequirementsByWorkOrder
 -                )
 -       ) AS data
 -ORDER BY posted;
----------------------------------------------------------------------
--  
++== MetaSQL statement workOrderVariance-material
+ --------------------------------------------------------------------
+   
 \ No newline at end of file
  
  ====================================================================
@@ -1949,8 +1956,9 @@ WOMaterialRequirementsByWorkOrder
 -            AND (wo_subnumber=womatlvar_subnumber)
 -            AND (wo_id=<? value("wo_id") ?>) ) ) AS data
 -ORDER BY item_number;
----------------------------------------------------------------------
--  
++== MetaSQL statement workOrderVariance-material
+ --------------------------------------------------------------------
+   
 \ No newline at end of file
  
  ====================================================================
