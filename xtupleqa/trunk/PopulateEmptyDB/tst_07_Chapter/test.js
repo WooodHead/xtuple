@@ -264,7 +264,7 @@ function main()
         clickButton(":List A/P Account Assignments.Close_QPushButton");
         
     }catch(e){test.fail("Exception in Assigning Accounts:"+e);}
-  
+
     //--------------Create new Vendor-------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
@@ -310,16 +310,16 @@ function main()
         clickItem(":_addressStack._country_XComboBox", "India", 0, 0, 1, Qt.LeftButton);
         waitForObject(":Vendor.Save_QPushButton");
         clickButton(":Vendor.Save_QPushButton");
-        snooze(2); //delay for allowing to save
-        waitForObject(":List Vendors._vendor_XTreeWidget");
-        if(object.exists(":_vendor.STANDARD_QModelIndex"))
+         waitForObject(":List Vendors._vendor_XTreeWidget");
+       snooze(1);
+         if(object.exists(":_vendor.STANDARD_QModelIndex"))
             test.pass("Vendor created: TPARTS");
         else test.fail("Vendor not created: TPARTS");
         
         waitForObject(":List Vendors.Close_QPushButton");
         clickButton(":List Vendors.Close_QPushButton");
     }catch(e){test.fail("Exception in creating Vendor:"+e);}
-    
+  
     
     
     //------------Create Item Sources------------------
@@ -337,8 +337,9 @@ function main()
         
         waitForObject(":List Item Sources...._QPushButton");
         clickButton(":List Item Sources...._QPushButton");
-        waitForObject(":_listTab_XTreeWidget_6");
-        doubleClickItem(":_listTab_XTreeWidget_6","TBOX1",0,0,0,Qt.LeftButton);
+           
+        waitForObject(":_listTab_XTreeWidget_7");
+        doubleClickItem(":_listTab_XTreeWidget_7","TBOX1",0,0,0,Qt.LeftButton);
                 
         waitForObject(":_vendorGroup...._QPushButton_2");
         clickButton(":_vendorGroup...._QPushButton_2");
@@ -393,8 +394,8 @@ function main()
         clickButton(":_frame.New_QPushButton");
          waitForObject(":List Item Sources...._QPushButton");
         clickButton(":List Item Sources...._QPushButton");
-        waitForObject(":_listTab_XTreeWidget_6");
-        doubleClickItem(":_listTab_XTreeWidget_6","TBODY1",0,0,0,Qt.LeftButton);
+        waitForObject(":_listTab_XTreeWidget_7");
+        doubleClickItem(":_listTab_XTreeWidget_7","TBODY1",0,0,0,Qt.LeftButton);
         waitForObject(":_vendorGroup...._QPushButton_2");
         clickButton(":_vendorGroup...._QPushButton_2");
         waitForObject(":_listTab_XTreeWidget_3");
@@ -436,8 +437,8 @@ function main()
         clickButton(":_frame.New_QPushButton");
         waitForObject(":List Item Sources...._QPushButton");
         clickButton(":List Item Sources...._QPushButton");
-        waitForObject(":_listTab_XTreeWidget_6");
-        doubleClickItem(":_listTab_XTreeWidget_6","TINSERT1",0,0,0,Qt.LeftButton);
+        waitForObject(":_listTab_XTreeWidget_7");
+        doubleClickItem(":_listTab_XTreeWidget_7","TINSERT1",0,0,0,Qt.LeftButton);
             waitForObject(":_vendorGroup...._QPushButton_2");
          clickButton(":_vendorGroup...._QPushButton_2");
             waitForObject(":_listTab_XTreeWidget_3");
@@ -482,8 +483,8 @@ function main()
         clickButton(":_frame.New_QPushButton");
         waitForObject(":List Item Sources...._QPushButton");
         clickButton(":List Item Sources...._QPushButton");
-        waitForObject(":_listTab_XTreeWidget_6");
-        doubleClickItem(":_listTab_XTreeWidget_6","TWHEEL1",0,0,0,Qt.LeftButton);
+        waitForObject(":_listTab_XTreeWidget_7");
+        doubleClickItem(":_listTab_XTreeWidget_7","TWHEEL1",0,0,0,Qt.LeftButton);
         waitForObject(":_vendorGroup...._QPushButton_2");
         clickButton(":_vendorGroup...._QPushButton_2");
         waitForObject(":_listTab_XTreeWidget_3");
@@ -523,8 +524,8 @@ function main()
         clickButton(":_frame.New_QPushButton");
        waitForObject(":List Item Sources...._QPushButton");
         clickButton(":List Item Sources...._QPushButton");
-        waitForObject(":_listTab_XTreeWidget_6");
-        doubleClickItem(":_listTab_XTreeWidget_6","YPAINT1",0,0,0,Qt.LeftButton);
+        waitForObject(":_listTab_XTreeWidget_7");
+        doubleClickItem(":_listTab_XTreeWidget_7","YPAINT1",0,0,0,Qt.LeftButton);
 
         waitForObject(":_vendorGroup...._QPushButton_2");
         clickButton(":_vendorGroup...._QPushButton_2");

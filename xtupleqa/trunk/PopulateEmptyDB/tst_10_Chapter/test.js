@@ -62,11 +62,11 @@ function main()
         waitForObject(":Chart of Accounts.Close_QPushButton_2");
         clickButton(":Chart of Accounts.Close_QPushButton_2");
     }catch(e){test.fail("Exception in creating Chart of Accounts");}
-    
-    
-    
-        
-    
+  
+  
+  
+      
+  
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         
@@ -82,8 +82,10 @@ function main()
             waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
             clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
           
+           
             waitForObject(":tab.Enable EFT Check Printing_QGroupBox");
-            mouseClick(":tab.Enable EFT Check Printing_QGroupBox",10,10,0,Qt.LeftButton);
+            mouseClick(":tab.Enable EFT Check Printing_QGroupBox", 23, 12, 0, Qt.LeftButton);
+             
             waitForObject(":_nextACHBatchNumber_XLineEdit_2");
             type(":_nextACHBatchNumber_XLineEdit_2", "<Ctrl+A>");
             type(":_nextACHBatchNumber_XLineEdit_2", "<Del>");
@@ -237,9 +239,9 @@ function main()
         waitForObject(":List Fiscal Years.New_QPushButton");
         clickButton(":List Fiscal Years.New_QPushButton");
         waitForObject(":Fiscal Year.XDateEdit_XDateEdit");
-         var d = new Date();
-         var CurrentYearFull = d.getFullYear();
-         var CurrentYear = CurrentYearFull.toString().slice(2);
+        var d = new Date();
+        var CurrentYearFull = d.getFullYear();
+        var CurrentYear = CurrentYearFull.toString().slice(2);
         type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+CurrentYearFull);
         type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+CurrentYearFull);
         waitForObject(":Fiscal Year.Save_QPushButton");
@@ -266,6 +268,7 @@ function main()
         clickButton(":List Fiscal Years.Close_QPushButton");
     }catch(e){test.fail("Exception in creating Fiscal Year");}
     
+  
     //-------------Define: Fiscal Calendar--------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");

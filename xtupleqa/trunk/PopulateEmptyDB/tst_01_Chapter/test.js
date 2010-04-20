@@ -51,7 +51,7 @@ function main()
     
     loginAppl("CONFIGURE"); 
    
-    var appEdition = findApplicationEdition();
+      var appEdition = findApplicationEdition(); 
 
     //-----create Entities-------
     createDept("MFG","Manufacturing");
@@ -268,6 +268,7 @@ function main()
             test.pass("SubAccount: DXP Expense created");
         else
             test.fail("SubAccount: DXP Expense not created");
+        snooze(0.1);
         
         waitForObject(":List G/L Subaccount Types.Close_QPushButton");
         clickButton(":List G/L Subaccount Types.Close_QPushButton");
@@ -564,8 +565,8 @@ function main()
             
         }
         catch(e){test.fail("Exception while setting database options:"+e);}
-        
-        
+      
+      
         //----Configure EDI Profile----
         try{
             
@@ -1338,7 +1339,7 @@ function main()
   
    
         //---Create User by Role--
-        createUserByRole("RUNREGISTER");
+       createUserByRole("RUNREGISTER");
  
         try{
             //----Read Username based on Role------
