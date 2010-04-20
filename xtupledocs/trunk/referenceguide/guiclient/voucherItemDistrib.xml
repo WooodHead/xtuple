@@ -6,10 +6,10 @@
   <title><indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>costing elements associated with</secondary>
-    </indexterm> <indexterm significance="normal">
+    </indexterm><indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>automatic updating of actual costs</secondary>
-    </indexterm> <indexterm significance="normal">
+    </indexterm><indexterm significance="normal">
       <primary>actual costs</primary>
       <secondary>automatic updating of at vouchering</secondary>
     </indexterm>Voucher Item Distribution</title>
@@ -69,10 +69,19 @@
       <term>Discountable</term>
       <listitem>
         <para>Select if the Voucher Item is entitled to a Terms discount. This
-        option may be used on a line-by-line basis—all within one Voucher. For
-        example, purchased Items may be discountable; however, freight charges
-        may not be. When selecting a Voucher for payment within the discount
-        period, only discountable Items will be discounted.</para>
+        option may be used on a line-by-line basis&mdash;all within one
+        Voucher. For example, purchased Items may be discountable; however,
+        freight charges may not be. When selecting a Voucher for payment
+        within the discount period, only discountable Items will be
+        discounted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        general Notes related to the Voucher Item distribution. These Notes
+        are for internal use only.</para>
       </listitem>
     </varlistentry>
   </variablelist>
