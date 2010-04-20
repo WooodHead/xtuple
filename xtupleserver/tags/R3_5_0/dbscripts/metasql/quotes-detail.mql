@@ -1,0 +1,42 @@
+-- Group: quotes
+-- Name: detail
+-- Notes:
+
+SELECT quhead.*,
+<? if exists("customersOnly") ?>
+       cust_id, cust_number, cust_name,
+<? endif ?>
+       ( SELECT MIN(quitem_scheddate)
+           FROM quitem
+          WHERE (quitem_quhead_id=quhead_id) ) AS min_scheddate
+FROM quhead
+<? if exists("customersOnly") ?>
+  JOIN custinfo ON (quhead_cust_id=cust_id)
+<? endif ?>
+WHERE (checkQuoteSitePrivs(quhead_id, <? value("warehous_id") ?>))
+<? if not exists("showExpired") ?>
+  AND ((quhead_expire IS NULL) OR (quhead_expire >= CURRENT_DATE))
+<? endif ?>
+<? if exists("customersOnly") ?>
+<? if exists("cust_id") ?>
+  AND  (quhead_cust_id=<? value("cust_id") ?>)
+<? endif ?>
+<? if exists("custtype_id") ?>
+  AND  (cust_custtype_id=<? value("custtype_id") ?>)
+<? endif ?>
+<? if exists("custtype_pattern") ?>
+  AND  (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
+<? endif ?>
+<? endif ?>
+<? if exists("poNumber") ?>
+  AND  (quhead_custponumber=<? value("poNumber") ?>)
+<? endif ?>
+<? if exists("startDate") ?>
+  AND  (quhead_quotedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+<? endif ?>
+<? if exists("orderByCust") ?>
+ORDER BY cust_number, quhead_number;
+<? else ?>
+ORDER BY quhead_number;
+<? endif ?>
+
