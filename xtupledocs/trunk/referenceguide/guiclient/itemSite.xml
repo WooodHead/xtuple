@@ -776,15 +776,16 @@
               <para>Specify the length of a period&mdash;measured in
               days&mdash;within which MPS or MRP Planned Orders will be
               grouped together (i.e, consolidated) to meet scheduled demand
-              for the period. This functionality serves to limit the total
-              number of Planned Orders, thereby simplifying order processing.
-              For example, to consolidate demand for an Item Site into 30-day
-              buckets, set the value to "30." When MRP is run, the system will
-              automatically consolidate all demand falling within the 30-day
-              horizon into a single Planned Purchase Order or Planned Work
-              Order. The grouping of Planned Orders moves forward in time,
-              meaning the system will create as many buckets as will fit
-              within the cutoff date specified when MRP is run.</para>
+              for the period. The minimum possible number of days is one. This
+              functionality serves to limit the total number of Planned
+              Orders, thereby simplifying order processing. For example, to
+              consolidate demand for an Item Site into 30-day buckets, set the
+              value to "30." When MRP is run, the system will automatically
+              consolidate all demand falling within the 30-day horizon into a
+              single Planned Purchase Order or Planned Work Order. The
+              grouping of Planned Orders moves forward in time, meaning the
+              system will create as many buckets as will fit within the cutoff
+              date specified when MRP is run.</para>
               <para>The initial grouping of Planned Orders is handled
               differently than subsequent buckets. The following formula
               specifies how the date range for the initial period is
@@ -801,10 +802,10 @@
                       <para>To enforce <indexterm significance="normal">
                           <primary>just-in-time</primary>
                           <secondary>delivery of planned orders</secondary>
-                        </indexterm> <indexterm significance="normal">
+                        </indexterm><indexterm significance="normal">
                           <primary>planned orders</primary>
                           <secondary>just-in-time delivery and</secondary>
-                        </indexterm> <indexterm significance="normal">
+                        </indexterm><indexterm significance="normal">
                           <primary>material requirements planning</primary>
                           <secondary>just-in-time delivery and</secondary>
                         </indexterm>Just-In-Time (JIT) delivery methods, set
