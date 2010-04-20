@@ -334,18 +334,18 @@ function main()
         waitForObject(":List Items.Close_QPushButton_3");
         clickButton(":List Items.Close_QPushButton_3");
     }catch(e){test.fail("Exception in creating item: TINSERT1")}
-  
-  
-  
-  //---------------Create Item sites------------------------------
-    try{
-      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-      waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-      activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-      waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
-      activateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
-      
+
+
+
+//---------------Create Item sites------------------------------
+   try{
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+    
         //---------Item site: YTRUCK1----------------------
         waitForObject(":List Item Sites.New_QPushButton_3");
         clickButton(":List Item Sites.New_QPushButton_3");

@@ -441,16 +441,16 @@ function main()
     }catch(e){test.fail("Exception in defining Sales Category");}
     
     
-    //-----------Chart Of Accounts-------------------------------
+  //-----------Chart Of Accounts-------------------------------
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
     activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-    
+  
     COA("01","01","5000","01","Cost Of Goods Sold","Expense","COGS");
-    
+  
     COA("01","01","4700","01","Returns","Revenue","SI");
     
     COA("01","01","5710","01","Returned Goods","Expense","COGS");
@@ -684,140 +684,140 @@ function main()
     }catch(e){test.fail("Exception in Sales Account assignment");}
 
 
-//    //----------------Create new Customer---------------
-//    try{
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-//        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
-//        activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "New...");
-//        activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "New...");
-//        
-//        waitForObject(":Customer._customerNumberEdit_XLineEdit");
-//        findObject(":Customer._customerNumberEdit_XLineEdit").clear();
-//        type(":Customer._customerNumberEdit_XLineEdit", "TTOYS");
-//        type(":Customer._name_XLineEdit", "Tremendous Toys");
-//        
-//        clickTab(":Customer.qt_tabwidget_tabbar_QTabBar","Settings");
-//        waitForObject(":_defaultGroup._salesrep_XComboBox");
-//        if(findObject(":_defaultGroup._salesrep_XComboBox").currentText!= username+"-"+username)
-//            clickItem(":_defaultGroup._salesrep_XComboBox",username+"-"+username,0,0,1,Qt.LeftButton);
-//        waitForObject(":_settingsTab.Terms_QRadioButton");
-//        clickButton(":_settingsTab.Terms_QRadioButton");
-//        snooze(0.5);
-//        waitForObject(":_terms_XComboBox");
-//        if(findObject(":_terms_XComboBox").currentText!= "2-10N30-2% Discount in 10 Days - Net 30 Days")
-//            clickItem(":_terms_XComboBox","2-10N30-2% Discount in 10 Days - Net 30 Days",0,0,1,Qt.LeftButton);
-//        type(":groupBox_4._defaultDiscountPrcnt_XLineEdit", "10");
-//        type(":_creditGroup._currency_XLineEdit", "50000");
-//        findObject(":_creditGroup._creditRating_XLineEdit_2").clear();
-//        type(":_creditGroup._creditRating_XLineEdit_2", "D&B");
-//        if(!findObject(":_creditGroup.Place on Credit Warning when Credit Limit/Grace Days is Exceeded_QCheckBox_2").checked)
-//            clickButton(":_creditGroup.Place on Credit Warning when Credit Limit/Grace Days is Exceeded_QCheckBox_2");
-//        clickButton(":_creditStatusGroup.In Good Standing_QRadioButton");
-//        if(!findObject(":groupBox_3.Uses Purchase Orders_QCheckBox").checked)
-//            clickButton(":groupBox_3.Uses Purchase Orders_QCheckBox");
-//        if(!findObject(":_creditGroup.Alternate Late Grace Days_QGroupBox_2").checked)
-//            type(":_creditGroup.Alternate Late Grace Days_QGroupBox_2", " ");
-//        waitForObject(":Alternate Late Grace Days.qt_spinbox_lineedit_QLineEdit_2");
-//        findObject(":Alternate Late Grace Days.qt_spinbox_lineedit_QLineEdit_2").clear();
-//        type(":Alternate Late Grace Days.qt_spinbox_lineedit_QLineEdit_2", "30");
-//        snooze(2);
-//        clickTab(":Customer.qt_tabwidget_tabbar_QTabBar", "Addresses");
-//
-//        clickButton(":_addressTab.Ship To_QRadioButton");
-//        
-//        waitForObject(":_addressStack.New_QPushButton_2");
-//        clickButton(":_addressStack.New_QPushButton_2");
-//        waitForObject(":_shipToNumber_XLineEdit");
-//        type(":_shipToNumber_XLineEdit", "Store1");
-//        type(":_name_XLineEdit_13", "Old Towne Store 1");
-//        if(!findObject(":Ship-To.Default_QCheckBox").checked)
-//            clickButton(":Ship-To.Default_QCheckBox");
-//        type(":Ship-To.Street\nAddress:_XLineEdit", "Street Addr line1");
-//        type(":Ship-To.Street\nAddress:_XLineEdit_2", "Street Addr line2");
-//        type(":Ship-To.Street\nAddress:_XLineEdit_3", "Street Addr line 3");
-//        type(":Ship-To.City:_XLineEdit", "Alaska");
-//        type(":_state_QLineEdit_7", "WDC");
-//        type(":Ship-To.Postal Code:_XLineEdit", "235235");
-//        clickItem(":Ship-To._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
-//        snooze(1);
-//        findObject(":_commission_XLineEdit").clear();
-//        type(":_commission_XLineEdit", "7.5");
-//        if(findObject(":Defaults:._shipform_XComboBox").currentText!= "STANDARD-PACKING-LIST")
-//            clickItem(":Defaults:._shipform_XComboBox", "STANDARD-PACKING-LIST",0,0,1,Qt.LeftButton);
-//        snooze(2);
-//        if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
-//            clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);
-//        clickButton(":Ship-To.Save_QPushButton");
-//        snooze(2);
-//        waitForObject(":_addressStack.New_QPushButton_2");
-//        clickButton(":_addressStack.New_QPushButton_2");
-//        waitForObject(":_shipToNumber_XLineEdit");
-//        type(":_shipToNumber_XLineEdit", "Store2");
-//        type(":_name_XLineEdit_13", "Old Towne Store 2");
-//        if(findObject(":Ship-To.Default_QCheckBox").checked)
-//            clickButton(":Ship-To.Default_QCheckBox");
-//        type(":Ship-To.Street\nAddress:_XLineEdit", "Street Addr line11");
-//        type(":Ship-To.Street\nAddress:_XLineEdit_2", "Street Addr line22");
-//        type(":Ship-To.Street\nAddress:_XLineEdit_3", "Street Addr line 33");
-//        type(":Ship-To.City:_XLineEdit", "Alaska");
-//        type(":_state_QLineEdit_7", "WDC");
-//        type(":Ship-To.Postal Code:_XLineEdit", "345235");
-//        clickItem(":Ship-To._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
-//        findObject(":_commission_XLineEdit").clear();
-//        type(":_commission_XLineEdit", "7.5");
-//        waitForObject(":Defaults:._shipform_XComboBox");
-//        if(findObject(":Defaults:._shipform_XComboBox").currentText!= "STANDARD-PACKING-LIST")
-//            clickItem(":Defaults:._shipform_XComboBox", "STANDARD-PACKING-LIST",0,0,1,Qt.LeftButton);
-//        snooze(2);
-//        waitForObject(":Defaults:._shipchrg_XComboBox");
-//        if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
-//            clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);	
-//        snooze(2);
-//        waitForObject(":Ship-To.Save_QPushButton");
-//        clickButton(":Ship-To.Save_QPushButton");
-//        snooze(2);
-//        waitForObject(":Customer.Save_QPushButton");
-//        clickButton(":Customer.Save_QPushButton");
-//        waitForObject(":Customer.Cancel_QPushButton");
-//        clickButton(":Customer.Cancel_QPushButton");
-//        test.log("Customer: TTOYS created");
-//        snooze(1);
-//    }catch(e){test.fail("Exception in creating Customer:"+e);} 
-//  
-//    
-//    //----------------Create Customer Group---------------
-//    try{
-//        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-//        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
-//        activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "Groups...");
-//        activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "Groups...");
-//        
-//        waitForObject(":List Customer Groups.New_QPushButton");
-//        clickButton(":List Customer Groups.New_QPushButton");
-//        waitForObject(":GroupBox1._name_XLineEdit");
-//        type(":GroupBox1._name_XLineEdit", "US-VA");
-//        type(":GroupBox1._descrip_XLineEdit", "National Accounts");
-//        clickButton(":Customer Group.New_QPushButton");
-//        waitForObject(":_listTab_XTreeWidget");
-//        clickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 1, Qt.LeftButton);
-//        waitForObject(":Search For Customer.Select_QPushButton");
-//        clickButton(":Search For Customer.Select_QPushButton");
-//        waitForObject(":GroupBox1.Save_QPushButton");
-//        clickButton(":GroupBox1.Save_QPushButton");
-//        waitForObject(":List Customer Groups._custgrp_XTreeWidget");
-//        if(object.exists(":_custgrp.US-VA_QModelIndex"))
-//            test.pass("Customer Group Created");
-//        else test.fail("Customer Group not Created");
-//        snooze(1);
-//        waitForObject(":List Customer Groups.Close_QPushButton");
-//        clickButton(":List Customer Groups.Close_QPushButton");
-//        snooze(1);
-//    }catch(e){test.fail("Exception in creating Customer Groups:"+e);}   
+    //----------------Create new Customer---------------
+    try{
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
+        activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "New...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "New...");
+        
+        waitForObject(":Customer._customerNumberEdit_XLineEdit");
+        findObject(":Customer._customerNumberEdit_XLineEdit").clear();
+        type(":Customer._customerNumberEdit_XLineEdit", "TTOYS");
+        type(":Customer._name_XLineEdit", "Tremendous Toys");
+        
+        clickTab(":Customer.qt_tabwidget_tabbar_QTabBar","Settings");
+        waitForObject(":_defaultGroup._salesrep_XComboBox");
+        if(findObject(":_defaultGroup._salesrep_XComboBox").currentText!= username+"-"+username)
+            clickItem(":_defaultGroup._salesrep_XComboBox",username+"-"+username,0,0,1,Qt.LeftButton);
+        waitForObject(":_settingsTab.Terms_QRadioButton");
+        clickButton(":_settingsTab.Terms_QRadioButton");
+        snooze(0.5);
+        waitForObject(":_terms_XComboBox");
+        if(findObject(":_terms_XComboBox").currentText!= "2-10N30-2% Discount in 10 Days - Net 30 Days")
+            clickItem(":_terms_XComboBox","2-10N30-2% Discount in 10 Days - Net 30 Days",0,0,1,Qt.LeftButton);
+        type(":groupBox_4._defaultDiscountPrcnt_XLineEdit", "10");
+        type(":_creditGroup._currency_XLineEdit", "50000");
+        findObject(":_creditGroup._creditRating_XLineEdit_2").clear();
+        type(":_creditGroup._creditRating_XLineEdit_2", "D&B");
+        if(!findObject(":_creditGroup.Place on Credit Warning when Credit Limit/Grace Days is Exceeded_QCheckBox_2").checked)
+            clickButton(":_creditGroup.Place on Credit Warning when Credit Limit/Grace Days is Exceeded_QCheckBox_2");
+        clickButton(":_creditStatusGroup.In Good Standing_QRadioButton");
+        if(!findObject(":groupBox_3.Uses Purchase Orders_QCheckBox").checked)
+            clickButton(":groupBox_3.Uses Purchase Orders_QCheckBox");
+        if(!findObject(":_creditGroup.Alternate Late Grace Days_QGroupBox_2").checked)
+            type(":_creditGroup.Alternate Late Grace Days_QGroupBox_2", " ");
+        waitForObject(":Alternate Late Grace Days.qt_spinbox_lineedit_QLineEdit_2");
+        findObject(":Alternate Late Grace Days.qt_spinbox_lineedit_QLineEdit_2").clear();
+        type(":Alternate Late Grace Days.qt_spinbox_lineedit_QLineEdit_2", "30");
+        snooze(2);
+        clickTab(":Customer.qt_tabwidget_tabbar_QTabBar", "Addresses");
+
+        clickButton(":_addressTab.Ship To_QRadioButton");
+        
+        waitForObject(":_addressStack.New_QPushButton_2");
+        clickButton(":_addressStack.New_QPushButton_2");
+        waitForObject(":_shipToNumber_XLineEdit");
+        type(":_shipToNumber_XLineEdit", "Store1");
+        type(":_name_XLineEdit_13", "Old Towne Store 1");
+        if(!findObject(":Ship-To.Default_QCheckBox").checked)
+            clickButton(":Ship-To.Default_QCheckBox");
+        type(":Ship-To.Street\nAddress:_XLineEdit", "Street Addr line1");
+        type(":Ship-To.Street\nAddress:_XLineEdit_2", "Street Addr line2");
+        type(":Ship-To.Street\nAddress:_XLineEdit_3", "Street Addr line 3");
+        type(":Ship-To.City:_XLineEdit", "Alaska");
+        type(":_state_QLineEdit_7", "WDC");
+        type(":Ship-To.Postal Code:_XLineEdit", "235235");
+        clickItem(":Ship-To._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
+        snooze(1);
+        findObject(":_commission_XLineEdit").clear();
+        type(":_commission_XLineEdit", "7.5");
+        if(findObject(":Defaults:._shipform_XComboBox").currentText!= "STANDARD-PACKING-LIST")
+            clickItem(":Defaults:._shipform_XComboBox", "STANDARD-PACKING-LIST",0,0,1,Qt.LeftButton);
+        snooze(2);
+        if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
+            clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);
+        clickButton(":Ship-To.Save_QPushButton");
+        snooze(2);
+        waitForObject(":_addressStack.New_QPushButton_2");
+        clickButton(":_addressStack.New_QPushButton_2");
+        waitForObject(":_shipToNumber_XLineEdit");
+        type(":_shipToNumber_XLineEdit", "Store2");
+        type(":_name_XLineEdit_13", "Old Towne Store 2");
+        if(findObject(":Ship-To.Default_QCheckBox").checked)
+            clickButton(":Ship-To.Default_QCheckBox");
+        type(":Ship-To.Street\nAddress:_XLineEdit", "Street Addr line11");
+        type(":Ship-To.Street\nAddress:_XLineEdit_2", "Street Addr line22");
+        type(":Ship-To.Street\nAddress:_XLineEdit_3", "Street Addr line 33");
+        type(":Ship-To.City:_XLineEdit", "Alaska");
+        type(":_state_QLineEdit_7", "WDC");
+        type(":Ship-To.Postal Code:_XLineEdit", "345235");
+        clickItem(":Ship-To._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
+        findObject(":_commission_XLineEdit").clear();
+        type(":_commission_XLineEdit", "7.5");
+        waitForObject(":Defaults:._shipform_XComboBox");
+        if(findObject(":Defaults:._shipform_XComboBox").currentText!= "STANDARD-PACKING-LIST")
+            clickItem(":Defaults:._shipform_XComboBox", "STANDARD-PACKING-LIST",0,0,1,Qt.LeftButton);
+        snooze(2);
+        waitForObject(":Defaults:._shipchrg_XComboBox");
+        if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
+            clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);	
+        snooze(2);
+        waitForObject(":Ship-To.Save_QPushButton");
+        clickButton(":Ship-To.Save_QPushButton");
+        snooze(2);
+        waitForObject(":Customer.Save_QPushButton");
+        clickButton(":Customer.Save_QPushButton");
+        waitForObject(":Customer.Cancel_QPushButton");
+        clickButton(":Customer.Cancel_QPushButton");
+        test.log("Customer: TTOYS created");
+        snooze(1);
+    }catch(e){test.fail("Exception in creating Customer:"+e);} 
   
+    
+    //----------------Create Customer Group---------------
+    try{
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
+        activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "Groups...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "Groups...");
+        
+        waitForObject(":List Customer Groups.New_QPushButton");
+        clickButton(":List Customer Groups.New_QPushButton");
+        waitForObject(":GroupBox1._name_XLineEdit");
+        type(":GroupBox1._name_XLineEdit", "US-VA");
+        type(":GroupBox1._descrip_XLineEdit", "National Accounts");
+        clickButton(":Customer Group.New_QPushButton");
+        waitForObject(":_listTab_XTreeWidget");
+        clickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 1, Qt.LeftButton);
+        waitForObject(":Search For Customer.Select_QPushButton");
+        clickButton(":Search For Customer.Select_QPushButton");
+        waitForObject(":GroupBox1.Save_QPushButton");
+        clickButton(":GroupBox1.Save_QPushButton");
+        waitForObject(":List Customer Groups._custgrp_XTreeWidget");
+        if(object.exists(":_custgrp.US-VA_QModelIndex"))
+            test.pass("Customer Group Created");
+        else test.fail("Customer Group not Created");
+        snooze(1);
+        waitForObject(":List Customer Groups.Close_QPushButton");
+        clickButton(":List Customer Groups.Close_QPushButton");
+        snooze(1);
+    }catch(e){test.fail("Exception in creating Customer Groups:"+e);}   
+
     //-----------------Define: Reason Codes---------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -982,9 +982,9 @@ function main()
         waitForObject(":List Pricing Schedules.Close_QPushButton");
         clickButton(":List Pricing Schedules.Close_QPushButton");
     }catch(e){test.fail("Exception in defining Pricing Schedule");}
-    
-    
-    //-----------Assign Pricing Schedule---------------   
+  
+  
+        //-----------Assign Pricing Schedule---------------   
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -1013,7 +1013,7 @@ function main()
         waitForObject(":_customerGroup.Customer Type Pattern:_QRadioButton_2");
         clickButton(":_customerGroup.Customer Type Pattern:_QRadioButton_2");
         waitForObject(":_customerGroup._customerType_XLineEdit_2");
-        type(":_customerGroup._customerType_XLineEdit_2", "*");
+        type(":_customerGroup._customerType_XLineEdit_2", ".*");
         type(":_ipshead_XComboBox", "FREIGHT-BULK");
         clickButton(":Pricing Schedule Assignment.Save_QPushButton");
         waitForObject(":List Pricing Schedule Assignments._ipsass_XTreeWidget");

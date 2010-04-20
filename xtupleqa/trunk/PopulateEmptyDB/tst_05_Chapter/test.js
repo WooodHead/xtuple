@@ -18,7 +18,7 @@ function main()
         waitForObject(":xTuple ERP: OpenMFG Edition.Item_QMenu");
         activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
         
-        
+      
         //-----------Create Item RTRUCK1---------------
         waitForObject(":List Items.New_QPushButton_2");
         clickButton(":List Items.New_QPushButton_2");
@@ -231,7 +231,7 @@ function main()
     
     
     //-----------Create Item WTRUCK1---------------
-    snooze(1);
+   
     try{
         waitForObject(":List Items.New_QPushButton_2");
         clickButton(":List Items.New_QPushButton_2");
@@ -276,6 +276,7 @@ function main()
         clickButton(":_characteristicsTab.New_QPushButton_6");
         waitForObject(":_char_XComboBox_2");
         clickItem(":_char_XComboBox_2", "I-COLOR - Product Color",0,0,1,Qt.LeftButton);
+        snooze(1);
         type(":_value_XLineEdit_3", "PL-227");
         waitForObject(":Item Characteristic.Save_QPushButton");    
         clickButton(":Item Characteristic.Save_QPushButton");
@@ -521,6 +522,7 @@ function main()
             clickButton(":Production Plan.Save_QPushButton");
             
             waitForObject(":_list_XTreeWidget");
+            snooze(1);
             if(!clickItem(":_list_XTreeWidget", "COLLECTORS-LINE-PLAN", 5, 5, 1, Qt.LeftButton))
                 test.pass("Production Plan Created: COLLECTORS-LINE-PLAN");
             waitForObject(":List Production Plans.Close_QPushButton");

@@ -193,7 +193,7 @@ function main()
             clickButton(":List Work Centers.Close_QPushButton");
         }catch(e){test.fail("Exception in creating work center:"+e)}
         
-        
+      
         //---------------------Products: Standard Operation--------------------
         try{
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -590,6 +590,7 @@ function main()
         
         waitForObject(":Bill of Materials.Save_QPushButton");
         clickButton(":Bill of Materials.Save_QPushButton");
+        snooze(1);
         if(object.exists(":_bom.YTRUCK1_QModelIndex"))
             test.pass("BOM created for: YTRUCK1");
         else test.fail("BOM not created for: YTRUCK1");
@@ -668,6 +669,7 @@ function main()
         waitForObject(":Bill of Materials.Save_QPushButton");
         clickButton(":Bill of Materials.Save_QPushButton");
         waitForObject(":Bills of Materials._bom_XTreeWidget");  
+       snooze(1);
         if(object.exists("{column='0' container=':Bills of Materials._bom_XTreeWidget' text='TSUB1' type='QModelIndex'}"))
             test.pass("BOM created for: TSUB1");
         else test.fail("BOM not creatd for: TSUB1");

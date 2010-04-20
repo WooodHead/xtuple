@@ -346,6 +346,7 @@ function createRole(GrpName, GrpDesc)
             sNameOfRootItem = obj_TreeTopLevelItem.text(0);
             type(sWidgetTreeControl,"<Down>"); 
         }
+        snooze(2);
         if(sNameOfRootItem==GrpName)
             test.pass("New Group: '"+GrpName+"' created");
         else

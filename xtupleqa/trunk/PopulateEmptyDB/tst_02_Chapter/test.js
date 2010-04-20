@@ -158,8 +158,8 @@ function main()
         clickButton(":List Cost Categories.Close_QPushButton_2");
     }catch(e){test.fail("Exception in Creating Cost Categories:"+e);}
     
-  
-  
+
+
     //------------Inventory: create Expense Categories---------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
@@ -181,6 +181,7 @@ function main()
         waitForObject(":Expense Category.Save_QPushButton");
         clickButton(":Expense Category.Save_QPushButton");
         waitForObject(":List Expense Categories._expcat_XTreeWidget");
+        snooze(1);
         if(object.exists(":_expcat.OFFICE-SUPPLIES_QModelIndex"))
             test.pass("Expense Category: OFFICE-SUPPLIES created");
         else test.fail("Expense Category: OFFICE-SUPPLIES not created");
@@ -198,6 +199,7 @@ function main()
         waitForObject(":Expense Category.Save_QPushButton");
         clickButton(":Expense Category.Save_QPushButton");
         waitForObject(":List Expense Categories._expcat_XTreeWidget");
+       snooze(1);
         if(object.exists(":_expcat.SALES_TAX_QModelIndex"))
             test.pass("Expense Category: SALES_TAX created");
         else test.fail("Expense Category: SALES_TAX not created");
@@ -216,6 +218,7 @@ function main()
         waitForObject(":Expense Category.Save_QPushButton");
         clickButton(":Expense Category.Save_QPushButton");
         waitForObject(":List Expense Categories._expcat_XTreeWidget");
+        snooze(1);
         if(object.exists(":_expcat.SHIPPING_CHARGES_QModelIndex"))
             test.pass("Expense Category: SALES_TAX created");
         else test.fail("Expense Category: SALES_TAX not created");
@@ -636,12 +639,12 @@ function main()
     defineChartcs("ADR-ROUTE","Delivery Route","address");
     defineChartcs("CTC-BDAY","Birthday","contact");
     defineChartcs("LOT-QA-TEST1","QA Results for Test Type 1","lot");
-    
-    
+  
+  
 
-   if(appEdition=="Manufacturing")
-   {
-      
+ if(appEdition=="Manufacturing")
+ {
+    
         //----------------Schedule: Create Planner Code----------------
         try{
             
@@ -693,45 +696,45 @@ function main()
         
         snooze(2);
       
-        //--------------Schedule: Site week--------------
-        try{
-   
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
-            activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
-            snooze(0.1);
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
-            activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
-            snooze(1);
-            waitForObject(":_warehouse.Selected:_QRadioButton_6");
-            clickButton(":_warehouse.Selected:_QRadioButton_6");
-            waitForObject(":_warehouse._warehouses_WComboBox_7");
-            clickItem(":_warehouse._warehouses_WComboBox_7", "WH1", 0, 0, 1, Qt.LeftButton);
-            waitForObject(":Site Work Week.Sunday_QCheckBox_3");
-            if(findObject(":Site Work Week.Sunday_QCheckBox_3").checked)
-                clickButton(":Site Work Week.Sunday_QCheckBox_3");
-            if(!findObject(":Site Work Week.Monday_QCheckBox_3").checked)
-                clickButton(":Site Work Week.Monday_QCheckBox_3");
-            if(!findObject(":Site Work Week.Monday_QCheckBox_3").checked)
-                clickButton(":Site Work Week.Monday_QCheckBox_3");
-            if(!findObject(":Site Work Week.Tuesday_QCheckBox_3").checked)
-                clickButton(":Site Work Week.Tuesday_QCheckBox_3");
-            if(!findObject(":Site Work Week.Wednesday_QCheckBox_3").checked)
-                clickButton(":Site Work Week.Wednesday_QCheckBox_3");
-            if(!findObject(":Site Work Week.Thursday_QCheckBox_3").checked)
-                clickButton(":Site Work Week.Thursday_QCheckBox_3");
-            if(!findObject(":Site Work Week.Friday_QCheckBox_3").checked)
-                clickButton(":Site Work Week.Friday_QCheckBox_3");
-            if(findObject(":Site Work Week.Saturday_QCheckBox_3").checked)
-                clickButton(":Site Work Week.Saturday_QCheckBox_3");
-            waitForObject(":Site Work Week.Save_QPushButton_3");
-            clickButton(":Site Work Week.Save_QPushButton_3");
-            
-            test.log("Site Week created");
-        }catch(e){test.fail("Exception in creating Site Week:"+e);}
-        
-        
+      //--------------Schedule: Site week--------------
+      try{
+ 
+          waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
+          activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
+          waitForObjectItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
+          activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
+          snooze(0.1);
+          waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
+          activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
+          snooze(1);
+          waitForObject(":_warehouse.Selected:_QRadioButton_6");
+          clickButton(":_warehouse.Selected:_QRadioButton_6");
+          waitForObject(":_warehouse._warehouses_WComboBox_7");
+          clickItem(":_warehouse._warehouses_WComboBox_7", "WH1", 0, 0, 1, Qt.LeftButton);
+          waitForObject(":Site Work Week.Sunday_QCheckBox_3");
+          if(findObject(":Site Work Week.Sunday_QCheckBox_3").checked)
+              clickButton(":Site Work Week.Sunday_QCheckBox_3");
+          if(!findObject(":Site Work Week.Monday_QCheckBox_3").checked)
+              clickButton(":Site Work Week.Monday_QCheckBox_3");
+          if(!findObject(":Site Work Week.Monday_QCheckBox_3").checked)
+              clickButton(":Site Work Week.Monday_QCheckBox_3");
+          if(!findObject(":Site Work Week.Tuesday_QCheckBox_3").checked)
+              clickButton(":Site Work Week.Tuesday_QCheckBox_3");
+          if(!findObject(":Site Work Week.Wednesday_QCheckBox_3").checked)
+              clickButton(":Site Work Week.Wednesday_QCheckBox_3");
+          if(!findObject(":Site Work Week.Thursday_QCheckBox_3").checked)
+              clickButton(":Site Work Week.Thursday_QCheckBox_3");
+          if(!findObject(":Site Work Week.Friday_QCheckBox_3").checked)
+              clickButton(":Site Work Week.Friday_QCheckBox_3");
+          if(findObject(":Site Work Week.Saturday_QCheckBox_3").checked)
+              clickButton(":Site Work Week.Saturday_QCheckBox_3");
+          waitForObject(":Site Work Week.Save_QPushButton_3");
+          clickButton(":Site Work Week.Save_QPushButton_3");
+          
+          test.log("Site Week created");
+      }catch(e){test.fail("Exception in creating Site Week:"+e);}
+      
+      
         //----------Schedule: Site Calendar Exceptions---------------
         try{
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
