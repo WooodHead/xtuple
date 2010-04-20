@@ -24,9 +24,9 @@
       <term>Order #</term>
       <listitem>
         <para>Enter the Order Number of the Purchase Order, Transfer Order or
-        Sales Return whose Line Item(s) you want to receive into Inventory.
-        The lookup feature located to the right of the field leads to a
-        searchable list of Purchase Orders available for receiving. This
+        Return Authorization whose Line Item(s) you want to receive into
+        Inventory. The lookup feature located to the right of the field leads
+        to a searchable list of Purchase Orders available for receiving. This
         option will be disabled if a Transfer Order is specified.</para>
       </listitem>
     </varlistentry>
@@ -86,6 +86,11 @@
       <listitem>
         <para>Select this button to post the Receipt quantity to
         Inventory.</para>
+        <para role="standard"><note>
+            <para>When posting receipts for Lot/Serial controlled Items on a
+            Return Authorization, you will be prompted to assign Lot/Serial
+            Numbers for tracking purposes.</para>
+          </note></para>
       </listitem>
     </varlistentry>
     <varlistentry>
