@@ -407,18 +407,36 @@
     <varlistentry>
       <term>Over-ride Work Order Item Cost Recognition Default</term>
       <listitem>
-        <para></para>
+        <para>The Work Order Item Cost recognition default is set globally at
+        the system level. For more information, please see <xref
+        linkend="configureWOCostDefaults" />. However, it is possible to
+        override the global default by specifying one of the following options
+        at the Item Site level:</para>
         <variablelist>
           <varlistentry>
             <term>To Date</term>
             <listitem>
-              <para></para>
+              <para>When Work Orders for Average Cost or Job Items are
+              shipped, all of the WIP costs accumulated to date will be
+              charged to Cost of Sales.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Proportional</term>
             <listitem>
-              <para></para>
+              <para>When Work Orders for Average Cost or Job Items are
+              shipped, a value up to the proportional value of the total
+              quantity shipped will be charged to Cost of Sales. For example,
+              if 3 Items are to be shipped on a Job Work Order and all the
+              material has been issued&mdash;and if only 1 of the 3 is
+              shipped&mdash;then 1/3 of the value charged to WIP at that point
+              will be charged to Cost of Sales.</para>
+              <para role="manufacturing"><tip>
+                  <para>The appropriate reporting selections must be made in
+                  the Bill of Operations to ensure that labor and overhead
+                  Costs associated with setup and run time Operations are
+                  reported.</para>
+                </tip></para>
             </listitem>
           </varlistentry>
         </variablelist>

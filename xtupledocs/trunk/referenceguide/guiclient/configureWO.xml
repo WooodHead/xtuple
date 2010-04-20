@@ -218,35 +218,36 @@
         </variablelist>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry id="configureWOCostDefaults">
       <term>W/O Item Cost Recognition Defaults</term>
       <listitem>
         <para>Select one of the following Cost of Sales recognition defaults
-        for Job Items:</para>
+        for Average Cost and Job Items:</para>
         <note>
-          <para>The default method will be used when creating Work Orders for
-          Job Items. The method may be changed manually at the Work Order
-          header level.</para>
+          <para>The default method specified here will be used when creating
+          Work Orders for Average cost Job Items, unless the default is being
+          overridden at the Item Site level. The method may also be changed
+          manually at the Work Order header level.</para>
         </note>
         <variablelist>
           <varlistentry>
             <term>To Date</term>
             <listitem>
-              <para>When Work Orders for Job Items are shipped, all of the WIP
-              costs accumulated to date will be charged to Cost of
-              Sales.</para>
+              <para>When Work Orders for Average Cost or Job Items are
+              shipped, all of the WIP costs accumulated to date will be
+              charged to Cost of Sales.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Proportional</term>
             <listitem>
-              <para>When Work Orders for Job Items are shipped, a value up to
-              the proportional value of the total quantity shipped will be
-              charged to Cost of Sales. For example, if 3 Items are to be
-              shipped on a Job Work Order and all the material has been
-              issued&mdash;and if only 1 of the 3 is shipped&mdash;then 1/3 of
-              the value charged to WIP at that point will be charged to Cost
-              of Sales.</para>
+              <para>When Work Orders for Average Cost or Job Items are
+              shipped, a value up to the proportional value of the total
+              quantity shipped will be charged to Cost of Sales. For example,
+              if 3 Items are to be shipped on a Job Work Order and all the
+              material has been issued&mdash;and if only 1 of the 3 is
+              shipped&mdash;then 1/3 of the value charged to WIP at that point
+              will be charged to Cost of Sales.</para>
               <para role="manufacturing"><tip>
                   <para>The appropriate reporting selections must be made in
                   the Bill of Operations to ensure that labor and overhead
