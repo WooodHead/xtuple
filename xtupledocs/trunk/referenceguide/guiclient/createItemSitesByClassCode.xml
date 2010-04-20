@@ -305,39 +305,6 @@
               newly-created Item Sites.</para>
             </listitem>
           </varlistentry>
-          <varlistentry id="itemSiteJobItem">
-            <term><indexterm significance="normal">
-                <primary>job items</primary>
-                <secondary>costing for</secondary>
-              </indexterm><indexterm significance="normal">
-                <primary>costing</primary>
-                <secondary>for job items</secondary>
-              </indexterm>Job</term>
-            <listitem>
-              <para>Cost distributions are based on actual accumulation of
-              costs on a Work Order. This Cost Method should be used for
-              manufactured Items which you want to handle as Job Items. Job
-              Items are specifically for make-to-order scenarios where
-              simplified production is required. Job Items cannot be
-              maintained in Inventory. Job Items also have no concept of
-              Standard Cost or Cost variances. All Costs for Job Items are
-              Actual. The Work Orders which create Job Items can only be
-              created via a Sales Order. The Costs for Job Item Work Orders
-              are accumulated to WIP, and then transferred directly to Cost of
-              Sales when the job is shipped. Production for a Job Item Work
-              Order is posted when the linked Sales Order Item is issued to
-              Shipping. BOM and BOO Items may be assigned to Job Items;
-              however, they will not roll up to a Standard Cost for Job Items.
-              Job Items may be configured. This means you can add List Prices
-              to any Job Item Characteristics. These Characteristic Prices are
-              then added to the Base Price of Sales Order Items when the
-              Characteristic is selected at Sales Order entry.</para>
-              <note>
-                <para>Job cost items must have a control method of Regular,
-                Lot, or Serial.</para>
-              </note>
-            </listitem>
-          </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
