@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="lotSerialSequences" role="standard">
+  <title><indexterm significance="normal">
+      <primary>lots</primary>
+      <secondary>creating sequences for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>serial numbers</primary>
+      <secondary>creating sequences for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>sequences</primary>
+      <secondary>for lot/serial</secondary>
+    </indexterm>Lot/Serial Sequences</title>
+  <para>If you want Lot/Serial Numbers to be automatically generated when
+  receiving Lot/Serial quantity, then you need to set up Lot/Serial sequences.
+  The sequences defined here are cross-referenced at the Item Site level. Once
+  a link between an Item Site and a sequence is established, Lot/Serial
+  Numbers will be automatically generated whenever quantity is received into
+  that Item Site. Automatically generated Lot/Serial Numbers may be overridden
+  manually, if necessary. Items that require expiration or warranty
+  information will still require that information to be entered on the Create
+  Lot/Serial screen.</para>
+  <note>
+    <para>If a user cancels, deletes, or over-writes an automatically assigned
+    Lot/Serial Number, the automatically incremented number will not be rolled
+    back or reused. This is because there is no way to ensure number issuance
+    integrity in an environment where multiple users are posting
+    simultaneously&mdash;other than to issue new unused numbers during every
+    transaction. The system will, however, check each number it attempts to
+    issue. If it finds any existing matches already in the database for the
+    given Item, it will skip past them until it finds a previously unused
+    number.</para>
+  </note>
+  <para>To access the list of Lot/Serial sequences, select the "Lot/Serial
+  Sequences" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/lotSerialSequences.png" />
+        </imageobject>
+        <caption>Lot/Serial Sequences</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Lot/Serial Sequences" screen displays information on all existing
+  Lot/Serial sequences, including sequence number and description.</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Lot/Serial sequence.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Lot/Serial sequence. The edit
+        screen is the same as that for creating a new Lot/Serial
+        sequence&mdash;except that when editing, the fields will contain
+        Lot/Serial sequence information. Double-clicking on a Lot/Serial
+        sequence will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="accountingPeriodsVIEW">
+        <para>Highlight a Lot/Serial sequence and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Lot/Serial sequence and then select this button to
+        remove the Lot/Serial sequence from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="lotSerialSequence.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
