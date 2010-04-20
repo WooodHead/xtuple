@@ -196,7 +196,15 @@
     <varlistentry>
       <term>Total Days Analyzed</term>
       <listitem>
-        <para>Shows how many days were analyzed in your Analysis</para>
+        <para>Shows how many days were analyzed in your Analysis and also
+        lists affected Item Sites.</para>
+        <note>
+          <para>Item Sites subject to Constraint Management must always have a
+          minimum Reorder Level of at least one. If your results indicate a
+          new level of zero for one of these Item Sites, you will get an error
+          message preventing the update. Item Sites having the "Stocked" flag
+          turned ON are subject to Constraint Management.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
