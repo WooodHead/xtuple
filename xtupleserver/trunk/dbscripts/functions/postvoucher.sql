@@ -89,6 +89,10 @@ BEGIN
    WHERE ( (vodist_vohead_id=pVoheadid)
      AND   (vodist_tax_id=-1) )
   UNION ALL
+  SELECT SUM(voitem_freight) AS amount
+    FROM voitem
+   WHERE (voitem_vohead_id=pVoheadid)
+  UNION ALL
   SELECT SUM(tax*-1)
   FROM 
     (SELECT round(sum(taxdetail_tax),2) AS tax,
