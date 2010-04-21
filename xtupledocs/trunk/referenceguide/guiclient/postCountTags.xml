@@ -63,6 +63,34 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Average Cost Items</term>
+      <listitem>
+        <para>Specify which of the following codes you want to have Count Tags
+        posted for:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use Standard Cost</term>
+            <listitem>
+              <para>Apply standard cost to physical inventory count.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Average Cost</term>
+            <listitem>
+              <para>Apply average cost to physical inventory count.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Actual Cost if no Average Cost</term>
+            <listitem>
+              <para>If there is currently no calculated average cost available
+              select checkbox to default to actual cost.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term><indexterm significance="normal">
           <primary>thawing</primary>
           <secondary>of inventory</secondary>
