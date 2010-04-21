@@ -64,6 +64,57 @@
     <para>Before a Purchase Order can be received successfully, A/P Account
     Assignments for the specified Vendor must be in place.</para>
   </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Receive Items using bar code:</term>
+      <listitem>
+        <para>This is an optional field which allows you to issue stock to
+        Receip using a Bar Code scanner. Enter a Bar Code for a Purchase Order
+        Line Item using a Bar Code scanner—or manually enter the Bar Code. The
+        Bar Code for an Item is stored on the Item master. Once the code is
+        entered, specify a quantity and then select the FIND button to issue
+        the Line Item quantity to shipping. You may also hit the ENTER key on
+        your keyboard to select the FIND button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <tip>
+      <para>Most scanners allow you to change a setting that automatically
+      sends the ENTER command after a scan. This allows keyboard-free
+      entry.</para>
+    </tip>
+    <note>
+      <para>The issue to shipping window will accept a variety of xTuple
+      formatted bar codes that print on standard paperwork including Sales
+      Order header number, line number, work order number, and item number.
+      These specially formatted barcodes allow xTuple to recognize the bar
+      code input regardless of where the cursor is on the window. Bar codes,
+      however, do not have the necessary prefix embedded in the code to
+      explicitly tell the window it is a bar code, which is why xTuple
+      requires the cursor to be focused on the bar code field if bar codes are
+      being scanned.</para>
+    </note>
+    <varlistentry>
+      <term>Qty</term>
+      <listitem>
+        <para>Specify the quantity of Line Items to be issued using a Bar
+        Code. To issue the Line Item quantity to shipping, select the FIND
+        button—or hit the ENTER key on your keyboard to select the FIND
+        button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Auto Post</term>
+      <listitem>
+        <para>Select to post items automatically as they are entered into the
+        system. This provides the opportunity to skip the additional step to
+        POST once receipt is complete.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To the far right of the screen, the following buttons are
   available:</para>
   <variablelist>
@@ -121,19 +172,35 @@
       <term>RECEIVE ALL</term>
       <listitem>
         <para>Select to receive all Line Items simultaneously.</para>
+        <note>
+          <para>If the Item you are receiving is a <indexterm
+              significance="normal">
+              <primary>multiple location control</primary>
+              <secondary>impact on receiving</secondary>
+            </indexterm> <indexterm significance="normal">
+              <primary>receiving</primary>
+              <secondary>MLC impact on</secondary>
+            </indexterm>Multiple Location Control (MLC) Item, you will be
+          prompted to specify the Location you want to distribute the stock
+          to.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>FIND</term>
+      <listitem>
+        <para>Compares the Bar Code entered in the "Issue Items Using Bar
+        code" field with the Bar Codes for the listed Purchase Order Line
+        Items, then issues to Shipping the quantity specified in the "Qty."
+        field. The FIND button may be selected using your mouse—or by hitting
+        the ENTER key, which corresponds to the FIND button. Because the FIND
+        button corresponds to the ENTER key, you can scan in a Bar Code and
+        then hit ENTER to issue a quantity of one to Shipping. If you prefer,
+        you can scan in a Bar Code and then specify a different quantity
+        before hitting ENTER.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>If the Item you are receiving is a <indexterm significance="normal">
-        <primary>multiple location control</primary>
-        <secondary>impact on receiving</secondary>
-      </indexterm> <indexterm significance="normal">
-        <primary>receiving</primary>
-        <secondary>MLC impact on</secondary>
-      </indexterm>Multiple Location Control (MLC) Item, you will be prompted
-    to specify the Location you want to distribute the stock to.</para>
-  </note>
   <xi:include href="enterPoitemReceipt.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
