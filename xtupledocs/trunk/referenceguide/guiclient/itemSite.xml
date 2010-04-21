@@ -998,7 +998,14 @@
         </listitem>
       </varlistentry>
     </variablelist></para>
-  <para><screenshot>
+  <para role="manufacturing">In order to provide for visibility of tooling for
+  Capacity Planning, the system provides the ability to define capacity
+  information at the Item Site level that mirrors capacity data inputs for the
+  Work Center on a scheduling tab. The "Schedule" tab is only be enabled for
+  tooling Items, and only available on the manufacturing edition of xTuple. To
+  view capacity information for tooling Items, select the "Schedule" tab. The
+  following screen will appear:</para>
+  <para role="manufacturing"><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/itemSite_itemsiteSched.png" />
@@ -1006,4 +1013,59 @@
         <caption>Add Item Site Comments</caption>
       </mediaobject>
     </screenshot></para>
+  <para role="manufacturing">When viewing capacity information for tooling
+  Items, you are presented with the following options:</para>
+  <para role="manufacturing"><variablelist>
+      <varlistentry>
+        <term>Department</term>
+        <listitem>
+          <para>Specify the Department the tooling Item is associated
+          with.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Capacity</term>
+        <listitem>
+          <para>Specify the following capacity information:</para>
+          <variablelist>
+            <varlistentry>
+              <term>Daily Capacity</term>
+              <listitem>
+                <para>Enter the daily capacity for the tooling Item, measured
+                in minutes.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Efficiency Factor</term>
+              <listitem>
+                <para>Enter the efficiency factor for the tooling Item,
+                measured as a percentage.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Average</term>
+        <listitem>
+          <para>Specify the following averages:</para>
+          <variablelist>
+            <varlistentry>
+              <term>Queue Days</term>
+              <listitem>
+                <para>Enter the tooling Item's average number of queue
+                days.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Setup Time</term>
+              <listitem>
+                <para>Enter the setup time required for the tooling
+                Item.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
 </section>
