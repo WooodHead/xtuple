@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518876">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>maintenance of materials in</secondary>
-    </indexterm> <indexterm significance="normal">
+    </indexterm><indexterm significance="normal">
       <primary>work order material requirements</primary>
       <secondary>maintenance involving</secondary>
     </indexterm>Maintain W/O Material Requirements</title>
   <para>To maintain Work Order Material Requirements, select the "Maintain W/O
   Material Requirements" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/workOrderMaterials.png"/>
+          <imagedata fileref="images/workOrderMaterials.png" />
         </imageobject>
-        <caption>Maintain Work Order Material
-        Requirements</caption>
+        <caption>Maintain Work Order Material Requirements</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>If you are using the "Substitute" option found on the right-click
     menu, keep in mind that this utility applies only to BOM-defined
@@ -120,8 +117,9 @@
       <listitem>
         <para>Displays the maximum desired Cost for the component Items. The
         maximum desired Cost is defined on the Item master. It provides a
-        visual guide to help determine whether component Item Costs&mdash;either
-        Standard or Actual&mdash;have exceeded the maximum desired Cost.</para>
+        visual guide to help determine whether component Item
+        Costs&mdash;either Standard or Actual&mdash;have exceeded the maximum
+        desired Cost.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -138,16 +136,18 @@
     <varlistentry>
       <term>NEW</term>
       <listitem>
-        <para>Opens screen for creating a new Work Order Material
-        Requirement.</para>
+        <para>Opens screen for creating a new Work Order Material Requirement.
+        The process for adding a Material Requirement is the same as for
+        adding a new Bill of Materials Item. For more information, please see
+        <xref linkend="bomItem" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry id="workOrderMaterialsEDIT">
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Material Requirements. The edit
-        screen is the same as that for creating a new Operation&mdash;except that
-        when editing, the fields will contain Operation information.
+        screen is the same as that for creating a new Operation&mdash;except
+        that when editing, the fields will contain Operation information.
         Double-clicking on a Requirement will also bring you to the editing
         screen.</para>
       </listitem>

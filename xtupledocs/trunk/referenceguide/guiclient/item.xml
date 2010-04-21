@@ -216,9 +216,14 @@
                 <secondary>as item type</secondary>
               </indexterm>Tooling</term>
             <listitem>
-              <para>Select if the Item is an Item you make but do not sell. An
-              example of a tooling Item would be an Item you must make in
-              order to complete or support the building of sold Items.</para>
+              <para>A material resource used in the manufacturing process that
+              is returned upon completion of a Work Order&mdash;for example, a
+              reusable mold, apparatus, fixture, or tool. It may be included
+              on a Bill of Materials for an Item, usually specifying a fixed
+              quantity. Tooling Items can be purchased, manufactured, or sold.
+              A manufactured tool can have a BOO, a BOM, and a Work Order. As
+              with other material Items, tools can be tracked as serialized
+              Items.</para>
             </listitem>
           </varlistentry>
           <varlistentry>

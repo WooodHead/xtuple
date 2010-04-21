@@ -33,17 +33,49 @@
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>All Work Centers</term>
+      <term>Show Work Centers</term>
       <listitem>
-        <para>Select to display capacity buffer statuses for all Work
-        Centers.</para>
+        <para>Specify which Work Centers you want to include in the
+        display:</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Work Centers</term>
+            <listitem>
+              <para>Select to display capacity buffer statuses for all Work
+              Centers.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Selected</term>
+            <listitem>
+              <para>Specify Work Center whose Inventory buffer status you want
+              to display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Selected</term>
+      <term>Show Tooling</term>
       <listitem>
-        <para>Specify Work Center whose Inventory buffer status you want to
-        display.</para>
+        <para>Select if you want to include tooling capacity information in
+        the display. The following options are available:</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Tooling</term>
+            <listitem>
+              <para>Select to include capacity information about all tooling
+              Items in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Selected Tooling</term>
+            <listitem>
+              <para>Specify tooling Item whose capacity information you want
+              to include in the display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
