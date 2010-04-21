@@ -1,6 +1,3 @@
--- Function: getitemidfromupc(text)
-
--- DROP FUNCTION getitemidfromupc(text);
 
 CREATE OR REPLACE FUNCTION getitemidfromupc(text)
   RETURNS integer AS
@@ -24,6 +21,5 @@ BEGIN
   RETURN _returnVal;
 END;
 $BODY$
-  LANGUAGE 'plpgsql' VOLATILE
-  COST 100;
-ALTER FUNCTION getitemidfromupc(text) OWNER TO "admin";
+  LANGUAGE 'plpgsql' VOLATILE;
+
