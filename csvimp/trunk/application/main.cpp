@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
   app.addLibraryPath(".");
 
 #ifdef Q_WS_WIN
-  if (app.winVersion() == QSysInfo::WV_XP)
+  if (QSysInfo::WindowsVersion == QSysInfo::WV_XP)
     app.setStyle(QStyleFactory::create("windowsxpstyle"));
   else
     app.setStyle(new QWindowsStyle);
