@@ -11,15 +11,15 @@
       <secondary>encryption for</secondary>
     </indexterm><indexterm significance="normal">
       <primary>encryption</primary>
-      <secondary>for ach</secondary>
+      <secondary>for eft</secondary>
     </indexterm><indexterm significance="normal">
-      <primary>ach</primary>
+      <primary>eft</primary>
       <secondary>encryption for</secondary>
     </indexterm>Encryption</title>
   <para>You must have an encryption key defined to successfully process Credit
-  Cards and ACH transactions in xTuple ERP. To define the name of the
-  encryption key and its location in your system, select the "Encryption"
-  option. The following screen will appear:</para>
+  Card and Electronic Funds Transfer (EFT) transactions in xTuple ERP. To
+  define the name of the encryption key and its location in your system,
+  select the "Encryption" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -29,7 +29,7 @@
       </mediaobject>
     </screenshot></para>
   <tip>
-    <para>All users on your system who need access to Credit Card and ACH
+    <para>All users on your system who need access to Credit Card and EFT
     information must use the same key file. The key file can be a simple text
     file with any contents whatsoever. It should be stored at the same level
     as the xTuple executable file. For Mac users, this would be within the
@@ -37,13 +37,13 @@
     The key file is not stored in the database.</para>
   </tip>
   <para>When establishing the encryption key settings for your Credit Card and
-  ACH configuration, you are presented with the following options:</para>
+  EFT configuration, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Key File Name</term>
       <listitem>
         <para>Enter the name of your key file. The key file is an encryption
-        seed file, which enables you to read encrypted Credit Card and ACH
+        seed file, which enables you to read encrypted Credit Card and EFT
         information. The key file is required regardless of the Verification
         Service used at your site. The contents of the key file should be at
         least 16 characters long and use a combination of upper and lower case

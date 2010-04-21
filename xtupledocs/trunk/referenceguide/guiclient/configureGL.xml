@@ -165,8 +165,8 @@
       <listitem>
         <para>Select to enable users to manually enter G/L Account Numbers
         wherever G/L Account Numbers may be entered. If not selected, users
-        will be required to use the lookup feature to select G/L Account Numbers
-        from a list.</para>
+        will be required to use the lookup feature to select G/L Account
+        Numbers from a list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -281,8 +281,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To configure Accounts Payable options, select the "Accounts Payable"
-  tab. The following screen will appear:</para>
+  <para id="configureGL_AP">To configure Accounts Payable options, select the
+  "Accounts Payable" tab. The following screen will appear:</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -303,7 +303,7 @@
         this field.</para>
       </listitem>
     </varlistentry>
-    <varlistentry role="standard">
+    <varlistentry>
       <term>Enable EFT Check Printing</term>
       <listitem>
         <para>Select to enable Electronic Funds Transfer (EFT) capability
@@ -360,50 +360,31 @@
             <listitem>
               <para>The following information is shown for each of the
               possible EFT formats: default suffix, routing number format,
-              account number format, and formatting procedure.</para>
+              account number format, and formatting procedure. The procedure
+              is a stored procedure, which is stored in your xTuple database
+              with the rest of the business logic.</para>
               <variablelist>
                 <varlistentry>
                   <term>ACH</term>
                   <listitem>
-                    <para></para>
+                    <para>Select if you want your default EFT format to follow
+                    Automated Clearing House (ACH) conventions.</para>
                   </listitem>
                 </varlistentry>
                 <varlistentry>
                   <term>ABA</term>
                   <listitem>
-                    <para></para>
+                    <para>Select if you want your default EFT format to follow
+                    Australian Bankers' Association (ABA) conventions.</para>
                   </listitem>
                 </varlistentry>
                 <varlistentry>
                   <term>Custom</term>
                   <listitem>
-                    <para>The following custom suffixes are allowed:</para>
-                    <variablelist>
-                      <varlistentry>
-                        <term>.aba</term>
-                        <listitem>
-                          <para></para>
-                        </listitem>
-                      </varlistentry>
-                      <varlistentry>
-                        <term>.ach</term>
-                        <listitem>
-                          <para></para>
-                        </listitem>
-                      </varlistentry>
-                      <varlistentry>
-                        <term>.dat</term>
-                        <listitem>
-                          <para></para>
-                        </listitem>
-                      </varlistentry>
-                      <varlistentry>
-                        <term>.txt</term>
-                        <listitem>
-                          <para></para>
-                        </listitem>
-                      </varlistentry>
-                    </variablelist>
+                    <para>Select if you want to define a custom EFT format.
+                    The system provides several default options for you to
+                    choose from. However, you may provide your own information
+                    in all four provided fields.</para>
                   </listitem>
                 </varlistentry>
               </variablelist>

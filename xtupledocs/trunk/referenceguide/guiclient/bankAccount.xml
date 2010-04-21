@@ -71,22 +71,24 @@
         Payments. Not selecting means the Bank Account is not used for
         Accounts Payable. Check specifications will be disabled if this option
         is not selected.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Next Check #</term>
-      <listitem>
-        <para>Indicate the next Check Number to be issued from the Bank
-        Account. Check Numbers will increment in intervals of one (1)
-        beginning with the Check Number entered here. By default, the next
-        available number will display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Check Format</term>
-      <listitem>
-        <para>Specify the Check Format to be used when Checks drawn against
-        the Bank Account.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Next Check #</term>
+            <listitem>
+              <para>Indicate the next Check Number to be issued from the Bank
+              Account. Check Numbers will increment in intervals of one (1)
+              beginning with the Check Number entered here. By default, the
+              next available number will display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Check Format</term>
+            <listitem>
+              <para>Specify the Check Format to be used when Checks drawn
+              against the Bank Account.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -142,14 +144,14 @@
     </imageobject>
     <caption>Create New Bank Account Transmission</caption>
   </mediaobject>
-  <para>When adding Transmission details to the bank account, you are
+  <para>When adding Transmission details to the Bank Account, you are
   presented with the following options:</para>
   <para><variablelist>
       <varlistentry>
-        <term>Enable ACH Check Printing</term>
+        <term>Enable EFT Check Printing</term>
         <listitem>
-          <para>Select to enable online processing or Automated Clearing House
-          (ACH) Check printing.</para>
+          <para>Select to enable online processing or Electronic Funds
+          Transfer (EFT) Check printing.</para>
           <variablelist>
             <varlistentry>
               <term>Routing Number</term>
@@ -164,7 +166,7 @@
               </listitem>
             </varlistentry>
             <varlistentry>
-              <term>Create Check Number for ACH Checks</term>
+              <term>Create Check Number for EFT Checks</term>
               <listitem>
                 <para>Select to create Check number for automated
                 transactions.</para>
@@ -174,14 +176,63 @@
               <term>Immediate Origin Name and Number</term>
               <listitem>
                 <para>Number used by the financial institution of origin,
-                either routing or other, specified by ACH gateway.</para>
+                either routing or other, specified by the EFT gateway.</para>
+                <variablelist>
+                  <varlistentry>
+                    <term>Company</term>
+                    <listitem>
+                      <para>Select if you want your Company Name and Company
+                      ID to be used. This information is defined on the
+                      Accounts Payable configuration screen. For more
+                      information, please see <xref
+                      linkend="configureGL_AP" />.</para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Bank Account</term>
+                    <listitem>
+                      <para>Select if you want your Bank Account name and
+                      routing number to be used.</para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Custom</term>
+                    <listitem>
+                      <para>Select if you want to define a custom name and
+                      number.</para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
               </listitem>
             </varlistentry>
             <varlistentry>
               <term>Immediate Destination Name and Number</term>
               <listitem>
                 <para>Number used by the destination financial institution,
-                routing or other, specified by ACH gateway.</para>
+                routing or other, specified by EFT gateway.</para>
+                <variablelist>
+                  <varlistentry>
+                    <term>Bank Account</term>
+                    <listitem>
+                      <para>Select if you want your Bank Account name and
+                      routing number to be used.</para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Federal Reserve</term>
+                    <listitem>
+                      <para>Select if you want the Federal Reserve to be
+                      used.</para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Custom</term>
+                    <listitem>
+                      <para>Select if you want to define a custom name and
+                      number.</para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
               </listitem>
             </varlistentry>
           </variablelist>
