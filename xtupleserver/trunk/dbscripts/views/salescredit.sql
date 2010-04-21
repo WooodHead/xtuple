@@ -12,8 +12,6 @@ CREATE OR REPLACE VIEW api.salescredit AS
    LEFT JOIN cohead ON cohead.cohead_id = aropenco.aropenco_cohead_id
    LEFT JOIN curr_symbol curr ON curr.curr_id = aropenco.aropenco_curr_id;
 
-ALTER TABLE api.salescredit OWNER TO "admin";
-GRANT ALL ON TABLE api.salescredit TO "admin";
 GRANT ALL ON TABLE api.salescredit TO xtrole;
 COMMENT ON VIEW api.salescredit IS 'Payments (credit memos) pre-applied to sales orders';
 
