@@ -101,15 +101,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Issue Items Using UPC Bar Code</term>
+      <term>Issue Items Using Bar Code</term>
       <listitem>
         <para>This is an optional field which allows you to issue stock to
-        Shipping using a Bar Code scanner. Enter a UPC Code for a Sales Order
-        Line Item using a Bar Code scanner&mdash;or manually enter the UPC
-        Code. The UPC Code for an Item is stored on the Item master. Once the
-        code is entered, specify a quantity and then select the FIND button to
-        issue the Line Item quantity to shipping. You may also hit the ENTER
-        key on your keyboard to select the FIND button.</para>
+        Shipping using a Bar Code scanner. Enter a Bar Code for a Sales Order
+        Line Item using a Bar Code scanner—or manually enter the Bar Code. The
+        Bar Code for an Item is stored on the Item master. Once the code is
+        entered, specify a quantity and then select the FIND button to issue
+        the Line Item quantity to shipping. You may also hit the ENTER key on
+        your keyboard to select the FIND button.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -119,21 +119,21 @@
   </tip>
   <note>
     <para>The issue to shipping window will accept a variety of xTuple
-    formatted barcodes that print on standard paperwork including Sales Order
+    formatted bar codes that print on standard paperwork including Sales Order
     header number, line number, work order number, and item number. These
-    specially formatted barcodes allow xTuple to recognize the barcode input
-    regardless of where the cursor is on the window. UPC barcodes, however, do
+    specially formatted bar codes allow xTuple to recognize the bar code input
+    regardless of where the cursor is on the window. Bar codes, however, do
     not have the necessary prefix embedded in the code to explicitly tell the
-    window it is a barcode, which is why xTuple requires the cursor to be
-    focused on the UPC barcode field if UPC barcodes are being scanned.</para>
+    window it is a bar code, which is why xTuple requires the cursor to be
+    focused on the bar code field if bar codes are being scanned.</para>
   </note>
   <variablelist>
     <varlistentry>
       <term>Qty.</term>
       <listitem>
-        <para>Specify the quantity of Line Items to be issued using a UPC
+        <para>Specify the quantity of Line Items to be issued using a Bar
         Code. To issue the Line Item quantity to shipping, select the FIND
-        button&mdash;or hit the ENTER key on your keyboard to select the FIND
+        button—or hit the ENTER key on your keyboard to select the FIND
         button.</para>
       </listitem>
     </varlistentry>
@@ -203,8 +203,8 @@
   </variablelist>
   <tip>
     <para>If your site integrates UPS WorldShip with the system, you should
-    process Orders in WorldShip after they have been issued to
-    Shipping&mdash;but before they have been shipped.</para>
+    process Orders in WorldShip after they have been issued to Shipping—but
+    before they have been shipped.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -217,14 +217,14 @@
     <varlistentry>
       <term>FIND</term>
       <listitem>
-        <para>Compares the UPC Code entered in the "Issue Items Using Barcode"
-        field with the UPC Codes for the listed Sales Order Line Items, then
-        issues to Shipping the quantity specified in the "Qty." field. The
-        FIND button may be selected using your mouse&mdash;or by hitting the
+        <para>Compares the Bar Code entered in the "Issue Items Using Bar
+        code" field with the Bar Codes for the listed Sales Order Line Items,
+        then issues to Shipping the quantity specified in the "Qty." field.
+        The FIND button may be selected using your mouse—or by hitting the
         ENTER key, which corresponds to the FIND button. Because the FIND
-        button corresponds to the ENTER key, you can scan in a UPC Code and
+        button corresponds to the ENTER key, you can scan in a Bar Code and
         then hit ENTER to issue a quantity of one to Shipping. If you prefer,
-        you can scan in a UPC Code and then specify a different quantity
+        you can scan in a Bar Code and then specify a different quantity
         before hitting ENTER.</para>
       </listitem>
     </varlistentry>
