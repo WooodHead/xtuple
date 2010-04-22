@@ -81,4 +81,4 @@ BEGIN
   END LOOP;            
   RETURN;
 END;
-$$ LANGUAGE 'plpgsql' ROWS 1000;
+$$ LANGUAGE 'plpgsql';
