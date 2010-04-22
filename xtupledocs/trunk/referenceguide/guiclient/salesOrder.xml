@@ -46,11 +46,12 @@
       <listitem>
         <para>Displays the Order's earliest scheduled date. The scheduled date
         corresponds to the earliest scheduled date for an included Sales Order
-        Item. Because Sales Orders may contain multiple Sales Order Items, the
-        scheduled date indicates the most recent scheduled date. No scheduled
-        date will display in the "Scheduled Date" field until a Sales Order
-        Line Item has been created and a scheduled date assigned to it. This
-        field can be viewed by selecting the MORE button</para>
+        Item. If there are no existing Line Items, the date entered here will
+        become the default schedule date for the first one. If Line Items do
+        exist and the date is changed, you will be asked whether you want all
+        editable lines to change. If the change affects pricing, you will be
+        asked whether you want Prices to be updated as well. If hidden, this
+        field can be viewed by selecting the MORE button.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

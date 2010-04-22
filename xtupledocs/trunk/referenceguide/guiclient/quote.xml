@@ -49,11 +49,12 @@
       <listitem>
         <para>Displays the Order's earliest scheduled date. The scheduled date
         corresponds to the earliest scheduled date for an included Quote Item.
-        Because Quotes may contain multiple Quote Items, the scheduled date
-        indicates the most recent scheduled date. No scheduled date will
-        display in the "Scheduled Date" field until a Quote Line Item has been
-        created and a scheduled date assigned to it. This field can be viewed
-        by selecting the MORE button</para>
+        If there are no existing Line Items, the date entered here will become
+        the default schedule date for the first one. If Line Items do exist
+        and the date is changed, you will be asked whether you want all
+        editable lines to change. If the change affects pricing, you will be
+        asked whether you want Prices to be updated as well. If hidden, this
+        field can be viewed by selecting the MORE button.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -189,14 +190,13 @@
         disabled if the Quote is entered for a Prospect. You may also access
         the Customer list using the keyboard shortcut "CTRL + L". Once a
         Customer Number is entered, the Customer name and billing address will
-        display. Select the "?" or "$" symbol to
-        view Customer information for the specified Customer. If a Customer's
-        credit is "In Good Standing," the button will feature a black question
-        mark ("?") icon. If the icon turns to an orange dollar sign ("$"), the
-        Customer's credit Status is "On Credit Warning." A red dollar sign
-        ("$") indicates the Customer's credit Status is "On Credit Hold." You
-        may also create a new Customer record by selecting the "+"
-        button.</para>
+        display. Select the "?" or "$" symbol to view Customer information for
+        the specified Customer. If a Customer's credit is "In Good Standing,"
+        the button will feature a black question mark ("?") icon. If the icon
+        turns to an orange dollar sign ("$"), the Customer's credit Status is
+        "On Credit Warning." A red dollar sign ("$") indicates the Customer's
+        credit Status is "On Credit Hold." You may also create a new Customer
+        record by selecting the "+" button.</para>
         <tip>
           <para>A valid Customer Number must be entered in the "Customer #"
           field before Line Items can be added to a Quote. If no valid
