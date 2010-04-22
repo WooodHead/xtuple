@@ -16,11 +16,14 @@
 #include <QMap>
 #include <QMessageBox>
 #include <QPixmap>
+#include <QPrintDialog>
+#include <QPrinter>
 #include <QProgressDialog>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QStatusBar>
+#include <QTextTableCell>
 #include <QTimerEvent>
 #include <QVariant>
 
@@ -48,6 +51,8 @@ CSVToolWindow::CSVToolWindow(QWidget *parent, Qt::WindowFlags flags)
   _dbTimerId   = startTimer(60000);
   _stopped     = false;
   _currentDir  = QString::null;
+
+  connect(_atlasWindow, SIGNAL(destroyed(QObject*)), this, SLOT(cleanup(QObject*)));
 }
 
 CSVToolWindow::~CSVToolWindow()
@@ -59,28 +64,42 @@ void CSVToolWindow::languageChange()
   retranslateUi(this);
 }
 
+CSVAtlasWindow *CSVToolWindow::atlasWindow()
+{
+  return _atlasWindow;
+}
+
+void CSVToolWindow::clearImportLog()
+{
+  if (_log)
+    _log->_log->clear();
+}
+
 void CSVToolWindow::fileNew()
 {
   QMessageBox::information(this, tr("Not Yet Implemented"), tr("This function has not been implemented."));
 }
 
-void CSVToolWindow::fileOpen()
+void CSVToolWindow::fileOpen(QString filename)
 {
   fileOpenAction->setEnabled(FALSE);
   _firstRowHeader->setEnabled(FALSE);
-  QString fileName = QFileDialog::getOpenFileName(this, tr("Select CSV File"),
-                                                  _currentDir,
-                                                  QString("CSV Files (*.csv);;All files (*)"));
-  if (! fileName.isEmpty())
+
+  if (filename.isEmpty())
+    filename = QFileDialog::getOpenFileName(this, tr("Select CSV File"),
+                                            _currentDir,
+                                            QString("CSV Files (*.csv);;All files (*)"));
+
+  if (! filename.isEmpty())
   {
-    _currentDir = fileName;
-    statusBar()->showMessage(tr("Loading %1...").arg(fileName));
+    _currentDir = filename;
+    statusBar()->showMessage(tr("Loading %1...").arg(filename));
 
     if (_data != 0)
       delete _data;
     _data = new CSVData(this);
 
-    _data->load(fileName, this);
+    _data->load(filename, this);
     _data->setFirstRowHeaders(_firstRowHeader->isChecked());
     int rows = _data->rows();
     int cols = _data->columns();
@@ -123,7 +142,7 @@ void CSVToolWindow::fileOpen()
       progress->setValue(r);
     }
     progress->setValue(rows);
-    statusBar()->showMessage(tr("Done loading %1").arg(fileName));
+    statusBar()->showMessage(tr("Done loading %1").arg(filename));
   }
   _firstRowHeader->setEnabled(TRUE);
   fileOpenAction->setEnabled(TRUE);
@@ -141,12 +160,63 @@ void CSVToolWindow::fileSaveAs()
 
 void CSVToolWindow::filePrint()
 {
-  QMessageBox::information(this, tr("Not Yet Implemented"), tr("This function has not been implemented."));
+  if (QMessageBox::question(this, tr("Are you sure?"),
+                            tr("<p>Printing does not work well yet. Files "
+                               "with more than a handful of columns print "
+                               "each column only a few characters wide.<p>"
+                               "Are you sure you want to print?"),
+                            QMessageBox::Yes | QMessageBox::No,
+                            QMessageBox::No) == QMessageBox::Yes)
+  {
+    /* TODO: make this split wide files across multiple pages. */
+    QTextDocument    textdoc(_table);
+    QTextCursor      cursor(&textdoc);
+    QTextTableFormat tblfmt;
+    QTextTableCell   cell;
+
+    QFont docfont = textdoc.defaultFont();
+    docfont.setPointSize(8);
+    textdoc.setDefaultFont(docfont);
+
+    cursor.insertTable(_table->rowCount(), _table->columnCount());
+
+    if (_firstRowHeader->isChecked())
+    {
+      tblfmt.setHeaderRowCount(1);
+      for (int i = 0; i < _table->columnCount(); i++)
+      {
+        cell = cursor.currentTable()->cellAt(cursor.position());
+        cursor.insertText(_table->horizontalHeaderItem(i)->text());
+        cursor.movePosition(QTextCursor::NextCell);
+      }
+    }
+
+    for (int row = 0; row < _table->rowCount(); row++)
+      for (int col = 0; col < _table->columnCount(); col++)
+      {
+        cell = cursor.currentTable()->cellAt(cursor.position());
+        cursor.insertText(_table->item(row, col)->text());
+        cursor.movePosition(QTextCursor::NextCell);
+      }
+
+    QPrinter printer(QPrinter::HighResolution);
+    printer.setOrientation(QPrinter::Landscape);
+    QPrintDialog printdlg(&printer, this);
+    if (printdlg.exec() == QDialog::Accepted)
+      textdoc.print(&printer);
+  }
 }
 
 void CSVToolWindow::fileExit()
 {
   qApp->closeAllWindows();
+}
+
+QString CSVToolWindow::getImportLog() const
+{
+  if (_log)
+    return _log->_log->toPlainText();
+  return QString();
 }
 
 void CSVToolWindow::helpIndex()
@@ -170,16 +240,19 @@ void CSVToolWindow::helpAbout()
 
 void CSVToolWindow::mapEdit()
 {
+  if (! _atlasWindow)
+    _atlasWindow = new CSVAtlasWindow(this);
+
   _atlasWindow->show();
 }
 
-void CSVToolWindow::sFirstRowHeader( bool yes )
+void CSVToolWindow::sFirstRowHeader( bool firstisheader )
 {
-  if(_data)
+  if(_data && _data->firstRowHeaders() != firstisheader)
   {
-    _data->setFirstRowHeaders(yes);
+    _data->setFirstRowHeaders(firstisheader);
     int cols = _data->columns();
-    if(yes)
+    if(firstisheader)
     {
       QString header;
       for(int h = 0; h < cols; h++)
@@ -215,28 +288,34 @@ void CSVToolWindow::sFirstRowHeader( bool yes )
 
 void CSVToolWindow::importStart()
 {
-  CSVAtlas * atlas = _atlasWindow->getAtlas();
-  QStringList mList = atlas->mapList();
+  QString mapname = _atlasWindow->map();
+  CSVAtlas *atlas = _atlasWindow->getAtlas();
 
-  if(mList.isEmpty())
+  if (mapname.isEmpty())
   {
-    QMessageBox::warning(this, tr("No Maps Loaded"),
-      tr("There are no maps loaded to select from.\n"
-         "Either load an atlas that contains maps or create a new one before continuing."));
-    return;
+    QStringList mList = atlas->mapList();
+
+    if(mList.isEmpty())
+    {
+      QMessageBox::warning(this, tr("No Maps Loaded"),
+        tr("There are no maps loaded to select from.\n"
+           "Either load an atlas that contains maps or create a new one before continuing."));
+      return;
+    }
+
+    mList.sort();
+    bool valid;
+    mapname = QInputDialog::getItem(this, tr("Select Map"), tr("Select Map:"),
+                                    mList, 0, FALSE, &valid);
+    if(!valid)
+      return;
   }
 
-  mList.sort();
-  bool valid;
-  QString name = QInputDialog::getItem(this, tr("Select Map"), tr("Select Map:"), mList, 0, FALSE, &valid);
-  if(!valid)
-    return;
-
-  CSVMap map = atlas->map(name);
+  CSVMap map = atlas->map(mapname);
   map.simplify();
   QList<CSVMapField> fields = map.fields();
 
-  if (map.name() != name || fields.isEmpty())
+  if (map.name() != mapname || fields.isEmpty())
   {
     QMessageBox::warning(this, tr("Invalid Map"),
                          tr("<p>The selected map does not appear to be valid."));
@@ -262,6 +341,9 @@ void CSVToolWindow::importStart()
 
   int total = _data->rows();
   int current = 0, error = 0, ignored = 0;
+
+  if (! _log)
+    _log = new LogWindow(this);
 
   QSqlQuery begin("BEGIN;");
 
@@ -523,4 +605,14 @@ void CSVToolWindow::timerEvent( QTimerEvent * e )
 void CSVToolWindow::sUserCanceled()
 {
   _stopped = true;
+}
+
+void CSVToolWindow::cleanup(QObject *deadobj)
+{
+  if (deadobj == _atlasWindow)
+    _atlasWindow = 0;
+  else if (deadobj == _log)
+    _log = 0;
+  else if (deadobj == _data)
+    _data = 0;
 }

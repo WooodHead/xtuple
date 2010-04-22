@@ -30,12 +30,13 @@
 #include "missingfield.h"
 #include "rowcontroller.h"
 
-#define DEBUG false
+#define DEBUG true
 
 CSVAtlasWindow::CSVAtlasWindow(QWidget *parent) : QMainWindow(parent)
 {
   setupUi(this);
 
+  _currentDir  = QString::null;
   _filename    = QString::null;
   _atlas       = new CSVAtlas();
   _selectedMap = QString::null;
@@ -67,12 +68,33 @@ void CSVAtlasWindow::fileNew()
   _atlas = new CSVAtlas();
 }
 
-void CSVAtlasWindow::fileOpen()
+void CSVAtlasWindow::fileOpen(QString filename)
 {
-  QString filename = QFileDialog::getOpenFileName(this, tr("Open Atlas File"),
-                                                  _filename,
-                                                  QString("XML Files (*.xml);;All files (*)"));
-  if(filename.isNull())
+  if (DEBUG)
+    qDebug("CSVAtlasWindow::fileOpen(%s) entered with old _filename [%s]",
+           qPrintable(filename), qPrintable(_filename));
+
+  if (! filename.isEmpty())
+  {
+    if (! QFile::exists(filename))
+    {
+      QString fullpath = _currentDir + QDir::separator() + filename;
+      if (DEBUG)
+        qDebug("CSVAtlasWindow::fileOpen() retrying with [%s]",
+               qPrintable(fullpath));
+
+      if (QFile::exists(fullpath))
+        filename = fullpath;
+      else
+        filename = QString::null;
+    }
+  }
+
+  if (filename.isEmpty())
+    filename = QFileDialog::getOpenFileName(this, tr("Open Atlas File"),
+                                            _currentDir,
+                                            QString("XML Files (*.xml);;All files (*)"));
+  if (filename.isEmpty())
     return;
 
   _map->clear();
@@ -94,6 +116,7 @@ void CSVAtlasWindow::fileOpen()
     _map->addItems(_atlas->mapList());
     sMapChanged(0);
     _filename = filename;
+    _currentDir = QFileInfo(_filename).absoluteDir().absolutePath();
   }
   else
     QMessageBox::warning(this, tr("Error Reading File"),
@@ -140,32 +163,49 @@ void CSVAtlasWindow::fileSaveAs()
     return;
 
   _filename = filename;
+  _currentDir = QFileInfo(_filename).absoluteDir().absolutePath();
   fileSave();
 }
 
 void CSVAtlasWindow::filePrint()
 {
-  QMessageBox::information(this, tr("Not yet implimented"), tr("This feature has not yet been implimented."));
+  QMessageBox::information(this, tr("Not yet implemented"), tr("This feature has not yet been implemented."));
 }
 
 void CSVAtlasWindow::helpIndex()
 {
-  QMessageBox::information(this, tr("Not yet implimented"), tr("This feature has not yet been implimented."));
+  QMessageBox::information(this, tr("Not yet implemented"), tr("This feature has not yet been implemented."));
 }
 
 void CSVAtlasWindow::helpContents()
 {
-  QMessageBox::information(this, tr("Not yet implimented"), tr("This feature has not yet been implimented."));
+  QMessageBox::information(this, tr("Not yet implemented"), tr("This feature has not yet been implemented."));
 }
 
 void CSVAtlasWindow::helpAbout()
 {
-  QMessageBox::information(this, tr("Not yet implimented"), tr("This feature has not yet been implimented."));
+  QMessageBox::information(this, tr("Not yet implemented"), tr("This feature has not yet been implemented."));
+}
+
+QString CSVAtlasWindow::map() const
+{
+  return _map->currentText();
 }
 
 void CSVAtlasWindow::sRenameMap()
 {
-  QMessageBox::information(this, tr("Not yet implimented"), tr("This feature has not yet been implimented."));
+  QMessageBox::information(this, tr("Not yet implemented"), tr("This feature has not yet been implemented."));
+}
+
+void CSVAtlasWindow::setDir(QString dirname)
+{
+  _currentDir = dirname;
+}
+
+bool CSVAtlasWindow::setMap(const QString mapname)
+{
+  _map->setCurrentIndex(_map->findText(mapname));
+  return (_map->currentIndex() >= 0);
 }
 
 void CSVAtlasWindow::sAddMap()

@@ -1,7 +1,7 @@
 /*
  * This file is part of the xTuple ERP: PostBooks Edition, a free and
  * open source Enterprise Resource Planning software suite,
- * Copyright (c) 1999-2009 by OpenMFG LLC, d/b/a xTuple.
+ * Copyright (c) 1999-2010 by OpenMFG LLC, d/b/a xTuple.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including xTuple-specific Exhibits)
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
@@ -24,30 +24,27 @@ class CSVImpPlugin : public QObject, public CSVImpPluginInterface
   public:
     CSVImpPlugin(QObject *parent = 0);
 
+    virtual QMainWindow *getCSVAtlasWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0);
     virtual QMainWindow *getCSVToolWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0);
     virtual void clearImportLog();
-    virtual bool deleteMap();
-    virtual void editAtlas();
+    virtual QString getImportLog();
     virtual bool importCSV();
-    virtual bool newCSV();
-    virtual bool newMap();
-    virtual bool openAtlas();
-    virtual bool openCSV();
-    virtual bool printAtlas();
-    virtual bool printCSV();
-    virtual bool renameMap();
-    virtual bool saveAtlas();
-    virtual bool saveAtlasAs();
-    virtual bool saveCSV();
-    virtual bool saveCSVAs();
+    virtual bool openAtlas(QString filename = QString());
+    virtual bool openCSV(QString filename = QString());
+    virtual void setAtlasDir(QString dirname);
+    virtual bool setAtlasMap(const QString mapname);
     virtual void setCSVDir(QString dirname);
-    virtual void viewImportLog();
+    virtual bool setFirstLineHeader(bool isheader);
 
   protected slots:
     virtual void cleanupDestroyedObject(QObject *object);
 
   protected:
-    CSVToolWindow *_csvtoolwindow;
+    QString         _atlasdir;
+    CSVAtlasWindow *_atlaswindow;
+    QString         _csvdir;
+    CSVToolWindow  *_csvtoolwindow;
+    bool            _firstLineIsHeader;
 };
 
 #endif

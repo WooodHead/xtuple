@@ -25,14 +25,17 @@ class CSVToolWindow : public QMainWindow, public Ui::CSVToolWindow
   public:
     CSVToolWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0);
     ~CSVToolWindow();
+    CSVAtlasWindow *atlasWindow();
 
   public slots:
+    void clearImportLog();
     void fileExit();
     void fileNew();
-    void fileOpen();
+    void fileOpen(QString filename = QString());
     void filePrint();
     void fileSave();
     void fileSaveAs();
+    QString getImportLog() const;
     void helpAbout();
     void helpContents();
     void helpIndex();
@@ -46,6 +49,7 @@ class CSVToolWindow : public QMainWindow, public Ui::CSVToolWindow
   protected slots:
     void languageChange();
     void sUserCanceled();
+    void cleanup(QObject *deadobj);
 
   protected:
     CSVAtlasWindow *_atlasWindow;
