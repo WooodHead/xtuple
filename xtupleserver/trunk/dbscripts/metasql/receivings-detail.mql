@@ -17,9 +17,7 @@ SELECT recv_id, 1 AS altid, recv_order_number AS ponumber,
        END AS sense,
        recv_qty               AS qty,
        currToBase(recv_purchcost_curr_id, recv_purchcost, CAST(recv_date AS DATE)) AS purchcost,
-       CASE WHEN (recv_invoiced) THEN
-         currToBase(recv_recvcost_curr_id, recv_recvcost, CAST(recv_date AS DATE))
-       END  AS recvcost,
+       COALESCE(recv_value,0) / recv_qty  AS recvcost,
        recv_value             AS value,
        recv_invoiced          AS invoiced,
        recv_date              AS sortdate,
