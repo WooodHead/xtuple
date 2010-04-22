@@ -156,7 +156,7 @@ BEGIN
   END IF;                     
   RETURN;
 END;
-$$ LANGUAGE 'plpgsql' ROWS 1000;
+$$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION woinvavail(integer, integer, boolean, boolean)
   RETURNS SETOF woinvav AS $$
@@ -241,5 +241,5 @@ BEGIN
       END LOOP;   
   RETURN;
 END;
-$$ LANGUAGE 'plpgsql' ROWS 1000;
+$$ LANGUAGE 'plpgsql';
 
