@@ -6,7 +6,7 @@
   <title><indexterm significance="normal">
       <primary>configuration</primary>
       <secondary>for credit cards</secondary>
-    </indexterm> <indexterm significance="normal">
+    </indexterm><indexterm significance="normal">
       <primary>credit cards</primary>
       <secondary>configuration for</secondary>
     </indexterm>Credit Cards</title>
@@ -33,10 +33,10 @@
         <para>Select to indicate the system is configured to accept Credit
         Card Payments. If selected, the Credit Card processing functionality
         will be enabled throughout the system. For example, users will be able
-        to store Customer Credit Card information on the Customer master—and
-        receive Credit Card payments when processing Sales Orders. If this
-        option is not selected, Credit Card functionality will be
-        disabled.</para>
+        to store Customer Credit Card information on the Customer
+        master&mdash;and receive Credit Card payments when processing Sales
+        Orders. If this option is not selected, Credit Card functionality will
+        be disabled.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -93,11 +93,11 @@
             <listitem>
               <para>Select if you will be using tools outside of xTuple ERP to
               communicate with your Credit Card company. If selected, you may
-              still process Credit Card transactions in xTuple ERP—and this
-              information will be stored in your xTuple database. However, no
-              information will be sent to outside Credit Card processors. You
-              can learn more about the interface used to collect external
-              Credit Card transactions in <xref
+              still process Credit Card transactions in xTuple ERP&mdash;and
+              this information will be stored in your xTuple database.
+              However, no information will be sent to outside Credit Card
+              processors. You can learn more about the interface used to
+              collect external Credit Card transactions in <xref
               linkend="externalCCTransactionTitle" />.</para>
             </listitem>
           </varlistentry>
@@ -191,44 +191,46 @@
           <secondary>bank accounts and</secondary>
         </indexterm>Default Bank Accounts</term>
       <listitem>
-        <para>Specify the default Bank Account to be used for receiving Cash
-        whenever a Customer Credit Card is charged.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>American Express</term>
-      <listitem>
-        <para>Specify the default Bank Account used for American Express
-        transactions. This functionality provides the ability to track
-        specific card type transactions and reconcile with statements provided
-        by credit card processing company.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Discover</term>
-      <listitem>
-        <para>Specify the default Bank Account used for Discover card
-        transactions. This functionality provides the ability to track
-        specific card type transactions and reconcile with statements provided
-        by credit card processing company.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Master Card</term>
-      <listitem>
-        <para>Specify the default Bank Account used for Master card
-        transactions. This functionality provides the ability to track
-        specific card type transactions and reconcile with statements provided
-        by credit card processing company.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Visa</term>
-      <listitem>
-        <para>Specify the default Bank Account used for Visa card
-        transactions. This functionality provides the ability to track
-        specific card type transactions and reconcile statements provided by
-        credit card processing company.</para>
+        <para>Specify the default Bank Accounts to be used when receiving Cash
+        from Customers using the following types of Credit Cards:</para>
+        <variablelist>
+          <varlistentry>
+            <term>American Express</term>
+            <listitem>
+              <para>Select a Bank Account to use for American Express
+              transactions. This selection allows you to track American
+              Express transactions and reconcile them against statements
+              provided by your Credit Card processing company.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Discover</term>
+            <listitem>
+              <para>Select a Bank Account to use for Discover transactions.
+              This selection allows you to track Discover transactions and
+              reconcile them against statements provided by your Credit Card
+              processing company.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Master Card</term>
+            <listitem>
+              <para>Select a Bank Account to use for Master Card transactions.
+              This selection allows you to track Master Card transactions and
+              reconcile them against statements provided by your Credit Card
+              processing company.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Visa</term>
+            <listitem>
+              <para>Select a Bank Account to use for Visa transactions. This
+              selection allows you to track Visa transactions and reconcile
+              them against statements provided by your Credit Card processing
+              company.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -842,7 +844,7 @@
   </tip>
   <note>
     <para>The encryption key information may be entered on this screen, or on
-    the Encryption screen—and vice versa.</para>
+    the Encryption screen&mdash;and vice versa.</para>
   </note>
   <para>When establishing the key file settings for your Credit Card
   configuration, you are presented with the following options:</para>
