@@ -1,7 +1,7 @@
 /*
  * This file is part of the xTuple ERP: PostBooks Edition, a free and
  * open source Enterprise Resource Planning software suite,
- * Copyright (c) 1999-2009 by OpenMFG LLC, d/b/a xTuple.
+ * Copyright (c) 1999-2010 by OpenMFG LLC, d/b/a xTuple.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including xTuple-specific Exhibits)
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
@@ -15,14 +15,40 @@
 #include <QMessageBox>
 #include <QMainWindow>
 
+#include "csvatlaswindow.h"
 #include "csvtoolwindow.h"
 
-#define DEBUG false
+#define DEBUG true
 
 CSVImpPlugin::CSVImpPlugin(QObject *parent)
   : QObject(parent)
 {
+  _atlasdir      = QString::null;
+  _atlaswindow   = 0;
+  _csvdir        = QString::null;
   _csvtoolwindow = 0;
+}
+
+QMainWindow *CSVImpPlugin::getCSVAtlasWindow(QWidget *parent, Qt::WindowFlags flags)
+{
+  if (! _atlaswindow)
+  {
+    CSVToolWindow *csvtool = qobject_cast<CSVToolWindow*>(getCSVToolWindow(parent, flags));
+    if (csvtool)
+    {
+      _atlaswindow = csvtool->atlasWindow();
+      connect(_atlaswindow, SIGNAL(destroyed(QObject*)), this, SLOT(cleanupDestroyedObject(QObject*)));
+      if (_atlasdir.isEmpty())
+      _atlaswindow->setDir(_csvdir);
+    else
+      _atlaswindow->setDir(_atlasdir);
+    }
+  }
+
+  if (DEBUG)
+    qDebug("CSVImpPlugin::getAtlasToolWindow() returning %p, Atlas dir [%s]",
+           _atlaswindow, qPrintable(_atlasdir));
+  return _atlaswindow;
 }
 
 QMainWindow *CSVImpPlugin::getCSVToolWindow(QWidget *parent, Qt::WindowFlags flags)
@@ -31,108 +57,104 @@ QMainWindow *CSVImpPlugin::getCSVToolWindow(QWidget *parent, Qt::WindowFlags fla
   {
     _csvtoolwindow = new CSVToolWindow(parent, flags);
     connect(_csvtoolwindow, SIGNAL(destroyed(QObject*)), this, SLOT(cleanupDestroyedObject(QObject*)));
+
+    _csvtoolwindow->sFirstRowHeader(_firstLineIsHeader);
+    _csvtoolwindow->setDir(_csvdir);
+    if (_atlasdir.isEmpty())
+      _csvtoolwindow->atlasWindow()->setDir(_csvdir);
+    else
+      _csvtoolwindow->atlasWindow()->setDir(_atlasdir);
   }
 
+  if (DEBUG)
+    qDebug("CSVImpPlugin::getCSVToolWindow() returning %p "
+           "with CSV dir %s, Atlas dir %s",
+           _csvtoolwindow, qPrintable(_csvdir), qPrintable(_atlasdir));
   return _csvtoolwindow;
 }
 
 void CSVImpPlugin::clearImportLog()
 {
-  QMessageBox::information(0, "clearImportLog", "clearImportLog not implemented through plugin");
+  if (_csvtoolwindow)
+    _csvtoolwindow->clearImportLog();
 }
 
-bool CSVImpPlugin::deleteMap()
+QString CSVImpPlugin::getImportLog()
 {
-  QMessageBox::information(0, "deleteMap", "deleteMap not implemented through plugin");
-  return false;
-}
+  if (_csvtoolwindow)
+    return _csvtoolwindow->getImportLog();
 
-void CSVImpPlugin::editAtlas()
-{
-  QMessageBox::information(0, "editAtlas", "editAtlas not implemented through plugin");
+  return QString::null;
 }
 
 bool CSVImpPlugin::importCSV()
 {
-  QMessageBox::information(0, "importCSV", "importCSV not implemented through plugin");
+  _csvtoolwindow->clearImportLog();
+  _csvtoolwindow->importStart();
+  return getImportLog().isEmpty();
+}
+
+bool CSVImpPlugin::openAtlas(QString filename)
+{
+  if (DEBUG) qDebug("CSVImpPlugin::openAtlas(%s)", qPrintable(filename));
+
+  CSVAtlasWindow *atlaswind = qobject_cast<CSVAtlasWindow*>(getCSVAtlasWindow(qobject_cast<QWidget*>(parent())));
+  if (atlaswind)
+  {
+    atlaswind->fileOpen(filename);
+    if (DEBUG)
+      qDebug("CSVImpPlugin::openAtlas() opened [%s]", qPrintable(filename));
+    return true;
+  }
+
   return false;
 }
 
-bool CSVImpPlugin::newCSV()
+bool CSVImpPlugin::openCSV(QString filename)
 {
-  QMessageBox::information(0, "newCSV", "newCSV not implemented through plugin");
+  CSVToolWindow *csvtool = qobject_cast<CSVToolWindow*>(getCSVToolWindow(qobject_cast<QWidget*>(parent())));
+  if (csvtool)
+  {
+    csvtool->fileOpen(filename);
+    return true;
+  }
+
   return false;
 }
 
-bool CSVImpPlugin::newMap()
+void CSVImpPlugin::setAtlasDir(QString dirname)
 {
-  QMessageBox::information(0, "newMap", "newMap not implemented through plugin");
-  return false;
+  if (DEBUG) qDebug("CSVImpPlugin::setAltasDir(%s)", qPrintable(dirname));
+
+  _atlasdir = dirname;
+  if (_csvtoolwindow)
+    _csvtoolwindow->atlasWindow()->setDir(dirname);
 }
 
-bool CSVImpPlugin::openAtlas()
+bool CSVImpPlugin::setAtlasMap(const QString mapname)
 {
-  QMessageBox::information(0, "openAtlas", "openAtlas not implemented through plugin");
-  return false;
-}
+  if (_csvtoolwindow && _csvtoolwindow->atlasWindow())
+    return _csvtoolwindow->atlasWindow()->setMap(mapname);
 
-bool CSVImpPlugin::openCSV()
-{
-  QMessageBox::information(0, "openCSV", "openCSV not implemented through plugin");
-  return false;
-}
-
-bool CSVImpPlugin::printAtlas()
-{
-  QMessageBox::information(0, "printAtlas", "printAtlas not implemented through plugin");
-  return false;
-}
-
-bool CSVImpPlugin::printCSV()
-{
-  QMessageBox::information(0, "printCSV", "printCSV not implemented through plugin");
-  return false;
-}
-
-bool CSVImpPlugin::renameMap()
-{
-  QMessageBox::information(0, "renameMap", "renameMap not implemented through plugin");
-  return false;
-}
-
-bool CSVImpPlugin::saveAtlas()
-{
-  QMessageBox::information(0, "saveAtlas", "saveAtlas not implemented through plugin");
-  return false;
-}
-
-bool CSVImpPlugin::saveAtlasAs()
-{
-  QMessageBox::information(0, "saveAtlasAs", "saveAtlasAs not implemented through plugin");
-  return false;
-}
-
-bool CSVImpPlugin::saveCSV()
-{
-  QMessageBox::information(0, "saveCSV", "saveCSV not implemented through plugin");
-  return false;
-}
-
-bool CSVImpPlugin::saveCSVAs()
-{
-  QMessageBox::information(0, "saveCSVAs", "saveCSVAs not implemented through plugin");
   return false;
 }
 
 void CSVImpPlugin::setCSVDir(QString dirname)
 {
+  if (DEBUG) qDebug("CSVImpPlugin::setCSVDir(%s)", qPrintable(dirname));
+  _csvdir = dirname;
   if (_csvtoolwindow)
     _csvtoolwindow->setDir(dirname);
 }
 
-void CSVImpPlugin::viewImportLog()
+bool CSVImpPlugin::setFirstLineHeader(bool isheader)
 {
-  QMessageBox::information(0, "viewImportLog", "viewImportLog not implemented through plugin");
+  if (DEBUG) qDebug("CSVImpPlugin::setFirstLineHeader(%d)", isheader);
+  _firstLineIsHeader = isheader;
+  if (_csvtoolwindow)
+    _csvtoolwindow->sFirstRowHeader(isheader);
+
+  return true;
 }
 
 void CSVImpPlugin::cleanupDestroyedObject(QObject *object)
@@ -141,7 +163,12 @@ void CSVImpPlugin::cleanupDestroyedObject(QObject *object)
     qDebug("CSVImpPlugin::cleanupDestroyedObject(%s %p)",
            object ? object->metaObject()->className() : "[unknown]", object);
   if (object == _csvtoolwindow)
+  {
     _csvtoolwindow = 0;
+    _firstLineIsHeader = false;
+  }
+  else if (object == _atlaswindow)
+    _atlaswindow = 0;
 }
 
 Q_EXPORT_PLUGIN2(csvimpplugin, CSVImpPlugin);

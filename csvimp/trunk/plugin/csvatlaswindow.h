@@ -27,7 +27,7 @@ class CSVAtlasWindow : public QMainWindow, public Ui::CSVAtlasWindow
 
   public slots:
     virtual void        fileNew();
-    virtual void        fileOpen();
+    virtual void        fileOpen(QString filename = QString());
     virtual void        filePrint();
     virtual void        fileSave();
     virtual void        fileSaveAs();
@@ -35,16 +35,20 @@ class CSVAtlasWindow : public QMainWindow, public Ui::CSVAtlasWindow
     virtual void        helpAbout();
     virtual void        helpContents();
     virtual void        helpIndex();
+    virtual QString     map()           const;
     virtual void        sAddMap();
     virtual void        sDeleteMap();
     virtual void        sMapChanged( int );
     virtual void        sRenameMap();
+    virtual void        setDir(QString dirname);
+    virtual bool        setMap(const QString mapname);
 
   protected slots:
     virtual void languageChange();
 
   protected:
     CSVAtlas *_atlas;
+    QString   _currentDir;
     QString   _filename;
     QString   _selectedMap;
 };
