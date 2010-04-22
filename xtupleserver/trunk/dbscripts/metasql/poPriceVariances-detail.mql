@@ -44,8 +44,8 @@ SELECT porecv_id, porecv_ponumber, porecv_date,
   SUM(vodist_amount) / SUM(vodist_qty) * porecv_qty -
     currToLocal(vohead_curr_id, porecv_value, vohead_distdate)                              AS variance, 
   CASE WHEN (porecv_value IS NOT NULL) THEN
-  (SUM(vodist_amount / SUM(vodist_qty)) * porecv_qty /
-  currToLocal(vohead_curr_id, porecv_value, vohead_distdate) -1) * 100  END                 AS varprcnt,    
+    ((SUM(vodist_amount) / SUM(vodist_qty) * porecv_qty /
+  currToLocal(vohead_curr_id, porecv_value, vohead_distdate)) -1) * 100  END                 AS varprcnt,       
   currConcat(vohead_curr_id) AS currAbbr,
 <? endif ?>
   'qty' AS porecv_qty_xtnumericrole,
