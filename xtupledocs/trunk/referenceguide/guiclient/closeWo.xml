@@ -104,6 +104,10 @@
       <term>CLOSE W/O</term>
       <listitem>
         <para>Closes the selected Work Order.</para>
+        <note>
+          <para>Any tooling Items issued to a Work Order must be returned
+          before the Work Order can be closed.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
