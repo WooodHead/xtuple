@@ -9,6 +9,18 @@
       <secondary>statements master list</secondary>
     </indexterm>MetaSQL Statements</title>
 
+  <para>MetaSQL is a scripting language designed to handle dynamic database
+  queries. MetaSQL tags such as "&lt;? if exists("parameter") ?&gt;" or "&lt;?
+  value("parameter") ?&gt;" are embedded within standard SQL. Query results
+  will vary depending on the existence and value of passed parameters. These
+  MetaSQL statements are used by windows and reports to extract and format
+  database information. When the MetaSQL statement is run, a parsing engine
+  interprets the MetaSQL using the passed list of named parameters. The parsed
+  result is standard SQL, which in turn is sent to the database. Naming and
+  saving the MetaSQL Statements in the database allows multiple windows and
+  reports to use the same MetaSQL Statement. See the MetaSQL advanced topic in
+  the OpenRPT User Guide for more information.</para>
+
   <para>To access the master list of MetaSQL Statements, select the "MetaSQL
   Statements" option. The following screen will appear:</para>
 
