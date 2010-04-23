@@ -30,4 +30,4 @@ RETURN pTaxzoneid;
 
 END;
 $BODY$
-  LANGUAGE 'plpgsql' VOLATILE
+  LANGUAGE 'plpgsql' VOLATILE;
