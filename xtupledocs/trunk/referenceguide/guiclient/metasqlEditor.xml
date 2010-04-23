@@ -5,23 +5,18 @@
 <section id="metasqlEditor">
   <title><indexterm significance="normal">
       <primary>metasql</primary>
-
       <secondary>editor for</secondary>
     </indexterm>MetaSQL Editor</title>
-
-  <para>To create a new MetaSQL Statmement, select the NEW button. The
+  <para>To create a new MetaSQL Statement, select the NEW button. The
   following screen will appear:</para>
-
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/metasqlEditor.png" />
         </imageobject>
-
         <caption>Create New MetaSQL Statement</caption>
       </mediaobject>
     </screenshot></para>
-
   <para>The MetaSQL Editor can be used to create new MetaSQL Statements or
   edit those already found on the MetaSQL Statements master list. Once
   created, new MetaSQL Statements can be added to the master list, making them
@@ -29,110 +24,92 @@
   simply load the statement into the editor from the Database you are
   currently connected to. Then edit the statement and save it back to the
   Database once editing is complete.</para>
-
-  <para>The body of the MetaSQL Statement is an SQL SELECT, UPDATE or DELETE
-  statement (the user must have been granted the ExecuteMetaSQL privilege to
-  run the UPDATE or DELETE statement). Passed parameters can be utilized to
-  control how the statements operates (using an IF, ELSE, ENDIF construct) and
-  their values can be inserted. The core Postbooks application contains many
-  statements that can be used as examples.</para>
-
-  <para>The Editor toolbar has icon shortcuts for New, Open, Save, Undo, Cut,
-  Copy to clipboard and Paste from clipboard. The Editor menu has many options
-  to simplify the development of MetaSQL Statements including viewing and
-  editing the Parameter List, executing the query, and viewing the query
-  results.</para>
-
+  <para>The body of a MetaSQL Statement is an SQL <literal>SELECT</literal>,
+  <literal>UPDATE</literal> or <literal>DELETE</literal> statement. (The user
+  must have been granted the <literal>ExecuteMetaSQL</literal> privilege to
+  run the <literal>UPDATE</literal> or <literal>DELETE</literal> statement.)
+  Passed parameters can be utilized to control how the statement operates
+  (using an <literal>IF</literal>, <literal>ELSE</literal>,
+  <literal>ENDIF</literal> construct) and their values can be inserted. The
+  core xTuple PostBooks Edition contains many statements that can be used as
+  examples.</para>
+  <para>The MetaSQL Editor toolbar has icon shortcuts for New, Open, Save,
+  Undo, Cut, Copy, and Paste. The Editor menu has many options to simplify the
+  development of MetaSQL Statements, including viewing and editing the
+  Parameter List, executing the query, and viewing the query results.</para>
   <para>When saving a new MetaSQL Statement, you are presented with the
   following options:</para>
-
   <variablelist>
     <varlistentry>
       <term>Database and File</term>
-
       <listitem>
         <para>Saves the MetaSQL Statement into the Database you are currently
         connected to and to a file.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>File Only</term>
-
       <listitem>
         <para>Saves the MetaSQL Statement to a file.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Cancel</term>
-
       <listitem>
         <para>Cancels the save operation.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Database Only</term>
-
       <listitem>
         <para>Saves the MetaSQL Statement into the Database you are currently
         connected to.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>After defining the save options, you are presented with the following
   options:</para>
-
   <variablelist>
     <varlistentry>
       <term>Schema</term>
-
       <listitem>
-        <para>You would normally select the "public" schema, however, there
+        <para>You would normally select the "public" schema. However, there
         are situations where you may want to define the MetaSQL Statement in a
         different schema.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Group</term>
-
       <listitem>
         <para>Enter the Group for the MetaSQL Statement. This is the major
         grouping for statements and normally reflects the type or source of
-        information. Some examples are arHistory, purchaseOrders, etc.</para>
+        information. Some examples are <literal>arHistory</literal>,
+        <literal>purchaseOrders</literal>, etc.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Name</term>
-
       <listitem>
         <para>Enter the Name for the MetaSQL Statement. This is detailed name
         for the statement within the Group.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Grade</term>
-
       <listitem>
         <para>Enter the Grade number for the MetaSQL Statement. If there are
         multiple MetaSQL Statements with the same Group/Name, the one with the
         highest Grade number will be used. It is a good idea to save changes
-        to statements with a higher Grade number so you if necessary can refer
-        to the original statement before the changes. Use the menu option
-        File-&gt;Save As Database to change the Grade of a statement.</para>
+        to statements with a higher Grade number so, if necessary, you can
+        refer to the original statement before implementing the changes. Use
+        the menu option <guimenuitem>File &gt; Save As Database</guimenuitem>
+        to change the Grade of a statement.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Notes</term>
-
       <listitem>
-        <para>Enter any notes or comments related to this MetaSQL
+        <para>Enter any notes or comments related to the MetaSQL
         Statement.</para>
       </listitem>
     </varlistentry>

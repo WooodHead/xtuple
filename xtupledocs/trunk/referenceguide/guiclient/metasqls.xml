@@ -5,103 +5,87 @@
 <section>
   <title><indexterm significance="normal">
       <primary>metasql</primary>
-
       <secondary>statements master list</secondary>
     </indexterm>MetaSQL Statements</title>
-
   <para>MetaSQL is a scripting language designed to handle dynamic database
-  queries. MetaSQL tags such as "&lt;? if exists("parameter") ?&gt;" or "&lt;?
-  value("parameter") ?&gt;" are embedded within standard SQL. Query results
-  will vary depending on the existence and value of passed parameters. These
-  MetaSQL statements are used by windows and reports to extract and format
-  database information. When the MetaSQL statement is run, a parsing engine
-  interprets the MetaSQL using the passed list of named parameters. The parsed
-  result is standard SQL, which in turn is sent to the database. Naming and
-  saving the MetaSQL Statements in the database allows multiple windows and
-  reports to use the same MetaSQL Statement. See the MetaSQL advanced topic in
-  the OpenRPT User Guide for more information.</para>
-
+  queries. MetaSQL tags such as <literal>&lt;? if exists("parameter")
+  ?&gt;</literal> or <literal>&lt;? value("parameter") ?&gt;</literal> are
+  embedded within standard SQL. Query results will vary depending on the
+  existence and value of passed parameters. These MetaSQL statements are used
+  by xTuple screens and reports to extract and format database information.
+  When a MetaSQL statement is run, a parsing engine interprets the MetaSQL
+  using the passed list of named parameters. The parsed result is standard
+  SQL, which in turn is sent to the database. Naming and saving the MetaSQL
+  Statements in the database allows multiple windows and reports to use the
+  same MetaSQL Statement. For more information, please see the <ulink
+  url="http://www.xtuple.org/node/270">MetaSQL advanced topic</ulink> in the
+  OpenRPT User Guide.</para>
   <para>To access the master list of MetaSQL Statements, select the "MetaSQL
   Statements" option. The following screen will appear:</para>
-
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/metasqls.png" />
         </imageobject>
-
         <caption>MetaSQL Statements List</caption>
       </mediaobject>
     </screenshot></para>
-
   <para>The "MetaSQL Statements" screen displays information on all existing
   MetaSQL Statements, including Group, Name and Notes.</para>
-
-  <para>You must have been granted the ViewMetaSQL privilege to view
-  statements, the MaintainMetaSQL privilege to create or edit statements, and
-  the ExecuteMetaSQL privilege to run statements that change the
-  database.</para>
-
+  <note>
+    <para>You must have been granted the <literal>ViewMetaSQL</literal>
+    privilege to view statements, the <literal>MaintainMetaSQL</literal>
+    privilege to create or edit statements, and the
+    <literal>ExecuteMetaSQL</literal> privilege to run statements that change
+    the database.</para>
+  </note>
   <para>To the far right of the list, the following buttons are
   available:</para>
-
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-
       <listitem>
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>PRINT</term>
-
       <listitem>
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>NEW</term>
-
       <listitem>
         <para>Opens screen for creating a new MetaSQL Statement.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
-      <term>EDIT/VIEW</term>
-
+      <term>EDIT</term>
       <listitem>
         <para>Enables you to edit or view the highlighted MetaSQL Statement.
         The edit screen is the same as that for creating a new MetaSQL
-        Statement—except that when editing, the fields will contain MetaSQL
-        Statement information. Double-clicking on a MetaSQL Statement entry
-        will also bring you to the editing screen.</para>
+        Statement&mdash;except that when editing, the fields will contain
+        MetaSQL Statement information. Double-clicking on a MetaSQL Statement
+        entry will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>DELETE</term>
-
       <listitem>
         <para>Highlight a MetaSQL Statement and then select this button to
         remove the MetaSQL Statement from the list.</para>
       </listitem>
     </varlistentry>
-
-    <varlistentry>
+    <varlistentry role="standard">
       <term>SUBMIT</term>
-
       <listitem>
         <para>Submit a MetaSQL Statement with parameters to the Batch Manager.
         Results will be emailed as a CSV, Text, or HTML attachment.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <xi:include href="metasqlEditor.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
