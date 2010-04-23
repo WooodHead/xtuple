@@ -412,6 +412,11 @@
         linkend="configureWOCostDefaults" />. However, it is possible to
         override the global default by specifying one of the following options
         at the Item Site level:</para>
+        <para role="manufacturing"><tip>
+            <para>The appropriate reporting selections must be made in the
+            Bill of Operations to ensure that labor and overhead Costs
+            associated with setup and run time Operations are reported.</para>
+          </tip></para>
         <variablelist>
           <varlistentry>
             <term>To Date</term>
@@ -431,12 +436,6 @@
               material has been issued&mdash;and if only 1 of the 3 is
               shipped&mdash;then 1/3 of the value charged to WIP at that point
               will be charged to Cost of Sales.</para>
-              <para role="manufacturing"><tip>
-                  <para>The appropriate reporting selections must be made in
-                  the Bill of Operations to ensure that labor and overhead
-                  Costs associated with setup and run time Operations are
-                  reported.</para>
-                </tip></para>
             </listitem>
           </varlistentry>
         </variablelist>
