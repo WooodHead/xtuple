@@ -22,4 +22,4 @@ RETURN pTaxclassid;
 
 END;
 $BODY$
-  LANGUAGE 'plpgsql' VOLATILE
+  LANGUAGE 'plpgsql' VOLATILE;
