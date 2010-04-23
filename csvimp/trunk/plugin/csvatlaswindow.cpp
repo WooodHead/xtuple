@@ -27,6 +27,8 @@
 #include <metasqlhighlighter.h>
 
 #include "csvatlas.h"
+#include "csvimpdata.h"
+#include "interactivemessagehandler.h"
 #include "missingfield.h"
 #include "rowcontroller.h"
 
@@ -36,10 +38,12 @@ CSVAtlasWindow::CSVAtlasWindow(QWidget *parent) : QMainWindow(parent)
 {
   setupUi(this);
 
+  _atlas       = new CSVAtlas();
   _currentDir  = QString::null;
   _filename    = QString::null;
-  _atlas       = new CSVAtlas();
+  _msghandler  = new InteractiveMessageHandler(this);
   _selectedMap = QString::null;
+
   sMapChanged(0);
 
   MetaSQLHighlighter *tmp = new MetaSQLHighlighter(_preSql);
@@ -119,15 +123,17 @@ void CSVAtlasWindow::fileOpen(QString filename)
     _currentDir = QFileInfo(_filename).absoluteDir().absolutePath();
   }
   else
-    QMessageBox::warning(this, tr("Error Reading File"),
+    _msghandler->message(QtWarningMsg, 
                          tr("<p>An error was encountered while trying to read "
-                            "the file %1:<br>%2<br>Line %3, Column %4")
-                           .arg(filename, errMsg).arg(errLine).arg(errCol));
+                            "the Atlas file: %1.").arg(errMsg),
+                         QUrl::fromLocalFile(filename),
+                         QSourceLocation(QUrl::fromLocalFile(filename),
+                                         errLine, errCol),
+                         tr("Error Reading File"));
 
   if(!_atlas)
     _atlas = new CSVAtlas();
 }
-
 
 void CSVAtlasWindow::fileSave()
 {
@@ -150,9 +156,11 @@ void CSVAtlasWindow::fileSave()
     file.close();
   }
   else
-    QMessageBox::warning(this, tr("Error Opening File"),
-                         tr("Could not open the file %1 for writing to.")
-                         .arg(_filename));
+    _msghandler->message(QtWarningMsg,
+                         tr("<p>Could not open the file %1 for writing: %2")
+                           .arg(_filename, file.errorString()),
+                         QUrl::fromLocalFile(_filename), QSourceLocation(),
+                         tr("Error Opening File"));
 }
 
 void CSVAtlasWindow::fileSaveAs()
@@ -169,22 +177,26 @@ void CSVAtlasWindow::fileSaveAs()
 
 void CSVAtlasWindow::filePrint()
 {
-  QMessageBox::information(this, tr("Not yet implemented"), tr("This feature has not yet been implemented."));
+  _msghandler->message(QtWarningMsg, tr("Print not yet implemented"));
 }
 
 void CSVAtlasWindow::helpIndex()
 {
-  QMessageBox::information(this, tr("Not yet implemented"), tr("This feature has not yet been implemented."));
+  _msghandler->message(QtWarningMsg, tr("Help Index not yet implemented"));
 }
 
 void CSVAtlasWindow::helpContents()
 {
-  QMessageBox::information(this, tr("Not yet implemented"), tr("This feature has not yet been implemented."));
+  _msghandler->message(QtWarningMsg, tr("Help Contents not yet implemented"));
 }
 
 void CSVAtlasWindow::helpAbout()
 {
-  QMessageBox::information(this, tr("Not yet implemented"), tr("This feature has not yet been implemented."));
+  QMessageBox::about(this, tr("About %1").arg(CSVImp::name),
+    tr("%1 version %2"
+       "\n\n%3 is a tool for importing CSV files into a database."
+       "\n\n%4, All Rights Reserved")
+          .arg(CSVImp::name, CSVImp::version, CSVImp::name, CSVImp::copyright));
 }
 
 QString CSVAtlasWindow::map() const
@@ -192,9 +204,14 @@ QString CSVAtlasWindow::map() const
   return _map->currentText();
 }
 
+XAbstractMessageHandler *CSVAtlasWindow::messageHandler() const
+{
+  return _msghandler;
+}
+
 void CSVAtlasWindow::sRenameMap()
 {
-  QMessageBox::information(this, tr("Not yet implemented"), tr("This feature has not yet been implemented."));
+  _msghandler->message(QtWarningMsg, tr("Renaming Maps feature has not yet been implemented."));
 }
 
 void CSVAtlasWindow::setDir(QString dirname)
@@ -206,6 +223,11 @@ bool CSVAtlasWindow::setMap(const QString mapname)
 {
   _map->setCurrentIndex(_map->findText(mapname));
   return (_map->currentIndex() >= 0);
+}
+
+void CSVAtlasWindow::setMessageHandler(XAbstractMessageHandler *handler)
+{
+  _msghandler = handler;
 }
 
 void CSVAtlasWindow::sAddMap()
@@ -367,11 +389,13 @@ void CSVAtlasWindow::sMapChanged( int )
       QStringList fieldnames;
       if (record.isEmpty())
       {
-        QMessageBox::warning(this, tr("No Existing Table"),
+        _msghandler->message(QtWarningMsg,
                              tr("<p>The table %1 does not exist in this "
                                 "database. You may continue to use and edit "
                                 "this map but only those fields that are known "
-                                "will be shown.").arg(map.table()));
+                                "will be shown.").arg(map.table()),
+                             QUrl(), QSourceLocation(),
+                             tr("No Existing Table"));
         fieldnames = map.fieldList();
       }
       else
@@ -477,7 +501,9 @@ void CSVAtlasWindow::sMapChanged( int )
     }
   }
   else
-    QMessageBox::critical(this, tr("No Database"), tr("Could not get the database connection."));
+    _msghandler->message(QtCriticalMsg,
+                         tr("Could not get the database connection."),
+                         QUrl(), QSourceLocation(), tr("No Database"));
 }
 
 void CSVAtlasWindow::closeEvent( QCloseEvent * e)

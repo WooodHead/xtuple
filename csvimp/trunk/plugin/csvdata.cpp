@@ -13,10 +13,11 @@
 #include <QApplication>
 #include <QFile>
 #include <QLabel>
-#include <QMessageBox>
 #include <QProgressDialog>
 #include <QTextStream>
 #include <QWidget>
+
+#include "interactivemessagehandler.h"
 
 CSVData::CSVData(QObject * parent, const char * name)
   : QObject(parent)
@@ -25,6 +26,7 @@ CSVData::CSVData(QObject * parent, const char * name)
   _firstRowHeaders = FALSE;
   _numColumns = 0;
   _stopped    = false;
+  _msghandler = new InteractiveMessageHandler(this);
 }
 
 CSVData::~CSVData() {
@@ -36,6 +38,11 @@ void CSVData::setFirstRowHeaders(bool y)
   {
     _firstRowHeaders = y;
   }
+}
+
+void CSVData::setMessageHandler(XAbstractMessageHandler *handler)
+{
+  _msghandler = handler;
 }
 
 unsigned int CSVData::rows()
@@ -89,9 +96,9 @@ bool CSVData::load(QString filename, QWidget * parent)
   file.setFileName(filename);
   if(!file.open(QIODevice::ReadOnly))
   {
-    if(parent)
-      QMessageBox::critical(parent, tr("Open Failed"),
-        tr("Could not open file for reading: %1").arg(file.errorString()));
+    _msghandler->message(QtWarningMsg, tr("Open Failed"),
+                         tr("<p>Could not open %1 for reading: %2")
+                         .arg(filename, file.errorString()));
     return FALSE;
   }
 
@@ -212,6 +219,11 @@ bool CSVData::load(QString filename, QWidget * parent)
     progress->setValue(expected);
 
   return TRUE;
+}
+
+XAbstractMessageHandler *CSVData::messageHandler() const
+{
+  return _msghandler;
 }
 
 void CSVData::sUserCanceled()

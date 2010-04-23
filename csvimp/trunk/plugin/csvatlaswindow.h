@@ -14,6 +14,7 @@
 #include "ui_csvatlaswindow.h"
 
 class CSVAtlas;
+class XAbstractMessageHandler;
 
 class CSVAtlasWindow : public QMainWindow, public Ui::CSVAtlasWindow
 {
@@ -35,22 +36,25 @@ class CSVAtlasWindow : public QMainWindow, public Ui::CSVAtlasWindow
     virtual void        helpAbout();
     virtual void        helpContents();
     virtual void        helpIndex();
-    virtual QString     map()           const;
+    virtual QString     map()                         const;
+    virtual XAbstractMessageHandler *messageHandler() const;
     virtual void        sAddMap();
     virtual void        sDeleteMap();
     virtual void        sMapChanged( int );
     virtual void        sRenameMap();
     virtual void        setDir(QString dirname);
     virtual bool        setMap(const QString mapname);
+    virtual void        setMessageHandler(XAbstractMessageHandler *handler);
 
   protected slots:
     virtual void languageChange();
 
   protected:
-    CSVAtlas *_atlas;
-    QString   _currentDir;
-    QString   _filename;
-    QString   _selectedMap;
+    CSVAtlas                 *_atlas;
+    QString                  _currentDir;
+    QString                  _filename;
+    XAbstractMessageHandler *_msghandler;
+    QString                  _selectedMap;
 };
 
 #endif
