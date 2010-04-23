@@ -31,6 +31,7 @@
 #include "csvatlaswindow.h"
 #include "csvdata.h"
 #include "csvimpdata.h"
+#include "interactivemessagehandler.h"
 #include "logwindow.h"
 
 #include "CSVimpIcon.xpm"
@@ -51,6 +52,7 @@ CSVToolWindow::CSVToolWindow(QWidget *parent, Qt::WindowFlags flags)
   _dbTimerId   = startTimer(60000);
   _stopped     = false;
   _currentDir  = QString::null;
+  _msghandler  = new InteractiveMessageHandler(this);
 
   connect(_atlasWindow, SIGNAL(destroyed(QObject*)), this, SLOT(cleanup(QObject*)));
 }
@@ -246,41 +248,42 @@ void CSVToolWindow::mapEdit()
   _atlasWindow->show();
 }
 
+XAbstractMessageHandler *CSVToolWindow::messageHandler() const
+{
+  return _msghandler;
+}
+
 void CSVToolWindow::sFirstRowHeader( bool firstisheader )
 {
   if(_data && _data->firstRowHeaders() != firstisheader)
   {
     _data->setFirstRowHeaders(firstisheader);
     int cols = _data->columns();
-    if(firstisheader)
+
+    QString header;
+    for(int h = 0; h < cols; h++)
     {
-      QString header;
-      for(int h = 0; h < cols; h++)
-      {
-        QString header = _data->header(h);
-        if(header.isEmpty())
-          header = QString(h + 1);
-        else
-          header = QString("%1 (%2)").arg(h+1).arg(header);
-        _table->setHorizontalHeaderItem(h, new QTableWidgetItem(header));
-      }
-      _table->removeRow(0);
+      QString header = _data->header(h);
+      if (header.trimmed().isEmpty())
+        header = QString::number(h + 1);
+      else
+        header = QString("%1 (%2)").arg(h+1).arg(header);
+      _table->setHorizontalHeaderItem(h, new QTableWidgetItem(header));
     }
-    else
+
+    if(firstisheader)
+      _table->removeRow(0);
+    else if(_data->rows() > 0)
     {
-      for(int h = 0; h < cols; h++)
-        _table->horizontalHeaderItem(h)->setData(Qt::DisplayRole, QString(h+1));
-      if(_data->rows() > 0)
+      _table->insertRow(0);
+
+      QString v = QString::null;
+      for(int c = 0; c < cols; c++)
       {
-        _table->insertRow(0);
-        QString v = QString::null;
-        for(int c = 0; c < cols; c++)
-        {
-          v = _data->value(0, c);
-          if(QString::null == v)
-            v = tr("(NULL)");
-          _table->item(0, c)->setData(Qt::DisplayRole, v);
-        }
+        v = _data->value(0, c);
+        if(QString::null == v)
+          v = tr("(NULL)");
+        _table->setItem(0, c, new QTableWidgetItem(v));
       }
     }
   }
@@ -587,6 +590,11 @@ void CSVToolWindow::setDir(QString dirname)
   if (DEBUG)
     qDebug("%s::setDir(%s)", qPrintable(objectName()), qPrintable(dirname));
   _currentDir = dirname;
+}
+
+void CSVToolWindow::setMessageHandler(XAbstractMessageHandler *handler)
+{
+  _msghandler = handler;
 }
 
 void CSVToolWindow::timerEvent( QTimerEvent * e )

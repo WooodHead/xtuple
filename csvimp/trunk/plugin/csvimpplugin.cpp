@@ -12,7 +12,6 @@
 
 #include "csvimpplugin.h"
 
-#include <QMessageBox>
 #include <QMainWindow>
 
 #include "csvatlaswindow.h"

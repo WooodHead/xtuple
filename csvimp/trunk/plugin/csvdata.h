@@ -16,6 +16,7 @@
 #include <QStringList>
 
 class QWidget;
+class XAbstractMessageHandler;
 
 class CSVData : public QObject
 {
@@ -25,22 +26,22 @@ class CSVData : public QObject
     CSVData(QObject * = 0, const char * = 0);
     virtual ~CSVData();
 
-    bool firstRowHeaders() { return _firstRowHeaders; }
-    void setFirstRowHeaders(bool);
-
-    unsigned int rows();
     unsigned int columns() { return _numColumns; }
-
-    QString header(int);
-    QString value(int, int);
-
-    bool load(QString, QWidget* = 0);
+    QString      header(int);
+    bool         firstRowHeaders() { return _firstRowHeaders; }
+    bool         load(QString, QWidget* = 0);
+    XAbstractMessageHandler *messageHandler() const;
+    void         setFirstRowHeaders(bool);
+    void         setMessageHandler(XAbstractMessageHandler *handler);
+    unsigned int rows();
+    QString      value(int, int);
 
   protected slots:
     void sUserCanceled();
 
   protected:
-    bool _stopped;
+    XAbstractMessageHandler *_msghandler;
+    bool                     _stopped;
 
   private:
     bool _firstRowHeaders;

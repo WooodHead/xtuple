@@ -13,7 +13,7 @@ CONFIG         += plugin qt warn_on release
 TARGET          = $$qtLibraryTarget(csvimpplugin)
 DESTDIR         = ../plugins
 
-QT += xml sql
+QT += sql xml xmlpatterns
 
 include(../global.pri)
 
@@ -48,11 +48,13 @@ HEADERS  = csvimpplugin.h               \
            csvdata.h                    \
            csvmap.h                     \
            csvtoolwindow.h              \
+           interactivemessagehandler.h  \
            logwindow.h                  \
            missingfield.h               \
            rowcontroller.h              \
+           xabstractmessagehandler.h    \
            ../csvimpcommon/csvimpdata.h \
-           ../csvimpcommon/csvimpplugininterface.h      \
+           ../csvimpcommon/csvimpplugininterface.h \
 
 SOURCES  = csvimpplugin.cpp     \
            csvatlas.cpp         \
@@ -60,9 +62,11 @@ SOURCES  = csvimpplugin.cpp     \
            csvdata.cpp          \
            csvmap.cpp           \
            csvtoolwindow.cpp    \
+           interactivemessagehandler.cpp  \
            logwindow.cpp        \
            missingfield.cpp     \
            rowcontroller.cpp    \
+           xabstractmessagehandler.cpp    \
            ../csvimpcommon/csvimpdata.cpp \
 
 RESOURCES += ../csvimpcommon/csvimp.qrc
