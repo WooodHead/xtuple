@@ -1,0 +1,15 @@
+-- Group: desktop
+-- Name:  bankaccntBal
+-- Notes: 
+SELECT accnt_id, bankaccnt_name, trialbal_ending * -1 AS balance
+FROM bankaccnt
+ JOIN accnt ON (bankaccnt_accnt_id=accnt_id)
+ JOIN trialbal ON (accnt_id=trialbal_accnt_id)
+ JOIN (SELECT period_id
+       FROM period
+       JOIN yearperiod ON (period_yearperiod_id=yearperiod_id)
+       WHERE (period_end <= current_date)
+       ORDER BY yearperiod_end desc, period_number desc
+       LIMIT 1) data
+   ON (trialbal_period_id=period_id)
+ORDER BY bankaccnt_name
