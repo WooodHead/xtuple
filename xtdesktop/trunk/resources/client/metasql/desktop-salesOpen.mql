@@ -1,0 +1,21 @@
+-- Group: desktop
+-- Name:  salesOpen
+-- Notes: 
+
+SELECT cohead_id, cohead_number, cust_number, cust_name, cohead_shiptoname, MIN(coitem_scheddate) AS scheddate,        
+  SUM((noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) * coitem_qty_invuomratio) *            
+      (currToBase(cohead_curr_id, coitem_price, cohead_orderdate) / coitem_price_invuomratio) ) AS amount,
+ 'curr' AS amount_xtnumericrole,
+  0 AS sales_xttotalrole,
+  CASE WHEN (MIN(coitem_scheddate) <= current_date) THEN
+    'error' 
+  END AS qtforegroundrole
+   FROM coitem
+     JOIN cohead ON (coitem_cohead_id=cohead_id)
+     JOIN custinfo ON (cust_id=cohead_cust_id)
+   WHERE ( (coitem_cohead_id=cohead_id)
+    AND (coitem_status NOT IN ('C','X')) ) 
+GROUP BY cohead_id, cohead_number, cust_number, cust_name, cohead_shiptoname
+ORDER BY cohead_number;
+
+
