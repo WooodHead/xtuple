@@ -21,6 +21,7 @@ class XAbstractMessageHandler : public QAbstractMessageHandler
   public:
     XAbstractMessageHandler(QObject *parent = 0);
     virtual ~XAbstractMessageHandler();
+    virtual void message(QtMsgType type, const QString &description, const QUrl &identifier = QUrl(), const QSourceLocation &sourceLocation = QSourceLocation());
     virtual void message(QtMsgType type, const QString title, const QString &description, const QUrl &identifier = QUrl(), const QSourceLocation &sourceLocation = QSourceLocation());
 
   protected:

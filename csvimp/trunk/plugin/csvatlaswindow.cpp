@@ -123,13 +123,12 @@ void CSVAtlasWindow::fileOpen(QString filename)
     _currentDir = QFileInfo(_filename).absoluteDir().absolutePath();
   }
   else
-    _msghandler->message(QtWarningMsg, 
+    _msghandler->message(QtWarningMsg, tr("Error Reading File"),
                          tr("<p>An error was encountered while trying to read "
                             "the Atlas file: %1.").arg(errMsg),
                          QUrl::fromLocalFile(filename),
                          QSourceLocation(QUrl::fromLocalFile(filename),
-                                         errLine, errCol),
-                         tr("Error Reading File"));
+                                         errLine, errCol));
 
   if(!_atlas)
     _atlas = new CSVAtlas();
@@ -156,11 +155,10 @@ void CSVAtlasWindow::fileSave()
     file.close();
   }
   else
-    _msghandler->message(QtWarningMsg,
+    _msghandler->message(QtWarningMsg, tr("Error Opening File"),
                          tr("<p>Could not open the file %1 for writing: %2")
                            .arg(_filename, file.errorString()),
-                         QUrl::fromLocalFile(_filename), QSourceLocation(),
-                         tr("Error Opening File"));
+                         QUrl::fromLocalFile(_filename), QSourceLocation());
 }
 
 void CSVAtlasWindow::fileSaveAs()
@@ -389,13 +387,12 @@ void CSVAtlasWindow::sMapChanged( int )
       QStringList fieldnames;
       if (record.isEmpty())
       {
-        _msghandler->message(QtWarningMsg,
+        _msghandler->message(QtWarningMsg, tr("No Existing Table"),
                              tr("<p>The table %1 does not exist in this "
                                 "database. You may continue to use and edit "
                                 "this map but only those fields that are known "
                                 "will be shown.").arg(map.table()),
-                             QUrl(), QSourceLocation(),
-                             tr("No Existing Table"));
+                             QUrl(), QSourceLocation());
         fieldnames = map.fieldList();
       }
       else
@@ -501,9 +498,8 @@ void CSVAtlasWindow::sMapChanged( int )
     }
   }
   else
-    _msghandler->message(QtCriticalMsg,
-                         tr("Could not get the database connection."),
-                         QUrl(), QSourceLocation(), tr("No Database"));
+    _msghandler->message(QtCriticalMsg, tr("No Database"),
+                         tr("Could not get the database connection."));
 }
 
 void CSVAtlasWindow::closeEvent( QCloseEvent * e)

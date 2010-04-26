@@ -19,6 +19,12 @@ XAbstractMessageHandler::~XAbstractMessageHandler()
 {
 }
 
+// temp placeholder
+void XAbstractMessageHandler::message(QtMsgType type, const QString &description, const QUrl &identifier, const QSourceLocation &sourceLocation)
+{
+  handleMessage(type, description, identifier, sourceLocation);
+}
+
 void XAbstractMessageHandler::message(QtMsgType type, const QString title, const QString &description, const QUrl &identifier, const QSourceLocation &sourceLocation)
 {
   QMutexLocker locker(&mutex);
