@@ -37,6 +37,8 @@ BEGIN
       IF (_invhistid < 0) THEN
         RAISE EXCEPTION 'An error occurred processing an inventory transaction.  Error:%', _invhistid;
       ELSE
+        PERFORM postItemlocseries(_itemlocSeries);
+        
         UPDATE xtpos.saleitem SET
           saleitem_invhist_id=_invhistid
         WHERE (saleitem_id=_sale.saleitem_id);
