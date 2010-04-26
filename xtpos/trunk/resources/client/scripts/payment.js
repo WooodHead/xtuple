@@ -1,3 +1,4 @@
+debugger;
 // Define variables
 var _custId;
 var _ccOn;
@@ -9,7 +10,7 @@ var _type;
 
 var _address	= mywindow.findChild("_address");
 var _balance	= mywindow.findChild("_balance");
-var _cancel		= mywindow.findChild("_cancel");
+var _buttonBox	= mywindow.findChild("_buttonBox");
 var _cashAmount	= mywindow.findChild("_cashAmount");
 var _cashGroup	= mywindow.findChild("_cashGroup");
 var _change		= mywindow.findChild("_change");
@@ -24,7 +25,7 @@ var _expireMonth	= mywindow.findChild("_expireMonth");
 var _expireYear	= mywindow.findChild("_expireYear");
 var _fundsType	= mywindow.findChild("_fundsType");
 var _name		= mywindow.findChild("_name");
-var _ok		= mywindow.findChild("_ok");
+var _options           = mywindow.findChild("_options");
 var _paid		= mywindow.findChild("_paid");
 var _paidLit	= mywindow.findChild("_paidLit");
 var _print		= mywindow.findChild("_print");
@@ -50,8 +51,11 @@ _creditGroup["toggled(bool)"].connect(creditToggled);
 _cashAmount.valueChanged.connect(calc);
 _checkAmount.valueChanged.connect(calc);
 _creditAmount.valueChanged.connect(calc);
-_ok.clicked.connect(closeSale);
-_cancel.clicked.connect(mydialog, "reject");
+_buttonBox.accepted.connect(closeSale);
+_buttonBox.rejected.connect(mydialog, "reject");
+_options.clicked.connect(options);
+
+printSettings();
 
   // Set Defaults
 _creditGroup.enabled = _ccOn;
@@ -59,7 +63,7 @@ _creditAmount.localValue = 0;
 _checkAmount.localValue = 0;
 _paid.localValue = 0;
 _balance.localValue = 0;
-_change.localValue = 0;
+_change.localValue = 0;;
 
 function calc()
 {
@@ -250,8 +254,36 @@ function creditToggled(checked)
     _creditAmount.localValue = 0;
 }
 
+function options()
+{
+  var params = new Object;
+  params.parentName = "payment";
+
+  var newdlg = toolbox.openWindow("printOptions");
+  newdlg.set(params);
+  newdlg.exec();
+  printSettings();
+}
+
 function printReceipt(number)
 {
+  var printer = new QPrinter(QPrinter.HighResolution);
+  var presetPrinter = settingsValue("payment.defaultPrinter");
+  var userCanceled = false;
+
+  if (presetPrinter.length)
+  { 
+    printer.setPrinterName(presetPrinter);
+    orReport.beginMultiPrint(printer);
+  }
+  else if (orReport.beginMultiPrint(printer, userCanceled) == false)
+  {
+    if (!userCanceled)
+      QMessageBox.critical(mywindow, qsTr("Database Error"),
+                           qsTr("Could not initialize printing system."));
+    return;
+  }
+
   var params = new Object();
   params.sale_number    = number;
   params.sale_receipt   = "Sale Receipt";
@@ -260,7 +292,27 @@ function printReceipt(number)
   if (_creditGroup.checked)
     params.cclast4      = _creditCardNumber.text.slice(-4);
 
-  toolbox.printReport("RetailSaleReceipt",params);
+  var report = new orReport("RetailSaleReceipt", params);
+  if (! report.isValid() || ! report.print(printer, true))
+    report.reportError(mywindow);
+
+  orReport.endMultiPrint(printer);
+}
+
+function printSettings()
+{
+  var autoPrint = settingsValue("payment.autoPrint");
+  if (autoPrint == "true")
+  {
+    _printReceipt.forgetful = true;
+    _printReceipt.enabled = false;
+    _printReceipt.checked = true;
+  }
+  else
+  {
+    _printReceipt.forgetful = false;
+    _printReceipt.enabled = true;
+  }
 }
 
 function set(input)

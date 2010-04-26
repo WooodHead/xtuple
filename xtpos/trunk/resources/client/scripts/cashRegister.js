@@ -152,17 +152,6 @@ function calcBalance()
   _currentBalance.localValue + transfer + adjust;
 }
 
-function checkOptions()
-{
-  if (settingsValue("shipOrder.default"))
-  {
-    _printReceipt.checked = false;   
-    _printReceipt.hide();
-  }
-  else
-    _printReceipt.show();
-}
-
 function handleTab(index)
 {
   if (index = 1)
