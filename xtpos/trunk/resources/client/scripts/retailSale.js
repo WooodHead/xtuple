@@ -321,27 +321,6 @@ function handleItem()
                + "   AND (NOT itemsite_loccntrl)"                // 8436 vs. 8581
                + "   AND (itemsite_controlmethod IN ('N', 'R'))" // 8436 vs. 8581
                + ")");
-  _item.setValidationQuery("SELECT DISTINCT item_id, item_number, item_descrip1,"
-               + "                item_descrip2, uom_name, item_type,"
-               + "                item_config, item_upccode,"
-               + "                item_descrip1 || item_descrip2 AS itemdescrip,"
-               + "                item_active "
-               + "FROM    item "
-               + "   JOIN uom      ON (item_inv_uom_id=uom_id)"
-               + "   JOIN itemsite ON (item_id=itemsite_item_id) "
-               + "   JOIN reghist  ON (itemsite_warehous_id=reghist_warehous_id)"
-               + "WHERE ((reghist_terminal_id=" + _terminal.id() + ")"
-               + "   AND reghist_open"
-               + "   AND item_active"
-               + "   AND item_sold"
-               + "   AND item_type IN ('P','M','R') "
-               + "   AND (NOT item_exclusive OR customerCanPurchase(item_id, " + _cust.id() + ", NULL)) "
-               + "   AND itemsite_active "
-               + "   AND itemsite_sold "
-               + "   AND (item_number=:item_number OR item_upccode=:item_number OR item_id=:item_id) "
-               + "   AND (NOT itemsite_loccntrl)"                // 8436 vs. 8581
-               + "   AND (itemsite_controlmethod IN ('N', 'R'))" // 8436 vs. 8581
-               + ")");
 }
 
 function handleButtons()
