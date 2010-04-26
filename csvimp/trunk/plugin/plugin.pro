@@ -42,7 +42,8 @@ FORMS    = csvatlaswindow.ui    \
            logwindow.ui         \
            missingfield.ui      \
 
-HEADERS  = csvimpplugin.h               \
+HEADERS  = batchmessagehandler.h        \
+           csvimpplugin.h               \
            csvatlas.h                   \
            csvatlaswindow.h             \
            csvdata.h                    \
@@ -56,7 +57,8 @@ HEADERS  = csvimpplugin.h               \
            ../csvimpcommon/csvimpdata.h \
            ../csvimpcommon/csvimpplugininterface.h \
 
-SOURCES  = csvimpplugin.cpp     \
+SOURCES  = batchmessagehandler.cpp      \
+           csvimpplugin.cpp     \
            csvatlas.cpp         \
            csvatlaswindow.cpp   \
            csvdata.cpp          \

@@ -26,15 +26,16 @@ class CSVImpPlugin : public QObject, public CSVImpPluginInterface
 
     virtual QMainWindow *getCSVAtlasWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0);
     virtual QMainWindow *getCSVToolWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0);
-    virtual void clearImportLog();
-    virtual QString getImportLog();
-    virtual bool importCSV();
-    virtual bool openAtlas(QString filename = QString());
-    virtual bool openCSV(QString filename = QString());
-    virtual void setAtlasDir(QString dirname);
-    virtual bool setAtlasMap(const QString mapname);
-    virtual void setCSVDir(QString dirname);
-    virtual bool setFirstLineHeader(bool isheader);
+    virtual bool    importCSV();
+    virtual bool    isInteractive();
+    virtual QString lastError();
+    virtual bool    openAtlas(QString filename = QString());
+    virtual bool    openCSV(QString filename = QString());
+    virtual void    setAtlasDir(QString dirname);
+    virtual bool    setAtlasMap(const QString mapname);
+    virtual void    setCSVDir(QString dirname);
+    virtual bool    setFirstLineHeader(bool isheader);
+    virtual void    setInteractive(bool isinteractive);
 
   protected slots:
     virtual void cleanupDestroyedObject(QObject *object);
@@ -45,6 +46,7 @@ class CSVImpPlugin : public QObject, public CSVImpPluginInterface
     QString         _csvdir;
     CSVToolWindow  *_csvtoolwindow;
     bool            _firstLineIsHeader;
+    XAbstractMessageHandler *_msghandler;
 };
 
 #endif
