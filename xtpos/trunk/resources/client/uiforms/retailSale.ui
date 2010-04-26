@@ -93,6 +93,9 @@
           <property name="text">
            <string>Cancel</string>
           </property>
+          <property name="shortcut">
+           <string>Ctrl+W</string>
+          </property>
           <property name="checkable">
            <bool>false</bool>
           </property>
@@ -105,6 +108,9 @@
           </property>
           <property name="text">
            <string>&amp;Save</string>
+          </property>
+          <property name="shortcut">
+           <string>Ctrl+S</string>
           </property>
          </widget>
         </item>
@@ -171,7 +177,7 @@
             </property>
             <layout class="QGridLayout" name="_6">
              <item row="0" column="0">
-              <widget class="ContactCluster" name="_contact">
+              <widget class="ContactWidget" name="_contact">
                <property name="accountVisible">
                 <bool>false</bool>
                </property>
@@ -303,6 +309,9 @@
              <widget class="QPushButton" name="_add">
               <property name="text">
                <string>Add</string>
+              </property>
+              <property name="shortcut">
+               <string>Return</string>
               </property>
               <property name="default">
                <bool>true</bool>
@@ -915,9 +924,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>ContactCluster</class>
+   <class>ContactWidget</class>
    <extends>QWidget</extends>
-   <header>contactcluster.h</header>
+   <header>contactwidget.h</header>
   </customwidget>
   <customwidget>
    <class>CurrCluster</class>
