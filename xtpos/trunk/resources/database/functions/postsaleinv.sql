@@ -2,7 +2,7 @@ CREATE OR REPLACE FUNCTION xtpos.postSaleInv(integer) RETURNS bool AS $$
 DECLARE
   pSaleheadId 		ALIAS FOR $1;
   _invhistid		INTEGER;
-  _itemlocseries	INTEGER := 0;
+  _itemlocseries	INTEGER := nextval('itemloc_series_seq');
   _sale			RECORD;
   
 BEGIN  
