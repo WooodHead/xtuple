@@ -225,7 +225,8 @@ bool CSVAtlasWindow::setMap(const QString mapname)
 
 void CSVAtlasWindow::setMessageHandler(XAbstractMessageHandler *handler)
 {
-  _msghandler = handler;
+  if (handler != _msghandler)
+    _msghandler = handler;
 }
 
 void CSVAtlasWindow::sAddMap()

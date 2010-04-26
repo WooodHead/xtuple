@@ -77,5 +77,6 @@ void InteractiveMessageHandler::handleMessage(QtMsgType type, const QString titl
     msgbox.setDetailedText(tr("line %1, column %2")
                             .arg(sourceLocation.line())
                             .arg(sourceLocation.column()));
+  (void)unhandledMessages();
   msgbox.exec();
 }

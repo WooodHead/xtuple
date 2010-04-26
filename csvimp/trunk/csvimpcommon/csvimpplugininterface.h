@@ -20,17 +20,18 @@ class CSVImpPluginInterface
 
     virtual QMainWindow *getCSVAtlasWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0) = 0;
     virtual QMainWindow *getCSVToolWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0) = 0;
-    virtual void clearImportLog() = 0;
-    virtual QString getImportLog()   = 0;
-    virtual bool importCSV()      = 0;
-    virtual bool openAtlas(QString filename = QString()) = 0;
-    virtual bool openCSV(QString filename = QString())   = 0;
-    virtual void setAtlasDir(QString dirname)      = 0;
-    virtual bool setAtlasMap(const QString dirname)= 0;
-    virtual void setCSVDir(QString dirname)        = 0;
-    virtual bool setFirstLineHeader(bool isheader) = 0;
+    virtual bool    importCSV()      = 0;
+    virtual bool    isInteractive()  = 0;
+    virtual QString lastError()      = 0;
+    virtual bool    openAtlas(QString filename = QString()) = 0;
+    virtual bool    openCSV(QString filename = QString())   = 0;
+    virtual void    setAtlasDir(QString dirname)            = 0;
+    virtual bool    setAtlasMap(const QString dirname)      = 0;
+    virtual void    setCSVDir(QString dirname)              = 0;
+    virtual bool    setFirstLineHeader(bool isheader)       = 0;
+    virtual void    setInteractive(bool isinteractive)      = 0;
 };
 
 Q_DECLARE_INTERFACE(CSVImpPluginInterface,
-                    "org.xtuple.Plugin.CSVImpPluginInterface/0.3");
+                    "org.xtuple.Plugin.CSVImpPluginInterface/0.4");
 #endif

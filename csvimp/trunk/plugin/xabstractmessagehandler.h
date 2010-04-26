@@ -13,6 +13,7 @@
 
 #include <QAbstractMessageHandler>
 #include <QMutex>
+#include <QStringList>
 
 class XAbstractMessageHandler : public QAbstractMessageHandler
 {
@@ -21,14 +22,17 @@ class XAbstractMessageHandler : public QAbstractMessageHandler
   public:
     XAbstractMessageHandler(QObject *parent = 0);
     virtual ~XAbstractMessageHandler();
-    virtual void message(QtMsgType type, const QString &description, const QUrl &identifier = QUrl(), const QSourceLocation &sourceLocation = QSourceLocation());
-    virtual void message(QtMsgType type, const QString title, const QString &description, const QUrl &identifier = QUrl(), const QSourceLocation &sourceLocation = QSourceLocation());
+
+    virtual void    message(QtMsgType type, const QString &description, const QUrl &identifier = QUrl(), const QSourceLocation &sourceLocation = QSourceLocation());
+    virtual void    message(QtMsgType type, const QString title, const QString &description, const QUrl &identifier = QUrl(), const QSourceLocation &sourceLocation = QSourceLocation());
+    QStringList     unhandledMessages(QtMsgType *type = 0);
 
   protected:
     virtual void handleMessage(QtMsgType type, const QString &description, const QUrl &identifier, const QSourceLocation &sourceLocation) = 0;
     virtual void handleMessage(QtMsgType type, const QString title, const QString &description, const QUrl &identifier, const QSourceLocation &sourceLocation) = 0;
 
-    QMutex mutex;
+    QMutex                            _mutex;
+    QList<QPair<QtMsgType, QString> > _unhandledMessage;
 };
 
 #endif

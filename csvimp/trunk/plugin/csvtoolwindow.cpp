@@ -214,13 +214,6 @@ void CSVToolWindow::fileExit()
   qApp->closeAllWindows();
 }
 
-QString CSVToolWindow::getImportLog() const
-{
-  if (_log)
-    return _log->_log->toPlainText();
-  return QString();
-}
-
 void CSVToolWindow::helpIndex()
 {
   QMessageBox::information(this, tr("Not Yet Implemented"), tr("This function has not been implemented."));
@@ -289,7 +282,7 @@ void CSVToolWindow::sFirstRowHeader( bool firstisheader )
   }
 }
 
-void CSVToolWindow::importStart()
+bool CSVToolWindow::importStart()
 {
   QString mapname = _atlasWindow->map();
   CSVAtlas *atlas = _atlasWindow->getAtlas();
@@ -300,18 +293,19 @@ void CSVToolWindow::importStart()
 
     if(mList.isEmpty())
     {
-      QMessageBox::warning(this, tr("No Maps Loaded"),
-        tr("There are no maps loaded to select from.\n"
-           "Either load an atlas that contains maps or create a new one before continuing."));
-      return;
+      _msghandler->message(QtWarningMsg, tr("No Maps Loaded"),
+                           tr("<p>There are no maps loaded to select from."
+                              "Either load an atlas that contains maps or "
+                              "create a new one before continuing."));
+      return false;
     }
 
     mList.sort();
     bool valid;
     mapname = QInputDialog::getItem(this, tr("Select Map"), tr("Select Map:"),
                                     mList, 0, FALSE, &valid);
-    if(!valid)
-      return;
+    if (!valid)
+      return false;
   }
 
   CSVMap map = atlas->map(mapname);
@@ -320,26 +314,26 @@ void CSVToolWindow::importStart()
 
   if (map.name() != mapname || fields.isEmpty())
   {
-    QMessageBox::warning(this, tr("Invalid Map"),
+    _msghandler->message(QtWarningMsg, tr("Invalid Map"),
                          tr("<p>The selected map does not appear to be valid."));
-    return;
+    return false;
   }
 
   CSVMap::Action action = map.action();
-  if(action != CSVMap::Insert)
+  if (action != CSVMap::Insert)
   {
-    QMessageBox::warning(this, tr("Action not implemented"),
-                         tr("The action %1 for this map is not supported yet.")
+    _msghandler->message(QtWarningMsg, tr("Action not implemented"),
+                         tr("<p>The action %1 for this map is not supported.")
                          .arg(CSVMap::actionToName(action)));
-    return;
+    return false;
   }
 
-  if(!_data || _data->rows() < 1)
+  if (!_data || _data->rows() < 1)
   {
-    QMessageBox::warning(this, tr("No data"),
-                         tr("<p>There is no data to process. "
+    _msghandler->message(QtWarningMsg, tr("No data"),
+                         tr("<p>There are no data to process. "
                             "Load a CSV file before continuing."));
-    return;
+    return false;
   }
 
   int total = _data->rows();
@@ -371,11 +365,11 @@ void CSVToolWindow::importStart()
       else
       {
         QSqlQuery rollback("ROLLBACK;");
-        QMessageBox::warning(this, tr("Error"),
-                             tr("<p>There was an error running the pre sql "
+        _msghandler->message(QtWarningMsg, tr("Error"),
+                             tr("<p>There was an error running the Pre SQL "
                                 "query. Please see the log for more details. "
                                 "Aborting transaction."));
-        return;
+        return false;
       }
     }
   }
@@ -545,6 +539,10 @@ void CSVToolWindow::importStart()
     _log->_log->append(errorList.join("\n"));
     _log->show();
     _log->raise();
+    if (! qobject_cast<InteractiveMessageHandler*>(_msghandler))
+      _msghandler->message(error ? QtCriticalMsg : QtWarningMsg,
+                           tr("Import Processing Status"),
+                           _log->_log->toPlainText());
   }
 
   if (! _stopped && ! map.sqlPost().trimmed().isEmpty())
@@ -562,7 +560,7 @@ void CSVToolWindow::importStart()
                            tr("<p>There was an error running the post sql "
                               "query and changes were rolled back. "
                               "Please see the log for more details."));
-      return;
+      return false;
     }
   }
 
@@ -570,14 +568,20 @@ void CSVToolWindow::importStart()
   {
     QSqlQuery rollback("ROLLBACK;");
     _log->_log->append(tr("\n\nImport canceled by user. Changes were rolled back."));
+
+    return false;
   }
-  else
+
+  QSqlQuery commit("COMMIT");
+  if (! error)
   {
-    QSqlQuery commit("COMMIT");
-    if (! error)
-      QMessageBox::information(this, tr("Import Complete"),
-                               tr("Your import was completed successfully."));
+    _msghandler->message(QtDebugMsg, tr("Import Complete"),
+                         tr("The import of %1 completed successfully.")
+                         .arg(_currentDir));
+    return true;
   }
+
+  return false;
 }
 
 void CSVToolWindow::sImportViewLog()
@@ -594,7 +598,8 @@ void CSVToolWindow::setDir(QString dirname)
 
 void CSVToolWindow::setMessageHandler(XAbstractMessageHandler *handler)
 {
-  _msghandler = handler;
+  if (handler != _msghandler)
+    _msghandler = handler;
 }
 
 void CSVToolWindow::timerEvent( QTimerEvent * e )

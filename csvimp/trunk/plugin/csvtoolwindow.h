@@ -39,11 +39,10 @@ class CSVToolWindow : public QMainWindow, public Ui::CSVToolWindow
     void filePrint();
     void fileSave();
     void fileSaveAs();
-    QString getImportLog() const;
     void helpAbout();
     void helpContents();
     void helpIndex();
-    void importStart();
+    bool importStart();
     void mapEdit();
     void sFirstRowHeader(bool yes);
     void sImportViewLog();

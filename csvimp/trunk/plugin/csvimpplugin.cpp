@@ -14,10 +14,12 @@
 
 #include <QMainWindow>
 
+#include "batchmessagehandler.h"
 #include "csvatlaswindow.h"
 #include "csvtoolwindow.h"
+#include "interactivemessagehandler.h"
 
-#define DEBUG true
+#define DEBUG false
 
 CSVImpPlugin::CSVImpPlugin(QObject *parent)
   : QObject(parent)
@@ -26,6 +28,7 @@ CSVImpPlugin::CSVImpPlugin(QObject *parent)
   _atlaswindow   = 0;
   _csvdir        = QString::null;
   _csvtoolwindow = 0;
+  _msghandler    = 0;
 }
 
 QMainWindow *CSVImpPlugin::getCSVAtlasWindow(QWidget *parent, Qt::WindowFlags flags)
@@ -36,6 +39,8 @@ QMainWindow *CSVImpPlugin::getCSVAtlasWindow(QWidget *parent, Qt::WindowFlags fl
     if (csvtool)
     {
       _atlaswindow = csvtool->atlasWindow();
+      if (_msghandler)
+        _atlaswindow->setMessageHandler(_msghandler);
       connect(_atlaswindow, SIGNAL(destroyed(QObject*)), this, SLOT(cleanupDestroyedObject(QObject*)));
       if (_atlasdir.isEmpty())
       _atlaswindow->setDir(_csvdir);
@@ -63,6 +68,11 @@ QMainWindow *CSVImpPlugin::getCSVToolWindow(QWidget *parent, Qt::WindowFlags fla
       _csvtoolwindow->atlasWindow()->setDir(_csvdir);
     else
       _csvtoolwindow->atlasWindow()->setDir(_atlasdir);
+
+    if (_msghandler)
+      _csvtoolwindow->setMessageHandler(_msghandler);
+    else
+      _msghandler = _csvtoolwindow->messageHandler();
   }
 
   if (DEBUG)
@@ -72,25 +82,33 @@ QMainWindow *CSVImpPlugin::getCSVToolWindow(QWidget *parent, Qt::WindowFlags fla
   return _csvtoolwindow;
 }
 
-void CSVImpPlugin::clearImportLog()
-{
-  if (_csvtoolwindow)
-    _csvtoolwindow->clearImportLog();
-}
-
-QString CSVImpPlugin::getImportLog()
-{
-  if (_csvtoolwindow)
-    return _csvtoolwindow->getImportLog();
-
-  return QString::null;
-}
-
 bool CSVImpPlugin::importCSV()
 {
   _csvtoolwindow->clearImportLog();
-  _csvtoolwindow->importStart();
-  return getImportLog().isEmpty();
+  return _csvtoolwindow->importStart();
+}
+
+bool CSVImpPlugin::isInteractive()
+{
+  if (_msghandler && qobject_cast<BatchMessageHandler*>(_msghandler))
+    return false;
+
+  return true;  // assume true since that's the tool window's default
+}
+
+QString CSVImpPlugin::lastError()
+{
+  QString msg = QString::null;
+
+  if (_msghandler)
+  {
+    QtMsgType type = QtCriticalMsg;
+    QStringList msgs = _msghandler->unhandledMessages(&type);
+    if (! msgs.isEmpty())
+      msg = msgs.last();
+  }
+
+  return msg;
 }
 
 bool CSVImpPlugin::openAtlas(QString filename)
@@ -154,6 +172,32 @@ bool CSVImpPlugin::setFirstLineHeader(bool isheader)
     _csvtoolwindow->sFirstRowHeader(isheader);
 
   return true;
+}
+
+void CSVImpPlugin::setInteractive(bool interactive)
+{
+  if (isInteractive() && interactive)
+    ; // nothing to do
+  else if (isInteractive() && ! interactive)
+  {
+    if (_msghandler)
+      delete _msghandler;
+    _msghandler = new BatchMessageHandler(parent());
+  }
+  else if (!isInteractive() && ! interactive)
+  {
+    if (_msghandler)
+      delete _msghandler;
+    _msghandler = new BatchMessageHandler(parent());
+  }
+
+  if (_msghandler)
+  {
+    if (_csvtoolwindow)
+      _csvtoolwindow->setMessageHandler(_msghandler);
+    if (_atlaswindow)
+      _atlaswindow->setMessageHandler(_msghandler);
+  }
 }
 
 void CSVImpPlugin::cleanupDestroyedObject(QObject *object)
