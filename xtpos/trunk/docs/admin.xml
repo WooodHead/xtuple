@@ -4,23 +4,120 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter>
   <title>System Administration</title>
-  <para>Before you can begin processing retail sales you must first set up
-  xTuple POS to reflect your retail operation. These activities could be
+  <para>Before you can begin processing retail sales, you must first set up
+  xTuple POS to reflect your retail operation&mdash;and give users the
+  required permissions to use the retail package. These activities should be
   completed by a retail operations manager or dedicated information technology
   professional. In this chapter we'll cover the following topics:</para>
   <itemizedlist>
+    <listitem>
+      <para>Configuring User Permissions</para>
+    </listitem>
     <listitem>
       <para>Configuring the Sales module</para>
     </listitem>
     <listitem>
       <para>Creating Retail Sites</para>
     </listitem>
-    <listitem>
-      <para>Configuring User Permissions</para>
-    </listitem>
   </itemizedlist>
   <para>Once these configurations are complete, you can begin selling
   products!</para>
+  <section>
+    <title>Configuring User Permissions</title>
+    <para>xTuple ERP has the powerful ability to manage user permissions,
+    enabling you to allow or disallow access to various functional areas of
+    the system. For example, a sales associate may only have privileges to
+    process sales, while the store manager may have the ability to maintain
+    registers, view inventory, and process sales.</para>
+    <para>There are several options available to you when managing system
+    users. You can either A) assign individual permissions to users B) create
+    preconfigured groups of permissions and assign individuals to these groups
+    or C) a combination of A and B.</para>
+    <para>The following path will get you to the screen for maintaining system
+    users: <guimenuitem>System &gt; Maintain Users</guimenuitem>.</para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/xtpospermissions.png" />
+      </imageobject>
+      <caption>List Users</caption>
+    </mediaobject>
+    <para>In this scenario, let's say we have a new sales associate whose
+    permissions we want to review. To begin, follow these steps:</para>
+    <orderedlist>
+      <listitem>
+        <para>Highlight the user whose permissions we want to review</para>
+      </listitem>
+      <listitem>
+        <para>Select the EDIT button (or double-click on the user)</para>
+      </listitem>
+      <listitem>
+        <para>The following screen will appear:</para>
+      </listitem>
+    </orderedlist>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/xtpospermissions2.png" />
+      </imageobject>
+      <caption>User Privileges</caption>
+    </mediaobject>
+    <para>As you can see, the basic user information&mdash;such as name and
+    email address&mdash;has already been entered. The user also has several
+    Sales module privileges, which you can see under the "Granted Privileges"
+    section. We can add or remove privileges (by module) simply by selecting a
+    specific privilege, and then choosing either the ADD or REVOKE button.
+    .</para>
+    <tip>
+      <para>Use the ADD ALL and REVOKE ALL buttons to move all the privileges
+      at once for the specified module</para>
+    </tip>
+    <para>To learn which groups our sample user belongs to, we select the
+    "Groups" tab. The following screen appears:</para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/xtpospermissions3.png" />
+      </imageobject>
+      <caption>User Groups</caption>
+    </mediaobject>
+    <para>In this case, the following user groups have been defined:</para>
+    <itemizedlist>
+      <listitem>
+        <para>ADMIN</para>
+      </listitem>
+      <listitem>
+        <para>OPS MANAGER</para>
+      </listitem>
+      <listitem>
+        <para>STORE MANAGER</para>
+      </listitem>
+      <listitem>
+        <para>SALES ASSOCIATE</para>
+      </listitem>
+    </itemizedlist>
+    <para>As you can see, our user has been granted the privileges for the
+    SALES ASSOCIATE group. If we wanted to change the group the user belonged
+    to, we could simply use the ADD or REVOKE buttons. We could also add
+    individual privileges to the user's existing group privileges by using the
+    same buttons on the "Privileges" tab.</para>
+    <tip>
+      <para>The user group feature makes it easy to define logical sets of
+      privileges defined according to standard job roles. The following path
+      takes you to the screen for defining group privileges:
+      <guimenuitem>System &gt; Maintain Groups</guimenuitem>.</para>
+    </tip>
+    <para>To review the Sites our sample user has access to, select the
+    "Sites" tab. The following screen will appear:</para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/xtpospermissions4.png" />
+      </imageobject>
+      <caption>User Information Sites</caption>
+    </mediaobject>
+    <para>Since our user is a sales associate at the ST1 Site, he only has
+    permission to access this one Site. If, on the other hand, he were an
+    operations manager, he might have permissions to access every Site. This
+    would enable him to review inventory levels or sales reports across the
+    entire operation.</para>
+  </section>
   <section>
     <title>Configuring the Sales Module</title>
     <para>The first step in configuring xTuple POS is to enter some basic
@@ -168,101 +265,5 @@
     </mediaobject>
     <para>Now that our Retail Sites have been created, we can begin managing
     the Cash Registers and processing sales!</para>
-  </section>
-  <section>
-    <title>Configuring User Permissions</title>
-    <para>xTuple ERP has the powerful ability to manage user permissions,
-    enabling you to allow or disallow access to various functional areas of
-    the system. For example, a sales associate may only have privileges to
-    process sales, while the store manager may have the ability to maintain
-    registers, view inventory, and process sales.</para>
-    <para>There are several options available to you when managing system
-    users. You can either A) assign individual permissions to users B) create
-    preconfigured groups of permissions and assign individuals to these groups
-    or C) a combination of A and B.</para>
-    <para>The following path will get you to the screen for maintaining system
-    users: <guimenuitem>System &gt; Maintain Users</guimenuitem>.</para>
-    <mediaobject>
-      <imageobject>
-        <imagedata fileref="images/xtpospermissions.png" />
-      </imageobject>
-      <caption>List Users</caption>
-    </mediaobject>
-    <para>In this scenario, let's say we have a new sales associate whose
-    permissions we want to review. To begin, follow these steps:</para>
-    <orderedlist>
-      <listitem>
-        <para>Highlight the user whose permissions we want to review</para>
-      </listitem>
-      <listitem>
-        <para>Select the EDIT button (or double-click on the user)</para>
-      </listitem>
-      <listitem>
-        <para>The following screen will appear:</para>
-      </listitem>
-    </orderedlist>
-    <mediaobject>
-      <imageobject>
-        <imagedata fileref="images/xtpospermissions2.png" />
-      </imageobject>
-      <caption>User Privileges</caption>
-    </mediaobject>
-    <para>As you can see, the basic user information&mdash;such as name and
-    email address&mdash;has already been entered. The user also has several
-    Sales module privileges, which you can see under the "Granted Privileges"
-    section. We can add or remove privileges (by module) simply by selecting a
-    specific privilege, and then choosing either the ADD or REVOKE button.
-    .</para>
-    <tip>
-      <para>Use the ADD ALL and REVOKE ALL buttons to move all the privileges
-      at once for the specified module</para>
-    </tip>
-    <para>To learn which groups our sample user belongs to, we select the
-    "Groups" tab. The following screen appears:</para>
-    <mediaobject>
-      <imageobject>
-        <imagedata fileref="images/xtpospermissions3.png" />
-      </imageobject>
-      <caption>User Groups</caption>
-    </mediaobject>
-    <para>In this case, the following user groups have been defined:</para>
-    <itemizedlist>
-      <listitem>
-        <para>ADMIN</para>
-      </listitem>
-      <listitem>
-        <para>OPS MANAGER</para>
-      </listitem>
-      <listitem>
-        <para>STORE MANAGER</para>
-      </listitem>
-      <listitem>
-        <para>SALES ASSOCIATE</para>
-      </listitem>
-    </itemizedlist>
-    <para>As you can see, our user has been granted the privileges for the
-    SALES ASSOCIATE group. If we wanted to change the group the user belonged
-    to, we could simply use the ADD or REVOKE buttons. We could also add
-    individual privileges to the user's existing group privileges by using the
-    same buttons on the "Privileges" tab.</para>
-    <tip>
-      <para>The user group feature makes it easy to define logical sets of
-      privileges defined according to standard job roles. The following path
-      takes you to the screen for defining group privileges:
-      <guimenuitem>System &gt; Maintain Groups</guimenuitem>.</para>
-    </tip>
-    <para>To review the Sites our sample user has access to, select the
-    "Sites" tab. The following screen will appear:</para>
-    <mediaobject>
-      <imageobject>
-        <imagedata fileref="images/xtpospermissions4.png" />
-      </imageobject>
-      <caption>User Information Sites</caption>
-    </mediaobject>
-    <para>Since our user is a sales associate at the ST1 Site, he only has
-    permission to access this one Site. If, on the other hand, he were an
-    operations manager, he might have permissions to access every Site. This
-    would enable him to review inventory levels or sales reports across the
-    entire operation.</para>
   </section>
 </chapter>
