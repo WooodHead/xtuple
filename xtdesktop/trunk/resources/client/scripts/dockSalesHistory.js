@@ -26,13 +26,9 @@ function initDockSalesHist()
     return;
 
   // Set up objects
-  _dockSalesHist = toolbox.loadUi("dockListButton").findChild("_dockListButton");
-  _dockSalesHist.windowTitle = qsTr("Sales History");
-  _dockSalesHist.objectName = "_dockSalesHist";
-  mainwindow.addDockWidget(0x1, _dockSalesHist);
+  _dockSalesHist = mainwindow.findChild("_dockSalesHist");
+  _salesHist = mainwindow.findChild("_salesHist");
 
-  _salesHist = _dockSalesHist.findChild("_list");
-  _salesHist.objectName = "_salesHist";
   _b1SalesHist = _dockSalesHist.findChild("_button1");
   _b2SalesHist = _dockSalesHist.findChild("_button2");
   _labelSalesHist = _dockSalesHist.findChild("_label");
@@ -74,9 +70,6 @@ function initDockSalesHist()
 
   if (!_hasSavedState)
     fillListSalesHist();
-
-  // Add to array to tabify later if need be
-  _leftAreaDocks[_leftAreaDocks.length]=_dockSalesHist;
 }
 
 /*!
@@ -87,6 +80,9 @@ function initDockSalesHist()
 */
 function fillListSalesHist()
 {
+  _dockSalesHist = mainwindow.findChild("_dockSalesHist");
+  _salesHist = mainwindow.findChild("_salesHist");
+
   if (!_dockSalesHist.visible)
     return;
 

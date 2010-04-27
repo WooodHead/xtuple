@@ -19,19 +19,15 @@ function initDockMyCntcts()
   if (!privileges.check("ViewMyContactsDock"))
     return;
 
-  _dockMycontacts = toolbox.loadUi("dockList").findChild("_dockList");
-  _dockMycontacts.windowTitle = qsTr("My Contacts");
-  _dockMycontacts.objectName = "_dockMycontacts";
-  mainwindow.addDockWidget(0x8,_dockMycontacts);
+  _dockMycontacts = mainwindow.findChild("_dockMycontacts");
+  _contactList = mainwindow.findChild("_contactList");
 
   // Set columns on list
-  _contactList = _dockMycontacts.findChild("_list");
-  _contactList.objectName = "_contactList";
   _contactList.addColumn(qsTr("Name"), -1, Qt.AlignLeft  , true, "cntct_name" );
   _contactList.addColumn(qsTr("Account#"), XTreeWidget.itemColumn, Qt.AlignLeft, false, "crmacct_number");
-  _contactList.addColumn(qsTr("Account Name"), -1, Qt.AlignLeft,  true, "crmacct_name");
+  _contactList.addColumn(qsTr("Account Name"), -1, Qt.AlignLeft,  false, "crmacct_name");
   _contactList.addColumn(qsTr("Phone"), -1, Qt.AlignLeft, true, "cntct_phone" );
-  _contactList.addColumn(qsTr("Email"), -1, Qt.AlignLeft, true, "cntct_email" );
+  _contactList.addColumn(qsTr("Email"), -1, Qt.AlignLeft, false, "cntct_email" );
   _contactList.addColumn(qsTr("Address"), -1, Qt.AlignLeft  , false, "addr_line1" );
   _contactList.addColumn(qsTr("City"), XTreeWidget.docTypeColumn, Qt.AlignLeft  , false, "addr_city" );
   _contactList.addColumn(qsTr("State"), XTreeWidget.orderColumn, Qt.AlignLeft  , false, "addr_state" );
@@ -43,10 +39,10 @@ function initDockMyCntcts()
   _contactList.itemSelected.connect(openWindowMyCntcts);
   _contactList["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
     .connect(populateMenuMyCntcts);
-
+/*
   // Add to array to tabify later if need be
   _bottomAreaDocks[_bottomAreaDocks.length]=_dockMycontacts;
-
+*/
   _dockMycontacts.visibilityChanged.connect(fillListMyCntcts);
 
   if (!_hasSavedState)
@@ -58,6 +54,9 @@ function initDockMyCntcts()
 */
 function fillListMyCntcts()
 {
+  _dockMycontacts = mainwindow.findChild("_dockMycontacts");
+  _contactList = mainwindow.findChild("_contactList");
+
   if (!_dockMycontacts.visible)
     return;
 

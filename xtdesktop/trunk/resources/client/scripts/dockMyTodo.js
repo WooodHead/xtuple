@@ -19,19 +19,15 @@ function initDockTodo()
   if (!privileges.check("ViewTodoDock"))
     return;
 
-  _dockMytodo = toolbox.loadUi("dockList").findChild("_dockList");
-  _dockMytodo.windowTitle = qsTr("To Do");
-  _dockMytodo.objectName = "_dockMytodo";
-  mainwindow.addDockWidget(0x8,_dockMytodo);
+  _dockMytodo = mainwindow.findChild("_dockMytodo");
+  _todoList = mainwindow.findChild("_todoList");
 
   // Set columns on list
-  _todoList = _dockMytodo.findChild("_list");
-  _todoList.objectName = "_todoList";
-  _todoList.addColumn(qsTr("Type"), XTreeWidget.userColumn, Qt.AlignCenter, true, "type");
+  _todoList.addColumn(qsTr("Type"), XTreeWidget.userColumn, Qt.AlignCenter, false, "type");
   _todoList.addColumn(qsTr("Priority"), XTreeWidget.userColumn, Qt.AlignLeft, false, "priority");
   _todoList.addColumn(qsTr("Assigned To"), XTreeWidget.userColumn, Qt.AlignLeft, false, "usr");
   _todoList.addColumn(qsTr("Name"), -1, Qt.AlignLeft, true, "name");
-  _todoList.addColumn(qsTr("Description"), -1, Qt.AlignLeft,   true, "descrip");
+  _todoList.addColumn(qsTr("Description"), -1, Qt.AlignLeft,   false, "descrip");
   _todoList.addColumn(qsTr("Status"), XTreeWidget.statusColumn, Qt.AlignLeft, false, "status");
   _todoList.addColumn(qsTr("Start Date"), XTreeWidget.dateColumn, Qt.AlignLeft, false, "start");
   _todoList.addColumn(qsTr("Due Date"), XTreeWidget.dateColumn, Qt.AlignLeft, true, "due");
@@ -48,9 +44,6 @@ function initDockTodo()
   _todoList.itemSelected.connect(openWindowToDo);
   _todoList["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
     .connect(populateMenuToDo);
-
-  // Add to array to tabify later if need be
-  _bottomAreaDocks[_bottomAreaDocks.length]=_dockMytodo;
 
   _dockMytodo.visibilityChanged.connect(fillListToDo);
 
@@ -83,6 +76,9 @@ function deleteToDo()
 */
 function fillListToDo()
 {
+  _dockMytodo = mainwindow.findChild("_dockMytodo");
+  _todoList = mainwindow.findChild("_todoList");
+
   if (!_dockMytodo.visible)
     return;
 
