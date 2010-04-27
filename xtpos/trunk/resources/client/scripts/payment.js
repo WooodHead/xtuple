@@ -304,14 +304,14 @@ function printSettings()
   var autoPrint = settingsValue("payment.autoPrint");
   if (autoPrint == "true")
   {
-    _printReceipt.forgetful = true;
-    _printReceipt.enabled = false;
-    _printReceipt.checked = true;
+    _print.forgetful = true;
+    _print.enabled = false;
+    _print.checked = true;
   }
   else
   {
-    _printReceipt.forgetful = false;
-    _printReceipt.enabled = true;
+    _print.forgetful = false;
+    _print.enabled = true;
   }
 }
 

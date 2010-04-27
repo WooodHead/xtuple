@@ -372,11 +372,11 @@ function saleView()
 
 function search()
 {
-  var childwnd = toolbox.openWindow("retailSaleSearch", mywindow, 0, 1);
+  var childwnd = toolbox.openWindow("retailSaleSearch", mywindow, Qt.ApplicationModal);
   var execval = childwnd.exec();
   if (execval)
   {
-    var childwnd = toolbox.openWindow("retailSale");
+    var childwnd = toolbox.openWindow("retailSale", mywindow, Qt.ApplicationModal);
     var params   = new Object;
 
     params.mode   = _viewMode;
