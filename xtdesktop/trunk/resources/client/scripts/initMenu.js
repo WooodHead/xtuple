@@ -7,15 +7,16 @@
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
  * to be bound by its terms.
  */
-
+debugger;
 // Import code from related scripts
 include("dockBankBal");
-include("dockDesktop");
 include("dockMyAccounts");
 include("dockMyContacts");
 include("dockMyTodo");
+include("dockPayables");
 include("dockPurchActive");
 include("dockPurchHist");
+include("dockReceivables");
 include("dockSalesActive");
 include("dockSalesHistory");
 
@@ -25,6 +26,8 @@ var _dtTimer;
 var _leftAreaDocks = new Array();
 var _bottomAreaDocks = new Array();
 var _hasSavedState = settingsValue("hasSavedState").length > 0;
+var _vToolBar;
+var _vToolBarActions = new Array();
 
 // Add desktop to main window
 if (preferences.value("InterfaceWindowOption") != "Workspace")
@@ -34,14 +37,22 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
   _dtTimer.setInterval(metrics.value("desktop/timer"));
   _dtTimer.start();
 
+  // Intialize the left toolbar
+  _vToolBar = new QToolBar(mainwindow);
+  _vToolBar.objectName = "_vToolBar";
+  _vToolBar.windowTitle = "Desktop Toolbar";
+  _vToolBar.floatable = false;
+  _vToolBar.movable = false;
+  _vToolBar.visible = true;
+  _vToolBar.toolButtonStyle = 3;
+  mainwindow.addToolBar(0x1, _vToolBar);
+
   // Set the desktop
   // TODO: The QStackedWidget prototype doesn't work for this.  Why?
   _desktopStack = toolbox.createWidget("QStackedWidget", mainwindow, "_desktopStack");
   mainwindow.setCentralWidget(_desktopStack);
 
-  // Initialize Desktop Dock
-  initDockDesktop();
-
+  // Initialize Desktop
   // Set up browser for home Page
   var _welcome = new QWebView(mainwindow);
   var url = new QUrl(metrics.value("desktop/welcome"));
@@ -49,23 +60,30 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
   _welcome["loadFinished(bool)"].connect(loadLocalHtml);
   _welcome.load(url);
   _desktopStack.addWidget(_welcome);
-  var item = new XTreeWidgetItem(_desktopList, 0, "Welcome");
+  addToolBarAction(qsTr("Welcome"), "home_48");
 
-  // Initialize additional desktop UIs
-  addDesktop("desktopCRM", "ViewCRMDesktop");
-  addDesktop("desktopSales", "ViewSalesDesktop");
-  addDesktop("desktopPurchase", "ViewPurchaseDesktop");
-  addDesktop("desktopManufacture", "ViewManufactureDesktop");
-  addDesktop("desktopAccounting", "ViewAccountingDesktop");
-
-  // Initialize other docks 
-  // (These functions come from the code pulled in by the include statements)
+  // Initialize additional desktop UIs and Dock Widgets
+  // (Init functions come from the code pulled in by the include statements)
+  addDesktop("desktopCRM", "clients_48");
   initDockTodo();
   initDockAccounts();
   initDockMyCntcts();
-  initDockBankBal();
+
+  addDesktop("desktopSales", "salesman_48");
   initDockSalesAct();
   initDockSalesHist();
+
+  addDesktop("desktopAccounting", "accounting_48");
+  initDockPayables();
+  initDockReceivables();
+  initDockBankBal();
+ 
+  addDesktop("desktopPurchase", "order_48");
+  addDesktop("desktopManufacture", "industry_48");
+
+
+
+/*
   initDockPurchAct();
   initDockPurchHist();
 
@@ -90,7 +108,7 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
       mainwindow.tabifyDockWidget(dock1, dock2);
     }
   }
-
+*/
   // Window state will save when application closes so next time we'll have this
   settingsSetValue("hasSavedState", true);
 }
@@ -101,19 +119,31 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
   added to the Desktop Dock so that when it is clicked, the associated window is 
   selected on the Desktop.
 */
-function addDesktop(uiName, privName)
+function addDesktop(uiName, imageName)
 {
+/*
   if (!privileges.check(privName))
     return;
+*/
 
   // Get the UI and add to desktop stack
   var desktop = toolbox.loadUi(uiName);
-  var listName = desktop.windowTitle;
-  _desktopStack.addWidget(toolbox.loadUi(desktop));
+  _desktopStack.addWidget(desktop);
+  addToolBarAction(desktop.windowTitle, imageName);
+}
 
-  // Add to the desktop dock
-  var id = _desktopList.topLevelItemCount;
-  var item = new XTreeWidgetItem(_desktopList, id, listName);
+function addToolBarAction(label, imageName)
+{
+  var icn = new QIcon();
+  icn.addDbImage(imageName);
+
+  var act = new QAction(mainwindow);
+  act.text = label;
+  act.icon = icn;
+
+  _vToolBar.addAction(act);
+  _vToolBarActions[_vToolBarActions.length] = act;
+  _vToolBar["actionTriggered(QAction*)"].connect(toolbarActionTriggered);
 }
 
 function loadLocalHtml(ok)
@@ -124,5 +154,15 @@ function loadLocalHtml(ok)
   var q = toolbox.executeQuery("SELECT fetchWelcomeHtml() AS html");
   q.first();
   _welcome.setHtml(q.value("html"));
+}
+
+function toolbarActionTriggered(action)
+{
+  // Move to the desktop page specified
+  for (i in _vToolBarActions)
+  {
+    if (_vToolBarActions[i] == action)
+      _desktopStack.currentIndex = i;
+  }
 }
 

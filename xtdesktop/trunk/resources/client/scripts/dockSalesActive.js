@@ -19,18 +19,13 @@ function initDockSalesAct()
   if (!privileges.check("ViewSalesActivitiesDock"))
     return;
 
-  _dockSalesAct = toolbox.loadUi("dockList").findChild("_dockList");
-  _dockSalesAct.windowTitle = qsTr("Sales Activities");
-  _dockSalesAct.objectName = "_dockSalesAct";
-  mainwindow.addDockWidget(0x1, _dockSalesAct);
+  _dockSalesAct = mainwindow.findChild("_dockSalesAct");
+  _salesAct = mainwindow.findChild("_salesAct");
 
   // Set columns on list
-  _salesAct = _dockSalesAct.findChild("_list");
-  _salesAct.objectName = "_salesAct";
   _salesAct.addColumn(qsTr("Type"), -1,  Qt.AlignLeft,   true, "activity");
   _salesAct.addColumn(qsTr("#"), 40,  Qt.AlignRight,  true, "count");
   _salesAct.addColumn(qsTr("Amount"), -1,  Qt.AlignRight,  true, "amount");
-  fillListSalesAct()
 
   // Connect Signals and Slots
   _dtTimer.timeout.connect(fillListSalesAct);
@@ -47,9 +42,6 @@ function initDockSalesAct()
 
   if (!_hasSavedState)
     fillListSalesAct();
-
-  // Add to array to tabify later if need be
-  _leftAreaDocks[_leftAreaDocks.length]=_dockSalesAct;
 }
 
 /*!
@@ -57,6 +49,9 @@ function initDockSalesAct()
 */
 function fillListSalesAct()
 {
+  _dockSalesAct = mainwindow.findChild("_dockSalesAct");
+  _salesAct = mainwindow.findChild("_salesAct");
+
   if (!_dockSalesAct.visible)
     return;
 

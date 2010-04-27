@@ -19,14 +19,10 @@ function initDockAccounts()
   if (!privileges.check("ViewMyAccountsDock"))
     return;
 
-  _dockMyaccounts = toolbox.loadUi("dockList").findChild("_dockList");
-  _dockMyaccounts.objectName = "_dockMyacconuts";
-  _dockMyaccounts.windowTitle = qsTr("My Accounts");
-  mainwindow.addDockWidget(0x8,_dockMyaccounts);
+  _dockMyaccounts = mainwindow.findChild("_dockMyaccounts");
+  _accountList = mainwindow.findChild("_accountList");
 
   // Set columns on list
-  _accountList = _dockMyaccounts.findChild("_list");
-  _accountList.objectName = "_accountList";
   _accountList.addColumn(qsTr("Number"), XTreeWidget.itemColumn, Qt.AlignLeft,  true, "crmacct_number");
   _accountList.addColumn(qsTr("Name"), -1, Qt.AlignLeft,  true, "crmacct_name");
   _accountList.addColumn(qsTr("Contact"), -1, Qt.AlignLeft  , true, "cntct_name" );
@@ -45,9 +41,6 @@ function initDockAccounts()
   _accountList["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
     .connect(populateMenuMyAccts);
 
-  // Add to array to tabify later if need be
-  _bottomAreaDocks[_bottomAreaDocks.length]=_dockMyaccounts;
-
   _dockMyaccounts.visibilityChanged.connect(fillListMyAccts);
 
   if (!_hasSavedState)
@@ -59,6 +52,9 @@ function initDockAccounts()
 */
 function fillListMyAccts()
 {
+  _dockMyaccounts = mainwindow.findChild("_dockMyaccounts");
+  _accountList = mainwindow.findChild("_accountList");
+
   if (!_dockMyaccounts.visible)
     return;
 
