@@ -21,6 +21,7 @@ function initDockPayables()
 
   _dockPayables = mainwindow.findChild("_dockPayables");
   _ap = mainwindow.findChild("_ap");
+  _ap.rootIsDecorated = false;
 
   // Set columns on list
   _ap.addColumn(qsTr("Status"), -1,  Qt.AlignLeft,   true);

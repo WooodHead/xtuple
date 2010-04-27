@@ -1,21 +1,22 @@
 -- Group: desktop
 -- Name:  salesOpen
 -- Notes: 
-
-SELECT cohead_id, cohead_number, cust_number, cust_name, cohead_shiptoname, MIN(coitem_scheddate) AS scheddate,        
-  SUM((noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) * coitem_qty_invuomratio) *            
-      (currToBase(cohead_curr_id, coitem_price, cohead_orderdate) / coitem_price_invuomratio) ) AS amount,
- 'curr' AS amount_xtnumericrole,
-  0 AS sales_xttotalrole,
-  CASE WHEN (MIN(coitem_scheddate) <= current_date) THEN
-    'error' 
-  END AS qtforegroundrole
-   FROM coitem
-     JOIN cohead ON (coitem_cohead_id=cohead_id)
-     JOIN custinfo ON (cust_id=cohead_cust_id)
-   WHERE ( (coitem_cohead_id=cohead_id)
-    AND (coitem_status NOT IN ('C','X')) ) 
-GROUP BY cohead_id, cohead_number, cust_number, cust_name, cohead_shiptoname
+SELECT cohead_id, cohead_number, cust_number, cohead_shipvia, 
+  cohead_billtoname, formatCntctName(cohead_billto_cntct_id) AS billto_cntct, cohead_billto_cntct_phone,
+  cohead_shiptoname, formatCntctName(cohead_shipto_cntct_id) AS shipto_cntct, cohead_shipto_cntct_phone,
+  getSoSchedDate(cohead_id) AS scheddate, getSoStatus(cohead_id) AS status,
+  SUM(round((noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) * coitem_qty_invuomratio) *            
+     (currToBase(cohead_curr_id, coitem_price, cohead_orderdate) / coitem_price_invuomratio), 2) ) AS amount,
+  CASE WHEN (getSoSchedDate(cohead_id) <= current_date) THEN 'error' 
+  ELSE 'emphasis' END AS scheddate_qtforegroundrole,
+  'curr' AS amount_xtnumericrole
+FROM cohead 
+  JOIN custinfo ON (cohead_cust_id=cust_id) 
+  JOIN coitem ON (coitem_cohead_id=cohead_id) 
+  JOIN itemsite ON (coitem_itemsite_id=itemsite_id) 
+  JOIN whsinfo ON (itemsite_warehous_id=warehous_id) 
+WHERE (coitem_status='O')
+GROUP BY cohead_shipvia, cohead_billtoname, cohead_billto_cntct_id, cohead_billto_cntct_phone, 
+  cohead_shiptoname, cohead_shipto_cntct_id, cohead_shipto_cntct_phone, cohead_id, cohead_number, 
+  cust_number, cohead_billtoname, cohead_shiptoname
 ORDER BY cohead_number;
-
-

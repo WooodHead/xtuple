@@ -21,6 +21,7 @@ function initDockReceivables()
 
   _dockReceivables = mainwindow.findChild("_dockReceivables");
   _ar = mainwindow.findChild("_ar");
+  _ar.rootIsDecorated = false;
 
   // Set columns on list
   _ar.addColumn(qsTr("Status"), -1,  Qt.AlignLeft,   true);

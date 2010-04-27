@@ -23,11 +23,11 @@ function initDockAccounts()
   _accountList = mainwindow.findChild("_accountList");
 
   // Set columns on list
-  _accountList.addColumn(qsTr("Number"), XTreeWidget.itemColumn, Qt.AlignLeft,  true, "crmacct_number");
+  _accountList.addColumn(qsTr("Number"), XTreeWidget.itemColumn, Qt.AlignLeft,  false, "crmacct_number");
   _accountList.addColumn(qsTr("Name"), -1, Qt.AlignLeft,  true, "crmacct_name");
-  _accountList.addColumn(qsTr("Contact"), -1, Qt.AlignLeft  , true, "cntct_name" );
-  _accountList.addColumn(qsTr("Phone"), -1, Qt.AlignLeft, true, "cntct_phone" );
-  _accountList.addColumn(qsTr("Email"), -1, Qt.AlignLeft, true, "cntct_email" );
+  _accountList.addColumn(qsTr("Contact"), -1, Qt.AlignLeft  , false, "cntct_name" );
+  _accountList.addColumn(qsTr("Phone"), -1, Qt.AlignLeft, false, "cntct_phone" );
+  _accountList.addColumn(qsTr("Email"), -1, Qt.AlignLeft, false, "cntct_email" );
   _accountList.addColumn(qsTr("Address"), -1, Qt.AlignLeft  , false, "addr_line1" );
   _accountList.addColumn(qsTr("City"), XTreeWidget.docTypeColumn, Qt.AlignLeft  , false, "addr_city" );
   _accountList.addColumn(qsTr("State"), XTreeWidget.orderColumn, Qt.AlignLeft  , false, "addr_state" );

@@ -69,7 +69,7 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
   initDockAccounts();
   initDockMyCntcts();
 
-  addDesktop("desktopSales", "salesman_48");
+  addDesktop("desktopSales", "reward_48");
   initDockSalesAct();
   initDockSalesHist();
 

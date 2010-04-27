@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>903</width>
-    <height>567</height>
+    <height>554</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,7 +57,7 @@ p, li { white-space: pre-wrap; }
                  <item row="0" column="0">
                   <widget class="MenuButton" name="_prospects">
                    <property name="image">
-                    <string>customers_help_48</string>
+                    <string>customers_write_48</string>
                    </property>
                    <property name="label">
                     <string>Prospects</string>
@@ -86,13 +86,13 @@ p, li { white-space: pre-wrap; }
                  <item row="0" column="2">
                   <widget class="MenuButton" name="_customers">
                    <property name="image">
-                    <string>customers_48</string>
+                    <string>customers_add_48</string>
                    </property>
                    <property name="label">
-                    <string>Customers</string>
+                    <string>New Customer</string>
                    </property>
                    <property name="actionName" stdset="0">
-                    <string>so.customers</string>
+                    <string>so.enterNewCustomer</string>
                    </property>
                    <property name="ui" stdset="0">
                     <string/>
@@ -108,7 +108,7 @@ p, li { white-space: pre-wrap; }
                  <item row="1" column="0">
                   <widget class="MenuButton" name="_quotes">
                    <property name="image">
-                    <string>order_help_48</string>
+                    <string>order_write_48</string>
                    </property>
                    <property name="label">
                     <string>Quotes</string>
@@ -137,13 +137,13 @@ p, li { white-space: pre-wrap; }
                  <item row="1" column="2">
                   <widget class="MenuButton" name="_salesOrders">
                    <property name="image">
-                    <string>order_write_48</string>
+                    <string>order_add_48</string>
                    </property>
                    <property name="label">
-                    <string>Sales Orders</string>
+                    <string>New Sales Order</string>
                    </property>
                    <property name="actionName" stdset="0">
-                    <string>so.listOpenSalesOrders</string>
+                    <string>so.newSalesOrder</string>
                    </property>
                    <property name="ui" stdset="0">
                     <string/>
@@ -596,20 +596,20 @@ p, li { white-space: pre-wrap; }
     </layout>
    </widget>
   </widget>
-  <widget class="QDockWidget" name="_dockMycustomers">
+  <widget class="QDockWidget" name="_dockSalesOpen">
    <property name="windowTitle">
-    <string>My Customers</string>
+    <string>Open Orders</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>8</number>
    </attribute>
-   <widget class="QWidget" name="_dockCustContents">
+   <widget class="QWidget" name="_dockSalesOpenContents">
     <layout class="QGridLayout" name="gridLayout_10">
      <property name="margin">
       <number>0</number>
      </property>
      <item row="0" column="0">
-      <widget class="XTreeWidget" name="_salesCust"/>
+      <widget class="XTreeWidget" name="_salesOpen"/>
      </item>
     </layout>
    </widget>
