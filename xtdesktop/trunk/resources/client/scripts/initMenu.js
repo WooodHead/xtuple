@@ -79,36 +79,11 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
   initDockBankBal();
  
   addDesktop("desktopPurchase", "order_48");
-  addDesktop("desktopManufacture", "industry_48");
-
-
-
-/*
   initDockPurchAct();
   initDockPurchHist();
 
-  // Set up default lay out arrangements, user changes will prevail
-  // Nest docks
-  if (_leftAreaDocks.length > 1)
-  {
-    for (var i = 0; i < _leftAreaDocks.length - 1; i++)
-    {
-      var dock1 = _leftAreaDocks[i];
-      var dock2 = _leftAreaDocks[i + 1];
-      mainwindow.tabifyDockWidget(dock1, dock2);
-    }
-  }
+  addDesktop("desktopManufacture", "industry_48");
 
-  if (_bottomAreaDocks.length > 1)
-  {
-    for (var i = 0; i < _bottomAreaDocks.length - 1; i++)
-    {
-      var dock1 = _bottomAreaDocks[i];
-      var dock2 = _bottomAreaDocks[i + 1];
-      mainwindow.tabifyDockWidget(dock1, dock2);
-    }
-  }
-*/
   // Window state will save when application closes so next time we'll have this
   settingsSetValue("hasSavedState", true);
 }

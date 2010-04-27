@@ -19,14 +19,10 @@ function initDockPurchAct()
   if (!privileges.check("ViewPurchaseActivitiesDock"))
     return;
 
-  _dockPurchAct = toolbox.loadUi("dockList").findChild("_dockList");
-  _dockPurchAct.windowTitle = qsTr("Purchase Activities");
-  _dockPurchAct.objectName = "_dockPurchAct";
-  mainwindow.addDockWidget(0x1, _dockPurchAct);
+  _dockPurchAct = mainwindow.findChild("_dockPurchAct");
+  _purchAct = mainwindow.findChild("_purchAct");
 
   // Set columns on list
-  _purchAct = _dockPurchAct.findChild("_list");
-  _purchAct.objectName = "_PurchAct";
   _purchAct.addColumn(qsTr("Type"), -1,  Qt.AlignLeft,   true, "activity");
   _purchAct.addColumn(qsTr("#"), 40,  Qt.AlignRight,  true, "count");
   _purchAct.addColumn(qsTr("Amount"), -1,  Qt.AlignRight,  true, "amount");
@@ -43,12 +39,6 @@ function initDockPurchAct()
     .connect(populateMenuPurchAct);
 
   _dockPurchAct.visibilityChanged.connect(fillListPurchAct);
-
-  // Add to array to tabify later if need be
-  _leftAreaDocks[_leftAreaDocks.length]=_dockPurchAct;
-
-  // Hide this initially to reduce clutter
-  _dockPurchAct.hide();
 }
 
 /*!
@@ -56,6 +46,9 @@ function initDockPurchAct()
 */
 function fillListPurchAct()
 {
+  _dockPurchAct = mainwindow.findChild("_dockPurchAct");
+  _purchAct = mainwindow.findChild("_purchAct");
+
   if (!_dockPurchAct.visible)
     return;
 
