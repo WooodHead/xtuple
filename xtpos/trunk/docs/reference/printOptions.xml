@@ -4,27 +4,37 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
   <title>Print Options</title>
-  <para>To edit a pending sale select edit to under Sale tab . The following
-  screen will appear:</para>
+  <para>To define the default print settings for the screen you are working
+  on, select the OPTIONS button. The following screen will appear:</para>
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/printOptions.png" />
     </imageobject>
     <caption>Print Options</caption>
   </mediaobject>
-  <para>When creating a new sale or processing a pending sale, you are
-  presented with the following options:</para>
+  <note>
+    <para>Print settings are not global. They are specific to the screen you
+    are working on&mdash;and also to your specific machine (i.e.,
+    terminal).</para>
+  </note>
+  <para>When defining the default print settings for the screen you are
+  working on, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Print Automatically</term>
       <listitem>
-        <para></para>
+        <para>Select if you want the "Print Receipt" option always turned ON
+        when posting transactions from this screen. If not selected, you can
+        still manually choose the "Print Receipt" option when processing
+        transactions.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Always use this printer</term>
       <listitem>
-        <para></para>
+        <para>Select if you want to always use a specific printer when
+        printing receipts from your terminal. Choose the printer you want to
+        use from the list of available printers.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -34,14 +44,13 @@
     <varlistentry>
       <term>OK</term>
       <listitem>
-        <para></para>
+        <para>Select to save the print settings you defined.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>CANCEL</term>
       <listitem>
-        <para>Closes the screen without creating a new retail sale, returning
-        you to the application desktop.</para>
+        <para>Closes the screen without creating print settings.</para>
       </listitem>
     </varlistentry>
   </variablelist>
