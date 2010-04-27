@@ -26,13 +26,9 @@ function initDockPurchHist()
     return;
 
   // Set up objects
-  _dockPurchHist = toolbox.loadUi("dockListButton").findChild("_dockListButton");
-  _dockPurchHist.windowTitle = qsTr("Purchase History");
-  _dockPurchHist.objectName = "_dockPurchHist";
-  mainwindow.addDockWidget(0x1, _dockPurchHist);
+  _dockPurchHist = mainwindow.findChild("_dockPurchHist");
+  _purchHist = mainwindow.findChild("_purchHist");
 
-  _purchHist = _dockPurchHist.findChild("_list");
-  _purchHist.objectName = "_purchHist";
   _b1PurchHist = _dockPurchHist.findChild("_button1");
   _b2PurchHist = _dockPurchHist.findChild("_button2");
   _labelPurchHist = _dockPurchHist.findChild("_label");
@@ -72,9 +68,6 @@ function initDockPurchHist()
 
   // Add to array to tabify later if need be
   _leftAreaDocks[_leftAreaDocks.length]=_dockPurchHist;
-
-  // Hide this initially to reduce clutter
-  _dockPurchHist.hide();
 }
 
 /*!
@@ -85,6 +78,9 @@ function initDockPurchHist()
 */
 function fillListPurchHist()
 {
+  _dockPurchHist = mainwindow.findChild("_dockPurchHist");
+  _purchHist = mainwindow.findChild("_purchHist");
+
   if (!_dockPurchHist.visible)
     return;
 
