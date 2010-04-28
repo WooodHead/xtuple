@@ -367,7 +367,7 @@ function saleOpen(mode, number)
 
 function saleView()
 {
-  saleOpen(2,_sales._number.text);
+  saleOpen(2,_number.text);
 }
 
 function search()
