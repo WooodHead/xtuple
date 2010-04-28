@@ -25,14 +25,13 @@ function initDockSalesOpen()
   // Set columns on list
   _salesOpen.addColumn(qsTr("Order#"), XTreeWidget.orderColumn,  Qt.AlignLeft,   true, "cohead_number");
   _salesOpen.addColumn(qsTr("Customer#"), XTreeWidget.orderColumn,  Qt.AlignLeft,  true, "cust_number");
-  _salesOpen.addColumn(qsTr("Status"), XTreeWidget.statusColumn,  Qt.AlignLeft,  true, "status");
   _salesOpen.addColumn(qsTr("Bill To"), -1,  Qt.AlignLeft,  true, "cohead_billtoname");
   _salesOpen.addColumn(qsTr("Bill Contact"), -1,  Qt.AlignLeft,  false, "billto_cntct");
   _salesOpen.addColumn(qsTr("Bill Phone"), -1,  Qt.AlignLeft,  false, "cohead_billto_cntct_phone"); 
   _salesOpen.addColumn(qsTr("Ship To"), -1, Qt.AlignLeft,  true, "cohead_shiptoname");
   _salesOpen.addColumn(qsTr("Ship Contact"), -1,  Qt.AlignLeft,  false, "shipto_cntct");
   _salesOpen.addColumn(qsTr("Ship Phone"), -1,  Qt.AlignLeft,  false, "cohead_shipto_cntct_phone");
-  _salesOpen.addColumn(qsTr("Ship Via"), -1,  Qt.AlignLeft,  false, "cohead_shipvia"); 
+  _salesOpen.addColumn(qsTr("Ship Via"), -1,  Qt.AlignLeft,  true, "cohead_shipvia"); 
   _salesOpen.addColumn(qsTr("Sched. Date"), XTreeWidget.dateColumn,  Qt.AlignLeft,  true, "scheddate");
   _salesOpen.addColumn(qsTr("Amount"), XTreeWidget.moneyColumn,  Qt.AlignRight,  true, "amount");
 

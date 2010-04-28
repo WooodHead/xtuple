@@ -4,10 +4,10 @@
 SELECT cohead_id, cohead_number, cust_number, cohead_shipvia, 
   cohead_billtoname, formatCntctName(cohead_billto_cntct_id) AS billto_cntct, cohead_billto_cntct_phone,
   cohead_shiptoname, formatCntctName(cohead_shipto_cntct_id) AS shipto_cntct, cohead_shipto_cntct_phone,
-  getSoSchedDate(cohead_id) AS scheddate, getSoStatus(cohead_id) AS status,
-  SUM(round((noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) * coitem_qty_invuomratio) *            
+  min(coitem_scheddate) AS scheddate, 
+  sum(round((noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) * coitem_qty_invuomratio) *            
      (currToBase(cohead_curr_id, coitem_price, cohead_orderdate) / coitem_price_invuomratio), 2) ) AS amount,
-  CASE WHEN (getSoSchedDate(cohead_id) <= current_date) THEN 'error' 
+  CASE WHEN (min(coitem_scheddate) <= current_date) THEN 'error' 
   ELSE 'emphasis' END AS scheddate_qtforegroundrole,
   'curr' AS amount_xtnumericrole
 FROM cohead 
