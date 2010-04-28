@@ -104,7 +104,7 @@
          </attribute>
          <layout class="QGridLayout" name="gridLayout" >
           <item row="0" column="0" >
-           <widget class="ContactCluster" name="_billingContact" >
+           <widget class="ContactWidget" name="_billingContact" >
             <property name="accountVisible" >
              <bool>false</bool>
             </property>
@@ -231,9 +231,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>ContactCluster</class>
+   <class>ContactWidget</class>
    <extends></extends>
-   <header>contactcluster.h</header>
+   <header>contactwidget.h</header>
   </customwidget>
   <customwidget>
    <class>Screen</class>
