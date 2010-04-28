@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>902</width>
-    <height>563</height>
+    <height>554</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -553,23 +553,23 @@ p, li { white-space: pre-wrap; }
     </layout>
    </widget>
   </widget>
-  <widget class="QDockWidget" name="_dockMyvendors">
+  <widget class="QDockWidget" name="_dockPurchOpen">
    <property name="allowedAreas">
     <set>Qt::AllDockWidgetAreas</set>
    </property>
    <property name="windowTitle">
-    <string>My Vendors</string>
+    <string>Open Purchase Orders</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>8</number>
    </attribute>
-   <widget class="QWidget" name="_dockMyvendorsContents">
+   <widget class="QWidget" name="_dockPurchOpenContents">
     <layout class="QGridLayout" name="gridLayout_4">
      <property name="margin">
       <number>0</number>
      </property>
      <item row="0" column="0">
-      <widget class="XTreeWidget" name="_vendorList"/>
+      <widget class="XTreeWidget" name="_purchOpen"/>
      </item>
     </layout>
    </widget>
