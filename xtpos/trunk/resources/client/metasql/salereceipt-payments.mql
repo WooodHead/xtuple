@@ -50,8 +50,8 @@ FROM (SELECT 5 AS seq, 'Change:'::text AS type, ''::text AS document,
                         CASE WHEN (<? value("type") ?> = 'Return') THEN -1
                         ELSE 1
                         END) -
-      sum(round(saleitem_unitprice * saleitem_qty,2) +
-      (xtpos.saletax(salehead_id)))) AS f_amount,
+      sum(round(saleitem_unitprice * saleitem_qty,2)) -
+      (xtpos.saletax(salehead_id))) AS f_amount,
       salehead_closed
       FROM xtpos.salehead
         JOIN xtpos.saleitem ON (salehead_id=saleitem_salehead_id)
