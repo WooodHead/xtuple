@@ -1,0 +1,5 @@
+-- Group: te
+-- Name: getsheet
+-- Notes: 
+
+select tehead_id,sheet_number,weekending,hours,emp_code,cust_name from te.api_timesheet,te.tehead where tehead_number = sheet_number order by sheet_number;
