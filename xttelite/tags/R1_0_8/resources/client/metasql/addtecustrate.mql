@@ -1,0 +1,5 @@
+-- Group: te
+-- Name: addtecustrate
+-- Notes: 
+
+select te.addtecustrate(<? value("custname") ?>,<? value("rate") ?>);
