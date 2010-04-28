@@ -1,0 +1,3 @@
+COMMENT ON SCHEMA te IS '  This file is part of the te Package for xTuple ERP, and is Copyright (c) 2009-2010 by Core Services Group, LLC.  It is licensed to you under the Core End-User License Agreement ("the EULA"), the full text of which is available at www.coreservicesgroup.net/EULA.  This Package is not free software.  By using this software, you agree to be bound by the terms of the EULA.';
+
+GRANT ALL ON SCHEMA te TO xtrole;
