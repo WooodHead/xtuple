@@ -6,15 +6,11 @@
   <title>Installation</title>
   <section>
     <title>Overview</title>
-    <para>xTuple POS—otherwise known as <literal>xtpos</literal>—is an xTuple
-    extension package which may be applied to any xTuple ERP edition:
-    PostBooks, Standard, or Manufacturing. The package is easy to install. And
-    once installed, it seamlessly integrates point of sale functionality with
-    your ERP.</para>
-    <note>
-      <para>For this chapter we will assume you have already installed xTuple
-      ERP, version 3.2.1 or higher.</para>
-    </note>
+    <para>xTuple POS&mdash;otherwise known as
+    <literal>xtpos</literal>&mdash;is an xTuple extension package which may be
+    applied to any xTuple ERP edition: PostBooks, Standard, or Manufacturing.
+    The package is easy to install. And once installed, it seamlessly
+    integrates point of sale functionality with your ERP.</para>
     <para>To install xTuple POS, you will need the following items:</para>
     <variablelist>
       <varlistentry>
@@ -43,7 +39,7 @@
   <section>
     <title>Getting the Required Files</title>
     <para>If you purchased xTuple POS on the xTuple xChange, then you should
-    already have the files you need—that is, the Updater tool and the
+    already have the files you need&mdash;that is, the Updater tool and the
     <literal>xtpos</literal> package. We will explain how to install the
     package in the next section.</para>
     <note>
@@ -68,7 +64,8 @@
         url="???">http://sourceforge.net/projects/postbooks/</ulink></para>
       </listitem>
       <listitem>
-        <para>The following project page will appear:</para>
+        <para>The following project page will appear. The details may vary
+        slightly, depending on the version you are downloading:</para>
       </listitem>
     </orderedlist>
     <mediaobject>
@@ -77,10 +74,11 @@
       </imageobject>
       <caption>PostBooks Project Home Page</caption>
     </mediaobject>
-    <para>Next, hover your mouse over the "Download" link. Make sure to select
-    the "Browse All Packages" option. This will give you access to all the
-    available packages. In the following screenshot, the Updater is Package
-    #06:</para>
+    <para>Next, select the "View All Files" button. Once you select this
+    button, you will see the full list of all files available for download.
+    The following screenshot shows several of the file folders used to
+    organize the file downloads. Simply click on one of the folders to reveal
+    the available files inside the folder.</para>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/sourceforge2.png" />
@@ -88,13 +86,14 @@
       <caption>PostBooks Packages Download Page</caption>
     </mediaobject>
     <tip>
-      <para>If you don't see the Updater package on the Downloads page, make
-      sure you selected the "Browse All Packages" option.</para>
+      <para>If at first you don't see the Updater folder on the Downloads
+      page, make sure to scroll all the way down the web page until you find
+      it.</para>
     </tip>
-    <para>Finally, select the link for the Updater package. Be sure to choose
-    a download which corresponds to your operating system. The Updater is
-    available for Windows, Mac, and Linux, as shown in the following
-    screen:</para>
+    <para>Finally, select the Updater folder and click on it to reveal the
+    files contained in the folder. Be sure to choose the file which
+    corresponds to your operating system. The Updater is available for
+    Windows, Mac, and Linux, as shown in the following screen:</para>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/sourceforge3.png" />
@@ -151,10 +150,9 @@
       <caption>Load Package into Updater</caption>
     </mediaobject>
     <para>Once you locate the <literal>xtpos</literal> package on your file
-    system (e.g.,
-    <filename><filename>xtpos-1.0.0-package.gz</filename></filename>), a short
-    series of prerequisite checks will be performed. The following screen
-    shows the results of a successful prerequisite check:</para>
+    system (e.g., <filename><filename>xtpos-3.5.0.gz</filename></filename>), a
+    short series of prerequisite checks will be performed. The following
+    screen shows the results of a successful prerequisite check:</para>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/updatemanage.png" />
