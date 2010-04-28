@@ -1,0 +1,5 @@
+-- Group: te
+-- Name: addteprj
+-- Notes: 
+
+select te.addteprj(getprjid(<? value("project") ?>),<? value("custid") ?>,<? value("rate") ?>);

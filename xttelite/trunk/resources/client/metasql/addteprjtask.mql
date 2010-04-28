@@ -1,0 +1,6 @@
+-- Group: te
+-- Name: addteprjtask
+-- Notes: 
+
+select te.addteprjtask(<? value("prj_id") ?>,<? value("prjtask_number") ?>,<? value("custid") ?>,(<? value("rate") ?>::numeric),
+(select item_id from item where item_number = <? value("item") ?>));
