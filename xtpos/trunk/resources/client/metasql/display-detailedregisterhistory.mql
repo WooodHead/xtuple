@@ -89,7 +89,7 @@ FROM (
   SELECT salehead_id, terminal_id, <? value("linecount") ?>,
          warehous_code, terminal_number, salehead_time, NULL,
          CAST(COUNT(saleitem_linenumber) AS TEXT), <? value("ordertotal") ?>,
-         SUM(saleitem_unitprice * saleitem_qty + xtpos.saletax(salehead_id)) AS tendered,
+         SUM(saleitem_unitprice * saleitem_qty) + xtpos.saletax(salehead_id) AS tendered,
          xtpos.saletax(salehead_id) AS linetax,
          NULL, NULL AS checkunit_qtdisplayrole,
          SUM(saleitem_qty), NULL AS ccard_type,
