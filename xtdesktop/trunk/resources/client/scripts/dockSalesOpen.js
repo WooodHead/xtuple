@@ -16,7 +16,7 @@ var _salesOpen;
 */
 function initDockSalesOpen()
 {
-  if (!privileges.check("ViewSalesOrderDock"))
+  if (!privileges.check("ViewSalesOrdersDock"))
     return;
 
   _dockSalesOpen = mainwindow.findChild("_dockSalesOpen");
