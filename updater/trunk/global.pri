@@ -45,7 +45,9 @@ message("Looking for OpenRPT code in $${OPENRPT_DIR}.")
 message("Looking for xTuple code in $${XTUPLE_DIR}.")
 
 INCLUDEPATH += ../common ../$${OPENRPT_DIR}/common ../$${OPENRPT_DIR}/MetaSQL
-DEPENDPATH  += ../common ../$${OPENRPT_DIR}/common ../$${OPENRPT_DIR}/MetaSQL
+DEPENDPATH  += $${INCLUDEPATH}
+
+CONFIG += release
 
 macx:exists(macx.pri) {
   include(macx.pri)
