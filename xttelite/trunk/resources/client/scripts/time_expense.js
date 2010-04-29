@@ -868,6 +868,14 @@ function sSave()
        return;
     }
 
+    if (params.items == ""){
+       	toolbox.messageBox("critical", mywindow, qsTr("Error"),
+                       "Item Required");
+       _items.setFocus();
+       _error = true;
+       return;
+    }
+
     if (params.task == ""){
        	toolbox.messageBox("critical", mywindow, qsTr("Error"),
                        "Task Required");
