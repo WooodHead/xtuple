@@ -16,7 +16,7 @@ var _receivables;
 */
 function initDockPayables()
 {
-  if (!privileges.check("ViewAPOpenItems"))
+  if (!privileges.check("ViewPayablesDock"))
     return;
 
   _dockPayables = mainwindow.findChild("_dockPayables");

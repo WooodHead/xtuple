@@ -16,7 +16,7 @@ var _salesOpen;
 */
 function initDockSalesOpen()
 {
-  if (!privileges.check("ViewSalesOpenDock"))
+  if (!privileges.check("ViewSalesOrderDock"))
     return;
 
   _dockSalesOpen = mainwindow.findChild("_dockSalesOpen");
@@ -74,15 +74,16 @@ function openWindowSalesOpen()
     return;
 
   params = new Object;
-  params.sohead_id = _salesOpen.id;
+  params.sohead_id = _salesOpen.id();
   if (privileges.check("MaintainSalesOrders"))
     params.mode = "edit";
   else
     params.mode = "view";
 
   // Open the window and perform any handling required
-  toolbox.openWindow("salesOrder");
-  toolbox.lastWindow().set(params);
+  var so = toolbox.openWindow("salesOrder");
+  so.set(params);
+
 }
 
 /*!
