@@ -11,25 +11,14 @@ SELECT wo_id,
          WHEN (wo_status = 'O') THEN <? value("open") ?>
        END AS wo_status_qtdisplayrole, 
        warehous_code, uom_name,
-       itemsite_costmethod,
-       CASE WHEN (itemsite_costmethod = 'S') THEN <? value("standard") ?>
-         WHEN (itemsite_costmethod = 'A') THEN <? value("average") ?>
-         WHEN (itemsite_costmethod = 'J') THEN <? value("job") ?>
-         WHEN (itemsite_costmethod = 'N') THEN <? value("none") ?>
-       END AS itemsite_costmethod_qtdisplayrole,   
        item_number, (item_descrip1 || ' ' || item_descrip2) AS itemdescrip,
-       item_descrip1, item_descrip2,
        wo_qtyord, wo_qtyrcv, wo_startdate, wo_duedate,
        wo_number::TEXT || '-' || wo_subnumber::TEXT AS wonumber,
-       wo_postedvalue, wo_wipvalue, (wo_postedvalue - wo_wipvalue) AS rcvd_value,
-       (stdcost(item_id) * (wo_qtyord - wo_qtyrcv)) AS rem_amt,
-       (stdcost(item_id) * (wo_qtyord - wo_qtyrcv)) AS amount,
+       wo_postedvalue, wo_wipvalue,
        'qty' AS wo_qtyord_xtnumericrole,
        'qty' AS wo_qtyrcv_xtnumericrole,
        'curr' AS wo_postedvalue_xtnumericrole,
        'curr' AS wo_wipvalue_xtnumericrole,
-       'curr' AS rcvd_amt_xtnumericrole,
-       'curr' AS rem_amt_xtnumericrole,
        CASE WHEN ((wo_startdate<=CURRENT_DATE) AND (wo_status IN ('O','E','S','R'))) THEN 'error'
        END AS wo_startdate_qtforegroundrole,
        CASE WHEN (wo_duedate<=CURRENT_DATE) THEN 'error'

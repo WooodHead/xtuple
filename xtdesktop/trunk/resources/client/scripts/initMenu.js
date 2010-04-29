@@ -10,6 +10,8 @@
 debugger;
 // Import code from related scripts
 include("dockBankBal");
+include("dockMfgActive");
+include("dockMfgOpen");
 include("dockMyAccounts");
 include("dockMyContacts");
 include("dockMyTodo");
@@ -87,6 +89,8 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
   initDockPurchOpen();
 
   addDesktop("desktopManufacture", "industry_32");
+  initDockMfgAct();
+  initDockMfgOpen();
 
   // Window state will save when application closes so next time we'll have this
   settingsSetValue("hasSavedState", true);
@@ -111,6 +115,9 @@ function addDesktop(uiName, imageName)
   addToolBarAction(desktop.windowTitle, imageName);
 }
 
+/*!
+  Add a buttun with \a label and \a imageName to the left desktop toolbar
+*/
 function addToolBarAction(label, imageName)
 {
   var icn = new QIcon();
@@ -125,12 +132,16 @@ function addToolBarAction(label, imageName)
   _vToolBar["actionTriggered(QAction*)"].connect(toolbarActionTriggered);
 }
 
+/*!
+  Loads a local HTML page from the database if the xTuple weclome page
+  fails to load.
+*/
 function loadLocalHtml(ok)
 {
   if (ok) // Successful load of xTuple page so exit
     return;
 
-  var q = toolbox.executeQuery("SELECT fetchWelcomeHtml() AS html");
+  var q = toolbox.executeQuery("SELECT xtdesktop.fetchWelcomeHtml() AS html");
   q.first();
   _welcome.setHtml(q.value("html"));
 }
