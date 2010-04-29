@@ -66,8 +66,8 @@ function initDockPurchHist()
 
   _dockPurchHist.visibilityChanged.connect(fillListPurchHist);
 
-  // Add to array to tabify later if need be
-  _leftAreaDocks[_leftAreaDocks.length]=_dockPurchHist;
+  if (!_hasSavedState)
+    fillListPurchHist();
 }
 
 /*!
@@ -81,8 +81,9 @@ function fillListPurchHist()
   _dockPurchHist = mainwindow.findChild("_dockPurchHist");
   _purchHist = mainwindow.findChild("_purchHist");
 
-  if (!_dockPurchHist.visible)
-    return;
+//  TO DO:  this isn't working here for some reason
+//  if (!_dockPurchHist.visible) 
+//    return;
 
   var timeFrame;
   var type;

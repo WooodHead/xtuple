@@ -16,7 +16,7 @@ var _receivables;
 */
 function initDockReceivables()
 {
-  if (!privileges.check("ViewAROpenItems"))
+  if (!privileges.check("ViewReceivablesDock"))
     return;
 
   _dockReceivables = mainwindow.findChild("_dockReceivables");

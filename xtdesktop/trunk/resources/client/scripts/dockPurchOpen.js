@@ -16,7 +16,7 @@ var _purchOpen;
 */
 function initDockPurchOpen()
 {
-  if (!privileges.check("ViewPurchaseOpenDock"))
+  if (!privileges.check("ViewPurchaseOrdersDock"))
     return;
 
   _dockPurchOpen = mainwindow.findChild("_dockPurchOpen");
@@ -78,15 +78,15 @@ function openWindowPurchOpen()
     return;
 
   params = new Object;
-  params.pohead_id = _purchOpen.id;
+  params.pohead_id = _purchOpen.id();
   if (privileges.check("MaintainPurchaseOrders"))
     params.mode = "edit";
   else
     params.mode = "view";
 
   // Open the window and perform any handling required
-  toolbox.openWindow("purchaseOrder");
-  toolbox.lastWindow().set(params);
+  var po = toolbox.openWindow("purchaseOrder");
+  po.set(params);
 }
 
 /*!

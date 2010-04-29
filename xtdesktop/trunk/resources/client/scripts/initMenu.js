@@ -16,9 +16,11 @@ include("dockMyTodo");
 include("dockPayables");
 include("dockPurchActive");
 include("dockPurchHist");
+include("dockPurchOpen");
 include("dockReceivables");
 include("dockSalesActive");
 include("dockSalesHistory");
+include("dockSalesOpen");
 
 var _desktopStack;
 var _open = qsTr("Open...");
@@ -60,29 +62,31 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
   _welcome["loadFinished(bool)"].connect(loadLocalHtml);
   _welcome.load(url);
   _desktopStack.addWidget(_welcome);
-  addToolBarAction(qsTr("Welcome"), "home_48");
+  addToolBarAction(qsTr("Welcome"), "home_32");
 
   // Initialize additional desktop UIs and Dock Widgets
   // (Init functions come from the code pulled in by the include statements)
-  addDesktop("desktopCRM", "clients_48");
+  addDesktop("desktopCRM", "clients_32");
   initDockTodo();
   initDockAccounts();
   initDockMyCntcts();
 
-  addDesktop("desktopSales", "reward_48");
+  addDesktop("desktopSales", "reward_32");
   initDockSalesAct();
   initDockSalesHist();
+  initDockSalesOpen();
 
-  addDesktop("desktopAccounting", "accounting_48");
+  addDesktop("desktopAccounting", "accounting_32");
   initDockPayables();
   initDockReceivables();
   initDockBankBal();
  
-  addDesktop("desktopPurchase", "order_48");
+  addDesktop("desktopPurchase", "order_32");
   initDockPurchAct();
   initDockPurchHist();
+  initDockPurchOpen();
 
-  addDesktop("desktopManufacture", "industry_48");
+  addDesktop("desktopManufacture", "industry_32");
 
   // Window state will save when application closes so next time we'll have this
   settingsSetValue("hasSavedState", true);
