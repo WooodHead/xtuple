@@ -128,15 +128,15 @@
           </listitem>
         </varlistentry>
 
-        <varlistentry os="linux">
+        <varlistentry os="linux" userlevel="installfromsrc">
           <term>Linux</term>
 
           <listitem>
-            <para userlevel="installfromsrc">In addition to the basic
-            workstation packages, install X11 and development tools. The
-            following steps were performed on a computer with the basic Fedora
-            Core 5 installation plus the software development tools selected
-            during the installation.</para>
+            <para>In addition to the basic workstation packages, install X11
+            and development tools. The following steps were performed on a
+            computer with the basic Fedora Core 5 installation plus the
+            software development tools selected during the
+            installation.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1107,7 +1107,8 @@ LD_LIBRARY_PATH=/opt/lib:/opt/qt/Qt-version/lib</programlisting>
       <programlisting>mkdir postbooks-checkout-area
 cd postbooks-checkout-area
 svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtuple/trunk xtuple
-svn co https://openrpt.svn.sourceforge.net/svnroot/openrpt/openrpt/trunk openrpt</programlisting>
+svn co https://openrpt.svn.sourceforge.net/svnroot/openrpt/openrpt/trunk openrpt
+svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/csvimp/trunk csvimp</programlisting>
 
       <para>Here is an example using RapidSVN on Windows. It places the source
       files in C:\Qt\xTuple-src.</para>
@@ -1308,6 +1309,38 @@ ECHO *** END ***</programlisting>
         <title>Linux</title>
 
         <para>Haven't documented yet.</para>
+      </section>
+
+      <section>
+        <title>CSVImp</title>
+
+        <para>You can use the CSV import tool from the main xTuple application
+        starting with xTuple ERP 3.5.1.If you want to do so, you must build in
+        csvimp (this was included in the xTuple and OpenRPT code checkout step
+        earlier) and copy the plugin library to the right location. Assuming
+        the xtuple, openrpt, and csvimp directories are next to each other,
+        here are the steps:</para>
+
+        <para><programlisting condition="mingw" os="windows">% cd csvimp-checkout-dir
+% qmake
+% mingw32-make
+% mkdir ..\xtuple\bin\plugins
+% cp plugins\pluginlibraryname ..\xtuple\bin\plugins</programlisting><programlisting
+        condition="msvc" os="windows">% cd csvimp-checkout-dir
+% qmake
+% nmake
+% mkdir ..\xtuple\bin\plugins
+% cp plugins\pluginlibraryname ..\xtuple\bin\plugins</programlisting><programlisting
+        os="macosx">$ cd csvimp-checkout-dir
+$ qmake -spec macx-g++
+$ make
+$ mkdir ../xtuple/bin/xtuple/Contents/plugins
+$ cp plugins/libcsvimpplugin.dylib ../xtuple/bin/xtuple/Contents/plugins</programlisting><programlisting
+        os="linux">$ cd csvimp-checkout-dir
+$ qmake
+$ make
+$ mkdir ../xtuple/bin/xtuple/plugins
+$ cp plugins/libcsvimpplugin.dylib ../xtuple/bin/xtuple/plugins</programlisting></para>
       </section>
     </section>
 
