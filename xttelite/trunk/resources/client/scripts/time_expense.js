@@ -107,7 +107,7 @@ _project["newId(int)"].connect(projectChange);
 _po.editingFinished.connect(setButtons);
 _linenumber.enabled = true;
 
-_project.enabled = false;
+//_project.enabled = false;
 _task.enabled = false;
 _employees.enabled = false;
 _prev.enabled = false;
@@ -209,7 +209,7 @@ function sFillItems()
              + "coalesce(teexp_id::text,'N') as exp "
              + "FROM te.teexp right OUTER JOIN (select item_id,item_number, "
              + "item_descrip1 from item "
-             + "where item_sold = true and item_active = true "
+             + "where item_active = true "
              + "and item_type = 'R') filter"
              + " ON teexp_id = item_id) exptable "
              + "where exp = 'N'");
@@ -219,7 +219,7 @@ function sFillItems()
              + "coalesce(teexp_id::text,'N') as exp "
              + "FROM te.teexp right OUTER JOIN (select item_id,item_number, "
              + "item_descrip1 from item "
-             + "where item_sold = true and item_active = true) filter"
+             + "where item_active = true) filter"
              + " ON teexp_id = item_id) exptable "
              + "where exp <> 'N'");
    }
@@ -715,7 +715,7 @@ function populate(mode)
         _weekending.enabled = false;
       }
 
-      _project.enabled = false;
+      //_project.enabled = false;
       _task.enabled = false;
 
       var params = new Object();
@@ -840,13 +840,15 @@ function sSave()
     if (params.clients > 0){
           //next action
     }else{
-       toolbox.messageBox("critical", mywindow, qsTr("Error"),
+       if (_radioTime.checked){
+         toolbox.messageBox("critical", mywindow, qsTr("Error"),
                          "Customer Required");
-       _clients.setFocus();
-       _error = true;
+         _clients.setFocus();
+         _error = true;
        return;
+       }
     }
-      
+     
     if (params.weekendingdate == "Invalid Date"){
              toolbox.messageBox("critical", mywindow, qsTr("Error"),
                          "Sheet Date Required");
@@ -869,6 +871,18 @@ function sSave()
        _project.setFocus();
        _error = true;
        return;
+    }
+
+    if (params.items == -1){
+       	toolbox.messageBox("critical", mywindow, qsTr("Error"),
+                       "Item Required");
+       _items.setFocus();
+       _error = true;
+       return;
+    }
+
+    if (params.line == ""){
+      params.line == 0;
     }
 
     if (params.items == -1){
