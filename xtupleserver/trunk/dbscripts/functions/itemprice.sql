@@ -82,7 +82,8 @@ BEGIN
    UNION
   SELECT ipsprodcat_ipshead_id AS ipsprice_ipshead_id,
          ipsprodcat_qtybreak AS ipsprice_qtybreak,
-         CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt)) AS NUMERIC(16,4)) AS ipsprice_price,
+         noneg(CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt) - ipsprodcat_fixedamtdiscount)
+         AS NUMERIC(16,4))) AS ipsprice_price,
          (item_price_uom_id=COALESCE(pPriceUOM,-1)) AS uommatched
     FROM ipsprodcat JOIN item ON (ipsprodcat_prodcat_id=item_prodcat_id)
    WHERE(item_id=pItemid)  ) AS
@@ -107,7 +108,8 @@ BEGIN
    UNION
   SELECT ipsprodcat_ipshead_id AS ipsprice_ipshead_id,
          ipsprodcat_qtybreak AS ipsprice_qtybreak,
-         CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt)) AS NUMERIC(16,4)) AS ipsprice_price,
+         noneg(CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt) - ipsprodcat_fixedamtdiscount)
+         AS NUMERIC(16,4))) AS ipsprice_price,
          (item_price_uom_id=COALESCE(pPriceUOM,-1)) AS uommatched
     FROM ipsprodcat JOIN item ON (ipsprodcat_prodcat_id=item_prodcat_id)
    WHERE(item_id=pItemid)  ) AS
@@ -140,7 +142,8 @@ BEGIN
    UNION
   SELECT ipsprodcat_ipshead_id AS ipsprice_ipshead_id,
          ipsprodcat_qtybreak AS ipsprice_qtybreak,
-         CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt)) AS NUMERIC(16,4)) AS ipsprice_price,
+         noneg(CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt) - ipsprodcat_fixedamtdiscount)
+         AS NUMERIC(16,4))) AS ipsprice_price,
          (item_price_uom_id=COALESCE(pPriceUOM,-1)) AS uommatched
     FROM ipsprodcat JOIN item ON (ipsprodcat_prodcat_id=item_prodcat_id)
    WHERE(item_id=pItemid)  ) AS
@@ -175,7 +178,8 @@ BEGIN
    UNION
   SELECT ipsprodcat_ipshead_id AS ipsprice_ipshead_id,
          ipsprodcat_qtybreak AS ipsprice_qtybreak,
-         CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt)) AS NUMERIC(16,4)) AS ipsprice_price,
+         noneg(CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt) - ipsprodcat_fixedamtdiscount)
+         AS NUMERIC(16,4))) AS ipsprice_price,
          (item_price_uom_id=COALESCE(pPriceUOM,-1)) AS uommatched
     FROM ipsprodcat JOIN item ON (ipsprodcat_prodcat_id=item_prodcat_id)
    WHERE(item_id=pItemid)  ) AS
@@ -208,7 +212,8 @@ BEGIN
    UNION
   SELECT ipsprodcat_ipshead_id AS ipsprice_ipshead_id,
          ipsprodcat_qtybreak AS ipsprice_qtybreak,
-         CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt)) AS NUMERIC(16,4)) AS ipsprice_price,
+         noneg(CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt) - ipsprodcat_fixedamtdiscount)
+         AS NUMERIC(16,4))) AS ipsprice_price,
          (item_price_uom_id=COALESCE(pPriceUOM,-1)) AS uommatched
     FROM ipsprodcat JOIN item ON (ipsprodcat_prodcat_id=item_prodcat_id)
    WHERE(item_id=pItemid)  ) AS
@@ -241,7 +246,8 @@ BEGIN
    UNION
   SELECT ipsprodcat_ipshead_id AS ipsprice_ipshead_id,
          ipsprodcat_qtybreak AS ipsprice_qtybreak,
-         CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt)) AS NUMERIC(16,4)) AS ipsprice_price,
+         noneg(CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt) - ipsprodcat_fixedamtdiscount)
+         AS NUMERIC(16,4))) AS ipsprice_price,
          (item_price_uom_id=COALESCE(pPriceUOM,-1)) AS uommatched
     FROM ipsprodcat JOIN item ON (ipsprodcat_prodcat_id=item_prodcat_id)
    WHERE(item_id=pItemid)  ) AS

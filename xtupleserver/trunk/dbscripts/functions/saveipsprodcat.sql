@@ -1,11 +1,12 @@
 
-CREATE OR REPLACE FUNCTION saveIpsProdcat(INTEGER,INTEGER,INTEGER,NUMERIC,NUMERIC) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION saveIpsProdcat(INTEGER,INTEGER,INTEGER,NUMERIC,NUMERIC,NUMERIC) RETURNS INTEGER AS '
 DECLARE
-  pIpsProdcatId	ALIAS FOR $1;
-  pIpsHeadId	ALIAS FOR $2;
-  pProdCatId	ALIAS FOR $3;
-  pQtyBreak	ALIAS FOR $4;
-  pDiscount	ALIAS FOR $5;
+  pIpsProdcatId	    ALIAS FOR $1;
+  pIpsHeadId	    ALIAS FOR $2;
+  pProdCatId	    ALIAS FOR $3;
+  pQtyBreak	    ALIAS FOR $4;
+  pDiscount	    ALIAS FOR $5;
+  pFixedAmtDiscount ALIAS FOR $6;
   _ipsprodcatid	INTEGER;
   _new		BOOLEAN;
   
@@ -52,17 +53,20 @@ BEGIN
       ipsprodcat_ipshead_id, 
       ipsprodcat_prodcat_id, 
       ipsprodcat_qtybreak, 
-      ipsprodcat_discntprcnt) 
+      ipsprodcat_discntprcnt,
+      ipsprodcat_fixedamtdiscount)  
     VALUES (
       _ipsprodcatid,
       pIpsheadId,
       pProdcatId,
       pQtyBreak, 
-      pDiscount * .01);
+      pDiscount * .01,
+      pFixedAmtDiscount);
   ELSE 
     UPDATE ipsprodcat SET 
       ipsprodcat_qtybreak = pQtyBreak, 
-      ipsprodcat_discntprcnt = pDiscount * .01
+      ipsprodcat_discntprcnt = pDiscount * .01,
+      ipsprodcat_fixedamtdiscount = pFixedAmtDiscount 
     WHERE (ipsprodcat_id=_ipsprodcatid);
   END IF;
 
