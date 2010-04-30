@@ -868,7 +868,7 @@ function sSave()
        return;
     }
 
-    if (params.items == ""){
+    if (params.items == -1){
        	toolbox.messageBox("critical", mywindow, qsTr("Error"),
                        "Item Required");
        _items.setFocus();
