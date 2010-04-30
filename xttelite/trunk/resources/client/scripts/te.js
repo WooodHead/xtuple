@@ -308,6 +308,23 @@ function sFillList()
 		+ 'item_descrip1 as description,'
                        + 'formatqty(teitem_qty) as hours,'
                        + 'formatsalesprice(teitem_rate) as rate,'
+                       + "emp_code,teitem_emp_id,'' as cust_number,"
+		+ 'teitem_po as po,teitem_linenumber as line_number, '
+		+ 'tehead_notes as notes,teitem_type as type, '
+                       + 'formatsalesprice(teitem_total) as extended '
+                       + 'from te.tehead,te.teitem,item,emp '
+                       + 'where tehead_id = teitem_tehead_id '
+                       + 'and tehead_id = <? value("id") ?> '
+                       + 'and teitem_emp_id= emp_id '
+                       + 'and teitem_item_id = item_id '
+		+ 'union '
+		+ 'select teitem_id,tehead_id,'
+		+ 'tehead_number as sheet_number,'
+                       + 'tehead_site, tehead_weekending as weekending,'
+                       + 'teitem_workdate as workdate,item_number as item,'
+		+ 'item_descrip1 as description,'
+                       + 'formatqty(teitem_qty) as hours,'
+                       + 'formatsalesprice(teitem_rate) as rate,'
                        + 'emp_code,teitem_emp_id,cust_number,'
 		+ 'teitem_po as po,teitem_linenumber as line_number, '
 		+ 'tehead_notes as notes,teitem_type as type, '
@@ -318,9 +335,27 @@ function sFillList()
                        + 'and teitem_emp_id= emp_id '
                        + 'and teitem_item_id = item_id '
                        + 'and teitem_cust_id = cust_id '
-                       + 'order by teitem_linenumber ', params );
+                       + 'order by line_number ', params );
   }else{
     q = toolbox.executeQuery('select teitem_id,tehead_id,tehead_number as sheet_number,'
+                             + 'tehead_site,tehead_weekending s weekending,'
+                             + 'teitem_workdate as workdate,'
+                             + 'item_number as item,item_descrip1 as description,'
+                             + 'formatqty(teitem_qty) as hours,'
+                             + 'formatsalesprice(teitem_rate) as rate,'
+                             + "emp_code,teitem_emp_id,'' as cust_number,"
+		      + 'teitem_po as po,'
+                             + 'teitem_linenumber as line_number, '
+   		      + 'tehead_notes as notes,teitem_type as type, '
+                             + 'formatsalesprice(teitem_total) as extended '
+                             + 'from te.tehead,te.teitem,item,emp '
+                             + 'where tehead_id = teitem_tehead_id '
+                             + 'and teitem_emp_id = emp_id '
+                             + 'and teitem_item_id = item_id '
+                             + 'and teitem_emp_id = <? value("emp") ?> '
+		      + 'union '
+		      + 'select teitem_id,tehead_id,'
+		      + 'tehead_number as sheet_number,'
                              + 'tehead_site,tehead_weekending s weekending,'
                              + 'teitem_workdate as workdate,'
                              + 'item_number as item,item_descrip1 as description,'
@@ -336,7 +371,7 @@ function sFillList()
                              + 'and teitem_item_id = item_id '
                              + 'and teitem_cust_id = cust_id '
                              + 'and teitem_emp_id = <? value("emp") ?> '
-                             + ' order by teitem_linenumber;', params );
+                             + ' order by line_number;', params );
 
   }
 
@@ -431,7 +466,7 @@ if (privileges.check("MaintainTimeExpenseOthers"))
   {
     _x = _empid;
   }
-  _employees.populate("SELECT emp_id,emp_code FROM emp",_x);
+  _employees.populate("SELECT emp_id,emp_code FROM emp order by emp_code",_x);
 
 }else{
   if (privileges.check("MaintainTimeExpenseSelf"))
