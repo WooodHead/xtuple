@@ -8,6 +8,9 @@ var expensePage = toolbox.loadUi("teexpense", mywindow);
 //insert the new tab
 toolbox.tabInsertTab(tablist,2,expensePage, "Expense");
 
+var _itemtype = mywindow.findChild("_itemtype");
+_itemtype['currentIndexChanged(QString)'].connect(handleExpense);
+
 var _close = mywindow.findChild("_close");
 var _description = mywindow.findChild("_description");
 var _item = mywindow.findChild("_itemNumber");
@@ -206,5 +209,11 @@ function populate()
   }
 }
 
-
-
+function handleExpense()
+{
+  if (_itemtype.text == 'Reference'){
+    toolbox.tabInsertTab(tablist,2,expensePage, "Expense");
+  }else{
+    toolbox.tabRemoveTab(tablist, 2);
+  }
+}
