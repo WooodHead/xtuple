@@ -219,7 +219,8 @@ function sFillItems()
              + "coalesce(teexp_id::text,'N') as exp "
              + "FROM te.teexp right OUTER JOIN (select item_id,item_number, "
              + "item_descrip1 from item "
-             + "where item_active = true) filter"
+             + "where item_active = true "
+             + "and item_type = 'R') filter"
              + " ON teexp_id = item_id) exptable "
              + "where exp <> 'N'");
    }
