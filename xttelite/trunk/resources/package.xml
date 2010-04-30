@@ -42,6 +42,34 @@
     </message>
   </prerequisite>
     
+  <loadpriv name="allowInvoicing" module="TE">
+   Allowed to Invoice Time/Exp Sheets
+  </loadpriv>
+
+  <loadpriv name="allowVouchering" module="TE">
+   Allowed to Voucher Time/Exp Sheets
+  </loadpriv>
+
+  <loadpriv name="MaintainTimeExpenseOthers" module="TE">
+   Allowed to Maintain Time/Exp Sheets for all users
+  </loadpriv>
+
+  <loadpriv name="MaintainTimeExpenseSelf" module="TE">
+   Allowed to Maintain Time/Exp Sheets
+  </loadpriv>
+
+  <loadpriv name="MaintainTimeExpense" module="TE">
+   Allowed to Maintain Time/Exp Sheets
+  </loadpriv>
+
+  <loadpriv name="CanViewRates" module="TE">
+   Allowed to view rates in the Time Entries
+  </loadpriv>
+  
+  <loadpriv name="CanApprove" module="TE">
+   Allowed to Approve Time/Exp Sheets
+  </loadpriv>
+    
   <script file="database/misc/timesequence.sql" />  
   <script file="database/misc/schemaComment.sql" />
   <script file="database/misc/cons_seq.sql" />
