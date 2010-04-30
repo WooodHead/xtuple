@@ -367,7 +367,12 @@ function showAllEmployeesSwitch()
 function sHandleButtons()
 {
 
-var _status;
+  var _status;
+
+  _delete.enabled = false;
+  _edit.enabled = false;
+  _view.enabled = false;
+  _approve.enabled = false;
 
   var currentItem  = _sheets.currentItem();
   if (currentItem != null)
