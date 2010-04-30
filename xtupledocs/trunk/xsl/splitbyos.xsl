@@ -20,168 +20,65 @@
 
   <!-- tried combining logic but xsltproc wouldn't compile the boolean expressions! -->
 
-  <xsl:template match="*[@condition]">
+  <xsl:template match="*[@condition or @userlevel or @os]">
     <xsl:choose>
-      <xsl:when test="@condition = $conditiontofind">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-      <xsl:when test="$conditiontofind = 'all'">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-    </xsl:choose>
-  </xsl:template>
 
-  <xsl:template match="*[@userlevel]">
-    <xsl:choose>
-      <xsl:when test="@userlevel = $userleveltofind">
+      <xsl:when test="(not (@condition))
+                  and (not (@userlevel))
+                  and (@os=$ostofind               or $ostofind       ='all')">
         <xsl:copy>
           <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
       </xsl:when>
-      <xsl:when test="$userleveltofind = 'all'">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-    </xsl:choose>
-  </xsl:template>
 
-  <xsl:template match="*[@os]">
-    <xsl:choose>
-      <xsl:when test="@os = $ostofind">
+      <xsl:when test="(not (@condition))
+                  and (@userlevel=$userleveltofind or $ostofind       ='all')
+                  and (not (@ostofind))">
         <xsl:copy>
           <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
       </xsl:when>
-      <xsl:when test="$ostofind = 'all'">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-    </xsl:choose>
-  </xsl:template>
 
-  <xsl:template match="*[@condition and @userlevel]">
-    <xsl:choose>
-      <xsl:when test="@condition = $conditiontofind and @userlevel = $userleveltofind">
+      <xsl:when test="(not (@condition))
+                  and (@userlevel=$userleveltofind or $userleveltofind='all')
+                  and (@os=$ostofind               or $ostofind       ='all')">
         <xsl:copy>
           <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
       </xsl:when>
-      <xsl:when test="@condition = $conditiontofind and $userleveltofind = 'all'">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-      <xsl:when test="$conditiontofind = 'all' and @userlevel = $userleveltofind">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-      <xsl:when test="$conditiontofind = 'all' and $userleveltofind = 'all'">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-    </xsl:choose>
-  </xsl:template>
 
-  <xsl:template match="*[@os and @condition]">
-    <xsl:choose>
-      <xsl:when test="@os = $ostofind and @condition = $conditiontofind">
+      <xsl:when test="(@condition=$conditiontofind or $conditiontofind='all')
+                  and (not (@userlevel))
+                  and (not (@ostofind))">
         <xsl:copy>
           <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
       </xsl:when>
-      <xsl:when test="@os = $ostofind and $conditiontofind = 'all'">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-      <xsl:when test="$ostofind = 'all' and @condition = $conditiontofind">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-      <xsl:when test="$ostofind = 'all' and $conditiontofind = 'all'">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-    </xsl:choose>
-  </xsl:template>
 
-  <xsl:template match="*[@os and @userlevel]">
-    <xsl:choose>
-      <xsl:when test="@os = $ostofind and @userlevel = $userleveltofind">
+      <xsl:when test="(@condition=$conditiontofind or $conditiontofind='all')
+                  and (not (@userlevel))
+                  and (@os=$ostofind               or $ostofind       ='all')">
         <xsl:copy>
           <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
       </xsl:when>
-      <xsl:when test="@os = $ostofind and $userleveltofind = 'all'">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-      <xsl:when test="$ostofind = 'all' and @userlevel = $userleveltofind">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-      <xsl:when test="$ostofind = 'all' and $userleveltofind = 'all'">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-    </xsl:choose>
-  </xsl:template>
 
-  <xsl:template match="*[@os and @userlevel and @condition]">
-    <xsl:choose>
-      <xsl:when test="@os = $ostofind and @userlevel = $userleveltofind and @condition = $conditiontofind">
+      <xsl:when test="(@condition=$conditiontofind or $conditiontofind='all')
+                  and (@userlevel=$userleveltofind or $userleveltofind='all')
+                  and (not (@os))">
         <xsl:copy>
           <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
       </xsl:when>
-      <xsl:when test="@os = $ostofind and @userlevel = $userleveltofind and $conditiontofind = 'all'">
+
+      <xsl:when test="(@condition=$conditiontofind or $conditiontofind='all')
+                  and (@userlevel=$userleveltofind or $userleveltofind='all')
+                  and (@os=$ostofind               or $ostofind       ='all')">
         <xsl:copy>
           <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
       </xsl:when>
-      <xsl:when test="@os = $ostofind and $userleveltofind = 'all' and @condition = $conditiontofind">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-      <xsl:when test="@os = $ostofind and $userleveltofind = 'all' and $conditiontofind = 'all'">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-      <xsl:when test="$ostofind = 'all' and @userlevel = $userleveltofind and @condition = $conditiontofind">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-      <xsl:when test="$ostofind = 'all' and @userlevel = $userleveltofind and $conditiontofind = 'all'">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-      <xsl:when test="$ostofind = 'all' and $userleveltofind = 'all' and @condition = $conditiontofind">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
-      <xsl:when test="$ostofind = 'all' and $userleveltofind = 'all' and $conditiontofind = 'all'">
-        <xsl:copy>
-          <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-      </xsl:when>
+
     </xsl:choose>
   </xsl:template>
 
@@ -189,17 +86,10 @@
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
-    <subjectset>
-      <subject name="os">
-        <subjectterm><xsl:value-of select="$ostofind"/></subjectterm>
-      </subject>
-      <subject name="userlevel">
-        <subjectterm><xsl:value-of select="$userleveltofind"/></subjectterm>
-      </subject>
-      <subject name="conditions">
-        <subjectterm><xsl:value-of select="$conditiontofind"/></subjectterm>
-      </subject>
-    </subjectset>
+    <subtitle><xsl:value-of select="$ostofind"/><xsl:text> </xsl:text>
+              <xsl:value-of select="$userleveltofind"/><xsl:text> </xsl:text>
+              <xsl:value-of select="$conditiontofind"/>
+    </subtitle>
   </xsl:template>
 
 </xsl:stylesheet>
