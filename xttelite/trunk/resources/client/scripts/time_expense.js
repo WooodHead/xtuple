@@ -312,14 +312,17 @@ function getprice()
   if (_first == false){
     _modified = true;
   }
+  
+  var _ratetest = mywindow.findChild("_rate").localValue;
 
-  if (_radioExpense.checked && _rate.text == "0.00"){
+  if (_radioExpense.checked && _ratetest == "0.00"){
+
     // check for item list price
     var params = new Object();
-    params.item = _items.text;
+    params.itemid = _items.id();
 
     var qry = toolbox.executeQuery('SELECT item_listprice as listprice '
-      + ' from item where item_number = <? value("item") ?>;',params);
+      + ' from item where item_id = <? value("itemid") ?>;',params);
 
     if(qry.lastError().type != QSqlError.NoError)
     {
@@ -421,10 +424,10 @@ function getprice()
 
     // check for item list price
     var params = new Object();
-    params.item = _items.text;
+    params.itemid = _items.id();
 
     var qry = toolbox.executeQuery('SELECT item_listprice as listprice '
-      + ' from item where item_number = <? value("item") ?>;',params);
+      + ' from item where item_id = <? value("itemid") ?>;',params);
 
     if(qry.lastError().type != QSqlError.NoError)
     {
