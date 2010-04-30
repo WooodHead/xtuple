@@ -317,6 +317,7 @@ function sFillList()
                        + 'and tehead_id = <? value("id") ?> '
                        + 'and teitem_emp_id= emp_id '
                        + 'and teitem_item_id = item_id '
+                       + 'and teitem_cust_id = -1 '
 		+ 'union '
 		+ 'select teitem_id,tehead_id,'
 		+ 'tehead_number as sheet_number,'
