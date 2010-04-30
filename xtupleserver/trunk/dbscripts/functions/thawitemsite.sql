@@ -149,7 +149,8 @@ BEGIN
 
     UPDATE itemsite
        SET itemsite_qtyonhand = _qoh,
-           itemsite_value = _value
+           itemsite_value = CASE WHEN ((itemsite_costmethod='A') AND (_value < 0.0)) THEN 0.0
+                                 ELSE _value END
      WHERE(itemsite_id=pItemsiteid);
 
   END IF;
