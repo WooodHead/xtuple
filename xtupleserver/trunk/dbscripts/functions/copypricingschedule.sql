@@ -67,9 +67,9 @@ BEGIN
 
   INSERT INTO ipsprodcat 
         (ipsprodcat_ipshead_id, ipsprodcat_prodcat_id, 
-         ipsprodcat_qtybreak, ipsprodcat_discntprcnt) 
+         ipsprodcat_qtybreak, ipsprodcat_discntprcnt, ipsprodcat_fixedamtdiscount) 
   SELECT _ipsheadid, ipsprodcat_prodcat_id, 
-         ipsprodcat_qtybreak, ipsprodcat_discntprcnt 
+         ipsprodcat_qtybreak, ipsprodcat_discntprcnt, ipsprodcat_fixedamtdiscount 
   FROM ipsprodcat 
   WHERE (ipsprodcat_ipshead_id=pIpsheadId);
 

@@ -13,7 +13,8 @@ CREATE OR REPLACE VIEW api.pricingscheduleitem AS
    qtyuom.uom_name::VARCHAR AS qty_uom, 
    priceuom.uom_name::VARCHAR AS price_uom,
    ipsitem_price AS price,
-   0 AS discount_percent
+   0 AS discount_percent,
+   0 AS discount_fixed 
  FROM ipsitem
    JOIN ipshead ON (ipsitem_ipshead_id = ipshead_id)
    JOIN item ON (ipsitem_item_id = item_id)
@@ -29,7 +30,8 @@ CREATE OR REPLACE VIEW api.pricingscheduleitem AS
    NULL AS qty_uom,
    NULL AS price_uom,
    NULL AS price,
-   ipsprodcat_discntprcnt AS discount_percent
+   ipsprodcat_discntprcnt AS discount_percent,
+   ipsprodcat_fixedamtdiscount AS discount_fixed 
  FROM ipsprodcat
    JOIN ipshead ON (ipsprodcat_ipshead_id = ipshead_id)
    JOIN prodcat ON (ipsprodcat_prodcat_id = prodcat_id);
@@ -45,7 +47,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
      WHEN (NEW.type = 'Item') THEN
        saveIpsitem(NULL,getIpsheadId(NEW.pricing_schedule),getItemId(NEW.item_number),COALESCE(NEW.qty_break,0),COALESCE(NEW.price,0),getUomId(NEW.qty_uom),getUomId(NEW.price_uom))
      WHEN (NEW.type = 'Product Category') THEN
-       saveIpsProdcat(NULL,getIpsheadId(NEW.pricing_schedule),getProdcatId(NEW.product_category),NEW.qty_break,NEW.discount_percent)
+       saveIpsProdcat(NULL,getIpsheadId(NEW.pricing_schedule),getProdcatId(NEW.product_category),NEW.qty_break,NEW.discount_percent,NEW.discount_fixed)
    END;
           
 CREATE OR REPLACE RULE "_UPDATE" AS
@@ -58,7 +60,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
        getIpsheadId(NEW.pricing_schedule),getItemId(NEW.item_number),NEW.qty_break,NEW.price,getUomId(NEW.qty_uom),getUomId(NEW.price_uom))
      WHEN (OLD.type = 'Product Category') THEN
        saveIpsProdcat(getIpsProdcatId(OLD.pricing_schedule,OLD.product_category,OLD.qty_break),
-       getIpsheadId(NEW.pricing_schedule),getProdCatId(NEW.product_category),NEW.qty_break,NEW.discount_percent)
+       getIpsheadId(NEW.pricing_schedule),getProdCatId(NEW.product_category),NEW.qty_break,NEW.discount_percent,NEW.discount_fixed)
    END AS result;
 
 CREATE OR REPLACE RULE "_DELETE" AS
