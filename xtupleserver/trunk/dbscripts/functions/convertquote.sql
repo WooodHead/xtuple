@@ -152,12 +152,15 @@ BEGIN
 
   FOR _r IN SELECT quitem.*,
                    quhead_number, quhead_prj_id,
-                   itemsite_item_id, itemsite_leadtime, item_type
-            FROM quhead, quitem, itemsite, item
-            WHERE ( (quitem_quhead_id=quhead_id)
-             AND (quitem_itemsite_id=itemsite_id)
-             AND (itemsite_item_id=item_id)
-             AND (quitem_quhead_id=pQuheadid) ) LOOP
+                   itemsite_item_id, itemsite_leadtime,
+                   itemsite_createsopo, itemsite_createsopr,
+                   item_type, itemsrc_id
+            FROM quhead JOIN quitem ON (quitem_quhead_id=quhead_id)
+                        JOIN itemsite ON (itemsite_id=quitem_itemsite_id)
+                        JOIN item ON (item_id=itemsite_item_id)
+                        LEFT OUTER JOIN itemsrc ON ( (itemsrc_item_id=item_id) AND
+                                                     (itemsrc_default) )
+            WHERE (quhead_id=pQuheadid) LOOP
 
     SELECT NEXTVAL('coitem_coitem_id_seq') INTO _soitemid;
 
@@ -168,8 +171,8 @@ BEGIN
       coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
       coitem_qty_uom_id, coitem_qty_invuomratio,
       coitem_price_uom_id, coitem_price_invuomratio,
-      coitem_unitcost,
-      coitem_custpn, coitem_memo, coitem_prcost, coitem_taxtype_id )
+      coitem_unitcost, coitem_prcost,
+      coitem_custpn, coitem_memo, coitem_taxtype_id )
     VALUES
     ( _soitemid, _soheadid, _r.quitem_linenumber, _r.quitem_itemsite_id,
       'O', _r.quitem_scheddate, _r.quitem_promdate,
@@ -177,8 +180,8 @@ BEGIN
       _r.quitem_qtyord, 0, 0,
       _r.quitem_qty_uom_id, _r.quitem_qty_invuomratio,
       _r.quitem_price_uom_id, _r.quitem_price_invuomratio,
-      stdcost(_r.itemsite_item_id),
-      _r.quitem_custpn, _r.quitem_memo, _r.quitem_prcost, _r.quitem_taxtype_id );
+      stdcost(_r.itemsite_item_id), _r.quitem_prcost,
+      _r.quitem_custpn, _r.quitem_memo, _r.quitem_taxtype_id );
 
     INSERT INTO charass
           (charass_target_type, charass_target_id, charass_char_id, charass_value, charass_default, charass_price)
@@ -207,11 +210,18 @@ BEGIN
          WHERE ((charass_target_type='QI')
            AND  (charass_target_id=_r.quitem_id));
 
-      ELSIF (_r.item_type IN ('P', 'O')) THEN
+      ELSIF ( (_r.item_type IN ('P', 'O')) AND (_r.itemsite_createsopr) ) THEN
         SELECT createPr( _r.quhead_number, _r.quitem_itemsite_id, (_r.quitem_qtyord * _r.quitem_qty_invuomratio),
                          _r.quitem_scheddate, '', 'S', _soitemid ) INTO _orderId;
         _orderType := 'R';
         UPDATE pr SET pr_prj_id=_r.quhead_prj_id WHERE pr_id=_orderId;
+      ELSIF ( (_r.item_type IN ('P', 'O')) AND (_r.itemsite_createsopo) ) THEN
+        IF (_r.quitem_prcost=0) THEN
+          SELECT createPurchaseToSale(_soitemid, _r.itemsrc_id, _r.quitem_dropship) INTO _orderId;
+        ELSE
+          SELECT createPurchaseToSale(_soitemid, _r.itemsrc_id, _r.quitem_dropship, _r.quitem_prcost) INTO _orderId;
+        END IF;
+        _orderType := 'P';
       END IF;
 
       UPDATE coitem SET coitem_order_type=_ordertype, coitem_order_id=_orderid
