@@ -15,14 +15,20 @@ var _account = mywindow.findChild("_account");
 var _expcat = mywindow.findChild("_expcat");
 var _accountSelected = mywindow.findChild("_accountSelected");
 var _expcatSelected = mywindow.findChild("_expcatSelected");
+var _deleteExpenseItemSetup = mywindow.findChild("_deleteExpenseItemSetup");
 
 var _itemid;
 var _mode;
+
+_deleteExpenseItemSetup.enabled = false;
+
 
 tablist['currentChanged(int)'].connect(populate);
 
 var _save = mywindow.findChild("_save");
 _save.clicked.connect(sSave);
+
+_deleteExpenseItemSetup.clicked.connect(deleteExpenseItemSetup);
 
 _accountSelected.clicked.connect(clickswitch);
 _expcatSelected.clicked.connect(clickswitch);
@@ -76,6 +82,48 @@ function set(params)
   return mainwindow.NoError;
 }
 
+
+function deleteExpenseItemSetup()
+{
+  try
+  {
+    var msg = qsTr("Are you sure you want to delete this expense item setup?")
+    if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg, 
+	QMessageBox.Yes | QMessageBox.Escape, 
+	QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
+    {
+      var params = new Object;
+      params.item = _item.text;
+
+      var q = toolbox.executeQuery("select getitemid(<? value('item') ?>) "
+        + "as itemid;",params);
+      if (q.first())
+      {
+        params.itemid = q.value("itemid");
+        var qry = toolbox.executeQuery('delete from te.teexp '
+	+ 'where teexp_id = <? value("itemid") ?>;',params);
+
+        if (qry.lastError().type != QSqlError.NoError)
+        {
+          toolbox.messageBox("critical", mywindow,
+                       qsTr("Database Error"), qry.lastError().text);
+          return;
+        }
+        _deleteExpenseItemSetup.enabled = false;
+        _expcat.enabled = false;
+        _expcat.setId(-1);
+        _account.enabled = false;
+        _account.setId(-1);
+      }
+    }
+  }
+  catch (e)
+  {
+    print(e);
+    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+  }
+}
+
 function sSave()
 {
 
@@ -115,7 +163,13 @@ function sSave()
         }
       }
     }
-    toolbox.executeQuery(q_str, params);
+    var qry = toolbox.executeQuery(q_str, params);
+    if (qry.lastError().type != QSqlError.NoError)
+    {
+      toolbox.messageBox("critical", mywindow,
+                       qsTr("Database Error"), qry.lastError().text);
+      return;
+    }
   }
 }
 
@@ -136,6 +190,8 @@ function populate()
 
     if(qry.first())
     {
+      _deleteExpenseItemSetup.enabled = true;
+
       _expcat.setId(qry.value("teexp_expcat_id"));
       _account.setId(qry.value("teexp_accnt_id"));
 
@@ -145,6 +201,7 @@ function populate()
       }else{
         _expcatSelected.checked = true;
       }
+      params.item_id = q.value("itemid");
     }
   }
 }
