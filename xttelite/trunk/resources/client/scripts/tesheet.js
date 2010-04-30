@@ -415,7 +415,7 @@ function populateEmployees()
     {
       toolbox.messageBox("critical", mywindow, mywindow.windowTitle, qsTr("It appears that your current user isn't an active employee.") );
     }else{
-      _employees.populate("SELECT emp_id,emp_code FROM emp",_x);
+      _employees.populate("SELECT emp_id,emp_code FROM emp order by emp_code",_x);
     }
   }else{
     _showAllEmployees.visible = false;
