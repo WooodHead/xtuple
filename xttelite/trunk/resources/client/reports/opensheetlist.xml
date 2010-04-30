@@ -11,22 +11,20 @@
  <leftmargin>50</leftmargin>
  <querysource>
   <name>detail</name>
-  <sql>select tehead_id,sheet_number,weekending,emp_code,sum(dollars) as dollars,bill_status,pay_status from 
-(select tehead_id,sheet_number,weekending,
-         qty as hours,emp_code,dollars,
-         tehead_billable_status as bill_status 
-         ,tehead_payable_status as pay_status 
-         from te.api_expsheet,te.tehead 
-         where tehead_number = sheet_number 
-         union 
-         select tehead_id,sheet_number,weekending,
-         hours,emp_code,dollars,
-        tehead_billable_status as bill_status 
-         ,tehead_payable_status as pay_status 
-         from te.api_timesheet,te.tehead 
-         where tehead_number = sheet_number 
-         order by sheet_number) rollup
-         group by tehead_id,sheet_number,weekending,emp_code,bill_status,pay_status;
+  <sql>select tehead_id,sheet_number,weekending,emp_code,sum(dollars) as dollars,status from 
+(
+select tehead_id,tehead_number as sheet_number,tehead_weekending as weekending,
+         teitem_qty as hours,emp_code,teitem_total as dollars,
+         tehead_status as status
+         --,tehead_payable_status as pay_status 
+         from te.tehead,te.teitem,emp
+         where tehead_id = teitem_tehead_id 
+         and teitem_emp_id = emp_id
+         order by tehead_number
+
+         ) rollup
+         group by tehead_id,sheet_number,weekending,emp_code,status;
+
 </sql>
  </querysource>
  <rpthead>
@@ -82,22 +80,6 @@
    <left/>
    <vcenter/>
    <string>Sheet Number</string>
-  </label>
-  <label>
-   <rect>
-    <x>610</x>
-    <y>98</y>
-    <width>90</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <left/>
-   <vcenter/>
-   <string>Voucher Status</string>
   </label>
   <label>
    <rect>
@@ -161,7 +143,7 @@
    </font>
    <left/>
    <vcenter/>
-   <string>Invoice Status</string>
+   <string>Sheet Status</string>
   </label>
   <line>
    <xstart>10</xstart>
@@ -272,26 +254,7 @@
     <vcenter/>
     <data>
      <query>detail</query>
-     <column>bill_status</column>
-    </data>
-   </field>
-   <field>
-    <rect>
-     <x>605</x>
-     <y>0</y>
-     <width>130</width>
-     <height>15</height>
-    </rect>
-    <font>
-     <face>Arial</face>
-     <size>8</size>
-     <weight>bold</weight>
-    </font>
-    <left/>
-    <bottom/>
-    <data>
-     <query>detail</query>
-     <column>pay_status</column>
+     <column>status</column>
     </data>
    </field>
    <field>
