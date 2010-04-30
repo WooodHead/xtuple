@@ -350,7 +350,7 @@ function printReport()
 {
   params = new Object();
   params.headid = _sheets.id();
-  toolbox.printReport("ExpenseReport",params);
+  toolbox.printReport("OpenSheetList",params);
 }
 
 
