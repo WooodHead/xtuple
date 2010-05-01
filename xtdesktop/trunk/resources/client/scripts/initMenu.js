@@ -92,6 +92,8 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
   initDockMfgAct();
   initDockMfgOpen();
 
+  addDesktop("desktopMaintenance", "gear_32");
+
   // Window state will save when application closes so next time we'll have this
   settingsSetValue("hasSavedState", true);
 }
