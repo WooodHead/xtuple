@@ -19,17 +19,12 @@ function initDockBankBal()
   if (!privileges.check("ViewBankAccountsDock"))
     return;
 
-  _dockBankBal = toolbox.loadUi("dockList").findChild("_dockList");
-  _dockBankBal.windowTitle = qsTr("Bank Accounts");
-  _dockBankBal.objectName = "_dockBankBal";
-  mainwindow.addDockWidget(0x1, _dockBankBal);
+  _dockBankBal = mainwindow.findChild("_dockBankBal");
+  _bankBal = mainwindow.findChild("_bankBal");
 
   // Set columns on list
-  _bankBal = _dockBankBal.findChild("_list");
-  _bankBal.objectName = "_BankBal";
   _bankBal.addColumn(qsTr("Name"), -1,  Qt.AlignLeft,   true, "bankaccnt_name");
   _bankBal.addColumn(qsTr("Balance"), -1,  Qt.AlignRight,  true, "balance");
- // fillListBankBal()
 
   // Connect Signals and Slots
   _dtTimer.timeout.connect(fillListBankBal);
@@ -49,10 +44,13 @@ function initDockBankBal()
 }
 
 /*!
-  Fills the list with active Purch data.
+  Fills the list with bank account data.
 */
 function fillListBankBal()
 {
+  _dockBankBal = mainwindow.findChild("_dockBankBal");
+  _bankBal = mainwindow.findChild("_bankBal");
+
   if (!_dockBankBal.visible)
     return;
 
@@ -68,18 +66,9 @@ function openWindowBankBal()
   if (!privilegeCheckBankBal())
     return;
 
-  var q = toolbox.executeQuery("SELECT current_date - 30 AS startDate;");
-  q.first();
-
-  var params = new Object;
-  params.accnt_id = _bankBal.id();
-  params.startDate = q.value("startDate");
-  params.endDate = mainwindow.dbDate();
-  params.run = true;
-
   // Open the window and perform any handling required
-  toolbox.openWindow("dspGLTransactions");
-  toolbox.lastWindow().set(params);
+  toolbox.openWindow("reconcileBankaccount");
+  var w = toolbox.lastWindow().findChild("_bankaccnt").setId(_bankBal.id());
 }
 
 /*!
@@ -99,5 +88,5 @@ function populateMenuBankBal(pMenu, pItem)
 */
 function privilegeCheckBankBal(act)
 {
-  return privileges.check("ViewGLTransactions");
+  return privileges.check("MaintainBankRec");
 }
