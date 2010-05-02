@@ -76,13 +76,47 @@ function openWindowPayables()
     return;
 
   var params = new Object;
-  params.accnt_id = _ap.id();
-  params.startDate = q.value("startDate");
-  params.endDate = mainwindow.dbDate();
   params.run = true;
 
+  var asOfDate = mainwindow.dbDate();
+  var startDate = new Date();
+  var endDate = new Date();
+
   // Open the window and perform any handling required
-  toolbox.openWindow("dspGLTransactions");
+  toolbox.openWindow("dspAPOpenItemsByVendor");
+
+  if (_ap.id() == 0)
+  {
+    startDate.setDate(asOfDate.getDate());
+    toolbox.lastWindow().findChild("_dates").setStartDate(startDate);
+  }
+  else if (_ap.id() == 1)
+  {
+    startDate.setDate(asOfDate.getDate() -30);
+    endDate.setDate(asOfDate.getDate() -1);
+    toolbox.lastWindow().findChild("_dates").setStartDate(startDate);
+    toolbox.lastWindow().findChild("_dates").setEndDate(endDate);
+  }
+  else if (_ap.id() == 2)
+  {
+    startDate.setDate(asOfDate.getDate() -60);
+    endDate.setDate(asOfDate.getDate() -31);
+    toolbox.lastWindow().findChild("_dates").setStartDate(startDate);
+    toolbox.lastWindow().findChild("_dates").setEndDate(endDate);
+  }
+  else if (_ap.id() == 3)
+  {
+    startDate.setDate(asOfDate.getDate() -90);
+    endDate.setDate(asOfDate.getDate() -61);
+    toolbox.lastWindow().findChild("_dates").setStartDate(startDate);
+    toolbox.lastWindow().findChild("_dates").setEndDate(endDate);
+  }
+  else if (_ap.id() == 4)
+  {
+    endDate.setDate(asOfDate.getDate() -91);
+    toolbox.lastWindow().findChild("_dates").setEndDate(endDate);
+  }
+
   toolbox.lastWindow().set(params);
 }
 
