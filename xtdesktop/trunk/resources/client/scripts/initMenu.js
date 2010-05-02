@@ -11,6 +11,7 @@ debugger;
 // Import code from related scripts
 include("dockBankBal");
 include("dockMfgActive");
+include("dockMfgHist");
 include("dockMfgOpen");
 include("dockMyAccounts");
 include("dockMyContacts");
@@ -65,6 +66,7 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
   _welcome.load(url);
   _desktopStack.addWidget(_welcome);
   addToolBarAction(qsTr("Welcome"), "home_32");
+  _vToolBarActions[0].checked = true;
 
   // Initialize additional desktop UIs and Dock Widgets
   // (Init functions come from the code pulled in by the include statements)
@@ -90,6 +92,7 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
 
   addDesktop("desktopManufacture", "industry_32");
   initDockMfgAct();
+  initDockMfgHist();
   initDockMfgOpen();
 
   addDesktop("desktopMaintenance", "gear_32");
@@ -128,10 +131,12 @@ function addToolBarAction(label, imageName)
   var act = new QAction(mainwindow);
   act.text = label;
   act.icon = icn;
+  act.checkable = true;
 
   _vToolBar.addAction(act);
   _vToolBarActions[_vToolBarActions.length] = act;
   _vToolBar["actionTriggered(QAction*)"].connect(toolbarActionTriggered);
+ 
 }
 
 /*!
@@ -154,7 +159,9 @@ function toolbarActionTriggered(action)
   for (i in _vToolBarActions)
   {
     if (_vToolBarActions[i] == action)
-      _desktopStack.currentIndex = i;
+      _desktopStack.currentIndex = i
+    else
+      _vToolBarActions[i].checked = false;
   }
 }
 

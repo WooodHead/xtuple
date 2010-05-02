@@ -37,6 +37,12 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
  <loadpriv      name="ViewBankAccountsDock" module="Desktop">
    Allows the user to view the Bank Accounts dock widget on the Desktop
  </loadpriv>
+ <loadpriv      name="ViewManufactureActivitiesDock" module="Desktop">
+   Allows the user to view the Manufacture Activities dock widget on the Desktop
+ </loadpriv>
+  <loadpriv      name="ViewManufactureHistoryDock" module="Desktop">
+   Allows the user to view the Manufacture History dock widget on the Desktop
+ </loadpriv>
  <loadpriv      name="ViewMyAccountsDock" module="Desktop">
    Allows the user to view the My (CRM) Accounts dock widget on the Desktop
  </loadpriv>
@@ -46,10 +52,19 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
  <loadpriv      name="ViewTodoDock" module="Desktop">
    Allows the user to view the To Do dock widget on the Desktop
  </loadpriv>
+ <loadpriv      name="ViewPayablesDock" module="Desktop">
+   Allows the user to view the Payables dock widget on the Desktop
+ </loadpriv>
  <loadpriv      name="ViewPurchaseActivitiesDock" module="Desktop">
    Allows the user to view the Purchase Activities dock widget on the Desktop
  </loadpriv>
  <loadpriv      name="ViewPurchaseHistoryDock" module="Desktop">
+   Allows the user to view the Purchase History dock widget on the Desktop
+ </loadpriv>
+  <loadpriv      name="ViewPurchaseOrdersDock" module="Desktop">
+   Allows the user to view the open purchase orders dock widget on the Desktop
+ </loadpriv>
+ <loadpriv      name="ViewReceivablesDock" module="Desktop">
    Allows the user to view the Purchase History dock widget on the Desktop
  </loadpriv>
  <loadpriv      name="ViewSalesActivitiesDock" module="Desktop">
@@ -58,6 +73,13 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
  <loadpriv      name="ViewSalesHistoryDock" module="Desktop">
    Allows the user to view the Sales History dock widget on the Desktop
  </loadpriv>
+  <loadpriv      name="ViewSalesOrdersDock" module="Desktop">
+   Allows the user to view the Sales Orders dock widget on the Desktop
+ </loadpriv>
+  <loadpriv      name="ViewWorkOrdersDock" module="Desktop">
+   Allows the user to view the Work Orders dock widget on the Desktop
+ </loadpriv>
+ 
  <loadpriv      name="ViewCRMDesktop" module="Desktop">
    Allows the user to view the CRM Desktop page
  </loadpriv>
@@ -121,6 +143,14 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
 
   <loadimage      file="images/gear_16.png" name="gear_16" />
   <loadimage      file="images/reload_16.png" name="reload_16" />
+
+  <loadimage      file="images/home_32.png" name="home_32" />
+  <loadimage      file="images/clients_32.png" name="clients_32" />
+  <loadimage      file="images/reward_32.png" name="reward_32" />
+  <loadimage      file="images/accounting_32.png" name="accounting_32" />
+  <loadimage      file="images/order_32.png" name="order_32" />
+  <loadimage      file="images/industry_32.png" name="industry_32" />
+  <loadimage      file="images/gear_32.png" name="gear_32" />
 
   <loadimage      file="images/abacus_48.png" name="abacus_48" />
   <loadimage      file="images/abacus_add_48.png" name="abacus_add_48" />
