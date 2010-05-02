@@ -10,6 +10,18 @@ SELECT apopen_id, apopen_ponumber, apopen_docnumber,
                     vend_number, vend_name,
                     apopen_invcnumber AS invoicenumber,
                     apopen_docdate, apopen_duedate, apopen_amount, apopen_status, 
+<? if exists("includeFormatted") ?>
+                    formatDate(apopen_docdate) AS f_docdate, 
+                    formatDate(apopen_duedate) AS f_duedate, 
+                    formatMoney(apopen_amount) AS f_amount,
+                    formatMoney(apopen_paid - COALESCE(SUM(apapply_target_paid),0)) AS f_paid,
+                    formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) * 
+                    CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1 
+                    END) AS f_balance,
+                    formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) 
+                    / apopen_curr_rate * (CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1 
+                         END)) AS f_base_balance,
+<? endif ?>
                     apopen_paid - COALESCE(SUM(apapply_target_paid),0) AS paid,
                     (apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) * 
                     CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1 
