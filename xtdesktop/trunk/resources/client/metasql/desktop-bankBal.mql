@@ -1,7 +1,7 @@
 -- Group: desktop
 -- Name:  bankBal
 -- Notes: 
-SELECT accnt_id, bankaccnt_name, trialbal_ending * -1 AS balance,
+SELECT bankaccnt_id, bankaccnt_name, trialbal_ending * -1 AS balance,
   'curr' AS balance_xtnumericrole
 FROM bankaccnt
  JOIN accnt ON (bankaccnt_accnt_id=accnt_id)
