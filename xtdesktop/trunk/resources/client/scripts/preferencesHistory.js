@@ -52,6 +52,17 @@ function set(params)
 
       mywindow.windowTitle = qsTr("Purchase History Preferences");
     }
+    else if (_path == "desktop/mfgHist")
+    {
+      _type.append(0, qsTr("Receipts"), "receipts");
+      _type.enabled = false;
+
+      _groupBy.append(0, qsTr("Class Code"), "classcode");
+      _groupBy.append(1, qsTr("Item"), "item");
+      _groupBy.append(2, qsTr("Planner Code"), "plancode");
+
+      mywindow.windowTitle = qsTr("Manufacture History Preferences");
+    }
   }
 
   if ("type" in params)
