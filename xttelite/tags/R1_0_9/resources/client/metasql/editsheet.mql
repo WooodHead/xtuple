@@ -1,0 +1,5 @@
+-- Group: te
+-- Name: editsheet
+-- Notes: 
+
+select te.addsheet(<? value("weekendingdate") ?>,<? value("workdate") ?>,getitemid(<? value("items") ?>),getempid(<? value("employees") ?>),<? value("po") ?>,<? value("clients") ?>,<? value("hours") ?>,<? value("rate") ?>,<? value("total") ?>, (select tehead_id from te.tehead where tehead_number = <? value("sheet") ?> ),null,getprjid(<? value("project") ?>),(select prjtask_id from prjtask where prjtask_prj_id = (getprjid(<? value("project") ?>)) and prjtask_name = <? value("task") ?>),<? value("type") ?>,<? value("line") ?> )
