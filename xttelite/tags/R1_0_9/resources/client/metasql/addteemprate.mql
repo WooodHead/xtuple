@@ -1,0 +1,5 @@
+-- Group: te
+-- Name: addteemprate
+-- Notes: 
+
+select te.addteemprate(<? value("empid") ?>,<? value("rate") ?>);
