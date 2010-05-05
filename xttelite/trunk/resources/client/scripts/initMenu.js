@@ -2,7 +2,7 @@
 var crmMenu = mainwindow.findChild("menu.crm.projects");
 crmMenu.addSeparator();
 
-var tesheetAction = crmMenu.addAction(qsTr("Time Sheets..."), mainwindow);
+var tesheetAction = crmMenu.addAction(qsTr("Time and Expense..."), mainwindow);
 tesheetAction.objectName = "pm.timesheets";
 tesheetAction.setData("MaintainTimeExpense");
 tesheetAction.enabled = privileges.value("MaintainTimeExpense");
