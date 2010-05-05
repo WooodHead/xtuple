@@ -14,6 +14,7 @@
 #include <QSqlError>
 #include <QVariant>     // used by XSqlQuery::bindValue()
 
+#include "metasql.h"
 #include "xsqlquery.h"
 
 #define DEBUG false
@@ -114,35 +115,43 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
   else if (! _schema.isEmpty())
     destschema = _schema;
 
-  XSqlQuery upsert;
+  XSqlQuery gradedsavepoint("SAVEPOINT savemetasql_graded;");
+  MetaSQLQuery upsertm("SELECT saveMetasql(<? value('group') ?>,"
+                       "       <? value('name') ?>,   <? value('notes') ?>,"
+                       "       <? value('query') ?>,"
+                       "       CAST(<? value('system') ?> AS BOOLEAN),"
+                       "       <? value('schema') ?>"
+                       "<? if not exists('skipgrade') ?>"
+                       "        , <? value('grade') ?>"
+                       "<? endif ?>"
+                       ") AS result;");
+  ParameterList upsertp;
+  upsertp.append("group", _group);
+  upsertp.append("name",  _name);
+  upsertp.append("notes", _comment);
+  upsertp.append("query", metasqlStr);
+  upsertp.append("system",_system);
+  upsertp.append("schema",destschema);
+  upsertp.append("grade", _grade);
+
   int metasqlid = -1;
 
-  upsert.prepare("SELECT saveMetasql(:group, :name, :notes, :query, "
-                 "                   :system, :schema, :grade) AS result;");
-  upsert.bindValue(":group", _group);
-  upsert.bindValue(":name",  _name);
-  upsert.bindValue(":notes", _comment);
-  upsert.bindValue(":query", metasqlStr);
-  upsert.bindValue(":system",_system);
-  upsert.bindValue(":schema",destschema);
-  upsert.bindValue(":grade", _grade);
-
-  upsert.exec();
+  XSqlQuery upsert = upsertm.toQuery(upsertp);
   if (upsert.first())
-  {
     metasqlid = upsert.value(0).toInt();
-    if (metasqlid < 0)
-    {
-      errMsg = TR("The %1 stored procedure failed, returning %2.")
-                .arg("saveMetasql").arg(metasqlid);
-      return -5;
-    }
-  }
   else if (upsert.lastError().type() != QSqlError::NoError)
   {
-    QSqlError err = upsert.lastError();
-    errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
-    return -6;
+    XSqlQuery gradedrollback("ROLLBACK TO SAVEPOINT savemetasql_graded;");
+    upsertp.append("skipgrade");
+    upsert = upsertm.toQuery(upsertp);
+    if (upsert.first())
+      metasqlid = upsert.value(0).toInt();
+    if (upsert.lastError().type() != QSqlError::NoError)
+    {
+      QSqlError err = upsert.lastError();
+      errMsg = _sqlerrtxt.arg(_filename).arg(err.driverText()).arg(err.databaseText());
+      return -6;
+    }
   }
   else
   {
@@ -150,6 +159,15 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
                 "not be possible.");
     return -6;
   }
+
+  if (metasqlid < 0)
+  {
+    errMsg = TR("The %1 stored procedure failed, returning %2.")
+              .arg("saveMetasql").arg(metasqlid);
+    return -5;
+  }
+  else
+    XSqlQuery gradedrelease("RELEASE SAVEPOINT savemetasql_graded;");
 
   if (DEBUG)
     qDebug("LoadMetasql::writeToDB() executed %s and got %d in return",
