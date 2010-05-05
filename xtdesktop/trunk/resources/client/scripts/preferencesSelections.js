@@ -22,7 +22,7 @@ function set(params)
   accntList = pref.split(",");
   for (i in accntList)  
   {
-    _gl.setId(accntList[i]);
+    _gl.setId(accntList[i], false);
   }
 }
 

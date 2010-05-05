@@ -12,6 +12,7 @@ var _b1GLAccounts;
 var _b2GLAccounts;
 var _dockGLAccounts;
 var _glAccounts;
+var _periodId = -1;
 
 /*!
   Initializes Monitored Accounts dock widget and places it in the main window.
@@ -95,7 +96,12 @@ function fillListGLAccounts()
   params.equity = qsTr("Equity");
   params.accnt_id_list = preferences.value("MonitoredAccounts");
 
-  _glAccounts.populate(toolbox.executeDbQuery("desktop","glaccountBal", params));
+  var qry = toolbox.executeDbQuery("desktop","glaccountBal", params);
+  if (qry.first())
+  {
+    _periodId = qry.value("period_id");
+    _glAccounts.populate(qry);
+  }
 }
 
 /*! 
@@ -104,28 +110,17 @@ function fillListGLAccounts()
 function openWindowGLAccounts()
 {
   var ui;
-  var params = getDatesGLAccounts();
+  var params = new Object;
+  params.period_id = _periodId;
+  params.accnt_id = _glAccounts.id();
   params.run = true;
-
-  // TO DO: Work it out so totals launch a window too
-  if (_glAccounts.id() == -1)
-    return;
   
   // Make sure we can open the window
   if (!privilegeCheckGLAccounts())
     return;
 
-  // Determine which window to open
-  params.transtype = "R";
-  params.ordertype = "WO";
-  params.run = true;
-
   // Open the window and perform any special handling required
-  toolbox.openWindow(ui);
-  toolbox.lastWindow()._warehouse.setAll();
-  var dates = toolbox.lastWindow().findChild("_dates");
-  dates.setStartDate(params.startDate);
-  dates.setEndDate(params.endDate);
+  toolbox.openWindow("dspGLTransactions");
   toolbox.lastWindow().set(params);
 }
 
