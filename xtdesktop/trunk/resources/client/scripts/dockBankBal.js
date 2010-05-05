@@ -79,7 +79,7 @@ function populateMenuBankBal(pMenu, pItem)
   var menuItem;
   var enable = privilegeCheckBankBal();
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, enable);
+  menuItem = toolbox.menuAddAction(pMenu, qsTr("Reconcile..."), enable);
   menuItem.triggered.connect(openWindowBankBal);
 }
 
