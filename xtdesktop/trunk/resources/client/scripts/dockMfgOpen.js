@@ -16,9 +16,6 @@ var _mfgOpen;
 */
 function initDockMfgOpen()
 {
-  if (!privileges.check("ViewWorkOrdersDock"))
-    return;
-
   _dockMfgOpen = mainwindow.findChild("_dockMfgOpen");
   _mfgOpen = mainwindow.findChild("_mfgOpen");
 
@@ -53,8 +50,19 @@ function initDockMfgOpen()
 
   _dockMfgOpen.visibilityChanged.connect(fillListMfgOpen);
 
-  if (!_hasSavedState)
-    fillListMfgOpen();
+  // Handle privilge control
+  var act = _dockMfgOpen.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewWorkOrdersDock"))
+  {
+    _dockMfgOpen.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewWorkOrdersDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

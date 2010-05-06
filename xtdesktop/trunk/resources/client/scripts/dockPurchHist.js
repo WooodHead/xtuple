@@ -22,9 +22,6 @@ var _purchHist;
 */
 function initDockPurchHist()
 {
-  if (!privileges.check("ViewPurchaseHistoryDock"))
-    return;
-
   // Set up objects
   _dockPurchHist = mainwindow.findChild("_dockPurchHist");
   _purchHist = mainwindow.findChild("_purchHist");
@@ -66,8 +63,19 @@ function initDockPurchHist()
 
   _dockPurchHist.visibilityChanged.connect(fillListPurchHist);
 
-  if (!_hasSavedState)
-    fillListPurchHist();
+  // Handle privilge control
+  var act = _dockPurchHist.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewPurchaseHistoryDock"))
+  {
+    _dockPurchHist.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewPurchaseHistoryDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

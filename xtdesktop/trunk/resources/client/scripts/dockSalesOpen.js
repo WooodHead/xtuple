@@ -16,9 +16,6 @@ var _salesOpen;
 */
 function initDockSalesOpen()
 {
-  if (!privileges.check("ViewSalesOrdersDock"))
-    return;
-
   _dockSalesOpen = mainwindow.findChild("_dockSalesOpen");
   _salesOpen = mainwindow.findChild("_salesOpen");
 
@@ -46,8 +43,19 @@ function initDockSalesOpen()
 
   _dockSalesOpen.visibilityChanged.connect(fillListSalesOpen);
 
-  if (!_hasSavedState)
-    fillListSalesOpen();
+  // Handle privilge control
+  var act = _dockSalesOpen.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewSalesOrdersDock"))
+  {
+    _dockSalesOpen.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewSalesOrdersDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

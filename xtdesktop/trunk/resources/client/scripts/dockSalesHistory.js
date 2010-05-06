@@ -22,9 +22,6 @@ var _salesHist;
 */
 function initDockSalesHist()
 {
-  if (!privileges.check("ViewSalesHistoryDock"))
-    return;
-
   // Set up objects
   _dockSalesHist = mainwindow.findChild("_dockSalesHist");
   _salesHist = mainwindow.findChild("_salesHist");
@@ -68,8 +65,19 @@ function initDockSalesHist()
 
   _dockSalesHist.visibilityChanged.connect(fillListSalesHist);
 
-  if (!_hasSavedState)
-    fillListSalesHist();
+  // Handle privilge control
+  var act = _dockSalesHist.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewSalesHistoryDock"))
+  {
+    _dockSalesHist.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewSalesHistoryDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

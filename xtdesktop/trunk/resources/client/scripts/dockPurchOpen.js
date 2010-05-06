@@ -16,9 +16,6 @@ var _purchOpen;
 */
 function initDockPurchOpen()
 {
-  if (!privileges.check("ViewPurchaseOrdersDock"))
-    return;
-
   _dockPurchOpen = mainwindow.findChild("_dockPurchOpen");
   _purchOpen = mainwindow.findChild("_purchOpen");
 
@@ -46,8 +43,19 @@ function initDockPurchOpen()
 
   _dockPurchOpen.visibilityChanged.connect(fillListPurchOpen);
 
-  if (!_hasSavedState)
-    fillListPurchOpen();
+  // Handle privilge control
+  var act = _dockPurchOpen.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewPurchaseOrdersDock"))
+  {
+    _dockPurchOpen.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewPurchaseOrdersDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

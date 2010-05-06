@@ -16,9 +16,6 @@ var _todoList;
 */
 function initDockTodo()
 {
-  if (!privileges.check("ViewTodoDock"))
-    return;
-
   _dockMytodo = mainwindow.findChild("_dockMytodo");
   _todoList = mainwindow.findChild("_todoList");
 
@@ -47,8 +44,19 @@ function initDockTodo()
 
   _dockMytodo.visibilityChanged.connect(fillListToDo);
 
-  if (!_hasSavedState)
-    fillListToDo();
+  // Handle privilge control
+  var act = _dockMytodo.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewTodoDock"))
+  {
+    _dockMytodo.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewTodoDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

@@ -16,9 +16,6 @@ var _accountList;
 */
 function initDockAccounts()
 {
-  if (!privileges.check("ViewMyAccountsDock"))
-    return;
-
   _dockMyaccounts = mainwindow.findChild("_dockMyaccounts");
   _accountList = mainwindow.findChild("_accountList");
 
@@ -43,8 +40,19 @@ function initDockAccounts()
 
   _dockMyaccounts.visibilityChanged.connect(fillListMyAccts);
 
-  if (!_hasSavedState)
-    fillListMyAccts();
+  // Handle privilge control
+  var act = _dockMyaccounts.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewMyAccountsDock"))
+  {
+    _dockMyaccounts.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewMyAccountsDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!
