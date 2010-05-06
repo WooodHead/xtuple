@@ -17,7 +17,7 @@ DECLARE
   _item RECORD;
 
 BEGIN
-  RETURN customerCanPurchase(pitemid, pCustid, -1, CURRENT_DATE);
+  RETURN customerCanPurchase(pitemid, pCustid, pShiptoid, CURRENT_DATE);
 END;
 $$ LANGUAGE 'plpgsql';
 
