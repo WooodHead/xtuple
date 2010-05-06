@@ -10,6 +10,7 @@
 debugger;
 // Import code from related scripts
 include("dockBankBal");
+include("dockGLAccounts")
 include("dockMfgActive");
 include("dockMfgHist");
 include("dockMfgOpen");
@@ -33,6 +34,7 @@ var _bottomAreaDocks = new Array();
 var _hasSavedState = settingsValue("hasSavedState").length > 0;
 var _vToolBar;
 var _vToolBarActions = new Array();
+var _menuDesktop = new QMenu(mainwindow);
 
 // Add desktop to main window
 if (preferences.value("InterfaceWindowOption") != "Workspace")
@@ -49,12 +51,14 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
   _vToolBar.floatable = false;
   _vToolBar.movable = false;
   _vToolBar.visible = true;
-  _vToolBar.toolButtonStyle = 3;
-  mainwindow.addToolBar(0x1, _vToolBar);
+  _vToolBar.toolButtonStyle = Qt.ToolButtonTextUnderIcon;
+  mainwindow.addToolBar(Qt.LeftToolBarArea, _vToolBar);
 
   // Set the desktop
   // TODO: The QStackedWidget prototype doesn't work for this.  Why?
   _desktopStack = toolbox.createWidget("QStackedWidget", mainwindow, "_desktopStack");
+  //_desktopStack = new QStackedWidget(mainwindow);
+  //_desktopStack.objectName = "_desktopStack";
   mainwindow.setCentralWidget(_desktopStack);
 
   // Initialize Desktop
@@ -70,32 +74,34 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
 
   // Initialize additional desktop UIs and Dock Widgets
   // (Init functions come from the code pulled in by the include statements)
-  addDesktop("desktopCRM", "clients_32");
+  var _crmWin = addDesktop("desktopCRM", "clients_32", "ViewCRMDesktop");
   initDockTodo();
   initDockAccounts();
   initDockMyCntcts();
 
-  addDesktop("desktopSales", "reward_32");
+  var _salesWin = addDesktop("desktopSales", "reward_32", "ViewSalesDesktop");
   initDockSalesAct();
   initDockSalesHist();
   initDockSalesOpen();
 
-  addDesktop("desktopAccounting", "accounting_32");
+  var _acctWin = addDesktop("desktopAccounting", "accounting_32", "ViewAccountingDesktop");
   initDockPayables();
   initDockReceivables();
   initDockBankBal();
- 
-  addDesktop("desktopPurchase", "order_32");
+  initDockGLAccounts();
+
+  var _purchWin = addDesktop("desktopPurchase", "order_32", "ViewPurchaseDesktop");
   initDockPurchAct();
   initDockPurchHist();
   initDockPurchOpen();
 
-  addDesktop("desktopManufacture", "industry_32");
+  var _mfgWin = addDesktop("desktopManufacture", "industry_32", "ViewManufactureDesktop");
   initDockMfgAct();
   initDockMfgHist();
   initDockMfgOpen();
 
-  addDesktop("desktopMaintenance", "gear_32");
+  var _MaintWin = new QMainWindow;
+  addDesktop("desktopMaintenance", "gear_32", "ViewMaintenanceDesktop");
 
   // Window state will save when application closes so next time we'll have this
   settingsSetValue("hasSavedState", true);
@@ -107,36 +113,38 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
   added to the Desktop Dock so that when it is clicked, the associated window is 
   selected on the Desktop.
 */
-function addDesktop(uiName, imageName)
+function addDesktop(uiName, imageName, privilege)
 {
-/*
-  if (!privileges.check(privName))
-    return;
-*/
-
   // Get the UI and add to desktop stack
   var desktop = toolbox.loadUi(uiName);
   _desktopStack.addWidget(desktop);
-  addToolBarAction(desktop.windowTitle, imageName);
+  addToolBarAction(desktop.windowTitle, imageName, privilege);
+
+  return desktop;
 }
 
 /*!
   Add a buttun with \a label and \a imageName to the left desktop toolbar
 */
-function addToolBarAction(label, imageName)
+function addToolBarAction(label, imageName, privilege)
 {
+  // Get the icon
   var icn = new QIcon();
   icn.addDbImage(imageName);
 
-  var act = new QAction(mainwindow);
-  act.text = label;
-  act.icon = icn;
+  // Create the action (add to menu not seen to ensure priv rescans work)
+  var act = _menuDesktop.addAction(icn, label);
   act.checkable = true;
+  if (privilege)
+  {
+    act.setEnabled(privileges.check(privilege));
+    act.setData(privilege);
+  }
 
+  // Add to toolbar
   _vToolBar.addAction(act);
   _vToolBarActions[_vToolBarActions.length] = act;
   _vToolBar["actionTriggered(QAction*)"].connect(toolbarActionTriggered);
- 
 }
 
 /*!
