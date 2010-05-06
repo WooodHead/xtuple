@@ -16,9 +16,6 @@ var _salesAct;
 */
 function initDockSalesAct()
 {
-  if (!privileges.check("ViewSalesActivitiesDock"))
-    return;
-
   _dockSalesAct = mainwindow.findChild("_dockSalesAct");
   _salesAct = mainwindow.findChild("_salesAct");
 
@@ -40,8 +37,19 @@ function initDockSalesAct()
 
   _dockSalesAct.visibilityChanged.connect(fillListSalesAct);
 
-  if (!_hasSavedState)
-    fillListSalesAct();
+  // Handle privilge control
+  var act = _dockSalesAct.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewSalesActivitiesDock"))
+  {
+    _dockSalesAct.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewSalesActivitiesDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

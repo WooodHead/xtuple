@@ -16,9 +16,6 @@ var _receivables;
 */
 function initDockPayables()
 {
-  if (!privileges.check("ViewPayablesDock"))
-    return;
-
   _dockPayables = mainwindow.findChild("_dockPayables");
   _ap = mainwindow.findChild("_ap");
   _ap.rootIsDecorated = false;
@@ -39,8 +36,19 @@ function initDockPayables()
 
   _dockPayables.visibilityChanged.connect(fillListPayables);
 
-  if (!_hasSavedState)
-    fillListPayables();
+  // Handle privilge control
+  var act = _dockPayables.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewPayablesDock"))
+  {
+    _dockPayables.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewPayablesDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

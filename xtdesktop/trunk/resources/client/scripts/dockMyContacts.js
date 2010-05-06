@@ -16,9 +16,6 @@ var _contactList;
 */
 function initDockMyCntcts()
 {
-  if (!privileges.check("ViewMyContactsDock"))
-    return;
-
   _dockMycontacts = mainwindow.findChild("_dockMycontacts");
   _contactList = mainwindow.findChild("_contactList");
 
@@ -39,14 +36,22 @@ function initDockMyCntcts()
   _contactList.itemSelected.connect(openWindowMyCntcts);
   _contactList["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
     .connect(populateMenuMyCntcts);
-/*
-  // Add to array to tabify later if need be
-  _bottomAreaDocks[_bottomAreaDocks.length]=_dockMycontacts;
-*/
+
   _dockMycontacts.visibilityChanged.connect(fillListMyCntcts);
 
-  if (!_hasSavedState)
-    fillListMyCntcts();
+  // Handle privilge control
+  var act = _dockMycontacts.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewMyContactsDock"))
+  {
+    _dockMycontacts.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewMyContactsDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

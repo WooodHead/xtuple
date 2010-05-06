@@ -22,9 +22,6 @@ var _mfgHist;
 */
 function initDockMfgHist()
 {
-  if (!privileges.check("ViewManufactureHistoryDock"))
-    return;
-
   // Set up objects
   _dockMfgHist = mainwindow.findChild("_dockMfgHist");
   _mfgHist = mainwindow.findChild("_mfgHist");
@@ -66,8 +63,19 @@ function initDockMfgHist()
 
   _dockMfgHist.visibilityChanged.connect(fillListMfgHist);
 
-  if (!_hasSavedState)
-    fillListMfgHist();
+  // Handle privilge control
+  var act = _dockMfgHist.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewManufactureHistoryDock"))
+  {
+    _dockMfgHist.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewManufactureHistoryDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

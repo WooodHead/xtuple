@@ -16,9 +16,6 @@ var _PurchAct;
 */
 function initDockPurchAct()
 {
-  if (!privileges.check("ViewPurchaseActivitiesDock"))
-    return;
-
   _dockPurchAct = mainwindow.findChild("_dockPurchAct");
   _purchAct = mainwindow.findChild("_purchAct");
 
@@ -39,6 +36,20 @@ function initDockPurchAct()
     .connect(populateMenuPurchAct);
 
   _dockPurchAct.visibilityChanged.connect(fillListPurchAct);
+
+  // Handle privilge control
+  var act = _dockPurchAct.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewPurchaseActivitiesDock"))
+  {
+    _dockPurchAct.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewPurchaseActivitiesDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

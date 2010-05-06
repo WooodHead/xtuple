@@ -16,9 +16,6 @@ var _receivables;
 */
 function initDockReceivables()
 {
-  if (!privileges.check("ViewReceivablesDock"))
-    return;
-
   _dockReceivables = mainwindow.findChild("_dockReceivables");
   _ar = mainwindow.findChild("_ar");
   _ar.rootIsDecorated = false;
@@ -39,8 +36,19 @@ function initDockReceivables()
 
   _dockReceivables.visibilityChanged.connect(fillListReceivables);
 
-  if (!_hasSavedState)
-    fillListReceivables();
+  // Handle privilge control
+  var act = _dockReceivables.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewReceivablesDock"))
+  {
+    _dockReceivables.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewReceivablesDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

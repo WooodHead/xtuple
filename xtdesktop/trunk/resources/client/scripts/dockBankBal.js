@@ -16,9 +16,6 @@ var _BankBal;
 */
 function initDockBankBal()
 {
-  if (!privileges.check("ViewBankAccountsDock"))
-    return;
-
   _dockBankBal = mainwindow.findChild("_dockBankBal");
   _bankBal = mainwindow.findChild("_bankBal");
 
@@ -39,8 +36,19 @@ function initDockBankBal()
 
   _dockBankBal.visibilityChanged.connect(fillListBankBal);
 
-  if (!_hasSavedState)
-    fillListBankBal();
+  // Handle privilge control
+  var act = _dockBankBal.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewBankAccountsDock"))
+  {
+    _dockBankBal.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewBankAccountsDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

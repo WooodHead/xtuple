@@ -19,9 +19,6 @@ var _periodId = -1;
 */
 function initDockGLAccounts()
 {
-  if (!privileges.check("ViewGLAccountsDock"))
-    return;
-
   // Set up objects
   _dockGLAccounts = mainwindow.findChild("_dockGLAccounts");
   _glAccounts = mainwindow.findChild("_glAccounts");
@@ -72,6 +69,20 @@ function initDockGLAccounts()
     .connect(populateMenuGLAccounts);
 
   _dockGLAccounts.visibilityChanged.connect(fillListGLAccounts);
+
+  // Handle privilge control
+  var act = _dockGLAccounts.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewGLAccountsDock"))
+  {
+    _dockGLAccounts.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewGLAccountsDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!

@@ -39,6 +39,20 @@ function initDockMfgAct()
     .connect(populateMenuMfgAct);
 
   _dockMfgAct.visibilityChanged.connect(fillListMfgAct);
+
+  // Handle privilge control
+  var act = _dockGLAccounts.toggleViewAction();
+
+  // Don't show if no privs
+  if (!privileges.check("ViewManufactureActivitiesDock"))
+  {
+    _dockMfgAct.hide();
+    act.enabled = false;
+  }
+
+  // Allow rescan to let them show if privs granted
+  act.setData("ViewManufactureActivitiesDock");
+  _menuDesktop.appendAction(act);
 }
 
 /*!
