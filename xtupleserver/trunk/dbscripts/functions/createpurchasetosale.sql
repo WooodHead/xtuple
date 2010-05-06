@@ -256,6 +256,16 @@ BEGIN
         COALESCE(_i.itemsrc_manuf_item_descrip, TEXT('')), _taxtypeid );
   END IF;
 
+  -- Copy characteristics from the coitem to the poitem
+  INSERT INTO charass
+    ( charass_target_type, charass_target_id, charass_char_id,
+      charass_value, charass_default, charass_price )
+  SELECT 'PI', _poitemid, charass_char_id,
+         charass_value, charass_default, charass_price
+  FROM charass
+  WHERE ( (charass_target_type='SI')
+    AND   (charass_target_id=pCoitemId) );
+
   UPDATE coitem
   SET coitem_order_type = 'P',
       coitem_order_id = _poitemid
