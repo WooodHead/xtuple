@@ -75,35 +75,42 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
 
   // Initialize additional desktop UIs and Dock Widgets
   // (Init functions come from the code pulled in by the include statements)
-  var _crmWin = addDesktop("desktopCRM", "clients_32", "ViewCRMDesktop");
+  addDesktop("desktopCRM", "clients_32", "ViewCRMDesktop");
   initDockTodo();
   initDockAccounts();
   initDockMyCntcts();
 
-  var _salesWin = addDesktop("desktopSales", "reward_32", "ViewSalesDesktop");
+  addDesktop("desktopSales", "reward_32", "ViewSalesDesktop");
   initDockSalesAct();
   initDockSalesHist();
   initDockSalesOpen();
 
-  var _acctWin = addDesktop("desktopAccounting", "accounting_32", "ViewAccountingDesktop");
+  addDesktop("desktopAccounting", "accounting_32", "ViewAccountingDesktop");
   initDockPayables();
   initDockReceivables();
   initDockBankBal();
   initDockGLAccounts();
 
-  var _purchWin = addDesktop("desktopPurchase", "order_32", "ViewPurchaseDesktop");
+  addDesktop("desktopPurchase", "order_32", "ViewPurchaseDesktop");
   initDockPurchAct();
   initDockPurchHist();
   initDockPurchOpen();
 
-  var _mfgWin = addDesktop("desktopManufacture", "industry_32", "ViewManufactureDesktop");
+  addDesktop("desktopManufacture", "industry_32", "ViewManufactureDesktop");
   initDockMfgAct();
   initDockMfgHist();
   initDockMfgOpen();
 
-  var _MaintWin = new QMainWindow;
   addDesktop("desktopMaintenance", "gear_32", "ViewMaintenanceDesktop");
   initDockUserOnline();
+
+  // Change behavior of item site button if commercial edition
+  if (!metrics.value("Application") != "PostBooks")
+  {
+    var button = mainwindow.findChild("_sites");
+    button.label = qsTr("Sites");
+    button.actionName = "im.warehouses";
+  }
 
   // Window state will save when application closes so next time we'll have this
   settingsSetValue("hasSavedState", true);
