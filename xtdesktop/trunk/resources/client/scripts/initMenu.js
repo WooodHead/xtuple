@@ -25,6 +25,7 @@ include("dockReceivables");
 include("dockSalesActive");
 include("dockSalesHistory");
 include("dockSalesOpen");
+include("dockUserOnline");
 
 var _desktopStack;
 var _open = qsTr("Open...");
@@ -102,6 +103,7 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
 
   var _MaintWin = new QMainWindow;
   addDesktop("desktopMaintenance", "gear_32", "ViewMaintenanceDesktop");
+  initDockUserOnline();
 
   // Window state will save when application closes so next time we'll have this
   settingsSetValue("hasSavedState", true);
