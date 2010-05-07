@@ -654,14 +654,14 @@ p, li { white-space: pre-wrap; }
     </layout>
    </widget>
   </widget>
-  <widget class="QDockWidget" name="_dockUsrOnline">
+  <widget class="QDockWidget" name="_dockUserOnline">
    <property name="windowTitle">
     <string>Users Online</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>8</number>
    </attribute>
-   <widget class="QWidget" name="_dockUsrOnlineContents">
+   <widget class="QWidget" name="_dockUserOnlineContents">
     <layout class="QGridLayout" name="gridLayout_10">
      <property name="leftMargin">
       <number>0</number>
@@ -679,7 +679,7 @@ p, li { white-space: pre-wrap; }
       <number>3</number>
      </property>
      <item row="0" column="0" colspan="2">
-      <widget class="XTreeWidget" name="_usrOnline"/>
+      <widget class="XTreeWidget" name="_userOnline"/>
      </item>
     </layout>
    </widget>

@@ -37,6 +37,9 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
  <loadpriv      name="ViewBankAccountsDock" module="Desktop">
    Allows the user to view the Bank Accounts dock widget on the Desktop
  </loadpriv>
+ <loadpriv      name="ViewGLAccountsDock" module="Desktop">
+   Allows the user to view Monitored General Ledger Accounts dock widget on the Desktop
+ </loadpriv>
  <loadpriv      name="ViewManufactureActivitiesDock" module="Desktop">
    Allows the user to view the Manufacture Activities dock widget on the Desktop
  </loadpriv>
@@ -78,6 +81,9 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
  </loadpriv>
   <loadpriv      name="ViewWorkOrdersDock" module="Desktop">
    Allows the user to view the Work Orders dock widget on the Desktop
+ </loadpriv>
+ <loadpriv      name="ViewUsersOnlineDock" module="Desktop">
+   Allows the user to view the Users Online doc
  </loadpriv>
  
  <loadpriv      name="ViewCRMDesktop" module="Desktop">
@@ -152,28 +158,28 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
   <loadimage      file="images/industry_32.png" name="industry_32" />
   <loadimage      file="images/gear_32.png" name="gear_32" />
 
-  <loadimage      file="images/abacus_48.png" name="abacus_48" />
-  <loadimage      file="images/abacus_add_48.png" name="abacus_add_48" />
-  <loadimage      file="images/abacus_back_48.png" name="abacus_back_48" />
-  <loadimage      file="images/abacus_cancel_48.png" name="abacus_cancel_48" />
-  <loadimage      file="images/abacus_clock_48.png" name="abacus_clock_48" />
-  <loadimage      file="images/abacus_close_48.png" name="abacus_close_48" />
-  <loadimage      file="images/abacus_down_48.png" name="abacus_down_48" />
-  <loadimage      file="images/abacus_fav_48.png" name="abacus_fav_48" />
-  <loadimage      file="images/abacus_help_48.png" name="abacus_help_48" />
-  <loadimage      file="images/abacus_info_48.png" name="abacus_info_48" />
-  <loadimage      file="images/abacus_level_48.png" name="abacus_level_48" />
-  <loadimage      file="images/abacus_lock_48.png" name="abacus_lock_48" />
-  <loadimage      file="images/abacus_next_48.png" name="abacus_next_48" />
-  <loadimage      file="images/abacus_ok_48.png" name="abacus_ok_48" />
-  <loadimage      file="images/abacus_refresh_48.png" name="abacus_refresh_48" />
-  <loadimage      file="images/abacus_reload_48.png" name="abacus_reload_48" />
-  <loadimage      file="images/abacus_remove_48.png" name="abacus_remove_48" />
-  <loadimage      file="images/abacus_search_48.png" name="abacus_search_48" />
-  <loadimage      file="images/abacus_unlock_48.png" name="abacus_unlock_48" />
-  <loadimage      file="images/abacus_up_48.png" name="abacus_up_48" />
-  <loadimage      file="images/abacus_write_48.png" name="abacus_write_48" />
-  <loadimage      file="images/abacus_zoom_48.png" name="abacus_zoom_48" />
+  <loadimage      file="images/script_48.png" name="script_48" />
+  <loadimage      file="images/script_add_48.png" name="script_add_48" />
+  <loadimage      file="images/script_back_48.png" name="script_back_48" />
+  <loadimage      file="images/script_cancel_48.png" name="script_cancel_48" />
+  <loadimage      file="images/script_clock_48.png" name="script_clock_48" />
+  <loadimage      file="images/script_close_48.png" name="script_close_48" />
+  <loadimage      file="images/script_down_48.png" name="script_down_48" />
+  <loadimage      file="images/script_fav_48.png" name="script_fav_48" />
+  <loadimage      file="images/script_help_48.png" name="script_help_48" />
+  <loadimage      file="images/script_info_48.png" name="script_info_48" />
+  <loadimage      file="images/script_level_48.png" name="script_level_48" />
+  <loadimage      file="images/script_lock_48.png" name="script_lock_48" />
+  <loadimage      file="images/script_next_48.png" name="script_next_48" />
+  <loadimage      file="images/script_ok_48.png" name="script_ok_48" />
+  <loadimage      file="images/script_refresh_48.png" name="script_refresh_48" />
+  <loadimage      file="images/script_reload_48.png" name="script_reload_48" />
+  <loadimage      file="images/script_remove_48.png" name="script_remove_48" />
+  <loadimage      file="images/script_search_48.png" name="script_search_48" />
+  <loadimage      file="images/script_unlock_48.png" name="script_unlock_48" />
+  <loadimage      file="images/script_up_48.png" name="script_up_48" />
+  <loadimage      file="images/script_write_48.png" name="script_write_48" />
+  <loadimage      file="images/script_zoom_48.png" name="script_zoom_48" />
   <loadimage      file="images/accounting_48.png" name="accounting_48" />
   <loadimage      file="images/accounting_add_48.png" name="accounting_add_48" />
   <loadimage      file="images/accounting_back_48.png" name="accounting_back_48" />
@@ -241,28 +247,28 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
   <loadimage      file="images/administrator_up_48.png" name="administrator_up_48" />
   <loadimage      file="images/administrator_write_48.png" name="administrator_write_48" />
   <loadimage      file="images/administrator_zoom_48.png" name="administrator_zoom_48" />
-  <loadimage      file="images/atm_48.png" name="atm_48" />
-  <loadimage      file="images/atm_add_48.png" name="atm_add_48" />
-  <loadimage      file="images/atm_back_48.png" name="atm_back_48" />
-  <loadimage      file="images/atm_cancel_48.png" name="atm_cancel_48" />
-  <loadimage      file="images/atm_clock_48.png" name="atm_clock_48" />
-  <loadimage      file="images/atm_close_48.png" name="atm_close_48" />
-  <loadimage      file="images/atm_down_48.png" name="atm_down_48" />
-  <loadimage      file="images/atm_fav_48.png" name="atm_fav_48" />
-  <loadimage      file="images/atm_help_48.png" name="atm_help_48" />
-  <loadimage      file="images/atm_info_48.png" name="atm_info_48" />
-  <loadimage      file="images/atm_level_48.png" name="atm_level_48" />
-  <loadimage      file="images/atm_lock_48.png" name="atm_lock_48" />
-  <loadimage      file="images/atm_next_48.png" name="atm_next_48" />
-  <loadimage      file="images/atm_ok_48.png" name="atm_ok_48" />
-  <loadimage      file="images/atm_refresh_48.png" name="atm_refresh_48" />
-  <loadimage      file="images/atm_reload_48.png" name="atm_reload_48" />
-  <loadimage      file="images/atm_remove_48.png" name="atm_remove_48" />
-  <loadimage      file="images/atm_search_48.png" name="atm_search_48" />
-  <loadimage      file="images/atm_unlock_48.png" name="atm_unlock_48" />
-  <loadimage      file="images/atm_up_48.png" name="atm_up_48" />
-  <loadimage      file="images/atm_write_48.png" name="atm_write_48" />
-  <loadimage      file="images/atm_zoom_48.png" name="atm_zoom_48" />
+  <loadimage      file="images/export_database_48.png" name="export_database_48" />
+  <loadimage      file="images/export_database_add_48.png" name="export_database_add_48" />
+  <loadimage      file="images/export_database_back_48.png" name="export_database_back_48" />
+  <loadimage      file="images/export_database_cancel_48.png" name="export_database_cancel_48" />
+  <loadimage      file="images/export_database_clock_48.png" name="export_database_clock_48" />
+  <loadimage      file="images/export_database_close_48.png" name="export_database_close_48" />
+  <loadimage      file="images/export_database_down_48.png" name="export_database_down_48" />
+  <loadimage      file="images/export_database_fav_48.png" name="export_database_fav_48" />
+  <loadimage      file="images/export_database_help_48.png" name="export_database_help_48" />
+  <loadimage      file="images/export_database_info_48.png" name="export_database_info_48" />
+  <loadimage      file="images/export_database_level_48.png" name="export_database_level_48" />
+  <loadimage      file="images/export_database_lock_48.png" name="export_database_lock_48" />
+  <loadimage      file="images/export_database_next_48.png" name="export_database_next_48" />
+  <loadimage      file="images/export_database_ok_48.png" name="export_database_ok_48" />
+  <loadimage      file="images/export_database_refresh_48.png" name="export_database_refresh_48" />
+  <loadimage      file="images/export_database_reload_48.png" name="export_database_reload_48" />
+  <loadimage      file="images/export_database_remove_48.png" name="export_database_remove_48" />
+  <loadimage      file="images/export_database_search_48.png" name="export_database_search_48" />
+  <loadimage      file="images/export_database_unlock_48.png" name="export_database_unlock_48" />
+  <loadimage      file="images/export_database_up_48.png" name="export_database_up_48" />
+  <loadimage      file="images/export_database_write_48.png" name="export_database_write_48" />
+  <loadimage      file="images/export_database_zoom_48.png" name="export_database_zoom_48" />
   <loadimage      file="images/attach_48.png" name="attach_48" />
   <loadimage      file="images/attach_add_48.png" name="attach_add_48" />
   <loadimage      file="images/attach_back_48.png" name="attach_back_48" />
