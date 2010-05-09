@@ -463,7 +463,11 @@ p, li { white-space: pre-wrap; }
       <number>0</number>
      </property>
      <item row="0" column="0">
-      <widget class="XTreeWidget" name="_mfgAct"/>
+      <widget class="XTreeWidget" name="_mfgAct">
+       <property name="populateLinear">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -493,7 +497,11 @@ p, li { white-space: pre-wrap; }
       <number>3</number>
      </property>
      <item row="0" column="0" colspan="3">
-      <widget class="XTreeWidget" name="_mfgHist"/>
+      <widget class="XTreeWidget" name="_mfgHist">
+       <property name="populateLinear">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="_label">
@@ -562,7 +570,11 @@ p, li { white-space: pre-wrap; }
       <number>0</number>
      </property>
      <item row="0" column="0">
-      <widget class="XTreeWidget" name="_mfgOpen"/>
+      <widget class="XTreeWidget" name="_mfgOpen">
+       <property name="populateLinear">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>

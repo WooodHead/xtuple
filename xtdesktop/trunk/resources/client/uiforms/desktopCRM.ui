@@ -431,7 +431,11 @@ p, li { white-space: pre-wrap; }
       <number>0</number>
      </property>
      <item row="0" column="0">
-      <widget class="XTreeWidget" name="_todoList"/>
+      <widget class="XTreeWidget" name="_todoList">
+       <property name="populateLinear">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -449,7 +453,11 @@ p, li { white-space: pre-wrap; }
       <number>0</number>
      </property>
      <item row="0" column="0">
-      <widget class="XTreeWidget" name="_contactList"/>
+      <widget class="XTreeWidget" name="_contactList">
+       <property name="populateLinear">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -467,7 +475,11 @@ p, li { white-space: pre-wrap; }
       <number>0</number>
      </property>
      <item row="0" column="0">
-      <widget class="XTreeWidget" name="_accountList"/>
+      <widget class="XTreeWidget" name="_accountList">
+       <property name="populateLinear">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>

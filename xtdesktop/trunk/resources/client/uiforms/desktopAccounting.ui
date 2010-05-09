@@ -428,7 +428,11 @@ p, li { white-space: pre-wrap; }
       <number>0</number>
      </property>
      <item row="0" column="0">
-      <widget class="XTreeWidget" name="_bankBal"/>
+      <widget class="XTreeWidget" name="_bankBal">
+       <property name="populateLinear">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -446,7 +450,11 @@ p, li { white-space: pre-wrap; }
       <number>0</number>
      </property>
      <item row="0" column="0">
-      <widget class="XTreeWidget" name="_ap"/>
+      <widget class="XTreeWidget" name="_ap">
+       <property name="populateLinear">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -464,7 +472,11 @@ p, li { white-space: pre-wrap; }
       <number>0</number>
      </property>
      <item row="0" column="0">
-      <widget class="XTreeWidget" name="_ar"/>
+      <widget class="XTreeWidget" name="_ar">
+       <property name="populateLinear">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -494,7 +506,11 @@ p, li { white-space: pre-wrap; }
       <number>3</number>
      </property>
      <item row="0" column="0" colspan="4">
-      <widget class="XTreeWidget" name="_glAccounts"/>
+      <widget class="XTreeWidget" name="_glAccounts">
+       <property name="populateLinear">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
      <item row="1" column="2">
       <widget class="QPushButton" name="_button1">
