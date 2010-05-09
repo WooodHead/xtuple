@@ -16,6 +16,8 @@ SELECT *,
             WHEN pkgitem_type='U' THEN <? value("uiform") ?>
             WHEN pkgitem_type='V' THEN <? value("view") ?>
             WHEN pkgitem_type='L' THEN <? value("folder") ?>
+            WHEN pkgitem_type='B' THEN <? value("database") ?>
+            WHEN pkgitem_type='C' THEN <? value("client") ?>
        ELSE pkgitem_type END AS pkgitem_type_qtdisplayrole
 FROM (
 ------ PACKAGE ------
@@ -65,7 +67,6 @@ SELECT pkghead_id AS pkgitem_id, 4 AS seq,
        '' AS pkgitem_descrip
   FROM pkghead
 UNION 
-/*
 SELECT image_id AS pkgitem_id, 5 AS seq,
        3 AS xtindentrole,
        nspname AS pkgname,
@@ -75,7 +76,7 @@ SELECT image_id AS pkgitem_id, 5 AS seq,
   FROM image
     JOIN pg_class ON (image.tableoid=pg_class.oid)
     JOIN pg_namespace ON (relnamespace=pg_namespace.oid)
-UNION */
+UNION 
 ------ METASQL ------
 SELECT pkghead_id AS pkgitem_id, 6 AS seq,
        2 AS xtindentrole,
@@ -226,7 +227,7 @@ SELECT pkghead_id AS pkgitem_id, 29 AS seq,
   FROM pkghead
 UNION
 SELECT c.oid AS pkgitem_id, 30 AS seq,
-       2 AS xtindentrole,
+       3 AS xtindentrole,
        nspname AS pkgname,
        'T' AS pkgitem_type,
        relname AS pkgitem_name,
