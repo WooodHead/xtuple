@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>886</width>
+    <height>554</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -474,7 +474,11 @@ p, li { white-space: pre-wrap; }
       <number>0</number>
      </property>
      <item row="0" column="0">
-      <widget class="XTreeWidget" name="_purchAct"/>
+      <widget class="XTreeWidget" name="_purchAct">
+       <property name="populateLinear">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -504,7 +508,11 @@ p, li { white-space: pre-wrap; }
       <number>3</number>
      </property>
      <item row="0" column="0" colspan="3">
-      <widget class="XTreeWidget" name="_purchHist"/>
+      <widget class="XTreeWidget" name="_purchHist">
+       <property name="populateLinear">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="_label">
@@ -573,7 +581,11 @@ p, li { white-space: pre-wrap; }
       <number>0</number>
      </property>
      <item row="0" column="0">
-      <widget class="XTreeWidget" name="_purchOpen"/>
+      <widget class="XTreeWidget" name="_purchOpen">
+       <property name="populateLinear">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
