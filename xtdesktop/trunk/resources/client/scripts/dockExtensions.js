@@ -21,7 +21,8 @@ function initDockExtensions()
 
   // Set columns on list
   _extensions.addColumn(qsTr("Name"), -1, Qt.AlignLeft, true, "pkgitem_name");
-  _extensions.addColumn(qsTr("Description"), -1, Qt.AlignLeft,  true, "pkgitem_descrip");
+  _extensions.addColumn(qsTr("Description"), -1, Qt.AlignLeft, false, "pkgitem_descrip");
+  _extensions.addColumn(qsTr("Type"), -1, Qt.AlignLeft, false, "pkgitem_type");
 
   // Connect Signals and Slots
   _dtTimer.timeout.connect(fillListExtensions);
@@ -85,76 +86,119 @@ function openWindowExtensions()
 {
   var ui;
   var run = false;
-  var act = _extensions.currentItem().rawValue("activity");
+  var type = _extensions.currentItem().rawValue("pkgitem_type");
+  var params = new Object;
+  params.mode = "view";
   
   // Make sure we can open the window for this activity
-  if (!privilegeCheckExtensions(act))
+  if (!privilegeCheckExtensions(type))
     return;
 
   // Determine which window to open
-  if (act == "Q")
+  if (type == "P")
   {
-    ui = "quotes";
-    run = true;
+    ui = "package";
+    params.pkghead_id = _extensions.id();
   }
-  else if (act == "O")
+  else if (type == "C")
   {
-    ui = "openSalesOrders";
-    run = true;
+    ui = "scriptEditor";
+    params.script_id = _extensions.id();
   }
-  else if (act == "P")
-    ui = "packingListBatch";
-  else if (act == "S")
+  else if (type == "D")
   {
-    ui = "maintainShipping";
-    run = true;
+    ui = "customCommand";
+    params.cmd_id = _extensions.id();
   }
-  else if (act == "B")
-    ui = "uninvoicedShipments";
-  else if (act == "I")
-    ui = "dspBillingSelections";
-  else if (act == "T")
-    ui = "unpostedInvoices";
+  else if (type == "I")
+  {
+    ui = "image";
+    params.image_id = _extensions.id();
+  }
+  else if (type == "M")
+    ui = "metasqls";
+  else if (type == "R")
+    ui = "reports";
+  else if (type == "U")
+  {
+    ui = "uiform";
+    params.uiform_id = _extensions.id();
+  }
 
   // Open the window and perform any handling required
-  toolbox.openWindow(ui);
-  if (run)
-    toolbox.lastWindow().sFillList();
+  win = toolbox.openWindow(ui);
+  if (type == "M")
+  {
+    win.hide();
+    win.findChild("_list").setId(_extensions.id());
+    win.sEdit();
+    win.close();
+  }
+  else if (type == "R")
+  {
+    win.hide();
+    win.findChild("_report").setId(_extensions.id());
+    win.sEdit();
+    win.close();
+  }
+  else if (type == "U")
+  {
+    win.hide();
+    toolbox.lastWindow().set(params);
+    win.sEdit();
+    win.close();
+  }
+  else
+  {
+    toolbox.lastWindow().set(params);
+    if (toolbox.lastWindow().exec())
+      fillListExtensions();
+  }
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on a Sales Activity item.
+  Adds actions to \a pMenu, typically from a right click on an Extension item.
 */
 function populateMenuExtensions(pMenu, pItem)
 {
   var menuItem;
-  var act = pItem.rawValue("activity");
-  var enable = privilegeCheckExtensions(act);
+  var type = pItem.rawValue("pkgitem_type");
+  var enable = privilegeCheckExtensions(type);
+
+  // If not a type we have an editor for get out
+  if ((type != "P") &&
+      (type != "C") &&
+      (type != "D") &&
+      (type != "I") &&
+      (type != "M") &&
+      (type != "R") &&
+      (type != "U"))
+    return;
 
   menuItem = toolbox.menuAddAction(pMenu, _open, enable);
   menuItem.triggered.connect(openWindowExtensions);
 }
 
 /*!
-  Returns whether user has privileges to view detail on the selected Sales Activity.
+  Returns whether user has privileges to view detail on the selected extension type.
 */
-function privilegeCheckExtensions(act)
+function privilegeCheckExtensions(type)
 {
-  if (act == "Q") // Quote
-    return privileges.check("ViewQuotes") || 
-           privileges.check("MaintainQuotes")
-  else if (act == "O") // Open Sales Orders
-    return privileges.check("ViewSalesOrders") || 
-           privileges.check("MaintainSalesOrders");
-  else if (act == "P") // Packlist Batch
-    return privileges.check("ViewPackingListBatch") || 
-           privileges.check("MaintainPackingListBatch");
-  else if (act == "S") // Shipping
-    return privileges.check("ViewShipping");
-  else if (act == "B" || 
-           act == "I" || 
-           act == "T") // Billing, Invoicing
-    return privileges.check("SelectBilling");
+  if (type == "P")
+    return privileges.check("ViewPackages+#superuser")
+  else if (type == "C")
+    return privileges.check("MaintainScripts");
+  else if (type == "D") 
+    return privileges.check("MaintainCustomCommands");
+  else if (type == "I") 
+    return privileges.check("MaintainImages");
+  else if (type == "M")
+    return privileges.check("MaintainMetaSQL") ||
+           privileges.check("ViewMetaSQL");
+  else if (type == "R") 
+    return privileges.check("MaintainReports");
+  else if (type == "U")
+    return privileges.check("MaintainScreens");
 
   return false;
 }

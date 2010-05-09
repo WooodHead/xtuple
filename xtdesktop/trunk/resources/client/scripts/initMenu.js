@@ -10,6 +10,7 @@
 debugger;
 // Import code from related scripts
 include("dockBankBal");
+include("dockExtensions");
 include("dockGLAccounts")
 include("dockMfgActive");
 include("dockMfgHist");
@@ -102,6 +103,7 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
   initDockMfgOpen();
 
   addDesktop("desktopMaintenance", "gear_32", "ViewMaintenanceDesktop");
+  initDockExtensions();
   initDockUserOnline();
 
   // Change behavior of item site button if commercial edition
