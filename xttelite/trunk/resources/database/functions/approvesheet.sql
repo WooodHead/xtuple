@@ -28,13 +28,13 @@ _headid := pHeadID;
              from te.teitem
              where teitem_tehead_id = pHeadID
              and teitem_type = 'T'
-             and teitem_billable
+             --and teitem_billable
 	     union
              select teitem_linenumber,0 as qty,teitem_total as expense,teitem_prjtask_id as taskid
              from te.teitem
              where teitem_tehead_id = pHeadID
              and teitem_type = 'E'
-             and teitem_billable
+             --and teitem_billable
              order by teitem_linenumber) foobar
              group by taskid
           ) foo
