@@ -39,7 +39,7 @@ var _vToolBarActions = new Array();
 var _menuDesktop = new QMenu(mainwindow);
 
 // Add desktop to main window
-if (preferences.value("InterfaceWindowOption") != "Workspace")
+if (mainwindow.showTopLevel())
 {
   // Set up refresh timer
   _dtTimer = new QTimer(mainwindow);
@@ -58,9 +58,10 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
 
   // Set the desktop
   // TODO: The QStackedWidget prototype doesn't work for this.  Why?
-  _desktopStack = toolbox.createWidget("QStackedWidget", mainwindow, "_desktopStack");
   //_desktopStack = new QStackedWidget(mainwindow);
   //_desktopStack.objectName = "_desktopStack";
+
+  _desktopStack = toolbox.createWidget("QStackedWidget", mainwindow, "_desktopStack");
   mainwindow.setCentralWidget(_desktopStack);
 
   // Initialize Desktop
@@ -113,9 +114,11 @@ if (preferences.value("InterfaceWindowOption") != "Workspace")
     button.label = qsTr("Sites");
     button.actionName = "im.warehouses";
   }
-
-  // Window state will save when application closes so next time we'll have this
-  settingsSetValue("hasSavedState", true);
+}
+else
+{
+  if (!preferences.boolean("NoDesktopNotice"))
+    toolbox.openWindow("desktopNotice",mainwindow, Qt.WindowModal, Qt.Dialog);
 }
 
 /*!
