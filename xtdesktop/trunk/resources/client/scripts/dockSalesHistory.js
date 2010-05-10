@@ -16,6 +16,7 @@ var _timeFrameSalesHist;
 var _typeSalesHist;
 var _labelSalesHist;
 var _salesHist;
+var _salesHistIsDirty = true;
 
 /*!
   Initializes Sales History dock widget and places it in the main window.
@@ -53,11 +54,11 @@ function initDockSalesHist()
   fillListSalesHist();
 
   // Connect Signals and Slots
-  _b1SalesHist.clicked.connect(fillListSalesHist);
+  _b1SalesHist.clicked.connect(refreshSalesHist);
   _b2SalesHist.clicked.connect(preferencesSalesHist);
 
-  _dtTimer.timeout.connect(fillListSalesHist);
-  mainwindow.salesOrdersUpdated.connect(fillListSalesHist);
+  _dtTimer.timeout.connect(refreshSalesHist);
+  mainwindow.salesOrdersUpdated.connect(refreshSalesHist);
 
   _salesHist.itemSelected.connect(openWindowSalesHist);
   _salesHist["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -91,7 +92,7 @@ function fillListSalesHist()
   _dockSalesHist = mainwindow.findChild("_dockSalesHist");
   _salesHist = mainwindow.findChild("_salesHist");
 
-  if (!_dockSalesHist.visible)
+  if (!_dockSalesHist.visible && !_salesHistIsDirty)
     return;
 
   var timeFrame;
@@ -139,6 +140,8 @@ function fillListSalesHist()
     timeFrame = qsTr("this Year");
 
   _labelSalesHist.text = type + " " + timeFrame;
+
+  _salesHistIsDirty = false;
 }
 
 /*!
@@ -313,8 +316,15 @@ function preferencesSalesHist()
   {
     loadPreferencesSalesHist();
     setColumnsSalesHist();
-    fillListSalesHist();
+    refreshSalesHist();
   }
 }
 
-
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshSalesHist()
+{
+  _salesHistIsDirty = true;
+  fillListSalesHist();
+}

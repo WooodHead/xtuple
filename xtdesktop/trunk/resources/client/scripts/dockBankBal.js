@@ -9,7 +9,8 @@
  */
 
 var _dockBankBal;
-var _BankBal;
+var _bankBal;
+var _bankBalIsDirty = true;
 
 /*!
   Initializes Bank Balance dock widget and places it in the main window.
@@ -24,11 +25,11 @@ function initDockBankBal()
   _bankBal.addColumn(qsTr("Balance"), -1,  Qt.AlignRight,  true, "balance");
 
   // Connect Signals and Slots
-  _dtTimer.timeout.connect(fillListBankBal);
-  mainwindow.bankAdjustmentsUpdated.connect(fillListBankBal);
-  mainwindow.cashReceiptsUpdated.connect(fillListBankBal);
-  mainwindow.checksUpdated.connect(fillListBankBal);
-  mainwindow.glSeriesUpdated.connect(fillListBankBal);
+  _dtTimer.timeout.connect(refreshBankBal);
+  mainwindow.bankAdjustmentsUpdated.connect(refreshBankBal);
+  mainwindow.cashReceiptsUpdated.connect(refreshBankBal);
+  mainwindow.checksUpdated.connect(refreshBankBal);
+  mainwindow.glSeriesUpdated.connect(refreshBankBal);
 
   _bankBal.itemSelected.connect(openWindowBankBal);
   _bankBal["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -59,10 +60,11 @@ function fillListBankBal()
   _dockBankBal = mainwindow.findChild("_dockBankBal");
   _bankBal = mainwindow.findChild("_bankBal");
 
-  if (!_dockBankBal.visible)
-    return;
-
-  _bankBal.populate(toolbox.executeDbQuery("desktop","bankBal"));
+  if (_dockBankBal.visible && _bankBalIsDirty)
+  {
+    _bankBal.populate(toolbox.executeDbQuery("desktop","bankBal"));
+    _bankBalIsDirty = false;
+  }
 }
 
 /*! 
@@ -97,4 +99,13 @@ function populateMenuBankBal(pMenu, pItem)
 function privilegeCheckBankBal(act)
 {
   return privileges.check("MaintainBankRec");
+}
+
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshBankBal()
+{
+  _bankBalIsDirty = true;
+  fillListBankBal();
 }

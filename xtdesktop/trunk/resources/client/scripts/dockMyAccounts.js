@@ -10,6 +10,7 @@
 
 var _dockMyaccounts;
 var _accountList;
+var _accountListIsDirty = true;
 
 /*!
   Initializes the My Accounts dock widget and places it in the main window.
@@ -32,7 +33,9 @@ function initDockAccounts()
   _accountList.addColumn(qsTr("Postal Code"), XTreeWidget.docTypeColumn, Qt.AlignLeft  , false, "addr_postalcode" );
 
   // Connect signals and slots
-  mainwindow.crmAccountsUpdated.connect(fillListMyAccts);
+  mainwindow.crmAccountsUpdated.connect(refreshMyAccts);
+  mainwindow.customersUpdated.connect(refreshMyAccts);
+  mainwindow.vendorsUpdated.connect(refreshMyAccts);
 
   _accountList.itemSelected.connect(openWindowMyAccts);
   _accountList["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -63,12 +66,14 @@ function fillListMyAccts()
   _dockMyaccounts = mainwindow.findChild("_dockMyaccounts");
   _accountList = mainwindow.findChild("_accountList");
 
-  if (!_dockMyaccounts.visible)
+  if (!_dockMyaccounts.visible || !_accountListIsDirty)
     return;
 
   params = new Object;
   params.owner_username = mainwindow.username();
   _accountList.populate(toolbox.executeDbQuery("desktop", "crmaccounts", params));
+
+  _accountListIsDirty = false;
 }
 
 /*! 
@@ -111,4 +116,13 @@ function privilegeCheckMyAccts()
 {
   return privileges.check("MaintainCRMAccounts") ||
          privileges.check("ViewCRMAccounts");
+}
+
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshMyAccts()
+{
+  _accountListIsDirty = true;
+  fillListMyAccts();
 }

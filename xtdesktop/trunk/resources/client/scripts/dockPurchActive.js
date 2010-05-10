@@ -9,7 +9,8 @@
  */
 
 var _dockPurchAct;
-var _PurchAct;
+var _purchAct;
+var _purchActIsDirty = true;
 
 /*!
   Initializes Purch Activity dock widget and places it in the main window.
@@ -25,11 +26,11 @@ function initDockPurchAct()
   _purchAct.addColumn(qsTr("Amount"), -1,  Qt.AlignRight,  true, "amount");
 
   // Connect Signals and Slots
-  _dtTimer.timeout.connect(fillListPurchAct);
-  mainwindow.purchaseOrdersUpdated.connect(fillListPurchAct);
-  mainwindow.purchaseOrderReceiptsUpdated.connect(fillListPurchAct);
-  mainwindow.purchaseRequestsUpdated.connect(fillListPurchAct);
-  mainwindow.vouchersUpdated.connect(fillListPurchAct);
+  _dtTimer.timeout.connect(refreshPurchAct);
+  mainwindow.purchaseOrdersUpdated.connect(refreshPurchAct);
+  mainwindow.purchaseOrderReceiptsUpdated.connect(refreshPurchAct);
+  mainwindow.purchaseRequestsUpdated.connect(refreshPurchAct);
+  mainwindow.vouchersUpdated.connect(refreshPurchAct);
 
   _purchAct.itemSelected.connect(openWindowPurchAct);
   _purchAct["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -60,7 +61,7 @@ function fillListPurchAct()
   _dockPurchAct = mainwindow.findChild("_dockPurchAct");
   _purchAct = mainwindow.findChild("_purchAct");
 
-  if (!_dockPurchAct.visible)
+  if (!_dockPurchAct.visible || !_purchActIsDirty)
     return;
 
   var params = new Object;
@@ -77,6 +78,8 @@ function fillListPurchAct()
   params.vouchered = qsTr("Vouchered");
 
   _purchAct.populate(toolbox.executeDbQuery("desktop","purchAct", params));
+
+  _purchActIsDirty = false;
 }
 
 /*! 
@@ -176,4 +179,13 @@ function privilegeCheckPurchAct(act)
            privileges.check("MaintainVouchers");
 
   return false;
+}
+
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshPurchAct()
+{
+  _purchActIsDirty = true;
+  fillListPurchAct();
 }

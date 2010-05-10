@@ -10,6 +10,7 @@
 
 var _dockUserOnline;
 var _userOnline;
+var _userOnlineIsDirty = true;
 
 /*!
   Initializes Open Sales Order dock widget and places it in the main window.
@@ -29,9 +30,7 @@ function initDockUserOnline()
   _userOnline.addColumn(qsTr("Client Address"), -1,  Qt.AlignLeft, true, "client_addr");
 
   // Connect Signals and Slots
-  _dtTimer.timeout.connect(fillListUserOnline);
-  mainwindow.invoicesUpdated.connect(fillListUserOnline);
-  mainwindow.salesOrdersUpdated.connect(fillListUserOnline);
+  _dtTimer.timeout.connect(refreshUserOnline);
 
   _userOnline.itemSelected.connect(openWindowUserOnline);
   _userOnline["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -62,10 +61,11 @@ function fillListUserOnline()
   _dockUserOnline = mainwindow.findChild("_dockUserOnline");
   _userOnline = mainwindow.findChild("_userOnline");
 
-  if (!_dockUserOnline.visible)
+  if (!_dockUserOnline.visible || !_userOnlineIsDirty)
     return;
 
   _userOnline.populate(toolbox.executeDbQuery("desktop","userOnline"));
+  _userOnlineIsDirty = false;
 }
 
 /*! 
@@ -84,7 +84,7 @@ function openWindowUserOnline()
   var user = toolbox.openWindow("user");
   user.set(params);
   if (user.exec())
-    fillListUserOnline();
+    refreshUserOnline();
 }
 
 /*!
@@ -107,4 +107,13 @@ function privilegeCheckUserOnline()
   return privileges.check("MaintainUsers");
 
   return false;
+}
+
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshUserOnline()
+{
+  _userOnlineIsDirty = true;
+  fillListUserOnline();
 }

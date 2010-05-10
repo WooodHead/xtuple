@@ -10,6 +10,7 @@
 
 var _dockPurchOpen;
 var _purchOpen;
+var _purchOpenIsDirty = true;
 
 /*!
   Initializes Open Purchase Order dock widget and places it in the main window.
@@ -33,9 +34,9 @@ function initDockPurchOpen()
   _purchOpen.addColumn(qsTr("Amount"), XTreeWidget.moneyColumn,  Qt.AlignRight,  true, "amount");
 
   // Connect Signals and Slots
-  _dtTimer.timeout.connect(fillListPurchOpen);
-  mainwindow.purchaseOrderReceiptsUpdated.connect(fillListPurchOpen);
-  mainwindow.purchaseOrdersUpdated.connect(fillListPurchOpen);
+  _dtTimer.timeout.connect(refreshPurchOpen);
+  mainwindow.purchaseOrderReceiptsUpdated.connect(refreshPurchOpen);
+  mainwindow.purchaseOrdersUpdated.connect(refreshPurchOpen);
 
   _purchOpen.itemSelected.connect(openWindowPurchOpen);
   _purchOpen["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -66,7 +67,7 @@ function fillListPurchOpen()
   _dockPurchOpen = mainwindow.findChild("_dockPurchOpen");
   _purchOpen = mainwindow.findChild("_purchOpen");
 
-  if (!_dockPurchOpen.visible)
+  if (!_dockPurchOpen.visible || !_purchOpenIsDirty)
     return;
 
   var params = new Object;
@@ -74,6 +75,7 @@ function fillListPurchOpen()
   params.unreleased = qsTr("Unreleased");
 
   _purchOpen.populate(toolbox.executeDbQuery("desktop","purchOpen",params));
+  _purchOpenIsDirty = false;
 }
 
 /*! 
@@ -118,4 +120,13 @@ function privilegeCheckPurchOpen()
          privileges.check("MaintainPurchaseOrders");
 
   return false;
+}
+
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshPurchOpen()
+{
+  _purchOpenIsDirty = true;
+  fillListPurchOpen();
 }
