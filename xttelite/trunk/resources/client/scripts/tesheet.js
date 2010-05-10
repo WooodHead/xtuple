@@ -405,23 +405,15 @@ function populateEmployees()
     var params = new Object; 
     q = toolbox.executeQuery("select emp_id,emp_code from emp "
                         + "where emp_code = CURRENT_USER;",params);
-
     if (q.first())
-    {
-      _x = (q.value("emp_id"));
-    }
-    else if (q.lastError().type != 0)
-    {
-      toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-                    q.lastError().databaseText);
-    } 
-
-    if (_x == "")
-    {
-      toolbox.messageBox("critical", mywindow, mywindow.windowTitle, qsTr("It appears that your current user isn't an active employee.") );
-    }else{
+    {      
       _employees.populate("SELECT emp_id,emp_code FROM emp order by emp_code",_x);
-    }
+    }   
+    else
+    {
+      _employees.populate("SELECT emp_id,emp_code FROM emp order by emp_code");
+      //toolbox.messageBox("critical", mywindow, mywindow.windowTitle, qsTr("It appears that your current user isn't an active employee.") );    
+    }    
   }else{
     _showAllEmployees.visible = false;
     if (privileges.check("MaintainTimeExpenseSelf"))
