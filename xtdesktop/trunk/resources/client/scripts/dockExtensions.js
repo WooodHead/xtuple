@@ -10,6 +10,7 @@
 
 var _dockExtensions;
 var _extensions;
+var _extensionsIsDirty = true;
 
 /*!
   Initializes Extensions dock widget and places it in the main window.
@@ -25,7 +26,7 @@ function initDockExtensions()
   _extensions.addColumn(qsTr("Type"), -1, Qt.AlignLeft, false, "pkgitem_type");
 
   // Connect Signals and Slots
-  _dtTimer.timeout.connect(fillListExtensions);
+  _dtTimer.timeout.connect(refreshExtensions);
 
   _extensions.itemSelected.connect(openWindowExtensions);
   _extensions["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -56,27 +57,29 @@ function fillListExtensions()
   _dockExtensions = mainwindow.findChild("_dockExtensions");
   _extensions = mainwindow.findChild("_extensions");
 
-  if (!_dockExtensions.visible)
-    return;
+  if (_dockExtensions.visible && _extensionsIsDirty)
+  {
+    var params = new Object;
+    params.script = qsTr("Scripts");
+    params.cmd = qsTr("Custom Commands");
+    params.function = qsTr("Stored Procedures");
+    params.trigger = qsTr("Triggers");
+    params.image = qsTr("Images");
+    params.metasql = qsTr("MetaSQL");
+    params.priv = qsTr("Privileges");
+    params.report = qsTr("Reports");
+    params.schema = qsTr("Schema");
+    params.table = qsTr("Tables");
+    params.uiform = qsTr("Screens");
+    params.view = qsTr("Views");
+    params.folder = qsTr("Folder");
+    params.client = qsTr("Client");
+    params.database = qsTr("Database");
 
-  var params = new Object;
-  params.script = qsTr("Scripts");
-  params.cmd = qsTr("Custom Commands");
-  params.function = qsTr("Stored Procedures");
-  params.trigger = qsTr("Triggers");
-  params.image = qsTr("Images");
-  params.metasql = qsTr("MetaSQL");
-  params.priv = qsTr("Privileges");
-  params.report = qsTr("Reports");
-  params.schema = qsTr("Schema");
-  params.table = qsTr("Tables");
-  params.uiform = qsTr("Screens");
-  params.view = qsTr("Views");
-  params.folder = qsTr("Folder");
-  params.client = qsTr("Client");
-  params.database = qsTr("Database");
-
-  _extensions.populate(toolbox.executeDbQuery("desktop","pkgItems", params))
+    _extensions.populate(toolbox.executeDbQuery("desktop","pkgItems", params))
+ 
+    _extensionsIsDirty = false;
+  }
 }
 
 /*! 
@@ -201,4 +204,13 @@ function privilegeCheckExtensions(type)
     return privileges.check("MaintainScreens");
 
   return false;
+}
+
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshExtensions()
+{
+  _extensionsIsDirty = true;
+  fillListExtensions();
 }

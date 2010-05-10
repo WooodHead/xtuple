@@ -10,6 +10,7 @@
 
 var _dockMfgAct;
 var _MfgAct;
+var _mfgActIsDirty = true;
 
 /*!
   Initializes Mfg. Activity dock widget and places it in the main window.
@@ -29,10 +30,10 @@ function initDockMfgAct()
   _mfgAct.addColumn(qsTr("Qty"), -1,  Qt.AlignRight,  false, "qty");
 
   // Connect Signals and Slots
-  _dtTimer.timeout.connect(fillListMfgAct);
-  mainwindow.workOrdersUpdated.connect(fillListMfgAct);
-  mainwindow.workOrderMaterialsUpdated.connect(fillListMfgAct);
-  mainwindow.workOrderOperationsUpdated.connect(fillListMfgAct);
+  _dtTimer.timeout.connect(refreshMfgAct);
+  mainwindow.workOrdersUpdated.connect(refreshMfgAct);
+  mainwindow.workOrderMaterialsUpdated.connect(refreshMfgAct);
+  mainwindow.workOrderOperationsUpdated.connect(refreshMfgAct);
 
   _mfgAct.itemSelected.connect(openWindowMfgAct);
   _mfgAct["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -63,18 +64,18 @@ function fillListMfgAct()
   _dockMfgAct = mainwindow.findChild("_dockMfgAct");
   _mfgAct = mainwindow.findChild("_mfgAct");
 
-  if (!_dockMfgAct.visible)
-    return;
+  if (_dockMfgAct.visible && _mfgActIsDirty)
+  {
+    var params = new Object;
+    if (!metrics.value("Application") != "PostBooks")
+      params.planned = qsTr("Planned");
+    params.open = qsTr("Open");
+    params.exploded = qsTr("Exploded");
+    params.released = qsTr("Released");
+    params.inprocess = qsTr("In Process");
 
-  var params = new Object;
-  if (!metrics.value("Application") != "PostBooks")
-    params.planned = qsTr("Planned");
-  params.open = qsTr("Open");
-  params.exploded = qsTr("Exploded");
-  params.released = qsTr("Released");
-  params.inprocess = qsTr("In Process");
-
-  _mfgAct.populate(toolbox.executeDbQuery("desktop","mfgAct", params));
+    _mfgAct.populate(toolbox.executeDbQuery("desktop","mfgAct", params));
+  }
 }
 
 /*! 
@@ -157,4 +158,13 @@ function privilegeCheckMfgAct(act)
   else // Work Orders
     return (privileges.check("ViewWorkOrders") || 
             privileges.check("EditWorkOrders"));
+}
+
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshMfgAct()
+{
+  _mfgActIsDirty = true;
+  fillListMfgAct();
 }

@@ -10,6 +10,7 @@
 
 var _dockSalesAct;
 var _salesAct;
+var _salesActIsDirty = true;
 
 /*!
   Initializes Sales Activity dock widget and places it in the main window.
@@ -25,11 +26,11 @@ function initDockSalesAct()
   _salesAct.addColumn(qsTr("Amount"), -1,  Qt.AlignRight,  true, "amount");
 
   // Connect Signals and Slots
-  _dtTimer.timeout.connect(fillListSalesAct);
-  mainwindow.billingSelectionUpdated.connect(fillListSalesAct);
-  mainwindow.invoicesUpdated.connect(fillListSalesAct);
-  mainwindow.quotesUpdated.connect(fillListSalesAct)
-  mainwindow.salesOrdersUpdated.connect(fillListSalesAct);
+  _dtTimer.timeout.connect(refreshSalesAct);
+  mainwindow.billingSelectionUpdated.connect(refreshSalesAct);
+  mainwindow.invoicesUpdated.connect(refreshSalesAct);
+  mainwindow.quotesUpdated.connect(refreshSalesAct)
+  mainwindow.salesOrdersUpdated.connect(refreshSalesAct);
 
   _salesAct.itemSelected.connect(openWindowSalesAct);
   _salesAct["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -60,7 +61,7 @@ function fillListSalesAct()
   _dockSalesAct = mainwindow.findChild("_dockSalesAct");
   _salesAct = mainwindow.findChild("_salesAct");
 
-  if (!_dockSalesAct.visible)
+  if (!_dockSalesAct.visible || !_salesActIsDirty)
     return;
 
   var params = new Object;
@@ -74,6 +75,7 @@ function fillListSalesAct()
   params.post = qsTr("Invoiced");
 
   _salesAct.populate(toolbox.executeDbQuery("desktop","salesAct", params));
+  _salesActIsDirty = false;
 }
 
 /*! 
@@ -157,6 +159,11 @@ function privilegeCheckSalesAct(act)
   return false;
 }
 
-
-
-
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshSalesAct()
+{
+  _salesActIsDirty = true;
+  fillListSalesAct();
+}

@@ -12,6 +12,7 @@ var _b1GLAccounts;
 var _b2GLAccounts;
 var _dockGLAccounts;
 var _glAccounts;
+var _glAccountsIsDirty = true;
 var _periodId = -1;
 
 /*!
@@ -50,19 +51,19 @@ function initDockGLAccounts()
   _b1GLAccounts.clicked.connect(fillListGLAccounts);
   _b2GLAccounts.clicked.connect(preferencesGLAccounts);
 
-  _dtTimer.timeout.connect(fillListGLAccounts);
-  mainwindow.bankAdjustmentsUpdated.connect(fillListGLAccounts);
-  mainwindow.checksUpdated.connect(fillListGLAccounts);
-  mainwindow.creditMemosUpdated.connect(fillListGLAccounts);
-  mainwindow.cashReceiptsUpdated.connect(fillListGLAccounts);
-  mainwindow.glSeriesUpdated.connect(fillListGLAccounts);
-  mainwindow.invoicesUpdated.connect(fillListGLAccounts);
-  mainwindow.paymentsUpdated.connect(fillListGLAccounts);
-  mainwindow.standardPeriodsUpdated.connect(fillListGLAccounts);
-  mainwindow.vouchersUpdated.connect(fillListGLAccounts);
-  mainwindow.workOrderMaterialsUpdated.connect(fillListGLAccounts);
-  mainwindow.workOrderOperationsUpdated.connect(fillListGLAccounts);
-  mainwindow.workOrdersUpdated.connect(fillListGLAccounts);
+  _dtTimer.timeout.connect(refreshGLAccounts);
+  mainwindow.bankAdjustmentsUpdated.connect(refreshGLAccounts);
+  mainwindow.checksUpdated.connect(refreshGLAccounts);
+  mainwindow.creditMemosUpdated.connect(refreshGLAccounts);
+  mainwindow.cashReceiptsUpdated.connect(refreshGLAccounts);
+  mainwindow.glSeriesUpdated.connect(refreshGLAccounts);
+  mainwindow.invoicesUpdated.connect(refreshGLAccounts);
+  mainwindow.paymentsUpdated.connect(refreshGLAccounts);
+  mainwindow.standardPeriodsUpdated.connect(refreshGLAccounts);
+  mainwindow.vouchersUpdated.connect(refreshGLAccounts);
+  mainwindow.workOrderMaterialsUpdated.connect(refreshGLAccounts);
+  mainwindow.workOrderOperationsUpdated.connect(refreshGLAccounts);
+  mainwindow.workOrdersUpdated.connect(refreshGLAccounts);
 
   _glAccounts.itemSelected.connect(openWindowGLAccounts);
   _glAccounts["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -96,22 +97,24 @@ function fillListGLAccounts()
   _dockGLAccounts = mainwindow.findChild("_dockGLAccounts");
   _glAccounts = mainwindow.findChild("_glAccounts");
 
-  if (!_dockGLAccounts.visible) 
-    return;
-
-  var params = new Object;
-  params.asset = qsTr("Asset");
-  params.liability = qsTr("Liability");
-  params.revenue = qsTr("Revenue");
-  params.expense = qsTr("Expense");
-  params.equity = qsTr("Equity");
-  params.accnt_id_list = preferences.value("MonitoredAccounts");
-
-  var qry = toolbox.executeDbQuery("desktop","glaccountBal", params);
-  if (qry.first())
+  if (_dockGLAccounts.visible && _glAccountsIsDirty) 
   {
-    _periodId = qry.value("period_id");
-    _glAccounts.populate(qry);
+    var params = new Object;
+    params.asset = qsTr("Asset");
+    params.liability = qsTr("Liability");
+    params.revenue = qsTr("Revenue");
+    params.expense = qsTr("Expense");
+    params.equity = qsTr("Equity");
+    params.accnt_id_list = preferences.value("MonitoredAccounts");
+
+    var qry = toolbox.executeDbQuery("desktop","glaccountBal", params);
+    if (qry.first())
+    {
+      _periodId = qry.value("period_id");
+      _glAccounts.populate(qry);
+    }
+
+    _glAccountsIsDirty = false;
   }
 }
 
@@ -166,5 +169,14 @@ function preferencesGLAccounts()
                                   Qt.ApplicationModal, Qt.Dialog);
   toolbox.lastWindow().set(params);
   if (newdlg.exec())
-    fillListGLAccounts();
+    refreshGLAccounts();
+}
+
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshGLAccounts()
+{
+  _glAccountsIsDirty = true;
+  fillListGLAccounts();
 }

@@ -16,6 +16,7 @@ var _timeFrameMfgHist;
 var _typeMfgHist;
 var _labelMfgHist;
 var _mfgHist;
+var _mfgHistIsDirty = true;
 
 /*!
   Initializes Sales History dock widget and places it in the main window.
@@ -50,12 +51,12 @@ function initDockMfgHist()
   setColumnsMfgHist();
 
   // Connect Signals and Slots
-  _b1MfgHist.clicked.connect(fillListMfgHist);
+  _b1MfgHist.clicked.connect(refreshMfgHist);
   _b2MfgHist.clicked.connect(preferencesMfgHist);
 
-  _dtTimer.timeout.connect(fillListMfgHist);
-  mainwindow.purchaseOrderReceiptsUpdated.connect(fillListMfgHist);
-  mainwindow.vouchersUpdated.connect(fillListMfgHist);
+  _dtTimer.timeout.connect(refreshMfgHist);
+  mainwindow.purchaseOrderReceiptsUpdated.connect(refreshMfgHist);
+  mainwindow.vouchersUpdated.connect(refreshMfgHist);
 
   _mfgHist.itemSelected.connect(openWindowMfgHist);
   _mfgHist["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -89,7 +90,7 @@ function fillListMfgHist()
   _dockMfgHist = mainwindow.findChild("_dockMfgHist");
   _mfgHist = mainwindow.findChild("_mfgHist");
 
-  if (!_dockMfgHist.visible) 
+  if (!_dockMfgHist.visible || !_mfgHistIsDirty) 
     return;
 
   var timeFrame;
@@ -129,6 +130,8 @@ function fillListMfgHist()
     timeFrame = qsTr("this Year");
 
   _labelMfgHist.text = type + " " + timeFrame;
+
+  _mfgHistIsDirty = false;
 }
 
 /*!
@@ -289,6 +292,15 @@ function preferencesMfgHist()
   {
     loadPreferencesMfgHist();
     setColumnsMfgHist();
-    fillListMfgHist();
+    refreshMfgHist();
   }
+}
+
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshMfgHist()
+{
+  _mfgHistIsDirty = true;
+  fillListMfgHist();
 }

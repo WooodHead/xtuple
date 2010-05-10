@@ -9,7 +9,8 @@
  */
 
 var _dockPayables;
-var _receivables;
+var _payables;
+var _payablesIsDirty = true;
 
 /*!
   Initializes Bank Balance dock widget and places it in the main window.
@@ -25,10 +26,10 @@ function initDockPayables()
   _ap.addColumn(qsTr("Balance"), -1,  Qt.AlignRight,  true);
 
   // Connect Signals and Slots
-  _dtTimer.timeout.connect(fillListPayables);
-  mainwindow.checksUpdated.connect(fillListPayables);
-  mainwindow.paymentsUpdated.connect(fillListPayables);
-  mainwindow.vouchersUpdated.connect(fillListPayables);
+  _dtTimer.timeout.connect(refreshPayables);
+  mainwindow.checksUpdated.connect(refreshPayables);
+  mainwindow.paymentsUpdated.connect(refreshPayables);
+  mainwindow.vouchersUpdated.connect(refreshPayables);
 
   _ap.itemSelected.connect(openWindowPayables);
   _ap["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -59,7 +60,7 @@ function fillListPayables()
   _dockPayables = mainwindow.findChild("_dockPayables");
   _ap = mainwindow.findChild("_ap");
 
-  if (!_dockPayables.visible)
+  if (!_dockPayables.visible || !_payablesIsDirty)
     return;
 
   var q = toolbox.executeDbQuery("desktop","payables");
@@ -72,6 +73,8 @@ function fillListPayables()
   var item4 = new XTreeWidgetItem(_ap, 3, qsTr("61-90 Days"), q.value("ninety_val"));
   var item5 = new XTreeWidgetItem(_ap, 4, qsTr("90+ days"), q.value("plus_val"));
   var item6 = new XTreeWidgetItem(_ap, 5, qsTr("Total Open"), q.value("total_val"));
+
+  _payablesIsDirty = false;
 }
 
 /*! 
@@ -146,4 +149,13 @@ function populateMenuPayables(pMenu, pItem)
 function privilegeCheckPayables(act)
 {
   return privileges.check("ViewAPOpenItems");
+}
+
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshPayables()
+{
+  _payablesIsDirty = true;
+  fillListPayables();
 }

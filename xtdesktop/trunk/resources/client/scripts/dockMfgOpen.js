@@ -10,6 +10,7 @@
 
 var _dockMfgOpen;
 var _mfgOpen;
+var _mfgOpenIsDirty = true;
 
 /*!
   Initializes Work Order dock widget and places it in the main window.
@@ -39,10 +40,10 @@ function initDockMfgOpen()
   }
 
   // Connect Signals and Slots
-  _dtTimer.timeout.connect(fillListMfgOpen);
-  mainwindow.workOrdersUpdated.connect(fillListMfgOpen);
-  mainwindow.workOrderMaterialsUpdated.connect(fillListMfgOpen);
-  mainwindow.workOrderOperationsUpdated.connect(fillListMfgOpen);
+  _dtTimer.timeout.connect(refreshMfgOpen);
+  mainwindow.workOrdersUpdated.connect(refreshMfgOpen);
+  mainwindow.workOrderMaterialsUpdated.connect(refreshMfgOpen);
+  mainwindow.workOrderOperationsUpdated.connect(refreshMfgOpen);
 
   _mfgOpen.itemSelected.connect(openWindowMfgOpen);
   _mfgOpen["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -73,7 +74,7 @@ function fillListMfgOpen()
   _dockMfgOpen = mainwindow.findChild("_dockMfgOpen");
   _mfgOpen = mainwindow.findChild("_mfgOpen");
 
-  if (!_dockMfgOpen.visible)
+  if (!_dockMfgOpen.visible || !_mfgOpenIsDirty)
     return;
 
   params = new Object;
@@ -83,6 +84,8 @@ function fillListMfgOpen()
   params.inprocess = qsTr("In Process");
 
   _mfgOpen.populate(toolbox.executeDbQuery("desktop","mfgOpen",params), true);
+
+  _mfgOpenIsDirty = false;
 }
 
 /*! 
@@ -128,4 +131,13 @@ function privilegeCheckMfgOpen()
          privileges.check("MaintainWorkOrders");
 
   return false;
+}
+
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshMfgOpen()
+{
+  _mfgOpenIsDirty = true;
+  fillListMfgOpen();
 }

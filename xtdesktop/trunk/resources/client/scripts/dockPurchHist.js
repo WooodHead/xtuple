@@ -16,6 +16,7 @@ var _timeFramePurchHist;
 var _typePurchHist;
 var _labelPurchHist;
 var _purchHist;
+var _purchHistIsDirty = true;
 
 /*!
   Initializes Sales History dock widget and places it in the main window.
@@ -50,12 +51,12 @@ function initDockPurchHist()
   setColumnsPurchHist();
 
   // Connect Signals and Slots
-  _b1PurchHist.clicked.connect(fillListPurchHist);
+  _b1PurchHist.clicked.connect(refreshPurchHist);
   _b2PurchHist.clicked.connect(preferencesPurchHist);
 
-  _dtTimer.timeout.connect(fillListPurchHist);
-  mainwindow.purchaseOrderReceiptsUpdated.connect(fillListPurchHist);
-  mainwindow.vouchersUpdated.connect(fillListPurchHist);
+  _dtTimer.timeout.connect(refreshPurchHist);
+  mainwindow.purchaseOrderReceiptsUpdated.connect(refreshPurchHist);
+  mainwindow.vouchersUpdated.connect(refreshPurchHist);
 
   _purchHist.itemSelected.connect(openWindowPurchHist);
   _purchHist["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -89,9 +90,8 @@ function fillListPurchHist()
   _dockPurchHist = mainwindow.findChild("_dockPurchHist");
   _purchHist = mainwindow.findChild("_purchHist");
 
-//  TO DO:  this isn't working here for some reason
-//  if (!_dockPurchHist.visible) 
-//    return;
+  if (!_dockPurchHist.visible || !_purchHistIsDirty) 
+    return;
 
   var timeFrame;
   var type;
@@ -139,6 +139,8 @@ function fillListPurchHist()
     timeFrame = qsTr("this Year");
 
   _labelPurchHist.text = type + " " + timeFrame;
+
+  _purchHistIsDirty = false;
 }
 
 /*!
@@ -337,12 +339,15 @@ function preferencesPurchHist()
   {
     loadPreferencesPurchHist();
     setColumnsPurchHist();
-    fillListPurchHist();
+    refreshPurchHist();
   }
 }
 
-
-
-
-
-
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshPurchHist()
+{
+  _purchHistIsDirty = true;
+  fillListPurchHist();
+}

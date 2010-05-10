@@ -10,6 +10,7 @@
 
 var _dockSalesOpen;
 var _salesOpen;
+var _salesOpenIsDirty = true;
 
 /*!
   Initializes Open Sales Order dock widget and places it in the main window.
@@ -33,9 +34,9 @@ function initDockSalesOpen()
   _salesOpen.addColumn(qsTr("Amount"), XTreeWidget.moneyColumn,  Qt.AlignRight,  true, "amount");
 
   // Connect Signals and Slots
-  _dtTimer.timeout.connect(fillListSalesOpen);
-  mainwindow.invoicesUpdated.connect(fillListSalesOpen);
-  mainwindow.salesOrdersUpdated.connect(fillListSalesOpen);
+  _dtTimer.timeout.connect(refreshSalesOpen);
+  mainwindow.invoicesUpdated.connect(refreshSalesOpen);
+  mainwindow.salesOrdersUpdated.connect(refreshSalesOpen);
 
   _salesOpen.itemSelected.connect(openWindowSalesOpen);
   _salesOpen["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -66,10 +67,12 @@ function fillListSalesOpen()
   _dockSalesOpen = mainwindow.findChild("_dockSalesOpen");
   _salesOpen = mainwindow.findChild("_salesOpen");
 
-  if (!_dockSalesOpen.visible)
+  if (!_dockSalesOpen.visible && !_salesOpenIsDirty)
     return;
 
   _salesOpen.populate(toolbox.executeDbQuery("desktop","salesOpen"));
+
+  _salesOpenIsDirty = false;
 }
 
 /*! 
@@ -115,4 +118,13 @@ function privilegeCheckSalesOpen()
          privileges.check("MaintainSalesOrders");
 
   return false;
+}
+
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshSalesOpen()
+{
+  _salesOpenIsDirty = true;
+  fillListSalesOpen();
 }

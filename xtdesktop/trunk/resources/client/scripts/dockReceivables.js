@@ -10,6 +10,7 @@
 
 var _dockReceivables;
 var _receivables;
+var _receivablesIsDirty = true;
 
 /*!
   Initializes Bank Balance dock widget and places it in the main window.
@@ -25,10 +26,10 @@ function initDockReceivables()
   _ar.addColumn(qsTr("Balance"), -1,  Qt.AlignRight,  true);
 
   // Connect Signals and Slots
-  _dtTimer.timeout.connect(fillListReceivables);
-  mainwindow.checksUpdated.connect(fillListReceivables);
-  mainwindow.paymentsUpdated.connect(fillListReceivables);
-  mainwindow.vouchersUpdated.connect(fillListReceivables);
+  _dtTimer.timeout.connect(refreshReceivables);
+  mainwindow.checksUpdated.connect(refreshReceivables);
+  mainwindow.paymentsUpdated.connect(refreshReceivables);
+  mainwindow.vouchersUpdated.connect(refreshReceivables);
 
   _ar.itemSelected.connect(openWindowReceivables);
   _ar["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
@@ -59,7 +60,7 @@ function fillListReceivables()
   _dockReceivables = mainwindow.findChild("_dockReceivables");
   _ar = mainwindow.findChild("_ar");
 
-  if (!_dockReceivables.visible)
+  if (!_dockReceivables.visible || !_receivablesIsDirty)
     return;
 
   var q = toolbox.executeDbQuery("desktop","receivables");
@@ -72,6 +73,8 @@ function fillListReceivables()
   var item4 = new XTreeWidgetItem(_ar, 3, qsTr("61-90 Days"), q.value("ninety_val"));
   var item5 = new XTreeWidgetItem(_ar, 4, qsTr("90+ days"), q.value("plus_val"));
   var item6 = new XTreeWidgetItem(_ar, 5, qsTr("Total Open"), q.value("total_val"));
+
+  _receivablesIsDirty = false;
 }
 
 /*! 
@@ -147,4 +150,13 @@ function populateMenuReceivables(pMenu, pItem)
 function privilegeCheckReceivables(act)
 {
   return privileges.check("ViewAROpenItems");
+}
+
+/*!
+  Refreshes data if the window is visible, or the next time it becomes visible
+*/
+function refreshReceivables()
+{
+  _receivablesIsDirty = true;
+  fillListReceivables();
 }
