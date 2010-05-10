@@ -99,8 +99,9 @@ function fillListToDo()
   params.incidents = true;
   params.projects = true;
   params.assigned_username = mainwindow.username();
+  params.owner_username = mainwindow.username();
   _todoList = mainwindow.findChild("_todoList");
-  _todoList.populate(toolbox.executeDbQuery("todolist", "detail", params), true);
+  _todoList.populate(toolbox.executeDbQuery("desktop", "todoList", params), true);
 }
 
 /*! 
