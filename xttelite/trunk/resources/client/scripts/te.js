@@ -449,25 +449,26 @@ function printReport()
 
 if (privileges.check("MaintainTimeExpenseOthers"))
 {
-  var params = new Object; 
-  q = toolbox.executeQuery("select emp_id,emp_code from emp where emp_code = CURRENT_USER;",params);
-
-  if (q.first())
-  {
-    _x = (q.value("emp_id"));
-    
-  }
-  else if (q.lastError().type != 0)
-  {
-    toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-                    q.lastError().databaseText);
-  } 
-
   if(_empid > 0)
   {
-    _x = _empid;
+     _x = _empid;
+    _employees.populate("SELECT emp_id,emp_code FROM emp order by emp_code",_x);
   }
-  _employees.populate("SELECT emp_id,emp_code FROM emp order by emp_code",_x);
+  else
+  {
+    var params = new Object; 
+    q = toolbox.executeQuery("select emp_id,emp_code from emp order by emp_code;",params);
+
+    if (q.first())
+    {
+      _x = (q.value("emp_id"));
+      _employees.populate("SELECT emp_id,emp_code FROM emp order by emp_code",_x);
+    }
+    else
+    {
+      _employees.populate("SELECT emp_id,emp_code FROM emp order by emp_code");
+    }
+  }
 
 }else{
   if (privileges.check("MaintainTimeExpenseSelf"))
