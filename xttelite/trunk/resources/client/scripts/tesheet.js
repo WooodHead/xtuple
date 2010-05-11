@@ -407,6 +407,7 @@ function populateEmployees()
                         + "where emp_code = CURRENT_USER;",params);
     if (q.first())
     {      
+      _x = (q.value("emp_id"));
       _employees.populate("SELECT emp_id,emp_code FROM emp order by emp_code",_x);
     }   
     else
