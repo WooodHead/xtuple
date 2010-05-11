@@ -8,7 +8,7 @@ function main()
     
     if(appEdition=="Manufacturing")
     {
-    
+  
             //-------------Standard Labor Rate -------------------
             try{
                 waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -477,6 +477,7 @@ function main()
         doubleClickItem(":_listTab_XTreeWidget_5", "TBODY1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "1");
+        findObject(":_scrap_XLineEdit").clear();
         type(":_scrap_XLineEdit", "0");
         if(appEdition=="Manufacturing")
         {
@@ -507,6 +508,7 @@ function main()
         doubleClickItem(":_listTab_XTreeWidget_5", "YPAINT1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".01");
+        findObject(":_scrap_XLineEdit").clear();
         type(":_scrap_XLineEdit", "0");
         if(appEdition=="Manufacturing")
         {
@@ -536,6 +538,7 @@ function main()
         doubleClickItem(":_listTab_XTreeWidget_5", "TWHEEL1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "4");
+        findObject(":_scrap_XLineEdit").clear();
         type(":_scrap_XLineEdit", "0");
         if(appEdition=="Manufacturing")
         {
@@ -566,6 +569,7 @@ function main()
         doubleClickItem(":_listTab_XTreeWidget_5", "TSUB1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_qtyPer_XLineEdit"); 
         type(":_qtyPer_XLineEdit", "1");
+        findObject(":_scrap_XLineEdit").clear();
         type(":_scrap_XLineEdit", "0");
         waitForObject(":_scrap_XLineEdit");
         
@@ -616,6 +620,7 @@ function main()
         doubleClickItem(":_listTab_XTreeWidget_5", "TBOX1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_qtyPer_XLineEdit"); 
         type(":_qtyPer_XLineEdit", "1");
+        findObject(":_scrap_XLineEdit").clear();
         type(":_scrap_XLineEdit", "0");
         
         if(appEdition=="Manufacturing")
@@ -647,6 +652,7 @@ function main()
         waitForObject(":_qtyPer_XLineEdit"); 
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "1");
+        findObject(":_scrap_XLineEdit").clear();
         type(":_scrap_XLineEdit", "10");
         if(appEdition=="Manufacturing")
         {

@@ -751,7 +751,7 @@
 :List Accounting Periods.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Accounting Periods_accountingPeriods'}
 :List Accounting Periods.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Accounting Periods_accountingPeriods'}
 :List Accounting Periods._period_XTreeWidget	{name='_period' type='XTreeWidget' visible='1' window=':List Accounting Periods_accountingPeriods'}
-:List Accounting Periods.qt_spinbox_lineedit_QLineEdit	{container=':xTuple ERP: Manufacturing Edition 3.5.0 Beta 3 - Practice Database on 192.168.0.48/Empty AS usge.List Accounting Periods_QWorkspaceChild' name='qt_spinbox_lineedit' occurrence='2' type='QLineEdit' visible='1'}
+:List Accounting Periods.qt_spinbox_lineedit_QLineEdit	{name='qt_spinbox_lineedit' occurrence='2' type='QLineEdit' visible='1'}
 :List Accounting Periods_accountingPeriods	{name='accountingPeriods' type='accountingPeriods' visible='1' windowTitle='List Accounting Periods'}
 :List Adjustment Types.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Adjustment Types_bankAdjustmentTypes'}
 :List Adjustment Types.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Adjustment Types_bankAdjustmentTypes'}
@@ -961,6 +961,7 @@
 :List Expense Categories_expenseCategories	{name='expenseCategories' type='expenseCategories' visible='1' windowTitle='List Expense Categories'}
 :List Financial Reports.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Financial Reports_financialLayouts'}
 :List Financial Reports.Copy_QPushButton	{name='_copy' text='Copy' type='QPushButton' visible='1' window=':List Financial Reports_financialLayouts'}
+:List Financial Reports.Edit_QPushButton	{name='_edit' text='Edit' type='QPushButton' visible='1' window=':List Financial Reports_financialLayouts'}
 :List Financial Reports.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Financial Reports_financialLayouts'}
 :List Financial Reports._flhead_XTreeWidget	{name='_flhead' type='XTreeWidget' visible='1' window=':List Financial Reports_financialLayouts'}
 :List Financial Reports_financialLayouts	{name='financialLayouts' type='financialLayouts' visible='1' windowTitle='List Financial Reports'}

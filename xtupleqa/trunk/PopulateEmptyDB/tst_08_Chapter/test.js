@@ -83,7 +83,7 @@ function main()
           if(role=="RUNREGISTER") break;
       }
   }catch(e){test.fail("Exception in reading login.tsv");}
-  
+//  
     //----Define Sales Rep---
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -120,8 +120,8 @@ function main()
         clickButton(":_frame.Close_QPushButton_2");
     }catch(e){test.fail("Exception in creating Employee record:"+e);}
     
-    
-  
+    snooze(1);
+
     //---------------Create Shipping Zone--------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -364,6 +364,7 @@ function main()
         clickItem(":_report_XComboBox", "PackingList",0,0,1,Qt.LeftButton);
         waitForObject(":Shipping Form.Save_QPushButton");
         clickButton(":Shipping Form.Save_QPushButton");
+        snooze(1);
         waitForObject(":List Shipping Forms._bolformat_XTreeWidget");
         if(object.exists(":_bolformat.STANDARD-PACKING-LIST_QModelIndex"))
             test.pass("Shipping Forms created: STANDARD-PACKING-LIST");
@@ -856,6 +857,8 @@ function main()
         clickButton(":List Reason Codes.Close_QPushButton");
     }catch(e){test.fail("Exception in defining Reason Codes");} 
     
+    
+  
     //---------------Define Pricing Schedule---------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
@@ -907,10 +910,21 @@ function main()
         if(object.exists(":_ipshead.BASE_QModelIndex"))
             test.pass("Pricing Schedule created:BASE");
         else test.fail("Pricing Schedule not created:BASE");
-    }catch(e){test.fail("Exception in defining Pricing Schedule");}
-    
+        waitForObject(":List Pricing Schedules.Close_QPushButton");
+        clickButton(":List Pricing Schedules.Close_QPushButton");
+    }catch(e){test.fail("Exception in defining Pricing Schedule"+ e);}
+  
+  
+    snooze(1);
     //--------Pricing Schedule: FREIGHT-BULK-------------
     try{
+        
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+        activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
         waitForObject(":List Pricing Schedules.New_QPushButton");
         clickButton(":List Pricing Schedules.New_QPushButton");
         waitForObject(":GroupBox1._name_XLineEdit_2");
@@ -942,10 +956,19 @@ function main()
         if(object.exists(":_ipshead.FREIGHT-BULK_QModelIndex"))
             test.pass("Pricing Schedule created:FREIGHT-BULK");
         else test.fail("Pricing Schedule not created:FREIGHT-BULK");
+        waitForObject(":List Pricing Schedules.Close_QPushButton");
+        clickButton(":List Pricing Schedules.Close_QPushButton");
     }catch(e){test.fail("Exception in defining Pricing Schedule");}
     
+     snooze(1);
     //-----------Pricing Schedule: FREIGHT-TTOYS-BULK-------------
     try{
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+        activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Pricing_QMenu", "Pricing Schedules...");
         waitForObject(":List Pricing Schedules.New_QPushButton");
         clickButton(":List Pricing Schedules.New_QPushButton");
         waitForObject(":GroupBox1._name_XLineEdit_2");
@@ -982,10 +1005,11 @@ function main()
         waitForObject(":List Pricing Schedules.Close_QPushButton");
         clickButton(":List Pricing Schedules.Close_QPushButton");
     }catch(e){test.fail("Exception in defining Pricing Schedule");}
-  
-  
+
+
         //-----------Assign Pricing Schedule---------------   
     try{
+        snooze(1);
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Pricing");
@@ -1039,6 +1063,11 @@ function main()
         clickButton(":List Pricing Schedule Assignments.Close_QPushButton");
     }catch(e){test.fail("Exception in pricing Schedule assignment");}  
     
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
+    
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         try{     
@@ -1064,17 +1093,6 @@ function main()
             type(":_state_QLineEdit_6", "Maharastra");
             type(":_addressGroup.Postal Code:_XLineEdit", "534235");
             clickItem(":_addressGroup._country_XComboBox_2", "India", 0, 0, 1, Qt.LeftButton);
-//            clickTab(":Site.qt_tabwidget_tabbar_QTabBar","Contact");
-//            snooze(2);
-//            
-//            type(":_honorific_QLineEdit_3", "Mr");
-//            type(":_contactGroup._first_XLineEdit_2", "Gaurav");
-//            type(":_contactGroup._middle_XLineEdit_2", "S");
-//            type(":_contactGroup._last_XLineEdit_2", "Gulati");
-//            type(":_contactGroup._title_XLineEdit_2", "Associate Consultant");
-//            type(":_contactGroup._phone_XLineEdit_2", "235423");
-//            type(":_contactGroup._fax_XLineEdit_2", "252342");
-//            type(":_contactGroup._email_XLineEdit_2", "gauraasv@testing.com");
             type(":Site._main_XLineEdit", "01-01-1950-01");
             
             clickTab(":Site.qt_tabwidget_tabbar_QTabBar","General");

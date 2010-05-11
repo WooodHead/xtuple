@@ -434,10 +434,10 @@ function createUserByRole(userrole)
         waitForObject(":_memberGroup._site_WComboBox");
         clickItem(":_memberGroup._site_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
         snooze(1);
-        waitForObject(":_timeclockGroup.VirtualClusterLineEdit_DeptClusterLineEdit");
-        type(":_timeclockGroup.VirtualClusterLineEdit_DeptClusterLineEdit", "MFG");
-        waitForObject(":_timeclockGroup.VirtualClusterLineEdit_ShiftClusterLineEdit");
-        type(":_timeclockGroup.VirtualClusterLineEdit_ShiftClusterLineEdit", "1ST");
+//        waitForObject(":_timeclockGroup.VirtualClusterLineEdit_DeptClusterLineEdit");
+//        type(":_timeclockGroup.VirtualClusterLineEdit_DeptClusterLineEdit", "MFG");
+//        waitForObject(":_timeclockGroup.VirtualClusterLineEdit_ShiftClusterLineEdit");
+//        type(":_timeclockGroup.VirtualClusterLineEdit_ShiftClusterLineEdit", "1ST");
         if(!findObject(":_relationshipsGroup._user_XCheckBox").checked)
             clickButton(":_relationshipsGroup._user_XCheckBox");
         waitForObject(":_relationshipsGroup.User..._QPushButton");

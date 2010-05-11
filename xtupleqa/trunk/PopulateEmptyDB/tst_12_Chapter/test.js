@@ -43,5 +43,5 @@ function main()
         
         //---execution completed - exit Application----
         exitAppl();	
-    }catch(e){test.fail("Exception in assigning Tax Authority");}
+    }catch(e){test.fail("Exception in assigning Tax Authority" +e );}
 }
