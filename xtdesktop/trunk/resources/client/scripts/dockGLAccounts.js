@@ -98,25 +98,30 @@ function fillListGLAccounts()
   _dockGLAccounts = mainwindow.findChild("_dockGLAccounts");
   _glAccounts = mainwindow.findChild("_glAccounts");
 
-  if (_dockGLAccounts.visible && _glAccountsIsDirty) 
-  {
-    var params = new Object;
-    params.asset = qsTr("Asset");
-    params.liability = qsTr("Liability");
-    params.revenue = qsTr("Revenue");
-    params.expense = qsTr("Expense");
-    params.equity = qsTr("Equity");
-    params.accnt_id_list = preferences.value("MonitoredAccounts");
+  if (!_dockGLAccounts.visible || !_glAccountsIsDirty)
+    return;
 
-    var qry = toolbox.executeDbQuery("desktop","glaccountBal", params);
-    if (qry.first())
-    {
-      _periodId = qry.value("period_id");
-      _glAccounts.populate(qry);
-    }
+  _glAccounts.clear();
+  var accntIdList = preferences.value("MonitoredAccounts");
+  if(!accntIdList.length)
+    return;
+
+  var params = new Object;
+  params.asset = qsTr("Asset");
+  params.liability = qsTr("Liability");
+  params.revenue = qsTr("Revenue");
+  params.expense = qsTr("Expense");
+  params.equity = qsTr("Equity");
+  params.accnt_id_list = accntIdList;
+
+  var qry = toolbox.executeDbQuery("desktop","glaccountBal", params);
+  if (qry.first())
+  {
+    _periodId = qry.value("period_id");
+    _glAccounts.populate(qry);
+  }
 
     _glAccountsIsDirty = false;
-  }
 }
 
 /*! 
