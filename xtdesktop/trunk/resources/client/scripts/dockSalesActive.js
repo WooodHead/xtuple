@@ -51,6 +51,7 @@ function initDockSalesAct()
   // Allow rescan to let them show if privs granted
   act.setData("ViewSalesActivitiesDock");
   _menuDesktop.appendAction(act);
+  fillListSalesAct();
 }
 
 /*!

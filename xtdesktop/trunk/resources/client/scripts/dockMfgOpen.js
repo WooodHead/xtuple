@@ -64,6 +64,8 @@ function initDockMfgOpen()
   // Allow rescan to let them show if privs granted
   act.setData("ViewWorkOrdersDock");
   _menuDesktop.appendAction(act);
+
+  fillListMfgOpen();
 }
 
 /*!

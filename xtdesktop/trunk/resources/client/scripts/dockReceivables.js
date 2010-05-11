@@ -50,6 +50,8 @@ function initDockReceivables()
   // Allow rescan to let them show if privs granted
   act.setData("ViewReceivablesDock");
   _menuDesktop.appendAction(act);
+
+  fillListReceivables();
 }
 
 /*!

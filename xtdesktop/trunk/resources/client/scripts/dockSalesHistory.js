@@ -79,6 +79,8 @@ function initDockSalesHist()
   // Allow rescan to let them show if privs granted
   act.setData("ViewSalesHistoryDock");
   _menuDesktop.appendAction(act);
+
+  fillListSalesHist();
 }
 
 /*!

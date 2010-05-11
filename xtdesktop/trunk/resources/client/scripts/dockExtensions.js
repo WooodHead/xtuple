@@ -47,6 +47,8 @@ function initDockExtensions()
   // Allow rescan to let them show if privs granted
   act.setData("ViewExtensionsDock");
   _menuDesktop.appendAction(act);
+
+  fillListExtensions();
 }
 
 /*!

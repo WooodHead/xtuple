@@ -56,6 +56,8 @@ function initDockAccounts()
   // Allow rescan to let them show if privs granted
   act.setData("ViewMyAccountsDock");
   _menuDesktop.appendAction(act);
+
+  fillListMyAccts();
 }
 
 /*!

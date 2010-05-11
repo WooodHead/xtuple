@@ -84,6 +84,7 @@ function initDockGLAccounts()
   // Allow rescan to let them show if privs granted
   act.setData("ViewGLAccountsDock");
   _menuDesktop.appendAction(act);
+  fillListGLAccounts();
 }
 
 /*!

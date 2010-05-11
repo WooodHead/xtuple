@@ -77,6 +77,8 @@ function initDockPurchHist()
   // Allow rescan to let them show if privs granted
   act.setData("ViewPurchaseHistoryDock");
   _menuDesktop.appendAction(act);
+
+  fillListPurchHist();
 }
 
 /*!
