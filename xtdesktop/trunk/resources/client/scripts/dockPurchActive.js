@@ -51,6 +51,8 @@ function initDockPurchAct()
   // Allow rescan to let them show if privs granted
   act.setData("ViewPurchaseActivitiesDock");
   _menuDesktop.appendAction(act);
+
+  fillListPurchAct();
 }
 
 /*!

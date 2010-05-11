@@ -50,6 +50,8 @@ function initDockBankBal()
   // Allow rescan to let them show if privs granted
   act.setData("ViewBankAccountsDock");
   _menuDesktop.appendAction(act);
+
+  fillListBankBal();
 }
 
 /*!

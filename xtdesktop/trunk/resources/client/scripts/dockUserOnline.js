@@ -51,6 +51,8 @@ function initDockUserOnline()
   // Allow rescan to let them show if privs granted
   act.setData("ViewUsersOnlineDock");
   _menuDesktop.appendAction(act);
+
+  fillListUserOnline();
 }
 
 /*!

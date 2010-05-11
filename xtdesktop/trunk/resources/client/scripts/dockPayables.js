@@ -50,6 +50,8 @@ function initDockPayables()
   // Allow rescan to let them show if privs granted
   act.setData("ViewPayablesDock");
   _menuDesktop.appendAction(act);
+
+  fillListPayables();
 }
 
 /*!

@@ -54,6 +54,8 @@ function initDockMfgAct()
   // Allow rescan to let them show if privs granted
   act.setData("ViewManufactureActivitiesDock");
   _menuDesktop.appendAction(act);
+
+  fillListMfgAct();
 }
 
 /*!

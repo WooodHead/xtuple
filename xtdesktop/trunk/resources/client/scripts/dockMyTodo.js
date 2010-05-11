@@ -57,6 +57,8 @@ function initDockTodo()
   // Allow rescan to let them show if privs granted
   act.setData("ViewTodoDock");
   _menuDesktop.appendAction(act);
+
+  fillListToDo();
 }
 
 /*!

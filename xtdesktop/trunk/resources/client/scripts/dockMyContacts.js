@@ -52,6 +52,8 @@ function initDockMyCntcts()
   // Allow rescan to let them show if privs granted
   act.setData("ViewMyContactsDock");
   _menuDesktop.appendAction(act);
+
+  fillListMyCntcts();
 }
 
 /*!

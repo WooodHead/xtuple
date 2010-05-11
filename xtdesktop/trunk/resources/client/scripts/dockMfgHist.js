@@ -77,6 +77,8 @@ function initDockMfgHist()
   // Allow rescan to let them show if privs granted
   act.setData("ViewManufactureHistoryDock");
   _menuDesktop.appendAction(act);
+
+  fillListMfgHist();
 }
 
 /*!
