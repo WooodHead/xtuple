@@ -73,17 +73,16 @@ function main()
         type(":Cost Category._main_XLineEdit_9", "01-01-2320-01");
         type(":Cost Category._main_XLineEdit_10", "01-01-2490-01");
         type(":Cost Category._main_XLineEdit_11", "01-01-1260-01");
-        if(appEdition=="Manufacturing"||appEdition=="Standard")
-            type(":Cost Category._main_XLineEdit_12", "01-01-6550-01");
-        else if (appEdition=="PostBooks")
+        type(":Cost Category._main_XLineEdit_12", "01-01-6550-01");
+         if (appEdition=="PostBooks")
             test.xverify(object.exists(":Cost Category._main_XLineEdit_12"),"Cost Category text field - not visible");
-        if(appEdition=="Manufacturing")
+        if(appEdition=="Manufacturing" || appEdition=="Standard")
             type(":Cost Category._main_XLineEdit_13", "01-01-2480-01");
-        else if(appEdition=="Standard"||appEdition=="PostBooks")
+        else if(appEdition=="PostBooks")
             test.xverify(object.exists(":Cost Category._main_XLineEdit_13"),"Cost Category text field - not visible");
+        if(appEdition=="Manufacturing")
         type(":List Cost Categories._main_XLineEdit_14", "01-01-2320-01");
-        
-        waitForObject(":Cost Category.Save_QPushButton");
+         waitForObject(":Cost Category.Save_QPushButton");
         clickButton(":Cost Category.Save_QPushButton");
         snooze(2);
         waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
@@ -617,7 +616,7 @@ function main()
         clickButton(":List Freight Classes.New_QPushButton_2");
         waitForObject(":_freightClass_XLineEdit_2");
         type(":_freightClass_XLineEdit_2", "BULK");
-        mouseClick(":_description_XLineEdit_34", 40, 16, 0, Qt.LeftButton);
+        type(":_freightClass_XLineEdit_2", "<Tab>")
         type(":_description_XLineEdit_34", "Bulk Freight");
         waitForObject(":Freight Class.Save_QPushButton");
         clickButton(":Freight Class.Save_QPushButton");

@@ -50,7 +50,7 @@ function main()
         clickButton(":Purchase Configuration.Save_QPushButton");
         test.log("Purchase Module Configured");
     }catch(e){test.fail("Exception in configuring Product Module:"+e);}
-    
+  
   //-------------Configure: Inventory Module---------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -72,7 +72,8 @@ function main()
         type(":_tolerance_QLineEdit", "5");
         findObject(":_shipformNumOfCopies_QSpinBox").clear();
         type(":_shipformNumOfCopies_QSpinBox", "2");
-        snooze(2);
+        snooze(1);
+        waitForObject(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget");
         doubleClickItem(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget", "Copy #1",5,5,0,Qt.LeftButton);
         waitForObject(":Invoice/Credit Memo Watermark._watermark_XLineEdit");
         type(":Invoice/Credit Memo Watermark._watermark_XLineEdit", "Customer");
@@ -427,12 +428,21 @@ function main()
          if(object.exists("{column='0' container=':_frame._itemsrc_XTreeWidget' text='TBODY1' type='QModelIndex'}"))
             test.pass("Item Source created for: TBODY1");
          else test.fail("Item source not created for TBODY1");
+          waitForObject(":List Item Sources.Close_QPushButton");
+        clickButton(":List Item Sources.Close_QPushButton");
     }catch(e){test.fail("Exception in defining Item sources for TBODY1:"+e);}
     
-    
+       
     
     //----Item source for TINSERT1--------------
     try{
+        
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+        activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
         waitForObject(":_frame.New_QPushButton");
         clickButton(":_frame.New_QPushButton");
         waitForObject(":List Item Sources...._QPushButton");
@@ -516,10 +526,18 @@ function main()
           if(object.exists("{column='0' container=':_frame._itemsrc_XTreeWidget' text='TWHEEL1' type='QModelIndex'}"))
             test.pass("Item Source created for: TWHEEL1");
           else test.fail("Item Source not created for: TWHEEL1");
+           waitForObject(":List Item Sources.Close_QPushButton");
+        clickButton(":List Item Sources.Close_QPushButton");
     }catch(e){test.fail("Exception in defining Item sources for TWHEEL1:"+e);}
 
     //----Item source for YPAINT1--------------
     try{
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+        activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
         waitForObject(":_frame.New_QPushButton");
         clickButton(":_frame.New_QPushButton");
        waitForObject(":List Item Sources...._QPushButton");

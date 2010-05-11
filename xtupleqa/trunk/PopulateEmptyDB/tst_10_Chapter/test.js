@@ -84,7 +84,7 @@ function main()
           
            
             waitForObject(":tab.Enable EFT Check Printing_QGroupBox");
-            mouseClick(":tab.Enable EFT Check Printing_QGroupBox", 23, 12, 0, Qt.LeftButton);
+            type(":tab.Enable EFT Check Printing_QGroupBox"," ");
              
             waitForObject(":_nextACHBatchNumber_XLineEdit_2");
             type(":_nextACHBatchNumber_XLineEdit_2", "<Ctrl+A>");
@@ -308,16 +308,16 @@ function main()
                 while(findObject(":Accounting Period.XDateEdit_XDateEdit_2").text!=j+"/"+YearSet[j-1]+"/"+i)
                     snooze(0.1);
                 
-                snooze(2);
+                snooze(0.5);
                 waitForObject(":_name_QLineEdit");
                 findObject(":_name_QLineEdit").clear();
-                snooze(2);
+                snooze(0.5);
                 type(":_name_QLineEdit", CurrentYearFull+"-");
                 type(":_name_QLineEdit", (j<10?"0"+j:j));
-                snooze(0.5);
+                snooze(0.2);
                 waitForObject(":List Accounting Periods.qt_spinbox_lineedit_QLineEdit");
                 findObject(":List Accounting Periods.qt_spinbox_lineedit_QLineEdit").clear();
-                snooze(1);
+                snooze(0.1);
                 if(j>=1 && j<=3)
                     type(":List Accounting Periods.qt_spinbox_lineedit_QLineEdit", "1");
                 else if(j>=4 && j<=6)
@@ -331,7 +331,7 @@ function main()
                 
                 waitForObject(":Accounting Period.Save_QPushButton");
                 clickButton(":Accounting Period.Save_QPushButton");
-                snooze(1);
+                snooze(0.5);
                 while(!object.exists("{column='0' container=':List Accounting Periods._period_XTreeWidget' text='"+CurrentYearFull+"-"+(j<10?"0"+j:j)+"' type='QModelIndex'}"))
                     snooze(0.1);
             }

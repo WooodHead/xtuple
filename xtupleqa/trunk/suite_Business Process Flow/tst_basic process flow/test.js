@@ -8,7 +8,7 @@ function main()
     //-----login Application-----
     loginAppl("CONFIGURE"); 
     
-       
+           
     //--------Edit the User Preferences----
     try
     {
@@ -77,7 +77,7 @@ function main()
   {
       test.fail("Error in capturing database information" + e);
   }
-  
+
     //-----Setting Encryption Key-----
     try
     {
@@ -181,7 +181,7 @@ function main()
         test.fail("Error in viewing intended bill of materials" + e);
     }
     
-    
+//    
     //-----Extracting Sales Order Number-----
     try
     {
@@ -1264,12 +1264,7 @@ function main()
     } 
     
     
-    
-         waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
-        activateItem(":xTuple ERP:*_QMenuBar_2", "System");
-        waitForObjectItem(":xTuple ERP:*.System_QMenu", "Rescan Privileges");
-        activateItem(":xTuple ERP:*.System_QMenu", "Rescan Privileges");
-    
+                
     //---Selecting Voucher for Payment---
     try
     {
@@ -2111,8 +2106,8 @@ function main()
         }    
         
     }
-  
-  
+
+
     //-----Verification of QOH by Item (Issue Stock to Shipping)-----
     try
     {
@@ -2444,8 +2439,9 @@ function main()
         clickButton(":Cash Receipt...._QPushButton");
         waitForObject(":_listTab_XTreeWidget");
         doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 5, 5, 0, Qt.LeftButton);
-        var amt=findObject(":_aropen._QModelIndex").text;
+        
         waitForObject(":_applicationsTab._aropen_XTreeWidget");
+        var amt=findObject(":_aropen._QModelIndex").text;
         doubleClickItem(":_applicationsTab._aropen_XTreeWidget", sonumber, 5, 5, 1, Qt.LeftButton);
         waitForObject(":Cash Receipt._currency_XLineEdit");
         
