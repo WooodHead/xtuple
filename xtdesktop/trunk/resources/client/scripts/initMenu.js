@@ -33,10 +33,14 @@ var _open = qsTr("Open...");
 var _dtTimer;
 var _leftAreaDocks = new Array();
 var _bottomAreaDocks = new Array();
+var _windows = new Array();
 var _hasSavedState = settingsValue("hasSavedState").length > 0;
 var _vToolBar;
 var _vToolBarActions = new Array();
-var _menuDesktop = new QMenu(mainwindow);
+
+var _menuDesktop = new QMenu(qsTr("Desktop"),mainwindow);
+var _menuToolBar = new QMenu(mainwindow);
+var _menuWindow = mainwindow.findChild("menu.window");
 
 // Add desktop to main window
 if (mainwindow.showTopLevel())
@@ -107,6 +111,9 @@ if (mainwindow.showTopLevel())
   initDockExtensions();
   initDockUserOnline();
 
+  // Handle window actions
+  _menuWindow.aboutToShow.connect(prepareWindowMenu);
+
   // Change behavior of item site button if commercial edition
   if (!metrics.value("Application") != "PostBooks")
   {
@@ -132,7 +139,9 @@ function addDesktop(uiName, imageName, privilege)
   // Get the UI and add to desktop stack
   var desktop = toolbox.loadUi(uiName);
   _desktopStack.addWidget(desktop);
+  _windows[_windows.length] = desktop;
   addToolBarAction(desktop.windowTitle, imageName, privilege);
+  desktop.restoreState();
 
   return desktop;
 }
@@ -147,7 +156,7 @@ function addToolBarAction(label, imageName, privilege)
   icn.addDbImage(imageName);
 
   // Create the action (add to menu not seen to ensure priv rescans work)
-  var act = _menuDesktop.addAction(icn, label);
+  var act = _menuToolBar.addAction(icn, label);
   act.checkable = true;
   if (privilege)
   {
@@ -173,6 +182,35 @@ function loadLocalHtml(ok)
   var q = toolbox.executeQuery("SELECT xtdesktop.fetchWelcomeHtml() AS html");
   q.first();
   _welcome.setHtml(q.value("html"));
+}
+
+/*!
+  Adds desktop to the window menu
+*/
+function prepareWindowMenu()
+{
+  // TO DO: Make this more modular
+  var idx = _desktopStack.currentIndex;
+  _dockMycontacts.toggleViewAction().visible = (idx == 1);
+  _dockMyaccounts.toggleViewAction().visible = (idx == 1);
+  _dockMytodo.toggleViewAction().visible = (idx == 1);
+  _dockSalesAct.toggleViewAction().visible = (idx == 2);
+  _dockSalesHist.toggleViewAction().visible = (idx == 2);
+  _dockSalesOpen.toggleViewAction().visible = (idx == 2);
+  _dockBankBal.toggleViewAction().visible = (idx == 3);
+  _dockPayables.toggleViewAction().visible = (idx == 3);
+  _dockReceivables.toggleViewAction().visible = (idx == 3);
+  _dockGLAccounts.toggleViewAction().visible = (idx == 3);
+  _dockPurchAct.toggleViewAction().visible = (idx == 4);
+  _dockPurchHist.toggleViewAction().visible = (idx == 4);
+  _dockPurchOpen.toggleViewAction().visible = (idx == 4);
+  _dockMfgAct.toggleViewAction().visible = (idx == 5);
+  _dockMfgHist.toggleViewAction().visible = (idx == 5);
+  _dockMfgOpen.toggleViewAction().visible = (idx == 5);
+  _dockExtensions.toggleViewAction().visible = (idx == 6);
+  _dockUserOnline.toggleViewAction().visible = (idx == 6);
+  _menuWindow.addSeparator();
+  _menuWindow.addMenu(_menuDesktop);
 }
 
 function toolbarActionTriggered(action)
