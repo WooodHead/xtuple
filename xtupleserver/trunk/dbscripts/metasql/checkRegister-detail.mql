@@ -32,6 +32,9 @@ SELECT checkhead_id AS checkid,
        <? if exists("showTotal") ?>
          CASE WHEN NOT checkhead_void THEN 0 ELSE 1 END AS amount_xttotalrole,
          CASE WHEN NOT checkhead_void THEN 0 ELSE 1 END AS base_amount_xttotalrole,
+       <? else ?>
+         'curr' AS amount_xttotalrole,
+         'curr' AS base_amount_xttotalrole,
        <? endif ?>
        0 AS xtindentrole
   FROM checkhead LEFT OUTER JOIN
@@ -99,6 +102,9 @@ SELECT checkitem_checkhead_id AS checkid, 0 AS extra, checkitem_id,
        <? if exists("showTotal") ?>
          1 AS amount_xttotalrole,
          1 AS base_amount_xttotalrole,
+       <? else ?>
+         'curr' AS amount_xttotalrole,
+         'curr' AS base_amount_xttotalrole,
        <? endif ?>
        1 AS xtindentrole
   FROM checkitem, checkhead 
