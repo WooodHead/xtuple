@@ -17,9 +17,6 @@ var _mfgActIsDirty = true;
 */
 function initDockMfgAct()
 {
-  if (!privileges.check("ViewManufactureActivitiesDock"))
-    return;
-
   _dockMfgAct = mainwindow.findChild("_dockMfgAct");
   _mfgAct = mainwindow.findChild("_mfgAct");
 
