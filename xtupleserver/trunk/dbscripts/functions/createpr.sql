@@ -15,11 +15,11 @@ BEGIN
   INSERT INTO pr
   ( pr_id, pr_number, pr_subnumber, pr_status,
     pr_order_type, pr_order_id,
-    pr_itemsite_id, pr_qtyreq, pr_duedate )
+    pr_itemsite_id, pr_qtyreq, pr_duedate, pr_releasenote )
   VALUES
   ( _prid, pOrderNumber, nextPrSubnumber(pOrderNumber), 'O',
     pOrderType, pOrderId,
-    pItemsiteid, pQty, pDuedate );
+    pItemsiteid, pQty, pDuedate, pNotes );
 
   RETURN _prid;
 
@@ -42,11 +42,11 @@ BEGIN
   INSERT INTO pr
   ( pr_id, pr_number, pr_subnumber, pr_status,
     pr_order_type, pr_order_id,
-    pr_itemsite_id, pr_qtyreq, pr_duedate )
+    pr_itemsite_id, pr_qtyreq, pr_duedate, pr_releasenote )
   VALUES
   ( _prid, pOrderNumber, nextPrSubnumber(pOrderNumber), 'O',
     'M', -1,
-    pItemsiteid, pQty, pDuedate );
+    pItemsiteid, pQty, pDuedate, pNotes);
 
   RETURN _prid;
 
