@@ -121,6 +121,19 @@ BEGIN
                                END );
         END IF;
 
+        IF (OLD.item_fractional <> NEW.item_fractional) THEN
+          PERFORM postComment( _cmnttypeid, 'I', NEW.item_id,
+                               CASE WHEN (NEW.item_fractional) THEN 'Fractional Changed from FALSE to TRUE'
+                                    ELSE 'Fractional Changed from TRUE to FALSE'
+                               END );
+        END IF;
+
+        IF (OLD.item_exclusive <> NEW.item_exclusive) THEN
+          PERFORM postComment( _cmnttypeid, 'I', NEW.item_id,
+                               CASE WHEN (NEW.item_exclusive) THEN 'Exclusive Changed from FALSE to TRUE'
+                                    ELSE 'Exclusive Changed from TRUE to FALSE'
+                               END );
+        END IF;
         IF (OLD.item_config <> NEW.item_config) THEN
           PERFORM postComment( _cmnttypeid, 'I', NEW.item_id,
                                CASE WHEN (NEW.item_config) THEN 'Configured Changed from FALSE to TRUE'
@@ -150,6 +163,36 @@ BEGIN
                                  ') to "' ||
                                  (SELECT uom_name FROM uom WHERE uom_id=NEW.item_price_uom_id) ||
                                  '" (' || NEW.item_price_uom_id || ')' ) );
+        END IF;
+
+        IF (OLD.item_classcode_id <> NEW.item_classcode_id) THEN
+          PERFORM postComment( _cmnttypeid, 'I', NEW.item_id,
+                               ( 'Class Code Changed from "' ||
+                                 (SELECT classcode_code || '-' || classcode_descrip FROM classcode WHERE classcode_id=OLD.item_classcode_id) ||
+                                 '" (' || OLD.item_classcode_id ||
+                                 ') to "' ||
+                                 (SELECT classcode_code || '-' || classcode_descrip FROM classcode WHERE classcode_id=NEW.item_classcode_id) ||
+                                 '" (' || NEW.item_classcode_id || ')' ) );
+        END IF;
+
+        IF (OLD.item_freightclass_id <> NEW.item_freightclass_id) THEN
+          PERFORM postComment( _cmnttypeid, 'I', NEW.item_id,
+                               ( 'Freight Class Changed from "' ||
+                                 (SELECT freightclass_code || '-' || freightclass_descrip FROM freightclass WHERE freightclass_id=OLD.item_freightclass_id) ||
+                                 '" (' || OLD.item_freightclass_id ||
+                                 ') to "' ||
+                                 (SELECT freightclass_code || '-' || freightclass_descrip FROM freightclass WHERE freightclass_id=NEW.item_freightclass_id) ||
+                                 '" (' || NEW.item_freightclass_id || ')' ) );
+        END IF;
+
+        IF (OLD.item_prodcat_id <> NEW.item_prodcat_id) THEN
+          PERFORM postComment( _cmnttypeid, 'I', NEW.item_id,
+                               ( 'Product Category Changed from "' ||
+                                 (SELECT prodcat_code || '-' || prodcat_descrip FROM prodcat WHERE prodcat_id=OLD.item_prodcat_id) ||
+                                 '" (' || OLD.item_prodcat_id ||
+                                 ') to "' ||
+                                 (SELECT prodcat_code || '-' || prodcat_descrip FROM prodcat WHERE prodcat_id=NEW.item_prodcat_id) ||
+                                 '" (' || NEW.item_prodcat_id || ')' ) );
         END IF;
 
         IF (OLD.item_upccode <> NEW.item_upccode) THEN
