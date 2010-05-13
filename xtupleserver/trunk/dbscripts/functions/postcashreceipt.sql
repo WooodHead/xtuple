@@ -55,7 +55,7 @@ BEGIN
          accnt_id AS prepaid_accnt_id,
          cashrcpt_usecustdeposit,
          COALESCE(cashrcpt_applydate, cashrcpt_distdate) AS applydate,
-         cashrcpt_curr_id INTO _p
+         cashrcpt_curr_id, cashrcpt_posted, cashrcpt_void INTO _p
   FROM accnt, cashrcpt LEFT OUTER JOIN cust ON (cashrcpt_cust_id=cust_id)
   WHERE ( (findPrepaidAccount(cashrcpt_cust_id)=accnt_id)
    AND (cashrcpt_id=pCashrcptid) );
@@ -65,6 +65,14 @@ BEGIN
 
   IF (COALESCE(_p.cashrcpt_distdate > _p.applydate, false)) THEN
     RAISE EXCEPTION 'Cannot post cashrcpt % because application date is before distribution date.', _p.cashrcpt_docnumber;
+  END IF;
+
+  IF (COALESCE(_p.cashrcpt_posted, false)) THEN
+    RAISE EXCEPTION 'Cannot post cashrcpt % because the document has already been posted.', _p.cashrcpt_docnumber;
+  END IF;
+
+  IF (COALESCE(_p.cashrcpt_void, false)) THEN
+    RAISE EXCEPTION 'Cannot post cashrcpt % because the document has been voided.', _p.cashrcpt_docnumber;
   END IF;
 
   _predist := COALESCE(_p.cashrcpt_distdate < _p.applydate, false);
