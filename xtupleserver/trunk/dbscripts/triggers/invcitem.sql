@@ -75,7 +75,7 @@ BEGIN
          (NEW.invcitem_qty_invuomratio <> OLD.invcitem_qty_invuomratio) OR
          (NEW.invcitem_price <> OLD.invcitem_price) OR
          (NEW.invcitem_price_invuomratio <> OLD.invcitem_price_invuomratio) OR
-         (NEW.invcitem_taxtype_id <> OLD.invcitem_taxtype_id) ) THEN
+         (COALESCE(NEW.invcitem_taxtype_id, -1) <> COALESCE(OLD.invcitem_taxtype_id, -1)) ) THEN
       PERFORM calculateTaxHist( ''invcitemtax'',
                                 NEW.invcitem_id,
                                 COALESCE(_r.invchead_taxzone_id, -1),
