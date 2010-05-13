@@ -132,7 +132,7 @@ function fillListSalesHist()
   else
     type = qsTr("Sales");
 
-  if (_timeFrameSalesHist == "today")
+  if (_timeFrameSalesHist == "day")
     timeFrame = qsTr("Today");
   else if (_timeFrameSalesHist == "week")
     timeFrame = qsTr("this Week");

@@ -122,7 +122,7 @@ function fillListMfgHist()
 
   type = qsTr("Receipts");
 
-  if (_timeFrameMfgHist == "today")
+  if (_timeFrameMfgHist == "day")
     timeFrame = qsTr("Today");
   else if (_timeFrameMfgHist == "week")
     timeFrame = qsTr("this Week");
