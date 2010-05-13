@@ -40,6 +40,13 @@ BEGIN
     END IF;
   END IF;
 
+  IF (TG_OP = 'UPDATE') THEN
+    IF ((NEW.accnt_type != OLD.accnt_type) AND
+        (SELECT (count(*) > 0) FROM gltrans WHERE (gltrans_accnt_id=NEW.accnt_id))) THEN
+      RAISE EXCEPTION 'You may not change the account type of an account that has transaction history';
+    END IF;
+  END IF;
+
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
