@@ -74,7 +74,9 @@ if (mainwindow.showTopLevel())
   var url = new QUrl(metrics.value("desktop/welcome"));
   _welcome.objectName = "_welcome";
   _welcome["loadFinished(bool)"].connect(loadLocalHtml);
+  _welcome["linkClicked(const QUrl &)"].connect(openUrl);
   _welcome.load(url);
+  _welcome.page().linkDelegationPolicy = QWebPage.DelegateAllLinks;
   _desktopStack.addWidget(_welcome);
   addToolBarAction(qsTr("Welcome"), "home_32");
   _vToolBarActions[0].checked = true;
@@ -176,12 +178,24 @@ function addToolBarAction(label, imageName, privilege)
 */
 function loadLocalHtml(ok)
 {
-  if (ok) // Successful load of xTuple page so exit
-    return;
+  if (!ok)
+  {
+    // Page didn't load, so load internal HTML saying we aren't connected
+    var q = toolbox.executeQuery("SELECT xtdesktop.fetchWelcomeHtml() AS html");
+    q.first();
+    _welcome.setHtml(q.value("html"));
+  }
+  // We don't want to deal with loading any more web pages.  Let OS do it
+  _welcome.page().linkDelegationPolicy = QWebPage.DelegateAllLinks;;
+}
 
-  var q = toolbox.executeQuery("SELECT xtdesktop.fetchWelcomeHtml() AS html");
-  q.first();
-  _welcome.setHtml(q.value("html"));
+
+/*!
+  Launches links clicked on home page into new local browser window
+*/
+function openUrl(url)
+{
+  toolbox.openUrl(new QUrl(url).toString());
 }
 
 /*!
