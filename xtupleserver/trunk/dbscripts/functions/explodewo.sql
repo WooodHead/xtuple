@@ -247,19 +247,17 @@ BEGIN
              0, 0,
              startOfTime(), startOfTime(),
              0, ci.item_picklist, ( (ci.item_type='M') AND (bomitem_createwo) ),
-             bomitem_issuemethod, bomitem_notes, bomitem_ref 
-      FROM wo, womatl, bomitem, 
-           itemsite AS cs, itemsite AS ps,
-           item AS ci, item AS pi
-      WHERE ( (womatl_itemsite_id=ps.itemsite_id)
-       AND (womatl_wo_id=wo_id)
-       AND (bomitem_parent_item_id=pi.item_id)
-       AND (bomitem_item_id=ci.item_id)
-       AND (ps.itemsite_warehous_id=cs.itemsite_warehous_id)
-       AND (cs.itemsite_item_id=ci.item_id)
-       AND (ps.itemsite_item_id=pi.item_id)
-       AND (woEffectiveDate(_p.wo_startdate) BETWEEN bomitem_effective AND (bomitem_expires - 1))
-       AND (womatl_id=_p.womatl_id));
+             bomitem_issuemethod, bomitem_notes, bomitem_ref
+      FROM womatl JOIN wo ON (wo_id=womatl_wo_id)
+                  JOIN itemsite ps ON (ps.itemsite_id=womatl_itemsite_id)
+                  JOIN item pi ON (pi.item_id=ps.itemsite_item_id)
+                  JOIN bomitem ON ( (bomitem_parent_item_id=pi.item_id) AND
+                                    (woEffectiveDate(_p.wo_startdate) BETWEEN bomitem_effective AND (bomitem_expires - 1)) AND
+                                    (bomitem_rev_id=getActiveRevId('BOM', pi.item_id)) )
+                  JOIN item ci ON (ci.item_id=bomitem.bomitem_item_id)
+                  JOIN itemsite cs ON ( (cs.itemsite_item_id=ci.item_id) AND
+                                        (cs.itemsite_warehous_id=ps.itemsite_warehous_id) )
+      WHERE (womatl_id=_p.womatl_id);
 
       DELETE FROM womatl
       WHERE (womatl_id=_p.womatl_id);
