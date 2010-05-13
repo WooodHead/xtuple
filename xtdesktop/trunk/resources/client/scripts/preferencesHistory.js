@@ -15,7 +15,7 @@ var _type = mywindow.findChild("_type");
 var _path;
 
 // Populate timeFrame combo
-_timeFrame.append(0, qsTr("Today"), "today");
+_timeFrame.append(0, qsTr("Today"), "day");
 _timeFrame.append(1, qsTr("This Week"), "week");
 _timeFrame.append(2, qsTr("This Month"), "month");
 _timeFrame.append(3, qsTr("This Year"), "year");

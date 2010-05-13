@@ -131,7 +131,7 @@ function fillListPurchHist()
   else
     type = qsTr("Receipts");
 
-  if (_timeFramePurchHist == "today")
+  if (_timeFramePurchHist == "day")
     timeFrame = qsTr("Today");
   else if (_timeFramePurchHist == "week")
     timeFrame = qsTr("this Week");
