@@ -69,7 +69,7 @@ function fillListSalesOpen()
   _dockSalesOpen = mainwindow.findChild("_dockSalesOpen");
   _salesOpen = mainwindow.findChild("_salesOpen");
 
-  if (!_dockSalesOpen.visible && !_salesOpenIsDirty)
+  if (!_dockSalesOpen.visible || !_salesOpenIsDirty)
     return;
 
   _salesOpen.populate(toolbox.executeDbQuery("desktop","salesOpen"));
