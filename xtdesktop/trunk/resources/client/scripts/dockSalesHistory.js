@@ -94,7 +94,7 @@ function fillListSalesHist()
   _dockSalesHist = mainwindow.findChild("_dockSalesHist");
   _salesHist = mainwindow.findChild("_salesHist");
 
-  if (!_dockSalesHist.visible && !_salesHistIsDirty)
+  if (!_dockSalesHist.visible || !_salesHistIsDirty)
     return;
 
   var timeFrame;
