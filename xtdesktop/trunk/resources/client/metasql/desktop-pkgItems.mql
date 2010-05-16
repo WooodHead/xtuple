@@ -5,7 +5,7 @@ SELECT *,
        CASE WHEN pkgitem_type='P' THEN <? value("package") ?>
             WHEN pkgitem_type='C' THEN <? value("script") ?>
             WHEN pkgitem_type='D' THEN <? value("cmd") ?>
-            WHEN pkgitem_type='F' THEN <? value("function") ?>
+            WHEN pkgitem_type='F' THEN <? value("procedure") ?>
             WHEN pkgitem_type='G' THEN <? value("trigger") ?>
             WHEN pkgitem_type='I' THEN <? value("image") ?>
             WHEN pkgitem_type='M' THEN <? value("metasql") ?>
@@ -186,7 +186,7 @@ SELECT pkghead_id AS pkgitem_id, 21 AS seq,
        2 AS xtindentrole,
        pkghead_name AS pkgname,
        'L'::text AS pkgitem_type,
-       <? value("function") ?> AS pkgitem_name,
+       <? value("procedure") ?> AS pkgitem_name,
        '' AS pkgitem_descrip
   FROM pkghead
 UNION

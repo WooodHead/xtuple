@@ -64,7 +64,7 @@ function fillListExtensions()
     var params = new Object;
     params.script = qsTr("Scripts");
     params.cmd = qsTr("Custom Commands");
-    params.function = qsTr("Stored Procedures");
+    params.procedure = qsTr("Stored Procedures");
     params.trigger = qsTr("Triggers");
     params.image = qsTr("Images");
     params.metasql = qsTr("MetaSQL");
