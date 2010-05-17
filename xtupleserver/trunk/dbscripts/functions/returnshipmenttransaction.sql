@@ -43,25 +43,57 @@ BEGIN
       AND  (shipitem_id=pshipitemid));
       
     GET DIAGNOSTICS _rows = ROW_COUNT;
+    IF (_rows = 0 ) THEN
+      -- Was it a non-controlled sales order item?
+      SELECT shipitem_id, shipitem_qty, shipitem_orderitem_id,
+        shiphead_id, shiphead_order_type,
+        itemsite_loccntrl, itemsite_costmethod, itemsite_controlmethod
+      INTO _r
+      FROM shipitem
+        JOIN shiphead ON (shiphead_id=shipitem_shiphead_id)
+        JOIN coitem ON (shipitem_orderitem_id=coitem_id)
+        JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
+      WHERE ((NOT shiphead_shipped)
+        AND  (shipitem_id=pshipitemid)
+        AND (shiphead_order_type = 'SO'));
+    END IF;
+    
+    GET DIAGNOSTICS _rows = ROW_COUNT;
+    IF (_rows = 0 AND fetchmetricbool('MultiWhs') ) THEN
+      -- Was it a non-controlled transfer order item?
+      SELECT shipitem_id, shipitem_qty, shipitem_orderitem_id,
+        shiphead_id, shiphead_order_type,
+        itemsite_loccntrl, itemsite_costmethod, itemsite_controlmethod
+      INTO _r
+      FROM shipitem
+        JOIN shiphead ON (shiphead_id=shipitem_shiphead_id)
+        JOIN toitem ON (shipitem_orderitem_id=toitem_id)
+        JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
+      WHERE ((NOT shiphead_shipped)
+        AND  (shipitem_id=pshipitemid)
+        AND (shiphead_order_type = 'TO'));
+    END IF;
     
     IF (_rows > 0 ) THEN  
       IF (_r.shiphead_order_type = 'SO') THEN
         -- Handle inventory transaction
-        SELECT postInvTrans( itemsite_id, 'RS', _r.shipitem_qty * coitem_qty_invuomratio,
-        		  'S/R', _r.shiphead_order_type, formatSoNumber(_r.shipitem_orderitem_id),
+        IF (_r.itemsite_controlmethod != 'N' OR _r.itemsite_costmethod = 'J') THEN
+          SELECT postInvTrans( itemsite_id, 'RS', _r.shipitem_qty * coitem_qty_invuomratio,
+          		  'S/R', _r.shiphead_order_type, formatSoNumber(_r.shipitem_orderitem_id),
 			  shiphead_number, 'Return from Shipping',
 			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
 			  _itemlocSeries, _timestamp, _r.shipitem_value, _r.shipitem_invhist_id ) INTO _invhistid
-        FROM coitem, itemsite, costcat, shiphead, shipitem
-        WHERE ( (coitem_itemsite_id=itemsite_id)
-         AND (itemsite_costcat_id=costcat_id)
-         AND (coitem_id=_r.shipitem_orderitem_id)
-         AND (shiphead_order_type=_r.shiphead_order_type)
-         AND (shiphead_id=shipitem_shiphead_id)
-         AND (shipitem_orderitem_id=_r.shipitem_orderitem_id) );   
+          FROM coitem, itemsite, costcat, shiphead, shipitem
+          WHERE ( (coitem_itemsite_id=itemsite_id)
+           AND (itemsite_costcat_id=costcat_id)
+           AND (coitem_id=_r.shipitem_orderitem_id)
+           AND (shiphead_order_type=_r.shiphead_order_type)
+           AND (shiphead_id=shipitem_shiphead_id)
+           AND (shipitem_orderitem_id=_r.shipitem_orderitem_id) );   
          
-        -- We know the distribution so post this through so the any w/o activity knows about it
-        PERFORM postItemlocseries(_itemlocSeries);
+          -- We know the distribution so post this through so the any w/o activity knows about it
+          PERFORM postItemlocseries(_itemlocSeries);
+        END IF;
  
         IF (_r.itemsite_costmethod = 'J') THEN   
           -- Reopen the work order
