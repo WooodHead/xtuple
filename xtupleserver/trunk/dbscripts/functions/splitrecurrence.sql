@@ -25,7 +25,7 @@ BEGIN
   _newparentstmt := 'SELECT [table]_id FROM [fulltable]'
                  || ' WHERE (([table]_recurring_[table]_id=$1)'
                  || '    AND NOT ([done])'
-                 || '    AND ([schedcol]>''$2''))'
+                 || '    AND ([schedcol]>=''$2''))'
                  || ' ORDER BY [schedcol]'
                  || ' LIMIT 1;';
   _newparentstmt := REPLACE(_newparentstmt, '[fulltable]', _rt.recurtype_table);
