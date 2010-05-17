@@ -11,6 +11,7 @@ DECLARE
   _interval  TEXT;
   _last      TIMESTAMP WITH TIME ZONE;
   _maxstmt   TEXT;
+  _maxdate   DATE    := endOfTime();
   _next      TIMESTAMP WITH TIME ZONE;
   _r         RECORD;
   _rt        RECORD;
@@ -49,6 +50,11 @@ BEGIN
     GET DIAGNOSTICS _count = ROW_COUNT;
     IF (_count <= 0) THEN
       RETURN -10;
+    END IF;
+
+    -- if the recurrence type has a max lookahead window, use it
+    IF (_r.recur_parent_type = 'I') THEN
+      _maxdate := CURRENT_DATE + CAST(fetchMetricText('RecurringInvoiceBuffer') || ' days' AS INTERVAL);
     END IF;
 
     -- build statements dynamically from the recurtype table because packages
@@ -93,13 +99,14 @@ BEGIN
     EXECUTE REPLACE(_maxstmt,   '$1', _r.recur_parent_id::TEXT) INTO _last;
     RAISE DEBUG E'% got %, % got %', _countstmt, _existcnt, _maxstmt, _last;
 
-    WHILE (_existcnt < _r.recur_max) LOOP
+    _next := _last;
+    WHILE (_existcnt < _r.recur_max AND _next < _maxdate) LOOP
       RAISE DEBUG 'createrecurringitems looping, existcnt = %, max = %',
                   _existcnt, _r.recur_max;
       _next := _last +
-               CAST(_r.recur_freq * (_r.recur_max - _existcnt ) || _interval AS INTERVAL);
+               CAST(_r.recur_freq * _existcnt || _interval AS INTERVAL);
 
-      IF (_next BETWEEN _r.recur_start AND _r.recur_end) THEN
+      IF (_next BETWEEN _r.recur_start AND COALESCE(_r.recur_end, endOfTime())) THEN
         RAISE DEBUG 'createrecurringitems executing % with % and %',
                     _copystmt, _r.recur_parent_id, _next;
         -- 8.4+: EXECUTE _copystmt INTO _id USING _r.recur_parent_id, _next;
