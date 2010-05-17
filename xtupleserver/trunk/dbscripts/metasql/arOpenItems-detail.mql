@@ -9,7 +9,7 @@ SELECT SUM(CASE WHEN (aropen_doctype IN ('C', 'R')) THEN
            END) AS total_balance
 FROM aropen JOIN custinfo ON (aropen_cust_id=cust_id)
             LEFT OUTER JOIN custtype ON (cust_custtype_id=custtype_id)
-	    LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
+            LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
 WHERE ( (aropen_open)
 <? if exists("cust_id") ?>
   AND   (aropen_cust_id=<? value("cust_id") ?>)
@@ -31,18 +31,20 @@ WHERE ( (aropen_open)
 <? if exists("showUnposted") ?>
 <? if not exists("creditsOnly") ?>
 SELECT -1 AS id,
-       0 AS altId,  
+       0 AS altId,
        invchead_invcnumber AS docnumber,
        invchead_id AS docnumber_xtidrole,
        invchead_posted AS posted,
-       invchead_invcdate AS docdate,   
+       invchead_invcdate AS docdate,
        NULL::date AS aropen_duedate,
        invchead_ordernumber AS ordernumber,
        cohead_id AS ordernumber_xtidrole,
        <? value("invoice") ?>  AS doctype,
        NULL AS doctype_qtforegroundrole,
        invoicetotal(invchead_id) AS amount,
+       currtobase(invchead_curr_id, invoicetotal(invchead_id), invchead_invcdate) AS base_amount,
        0 AS paid,
+       0 AS base_paid,
        0 AS balance,
        currConcat(invchead_curr_id) AS currAbbr,
        0 AS base_balance,
@@ -58,8 +60,12 @@ SELECT -1 AS id,
        false AS open,
        NULL AS ccard_number,
        'curr' AS amount_xtnumericrole,
-       'curr' AS balance_xtnumericrole,
+       'curr' AS base_amount_xtnumericrole,
+       0 AS base_amount_xttotalrole,
        'curr' AS paid_xtnumericrole,
+       'curr' AS base_paid_xtnumericrole,
+       0 AS base_paid_xttotalrole,
+       'curr' AS balance_xtnumericrole,
        'curr' AS base_balance_xtnumericrole,
        0 AS base_balance_xttotalrole,
        NULL::text AS aropen_docnumber_qtdisplayrole,
@@ -93,9 +99,9 @@ WHERE ((NOT invchead_posted)
            invchead_invcdate,       invchead_posted,        invchead_curr_id,
            invchead_recurring,      invchead_invcnumber,    invchead_posted,
            invchead_ordernumber,    cohead_id,
-           cust_id, 		    cust_number,            cust_name,
+           cust_id,                 cust_number,            cust_name,
            invchead_recurring_invchead_id
-          
+
 UNION
 <? endif ?>
 <? endif ?>
@@ -104,11 +110,11 @@ UNION
 <? if exists("showUnposted") ?>
 <? if not exists("debitsOnly") ?>
 SELECT -1 AS id,
-       1 AS altId,   
+       1 AS altId,
        cmhead_number AS docnumber,
        cmhead_id AS docnumber_xtidrole,
        cmhead_posted AS posted,
-       cmhead_docdate AS docdate,   
+       cmhead_docdate AS docdate,
        NULL::date AS aropen_duedate,
        NULL::text AS ordernumber,
        -1 AS ordernumber_xtidrole,
@@ -116,7 +122,9 @@ SELECT -1 AS id,
        CASE WHEN (NOT cmhead_posted) THEN 'emphasis'
        END AS doctype_qtforegroundrole,
        creditmemototal(cmhead_id) AS amount,
+       currtobase(cmhead_curr_id, creditmemototal(cmhead_id), cmhead_docdate) AS base_amount,
        0 AS paid,
+       0 AS base_paid,
        0 AS balance,
        currConcat(cmhead_curr_id) AS currAbbr,
        0  AS base_balance,
@@ -132,8 +140,12 @@ SELECT -1 AS id,
        false AS open,
        NULL AS ccard_number,
        'curr' AS amount_xtnumericrole,
-       'curr' AS balance_xtnumericrole,
+       'curr' AS base_amount_xtnumericrole,
+       0 AS base_amount_xttotalrole,
        'curr' AS paid_xtnumericrole,
+       'curr' AS base_paid_xtnumericrole,
+       0 AS base_paid_xttotalrole,
+       'curr' AS balance_xtnumericrole,
        'curr' AS base_balance_xtnumericrole,
        0 AS base_balance_xttotalrole,
        NULL::text AS aropen_docnumber_qtdisplayrole,
@@ -165,7 +177,7 @@ WHERE ((NOT cmhead_posted)
   GROUP BY id,                      altId,                  cmhead_id,
            cmhead_docdate,          cmhead_posted,          cmhead_curr_id,
            cmhead_number,           cmhead_posted, 
-           cust_id, 		    cust_number,            cust_name
+           cust_id,                 cust_number,            cust_name
 
 UNION
 <? endif ?>
@@ -197,8 +209,11 @@ SELECT aropen_id AS id,
          END
        END AS doctype_qtforegroundrole,
        aropen_amount AS amount,
+       aropen_amount/aropen_curr_rate AS base_amount,
        (aropen_paid + (COALESCE(SUM(arapply_target_paid),0)) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) AS paid,
+       (aropen_paid + (COALESCE(SUM(arapply_target_paid),0))/aropen_curr_rate *
+        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) AS base_paid,
         (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0))) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) AS balance,
        currConcat(aropen_curr_id) AS currAbbr,
@@ -219,8 +234,12 @@ SELECT aropen_id AS id,
        formatccnumber(decrypt(setbytea(ccard_number),
                               setbytea(<? value("key") ?>), 'bf')) AS ccard_number,
        'curr' AS amount_xtnumericrole,
-       'curr' AS balance_xtnumericrole,
+       'curr' AS base_amount_xtnumericrole,
+       0 AS base_amount_xttotalrole,
        'curr' AS paid_xtnumericrole,
+       'curr' AS base_paid_xtnumericrole,
+       0 AS base_paid_xttotalrole,
+       'curr'AS balance_xtnumericrole,
        'curr' AS base_balance_xtnumericrole,
        0 AS base_balance_xttotalrole,
        NULL AS aropen_docnumber_qtdisplayrole,
@@ -300,7 +319,9 @@ SELECT -1,
        NULL AS doctype,
        NULL AS doctype_qtforegroundrole,
        NULL AS amount,
+       NULL AS base_amount,
        NULL AS paid,
+       NULL AS base_paid,
        NULL AS balance,
        NULL AS currAbbr,
        NULL AS base_balance,
@@ -315,7 +336,11 @@ SELECT -1,
        NULL AS recurring, NULL AS open,
        NULL AS ccard_number,
        'curr' AS amount_xtnumericrole,
+       'curr' AS base_amount_xtnumericrole,
+       0 AS base_amount_xttotalrole,
        'curr' AS paid_xtnumericrole,
+       'curr' AS base_paid_xtnumericrole,
+       0 AS base_paid_xttotalrole,
        'curr' AS balance_xtnumericrole,
        'curr' AS base_balance_xtnumericrole,
        0 AS base_balance_xttotalrole,
