@@ -383,33 +383,27 @@ function getprice()
 
     // check for emp rate
     var params = new Object();
-    params.code = _employees.text;
+    params.empid = _employees.id();
 
-    var qry = toolbox.executeQuery("SELECT emp_id "
-        + "FROM emp "
-        + ' WHERE emp_code = <? value("code") ?>;',params);
-
-    if (qry.first())
-    {
-      params.empid = qry.value("emp_id");
-       var qry = toolbox.executeQuery("SELECT teemprate_rate as rate "
+    var qry = toolbox.executeQuery("SELECT teemprate_rate as rate "
         + "FROM te.teemprate "
         + ' WHERE teemprate_emp_id = <? value("empid") ?>;',params);
 
-      if (qry.first())
-      {
-        _rate.localValue = (qry.value("rate"));
-        return;
-      }
+    if (qry.first())
+    {
+      _rate.localValue = (qry.value("rate"));
+      return;
     }
 
     // check for customer rate
     var params = new Object();
-    params.custname = _clients.text;
+    params.custid = _clients.id();
 
     var qry = toolbox.executeQuery("SELECT tecustrate_rate as rate "
         + "FROM te.tecustrate "
-        + ' WHERE tecustrate_cust_name = <? value("custname") ?>;',params);
+        + ' WHERE tecustrate_cust_name = '
+        + '(select cust_name from custinfo where cust_id = '
+        + '<? value("custid") ?>);',params);
 
     if (qry.first())
     {
