@@ -20,7 +20,8 @@ where tehead_id = teitem_tehead_id
 and teitem_emp_id = emp_id
 and teitem_item_id = item_id
 and teitem_type = 'E'
-and tehead_id = &lt;? value("headid") ?> ;</sql>
+and tehead_id = &lt;? value("headid") ?>
+order by workdate ;</sql>
  </querysource>
  <querysource>
   <name>head</name>
