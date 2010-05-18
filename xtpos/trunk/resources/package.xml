@@ -1,9 +1,9 @@
-<package id="resources"
+<package id="create_350"
          name="xtpos"
          developer="xTuple"
          descrip="Retail Point of Sale System"
-         version="3.4.0rc"
-         updater="2.2.0beta">
+         version="3.5.0"
+         updater="2.2.0">
   <pkgnotes>Retail Point of Sale add-on package for xTuple ERP.
 
         This file is part of the xtpos package for xTuple ERP: PostBooks Edition,
@@ -18,7 +18,7 @@
   <prerequisite type="Query"
                 name="Test xTuple ERP version">
     <query>
-      SELECT (SUBSTRING(fetchMetricText('ServerVersion') FOR 3) = '3.4'
+      SELECT (SUBSTRING(fetchMetricText('ServerVersion') FOR 3) = '3.5'
           AND SUBSTRING(fetchMetricText('ServerVersion') FROM 5 FOR 1) >= '0');
     </query>
     <message>
@@ -28,7 +28,7 @@
   </prerequisite>
 
   <prerequisite type="Query"
-                name="Ensure retail package is at 1.0.0beta or doesn't exist" >
+                name="Ensure retail package doesn't exist" >
     <query>
       SELECT COUNT(*) &lt;= 0
       FROM (SELECT *
@@ -40,30 +40,12 @@
     </message>
   </prerequisite>
 
-  <prerequisite type="Query"
-                name="Ensure retail package is disabled if it exists" >
-    <query>
-      SELECT COUNT(*) &lt;= 0
-      FROM pg_inherits
-      WHERE inhrelid IN (SELECT pg_class.oid
-                         FROM pg_class JOIN pg_namespace ON (relnamespace=pg_namespace.oid)
-                         WHERE (nspname='retail'));
-    </query>
-    <message>
-      This upgrade requires that you disable the retail package if
-      you have it installed. Please open the main xTuple ERP application,
-      go to System -> Design -> Packages, select the retail package,
-      and click the Disable button. Then open this updater package
-      again and try to install the update.
-    </message>
-  </prerequisite>
-
   <prerequisite type="license" name="xTuple Concise EULA">
     <message>
       &lt;p>
           This file is part of the xtpos package for xTuple ERP: PostBooks Edition,
           a free and open source Enterprise Resource Planning software suite,
-          Copyright (c) 1999-2009 by OpenMFG LLC, d/b/a xTuple.
+          Copyright (c) 1999-2010 by OpenMFG LLC, d/b/a xTuple.
           It is licensed to you under the Common Public Attribution License
           version 1.0, the full text of which (including xTuple-specific Exhibits)
           is available at www.xtuple.com/CPAL.  By using this software, you agree
