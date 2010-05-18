@@ -63,6 +63,9 @@ _query.clicked.connect(sFillList);
 
 _approve.clicked.connect(sheetApprove);
 
+_expenseReport.clicked.connect(expenseReport);
+_timeReport.clicked.connect(timeReport);
+
 _showAllEmployees.toggled.connect(showAllEmployeesSwitch);
 
 _selected.checked = true;
@@ -346,6 +349,21 @@ function getParams()
   return params;
 }
 
+function timeReport()
+{
+  params = new Object();
+  params.headid = _sheets.id();
+  toolbox.printReport("TimeReport",params);
+}
+
+function expenseReport()
+{
+  params = new Object();
+  params.headid = _sheets.id();
+  toolbox.printReport("ExpenseReport",params);
+}
+
+
 function printReport()
 {
   params = new Object();
@@ -373,6 +391,8 @@ function sHandleButtons()
   _edit.enabled = false;
   _view.enabled = false;
   _approve.enabled = false;
+  _expenseReport.enabled = false;
+  _timeReport.enabled = false;
 
   var currentItem  = _sheets.currentItem();
   if (currentItem != null)
@@ -386,10 +406,15 @@ function sHandleButtons()
         _approve.enabled = true;
       }
       _view.enabled = true;
+      _timeReport.enabled = true;
+      _expenseReport.enabled = true;
     }else{
       _delete.enabled = false;
       _edit.enabled = false;
       _view.enabled = true;
+      _timeReport.enabled = true;
+      _expenseReport.enabled = true;
+
       _approve.enabled = false;
     }
   }
