@@ -351,7 +351,9 @@ function getprice()
     if (qry.first())
     {
       _rate.localValue = (qry.value("rate"));
-      return;
+      if (_rate.localValue > 0) {
+        return;
+      }
     }
     else if (qry.lastError().type != 0)
     {
@@ -372,7 +374,9 @@ function getprice()
     if (qry.first())
     {
       _rate.localValue = (qry.value("rate"));
-      return;
+      if (_rate.localValue > 0) {
+        return;
+      }
     }
     else if (qry.lastError().type != 0)
     {
@@ -392,7 +396,9 @@ function getprice()
     if (qry.first())
     {
       _rate.localValue = (qry.value("rate"));
-      return;
+      if (_rate.localValue > 0) {
+        return;
+      }
     }
 
     // check for customer rate
@@ -408,7 +414,9 @@ function getprice()
     if (qry.first())
     {
       _rate.localValue = (qry.value("rate"));
-      return;
+      if (_rate.localValue > 0) {
+        return;
+      }
     }
     else if (qry.lastError().type != 0)
     {
