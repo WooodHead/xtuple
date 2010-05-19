@@ -4,209 +4,159 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
   <title>Time and Expense Sheet</title>
-
   <para>When selecting New from the Open Sheets screen, the following screen
   will appear:</para>
-
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/openSheetsHeader.png" />
     </imageobject>
-
     <caption>Header Information</caption>
   </mediaobject>
-
   <variablelist>
     <varlistentry>
       <term>Sheet #</term>
-
       <listitem>
         <para>The current Sheet number. This is assigned with the Sheet is
         saved.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Sheet Date</term>
-
       <listitem>
         <para>The date of the Sheet. This date may be a weekending date or
-        some other period date that defines the billing timeframe.</para>
+        some other period date that defines the billing time frame.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Site</term>
-
       <listitem>
         <para>Select the specific Site for the Sheet.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Employee</term>
-
       <listitem>
         <para>Select the specific Employee for the Sheet.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>When selecting the Line Items tab, the following screen will
   appear:</para>
-
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/openSheetsLine.png" />
     </imageobject>
-
     <caption>Line Items</caption>
   </mediaobject>
-
   <variablelist>
     <varlistentry>
       <term>Sheet Number</term>
-
       <listitem>
         <para>The current Sheet number.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Line Number</term>
-
       <listitem>
         <para>The Line Number of the specific line item.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Sheet Date</term>
-
       <listitem>
         <para>The Date of the Sheet.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Work Date</term>
-
       <listitem>
         <para>The Date of the actual time or expense.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Customer</term>
-
       <listitem>
         <para>The Customer selected for the line item.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>PO</term>
-
       <listitem>
         <para>The Customer PO.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Item</term>
-
       <listitem>
         <para>The selected Item.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Description</term>
-
       <listitem>
         <para>The item description.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Units</term>
-
       <listitem>
         <para>The quantity of Hours or of the Expense entry.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Rate</term>
-
       <listitem>
         <para>The rate entered for the Time or Expense entry.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Extended</term>
-
       <listitem>
         <para>The extended total for the line.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Time/Exp</term>
-
       <listitem>
         <para>Type of entry. 'T' for Time. 'E' for Expense.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>NEW</term>
-
       <listitem>
         <para>Opens line entry screen for creating a new Line.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>EDIT</term>
-
       <listitem>
         <para>Enables you to edit highlighted Line. Double-clicking on a Line
         will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>VIEW</term>
-
       <listitem>
         <para>Highlight a Line and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>DELETE</term>
-
       <listitem>
         <para>Highlight a Line and then select this button to remove the Line
         from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>When selecting the Sheet Notes tab, the following screen will
   appear:</para>
-
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/openSheetsNote.png" />
     </imageobject>
-
     <caption>Sheet Notes</caption>
   </mediaobject>
-
   <para>Notes entered for the Sheet are for reference purposes only and will
   not appear on any Invoices or Vouchers.</para>
 </section>

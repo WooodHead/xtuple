@@ -4,36 +4,30 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
   <title>Expense Item Setup</title>
-
   <para>The Expense Item Setup tab is an extension of the standard Item
   maintenance screen. Expense Items are used to create a relationship between
-  a specified Reference Item and a a General Ledger (G/L) Account or an
-  Expense Category. These relationships are critical to the Vouchering
-  functionality that is a feature of the Time and Expense Pro version. To
-  access the list of Items, follow this path: <guimenuitem>Products &gt; Item
-  &gt; List.</guimenuitem> Click on the Expense tab to view expense setup. The
+  a specified Reference Item and a General Ledger (G/L) Account or an Expense
+  Category. These relationships are critical to the Vouchering functionality
+  that is a feature of the Time and Expense Pro version. To access the list of
+  Items, follow this path: <guimenuitem>Products &gt; Item &gt;
+  List.</guimenuitem> Click on the Expense tab to view expense setup. The
   following screen will appear:</para>
-
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/expenseItem.png" />
         </imageobject>
-
         <caption>Expense Item Setup</caption>
       </mediaobject>
-    </screenshot>NOTE: The Expense tab is only available for Reference item
-  types.</para>
-
-  <para></para>
-
+    </screenshot></para>
+  <note>
+    <para>The Expense tab is only available for Reference item types.</para>
+  </note>
   <para>The Expense tab provides the ability to select a related Account or
   Expense Category.</para>
-
   <variablelist>
     <varlistentry>
       <term>ACCOUNT</term>
-
       <listitem>
         <para>Identify a General Ledger (G/L) Account to be used for expensing
         Purchasing Expenses to. This is an Expense Account. This Account will
@@ -41,10 +35,8 @@
         account will be debited when the Voucher is posted.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>EXPENSE CATEGORY</term>
-
       <listitem>
         <para>Identify an Expense Category to distribute Purchasing Expenses
         to. The Expense Category is used to define a set of General Ledger
@@ -53,10 +45,8 @@
         be debited when the Voucher is posted.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>DELETE EXPENSE ITEM SETUP</term>
-
       <listitem>
         <para>Select this button to remove the relationship between the item
         and the specified General Ledger (G/L) Account or Expense
