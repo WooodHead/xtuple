@@ -94,7 +94,7 @@ BEGIN
 
       IF _c._value > 0 THEN
   --    Distribute to G/L, credit Shipping Asset, debit COS
-	SELECT MIN(insertGLTransaction( 'S/R', 'SH', _shiphead.shiphead_number, ('Ship Shipment to Customer ' || _c.cohead_billtoname),
+	SELECT MIN(insertGLTransaction( 'S/R', 'SH', _shiphead.shiphead_number, ('Ship Order ' || _c.cohead_number || ' for Customer ' || _c.cohead_billtoname),
 				     costcat_shipasset_accnt_id,
                                      CASE WHEN(COALESCE(_c.coitem_cos_accnt_id, -1) != -1) THEN _c.coitem_cos_accnt_id
                                           WHEN(_c.coitem_warranty=TRUE) THEN resolveCOWAccount(itemsite_id, _c.cohead_cust_id)
