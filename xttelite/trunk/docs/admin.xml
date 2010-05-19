@@ -4,70 +4,56 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter>
   <title>System Administration</title>
-
   <para>Before you can begin processing Time and Expense Sheets, you must
   first set up the system with Expense Items and the appropriate User
   Permissions. These activities could be completed by a manager responsible
   for time and expense or dedicated information technology professional. In
   this chapter we'll cover the following topics:</para>
-
   <itemizedlist>
     <listitem>
       <para>Setting up Expense Items</para>
     </listitem>
-
     <listitem>
       <para>Configuring User Permissions</para>
     </listitem>
   </itemizedlist>
-
   <para>Once these configurations are complete, you can begin entering Time
   and Expense Sheets!</para>
-
   <section>
     <title>Expense Item Setup</title>
-
     <para>The processing of Sheets is handled by the Open Sheets screen. For
     this scenario, we'll need to review the open sheets to begin. To open a
     Sheet, follow these steps: Click on the Expense tab to view expense setup.
     The following screen will appear:</para>
-
     <orderedlist>
       <listitem>
         <para>Follow this path: <guimenuitem>Products &gt; Item &gt;
         List...</guimenuitem></para>
       </listitem>
-
       <listitem>
         <para>Select an existing Reference item, or create a new Reference
         item. For this example, we'll select the MILEAGE item.</para>
       </listitem>
-
       <listitem>
         <para>The following screen will appear:</para>
       </listitem>
     </orderedlist>
-
     <para><screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/expenseItem.png" />
           </imageobject>
-
           <caption>Expense Item Setup</caption>
         </mediaobject>
-      </screenshot>NOTE: The Expense tab is only available for Reference item
-    types.</para>
-
-    <para></para>
-
+      </screenshot></para>
+    <note>
+      <para>The Expense tab is only available for Reference item types.</para>
+    </note>
     <para>The Expense tab provides the ability to select a related Account or
     Expense Category.</para>
-
     <variablelist>
       <varlistentry>
         <term>ACCOUNT</term>
-
         <listitem>
           <para>Identify a General Ledger (G/L) Account to be used for
           expensing Purchasing Expenses to. This is an Expense Account. This
@@ -76,10 +62,8 @@
           posted.</para>
         </listitem>
       </varlistentry>
-
       <varlistentry>
         <term>EXPENSE CATEGORY</term>
-
         <listitem>
           <para>Identify an Expense Category to distribute Purchasing Expenses
           to. The Expense Category is used to define a set of General Ledger
@@ -88,10 +72,8 @@
           be debited when the Voucher is posted.</para>
         </listitem>
       </varlistentry>
-
       <varlistentry>
         <term>DELETE EXPENSE ITEM SETUP</term>
-
         <listitem>
           <para>Select this button to remove the relationship between the item
           and the specified General Ledger (G/L) Account or Expense
@@ -100,68 +82,53 @@
       </varlistentry>
     </variablelist>
   </section>
-
   <section>
     <title>Configuring User Permissions</title>
-
     <para>xTuple ERP has the powerful ability to manage user permissions,
     enabling you to allow or disallow access to various functional areas of
     the system. For example, a clerk may enter time and expense, while a
     manager may have the ability to Approve entries.</para>
-
     <para>There are several options available to you when managing system
     users. You can either A) assign individual permissions to users B) create
     preconfigured groups of permissions and assign individuals to these groups
     or C) a combination of A and B.</para>
-
     <para>The following path will get you to the screen for maintaining system
     users: <guimenuitem>System &gt; Maintain Users</guimenuitem>.</para>
-
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/tepermissions.png" />
       </imageobject>
-
       <caption>List Users</caption>
     </mediaobject>
-
     <para>In this scenario, let's say we have a new employee whose permissions
     we want to review. To begin, follow these steps:</para>
-
     <orderedlist>
       <listitem>
         <para>Highlight the user whose permissions we want to review</para>
       </listitem>
-
       <listitem>
         <para>Select the EDIT button (or double-click on the user)</para>
       </listitem>
-
       <listitem>
         <para>The following screen will appear:</para>
       </listitem>
     </orderedlist>
-
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/tepermissions2.png" />
       </imageobject>
-
       <caption>User Privileges</caption>
     </mediaobject>
-
-    <para>As you can see, the basic user information—such as name and email
-    address—has already been entered. The user has the ability to enter their
-    own time and expenses, which you can see under the "Granted Privileges"
-    section. We can add or remove privileges (by module) simply by selecting a
-    specific privilege, and then choosing either the ADD or REVOKE button.
-    .</para>
-
+    <para>As you can see, the basic user information&mdash;such as name and
+    email address&mdash;has already been entered. The user has the ability to
+    enter their own time and expenses, which you can see under the "Granted
+    Privileges" section. We can add or remove privileges (by module) simply by
+    selecting a specific privilege, and then choosing either the ADD or REVOKE
+    button.</para>
     <tip>
       <para>Use the ADD ALL and REVOKE ALL buttons to move all the privileges
       at once for the specified module</para>
     </tip>
-
     <para>The user role feature makes it easy to define logical sets of
     privileges defined according to standard job roles. The following path
     takes you to the screen for defining role privileges: <guimenuitem>System
@@ -169,9 +136,6 @@
     please consult the xTuple ERP <ulink
     url="http://www.xtuple.org/docs/reference-guide">Reference
     Guide</ulink>.</para>
-
-    <para></para>
-
     <tip>
       <para>Time and Expense entry is closely integrated with Projects and
       Tasks. Users that are granted privileges to Time and Expense entry

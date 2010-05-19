@@ -4,157 +4,123 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter>
   <title>Invoicing Sheets</title>
-
   <para>A key feature of the Full version of the CORE Time &amp; Expense is
   Invoicing. The time and expense lines that are entered can be invoiced a
   number of different ways. In this chapter we will review the various methods
   of invoicing from Time and Expense. The following topics will be
   covered:</para>
-
   <itemizedlist>
     <listitem>
       <para>Approving Sheets</para>
     </listitem>
-
     <listitem>
       <para>Invoicing Specific Sheets</para>
     </listitem>
-
     <listitem>
       <para>Consolidated Invoices</para>
     </listitem>
   </itemizedlist>
-
   <section>
     <title>Approving Sheets</title>
-
     <para>Approving Sheets is performed in the Open Sheets screen. For this
     scenario, we'll need to select a single sheet to begin. To select a Sheet,
     follow these steps:</para>
-
     <orderedlist>
       <listitem>
         <para>Follow this path: <guimenuitem>Sales &gt; Time and Expense &gt;
         Open Sheets...</guimenuitem></para>
       </listitem>
-
       <listitem>
         <para>The following screen will appear:</para>
       </listitem>
     </orderedlist>
-
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/opensheetsapproval.png" />
       </imageobject>
-
       <caption>Open Sheets</caption>
     </mediaobject>
-
     <note>
       <para>The buttons that are disabled are controlled by privileges.
       Privileges are discussed in Chapter 1 - System Administration.</para>
     </note>
-
     <para>Let's approve the Sheet, 1011. To get started, follow these
     steps:</para>
-
     <orderedlist>
       <listitem>
         <para>Select the 1011 Sheet</para>
       </listitem>
-
       <listitem>
         <para>Select the Approve button. The Sheet is now Approved and ready
         for Invoicing and Vouchering.</para>
       </listitem>
     </orderedlist>
-
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/approved.png" />
       </imageobject>
-
       <caption>Approved Sheet</caption>
     </mediaobject>
   </section>
-
   <section>
     <title>Invoicing Specific Sheets</title>
-
     <para>The invoicing of specific Sheets is performed in the Open Sheets
     screen. For this scenario, we'll need to select a single sheet to begin.
     To select a Sheet, follow these steps:</para>
-
     <orderedlist>
       <listitem>
         <para>Follow this path: <guimenuitem>Sales &gt; Time and Expense &gt;
         Open Sheets...</guimenuitem></para>
       </listitem>
-
       <listitem>
         <para>The following screen will appear:</para>
       </listitem>
     </orderedlist>
-
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/opensheets2.png" />
       </imageobject>
-
       <caption>Open Sheets</caption>
     </mediaobject>
-
     <note>
       <para>The buttons that are disabled are controlled by privileges.
       Privileges are discussed in Chapter 1 - System Administration.</para>
     </note>
-
     <orderedlist>
       <listitem>
         <para>Select a Sheet that has been Approved</para>
       </listitem>
-
       <listitem>
         <para>Click the Invoice button to generate an Invoice.</para>
-
         <note>
           <para>The Invoice Status changes to 'C' for Completed.</para>
         </note>
       </listitem>
-
       <listitem>
         <para>Review the unposted invoice</para>
-
         <orderedlist>
           <listitem>
             <para>Follow this path: <guimenuitem>Accounting &gt; Accounts
             Receivable &gt; Invoice &gt; List Unposted...</guimenuitem></para>
           </listitem>
-
           <listitem>
             <para>The following screen will appear:</para>
-
             <mediaobject>
               <imageobject>
                 <imagedata fileref="images/unpostedinvoicespecific.png" />
               </imageobject>
-
               <caption>Unposted Invoices</caption>
             </mediaobject>
           </listitem>
-
           <listitem>
             <para>Edit the Invoice in order to review the details. The Notes
-            from the Time entry are passed thru to the Invoice Item. These
+            from the Time entry are passed through to the Invoice Item. These
             Notes will print on the Invoice and provide greater detail for the
             billing line.</para>
-
             <mediaobject>
               <imageobject>
                 <imagedata fileref="images/invoicewithnotes.png" />
               </imageobject>
-
               <caption>Invoice</caption>
             </mediaobject>
           </listitem>
@@ -162,70 +128,54 @@
       </listitem>
     </orderedlist>
   </section>
-
   <section>
     <title>Consolidated Invoicing</title>
-
     <para>The generation of Consolidated Invoices is performed in the Open
     Sheets screen. For this scenario, we'll select multiple Sheets to begin.
     To select multiple Sheets, follow these steps:</para>
-
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/consolidation.png" />
       </imageobject>
-
       <caption>Selection of multiple Sheets</caption>
     </mediaobject>
-
     <note>
       <para>Consolidation will happen by Sheet Date, Customer, PO and
       Project.</para>
     </note>
-
     <orderedlist>
       <listitem>
         <para>Select multiple Sheets that have been Approved</para>
       </listitem>
-
       <listitem>
         <para>Click the Cons Invoice to generate the Consolidated
         Invoice.</para>
-
         <note>
           <para>The Invoice Status changes to 'C' for Completed.</para>
         </note>
       </listitem>
-
       <listitem>
         <para>Review the unposted invoice</para>
-
         <orderedlist>
           <listitem>
             <para>Follow this path: <guimenuitem>Accounting &gt; Accounts
             Receivable &gt; Invoice &gt; List Unposted...</guimenuitem></para>
           </listitem>
-
           <listitem>
             <para>The following screen will appear:</para>
-
             <mediaobject>
               <imageobject>
                 <imagedata fileref="images/unpostedinvoices.png" />
               </imageobject>
-
               <caption>Unposted Invoices</caption>
             </mediaobject>
           </listitem>
-
           <listitem>
             <para>Edit the Invoice in order to review the details.</para>
-
             <mediaobject>
               <imageobject>
                 <imagedata fileref="images/invoice.png" />
               </imageobject>
-
               <caption>Consolidated Invoice</caption>
             </mediaobject>
           </listitem>
