@@ -151,7 +151,6 @@ function openWindowExtensions()
     win.hide();
     toolbox.lastWindow().set(params);
     win.sEdit();
-    win.close();
   }
   else
   {
