@@ -21,11 +21,16 @@ BEGIN
 	       2) AS recv_freight_base,
 	 recv_freight, recv_freight_curr_id, recv_date, recv_gldistdate,
 	 itemsite_id, itemsite_item_id, item_inv_uom_id, itemsite_costmethod,
-         itemsite_controlmethod, vend_name
+         itemsite_controlmethod, vend_name,
+         CASE WHEN (COALESCE(itemsite_id, -1) = -1) THEN expcat_code
+           ELSE item_number
+         END AS item_number
 	 INTO _r
   FROM recv LEFT OUTER JOIN itemsite ON (recv_itemsite_id=itemsite_id)
             LEFT OUTER JOIN item ON (itemsite_item_id=item_id)
             LEFT OUTER JOIN vendinfo ON (recv_vend_id=vend_id)
+            JOIN poitem ON (recv_orderitem_id=poitem_id)
+            LEFT OUTER JOIN expcat ON (expcat_id=poitem_expcat_id)
   WHERE ((recv_id=precvid)
     AND  (NOT recv_posted));
 
@@ -39,7 +44,7 @@ BEGIN
     RETURN -11;
 
   ELSIF (_r.recv_order_type ='PO') THEN
-    _ordertypeabbr := ('P/O for ' || _r.vend_name);
+    _ordertypeabbr := ('P/O for ' || _r.vend_name || ' for item ' || _r.item_number);
 
     SELECT pohead_number AS orderhead_number, poitem_id AS orderitem_id,
            poitem_linenumber AS orderitem_linenumber,
@@ -53,7 +58,7 @@ BEGIN
       AND  (NOT recv_posted)
       AND  (recv_id=precvid));
   ELSIF (_r.recv_order_type ='RA') THEN
-    _ordertypeabbr := 'R/A';
+    _ordertypeabbr := 'R/A for item ' || _r.item_number;
 
     SELECT rahead_number AS orderhead_number, raitem_id AS orderitem_id,
            raitem_linenumber AS orderitem_linenumber,
@@ -68,7 +73,7 @@ BEGIN
       AND  (NOT recv_posted)
       AND  (recv_id=precvid));
   ELSIF (_r.recv_order_type ='TO') THEN
-     _ordertypeabbr := 'T/O';
+     _ordertypeabbr := 'T/O for item ' || _r.item_number;
 
     SELECT tohead_number AS orderhead_number, toitem_id AS orderitem_id,
            toitem_linenumber AS orderitem_linenumber,
@@ -182,7 +187,7 @@ BEGIN
       END IF;
 
       SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
-				  'Receive Inventory Freight from ' || _o.orderhead_number,
+				  'Receive Inventory Freight from ' || _o.orderhead_number || ' for item ' || _r.item_number,
 				   costcat_liability_accnt_id,
 				   costcat_freight_accnt_id, -1,
 				   _r.recv_freight_base,
@@ -246,7 +251,7 @@ BEGIN
 	);
 
       SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
-				  'Receive Inventory Freight from ' || _o.orderhead_number,
+				  'Receive Inventory Freight from ' || _o.orderhead_number || ' for item ' || _r.item_number,
 				   costcat_liability_accnt_id,
 				   costcat_freight_accnt_id, -1,
 				   _r.recv_freight_base,
@@ -285,7 +290,7 @@ BEGIN
       END IF;
 
       SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
-				  'Receive Inventory Freight from ' || _o.orderhead_number,
+				  'Receive Inventory Freight from ' || _o.orderhead_number || ' for item ' || _r.item_number,
 				   costcat_toliability_accnt_id,
 				   costcat_freight_accnt_id, -1,
 				   _r.recv_freight_base,
