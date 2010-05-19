@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter>
+  <title>Vouchering Sheets</title>
+
+  <para>Now that you've installed and set up CORE Time &amp; Expense, you are
+  ready to begin processing Time and Expense Sheets. In this chapter we will
+  review how to process Open Time and Expense Sheets. The following topics
+  will be covered:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>Approving Sheets</para>
+    </listitem>
+
+    <listitem>
+      <para>Vouchering Sheets</para>
+    </listitem>
+  </itemizedlist>
+
+  <section>
+    <title>Approving Sheets</title>
+
+    <para>Approving Sheets is performed in the Open Sheets screen. For this
+    scenario, we'll need to select a single sheet to begin. To select a Sheet,
+    follow these steps:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>Follow this path: <guimenuitem>Sales &gt; Time and Expense &gt;
+        Open Sheets...</guimenuitem></para>
+      </listitem>
+
+      <listitem>
+        <para>The following screen will appear:</para>
+      </listitem>
+    </orderedlist>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/opensheetsapproval2.png" />
+      </imageobject>
+
+      <caption>Open Sheets</caption>
+    </mediaobject>
+
+    <note>
+      <para>The buttons that are disabled are controlled by privileges.
+      Privileges are discussed in Chapter 1 - System Administration.</para>
+    </note>
+
+    <para>Let's approve the Sheet, 1012. To get started, follow these
+    steps:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>Select the 1012 Sheet</para>
+      </listitem>
+
+      <listitem>
+        <para>Select the Approve button. The Sheet is now Approved and ready
+        for Invoicing and Vouchering.</para>
+      </listitem>
+    </orderedlist>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/approved2.png" />
+      </imageobject>
+
+      <caption>Approved Sheet</caption>
+    </mediaobject>
+  </section>
+
+  <section>
+    <title>Vouchering Sheets</title>
+
+    <para>The invoicing of specific Sheets is performed in the Open Sheets
+    screen. For this scenario, we'll need to select a single sheet to begin.
+    To select a Sheet, follow these steps:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>Follow this path: <guimenuitem>Sales &gt; Time and Expense &gt;
+        Open Sheets...</guimenuitem></para>
+      </listitem>
+
+      <listitem>
+        <para>The following screen will appear:</para>
+      </listitem>
+    </orderedlist>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/approved2.png" />
+      </imageobject>
+
+      <caption>Open Sheets</caption>
+    </mediaobject>
+
+    <note>
+      <para>The buttons that are disabled are controlled by privileges.
+      Privileges are discussed in Chapter 1 - System Administration.</para>
+    </note>
+
+    <note>
+      <para>In order to generate a Voucher for an Employee, the Employee must
+      also be a Vendor.</para>
+    </note>
+
+    <orderedlist>
+      <listitem>
+        <para>Select a Sheet that has been Approved</para>
+      </listitem>
+
+      <listitem>
+        <para>Click the Invoice button to generate a Voucher.</para>
+
+        <note>
+          <para>The Voucher Status changes to 'C' for Completed.</para>
+        </note>
+      </listitem>
+
+      <listitem>
+        <para>Review the unposted voucher</para>
+
+        <orderedlist>
+          <listitem>
+            <para>Follow this path: <guimenuitem>Accounting &gt; Accounts
+            Payable &gt; Voucher &gt; List Unposted...</guimenuitem></para>
+          </listitem>
+
+          <listitem>
+            <para>The following screen will appear:</para>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/unpostedvouchers.png" />
+              </imageobject>
+
+              <caption>Unposted Vouchers</caption>
+            </mediaobject>
+          </listitem>
+
+          <listitem>
+            <para>The Expense Item setup drives the automated distribution in
+            the Voucher.</para>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/voucherwithdistributions.png" />
+              </imageobject>
+
+              <caption>Voucher with Distributions</caption>
+            </mediaobject>
+
+            <para>The Notes from the Expense entry are passed thru to the
+            Voucher Item.</para>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/voucherwithnotes.png" />
+              </imageobject>
+
+              <caption>Voucher with Notes</caption>
+            </mediaobject>
+          </listitem>
+        </orderedlist>
+      </listitem>
+    </orderedlist>
+  </section>
+</chapter>

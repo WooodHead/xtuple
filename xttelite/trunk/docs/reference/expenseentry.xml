@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section role="standard">
+  <title>Expense Entry Screen</title>
+
+  <para>When selecting a Line, the following screen will appear:</para>
+
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/expense.png" />
+        </imageobject>
+
+        <caption>Expense Entry</caption>
+      </mediaobject>
+    </screenshot>When entering an Expense Entry, you are presented with the
+  following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>Sheet #</term>
+
+      <listitem>
+        <para>This displays the Sheet you are currently maintaining.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Line #</term>
+
+      <listitem>
+        <para>This displays the Line you are currently maintaining.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Time/Expense Radio buttons</term>
+
+      <listitem>
+        <para>Select Time or Expense (the fields change accordingly)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Dates</term>
+
+      <listitem>
+        <variablelist>
+          <varlistentry>
+            <term>Sheet Date</term>
+
+            <listitem>
+              <para>The date of the Sheet you are currently maintaining. There
+              is a single Sheet Date per Sheet. The Work Date can vary by
+              Line. Example: You may choose to bill for a month of
+              working.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Work Date</term>
+
+            <listitem>
+              <para>The date of the actual expense was incurred.</para>
+
+              <note>
+                <para>There is a single Sheet Date per Sheet. The Work Date
+                can vary by Line. Example: You may chose to bill for a month
+                of expenses.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Employee</term>
+
+      <listitem>
+        <para>This is populated from the value provided on the Sheet.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Qty</term>
+
+      <listitem>
+        <para>The number of units being expensed.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Rate</term>
+
+      <listitem>
+        <para>The rate is derived from the Item List Price.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Total</term>
+
+      <listitem>
+        <para>This is the extended value from Qty x Rate.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Prepaid checkbox</term>
+
+      <listitem>
+        <para>Check this box if the entry is prepaid. A prepaid entry is
+        assumed to not be reimburseable. In the Pro version, this value will
+        prevent the entry from being vouchered. </para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Billable checkbox</term>
+
+      <listitem>
+        <para>Check this box if the entry is billable. In the Pro version, the
+        entry will be invoiced when this is checked.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Customer #</term>
+
+      <listitem>
+        <para>This is the Customer number.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Cust. PO#</term>
+
+      <listitem>
+        <para>This is the Customer PO number. This is a free-form field. In
+        the Pro version, Invoice Consolidation will make use of this
+        value.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Item Number</term>
+
+      <listitem>
+        <para>This is the Item number. This will list all Reference items that
+        are also Expense items.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Project Tab</term>
+
+      <listitem>
+        <variablelist>
+          <varlistentry>
+            <term>Project #</term>
+
+            <listitem>
+              <para>This is the Project Number.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Task</term>
+
+            <listitem>
+              <para>This is the Task. If a task isn't found, a DEFAULT task
+              will be created.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+
+        <variablelist>
+          <varlistentry>
+            <term>Budget/Actual</term>
+
+            <listitem>
+              <variablelist>
+                <varlistentry>
+                  <term>Planned Hours</term>
+
+                  <listitem>
+                    <para>These are the Planned Hours as setup in the
+                    Project/Task.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+
+              <variablelist>
+                <varlistentry>
+                  <term>Actual Hours</term>
+
+                  <listitem>
+                    <para>These are the Actual Hours, compiled from Time
+                    entries.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+
+              <variablelist>
+                <varlistentry>
+                  <term>Planned Expenses</term>
+
+                  <listitem>
+                    <para>These are the Planned Expenses as setup in the
+                    Project/Task.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+
+              <variablelist>
+                <varlistentry>
+                  <term>Actual Expenses</term>
+
+                  <listitem>
+                    <para>These are the Actual Expenses, compiled from Expense
+                    entries.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Notes Tab</term>
+
+      <listitem>
+        <para>In the Pro version, these Notes will passed along to the Voucher
+        Distributions.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>PREVIOUS</term>
+
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>NEXT</term>
+
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>CANCEL</term>
+
+      <listitem>
+        <para>Highlight a record and then select this button to reach a
+        read-only view of the record.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
