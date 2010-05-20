@@ -18,23 +18,23 @@ var _account = mywindow.findChild("_account");
 var _expcat = mywindow.findChild("_expcat");
 var _accountSelected = mywindow.findChild("_accountSelected");
 var _expcatSelected = mywindow.findChild("_expcatSelected");
-var _deleteExpenseItemSetup = mywindow.findChild("_deleteExpenseItemSetup");
+var _allowExpenseGroup = mywindow.findChild("_allowExpenseGroup");
+var _inventoryUOM = mywindow.findChild("_inventoryUOM");
 
 var _itemid;
 var _mode;
-
-_deleteExpenseItemSetup.enabled = false;
-
+var _saved = false;
 
 tablist['currentChanged(int)'].connect(populate);
+_inventoryUOM.newID.connect(handleExpense);
+
 
 var _save = mywindow.findChild("_save");
 _save.clicked.connect(sSave);
 
-_deleteExpenseItemSetup.clicked.connect(deleteExpenseItemSetup);
-
-_accountSelected.clicked.connect(clickswitch);
-_expcatSelected.clicked.connect(clickswitch);
+_allowExpenseGroup.toggled.connect(deleteExpenseItemSetup);
+_accountSelected.toggled.connect(clickswitch);
+_expcatSelected.toggled.connect(clickswitch);
 
 function clickswitch()
 {
@@ -82,6 +82,8 @@ function set(params)
     }
   }
 
+  handleExpense();
+
   return mainwindow.NoError;
 }
 
@@ -90,7 +92,10 @@ function deleteExpenseItemSetup()
 {
   try
   {
-    var msg = qsTr("Are you sure you want to delete this expense item setup?")
+    if (_allowExpenseGroup.checked || !_saved)
+      return;
+
+    var msg = qsTr("Are you sure you do not want this item to be an expense item?")
     if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg, 
 	QMessageBox.Yes | QMessageBox.Escape, 
 	QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
@@ -112,10 +117,9 @@ function deleteExpenseItemSetup()
                        qsTr("Database Error"), qry.lastError().text);
           return;
         }
-        _deleteExpenseItemSetup.enabled = false;
-        _expcat.enabled = false;
+        _saved = false;
+        _allowExpenseGroup.checked = false;
         _expcat.setId(-1);
-        _account.enabled = false;
         _account.setId(-1);
       }
     }
@@ -193,8 +197,8 @@ function populate()
 
     if(qry.first())
     {
-      _deleteExpenseItemSetup.enabled = true;
-
+      _saved = true;
+      _allowExpenseGroup.checked = true;
       _expcat.setId(qry.value("teexp_expcat_id"));
       _account.setId(qry.value("teexp_accnt_id"));
 
@@ -211,9 +215,5 @@ function populate()
 
 function handleExpense()
 {
-  if (_itemtype.text == 'Reference'){
-    toolbox.tabInsertTab(tablist,2,expensePage, "Expense");
-  }else{
-    toolbox.tabRemoveTab(tablist, 2);
-  }
+  tablist.setTabEnabled(tablist.indexOf(expensePage),_itemtype.currentIndex == 3);
 }
