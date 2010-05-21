@@ -13,8 +13,8 @@ to be bound by its terms.</comment>
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>517</width>
-    <height>249</height>
+    <width>582</width>
+    <height>246</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -34,113 +34,130 @@ to be bound by its terms.</comment>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QGroupBox" name="_groupButton">
+    <widget class="QGroupBox" name="_allowExpenseGroup">
      <property name="title">
-      <string/>
+      <string>Allow use as Expense Item</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout_3">
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_5">
       <item row="0" column="0">
-       <widget class="QRadioButton" name="_accountSelected">
-        <property name="text">
-         <string>Account</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QGroupBox" name="_expenseGroup">
-        <property name="title">
-         <string/>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_2">
-         <item row="0" column="0">
-          <widget class="ExpenseCluster" name="_expcat">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
-           </property>
-           <property name="label">
-            <string/>
-           </property>
-           <property name="infoVisible">
-            <bool>false</bool>
-           </property>
-           <property name="nameVisible">
-            <bool>false</bool>
-           </property>
-           <property name="readonly" stdset="0">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QGroupBox" name="_accountGroup">
-        <property name="title">
-         <string/>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_4">
-         <item row="0" column="0">
-          <layout class="QHBoxLayout" name="horizontalLayout">
-           <item>
-            <widget class="GLCluster" name="_account">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>0</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </item>
-        </layout>
-        <zorder></zorder>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QRadioButton" name="_expcatSelected">
-        <property name="text">
-         <string>Expense Category</string>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="_accountSelected">
+            <property name="text">
+             <string>Account</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QGroupBox" name="_accountGroup">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_4">
+             <item row="0" column="0">
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <item>
+                <widget class="GLCluster" name="_account">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>0</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+            </layout>
+            <zorder></zorder>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="_expcatSelected">
+            <property name="text">
+             <string>Expense Category</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QGroupBox" name="_expenseGroup">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="0" column="0">
+              <widget class="ExpenseCluster" name="_expcat">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::StrongFocus</enum>
+               </property>
+               <property name="label">
+                <string/>
+               </property>
+               <property name="infoVisible">
+                <bool>false</bool>
+               </property>
+               <property name="nameVisible">
+                <bool>false</bool>
+               </property>
+               <property name="readonly" stdset="0">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>0</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
       </item>
      </layout>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QPushButton" name="_deleteExpenseItemSetup">
-     <property name="text">
-      <string>Delete Expense Item Setup</string>
-     </property>
     </widget>
    </item>
   </layout>
