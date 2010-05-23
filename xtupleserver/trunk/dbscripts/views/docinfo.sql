@@ -21,7 +21,19 @@ CREATE VIEW docinfo AS
         url_source_id AS source_id, 
         url_title AS name, url_url AS description,
         'S' AS doc_purpose
-                FROM url
+        FROM url
+ WHERE (url_stream IS NULL)
+ UNION ALL
+ SELECT url_id AS id, 
+        url_id::text AS target_number,
+        'FILE' AS target_type,
+        url_id AS target_id,
+        url_source AS source_type,
+        url_source_id AS source_id, 
+        url_title AS name, url_url AS description,
+        'S' AS doc_purpose
+        FROM url
+ WHERE (url_stream IS NOT NULL)
                 
 ------------ INCIDENT -----------
  UNION ALL
