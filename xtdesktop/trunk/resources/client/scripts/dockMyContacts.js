@@ -82,6 +82,7 @@ function openWindowMyCntcts()
 
   // Determine which contact to open
   params = new Object;
+  params.mode = "edit";
   params.cntct_id = _contactList.id();
 
   // Open the window and perform any special handling required
