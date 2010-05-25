@@ -25,35 +25,31 @@ BEGIN
 
   -- 2 deletes avoid reparenting problems if the parent gets deleted first
   IF (_rt.recurtype_delfunc IS NULL) THEN
-    _delchildstmt := 'DELETE FROM [fulltable] USING recur'
+    _delchildstmt := 'DELETE FROM [fulltable] '
                   || ' WHERE (NOT ([done])'
                   || '    AND ([schedcol]>''$2'')'
-                  || '    AND ([table]_recurring_[table]_id=recur_parent_id)'
-                  || '    AND (recur_parent_type=''$1'')'
-                  || '    AND ([table]_id!=recur_parent_id));';
+                  || '    AND ([table]_recurring_[table]_id=$1)'
+                  || '    AND ([table]_id!=$1));';
 
     _delparentstmt := 'DELETE FROM [fulltable] USING recur'
                    || ' WHERE (NOT ([done])'
                    || '    AND ([schedcol]>''$2'')'
-                   || '    AND ([table]_recurring_[table]_id=recur_parent_id)'
-                   || '    AND (recur_parent_type=''$1'')'
-                   || '    AND ([table]_id=recur_parent_id));';
+                   || '    AND ([table]_recurring_[table]_id=$1)'
+                   || '    AND ([table]_id=$1));';
 
   ELSE
     _delchildstmt := 'SELECT [delfunc]([table]_id)'
-                  || '  FROM [fulltable] JOIN recur ON'
-                  || '    ([table]_recurring_[table]_id=recur_parent_id'
-                  || '     AND recur_parent_type=''$1'')'
+                  || '  FROM [fulltable] '
                   || ' WHERE (NOT ([done])'
                   || '    AND ([schedcol]>''$2'')'
-                  || '    AND ([table]_id!=recur_parent_id));';
+                  || '    AND ([table]_recurring_[table]_id=$1)'
+                  || '    AND ([table]_id!=$1));';
     _delparentstmt := 'SELECT [delfunc]([table]_id)'
-                   || '  FROM [fulltable] JOIN recur ON'
-                   || '    ([table]_recurring_[table]_id=recur_parent_id'
-                   || '     AND recur_parent_type=''$1'')'
+                   || '  FROM [fulltable] '
                    || ' WHERE (NOT ([done])'
                    || '    AND ([schedcol]>''$2'')'
-                   || '    AND ([table]_id!=recur_parent_id));';
+                   || '    AND ([table]_recurring_[table]_id=$1)'
+                   || '    AND ([table]_id!=$1));';
     _delchildstmt  := REPLACE(_delchildstmt,  '[delfunc]', _rt.recurtype_delfunc);
     _delparentstmt := REPLACE(_delparentstmt, '[delfunc]', _rt.recurtype_delfunc);
   END IF;
@@ -77,14 +73,14 @@ BEGIN
   IF (_rt.recurtype_delfunc IS NULL) THEN
     -- 8.4+: EXECUTE _delchildstmt  USING pDatetime, pType;
     RAISE DEBUG '% with % and %', _delchildstmt, pType, pDatetime;
-    EXECUTE REPLACE(REPLACE(_delchildstmt, '$1', pType::TEXT),
+    EXECUTE REPLACE(REPLACE(_delchildstmt, '$1', pParentid::TEXT),
                                            '$2', pDatetime::TEXT);
     GET DIAGNOSTICS _count = ROW_COUNT;
 
     IF (pInclParent) THEN
       -- 8.4+: EXECUTE _delparentstmt USING pDatetime, pType;
       RAISE DEBUG '% with % and %', _delparentstmt, pType, pDatetime;
-      EXECUTE REPLACE(REPLACE(_delparentstmt, '$1', pType::TEXT),
+      EXECUTE REPLACE(REPLACE(_delparentstmt, '$1', pParentid::TEXT),
                                               '$2', pDatetime::TEXT);
       GET DIAGNOSTICS _tmp   = ROW_COUNT;
       _count := _count + _tmp;
@@ -92,7 +88,7 @@ BEGIN
 
   ELSE
     -- 8.4+: FOR _tmp IN EXECUTE _delchildstmt USING pDatetime, pType LOOP
-    FOR _tmp IN EXECUTE REPLACE(REPLACE(_delchildstmt, '$1', pType::TEXT),
+    FOR _tmp IN EXECUTE REPLACE(REPLACE(_delchildstmt, '$1', pParentid::TEXT),
                                                        '$2', pDatetime::TEXT)
     LOOP
       IF _tmp < 0 THEN
@@ -103,7 +99,7 @@ BEGIN
 
     IF (pInclParent) THEN
       -- 8.4+: EXECUTE _delparentstmt INTO _tmp USING pDatetime, pType;
-      EXECUTE REPLACE(REPLACE(_delparentstmt, '$1', pType::TEXT),
+      EXECUTE REPLACE(REPLACE(_delparentstmt, '$1', pParentid::TEXT),
                                               '$2', pDatetime::TEXT) INTO _tmp;
       IF (_tmp < 0) THEN
         RETURN _tmp;
