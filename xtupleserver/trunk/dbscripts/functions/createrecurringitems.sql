@@ -10,7 +10,7 @@ DECLARE
   _id        INTEGER;
   _interval  TEXT;
   _last      TIMESTAMP WITH TIME ZONE;
-  _loopcount INTEGER := 0;
+  _loopcount INTEGER := 1;
   _maxstmt   TEXT;
   _maxdate   DATE    := endOfTime();
   _result    INTEGER := 0;
