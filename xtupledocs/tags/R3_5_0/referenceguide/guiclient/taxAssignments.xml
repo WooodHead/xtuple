@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="taxAssignments">
+  <title><indexterm significance="normal">
+      <primary>tax assignments</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm>Tax Assignments</title>
+
+  <para>Tax Assignments create a matrix used to find the Tax Codes to apply to
+  an Item given the Item's Tax Type and the Tax Zone with jurisdiction over
+  the transaction. Nested Tax Codes, whose calculations are based on other Tax
+  Codes are shown as indented. To access the master list of Tax Assignments,
+  select the "Tax Assignments" option. The following screen will
+  appear:</para>
+
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/taxAssignments.png" />
+        </imageobject>
+
+        <caption>Tax Assignments Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para>When creating a Tax Assignment, you are presented with the following
+  options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>Show All Tax Zones</term>
+
+      <listitem>
+        <para>Select to include all Tax Zones in the display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Show Specific Tax Zone</term>
+
+      <listitem>
+        <para>Select to include a specific Tax Zone in the display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Show All Tax Types</term>
+
+      <listitem>
+        <para>Select to include all Tax Types in the display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Show Specific Tax Type</term>
+
+      <listitem>
+        <para>Select to include a specific Tax Type in the display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Tax Assignments</term>
+
+      <listitem>
+        <para>Display lists Tax Assignments based on the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>To the far right of the list, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>NEW</term>
+
+      <listitem>
+        <para>Opens screen for creating a new Tax Assignment.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>EDIT</term>
+
+      <listitem>
+        <para>Enables you to edit highlighted Tax Assignment. The edit screen
+        is the same as that for creating a new Tax Assignment—except that when
+        editing, the fields will contain Tax Assignment information.
+        Double-clicking on a Tax Assignment will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>VIEW</term>
+
+      <listitem>
+        <para>Highlight a Tax Assignment and then select this button to reach
+        a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>DELETE</term>
+
+      <listitem>
+        <para>Highlight a Tax Assignment and then select this button to remove
+        the Tax Authority from the list.S</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <xi:include href="taxAssignment.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

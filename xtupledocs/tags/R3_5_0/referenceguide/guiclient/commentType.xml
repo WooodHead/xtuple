@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="commentType">
+  <title><indexterm significance="normal">
+      <primary>comment types</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Comment Type</title>
+  <para>To create a new Comment Type, select the NEW button. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/commentType.png" />
+        </imageobject>
+        <caption>Create New Comment Type</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Comment Type, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a unique Comment Type name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a brief description of the Comment Type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Editable</term>
+      <listitem>
+        <para>Select if you want to allow users to edit the content of
+        Comments entered using the Comment Type. If not selected, users will
+        not be able to edit Comments created under the Comment Type—in other
+        words, Comments will be read-only.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Module</term>
+      <listitem>
+        <para>Specify the module(s) where you want the Comment Type to be
+        available for use. For example, if you only want Comments using this
+        Comment Type to appear in the Manufacture module, then select the
+        "Manufacture" option from the drop-down list. You can then further
+        limit visibility to the Comment Type by selecting one or more sources
+        available for each module. Users will only be able to use a Comment
+        Type if the Comment Type has been explicitly assigned to a module and
+        source. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Available Sources</term>
+      <listitem>
+        <para>For each of the available modules, there are corresponding
+        places (i.e., sources) where Comments may be entered. In the Sales
+        module, for example, you can add Comments to Customers, Sales Orders,
+        Quotes, etc. The available sources list indicates all the places in a
+        module where Comments can be used.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Granted Sources</term>
+      <listitem>
+        <para>The granted sources list indicates all the places in a module
+        where the Comment Type has been made available for use. If a source
+        does not appear in the granted list, then the Comment Type won't be
+        available for use in that source.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are located between the Available Sources and
+  Granted Sources columns:</para>
+  <variablelist>
+    <varlistentry>
+      <term>ADD-&gt;</term>
+      <listitem>
+        <para>Highlight a specific source in the available sources column,
+        then select this button to transfer the source to the granted sources
+        column. Double-clicking on an available source will also transfer it
+        to the granted sources column.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ADD ALL-&gt;&gt;</term>
+      <listitem>
+        <para>Select this button to automatically transfer all available
+        sources to the granted sources column.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>&lt;-REVOKE</term>
+      <listitem>
+        <para>Highlight a specific source in the granted sources column, then
+        select this button to remove the source from the granted sources
+        column. Double-clicking on a granted v will also remove it from the
+        granted sources column.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>&lt;&lt;-REVOKE ALL</term>
+      <listitem>
+        <para>Select this button to automatically remove all granted sources
+        from the granted sources column.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without adding a new Comment Type to the
+        master list of Comment Types.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Comment Type and adds it to the master list of
+        Comment Types.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>Filter Manager</title>
+  <para id="filterManager"><informalexample>
+      <para>To manage your saved filters, select the MANAGE button. The
+      following screen will appear:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/filterManager.png" />
+            </imageobject>
+            <caption>Manage Saved Filters</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>The "Saved Filter Sets" screen displays information on all
+      existing saved filters, including filter name and shared status.</para>
+      <para>To the far right of the list, the following buttons are
+      available:</para>
+      <variablelist>
+        <varlistentry>
+          <term>CLOSE</term>
+          <listitem>
+            <para>Closes the screen, returning you to the previous
+            screen.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>SHARE</term>
+          <listitem>
+            <para>Highlight a filter and then select this button to make the
+            filter accessible to other users.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>DELETE</term>
+          <listitem>
+            <para>Highlight a filter and then select this button to remove the
+            filter from the list of saved filter sets.</para>
+            <caution>
+              <para>Think twice before deleting a shared filter. Other people
+              may be using it.</para>
+            </caution>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </informalexample></para>
+</section>

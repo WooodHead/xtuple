@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>Parameter Widget</title>
+  <para id="parameterwidget"><informalexample>
+      <variablelist>
+        <varlistentry>
+          <term>Apply Filter</term>
+          <listitem>
+            <para>Select a filter from the list of available filters, then
+            select the QUERY button to generate results based on that filter.
+            The </para>
+            <para>You can also build your own search criteria dynamically,
+            using the "+" and "-" buttons. To learn more about working with
+            search filters, please see <xref
+            linkend="introSearchFilters" />.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>MORE</term>
+          <listitem>
+            <para>Select this button to show the parameters underlying the
+            saved filter. To hide the details, simply click this button a
+            second time.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Filter</term>
+          <listitem>
+            <para>When building your own search criteria, select from the
+            following options:</para>
+            <variablelist>
+              <varlistentry>
+                <term>SAVE</term>
+                <listitem>
+                  <para>Select this button to save your filter set to the list
+                  of saved filters. Saved filters may be applied to future
+                  searches. If you are modifying an already-existing
+                  filter&mdash;and you want to keep your changes&mdash;be sure
+                  to save them or they will be lost.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>MANAGE</term>
+                <listitem>
+                  <para>Select this button to reach the list of saved
+                  filters.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>+</term>
+                <listitem>
+                  <para>Select to add new search parameters when building an
+                  ad hoc query. Ad hoc searching is supported, but searches
+                  must be saved if you want them to be available for future
+                  use.</para>
+                  <tip>
+                    <para>Some parameter lists allow you to select multiple
+                    options from the same list. Look for drop-down lists that
+                    remain expanded after you select them. This indicates you
+                    may choose more than one parameter from the list of
+                    available options.</para>
+                  </tip>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>-</term>
+                <listitem>
+                  <para>Select to remove search parameters when building an ad
+                  hoc query. Ad hoc searching is supported, but searches must
+                  be saved if you want them to be available for future
+                  use.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </informalexample></para>
+</section>

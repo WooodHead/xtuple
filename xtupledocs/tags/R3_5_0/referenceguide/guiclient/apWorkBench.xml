@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>payables workbench</primary>
+    </indexterm><indexterm significance="normal">
+      <primary>accounts payable</primary>
+      <secondary>information about</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>workbenches</primary>
+      <secondary>for payables</secondary>
+    </indexterm> Payables Workbench</title>
+  <para>The Payables Workbench groups together in one location a range of
+  current payables information, giving you the option to sort this information
+  by individual Vendor&mdash;or by all Vendors or smaller subsets of Vendors.
+  To access the Payables Workbench, select the "Workbench" option. The
+  following screen will appear:<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/apWorkBench.png" />
+        </imageobject>
+        <caption>Unposted Vouchers</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Vouchers" tab displays information on all unposted Vouchers,
+  including Voucher Number, Purchase Order Number, Vendor Number/Vendor name,
+  Vendor Invoice Number, and distribution date. Users with the appropriate
+  privilege will also see the G/L distribution date column.</para>
+  <note>
+    <para>Actual Costs for purchased Items will be automatically updated when
+    Vouchers are posted if there are differences between current Actual Costs
+    and the vouchered Costs for the Items in question. Please keep in mind
+    that Actual Costs only will be updated at posting. For new Costs to be
+    recognized as Standard Costs, Actual Costs must be posted to
+    Standard.</para>
+  </note>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Voucher.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW MISC.</term>
+      <listitem>
+        <para>Opens screen for creating a new Miscellaneous Voucher.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Vouchers. The edit screen is the
+        same as that for creating a new Voucher&mdash;except that when
+        editing, the fields will contain Voucher information. Double-clicking
+        on a Voucher will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Voucher and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If you have a Purchase Order Voucher that was corrupted by, for
+    example, a sudden power outage, you can clear the record by running the
+    Post Vouchers screen. In most cases, this action will remove the corrupted
+    record and allow you to voucher the Purchase Order with a fresh
+    Voucher.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Highlight one&mdash;or multiple&mdash;Vouchers, then select this
+        button to post the selected Voucher(s). By default, Vouchers post to
+        the General Ledger (G/L) on their distribution date. However, users
+        with the appropriate privilege may change the G/L distribution date to
+        an alternate date during the Voucher posting process. If used,
+        Vouchers will post on the alternate date. The ability privileged users
+        have to change the distribution date applies to the posting of both
+        individual and also batches of Vouchers from this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Voucher and then select this button to remove the
+        Voucher from the list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print Journal after Post</term>
+      <listitem>
+        <para>Select if you want to print a copy of the Payables Journal after
+        the selected Vouchers are posted.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>You may select multiple Vouchers for posting by highlighting them
+    using your mouse&mdash;or a combination of your mouse and either the SHIFT
+    or CTRL keys.</para>
+  </tip>
+  <para>To view the list of open Payables, select the "Payables" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/apWorkBench_payablesTab.png" />
+        </imageobject>
+        <caption>Open Payables</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing the list of open Payables, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Specify date parameters to query open Payables.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Open Items</term>
+      <listitem>
+        <para>Display lists A/P open items. If a Document is past due or on
+        hold, the line for that Document will display in red type.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><note>
+      <para>Open items may be placed on hold&mdash;or reopened&mdash; using
+      the right-click menu on this screen. When on hold, open items may not be
+      selected for payment.</para>
+    </note>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SELECT</term>
+      <listitem>
+        <para>Highlight an A/P open item and then click this button to
+        manually review and select the Item for payment. This option brings
+        you to the individual Select Payment screen, where you will find the
+        full range of payment options.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SELECT LINE</term>
+      <listitem>
+        <para>Highlight an A/P open item and then click this button to
+        automatically select the open item for payment. Any available Terms
+        Discount will also be applied automatically.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLEAR SELECTION</term>
+      <listitem>
+        <para>Highlight an A/P open item and then select this button to clear
+        the selected payment. This option effectively reverses the action of
+        the SELECT option.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SELECT ALL DUE</term>
+      <listitem>
+        <para>Select this button to select for payment all A/P open items
+        whose Payment Date is due or past due and whose Currency is the same
+        as the Bank Account's Currency.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SELECT ALL DISCOUNTS</term>
+      <listitem>
+        <para>Select this option to automatically select all A/P open items
+        which are eligible for a Terms Discount and whose Currency is the same
+        as the Bank Account's Currency. The Terms Discount will be applied
+        automatically to all selected open items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLEAR SELECTIONS</term>
+      <listitem>
+        <para>Select this button to clear all selected payments due. This
+        option effectively reverses the action of the SELECT ALL DUE
+        option.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Credits associated with the Vendor(s), select the "Credits"
+  tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/apWorkBench_creditsTab.png" />
+        </imageobject>
+        <caption>Unapplied Credits</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Credits associated with the Vendor(s), you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Unapplied Accounts Payable Credit Memos</term>
+      <listitem>
+        <para>Displays the list of unapplied Credit Memos associated with the
+        specified Vendor.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new miscellaneous Credit
+        Memo.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an unapplied Credit Memo and then select this button
+        to reach a read-only view of the A/P open item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>APPLY</term>
+      <listitem>
+        <para>Highlight an unapplied Credit Memo and then select this button
+        to apply an amount.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view the list of selected payments for the specified Vendor(s),
+  select the "List Selected Payments" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/apWorkBench_selectionsTab.png" />
+        </imageobject>
+        <caption>Selected Payments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Selected Payments" screen displays information on all existing
+  selected payments, including Bank Account to be paid from, Vendor name,
+  Document Type, Document Number, Invoice Number, Purchase Order Number,
+  amount selected for payment, Currency, and running total.</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted selected payment. The edit
+        screen is the same as that for creating new payment
+        details&mdash;except that when editing, the fields will contain
+        payment information. Double-clicking on a selected payment will also
+        bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLEAR SELECTION</term>
+      <listitem>
+        <para>Highlight a selected payment and then select this button to
+        clear the selection. Because an Item that has been cleared is no
+        longer selected for payment, this option removes the Item from the
+        master list of selected payments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view the Check Run, select the "Checks" tab. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/apWorkBench_checkRunTab.png" />
+        </imageobject>
+        <caption>Check Run</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying the Check Run, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Bank Account</term>
+      <listitem>
+        <para>Specify the Bank Account whose Check Run you want to
+        view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Checks</term>
+      <listitem>
+        <para>Display lists details for Checks included in the Check Run. This
+        display is a nested list, with a plus ("+") sign located to the far
+        left of the display next to each Check. By clicking your mouse on a
+        plus sign, you reveal lower levels of information related to the
+        Check.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following button is
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PREPARE</term>
+      <listitem>
+        <para>Select to prepare a Check Run. For more information on preparing
+        Check Runs, see <xref linkend="Section524362" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Select to print a copy of the list displayed on the
+        screen.</para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>checks</primary>
+                <secondary>printing individual</secondary>
+              </indexterm>SELECTED CHECK</term>
+            <listitem>
+              <para>Highlight a Check in the list of Checks and then select
+              this button to print the Check.</para>
+              <tip>
+                <para>If Checks being printed contain reference lines which
+                spill over and exceed one standard page, then consider using
+                the report definition CheckMultiPage.xml. This Check Form is
+                designed to support multiple pages for one Check
+                number.</para>
+              </tip>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>check runs</primary>
+                <secondary>printing of</secondary>
+              </indexterm><indexterm significance="normal">
+                <primary>checks</primary>
+                <secondary>printing multiple</secondary>
+              </indexterm>CHECK RUN</term>
+            <listitem>
+              <para>Select to print the Check Run, using the specified Bank
+              Account. For more information on printing Check Runs, see the
+              <xref linkend="Section524365" /> section.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>EDIT LIST</term>
+            <listitem>
+              <para>Provides the option to select printer.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>checks</primary>
+          <secondary>posting of</secondary>
+        </indexterm>POST</term>
+      <listitem>
+        <para>Highlight a Check in the list of Checks and then select this
+        button to post the Check. A Check must be printed before it can be
+        posted. See the "Printed" column in the display to determine a Check's
+        printed status. The following additional option is
+        provided:<variablelist>
+            <varlistentry>
+              <term>POST ALL</term>
+              <listitem>
+                <para>Select to post all Checks available for posting.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>checks</primary>
+          <secondary>voiding of</secondary>
+        </indexterm>VOID</term>
+      <listitem>
+        <para>Highlight a Check in the list of Checks and then select this
+        button to void the Check. Voided Checks may not be printed or posted.
+        When a Check is voided, the payable amount will be reopened on the
+        Select Payments screen. In other words, if a Check for $100.00 is
+        voided, that amount will once again be made available for payment on
+        the Select Payments screen. The reopened amount will again be
+        associated with the referring payable Document (i.e., Voucher or Debit
+        Memo).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Highlight a miscellaneous Check and then select this button to
+        edit the Check. Only unprinted miscellaneous Checks may be
+        edited.</para>
+        <note>
+          <para>Only unprinted miscellaneous Checks may be edited. Regular
+          Checks may not be edited.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a voided Check in the list of Checks and then select
+        this button to delete the Check. Only voided Checks may be
+        deleted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>checks</primary>
+          <secondary>replacing in check run</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>check runs</primary>
+          <secondary>replacing checks in</secondary>
+        </indexterm>REPLACE</term>
+      <listitem>
+        <para>Highlight a voided Check in the list of Checks and then select
+        this button to replace the Check. Checks must be voided before they
+        can be replaced. When a voided Check is replaced, the payable amount
+        displayed on the Select Payments screen will be removed. In other
+        words, if a voided Check for $500.00 is replaced, that amount will no
+        longer be available for payment on the Select Payments screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>REPLACE ALL</term>
+      <listitem>
+        <para>Select this button to replace all Checks shown in the list of
+        Checks. Checks must be voided before they can be replaced.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
