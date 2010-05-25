@@ -10,8 +10,10 @@ DECLARE
   _id        INTEGER;
   _interval  TEXT;
   _last      TIMESTAMP WITH TIME ZONE;
+  _loopcount INTEGER := 0;
   _maxstmt   TEXT;
   _maxdate   DATE    := endOfTime();
+  _result    INTEGER := 0;
   _next      TIMESTAMP WITH TIME ZONE;
   _r         RECORD;
   _rt        RECORD;
@@ -24,7 +26,7 @@ BEGIN
               FROM recur
              WHERE ((COALESCE(recur_end, endOfTime()) >= CURRENT_TIMESTAMP)
                 AND (pParentid IS NULL OR recur_parent_id=pParentid)
-                AND (pType IS NULL OR UPPER(recur_parent_type)=pType)) LOOP
+                AND (pType IS NULL OR UPPER(recur_parent_type)=UPPER(pType))) LOOP
 
     RAISE DEBUG 'createRecurringItems looking at recur %, %',
                 _r.recur_id, _r.recur_parent_type;
@@ -46,7 +48,7 @@ BEGIN
                       _r.recur_parent_type, _r.recur_parent_id;
     END IF;
 
-    SELECT * INTO _rt FROM recurtype WHERE (UPPER(recurtype_type)=pType);
+    SELECT * INTO _rt FROM recurtype WHERE (UPPER(recurtype_type)=UPPER(pType));
     GET DIAGNOSTICS _count = ROW_COUNT;
     IF (_count <= 0) THEN
       RETURN -10;
@@ -101,10 +103,10 @@ BEGIN
 
     _next := _last;
     WHILE (_existcnt < _r.recur_max AND _next < _maxdate) LOOP
-      RAISE DEBUG 'createrecurringitems looping, existcnt = %, max = %',
-                  _existcnt, _r.recur_max;
       _next := _last +
-               CAST(_r.recur_freq * _existcnt || _interval AS INTERVAL);
+               CAST(_r.recur_freq * _loopcount || _interval AS INTERVAL);
+      RAISE DEBUG 'createrecurringitems looping, existcnt = %, max = %, is % between % and %?',
+                  _existcnt, _r.recur_max, _next, _r.recur_start, _r.recur_end;
 
       IF (_next BETWEEN _r.recur_start AND COALESCE(_r.recur_end, endOfTime())) THEN
         RAISE DEBUG 'createrecurringitems executing % with % and %',
@@ -113,13 +115,13 @@ BEGIN
         EXECUTE REPLACE(REPLACE(_copystmt, '$1', _r.recur_parent_id::TEXT),
                                            '$2', _next::TEXT) INTO _id;
         RAISE DEBUG 'Copying for % returned %', _next, _id;
-        _count := _count + 1;
+        _result   := _result   + 1;
+        _existcnt := _existcnt + 1;
       END IF;
-
-      _existcnt := _existcnt + 1;
+      _loopcount := _loopcount + 1;
     END LOOP;
   END LOOP;
 
-  RETURN _count;
+  RETURN _result;
 END;
 $$ LANGUAGE 'plpgsql';
