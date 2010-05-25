@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="characteristic">
+  <title><indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Characteristic</title>
+  <para>To create a new Characteristic, select the NEW button. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/characteristic.png" />
+        </imageobject>
+        <caption>Create New Characteristic</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Characteristic, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a unique name for the Characteristic.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>May be used on</term>
+      <listitem>
+        <para>Select one of the following Characteristic assignment
+        options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Address</term>
+            <listitem>
+              <para>Select to make Characteristic available for Address
+              Characteristics.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Contact</term>
+            <listitem>
+              <para>Select to make Characteristic available for Contact
+              Characteristics.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>CRM Account</term>
+            <listitem>
+              <para>Select to make Characteristic available for CRM Account
+              Characteristics.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Opportunity</term>
+            <listitem>
+              <para>Select to make Characteristic available for Opportunity
+              Characteristics.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Item</term>
+            <listitem>
+              <para>Select to make Characteristic available for Item
+              Characteristics.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Customer</term>
+            <listitem>
+              <para>Select to make Characteristic available for Customer
+              Characteristics.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Employee Characteristics</term>
+            <listitem>
+              <para>Select to make Characteristic available for Employee
+              Characteristics.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Lot/Serial</term>
+            <listitem>
+              <para>Select to make Characteristic available for Lot/Serial
+              Characteristics.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Advanced</term>
+      <listitem>
+        <para>Select from the following advanced features, if needed. These
+        advanced options are not required, but if used they will enforce
+        greater consistency and control over the values entered for your
+        Characteristics. Typically when using these advanced validation
+        features, you will specify either an input mask or a validator. If you
+        decide to use both at once, they must be coordinated and
+        consistent―otherwise users will experience difficulties when
+        attempting to enter Characteristic values.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Input Mask</term>
+            <listitem>
+              <para>Select from the available options―or manually enter an
+              input mask of your own design. An input mask creates a template
+              to guide users as they enter values for a Characteristic. It is
+              a form of light data validation. For example, if you specify the
+              input mask 00/00/0000, then users will be presented with the
+              following template when they are entering values for the
+              Characteristic : "__/__/____". In this case, users will simply
+              have to fill in the blanks between the separators.</para>
+              <variablelist>
+                <varlistentry>
+                  <term>00/00/0000</term>
+                  <listitem>
+                    <para>Select this format to prompt users to enter a date
+                    format with the pattern shown (e.g., MM/DD/YYYY).</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>### - ### - ####</term>
+                  <listitem>
+                    <para>Select this format to prompt users to enter a
+                    numerical format with the pattern shown. This example
+                    would be a good match for telephone numbers (e.g.,
+                    757-555-1111).</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>### - ## - ####</term>
+                  <listitem>
+                    <para>Select this format to prompt users to enter a
+                    numerical format with the pattern shown. This example
+                    would be a good match for social security numbers (e.g.,
+                    012-34-5678).</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>00,000.00</term>
+                  <listitem>
+                    <para>Select this format to prompt users to enter a price
+                    format with the pattern shown.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Validator</term>
+            <listitem>
+              <para>Select from the available options―or manually enter a
+              validator of your own design. A validator is used to strictly
+              enforce the format of data users can enter in a field. If you
+              specify a validator for a Characteristic, then users will have
+              to conform to the format when entering values for the
+              Characteristic. Values which do not conform will not be
+              accepted. </para>
+              <variablelist>
+                <varlistentry>
+                  <term>[Y/N]</term>
+                  <listitem>
+                    <para>Select this boolean validator to require users to
+                    enter "Y" or "N" for Yes or No.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>\S+</term>
+                  <listitem>
+                    <para>Select this validator to require users to enter one
+                    or more non-white-space characters. So, for example, this
+                    validator would accept the value "Inventory" but not
+                    "Inventory Availability".</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>[1-9]\d{0,3}</term>
+                  <listitem>
+                    <para>Select this validator to require users to enter a
+                    number from 1-9999.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>[A-Z]\d{5}[1-9]</term>
+                  <listitem>
+                    <para>Select this validator to require users to enter a
+                    value where the first character is A-Z, the next five
+                    characters are numbers 0-9, and the last character is a
+                    number 1-9. While this pattern may not be very useful for
+                    most people, it does illustrate how you can create your
+                    own regular expressions to design a validator to meet your
+                    own custom needs.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>www\S?(\.com|net|org)</term>
+                  <listitem>
+                    <para>Select this validator to require users to enter a
+                    website address (e.g., <ulink
+                    url="http://www.xtuple.com">www.xtuple.com</ulink>)</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a brief description of the Characteristic.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a Characteristic, returning
+        you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Characteristic and adds it to the master list of
+        Characteristics.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

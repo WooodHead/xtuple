@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>Documents Widget</title>
+  <para id="documentsWidget"><informalexample>
+      <para>When associating documents, you are presented with the following
+      options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>NEW</term>
+          <listitem>
+            <para>Select to create a new document and associate it with the
+            current record. You may create the following document
+            types:</para>
+            <variablelist>
+              <varlistentry>
+                <term>Image</term>
+                <listitem>
+                  <para>Select to create a new Image association.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Incident</term>
+                <listitem>
+                  <para>Select to create a new Incident and associate
+                  it.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>To Do</term>
+                <listitem>
+                  <para>Select to create a new To-Do and associate it.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Opportunity</term>
+                <listitem>
+                  <para>Select to create a new Opportunity and associate
+                  it.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Project</term>
+                <listitem>
+                  <para>Select to create a new Project and associate
+                  it.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>EDIT</term>
+          <listitem>
+            <para>Enables you to edit associated documents. The edit screen is
+            the same as that for creating a new document&mdash;except that
+            when editing, the fields will contain document information.
+            Double-clicking on a document will also bring you to the editing
+            screen.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>VIEW</term>
+          <listitem>
+            <para>Highlight a document and then select this button to reach a
+            read-only view of the "Edit" screen</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>ATTACH</term>
+          <listitem>
+            <para>Select to associate already-existing documents. The
+            following document types may be attached: Contact, CRM Account,
+            Customer, Employee, File, Image, Incident, Item, Opportunity,
+            Project, Purchase Order, Sales Order, Vendor, Web Site, Work
+            Order.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>DETACH</term>
+          <listitem>
+            <para>Highlight a document and then select this button to remove
+            the association.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>To associate already-existing documents, select the ATTACH button.
+      The following screen will appear:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/docAttach.png" />
+            </imageobject>
+            <caption>Attach a Document</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>When associating already-existing documents, you are presented
+      with the following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Relationship</term>
+          <listitem>
+            <para>Indicate how the document is related to the current record.
+            The following relationship options are available: Related to,
+            Parent of, Child of, Duplicate of.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Type</term>
+          <listitem>
+            <para>Specify the kind of document you want to associate. The
+            following document types may be attached: Contact, CRM Account,
+            Customer, Employee, File, Image, Incident, Item, Opportunity,
+            Project, Purchase Order, Sales Order, Vendor, Web Site, Work
+            Order.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Document</term>
+          <listitem>
+            <para>Use the lookup field to identify the specific document you
+            want to attach. The data entry options will vary depending on the
+            document type you select.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </informalexample></para>
+</section>

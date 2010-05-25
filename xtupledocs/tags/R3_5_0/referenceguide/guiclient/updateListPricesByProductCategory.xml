@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>list prices</primary>
+      <secondary>updating of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>product categories</primary>
+      <secondary>list prices updated by</secondary>
+    </indexterm>Update List Prices</title>
+  <para>To update List Prices by Product Category, select the "Update List
+  Prices by Product Category" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/updateListPricesByProductCategory.png" />
+        </imageobject>
+        <caption>Update List Prices by Product Category</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When updating List Prices by Product Category, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Product Categories</term>
+      <listitem>
+        <para>Select to update List Prices for all Product Categories.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Product Category whose List Prices you want to
+        update.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Product Category pattern to select a range of Product
+        Categories. Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Update Prices by</term>
+      <listitem>
+        <para>Enter a positive or negative value to indicate how much you want
+        to update your List Prices by. The value represents either a
+        percentage or fixed amount update, based on the following
+        selection:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Percent</term>
+            <listitem>
+              <para>Select to update List Prices by a percentage
+              amount.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Fixed Amount</term>
+            <listitem>
+              <para>Select to update List Prices by a fixed amount.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without updating List Prices by Product
+        Category, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UPDATE</term>
+      <listitem>
+        <para>Updates List Prices by Product Category, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="cashReceiptItem">
+  <title><indexterm significance="normal">
+      <primary>cash receipts</primary>
+      <secondary>applying to balance due</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>open items</primary>
+      <secondary>applying cash receipts to</secondary>
+    </indexterm>Cash Receipt Application</title>
+  <para>To apply a Cash Receipt to an individual open A/R Item, select the
+  APPLY button. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/cashReceiptItem.png" />
+        </imageobject>
+        <caption>Apply Cash Receipt</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>You will not be able to post a Cash Receipt if the amount applied is
+    greater than the Cash Receipt total.</para>
+  </tip>
+  <para>When applying a Cash Receipt to an individual open Item, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>Displays the Customer Number of the Customer selected on the
+        previous screen. The Customer name and billing address will also
+        display. Select the "?" symbol to view Customer information for the
+        specified Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Number</term>
+      <listitem>
+        <para>Displays the Document Number associated with the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Type</term>
+      <listitem>
+        <para>Displays the Document Type of the Document.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Date</term>
+      <listitem>
+        <para>Displays the Document's origination date. In the case of a Sales
+        Order, the Document date is the date when the Sales Order is
+        created.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Displays the date payment is due. In the case of a Sales Order,
+        billing terms are defined in the Sales Order master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discount</term>
+      <listitem>
+        <para>Displays the amount of any Discount given when cash is applied
+        to an open A/R item inside the billing Discount period for that
+        item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Open Amount</term>
+      <listitem>
+        <para>Displays the amount due for the open Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Amount to Apply</term>
+      <listitem>
+        <para>Specify the Cash Receipt amount to apply to the open Item. You
+        may not apply more than the open amount.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without applying a new Cash Receipt, returning
+        you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Applies the Cash Receipt to the open Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT DISCOUNT</term>
+      <listitem>
+        <para>Select to edit the Discount amount for the selected open A/R
+        item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Discounts are applied automatically when using the APPLY LINE BAL. or
+  APPLY TO BALANCE buttons. However, you may have cases where you want to
+  manually enter or override a Discount amount. When editing the Discount for
+  an open A/R item, you are presented with the following screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/applyARDiscount.png" />
+        </imageobject>
+        <caption>Apply A/R Discount</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When editing the Discount for an open A/R item, you are presented with
+  the following options</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer</term>
+      <listitem>
+        <para>Displays the name of the Customer whose open A/R item you are
+        applying cash to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Type</term>
+      <listitem>
+        <para>Displays the Document Type. Valid Document Types include posted
+        Invoices and miscellaneous A/R Debit Memos.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc #</term>
+      <listitem>
+        <para>Displays the Document Number of the Document you are applying
+        cash to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Date</term>
+      <listitem>
+        <para>Displays the Document's origination date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Terms</term>
+      <listitem>
+        <para>Displays the billing Terms selected at the time the Document was
+        posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discount Date</term>
+      <listitem>
+        <para>Displays the expiration date for the billing Terms Discount
+        period. The Discount date will display in red type once the Discount
+        period has expired. Once the Discount period has expired, the system
+        will no longer automatically update the Discount amount field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discount %</term>
+      <listitem>
+        <para>Displays the Discount percentage, as specified in the billing
+        Terms.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total Owed</term>
+      <listitem>
+        <para>Displays the total amount from the original Document.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discounts Applied</term>
+      <listitem>
+        <para>Displays the amount of any Discounts previously applied to the
+        selected Document.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discount Amount</term>
+      <listitem>
+        <para>Enter the amount of the Discount to be applied to the total
+        owed. As long as the Discount period has not expired, the system will
+        automatically calculate the Discount amount for you. The Discount
+        amount will be equal to the total owed multiplied by the Discount
+        percentage. The Account used for posting Discounts to the General
+        Ledger (G/L) is defined on the A/R Account Assignments screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

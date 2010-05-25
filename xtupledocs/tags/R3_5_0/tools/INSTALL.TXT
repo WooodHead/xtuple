@@ -1,0 +1,179 @@
+
+Installing the xTuple Databases:
+OpenMFG and PostBooks
+===========================================
+Last Updated: December 31, 2007
+
+
+QUICK OVERVIEW
+--------------
+
+1) Download and extract xTuple application to a local directory
+2) Download and install PostgreSQL
+3) Initialize PostgreSQL for xTuple (This simply means adding the 
+super user 'mfgadmin' and the group 'openmfg'.)
+4) Create a database using UTF-8 encoding
+5) Download and restore an xTuple database on your new database
+
+
+POSTGRESQL CONSIDERATIONS
+-------------------------
+
+Before you can start using the xTuple Applications, you must first 
+have PostgreSQL 8.1.x or later installed and properly configured. 
+For additional information on installing PostgreSQL, please visit 
+http://www.postgresql.org where you will find in-depth documentation 
+and other resources related to PostgreSQL. Installation support is 
+also available from xTuple. To learn more about xTuple's PostgreSQL 
+services, please visit http://www.xtuple.com/postgres.
+
+[NOTE: The xTuple applications use encryption for credit card 
+processing which requires the PostgreSQL pgcrypto module. You should
+be sure to include the pgcrypto module when installing PostgreSQL. 
+If you do not, you will encounter errors.]
+
+
+DETAILED INSTRUCTIONS
+---------------------
+
+The following paragraphs detail the steps (long version) required to 
+both a) initialize your PostgreSQL instance to support the xTuple 
+Database and b) load the database schema. To skip these details, see 
+the (short version) "Command Line Examples" section below. 
+ 
+Once you have the PostgreSQL server running, the next step is to 
+establish the user 'mfgadmin' and the group 'openmfg' on your 
+PostgreSQL instance. This is done by executing the 'init.sql' script, 
+which is available in the downloads area. The complete text of the 
+'init.sql' file is as follows:
+
+--
+-- This script creates the group openmfg and the user mfgadmin
+--
+
+--
+-- Create the openmfg group
+--
+CREATE GROUP openmfg;
+
+--
+-- Create the mfgadmin user with createdb and createuser
+-- permissions.  Place the user in the openmfg group and
+-- set the password to the default of mfgadmin.
+--
+CREATE USER mfgadmin WITH PASSWORD 'mfgadmin'
+                          CREATEDB CREATEUSER
+                          IN GROUP openmfg;
+
+-- End of init.sql
+
+
+PLEASE NOTE: The 'init.sql' script must be loaded by the 'postgres' 
+superuser. (For more information, see the "Command Line Examples" 
+section below.)
+
+Please also note that since the default password for user mfgadmin 
+is "mfgadmin," you'll want to change it immediately. 
+
+When you have finished executing the init.sql script, you should 
+next create a new PostgreSQL database to contain the xTuple Database 
+schema. Use UTF-8 encoding when creating the database. You can name 
+the database anything you want. Shorter names that are easy to 
+remember are preferred.
+
+Once the database has been created, you are ready to load the 
+xTuple schema into it. There are several starter schema to choose 
+from, including the following:
+
+* empty.backup - This is an empty database with no data, but all the 
+tables and structures created.
+
+* quickstart.backup - This database contains a basic Chart of 
+Accounts and also the Account Assignments required to run the full 
+range of transactions.
+
+* demo.backup - This database (if available) contains a suite of 
+sample data built on top of the 'quickstart' database
+
+Like the init.sql script, the database schema can be loaded on the 
+command line. Alternately, you may use GUI tools like pgAdmin III to 
+execute the script and load the schema. 
+
+The '.backup' format of the xTuple Database schemas is a compressed 
+format used by the pg_restore binary. This format may be loaded 
+seamlessly using pgAdmin. To load a .backup file using pgAdmin, 
+connect to the database you created. Right-click on the database 
+object and select the option 'Restore'. On the resulting screen, 
+use the ellipses to navigate to the location of the .backup file 
+on your local machine. With the .backup file selected, simply 
+click OK.
+
+To learn more about the psql utility or the pgAdmin application, 
+please consult the PostgreSQL documentation.
+
+
+COMMAND-LINE EXAMPLES
+---------------------
+
+The following examples demonstrate the steps needed to initialize, 
+create, and load an xTuple Database. You may give the database you 
+create any name which does not conflict with the rules for naming 
+PostgreSQL databases. However, we recommend that you choose a simple 
+name with all lowercase characters. For example, we have used a 
+database named 'production' in the following example.
+
+With a clean PostgreSQL instance installed, you can use the 
+following commands to get started:
+
+	psql -U postgres -f init.sql template1
+	createdb -U mfgadmin production
+      pg_restore -U mfgadmin -d production quickstart.backup -v
+
+The first command line example uses the 'psql' utility to load the 
+'init.sql' script. This script creates the user 'mfgadmin' and the 
+group 'openmfg'. The first option ('-U postgres') tells the system 
+to connect as the postgres user. This user is typically the default 
+PostgreSQL superuser. The next option ('-f init.sql') tells psql to 
+read the init.sql script and execute the commands. The last option 
+('template1') tells psql which database to connect to.
+
+[NOTE: You are not required to run the init.sql script against the 
+'template1' database. You may also run it against another database 
+you create. Also: In newer versions of PostgreSQL, the 'postgres' 
+database is the new default template.]
+
+By default, the init.sql script will create the 'mfgadmin' user with 
+the password of "mfgadmin". You should be sure to change the password 
+once you have your xTuple system installed and running.
+
+The second command line example uses 'createdb' to create a new 
+database. Notice that this command uses the same first two options 
+as used in the psql command to specify the user to connect as. Note 
+that now we are using the option '-U mfgadmin' to indicate we want 
+to connect as the mfgadmin user created previously. The last option 
+is the name of the new database we want to create (e.g., 
+'production').
+
+The third command line example loads the schema for the xTuple 
+'quickstart' Database. The .backup file format is a compressed 
+format and is used by the pg_restore binary. The -d switch enables 
+you to specify the database into which the restore will be performed 
+(i.e., the 'production' database in this example.) Next, we specify 
+the name of the .backup file with the path to its location if 
+necessary.  Finally, we specify -v for verbose output.  
+
+It is important to keep in mind that if you configured PostgreSQL 
+to listen on a port other than the default port of 5432, you will 
+need to specify this with '-p XXXX' where XXXX is the port number.
+
+[TIP: If you want a .sql file instead of a .backup, you can easily
+do this using pg_restore, as follows:
+
+	pg_restore -f quickstart.sql quickstart.backup
+
+This example says use pg_restore to create a file called 
+'quickstart.sql' from the file called 'quickstart.backup'.]
+
+This completes the command line examples section.
+
+

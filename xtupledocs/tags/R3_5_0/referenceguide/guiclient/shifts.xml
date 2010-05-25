@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section965136" role="manufacturing">
+  <title>Shifts</title>
+  <para>To access the master list of Shifts, select the "Shifts" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/shifts.png" />
+        </imageobject>
+        <caption>Shifts Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The Shifts master list displays information on all Shifts, including
+  Shift number and Shift name.</para>
+  <para>To the far right of the list, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for adding a new Shift to the master list of
+        Shifts.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="listitemN0x180ac00N0x18893ac">
+        <para>Enables you to edit highlighted Shift definitions. The edit
+        screen is the same as that for creating a new Shift
+        definition&mdash;except that when editing, the fields will contain
+        Shift information. Double-clicking on a Shift definition will also
+        bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="listitemN0x180ac00N0x18893f4">
+        <para>Highlight a Shift definition and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="listitemN0x180ac00N0x188943c">
+        <para>Highlight a Shift definition and then select this button to
+        remove the Shift from the master list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="shift.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

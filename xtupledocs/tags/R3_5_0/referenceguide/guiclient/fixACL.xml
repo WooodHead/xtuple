@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="fixACL">
+  <title>Access Control</title>
+  <para>Sometimes after restoring a database users get unexpected errors
+  relating to permission to modify the data in database tables. This can
+  happen even though the user has been granted privileges through the xTuple
+  ERP application. Because this screen will be of little value to most users,
+  access to this screen is limited to admin users only. To fix access control
+  problems, select the "Access Control" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/fixACL.png" />
+        </imageobject>
+        <caption>Fix Access Control</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>FIX</term>
+      <listitem>
+        <para>Select this button to try to correct database-level permissions
+        problems. This will only work if you are logged in as a PostgreSQL
+        administrative user.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

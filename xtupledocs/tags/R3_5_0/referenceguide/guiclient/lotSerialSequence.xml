@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="lotSerialSequence">
+  <title><indexterm significance="normal">
+      <primary>lots</primary>
+      <secondary>creating sequences for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>serial numbers</primary>
+      <secondary>creating sequences for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>sequences</primary>
+      <secondary>for lot/serial</secondary>
+    </indexterm>Lot/Serial Sequence</title>
+  <para>To create a new Lot/Serial sequence, select the NEW button. The
+  following screen will appear.</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/lotSerialSequence.png" />
+        </imageobject>
+        <caption>Create New Lot/Serial Sequence</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Lot/Serial sequence, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Number</term>
+      <listitem>
+        <para>Enter a number or code to identify the numbering sequence. This
+        value is not added to the sequence.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter text to describe the numbering sequence.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Prefix</term>
+      <listitem>
+        <para>Enter the string of alphanumeric characters which you want to
+        appear at the beginning of the automatically-generated number, if
+        any.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Next Value</term>
+      <listitem>
+        <para>Specify the next available value in the sequence. The next Item
+        Site requesting a number from the sequence will get the next value.
+        You can think of the next value field as being the main segment of the
+        automatically-generated number.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Min. Length</term>
+            <listitem>
+              <para>Specify the minimum length of the main segment. If the
+              next value is fewer characters than the minimum length, the
+              application will prefix zeros until the minimum length
+              requirement is met.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Suffix</term>
+      <listitem>
+        <para>Enter the string of alphanumeric characters which you want to
+        appear at the end of the automatically-generated number, if
+        any.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Example</term>
+      <listitem>
+        <para>Displays an example of how the next automatically-generated
+        number would look. Whenever you make changes to the sequence values,
+        you can look at the example to see how those changes would appear in
+        practice.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a Lot/Serial sequence,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Lot/Serial sequence and adds it to the list of
+        Lot/Serial sequences.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

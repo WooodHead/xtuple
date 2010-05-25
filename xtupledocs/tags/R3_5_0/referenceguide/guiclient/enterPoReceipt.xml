@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section531874">
+  <title id="Anchor28097"><indexterm significance="normal">
+      <primary>receiving</primary>
+      <secondary>entering receipts</secondary>
+    </indexterm>Enter Receipt</title>
+  <para>To receive Orders into Inventory, select the "Enter Receipt" option.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/enterPoReceipt.png" />
+        </imageobject>
+        <caption>Enter Order Receipts</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When receiving an Order, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Order #</term>
+      <listitem>
+        <para>Enter the Order Number of the Purchase Order, Transfer Order or
+        Return Authorization whose Line Item(s) you want to receive into
+        Inventory. The lookup feature located to the right of the field leads
+        to a searchable list of Purchase Orders available for receiving. This
+        option will be disabled if a Transfer Order is specified.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Drop Ship</term>
+      <listitem>
+        <para>If your system is configured to use drop shipping, this
+        informational, read-only field will be displayed. It will be selected
+        if the Purchase Order entered is a drop ship Order. When receipts for
+        drop ship items are posted, the linked Sales Order items will be
+        automatically shipped.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Assign all Lot Controlled Items to single Lot #</term>
+      <listitem>
+        <para>Select if you want all the Lot-controlled Items in a Receiving
+        session to be assigned the same Lot Number. Lot Numbers are assigned
+        when Receipt(s) are posted. This option applies to Lot-controlled
+        Items only. There is no impact on received Items which are not
+        Lot-controlled. For perishable Items, you will also be given the
+        opportunity to enter an expiration date. Expiration dates apply only
+        to Item Sites marked as perishable.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Line Items</term>
+      <listitem>
+        <para>Display lists Order Line Items available for receipt
+        confirmation.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Before a Purchase Order can be received successfully, A/P Account
+    Assignments for the specified Vendor must be in place.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Receive Items using bar code:</term>
+      <listitem>
+        <para>This is an optional field which allows you to receive Inventory
+        using a Bar Code scanner. Enter a Bar Code for a Purchase Order Line
+        Item using a Bar Code scanner&mdash;or manually enter the Bar Code.
+        The Bar Code for an Item is stored on the Item master. Once the code
+        is entered, specify a quantity and then select the FIND button to
+        receive the Inventory quantity. You may also hit the ENTER key on your
+        keyboard to select the FIND button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <tip>
+      <para>Most scanners allow you to change a setting that automatically
+      sends the ENTER command after a scan. This allows keyboard-free
+      entry.</para>
+    </tip>
+    <varlistentry>
+      <term>Qty.</term>
+      <listitem>
+        <para>Specify the quantity of Line Items to be received using a Bar
+        Code. To receive the Line Item quantity, select the FIND
+        button&mdash;or hit the ENTER key on your keyboard to select the FIND
+        button.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Auto Post</term>
+      <listitem>
+        <para>Select to post Line Items automatically as they are entered into
+        the system. This provides the opportunity to skip the additional step
+        of posting once the Receipt is complete.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without entering a Receipt, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Select to print the paperwork associated with the specified
+        Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Select this button to post the Receipt quantity to
+        Inventory.</para>
+        <para role="standard"><note>
+            <para>When posting receipts for Lot/Serial controlled Items on a
+            Return Authorization, you will be prompted to assign Lot/Serial
+            Numbers for tracking purposes.</para>
+          </note></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Select this button to save the Receipt quantity for posting at a
+        later time. Saved Receipts may be posted later from the List Unposted
+        Receipts screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT LABEL</term>
+      <listitem>
+        <para>Highlight a Line Item, then select this button to print a
+        Receiving Label for the specified Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ENTER RECEIPT</term>
+      <listitem>
+        <para>Highlight a Line Item, then select this button to reach the
+        Receipt detail screen. Double-clicking on a Line Item will also bring
+        you to the Receipt entry screen. This option will be disabled if a
+        Transfer Order is specified.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>RECEIVE ALL</term>
+      <listitem>
+        <para>Select to receive all Line Items simultaneously.</para>
+        <note>
+          <para>If the Item you are receiving is a <indexterm
+              significance="normal">
+              <primary>multiple location control</primary>
+              <secondary>impact on receiving</secondary>
+            </indexterm> <indexterm significance="normal">
+              <primary>receiving</primary>
+              <secondary>MLC impact on</secondary>
+            </indexterm>Multiple Location Control (MLC) Item, you will be
+          prompted to specify the Location you want to distribute the stock
+          to.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>FIND</term>
+      <listitem>
+        <para>Compares the Bar Code entered in the "Receive Items using bar
+        code" field with the Bar Codes for the listed Purchase Order Line
+        Items, then receives the quantity specified in the "Qty." field. The
+        FIND button may be selected using your mouse&mdash;or by hitting the
+        ENTER key, which corresponds to the FIND button. Because the FIND
+        button corresponds to the ENTER key, you can scan in a Bar Code and
+        then hit ENTER to receive a quantity of one. If you prefer, you can
+        scan in a Bar Code and then specify a different quantity before
+        hitting ENTER.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="enterPoitemReceipt.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
