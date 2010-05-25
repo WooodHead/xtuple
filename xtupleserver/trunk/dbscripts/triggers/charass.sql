@@ -1,18 +1,18 @@
-CREATE OR REPLACE FUNCTION _charassTrigger () RETURNS TRIGGER AS '
+CREATE OR REPLACE FUNCTION _charassTrigger () RETURNS TRIGGER AS $$
 BEGIN
 
 -- Privilege Checks
-   IF (NEW.charass_target_type = ''I'' AND NOT checkPrivilege(''MaintainItemMasters'')) THEN
-     RAISE EXCEPTION ''You do not have privileges to maintain Items.'';
+   IF (NEW.charass_target_type = 'I' AND NOT checkPrivilege('MaintainItemMasters')) THEN
+     RAISE EXCEPTION 'You do not have privileges to maintain Items.';
    END IF;
 
-   IF (NEW.charass_target_type = ''C'' AND NOT checkPrivilege(''MaintainCustomerMasters'')) THEN
-     RAISE EXCEPTION ''You do not have privileges to maintain Customers.'';
+   IF (NEW.charass_target_type = 'C' AND NOT checkPrivilege('MaintainCustomerMasters')) THEN
+     RAISE EXCEPTION 'You do not have privileges to maintain Customers.';
    END IF;
 
 -- Data check
   IF (NEW.charass_char_id IS NULL) THEN
-	RAISE EXCEPTION ''You must supply a valid Characteristic ID.'';
+	RAISE EXCEPTION 'You must supply a valid Characteristic ID.';
   END IF;
 
 -- Default Logic
@@ -24,10 +24,16 @@ BEGIN
     AND  (charass_char_id=NEW.charass_char_id)
     AND  (charass_id <> NEW.charass_ID));
   END IF;
+
+-- Incident update
+  IF (NEW.charass_target_type = 'INCDT') THEN
+    UPDATE incdt SET incdt_updated = now() WHERE incdt_id = NEW.charass_target_id;
+  END IF;
   
   RETURN NEW;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 DROP TRIGGER charassTrigger ON charass;
 CREATE TRIGGER charassTrigger AFTER INSERT OR UPDATE ON charass FOR EACH ROW EXECUTE PROCEDURE _charassTrigger();
+

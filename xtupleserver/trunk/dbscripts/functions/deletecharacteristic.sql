@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION deleteCharacteristic(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION deleteCharacteristic(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pCharid ALIAS FOR $1;
   _check INTEGER;
@@ -21,16 +21,18 @@ BEGIN
   WHERE (charass_char_id=pCharid)
   LIMIT 1;
   IF (FOUND) THEN
-    IF (_r.charass_target_type = ''I'') THEN
+    IF (_r.charass_target_type = 'I') THEN
       RETURN -1;
-    ELSIF (_r.charass_target_type = ''C'') THEN
+    ELSIF (_r.charass_target_type = 'C') THEN
       RETURN -2;
-    ELSIF (_r.charass_target_type = ''ADDR'') THEN
+    ELSIF (_r.charass_target_type = 'ADDR') THEN
       RETURN -3;
-    ELSIF (_r.charass_target_type = ''CNTCT'') THEN
+    ELSIF (_r.charass_target_type = 'CNTCT') THEN
       RETURN -4;
-    ELSIF (_r.charass_target_type = ''CRMACCT'') THEN
+    ELSIF (_r.charass_target_type = 'CRMACCT') THEN
       RETURN -5;
+    ELSIF (_r.charass_target_type = 'INCDT	') THEN
+      RETURN -6;
     ELSE
       RETURN -99;
     END IF;
@@ -43,5 +45,5 @@ BEGIN
   RETURN pCharid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
