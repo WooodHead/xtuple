@@ -145,6 +145,7 @@ function set(input)
       _site = input.site;
       _empid = input.empid;
       // increment the max line number...
+      _project.setAllowedStatuses(2);
       populate(0);
     }
     else if (input.mode == _viewMode)
@@ -516,6 +517,7 @@ function populate(mode)
         _clients.setId(q.value("custid"));
         _po.text = (q.value("po"));
         _project.setId(q.value("project"));
+        _project.enabled=false;
         _taskid = q.value("task");
         gettask();
         _sheet.text = (q.value("sheetnum"));
