@@ -144,7 +144,9 @@ BEGIN
 		pNew.misc_charge_description,
 		(SELECT rsncode_id FROM rsncode WHERE rsncode_code = pNew.reason_code),
 		COALESCE(getCurrId(pNew.currency),cust_curr_id,basecurrid()),
-                COALESCE(getTaxZoneID(pNew.tax_zone),cust_taxzone_id),
+                CASE WHEN pNew.tax_zone = 'None' THEN NULL
+                     ELSE COALESCE(getTaxZoneID(pNew.tax_zone),cust_taxzone_id)
+                END,
                 NULL,
 		NULL,
                 NULL,
