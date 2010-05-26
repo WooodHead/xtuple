@@ -58,6 +58,9 @@ BEGIN
     IF (_r.recur_parent_type = 'I') THEN
       _maxdate := CURRENT_DATE + CAST(fetchMetricText('RecurringInvoiceBuffer') || ' days' AS INTERVAL);
     END IF;
+    IF (_maxdate > _r.recur_end) THEN   -- if recur_end is null, _maxdate is ok
+      _maxdate = _r.recur_end;
+    END IF;
 
     -- build statements dynamically from the recurtype table because packages
     -- might also require recurring items. this way the algorithm is fixed
@@ -102,13 +105,14 @@ BEGIN
     RAISE DEBUG E'% got %, % got %', _countstmt, _existcnt, _maxstmt, _last;
 
     _next := _last;
+    _loopcount := 1;
     WHILE (_existcnt < _r.recur_max AND _next < _maxdate) LOOP
       _next := _last +
                CAST(_r.recur_freq * _loopcount || _interval AS INTERVAL);
       RAISE DEBUG 'createrecurringitems looping, existcnt = %, max = %, is % between % and %?',
                   _existcnt, _r.recur_max, _next, _r.recur_start, _r.recur_end;
 
-      IF (_next BETWEEN _r.recur_start AND COALESCE(_r.recur_end, endOfTime())) THEN
+      IF (_next BETWEEN _r.recur_start AND _maxdate) THEN
         RAISE DEBUG 'createrecurringitems executing % with % and %',
                     _copystmt, _r.recur_parent_id, _next;
         -- 8.4+: EXECUTE _copystmt INTO _id USING _r.recur_parent_id, _next;
