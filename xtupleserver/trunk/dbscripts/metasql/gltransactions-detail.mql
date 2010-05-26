@@ -26,43 +26,64 @@ SELECT gltrans.*,
 FROM gltrans JOIN accnt ON (gltrans_accnt_id=accnt_id) 
      LEFT OUTER JOIN invhist ON (gltrans_misc_id=invhist_id
                             AND gltrans_docnumber='Misc.') 
-<? if exists("subType") ?>
-     JOIN subaccnttype ON (subaccnttype_code = accnt_subaccnttype_code) 
+<? if exists("company_id") ?>
+     JOIN company ON (accnt_company=company_number) 
 <? endif ?>
-WHERE ((
+<? if exists("prfcntr_id") ?>
+     JOIN prftcntr ON (accnt_profit=prftcntr_number) 
+<? endif ?>
+<? if exists("subaccnt_id") ?>
+     JOIN subaccnt ON (accnt_sub=subaccnt_number) 
+<? endif ?>
+<? if exists("subType") ?>
+     JOIN subaccnttype ON (subaccnttype_code=accnt_subaccnttype_code) 
+<? endif ?>
+WHERE (
 <? if exists("startDate") ?>
   <? if exists("endDate") ?>
-    gltrans_date BETWEEN <? value("startDate") ?>
+       (gltrans_date BETWEEN <? value("startDate") ?>
                          AND <? value("endDate") ?>)
   <? else ?>
-    gltrans_date BETWEEN <? value("startDate") ?>
+       (gltrans_date BETWEEN <? value("startDate") ?>
                          AND endoftime())
   <? endif ?>
 <? else ?>
   <? if exists("endDate") ?>
-    gltrans_date BETWEEN startoftime()
+       (gltrans_date BETWEEN startoftime()
                          AND <? value("endDate") ?>)
   <? else ?>
-    gltrans_date BETWEEN startoftime()
+       (gltrans_date BETWEEN startoftime()
                          AND endoftime())
   <? endif ?>
 <? endif ?>
+<? if exists("company_id") ?>
+   AND (company_id=<? value("company_id") ?>)
+<? endif ?>
+<? if exists("prfcntr_id") ?>
+   AND (prftcntr_id=<? value("prfcntr_id") ?>)
+<? endif ?>
+<? if exists("num_id") ?>
+   AND (accnt_id=<? value("num_id") ?>)
+<? endif ?>
+<? if exists("subaccnt_id") ?>
+   AND (subaccnt_id=<? value("subaccnt_id") ?>)
+<? endif ?>
 <? if exists("subType") ?>
- AND (subaccnttype_id=<? value("subType") ?>)
+   AND (subaccnttype_id=<? value("subType") ?>)
 <? endif ?>
 <? if exists("accntType") ?>
- AND (accnt_type= <? value("accntType") ?>)
+   AND (accnt_type= <? value("accntType") ?>)
 <? endif ?>
 <? if exists("accnt_id") ?>
- AND (gltrans_accnt_id=<? value("accnt_id") ?>)
+   AND (gltrans_accnt_id=<? value("accnt_id") ?>)
 <? endif ?>
 <? if exists("docnum") ?>
- AND (gltrans_docnumber = case when <? value("docnum") ?> = '' then 
+   AND (gltrans_docnumber = case when <? value("docnum") ?> = '' then 
  gltrans_docnumber else 
 <? value("docnum") ?> end ) 
 <? endif ?>
 <? if exists("source") ?>
-  AND (gltrans_source=<? value("source") ?>)
+   AND (gltrans_source=<? value("source") ?>)
 <? endif ?>
 ) 
 ORDER BY gltrans_created
