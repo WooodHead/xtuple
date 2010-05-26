@@ -62,8 +62,8 @@ WHERE (
 <? if exists("prfcntr_id") ?>
    AND (prftcntr_id=<? value("prfcntr_id") ?>)
 <? endif ?>
-<? if exists("num_id") ?>
-   AND (accnt_id=<? value("num_id") ?>)
+<? if exists("accnt_number") ?>
+   AND (accnt_number=<? value("accnt_number") ?>)
 <? endif ?>
 <? if exists("subaccnt_id") ?>
    AND (subaccnt_id=<? value("subaccnt_id") ?>)
