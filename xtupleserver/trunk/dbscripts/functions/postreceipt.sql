@@ -21,16 +21,11 @@ BEGIN
 	       2) AS recv_freight_base,
 	 recv_freight, recv_freight_curr_id, recv_date, recv_gldistdate,
 	 itemsite_id, itemsite_item_id, item_inv_uom_id, itemsite_costmethod,
-         itemsite_controlmethod, vend_name,
-         CASE WHEN (COALESCE(itemsite_id, -1) = -1) THEN expcat_code
-           ELSE item_number
-         END AS item_number
+         itemsite_controlmethod, vend_name, item_number
 	 INTO _r
   FROM recv LEFT OUTER JOIN itemsite ON (recv_itemsite_id=itemsite_id)
             LEFT OUTER JOIN item ON (itemsite_item_id=item_id)
             LEFT OUTER JOIN vendinfo ON (recv_vend_id=vend_id)
-            JOIN poitem ON (recv_orderitem_id=poitem_id)
-            LEFT OUTER JOIN expcat ON (expcat_id=poitem_expcat_id)
   WHERE ((recv_id=precvid)
     AND  (NOT recv_posted));
 
@@ -123,7 +118,7 @@ BEGIN
         AND (poitem_id=_o.orderitem_id));
     ELSE
       SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
-	  			  'Receive Non-Inventory from ' || _ordertypeabbr,
+	  			  'Receive Non-Inventory from ' || 'P/O for ' || _r.vend_name || ' for ' || expcat_code,
 				   expcat_liability_accnt_id,
 				   expcat_exp_accnt_id, -1,
 				   round((_o.item_unitprice_base * _r.recv_qty),2),
