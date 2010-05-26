@@ -38,7 +38,7 @@ BEGIN
 	invchead_tax,invchead_misc_amount,invchead_misc_descrip,invchead_misc_accnt_id,invchead_payment,
 	invchead_paymentref,invchead_notes,invchead_prj_id,invchead_curr_id,
 	invchead_tax_curr_id,invchead_adjtaxtype_id,invchead_freighttaxtype_id,
-	invchead_taxzone_id 
+	invchead_taxzone_id, invchead_shipchrg_id 
    )
   SELECT 
 	_invcheadid,cohead_cust_id,cohead_shipto_id,cohead_number,cohead_orderdate,
@@ -50,7 +50,7 @@ BEGIN
 	cohead_shiptocountry,cohead_salesrep_id,COALESCE(cohead_commission,0),cohead_terms_id,cobmisc_freight,
 	COALESCE(cobmisc_tax,0),COALESCE(cobmisc_misc, 0.00),cobmisc_misc_descrip,cobmisc_misc_accnt_id,cobmisc_payment,
 	cobmisc_paymentref,cobmisc_notes,cohead_prj_id,cobmisc_curr_id,
-	cobmisc_tax_curr_id,cobmisc_adjtaxtype_id,cobmisc_freighttaxtype_id,cobmisc_taxzone_id  
+	cobmisc_tax_curr_id,cobmisc_adjtaxtype_id,cobmisc_freighttaxtype_id,cobmisc_taxzone_id, cohead_shipchrg_id  
 	FROM cobmisc, cohead, cust
   WHERE ( (cobmisc_cohead_id=cohead_id)
    AND (cohead_cust_id=cust_id)

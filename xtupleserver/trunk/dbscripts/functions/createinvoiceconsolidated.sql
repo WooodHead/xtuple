@@ -30,6 +30,7 @@ BEGIN
                    cobmisc_taxzone_id, cobmisc_tax_curr_id,
                    cobmisc_adjtaxtype_id,
                    cobmisc_freighttaxtype_id,
+                   cohead_shipchrg_id,
                    
 		-- the following are consolidated values to use in creating the header
                    MIN(cohead_number) AS cohead_number,
@@ -58,7 +59,8 @@ BEGIN
                    cohead_prj_id, cobmisc_curr_id,
                    cobmisc_taxzone_id, cobmisc_tax_curr_id,
                    cobmisc_adjtaxtype_id,
-                   cobmisc_freighttaxtype_id
+                   cobmisc_freighttaxtype_id,
+                   cohead_shipchrg_id
 		LOOP
 
     IF(_c.cnt = 1) THEN
@@ -91,7 +93,8 @@ BEGIN
         invchead_payment, invchead_paymentref,
         invchead_notes, invchead_prj_id, invchead_curr_id,
         invchead_taxzone_id, invchead_tax_curr_id,
-        invchead_adjtaxtype_id, invchead_freighttaxtype_id )
+        invchead_adjtaxtype_id, invchead_freighttaxtype_id,
+        invchead_shipchrg_id )
       VALUES(_invcheadid,
              pCustid, -1,
              NULL, _c.cohead_orderdate,
@@ -113,7 +116,8 @@ BEGIN
              'Multiple Sales Order # Invoice', _c.cohead_prj_id, _c.cobmisc_curr_id,
              _c.cobmisc_taxzone_id, _c.cobmisc_tax_curr_id,
              _c.cobmisc_adjtaxtype_id,
-             _c.cobmisc_freighttaxtype_id
+             _c.cobmisc_freighttaxtype_id,
+             _c.cohead_shipchrg_id
              );
  
     _lastlinenumber := 1;
