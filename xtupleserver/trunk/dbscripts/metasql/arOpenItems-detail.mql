@@ -229,7 +229,7 @@ SELECT aropen_id AS id,
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END)) AS f_balance,
 <? endif ?>
        cust_id, cust_number, cust_name,
-       false AS recurring,
+       COALESCE(invchead_recurring_invchead_id IS NOT NULL, false) AS recurring,
        aropen_open AS open,
        formatccnumber(decrypt(setbytea(ccard_number),
                               setbytea(<? value("key") ?>), 'bf')) AS ccard_number,
@@ -305,7 +305,8 @@ WHERE ((true)
            aropen_paid,             aropen_open,            aropen_curr_id,
            aropen_closedate,        aropen_curr_rate,       cmhead_id,
            cust_id, 		    cust_number,            cust_name,
-           cohead_id,               ccpay_id,               ccard_number
+           cohead_id,               ccpay_id,               ccard_number,
+           invchead_recurring_invchead_id
 UNION
 SELECT -1,
        4 AS altId,
