@@ -1,10 +1,10 @@
 -- Group: checkRegister
 -- Name: detail
 -- Notes: used by dspCheckRegister and viewCheckRun;
--- shows all the checks for a given date range, bank account, 
--- check number(optional), and recipient(optional), optionally restricted
--- to 'new' (un-posted/replaced/deleted) checks for viewing check runs.
--- fills in the check item detail if showDetail is passed.
+--        shows all the checks for a given date range, bank account, 
+--        check number(optional), and recipient(optional), optionally restricted
+--        to 'new' (un-posted/replaced/deleted) checks for viewing check runs.
+--        fills in the check item detail if showDetail is passed.
 SELECT checkhead_id AS checkid,
        CASE WHEN(checkhead_void) THEN -1
             WHEN(checkhead_posted) THEN 1
@@ -20,7 +20,7 @@ SELECT checkhead_id AS checkid,
 		checkhead_recip_type || '-' || checkhead_recip_id ) AS description,
        checkhead_checkdate AS checkdate,
        checkhead_amount AS amount, 
-       currtobase(checkhead_curr_id,checkhead_amount,checkhead_checkdate) AS base_amount, 
+       checkhead_amount / checkhead_curr_rate AS base_amount, 
        currConcat(checkhead_curr_id) AS currAbbr,
        checkhead_number,
        checkhead_ach_batch,
