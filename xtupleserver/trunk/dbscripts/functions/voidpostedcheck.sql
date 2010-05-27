@@ -3,12 +3,9 @@ DECLARE
   pCheckid		ALIAS FOR $1;
   pJournalNumber	ALIAS FOR $2;
   pVoidDate		ALIAS FOR $3;
-  _amount_base		NUMERIC := 0;
   _apopenid		INTEGER;
   _credit_glaccnt	INTEGER;
   _docnumber		TEXT;
-  _exchGain		NUMERIC := 0;
-  _exchGainTmp		NUMERIC := 0;
   _gltransNote		TEXT;
   _p			RECORD;
   _r			RECORD;
@@ -84,8 +81,6 @@ BEGIN
 				round(_p.checkhead_amount_base, 2),
 				pVoidDate, _gltransNote);
 
-    _amount_base := _p.checkhead_amount_base;
-
   ELSE
     FOR _r IN SELECT checkitem_amount, checkitem_discount,
                      CASE WHEN (checkitem_apopen_id IS NOT NULL) THEN
@@ -104,7 +99,6 @@ BEGIN
 		    aropen ON (checkitem_aropen_id=aropen_id)
               WHERE (checkitem_checkhead_id=pcheckid) LOOP
 
-      _exchGainTmp := 0;
       IF (_r.apopen_id IS NOT NULL) THEN
 	-- undo the APDiscount Credit Memo if a discount was taken
         IF(_r.checkitem_discount > 0) THEN
@@ -155,7 +149,7 @@ BEGIN
         END IF; -- discount was taken
 
         UPDATE apopen
-       SET apopen_paid = round(apopen_paid -
+        SET apopen_paid = round(apopen_paid -
 				(_r.checkitem_amount + noNeg(_r.checkitem_discount)), 2),
             apopen_open = round(apopen_amount, 2) >
 			  round(apopen_paid -
@@ -199,44 +193,14 @@ BEGIN
 
       END IF; -- if check item's aropen_id is not null
 
---  calculate currency gain/loss
-      SELECT apCurrGain(_r.apopen_id,_r.checkitem_curr_id, _r.checkitem_amount,
-                      _p.checkhead_checkdate)
-            INTO _exchGainTmp;
-      _exchGain := _exchGain + _exchGainTmp;
-
       PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
 				  'CK', text(_p.checkhead_number),
                                   _p.checkrecip_accnt_id,
-                                  round(_r.checkitem_amount_base, 2),
+                                  round(_r.checkitem_amount_base / _r.checkitem_curr_rate, 2),
                                   pVoidDate, _gltransNote);
-      IF (_exchGainTmp <> 0) THEN
-          PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
-				      'CK', text(_p.checkhead_number),
-				      getGainLossAccntId(),
-				      round(_exchGainTmp, 2) * -1,
-				      pVoidDate, _gltransNote);
-      END IF;
-
-      _amount_base := (_amount_base + _r.checkitem_amount_base);
 
     END LOOP;
 
-    --  ensure that the check balances, attribute rounding errors to gain/loss
-    IF round(_amount_base, 2) - round(_exchGain, 2) <> round(_p.checkhead_amount_base, 2) THEN
-      IF round(_amount_base - _exchGain, 2) = round(_p.checkhead_amount_base, 2) THEN
-	PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
-				    'CK',
-				    text(_p.checkhead_number), getGainLossAccntId(),
-				    (round(_amount_base, 2) -
-				     round(_exchGain, 2) -
-				     round(_p.checkhead_amount_base, 2)) * -1,
-				    pVoidDate, _gltransNote);
-      ELSE
-	RAISE EXCEPTION 'checkhead_id % does not balance (% - % <> %)', pCheckid,
-	      _amount_base, _exchGain, _p.checkhead_amount_base;
-      END IF;
-    END IF;
   END IF;
 
   PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source, 'CK',
