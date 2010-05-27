@@ -5,8 +5,8 @@ DECLARE
   pBooitemSeqId ALIAS FOR $2;
   _result       DATE;
 BEGIN
- 
-  IF ( SELECT (metric_value='t')
+
+  IF ( SELECT ((metric_value='t') AND packageIsEnabled('xtmfg'))
          FROM metric
         WHERE(metric_name='Routings') ) THEN
     RETURN xtmfg.calcWooperStart(pWoId, pBooitemSeqId);
