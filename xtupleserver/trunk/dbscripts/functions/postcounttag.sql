@@ -229,10 +229,13 @@ BEGIN
      AND (invcnt_id=pInvcntid) );
 
 --  Update the QOH
+--  Avoid negative value when average cost item
     UPDATE itemsite
     SET itemsite_qtyonhand=_p.invcnt_qoh_after,
         itemsite_nnqoh = 0,
-        itemsite_value = _p.itemsite_value + (_p.cost * (_p.invcnt_qoh_after - itemsite_qtyonhand)),
+        itemsite_value = CASE WHEN ((itemsite_costmethod='A') AND (_p.itemsite_value + (_p.cost * (_p.invcnt_qoh_after - itemsite_qtyonhand))) < 0.0) THEN 0.0
+                              ELSE (_p.itemsite_value + (_p.cost * (_p.invcnt_qoh_after - itemsite_qtyonhand)))
+                         END,
         itemsite_datelastcount=_postDate
     WHERE (itemsite_id=_p.itemsite_id);
  
