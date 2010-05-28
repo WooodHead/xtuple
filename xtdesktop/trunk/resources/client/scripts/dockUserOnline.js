@@ -76,7 +76,8 @@ function fillListUserOnline()
 function openWindowUserOnline()
 { 
   // Make sure we can open the window for this activity
-  if (!privilegeCheckUserOnline)
+  if (!privilegeCheckUserOnline ||
+      !_userOnline.currentItem().rawValue("usr_username").length)
     return;
 
   params = new Object;
@@ -94,6 +95,9 @@ function openWindowUserOnline()
 */
 function populateMenuUserOnline(pMenu, pItem)
 {
+  if (!_userOnline.currentItem().rawValue("usr_username").length)
+    return;
+
   var menuItem;
   var enable = privilegeCheckUserOnline();
 
