@@ -81,6 +81,9 @@ function set(input)
   _filter = input.filter;
   _sheet = input.sheet;
 
+  if("emp_id" in input)
+    _employees.setId(input.emp_id);
+
   if("mode" in input)
   {
     if (input.mode == 0)

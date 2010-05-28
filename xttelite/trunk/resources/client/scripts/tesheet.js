@@ -206,16 +206,18 @@ function sheetOpen(mode)
   var params   = new Object();
   params.mode   = mode;
   // edit
-  if (mode = 1){
+  if (mode == 1){
     params.filter = "tehead_id=" + _sheets.id();
     params.headid = _sheets.id();
   }
   // new
-  if (mode = 0){
+  if (mode == 0){
+    if (_selected)
+      params.emp_id = _employees.id();
  
   }
   //view
-  if (mode = 2){
+  if (mode == 2){
     params.filter = "tehead_id=" + _sheets.id();
     params.headid = _sheets.id();
   }
@@ -446,19 +448,11 @@ function populateEmployees()
     {
       _employees.populate("SELECT emp_id,emp_code FROM emp "
                  + "where emp_code = CURRENT_USER");
-      if (q.first())
+
+      if (!_employees.count)
       {
-        _x = (q.value("emp_id"));
-        if (_x == "")
-        {
-          toolbox.messageBox("critical", mywindow, mywindow.windowTitle, qsTr("It appears that your current user isn't an active employee.") );
-        }                 
-      }
-      else if (q.lastError().type != 0)
-      {
-        toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-                    q.lastError().databaseText);
-      }                  
+        toolbox.messageBox("critical", mywindow, mywindow.windowTitle, qsTr("It appears that your current user isn't an active employee.") );               
+      }                    
                  
     }else{
       toolbox.messageBox("critical", mywindow, qsTr("Permissions Error"),
