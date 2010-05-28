@@ -80,26 +80,21 @@ BEGIN
      AND (apcreditapply_source_apopen_id=pApopenid) );
 
     IF (FOUND) THEN
+--  The following is depreciated, just skip the record
 --  Recalculate the amount to apply
-      IF ((_r.balance - _p.apcreditapply_amount) > _amount) THEN
-        _applyAmount := _amount;
-      ELSE
-        _applyAmount := (_r.balance - _p.apcreditapply_amount);
-      END IF;
-
---  Replace the following with the above recalculation
---  Offset the amount to apply by the amount already applied
---      _applyAmount := (_applyAmount - _p.apcreditapply_amount);
---      IF (_applyAmount < 0) THEN
---        _applyAmount := 0;
+--      IF ((_r.balance - _p.apcreditapply_amount) > _amount) THEN
+--        _applyAmount := _amount;
+--      ELSE
+--        _applyAmount := (_r.balance - _p.apcreditapply_amount);
 --      END IF;
 
 --  Update the apcreditapply with the new amount to apply
-      UPDATE apcreditapply
-      SET apcreditapply_amount = (apcreditapply_amount + 
-          _applyAmount *  currRate(apcreditapply_curr_id,_docdate) / _curr_rate)
-      WHERE (apcreditapply_id=_p.apcreditapply_id);
+--      UPDATE apcreditapply
+--      SET apcreditapply_amount = (apcreditapply_amount + 
+--          _applyAmount *  currRate(apcreditapply_curr_id,_docdate) / _curr_rate)
+--      WHERE (apcreditapply_id=_p.apcreditapply_id);
 
+      CONTINUE;
     ELSE
 --  Create a new apcreditapply record
       INSERT INTO apcreditapply
