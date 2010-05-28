@@ -1,4 +1,3 @@
-debugger
 // Define local variables
 var _linenumCol = 1;
 var _itemCol    = 2;
@@ -80,15 +79,15 @@ _terminal.populate("SELECT terminal_id, terminal_number, terminal_number"
 // Define connections
 _add.clicked.connect(add);
 _cancel.clicked.connect(cancel);
-_cust["newId(int)"].connect(handleButtons);
-_cust["newId(int)"].connect(handleItem);
-_cust["newId(int)"].connect(populateContact);
-_cust["newId(int)"].connect(populateTaxzone);
+_cust.newId.connect(handleButtons);
+_cust.newId.connect(handleItem);
+_cust.newId.connect(populateContact);
+_cust.newId.connect(populateTaxzone);
 _edit.clicked.connect(customerEdit);
-_item["descrip1Changed(QString)"].connect(itemDescripChanged);
-_item["newId(int)"].connect(handleButtons);
-_item["newId(int)"].connect(itemPrice);
-_item["upcChanged(QString)"].connect(itemUpcChanged);
+_item.descrip1Changed.connect(itemDescripChanged);
+_item.newId.connect(handleButtons);
+_item.newId.connect(itemPrice);
+_item.upcChanged.connect(itemUpcChanged);
 _item["valid(bool)"].connect(_add["setEnabled(bool)"]);
 _new.clicked.connect(customerNew);
 _payment.clicked.connect(payment);
@@ -96,12 +95,12 @@ _qty.editingFinished.connect(itemPrice);
 _qty.editingFinished.connect(extension);
 _receiptSearch.clicked.connect(receiptSearch);
 _remove.clicked.connect(remove);
-_saleitems["rowSelected(int)"].connect(rowSelected);
+_saleitems.rowSelected.connect(rowSelected);
 _saleitems["valid(bool)"].connect(_remove["setEnabled(bool)"]);
-_salesrep["newID(int)"].connect(handleButtons);
+_salesrep.newID.connect(handleButtons);
 _save.clicked.connect(save);
-_terminal["newID(int)"].connect(handleItem);
-_type["newID(int)"].connect(typeChanged);
+_terminal.newID.connect(handleItem);
+_type.newID.connect(typeChanged);
 _unitPrice.valueChanged.connect(extension);
 
 
@@ -621,7 +620,6 @@ function receiptSearch()
   sparams.noReturns = true;
   var tmp = toolbox.lastWindow().set(sparams);
   var execval = childwnd.exec();
-
   if (execval)
   {
     // Popualte the line items with the original sale data
@@ -634,8 +632,10 @@ function receiptSearch()
     params.sale_number = _receiptNumber.text;
     var i = 0;
     var data = toolbox.executeDbQuery("sale","getapi_sale",params);
+
     if (data.first())
       _cust.number = data.value("customer_number");
+
     data = toolbox.executeDbQuery("sale","getapi_saleitem",params);
     while (data.next())
     {
@@ -665,13 +665,6 @@ function receiptSearch()
 
 function remove()
 {
-  if(_saleitems.rowCountVisible() <= 1)
-  {
-    QMessageBox.warning(mywindow, qsTr("Cannot Remove All Items"),
-      qsTr("You cannot remove all the line items on a sale. Add a new item before trying to delete the last item."));
-    return;
-  }
-
   var num = _saleitems.selectedValue(_linenumCol);
   var row = _saleitem.currentIndex();
   var idx = 0;
@@ -844,7 +837,7 @@ function setReturnReceipt(hasReceipt)
     _type.enabled = false;
     _item["valid(bool)"].disconnect(_add["setEnabled(bool)"]);
     _saleitems["valid(bool)"].disconnect(_remove["setEnabled(bool)"]);
-    _qty["textChanged(const QString&)"].disconnect(itemPrice);
+    _qty.editingFinished.disconnect(itemPrice);
   }
   else if (!hasReceipt && _returnReceipt)
   {
@@ -852,7 +845,7 @@ function setReturnReceipt(hasReceipt)
     _type.enabled = true;
     _item["valid(bool)"].connect(_add["setEnabled(bool)"]);
     _saleitems["valid(bool)"].connect(_remove["setEnabled(bool)"]);
-    _qty["textChanged(const QString&)"].connect(itemPrice);
+    _qty.editingFinished.connect(itemPrice);
     add();
   }
 
