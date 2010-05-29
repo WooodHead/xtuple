@@ -202,9 +202,15 @@ BEGIN
       END IF; -- if check item's aropen_id is not null
 
 --  calculate currency gain/loss
-      SELECT apCurrGain(_r.apopen_id,_r.checkitem_curr_id, _r.checkitem_amount,
-                      _p.checkhead_checkdate)
-            INTO _exchGainTmp;
+      IF (_r.apopen_id IS NOT NULL) THEN
+        SELECT apCurrGain(_r.apopen_id,_r.checkitem_curr_id, _r.checkitem_amount,
+                        _p.checkhead_checkdate)
+              INTO _exchGainTmp;
+      ELSIF (_r.aropen_id IS NOT NULL) THEN
+        SELECT arCurrGain(_r.aropen_id,_r.checkitem_curr_id, _r.checkitem_amount,
+                        _p.checkhead_checkdate)
+              INTO _exchGainTmp;
+      END IF;
       _exchGain := _exchGain + _exchGainTmp;
 
       PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
