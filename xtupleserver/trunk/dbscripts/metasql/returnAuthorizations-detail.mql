@@ -9,7 +9,7 @@ SELECT DISTINCT rahead_id, rahead_number, rahead_billtoname,
        WHEN rahead_disposition = 'C' THEN
          <? value("credit") ?>
        WHEN rahead_disposition = 'R' THEN
-         <? value("ceturn") ?>
+         <? value("return") ?>
        WHEN rahead_disposition = 'P' THEN
          <? value("replace") ?>
        WHEN rahead_disposition = 'V' THEN
