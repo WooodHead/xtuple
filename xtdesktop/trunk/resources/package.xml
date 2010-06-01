@@ -1,9 +1,9 @@
-<package id="create_351beta"
+<package id="create_351rc"
          name="xtdesktop"
          developer="xTuple"
          descrip="xTuple Desktop"
-         version="3.5.1beta"
-         updater="2.2.0">
+         version="3.5.1rc"
+         updater="2.2.2">
   <pkgnotes>
         xTuple Desktop navigational interface for the xTuple main window.
     
@@ -25,7 +25,7 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
   <prerequisite type="Query"
                 name="Test xTuple ERP version">
     <query>
-      SELECT (SUBSTRING(fetchMetricText('ServerVersion') FOR 3) >= '3.5'
+      SELECT (SUBSTRING(fetchMetricText('ServerVersion') FOR 3) = '3.5'
           AND SUBSTRING(fetchMetricText('ServerVersion') FROM 5 FOR 1) >= '1');
     </query>
     <message>
