@@ -1,4 +1,4 @@
-../../packages/xtpos-3.5.0.gz: FORCE
-	cd .. ; tar czf ../packages/xtpos-3.5.0.gz -h --exclude CVS --exclude .\* --exclude Makefile create_350
+../../packages/xtpos-3.5.1rc.gz: FORCE
+	cd .. ; tar czf ../packages/xtpos-3.5.1rc.gz -h --exclude CVS --exclude .\* --exclude Makefile create_351rc
 
 FORCE:

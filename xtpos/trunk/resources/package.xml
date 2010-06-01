@@ -1,9 +1,9 @@
-<package id="create_350"
+<package id="create_351rc"
          name="xtpos"
          developer="xTuple"
          descrip="Retail Point of Sale System"
-         version="3.5.0"
-         updater="2.2.0">
+         version="3.5.1rc"
+         updater="2.2.2">
   <pkgnotes>Retail Point of Sale add-on package for xTuple ERP.
 
         This file is part of the xtpos package for xTuple ERP: PostBooks Edition,
@@ -18,12 +18,11 @@
   <prerequisite type="Query"
                 name="Test xTuple ERP version">
     <query>
-      SELECT (SUBSTRING(fetchMetricText('ServerVersion') FOR 3) = '3.5'
-          AND SUBSTRING(fetchMetricText('ServerVersion') FROM 5 FOR 1) >= '0');
+      SELECT fetchMetricText('ServerVersion') >= '3.5.1';
     </query>
     <message>
       This version of the xtpos package only works with xTuple ERP
-      versions 3.4.0 and greater.
+      versions 3.5.1 and greater.
     </message>
   </prerequisite>
 

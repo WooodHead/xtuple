@@ -1,29 +1,30 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>cashRegisters</class>
- <widget class="QWidget" name="cashRegisters" >
-  <property name="geometry" >
+ <widget class="QWidget" name="cashRegisters">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>805</width>
-    <height>754</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Cash Registers</string>
   </property>
-  <property name="screenTitle" stdset="0" >
+  <property name="screenTitle" stdset="0">
    <string/>
   </property>
-  <layout class="QGridLayout" name="gridLayout" >
-   <item row="0" column="0" >
-    <layout class="QHBoxLayout" name="horizontalLayout" >
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <spacer name="horizontalSpacer" >
-       <property name="orientation" >
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
@@ -32,67 +33,67 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="_close" >
-       <property name="text" >
+      <widget class="QPushButton" name="_close">
+       <property name="text">
         <string>&amp;Close</string>
        </property>
       </widget>
      </item>
     </layout>
    </item>
-   <item row="1" column="0" >
-    <layout class="QVBoxLayout" >
-     <property name="spacing" >
+   <item row="1" column="0">
+    <layout class="QVBoxLayout">
+     <property name="spacing">
       <number>0</number>
      </property>
      <item>
-      <widget class="QLabel" name="_terminalsLit" >
-       <property name="text" >
+      <widget class="QLabel" name="_terminalsLit">
+       <property name="text">
         <string>Cash Register Terminals:</string>
        </property>
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" >
+      <layout class="QHBoxLayout">
        <item>
-        <widget class="XTreeView" name="_terminals" >
-         <property name="editTriggers" >
+        <widget class="XTreeView" name="_terminals">
+         <property name="editTriggers">
           <set>QAbstractItemView::NoEditTriggers</set>
          </property>
-         <property name="alternatingRowColors" >
+         <property name="alternatingRowColors">
           <bool>false</bool>
          </property>
-         <property name="schemaName" >
+         <property name="schemaName">
           <string>xtpos</string>
          </property>
-         <property name="tableName" >
+         <property name="tableName">
           <string>api_cashregister</string>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QVBoxLayout" >
+        <layout class="QVBoxLayout">
          <item>
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>0</number>
            </property>
            <item>
-            <widget class="QPushButton" name="_use" >
-             <property name="enabled" >
+            <widget class="QPushButton" name="_use">
+             <property name="enabled">
               <bool>false</bool>
              </property>
-             <property name="text" >
+             <property name="text">
               <string>&amp;Use</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="_view" >
-             <property name="enabled" >
+            <widget class="QPushButton" name="_view">
+             <property name="enabled">
               <bool>false</bool>
              </property>
-             <property name="text" >
+             <property name="text">
               <string>&amp;View</string>
              </property>
             </widget>
@@ -101,13 +102,13 @@
          </item>
          <item>
           <spacer>
-           <property name="orientation" >
+           <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
-           <property name="sizeType" >
+           <property name="sizeType">
             <enum>QSizePolicy::Expanding</enum>
            </property>
-           <property name="sizeHint" stdset="0" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>84</width>
              <height>211</height>
@@ -138,11 +139,11 @@
    <receiver>_use</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>590</x>
      <y>89</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>772</x>
      <y>75</y>
     </hint>
@@ -154,11 +155,11 @@
    <receiver>_view</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>590</x>
      <y>119</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>772</x>
      <y>99</y>
     </hint>
@@ -170,11 +171,11 @@
    <receiver>_use</receiver>
    <slot>animateClick()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>351</x>
      <y>308</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>772</x>
      <y>75</y>
     </hint>
