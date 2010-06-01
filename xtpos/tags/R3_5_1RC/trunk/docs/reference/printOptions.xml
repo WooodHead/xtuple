@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="printOptions">
+  <title>Print Options</title>
+  <para>To define the default print settings for the screen you are working
+  on, select the OPTIONS button. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/printOptions.png" />
+    </imageobject>
+    <caption>Print Options</caption>
+  </mediaobject>
+  <note>
+    <para>Print settings are not global. They are specific to the screen you
+    are working on&mdash;and also to your specific machine (i.e.,
+    terminal).</para>
+  </note>
+  <para>When defining the default print settings for the screen you are
+  working on, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Print Automatically</term>
+      <listitem>
+        <para>Select if you want the "Print Receipt" option always turned ON
+        when posting transactions from this screen. If not selected, you can
+        still manually choose the "Print Receipt" option when processing
+        transactions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Always use this printer</term>
+      <listitem>
+        <para>Select if you want to always use a specific printer when
+        printing receipts from your terminal. Choose the printer you want to
+        use from the list of available printers.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>At the top of and to the far right of the screen, the following
+  buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>OK</term>
+      <listitem>
+        <para>Select to save the print settings you defined.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating print settings.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
