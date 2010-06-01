@@ -146,6 +146,9 @@ function charge()
   if (ccardId < 0)
     return ccardId;
 
+  // Set the printer
+  _ccp.setPrinter(settingsValue("payment.defaultPrinter"));
+
   // Charge the card
   var params = new Object;
   params.ccard_id = ccardId;
