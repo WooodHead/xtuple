@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>Retail Site</title>
+  <para>To create a new Retail Site select the NEW button. The following
+  screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/retailSite.png" />
+      </imageobject>
+      <caption>Create Retail Site</caption>
+    </mediaobject>
+  </screenshot>
+  <para>When creating a new Retail Site, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Select the Site where the Retail Site is to be located. The
+        Sites found in this drop down list are defined under the Inventory
+        menu.</para>
+        <note>
+          <para>For those running xTuple ERP PostBooks Edition, you only have
+          access to one Site. However, within that Site you may define an
+          unlimited number of Retail Sites.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Quotes Expire in</term>
+      <listitem>
+        <para>Specify the number of days Quotes at the Retail Site are still
+        valid.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Accounts</term>
+      <listitem>
+        <para>Specify the following Accounts to be used when transactions are
+        posted at the Retail Site:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Asset</term>
+            <listitem>
+              <para>Identify a General Ledger (G/L) Account to distribute
+              assets to. The selected Account will be the default Asset
+              Account for the Retail Site.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Adjustment</term>
+            <listitem>
+              <para>Identify a General Ledger (G/L) Account to distribute
+              adjustments to. The selected Account will be the default
+              adjustment Account for the Retail Site.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Check Clearing</term>
+            <listitem>
+              <para>Identify a General Ledger (G/L) Account to distribute
+              Check clearings to. The selected Account will be the default
+              Check clearing Account for the Retail Site.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bank Accounts</term>
+      <listitem>
+        <para>Display lists Bank Accounts which have been added to the Retail
+        Site.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Bank Account</term>
+            <listitem>
+              <para>Select a Bank Account from the list of available Bank
+              Accounts to be used for processing Retail transactions from this
+              Retail Site. After you select one, use the ADD button to include
+              the Bank Account in the list of Bank Accounts available to the
+              Retail Site.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the Retail Site and adds it to the master list of Retail
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>ADD</term>
+      <listitem>
+        <para>Adds the selected Bank Account to the list of available Bank
+        Accounts.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>REMOVE</term>
+      <listitem>
+        <para>Removes the selected Bank Account from the list of available
+        Bank Accounts.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a Cash Register terminal for the Retail Site, select the
+  "Terminals" tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/retailSite_terminalTab.png" />
+    </imageobject>
+    <caption>Create Cash Register Terminals</caption>
+  </mediaobject>
+  <para>When creating a new Cash Register terminal, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Terminal</term>
+      <listitem>
+        <para>Display lists the Cash Register terminals associated with the
+        Retail Site.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>ADD</term>
+      <listitem>
+        <para>Select to add a Cash Register terminal to the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>REMOVE</term>
+      <listitem>
+        <para>Select to remove a Cash Register terminal from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
