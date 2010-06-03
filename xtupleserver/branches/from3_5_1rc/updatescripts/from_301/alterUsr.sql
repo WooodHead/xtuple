@@ -1,0 +1,5 @@
+BEGIN;
+
+ALTER TABLE usr ADD UNIQUE (usr_username);
+
+COMMIT;
