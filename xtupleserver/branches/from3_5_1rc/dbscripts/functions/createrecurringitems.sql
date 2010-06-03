@@ -12,7 +12,7 @@ DECLARE
   _last      TIMESTAMP WITH TIME ZONE;
   _loopcount INTEGER := 1;
   _maxstmt   TEXT;
-  _maxdate   DATE    := endOfTime();
+  _maxdate   TIMESTAMP WITH TIME ZONE := endOfTime();
   _result    INTEGER := 0;
   _next      TIMESTAMP WITH TIME ZONE;
   _r         RECORD;
@@ -56,7 +56,7 @@ BEGIN
 
     -- if the recurrence type has a max lookahead window, use it
     IF (_r.recur_parent_type = 'I') THEN
-      _maxdate := CURRENT_DATE + CAST(fetchMetricText('RecurringInvoiceBuffer') || ' days' AS INTERVAL);
+      _maxdate := CURRENT_TIMESTAMP + CAST(fetchMetricText('RecurringInvoiceBuffer') || ' days' AS INTERVAL);
     END IF;
     IF (_maxdate > _r.recur_end) THEN   -- if recur_end is null, _maxdate is ok
       _maxdate = _r.recur_end;
