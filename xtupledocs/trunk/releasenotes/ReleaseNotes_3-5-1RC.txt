@@ -6,16 +6,22 @@ June 7, 2010
 ==================================
 
 This is the release candidate in the 3.5.1 release cycle. While
-the 3.5.1 release is primarily a bug fix release, it does include
-a handful of new features--as well as the ability to add the 
-following new packages available for download from the PostBooks 
-project site on SourceForge:
+the 3.5.1 release is primarily a bug fix release, it does offer
+a handful of new features, including the new xTuple Desktop. You
+can download the xTuple Desktop--as well as other popular xTuple
+packages--from the PostBooks project site on SourceForge.
 
 xTuple Desktop
   * Spec: http://www.xtuple.org/issuetracker/view.php?id=10974
 
-Time and Expense (Lite version
-  * Full spec: http://www.xtuple.org/ProjectTimeExpense
+Time and Expense (Lite version)
+  * Product Guide: http://www.xtuple.org/sites/default/files/prodguide/TEProductGuide-1.0/index.html
+
+xTuple Point of Sale
+  * Product Guide: http://www.xtuple.org/sites/default/files/prodguide/xtpos-3.5/index.html
+
+NOTE: All the packages listed above are included with the all-in-one
+xTuple installer.
 
 ==================================
 
@@ -28,153 +34,154 @@ for each item listed below may be found on our community website
 
 New Features:
 
-* [Accounting] User costing elements and accounts change 
-* [Accounting] Add additional filtering to the general ledger 
-transactions screen 
+* [Accounting] User costing elements and accounts change
+* [Accounting] Add additional filtering to the general ledger
+transactions screen
 * [Accounting] Automatically Apply Vendor Credits
-* [Accounting] Add item number to the reference column in general 
-ledger transactions screen 
+* [Accounting] Add item number to the reference column in general
+ledger transactions screen
 * [Accounting] Items->Documents->Files save to table feature
-* [Accounting] Add monetary totals on all columns within the 
+* [Accounting] Add monetary totals on all columns within the
 customer workbench accounting tab
-* [Accounting] Add monetary totals to the payables tab on the 
+* [Accounting] Add monetary totals to the payables tab on the
 payables workbench and vendor workbench
-* [All] Improvement to spellamount function
-* [CRM] Add recurring capability to activities in CRM 
-* [CRM] Incidents need Characteristics 
+* [All] Improvement to spellamount function so checks handle 
+locales better when spelling out amounts in words
+* [CRM] Add recurring capability to activities in CRM
+* [CRM] Incidents need Characteristics
 * [Products] List Bill of Materials and Revisions
 * [Products] Add additional change log fields to item master
-* [Purchase] Purchase Request Notes  
+* [Purchase] Purchase Request Notes
 
 Bug Fixes:
 
-* [Accounting] Cursor does not go to Customer # field 
-* [Accounting] Unable to void posted check 
-* [Accounting] Apply A/P credit memo apply to balance should not 
-apply to manually applied docs 
-* [Accounting] Disallow Sales CM and CM from having the same 
+* [Accounting] Cursor does not go to Customer # field
+* [Accounting] Unable to void posted check
+* [Accounting] Apply A/P credit memo apply to balance should not
+apply to manually applied docs
+* [Accounting] Disallow Sales CM and CM from having the same
 beginning number
-* [Accounting] Main segment size can be overridden 
+* [Accounting] Main segment size can be overridden
 * [Accounting] Void/Replace can lead to duplicate A/P Checks
-* [Accounting] Recurring invoices create duplicates 
-* [Accounting] Total Base amount is incorrect in print report of 
-cash receipts 
-* [Accounting] Cannot set tax_zone to "None" on insert into 
-api.creditmemo 
-* [Accounting] Creating a Credit Memo from a Return does not 
-include Tax 
-* [Accounting] Cannot post 0 value invoices individually 
-* [Accounting] Changing GL account type from Liability to Expense 
-causes GL out of balance 
-* [Accounting] Can create an accounting period with a start date 
-after the end date 
-* [Accounting] Sales order number is not used to post to the cost 
-of goods when item shipped 
-* [Accounting] Invoice does not recalculate tax when tax zone is 
-changed 
-* [Accounting] Able to apply cash receipt two times from 
-different screens 
+* [Accounting] Recurring invoices create duplicates
+* [Accounting] Total Base amount is incorrect in print report of
+cash receipts
+* [Accounting] Cannot set tax_zone to "None" on insert into
+api.creditmemo
+* [Accounting] Creating a Credit Memo from a Return does not
+include Tax
+* [Accounting] Cannot post 0 value invoices individually
+* [Accounting] Changing GL account type from Liability to Expense
+causes GL out of balance
+* [Accounting] Can create an accounting period with a start date
+after the end date
+* [Accounting] Sales order number is not used to post to the cost
+of goods when item shipped
+* [Accounting] Invoice does not recalculate tax when tax zone is
+changed
+* [Accounting] Able to apply cash receipt two times from
+different screens
 * [All] Invoice miscellaneous line item
-* [Architectural] Order Cluster does not auto-complete 
-* [Architectural] Parameter Widget does not save variables 
-correctly 
-* [CRM] Prompted to Delete all when to do is no recurring 
+* [Architectural] Order Cluster does not auto-complete
+* [Architectural] Parameter Widget does not save variables
+correctly
+* [CRM] Prompted to Delete all when to do is no recurring
 * [CRM] Comments in verbose mode hide certain characters
-* [CRM] Opportunity attached as a document to itself is displayed 
-multiple times 
-* [CRM] View mode of CRM Account enables the user to edit/detach 
-a contact 
-* [Inventory] Misleading / incomplete error message on Transform 
-transaction 
-* [Inventory] Usage statistics displays/reports do not include 
-transfer orders 
-* [Inventory] Lot/serial sequence link missing on create item 
-sites utility 
-* [Inventory] Transfer Order copy is not functional 
-* [Inventory] Using standard cost on counts for avg. cost items 
-can lead to lock ups 
-* [Inventory] Receiving multiple qtys with barcodes is not 
+* [CRM] Opportunity attached as a document to itself is displayed
+multiple times
+* [CRM] View mode of CRM Account enables the user to edit/detach
+a contact
+* [Inventory] Misleading / incomplete error message on Transform
+transaction
+* [Inventory] Usage statistics displays/reports do not include
+transfer orders
+* [Inventory] Lot/serial sequence link missing on create item
+sites utility
+* [Inventory] Transfer Order copy is not functional
+* [Inventory] Using standard cost on counts for avg. cost items
+can lead to lock ups
+* [Inventory] Receiving multiple qtys with barcodes is not
 functional
-* [Inventory] Inventory transaction failures can knock out sql 
-connection 
-* [Inventory] "View Item" doesn't populate sales order number 
-* [Inventory] No privilege check for alterting date in issue 
-material to work order 
-* [Inventory] "Class Code" field in print report of QOH by class 
-code is blank 
-* [Inventory] Omnibus: Maintain Shipping Contents screen 
-* [Inventory] Inconsistent and confusing display of location 
+* [Inventory] Inventory transaction failures can knock out sql
+connection
+* [Inventory] "View Item" doesn't populate sales order number
+* [Inventory] No privilege check for alterting date in issue
+material to work order
+* [Inventory] "Class Code" field in print report of QOH by class
+code is blank
+* [Inventory] Omnibus: Maintain Shipping Contents screen
+* [Inventory] Inconsistent and confusing display of location
 name
-* [Inventory] Serial numbers can only be selected, not typed on 
-Serialized T/O receipts 
-* [Inventory] Reference items can not be returned in issue stock 
-to shipping window 
+* [Inventory] Serial numbers can only be selected, not typed on
+Serialized T/O receipts
+* [Inventory] Reference items can not be returned in issue stock
+to shipping window
 * [Inventory] Can't post Non inventory items received
-* [Manufacture] BOO Item text is not displayed completely in 
+* [Manufacture] BOO Item text is not displayed completely in
 Labor Variance by BOO Item screen
-* [Manufacture] Time Phase Available Capacity by Work Center 
+* [Manufacture] Time Phase Available Capacity by Work Center
 Tooling inconsistency
-* [Manufacture] Can create manual Work Order for a Job Item 
+* [Manufacture] Can create manual Work Order for a Job Item
 without Sales Order
-* [Manufacture] Work order cost report does not include 
-operation costs 
-* [Manufacture] Time Clock Correction still not updating 
+* [Manufacture] Work order cost report does not include
+operation costs
+* [Manufacture] Time Clock Correction still not updating
 everywhere
-* [Manufacture] Editing production time clock 
-* [Manufacture] Performance issue with wotctime() 
+* [Manufacture] Editing production time clock
+* [Manufacture] Performance issue with wotctime()
 * [Manufacture] WO explosion explodes all revisions of a phantom
-* [Products] Selecting to view workbench for Costing item 
-displays Error dialog 
-* [Products] Existing item invocation does not put item in 
+* [Products] Selecting to view workbench for Costing item
+displays Error dialog
+* [Products] Existing item invocation does not put item in
 editable state
-* [Products] View mode of an item enables the user to delete 
+* [Products] View mode of an item enables the user to delete
 Transformations
 * [Purchase] Inconsistent - Allow Change PO Line Qty to 0
-* [Purchase] Extended Price field doesn't refresh on re-selecting 
-PO line item 
-* [Purchase] Error message on receivings screen 
-* [Purchase] Purchase Orders do not appear on Inventory 
+* [Purchase] Extended Price field doesn't refresh on re-selecting
+PO line item
+* [Purchase] Error message on receivings screen
+* [Purchase] Purchase Orders do not appear on Inventory
 Availability by Vendor Source
-* [Purchase] PO Line items CLOSE button try to delete 
-* [Schedule] MRP firm planned order in past < ROP results in 
+* [Purchase] PO Line items CLOSE button try to delete
+* [Schedule] MRP firm planned order in past < ROP results in
 wrong order
-* [Schedule] Print report of Time Phased Capacity by Work Center 
-doesn't display Tooling items 
-* [Schedule] Selecting to view Planned Revenue/Expenses displays 
-error dialog 
-* [Schedule] Post Operation screen doesn't populate WO number 
-* [Schedule] Selecting to view Planned Orders By Item displays 
+* [Schedule] Print report of Time Phased Capacity by Work Center
+doesn't display Tooling items
+* [Schedule] Selecting to view Planned Revenue/Expenses displays
 error dialog
-* [Sales] Sales Config - Return Tab - Make Blank an Acceptable 
-Default 
-* [Sales] Keyboard arrow keys not working in S/O items tab 
-screen 
-* [Sales] calcrataxamt() does not caclulate properly 
-* [Sales] Selecting to create a Lot/Serial number after canceling 
-displays error message 
-* [Sales] Ship-To is mandatory even with Drop ship disabled 
-* [Sales] Commission Percentage Bad Calculation for Customer Ship 
-To Sales Rep Change 
-* [Sales] Credit card amount charged for RA doesn't include tax 
-* [Sales] invchead_shipchrg_id not being populated 
-* [Sales] Characteristics price not added to selling price on 
-configurated Items 
-* [Sales] _raitemtriggerafter fails on coitem update 
-* [Sales] Drop ship does not stop receiving on credit hold SO 
-lines 
-* [Sales] Total does not update on sales order when freight 
+* [Schedule] Post Operation screen doesn't populate WO number
+* [Schedule] Selecting to view Planned Orders By Item displays
+error dialog
+* [Sales] Sales Config - Return Tab - Make Blank an Acceptable
+Default
+* [Sales] Keyboard arrow keys not working in S/O items tab
+screen
+* [Sales] calcrataxamt() does not caclulate properly
+* [Sales] Selecting to create a Lot/Serial number after canceling
+displays error message
+* [Sales] Ship-To is mandatory even with Drop ship disabled
+* [Sales] Commission Percentage Bad Calculation for Customer Ship
+To Sales Rep Change
+* [Sales] Credit card amount charged for RA doesn't include tax
+* [Sales] invchead_shipchrg_id not being populated
+* [Sales] Characteristics price not added to selling price on
+configurated Items
+* [Sales] _raitemtriggerafter fails on coitem update
+* [Sales] Drop ship does not stop receiving on credit hold SO
+lines
+* [Sales] Total does not update on sales order when freight
 value is changed to zero
-* [Sales] Scripts written on windows inherited by Customer are 
-not being run 
-* [Sales] Pricing schedule item by fixed amount discount, by 
-product category 
-* [System] Currency Cluster - Price Sched By Item Precision 
+* [Sales] Scripts written on windows inherited by Customer are
+not being run
+* [Sales] Pricing schedule item by fixed amount discount, by
+product category
+* [System] Currency Cluster - Price Sched By Item Precision
 Problem
-* [System] User can bypass Package "modifications allowed" flag 
-on a script 
-* [System] ViewPackages priv overruled by admin role? 
-* [System] Screens launched from database always resize 
-* [System] "Active" field in print report of Employee list is 
+* [System] User can bypass Package "modifications allowed" flag
+on a script
+* [System] ViewPackages priv overruled by admin role?
+* [System] Screens launched from database always resize
+* [System] "Active" field in print report of Employee list is
 blank
 
 ==================================
