@@ -48,7 +48,7 @@ function initDockGLAccounts()
   _glAccounts.addColumn(qsTr("Balance"), -1, Qt.AlignRight, true, "balance");
 
   // Connect Signals and Slots
-  _b1GLAccounts.clicked.connect(fillListGLAccounts);
+  _b1GLAccounts.clicked.connect(refreshGLAccounts);
   _b2GLAccounts.clicked.connect(preferencesGLAccounts);
 
   _dtTimer.timeout.connect(refreshGLAccounts);
