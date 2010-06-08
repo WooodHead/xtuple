@@ -135,7 +135,7 @@ BEGIN
 
       _itemlocSeries := NEXTVAL('itemloc_series_seq');
       
-      SELECT postInvTrans(si.itemsite_id, 'TS', _ti.qty, 'I/M',
+      SELECT postInvTrans(si.itemsite_id, 'TS', (_ti.qty * -1.0), 'I/M',
 			  _shiphead.shiphead_order_type, formatToNumber(_ti.toitem_id),
 			  _to.tohead_number,
 			  'Recall Shipment from Transit To Src Warehouse',
@@ -160,7 +160,7 @@ BEGIN
 
       -- record inventory history and qoh changes at transit warehouse but
       -- there is only one g/l account to touch
-      SELECT postInvTrans(ti.itemsite_id, 'TR', _ti.qty, 'I/M',
+      SELECT postInvTrans(ti.itemsite_id, 'TR', (_ti.qty * -1.0), 'I/M',
 			  _shiphead.shiphead_order_type, formatToNumber(_ti.toitem_id),
 			  _to.tohead_number,
 			  'Recall Shipment from Transit To Src Warehouse',
@@ -171,7 +171,7 @@ BEGIN
       FROM itemsite AS ti, costcat AS tc, invhist
       WHERE ((ti.itemsite_costcat_id=tc.costcat_id)
         AND  (ti.itemsite_item_id=_ti.toitem_item_id)
-        AND  (ti.itemsite_warehous_id=_to.tohead_src_warehous_id)
+        AND  (ti.itemsite_warehous_id=_to.tohead_trns_warehous_id)
         AND  (invhist_id=_invhistid));
 
       IF (_invhistid < 0) THEN
