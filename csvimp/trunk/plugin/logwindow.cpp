@@ -10,9 +10,14 @@
 
 #include "logwindow.h"
 
+#include <QPrinter>
+#include <QPrintDialog>
+
 LogWindow::LogWindow(QWidget *parent) : QMainWindow(parent)
 {
   setupUi(this);
+
+  connect(_print, SIGNAL(clicked()), this, SLOT(sPrint()));
 }
 
 LogWindow::~LogWindow()
@@ -22,4 +27,12 @@ LogWindow::~LogWindow()
 void LogWindow::languageChange()
 {
   retranslateUi(this);
+}
+
+void LogWindow::sPrint()
+{
+  QPrinter printer;
+  QPrintDialog pdlg(&printer, this);
+  if (pdlg.exec() == QDialog::Accepted)
+    _log->print(&printer);
 }

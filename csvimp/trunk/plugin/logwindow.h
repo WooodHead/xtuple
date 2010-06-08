@@ -23,6 +23,7 @@ class LogWindow : public QMainWindow, public Ui::LogWindow
 
   protected slots:
     void languageChange();
+    void sPrint();
 };
 
 #endif
