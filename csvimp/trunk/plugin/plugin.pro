@@ -36,13 +36,15 @@ win32-msvc* {
                     ../$${OPENRPT_DIR}/lib/libMetaSQL.a \
 }
 
-FORMS    = csvatlaswindow.ui    \
+FORMS    = csvaddmapinputdialog.ui \
+           csvatlaswindow.ui    \
            csvimportprogress.ui \
            csvtoolwindow.ui     \
            logwindow.ui         \
            missingfield.ui      \
 
 HEADERS  = batchmessagehandler.h        \
+           csvaddmapinputdialog.h       \
            csvimpplugin.h               \
            csvatlas.h                   \
            csvatlaswindow.h             \
@@ -58,6 +60,7 @@ HEADERS  = batchmessagehandler.h        \
            ../csvimpcommon/csvimpplugininterface.h \
 
 SOURCES  = batchmessagehandler.cpp      \
+           csvaddmapinputdialog.cpp     \
            csvimpplugin.cpp     \
            csvatlas.cpp         \
            csvatlaswindow.cpp   \

@@ -14,7 +14,6 @@
 #include <QDomDocument>
 #include <QFile>
 #include <QFileDialog>
-#include <QInputDialog>
 #include <QMessageBox>
 #include <QSpinBox>
 #include <QSqlDatabase>
@@ -26,13 +25,14 @@
 
 #include <metasqlhighlighter.h>
 
+#include "csvaddmapinputdialog.h"
 #include "csvatlas.h"
 #include "csvimpdata.h"
 #include "interactivemessagehandler.h"
 #include "missingfield.h"
 #include "rowcontroller.h"
 
-#define DEBUG true
+#define DEBUG false
 
 CSVAtlasWindow::CSVAtlasWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -234,47 +234,43 @@ void CSVAtlasWindow::sAddMap()
   QSqlDatabase db = QSqlDatabase::database();
   if(db.isValid())
   {
-    bool ok = FALSE;
-    QString name = QString::null;
-    while(true)
+    QString name  = QString::null;
+    QString table = QString::null;
+    QString schema= QString::null;
+
+    while (true)
     {
-      name = QInputDialog::getText(this, tr("Map Name"), tr("Map Name:"), QLineEdit::Normal, name, &ok);
-      if(ok)
-      {
-        if(name.isEmpty())
-        {
-          QMessageBox::warning(this, tr("Must enter a value"), tr("You must enter a value"));
-          continue;
-        }
-
-        if(_atlas->mapList().contains(name))
-        {
-          QMessageBox::warning(this, tr("Must enter unique name"), tr("The new map name you entered already exists. Please enter in a unique map name."));
-          continue;
-        }
-
-        break;
-      }
-      else
+      if (DEBUG)
+        qDebug("sAddMap() has map %s, schema %s, table %s",
+               qPrintable(name), qPrintable(schema), qPrintable(table));
+      CSVAddMapInputDialog addmapdlg(this);
+      addmapdlg.setMapname(name);
+      addmapdlg.setSchema(schema);
+      addmapdlg.setTable(table);
+      if (addmapdlg.exec() != QDialog::Accepted)
         return;
+
+      name  = addmapdlg.mapname();
+      table = addmapdlg.qualifiedTable();
+      schema= addmapdlg.schema();
+
+      if (name.isEmpty())
+      {
+        QMessageBox::warning(this, tr("Must enter name"),
+                             tr("<p>Please enter a name for the new map."));
+        continue;
+      }
+
+      if (_atlas->mapList().contains(name))
+      {
+        QMessageBox::warning(this, tr("Must enter unique name"),
+                             tr("<p>The new map name you entered already "
+                                "exists. Please enter in a unique map name."));
+        continue;
+      }
+      
+      break;
     }
-
-    QStringList tables;
-    QSqlQuery qry;
-    qry.exec( "SELECT tablename FROM ( "
-              "SELECT schemaname || '.' || viewname AS tablename from pg_views "
-              "WHERE schemaname IN ('api','public') "
-              "UNION "
-              "SELECT schemaname || '.' || tablename AS tablename from pg_tables "
-              "WHERE schemaname IN ('api','public') ) "
-              "AS data "
-              "ORDER by tablename; " );
-    while(qry.next())
-      tables.append(qry.value(0).toString());
-
-    QString table = QInputDialog::getItem(this, tr("Select Table"), tr("Table:"), tables, 0, FALSE, &ok);
-    if(!ok)
-      return;
 
     CSVMap map(name);
     map.setTable(table);
@@ -286,7 +282,8 @@ void CSVAtlasWindow::sAddMap()
     sMapChanged(_map->currentIndex());
   }
   else
-    QMessageBox::critical(this, tr("No Database"), tr("Could not get the database connection."));
+    QMessageBox::critical(this, tr("No Database"),
+                          tr("Could not get the database connection."));
 }
 
 void CSVAtlasWindow::sDeleteMap()
