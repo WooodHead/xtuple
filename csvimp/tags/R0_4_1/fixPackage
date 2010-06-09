@@ -138,7 +138,11 @@ collectAndRenameLibs() {
   return 0
 }
 
-collectAndRenameLibs $APPROOT/Contents/MacOS/$EXECNAME              || exit 2
+[ -d $APPROOT/Contents/plugins ] || mkdir $APPROOT/Contents/plugins    || exit 2
+cp $APPROOT/../plugins/libcsvimpplugin.dylib $APPROOT/Contents/plugins || exit 2
+
+collectAndRenameLibs $APPROOT/Contents/MacOS/$EXECNAME                 || exit 2
+collectAndRenameLibs $APPROOT/Contents/plugins/libcsvimpplugin.dylib   || exit 2
 
 [ -d $APPROOT/Contents/Resources ] || mkdir $APPROOT/Contents/Resources || exit 3
 cd $APPROOT/Contents/Resources                                  ||  exit 3
