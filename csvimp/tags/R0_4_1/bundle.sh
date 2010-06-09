@@ -177,9 +177,8 @@ if [ ! -f "$VERFILE" ] ; then
   echo "Could not find $VERFILE"
   exit 2
 fi
-VERSION=`cpp $VERFILE | \
-	 awk -v FS='"' '/QString.*_[Vv]ersion/ { ver = $(NF - 1) }
-			END { print ver }' `
+VERSION=`awk '/CSVImp::version/ { split($0,vers,"\""); print vers[2]}' $VERFILE |\
+           tr -d [:blank:]`
 
 if $BUILD ; then
   cd "$BASEDIR"
