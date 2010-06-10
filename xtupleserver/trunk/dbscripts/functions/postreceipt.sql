@@ -9,6 +9,7 @@ DECLARE
   _r			RECORD;
   _ra			RECORD;
   _recvvalue		NUMERIC := 0;
+  _pricevar             NUMERIC := 0.00;
   _tmp			INTEGER;
   _toitemitemid		INTEGER;
   _soitemid		INTEGER;
@@ -181,6 +182,35 @@ BEGIN
 	RETURN _tmp;
       END IF;
 
+      -- If the 'Purchase Price Variance on Receipt' option is true
+      IF (fetchMetricBool('RecordPPVonReceipt')) THEN
+        _invhistid := _tmp;
+        -- Find the difference in the purchase price value expected from the P/O and the value of the transaction
+        SELECT ((_o.item_unitprice_base * _r.recv_qty) - (invhist_value_after - invhist_value_before)) INTO _pricevar
+        FROM invhist
+        WHERE (invhist_id = _invhistid);
+
+        -- If difference exists then
+        IF (_pricevar <> 0.00) THEN
+          -- Record an additional GL Transaction for the purchase price variance
+          SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+                                      'Purchase price variance adjusted for P/O ' || _o.orderhead_number || ' for item ' || _r.item_number,
+                                      costcat_liability_accnt_id,
+                                      costcat_purchprice_accnt_id, -1,
+                                      _pricevar,
+                                      _glDate::DATE ) INTO _tmp
+          FROM itemsite, costcat
+          WHERE ((itemsite_costcat_id=costcat_id)
+             AND (itemsite_id=_r.itemsite_id) );
+          IF (NOT FOUND) THEN
+            RAISE EXCEPTION 'Could not insert G/L transaction: no cost category found for itemsite_id %',
+            _r.itemsite_id;
+          ELSIF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
+            RETURN _tmp;
+          END IF;
+        END IF;
+      END IF;
+
       SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
 				  'Receive Inventory Freight from ' || _o.orderhead_number || ' for item ' || _r.item_number,
 				   costcat_liability_accnt_id,
@@ -310,6 +340,8 @@ BEGIN
 
     IF(_r.itemsite_costmethod='A') THEN
       _recvvalue := ROUND((_o.item_unitprice_base * _r.recv_qty),2);
+    ELSIF (fetchMetricBool('RecordPPVonReceipt')) THEN
+      _recvvalue := ROUND((_o.item_unitprice_base * _r.recv_qty), 2);
     ELSE
       _recvvalue := ROUND(stdcost(_r.itemsite_item_id) * _r.recv_qty * _o.invvenduomratio, 2);
     END IF;
