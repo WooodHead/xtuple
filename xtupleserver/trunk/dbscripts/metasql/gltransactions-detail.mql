@@ -22,7 +22,8 @@ SELECT gltrans.*,
        'curr' AS credit_xtnumericrole,
        'curr' AS running_xtnumericrole,
        0 AS running_xtrunningrole,
-       <? value("beginningBalance") ?> AS running_xtrunninginit 
+       gltrans_deleted AS xtdeletedrole,
+<? value("beginningBalance") ?> AS running_xtrunninginit 
 FROM gltrans JOIN accnt ON (gltrans_accnt_id=accnt_id) 
      LEFT OUTER JOIN invhist ON (gltrans_misc_id=invhist_id
                             AND gltrans_docnumber='Misc.') 
@@ -55,6 +56,9 @@ WHERE (
        (gltrans_date BETWEEN startoftime()
                          AND endoftime())
   <? endif ?>
+<? endif ?>
+<? if not exists("showDeleted") ?>
+   AND (NOT gltrans_deleted)
 <? endif ?>
 <? if exists("company_id") ?>
    AND (company_id=<? value("company_id") ?>)

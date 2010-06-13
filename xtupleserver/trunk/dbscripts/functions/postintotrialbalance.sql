@@ -13,6 +13,7 @@ BEGIN
             FROM accnt, gltrans LEFT OUTER JOIN period ON (gltrans_date BETWEEN period_start AND period_end)
             WHERE ( (gltrans_accnt_id=accnt_id)
              AND (NOT gltrans_posted)
+             AND (NOT gltrans_deleted)
              AND (gltrans_sequence=pSequence) ) LOOP
 
 --  If we can post into a Trial Balance, do so
