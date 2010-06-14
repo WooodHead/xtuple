@@ -21,6 +21,7 @@ BEGIN
                         WHERE((checkitem_checkhead_id=checkhead_id)
                           AND (checkitem_apopen_id=apopen_id)
                           AND (NOT checkhead_deleted)
+                          AND (NOT checkhead_replaced)
                           AND (NOT checkhead_posted)) ),0) AS balance,
          noNeg(COALESCE(apopen_discountable_amount, 0) *
                CASE WHEN (CURRENT_DATE <= determineDiscountDate(apopen_terms_id, apopen_docdate)) THEN terms_discprcnt
