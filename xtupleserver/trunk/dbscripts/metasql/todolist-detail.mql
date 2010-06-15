@@ -8,7 +8,14 @@
          incdtpriority_name AS priority, 
          todoitem_name AS name, 
          firstLine(todoitem_description) AS descrip, 
-         todoitem_status AS status, todoitem_start_date as start, 
+         CASE WHEN (todoitem_status='C') THEN <? value("completed") ?>
+              WHEN (todoitem_status='D') THEN <? value("deferred") ?>
+              WHEN (todoitem_status='P') THEN <? value("pending") ?>
+              WHEN (todoitem_status='I') THEN <? value("inprocess") ?>
+              WHEN (todoitem_status='N') THEN <? value("new") ?>
+              ELSE '?'
+         END AS status,
+         todoitem_start_date as start, 
          todoitem_due_date AS due, formatDate(todoitem_due_date) AS f_due, 
          todoitem_username AS usr, CAST(incdt_number AS text) AS number,
          crmacct_number, crmacct_name, 
