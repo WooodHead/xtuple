@@ -1,12 +1,14 @@
 CREATE OR REPLACE FUNCTION copyPrj(INTEGER, DATE) RETURNS INTEGER AS $$
 DECLARE
   pparentid   ALIAS FOR $1;
+  _counter    INTEGER;
   _duedate    DATE := COALESCE($2, CURRENT_DATE);
   _alarmid    INTEGER;
   _i          INTEGER;
   _newnumber  TEXT;
   _p          RECORD;
   _prjid      INTEGER;
+  _testnumber TEXT;
 
 BEGIN
   RAISE DEBUG 'copyPrj(%, %) entered', pparentid, _duedate;
@@ -27,6 +29,19 @@ BEGIN
     END IF;
   END IF;
   _newnumber := _newnumber || '-' || to_char(_duedate, 'YYYY-MM-DD');
+  
+  RAISE DEBUG 'copyPrj checking if _newnumber % exists', _newnumber;
+  SELECT MAX(prj_number) INTO _testnumber
+    FROM prj
+   WHERE (prj_number ~ ('^' || _newnumber));
+  IF (_testnumber = _newnumber) THEN
+    _newnumber := _newnumber || '-001';
+  ELSIF (_testnumber IS NOT NULL) THEN
+    _counter := CAST(SUBSTRING(_testnumber FROM '...$') AS INTEGER);
+    _counter := _counter + 1;
+    _newnumber := REGEXP_REPLACE(_testnumber, '...$', to_char(_counter, 'FM009'));
+  END IF;
+  RAISE DEBUG 'copyPrj _newnumber is now %', _newnumber;
 
   INSERT INTO prj(
             prj_number,     prj_name,           prj_descrip,
