@@ -189,7 +189,7 @@
          SUM(ROUND(toitem_freight, 2)) AS line,
          COALESCE(ROUND(SUM(calculateTax(tohead_taxzone_id, getfreighttaxtypeid(), tohead_orderdate, baseCurrId(), toitem_freight)),2),0) as total_tax,  
          tohead_freight +  SUM(ROUND(toitem_freight, 2)) AS freight,
-         tohead_freighttax_id AS freightTax,
+         getFreightTaxTypeId() AS freightTax,
          COALESCE(ROUND(SUM(calculateTax(tohead_taxzone_id, getfreighttaxtypeid(), tohead_orderdate, baseCurrId(), toitem_freight)),2),0) +
          COALESCE(ROUND(calculateTax(tohead_taxzone_id, getfreighttaxtypeid(), tohead_orderdate, baseCurrId(), tohead_freight),2),0) AS freighttaxamt 
   FROM toitem, tohead 
