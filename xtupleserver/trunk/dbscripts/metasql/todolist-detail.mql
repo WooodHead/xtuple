@@ -93,9 +93,17 @@
   SELECT incdt_id AS id, 2 AS altId, incdt_owner_username AS owner, 
          <? value("incident") ?> AS type, incdtpriority_order AS seq,
          incdtpriority_name AS priority, 
-         incdt_summary AS name, 
-         firstLine(incdt_descrip) AS descrip, 
-         incdt_status AS status, CAST(incdt_timestamp AS date) AS start, 
+         '' AS name, 
+         incdt_summary AS descrip, 
+         CASE WHEN (incdt_status='N') THEN <? value("new") ?>
+              WHEN (incdt_status='F') THEN <? value("feedback") ?>
+              WHEN (incdt_status='C') THEN <? value("confirmed") ?>
+              WHEN (incdt_status='A') THEN <? value("assigned") ?>
+              WHEN (incdt_status='R') THEN <? value("resolved") ?>
+              WHEN (incdt_status='L') THEN <? value("completed") ?>
+              ELSE '?'
+         END AS status,
+         CAST(incdt_timestamp AS date) AS start, 
          null AS due, null AS f_due, 
          incdt_assigned_username AS usr, CAST(incdt_number AS text) AS number,
          crmacct_number, crmacct_name,
@@ -154,7 +162,12 @@
            <? value("task") ?> AS type, NULL AS seq, NULL AS priority, 
            prjtask_number || '-' || prjtask_name AS name, 
            firstLine(prjtask_descrip) AS descrip, 
-           prjtask_status AS status,  prjtask_start_date AS start, 
+           CASE WHEN (prjtask_status='P') THEN <? value("concept") ?>
+                WHEN (prjtask_status='O') THEN <? value("inprocess") ?>
+                WHEN (prjtask_status='C') THEN <? value("completed") ?>
+                ELSE '?'
+           END AS status,
+           prjtask_start_date AS start, 
            prjtask_due_date AS due, formatDate(prjtask_due_date) AS f_due, 
            prjtask_username AS usr, prj_number,
            '' AS crmacct_number, '' AS crmacct_name, '' AS cust, 
@@ -221,7 +234,12 @@
            <? value("project") ?> AS type, NULL AS seq, NULL AS priority, 
            prj_number || '-' || prj_name AS name, 
            firstLine(prj_descrip) AS descrip, 
-           prj_status AS status,  prj_start_date AS start, 
+           CASE WHEN (prj_status='P') THEN <? value("concept") ?>
+                WHEN (prj_status='O') THEN <? value("inprocess") ?>
+                WHEN (prj_status='C') THEN <? value("completed") ?>
+                ELSE '?'
+           END AS status,
+           prj_start_date AS start, 
            prj_due_date AS due, formatDate(prj_due_date) AS f_due, 
            prj_username AS usr, NULL AS number,
            '' AS crmacct_number, '' AS crmacct_name,'' AS cust, 
