@@ -80,7 +80,7 @@ BEGIN
                 flhead_id AS fltrendhead_flhead_id,
                 CURRENT_USER AS fltrendhead_username,
                 CASE
-                        WHEN flhead_type = ''I'' THEN ''Income Stamement''
+                        WHEN flhead_type = ''I'' THEN ''Income Statement''
                         WHEN flhead_type = ''B'' THEN ''Balance Sheet''
                         WHEN flhead_type = ''C'' THEN ''Cash Flow Statement''
                         ELSE ''Ad Hoc''
