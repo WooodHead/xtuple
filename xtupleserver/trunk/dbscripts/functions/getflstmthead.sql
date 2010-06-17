@@ -167,7 +167,7 @@ BEGIN
                 pPeriodid AS flstmthead_period,
                 CURRENT_USER AS flstmthead_username,
                 CASE
-                        WHEN flhead_type = 'I' THEN 'Income Stamement'
+                        WHEN flhead_type = 'I' THEN 'Income Statement'
                         WHEN flhead_type = 'B' THEN 'Balance Sheet'
                         WHEN flhead_type = 'C' THEN 'Cash Flow Statement'
                         ELSE 'N/A'
