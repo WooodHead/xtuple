@@ -41,6 +41,7 @@ WHERE ( (wo_itemsite_id=itemsite_id)
                      FROM wo
                      WHERE (wo_id=<? value("wo_id") ?>)))
 <? endif ?>
+<? if exists("status_list") ?>
   AND (wo_status IN (
 <? foreach("status_list") ?>
   <? if not isfirst("status_list") ?>
@@ -48,6 +49,11 @@ WHERE ( (wo_itemsite_id=itemsite_id)
   <? endif ?>
   <? value("status_list") ?>
 <? endforeach ?> ))
+<? elseif exists("showOnlyRI") ?>
+  AND (wo_status IN ('R','I'))
+<? else ?>
+  AND (wo_status<>'C')
+<? endif ?>
 <? if exists("showOnlyTopLevel") ?>
   AND (wo_ordtype<>'W')
 <? endif ?>
