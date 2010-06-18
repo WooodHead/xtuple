@@ -29,13 +29,13 @@ UsageStatisticsByWarehouse
 WOMaterialRequirementsByComponentItem
 WOMaterialRequirementsByWorkOrder
 
- 
+
  ====================================================================
  REPORT: APOpenItemsByVendor
  QUERY: head
 -SELECT vend_name,
 -       vend_number,
-+SELECT 
++SELECT
 +<? if exists("vend_id") ?>
 +       (SELECT vend_name FROM vendinfo WHERE vend_id=<? value("vend_id") ?>)
 +<? elseif exists("vendtype_id") ?>
@@ -54,7 +54,7 @@ WOMaterialRequirementsByWorkOrder
 - WHERE (vend_id=<? value("vend_id") ?>);
 +       formatDate(<? value("asofDate") ?>) AS asofDate;
  --------------------------------------------------------------------
-   
+
  QUERY: detail
 -SELECT apopen_id, apopen_ponumber, apopen_docnumber,
 -                    CASE WHEN (apopen_doctype='C') THEN <? value("creditMemo") ?>
@@ -63,19 +63,19 @@ WOMaterialRequirementsByWorkOrder
 -                         ELSE <? value("other") ?>
 -                    END AS f_doctype,
 -                    apopen_invcnumber AS invoicenumber,
--                    formatDate(apopen_docdate) AS f_docdate, 
--                    formatDate(apopen_duedate) AS f_duedate, 
+-                    formatDate(apopen_docdate) AS f_docdate,
+-                    formatDate(apopen_duedate) AS f_duedate,
 -                    formatMoney(apopen_amount) AS f_amount,
 -                    formatMoney(apopen_paid - COALESCE(SUM(apapply_target_paid),0)) AS f_paid,
--                    formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) * 
--                    CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1 
+-                    formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) *
+-                    CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1
 -                    END) AS f_balance,
 -                    currConcat(apopen_curr_id) AS currAbbr,
--                    (apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) 
--                    / apopen_curr_rate * (CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1 
+-                    (apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0))
+-                    / apopen_curr_rate * (CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1
 -                         END) AS base_balance,
--                    formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0)) 
--                    / apopen_curr_rate * (CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1 
+-                    formatMoney((apopen_amount - apopen_paid + COALESCE(SUM(apapply_target_paid),0))
+-                    / apopen_curr_rate * (CASE WHEN apopen_doctype IN ('D', 'V') THEN 1 ELSE -1
 -                         END)) AS f_base_balance,
 -                  CASE WHEN (apopen_status='O') THEN TEXT('Open')
 -                    ELSE CASE WHEN (apopen_status='H') THEN TEXT('On Hold')
@@ -83,56 +83,22 @@ WOMaterialRequirementsByWorkOrder
 -                      END
 -                    END
 -                  END AS status
--             FROM apopen 
--               LEFT OUTER JOIN apapply ON (((apopen_id=apapply_target_apopen_id) 
--                                       OR (apopen_id=apapply_source_apopen_id)) 
--                                       AND (apapply_postdate > <? value("asofDate") ?>)) 
--              WHERE ( (COALESCE(apopen_closedate,date <? value("asofDate") ?> + integer '1')><? value("asofDate") ?>) 
+-             FROM apopen
+-               LEFT OUTER JOIN apapply ON (((apopen_id=apapply_target_apopen_id)
+-                                       OR (apopen_id=apapply_source_apopen_id))
+-                                       AND (apapply_postdate > <? value("asofDate") ?>))
+-              WHERE ( (COALESCE(apopen_closedate,date <? value("asofDate") ?> + integer '1')><? value("asofDate") ?>)
 -                AND   (apopen_docdate<=<? value("asofDate") ?>)
--                AND   (apopen_vend_id=<? value("vend_id") ?>) 
--                AND   (apopen_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>) ) 
--              GROUP BY apopen_id, apopen_ponumber, apopen_docnumber,apopen_doctype, apopen_invcnumber, apopen_docdate, 
--                apopen_duedate, apopen_docdate, apopen_amount, apopen_paid, apopen_curr_id, apopen_curr_rate, apopen_status 
+-                AND   (apopen_vend_id=<? value("vend_id") ?>)
+-                AND   (apopen_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>) )
+-              GROUP BY apopen_id, apopen_ponumber, apopen_docnumber,apopen_doctype, apopen_invcnumber, apopen_docdate,
+-                apopen_duedate, apopen_docdate, apopen_amount, apopen_paid, apopen_curr_id, apopen_curr_rate, apopen_status
 -              ORDER BY apopen_docdate;
 +== MetaSQL statement apOpenItems-detail
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: CashReceipts
- QUERY: head
- SELECT <? if exists("cust_id") ?>
-          (SELECT (cust_number || '-' || cust_name)
-             FROM cust
-            WHERE (cust_id=<? value("cust_id") ?>) )
-        <? elseif exists("custtype_id") ?>
-          (select (custtype_code||'-'||custtype_descrip)
-             FROM custtype
-            WHERE (custtype_id=<? value("custtype_id") ?>) )
-        <? elseif exists("custtype_pattern") ?>
-          text(<? value("custtype_pattern") ?>)
-        <? else ?>
-          text('All Customers')
-        <? endif ?>
-        AS f_value,
-        <? if exists("custtype_id") ?>
-          text('Cust. Type:')
-        <? elseif exists("custtype_pattern") ?>
-          text('Cust. Type Pattern:')
-        <? else ?>
-          text('Customer:')
-        <? endif ?>
-        AS f_label,
-        formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate;
- --------------------------------------------------------------------
-   
- QUERY: detail
- == MetaSQL statement cashReceipts-detail
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: foot
 +SELECT formatMoney(SUM(base_applied)) AS f_base_applied_total
 +FROM (
@@ -209,26 +175,23 @@ WOMaterialRequirementsByWorkOrder
 +) data
 +;
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: EmployeeList
  QUERY: detail
  SELECT e.emp_id, m.emp_id, warehous_code, e.emp_code, e.emp_number,
-        cntct_first_name, cntct_last_name, 
--       m.emp_code AS mgr_code, dept_number, shift_number 
+        cntct_first_name, cntct_last_name,
+-       m.emp_code AS mgr_code, dept_number, shift_number
 +       m.emp_code AS mgr_code, dept_number, shift_number,
 +       CASE WHEN (e.emp_active) THEN 'Yes'
 +            ELSE 'No'
-+       END AS f_active 
- FROM emp e 
-   LEFT OUTER JOIN cntct ON (emp_cntct_id=cntct_id) 
-   LEFT OUTER JOIN whsinfo ON (emp_warehous_id=warehous_id) 
-   LEFT OUTER JOIN emp m ON (e.emp_mgr_emp_id=m.emp_id) 
-   LEFT OUTER JOIN shift ON (e.emp_shift_id=shift_id) 
-   LEFT OUTER JOIN dept  ON (e.emp_dept_id=dept_id) 
++       END AS f_active
+ FROM emp e
+   LEFT OUTER JOIN cntct ON (emp_cntct_id=cntct_id)
+   LEFT OUTER JOIN whsinfo ON (emp_warehous_id=warehous_id)
+   LEFT OUTER JOIN emp m ON (e.emp_mgr_emp_id=m.emp_id)
+   LEFT OUTER JOIN shift ON (e.emp_shift_id=shift_id)
+   LEFT OUTER JOIN dept  ON (e.emp_dept_id=dept_id)
  WHERE ((LENGTH(TRIM(COALESCE(<? value("searchString") ?>,''))) = 0)
  <? if exists("searchCode") ?>
     OR (e.emp_code ~* <? value("searchString") ?>)
@@ -254,30 +217,14 @@ WOMaterialRequirementsByWorkOrder
  <? endif ?>
        )
  <? if exists("activeOnly") ?>
-    AND e.emp_active 
+    AND e.emp_active
  <? endif ?>
  <? if exists("warehouse_id") ?>
     AND (warehous_id=<? value("warehouse_id") ?>)
  <? endif ?>
- ORDER BY emp_code; 
- --------------------------------------------------------------------
-   
- QUERY: head
- SELECT 'Search for "' || <? value("searchString") ?> ||
-        '"' ||
- <? if exists("searchCode") ?> ' in Employee Code,' || <? endif ?>
- <? if exists("searchDept") ?> ' in Department, '    || <? endif ?>
- <? if exists("searchMgr") ?>  ' in Manager, '       || <? endif ?>
- <? if exists("searchNumber") ?> ' in Employee Number, ' || <? endif ?>
- <? if exists("searchShift") ?> ' in Shift, '            || <? endif ?>
- <? if exists("activeOnly") ?> ' Among Active Employees'
- <? else ?> ' Among All Employees'
- <? endif ?>
- AS filter;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+ ORDER BY emp_code;
+
+
  ====================================================================
  REPORT: ExpiredInventoryByClassCode
  QUERY: head
@@ -299,7 +246,7 @@ WOMaterialRequirementsByWorkOrder
           text('All Class Codes')
         <? endif ?>
         AS classcode,
-        <? if exists("perishability") ?> 
+        <? if exists("perishability") ?>
         'Perishability'
         <? else ?>
         'Warranty'
@@ -324,7 +271,7 @@ WOMaterialRequirementsByWorkOrder
         <? endif ?>
         int4(<? value("thresholdDays") ?>) AS f_thresholddays;
  --------------------------------------------------------------------
-   
+
  QUERY: detail
  SELECT warehous_code,
         item_number,
@@ -403,37 +350,10 @@ WOMaterialRequirementsByWorkOrder
  <? else ?>
    item_number
  <? endif ?>
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: GLTransactions
- QUERY: head
- SELECT formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate,
-        <? if exists("source") ?>
-          text(<? value("source") ?>)
-        <? else ?>
-          text('All Sources')
-        <? endif  ?>
-        AS source,
-        <? if exists("accnt_id") ?>
-          ( SELECT (accnt_number || '-' || accnt_descrip)
-              FROM accnt
-             WHERE (accnt_id=<? value("accnt_id") ?>) )
-        <? else ?>
-          text('All Accounts')
-        <? endif ?>
-        AS accnt,
-        <? if exists("showUsernames") ?>
-          text('Username')
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_username
- --------------------------------------------------------------------
-   
  QUERY: detail
  <? if exists("beginningBalance") ?>
  SELECT -1 AS gltrans_id,
@@ -449,7 +369,7 @@ WOMaterialRequirementsByWorkOrder
                       ABS(<? value("beginningBalance") ?>)
              ELSE 0
         END AS debit_amt,
- 
+
         CASE WHEN (<? value("beginningBalance") ?> > 0) THEN
                       formatMoney(ABS(<? value("beginningBalance") ?>))
              ELSE ''
@@ -468,7 +388,7 @@ WOMaterialRequirementsByWorkOrder
   WHERE (accnt_id=<? value("accnt_id") ?>)
  UNION
  <? endif ?>
- 
+
  SELECT gltrans_id,
         gltrans_created, formatDate(gltrans_date) AS transdate,
         gltrans_source, gltrans_doctype, gltrans_docnumber, invhist_docnumber,
@@ -477,10 +397,10 @@ WOMaterialRequirementsByWorkOrder
  -- Debits:
         CASE WHEN (gltrans_amount < 0) THEN formatMoney(ABS(gltrans_amount))
              ELSE ''
-        END AS f_debit,       
+        END AS f_debit,
         CASE WHEN (gltrans_amount < 0) THEN ABS(gltrans_amount)
              ELSE 0
-        END AS debit_amt, 
+        END AS debit_amt,
  --Credits:
         CASE WHEN (gltrans_amount > 0) THEN formatMoney(gltrans_amount)
              ELSE ''
@@ -492,7 +412,7 @@ WOMaterialRequirementsByWorkOrder
         gltrans_amount * -1 as balance_amt,
  --
         gltrans_amount,
-        CASE WHEN accnt_type IN ('A','E') THEN 
+        CASE WHEN accnt_type IN ('A','E') THEN
           gltrans_amount * -1
         ELSE gltrans_amount END AS running,
         formatBoolYN(gltrans_posted) AS f_posted,
@@ -501,20 +421,20 @@ WOMaterialRequirementsByWorkOrder
 -  FROM gltrans JOIN accnt ON (gltrans_accnt_id=accnt_id)
 -       LEFT OUTER JOIN invhist ON (gltrans_misc_id=invhist_id AND gltrans_docnumber='Misc.')
 - WHERE ((gltrans_date BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
-+FROM gltrans JOIN accnt ON (gltrans_accnt_id=accnt_id) 
++FROM gltrans JOIN accnt ON (gltrans_accnt_id=accnt_id)
 +     LEFT OUTER JOIN invhist ON (gltrans_misc_id=invhist_id
-+                            AND gltrans_docnumber='Misc.') 
++                            AND gltrans_docnumber='Misc.')
 +<? if exists("company_id") ?>
-+     JOIN company ON (accnt_company=company_number) 
++     JOIN company ON (accnt_company=company_number)
 +<? endif ?>
 +<? if exists("prfcntr_id") ?>
-+     JOIN prftcntr ON (accnt_profit=prftcntr_number) 
++     JOIN prftcntr ON (accnt_profit=prftcntr_number)
 +<? endif ?>
 +<? if exists("subaccnt_id") ?>
-+     JOIN subaccnt ON (accnt_sub=subaccnt_number) 
++     JOIN subaccnt ON (accnt_sub=subaccnt_number)
 +<? endif ?>
 +<? if exists("subType") ?>
-+     JOIN subaccnttype ON (subaccnttype_code=accnt_subaccnttype_code) 
++     JOIN subaccnttype ON (subaccnttype_code=accnt_subaccnttype_code)
 +<? endif ?>
 +WHERE (
 +<? if exists("startDate") ?>
@@ -557,9 +477,9 @@ WOMaterialRequirementsByWorkOrder
  <? endif ?>
  <? if exists("docnum") ?>
 -   AND (gltrans_docnumber = case when <? value("docnum") ?> = '' then gltrans_docnumber else <? value("docnum") ?> end )
-+   AND (gltrans_docnumber = case when <? value("docnum") ?> = '' then 
-+ gltrans_docnumber else 
-+<? value("docnum") ?> end ) 
++   AND (gltrans_docnumber = case when <? value("docnum") ?> = '' then
++ gltrans_docnumber else
++<? value("docnum") ?> end )
  <? endif ?>
  <? if exists("source") ?>
     AND (gltrans_source=<? value("source") ?>)
@@ -567,12 +487,10 @@ WOMaterialRequirementsByWorkOrder
         )
  ORDER BY gltrans_created <? if not exists("beginningBalance") ?> DESC <? endif ?>,
          gltrans_sequence, gltrans_amount
- 
+
  ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: InventoryAvailabilityBySourceVendor
  QUERY: head
@@ -612,77 +530,8 @@ WOMaterialRequirementsByWorkOrder
         text('Vendor:') AS vend_label,
         text('All Vendors') AS vend_value
  <? endif ?>
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT item_number,
-        item_descrip1,
-        item_descrip2,
-        warehous_code,
-        vend_number,
-        itemsite_leadtime,
-        formatQty(qtyonhand) AS f_qtyonhand,
-        formatQty(noNeg(qtyonhand - allocated)) AS f_unallocated,
-        formatQty(noNeg(allocated)) AS f_allocated,
-        formatQty(ordered) AS f_ordered,
-        formatQty(reorderlevel) AS f_reorderlevel,
-        formatQty(outlevel) AS f_outlevel,
-        (qtyonhand - allocated + ordered) AS available,
-        formatQty(qtyonhand - allocated + ordered) AS f_available
-   FROM (SELECT item_number,
-                item_descrip1,
-                item_descrip2,
-                warehous_code,
-                itemsite_leadtime,
-                CASE WHEN(itemsite_useparams) THEN itemsite_reorderlevel ELSE 0.0 END AS reorderlevel,
-                CASE WHEN(itemsite_useparams) THEN itemsite_ordertoqty ELSE 0.0 END AS outlevel,
-                itemsite_qtyonhand AS qtyonhand,
-                vend_number,
- <? if exists("byDays") ?>
-                qtyAllocated(itemsite_id, <? value("byDays") ?>) AS allocated,
-                qtyOrdered(itemsite_id, <? value("byDays") ?>) AS ordered
- <? elseif exists("byDate") ?>
-                qtyAllocated(itemsite_id, (<? value("byDate") ?> - CURRENT_DATE)) AS allocated,
-                qtyOrdered(itemsite_id, (<? value("byDate") ?> - CURRENT_DATE)) AS ordered
- <? elseif exists("byDates") ?>
-                qtyAllocated(itemsite_id, <? value("startDate") ?>, <? value("endDate") ?>) AS allocated,
-                qtyOrdered(itemsite_id, <? value("startDate") ?>, <? value("endDate") ?>) AS ordered
- <? else ?>
-                qtyAllocated(itemsite_id, itemsite_leadtime) AS allocated,
-                qtyOrdered(itemsite_id, itemsite_leadtime) AS ordered
- <? endif ?>
-           FROM item, itemsite, warehous, vend, itemsrc
-          WHERE ((itemsite_active)
-            AND (itemsite_item_id=item_id)
-            AND (itemsrc_item_id=item_id)
-            AND (itemsite_warehous_id=warehous_id)
-            AND (itemsrc_vend_id=vend_id)
- <? if exists("vend_id") ?>
-            AND (vend_id=<? value("vend_id") ?>)
- <? elseif exists("vendtype_id") ?>
-            AND (vend_vendtype_id=<? value("vendtype_id") ?>)
- <? elseif exists("vendtype_pattern") ?>
-            AND (vend_vendtype_id IN (SELECT vendtype_id FROM vendtype WHERE (vendtype_code ~ <? value("vendtype_pattern") ?>)))
- <? endif ?>
- <? if exists("warehous_id") ?>
-            AND (warehous_id=<? value("warehous_id") ?>)
- <? endif ?>
-            )
-        ) AS data
- <? if exists("showReorder") ?>
-  WHERE ( ((qtyonhand - allocated + ordered) <= reorderlevel)
-   <? if exists("ignoreReorderAtZero") ?>
-    AND (NOT ( ((qtyonhand - allocated + ordered) = 0) AND (reorderlevel = 0)))
-   <? endif ?>
-   )
- <? elseif exists("showShortages") ?>
-  WHERE ((qtyonhand - allocated + ordered) < 0)
- <? endif ?>
- ORDER BY vend_number, item_number, warehous_code DESC;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: InvoiceInformation
  QUERY: GroupHead
@@ -712,52 +561,8 @@ WOMaterialRequirementsByWorkOrder
           invchead_shipto_address2, invchead_shipto_address3,
           invchead_shipto_city, invchead_shipto_state, invchead_shipto_zipcode,
           invchead_notes, invchead_invcnumber;
- --------------------------------------------------------------------
-   
- QUERY: CustInfo
- SELECT cust_id,
-        cust_number,
-        cust_name,
-        cust_address1,
-        cust_address2,
-        cust_address3,
-        cust_city || ' ' || cust_state || ', ' || cust_zipcode AS custcitystatezip
- FROM invchead, cust
- WHERE ( (invchead_id=<? value("invchead_id") ?>)
-  AND (invchead_cust_id=cust_id) );
- --------------------------------------------------------------------
-   
- QUERY: Details
- SELECT 1 as grpnum,
-        arapply_id,
-        CASE WHEN (arapply_source_doctype = 'C') THEN text('C/M')
-             WHEN (arapply_fundstype='C') THEN text('Check')
-             WHEN (arapply_fundstype='T') THEN text('Certified Check')
-             WHEN (arapply_fundstype='M') THEN text('Master Card')
-             WHEN (arapply_fundstype='V') THEN text('Visa')
-             WHEN (arapply_fundstype='A') THEN text('American Express')
-             WHEN (arapply_fundstype='D') THEN text('Discover Card')
-             WHEN (arapply_fundstype='R') THEN text('Other Credit Card')
-             WHEN (arapply_fundstype='K') THEN text('Cash')
-             WHEN (arapply_fundstype='W') THEN text('Wire Transfer')
-             WHEN (arapply_fundstype='O') THEN text('Other')
-        END AS documenttype,
-        CASE WHEN (arapply_source_doctype = 'C') THEN arapply_source_docnumber
-             WHEN (arapply_source_doctype = 'R') THEN arapply_source_docnumber
-             WHEN (arapply_source_doctype = 'K') THEN arapply_refnumber
-             ELSE text('Error')
-        END AS docnumber,
-        formatDate(arapply_postdate) AS f_postdate,
-        formatMoney(arapply_applied) AS f_amount
-   FROM arapply, invchead
-  WHERE ( (arapply_target_doctype='I')
-    AND (arapply_target_docnumber=invchead_invcnumber)
-    AND (invchead_id=<? value("invchead_id") ?>) )
- ORDER BY arapply_postdate;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: ItemMaster
  QUERY: head
@@ -796,91 +601,10 @@ WOMaterialRequirementsByWorkOrder
              LEFT OUTER JOIN freightclass ON (freightclass_id=item_freightclass_id)
   WHERE (item_id=<? value("item_id") ?>)
  ;
- --------------------------------------------------------------------
-   
- QUERY: sold
- SELECT uom_name,
-        formatUOMRatio(iteminvpricerat(item_id)) AS f_iteminvpricerat,
-        (prodcat_code||' - '||prodcat_descrip) AS f_prodcat,
-        formatBoolYN(item_exclusive) AS f_item_exclusive,
-        formatPrice(item_listprice) AS f_item_listprice,
-        formatExtPrice(item_listprice / iteminvpricerat(item_id)) AS f_extprice
-   FROM item, prodcat, uom
-  WHERE ((item_id=<? value("item_id") ?>)
-    AND  (item_price_uom_id=uom_id)
-    AND  (item_sold)
-    AND  (item_prodcat_id=prodcat_id) );
- --------------------------------------------------------------------
-   
- QUERY: notes
- SELECT item_comments, item_extdescrip
-   FROM item
-  WHERE (item_id=<? value("item_id") ?>);
- --------------------------------------------------------------------
-   
- QUERY: itemchar
- SELECT 1 as one,
-        char_name as charass_name,
-        charass_value
-   FROM charass, char
-  WHERE ((charass_target_type='I')
-    AND (charass_char_id=char_id)
-    AND (charass_target_id=<? value("item_id") ?>))
- ORDER BY char_name;
- --------------------------------------------------------------------
-   
- QUERY: imglist
- SELECT 1 as one,
-        image_name, firstLine(image_descrip) as f_descrip,
-        CASE WHEN (imageass_purpose='I') THEN 'Inventory Description'
-             WHEN (imageass_purpose='P') THEN 'Product Description'
-             WHEN (imageass_purpose='E') THEN 'Engineering Reference'
-             WHEN (imageass_purpose='M') THEN 'Miscellaneous'
-             ELSE 'Other'
-        END as f_purpose
- FROM imageass, image
- WHERE ( (imageass_image_id=image_id)
-  AND (imageass_source='I')
-  AND (imageass_source_id=<? value("item_id") ?>) )
- ORDER BY image_name;
- --------------------------------------------------------------------
-   
- QUERY: comments
- SELECT 1 as one,
-        formatDate(comment_date) as f_date,
-        comment_user,
-        comment_text
- FROM comment
- WHERE ( (comment_source='I')
-  AND (comment_source_id=<? value("item_id") ?>) )
- ORDER BY comment_date;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: PurchasePriceVariancesByItem
- QUERY: head
- SELECT item_number, item_descrip1,
-        item_descrip2, uom_name,
-        formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate,
-        <? if exists("warehous_id") ?>
-          (select warehous_code from warehous where warehous_id=<? value("warehous_id") ?>)
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse,
-        <? if exists("agentUsername") ?>
-        TEXT(<? value("agentUsername" ?>)
-        <? else ?>
-        TEXT('All Agents')
-        <? endif ?>
-        AS agentUsername
-   FROM item JOIN uom ON (item_inv_uom_id=uom_id)
-  WHERE (item_id=<? value("item_id") ?>);
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT porecv_id, porecv_ponumber, vend_name,
 -       formatDate(porecv_date) as f_date,
@@ -889,7 +613,7 @@ WOMaterialRequirementsByWorkOrder
 -       formatQty(porecv_qty) as f_qty,
 -       formatPrice(porecv_purchcost) as f_purchcost,
 -       formatPurchPrice(SUM(vodist_amount) / vodist_qty) AS f_vouchcost,
--       formatPrice(porecv_recvcost) as f_recvcost 
+-       formatPrice(porecv_recvcost) as f_recvcost
 -  FROM vend, itemsite, porecv
 -       LEFT OUTER JOIN
 -       ( vodist JOIN vohead
@@ -911,10 +635,8 @@ WOMaterialRequirementsByWorkOrder
 -         vodist_qty
 -ORDER BY porecv_date DESC;
 +== MetaSQL statement poPriceVariances-detail
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: PurchasePriceVariancesByVendor
  QUERY: head
@@ -939,7 +661,7 @@ WOMaterialRequirementsByWorkOrder
 - WHERE (vend_id=<? value("vend_id") ?>);
 +       AS agentUsername;
  --------------------------------------------------------------------
-   
+
  QUERY: detail
 -SELECT porecv_id, porecv_ponumber,
 -       formatDate(porecv_date) as f_date,
@@ -948,7 +670,7 @@ WOMaterialRequirementsByWorkOrder
 -       formatQty(porecv_qty) as f_qty,
 -       formatPrice(porecv_purchcost) as f_purchcost,
 -       formatPurchPrice(SUM(vodist_amount) / vodist_qty) AS f_vouchcost,
--       formatPrice(porecv_recvcost) as f_recvcost 
+-       formatPrice(porecv_recvcost) as f_recvcost
 -  FROM vend,
 -       porecv LEFT OUTER JOIN
 -       ( itemsite JOIN item
@@ -974,9 +696,8 @@ WOMaterialRequirementsByWorkOrder
 -ORDER BY porecv_date DESC;
 +== MetaSQL statement poPriceVariances-detail
  --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: QOHByParameterList
  QUERY: head
@@ -1070,132 +791,8 @@ WOMaterialRequirementsByWorkOrder
           text('')
         <? endif ?>
         AS showvalues;
- 
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT itemsite_id,
-        detail,
-        item_number,
-        item_descrip1,
-        item_descrip2,
-        uom_name,
-        warehous_code,
-        formatQty(reorderlevel) AS f_reorderlevel,
-        formatQty(qoh) AS f_qoh,
-        CASE WHEN (NOT useDefaultLocation(itemsite_id)) THEN 'None'
-                  ELSE defaultLocationName(itemsite_id)
-        END AS defaultlocation,
-        formatQty(nonnetable) AS f_nonnetable,
-        <? if exists("showValue") ?>
-          formatCost(standardcost)
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_unitcost,
-        <? if exists("showValue") ?>
-          formatExtPrice(noNeg(standardcost * qoh))
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_value,
-        <? if exists("showValue") ?>
-          CASE WHEN (itemsite_loccntrl) THEN formatExtPrice(noNeg(standardcost * nonnetable))
-               ELSE 'N/A'
-          END
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_nonnetvalue,
-        standardcost,
-        qoh,
-        nonnetable,
-        noNeg(qoh) AS r_qoh,
-        noNeg(nonnetable) AS r_nonnetable,
-        <? if exists("showValue") ?>
-          noNeg(standardcost * qoh)
-        <? else ?>
-          0
-        <? endif ?>
-        AS r_value,
-        <? if exists("showValue") ?>
-          CASE WHEN (itemsite_loccntrl) THEN noNeg(standardcost * nonnetable)
-               ELSE 0
-          END
-        <? else ?>
-          0
-        <? endif ?>
-        AS r_nonnetvalue,
-        <? if exists("showValue") ?>
-          <? if exists("usePostedCosts") ?>
-            CASE WHEN(itemsite_costmethod='A') THEN text('Average')
-                 WHEN(itemsite_costmethod='S') THEN text('Standard')
-                 WHEN(itemsite_costmethod='J') THEN text('Job')
-                 WHEN(itemsite_costmethod='N') THEN text('None')
-                 ELSE text('UNKNOWN')
-            END
-          <? else ?>
-            text('')
-          <? endif ?>
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_costmethod
- FROM ( SELECT itemsite_id, itemsite_costmethod,
-               item_number,
-               item_descrip1, item_descrip2, itemsite_loccntrl,
-               warehous_code,
-               uom_name,
-               CASE WHEN(itemsite_useparams) THEN itemsite_reorderlevel ELSE 0.0 END AS reorderlevel,
-               itemsite_qtyonhand AS qoh,
-               CASE WHEN ((itemsite_loccntrl) OR (itemsite_controlmethod IN ('L', 'S'))) THEN 1
-                    ELSE 0
-               END AS detail,
-               itemsite_nnqoh AS nonnetable,
-               <? if exists("useActualCosts") ?>
-                 actcost(itemsite_item_id)
-               <? elseif exists("useStandardCosts") ?>
-                 stdcost(itemsite_item_id)
-               <? else ?>
-                 (itemsite_value / CASE WHEN(itemsite_qtyonhand=0) THEN 1 ELSE itemsite_qtyonhand END)
-               <? endif ?>
-               AS standardcost
-          FROM itemsite, item, uom, warehous
-         WHERE ((itemsite_item_id=item_id)
-           AND (item_inv_uom_id=uom_id)
-           AND (itemsite_warehous_id=warehous_id)
-           AND (itemsite_active)
- <? if exists("classcode_id") ?>
-           AND (item_classcode_id=<? value("classcode_id") ?>)
- <? elseif exists("classcode_pattern") ?>
-           AND (item_classcode_id IN (SELECT classcode_id
-                                        FROM classcode
-                                       WHERE (classcode_code ~ <? value("classcode_pattern") ?>) ) )
- <? elseif exists("itemgrp_id") ?>
-           AND (item_id IN (SELECT itemgrpitem_item_id FROM itemgrpitem WHERE (itemgrpitem_itemgrp_id=<? value("itemgrp_id") ?>)))
- <? elseif exists("itemgrp_pattern") ?>
-           AND (item_id IN (SELECT itemgrpitem_item_id
-                              FROM itemgrpitem, itemgrp
-                             WHERE ( (itemgrpitem_itemgrp_id=itemgrp_id)
-                               AND (itemgrp_name ~ <? value("itemgrp_pattern") ?>) ) ))
- <? elseif exists("itemgrp") ?>
-           AND (item_id IN (SELECT DISTINCT itemgrpitem_item_id FROM itemgrpitem))
- <? endif ?>
- <? if exists("onlyShowPositive") ?>
-           AND (itemsite_qtyonhand > 0)
- <? elseif exists("onlyShowNegative") ?>
-           AND (itemsite_qtyonhand < 0)
- <? endif ?>
- <? if exists("warehous_id") ?>
-           AND (itemsite_warehous_id=<? value("warehous_id") ?>)
- <? endif ?>
- ) ) AS data
- ORDER BY warehous_code, item_number;
- 
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: Statement
  QUERY: detail
@@ -1249,16 +846,16 @@ WOMaterialRequirementsByWorkOrder
 +      )
 +ORDER BY araging_duedate;
  --------------------------------------------------------------------
-   
+
  QUERY: head
  SELECT cust_name, cust_address1, cust_address2, cust_address3,
 -       (cust_city || '  ' || cust_state || '  ' || cust_zipcode) AS citystatezip
 +       (cust_city || '  ' || cust_state || '  ' || cust_zipcode) AS citystatezip,
 +       formatDate(COALESCE(<? value("asofdate") ?>, current_date)) AS asofdate
  FROM cust
--WHERE (cust_id=<? value("cust_id") ?>);
+ WHERE (cust_id=<? value("cust_id") ?>);
 ---------------------------------------------------------------------
--  
+-
 -QUERY: Current
 -SELECT formatMoney(COALESCE(SUM(currtocurr(aropen_curr_id,cust_curr_id,(aropen_amount - aropen_paid),aropen_docdate) * CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END), 0)) AS f_amount
 -  FROM aropen, cust
@@ -1268,7 +865,7 @@ WOMaterialRequirementsByWorkOrder
 -   AND ((aropen_amount - aropen_paid) > 0)
 -   AND (aropen_duedate >= CURRENT_DATE) )
 ---------------------------------------------------------------------
--  
+-
 -QUERY: Past91Plus
 -SELECT formatMoney(COALESCE(SUM(currtocurr(aropen_curr_id,cust_curr_id,(aropen_amount - aropen_paid),aropen_docdate) * CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END), 0)) AS f_amount
 -  FROM aropen, cust
@@ -1278,7 +875,7 @@ WOMaterialRequirementsByWorkOrder
 -   AND ((aropen_amount - aropen_paid) > 0)
 -   AND (aropen_duedate <= (CURRENT_DATE - 91)) )
 ---------------------------------------------------------------------
--  
+-
 -QUERY: Past1to30
 -SELECT formatMoney(COALESCE(SUM(currtocurr(aropen_curr_id,cust_curr_id,(aropen_amount - aropen_paid),aropen_docdate) * CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END), 0)) AS f_amount
 -  FROM aropen, cust
@@ -1288,7 +885,7 @@ WOMaterialRequirementsByWorkOrder
 -   AND ((aropen_amount - aropen_paid) > 0)
 -   AND (aropen_duedate between (CURRENT_DATE - 30) AND (CURRENT_DATE - 1)) )
 ---------------------------------------------------------------------
--  
+-
 -QUERY: Past31to60
 -SELECT formatMoney(COALESCE(SUM(currtocurr(aropen_curr_id,cust_curr_id,(aropen_amount - aropen_paid),aropen_docdate) * CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END), 0)) AS f_amount
 -  FROM aropen, cust
@@ -1298,7 +895,7 @@ WOMaterialRequirementsByWorkOrder
 -   AND ((aropen_amount - aropen_paid) > 0)
 -   AND (aropen_duedate between (CURRENT_DATE - 60) AND (CURRENT_DATE - 31)) )
 ---------------------------------------------------------------------
--  
+-
 -QUERY: Past61to90
 -SELECT formatMoney(COALESCE(SUM(currtocurr(aropen_curr_id,cust_curr_id,(aropen_amount - aropen_paid),aropen_docdate) * CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END), 0)) AS f_amount
 -  FROM aropen, cust
@@ -1307,17 +904,9 @@ WOMaterialRequirementsByWorkOrder
 -   AND (aropen_open)
 -   AND ((aropen_amount - aropen_paid) > 0)
 -   AND (aropen_duedate between (CURRENT_DATE - 90) AND (CURRENT_DATE - 61)) )
-+WHERE (cust_id = <? value("cust_id") ?>);
+-WHERE (cust_id = <? value("cust_id") ?>);
  --------------------------------------------------------------------
-   
- QUERY: Currency
- SELECT currconcat(cust_curr_id) AS currAbbr
-   FROM cust
-  WHERE (cust_id=<? value("cust_id") ?>)
- 
- --------------------------------------------------------------------
-   
-\ No newline at end of file
+
 +QUERY: foot
 +SELECT formatMoney(SUM(araging_cur_val)) AS f_current,
 +       formatMoney(SUM(araging_thirty_val)) AS f_thirty,
@@ -1329,71 +918,11 @@ WOMaterialRequirementsByWorkOrder
 +WHERE ((abs(araging_aropen_amount) > 0)
 +   AND (araging_cust_id = <? value("cust_id") ?>));
 +--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
++
+
  ====================================================================
  REPORT: TodoByUserAndIncident
- QUERY: detail
- SELECT todoitem_id, incdt_id, incdtpriority_name, incdt_number,
-        todoitem_username, todoitem_name, todoitem_due_date, 
-        todoitem_start_date, todoitem_status,
-        todoitem_description
- FROM todoitem LEFT OUTER JOIN
-      incdt ON (todoitem_incdt_id = incdt_id)
-      LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=todoitem_priority_id)
- WHERE ((true)
- <? if not exists("showInactive") ?>
-   AND todoitem_active 
- <? endif ?>
- <? if not exists("showCompleted") ?>
-   AND todoitem_status != 'C' 
- <? endif ?>
- <? if exists("username") ?>
-   AND (todoitem_username=<? value("username") ?>)
- <? elseif exists("usr_pattern") ?>
-   AND (todoitem_username ~* <? value("usr_pattern") ?>)
- <? endif ?>
- <? if exists("incdt_id") ?>
-   AND (todoitem_incdt_id=<? value("incdt_id") ?>)
- <? endif ?><? if exists("start_date_start") ?>
-   AND (todoitem_start_date>=<? value("start_date_start") ?>)
- <? endif ?><? if exists("start_date_end") ?>
-   AND (todoitem_start_date<=<? value("start_date_end") ?>)<? endif ?>
- <? if exists("due_date_start") ?>
-   AND (todoitem_due_date>=<? value("due_date_start") ?>)
- <? endif ?><? if exists("due_date_end") ?>
-   AND (todoitem_due_date<=<? value("due_date_end") ?>)
- <? endif ?>
- ) ORDER BY todoitem_username, incdtpriority_order;
- --------------------------------------------------------------------
-   
- QUERY: username
- SELECT
-   <? if exists("username") ?>
-     <? value("username") ?> AS usr
-   <? elseif exists("usr_pattern") ?>
-     <? value("usr_pattern") ?>
-   <? else ?>
-     'ALL' AS usr
-   <? endif ?>
- ;
- --------------------------------------------------------------------
-   
- QUERY: incident
- SELECT
-   <? if exists("incdt_id") ?>
-     incdt_number
-     FROM incdt
-     WHERE (incdt_id=<? value("incdt_id") ?>)
-   <? else ?>
-     'ALL' AS incdt_number
-   <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
-+QUERY: dates
+ QUERY: dates
 +SELECT
 +  formatDate(<? value("start_date_start") ?>,'Earliest') AS f_startDateStart,
 +  formatDate(<? value("start_date_end") ?>  ,'Latest')   AS f_endDateStart,
@@ -1402,34 +931,10 @@ WOMaterialRequirementsByWorkOrder
 +;
 +
 +--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
++
+
  ====================================================================
  REPORT: UsageStatisticsByClassCode
- QUERY: head
- SELECT <? if exists("classcode_id") ?>
-          ( SELECT (classcode_code || '-' || classcode_descrip)
-              FROM classcode
-             WHERE (classcode_id=<? value("classcode_id") ?>) )
-        <? elseif exists("classcode_pattern") ?>
-          text(<? value("classcode_pattern") ?>)
-        <? else ?>
-          text('All Class Codes')
-        <? endif ?>
-        AS classcode,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse,
-        formatDate(<? value("startDate") ?>) AS startdate,
-        formatDate(<? value("endDate") ?>) AS enddate
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT warehous_code,
 -       item_number,
@@ -1458,34 +963,10 @@ WOMaterialRequirementsByWorkOrder
 -
 +== MetaSQL statement usageStatistics-detail
  --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: UsageStatisticsByItemGroup
- QUERY: head
- SELECT formatDate(<? value("startDate") ?>) AS startdate,
-        formatDate(<? value("endDate") ?>) AS enddate,
-        <? if exists("itemgrp_id") ?>
-          ( SELECT (itemgrp_name || '-' || itemgrp_descrip)
-              FROM itemgrp
-             WHERE (itemgrp_id=<? value("itemgrp_id") ?>) )
-        <? elseif exists("itemgrp_pattern") ?>
-          text(<? value("itemgrp_pattern") ?>)
-        <? else ?>
-          text('All Item Groups')
-        <? endif ?>
-        AS itemgroup,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse;
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT warehous_code,
 -       item_number,
@@ -1514,29 +995,10 @@ WOMaterialRequirementsByWorkOrder
 -
 +== MetaSQL statement usageStatistics-detail
  --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: UsageStatisticsByItem
- QUERY: head
- SELECT item_number,
-        item_descrip1,
-        item_descrip2,
-        formatDate(<? value("startDate") ?>) AS startdate,
-        formatDate(<? value("endDate") ?>) AS enddate,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse
-   FROM item
-  WHERE (item_id=<? value("item_id") ?>);
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT itemsite_id,
 -       warehous_code,
@@ -1556,19 +1018,10 @@ WOMaterialRequirementsByWorkOrder
 -
 +== MetaSQL statement usageStatistics-detail
  --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: UsageStatisticsByWarehouse
- QUERY: head
- SELECT warehous_code AS warehouse,
-        formatDate(<? value("startDate") ?>) AS startdate,
-        formatDate(<? value("endDate") ?>) AS enddate
-   FROM warehous
-  WHERE (warehous_id=<? value("warehous_id") ?>);
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT itemsite_id,
 -       item_number,
@@ -1587,26 +1040,10 @@ WOMaterialRequirementsByWorkOrder
 -
 +== MetaSQL statement usageStatistics-detail
  --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: WOMaterialRequirementsByComponentItem
- QUERY: head
- SELECT item_number, item_descrip1, item_descrip2,
-        <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse
-   FROM item
-  WHERE (item_id=<? value("item_id") ?>);
- 
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT formatWONumber(wo_id) AS wonumber,
 -               item_number, item_descrip1, item_descrip2,
@@ -1637,45 +1074,10 @@ WOMaterialRequirementsByWorkOrder
 - )
 -ORDER BY wo_startdate;
 +== MetaSQL statement workOrderMaterial-detail
- --------------------------------------------------------------------
-   
- QUERY: total
- SELECT formatQty(SUM(womatl_qtyreq)) AS required,
-        formatQty(SUM(womatl_qtyiss)) AS issued,
-        formatQty(SUM(noNeg(womatl_qtyreq - womatl_qtyiss))) AS balance
-     FROM wo, womatl, itemsite AS parentsite, itemsite AS componentsite, item, uom
- WHERE ((womatl_wo_id=wo_id)
-        AND (womatl_uom_id=uom_id)
-        AND (wo_status <> 'C')
-        AND (wo_itemsite_id=parentsite.itemsite_id)
-        AND (womatl_itemsite_id=componentsite.itemsite_id)
-        AND (parentsite.itemsite_item_id=item_id)
-        AND (componentsite.itemsite_item_id=<? value("item_id") ?>)
- <? if exists("warehous_id") ?>
-        AND (componentsite.itemsite_warehous_id=<? value("warehous_id") ?>)
- <? endif ?>
-  )
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: WOMaterialRequirementsByWorkOrder
- QUERY: head
- SELECT formatWONumber(wo_id) AS wonumber,
-        warehous_code as warehouse,
-        item_number, item_descrip1,
-        item_descrip2, uom_name,
-        wo_status AS status
-   FROM wo, itemsite, item, uom, warehous
-  WHERE ((wo_itemsite_id=itemsite_id)
-    AND (itemsite_item_id=item_id)
-    AND (item_inv_uom_id=uom_id)
-    AND (itemsite_warehous_id=warehous_id)
-    AND (wo_id=<? value("wo_id") ?>) );
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT womatl_id, item_number,
 -       item_descrip1, item_descrip2,
@@ -1700,6 +1102,4 @@ WOMaterialRequirementsByWorkOrder
 - AND (wo_id=<? value("wo_id") ?>) )
 -ORDER BY item_number;
 +== MetaSQL statement workOrderMaterial-detail
- --------------------------------------------------------------------
-   
-\ No newline at end of file
+
