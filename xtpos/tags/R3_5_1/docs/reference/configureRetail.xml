@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="configureRetail">
+  <title>Configure Sales for Retail</title>
+  <para>To configure the Sales module for xTuple POS, follow this path:
+  <guimenuitem>System &gt; Configure Modules &gt; Sales</guimenuitem>. The
+  following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/configureSO_configureRetail.png" />
+    </imageobject>
+    <caption>POS Configuration Options</caption>
+  </mediaobject>
+  <para>When configuring settings for xTuple POS, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Next Retail Sale #</term>
+      <listitem>
+        <para>All xTuple POS Sale transactions are tracked automatically with
+        an identification number called a "Sale Number." When configuring the
+        system, you can specify what number you would like to use for the
+        first Sale. All subsequent Sales will generate an auto number based on
+        the first.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Customer for Retail Sales</term>
+      <listitem>
+        <para>Select this option to identify a default Customer to be used for
+        all Retail Sales. Use this option if you do not want to track
+        individual Customer information at the point of sale. The default
+        Customer specified here will always be used for Retail
+        transactions&mdash;meaning, you won't need to collect and enter
+        Customer information every time you make a Sale.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Customer #</term>
+            <listitem>
+              <para>Select a Customer to be used as the default Customer. The
+              specified Customer will automatically be used for every Retail
+              Sale. If you don't hide the "Customer" tab on the Retail Sale
+              screen, the default Customer information will be shown. This
+              gives you the flexibility to add new Customer information if you
+              choose to.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Disable Choosing Customer at Cash Register</term>
+            <listitem>
+              <para>Select to hide the "Customer" tab on the Retail Sale
+              screen. The specified default Customer will always be used in
+              the background.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax Zone Source</term>
+      <listitem>
+        <para>Specify one of the following Tax Zone source options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Site</term>
+            <listitem>
+              <para>Select if you want Retail Sales to use the Tax Zone
+              defined at the Retail Site level. If selected, the Tax Zone
+              defined for the Cash Register's Retail Site will be used by
+              default for every Retail Sale. This option would be a logical
+              choice if you are not collecting Customer information at the
+              point of sale.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Customer</term>
+            <listitem>
+              <para>Select if you want Retail Sales to use the Tax Zone
+              defined at the Customer level. If selected, each Retail Sale
+              will use the Tax Zone specified for the Customer you are selling
+              to.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

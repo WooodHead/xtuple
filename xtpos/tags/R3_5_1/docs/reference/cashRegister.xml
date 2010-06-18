@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>Cash Register</title>
+  <para>After you have selected the Cash Register you want to use, the
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/cashRegister.png" />
+        </imageobject>
+        <caption>Cash Register</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When processing a transaction on the Cash Register, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Indicates the Site the Cash Register is associated with.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Terminal</term>
+      <listitem>
+        <para>Identifies the Cash Register currently being used for processing
+        transactions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Active</term>
+      <listitem>
+        <para>Displays whether the Cash Register is currently active.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales</term>
+      <listitem>
+        <para>Display lists pending Sales associated with the Cash
+        Register&mdash;if any.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes Cash Register window without saving changes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Prints receipt for proposed Sale transaction.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens retail Sale screen for new Sales transaction.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Opens pending Sale and allows for editing of transaction.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Opens pending Sale, but does not allowing changes to
+        transaction.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Deletes pending Sales.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SEARCH</term>
+      <listitem>
+        <para>Searches for current or past Sales, Quotes or Returns based on
+        date parameters entered by user.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To conduct maintenance on the Cash Register, select the "Maintenance"
+  tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/cashRegister_maintainTab.png" />
+    </imageobject>
+    <caption>Cash Register Terminal Maintenance</caption>
+  </mediaobject>
+  <para>When maintaining a Cash Register terminal, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Opened</term>
+      <listitem>
+        <para>Displays the date and time when the Cash Register terminal was
+        opened.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Action</term>
+      <listitem>
+        <para>Select one of the following available options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Open</term>
+            <listitem>
+              <para>Select to open the Cash Register.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Close</term>
+            <listitem>
+              <para>Select to close the Cash Register.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Adjust</term>
+            <listitem>
+              <para>Select to post an adjustment to the Cash Register.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Opening Balance</term>
+      <listitem>
+        <para>Displays the balance of the Cash Register when it was
+        opened.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Current Balance</term>
+      <listitem>
+        <para>Displays the current balance of the Cash Register.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total Sales</term>
+      <listitem>
+        <para>Displays total Sales tendered for the Cash Register.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cash Sales</term>
+      <listitem>
+        <para>Displays total cash Sales tendered for the Cash Register.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Card Sales</term>
+      <listitem>
+        <para>Displays total Credit Card Sales tendered for the Cash
+        Register.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Check Sales</term>
+      <listitem>
+        <para>Displays total Check Sales tendered for the Cash
+        Register.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bank Transfer</term>
+      <listitem>
+        <para>Use the following options to transfer funds from a Bank Account
+        to the Cash Register:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Account</term>
+            <listitem>
+              <para>Select bank used to transfer funds in and out of Cash
+              Register terminal.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Amount</term>
+            <listitem>
+              <para>Specify the amount of funds to transfer in and out of Cash
+              Register terminal.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Deposit Checks</term>
+            <listitem>
+              <para>Select check box if physical checks were deposited into
+              bank account.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Adjustment</term>
+      <listitem>
+        <para>Use the following options to perform an adjustment to the Cash
+        Register:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Amount</term>
+            <listitem>
+              <para>Select bank used to adjust funds in and out of Cash
+              Register terminal.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>New Balance</term>
+            <listitem>
+              <para>Displays current balance following bank transfers or
+              adjustments.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Notes</term>
+            <listitem>
+              <para>Specify any additional notes related specifically to Cash
+              Register terminal.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Print Receipt</term>
+            <listitem>
+              <para>Select to print receipt which illustrates maintenance
+              transactions which have taken between open and close
+              period.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Select to close the screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Select to post the specified transaction.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>OPTIONS</term>
+      <listitem>
+        <para>Select to configure the print options for this screen. For more
+        information, please see <xref linkend="printOptions" />.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
