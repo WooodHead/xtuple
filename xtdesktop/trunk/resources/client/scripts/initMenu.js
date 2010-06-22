@@ -109,9 +109,14 @@ if (mainwindow.showTopLevel())
   initDockMfgHist();
   initDockMfgOpen();
 
-  addDesktop("desktopMaintenance", "gear_32", "ViewMaintenanceDesktop");
+  var maintWin = addDesktop("desktopMaintenance", "gear_32", "ViewMaintenanceDesktop");
   initDockExtensions();
   initDockUserOnline();
+
+  // Hack to fix icon size problem until next core release
+  var maintToolbar = maintWin.findChild("_toolbar");
+  _vToolBar.iconSize = maintToolbar.iconSize;
+  maintWin.removeToolBar(maintToolbar);
 
   // Handle window actions
   _menuWindow.aboutToShow.connect(prepareWindowMenu);
