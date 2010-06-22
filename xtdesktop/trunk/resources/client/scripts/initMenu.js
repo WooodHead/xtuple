@@ -122,7 +122,7 @@ if (mainwindow.showTopLevel())
   _menuWindow.aboutToShow.connect(prepareWindowMenu);
 
   // Change behavior of item site button if commercial edition
-  if (!metrics.value("Application") != "PostBooks")
+  if (metrics.boolean("MultiWhs"))
   {
     var button = mainwindow.findChild("_sites");
     button.label = qsTr("Sites");
