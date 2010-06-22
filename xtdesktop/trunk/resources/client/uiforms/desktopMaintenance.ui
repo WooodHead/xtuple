@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>905</width>
-    <height>554</height>
+    <height>563</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -676,6 +676,23 @@ p, li { white-space: pre-wrap; }
      </item>
     </layout>
    </widget>
+  </widget>
+  <widget class="QToolBar" name="_toolbar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
   </widget>
  </widget>
  <customwidgets>
