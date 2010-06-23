@@ -23,7 +23,7 @@ BEGIN
       AND (rev_number=pRevision));
     ELSIF (pType=''BOO'') THEN
       SELECT rev_id INTO _returnVal
-      FROM item, boohead, rev
+      FROM item, xtmfg.boohead, rev
       WHERE ((item_id=boohead_item_id)
       AND (boohead_rev_id=rev_id)
       AND (UPPER(item_number)=UPPER(pItemNumber))
