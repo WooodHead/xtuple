@@ -114,6 +114,10 @@ function fillListGLAccounts()
   params.equity = qsTr("Equity");
   params.accnt_id_list = accntIdList;
 
+  // Forward update if applicable
+  if (!metrics.boolean("ManualForwardUpdate"))
+   toolbox.executeDbQuery("desktop","glforwardupdate", params);
+
   var qry = toolbox.executeDbQuery("desktop","glaccountBal", params);
   if (qry.first())
   {
