@@ -1,7 +1,7 @@
 /*
  * This file is part of the xTuple ERP: PostBooks Edition, a free and
  * open source Enterprise Resource Planning software suite,
- * Copyright (c) 1999-2009 by OpenMFG LLC, d/b/a xTuple.
+ * Copyright (c) 1999-2010 by OpenMFG LLC, d/b/a xTuple.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including xTuple-specific Exhibits)
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
@@ -15,4 +15,4 @@
 QString CSVImp::build     = QObject::tr("%1 %2").arg(__DATE__, __TIME__);
 QString CSVImp::copyright = QObject::tr("Copyright (c) 1999-2010, OpenMFG, LLC");
 QString CSVImp::name      = QObject::tr("CSV Import");
-QString CSVImp::version   = QString("0.4.1");
+QString CSVImp::version   = QString("0.4.2");
