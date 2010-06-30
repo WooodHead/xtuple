@@ -38,6 +38,8 @@
 
 #define DEBUG false
 
+static const bool usetransaction = false;
+
 CSVToolWindow::CSVToolWindow(QWidget *parent, Qt::WindowFlags flags)
   : QMainWindow(parent, flags)
 {
@@ -342,12 +344,12 @@ bool CSVToolWindow::importStart()
   if (! _log)
     _log = new LogWindow(this);
 
-  QSqlQuery begin("BEGIN;");
+  if(usetransaction) QSqlQuery begin("BEGIN;");
 
   QString errMsg;
   if(!map.sqlPre().trimmed().isEmpty())
   {
-    QSqlQuery savepoint("SAVEPOINT presql;");
+    if(usetransaction) QSqlQuery savepoint("SAVEPOINT presql;");
     QSqlQuery pre;
     if(!pre.exec(map.sqlPre()))
     {
@@ -359,12 +361,12 @@ bool CSVToolWindow::importStart()
       if(map.sqlPreContinueOnError())
       {
         _log->_log->append(tr("\n\nContinuing with rest of import\n\n"));
-        QSqlQuery sprollback("ROLLBACK TO SAVEPOINT presql;");
-        QSqlQuery savepoint("RELEASE SAVEPOINT presql;");
+        if(usetransaction) QSqlQuery sprollback("ROLLBACK TO SAVEPOINT presql;");
+        if(usetransaction) QSqlQuery savepoint("RELEASE SAVEPOINT presql;");
       }
       else
       {
-        QSqlQuery rollback("ROLLBACK;");
+        if(usetransaction) QSqlQuery rollback("ROLLBACK;");
         _msghandler->message(QtWarningMsg, tr("Error"),
                              tr("<p>There was an error running the Pre SQL "
                                 "query. Please see the log for more details. "
@@ -397,7 +399,7 @@ bool CSVToolWindow::importStart()
     if(! (current % 100))
       progress->setLabelText(progresstext.arg(map.name()).arg(current).arg(expected));
 
-    QSqlQuery savepoint("SAVEPOINT csvinsert;");
+    if(usetransaction) QSqlQuery savepoint("SAVEPOINT csvinsert;");
     if(action == CSVMap::Insert)
     {
       query = QString("INSERT INTO %1 ").arg(map.table());
@@ -513,7 +515,7 @@ bool CSVToolWindow::importStart()
 
       if(!qry.exec())
       {
-        QSqlQuery sprollback("ROLLBACK TO SAVEPOINT csvinsert;");
+        if(usetransaction) QSqlQuery sprollback("ROLLBACK TO SAVEPOINT csvinsert;");
         error++;
         errMsg = QString("ERROR Record %1: %2").arg(current+1).arg(qry.lastError().text());
         errorList.append(errMsg);
@@ -555,7 +557,7 @@ bool CSVToolWindow::importStart()
       _log->_log->append(errMsg);
       _log->show();
       _log->raise();
-      QSqlQuery rollback("ROLLBACK;");
+      if(usetransaction) QSqlQuery rollback("ROLLBACK;");
       QMessageBox::warning(this, tr("Error"),
                            tr("<p>There was an error running the post sql "
                               "query and changes were rolled back. "
@@ -566,13 +568,13 @@ bool CSVToolWindow::importStart()
 
   if (_stopped)
   {
-    QSqlQuery rollback("ROLLBACK;");
+    if(usetransaction) QSqlQuery rollback("ROLLBACK;");
     _log->_log->append(tr("\n\nImport canceled by user. Changes were rolled back."));
 
     return false;
   }
 
-  QSqlQuery commit("COMMIT");
+  if(usetransaction) QSqlQuery commit("COMMIT");
   if (! error)
   {
     _msghandler->message(QtDebugMsg, tr("Import Complete"),
@@ -607,7 +609,7 @@ void CSVToolWindow::timerEvent( QTimerEvent * e )
   if(e->timerId() == _dbTimerId)
   {
     QSqlDatabase db = QSqlDatabase::database(QSqlDatabase::defaultConnection,FALSE);
-    if(db.open())
+    if(db.isOpen())
     {
       QSqlQuery qry("SELECT CURRENT_DATE;");
     }
