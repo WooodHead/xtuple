@@ -3,7 +3,7 @@ This package is for xtdesktop, a supplemental extension package for xTuple ERP t
  * xTuple Updater version 2.2.2
  * xTuple ERP 3.5.1
 
-The xtdesktop is included on new database installations provided via the bundled xTuple Installer, but it and other pre-requesites may be acquired independently here:
+The xtdesktop is included on new database installations provided via the bundled xTuple Installer, but it and other prerequisites may be acquired independently here:
 http://sourceforge.net/projects/postbooks/files/
 
 The package is installed with xTuple Updater, an application for xTuple ERP (PostBooks, Standard, and Manufacturing Editions) which enables you to update your databases from one release to the next, to upgrade from one xTuple ERP edition to another, such as from PostBooks to Standard Edition, and to load supplemental extensions into your xTuple database. The Updater reads and processes upgrade scripts or packages, which are collections of files bundled together into .gz files.  A full description of xTuple Updater may be found here:
@@ -20,6 +20,7 @@ Click Start.
 Close the Updater and Re-start your xTuple ERP application. You should find the Desktop installed on the xTuple main window.
 
 Note:  To access all Desktop functionality, users must be configured as follows
-  *  User preferences must be set "Show windows as Free-floating." 
-     (You must close and restart the application after changing this setting)
-  *  Users must be granted privileges to the Desktop module set in System > Maintain Users.
+  * User preferences must be set "Show windows as Free-floating." 
+    (You must close and restart the application after changing this setting)
+  * Be sure also to grant privileges to users who want to use the Desktop in System > Maintain Users. 
+    The Desktop is listed there as its own module.
