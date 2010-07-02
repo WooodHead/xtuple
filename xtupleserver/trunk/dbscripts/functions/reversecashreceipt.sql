@@ -211,16 +211,17 @@ BEGIN
                                 ((round(_p.cashrcpt_amount_base, 2) - round(_posted_base, 2)) * -1.0),
                                 _p.cashrcpt_distdate, _p.custnote );
     SELECT fetchArMemoNumber() INTO _arMemoNumber;
-    -- Post A/R Credit Memo
+    -- Post A/R Debit Memo
     SELECT createARDebitMemo(NULL, _p.cashrcpt_cust_id, pJournalNumber, _arMemoNumber, '',
                               _p.cashrcpt_distdate, (_p.cashrcpt_amount - _posted),
                               _comment, -1, -1, -1, _p.cashrcpt_distdate, -1, -1, 0,
                               _p.cashrcpt_curr_id) INTO _aropenid;
     -- Create Cash Receipt Item to capture posting
-    INSERT INTO cashrcptitem
-      ( cashrcptitem_cashrcpt_id, cashrcptitem_aropen_id, cashrcptitem_amount )
-    VALUES
-      ( pCashrcptid, _aropenid, ((_p.cashrcpt_amount - _posted) * 1.0) );
+    -- Removed, do not apply the Debit Memo to the Cash Receipt
+    --INSERT INTO cashrcptitem
+    --  ( cashrcptitem_cashrcpt_id, cashrcptitem_aropen_id, cashrcptitem_amount )
+    --VALUES
+    --  ( pCashrcptid, _aropenid, ((_p.cashrcpt_amount - _posted) * 1.0) );
 
   ELSIF (round(_posted_base, 2) > round(_p.cashrcpt_amount_base, 2)) THEN
     PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CR',
