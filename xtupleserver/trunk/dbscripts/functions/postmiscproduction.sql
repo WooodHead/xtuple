@@ -7,6 +7,7 @@ DECLARE
   pComments ALIAS FOR $5;
   _p RECORD;
   _c RECORD;
+  _test INTEGER;
   _invhistid INTEGER;
   _itemlocSeries INTEGER;
   _parentQty NUMERIC;
@@ -33,7 +34,29 @@ BEGIN
    AND (itemsite_costcat_id=costcat_id)
    AND (costcat_wip_accnt_id=accnt_id) );
   IF (NOT FOUND) THEN
-    RETURN -1;
+    RETURN -3;
+  END IF;
+
+--  Make sure that all Component Item Sites exist
+  SELECT bomitem_id INTO _test
+  FROM bomitem, itemsite
+  WHERE ( (itemsite_item_id=bomitem_parent_item_id)
+   AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1))
+   AND (itemsite_id=pItemsiteid)
+   AND (bomitem_rev_id=getActiveRevId('BOM',bomitem_parent_item_id))
+   AND (bomitem_item_id NOT IN
+        ( SELECT component.itemsite_item_id
+          FROM itemsite AS component, itemsite AS parent
+          WHERE ( (pItemsiteid=parent.itemsite_id)
+           AND (parent.itemsite_item_id=bomitem_parent_item_id)
+           AND (bomitem_item_id=component.itemsite_item_id)
+           AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1))
+           AND (bomitem_rev_id=getActiveRevId('BOM',bomitem_parent_item_id))
+           AND (component.itemsite_active)
+           AND (component.itemsite_warehous_id=parent.itemsite_warehous_id) ) ) ) )
+  LIMIT 1;
+  IF (FOUND AND pBackflush) THEN
+    RETURN -2;
   END IF;
 
   SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
