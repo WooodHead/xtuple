@@ -5,6 +5,7 @@ DECLARE
   pBackflush     ALIAS FOR $3;
   pItemlocSeries ALIAS FOR $4;
   pGlDistTS      ALIAS FOR $5;
+  _test          INTEGER;
   _invhistid     INTEGER;
   _itemlocSeries INTEGER;
   _parentQty     NUMERIC;
@@ -27,6 +28,29 @@ BEGIN
          FROM wo
          WHERE (wo_id=pWoid) ) NOT IN  ('R','E','I') ) THEN
     RETURN -1;
+  END IF;
+
+--  Make sure that all Component Item Sites exist
+  SELECT bomitem_id INTO _test
+  FROM wo, bomitem, itemsite
+  WHERE ( (wo_itemsite_id=itemsite_id)
+   AND (itemsite_item_id=bomitem_parent_item_id)
+   AND (woEffectiveDate(wo_startdate) BETWEEN bomitem_effective AND (bomitem_expires - 1))
+   AND (wo_id=pWoid)
+   AND (bomitem_rev_id=wo_bom_rev_id)
+   AND (bomitem_item_id NOT IN
+        ( SELECT component.itemsite_item_id
+          FROM itemsite AS component, itemsite AS parent
+          WHERE ( (wo_itemsite_id=parent.itemsite_id)
+           AND (parent.itemsite_item_id=bomitem_parent_item_id)
+           AND (bomitem_item_id=component.itemsite_item_id)
+           AND (woEffectiveDate(wo_startdate) BETWEEN bomitem_effective AND (bomitem_expires - 1))
+           AND (bomitem_rev_id=wo_bom_rev_id)
+           AND (component.itemsite_active)
+           AND (component.itemsite_warehous_id=parent.itemsite_warehous_id) ) ) ) )
+  LIMIT 1;
+  IF (FOUND AND pBackflush) THEN
+    RETURN -2;
   END IF;
 
   SELECT formatWoNumber(pWoid) INTO _woNumber;
