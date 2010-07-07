@@ -1,0 +1,111 @@
+-- Group: timePhasedBookings
+-- Name: detail
+-- Notes: used by dspTimePhasedBookingsByCustomer, dspTimePhasedBookingsByItem, dspTimePhasedBookingsByProductCategory
+
+SELECT <? if exists("byCust") ?>
+         cust_id, cust_number, cust_name
+       <? elseif exists("byItem") ?>
+         itemsite_id, item_number
+         <? if exists("salesDollars") ?>
+           , TEXT('$') AS uom_name, warehous_code
+         <? elseif exists("inventoryUnits") ?>
+           , uom_name, warehous_code
+         <? endif ?>
+       <? elseif exists("byProdcat") ?>
+         prodcat_id, warehous_id, prodcat_code, warehous_code
+         <? if exists("salesDollars") ?>
+           , TEXT('$') AS uom
+         <? elseif exists("inventoryUnits") ?>
+           , uom_name AS uom
+         <? elseif exists("capacityUnits") ?>
+           , itemcapuom(item_id) AS uom
+         <? elseif exists("altCapacityUnits") ?>
+           , itemaltcapuom(item_id) AS uom
+         <? endif ?>
+       <? endif ?>
+       <? foreach("period_list") ?>
+         <? if exists("byCust") ?>
+           , bookingsByCustomerValue(cust_id, <? value("period_list") ?>) AS bucket_<? literal("period_list") ?>,
+           'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole, 0 AS bucket_<? literal("period_list") ?>_xttotalrole
+         <? elseif exists("byItem") ?>
+           <? if exists("salesDollars") ?>
+             , bookingsByItemValue(itemsite_id, <? value("period_list") ?>) AS bucket_<? literal("period_list") ?>,
+             'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+           <? elseif exists("inventoryUnits") ?>
+             , bookingsByItemQty(itemsite_id, <? value("period_list") ?>) AS bucket_<? literal("period_list") ?>,
+             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_list") ?>_xttotalrole 
+           <? endif ?>
+         <? elseif exists("byProdcat") ?>
+           <? if exists("salesDollars") ?>
+             , SUM(bookingsByItemValue(itemsite_id, <? value("period_list") ?>)) AS bucket_<? literal("period_list") ?>,
+             'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole,
+             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+           <? elseif exists("inventoryUnits") ?>
+             , SUM(bookingsByItemQty(itemsite_id, <? value("period_list") ?>)) AS bucket_<? literal("period_list") ?>,
+             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+           <? elseif exists("capacityUnits") ?>
+             , SUM(bookingsByItemQty(itemsite_id, <? value("period_list") ?>) * itemcapinvrat(item_id)) AS bucket_<? literal("period_list") ?>,
+             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+           <? elseif exists("altCapacityUnits") ?>
+             , SUM(bookingsByItemQty(itemsite_id, <? value("period_list") ?>) * itemaltcapinvrat(item_id)) AS bucket_<? literal("period_list") ?>,
+             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole,
+             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+           <? endif ?>
+         <? endif ?>
+       <? endforeach ?>
+FROM <? if exists("byCust") ?>
+       cust
+     <? else ?>
+       itemsite, item, uom, warehous
+       <? if exists("byProdcat") ?>
+         , prodcat
+       <? endif ?>
+     <? endif ?>
+WHERE (<? if exists("byCust") ?>
+         (TRUE)
+         <? if exists("custtype_id") ?> 
+           AND (cust_custtype_id=<? value("custtype_id") ?>)
+         <? elseif exists("custtype_pattern") ?>
+           AND (cust_custtype_id IN (SELECT custtype_id 
+                                     FROM custtype 
+                                     WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
+         <? endif ?>
+       <? else ?>
+         (itemsite_item_id=item_id)
+         AND(item_inv_uom_id=uom_id)
+         AND(itemsite_warehous_id=warehous_id)
+         <? if exists("byItem") ?>
+           AND(item_sold)
+           <? if exists("prodcat_id") ?> 
+             AND (item_prodcat_id=<? value("prodcat_id") ?>) 
+           <? elseif exists("custtype_pattern") ?>
+             AND (item_prodcat_id IN (SELECT prodcat_id  
+                                    FROM prodcat 
+                                    WHERE (prodcat_code ~ <? value("prodcat_pattern") ?>)))
+           <? endif ?> 
+         <? else ?>
+           AND (item_prodcat_id=prodcat_id)
+           <? if exists("prodcat_id") ?> 
+             AND (prodcat_id=<? value("prodcat_id") ?>)
+           <? elseif exists("prodcat_pattern") ?>
+             AND (prodcat_code ~ <? value("prodcat_pattern") ?>)
+           <? endif ?>
+         <? endif ?>
+         <? if exists("warehous_id") ?> 
+           AND(itemsite_warehous_id=<? value("warehous_id") ?>) 
+         <? endif ?>
+       <? endif ?>
+      )
+<? if exists("byProdcat") ?>
+  GROUP BY prodcat_id, warehous_id, prodcat_code, uom, warehous_code;
+<? else ?>
+ORDER BY <? if exists("byCust") ?>
+           cust_number;
+         <? elseif exists("byItem") ?>
+           item_number;
+         <? endif ?>
+<? endif ?>
