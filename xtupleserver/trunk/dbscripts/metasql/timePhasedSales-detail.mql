@@ -1,0 +1,88 @@
+-- Group: timePhasedSales
+-- Name: detail
+-- Notes: used by dspTimePhasedSalesByItem, dspTimePhasedSalesByProductCategory
+
+SELECT <? if exists("byItem") ?>
+         itemsite_id, item_number
+         <? if exists("salesDollars") ?>
+           , TEXT('$') AS uom, warehous_code
+         <? elseif exists("inventoryUnits") ?>
+           , uom_name AS uom, warehous_code
+         <? endif ?>
+       <? elseif exists("byProdcat") ?>
+         prodcat_id, warehous_id, prodcat_code, warehous_code
+         <? if exists("salesDollars") ?>
+           , TEXT('$') AS uom
+         <? elseif exists("inventoryUnits") ?>
+           , uom_name AS uom
+         <? elseif exists("capacityUnits") ?>
+           , itemcapuom(item_id) AS uom
+         <? elseif exists("capacityUnits") ?>
+           , itemaltcapuom(item_id) AS uom
+         <? endif ?>
+       <? endif ?>
+       <? foreach("period_list") ?>
+         <? if exists("byItem") ?>
+           <? if exists("salesDollars") ?>
+             , shipmentsByItemValue(itemsite_id, <? value("period_list") ?>) AS bucket_<? literal("period_list") ?>,
+             'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+           <? elseif exists("inventoryUnits") ?>
+             , shipmentsByItemQty(itemsite_id, <? value("period_list") ?>) AS bucket_<? literal("period_list") ?>,
+             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole,
+             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+           <? endif ?>
+         <? elseif exists("byProdcat") ?>
+           <? if exists("salesDollars") ?>
+             , SUM(shipmentsByItemValue(itemsite_id, <? value("period_list") ?>)) AS bucket_<? literal("period_list") ?>,
+             'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+           <? elseif exists("inventoryUnits") ?>
+             , SUM(shipmentsByItemQty(itemsite_id, <? value("period_list") ?>)) AS bucket_<? literal("period_list") ?>,
+             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+           <? elseif exists("capacityUnits") ?>
+             , SUM(shipmentsByItemQty(itemsite_id, <? value("period_list") ?>) * itemcapinvrat(item_id)) AS bucket_<? literal("period_list") ?>,
+             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+           <? elseif exists("altCapacityUnits") ?>
+             , SUM(shipmentsByItemQty(itemsite_id, <? value("period_list") ?>) * itemaltcapinvrat(item_id)) AS bucket_<? literal("period_list") ?>,
+             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+           <? endif ?>
+         <? endif ?>
+       <? endforeach ?>
+FROM itemsite, item, uom, warehous
+   <? if exists("byProdcat") ?>
+     , prodcat
+   <? endif ?>
+WHERE ((itemsite_item_id=item_id)
+   AND (item_inv_uom_id=uom_id)
+   AND (itemsite_warehous_id=warehous_id)
+ <? if exists("byProdcat") ?>
+   AND (item_prodcat_id=prodcat_id)
+ <? endif ?>
+ <? if exists("warehous_id") ?> 
+   AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+ <? endif ?>
+ <? if exists("prodcat_id") ?>
+   <? if exists("byItem") ?> 
+     AND (item_prodcat_id=<? value("prodcat_id") ?>)
+   <? elseif exists("byProdcat") ?>
+     AND (prodcat_id=<? value("prodcat_id") ?>)
+   <? endif ?>
+ <? elseif exists("prodcat_pattern") ?>
+   <? if exists("byItem") ?>
+     AND (item_prodcat_id IN (SELECT prodcat_id 
+                              FROM prodcat 
+                              WHERE (prodcat_code ~ <? value("prodcat_pattern") ?>)))
+   <? elseif exists("byProdcat") ?>
+     AND (prodcat_code ~ <? value("prodcat_pattern") ?>)
+   <? endif ?>
+ <? endif ?>
+      )
+<? if exists("byItem") ?> 
+  ORDER BY item_number;
+<? elseif exists("byProdcat") ?>
+  GROUP BY prodcat_id, warehous_id, prodcat_code, uom, warehous_code;
+<? endif ?>
