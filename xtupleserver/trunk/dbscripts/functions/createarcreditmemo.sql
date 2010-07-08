@@ -105,11 +105,58 @@ DECLARE
   pCurrId ALIAS FOR $15;
 
 BEGIN
-  RETURN createARCreditMemo(pId, pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, NULL, pCurrId );
+  RETURN createARCreditMemo(pId, pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, NULL, pCurrId, NULL );
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER, INTEGER) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER, INTEGER) RETURNS INTEGER AS $$
+DECLARE
+  pCustid ALIAS FOR $1;
+  pDocNumber ALIAS FOR $2;
+  pOrderNumber ALIAS FOR $3;
+  pDocDate ALIAS FOR $4;
+  pAmount ALIAS FOR $5;
+  pNotes ALIAS FOR $6;
+  pRsncodeid ALIAS FOR $7;
+  pSalescatid ALIAS FOR $8;
+  pAccntid ALIAS FOR $9;
+  pDueDate ALIAS FOR $10;
+  pTermsid ALIAS FOR $11;
+  pSalesrepid ALIAS FOR $12;
+  pCommissiondue ALIAS FOR $13;
+  pJournalNumber ALIAS FOR $14;
+  pCurrId ALIAS FOR $15;
+
+BEGIN
+  RETURN createARCreditMemo(NULL, pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, pJournalNumber, pCurrId, NULL );
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
+DECLARE
+  pCustid ALIAS FOR $1;
+  pDocNumber ALIAS FOR $2;
+  pOrderNumber ALIAS FOR $3;
+  pDocDate ALIAS FOR $4;
+  pAmount ALIAS FOR $5;
+  pNotes ALIAS FOR $6;
+  pRsncodeid ALIAS FOR $7;
+  pSalescatid ALIAS FOR $8;
+  pAccntid ALIAS FOR $9;
+  pDueDate ALIAS FOR $10;
+  pTermsid ALIAS FOR $11;
+  pSalesrepid ALIAS FOR $12;
+  pCommissiondue ALIAS FOR $13;
+  pJournalNumber ALIAS FOR $14;
+  pCurrId ALIAS FOR $15;
+  pARAccntId ALIAS FOR $16;
+
+BEGIN
+  RETURN createARCreditMemo(NULL, pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, pJournalNumber, pCurrId, pARAccntId );
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pId ALIAS FOR $1;
   pCustid ALIAS FOR $2;
@@ -127,6 +174,7 @@ DECLARE
   pCommissiondue ALIAS FOR $14;
   pJournalNumber ALIAS FOR $15;
   pCurrId ALIAS FOR $16;
+  pARAccntid ALIAS FOR $17;
   _custName TEXT;
   _arAccntid INTEGER;
   _prepaidAccntid INTEGER;
@@ -148,7 +196,8 @@ BEGIN
     RETURN 0;
   END IF;
 
-  SELECT findARAccount(pCustid) INTO _arAccntid;
+  _arAccntid := COALESCE(pARAccntid, findARAccount(pCustid));
+--  SELECT findARAccount(pCustid) INTO _arAccntid;
   SELECT findPrepaidAccount(pCustid) INTO _prepaidAccntid;
 
   _accntid := pAccntid;
