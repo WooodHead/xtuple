@@ -1,0 +1,45 @@
+-- Group: timePhasedSalesByCustomer
+-- Name: detail
+-- Notes: used by dspTimePhasedSalesByCustomerGroup,dspTimePhasedSalesByCustomer, dspTimePhasedSalesByCustomerByItem
+
+SELECT cust_id, cust_number, cust_name
+<? foreach("period_list") ?>
+  <? if exists("prodcat_id") ?>
+       , shipmentsByCustomerValue(cust_id, <? value("period_list") ?>, <? value("prodcat_id") ?>)
+       AS bucket_<? literal("period_list") ?>,
+       'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole,
+       0 AS bucket_<? literal("period_list") ?>_xttotalrole
+  <? elseif exists("prodcat_pattern") ?>
+       , shipmentsByCustomerValue(cust_id, <? value("period_list") ?>, <? value("prodcat_pattern") ?>)
+       AS bucket_<? literal("period_list") ?>,
+      'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole,
+      0 AS bucket_<? literal("period_list") ?>_xttotalrole
+  <? else ?>
+      , shipmentsByCustomerValue(cust_id, <? value("period_list") ?>)
+      AS bucket_<? literal("period_list") ?>,
+      'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole,
+      0 AS bucket_<? literal("period_list") ?>_xttotalrole
+  <? endif ?>
+<? endforeach ?>
+
+<? if exists("byCustomerGroup") ?>
+FROM cust, custgrp, custgrpitem
+WHERE ( (custgrpitem_cust_id=cust_id)
+    AND (custgrpitem_custgrp_id=custgrp_id)
+  <? if exists("custgrp_id") ?>
+    AND (custgrp_id=<? value("custgrp_id") ?>)
+  <? elseif exists("custgrp_pattern") ?>
+    AND (custgrp_name ~ <? value("custgrp_pattern") ?>)
+  <? endif ?>
+      )
+<? else ?>
+FROM cust
+  <? if exists("custtype_id") ?>
+WHERE (cust_custtype_id=<? value("custtype_id") ?>)
+  <? elseif exists("custtype_pattern") ?>
+WHERE (cust_custtype_id IN (SELECT custtype_id
+                            FROM custtype
+                            WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
+  <? endif ?>
+<? endif ?>
+ORDER BY cust_number;
