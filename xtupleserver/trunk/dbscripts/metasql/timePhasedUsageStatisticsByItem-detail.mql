@@ -1,0 +1,22 @@
+-- Group: timePhasedUsageStatisticsByItem
+-- Name: detail
+-- Notes: used by dspTimePhasedUsageStatisticsByItem
+
+SELECT itemsite_id, warehous_code
+     <? foreach("period_list") ?>
+       , summTransR(itemsite_id, <? value("period_list") ?>) AS r_bucket_<? literal("period_list") ?>,
+       summTransI(itemsite_id, <? value("period_list") ?>) AS i_bucket_<? literal("period_list") ?>,
+       summTransS(itemsite_id, <? value("period_list") ?>) AS s_bucket_<? literal("period_list") ?>,
+       summTransC(itemsite_id, <? value("period_list") ?>) AS c_bucket_<? literal("period_list") ?>,
+       summTransA(itemsite_id, <? value("period_list") ?>) AS a_bucket_<? literal("period_list") ?>
+     <? endforeach ?>
+FROM itemsite, warehous
+WHERE ((itemsite_warehous_id=warehous_id)
+<? if exists("item_id") ?>
+   AND (itemsite_item_id=<? value("item_id") ?>)
+<? endif ?>
+<? if exists("warehous_id") ?>
+   AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+<? endif ?>
+      )
+ORDER BY warehous_code;
