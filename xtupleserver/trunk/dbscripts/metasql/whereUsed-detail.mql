@@ -50,7 +50,7 @@ FROM item, uom,
 WHERE ((item_inv_uom_id=uom_id)
         <? if exists("byIndented") ?>
           AND (bomwork_item_id=item_id)
-          AND (bomwork_set_id=<? value("bomwork_set_id") ?>)
+          AND (bomwork_set_id=<? value("bomworkset_id") ?>)
           <? if not exists("showExpired") ?>
             AND (bomwork_expires > CURRENT_DATE)
           <? endif ?>
