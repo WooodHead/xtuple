@@ -9,13 +9,13 @@ AS
      item_number::varchar AS item_number,
      warehous_code::varchar AS site,
      itemsite_active AS active,
-     itemsite_dropship AS dropship,
-     itemsite_posupply AS po_supplied_at_site,
-     itemsite_createpr AS create_prs,
      itemsite_wosupply AS wo_supplied_at_site,
      itemsite_createwo AS create_wos,
+     itemsite_posupply AS po_supplied_at_site,
+     itemsite_createpr AS create_prs,
      itemsite_createsopr AS create_soprs,
      itemsite_createsopo AS create_sopos,
+     itemsite_dropship AS dropship,
      itemsite_sold AS sold_from_site,
      itemsite_soldranking AS ranking,
      CASE
@@ -40,16 +40,16 @@ AS
      END AS control_method,
      plancode_code AS planner_code,
      costcat_code AS cost_category,
-     itemsite_loccntrl AS multiple_location_control,
-     formatlocationname(itemsite_location_id) AS location,
-     itemsite_location AS user_defined_location,
-     itemsite_location_comments AS location_comment,
-     itemsite_disallowblankwip AS disallow_blank_wip_locations,
      itemsite_stocked AS stocked,
      itemsite_abcclass AS abc_class,
      itemsite_autoabcclass AS allow_automatic_updates,
      itemsite_cyclecountfreq AS cycl_cnt_freq,
      itemsite_eventfence AS event_fence,
+     itemsite_loccntrl AS multiple_location_control,
+     formatlocationname(itemsite_location_id) AS location,
+     itemsite_location AS user_defined_location,
+     itemsite_location_comments AS location_comment,
+     itemsite_disallowblankwip AS disallow_blank_wip_locations,
      itemsite_useparams AS enforce_order_parameters,
      itemsite_reorderlevel AS reorder_level,
      itemsite_ordertoqty AS order_up_to,
@@ -70,6 +70,9 @@ AS
      itemsite_mps_timefence AS mps_time_fence,
      itemsite_leadtime AS lead_time,
      itemsite_safetystock AS safety_stock,
+     COALESCE( (SELECT warehous_code
+                FROM itemsite supplysite JOIN warehous ON (warehous_id=supplysite.itemsite_warehous_id)
+                WHERE supplysite.itemsite_id=itemsite.itemsite_supply_itemsite_id), 'None') AS supplied_from_site,
      itemsite_notes AS notes,
      itemsite_perishable AS perishable,
      itemsite_warrpurc AS require_warranty,
@@ -130,6 +133,7 @@ INSERT INTO itemsite (
      itemsite_mps_timefence,
      itemsite_leadtime,
      itemsite_safetystock,
+     itemsite_supply_itemsite_id,
      itemsite_notes,
      itemsite_qtyonhand,
      itemsite_warrpurc,
@@ -195,6 +199,14 @@ INSERT INTO itemsite (
        COALESCE(NEW.mps_time_fence,0),
        COALESCE(NEW.lead_time,0),
        COALESCE(NEW.safety_stock,0),
+       CASE
+         WHEN NEW.supplied_from_site = 'None' THEN
+           NULL
+         WHEN NEW.supplied_from_site = '' THEN
+           NULL
+         ELSE
+           getItemsiteId(NEW.supplied_from_site, NEW.item_number)
+       END,
        COALESCE(NEW.notes,''),
        0,
        COALESCE(NEW.require_warranty,FALSE),
@@ -277,6 +289,15 @@ UPDATE itemsite SET
      itemsite_mps_timefence=NEW.mps_time_fence,
      itemsite_leadtime=NEW.lead_time,
      itemsite_safetystock=NEW.safety_stock,
+     itemsite_supply_itemsite_id=
+       CASE
+         WHEN NEW.supplied_from_site = 'None' THEN
+           NULL
+         WHEN NEW.supplied_from_site = '' THEN
+           NULL
+         ELSE
+           getItemsiteId(NEW.supplied_from_site, NEW.item_number)
+       END,
      itemsite_notes=NEW.notes,
      itemsite_warrpurc=NEW.require_warranty,
      itemsite_autoreg=NEW.auto_register,
