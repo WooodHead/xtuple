@@ -4,9 +4,9 @@
 SELECT item_id, item_number, (item_descrip1 || ' ' || item_descrip2) AS descrip,
 <? if exists("byCharacteristic") ?>
        char_name, charass_value,
-<? elseif exists("byClassCode") ?>
-       classcode_code,
 <? endif ?>
+       classcode_code,
+       prodcat_code,
        item_type AS type,
        CASE WHEN (item_type='P') THEN <? value("purchased") ?>
             WHEN (item_type='M') THEN <? value("manufactured") ?>
@@ -28,24 +28,24 @@ FROM item JOIN uom ON (item_inv_uom_id=uom_id)
 <? if exists("byCharacteristic") ?>
      JOIN charass ON (charass_target_type='I' AND charass_target_id=item_id)
      JOIN char    ON (charass_char_id=char_id)
-<? elseif exists("byClassCode") ?>
-     JOIN classcode ON (item_classcode_id=classcode_id)
 <? endif ?>
+     LEFT OUTER JOIN classcode ON (item_classcode_id=classcode_id)
+     LEFT OUTER JOIN prodcat ON (item_prodcat_id=prodcat_id)
 WHERE (true
 <? if exists("sold") ?>
   AND item_sold
 <? endif ?>
 <? if exists("prodcat_id") ?>
-  AND (item_prodcat_id=<? value("prodcat_id") ?>)
+  AND (prodcat_id=<? value("prodcat_id") ?>)
 <? elseif exists("prodcat_pattern") ?>
-  AND (item_prodcat_id IN (SELECT prodcat_id
-                           FROM prodcat
-                           WHERE (prodcat_code ~ <? value("prodcat_pattern") ?>)))
-<? elseif exists("classcode_id") ?>
+  AND (COALESCE(prodcat_code,'') ~ <? value("prodcat_pattern") ?>)
+<? endif ?>
+<? if exists("classcode_id") ?>
   AND (classcode_id=<? value("classcode_id") ?>)
 <? elseif exists("classcode_pattern") ?>
   AND (classcode_code ~ <? value("classcode_pattern") ?>)
-<? elseif exists("char_id") ?>
+<? endif ?>
+<? if exists("char_id") ?>
   AND (char_id=<? value("char_id") ?>)
   <? if exists("value") ?>
   AND (charass_value ~* <? value("value") ?>)
