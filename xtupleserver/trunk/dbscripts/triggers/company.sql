@@ -14,7 +14,6 @@ BEGIN
                   UNION SELECT DISTINCT araccnt_deferred_accnt_id FROM araccnt
                   UNION SELECT DISTINCT araccnt_freight_accnt_id FROM araccnt
                   UNION SELECT DISTINCT araccnt_prepaid_accnt_id FROM araccnt
-                  UNION SELECT DISTINCT armemo_accnt_id FROM armemo
                   UNION SELECT DISTINCT aropen_accnt_id FROM aropen
                   UNION SELECT DISTINCT bankaccnt_accnt_id FROM bankaccnt
                   UNION SELECT DISTINCT bankaccnt_rec_accnt_id FROM bankaccnt
