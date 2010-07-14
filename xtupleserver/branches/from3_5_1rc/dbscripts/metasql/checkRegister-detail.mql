@@ -29,13 +29,6 @@ SELECT checkhead_id AS checkid,
        'curr' AS base_amount_xtnumericrole,
        NULL AS checkhead_void_qtdisplayrole,    NULL AS checkhead_misc_qtdisplayrole,
        NULL AS checkhead_printed_qtdisplayrole, NULL AS checkhead_posted_qtdisplayrole,
-       <? if exists("showTotal") ?>
-         CASE WHEN NOT checkhead_void THEN 0 ELSE 1 END AS amount_xttotalrole,
-         CASE WHEN NOT checkhead_void THEN 0 ELSE 1 END AS base_amount_xttotalrole,
-       <? else ?>
-         'curr' AS amount_xttotalrole,
-         'curr' AS base_amount_xttotalrole,
-       <? endif ?>
        0 AS xtindentrole
   FROM checkhead LEFT OUTER JOIN
        checkrecip ON ((checkhead_recip_id=checkrecip_id)
@@ -99,13 +92,6 @@ SELECT checkitem_checkhead_id AS checkid, 0 AS extra, checkitem_id,
        'curr' AS base_amount_xtnumericrole,
        '' AS checkhead_void_qtdisplayrole,    '' AS checkhead_misc_qtdisplayrole,
        '' AS checkhead_printed_qtdisplayrole, '' AS checkhead_posted_qtdisplayrole,
-       <? if exists("showTotal") ?>
-         1 AS amount_xttotalrole,
-         1 AS base_amount_xttotalrole,
-       <? else ?>
-         'curr' AS amount_xttotalrole,
-         'curr' AS base_amount_xttotalrole,
-       <? endif ?>
        1 AS xtindentrole
   FROM checkitem, checkhead 
  WHERE ((checkitem_checkhead_id=checkhead_id)
