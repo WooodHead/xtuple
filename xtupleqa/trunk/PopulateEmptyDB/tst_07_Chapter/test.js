@@ -12,10 +12,12 @@ function main()
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Purchase...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Purchase...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Purchase", 10, 10, 0, Qt.LeftButton);
+        waitForObject(":Configure.Purchase_QModelIndex");
+        mouseClick(":Configure.Purchase_QModelIndex", 32, 4, 0, Qt.LeftButton);
         waitForObject(":_orderNumGeneration_QComboBox");
         if(findObject(":_orderNumGeneration_QComboBox").currentText!="Automatic")
             clickItem(":_orderNumGeneration_QComboBox", "Automatic",0,0,1,Qt.LeftButton);
@@ -30,10 +32,10 @@ function main()
         type(":_nextPrNumber_XLineEdit", "<Ctrl+A>");
         type(":_nextPrNumber_XLineEdit", "<Del>");
         type(":_nextPrNumber_XLineEdit", "10000");
-        if(!findObject(":Default P/O Copies:.Vendor_QCheckBox").checked)
-            clickButton(":Default P/O Copies:.Vendor_QCheckBox");
-        if(findObject(":Default P/O Copies:.Internal_QCheckBox").checked)
-            clickButton(":Default P/O Copies:.Internal_QCheckBox");
+        if(!findObject(":Default Purchase Order Copies:.Vendor_QCheckBox").checked)
+            clickButton(":Default Purchase Order Copies:.Vendor_QCheckBox");
+        if(findObject(":Default Purchase Order Copies:.Internal_QCheckBox").checked)
+            clickButton(":Default Purchase Order Copies:.Internal_QCheckBox");
      if(!findObject(":Purchase Configuration.Post Purchase Order Changes to the Change Log_QCheckBox"))
             clickButton(":Purchase Configuration.Post Purchase Order Changes to the Change Log_QCheckBox");
         if(!findObject(":Purchase Configuration.Post Vendor Changes to the Change Log_QCheckBox"))
@@ -47,18 +49,21 @@ function main()
         type(":_defaultShipVia_XLineEdit", "<Ctrl+A>");    
         type(":_defaultShipVia_XLineEdit", "<Del>");
         type(":_defaultShipVia_XLineEdit", "UPS Account 1234567");
-        clickButton(":Purchase Configuration.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         test.log("Purchase Module Configured");
     }catch(e){test.fail("Exception in configuring Product Module:"+e);}
-  
-  //-------------Configure: Inventory Module---------------------
+    
+    //-------------Configure: Inventory Module---------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        waitForObject(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu");
-        activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Inventory", 76, 6, 0, Qt.LeftButton);
+        waitForObject(":Configure.Inventory_QModelIndex");
+         mouseClick(":Configure.Inventory_QModelIndex", 42, 8, 0, Qt.LeftButton);
         waitForObject(":Inventory Configuration.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Inventory Configuration.qt_tabwidget_tabbar_QTabBar", "Shipping and Receiving");
         waitForObject(":_nextShipmentNum_XLineEdit");
@@ -72,8 +77,7 @@ function main()
         type(":_tolerance_QLineEdit", "5");
         findObject(":_shipformNumOfCopies_QSpinBox").clear();
         type(":_shipformNumOfCopies_QSpinBox", "2");
-        snooze(1);
-        waitForObject(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget");
+        snooze(2);
         doubleClickItem(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget", "Copy #1",5,5,0,Qt.LeftButton);
         waitForObject(":Invoice/Credit Memo Watermark._watermark_XLineEdit");
         type(":Invoice/Credit Memo Watermark._watermark_XLineEdit", "Customer");
@@ -88,62 +92,70 @@ function main()
             clickButton(":Invoice/Credit Memo Watermark.Show Prices_QCheckBox");
         clickButton(":Invoice/Credit Memo Watermark.Save_QPushButton");
         
-        waitForObject(":Inventory Configuration.Save_QPushButton");
-        clickButton(":Inventory Configuration.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         test.log("Inventory Module configured");
     }catch(e){test.log("Exception in configuring Inventory module:"+e)}
-    
+  
     //---------Configure: Accounting-Account Payble---------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Accounting", 75, 11, 0, Qt.LeftButton);
+        waitForObject(":Configure.Accounting_QModelIndex");
+        mouseClick(":Configure.Accounting_QModelIndex", 53, 7, 0, Qt.LeftButton);
         waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
         waitForObject(":_nextAPMemoNumber_XLineEdit");
         type(":_nextAPMemoNumber_XLineEdit", "<Ctrl>");
         type(":_nextAPMemoNumber_XLineEdit", "<Del>");
         type(":_nextAPMemoNumber_XLineEdit", "39000");
-        clickButton(":Accounting Configuration.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         test.log("Account-Accounts Payable configured");
     }catch(e){test.fail("Exception in configuring Accounting"+e);}
-    
-    
+  
+  
     //----------Define Vendor types--------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Vendor");
-        activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Vendor");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Vendor_QMenu", "Types...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Vendor_QMenu", "Types...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Purchase", 76, 8, 0, Qt.LeftButton);
+        waitForObject(":Master Information.Vendor Types_QModelIndex");
+        mouseClick(":Master Information.Vendor Types_QModelIndex", 41, 6, 0, Qt.LeftButton);
         waitForObject(":List Vendor Types.New_QPushButton");
         clickButton(":List Vendor Types.New_QPushButton");
         waitForObject(":_code_XLineEdit_8");
         type(":_code_XLineEdit_8", "STANDARD");
         type(":_description_XLineEdit_18", "Standard Vendor");
-        clickButton(":Vendor Type.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Vendor Types._vendtype_XTreeWidget");
         if(object.exists(":_vendtype.STANDARD_QModelIndex"))
             test.pass("Vendor Types Created: STANDARD");
         else test.fail("Vendor Types not Created: STANDARD");
         
-        waitForObject(":List Vendor Types.Close_QPushButton");
-        clickButton(":List Vendor Types.Close_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in Defining Vendor types:"+e);}
-    
+  
     
     //---------Purchase: define Terms--------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Terms...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Terms...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Purchase", 76, 8, 0, Qt.LeftButton);
+        waitForObject(":Master Information.Terms_QModelIndex");
+        mouseClick(":Master Information.Terms_QModelIndex", 15, 4, 0, Qt.LeftButton);
         
         waitForObject(":List Terms.New_QPushButton");
         clickButton(":List Terms.New_QPushButton");
@@ -152,10 +164,10 @@ function main()
         type(":_description_XLineEdit_19", "2% Discount in 10 Days - Net 30 Days");
         if(!findObject(":_typeGroup.Days_QRadioButton").checked)
             clickButton(":_typeGroup.Days_QRadioButton");
-        if(!findObject(":Terms.Used in A/P_QCheckBox").checked)
-            clickButton(":Terms.Used in A/P_QCheckBox");
-        if(!findObject(":Terms.Used in A/R_QCheckBox").checked)
-            clickButton(":Terms.Used in A/R_QCheckBox");
+        if(!findObject(":_stack.Used in Payables_QCheckBox").checked)
+            clickButton(":_stack.Used in Payables_QCheckBox");
+        if(!findObject(":_stack.Used in Receivables_QCheckBox").checked)
+            clickButton(":_stack.Used in Receivables_QCheckBox");
         type(":_dueDays_QSpinBox", "<Ctrl+A>");
         type(":_dueDays_QSpinBox", "<Del>");
         type(":_dueDays_QSpinBox", "30");
@@ -165,33 +177,35 @@ function main()
         type(":_discountPercent_XLineEdit", "<Ctrl+A>");
         type(":_discountPercent_XLineEdit", "<Del>");
         type(":_discountPercent_XLineEdit", "2");
-        waitForObject(":Terms.Save_QPushButton");
-        clickButton(":Terms.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Terms._terms_XTreeWidget");
         if(object.exists(":_terms.2-10N30_QModelIndex"))
             test.pass("Terms Created: 2-10N30");
         else test.fail("Terms not created: 2-10N30");
-        waitForObject(":List Terms.Close_QPushButton");
-        clickButton(":List Terms.Close_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Terms"+e);}
     
     //-------------Define: Reject Codes-----------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Reject Codes...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Reject Codes...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Purchase", 76, 8, 0, Qt.LeftButton);
+        waitForObject(":Master Information.Reject Codes_QModelIndex");
+        mouseClick(":Master Information.Reject Codes_QModelIndex", 55, 4, 0, Qt.LeftButton);
+    
         
         waitForObject(":List Reject Codes.New_QPushButton");
         clickButton(":List Reject Codes.New_QPushButton");
         waitForObject(":_code_XLineEdit_10");
         type(":_code_XLineEdit_10", "PO-DAMAGED-RETURNED");
         type(":_description_XLineEdit_20", "Damaged Purchased Material - Returned");
-        waitForObject(":Reject Code.Save_QPushButton");
-    
-        clickButton(":Reject Code.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Reject Codes._rjctcode_XTreeWidget");
         if(object.exists(":_rjctcode.PO-DAMAGED-RETURNED_QModelIndex"))
             test.pass("Reject Codes Created: PO-DAMAGED-RETURNED");
@@ -203,22 +217,24 @@ function main()
         waitForObject(":_code_XLineEdit_10");
         type(":_code_XLineEdit_10", "PO-WRONG-RETURNED");
         type(":_description_XLineEdit_20", "Wrong Purchased Product - Returned");
-        waitForObject(":Reject Code.Save_QPushButton");
-        clickButton(":Reject Code.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Reject Codes._rjctcode_XTreeWidget");
         if(object.exists(":_rjctcode.PO-WRONG-RETURNED_QModelIndex"))
             test.pass("Reject Codes Created: PO-WRONG-RETURNED");
         else test.fail("Reject Codes Created: PO-WRONG-RETURNED");
         
-        waitForObject(":List Reject Codes.Close_QPushButton");
-        clickButton(":List Reject Codes.Close_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Reject codes:"+e);}
     
     
     //-----------Chart Of Accounts-------------------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
@@ -239,37 +255,43 @@ function main()
     
     //----------Purchase: A/P Account Assignments-----------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "A/P Account Assignments...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "A/P Account Assignments...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Purchase", 76, 8, 0, Qt.LeftButton);
+        waitForObject(":Accounting Mappings.Payables Assignments_QModelIndex");
+        mouseClick(":Accounting Mappings.Payables Assignments_QModelIndex", 89, 6, 0, Qt.LeftButton);
         
-        waitForObject(":List A/P Account Assignments.New_QPushButton");
-        clickButton(":List A/P Account Assignments.New_QPushButton");
-        waitForObject(":_vendorTypeGroup.All Vendor Types:_QRadioButton");
-        clickButton(":_vendorTypeGroup.All Vendor Types:_QRadioButton");
-        type(":A/P Account Assignment._main_XLineEdit", "01-01-2000-01");
-        type(":A/P Account Assignment._main_XLineEdit_2", "01-01-1400-01");
-        type(":A/P Account Assignment._main_XLineEdit_3", "01-01-4900-01");
-        type(":A/P Account Assignment._main_XLineEdit_3", "<Tab>");
-        clickButton(":A/P Account Assignment.Save_QPushButton");
-        waitForObject(":List A/P Account Assignments._apaccnt_XTreeWidget");
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+        waitForObject(":_vendorTypeGroup.All Vendor Types:_QRadioButton_2");
+        clickButton(":_vendorTypeGroup.All Vendor Types:_QRadioButton_2");
+        type(":_stack._main_XLineEdit", "01-01-2000-01");
+        type(":_stack._main_XLineEdit_2", "01-01-1400-01");
+        type(":_stack._main_XLineEdit_3", "01-01-4900-01");
+        type(":_stack._main_XLineEdit_3", "<Tab>");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         
-       if(object.exists(":_apaccnt.All_QModelIndex"))
+        waitForObject(":_stack._apaccnt_XTreeWidget");
+        
+       if(object.exists(":_apaccnt.All_QModelIndex_2"))
             test.pass("Accounts(A/P) Assignment created for: All");
        else test.fail("Accounts(A/P) Assignment not created for: All");
         
-        waitForObject(":List A/P Account Assignments.Close_QPushButton");
-        clickButton(":List A/P Account Assignments.Close_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         
     }catch(e){test.fail("Exception in Assigning Accounts:"+e);}
 
     //--------------Create new Vendor-------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Purchase");
+        activateItem(":_QMenu", "Purchase");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Vendor");
         activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Vendor");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Vendor_QMenu", "List...");
@@ -325,8 +347,10 @@ function main()
     
     //------------Create Item Sources------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Purchase");
+        activateItem(":_QMenu", "Purchase");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
         activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
@@ -428,21 +452,12 @@ function main()
          if(object.exists("{column='0' container=':_frame._itemsrc_XTreeWidget' text='TBODY1' type='QModelIndex'}"))
             test.pass("Item Source created for: TBODY1");
          else test.fail("Item source not created for TBODY1");
-          waitForObject(":List Item Sources.Close_QPushButton");
-        clickButton(":List Item Sources.Close_QPushButton");
     }catch(e){test.fail("Exception in defining Item sources for TBODY1:"+e);}
     
-       
+    
     
     //----Item source for TINSERT1--------------
     try{
-        
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-        activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
         waitForObject(":_frame.New_QPushButton");
         clickButton(":_frame.New_QPushButton");
         waitForObject(":List Item Sources...._QPushButton");
@@ -526,18 +541,10 @@ function main()
           if(object.exists("{column='0' container=':_frame._itemsrc_XTreeWidget' text='TWHEEL1' type='QModelIndex'}"))
             test.pass("Item Source created for: TWHEEL1");
           else test.fail("Item Source not created for: TWHEEL1");
-           waitForObject(":List Item Sources.Close_QPushButton");
-        clickButton(":List Item Sources.Close_QPushButton");
     }catch(e){test.fail("Exception in defining Item sources for TWHEEL1:"+e);}
 
     //----Item source for YPAINT1--------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-        activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
         waitForObject(":_frame.New_QPushButton");
         clickButton(":_frame.New_QPushButton");
        waitForObject(":List Item Sources...._QPushButton");

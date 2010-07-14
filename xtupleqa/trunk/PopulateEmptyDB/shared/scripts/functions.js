@@ -1,6 +1,6 @@
 //-***-This script doc contains all the common code libraries/functions required by the Main driver script-***-
 
-var iNumberOfModules=10;
+var iNumberOfModules=12;
 
 //--------Login into Appl----------
 function loginAppl(userrole)
@@ -56,33 +56,31 @@ function loginAppl(userrole)
     type(":_password_QLineEdit", "<Return>");
     test.log("Logged in Application");
     
-    
-    
-    // handle the app waiting for user to ack "The Translation Dictionaries [ are missing ]"
-    try {
-        waitForObject(":xTuple ERP: OpenMFG Edition_QWorkspace");
-    } catch (e) {
-        try {
-            waitForObject(":OK_QPushButton");
-            clickButton(":OK_QPushButton");
-            waitForObject(":xTuple ERP: OpenMFG Edition_QWorkspace");
-        } catch (f) { throw e; } // if not a simple dialog, throw the original exception
-    }
 }
 
 function findApplicationEdition()
 {
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-    snooze(0.1);
-    waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu");
-    activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
-    snooze(1);
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+    if(findObject(":Setup._tree_XTreeWidget").itemsExpandable==true)
+    {
+        waitForObject(":Configure.Database_QModelIndex");
+        mouseClick(":Configure.Database_QModelIndex", 35, 9, 0, Qt.LeftButton);
+    }
+    else
+    {
+        waitForObject(":_tree.Configure_QModelIndex");
+        mouseClick(":_tree.Configure_QModelIndex", -11, 6, 0, Qt.LeftButton);
+        waitForObject(":Configure.Database_QModelIndex");
+        mouseClick(":Configure.Database_QModelIndex", 35, 9, 0, Qt.LeftButton); 
+    }
+    
     waitForObject(":Database Information.*_QLabel");
     var appEdition = findObject(":Database Information.*_QLabel").text;
-    clickButton(":Database Information.Save_QPushButton");
+    waitForObject(":xTuple ERP: *_QPushButton");
+    clickButton(":xTuple ERP: *_QPushButton");
     test.log("Application Edition: " + appEdition);
     
     return appEdition;
@@ -116,7 +114,7 @@ function assignAllPrivileges(userrole)
     clickButton(":List Users.Edit_QPushButton_2");
     waitForObject(":_privTab.Add All->>_QPushButton_2");   
     clickButton(":_privTab.Add All->>_QPushButton_2");   
-    var iNumberOfModules=11;
+    var iNumberOfModules=12;
     for(i=0;i<iNumberOfModules;i++)
     {
         waitForObject(":_module_XComboBox_2");
@@ -130,7 +128,6 @@ function assignAllPrivileges(userrole)
     clickButton(":List Users.Close_QPushButton_2");
     test.log("Admin User assigned with all Privileges");
     
-    snooze(2);
     //---Restarting Application--
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -151,34 +148,43 @@ function assignAllPrivileges(userrole)
     
 }
 
-
-
 //--------------Create New Dept----------------------
 function createDept(DeptNum, DeptName)
 {
     try
     {
+        
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Departments...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Departments...");
-        waitForObject(":List Departments.New_QPushButton");
-        clickButton(":List Departments.New_QPushButton");
-        waitForObject(":List Departments._number_XLineEdit");
-        type(":List Departments._number_XLineEdit", DeptNum);
-        waitForObject(":List Departments._name_XLineEdit");
-        type(":List Departments._name_XLineEdit", DeptName);
-        waitForObject(":List Departments.Save_QPushButton");
-        clickButton(":List Departments.Save_QPushButton");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        if(findObject(":Setup._tree_XTreeWidget").itemsExpandable==true)
+        {
+            waitForObject(":Master Information.Departments_QModelIndex");
+            mouseClick(":Master Information.Departments_QModelIndex", 35, 9, 0, Qt.LeftButton);
+        }
+        else
+        {
+            waitForObject(":_tree.Master Information_QModelIndex");
+            mouseClick(":_tree.Master Information_QModelIndex", -11, 6, 0, Qt.LeftButton);
+            waitForObject(":Master Information.Departments_QModelIndex");
+            mouseClick(":Master Information.Departments_QModelIndex", 35, 9, 0, Qt.LeftButton); 
+        }
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+        waitForObject(":_stack._number_XLineEdit");
+        type(":_stack._number_XLineEdit", DeptNum);
+        waitForObject(":_stack._name_XLineEdit");
+        type(":_stack._name_XLineEdit", DeptName);
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");
         test.log("New Department:"+ DeptNum + " created");
-        waitForObject(":List Departments.Close_QPushButton");
-        clickButton(":List Departments.Close_QPushButton");
     }
     catch(e)
-    {test.fail("Department:"+DeptName+" not created:"+e);}
-    
+    {
+        test.fail("Department:"+DeptName+" not created:"+e);}
 }
 
 
@@ -221,86 +227,101 @@ function createShift(ShiftNum, ShiftName)
 function createLocale(LocaleCode,LocaleDesc)
 {  
     try{
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu","Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Locales...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Locales...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Master Information.Locales_QModelIndex");
+        mouseClick(":Master Information.Locales_QModelIndex", 35, 9, 0, Qt.LeftButton);
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+        waitForObject(":Work Center._code_XLineEdit");
+        type(":Work Center._code_XLineEdit", LocaleCode);
+        waitForObject(":Work Center._description_XLineEdit");
+        type(":Work Center._description_XLineEdit",  LocaleDesc);    
         
-        waitForObject(":List Locales.New_QPushButton");
-        clickButton(":List Locales.New_QPushButton");
-        waitForObject(":_code_XLineEdit");
-        type(":_code_XLineEdit", LocaleCode);
-        type(":_description_XLineEdit", LocaleDesc);   
         snooze(0.5);
-        waitForObject(":_language_XComboBox");
-        clickItem(":_language_XComboBox", "English",0,0,1,Qt.LeftButton);
+        waitForObject(":_language_XComboBox_2");
+        clickItem(":_language_XComboBox_2", "English",0,0,1,Qt.LeftButton);
         snooze(0.5);
-        waitForObject(":_country_XComboBox");
-        clickItem(":_country_XComboBox", "United States",0,0,1,Qt.LeftButton);	
+        waitForObject(":_country_XComboBox_2");
+        clickItem(":_country_XComboBox_2", "United States",0,0,1,Qt.LeftButton);	
         
-        waitForObject(":_currencyScale_QSpinBox");
-        if(findObject(":_currencyScale_QSpinBox").text!=2)
+        waitForObject(":_currencyScale_QSpinBox_2");
+        if(findObject(":_currencyScale_QSpinBox_2").text!=2)
         {
-            findObject(":_currencyScale_QSpinBox").clear();
-            type(":_currencyScale_QSpinBox","2");
+            findObject(":_currencyScale_QSpinBox_2").clear();
+            type(":_currencyScale_QSpinBox_2","2");
         }
-        if(findObject(":_salesPriceScale_QSpinBox").text!=2)
+        if(findObject(":_salesPriceScale_QSpinBox_2").text!=2)
         { 
-            findObject(":_salesPriceScale_QSpinBox").clear();
-            type(":_salesPriceScale_QSpinBox", "2");
+            findObject(":_salesPriceScale_QSpinBox_2").clear();
+            type(":_salesPriceScale_QSpinBox_2", "2");
         }
-        if(findObject(":_purchPriceScale_QSpinBox").text!=2)
+        if(findObject(":_purchPriceScale_QSpinBox_2").text!=2)
         {     
-            findObject(":_purchPriceScale_QSpinBox").clear();
-            type(":_purchPriceScale_QSpinBox", "2");
+            findObject(":_purchPriceScale_QSpinBox_2").clear();
+            type(":_purchPriceScale_QSpinBox_2", "2");
         }
-        if(findObject(":_extPriceScale_QSpinBox").text!=2)
+        if(findObject(":_extPriceScale_QSpinBox_2").text!=2)
         { 
-            findObject(":_extPriceScale_QSpinBox").clear();
-            type(":_extPriceScale_QSpinBox", "2");
+            findObject(":_extPriceScale_QSpinBox_2").clear();
+            type(":_extPriceScale_QSpinBox_2", "2");
         }
-        if(findObject(":_costScale_QSpinBox").text!=2)
+        if(findObject(":_costScale_QSpinBox_2").text!=2)
         { 
-            findObject(":_costScale_QSpinBox").clear();
-            type(":_costScale_QSpinBox", "2");
+            findObject(":_costScale_QSpinBox_2").clear();
+            type(":_costScale_QSpinBox_2", "2");
         }
-        if(findObject(":_qtyScale_QSpinBox").text!=2)
+        if(findObject(":_qtyScale_QSpinBox_2").text!=2)
         { 
-            findObject(":_qtyScale_QSpinBox").clear();
-            type(":_qtyScale_QSpinBox", "2");
+            findObject(":_qtyScale_QSpinBox_2").clear();
+            type(":_qtyScale_QSpinBox_2", "2");
         }
-        if(findObject(":_qtyPerScale_QSpinBox").text!=6)
+        if(findObject(":_qtyPerScale_QSpinBox_2").text!=6)
         { 
-            findObject(":_qtyPerScale_QSpinBox").clear();
-            type(":_qtyPerScale_QSpinBox", "6");
+            findObject(":_qtyPerScale_QSpinBox_2").clear();
+            type(":_qtyPerScale_QSpinBox_2", "6");
         }
-        if(findObject(":_uomRatioScale_QSpinBox").text!=6)
+        if(findObject(":_uomRatioScale_QSpinBox_2").text!=6)
         { 
-            findObject(":_uomRatioScale_QSpinBox").clear();
-            type(":_uomRatioScale_QSpinBox", "6");
+            findObject(":_uomRatioScale_QSpinBox_2").clear();
+            type(":_uomRatioScale_QSpinBox_2", "6");
         }
-        if(findObject(":List Locales.qt_spinbox_lineedit_QLineEdit_10").text!="2")
+        if(findObject(":_stack._percentScale_QSpinBox").text!="2")
         {
-            findObject(":List Locales.qt_spinbox_lineedit_QLineEdit_10").clear();
-            type(":List Locales.qt_spinbox_lineedit_QLineEdit_10","2");
+            findObject(":_stack._percentScale_QSpinBox").clear();
+            type(":_stack._percentScale_QSpinBox","2");
         }
-        type(":_error_QLineEdit", "red");
-        type(":_warning_QLineEdit", "orange");
-        type(":_emphasis_QLineEdit", "lime");
-        type(":_expired_QLineEdit", "gray");
-        type(":_alternate_QLineEdit", "blue");
-        type(":_future_QLineEdit", "green");
-        type(":_comments_QTextEdit", "My Locale for Class");
-        waitForObject(":List Locales.Save_QPushButton");
-        clickButton(":List Locales.Save_QPushButton");
-        waitForObject(":List Locales._locale_XTreeWidget");
-        if(!clickItem(":List Locales._locale_XTreeWidget","MYLOCALE", 5, 5, 1, Qt.LeftButton))
+        type(":_error_QLineEdit_2", "red");
+        type(":_warning_QLineEdit_2", "orange");
+        type(":_emphasis_QLineEdit_2", "lime");
+        type(":_expired_QLineEdit_2", "gray");
+        type(":_alternate_QLineEdit_2", "blue");
+        type(":_future_QLineEdit_2", "green");
+        type(":_comments_QTextEdit_4", "My Locale for Class");
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");
+        waitForObject(":_stack._locale_XTreeWidget");
+        if(!clickItem(":_stack._locale_XTreeWidget","MYLOCALE", 5, 5, 1, Qt.LeftButton))
             test.pass("Locale created: MYLOCALE");
         
-        waitForObject(":List Locales.Close_QPushButton");
-        clickButton(":List Locales.Close_QPushButton");
+       clickItem(":_stack._locale_XTreeWidget","MYLOCALE", 5, 5, 1, Qt.LeftButton);
+       snooze(1);
+       waitForObject(":_stack.Edit_QPushButton");
+       clickButton(":_stack.Edit_QPushButton");
+       snooze(0.5);
+        if(findObject(":_stack._percentScale_QSpinBox").text!="2")
+        {
+            findObject(":_stack._percentScale_QSpinBox").clear();
+            type(":_stack._percentScale_QSpinBox","2");
+        }
+        
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");          
     }
     catch(e)
     {test.fail("Locale:"+LocaleCode+" not created:"+e);}
@@ -434,10 +455,6 @@ function createUserByRole(userrole)
         waitForObject(":_memberGroup._site_WComboBox");
         clickItem(":_memberGroup._site_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
         snooze(1);
-//        waitForObject(":_timeclockGroup.VirtualClusterLineEdit_DeptClusterLineEdit");
-//        type(":_timeclockGroup.VirtualClusterLineEdit_DeptClusterLineEdit", "MFG");
-//        waitForObject(":_timeclockGroup.VirtualClusterLineEdit_ShiftClusterLineEdit");
-//        type(":_timeclockGroup.VirtualClusterLineEdit_ShiftClusterLineEdit", "1ST");
         if(!findObject(":_relationshipsGroup._user_XCheckBox").checked)
             clickButton(":_relationshipsGroup._user_XCheckBox");
         waitForObject(":_relationshipsGroup.User..._QPushButton");
@@ -494,8 +511,10 @@ function createUserByRole(userrole)
 function createCompany(CompNum, CompDesc)
 {
     try{
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Companies...");
@@ -588,8 +607,10 @@ function IsLeapYear(datea)
 function defineTaxAuth(ta)
 {
     //------Define Tax Authorities-------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+    waitForObjectItem(":_QMenu", "Accounting");
+    activateItem(":_QMenu", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
     waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Authorities...");
@@ -630,8 +651,10 @@ function defineTaxCode(tc)
 {
     try{
         //----------Create: Tax Codes---------------
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Codes...");
@@ -655,8 +678,8 @@ function defineTaxCode(tc)
         waitForObject(":_rateGroup._percent_XLineEdit");
         type(":_rateGroup._percent_XLineEdit", "10");
         clickButton(":Tax Code Rate.Save_QPushButton");
-        waitForObject(":Tax Code.Save_QPushButton");
-        clickButton(":Tax Code.Save_QPushButton");
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");
     }
     catch(e){test.fail("exception caught in creating Tax Code");}
     
@@ -672,13 +695,13 @@ function defineTaxCode(tc)
         waitForObject(":_frame._taxitems_XTreeWidget");
         doubleClickItem(":_frame._taxitems_XTreeWidget","Always",0,0,0,Qt.LeftButton);
         waitForObject(":_rateGroup._percent_XLineEdit");
-        test.compare(findObject(":_rateGroup._percent_XLineEdit").text,"10");
+        test.compare(parseInt(findObject(":_rateGroup._percent_XLineEdit").text), "10");
         waitForObject(":Tax Code Rate.Save_QPushButton");
         clickButton(":Tax Code Rate.Save_QPushButton");
-        waitForObject(":Tax Code.Save_QPushButton");
-        clickButton(":Tax Code.Save_QPushButton");
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");
         if(object.exists("{column='0' container=':List Tax Codes._tax_XTreeWidget' text='TAXAUTH1-GM' type='QModelIndex'}"))
-                test.pass("Tax Code created:TAXAUTH1-GM");
+            test.pass("Tax Code created:TAXAUTH1-GM");
     } catch (e) { test.fail("caught exception " + e + " looking for tax code TAXAUTH1-GM"); }
     
     try{
@@ -696,8 +719,8 @@ function defineTaxCode(tc)
         waitForObject(":_rateGroup._percent_XLineEdit");
         type(":_rateGroup._percent_XLineEdit", "1");
         clickButton(":Tax Code Rate.Save_QPushButton");
-        waitForObject(":Tax Code.Save_QPushButton");
-        clickButton(":Tax Code.Save_QPushButton");
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");
     }
     catch(e){test.fail("Exception in defining Tax Code:"+e);}
     
@@ -712,11 +735,11 @@ function defineTaxCode(tc)
         waitForObject(":_frame._taxitems_XTreeWidget");
         doubleClickItem(":_frame._taxitems_XTreeWidget","Always",0,0,0,Qt.LeftButton);
         waitForObject(":_rateGroup._percent_XLineEdit");
-        test.compare(findObject(":_rateGroup._percent_XLineEdit").text,"1");
+        test.compare(parseInt(findObject(":_rateGroup._percent_XLineEdit").text), "1");
         waitForObject(":Tax Code Rate.Save_QPushButton");
         clickButton(":Tax Code Rate.Save_QPushButton");
-        waitForObject(":Tax Code.Save_QPushButton");
-        clickButton(":Tax Code.Save_QPushButton");
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");
         if(object.exists("{column='0' container=':List Tax Codes._tax_XTreeWidget' text='TAXAUTH1-EDU' type='QModelIndex'}"))
             test.pass("Tax Code created:TAXAUTH1-EDU");
     } catch (e) { test.fail("caught exception " + e + " looking for tax code TAXAUTH1-EDU"); }
@@ -733,8 +756,10 @@ function defineTaxType(name, desc)
     try{
         
         //---------Create Tax Types--------------------
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Types...");
@@ -760,8 +785,10 @@ function defineTaxZone(name, desc)
 {
     try{
         //----Define Tax Zones----
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Zones...");
@@ -786,8 +813,10 @@ function assignTax(zone,ttype,tcode)
 {
     try{
         //--------Tax Assignments-------
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Assignments...");
@@ -819,8 +848,10 @@ function RegTax(zone,treg)
     try{
         
         //----------Create: Tax Registrations--------------
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Registrations...");
@@ -855,12 +886,14 @@ function RegTax(zone,treg)
 function defineChartcs(name,desc,ctype)
 {
     try{
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Characteristics...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Characteristics...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Products", 74, 11, 0, Qt.LeftButton);
+        waitForObject(":Master Information.Characteristics_QModelIndex");
+        mouseClick(":Master Information.Characteristics_QModelIndex", 75, 7, 0, Qt.LeftButton);
         
         waitForObject(":List Characteristics.New_QPushButton_2");
         clickButton(":List Characteristics.New_QPushButton_2");
@@ -905,15 +938,15 @@ function defineChartcs(name,desc,ctype)
                  break;
              }
         
-        waitForObject(":Characteristic.Save_QPushButton");
-        clickButton(":Characteristic.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         snooze(2);
         waitForObject(":List Characteristics._char_XTreeWidget");
         if(object.exists("{column='0' container=':List Characteristics._char_XTreeWidget' text='"+name+"' type='QModelIndex'}"))                 
             test.pass("Characteristics:"+ name+" created");
         else test.fail("Characteristics:"+ name+" not created");
-        waitForObject(":List Characteristics.Close_QPushButton_2");
-        clickButton(":List Characteristics.Close_QPushButton_2");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Characteristics:"+e);}
     
 }

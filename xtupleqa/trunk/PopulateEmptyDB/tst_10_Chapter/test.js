@@ -12,12 +12,14 @@ function main()
     
     //--------------Define: Check Formats-------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Check Formats...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Check Formats...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
+        waitForObject(":Master Information.Check Formats_QModelIndex");
+        mouseClick(":Master Information.Check Formats_QModelIndex", 63, 2, 0, Qt.LeftButton);
         waitForObject(":List Check Formats.New_QPushButton");
         clickButton(":List Check Formats.New_QPushButton");
         waitForObject(":_name_XLineEdit_17");
@@ -27,21 +29,23 @@ function main()
         if(findObject(":_report_XComboBox_3").currentText!="APCheck")        
             clickItem(":_report_XComboBox_3", "APCheck",0,0,1,Qt.LeftButton); 
         snooze(2);
-        waitForObject(":Check Format.Save_QPushButton");
-        clickButton(":Check Format.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Check Formats._form_XTreeWidget");
         if(object.exists(":_form.GENERIC-CHECK_QModelIndex"))
             test.pass("Check Format created: GENERIC-CHECK");
         else test.fail("Check Format not created: GENERIC-CHECK");
-        waitForObject(":List Check Formats.Close_QPushButton");
-        clickButton(":List Check Formats.Close_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in creating Check Format:"+e);}
     
     
     //------------------Chart Of Accounts------------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
@@ -63,9 +67,7 @@ function main()
         clickButton(":Chart of Accounts.Close_QPushButton_2");
     }catch(e){test.fail("Exception in creating Chart of Accounts");}
   
-  
-  
-      
+    
   
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
@@ -74,10 +76,12 @@ function main()
         try{
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
-            activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            waitForObject(":Setup._modules_QComboBox");
+            clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
+            waitForObject(":Configure.Accounting_QModelIndex");
+            mouseClick(":Configure.Accounting_QModelIndex", 43, 5, 0, Qt.LeftButton);
             
             waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
             clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
@@ -105,17 +109,19 @@ function main()
         try{
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
-            activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            waitForObject(":Setup._modules_QComboBox");
+            clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
+            waitForObject(":Configure.Accounting_QModelIndex");
+            mouseClick(":Configure.Accounting_QModelIndex", 43, 5, 0, Qt.LeftButton);
             
             waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
             clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
             
             test.xverify(object.exists(":tab.Enable ACH Check Printing_QGroupBox"), "Enable ACH Check Printing GroupBox not found");
-            waitForObject(":Accounting Configuration.Save_QPushButton");
-            clickButton(":Accounting Configuration.Save_QPushButton");
+            waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         }catch(e){test.fail("Exception in configuring Accounting");}
     }
     snooze(3);//delay to allow save
@@ -129,12 +135,14 @@ function main()
     //---------------Define: Bank Accounts------------------
    
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Bank Accounts...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Bank Accounts...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
+       waitForObject(":Master Information.Bank Accounts_QModelIndex");
+       mouseClick(":Master Information.Bank Accounts_QModelIndex", 65, 6, 0, Qt.LeftButton);
   
         waitForObject(":List Bank Accounts.New_QPushButton");
         clickButton(":List Bank Accounts.New_QPushButton");
@@ -160,7 +168,8 @@ function main()
             clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
         waitForObject(":_accountGroup._main_XLineEdit");
         type(":_accountGroup._main_XLineEdit", "01-01-1000-01");
-        clickButton(":Bank Account.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         snooze(2);
         waitForObject(":List Bank Accounts._bankaccnt_XTreeWidget");
         if(object.exists(":_bankaccnt.EBANK_QModelIndex"))
@@ -189,27 +198,29 @@ function main()
         if(!findObject(":_useGroup.Used in Accounts Receivable_QCheckBox").checked)
             clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
         type(":_accountGroup._main_XLineEdit", "01-01-1010-01");
-        waitForObject(":Bank Account.Save_QPushButton");
-        clickButton(":Bank Account.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         snooze(1);
         waitForObject(":List Bank Accounts._bankaccnt_XTreeWidget");
         if(object.exists(":_bankaccnt.EURBANK_QModelIndex"))
             test.pass("Bank Account created: EURBANK");
         else test.fail("Bank Account not created: EURBANK");
         
-        waitForObject(":List Bank Accounts.Close_QPushButton");
-        clickButton(":List Bank Accounts.Close_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Bank Accounts:"+e)}  
     
     
     //--------------Create: Adjustment Types--------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Adjustment Types...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_8", "Adjustment Types...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
+        waitForObject(":Master Information.Bank Adjustment Types_QModelIndex");
+        mouseClick(":Master Information.Bank Adjustment Types_QModelIndex", 29, 4, 0, Qt.LeftButton);
         waitForObject(":List Adjustment Types.New_QPushButton");
         clickButton(":List Adjustment Types.New_QPushButton");
         waitForObject(":_name_XLineEdit_19");
@@ -217,20 +228,23 @@ function main()
         type(":_description_XLineEdit_28", "Bank Account Fee");
         type(":Adjustment Type._main_XLineEdit", "01-01-6750-01");
         clickButton(":Type.Debit_QRadioButton");
-        clickButton(":Adjustment Type.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Adjustment Types._bankadjtype_XTreeWidget");
         if(object.exists(":_bankadjtype.BANKFEE_QModelIndex"))
             test.pass("Adjustment Type created: BANKFEE");
         else test.fail("Adjustment Type not created: BANKFEE");
         
-        waitForObject(":List Adjustment Types.Close_QPushButton");
-        clickButton(":List Adjustment Types.Close_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Adjustment types:"+e);}
 
     //------------Define: Fiscal Year----------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Fiscal Calendar_QMenu", "Fiscal Years...");
@@ -271,8 +285,10 @@ function main()
   
     //-------------Define: Fiscal Calendar--------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Fiscal Calendar_QMenu", "Accounting Periods...");
@@ -308,16 +324,16 @@ function main()
                 while(findObject(":Accounting Period.XDateEdit_XDateEdit_2").text!=j+"/"+YearSet[j-1]+"/"+i)
                     snooze(0.1);
                 
-                snooze(0.5);
+                snooze(2);
                 waitForObject(":_name_QLineEdit");
                 findObject(":_name_QLineEdit").clear();
-                snooze(0.5);
+                snooze(2);
                 type(":_name_QLineEdit", CurrentYearFull+"-");
                 type(":_name_QLineEdit", (j<10?"0"+j:j));
-                snooze(0.2);
+                snooze(0.5);
                 waitForObject(":List Accounting Periods.qt_spinbox_lineedit_QLineEdit");
                 findObject(":List Accounting Periods.qt_spinbox_lineedit_QLineEdit").clear();
-                snooze(0.1);
+                snooze(1);
                 if(j>=1 && j<=3)
                     type(":List Accounting Periods.qt_spinbox_lineedit_QLineEdit", "1");
                 else if(j>=4 && j<=6)
@@ -331,7 +347,7 @@ function main()
                 
                 waitForObject(":Accounting Period.Save_QPushButton");
                 clickButton(":Accounting Period.Save_QPushButton");
-                snooze(0.5);
+                snooze(1);
                 while(!object.exists("{column='0' container=':List Accounting Periods._period_XTreeWidget' text='"+CurrentYearFull+"-"+(j<10?"0"+j:j)+"' type='QModelIndex'}"))
                     snooze(0.1);
             }
