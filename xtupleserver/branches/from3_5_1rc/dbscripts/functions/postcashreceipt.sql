@@ -285,7 +285,7 @@ BEGIN
       SELECT createARCreditMemo(_p.cashrcpt_cust_id, _arMemoNumber, '',
                                 _p.cashrcpt_distdate, (_p.cashrcpt_amount - _posted),
                                 _comment, -1, -1, -1, _p.cashrcpt_distdate, -1, -1, 0,
-                                pJournalNumber, _p.cashrcpt_curr_id) INTO _aropenid;
+                                pJournalNumber, _p.cashrcpt_curr_id, _arAccntid) INTO _aropenid;
     END IF;
 
     IF (_ccpayid IS NOT NULL) THEN
