@@ -7,13 +7,27 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER"); 
+    
+    snooze(1);
+    if(object.exists(":Notice.Remind me about this again._QCheckBox"))
+    {
+    waitForObject(":Notice.Remind me about this again._QCheckBox");
+    if(findObject(":Notice.Remind me about this again._QCheckBox").checked)
+    clickButton(":Notice.Remind me about this again._QCheckBox");
+    snooze(0.1);
+    waitForObject(":Notice.OK_QPushButton");
+    clickButton(":Notice.OK_QPushButton");
+    }
+    
     var appEdition = findApplicationEdition();
-  
-  
+    
+    
     //-----------Chart Of Accounts------------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
@@ -44,16 +58,18 @@ function main()
         waitForObject(":Chart of Accounts.Close_QPushButton_2");
         clickButton(":Chart of Accounts.Close_QPushButton_2");
     }catch(e){test.fail("Exception while creating Chart of Accounts:"+e);}
-  
-
+    
+    
     //---------------Create Inventory - new Cost Catergory------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Inventory", 74, 11, 0, Qt.LeftButton);
+        waitForObject(":Accounting Mappings.Cost Categories_QModelIndex");
+        mouseClick(":Accounting Mappings.Cost Categories_QModelIndex", 58, 7, 0, Qt.LeftButton);
         waitForObject(":List Cost Categories.New_QPushButton_2");
         clickButton(":List Cost Categories.New_QPushButton_2");
         waitForObject(":Cost Category._category_XLineEdit");
@@ -74,34 +90,24 @@ function main()
         type(":Cost Category._main_XLineEdit_10", "01-01-2490-01");
         type(":Cost Category._main_XLineEdit_11", "01-01-1260-01");
         type(":Cost Category._main_XLineEdit_12", "01-01-6550-01");
-         if (appEdition=="PostBooks")
-            test.xverify(object.exists(":Cost Category._main_XLineEdit_12"),"Cost Category text field - not visible");
         if(appEdition=="Manufacturing" || appEdition=="Standard")
             type(":Cost Category._main_XLineEdit_13", "01-01-2480-01");
         else if(appEdition=="PostBooks")
             test.xverify(object.exists(":Cost Category._main_XLineEdit_13"),"Cost Category text field - not visible");
         if(appEdition=="Manufacturing")
-        type(":List Cost Categories._main_XLineEdit_14", "01-01-2320-01");
-         waitForObject(":Cost Category.Save_QPushButton");
-        clickButton(":Cost Category.Save_QPushButton");
+            type(":List Cost Categories._main_XLineEdit_14", "01-01-2320-01");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         snooze(2);
         waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
         if(object.exists(":_costcat.CCWH1_QModelIndex"))
             test.pass("Cost Category: CCWH1 created");
         else test.fail("Cost Category: CCWH1 not created");
-        waitForObject(":List Cost Categories.Close_QPushButton_2");
-        clickButton(":List Cost Categories.Close_QPushButton_2");
     }catch(e){test.fail("Exception in creating new Cost category:"+e);}
     
     
     //----------Inventory-Cost Categories: copy and create for INTRAN------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
         
         waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
         clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH1",0,0,1,Qt.LeftButton);
@@ -115,26 +121,17 @@ function main()
         findObject(":Cost Category._main_XLineEdit").clear();
         type(":Cost Category._main_XLineEdit", "01-01-1252-01");
         type(":Cost Category._main_XLineEdit", "<Tab>");
-        waitForObject(":Cost Category.Save_QPushButton");
-        clickButton(":Cost Category.Save_QPushButton");
-        waitForObject(":List Cost Categories.Close_QPushButton_2");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         if(object.exists(":_costcat.CCINTRAN_QModelIndex"))
             test.pass("Cost Category: CCINTRAN created");
         else test.fail("Cost Category: CCINTRAN not created");
-        waitForObject(":List Cost Categories.Close_QPushButton_2");
-        clickButton(":List Cost Categories.Close_QPushButton_2");
         test.log("Inventory Cost Category CCINTRAN created");
     }catch(e){test.fail("Exception in creating Cost Category");}
     
     
     //----------Inventory-Cost Categories: copy and create for WH2------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Cost Categories...");
         waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
         clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH1",0,0,1,Qt.LeftButton);
         waitForObject(":List Cost Categories.Copy_QPushButton_2");
@@ -147,26 +144,29 @@ function main()
         type(":Cost Category._description_XLineEdit", "Warehouse 2");
         findObject(":Cost Category._main_XLineEdit").clear();
         type(":Cost Category._main_XLineEdit", "01-01-1254-01");
-        waitForObject(":Cost Category.Save_QPushButton");
-        clickButton(":Cost Category.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         snooze(2);
         waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
         if(object.exists(":_costcat.CCWH2_QModelIndex"))
             test.pass("Cost Category: CCWH2 created");
         else test.fail("Cost Category: CCWH2 not created");
-        clickButton(":List Cost Categories.Close_QPushButton_2");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in Creating Cost Categories:"+e);}
     
-
-
+    
+    
     //------------Inventory: create Expense Categories---------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Expense Categories...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Expense Categories...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Inventory", 74, 11, 0, Qt.LeftButton);
+        waitForObject(":Accounting Mappings.Expense Categories_QModelIndex");
+        mouseClick(":Accounting Mappings.Expense Categories_QModelIndex", 58, 7, 0, Qt.LeftButton);
         waitForObject(":List Expense Categories.New_QPushButton_2");
         clickButton(":List Expense Categories.New_QPushButton_2");
         waitForObject(":_category_XLineEdit_2");
@@ -177,8 +177,8 @@ function main()
         type(":Expense Category._main_XLineEdit_3", "01-01-2490-01");
         type(":Expense Category._main_XLineEdit_4", "01-01-6550-01");
         type(":Expense Category._main_XLineEdit_4", "<Tab>");
-        waitForObject(":Expense Category.Save_QPushButton");
-        clickButton(":Expense Category.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Expense Categories._expcat_XTreeWidget");
         snooze(1);
         if(object.exists(":_expcat.OFFICE-SUPPLIES_QModelIndex"))
@@ -195,10 +195,10 @@ function main()
         type(":Expense Category._main_XLineEdit_3", "01-01-2490-01");
         type(":Expense Category._main_XLineEdit_4", "01-01-6550-01");
         type(":Expense Category._main_XLineEdit_4", "<Tab>");
-        waitForObject(":Expense Category.Save_QPushButton");
-        clickButton(":Expense Category.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Expense Categories._expcat_XTreeWidget");
-       snooze(1);
+        snooze(1);
         if(object.exists(":_expcat.SALES_TAX_QModelIndex"))
             test.pass("Expense Category: SALES_TAX created");
         else test.fail("Expense Category: SALES_TAX not created");
@@ -214,24 +214,25 @@ function main()
         type(":Expense Category._main_XLineEdit_3", "01-01-2490-01");
         type(":Expense Category._main_XLineEdit_4", "01-01-6550-01");
         type(":Expense Category._main_XLineEdit_4", "<Tab>");
-        waitForObject(":Expense Category.Save_QPushButton");
-        clickButton(":Expense Category.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Expense Categories._expcat_XTreeWidget");
         snooze(1);
         if(object.exists(":_expcat.SHIPPING_CHARGES_QModelIndex"))
             test.pass("Expense Category: SALES_TAX created");
-        else test.fail("Expense Category: SALES_TAX not created");
-        
-        waitForObject(":List Expense Categories.Close_QPushButton_2");
-        clickButton(":List Expense Categories.Close_QPushButton_2");
+        else test.fail("Expense Category: SALES_TAX not created");        
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Expense categories:"+e);}
     
     
     
     //------------------Inventory: create site Locations--------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Inventory");
+        activateItem(":_QMenu", "Inventory");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
         activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Locations...");
@@ -374,19 +375,20 @@ function main()
     
     //----------Define: Unit of Measure---------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Units of Measure...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Units of Measure...");
-        
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Products", 74, 11, 0, Qt.LeftButton);
+        waitForObject(":Master Information.Units of Measure_QModelIndex");
+        mouseClick(":Master Information.Units of Measure_QModelIndex", 75, 7, 0, Qt.LeftButton);
         waitForObject(":List Units of Measure.New_QPushButton_2");
         clickButton(":List Units of Measure.New_QPushButton_2");
         waitForObject(":_name_XLineEdit_5");
         type(":_name_XLineEdit_5", "EA");
         type(":_description_XLineEdit_14", "Each");
-        clickButton(":Unit of Measure.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
         if(object.exists(":_uoms.EA_QModelIndex"))
             test.pass("UOM: EA created");
@@ -398,7 +400,7 @@ function main()
         waitForObject(":_name_XLineEdit_5");    
         type(":_name_XLineEdit_5", "CA");
         type(":_description_XLineEdit_14", "Case");
-        clickButton(":Unit of Measure.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
         if(object.exists("{column='0' container=':List Units of Measure._uoms_XTreeWidget_2' text='CA' type='QModelIndex'}"))
             test.pass("UOM: CA created");
@@ -410,8 +412,8 @@ function main()
         waitForObject(":_name_XLineEdit_5");
         type(":_name_XLineEdit_5", "PL");
         type(":_description_XLineEdit_14", "Pallet");
-        waitForObject(":Unit of Measure.Save_QPushButton");
-        clickButton(":Unit of Measure.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
         if(object.exists("{column='0' container=':List Units of Measure._uoms_XTreeWidget_2' text='PL' type='QModelIndex'}"))
             test.pass("UOM: PL created");
@@ -423,34 +425,34 @@ function main()
         waitForObject(":_name_XLineEdit_5");
         type(":_name_XLineEdit_5", "GL");
         type(":_description_XLineEdit_14", "Gallon");
-        waitForObject(":Unit of Measure.Save_QPushButton");
-        clickButton(":Unit of Measure.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
         if(object.exists("{column='0' container=':List Units of Measure._uoms_XTreeWidget_2' text='GL' type='QModelIndex'}"))
             test.pass("UOM: GL created");
         else test.fail("UOM: GL not created");
         
-      
+        
         waitForObject(":List Units of Measure.New_QPushButton_2");
         clickButton(":List Units of Measure.New_QPushButton_2");
         waitForObject(":_name_XLineEdit_5");
         type(":_name_XLineEdit_5", "LB");
         type(":_description_XLineEdit_14", "Pound");
-        waitForObject(":Unit of Measure.Save_QPushButton");
-        clickButton(":Unit of Measure.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
         if(object.exists("{column='0' container=':List Units of Measure._uoms_XTreeWidget_2' text='LB' type='QModelIndex'}"))
             test.pass("UOM: LB created");
         else test.fail("UOM: LB not created");
         
         
-      waitForObject(":List Units of Measure.New_QPushButton_2");
+        waitForObject(":List Units of Measure.New_QPushButton_2");
         clickButton(":List Units of Measure.New_QPushButton_2");
         waitForObject(":_name_XLineEdit_5");
         type(":_name_XLineEdit_5", "KG");
         type(":_description_XLineEdit_14", "Kilo");
-        waitForObject(":Unit of Measure.Save_QPushButton");
-        clickButton(":Unit of Measure.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Units of Measure._uoms_XTreeWidget_2");
         if(object.exists("{column='0' container=':List Units of Measure._uoms_XTreeWidget_2' text='KG' type='QModelIndex'}"))
             test.pass("UOM: KG created");
@@ -476,33 +478,34 @@ function main()
         waitForObject(":Conversion.Save_QPushButton");
         clickButton(":Conversion.Save_QPushButton");
         snooze(0.5);
-        waitForObject(":Unit of Measure.Save_QPushButton");
-        clickButton(":Unit of Measure.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         snooze(2);
-        waitForObject(":List Units of Measure.Close_QPushButton_2");
-        clickButton(":List Units of Measure.Close_QPushButton_2");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         test.log("Unit of Measures created");
     }catch(e){test.fail("Exception in defining Unit of Measure:"+e);}
     
-
-  
+    
+    
     //----------Define: Class Codes------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Class Codes...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Class Codes...");
-        
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Products", 74, 11, 0, Qt.LeftButton);
+        waitForObject(":Master Information.Class Codes_QModelIndex");
+        mouseClick(":Master Information.Class Codes_QModelIndex", 75, 7, 0, Qt.LeftButton);
         snooze(1);
         waitForObject(":List Class Codes.New_QPushButton_2");
         clickButton(":List Class Codes.New_QPushButton_2");
         waitForObject(":_classCode_XLineEdit_2");
         type(":_classCode_XLineEdit_2", "TOY-TRUCKS");
         type(":_description_XLineEdit_15", "Toy Trucks");
-        waitForObject(":Class Code.Save_QPushButton");
-        clickButton(":Class Code.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Class Codes._classcode_XTreeWidget");
         if(object.exists(":_classcode.TOY-TRUCKS_QModelIndex"))
             test.pass("Class Code: TOY-TRUCKS created");
@@ -512,8 +515,8 @@ function main()
         waitForObject(":_classCode_XLineEdit_2");
         type(":_classCode_XLineEdit_2", "TOYS-CARS");
         type(":_description_XLineEdit_15", "Toy Cars");
-        waitForObject(":Class Code.Save_QPushButton");
-        clickButton(":Class Code.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Class Codes._classcode_XTreeWidget");
         if(object.exists("{column='0' container=':List Class Codes._classcode_XTreeWidget' text='TOY-CARS' type='QModelIndex'}"))
             test.pass("Class Code: TOYS-CARS created");
@@ -524,26 +527,27 @@ function main()
         waitForObject(":_classCode_XLineEdit_2");
         type(":_classCode_XLineEdit_2", "TOYS-PLANES");
         type(":_description_XLineEdit_15", "Toy Planes");
-        waitForObject(":Class Code.Save_QPushButton");
-        clickButton(":Class Code.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Class Codes._classcode_XTreeWidget");
         if(object.exists("{column='0' container=':List Class Codes._classcode_XTreeWidget' text='TOY-PLANES' type='QModelIndex'}"))
             test.pass("Class Code: TOYS-PLANES created");
         
-        waitForObject(":List Class Codes.Close_QPushButton_2");
-        clickButton(":List Class Codes.Close_QPushButton_2");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Class Code:"+e);}
     
     
     //-----------Define: Product Categories----------------
     try{
-        waitForObject(":xTuple ERP: OpenMFG Edition_QWorkspace");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Product Categories...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Product Categories...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Products", 74, 11, 0, Qt.LeftButton);
+        waitForObject(":Master Information.Product Categories_QModelIndex");
+        mouseClick(":Master Information.Product Categories_QModelIndex", 75, 7, 0, Qt.LeftButton);
         
         
         waitForObject(":List Product Categories.New_QPushButton_2");
@@ -551,8 +555,8 @@ function main()
         waitForObject(":Product Category._category_XLineEdit");
         type(":Product Category._category_XLineEdit", "CLASSIC-METAL");
         type(":Product Category._description_XLineEdit", "Classic Metal Product Line");
-        waitForObject(":Product Category.Save_QPushButton");
-        clickButton(":Product Category.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Product Categories._prodcat_XTreeWidget");
         if(object.exists(":_prodcat.CLASSIC-METAL_QModelIndex"))
             test.pass("Product Category: CLASSIC-METAL created");
@@ -564,8 +568,8 @@ function main()
         waitForObject(":Product Category._category_XLineEdit");
         type(":Product Category._category_XLineEdit", "CLASSIC-WOOD");
         type(":Product Category._description_XLineEdit", "Classic Wood Product Line");
-        waitForObject(":Product Category.Save_QPushButton");
-        clickButton(":Product Category.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Product Categories._prodcat_XTreeWidget");
         if(object.exists("{column='0' container=':List Product Categories._prodcat_XTreeWidget' text='CLASSIC-WOOD' type='QModelIndex'}"))
             test.pass("Product Category: CLASSIC-WOOD created");
@@ -577,8 +581,8 @@ function main()
         waitForObject(":Product Category._category_XLineEdit");
         type(":Product Category._category_XLineEdit", "COLLECTORS-METAL");
         type(":Product Category._description_XLineEdit", "Collectors Metal Product Line");
-        waitForObject(":Product Category.Save_QPushButton");
-        clickButton(":Product Category.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Product Categories._prodcat_XTreeWidget");
         if(object.exists("{column='0' container=':List Product Categories._prodcat_XTreeWidget' text='COLLECTORS-METAL' type='QModelIndex'}"))
             test.pass("Product Category: COLLECTORS-METAL created");
@@ -590,15 +594,15 @@ function main()
         waitForObject(":Product Category._category_XLineEdit");
         type(":Product Category._category_XLineEdit", "COLLECTORS-WOOD");
         type(":Product Category._description_XLineEdit", "Collectors Wood Product Line");
-        waitForObject(":Product Category.Save_QPushButton");
-        clickButton(":Product Category.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Product Categories._prodcat_XTreeWidget");
         if(object.exists("{column='0' container=':List Product Categories._prodcat_XTreeWidget' text='COLLECTORS-WOOD' type='QModelIndex'}"))
             test.pass("Product Category: COLLECTORS-WOOD created");
         else test.fail("Product Category: COLLECTORS-WOOD not created");
         
-        waitForObject(":List Product Categories.Close_QPushButton_2");
-        clickButton(":List Product Categories.Close_QPushButton_2");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         test.log("Product Categories created");
     }catch(e){test.fail("Exception in defining Product Category:"+e);}
     
@@ -606,26 +610,27 @@ function main()
     
     //---------Create Freight Classes-----------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Freight Classes...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Freight Classes...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Products", 74, 11, 0, Qt.LeftButton);
+        waitForObject(":Master Information.Freight Classes_QModelIndex");
+        mouseClick(":Master Information.Freight Classes_QModelIndex", 75, 7, 0, Qt.LeftButton);
+        
         waitForObject(":List Freight Classes.New_QPushButton_2");
         clickButton(":List Freight Classes.New_QPushButton_2");
         waitForObject(":_freightClass_XLineEdit_2");
         type(":_freightClass_XLineEdit_2", "BULK");
-        type(":_freightClass_XLineEdit_2", "<Tab>")
         type(":_description_XLineEdit_34", "Bulk Freight");
-        waitForObject(":Freight Class.Save_QPushButton");
-        clickButton(":Freight Class.Save_QPushButton");
-        waitForObject(":List Freight Classes.Close_QPushButton_2");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         if(object.exists(":_freightClass.BULK_QModelIndex"))
             test.pass("Freight Class created: BULK");
         else test.fail("Freight Class not created: BULK");
-        waitForObject(":List Freight Classes.Close_QPushButton_2");
-        clickButton(":List Freight Classes.Close_QPushButton_2");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         test.log("Freight Class: BULK created");
     }catch(e){test.fail("Exception in creating Freight Classes:"+e);}
     
@@ -638,12 +643,12 @@ function main()
     defineChartcs("ADR-ROUTE","Delivery Route","address");
     defineChartcs("CTC-BDAY","Birthday","contact");
     defineChartcs("LOT-QA-TEST1","QA Results for Test Type 1","lot");
-  
-  
-
- if(appEdition=="Manufacturing")
- {
     
+    
+    
+    if(appEdition=="Manufacturing")
+        
+    {  
         //----------------Schedule: Create Planner Code----------------
         try{
             
@@ -694,46 +699,46 @@ function main()
         }catch(e){test.fail("Exception in defining Planner Codes:"+e);}
         
         snooze(2);
-      
-      //--------------Schedule: Site week--------------
-      try{
- 
-          waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
-          activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
-          waitForObjectItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
-          activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
-          snooze(0.1);
-          waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
-          activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
-          snooze(1);
-          waitForObject(":_warehouse.Selected:_QRadioButton_6");
-          clickButton(":_warehouse.Selected:_QRadioButton_6");
-          waitForObject(":_warehouse._warehouses_WComboBox_7");
-          clickItem(":_warehouse._warehouses_WComboBox_7", "WH1", 0, 0, 1, Qt.LeftButton);
-          waitForObject(":Site Work Week.Sunday_QCheckBox_3");
-          if(findObject(":Site Work Week.Sunday_QCheckBox_3").checked)
-              clickButton(":Site Work Week.Sunday_QCheckBox_3");
-          if(!findObject(":Site Work Week.Monday_QCheckBox_3").checked)
-              clickButton(":Site Work Week.Monday_QCheckBox_3");
-          if(!findObject(":Site Work Week.Monday_QCheckBox_3").checked)
-              clickButton(":Site Work Week.Monday_QCheckBox_3");
-          if(!findObject(":Site Work Week.Tuesday_QCheckBox_3").checked)
-              clickButton(":Site Work Week.Tuesday_QCheckBox_3");
-          if(!findObject(":Site Work Week.Wednesday_QCheckBox_3").checked)
-              clickButton(":Site Work Week.Wednesday_QCheckBox_3");
-          if(!findObject(":Site Work Week.Thursday_QCheckBox_3").checked)
-              clickButton(":Site Work Week.Thursday_QCheckBox_3");
-          if(!findObject(":Site Work Week.Friday_QCheckBox_3").checked)
-              clickButton(":Site Work Week.Friday_QCheckBox_3");
-          if(findObject(":Site Work Week.Saturday_QCheckBox_3").checked)
-              clickButton(":Site Work Week.Saturday_QCheckBox_3");
-          waitForObject(":Site Work Week.Save_QPushButton_3");
-          clickButton(":Site Work Week.Save_QPushButton_3");
-          
-          test.log("Site Week created");
-      }catch(e){test.fail("Exception in creating Site Week:"+e);}
-      
-      
+        
+        //--------------Schedule: Site week--------------
+        try{
+            
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
+            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
+            activateItem(":xTuple ERP: OpenMFG Edition.Schedule_QMenu", "Master Information");
+            snooze(0.1);
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
+            activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_5", "Site Week...");
+            snooze(1);
+            waitForObject(":_warehouse.Selected:_QRadioButton_6");
+            clickButton(":_warehouse.Selected:_QRadioButton_6");
+            waitForObject(":_warehouse._warehouses_WComboBox_7");
+            clickItem(":_warehouse._warehouses_WComboBox_7", "WH1", 0, 0, 1, Qt.LeftButton);
+            waitForObject(":Site Work Week.Sunday_QCheckBox_3");
+            if(findObject(":Site Work Week.Sunday_QCheckBox_3").checked)
+                clickButton(":Site Work Week.Sunday_QCheckBox_3");
+            if(!findObject(":Site Work Week.Monday_QCheckBox_3").checked)
+                clickButton(":Site Work Week.Monday_QCheckBox_3");
+            if(!findObject(":Site Work Week.Monday_QCheckBox_3").checked)
+                clickButton(":Site Work Week.Monday_QCheckBox_3");
+            if(!findObject(":Site Work Week.Tuesday_QCheckBox_3").checked)
+                clickButton(":Site Work Week.Tuesday_QCheckBox_3");
+            if(!findObject(":Site Work Week.Wednesday_QCheckBox_3").checked)
+                clickButton(":Site Work Week.Wednesday_QCheckBox_3");
+            if(!findObject(":Site Work Week.Thursday_QCheckBox_3").checked)
+                clickButton(":Site Work Week.Thursday_QCheckBox_3");
+            if(!findObject(":Site Work Week.Friday_QCheckBox_3").checked)
+                clickButton(":Site Work Week.Friday_QCheckBox_3");
+            if(findObject(":Site Work Week.Saturday_QCheckBox_3").checked)
+                clickButton(":Site Work Week.Saturday_QCheckBox_3");
+            waitForObject(":Site Work Week.Save_QPushButton_3");
+            clickButton(":Site Work Week.Save_QPushButton_3");
+            
+            test.log("Site Week created");
+        }catch(e){test.fail("Exception in creating Site Week:"+e);}
+        
+        
         //----------Schedule: Site Calendar Exceptions---------------
         try{
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Schedule");
@@ -791,19 +796,21 @@ function main()
     if(appEdition=="PostBooks"||appEdition=="Standard")
     {
         try{
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-            activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Master Information");
-            waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6");
-            activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_6", "Planner Codes...");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            waitForObject(":Setup._modules_QComboBox");
+            clickItem(":Setup._modules_QComboBox","Purchase",76, 7, 0, Qt.LeftButton);
+            waitForObject(":Master Information.Planner Codes_QModelIndex");
+            mouseClick(":Master Information.Planner Codes_QModelIndex", 53, 12, 0, Qt.LeftButton);
             
             waitForObject(":List Planner Codes.New_QPushButton_2");
             clickButton(":List Planner Codes.New_QPushButton_2");
             waitForObject(":_code_XLineEdit_6");
             type(":_code_XLineEdit_6", "MRP-Items");
             type(":_description_XLineEdit_16", "MRP Items");
-            clickButton(":Planner Code.Save_QPushButton");
+            clickButton(":Setup.Save_QPushButton");
             waitForObject(":List Planner Codes._plancode_XTreeWidget");
             if(object.exists("{column='0' container=':List Planner Codes._plancode_XTreeWidget' text='MRP-ITEMS' type='QModelIndex'}"))
                 test.pass("Planner Code: MRP-ITEMS created");
@@ -814,14 +821,14 @@ function main()
             waitForObject(":_code_XLineEdit_6");
             type(":_code_XLineEdit_6", "MPS-Items");
             type(":_description_XLineEdit_16", "MPS Items");
-            clickButton(":Planner Code.Save_QPushButton");
+            clickButton(":Setup.Save_QPushButton");
             waitForObject(":List Planner Codes._plancode_XTreeWidget");
             if(object.exists(":_plancode.MPS-ITEMS_QModelIndex"))
                 test.pass("Planner Code: MPS-ITEMS created");
             else test.fail("Planner Code: MPS-ITEMS not created");
             
-            waitForObject(":List Planner Codes.Close_QPushButton_2");
-            clickButton(":List Planner Codes.Close_QPushButton_2");
+            waitForObject(":Setup.Save_QPushButton");
+            clickButton(":Setup.Save_QPushButton");
             test.log("Planner Codes created");
             
         }catch(e){test.fail("Exception in defining Planner Codes");}

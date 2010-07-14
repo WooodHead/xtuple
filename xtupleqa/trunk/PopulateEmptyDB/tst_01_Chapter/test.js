@@ -12,7 +12,7 @@ function main()
     
     //---login Application--------
     loginAppl("CONFIGURE"); 
-    
+  
     //-----Editing the preferences----
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -22,21 +22,95 @@ function main()
     if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
         clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
     snooze(0.1);
+    if(object.exists(":Notice.Remind me about this again._QCheckBox"))
+    {  
+    waitForObject(":Notice.Remind me about this again._QCheckBox");
+    if(findObject(":Notice.Remind me about this again._QCheckBox").checked)
+    clickButton(":Notice.Remind me about this again._QCheckBox");
+    snooze(0.1);
+    waitForObject(":Notice.OK_QPushButton");
+    clickButton(":Notice.OK_QPushButton");
+     }
     waitForObject(":Search Navigation.Buttons_QRadioButton");
     if(!findObject(":Search Navigation.Buttons_QRadioButton").checked)
         clickButton(":Search Navigation.Buttons_QRadioButton");
-    waitForObject(":User Preferences.Save_QPushButton");
-    clickButton(":User Preferences.Save_QPushButton");
+    waitForObject(":xTuple ERP: *_QPushButton");
+    clickButton(":xTuple ERP: *_QPushButton");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
     
+    //----------Define Encryption (metric)------
+    try{
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        if(object.exists(":Cannot Read Configuration_QMessageBox"))
+        {
+            waitForObject(":OK_QPushButton");
+            clickButton(":OK_QPushButton");
+        }
+        if(object.exists(":Cannot Read Configuration_QMessageBox"))
+        {
+            waitForObject(":OK_QPushButton");
+            clickButton(":OK_QPushButton");
+        }
+        if(findObject(":Setup._tree_XTreeWidget").itemsExpandable==true)
+        {
+            waitForObject(":Configure.Encryption_QModelIndex");
+            mouseClick(":Configure.Encryption_QModelIndex", 35, 9, 0, Qt.LeftButton);        
+        }
+        else
+        {
+            waitForObject(":_tree.Configure_QModelIndex");
+            mouseClick(":_tree.Configure_QModelIndex", -11, 6, 0, Qt.LeftButton);
+            waitForObject(":Configure.Encryption_QModelIndex");
+            mouseClick(":Configure.Encryption_QModelIndex", 35, 9, 0, Qt.LeftButton);            
+        }
+        snooze(1);
+        waitForObject(":OK_QPushButton");
+        clickButton(":OK_QPushButton");
+        waitForObject(":_ccEncKeyName_QLineEdit");
+        if(findObject(":_ccEncKeyName_QLineEdit").text!="xTuple.key")
+        {
+            type(":_ccEncKeyName_QLineEdit", "<Right>");
+            type(":_ccEncKeyName_QLineEdit", "<Ctrl+Backspace>");
+            type(":_ccEncKeyName_QLineEdit", "xTuple.key");
+            test.log("Encryption: key name changed");
+        }
+        if(findObject(":Encryption Configuration_FileLineEdit").text!="c:\\crypto")
+        {
+            type(":Encryption Configuration_FileLineEdit", "<Right>");
+            type(":Encryption Configuration_FileLineEdit", "<Ctrl+Backspace>");
+            type(":Encryption Configuration_FileLineEdit", "c:\\crypto");
+            test.log("Encryption: Windows location changed");
+        }
+        if(findObject(":Encryption Configuration_FileLineEdit_2").text!="\\home\\crypto")
+        {
+            type(":Encryption Configuration_FileLineEdit_2", "<Right>");
+            type(":Encryption Configuration_FileLineEdit_2", "<Ctrl+Backspace>");
+            type(":Encryption Configuration_FileLineEdit_2", "\\home\\crypto");
+            test.log("Encryption: Linux location changed");
+        }
+        if(findObject(":Encryption Configuration_FileLineEdit_3").text!="/Users/crypto")
+        {
+            type(":Encryption Configuration_FileLineEdit_3", "<Right>");
+            type(":Encryption Configuration_FileLineEdit_3", "<Ctrl+Backspace>");
+            type(":Encryption Configuration_FileLineEdit_3", "/Users/crypto");
+            test.log("Encryption: Mac location changed");
+        }
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");
+        test.log("Encryption defined");
+    }catch(e){test.fail("Exception in defining Encryption:"+e);}
+    
     
     //---Restarting Application--
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObject(":xTuple ERP: OpenMFG Edition.System_QMenu");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit xTuple ERP...");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit xTuple ERP...");
     
     snooze(5);
@@ -48,15 +122,17 @@ function main()
         startApplication("xtuple");
     
     snooze(2);
-    
+  
     loginAppl("CONFIGURE"); 
+   
+    var appEdition = findApplicationEdition(); 
     
-     var appEdition = findApplicationEdition(); 
     
     //-----create Entities-------
     createDept("MFG","Manufacturing");
     assignAllPrivileges("CONFIGURE");
-    
+  
+    var appEdition = findApplicationEdition();
     if(appEdition=="Manufacturing")
         createShift("1ST","First");
     else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
@@ -64,39 +140,35 @@ function main()
         try{
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
             
-            menu = waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu");
-            menuItem = "S&hifts...";
-            
-            actions = menu.actions();
-            for(i=0;i<actions.count();i++)
-                if(actions.at(i).text == menuItem || i==actions.count()-1) break;
-            if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
-            else test.pass(menuItem+"not found in "+appEdition);
-            waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        }
+            if(object.exists("{column='0' container=':_tree.Master Information_QModelIndex' text='Shifts' type='QModelIndex'}"))
+            test.fail("shifts menu found in "+appEdition);
+        else
+            test.pass(" shifts  menu not found in "+appEdition);
+             waitForObject(":Setup.Save_QPushButton");
+             clickButton(":Setup.Save_QPushButton");     
+    
+    }
         catch(e){test.fail("Exception in verifying Shifts Menu");}
         
     }
     
-    var appEdition = findApplicationEdition();
+     
     createLocale("MYLOCALE","My Locale For Class");
     createRole("SUPER","Super User Group");
     
     //-------------Configure: Accounting Module----------------
-    try{
-        
-        
+    try{    
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
-        waitForObject(":_mainSize_QSpinBox");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox", "Accounting",10, 10, 0, Qt.LeftButton);
+        waitForObject(":Configure.Accounting_QModelIndex");
+        mouseClick(":Configure.Accounting_QModelIndex", 42, 6, 0, Qt.LeftButton);    
         if(findObject(":_mainSize_QSpinBox").currentText!="4")
         {
             findObject(":_mainSize_QSpinBox").clear();
@@ -146,20 +218,22 @@ function main()
             findObject(":_profitCenterSize_QSpinBox_2").clear();
             type(":_profitCenterSize_QSpinBox_2", "2");
         }
-        waitForObject(":_gl.Enforce mandatory notes for Manual Journal Entries_QCheckBox");
-        if(!findObject(":_gl.Enforce mandatory notes for Manual Journal Entries_QCheckBox").checked)
-            clickButton(":_gl.Enforce mandatory notes for Manual Journal Entries_QCheckBox");
+        waitForObject(":_miscGroup.Mandatory notes for Manual Journal Entries_QCheckBox");
+        if(!findObject(":_miscGroup.Mandatory notes for Manual Journal Entries_QCheckBox").checked)
+            clickButton(":_miscGroup.Mandatory notes for Manual Journal Entries_QCheckBox");
         waitForObject(":_gl.Allow manual entry of Account Numbers_QCheckBox");
         if(!findObject(":_gl.Allow manual entry of Account Numbers_QCheckBox").checked)
             clickButton(":_gl.Allow manual entry of Account Numbers_QCheckBox");
         snooze(1);
-        waitForObject(":_taxauth_XComboBox");
-        clickItem(":_taxauth_XComboBox", "None", 0, 0, 1, Qt.LeftButton);
+        waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Global");
+        waitForObject(":_taxauth_XComboBox_6");
+        clickItem(":_taxauth_XComboBox_6", "None", 0, 0, 1, Qt.LeftButton);
         snooze(1);
-        waitForObject(":Meaning of Currency Exchange Rates:.Foreign × Exchange Rate = Base_QRadioButton");
-        clickButton(":Meaning of Currency Exchange Rates:.Foreign × Exchange Rate = Base_QRadioButton");
-        waitForObject(":Accounting Configuration.Save_QPushButton");
-        clickButton(":Accounting Configuration.Save_QPushButton");
+        waitForObject(":Meaning of Currency Exchange Rates:.Foreign × Exchange Rate = Base_QRadioButton_2");
+        clickButton(":Meaning of Currency Exchange Rates:.Foreign × Exchange Rate = Base_QRadioButton_2");
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");
         snooze(0.5);
         if(object.exists(":Company ID Correct?.Yes_QPushButton"))
             clickButton(":Company ID Correct?.Yes_QPushButton");
@@ -172,8 +246,11 @@ function main()
     
     try{
         //-------------Accounting-Profit Center Number---------------------
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Profit Center Numbers...");
@@ -199,8 +276,10 @@ function main()
     
     //--------------Accounting-Account-SubAccount Numbers-----------------
     try{
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Numbers...");
@@ -228,8 +307,10 @@ function main()
     
     //------------Account-Account-SubAccount Types-----------------
     try{
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Types...");
@@ -281,96 +362,98 @@ function main()
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Currencies...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Currencies...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Master Information.Currencies_QModelIndex");
+        mouseClick(":Master Information.Currencies_QModelIndex", 34, 2, 0, Qt.LeftButton);
         
         //----------Create Base Currency-----------------------
-        waitForObject(":List Currencies.New_QPushButton");
-        clickButton(":List Currencies.New_QPushButton");
-        waitForObject(":List Currencies._currName_QLineEdit");
-        type(":List Currencies._currName_QLineEdit", "US Dollars");
-        waitForObject(":List Currencies._currSymbol_QLineEdit");
-        type(":List Currencies._currSymbol_QLineEdit", "$");
-        waitForObject(":List Currencies._currSymbol_QLineEdit");
-        waitForObject(":List Currencies._currAbbr_QLineEdit");
-        type(":List Currencies._currAbbr_QLineEdit", "USD");
-        waitForObject(":List Currencies.Base Currency_QCheckBox");
-        clickButton(":List Currencies.Base Currency_QCheckBox");
-        waitForObject(":List Currencies.Yes_QPushButton");
-        clickButton(":List Currencies.Yes_QPushButton");
-        waitForObject(":List Currencies.Save_QPushButton");
-        clickButton(":List Currencies.Save_QPushButton");
-        waitForObject(":List Currencies.Yes_QPushButton");
-        clickButton(":List Currencies.Yes_QPushButton");
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+        waitForObject(":_stack._currName_QLineEdit");
+        type(":_stack._currName_QLineEdit", "US Dollars");
+        waitForObject(":_stack._currSymbol_QLineEdit");
+        type(":_stack._currSymbol_QLineEdit", "$");
+        waitForObject(":_stack._currAbbr_QLineEdit");
+        type(":_stack._currAbbr_QLineEdit",  "USD");         
+        waitForObject(":_stack.Base Currency_QCheckBox");
+        clickButton(":_stack.Base Currency_QCheckBox");
+        snooze(0.1);
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+      
         
         //----------Create Foreign currency - EUR------------
-        waitForObject(":List Currencies.New_QPushButton");
-        clickButton(":List Currencies.New_QPushButton");
-        waitForObject(":List Currencies._currName_QLineEdit");
-        type(":List Currencies._currName_QLineEdit", "Euros");
-        waitForObject(":List Currencies._currSymbol_QLineEdit");
-        type(":List Currencies._currSymbol_QLineEdit", "EUR");
-        waitForObject(":List Currencies._currAbbr_QLineEdit");
-        type(":List Currencies._currAbbr_QLineEdit", "EUR");
-        waitForObject(":List Currencies.Save_QPushButton");
-        clickButton(":List Currencies.Save_QPushButton"); 
-        
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+        waitForObject(":_stack._currName_QLineEdit");
+        type(":_stack._currName_QLineEdit", "Euros");
+        waitForObject(":_stack._currSymbol_QLineEdit");
+        type(":_stack._currSymbol_QLineEdit", "EUR");
+        waitForObject(":_stack._currAbbr_QLineEdit");
+        type(":_stack._currAbbr_QLineEdit",  "EUR"); 
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");               
         snooze(2);
-        if(object.exists(":List Currencies.OK_QPushButton"))
-            clickButton(":List Currencies.OK_QPushButton");
+        waitForObject(":Additional Configuration Required.OK_QPushButton");
+        clickButton(":Additional Configuration Required.OK_QPushButton");    
         
-        waitForObject(":List Currencies._curr_XTreeWidget");
-        if(object.exists(":_curr.USD_QModelIndex"))
+        waitForObject(":_stack._curr_XTreeWidget");
+        if(object.exists(":_curr.US Dollars_QModelIndex"))
             test.pass("Currency: USD created");
         else test.fail("Currency: USD not created");
         
-        if(object.exists("{column='3' container=':List Currencies._curr_XTreeWidget' text='EUR' type='QModelIndex'}"))
+        if(object.exists("{column='3' container=':_stack._curr_XTreeWidget' text='EUR' type='QModelIndex'}"))
             test.pass("Currency: EUR created");
         else test.fail("Currency: EUR not created");
         
-        waitForObject(":List Currencies.Close_QPushButton");
-        clickButton(":List Currencies.Close_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }
-    catch(e){test.fail("Exception caught in creating Currencies");}
-    
+    catch(e){test.fail("Exception caught in creating Currencies");
+    }
     
     
     //----------Create Exchange Rates-------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Exchange Rates...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Exchange Rates...");
-        waitForObject(":List Currency Exchange Rates.New_QPushButton");
-        clickButton(":List Currency Exchange Rates.New_QPushButton");
-        waitForObject(":List Currency Exchange Rates._rate_XLineEdit");
-        type(":List Currency Exchange Rates._rate_XLineEdit", "1.36");
-        type(":List Currency Exchange Rates.XDateEdit_XDateEdit", "-30");
-        type(":List Currency Exchange Rates.XDateEdit_XDateEdit", "<Tab>");
-        waitForObject(":List Currency Exchange Rates.XDateEdit_XDateEdit_2");
-        type(":List Currency Exchange Rates.XDateEdit_XDateEdit_2", "+365");
-        type(":List Currency Exchange Rates.XDateEdit_XDateEdit_2", "<Tab>");
-        waitForObject(":List Currency Exchange Rates.Save_QPushButton");
-        clickButton(":List Currency Exchange Rates.Save_QPushButton");
-        waitForObject(":List Currency Exchange Rates._conversionRates_XTreeWidget");
-        if(findObject(":_conversionRates.EUR - €_QModelIndex").text== "EUR - EUR")
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Master Information.Exchange Rates_QModelIndex");
+        mouseClick(":Master Information.Exchange Rates_QModelIndex", 55, 11, 0, Qt.LeftButton);
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+        type(":_stack._rate_XLineEdit", "1.36");
+        type(":_stack.XDateEdit_XDateEdit", "-30");
+        type(":_stack.XDateEdit_XDateEdit", "<Tab>");
+        waitForObject(":_stack.XDateEdit_XDateEdit_2");
+        type(":_stack.XDateEdit_XDateEdit_2", "+365");
+        type(":_stack.XDateEdit_XDateEdit_2", "<Tab>");
+        waitForObject(":_stack.Save_QPushButton");
+        clickButton(":_stack.Save_QPushButton");
+        waitForObject(":_frame._conversionRates_XTreeWidget");
+        if(findObject(":_conversionRates.EUR - EUR_QModelIndex").text== "EUR - EUR")
             test.pass("Exchange Rate of EUR created");
         else test.fail("Exchange Rate of EUR not created");
-        waitForObject(":List Currency Exchange Rates.Close_QPushButton");
-        clickButton(":List Currency Exchange Rates.Close_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }
-    catch(e){test.fail("Exception in creating Exchange Rates:"+e);}
+    catch(e){test.fail("Exception in creating Exchange Rates:"+e);
+    }
     
     
     
     //-----------Create Chart Of Accounts-------------------------------
     try{    
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Accounting");
+        activateItem(":_QMenu", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
@@ -396,12 +479,14 @@ function main()
     //------------Configure:Accounting Module---------------
     try{
         
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox", "Accounting",10, 10, 0, Qt.LeftButton);
+        waitForObject(":Configure.Accounting_QModelIndex");
+        mouseClick(":Configure.Accounting_QModelIndex", 42, 6, 0, Qt.LeftButton); 
         waitForObject(":_gl._main_XLineEdit_3");
         type(":_gl._main_XLineEdit_3", "01-01-3030-01");
         type(":_gl._main_XLineEdit_3", "<Tab>");
@@ -409,7 +494,8 @@ function main()
         type(":_gl._main_XLineEdit", "<Tab>");
         type(":_gl._main_XLineEdit_2", "01-01-8995-01");
         type(":_gl._main_XLineEdit_2", "<Tab>");
-        clickButton(":Accounting Configuration.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         snooze(0.5);
         if(object.exists(":Company ID Correct?.Yes_QPushButton"))
             clickButton(":Company ID Correct?.Yes_QPushButton");
@@ -419,12 +505,14 @@ function main()
     
     //-----------------Configure: Products Module--------------
     try{
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Products...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Products...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox", "Products",10, 10, 0, Qt.LeftButton);
+        waitForObject(":Configure.Products_QModelIndex");
+        mouseClick(":Configure.Products_QModelIndex", 37, 4, 0, Qt.LeftButton);
         waitForObject(":Products Configuration.Post Item Changes to the Change Log_QCheckBox");
         if(appEdition=="Manufacturing")
         {
@@ -454,7 +542,8 @@ function main()
         if(findObject(":Defaults.Set Sold Items as Exclusive_QCheckBox").checked)
             findObject(":Defaults.Set Sold Items as Exclusive_QCheckBox").checked=false;
         type(":_issueMethod_QComboBox", "Mixed");
-        clickButton(":Products Configuration.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         if(appEdition=="Manufacturing")
         {
             waitForObject(":Cancel.Yes_QPushButton");
@@ -467,60 +556,14 @@ function main()
     }catch(e){test.fail("Exception in configuring Products Module");}
     
     
-    
-    //----------Define Encryption (metric)------
-    try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Encryption...");
-        snooze(1);
-        waitForObject(":OK_QPushButton");
-        clickButton(":OK_QPushButton");
-        waitForObject(":_ccEncKeyName_QLineEdit");
-        if(findObject(":_ccEncKeyName_QLineEdit").text!="xTuple.key")
-        {
-            type(":_ccEncKeyName_QLineEdit", "<Right>");
-            type(":_ccEncKeyName_QLineEdit", "<Ctrl+Backspace>");
-            type(":_ccEncKeyName_QLineEdit", "xTuple.key");
-            test.log("Encryption: key name changed");
-        }
-        if(findObject(":Encryption Configuration_FileLineEdit").text!="c:\\crypto")
-        {
-            type(":Encryption Configuration_FileLineEdit", "<Right>");
-            type(":Encryption Configuration_FileLineEdit", "<Ctrl+Backspace>");
-            type(":Encryption Configuration_FileLineEdit", "c:\\crypto");
-            test.log("Encryption: Windows location changed");
-        }
-        if(findObject(":Encryption Configuration_FileLineEdit_2").text!="\\home\\crypto")
-        {
-            type(":Encryption Configuration_FileLineEdit_2", "<Right>");
-            type(":Encryption Configuration_FileLineEdit_2", "<Ctrl+Backspace>");
-            type(":Encryption Configuration_FileLineEdit_2", "\\home\\crypto");
-            test.log("Encryption: Linux location changed");
-        }
-        if(findObject(":Encryption Configuration_FileLineEdit_3").text!="/Users/crypto")
-        {
-            type(":Encryption Configuration_FileLineEdit_3", "<Right>");
-            type(":Encryption Configuration_FileLineEdit_3", "<Ctrl+Backspace>");
-            type(":Encryption Configuration_FileLineEdit_3", "/Users/crypto");
-            test.log("Encryption: Mac location changed");
-        }
-        clickButton(":Encryption Configuration.Save_QPushButton");
-        test.log("Encryption defined");
-    }catch(e){test.fail("Exception in defining Encryption:"+e);}
-    
-    
     //---------Define Database Information----------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Database Information...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Configure.Database_QModelIndex");
+        mouseClick(":Configure.Database_QModelIndex", 32, 2, 0, Qt.LeftButton);
         waitForObject(":_description_XLineEdit_4");
         if(findObject(":_description_XLineEdit_4").text!="Practice Database")
         {
@@ -530,37 +573,37 @@ function main()
         if(appEdition=="Manufacturing"||appEdition=="Standard")
         {
             
-            if(!findObject(":Database Information.Batch Manager_QGroupBox").checked)
-                type(":Database Information.Batch Manager_QGroupBox"," ");
-            if(findObject(":_batchEmail_QLineEdit").text!="mike@xtuple.com")
+            if(!findObject(":Database Information.xTuple Connect Enabled_QGroupBox").checked)
+                type(":Database Information.xTuple Connect Enabled_QGroupBox"," ");
+            if(findObject(":_batchEmail_QLineEdit_2").text!="mike@xtuple.com")
             {
-                waitForObject(":_batchEmail_QLineEdit");
-                findObject(":_batchEmail_QLineEdit").clear();
-                type(":_batchEmail_QLineEdit", "mike@xtuple.com");
+                waitForObject(":_batchEmail_QLineEdit_2");
+                findObject(":_batchEmail_QLineEdit_2").clear();
+                type(":_batchEmail_QLineEdit_2", "mike@xtuple.com");
             }
             
             
-            if(findObject(":Batch Manager.qt_spinbox_lineedit_QLineEdit").currentText!="30")
+            if(findObject(":xTuple Connect Enabled.qt_spinbox_lineedit_QLineEdit").currentText!="30")
             {
-                findObject(":Batch Manager.qt_spinbox_lineedit_QLineEdit").clear();
-                type(":Batch Manager.qt_spinbox_lineedit_QLineEdit", "30");
+                findObject(":xTuple Connect Enabled.qt_spinbox_lineedit_QLineEdit").clear();
+                type(":xTuple Connect Enabled.qt_spinbox_lineedit_QLineEdit", "30");
             }
         }
         else if(appEdition=="PostBooks")
         {
-            test.xverify(object.exists(":_batchEmail_QLineEdit"), "From Address - not visible");
+            test.xverify(object.exists(":_batchEmail_QLineEdit_2"), "From Address - not visible");
             test.xverify(object.exists(":Database Information.Batch Manager_QGroupBox"), "Enable Batch Manager - not visible");
             
         }
         if(!findObject(":Database Information.Disallow mismatched client versions_QCheckBox").checked)
-            clickButton(":Database Information.Disallow mismatched client versions_QCheckBox");
-        snooze(0.5);
+            
+            snooze(0.5);
         if(findObject(":_comments_QTextEdit_2").plainText!="Settings for practice database")
         {
             findObject(":_comments_QTextEdit_2").clear();
             type(":_comments_QTextEdit_2", "Settings for practice database");
         }
-        clickButton(":Database Information.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         test.log("Database Information Defined");
         
     }
@@ -591,6 +634,7 @@ function main()
             loginAppl("CONFIGURE"); 
             
             //----Configure EDI----
+            
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
@@ -675,8 +719,8 @@ function main()
             snooze(2);
             clickTab(":List EDI Profiles.qt_tabwidget_tabbar_QTabBar", "Forms");
             snooze(1);
-            waitForObject(":forms.New_QPushButton_2");
-            clickButton(":forms.New_QPushButton_2");
+            waitForObject(":_formsTab.New_QPushButton");
+            clickButton(":_formsTab.New_QPushButton");
             waitForObject(":List EDI Profiles.OK_QPushButton_2");
             clickButton(":List EDI Profiles.OK_QPushButton_2");
             waitForObject(":_type_XComboBox_3");
@@ -702,19 +746,18 @@ function main()
     
     
     //----------Create Incident Category-----------
-    try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
-        snooze(1);
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Incident");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Categories...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Incident_QMenu", "Categories...");
+    try{       
+        
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","CRM",10, 10, 0, Qt.LeftButton);
+        waitForObject(":Master Information.Incident Categories_QModelIndex");
+        mouseClick(":Master Information.Incident Categories_QModelIndex", 73, 4, 0, Qt.LeftButton);
         waitForObject(":List Incident Categories.New_QPushButton");
         clickButton(":List Incident Categories.New_QPushButton");
-        
         waitForObject(":_name_XLineEdit_14");
         type(":_name_XLineEdit_14", "DUNNING");
         waitForObject(":Incident Category._order_QSpinBox");
@@ -722,327 +765,74 @@ function main()
         snooze(0.1);
         type(":Incident Category._order_QSpinBox", "90");
         type(":Incident Category._descrip_QTextEdit", "Dunning Incident");
-        clickButton(":Incident Category.Save_QPushButton");
-        waitForObject(":List Incident Categories.Close_QPushButton");
-        clickButton(":List Incident Categories.Close_QPushButton");
-        test.log("Incident category: Dunning incident created");
-    }catch(e){test.fail("Exception in creating Incident Categories"+e);}
-    snooze(2);
-    
-    
-    //-----------Rescan privileges--------------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Rescan Privileges");
-    
-    //-----------Configure: Accounting Module------------------
-    try{
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");    
         
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Accounting...");
-        waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
-        clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Receivable");
-        waitForObject(":_ar._nextARMemoNumber_XLineEdit");
-        findObject(":_ar._nextARMemoNumber_XLineEdit").clear();
-        type(":_ar._nextARMemoNumber_XLineEdit", "20000");
-        if(findObject(":_ar.Hide 'Apply to Balance' button_QCheckBox").checked)
-            clickButton(":_ar.Hide 'Apply to Balance' button_QCheckBox");
-        if(!findObject(":_ar.Enable Customer Deposits_QCheckBox").checked)
-            clickButton(":_ar.Enable Customer Deposits_QCheckBox");
-        type(":Remit-To Address._name_XLineEdit", "<Del>");
-        type(":Remit-To Address._name_XLineEdit", "Prodiem Toys");
-        type(":Remit-To Address.Street\nAddress:_XLineEdit", "Account Receivable");
-        type(":Remit-To Address.Street\nAddress:_XLineEdit_2", "<Del>");
-        type(":Remit-To Address.Street\nAddress:_XLineEdit_2", "12100 Playland way");
-        type(":Remit-To Address.Street\nAddress:_XLineEdit_3", "<Del>");
-        type(":Remit-To Address.City:_XLineEdit", "Norfolk");
-        
-        findObject(":_state_QLineEdit").clear();
-        type(":_state_QLineEdit", "VA");
-        clickItem(":Remit-To Address._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
-        type(":Remit-To Address._phone_XLineEdit", "<Del>");
-        type(":Remit-To Address._phone_XLineEdit", "757-461-3022");
-        if(!findObject(":_ar.Credit Warn Customers when Late_QGroupBox").checked)
-            type(":_ar.Credit Warn Customers when Late_QGroupBox"," ");
-        waitForObject(":Credit Warn Customers when Late._graceDays_QSpinBox");
-        findObject(":Credit Warn Customers when Late._graceDays_QSpinBox").clear();
-        type(":Credit Warn Customers when Late._graceDays_QSpinBox", "30");
-        type(":Credit Warn Customers when Late._graceDays_QSpinBox", "<Tab>");
-        waitForObject(":_ar._recurringBuffer_QSpinBox");
-        type(":_ar._recurringBuffer_QSpinBox", "<Ctrl+A>");
-        type(":_ar._recurringBuffer_QSpinBox", "<Del>");
-        type(":_ar._recurringBuffer_QSpinBox", "7");
-        type(":_ar._recurringBuffer_QSpinBox", "<Tab>");
-        clickItem(":_ar._incdtCategory_XComboBox", "DUNNING", 0, 0, 1, Qt.LeftButton);
-        waitForObject(":Accounting Configuration.Save_QPushButton");
-        clickButton(":Accounting Configuration.Save_QPushButton");
-        test.log("Accounting Module Configured"); 
-    }catch(e){test.fail("Exception in Configuring Accounting:"+e);}
-    snooze(2);
+    }catch(e)
+    {
+        test.fail("Exception in creating Incident Categories"+e);
+    }
     
-    //---------Configure: Manufacture Module-------------
-    try{
-        
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        snooze(0.1);
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Manufacture...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Manufacture...");
-        waitForObject(":Manufacture Configuration._nextWoNumber_XLineEdit");
-        type(":Manufacture Configuration._nextWoNumber_XLineEdit", "10000");
-        if(findObject(":Manufacture Configuration.Next Work Order #:_QLabel").currentText!="Automatic")
-            type(":Manufacture Configuration.Next Work Order #:_QLabel","Automatic");
-        if(!findObject(":Manufacture Configuration.Automatically Explode W/O's_QCheckBox").checked)
-            clickButton(":Manufacture Configuration.Automatically Explode W/O's_QCheckBox");
-        snooze(1);
-        if(appEdition=="Manufacturing")
-        {
-            if(!findObject(":Manufacture Configuration.Auto Fill Post Operation Qty. to Balance_QCheckBox").checked)
-                clickButton(":Manufacture Configuration.Auto Fill Post Operation Qty. to Balance_QCheckBox");
-            
-        }
-        else if(appEdition=="Standard"||appEdition=="PostBooks")
-        {
-            test.xverify(object.exists(":Manufacture Configuration.Auto Fill Post Operation Qty. to Balance_QCheckBox"),"Auto fill Post Operation - not visible");
-        }
-        try {
-            if(!findObject(":Manufacture Configuration.Post Work Order Changes to the Change Log_QCheckBox").checked)
-                clickButton(":Manufacture Configuration.Post Work Order Changes to the Change Log_QCheckBox");    if(!findObject(":Explode W/O's Effective as of:.W/O Start Date_QRadioButton").checked)
-                    clickButton(":Explode W/O's Effective as of:.W/O Start Date_QRadioButton");
-            if(!findObject(":Default W/O Explosion Level:.Multiple Level_QRadioButton_2").checked)
-                clickButton(":Default W/O Explosion Level:.Multiple Level_QRadioButton_2");
-        } catch (e) { test.fail("exception " + e + " handling :Default W/O Explosion Level:.Multiple Level_QRadioButton"); }
-        try {
-            if(!findObject(":Inventory Item Cost Defaults.Post Material Usage Variances_QCheckBox").checked)
-                clickButton(":Inventory Item Cost Defaults.Post Material Usage Variances_QCheckBox");
-        } catch (e) { test.fail("exception " +  e + " handling :Inventory Item Cost Defaults.Post Material Usage Variances_QCheckBox"); }
-        if(appEdition=="Manufacturing")
-        {
-            if(!findObject(":Inventory Item Cost Defaults.Post Labor Variances_QCheckBox").checked)
-                clickButton(":Inventory Item Cost Defaults.Post Labor Variances_QCheckBox");
-        }
-        else if(appEdition=="Standard"||appEdition=="PostBooks")
-        {
-            test.xverify(object.exists(":Inventory Item Cost Defaults.Post Labor Variances_QCheckBox"),"Post Labor Variances - not visible");
-        }
-        if(!findObject(":W/O Item Cost Recognition Defaults.Proportional_QRadioButton").checked)
-            clickButton(":W/O Item Cost Recognition Defaults.Proportional_QRadioButton");
-        if(appEdition=="Manufacturing")
-        {
-            if(!findObject(":Shop Floor Workbench Posts:.Operations_QRadioButton").checked)
-                clickButton(":Shop Floor Workbench Posts:.Operations_QRadioButton");
-        }
-        else if(appEdition=="Standard"||appEdition=="PostBooks")
-        {
-            test.xverify(object.exists(":Shop Floor Workbench Posts:.Operations_QRadioButton"),"Shop Floor Workbench Posts Operations - not visible");
-        }
-        snooze(1);
-        waitForObject(":Manufacture Configuration.Save_QPushButton");
-        clickButton(":Manufacture Configuration.Save_QPushButton");
-        snooze(2);
-        test.log("OpenMFG Module configured");
-    }catch(e){test.fail("Exception in configuring Manufacturing:"+e);}
-    
-    
-    //------------Configure: CRM Module------------------------
-    try{
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "CRM...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "CRM...");
-        waitForObject(":CRM Configuration._acctGeneration_QComboBox");
-        clickItem(":CRM Configuration._acctGeneration_QComboBox", "Automatic, Allow Override", 0, 0, 1, Qt.LeftButton);
-        waitForObject(":CRM Configuration._nextAcctNumber_XLineEdit");
-        findObject(":CRM Configuration._nextAcctNumber_XLineEdit").clear();
-        waitForObject(":CRM Configuration._nextAcctNumber_XLineEdit");
-        type(":CRM Configuration._nextAcctNumber_XLineEdit", "100");
-        findObject(":CRM Configuration._nextInNumber_XLineEdit").clear();
-        type(":CRM Configuration._nextInNumber_XLineEdit", "10000");
-        if(!findObject(":CRM Configuration.Use Projects_QCheckBox").checked)
-            clickButton(":CRM Configuration.Use Projects_QCheckBox");
-        waitForObject(":CRM Configuration.Save_QPushButton");
-        clickButton(":CRM Configuration.Save_QPushButton");
-        test.log("CRM Module configured");  
-    }catch(e){test.fail("Exception in configuring CRM:"+e);}
-    
-    snooze(2);
-  
-    //--------------Create Calendars------------------
-    try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Calendars...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Calendars...");
-        waitForObject(":List Calendars.New_QPushButton");
-        clickButton(":List Calendars.New_QPushButton");
-        waitForObject(":List Calendars.Relative_QPushButton");
-        clickButton(":List Calendars.Relative_QPushButton");
-        waitForObject(":List Calendars._name_XLineEdit");
-        type(":List Calendars._name_XLineEdit", "8WRELDAYFW");
-        type(":List Calendars._descrip_XLineEdit", "8 Weeks Forward From Today");
-        for(i=0;i<8;i++)
-        {
-            waitForObject(":List Calendars.New_QPushButton_2");
-            clickButton(":List Calendars.New_QPushButton_2");
-            waitForObject(":List Calendars._name_XLineEdit_2");
-            type(":List Calendars._name_XLineEdit_2", "WEEK"+ (i+1));
-            findObject(":List Calendars.qt_spinbox_lineedit_QLineEdit_2").clear();
-            snooze(0.5);
-            waitForObject(":List Calendars.qt_spinbox_lineedit_QLineEdit_2");
-            type(":List Calendars.qt_spinbox_lineedit_QLineEdit_2",i);
-            waitForObject(":List Calendars._offsetType_QComboBox");
-            type(":List Calendars._offsetType_QComboBox", "Weeks");
-            waitForObject(":List Calendars.qt_spinbox_lineedit_QLineEdit");
-            snooze(0.1);
-            findObject(":List Calendars.qt_spinbox_lineedit_QLineEdit").clear();
-            snooze(0.5);
-            type(":List Calendars.qt_spinbox_lineedit_QLineEdit",1);
-            waitForObject(":List Calendars._periodType_QComboBox");
-            type(":List Calendars._periodType_QComboBox", "Weeks");
-            waitForObject(":List Calendars.Save_QPushButton");
-            clickButton(":List Calendars.Save_QPushButton");
-            snooze(1);
-            var CalObj = "{column='0' container=':List Calendars._calitem_XTreeWidget' text='WEEK"+(i+1)+"' type='QModelIndex'}";
-            while(!object.exists(CalObj))
-                snooze(0.1);
-            
-        }
-        waitForObject(":List Calendars.Save_QPushButton_2");
-        clickButton(":List Calendars.Save_QPushButton_2");
-        waitForObject(":List Calendars._calhead_XTreeWidget");
-        if(object.exists(":_calhead.8WRELDAYFW_QModelIndex"))
-            test.pass("Calendar Created");
-        else test.fail("Calendar not created");
-        waitForObject(":List Calendars.Close_QPushButton");
-        clickButton(":List Calendars.Close_QPushButton");
-    }catch(e){test.fail("Exception in Defining Calendar:"+e);}
-    
-    //----------Configure:Schedule Module-------------------
-    try{
-        if(appEdition=="Manufacturing")
-        {
-            
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Schedule...");
-            activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Schedule...");
-            waitForObject(":Schedule Configuration._nextPlanNumber_XLineEdit");
-            type(":Schedule Configuration._nextPlanNumber_XLineEdit", "<Del>");
-            waitForObject(":Schedule Configuration._nextPlanNumber_XLineEdit");
-            type(":Schedule Configuration._nextPlanNumber_XLineEdit", "90000");
-            waitForObject(":Schedule Configuration._calendar_CalendarComboBox");
-            clickItem(":Schedule Configuration._calendar_CalendarComboBox", "8WRELDAYFW", 0, 0, 1, Qt.LeftButton);
-            if(!findObject(":Schedule Configuration.Enable Constraint Management_QCheckBox").checked)
-                clickButton(":Schedule Configuration.Enable Constraint Management_QCheckBox");
-            waitForObject(":Schedule Configuration.Save_QPushButton");
-            clickButton(":Schedule Configuration.Save_QPushButton");
-            test.log("Schedule Module Configured")
-                }
-        else if(appEdition=="PostBooks" ||appEdition=="Standard")
-        {
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-            
-            snooze(1);
-            menu = waitForObject(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu");
-            menuItem = "Sche&dule...";
-            
-            actions = menu.actions();
-            for(i=0;i<actions.count();i++)
-                if(actions.at(i).text == menuItem || i==actions.count()-1) break;
-            if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
-            else test.pass(menuItem+"not found in "+appEdition);
-            
-            
-        }
-    }catch(e){test.fail("Exception in Configuring Schedule");}
     
     
     //----------Create new Title--------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Titles...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Titles...");
-        waitForObject(":List Titles.New_QPushButton");
-        clickButton(":List Titles.New_QPushButton");
-        waitForObject(":_code_XLineEdit_2");
-        type(":_code_XLineEdit_2", "Master");
-        clickButton(":List Titles.Save_QPushButton");
-        waitForObject(":List Titles._honorifics_XTreeWidget");
-        if(object.exists(":_honorifics.Master_QModelIndex"))
+        waitForObject(":Master Information.Titles_QModelIndex");
+        mouseClick(":Master Information.Titles_QModelIndex", 12, 9, 0, Qt.LeftButton);
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+        waitForObject(":Work Center._code_XLineEdit");
+        type(":Work Center._code_XLineEdit", "Master");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");       
+        if(object.exists(":_honorifics.Master_QModelIndex_2"))
             test.pass("Title: Master created");
         else test.fail("Title: Master not created");
-        waitForObject(":List Titles.Close_QPushButton");
-        clickButton(":List Titles.Close_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Title:"+e);}
     
     
     //-------------Create Site Types------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Site Types...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_3", "Site Types...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Inventory",10,10, 0, Qt.LeftButton);
+        waitForObject(":Master Information.Site Types_QModelIndex");
+        mouseClick(":Master Information.Site Types_QModelIndex", 42, 4, 0, Qt.LeftButton);
         
-        waitForObject(":List Site Types.New_QPushButton");
-        clickButton(":List Site Types.New_QPushButton");
-        waitForObject(":List Site Types._code_XLineEdit");
-        type(":List Site Types._code_XLineEdit", "WHSE");
-        type(":List Site Types._description_XLineEdit", "Warehouse");
-        waitForObject(":List Site Types.Save_QPushButton");
-        clickButton(":List Site Types.Save_QPushButton");
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+        waitForObject(":Work Center._code_XLineEdit");
+        type(":Work Center._code_XLineEdit",  "INTRAN");
+        waitForObject(":Work Center._description_XLineEdit");
+        type(":Work Center._description_XLineEdit","Intransit Site");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         snooze(1);
-        if(object.exists(":_sitetype.WHSE_QModelIndex"))
+        if(object.exists("{column='0' container=':_stack._sitetype_XTreeWidget' text='INTRAN' type='QModelIndex'}"))
             test.pass("Site Type: INTRAN created");
         
-        waitForObject(":List Site Types._sitetype_XTreeWidget");
-        if(object.exists(":_sitetype.WHSE_QModelIndex"))
-            test.pass("Site Type: WHSE created");
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+        waitForObject(":Work Center._code_XLineEdit");
+        type(":Work Center._code_XLineEdit",  "STORAGE");
+        waitForObject(":Work Center._description_XLineEdit");
+        type(":Work Center._description_XLineEdit","Storage Site");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");           
+        if(object.exists("{column='0' container=':_stack._sitetype_XTreeWidget' text='STORAGE' type='QModelIndex'}"))
+            test.pass("Site Type: STORAGE created");    
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         
-        waitForObject(":List Site Types.New_QPushButton");
-        clickButton(":List Site Types.New_QPushButton");
-        waitForObject(":List Site Types._code_XLineEdit");
-        type(":List Site Types._code_XLineEdit", "INTRAN");
-        type(":List Site Types._description_XLineEdit", "Intransit Site");
-        clickButton(":List Site Types.Save_QPushButton");
-        waitForObject(":List Site Types._sitetype_XTreeWidget");
-        snooze(2);
-        if(object.exists("{column='0' container=':List Site Types._sitetype_XTreeWidget' text='INTRAN' type='QModelIndex'}"))
-            
-            
-            waitForObject(":List Site Types.New_QPushButton");
-        clickButton(":List Site Types.New_QPushButton");
-        waitForObject(":List Site Types._code_XLineEdit");
-        type(":List Site Types._code_XLineEdit", "STORAGE");
-        type(":List Site Types._description_XLineEdit", "Storage Site");
-        clickButton(":List Site Types.Save_QPushButton");
-        waitForObject(":List Site Types._sitetype_XTreeWidget");
-        snooze(2);
-        if(object.exists("{column='0' container=':List Site Types._sitetype_XTreeWidget' text='STORAGE' type='QModelIndex'}"))
-            
-            waitForObject(":List Site Types.Close_QPushButton");
-        clickButton(":List Site Types.Close_QPushButton");
-    }catch(e){test.fail("Exception in Creating Site:"+e);}
+    }
+    catch(e)
+    {test.fail("Exception in Creating Site:"+e);
+    }
     
     //---find Application Edition---
     var appEdition = findApplicationEdition();
@@ -1053,8 +843,10 @@ function main()
         if(appEdition=="Manufacturing"|| appEdition=="Standard")
         {
             
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+            waitForObjectItem(":_QMenu", "Inventory");
+            activateItem(":_QMenu", "Inventory");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
             activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "List...");
@@ -1126,8 +918,10 @@ function main()
         }
         else if(appEdition=="PostBooks")
         {
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+            waitForObjectItem(":_QMenu", "Inventory");
+            activateItem(":_QMenu", "Inventory");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
             activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Maintain...");
@@ -1144,7 +938,7 @@ function main()
             type(":_addressGroup.Postal Code:_XLineEdit", "23234324");
             clickItem(":_addressGroup._country_XComboBox_2", "United States", 0, 0, 1, Qt.LeftButton);
             type(":_accountGroup._main_XLineEdit_2", "01-01-1950-01");
-                        
+            
             clickTab(":Site.qt_tabwidget_tabbar_QTabBar", "Site Locations");
             waitForObject(":Enforce ARBL Naming Convention._aisleSize_QSpinBox_2");
             findObject(":Enforce ARBL Naming Convention._aisleSize_QSpinBox_2").clear();
@@ -1274,10 +1068,12 @@ function main()
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Configure Modules");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Configure Modules_QMenu", "Inventory...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Inventory",10,10, 0, Qt.LeftButton);
+        waitForObject(":Configure.Inventory_QModelIndex");
+        mouseClick(":Configure.Inventory_QModelIndex", 30, 3, 0, Qt.LeftButton);
         waitForObject(":_eventFence_QSpinBox");
         type(":_eventFence_QSpinBox", "<Ctrl+A>");
         type(":_eventFence_QSpinBox", "<Del>");
@@ -1312,12 +1108,12 @@ function main()
             clickButton(":Costing Methods Allowed.Average_QCheckBox");
         if(!findObject(":When Count Tag Qty. exceeds Slip Qty..Do Not Post Count Tag_QRadioButton").checked)
             clickButton(":When Count Tag Qty. exceeds Slip Qty..Do Not Post Count Tag_QRadioButton");
-        if(!findObject(":Count Slip # Auditing.Disallow All Slip # Duplications_QRadioButton").checked)
-            clickButton(":Count Slip # Auditing.Disallow All Slip # Duplications_QRadioButton");
-        waitForObject(":Inventory Configuration.Save_QPushButton");
-        clickButton(":Inventory Configuration.Save_QPushButton");
+        if(!findObject(":Count Slip # Auditing.Allow Duplications_QRadioButton").checked)
+            clickButton(":Count Slip # Auditing.Allow Duplications_QRadioButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         test.log("Inventory Module Configured");
-    }catch(e){test.fail("Exception in configuring Inventory");}
+    }catch(e){test.fail("Exception in configuring Inventory"+ e);}
     
     
     //---Create User by Role--
@@ -1329,10 +1125,10 @@ function main()
         var username;
         for (var records in set)
         {
-          username=testData.field(set[records],"USERNAME");
-          role=testData.field(set[records],"ROLE");
-          if(role=="RUNREGISTER") break;
-          
+            username=testData.field(set[records],"USERNAME");
+            role=testData.field(set[records],"ROLE");
+            if(role=="RUNREGISTER") break;
+            
         }
     }catch(e){test.fail("Exception caught in reading login.tsv");}
     
@@ -1345,10 +1141,10 @@ function main()
         snooze(0.1);
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Preferences...");
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Preferences...");
-        waitForObject(":User.Selected User:_QRadioButton");
-        clickButton(":User.Selected User:_QRadioButton");
-        waitForObject(":User._user_XComboBox");
-        clickItem(":User._user_XComboBox", username, 0, 0, 1, Qt.LeftButton);
+        waitForObject(":_userGroup.Selected User:_QRadioButton");
+        clickButton(":_userGroup.Selected User:_QRadioButton");
+        waitForObject(":_userGroup._user_XComboBox");
+        clickItem(":_userGroup._user_XComboBox", username, 0, 0, 1, Qt.LeftButton);
         if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
             clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
         snooze(0.1);
@@ -1403,31 +1199,22 @@ function main()
         }
         waitForObject(":_menu.Show Purchase Menu_QCheckBox");
         clickButton(":_menu.Show Purchase Menu_QCheckBox");
-        snooze(0.1);
         waitForObject(":_menu.Show Purchase Toolbar_QCheckBox");
         clickButton(":_menu.Show Purchase Toolbar_QCheckBox");
-        snooze(0.1);
         waitForObject(":_menu.Show Manufacture Menu_QCheckBox");
         clickButton(":_menu.Show Manufacture Menu_QCheckBox");
-        snooze(0.1);
         waitForObject(":_menu.Show Manufacture Toolbar_QCheckBox");
         clickButton(":_menu.Show Manufacture Toolbar_QCheckBox");
-        snooze(0.1);
         waitForObject(":_menu.Show CRM Menu_QCheckBox");
         clickButton(":_menu.Show CRM Menu_QCheckBox");
-        snooze(0.1);
         waitForObject(":_menu.Show CRM Toolbar_QCheckBox");
         clickButton(":_menu.Show CRM Toolbar_QCheckBox");
-        snooze(0.1);
         waitForObject(":_menu.Show Sales Menu_QCheckBox");
         clickButton(":_menu.Show Sales Menu_QCheckBox");
-        snooze(0.1);
         waitForObject(":_menu.Show Sales Toolbar_QCheckBox");
         clickButton(":_menu.Show Sales Toolbar_QCheckBox");
-        snooze(0.1);
         waitForObject(":_menu.Show Accounting Menu_QCheckBox");
         clickButton(":_menu.Show Accounting Menu_QCheckBox");
-        snooze(0.1);
         waitForObject(":_menu.Show Accountng Toolbar_QCheckBox");
         clickButton(":_menu.Show Accountng Toolbar_QCheckBox");
         snooze(2);
@@ -1461,8 +1248,8 @@ function main()
         clickButton(":Default Actions.Event_XCheckBox");
         clickButton(":Default Actions.System Message_XCheckBox");
         
-        waitForObject(":User Preferences.Save_QPushButton");
-        clickButton(":User Preferences.Save_QPushButton");
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");
         snooze(1);
         test.log("User Preferences of "+username +":saved");
     }catch(e){test.fail("Exception in defining User Preferences:"+e);}

@@ -284,8 +284,10 @@ function main()
     
       //-----------Define BOO for Items---------------
         try{
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+            waitForObjectItem(":_QMenu", "Products");
+            activateItem(":_QMenu", "Products");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
             activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
             waitForObjectItem(":xTuple ERP: *.Bill Of Operations_QMenu", "List...");
@@ -369,85 +371,50 @@ function main()
     else if(appEdition=="PostBooks" || appEdition=="Standard")
     {
         
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        
-        menu = waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4");
-        menuItem = "Standard &Labor Rates...";
-        
-        actions = menu.actions();
-        for(i=0;i<actions.count();i++)
-            if(actions.at(i).text == menuItem || i==actions.count()-1) break;
-        if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
-        else test.pass(menuItem+"not found in "+appEdition);
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Products", 74, 11, 0, Qt.LeftButton);
         
         
+        if(object.exists("{column='0' container=':_tree.Master Information_QModelIndex' text='Standard Labor Rates' type='QModelIndex'}"))
+            test.fail("standard labor rates menu found in "+appEdition);
+        else
+            test.pass("standard labor rates menu not found in "+appEdition);
+               
         
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+       if(object.exists("{column='0' container=':_tree.Master Information_QModelIndex' text='Work Centers' type='QModelIndex'}"))
+            test.fail("Work centers menu found in "+appEdition);
+        else
+            test.pass("Work centers menu not found in "+appEdition); 
         
-        menu = waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4");
-        menuItem ="&Work Centers..."; 
-        
-        actions = menu.actions();
-        for(i=0;i<actions.count();i++)
-            if(actions.at(i).text == menuItem || i==actions.count()-1) break;
-        if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
-        else test.pass(menuItem+"not found in "+appEdition);
-        
+       if(object.exists("{column='0' container=':_tree.Master Information_QModelIndex' text='Standard Operations' type='QModelIndex'}"))
+            test.fail("Standard Operations menu found in "+appEdition);
+        else
+            test.pass("Standard Operations menu not found in "+appEdition);
         
         
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+        if(object.exists("{column='0' container=':_tree.Master Information_QModelIndex' text='Bill Of operations' type='QModelIndex'}"))
+            test.fail("Bill Of operations menufound in "+appEdition);
+        else
+            test.pass("Bill Of operations menu not found in "+appEdition);
         
-        menu = waitForObject(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4");
-        menuItem = "Standard &Operations...";
-        
-        actions = menu.actions();
-        for(i=0;i<actions.count();i++)
-            if(actions.at(i).text == menuItem || i==actions.count()-1) break;
-        if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
-        else test.pass(menuItem+"not found in "+appEdition);
-        
-        
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        
-        
-        menu = waitForObject(":xTuple ERP: OpenMFG Edition.Products_QMenu");
-        menuItem = "Bill &Of Operations";
-        
-        actions = menu.actions();
-        for(i=0;i<actions.count();i++)
-            if(actions.at(i).text == menuItem || i==actions.count()-1) break;
-        if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
-        else test.pass(menuItem+"not found in "+appEdition);
-        
-        
-        
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-       
+             
+         waitForObject(":Setup.Save_QPushButton");
+         clickButton(":Setup.Save_QPushButton");    
+           
     }
     
     
     //---------------Create BOM for Items---------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObject(":xTuple ERP: OpenMFG Edition.Products_QMenu");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
+        waitForObjectItem(":_QMenu", "Products");
+        activateItem(":_QMenu", "Products");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
         activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
         activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
@@ -684,11 +651,5 @@ function main()
         waitForObject(":Bills of Materials.Close_QPushButton");
         clickButton(":Bills of Materials.Close_QPushButton");
     }catch(e){test.fail("Exception in creating BOM for Item TSUB1"+e);}
-    
-    
-    
-    
-    
-    
     
 }
