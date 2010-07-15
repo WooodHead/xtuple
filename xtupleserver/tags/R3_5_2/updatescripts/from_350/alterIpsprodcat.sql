@@ -1,0 +1,1 @@
+ALTER TABLE ipsprodcat ADD COLUMN ipsprodcat_fixedamtdiscount NUMERIC(16,4) NOT NULL DEFAULT (0.00);
