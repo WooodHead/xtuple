@@ -150,6 +150,14 @@ BEGIN
 		imageass_source = 'S'
 	    WHERE imageass_source_id = pQuheadid;
 
+  -- Copy Comments
+  INSERT INTO comment
+  ( comment_cmnttype_id, comment_source, comment_source_id, comment_date, comment_user, comment_text )
+  SELECT comment_cmnttype_id, 'S', _soheadid, comment_date, comment_user, ('Quote-' || comment_text)
+  FROM comment
+  WHERE ( (comment_source='Q')
+    AND   (comment_source_id=pQuheadid) );
+
   FOR _r IN SELECT quitem.*,
                    quhead_number, quhead_prj_id,
                    itemsite_item_id, itemsite_leadtime,
@@ -189,6 +197,14 @@ BEGIN
       FROM charass
      WHERE ((charass_target_type='QI')
        AND  (charass_target_id=_r.quitem_id));
+
+    -- Copy Comments
+    INSERT INTO comment
+    ( comment_cmnttype_id, comment_source, comment_source_id, comment_date, comment_user, comment_text )
+    SELECT comment_cmnttype_id, 'SI', _soitemid, comment_date, comment_user, ('Quote-' || comment_text)
+    FROM comment
+    WHERE ( (comment_source='QI')
+      AND   (comment_source_id=_r.quitem_id) );
 
     _orderid := -1;
     _ordertype := '';
