@@ -23,12 +23,15 @@
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QLabel" name="desktopAccountingLit">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Accounting&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>Accounting</string>
       </property>
      </widget>
     </item>
@@ -47,13 +50,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="0">
         <widget class="MenuButton" name="_apAging">
          <property name="image">
-          <string>taxes_clock_48</string>
+          <string notr="true">taxes_clock_48</string>
          </property>
          <property name="label">
           <string>Aging</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>ap.dspAPAging</string>
+          <string notr="true">ap.dspAPAging</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -69,13 +72,13 @@ p, li { white-space: pre-wrap; }
        <item row="1" column="0">
         <widget class="MenuButton" name="_apWorkbench">
          <property name="image">
-          <string>check_write_48</string>
+          <string notr="true">check_write_48</string>
          </property>
          <property name="label">
           <string>Workbench</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>ap.workbench</string>
+          <string notr="true">ap.workbench</string>
          </property>
          <property name="ui" stdset="0">
           <string>dspBillingSelections</string>
@@ -88,13 +91,13 @@ p, li { white-space: pre-wrap; }
        <item row="2" column="0">
         <widget class="MenuButton" name="_vendorWorkbench">
          <property name="image">
-          <string>customers_zoom_48</string>
+          <string notr="true">customers_zoom_48</string>
          </property>
          <property name="label">
           <string>Vendor</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>po.vendorWorkBench</string>
+          <string notr="true">po.vendorWorkBench</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -125,13 +128,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="0">
         <widget class="MenuButton" name="_arAging">
          <property name="image">
-          <string>collection_account_clock_48</string>
+          <string notr="true">collection_account_clock_48</string>
          </property>
          <property name="label">
           <string>Aging</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>ar.dspARAging</string>
+          <string notr="true">ar.dspARAging</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -147,13 +150,13 @@ p, li { white-space: pre-wrap; }
        <item row="1" column="0">
         <widget class="MenuButton" name="_arWorkbench">
          <property name="image">
-          <string>collection_account_write_48</string>
+          <string notr="true">collection_account_write_48</string>
          </property>
          <property name="label">
           <string>Workbench</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>ar.arWorkBench</string>
+          <string notr="true">ar.arWorkBench</string>
          </property>
          <property name="ui" stdset="0">
           <string>dspBillingSelections</string>
@@ -166,13 +169,13 @@ p, li { white-space: pre-wrap; }
        <item row="2" column="0">
         <widget class="MenuButton" name="_customerWorkbench">
          <property name="image">
-          <string>customers_zoom_48</string>
+          <string notr="true">customers_zoom_48</string>
          </property>
          <property name="label">
           <string>Customer</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>so.customerWorkbench</string>
+          <string notr="true">so.customerWorkbench</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -203,13 +206,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="2">
         <widget class="MenuButton" name="_chartOfAccounts">
          <property name="image">
-          <string>company_write_48</string>
+          <string notr="true">company_write_48</string>
          </property>
          <property name="label">
           <string>Chart of Accounts</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>gl.accountNumbers</string>
+          <string notr="true">gl.accountNumbers</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -225,13 +228,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="4">
         <widget class="MenuButton" name="_budget">
          <property name="image">
-          <string>reward_write_48</string>
+          <string notr="true">reward_write_48</string>
          </property>
          <property name="label">
           <string>Budget</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>gl.maintainBudgets</string>
+          <string notr="true">gl.maintainBudgets</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -241,13 +244,13 @@ p, li { white-space: pre-wrap; }
        <item row="1" column="4">
         <widget class="MenuButton" name="_standardJournal">
          <property name="image">
-          <string>accounting_write_48</string>
+          <string notr="true">accounting_write_48</string>
          </property>
          <property name="label">
           <string>Standard Journal</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>gl.listStandardJournals</string>
+          <string notr="true">gl.listStandardJournals</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -263,13 +266,13 @@ p, li { white-space: pre-wrap; }
        <item row="1" column="2">
         <widget class="MenuButton" name="_journalSeries">
          <property name="image">
-          <string>accounting_ok_48</string>
+          <string notr="true">accounting_ok_48</string>
          </property>
          <property name="label">
           <string>Journal Series</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>gl.unpostedEntries</string>
+          <string notr="true">gl.unpostedEntries</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -297,13 +300,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="0">
         <widget class="MenuButton" name="_bankAdjustment">
          <property name="image">
-          <string>bank_write_48</string>
+          <string notr="true">bank_write_48</string>
          </property>
          <property name="label">
           <string>Adjustment</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>gl.adjustmentEditList</string>
+          <string notr="true">gl.adjustmentEditList</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -319,13 +322,13 @@ p, li { white-space: pre-wrap; }
        <item row="1" column="0">
         <widget class="MenuButton" name="_bankReconcile">
          <property name="image">
-          <string>bank_ok_48</string>
+          <string notr="true">bank_ok_48</string>
          </property>
          <property name="label">
           <string>Reconcile</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>gl.reconcileBankaccnt</string>
+          <string notr="true">gl.reconcileBankaccnt</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -353,13 +356,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="2">
         <widget class="MenuButton" name="_financialStatements">
          <property name="image">
-          <string>spreadsheet_48</string>
+          <string notr="true">spreadsheet_48</string>
          </property>
          <property name="label">
           <string>Financial Statements</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>gl.viewFinancialReport</string>
+          <string notr="true">gl.viewFinancialReport</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -372,13 +375,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="1">
         <widget class="MenuButton" name="_trialBalance">
          <property name="image">
-          <string>balance_zoom_48</string>
+          <string notr="true">balance_zoom_48</string>
          </property>
          <property name="label">
           <string>Trial Balance</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>gl.dspTrialBalances</string>
+          <string notr="true">gl.dspTrialBalances</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -394,13 +397,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="0">
         <widget class="MenuButton" name="_glTransactions">
          <property name="image">
-          <string>accounting_zoom_48</string>
+          <string notr="true">accounting_zoom_48</string>
          </property>
          <property name="label">
           <string>Transactions</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>gl.dspGLTransactions</string>
+          <string notr="true">gl.dspGLTransactions</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
