@@ -23,12 +23,15 @@
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QLabel" name="desktopPurchaseLit">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Purchase&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>Purchase</string>
       </property>
      </widget>
     </item>
@@ -47,13 +50,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="3">
         <widget class="MenuButton" name="_purchaseRequests">
          <property name="image">
-          <string>order_help_48</string>
+          <string notr="true">order_help_48</string>
          </property>
          <property name="label">
           <string>Purchase Requests</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>po.dspPurchaseRequestsByPlannerCode</string>
+          <string notr="true">po.dspPurchaseRequestsByPlannerCode</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -66,13 +69,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="5">
         <widget class="MenuButton" name="_purchaseOrders">
          <property name="image">
-          <string>order_add_48</string>
+          <string notr="true">order_add_48</string>
          </property>
          <property name="label">
           <string>Create Purchase Order</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>po.newPurchaseOrder</string>
+          <string notr="true">po.newPurchaseOrder</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -88,13 +91,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="9">
         <widget class="MenuButton" name="_purchaseOrdersItemsByDate">
          <property name="image">
-          <string>printer_48</string>
+          <string notr="true">printer_48</string>
          </property>
          <property name="label">
           <string>Print</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>po.printPurchaseOrder</string>
+          <string notr="true">po.printPurchaseOrder</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -107,13 +110,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="1">
         <widget class="MenuButton" name="_inventoryAvail">
          <property name="image">
-          <string>inventory_zoom_48</string>
+          <string notr="true">inventory_zoom_48</string>
          </property>
          <property name="label">
           <string>Inventory Availability</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>im.dspInventoryAvailabilityByPlannerCode</string>
+          <string notr="true">im.dspInventoryAvailabilityByPlannerCode</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -132,7 +135,7 @@ p, li { white-space: pre-wrap; }
           </sizepolicy>
          </property>
          <property name="image">
-          <string>ImgRightArrow</string>
+          <string notr="true">ImgRightArrow</string>
          </property>
         </widget>
        </item>
@@ -145,7 +148,7 @@ p, li { white-space: pre-wrap; }
           </sizepolicy>
          </property>
          <property name="image">
-          <string>ImgRightArrow</string>
+          <string notr="true">ImgRightArrow</string>
          </property>
         </widget>
        </item>
@@ -158,20 +161,20 @@ p, li { white-space: pre-wrap; }
           </sizepolicy>
          </property>
          <property name="image">
-          <string>ImgRightArrow</string>
+          <string notr="true">ImgRightArrow</string>
          </property>
         </widget>
        </item>
        <item row="0" column="11">
         <widget class="MenuButton" name="_releasePlannedOrders">
          <property name="image">
-          <string>order_next_48</string>
+          <string notr="true">order_next_48</string>
          </property>
          <property name="label">
           <string>Release</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>po.listUnpostedPurchaseOrders</string>
+          <string notr="true">po.listUnpostedPurchaseOrders</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -190,7 +193,7 @@ p, li { white-space: pre-wrap; }
           </sizepolicy>
          </property>
          <property name="image">
-          <string>ImgRightArrow</string>
+          <string notr="true">ImgRightArrow</string>
          </property>
         </widget>
        </item>
@@ -212,13 +215,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="0">
         <widget class="MenuButton" name="_enterReceipts">
          <property name="image">
-          <string>barcode_ok_48</string>
+          <string notr="true">barcode_ok_48</string>
          </property>
          <property name="label">
           <string>Enter Receipts</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>sr.enterReceipt</string>
+          <string notr="true">sr.enterReceipt</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -231,13 +234,13 @@ p, li { white-space: pre-wrap; }
        <item row="1" column="0">
         <widget class="MenuButton" name="_unpostedReceipts">
          <property name="image">
-          <string>inventory_48</string>
+          <string notr="true">inventory_48</string>
          </property>
          <property name="label">
           <string>Unposted Receipts</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>sr.postReceipts</string>
+          <string notr="true">sr.postReceipts</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -265,13 +268,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="1">
         <widget class="MenuButton" name="_vouchers">
          <property name="image">
-          <string>taxes_ok_48</string>
+          <string notr="true">taxes_ok_48</string>
          </property>
          <property name="label">
           <string>Vouchers</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>po.listUnpostedVouchers</string>
+          <string notr="true">po.listUnpostedVouchers</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -287,13 +290,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="6">
         <widget class="MenuButton" name="_selectForPayment">
          <property name="image">
-          <string>stamp_48</string>
+          <string notr="true">stamp_48</string>
          </property>
          <property name="label">
           <string>Select for Payment</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>ap.selectPayments</string>
+          <string notr="true">ap.selectPayments</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -306,13 +309,13 @@ p, li { white-space: pre-wrap; }
        <item row="1" column="6">
         <widget class="MenuButton" name="_selectedPayments">
          <property name="image">
-          <string>stamp_zoom_48</string>
+          <string notr="true">stamp_zoom_48</string>
          </property>
          <property name="label">
           <string>Selected Payments</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>ap.listSelectPayments</string>
+          <string notr="true">ap.listSelectPayments</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -325,13 +328,13 @@ p, li { white-space: pre-wrap; }
        <item row="1" column="9">
         <widget class="MenuButton" name="_checkRegister">
          <property name="image">
-          <string>check_zoom_48</string>
+          <string notr="true">check_zoom_48</string>
          </property>
          <property name="label">
           <string>Check Register</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>ap.dspCheckRegister</string>
+          <string notr="true">ap.dspCheckRegister</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -344,13 +347,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="9">
         <widget class="MenuButton" name="_viewCheckRun">
          <property name="image">
-          <string>check_ok_48</string>
+          <string notr="true">check_ok_48</string>
          </property>
          <property name="label">
           <string>Check Run</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>ap.viewCheckRun</string>
+          <string notr="true">ap.viewCheckRun</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -363,13 +366,13 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="4">
         <widget class="MenuButton" name="_apAging">
          <property name="image">
-          <string>taxes_clock_48</string>
+          <string notr="true">taxes_clock_48</string>
          </property>
          <property name="label">
           <string>Aging</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>ap.dspAPAging</string>
+          <string notr="true">ap.dspAPAging</string>
          </property>
          <property name="ui" stdset="0">
           <string>dspTimePhasedOpenAPItems</string>
@@ -382,13 +385,13 @@ p, li { white-space: pre-wrap; }
        <item row="1" column="1">
         <widget class="MenuButton" name="_uninvoicedReceipts">
          <property name="image">
-          <string>inventory_zoom_48</string>
+          <string notr="true">inventory_zoom_48</string>
          </property>
          <property name="label">
           <string>Uninvoiced Receipts</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>ap.uninvoicedReceipts</string>
+          <string notr="true">ap.uninvoicedReceipts</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -404,13 +407,13 @@ p, li { white-space: pre-wrap; }
        <item row="1" column="4">
         <widget class="MenuButton" name="_apOpenItemsByVendor">
          <property name="image">
-          <string>taxes_zoom_48</string>
+          <string notr="true">taxes_zoom_48</string>
          </property>
          <property name="label">
           <string>Open Items</string>
          </property>
          <property name="actionName" stdset="0">
-          <string>ap.dspOpenAPItemsByVendor</string>
+          <string notr="true">ap.dspOpenAPItemsByVendor</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -429,7 +432,7 @@ p, li { white-space: pre-wrap; }
           </sizepolicy>
          </property>
          <property name="image">
-          <string>ImgRightArrow</string>
+          <string notr="true">ImgRightArrow</string>
          </property>
         </widget>
        </item>
@@ -442,7 +445,7 @@ p, li { white-space: pre-wrap; }
           </sizepolicy>
          </property>
          <property name="image">
-          <string>ImgRightArrow</string>
+          <string notr="true">ImgRightArrow</string>
          </property>
         </widget>
        </item>
@@ -455,7 +458,7 @@ p, li { white-space: pre-wrap; }
           </sizepolicy>
          </property>
          <property name="image">
-          <string>ImgRightArrow</string>
+          <string notr="true">ImgRightArrow</string>
          </property>
         </widget>
        </item>
