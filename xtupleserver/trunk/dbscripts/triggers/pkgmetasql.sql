@@ -15,16 +15,16 @@ BEGIN
   END IF;
 
   IF (TG_OP = 'UPDATE') THEN
-    RAISE DEBUG 'update OLD %-%, NEW %-%',
-                 OLD.metasql_group, OLD.metasql_name,
-                 NEW.metasql_group, NEW.metasql_name;
+    RAISE DEBUG 'update OLD %-%-%, NEW %-%-%',
+                 OLD.metasql_group, OLD.metasql_name, OLD.metasql_grade,
+                 NEW.metasql_group, NEW.metasql_name, NEW.metasql_grade;
 
-    IF (NEW.metasql_name != OLD.metasql_name OR NEW.metasql_group != OLD.metasql_group) THEN
+    IF (NEW.metasql_name != OLD.metasql_name OR NEW.metasql_group != OLD.metasql_group OR NEW.metasql_grade != OLD.metasql_grade) THEN
       SELECT metasql_id INTO _metasqlid
       FROM metasql
-      WHERE metasql_name=NEW.metasql_name AND metasql_group=NEW.metasql_group;
+      WHERE metasql_name=NEW.metasql_name AND metasql_group=NEW.metasql_group AND metasql_grade=NEW.metasql_grade;
       IF (FOUND) THEN
-        RAISE EXCEPTION 'Cannot change the MetaSQL statement named %-% because another MetaSQL statement with that group and name already exists.', NEW.metasql_group, NEW.metasql_name;
+        RAISE EXCEPTION 'Cannot change the MetaSQL statement named %-%-% because another MetaSQL statement with that group, name and grade already exists.', NEW.metasql_group, NEW.metasql_name, NEW.metasql_grade;
       END IF;
     END IF;
 
