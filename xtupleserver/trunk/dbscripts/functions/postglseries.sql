@@ -82,16 +82,27 @@ BEGIN
     END IF;
 
     IF (_glseries.amount != 0 OR pPostZero) THEN
-     INSERT INTO gltrans
-      ( gltrans_posted, gltrans_exported, gltrans_created, gltrans_date,
-        gltrans_sequence, gltrans_accnt_id, gltrans_source, gltrans_notes,
-        gltrans_doctype, gltrans_docnumber, gltrans_amount, gltrans_journalnumber )
-      VALUES
-      ( FALSE, FALSE, CURRENT_TIMESTAMP, _glseries.glseries_distdate,
-        pSequence, _glseries.glseries_accnt_id, _glseries.glseries_source, _glseries.glseries_notes,
-        _glseries.glseries_doctype, _glseries.glseries_docnumber, _glseries.amount, pJournalNumber );
-
-    _transCount := _transCount + 1;
+      IF (fetchMetricBool('UseSubLedger')) THEN
+       INSERT INTO sltrans
+        ( sltrans_posted, sltrans_created, sltrans_date,
+          sltrans_sequence, sltrans_accnt_id, sltrans_source, sltrans_notes,
+          sltrans_doctype, sltrans_docnumber, sltrans_amount, sltrans_journalnumber )
+        VALUES
+        ( FALSE, CURRENT_TIMESTAMP, _glseries.glseries_distdate,
+          pSequence, _glseries.glseries_accnt_id, _glseries.glseries_source, _glseries.glseries_notes,
+          _glseries.glseries_doctype, _glseries.glseries_docnumber, _glseries.amount, pJournalNumber );      
+      ELSE
+       INSERT INTO gltrans
+        ( gltrans_posted, gltrans_exported, gltrans_created, gltrans_date,
+          gltrans_sequence, gltrans_accnt_id, gltrans_source, gltrans_notes,
+          gltrans_doctype, gltrans_docnumber, gltrans_amount, gltrans_journalnumber )
+        VALUES
+        ( FALSE, FALSE, CURRENT_TIMESTAMP, _glseries.glseries_distdate,
+          pSequence, _glseries.glseries_accnt_id, _glseries.glseries_source, _glseries.glseries_notes,
+          _glseries.glseries_doctype, _glseries.glseries_docnumber, _glseries.amount, pJournalNumber );
+      END IF;
+      
+      _transCount := _transCount + 1;
     END IF;
   END LOOP;
 
