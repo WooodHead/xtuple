@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION insertGLTransaction(TEXT, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, NUMERIC(12,2), DATE) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION insertGLTransaction(TEXT, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, NUMERIC(12,2), DATE) RETURNS INTEGER AS $$
 DECLARE
   pSource ALIAS FOR $1;
   pDocType ALIAS FOR $2;
@@ -14,16 +14,16 @@ DECLARE
 
 BEGIN
 
-  SELECT insertGLTransaction( fetchJournalNumber(''GL-MISC''),
+  SELECT insertGLTransaction( fetchJournalNumber('GL-MISC'),
                               pSource, pDocType, pDocNumber, pNotes,
                               pCreditid, pDebitid, pMiscid, pAmount, pDistDate) INTO _return;
 
   RETURN _return;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION insertGLTransaction(TEXT, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, NUMERIC(12,2), DATE, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION insertGLTransaction(TEXT, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, NUMERIC(12,2), DATE, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pSource ALIAS FOR $1;
   pDocType ALIAS FOR $2;
@@ -39,17 +39,17 @@ DECLARE
 
 BEGIN
 
-  SELECT insertGLTransaction( fetchJournalNumber(''GL-MISC''),
+  SELECT insertGLTransaction( fetchJournalNumber('GL-MISC'),
                               pSource, pDocType, pDocNumber, pNotes,
                               pCreditid, pDebitid, pMiscid, pAmount, pDistDate, pPostTrialBal) INTO _return;
 
   RETURN _return;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION insertGLTransaction(INTEGER, TEXT, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, NUMERIC(12,2), DATE) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION insertGLTransaction(INTEGER, TEXT, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, NUMERIC(12,2), DATE) RETURNS INTEGER AS $$
 DECLARE
   pJournalNumber ALIAS FOR $1;
   pSource ALIAS FOR $2;
@@ -71,11 +71,11 @@ BEGIN
   RETURN _return;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
 
-CREATE OR REPLACE FUNCTION insertGLTransaction(INTEGER, TEXT, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, NUMERIC(12,2), DATE, BOOLEAN) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION insertGLTransaction(INTEGER, TEXT, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, NUMERIC(12,2), DATE, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pJournalNumber ALIAS FOR $1;
   pSource ALIAS FOR $2;
@@ -107,7 +107,7 @@ BEGIN
   ELSE
     SELECT metric_value::INTEGER INTO _debitid
     FROM metric
-    WHERE (metric_name=''UnassignedAccount'');
+    WHERE (metric_name='UnassignedAccount');
   END IF;
 
 --  Validate pCreditid
@@ -116,7 +116,7 @@ BEGIN
   ELSE
     SELECT metric_value::INTEGER INTO _creditid
     FROM metric
-    WHERE (metric_name=''UnassignedAccount'');
+    WHERE (metric_name='UnassignedAccount');
   END IF;
 
 -- refuse to accept postings into closed periods if any of the accounts disallow it
@@ -125,43 +125,69 @@ BEGIN
       FROM accnt LEFT OUTER JOIN
            period ON (pDistDate BETWEEN period_start AND period_end)
       WHERE (accnt_id IN (_creditid, _debitid))) THEN
-    RAISE EXCEPTION ''Cannot post to closed period (%).'', pDistDate;
+    RAISE EXCEPTION 'Cannot post to closed period (%).', pDistDate;
     RETURN -4;  -- remove raise exception when all callers check return code
   END IF;
 
 --  Grab a sequence for the pair
   SELECT fetchGLSequence() INTO _sequence;
 
---  First the credit
-  INSERT INTO gltrans
-  ( gltrans_journalnumber, gltrans_posted, gltrans_exported, gltrans_created, gltrans_date,
-    gltrans_sequence, gltrans_accnt_id, gltrans_source,
-    gltrans_doctype, gltrans_docnumber, gltrans_notes,
-    gltrans_misc_id, gltrans_amount )
-  VALUES
-  ( pJournalNumber, FALSE, FALSE, CURRENT_TIMESTAMP, pDistDate,
-    _sequence, _creditid, pSource,
-    pDocType, pDocNumber, pNotes,
-    pMiscid, pAmount );
+  IF (fetchMetricBool('UseSubLedger')) THEN
+  --  First the credit	
+    INSERT INTO sltrans
+    ( sltrans_journalnumber, sltrans_posted, sltrans_created, sltrans_date,
+      sltrans_sequence, sltrans_accnt_id, sltrans_source,
+      sltrans_doctype, sltrans_docnumber, sltrans_notes,
+      sltrans_misc_id, sltrans_amount )
+    VALUES
+    ( pJournalNumber, FALSE, CURRENT_TIMESTAMP, pDistDate,
+      _sequence, _creditid, pSource,
+      pDocType, pDocNumber, pNotes,
+      pMiscid, pAmount );
 
---  Now the debit
-  INSERT INTO gltrans
-  ( gltrans_journalnumber, gltrans_posted, gltrans_exported, gltrans_created, gltrans_date,
-    gltrans_sequence, gltrans_accnt_id, gltrans_source,
-    gltrans_doctype, gltrans_docnumber, gltrans_notes,
-    gltrans_misc_id, gltrans_amount )
-  VALUES
-  ( pJournalNumber, FALSE, FALSE, CURRENT_TIMESTAMP, pDistDate,
-    _sequence, _debitid, pSource,
-    pDocType, pDocNumber, pNotes,
-    pMiscid, (pAmount * -1) );
+  --  Now the debit
+    INSERT INTO sltrans
+    ( sltrans_journalnumber, sltrans_posted, sltrans_created, sltrans_date,
+      sltrans_sequence, sltrans_accnt_id, sltrans_source,
+      sltrans_doctype, sltrans_docnumber, sltrans_notes,
+      sltrans_misc_id, sltrans_amount )
+    VALUES
+    ( pJournalNumber, FALSE, CURRENT_TIMESTAMP, pDistDate,
+      _sequence, _debitid, pSource,
+      pDocType, pDocNumber, pNotes,
+      pMiscid, (pAmount * -1) );
+  ELSE
+  --  First the credit
+    INSERT INTO gltrans
+    ( gltrans_journalnumber, gltrans_posted, gltrans_exported, gltrans_created, gltrans_date,
+      gltrans_sequence, gltrans_accnt_id, gltrans_source,
+      gltrans_doctype, gltrans_docnumber, gltrans_notes,
+      gltrans_misc_id, gltrans_amount )
+    VALUES
+    ( pJournalNumber, FALSE, FALSE, CURRENT_TIMESTAMP, pDistDate,
+      _sequence, _creditid, pSource,
+      pDocType, pDocNumber, pNotes,
+      pMiscid, pAmount );
 
-  IF (pPostTrialBal) THEN
-    PERFORM postIntoTrialBalance(_sequence);
+  --  Now the debit
+    INSERT INTO gltrans
+    ( gltrans_journalnumber, gltrans_posted, gltrans_exported, gltrans_created, gltrans_date,
+      gltrans_sequence, gltrans_accnt_id, gltrans_source,
+      gltrans_doctype, gltrans_docnumber, gltrans_notes,
+      gltrans_misc_id, gltrans_amount )
+    VALUES
+    ( pJournalNumber, FALSE, FALSE, CURRENT_TIMESTAMP, pDistDate,
+      _sequence, _debitid, pSource,
+      pDocType, pDocNumber, pNotes,
+      pMiscid, (pAmount * -1) );
+
+    IF (pPostTrialBal) THEN
+      PERFORM postIntoTrialBalance(_sequence);
+    END IF;
   END IF;
 
   RETURN _sequence;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
