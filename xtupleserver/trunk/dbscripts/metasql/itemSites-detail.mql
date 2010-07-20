@@ -3,6 +3,10 @@
 -- Notes: used by dspItemSitesByItem, dspItemSitesByParameterList
 
 SELECT itemsite_id,warehous_code,itemsite_qtyonhand,
+       CASE WHEN ( (itemsite_loccntrl) OR
+                   (itemsite_controlmethod IN ('L', 'S')) ) THEN 1
+            ELSE 0
+       END AS altId,
        CASE WHEN itemsite_controlmethod='R' THEN <? value("regular") ?>
                            WHEN itemsite_controlmethod='N' THEN <? value("none") ?>
                            WHEN itemsite_controlmethod='L' THEN <? value("lot") ?>
