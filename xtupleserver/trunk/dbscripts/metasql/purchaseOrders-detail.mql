@@ -4,6 +4,7 @@
 
 SELECT pohead_id, pohead_number,
        warehous_code AS warehousecode,
+       poitem_status,
        CASE WHEN(poitem_status='C') THEN TEXT(<? value("closed") ?>)
             WHEN(poitem_status='U') THEN TEXT(<? value("unposted") ?>)
             WHEN(poitem_status='O'
@@ -16,7 +17,7 @@ SELECT pohead_id, pohead_number,
               THEN TEXT(<? value("received") ?>)
             WHEN(poitem_status='O') THEN TEXT(<? value("open") ?>)
             ELSE poitem_status
-       END AS poitemstatus,
+       END AS poitem_status_qtdisplayrole,
 <? if exists("byDate") ?>
        vend_name,
        MIN(poitem_duedate) AS minDueDate,
