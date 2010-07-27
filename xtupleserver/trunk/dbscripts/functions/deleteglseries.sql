@@ -61,6 +61,12 @@ BEGIN
     DELETE FROM bankrecitem
     WHERE ((bankrecitem_source='GL')
     AND (bankrecitem_source_id=_r.gltrans_id));
+
+--  Unflag any sub ledger transactions as posted as a result of this series
+    UPDATE sltrans SET
+      sltrans_posted=false,
+      sltrans_gltrans_sequence=null
+    WHERE (sltrans_gltrans_sequence=pSequence);
     
 --  Mark the G/L Transaction as deleted
       UPDATE gltrans SET
