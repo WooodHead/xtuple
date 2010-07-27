@@ -47,5 +47,5 @@ FROM cohist JOIN custinfo ON (cust_id=cohist_cust_id)
 REVOKE ALL ON TABLE saleshistory FROM PUBLIC;
 GRANT  ALL ON TABLE saleshistory TO GROUP xtrole;
 
-COMMENT ON VIEW saleshistory IS 'Single point for sales history calculations.';
-COMMENT touch so reloaded after dropTaxColumns
+COMMENT ON VIEW saleshistory IS 'Single point for sales history calculations.'
+;

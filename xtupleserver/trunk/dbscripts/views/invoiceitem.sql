@@ -27,5 +27,5 @@ FROM invcitem JOIN invchead ON (invchead_id = invcitem_invchead_id)
 REVOKE ALL ON TABLE invoiceitem FROM PUBLIC;
 GRANT  ALL ON TABLE invoiceitem TO GROUP xtrole;
 
-COMMENT ON VIEW invoiceitem IS 'Single point for invoice item (invcitem) calculations.';
-COMMENT touch so reloaded after dropTaxColumns
+COMMENT ON VIEW invoiceitem IS 'Single point for invoice item (invcitem) calculations.'
+;
