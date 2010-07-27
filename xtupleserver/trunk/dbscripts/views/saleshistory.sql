@@ -48,3 +48,4 @@ REVOKE ALL ON TABLE saleshistory FROM PUBLIC;
 GRANT  ALL ON TABLE saleshistory TO GROUP xtrole;
 
 COMMENT ON VIEW saleshistory IS 'Single point for sales history calculations.';
+COMMENT touch so reloaded after dropTaxColumns
