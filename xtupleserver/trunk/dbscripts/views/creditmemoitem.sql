@@ -20,3 +20,4 @@ REVOKE ALL ON TABLE creditmemoitem FROM PUBLIC;
 GRANT  ALL ON TABLE creditmemoitem TO GROUP xtrole;
 
 COMMENT ON VIEW creditmemoitem IS 'Single point for credit memo item (cmitem) calculations.';
+COMMENT touch so reloaded after dropTaxColumns
