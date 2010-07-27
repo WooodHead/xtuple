@@ -1,0 +1,7 @@
+-- Group: postSubLedger
+-- Name:  post
+-- Notes: 
+SELECT postSubLedger(  <? value("source") ?>, 
+                       <? value("startDate") ?>, 
+                       <? value("endDate") ?>, 
+                       <? value("distDate") ?>) AS result;

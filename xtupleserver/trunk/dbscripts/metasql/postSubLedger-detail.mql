@@ -1,0 +1,13 @@
+-- Group: postSubLedger
+-- Name:  detail
+-- Notes: 
+SELECT sltrans_source, sum(amount) AS amount, count(sltrans_journalnumber) AS journals
+FROM (
+  SELECT sltrans_source, sum(sltrans_amount) AS amount, sltrans_journalnumber
+  FROM sltrans
+  WHERE ((NOT sltrans_posted)
+   AND (sltrans_amount > 0)
+   AND (sltrans_date BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>))
+  GROUP BY sltrans_source, sltrans_journalnumber) data
+GROUP BY sltrans_source
+ORDER BY sltrans_source

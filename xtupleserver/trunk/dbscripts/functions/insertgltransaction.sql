@@ -73,8 +73,6 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-
-
 CREATE OR REPLACE FUNCTION insertGLTransaction(INTEGER, TEXT, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, NUMERIC(12,2), DATE, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pJournalNumber ALIAS FOR $1;
@@ -88,6 +86,33 @@ DECLARE
   pAmount ALIAS FOR $9;
   pDistDate ALIAS FOR $10;
   pPostTrialBal ALIAS FOR $11;
+  
+  _return INTEGER;
+
+BEGIN
+
+  SELECT insertGLTransaction( pJournalNumber, pSource, pDocType, pDocNumber, pNotes,
+                              pCreditid, pDebitid, pMiscid, pAmount, pDistDate, pPostTrialBal, false) INTO _return;
+
+  RETURN _return;
+
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION insertGLTransaction(INTEGER, TEXT, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, NUMERIC(12,2), DATE, BOOLEAN, BOOLEAN) RETURNS INTEGER AS $$
+DECLARE
+  pJournalNumber ALIAS FOR $1;
+  pSource ALIAS FOR $2;
+  pDocType ALIAS FOR $3;
+  pDocNumber ALIAS FOR $4;
+  pNotes ALIAS FOR $5;
+  pCreditid ALIAS FOR $6;
+  pDebitid ALIAS FOR $7;
+  pMiscid ALIAS FOR $8;
+  pAmount ALIAS FOR $9;
+  pDistDate ALIAS FOR $10;
+  pPostTrialBal ALIAS FOR $11;
+  pOnlyGL ALIAS FOR $12;
   _debitid INTEGER;
   _creditid INTEGER;
   _sequence INTEGER;
@@ -132,7 +157,7 @@ BEGIN
 --  Grab a sequence for the pair
   SELECT fetchGLSequence() INTO _sequence;
 
-  IF (fetchMetricBool('UseSubLedger')) THEN
+  IF (NOT pOnlyGL AND fetchMetricBool('UseSubLedger')) THEN
   --  First the credit	
     INSERT INTO sltrans
     ( sltrans_journalnumber, sltrans_posted, sltrans_created, sltrans_date,
