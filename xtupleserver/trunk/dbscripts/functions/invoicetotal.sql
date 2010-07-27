@@ -21,7 +21,7 @@ BEGIN
      LEFT OUTER JOIN invcitem ON (invcitem_invchead_id=invchead_id)
      LEFT OUTER JOIN item ON (invcitem_item_id=item_id)
   WHERE (invchead_id=pInvoiceId)
-  GROUP BY invchead_freight, invchead_misc_amount, invchead_tax, invchead_payment;
+  GROUP BY invchead_freight, invchead_misc_amount;
 
   SELECT SUM(total_allocated) INTO _allocated
   FROM

@@ -113,19 +113,15 @@ BEGIN
 
    INSERT INTO cobmisc (
 	cobmisc_id, cobmisc_cohead_id, cobmisc_shipvia, cobmisc_freight, cobmisc_misc, cobmisc_payment 
-	,cobmisc_notes,cobmisc_shipdate ,cobmisc_invcdate,cobmisc_posted ,cobmisc_tax,cobmisc_misc_accnt_id 
-	,cobmisc_misc_descrip,cobmisc_closeorder
-	,cobmisc_curr_id,cobmisc_tax_curr_id,cobmisc_adjtaxtype_id
-	,cobmisc_freighttaxtype_id,cobmisc_taxtype_id
-	,cobmisc_taxzone_id
+	,cobmisc_notes,cobmisc_shipdate ,cobmisc_invcdate,cobmisc_posted ,cobmisc_misc_accnt_id 
+	,cobmisc_misc_descrip,cobmisc_closeorder,cobmisc_curr_id
+	,cobmisc_taxtype_id,cobmisc_taxzone_id
 	)
 	SELECT
-	_cobmiscid,_cohead.cohead_id,_shipVia,_freight,_cohead.cohead_misc
-	,0,_cohead.cohead_ordercomments,_shipDate,_invcDate,FALSE
-	,_tax,_cohead.cohead_misc_accnt_id,_cohead.cohead_misc_descrip,NOT(cust_backorder),
-        _cohead.cohead_curr_id,_cohead.cohead_curr_id
-	,NULL,_freighttypeid
-	,NULL,_cohead.cohead_taxzone_id
+	_cobmiscid,_cohead.cohead_id,_shipVia,_freight,_cohead.cohead_misc,0,
+        _cohead.cohead_ordercomments,_shipDate,_invcDate,FALSE,_cohead.cohead_misc_accnt_id,
+        _cohead.cohead_misc_descrip,NOT(cust_backorder),_cohead.cohead_curr_id,
+	_cohead.cohead_taxtype_id,_cohead.cohead_taxzone_id
 	FROM custinfo
 	WHERE (cust_id=_cohead.cohead_cust_id);
 
