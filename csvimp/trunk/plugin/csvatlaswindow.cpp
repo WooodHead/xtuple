@@ -436,8 +436,14 @@ void CSVAtlasWindow::sMapChanged( int )
         }
         else
         {
-          _fields->setItem(row, 2,
-                           new QTableWidgetItem(QVariant::typeToName(record.field(row).type())));
+          if (record.field(row).type() == QVariant::String &&
+              record.field(row).length() > 0)
+            _fields->setItem(row, 2,
+                             new QTableWidgetItem(QVariant::typeToName(record.field(row).type()) +
+                                                  QString("(%1)").arg(record.field(row).length())));
+          else
+            _fields->setItem(row, 2,
+                             new QTableWidgetItem(QVariant::typeToName(record.field(row).type())));
           _fields->setItem(row, 3, new QTableWidgetItem(
                            (record.field(row).requiredStatus() == QSqlField::Required) ? tr("Yes") :
                            (record.field(row).requiredStatus() == QSqlField::Optional) ? tr("No")  :
