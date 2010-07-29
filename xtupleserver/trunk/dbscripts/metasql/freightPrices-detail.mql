@@ -37,10 +37,10 @@ FROM (SELECT ipsfreight_id AS itemid, 1 AS sourcetype,
 <? elseif exists("byCustType") ?>
          AND (ipsass_custtype_id=<? value("custtype_id") ?>)
 <? endif ?>
-<? if exists("showExpired") ?>
+<? if not exists("showExpired") ?>
          AND (ipshead_expires > CURRENT_DATE)
 <? endif ?>
-<? if exists("showFuture") ?>
+<? if not exists("showFuture") ?>
          AND (ipshead_effective <= CURRENT_DATE)
 <? endif ?>
             )
@@ -76,10 +76,10 @@ FROM (SELECT ipsfreight_id AS itemid, 1 AS sourcetype,
 <? elseif exists("byCustType") ?>
          AND (custtype_id=<? value("custtype_id") ?>)
 <? endif ?>
-<? if exists("showExpired") ?>
+<? if not exists("showExpired") ?>
          AND (ipshead_expires > CURRENT_DATE)
 <? endif ?>
-<? if exists("showFuture") ?>
+<? if not exists("showFuture") ?>
          AND (ipshead_effective <= CURRENT_DATE)
 <? endif ?>
             )
@@ -115,14 +115,14 @@ FROM (SELECT ipsfreight_id AS itemid, 1 AS sourcetype,
 <? elseif exists("byCustType") ?>
          AND (true)
 <? endif ?>
-<? if exists("showExpired") ?>
+<? if not exists("showExpired") ?>
   <? if exists("byCust") ?>
          AND (ipshead_expires > CURRENT_DATE)
   <? elseif exists("byCustType") ?>
          AND (sale_enddate > CURRENT_DATE)
   <? endif ?>
 <? endif ?>
-<? if exists("showFuture") ?>
+<? if not exists("showFuture") ?>
   <? if exists("byCust") ?>
          AND (ipshead_effective <= CURRENT_DATE)
   <? elseif exists("byCustType") ?>
@@ -145,10 +145,10 @@ FROM (SELECT ipsfreight_id AS itemid, 1 AS sourcetype,
                 LEFT OUTER JOIN shipzone ON (shipzone_id=ipsfreight_shipzone_id)
                 LEFT OUTER JOIN freightclass ON (freightclass_id=ipsfreight_freightclass_id)
       WHERE ((true)
-  <? if exists("showExpired") ?>
+  <? if not exists("showExpired") ?>
          AND (sale_enddate > CURRENT_DATE)
   <? endif ?>
-  <? if exists("showFuture") ?>
+  <? if not exists("showFuture") ?>
          AND (sale_startdate <= CURRENT_DATE)
   <? endif ?>
             )
