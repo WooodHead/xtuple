@@ -82,6 +82,9 @@ WHERE (
 <? if exists("source") ?>
    AND (sltrans_source=<? value("source") ?>)
 <? endif ?>
+<? if exists("posted") ?>
+   AND (sltrans_posted=<? value("posted") ?>)
+<? endif ?>
 ) 
 ORDER BY sltrans_created,
    sltrans_sequence, sltrans_amount;
