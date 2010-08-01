@@ -1,7 +1,8 @@
 -- Group: gltransactions
 -- Name:  detail
 -- Notes: 
-SELECT gltrans.*,
+SELECT gltrans_id, gltrans_accnt_id,gltrans_date,gltrans_source,
+       gltrans_doctype,gltrans_journalnumber,gltrans_posted,gltrans_username,
        CASE WHEN(gltrans_docnumber='Misc.' AND
               invhist_docnumber IS NOT NULL) THEN
               (gltrans_docnumber || ' - ' || invhist_docnumber)

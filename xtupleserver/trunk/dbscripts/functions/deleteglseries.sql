@@ -65,8 +65,10 @@ BEGIN
 --  Unflag any sub ledger transactions as posted as a result of this series
     UPDATE sltrans SET
       sltrans_posted=false,
-      sltrans_gltrans_sequence=null
-    WHERE (sltrans_gltrans_sequence=pSequence);
+      sltrans_gltrans_journalnumber=null
+    FROM gltrans
+    WHERE ((gltrans_sequence=pSequence)
+    AND (sltrans_gltrans_journalnumber=gltrans_journalnumber));
     
 --  Mark the G/L Transaction as deleted
       UPDATE gltrans SET

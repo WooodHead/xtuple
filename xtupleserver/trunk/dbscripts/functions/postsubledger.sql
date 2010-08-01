@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION postSubLedger(INTEGER) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION postSubledger(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pSequence	ALIAS FOR $1;
   _transCount INTEGER := 0;
@@ -51,13 +51,13 @@ BEGIN
 --  Update all of the posted sltrans members
   UPDATE sltrans SET
     sltrans_posted=true,
-    sltrans_gltrans_sequence=_sequence
+    sltrans_gltrans_journalnumber=_journalnumber
   WHERE ((NOT sltrans_posted)
     AND (sltrans_sequence=pSequence));
 
   PERFORM postIntoTrialBalance(_sequence);
 
-  RETURN _transCount;
+  RETURN _journalnumber;
 
 END;
 $$ LANGUAGE 'plpgsql';
@@ -123,7 +123,7 @@ BEGIN
 --  Update all of the posted sltrans members
   UPDATE sltrans SET
     sltrans_posted=true,
-    sltrans_gltrans_sequence=_sequence
+    sltrans_gltrans_journalnumber=_journalnumber
   WHERE ((NOT sltrans_posted)
     AND (sltrans_source=pSource)
     AND (sltrans_date BETWEEN pStartDate AND pEndDate));
