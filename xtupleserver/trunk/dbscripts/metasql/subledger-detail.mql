@@ -8,6 +8,7 @@ SELECT sltrans.*,
             ELSE sltrans_docnumber
        END AS docnumber,
        firstLine(sltrans_notes) AS notes,
+       sltrans_journalnumber,
        (formatGLAccount(accnt_id) || ' - ' || accnt_descrip) AS account,
        CASE WHEN (sltrans_amount < 0) THEN ABS(sltrans_amount)
             ELSE NULL
@@ -15,9 +16,7 @@ SELECT sltrans.*,
        CASE WHEN (sltrans_amount > 0) THEN sltrans_amount
             ELSE NULL
        END AS credit,
-       CASE WHEN accnt_type IN ('A','E') THEN 
-         sltrans_amount * -1 
-       ELSE sltrans_amount END AS running,
+       sltrans_gltrans_journalnumber,
        'curr' AS debit_xtnumericrole,
        'curr' AS credit_xtnumericrole
 FROM sltrans JOIN accnt ON (sltrans_accnt_id=accnt_id) 
@@ -84,6 +83,9 @@ WHERE (
 <? endif ?>
 <? if exists("posted") ?>
    AND (sltrans_posted=<? value("posted") ?>)
+<? endif ?>
+<? if exists("journalnumber") ?>
+   AND (sltrans_gltrans_journalnumber::text=<? value("journalnumber") ?>)
 <? endif ?>
 ) 
 ORDER BY sltrans_created,
