@@ -62,10 +62,24 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION postSubledger(TEXT[], DATE, DATE, DATE) RETURNS SETOF INTEGER AS $$
+DECLARE
+  pSources		ALIAS FOR $1;
+  pStartDate 		ALIAS FOR $2;
+  pEndDate		ALIAS FOR $3;
+  pDistDate     	ALIAS FOR $4;
+  _i INTEGER;
+BEGIN
+  FOR _i IN 1..ARRAY_UPPER(pSources,1)
+  LOOP
+    RETURN NEXT postSubledger(pSources[_i], pStartDate, pEndDate, pDistDate);
+  END LOOP;
+  RETURN;
+END;
+$$ LANGUAGE 'plpgsql';
 
 
-
-CREATE OR REPLACE FUNCTION postSubLedger(TEXT, DATE, DATE, DATE) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION postSubledger(TEXT, DATE, DATE, DATE) RETURNS INTEGER AS $$
 DECLARE
   pSource		ALIAS FOR $1;
   pStartDate 		ALIAS FOR $2;
@@ -130,7 +144,7 @@ BEGIN
 
   PERFORM postIntoTrialBalance(_sequence);
 
-  RETURN _transCount;
+  RETURN _journalnumber;
 
 END;
 $$ LANGUAGE 'plpgsql';
