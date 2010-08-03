@@ -24,7 +24,7 @@ BEGIN
 
 --  Find the balance to apply
   SELECT (currToCurr(pCurrId, cashrcpt_curr_id, pAmount, cashrcpt_distdate) -
-              (COALESCE(SUM(cashrcptitem_amount), 0) + COALESCE(SUM(cashrcptitem_discount), 0))),
+              (COALESCE(SUM(cashrcptitem_amount), 0) ) ),
               COALESCE(cashrcpt_docdate, current_date) 
               INTO _amount, _docDate
   FROM cashrcpt LEFT OUTER JOIN cashrcptitem ON (cashrcptitem_cashrcpt_id = cashrcpt_id)
