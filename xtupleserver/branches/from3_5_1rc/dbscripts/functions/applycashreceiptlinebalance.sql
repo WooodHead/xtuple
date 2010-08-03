@@ -21,7 +21,7 @@ BEGIN
   DELETE FROM cashrcptitem WHERE ((cashrcptitem_cashrcpt_id=pCashrcptId) AND (cashrcptitem_aropen_id=pAropenId));
 
 --  Find the balance to apply
-  SELECT (pAmount - (COALESCE(SUM(cashrcptitem_amount), 0) + COALESCE(SUM(cashrcptitem_discount), 0)) ),
+  SELECT (pAmount - (COALESCE(SUM(cashrcptitem_amount), 0) ) ),
     COALESCE(cashrcpt_docdate, current_date)
     INTO _amount, _docDate
   FROM cashrcpt LEFT OUTER JOIN cashrcptitem ON (cashrcptitem_cashrcpt_id = cashrcpt_id)
@@ -32,7 +32,7 @@ BEGIN
   FROM cashrcptmisc
   WHERE (cashrcptmisc_cashrcpt_id=pCashrcptid);
 
--- RAISE NOTICE 'Amount (%)', _amount;
+ RAISE NOTICE 'Amount (%)', _amount;
 
   IF (_amount = 0) THEN
     RETURN 0;
