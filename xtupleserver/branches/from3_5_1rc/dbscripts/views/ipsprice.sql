@@ -18,7 +18,7 @@ CREATE OR REPLACE VIEW ipsprice AS
          ipsprodcat_qtybreak AS ipsprice_qtybreak,
          CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt)) AS NUMERIC(16,4)) AS ipsprice_price,
          ipsprodcat_qtybreak AS ipsprice_uomqtybreak, item_inv_uom_id AS ipsprice_uomqtybreak_uom_id,
-         CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt)) AS NUMERIC(16,4)) AS ipsprice_uomprice, item_price_uom_id AS ipsprice_uomprice_uom_id
+         CAST((item_listprice - (item_listprice * ipsprodcat_discntprcnt) - ipsprodcat_fixedamtdiscount) AS NUMERIC(16,4)) AS ipsprice_uomprice, item_price_uom_id AS ipsprice_uomprice_uom_id
          
     FROM ipsprodcat JOIN item ON (ipsprodcat_prodcat_id=item_prodcat_id);
 
