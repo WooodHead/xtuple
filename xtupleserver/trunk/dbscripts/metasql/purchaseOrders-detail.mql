@@ -52,6 +52,12 @@ SELECT pohead_id, pohead_number,
 <? endif ?>
 <? if exists("vend_id") ?>
    AND  (vend_id=<? value("vend_id") ?>)
+<? elseif exists("vendtype_id") ?>
+   AND  (vend_vendtype_id=<? value("vendtype_id") ?>)
+<? elseif exists("vendtype_pattern") ?>
+   AND (vend_vendtype_id IN (SELECT vendtype_id
+                               FROM vendtype
+                              WHERE (vendtype_code ~ <? value("vendtype_pattern") ?>)))
 <? endif ?>
 <? if exists("warehous_id") ?>
    AND (pohead_warehous_id=<? value("warehous_id") ?>)
