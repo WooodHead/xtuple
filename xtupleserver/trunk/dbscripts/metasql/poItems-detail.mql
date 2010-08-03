@@ -4,6 +4,15 @@
 
 SELECT pohead_id, poitem_id, pohead_number,
        poitem_status,
+       vend_name,
+       (SELECT warehous_code
+          FROM whsinfo
+         WHERE (COALESCE(itemsite_warehous_id, pohead_warehous_id)=warehous_id)) AS warehous_code,
+       COALESCE(item_number, <? value("nonInv") ?>) AS itemnumber,
+       poitem_vend_item_number,
+       COALESCE(item_descrip1, firstLine(poitem_vend_item_descrip)) AS itemdescrip,
+       COALESCE(uom_name, poitem_vend_uom) AS itemuom,
+       poitem_duedate, poitem_qty_ordered, poitem_qty_received, poitem_qty_returned,
        CASE WHEN(poitem_status='C') THEN <? value("closed") ?>
             WHEN(poitem_status='U') THEN <? value("unposted") ?>
             WHEN(poitem_status='O' AND ((poitem_qty_received-poitem_qty_returned) > 0) 
@@ -14,63 +23,28 @@ SELECT pohead_id, poitem_id, pohead_number,
             THEN <? value("received") ?>
             WHEN(poitem_status='O') THEN <? value("open") ?>
          ELSE poitem_status
-       END AS poitemstatus,
-       <? if exists("byItem") ?>
-         warehous_code,vend_name,
-       <? else ?>
-         CASE WHEN (itemsite_id IS NULL) THEN ( SELECT warehous_code
-                                              FROM warehous
-                                              WHERE (pohead_warehous_id=warehous_id) )
-           ELSE ( SELECT warehous_code
-                  FROM warehous
-                  WHERE (itemsite_warehous_id=warehous_id) )
-         END AS warehousecode,
-         <? if exists("byDate") ?>
-           vend_name,
-           COALESCE(item_number, (<? value("nonInv") ?> || poitem_vend_item_number)) AS itemnumber,
-         <? elseif exists("byVendor") ?>
-           COALESCE(item_number, <? value("nonInv") ?>) AS itemnumber,
-           poitem_vend_item_number,
-         <? endif ?>
-         COALESCE(item_descrip1, firstLine(poitem_vend_item_descrip)) AS itemdescrip,
-         COALESCE(uom_name, poitem_vend_uom) AS itemuom,
-       <? endif ?>
-       poitem_duedate, poitem_qty_ordered, poitem_qty_received, poitem_qty_returned,
+       END AS poitem_status_qtdisplayrole,
        CASE WHEN (poitem_duedate < CURRENT_DATE) THEN 'error' END AS poitem_duedate_qtforegroundrole,
        'qty' AS poitem_qty_ordered_xtnumericrole,
        'qty' AS poitem_qty_received_xtnumericrole,
        'qty' AS poitem_qty_returned_xtnumericrole 
-FROM <? if exists("byDate") ?>
-       vend,
-     <? elseif exists("byItem") ?>
-       itemsite, warehous, vend,
-    <? endif ?>
-     pohead, poitem 
-    <? if not exists("byItem") ?>
-     LEFT OUTER JOIN
-     ( itemsite JOIN item
-     ON (itemsite_item_id=item_id) JOIN uom ON (item_inv_uom_id=uom_id))
-     ON (poitem_itemsite_id=itemsite_id)
-   <? endif ?>
-WHERE ((poitem_pohead_id=pohead_id)
-<? if exists("byItem") ?>
-   AND (pohead_vend_id=vend_id)
-<? endif ?>
+  FROM pohead
+  JOIN poitem   ON (pohead_id=poitem_pohead_id)
+  JOIN vendinfo ON (pohead_vend_id=vend_id)
+  LEFT OUTER JOIN (itemsite
+                   JOIN item ON (itemsite_item_id=item_id)
+                   JOIN uom ON (item_inv_uom_id=uom_id))
+         ON (poitem_itemsite_id=itemsite_id)
+WHERE (TRUE
 <? if exists("byDate") ?>
-   AND (pohead_vend_id=vend_id)
    AND (poitem_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? endif ?>
-<? if exists("byItem") ?>
-  <? if exists("warehous_id") ?>
-    AND (itemsite_warehous_id=<? value("warehous_id") ?>)
-  <? endif ?>
-<? else ?>
-  <? if exists("warehous_id") ?>
-   AND (((itemsite_id IS NULL) AND
-         (pohead_warehous_id=<? value("warehous_id") ?>) ) OR
-        ((itemsite_id IS NOT NULL) AND
+<? if exists("warehous_id") ?>
+  AND (((itemsite_id IS NULL) AND
+        (pohead_warehous_id=<? value("warehous_id") ?>) )
+       OR
+       ((itemsite_id IS NOT NULL) AND
         (itemsite_warehous_id=<? value("warehous_id") ?>) ) )
-  <? endif ?>
 <? endif ?>
 <? if exists("agentUsername") ?>
    AND (pohead_agent_username=<? value("agentUsername") ?>)
@@ -81,19 +55,21 @@ WHERE ((poitem_pohead_id=pohead_id)
 <? if exists("closedItems") ?>
    AND (poitem_status='C')
 <? endif ?>
-<? if exists("byVendor") ?>
-  <? if exists("poNumber") ?>
-    AND (pohead_number=<? value("poNumber") ?>)
-  <? endif ?>
-  AND (pohead_vend_id=<? value("vend_id") ?>) 
+<? if exists("poNumber") ?>
+  AND (pohead_number=<? value("poNumber") ?>)
 <? endif ?>
-<? if exists("byItem") ?>
-  AND (poitem_itemsite_id=itemsite_id)
-  AND (itemsite_warehous_id=warehous_id)
+<? if exists("vend_id") ?>
+  AND (pohead_vend_id=<? value("vend_id") ?>) 
+<? elseif exists("vendtype_id") ?>
+  AND (vend_vendtype_id=<? value("vendtype_id") ?>)
+<? elseif exists("vendtype_pattern") ?>
+  AND (vend_vendtype_id IN (SELECT vendtype_id
+                              FROM vendtype
+                             WHERE (vendtype_code ~ <? value("vendtype_pattern") ?>)))
+<? endif ?>
+<? if exists("item_id") ?>
   AND (itemsite_item_id=<? value("item_id") ?>) 
 <? endif ?>
       )
-ORDER BY poitem_duedate
-<? if exists("byVendor") ?>
-  , pohead_number, poitem_linenumber
-<? endif ?>;
+ORDER BY poitem_duedate, pohead_number, poitem_linenumber
+;
