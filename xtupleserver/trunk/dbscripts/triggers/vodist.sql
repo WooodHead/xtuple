@@ -31,6 +31,7 @@ BEGIN
     -- Delete any existing voheadtax adjustment records
       DELETE FROM voheadtax
       WHERE ( (taxhist_parent_id=OLD.vodist_vohead_id)
+        AND   (taxhist_tax_id=OLD.vodist_tax_id)
         AND   (taxhist_taxtype_id=getAdjustmentTaxTypeId()) );
     END IF;
   END IF;
