@@ -1,7 +1,16 @@
 -- Group: postSubLedger
 -- Name:  post
 -- Notes: 
-SELECT postSubLedger(  <? value("source") ?>, 
-                       <? value("startDate") ?>, 
-                       <? value("endDate") ?>, 
-                       <? value("distDate") ?>) AS result;
+SELECT * 
+FROM postSubLedger(
+ARRAY[
+<? foreach("source_list") ?>
+  <? if not isfirst("source_list") ?>
+,
+  <? endif ?>
+  <? value("source_list") ?>
+<? endforeach ?>
+],  
+<? value("startDate") ?>, 
+<? value("endDate") ?>, 
+<? value("distDate") ?>) AS result;
