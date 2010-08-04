@@ -1,0 +1,39 @@
+-- Group: itemReceipt
+-- Name: populateNew
+-- Notes: used by enterPoitemReceipt
+
+---------PURCHASE ORDERS-------------
+SELECT pohead_number AS order_number, poitem_linenumber AS orderitem_linenumber,
+       (poitem_itemsite_id > 0) AS inventoryitem,
+       COALESCE(poitem_itemsite_id, -1) AS itemsiteid,
+       COALESCE(poitem_vend_item_number, '') AS vend_item_number,
+       COALESCE(poitem_vend_uom, '') AS vend_uom,
+       COALESCE(poitem_vend_item_descrip, '') AS vend_item_descrip,
+       poitem_invvenduomratio AS orderitem_qty_invuomratio,
+       poitem_duedate AS duedate,
+       poitem_qty_ordered AS orderitem_qty_ordered,
+       poitem_qty_received AS qtyreceived,
+       poitem_qty_returned AS qtyreturned,
+       qtyToReceive('PO', poitem_id) AS qtytoreceive,
+       (poitem_qty_ordered - poitem_qty_received) AS receivable,
+       ( SELECT recv_notes
+           FROM recv
+          WHERE ((recv_orderitem_id=poitem_id)
+	    AND  (recv_order_type='PO')
+            AND  (NOT recv_posted))
+	  LIMIT 1 ) AS notes,
+       COALESCE(freightForRecv('PO', poitem_id, false),
+		poitem_freight - freightForRecv('PO', poitem_id, true),
+		freightForRecv('PO', poitem_id, true)) AS recv_freight,
+       pohead_curr_id AS curr_id, CURRENT_DATE AS effective, 
+       'uomratio' AS orderitem_qty_invuomratio_xtnumericrole,
+       'qty' AS orderitem_qty_ordered_xtnumericrole, 
+       'qty' AS qtyreceived_xtnumericrole, 
+       'qty' AS qtyreturned_xtnumericrole, 
+       'qty' AS qtytoreceive_xtnumericrole, 
+       'qty' AS receivable_xtnumericrole 
+FROM pohead
+  JOIN poitem ON (pohead_id=poitem_pohead_id)
+WHERE ((poitem_status <> 'C')
+  AND  (poitem_id=<? value("orderitem_id") ?>)
+  AND  ('PO'=<? value("ordertype") ?>) );
