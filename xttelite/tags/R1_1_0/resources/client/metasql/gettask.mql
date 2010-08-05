@@ -1,0 +1,5 @@
+-- Group: te
+-- Name: gettask
+-- Notes: 
+
+SELECT prjtask_id,(prjtask_number || ' - ' || prjtask_name) as name from prjtask where prjtask_prj_id = <? value("prj") ?>;
