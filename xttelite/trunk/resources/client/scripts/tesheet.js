@@ -20,6 +20,7 @@ var _employees	= mywindow.findChild("_employees");
 var _selected	= mywindow.findChild("_selected");
 var _timeReport	= mywindow.findChild("_timeReport");
 var _expenseReport	= mywindow.findChild("_expenseReport");
+var _showClosed         = mywindow.findChild("_showClosed");
 
 _weekending.setStartNull(qsTr("Earliest"), startOfTime, true);
 _weekending.setEndNull(qsTr("Latest"),     endOfTime,   true);
@@ -120,6 +121,16 @@ var tmpact;
         tmpact = toolbox.menuAddAction(pMenu, qsTr("Approve..."), privileges.check("MaintainTimeExpense"));
         tmpact.triggered.connect(sheetApprove);
       }
+      if(_status == '')
+      {
+        if(! _addsep)
+        {
+          pMenu.addSeparator();
+          _addsep = true;
+        }
+        tmpact = toolbox.menuAddAction(pMenu, qsTr("Close..."), privileges.check("MaintainTimeExpense"));
+        tmpact.triggered.connect(sheetClose);
+      }
     }
   }
 }
@@ -174,6 +185,37 @@ function sheetDelete()
       q = toolbox.executeQuery('DELETE FROM te.tehead WHERE tehead_id = <? value("id") ?>;', params );
 
       q = toolbox.executeQuery('DELETE FROM te.teitem WHERE teitem_tehead_id = <? value("id") ?>;', params );
+
+      sFillList();
+    }
+  }
+  catch (e)
+  {
+    sFillList();
+    print(e);
+    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+  }
+}
+
+function sheetClose()
+{
+  var msgBox     = new Object();
+  msgBox.Yes     = 0x00004000;
+  msgBox.No      = 0x00010000;
+  msgBox.Default = 0x00000100;
+  msgBox.Escape  = 0x00000200;
+
+  try
+  {
+    var msg = "Are you sure you want to close this sheet?"
+    if (toolbox.messageBox("question", mywindow, mywindow.windowTitle, msg, 
+          msgBox.Yes | msgBox.Escape, msgBox.No | msgBox.Default) == msgBox.Yes)
+    {
+      var params   = new Object();
+      params.id = _sheets.id();    
+
+      q = toolbox.executeQuery("UPDATE te.tehead SET tehead_status='C' "
+                             + 'WHERE tehead_id = <? value("id") ?>;', params );
 
       sFillList();
     }
@@ -249,6 +291,9 @@ function sFillList()
     params.startDate = _weekending.startDate;
     params.endDate   = _weekending.endDate;
     params.employee = _employees.text;
+    if(!_showClosed.checked){
+      params.excludeClosed = "";
+    }
     // all employees
     if (_emp == "A"){  
       // all employees
@@ -265,6 +310,9 @@ function sFillList()
          + "and teitem_type = 'E' "
          + 'and tehead_weekending >= <? value("startDate") ?> '
          + 'and tehead_weekending <= <? value("endDate") ?> '
+         + '<? if exists("excludeClosed") ?> '
+         + "and COALESCE(tehead_status, 'O')<>'C' "
+         + '<? endif ?> '
          + 'group by tehead_id,tehead_number,tehead_weekending,'
          + 'emp_code,tehead_status '
          + 'union '
@@ -279,6 +327,9 @@ function sFillList()
          + "and teitem_type = 'T' "
          + 'and tehead_weekending >= <? value("startDate") ?> '
          + 'and tehead_weekending <= <? value("endDate") ?> '
+         + '<? if exists("excludeClosed") ?> '
+         + "and COALESCE(tehead_status, 'O')<>'C' "
+         + '<? endif ?> '
          + 'group by '
          + 'tehead_id,tehead_number,tehead_weekending,emp_code,'
          + 'tehead_status '
@@ -307,6 +358,9 @@ function sFillList()
          + 'and emp_code = <? value("employee") ?> '
          + 'and tehead_weekending >= <? value("startDate") ?> '
          + 'and tehead_weekending <= <? value("endDate") ?> '
+         + '<? if exists("excludeClosed") ?> '
+         + "and COALESCE(tehead_status, 'O')<>'C' "
+         + '<? endif ?> '
          + 'group by tehead_id,tehead_number,tehead_weekending,'
          + 'emp_code,tehead_status '
          + 'union '
@@ -322,6 +376,9 @@ function sFillList()
          + 'and emp_code = <? value("employee") ?> '
          + 'and tehead_weekending >= <? value("startDate") ?> '
          + 'and tehead_weekending <= <? value("endDate") ?> '
+         + '<? if exists("excludeClosed") ?> '
+         + "and COALESCE(tehead_status, 'O')<>'C' "
+         + '<? endif ?> '
          + 'group by '
          + 'tehead_id,tehead_number,tehead_weekending,emp_code,'
          + 'tehead_status '
