@@ -71,10 +71,10 @@ FROM (
          AND (item_id=<? value("item_id") ?>)
   <? endif ?>
          AND (COALESCE(LENGTH(ipsass_shipto_pattern), 0) = 0)
-  <? if exists("showExpired") ?>
+  <? if not exists("showExpired") ?>
          AND (ipshead_expires > CURRENT_DATE)
   <? endif ?>
-  <? if exists("showFuture") ?>
+  <? if not exists("showFuture") ?>
          AND (ipshead_effective <= CURRENT_DATE)
   <? endif ?>
             )
@@ -145,10 +145,10 @@ FROM (
          AND (ipsass_custtype_id=custtype_id)
          AND (item_id=<? value("item_id") ?>)
 <? endif ?>
-<? if exists("showExpired") ?>
+<? if not exists("showExpired") ?>
          AND (ipshead_expires > CURRENT_DATE)
 <? endif ?>
-<? if exists("showFuture") ?>
+<? if not exists("showFuture") ?>
          AND (ipshead_effective <= CURRENT_DATE)
 <? endif ?>
             )
@@ -216,10 +216,10 @@ FROM (
 <? else ?>
          AND (item_id=<? value("item_id") ?>)
 <? endif ?>
-<? if exists("showExpired") ?>
+<? if not exists("showExpired") ?>
          AND (ipshead_expires > CURRENT_DATE)
 <? endif ?>
-<? if exists("showFuture") ?>
+<? if not exists("showFuture") ?>
          AND (ipshead_effective <= CURRENT_DATE)
 <? endif ?>
             )
@@ -276,18 +276,18 @@ FROM (
 <? endif ?>
 <? if exists("byItem") ?>
          AND (ipsprice_item_id=<? value("item_id") ?>)
-  <? if exists("showExpired") ?>
+  <? if not exists("showExpired") ?>
          AND (sale_enddate > CURRENT_DATE)
   <? endif ?>
-  <? if exists("showFuture") ?>
+  <? if not exists("showFuture") ?>
          AND (sale_startdate <= CURRENT_DATE)
   <? endif ?>
 <? else ?>
          AND (ipsprice_item_id=item_id)
-  <? if exists("showExpired") ?>
+  <? if not exists("showExpired") ?>
          AND (ipshead_expires > CURRENT_DATE)
   <? endif ?>
-  <? if exists("showFuture") ?>
+  <? if not exists("showFuture") ?>
          AND (ipshead_effective <= CURRENT_DATE)
   <? endif ?>
 <? endif ?>
@@ -308,10 +308,10 @@ FROM (
          AND (shipto_cust_id=cust_id)
          AND (ipsprice_item_id=item_id)
          AND (item_id=<? value("item_id") ?>)
-  <? if exists("showExpired") ?>
+  <? if not exists("showExpired") ?>
          AND (ipshead_expires > CURRENT_DATE)
   <? endif ?>
-  <? if exists("showFuture") ?>
+  <? if not exists("showFuture") ?>
          AND (ipshead_effective <= CURRENT_DATE)
   <? endif ?>
             )
@@ -331,10 +331,10 @@ FROM (
          AND (shipto_cust_id=cust_id)
          AND (ipsprice_item_id=item_id)
          AND (item_id=:item_id)
-  <? if exists("showExpired") ?>
+  <? if not exists("showExpired") ?>
          AND (ipshead_expires > CURRENT_DATE)
   <? endif ?>
-  <? if exists("showFuture") ?>
+  <? if not exists("showFuture") ?>
          AND (ipshead_effective <= CURRENT_DATE)
   <? endif ?>
             )
