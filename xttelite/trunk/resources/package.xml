@@ -2,7 +2,7 @@
          name="te"
          developer="xTuple"
          descrip="Time and Expense System Lite"
-         version="1.0.9"
+         version="1.1.0"
          updater="2.2.0">
   <pkgnotes>Time and Expense System Lite add-on package for xTuple ERP.
 
@@ -104,6 +104,7 @@
   <loadappscript file="client/scripts/tebilling.js"             name="tebilling"    order="0"/>
   <loadappscript file="client/scripts/tesheet.js"               name="tesheet"      order="0"/>
   <loadappscript file="client/scripts/time_expense.js"          name="time_expense" order="0"/>
+  <loadappscript file="client/scripts/project.js"               name="project"      order="0"/>
 
   <loadappscript file="client/scripts/initMenu.js"              name="initMenu"     order="0"/> 
   
@@ -126,4 +127,5 @@
 
   <loadreport  file="client/reports/opensheetlist.xml" />
   <loadreport  file="client/reports/expensereport.xml" />
+  <loadreport  file="client/reports/timereport.xml" />
 </package>
