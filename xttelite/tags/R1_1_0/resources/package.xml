@@ -1,0 +1,131 @@
+<package id="resources"
+         name="te"
+         developer="xTuple"
+         descrip="Time and Expense System Lite"
+         version="1.1.0"
+         updater="2.2.0">
+  <pkgnotes>Time and Expense System Lite add-on package for xTuple ERP.
+
+        This file is part of the te package for xTuple ERP: PostBooks Edition,
+        a free and open source Enterprise Resource Planning software suite,
+        Copyright (c) 1999-2010 by OpenMFG LLC, d/b/a xTuple.
+        It is licensed to you under the Common Public Attribution License
+        version 1.0, the full text of which (including xTuple-specific Exhibits)
+        is available at www.xtuple.com/CPAL.  By using this software, you agree
+        to be bound by its terms.
+  </pkgnotes>
+
+  <prerequisite type="Query"
+                name="xTuple ERP version">
+    <query>
+      SELECT (SUBSTRING(fetchMetricText('ServerVersion') FOR 1) > '3') 
+          OR (SUBSTRING(fetchMetricText('ServerVersion') FOR 1) = '3'
+          AND SUBSTRING(fetchMetricText('ServerVersion') FROM 3 FOR 1) >= '5');
+    </query>
+    <message>
+      This version of the te package only works with xTuple ERP
+      versions 3.5.0 and greater.
+    </message>
+  </prerequisite>
+
+  <prerequisite type="license" name="xTuple Concise EULA">
+    <message>
+      &lt;p>
+          This file is part of the xttelite package for xTuple ERP: PostBooks Edition,
+          a free and open source Enterprise Resource Planning software suite,
+          Copyright (c) 1999-2009 by OpenMFG LLC, d/b/a xTuple.
+          It is licensed to you under the Common Public Attribution License
+          version 1.0, the full text of which (including xTuple-specific Exhibits)
+          is available at www.xtuple.com/CPAL.  By using this software, you agree
+          to be bound by its terms.
+      &lt;/p>
+    </message>
+  </prerequisite>
+    
+  <loadpriv name="MaintainTimeExpenseOthers" module="TE">
+   Allowed to Maintain Time/Exp Sheets for all users
+  </loadpriv>
+
+  <loadpriv name="MaintainTimeExpenseSelf" module="TE">
+   Allowed to Maintain Time/Exp Sheets
+  </loadpriv>
+
+  <loadpriv name="MaintainTimeExpense" module="TE">
+   Allowed to Maintain Time/Exp Sheets
+  </loadpriv>
+
+  <loadpriv name="CanViewRates" module="TE">
+   Allowed to view rates in the Time Entries
+  </loadpriv>
+  
+  <loadpriv name="CanApprove" module="TE">
+   Allowed to Approve Time/Exp Sheets
+  </loadpriv>
+    
+  <script file="database/misc/timesequence.sql" />  
+  <script file="database/misc/schemaComment.sql" />
+  <script file="database/misc/cons_seq.sql" />
+  <script file="database/functions/addsheet2.sql"           onerror="Prompt"/>
+  <script file="database/functions/getprjcustid2.sql"       onerror="Prompt"/>
+
+  <createfunction file="database/functions/addsheet.sql"        name="addsheet" />
+  <createfunction file="database/functions/addtecustrate.sql"   name="addtecustrate"/>
+  <createfunction file="database/functions/addteemprate.sql"    name="addteemprate" />
+  <createfunction file="database/functions/addteprj.sql"        name="addteprj" />
+  <createfunction file="database/functions/addteprjtask.sql"    name="addteprjtask" />
+  <createfunction file="database/functions/deleteline.sql"      name="deleteline" />
+  <createfunction file="database/functions/deletesheet.sql"     name="deletesheet" />
+  <createfunction file="database/functions/getsheetid.sql"      name="getsheetid" />
+  <createfunction file="database/functions/setmetric.sql"       name="setmetric" />
+  <createfunction file="database/functions/maxline.sql"         name="maxline" />
+  <createfunction file="database/functions/minline.sql"         name="minline" />
+  <createfunction file="database/functions/getprjcustid.sql"    name="getprjcustid" />
+  <createfunction file="database/functions/approvesheet.sql"    name="approvesheet" />
+
+
+  <createtable file="database/tables/createtecustrate.sql"      name="tecustrate"/>
+  <createtable file="database/tables/createteemprate.sql"       name="teemprate"/>
+  <createtable file="database/tables/createteexp.sql"           name="teexp"/>
+  <createtable file="database/tables/createtehead.sql"          name="tehead"/>
+  <createtable file="database/tables/createteitem.sql"          name="teitem"/>
+  <createtable file="database/tables/createtemetric.sql"        name="temetric"/>
+  <createtable file="database/tables/createteprj.sql"           name="teprj"/>
+  <createtable file="database/tables/createteprjtask.sql"       name="teprjtask"/>
+  <createtable file="database/tables/createteselect.sql"        name="teselect"/>
+
+  <finalscript file="database/misc/sequencegrants.sql" />
+
+  <loadappscript file="client/scripts/customer.js"              name="customer"     order="0"/>
+  <loadappscript file="client/scripts/employee.js"              name="employee"     order="0"/>
+  <loadappscript file="client/scripts/copyItem.js"            	name="copyItem"     order="0"/>
+  <loadappscript file="client/scripts/item.js"                  name="item"         order="0"/>
+  <loadappscript file="client/scripts/task.js"           	name="task"    	    order="0"/>
+  <loadappscript file="client/scripts/te.js"             	name="te"           order="0"/>
+  <loadappscript file="client/scripts/tebilling.js"             name="tebilling"    order="0"/>
+  <loadappscript file="client/scripts/tesheet.js"               name="tesheet"      order="0"/>
+  <loadappscript file="client/scripts/time_expense.js"          name="time_expense" order="0"/>
+  <loadappscript file="client/scripts/project.js"               name="project"      order="0"/>
+
+  <loadappscript file="client/scripts/initMenu.js"              name="initMenu"     order="0"/> 
+  
+  <loadappui file="client/uiforms/expense.ui"                   order="0" />
+  
+  <loadappui file="client/uiforms/te.ui"                        order="0" />
+  <loadappui file="client/uiforms/tebilling.ui"       		order="0" />
+  <loadappui file="client/uiforms/tebillingemp.ui"       	order="0" />
+  <loadappui file="client/uiforms/tesheet.ui"                   order="0" />
+  <loadappui file="client/uiforms/time_expense.ui"              order="0" />
+  
+  <loadmetasql file="client/metasql/addsheet.mql" />
+  <loadmetasql file="client/metasql/addtecustrate.mql" />
+  <loadmetasql file="client/metasql/addteemprate.mql" />
+  <loadmetasql file="client/metasql/addteprj.mql" />
+  <loadmetasql file="client/metasql/addteprjtask.mql" />
+  <loadmetasql file="client/metasql/editsheet.mql" />
+  <loadmetasql file="client/metasql/getsheet.mql" />
+  <loadmetasql file="client/metasql/gettask.mql" />
+
+  <loadreport  file="client/reports/opensheetlist.xml" />
+  <loadreport  file="client/reports/expensereport.xml" />
+  <loadreport  file="client/reports/timereport.xml" />
+</package>
