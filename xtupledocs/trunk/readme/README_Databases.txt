@@ -1,4 +1,4 @@
-Getting Started with PostBooks
+PostBooks Databases Overview
 ====================================
 Last Updated: August 6, 2010
 
@@ -9,15 +9,15 @@ of the steps required to manually prepare your PostgreSQL server
 to run a PostBooks database.
 
 Of course, the easiest way to get started is to use the xTuple all-
-in-one installer. The xTuple installer is available for Windows, 
-Mac, and Linux. You can download the installer from the 
-PostBooks-installers directory on the PostBooks SourceForge page. The 
-all-in-one installer will install both the xTuple client and the 
-xTuple databases--as well as other tools you can use for database 
+in-one installer. The xTuple installer is available for Windows,
+Mac, and Linux. You can download the installer from the
+PostBooks-installers directory on the PostBooks SourceForge page. The
+all-in-one installer will install both the xTuple client and the
+xTuple databases--as well as other tools you can use for database
 administration. Using the installer is the easiest way to ensure
 your xTuple installation will work for you "out of the box."
 
-For more advanced users who prefer not to use the PostBooks installer, 
+For more advanced users who prefer not to use the PostBooks installer,
 the following steps will get you started:
 
 1. Install and configure PostgreSQL. (For more information, see the
