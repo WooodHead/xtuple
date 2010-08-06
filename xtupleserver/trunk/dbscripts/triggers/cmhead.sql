@@ -6,8 +6,15 @@ BEGIN
   -- Checks
   -- Start with privileges
   SELECT checkPrivilege('MaintainCreditMemos') INTO _check;
-  IF NOT (_check) THEN
-    RAISE EXCEPTION 'You do not have privileges to maintain Credit Memos.';
+  IF ( (TG_OP = 'INSERT') OR (TG_OP = 'DELETE') ) THEN
+    IF NOT (_check) THEN
+      RAISE EXCEPTION 'You do not have privileges to maintain Credit Memos.';
+    END IF;
+  END IF;
+  IF ( (TG_OP = 'UPDATE') AND (OLD.cmhead_printed = NEW.cmhead_printed) ) THEN
+    IF NOT (_check) THEN
+      RAISE EXCEPTION 'You do not have privileges to maintain Credit Memos.';
+    END IF;
   END IF;
 
   IF (TG_OP = 'DELETE') THEN
