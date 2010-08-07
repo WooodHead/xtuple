@@ -115,6 +115,7 @@ function set(input)
       _edit.enabled = false;
       _new.enabled = false;
       _delete.enabled = false;
+      _orderComments.enabled = false;
 
       sFillList();
     }
