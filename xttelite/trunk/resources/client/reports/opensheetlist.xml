@@ -11,19 +11,55 @@
  <leftmargin>50</leftmargin>
  <querysource>
   <name>detail</name>
-  <sql>select tehead_id,sheet_number,weekending,emp_code,sum(dollars) as dollars,status from 
-(
-select tehead_id,tehead_number as sheet_number,tehead_weekending as weekending,
-         teitem_qty as hours,emp_code,teitem_total as dollars,
-         tehead_status as status
-         --,tehead_payable_status as pay_status 
-         from te.tehead,te.teitem,emp
-         where tehead_id = teitem_tehead_id 
-         and teitem_emp_id = emp_id
-         order by tehead_number
-
-         ) rollup
-         group by tehead_id,sheet_number,weekending,emp_code,status;
+  <sql>select tehead_id,sheet_number,
+       formatdate(weekending) as weekending,emp_code,
+       formatmoney(dollars) as dollars,status
+from (select tehead_id,sheet_number,weekending,
+             emp_code,sum(dollars) as dollars,status
+      from (select tehead_id,tehead_number as sheet_number,
+                   tehead_weekending as weekending,
+                   sum(teitem_qty) as hours,emp_code,
+                   sum(teitem_total) as dollars,
+                   tehead_status as status
+            from te.teitem,te.tehead,emp
+            where tehead_id = teitem_tehead_id
+              and emp_id = teitem_emp_id       
+              and teitem_type = 'E'
+              &lt;? if exists("employee") ?>
+              and emp_code = &lt;? value("employee") ?>
+              &lt;? endif ?>
+              and tehead_weekending >= &lt;? value("startDate") ?>
+              and tehead_weekending &lt;= &lt;? value("endDate") ?>
+              &lt;? if exists("excludeClosed") ?>
+              and COALESCE(tehead_status, 'O')&lt;>'C'
+              &lt;? endif ?>
+            group by tehead_id,tehead_number,tehead_weekending,
+                     emp_code,tehead_status
+            union
+            select tehead_id,tehead_number as sheet_number,
+                   tehead_weekending as weekending,
+                   sum(teitem_qty) as hours,emp_code,
+                   sum(teitem_total) as dollars,
+                   tehead_status as status
+            from te.teitem,te.tehead,emp
+            where tehead_id = teitem_tehead_id
+              and emp_id = teitem_emp_id
+              and teitem_type = 'T'
+              &lt;? if exists("employee") ?>
+              and emp_code = &lt;? value("employee") ?>
+              &lt;? endif ?>
+              and tehead_weekending >= &lt;? value("startDate") ?>
+              and tehead_weekending &lt;= &lt;? value("endDate") ?>
+              &lt;? if exists("excludeClosed") ?>
+              and COALESCE(tehead_status, 'O')&lt;>'C'
+              &lt;? endif ?>
+            group by tehead_id,tehead_number,tehead_weekending,
+                     emp_code,tehead_status
+            order by sheet_number) rollup
+      group by tehead_id,sheet_number,weekending,
+               emp_code,status
+      order by sheet_number) top
+      ;
 
 </sql>
  </querysource>
@@ -294,7 +330,7 @@ select tehead_id,tehead_number as sheet_number,tehead_weekending as weekending,
      <query>detail</query>
      <column>dollars</column>
     </data>
-    <format builtin="true" >money</format>
+    <format builtin="true">money</format>
    </field>
    <field>
     <rect>

@@ -426,7 +426,14 @@ function expenseReport()
 function printReport()
 {
   params = new Object();
-  params.headid = _sheets.id();
+  params.startDate = _weekending.startDate;
+  params.endDate   = _weekending.endDate;
+  if(!_showAllEmployees.checked){
+    params.employee = _employees.text;
+  }
+  if(!_showClosed.checked){
+    params.excludeClosed = "";
+  }
   toolbox.printReport("OpenSheetList",params);
 }
 
