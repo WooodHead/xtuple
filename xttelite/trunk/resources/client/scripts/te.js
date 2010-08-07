@@ -260,10 +260,13 @@ function lineOpen(mode)
     }
 
 
-  var childwnd = toolbox.openWindow("time_expense", 0, Qt.NonModal, Qt.Window);
-  var tmp = toolbox.lastWindow().set(params);
-
-  var execval = childwnd.exec(); 
+  try {
+    var wnd = toolbox.openWindow("time_expense", mywindow, Qt.NonModal, Qt.Dialog);
+    toolbox.lastWindow().set(params);
+    wnd.exec();
+  } catch(e) {
+    print("te open time_expense exception @ " + e.lineNumber + ": " + e);
+  }
 
   sFillList();
 }
