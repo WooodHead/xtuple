@@ -377,6 +377,7 @@ FROM (
       WHERE (
 <? if not exists("byItem") ?>
              (item_sold)
+         AND (item_active)
 <? else ?>
              (item_id=<? value("item_id") ?>)
 <? endif ?>
