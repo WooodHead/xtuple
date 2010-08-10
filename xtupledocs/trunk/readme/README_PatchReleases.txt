@@ -45,13 +45,60 @@ release your current version is.
 and then run it. Continue this process for as many scripts as
 you need to run to reach the patch release version
 
-5. Locate the GUI client application for the patch release
-version
+5. Download the GUI client application for the patch release
+version.
 
-6. Log in to your upgraded database using the new GUI client
+6. Replace your previous GUI client with the new GUI client for
+the patch release version. For example, if you originally
+installed xTuple using the all-in-one installer for Windows, your 
+GUI client would be located here:
+
+C:\Program Files\xTuple\Client
+
+Keep in mind, before you can replace your previous GUI client you
+must first un-zip the new GUI client file you downloaded. For 
+example, when you first download a GUI client file for a patch
+release onto your computer, the Windows version of the file will
+look like this:
+
+xtuple-client-3.5.3-Windows.zip
+
+Once you un-zip the file, you will find located inside another
+folder containing all the files you will need. In the example 
+above, the folder would be named as follows:
+
+xtuple-3.5.3
+
+To replace your existing GUI client files with the new GUI client
+files for the patch release, you have two options:
+
+A. Copy the new files and paste them into your existing directory, 
+thus overwriting your existing files. Again, if you originally
+used the all-in-one installer, you would be replacing the files
+in the following directory:
+
+C:\Program Files\xTuple\Client
+
+or 
+
+B) Remove your existing GUI client folder and replace it with 
+the new one. To avoid potential version conflicts, it's important 
+that you move your old folder to a different location. Once the
+new folder is in place, your installation will look something 
+like this:
+
+C:\Program Files\xTuple\xtuple-3.5.3
+
+This step works exactly the same whether replacing a folder on 
+your local machine or on a network share. Keep in mind: You may 
+need to give the new folder the same name as the old folder if 
+you are working in a network share environment.
+ 
+7. Log in to your upgraded database using the new GUI client
 application
 
-7. That's it!
+8. That's it!
+
 
 Starting Fresh with a Patch Release
 ====================================
@@ -61,7 +108,7 @@ its patch releases. If you want to start fresh with a patch
 release--meaning you don't have an existing xTuple database
 you need to migrate forward--then please see the documentation
 available on the xTuple community website for more information
-about installing xTuple. Here are some links you may find 
+about installing xTuple. Here are some links you may find
 helpful:
 
 http://www.xtuple.org/InstallingTheDatabase
