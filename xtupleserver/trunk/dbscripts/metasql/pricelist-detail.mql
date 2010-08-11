@@ -36,14 +36,10 @@ FROM ( SELECT 1 AS sourcecode,
               ipsprice_uomprice AS price,
               ipsprice_uomqtybreak_uom_id AS qtybreak_uom_id,
               ipsprice_uomprice_uom_id AS price_uom_id,
-              ipsprodcat_discntprcnt AS discountpercent,
-              ipsprodcat_fixedamtdiscount AS discountfixed,
+              ipsprice_discountpercent AS discountpercent,
+              ipsprice_discountfixed AS discountfixed,
               ipshead_curr_id AS curr_id
        FROM ipsass, ipshead, ipsprice
-       LEFT OUTER JOIN ipsprodcat ON (ipsprice_source='P'
-                                 AND ipsprodcat_ipshead_id=ipsprice_ipshead_id
-                                 AND ipsprice_qtybreak = ipsprodcat_qtybreak)
-
        WHERE ((ipsass_ipshead_id=ipshead_id)
           AND (ipsprice_ipshead_id=ipshead_id)
           AND (ipsprice_item_id=<? value('item_id') ?>)
@@ -64,14 +60,10 @@ FROM ( SELECT 1 AS sourcecode,
                     ipsprice_uomprice AS price,
                     ipsprice_uomqtybreak_uom_id AS qtybreak_uom_id,
                     ipsprice_uomprice_uom_id AS price_uom_id,
-                    ipsprodcat_discntprcnt AS discountpercent,
-                    ipsprodcat_fixedamtdiscount AS discountfixed,
+                    ipsprice_discountpercent AS discountpercent,
+                    ipsprice_discountfixed AS discountfixed,
                     ipshead_curr_id AS curr_id
        FROM ipsass, ipshead, cust, ipsprice
-       LEFT OUTER JOIN ipsprodcat ON (ipsprice_source='P'
-                                 AND ipsprodcat_ipshead_id=ipsprice_ipshead_id
-                                 AND ipsprice_qtybreak = ipsprodcat_qtybreak)
-
        WHERE ((ipsass_ipshead_id=ipshead_id)
           AND (ipsprice_ipshead_id=ipshead_id)
           AND (ipsprice_item_id=<? value('item_id') ?>)
@@ -92,14 +84,10 @@ FROM ( SELECT 1 AS sourcecode,
                     ipsprice_uomprice AS price,
                     ipsprice_uomqtybreak_uom_id AS qtybreak_uom_id,
                     ipsprice_uomprice_uom_id AS price_uom_id,
-                    ipsprodcat_discntprcnt AS discountpercent,
-                    ipsprodcat_fixedamtdiscount AS discountfixed,
+                    ipsprice_discountpercent AS discountpercent,
+                    ipsprice_discountfixed AS discountfixed,
                     ipshead_curr_id AS curr_id
        FROM ipsass, ipshead, custtype, cust, ipsprice
-       LEFT OUTER JOIN ipsprodcat ON (ipsprice_source='P'
-                                 AND ipsprodcat_ipshead_id=ipsprice_ipshead_id
-                                 AND ipsprice_qtybreak = ipsprodcat_qtybreak)
-
        WHERE ((ipsass_ipshead_id=ipshead_id)
           AND (ipsprice_ipshead_id=ipshead_id)
           AND (ipsprice_item_id=<? value('item_id') ?>)
@@ -122,14 +110,10 @@ FROM ( SELECT 1 AS sourcecode,
                     ipsprice_uomprice AS price,
                     ipsprice_uomqtybreak_uom_id AS qtybreak_uom_id,
                     ipsprice_uomprice_uom_id AS price_uom_id,
-                    ipsprodcat_discntprcnt AS discountpercent,
-                    ipsprodcat_fixedamtdiscount AS discountfixed,
+                    ipsprice_discountpercent AS discountpercent,
+                    ipsprice_discountfixed AS discountfixed,
                     ipshead_curr_id AS curr_id
        FROM ipsass, ipshead, ipsprice
-       LEFT OUTER JOIN ipsprodcat ON (ipsprice_source='P'
-                                 AND ipsprodcat_ipshead_id=ipsprice_ipshead_id
-                                 AND ipsprice_qtybreak = ipsprodcat_qtybreak)
-
        WHERE ((ipsass_ipshead_id=ipshead_id)
           AND (ipsprice_ipshead_id=ipshead_id)
           AND (ipsprice_item_id=<? value('item_id') ?>)
@@ -150,14 +134,10 @@ FROM ( SELECT 1 AS sourcecode,
                     ipsprice_uomprice AS price,
                     ipsprice_uomqtybreak_uom_id AS qtybreak_uom_id,
                     ipsprice_uomprice_uom_id AS price_uom_id,
-                    ipsprodcat_discntprcnt AS discountpercent,
-                    ipsprodcat_fixedamtdiscount AS discountfixed,
+                    ipsprice_discountpercent AS discountpercent,
+                    ipsprice_discountfixed AS discountfixed,
                     ipshead_curr_id AS curr_id
        FROM ipsass, ipshead, shipto, ipsprice
-       LEFT OUTER JOIN ipsprodcat ON (ipsprice_source='P'
-                                 AND ipsprodcat_ipshead_id=ipsprice_ipshead_id
-                                 AND ipsprice_qtybreak = ipsprodcat_qtybreak)
-
        WHERE ( (ipsass_ipshead_id=ipshead_id)
         AND (ipsprice_ipshead_id=ipshead_id)
         AND (ipsprice_item_id=<? value('item_id') ?>)
@@ -180,14 +160,10 @@ FROM ( SELECT 1 AS sourcecode,
                     ipsprice_uomprice AS price,
                     ipsprice_uomqtybreak_uom_id AS qtybreak_uom_id,
                     ipsprice_uomprice_uom_id AS price_uom_id,
-                    ipsprodcat_discntprcnt AS discountpercent,
-                    ipsprodcat_fixedamtdiscount AS discountfixed,
+                    ipsprice_discountpercent AS discountpercent,
+                    ipsprice_discountfixed AS discountfixed,
                     ipshead_curr_id AS curr_id
        FROM sale, ipshead, ipsprice
-       LEFT OUTER JOIN ipsprodcat ON (ipsprice_source='P'
-                                 AND ipsprodcat_ipshead_id=ipsprice_ipshead_id
-                                 AND ipsprice_qtybreak = ipsprodcat_qtybreak)
-
        WHERE ((sale_ipshead_id=ipshead_id)
           AND (ipsprice_ipshead_id=ipshead_id)
           AND (ipsprice_item_id=<? value('item_id') ?>)
