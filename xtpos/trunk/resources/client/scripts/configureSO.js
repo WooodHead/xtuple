@@ -5,7 +5,6 @@ var page	= toolbox.loadUi("configureRetail", mywindow);
 toolbox.tabInsertTab(_tab,idx,page, "Retail");
 
 //  Define variables
-var _save 		= mywindow.findChild("_save");
 var _retailCust	= page.findChild("_retailCust");
 var _retailCustGroup	= page.findChild("_retailCustGroup");
 var _retailSaleNumber	= page.findChild("_retailSaleNumber");
@@ -14,10 +13,10 @@ var _custTax  	= page.findChild("_custTax");
 var _siteTax	= page.findChild("_siteTax");
 
 //  Define connections
-toolbox.coreDisconnect(_save, "clicked()", mywindow, "sSave()");
+toolbox.coreDisconnect(mywindow, "saving()", mywindow, "sSave()");
 _retailCustGroup["toggled(bool)"].connect(custGroupToggled);
 _retailCust["valid(bool)"].connect(sHandleRetailOnlyDefaultCust);
-_save.clicked.connect(save);
+mywindow.saving.connect(save);
 
 //  Misc. Defaults
 _retailSaleNumber.setValidator(toolbox.qtyVal());
