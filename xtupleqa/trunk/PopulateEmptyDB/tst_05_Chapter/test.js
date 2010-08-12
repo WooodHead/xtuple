@@ -11,16 +11,14 @@ function main()
     
     //----------Create Items---------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Products");
-        activateItem(":_QMenu", "Products");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
         activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
         activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
         
-      
+        
         //-----------Create Item RTRUCK1---------------
         waitForObject(":List Items.New_QPushButton_2");
         clickButton(":List Items.New_QPushButton_2");
@@ -37,7 +35,7 @@ function main()
             type(":_itemGroup.Pick List_QCheckBox_3"," ");
         if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
             type(":_itemGroup.Fractional_QCheckBox_3"," ");
-        type(":_itemGroup_XLineEdit_3", "5.00");
+        type(":_itemGroup.XLineEdit_XLineEdit", "5.00");
         
         if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
             type(":Item.Item is Sold_QGroupBox_3"," ");
@@ -45,10 +43,11 @@ function main()
         waitForObject(":_prodcat_XComboBox_2");
         clickItem(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line",0,0,1,Qt.LeftButton);
         snooze(1);
-       waitForObject(":Item is Sold._listprice_XLineEdit_3");
+        waitForObject(":Item is Sold._listprice_XLineEdit_3");
         type(":Item is Sold._listprice_XLineEdit_3", "10.99");
         waitForObject(":Item is Sold._priceUOM_XComboBox_3");
         clickItem(":Item is Sold._priceUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);  
+        findObject(":Item is Sold._warranty_QSpinBox_2").clear();
         type(":Item is Sold._warranty_QSpinBox_2", "365");
         type(":_prodWeight_XLineEdit_3", "3.5");
         type(":_packWeight_XLineEdit_3", ".25");
@@ -129,7 +128,7 @@ function main()
         }
         
         waitForObject(":List Items._item_XTreeWidget_3");
-         if(object.exists("{column='0' container=':List Items._item_XTreeWidget_3' text='RTRUCK1' type='QModelIndex'}"))
+        if(object.exists("{column='0' container=':List Items._item_XTreeWidget_3' text='RTRUCK1' type='QModelIndex'}"))
             test.pass("Item Created: RTRUCK1");
         
     }catch(e){test.fail("Exception in creating Item RTRUCK1:"+e)}
@@ -151,13 +150,15 @@ function main()
             type(":_itemGroup.Pick List_QCheckBox_3"," ");
         if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
             type(":_itemGroup.Fractional_QCheckBox_3"," ");
-        type(":_itemGroup_XLineEdit_3", "5.00");
+        type(":_itemGroup.XLineEdit_XLineEdit", "5.00");
         
         if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
             type(":Item.Item is Sold_QGroupBox_3"," ");
-        type(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line");
+        waitForObject(":_prodcat_XComboBox_2");
+        clickItem(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line",0,0,1,Qt.LeftButton);
         type(":Item is Sold._listprice_XLineEdit_3", "10.99");
         clickItem(":Item is Sold._priceUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);
+        findObject(":Item is Sold._warranty_QSpinBox_2").clear();
         type(":Item is Sold._warranty_QSpinBox_2", "365");
         type(":_prodWeight_XLineEdit_3", "3.5");
         type(":_packWeight_XLineEdit_3", ".25");
@@ -188,8 +189,12 @@ function main()
         clickButton(":_taxtypesTab.New_QPushButton_10");
         waitForObject(":_taxzone_XComboBox");
         clickItem(":_taxzone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
+        while(findObject(":_taxzone_XComboBox").currentText!="TZONE1-Tax Zone1")
+            snooze(0.1);
         waitForObject(":_taxtype_XComboBox_4");
         clickItem(":_taxtype_XComboBox_4", "GM",0,0,1,Qt.LeftButton);
+        while(findObject(":_taxtype_XComboBox_4").currentText!="GM")
+            snooze(0.1);
         waitForObject(":Item Tax.Save_QPushButton");
         clickButton(":Item Tax.Save_QPushButton");
         
@@ -211,7 +216,7 @@ function main()
         waitForObject(":_plannerCode_XComboBox_2");
         clickItem(":_plannerCode_XComboBox_2", "MPS-ITEMS-MPS Items",0,0,1,Qt.LeftButton);
         snooze(0.5)
-        waitForObject(":_costcat_XComboBox_3");
+                waitForObject(":_costcat_XComboBox_3");
         clickItem(":_costcat_XComboBox_3", "CCWH1-Warehouse 1",0,0,1,Qt.LeftButton);
         snooze(2);
         waitForObject(":Item Site.Save_QPushButton");
@@ -233,7 +238,7 @@ function main()
     
     
     //-----------Create Item WTRUCK1---------------
-   
+    
     try{
         waitForObject(":List Items.New_QPushButton_2");
         clickButton(":List Items.New_QPushButton_2");
@@ -250,13 +255,14 @@ function main()
             type(":_itemGroup.Pick List_QCheckBox_3"," ");
         if(findObject(":_itemGroup.Fractional_QCheckBox_3").checked)
             type(":_itemGroup.Fractional_QCheckBox_3"," ");
-        type(":_itemGroup_XLineEdit_3", "5.00");
+        type(":_itemGroup.XLineEdit_XLineEdit", "5.00");
         
         if(!findObject(":Item.Item is Sold_QGroupBox_3").checked)
             type(":Item.Item is Sold_QGroupBox_3"," ");
         clickItem(":_prodcat_XComboBox_2", "CLASSIC-METAL - Classic Metal Product Line",0,0,1,Qt.LeftButton);
-         type(":Item is Sold._listprice_XLineEdit_3", "10.99");
+        type(":Item is Sold._listprice_XLineEdit_3", "10.99");
         clickItem(":Item is Sold._priceUOM_XComboBox_3", "EA",0,0,1,Qt.LeftButton);
+        findObject(":Item is Sold._warranty_QSpinBox_2").clear();
         type(":Item is Sold._warranty_QSpinBox_2", "365");
         waitForObject(":_prodWeight_XLineEdit_3");
         type(":_prodWeight_XLineEdit_3", "3.5");
@@ -291,8 +297,12 @@ function main()
         clickButton(":_taxtypesTab.New_QPushButton_10");
         waitForObject(":_taxzone_XComboBox");
         clickItem(":_taxzone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
+        while(findObject(":_taxzone_XComboBox").currentText!="TZONE1-Tax Zone1")
+            snooze(0.1);
         waitForObject(":_taxtype_XComboBox_4");
         clickItem(":_taxtype_XComboBox_4", "GM",0,0,1,Qt.LeftButton);
+        while(findObject(":_taxtype_XComboBox_4").currentText!="GM")
+            snooze(0.1);
         waitForObject(":Item Tax.Save_QPushButton");
         clickButton(":Item Tax.Save_QPushButton");
         
@@ -349,13 +359,11 @@ function main()
     
     //------------Create Planning Item: COLLECTORS-LINE-----------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Products");
-        activateItem(":_QMenu", "Products");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
         activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
-                waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "New...");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "New...");
         activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "New...");
         
         waitForObject(":_itemNumber_XLineEdit_3");
@@ -413,29 +421,31 @@ function main()
         
         test.log("Planning Item: COLLECTORS-LINE created");
         
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Products");
-        activateItem(":_QMenu", "Products");
+        
+        //----------BOM for COLLECTORS LINE--------------
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
         activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
         waitForObject(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu");
         activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
         waitForObject(":Bills of Materials.New_QPushButton");
         clickButton(":Bills of Materials.New_QPushButton");
-        waitForObject(":_itemGroup...._QPushButton_2");
-        clickButton(":_itemGroup...._QPushButton_2");
-
-        waitForObject(":_listTab_XTreeWidget_4");
-        doubleClickItem(":_listTab_XTreeWidget_4", "COLLECTORS-LINE", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
+        mouseClick(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", 63, 10, 0, Qt.LeftButton);
+        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "COLLECTORS-LINE");
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials...._QPushButton_2");
-        clickButton(":Bill of Materials...._QPushButton_2");
-
-        waitForObject(":_listTab_XTreeWidget_5");
-        doubleClickItem(":_listTab_XTreeWidget_5", "YTRUCK1", 5, 5, 0, Qt.LeftButton);
+        
+        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
+        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
+        
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".30");
         type(":_scrap_XLineEdit", "0");
@@ -444,11 +454,11 @@ function main()
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials...._QPushButton_2");
-        clickButton(":Bill of Materials...._QPushButton_2");
-
-        waitForObject(":_listTab_XTreeWidget_5");
-        doubleClickItem(":_listTab_XTreeWidget_5", "WTRUCK1", 5, 5, 0, Qt.LeftButton);
+        
+        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
+        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "WTRUCK1");
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".20");
         type(":_scrap_XLineEdit", "0");
@@ -457,19 +467,18 @@ function main()
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials...._QPushButton_2");
-        clickButton(":Bill of Materials...._QPushButton_2");
-
-        snooze(1);
-        waitForObject(":_listTab_XTreeWidget_5");
-        doubleClickItem(":_listTab_XTreeWidget_5", "BTRUCK1", 5, 5, 0, Qt.LeftButton);
+        
+        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
+        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "BTRUCK1");
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".50");
         type(":_scrap_XLineEdit", "0");
         waitForObject(":Bill of Materials Item.Save_QPushButton");
         clickButton(":Bill of Materials Item.Save_QPushButton");
         
-     
+        
         waitForObject(":Bill of Materials.Save_QPushButton");
         clickButton(":Bill of Materials.Save_QPushButton");
         test.log("BOMs added for COLLECTORS-LINE item");
@@ -518,7 +527,7 @@ function main()
             waitForObject(":frame.New_QPushButton_3");
             clickButton(":frame.New_QPushButton_3");
             type(":Production Plan Item.VirtualClusterLineEdit_ItemLineEdit", "COLLECTORS-LINE");
-
+            
             type(":Production Plan Item.XDateEdit_XDateEdit", "+75");
             type(":Production Plan Item._qty_XLineEdit", "1000");
             waitForObject(":Production Plan Item.Save_QPushButton");

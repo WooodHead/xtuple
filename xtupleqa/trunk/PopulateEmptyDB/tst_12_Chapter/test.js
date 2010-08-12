@@ -9,10 +9,8 @@ function main()
     
     //---------Assign Tax Authority for Customer----------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Sales");
-        activateItem(":_QMenu", "Sales");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
         activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "List...");
@@ -45,5 +43,5 @@ function main()
         
         //---execution completed - exit Application----
         exitAppl();	
-    }catch(e){test.fail("Exception in assigning Tax Authority");}
+    }catch(e){test.fail("Exception in assigning Tax Authority"+ e);}
 }

@@ -28,8 +28,8 @@ function loginAppl(userrole)
         exit(1);
     }
     
-    waitForObject(":Log In.Options..._QPushButton");
-    clickButton(":Log In.Options..._QPushButton");
+    waitForObject(":Log In.Options..._QPushButton_2");
+    clickButton(":Log In.Options..._QPushButton_2");
     waitForObject(":_server_QLineEdit");
     if(findObject(":_server_QLineEdit").text!= url)
     {findObject(":_server_QLineEdit").text=url;
@@ -420,34 +420,12 @@ function createUserByRole(userrole)
         type(":List Employees._number_XLineEdit", username);
         waitForObject(":_contactTab._honorific_XComboBox");
         type(":_contactTab._honorific_XComboBox", "MR");
-        waitForObject(":_contactTab._first_XLineEdit");
-        type(":_contactTab._first_XLineEdit", "Susanta");
-        waitForObject(":_contactTab._middle_XLineEdit");
-        type(":_contactTab._middle_XLineEdit", "R");
-        waitForObject(":_contactTab._last_XLineEdit");
-        type(":_contactTab._last_XLineEdit", "Misra");
-        waitForObject(":_contactTab._title_XLineEdit");
-        type(":_contactTab._title_XLineEdit", "student");
-        waitForObject(":_contactTab._phone_XLineEdit");
-        type(":_contactTab._phone_XLineEdit", "234234");
-        waitForObject(":_contactTab._phone2_XLineEdit");
-        type(":_contactTab._phone2_XLineEdit", "234234");
-        waitForObject(":_contactTab._fax_XLineEdit");
-        type(":_contactTab._fax_XLineEdit", "234223");
-        waitForObject(":_contactTab._email_XLineEdit");
-        type(":_contactTab._email_XLineEdit", "susanta@test.com");
-        waitForObject(":_contactTab.Street\nAddress:_XLineEdit");
-        type(":_contactTab.Street\nAddress:_XLineEdit", "addr line1");
-        waitForObject(":_contactTab.Street\nAddress:_XLineEdit_2");
-        type(":_contactTab.Street\nAddress:_XLineEdit_2", "addr line2");
-        waitForObject(":_contactTab.City:_XLineEdit");
-        type(":_contactTab.City:_XLineEdit", "city1");
-        waitForObject(":_contactTab.City:_XLineEdit");
-        type(":_contactTab._state_XComboBox", "state1");
-        waitForObject(":_contactTab.Postal Code:_XLineEdit");
-        type(":_contactTab.Postal Code:_XLineEdit", "23423");
-        waitForObject(":_contactTab._country_XComboBox");
-        type(":_contactTab._country_XComboBox", "india");
+        waitForObject(":_contactTab._honorific_XLineEdit");
+        type(":_contactTab._honorific_XLineEdit", "Susanta");
+        waitForObject(":_contactTab_XLineEdit");
+        type(":_contactTab_XLineEdit", "R");
+        waitForObject(":_contactTab_XLineEdit_2");
+        type(":_contactTab_XLineEdit_2", "Misra");
         waitForObject(":Employee.qt_tabwidget_tabbar_QTabBar");
         snooze(1);
         clickTab(":Employee.qt_tabwidget_tabbar_QTabBar", "Detail");
@@ -511,10 +489,8 @@ function createUserByRole(userrole)
 function createCompany(CompNum, CompDesc)
 {
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Accounting");
-        activateItem(":_QMenu", "Accounting");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Companies...");
@@ -607,10 +583,8 @@ function IsLeapYear(datea)
 function defineTaxAuth(ta)
 {
     //------Define Tax Authorities-------
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-    waitForObjectItem(":_QMenu", "Accounting");
-    activateItem(":_QMenu", "Accounting");
+    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
     activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
     waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Authorities...");
@@ -625,14 +599,14 @@ function defineTaxAuth(ta)
     type(":_name_XLineEdit_22", "Virginia");
     type(":_extref_XLineEdit", "Smith");
     if(findObject(":_currency_XComboBox_2").currentText!= "USD - $")
-        type(":_currency_XComboBox_2", "USD");
+    type(":_currency_XComboBox_2", "USD");
     type(":Tax Authority._county_QLineEdit", "United States");
-    type(":Tax Authority.Street\nAddress:_XLineEdit", "Street Addr Line1");
-    type(":Tax Authority.Street\nAddress:_XLineEdit_2", "Street addr line2");
-    type(":Tax Authority.Street\nAddress:_XLineEdit_3", "Street Addr line3");
-    type(":Tax Authority.City:_XLineEdit", "VA");
+    type(":groupBox.XLineEdit_XLineEdit", "Street Addr Line1");
+    type(":groupBox.XLineEdit_XLineEdit_2", "Street addr line2");
+    type(":groupBox.XLineEdit_XLineEdit_3", "Street Addr line3");
+    type(":groupBox.XLineEdit_XLineEdit_4", "VA");
     type(":_state_QLineEdit_3", "State1");
-    type(":groupBox.Postal Code:_XLineEdit", "323525");
+    type(":groupBox.XLineEdit_XLineEdit_5", "323525");
     clickItem(":groupBox._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
     clickButton(":Tax Authority.Save_QPushButton");
     snooze(2);
@@ -651,10 +625,8 @@ function defineTaxCode(tc)
 {
     try{
         //----------Create: Tax Codes---------------
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Accounting");
-        activateItem(":_QMenu", "Accounting");
+       waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Codes...");
@@ -666,7 +638,10 @@ function defineTaxCode(tc)
         waitForObject(":_code_XLineEdit_12");
         type(":_code_XLineEdit_12", tc);
         type(":_description_XLineEdit_23", "Tax Authority 1 General Merchandise");
-        type(":Tax Code._main_XLineEdit","01-01-4050-01");
+   
+        waitForObject(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit");
+        type(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit","01-01-4050-01");
+        nativeType("<Tab>");
         waitForObject(":Tax Code._taxClass_XComboBox");
         clickItem(":Tax Code._taxClass_XComboBox","1-Legacy Class 1",1,0,0,Qt.LeftButton);
         snooze(0.5);
@@ -688,8 +663,7 @@ function defineTaxCode(tc)
     try {
         waitForObject(":List Tax Codes._tax_XTreeWidget");
         doubleClickItem(":List Tax Codes._tax_XTreeWidget","TAXAUTH1-GM",0,0,0,Qt.LeftButton);
-        waitForObject(":Tax Code._main_XLineEdit");
-        test.compare(findObject(":Tax Code._main_XLineEdit").text,"01-01-4050-01");
+        waitForObject(":Tax Code_taxCode");
         test.compare(findObject(":Tax Code._taxClass_XComboBox").currentText,"1-Legacy Class 1");
         test.compare(findObject(":Tax Code._taxauth_XComboBox").currentText,"TAX-AUTH1");
         waitForObject(":_frame._taxitems_XTreeWidget");
@@ -710,7 +684,9 @@ function defineTaxCode(tc)
         waitForObject(":_code_XLineEdit_12");
         type(":_code_XLineEdit_12", "TAXAUTH1-EDU");
         type(":_description_XLineEdit_23", "Tax Authority 1 Educational Merchandise");
-        type(":Tax Code._main_XLineEdit","01-01-4050-01");
+        waitForObject(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit");
+        type(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit","01-01-4050-01");
+        nativeType("<Tab>");
         waitForObject(":Tax Code._taxClass_XComboBox");
         clickItem(":Tax Code._taxClass_XComboBox","1-Legacy Class 1",1,0,0,Qt.LeftButton);
         waitForObject(":Tax Code._taxauth_XComboBox");
@@ -728,8 +704,7 @@ function defineTaxCode(tc)
     try {
         waitForObject(":List Tax Codes._tax_XTreeWidget");
         doubleClickItem(":List Tax Codes._tax_XTreeWidget","TAXAUTH1-EDU",0,0,0,Qt.LeftButton);
-        waitForObject(":Tax Code._main_XLineEdit");    
-        test.compare(findObject(":Tax Code._main_XLineEdit").text,"01-01-4050-01");
+        waitForObject(":Tax Code_taxCode");    
         test.compare(findObject(":Tax Code._taxClass_XComboBox").currentText,"1-Legacy Class 1");
         test.compare(findObject(":Tax Code._taxauth_XComboBox").currentText,"TAX-AUTH1");
         waitForObject(":_frame._taxitems_XTreeWidget");
@@ -756,10 +731,8 @@ function defineTaxType(name, desc)
     try{
         
         //---------Create Tax Types--------------------
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Accounting");
-        activateItem(":_QMenu", "Accounting");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Types...");
@@ -785,10 +758,8 @@ function defineTaxZone(name, desc)
 {
     try{
         //----Define Tax Zones----
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Accounting");
-        activateItem(":_QMenu", "Accounting");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Zones...");
@@ -813,10 +784,8 @@ function assignTax(zone,ttype,tcode)
 {
     try{
         //--------Tax Assignments-------
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Accounting");
-        activateItem(":_QMenu", "Accounting");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Assignments...");
@@ -848,10 +817,8 @@ function RegTax(zone,treg)
     try{
         
         //----------Create: Tax Registrations--------------
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Accounting");
-        activateItem(":_QMenu", "Accounting");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Registrations...");
@@ -871,8 +838,8 @@ function RegTax(zone,treg)
         type(":Tax Registration Information._number_QLineEdit", treg);
         waitForObject(":_frame._notes_XTextEdit_2");
         type(":_frame._notes_XTextEdit_2", treg);
-        waitForObject(":Tax Registration Information.Save_QPushButton");
-        clickButton(":Tax Registration Information.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         snooze(1);
         waitForObject(":List Tax Registrations.Close_QPushButton_2");
         clickButton(":List Tax Registrations.Close_QPushButton_2");

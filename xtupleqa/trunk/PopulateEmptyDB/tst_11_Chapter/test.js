@@ -8,10 +8,8 @@ function main()
     var appEdition = findApplicationEdition();
     
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Accounting");
-        activateItem(":_QMenu", "Accounting");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Financial Statements");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Financial Statements");
         waitForObject(":xTuple ERP: OpenMFG Edition.Financial Statements_QMenu");
@@ -143,7 +141,7 @@ function main()
         
         
         
-         snooze(1);
+        snooze(1);
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "EXPENSES", 5, 5, 1, Qt.LeftButton);
         waitForObject(":frame.Add Group_QPushButton");
@@ -216,7 +214,7 @@ function main()
         snooze(0.5);
         clickTab(":Financial Report.qt_tabwidget_tabbar_QTabBar", "Row Layout");
         snooze(0.5);
-       
+        
         waitForObject(":frame._layout_XTreeWidget");
         doubleClickItem(":frame._layout_XTreeWidget", "REVENUE", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_group_XComboBox");
@@ -274,9 +272,9 @@ function main()
         waitForObject(":Financial Report.Save_QPushButton");
         clickButton(":Financial Report.Save_QPushButton");
         
-
+        
         waitForObject(":List Financial Reports._flhead_XTreeWidget");
-       doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "Official Income Statement", 5, 5, 0, Qt.LeftButton);
+        doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "Official Income Statement", 5, 5, 0, Qt.LeftButton);
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "REVENUE.Sales", 5, 5, 1, Qt.LeftButton);
         waitForObject(":frame.Add Account_QPushButton");
@@ -359,10 +357,10 @@ function main()
         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
         waitForObject(":Financial Report Item.Save_QPushButton");         
         clickButton(":Financial Report Item.Save_QPushButton");
-                  
         
         
-         snooze(1);
+        
+        snooze(1);
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "EXPENSES.General Expenses", 5, 5, 1, Qt.LeftButton);
         clickButton(":frame.Add Account_QPushButton");
@@ -426,9 +424,8 @@ function main()
         
     }catch(e){test.fail("Exception in creating official income statement:"+e);}  
     
-//    
     try{
-      //-------------Create Official Balance Sheet------------
+        //-------------Create Official Balance Sheet------------
         waitForObjectItem(":List Financial Reports._flhead_XTreeWidget", "Basic Balance Sheet");
         clickItem(":List Financial Reports._flhead_XTreeWidget", "Basic Balance Sheet", 5, 5, 1, Qt.LeftButton);
         waitForObject(":List Financial Reports.Copy_QPushButton");
@@ -509,7 +506,7 @@ function main()
         clickButton(":Operation.Add to Group Total_QRadioButton");
         clickButton(":Financial Report Group.Save_QPushButton");
         
-         snooze(1);
+        snooze(1);
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "ASSETS", 5, 5, 1, Qt.LeftButton);
         snooze(1);
@@ -535,7 +532,7 @@ function main()
         clickButton(":Operation.Add to Group Total_QRadioButton");
         clickButton(":Financial Report Group.Save_QPushButton");
         
-         snooze(1);
+        snooze(1);
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "ASSETS", 5, 5, 1, Qt.LeftButton);
         clickButton(":frame.Add Group_QPushButton");
@@ -558,8 +555,8 @@ function main()
         type(":_altSubtotalLabel_QLineEdit", "Total Inventory Assets");
         clickButton(":Operation.Add to Group Total_QRadioButton");
         clickButton(":Financial Report Group.Save_QPushButton");
-//        
-         snooze(1);
+        
+        snooze(1);
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "ASSETS", 5, 5, 1, Qt.LeftButton);
         clickButton(":frame.Add Group_QPushButton");
@@ -584,7 +581,7 @@ function main()
         clickButton(":Financial Report Group.Save_QPushButton");
         
         
-         snooze(1);
+        snooze(1);
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "LIABILITIES AND OWNERS EQUITY", 5, 5, 1, Qt.LeftButton);
         snooze(1);
@@ -611,7 +608,7 @@ function main()
         clickButton(":Financial Report Group.Save_QPushButton");
         
         
-         snooze(1);
+        snooze(1);
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "LIABILITIES AND OWNERS EQUITY", 5, 5, 1, Qt.LeftButton);
         snooze(1);
@@ -686,7 +683,7 @@ function main()
         clickButton(":Operation.Add to Group Total_QRadioButton");
         clickButton(":Financial Report Group.Save_QPushButton");
         
-         snooze(1);
+        snooze(1);
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "LIABILITIES AND OWNERS EQUITY.OWNERS EQUITY", 5, 5, 1, Qt.LeftButton);
         snooze(1);
@@ -712,7 +709,7 @@ function main()
         clickButton(":Operation.Add to Group Total_QRadioButton");
         clickButton(":Financial Report Group.Save_QPushButton");
         
-         snooze(1);
+        snooze(1);
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "LIABILITIES AND OWNERS EQUITY.OWNERS EQUITY", 5, 5, 1, Qt.LeftButton);
         snooze(1);
@@ -761,7 +758,7 @@ function main()
         waitForObject(":Financial Report.Save_QPushButton");
         clickButton(":Financial Report.Save_QPushButton");
         
-         snooze(1);
+        snooze(1);
         waitForObject(":List Financial Reports._flhead_XTreeWidget");
         doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "Official Balance Sheet", 5, 5, 0, Qt.LeftButton);
         
@@ -807,7 +804,7 @@ function main()
         waitForObject(":Financial Report Group.Save_QPushButton");    
         clickButton(":Financial Report Group.Save_QPushButton");
         
-         snooze(1);
+        snooze(1);
         waitForObject(":frame._layout_XTreeWidget");
         doubleClickItem(":frame._layout_XTreeWidget", "ASSETS.Inventory Assets", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_group_XComboBox");
@@ -1419,10 +1416,10 @@ function main()
         clickButton(":Financial Report Group.Save_QPushButton");
         waitForObject(":Financial Report.Save_QPushButton");
         clickButton(":Financial Report.Save_QPushButton");
-      
-      waitForObject(":List Financial Reports._flhead_XTreeWidget");
-      doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "INCOME\\_STATEMENT", 5, 5, 0, Qt.LeftButton);  
-      waitForObject(":frame._layout_XTreeWidget");
+        
+        waitForObject(":List Financial Reports._flhead_XTreeWidget");
+        doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "INCOME\\_STATEMENT", 5, 5, 0, Qt.LeftButton);  
+        waitForObject(":frame._layout_XTreeWidget");
         doubleClickItem(":frame._layout_XTreeWidget","REVENUE.Sales",5, 5, 0, Qt.LeftButton);
         waitForObject(":_group_XComboBox");
         if(!findObject(":_group_XComboBox").currentText!="Sales")
@@ -1536,8 +1533,14 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-4000-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        nativeType("<Tab>");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");
+         waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","4000",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         try {
@@ -1579,8 +1582,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-4800-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","4800",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -1619,8 +1627,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-4900-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","4900",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -1658,8 +1671,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-4050-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","4050",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -1697,9 +1715,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(0.5);
-        waitForObject(":Select one Account._main_XLineEdit");
-        snooze(0.5);
-        type(":Select one Account._main_XLineEdit", "01-01-4060-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","4060",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -1731,15 +1753,20 @@ function main()
             clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
         clickButton(":Show Custom Column.Use Difference_QRadioButton");
         clickButton(":Financial Report Item.Save_QPushButton");
-      
+        
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "REVENUE.Cost of Goods Sold", 5, 5, 1, Qt.LeftButton);
         snooze(1);
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-5000-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","5000",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -1779,8 +1806,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-6000-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","6000",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -1820,8 +1852,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-6750-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","6750",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -1860,48 +1897,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-6550-01");
-        clickButton(":Operation.Add to Group Total_QRadioButton_2");
-        snooze(1);
-        clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
-        waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
-        if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
-            clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
-        waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
-        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
-            clickButton(":Show Columns.Show % of Group Total_QCheckBox");
-        waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
-        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
-            clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
-        waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
-        if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
-            clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
-        waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
-        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
-            clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
-        waitForObject(":Show Columns.Show Difference_QCheckBox");
-        if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
-            clickButton(":Show Columns.Show Difference_QCheckBox");
-        waitForObject(":_options._group_XComboBox");
-        if(findObject(":_options._group_XComboBox").currentText!="Sales")
-            clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton); 
-        waitForObject(":_options.Show Custom Column_QGroupBox");
-        type(":_options.Show Custom Column_QGroupBox"," ");
-        waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
-        if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
-            clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
-        clickButton(":Show Custom Column.Use Difference_QRadioButton");
-        clickButton(":Financial Report Item.Save_QPushButton");
-      
-        waitForObject(":frame._layout_XTreeWidget");
-        clickItem(":frame._layout_XTreeWidget", "EXPENSES.General Expenses", 5, 5, 1, Qt.LeftButton);
-        snooze(1);
-        waitForObject(":frame.Add Account_QPushButton");
-        clickButton(":frame.Add Account_QPushButton");
-        snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-6400-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","6550",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -1940,8 +1942,58 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-6050-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","6400",10,10,0, Qt.LeftButton);
+        clickButton(":Operation.Add to Group Total_QRadioButton_2");
+        snooze(1);
+        clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
+        waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
+        if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
+            clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+        waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
+        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
+            clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+        waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
+        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
+            clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+        waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
+        if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
+            clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+        waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
+        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
+            clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+        waitForObject(":Show Columns.Show Difference_QCheckBox");
+        if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
+            clickButton(":Show Columns.Show Difference_QCheckBox");
+        waitForObject(":_options._group_XComboBox");
+        if(findObject(":_options._group_XComboBox").currentText!="Sales")
+            clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton); 
+        waitForObject(":_options.Show Custom Column_QGroupBox");
+        type(":_options.Show Custom Column_QGroupBox"," ");
+        waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
+        if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
+            clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+        clickButton(":Show Custom Column.Use Difference_QRadioButton");
+        clickButton(":Financial Report Item.Save_QPushButton");
+        
+        waitForObject(":frame._layout_XTreeWidget");
+        clickItem(":frame._layout_XTreeWidget", "EXPENSES.General Expenses", 5, 5, 1, Qt.LeftButton);
+        snooze(1);
+        waitForObject(":frame.Add Account_QPushButton");
+        clickButton(":frame.Add Account_QPushButton");
+        snooze(1);
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","6050",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         waitForObject(":Financial Report Item.qt_tabwidget_tabbar_QTabBar");
         snooze(1);
@@ -1983,8 +2035,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-6060-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","6060",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         waitForObject(":Financial Report Item.qt_tabwidget_tabbar_QTabBar");
         snooze(1);
@@ -2024,8 +2081,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-8910-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","8910",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         waitForObject(":Financial Report Item.qt_tabwidget_tabbar_QTabBar");
@@ -2067,8 +2129,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-8920-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","8920",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         waitForObject(":Financial Report Item.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -2108,8 +2175,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-8930-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");      
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","8930",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         waitForObject(":Financial Report Item.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -2149,8 +2221,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-8980-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","8980",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         waitForObject(":Financial Report Item.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -2183,15 +2260,20 @@ function main()
             clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
         clickButton(":Show Custom Column.Use Difference_QRadioButton");
         clickButton(":Financial Report Item.Save_QPushButton");
-      
+        
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "EXPENSES.General Expenses", 5, 5, 1, Qt.LeftButton);
         snooze(1);
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-8990-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","8990",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         waitForObject(":Financial Report Item.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -2231,8 +2313,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-8995-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","8995",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         waitForObject(":Financial Report Item.qt_tabwidget_tabbar_QTabBar");
@@ -2300,8 +2387,8 @@ function main()
         clickButton(":Financial Report.Save_QPushButton");
         snooze(1);
         
-      waitForObject(":List Financial Reports._flhead_XTreeWidget");
-      doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "BALANCE\\_SHEET", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":List Financial Reports._flhead_XTreeWidget");
+        doubleClickItem(":List Financial Reports._flhead_XTreeWidget", "BALANCE\\_SHEET", 5, 5, 0, Qt.LeftButton);
         snooze(0.5);
         waitForObject(":frame.Add Top Level Group_QPushButton");
         clickButton(":frame.Add Top Level Group_QPushButton");
@@ -2890,8 +2977,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-1000-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","1000",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -2931,8 +3023,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-1010-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","1010",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -2967,8 +3064,13 @@ function main()
         clickItem(":frame._layout_XTreeWidget", "ASSETS.Current Assets", 5, 5, 1, Qt.LeftButton);
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-1100-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","1100",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -3010,8 +3112,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-1250-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","1250",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         waitForObject(":Financial Report Item.qt_tabwidget_tabbar_QTabBar");
         snooze(1);
@@ -3055,8 +3162,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-1210-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","1210",10,10,0, Qt.LeftButton);
         waitForObject(":Operation.Add to Group Total_QRadioButton_2");
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
@@ -3100,8 +3212,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-1400-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","1400",10,10,0, Qt.LeftButton);
         waitForObject(":Operation.Add to Group Total_QRadioButton_2");
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
@@ -3145,8 +3262,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-1620-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","1620",10,10,0, Qt.LeftButton);
         waitForObject(":Operation.Add to Group Total_QRadioButton_2");
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
@@ -3190,8 +3312,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-1470-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","1470",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -3233,8 +3360,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-1460-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","1460",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -3278,8 +3410,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-1260-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","1260",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -3322,8 +3459,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-1930-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","1930",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -3366,8 +3508,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-1950-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","1950",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -3410,8 +3557,110 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-1500-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","1500",10,10,0, Qt.LeftButton);
+        clickButton(":Operation.Add to Group Total_QRadioButton_2");
+        snooze(1);
+        clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
+        snooze(1);
+        waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
+        if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
+            clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+        waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
+        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
+            clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+        waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
+        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
+            clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+        waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
+        if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
+            clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+        waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
+        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
+            clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+        waitForObject(":Show Columns.Show Difference_QCheckBox");
+        if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
+            clickButton(":Show Columns.Show Difference_QCheckBox");
+        waitForObject(":_options._group_XComboBox");
+        if(findObject(":_options._group_XComboBox").currentText!="Parent")
+            clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
+        waitForObject(":_options.Show Custom Column_QGroupBox");
+        type(":_options.Show Custom Column_QGroupBox"," ");
+        waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
+        if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
+            clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+        waitForObject(":Show Custom Column.Use Difference_QRadioButton");
+        clickButton(":Show Custom Column.Use Difference_QRadioButton");
+        waitForObject(":Financial Report Item.Save_QPushButton");
+        clickButton(":Financial Report Item.Save_QPushButton");
+        
+        
+        waitForObject(":frame._layout_XTreeWidget");
+        clickItem(":frame._layout_XTreeWidget", "ASSETS.Fixed Assets", 5, 5, 1, Qt.LeftButton);
+        snooze(1);
+        waitForObject(":frame.Add Account_QPushButton");
+        clickButton(":frame.Add Account_QPushButton");
+        snooze(1);
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","2000",10,10,0, Qt.LeftButton);
+        clickButton(":Operation.Add to Group Total_QRadioButton_2");
+        snooze(1);
+        clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
+        snooze(1);
+        waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
+        ":Show Columns.Show Beginning Balance_QCheckBox"
+                if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
+                    clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+        waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
+        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
+            clickButton(":Show Columns.Show % of Group Total_QCheckBox");
+        waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
+        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
+            clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
+        waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
+        if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
+            clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
+        waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
+        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
+            clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
+        waitForObject(":Show Columns.Show Difference_QCheckBox");
+        if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
+            clickButton(":Show Columns.Show Difference_QCheckBox");
+        waitForObject(":_options._group_XComboBox");
+        if(findObject(":_options._group_XComboBox").currentText!="Parent")
+            clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
+        waitForObject(":_options.Show Custom Column_QGroupBox");
+        type(":_options.Show Custom Column_QGroupBox"," ");
+        if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
+            clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
+        waitForObject(":Show Custom Column.Use Difference_QRadioButton");
+        clickButton(":Show Custom Column.Use Difference_QRadioButton");
+        waitForObject(":Financial Report Item.Save_QPushButton");
+        clickButton(":Financial Report Item.Save_QPushButton");
+        
+        waitForObject(":frame._layout_XTreeWidget");
+        clickItem(":frame._layout_XTreeWidget", "ASSETS.Fixed Assets", 5, 5, 1, Qt.LeftButton);
+        snooze(1);
+        waitForObject(":frame.Add Account_QPushButton");
+        clickButton(":frame.Add Account_QPushButton");
+        snooze(1);
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","2320",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -3448,102 +3697,19 @@ function main()
         waitForObject(":Financial Report Item.Save_QPushButton");
         clickButton(":Financial Report Item.Save_QPushButton");
         
-        
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "ASSETS.Fixed Assets", 5, 5, 1, Qt.LeftButton);
         snooze(1);
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-2000-01");
-        clickButton(":Operation.Add to Group Total_QRadioButton_2");
-        snooze(1);
-        clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
-        snooze(1);
-        waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
-        ":Show Columns.Show Beginning Balance_QCheckBox"
-                if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
-                    clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
-        waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
-        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
-            clickButton(":Show Columns.Show % of Group Total_QCheckBox");
-        waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
-        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
-            clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
-        waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
-        if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
-            clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
-        waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
-        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
-            clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
-        waitForObject(":Show Columns.Show Difference_QCheckBox");
-        if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
-            clickButton(":Show Columns.Show Difference_QCheckBox");
-        waitForObject(":_options._group_XComboBox");
-        if(findObject(":_options._group_XComboBox").currentText!="Parent")
-            clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
-        waitForObject(":_options.Show Custom Column_QGroupBox");
-        type(":_options.Show Custom Column_QGroupBox"," ");
-        if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
-            clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
-        waitForObject(":Show Custom Column.Use Difference_QRadioButton");
-        clickButton(":Show Custom Column.Use Difference_QRadioButton");
-        waitForObject(":Financial Report Item.Save_QPushButton");
-        clickButton(":Financial Report Item.Save_QPushButton");
-        
-        waitForObject(":frame._layout_XTreeWidget");
-        clickItem(":frame._layout_XTreeWidget", "ASSETS.Fixed Assets", 5, 5, 1, Qt.LeftButton);
-        snooze(1);
-        waitForObject(":frame.Add Account_QPushButton");
-        clickButton(":frame.Add Account_QPushButton");
-        snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-2320-01");
-        clickButton(":Operation.Add to Group Total_QRadioButton_2");
-        snooze(1);
-        clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
-        snooze(1);
-        waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
-        ":Show Columns.Show Beginning Balance_QCheckBox"
-                if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
-                    clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
-        waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
-        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
-            clickButton(":Show Columns.Show % of Group Total_QCheckBox");
-        waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
-        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
-            clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
-        waitForObject(":Show Columns.Show Debits/Credits_QCheckBox");
-        if(findObject(":Show Columns.Show Debits/Credits_QCheckBox").checked)
-            clickButton(":Show Columns.Show Debits/Credits_QCheckBox");
-        waitForObject(":Show Columns.Show % of Group Total_QCheckBox_2");
-        if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_2").checked)
-            clickButton(":Show Columns.Show % of Group Total_QCheckBox_2");
-        waitForObject(":Show Columns.Show Difference_QCheckBox");
-        if(!findObject(":Show Columns.Show Difference_QCheckBox").checked)
-            clickButton(":Show Columns.Show Difference_QCheckBox");
-        waitForObject(":_options._group_XComboBox");
-        if(findObject(":_options._group_XComboBox").currentText!="Parent")
-            clickItem(":_options._group_XComboBox", "Parent",0,0,1,Qt.LeftButton);
-        waitForObject(":_options.Show Custom Column_QGroupBox");
-        type(":_options.Show Custom Column_QGroupBox"," ");
-        waitForObject(":Show Custom Column.Show % of Group Total_QCheckBox");
-        if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
-            clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
-        waitForObject(":Show Custom Column.Use Difference_QRadioButton");
-        clickButton(":Show Custom Column.Use Difference_QRadioButton");
-        waitForObject(":Financial Report Item.Save_QPushButton");
-        clickButton(":Financial Report Item.Save_QPushButton");
-        
-        waitForObject(":frame._layout_XTreeWidget");
-        clickItem(":frame._layout_XTreeWidget", "ASSETS.Fixed Assets", 5, 5, 1, Qt.LeftButton);
-        snooze(1);
-        waitForObject(":frame.Add Account_QPushButton");
-        clickButton(":frame.Add Account_QPushButton");
-        snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-2490-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","2490",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -3587,8 +3753,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-3010-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","3010",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -3631,8 +3802,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-4000-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","4000",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -3676,8 +3852,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-4800-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","4800",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -3721,8 +3902,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-4900-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","4900",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -3765,8 +3951,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-4050-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","4050",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -3810,14 +4001,18 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-4060-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","4060",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
-        ":Show Columns.Show Beginning Balance_QCheckBox"
-                if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
-                    clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
+        if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
+            clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
         waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
         if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
             clickButton(":Show Columns.Show % of Group Total_QCheckBox");
@@ -3852,8 +4047,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-5000-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","5000",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -3894,8 +4094,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-6000-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","6000",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -3936,8 +4141,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-6050-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","6050",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -3978,8 +4188,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-6060-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","6060",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -4020,8 +4235,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-6750-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","6750",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -4062,8 +4282,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-6550-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","6550",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         snooze(1);
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
@@ -4107,8 +4332,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-6400-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");       
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","6400",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -4149,8 +4379,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-8910-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","8910",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -4192,8 +4427,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-8920-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");      
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","8920",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -4234,8 +4474,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-8930-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","8930",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -4277,8 +4522,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-8980-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","8980",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -4316,11 +4566,17 @@ function main()
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "LIABILITIES AND OWNERS EQUITY.OWNERS EQUITY.Year To Date Net Income", 5, 5, 1, Qt.LeftButton);
         snooze(1);
+        
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-8990-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","8990",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -4362,8 +4618,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-8995-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","8995",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Subtract from Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
@@ -4405,8 +4666,13 @@ function main()
         waitForObject(":frame.Add Account_QPushButton");
         clickButton(":frame.Add Account_QPushButton");
         snooze(1);
-        waitForObject(":Select one Account._main_XLineEdit");
-        type(":Select one Account._main_XLineEdit", "01-01-3030-01");
+        waitForObject(":Select one Account.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":Select one Account_QLabel");
+        sendEvent("QMouseEvent", ":Select one Account_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");        
+        waitForObject(":_listTab_XTreeWidget_11");
+        doubleClickItem(":_listTab_XTreeWidget_11","3030",10,10,0, Qt.LeftButton);
         clickButton(":Operation.Add to Group Total_QRadioButton_2");
         clickTab(":Financial Report Item.qt_tabwidget_tabbar_QTabBar", "Options");
         waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
