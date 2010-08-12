@@ -26,12 +26,12 @@ function main()
         type(":Incident Category._order_QSpinBox", "<Del>");
         type(":Incident Category._order_QSpinBox", "10");
         type(":Incident Category._descrip_QTextEdit", "Product related incidents");
-         waitForObject(":Setup.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Incident Categories._incidentCategories_XTreeWidget");
-       if(object.exists(":_incidentCategories.Product_QModelIndex"))
-           test.pass("Incident Categories created for: Product");
-       else test.fail("Incident Categories not created for: Product");
+        if(object.exists(":_incidentCategories.Product_QModelIndex"))
+            test.pass("Incident Categories created for: Product");
+        else test.fail("Incident Categories not created for: Product");
         waitForObject(":List Incident Categories.New_QPushButton");
         clickButton(":List Incident Categories.New_QPushButton");
         waitForObject(":_name_XLineEdit_14");
@@ -40,8 +40,8 @@ function main()
         type(":Incident Category._order_QSpinBox", "<Del>");
         type(":Incident Category._order_QSpinBox", "20");
         type(":Incident Category._descrip_QTextEdit", "Customer related incidents");
-         waitForObject(":Setup.Save_QPushButton");
-          clickButton(":Setup.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         snooze(1);
         waitForObject(":List Incident Categories._incidentCategories_XTreeWidget");
         if(object.exists("{column='1' container=':List Incident Categories._incidentCategories_XTreeWidget' text='Customer' type='QModelIndex'}"))
@@ -55,17 +55,17 @@ function main()
         type(":Incident Category._order_QSpinBox", "<Del>");
         type(":Incident Category._order_QSpinBox", "30");
         type(":Incident Category._descrip_QTextEdit", "Vendor related incidents");
-         waitForObject(":Setup.Save_QPushButton");
-         clickButton(":Setup.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Incident Categories._incidentCategories_XTreeWidget");
         if(object.exists("{column='1' container=':List Incident Categories._incidentCategories_XTreeWidget' text='Vendor' type='QModelIndex'}"))
             test.pass("Incident Categories created for: Vendor");
         else test.fail("Incident Categories not created for: Vendor");
         
-         waitForObject(":Setup.Save_QPushButton");
+        waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Incident category:"+e);}
-  
+    
     //--------------Create: Incident Severities----------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -73,7 +73,7 @@ function main()
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
         waitForObject(":Setup._modules_QComboBox");
-       clickItem(":Setup._modules_QComboBox","CRM",10,10, 0, Qt.LeftButton);
+        clickItem(":Setup._modules_QComboBox","CRM",10,10, 0, Qt.LeftButton);
         waitForObject(":Master Information.Incident Severities_QModelIndex");
         mouseClick(":Master Information.Incident Severities_QModelIndex", 60, 8, 0, Qt.LeftButton);
         waitForObject(":List Incident Severities.New_QPushButton");
@@ -105,7 +105,7 @@ function main()
         waitForObject(":Setup._modules_QComboBox");
         clickItem(":Setup._modules_QComboBox","CRM",10,10, 0, Qt.LeftButton);
         waitForObject(":Master Information.Incident Resolutions_QModelIndex");
-       mouseClick(":Master Information.Incident Resolutions_QModelIndex", 65, 3, 0, Qt.LeftButton);
+        mouseClick(":Master Information.Incident Resolutions_QModelIndex", 65, 3, 0, Qt.LeftButton);
         
         waitForObject(":List Incident Resolutions.New_QPushButton");
         clickButton(":List Incident Resolutions.New_QPushButton");
@@ -126,7 +126,7 @@ function main()
         clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Incident Resolution:"+e);}
     
-  
+    
     //------------CRM Oppurtunity Sources---------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -154,16 +154,16 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Opportunity Sources._oplist_XTreeWidget");
-       if(object.exists(":_oplist.TRADE_QModelIndex"))
-           test.pass("Opportunity Trade saved");
-       else test.fail("Opportunity trade not saved");
-       
-       if(object.exists("{column='0' container=':List Opportunity Sources._oplist_XTreeWidget' text='ADVERT' type='QModelIndex'}"))
-           test.pass("Opportunity Advert saved");
-       else test.fail("Opportunity Advert not saved");
+        if(object.exists(":_oplist.TRADE_QModelIndex"))
+            test.pass("Opportunity Trade saved");
+        else test.fail("Opportunity trade not saved");
+        
+        if(object.exists("{column='0' container=':List Opportunity Sources._oplist_XTreeWidget' text='ADVERT' type='QModelIndex'}"))
+            test.pass("Opportunity Advert saved");
+        else test.fail("Opportunity Advert not saved");
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-       
+        
     }catch(e){test.fail("Exception in creating Opportunity sources:"+e)}
     
     //------------CRM Oppurtunity Stages-------------
@@ -212,61 +212,63 @@ function main()
             test.pass("Opportunity Stage: RFQ created ");
         else test.fail("Opportunity Stage: RFQ not created ");
         
-
+        
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("CRM oppurtunity stages created");
         
     }catch(e){test.fail("Exception in creating CRM opportunity stages:"+e);}
     
-//    //---------------CRM Oppurtunity Types------------
-//    try{
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
-//        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "CRM");
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
-//        activateItem(":xTuple ERP: OpenMFG Edition.CRM_QMenu", "Master Information");
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Opportunity");
-//        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_2", "Opportunity");
-//        waitForObjectItem(":xTuple ERP: *.Opportunity_QMenu", "Types...");
-//        activateItem(":xTuple ERP: *.Opportunity_QMenu", "Types...");
-//        
-//        waitForObject(":List Opportunity Types.New_QPushButton_2");
-//        clickButton(":List Opportunity Types.New_QPushButton_2");
-//        waitForObject(":_name_XLineEdit_29");
-//        type(":_name_XLineEdit_29", "PRIVATE");
-//        type(":_description_XLineEdit_37", "Private Label Product");
-//        clickButton(":Opportunity Type.Save_QPushButton");
-//        
-//        waitForObject(":List Opportunity Types.New_QPushButton_2");
-//        clickButton(":List Opportunity Types.New_QPushButton_2");
-//        waitForObject(":_name_XLineEdit_29");
-//        type(":_name_XLineEdit_29", "PRICING");
-//        type(":_description_XLineEdit_37", "Pricing For Recurring Orders");
-//        clickButton(":Opportunity Type.Save_QPushButton");
-//        
-//        waitForObject(":List Opportunity Types.New_QPushButton_2");
-//        clickButton(":List Opportunity Types.New_QPushButton_2");
-//        waitForObject(":_name_XLineEdit_29");
-//        type(":_name_XLineEdit_29", "ONETIME");
-//        type(":_description_XLineEdit_37", "One Time Quote");
-//        clickButton(":Opportunity Type.Save_QPushButton");
-//        waitForObject(":List Opportunity Types._oplist_XTreeWidget")
-//        if(object.exists(":_oplist.ONETIME_QModelIndex"))
-//            test.pass("Oppotunity type: ONETIME created");
-//        else test.fail("Oppotunity type: ONETIME not created");
-//        
-//        if(object.exists("{column='0' container=':List Opportunity Types._oplist_XTreeWidget' text='PRICING' type='QModelIndex'}"))
-//            test.pass("Opportunity type: PRICING created:");
-//        else test.fail("Opportunity type: PRICING not reated:");
-//             if(object.exists("{column='0' container=':List Opportunity Types._oplist_XTreeWidget' text='PRIVATE' type='QModelIndex'}"))
-//                 test.pass("Opportunity type: PRIVATE created");
-//             else test.fail("Opportunity type: PRIVATE not created");
-//        waitForObject(":List Opportunity Types.Close_QPushButton_2");
-//        clickButton(":List Opportunity Types.Close_QPushButton_2");
-//        test.log("CRM Oppurtunity Types created");
-//        
-//    }catch(e){test.fail("Exception in creating Opportunity types");}
-    
+    //---------------CRM Oppurtunity Types------------
+    try{
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","CRM",10,10, 0, Qt.LeftButton);
+        
+        waitForObject(":Master Information.Opportunity Types_QModelIndex");
+        mouseClick(":Master Information.Opportunity Types_QModelIndex", 80, 7, 0, Qt.LeftButton);
+        waitForObject(":List Opportunity Types.New_QPushButton_2");
+        clickButton(":List Opportunity Types.New_QPushButton_2");
+        waitForObject(":_name_XLineEdit_29");
+        type(":_name_XLineEdit_29", "PRIVATE");
+        type(":_description_XLineEdit_37", "Private Label Product");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
+        
+        waitForObject(":List Opportunity Types.New_QPushButton_2");
+        clickButton(":List Opportunity Types.New_QPushButton_2");
+        waitForObject(":_name_XLineEdit_29");
+        type(":_name_XLineEdit_29", "PRICING");
+        type(":_description_XLineEdit_37", "Pricing For Recurring Orders");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
+        
+        waitForObject(":List Opportunity Types.New_QPushButton_2");
+        clickButton(":List Opportunity Types.New_QPushButton_2");
+        waitForObject(":_name_XLineEdit_29");
+        type(":_name_XLineEdit_29", "ONETIME");
+        type(":_description_XLineEdit_37", "One Time Quote");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
+        waitForObject(":List Opportunity Types._oplist_XTreeWidget")
+                if(object.exists(":_oplist.ONETIME_QModelIndex"))
+                    test.pass("Oppotunity type: ONETIME created");
+        else test.fail("Oppotunity type: ONETIME not created");
+        
+        if(object.exists("{column='0' container=':List Opportunity Types._oplist_XTreeWidget' text='PRICING' type='QModelIndex'}"))
+            test.pass("Opportunity type: PRICING created:");
+        else test.fail("Opportunity type: PRICING not reated:");
+        if(object.exists("{column='0' container=':List Opportunity Types._oplist_XTreeWidget' text='PRIVATE' type='QModelIndex'}"))
+            test.pass("Opportunity type: PRIVATE created");
+        else test.fail("Opportunity type: PRIVATE not created");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
+        test.log("CRM Oppurtunity Types created");
+        
+    }catch(e){test.fail("Exception in creating Opportunity types");}
     
     
     //--------------CRM Priorities-----------
@@ -297,7 +299,7 @@ function main()
         clickButton(":Setup.Save_QPushButton");
         test.log("CRM Priorities created");
     }catch(e){test.fail("Exception in creating CRM priorities");} 
-  
+    
     
     //-------------CRM Characteristics-----------
     try{

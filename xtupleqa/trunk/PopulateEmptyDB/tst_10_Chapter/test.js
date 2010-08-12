@@ -42,10 +42,8 @@ function main()
     
     //------------------Chart Of Accounts------------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Accounting");
-        activateItem(":_QMenu", "Accounting");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
@@ -66,9 +64,9 @@ function main()
         waitForObject(":Chart of Accounts.Close_QPushButton_2");
         clickButton(":Chart of Accounts.Close_QPushButton_2");
     }catch(e){test.fail("Exception in creating Chart of Accounts");}
-  
     
-  
+    
+    
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         
@@ -85,11 +83,11 @@ function main()
             
             waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
             clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
-          
-           
+            
+            
             waitForObject(":tab.Enable EFT Check Printing_QGroupBox");
             type(":tab.Enable EFT Check Printing_QGroupBox"," ");
-             
+            
             waitForObject(":_nextACHBatchNumber_XLineEdit_2");
             type(":_nextACHBatchNumber_XLineEdit_2", "<Ctrl+A>");
             type(":_nextACHBatchNumber_XLineEdit_2", "<Del>");
@@ -121,7 +119,7 @@ function main()
             
             test.xverify(object.exists(":tab.Enable ACH Check Printing_QGroupBox"), "Enable ACH Check Printing GroupBox not found");
             waitForObject(":Setup.Save_QPushButton");
-        clickButton(":Setup.Save_QPushButton");
+            clickButton(":Setup.Save_QPushButton");
         }catch(e){test.fail("Exception in configuring Accounting");}
     }
     snooze(3);//delay to allow save
@@ -129,11 +127,11 @@ function main()
     if(object.exists(":No_QPushButton"))
         clickButton(":No_QPushButton");
     
-  
-  
-  
+    
+    
+    
     //---------------Define: Bank Accounts------------------
-   
+    
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -141,9 +139,9 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
         waitForObject(":Setup._modules_QComboBox");
         clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
-       waitForObject(":Master Information.Bank Accounts_QModelIndex");
-       mouseClick(":Master Information.Bank Accounts_QModelIndex", 65, 6, 0, Qt.LeftButton);
-  
+        waitForObject(":Accounting Mappings.Bank Accounts_QModelIndex");
+        mouseClick(":Accounting Mappings.Bank Accounts_QModelIndex", 0, 0, 0, Qt.LeftButton);
+        
         waitForObject(":List Bank Accounts.New_QPushButton");
         clickButton(":List Bank Accounts.New_QPushButton");
         waitForObject(":_name_XLineEdit_18");
@@ -165,9 +163,12 @@ function main()
             clickItem(":_useGroup._form_XComboBox_2","GENERIC-CHECK",0,0,1,Qt.LeftButton);
         waitForObject(":_useGroup.Used in Accounts Receivable_QCheckBox");
         if(!findObject(":_useGroup.Used in Accounts Receivable_QCheckBox").checked)
-            clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
-        waitForObject(":_accountGroup._main_XLineEdit");
-        type(":_accountGroup._main_XLineEdit", "01-01-1000-01");
+            clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");       
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1000-01");
+        nativeType("<Tab>");
+        
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         snooze(2);
@@ -197,7 +198,9 @@ function main()
         waitForObject(":_useGroup.Used in Accounts Receivable_QCheckBox");
         if(!findObject(":_useGroup.Used in Accounts Receivable_QCheckBox").checked)
             clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");
-        type(":_accountGroup._main_XLineEdit", "01-01-1010-01");
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1010-01");
+        nativeType("<Tab>");
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         snooze(1);
@@ -219,14 +222,20 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
         waitForObject(":Setup._modules_QComboBox");
         clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
-        waitForObject(":Master Information.Bank Adjustment Types_QModelIndex");
-        mouseClick(":Master Information.Bank Adjustment Types_QModelIndex", 29, 4, 0, Qt.LeftButton);
+        waitForObject(":Accounting Mappings.Bank Adjustment Types_QModelIndex");
+        mouseClick(":Accounting Mappings.Bank Adjustment Types_QModelIndex", 0,0, 0, Qt.LeftButton);
         waitForObject(":List Adjustment Types.New_QPushButton");
         clickButton(":List Adjustment Types.New_QPushButton");
         waitForObject(":_name_XLineEdit_19");
         type(":_name_XLineEdit_19", "BANKFEE");
         type(":_description_XLineEdit_28", "Bank Account Fee");
-        type(":Adjustment Type._main_XLineEdit", "01-01-6750-01");
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":_stack_QLabel");
+        sendEvent("QMouseEvent", ":_stack_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");
+        waitForObject(":_listTab_XTreeWidget_10");
+        doubleClickItem(":_listTab_XTreeWidget_10","6750",10,10,0,Qt.LeftButton); 
         clickButton(":Type.Debit_QRadioButton");
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
@@ -238,13 +247,11 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Adjustment types:"+e);}
-
+    
     //------------Define: Fiscal Year----------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Accounting");
-        activateItem(":_QMenu", "Accounting");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Fiscal Calendar_QMenu", "Fiscal Years...");
@@ -282,13 +289,11 @@ function main()
         clickButton(":List Fiscal Years.Close_QPushButton");
     }catch(e){test.fail("Exception in creating Fiscal Year");}
     
-  
+    
     //-------------Define: Fiscal Calendar--------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Accounting");
-        activateItem(":_QMenu", "Accounting");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Fiscal Calendar_QMenu", "Accounting Periods...");

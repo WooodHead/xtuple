@@ -8,48 +8,48 @@ function main()
     
     if(appEdition=="Manufacturing")
     {
-  
-            //-------------Standard Labor Rate -------------------
-            try{
-                waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-                activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-                waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-                activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-                waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
-                activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
-                
-                waitForObject(":List Standard Labor Rates.New_QPushButton_3");
-                clickButton(":List Standard Labor Rates.New_QPushButton_3");
-                waitForObject(":_code_XLineEdit_17");
-                type(":_code_XLineEdit_17", "Assembly");
-                waitForObject(":_description_XLineEdit_41");
-                type(":_description_XLineEdit_41", "Assembly Rate");
-                type(":_rate_XLineEdit_3", "12.00");
-                waitForObject(":Standard Labor Rate.Save_QPushButton_2");
-                clickButton(":Standard Labor Rate.Save_QPushButton_2");
-                waitForObject(":_lbrrate_XTreeWidget_2");
-                if(object.exists("{column='0' container=':_lbrrate_XTreeWidget_2' text='Assembly' type='QModelIndex'}"))
-                    test.pass("Standard Labor Rate created: Assembly");
-                
-                waitForObject(":List Standard Labor Rates.New_QPushButton_3");
-                clickButton(":List Standard Labor Rates.New_QPushButton_3");
-                waitForObject(":_code_XLineEdit_17");
-                type(":_code_XLineEdit_17", "SETUP");
-                waitForObject(":_description_XLineEdit_41");
-                type(":_description_XLineEdit_41", "Setup Rate");
-                type(":_rate_XLineEdit_3", "15.00");
-                waitForObject(":Standard Labor Rate.Save_QPushButton_2");
-                clickButton(":Standard Labor Rate.Save_QPushButton_2");
-                waitForObject(":_lbrrate_XTreeWidget_2");
-                if(object.exists(":_lbrrate.SETUP_QModelIndex"))
-                    test.pass("Standard Labor Rate created: SETUP");
-                else test.fail("Standard Labor Rate not created: SETUP");
-                
-                waitForObject(":List Standard Labor Rates.Close_QPushButton_3");
-                clickButton(":List Standard Labor Rates.Close_QPushButton_3");
-            }catch(e){test.fail("Exception in creating Standard Labor Rate:"+e);}
         
-            try{
+        //-------------Standard Labor Rate -------------------
+        try{
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+            activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
+            activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
+            
+            waitForObject(":List Standard Labor Rates.New_QPushButton_3");
+            clickButton(":List Standard Labor Rates.New_QPushButton_3");
+            waitForObject(":_code_XLineEdit_17");
+            type(":_code_XLineEdit_17", "Assembly");
+            waitForObject(":_description_XLineEdit_41");
+            type(":_description_XLineEdit_41", "Assembly Rate");
+            type(":_rate_XLineEdit_3", "12.00");
+            waitForObject(":Standard Labor Rate.Save_QPushButton_2");
+            clickButton(":Standard Labor Rate.Save_QPushButton_2");
+            waitForObject(":_lbrrate_XTreeWidget_2");
+            if(object.exists("{column='0' container=':_lbrrate_XTreeWidget_2' text='Assembly' type='QModelIndex'}"))
+                test.pass("Standard Labor Rate created: Assembly");
+            
+            waitForObject(":List Standard Labor Rates.New_QPushButton_3");
+            clickButton(":List Standard Labor Rates.New_QPushButton_3");
+            waitForObject(":_code_XLineEdit_17");
+            type(":_code_XLineEdit_17", "SETUP");
+            waitForObject(":_description_XLineEdit_41");
+            type(":_description_XLineEdit_41", "Setup Rate");
+            type(":_rate_XLineEdit_3", "15.00");
+            waitForObject(":Standard Labor Rate.Save_QPushButton_2");
+            clickButton(":Standard Labor Rate.Save_QPushButton_2");
+            waitForObject(":_lbrrate_XTreeWidget_2");
+            if(object.exists(":_lbrrate.SETUP_QModelIndex"))
+                test.pass("Standard Labor Rate created: SETUP");
+            else test.fail("Standard Labor Rate not created: SETUP");
+            
+            waitForObject(":List Standard Labor Rates.Close_QPushButton_3");
+            clickButton(":List Standard Labor Rates.Close_QPushButton_3");
+        }catch(e){test.fail("Exception in creating Standard Labor Rate:"+e);}
+        
+        try{
             //---------Create Work Centers------------
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -193,7 +193,7 @@ function main()
             clickButton(":List Work Centers.Close_QPushButton");
         }catch(e){test.fail("Exception in creating work center:"+e)}
         
-      
+        
         //---------------------Products: Standard Operation--------------------
         try{
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -279,15 +279,13 @@ function main()
             waitForObject(":List Standard Operations.Close_QPushButton");
             clickButton(":List Standard Operations.Close_QPushButton");
         }catch(e){test.fail("Exception in creating Standard Operations:"+e);}
-      
-      
-    
-      //-----------Define BOO for Items---------------
+        
+        
+        
+        //-----------Define BOO for Items---------------
         try{
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-            waitForObjectItem(":_QMenu", "Products");
-            activateItem(":_QMenu", "Products");
+            waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
             activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Operations");
             waitForObjectItem(":xTuple ERP: *.Bill Of Operations_QMenu", "List...");
@@ -296,7 +294,7 @@ function main()
             //-----------Define BOO for YTRUCK1---------------
             waitForObject(":Bills of Operations.New_QPushButton");
             clickButton(":Bills of Operations.New_QPushButton");
-                      
+            
             waitForObject(":itemGroup...._QPushButton_3");
             clickButton(":itemGroup...._QPushButton_3");
             waitForObject(":_listTab_XTreeWidget_4");
@@ -383,14 +381,14 @@ function main()
             test.fail("standard labor rates menu found in "+appEdition);
         else
             test.pass("standard labor rates menu not found in "+appEdition);
-               
         
-       if(object.exists("{column='0' container=':_tree.Master Information_QModelIndex' text='Work Centers' type='QModelIndex'}"))
+        
+        if(object.exists("{column='0' container=':_tree.Master Information_QModelIndex' text='Work Centers' type='QModelIndex'}"))
             test.fail("Work centers menu found in "+appEdition);
         else
             test.pass("Work centers menu not found in "+appEdition); 
         
-       if(object.exists("{column='0' container=':_tree.Master Information_QModelIndex' text='Standard Operations' type='QModelIndex'}"))
+        if(object.exists("{column='0' container=':_tree.Master Information_QModelIndex' text='Standard Operations' type='QModelIndex'}"))
             test.fail("Standard Operations menu found in "+appEdition);
         else
             test.pass("Standard Operations menu not found in "+appEdition);
@@ -401,19 +399,17 @@ function main()
         else
             test.pass("Bill Of operations menu not found in "+appEdition);
         
-             
-         waitForObject(":Setup.Save_QPushButton");
-         clickButton(":Setup.Save_QPushButton");    
-           
+        
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");    
+        
     }
     
     
     //---------------Create BOM for Items---------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Products");
-        activateItem(":_QMenu", "Products");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
         activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Bill Of Materials");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
@@ -423,25 +419,20 @@ function main()
         //---------------Create BOM for YTRUCK1---------------
         waitForObject(":Bills of Materials.New_QPushButton");
         clickButton(":Bills of Materials.New_QPushButton");
-       waitForObject(":_itemGroup...._QPushButton_2");
-        clickButton(":_itemGroup...._QPushButton_2");
-    
-        
-        waitForObject(":_listTab_XTreeWidget_4");
-        waitForObjectItem(":_listTab_XTreeWidget_4", "YTRUCK1");
-        doubleClickItem(":_listTab_XTreeWidget_4","YTRUCK1",5,5,0,Qt.LeftButton);
-        
+        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
+        mouseClick(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", 63, 10, 0, Qt.LeftButton);
+        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
-       
-       
-        waitForObject(":Bill of Materials...._QPushButton_2");
-        clickButton(":Bill of Materials...._QPushButton_2");
-        
-        waitForObject(":_listTab_XTreeWidget_5");
-        doubleClickItem(":_listTab_XTreeWidget_5", "TBODY1", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
+        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TBODY1");
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "1");
         findObject(":_scrap_XLineEdit").clear();
@@ -468,11 +459,11 @@ function main()
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials...._QPushButton_2");
-        clickButton(":Bill of Materials...._QPushButton_2");
-
-        waitForObject(":_listTab_XTreeWidget_5");
-        doubleClickItem(":_listTab_XTreeWidget_5", "YPAINT1", 5, 5, 0, Qt.LeftButton);
+        
+        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
+        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "YPAINT1");
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".01");
         findObject(":_scrap_XLineEdit").clear();
@@ -498,11 +489,10 @@ function main()
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials...._QPushButton_2");
-        clickButton(":Bill of Materials...._QPushButton_2");
-
-        waitForObject(":_listTab_XTreeWidget_5");
-        doubleClickItem(":_listTab_XTreeWidget_5", "TWHEEL1", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
+        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TWHEEL1");
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "4");
         findObject(":_scrap_XLineEdit").clear();
@@ -529,11 +519,11 @@ function main()
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials...._QPushButton_2");
-        clickButton(":Bill of Materials...._QPushButton_2");
-
-        waitForObject(":_listTab_XTreeWidget_5");
-        doubleClickItem(":_listTab_XTreeWidget_5", "TSUB1", 5, 5, 0, Qt.LeftButton);
+        
+        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
+        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TSUB1");
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
         waitForObject(":_qtyPer_XLineEdit"); 
         type(":_qtyPer_XLineEdit", "1");
         findObject(":_scrap_XLineEdit").clear();
@@ -572,19 +562,22 @@ function main()
     try{
         waitForObject(":Bills of Materials.New_QPushButton");
         clickButton(":Bills of Materials.New_QPushButton");
-
-         waitForObject(":_itemGroup...._QPushButton_2");
-        clickButton(":_itemGroup...._QPushButton_2");
-        waitForObject(":_listTab_XTreeWidget_4");
-        doubleClickItem(":_listTab_XTreeWidget_4","TSUB1",5,5,0,Qt.LeftButton);
+        
+        
+        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
+        mouseClick(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", 63, 10, 0, Qt.LeftButton);
+        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "TSUB1");
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials...._QPushButton_2");
-        clickButton(":Bill of Materials...._QPushButton_2");
-
-        waitForObject(":_listTab_XTreeWidget_5");
-        doubleClickItem(":_listTab_XTreeWidget_5", "TBOX1", 5, 5, 0, Qt.LeftButton);
+        
+        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
+        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TBOX1");
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
         waitForObject(":_qtyPer_XLineEdit"); 
         type(":_qtyPer_XLineEdit", "1");
         findObject(":_scrap_XLineEdit").clear();
@@ -611,11 +604,10 @@ function main()
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials...._QPushButton_2");
-        clickButton(":Bill of Materials...._QPushButton_2");
-
-        waitForObject(":_listTab_XTreeWidget_5");
-        doubleClickItem(":_listTab_XTreeWidget_5", "TINSERT1", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
+        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TINSERT1");
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
         waitForObject(":_qtyPer_XLineEdit"); 
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "1");
@@ -642,7 +634,7 @@ function main()
         waitForObject(":Bill of Materials.Save_QPushButton");
         clickButton(":Bill of Materials.Save_QPushButton");
         waitForObject(":Bills of Materials._bom_XTreeWidget");  
-       snooze(1);
+        snooze(1);
         if(object.exists("{column='0' container=':Bills of Materials._bom_XTreeWidget' text='TSUB1' type='QModelIndex'}"))
             test.pass("BOM created for: TSUB1");
         else test.fail("BOM not creatd for: TSUB1");

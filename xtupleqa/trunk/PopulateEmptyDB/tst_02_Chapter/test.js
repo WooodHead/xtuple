@@ -8,15 +8,15 @@ function main()
     //---login Application--------
     loginAppl("RUNREGISTER"); 
     
-    snooze(1);
+    snooze(2);
     if(object.exists(":Notice.Remind me about this again._QCheckBox"))
     {
-    waitForObject(":Notice.Remind me about this again._QCheckBox");
-    if(findObject(":Notice.Remind me about this again._QCheckBox").checked)
-    clickButton(":Notice.Remind me about this again._QCheckBox");
-    snooze(0.1);
-    waitForObject(":Notice.OK_QPushButton");
-    clickButton(":Notice.OK_QPushButton");
+        waitForObject(":Notice.Remind me about this again._QCheckBox");
+        if(findObject(":Notice.Remind me about this again._QCheckBox").checked)
+            clickButton(":Notice.Remind me about this again._QCheckBox");
+        snooze(0.1);
+        waitForObject(":Notice.OK_QPushButton");
+        clickButton(":Notice.OK_QPushButton");
     }
     
     var appEdition = findApplicationEdition();
@@ -24,10 +24,8 @@ function main()
     
     //-----------Chart Of Accounts------------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Accounting");
-        activateItem(":_QMenu", "Accounting");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
@@ -70,26 +68,67 @@ function main()
         clickItem(":Setup._modules_QComboBox","Inventory", 74, 11, 0, Qt.LeftButton);
         waitForObject(":Accounting Mappings.Cost Categories_QModelIndex");
         mouseClick(":Accounting Mappings.Cost Categories_QModelIndex", 58, 7, 0, Qt.LeftButton);
+        
         waitForObject(":List Cost Categories.New_QPushButton_2");
         clickButton(":List Cost Categories.New_QPushButton_2");
         waitForObject(":Cost Category._category_XLineEdit");
         type(":Cost Category._category_XLineEdit", "CCWH1");
-        type(":Cost Category._description_XLineEdit", "Warehouse 1");
-        type(":Cost Category._main_XLineEdit", "01-01-1250-01");
-        type(":Cost Category._main_XLineEdit_2", "01-01-1210-01");
+        type(":Cost Category._description_XLineEdit", "Warehouse 1");        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1250-01");
+        nativeType("<Tab>");
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8980-01");
+        nativeType("<Tab>");
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-1210-01");
+        nativeType("<Tab>");
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-1620-01");
+        nativeType("<Tab>");
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5","01-01-1460-01");
+        nativeType("<Tab>");  
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6","01-01-8910-01");
+        nativeType("<Tab>");
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7","01-01-8920-01");
+        nativeType("<Tab>");
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8","01-01-8930-01");
+        nativeType("<Tab>");
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9","01-01-2490-01");
+        nativeType("<Tab>");
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10","01-01-1260-01");
+        nativeType("<Tab>");
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11","01-01-6550-01");
+        nativeType("<Tab>");
+        
+        
         if(appEdition=="Manufacturing"||appEdition=="Standard")
             type(":Cost Category._main_XLineEdit_3", "01-01-1620-01");
         else if (appEdition=="PostBooks")
             test.xverify(object.exists(":Cost Category._main_XLineEdit_3"),"Cost Category text field - not visible");
-        type(":Cost Category._main_XLineEdit_4", "01-01-1930-01");
-        type(":Cost Category._main_XLineEdit_5", "01-01-1460-01");
-        type(":Cost Category._main_XLineEdit_6", "01-01-8910-01");
-        type(":Cost Category._main_XLineEdit_7", "01-01-8920-01");
-        type(":Cost Category._main_XLineEdit_8", "01-01-8930-01");
-        type(":Cost Category._main_XLineEdit_9", "01-01-2320-01");
-        type(":Cost Category._main_XLineEdit_10", "01-01-2490-01");
-        type(":Cost Category._main_XLineEdit_11", "01-01-1260-01");
-        type(":Cost Category._main_XLineEdit_12", "01-01-6550-01");
         if(appEdition=="Manufacturing" || appEdition=="Standard")
             type(":Cost Category._main_XLineEdit_13", "01-01-2480-01");
         else if(appEdition=="PostBooks")
@@ -103,11 +142,26 @@ function main()
         if(object.exists(":_costcat.CCWH1_QModelIndex"))
             test.pass("Cost Category: CCWH1 created");
         else test.fail("Cost Category: CCWH1 not created");
+        
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in creating new Cost category:"+e);}
+    
     
     
     //----------Inventory-Cost Categories: copy and create for INTRAN------
     try{
+        
+        
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Inventory", 74, 11, 0, Qt.LeftButton);
+        waitForObject(":Accounting Mappings.Cost Categories_QModelIndex");
+        mouseClick(":Accounting Mappings.Cost Categories_QModelIndex", 58, 7, 0, Qt.LeftButton);
+        
         
         waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
         clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH1",0,0,1,Qt.LeftButton);
@@ -118,20 +172,41 @@ function main()
         type(":Cost Category._category_XLineEdit", "CCINTRAN");
         findObject(":Cost Category._description_XLineEdit").clear();
         type(":Cost Category._description_XLineEdit", "Intransit Warehouse");
-        findObject(":Cost Category._main_XLineEdit").clear();
-        type(":Cost Category._main_XLineEdit", "01-01-1252-01");
-        type(":Cost Category._main_XLineEdit", "<Tab>");
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":_stack_QLabel");
+        sendEvent("QMouseEvent", ":_stack_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");
+        waitForObject(":_listTab_XTreeWidget_10");
+        doubleClickItem(":_listTab_XTreeWidget_10","1252",10,10,0,Qt.LeftButton);
+        
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         if(object.exists(":_costcat.CCINTRAN_QModelIndex"))
             test.pass("Cost Category: CCINTRAN created");
         else test.fail("Cost Category: CCINTRAN not created");
         test.log("Inventory Cost Category CCINTRAN created");
+        
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in creating Cost Category");}
+    
     
     
     //----------Inventory-Cost Categories: copy and create for WH2------
     try{
+        
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Inventory", 74, 11, 0, Qt.LeftButton);
+        waitForObject(":Accounting Mappings.Cost Categories_QModelIndex");
+        mouseClick(":Accounting Mappings.Cost Categories_QModelIndex", 58, 7, 0, Qt.LeftButton);
+        
         waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
         clickItem(":List Cost Categories._costcat_XTreeWidget_2", "CCWH1",0,0,1,Qt.LeftButton);
         waitForObject(":List Cost Categories.Copy_QPushButton_2");
@@ -142,8 +217,16 @@ function main()
         type(":Cost Category._category_XLineEdit", "CCWH2");
         findObject(":Cost Category._description_XLineEdit").clear();
         type(":Cost Category._description_XLineEdit", "Warehouse 2");
-        findObject(":Cost Category._main_XLineEdit").clear();
-        type(":Cost Category._main_XLineEdit", "01-01-1254-01");
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":_stack_QLabel");
+        sendEvent("QMouseEvent", ":_stack_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");
+        waitForObject(":_listTab_XTreeWidget_10");
+        doubleClickItem(":_listTab_XTreeWidget_10","1254",10,10,0,Qt.LeftButton);
+        
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         snooze(2);
@@ -156,7 +239,6 @@ function main()
     }catch(e){test.fail("Exception in Creating Cost Categories:"+e);}
     
     
-    
     //------------Inventory: create Expense Categories---------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -167,16 +249,35 @@ function main()
         clickItem(":Setup._modules_QComboBox","Inventory", 74, 11, 0, Qt.LeftButton);
         waitForObject(":Accounting Mappings.Expense Categories_QModelIndex");
         mouseClick(":Accounting Mappings.Expense Categories_QModelIndex", 58, 7, 0, Qt.LeftButton);
+        
+        
         waitForObject(":List Expense Categories.New_QPushButton_2");
         clickButton(":List Expense Categories.New_QPushButton_2");
         waitForObject(":_category_XLineEdit_2");
         type(":_category_XLineEdit_2", "OFFICE-SUPPLIES");
         type(":_description_XLineEdit_13", "Print Paper");
-        type(":Expense Category._main_XLineEdit", "01-01-6000-01");
-        type(":Expense Category._main_XLineEdit_2", "01-01-8980-01");
-        type(":Expense Category._main_XLineEdit_3", "01-01-2490-01");
-        type(":Expense Category._main_XLineEdit_4", "01-01-6550-01");
-        type(":Expense Category._main_XLineEdit_4", "<Tab>");
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-6000-01");
+        nativeType("<Tab>");             
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8980-01");
+        nativeType("<Tab>"); 
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-2490-01");
+        nativeType("<Tab>"); 
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-6550-01");
+        nativeType("<Tab>"); 
+        
+        
+        
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Expense Categories._expcat_XTreeWidget");
@@ -184,17 +285,45 @@ function main()
         if(object.exists(":_expcat.OFFICE-SUPPLIES_QModelIndex"))
             test.pass("Expense Category: OFFICE-SUPPLIES created");
         else test.fail("Expense Category: OFFICE-SUPPLIES not created");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
+        
+        
+        //------------ Expense Categories(SALES TAX)---------------------    
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Inventory", 74, 11, 0, Qt.LeftButton);
+        waitForObject(":Accounting Mappings.Expense Categories_QModelIndex");
+        mouseClick(":Accounting Mappings.Expense Categories_QModelIndex", 58, 7, 0, Qt.LeftButton);
         
         waitForObject(":List Expense Categories.New_QPushButton_2");
         clickButton(":List Expense Categories.New_QPushButton_2");
         waitForObject(":_category_XLineEdit_2");
         type(":_category_XLineEdit_2", "SALES_TAX");
-        type(":_description_XLineEdit_13", "Sales Tax");
-        type(":Expense Category._main_XLineEdit", "01-01-2510-01");
-        type(":Expense Category._main_XLineEdit_2", "01-01-8980-01");
-        type(":Expense Category._main_XLineEdit_3", "01-01-2490-01");
-        type(":Expense Category._main_XLineEdit_4", "01-01-6550-01");
-        type(":Expense Category._main_XLineEdit_4", "<Tab>");
+        type(":_description_XLineEdit_13", "Sales Tax");       
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-2510-01");
+        nativeType("<Tab>");             
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8980-01");
+        nativeType("<Tab>"); 
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-2490-01");
+        nativeType("<Tab>"); 
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-6550-01");
+        nativeType("<Tab>"); 
+        
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Expense Categories._expcat_XTreeWidget");
@@ -202,18 +331,46 @@ function main()
         if(object.exists(":_expcat.SALES_TAX_QModelIndex"))
             test.pass("Expense Category: SALES_TAX created");
         else test.fail("Expense Category: SALES_TAX not created");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
         
+        
+        //------------ Expense Categories(SHIPPING CHARGES)---------------------  
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Inventory", 74, 11, 0, Qt.LeftButton);
+        waitForObject(":Accounting Mappings.Expense Categories_QModelIndex");
+        mouseClick(":Accounting Mappings.Expense Categories_QModelIndex", 58, 7, 0, Qt.LeftButton);
         
         waitForObject(":List Expense Categories.New_QPushButton_2");
         clickButton(":List Expense Categories.New_QPushButton_2");
         waitForObject(":_category_XLineEdit_2");
         type(":_category_XLineEdit_2", "SHIPPING_CHARGES");
         type(":_description_XLineEdit_13", "Shipping Charges Expense");
-        type(":Expense Category._main_XLineEdit", "01-01-6060-01");
-        type(":Expense Category._main_XLineEdit_2", "01-01-8980-01");
-        type(":Expense Category._main_XLineEdit_3", "01-01-2490-01");
-        type(":Expense Category._main_XLineEdit_4", "01-01-6550-01");
-        type(":Expense Category._main_XLineEdit_4", "<Tab>");
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-6060-01");
+        nativeType("<Tab>");             
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8980-01");
+        nativeType("<Tab>"); 
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-2490-01");
+        nativeType("<Tab>"); 
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-6550-01");
+        nativeType("<Tab>"); 
+        
+        
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Expense Categories._expcat_XTreeWidget");
@@ -229,10 +386,8 @@ function main()
     
     //------------------Inventory: create site Locations--------------------
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Go");
-        waitForObjectItem(":_QMenu", "Inventory");
-        activateItem(":_QMenu", "Inventory");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");  
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
         activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Locations...");
