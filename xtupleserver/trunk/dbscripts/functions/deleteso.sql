@@ -46,7 +46,8 @@ BEGIN
   FOR _coitemid IN
   SELECT coitem_id
   FROM coitem
-  WHERE (coitem_cohead_id=pSoheadid) LOOP
+  WHERE ( (coitem_cohead_id=pSoheadid)
+    AND   (coitem_subnumber=0) ) LOOP
     SELECT deleteSoItem(_coitemid) INTO _result;
     IF (_result < 0) THEN
       RETURN _result;
