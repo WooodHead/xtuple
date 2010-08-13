@@ -9,7 +9,7 @@ SELECT pohead_id, poitem_id, pohead_number,
           FROM whsinfo
          WHERE (COALESCE(itemsite_warehous_id, pohead_warehous_id)=warehous_id)) AS warehous_code,
        COALESCE(item_number, <? value("nonInv") ?>) AS itemnumber,
-       poitem_vend_item_number,
+       poitem_vend_item_number, poitem_vend_uom,
        COALESCE(item_descrip1, firstLine(poitem_vend_item_descrip)) AS itemdescrip,
        COALESCE(uom_name, poitem_vend_uom) AS itemuom,
        poitem_duedate, poitem_qty_ordered, poitem_qty_received, poitem_qty_returned,
