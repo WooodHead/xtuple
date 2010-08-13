@@ -31,8 +31,9 @@ function loginAppl(userrole)
     }
  
 
-   waitForObject(":Log In.Options..._QPushButton");
-    clickButton(":Log In.Options..._QPushButton");
+  
+    waitForObject(":Log In.Options..._QPushButton_2");
+    clickButton(":Log In.Options..._QPushButton_2");
     waitForObject(":_server_QLineEdit");
     if(findObject(":_server_QLineEdit").text!= url)
     {
@@ -59,8 +60,7 @@ function loginAppl(userrole)
     waitForObject(":_password_QLineEdit");
     type(":_password_QLineEdit", "<Return>");
     test.log("Logged in Application");
-    waitForObject(":xTuple ERP:*.Products Tools_QWorkspace");
-    
+   
 }
   }
 catch(e)
