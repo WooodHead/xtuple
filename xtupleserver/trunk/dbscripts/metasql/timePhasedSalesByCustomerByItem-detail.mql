@@ -1,0 +1,21 @@
+-- Group: timePhasedSalesByCustomerByItem
+-- Name: detail
+-- Notes: used by dspTimePhasedSalesByCustomerByItem
+
+SELECT item_id, item_number, item_descrip1
+<? foreach("period_list") ?>
+       , shipmentsByCustomerByItemValue(item_id, <? value("period_list") ?>, <? value("cust_id") ?>)
+       AS bucket_<? literal("period_list") ?>,
+       'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole,
+       0 AS bucket_<? literal("period_list") ?>_xttotalrole
+<? endforeach ?>
+
+FROM item
+  <? if exists("prodcat_id") ?>
+WHERE (item_prodcat_id=<? value("prodcat_id") ?>)
+  <? elseif exists("prodcat_pattern") ?>
+WHERE (item_prodcat_id IN (SELECT prodcat_id
+                            FROM prodcat
+                            WHERE (prodcat_code ~ <? value("prodcat_pattern") ?>)))
+  <? endif ?>
+ORDER BY item_number;
