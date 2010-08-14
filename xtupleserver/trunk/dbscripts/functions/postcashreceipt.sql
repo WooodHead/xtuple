@@ -46,7 +46,7 @@ BEGIN
   END IF;
 
   SELECT cashrcpt_cust_id, (cust_number||'-'||cust_name) AS custnote,
-         cashrcpt_fundstype, cashrcpt_docnumber,
+         cashrcpt_fundstype, cashrcpt_number, cashrcpt_docnumber,
          cashrcpt_distdate, cashrcpt_amount, cashrcpt_discount,
          currToBase(cashrcpt_curr_id, cashrcpt_amount, cashrcpt_distdate) AS cashrcpt_amount_base,
 	 currToBase(cashrcpt_curr_id, cashrcpt_discount, cashrcpt_distdate) AS cashrcpt_discount_base,
@@ -125,7 +125,7 @@ BEGIN
 
 --  Determine the amount to post to A/R Open Items
   SELECT COALESCE(SUM(cashrcptitem_amount), 0) INTO _postToAR
-  FROM cashrcptitem JOIN aropen ON ( (aropen_id=cashrcptitem_aropen_id) AND (aropen_doctype IN ('I', 'D')) )
+  FROM cashrcptitem JOIN aropen ON (aropen_id=cashrcptitem_aropen_id)
   WHERE (cashrcptitem_cashrcpt_id=pCashrcptid);
   IF (NOT FOUND) THEN
     _postToAR := 0;
@@ -158,11 +158,10 @@ BEGIN
   END IF;
 
 --  Distribute A/R Applications
-  IF (_predist=false) THEN
     FOR _r IN SELECT aropen_id, aropen_doctype, aropen_docnumber, aropen_docdate,
                      aropen_duedate, aropen_curr_id, aropen_curr_rate, aropen_amount,
                      round(aropen_amount - aropen_paid, 2) <=
-                        round(currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,(cashrcptitem_amount + cashrcptitem_discount),_p.cashrcpt_distdate),2)
+                        round(currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,abs(cashrcptitem_amount + cashrcptitem_discount),_p.cashrcpt_distdate),2)
                                  AS closed,
                      cashrcptitem_id, cashrcptitem_amount, cashrcptitem_discount,
                        currToBase(_p.cashrcpt_curr_id, cashrcptitem_amount,
@@ -170,10 +169,11 @@ BEGIN
 		       currToBase(_p.cashrcpt_curr_id, cashrcptitem_discount,
                                 _p.cashrcpt_distdate) AS cashrcptitem_discount_base,
                      round(aropen_paid + 
-                       currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,cashrcptitem_amount,_p.cashrcpt_distdate),2) AS new_paid,
+                       currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,abs(cashrcptitem_amount),_p.cashrcpt_distdate),2) AS new_paid,
                      round(currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,cashrcptitem_discount,_p.cashrcpt_distdate),2) AS new_discount
-              FROM cashrcptitem JOIN aropen ON ( (aropen_id=cashrcptitem_aropen_id) AND (aropen_doctype IN ('I', 'D')) )
-              WHERE (cashrcptitem_cashrcpt_id=pCashrcptid) LOOP
+              FROM cashrcptitem JOIN aropen ON (aropen_id=cashrcptitem_aropen_id)
+              WHERE ((cashrcptitem_cashrcpt_id=pCashrcptid)
+               AND (NOT _predist OR aropen_doctype IN ('C','R'))) LOOP
   
   --  Handle discount 
       IF (_r.cashrcptitem_discount_base > 0) THEN
@@ -192,6 +192,7 @@ BEGIN
       _posted := _posted + _r.cashrcptitem_amount;
  
   --  Record the cashrcpt application
+    IF (_r.aropen_doctype IN ('I','D')) THEN
       INSERT INTO arapply
       ( arapply_cust_id,
         arapply_source_aropen_id, arapply_source_doctype, arapply_source_docnumber,
@@ -202,20 +203,37 @@ BEGIN
         arapply_curr_id )
       VALUES
       ( _p.cashrcpt_cust_id,
-        -1, 'K', '',
+        -1, 'K', _p.cashrcpt_number,
         _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
         _p.cashrcpt_fundstype, _p.cashrcpt_docnumber, 'CRA', _r.cashrcptitem_id,
         round(_r.cashrcptitem_amount, 2), _r.closed,
         _p.applydate, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id);
+    ELSE
+      INSERT INTO arapply
+      ( arapply_cust_id,
+        arapply_source_aropen_id, arapply_source_doctype, arapply_source_docnumber,
+        arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
+        arapply_fundstype, arapply_refnumber, arapply_reftype, arapply_ref_id,
+        arapply_applied, arapply_closed, arapply_postdate, arapply_distdate,
+        arapply_journalnumber, arapply_username, arapply_curr_id )
+      VALUES
+      ( _p.cashrcpt_cust_id,
+        _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
+        -1, 'R', _p.cashrcpt_number,
+        '', '', 'CRA', _r.cashrcptitem_id,
+        round(abs(_r.cashrcptitem_amount), 2), _r.closed,
+        _p.applydate, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id );
+    END IF;
   
-  
-      _exchGain := arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, _r.cashrcptitem_amount,
+      _exchGain := arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, abs(_r.cashrcptitem_amount),
                              _p.cashrcpt_distdate);
-
+     
        PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR',
                           (_r.aropen_doctype || '-' || _r.aropen_docnumber),
-                          _arAccntid, round(_r.cashrcptitem_amount_base + _exchGain, 2),
-                          _p.cashrcpt_distdate, _p.custnote );
+                          CASE WHEN _r.aropen_doctype != 'R' THEN _arAccntid
+                          ELSE findDeferredAccount(_p.cashrcpt_cust_id) END, 
+                          round(_r.cashrcptitem_amount_base + _exchGain, 2),
+                          _p.cashrcpt_distdate, _p.custnote );      
                           
       IF (_exchGain <> 0) THEN
           PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CR',
@@ -225,7 +243,6 @@ BEGIN
       END IF;
 
     END LOOP;
-  END IF;
 
 --  Distribute Misc. Applications
   FOR _r IN SELECT cashrcptmisc_id, cashrcptmisc_accnt_id, cashrcptmisc_amount,
@@ -323,8 +340,9 @@ BEGIN
   -- convert the cashrcptitem records to applications against the cm/cd if we are _predist
   IF(_predist=true) THEN
     FOR _r IN SELECT *
-                FROM cashrcptitem
-               WHERE(cashrcptitem_cashrcpt_id=pCashrcptid) LOOP
+              FROM cashrcptitem
+              WHERE ((cashrcptitem_cashrcpt_id=pCashrcptid)
+                AND (cashrcptitem_amount > 0)) LOOP
 
       -- Handle discount if applicable
       IF (_r.cashrcptitem_discount > 0) THEN
