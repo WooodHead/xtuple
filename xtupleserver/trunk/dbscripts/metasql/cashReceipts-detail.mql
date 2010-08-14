@@ -208,7 +208,8 @@ SELECT cashrcpt_id AS id, 0 AS type, cashrcpt_number, cust_number, cust_name,
        currtobase(cashrcpt_curr_id,cashrcpt_amount,cashrcpt_distdate) AS base_applied,
        currConcat(cashrcpt_curr_id) AS currAbbr,
        cashrcpt_distdate AS sortdate,
-       0 AS base_applied_xttotalrole
+       0 AS base_applied_xttotalrole,
+       -1 AS arapply_id
 FROM cashrcpt JOIN cust ON (cust_id=cashrcpt_cust_id) LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
 WHERE ( (cashrcpt_distdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? if exists("cust_id") ?>
@@ -239,12 +240,14 @@ SELECT cashrcpt_id AS id, 1 AS type, '', '', '',
        currtobase(cashrcpt_curr_id,COALESCE(arapply_applied,cashrcptitem_amount),cashrcpt_distdate) AS base_applied,
        currConcat(cashrcpt_curr_id) AS currAbbr,
        cashrcpt_distdate AS sortdate,
-       -1 AS base_applied_xttotalrole
+       -1 AS base_applied_xttotalrole,
+       arapply_id
 FROM cashrcpt JOIN cust ON (cust_id=cashrcpt_cust_id)
               LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
               JOIN cashrcptitem ON (cashrcptitem_cashrcpt_id=cashrcpt_id)
               JOIN aropen ON (aropen_id=cashrcptitem_aropen_id)
-              LEFT OUTER JOIN arapply ON (arapply_target_aropen_id=aropen_id AND
+              LEFT OUTER JOIN arapply ON ((arapply_target_aropen_id=aropen_id OR
+                                          arapply_source_aropen_id=aropen_id) AND
                                           arapply_reftype='CRA' AND
                                           arapply_ref_id=cashrcptitem_id)
 WHERE ( (cashrcpt_distdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
@@ -271,7 +274,8 @@ SELECT cashrcpt_id AS id, 1 AS type, '', '', '',
        currtobase(cashrcpt_curr_id,COALESCE(arapply_applied, cashrcptmisc_amount),cashrcpt_distdate) AS base_applied,
        currConcat(cashrcpt_curr_id) AS currAbbr,
        cashrcpt_distdate AS sortdate,
-       -1 AS base_applied_xttotalrole
+       -1 AS base_applied_xttotalrole,
+       arapply_id
 FROM cashrcpt JOIN cust ON (cust_id=cashrcpt_cust_id)
               LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
               JOIN cashrcptmisc ON (cashrcptmisc_cashrcpt_id=cashrcpt_id)

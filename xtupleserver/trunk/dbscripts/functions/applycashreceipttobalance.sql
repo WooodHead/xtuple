@@ -13,14 +13,67 @@ DECLARE
   pCashrcptid ALIAS FOR $1;
   pAmount ALIAS FOR $2;
   pCurrId ALIAS FOR $3;
+
+BEGIN
+
+  RETURN applyCashReceiptToBalance(pCashrcptid, pAmount, pCurrId, false);
+
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION applyCashReceiptToBalance(INTEGER, NUMERIC, INTEGER, BOOLEAN) RETURNS INTEGER AS $$
+DECLARE
+  pCashrcptid ALIAS FOR $1;
+  pAmount ALIAS FOR $2;
+  pCurrId ALIAS FOR $3;
+  pInclCredits ALIAS FOR $4;
   _amount NUMERIC;
+  _applied NUMERIC := 0;
   _applyAmount NUMERIC;
   _discount NUMERIC;
   _discprct NUMERIC;
   _docDate DATE;
   _r RECORD;
+  _toApply NUMERIC;
 
 BEGIN
+
+--  Apply open credits first if applicable
+  IF (pInclCredits) THEN
+    -- First find total debits unaccounted for by this receipt so we can apply as much credit 
+    -- as possible to clear, but no more
+    SELECT coalesce(noNeg(sum(currToCurr(aropen_curr_id, cashrcpt_curr_id,
+         aropen_amount - aropen_paid, cashrcpt_distdate) -
+         COALESCE((SELECT (SUM(cashrcptitem_amount) + SUM(cashrcptitem_discount))
+                   FROM cashrcptitem, cashrcpt
+                   WHERE ((cashrcpt_id=cashrcptitem_cashrcpt_id)
+                     AND  (NOT cashrcpt_void)
+                     AND  (NOT cashrcpt_posted)
+                     AND  (cashrcpt_id != pCashrcptid)
+                     AND  (cashrcptitem_aropen_id=aropen_id))), 0)) - pAmount),0)
+    INTO _toApply
+    FROM cashrcpt
+      JOIN custinfo ON (cashrcpt_cust_id=cust_id)
+      JOIN aropen ON (cust_id=aropen_cust_id)
+    WHERE ((cashrcpt_id=pCashrcptid)
+      AND (aropen_open)
+      AND (aropen_doctype IN ('I','D')));
+           
+    -- Loop through and apply credits until we account for all remaining debits we can
+    FOR _r IN 
+      SELECT aropen_id
+      FROM cashrcpt
+        JOIN custinfo ON (cashrcpt_cust_id=cust_id)
+        JOIN aropen ON (cust_id=aropen_cust_id)
+      WHERE ((cashrcpt_id=pCashrcptid)
+        AND (aropen_open)
+        AND (aropen_doctype IN ('C','R')))
+      ORDER BY aropen_duedate, aropen_docnumber
+    LOOP
+     EXIT WHEN _toApply <= 0;
+      _toApply := _toApply - applyCashReceiptLineBalance(pCashrcptid, _r.aropen_id, _toApply, pCurrId);
+    END LOOP;
+  END IF;
 
 --  Find the balance to apply
   SELECT (currToCurr(pCurrId, cashrcpt_curr_id, pAmount, cashrcpt_distdate) -
