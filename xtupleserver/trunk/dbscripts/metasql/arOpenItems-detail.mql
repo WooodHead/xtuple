@@ -72,7 +72,8 @@ SELECT -1 AS id,
        NULL::text AS aropen_docdate_qtdisplayrole,
        0 AS xtindentrole,
        '' AS aropen_duedate_qtforegroundrole,
-       NULL::integer AS ccard_number_xtidrole
+       NULL::integer AS ccard_number_xtidrole,
+       firstLine(invchead_notes) AS notes
 FROM invchead
            LEFT OUTER JOIN cohead ON (invchead_ordernumber=cohead_number)
            JOIN custinfo ON (invchead_cust_id=cust_id)
@@ -100,7 +101,7 @@ WHERE ((NOT invchead_posted)
            invchead_recurring,      invchead_invcnumber,    invchead_posted,
            invchead_ordernumber,    cohead_id,
            cust_id,                 cust_number,            cust_name,
-           invchead_recurring_invchead_id
+           invchead_recurring_invchead_id, invchead_notes
 
 UNION
 <? endif ?>
@@ -152,7 +153,8 @@ SELECT -1 AS id,
        NULL::text AS aropen_docdate_qtdisplayrole,
        0 AS xtindentrole,
        '' AS aropen_duedate_qtforegroundrole,
-       NULL::integer AS ccard_number_xtidrole
+       NULL::integer AS ccard_number_xtidrole,
+       firstLine(cmhead_comments) AS notes
 FROM cmhead
             JOIN custinfo ON (cmhead_cust_id=cust_id)
             JOIN custtype ON (cust_custtype_id=custtype_id)
@@ -176,7 +178,7 @@ WHERE ((NOT cmhead_posted)
       )
   GROUP BY id,                      altId,                  cmhead_id,
            cmhead_docdate,          cmhead_posted,          cmhead_curr_id,
-           cmhead_number,           cmhead_posted, 
+           cmhead_number,           cmhead_posted,          cmhead_comments,
            cust_id,                 cust_number,            cust_name
 
 UNION
@@ -247,7 +249,8 @@ SELECT aropen_id AS id,
        0 AS xtindentrole,
        CASE WHEN ((COALESCE(aropen_duedate,current_date) < current_date) AND COALESCE(aropen_open,FALSE)) THEN 'error' 
        END AS aropen_duedate_qtforegroundrole,
-       ccpay_id AS ccard_number_xtidrole
+       ccpay_id AS ccard_number_xtidrole,
+       firstLine(aropen_notes) AS notes
 FROM aropen 
 <? if exists("incidentsOnly") ?>
             JOIN incdt ON (incdt_aropen_id=aropen_id)
@@ -350,7 +353,8 @@ SELECT -1,
        1 AS xtindentrole,
        CASE WHEN ((COALESCE(aropen_duedate,current_date) < current_date) AND COALESCE(aropen_open,FALSE)) THEN 'error' 
        END AS aropen_duedate_qtforegroundrole,
-       NULL::integer AS ccard_xtidrole
+       NULL::integer AS ccard_xtidrole,
+       firstLine(incdt_descrip) AS notes
 FROM incdt JOIN aropen ON (aropen_id=incdt_aropen_id)
            JOIN custinfo ON (aropen_cust_id=cust_id)
            JOIN custtype ON (cust_custtype_id=custtype_id)
