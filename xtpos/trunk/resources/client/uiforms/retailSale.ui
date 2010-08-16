@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>879</width>
+    <width>845</width>
     <height>565</height>
    </rect>
   </property>
@@ -129,11 +129,30 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_7">
             <item>
-             <widget class="CustInfo" name="_cust">
+             <widget class="CustCluster" name="_cust">
+              <property name="descriptionVisible">
+               <bool>false</bool>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
               <property name="fieldName">
                <string>customer_number</string>
               </property>
              </widget>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>13</width>
+                <height>13</height>
+               </size>
+              </property>
+             </spacer>
             </item>
             <item>
              <widget class="QPushButton" name="_new">
@@ -154,19 +173,6 @@
                <string>&amp;Edit</string>
               </property>
              </widget>
-            </item>
-            <item>
-             <spacer>
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>13</width>
-                <height>13</height>
-               </size>
-              </property>
-             </spacer>
             </item>
            </layout>
           </item>
@@ -601,7 +607,7 @@
                    <enum>XComboBox::SalesReps</enum>
                   </property>
                   <property name="defaultCode">
-                   <enum>XComboBox::None</enum>
+                   <enum>XComboBox::First</enum>
                   </property>
                   <property name="fieldName">
                    <string>sales_rep</string>
@@ -631,7 +637,7 @@
                    <bool>false</bool>
                   </property>
                   <property name="defaultCode">
-                   <enum>XComboBox::None</enum>
+                   <enum>XComboBox::First</enum>
                   </property>
                   <property name="fieldName">
                    <string>site</string>
@@ -714,7 +720,7 @@
                    <enum>XComboBox::TaxZones</enum>
                   </property>
                   <property name="defaultCode">
-                   <enum>XComboBox::None</enum>
+                   <enum>XComboBox::First</enum>
                   </property>
                   <property name="fieldName">
                    <string>tax_zone</string>
@@ -939,7 +945,7 @@
    <header>currcluster.h</header>
   </customwidget>
   <customwidget>
-   <class>CustInfo</class>
+   <class>CustCluster</class>
    <extends>QWidget</extends>
    <header>custcluster.h</header>
   </customwidget>
@@ -1043,22 +1049,6 @@
     <hint type="destinationlabel">
      <x>439</x>
      <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>_sale</sender>
-   <signal>newDataWidgetMapper(XDataWidgetMapper*)</signal>
-   <receiver>_salesrep</receiver>
-   <slot>setDataWidgetMap(XDataWidgetMapper*)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>439</x>
-     <y>282</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>167</x>
-     <y>158</y>
     </hint>
    </hints>
   </connection>
@@ -1193,22 +1183,6 @@
   <connection>
    <sender>_sale</sender>
    <signal>newDataWidgetMapper(XDataWidgetMapper*)</signal>
-   <receiver>_cust</receiver>
-   <slot>setDataWidgetMap(XDataWidgetMapper*)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>439</x>
-     <y>282</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>200</x>
-     <y>124</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>_sale</sender>
-   <signal>newDataWidgetMapper(XDataWidgetMapper*)</signal>
    <receiver>_site</receiver>
    <slot>setDataWidgetMap(XDataWidgetMapper*)</slot>
    <hints>
@@ -1315,6 +1289,38 @@
     <hint type="destinationlabel">
      <x>439</x>
      <y>405</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>_sale</sender>
+   <signal>newDataWidgetMapper(XDataWidgetMapper*)</signal>
+   <receiver>_cust</receiver>
+   <slot>setDataWidgetMap(XDataWidgetMapper*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>422</x>
+     <y>282</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>196</x>
+     <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>_sale</sender>
+   <signal>newDataWidgetMapper(XDataWidgetMapper*)</signal>
+   <receiver>_salesrep</receiver>
+   <slot>setDataWidgetMap(XDataWidgetMapper*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>439</x>
+     <y>282</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>166</x>
+     <y>158</y>
     </hint>
    </hints>
   </connection>
