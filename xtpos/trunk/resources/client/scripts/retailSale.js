@@ -70,7 +70,7 @@ with (_saleitems)
   setColumn("Quantity"		, 80 , 0, true, "qty");
   setColumn("Price" 		, 60 , 0, true, "price");
   setColumn("Extended"		, 100, 0, true, "extension");
-  setColumn("Tax"      	, 60 , 0, false,"tax");
+  setColumn("Tax"      	, 60 , 0, true,"tax");
 }
 
 _terminal.populate("SELECT terminal_id, terminal_number, terminal_number"
