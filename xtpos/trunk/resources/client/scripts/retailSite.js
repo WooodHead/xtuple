@@ -1,4 +1,3 @@
-debugger
 // Variables
 var _adjust		= mywindow.findChild("_adjust");
 var _asset		= mywindow.findChild("_asset");
@@ -18,24 +17,6 @@ var _save		= mywindow.findChild("_save");
 var _site 		= mywindow.findChild("_site");
 var _siteLit	= mywindow.findChild("_siteLit");
 var _terminals	= mywindow.findChild("_terminals");
-
-// Retail Site Connections
-_cancel.clicked.connect(cancel);
-_removeBankAcct.clicked.connect(removeBankAcct);
-_save.clicked.connect(save);
-_site["newID(int)"].connect(check);
-
-// Set schema search path
-toolbox.executeDbQuery("retail", "setpath");
-
-// Hide site and populate if not multi warehouse
-if (metrics.value("MultiWhs") != "t")
-{
-  _site.setVisible(false);
-  _siteLit.setVisible(false);
-  _site.allowNull = false;
-  populate();
-}
 
 // Define local functions
 function cancel()
@@ -107,8 +88,10 @@ function checkTerminals()
 function populate()
 {
   _retailSite.select();
+
   if (_retailSite.currentIndex() < 0)
     _retailSite.mode = 0; // New
+
   populateItems();
   _site.enabled = false;
 }
@@ -204,4 +187,27 @@ function set(input)
   }
 
   return 0;
+}
+
+// Retail Site Connections
+_removeBankAcct.clicked.connect(removeBankAcct);
+_site["newID(int)"].connect(check);
+
+// Set schema search path
+toolbox.executeDbQuery("retail", "setpath");
+
+// Hide site and populate if not multi warehouse
+if (metrics.value("MultiWhs") != "t")
+{
+  _site.setVisible(false);
+  _siteLit.setVisible(false);
+  _site.allowNull = false;
+  _save.hide();
+  _cancel.hide();
+  _retailSite["newModel(XSqlTableModel*)"].connect(populate);
+}
+else
+{
+  _save.clicked.connect(save);
+  _cancel.clicked.connect(cancel);
 }

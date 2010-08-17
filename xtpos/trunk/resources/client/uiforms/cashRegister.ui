@@ -144,9 +144,6 @@
                    <property name="editTriggers">
                     <set>QAbstractItemView::NoEditTriggers</set>
                    </property>
-                   <property name="alternatingRowColors">
-                    <bool>false</bool>
-                   </property>
                    <property name="rootIsDecorated">
                     <bool>false</bool>
                    </property>
@@ -159,9 +156,6 @@
                   <layout class="QVBoxLayout" name="_5">
                    <item>
                     <layout class="QVBoxLayout" name="_6">
-                     <property name="spacing">
-                      <number>0</number>
-                     </property>
                      <item>
                       <widget class="QPushButton" name="_print">
                        <property name="enabled">
@@ -835,7 +829,7 @@
                <string>Print Receipt</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </item>
