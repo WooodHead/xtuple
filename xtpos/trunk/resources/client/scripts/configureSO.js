@@ -13,7 +13,6 @@ var _custTax  	= page.findChild("_custTax");
 var _siteTax	= page.findChild("_siteTax");
 
 //  Define connections
-toolbox.coreDisconnect(mywindow, "saving()", mywindow, "sSave()");
 _retailCustGroup["toggled(bool)"].connect(custGroupToggled);
 _retailCust["valid(bool)"].connect(sHandleRetailOnlyDefaultCust);
 mywindow.saving.connect(save);
@@ -58,12 +57,7 @@ function populate()
 function save()
 {
   if (_retailCustGroup.checked && _retailCust.id() == -1)
-  {
-    _retailCust.setFocus();
-    msg = "You must select a customer."
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg);
-    return;
-  }
+    _retaiCustGroup.checked = false;
     
   params = new Object();
   params.sale_number = _retailSaleNumber.text;
@@ -73,5 +67,4 @@ function save()
   metrics.set("RetailOnlyUseInternalCust", _retailOnlyDefaultCust.checked &&
                                            (_retailCust.id() > -1));
   metrics.set("RetailUseCustTaxZone",     _custTax.checked);
-  mywindow.sSave();
 }
