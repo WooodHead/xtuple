@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>retailSites</class>
- <widget class="QWidget" name="retailSites" >
-  <property name="geometry" >
+ <widget class="QWidget" name="retailSites">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,60 +10,54 @@
     <height>600</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Retail Sites</string>
   </property>
-  <property name="schemaName" stdset="0" >
+  <property name="schemaName" stdset="0">
    <string>xtpos</string>
   </property>
-  <property name="tableName" stdset="0" >
+  <property name="tableName" stdset="0">
    <string>api_retailsite</string>
   </property>
-  <property name="primaryKeyColumns" stdset="0" >
+  <property name="primaryKeyColumns" stdset="0">
    <number>1</number>
   </property>
-  <property name="screenTitle" stdset="0" >
+  <property name="screenTitle" stdset="0">
    <string/>
   </property>
-  <layout class="QGridLayout" name="gridLayout" >
-   <item row="0" column="0" >
-    <widget class="XTreeView" name="_sites" >
-     <property name="alternatingRowColors" >
-      <bool>false</bool>
-     </property>
-     <property name="schemaName" >
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="XTreeView" name="_sites">
+     <property name="schemaName">
       <string>xtpos</string>
      </property>
-     <property name="tableName" >
+     <property name="tableName">
       <string>api_retailsite</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="1" >
-    <layout class="QVBoxLayout" >
-     <property name="spacing" >
+   <item row="0" column="1">
+    <layout class="QVBoxLayout">
+     <property name="spacing">
       <number>0</number>
      </property>
      <item>
-      <layout class="QVBoxLayout" >
-       <property name="spacing" >
+      <layout class="QVBoxLayout">
+       <property name="spacing">
         <number>5</number>
        </property>
        <item>
-        <layout class="QVBoxLayout" >
-         <property name="spacing" >
-          <number>5</number>
-         </property>
+        <layout class="QVBoxLayout">
          <item>
-          <widget class="QPushButton" name="_close" >
-           <property name="text" >
+          <widget class="QPushButton" name="_close">
+           <property name="text">
             <string>&amp;Close</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="_print" >
-           <property name="text" >
+          <widget class="QPushButton" name="_print">
+           <property name="text">
             <string>&amp;Print</string>
            </property>
           </widget>
@@ -70,43 +65,40 @@
         </layout>
        </item>
        <item>
-        <layout class="QVBoxLayout" >
-         <property name="spacing" >
-          <number>0</number>
-         </property>
+        <layout class="QVBoxLayout">
          <item>
-          <widget class="QPushButton" name="_new" >
-           <property name="text" >
+          <widget class="QPushButton" name="_new">
+           <property name="text">
             <string>&amp;New</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="_edit" >
-           <property name="enabled" >
+          <widget class="QPushButton" name="_edit">
+           <property name="enabled">
             <bool>false</bool>
            </property>
-           <property name="text" >
+           <property name="text">
             <string>&amp;Edit</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="_view" >
-           <property name="enabled" >
+          <widget class="QPushButton" name="_view">
+           <property name="enabled">
             <bool>false</bool>
            </property>
-           <property name="text" >
+           <property name="text">
             <string>&amp;View</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="_delete" >
-           <property name="enabled" >
+          <widget class="QPushButton" name="_delete">
+           <property name="enabled">
             <bool>false</bool>
            </property>
-           <property name="text" >
+           <property name="text">
             <string>&amp;Delete</string>
            </property>
           </widget>
@@ -117,13 +109,13 @@
      </item>
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
-       <property name="sizeType" >
+       <property name="sizeType">
         <enum>QSizePolicy::Expanding</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
          <height>20</height>
@@ -138,7 +130,7 @@
  <customwidgets>
   <customwidget>
    <class>XTreeView</class>
-   <extends></extends>
+   <extends>QTreeView</extends>
    <header>xtreeview.h</header>
   </customwidget>
  </customwidgets>
@@ -150,11 +142,11 @@
    <receiver>_edit</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>482</x>
      <y>126</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>512</x>
      <y>124</y>
     </hint>
@@ -166,11 +158,11 @@
    <receiver>_view</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>482</x>
      <y>160</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>539</x>
      <y>149</y>
     </hint>
@@ -182,11 +174,11 @@
    <receiver>_delete</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>482</x>
      <y>183</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>500</x>
      <y>178</y>
     </hint>
@@ -198,11 +190,11 @@
    <receiver>_edit</receiver>
    <slot>animateClick()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>387</x>
      <y>131</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>542</x>
      <y>131</y>
     </hint>
