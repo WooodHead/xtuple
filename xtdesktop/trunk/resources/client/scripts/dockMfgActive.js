@@ -39,7 +39,7 @@ function initDockMfgAct()
   _dockMfgAct.visibilityChanged.connect(fillListMfgAct);
 
   // Handle privilge control
-  var act = _dockGLAccounts.toggleViewAction();
+  var act = _dockMfgAct.toggleViewAction();
 
   // Don't show if no privs
   if (!privileges.check("ViewManufactureActivitiesDock"))
