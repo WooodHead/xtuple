@@ -66,7 +66,7 @@ function fillListMfgAct()
   if (_dockMfgAct.visible && _mfgActIsDirty)
   {
     var params = new Object;
-    if (!metrics.value("Application") != "PostBooks")
+    if (metrics.value("Application") != "PostBooks")
       params.planned = qsTr("Planned");
     params.open = qsTr("Open");
     params.exploded = qsTr("Exploded");
