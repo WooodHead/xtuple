@@ -1,3 +1,5 @@
 -- Never implemented
-DROP TABLE asshead;
-DROP TABLE assitem;
+SELECT dropIfExists('TABLE', 'asshead');
+SELECT dropIfExists('TABLE', 'assitem');
+
+SELECT dropIfExists('FUNCTION', 'copyAssortment(INTEGER, INTEGER)');

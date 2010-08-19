@@ -45,13 +45,6 @@ BEGIN
   DELETE FROM bomitem
   WHERE (bomitem_item_id=pItemid);
 
-  DELETE FROM asshead
-  WHERE (asshead_item_id=pItemid);
-  DELETE FROM assitem
-  WHERE (assitem_parent_item_id=pItemid);
-  DELETE FROM assitem
-  WHERE (assitem_item_id=pItemid);
-
   DELETE FROM itemcost
   WHERE (itemcost_item_id=pItemid);
   DELETE FROM costhist
