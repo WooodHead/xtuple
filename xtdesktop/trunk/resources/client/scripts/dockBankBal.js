@@ -26,6 +26,7 @@ function initDockBankBal()
 
   // Connect Signals and Slots
   _dtTimer.timeout.connect(refreshBankBal);
+  mainwindow.bankAccountsUpdated.connect(refreshBankBal);
   mainwindow.bankAdjustmentsUpdated.connect(refreshBankBal);
   mainwindow.cashReceiptsUpdated.connect(refreshBankBal);
   mainwindow.checksUpdated.connect(refreshBankBal);
