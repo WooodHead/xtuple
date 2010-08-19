@@ -29,14 +29,6 @@ BEGIN
     RETURN -3;
   END IF;
 
-  SELECT assitem_id INTO _result
-  FROM assitem
-  WHERE (assitem_item_id=pItemid)
-  LIMIT 1;
-  IF (FOUND) THEN
-    RETURN -5;
-  END IF;
-
   IF (fetchmetricbool('RevControl')) THEN
     SELECT rev_id INTO _result
     FROM rev
