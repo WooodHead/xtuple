@@ -35,7 +35,7 @@ BEGIN
   --wodata_id_type = 3 = wooper_id
 
   _qry := 'SELECT womatl_id, wo_number, wo_subnumber, 
-      wo_startdate, wo_duedate, womatl_itemsite_id,
+      wo_startdate, womatl_duedate, womatl_itemsite_id,
       itemsite_qtyonhand, womatl_qtyreq, womatl_qtyiss,
       womatl_qtyper, womatl_qtyreq, womatl_scrap,
       womatl_ref, womatl_notes, item_number,
@@ -68,7 +68,7 @@ BEGIN
     _subrow.wodata_descrip := _subx.item_descrip1 || '-' || _subx.item_descrip2;
     _subrow.wodata_status := _status;
     _subrow.wodata_startdate := _subx.wo_startdate;
-    _subrow.wodata_duedate := _subx.wo_duedate;
+    _subrow.wodata_duedate := _subx.womatl_duedate;
     _subrow.wodata_itemsite_id := _subx.womatl_itemsite_id;    
     _subrow.wodata_qoh := _subx.itemsite_qtyonhand;
     IF((_subx.itemsite_qtyonhand > (_subx.womatl_qtyreq - _subx.womatl_qtyiss))) THEN
