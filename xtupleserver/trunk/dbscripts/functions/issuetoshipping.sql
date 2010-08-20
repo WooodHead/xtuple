@@ -143,7 +143,7 @@ BEGIN
 			   'S/R', porderType,
 			   formatSoNumber(coitem_id), shiphead_number,
                            ('Issue ' || item_number || ' to Shipping for customer ' || cohead_billtoname),
-			   costcat_shipasset_accnt_id, costcat_asset_accnt_id,
+			   getPrjAccnt(cohead_prj_id, costcat_shipasset_accnt_id), costcat_asset_accnt_id,
 			   _itemlocSeries, _timestamp, NULL, pinvhistid ) INTO _invhistid
     FROM coitem, cohead, itemsite, item, costcat, shiphead
     WHERE ( (coitem_cohead_id=cohead_id)

@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION resolveCOSAccount(INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION resolveCOSAccount(INTEGER, INTEGER) RETURNS INTEGER STABLE AS $$
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pCustid ALIAS FOR $2;
@@ -11,7 +11,7 @@ BEGIN
   IF (_salesaccntid = -1) THEN
     SELECT metric_value::INTEGER INTO _accntid
     FROM metric
-    WHERE (metric_name=''UnassignedAccount'');
+    WHERE (metric_name='UnassignedAccount');
   ELSE
     SELECT salesaccnt_cos_accnt_id INTO _accntid
     FROM salesaccnt
@@ -21,4 +21,18 @@ BEGIN
   RETURN _accntid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION resolveCOSAccount(INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
+DECLARE
+  pItemsiteid ALIAS FOR $1;
+  pCustid ALIAS FOR $2;
+  pProjid ALIAS FOR $3;
+
+BEGIN
+
+  -- Project Accounting is required to resolve the project id
+  RETURN resolveCOSAccount(pItemsiteid, pCustid);
+
+END;
+$$ LANGUAGE 'plpgsql';

@@ -90,7 +90,7 @@ BEGIN
   SELECT postInvTrans( ci.itemsite_id, 'IM', (_invqty * -1), 
                        'W/O', 'WO', _woNumber, '',
                        ('Return ' || item_number || ' from Work Order'),
-                       pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries, pGlDistTS,
+                       getPrjAccntId(wo_prj_id, pc.costcat_wip_accnt_id), cc.costcat_asset_accnt_id, _itemlocSeries, pGlDistTS,
                        -- Cost will be ignored by Standard Cost items sites
                        _cost, pInvhistId) INTO _invhistid
     FROM womatl, wo,

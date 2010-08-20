@@ -52,6 +52,7 @@ BEGIN
       FROM shipitem
         JOIN shiphead ON (shiphead_id=shipitem_shiphead_id)
         JOIN coitem ON (shipitem_orderitem_id=coitem_id)
+        JOIN cohead ON (cohead_id=coitem_cohead_id)
         JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
       WHERE ((NOT shiphead_shipped)
         AND  (shipitem_id=pshipitemid)
@@ -63,7 +64,8 @@ BEGIN
       -- Was it a non-controlled transfer order item?
       SELECT shipitem_id, shipitem_qty, shipitem_orderitem_id,
         shiphead_id, shiphead_order_type,
-        itemsite_loccntrl, itemsite_costmethod, itemsite_controlmethod
+        itemsite_loccntrl, itemsite_costmethod, itemsite_controlmethod,
+        NULL AS prj_id
       INTO _r
       FROM shipitem
         JOIN shiphead ON (shiphead_id=shipitem_shiphead_id)
@@ -81,7 +83,7 @@ BEGIN
           SELECT postInvTrans( itemsite_id, 'RS', _r.shipitem_qty * coitem_qty_invuomratio,
           		  'S/R', _r.shiphead_order_type, formatSoNumber(_r.shipitem_orderitem_id),
 			  shiphead_number, 'Return from Shipping',
-			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
+			  costcat_asset_accnt_id, getPrjAccntId(_r.prj_id, costcat_shipasset_accnt_id),
 			  _itemlocSeries, _timestamp, _r.shipitem_value, _r.shipitem_invhist_id ) INTO _invhistid
           FROM coitem, itemsite, costcat, shiphead, shipitem
           WHERE ( (coitem_itemsite_id=itemsite_id)

@@ -37,7 +37,7 @@ BEGIN
   END IF;
 
   IF (_shiphead.shiphead_order_type = 'SO') THEN
-    SELECT cohead_number AS head_number, cohead_cust_id AS cust_id INTO _h
+    SELECT cohead_number AS head_number, cohead_cust_id AS cust_id, cohead_prj_id INTO _h
       FROM cohead
      WHERE (cohead_id=_shiphead.shiphead_order_id);
     IF (NOT FOUND) THEN
@@ -106,7 +106,7 @@ BEGIN
 				   _h.head_number::TEXT, 'Recall Shipment',
                                    CASE WHEN(COALESCE(_co.coitem_cos_accnt_id, -1) != -1) THEN _co.coitem_cos_accnt_id
                                         WHEN(_co.coitem_warranty = TRUE) THEN resolveCOWAccount(itemsite_id, _h.cust_id)
-				        ELSE resolveCOSAccount(itemsite_id, _h.cust_id)
+				        ELSE resolveCOSAccount(itemsite_id, _h.cust_id, _h.cohead_prj_id)
                                    END,
                                    costcat_shipasset_accnt_id, -1,
 				   _value,
