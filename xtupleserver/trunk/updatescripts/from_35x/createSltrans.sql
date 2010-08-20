@@ -8,7 +8,7 @@ CREATE TABLE sltrans
   sltrans_created timestamp with time zone,
   sltrans_date date NOT NULL,
   sltrans_sequence integer,
-  sltrans_accnt_id integer NOT NULL REFERENCES accnt (accnt_id),
+  sltrans_accnt_id integer NOT NULL,
   sltrans_source text,
   sltrans_docnumber text,
   sltrans_misc_id integer,

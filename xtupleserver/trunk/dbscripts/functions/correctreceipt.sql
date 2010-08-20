@@ -65,7 +65,7 @@ BEGIN
 				      'Receive Non-Inventory from ' ||
 							    _r.recv_order_type,
 				      expcat_liability_accnt_id,
-				      expcat_exp_accnt_id, -1,
+				      getPrjAccnt(poitem_prj_id, expcat_exp_accnt_id), -1,
 				      ROUND(_o.unitprice_base * _qty, 2),
 				      pEffective )
 	FROM poitem, expcat
@@ -134,7 +134,7 @@ BEGIN
 	PERFORM insertGLTransaction( 'S/R', _r.recv_order_type,
 				     _o.orderhead_number,
 				    'Receive Non-Inventory Freight from ' || _r.recv_order_type,
-				     expcat_liability_accnt_id, expcat_freight_accnt_id, -1,
+				     expcat_liability_accnt_id, getPrjAccntId(poitem_prj_id, expcat_freight_accnt_id), -1,
 				      ROUND(currToBase(_currid, _freight,
 						    pEffective), 2),
 				     pEffective )

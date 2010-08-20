@@ -81,7 +81,7 @@ BEGIN
          itemsite_id AS c_itemsite_id,
          wo_itemsite_id AS p_itemsite_id,
          itemsite_loccntrl, itemsite_controlmethod,
-         womatl_wo_id, womatl_qtyreq, itemsite_item_id, womatl_uom_id,
+         womatl_wo_id, womatl_qtyreq, itemsite_item_id, womatl_uom_id, wo_prj_id,
          roundQty(item_fractional, itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)) AS qty,
          formatWoNumber(wo_id) AS woNumber,
          CASE WHEN(itemsite_costmethod='A') THEN avgcost(itemsite_id) ELSE stdcost(itemsite_item_id) END AS cost,
@@ -104,7 +104,7 @@ BEGIN
   END IF;
   SELECT postInvTrans( ci.itemsite_id, 'IM', _p.qty,
                       'W/O', 'WO', _p.woNumber, '', ('Material ' || item_number || ' Issue to Work Order'),
-                      pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries, pGlDistTS ) INTO _invhistid
+                      getPrjAccntId(_p.wo_prj_id, costcat_wip_accnt_id), cc.costcat_asset_accnt_id, _itemlocSeries, pGlDistTS ) INTO _invhistid
   FROM itemsite AS ci, itemsite AS pi,
        costcat AS cc, costcat AS pc,
        item

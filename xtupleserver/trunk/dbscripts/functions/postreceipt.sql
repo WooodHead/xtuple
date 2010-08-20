@@ -47,7 +47,8 @@ BEGIN
 	   currToBase(pohead_curr_id, poitem_unitprice,
 		    recv_date::DATE) AS item_unitprice_base,
 	   poitem_invvenduomratio AS invvenduomratio,
-	   pohead_orderdate AS orderdate, pohead_dropship INTO _o
+	   pohead_orderdate AS orderdate, pohead_dropship,
+	   poitem_prj_id AS prj_id INTO _o
     FROM recv, pohead, poitem
     WHERE ((recv_orderitem_id=poitem_id)
       AND  (poitem_pohead_id=pohead_id)
@@ -62,7 +63,8 @@ BEGIN
 		    recv_date::DATE) AS item_unitprice_base,
 	   raitem_qty_invuomratio AS invvenduomratio,
 	   rahead_authdate AS orderdate,
-	   raitem_unitcost AS unitcost INTO _o
+	   raitem_unitcost AS unitcost,
+	   rahead_prj_id AS prj_id INTO _o
     FROM recv, rahead, raitem
     WHERE ((recv_orderitem_id=raitem_id)
       AND  (raitem_rahead_id=rahead_id)
@@ -75,8 +77,8 @@ BEGIN
            toitem_linenumber AS orderitem_linenumber,
 	   toitem_stdcost AS item_unitprice_base,
 	   1.0 AS invvenduomratio,
-	   tohead_orderdate AS orderdate
-	   INTO _o
+	   tohead_orderdate AS orderdate,
+	   NULL AS prj_id INTO _o
     FROM recv, tohead, toitem
     WHERE ((recv_orderitem_id=toitem_id)
       AND  (toitem_tohead_id=tohead_id)
@@ -110,7 +112,7 @@ BEGIN
       SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
 	  			  'Receive Non-Controlled Inventory from ' || _ordertypeabbr,
 				   costcat_liability_accnt_id,
-				   costcat_exp_accnt_id, -1,
+				   getPrjAccntId(_o.prj_id, costcat_exp_accnt_id), -1,
 				   round((_o.item_unitprice_base * _r.recv_qty),2),
 				   _glDate::DATE ) INTO _tmp
       FROM poitem, itemsite, costcat
@@ -121,7 +123,7 @@ BEGIN
       SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
 	  			  'Receive Non-Inventory from ' || 'P/O for ' || _r.vend_name || ' for ' || expcat_code,
 				   expcat_liability_accnt_id,
-				   expcat_exp_accnt_id, -1,
+				   getPrjAccntId(_o.prj_id, expcat_exp_accnt_id), -1,
 				   round((_o.item_unitprice_base * _r.recv_qty),2),
 				   _glDate::DATE ) INTO _tmp
       FROM poitem, expcat
@@ -137,7 +139,7 @@ BEGIN
     SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
 				'Receive Non-Inventory Freight from ' || _ordertypeabbr,
 				 expcat_liability_accnt_id,
-				 expcat_freight_accnt_id, -1,
+				 getPrjAccntId(_o.prj_id, expcat_freight_accnt_id), -1,
 				 _r.recv_freight_base,
 				 _glDate::DATE ),
 	   expcat_freight_accnt_id INTO _tmp, _freightAccnt
@@ -196,7 +198,7 @@ BEGIN
           SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
                                       'Purchase price variance adjusted for P/O ' || _o.orderhead_number || ' for item ' || _r.item_number,
                                       costcat_liability_accnt_id,
-                                      costcat_purchprice_accnt_id, -1,
+                                      getPrjAccntId(_o.prj_accnt_id, costcat_purchprice_accnt_id), -1,
                                       _pricevar,
                                       _glDate::DATE ) INTO _tmp
           FROM itemsite, costcat
@@ -214,7 +216,7 @@ BEGIN
       SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
 				  'Receive Inventory Freight from ' || _o.orderhead_number || ' for item ' || _r.item_number,
 				   costcat_liability_accnt_id,
-				   costcat_freight_accnt_id, -1,
+				   getPrjAccntId(_o.prj_id, costcat_freight_accnt_id), -1,
 				   _r.recv_freight_base,
 				   _glDate::DATE ),
 	     costcat_freight_accnt_id INTO _tmp, _freightAccnt
@@ -248,7 +250,7 @@ BEGIN
 			  costcat_asset_accnt_id,
                           CASE WHEN(COALESCE(_ra.raitem_cos_accnt_id, -1) != -1) THEN _ra.raitem_cos_accnt_id
 			       WHEN (_ra.raitem_warranty) THEN resolveCOWAccount(_r.itemsite_id,_ra.rahead_cust_id)
-			       ELSE resolveCORAccount(_r.itemsite_id,_ra.rahead_cust_id)
+			       ELSE resolveCORAccount(_r.itemsite_id,_ra.rahead_cust_id, _o.prj_id)
 			  END,
 			  _itemlocSeries, _glDate, COALESCE(_o.unitcost,stdcost(itemsite_item_id)) * _r.recv_qty * _o.invvenduomratio) INTO _tmp
       FROM itemsite, costcat
@@ -278,7 +280,7 @@ BEGIN
       SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
 				  'Receive Inventory Freight from ' || _o.orderhead_number || ' for item ' || _r.item_number,
 				   costcat_liability_accnt_id,
-				   costcat_freight_accnt_id, -1,
+				   getPrjAccntId(_o.prj_id, costcat_freight_accnt_id), -1,
 				   _r.recv_freight_base,
 				   _glDate::DATE ),
 	     costcat_freight_accnt_id INTO _tmp, _freightAccnt
