@@ -131,12 +131,14 @@ BEGIN
     IF (_amount > 0) THEN
 --  Credit the Sales Account for the invcitem item
       IF (_r.itemsite_id IS NULL) THEN
-	SELECT salesaccnt_sales_accnt_id INTO _tmpAccntId
+	SELECT getPrjAccntId(_p.invchead_prj_id, salesaccnt_sales_accnt_id) 
+	INTO _tmpAccntId
 	FROM salesaccnt
 	WHERE (salesaccnt_id=findSalesAccnt(_r.invcitem_item_id, 'I',
 					    _p.invchead_cust_id));
       ELSE
-	SELECT salesaccnt_sales_accnt_id INTO _tmpAccntId
+	SELECT getPrjAccntId(_p.invchead_prj_id, salesaccnt_sales_accnt_id) 
+	INTO _tmpAccntId
 	FROM salesaccnt
 	WHERE (salesaccnt_id=findSalesAccnt(_r.itemsite_id, 'IS',
 					    _p.invchead_cust_id));
@@ -225,7 +227,8 @@ BEGIN
       _roundedBase = round(currToBase(_p.invchead_curr_id, _amount,
                                       _firstExchDate), 2);
       SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN', _p.invchead_invcnumber,
-                                 _r.salescat_sales_accnt_id, _roundedBase,
+                                 getPrjAccntId(_p.invchead_prj_id, _r.salescat_sales_accnt_id), 
+                                 _roundedBase,
                                  _glDate, _p.invchead_billto_name ) INTO _test;
       IF (_test < 0) THEN
         PERFORM deleteGLSeries(_p.sequence);
@@ -295,7 +298,8 @@ BEGIN
       _roundedBase = round(currToBase(_p.invchead_curr_id, _p.invchead_freight,
                                       _firstExchDate), 2);
       SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN', _p.invchead_invcnumber,
-                                 _p.freightaccntid, _roundedBase,
+                                 getPrjAccntId(_p.invchead_prj_id,_p.freightaccntid), 
+                                 _roundedBase,
                                  _glDate, _p.invchead_billto_name ) INTO _test;
 
 --  Cache the Freight Amount distributed
@@ -369,7 +373,8 @@ BEGIN
     _roundedBase := round(currToBase(_p.invchead_curr_id, _p.invchead_misc_amount,
                                      _firstExchDate), 2);
     SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN', _p.invchead_invcnumber,
-                               _p.invchead_misc_accnt_id, _roundedBase,
+                               getPrjAccntId(_p.invchead_prj_id, _p.invchead_misc_accnt_id), 
+                               _roundedBase,
                                _glDate, _p.invchead_billto_name ) INTO _test;
 
 --  If the Misc. Charges Account was not found then punt

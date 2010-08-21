@@ -120,9 +120,9 @@ BEGIN
 --  Debit the Sales Account for the current cmitem
       SELECT insertIntoGLSeries( _sequence, 'A/R', 'CM', _p.cmhead_number,
                                  CASE WHEN _p.cmhead_rahead_id IS NULL THEN
-                                   salesaccnt_credit_accnt_id
+                                   getPrjAccntId(_p.cmhead_prj_id, salesaccnt_credit_accnt_id)
                                  ELSE
-                                   salesaccnt_returns_accnt_id
+                                   getPrjAccntId(_p.cmhead_prj_id, salesaccnt_returns_accnt_id)
                                  END,
                                round(currToBase(_p.cmhead_curr_id,
                                                 _r.extprice * -1,
@@ -187,7 +187,7 @@ BEGIN
 --  Credit the Misc. Account for Miscellaneous Charges
   IF (_p.cmhead_misc <> 0) THEN
     SELECT insertIntoGLSeries( _sequence, 'A/R', 'CM', _p.cmhead_number,
-                               accnt_id, round(currToBase(_p.cmhead_curr_id,
+                               getPrjAccntId(_p.cmhead_prj_id, accnt_id), round(currToBase(_p.cmhead_curr_id,
                                                           _p.cmhead_misc * -1,
                                                           _p.cmhead_docdate), 2),
                                _glDate, _p.cmhead_billtoname) INTO _test
@@ -290,7 +290,7 @@ BEGIN
 --  Debit the Freight Account
   IF (_p.cmhead_freight <> 0) THEN
     SELECT insertIntoGLSeries( _sequence, 'A/R', 'CM', _p.cmhead_number,
-                               accnt_id,
+                               getPrjAccntId(_p.cmhead_prj_id, accnt_id),
                                round(currToBase(_p.cmhead_curr_id,
                                                 _p.cmhead_freight * -1,
                                                 _p.cmhead_docdate), 2),
@@ -423,7 +423,7 @@ BEGIN
     SELECT postInvTrans( itemsite_id, 'RS', _r.qty,
                          'S/O', 'CM', _r.cmhead_number, '',
                          ('Credit Return ' || _r.item_number),
-                         costcat_asset_accnt_id, resolveCOSAccount(itemsite_id, _r.cust_id), 
+                         costcat_asset_accnt_id, resolveCOSAccount(itemsite_id, _r.cust_id, _p.cmhead_prj_id), 
                          _itemlocSeries, _glDate) INTO _invhistid
     FROM itemsite, costcat
     WHERE ( (itemsite_costcat_id=costcat_id)

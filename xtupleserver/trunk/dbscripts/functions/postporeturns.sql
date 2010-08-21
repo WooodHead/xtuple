@@ -10,7 +10,7 @@ BEGIN
 
   _itemlocSeries := 0;
 
-  FOR _p IN SELECT pohead_number, pohead_curr_id, poreject_id,
+  FOR _p IN SELECT pohead_number, pohead_curr_id, poreject_id, poitem_prj_id,
 		   poreject_poitem_id, poitem_id, poitem_expcat_id,
 		   currToBase(pohead_curr_id, poitem_unitprice,
 			      pohead_orderdate) AS poitem_unitprice_base,
@@ -30,7 +30,8 @@ BEGIN
 
     IF (_p.itemsiteid = -1) THEN
         SELECT insertGLTransaction( 'S/R', 'PO', _p.pohead_number, 'Return Non-Inventory to P/O',
-                                     expcat_liability_accnt_id, expcat_exp_accnt_id, -1,
+                                     expcat_liability_accnt_id, 
+                                     getPrjAccntId(_p.poitem_prj_id, expcat_exp_accnt_id), -1,
                                      round(_p.poitem_unitprice_base * _p.totalqty * -1, 2),
 				     CURRENT_DATE ) INTO _returnval
         FROM expcat
