@@ -30,9 +30,9 @@ function loginAppl(userrole)
         exit(1);
     }
  
-    
-    waitForObject(":Log In.Options..._QPushButton");
-    clickButton(":Log In.Options..._QPushButton");
+   
+    waitForObject(":Log In.Options..._QPushButton_2");
+    clickButton(":Log In.Options..._QPushButton_2");
     waitForObject(":_server_QLineEdit");
     if(findObject(":_server_QLineEdit").text!= url)
     {
@@ -149,17 +149,18 @@ try
         activateItem(":xTuple ERP: *_.Reports_QMenu", "Quantities On Hand");
         waitForObjectItem(":xTuple ERP: *.Quantities On Hand_QMenu", "by Item...");
         activateItem(":xTuple ERP: *.Quantities On Hand_QMenu", "by Item...");
-        waitForObject(":_itemGroup...._QPushButton_7");
-       clickButton(":_itemGroup...._QPushButton_7");
-        waitForObject(":_listTab_XTreeWidget_9");
-        doubleClickItem(":_listTab_XTreeWidget_9",inputString,0,0,0,Qt.LeftButton);
+        
+        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
+        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", inputString);
+        snooze(0.5);
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
         waitForObject(":Quantities on Hand by Item.Query_QPushButton");
-        clickButton(":Quantities on Hand by Item.Query_QPushButton");
-        waitForObject(":_qoh_QModelIndex");
-        var qoh=findObject(":_qoh_QModelIndex").text;
+        clickButton(":Quantities on Hand by Item.Query_QPushButton");      
+        waitForObject(":_list.QOH_QModelIndex");
+        var qoh=findObject(":_list.QOH_QModelIndex").text;
         var qohi=parseInt(replaceSubstring(qoh,",",""));
-        waitForObject(":Quantities on Hand by Item.Close_QPushButton");
-        clickButton(":Quantities on Hand by Item.Close_QPushButton");
+        nativeType("Ctrl+W");
         return qohi;
    }
 }
