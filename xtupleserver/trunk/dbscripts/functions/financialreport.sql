@@ -1,24 +1,30 @@
+SELECT dropIfExists('FUNCTION','financialreport(INTEGER, INTEGER)');
+SELECT dropIfExists('FUNCTION','financialreport(INTEGER, INTEGER, bpchar)');
+SELECT dropIfExists('FUNCTION','financialreport(INTEGER, INTEGER, bool, bool)');
+SELECT dropIfExists('FUNCTION','financialreport(INTEGER,_int4,bpchar,bool)');
 
-CREATE OR REPLACE FUNCTION financialreport(INTEGER, INTEGER) RETURNS bool AS $$
+CREATE OR REPLACE FUNCTION financialreport(INTEGER, INTEGER, INTEGER) RETURNS bool AS $$
 DECLARE
   pFlheadid ALIAS FOR $1;
   pPeriodid ALIAS FOR $2;
+  pPrjid    ALIAS FOR $3;
   _result bool;
 
 BEGIN
 
-  SELECT financialreport(pFlheadid,pPeriodid,'M') INTO _result;
+  SELECT financialreport(pFlheadid,pPeriodid,'M', pPrjid) INTO _result;
 
   RETURN _result;
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION financialreport(INTEGER, INTEGER, bpchar)
+CREATE OR REPLACE FUNCTION financialreport(INTEGER, INTEGER, bpchar, INTEGER)
   RETURNS bool AS $$
 DECLARE
   pFlheadid ALIAS FOR $1;
   pPeriodid ALIAS FOR $2;
   pInterval ALIAS FOR $3;
+  pPrjid    ALIAS FOR $4;
 
   _r RECORD;
   _t RECORD;
@@ -88,7 +94,7 @@ BEGIN
             _r.custom, _r.altname, pInterval );
   END IF;
 
-  PERFORM insertFlGroup(pFlheadid, pPeriodid, -1, 0, FALSE, pInterval);
+  PERFORM insertFlGroup(pFlheadid, pPeriodid, -1, 0, FALSE, pInterval, pPrjid);
 
 -- go through the list of records that need percentages calculated and perform
 -- those calculations.
@@ -229,13 +235,14 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION financialreport(INTEGER, INTEGER, bool, bool)
+CREATE OR REPLACE FUNCTION financialreport(INTEGER, INTEGER, bool, bool, INTEGER)
   RETURNS SETOF flstmtitem AS $$
 DECLARE
   pFlcolid ALIAS FOR $1;
   pPeriodid ALIAS FOR $2;
   pShowNumbers ALIAS FOR $3;
   pIndentName ALIAS FOR $4;
+  pPrjid ALIAS FOR $5;
   _row flstmtitem%ROWTYPE;
   _p RECORD;
   _x RECORD;
@@ -285,7 +292,7 @@ BEGIN
 --...for Month
         IF (_p.flcol_month) THEN
 
-        PERFORM financialreport(_p.flhead_id,pPeriodid,'M');
+        PERFORM financialreport(_p.flhead_id,pPeriodid,'M',pPrjid);
 
                 IF ((_p.flcol_priortype = 'P') AND (_p.flcol_priormonth)) THEN
 
@@ -296,7 +303,7 @@ BEGIN
                         ORDER BY pp.period_start DESC LIMIT 1;
 
                         IF (_priorMoPeriodId IS NOT NULL) THEN
-                                PERFORM financialreport(_p.flhead_id,_priorMoPeriodId,'M');
+                                PERFORM financialreport(_p.flhead_id,_priorMoPeriodId,'M',pPrjid);
                         END IF;
 
                         ELSE IF ((_p.flcol_priortype='Y')AND (_p.flcol_priormonth)) THEN
@@ -310,7 +317,7 @@ BEGIN
                                 ORDER BY pp.period_start DESC LIMIT 1;
 
                                 IF (_priorMoPeriodId IS NOT NULL) THEN
-                                        PERFORM financialreport(_p.flhead_id,_priorMoPeriodId,'M');
+                                        PERFORM financialreport(_p.flhead_id,_priorMoPeriodId,'M',pPrjid);
                                 END IF;
 
                         END IF;
@@ -321,7 +328,7 @@ BEGIN
 --...for Quarter
         IF (_p.flcol_quarter) THEN
 
-        PERFORM financialreport(_p.flhead_id,pPeriodid,'Q');
+        PERFORM financialreport(_p.flhead_id,pPeriodid,'Q',pPrjid);
 
         END IF;
 
@@ -339,7 +346,7 @@ BEGIN
                 ORDER BY pp.period_start DESC LIMIT 1;
 
                 IF (_priorQtPeriodId IS NOT NULL) THEN
-                        PERFORM financialreport(_p.flhead_id,_priorQtPeriodId,'Q');
+                        PERFORM financialreport(_p.flhead_id,_priorQtPeriodId,'Q',pPrjid);
                 END IF;
 
                 ELSE IF ((_p.flcol_priortype='Y')AND (_p.flcol_priorquarter)) THEN
@@ -354,7 +361,7 @@ BEGIN
                         ORDER BY py.yearperiod_start DESC, pp.period_start DESC LIMIT 1;
 
                         IF (_priorQtPeriodId IS NOT NULL) THEN
-                                PERFORM financialreport(_p.flhead_id,_priorQtPeriodId,'Q');
+                                PERFORM financialreport(_p.flhead_id,_priorQtPeriodId,'Q',pPrjid);
                         END IF;
 
                 END IF;
@@ -363,7 +370,7 @@ BEGIN
 --...for Year
         IF (_p.flcol_year) THEN
 
-                PERFORM financialreport(_p.flhead_id,pPeriodid,'Y');
+                PERFORM financialreport(_p.flhead_id,pPeriodid,'Y',pPrjid);
 
         END IF;
 
@@ -377,7 +384,7 @@ BEGIN
                 ORDER BY pp.period_start DESC LIMIT 1;
 
                 IF (_priorYrPeriodId IS NOT NULL) THEN
-                        PERFORM financialreport(_p.flhead_id,_priorYrPeriodId,'Y');
+                        PERFORM financialreport(_p.flhead_id,_priorYrPeriodId,'Y',pPrjid);
                 END IF;
 
                 ELSE IF (_p.flcol_prioryear='F') THEN
@@ -391,7 +398,7 @@ BEGIN
                         ORDER BY pp.period_start DESC LIMIT 1;
 
                         IF (_priorYrPeriodId IS NOT NULL) THEN
-                                PERFORM financialreport(_p.flhead_id,_priorYrPeriodId,'Y');
+                                PERFORM financialreport(_p.flhead_id,_priorYrPeriodId,'Y',pPrjid);
                         END IF;
 
                 END IF;
@@ -1248,13 +1255,14 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION financialreport(INTEGER,_int4,bpchar,bool)
+CREATE OR REPLACE FUNCTION financialreport(INTEGER,_int4,bpchar,bool,INTEGER)
   RETURNS SETOF fltrenditem AS $$
 DECLARE
   pFlheadId ALIAS FOR $1;
   pPeriodIds ALIAS FOR $2;
   pInterval ALIAS FOR $3;
   pShowNumbers ALIAS FOR $4;
+  pPrjid ALIAS FOR $5;
   _row fltrenditem%ROWTYPE;
   _type CHAR;
   _p RECORD;
@@ -1283,7 +1291,7 @@ BEGIN
         --Build Financial Data
         FOR _i IN 1.._count
         LOOP
-                PERFORM financialreport(pFlheadId,pPeriodIds[_i],pInterval);
+                PERFORM financialreport(pFlheadId,pPeriodIds[_i],pInterval,pPrjid);
         END LOOP;
 
         --Get Row Data

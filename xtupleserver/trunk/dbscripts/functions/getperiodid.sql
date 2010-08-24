@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION getperiodid(INTEGER,  char) RETURNS SETOF INTEGER AS '
+CREATE OR REPLACE FUNCTION getperiodid(INTEGER,  char) RETURNS SETOF INTEGER IMMUTABLE AS $$
 DECLARE
   pPeriodId ALIAS FOR $1;
   pInterval ALIAS FOR $2;
@@ -7,13 +7,13 @@ DECLARE
 BEGIN
 
 -- Validate Interval
-   IF pInterval <> ''M'' AND pInterval <> ''Q'' AND pInterval <> ''Y'' THEN
-     RAISE EXCEPTION ''Invalid Interval --> %'', pInterval;
+   IF pInterval <> 'M' AND pInterval <> 'Q' AND pInterval <> 'Y' THEN
+     RAISE EXCEPTION 'Invalid Interval --> %', pInterval;
    END IF;
 
-   IF pInterval=''M'' THEN
+   IF pInterval='M' THEN
        RETURN NEXT pPeriodId;
-     ELSE IF pInterval=''Q'' THEN
+     ELSE IF pInterval='Q' THEN
         FOR _x IN SELECT qp.period_id AS period_id
                 FROM period cp, period qp
                 WHERE ((cp.period_id=pPeriodId)
@@ -38,7 +38,7 @@ BEGIN
    END IF;
   RETURN;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION getPeriodId(date)
   RETURNS integer AS $$
