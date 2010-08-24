@@ -101,8 +101,6 @@ BEGIN
 		cmhead_rsncode_id,
 		cmhead_curr_id,
 		cmhead_taxzone_id,
-                cmhead_adjtaxtype_id,
-                cmhead_freighttaxtype_id,
                 cmhead_gldistdate,
                 cmhead_rahead_id
 		)
@@ -147,8 +145,6 @@ BEGIN
                 CASE WHEN pNew.tax_zone = 'None' THEN NULL
                      ELSE COALESCE(getTaxZoneID(pNew.tax_zone),cust_taxzone_id)
                 END,
-                NULL,
-		NULL,
                 NULL,
                 NULL
 	FROM custinfo

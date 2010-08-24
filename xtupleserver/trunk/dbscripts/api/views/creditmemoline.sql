@@ -124,7 +124,7 @@ BEGIN
   FROM cmhead LEFT OUTER JOIN item ON (item_id=getItemId(pNew.item_number))
               LEFT OUTER JOIN itemsite ON (itemsite_item_id=item_id AND
                                            itemsite_warehous_id=getWarehousId(pNew.recv_site, 'ALL'))
-              LEFT OUTER JOIN taxtype ON (taxtype_id=CASE WHEN pNew.tax_type IS NULL THEN getItemTaxType(item_id,cmhead_taxauth_id)
+              LEFT OUTER JOIN taxtype ON (taxtype_id=CASE WHEN pNew.tax_type IS NULL THEN getItemTaxType(item_id,cmhead_taxzone_id)
                                                           WHEN pNew.tax_type = 'None' THEN NULL
                                                           ELSE getTaxTypeId(pNew.tax_type)
                                                      END)
