@@ -104,7 +104,7 @@ BEGIN
   END IF;
   SELECT postInvTrans( ci.itemsite_id, 'IM', _p.qty,
                       'W/O', 'WO', _p.woNumber, '', ('Material ' || item_number || ' Issue to Work Order'),
-                      getPrjAccntId(_p.wo_prj_id, costcat_wip_accnt_id), cc.costcat_asset_accnt_id, _itemlocSeries, pGlDistTS ) INTO _invhistid
+                      getPrjAccntId(_p.wo_prj_id, pc.costcat_wip_accnt_id), cc.costcat_asset_accnt_id, _itemlocSeries, pGlDistTS ) INTO _invhistid
   FROM itemsite AS ci, itemsite AS pi,
        costcat AS cc, costcat AS pc,
        item
