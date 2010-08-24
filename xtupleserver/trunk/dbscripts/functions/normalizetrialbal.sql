@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION normalizeTrialBal(INTEGER, CHARACTER(1)) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION normalizeTrialBal(INTEGER, CHARACTER(1)) RETURNS NUMERIC STABLE AS $$
 DECLARE
   pTrialbalid ALIAS FOR $1;
   pSide ALIAS FOR $2;
@@ -17,7 +17,7 @@ BEGIN
   END IF;
 
 -- If we are looking for the Ending Balance, cache it
-  IF (pSide = ''E'') THEN
+  IF (pSide = 'E') THEN
     _value = _r.trialbal_ending;
 
 --  We had better been looking for the Beginning Balance!
@@ -26,12 +26,12 @@ BEGIN
   END IF;
 
 --  If the accnt_type is Asset or Expense, swap the sense
-  IF (_r.accnt_type IN (''A'', ''E'')) THEN
+  IF (_r.accnt_type IN ('A', 'E')) THEN
     _value := (_value * -1);
   END IF;
 
   RETURN _value;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

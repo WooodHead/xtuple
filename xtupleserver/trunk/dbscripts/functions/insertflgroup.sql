@@ -1,6 +1,6 @@
 
 
-CREATE OR REPLACE FUNCTION insertFlGroup(INTEGER, INTEGER, INTEGER, INTEGER, BOOLEAN) RETURNS BOOLEAN AS '
+CREATE OR REPLACE FUNCTION insertFlGroup(INTEGER, INTEGER, INTEGER, INTEGER, BOOLEAN) RETURNS BOOLEAN AS $$
 DECLARE
   pFlheadid  ALIAS FOR $1;
   pPeriodid  ALIAS FOR $2;
@@ -11,16 +11,31 @@ DECLARE
 BEGIN
   RETURN insertFlGroup(pFlheadid, pPeriodid, pFlgrpid, pLevel, pSummarize, NULL);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION insertflgroup(INTEGER, INTEGER, INTEGER, INTEGER, BOOLEAN, CHAR) RETURNS BOOLEAN AS '
+CREATE OR REPLACE FUNCTION insertFlGroup(INTEGER, INTEGER, INTEGER, INTEGER, BOOLEAN, CHAR) RETURNS BOOLEAN AS $$
 DECLARE
   pFlheadid  ALIAS FOR $1;
   pPeriodid  ALIAS FOR $2;
   pFlgrpid   ALIAS FOR $3;
   pLevel     ALIAS FOR $4;
   pSummarize ALIAS FOR $5;
-  pInterval ALIAS FOR $6;
+  pInterval  ALIAS FOR $6;
+
+BEGIN
+  RETURN insertFlGroup(pFlheadid, pPeriodid, pFlgrpid, pLevel, pSummarize, pInterval, NULL);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION insertflgroup(INTEGER, INTEGER, INTEGER, INTEGER, BOOLEAN, CHAR, INTEGER) RETURNS BOOLEAN AS $$
+DECLARE
+  pFlheadid  ALIAS FOR $1;
+  pPeriodid  ALIAS FOR $2;
+  pFlgrpid   ALIAS FOR $3;
+  pLevel     ALIAS FOR $4;
+  pSummarize ALIAS FOR $5;
+  pInterval  ALIAS FOR $6;
+  pPrjid     ALIAS FOR $7;
 
   _subtotal BOOLEAN;
   _r RECORD;
@@ -36,8 +51,8 @@ BEGIN
      WHERE ((flgrp_flhead_id=pFlheadid)
        AND  (flgrp_id=pFlgrpid));
   END IF;
-
-  FOR _r IN SELECT ''G'' AS type, flgrp_id AS type_id,
+raise notice 'prjid2: %',pPrjid;
+  FOR _r IN SELECT 'G' AS type, flgrp_id AS type_id,
                    flgrp_order AS orderby,
                    flgrp_summarize AS summarize,
                    flgrp_subtract AS subtract,
@@ -84,21 +99,21 @@ BEGIN
                         ELSE NULL
                    END AS customprcnt,
                    -1 AS accnt_id,
-                   '''' AS accnt_number
+                   '' AS accnt_number
               FROM flgrp
              WHERE ((flgrp_flgrp_id=pFlgrpid)
                AND  (flgrp_flhead_id=pFlheadid))
-             UNION
-            SELECT ''I'' AS type, flitem_id AS type_id,
+             UNION ALL
+            SELECT 'I' AS type, flitem_id AS type_id,
                    flitem_order AS orderby,
                    FALSE AS summarize,
                    flitem_subtract AS subtract,
                    CASE WHEN (flitem_showstart AND (FIRST(trialbal_id) IS NULL)) THEN 0.00
-                        WHEN (flitem_showstart) THEN normalizeTrialBal(FIRST(trialbal_id), ''B'')
+                        WHEN (flitem_showstart) THEN normalizeTrialBal(FIRST(trialbal_id), 'B')
                         ELSE NULL
                    END AS beginning,
                    CASE WHEN (flitem_showend AND (LAST(trialbal_id) IS NULL)) THEN 0.00
-                        WHEN (flitem_showend) THEN normalizeTrialBal(LAST(trialbal_id), ''E'')
+                        WHEN (flitem_showend) THEN normalizeTrialBal(LAST(trialbal_id), 'E')
                         ELSE NULL
                    END AS ending,
                    CASE WHEN (flitem_showdelta) THEN SUM(trialbal_debits)
@@ -107,8 +122,8 @@ BEGIN
                    CASE WHEN (flitem_showdelta) THEN SUM(trialbal_credits)
                         ELSE NULL
                    END AS credits,
-                   CASE WHEN ((flitem_showbudget) AND (accnt_type IN (''R'',''E'')) AND flhead_type IN (''I'',''C'',''A'')) THEN COALESCE(SUM(budget_amount),0)
-                        WHEN ((flitem_showbudget) AND (accnt_type IN (''R'',''E'')) AND flhead_type = ''B'' ) THEN
+                   CASE WHEN ((flitem_showbudget) AND (accnt_type IN ('R','E')) AND flhead_type IN ('I','C','A')) THEN COALESCE(SUM(budget_amount),0)
+                        WHEN ((flitem_showbudget) AND (accnt_type IN ('R','E')) AND flhead_type = 'B' ) THEN
                                 (SELECT COALESCE(SUM(b.budget_amount),0)
                                 FROM budget b,
                                         (SELECT ytd.period_id AS ytd_period_id
@@ -118,24 +133,24 @@ BEGIN
                                 AND (ytd.period_yearperiod_id = cp.period_yearperiod_id))) AS periods
                                 WHERE ((b.budget_accnt_id=accnt_id)
                                 AND (b.budget_period_id=ytd_period_id)))
-                        WHEN ((flitem_showbudget) AND (accnt_type IN (''A'',''L'',''Q'')) AND flhead_type = ''C'') THEN calccashbudget(accnt_id,LAST(flitem_period_id),pInterval)
+                        WHEN ((flitem_showbudget) AND (accnt_type IN ('A','L','Q')) AND flhead_type = 'C') THEN calccashbudget(accnt_id,LAST(flitem_period_id),pInterval)
                         ELSE COALESCE(LAST(budget_amount),0)
                    END AS budget,
                    CASE WHEN (flitem_showdiff AND (FIRST(trialbal_id) IS NULL)) THEN 0.00
-                        WHEN (flitem_showdiff) THEN COALESCE(normalizeTrialBal(LAST(trialbal_id), ''E'') - normalizeTrialBal(FIRST(trialbal_id), ''B''), 0.00)
+                        WHEN (flitem_showdiff) THEN COALESCE(normalizeTrialBal(LAST(trialbal_id), 'E') - normalizeTrialBal(FIRST(trialbal_id), 'B'), 0.00)
                         ELSE NULL
                    END AS diff,
                    CASE WHEN (NOT flitem_showcustom) THEN NULL
-                        WHEN (flitem_custom_source=''S'' AND (FIRST(trialbal_id) IS NOT NULL)) THEN normalizeTrialBal(FIRST(trialbal_id), ''B'')
-                        WHEN (flitem_custom_source=''E'' AND (FIRST(trialbal_id) IS NOT NULL)) THEN normalizeTrialBal(LAST(trialbal_id), ''E'')
-                        WHEN (flitem_custom_source=''D'') THEN SUM(trialbal_debits)
-                        WHEN (flitem_custom_source=''C'') THEN SUM(trialbal_credits)
-                        WHEN (flitem_custom_source=''B'') THEN (
+                        WHEN (flitem_custom_source='S' AND (FIRST(trialbal_id) IS NOT NULL)) THEN normalizeTrialBal(FIRST(trialbal_id), 'B')
+                        WHEN (flitem_custom_source='E' AND (FIRST(trialbal_id) IS NOT NULL)) THEN normalizeTrialBal(LAST(trialbal_id), 'E')
+                        WHEN (flitem_custom_source='D') THEN SUM(trialbal_debits)
+                        WHEN (flitem_custom_source='C') THEN SUM(trialbal_credits)
+                        WHEN (flitem_custom_source='B') THEN (
                                 CASE
-                                  WHEN (accnt_type IN (''R'',''E'')) THEN SUM(budget_amount)
+                                  WHEN (accnt_type IN ('R','E')) THEN SUM(budget_amount)
                                   ELSE LAST(budget_amount)
                                 END)
-                        WHEN (flitem_custom_source=''F'' AND  (FIRST(trialbal_id) IS NOT NULL)) THEN COALESCE(normalizeTrialBal(LAST(trialbal_id), ''E'') - normalizeTrialBal(FIRST(trialbal_id), ''B''), 0.00)
+                        WHEN (flitem_custom_source='F' AND  (FIRST(trialbal_id) IS NOT NULL)) THEN COALESCE(normalizeTrialBal(LAST(trialbal_id), 'E') - normalizeTrialBal(FIRST(trialbal_id), 'B'), 0.00)
                         ELSE 0.00
                    END AS custom,
                    CASE WHEN(flitem_showstartprcnt) THEN 0.00
@@ -160,7 +175,7 @@ BEGIN
                         ELSE NULL
                    END AS customprcnt,
                    accnt_id,
-                   formatglaccount(accnt_id) AS accnt_number
+                   public.formatglaccount(accnt_id) AS accnt_number
               FROM
                 (SELECT period_id AS flitem_period_id, period_start,flhead_type,flitem_id,flitem_order,flitem_subtract,flitem_showstart,flitem_showend,
                         flitem_showdelta,flitem_showbudget,flitem_showdiff,flitem_showcustom,
@@ -176,7 +191,7 @@ BEGIN
                         WHERE ((flitem_flhead_id=pFlheadid)
                         AND (flitem_flgrp_id=pFlgrpid)
                         AND (flhead_id=flitem_flhead_id)
-                        AND (accnt_id IN (SELECT * FROM getFlitemAccntId(flitem_id)))
+                        AND (accnt_id IN (SELECT * FROM getFlitemAccntId(flitem_id,pPrjid)))
                         AND (period_id IN  (SELECT * FROM getperiodid(pPeriodId,pInterval))))
                         ORDER BY flitem_id
                         ) AS flitem
@@ -191,32 +206,32 @@ BEGIN
                 flitem_showdelta,flitem_showbudget,flitem_showdiff,flitem_showcustom,
                 flitem_custom_source,flitem_showstartprcnt,flitem_showendprcnt,flitem_showdeltaprcnt,
                 flitem_showbudgetprcnt,flitem_showdiffprcnt,flitem_showcustomprcnt,accnt_id,accnt_type
-             UNION
-            SELECT ''S'' AS type, flspec_id AS type_id,
+             UNION ALL
+            SELECT 'S' AS type, flspec_id AS type_id,
                    flspec_order AS orderby,
                    FALSE AS summarize,
                    flspec_subtract AS subtract,
-                   CASE WHEN (flspec_showstart) THEN findSpecialFinancial(''S'', flspec_type, pPeriodid)
+                   CASE WHEN (flspec_showstart) THEN findSpecialFinancial('S', flspec_type, pPeriodid)
                         ELSE NULL
                    END AS beginning,
-                   CASE WHEN (flspec_showend) THEN findSpecialFinancial(''E'', flspec_type, pPeriodid)
+                   CASE WHEN (flspec_showend) THEN findSpecialFinancial('E', flspec_type, pPeriodid)
                         ELSE NULL
                    END AS ending,
-                   CASE WHEN (flspec_showdelta) THEN findSpecialFinancial(''D'', flspec_type, pPeriodid)
+                   CASE WHEN (flspec_showdelta) THEN findSpecialFinancial('D', flspec_type, pPeriodid)
                         ELSE NULL
                    END AS debits,
-                   CASE WHEN (flspec_showdelta) THEN findSpecialFinancial(''C'', flspec_type, pPeriodid)
+                   CASE WHEN (flspec_showdelta) THEN findSpecialFinancial('C', flspec_type, pPeriodid)
                         ELSE NULL
                    END AS credits,
-                   CASE WHEN (flspec_showbudget) THEN findSpecialFinancial(''B'', flspec_type, pPeriodid)
+                   CASE WHEN (flspec_showbudget) THEN findSpecialFinancial('B', flspec_type, pPeriodid)
                         ELSE NULL
                    END AS budget,
-                   CASE WHEN (flspec_showdiff) THEN findSpecialFinancial(''E'', flspec_type, pPeriodid) - findSpecialFinancial(''S'', flspec_type, pPeriodid)
+                   CASE WHEN (flspec_showdiff) THEN findSpecialFinancial('E', flspec_type, pPeriodid) - findSpecialFinancial('S', flspec_type, pPeriodid)
                         ELSE NULL
                    END AS diff,
                    CASE WHEN (NOT flspec_showcustom) THEN NULL
-                        WHEN (flspec_custom_source=''F'') THEN findSpecialFinancial(''E'', flspec_type, pPeriodid) - findSpecialFinancial(''S'', flspec_type, pPeriodid)
-                        WHEN (flspec_custom_source IN (''S'', ''E'', ''D'', ''C'', ''B'')) THEN findSpecialFinancial(flspec_custom_source, flspec_type, pPeriodid)
+                        WHEN (flspec_custom_source='F') THEN findSpecialFinancial('E', flspec_type, pPeriodid) - findSpecialFinancial('S', flspec_type, pPeriodid)
+                        WHEN (flspec_custom_source IN ('S', 'E', 'D', 'C', 'B')) THEN findSpecialFinancial(flspec_custom_source, flspec_type, pPeriodid)
                         ELSE 0.00
                    END AS custom,
                    CASE WHEN(flspec_showstartprcnt) THEN 0.00
@@ -241,13 +256,13 @@ BEGIN
                         ELSE NULL
                    END AS customprcnt,
                    -1 AS accnt_id,
-                   '''' AS accnt_number
+                   '' AS accnt_number
               FROM flspec
              WHERE ((flspec_flgrp_id=pFlgrpid)
                AND  (flspec_flhead_id=pFlheadid))
           ORDER BY orderby, accnt_number LOOP
 
-    IF (_r.type = ''G'') THEN
+    IF (_r.type = 'G') THEN
 
 -- Create a record for the items sub items to be attached to and be able to update the total
       INSERT INTO flrpt
@@ -274,7 +289,7 @@ BEGIN
               _r.debitsprcnt, _r.creditsprcnt, _r.budgetprcnt, _r.diffprcnt, _r.customprcnt,
               pFlgrpid, pInterval);
 
-      PERFORM insertFlGroup(pFlheadid, pPeriodid, _r.type_id, (pLevel + 1), (pSummarize OR _r.summarize), pInterval);
+      PERFORM insertFlGroup(pFlheadid, pPeriodid, _r.type_id, (pLevel + 1), (pSummarize OR _r.summarize), pInterval, pPrjid);
 
 -- Update the parent item
       SELECT COALESCE(flrpt_beginning, 0.00) AS beginning,
@@ -304,7 +319,7 @@ BEGIN
            AND  (flrpt_period_id=pPeriodid)
            AND  (flrpt_interval=pInterval)
            AND  (flrpt_username=CURRENT_USER)
-           AND  (flrpt_type=''G'')
+           AND  (flrpt_type='G')
            AND  (flrpt_type_id=pFlgrpid));
       ELSE
         UPDATE flrpt
@@ -319,7 +334,7 @@ BEGIN
            AND  (flrpt_period_id=pPeriodid)
            AND  (flrpt_interval=pInterval)
            AND  (flrpt_username=CURRENT_USER)
-           AND  (flrpt_type=''G'')
+           AND  (flrpt_type='G')
            AND  (flrpt_type_id=pFlgrpid));
       END IF;
 
@@ -335,7 +350,7 @@ BEGIN
       END IF;
 
     ELSE
-      IF (_r.type = ''I'' OR _r.type = ''S'' ) THEN
+      IF (_r.type = 'I' OR _r.type = 'S' ) THEN
 
 -- If we are not summarizing then create a new entry for this record
         IF (NOT pSummarize) THEN
@@ -378,7 +393,7 @@ BEGIN
              AND  (flrpt_period_id=pPeriodid)
              AND  (flrpt_interval=pInterval)
              AND  (flrpt_username=CURRENT_USER)
-             AND  (flrpt_type=''G'')
+             AND  (flrpt_type='G')
              AND  (flrpt_type_id=pFlgrpid));
         ELSE
           UPDATE flrpt
@@ -393,7 +408,7 @@ BEGIN
              AND  (flrpt_interval=pInterval)
              AND  (flrpt_period_id=pPeriodid)
              AND  (flrpt_username=CURRENT_USER)
-             AND  (flrpt_type=''G'')
+             AND  (flrpt_type='G')
              AND  (flrpt_type_id=pFlgrpid));
         END IF;
 
@@ -422,7 +437,7 @@ BEGIN
                             AND  (flrpt_interval=pInterval)
                             AND  (flrpt_username=CURRENT_USER))
                        ), 1) + 1),
-             pLevel, ''T'', -1,
+             pLevel, 'T', -1,
              CASE WHEN (flgrp_showstart) THEN flrpt_beginning
                   ELSE NULL
              END,
@@ -476,11 +491,11 @@ BEGIN
          AND  (flrpt_period_id=pPeriodid)
          AND  (flrpt_interval=pInterval)
          AND  (flrpt_username=CURRENT_USER)
-         AND  (flrpt_type=''G'')
+         AND  (flrpt_type='G')
          AND  (flrpt_type_id=pFlgrpid));
     END IF;
   END IF;
 
   return TRUE;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

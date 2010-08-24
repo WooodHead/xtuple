@@ -1,6 +1,6 @@
 
 CREATE OR REPLACE FUNCTION getlasttrialbalid(INTEGER, INTEGER)
-  RETURNS INTEGER AS '
+  RETURNS INTEGER STABLE AS $$
 DECLARE
   pAccntId ALIAS FOR $1;
   pPeriodId ALIAS FOR $2;
@@ -18,7 +18,7 @@ BEGIN
   FROM accnt
   WHERE accnt_id=pAccntId;
 
-  IF (_accntType IN (''R'',''E'')) THEN
+  IF (_accntType IN ('R','E')) THEN
         SELECT trialbal_id INTO _result
         FROM trialbal
         WHERE ((trialbal_accnt_id=pAccntId)
@@ -37,5 +37,5 @@ BEGIN
   RETURN _result;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
