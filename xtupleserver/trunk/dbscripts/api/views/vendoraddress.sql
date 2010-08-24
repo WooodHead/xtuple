@@ -19,7 +19,6 @@ SELECT
   addr_postalcode AS postalcode,
   addr_country AS country,
   (''::TEXT) AS address_change,
-  taxzone_code AS default_tax_zone,
   cntct_number AS contact_number,
   cntct_honorific AS contact_honorific,
   cntct_first_name AS contact_first,
@@ -39,7 +38,6 @@ FROM
     LEFT OUTER JOIN vendinfo ON (vend_id=vendaddr_vend_id)
     LEFT OUTER JOIN addr ON (vendaddr_addr_id=addr_id)
     LEFT OUTER JOIN cntct ON (vendaddr_cntct_id=cntct_id)
-    LEFT OUTER JOIN taxzone ON (vendaddr_taxzone_id=taxzone_id)
 ORDER BY vendaddr_code;
 
 GRANT ALL ON TABLE api.vendoraddress TO xtrole;
@@ -56,8 +54,7 @@ INSERT INTO vendaddrinfo (
   vendaddr_name,
   vendaddr_comments,
   vendaddr_cntct_id,
-  vendaddr_addr_id,
-  vendaddr_taxzone_id )
+  vendaddr_addr_id )
 VALUES (
   getVendId(NEW.vendor_number),
   COALESCE(NEW.vendor_address_number, ''),
@@ -96,8 +93,7 @@ VALUES (
             NEW.state,
             NEW.postalcode,
             NEW.country,
-            NEW.address_change ),
-  getTaxZoneId(NEW.default_tax_zone) );
+            NEW.address_change ) );
 
 CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO api.vendoraddress DO INSTEAD
@@ -142,8 +138,7 @@ UPDATE vendaddrinfo SET
               NEW.state,
               NEW.postalcode,
               NEW.country,
-              NEW.address_change ),
-  vendaddr_taxzone_id=getTaxZoneId(NEW.default_tax_zone)
+              NEW.address_change )
 WHERE vendaddr_id=getVendAddrId(OLD.vendor_number, OLD.vendor_address_number);
 
 CREATE OR REPLACE RULE "_DELETE" AS

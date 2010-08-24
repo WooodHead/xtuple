@@ -112,7 +112,7 @@ BEGIN
 	FROM invchead
 		LEFT OUTER JOIN item ON (item_id=getItemId(pNew.item_number))
 		LEFT OUTER JOIN taxtype ON (taxtype_id=CASE
-			WHEN pNew.tax_type IS NULL THEN getItemTaxType(item_id,invchead_taxauth_id)
+			WHEN pNew.tax_type IS NULL THEN getItemTaxType(item_id,invchead_taxzone_id)
 			WHEN pNew.tax_type = 'None' THEN NULL
 			ELSE (SELECT taxtype_id FROM taxtype WHERE taxtype_name=pNew.tax_type)
 		END)
@@ -176,7 +176,7 @@ BEGIN
 	FROM invchead
 		LEFT OUTER JOIN item ON (item_id=getItemId(pNew.item_number))
 		LEFT OUTER JOIN taxtype ON (taxtype_id=CASE
-			WHEN pNew.tax_type IS NULL THEN getItemTaxType(item_id,invchead_taxauth_id)
+			WHEN pNew.tax_type IS NULL THEN getItemTaxType(item_id,invchead_taxzone_id)
 			WHEN pNew.tax_type = 'None' THEN NULL
 			ELSE (SELECT taxtype_id FROM taxtype WHERE taxtype_name=pNew.tax_type)
 		END)
