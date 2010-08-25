@@ -51,7 +51,7 @@ BEGIN
      WHERE ((flgrp_flhead_id=pFlheadid)
        AND  (flgrp_id=pFlgrpid));
   END IF;
-raise notice 'prjid2: %',pPrjid;
+
   FOR _r IN SELECT 'G' AS type, flgrp_id AS type_id,
                    flgrp_order AS orderby,
                    flgrp_summarize AS summarize,
@@ -187,11 +187,10 @@ raise notice 'prjid2: %',pPrjid;
                                 flitem_showdelta,flitem_showbudget,flitem_showdiff,flitem_showcustom,flitem_custom_source,flitem_showstartprcnt,
                                 flitem_showendprcnt,flitem_showdeltaprcnt,flitem_showbudgetprcnt,flitem_showdiffprcnt,flitem_showcustomprcnt,
                                 accnt_id, accnt_type
-                        FROM  flitem,accnt,period,flhead
+                        FROM  period,flaccnt
                         WHERE ((flitem_flhead_id=pFlheadid)
                         AND (flitem_flgrp_id=pFlgrpid)
-                        AND (flhead_id=flitem_flhead_id)
-                        AND (accnt_id IN (SELECT * FROM getFlitemAccntId(flitem_id,pPrjid)))
+                        AND (pPrjId IS NULL OR prj_id=pPrjId)
                         AND (period_id IN  (SELECT * FROM getperiodid(pPeriodId,pInterval))))
                         ORDER BY flitem_id
                         ) AS flitem

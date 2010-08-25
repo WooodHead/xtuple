@@ -104,11 +104,11 @@ BEGIN
   --  Distribute to G/L, debit Shipping Asset, credit COS
       PERFORM insertGLTransaction( 'S/R', _shiphead.shiphead_order_type,
 				   _h.head_number::TEXT, 'Recall Shipment',
-                                   CASE WHEN(COALESCE(_co.coitem_cos_accnt_id, -1) != -1) THEN _co.coitem_cos_accnt_id
-                                        WHEN(_co.coitem_warranty = TRUE) THEN resolveCOWAccount(itemsite_id, _h.cust_id)
-				        ELSE resolveCOSAccount(itemsite_id, _h.cust_id, _h.cohead_prj_id)
+                                   CASE WHEN(COALESCE(_co.coitem_cos_accnt_id, -1) != -1) THEN getPrjAccntId(_h.cohead_prj_id, _co.coitem_cos_accnt_id)
+                                        WHEN(_co.coitem_warranty = TRUE) THEN getPrjAccntId(_h.cohead_prj_id, resolveCOWAccount(itemsite_id, _h.cust_id))
+				        ELSE getPrjAccntId(_h.cohead_prj_id, resolveCOSAccount(itemsite_id, _h.cust_id))
                                    END,
-                                   costcat_shipasset_accnt_id, -1,
+                                   getPrjAccntId(_h.cohead_prj_id,costcat_shipasset_accnt_id), -1,
 				   _value,
 				   _timestamp::DATE )
       FROM itemsite, costcat

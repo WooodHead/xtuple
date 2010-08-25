@@ -65,7 +65,7 @@ BEGIN
 				      'Receive Non-Inventory from ' ||
 							    _r.recv_order_type,
 				      expcat_liability_accnt_id,
-				      getPrjAccnt(poitem_prj_id, expcat_exp_accnt_id), -1,
+				      getPrjAccntId(poitem_prj_id, expcat_exp_accnt_id), -1,
 				      ROUND(_o.unitprice_base * _qty, 2),
 				      pEffective )
 	FROM poitem, expcat
