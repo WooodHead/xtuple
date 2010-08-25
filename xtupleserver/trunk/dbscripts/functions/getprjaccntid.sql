@@ -4,9 +4,7 @@ DECLARE
   pAccntid ALIAS FOR $2;
   
 BEGIN
-
   -- Project Accounting is required to fully implement this functionality
   RETURN pAccntId;
-
 END;
 $$ LANGUAGE 'plpgsql';

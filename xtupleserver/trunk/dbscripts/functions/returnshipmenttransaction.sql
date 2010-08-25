@@ -33,12 +33,15 @@ BEGIN
     SELECT shipitem_id, shipitem_qty, shipitem_invhist_id, shipitem_value,
       shipitem_orderitem_id, invhist_series,
       shiphead_id, shiphead_order_type,
-      itemsite_loccntrl, itemsite_costmethod, itemsite_controlmethod
+      itemsite_loccntrl, itemsite_costmethod, itemsite_controlmethod,
+      cohead_prj_id AS prj_id     
       INTO _r
     FROM shipitem
       JOIN shiphead ON (shiphead_id=shipitem_shiphead_id)
       JOIN invhist ON (invhist_id=shipitem_invhist_id)
       JOIN itemsite ON (itemsite_id=invhist_itemsite_id)
+      LEFT OUTER JOIN cohead ON ((shiphead_order_type = 'SO')
+                      AND (shiphead_order_id = cohead_id))
     WHERE ((NOT shiphead_shipped)
       AND  (shipitem_id=pshipitemid));
       
@@ -47,7 +50,8 @@ BEGIN
       -- Was it a non-controlled sales order item?
       SELECT shipitem_id, shipitem_qty, shipitem_orderitem_id,
         shiphead_id, shiphead_order_type,
-        itemsite_loccntrl, itemsite_costmethod, itemsite_controlmethod
+        itemsite_loccntrl, itemsite_costmethod, itemsite_controlmethod,
+        cohead_prj_id AS prj_id
       INTO _r
       FROM shipitem
         JOIN shiphead ON (shiphead_id=shipitem_shiphead_id)
@@ -92,7 +96,7 @@ BEGIN
            AND (shiphead_order_type=_r.shiphead_order_type)
            AND (shiphead_id=shipitem_shiphead_id)
            AND (shipitem_orderitem_id=_r.shipitem_orderitem_id) );   
-         
+ 
           -- We know the distribution so post this through so the any w/o activity knows about it
           PERFORM postItemlocseries(_itemlocSeries);
         END IF;
