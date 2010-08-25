@@ -62,26 +62,45 @@
    Allowed to Approve Time/Exp Sheets
   </loadpriv>
     
-  <script file="database/misc/timesequence.sql" />  
-  <script file="database/misc/schemaComment.sql" />
+  <loadpriv name="allowInvoicing" module="TE">
+   Allowed to Invoice Time/Exp Sheets
+  </loadpriv>
+    
+  <loadpriv name="allowVouchering" module="TE">
+   Allowed to Voucher Time/Exp Sheets
+  </loadpriv>
+    
   <script file="database/misc/cons_seq.sql" />
+  <script file="database/misc/insertIntopriv.sql" />
+  <script file="database/misc/schemaComment.sql" />
+  <script file="database/misc/tehead_tehead_id_seq.sql" />
+  <script file="database/misc/teitem_teitem_id_seq.sql" />
+  <script file="database/misc/temetric_metric_id_seq.sql" />
+  <script file="database/misc/teprj_teprj_id_seq.sql" />
+  <script file="database/misc/teselect_teselect_id_seq.sql" />
+  <script file="database/misc/timesequence.sql" />  
+
   <script file="database/functions/addsheet2.sql"           onerror="Prompt"/>
   <script file="database/functions/getprjcustid2.sql"       onerror="Prompt"/>
 
-  <createfunction file="database/functions/addsheet.sql"        name="addsheet" />
-  <createfunction file="database/functions/addtecustrate.sql"   name="addtecustrate"/>
-  <createfunction file="database/functions/addteemprate.sql"    name="addteemprate" />
-  <createfunction file="database/functions/addteprj.sql"        name="addteprj" />
-  <createfunction file="database/functions/addteprjtask.sql"    name="addteprjtask" />
-  <createfunction file="database/functions/deleteline.sql"      name="deleteline" />
-  <createfunction file="database/functions/deletesheet.sql"     name="deletesheet" />
-  <createfunction file="database/functions/getsheetid.sql"      name="getsheetid" />
-  <createfunction file="database/functions/setmetric.sql"       name="setmetric" />
-  <createfunction file="database/functions/maxline.sql"         name="maxline" />
-  <createfunction file="database/functions/minline.sql"         name="minline" />
-  <createfunction file="database/functions/getprjcustid.sql"    name="getprjcustid" />
-  <createfunction file="database/functions/approvesheet.sql"    name="approvesheet" />
-
+  <createfunction file="database/functions/addsheet.sql"           name="addsheet" />
+  <createfunction file="database/functions/addtecustrate.sql"      name="addtecustrate"/>
+  <createfunction file="database/functions/addteemprate.sql"       name="addteemprate" />
+  <createfunction file="database/functions/addteprj.sql"           name="addteprj" />
+  <createfunction file="database/functions/addteprjtask.sql"       name="addteprjtask" />
+  <createfunction file="database/functions/approvesheet.sql"       name="approvesheet" />
+  <createfunction file="database/functions/consolidateinvoice.sql" name="consolidateinvoice" />
+  <createfunction file="database/functions/deleteline.sql"         name="deleteline" />
+  <createfunction file="database/functions/deletesheet.sql"        name="deletesheet" />
+  <createfunction file="database/functions/getprjcustid.sql"       name="getprjcustid" />
+  <createfunction file="database/functions/getsheetid.sql"         name="getsheetid" />
+  <createfunction file="database/functions/insertmiscvoucher.sql"  name="insertmiscvoucher" />
+  <createfunction file="database/functions/invoicesheet.sql"       name="invoicesheet" />
+  <createfunction file="database/functions/maxline.sql"            name="maxline" />
+  <createfunction file="database/functions/minline.sql"            name="minline" />
+  <createfunction file="database/functions/resetsheetstatus.sql"   name="resetsheetstatus" />
+  <createfunction file="database/functions/setmetric.sql"          name="setmetric" />
+  <createfunction file="database/functions/vouchersheet.sql"       name="vouchersheet" />
 
   <createtable file="database/tables/createtecustrate.sql"      name="tecustrate"/>
   <createtable file="database/tables/createteemprate.sql"       name="teemprate"/>
@@ -95,24 +114,28 @@
 
   <finalscript file="database/misc/sequencegrants.sql" />
 
-  <loadappscript file="client/scripts/customer.js"              name="customer"     order="0"/>
-  <loadappscript file="client/scripts/employee.js"              name="employee"     order="0"/>
-  <loadappscript file="client/scripts/copyItem.js"            	name="copyItem"     order="0"/>
-  <loadappscript file="client/scripts/item.js"                  name="item"         order="0"/>
-  <loadappscript file="client/scripts/task.js"           	name="task"    	    order="0"/>
-  <loadappscript file="client/scripts/te.js"             	name="te"           order="0"/>
-  <loadappscript file="client/scripts/tebilling.js"             name="tebilling"    order="0"/>
-  <loadappscript file="client/scripts/tesheet.js"               name="tesheet"      order="0"/>
-  <loadappscript file="client/scripts/time_expense.js"          name="time_expense" order="0"/>
-  <loadappscript file="client/scripts/project.js"               name="project"      order="0"/>
+  <script file="database/views/voucher.sql"       onerror="Prompt"/>
 
-  <loadappscript file="client/scripts/initMenu.js"              name="initMenu"     order="0"/> 
+  <loadappscript file="client/scripts/copyItem.js"            	name="copyItem"         order="0"/>
+  <loadappscript file="client/scripts/customer.js"              name="customer"         order="0"/>
+  <loadappscript file="client/scripts/employee.js"              name="employee"         order="0"/>
+  <loadappscript file="client/scripts/item.js"                  name="item"             order="0"/>
+  <loadappscript file="client/scripts/project.js"               name="project"          order="0"/>
+  <loadappscript file="client/scripts/task.js"           	name="task"    	        order="0"/>
+  <loadappscript file="client/scripts/te.js"             	name="te"               order="0"/>
+  <loadappscript file="client/scripts/tebilling.js"             name="tebilling"        order="0"/>
+  <loadappscript file="client/scripts/telines.js"               name="telines"          order="0"/>
+  <loadappscript file="client/scripts/tesheet.js"               name="tesheet"          order="0"/>
+  <loadappscript file="client/scripts/time_expense.js"          name="time_expense"     order="0"/>
+  <loadappscript file="client/scripts/unpostedInvoices.js"      name="unpostedInvoices" order="0"/>
+
+  <loadappscript file="client/scripts/initMenu.js"              name="initMenu"         order="0"/> 
   
   <loadappui file="client/uiforms/expense.ui"                   order="0" />
-  
   <loadappui file="client/uiforms/te.ui"                        order="0" />
   <loadappui file="client/uiforms/tebilling.ui"       		order="0" />
   <loadappui file="client/uiforms/tebillingemp.ui"       	order="0" />
+  <loadappui file="client/uiforms/telines.ui"                   order="0" />
   <loadappui file="client/uiforms/tesheet.ui"                   order="0" />
   <loadappui file="client/uiforms/time_expense.ui"              order="0" />
   
@@ -125,7 +148,7 @@
   <loadmetasql file="client/metasql/getsheet.mql" />
   <loadmetasql file="client/metasql/gettask.mql" />
 
-  <loadreport  file="client/reports/opensheetlist.xml" />
   <loadreport  file="client/reports/expensereport.xml" />
+  <loadreport  file="client/reports/opensheetlist.xml" />
   <loadreport  file="client/reports/timereport.xml" />
 </package>

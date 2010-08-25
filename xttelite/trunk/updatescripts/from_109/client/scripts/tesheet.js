@@ -13,6 +13,8 @@ var _print 		= mywindow.findChild("_print");
 var _sheets		= mywindow.findChild("_sheets");
 var _selected	= mywindow.findChild("_selected");
 var _view  		= mywindow.findChild("_view");
+var _invoice  	= mywindow.findChild("_generateInvoice");
+var _voucher	= mywindow.findChild("_generateVoucher");
 var _approve  	= mywindow.findChild("_approve");
 var _weekending  	= mywindow.findChild("_weekending");
 var _showAllEmployees  = mywindow.findChild("_showAllEmployees");
@@ -20,12 +22,16 @@ var _employees	= mywindow.findChild("_employees");
 var _selected	= mywindow.findChild("_selected");
 var _timeReport	= mywindow.findChild("_timeReport");
 var _expenseReport	= mywindow.findChild("_expenseReport");
+var _consolidateInvoice = mywindow.findChild("_consolidateInvoice");
 var _showClosed         = mywindow.findChild("_showClosed");
 
 _weekending.setStartNull(qsTr("Earliest"), startOfTime, true);
 _weekending.setEndNull(qsTr("Latest"),     endOfTime,   true);
 
 _approve.enabled = false;
+_invoice.enabled = false;
+_consolidateInvoice.enabled = false;
+_voucher.enabled = false;
 _delete.enabled = false;
 _edit.enabled = false;
 _view.enabled = false;
@@ -43,7 +49,10 @@ if (privileges.check("CanViewRates")){
 }
 
 _sheets.addColumn(qsTr("Employee"),   -1, Qt.AlignLeft,    true, "emp_code");
-_sheets.addColumn(qsTr("Status"), -1, Qt.AlignLeft, true, "status");
+_sheets.addColumn(qsTr("Invoice Status"), -1, Qt.AlignLeft, true, "f_bill_status");
+_sheets.addColumn(qsTr("Voucher Status"), -1, Qt.AlignLeft, true, "f_pay_status");
+_sheets.addColumn(qsTr("Invoice Status"), -1, Qt.AlignLeft, false, "bill_status");
+_sheets.addColumn(qsTr("Voucher Status"), -1, Qt.AlignLeft, false, "pay_status");
 
 //_sheets.valid.connect(sHandleButtons);
 
@@ -63,6 +72,9 @@ _delete.clicked.connect(sheetDelete);
 _query.clicked.connect(sFillList);
 
 _approve.clicked.connect(sheetApprove);
+_invoice.clicked.connect(sheetInvoice);  //billing
+_voucher.clicked.connect(sheetVoucher);  //expense
+_consolidateInvoice.clicked.connect(sheetConsolidate);
 
 _expenseReport.clicked.connect(expenseReport);
 _timeReport.clicked.connect(timeReport);
@@ -94,9 +106,10 @@ var tmpact;
     var currentItem  = _sheets.currentItem();
     if (currentItem != null)
     {
-      _status = currentItem.rawValue("status");
+      _billitem = currentItem.rawValue("bill_status");
+      _payitem = currentItem.rawValue("pay_status");
 
-      if(_status == '')
+      if(_billitem == '' || _payitem == '')
       {
         tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit..."), privileges.check("MaintainTimeExpense"));
         tmpact.triggered.connect(sheetEdit);
@@ -105,13 +118,13 @@ var tmpact;
       tmpact = toolbox.menuAddAction(pMenu, qsTr("View..."), true);
       tmpact.triggered.connect(sheetView);
 
-      if(_status == '')
+      if(_billitem == '' || _payitem == '')
       { 
         tmpact = toolbox.menuAddAction(pMenu, qsTr("Delete..."), privileges.check("MaintainTimeExpense"));
         tmpact.triggered.connect(sheetDelete);
       }
 
-      if(_status == '')
+      if(_billitem == '' || _payitem == '')
       {
         if(! _addsep)
         {
@@ -121,15 +134,31 @@ var tmpact;
         tmpact = toolbox.menuAddAction(pMenu, qsTr("Approve..."), privileges.check("MaintainTimeExpense"));
         tmpact.triggered.connect(sheetApprove);
       }
-      if(_status == '')
+
+      if(_billitem != 'C')
       {
-        if(! _addsep)
+        if(_billitem == 'A')
         {
-          pMenu.addSeparator();
-          _addsep = true;
+          if(! _addsep)
+          {
+            pMenu.addSeparator();
+            _addsep = true;
+          }
+          tmpact = toolbox.menuAddAction(pMenu, qsTr("Invoice..."), privileges.check("allowInvoicing"));
+          tmpact.triggered.connect(sheetInvoice);
         }
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("Close..."), privileges.check("MaintainTimeExpense"));
-        tmpact.triggered.connect(sheetClose);
+      }
+
+      if(_payitem != 'C')
+      {
+        if(_billitem == 'A')
+        {
+          if(! _addsep)
+            pMenu.addSeparator();
+        
+            tmpact = toolbox.menuAddAction(pMenu, qsTr("Voucher..."), privileges.check("allowVouchering"));
+            tmpact.triggered.connect(sheetVoucher);
+        }
       }
     }
   }
@@ -154,7 +183,7 @@ function sheetApprove()
   }
 
   for (var i = 0; i < selected.length; i++){
-    if (selected[i].rawValue("status") == '')
+    if (selected[i].rawValue("bill_status") == '' && selected[i].rawValue("pay_status") == '' )
     {
       params.id = selected[i].id();
       q = toolbox.executeQuery('select te.approvesheet(<? value("id") ?>);',params );
@@ -164,6 +193,78 @@ function sheetApprove()
   
 }  //sheetApprove
 
+
+function sheetInvoice()
+{
+  var msgBox     = new Object();
+  msgBox.Yes     = 0x00004000;
+  msgBox.No      = 0x00010000;
+  msgBox.Default = 0x00000100;
+  msgBox.Escape  = 0x00000200;
+
+  try
+  {
+    var msg = "Are you sure you want to generate an invoice for this sheet?"
+    if (toolbox.messageBox("question", mywindow, mywindow.windowTitle, msg, 
+          msgBox.Yes | msgBox.Escape, msgBox.No | msgBox.Default) == msgBox.Yes)
+    {
+      var params   = new Object();
+      params.id = _sheets.id();    
+
+      q = toolbox.executeQuery('select te.invoicesheet(<? value("id") ?>);', params );	
+
+      sFillList();
+    }
+  }
+  catch (e)
+  {
+    sFillList();
+    print(e);
+    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+  }
+}  //sheetInvoice
+
+function sheetVoucher()
+{
+  var msgBox     = new Object();
+  msgBox.Yes     = 0x00004000;
+  msgBox.No      = 0x00010000;
+  msgBox.Default = 0x00000100;
+  msgBox.Escape  = 0x00000200;
+
+  var currentItem  = _sheets.currentItem();
+ 
+  if (currentItem.rawValue("pay_status") == 'A'){
+    try
+    {
+      var msg = "Are you sure you want to generate an expense voucher for this sheet?"
+      if (toolbox.messageBox("question", mywindow, mywindow.windowTitle, msg, 
+          msgBox.Yes | msgBox.Escape, msgBox.No | msgBox.Default) == msgBox.Yes)
+      {
+        var params   = new Object();
+        params.id = _sheets.id();    
+        params.employee = currentItem.rawValue("emp_code");
+
+        // check to be sure the employee is also a vendor
+        q = toolbox.executeQuery('select vend_id from vendinfo where vend_number = upper(<? value("employee") ?>) ;',params );
+ 
+        if (q.first())
+        {
+          q = toolbox.executeQuery('select te.vouchersheet(<? value("id") ?>);',params);
+          sFillList();
+        }else{
+          toolbox.messageBox("critical", mywindow, mywindow.windowTitle, "In order to voucher, the employee must also be setup as a vendor.");
+        }
+      }
+    }
+    catch (e)
+    {
+      sFillList();
+      print(e);
+      toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+    }
+  }
+}  //sheetVoucher
 
 function sheetDelete()
 {
@@ -278,6 +379,53 @@ function sheetOpen(mode)
 
 }
 
+function sheetConsolidate()
+{
+  var selected = _sheets.selectedItems();
+  
+  for (var i = 0; i < selected.length; i++){
+    // check the billing status.  If it's already been invoiced, prompt the user with 
+    // an error.  Require the invoices to be at an Approved status
+    if (selected[i].rawValue("bill_status") != 'A')
+    {
+      toolbox.messageBox("critical", mywindow,qsTr("Error"), 
+          qsTr("Invoices should be at an Approved status to be consolidated") );
+      return;
+    }  
+  }
+
+  var params = new Object;
+
+  // get the next number for the teselect_cons_id field
+  var q;
+  q = toolbox.executeQuery("select nextval('te.cons_seq') as cons_id;",params);
+
+  if (q.first())
+  {
+    params.cons_id = (q.value("cons_id"));
+  }
+
+  for (var i = 0; i < selected.length; i++){
+
+    params.id = selected[i].id();
+
+    if (params.cons_id > 0)
+    {
+      var q;
+      q = toolbox.executeQuery('INSERT INTO te.teselect '
+           +'(teselect_cons_id, teselect_tehead_id) '
+           +'VALUES '
+           +'(<? value("cons_id") ?>,<? value("id") ?>);',params);
+    }
+  }
+
+  var q;
+  q = toolbox.executeQuery("select te.consolidateinvoice(<? value('cons_id') ?>);",params);
+
+  sFillList();
+
+}
+
 function sFillList()
 {
   try {
@@ -290,7 +438,10 @@ function sFillList()
     var params = new Object;
     params.startDate = _weekending.startDate;
     params.endDate   = _weekending.endDate;
-    params.employee = _employees.text;
+    params.employee  = _employees.text;
+    params.approved  = qsTr("Approved");
+    params.closed    = qsTr("Closed");
+    params.open      = qsTr("Open");
     if(!_showClosed.checked){
       params.excludeClosed = "";
     }
@@ -298,12 +449,26 @@ function sFillList()
     if (_emp == "A"){  
       // all employees
       q = toolbox.executeQuery('select tehead_id,sheet_number,weekending,'
-         + 'emp_code,formatmoney(sum(dollars)) as dollars,status '
+         + 'emp_code,formatmoney(sum(dollars)) as dollars, '
+         + 'bill_status, pay_status, '
+         + "case when (bill_status='C') then "
+         + '          <? value("closed") ?> '
+         + "     when (bill_status='A') then "
+         + '          <? value("approved") ?> '
+         + '     else <? value("open") ?> '
+         + 'end as f_bill_status, '
+         + "case when (pay_status='C') then "
+         + '          <? value("closed") ?> '
+         + "     when (pay_status='A') then "
+         + '          <? value("approved") ?> '
+         + '     else <? value("open") ?> '
+         + 'end as f_pay_status '
          + 'from (select tehead_id,tehead_number as sheet_number,'
          + 'tehead_weekending as weekending,'
          + 'sum(teitem_qty) as hours,emp_code,'
          + 'sum(teitem_total) as dollars,'
-         + 'tehead_status as status '
+         + 'tehead_billable_status as bill_status,'
+         + 'tehead_payable_status as pay_status '
          + 'from te.teitem,te.tehead,emp '
          + 'where tehead_id = teitem_tehead_id '
          + 'and emp_id = teitem_emp_id '       
@@ -311,16 +476,18 @@ function sFillList()
          + 'and tehead_weekending >= <? value("startDate") ?> '
          + 'and tehead_weekending <= <? value("endDate") ?> '
          + '<? if exists("excludeClosed") ?> '
-         + "and COALESCE(tehead_status, 'O')<>'C' "
+         + "and (COALESCE(tehead_billable_status, 'O')<>'C' "
+         + " or COALESCE(tehead_payable_status, 'O')<>'C') "
          + '<? endif ?> '
          + 'group by tehead_id,tehead_number,tehead_weekending,'
-         + 'emp_code,tehead_status '
+         + 'emp_code,tehead_billable_status,tehead_payable_status '
          + 'union '
          + 'select tehead_id,tehead_number as sheet_number,'
          + 'tehead_weekending as weekending, '
          + 'sum(teitem_qty) as hours,emp_code,'
          + 'sum(teitem_total) as dollars, '
-         + 'tehead_status as status '
+         + 'tehead_billable_status as bill_status,'
+         + 'tehead_payable_status as pay_status '
          + 'from te.teitem,te.tehead,emp '
          + 'where tehead_id = teitem_tehead_id '
          + 'and emp_id = teitem_emp_id '
@@ -328,14 +495,15 @@ function sFillList()
          + 'and tehead_weekending >= <? value("startDate") ?> '
          + 'and tehead_weekending <= <? value("endDate") ?> '
          + '<? if exists("excludeClosed") ?> '
-         + "and COALESCE(tehead_status, 'O')<>'C' "
+         + "and (COALESCE(tehead_billable_status, 'O')<>'C' "
+         + " or COALESCE(tehead_payable_status, 'O')<>'C') "
          + '<? endif ?> '
          + 'group by '
          + 'tehead_id,tehead_number,tehead_weekending,emp_code,'
-         + 'tehead_status '
+         + 'tehead_billable_status,tehead_payable_status '
          + 'order by sheet_number) rollup '
          + 'group by tehead_id,sheet_number,weekending,'
-         + 'emp_code,status '
+         + 'emp_code,bill_status,pay_status '
          + 'order by sheet_number;', params );
     }
 
@@ -343,14 +511,28 @@ function sFillList()
     if(_emp == "O"){
       q = toolbox.executeQuery('select tehead_id,sheet_number,'
          + 'weekending,emp_code, '
-         + 'formatmoney(dollars) as dollars,status '
+         + 'formatmoney(dollars) as dollars, '
+         + 'bill_status, pay_status, '
+         + "case when (bill_status='C') then "
+         + '          <? value("closed") ?> '
+         + "     when (bill_status='A') then "
+         + '          <? value("approved") ?> '
+         + '     else <? value("open") ?> '
+         + 'end as f_bill_status, '
+         + "case when (pay_status='C') then "
+         + '          <? value("closed") ?> '
+         + "     when (pay_status='A') then "
+         + '          <? value("approved") ?> '
+         + '     else <? value("open") ?> '
+         + 'end as f_pay_status '
          + 'from (select tehead_id,sheet_number,weekending,'
-         + 'emp_code,sum(dollars) as dollars,status '
+         + 'emp_code,sum(dollars) as dollars,bill_status,pay_status '
          + 'from (select tehead_id,tehead_number as sheet_number,'
          + 'tehead_weekending as weekending,'
          + 'sum(teitem_qty) as hours,emp_code,'
          + 'sum(teitem_total) as dollars,'
-         + 'tehead_status as status '
+         + 'tehead_billable_status as bill_status,'
+         + 'tehead_payable_status as pay_status '
          + 'from te.teitem,te.tehead,emp '
          + 'where tehead_id = teitem_tehead_id '
          + 'and emp_id = teitem_emp_id '       
@@ -359,16 +541,18 @@ function sFillList()
          + 'and tehead_weekending >= <? value("startDate") ?> '
          + 'and tehead_weekending <= <? value("endDate") ?> '
          + '<? if exists("excludeClosed") ?> '
-         + "and COALESCE(tehead_status, 'O')<>'C' "
+         + "and (COALESCE(tehead_billable_status, 'O')<>'C' "
+         + " or COALESCE(tehead_payable_status, 'O')<>'C') "
          + '<? endif ?> '
          + 'group by tehead_id,tehead_number,tehead_weekending,'
-         + 'emp_code,tehead_status '
+         + 'emp_code,tehead_billable_status,tehead_payable_status '
          + 'union '
          + 'select tehead_id,tehead_number as sheet_number,'
          + 'tehead_weekending as weekending, '
          + 'sum(teitem_qty) as hours,emp_code,'
          + 'sum(teitem_total) as dollars, '
-         + 'tehead_status as status '
+         + 'tehead_billable_status as bill_status,'
+         + 'tehead_payable_status as pay_status '
          + 'from te.teitem,te.tehead,emp '
          + 'where tehead_id = teitem_tehead_id '
          + 'and emp_id = teitem_emp_id '
@@ -377,14 +561,15 @@ function sFillList()
          + 'and tehead_weekending >= <? value("startDate") ?> '
          + 'and tehead_weekending <= <? value("endDate") ?> '
          + '<? if exists("excludeClosed") ?> '
-         + "and COALESCE(tehead_status, 'O')<>'C' "
+         + "and (COALESCE(tehead_billable_status, 'O')<>'C' "
+         + " or COALESCE(tehead_payable_status, 'O')<>'C') "
          + '<? endif ?> '
          + 'group by '
          + 'tehead_id,tehead_number,tehead_weekending,emp_code,'
-         + 'tehead_status '
+         + 'tehead_billable_status,tehead_payable_status '
          + 'order by sheet_number) rollup '
          + 'group by tehead_id,sheet_number,weekending,'
-         + 'emp_code,status '
+         + 'emp_code,bill_status,pay_status '
          + 'order by sheet_number) top '
          + ';', params );
     }
@@ -426,7 +611,17 @@ function expenseReport()
 function printReport()
 {
   params = new Object();
-  params.headid = _sheets.id();
+  params.startDate = _weekending.startDate;
+  params.endDate   = _weekending.endDate;
+  if(!_showAllEmployees.checked){
+    params.employee = _employees.text;
+  }
+  if(!_showClosed.checked){
+    params.excludeClosed = "";
+  }
+  params.approved = qsTr("Approved");
+  params.closed   = qsTr("Closed");
+  params.open     = qsTr("Open");
   toolbox.printReport("OpenSheetList",params);
 }
 
@@ -444,20 +639,27 @@ function showAllEmployeesSwitch()
 function sHandleButtons()
 {
 
-  var _status;
+  var _billitem;
+  var _payitem;
 
   _delete.enabled = false;
   _edit.enabled = false;
   _view.enabled = false;
   _approve.enabled = false;
+  _invoice.enabled = false;
+  _voucher.enabled = false;
+  _consolidateInvoice.enabled = false;
   _expenseReport.enabled = false;
   _timeReport.enabled = false;
 
   var currentItem  = _sheets.currentItem();
   if (currentItem != null)
   {
-    _status = currentItem.rawValue("status");
-    if(_status != 'A')
+    _billitem = currentItem.rawValue("bill_status");
+    _payitem = currentItem.rawValue("pay_status");
+    if(_billitem != 'A' && _billitem != 'P' 
+    && _billitem != 'C' && _payitem != 'A' 
+    && _payitem != 'P' && _payitem != 'C')
     {
       if (privileges.check("MaintainTimeExpense")){
         _delete.enabled = true;
@@ -475,6 +677,37 @@ function sHandleButtons()
       _expenseReport.enabled = true;
 
       _approve.enabled = false;
+      if (privileges.check("allowInvoicing")){
+        if (_billitem == 'A')
+        {
+          _invoice.enabled = true;
+          _consolidateInvoice.enabled = true;
+        }
+      }
+      if (privileges.check("allowVouchering")){
+        if (_payitem == 'A')
+        {
+          _voucher.enabled = true;
+        }
+      }
+    }
+    if(_billitem == 'C')
+    {
+      _invoice.enabled = false;
+      _consolidateInvoice.enabled = false;
+    }
+    if(_payitem == 'C')
+    {
+      _voucher.enabled = false;
+    }
+    if(_billitem == 'A' && privileges.check("allowInvoicing"))
+    {
+      _invoice.enabled = true;
+      _consolidateInvoice.enabled = true;
+    }
+    if(_payitem == 'A' && privileges.check("allowVouchering"))
+    {
+      _voucher.enabled = true;
     }
   }
 }

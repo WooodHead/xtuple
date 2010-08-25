@@ -10,7 +10,12 @@ BEGIN
               WHERE relname='teselect'
                 AND relnamespace=pg_namespace.oid
                 AND nspname='te')) THEN
-		-- do nothing (this ensures that the table is created as needed.  Revisions should go here
+    IF (EXISTS(SELECT attname
+                 FROM pg_attribute
+                WHERE attrelid=(SELECT oid FROM pg_class WHERE relname='tehead')
+                  AND attname='tehead_status')) THEN
+      -- do nothing (this ensures that the table is created as needed.  Revisions should go here
+    END IF;
   ELSE  
     _statement = 'CREATE TABLE te.teselect ' ||
 			'(  teselect_id serial NOT NULL, ' ||

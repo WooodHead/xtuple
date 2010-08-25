@@ -1,7 +1,7 @@
 <!DOCTYPE openRPTDef>
 <report>
- <title>Expense Report</title>
- <name>ExpenseReport</name>
+ <title>Time Report</title>
+ <name>TimeReport</name>
  <description></description>
  <size>Letter</size>
  <landscape/>
@@ -19,7 +19,7 @@ from te.tehead,te.teitem,emp,item
 where tehead_id = teitem_tehead_id
 and teitem_emp_id = emp_id
 and teitem_item_id = item_id
-and teitem_type = 'E'
+and teitem_type = 'T'
 and tehead_id = &lt;? value("headid") ?>
 order by workdate ;</sql>
  </querysource>
@@ -31,13 +31,13 @@ from te.tehead,te.teitem,emp,cntct
 where tehead_id = teitem_tehead_id
 and emp_cntct_id = cntct_id
 and teitem_emp_id = emp_id
-and teitem_type = 'E'
+and teitem_type = 'T'
 and tehead_id = &lt;? value("headid") ?> 
 limit 1;</sql>
  </querysource>
  <pghead>
   <firstpage/>
-  <height>77</height>
+  <height>97</height>
   <field>
    <rect>
     <x>171</x>
@@ -152,22 +152,6 @@ limit 1;</sql>
   </label>
   <label>
    <rect>
-    <x>639</x>
-    <y>56</y>
-    <width>100</width>
-    <height>25</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>10</size>
-    <weight>bold</weight>
-   </font>
-   <left/>
-   <top/>
-   <string>QTY</string>
-  </label>
-  <label>
-   <rect>
     <x>753</x>
     <y>56</y>
     <width>100</width>
@@ -262,9 +246,25 @@ limit 1;</sql>
    <top/>
    <string>Employee Name:</string>
   </label>
+  <label>
+   <rect>
+    <x>639</x>
+    <y>56</y>
+    <width>100</width>
+    <height>25</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>10</size>
+    <weight>bold</weight>
+   </font>
+   <left/>
+   <top/>
+   <string>HOURS</string>
+  </label>
  </pghead>
  <pghead>
-  <height>26</height>
+  <height>42</height>
   <label>
    <rect>
     <x>115</x>
@@ -343,7 +343,7 @@ limit 1;</sql>
    </font>
    <left/>
    <top/>
-   <string>QTY</string>
+   <string>HOURS</string>
   </label>
   <label>
    <rect>
@@ -391,7 +391,7 @@ limit 1;</sql>
    <key>
     <query>detail</query>
    </key>
-   <height>38</height>
+   <height>46</height>
    <text>
     <rect>
      <x>116</x>

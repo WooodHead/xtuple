@@ -261,7 +261,7 @@ function lineOpen(mode)
 
 
   try {
-    var wnd = toolbox.openWindow("time_expense", mywindow, Qt.NonModal, Qt.Dialog);
+    var wnd = toolbox.openWindow("time_expense", mywindow, Qt.ApplicationModal, Qt.Dialog);
     toolbox.lastWindow().set(params);
     wnd.exec();
   } catch(e) {
