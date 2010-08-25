@@ -8,8 +8,12 @@ BEGIN
               WHERE relname='tecustrate'
                 AND relnamespace=pg_namespace.oid
                 AND nspname='te')) THEN
-    -- do nothing (this ensures that the table is created as needed.  Revisions should go here
-    --_statement = 'ALTER TABLE te.tehead ADD "Table Used to Store T/E Customer Rate Information" TEXT;';
+    IF (EXISTS(SELECT attname
+                 FROM pg_attribute
+                WHERE attrelid=(SELECT oid FROM pg_class WHERE relname='tehead')
+                  AND attname='tehead_status')) THEN
+      -- do nothing (this ensures that the table is created as needed.  Revisions should go here
+    END IF;
   ELSE  
     _statement = 'CREATE TABLE te.tecustrate ' ||
 			'(tecustrate_cust_name text NOT NULL, ' ||

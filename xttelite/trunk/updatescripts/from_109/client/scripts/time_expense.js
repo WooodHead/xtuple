@@ -145,7 +145,6 @@ function set(input)
       _site = input.site;
       _empid = input.empid;
       // increment the max line number...
-      _project.setAllowedStatuses(2);
       populate(0);
     }
     else if (input.mode == _viewMode)
@@ -204,17 +203,6 @@ function extension()
 
 function sFillItems()
 {
-   if (_radioTime.checked){
-     _items.setQuery("select item_id,item_number,item_descrip1 from "
-             + "(SELECT item_id,item_number,item_descrip1,"
-             + "coalesce(teexp_id::text,'N') as exp "
-             + "FROM te.teexp right OUTER JOIN (select item_id,item_number, "
-             + "item_descrip1 from item "
-             + "where item_active = true "
-             + "and item_type = 'R') filter"
-             + " ON teexp_id = item_id) exptable "
-             + "where exp = 'N'");
-   }else{
      _items.setQuery("select item_id,item_number,item_descrip1 from "
              + "(SELECT item_id,item_number,item_descrip1,"
              + "coalesce(teexp_id::text,'N') as exp "
@@ -224,7 +212,6 @@ function sFillItems()
              + "and item_type = 'R') filter"
              + " ON teexp_id = item_id) exptable "
              + "where exp <> 'N'");
-   }
 }
 
 function gettask()
@@ -352,9 +339,7 @@ function getprice()
     if (qry.first())
     {
       _rate.localValue = (qry.value("rate"));
-      if (_rate.localValue > 0) {
-        return;
-      }
+      return;
     }
     else if (qry.lastError().type != 0)
     {
@@ -375,9 +360,7 @@ function getprice()
     if (qry.first())
     {
       _rate.localValue = (qry.value("rate"));
-      if (_rate.localValue > 0) {
-        return;
-      }
+      return;
     }
     else if (qry.lastError().type != 0)
     {
@@ -388,36 +371,38 @@ function getprice()
 
     // check for emp rate
     var params = new Object();
-    params.empid = _employees.id();
+    params.code = _employees.text;
 
-    var qry = toolbox.executeQuery("SELECT teemprate_rate as rate "
-        + "FROM te.teemprate "
-        + ' WHERE teemprate_emp_id = <? value("empid") ?>;',params);
+    var qry = toolbox.executeQuery("SELECT emp_id "
+        + "FROM emp "
+        + ' WHERE emp_code = <? value("code") ?>;',params);
 
     if (qry.first())
     {
-      _rate.localValue = (qry.value("rate"));
-      if (_rate.localValue > 0) {
+      params.empid = qry.value("emp_id");
+       var qry = toolbox.executeQuery("SELECT teemprate_rate as rate "
+        + "FROM te.teemprate "
+        + ' WHERE teemprate_emp_id = <? value("empid") ?>;',params);
+
+      if (qry.first())
+      {
+        _rate.localValue = (qry.value("rate"));
         return;
       }
     }
 
     // check for customer rate
     var params = new Object();
-    params.custid = _clients.id();
+    params.custname = _clients.text;
 
     var qry = toolbox.executeQuery("SELECT tecustrate_rate as rate "
         + "FROM te.tecustrate "
-        + ' WHERE tecustrate_cust_name = '
-        + '(select cust_name from custinfo where cust_id = '
-        + '<? value("custid") ?>);',params);
+        + ' WHERE tecustrate_cust_name = <? value("custname") ?>;',params);
 
     if (qry.first())
     {
       _rate.localValue = (qry.value("rate"));
-      if (_rate.localValue > 0) {
-        return;
-      }
+      return;
     }
     else if (qry.lastError().type != 0)
     {
@@ -517,7 +502,6 @@ function populate(mode)
         _clients.setId(q.value("custid"));
         _po.text = (q.value("po"));
         _project.setId(q.value("project"));
-        _project.enabled=false;
         _taskid = q.value("task");
         gettask();
         _sheet.text = (q.value("sheetnum"));

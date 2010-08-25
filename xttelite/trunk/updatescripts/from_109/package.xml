@@ -38,18 +38,34 @@
     </message>
   </prerequisite>
     
+  <script file="database/misc/insertIntopriv.sql" />
+
   <createfunction file="database/functions/approvesheet.sql"    name="approvesheet" />
+  <createfunction file="database/functions/consolidateinvoice.sql" name="consolidateinvoice" />
+  <createfunction file="database/functions/insertmiscvoucher.sql"  name="insertmiscvoucher" />
+  <createfunction file="database/functions/invoicesheet.sql"       name="invoicesheet" />
+  <createfunction file="database/functions/resetsheetstatus.sql"   name="resetsheetstatus" />
+  <createfunction file="database/functions/vouchersheet.sql"       name="vouchersheet" />
+
+  <createtable file="database/tables/createtehead.sql"          name="tehead"/>
+  <createtable file="database/tables/createteitem.sql"          name="teitem"/>
+
+  <script file="database/views/voucher.sql"       onerror="Prompt"/>
 
   <loadappscript file="client/scripts/employee.js"              name="employee"     order="0"/>
   <loadappscript file="client/scripts/item.js"                  name="item"         order="0"/>
   <loadappscript file="client/scripts/te.js"             	name="te"           order="0"/>
+  <loadappscript file="client/scripts/telines.js"               name="telines"          order="0"/>
   <loadappscript file="client/scripts/tesheet.js"               name="tesheet"      order="0"/>
   <loadappscript file="client/scripts/time_expense.js"          name="time_expense" order="0"/>
+  <loadappscript file="client/scripts/unpostedInvoices.js"      name="unpostedInvoices" order="0"/>
 
   <loadappui file="client/uiforms/expense.ui"                   order="0" />
   <loadappui file="client/uiforms/time_expense.ui"              order="0" />
   <loadappui file="client/uiforms/tesheet.ui"                   order="0" />
+  <loadappui file="client/uiforms/telines.ui"                   order="0" />
   
-  <loadreport  file="client/reports/timereport.xml" />
   <loadreport  file="client/reports/expensereport.xml" />
+  <loadreport  file="client/reports/opensheetlist.xml" />
+  <loadreport  file="client/reports/timereport.xml" />
 </package>

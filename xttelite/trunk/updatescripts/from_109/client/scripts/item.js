@@ -28,7 +28,6 @@ var _saved = false;
 tablist['currentChanged(int)'].connect(populate);
 _inventoryUOM.newID.connect(handleExpense);
 
-
 var _save = mywindow.findChild("_save");
 _save.clicked.connect(sSave);
 

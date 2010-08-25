@@ -18,10 +18,11 @@ _headid := pHeadID;
         --  A is approved...if further approval is needed (mgr, etc) then the status should goto P
 
 	--update the timestamp/user on both tables
-        update te.tehead set tehead_status = 'A', tehead_lastupdated = ('now'::text)::timestamp(6) with time zone,tehead_username = current_user where tehead_id = pHeadID;
-        
+        update te.tehead set tehead_billable_status = 'A',tehead_payable_status = 'A', tehead_lastupdated = ('now'::text)::timestamp(6) with time zone,tehead_username = current_user where tehead_id = pHeadID;
+        update  te.teitem set teitem_billable_status = 'A',teitem_payable_status = 'A',teitem_lastupdated = ('now'::text)::timestamp(6) with time zone,teitem_username = current_user where teitem_tehead_id = pHeadID;
+
         --for each line, update each project/task with the hours/expenses
-        -- loop thru all lines of the sheet
+       -- loop thru all lines of the sheet
           for _t in select * from (
 	     select sum(qty) as qty,sum(expense) as expense,taskid from
              (select teitem_linenumber,teitem_qty as qty,teitem_total as expense,teitem_prjtask_id as taskid
