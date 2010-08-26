@@ -9,6 +9,7 @@ DECLARE
   _creditstatus	TEXT;
   _usespos BOOLEAN := false;
   _blanketpos BOOLEAN := true;
+  _showConvertedQuote BOOLEAN := false;
   _prospectid	INTEGER;
   _r RECORD;
   _soNum INTEGER;
@@ -247,7 +248,16 @@ BEGIN
 
   END LOOP;
 
+  SELECT metric_value INTO _showConvertedQuote
+  FROM metric WHERE metric_name = 'ShowQuotesAfterSO';
+
+  IF (_showConvertedQuote) THEN
+    UPDATE quhead
+    SET quhead_status= 'C'
+    WHERE (quhead_id = pQuheadid);
+  ELSE
   PERFORM deleteQuote(pQuheadid);
+  END IF;
 
   RETURN _soheadid;
 
