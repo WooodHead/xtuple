@@ -489,284 +489,284 @@ function main()
     }
     
     
-    //----implode work Order----
-    try
-    {
-        waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
-        activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
-        waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
-        activateItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
-        waitForObjectItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
-        activateItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
-        waitForObjectItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
-        activateItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
-        
-        try
-        {
-            waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
-            clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
-            
-            WONUM=WONUM-7;
-            waitForObject(":frame._wo_XTreeWidget");
-            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
-            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Implode W/O...");
-            activateItem(":xTuple ERP:*._menu_QMenu", "Implode W/O...");
-            waitForObject(":W/O Schedule by Planner Code.Implode_QPushButton");
-            clickButton(":W/O Schedule by Planner Code.Implode_QPushButton");
-            test.log("Imploded Work Order:" + WONUM+"-1");
-        }
-        catch(e)
-        {
-            test.fail("Error in imploding work order" + e);
-        }
-        
-        
-        //----Release Work Order--- 
-        try
-        {
-            WONUM=WONUM+2;
-            waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
-            clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
-            waitForObject(":frame._wo_XTreeWidget");
-            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
-            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release W/O");
-            activateItem(":xTuple ERP:*._menu_QMenu", "Release W/O");
-            test.log("Release WO:" + WONUM+"-1");
-        }
-        catch(e)
-        {
-            test.fail("Error in releasing work order" + e);
-        }
-        
-        //--------Post Operation-------------   
-        try
-        {
-            WONUM++;
-            //            waitForObject(":frame._wo_XTreeWidget");
-            //            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
-            //            
-            //            waitForObject(":xTuple ERP:*._menu_QMenu");
-            //            activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
-            //                            
-            //            waitForObject(":_operationGroup._wooper_XComboBox_2");
-            //            clickItem(":_operationGroup._wooper_XComboBox_2", "30 - Standard Operation - Assembly Assembly",0,0,1,Qt.LeftButton);
-            //            waitForObject(":Post Operations.Post_QPushButton");
-            //            clickButton(":Post Operations.Post_QPushButton");
-            //            waitForObject(":frame._wo_XTreeWidget");
-            //            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
-            //            waitForObject(":xTuple ERP:*._menu_QMenu");
-            //            activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
-            //            waitForObject(":_operationGroup._wooper_XComboBox_2");
-            //            clickItem(":_operationGroup._wooper_XComboBox_2", "40 - SHIPPING ",0,0,1,Qt.LeftButton);
-            //            waitForObject(":Post Operations.Post_QPushButton");
-            //            clickButton(":Post Operations.Post_QPushButton");
-            //            test.log("Posted partial operation for WO: " + WONUM+"-1");
-        }
-        catch(e)
-        {
-            test.fail("Error in posting operations for work  order" + e);
-        }
-        
-        
-        
-        
-        
-        //-------Post Operation---------   
-        try
-        {
-            WONUM++;
-            //            waitForObject(":frame._wo_XTreeWidget");
-            //            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
-            //            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
-            //            activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
-            //            waitForObject(":_operationGroup._wooper_XComboBox_2");
-            //            type(":_operationGroup._wooper_XComboBox_2", "<Down>");
-            //            waitForObject(":Post Operations.Post_QPushButton");
-            //            clickButton(":Post Operations.Post_QPushButton");
-            //            waitForObject(":_frame._itemloc_XTreeWidget");
-            //            doubleClickItem(":_frame._itemloc_XTreeWidget","No" ,5, 5, 0, Qt.LeftButton);
-            //            waitForObject(":Distribute to Location.Distribute_QPushButton");
-            //            clickButton(":Distribute to Location.Distribute_QPushButton");
-            //            waitForObject(":Distribute Stock To/From Site Locations.Post_QPushButton");
-            //            clickButton(":Distribute Stock To/From Site Locations.Post_QPushButton");
-            //            test.log("Posted partial Operation for WO:" + WONUM+"-1");
-        }
-        catch(e)
-        {
-            test.fail("Error in posting operations for work order" + e);
-        }
-        
-        
-        //        //------Post Operation--------    
-        //        try
-        //        {
-        //            WONUM++;
-        //            waitForObject(":frame._wo_XTreeWidget");
-        //            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
-        //            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
-        //            activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
-        //            waitForObject(":_operationGroup._wooper_XComboBox_2");
-        //            
-        //            clickItem(":_operationGroup._wooper_XComboBox_2", "20 - Standard Paint Operation ",0,0,1,Qt.LeftButton);
-        //            waitForObject(":Post Operations.Post_QPushButton");
-        //            clickButton(":Post Operations.Post_QPushButton");
-        //            waitForObject(":_frame._itemloc_XTreeWidget");
-        //            doubleClickItem(":_frame._itemloc_XTreeWidget","No" ,5, 5, 0, Qt.LeftButton);
-        //            waitForObject(":Distribute to Location.Distribute_QPushButton");
-        //            clickButton(":Distribute to Location.Distribute_QPushButton");
-        //            waitForObject(":Distribute Stock To/From Site Locations.Post_QPushButton");
-        //            clickButton(":Distribute Stock To/From Site Locations.Post_QPushButton");
-        //            test.log("Posted partial operations for WO:"+ WONUM+"-1");
-        //        }
-        //        catch(e)
-        //        {
-        //            test.fail("Error in posting operations for work order" + e);
-        //        }
-        
-        
-        //-------Post Production-------
-        try
-        {
-            WONUM++;
-            waitForObject(":frame._wo_XTreeWidget");
-            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);    
-            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Production...");
-            activateItem(":xTuple ERP:*._menu_QMenu", "Post Production...");
-            waitForObject(":_qty_XLineEdit");
-            type(":_qty_XLineEdit", "100");
-            
-            if(findObject(":_optionsGroup.Close Work Order after Posting_XCheckBox").checked==true)
-                clickButton(":_optionsGroup.Close Work Order after Posting_XCheckBox");
-            waitForObject(":W/O Schedule by Planner Code.Post_QPushButton");
-            clickButton(":W/O Schedule by Planner Code.Post_QPushButton");
-            waitForObject(":W/O Schedule by Planner Code._itemloc_XTreeWidget");
-            doubleClickItem(":W/O Schedule by Planner Code._itemloc_XTreeWidget","No", 5, 5, 0, Qt.LeftButton);
-            waitForObject(":W/O Schedule by Planner Code.Distribute_QPushButton");
-            clickButton(":W/O Schedule by Planner Code.Distribute_QPushButton");
-            waitForObject(":W/O Schedule by Planner Code.Post_QPushButton_2");
-            clickButton(":W/O Schedule by Planner Code.Post_QPushButton_2");
-            test.log("Posted Production for WO:" + WONUM+"-1");   
-        }
-        catch(e)
-        {
-            test.fail("Error in post production for work order" + e);
-        }
-        
-        
-        
-        
-        //--------------Release WO--------    
-        try
-        {
-            
-            WONUM++;
-            waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
-            clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
-            waitForObject(":frame._wo_XTreeWidget");
-            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
-            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release W/O");
-            activateItem(":xTuple ERP:*._menu_QMenu", "Release W/O");
-            test.log("Release WO:"+ WONUM+"-1")
-                }
-        catch(e)
-        {
-            test.fail("Error in releasing work order" + e);
-        }        
-        
-        
-        //---------- post production-------   
-        try
-        {
-            WONUM++;
-            waitForObject(":frame._wo_XTreeWidget");
-            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);    
-            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Production...");
-            activateItem(":xTuple ERP:*._menu_QMenu", "Post Production...");
-            waitForObject(":_qty_XLineEdit");
-            type(":_qty_XLineEdit", "100");
-            if(findObject(":_optionsGroup.Close Work Order after Posting_XCheckBox").checked==true)
-                clickButton(":_optionsGroup.Close Work Order after Posting_XCheckBox");
-            waitForObject(":W/O Schedule by Planner Code.Post_QPushButton");
-            clickButton(":W/O Schedule by Planner Code.Post_QPushButton");
-            waitForObject(":W/O Schedule by Planner Code._itemloc_XTreeWidget");
-            doubleClickItem(":W/O Schedule by Planner Code._itemloc_XTreeWidget","No", 5, 5, 0, Qt.LeftButton);
-            waitForObject(":W/O Schedule by Planner Code.Distribute_QPushButton");
-            clickButton(":W/O Schedule by Planner Code.Distribute_QPushButton");
-            waitForObject(":W/O Schedule by Planner Code.Post_QPushButton_2");
-            clickButton(":W/O Schedule by Planner Code.Post_QPushButton_2");
-            test.log("Posted Production for WO:" + WONUM+"-1");   
-        }
-        catch(e)
-        {
-            test.fail("Error in post production for work order" + e);
-        }
-        
-        waitForObject(":W/O Schedule by Planner Code.Close_QPushButton");
-        clickButton(":W/O Schedule by Planner Code.Close_QPushButton");
-    }
-    catch(e)
-    {
-        test.fail("Error in opening list of work orders  screen" + e);
-    }
-    
-    
-    //---------Production Time clock for work Order---
-    try
-    {
-        WONUM--;
-        waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
-        activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
-        waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Transactions");
-        activateItem(":xTuple ERP:*.Manufacture_QMenu", "Transactions");
-        waitForObjectItem(":xTuple ERP:*.Transactions_QMenu_2", "Shop Floor Workbench...");
-        activateItem(":xTuple ERP:*.Transactions_QMenu_2", "Shop Floor Workbench...");
-        waitForObject(":_voucherGroup...._QPushButton_2");
-        clickButton(":_voucherGroup...._QPushButton_2");
-        
-        waitForObject(":_listTab_XTreeWidget_15");
-        doubleClickItem(":_listTab_XTreeWidget_15","admin", 10, 10, 0, Qt.LeftButton);
-        waitForObject(":*...._QPushButton_2");
-        clickButton(":*...._QPushButton_2");
-        waitForObject(":*._wo_XTreeWidget");
-        doubleClickItem(":*._wo_XTreeWidget",WONUM+"-1", 0, 0, 0, Qt.LeftButton);
-        waitForObject(":_operationGroup._wooper_XComboBox_2");
-        sendEvent("QMouseEvent", ":_operationGroup._wooper_XComboBox_2", QEvent.MouseButtonPress, 354, 9, Qt.LeftButton, 0);
-        waitForObject(":_wooper.20 - Standard Paint Operation - _QModelIndex_2");
-        mouseClick(":_wooper.20 - Standard Paint Operation - _QModelIndex_2", 151, 7, 0, Qt.LeftButton);
-        waitForObject(":*.Clock In_QPushButton");
-        clickButton(":*.Clock In_QPushButton");
-        waitForObject(":List Unposted Invoices.Close_QPushButton");
-        clickButton(":List Unposted Invoices.Close_QPushButton");
-    }
-    catch(e)
-    {
-        test.fail("Error in performing clock in operation " + e);
-    }
-    
-    try
-    {
-        waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
-        activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
-        waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Transactions");
-        activateItem(":xTuple ERP:*.Manufacture_QMenu", "Transactions");
-        waitForObjectItem(":xTuple ERP:*.Transactions_QMenu_2", "Shop Floor Workbench...");
-        activateItem(":xTuple ERP:*.Transactions_QMenu_2", "Shop Floor Workbench...");
-        waitForObject(":_voucherGroup...._QPushButton_2");
-        clickButton(":_voucherGroup...._QPushButton_2");
-        waitForObject(":_listTab_XTreeWidget_15");
-        doubleClickItem(":_listTab_XTreeWidget_15","admin", 10, 10, 0, Qt.LeftButton);
-        waitForObject(':*._wooperList_XTreeWidget');
-        if (object.exists("{column='0' container=':*._wooperList_XTreeWidget' text='"+WONUM+"-1' type='QModelIndex'}"))
-            test.pass("Paint Operation is clocked in");
-        waitForObject(":List Unposted Invoices.Close_QPushButton");
-        clickButton(":List Unposted Invoices.Close_QPushButton");
-    }
-    catch(e)
-    {
-        test.fail("Error in opening of shop floor work bench screen" + e);
-    }
-    
-    
+////    //----implode work Order----
+////    try
+////    {
+////        waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
+////        activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
+////        waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
+////        activateItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
+////        waitForObjectItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
+////        activateItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
+////        waitForObjectItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
+////        activateItem(":xTuple ERP:*.Work Order Schedule_QMenu", "by Planner Code...");
+////        
+////        try
+////        {
+////            waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
+////            clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
+////            
+////            WONUM=WONUM-7;
+////            waitForObject(":frame._wo_XTreeWidget");
+////            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
+////            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Implode W/O...");
+////            activateItem(":xTuple ERP:*._menu_QMenu", "Implode W/O...");
+////            waitForObject(":W/O Schedule by Planner Code.Implode_QPushButton");
+////            clickButton(":W/O Schedule by Planner Code.Implode_QPushButton");
+////            test.log("Imploded Work Order:" + WONUM+"-1");
+////        }
+////        catch(e)
+////        {
+////            test.fail("Error in imploding work order" + e);
+////        }
+////        
+////        
+////        //----Release Work Order--- 
+////        try
+////        {
+////            WONUM=WONUM+2;
+////            waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
+////            clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
+////            waitForObject(":frame._wo_XTreeWidget");
+////            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
+////            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release W/O");
+////            activateItem(":xTuple ERP:*._menu_QMenu", "Release W/O");
+////            test.log("Release WO:" + WONUM+"-1");
+////        }
+////        catch(e)
+////        {
+////            test.fail("Error in releasing work order" + e);
+////        }
+////        
+////        //--------Post Operation-------------   
+////        try
+////        {
+////            WONUM++;
+////            //            waitForObject(":frame._wo_XTreeWidget");
+////            //            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
+////            //            
+////            //            waitForObject(":xTuple ERP:*._menu_QMenu");
+////            //            activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
+////            //                            
+////            //            waitForObject(":_operationGroup._wooper_XComboBox_2");
+////            //            clickItem(":_operationGroup._wooper_XComboBox_2", "30 - Standard Operation - Assembly Assembly",0,0,1,Qt.LeftButton);
+////            //            waitForObject(":Post Operations.Post_QPushButton");
+////            //            clickButton(":Post Operations.Post_QPushButton");
+////            //            waitForObject(":frame._wo_XTreeWidget");
+////            //            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
+////            //            waitForObject(":xTuple ERP:*._menu_QMenu");
+////            //            activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
+////            //            waitForObject(":_operationGroup._wooper_XComboBox_2");
+////            //            clickItem(":_operationGroup._wooper_XComboBox_2", "40 - SHIPPING ",0,0,1,Qt.LeftButton);
+////            //            waitForObject(":Post Operations.Post_QPushButton");
+////            //            clickButton(":Post Operations.Post_QPushButton");
+////            //            test.log("Posted partial operation for WO: " + WONUM+"-1");
+////        }
+////        catch(e)
+////        {
+////            test.fail("Error in posting operations for work  order" + e);
+////        }
+////        
+////        
+////        
+////        
+////        
+////        //-------Post Operation---------   
+////        try
+////        {
+////            WONUM++;
+////            //            waitForObject(":frame._wo_XTreeWidget");
+////            //            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
+////            //            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
+////            //            activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
+////            //            waitForObject(":_operationGroup._wooper_XComboBox_2");
+////            //            type(":_operationGroup._wooper_XComboBox_2", "<Down>");
+////            //            waitForObject(":Post Operations.Post_QPushButton");
+////            //            clickButton(":Post Operations.Post_QPushButton");
+////            //            waitForObject(":_frame._itemloc_XTreeWidget");
+////            //            doubleClickItem(":_frame._itemloc_XTreeWidget","No" ,5, 5, 0, Qt.LeftButton);
+////            //            waitForObject(":Distribute to Location.Distribute_QPushButton");
+////            //            clickButton(":Distribute to Location.Distribute_QPushButton");
+////            //            waitForObject(":Distribute Stock To/From Site Locations.Post_QPushButton");
+////            //            clickButton(":Distribute Stock To/From Site Locations.Post_QPushButton");
+////            //            test.log("Posted partial Operation for WO:" + WONUM+"-1");
+////        }
+////        catch(e)
+////        {
+////            test.fail("Error in posting operations for work order" + e);
+////        }
+////        
+////        
+////        //        //------Post Operation--------    
+////        //        try
+////        //        {
+////        //            WONUM++;
+////        //            waitForObject(":frame._wo_XTreeWidget");
+////        //            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
+////        //            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
+////        //            activateItem(":xTuple ERP:*._menu_QMenu", "Post Operations...");
+////        //            waitForObject(":_operationGroup._wooper_XComboBox_2");
+////        //            
+////        //            clickItem(":_operationGroup._wooper_XComboBox_2", "20 - Standard Paint Operation ",0,0,1,Qt.LeftButton);
+////        //            waitForObject(":Post Operations.Post_QPushButton");
+////        //            clickButton(":Post Operations.Post_QPushButton");
+////        //            waitForObject(":_frame._itemloc_XTreeWidget");
+////        //            doubleClickItem(":_frame._itemloc_XTreeWidget","No" ,5, 5, 0, Qt.LeftButton);
+////        //            waitForObject(":Distribute to Location.Distribute_QPushButton");
+////        //            clickButton(":Distribute to Location.Distribute_QPushButton");
+////        //            waitForObject(":Distribute Stock To/From Site Locations.Post_QPushButton");
+////        //            clickButton(":Distribute Stock To/From Site Locations.Post_QPushButton");
+////        //            test.log("Posted partial operations for WO:"+ WONUM+"-1");
+////        //        }
+////        //        catch(e)
+////        //        {
+////        //            test.fail("Error in posting operations for work order" + e);
+////        //        }
+////        
+////        
+////        //-------Post Production-------
+////        try
+////        {
+////            WONUM++;
+////            waitForObject(":frame._wo_XTreeWidget");
+////            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);    
+////            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Production...");
+////            activateItem(":xTuple ERP:*._menu_QMenu", "Post Production...");
+////            waitForObject(":_qty_XLineEdit");
+////            type(":_qty_XLineEdit", "100");
+////            
+////            if(findObject(":_optionsGroup.Close Work Order after Posting_XCheckBox").checked==true)
+////                clickButton(":_optionsGroup.Close Work Order after Posting_XCheckBox");
+////            waitForObject(":W/O Schedule by Planner Code.Post_QPushButton");
+////            clickButton(":W/O Schedule by Planner Code.Post_QPushButton");
+////            waitForObject(":W/O Schedule by Planner Code._itemloc_XTreeWidget");
+////            doubleClickItem(":W/O Schedule by Planner Code._itemloc_XTreeWidget","No", 5, 5, 0, Qt.LeftButton);
+////            waitForObject(":W/O Schedule by Planner Code.Distribute_QPushButton");
+////            clickButton(":W/O Schedule by Planner Code.Distribute_QPushButton");
+////            waitForObject(":W/O Schedule by Planner Code.Post_QPushButton_2");
+////            clickButton(":W/O Schedule by Planner Code.Post_QPushButton_2");
+////            test.log("Posted Production for WO:" + WONUM+"-1");   
+////        }
+////        catch(e)
+////        {
+////            test.fail("Error in post production for work order" + e);
+////        }
+////        
+////        
+////        
+////        
+////        //--------------Release WO--------    
+////        try
+////        {
+////            
+////            WONUM++;
+////            waitForObject(":W/O Schedule by Planner Code.Query_QPushButton");
+////            clickButton(":W/O Schedule by Planner Code.Query_QPushButton");
+////            waitForObject(":frame._wo_XTreeWidget");
+////            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);
+////            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release W/O");
+////            activateItem(":xTuple ERP:*._menu_QMenu", "Release W/O");
+////            test.log("Release WO:"+ WONUM+"-1")
+////                }
+////        catch(e)
+////        {
+////            test.fail("Error in releasing work order" + e);
+////        }        
+////        
+////        
+////        //---------- post production-------   
+////        try
+////        {
+////            WONUM++;
+////            waitForObject(":frame._wo_XTreeWidget");
+////            openItemContextMenu(":frame._wo_XTreeWidget", WONUM+"-1", 5, 5, 0);    
+////            waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Production...");
+////            activateItem(":xTuple ERP:*._menu_QMenu", "Post Production...");
+////            waitForObject(":_qty_XLineEdit");
+////            type(":_qty_XLineEdit", "100");
+////            if(findObject(":_optionsGroup.Close Work Order after Posting_XCheckBox").checked==true)
+////                clickButton(":_optionsGroup.Close Work Order after Posting_XCheckBox");
+////            waitForObject(":W/O Schedule by Planner Code.Post_QPushButton");
+////            clickButton(":W/O Schedule by Planner Code.Post_QPushButton");
+////            waitForObject(":W/O Schedule by Planner Code._itemloc_XTreeWidget");
+////            doubleClickItem(":W/O Schedule by Planner Code._itemloc_XTreeWidget","No", 5, 5, 0, Qt.LeftButton);
+////            waitForObject(":W/O Schedule by Planner Code.Distribute_QPushButton");
+////            clickButton(":W/O Schedule by Planner Code.Distribute_QPushButton");
+////            waitForObject(":W/O Schedule by Planner Code.Post_QPushButton_2");
+////            clickButton(":W/O Schedule by Planner Code.Post_QPushButton_2");
+////            test.log("Posted Production for WO:" + WONUM+"-1");   
+////        }
+////        catch(e)
+////        {
+////            test.fail("Error in post production for work order" + e);
+////        }
+////        
+////        waitForObject(":W/O Schedule by Planner Code.Close_QPushButton");
+////        clickButton(":W/O Schedule by Planner Code.Close_QPushButton");
+////    }
+////    catch(e)
+////    {
+////        test.fail("Error in opening list of work orders  screen" + e);
+////    }
+////    
+////    
+////    //---------Production Time clock for work Order---
+////    try
+////    {
+////        WONUM--;
+////        waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
+////        activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
+////        waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Transactions");
+////        activateItem(":xTuple ERP:*.Manufacture_QMenu", "Transactions");
+////        waitForObjectItem(":xTuple ERP:*.Transactions_QMenu_2", "Shop Floor Workbench...");
+////        activateItem(":xTuple ERP:*.Transactions_QMenu_2", "Shop Floor Workbench...");
+////        waitForObject(":_voucherGroup...._QPushButton_2");
+////        clickButton(":_voucherGroup...._QPushButton_2");
+////        
+////        waitForObject(":_listTab_XTreeWidget_15");
+////        doubleClickItem(":_listTab_XTreeWidget_15","admin", 10, 10, 0, Qt.LeftButton);
+////        waitForObject(":*...._QPushButton_2");
+////        clickButton(":*...._QPushButton_2");
+////        waitForObject(":*._wo_XTreeWidget");
+////        doubleClickItem(":*._wo_XTreeWidget",WONUM+"-1", 0, 0, 0, Qt.LeftButton);
+////        waitForObject(":_operationGroup._wooper_XComboBox_2");
+////        sendEvent("QMouseEvent", ":_operationGroup._wooper_XComboBox_2", QEvent.MouseButtonPress, 354, 9, Qt.LeftButton, 0);
+////        waitForObject(":_wooper.20 - Standard Paint Operation - _QModelIndex_2");
+////        mouseClick(":_wooper.20 - Standard Paint Operation - _QModelIndex_2", 151, 7, 0, Qt.LeftButton);
+////        waitForObject(":*.Clock In_QPushButton");
+////        clickButton(":*.Clock In_QPushButton");
+////        waitForObject(":List Unposted Invoices.Close_QPushButton");
+////        clickButton(":List Unposted Invoices.Close_QPushButton");
+////    }
+////    catch(e)
+////    {
+////        test.fail("Error in performing clock in operation " + e);
+////    }
+////    
+////    try
+////    {
+////        waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
+////        activateItem(":xTuple ERP:*_QMenuBar_2", "Manufacture");
+////        waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Transactions");
+////        activateItem(":xTuple ERP:*.Manufacture_QMenu", "Transactions");
+////        waitForObjectItem(":xTuple ERP:*.Transactions_QMenu_2", "Shop Floor Workbench...");
+////        activateItem(":xTuple ERP:*.Transactions_QMenu_2", "Shop Floor Workbench...");
+////        waitForObject(":_voucherGroup...._QPushButton_2");
+////        clickButton(":_voucherGroup...._QPushButton_2");
+////        waitForObject(":_listTab_XTreeWidget_15");
+////        doubleClickItem(":_listTab_XTreeWidget_15","admin", 10, 10, 0, Qt.LeftButton);
+////        waitForObject(':*._wooperList_XTreeWidget');
+////        if (object.exists("{column='0' container=':*._wooperList_XTreeWidget' text='"+WONUM+"-1' type='QModelIndex'}"))
+////            test.pass("Paint Operation is clocked in");
+////        waitForObject(":List Unposted Invoices.Close_QPushButton");
+////        clickButton(":List Unposted Invoices.Close_QPushButton");
+////    }
+////    catch(e)
+////    {
+////        test.fail("Error in opening of shop floor work bench screen" + e);
+////    }
+////    
+//    
     
     
     //---Create Sales Order---
@@ -1247,39 +1247,39 @@ function main()
     }
     
     
-    //---Release Planned Order---------
-    try
-    {
-        waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
-        activateItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
-        waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
-        activateItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
-        waitForObjectItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders");
-        activateItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders");
-        waitForObjectItem(":xTuple ERP:*.Planned Orders_QMenu", "by Planner Code...");
-        activateItem(":xTuple ERP:*.Planned Orders_QMenu", "by Planner Code...");
-        PLNUM=PLNUM+4;
-        waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
-        clickButton(":Planned Orders by Planner Code.Query_QPushButton");
-        waitForObject(":frame._planord_XTreeWidget");
-        if (object.exists("{column='0' container=':frame._planord_XTreeWidget' text='"+PLNUM+"-1' type='QModelIndex'}"))
-            test.pass("Planned Order is created" );
-        else
-            test.fail("Planned Order is not created");
-        openItemContextMenu(":frame._planord_XTreeWidget", PLNUM+"-1", 5, 5, 0);
-        waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release Order...");
-        activateItem(":xTuple ERP:*._menu_QMenu", "Release Order...");
-        waitForObject(":Planned Orders by Planner Code.Create_QPushButton");
-        clickButton(":Planned Orders by Planner Code.Create_QPushButton");
-        waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
-        clickButton(":Planned Orders by Planner Code.Close_QPushButton");
-        test.log("Released Planned Order:");
-    }
-    catch(e)
-    {
-        test.fail("Error in releasing planned order" + e);
-    }
-    
+////    //---Release Planned Order---------
+////    try
+////    {
+////        waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
+////        activateItem(":xTuple ERP:*_QMenuBar_2", "Schedule");
+////        waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
+////        activateItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
+////        waitForObjectItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders");
+////        activateItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders");
+////        waitForObjectItem(":xTuple ERP:*.Planned Orders_QMenu", "by Planner Code...");
+////        activateItem(":xTuple ERP:*.Planned Orders_QMenu", "by Planner Code...");
+////        PLNUM=PLNUM+4;
+////        waitForObject(":Planned Orders by Planner Code.Query_QPushButton");
+////        clickButton(":Planned Orders by Planner Code.Query_QPushButton");
+////        waitForObject(":frame._planord_XTreeWidget");
+////        if (object.exists("{column='0' container=':frame._planord_XTreeWidget' text='"+PLNUM+"-1' type='QModelIndex'}"))
+////            test.pass("Planned Order is created" );
+////        else
+////            test.fail("Planned Order is not created");
+////        openItemContextMenu(":frame._planord_XTreeWidget", PLNUM+"-1", 5, 5, 0);
+////        waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Release Order...");
+////        activateItem(":xTuple ERP:*._menu_QMenu", "Release Order...");
+////        waitForObject(":Planned Orders by Planner Code.Create_QPushButton");
+////        clickButton(":Planned Orders by Planner Code.Create_QPushButton");
+////        waitForObject(":Planned Orders by Planner Code.Close_QPushButton");
+////        clickButton(":Planned Orders by Planner Code.Close_QPushButton");
+////        test.log("Released Planned Order:");
+////    }
+////    catch(e)
+////    {
+////        test.fail("Error in releasing planned order" + e);
+////    }
+//    
     
     
     //----Create Purchase Order--------
@@ -3419,7 +3419,7 @@ function main()
     }
     
     
-    
+  
     //-------------Creating Customer--------
     try
     {

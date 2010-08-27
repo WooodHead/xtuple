@@ -7,7 +7,7 @@ function main()
     loginAppl("RUNREGISTER");       
     var appEdition = findApplicationEdition();
     
-    
+  
     //----------Create Customer Type------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -868,7 +868,7 @@ function main()
         clickButton(":List Customer Groups.Close_QPushButton");
         snooze(1);
     }catch(e){test.fail("Exception in creating Customer Groups:"+e);}   
-    
+  
     //-----------------Define: Reason Codes---------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");

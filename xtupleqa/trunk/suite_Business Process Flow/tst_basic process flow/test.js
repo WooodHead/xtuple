@@ -962,8 +962,8 @@ function main()
             clickButton(":General Ledger Transactions.Query_QPushButton");
             
             
-            waitForObject(":_gltrans_XTreeWidget");
-            var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+            waitForObject(":_list_XTreeWidget_4");
+            var sWidgetTreeControl = ":_list_XTreeWidget_4";
             waitForObject(sWidgetTreeControl);
             var obj_TreeWidget = findObject(sWidgetTreeControl);
             var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
@@ -975,8 +975,7 @@ function main()
                 test.pass("Receiving PO has a GL entry");
             else test.fail(" Receiving PO has no GL entry");
             
-            waitForObject(":*.Close_QPushButton");
-            clickButton(":*.Close_QPushButton");     
+           nativeType("<Ctrl+W>");   
         }
         catch(e)
         {
@@ -1301,10 +1300,10 @@ function main()
             waitForObject(":General Ledger Transactions.Query_QPushButton");
             clickButton(":General Ledger Transactions.Query_QPushButton");
             
-            waitForObject(":_gltrans_XTreeWidget");
-            type(":_gltrans_XTreeWidget", "<Down>");
-            waitForObject(":_gltrans_XTreeWidget");
-            var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+            waitForObject(":_list_XTreeWidget_4");
+            type(":_list_XTreeWidget_4", "<Down>");
+            waitForObject(":_list_XTreeWidget_4");
+            var sWidgetTreeControl = ":_list_XTreeWidget_4";
             waitForObject(sWidgetTreeControl);
             var obj_TreeWidget = findObject(sWidgetTreeControl);
             var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
@@ -1316,8 +1315,7 @@ function main()
                 test.pass("Receiving PO has a GL entry");
             else test.fail(" Receiving PO has no GL entry");
             
-            waitForObject(":*.Close_QPushButton");
-            clickButton(":*.Close_QPushButton");
+            nativeType("<Ctrl+W>");
         }
         catch(e)
         {
@@ -1446,8 +1444,8 @@ function main()
         waitForObject(":General Ledger Transactions.Query_QPushButton");
         clickButton(":General Ledger Transactions.Query_QPushButton");
         
-        waitForObject(":_gltrans_XTreeWidget");
-        var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+        waitForObject(":_list_XTreeWidget_4");
+        var sWidgetTreeControl = ":_list_XTreeWidget_4";
         waitForObject(sWidgetTreeControl);
         var obj_TreeWidget = findObject(sWidgetTreeControl);
         var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
@@ -1460,8 +1458,7 @@ function main()
         else 
             test.fail("Posting of voucher has no GL entry");
         
-        waitForObject(":*.Close_QPushButton");
-        clickButton(":*.Close_QPushButton");                  
+        nativeType("<Ctrl+W>");                 
     }
     catch(e)
     {
@@ -1669,14 +1666,13 @@ function main()
         waitForObject(":General Ledger Transactions.Query_QPushButton");
         clickButton(":General Ledger Transactions.Query_QPushButton");
         
-        waitForObject(":_gltrans_XTreeWidget");        
-        if(object.exists("{column='2' container=':_gltrans_XTreeWidget' text='CK' type='QModelIndex'}") )
+        waitForObject(":_list_XTreeWidget_4");        
+        if(object.exists("{column='2' container=':_list_XTreeWidget_4' text='CK' type='QModelIndex'}") )
             test.pass("Posting of Checks has a GL entry");
         else
             test.fail("Posting of Checks has no GL entry");
         
-        waitForObject(":*.Close_QPushButton");
-        clickButton(":*.Close_QPushButton");                  
+        nativeType("<Ctrl+W>");              
     }
     catch(e)
     {
@@ -2083,8 +2079,8 @@ function main()
         waitForObject(":General Ledger Transactions.Query_QPushButton");
         clickButton(":General Ledger Transactions.Query_QPushButton");
         
-        waitForObject(":_gltrans_XTreeWidget");
-        var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+        waitForObject(":_list_XTreeWidget_4");
+        var sWidgetTreeControl = ":_list_XTreeWidget_4";
         waitForObject(sWidgetTreeControl);
         var obj_TreeWidget = findObject(sWidgetTreeControl);
         var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
@@ -2096,8 +2092,7 @@ function main()
             test.pass("Post Production has a GL entry");
         else test.fail("Post Production has no GL entry");
         
-        waitForObject(":*.Close_QPushButton");
-        clickButton(":*.Close_QPushButton");
+        nativeType("<Ctrl+W>");
     }
     catch(e)
     {
@@ -2558,8 +2553,8 @@ function main()
         waitForObject(":General Ledger Transactions.Query_QPushButton");
         clickButton(":General Ledger Transactions.Query_QPushButton");
         snooze(2);  
-        waitForObject(":_gltrans_XTreeWidget");
-        var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+        waitForObject(":_list_XTreeWidget_4");
+        var sWidgetTreeControl = ":_list_XTreeWidget_4";
         waitForObject(sWidgetTreeControl);
         var obj_TreeWidget = findObject(sWidgetTreeControl);
         var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
@@ -2571,8 +2566,7 @@ function main()
             test.pass("Posting Invoice has a GL entry");
         else test.fail("Posting Invoice has no GL entry");
         
-        waitForObject(":*.Close_QPushButton");
-        clickButton(":*.Close_QPushButton");
+        nativeType("<Ctrl+W>");
     }
     catch(e)
     {
@@ -2680,8 +2674,8 @@ function main()
         waitForObject(":General Ledger Transactions.Query_QPushButton");
         clickButton(":General Ledger Transactions.Query_QPushButton");
         snooze(2); 
-        waitForObject(":_gltrans_XTreeWidget");
-        var sWidgetTreeControl = ":_gltrans_XTreeWidget";
+        waitForObject(":_list_XTreeWidget_4");
+        var sWidgetTreeControl = ":_list_XTreeWidget_4";
         waitForObject(sWidgetTreeControl);
         var obj_TreeWidget = findObject(sWidgetTreeControl);
         var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
@@ -2689,12 +2683,11 @@ function main()
         type(sWidgetTreeControl,"<Space>");
         var obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
         var sNameOfRootItem = obj_TreeTopLevelItem.text(2);
-        if(object.exists("{column='2' container=':_gltrans_XTreeWidget' text='CR' type='QModelIndex'}"))
+        if(object.exists("{column='2' container=':_list_XTreeWidget_4' text='CR' type='QModelIndex'}"))
             test.pass("Posting Cash Receipts has a GL entry");
         else test.fail("Posting Cash Receipts has no GL entry");
         
-        waitForObject(":*.Close_QPushButton");
-        clickButton(":*.Close_QPushButton");
+       nativeType("<Ctrl+W>");
     }
     catch(e)
     {

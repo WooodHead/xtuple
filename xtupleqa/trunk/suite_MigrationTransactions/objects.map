@@ -145,6 +145,10 @@
 :Incident Workbench.Close_QPushButton	{container=':xTuple ERP:*.Incident Workbench_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :Incident Workbench.Query_QPushButton	{container=':xTuple ERP:*.Incident Workbench_QWorkspaceChild' name='_query' text='Query' type='QPushButton' visible='1'}
 :Incident Workbench.Status_QGroupBox	{container=':xTuple ERP:*.Incident Workbench_QWorkspaceChild' name='_statusGroup' title='Status' type='QGroupBox' visible='1'}
+:Include Status.Exploded_XCheckBox	{container=':Work Order Schedule by Planner Code.Include Status_QGroupBox' name='_exploded' text='Exploded' type='XCheckBox' visible='1'}
+:Include Status.In-Process_XCheckBox	{container=':Work Order Schedule by Planner Code.Include Status_QGroupBox' name='_inprocess' text='In-Process' type='XCheckBox' visible='1'}
+:Include Status.Open_XCheckBox	{container=':Work Order Schedule by Planner Code.Include Status_QGroupBox' name='_open' text='Open' type='XCheckBox' visible='1'}
+:Include Status.Released_XCheckBox	{container=':Work Order Schedule by Planner Code.Include Status_QGroupBox' name='_released' text='Released' type='XCheckBox' visible='1'}
 :Interface Options.Show windows inside workspace_QRadioButton	{container=':_application.Interface Options_QGroupBox' name='_interfaceWorkspace' text='Show windows inside workspace' type='QRadioButton' visible='1'}
 :Invoice Item_invoiceItem	{name='invoiceItem' type='invoiceItem' visible='1' windowTitle='Invoice Item'}
 :Invoice Register.Close_QPushButton	{container=':xTuple ERP:*.Invoice Register_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
@@ -488,6 +492,7 @@
 :W/O Schedule by Planner Code._optionsGroup_QGroupBox	{container=':xTuple ERP:*.W/O Schedule by Planner Code_QWorkspaceChild' name='_optionsGroup' type='QGroupBox' visible='1'}
 :W/O Schedule by Planner Code._qtyGroup_QGroupBox	{container=':xTuple ERP:*.W/O Schedule by Planner Code_QWorkspaceChild' name='_qtyGroup' type='QGroupBox' visible='1'}
 :W/O Schedule by Planner Code.frame_QFrame	{container=':xTuple ERP:*.W/O Schedule by Planner Code_QWorkspaceChild' name='frame' type='QFrame' visible='1'}
+:Work Order Schedule by Planner Code.Include Status_QGroupBox	{container=':xTuple ERP:*.Work Order Schedule by Planner Code_QWorkspaceChild' name='_statusGroup' title='Include Status' type='QGroupBox' visible='1'}
 :Work Order.Close_QPushButton	{container=':xTuple ERP:*.Work Order_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :Work Order.Create_QPushButton	{container=':xTuple ERP:*.Work Order_QWorkspaceChild' name='_create' text='Create' type='QPushButton' visible='1'}
 :Work Order.Work Order_QWorkspaceTitleBar	{container=':xTuple ERP:*.Work Order_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='Work Order'}
@@ -1100,6 +1105,7 @@
 :xTuple ERP:*.Voucher_QMenu	{name='menu.accnt.apvoucher' title='Voucher' type='QMenu' visible='1' window=':xTuple ERP:*_GUIClient'}
 :xTuple ERP:*.Voucher_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='Voucher'}
 :xTuple ERP:*.W/O Schedule by Planner Code_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='W/O Schedule by Planner Code'}
+:xTuple ERP:*.Work Order Schedule by Planner Code_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='Work Order Schedule by Planner Code'}
 :xTuple ERP:*.Work Order Schedule_QMenu	{name='menu.manu.reportsschedule' title='Work Order Schedule' type='QMenu' visible='1' window=':xTuple ERP:*_GUIClient'}
 :xTuple ERP:*.Work Order_QMenu	{name='menu.manu.orders' title='Work Order' type='QMenu' visible='1' window=':xTuple ERP:*_GUIClient'}
 :xTuple ERP:*.Work Order_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='Work Order'}

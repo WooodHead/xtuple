@@ -183,6 +183,7 @@
 :General Ledger Transactions.Filter_QGroupBox	{container=':*.General Ledger Transactions_QWorkspaceChild' name='_filterGroup' title='Filter' type='QGroupBox' visible='1'}
 :General Ledger Transactions.More_QPushButton	{container=':*.General Ledger Transactions_QWorkspaceChild' name='_filterButton' text='More' type='QPushButton' visible='1'}
 :General Ledger Transactions.Query_QPushButton	{container=':*.General Ledger Transactions_QWorkspaceChild' name='_query' text='Query' type='QPushButton' visible='1'}
+:General Ledger Transactions.Transactions_QLabel	{container=':*.General Ledger Transactions_QWorkspaceChild' name='_listLabel' text='Transactions' type='QLabel' visible='1'}
 :General Ledger Transactions._accountGroup_QGroupBox	{container=':*.General Ledger Transactions_QWorkspaceChild' name='_accountGroup' type='QGroupBox' visible='1'}
 :General Ledger Transactions._dateGroup_QGroupBox	{container=':*.General Ledger Transactions_QWorkspaceChild' name='_dateGroup' type='QGroupBox' visible='1'}
 :General Ledger Transactions._frame_QFrame	{container=':*.General Ledger Transactions_QWorkspaceChild' name='_frame' type='QFrame' visible='1'}
@@ -909,6 +910,7 @@
 :_list_XTreeWidget	{buddy=':Indented Bill of Materials.Bill Of Materials_QLabel' name='_list' type='XTreeWidget' visible='1'}
 :_list_XTreeWidget_2	{buddy=':Quantities on Hand by Item.Quantities on Hand_QLabel' name='_list' type='XTreeWidget' visible='1'}
 :_list_XTreeWidget_3	{buddy=':Customer History.Customer History_QLabel' name='_list' type='XTreeWidget' visible='1'}
+:_list_XTreeWidget_4	{buddy=':General Ledger Transactions.Transactions_QLabel' name='_list' type='XTreeWidget' visible='1'}
 :_modules.Accounting_QModelIndex	{container=':Setup._modules_QComboBox' text='Accounting' type='QModelIndex'}
 :_modules.Sales_QModelIndex	{container=':Setup._modules_QComboBox' text='Sales' type='QModelIndex'}
 :_name_QLineEdit	{buddy=':Prospect.Prospect Name:_QLabel' name='_name' type='QLineEdit' visible='1'}
