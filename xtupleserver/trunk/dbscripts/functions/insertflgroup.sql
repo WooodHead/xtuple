@@ -40,9 +40,12 @@ DECLARE
   _subtotal BOOLEAN;
   _r RECORD;
   _g RECORD;
+  _all BOOLEAN;
 
 BEGIN
 
+  _all = COALESCE(pPrjid,-1) = -1;
+  
 -- Check to see if this group wants a subtotal
   _subtotal := FALSE;
   IF (pFlgrpid != -1) THEN
@@ -190,7 +193,7 @@ BEGIN
                         FROM  period,flaccnt
                         WHERE ((flitem_flhead_id=pFlheadid)
                         AND (flitem_flgrp_id=pFlgrpid)
-                        AND (pPrjId IS NULL OR prj_id=pPrjId)
+                        AND (_all OR prj_id=pPrjId)
                         AND (period_id IN  (SELECT * FROM getperiodid(pPeriodId,pInterval))))
                         ORDER BY flitem_id
                         ) AS flitem
