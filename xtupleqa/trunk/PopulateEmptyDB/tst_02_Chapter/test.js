@@ -8,7 +8,7 @@ function main()
     //---login Application--------
     loginAppl("RUNREGISTER"); 
     
-    snooze(2);
+    snooze(1);
     if(object.exists(":Notice.Remind me about this again._QCheckBox"))
     {
         waitForObject(":Notice.Remind me about this again._QCheckBox");

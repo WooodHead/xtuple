@@ -12,7 +12,7 @@ function main()
     
     //---login Application--------
     loginAppl("CONFIGURE"); 
-    
+  
     //-----Editing the preferences----
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -121,7 +121,7 @@ function main()
     snooze(2);
     
     loginAppl("CONFIGURE"); 
-    
+  
     var appEdition = findApplicationEdition(); 
     
     
@@ -1172,10 +1172,10 @@ function main()
         test.log("Inventory Module Configured");
     }catch(e){test.fail("Exception in configuring Inventory"+ e);}
     
-    
+  
     //---Create User by Role--
     createUserByRole("RUNREGISTER");
-    
+  
     try{
         //----Read Username based on Role------
         var set = testData.dataset("login.tsv");
@@ -1190,7 +1190,7 @@ function main()
     }catch(e){test.fail("Exception caught in reading login.tsv");}
     
     snooze(2);
-    
+  
     //-------------User Preferences------------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");

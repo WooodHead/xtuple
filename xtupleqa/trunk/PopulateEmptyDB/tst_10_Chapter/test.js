@@ -8,8 +8,8 @@ function main()
     //---login Application--------
     loginAppl("RUNREGISTER");       
     var appEdition = findApplicationEdition();
-    
-    
+  
+  
     //--------------Define: Check Formats-------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -247,7 +247,7 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Adjustment types:"+e);}
-    
+  
     //------------Define: Fiscal Year----------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
