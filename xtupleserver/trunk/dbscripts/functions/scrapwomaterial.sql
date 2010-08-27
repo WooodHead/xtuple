@@ -67,10 +67,11 @@ BEGIN
   --  Distribute to G/L
   PERFORM insertGLTransaction( 'W/O', 'WO', formatWoNumber(womatl_wo_id),
 		 ('Scrap ' || item_number || ' from Work Order'),
-		 _r.costcat_wip_accnt_id, costcat_mfgscrap_accnt_id, -1,
+		 getPrjAccntId(wo_prj_id, _r.costcat_wip_accnt_id), getPrjAccntId(wo_prj_id, costcat_mfgscrap_accnt_id), -1,
 		 _scrapValue, date(pGlDistTS) )
-  FROM womatl, itemsite, item, costcat
-  WHERE ( (womatl_itemsite_id=itemsite_id)
+  FROM wo, womatl, itemsite, item, costcat
+  WHERE ( (wo_id=womatl_wo_id)
+   AND (womatl_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)
    AND (itemsite_costcat_id=costcat_id)
    AND (womatl_id=pWomatlid) );
