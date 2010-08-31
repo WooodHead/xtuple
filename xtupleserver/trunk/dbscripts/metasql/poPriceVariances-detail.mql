@@ -29,9 +29,9 @@ SELECT porecv_id, porecv_ponumber, porecv_date,
   currToBase(vohead_curr_id, SUM(vodist_amount) / SUM(vodist_qty), vohead_distdate) * porecv_qty AS voucher_value,
   currToBase(vohead_curr_id, SUM(vodist_amount) / SUM(vodist_qty), vohead_distdate) * porecv_qty -
   porecv_value                                                                              AS variance, 
-  CASE WHEN (porecv_value IS NOT NULL) THEN
+  CASE WHEN (COALESCE(porecv_value, 0.0) <> 0.0) THEN
     ((currToBase(vohead_curr_id, SUM(vodist_amount) / SUM(vodist_qty), vohead_distdate) * porecv_qty /
-    porecv_value) -1)    * 100 END                                                          AS varprcnt,     
+    porecv_value) -1)    * 100 ELSE 100.0 END                                               AS varprcnt,     
   currConcat(baseCurrId())                                                                  AS currAbbr,
   '0' AS porecv_value_xttotalrole,
   '0' AS voucher_value_xttotalrole,
@@ -43,9 +43,9 @@ SELECT porecv_id, porecv_ponumber, porecv_date,
   SUM(vodist_amount) / SUM(vodist_qty) * porecv_qty                                         AS voucher_value,
   SUM(vodist_amount) / SUM(vodist_qty) * porecv_qty -
     currToLocal(vohead_curr_id, porecv_value, vohead_distdate)                              AS variance, 
-  CASE WHEN (porecv_value IS NOT NULL) THEN
+  CASE WHEN (COALESCE(porecv_value, 0.0) <> 0.0) THEN
     ((SUM(vodist_amount) / SUM(vodist_qty) * porecv_qty /
-  currToLocal(vohead_curr_id, porecv_value, vohead_distdate)) -1) * 100  END                 AS varprcnt,       
+  currToLocal(vohead_curr_id, porecv_value, vohead_distdate)) -1) * 100 ELSE 100.0 END      AS varprcnt,       
   currConcat(vohead_curr_id) AS currAbbr,
 <? endif ?>
   'qty' AS porecv_qty_xtnumericrole,
