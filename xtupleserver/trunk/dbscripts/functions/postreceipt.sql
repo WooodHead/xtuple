@@ -198,7 +198,7 @@ BEGIN
           SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
                                       'Purchase price variance adjusted for P/O ' || _o.orderhead_number || ' for item ' || _r.item_number,
                                       costcat_liability_accnt_id,
-                                      getPrjAccntId(_o.prj_accnt_id, costcat_purchprice_accnt_id), -1,
+                                      getPrjAccntId(_o.prj_id, costcat_purchprice_accnt_id), -1,
                                       _pricevar,
                                       _glDate::DATE ) INTO _tmp
           FROM itemsite, costcat
