@@ -1,4 +1,6 @@
 
+debugger;
+
 //find the tab list and create a new widget to insert into it.
 var tablist = mywindow.findChild("_tab"); 
 // load a predefined screen by name from the database
@@ -7,58 +9,46 @@ var billingPage = toolbox.loadUi("tebilling", mywindow);
 //insert the new tab
 toolbox.tabInsertTab(tablist,2,billingPage, "Billing Information");
 
-var _save = mywindow.findChild("_save");
-_save.clicked.connect(billingSave);
+// project.ssave() emits a "saved" signal after save
+mywindow.saved.connect(billingSave);
+         
+// project.populate() emits a "populated" signal after populating
+mywindow.populated.connect(billingPopulate);
          
 var _deleteTask = mywindow.findChild("_deleteTask");
 _deleteTask.clicked.connect(deleteTask);
-    
 
-var _number 	= mywindow.findChild("_number");
-var _item		= mywindow.findChild("_item");
-var _itemLit	= mywindow.findChild("_itemLit");
-var _rate 		= mywindow.findChild("_rate"); 
-var _cust		= mywindow.findChild("_cust");
+var _number     = mywindow.findChild("_number");
+var _item       = mywindow.findChild("_item");
+var _itemLit    = mywindow.findChild("_itemLit");
+var _rate       = mywindow.findChild("_rate"); 
+_rate.setValidator(toolbox.moneyVal());
+var _cust       = mywindow.findChild("_cust");
 
 _item.visible = false;
 _itemLit.visible = false;
 
-//_number.textChanged.connect(getProject);
-_number.editingFinished.connect(getProject);
-
-
 function billingSave()
 {
-
    var params = new Object();
-   params.rate = mywindow.findChild("_rate").text;
-   if (params.rate == '')
-   {
-     params.rate = 0;
-   }
+   params.rate = _rate.toDouble();
    params.custid = _cust.id();
-   params.project = mywindow.findChild("_number").displayText;
+   params.project = _number.displayText;
 
    var q = toolbox.executeDbQuery("te","addteprj",params);
 
-
-   //look for a task assigned to this project...if not found...then create a default project
+   //look for a task assigned to this project...if not found...then create a default task
 
    var q = toolbox.executeQuery('select prj_id from prj where prj_number = <? value("project") ?>;',params);
-
-
    if (q.first())
    {
      var _prj;
      _prj = (q.value("prj_id"));
    }
-
- 
    getTaskbyPrj(_prj);
 
 
 /*
-
      var params = new Object();
      params.rate = mywindow.findChild("_rate").text;
      params.custid = _cust.id();
@@ -71,6 +61,18 @@ function billingSave()
 
 }
 
+function billingPopulate()
+{
+   var params = new Object();
+   params.project = _number.displayText;
+
+   var q = toolbox.executeQuery('select * from te.teprj where teprj_prj_id = getPrjId(<? value("project") ?>);',params);
+   if (q.first())
+   {
+     _cust.setId(q.value("teprj_cust_id"));
+     _rate.text=q.value("teprj_rate");
+   }
+}
 
 function getTaskbyPrj(prj)
 {
@@ -125,32 +127,3 @@ function deleteTask()
         + ' WHERE teprjtask_id = <? value("task") ?>;',params);
 
 }
-
-
-function getProject()
-{
-    var params = new Object();
-    params.project = mywindow.findChild("_number").displayText;
-
-/*    var q = toolbox.executeQuery("SELECT teprj_cust_id as custid, "
-        + "teprj_rate as rate "
-        + "FROM te.teprj "
-        + ' WHERE teprj_prj_id = (getprjid(<? value("project") ?>));',params);
-*/
-    var q = toolbox.executeQuery('SELECT te.getprjcustid(<? value("project") ?>)',params);
-
-    if (q.lastError().type != QSqlError.NoError)
-
-    {
-      toolbox.messageBox("critical", mywindow,
-                         qsTr("Database Error"), q.lastError().text);
-      return;
-    }
-
-//    if (q.first())
-  //  {
-    //  _rate.setText(q.value("rate"));
-    //  _cust.setId(q.value("custid"));
-    //}
-}
-
