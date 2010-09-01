@@ -26,7 +26,7 @@ BEGIN
             GROUP BY poreject_id, pohead_number, poreject_poitem_id, poitem_id,
 		     poitem_expcat_id, poitem_unitprice, pohead_curr_id,
 		     pohead_orderdate, itemsite_id, poitem_invvenduomratio,
-                    itemsite_item_id, itemsite_costmethod LOOP
+                    itemsite_item_id, itemsite_costmethod, poitem_prj_id LOOP
 
     IF (_p.itemsiteid = -1) THEN
         SELECT insertGLTransaction( 'S/R', 'PO', _p.pohead_number, 'Return Non-Inventory to P/O',
