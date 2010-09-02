@@ -87,7 +87,8 @@ BEGIN
     FOR _r IN SELECT item_id, item_fractional,
                       itemsite_id, itemsite_warehous_id,
                       itemsite_controlmethod, itemsite_loccntrl,
-                      itemsite_costmethod, wo_qtyrcv,
+                      itemsite_costmethod, 
+                      wo_qtyrcv, wo_prj_id,
                       womatl_id, womatl_qtyfxd, womatl_qtyper,
                       womatl_scrap, womatl_issuemethod, womatl_uom_id
                FROM womatl, wo, itemsite, item
@@ -116,7 +117,7 @@ BEGIN
         SELECT postInvTrans( itemsite_id, 'IM', (_invqty * -1),
                              'W/O', 'WO', formatwonumber(pWoid), '',
                              ('Correct Receive Inventory ' || item_number || ' ' || _sense || ' Manufacturing'),
-                             _parentWIPAccntid, costcat_asset_accnt_id, _itemlocSeries, pGlDistTS ) INTO _invhistid
+                             getPrjAccntId(_r.wo_prj_id, _parentWIPAccntid), costcat_asset_accnt_id, _itemlocSeries, pGlDistTS ) INTO _invhistid
         FROM itemsite, item, costcat
         WHERE ( (itemsite_item_id=item_id)
          AND (itemsite_costcat_id=costcat_id)
@@ -159,7 +160,8 @@ BEGIN
 	--  ROB Distribute to G/L - create Cost Variance, debit WIP
 	  PERFORM insertGLTransaction( 'W/O', 'WO', formatwonumber(pWoid),
 				       ('Correct Post Other Cost ' || item_number || ' ' || _sense || ' Manufacturing'),
-				       costelem_exp_accnt_id, costcat_wip_accnt_id, _invhistid,
+				       getPrjAccntId(wo_prj_id, costelem_exp_accnt_id), 
+				       getPrjAccntId(wo_prj_id, costcat_wip_accnt_id), _invhistid,
 				       ((itemcost_stdcost * _parentQty)* -1),
 				       CURRENT_DATE )
 	FROM wo, costelem, itemcost, costcat, itemsite, item
@@ -180,7 +182,7 @@ BEGIN
   SELECT postInvTrans( itemsite_id, 'RM', (_parentQty * -1),
                        'W/O', 'WO', formatwonumber(pWoid), '',
                        ('Correct Receive Inventory ' || item_number || ' ' || _sense || ' Manufacturing'),
-                       costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, pGlDistTS,
+                       costcat_asset_accnt_id, getPrjAccntId(wo_prj_id, costcat_wip_accnt_id), _itemlocSeries, pGlDistTS,
                        CASE WHEN (wo_qtyrcv > 0) THEN
                        ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) * _parentQty -- only used when cost is average
                             ELSE 0 END
