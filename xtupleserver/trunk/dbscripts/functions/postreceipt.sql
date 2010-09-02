@@ -248,8 +248,10 @@ BEGIN
 			  '',
 			  'Receive Inventory from ' || _ordertypeabbr,
 			  costcat_asset_accnt_id,
-                          CASE WHEN(COALESCE(_ra.raitem_cos_accnt_id, -1) != -1) THEN _ra.raitem_cos_accnt_id
-			       WHEN (_ra.raitem_warranty) THEN resolveCOWAccount(_r.itemsite_id,_ra.rahead_cust_id)
+                          CASE WHEN(COALESCE(_ra.raitem_cos_accnt_id, -1) != -1) THEN 
+				 getPrjAccntId(_o.prj_id, _ra.raitem_cos_accnt_id)
+				WHEN (_ra.raitem_warranty) THEN 
+			         getPrjAccntId(_o.prj_id, resolveCOWAccount(_r.itemsite_id,_ra.rahead_cust_id))
 			       ELSE getPrjAccntId(_o.prj_id, resolveCORAccount(_r.itemsite_id,_ra.rahead_cust_id))
 			  END,
 			  _itemlocSeries, _glDate, COALESCE(_o.unitcost,stdcost(itemsite_item_id)) * _r.recv_qty * _o.invvenduomratio) INTO _tmp
