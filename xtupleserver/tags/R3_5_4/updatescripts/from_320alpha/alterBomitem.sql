@@ -1,0 +1,5 @@
+BEGIN;
+
+ALTER TABLE bomitem ADD COLUMN bomitem_ref TEXT;
+
+COMMIT;

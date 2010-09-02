@@ -1,0 +1,10 @@
+BEGIN;
+
+ALTER TABLE apopen ALTER COLUMN apopen_curr_rate TYPE NUMERIC;
+ALTER TABLE aropen ALTER COLUMN aropen_curr_rate TYPE NUMERIC;
+ALTER TABLE checkhead ALTER COLUMN checkhead_curr_rate TYPE NUMERIC;
+ALTER TABLE checkitem ALTER COLUMN checkitem_curr_rate TYPE NUMERIC;
+ALTER TABLE curr_rate ALTER COLUMN curr_rate TYPE NUMERIC;
+ALTER TABLE taxhist ALTER COLUMN taxhist_curr_rate TYPE NUMERIC;
+
+COMMIT;
