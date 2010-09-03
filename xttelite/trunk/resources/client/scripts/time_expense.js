@@ -75,10 +75,8 @@ _task.newID.connect(sHandleTask);
 // if the employee has admin priv - then enable the employee drop down...otherwise...populate only with the current employee/login
 
 var _sheetLit 	= mywindow.findChild("_sheetLit");
-var _linenumberLit 	= mywindow.findChild("_linenumberLit");
 
 _sheetLit.visible=false;
-_linenumberLit.visible = false;
 
 // Define connections
 _rate.valueChanged.connect(extension);
@@ -449,7 +447,6 @@ function populate(mode)
   if (mode == _editMode)
   {
     _sheetLit.visible=true;
-    _linenumberLit.visible = true;
     _weekending.enabled = false;
     try
     {
@@ -571,7 +568,6 @@ function populate(mode)
   {
     _modified = false;
     _sheetLit.visible=true;
-    _linenumberLit.visible = true;
     _weekending.enabled = false;
     _save.enabled = false;
     _next.enabled = false;
@@ -702,6 +698,21 @@ function populate(mode)
   {
     try
     {
+      var params = new Object();
+      params.prjid = _project.id();
+      params.headid = _headid;
+      params.id = _itemid;
+
+      if (_linenumber.text == "")
+      {
+        var q = toolbox.executeQuery('select te.maxline(<? value("headid") ?>) + 1 as linenumber;',params);
+        if (q.first())
+        {
+          _linenumber.setText(q.value("linenumber"));
+          _linenum = (q.value("linenumber"));
+        }
+      }
+
       if(_weekending.date > 0){
         _weekending.enabled = false;
       }
@@ -709,16 +720,10 @@ function populate(mode)
       //_project.enabled = false;
       _task.enabled = false;
 
-      var params = new Object();
-      params.prjid = _project.id();
-
       if (_headid > 0)
       {
         _sheetLit.visible=true;
         
-        params.headid = _headid;
-        params.id = _itemid;
-
         var q = toolbox.executeQuery("select tehead_number as sheet_number, "
                        + " tehead_id, tehead_weekending as weekending "
                        + " from te.tehead where "
@@ -782,23 +787,32 @@ function sSave()
 {
     var params = new Object();
     params.weekendingdate = _weekending.date;
-    params.workdate = _workdate.date;
-    params.employees = mywindow.findChild("_employees").id();
+    params.workdate       = _workdate.date;
+    params.employees      = _employees.id();
+    params.hours          = _hours.localValue;
+    params.rate           = _rate.localValue;
+    params.total          = _total.localValue;
+    params.clients        = _clients.id();
+    params.po             = _po.text;
+    params.items          = _items.id();
+    params.project        = _project.text;
+    params.projid         = _project.id();
+    params.task           = _task.text;
+    params.taskid         = _task.id();
+    params.sheet          = _sheetnum;
+    params.line           = _linenum;
+    params.site           = _site;
+    params.notes          = _notes.plainText;
 
-    params.hours = mywindow.findChild("_hours").localValue;
-    params.rate = mywindow.findChild("_rate").localValue;
-    params.total = mywindow.findChild("_total").localValue;
-    params.clients = _clients.id();
-    params.po = mywindow.findChild("_po").text;
-    params.items = mywindow.findChild("_items").id();
-    params.project = mywindow.findChild("_project").text;
-    params.projid = mywindow.findChild("_project").id();
-    params.task = mywindow.findChild("_task").text;
-    params.taskid = mywindow.findChild("_task").id();
-    params.sheet = _sheetnum;
-    params.line = _linenum;
-    params.site = _site;
-    params.notes = _notes.plainText;
+    if (_itemid > 0){
+      params.itemid = _itemid;
+    }
+
+    if (_headid > 0){
+      params.headid = _headid;
+    }else{
+      params.headid;
+    }
 
     if(_billable.checked){
       params.billable = true;   
@@ -810,16 +824,6 @@ function sSave()
       params.prepaid = true;   
     }else{
       params.prepaid = false;
-    }
-
-    if (_itemid > 0){
-      params.itemid = _itemid;
-    }
-
-    if (_headid > 0){
-      params.headid = _headid;
-    }else{
-      params.headid;
     }
 
     if (_radioTime.checked){
@@ -892,27 +896,30 @@ function sSave()
        return;
     }
 
-    //var q = toolbox.executeDbQuery("te","addsheet",params);
-    var q = toolbox.executeQuery('select te.addsheet(<? value("weekendingdate") '
-	+ ' ?>,<? value("workdate") ?>,<? value("items") ?>, '
-    + ' <? value("employees") ' 
-	+ ' ?>,<? value("po") ?>,<? value("clients") ?>, '
-	+ ' <? value("hours") ?>,<? value("rate") ?>, '
-	+ ' <? value("total") ?>, '
-           + ' <? value("headid") ?>, '
-	+ ' <? value("site") ?>,'
-           + '<? value("projid") ?>, '
-	+ '<? value("taskid") ?>, ' 
-	+ '<? value("type") ?>,'
-	+ ' <? value("line") ?>,'
-           + ' <? value("billable") ?>,'
-           + ' <? value("prepaid") ?>,'
-           + ' <? value("notes") ?> );',params);
+    var q = toolbox.executeQuery('select te.addsheet(<? value("weekendingdate") ?>, '
+                                                 + ' <? value("workdate") ?>, '
+                                                 + ' <? value("items") ?>, '
+                                                 + ' <? value("employees") ?>, ' 
+                                                 + ' <? value("po") ?>, '
+                                                 + ' <? value("clients") ?>, '
+                                                 + ' <? value("hours") ?>, '
+                                                 + ' <? value("rate") ?>, '
+                                                 + ' <? value("total") ?>, '
+                                                 + ' <? value("headid") ?>, '
+                                                 + ' <? value("site") ?>, '
+                                                 + ' <? value("projid") ?>, '
+                                                 + ' <? value("taskid") ?>, ' 
+                                                 + ' <? value("type") ?>, '
+                                                 + ' <? value("line") ?>, '
+                                                 + ' <? value("billable") ?>, '
+                                                 + ' <? value("prepaid") ?>, '
+                                                 + ' <? value("notes") ?>, '
+                                                 + ' NULL, '
+                                                 + ' <? value("itemid") ?> );',params);
 
     _cancel.text = "Close";
 
     _prev.enabled = true;
-    _linenumberLit.visible = true;
     _linenumber.enabled = true;
     if (_linenumber.text == ""){
       var q = toolbox.executeQuery('select ' 
