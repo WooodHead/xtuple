@@ -1193,7 +1193,7 @@ function sSaveClose()
   if (_error == false)
     mywindow.close();
 
-  _error == false;
+  _error = false;
 
 }
 
