@@ -6,36 +6,37 @@ var _newMode    = 0;
 var _editMode   = 1;
 var _viewMode   = 2;
 
-var _hours		= mywindow.findChild("_hours");
-var _total		= mywindow.findChild("_total");	
-var _totalLit	= mywindow.findChild("_totalLit");	
-var _rate	  	= mywindow.findChild("_rate");
-var _rateLit	= mywindow.findChild("_rateLit");
-var _clients	= mywindow.findChild("_clients");
-var _employees	= mywindow.findChild("_employees");
-var _items		= mywindow.findChild("_items");
-var _po		= mywindow.findChild("_po");
-var _project	= mywindow.findChild("_project");
-var _task		= mywindow.findChild("_task");
-var _linenumber	= mywindow.findChild("_linenumber");
-var _sheet		= mywindow.findChild("_sheet");
-var _cancel		= mywindow.findChild("_cancel");
-var _save		= mywindow.findChild("_save");
-var _weekending	= mywindow.findChild("_weekending");
-var _workdate	= mywindow.findChild("_workdate");
-var _radioTime	= mywindow.findChild("_radioTime");
-var _radioExpense	= mywindow.findChild("_radioExpense");
-var _qtyLabel        	= mywindow.findChild("_qtyLabel");
-var _billable        	= mywindow.findChild("_billable");
-var _prepaid        	= mywindow.findChild("_prepaid");
-var _budgetactual	= mywindow.findChild("_budgetactual");	
-var _actual        	= mywindow.findChild("_actual");
-var _budget        	= mywindow.findChild("_budget");
-var _actualCost       	= mywindow.findChild("_actualCost");
-var _budgetCost       	= mywindow.findChild("_budgetCost");
-var _notes		= mywindow.findChild("_notes");
-var _prev		= mywindow.findChild("_previous");
-var _next		= mywindow.findChild("_new");
+var _hours              = mywindow.findChild("_hours");
+var _total              = mywindow.findChild("_total");	
+var _totalLit           = mywindow.findChild("_totalLit");	
+var _rate               = mywindow.findChild("_rate");
+var _rateLit            = mywindow.findChild("_rateLit");
+var _clients            = mywindow.findChild("_clients");
+var _employees          = mywindow.findChild("_employees");
+var _items              = mywindow.findChild("_items");
+var _po	                = mywindow.findChild("_po");
+var _project            = mywindow.findChild("_project");
+var _task               = mywindow.findChild("_task");
+var _linenumber         = mywindow.findChild("_linenumber");
+var _sheet              = mywindow.findChild("_sheet");
+var _cancel             = mywindow.findChild("_cancel");
+var _save               = mywindow.findChild("_save");
+var _weekending         = mywindow.findChild("_weekending");
+var _workdate           = mywindow.findChild("_workdate");
+var _radioTime          = mywindow.findChild("_radioTime");
+var _radioExpense       = mywindow.findChild("_radioExpense");
+var _qtyLabel           = mywindow.findChild("_qtyLabel");
+var _billable           = mywindow.findChild("_billable");
+var _prepaid            = mywindow.findChild("_prepaid");
+var _budgetactual       = mywindow.findChild("_budgetactual");	
+var _actual             = mywindow.findChild("_actual");
+var _budget             = mywindow.findChild("_budget");
+var _actualCost         = mywindow.findChild("_actualCost");
+var _budgetCost         = mywindow.findChild("_budgetCost");
+var _notes              = mywindow.findChild("_notes");
+var _prev               = mywindow.findChild("_previous");
+var _next               = mywindow.findChild("_new");
+
 var _savehours;
 var _saverate;
 var _saveproject;
@@ -216,15 +217,17 @@ function sFillItems()
 
 function gettask()
 {
-  var params = new Object();
-  params.prj = _project.id();
-
-  if(params.prj > 0){
+  if (_project.isValid())
+  {
+    var params = new Object();
+    params.prj = _project.id();
+    params.prjnum = _project.number;
 
     var qry = toolbox.executeDbQuery("te", "gettask", params);
     _task.populate(qry);
 
-    if(_taskid > 0){
+    if(_taskid > 0)
+    {
       _task.setId(_taskid);
     }
 
@@ -238,18 +241,17 @@ function gettask()
     if (qry.first())
     {
     // no action
-    }else{
-        toolbox.messageBox("critical", mywindow,
-                       qsTr("task"), "No task found. A default task will be added");
-
-      var parmlist = new Object();
-      parmlist.prjnum = _project.number;
-
-      var q = toolbox.executeQuery("insert into api.task(project_number,"
-	+ "number,status,name,description,owner,assigned_to) "
+    }
+    else
+    {
+      toolbox.messageBox("critical", mywindow, qsTr("task"), "No task found. A default task will be added");
+      var q = toolbox.executeQuery("insert into api.task(project_number,number,status,name,description,owner,assigned_to) "
 	+ 'values(<? value("prjnum") ?>,'
 	+ "'DEFAULT','In-Process',"
-            + "'Default','Default',CURRENT_USER,CURRENT_USER);",parmlist);
+        + "'Default','Default',CURRENT_USER,CURRENT_USER);",params);
+
+      var qry = toolbox.executeDbQuery("te", "gettask", params);
+      _task.populate(qry);
     }
 
     getprice();
