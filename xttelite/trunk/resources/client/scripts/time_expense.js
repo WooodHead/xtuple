@@ -143,6 +143,10 @@ function set(input)
       _headid = input.headid;
       _site = input.site;
       _empid = input.empid;
+
+      // initialize qty
+      _hours.localValue = 1.0;
+
       // increment the max line number...
       populate(0);
     }
