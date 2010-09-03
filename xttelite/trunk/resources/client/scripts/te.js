@@ -41,23 +41,23 @@ var _filter;
 
 //add logic to determine the next Sunday date and populate both start and end with it
 
-//_lines.addColumn(qsTr("head id"), -1, Qt.AlignLeft,    true, "tehead_id");
-_lines.addColumn(qsTr("Sheet Number"),-1, Qt.AlignLeft,    true, "sheet_number");
-_lines.addColumn(qsTr("Line Number"), 115, Qt.AlignLeft,    true, "line_number");
-_lines.addColumn(qsTr("Sheet Date"), 50, Qt.AlignLeft,    true, "weekending");
-_lines.addColumn(qsTr("Work Date"),   50, Qt.AlignLeft,    true, "workdate");
-_lines.addColumn(qsTr("Customer"),	    115, Qt.AlignLeft,    true, "cust_number");
-_lines.addColumn(qsTr("PO"), 	    100, Qt.AlignLeft,    true, "po");
-_lines.addColumn(qsTr("Item"), 	    115, Qt.AlignLeft,    true, "item");
-_lines.addColumn(qsTr("Description"), 115, Qt.AlignLeft,    true, "description");
-_lines.addColumn(qsTr("Units"),   	    100, Qt.AlignLeft,    true, "hours");
+_lines.addColumn(qsTr("Sheet #"),              115, Qt.AlignLeft,    true, "tehead_number");
+_lines.addColumn(qsTr("Line #"),               115, Qt.AlignLeft,    true, "teitem_linenumber");
+_lines.addColumn(qsTr("Sheet Date"),           50,  Qt.AlignLeft,    true, "tehead_weekending");
+_lines.addColumn(qsTr("Work Date"),            50,  Qt.AlignLeft,    true, "teitem_workdate");
+_lines.addColumn(qsTr("Customer"),             115, Qt.AlignLeft,    true, "cust_number");
+_lines.addColumn(qsTr("PO"),                   100, Qt.AlignLeft,    true, "teitem_po");
+_lines.addColumn(qsTr("Item"),                 115, Qt.AlignLeft,    true, "item_number");
+_lines.addColumn(qsTr("Description"),          -1,  Qt.AlignLeft,    true, "item_descrip1");
+_lines.addColumn(qsTr("Units"),                100, Qt.AlignRight,   true, "teitem_qty");
 
 if (privileges.check("CanViewRates"))
 {
-  _lines.addColumn(qsTr("Rate"), 	    115, Qt.AlignRight,    true, "rate");
-  _lines.addColumn(qsTr("Extended"),    115, Qt.AlignRight,    true, "extended");
+  _lines.addColumn(qsTr("Billable"),           100, Qt.AlignLeft,    true, "teitem_billable");
+  _lines.addColumn(qsTr("Rate"),               115, Qt.AlignRight,   true, "teitem_rate");
+  _lines.addColumn(qsTr("Extended"),           115, Qt.AlignRight,   true, "teitem_total");
 }
-_lines.addColumn(qsTr("Time/Exp"),    20, Qt.AlignLeft,    true, "type");
+_lines.addColumn(qsTr("Time/Exp"),             50,  Qt.AlignLeft,    true, "teitem_type");
 
 _lines.itemSelected.connect(_edit, "animateClick");
 
@@ -309,89 +309,73 @@ function sFillList()
   if (_id > 0)
   {
     q = toolbox.executeQuery('select teitem_id,tehead_id,'
-		+ 'tehead_number as sheet_number,'
-                       + 'tehead_site, tehead_weekending as weekending,'
-                       + 'teitem_workdate as workdate,item_number as item,'
-		+ 'item_descrip1 as description,'
-                       + 'formatqty(teitem_qty) as hours,'
-                       + 'formatsalesprice(teitem_rate) as rate,'
-                       + "emp_code,teitem_emp_id,'' as cust_number,"
-		+ 'teitem_po as po,teitem_linenumber as line_number, '
-		+ 'tehead_notes as notes,teitem_type as type, '
-                       + 'formatsalesprice(teitem_total) as extended '
-                       + 'from te.tehead,te.teitem,item,emp '
-                       + 'where tehead_id = teitem_tehead_id '
-                       + 'and tehead_id = <? value("id") ?> '
-                       + 'and teitem_emp_id= emp_id '
-                       + 'and teitem_item_id = item_id '
-                       + 'and teitem_cust_id = -1 '
-		+ 'union '
-		+ 'select teitem_id,tehead_id,'
-		+ 'tehead_number as sheet_number,'
-                       + 'tehead_site, tehead_weekending as weekending,'
-                       + 'teitem_workdate as workdate,item_number as item,'
-		+ 'item_descrip1 as description,'
-                       + 'formatqty(teitem_qty) as hours,'
-                       + 'formatsalesprice(teitem_rate) as rate,'
-                       + 'emp_code,teitem_emp_id,cust_number,'
-		+ 'teitem_po as po,teitem_linenumber as line_number, '
-		+ 'tehead_notes as notes,teitem_type as type, '
-                       + 'formatsalesprice(teitem_total) as extended '
-                       + 'from te.tehead,te.teitem,item,emp,cust '
-                       + 'where tehead_id = teitem_tehead_id '
-                       + 'and tehead_id = <? value("id") ?> '
-                       + 'and teitem_emp_id= emp_id '
-                       + 'and teitem_item_id = item_id '
-                       + 'and teitem_cust_id = cust_id '
-                       + 'order by line_number ', params );
+                           + '       tehead.*, teitem.*,'
+                           + '       item_number, item_descrip1,'
+                           + "       emp_code, '' AS cust_number,"
+                           + "      'qty' AS teitem_qty_xtnumericrole,"
+                           + "      'salesprice' AS teitem_rate_xtnumericrole,"
+                           + "      'salesprice' AS teitem_total_xtnumericrole "
+                           + 'from te.tehead,te.teitem,item,emp '
+                           + 'where tehead_id = teitem_tehead_id '
+                           + '  and tehead_id = <? value("id") ?> '
+                           + '  and teitem_emp_id= emp_id '
+                           + '  and teitem_item_id = item_id '
+                           + '  and teitem_cust_id = -1 '
+                           + 'union '
+                           + 'select teitem_id,tehead_id,'
+                           + '       tehead.*, teitem.*,'
+                           + '       item_number, item_descrip1,'
+                           + '       emp_code, cust_number,'
+                           + "      'qty' AS teitem_qty_xtnumericrole,"
+                           + "      'salesprice' AS teitem_rate_xtnumericrole,"
+                           + "      'salesprice' AS teitem_total_xtnumericrole "
+                           + 'from te.tehead,te.teitem,item,emp,cust '
+                           + 'where tehead_id = teitem_tehead_id '
+                           + '  and tehead_id = <? value("id") ?> '
+                           + '  and teitem_emp_id= emp_id '
+                           + '  and teitem_item_id = item_id '
+                           + '  and teitem_cust_id = cust_id '
+                           + 'order by teitem_linenumber ', params );
   }else{
     q = toolbox.executeQuery('select teitem_id,tehead_id,tehead_number as sheet_number,'
-                             + 'tehead_site,tehead_weekending s weekending,'
-                             + 'teitem_workdate as workdate,'
-                             + 'item_number as item,item_descrip1 as description,'
-                             + 'formatqty(teitem_qty) as hours,'
-                             + 'formatsalesprice(teitem_rate) as rate,'
-                             + "emp_code,teitem_emp_id,'' as cust_number,"
-		      + 'teitem_po as po,'
-                             + 'teitem_linenumber as line_number, '
-   		      + 'tehead_notes as notes,teitem_type as type, '
-                             + 'formatsalesprice(teitem_total) as extended '
-                             + 'from te.tehead,te.teitem,item,emp '
-                             + 'where tehead_id = teitem_tehead_id '
-                             + 'and teitem_emp_id = emp_id '
-                             + 'and teitem_item_id = item_id '
-                             + 'and teitem_emp_id = <? value("emp") ?> '
-		      + 'union '
-		      + 'select teitem_id,tehead_id,'
-		      + 'tehead_number as sheet_number,'
-                             + 'tehead_site,tehead_weekending s weekending,'
-                             + 'teitem_workdate as workdate,'
-                             + 'item_number as item,item_descrip1 as description,'
-                             + 'formatqty(teitem_qty) as hours,'
-                             + 'formatsalesprice(teitem_rate) as rate,'
-                             + 'emp_code,teitem_emp_id,cust_number,teitem_po as po,'
-                             + 'teitem_linenumber as line_number, '
-   		      + 'tehead_notes as notes,teitem_type as type, '
-                             + 'formatsalesprice(teitem_total) as extended '
-                             + 'from te.tehead,te.teitem,item,emp,cust '
-                             + 'where tehead_id = teitem_tehead_id '
-                             + 'and teitem_emp_id = emp_id '
-                             + 'and teitem_item_id = item_id '
-                             + 'and teitem_cust_id = cust_id '
-                             + 'and teitem_emp_id = <? value("emp") ?> '
-                             + ' order by line_number;', params );
+                           + '       tehead.*, teitem.*,'
+                           + '       item_number, item_descrip1,'
+                           + "       emp_code, '' AS cust_number,"
+                           + "      'qty' AS teitem_qty_xtnumericrole,"
+                           + "      'salesprice' AS teitem_rate_xtnumericrole,"
+                           + "      'salesprice' AS teitem_total_xtnumericrole "
+                           + 'from te.tehead,te.teitem,item,emp '
+                           + 'where tehead_id = teitem_tehead_id '
+                           + '  and teitem_emp_id = emp_id '
+                           + '  and teitem_item_id = item_id '
+                           + '  and teitem_emp_id = <? value("emp") ?> '
+		           + 'union '
+                           + 'select teitem_id,tehead_id,'
+                           + '       tehead.*, teitem.*,'
+                           + '       item_number, item_descrip1,'
+                           + '       emp_code, cust_number,'
+                           + "      'qty' AS teitem_qty_xtnumericrole,"
+                           + "      'salesprice' AS teitem_rate_xtnumericrole,"
+                           + "      'salesprice' AS teitem_total_xtnumericrole "
+                           + 'from te.tehead,te.teitem,item,emp,cust '
+                           + 'where tehead_id = teitem_tehead_id '
+                           + '  and teitem_emp_id = emp_id '
+                           + '  and teitem_item_id = item_id '
+                           + '  and teitem_cust_id = cust_id '
+                           + '  and teitem_emp_id = <? value("emp") ?> '
+                           + ' order by teitem_linenumber;', params );
 
   }
 
     _lines.populate(q);
     if (q.first())
     {    
-    _weekending.date = q.value("weekending");
-    _sheetNumberExtra.text = q.value("sheet_number");
+    _weekending.date = q.value("tehead_weekending");
+    _sheetNumberExtra.text = q.value("tehead_number");
     _employees.setId(q.value("teitem_emp_id"));
     _empid = q.value("teitem_emp_id");
     _site.text = q.value("tehead_site");
-    _orderComments.setPlainText(qsTr(q.value("notes")));
+    _orderComments.setPlainText(qsTr(q.value("tehead_notes")));
     }
 
     if (q.lastError().type != QSqlError.NoError)
