@@ -246,7 +246,9 @@ function sheetVoucher()
         params.employee = currentItem.rawValue("emp_code");
 
         // check to be sure the employee is also a vendor
-        q = toolbox.executeQuery('select vend_id from vendinfo where vend_number = upper(<? value("employee") ?>) ;',params );
+        q = toolbox.executeQuery('select vend_id '
+                               + 'from emp join vendinfo on (upper(vend_number) = upper(emp_number)) '
+                               + 'where upper(emp_code) = upper(<? value("employee") ?>) ;',params );
  
         if (q.first())
         {
