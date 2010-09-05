@@ -26,10 +26,15 @@ SELECT ophead_id,
        LEFT OUTER JOIN opstage ON (ophead_opstage_id=opstage_id)
        LEFT OUTER JOIN opsource ON (ophead_opsource_id=opsource_id)
        LEFT OUTER JOIN optype ON (ophead_optype_id=optype_id)
- WHERE(((ophead_target_date BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
-       OR (((<? value("startDate") ?> <= startOfTime()) OR (<? value("endDate") ?> >= endOfTime()))
-        AND (ophead_target_date IS NULL))
-    )
+ WHERE((true)
+<? if exists("startDate") ?>
+     ((ophead_target_date >= <? value("startDate") ?>)
+   OR (<? value("startDate") ?> <= startOfTime()) AND (ophead_target_date IS NULL))
+<? endif ?>
+<? if exists("endDate") ?>
+     ((ophead_target_date <= <? value("endDate") ?>)
+   OR (<? value("endDate") ?> >= endOfTime()) AND (ophead_target_date IS NULL))
+<? endif ?>
 <? if exists("opsource_id") ?>
    AND (ophead_opsource_id=<? value("opsource_id") ?>)
 <? elseif exists("opsource_pattern") ?>
@@ -50,8 +55,8 @@ SELECT ophead_id,
 <? elseif exists("usr_pattern") ?>
    AND (ophead_owner_username ~ <? value("usr_pattern") ?>)
 <? endif ?>
-<? if exists("crmAccountId") ?>
-   AND (ophead_crmacct_id = <? value("crmAccountId") ?>)
+<? if exists("crmacct_id") ?>
+   AND (ophead_crmacct_id = <? value("crmacct_id") ?>)
 <? endif ?>
 <? if exists("searchpattern") ?> 
    AND (ophead_name ~* <? value("searchpattern") ?>)
