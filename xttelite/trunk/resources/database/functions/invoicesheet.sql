@@ -1,34 +1,25 @@
--- Function: te.invoicesheet(integer)
-
--- DROP FUNCTION te.invoicesheet(integer);
-
-CREATE OR REPLACE FUNCTION te.invoicesheet(integer)
-  RETURNS integer AS
-$BODY$
+CREATE OR REPLACE FUNCTION te.invoicesheet(integer) RETURNS integer AS $$
 DECLARE
-_headid int;
+pHeadID ALIAS FOR $1;
+
 _invcnum text;
 _s record;
 _t record;
 _linenum text;
-_lineInt int;
 _item text;
-pHeadID ALIAS FOR $1;
 
 BEGIN
 
-_headid := pHeadID;
-
         -- note that we are putting a very basic workflow in place here
         --  A is approved...if further approval is needed (mgr, etc) then the status should goto P
-       for _s in select * from (
-       select tehead_id,tehead_number,tehead_weekending,cust_number,cust_id,teitem_po, prj_number,prj_id
-       from te.tehead,cust,te.teitem,prj
-       where tehead_id = pHeadID
-       and prj_id = teitem_prj_id
-       and tehead_id = teitem_tehead_id
-       and cust_id = teitem_cust_id
-       group by tehead_id,tehead_number,teitem_po,prj_number,prj_id,tehead_weekending,cust_number,cust_id
+       FOR _s in SELECT * FROM (
+       SELECT DISTINCT tehead_id, tehead_number, tehead_weekending,
+                       cust_number, cust_id,
+                       teitem_po, prj_number, prj_id
+       FROM te.tehead JOIN te.teitem ON (teitem_tehead_id=tehead_id AND teitem_billable)
+                      JOIN custinfo ON (cust_id=teitem_cust_id)
+                      JOIN prj ON (prj_id=teitem_prj_id)
+       WHERE tehead_id = pHeadID
        ) foo
 
        -- loop thru records and create invoices by customer, by PO for the provided headid
@@ -43,7 +34,6 @@ _headid := pHeadID;
           -- update the te.tehead record with C status
           update te.tehead set tehead_billable_status = 'C' where tehead_id = pHeadID;
 
-         _lineInt := 0;
           -- loop thru all lines of the sheet
           for _t in select * from (
              select teitem_id,teitem_linenumber, tehead_site as site,teitem_type,teitem_emp_id,uom_name as uom,item_number,teitem_cust_id,teitem_po,teitem_item_id,teitem_qty as qty,teitem_rate as rate,teitem_prj_id, teitem_notes as notes
@@ -73,7 +63,6 @@ _headid := pHeadID;
           LOOP
             --raise notice 'line %',_t.teitem_linenumber;
 
-            _lineInt := _lineInt + 1;
             insert into api.invoiceline(invoice_number, line_number, item_number, site, 
             qty_ordered, qty_billed, net_unit_price, qty_uom, price_uom, 
             notes)
@@ -87,7 +76,4 @@ _headid := pHeadID;
 
 RETURN 1;
 END;
-$BODY$
-  LANGUAGE 'plpgsql' VOLATILE
-  COST 100;
-ALTER FUNCTION te.invoicesheet(integer) OWNER TO "admin";
+$$ LANGUAGE 'plpgsql';
