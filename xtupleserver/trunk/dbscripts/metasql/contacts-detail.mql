@@ -3,7 +3,7 @@
 -- Notes: 
 
 SELECT cntct_id, addr.*,
-  crmacct_id AS id, crmacct_number AS number, crmacct_name AS name,
+  crmacct_id AS id, crmacct_number, crmacct_name,
   cntct.* 
 FROM cntct 
   LEFT OUTER JOIN crmacct ON (cntct_crmacct_id=crmacct_id) 
@@ -39,18 +39,18 @@ WHERE true
   AND (cntct_email ~* <? value("cntct_email_pattern") ?>)
 <? endif ?>
 <? if exists("addr_street_pattern") ?>
-  AND (addr_line1 || ' ' || addr_line2 || ' ' || addr_line3 ~* <? value("cntct_street_pattern") ?>)
+  AND (addr_line1 || ' ' || addr_line2 || ' ' || addr_line3 ~* <? value("addr_street_pattern") ?>)
 <? endif ?>
 <? if exists("addr_city_pattern") ?>
-  AND (addr_city ~* <? value("city_pattern") ?>)
+  AND (addr_city ~* <? value("addr_city_pattern") ?>)
 <? endif ?>
 <? if exists("addr_state_pattern") ?>
-  AND (addr_state ~* <? value("state_pattern") ?>)
+  AND (addr_state ~* <? value("addr_state_pattern") ?>)
 <? endif ?>
 <? if exists("addr_postalcode_pattern") ?>
-  AND (addr_postalcode ~* <? value("postalcode_pattern") ?>)
+  AND (addr_postalcode ~* <? value("addr_postalcode_pattern") ?>)
 <? endif ?>
 <? if exists("addr_country_pattern") ?>
-  AND (addr_country ~* <? value("country_pattern") ?>)
+  AND (addr_country ~* <? value("addr_country_pattern") ?>)
 <? endif ?>
 ;
