@@ -43,7 +43,7 @@ var _saveproject;
 var _savetask;
 var _sheetnum;
 var _linenum;
-var _itemid;
+var _teitemid;
 var _headid;
 var _type;
 var _empid;
@@ -81,7 +81,6 @@ _sheetLit.visible=false;
 // Define connections
 _rate.valueChanged.connect(extension);
 _hours.valueChanged.connect(extension);
-//_items['currentIndexChanged(QString)'].connect(getprice);
 _items["newId(int)"].connect(getprice);
 _cancel.clicked.connect(cancel);
 _task.clicked.connect(gettask);
@@ -139,7 +138,7 @@ function set(input)
       // if sheet/line are passed...then we need to add a new line to the given sheet
       // get default rate/customer from the project billing setup
       _next.text = qsTr("New");
-      _itemid = input.itemid;      
+      _teitemid = 0;      
       _headid = input.headid;
       _site = input.site;
       _empid = input.empid;
@@ -154,7 +153,7 @@ function set(input)
     {
       _mode = _viewMode;
       _cancel.text = "Close";
-      _itemid = input.itemid;      
+      _teitemid = input.itemid;      
       _headid = input.headid;
       _site = input.site;
       _empid = input.empid;
@@ -164,7 +163,7 @@ function set(input)
     else if (input.mode == _editMode)
     {
       _mode = _editMode;      
-      _itemid = input.itemid;
+      _teitemid = input.itemid;
       _headid = input.headid;
       _site = input.site;
       populate(1);
@@ -185,9 +184,6 @@ function setButtons()
 
 function extension()
 {
-  var _rate	  	= mywindow.findChild("_rate");
-  var _hours  	= mywindow.findChild("_hours");  
-  var _total	= mywindow.findChild("_total");
   _total.localValue = (_hours.localValue * _rate.localValue)
 
   if(_first == true)
@@ -206,15 +202,21 @@ function extension()
 
 function sFillItems()
 {
-     _items.setQuery("select item_id,item_number,item_descrip1 from "
-             + "(SELECT item_id,item_number,item_descrip1,"
-             + "coalesce(teexp_id::text,'N') as exp "
-             + "FROM te.teexp right OUTER JOIN (select item_id,item_number, "
-             + "item_descrip1 from item "
-             + "where item_active = true "
-             + "and item_type = 'R') filter"
-             + " ON teexp_id = item_id) exptable "
-             + "where exp <> 'N'");
+//     _items.setQuery("select item_id,item_number,item_descrip1 from "
+//             + "(SELECT item_id,item_number,item_descrip1,"
+//             + "coalesce(teexp_id::text,'N') as exp "
+//             + "FROM te.teexp right OUTER JOIN (select item_id,item_number, "
+//             + "item_descrip1 from item "
+//             + "where item_active = true "
+//             + "and item_type = 'R') filter"
+//             + " ON teexp_id = item_id) exptable "
+//             + "where exp <> 'N'");
+
+     _items.setQuery("SELECT item_id,item_number,item_descrip1,item_descrip2, "
+                   + "       item_type,item_config,item_upccode,uom_name "
+                   + "FROM item JOIN uom ON (uom_id=item_inv_uom_id) "
+                   + "          JOIN te.teexp ON (teexp_id=item_id) "
+                   + "WHERE item_type='R' ");
 }
 
 function gettask()
@@ -306,7 +308,7 @@ function getprice()
     _modified = true;
   }
   
-  var _ratetest = mywindow.findChild("_rate").localValue;
+  var _ratetest = _rate.localValue;
 
   if (_radioExpense.checked && _ratetest == "0.00"){
 
@@ -456,7 +458,7 @@ function populate(mode)
     {
 
       var params = new Object();
-      params.id = _itemid;
+      params.id = _teitemid;
       params.headid = _headid;
 	
       var q = toolbox.executeQuery("SELECT tehead_site as site, "
@@ -580,7 +582,7 @@ function populate(mode)
     {
 
       var params = new Object();
-      params.id = _itemid;
+      params.id = _teitemid;
       params.headid = _headid;
 
       var q = toolbox.executeQuery("SELECT tehead_site as site, "
@@ -705,7 +707,7 @@ function populate(mode)
       var params = new Object();
       params.prjid = _project.id();
       params.headid = _headid;
-      params.id = _itemid;
+      params.id = _teitemid;
 
       if (_linenumber.text == "")
       {
@@ -784,8 +786,16 @@ _first = false;
 
 }
 
-// add validation to save() to make sure that edited lines, or new lines for an existing sheet...keep the same weekending date...we could also put this in an onchange (if possible) on the weekending/startdate field
+function sSaveClose()
+{
+  sSave();
+  if (_error == false)
+    mywindow.close();
 
+  _error = false;
+}
+
+// add validation to save() to make sure that edited lines, or new lines for an existing sheet...keep the same weekending date...we could also put this in an onchange (if possible) on the weekending/startdate field
 
 function sSave()
 {
@@ -808,8 +818,8 @@ function sSave()
     params.site           = _site;
     params.notes          = _notes.plainText;
 
-    if (_itemid > 0){
-      params.itemid = _itemid;
+    if (_teitemid > 0){
+      params.itemid = _teitemid;
     }
 
     if (_headid > 0){
@@ -922,34 +932,19 @@ function sSave()
                                                  + ' <? value("itemid") ?> );',params);
 
     _cancel.text = "Close";
-
     _prev.enabled = true;
-    _linenumber.enabled = true;
-    if (_linenumber.text == ""){
-      var q = toolbox.executeQuery('select ' 
-           + 'te.maxline(te.getsheetid(<? value("sheet") ?>)) '
-           + 'as linenumber;',params);
+
+    if (_teitemid == 0)
+    {
+      var q = toolbox.executeQuery("SELECT teitem_id as id "
+                                 + "FROM te.teitem "
+                                 + 'WHERE (teitem_tehead_id = <? value("headid") ?>) '
+                                 + '  AND (teitem_linenumber = <? value("line") ?>) '
+                                 + "LIMIT 1;", params);
+
       if (q.first())
-      {
-        _linenumber.setText(q.value("linenumber"));
-        _linenum = (q.value("linenumber"));
-        params.line = _linenum;
-
-
-        var q = toolbox.executeQuery("SELECT teitem_id as id "
-                   + "from te.teitem,te.tehead "
-                  + "WHERE (teitem_tehead_id = tehead_id) "
-	       + 'AND (tehead_id = te.getsheetid(<? value("sheet") ?>)) '
-	       + 'AND (teitem_linenumber = <? value("line") ?>) '
-	       + " LIMIT 1;",params);
-
-        if (q.first())
-        {
-          _itemid = q.value("id");
-        }
-      }
+        _teitemid = q.value("id");
     }
-
 }
 
 
@@ -1134,47 +1129,38 @@ function sPrev()
 
   if (_modified)
   {
-
     if (toolbox.messageBox("question", mywindow,
                        qsTr("Unsaved Changed"),
-                       qsTr("<p>You have made some changes which "
-		+ "have not yet been saved!\n" 
+                       qsTr("<p>You have made some changes which have not yet been saved!\n" 
                        + "Would you like to save them now?"),
                         QMessageBox.Save, QMessageBox.Cancel) != QMessageBox.Save)
-    return;
+      return;
 
-    if (_linenumber.text == null && _newlinenum > 0){
-      _linenum = _newlinenum;
-      _linenumber.setText(_linenum);
-    }
     sSave();
   }
 
   var params = new Object;
-  params.id = _itemid;
+  params.id = _teitemid;
 
   _nav = "prev";
 
   var q = toolbox.executeQuery("SELECT a.teitem_id as id "
-                               + "from te.teitem AS a, te.teitem AS b "
-                               + " WHERE ((a.teitem_tehead_id = b.teitem_tehead_id) "
-		        + "   AND (a.teitem_linenumber < b.teitem_linenumber)"
-                               + '   AND (b.teitem_id=<? value("id") ?>)) '
-		        + " ORDER BY a.teitem_linenumber DESC"
-		        + " LIMIT 1;",params);
+                             + "FROM te.teitem AS a, te.teitem AS b "
+                             + "WHERE ( (a.teitem_tehead_id = b.teitem_tehead_id) "
+		             + "  AND   (a.teitem_linenumber < b.teitem_linenumber) "
+                             + '  AND   (b.teitem_id=<? value("id") ?>) ) '
+		             + "ORDER BY a.teitem_linenumber DESC "
+		             + "LIMIT 1;", params);
 
   if (q.first())
   {
     _first = true;
     _modified = false;
-
-    _itemid = q.value("id");
     if (_mode == _newMode)
-    {
-      _next.text = qsTr("Next");
-      populate(0);
-    }
-    else if (_mode == _viewMode)
+      _mode = _editMode;
+
+    _teitemid = q.value("id");
+    if (_mode == _viewMode)
     {
       populate(2);
     }
@@ -1187,29 +1173,18 @@ function sPrev()
 }
 
 
-function sSaveClose()
-{
-  sSave();
-  if (_error == false)
-    mywindow.close();
-
-  _error = false;
-
-}
-
 
 function sNext()
 {
   var params = new Object;
-  params.id = _itemid;
+  params.id = _teitemid;
 
   if (_modified)
   {
 
     if (toolbox.messageBox("question", mywindow,
                        qsTr("Unsaved Changed"),
-                       qsTr("<p>You have made some changes which "
-		+ "have not yet been saved!\n" 
+                       qsTr("<p>You have made some changes which have not yet been saved!\n" 
                        + "Would you like to save them now?"),
                         QMessageBox.Save, QMessageBox.Cancel) != QMessageBox.Save)
     return;
@@ -1238,7 +1213,7 @@ function sNext()
     _first = true;
     _modified = false;
 
-    _itemid = q.value("id");
+    _teitemid = q.value("id");
     if (_mode == _newMode)
     {
       _next.text = qsTr("New");
@@ -1262,9 +1237,17 @@ function sNext()
 
 function sNew()
 {
+   var params = new Object();
+   params.headid = _headid;
+
+  var q = toolbox.executeQuery('select te.maxline(<? value("headid") ?>) + 1 as linenumber;',params);
+  if (q.first())
+  {
+    _linenumber.setText(q.value("linenumber"));
+    _linenum = (q.value("linenumber"));
+  }
+  _teitemid = 0;
   _prev.enabled = true;
-  
-  _next.enabled = false;
   _radioTime.enabled = true;
   _radioExpense.enabled = true;
   _workdate.date = 0;
@@ -1275,14 +1258,13 @@ function sNew()
   _rate.localValue = 0;
   _rate.enabled = true;
   _items.enabled = true;
+  _items.setId(-1);
   _employees.enabled = false;
   _clients.enabled = true;
   _po.text = "";
   _po.enabled = true;
   _project.enabled = true;
   _task.enabled = true;
-  _linenumber.text = null;
-  _linenum = null;
   _notes.setText("");
   _notes.enabled = true;
 
@@ -1293,7 +1275,6 @@ function sNew()
 
 function sSetSecurity()
 {
-
   if (privileges.check("CanViewRates")){
     _rate.visible = true;
     _total.visible = true;
