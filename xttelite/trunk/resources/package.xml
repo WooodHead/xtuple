@@ -70,15 +70,8 @@
    Allowed to Voucher Time/Exp Sheets
   </loadpriv>
     
-  <script file="database/misc/cons_seq.sql" />
   <script file="database/misc/insertIntopriv.sql" />
   <script file="database/misc/schemaComment.sql" />
-  <script file="database/misc/tehead_tehead_id_seq.sql" />
-  <script file="database/misc/teitem_teitem_id_seq.sql" />
-  <script file="database/misc/temetric_metric_id_seq.sql" />
-  <script file="database/misc/teprj_teprj_id_seq.sql" />
-  <script file="database/misc/teselect_teselect_id_seq.sql" />
-  <script file="database/misc/timesequence.sql" />  
 
   <script file="database/functions/addsheet2.sql"           onerror="Prompt"/>
   <script file="database/functions/getprjcustid2.sql"       onerror="Prompt"/>
@@ -111,8 +104,6 @@
   <createtable file="database/tables/createteprj.sql"           name="teprj"/>
   <createtable file="database/tables/createteprjtask.sql"       name="teprjtask"/>
   <createtable file="database/tables/createteselect.sql"        name="teselect"/>
-
-  <finalscript file="database/misc/sequencegrants.sql" />
 
   <script file="database/views/voucher.sql"       onerror="Prompt"/>
 
