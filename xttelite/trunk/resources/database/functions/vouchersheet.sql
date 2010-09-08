@@ -103,8 +103,8 @@ BEGIN
             FROM te.teitem
             WHERE ((teitem_tehead_id=pHeadId)
               AND (COALESCE(teitem_payable_status,'P') != 'C')))));
-       ELSE
-         RAISE EXCEPTION 'No time sheet data to process.';
+       -- ELSE
+       --   RAISE EXCEPTION 'No time sheet data to process.';
        END IF;
           
 RETURN 1;
