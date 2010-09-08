@@ -14,7 +14,7 @@ FROM crmacct LEFT OUTER JOIN
   cntct ON (crmacct_cntct_id_1=cntct_id) LEFT OUTER JOIN
   addr ON (cntct_addr_id=addr_id) 
 WHERE true
-<? if exists("activeOnly") ?> 
+<? if not exists("showInactive") ?> 
   AND crmacct_active 
 <? endif ?>
 <? if exists("search_pattern") ?>
