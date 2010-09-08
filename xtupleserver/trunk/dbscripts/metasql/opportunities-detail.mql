@@ -59,7 +59,7 @@ SELECT ophead_id,
    AND (ophead_crmacct_id = <? value("crmacct_id") ?>)
 <? endif ?>
 <? if exists("searchpattern") ?> 
-   AND (ophead_name ~* <? value("searchpattern") ?>)
+   AND (ophead_name ~* <? value("search_pattern") ?>)
 <? endif ?>
 <? if exists("activeOnly") ?> 
    AND (ophead_active)
