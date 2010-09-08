@@ -8,6 +8,9 @@ FROM prospect
   LEFT OUTER JOIN cntct ON (prospect_cntct_id=cntct_id) 
   LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id) 
 WHERE true
+<? if not exists("showInactive") ?> 
+  AND prospect_active 
+<? endif ?>
 <? if exists("search_pattern") ?>
   AND ((prospect_number ~* <? value("search_pattern") ?>)
        OR (prospect_name ~* <? value("search_pattern") ?>)
