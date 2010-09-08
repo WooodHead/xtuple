@@ -1,6 +1,6 @@
 -- Group: todolist
 -- Name: detail
--- Notes:
+-- Notes: 
 
 <? if exists("todoList")?>
   SELECT todoitem_id AS id, 1 AS altId, todoitem_owner_username AS owner, 
@@ -64,8 +64,8 @@
       <? endif ?>
   <? endif ?>
 
-  <? if exists("crmAccountId") ?>
-      AND   (todoitem_crmacct_id =<? value("crmAccountId") ?>)
+  <? if exists("crmacct_id") ?>
+      AND   (todoitem_crmacct_id =<? value("crmacct_id") ?>)
   <? endif ?>
   <? if not exists("completed") ?>
       AND   (todoitem_status != 'C')
@@ -130,8 +130,8 @@
       <? endif ?>
   <? endif ?>
 
-  <? if exists("crmAccountId") ?>
-      AND   (incdt_crmacct_id =<? value("crmAccountId") ?>)
+  <? if exists("crmacct_id") ?>
+      AND   (incdt_crmacct_id =<? value("crmacct_id") ?>)
   <? endif ?>
   <? if not exists("completed") ?> 
       AND (incdt_status != 'L')
@@ -152,7 +152,7 @@
          )
 <? endif ?>
 <? if exists("projects")?>
-  <? if not exists("crmAccountId") ?>
+  <? if not exists("crmacct_id") ?>
     <? if exists("todoList")?>
        UNION 
     <? elseif exists("incidents")?>
