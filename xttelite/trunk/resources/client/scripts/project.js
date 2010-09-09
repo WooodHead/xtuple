@@ -15,58 +15,43 @@ mywindow.saved.connect(billingSave);
 // project.populate() emits a "populated" signal after populating
 mywindow.populated.connect(billingPopulate);
          
-var _deleteTask = mywindow.findChild("_deleteTask");
-_deleteTask.clicked.connect(deleteTask);
+// project.sdeletetask() emits a "deletedTask" signal after deleting task
+mywindow.deletedTask.connect(deleteTask);
 
+var _prjid      = 0;
 var _number     = mywindow.findChild("_number");
 var _item       = mywindow.findChild("_item");
 var _itemLit    = mywindow.findChild("_itemLit");
 var _rate       = mywindow.findChild("_rate"); 
-_rate.setValidator(toolbox.moneyVal());
 var _cust       = mywindow.findChild("_cust");
+var _prjtask    = mywindow.findChild("_prjtask");
+
+_rate.setValidator(toolbox.moneyVal());
 
 _item.visible = false;
 _itemLit.visible = false;
 
-function billingSave()
+function billingSave(prjid)
 {
+   _prjid = prjid;
+
    var params = new Object();
    params.rate = _rate.toDouble();
    params.custid = _cust.id();
    params.project = _number.displayText;
+   params.prj_id = _prjid;
 
    var q = toolbox.executeDbQuery("te","addteprj",params);
-
-   //look for a task assigned to this project...if not found...then create a default task
-
-   var q = toolbox.executeQuery('select prj_id from prj where prj_number = <? value("project") ?>;',params);
-   if (q.first())
-   {
-     var _prj;
-     _prj = (q.value("prj_id"));
-   }
-   getTaskbyPrj(_prj);
-
-
-/*
-     var params = new Object();
-     params.rate = mywindow.findChild("_rate").text;
-     params.custid = _cust.id();
-     //params.project = mywindow.findChild("_number").displayText;
-     params.task = _prjtaskid;
-     params.item = mywindow.findChild("_item").text;
-
-     var q = toolbox.executeDbQuery("te","addteprjtask",params);
-*/
-
 }
 
-function billingPopulate()
+function billingPopulate(prjid)
 {
-   var params = new Object();
-   params.project = _number.displayText;
+   _prjid = prjid;
 
-   var q = toolbox.executeQuery('select * from te.teprj where teprj_prj_id = getPrjId(<? value("project") ?>);',params);
+   var params = new Object();
+   params.prj_id = _prjid;
+
+   var q = toolbox.executeQuery('select * from te.teprj where teprj_prj_id = <? value("prj_id") ?>;',params);
    if (q.first())
    {
      _cust.setId(q.value("teprj_cust_id"));
@@ -74,56 +59,17 @@ function billingPopulate()
    }
 }
 
-function getTaskbyPrj(prj)
-{
-
-    var params = new Object();
-    params.prj = prj;
-
-    var q = toolbox.executeQuery('select prjtask_id from prjtask where '
-	+ ' prjtask_prj_id = <? value("prj") ?>;',params);
-
-    if (q.first())
-    {
-      _task = (q.value("prjtask_id"));
-    }
-    else if (q.lastError().type != 0)
-    {
-      toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-               q.lastError().databaseText);
-      return;
-    } 
-
-
-
-/*
-    var params = new Object();
-    params.task = _prjtaskid;
-
-    var q = toolbox.executeQuery("SELECT teprjtask_cust_id as custid, "
-        + "teprjtask_rate as rate, "
-        + "teprjtask_item_id as item "
-        + "FROM te.teprjtask "
-        + ' WHERE teprjtask_id = <? value("task") ?>;',params);
-
-    if (q.first())
-    {
-      _rate.setText(q.value("rate"));
-      _item.setId(q.value("item"));
-      _cust.setId(q.value("custid"));
-    }
-*/
-
-}
-
-
-
 function deleteTask()
 {
     var params = new Object();
-    params.task = mywindow.findChild("_prjtask").id();
+    params.prjid = _prjid;
+    var currentItem  = _prjtask.currentItem();
+    if (currentItem != null)
+    {
+      params.number = currentItem.rawValue("prjtask_number");
+    }
 
     var q = toolbox.executeQuery("delete from te.teprjtask "
-        + ' WHERE teprjtask_id = <? value("task") ?>;',params);
+        + ' WHERE teprjtask_prj_id = <? value("prjid") ?> AND teprjtask_prjtask_number = <? value("number") ?>;',params);
 
 }

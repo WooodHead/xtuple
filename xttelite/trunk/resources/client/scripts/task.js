@@ -33,13 +33,13 @@ function set(params)
   if(params.mode == "new")
   {
     _mode = "new";
-    mywindow.findChild("_save").clicked.connect(sScriptSave);
+    mywindow.findChild("_buttonBox").accepted.connect(sScriptSave);
   }
 
   if(params.mode == "edit")
   {
     _mode = "edit";
-    mywindow.findChild("_save").clicked.connect(sScriptSave);
+    mywindow.findChild("_buttonBox").accepted.connect(sScriptSave);
   }
 
   if("prjtask_id" in params)
