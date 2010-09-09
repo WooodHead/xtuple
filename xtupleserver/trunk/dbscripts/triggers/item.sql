@@ -215,7 +215,7 @@ BEGIN
 
         IF (OLD.item_maxcost <> NEW.item_maxcost) THEN
           PERFORM postComment( _cmnttypeid, 'I', NEW.item_id,
-                               ( 'Maximum Disired Cost Changed from "' || formatCost(OLD.item_maxcost) ||
+                               ( 'Maximum Desired Cost Changed from "' || formatCost(OLD.item_maxcost) ||
                                  '" to "' || formatCost(NEW.item_maxcost) || '"' ) );
         END IF;
 -- End changes
