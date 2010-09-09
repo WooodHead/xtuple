@@ -117,13 +117,6 @@ BEGIN
           AND  (wo_ordtype='S')
           AND  (coitem_id=wo_ordid)))) );
 
---  Create any required P/R's
-  PERFORM createPr('W', womatl_id)
-  FROM womatl, itemsite
-  WHERE ((womatl_itemsite_id=itemsite_id)
-   AND (itemsite_createpr)
-   AND (womatl_wo_id=pWoid));
-
 --  Update any created P/R's the have the project id as the parent WO.
   UPDATE pr SET pr_prj_id=wo_prj_id
     FROM womatl, wo
