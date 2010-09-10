@@ -1,0 +1,1 @@
+ALTER TABLE budgitem DROP CONSTRAINT budgitem_budgitem_accnt_id_fkey;
