@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>Retail Sale</title>
+  <para>To edit a pending sale select edit to under Sale tab. The following
+  screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/retailSale.png" />
+    </imageobject>
+    <caption>Create Retail Sale</caption>
+  </mediaobject>
+  <para>When creating a new sale or processing a pending sale, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Number</term>
+      <listitem>
+        <para>Each transaction will be assigned a unique ID number.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Specify the type of transaction to you would like to initiate.
+        The options include; Sale, Return or Quote</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Close</term>
+      <listitem>
+        <para>Indicates whether the cash register terminal is currently opened
+        or closed for business.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Under Customer tab you can enter customer billing contact info. If
+  your retail operation prefers not to track customer information there is an
+  option to hide the tab within system sales module configuration.</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>Enter the Customer Number of the Customer whose return you are
+        authorizing. The browse button located to the right of the field leads
+        to a searchable Customers list. You may also access this list using
+        the keyboard shortcut "CTRL + L".</para>
+        <tip>
+          <para>A valid Customer Number must be entered in the "Customer #"
+          field before payment can be processed. If no valid Customer Number
+          is entered, you will not be able to tender payment. Additionally,
+          Sales may only be entered for active Customers.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Displays the Customer's name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Job Title</term>
+      <listitem>
+        <para>Displays the Customer's job title.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Voice</term>
+      <listitem>
+        <para>Displays the Customer's phone number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Alternate</term>
+      <listitem>
+        <para>Displays a alternate Customer phone number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Fax</term>
+      <listitem>
+        <para>Displays Customer's fax number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>E-Mail</term>
+      <listitem>
+        <para>Displays Customer's e-mail address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Street Address</term>
+      <listitem>
+        <para>The Customer's street Address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>City</term>
+      <listitem>
+        <para>The Customer's city.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>State</term>
+      <listitem>
+        <para>The Customer's state.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Postal Code</term>
+      <listitem>
+        <para>The Customer's Postal Code.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Country</term>
+      <listitem>
+        <para>The Customer's country.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Fields along the bottom of the page show sale amount details.</para>
+  <variablelist>
+    <varlistentry>
+      <term>Subtotal</term>
+      <listitem>
+        <para>Displays the subtotal for the Sale Items</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>Displays the total amount of Tax to be charged on the Sale. The
+        Tax amount displayed here represents the total for all Item Tax
+        amounts.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total</term>
+      <listitem>
+        <para>Displays the total amount of the Sale.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>At the top of and to the far right of the screen, the following
+  buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating a new retail sale, returning
+        you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem>
+        <para>Creates the retail sale and saves the sale information.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>At the top of the Customer tab, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit selected customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>At the bottom of the far right of the screen, the following button is
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PAYMENT</term>
+      <listitem>
+        <para>Launches payment screen which allows you to tender
+        payment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add Items to a sale select the Items tab. The following screen will
+  appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/retailSale_itemsTab.png" />
+    </imageobject>
+    <caption>Adding Items to a Retail Sale</caption>
+  </mediaobject>
+  <para>When adding or removing items to a Sale, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays Item for this retail sale. A valid customer number must
+        be entered in the "Customer #" field before items can be added to the
+        sale unless system is configured to not require customer
+        information.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Qty</term>
+      <listitem>
+        <para>Select the quantity of items to be transacted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Unit Price</term>
+      <listitem>
+        <para>Displays list price for one item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Extended</term>
+      <listitem>
+        <para>Displays total price for one unit multiplied by the quantity
+        purchased.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>At the middle of the Items tab, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>ADD</term>
+      <listitem>
+        <para>Adds additional items to the retail sale.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>REMOVE</term>
+      <listitem>
+        <para>Removes selected line item from the retail sale.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add or review Sale Details select the Details tab. The following
+  screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/retailSale_detailTab.png" />
+    </imageobject>
+    <caption>Adding Details to a Retail Sale</caption>
+  </mediaobject>
+  <para>When adding or reviewing Details of a Sale, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Date</term>
+      <listitem>
+        <para>Displays current date of retail transaction.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Sales Rep</term>
+      <listitem>
+        <para>Select sales representative who is processing the sale. Sales
+        rep is required to process payment unless</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Terminal</term>
+      <listitem>
+        <para>Displays the terminal which sale was processed on.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Displays the site where the sale was processed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>Enter any additional notes related specifically to the
+        sale.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To tender payment select Payment button. The following screen will
+  appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/payment.png" />
+    </imageobject>
+    <caption>Payment</caption>
+  </mediaobject>
+  <para>When processing Payment, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Subtotal</term>
+      <listitem>
+        <para>The total amount of sale before taxes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>The amount of retail tax applied to subtotal.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Total</term>
+      <listitem>
+        <para>Total based on Subtotal plus Tax.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Cash Amount</term>
+      <listitem>
+        <para>Amount of cash applied to total.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Credit Card</term>
+      <listitem>
+        <para>Select to use credit card as tender of payment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Amount</term>
+      <listitem>
+        <para>Amount to be applied to credit card.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Credit Card Type</term>
+      <listitem>
+        <para>Credit Card vendor used.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Number</term>
+      <listitem>
+        <para>Credit Card number.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Name of Credit Card holder.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Street Address</term>
+      <listitem>
+        <para>Address of Credit Card holder.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>City</term>
+      <listitem>
+        <para>City of residence for Credit Card holder.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>State</term>
+      <listitem>
+        <para>State of residence for Credit Card holder.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Postal Code</term>
+      <listitem>
+        <para>Postal Code of city for Credit Card holder.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Country</term>
+      <listitem>
+        <para>Country of residence of Credit Card holder.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Expiration Month</term>
+      <listitem>
+        <para>Expiration month of Credit card.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Expiration Year</term>
+      <listitem>
+        <para>Expiration year of Credit Card.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>CVV</term>
+      <listitem>
+        <para>Card Verification Value, 3 or 4 digit value printed on the card
+        or signature strip, but not encoded on the magnetic stripe.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Check</term>
+      <listitem>
+        <para>Select to use check as tender of payment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Amount</term>
+      <listitem>
+        <para>Amount of check applied to payment</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Document #</term>
+      <listitem>
+        <para>Check number or drivers license number.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Paid</term>
+      <listitem>
+        <para>Amount paid.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Balance</term>
+      <listitem>
+        <para>Balance remaining after amount paid.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Change Due</term>
+      <listitem>
+        <para>Difference if amount paid greater than balance owed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Print Receipt</term>
+      <listitem>
+        <para>Select to print customer copy of receipt.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>At the upper right corner of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Select to exit payment screen without saving payment
+        data.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>OK</term>
+      <listitem>
+        <para>Select to save data and post payment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
