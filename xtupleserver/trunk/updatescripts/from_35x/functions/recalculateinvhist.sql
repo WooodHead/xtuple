@@ -5,7 +5,6 @@ DECLARE
   _currrow       RECORD;
   _row           RECORD;
   _sense         INTEGER;
-  _stdedition    BOOLEAN;
 
 BEGIN
 
@@ -28,8 +27,6 @@ BEGIN
     _nextQohBefore := 0.0;
   END IF;
 
-  SELECT metric_value='Standard' INTO _stdedition FROM metric WHERE metric_name = 'Application';
-  _stdedition := COALESCE(_stdedition, false);
   FOR _row IN (SELECT invhist.*, itemsite_warehous_id
                FROM invhist JOIN itemsite ON (itemsite_id=invhist_itemsite_id)
                WHERE ((invhist_itemsite_id=_currrow.invhist_itemsite_id)
@@ -42,13 +39,13 @@ BEGIN
     -- TS and TR are special: shipShipment and recallShipment should not change
     -- QOH at the Transfer Order src whs (as this was done by issueToShipping)
     -- but postReceipt should change QOH at the transit whs
-    IF (_row.invhist_transtype='TS' AND _stdedition) THEN
+    IF (_row.invhist_transtype='TS') THEN
       _sense := CASE WHEN (SELECT tohead_trns_warehous_id=_row.itemsite_warehous_id
                                   FROM tohead
                                   WHERE (tohead_number=_row.invhist_ordnumber)) THEN -1
                   ELSE 0
                 END;
-    ELSIF (_row.invhist_transtype='TR' AND _stdedition) THEN
+    ELSIF (_row.invhist_transtype='TR') THEN
       _sense := CASE WHEN (SELECT tohead_src_warehous_id=_row.itemsite_warehous_id
                                   FROM tohead
                                   WHERE (tohead_number=_row.invhist_ordnumber)) THEN 0
@@ -72,9 +69,3 @@ BEGIN
   RETURN 0;
 END;
 $$ LANGUAGE 'plpgsql';
-
-SELECT DISTINCT ON (invhist_itemsite_id) invhist_itemsite_id, recalculateinvhist(invhist_id)
-FROM invhist
-WHERE (invhist_transdate<invhist_created)
-ORDER BY invhist_itemsite_id, invhist_transdate;
-
