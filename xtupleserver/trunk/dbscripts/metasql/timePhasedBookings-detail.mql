@@ -23,37 +23,37 @@ SELECT <? if exists("byCust") ?>
            , itemaltcapuom(item_id) AS uom
          <? endif ?>
        <? endif ?>
-       <? foreach("period_list") ?>
+       <? foreach("period_id_list") ?>
          <? if exists("byCust") ?>
-           , bookingsByCustomerValue(cust_id, <? value("period_list") ?>) AS bucket_<? literal("period_list") ?>,
-           'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole, 0 AS bucket_<? literal("period_list") ?>_xttotalrole
+           , bookingsByCustomerValue(cust_id, <? value("period_id_list") ?>) AS bucket_<? literal("period_id_list") ?>,
+           'curr' AS bucket_<? literal("period_id_list") ?>_xtnumericrole, 0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
          <? elseif exists("byItem") ?>
            <? if exists("salesDollars") ?>
-             , bookingsByItemValue(itemsite_id, <? value("period_list") ?>) AS bucket_<? literal("period_list") ?>,
-             'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
-             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+             , bookingsByItemValue(itemsite_id, <? value("period_id_list") ?>) AS bucket_<? literal("period_id_list") ?>,
+             'curr' AS bucket_<? literal("period_id_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
            <? elseif exists("inventoryUnits") ?>
-             , bookingsByItemQty(itemsite_id, <? value("period_list") ?>) AS bucket_<? literal("period_list") ?>,
-             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
-             0 AS bucket_<? literal("period_list") ?>_xttotalrole 
+             , bookingsByItemQty(itemsite_id, <? value("period_id_list") ?>) AS bucket_<? literal("period_id_list") ?>,
+             'qty' AS bucket_<? literal("period_id_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_id_list") ?>_xttotalrole 
            <? endif ?>
          <? elseif exists("byProdcat") ?>
            <? if exists("salesDollars") ?>
-             , SUM(bookingsByItemValue(itemsite_id, <? value("period_list") ?>)) AS bucket_<? literal("period_list") ?>,
-             'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole,
-             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+             , SUM(bookingsByItemValue(itemsite_id, <? value("period_id_list") ?>)) AS bucket_<? literal("period_id_list") ?>,
+             'curr' AS bucket_<? literal("period_id_list") ?>_xtnumericrole,
+             0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
            <? elseif exists("inventoryUnits") ?>
-             , SUM(bookingsByItemQty(itemsite_id, <? value("period_list") ?>)) AS bucket_<? literal("period_list") ?>,
-             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
-             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+             , SUM(bookingsByItemQty(itemsite_id, <? value("period_id_list") ?>)) AS bucket_<? literal("period_id_list") ?>,
+             'qty' AS bucket_<? literal("period_id_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
            <? elseif exists("capacityUnits") ?>
-             , SUM(bookingsByItemQty(itemsite_id, <? value("period_list") ?>) * itemcapinvrat(item_id)) AS bucket_<? literal("period_list") ?>,
-             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
-             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+             , SUM(bookingsByItemQty(itemsite_id, <? value("period_id_list") ?>) * itemcapinvrat(item_id)) AS bucket_<? literal("period_id_list") ?>,
+             'qty' AS bucket_<? literal("period_id_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
            <? elseif exists("altCapacityUnits") ?>
-             , SUM(bookingsByItemQty(itemsite_id, <? value("period_list") ?>) * itemaltcapinvrat(item_id)) AS bucket_<? literal("period_list") ?>,
-             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole,
-             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+             , SUM(bookingsByItemQty(itemsite_id, <? value("period_id_list") ?>) * itemaltcapinvrat(item_id)) AS bucket_<? literal("period_id_list") ?>,
+             'qty' AS bucket_<? literal("period_id_list") ?>_xtnumericrole,
+             0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
            <? endif ?>
          <? endif ?>
        <? endforeach ?>

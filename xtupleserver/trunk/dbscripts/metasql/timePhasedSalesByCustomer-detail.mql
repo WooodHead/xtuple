@@ -3,22 +3,22 @@
 -- Notes: used by dspTimePhasedSalesByCustomerGroup,dspTimePhasedSalesByCustomer, dspTimePhasedSalesByCustomerByItem
 
 SELECT cust_id, cust_number, cust_name
-<? foreach("period_list") ?>
+<? foreach("period_id_list") ?>
   <? if exists("prodcat_id") ?>
-       , shipmentsByCustomerValue(cust_id, <? value("period_list") ?>, <? value("prodcat_id") ?>)
-       AS bucket_<? literal("period_list") ?>,
-       'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole,
-       0 AS bucket_<? literal("period_list") ?>_xttotalrole
+       , shipmentsByCustomerValue(cust_id, <? value("period_id_list") ?>, <? value("prodcat_id") ?>)
+       AS bucket_<? literal("period_id_list") ?>,
+       'curr' AS bucket_<? literal("period_id_list") ?>_xtnumericrole,
+       0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
   <? elseif exists("prodcat_pattern") ?>
-       , shipmentsByCustomerValue(cust_id, <? value("period_list") ?>, <? value("prodcat_pattern") ?>)
-       AS bucket_<? literal("period_list") ?>,
-      'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole,
-      0 AS bucket_<? literal("period_list") ?>_xttotalrole
+       , shipmentsByCustomerValue(cust_id, <? value("period_id_list") ?>, <? value("prodcat_pattern") ?>)
+       AS bucket_<? literal("period_id_list") ?>,
+      'curr' AS bucket_<? literal("period_id_list") ?>_xtnumericrole,
+      0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
   <? else ?>
-      , shipmentsByCustomerValue(cust_id, <? value("period_list") ?>)
-      AS bucket_<? literal("period_list") ?>,
-      'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole,
-      0 AS bucket_<? literal("period_list") ?>_xttotalrole
+      , shipmentsByCustomerValue(cust_id, <? value("period_id_list") ?>)
+      AS bucket_<? literal("period_id_list") ?>,
+      'curr' AS bucket_<? literal("period_id_list") ?>_xtnumericrole,
+      0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
   <? endif ?>
 <? endforeach ?>
 

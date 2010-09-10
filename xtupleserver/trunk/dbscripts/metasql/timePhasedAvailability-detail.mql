@@ -5,10 +5,10 @@
 SELECT itemsite_id, itemtype,
        item_number, uom_name, warehous_code,
        reorderlevel 
-       <? foreach("item_list") ?>
-         , bucket_<? literal("item_list") ?>,
-         'qty' AS bucket_<? literal("item_list") ?>_xtnumericrole,
-         CASE WHEN (bucket_<? literal("item_list") ?> < reorderlevel) THEN 'error' END AS   bucket_<? literal("item_list") ?>_qtforegroundrole 
+       <? foreach("period_id_list") ?>
+         , bucket_<? literal("period_id_list") ?>,
+         'qty' AS bucket_<? literal("period_id_list") ?>_xtnumericrole,
+         CASE WHEN (bucket_<? literal("period_id_list") ?> < reorderlevel) THEN 'error' END AS   bucket_<? literal("period_id_list") ?>_qtforegroundrole 
        <? endforeach ?>
  FROM (SELECT itemsite_id,
        CASE WHEN (item_type IN ('F', 'B', 'C', 'Y', 'R')) THEN 0
@@ -19,8 +19,8 @@ SELECT itemsite_id, itemtype,
             item_number, uom_name, warehous_code,
             CASE WHEN(itemsite_useparams) THEN itemsite_reorderlevel ELSE 0.0 END AS reorderlevel 
 
-       <? foreach("period_list") ?>
-       , qtyAvailable(itemsite_id, findPeriodStart(<? value("period_list") ?>)) AS bucket_<?  literal("period_list") ?> 
+       <? foreach("period_id_list") ?>
+       , qtyAvailable(itemsite_id, findPeriodStart(<? value("period_id_list") ?>)) AS bucket_<?  literal("period_id_list") ?> 
        <? endforeach ?>
  FROM itemsite, item, warehous, uom 
   WHERE ((itemsite_item_id=item_id)
