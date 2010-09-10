@@ -1,0 +1,68 @@
+-- Group: manufacture
+-- Name: jobcosting
+SELECT *, 0 AS cost_xttotalrole,
+       'qty' AS qty_xtnumericrole,
+       'cost' AS cost_xtnumericrole
+FROM (
+  <? if exists("showsu") ?>
+  SELECT wooper_id AS id, 1 AS sort,
+         <? value("setup") ?> AS type, wrkcnt_code AS code,
+         wooper_descrip1 AS descrip,
+         (SUM(COALESCE(wooperpost_sutime,0))/60) AS qty,
+         <? value("timeuom") ?> AS uom,
+         SUM(COALESCE(wooperpost_sucost,0)) AS cost,
+         wooper_seqnumber
+  FROM wooper
+    LEFT OUTER JOIN wooperpost ON (wooper_id=wooperpost_wooper_id),
+    wrkcnt
+  WHERE ((wooper_wo_id=<? value("wo_id") ?>)
+     AND (wooper_wrkcnt_id=wrkcnt_id))
+  GROUP BY wooper_id, wrkcnt_code, wooper_descrip1, wooper_seqnumber
+  <? endif ?>
+  <? if exists("showrt") ?>
+    <? if exists("showsu") ?>
+  UNION
+    <? endif ?>
+  SELECT wooper_id AS id, 2 AS sort,
+         <? value("runtime") ?> AS type, wrkcnt_code AS code,
+         wooper_descrip1 AS descrip,
+         (SUM(COALESCE(wooperpost_rntime,0))/60) AS qty,
+         <? value("timeuom") ?> AS uom,
+         SUM(COALESCE(wooperpost_rncost,0)) AS cost,
+         wooper_seqnumber
+  FROM wooper
+    LEFT OUTER JOIN wooperpost ON (wooper_id=wooperpost_wooper_id),
+    wrkcnt
+  WHERE ((wooper_wo_id=<? value("wo_id") ?>)
+     AND (wooper_wrkcnt_id=wrkcnt_id))
+  GROUP BY wooper_id, wrkcnt_code, wooper_descrip1, wooper_seqnumber
+  <? endif ?>
+  <? if exists("showmatl") ?>
+    <? if exists("showsu") ?>
+  UNION
+    <? elseif exists("showrt") ?>
+  UNION
+    <? endif ?>
+  SELECT womatl_id AS id, 3 AS sort,
+         <? value("material") ?> AS type, item_number AS code,
+         item_descrip1 AS descrip,
+         (SUM(COALESCE(invhist_invqty,0))) AS qty,
+         uom_name AS uom,
+         SUM(COALESCE(invhist_invqty * invhist_unitcost,0)) AS cost,
+         NULL as wooper_seqnumber
+  FROM womatl
+    LEFT OUTER JOIN womatlpost ON (womatl_id=womatlpost_womatl_id)
+    LEFT OUTER JOIN invhist ON (womatlpost_invhist_id=invhist_id),
+    itemsite, item, uom
+  WHERE ((womatl_wo_id=<? value("wo_id") ?>)
+     AND (womatl_itemsite_id=itemsite_id)
+     AND (itemsite_item_id=item_id)
+     AND (item_inv_uom_id=uom_id))
+  GROUP BY womatl_id, item_number, item_descrip1, uom_name
+  <? endif ?>
+  ) AS data
+ORDER BY
+<? if exists("showsu") ?>     wooper_seqnumber,
+<? elseif exists("showrt") ?> wooper_seqnumber,
+<? endif ?>
+       sort, code;

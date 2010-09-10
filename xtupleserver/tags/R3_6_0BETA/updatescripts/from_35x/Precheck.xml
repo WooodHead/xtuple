@@ -1,0 +1,4 @@
+ <prerequisite type="Query" name="Check for some condition" >
+  <query>SELECT COALESCE((SELECT FALSE FROM flhead GROUP BY UPPER(flhead_name) HAVING count(*) > 1), TRUE); </query>
+  <message>Financial Report Layouts must each have a unique name.</message>
+ </prerequisite>
