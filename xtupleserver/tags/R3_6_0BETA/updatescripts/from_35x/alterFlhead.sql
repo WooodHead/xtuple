@@ -1,0 +1,1 @@
+ALTER TABLE flhead ADD UNIQUE(flhead_name);
