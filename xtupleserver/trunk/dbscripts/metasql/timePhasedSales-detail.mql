@@ -21,34 +21,34 @@ SELECT <? if exists("byItem") ?>
            , itemaltcapuom(item_id) AS uom
          <? endif ?>
        <? endif ?>
-       <? foreach("period_list") ?>
+       <? foreach("period_id_list") ?>
          <? if exists("byItem") ?>
            <? if exists("salesDollars") ?>
-             , shipmentsByItemValue(itemsite_id, <? value("period_list") ?>) AS bucket_<? literal("period_list") ?>,
-             'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
-             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+             , shipmentsByItemValue(itemsite_id, <? value("period_id_list") ?>) AS bucket_<? literal("period_id_list") ?>,
+             'curr' AS bucket_<? literal("period_id_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
            <? elseif exists("inventoryUnits") ?>
-             , shipmentsByItemQty(itemsite_id, <? value("period_list") ?>) AS bucket_<? literal("period_list") ?>,
-             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole,
-             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+             , shipmentsByItemQty(itemsite_id, <? value("period_id_list") ?>) AS bucket_<? literal("period_id_list") ?>,
+             'qty' AS bucket_<? literal("period_id_list") ?>_xtnumericrole,
+             0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
            <? endif ?>
          <? elseif exists("byProdcat") ?>
            <? if exists("salesDollars") ?>
-             , SUM(shipmentsByItemValue(itemsite_id, <? value("period_list") ?>)) AS bucket_<? literal("period_list") ?>,
-             'curr' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
-             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+             , SUM(shipmentsByItemValue(itemsite_id, <? value("period_id_list") ?>)) AS bucket_<? literal("period_id_list") ?>,
+             'curr' AS bucket_<? literal("period_id_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
            <? elseif exists("inventoryUnits") ?>
-             , SUM(shipmentsByItemQty(itemsite_id, <? value("period_list") ?>)) AS bucket_<? literal("period_list") ?>,
-             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
-             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+             , SUM(shipmentsByItemQty(itemsite_id, <? value("period_id_list") ?>)) AS bucket_<? literal("period_id_list") ?>,
+             'qty' AS bucket_<? literal("period_id_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
            <? elseif exists("capacityUnits") ?>
-             , SUM(shipmentsByItemQty(itemsite_id, <? value("period_list") ?>) * itemcapinvrat(item_id)) AS bucket_<? literal("period_list") ?>,
-             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
-             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+             , SUM(shipmentsByItemQty(itemsite_id, <? value("period_id_list") ?>) * itemcapinvrat(item_id)) AS bucket_<? literal("period_id_list") ?>,
+             'qty' AS bucket_<? literal("period_id_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
            <? elseif exists("altCapacityUnits") ?>
-             , SUM(shipmentsByItemQty(itemsite_id, <? value("period_list") ?>) * itemaltcapinvrat(item_id)) AS bucket_<? literal("period_list") ?>,
-             'qty' AS bucket_<? literal("period_list") ?>_xtnumericrole, 
-             0 AS bucket_<? literal("period_list") ?>_xttotalrole
+             , SUM(shipmentsByItemQty(itemsite_id, <? value("period_id_list") ?>) * itemaltcapinvrat(item_id)) AS bucket_<? literal("period_id_list") ?>,
+             'qty' AS bucket_<? literal("period_id_list") ?>_xtnumericrole, 
+             0 AS bucket_<? literal("period_id_list") ?>_xttotalrole
            <? endif ?>
          <? endif ?>
        <? endforeach ?>
