@@ -70,6 +70,8 @@ void CSVToolWindow::languageChange()
 
 CSVAtlasWindow *CSVToolWindow::atlasWindow()
 {
+  if(!_atlasWindow)
+    _atlasWindow = new CSVAtlasWindow(this);
   return _atlasWindow;
 }
 
@@ -286,7 +288,7 @@ void CSVToolWindow::sFirstRowHeader( bool firstisheader )
 
 bool CSVToolWindow::importStart()
 {
-  QString mapname = _atlasWindow->map();
+  QString mapname = atlasWindow()->map();
   CSVAtlas *atlas = _atlasWindow->getAtlas();
 
   if (mapname.isEmpty())
