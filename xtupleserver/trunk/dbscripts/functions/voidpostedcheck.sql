@@ -232,7 +232,7 @@ BEGIN
     END LOOP;
 
     IF( (_amount_check - _p.checkhead_amount) <> 0.0 ) THEN 
-      _exchGainTmp :=  (_amount_check - _p.checkhead_amount) / _p.checkhead_rate;
+      _exchGainTmp :=  (_amount_check - _p.checkhead_amount) / _p.checkhead_curr_rate;
       _exchGain := _exchGain + _exchGainTmp;
     END IF;
 
