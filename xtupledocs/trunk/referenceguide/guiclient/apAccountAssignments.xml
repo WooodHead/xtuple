@@ -42,52 +42,5 @@
 </para>
   <para>The "A/P Account Assignments" screen displays information on all
   existing A/P Account assignments.</para>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CLOSE</term>
-      <listitem>
-        <para>Closes the screen, returning you to the application
-        desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>PRINT</term>
-      <listitem>
-        <para>Runs the report associated with this screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens screen for creating a new Account assignment.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>VIEW</term>
-      <listitem>
-        <para>Highlight an Account assignment and then select this button to
-        reach a read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem>
-        <para>Enables you to edit highlighted Account Assignment. The edit
-        screen is the same as that for creating a new Account assignment
-        —except that when editing, the fields will contain Account assignment
-        information. Double-clicking on an Account assignment will also bring
-        you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>DELETE</term>
-      <listitem>
-        <para>Highlight an Account assignment and then select this button to
-        remove the Account Assignment from the list.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="apAccountAssignment.xml" xpointer="element(/1)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="apAccountAssignment.xml" xpointer="element(/1)"/>
 </section>
