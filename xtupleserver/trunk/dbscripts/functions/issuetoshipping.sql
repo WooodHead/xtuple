@@ -58,6 +58,13 @@ BEGIN
       RETURN 0;
     END IF;
 
+    -- Check for average cost items going negative
+    IF ( SELECT ( (itemsite_costmethod='A') AND ((itemsite_qtyonhand - pQty) < 0.0) )
+         FROM coitem JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
+         WHERE (coitem_id=pitemid) ) THEN
+      RETURN -20;
+    END IF;
+
     -- Check auto registration
     IF ( SELECT COALESCE(itemsite_autoreg, FALSE)
          FROM coitem JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
