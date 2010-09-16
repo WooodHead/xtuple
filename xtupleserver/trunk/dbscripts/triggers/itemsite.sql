@@ -89,6 +89,25 @@ BEGIN
                                ( 'Order Up To Changed from ' || formatQty(OLD.itemsite_ordertoqty) ||
                                  ' to ' || formatQty(NEW.itemsite_ordertoqty ) ) );
         END IF;
+
+        IF (NEW.itemsite_leadtime <> OLD.itemsite_leadtime) THEN
+          PERFORM postComment( _cmnttypeid, 'IS', NEW.itemsite_id,
+                               ( 'Itemsite Leadtime Changed from ' || formatQty(OLD.itemsite_leadtime) ||
+                                 ' to ' || formatQty(NEW.itemsite_leadtime ) ) );
+        END IF;
+
+        IF (NEW.itemsite_abcclass <> OLD.itemsite_abcclass) THEN
+          PERFORM postComment( _cmnttypeid, 'IS', NEW.itemsite_id,
+                               ( 'Itemsite ABC Class Changed from ' || COALESCE(OLD.itemsite_abcclass, 'None') ||
+                                 ' to ' || COALESCE(NEW.itemsite_abcclass,'None') ) );
+        END IF;
+
+        IF (NEW.itemsite_controlmethod <> OLD.itemsite_controlmethod) THEN
+          PERFORM postComment( _cmnttypeid, 'IS', NEW.itemsite_id,
+                               ( 'Itemsite Control Method Changed from ' || COALESCE(OLD.itemsite_controlmethod,'None') ||
+                                 ' to ' || COALESCE(NEW.itemsite_controlmethod,'None') ) );
+        END IF;
+
       END IF;
     END IF;
   END IF;
