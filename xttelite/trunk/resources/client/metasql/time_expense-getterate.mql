@@ -1,8 +1,9 @@
 -- Group: time_expense
 -- Name:  getterate
--- Notes: 
+-- Notes: Get billing rate for Time Expense Item
 
-SELECT COALESCE(rate,0) FROM (
+SELECT COALESCE(rate,0) AS rate 
+FROM (
 <? if exists("time") ?>
 -- Project Task Rate
 SELECT teprjtask_rate AS rate, 10 AS seq 
@@ -13,8 +14,8 @@ UNION
 
 -- Project Rate
 SELECT teprj_rate AS rate, 20 AS seq
-FROM te.tepr
-WHERE (teprj_prj_id = <? value("prj_id") ?>))
+FROM te.teprj
+WHERE (teprj_prj_id = <? value("prj_id") ?>)
 UNION
 
 -- Employee Rate
