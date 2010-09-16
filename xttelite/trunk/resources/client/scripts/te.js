@@ -128,7 +128,7 @@ function lineDelete()
 
 function lineNew()
 {
-  if (!sSave)
+  if (!sSave())
     return;
 
   lineOpen(_newMode);  

@@ -59,9 +59,9 @@ _next.clicked.connect(sNext);
 _task.newID.connect(sHandleTask);
 _rate.valueChanged.connect(extension);
 _hours.valueChanged.connect(extension);
-_items["newId(int)"].connect(getPrice);
 _radioTime.toggled.connect(timeswitch);
 _radioExpense.toggled.connect(expenseswitch);
+_items["newId(int)"].connect(getPrice);
 _clients["newId(int)"].connect(getPrice);
 _project["newId(int)"].connect(projectChange);
 _employee.newId.connect(modified);
@@ -97,10 +97,7 @@ function set(input)
     _employee.setId(input.emp_id);
   
   if("weekending" in input)
-  {
     _weekending.date = input.weekending;
-    _weekending.enabled = false;
-  }
 
   if ("tehead_id" in input)
     _headid = input.tehead_id;
@@ -201,9 +198,6 @@ function sHandleTask()
 
 function getPrice()
 {
-  if (_modified)
-    return;
-
   var params = new Object();
   params.item_id = _items.id();
   params.task_id = _task.id();
@@ -213,14 +207,12 @@ function getPrice()
   if (_radioTime.checked)
     params.time = true;
   
-  var qry = toolbox.executeDbQuery("time_expense","getterate");
+  var qry = toolbox.executeDbQuery("time_expense", "getterate", params);
   
   if (qry.first())
     _rate.setLocalValue(qry.value("rate"));
   else
     errorCheck(qry);
-
-  modified();
 }
 
 function populate()
@@ -386,6 +378,7 @@ function projectChange()
     _task.enabled = false;
   }
   modified();
+  getPrice();
 }
 
 
