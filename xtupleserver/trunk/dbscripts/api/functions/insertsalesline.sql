@@ -75,7 +75,7 @@ BEGIN
     pNEW.notes,
     true,
     0,
-    pNEW._r.customer_pn,
+    pNEW.customer_pn,
     CASE
       WHEN ((pNEW.create_order  AND (_r.item_type = 'M')) OR 
            ((pNEW.create_order IS NULL) AND _r.itemsite_createwo)) THEN
