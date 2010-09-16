@@ -1,8 +1,7 @@
 BEGIN;
 
 -- Sales Order Line
-SELECT dropIfExists('VIEW', 'salesline', 'api');
-CREATE VIEW api.salesline
+CREATE OR REPLACE VIEW api.salesline
 AS 
   SELECT 
      cohead_number::VARCHAR AS order_number,
@@ -70,81 +69,7 @@ COMMENT ON VIEW api.salesline IS 'Sales Order Line Item';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO api.salesline DO INSTEAD
-
-  INSERT INTO coitem (
-    coitem_cohead_id,
-    coitem_linenumber,
-    coitem_itemsite_id,
-    coitem_status,
-    coitem_scheddate,
-    coitem_promdate,
-    coitem_qtyord,
-    coitem_qty_uom_id,
-    coitem_qty_invuomratio,
-    coitem_qtyshipped,
-    coitem_unitcost,
-    coitem_price,
-    coitem_price_uom_id,
-    coitem_price_invuomratio,
-    coitem_custprice,
-    coitem_order_id,
-    coitem_memo,
-    coitem_imported,
-    coitem_qtyreturned,
-    coitem_custpn,
-    coitem_order_type,
-    coitem_substitute_item_id,
-    coitem_prcost,
-    coitem_taxtype_id,
-    coitem_warranty,
-    coitem_cos_accnt_id)
-  SELECT
-    cohead_id,
-    NEW.line_number::INTEGER,
-    itemsite_id,
-    NEW.status,
-    NEW.scheduled_date,
-    NEW.promise_date,
-    NEW.qty_ordered,
-    COALESCE(getUomId(NEW.qty_uom),item_inv_uom_id),
-    itemuomtouomratio(item_id,COALESCE(getUomId(NEW.qty_uom),item_inv_uom_id),item_inv_uom_id),
-    0,
-    stdCost(item_id),
-    COALESCE(NEW.net_unit_price,itemPrice(item_id,cohead_cust_id,
-             cohead_shipto_id,NEW.qty_ordered,cohead_curr_id,cohead_orderdate)),
-    COALESCE(getUomId(NEW.price_uom),item_price_uom_id),
-    itemuomtouomratio(item_id,COALESCE(getUomId(NEW.price_uom),item_price_uom_id),item_price_uom_id),
-    itemPrice(item_id,cohead_cust_id,cohead_shipto_id,NEW.qty_ordered,cohead_curr_id,cohead_orderdate),
-    -1,
-    NEW.notes,
-    true,
-    0,
-    NEW.customer_pn,
-    CASE
-      WHEN ((NEW.create_order  AND (item_type = 'M')) OR 
-           ((NEW.create_order IS NULL) AND itemsite_createwo)) THEN
-        'W'
-      WHEN ((NEW.create_order AND (item_type = 'P')) OR 
-           ((NEW.create_order IS NULL) AND itemsite_createsopr)) THEN
-        'R'
-      WHEN ((NEW.create_order AND (item_type = 'P') AND (itemsite_createsopo)) OR 
-           ((NEW.create_order IS NULL) AND itemsite_createsopo)) THEN
-        'P'
-    END,
-    getItemsiteId(warehous_code,NEW.substitute_for),
-    NEW.overwrite_po_price,
-    COALESCE(getTaxTypeId(NEW.tax_type), getItemTaxType(itemsite_item_id, cohead_taxzone_id)),
-    NEW.warranty,
-    getGlAccntId(NEW.alternate_cos_account)
-  FROM cohead, itemsite, item, whsinfo
-  WHERE ((cohead_number=NEW.order_number)
-  AND (itemsite_warehous_id=warehous_id
-  AND (itemsite_item_id=item_id)
-  AND (itemsite_active)
-  AND (item_number=NEW.item_number)
-  AND (warehous_active)
-  AND (warehous_id=COALESCE(getWarehousId(NEW.sold_from_site,'ALL'),cohead_warehous_id,fetchprefwarehousid()))));
+    ON INSERT TO api.salesline DO INSTEAD  SELECT insertsalesline(new.*) AS insertsalesline;
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.salesline DO INSTEAD
