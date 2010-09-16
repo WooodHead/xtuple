@@ -210,7 +210,7 @@ function sheetOpen(mode)
       params.emp_id = _employee.id();
   }
 
-  var te = toolbox.openWindow("te");
+  var te = toolbox.openWindow("te", mywindow, Qt.ApplicationModal);
   toolbox.lastWindow().set(params);
   var result = te.exec();
   if(result != 0)
