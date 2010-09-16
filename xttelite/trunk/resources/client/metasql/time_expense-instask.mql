@@ -1,0 +1,20 @@
+-- Group: time_expense
+-- Name:  instask
+-- Notes: Insert a default Project Task
+INSERT INTO api.task(
+  project_number,
+  number,
+  status,
+  name,
+  description,
+  owner,
+  assigned_to)
+VALUES (
+  <? value("prjnum") ?>,'
+  <? value("name") ?>,
+  'In-Process',
+  <? value("name") ?>,
+  <? value("name") ?>,
+  CURRENT_USER,
+  CURRENT_USER
+);

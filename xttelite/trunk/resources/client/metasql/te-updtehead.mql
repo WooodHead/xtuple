@@ -1,0 +1,8 @@
+-- Group: te
+-- Name:  updtehead
+-- Notes: Update Time Expense Sheet Header
+UPDATE te.tehead SET 
+  tehead_emp_id = <? value("emp_id") ?>,
+  tehead_site = <? value("site") ?>,
+  tehead_notes = <? value("notes") ?> 
+WHERE tehead_id=<? value("tehead_id") ?>;
