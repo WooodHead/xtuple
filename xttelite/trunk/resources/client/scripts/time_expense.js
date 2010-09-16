@@ -1,26 +1,20 @@
-debugger;
-// time_expense.js
+include("teglobal");
+
 // Define local variables
-
-var _newMode    = 0;
-var _editMode   = 1;
-var _viewMode   = 2;
-
 var _hours              = mywindow.findChild("_hours");
 var _total              = mywindow.findChild("_total");	
 var _totalLit           = mywindow.findChild("_totalLit");	
 var _rate               = mywindow.findChild("_rate");
 var _rateLit            = mywindow.findChild("_rateLit");
 var _clients            = mywindow.findChild("_clients");
-var _employees          = mywindow.findChild("_employees");
+var _employee           = mywindow.findChild("_employee");
 var _items              = mywindow.findChild("_items");
-var _po	                = mywindow.findChild("_po");
+var _po		 = mywindow.findChild("_po");
 var _project            = mywindow.findChild("_project");
 var _task               = mywindow.findChild("_task");
 var _linenumber         = mywindow.findChild("_linenumber");
 var _sheet              = mywindow.findChild("_sheet");
-var _cancel             = mywindow.findChild("_cancel");
-var _save               = mywindow.findChild("_save");
+var _buttonBox          = mywindow.findChild("_buttonBox");
 var _weekending         = mywindow.findChild("_weekending");
 var _workdate           = mywindow.findChild("_workdate");
 var _radioTime          = mywindow.findChild("_radioTime");
@@ -36,187 +30,128 @@ var _budgetCost         = mywindow.findChild("_budgetCost");
 var _notes              = mywindow.findChild("_notes");
 var _prev               = mywindow.findChild("_previous");
 var _next               = mywindow.findChild("_new");
+var _sheetLit 	 = mywindow.findChild("_sheetLit");
 
-var _savehours;
-var _saverate;
-var _saveproject;
-var _savetask;
+_cancel = _buttonBox.button(QDialogButtonBox.Cancel);
+_prev = _buttonBox.addButton(qsTr("Prev"), QDialogButtonBox.ActionRole);
+_next = _buttonBox.addButton(qsTr("Next"), QDialogButtonBox.ActionRole);
+
+_prev.enabled = false;
+_next.enabled = false;
+
 var _sheetnum;
 var _linenum;
-var _teitemid;
-var _headid;
-var _type;
-var _empid;
-var _taskid;
+var _teitemid = -1;
+var _headid = -1;
+var _taskid = -1;
 var _site;
-var _hoursSAVED;
-var _totalSAVED;
-var _billableSAVED;
-var _prepaidSAVED;
-var _first = true;
-var _mode;
-var _nav;
+var _mode = _newMode;
 var _modified = false;
-var _newlinenum;
-var _error = false;
 
 _task.enabled = false;
-_task.newID.connect(sHandleTask);
-// look to the booitem script for handling of project/task change
-
-
-//add budget/actual
-//var _items = mywindow.findChild("_items");
-//var layout = toolbox.widgetGetLayout(_items);
-
-//var _budgetactual = toolbox.loadUi("budgetactual", mywindow);
-//toolbox.layoutGridAddWidget(layout, _budgetactual, 0, 0);
-
-// if the employee has admin priv - then enable the employee drop down...otherwise...populate only with the current employee/login
-
-var _sheetLit 	= mywindow.findChild("_sheetLit");
-
-_sheetLit.visible=false;
 
 // Define connections
+_buttonBox.accepted.connect(sSaveClose);
+_buttonBox.rejected.connect(mydialog, "reject");
+_prev.clicked.connect(sPrev);
+_next.clicked.connect(sNext);
+
+_task.newID.connect(sHandleTask);
 _rate.valueChanged.connect(extension);
 _hours.valueChanged.connect(extension);
-_items["newId(int)"].connect(getprice);
-_cancel.clicked.connect(cancel);
-_task.clicked.connect(gettask);
-_save.clicked.connect(sSaveClose);
-var ext = _hours.text * _rate.text;
-_total.setLocalValue(ext)
+_items["newId(int)"].connect(getPrice);
+_radioTime.toggled.connect(timeswitch);
+_radioExpense.toggled.connect(expenseswitch);
+_clients["newId(int)"].connect(getPrice);
+_project["newId(int)"].connect(projectChange);
+_employee.newId.connect(modified);
+_po.textChanged.connect(modified);
+_workdate.newDate.connect(modified);
+_billable.toggled.connect(modified);
+_prepaid.toggled.connect(modified);
+_notes.textChanged.connect(modified);
+
+// Initialize default states
+_weekending.enabled = false;
+_linenumber.enabled = true;
+_task.enabled = false;
+_employee.enabled = false;
+_prev.enabled = false;
+_next.enabled = false;
 _total.enabled=false;
 _total.readonly = true;
 _radioTime.checked = true;
 _billable.visible = true;
 _prepaid.visible = false;
-_radioTime.clicked.connect(timeswitch);
-_radioExpense.clicked.connect(expenseswitch);
-_billable.clicked.connect(billablecheck);
-_prepaid.clicked.connect(prepaidcheck);
-_prev.clicked.connect(sPrev);
-_next.clicked.connect(sNext);
-_notes.textChanged.connect(notesChange);
-//_clients['currentIndexChanged(QString)'].connect(clientChange);
-_clients["newId(int)"].connect(clientChange);
-_project["newId(int)"].connect(projectChange);
-_po.editingFinished.connect(setButtons);
-_linenumber.enabled = true;
 
-//_project.enabled = false;
-_task.enabled = false;
-_employees.enabled = false;
-_prev.enabled = false;
-_save.enabled = false;
-_next.enabled = false;
+_items.setQuery("SELECT item_id,item_number,item_descrip1,item_descrip2, "
+              + "       item_type,item_config,item_upccode,uom_name "
+              + "FROM item JOIN uom ON (uom_id=item_inv_uom_id) "
+              + "          JOIN te.teexp ON (teexp_id=item_id) "
+              + "WHERE item_type='R' ");
 
-
-//NOTE:  
-//   startDate = Weekending
-//   endDate = WorkDate
 
 function set(input)
 {
-  if(input.empid > 0){
-    var params = new Object();    
-    params.empid = input.empid;
-    _employees.setId(params.empid);
-  }
+  if("emp_id" in input)
+    _employee.setId(input.emp_id);
   
-  if(input.weekending != "Invalid Date"){
+  if("weekending" in input)
+  {
     _weekending.date = input.weekending;
     _weekending.enabled = false;
   }
 
+  if ("tehead_id" in input)
+    _headid = input.tehead_id;
+
+  if ("site" in input)
+    _site = input.site;
+
+  if ("teitem_id" in input)
+    _teitemid = input.teitem_id;
+
   if ("mode" in input)
   {
+    _mode = input.mode;
+
     if (input.mode == _newMode)
-    {
-      _mode = _newMode;
-      // if sheet/line are passed...then we need to add a new line to the given sheet
-      // get default rate/customer from the project billing setup
-      _next.text = qsTr("New");
-      _teitemid = 0;      
-      _headid = input.headid;
-      _site = input.site;
-      _empid = input.empid;
-
-      // initialize qty
-      _hours.localValue = 1.0;
-
-      // increment the max line number...
-      populate(0);
-    }
-    else if (input.mode == _viewMode)
-    {
-      _mode = _viewMode;
-      _cancel.text = "Close";
-      _teitemid = input.itemid;      
-      _headid = input.headid;
-      _site = input.site;
-      _empid = input.empid;
-      _save.enabled = false;
-      populate(2);
-    }
-    else if (input.mode == _editMode)
-    {
-      _mode = _editMode;      
-      _teitemid = input.itemid;
-      _headid = input.headid;
-      _site = input.site;
-      populate(1);
+      sNew();
+    else 
+    { 
+      populate();
+      if (input.mode == _viewMode)
+      {
+        _buttonBox.setStandardButtons(QDialogButtonBox.Close);
+        _sheetLit.visible=true;
+        _weekending.enabled = false;
+        _next.enabled = false;
+        _prepaid.enabled = false;
+        _radioTime.enabled = false;
+        _radioExpense.enabled = false;
+        _weekending.enabled = false;
+        _workdate.enabled = false;
+        _hours.enabled = false;
+        _rate.enabled = false;
+        _items.enabled = false;
+        _employee.enabled = false;
+        _clients.enabled = false;
+        _po.enabled = false;
+        _project.enabled = false;
+        _task.enabled = false;
+        _notes.enabled = false;
+        _billable.enabled = false; 
+      }
     }
   }
-  //getprice();  
-  return 0;
-}
-
-
-function setButtons()
-{
-  if (_mode != _viewMode){
-    _save.enabled = true;
-    _next.enabled = true;
-  }
+  
+  return mainwindow.NoError;
 }
 
 function extension()
 {
   _total.localValue = (_hours.localValue * _rate.localValue)
-
-  if(_first == true)
-  {
-    _totalSAVED = _total.localValue;
-  }else{
-    _modified = true;
-  }
-
-  if(_task.id() > 0)
-  {
-    //rollupActual();
-  }
-}
-
-
-function sFillItems()
-{
-//     _items.setQuery("select item_id,item_number,item_descrip1 from "
-//             + "(SELECT item_id,item_number,item_descrip1,"
-//             + "coalesce(teexp_id::text,'N') as exp "
-//             + "FROM te.teexp right OUTER JOIN (select item_id,item_number, "
-//             + "item_descrip1 from item "
-//             + "where item_active = true "
-//             + "and item_type = 'R') filter"
-//             + " ON teexp_id = item_id) exptable "
-//             + "where exp <> 'N'");
-
-     _items.setQuery("SELECT item_id,item_number,item_descrip1,item_descrip2, "
-                   + "       item_type,item_config,item_upccode,uom_name "
-                   + "FROM item JOIN uom ON (uom_id=item_inv_uom_id) "
-                   + "          JOIN te.teexp ON (teexp_id=item_id) "
-                   + "WHERE item_type='R' ");
+  _modified = true;
 }
 
 function gettask()
@@ -226,725 +161,187 @@ function gettask()
     var params = new Object();
     params.prj = _project.id();
     params.prjnum = _project.number;
+    params.name = qsTr("Default");
 
     var qry = toolbox.executeDbQuery("te", "gettask", params);
+    if(!errorCheck(qry))
+      return;
+
     _task.populate(qry);
 
     if(_taskid > 0)
-    {
       _task.setId(_taskid);
-    }
 
-    if(qry.lastError().type != QSqlError.NoError)
+    if (!qry.first())
     {
-      toolbox.messageBox("critical", mywindow,
-                       qsTr("Database Error"), qry.lastError().text);
-      return;
-    }
+      var msg = qsTr("No task found. A default task will be added");
+      toolbox.messageBox("critical", mywindow, qsTr("task"), msg);
+      toolbox.executeDbQuery("time_expense","instask",params);
 
-    if (qry.first())
-    {
-    // no action
-    }
-    else
-    {
-      toolbox.messageBox("critical", mywindow, qsTr("task"), "No task found. A default task will be added");
-      var q = toolbox.executeQuery("insert into api.task(project_number,number,status,name,description,owner,assigned_to) "
-	+ 'values(<? value("prjnum") ?>,'
-	+ "'DEFAULT','In-Process',"
-        + "'Default','Default',CURRENT_USER,CURRENT_USER);",params);
-
-      var qry = toolbox.executeDbQuery("te", "gettask", params);
+      qry = toolbox.executeDbQuery("te", "gettask", params);
       _task.populate(qry);
     }
 
-    getprice();
+    getPrice();
     setActualBudget();
   }
 }
 
+function modified()
+{
+  _modified = true;
+}
 
 function sHandleTask()
 {  
-  getprice();
+  getPrice();
   setActualBudget();
+  modified();
 }
 
-
-function populateProjects()
+function getPrice()
 {
-  var q = toolbox.executeQuery("SELECT 0 as prj_id, ' ' as prj_number FROM prj "
-        + " UNION "
-        + "SELECT prj_id,prj_number FROM prj;");
-  if (q.first())
-  {
-    _project.populate(q);  
-  }
-  else if (q.lastError().type != 0)
-  {
-    toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-                       q.lastError().databaseText);
+  if (_modified)
     return;
-  }
-}
 
-
-function getprice()
-{
-   // pricing heirarchy...
-   //   - item list price (rate)
-   //   - customer default rate from Billing Info tab in cust master
-
-   //   - employee default rate from emp table (need a cust/emp relationship)
-   //   - project rate (from project itself) (need a emp/project relationship)
-   //   - task rate (from task...under project)  (need a emp/task relationship)
-
-   // allow use of pricing schedule and price qty breaks (future functionality)
-   // the new billing tabs for Project & Task will each have a rate defined...these should override the list price...but what about the price schedule???
-
-// added the && _rate.text == ""
-
-  if (_first == false){
-    _modified = true;
-  }
+  var params = new Object();
+  params.item_id = _items.id();
+  params.task_id = _task.id();
+  params.prj_id = _project.id();
+  params.cust_id = _clients.id();
+  params.emp_id = _employee.id();
+  if (_radioTime.checked)
+    params.time = true;
   
-  var _ratetest = _rate.localValue;
-
-  if (_radioExpense.checked && _ratetest == "0.00"){
-
-    // check for item list price
-    var params = new Object();
-    params.itemid = _items.id();
-
-    var qry = toolbox.executeQuery('SELECT item_listprice as listprice '
-      + ' from item where item_id = <? value("itemid") ?>;',params);
-
-    if(qry.lastError().type != QSqlError.NoError)
-    {
-      toolbox.messageBox("critical", mywindow,
-                       qsTr("Database Error"), qry.lastError().text);
-      return;
-    }
-
-    if (qry.first())
-    {
-      _rate.setLocalValue(qry.value("listprice"));
-    }
-  } //expense
-
-  // check for task rate
-  if (_radioTime.checked){
-    var params = new Object();
-    params.taskid = _task.id();
-
-    var qry = toolbox.executeQuery("SELECT teprjtask_rate as rate "
-                        + "FROM te.teprjtask,prjtask "
-                        + ' WHERE prjtask_number = teprjtask_prjtask_number '
-                     	 + ' and prjtask_prj_id = teprjtask_prj_id '
-		 + ' and prjtask_id = <? value("taskid") ?>;',params);
-    if (qry.first())
-    {
-      _rate.localValue = (qry.value("rate"));
-      return;
-    }
-    else if (qry.lastError().type != 0)
-    {
-      toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-                       qry.lastError().databaseText);
-      return;
-    } 
-
-    // check for project rate
-    var params = new Object();
-    params.prjid = _project.id();
-    params.custid = _clients.id();
-
-    var qry = toolbox.executeQuery("SELECT teprj_rate as rate "
-                               + "FROM te.teprj "
-                               + ' WHERE teprj_cust_id = <? value("custid") ?> '
-                               + ' and teprj_prj_id = <? value("prjid") ?>;',params);
-    if (qry.first())
-    {
-      _rate.localValue = (qry.value("rate"));
-      return;
-    }
-    else if (qry.lastError().type != 0)
-    {
-      toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-                       qry.lastError().databaseText);
-      return;
-    } 
-
-    // check for emp rate
-    var params = new Object();
-    params.code = _employees.text;
-
-    var qry = toolbox.executeQuery("SELECT emp_id "
-        + "FROM emp "
-        + ' WHERE emp_code = <? value("code") ?>;',params);
-
-    if (qry.first())
-    {
-      params.empid = qry.value("emp_id");
-       var qry = toolbox.executeQuery("SELECT teemprate_rate as rate "
-        + "FROM te.teemprate "
-        + ' WHERE teemprate_emp_id = <? value("empid") ?>;',params);
-
-      if (qry.first())
-      {
-        _rate.localValue = (qry.value("rate"));
-        return;
-      }
-    }
-
-    // check for customer rate
-    var params = new Object();
-    params.custname = _clients.text;
-
-    var qry = toolbox.executeQuery("SELECT tecustrate_rate as rate "
-        + "FROM te.tecustrate "
-        + ' WHERE tecustrate_cust_name = <? value("custname") ?>;',params);
-
-    if (qry.first())
-    {
-      _rate.localValue = (qry.value("rate"));
-      return;
-    }
-    else if (qry.lastError().type != 0)
-    {
-      toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-                       qry.lastError().databaseText);
-      return;
-    } 
-
-    // check for item list price
-    var params = new Object();
-    params.itemid = _items.id();
-
-    var qry = toolbox.executeQuery('SELECT item_listprice as listprice '
-      + ' from item where item_id = <? value("itemid") ?>;',params);
-
-    if(qry.lastError().type != QSqlError.NoError)
-    {
-      toolbox.messageBox("critical", mywindow,
-                       qsTr("Database Error"), qry.lastError().text);
-      return;
-    }
-
-    if (qry.first())
-    {
-      _rate.setLocalValue(qry.value("listprice"));
-    }
-  } //time
-}
-
-
-function cancel()
-{
-  if (mywindow.windowModality)
-    mydialog.reject();
+  var qry = toolbox.executeDbQuery("time_expense","getterate");
+  
+  if (qry.first())
+    _rate.setLocalValue(qry.value("rate"));
   else
-    mywindow.close();
+    errorCheck(qry);
+
+  modified();
 }
 
-function populate(mode)
+function populate()
 {
   _modified = false;
-  if (mode == _editMode)
+ 
+  // Edit or View mode
+  var params = new Object();
+  params.teitem_id = _teitemid;
+
+  q = toolbox.executeDbQuery("time_expense","detail", params);
+  if (q.first())
   {
-    _sheetLit.visible=true;
-    _weekending.enabled = false;
-    try
-    {
+    if (q.value("teitem_type") == "T") 
+      _radioTime.checked = true;
+    else
+      _radioExpense.checked = true;
 
-      var params = new Object();
-      params.id = _teitemid;
-      params.headid = _headid;
-	
-      var q = toolbox.executeQuery("SELECT tehead_site as site, "
-                               + "tehead_weekending as weekending, "
-                               + "tehead_number as sheetnum, "
-		        + "teitem_workdate as workdate, "
-		        + "teitem_linenumber as line_number, "
-		        + "teitem_item_id as itemid,teitem_rate as rate, "
-                               + "teitem_qty as hours, teitem_total as total,"
-		        + "teitem_emp_id as empid, "
-		        + "teitem_po as po, teitem_prjtask_id as task,"
-                               + "teitem_cust_id as custid, teitem_prj_id as project, "
-                               + "teitem_type as type,teitem_prepaid as prepaid, "
-                               + "teitem_billable as billable,teitem_notes as notes "
-                               + "FROM te.tehead,te.teitem "
-                               + " WHERE tehead_id = teitem_tehead_id and " 		
-                               + ' teitem_id=<? value("id") ?>;',params);
+    _billable.checked = q.value("teitem_billable");
+    _prepaid.checked = q.value("teitem_prepaid")
+    _weekending.date = (q.value("tehead_weekending"));
+    _workdate.date = (q.value("teitem_workdate"));
+    _rate.localValue = (q.value("teitem_rate"));
+    _saverate = q.value("teitem_rate");
+    _hours.localValue = (q.value("teitem_qty"));
+    _items.setId(q.value("teitem_item_id"));
+    _employee.setId(q.value("tehead_emp_id"));
+    _clients.setId(q.value("teitem_cust_id"));
+    _po.text = (q.value("teitem_po"));
+    _project.setId(q.value("teitem_prj_id"));
+    _taskid = q.value("teitem_prjtask_id");
+    _sheet.text = (q.value("tehead_number"));
+    _sheetnum = (q.value("tehead_number"));
+    _linenumber.text = (q.value("teitem_linenumber"));
+    _linenum = (q.value("teitem_linenumber"));
+    _notes.plainText = q.value("teitem_notes");
 
-      if (q.first())
-      {
-        _type = (q.value("type"));
-        if (_type == "T") 
-        {
-          _radioTime.checked = true;
-          timeswitch();
-        }else{
-          _radioExpense.checked = true;
-          expenseswitch();
-          if(q.value("billable")){
-             _billable.checked = true;
-          
-          }
-          if(q.value("prepaid")){
-             _prepaid.checked = true;
-          }
-        }
-        _weekending.date = (q.value("weekending"));
-        _weekending.enabled = false;
-        _workdate.date = (q.value("workdate"));
-        _rate.localValue = (q.value("rate"));
-        _saverate = q.value("rate");
-        _hours.localValue = (q.value("hours"));
-        _hoursSAVED = (q.value("hours"));
-        _items.setId(q.value("itemid"));
-        _employees.setId(q.value("empid"));
-        _clients.setId(q.value("custid"));
-        _po.text = (q.value("po"));
-        _project.setId(q.value("project"));
-        _taskid = q.value("task");
-        gettask();
-        _sheet.text = (q.value("sheetnum"));
-        _sheetnum = (q.value("sheetnum"));
-        _linenumber.text = (q.value("line_number"));
-        _linenum = (q.value("line_number"));
-        _notes.setText(q.value("notes"));
-        _notesSAVED = _notes;
+    _rate.localValue = _saverate;
+    _total.localValue = (q.value("teitem_total"));
 
-        if (q.value("billable") == true)
-        {
-          _billable.checked = true;
-        }else{
-          _billable.checked = false;
-        }
+    _next.enabled = (!q.value("ismax"));
+    _prev.enabled = (_linenum > 1);
 
-        _billableSAVED = _billable.checked;
-        _prepaidSAVED = _prepaid.checked;
-
-        _rate.localValue = _saverate;
-        _total.localValue = (q.value("total"));
-
-//check to see if there's a higher line number...if yes...set button text to Next and enable it
-        var q = toolbox.executeQuery('select te.maxline(<? value("headid") ?>) '
-            + 'as linenumber;',params);
-        if (q.first())
-        {
-          _newlinenum = (q.value("linenumber") + 1);
-          if (q.value("linenumber") > _linenum)
-          {
-            _next.text = qsTr("Next");
-            _next.enabled = true;
-          }else if (q.value("linenumber") == _linenum){
-            _next.text = qsTr("New");
-            _next.enabled = true;
-          }
-        }
-        if (_linenum == 1)
-        {
-          _prev.enabled = false;
-        }else{
-          var q = toolbox.executeQuery('select te.minline(<? value("headid") ?>)'
-               + ' as linenumber;',params);
-          if (q.first())
-          {
-            if (q.value("linenumber") < _linenum)
-            {
-              _prev.enabled = true;
-            }
-          }
-        }
-      }
-      else if (q.lastError().type != 0)
-      {
-        toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-                         q.lastError().databaseText);
-        return;
-      } 
-    }
-    catch (e) { print("populate() exception @ " + e.lineNumber + ": " + e); }
-  }
-
-
-  if (mode == _viewMode)
-  {
     _modified = false;
-    _sheetLit.visible=true;
-    _weekending.enabled = false;
-    _save.enabled = false;
-    _next.enabled = false;
-
-    try
-    {
-
-      var params = new Object();
-      params.id = _teitemid;
-      params.headid = _headid;
-
-      var q = toolbox.executeQuery("SELECT tehead_site as site, "
-                               + "tehead_weekending as weekending, "
-                               + "tehead_number as sheetnum, "
-		        + "teitem_workdate as workdate, "
-		        + "teitem_linenumber as line_number, "
-		        + "teitem_item_id as itemid,teitem_rate as rate, "
-                               + "teitem_qty as hours, teitem_emp_id as empid, "
-		        + "teitem_po as po, teitem_prjtask_id as task,"
-                               + "teitem_cust_id as custid, teitem_prj_id as project, "
-                               + "teitem_type as type,teitem_prepaid as prepaid, "
-                               + "teitem_billable as billable,teitem_notes as notes "
-                               + "FROM te.tehead,te.teitem "
-                               + " WHERE tehead_id = teitem_tehead_id and " 		
-                               + ' teitem_id=<? value("id") ?>;',params);
-      if (q.first())
-      {
-        _type = (q.value("type"));
-        if (_type == "T") 
-        {
-          _radioTime.checked = true;
-          timeswitch();
-        }else{
-          _radioExpense.checked = true;
-          expenseswitch();
-          if(q.value("billable")){
-             _billable.checked = true;
-          }
-          if(q.value("prepaid")){
-             _prepaid.checked = true;
-          }
-          _prepaid.enabled = false;
-        }
-        _radioTime.enabled = false;
-        _radioExpense.enabled = false;
-        _weekending.date = (q.value("weekending"));
-        _weekending.enabled = false;
-        _workdate.date = (q.value("workdate"));
-        _workdate.enabled = false;
-        _hours.localValue = (q.value("hours"));
-        _savehours = q.value("hours");
-        _hours.enabled = false;
-        _hoursSAVED = (q.value("hours"));
-        _rate.localValue = (q.value("rate"));
-        _saverate = q.value("rate");
-        _rate.enabled = false;
-        _items.setId(q.value("itemid"));
-        _items.enabled = false;
-        _employees.setId(q.value("empid"));
-        _employees.enabled = false;
-        _clients.setId(q.value("custid"));
-        _clients.enabled = false;
-        _po.text = (q.value("po"));
-        _po.enabled = false;
-        _project.setId(q.value("project"));
-        _saveproject = q.value("project");
-        _project.enabled = false;
-        _taskid = q.value("task");
-        _savetask = q.value("task");
-        gettask();
-        _task.enabled = false;
-        _sheet.text = (q.value("sheetnum"));
-        _sheetnum = (q.value("sheetnum"));
-        _linenumber.text = (q.value("line_number"));
-        _linenum = (q.value("line_number"));
-        _notes.setText(q.value("notes"));
-        _notes.enabled = false;
-
-        if (q.value("billable") == true)
-        {
-          _billable.checked = true;
-        }else{
-          _billable.checked = false;
-        }
-        _billable.enabled = false;
-       
-        var q = toolbox.executeQuery('select te.maxline(<? value("headid") ?>) '
-             + 'as linenumber;',params);
-        if (q.first())
-        {
-          if (q.value("linenumber") > _linenum)
-          {
-            _next.text = qsTr("Next");
-            _next.enabled = true;
-          }else if (q.value("linenumber") == _linenum){
-            _next.text = qsTr("New");
-            _next.enabled = true;
-          }
-        }
-
-        if (_linenum == 1)
-        {
-          _prev.enabled = false;
-        }else{
-          var q = toolbox.executeQuery('select te.minline(<? value("headid") ?>)'
-               + ' as linenumber;',params);
-          if (q.first())
-          {
-            if (q.value("linenumber") < _linenum)
-            {
-              _prev.enabled = true;
-            }
-          }
-        }
-      }
-      else if (q.lastError().type != 0)
-      {
-        toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-                         q.lastError().databaseText);
-        return;
-      } 
-    }
-    catch (e) { print("populate() exception @ " + e.lineNumber + ": " + e); }
   }
-
-
-  if (mode == _newMode)
-  {
-    try
-    {
-      var params = new Object();
-      params.prjid = _project.id();
-      params.headid = _headid;
-      params.id = _teitemid;
-
-      if (_linenumber.text == "")
-      {
-        var q = toolbox.executeQuery('select te.maxline(<? value("headid") ?>) + 1 as linenumber;',params);
-        if (q.first())
-        {
-          _linenumber.setText(q.value("linenumber"));
-          _linenum = (q.value("linenumber"));
-        }
-      }
-
-      if(_weekending.date > 0){
-        _weekending.enabled = false;
-      }
-
-      //_project.enabled = false;
-      _task.enabled = false;
-
-      if (_headid > 0)
-      {
-        _sheetLit.visible=true;
-        
-        var q = toolbox.executeQuery("select tehead_number as sheet_number, "
-                       + " tehead_id, tehead_weekending as weekending "
-                       + " from te.tehead where "
-		+ ' tehead_id = <? value("headid") ?>;',params);
-
-        if (q.first())
-        {
-           _weekending.date = (q.value("weekending"));      
-           if(_weekending.date > 0)
-           {
-             _weekending.enabled = false;
-           }  
-           _sheet.text = (q.value("sheet_number"));
-           _sheetnum = (q.value("sheet_number"));
-           _headid = (q.value("tehead_id"));
-        }
-        else if (q.lastError().type != 0)
-        {
-          toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-                         q.lastError().databaseText);
-          return;
-        } 
-      }
-
-      if (_empid > 0)
-      {
-        _employees.setId(_empid);
-        _employees.enabled = false;
-      }
-
-      //get rate for project
-      var q = toolbox.executeQuery("SELECT teprj_rate as rate, "
-                               + "teprj_cust_id as custid "
-                               + "FROM te.teprj "
-                               + ' WHERE teprj_prj_id = <? value("prjid") ?>;',params);
-      if (q.first())
-      {
-        if (_rate.localValue == 0){
-           _rate.localValue = (q.value("rate"));
-        }
-        _clients.setId(q.value("custid"));
-      }
-      else if (q.lastError().type != 0)
-      {
-        toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-                         q.lastError().databaseText);
-        return;
-      } 
-    }
-    catch (e) { print("populate() exception @ " + e.lineNumber + ": " + e); }
-  }
-
-_first = false;
-
+  else if (!errorCheck)
+    return;
 }
 
 function sSaveClose()
 {
-  sSave();
-  if (_error == false)
-    mywindow.close();
-
-  _error = false;
+  if (sSave())
+  {
+    if (_mode == _newMode)
+      sNew();
+    else
+      mywindow.close();
+  }
 }
-
-// add validation to save() to make sure that edited lines, or new lines for an existing sheet...keep the same weekending date...we could also put this in an onchange (if possible) on the weekending/startdate field
 
 function sSave()
 {
-    var params = new Object();
-    params.weekendingdate = _weekending.date;
-    params.workdate       = _workdate.date;
-    params.employees      = _employees.id();
-    params.hours          = _hours.localValue;
-    params.rate           = _rate.localValue;
-    params.total          = _total.localValue;
-    params.clients        = _clients.id();
-    params.po             = _po.text;
-    params.items          = _items.id();
-    params.project        = _project.text;
-    params.projid         = _project.id();
-    params.task           = _task.text;
-    params.taskid         = _task.id();
-    params.sheet          = _sheetnum;
-    params.line           = _linenum;
-    params.site           = _site;
-    params.notes          = _notes.plainText;
+    try
+    {
+      if (!_clients.isValid())
+        throw new Error(qsTr("Customer Required"));
 
-    if (_teitemid > 0){
-      params.itemid = _teitemid;
-    }
-
-    if (_headid > 0){
-      params.headid = _headid;
-    }else{
-      params.headid;
-    }
-
-    if(_billable.checked){
-      params.billable = true;   
-    }else{
-      params.billable = false;
-    }
-
-    if(_prepaid.checked){
-      params.prepaid = true;   
-    }else{
-      params.prepaid = false;
-    }
-
-    if (_radioTime.checked){
-      params.type = "T";
-    }else{
-      params.type = "E";
-    }
-
-    if (params.clients > 0){
-          //next action
-    }else{
-       if (_radioTime.checked){
-         toolbox.messageBox("critical", mywindow, qsTr("Error"),
-                         "Customer Required");
-         _clients.setFocus();
-         _error = true;
-       return;
-       }
-    }
-     
-    if (params.weekendingdate == "Invalid Date"){
-             toolbox.messageBox("critical", mywindow, qsTr("Error"),
-                         "Sheet Date Required");
-       _weekending.setFocus();
-       _error = true;     
-       return;
-    }
-
-    if (params.workdate == "Invalid Date"){
-           toolbox.messageBox("critical", mywindow, qsTr("Error"),
-                         "Work Date Required");
-       _workdate.setFocus();
-       _error = true;     
-       return;
-    }
+      if (!_workdate.isValid())
+        throw new Error(qsTr("Work Date Required"));
     
-    if (params.project == ""){
-       	toolbox.messageBox("critical", mywindow, qsTr("Error"),
-                       "Project Required");
-       _project.setFocus();
-       _error = true;
-       return;
+      if (!_project.isValid())
+        throw new Error(qsTr("Project Required"));
+ 
+      if (!_items.isValid())
+        throw new Error(qsTr("Item Required"));
+
+      if (_task.id == -1)
+        throw new Error(qsTr("Task Required"));
+    }
+    catch (e)
+    {
+      QMessageBox.critical(mywindow, qsTr("Processing Error"), e.message);
+      return false;
     }
 
-    if (params.items == -1){
-       	toolbox.messageBox("critical", mywindow, qsTr("Error"),
-                       "Item Required");
-       _items.setFocus();
-       _error = true;
-       return;
-    }
+    var params = new Object();
+    params.teitem_tehead_id      = _headid;
+    params.teitem_linenumber     = _linenum;
+    if (_radioTime.checked)
+      params.teitem_type = "T";
+    else
+      params.teitem_type = "E";
+    params.teitem_workdate       = _workdate.date;
+    params.teitem_cust_id        = _clients.id();
+    params.teitem_po             = _po.text;
+    params.teitem_item_id        = _items.id();
+    params.teitem_qty            = _hours.localValue;
+    params.teitem_rate           = _rate.localValue;
+    params.teitem_total          = _total.localValue;
+    params.teitem_prj_id         = _project.id();
+    params.teitem_prjtask_id     = _task.id();
+    params.teitem_billable       = _billable.checked;
+    params.teitem_prepaid        = _prepaid.checked;
+    params.teitem_notes          = _notes.plainText;
+    params.teitem_id             = _teitemid;
 
-    if (params.line == ""){
-      params.line == 0;
-    }
+    var query;
+    if (_teitemid > 0)
+      query = "updteitem";
+    else
+      query = "insteitem";
 
-    if (params.items == -1){
-       	toolbox.messageBox("critical", mywindow, qsTr("Error"),
-                       "Item Required");
-       _items.setFocus();
-       _error = true;
-       return;
-    }
+    var q = toolbox.executeDbQuery("time_expense", query, params);
+    if (q.first())
+      _teitemid = q.value("teitem_id");
+    else if (!errorCheck(q))
+      return;
 
-    if (params.task == ""){
-       	toolbox.messageBox("critical", mywindow, qsTr("Error"),
-                       "Task Required");
-       _task.setFocus();
-       _error = true;
-       return;
-    }
-
-    var q = toolbox.executeQuery('select te.addsheet(<? value("weekendingdate") ?>, '
-                                                 + ' <? value("workdate") ?>, '
-                                                 + ' <? value("items") ?>, '
-                                                 + ' <? value("employees") ?>, ' 
-                                                 + ' <? value("po") ?>, '
-                                                 + ' <? value("clients") ?>, '
-                                                 + ' <? value("hours") ?>, '
-                                                 + ' <? value("rate") ?>, '
-                                                 + ' <? value("total") ?>, '
-                                                 + ' <? value("headid") ?>, '
-                                                 + ' <? value("site") ?>, '
-                                                 + ' <? value("projid") ?>, '
-                                                 + ' <? value("taskid") ?>, ' 
-                                                 + ' <? value("type") ?>, '
-                                                 + ' <? value("line") ?>, '
-                                                 + ' <? value("billable") ?>, '
-                                                 + ' <? value("prepaid") ?>, '
-                                                 + ' <? value("notes") ?>, '
-                                                 + ' NULL, '
-                                                 + ' <? value("itemid") ?> );',params);
-
-    _cancel.text = "Close";
     _prev.enabled = true;
 
-    if (_teitemid == 0)
-    {
-      var q = toolbox.executeQuery("SELECT teitem_id as id "
-                                 + "FROM te.teitem "
-                                 + 'WHERE (teitem_tehead_id = <? value("headid") ?>) '
-                                 + '  AND (teitem_linenumber = <? value("line") ?>) '
-                                 + "LIMIT 1;", params);
-
-      if (q.first())
-        _teitemid = q.value("id");
-    }
+    return true;
 }
 
 
@@ -956,8 +353,8 @@ function timeswitch()
     _billable.visible = true;
     _prepaid.visible = false;
   }
-  sFillItems();
-  getprice();
+  getPrice();
+  modified();
 }
 
 
@@ -970,123 +367,45 @@ function expenseswitch()
     _prepaid.visible = true;
     _rate.localValue = 0;
   }
-  sFillItems();
-  getprice();
+  getPrice();
+  modified();
 }
-
-function billablecheck()
-{
-  if (_billableSAVED != _billable.checked)
-  {
-    if (_first == false){
-      _modified = true;
-    }
-  }
-}
-
-function prepaidcheck()
-{
-  if (_prepaidSAVED != _prepaid.checked)
-  {
-    if (_first == false){
-      _modified = true;
-    }
-  }
-}
-
 
 function projectChange()
 {
   //enable and reset the task fields
-  if(_project.currentText != " ")
+  if(_project.isValid() && _mode != _viewMode)
   {
-    if (_mode != _viewMode){
-      _save.enabled = true; 
-      _next.enabled = true;
-      _task.enabled = true;
-    }
+    _next.enabled = true;
+    _task.enabled = true;
     gettask();
-    //getprice();
   }
-}
-
-function clientChange()
-{
-  //enable and reset the Project and task fields
-
-  //if the price has been overridden...then get the pricing info
-  if(_clients.currentText != " ")
+  else
   {
-    if (_mode != _viewMode){
-      _save.enabled = true;
-      _next.enabled = true;
-      _project.enabled = true;
-    }
-    //_task.enabled = true;
-    //populateProjects();
-    getprice();
+    _next.enabled = false;
+    _task.enabled = false;
   }
-}
-
-
-function notesChange()
-{
-  if (_first == false){
-    _modified = true;
-  }
-}
-
-function populateClients()
-{
-  var q = toolbox.executeQuery("SELECT 0 as cust_id, ' ' as cust_name FROM custinfo "
-        + " UNION "
-        + "SELECT cust_id,cust_name FROM custinfo;");
-  if (q.first())
-  {
-    _clients.populate(q);        
-  }
-  else if (q.lastError().type != 0)
-  {
-    toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-                       q.lastError().databaseText);
-    return;
-  } 
+  modified();
 }
 
 
 function setActualBudget()
 {
-  var parms = new Object;
-  parms.prjid = _project.id();
-  parms.taskid = _task.id();
+  var params = new Object;
+  params.prjid = _project.id();
+  params.taskid = _task.id();
  
-  var q = toolbox.executeQuery("SELECT "
-               + "formatqty(prjtask_hours_budget) as budget_hours,"
-               + "formatqty(prjtask_hours_actual) as actual_hours,"
-               + "formatmoney(prjtask_exp_budget) as budget_cost,"
-               + "formatmoney(prjtask_exp_actual) as actual_cost "
-               + "from prjtask "
-               + "where prjtask_id = <? value('taskid') ?> ;",parms);
+  var q = toolbox.executeDbQuery("time_expense", "taskbudg",params);
   if (q.first())
   {
-     _budget.text = q.value("budget_hours");        
-     _actual.text = q.value("actual_hours");    
-     //_actual.setPrecision(mywindow.qtyVal());    
-     _budgetCost.text = q.value("budget_cost");        
-     _actualCost.text = q.value("actual_cost");        
-     //_actualCost.setPrecision(decimalPlaces());
+    _budget.text = q.value("budget_hours");        
+    _actual.text = q.value("actual_hours");       
+    _budgetCost.text = q.value("budget_cost");        
+    _actualCost.text = q.value("actual_cost");        
     
-     if (_mode == _newMode)
-     {
-       //rollupActual();
-     }
-   }
-   else if (q.lastError().type != 0)
-   {
-     toolbox.messageBox("critical", mywindow, qsTr("Database Error"),
-                       q.lastError().databaseText);
-     return;
-   } 
+  }
+  else 
+    errorCheck(q);
 }
 
 
@@ -1099,28 +418,17 @@ function rollupActual()
   _totalhrs = 0;    
 
   // get the task actuals then add the current
-  var q = toolbox.executeQuery('select formatqty(sum(total_hours)) as total_hours,'
-           + 'formatcost(sum(total_cost)) as total_cost from '
-           + '(select sum(teitem_qty) as total_hours,'
-           + 'sum(teitem_total) as total_cost from te.teitem '
-           + 'where teitem_prjtask_id = <? value("taskid") ?> '
-           + "and teitem_type = 'T' "
-           + 'union '
-           + 'select 0 as total_hours,'
-           + 'sum(teitem_total) as total_cost from te.teitem '
-           + 'where teitem_prjtask_id = <? value("taskid") ?> '
-           + "and teitem_type = 'E') rollup;",parms);
+  var q = toolbox.executeDbQuery("time_expense","taskrollup",parms);
 
   if (q.first())
   {
-    //var _totalhrs = parseFloat(q.value("total_hours"));
-
     if(_radioTime.checked)
-    {
       _actual.setText(q.value("total_hours"));
-    }
+
     _actualCost.setText(q.value("total_cost"));
   } 
+  else
+    errorCheck(q);
 }
 
 
@@ -1129,9 +437,10 @@ function sPrev()
 
   if (_modified)
   {
-    if (toolbox.messageBox("question", mywindow,
+    if (MessageBox.question(mywindow,
                        qsTr("Unsaved Changed"),
-                       qsTr("<p>You have made some changes which have not yet been saved!\n" 
+                       qsTr("<p>You have made some changes "
+                       + "which have not yet been saved!\n" 
                        + "Would you like to save them now?"),
                         QMessageBox.Save, QMessageBox.Cancel) != QMessageBox.Save)
       return;
@@ -1140,51 +449,35 @@ function sPrev()
   }
 
   var params = new Object;
-  params.id = _teitemid;
+  params.teitem_id = _teitemid;
 
-  _nav = "prev";
-
-  var q = toolbox.executeQuery("SELECT a.teitem_id as id "
-                             + "FROM te.teitem AS a, te.teitem AS b "
-                             + "WHERE ( (a.teitem_tehead_id = b.teitem_tehead_id) "
-		             + "  AND   (a.teitem_linenumber < b.teitem_linenumber) "
-                             + '  AND   (b.teitem_id=<? value("id") ?>) ) '
-		             + "ORDER BY a.teitem_linenumber DESC "
-		             + "LIMIT 1;", params);
+  var q = toolbox.executeDbQuery("time_expense", "teitemprev", params);
 
   if (q.first())
   {
-    _first = true;
+    _teitemid = q.value("teitem_id");
     _modified = false;
+
     if (_mode == _newMode)
       _mode = _editMode;
 
-    _teitemid = q.value("id");
-    if (_mode == _viewMode)
-    {
-      populate(2);
-    }
-    else if (_mode == _editMode)
-    {
-      populate(1);
-    }
     _next.enabled = true;
+    populate();
   }
+  else
+    errorCheck(q);
 }
-
 
 
 function sNext()
 {
-  var params = new Object;
-  params.id = _teitemid;
-
   if (_modified)
   {
 
     if (toolbox.messageBox("question", mywindow,
                        qsTr("Unsaved Changed"),
-                       qsTr("<p>You have made some changes which have not yet been saved!\n" 
+                       qsTr("<p>You have made some changes "
+                       + "which have not yet been saved!\n" 
                        + "Would you like to save them now?"),
                         QMessageBox.Save, QMessageBox.Cancel) != QMessageBox.Save)
     return;
@@ -1192,84 +485,72 @@ function sNext()
     sSave();
   }
 
-  if (_next.text == qsTr("New"))
-  {
-    sNew();
-    return;
-  }
-
-  _nav = "next";
-
-  var q = toolbox.executeQuery("SELECT a.teitem_id as id "
-                               + "from te.teitem AS a, te.teitem AS b "
-                               + " WHERE ((a.teitem_tehead_id = b.teitem_tehead_id) "
-		        + "   AND (a.teitem_linenumber > b.teitem_linenumber)"
-                               + '   AND (b.teitem_id=<? value("id") ?>)) '
-		        + " ORDER BY a.teitem_linenumber "
-		        + " LIMIT 1;",params);
+  var params = new Object;
+  params.teitem_id = _teitemid;
+  var q = toolbox.executeDbQuery("time_expense","teitemnext",params);
 
   if (q.first())
   {
-    _first = true;
     _modified = false;
-
-    _teitemid = q.value("id");
-    if (_mode == _newMode)
-    {
-      _next.text = qsTr("New");
-      populate(0);
-    }
-    else if (_mode == _viewMode)
-    {
-      populate(2);
-    }
-    else if (_mode == _editMode)
-    {
-      populate(1);
-    }
+    _teitemid = q.value("teitem_id");
     _prev.enabled = true;
-  }else{
-    // reset fields and setup the screens to create a new line
-    sNew();
-
+    populate();
   }
+  else if (errorCheck(q))
+    sNew();
 }
 
 function sNew()
 {
-   var params = new Object();
-   params.headid = _headid;
+  var params = new Object();
+  params.tehead_id = _headid;
 
-  var q = toolbox.executeQuery('select te.maxline(<? value("headid") ?>) + 1 as linenumber;',params);
+  var q = toolbox.executeDbQuery("te","header",params);
+
+  if (q.first())
+  {
+    _weekending.date = (q.value("tehead_weekending"));      
+    _sheet.text = (q.value("tehead_number"));
+    _sheetnum = (q.value("tehead_number"));
+    _employee.setId(q.value("tehead_emp_id"));
+  }
+  else if (!errorCheck(q))
+    return;
+
+  q = toolbox.executeDbQuery("time_expense", "nextlinenum", params);
   if (q.first())
   {
     _linenumber.setText(q.value("linenumber"));
     _linenum = (q.value("linenumber"));
-  }
-  _teitemid = 0;
+  } 
+  else 
+    errorCheck(q);
+
+  _teitemid = -1;
   _prev.enabled = true;
   _radioTime.enabled = true;
   _radioExpense.enabled = true;
-  _workdate.date = 0;
+  _workdate.clear();
   _workdate.enabled = true;
   _workdate.setFocus();
-  _hours.localValue = "";
+  _hours.localValue = 0;
   _hours.enabled = true;
   _rate.localValue = 0;
   _rate.enabled = true;
   _items.enabled = true;
   _items.setId(-1);
-  _employees.enabled = false;
+  _employee.enabled = false;
   _clients.enabled = true;
-  _po.text = "";
+  _po.clear();
   _po.enabled = true;
   _project.enabled = true;
   _task.enabled = true;
-  _notes.setText("");
+  _notes.clear();
   _notes.enabled = true;
 
-  getprice();
+  getPrice();
 
+  _modified = false;
 }
 
 
@@ -1281,7 +562,9 @@ function sSetSecurity()
     _budgetactual.visible = true;
     _rateLit.visible = true;
     _totalLit.visible = true;
-  }else{
+  }
+  else
+  {
     _rate.visible = false;
     _total.visible = false;
     _budgetactual.visible = false;
@@ -1290,10 +573,5 @@ function sSetSecurity()
   }
 }
 
-
-
-//populateClients();
-//fillitems();
-sFillItems();
-getprice();
+getPrice();
 sSetSecurity();

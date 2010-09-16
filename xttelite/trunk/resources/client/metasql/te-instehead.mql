@@ -1,0 +1,12 @@
+-- Group: te
+-- Name:  instehead
+-- Notes: Insert Time Expense Sheet Header
+INSERT INTO te.tehead(
+  tehead_emp_id,
+  tehead_site,
+  tehead_weekending) 
+VALUES (
+  <? value("emp_id") ?>,
+  <? value("site") ?>,
+  <? value("weekending") ?>)
+RETURNING *;

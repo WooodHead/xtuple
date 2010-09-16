@@ -1,0 +1,44 @@
+-- Group: tesheet
+-- Name:  detail
+-- Notes: Time Expense List
+SELECT tehead_id, tehead_number, tehead_weekending,
+  emp_code, tehead_status,
+  COALESCE(SUM(teitem_total),0) AS total,
+  (MAX(uninvoiced) > 0) AS uninvoiced,
+  (MAX(unvouchered) >0 ) AS unvouchered,
+  (MAX(unposted) > 0) AS unposted,
+  CASE WHEN (tehead_status='O') THEN 
+    <? value("open") ?> 
+  WHEN (tehead_status='A') THEN
+    <? value("approved") ?> 
+  ELSE <? value("closed") ?>
+  END AS tehead_status_qtdisplayrole,
+  'curr' AS total_xtnumericrole
+FROM (
+  SELECT tehead_id, tehead_number, tehead_weekending,
+    emp_code, tehead_status, teitem_total,
+    CASE WHEN ((teitem_billable) 
+           AND (NOT teitem_prepaid) 
+           AND (teitem_invchead_id IS NULL)) THEN 1
+    ELSE 0 END AS uninvoiced,
+    CASE WHEN ((teitem_type='E') 
+           OR (vend_id IS NOT NULL)) THEN 1
+    ELSE 0 END AS unvouchered,
+    CASE WHEN ((teitem_type='T') 
+           AND (vend_id IS NULL)) THEN 1
+    ELSE 0 END AS unposted
+  FROM te.tehead
+    JOIN emp ON (tehead_emp_id=emp_id)  
+    LEFT OUTER JOIN te.teitem ON (teitem_tehead_id=tehead_id)
+    LEFT OUTER JOIN vend ON (UPPER(emp_number)=UPPER(vend_number))
+  WHERE ((tehead_weekending >= <? value("startDate") ?> )
+    AND (tehead_weekending <= <? value("endDate") ?> )
+    AND (tehead_status IN (<? literal("statusList") ?>) )
+<? if exists("emp_id") ?>
+    AND (tehead_emp_id=<? value("emp_id") ?>)
+<? endif ?>
+    )
+  ) AS sheets
+GROUP BY tehead_id, tehead_number, tehead_weekending, tehead_status,
+  emp_code
+ORDER BY tehead_number

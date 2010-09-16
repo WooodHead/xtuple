@@ -1,0 +1,39 @@
+-- Group: time_expense
+-- Name:  getterate
+-- Notes: 
+
+SELECT COALESCE(rate,0) FROM (
+<? if exists("time") ?>
+-- Project Task Rate
+SELECT teprjtask_rate AS rate, 10 AS seq 
+FROM te.teprjtask
+ JOIN prjtask ON (prjtask_prj_id = teprjtask_prj_id)
+WHERE (prjtask_id = <? value("task_id") ?>)
+UNION
+
+-- Project Rate
+SELECT teprj_rate AS rate, 20 AS seq
+FROM te.tepr
+WHERE (teprj_prj_id = <? value("prj_id") ?>))
+UNION
+
+-- Employee Rate
+SELECT teemprate_rate AS rate, 30 AS seq
+FROM te.teemprate
+WHERE (teemprate_emp_id = <? value("emp_id") ?>)
+UNION
+
+-- Customer Rate
+SELECT tecustrate_rate as rate, 40 AS seq
+FROM te.tecustrate
+WHERE (tecustrate_cust_id = <? value("cust_id") ?>)
+UNION
+<? endif ?>
+
+-- Item List Price
+SELECT item_listprice as rate, 50 AS seq
+FROM item
+WHERE (item_id = <? value("item_id") ?>)
+) AS rates
+ORDER BY seq
+LIMIT 1;

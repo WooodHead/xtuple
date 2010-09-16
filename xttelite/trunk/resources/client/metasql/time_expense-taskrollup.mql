@@ -1,0 +1,21 @@
+-- Group: time_expense
+-- Name:  taskrollup
+-- Notes: Roll up hours and costs for Task
+SELECT 
+  formatqty(SUM(total_hours)) AS total_hours,
+  formatcost(SUM(total_cost)) AS total_cost 
+FROM
+  (SELECT
+     SUM(teitem_qty) as total_hours,
+     SUM(teitem_total) as total_cost
+   FROM te.teitem 
+   WHERE teitem_prjtask_id = <? value("taskid") ?>
+    AND teitem_type = 'T' 
+   UNION
+   SELECT 
+     0 as total_hours,
+     SUM(teitem_total) AS total_cost
+   FROM te.teitem 
+   WHERE teitem_prjtask_id = <? value("taskid") ?>
+     AND teitem_type = 'E'
+) AS rollup;"

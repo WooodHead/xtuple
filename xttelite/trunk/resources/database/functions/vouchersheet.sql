@@ -20,7 +20,7 @@ BEGIN
        FOR _s IN 
          SELECT tehead_id, tehead_number, tehead_weekending,
           teitem_id, teitem_linenumber, teitem_workdate, teitem_type, teitem_emp_id,
-          item_number, teitem_item_id, teitem_qty,
+          item_number, teitem_item_id, teitem_qty, teitem_prj_id,
           teitem_total, tehead_site, tehead_notes, teitem_type,
           teexp_expcat_id, teexp_accnt_id, emp_wage, emp_wage_period,
           vend_id, vend_taxzone_id, vend_curr_id, vend_terms_id,
@@ -70,7 +70,8 @@ BEGIN
             INSERT INTO vodist ( vodist_id, vodist_vohead_id, vodist_poitem_id,
                vodist_costelem_id, vodist_accnt_id, vodist_amount,
                vodist_expcat_id, vodist_notes ) 
-               VALUES ( _vodistid, _voheadid, -1,-1, _s.teexp_accnt_id, _s.emp_wage * _s.teitem_qty,
+               VALUES ( _vodistid, _voheadid, -1,-1, getPrjAcctId(_s.teitem_prj_id, _s.teexp_accnt_id), 
+                        _s.emp_wage * _s.teitem_qty,
                         _s.teexp_expcat_id, _notes );
 
              _total := _total + _s.emp_wage * _s.teitem_qty;
@@ -81,7 +82,8 @@ BEGIN
             INSERT INTO vodist ( vodist_id, vodist_vohead_id, vodist_poitem_id,
                vodist_costelem_id, vodist_accnt_id, vodist_amount,
                vodist_expcat_id, vodist_notes ) 
-               VALUES ( _vodistid, _voheadid, -1,-1, _s.teexp_accnt_id, _s.teitem_total,_s.teexp_expcat_id, _notes );
+               VALUES ( _vodistid, _voheadid, -1,-1,  getPrjAcctId(_s.teitem_prj_id, _s.teexp_accnt_id), 
+               _s.teitem_total,_s.teexp_expcat_id, _notes );
 
             _total := _total + _s.teitem_total;
           END IF;

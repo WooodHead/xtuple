@@ -58,28 +58,7 @@ function set(params)
   }
 
   if("mode" in params)
-  {
-    if (params.mode == "new")
-    {
-      _mode = "new";
-      _expense.setFocus();
-    }
-    else if (params.mode == "edit")
-    {
-      _mode = "edit";
-      _save.setFocus();
-    }
-    else if (params.mode == "view")
-    {
-      _mode = "view";
-      _item.enabled = false;
-      _description.enabled = false;
-      _close.text = qsTr("&Close");
-      _save.hide();
-
-      _close.setFocus();
-    }
-  }
+    _mode = params.mode;
 
   handleExpense();
 
