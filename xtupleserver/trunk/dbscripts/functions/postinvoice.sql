@@ -457,7 +457,7 @@ BEGIN
       _p.invchead_shipto_name, _p.invchead_shipto_address1,
       _p.invchead_shipto_address2, _p.invchead_shipto_address3,
       _p.invchead_shipto_city, _p.invchead_shipto_state,
-      _p.invchead_shipto_zipcode, COALESCE(_p.invchead_tax_curr_id,_p.invchead_curr_id),
+      _p.invchead_shipto_zipcode, _p.invchead_curr_id,
       _p.sequence, getAdjustmentTaxtypeId(), _p.invchead_taxzone_id );
     INSERT INTO cohisttax
     ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
