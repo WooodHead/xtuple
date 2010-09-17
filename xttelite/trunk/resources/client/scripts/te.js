@@ -63,6 +63,8 @@ _edit.clicked.connect(lineEdit);
 _delete.clicked.connect(lineDelete);
 _view.clicked.connect(lineView);
 
+_lines["populateMenu(QMenu *, XTreeWidgetItem *, int)"].connect(populateMenu)
+
 function set(input)
 {
   _sheet = input.sheet;
@@ -116,6 +118,32 @@ function set(input)
   }
 
   return mainwindow.NoError;
+}
+
+function populateMenu(pMenu, pItem, pCol)
+{
+  var tmpact;
+
+  if(pMenu == null)
+    pMenu = _lines.findChild("_menu");
+
+  if(pMenu != null)
+  {
+    var currentItem  = _lines.currentItem();
+    if (currentItem != null)
+    {
+      tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit..."), true);
+      tmpact.triggered.connect(lineEdit);
+      tmpact.enabled = (_mode != "view" && privileges.check("MaintainTimeExpense"));
+
+      tmpact = toolbox.menuAddAction(pMenu, qsTr("View..."), true);
+      tmpact.triggered.connect(lineView);
+
+      tmpact = toolbox.menuAddAction(pMenu, qsTr("Delete..."), true);
+      tmpact.triggered.connect(lineDelete);
+      tmpact.enabled = (_mode != "view" && privileges.check("MaintainTimeExpense"));
+    }
+  }
 }
 
 function lineDelete()
