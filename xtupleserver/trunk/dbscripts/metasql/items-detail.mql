@@ -17,7 +17,7 @@
                            WHEN (item_type='L') THEN text(<? value("planning") ?>)
                            WHEN (item_type='K') THEN text(<? value("kit") ?>)
                            ELSE text(<? value("error") ?>)
-                      END AS item_type 
+                      END AS item_type_qtdisplayrole 
                FROM item
                  JOIN classcode ON (item_classcode_id=classcode_id)
                  JOIN uom ON (item_inv_uom_id=uom_id)
