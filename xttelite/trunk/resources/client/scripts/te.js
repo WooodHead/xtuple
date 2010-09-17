@@ -51,9 +51,9 @@ _employee.enabled = privileges.check("MaintainTimeExpenseOthers");
 _new.enabled = false;
 
 // Make connections
-_lines.itemSelected.connect(_edit, "animateClick");
 _employee.newId.connect(sHandleNewButton);
 _weekending.newDate.connect(sHandleNewButton);
+_lines["valid(bool)"].connect(_view["setEnabled(bool)"]);
 
 _buttonBox.accepted.connect(saveClicked);
 _buttonBox.rejected.connect(sClose);
@@ -75,6 +75,13 @@ function set(input)
 
   if("mode" in input)
   {
+    if (input.mode <= _editMode)
+    {
+      _lines["valid(bool)"].connect(_edit["setEnabled(bool)"]);
+      _lines["valid(bool)"].connect(_delete["setEnabled(bool)"]);
+      _lines.itemSelected.connect(_edit, "animateClick");
+    }
+
     if (input.mode == _newMode)
     {
       _mode = "new";
@@ -96,12 +103,13 @@ function set(input)
     else if (input.mode == _viewMode)
     {
       _mode = "view";
-      _lines.enabled = false;
+      _new.enabled = false;
       _orderComments.enabled = false;
       var shortcut = _buttonBox.button(QDialogButtonBox.Cancel).shortcut;
       _buttonBox.clear();
       _buttonBox.addButton(QDialogButtonBox.Close);
       _buttonBox.button(QDialogButtonBox.Close).shortcut = shortcut;
+      _lines.itemSelected.connect(_view, "animateClick");
 
       populate();
     }
@@ -219,7 +227,9 @@ function sSave()
 
 function sHandleNewButton()
 {
-  _new.enabled = _weekending.isValid() && _employee.isValid();
+  _new.enabled = (_weekending.isValid() && 
+                  _employee.isValid() &&
+                  _mode != "view");
 }
 
 function populate()
