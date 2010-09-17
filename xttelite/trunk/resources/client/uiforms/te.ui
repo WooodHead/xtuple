@@ -177,6 +177,9 @@ to be bound by its terms.</comment>
        </item>
        <item row="1" column="0">
         <widget class="XTreeWidget" name="_lines">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="alternatingRowColors">
           <bool>false</bool>
          </property>
@@ -313,70 +316,5 @@ to be bound by its terms.</comment>
   </customwidget>
  </customwidgets>
  <resources/>
- <connections>
-  <connection>
-   <sender>_lines</sender>
-   <signal>itemSelected(int)</signal>
-   <receiver>_edit</receiver>
-   <slot>animateClick()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>387</x>
-     <y>358</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>486</x>
-     <y>358</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>_lines</sender>
-   <signal>valid(bool)</signal>
-   <receiver>_edit</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>353</x>
-     <y>333</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>723</x>
-     <y>181</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>_lines</sender>
-   <signal>valid(bool)</signal>
-   <receiver>_view</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>353</x>
-     <y>333</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>723</x>
-     <y>215</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>_lines</sender>
-   <signal>valid(bool)</signal>
-   <receiver>_delete</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>353</x>
-     <y>333</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>723</x>
-     <y>249</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

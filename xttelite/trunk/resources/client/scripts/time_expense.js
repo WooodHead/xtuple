@@ -28,8 +28,6 @@ var _budget             = mywindow.findChild("_budget");
 var _actualCost         = mywindow.findChild("_actualCost");
 var _budgetCost         = mywindow.findChild("_budgetCost");
 var _notes              = mywindow.findChild("_notes");
-var _prev               = mywindow.findChild("_previous");
-var _next               = mywindow.findChild("_new");
 var _sheetLit 	 = mywindow.findChild("_sheetLit");
 
 _cancel = _buttonBox.button(QDialogButtonBox.Cancel);
@@ -116,11 +114,13 @@ function set(input)
       sNew();
     else 
     { 
-      populate();
       if (input.mode == _viewMode)
       {
-        _buttonBox.setStandardButtons(QDialogButtonBox.Close);
-        _sheetLit.visible=true;
+        var shortcut = _buttonBox.button(QDialogButtonBox.Cancel).shortcut;
+        _buttonBox.removeButton(_buttonBox.button(QDialogButtonBox.Cancel));
+        _buttonBox.removeButton(_buttonBox.button(QDialogButtonBox.Save));
+        _buttonBox.addButton(QDialogButtonBox.Close);
+        _buttonBox.button(QDialogButtonBox.Close).shortcut = shortcut;
         _weekending.enabled = false;
         _next.enabled = false;
         _prepaid.enabled = false;
@@ -139,6 +139,7 @@ function set(input)
         _notes.enabled = false;
         _billable.enabled = false; 
       }
+      populate();
     }
   }
   
@@ -243,7 +244,7 @@ function populate()
     _clients.setId(q.value("teitem_cust_id"));
     _po.text = (q.value("teitem_po"));
     _project.setId(q.value("teitem_prj_id"));
-    _taskid = q.value("teitem_prjtask_id");
+    _task.setId(q.value("teitem_prjtask_id"));
     _sheet.text = (q.value("tehead_number"));
     _sheetnum = (q.value("tehead_number"));
     _linenumber.text = (q.value("teitem_linenumber"));
@@ -366,17 +367,18 @@ function expenseswitch()
 function projectChange()
 {
   //enable and reset the task fields
-  if(_project.isValid() && _mode != _viewMode)
+  if(_project.isValid() && 
+     _mode != _viewMode)
   {
     _next.enabled = true;
     _task.enabled = true;
-    gettask();
   }
   else
   {
     _next.enabled = false;
     _task.enabled = false;
   }
+  gettask();
   modified();
   getPrice();
 }
