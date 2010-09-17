@@ -81,7 +81,7 @@
  SELECT head.*, linetax.*, frighttax.*, adjtax.*   
  FROM 
    (SELECT cohead_number AS number, cobmisc_taxzone_id AS taxzone_id, 
-      cobmisc_curr_id AS curr_id, cobmisc_tax_curr_id AS tax_curr_id, 
+      cobmisc_curr_id AS curr_id, cobmisc_curr_id AS tax_curr_id, 
      cobmisc_invcdate AS date, SUM(ROUND((cobill_qty * coitem_price) / 
      (CASE WHEN(item_id IS NULL) THEN 1 ELSE coitem_price_invuomratio END), 2)) AS line, 
      cobmisc_freight AS freight, 
