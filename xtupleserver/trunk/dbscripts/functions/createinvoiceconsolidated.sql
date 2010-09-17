@@ -27,9 +27,7 @@ BEGIN
                    cohead_terms_id,
                    cobmisc_misc_accnt_id,
                    cohead_prj_id, cobmisc_curr_id,
-                   cobmisc_taxzone_id, cobmisc_tax_curr_id,
-                   cobmisc_adjtaxtype_id,
-                   cobmisc_freighttaxtype_id,
+                   cobmisc_taxzone_id,
                    cohead_shipchrg_id,
                    
 		-- the following are consolidated values to use in creating the header
@@ -38,7 +36,6 @@ BEGIN
                    MIN(cobmisc_invcdate) AS cobmisc_invcdate,
                    MIN(cobmisc_shipdate) AS cobmisc_shipdate,
                    SUM(cobmisc_freight) AS cobmisc_freight,
-                   COALESCE(SUM(cobmisc_tax), 0) AS cobmisc_tax,
                    SUM(cobmisc_misc) AS cobmisc_misc,
                    SUM(cobmisc_payment) AS cobmisc_payment
                    
@@ -57,9 +54,7 @@ BEGIN
                    cohead_terms_id,
                    cobmisc_misc_accnt_id,
                    cohead_prj_id, cobmisc_curr_id,
-                   cobmisc_taxzone_id, cobmisc_tax_curr_id,
-                   cobmisc_adjtaxtype_id,
-                   cobmisc_freighttaxtype_id,
+                   cobmisc_taxzone_id,
                    cohead_shipchrg_id
 		LOOP
 
@@ -88,12 +83,11 @@ BEGIN
         invchead_shipto_country,
         invchead_salesrep_id, invchead_commission,
         invchead_terms_id,
-        invchead_freight, invchead_tax,
+        invchead_freight,
         invchead_misc_amount, invchead_misc_descrip, invchead_misc_accnt_id,
         invchead_payment, invchead_paymentref,
         invchead_notes, invchead_prj_id, invchead_curr_id,
-        invchead_taxzone_id, invchead_tax_curr_id,
-        invchead_adjtaxtype_id, invchead_freighttaxtype_id,
+        invchead_taxzone_id,
         invchead_shipchrg_id )
       VALUES(_invcheadid,
              pCustid, -1,
@@ -109,14 +103,12 @@ BEGIN
              '', '', '', '', '', '', '', '', '',
              _c.cohead_salesrep_id, COALESCE(_c.cohead_commission, 0),
              _c.cohead_terms_id,
-             _c.cobmisc_freight, _c.cobmisc_tax,
+             _c.cobmisc_freight,
              _c.cobmisc_misc, CASE WHEN(_c.cobmisc_misc <> 0) THEN 'Multiple' ELSE '' END,
              _c.cobmisc_misc_accnt_id,
              _c.cobmisc_payment, '',
              'Multiple Sales Order # Invoice', _c.cohead_prj_id, _c.cobmisc_curr_id,
-             _c.cobmisc_taxzone_id, _c.cobmisc_tax_curr_id,
-             _c.cobmisc_adjtaxtype_id,
-             _c.cobmisc_freighttaxtype_id,
+             _c.cobmisc_taxzone_id,
              _c.cohead_shipchrg_id
              );
  
@@ -143,10 +135,16 @@ BEGIN
                  AND (COALESCE(cohead_prj_id, 0)             = COALESCE(_c.cohead_prj_id, 0))
                  AND (COALESCE(cobmisc_curr_id, 0)           = COALESCE(_c.cobmisc_curr_id, 0))
                  AND (COALESCE(cobmisc_taxzone_id, 0)        = COALESCE(_c.cobmisc_taxzone_id, 0))
-                 AND (COALESCE(cobmisc_tax_curr_id, 0)       = COALESCE(_c.cobmisc_tax_curr_id, 0))
-                 AND (COALESCE(cobmisc_adjtaxtype_id, 0)     = COALESCE(_c.cobmisc_adjtaxtype_id, 0))
-                 AND (COALESCE(cobmisc_freighttaxtype_id, 0) = COALESCE(_c.cobmisc_freighttaxtype_id, 0))
                 ) LOOP
+
+    --  Create the Invoice Head tax
+        INSERT INTO invcheadtax(taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id, taxhist_basis, 
+                                taxhist_basis_tax_id, taxhist_sequence, taxhist_percent, taxhist_amount, taxhist_tax, taxhist_docdate)
+        SELECT _invcheadid,taxhist_taxtype_id, taxhist_tax_id, taxhist_basis, 
+               taxhist_basis_tax_id, taxhist_sequence, taxhist_percent, taxhist_amount, taxhist_tax, taxhist_docdate
+        FROM cobmisctax 
+        WHERE taxhist_parent_id = _i.cobmisc_id
+          AND taxhist_taxtype_id = getadjustmenttaxtypeid();
 
     --  Give this selection a number if it has not been assigned one
         UPDATE cobmisc
