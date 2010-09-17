@@ -1,3 +1,5 @@
+include("teglobal");
+
 // Define Variables
 var _all		= mywindow.findChild("_all");
 var _close 		= mywindow.findChild("_close");
@@ -14,9 +16,9 @@ var _selected	= mywindow.findChild("_selected");
 var _open              = mywindow.findChild("_open");
 var _approved          = mywindow.findChild("_approved");
 var _closed            = mywindow.findChild("_closed");
-var _uninvoiced        = mywindow.findChild("_uninvoiced");
-var _unvouchered       = mywindow.findChild("_unvouchered");
-var _unposted          = mywindow.findChild("_unposted");
+var _invoice           = mywindow.findChild("_invoice");
+var _voucher           = mywindow.findChild("_voucher");
+var _post              = mywindow.findChild("_post");
 
 _weekending.setStartNull(qsTr("Earliest"), startOfTime, true);
 _weekending.setEndNull(qsTr("Latest"),     endOfTime,   true);
@@ -28,15 +30,15 @@ var _editMode 	= 1;
 var _viewMode	= 2;
 
 // Set up columns
-_sheets.addColumn(qsTr("Sheet#"), -1, Qt.AlignLeft,    true, "tehead_number");
-_sheets.addColumn(qsTr("Date"),   -1, Qt.AlignLeft,    true, "tehead_weekending");
+_sheets.addColumn(qsTr("Sheet#"), XTreeWidget.orderColumn, Qt.AlignLeft,    true, "tehead_number");
+_sheets.addColumn(qsTr("Date"),   XTreeWidget.dateColumn, Qt.AlignLeft,    true, "tehead_weekending");
 _sheets.addColumn(qsTr("Employee"),   -1, Qt.AlignLeft,    true, "emp_code");
-_sheets.addColumn(qsTr("Status"),     XTreeWidget.statusColumn, Qt.AlignCenter, true, "tehead_status");
+_sheets.addColumn(qsTr("Status"),     XTreeWidget.bigMoneyColumn, Qt.AlignCenter, true, "tehead_status");
 if (privileges.check("CanViewRates"))
-  _sheets.addColumn(qsTr("Extended"),   -1, Qt.AlignRight,    true, "total");
-_sheets.addColumn(qsTr("Uninvoiced"), -1, Qt.AlignLeft, true, "uninvoiced");
-_sheets.addColumn(qsTr("Unvouchered"),-1, Qt.AlignLeft, true, "unvouchered");
-_sheets.addColumn(qsTr("Unposted"),   -1, Qt.AlignLeft, true, "unvouchered");
+  _sheets.addColumn(qsTr("Extended"),   XTreeWidget.bigMoneyColumn, Qt.AlignRight,    true, "total");
+_sheets.addColumn(qsTr("Invoiced"), XTreeWidget.dateColumn, Qt.AlignLeft, true, "invoiced");
+_sheets.addColumn(qsTr("Vouchered"),XTreeWidget.dateColumn, Qt.AlignLeft, true, "vouchered");
+_sheets.addColumn(qsTr("Posted"),   XTreeWidget.dateColumn, Qt.AlignLeft, true, "posted");
 
 //if the user is part of the ADMIN group, then show the "show all employees" checkbox
 _showAllEmployees.visible = false;
@@ -56,6 +58,27 @@ else
 {
   _new.enabled = false;
   _sheets.itemSelected.connect(sheetView);
+}
+
+if (!privileges.check("allowInvoicing"))
+{
+  _invoice.forgetful = true;
+  _invoice.checked = false;
+  _invoice.enabled = false;
+}
+
+if (!privileges.check("allowVouchering"))
+{
+  _voucher.forgetful = true;
+  _voucher.checked = false;
+  _voucher.enabled = false;
+}
+
+if (!privileges.check("PostTimeSheets"))
+{
+  _post.forgetful = true;
+  _post.checked = false;
+  _post.enabled = false;
 }
 
 _selected.checked = true;
@@ -89,77 +112,135 @@ function populateMenu(pMenu, pItem, pCol)
       tmpact = toolbox.menuAddAction(pMenu, qsTr("View..."), true);
       tmpact.triggered.connect(sheetView);
 
-      tmpact = toolbox.menuAddAction(pMenu, qsTr("Delete..."), true);
+      tmpact = toolbox.menuAddAction(pMenu, qsTr("Delete"), true);
       tmpact.triggered.connect(sheetDelete);
       tmpact.enabled = (status == 'O' && privileges.check("MaintainTimeExpense"));
 
-      pMenu.addSeparator();
+      if (status == 'O')
+      {
+        pMenu.addSeparator();
+        tmpact = toolbox.menuAddAction(pMenu, qsTr("Approve"), 
+                                       privileges.check("CanApprove"));
+        tmpact.triggered.connect(sheetApprove);
+      }
+      else if (status == 'A')
+      {
+        pMenu.addSeparator();
+        tmpact = toolbox.menuAddAction(pMenu, qsTr("Uanpprove"), 
+                                       privileges.check("CanApprove"));
+        tmpact.triggered.connect(sheetUnapprove);
+      }
 
-      tmpact = toolbox.menuAddAction(pMenu, qsTr("Approve..."), true);
-      tmpact.triggered.connect(sheetApprove);
-      tmpact.enabled = (status == 'O' && privileges.check("CanApprove"));
+      if (status == 'A' || status == 'O')
+      {
+        tmpact = toolbox.menuAddAction(pMenu, qsTr("Close"), 
+                                       privileges.check("MaintainTimeExpense"));
+        tmpact.triggered.connect(sheetClose);
 
-      pMenu.addSeparator();
-      tmpact = toolbox.menuAddAction(pMenu, qsTr("Invoice..."), true);
-      tmpact.triggered.connect(sheetInvoice);
-      tmpact.enabled = (status == 'A' && 
-                        privileges.check("allowInvoicing") &&
-                        currentItem.rawValue("uninvoiced"));
+        if (!currentItem.rawValue("invoiced") ||
+            !currentItem.rawValue("vouchered") ||
+            !currentItem.rawValue("posted"))
+          pMenu.addSeparator();
 
-      tmpact = toolbox.menuAddAction(pMenu, qsTr("Voucher..."),true);
-      tmpact.triggered.connect(sheetVoucher);
-      tmpact.enabled = (status == 'A' && 
-                        privileges.check("allowVouchering") &&
-                      currentItem.rawValue("unvouchered"));
+        if (currentItem.rawValue("invoiced") == 0)
+        {
+          tmpact = toolbox.menuAddAction(pMenu, qsTr("Invoice"), true);
+          tmpact.triggered.connect(sheetInvoice);
+          tmpact.enabled = (status == 'A' && 
+                            privileges.check("allowInvoicing"));
+        }
 
-      tmpact = toolbox.menuAddAction(pMenu, qsTr("Post..."), true);
-      tmpact.triggered.connect(sheetVoucher);
-      tmpact.enabled = (status == 'A' && 
-                      privileges.check("PostTimesheets") &&
-                      currentItem.rawValue("unposted"));
+        if (currentItem.rawValue("vouchered") == 0)
+        {
+          tmpact = toolbox.menuAddAction(pMenu, qsTr("Voucher"),true);
+          tmpact.triggered.connect(sheetVoucher);
+          tmpact.enabled = (status == 'A' && 
+                            privileges.check("allowVouchering"));
+        }
 
+        if (currentItem.rawValue("posted") == 0)
+        {
+          tmpact = toolbox.menuAddAction(pMenu, qsTr("Post"), true);
+          tmpact.triggered.connect(sheetPost);
+          tmpact.enabled = (status == 'A' && 
+                            privileges.check("PostTimeSheets"));
+        }
+      }
     }
   }
 }
 
 function sheetApprove()
 {
-  
-  for (var i = 0; i < selected.length; i++){
-    if (selected[i].rawValue("bill_status") == '' && selected[i].rawValue("pay_status") == '' )
-    {
-      params.id = selected[i].id();
-      q = toolbox.executeQuery('select te.approvesheet(<? value("id") ?>);',params );
-    }  // if selected
-  }  // for loop
-  sFillList();
-  
-}  //sheetApprove
+  var params   = new Object();
+  params.tehead_id = _sheets.id();    
+
+  q = toolbox.executeDbQuery("tesheet", "approve", params );	
+  if (errorCheck(q))
+    sFillList(); 
+}
+
+function sheetUnapprove()
+{
+  var params   = new Object();
+  params.tehead_id = _sheets.id();    
+
+  q = toolbox.executeDbQuery("tesheet", "unapprove", params );	
+  if (errorCheck(q))
+    sFillList(); 
+}
 
 
 function sheetInvoice()
 {
-  var params   = new Object();
-  params.id = _sheets.id();    
-
-  toolbox.executeQuery('select te.invoicesheet(<? value("id") ?>);', params );	
-
-  sFillList();
+  if (sheetProcess(_sheets.id(), true, false, false))
+    sFillList();
 } 
 
 function sheetVoucher()
 {
-  var params   = new Object();
-  params.id = _sheets.id();    
-  params.employee = currentItem.rawValue("emp_code");
+  if (sheetProcess(_sheets.id(), false, true, false))
+    sFillList();
+}
 
-  toolbox.executeQuery('select te.vouchersheet(<? value("id") ?>);',params);
-  sFillList();
+function sheetPost()
+{
+  if (sheetProcess(_sheets.id(), false, false, true))
+    sFillList();
+}
+
+function sheetProcess(id, invoice, voucher, post)
+{
+  var params   = new Object();
+  params.tehead_id = id();    
+
+  if (invoice)
+  {
+    q = toolbox.executeDbQuery("tesheet", "invoice", params );	
+    if (!errorCheck(q))
+      return false;
+  }
+
+  if (voucher)
+  {
+    q = toolbox.executeDbQuery("tesheet", "voucher", params );	
+    if (!errorCheck(q))
+      return false;
+  }
+
+  if (post)
+  {
+    q = toolbox.executeDbQuery("tesheet", "post", params );	
+    if (!errorCheck(q))
+      return false;
+  }
+
+  return true;
 }
 
 function sheetDelete()
 {
-  var msg = qsTr("Are you sure you want to delete this sheet?");
+  var msg = qsTr("This action can not be undone.  Are you sure you want to delete this sheet?");
   if (QMessageBox.question( mywindow, mywindow.windowTitle, msg, 
       QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
   {
@@ -174,17 +255,25 @@ function sheetDelete()
 
 function sheetClose()
 {
-  var params   = new Object();
-  params.id = _sheets.id();    
+  var msg = qsTr("This action can not be undone. Are you sure you want to close this sheet?");
+  if (QMessageBox.question( mywindow, mywindow.windowTitle, msg, 
+      QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
+  {
+    var params   = new Object();
+    params.tehead_id = _sheets.id();    
 
-  toolbox.executeQuery("UPDATE te.tehead SET tehead_status='C' "
-                     + "WHERE tehead_id = <? value(\"id\") ?>;", params );
-  sFillList();
+    q = toolbox.executeDbQuery("tesheet", "close", params );	
+    if (errorCheck(q))
+      sFillList(); 
+  }
 }
 
 function sheetEdit()
 {
-  sheetOpen(_editMode);
+  if (_sheets.currentItem().rawValue("tehead_status") == "O")
+    sheetOpen(_editMode);
+  else
+    sheetOpen(_viewMode);
 }
 
 function sheetNew()
@@ -298,6 +387,9 @@ function getParams()
   params.approved  = qsTr("Approved");
   params.closed    = qsTr("Closed");
   params.open      = qsTr("Open");
+  params.yes       = qsTr("Yes");
+  params.no        = qsTr("No");
+  params.na        = qsTr("N/A");
 
   return params;
 }
@@ -312,12 +404,8 @@ function sFillList()
   q = toolbox.executeDbQuery("tesheet","detail", params);
 
   _sheets.populate(q);
-  if (q.lastError().type != QSqlError.NoError)
-  {
-    toolbox.messageBox("critical", mywindow,
-                       qsTr("Database Error"), q.lastError().text);
+  if (!errorCheck(q))
     return;
-  }
 }
 
 function timeReport()

@@ -1,32 +1,62 @@
 -- Group: tesheet
 -- Name:  detail
--- Notes: Time Expense List
+-- Notes: Time Expense Sheet List
 SELECT tehead_id, tehead_number, tehead_weekending,
-  emp_code, tehead_status,
+  emp_code, tehead_status, 
+  MAX(invoiced) AS invoiced, 
+  MAX(vouchered) AS vouchered, 
+  MAX(posted) AS posted,
   COALESCE(SUM(teitem_total),0) AS total,
-  (MAX(uninvoiced) > 0) AS uninvoiced,
-  (MAX(unvouchered) >0 ) AS unvouchered,
-  (MAX(unposted) > 0) AS unposted,
+  CASE WHEN (MAX(invoiced) = 1) THEN <? value("yes") ?>
+       WHEN (MAX(invoiced) = 0) THEN <? value("no") ?>
+       ELSE <? value("na") ?>
+  END AS invoiced_qtdisplayrole,
+  CASE WHEN (MAX(vouchered) = 1) THEN <? value("yes") ?>
+       WHEN (MAX(vouchered) = 0) THEN <? value("no") ?>
+       ELSE <? value("na") ?>
+  END AS vouchered_qtdisplayrole,
+  CASE WHEN (MAX(posted) = 1) THEN <? value("yes") ?>
+       WHEN (MAX(posted) = 0) THEN <? value("no") ?>
+       ELSE <? value("na") ?>
+  END AS posted_qtdisplayrole,
   CASE WHEN (tehead_status='O') THEN 
     <? value("open") ?> 
   WHEN (tehead_status='A') THEN
     <? value("approved") ?> 
   ELSE <? value("closed") ?>
   END AS tehead_status_qtdisplayrole,
-  'curr' AS total_xtnumericrole
+  'curr' AS total_xtnumericrole,
+  CASE WHEN (MAX(invoiced) = -1) THEN 'LightGray'
+       WHEN (MAX(invoiced) = 0 AND tehead_status = 'A') THEN 'altemphasis'
+  END AS invoiced_qtforegroundrole,
+  CASE WHEN (MAX(vouchered) = -1) THEN 'LightGray'
+       WHEN (MAX(vouchered) = 0 AND tehead_status = 'A') THEN 'altemphasis'
+  END AS vouchered_qtforegroundrole,
+  CASE WHEN (MAX(posted) = -1) THEN 'LightGrey'
+       WHEN (MAX(posted) = 0 AND tehead_status = 'A') THEN 'altemphasis'
+  END AS posted_qtforegroundrole,
+  CASE WHEN (tehead_status = 'O') THEN 'emphasis'
+       WHEN (tehead_status = 'A') THEN 'altemphasis'
+  END AS tehead_status_qtforegroundrole
 FROM (
   SELECT tehead_id, tehead_number, tehead_weekending,
     emp_code, tehead_status, teitem_total,
-    CASE WHEN ((teitem_billable) 
+    CASE WHEN (teitem_invchead_id IS NOT NULL) THEN 1
+         WHEN ((teitem_billable) 
+           AND (teitem_invchead_id IS NULL)) THEN 0
+         ELSE -1
+    END AS invoiced,
+    CASE WHEN (teitem_vohead_id IS NOT NULL) THEN 1
+         WHEN ((teitem_type='E') 
            AND (NOT teitem_prepaid) 
-           AND (teitem_invchead_id IS NULL)) THEN 1
-    ELSE 0 END AS uninvoiced,
-    CASE WHEN ((teitem_type='E') 
-           OR (vend_id IS NOT NULL)) THEN 1
-    ELSE 0 END AS unvouchered,
-    CASE WHEN ((teitem_type='T') 
-           AND (vend_id IS NULL)) THEN 1
-    ELSE 0 END AS unposted
+           OR (vend_id IS NOT NULL)) THEN 0
+         ELSE -1 
+    END AS vouchered,
+    CASE WHEN (teitem_posted) THEN 1
+         WHEN ((teitem_type='T') 
+           AND (vend_id IS NULL)) THEN 0
+         ELSE -1 
+    END AS posted
   FROM te.tehead
     JOIN emp ON (tehead_emp_id=emp_id)  
     LEFT OUTER JOIN te.teitem ON (teitem_tehead_id=tehead_id)

@@ -201,13 +201,26 @@ to be bound by its terms.</comment>
    </item>
    <item row="2" column="0">
     <widget class="XTreeWidget" name="_sheets">
-     <property name="selectionMode">
-      <enum>QAbstractItemView::ExtendedSelection</enum>
+     <property name="populateLinear">
+      <bool>false</bool>
      </property>
     </widget>
    </item>
    <item row="3" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="spacing">
+      <number>12</number>
+     </property>
+     <property name="margin">
+      <number>6</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>When Processing:</string>
+       </property>
+      </widget>
+     </item>
      <item>
       <widget class="XCheckBox" name="_invoice">
        <property name="text">
@@ -262,19 +275,19 @@ to be bound by its terms.</comment>
    </property>
   </action>
   <action name="_process">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
    <property name="text">
     <string>Process</string>
    </property>
+   <property name="toolTip">
+    <string>Process Approved</string>
+   </property>
   </action>
   <action name="_approve">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
    <property name="text">
     <string>Approve</string>
+   </property>
+   <property name="toolTip">
+    <string>Approve All</string>
    </property>
   </action>
   <action name="_query">
