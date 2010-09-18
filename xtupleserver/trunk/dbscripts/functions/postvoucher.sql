@@ -185,7 +185,7 @@ BEGIN
 --  Loop through the vodist records for the passed vohead that
 --  are posted against a P/O Item
   FOR _g IN SELECT DISTINCT poitem_id, voitem_id, voitem_qty, poitem_expcat_id,
-                            poitem_invvenduomratio,
+                            poitem_invvenduomratio, poitem_prj_id,
                             COALESCE(itemsite_id, -1) AS itemsiteid,
                             COALESCE(itemsite_costcat_id, -1) AS costcatid,
                             COALESCE(itemsite_item_id, -1) AS itemsite_item_id,
@@ -217,7 +217,7 @@ BEGIN
 
 --  Grab the G/L Accounts
     IF (_g.costcatid = -1) THEN
-      SELECT pp.accnt_id AS pp_accnt_id,
+      SELECT getPrjAcctnId(_g.poitem_prj_id, pp.accnt_id) AS pp_accnt_id,
              lb.accnt_id AS lb_accnt_id INTO _a
       FROM expcat, accnt AS pp, accnt AS lb
       WHERE ( (expcat_purchprice_accnt_id=pp.accnt_id)
@@ -227,7 +227,7 @@ BEGIN
         RAISE EXCEPTION 'Cannot Post Voucher #% due to unassigned G/L Accounts.', _p.vohead_number;
       END IF;
     ELSE
-      SELECT pp.accnt_id AS pp_accnt_id,
+      SELECT getPrjAccntId(_g.poitem_prj_id, pp.accnt_id) AS pp_accnt_id,
              lb.accnt_id AS lb_accnt_id INTO _a
       FROM costcat, accnt AS pp, accnt AS lb
       WHERE ( (costcat_purchprice_accnt_id=pp.accnt_id)
