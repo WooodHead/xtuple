@@ -22,7 +22,6 @@ var _radioExpense       = mywindow.findChild("_radioExpense");
 var _qtyLabel           = mywindow.findChild("_qtyLabel");
 var _billable           = mywindow.findChild("_billable");
 var _prepaid            = mywindow.findChild("_prepaid");
-var _budgetactual       = mywindow.findChild("_budgetactual");	
 var _actual             = mywindow.findChild("_actual");
 var _budget             = mywindow.findChild("_budget");
 var _actualCost         = mywindow.findChild("_actualCost");
@@ -43,8 +42,9 @@ var _teitemid = -1;
 var _headid = -1;
 var _taskid = -1;
 var _site;
-var _mode = _newMode;
+var _mode = te.newMode;
 var _modified = false;
+var _populating = false;
 
 _task.enabled = false;
 
@@ -60,7 +60,7 @@ _hours.valueChanged.connect(extension);
 _radioTime.toggled.connect(timeswitch);
 _radioExpense.toggled.connect(expenseswitch);
 _items["newId(int)"].connect(getPrice);
-_clients["newId(int)"].connect(getPrice);
+_clients["newId(int)"].connect(customerChange);
 _project["newId(int)"].connect(projectChange);
 _employee.newId.connect(modified);
 _po.textChanged.connect(modified);
@@ -82,12 +82,7 @@ _radioTime.checked = true;
 _billable.visible = true;
 _prepaid.visible = false;
 
-_items.setQuery("SELECT item_id,item_number,item_descrip1,item_descrip2, "
-              + "       item_type,item_config,item_upccode,uom_name "
-              + "FROM item JOIN uom ON (uom_id=item_inv_uom_id) "
-              + "          JOIN te.teexp ON (teexp_id=item_id) "
-              + "WHERE item_type='R' ");
-
+_items.setQuery(_teItemSql); // From teglobal
 
 function set(input)
 {
@@ -110,11 +105,11 @@ function set(input)
   {
     _mode = input.mode;
 
-    if (input.mode == _newMode)
+    if (input.mode == te.newMode)
       sNew();
     else 
     { 
-      if (input.mode == _viewMode)
+      if (input.mode == te.viewMode)
       {
         var shortcut = _buttonBox.button(QDialogButtonBox.Cancel).shortcut;
         _buttonBox.removeButton(_buttonBox.button(QDialogButtonBox.Cancel));
@@ -157,12 +152,11 @@ function gettask()
   if (_project.isValid())
   {
     var params = new Object();
-    params.prj = _project.id();
-    params.prjnum = _project.number;
+    params.prj_id = _project.id();
     params.name = qsTr("Default");
 
-    var qry = toolbox.executeDbQuery("te", "gettask", params);
-    if(!errorCheck(qry))
+    var qry = toolbox.executeDbQuery("time_expense", "gettask", params);
+    if(!te.errorCheck(qry))
       return;
 
     _task.populate(qry);
@@ -176,7 +170,7 @@ function gettask()
       toolbox.messageBox("critical", mywindow, qsTr("task"), msg);
       toolbox.executeDbQuery("time_expense","instask",params);
 
-      qry = toolbox.executeDbQuery("te", "gettask", params);
+      qry = toolbox.executeDbQuery("time_expense", "gettask", params);
       _task.populate(qry);
     }
 
@@ -199,6 +193,17 @@ function sHandleTask()
 
 function getPrice()
 {
+  if (_populating)
+    return;
+  else if (_mode == te.editMode)
+  {
+    if (QMessageBox.question(mywindow,
+                       qsTr("Upate Rate?"),
+                       qsTr("<p>Would you like to update the existing rate?"),
+                        QMessageBox.Ok, QMessageBox.Cancel) == QMessageBox.Cancel)
+      return;
+  }
+
   var params = new Object();
   params.item_id = _items.id();
   params.task_id = _task.id();
@@ -211,9 +216,9 @@ function getPrice()
   var qry = toolbox.executeDbQuery("time_expense", "getterate", params);
   
   if (qry.first())
-    _rate.setLocalValue(qry.value("rate"));
+    _rate.setBaseValue(qry.value("rate"));
   else
-    errorCheck(qry);
+    te.errorCheck(qry);
 }
 
 function populate()
@@ -227,6 +232,8 @@ function populate()
   q = toolbox.executeDbQuery("time_expense","detail", params);
   if (q.first())
   {
+    _populating = true; 
+
     if (q.value("teitem_type") == "T") 
       _radioTime.checked = true;
     else
@@ -236,6 +243,7 @@ function populate()
     _prepaid.checked = q.value("teitem_prepaid")
     _weekending.date = (q.value("tehead_weekending"));
     _workdate.date = (q.value("teitem_workdate"));
+    _rate.setId(q.value("teitem_curr_id") - 0);
     _rate.localValue = (q.value("teitem_rate"));
     _saverate = q.value("teitem_rate");
     _hours.localValue = (q.value("teitem_qty"));
@@ -257,9 +265,10 @@ function populate()
     _next.enabled = (!q.value("ismax"));
     _prev.enabled = (_linenum > 1);
 
+    _populating = false;
     _modified = false;
   }
-  else if (!errorCheck)
+  else if (!te.errorCheck)
     return;
 }
 
@@ -267,7 +276,7 @@ function sSaveClose()
 {
   if (sSave())
   {
-    if (_mode == _newMode)
+    if (_mode == te.newMode)
       sNew();
     else
       mywindow.close();
@@ -319,6 +328,7 @@ function sSave()
     params.teitem_prepaid        = _prepaid.checked;
     params.teitem_notes          = _notes.plainText;
     params.teitem_id             = _teitemid;
+    params.teitem_curr_id        = _rate.id();
 
     var query;
     if (_teitemid > 0)
@@ -329,7 +339,7 @@ function sSave()
     var q = toolbox.executeDbQuery("time_expense", query, params);
     if (q.first())
       _teitemid = q.value("teitem_id");
-    else if (!errorCheck(q))
+    else if (!te.errorCheck(q))
       return;
 
     _prev.enabled = true;
@@ -364,11 +374,28 @@ function expenseswitch()
   modified();
 }
 
+function customerChange()
+{
+  if (_populating)
+    return;
+
+  var params = new Object;
+  params.cust_id = _clients.id();
+
+  q = toolbox.executeDbQuery("time_expense", "getcustinfo", params);
+  if (q.first())
+    _rate.setId(q.value("cust_curr_id") - 0);
+  else if (!te.errorCheck(q))
+    return;
+
+  getPrice();
+}
+
 function projectChange()
 {
   //enable and reset the task fields
   if(_project.isValid() && 
-     _mode != _viewMode)
+     _mode != te.viewMode)
   {
     _next.enabled = true;
     _task.enabled = true;
@@ -400,7 +427,7 @@ function setActualBudget()
     
   }
   else 
-    errorCheck(q);
+    te.errorCheck(q);
 }
 
 
@@ -423,7 +450,7 @@ function rollupActual()
     _actualCost.setText(q.value("total_cost"));
   } 
   else
-    errorCheck(q);
+    te.errorCheck(q);
 }
 
 
@@ -453,14 +480,14 @@ function sPrev()
     _teitemid = q.value("teitem_id");
     _modified = false;
 
-    if (_mode == _newMode)
-      _mode = _editMode;
+    if (_mode == te.newMode)
+      _mode = te.editMode;
 
     _next.enabled = true;
     populate();
   }
   else
-    errorCheck(q);
+    te.errorCheck(q);
 }
 
 
@@ -491,7 +518,7 @@ function sNext()
     _prev.enabled = true;
     populate();
   }
-  else if (errorCheck(q))
+  else if (te.errorCheck(q))
     sNew();
 }
 
@@ -509,7 +536,7 @@ function sNew()
     _sheetnum = (q.value("tehead_number"));
     _employee.setId(q.value("tehead_emp_id"));
   }
-  else if (!errorCheck(q))
+  else if (!te.errorCheck(q))
     return;
 
   q = toolbox.executeDbQuery("time_expense", "nextlinenum", params);
@@ -519,7 +546,7 @@ function sNew()
     _linenum = (q.value("linenumber"));
   } 
   else 
-    errorCheck(q);
+    te.errorCheck(q);
 
   _teitemid = -1;
   _prev.enabled = true;
@@ -551,10 +578,10 @@ function sNew()
 
 function sSetSecurity()
 {
-  if (privileges.check("CanViewRates")){
+  if (privileges.check("CanViewRates"))
+  {
     _rate.visible = true;
     _total.visible = true;
-    _budgetactual.visible = true;
     _rateLit.visible = true;
     _totalLit.visible = true;
   }
@@ -562,7 +589,6 @@ function sSetSecurity()
   {
     _rate.visible = false;
     _total.visible = false;
-    _budgetactual.visible = false;
     _rateLit.visible = false;
     _totalLit.visible = false;
   }

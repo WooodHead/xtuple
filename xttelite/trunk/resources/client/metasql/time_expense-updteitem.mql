@@ -16,6 +16,7 @@ UPDATE te.teitem SET
   teitem_prjtask_id=<? value("teitem_prjtask_id") ?>,
   teitem_billable=<? value("teitem_billable") ?>,
   teitem_prepaid=<? value("teitem_prepaid") ?>, 
-  teitem_notes=<? value("teitem_notes") ?>
+  teitem_notes=<? value("teitem_notes") ?>,
+  teitem_curr_id=<? value("teitem_curr_id") ?>
 WHERE (teitem_id=<? value("teitem_id") ?>)
 RETURNING *;

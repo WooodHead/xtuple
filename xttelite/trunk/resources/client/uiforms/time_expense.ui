@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>731</width>
-    <height>572</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,209 +19,82 @@
   <property name="screenTitle" stdset="0">
    <string>Time and Expense</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_12">
-   <item row="0" column="0">
-    <layout class="QGridLayout" name="gridLayout_11">
-     <item row="0" column="0" colspan="2">
-      <layout class="QHBoxLayout" name="horizontalLayout">
+  <layout class="QGridLayout" name="gridLayout_11">
+   <item row="2" column="0" colspan="2">
+    <layout class="QHBoxLayout" name="horizontalLayout_10">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QLabel" name="_sheetLit">
-         <property name="text">
-          <string>Sheet:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="XLabel" name="_sheet">
-         <property name="minimumSize">
-          <size>
-           <width>80</width>
-           <height>0</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="_linenumberLit">
-         <property name="text">
-          <string>Line #:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="_linenumber">
-         <property name="minimumSize">
-          <size>
-           <width>80</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
+        <widget class="QGroupBox" name="_itemGroup">
+         <property name="title">
           <string/>
          </property>
+         <layout class="QGridLayout" name="gridLayout_10">
+          <item row="0" column="0">
+           <widget class="ItemCluster" name="_items"/>
+          </item>
+         </layout>
         </widget>
        </item>
        <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+        <widget class="QGroupBox" name="_custGroup">
+         <property name="title">
+          <string/>
          </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>19</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="_radioTime">
-         <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
-         </property>
-         <property name="text">
-          <string>Time</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="_radioExpense">
-         <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
-         </property>
-         <property name="text">
-          <string>Expense</string>
-         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="CustCluster" name="_clients">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+            <property name="type">
+             <enum>CLineEdit::AllCustomers</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>  Cust. PO#:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="XLineEdit" name="_po">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::StrongFocus</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>0</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
      </item>
-     <item row="0" column="2" rowspan="4">
-      <widget class="QDialogButtonBox" name="_buttonBox">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="standardButtons">
-        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0" colspan="2">
-      <widget class="QGroupBox" name="_dateGroup">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="title">
-        <string/>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_7">
-        <item row="0" column="0">
-         <widget class="QLabel" name="_weLit">
-          <property name="text">
-           <string>Sheet Date:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="DLineEdit" name="_weekending">
-          <property name="focusPolicy">
-           <enum>Qt::NoFocus</enum>
-          </property>
-          <property name="defaultDate">
-           <enum>XDateEdit::Empty</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="_wkLit">
-          <property name="text">
-           <string>Work Date:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <widget class="DLineEdit" name="_workdate">
-          <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="4">
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>151</width>
-            <height>13</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QGroupBox" name="_custGroup">
-       <property name="title">
-        <string/>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0">
-         <widget class="CustCluster" name="_clients">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
-          </property>
-          <property name="type">
-           <enum>CLineEdit::AllCustomers</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <widget class="QLabel" name="label_2">
-            <property name="text">
-             <string>  Cust. PO#:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="XLineEdit" name="_po">
-            <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="2" column="1" rowspan="2">
+     <item>
       <widget class="QGroupBox" name="_qtyGroup">
        <property name="minimumSize">
         <size>
@@ -332,15 +205,6 @@
                   <property name="fieldNameValue">
                    <string>timedtl_rate</string>
                   </property>
-                  <property name="baseVisible">
-                   <bool>false</bool>
-                  </property>
-                  <property name="currencyEnabled">
-                   <bool>false</bool>
-                  </property>
-                  <property name="currencyVisible">
-                   <bool>false</bool>
-                  </property>
                  </widget>
                 </item>
                 <item>
@@ -364,18 +228,6 @@
                  <widget class="CurrCluster" name="_total">
                   <property name="focusPolicy">
                    <enum>Qt::NoFocus</enum>
-                  </property>
-                  <property name="baseVisible">
-                   <bool>false</bool>
-                  </property>
-                  <property name="currencyDisabled">
-                   <bool>true</bool>
-                  </property>
-                  <property name="currencyEnabled">
-                   <bool>false</bool>
-                  </property>
-                  <property name="currencyVisible">
-                   <bool>false</bool>
                   </property>
                   <property name="enabled">
                    <bool>false</bool>
@@ -443,250 +295,428 @@
        </layout>
       </widget>
      </item>
-     <item row="3" column="0">
-      <widget class="QGroupBox" name="_itemGroup">
-       <property name="title">
-        <string/>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_10">
-        <item row="0" column="0">
-         <widget class="ItemCluster" name="_items"/>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="4" column="0" colspan="3">
-      <widget class="QTabWidget" name="_tab">
-       <property name="currentIndex">
-        <number>0</number>
-       </property>
-       <widget class="QWidget" name="_projectTab">
-        <attribute name="title">
-         <string>Project</string>
-        </attribute>
-        <layout class="QGridLayout" name="gridLayout_6">
-         <item row="0" column="0">
-          <widget class="QGroupBox" name="groupBox_3">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="title">
-            <string/>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_3">
-            <item row="0" column="0">
-             <layout class="QVBoxLayout" name="verticalLayout_2">
-              <item>
-               <widget class="ProjectCluster" name="_project">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="focusPolicy">
-                 <enum>Qt::StrongFocus</enum>
-                </property>
-                <property name="label">
-                 <string>Project #:</string>
-                </property>
-                <property name="nameVisible">
-                 <bool>false</bool>
-                </property>
-                <property name="projectType" stdset="0">
-                 <enum>ProjectLineEdit::SalesOrder</enum>
-                </property>
-                <property name="infoVisible" stdset="0">
-                 <bool>false</bool>
-                </property>
-                <property name="listVisible" stdset="0">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_4">
-                <item>
-                 <widget class="QLabel" name="_taskLit">
-                  <property name="text">
-                   <string>Task:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="XComboBox" name="_task">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="focusPolicy">
-                   <enum>Qt::StrongFocus</enum>
-                  </property>
-                  <property name="type">
-                   <enum>XComboBox::Adhoc</enum>
-                  </property>
-                  <property name="listSchemaName">
-                   <string>public</string>
-                  </property>
-                  <property name="listTableName">
-                   <string>prjtask</string>
-                  </property>
-                  <property name="listIdFieldName">
-                   <string>prjtask_id</string>
-                  </property>
-                  <property name="listDisplayFieldName">
-                   <string>prjtask_name</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <spacer name="verticalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>0</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QGroupBox" name="_budgetactual">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>251</width>
-             <height>141</height>
-            </size>
-           </property>
-           <property name="title">
-            <string>Budget/Actual</string>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_4">
-            <item row="0" column="0">
-             <widget class="QLabel" name="_budgetLit">
-              <property name="text">
-               <string>Planned Hours:</string>
+    </layout>
+   </item>
+   <item row="0" column="1" rowspan="2">
+    <widget class="QDialogButtonBox" name="_buttonBox">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="_dateGroup">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_7">
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <item>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <widget class="QLabel" name="_weLit">
+            <property name="text">
+             <string>Week of:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="DLineEdit" name="_weekending">
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="defaultDate">
+             <enum>XDateEdit::Empty</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="_wkLit">
+            <property name="text">
+             <string>Work Date:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="_projectLit">
+            <property name="text">
+             <string>Project #:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="3">
+           <widget class="ProjectCluster" name="_project">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+            <property name="label">
+             <string/>
+            </property>
+            <property name="nameVisible">
+             <bool>true</bool>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="projectType" stdset="0">
+             <enum>ProjectLineEdit::SalesOrder</enum>
+            </property>
+            <property name="infoVisible" stdset="0">
+             <bool>false</bool>
+            </property>
+            <property name="listVisible" stdset="0">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <item>
+             <widget class="DLineEdit" name="_workdate">
+              <property name="focusPolicy">
+               <enum>Qt::StrongFocus</enum>
               </property>
              </widget>
             </item>
-            <item row="0" column="1">
-             <widget class="XLabel" name="_budget">
-              <property name="minimumSize">
-               <size>
-                <width>80</width>
-                <height>0</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="_actualLit">
-              <property name="text">
-               <string>Actual Hours:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="XLabel" name="_actual">
-              <property name="minimumSize">
-               <size>
-                <width>80</width>
-                <height>0</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0" colspan="2">
-             <widget class="Line" name="line">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
+            <item>
+             <spacer name="horizontalSpacer_9">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="_budgetCostLit">
-              <property name="text">
-               <string>Planned Expense:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1">
-             <widget class="XLabel" name="_budgetCost">
-              <property name="minimumSize">
+              <property name="sizeHint" stdset="0">
                <size>
-                <width>80</width>
-                <height>0</height>
+                <width>0</width>
+                <height>20</height>
                </size>
               </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="_actualCostLit">
-              <property name="text">
-               <string>Actual Expense:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="XLabel" name="_actualCost">
-              <property name="minimumSize">
-               <size>
-                <width>80</width>
-                <height>0</height>
-               </size>
-              </property>
-             </widget>
+             </spacer>
             </item>
            </layout>
-          </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="_taskLit">
+            <property name="text">
+             <string>Task:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" colspan="3">
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="XComboBox" name="_task">
+              <property name="focusPolicy">
+               <enum>Qt::StrongFocus</enum>
+              </property>
+              <property name="sizeAdjustPolicy">
+               <enum>QComboBox::AdjustToContents</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>0</width>
+                <height>13</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_8">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QTabWidget" name="_tab">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="_projectTab">
+      <attribute name="title">
+       <string>Project</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <spacer name="horizontalSpacer_10">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QGridLayout" name="gridLayout_4">
+             <item row="0" column="0">
+              <widget class="QLabel" name="_budgetLit">
+               <property name="text">
+                <string>Planned Hours:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="XLabel" name="_budget">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2" rowspan="2">
+              <widget class="Line" name="line">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <widget class="QLabel" name="_budgetCostLit">
+               <property name="text">
+                <string>Planned Expense:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="4">
+              <widget class="XLabel" name="_budgetCost">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="_actualLit">
+               <property name="text">
+                <string>Actual Hours:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="XLabel" name="_actual">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3">
+              <widget class="QLabel" name="_actualCostLit">
+               <property name="text">
+                <string>Actual Expense:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="4">
+              <widget class="XLabel" name="_actualCost">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="_notesTab">
-        <attribute name="title">
-         <string>Notes</string>
-        </attribute>
-        <layout class="QGridLayout" name="gridLayout_9">
-         <item row="0" column="0">
-          <widget class="XTextEdit" name="_notes">
-           <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
            </property>
-          </widget>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
-       </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="_notesTab">
+      <attribute name="title">
+       <string>Notes</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_9">
+       <item row="0" column="0">
+        <widget class="XTextEdit" name="_notes">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
+         <property name="tabChangesFocus">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="_sheetLit">
+       <property name="text">
+        <string>Sheet:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="XLabel" name="_sheet">
+       <property name="minimumSize">
+        <size>
+         <width>80</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="_linenumberLit">
+       <property name="text">
+        <string>Line #:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="_linenumber">
+       <property name="minimumSize">
+        <size>
+         <width>80</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>19</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="_radioTime">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="text">
+        <string>Time</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="_radioExpense">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="text">
+        <string>Expense</string>
+       </property>
       </widget>
      </item>
     </layout>
    </item>
   </layout>
+  <zorder>_buttonBox</zorder>
+  <zorder>_dateGroup</zorder>
+  <zorder>_tab</zorder>
+  <zorder></zorder>
  </widget>
  <customwidgets>
   <customwidget>
@@ -719,6 +749,7 @@
    <class>ItemCluster</class>
    <extends>QWidget</extends>
    <header>itemcluster.h</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>ProjectCluster</class>
@@ -751,20 +782,37 @@
   <tabstop>_radioTime</tabstop>
   <tabstop>_radioExpense</tabstop>
   <tabstop>_workdate</tabstop>
+  <tabstop>_project</tabstop>
+  <tabstop>_task</tabstop>
+  <tabstop>_items</tabstop>
   <tabstop>_clients</tabstop>
   <tabstop>_po</tabstop>
-  <tabstop>_items</tabstop>
   <tabstop>_employee</tabstop>
   <tabstop>_hours</tabstop>
   <tabstop>_rate</tabstop>
   <tabstop>_prepaid</tabstop>
   <tabstop>_billable</tabstop>
   <tabstop>_tab</tabstop>
-  <tabstop>_project</tabstop>
-  <tabstop>_task</tabstop>
   <tabstop>_notes</tabstop>
   <tabstop>_buttonBox</tabstop>
  </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>_rate</sender>
+   <signal>idChanged(int)</signal>
+   <receiver>_total</receiver>
+   <slot>setId(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>598</x>
+     <y>292</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>598</x>
+     <y>330</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

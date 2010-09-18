@@ -77,19 +77,19 @@ function set(input)
 
   if("mode" in input)
   {
-    if (input.mode <= _editMode)
+    if (input.mode <= te.editMode)
     {
       _lines["valid(bool)"].connect(_edit["setEnabled(bool)"]);
       _lines["valid(bool)"].connect(_delete["setEnabled(bool)"]);
       _lines.itemSelected.connect(_edit, "animateClick");
     }
 
-    if (input.mode == _newMode)
+    if (input.mode == te.newMode)
     {
       _mode = "new";
       _weekending.enabled = true;
     }
-    else if (input.mode == _editMode)
+    else if (input.mode == te.editMode)
     {
       _mode = "edit";
       _weekending.enabled = false;
@@ -102,7 +102,7 @@ function set(input)
 
       populate();
     }
-    else if (input.mode == _viewMode)
+    else if (input.mode == te.viewMode)
     {
       _mode = "view";
       _new.enabled = false;
@@ -157,7 +157,7 @@ function lineDelete()
     params.teitem_id = _lines.id();  
 
     q = toolbox.executeDbQuery("te","delteitem", params );
-    errorCheck(q);
+    te.errorCheck(q);
     sFillList();
   }
 }
@@ -167,7 +167,7 @@ function lineNew()
   if (!sSave())
     return;
 
-  lineOpen(_newMode);  
+  lineOpen(te.newMode);  
 
   _weekending.enabled = false;
   _employee.enabled = false;
@@ -179,13 +179,13 @@ function lineNew()
 
 function lineEdit()
 {
-  lineOpen(_editMode);
+  lineOpen(te.editMode);
 }
 
 
 function lineView()
 {
-  lineOpen(_viewMode);
+  lineOpen(te.viewMode);
 }
 
 
@@ -247,7 +247,7 @@ function sSave()
     _id = q.value("tehead_id");
     _sheetNumberExtra.text = q.value("tehead_number");
   }
-  else if (!errorCheck(q))
+  else if (!te.errorCheck(q))
     return false;
 
   return true;
@@ -277,7 +277,7 @@ function populate()
     _site.text = q.value("tehead_site");
     _orderComments.setPlainText(q.value("tehead_notes"));
   }
-  else if (!errorCheck(q))
+  else if (!te.errorCheck(q))
     return;
 
   if (_mode == "view")
@@ -302,12 +302,12 @@ function sFillList()
 
   _lines.populate(q);
 
-  errorCheck(q);
+  te.errorCheck(q);
 }
 
 function sClose()
 {
-  if (_mode == _newMode && _id != -1)
+  if (_mode == te.newMode && _id != -1)
   {
     if (MessageBox.question(mywindow,
                        qsTr("Delete Sheet"),

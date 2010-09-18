@@ -1,6 +1,6 @@
 -- Group: time_expense
 -- Name:  insteitem
--- Notes: Insert Time Expense Item
+-- Notes: 
 INSERT INTO te.teitem (
   teitem_tehead_id,
   teitem_linenumber,
@@ -16,7 +16,8 @@ INSERT INTO te.teitem (
   teitem_prjtask_id,
   teitem_billable,
   teitem_prepaid, 
-  teitem_notes )
+  teitem_notes,
+  teitem_curr_id )
 VALUES (
   <? value("teitem_tehead_id") ?>,
   <? value("teitem_linenumber") ?>,
@@ -32,5 +33,6 @@ VALUES (
   <? value("teitem_prjtask_id") ?>,
   <? value("teitem_billable") ?>,
   <? value("teitem_prepaid") ?>,
-  <? value("teitem_notes") ?>)
+  <? value("teitem_notes") ?>,
+  <? value("teitem_curr_id") ?>)
 RETURNING *;
