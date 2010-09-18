@@ -1,12 +1,10 @@
-debugger;
-
 //find the tab list and create a new widget to insert into it.
 var tablist = mywindow.findChild("_tab"); 
 // load a predefined screen by name from the database
 var expensePage = toolbox.loadUi("teexpense", mywindow);
 
 //insert the new tab
-toolbox.tabInsertTab(tablist,2,expensePage, "Expense");
+toolbox.tabInsertTab(tablist,2,expensePage, "Project");
 
 var _itemtype = mywindow.findChild("_itemtype");
 _itemtype['currentIndexChanged(QString)'].connect(handleExpense);

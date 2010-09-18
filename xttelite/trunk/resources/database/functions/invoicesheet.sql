@@ -3,6 +3,7 @@ DECLARE
 pHeadID ALIAS FOR $1;
 
 _invcnum text;
+_invcheadid integer;
 _s record;
 _t record;
 _linenum text;
@@ -14,8 +15,7 @@ BEGIN
         --  A is approved...if further approval is needed (mgr, etc) then the status should goto P
        FOR _s in SELECT * FROM (
        SELECT DISTINCT tehead_id, tehead_number, tehead_weekending,
-                       cust_number, cust_id,
-                       teitem_po, prj_number, prj_id
+                       cust_id, teitem_po, prj_id
        FROM te.tehead JOIN te.teitem ON (teitem_tehead_id=tehead_id AND teitem_billable)
                       JOIN custinfo ON (cust_id=teitem_cust_id)
                       JOIN prj ON (prj_id=teitem_prj_id)
@@ -25,14 +25,26 @@ BEGIN
        -- loop thru records and create invoices by customer, by PO for the provided headid
        LOOP
          --select nextval('invchead_invchead_id_seq') into _invcid;
-         select CAST(fetchInvcNumber() AS TEXT) into _invcnum;
+         _invcnum := CAST(fetchInvcNumber() AS TEXT);
+         _invcheadid := nextval('invchead_invchead_id_seq');
+
+         INSERT INTO invchead
+         SELECT _invcheadid, cust_id, -1, '', current_date, false, false, _invcnum,
+           current_date, current_date, _s.teitem_po, '', '', cust_name, COALESCE(addr_line1,''),
+           COALESCE(addr_line2,''), COALESCE(addr_line3,''), COALESCE(addr_city,''),
+           COALESCE(addr_state,''), COALESCE(addr_postalcode,''), cntct_phone, 
+           '', '', '', '', '', '', '', '', cust_salesrep_id, salesrep_commission, cust_terms_id,
+           0, 0, '', -1, 0, '', '', addr_country, '', _s.teitem_prj_id, cust_
+           
+         FROM custinfo
+           JOIN salesrep ON (cust_salesrep_id=salesrep_id)
+           LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
+           LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
+         WHERE (cust_id=_s.cust_id);
          
-         insert into api.invoice(invoice_number,invoice_date, ship_date, order_date, 
+         INSERT INTO api.invoice(invoice_number,invoice_date, ship_date, order_date, 
          customer_number, po_number, project_number)
          values (_invcnum,CURRENT_DATE,CURRENT_DATE,CURRENT_DATE,_s.cust_number,_s.teitem_po,_s.prj_number );
-
-          -- update the te.tehead record with C status
-          update te.tehead set tehead_billable_status = 'C' where tehead_id = pHeadID;
 
           -- loop thru all lines of the sheet
           for _t in select * from (

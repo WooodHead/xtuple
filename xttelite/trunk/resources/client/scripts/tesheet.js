@@ -25,10 +25,6 @@ _weekending.setEndNull(qsTr("Latest"),     endOfTime,   true);
 
 _approve.enabled = false;
 
-var _newMode 	= 0;
-var _editMode 	= 1;
-var _viewMode	= 2;
-
 // Set up columns
 _sheets.addColumn(qsTr("Sheet#"), XTreeWidget.orderColumn, Qt.AlignLeft,    true, "tehead_number");
 _sheets.addColumn(qsTr("Date"),   XTreeWidget.dateColumn, Qt.AlignLeft,    true, "tehead_weekending");
@@ -142,12 +138,12 @@ function populateMenu(pMenu, pItem, pCol)
             !currentItem.rawValue("posted"))
           pMenu.addSeparator();
 
-        if (currentItem.rawValue("invoiced") == 0)
+        if (currentItem.rawValue("posted") == 0)
         {
-          tmpact = toolbox.menuAddAction(pMenu, qsTr("Invoice"), true);
-          tmpact.triggered.connect(sheetInvoice);
+          tmpact = toolbox.menuAddAction(pMenu, qsTr("Post"), true);
+          tmpact.triggered.connect(sheetPost);
           tmpact.enabled = (status == 'A' && 
-                            privileges.check("allowInvoicing"));
+                            privileges.check("PostTimeSheets"));
         }
 
         if (currentItem.rawValue("vouchered") == 0)
@@ -158,12 +154,12 @@ function populateMenu(pMenu, pItem, pCol)
                             privileges.check("allowVouchering"));
         }
 
-        if (currentItem.rawValue("posted") == 0)
+        if (currentItem.rawValue("invoiced") == 0)
         {
-          tmpact = toolbox.menuAddAction(pMenu, qsTr("Post"), true);
-          tmpact.triggered.connect(sheetPost);
+          tmpact = toolbox.menuAddAction(pMenu, qsTr("Invoice"), true);
+          tmpact.triggered.connect(sheetInvoice);
           tmpact.enabled = (status == 'A' && 
-                            privileges.check("PostTimeSheets"));
+                            privileges.check("allowInvoicing"));
         }
       }
     }
@@ -176,7 +172,7 @@ function sheetApprove()
   params.tehead_id = _sheets.id();    
 
   q = toolbox.executeDbQuery("tesheet", "approve", params );	
-  if (errorCheck(q))
+  if (te.errorCheck(q))
     sFillList(); 
 }
 
@@ -186,7 +182,7 @@ function sheetUnapprove()
   params.tehead_id = _sheets.id();    
 
   q = toolbox.executeDbQuery("tesheet", "unapprove", params );	
-  if (errorCheck(q))
+  if (te.errorCheck(q))
     sFillList(); 
 }
 
@@ -217,21 +213,21 @@ function sheetProcess(id, invoice, voucher, post)
   if (invoice)
   {
     q = toolbox.executeDbQuery("tesheet", "invoice", params );	
-    if (!errorCheck(q))
+    if (!te.errorCheck(q))
       return false;
   }
 
   if (voucher)
   {
     q = toolbox.executeDbQuery("tesheet", "voucher", params );	
-    if (!errorCheck(q))
+    if (!te.errorCheck(q))
       return false;
   }
 
   if (post)
   {
     q = toolbox.executeDbQuery("tesheet", "post", params );	
-    if (!errorCheck(q))
+    if (!te.errorCheck(q))
       return false;
   }
 
@@ -263,7 +259,7 @@ function sheetClose()
     params.tehead_id = _sheets.id();    
 
     q = toolbox.executeDbQuery("tesheet", "close", params );	
-    if (errorCheck(q))
+    if (te.errorCheck(q))
       sFillList(); 
   }
 }
@@ -271,19 +267,19 @@ function sheetClose()
 function sheetEdit()
 {
   if (_sheets.currentItem().rawValue("tehead_status") == "O")
-    sheetOpen(_editMode);
+    sheetOpen(te.editMode);
   else
-    sheetOpen(_viewMode);
+    sheetOpen(te.viewMode);
 }
 
 function sheetNew()
 {
-  sheetOpen(_newMode);
+  sheetOpen(te.newMode);
 }
 
 function sheetView()
 {
-  sheetOpen(_viewMode);
+  sheetOpen(te.viewMode);
 }
 
 function sheetOpen(mode)
@@ -404,7 +400,7 @@ function sFillList()
   q = toolbox.executeDbQuery("tesheet","detail", params);
 
   _sheets.populate(q);
-  if (!errorCheck(q))
+  if (!te.errorCheck(q))
     return;
 }
 
@@ -475,5 +471,5 @@ function populateEmployees()
         mywindow.close();
     }
   }
-} //populateEmployees
+}
 
