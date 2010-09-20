@@ -1,4 +1,4 @@
--- Group: tesheet
+-- Group: timeexpensesheets
 -- Name:  invoice
 -- Notes: Invoice Time Expense Sheet
 SELECT te.invoiceSheet(<? value("tehead_id") ?>);

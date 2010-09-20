@@ -138,7 +138,7 @@ xtte.timeExpenseSheet.deleteItem = function()
     var params   = new Object();
     params.teitem_id = _lines.id();  
 
-    q = toolbox.executeDbQuery("te","delteitem", params );
+    q = toolbox.executeDbQuery("timeexpensesheet","delteitem", params );
     xtte.errorCheck(q);
     xtte.timeExpenseSheet.fillList();
   }
@@ -223,7 +223,7 @@ xtte.timeExpenseSheet.save = function()
   if (_id == -1)
     query = "instehead";
 
-  q = toolbox.executeDbQuery("te", query, params );
+  q = toolbox.executeDbQuery("timeexpensesheet", query, params );
   if (q.first())
   {
     _id = q.value("tehead_id");
@@ -249,7 +249,7 @@ xtte.timeExpenseSheet.populate = function()
   params.emp = _employee.id();
   params.tehead_id = _id;
 
-  q = toolbox.executeDbQuery("te", "header", params);
+  q = toolbox.executeDbQuery("timeexpensesheet", "header", params);
 
   if (q.first())
   {    
@@ -280,7 +280,7 @@ xtte.timeExpenseSheet.fillList = function()
   params.expense = qsTr("Expense");
   params.error = qsTr("Error");
 
-  q = toolbox.executeDbQuery("te", "detail", params);
+  q = toolbox.executeDbQuery("timeexpensesheet", "detail", params);
 
   _lines.populate(q);
 
@@ -300,7 +300,7 @@ xtte.timeExpenseSheet.close = function()
       var params = new Object;
       params.tehead_id = _id;
 
-      toolbox.executeDbQuery("te", "deltehead", params);
+      toolbox.executeDbQuery("timeexpensesheet", "deltehead", params);
     }
     else
       return;
