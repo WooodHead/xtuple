@@ -143,13 +143,6 @@ xtte.timeExpenseSheetItem.modified = function()
   _modified = true;
 }
 
-xtte.timeExpenseSheetItem.handleTask = function()
-{  
-  xtte.timeExpenseSheetItem.getPrice();
-  xtte.timeExpenseSheetItem.setActualBudget();
-  xtte.timeExpenseSheetItem.modified();
-}
-
 xtte.timeExpenseSheetItem.getPrice = function()
 {
   if (_populating)
@@ -240,63 +233,63 @@ xtte.timeExpenseSheetItem.accepted = function()
 
 xtte.timeExpenseSheetItem.save = function()
 {
-    try
-    {
-      if (!_clients.isValid())
-        throw new Error(qsTr("Customer Required"));
+  try
+  {
+    if (!_clients.isValid())
+      throw new Error(qsTr("Customer Required"));
 
-      if (!_workdate.isValid())
-        throw new Error(qsTr("Work Date Required"));
+    if (!_workdate.isValid())
+      throw new Error(qsTr("Work Date Required"));
     
-      if (!_project.isValid())
-        throw new Error(qsTr("Project Required"));
+    if (!_project.isValid())
+      throw new Error(qsTr("Project Required"));
  
-      if (!_items.isValid())
-        throw new Error(qsTr("Item Required"));
+    if (!_items.isValid())
+      throw new Error(qsTr("Item Required"));
 
-      if (_task.id == -1)
-        throw new Error(qsTr("Task Required"));
-    }
-    catch (e)
-    {
-      QMessageBox.critical(mywindow, qsTr("Processing Error"), e.message);
-      return false;
-    }
+    if (_task.id == -1)
+      throw new Error(qsTr("Task Required"));
+  }
+  catch (e)
+  {
+    QMessageBox.critical(mywindow, qsTr("Processing Error"), e.message);
+    return false;
+  }
 
-    var params = new Object();
-    params.teitem_tehead_id      = _headid;
-    params.teitem_linenumber     = _linenum;
-    params.teitem_type = _type.code;
-    params.teitem_workdate       = _workdate.date;
-    params.teitem_cust_id        = _clients.id();
-    params.teitem_po             = _po.text;
-    params.teitem_item_id        = _items.id();
-    params.teitem_qty            = _hours.localValue;
-    params.teitem_rate           = _rate.localValue;
-    params.teitem_total          = _total.localValue;
-    params.teitem_prj_id         = _project.id();
-    params.teitem_prjtask_id     = _task.id();
-    params.teitem_billable       = _billable.checked;
-    params.teitem_prepaid        = _prepaid.checked;
-    params.teitem_notes          = _notes.plainText;
-    params.teitem_id             = _teitemid;
-    params.teitem_curr_id        = _rate.id();
+  var params = new Object();
+  params.teitem_tehead_id      = _headid;
+  params.teitem_linenumber     = _linenum;
+  params.teitem_type = _type.code;
+  params.teitem_workdate       = _workdate.date;
+  params.teitem_cust_id        = _clients.id();
+  params.teitem_po             = _po.text;
+  params.teitem_item_id        = _items.id();
+  params.teitem_qty            = _hours.localValue;
+  params.teitem_rate           = _rate.localValue;
+  params.teitem_total          = _total.localValue;
+  params.teitem_prj_id         = _project.id();
+  params.teitem_prjtask_id     = _task.id();
+  params.teitem_billable       = _billable.checked;
+  params.teitem_prepaid        = _prepaid.checked;
+  params.teitem_notes          = _notes.plainText;
+  params.teitem_id             = _teitemid;
+  params.teitem_curr_id        = _rate.id();
 
-    var query;
-    if (_teitemid > 0)
-      query = "updteitem";
-    else
-      query = "insteitem";
+  var query;
+  if (_teitemid > 0)
+    query = "updteitem";
+  else
+    query = "insteitem";
 
-    var q = toolbox.executeDbQuery("timeexpensesheetitem", query, params);
-    if (q.first())
-      _teitemid = q.value("teitem_id");
-    else if (!xtte.errorCheck(q))
-      return;
+  var q = toolbox.executeDbQuery("timeexpensesheetitem", query, params);
+  if (q.first())
+    _teitemid = q.value("teitem_id");
+  else if (!xtte.errorCheck(q))
+    return;
 
-    _prev.enabled = true;
+  _prev.enabled = true;
 
-    return true;
+  return true;
 }
 
 
@@ -336,7 +329,7 @@ xtte.timeExpenseSheetItem.customerChanged = function()
   xtte.timeExpenseSheetItem.getPrice();
 }
 
-xtte.timeExpenseSheetItem.projectChange = function()
+xtte.timeExpenseSheetItem.projectChanged = function()
 {
   //enable and reset the task fields
   if(_project.isValid() && 
@@ -356,6 +349,53 @@ xtte.timeExpenseSheetItem.projectChange = function()
   xtte.timeExpenseSheetItem.getPrice();
 }
 
+
+xtte.timeExpenseSheetItem.taskChanged = function()
+{  
+  var custid = -1;
+  var itemid = -1;
+  var params = new Object;
+  params.prjtask_id = _task.id();
+
+  q = toolbox.executeDbQuery("timeexpensesheetitem", "taskdefaults", params);
+  if (q.first())
+  {
+    custid = q.value("cust_id");
+    itemid = q.value("item_id")
+  }
+  else if (!xtte.errorCheck(q))
+    return;
+
+  if (_populating)
+  {
+    // Disable if customer matches default, otherwise default must have changed
+    // so allow for editing so user can decide what to do
+    _clients.enabled = !(_clients.isValid() && _clients.id() == custid)
+    _items.enabled = !(_items.isValid() && _items.id() == itemid)
+  }
+  else
+  {
+    if (custid > 0)
+    {
+      _clients.setId(custid);
+      _clients.enabled = false;
+    }
+    else
+      clients.enabled = true;
+
+    if (itemid > 0)
+    {
+      _items.setId(itemid);
+      _items.enabled = false;
+    }
+    else
+      _items.enabled = true;
+  }
+
+  xtte.timeExpenseSheetItem.getPrice();
+  xtte.timeExpenseSheetItem.setActualBudget();
+  xtte.timeExpenseSheetItem.modified();
+}
 
 xtte.timeExpenseSheetItem.setActualBudget = function()
 {
@@ -563,13 +603,13 @@ _buttonBox.rejected.connect(mydialog, "reject");
 _prev.clicked.connect(xtte.timeExpenseSheetItem.prev);
 _next.clicked.connect(xtte.timeExpenseSheetItem.next);
 
-_task.newID.connect(xtte.timeExpenseSheetItem.handleTask);
+_task.newID.connect(xtte.timeExpenseSheetItem.taskChanged);
 _rate.valueChanged.connect(xtte.timeExpenseSheetItem.extension);
 _hours.valueChanged.connect(xtte.timeExpenseSheetItem.extension);
 _type.newID.connect(xtte.timeExpenseSheetItem.typeChanged);
 _items["newId(int)"].connect(xtte.timeExpenseSheetItem.getPrice);
 _clients["newId(int)"].connect(xtte.timeExpenseSheetItem.customerChanged);
-_project["newId(int)"].connect(xtte.timeExpenseSheetItem.projectChange);
+_project["newId(int)"].connect(xtte.timeExpenseSheetItem.projectChanged);
 _employee.newId.connect(xtte.timeExpenseSheetItem.modified);
 _po.textChanged.connect(xtte.timeExpenseSheetItem.modified);
 _workdate.newDate.connect(xtte.timeExpenseSheetItem.modified);
