@@ -1,6 +1,6 @@
--- Group: te
+-- Group: timeexpensesheet
 -- Name:  updtehead
--- Notes: Update Time Expense Sheet Header
+-- Notes: 
 UPDATE te.tehead SET 
   tehead_emp_id = <? value("emp_id") ?>,
   tehead_site = <? value("site") ?>,

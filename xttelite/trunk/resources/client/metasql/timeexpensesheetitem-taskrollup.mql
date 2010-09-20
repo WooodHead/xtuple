@@ -1,6 +1,6 @@
--- Group: time_expense
+-- Group: timeexpensesheetitem
 -- Name:  taskrollup
--- Notes: Roll up hours and costs for Task
+-- Notes: 
 SELECT 
   formatqty(SUM(total_hours)) AS total_hours,
   formatcost(SUM(total_cost)) AS total_cost 

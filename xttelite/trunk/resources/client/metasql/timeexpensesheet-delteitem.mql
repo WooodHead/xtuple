@@ -1,5 +1,5 @@
--- Group: te
+-- Group: timeexpensesheet
 -- Name:  delteitem
--- Notes: Delete Time Expense Item
+-- Notes: 
 DELETE FROM te.teitem
 WHERE teitem_id=<? value("teitem_id") ?>

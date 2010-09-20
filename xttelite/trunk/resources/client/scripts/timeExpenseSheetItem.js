@@ -114,7 +114,7 @@ xtte.timeExpenseSheetItem.gettask = function()
     params.prj_id = _project.id();
     params.name = qsTr("Default");
 
-    var qry = toolbox.executeDbQuery("time_expense", "gettask", params);
+    var qry = toolbox.executeDbQuery("timeexpensesheetitem", "gettask", params);
     if(!xtte.errorCheck(qry))
       return;
 
@@ -127,9 +127,9 @@ xtte.timeExpenseSheetItem.gettask = function()
     {
       var msg = qsTr("No task found. A default task will be added");
       toolbox.messageBox("critical", mywindow, qsTr("task"), msg);
-      toolbox.executeDbQuery("time_expense","instask",params);
+      toolbox.executeDbQuery("timeexpensesheetitem","instask",params);
 
-      qry = toolbox.executeDbQuery("time_expense", "gettask", params);
+      qry = toolbox.executeDbQuery("timeexpensesheetitem", "gettask", params);
       _task.populate(qry);
     }
 
@@ -172,7 +172,7 @@ xtte.timeExpenseSheetItem.getPrice = function()
   if (_type.code == "T")
     params.time = true;
   
-  var qry = toolbox.executeDbQuery("time_expense", "getterate", params);
+  var qry = toolbox.executeDbQuery("timeexpensesheetitem", "getterate", params);
   
   if (qry.first())
     _rate.setBaseValue(qry.value("rate"));
@@ -188,7 +188,7 @@ xtte.timeExpenseSheetItem.populate = function()
   var params = new Object();
   params.teitem_id = _teitemid;
 
-  q = toolbox.executeDbQuery("time_expense","detail", params);
+  q = toolbox.executeDbQuery("timeexpensesheetitem","detail", params);
   if (q.first())
   {
     _populating = true; 
@@ -288,7 +288,7 @@ xtte.timeExpenseSheetItem.save = function()
     else
       query = "insteitem";
 
-    var q = toolbox.executeDbQuery("time_expense", query, params);
+    var q = toolbox.executeDbQuery("timeexpensesheetitem", query, params);
     if (q.first())
       _teitemid = q.value("teitem_id");
     else if (!xtte.errorCheck(q))
@@ -327,7 +327,7 @@ xtte.timeExpenseSheetItem.customerChanged = function()
   var params = new Object;
   params.cust_id = _clients.id();
 
-  q = toolbox.executeDbQuery("time_expense", "getcustinfo", params);
+  q = toolbox.executeDbQuery("timeexpensesheetitem", "getcustinfo", params);
   if (q.first())
     _rate.setId(q.value("cust_curr_id") - 0);
   else if (!xtte.errorCheck(q))
@@ -363,7 +363,7 @@ xtte.timeExpenseSheetItem.setActualBudget = function()
   params.prjid = _project.id();
   params.taskid = _task.id();
  
-  var q = toolbox.executeDbQuery("time_expense", "taskbudg",params);
+  var q = toolbox.executeDbQuery("timeexpensesheetitem", "taskbudg",params);
   if (q.first())
   {
     _budget.text = q.value("budget_hours");        
@@ -386,7 +386,7 @@ xtte.timeExpenseSheetItem.rollupActual = function()
   _totalhrs = 0;    
 
   // get the task actuals then add the current
-  var q = toolbox.executeDbQuery("time_expense","taskrollup",parms);
+  var q = toolbox.executeDbQuery("timeexpensesheetitem","taskrollup",parms);
 
   if (q.first())
   {
@@ -419,7 +419,7 @@ xtte.timeExpenseSheetItem.prev = function()
   var params = new Object;
   params.teitem_id = _teitemid;
 
-  var q = toolbox.executeDbQuery("time_expense", "teitemprev", params);
+  var q = toolbox.executeDbQuery("timeexpensesheetitem", "teitemprev", params);
 
   if (q.first())
   {
@@ -455,7 +455,7 @@ xtte.timeExpenseSheetItem.next = function()
 
   var params = new Object;
   params.teitem_id = _teitemid;
-  var q = toolbox.executeDbQuery("time_expense","teitemnext",params);
+  var q = toolbox.executeDbQuery("timeexpensesheetitem","teitemnext",params);
 
   if (q.first())
   {
@@ -485,7 +485,7 @@ xtte.timeExpenseSheetItem.clear = function()
   else if (!xtte.errorCheck(q))
     return;
 
-  q = toolbox.executeDbQuery("time_expense", "nextlinenum", params);
+  q = toolbox.executeDbQuery("timeexpensesheetitem", "nextlinenum", params);
   if (q.first())
   {
     _linenumber.setText(q.value("linenumber"));
