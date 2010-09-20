@@ -1,0 +1,13 @@
+DROP FUNCTION te.insertmiscvoucher(te.voucher);
+DROP FUNCTION te.addsheet(date, date, integer, integer, text, integer, double precision, double precision, double precision, integer, text, integer, integer, character, integer, boolean, boolean, text, text);
+DROP FUNCTION te.addsheet(date, date, integer, integer, text, integer, double precision, double precision, double precision, integer, text, integer, integer, character, integer, boolean, boolean, text, text, integer);
+DROP FUNCTION te.addsheet(date, date, integer, integer, text, integer, double precision, double precision, double precision, integer, text, integer, integer, character, integer, boolean, boolean, text);
+DROP FUNCTION te.deleteline(integer, integer);
+DROP FUNCTION te.deletesheet(integer);
+DROP FUNCTION te.approvesheet(integer);
+DROP FUNCTION te.resetSheetStatus(integer);
+DROP FUNCTION te.setmetric(text, text);
+DROP FUNCTION te.getsheetid(text);
+DROP FUNCTION te.maxline(integer);
+DROP FUNCTION te.minline(integer);
+DROP FUNCTION te.addtecustrate(text, numeric);
