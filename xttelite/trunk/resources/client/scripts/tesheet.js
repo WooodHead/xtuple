@@ -1,6 +1,8 @@
-include("teglobal");
+include("xtte");
 
 // Define Variables
+xtte.timeExpenseSheets = new Object;
+
 var _all		= mywindow.findChild("_all");
 var _close 		= mywindow.findChild("_close");
 var _query		= mywindow.findChild("_query");
@@ -20,11 +22,6 @@ var _invoice           = mywindow.findChild("_invoice");
 var _voucher           = mywindow.findChild("_voucher");
 var _post              = mywindow.findChild("_post");
 
-_weekending.setStartNull(qsTr("Earliest"), startOfTime, true);
-_weekending.setEndNull(qsTr("Latest"),     endOfTime,   true);
-
-_approve.enabled = false;
-
 // Set up columns
 _sheets.addColumn(qsTr("Sheet#"), XTreeWidget.orderColumn, Qt.AlignLeft,    true, "tehead_number");
 _sheets.addColumn(qsTr("Date"),   XTreeWidget.dateColumn, Qt.AlignLeft,    true, "tehead_weekending");
@@ -36,58 +33,7 @@ _sheets.addColumn(qsTr("Invoiced"), XTreeWidget.dateColumn, Qt.AlignLeft, true, 
 _sheets.addColumn(qsTr("Vouchered"),XTreeWidget.dateColumn, Qt.AlignLeft, true, "vouchered");
 _sheets.addColumn(qsTr("Posted"),   XTreeWidget.dateColumn, Qt.AlignLeft, true, "posted");
 
-//if the user is part of the ADMIN group, then show the "show all employees" checkbox
-_showAllEmployees.visible = false;
-
-// Make connections
-_close.triggered.connect(mywindow, "close");
-_print.triggered.connect(printReport);
-_new.triggered.connect(sheetNew);
-_query.triggered.connect(sFillList);
-
-_approve.triggered.connect(sheetApprove);
-_showAllEmployees.toggled.connect(showAllEmployeesSwitch);
-
-if (privileges.check("MaintainTimeExpense"))
-  _sheets.itemSelected.connect(sheetEdit);
-else
-{
-  _new.enabled = false;
-  _sheets.itemSelected.connect(sheetView);
-}
-
-if (!privileges.check("allowInvoicing"))
-{
-  _invoice.forgetful = true;
-  _invoice.checked = false;
-  _invoice.enabled = false;
-}
-
-if (!privileges.check("allowVouchering"))
-{
-  _voucher.forgetful = true;
-  _voucher.checked = false;
-  _voucher.enabled = false;
-}
-
-if (!privileges.check("PostTimeSheets"))
-{
-  _post.forgetful = true;
-  _post.checked = false;
-  _post.enabled = false;
-}
-
-_selected.checked = true;
-
-populateEmployees();
-sFillList();
-
-//moved below the initial populateEmployees() call...was forcing extra calls to sFillList
-_employee["newId(int)"].connect(sFillList);
-_sheets["populateMenu(QMenu *, XTreeWidgetItem *, int)"].connect(populateMenu)
-
-//context menu
-function populateMenu(pMenu, pItem, pCol)
+xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
 {
   var tmpact;
 
@@ -102,14 +48,14 @@ function populateMenu(pMenu, pItem, pCol)
       var status = currentItem.rawValue("tehead_status");
 
       tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit..."), true);
-      tmpact.triggered.connect(sheetEdit);
+      tmpact.triggered.connect(xtte.timeExpenseSheets.editSheet);
       tmpact.enabled = (status == 'O' && privileges.check("MaintainTimeExpense"));
 
       tmpact = toolbox.menuAddAction(pMenu, qsTr("View..."), true);
-      tmpact.triggered.connect(sheetView);
+      tmpact.triggered.connect(xtte.timeExpenseSheets.viewSheet);
 
       tmpact = toolbox.menuAddAction(pMenu, qsTr("Delete"), true);
-      tmpact.triggered.connect(sheetDelete);
+      tmpact.triggered.connect(xtte.timeExpenseSheets.deleteSheet);
       tmpact.enabled = (status == 'O' && privileges.check("MaintainTimeExpense"));
 
       if (status == 'O')
@@ -117,21 +63,24 @@ function populateMenu(pMenu, pItem, pCol)
         pMenu.addSeparator();
         tmpact = toolbox.menuAddAction(pMenu, qsTr("Approve"), 
                                        privileges.check("CanApprove"));
-        tmpact.triggered.connect(sheetApprove);
+        tmpact.triggered.connect(xtte.timeExpenseSheets.approveSheet);
       }
-      else if (status == 'A')
+      else if ((status == 'A') &&
+               (!currentItem.rawValue("posted") == 1) &&
+               (!currentItem.rawValue("vouchered") == 1) &&
+               (!currentItem.rawValue("vouchered") == 1))
       {
         pMenu.addSeparator();
         tmpact = toolbox.menuAddAction(pMenu, qsTr("Uanpprove"), 
                                        privileges.check("CanApprove"));
-        tmpact.triggered.connect(sheetUnapprove);
+        tmpact.triggered.connect(xtte.timeExpenseSheets.unapproveSheet);
       }
 
       if (status == 'A' || status == 'O')
       {
         tmpact = toolbox.menuAddAction(pMenu, qsTr("Close"), 
                                        privileges.check("MaintainTimeExpense"));
-        tmpact.triggered.connect(sheetClose);
+        tmpact.triggered.connect(xtte.timeExpenseSheets.closeSheet);
 
         if (!currentItem.rawValue("invoiced") ||
             !currentItem.rawValue("vouchered") ||
@@ -141,7 +90,7 @@ function populateMenu(pMenu, pItem, pCol)
         if (currentItem.rawValue("posted") == 0)
         {
           tmpact = toolbox.menuAddAction(pMenu, qsTr("Post"), true);
-          tmpact.triggered.connect(sheetPost);
+          tmpact.triggered.connect(xtte.timeExpenseSheets.postSheet);
           tmpact.enabled = (status == 'A' && 
                             privileges.check("PostTimeSheets"));
         }
@@ -149,7 +98,7 @@ function populateMenu(pMenu, pItem, pCol)
         if (currentItem.rawValue("vouchered") == 0)
         {
           tmpact = toolbox.menuAddAction(pMenu, qsTr("Voucher"),true);
-          tmpact.triggered.connect(sheetVoucher);
+          tmpact.triggered.connect(xtte.timeExpenseSheets.voucherSheet);
           tmpact.enabled = (status == 'A' && 
                             privileges.check("allowVouchering"));
         }
@@ -157,7 +106,7 @@ function populateMenu(pMenu, pItem, pCol)
         if (currentItem.rawValue("invoiced") == 0)
         {
           tmpact = toolbox.menuAddAction(pMenu, qsTr("Invoice"), true);
-          tmpact.triggered.connect(sheetInvoice);
+          tmpact.triggered.connect(xtte.timeExpenseSheets.invoiceSheet);
           tmpact.enabled = (status == 'A' && 
                             privileges.check("allowInvoicing"));
         }
@@ -166,46 +115,56 @@ function populateMenu(pMenu, pItem, pCol)
   }
 }
 
-function sheetApprove()
+xtte.timeExpenseSheets.approve = function()
+{
+  // TO DO...
+}
+
+xtte.timeExpenseSheets.approveSheet = function()
 {
   var params   = new Object();
   params.tehead_id = _sheets.id();    
 
   q = toolbox.executeDbQuery("tesheet", "approve", params );	
-  if (te.errorCheck(q))
-    sFillList(); 
+  if (xtte.errorCheck(q))
+    xtte.timeExpenseSheets.fillList(); 
 }
 
-function sheetUnapprove()
+fxtte.timeExpenseSheets.unapproveSheet = function()
 {
   var params   = new Object();
   params.tehead_id = _sheets.id();    
 
   q = toolbox.executeDbQuery("tesheet", "unapprove", params );	
-  if (te.errorCheck(q))
-    sFillList(); 
+  if (xtte.errorCheck(q))
+    xtte.timeExpenseSheets.fillList(); 
 }
 
 
-function sheetInvoice()
+xtte.timeExpenseSheets.invoiceSheet = function()
 {
-  if (sheetProcess(_sheets.id(), true, false, false))
-    sFillList();
+  if (xtte.timeExpenseSheets.processSheet(_sheets.id(), true, false, false))
+    xtte.timeExpenseSheets.fillList();
 } 
 
-function sheetVoucher()
+xtte.timeExpenseSheets.voucherSheet = function()
 {
-  if (sheetProcess(_sheets.id(), false, true, false))
-    sFillList();
+  if (xtte.timeExpenseSheets.processSheet(_sheets.id(), false, true, false))
+    xtte.timeExpenseSheets.fillList();
 }
 
-function sheetPost()
+xtte.timeExpenseSheets.postSheet = function()
 {
-  if (sheetProcess(_sheets.id(), false, false, true))
-    sFillList();
+  if (xtte.timeExpenseSheets.processSheet(_sheets.id(), false, false, true))
+    xtte.timeExpenseSheets.fillList();
 }
 
-function sheetProcess(id, invoice, voucher, post)
+xtte.timeExpenseSheets.process = function()
+{
+  // TO DO...
+}
+
+xtte.timeExpenseSheets.processSheet = function(id, invoice, voucher, post)
 {
   var params   = new Object();
   params.tehead_id = id();    
@@ -213,28 +172,28 @@ function sheetProcess(id, invoice, voucher, post)
   if (invoice)
   {
     q = toolbox.executeDbQuery("tesheet", "invoice", params );	
-    if (!te.errorCheck(q))
+    if (!xtte.errorCheck(q))
       return false;
   }
 
   if (voucher)
   {
     q = toolbox.executeDbQuery("tesheet", "voucher", params );	
-    if (!te.errorCheck(q))
+    if (!xtte.errorCheck(q))
       return false;
   }
 
   if (post)
   {
     q = toolbox.executeDbQuery("tesheet", "post", params );	
-    if (!te.errorCheck(q))
+    if (!xtte.errorCheck(q))
       return false;
   }
 
   return true;
 }
 
-function sheetDelete()
+xtte.timeExpenseSheets.deleteSheet = function()
 {
   var msg = qsTr("This action can not be undone.  Are you sure you want to delete this sheet?");
   if (QMessageBox.question( mywindow, mywindow.windowTitle, msg, 
@@ -245,11 +204,11 @@ function sheetDelete()
 
     toolbox.executeDbQuery("te", "deltehead", params );
 
-    sFillList();
+    xtte.timeExpenseSheets.fillList();
   }
 }
 
-function sheetClose()
+xtte.timeExpenseSheets.closeSheet = function()
 {
   var msg = qsTr("This action can not be undone. Are you sure you want to close this sheet?");
   if (QMessageBox.question( mywindow, mywindow.windowTitle, msg, 
@@ -259,30 +218,30 @@ function sheetClose()
     params.tehead_id = _sheets.id();    
 
     q = toolbox.executeDbQuery("tesheet", "close", params );	
-    if (te.errorCheck(q))
-      sFillList(); 
+    if (xtte.errorCheck(q))
+      xtte.timeExpenseSheets.fillList(); 
   }
 }
 
-function sheetEdit()
+xtte.timeExpenseSheets.editSheet = function()
 {
   if (_sheets.currentItem().rawValue("tehead_status") == "O")
-    sheetOpen(te.editMode);
+    xtte.timeExpenseSheets.openSheet(xtte.editMode);
   else
-    sheetOpen(te.viewMode);
+    xtte.timeExpenseSheets.openSheet(xtte.viewMode);
 }
 
-function sheetNew()
+xtte.timeExpenseSheets.newSheet = function()
 {
-  sheetOpen(te.newMode);
+  xtte.timeExpenseSheets.openSheet(xtte.newMode);
 }
 
-function sheetView()
+xtte.timeExpenseSheets.viewSheet = function()
 {
-  sheetOpen(te.viewMode);
+  xtte.timeExpenseSheets.openSheet(xtte.viewMode);
 }
 
-function sheetOpen(mode)
+xtte.timeExpenseSheets.openSheet = function(mode)
 {
   var params   = new Object();
   params.mode   = mode;
@@ -299,10 +258,10 @@ function sheetOpen(mode)
   toolbox.lastWindow().set(params);
   var result = te.exec();
   if(result != 0)
-    sFillList();
+    xtte.timeExpenseSheets.fillList();
 }
 
-function sheetConsolidate()
+xtte.timeExpenseSheets.consolidateSheet = function()
 {
   var selected = _sheets.selectedItems();
   
@@ -345,11 +304,11 @@ function sheetConsolidate()
   var q;
   q = toolbox.executeQuery("select te.consolidateinvoice(<? value('cons_id') ?>);",params);
 
-  sFillList();
+  xtte.timeExpenseSheets.fillList();
 
 }
 
-function getParams()
+xtte.timeExpenseSheets.getParams = function()
 {
   params = new Object;
 
@@ -391,27 +350,27 @@ function getParams()
 }
 
 
-function sFillList()
+xtte.timeExpenseSheets.fillList = function()
 {  
-  var params = getParams();
+  var params = xtte.timeExpenseSheets.getParams();
   if (!params.statusList.length)
     return;
 
   q = toolbox.executeDbQuery("tesheet","detail", params);
 
   _sheets.populate(q);
-  if (!te.errorCheck(q))
+  if (!xtte.errorCheck(q))
     return;
 }
 
-function timeReport()
+xtte.timeExpenseSheets.timeReport = function()
 {
   params = new Object();
   params.headid = _sheets.id();
   toolbox.printReport("TimeReport",params);
 }
 
-function expenseReport()
+xtte.timeExpenseSheets.expenseReport = function()
 {
   params = new Object();
   params.headid = _sheets.id();
@@ -419,7 +378,7 @@ function expenseReport()
 }
 
 
-function printReport()
+xtte.timeExpenseSheets.printReport = function()
 {
   new params = getParams()
   if (!params.statusList.length)
@@ -429,14 +388,14 @@ function printReport()
 }
 
 
-function showAllEmployeesSwitch()
+xtte.timeExpenseSheets.showAllEmployeesSwitch = function()
 {
   _employees.enabled = _showAllEmployees.checked;
-  sFillList();
+  xtte.timeExpenseSheets.fillList();
 }
 
 
-function populateEmployees()
+xtte.timeExpenseSheets.populateEmployees = function()
 {
   currSql = "SELECT emp_id "
           + "FROM  emp "
@@ -472,4 +431,56 @@ function populateEmployees()
     }
   }
 }
+
+// Initialize
+_weekending.setStartNull(qsTr("Earliest"), startOfTime, true);
+_weekending.setEndNull(qsTr("Latest"),     endOfTime,   true);
+
+_approve.enabled = false;
+_selected.checked = true;
+_showAllEmployees.visible = false;
+
+if (!privileges.check("allowInvoicing"))
+{
+  _invoice.forgetful = true;
+  _invoice.checked = false;
+  _invoice.enabled = false;
+}
+
+if (!privileges.check("allowVouchering"))
+{
+  _voucher.forgetful = true;
+  _voucher.checked = false;
+  _voucher.enabled = false;
+}
+
+if (!privileges.check("PostTimeSheets"))
+{
+  _post.forgetful = true;
+  _post.checked = false;
+  _post.enabled = false;
+}
+
+// Make connections
+_new.triggered.connect(xtte.timeExpenseSheets.newSheet);
+_close.triggered.connect(mywindow, "close");
+_approve.triggered.connect(xtte.timeExpenseSheets.approve);
+_process.triggered.connect(xtte.timeExpenseSheets.process);
+_print.triggered.connect(xtte.timeExpenseSheets.printReport);
+_query.triggered.connect(xtte.timeExpenseSheets.fillList);
+
+_showAllEmployees.toggled.connect(xtte.timeExpenseSheets.showAllEmployeesSwitch);
+_employee["newId(int)"].connect(xtte.timeExpenseSheets.fillList);
+
+_sheets["populateMenu(QMenu *, XTreeWidgetItem *, int)"].connect(xtte.timeExpenseSheets.populateMenu);
+if (privileges.check("MaintainTimeExpense"))
+  _sheets.itemSelected.connect(xtte.timeExpenseSheets.editSheet);
+else
+{
+  _new.enabled = false;
+  _sheets.itemSelected.connect(xtte.timeExpenseSheets.viewSheet);
+}
+
+xtte.timeExpenseSheets.populateEmployees();
+xtte.timeExpenseSheets.fillList();
 

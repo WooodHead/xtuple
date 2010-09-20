@@ -10,8 +10,7 @@ SELECT teprjtask_rate AS rate,
   teprjtask_curr_id AS curr_id,
   10 AS seq 
 FROM te.teprjtask
- JOIN prjtask ON (prjtask_prj_id = teprjtask_prj_id)
-WHERE (prjtask_id = <? value("task_id") ?>)
+WHERE (teprjtask_prjtask_id = <? value("task_id") ?>)
 UNION
 
 -- Project Rate

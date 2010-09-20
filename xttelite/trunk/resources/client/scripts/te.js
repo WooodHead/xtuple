@@ -1,6 +1,8 @@
-include("teglobal");
+include("xtte");
 
 // Define Variables
+xtte.timeExpenseSheet
+
 var _all		= mywindow.findChild("_all");
 var _buttonBox 	= mywindow.findChild("_buttonBox");
 var _edit 		= mywindow.findChild("_edit");
@@ -21,8 +23,6 @@ var _sheet;
 var _id = -1;
 var _type;
 var _admin;
-
-_printSheet.visible = false; // Not implemented yet
 
 //add logic to determine the next Sunday date and populate both start and end with it
 _lines.addColumn(qsTr("Line #"),		XTreeWidget.seqColumn,  Qt.AlignLeft,    true, "teitem_linenumber");
@@ -47,25 +47,7 @@ if (privileges.check("CanViewRates"))
 }
 _lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,  Qt.AlignLeft,    true, "teitem_type");
 
-_employee.enabled = privileges.check("MaintainTimeExpenseOthers");
-_new.enabled = false;
-
-// Make connections
-_employee.newId.connect(sHandleNewButton);
-_weekending.newDate.connect(sHandleNewButton);
-_lines["valid(bool)"].connect(_view["setEnabled(bool)"]);
-
-_buttonBox.accepted.connect(saveClicked);
-_buttonBox.rejected.connect(sClose);
-
-_new.clicked.connect(lineNew);
-_edit.clicked.connect(lineEdit);
-_delete.clicked.connect(lineDelete);
-_view.clicked.connect(lineView);
-
-_lines["populateMenu(QMenu *, XTreeWidgetItem *, int)"].connect(populateMenu)
-
-function set(input)
+set = function(input)
 {
   _sheet = input.sheet;
 
@@ -77,19 +59,19 @@ function set(input)
 
   if("mode" in input)
   {
-    if (input.mode <= te.editMode)
+    if (input.mode <= xtte.editMode)
     {
       _lines["valid(bool)"].connect(_edit["setEnabled(bool)"]);
       _lines["valid(bool)"].connect(_delete["setEnabled(bool)"]);
       _lines.itemSelected.connect(_edit, "animateClick");
     }
 
-    if (input.mode == te.newMode)
+    if (input.mode == xtte.newMode)
     {
       _mode = "new";
       _weekending.enabled = true;
     }
-    else if (input.mode == te.editMode)
+    else if (input.mode == xtte.editMode)
     {
       _mode = "edit";
       _weekending.enabled = false;
@@ -102,7 +84,7 @@ function set(input)
 
       populate();
     }
-    else if (input.mode == te.viewMode)
+    else if (input.mode == xtte.viewMode)
     {
       _mode = "view";
       _new.enabled = false;
@@ -120,7 +102,7 @@ function set(input)
   return mainwindow.NoError;
 }
 
-function populateMenu(pMenu, pItem, pCol)
+xtte.timeExpenseSheet.populateMenu = function(pMenu, pItem, pCol)
 {
   var tmpact;
 
@@ -133,20 +115,20 @@ function populateMenu(pMenu, pItem, pCol)
     if (currentItem != null)
     {
       tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit..."), true);
-      tmpact.triggered.connect(lineEdit);
+      tmpact.triggered.connect(xtte.timeExpenseSheet.editItem);
       tmpact.enabled = (_mode != "view" && privileges.check("MaintainTimeExpense"));
 
       tmpact = toolbox.menuAddAction(pMenu, qsTr("View..."), true);
-      tmpact.triggered.connect(lineView);
+      tmpact.triggered.connect(xtte.timeExpenseSheet.viewItem);
 
       tmpact = toolbox.menuAddAction(pMenu, qsTr("Delete..."), true);
-      tmpact.triggered.connect(lineDelete);
+      tmpact.triggered.connect(xtte.timeExpenseSheet.deleteItem);
       tmpact.enabled = (_mode != "view" && privileges.check("MaintainTimeExpense"));
     }
   }
 }
 
-function lineDelete()
+xtte.timeExpenseSheet.deleteItem = function()
 {
   var msg = qsTr("Are you sure you want to delete this line?");
   if (QMessageBox.question(mywindow, mywindow.windowTitle, msg, 
@@ -157,39 +139,39 @@ function lineDelete()
     params.teitem_id = _lines.id();  
 
     q = toolbox.executeDbQuery("te","delteitem", params );
-    te.errorCheck(q);
-    sFillList();
+    xtte.errorCheck(q);
+    xtte.timeExpenseSheet.fillList();
   }
 }
 
-function lineNew()
+xtte.timeExpenseSheet.newItem = function()
 {
   if (!sSave())
     return;
 
-  lineOpen(te.newMode);  
+  xtte.timeExpenseSheet.openItem(xtte.newMode);  
 
   _weekending.enabled = false;
   _employee.enabled = false;
   _site.enabled = false;
 
   //need to get the id here
-  sFillList();
+  xtte.timeExpenseSheet.fillList();
 }
 
-function lineEdit()
+xtte.timeExpenseSheet.editItem = function()
 {
-  lineOpen(te.editMode);
+  xtte.timeExpenseSheet.openItem(xtte.editMode);
 }
 
 
-function lineView()
+xtte.timeExpenseSheet.viewItem = function()
 {
-  lineOpen(te.viewMode);
+  xtte.timeExpenseSheet.openItem(xtte.viewMode);
 }
 
 
-function lineOpen(mode)
+xtte.timeExpenseSheet.openItem = function(mode)
 {  
   var params   = new Object;
   params.tehead_id = _id;
@@ -204,18 +186,18 @@ function lineOpen(mode)
   toolbox.lastWindow().set(params);
   wnd.exec();
 
-  sFillList();
+  xtte.timeExpenseSheet.fillList();
 }
 
-function saveClicked()
+xtte.timeExpenseSheet.accepted = function()
 {
-  if (!sSave())
+  if (!xtte.timeExpenseSheet.save())
     return;
 
   mywindow.close();
 }
 
-function sSave()
+xtte.timeExpenseSheet.save = function()
 {
   try
   {
@@ -247,20 +229,20 @@ function sSave()
     _id = q.value("tehead_id");
     _sheetNumberExtra.text = q.value("tehead_number");
   }
-  else if (!te.errorCheck(q))
+  else if (!xtte.errorCheck(q))
     return false;
 
   return true;
 }
 
-function sHandleNewButton()
+xtte.timeExpenseSheet.handleNewButton = function()
 {
   _new.enabled = (_weekending.isValid() && 
                   _employee.isValid() &&
                   _mode != "view");
 }
 
-function populate()
+xtte.timeExpenseSheet.populate = function()
 {
   var params = new Object;
   params.type = _type;
@@ -277,7 +259,7 @@ function populate()
     _site.text = q.value("tehead_site");
     _orderComments.setPlainText(q.value("tehead_notes"));
   }
-  else if (!te.errorCheck(q))
+  else if (!xtte.errorCheck(q))
     return;
 
   if (_mode == "view")
@@ -287,10 +269,10 @@ function populate()
     _site.enabled = false;
   }
 
-  sFillList();
+  xtte.timeExpenseSheet.fillList();
 }
 
-function sFillList()
+xtte.timeExpenseSheet.fillList = function()
 {
   var params = new Object;
   params.tehead_id = _id;
@@ -302,12 +284,12 @@ function sFillList()
 
   _lines.populate(q);
 
-  te.errorCheck(q);
+  xtte.errorCheck(q);
 }
 
-function sClose()
+xtte.timeExpenseSheet.close = function()
 {
-  if (_mode == te.newMode && _id != -1)
+  if (_mode == xtte.newMode && _id != -1)
   {
     if (MessageBox.question(mywindow,
                        qsTr("Delete Sheet"),
@@ -327,5 +309,22 @@ function sClose()
   mywindow.close();
 }
 
+// Initialize
+_employee.enabled = privileges.check("MaintainTimeExpenseOthers");
+_new.enabled = false;
+_printSheet.visible = false; // Not implemented yet
 
+// Make connections
+_employee.newId.connect(xtte.timeExpenseSheet.handleNewButton);
+_weekending.newDate.connect(xtte.timeExpenseSheet.handleNewButton);
+_lines["valid(bool)"].connect(_view["setEnabled(bool)"]);
 
+_buttonBox.accepted.connect(xtte.timeExpenseSheet.accepted);
+_buttonBox.rejected.connect(xtte.timeExpenseSheet.close);
+
+_new.clicked.connect(xtte.timeExpenseSheet.newItem);
+_edit.clicked.connect(xtte.timeExpenseSheet.editItem);
+_delete.clicked.connect(xtte.timeExpenseSheet.deleteItem);
+_view.clicked.connect(xtte.timeExpenseSheet.viewItem);
+
+_lines["populateMenu(QMenu *, XTreeWidgetItem *, int)"].connect(xtte.timeExpenseSheet.populateMenu)

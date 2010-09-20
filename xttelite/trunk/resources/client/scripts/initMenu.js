@@ -11,7 +11,7 @@ tesheetAction.enabled = privileges.value("MaintainTimeExpense");
 function sOpenSheets()
 {
   var param = new Object;
-  var wind = toolbox.openWindow("tesheet", mainwindow);
+  var wind = toolbox.openWindow("timeExpenseSheets", mainwindow);
   wind.set(param);
 }
 
