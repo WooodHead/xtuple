@@ -1,7 +1,7 @@
 include("xtte");
 
 // Define Variables
-xtte.timeExpenseSheet
+xtte.timeExpenseSheet = new Object;
 
 var _all		= mywindow.findChild("_all");
 var _buttonBox 	= mywindow.findChild("_buttonBox");
@@ -82,7 +82,7 @@ set = function(input)
       _buttonBox.addButton(QDialogButtonBox.Close);
       _buttonBox.button(QDialogButtonBox.Close).shortcut = shortcut;
 
-      populate();
+      xtte.timeExpenseSheet.populate();
     }
     else if (input.mode == xtte.viewMode)
     {
@@ -95,7 +95,7 @@ set = function(input)
       _buttonBox.button(QDialogButtonBox.Close).shortcut = shortcut;
       _lines.itemSelected.connect(_view, "animateClick");
 
-      populate();
+      xtte.timeExpenseSheet.populate();
     }
   }
 
@@ -146,7 +146,7 @@ xtte.timeExpenseSheet.deleteItem = function()
 
 xtte.timeExpenseSheet.newItem = function()
 {
-  if (!sSave())
+  if (!xtte.timeExpenseSheet.save())
     return;
 
   xtte.timeExpenseSheet.openItem(xtte.newMode);  
@@ -182,7 +182,7 @@ xtte.timeExpenseSheet.openItem = function(mode)
   if (mode) // Not new
     params.teitem_id = _lines.id();
 
-  var wnd = toolbox.openWindow("time_expense", mywindow);
+  var wnd = toolbox.openWindow("timeExpenseSheetItem", mywindow);
   toolbox.lastWindow().set(params);
   wnd.exec();
 
