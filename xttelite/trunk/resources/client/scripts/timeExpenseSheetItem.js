@@ -19,8 +19,7 @@ var _sheet              = mywindow.findChild("_sheet");
 var _buttonBox          = mywindow.findChild("_buttonBox");
 var _weekending         = mywindow.findChild("_weekending");
 var _workdate           = mywindow.findChild("_workdate");
-var _radioTime          = mywindow.findChild("_radioTime");
-var _radioExpense       = mywindow.findChild("_radioExpense");
+var _type               = mywindow.findChild("_type");
 var _qtyLabel           = mywindow.findChild("_qtyLabel");
 var _billable           = mywindow.findChild("_billable");
 var _prepaid            = mywindow.findChild("_prepaid");
@@ -67,7 +66,7 @@ set = function(input)
     _mode = input.mode;
 
     if (input.mode == xtte.newMode)
-      xtte.timeExpenseSheetItem.new();
+      xtte.timeExpenseSheetItem.clear();
     else 
     { 
       if (input.mode == xtte.viewMode)
@@ -80,8 +79,7 @@ set = function(input)
         _weekending.enabled = false;
         _next.enabled = false;
         _prepaid.enabled = false;
-        _radioTime.enabled = false;
-        _radioExpense.enabled = false;
+        _type.enabled = false;
         _weekending.enabled = false;
         _workdate.enabled = false;
         _hours.enabled = false;
@@ -171,7 +169,7 @@ xtte.timeExpenseSheetItem.getPrice = function()
   params.prj_id = _project.id();
   params.cust_id = _clients.id();
   params.emp_id = _employee.id();
-  if (_radioTime.checked)
+  if (_type.code == "T")
     params.time = true;
   
   var qry = toolbox.executeDbQuery("time_expense", "getterate", params);
@@ -195,11 +193,7 @@ xtte.timeExpenseSheetItem.populate = function()
   {
     _populating = true; 
 
-    if (q.value("teitem_type") == "T") 
-      _radioTime.checked = true;
-    else
-      _radioExpense.checked = true;
-
+    _type.code = q.value("teitem_type");
     _billable.checked = q.value("teitem_billable");
     _prepaid.checked = q.value("teitem_prepaid")
     _weekending.date = (q.value("tehead_weekending"));
@@ -238,13 +232,13 @@ xtte.timeExpenseSheetItem.accepted = function()
   if (xtte.timeExpenseSheetItem.save())
   {
     if (_mode == xtte.newMode)
-      xtte.timeExpenseSheetItem.new();
+      xtte.timeExpenseSheetItem.clear();
     else
       mywindow.close();
   }
 }
 
-xtte.timeExpenseSheetItem.save()
+xtte.timeExpenseSheetItem.save = function()
 {
     try
     {
@@ -272,10 +266,7 @@ xtte.timeExpenseSheetItem.save()
     var params = new Object();
     params.teitem_tehead_id      = _headid;
     params.teitem_linenumber     = _linenum;
-    if (_radioTime.checked)
-      params.teitem_type = "T";
-    else
-      params.teitem_type = "E";
+    params.teitem_type = _type.code;
     params.teitem_workdate       = _workdate.date;
     params.teitem_cust_id        = _clients.id();
     params.teitem_po             = _po.text;
@@ -309,22 +300,15 @@ xtte.timeExpenseSheetItem.save()
 }
 
 
-xtte.timeExpenseSheetItem.timeswitch = function()
+xtte.timeExpenseSheetItem.typeChanged = function()
 {
-  if (_radioTime.checked)
+  if (_type.code == "T")
   {
     _qtyLabel.text = "Hours:";
     _billable.visible = true;
     _prepaid.visible = false;
-  }
-  xtte.timeExpenseSheetItem.getPrice();
-  xtte.timeExpenseSheetItem.modified();
-}
-
-
-xtte.timeExpenseSheetItem.expenseswitch = function()
-{
-  if (_radioExpense.checked)
+  } 
+  else
   {
     _qtyLabel.text = "Qty:";
     _billable.visible = true;
@@ -335,7 +319,7 @@ xtte.timeExpenseSheetItem.expenseswitch = function()
   xtte.timeExpenseSheetItem.modified();
 }
 
-xtte.timeExpenseSheetItem.customerChange = function()
+xtte.timeExpenseSheetItem.customerChanged = function()
 {
   if (_populating)
     return;
@@ -406,7 +390,7 @@ xtte.timeExpenseSheetItem.rollupActual = function()
 
   if (q.first())
   {
-    if(_radioTime.checked)
+    if(_type.code == "T")
       _actual.setText(q.value("total_hours"));
 
     _actualCost.setText(q.value("total_cost"));
@@ -416,7 +400,7 @@ xtte.timeExpenseSheetItem.rollupActual = function()
 }
 
 
-xtte.timeExpenseSheetItemfunction.prev = function()
+xtte.timeExpenseSheetItem.prev = function()
 {
 
   if (_modified)
@@ -481,10 +465,10 @@ xtte.timeExpenseSheetItem.next = function()
     xtte.timeExpenseSheetItem.populate();
   }
   else if (xtte.errorCheck(q))
-    xtte.timeExpenseSheetItem.new();
+    xtte.timeExpenseSheetItem.clear();
 }
 
-xtte.timeExpenseSheetItem.new = function()
+xtte.timeExpenseSheetItem.clear = function()
 {
   var params = new Object();
   params.tehead_id = _headid;
@@ -512,8 +496,7 @@ xtte.timeExpenseSheetItem.new = function()
 
   _teitemid = -1;
   _prev.enabled = true;
-  _radioTime.enabled = true;
-  _radioExpense.enabled = true;
+  _type.enabled = true;
   _workdate.clear();
   _workdate.enabled = true;
   _workdate.setFocus();
@@ -565,9 +548,12 @@ _linenumber.enabled = true;
 _employee.enabled = false;
 _total.enabled = false;
 _total.readonly = true;
-_radioTime.checked = true;
+
 _billable.visible = true;
 _prepaid.visible = false;
+
+_type.append(1, qsTr("Time"), "T");
+_type.append(2, qsTr("Expense"), "E");
 
 _items.setQuery(xtte.itemSql);
 
@@ -575,15 +561,14 @@ _items.setQuery(xtte.itemSql);
 _buttonBox.accepted.connect(xtte.timeExpenseSheetItem.accepted);
 _buttonBox.rejected.connect(mydialog, "reject");
 _prev.clicked.connect(xtte.timeExpenseSheetItem.prev);
-_next.clicked.connect(xtte.timeExpenseSheetItem.pext);
+_next.clicked.connect(xtte.timeExpenseSheetItem.next);
 
 _task.newID.connect(xtte.timeExpenseSheetItem.handleTask);
 _rate.valueChanged.connect(xtte.timeExpenseSheetItem.extension);
 _hours.valueChanged.connect(xtte.timeExpenseSheetItem.extension);
-_radioTime.toggled.connect(xtte.timeExpenseSheetItem.timeswitch);
-_radioExpense.toggled.connect(xtte.timeExpenseSheetItem.expenseswitch);
+_type.newID.connect(xtte.timeExpenseSheetItem.typeChanged);
 _items["newId(int)"].connect(xtte.timeExpenseSheetItem.getPrice);
-_clients["newId(int)"].connect(xtte.timeExpenseSheetItem.customerChange);
+_clients["newId(int)"].connect(xtte.timeExpenseSheetItem.customerChanged);
 _project["newId(int)"].connect(xtte.timeExpenseSheetItem.projectChange);
 _employee.newId.connect(xtte.timeExpenseSheetItem.modified);
 _po.textChanged.connect(xtte.timeExpenseSheetItem.modified);

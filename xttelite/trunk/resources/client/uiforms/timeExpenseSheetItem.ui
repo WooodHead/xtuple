@@ -72,26 +72,6 @@
        </property>
       </spacer>
      </item>
-     <item>
-      <widget class="QRadioButton" name="_radioTime">
-       <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
-       </property>
-       <property name="text">
-        <string>Time</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="_radioExpense">
-       <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
-       </property>
-       <property name="text">
-        <string>Expense</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
    <item row="0" column="1" rowspan="2">
@@ -160,7 +140,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="1" colspan="3">
+          <item row="1" column="1" colspan="5">
            <widget class="ProjectCluster" name="_project">
             <property name="focusPolicy">
              <enum>Qt::StrongFocus</enum>
@@ -219,7 +199,7 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="1" colspan="3">
+          <item row="2" column="1" colspan="5">
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
              <widget class="XComboBox" name="_task">
@@ -245,6 +225,16 @@
              </spacer>
             </item>
            </layout>
+          </item>
+          <item row="0" column="4">
+           <widget class="QLabel" name="_typeLit">
+            <property name="text">
+             <string>Type:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5">
+           <widget class="XComboBox" name="_type"/>
           </item>
          </layout>
         </item>
@@ -440,18 +430,6 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QGroupBox" name="_itemGroup">
-         <property name="title">
-          <string/>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_10">
-          <item row="0" column="0">
-           <widget class="ItemCluster" name="_items"/>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
         <widget class="QGroupBox" name="_custGroup">
          <property name="title">
           <string/>
@@ -503,6 +481,18 @@
              </spacer>
             </item>
            </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="_itemGroup">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_10">
+          <item row="0" column="0">
+           <widget class="ItemCluster" name="_items"/>
           </item>
          </layout>
         </widget>
@@ -779,14 +769,13 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>_radioTime</tabstop>
-  <tabstop>_radioExpense</tabstop>
   <tabstop>_workdate</tabstop>
+  <tabstop>_type</tabstop>
   <tabstop>_project</tabstop>
   <tabstop>_task</tabstop>
-  <tabstop>_items</tabstop>
   <tabstop>_clients</tabstop>
   <tabstop>_po</tabstop>
+  <tabstop>_items</tabstop>
   <tabstop>_employee</tabstop>
   <tabstop>_hours</tabstop>
   <tabstop>_rate</tabstop>
