@@ -59,24 +59,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating the Customer, returning you
-        to the application desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Customer and enters the Customer into the master
-        list of Customers.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <para><indexterm significance="normal">
       <primary>customers</primary>
       <secondary>addresses for</secondary>
@@ -303,23 +285,6 @@
         <xi:include href="../widgets/edirelation.xml"
                     xpointer="edirelationWidget"
                     xmlns:xi="http://www.w3.org/2001/XInclude" />
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without adding Customer Address information,
-        returning you to the application desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Saves any new Customer Address information.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -735,43 +700,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens screen for creating a new Customer Tax Registration
-        Number.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem>
-        <para>Enables you to edit highlighted Customer Tax Registration
-        Numbers. The edit screen is the same as that for creating a new
-        Customer Tax Registration Number&mdash;except that when editing, the
-        fields will contain Customer Tax Registration Number information.
-        Double-clicking on a Customer Tax Registration Number will also bring
-        you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>VIEW</term>
-      <listitem>
-        <para>Highlight a Customer Tax Registration Number and then select
-        this button to reach a read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>DELETE</term>
-      <listitem>
-        <para>Highlight a Customer Tax Registration Number and then select
-        this button to remove the Customer Tax Registration Number from the
-        list.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <para>To add a new Customer Tax Registration Number, select the NEW button.
   The following screen will appear:</para>
   <para><screenshot>
@@ -857,24 +785,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating a new Tax Registration
-        Number, returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Tax Registration Number and adds it to the master
-        list of Customer Tax Registration Numbers.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <para><indexterm significance="normal">
       <primary>credit cards</primary>
       <secondary>adding to customer master</secondary>
@@ -908,33 +818,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
+  <para>The following buttons are unique to this screen:</para>
   <variablelist>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens screen for entering new Credit Card information for the
-        Customer.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem>
-        <para>Enables you to edit highlighted Credit Cards. The edit screen is
-        the same as that for entering new Credit Card information&mdash;except
-        that when editing, the fields will contain Credit Card
-        information.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>VIEW</term>
-      <listitem>
-        <para>Highlight a Credit Card and then select this button to reach a
-        read-only view of the "Edit" screen. Double-clicking on a Credit Card
-        will also bring you to the view screen.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>MOVE UP</term>
       <listitem>
@@ -1029,24 +914,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating the Credit Card record,
-        returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Credit Card record and adds it to the list of Credit
-        Card records.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <para><indexterm significance="normal">
       <primary>characteristics</primary>
       <secondary>creating new for customer</secondary>
@@ -1092,39 +959,12 @@
     selected or added by right-clicking on a Characteristic in the
     list.</para>
   </note>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
   <tip>
     <para>If you do not see buttons on the right side of the Customer
     Characteristics screen, this means Characteristic Profiles are being used
     for the Customer Type the Customer belongs to. These buttons will only
     appear if Customer Type Characteristic Profiles are not being used.</para>
   </tip>
-  <variablelist>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens screen for creating a new Customer Characteristic.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem>
-        <para>Enables you to edit highlighted Customer Characteristics. The
-        edit screen is the same as that for creating a new Customer
-        Characteristic&mdash;except that when editing, the fields will contain
-        Customer Characteristic information. Double-clicking on a Customer
-        Characteristic will also bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>DELETE</term>
-      <listitem>
-        <para>Highlight a Customer Characteristic and then select this button
-        to remove the Customer Characteristic from the list.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <para>To create a new Customer Characteristic, select the NEW button. The
   following screen will appear:</para>
   <para><screenshot>
@@ -1150,24 +990,6 @@
       <term>Value</term>
       <listitem>
         <para>Enter a description of the Customer Characteristic.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating the Customer Characteristic,
-        returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Customer Characteristic and adds it to the list of
-        Customer Characteristics.</para>
       </listitem>
     </varlistentry>
   </variablelist>
