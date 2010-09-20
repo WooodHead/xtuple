@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="correctPoReceipt">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>receipts</primary>
       <secondary>correction of</secondary>
     </indexterm>Correct P/O Receipt</title>
-  <para>To make corrections to a Purchase Order Receipt,
-  select the "Correct Receiving" option from the right-click menu. The
-  following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To make corrections to a Purchase Order Receipt, select the "Correct
+  Receiving" option from the right-click menu. The following screen will
+  appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/correctPoReceipt.png"/>
+          <imagedata fileref="images/correctPoReceipt.png" />
         </imageobject>
         <caption>Correct Purchase Order Receipt</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When correcting a Purchase Order Receipt, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When correcting a Purchase Order Receipt, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>P/O Number</term>
@@ -77,13 +75,13 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>The Inv./Vendor UOM Ratio specifies the ratio
-    between Inventory and Vendor Units of Measure (UOM). For example, if you
-    store an Item in single units, but a Vendor sells you the Item in cases of
-    12, then the ratio would be 12—or 12:1. When an Inv./Vend. ratio is
-    specified, the system allows you to purchase Items using the Vendor's UOM;
-    however, when the Items are received, the system will automatically
-    convert the Inventory to your Inventory UOM.</para>
+    <para>The Inv./Vendor UOM Ratio specifies the ratio between Inventory and
+    Vendor Units of Measure (UOM). For example, if you store an Item in single
+    units, but a Vendor sells you the Item in cases of 12, then the ratio
+    would be 12&mdash;or 12:1. When an Inv./Vend. ratio is specified, the
+    system allows you to purchase Items using the Vendor's UOM; however, when
+    the Items are received, the system will automatically convert the
+    Inventory to your Inventory UOM.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -113,8 +111,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>freight</primary>
           <secondary>correcting for purchasing</secondary>
         </indexterm>Correct Freight to</term>
@@ -132,16 +129,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>The following buttons are unique to this screen:</para>
   <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without entering a correction, returning you
-        to the application desktop.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>CORRECT</term>
       <listitem>

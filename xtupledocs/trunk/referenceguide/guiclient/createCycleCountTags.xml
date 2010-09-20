@@ -6,10 +6,10 @@
   <title><indexterm significance="normal">
       <primary>cycle count tags</primary>
       <secondary>creating by site</secondary>
-    </indexterm> <indexterm significance="normal">
+    </indexterm><indexterm significance="normal">
       <primary>cycle counts</primary>
       <secondary>creating tags for</secondary>
-    </indexterm> <indexterm significance="normal">
+    </indexterm><indexterm significance="normal">
       <primary>physical inventory</primary>
       <secondary>creating cycle count tags</secondary>
     </indexterm>Create Cycle Count Tags by Site</title>
@@ -19,9 +19,8 @@
   created for a specified Site(s):</para>
   <orderedlist continuation="restarts" inheritnum="ignore">
     <listitem>
-      <para>The system scans the Item Site masters in the specified
-      Site(s), specifically targeting Cycle Count frequency
-      settings.</para>
+      <para>The system scans the Item Site masters in the specified Site(s),
+      specifically targeting Cycle Count frequency settings.</para>
     </listitem>
     <listitem>
       <para>The frequency settings are then compared to the last counted dates
@@ -32,8 +31,8 @@
     </listitem>
     <listitem>
       <para>After frequency and last counted date parameters have been
-      considered, the Item Site's ABC Class is used&mdash;with A Class Item Sites
-      having Cycle Count Tags created first.</para>
+      considered, the Item Site's ABC Class is used&mdash;with A Class Item
+      Sites having Cycle Count Tags created first.</para>
     </listitem>
     <listitem>
       <para>Then, finally, Cycle Count Tags are created based on the Item
@@ -54,20 +53,18 @@
     etc. The Last Counted date represents the date a Count Tag was last posted
     (not simply issued) for the Item Site.</para>
   </tip>
-  <para>To create Cycle Count Tags by Site, select the "Create Cycle
-  Count Tags by Site" option. The following screen will appear:</para>
+  <para>To create Cycle Count Tags by Site, select the "Create Cycle Count
+  Tags by Site" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/createCycleCountTags.png"
-                     />
+          <imagedata fileref="images/createCycleCountTags.png" />
         </imageobject>
-        <caption>Create Cycle Count Tags by
-        Site</caption>
+        <caption>Create Cycle Count Tags by Site</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When creating Cycle Count Tags by Site, you are presented with
-  the following options:</para>
+  <para>When creating Cycle Count Tags by Site, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Item Sites in</term>
@@ -112,10 +109,10 @@
       <term><indexterm significance="normal">
           <primary>freezing</primary>
           <secondary>of inventory</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>inventory</primary>
           <secondary>freezing during cycle counts</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>cycle counts</primary>
           <secondary>freezing inventory during</secondary>
         </indexterm>Freeze Inventory</term>
@@ -123,15 +120,15 @@
         <para>Select to freeze Inventory. The Quantity on Hand value is not
         updated when a transaction is posted against a frozen Item Site.
         Instead, Inventory transactions are pooled and then posted later when
-        the Item Site is unfrozen&mdash;or thawed. The Quantity on Hand is updated
-        when the Item Site is thawed.</para>
+        the Item Site is unfrozen&mdash;or thawed. The Quantity on Hand is
+        updated when the Item Site is thawed.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>When an Item Site is frozen, any Site activity entered against
-    that Item Site&mdash;including Work Orders&mdash;will use the Quantity on Hand shown
-    at the time of freezing.</para>
+    <para>When an Item Site is frozen, any Site activity entered against that
+    Item Site&mdash;including Work Orders&mdash;will use the Quantity on Hand
+    shown at the time of freezing.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -152,19 +149,18 @@
     <varlistentry>
       <term>Only for Specified Location</term>
       <listitem>
-        <para>Select if you want to create Count Tags for an individual
-        Site Location. If selected, you will have the option to specify
-        which Site Location you want to have Count Tags created for. This
-        option enables you to count individual Site Locations separately,
-        without having to post counts for an entire Site all at
-        once.</para>
+        <para>Select if you want to create Count Tags for an individual Site
+        Location. If selected, you will have the option to specify which Site
+        Location you want to have Count Tags created for. This option enables
+        you to count individual Site Locations separately, without having to
+        post counts for an entire Site all at once.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>cycle counters</primary>
           <secondary>creating instructions for</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>cycle counts</primary>
           <secondary>creating instructions for</secondary>
         </indexterm>Comments</term>
@@ -176,16 +172,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
+  <para>The following buttons are unique to this screen:</para>
   <variablelist>
-    <varlistentry>
-      <term>CLOSE</term>
-      <listitem>
-        <para>Closes the screen without creating a Count Tag, returning you to
-        the application desktop.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>CREATE TAGS</term>
       <listitem>
