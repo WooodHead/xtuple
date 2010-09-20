@@ -2,7 +2,7 @@
 -- Name:  selteprjtask
 -- Notes: Select Default Task Time Expense Info
 SELECT 
-  COALESCE(teprj_cust_id,-1) AS cust_id,
+  COALESCE(teprjtask_cust_id,-1) AS cust_id,
   COALESCE(teprjtask_curr_id,-1) AS curr_id,
   COALESCE(teprjtask_item_id,-1) AS item_id,
   *

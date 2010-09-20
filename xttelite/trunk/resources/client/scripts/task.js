@@ -1,5 +1,5 @@
-include("teglobal");
-te.task = new Object;
+include("xtte");
+xtte.task = new Object;
 
 var _tab = mywindow.findChild("_tab"); 
 var _tebilling = toolbox.loadUi("tebilling", mywindow);
@@ -12,6 +12,7 @@ var _itemGroup = _tebilling.findChild("_itemGroup");
 var _cust = _tebilling.findChild("_cust");
 var _rate = _tebilling.findChild("_rate");
 var _item = _tebilling.findChild("_item");
+var _useItem = _tebilling.findChild("_useItem");
 var _teprjtaskid = -1; 
 var _prjtaskid = -1;
 
@@ -20,13 +21,13 @@ set = function(input)
   if("prjtask_id" in input)
   {
     _prjtaskid = input.prjtask_id;
-    te.task.populate();
+    xtte.task.populate();
   }
 
   if("cust_id" in input)
   {
-    cust.setId(input.cust_id);
-    cust.setEnabled = false;
+    _cust.setId(input.cust_id);
+    _cust.enabled = false;
   }
 
   if("mode" in input)
@@ -42,14 +43,14 @@ set = function(input)
   return mainwindow.NoError;
 }
 
-te.task.save = function(prjtaskId)
+xtte.task.save = function(prjtaskId)
 {
   if (prjtaskId <= 0)
     return;
 
   var params = new Object();
   params.teprjtask_id	= _teprjtaskid;
-  params.prjtask_id	= prjtaskId;
+  params.prjtask_id	= _prjtaskid;
   if (_cust.isValid())
     params.cust_id  	= _cust.id();
   if (_billingGroup.checked)
@@ -57,7 +58,7 @@ te.task.save = function(prjtaskId)
     params.rate	= _rate.localValue;
     params.curr_id	= _rate.id();
   }
-  if (_itemGroup.checked && _item.isValid())
+  if (_useItem.checked && _item.isValid())
     params.item_id	= _item.id()
 
   var query = "updteprjtask";
@@ -65,10 +66,10 @@ te.task.save = function(prjtaskId)
     query = "insteprjtask";
 
   var q = toolbox.executeDbQuery("task", query, params);
-  te.errorCheck(q);
+  xtte.errorCheck(q);
 }
 
-te.task.populate = function()
+xtte.task.populate = function()
 {
   var params = new Object();
   params.prjtask_id = _prjtaskid;    
@@ -92,19 +93,23 @@ te.task.populate = function()
     }
 
     if (q.value("item_id") == -1)
-      _itemGroup.checked = false;
+      _useItem.checked = false;
     else
     {
-      _itemGroup.checked = true;
+      _useItem.checked = true;
       _item.setId(q.value("item_id"));
     }
 
     return;
   }
   else
-    te.errorCheck(q);
+    xtte.errorCheck(q);
 }
 
+// Initialize
+_item.setQuery(xtte.itemSql);
+_useItem.checked = false;
+
 // Connections
-mydialog["finished(int)"].connect(te.task.save);
+mydialog["finished(int)"].connect(xtte.task.save);
 

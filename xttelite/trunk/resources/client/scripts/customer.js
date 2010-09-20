@@ -1,5 +1,5 @@
-include("teglobal");
-te.customer = new Object;
+include("xtte");
+xtte.customer = new Object;
 
 
 if (privileges.check("CanViewRates"))
@@ -24,7 +24,7 @@ if (privileges.check("CanViewRates"))
   var _tecustrateid = -1; 
   var _basecurrid = _rate.id();
 
-  te.customer.save = function(custId)
+  xtte.customer.save = function(custId)
   {
     var params = new Object();
     params.tecustrate_id	= _tecustrateid;
@@ -42,10 +42,10 @@ if (privileges.check("CanViewRates"))
     if (q.first())
       _tecustrateid = q.value("tecustrate_id");
     else
-      te.errorCheck(q);
+      xtte.errorCheck(q);
   }
 
-  te.customer.populate = function()
+  xtte.customer.populate = function()
   {
     var params = new Object();
     params.cust_id = _number.id();    
@@ -61,7 +61,7 @@ if (privileges.check("CanViewRates"))
       return;
     }
     else
-      te.errorCheck(q);
+      xtte.errorCheck(q);
   
     _billingGroup.checked = false;
     _tecustrateid = -1;
@@ -73,6 +73,6 @@ if (privileges.check("CanViewRates"))
   QWidget.setTabOrder(_blanketPos, _rate);
 
   // Connections
-  _number.newId.connect(te.customer.populate);
-  mywindow["saved(int)"].connect(te.customer.save);
+  _number.newId.connect(xtte.customer.populate);
+  mywindow["saved(int)"].connect(xtte.customer.save);
 }

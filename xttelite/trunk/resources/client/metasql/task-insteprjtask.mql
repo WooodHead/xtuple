@@ -8,7 +8,7 @@ INSERT INTO te.teprjtask (
   teprjtask_curr_id,
   teprjtask_item_id )
 VALUES (
-  <? value("teprjtask_prjtask_id") ?>
+  <? value("prjtask_id") ?>,
   <? value("cust_id") ?>,
   <? value("rate") ?>,
   <? value("curr_id") ?>,
