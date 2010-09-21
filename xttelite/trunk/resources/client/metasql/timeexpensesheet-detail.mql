@@ -22,7 +22,7 @@ FROM te.tehead
   JOIN te.teitem ON (tehead_id = teitem_tehead_id)
   JOIN emp ON (tehead_emp_id= emp_id)
   JOIN item ON (teitem_item_id = item_id)
-  JOIN cust ON (teitem_cust_id=cust_id)
+  LEFT OUTER JOIN cust ON (teitem_cust_id=cust_id)
   JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
   JOIN prj ON (prjtask_prj_id=prj_id)
 WHERE (tehead_id = <? value("tehead_id") ?>)

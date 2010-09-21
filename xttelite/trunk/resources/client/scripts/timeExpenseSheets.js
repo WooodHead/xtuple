@@ -11,6 +11,7 @@ var _print 		= mywindow.findChild("_print");
 var _sheets		= mywindow.findChild("_sheets");
 var _selected	= mywindow.findChild("_selected");
 var _approve  	= mywindow.findChild("_approve");
+var _process           = mywindow.findChild("_process");
 var _weekending  	= mywindow.findChild("_weekending");
 var _showAllEmployees  = mywindow.findChild("_showAllEmployees");
 var _employee	= mywindow.findChild("_employee");
@@ -125,17 +126,17 @@ xtte.timeExpenseSheets.approveSheet = function()
   var params   = new Object();
   params.tehead_id = _sheets.id();    
 
-  q = toolbox.executeDbQuery("tesheet", "approve", params );	
+  q = toolbox.executeDbQuery("timeexpensesheets", "approve", params );	
   if (xtte.errorCheck(q))
     xtte.timeExpenseSheets.fillList(); 
 }
 
-fxtte.timeExpenseSheets.unapproveSheet = function()
+xtte.timeExpenseSheets.unapproveSheet = function()
 {
   var params   = new Object();
   params.tehead_id = _sheets.id();    
 
-  q = toolbox.executeDbQuery("tesheet", "unapprove", params );	
+  q = toolbox.executeDbQuery("timeexpensesheets", "unapprove", params );	
   if (xtte.errorCheck(q))
     xtte.timeExpenseSheets.fillList(); 
 }
@@ -171,21 +172,21 @@ xtte.timeExpenseSheets.processSheet = function(id, invoice, voucher, post)
 
   if (invoice)
   {
-    q = toolbox.executeDbQuery("tesheet", "invoice", params );	
+    q = toolbox.executeDbQuery("timeexpensesheets", "invoice", params );	
     if (!xtte.errorCheck(q))
       return false;
   }
 
   if (voucher)
   {
-    q = toolbox.executeDbQuery("tesheet", "voucher", params );	
+    q = toolbox.executeDbQuery("timeexpensesheets", "voucher", params );	
     if (!xtte.errorCheck(q))
       return false;
   }
 
   if (post)
   {
-    q = toolbox.executeDbQuery("tesheet", "post", params );	
+    q = toolbox.executeDbQuery("timeexpensesheets", "post", params );	
     if (!xtte.errorCheck(q))
       return false;
   }
@@ -217,7 +218,7 @@ xtte.timeExpenseSheets.closeSheet = function()
     var params   = new Object();
     params.tehead_id = _sheets.id();    
 
-    q = toolbox.executeDbQuery("tesheet", "close", params );	
+    q = toolbox.executeDbQuery("timeexpensesheets", "close", params );	
     if (xtte.errorCheck(q))
       xtte.timeExpenseSheets.fillList(); 
   }
@@ -254,7 +255,7 @@ xtte.timeExpenseSheets.openSheet = function(mode)
       params.emp_id = _employee.id();
   }
 
-  var te = toolbox.openWindow("te", mywindow, Qt.ApplicationModal);
+  var te = toolbox.openWindow("timeExpenseSheet", mywindow, Qt.ApplicationModal);
   toolbox.lastWindow().set(params);
   var result = te.exec();
   if(result != 0)
@@ -310,12 +311,15 @@ xtte.timeExpenseSheets.consolidateSheet = function()
 
 xtte.timeExpenseSheets.getParams = function()
 {
-  params = new Object;
+  params = new Object();
 
   if (!_open.checked &&
       !_approved.checked &&
       !_closed.checked)
+  {
+    params.statusList = "";
     return params;
+  }
 
   params.startDate = _weekending.startDate;
   params.endDate   = _weekending.endDate;
@@ -351,12 +355,12 @@ xtte.timeExpenseSheets.getParams = function()
 
 
 xtte.timeExpenseSheets.fillList = function()
-{  
+{ 
   var params = xtte.timeExpenseSheets.getParams();
   if (!params.statusList.length)
     return;
 
-  q = toolbox.executeDbQuery("tesheet","detail", params);
+  q = toolbox.executeDbQuery("timeexpensesheets","detail", params);
 
   _sheets.populate(q);
   if (!xtte.errorCheck(q))
@@ -401,24 +405,20 @@ xtte.timeExpenseSheets.populateEmployees = function()
           + "FROM  emp "
           + "WHERE emp_username = CURRENT_USER;";
   q = toolbox.executeQuery(currSql);
-  if (q.first())  
+  if (q.first()) 
     _employee.setId(q.value("emp_id"));
 
   if (privileges.check("MaintainTimeExpenseOthers"))
-  {
     _showAllEmployees.visible = true;
-    id = -1;
-
-    if (q.first())  
-      _employee.setId(q.value("emp_id"));
-  }
   else
   {
     _showAllEmployees.visible = false;
+    _employee.enabled = false;
     if (privileges.check("MaintainTimeExpenseSelf"))
     {
       if (_employee.id() == -1)
-        toolbox.messageBox("critical", mywindow, mywindow.windowTitle, qsTr("It appears that your current user isn't an active employee.") );                                            
+        toolbox.messageBox("critical", mywindow, mywindow.windowTitle, 
+                    qsTr("It appears that your current user isn't an active employee.") );                                            
     }
     else
     {
@@ -482,5 +482,3 @@ else
 }
 
 xtte.timeExpenseSheets.populateEmployees();
-xtte.timeExpenseSheets.fillList();
-

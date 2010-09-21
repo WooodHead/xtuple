@@ -43,6 +43,7 @@ var _site;
 var _mode = xtte.newMode;
 var _modified = false;
 var _populating = false;
+var _last = true;
 
 set = function(input)
 {
@@ -93,6 +94,7 @@ set = function(input)
         _notes.enabled = false;
         _billable.enabled = false; 
       }
+
       xtte.timeExpenseSheetItem.populate();
     }
   }
@@ -103,7 +105,7 @@ set = function(input)
 xtte.timeExpenseSheetItem.extension = function()
 {
   _total.localValue = (_hours.localValue * _rate.localValue)
-  _modified = true;
+  xtte.timeExpenseSheetItem.modified();
 }
 
 xtte.timeExpenseSheetItem.gettask = function()
@@ -140,12 +142,15 @@ xtte.timeExpenseSheetItem.gettask = function()
 
 xtte.timeExpenseSheetItem.modified = function()
 {
+  if (_populating)
+    return;
+
   _modified = true;
 }
 
 xtte.timeExpenseSheetItem.getPrice = function()
 {
-  if (_populating)
+  if (_populating || !_clients.isValid())
     return;
   else if (_mode == xtte.editMode)
   {
@@ -181,36 +186,41 @@ xtte.timeExpenseSheetItem.populate = function()
   var params = new Object();
   params.teitem_id = _teitemid;
 
-  q = toolbox.executeDbQuery("timeexpensesheetitem","detail", params);
-  if (q.first())
+  qry = toolbox.executeDbQuery("timeexpensesheetitem","detail", params);
+  if (qry.first())
   {
+    if (_mode == xtte.newMode)
+      _mode = xtte.editMode;
     _populating = true; 
 
-    _type.code = q.value("teitem_type");
-    _billable.checked = q.value("teitem_billable");
-    _prepaid.checked = q.value("teitem_prepaid")
-    _weekending.date = (q.value("tehead_weekending"));
-    _workdate.date = (q.value("teitem_workdate"));
-    _rate.setId(q.value("teitem_curr_id") - 0);
-    _rate.localValue = (q.value("teitem_rate"));
-    _saverate = q.value("teitem_rate");
-    _hours.localValue = (q.value("teitem_qty"));
-    _items.setId(q.value("teitem_item_id"));
-    _employee.setId(q.value("tehead_emp_id"));
-    _clients.setId(q.value("teitem_cust_id"));
-    _po.text = (q.value("teitem_po"));
-    _project.setId(q.value("teitem_prj_id"));
-    _task.setId(q.value("teitem_prjtask_id"));
-    _sheet.text = (q.value("tehead_number"));
-    _sheetnum = (q.value("tehead_number"));
-    _linenumber.text = (q.value("teitem_linenumber"));
-    _linenum = (q.value("teitem_linenumber"));
-    _notes.plainText = q.value("teitem_notes");
+    _type.code = qry.value("teitem_type");
+    _billable.checked = qry.value("teitem_billable");
+    _prepaid.checked = qry.value("teitem_prepaid")
+    _weekending.date = (qry.value("tehead_weekending"));
+    _workdate.date = (qry.value("teitem_workdate"));
+    _rate.setId(qry.value("teitem_curr_id") - 0);
+    _rate.localValue = (qry.value("teitem_rate"));
+    _hours.localValue = (qry.value("teitem_qty"));
+    _items.setId(qry.value("teitem_item_id"));
+    _employee.setId(qry.value("tehead_emp_id"));
+    _clients.setId(qry.value("teitem_cust_id"));
+    _po.text = (qry.value("teitem_po"));
+    _project.setId(qry.value("teitem_prj_id"));
+    _task.setId(qry.value("teitem_prjtask_id"));
+    _sheet.text = (qry.value("tehead_number"));
+    _sheetnum = (qry.value("tehead_number"));
+    _linenumber.text = (qry.value("teitem_linenumber"));
+    _linenum = (qry.value("teitem_linenumber"));
+    _notes.plainText = qry.value("teitem_notes");
+    _total.localValue = (qry.value("teitem_total"));
 
-    _rate.localValue = _saverate;
-    _total.localValue = (q.value("teitem_total"));
+    _last = qry.value("ismax");
+    if (_last && _mode == xtte.editMode)
+      _next.text = qsTr("New");
+    else
+      _next.text = qsTr("Next");
 
-    _next.enabled = (!q.value("ismax"));
+    _next.enabled = !(_last && _mode == xtte.viewMode);
     _prev.enabled = (_linenum > 1);
 
     _populating = false;
@@ -235,9 +245,6 @@ xtte.timeExpenseSheetItem.save = function()
 {
   try
   {
-    if (!_clients.isValid())
-      throw new Error(qsTr("Customer Required"));
-
     if (!_workdate.isValid())
       throw new Error(qsTr("Work Date Required"));
     
@@ -259,7 +266,7 @@ xtte.timeExpenseSheetItem.save = function()
   var params = new Object();
   params.teitem_tehead_id      = _headid;
   params.teitem_linenumber     = _linenum;
-  params.teitem_type = _type.code;
+  params.teitem_type 	        = _type.code;
   params.teitem_workdate       = _workdate.date;
   params.teitem_cust_id        = _clients.id();
   params.teitem_po             = _po.text;
@@ -275,10 +282,8 @@ xtte.timeExpenseSheetItem.save = function()
   params.teitem_id             = _teitemid;
   params.teitem_curr_id        = _rate.id();
 
-  var query;
-  if (_teitemid > 0)
-    query = "updteitem";
-  else
+  var query = "updteitem";
+  if (_teitemid < 0)
     query = "insteitem";
 
   var q = toolbox.executeDbQuery("timeexpensesheetitem", query, params);
@@ -297,15 +302,19 @@ xtte.timeExpenseSheetItem.typeChanged = function()
 {
   if (_type.code == "T")
   {
-    _qtyLabel.text = "Hours:";
+    _qtyLabel.text = qsTr("Hours:");
+    _rateLit.text = qsTr("Rate:");
+    _rate.enabled = _clients.isValid();
     _billable.visible = true;
     _prepaid.visible = false;
   } 
   else
   {
-    _qtyLabel.text = "Qty:";
+    _qtyLabel.text = qsTr("Qty:");
+    _rateLit.text = qsTr("Unit Cost:");
     _billable.visible = true;
     _prepaid.visible = true;
+    _rate.enabled = true;
     _rate.localValue = 0;
   }
   xtte.timeExpenseSheetItem.getPrice();
@@ -314,8 +323,18 @@ xtte.timeExpenseSheetItem.typeChanged = function()
 
 xtte.timeExpenseSheetItem.customerChanged = function()
 {
+  _billable.enabled = _clients.isValid();
+  _rate.enabled = (_clients.isValid() || _type.code == 'E');
+
   if (_populating)
     return;
+
+  if (!_clients.isValid())
+  {
+    _po.clear();
+    _rate.localValue = 0;
+    _billable.checked = false;
+  }
 
   var params = new Object;
   params.cust_id = _clients.id();
@@ -332,17 +351,7 @@ xtte.timeExpenseSheetItem.customerChanged = function()
 xtte.timeExpenseSheetItem.projectChanged = function()
 {
   //enable and reset the task fields
-  if(_project.isValid() && 
-     _mode != xtte.viewMode)
-  {
-    _next.enabled = true;
-    _task.enabled = true;
-  }
-  else
-  {
-    _next.enabled = false;
-    _task.enabled = false;
-  }
+  _task.enabled = (_project.isValid() && _mode != xtte.viewMode);
 
   xtte.timeExpenseSheetItem.gettask();
   xtte.timeExpenseSheetItem.modified();
@@ -381,7 +390,7 @@ xtte.timeExpenseSheetItem.taskChanged = function()
       _clients.enabled = false;
     }
     else
-      clients.enabled = true;
+      _clients.enabled = true;
 
     if (itemid > 0)
     {
@@ -442,22 +451,25 @@ xtte.timeExpenseSheetItem.rollupActual = function()
 
 xtte.timeExpenseSheetItem.prev = function()
 {
-
   if (_modified)
   {
-    if (MessageBox.question(mywindow,
+    if (QMessageBox.question(mywindow,
                        qsTr("Unsaved Changed"),
                        qsTr("<p>You have made some changes "
                        + "which have not yet been saved!\n" 
                        + "Would you like to save them now?"),
-                        QMessageBox.Save, QMessageBox.Cancel) != QMessageBox.Save)
-      return;
-
-    xtte.timeExpenseSheetItem.save();
+                        QMessageBox.Save, QMessageBox.No) == QMessageBox.Save)
+    {
+      if (!xtte.timeExpenseSheetItem.save())
+        return;
+    }
   }
 
   var params = new Object;
-  params.teitem_id = _teitemid;
+  if (_teitemid > 0)
+    params.teitem_id = _teitemid;
+  else
+    params.tehead_id = _headid;
 
   var q = toolbox.executeDbQuery("timeexpensesheetitem", "teitemprev", params);
 
@@ -488,24 +500,30 @@ xtte.timeExpenseSheetItem.next = function()
                        + "which have not yet been saved!\n" 
                        + "Would you like to save them now?"),
                         QMessageBox.Save, QMessageBox.Cancel) != QMessageBox.Save)
-    return;
+      return;
 
-    xtte.timeExpenseSheetItem.save();
+    if (!xtte.timeExpenseSheetItem.save())
+      return;
   }
 
-  var params = new Object;
-  params.teitem_id = _teitemid;
-  var q = toolbox.executeDbQuery("timeexpensesheetitem","teitemnext",params);
-
-  if (q.first())
-  {
-    _modified = false;
-    _teitemid = q.value("teitem_id");
-    _prev.enabled = true;
-    xtte.timeExpenseSheetItem.populate();
-  }
-  else if (xtte.errorCheck(q))
+  if (_last)
     xtte.timeExpenseSheetItem.clear();
+  else
+  {
+    var params = new Object;
+    params.teitem_id = _teitemid;
+    var q = toolbox.executeDbQuery("timeexpensesheetitem","teitemnext",params);
+
+    if (q.first())
+    {
+      _modified = false;
+      _teitemid = q.value("teitem_id");
+      _prev.enabled = true;
+      xtte.timeExpenseSheetItem.populate();
+    }
+    else if (xtte.errorCheck(q))
+      xtte.timeExpenseSheetItem.clear();
+  }
 }
 
 xtte.timeExpenseSheetItem.clear = function()
@@ -513,7 +531,7 @@ xtte.timeExpenseSheetItem.clear = function()
   var params = new Object();
   params.tehead_id = _headid;
 
-  var q = toolbox.executeDbQuery("te","header",params);
+  var q = toolbox.executeDbQuery("timeexpensesheet","header",params);
 
   if (q.first())
   {
@@ -534,6 +552,7 @@ xtte.timeExpenseSheetItem.clear = function()
   else 
     xtte.errorCheck(q);
 
+  _mode = xtte.newMode;
   _teitemid = -1;
   _prev.enabled = true;
   _type.enabled = true;
@@ -543,7 +562,6 @@ xtte.timeExpenseSheetItem.clear = function()
   _hours.localValue = 0;
   _hours.enabled = true;
   _rate.localValue = 0;
-  _rate.enabled = true;
   _items.enabled = true;
   _items.setId(-1);
   _employee.enabled = false;
@@ -554,6 +572,8 @@ xtte.timeExpenseSheetItem.clear = function()
   _task.enabled = true;
   _notes.clear();
   _notes.enabled = true;
+  _next.text = qsTr("New");
+  _next.enabled = false;
 
   xtte.timeExpenseSheetItem.getPrice();
 
@@ -588,9 +608,11 @@ _linenumber.enabled = true;
 _employee.enabled = false;
 _total.enabled = false;
 _total.readonly = true;
-
+_rate.enabled = false;
 _billable.visible = true;
+_billable.enabled = false;
 _prepaid.visible = false;
+_next.enabled = false;
 
 _type.append(1, qsTr("Time"), "T");
 _type.append(2, qsTr("Expense"), "E");
