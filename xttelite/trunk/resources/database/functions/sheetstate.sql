@@ -35,22 +35,26 @@ BEGIN
       SELECT 1 AS state
       FROM te.tehead
         JOIN emp ON (tehead_emp_id=emp_id)  
+        LEFT OUTER JOIN te.teemp ON (emp_id=teemp_emp_id)
         LEFT OUTER JOIN te.teitem ON (teitem_tehead_id=tehead_id)
         LEFT OUTER JOIN vend ON (UPPER(emp_number)=UPPER(vend_number))
       WHERE ((teitem_tehead_id=pTeheadId)
        AND ((teitem_type = 'E' AND NOT teitem_prepaid) 
-         OR (teitem_type = 'T' AND vend_id IS NOT NULL))
-       AND (teitem_vohead_id IS NOT NULL))
+         OR (teitem_type = 'T' AND COALESCE(teemp_contractor,false)))
+       AND (vend_id IS NOT NULL)
+       AND (teitem_vodist_id IS NOT NULL))
       UNION ALL
       SELECT 0 AS state
       FROM te.tehead
         JOIN emp ON (tehead_emp_id=emp_id)  
+        LEFT OUTER JOIN te.teemp ON (emp_id=teemp_emp_id)
         LEFT OUTER JOIN te.teitem ON (teitem_tehead_id=tehead_id)
         LEFT OUTER JOIN vend ON (UPPER(emp_number)=UPPER(vend_number))
       WHERE ((teitem_tehead_id=pTeheadId)
        AND ((teitem_type = 'E' AND NOT teitem_prepaid) 
-         OR (teitem_type = 'T' AND vend_id IS NOT NULL))
-       AND (teitem_vohead_id IS NULL))
+         OR (teitem_type = 'T' AND COALESCE(teemp_contractor,false)))
+       AND (vend_id IS NOT NULL)
+       AND (teitem_vodist_id IS NULL))
      ) data
      ORDER BY state ASC
      LIMIT 1;
@@ -60,15 +64,21 @@ BEGIN
     FROM (
       SELECT 1 AS state
       FROM te.teitem
+       JOIN te.tehead ON (teitem_tehead_id=tehead_id)
+       JOIN te.teemp ON (tehead_emp_id=teemp_id)
       WHERE ((teitem_tehead_id=pTeheadId)
        AND (teitem_type = 'T')
-       AND (teitem_posted))
+       AND (teitem_posted)
+       AND (NOT teemp_contractor))
       UNION ALL
       SELECT 0 AS state
       FROM te.teitem
+       JOIN te.tehead ON (teitem_tehead_id=tehead_id)
+       JOIN te.teemp ON (tehead_emp_id=teemp_id)
       WHERE ((teitem_tehead_id=pTeheadId)
        AND (teitem_type = 'T')
-       AND (NOT teitem_posted))
+       AND (NOT teitem_posted)
+       AND (NOT teemp_contractor))
      ) data
      ORDER BY state ASC
      LIMIT 1;

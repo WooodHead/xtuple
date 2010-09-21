@@ -1,63 +1,77 @@
-debugger;
+/*
+ * This file is part of the xTuple ERP: PostBooks Edition, a free and
+ * open source Enterprise Resource Planning software suite,
+ * Copyright (c) 1999-2010 by OpenMFG LLC, d/b/a xTuple.
+ * It is licensed to you under the Common Public Attribution License
+ * version 1.0, the full text of which (including xTuple-specific Exhibits)
+ * is available at www.xtuple.com/CPAL.  By using this software, you agree
+ * to be bound by its terms.
+ */
 
-//find the tab list and create a new widget to insert into it.
-var tablist = mywindow.findChild("_tabWidget"); 
-// load a predefined screen by name from the database
-var billingPage = toolbox.loadUi("tebillingemp", mywindow);
+include("xtte");
+xtte.employee = new Object;
 
-//insert the new tab
-toolbox.tabInsertTab(tablist,4,billingPage, "Billing Information");
+var _externalRate = mywindow.findChild("_externalRate"); 
+var _layout = toolbox.widgetGetLayout(_externalRate);
+var _contractor = toolbox.createWidget("QCheckBox", mywindow, "_contractor");
+_contractor.text = qsTr("Contractor");
 
-// employee.ssave() emits a "saved" signal after save
-mywindow.saved.connect(billingSave);
-         
-// employee.populate() emits a "populated" signal after populating
-mywindow.populated.connect(getEmployeeRate);
-         
-var _number 	= mywindow.findChild("_number");
-var _rateemp	= mywindow.findChild("_rateemp"); 
-_rateemp.setValidator(toolbox.moneyVal());
-var _cust		= mywindow.findChild("_cust");
-var _name 		= mywindow.findChild("_name");
-var _code		= mywindow.findChild("_code");
-mywindow.findChild("_item").visible = false;
-mywindow.findChild("_itemLit").visible = false;
-mywindow.findChild("_cust").visible = false;
+_layout.addWidget(_contractor, 1, 4);
 
-function set(params)
+var _teempid = -1; 
+var _empid = -1;
+
+set = function(input)
 {
-//toolbox.messageBox("critical", mywindow, mywindow.windowTitle,_code.text);
-//getEmployeeRate();
+  if("emp_id" in input)
+  {
+    _empid = input.emp_id;
+    xtte.employee.populate();
+  }
 
+  if("mode" in input)
+  {
+    if (input.mode == "view")
+      _contractor.enabled = false;
+  }
+
+  return mainwindow.NoError;
 }
 
-
-function billingSave()
+xtte.employee.save = function(empId)
 {
-   var params = new Object();
-   params.rate = _rateemp.toDouble();
-   params.code = _code.text;
-   var q = toolbox.executeQuery("SELECT emp_id "
-                              + "FROM emp "
-                              + ' WHERE emp_code = <? value("code") ?>;',params);
+  if (empId <= 0)
+    return;
 
-   if (q.first())
-   {
-     params.empid = q.value("emp_id");
-     var q = toolbox.executeDbQuery("te","addteemprate",params);
-   }
+  var params = new Object();
+  params.teemp_id	= _teempid;
+  params.emp_id	= empId;
+  params.contractor	= _contractor.checked;
+
+  var query = "updteemp";
+  if (_teempid == -1)
+    query = "insteemp";
+
+  var q = toolbox.executeDbQuery("employee", query, params);
+  xtte.errorCheck(q);
 }
 
-function getEmployeeRate()
+xtte.employee.populate = function()
 {
-   var params = new Object();
-   params.code = _code.text;    
-   var q = toolbox.executeQuery("SELECT teemprate_rate "
-                              + "FROM emp JOIN te.teemprate ON (teemprate_emp_id=emp_id) "
-                              + 'WHERE emp_code = <? value("code") ?>;',params);
+  var params = new Object();
+  params.emp_id = _empid;    
 
-    if (q.first())
-    {
-      _rateemp.text = (q.value("teemprate_rate"));
-    }
+  var q = toolbox.executeDbQuery("employee", "selteemp", params);
+
+  if (q.first())
+  {
+    _teempid = q.value("teemp_id");
+    _contractor.checked = (q.value("teemp_contractor"));
+  }
+  else
+    xtte.errorCheck(q);
 }
+
+mydialog["finished(int)"].connect(xtte.employee.save);
+
+

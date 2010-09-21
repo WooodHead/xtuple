@@ -7,39 +7,62 @@ DECLARE
 pHeadID ALIAS FOR $1;
 _s record;
 _t record;
-_u record;
+_v record;
 _notes text;
 _voheadid INTEGER;
 _vodistid INTEGER;
 _first BOOLEAN := true;
 _total NUMERIC := 0;
+_wage NUMERIC;
+_glaccnt INTEGER;
 
 BEGIN
-        -- note that we are putting a very basic workflow in place here
-        --  A is approved...if further approval is needed (mgr, etc) then the status should goto P
+  -- Loop through vendors
+  FOR _v IN 
+    SELECT tehead_id, vend_id, teitem_curr_id
+    FROM te.tehead
+      JOIN te.teitem ON (teitem_tehead_id=tehead_id)
+      JOIN emp ON (tehead_emp_id=emp_id)
+      LEFT OUTER JOIN te.teemp ON (emp_id=teemp_emp_id)
+      JOIN vend ON (UPPER(emp_number)=UPPER(vend_number))
+    WHERE ((tehead_id = pHeadID)
+      AND (teitem_prepaid = false)
+      AND (teitem_vodist_id IS NULL)
+      AND (teitem_type = 'E' OR (COALESCE(teemp_contractor,false) AND emp_wage > 0 )))
+    LOOP
+       
+       -- Gather items for this vendor
        FOR _s IN 
          SELECT tehead_id, tehead_number, tehead_weekending,
-          teitem_id, teitem_linenumber, teitem_workdate, teitem_type, teitem_emp_id,
-          item_number, teitem_item_id, teitem_qty, teitem_prj_id,
-          teitem_total, tehead_site, tehead_notes, teitem_type,
+          teitem_id, teitem_linenumber, teitem_workdate, teitem_type,
+          item_number, teitem_item_id, teitem_qty, prj_id,
+          teitem_total, tehead_notes, teitem_type,
           teexp_expcat_id, teexp_accnt_id, emp_wage, emp_wage_period,
-          vend_id, vend_taxzone_id, vend_curr_id, vend_terms_id,
-          vend_number, vend_1099
+          vend_id, vend_taxzone_id, teitem_curr_id, vend_terms_id,
+          vend_number, vend_1099, COALESCE(teemp_contractor,false) AS contractor,
+          emp_wage_type, warehous_code
          FROM te.tehead
            JOIN te.teitem ON (teitem_tehead_id=tehead_id)
            JOIN te.teexp ON (teitem_item_id=teexp_id)
-           JOIN emp ON (teitem_emp_id=emp_id)
+           JOIN emp ON (tehead_emp_id=emp_id)
+           LEFT OUTER JOIN te.teemp ON (emp_id=teemp_emp_id)
            JOIN vend ON (UPPER(emp_number)=UPPER(vend_number))
            JOIN item ON (teitem_item_id=item_id)
+           JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
+           JOIN prj ON (prjtask_prj_id=prj_id)
+           JOIN warehous ON (tehead_warehous_id=warehous_id)
         WHERE ((tehead_id = pHeadID)
+           AND (vend_id = _v.vend_id)
+           AND (teitem_curr_id = _v.teitem_curr_id)
            AND (teitem_prepaid = false)
-           AND (COALESCE(tehead_payable_status,'P')!='C')
-           AND (COALESCE(teitem_payable_status,'P')!='C'))
+           AND (teitem_vodist_id IS NULL)
+           AND (teitem_type = 'E' OR (COALESCE(teemp_contractor,false) AND emp_wage > 0 )))
        
        -- Loop thru records and create vouchers by supplier for the provided headid
        LOOP        
          IF (_first) THEN
            _voheadid = nextval('vohead_vohead_id_seq');
+           _wage := te.calcRate(_s.emp_wage, _s.emp_wage_type);
            
            INSERT INTO vohead (vohead_id, vohead_number, vohead_vend_id,
                vohead_distdate, vohead_docdate, vohead_duedate,
@@ -48,21 +71,24 @@ BEGIN
                vohead_notes, vohead_posted, vohead_misc, vohead_pohead_id )
            VALUES ( _voheadid, fetchVoNumber(), _s.vend_id, current_date, _s.tehead_weekending,
                determineDueDate(_s.vend_terms_id, current_date), _s.vend_terms_id,
-               _s.vend_taxzone_id, _s.tehead_number, _s.tehead_site , 0, _s.vend_1099, 
-               _s.vend_curr_id, _s.tehead_notes, false, true, -1 );
+               _s.vend_taxzone_id, _s.tehead_number, _s.warehous_code , 0, _s.vend_1099, 
+               _v.teitem_curr_id, _s.tehead_notes, false, true, -1 );
 
            _first := false;
-         END IF;
-
-         IF (_s.emp_wage_period != 'H') THEN
-           RAISE EXCEPTION 'Voucher not processed.  Only employees with hourly rates supported.';
-         ELSIF (_s.emp_wage = 0) THEN
-           RAISE EXCEPTION 'Voucher not processed.  Employe wage set at zero.';
          END IF;
 
           -- insert vodist records here
           _vodistid = nextval('vodist_vodist_id_seq');
 
+          -- Map expense directly to account so we can get project account mapping if applicable
+          IF (_s.teexp_accnt_id > 1) THEN
+            _glaccnt := getPrjAccntId(_s.prj_id, _s.teexp_accnt_id);
+          ELSE
+           SELECT getPrjAccntId(_s.prj_id, expcat_exp_accnt_id) INTO _glaccnt
+           FROM expcat
+           WHERE (expcat_id=_s.teexp_expcat_id);
+          END IF;
+          
           IF (_s.teitem_type = 'T') THEN
             -- Time sheet record
             _notes := formatdate(_s.teitem_workdate) || E'\t' || _s.item_number || E'\t' || formatQty(_s.teitem_qty) || ' hours' || E'\t';
@@ -70,11 +96,11 @@ BEGIN
             INSERT INTO vodist ( vodist_id, vodist_vohead_id, vodist_poitem_id,
                vodist_costelem_id, vodist_accnt_id, vodist_amount,
                vodist_expcat_id, vodist_notes ) 
-               VALUES ( _vodistid, _voheadid, -1,-1, getPrjAcctId(_s.teitem_prj_id, _s.teexp_accnt_id), 
-                        _s.emp_wage * _s.teitem_qty,
-                        _s.teexp_expcat_id, _notes );
+               VALUES ( _vodistid, _voheadid, -1,-1, _glaccnt, 
+                        _wage * _s.teitem_qty,
+                        -1, _notes );
 
-             _total := _total + _s.emp_wage * _s.teitem_qty;
+             _total := _total + _wage * _s.teitem_qty;
           ELSE
             -- Expense record
             _notes := formatdate(_s.teitem_workdate) || E'\t' || _s.item_number || E'\t' || E'\t';
@@ -82,32 +108,21 @@ BEGIN
             INSERT INTO vodist ( vodist_id, vodist_vohead_id, vodist_poitem_id,
                vodist_costelem_id, vodist_accnt_id, vodist_amount,
                vodist_expcat_id, vodist_notes ) 
-               VALUES ( _vodistid, _voheadid, -1,-1,  getPrjAcctId(_s.teitem_prj_id, _s.teexp_accnt_id), 
-               _s.teitem_total,_s.teexp_expcat_id, _notes );
+               VALUES ( _vodistid, _voheadid, -1,-1,  _glaccnt, 
+               _s.teitem_total,-1, _notes );
 
             _total := _total + _s.teitem_total;
           END IF;
-          
-          -- Update the te.teitem record with the status
-          UPDATE te.teitem SET teitem_payable_status = 'C' WHERE teitem_id = _s.teitem_id;
-       END LOOP;
 
-       -- Update the te.tehead record with C status
-       IF (NOT _first) THEN
-         UPDATE vohead SET 
-           vohead_amount = _total 
-         WHERE (vohead_id=_voheadid);
-         
-         UPDATE te.tehead set tehead_payable_status = 'C' 
-         WHERE ((tehead_id = pHeadID)
-         AND (NOT EXISTS (
-            SELECT teitem_id
-            FROM te.teitem
-            WHERE ((teitem_tehead_id=pHeadId)
-              AND (COALESCE(teitem_payable_status,'P') != 'C')))));
-       -- ELSE
-       --   RAISE EXCEPTION 'No time sheet data to process.';
-       END IF;
+          UPDATE vohead SET vohead_amount = _total WHERE (vohead_id=_voheadid);
+          
+          -- Update the te.teitem record with the relationship
+          UPDATE te.teitem SET teitem_vodist_id = _vodistid WHERE teitem_id = _s.teitem_id;
+       END LOOP;
+       
+       _total := 0;
+       
+  END LOOP;
           
 RETURN 1;
 END;
