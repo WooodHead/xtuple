@@ -1,6 +1,6 @@
 ALTER TABLE te.teitem DROP COLUMN teitem_billable_status;
 ALTER TABLE te.teitem DROP COLUMN teitem_payable_status;
-ALTER TABLE te.teitem ADD COLUMN teitem_vohead_id INTEGER REFERENCES vohead(vohead_id) ON DELETE SET NULL;
+ALTER TABLE te.teitem ADD COLUMN teitem_vodist_id INTEGER REFERENCES vodist(vodist_id) ON DELETE SET NULL;
 ALTER TABLE te.teitem ADD COLUMN teitem_posted BOOLEAN DEFAULT FALSE;
 ALTER TABLE te.teitem ADD FOREIGN KEY (teitem_tehead_id) REFERENCES te.tehead (tehead_id) ON DELETE CASCADE;
 ALTER TABLE te.teitem DROP COLUMN teitem_username;
