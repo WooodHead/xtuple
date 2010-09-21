@@ -4,29 +4,38 @@ pHeadID ALIAS FOR $1;
 
 _invcnum text;
 _invcheadid integer;
+_invcitemid integer;
 _s record;
 _t record;
-_linenum text;
-_item text;
+_linenum integer;
 
 BEGIN
 
         -- note that we are putting a very basic workflow in place here
         --  A is approved...if further approval is needed (mgr, etc) then the status should goto P
-       FOR _s in SELECT * FROM (
-       SELECT DISTINCT tehead_id, tehead_number, tehead_weekending,
-                       cust_id, teitem_po, prj_id
-       FROM te.tehead JOIN te.teitem ON (teitem_tehead_id=tehead_id AND teitem_billable)
-                      JOIN custinfo ON (cust_id=teitem_cust_id)
-                      JOIN prj ON (prj_id=teitem_prj_id)
-       WHERE tehead_id = pHeadID
-       ) foo
+       FOR _s in SELECT DISTINCT 
+                   tehead_id, 
+                   tehead_number, 
+                   tehead_weekending,
+                   tehead_notes,
+                   teitem_cust_id, 
+                   teitem_po, 
+                   prj_id, 
+                   teitem_curr_id
+       FROM te.tehead 
+         JOIN te.teitem ON (teitem_tehead_id=tehead_id AND teitem_billable)
+         JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
+         JOIN prj ON (prjtask_prj_id=prj_id)
+       WHERE ((tehead_id = pHeadID)
+        AND (teitem_billable)
+        AND (teitem_invcitem_id IS NULL))
 
        -- loop thru records and create invoices by customer, by PO for the provided headid
        LOOP
          --select nextval('invchead_invchead_id_seq') into _invcid;
          _invcnum := CAST(fetchInvcNumber() AS TEXT);
          _invcheadid := nextval('invchead_invchead_id_seq');
+         _linenum := 1;
 
          INSERT INTO invchead
          SELECT _invcheadid, cust_id, -1, '', current_date, false, false, _invcnum,
@@ -34,54 +43,61 @@ BEGIN
            COALESCE(addr_line2,''), COALESCE(addr_line3,''), COALESCE(addr_city,''),
            COALESCE(addr_state,''), COALESCE(addr_postalcode,''), cntct_phone, 
            '', '', '', '', '', '', '', '', cust_salesrep_id, salesrep_commission, cust_terms_id,
-           0, 0, '', -1, 0, '', '', addr_country, '', _s.teitem_prj_id, cust_
-           
+           0, 0, '', -1, 0, '', _s.tehead_notes, COALESCE(addr_country,''), '', _s.prj_id, 
+           _s.teitem_curr_id, current_date, false, null, null, null, null, null, cust_taxzone_id
          FROM custinfo
            JOIN salesrep ON (cust_salesrep_id=salesrep_id)
            LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
            LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
-         WHERE (cust_id=_s.cust_id);
-         
-         INSERT INTO api.invoice(invoice_number,invoice_date, ship_date, order_date, 
-         customer_number, po_number, project_number)
-         values (_invcnum,CURRENT_DATE,CURRENT_DATE,CURRENT_DATE,_s.cust_number,_s.teitem_po,_s.prj_number );
+         WHERE (cust_id=_s.teitem_cust_id);
 
           -- loop thru all lines of the sheet
-          for _t in select * from (
-             select teitem_id,teitem_linenumber, tehead_site as site,teitem_type,teitem_emp_id,uom_name as uom,item_number,teitem_cust_id,teitem_po,teitem_item_id,teitem_qty as qty,teitem_rate as rate,teitem_prj_id, teitem_notes as notes
-             from te.teitem, item, te.tehead, uom
-             where item_id = teitem_item_id
-             and teitem_uom_id = uom_id
-             and teitem_tehead_id = tehead_id 
-             and teitem_tehead_id = pHeadID 
-             and teitem_billable = true 
-             and teitem_type = 'E'
-             and teitem_cust_id = _s.cust_id
-             and teitem_po = _s.teitem_po
-             and teitem_prj_id = _s.prj_id
-             or teitem_tehead_id = pHeadID 
-             and teitem_tehead_id = tehead_id
-             and item_id = teitem_item_id
-             and teitem_uom_id = uom_id
-	     and teitem_billable = true 
-             and teitem_type = 'T' 
-             and item_id = teitem_item_id
-             and teitem_cust_id = _s.cust_id
-             and teitem_po = _s.teitem_po
-             and teitem_prj_id = _s.prj_id
-             order by teitem_linenumber
-          ) foo
-
+          FOR _t IN SELECT 
+               teitem_id,
+               teitem_linenumber, 
+               tehead_warehous_id,
+               teitem_type,
+               tehead_emp_id,
+               item_number,
+               teitem_cust_id,
+               teitem_po,
+               teitem_item_id,
+               teitem_qty,
+               teitem_uom_id,
+               teitem_rate,
+               teitem_notes
+             FROM te.teitem
+               JOIN te.tehead ON (teitem_tehead_id = tehead_id)
+               JOIN item ON (item_id = teitem_item_id)
+               JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
+               JOIN prj ON (prjtask_prj_id=prj_id)
+             WHERE ((teitem_tehead_id = pHeadID) 
+              AND (teitem_billable)
+              AND (teitem_invcitem_id IS NULL)
+              AND (item_id = teitem_item_id)
+              AND (teitem_cust_id = _s.teitem_cust_id)
+              AND (teitem_po = _s.teitem_po)
+              AND (prj_id = _s.prj_id)
+              AND (teitem_curr_id = _s.teitem_curr_id))
+             ORDER BY teitem_linenumber
           LOOP
-            --raise notice 'line %',_t.teitem_linenumber;
+            _invcitemid := nextval('invcitem_invcitem_id_seq');
 
-            insert into api.invoiceline(invoice_number, line_number, item_number, site, 
-            qty_ordered, qty_billed, net_unit_price, qty_uom, price_uom, 
-            notes)
-            values(_invcnum,_t.teitem_linenumber,_t.item_number,_t.site,_t.qty,_t.qty,_t.rate,_t.uom,_t.uom,_t.notes);       
+            INSERT INTO invcitem
+            SELECT 
+              _invcitemid, _invcheadid, _linenum, _t.teitem_item_id,
+              _t.tehead_warehous_id, '', '', '', _t.teitem_qty, _t.teitem_qty, _t.teitem_rate,
+              _t.teitem_rate, _t.teitem_notes, -1, null, 
+              _t.teitem_uom_id, itemuomtouomratio(item_id, _t.teitem_uom_id, item_inv_uom_id),
+              _t.teitem_uom_id, itemuomtouomratio(item_id, _t.teitem_uom_id, item_inv_uom_id),
+              null
+            FROM item
+            WHERE (item_id=_t.teitem_item_id);
 
-            -- update the te.teitem record with the invoice id AND C status
-            update te.teitem set teitem_invchead_id = getinvcheadid(_invcnum), teitem_billable_status = 'C' where teitem_id = _t.teitem_id;
+            _linenum := _linenum + 1;
+            
+            -- Update the time sheet item record
+            UPDATE te.teitem SET teitem_invcitem_id = _invcitemid WHERE (teitem_id = _t.teitem_id);
             
           END LOOP;
        END LOOP;

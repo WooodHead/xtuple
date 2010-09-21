@@ -11,3 +11,8 @@ DROP FUNCTION te.getsheetid(text);
 DROP FUNCTION te.maxline(integer);
 DROP FUNCTION te.minline(integer);
 DROP FUNCTION te.addtecustrate(text, numeric);
+DROP FUNCTION te.addteprj(integer, integer, numeric);
+DROP FUNCTION te.addteprjtask(integer, text, integer, numeric, integer);
+DROP FUNCTION te.addteemprate(integer, numeric);
+DROP FUNCTION te.getprjcustid(text);
+DROP FUNCTION te.getprjcustid(integer);

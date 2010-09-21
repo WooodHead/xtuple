@@ -115,6 +115,8 @@ xtte.timeExpenseSheetItem.gettask = function()
     var params = new Object();
     params.prj_id = _project.id();
     params.name = qsTr("Default");
+    if (_workdate.isValid())
+      params.startDate = _workdate.date;
 
     var qry = toolbox.executeDbQuery("timeexpensesheetitem", "gettask", params);
     if(!xtte.errorCheck(qry))
@@ -205,7 +207,7 @@ xtte.timeExpenseSheetItem.populate = function()
     _employee.setId(qry.value("tehead_emp_id"));
     _clients.setId(qry.value("teitem_cust_id"));
     _po.text = (qry.value("teitem_po"));
-    _project.setId(qry.value("teitem_prj_id"));
+    _project.setId(qry.value("prj_id"));
     _task.setId(qry.value("teitem_prjtask_id"));
     _sheet.text = (qry.value("tehead_number"));
     _sheetnum = (qry.value("tehead_number"));
@@ -274,7 +276,6 @@ xtte.timeExpenseSheetItem.save = function()
   params.teitem_qty            = _hours.localValue;
   params.teitem_rate           = _rate.localValue;
   params.teitem_total          = _total.localValue;
-  params.teitem_prj_id         = _project.id();
   params.teitem_prjtask_id     = _task.id();
   params.teitem_billable       = _billable.checked;
   params.teitem_prepaid        = _prepaid.checked;
@@ -618,6 +619,8 @@ _type.append(1, qsTr("Time"), "T");
 _type.append(2, qsTr("Expense"), "E");
 
 _items.setQuery(xtte.itemSql);
+
+_project.setAllowedStatuses(0x02); // In process
 
 // Define connections
 _buttonBox.accepted.connect(xtte.timeExpenseSheetItem.accepted);

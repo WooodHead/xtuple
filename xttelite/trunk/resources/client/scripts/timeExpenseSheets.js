@@ -67,9 +67,9 @@ xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
         tmpact.triggered.connect(xtte.timeExpenseSheets.approveSheet);
       }
       else if ((status == 'A') &&
-               (!currentItem.rawValue("posted") == 1) &&
-               (!currentItem.rawValue("vouchered") == 1) &&
-               (!currentItem.rawValue("vouchered") == 1))
+               (currentItem.rawValue("posted") < 1) &&
+               (currentItem.rawValue("vouchered") < 1) &&
+               (currentItem.rawValue("invoiced") < 1))
       {
         pMenu.addSeparator();
         tmpact = toolbox.menuAddAction(pMenu, qsTr("Uanpprove"), 
@@ -82,10 +82,13 @@ xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
         tmpact = toolbox.menuAddAction(pMenu, qsTr("Close"), 
                                        privileges.check("MaintainTimeExpense"));
         tmpact.triggered.connect(xtte.timeExpenseSheets.closeSheet);
+      }
 
-        if (!currentItem.rawValue("invoiced") ||
-            !currentItem.rawValue("vouchered") ||
-            !currentItem.rawValue("posted"))
+      if (status == 'A')
+      {
+        if ((currentItem.rawValue("invoiced") == 0) ||
+            (currentItem.rawValue("vouchered") == 0) ||
+            (currentItem.rawValue("posted") == 0 ))
           pMenu.addSeparator();
 
         if (currentItem.rawValue("posted") == 0)
@@ -118,7 +121,22 @@ xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
 
 xtte.timeExpenseSheets.approve = function()
 {
-  // TO DO...
+  toolbox.executeBegin();
+  for (var i = 0; i < _sheets.topLevelItemCount; i++)
+  {
+    var item = _sheets.topLevelItem(i);
+    if (item.rawValue("tehead_status") == "O")
+    {
+      var params   = new Object();
+      params.tehead_id = item.id(); 
+ 
+      q = toolbox.executeDbQuery("timeexpensesheets", "approve", params );
+      if (!xtte.errorCheck(q))
+        toolbox.executeRollback();
+    } 
+  }
+  toolbox.executeCommit();
+  xtte.timeExpenseSheets.fillList();
 }
 
 xtte.timeExpenseSheets.approveSheet = function()
@@ -168,7 +186,7 @@ xtte.timeExpenseSheets.process = function()
 xtte.timeExpenseSheets.processSheet = function(id, invoice, voucher, post)
 {
   var params   = new Object();
-  params.tehead_id = id();    
+  params.tehead_id = id;    
 
   if (invoice)
   {
@@ -226,7 +244,7 @@ xtte.timeExpenseSheets.closeSheet = function()
 
 xtte.timeExpenseSheets.editSheet = function()
 {
-  if (_sheets.currentItem().rawValue("tehead_status") == "O")
+  if (_sheets.currentItem().rawValue("tehead_status") == 'O')
     xtte.timeExpenseSheets.openSheet(xtte.editMode);
   else
     xtte.timeExpenseSheets.openSheet(xtte.viewMode);
@@ -246,10 +264,9 @@ xtte.timeExpenseSheets.openSheet = function(mode)
 {
   var params   = new Object();
   params.mode   = mode;
-  if (mode ) // Not new
+  if (mode) // Not new
     params.tehead_id = _sheets.id();
-  // new
-  else
+  else // New
   {
     if (_selected)
       params.emp_id = _employee.id();
@@ -257,9 +274,8 @@ xtte.timeExpenseSheets.openSheet = function(mode)
 
   var te = toolbox.openWindow("timeExpenseSheet", mywindow, Qt.ApplicationModal);
   toolbox.lastWindow().set(params);
-  var result = te.exec();
-  if(result != 0)
-    xtte.timeExpenseSheets.fillList();
+  te.exec();
+  xtte.timeExpenseSheets.fillList();
 }
 
 xtte.timeExpenseSheets.consolidateSheet = function()
@@ -436,7 +452,7 @@ xtte.timeExpenseSheets.populateEmployees = function()
 _weekending.setStartNull(qsTr("Earliest"), startOfTime, true);
 _weekending.setEndNull(qsTr("Latest"),     endOfTime,   true);
 
-_approve.enabled = false;
+_approve.enabled = privileges.check("CanApprove");
 _selected.checked = true;
 _showAllEmployees.visible = false;
 

@@ -1,22 +1,26 @@
 -- Group: timeexpensesheets
 -- Name:  detail
 -- Notes: Time Expense Sheet List
-SELECT tehead_id, tehead_number, tehead_weekending,
-  emp_code, tehead_status, 
-  MAX(invoiced) AS invoiced, 
-  MAX(vouchered) AS vouchered, 
-  MAX(posted) AS posted,
-  COALESCE(SUM(teitem_total),0) AS total,
-  CASE WHEN (MAX(invoiced) = 1) THEN <? value("yes") ?>
-       WHEN (MAX(invoiced) = 0) THEN <? value("no") ?>
+SELECT 
+  tehead_id, 
+  tehead_number, 
+  tehead_weekending,
+  tehead_status,
+  emp_code,
+  invoiced,
+  vouchered,
+  posted,
+  SUM(teitem_total) AS total,
+  CASE WHEN (invoiced = 1) THEN <? value("yes") ?>
+       WHEN (invoiced = 0) THEN <? value("no") ?>
        ELSE <? value("na") ?>
   END AS invoiced_qtdisplayrole,
-  CASE WHEN (MAX(vouchered) = 1) THEN <? value("yes") ?>
-       WHEN (MAX(vouchered) = 0) THEN <? value("no") ?>
+  CASE WHEN (vouchered = 1) THEN <? value("yes") ?>
+       WHEN (vouchered = 0) THEN <? value("no") ?>
        ELSE <? value("na") ?>
   END AS vouchered_qtdisplayrole,
-  CASE WHEN (MAX(posted) = 1) THEN <? value("yes") ?>
-       WHEN (MAX(posted) = 0) THEN <? value("no") ?>
+  CASE WHEN (posted = 1) THEN <? value("yes") ?>
+       WHEN (posted = 0) THEN <? value("no") ?>
        ELSE <? value("na") ?>
   END AS posted_qtdisplayrole,
   CASE WHEN (tehead_status='O') THEN 
@@ -26,49 +30,46 @@ SELECT tehead_id, tehead_number, tehead_weekending,
   ELSE <? value("closed") ?>
   END AS tehead_status_qtdisplayrole,
   'curr' AS total_xtnumericrole,
-  CASE WHEN (MAX(invoiced) = -1) THEN 'LightGray'
-       WHEN (MAX(invoiced) = 0 AND tehead_status = 'A') THEN 'altemphasis'
+  CASE WHEN (invoiced = -1) THEN 'LightGray'
+       WHEN (invoiced = 0 AND tehead_status = 'A') THEN 'altemphasis'
   END AS invoiced_qtforegroundrole,
-  CASE WHEN (MAX(vouchered) = -1) THEN 'LightGray'
-       WHEN (MAX(vouchered) = 0 AND tehead_status = 'A') THEN 'altemphasis'
+  CASE WHEN (vouchered = -1) THEN 'LightGray'
+       WHEN (vouchered = 0 AND tehead_status = 'A') THEN 'altemphasis'
   END AS vouchered_qtforegroundrole,
-  CASE WHEN (MAX(posted) = -1) THEN 'LightGrey'
-       WHEN (MAX(posted) = 0 AND tehead_status = 'A') THEN 'altemphasis'
+  CASE WHEN (posted = -1) THEN 'LightGray'
+       WHEN (posted = 0 AND tehead_status = 'A') THEN 'altemphasis'
   END AS posted_qtforegroundrole,
   CASE WHEN (tehead_status = 'O') THEN 'emphasis'
        WHEN (tehead_status = 'A') THEN 'altemphasis'
   END AS tehead_status_qtforegroundrole
 FROM (
-  SELECT tehead_id, tehead_number, tehead_weekending,
-    emp_code, tehead_status, teitem_total,
-    CASE WHEN (teitem_invchead_id IS NOT NULL) THEN 1
-         WHEN ((teitem_billable) 
-           AND (teitem_invchead_id IS NULL)) THEN 0
-         ELSE -1
-    END AS invoiced,
-    CASE WHEN (teitem_vohead_id IS NOT NULL) THEN 1
-         WHEN ((teitem_type='E') 
-           AND (NOT teitem_prepaid) 
-           OR (vend_id IS NOT NULL)) THEN 0
-         ELSE -1 
-    END AS vouchered,
-    CASE WHEN (teitem_posted) THEN 1
-         WHEN ((teitem_type='T') 
-           AND (vend_id IS NULL)) THEN 0
-         ELSE -1 
-    END AS posted
+  SELECT 
+    tehead_id, 
+    tehead_number, 
+    tehead_weekending,
+    tehead_status,
+    emp_code,
+    COALESCE(teitem_total,0) AS teitem_total,
+    te.sheetstate(tehead_id, 'I') AS invoiced,
+    te.sheetstate(tehead_id, 'V') AS vouchered,
+    te.sheetstate(tehead_id, 'P') AS posted
   FROM te.tehead
+    LEFT JOIN te.teitem ON (tehead_id=teitem_tehead_id)
     JOIN emp ON (tehead_emp_id=emp_id)  
-    LEFT OUTER JOIN te.teitem ON (teitem_tehead_id=tehead_id)
-    LEFT OUTER JOIN vend ON (UPPER(emp_number)=UPPER(vend_number))
   WHERE ((tehead_weekending >= <? value("startDate") ?> )
     AND (tehead_weekending <= <? value("endDate") ?> )
-    AND (tehead_status IN (<? literal("statusList") ?>) )
+    AND (tehead_status IN (<? literal("statusList") ?>))
 <? if exists("emp_id") ?>
     AND (tehead_emp_id=<? value("emp_id") ?>)
 <? endif ?>
-    )
-  ) AS sheets
-GROUP BY tehead_id, tehead_number, tehead_weekending, tehead_status,
-  emp_code
-ORDER BY tehead_number
+)) AS data
+GROUP BY     
+    tehead_id, 
+    tehead_number, 
+    tehead_weekending,
+    tehead_status,
+    emp_code,
+    invoiced,
+    vouchered,
+    posted
+ORDER BY tehead_number;

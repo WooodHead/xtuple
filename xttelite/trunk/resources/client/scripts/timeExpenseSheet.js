@@ -150,13 +150,6 @@ xtte.timeExpenseSheet.newItem = function()
     return;
 
   xtte.timeExpenseSheet.openItem(xtte.newMode);  
-
-  _weekending.enabled = false;
-  _employee.enabled = false;
-  _site.enabled = false;
-
-  //need to get the id here
-  xtte.timeExpenseSheet.fillList();
 }
 
 xtte.timeExpenseSheet.editItem = function()
@@ -204,6 +197,9 @@ xtte.timeExpenseSheet.save = function()
     if (!_employee.isValid())
       throw new Error(qsTr("Employee Required"));
 
+    if (_site.id() == -1)
+      throw new Error(qsTr("Site Required"));
+
     if (!_weekending.isValid())
       throw new Error(qsTr("Week Ending Date Required"));
   }
@@ -215,7 +211,7 @@ xtte.timeExpenseSheet.save = function()
 
   var params   = new Object();
   params.emp_id = _employee.id();
-  params.site = _site.text;
+  params.warehous_id = _site.id();
   params.weekending = _weekending.date;
   params.notes = _orderComments.plainText;
 
@@ -231,6 +227,10 @@ xtte.timeExpenseSheet.save = function()
   }
   else if (!xtte.errorCheck(q))
     return false;
+
+  _weekending.enabled = false;
+  _employee.enabled = false;
+  _site.enabled = false;
 
   return true;
 }
@@ -256,7 +256,7 @@ xtte.timeExpenseSheet.populate = function()
     _weekending.date = q.value("tehead_weekending");
     _sheetNumberExtra.text = q.value("tehead_number");
     _employee.setId(q.value("tehead_emp_id"));
-    _site.text = q.value("tehead_site");
+    _site.setId(q.value("tehead_warehous_id"));
     _orderComments.setPlainText(q.value("tehead_notes"));
   }
   else if (!xtte.errorCheck(q))
