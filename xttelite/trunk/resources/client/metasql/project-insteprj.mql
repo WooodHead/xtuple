@@ -7,7 +7,7 @@ INSERT INTO te.teprj (
   teprj_rate,
   teprj_curr_id )
 VALUES (
-  <? value("teprj_prj_id") ?>
+  <? value("prj_id") ?>,
   <? value("cust_id") ?>,
   <? value("rate") ?>,
   <? value("curr_id") ?> );

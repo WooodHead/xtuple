@@ -12,7 +12,7 @@ $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'teprjtrigger', 'te');
 CREATE TRIGGER teprjtrigger
-  AFTER INSERT OR UPDATE
+  AFTER UPDATE
   ON te.teprj
   FOR EACH ROW
   EXECUTE PROCEDURE te.triggerteprj();
