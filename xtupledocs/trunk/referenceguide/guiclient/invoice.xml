@@ -73,13 +73,13 @@
         lookup feature located to the right of the field leads to a searchable
         Customers list. You may also access this list using the keyboard
         shortcut "CTRL + L". Once a Customer Number is entered, the Customer
-        name and billing address will display. Select the "?" or "$" symbol
-        to view Customer information for the
-        specified Customer. If a Customer's credit is "In Good Standing," the
-        button will feature a black question mark ("?") icon. If the icon
-        turns to an orange dollar sign ("$"), the Customer's credit Status is
-        "On Credit Warning." A red dollar sign ("$") indicates the Customer's
-        credit Status is "On Credit Hold."</para>
+        name and billing address will display. Select the "?" or "$" symbol to
+        view Customer information for the specified Customer. If a Customer's
+        credit is "In Good Standing," the button will feature a black question
+        mark ("?") icon. If the icon turns to an orange dollar sign ("$"), the
+        Customer's credit Status is "On Credit Warning." A red dollar sign
+        ("$") indicates the Customer's credit Status is "On Credit
+        Hold."</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -112,7 +112,7 @@
       <term><indexterm significance="normal">
           <primary>sales representatives</primary>
           <secondary>commissions for</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>invoices</primary>
           <secondary>commissions on</secondary>
         </indexterm>Sales Rep.</term>
@@ -158,8 +158,8 @@
         specified Customer indicates that free-form Ship-To's are allowed,
         then any address may be entered. If free-form Ship-To's are not
         allowed, then the Ship-To Address must be entered using the browse
-        button located to the right of the field. The lookup feature leads to a
-        searchable Ship-To Addresses list.</para>
+        button located to the right of the field. The lookup feature leads to
+        a searchable Ship-To Addresses list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -218,23 +218,6 @@
           generated in this way will assume the number of the Sales Order or
           Quote which caused their creation.</para>
         </tip>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the new Invoice.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>CLOSE</term>
-      <listitem>
-        <para>Closes the screen without creating a new Invoice, returning you
-        to the application desktop.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -306,7 +289,7 @@
       <term><indexterm significance="normal">
           <primary>freight</primary>
           <secondary>on invoices</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>invoices</primary>
           <secondary>freight charges on</secondary>
         </indexterm>Freight</term>
@@ -319,55 +302,6 @@
       <term>Total</term>
       <listitem>
         <para>Displays total amount of the Invoice.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Saves the Invoice Line Item information.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>CLOSE</term>
-      <listitem>
-        <para>Closes the screen without creating a new Invoice, returning you
-        to the application desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens screen for creating a new Invoice Line Item. Mac users may
-        use COMMAND + N to enter a new Line Item.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem>
-        <para>Enables you to edit highlighted Invoice Line Items. The edit
-        screen is the same as that for creating a new Invoice Line
-        Item&mdash;except that when editing, the fields will contain Invoice
-        Line Item information. Double-clicking on an Invoice Line Item will
-        also bring you to the editing screen. Mac users may use COMMAND + E to
-        edit an existing Line Item.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>VIEW</term>
-      <listitem>
-        <para>Highlight an Invoice Line Item and then select this button to
-        reach a read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>DELETE</term>
-      <listitem>
-        <para>Highlight an Invoice Line Item and then select this button to
-        remove the Invoice Line Item from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -394,23 +328,6 @@
         the Invoice through the billing process. For example, you may view
         notes associated with a posted Invoice within the Invoice Information
         report.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Saves the Invoice Notes.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>CLOSE</term>
-      <listitem>
-        <para>Closes the screen without creating a Note, returning you to the
-        application desktop.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -467,23 +384,6 @@
       </varlistentry>
     </variablelist>
   </tip>
-  <para>To the far right of the screen the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Saves Advanced information.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>CLOSE</term>
-      <listitem>
-        <para>Closes the screen without creating Advanced information,
-        returning you to the application desktop.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <xi:include href="invoiceItem.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
