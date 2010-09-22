@@ -17,6 +17,11 @@
     </screenshot></para>
   <para>When printing a Customer Statement, you are presented with the
   following options:</para>
+  <para role="standard"><note>
+      <para>If the specified Customer has an EDI Profile attached, you may
+      encounter an EDI processing interface when printing the Customer
+      Statement.</para>
+    </note></para>
   <variablelist>
     <varlistentry>
       <term>Customer #</term>
@@ -26,31 +31,12 @@
         leads to a searchable Customers list. You may also access this list
         using the keyboard shortcut "CTRL + L". Once a Customer Number is
         entered, the Customer name and billing address will display. Select
-        the "?" or "$" symbol to view Customer
-        information for the specified Customer. If a Customer's credit is "In
-        Good Standing," the button will feature a black question mark ("?")
-        icon. If the icon turns to an orange dollar sign ("$"), the Customer's
-        credit Status is "On Credit Warning." A red dollar sign ("$")
-        indicates the Customer's credit Status is "On Credit Hold."</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without printing a Customer Statement,
-        returning you to the application desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>PRINT</term>
-      <listitem>
-        <para>Runs the report associated with this screen. If the specified
-        Customer has an EDI Profile attached, you may encounter an EDI
-        processing interface when printing the Customer Statement.</para>
+        the "?" or "$" symbol to view Customer information for the specified
+        Customer. If a Customer's credit is "In Good Standing," the button
+        will feature a black question mark ("?") icon. If the icon turns to an
+        orange dollar sign ("$"), the Customer's credit Status is "On Credit
+        Warning." A red dollar sign ("$") indicates the Customer's credit
+        Status is "On Credit Hold."</para>
       </listitem>
     </varlistentry>
   </variablelist>

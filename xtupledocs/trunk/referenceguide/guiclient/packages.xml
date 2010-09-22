@@ -15,9 +15,9 @@
   programming skills. And these features can be integrated seamlessly into
   xTuple ERP independent of the release cycles and source code requirements
   defined by xTuple. In short, Packages are flexible. And they make it easy
-  for software developers to add new features—or even just simple tweaks—to
-  customize and enhance the xTuple ERP experience. For additional information,
-  please see the <ulink
+  for software developers to add new features&mdash;or even just simple
+  tweaks&mdash;to customize and enhance the xTuple ERP experience. For
+  additional information, please see the <ulink
   url="http://wiki.xtuple.org/CreateUpdaterPackages">CreateUpdaterPackages</ulink>
   wiki page.</para>
   <para>To view the complete list of Packages loaded into your xTuple ERP
@@ -33,22 +33,8 @@
     </screenshot></para>
   <para>The "List Packages" screen displays information on all existing
   Packages.</para>
-  <para>To the far right of the list, the following buttons are
-  available:</para>
+  <para>The following buttons are unique to this screen:</para>
   <variablelist>
-    <varlistentry>
-      <term>CLOSE</term>
-      <listitem>
-        <para>Closes the screen, returning you to the application
-        desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>PRINT</term>
-      <listitem>
-        <para>Runs the report associated with this screen.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>LOAD</term>
       <listitem>
@@ -56,13 +42,6 @@
         application cannot find the Updater then the user is given a dialog to
         find the Updater. This option will only be available to xTuple ERP
         administrators.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>VIEW</term>
-      <listitem>
-        <para>Highlight a Package and then select this button to reach a
-        read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -81,22 +60,7 @@
         xTuple ERP administrators.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>DELETE</term>
-      <listitem>
-        <para>Highlight a Package and then select this button to remove the
-        Package from the list.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Automatically Update</term>
-      <listitem>
-        <para>Select to have the Packages master list automatically update
-        whenever there are changes to the information shown on the
-        screen.</para>
-      </listitem>
-    </varlistentry>
   </variablelist>
-  <xi:include href="package.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="package.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
