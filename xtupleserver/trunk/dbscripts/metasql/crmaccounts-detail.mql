@@ -4,12 +4,12 @@
 SELECT 
   crmacct_id AS id, crmacct_number, crmacct_name,
   cntct.*, addr.*,
-  crmacct_cust_id IS NULL AS cust,
-  crmacct_prospect_id IS NULL AS prospect,
-  crmacct_vend_id IS NULL AS vend,
-  crmacct_competitor_id IS NULL AS competitor,
-  crmacct_partner_id IS NULL AS partner,
-  crmacct_taxauth_id IS NULL AS taxauth 
+  (crmacct_cust_id IS NOT NULL) AS cust,
+  (crmacct_prospect_id IS NOT NULL) AS prospect,
+  (crmacct_vend_id IS NOT NULL) AS vend,
+  (crmacct_competitor_id IS NOT NULL) AS competitor,
+  (crmacct_partner_id IS NOT NULL) AS partner,
+  (crmacct_taxauth_id IS NOT NULL) AS taxauth 
 FROM crmacct LEFT OUTER JOIN
   cntct ON (crmacct_cntct_id_1=cntct_id) LEFT OUTER JOIN
   addr ON (cntct_addr_id=addr_id) 
