@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section647554">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>standard costs</primary>
       <secondary>updating by class code</secondary>
-    </indexterm> <indexterm significance="normal">
+    </indexterm><indexterm significance="normal">
       <primary>class codes</primary>
       <secondary>updating standard costs for</secondary>
     </indexterm>Update Standard Costs by Class Code</title>
@@ -16,17 +16,14 @@
   be Standard Costs. To update Standard Costs by Class Code, select the
   "Update Standard Costs by Class Code" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/postStandCostsByClassCode.png"/>
+          <imagedata fileref="images/postStandCostsByClassCode.png" />
         </imageobject>
-        <caption>Update Standard Costs by Class
-        Code</caption>
+        <caption>Update Standard Costs by Class Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>For best performance, you should run this utility by All Class
     Codes. This will also ensure your Costs are updated properly for any Items
@@ -63,8 +60,7 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>standard costs</primary>
           <secondary>rolling up of</secondary>
         </indexterm>Roll Up Standard Costs</term>
@@ -80,14 +76,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>material costs</primary>
           <secondary>updating of</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>costing</primary>
           <secondary>updating of material costs</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>standard costs</primary>
           <secondary>updating material costs</secondary>
         </indexterm>Update Lower Level Material Costs</term>
@@ -149,14 +144,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>user costs</primary>
           <secondary>updating of</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>costing</primary>
           <secondary>updating of user costs</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>standard costs</primary>
           <secondary>updating user costs</secondary>
         </indexterm>Update User Costs</term>
@@ -173,29 +167,14 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
+  <para>The following buttons are unique to this screen:</para>
   <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without updating selected Costs, returning you
-        to the application desktop.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>UPDATE</term>
       <listitem>
         <para>Updates all selected Costs for the specified Item. If the option
         "Roll Up Standard Costs" has been selected, the total Standard Cost
         for the specified Item will be updated.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>SUBMIT</term>
-      <listitem>
-        <para>Select to submit requested action to the Batch Manager for
-        processing.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

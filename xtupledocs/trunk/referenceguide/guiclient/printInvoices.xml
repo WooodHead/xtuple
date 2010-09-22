@@ -21,6 +21,11 @@
     </screenshot></para>
   <para>When printing Invoices, you are presented with the following
   options:</para>
+  <para role="standard"><note>
+      <para>If the Customer specified on the Invoice has an EDI Profile
+      defined, you may encounter an EDI processing interface when printing
+      individual Invoices.</para>
+    </note></para>
   <variablelist>
     <varlistentry>
       <term>First Invoice #</term>
@@ -61,28 +66,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without printing Invoices, returning you to
-        the application desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>PRINT</term>
-      <listitem>
-        <para>Runs the report associated with this screen.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para role="standard"><note>
-      <para>If the Customer specified on the Invoice has an EDI Profile
-      defined, you may encounter an EDI processing interface when printing
-      individual Invoices.</para>
-    </note></para>
   <para>To add a Watermark to an Invoice, double-click on a copy line. The
   following screen will appear:</para>
   <para><screenshot>
@@ -107,23 +90,6 @@
       <term>Show Prices</term>
       <listitem>
         <para>Select to show Prices in the selected copy.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without adding a Watermark, returning you to
-        the previous screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Saves the Watermark definition to the selected copy.</para>
       </listitem>
     </varlistentry>
   </variablelist>
