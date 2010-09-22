@@ -69,6 +69,10 @@
   <loadpriv name="allowVouchering" module="TE">
    Allowed to Voucher Time/Exp Sheets
   </loadpriv>
+
+  <loadpriv name="PostTimeSheets" module="TE">
+   Allowed to Post Time Sheets
+  </loadpriv>
     
   <script file="database/misc/insertIntopriv.sql" />
   <script file="database/misc/schemaComment.sql" />

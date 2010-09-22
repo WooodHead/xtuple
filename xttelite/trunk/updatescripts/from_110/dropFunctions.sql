@@ -16,3 +16,5 @@ DROP FUNCTION te.addteprjtask(integer, text, integer, numeric, integer);
 DROP FUNCTION te.addteemprate(integer, numeric);
 DROP FUNCTION te.getprjcustid(text);
 DROP FUNCTION te.getprjcustid(integer);
+DROP FUNCTION te.invoicesheet(integer);
+DROP FUNCTION te.consolidateinvoice(integer);

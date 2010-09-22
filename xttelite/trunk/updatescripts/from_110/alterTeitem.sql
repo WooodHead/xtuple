@@ -12,3 +12,4 @@ ALTER TABLE te.teitem ADD COLUMN teitem_invcitem_id INTEGER REFERENCES invcitem 
 UPDATE te.teitem SET teitem_invcitem_id = invcitem_id
 FROM invcitem WHERE teitem_invchead_id = invcitem_invchead_id AND teitem_linenumber = invcitem_linenumber;
 ALTER TABLE te.teitem DROP COLUMN teitem_invchead_id;
+ALTER TABLE te.teitem ADD COLUMN teitem_postedvalue NUMERIC NOT NULL DEFAULT 0;

@@ -1,6 +1,6 @@
-CREATE OR REPLACE FUNCTION te.invoicesheet(integer) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION te.invoicesheets(integer[]) RETURNS integer AS $$
 DECLARE
-pHeadID ALIAS FOR $1;
+pHeadIDs ALIAS FOR $1;
 
 _invcnum text;
 _invcheadid integer;
@@ -10,14 +10,8 @@ _t record;
 _linenum integer;
 
 BEGIN
-
-        -- note that we are putting a very basic workflow in place here
-        --  A is approved...if further approval is needed (mgr, etc) then the status should goto P
+       -- Loop through time sheet items with matching criteria and make invoices
        FOR _s in SELECT DISTINCT 
-                   tehead_id, 
-                   tehead_number, 
-                   tehead_weekending,
-                   tehead_notes,
                    teitem_cust_id, 
                    teitem_po, 
                    prj_id, 
@@ -26,7 +20,7 @@ BEGIN
          JOIN te.teitem ON (teitem_tehead_id=tehead_id AND teitem_billable)
          JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
          JOIN prj ON (prjtask_prj_id=prj_id)
-       WHERE ((tehead_id = pHeadID)
+       WHERE ((tehead_id IN (SELECT * FROM te.unnest(pHeadIDs) ) )
         AND (teitem_billable)
         AND (teitem_invcitem_id IS NULL))
 
@@ -43,7 +37,7 @@ BEGIN
            COALESCE(addr_line2,''), COALESCE(addr_line3,''), COALESCE(addr_city,''),
            COALESCE(addr_state,''), COALESCE(addr_postalcode,''), cntct_phone, 
            '', '', '', '', '', '', '', '', cust_salesrep_id, salesrep_commission, cust_terms_id,
-           0, 0, '', -1, 0, '', _s.tehead_notes, COALESCE(addr_country,''), '', _s.prj_id, 
+           0, 0, '', -1, 0, '', '', COALESCE(addr_country,''), '', _s.prj_id, 
            _s.teitem_curr_id, current_date, false, null, null, null, null, null, cust_taxzone_id
          FROM custinfo
            JOIN salesrep ON (cust_salesrep_id=salesrep_id)
@@ -71,7 +65,7 @@ BEGIN
                JOIN item ON (item_id = teitem_item_id)
                JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
                JOIN prj ON (prjtask_prj_id=prj_id)
-             WHERE ((teitem_tehead_id = pHeadID) 
+             WHERE ((tehead_id IN (SELECT * FROM te.unnest(pHeadIDs) ) )
               AND (teitem_billable)
               AND (teitem_invcitem_id IS NULL)
               AND (item_id = teitem_item_id)
