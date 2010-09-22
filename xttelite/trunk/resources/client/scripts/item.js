@@ -8,20 +8,17 @@
  * to be bound by its terms.
  */
 
-//find the tab list and create a new widget to insert into it.
-var tablist = mywindow.findChild("_tab"); 
-// load a predefined screen by name from the database
-var expensePage = toolbox.loadUi("teexpense", mywindow);
+include("xtte");
+xtte.item = new Object;
 
-//insert the new tab
-toolbox.tabInsertTab(tablist,2,expensePage, "Project");
+var _tab = mywindow.findChild("_tab"); 
+var _expensePage = toolbox.loadUi("teexpense", mywindow);
+toolbox.tabInsertTab(_tab, 2, _expensePage, "Project");
 
+var _projectExpense = mywindow.findChild("_projectExpense");
 var _itemtype = mywindow.findChild("_itemtype");
-_itemtype['currentIndexChanged(QString)'].connect(handleExpense);
-
 var _close = mywindow.findChild("_close");
 var _description = mywindow.findChild("_description");
-var _item = mywindow.findChild("_itemNumber");
 var _account = mywindow.findChild("_account");
 var _expcat = mywindow.findChild("_expcat");
 var _accountSelected = mywindow.findChild("_accountSelected");
@@ -29,177 +26,101 @@ var _expcatSelected = mywindow.findChild("_expcatSelected");
 var _allowExpenseGroup = mywindow.findChild("_allowExpenseGroup");
 var _inventoryUOM = mywindow.findChild("_inventoryUOM");
 
-var _itemid;
-var _mode;
+var _itemid = -1;
 var _saved = false;
 
-tablist['currentChanged(int)'].connect(populate);
-_inventoryUOM.newID.connect(handleExpense);
+set = function(params)
+{
+  if("item_id" in params)
+  {
+    _itemid = params.item_id;
+    xtte.item.populate();
+  }
 
-var _save = mywindow.findChild("_save");
-_save.clicked.connect(sSave);
+  if("mode" in params)
+  {
+    if (params.mode == "view")
+      _expensePage.enabled = false;
+  }
 
-_allowExpenseGroup.toggled.connect(deleteExpenseItemSetup);
-_accountSelected.toggled.connect(clickswitch);
-_expcatSelected.toggled.connect(clickswitch);
+  return mainwindow.NoError;
+}
 
-function clickswitch()
+xtte.item.clickswitch = function()
 {
   if(_accountSelected.checked)
   {
     _account.enabled = true;
     _expcat.enabled = false;
     _expcat.setId(-1);
-  }else{
+  }
+  else
+  {
     _account.enabled = false;
     _expcat.enabled = true;
     _account.setId(-1);
   }
 }
 
-function set(params)
+xtte.item.save = function(id)
 {
-  if("itemid" in params)
-  {
-    _itemid = params.itemid;
-    populate();
-  }
-
-  if("mode" in params)
-    _mode = params.mode;
-
-  handleExpense();
-
-  return mainwindow.NoError;
-}
-
-
-function deleteExpenseItemSetup()
-{
-  try
-  {
-    if (_allowExpenseGroup.checked || !_saved)
-      return;
-
-    var msg = qsTr("Are you sure you do not want this item to be an expense item?")
-    if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg, 
-	QMessageBox.Yes | QMessageBox.Escape, 
-	QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
-    {
-      var params = new Object;
-      params.item = _item.text;
-
-      var q = toolbox.executeQuery("select getitemid(<? value('item') ?>) "
-        + "as itemid;",params);
-      if (q.first())
-      {
-        params.itemid = q.value("itemid");
-        var qry = toolbox.executeQuery('delete from te.teexp '
-	+ 'where teexp_id = <? value("itemid") ?>;',params);
-
-        if (qry.lastError().type != QSqlError.NoError)
-        {
-          toolbox.messageBox("critical", mywindow,
-                       qsTr("Database Error"), qry.lastError().text);
-          return;
-        }
-        _saved = false;
-        _allowExpenseGroup.checked = false;
-        _expcat.setId(-1);
-        _account.setId(-1);
-      }
-    }
-  }
-  catch (e)
-  {
-    print(e);
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
-  }
-}
-
-function sSave()
-{
-
   var params = new Object;
-  params.item = _item.text;
+  params.item_id = id;
   params.expcat_id = _expcat.id();
   params.accnt_id = _account.id();
 
-  if (params.expcat_id > 0 || params.accnt_id > 0) 
-  {
-    var q = toolbox.executeQuery("select getitemid(<? value('item') ?>) "
-      + "as itemid;",params);
-    if (q.first())
-    {
-      params.itemid = q.value("itemid");
-    }
+  var query = "updteexp";
+  if (!_projectExpense.checked)
+    query = "delteexp";
+  else if (_itemid == -1)
+    query = "insteexp";
 
-    var q_str = "";
-    if (_mode == "new" || _mode == "edit" )
-    {
-      // check to see if it's already in teexp
-      var q = toolbox.executeQuery("select teexp_id from te.teexp "
-        + "where teexp_id = <? value('itemid') ?>;",params);
-      if (q.first())
-      {  
-        q_str = 'UPDATE te.teexp '
-           +'   SET teexp_expcat_id=<? value("expcat_id") ?>,'
-           + 'teexp_accnt_id = <? value("accnt_id") ?> '
-           +' WHERE(teexp_id=<? value("itemid") ?>);';
-      }else{
-        if (params.itemid > 0)
-        {
-          q_str = 'INSERT INTO te.teexp '
-           +'(teexp_id, teexp_expcat_id, teexp_accnt_id) '
-           +'VALUES '
-           +'(<? value("itemid") ?>, <? value("expcat_id") ?>,<? value("accnt_id") ?>);';
-        }
-      }
-    }
-    var qry = toolbox.executeQuery(q_str, params);
-    if (qry.lastError().type != QSqlError.NoError)
-    {
-      toolbox.messageBox("critical", mywindow,
-                       qsTr("Database Error"), qry.lastError().text);
-      return;
-    }
-  }
+  var q = toolbox.executeDbQuery("item", query, params);
+  xtte.errorCheck(q);
 }
 
-function populate()
+xtte.item.populate = function()
 {
   var params = new Object;
   params.item_id = _itemid;
-  params.item = _item.text;
 
-  var q = toolbox.executeQuery("select getitemid(<? value('item') ?>) as itemid;",params);
+  var q = toolbox.executeDbQuery("item", "selteexp", params);
+
   if (q.first())
   {
-    params.item_id = q.value("itemid");
-  
-    var qry = toolbox.executeQuery('select teexp_id,teexp_expcat_id,teexp_accnt_id '
-                                + 'FROM te.teexp '
-                                + 'where teexp_id = <? value("item_id") ?>;',params);
+    _projectExpense.checked = true;
+    _expcat.setId(q.value("teexp_expcat_id"));
+    _account.setId(q.value("teexp_accnt_id"));
 
-    if(qry.first())
-    {
-      _saved = true;
-      _allowExpenseGroup.checked = true;
-      _expcat.setId(qry.value("teexp_expcat_id"));
-      _account.setId(qry.value("teexp_accnt_id"));
-
-      if(_account.id() > 0)
-      {
-        _accountSelected.checked = true;
-      }else{
-        _expcatSelected.checked = true;
-      }
-      params.item_id = q.value("itemid");
-    }
+    if(_account.id() > 0)
+      _accountSelected.checked = true;
+    else
+      _expcatSelected.checked = true;
   }
+  else if (!xtte.errorCheck(q))
+    return
+  else
+  {
+    _itemid = -1;
+    _projectExpense.checked = false;
+  }
+
+  xtte.item.handleExpense();
 }
 
-function handleExpense()
+xtte.item.handleExpense = function()
 {
-  tablist.setTabEnabled(tablist.indexOf(expensePage),_itemtype.currentIndex == 3);
+  _tab.setTabEnabled(_tab.indexOf(_expensePage), _itemtype.currentIndex == 3);
 }
+
+// Initialize
+_expcat.enabled = false;
+_account.setType(0x01 | 0x02 | 0x04); // Asset, Liability, Expense
+
+// Connections
+mywindow["saved(int)"].connect(xtte.item.save);
+_accountSelected.toggled.connect(xtte.item.clickswitch);
+_expcatSelected.toggled.connect(xtte.item.clickswitch);
+_itemtype['currentIndexChanged(QString)'].connect(xtte.item.handleExpense);
+_tab['currentChanged(int)'].connect(xtte.item.populate);
+_inventoryUOM.newID.connect(xtte.item.handleExpense);
