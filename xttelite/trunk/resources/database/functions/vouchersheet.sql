@@ -40,7 +40,7 @@ BEGIN
           teexp_expcat_id, teexp_accnt_id, emp_wage, emp_wage_period,
           vend_id, vend_taxzone_id, teitem_curr_id, vend_terms_id,
           vend_number, vend_1099, COALESCE(teemp_contractor,false) AS contractor,
-          emp_wage_type, warehous_code
+          warehous_code
          FROM te.tehead
            JOIN te.teitem ON (teitem_tehead_id=tehead_id)
            JOIN te.teexp ON (teitem_item_id=teexp_id)
@@ -62,7 +62,7 @@ BEGIN
        LOOP        
          IF (_first) THEN
            _voheadid = nextval('vohead_vohead_id_seq');
-           _wage := te.calcRate(_s.emp_wage, _s.emp_wage_type);
+           _wage := te.calcRate(_s.emp_wage, _s.emp_wage_period);
            
            INSERT INTO vohead (vohead_id, vohead_number, vohead_vend_id,
                vohead_distdate, vohead_docdate, vohead_duedate,

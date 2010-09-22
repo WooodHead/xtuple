@@ -183,7 +183,7 @@ xtte.timeExpenseSheets.voucherSheet = function()
 }
 
 xtte.timeExpenseSheets.postSheet = function()
-{
+{    
   if (xtte.timeExpenseSheets.processSheet(_sheets.id(), false, false, true))
     xtte.timeExpenseSheets.fillList();
 }
@@ -214,6 +214,15 @@ xtte.timeExpenseSheets.processSheet = function(id, invoice, voucher, post)
 
   if (post)
   {
+    if (!metrics.value("PrjLaborAndOverhead") > 0)
+    {
+      QMessageBox.critical(mywindow, qsTr("Setup Error"),
+                      qsTr("No Labor and Overhead Account defined in CRM Setup."));
+      return false;
+    }
+    params.phrase1 = qsTr("Post Time Sheet for ");
+    params.phrase2 = qsTr(" to Project");
+
     q = toolbox.executeDbQuery("timeexpensesheets", "post", params );	
     if (!xtte.errorCheck(q))
       return false;
@@ -420,7 +429,7 @@ xtte.timeExpenseSheets.printReport = function()
 
 xtte.timeExpenseSheets.showAllEmployeesSwitch = function()
 {
-  _employees.enabled = _showAllEmployees.checked;
+  _employee.enabled = _showAllEmployees.checked;
   xtte.timeExpenseSheets.fillList();
 }
 
@@ -443,12 +452,12 @@ xtte.timeExpenseSheets.populateEmployees = function()
     if (privileges.check("MaintainTimeExpenseSelf"))
     {
       if (_employee.id() == -1)
-        toolbox.messageBox("critical", mywindow, mywindow.windowTitle, 
+        QMessageBox.critical(mywindow, mywindow.windowTitle, 
                     qsTr("It appears that your current user isn't an active employee.") );                                            
     }
     else
     {
-      toolbox.messageBox("critical", mywindow, qsTr("Permissions Error"),
+      QMessageBox.critical(mywindow, qsTr("Permissions Error"),
                     qsTr("You do not have permissions to maintain time and expense entries"));
       if (mywindow.windowModality)
         mydialog.reject();
