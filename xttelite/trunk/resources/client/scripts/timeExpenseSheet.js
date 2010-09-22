@@ -299,9 +299,9 @@ xtte.timeExpenseSheet.fillList = function()
 
 xtte.timeExpenseSheet.close = function()
 {
-  if (_mode == xtte.newMode && _id != -1)
+  if (_mode == "new" && _id != -1)
   {
-    if (MessageBox.question(mywindow,
+    if (QMessageBox.question(mywindow,
                        qsTr("Delete Sheet"),
                        qsTr("<p>Are you sure you want to cancel this "
                        + "sheet and discard all your changes?"),

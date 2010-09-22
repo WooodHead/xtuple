@@ -54,37 +54,39 @@ xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
   if(pMenu != null)
   {
     var currentItem  = _sheets.currentItem();
+    var selected = _sheets.selectedItems();
+
     if (currentItem != null)
     {
-      var status = currentItem.rawValue("tehead_status");
+      if (selected.length == 1) // Can only handle editing for a single select
+      {
+        var status = currentItem.rawValue("tehead_status");
 
-      tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit..."), true);
-      tmpact.triggered.connect(xtte.timeExpenseSheets.editSheet);
-      tmpact.enabled = (status == 'O' && privileges.check("MaintainTimeExpense"));
+        tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit..."), true);
+        tmpact.triggered.connect(xtte.timeExpenseSheets.editSheet);
+        tmpact.enabled = (status == 'O' && privileges.check("MaintainTimeExpense"));
+ 
+        tmpact = toolbox.menuAddAction(pMenu, qsTr("View..."), true);
+        tmpact.triggered.connect(xtte.timeExpenseSheets.viewSheet);
+  
+        tmpact = toolbox.menuAddAction(pMenu, qsTr("Delete"), true);
+        tmpact.triggered.connect(xtte.timeExpenseSheets.deleteSheet);
+        tmpact.enabled = (status == 'O' && privileges.check("MaintainTimeExpense"));
+      }
 
-      tmpact = toolbox.menuAddAction(pMenu, qsTr("View..."), true);
-      tmpact.triggered.connect(xtte.timeExpenseSheets.viewSheet);
-
-      tmpact = toolbox.menuAddAction(pMenu, qsTr("Delete"), true);
-      tmpact.triggered.connect(xtte.timeExpenseSheets.deleteSheet);
-      tmpact.enabled = (status == 'O' && privileges.check("MaintainTimeExpense"));
-
-      if (status == 'O')
+      if (xtte.timeExpenseSheets.canApprove(selected))
       {
         pMenu.addSeparator();
         tmpact = toolbox.menuAddAction(pMenu, qsTr("Approve"), 
                                        privileges.check("CanApprove"));
-        tmpact.triggered.connect(xtte.timeExpenseSheets.approveSheet);
+        tmpact.triggered.connect(xtte.timeExpenseSheets.approveSheets);
       }
-      else if ((status == 'A') &&
-               (currentItem.rawValue("posted") < 1) &&
-               (currentItem.rawValue("vouchered") < 1) &&
-               (currentItem.rawValue("invoiced") < 1))
+      else if (xtte.timeExpenseSheets.canUnapprove(selected))
       {
         pMenu.addSeparator();
         tmpact = toolbox.menuAddAction(pMenu, qsTr("Uanpprove"), 
                                        privileges.check("CanApprove"));
-        tmpact.triggered.connect(xtte.timeExpenseSheets.unapproveSheet);
+        tmpact.triggered.connect(xtte.timeExpenseSheets.unapproveSheets);
       }
 
       if (status == 'A' || status == 'O')
@@ -94,39 +96,67 @@ xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
         tmpact.triggered.connect(xtte.timeExpenseSheets.closeSheet);
       }
 
-      if (status == 'A')
+      if ((xtte.timeExpenseSheets.canProcess("invoiced", selected)) ||
+          (xtte.timeExpenseSheets.canProcess("vouchered", selected)) ||
+          (xtte.timeExpenseSheets.canProcess("posted", selected)))
+        pMenu.addSeparator();
+
+      if (xtte.timeExpenseSheets.canProcess("invoiced", selected))
       {
-        if ((currentItem.rawValue("invoiced") == 0) ||
-            (currentItem.rawValue("vouchered") == 0) ||
-            (currentItem.rawValue("posted") == 0 ))
-          pMenu.addSeparator();
+        tmpact = toolbox.menuAddAction(pMenu, qsTr("Invoice"), true);
+        tmpact.triggered.connect(xtte.timeExpenseSheets.invoiceSheets);
+        tmpact.enabled = (privileges.check("allowInvoicing"));
+      }
 
-        if (currentItem.rawValue("posted") == 0)
-        {
-          tmpact = toolbox.menuAddAction(pMenu, qsTr("Post"), true);
-          tmpact.triggered.connect(xtte.timeExpenseSheets.postSheet);
-          tmpact.enabled = (status == 'A' && 
-                            privileges.check("PostTimeSheets"));
-        }
+      if (xtte.timeExpenseSheets.canProcess("vouchered", selected))
+      {
+        tmpact = toolbox.menuAddAction(pMenu, qsTr("Voucher"),true);
+        tmpact.triggered.connect(xtte.timeExpenseSheets.voucherSheets);
+        tmpact.enabled = (privileges.check("allowVouchering"));
+      }
 
-        if (currentItem.rawValue("vouchered") == 0)
-        {
-          tmpact = toolbox.menuAddAction(pMenu, qsTr("Voucher"),true);
-          tmpact.triggered.connect(xtte.timeExpenseSheets.voucherSheet);
-          tmpact.enabled = (status == 'A' && 
-                            privileges.check("allowVouchering"));
-        }
-
-        if (currentItem.rawValue("invoiced") == 0)
-        {
-          tmpact = toolbox.menuAddAction(pMenu, qsTr("Invoice"), true);
-          tmpact.triggered.connect(xtte.timeExpenseSheets.invoiceSheet);
-          tmpact.enabled = (status == 'A' && 
-                            privileges.check("allowInvoicing"));
-        }
+      if (xtte.timeExpenseSheets.canProcess("posted", selected))
+      {
+        tmpact = toolbox.menuAddAction(pMenu, qsTr("Post Time"), true);
+        tmpact.triggered.connect(xtte.timeExpenseSheets.postSheets);
+        tmpact.enabled = (privileges.check("PostTimeSheets"));
       }
     }
   }
+}
+
+xtte.timeExpenseSheets.canApprove = function(selected)
+{
+  for (var i = 0; i < selected.length; i++)
+  {
+     if (selected[i].rawValue("tehead_status") != 'O')
+       return false;
+  }
+  return true;
+}
+
+xtte.timeExpenseSheets.canUnapprove = function(selected)
+{
+  for (var i = 0; i < selected.length; i++)
+  {
+     if ((selected[i].rawValue("tehead_status") != 'A') ||
+         (selected[i].rawValue("posted") > 0) ||
+         (selected[i].rawValue("vouchered") > 0) ||
+         (selected[i].rawValue("invoiced") > 0))
+       return false;
+  }
+  return true;
+}
+
+xtte.timeExpenseSheets.canProcess = function(process, selected)
+{
+  for (var i = 0; i < selected.length; i++)
+  {
+     if ((selected[i].rawValue("tehead_status") != 'A') ||
+         (selected[i].rawValue(process) != 0))
+       return false;
+  }
+  return true;
 }
 
 xtte.timeExpenseSheets.approve = function()
@@ -142,50 +172,70 @@ xtte.timeExpenseSheets.approve = function()
  
       q = toolbox.executeDbQuery("timeexpensesheets", "approve", params );
       if (!xtte.errorCheck(q))
+      {
         toolbox.executeRollback();
+        return;
+      }
     } 
   }
   toolbox.executeCommit();
   xtte.timeExpenseSheets.fillList();
 }
 
-xtte.timeExpenseSheets.approveSheet = function()
+xtte.timeExpenseSheets.approveSheets = function()
 {
-  var params   = new Object();
-  params.tehead_id = _sheets.id();    
+  toolbox.executeBegin();
+  var selected = _sheets.selectedItems();
+  for (var i = 0; i < selected.length; i++)
+  {
+    var params   = new Object();
+    params.tehead_id = selected[i].id();    
 
-  q = toolbox.executeDbQuery("timeexpensesheets", "approve", params );	
-  if (xtte.errorCheck(q))
-    xtte.timeExpenseSheets.fillList(); 
+    q = toolbox.executeDbQuery("timeexpensesheets", "approve", params );	
+    if (!xtte.errorCheck(q))
+    {
+      toolbox.executeRollback();
+      return;
+    }
+  }
+  toolbox.executeCommit();
+  xtte.timeExpenseSheets.fillList(); 
 }
 
-xtte.timeExpenseSheets.unapproveSheet = function()
+xtte.timeExpenseSheets.unapproveSheets = function()
 {
-  var params   = new Object();
-  params.tehead_id = _sheets.id();    
+  toolbox.executeBegin();
+  var selected = _sheets.selectedItems();
+  for (var i = 0; i < selected.length; i++)
+  {
+    var params   = new Object();
+    params.tehead_id = selected[i].id();    
 
-  q = toolbox.executeDbQuery("timeexpensesheets", "unapprove", params );	
-  if (xtte.errorCheck(q))
-    xtte.timeExpenseSheets.fillList(); 
+    q = toolbox.executeDbQuery("timeexpensesheets", "unapprove", params );	
+    if (!xtte.errorCheck(q))
+    {
+      toolbox.executeRollback();
+      return;
+    }
+  }
+  toolbox.executeCommit();
+  xtte.timeExpenseSheets.fillList(); 
 }
 
 
-xtte.timeExpenseSheets.invoiceSheet = function()
+xtte.timeExpenseSheets.invoiceSheets = function()
 {
-  if (xtte.timeExpenseSheets.processSheet(_sheets.id(), true, false, false))
-    xtte.timeExpenseSheets.fillList();
+  xtte.timeExpenseSheets.processSheets(_sheets.selectedItems(), true, false, false);
 } 
 
-xtte.timeExpenseSheets.voucherSheet = function()
+xtte.timeExpenseSheets.voucherSheets = function()
 {
-  if (xtte.timeExpenseSheets.processSheet(_sheets.id(), false, true, false))
-    xtte.timeExpenseSheets.fillList();
+  xtte.timeExpenseSheets.processSheets(_sheets.selectedItems(), false, true, false);
 }
 
-xtte.timeExpenseSheets.postSheet = function()
+xtte.timeExpenseSheets.postSheets = function()
 {    
-  if (xtte.timeExpenseSheets.processSheet(_sheets.id(), false, false, true))
-    xtte.timeExpenseSheets.fillList();
+  xtte.timeExpenseSheets.processSheets(_sheets.selectedItems(), false, false, true);
 }
 
 xtte.timeExpenseSheets.process = function()
@@ -193,41 +243,77 @@ xtte.timeExpenseSheets.process = function()
   // TO DO...
 }
 
-xtte.timeExpenseSheets.processSheet = function(id, invoice, voucher, post)
+xtte.timeExpenseSheets.processSheets = function(selected, invoice, voucher, post)
 {
-  var params   = new Object();
-  params.tehead_id = id;    
+  toolbox.executeBegin();
 
   if (invoice)
-  {
+  { 
+    // Create an array so invoices can be consolidated
+    var ids = [];
+    for (var i = 0; i < selected.length; i++)
+      ids[i] = selected[i].id();
+      
+    var params   = new Object();
+    params.tehead_ids = ids;    
+
     q = toolbox.executeDbQuery("timeexpensesheets", "invoice", params );	
     if (!xtte.errorCheck(q))
-      return false;
-  }
-
-  if (voucher)
-  {
-    q = toolbox.executeDbQuery("timeexpensesheets", "voucher", params );	
-    if (!xtte.errorCheck(q))
-      return false;
-  }
-
-  if (post)
-  {
-    if (!metrics.value("PrjLaborAndOverhead") > 0)
     {
-      QMessageBox.critical(mywindow, qsTr("Setup Error"),
-                      qsTr("No Labor and Overhead Account defined in CRM Setup."));
+      toolbox.executeRollback();
       return false;
     }
-    params.phrase1 = qsTr("Post Time Sheet for ");
-    params.phrase2 = qsTr(" to Project");
-
-    q = toolbox.executeDbQuery("timeexpensesheets", "post", params );	
-    if (!xtte.errorCheck(q))
-      return false;
   }
 
+  for (var i = 0; i < selected.length; i++)
+  {
+    var params   = new Object();
+    params.tehead_id = selected[i].id();  
+
+    if (voucher)
+    {
+      q = toolbox.executeDbQuery("timeexpensesheets", "voucher", params );	
+      if (!xtte.errorCheck(q))
+      {
+        toolbox.executeRollback();
+        return false;
+      }
+    }
+
+    if (post)
+    {
+      if (!metrics.value("PrjLaborAndOverhead") > 0)
+      {
+        QMessageBox.critical(mywindow, qsTr("Setup Error"),
+                         qsTr("No Labor and Overhead Account defined in CRM Setup."));
+        {
+          toolbox.executeRollback();
+          return false;
+        }
+      }
+
+      params.phrase1 = qsTr("Post Time Sheet for ");
+      params.phrase2 = qsTr(" to Project");
+
+      q = toolbox.executeDbQuery("timeexpensesheets", "post", params );	  
+      if (!xtte.errorCheck(q))
+        return false;
+    }
+  }
+   
+  toolbox.executeCommit();
+
+  if (invoice)
+    mainwindow.invoicesUpdated(1, true);
+
+  if (voucher)
+    mainwindow.vouchersUpdated();
+
+  if (post)
+    mainwindow.glSeriesUpdated();
+
+  xtte.timeExpenseSheets.fillList(); 
+  
   return true;
 }
 
@@ -240,7 +326,7 @@ xtte.timeExpenseSheets.deleteSheet = function()
     var params   = new Object();
     params.tehead_id = _sheets.id();    
 
-    toolbox.executeDbQuery("te", "deltehead", params );
+    toolbox.executeDbQuery("timeexpensesheet", "deltehead", params );
 
     xtte.timeExpenseSheets.fillList();
   }
@@ -295,53 +381,6 @@ xtte.timeExpenseSheets.openSheet = function(mode)
   toolbox.lastWindow().set(params);
   te.exec();
   xtte.timeExpenseSheets.fillList();
-}
-
-xtte.timeExpenseSheets.consolidateSheet = function()
-{
-  var selected = _sheets.selectedItems();
-  
-  for (var i = 0; i < selected.length; i++){
-    // check the billing status.  If it's already been invoiced, prompt the user with 
-    // an error.  Require the invoices to be at an Approved status
-    if (selected[i].rawValue("bill_status") != 'A')
-    {
-      toolbox.messageBox("critical", mywindow,qsTr("Error"), 
-          qsTr("Invoices should be at an Approved status to be consolidated") );
-      return;
-    }  
-  }
-
-  var params = new Object;
-
-  // get the next number for the teselect_cons_id field
-  var q;
-  q = toolbox.executeQuery("select nextval('te.cons_seq') as cons_id;",params);
-
-  if (q.first())
-  {
-    params.cons_id = (q.value("cons_id"));
-  }
-
-  for (var i = 0; i < selected.length; i++){
-
-    params.id = selected[i].id();
-
-    if (params.cons_id > 0)
-    {
-      var q;
-      q = toolbox.executeQuery('INSERT INTO te.teselect '
-           +'(teselect_cons_id, teselect_tehead_id) '
-           +'VALUES '
-           +'(<? value("cons_id") ?>,<? value("id") ?>);',params);
-    }
-  }
-
-  var q;
-  q = toolbox.executeQuery("select te.consolidateinvoice(<? value('cons_id') ?>);",params);
-
-  xtte.timeExpenseSheets.fillList();
-
 }
 
 xtte.timeExpenseSheets.getParams = function()
@@ -506,6 +545,9 @@ _query.triggered.connect(xtte.timeExpenseSheets.fillList);
 
 _showAllEmployees.toggled.connect(xtte.timeExpenseSheets.showAllEmployeesSwitch);
 _employee["newId(int)"].connect(xtte.timeExpenseSheets.fillList);
+
+mainwindow.invoicesUpdated.connect(xtte.timeExpenseSheets.fillList);
+mainwindow.vouchersUpdated.connect(xtte.timeExpenseSheets.fillList);
 
 _sheets["populateMenu(QMenu *, XTreeWidgetItem *, int)"].connect(xtte.timeExpenseSheets.populateMenu);
 if (privileges.check("MaintainTimeExpense"))

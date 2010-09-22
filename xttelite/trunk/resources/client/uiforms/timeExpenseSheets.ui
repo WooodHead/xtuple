@@ -201,6 +201,9 @@ to be bound by its terms.</comment>
    </item>
    <item row="2" column="0">
     <widget class="XTreeWidget" name="_sheets">
+     <property name="selectionMode">
+      <enum>QAbstractItemView::ExtendedSelection</enum>
+     </property>
      <property name="populateLinear">
       <bool>false</bool>
      </property>
@@ -222,9 +225,9 @@ to be bound by its terms.</comment>
       </widget>
      </item>
      <item>
-      <widget class="XCheckBox" name="_post">
+      <widget class="XCheckBox" name="_invoice">
        <property name="text">
-        <string>Post</string>
+        <string>Invoice</string>
        </property>
       </widget>
      </item>
@@ -236,16 +239,9 @@ to be bound by its terms.</comment>
       </widget>
      </item>
      <item>
-      <widget class="XCheckBox" name="_invoice">
+      <widget class="XCheckBox" name="_post">
        <property name="text">
-        <string>Invoice</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="XCheckBox" name="_consolidate">
-       <property name="text">
-        <string>Consolidate Invoices by Customer</string>
+        <string>Post Time</string>
        </property>
       </widget>
      </item>
