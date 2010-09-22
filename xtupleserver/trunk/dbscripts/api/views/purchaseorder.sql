@@ -25,7 +25,7 @@ BEGIN;
     pohead_freight AS freight,
     pohead_comments AS notes,
     pohead_dropship AS dropship,
-    pohead_vend_cntct_id AS vend_cntct_id,
+    vc.cntct_number AS vend_contact_number,
     pohead_vend_cntct_honorific AS vend_cntct_honorific,
     pohead_vend_cntct_first_name AS vend_cntct_first_name,
     pohead_vend_cntct_middle AS vend_cntct_middle,
@@ -42,7 +42,7 @@ BEGIN;
     pohead_vendstate AS vendstate,
     pohead_vendzipcode AS vendzipcode,
     pohead_vendcountry AS vendcountry,
-    pohead_shipto_cntct_id AS shipto_cntct_id,
+    sc.cntct_number AS shipto_contact_number,
     pohead_shipto_cntct_honorific AS shipto_cntct_honorific,
     pohead_shipto_cntct_first_name AS shipto_cntct_first_name,
     pohead_shipto_cntct_middle AS shipto_cntct_middle,
@@ -52,7 +52,7 @@ BEGIN;
     pohead_shipto_cntct_title AS shipto_cntct_title,
     pohead_shipto_cntct_fax AS shipto_cntct_fax,
     pohead_shipto_cntct_email AS shipto_cntct_email,
-    pohead_shiptoddress_id AS shiptoddress_id,
+    addr_number AS shiptoaddress_number,
     pohead_shiptoaddress1 AS shiptoaddress1,
     pohead_shiptoaddress2 AS shiptoaddress2,
     pohead_shiptoaddress3 AS shiptoaddress3,
@@ -60,12 +60,16 @@ BEGIN;
     pohead_shiptostate AS shiptostate,
     pohead_shiptozipcode AS shiptozipcode,
     pohead_shiptocountry AS shiptocountry,
-    pohead_cohead_id AS cohead_id
+    cohead_number AS sales_order_number
   FROM pohead
+    LEFT OUTER JOIN cntct vc ON (pohead_vend_cntct_id=vc.cntct_id)
+    LEFT OUTER JOIN cntct sc ON (pohead_shipto_cntct_id=sc.cntct_id)
+    LEFT OUTER JOIN addr     ON (pohead_shiptoddress_id=addr_id)
     LEFT OUTER JOIN terms ON (pohead_terms_id=terms_id)
     LEFT OUTER JOIN taxzone ON (pohead_taxzone_id=taxzone_id)
     LEFT OUTER JOIN whsinfo ON (pohead_warehous_id=warehous_id)
     LEFT OUTER JOIN vendaddrinfo ua ON (pohead_vendaddr_id=vendaddr_id)
+    LEFT OUTER JOIN cohead ON (pohead_cohead_id=cohead_id)
     JOIN vendinfo ON (pohead_vend_id=vend_id)
     JOIN curr_symbol ON (pohead_curr_id=curr_id)
   ORDER BY pohead_number;
@@ -152,9 +156,9 @@ COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
     COALESCE(NEW.ship_via,vend_shipvia),
     COALESCE(getCurrId(NEW.currency),vend_curr_id),
     COALESCE(NEW.freight,0),
-    COALESCE(NEW.notes,''),
+    NEW.notes,
     COALESCE(NEW.dropship, FALSE),
-    COALESCE(NEW.vend_cntct_id,-1),
+    getCntctId(NEW.vend_contact_number),
     COALESCE(NEW.vend_cntct_honorific,''),
     COALESCE(NEW.vend_cntct_first_name,''),
     COALESCE(NEW.vend_cntct_middle,''),
@@ -171,7 +175,7 @@ COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
     COALESCE(NEW.vendstate,''),
     COALESCE(NEW.vendzipcode,''),
     COALESCE(NEW.vendcountry,''),
-    COALESCE(NEW.shipto_cntct_id,-1),
+    getCntctId(NEW.shipto_contact_number),
     COALESCE(NEW.shipto_cntct_honorific,''),
     COALESCE(NEW.shipto_cntct_first_name,''),
     COALESCE(NEW.shipto_cntct_middle,''),
@@ -181,7 +185,7 @@ COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
     COALESCE(NEW.shipto_cntct_title,''),
     COALESCE(NEW.shipto_cntct_fax,''),
     COALESCE(NEW.shipto_cntct_email,''),
-    COALESCE(NEW.shiptoddress_id,-1),
+    getAddrId(NEW.shiptoaddress_number),
     COALESCE(NEW.shiptoaddress1,''),
     COALESCE(NEW.shiptoaddress2,''),
     COALESCE(NEW.shiptoaddress3,''),
@@ -189,7 +193,7 @@ COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
     COALESCE(NEW.shiptostate,''),
     COALESCE(NEW.shiptozipcode,''),
     COALESCE(NEW.shiptocountry,''),
-    COALESCE(NEW.cohead_id,-1)
+    getCoheadId(NEW.sales_order_number)
   FROM vendinfo
   WHERE (vend_id=getVendId(NEW.vendor_number));
  
@@ -210,7 +214,7 @@ COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
     pohead_freight=NEW.freight,
     pohead_comments=NEW.notes,
     pohead_dropship=NEW.dropship,
-    pohead_vend_cntct_id=NEW.vend_cntct_id,
+    pohead_vend_cntct_id=getCntctId(NEW.vend_contact_number),
     pohead_vend_cntct_honorific=NEW.vend_cntct_honorific,
     pohead_vend_cntct_first_name=NEW.vend_cntct_first_name,
     pohead_vend_cntct_middle=NEW.vend_cntct_middle,
@@ -227,7 +231,7 @@ COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
     pohead_vendstate=NEW.vendstate,
     pohead_vendzipcode=NEW.vendzipcode,
     pohead_vendcountry=NEW.vendcountry,
-    pohead_shipto_cntct_id=NEW.shipto_cntct_id,
+    pohead_shipto_cntct_id=getCntctId(NEW.shipto_contact_number),
     pohead_shipto_cntct_honorific=NEW.shipto_cntct_honorific,
     pohead_shipto_cntct_first_name=NEW.shipto_cntct_first_name,
     pohead_shipto_cntct_middle=NEW.shipto_cntct_middle,
@@ -237,7 +241,7 @@ COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
     pohead_shipto_cntct_title=NEW.shipto_cntct_title,
     pohead_shipto_cntct_fax=NEW.shipto_cntct_fax,
     pohead_shipto_cntct_email=NEW.shipto_cntct_email,
-    pohead_shiptoddress_id=NEW.shiptoddress_id,
+    pohead_shiptoddress_id=getAddrId(NEW.shiptoaddress_number),
     pohead_shiptoaddress1=NEW.shiptoaddress1,
     pohead_shiptoaddress2=NEW.shiptoaddress2,
     pohead_shiptoaddress3=NEW.shiptoaddress3,
@@ -245,7 +249,7 @@ COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
     pohead_shiptostate=NEW.shiptostate,
     pohead_shiptozipcode=NEW.shiptozipcode,
     pohead_shiptocountry=NEW.shiptocountry,
-    pohead_cohead_id=NEW.cohead_id
+    pohead_cohead_id=getCoheadId(NEW.sales_order_number)
   WHERE (pohead_number=OLD.order_number);
 
   CREATE OR REPLACE RULE "_DELETE" AS
