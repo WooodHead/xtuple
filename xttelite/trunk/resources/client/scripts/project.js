@@ -126,7 +126,7 @@ xtte.project.openTask = function(mode)
   toolbox.lastWindow().set(params);
   var result = win.exec();
   if(result != 0)
-    mywindow.sFillTaskList();
+    mywindow.populate();
 }
 
 

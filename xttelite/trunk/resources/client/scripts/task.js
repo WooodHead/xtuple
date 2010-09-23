@@ -17,6 +17,8 @@ toolbox.tabInsertTab(_tab, 2, _tebilling, qsTr("Billing"));
 _tab.setEnabled(2, privileges.check("CanViewRates"));
 
 var _number = mywindow.findChild("_number");
+var _actualHours = mywindow.findChild("_actualHours");
+var _actualExp = mywindow.findChild("_actualExp");
 var _billingGroup = _tebilling.findChild("_billingGroup");
 var _itemGroup = _tebilling.findChild("_itemGroup");
 var _cust = _tebilling.findChild("_cust");
@@ -109,14 +111,14 @@ xtte.task.populate = function()
       _useItem.checked = true;
       _item.setId(q.value("item_id"));
     }
-
-    return;
   }
   else
     xtte.errorCheck(q);
 }
 
 // Initialize
+_actualHours.enabled = false;  // Going to control strictly from T/E history
+_actualExp.enabled = false;    // ''
 _item.setQuery(xtte.itemSql);
 _useItem.checked = false;
 
