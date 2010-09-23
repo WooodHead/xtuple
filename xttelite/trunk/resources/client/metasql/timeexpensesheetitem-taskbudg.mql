@@ -7,4 +7,4 @@ SELECT
   formatmoney(prjtask_exp_budget) as budget_cost,
   formatmoney(prjtask_exp_actual) as actual_cost 
 FROM prjtask 
-WHERE (prjtask_id = <? value("taskid") ?>)
+WHERE (prjtask_id = <? value("task_id") ?>)

@@ -39,6 +39,8 @@ var _actualCost         = mywindow.findChild("_actualCost");
 var _budgetCost         = mywindow.findChild("_budgetCost");
 var _notes              = mywindow.findChild("_notes");
 var _sheetLit 	 = mywindow.findChild("_sheetLit");
+var _dayHrs		 = mywindow.findChild("_dayHrs");
+var _weekHrs            = mywindow.findChild("_weekHrs");
 
 var _cancel = _buttonBox.button(QDialogButtonBox.Cancel);
 var _prev = _buttonBox.addButton(qsTr("Prev"), QDialogButtonBox.ActionRole);
@@ -114,7 +116,9 @@ set = function(input)
 
 xtte.timeExpenseSheetItem.extension = function()
 {
-  _total.localValue = (_hours.localValue * _rate.localValue)
+  _total.localValue = (_hours.toDouble() * _rate.localValue);
+  if (_type.code == 'T')
+    xtte.timeExpenseSheetItem.empTotals();
   xtte.timeExpenseSheetItem.modified();
 }
 
@@ -148,7 +152,8 @@ xtte.timeExpenseSheetItem.gettask = function()
     }
 
     xtte.timeExpenseSheetItem.getPrice();
-    xtte.timeExpenseSheetItem.setActualBudget();
+    xtte.timeExpenseSheetItem.budgTotals();
+    xtte.timeExpenseSheetItem.actTotals();
   }
 }
 
@@ -212,7 +217,7 @@ xtte.timeExpenseSheetItem.populate = function()
     _workdate.date = (qry.value("teitem_workdate"));
     _rate.setId(qry.value("teitem_curr_id") - 0);
     _rate.localValue = (qry.value("teitem_rate"));
-    _hours.localValue = (qry.value("teitem_qty"));
+    _hours.text = (qry.value("teitem_qty"));
     _items.setId(qry.value("teitem_item_id"));
     _employee.setId(qry.value("tehead_emp_id"));
     _clients.setId(qry.value("teitem_cust_id"));
@@ -240,6 +245,8 @@ xtte.timeExpenseSheetItem.populate = function()
   }
   else if (!xtte.errorCheck)
     return;
+
+  xtte.timeExpenseSheetItem.empTotals();
 }
 
 xtte.timeExpenseSheetItem.accepted = function()
@@ -283,7 +290,7 @@ xtte.timeExpenseSheetItem.save = function()
   params.teitem_cust_id        = _clients.id();
   params.teitem_po             = _po.text;
   params.teitem_item_id        = _items.id();
-  params.teitem_qty            = _hours.localValue;
+  params.teitem_qty            = _hours.toDouble();
   params.teitem_rate           = _rate.localValue;
   params.teitem_total          = _total.localValue;
   params.teitem_prjtask_id     = _task.id();
@@ -328,7 +335,9 @@ xtte.timeExpenseSheetItem.typeChanged = function()
     _rate.enabled = true;
     _rate.localValue = 0;
   }
+
   xtte.timeExpenseSheetItem.getPrice();
+  xtte.timeExpenseSheetItem.empTotals();
   xtte.timeExpenseSheetItem.modified();
 }
 
@@ -413,15 +422,16 @@ xtte.timeExpenseSheetItem.taskChanged = function()
   }
 
   xtte.timeExpenseSheetItem.getPrice();
-  xtte.timeExpenseSheetItem.setActualBudget();
+  xtte.timeExpenseSheetItem.budgTotals();
+  xtte.timeExpenseSheetItem.actTotals();
   xtte.timeExpenseSheetItem.modified();
 }
 
-xtte.timeExpenseSheetItem.setActualBudget = function()
+xtte.timeExpenseSheetItem.budgTotals = function()
 {
   var params = new Object;
-  params.prjid = _project.id();
-  params.taskid = _task.id();
+  params.prj_id = _project.id();
+  params.task_id = _task.id();
  
   var q = toolbox.executeDbQuery("timeexpensesheetitem", "taskbudg",params);
   if (q.first())
@@ -437,10 +447,10 @@ xtte.timeExpenseSheetItem.setActualBudget = function()
 }
 
 
-xtte.timeExpenseSheetItem.rollupActual = function()
+xtte.timeExpenseSheetItem.actTotals = function()
 {
   var parms = new Object;
-  parms.taskid = _task.id();
+  parms.task_id = _task.id();
 
   _totalCost = 0;
   _totalhrs = 0;    
@@ -459,6 +469,29 @@ xtte.timeExpenseSheetItem.rollupActual = function()
     xtte.errorCheck(q);
 }
 
+xtte.timeExpenseSheetItem.empTotals = function()
+{
+  if (_populating)
+    return;
+
+  var params = new Object;
+  params.teitem_id = _teitemid;
+  params.tehead_id = _headid;
+  params.emp_id = _employee.id();
+  params.workDate = _workdate.date;
+  if (_type.code == 'T')
+    params.hours = _hours.toDouble() - 0;
+
+  var q = toolbox.executeDbQuery("timeexpensesheetitem", "emptotals", params);
+
+  if (q.first())
+  {
+    _dayHrs.setText(q.value("day_hours"));
+    _weekHrs.setText(q.value("sheet_hours"));
+  } 
+  else
+    xtte.errorCheck(q);
+}
 
 xtte.timeExpenseSheetItem.prev = function()
 {
@@ -570,7 +603,7 @@ xtte.timeExpenseSheetItem.clear = function()
   _workdate.clear();
   _workdate.enabled = true;
   _workdate.setFocus();
-  _hours.localValue = 0;
+  _hours.text = "0.0";
   _hours.enabled = true;
   _rate.localValue = 0;
   _items.enabled = true;
@@ -611,6 +644,8 @@ xtte.timeExpenseSheetItem.setSecurity = function()
 }
 
 // Initialize default states
+_hours.setValidator(mainwindow.qtyVal());
+
 _prev.enabled = false;
 _next.enabled = false;
 _task.enabled = false;
@@ -640,7 +675,7 @@ _next.clicked.connect(xtte.timeExpenseSheetItem.next);
 
 _task.newID.connect(xtte.timeExpenseSheetItem.taskChanged);
 _rate.valueChanged.connect(xtte.timeExpenseSheetItem.extension);
-_hours.valueChanged.connect(xtte.timeExpenseSheetItem.extension);
+_hours.editingFinished.connect(xtte.timeExpenseSheetItem.extension);
 _type.newID.connect(xtte.timeExpenseSheetItem.typeChanged);
 _items["newId(int)"].connect(xtte.timeExpenseSheetItem.getPrice);
 _clients["newId(int)"].connect(xtte.timeExpenseSheetItem.customerChanged);
