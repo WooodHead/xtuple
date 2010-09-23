@@ -19,6 +19,11 @@
     </screenshot></para>
   <para>When re-printing an Invoice, you are presented with the following
   options:</para>
+  <para role="standard"><note>
+      <para>If the Customer specified on a Credit Memo has an EDI Profile
+      attached, you may encounter an EDI processing interface when printing
+      it.</para>
+    </note></para>
   <variablelist>
     <varlistentry>
       <term>Search for Invoice Number</term>
@@ -90,33 +95,4 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CLOSE</term>
-      <listitem>
-        <para>Closes the screen without re-printing Invoices, returning you to
-        the application desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>QUERY</term>
-      <listitem>
-        <para>Select to generate a list of Invoices for re-printing, using the
-        specified parameters.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>PRINT</term>
-      <listitem>
-        <para>Runs the report associated with this screen.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para role="standard"><tip>
-      <para>If the Customer specified on the Invoice has an EDI Profile
-      defined, you may encounter an EDI processing interface when printing
-      individual Invoices.</para>
-    </tip></para>
 </section>

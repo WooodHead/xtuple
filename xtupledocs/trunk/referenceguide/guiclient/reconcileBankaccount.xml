@@ -82,10 +82,10 @@
       <term><indexterm significance="normal">
           <primary>checks</primary>
           <secondary>marking as cleared</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>bank reconciliations</primary>
           <secondary>marking checks as cleared</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>bank reconciliations</primary>
           <secondary>marking deposits as cleared</secondary>
         </indexterm> Deposits</term>
@@ -121,10 +121,10 @@
       <term><indexterm significance="normal">
           <primary>adjustments</primary>
           <secondary>entering for bank accounts</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>bank adjustments</primary>
           <secondary>entering new</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>bank accounts</primary>
           <secondary>adjusting balances for</secondary>
         </indexterm>ADD ADJUSTMENT</term>
@@ -169,8 +169,8 @@
         <para>Displays the cleared balance. The cleared balance is calculated
         based on the following formula:</para>
         <informalexample>
-          <para>(Opening Balance) + (Cleared Deposits) - (Cleared
-          Payments)</para>
+          <para><literal>(Opening Balance) + (Cleared Deposits) - (Cleared
+          Payments)</literal></para>
         </informalexample>
         <para><tip>
             <para>A successful Bank Reconciliation will result in the cleared
@@ -182,28 +182,21 @@
       <term>Difference</term>
       <listitem>
         <para>Displays the difference between the ending balance and the
-        cleared balance.</para>
-        <tip>
-          <para>A successful Bank Reconciliation will result in having "0.00"
-          displayed as the amount of difference between the two
-          balances.</para>
-        </tip>
+        cleared balance. A successful Bank Reconciliation will result in
+        having "0.00" displayed as the amount of difference between the two
+        balances.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
+  <para>The following buttons are unique to this screen:</para>
+  <tip>
+    <para>If you want to save any work you have done in the current or a prior
+    session, you should select the SAVE button. Selecting CANCEL can cause
+    your saved information to be cleared. The next time you open the Bank
+    Reconciliation screen, the work you saved previously will be ready for you
+    to start working on it again.</para>
+  </tip>
   <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without reconciling a Bank Account, returning
-        you to the application desktop. If you want to save any work you have
-        done in the current or a prior session, you should select the SAVE
-        button. Selecting CANCEL can cause your saved information to be
-        cleared.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>RECONCILE</term>
       <listitem>
@@ -221,15 +214,6 @@
     Reconciliations.</para>
   </note>
   <variablelist>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Select this option to save your work during the current Bank
-        Reconciliation. The next time you open the Bank Reconciliation screen,
-        the work you saved previously will be ready for you to start working
-        on it again.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>UPDATE</term>
       <listitem>
