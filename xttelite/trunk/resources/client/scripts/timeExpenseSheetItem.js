@@ -275,12 +275,25 @@ xtte.timeExpenseSheetItem.save = function()
 
     if (_task.id == -1)
       throw new Error(qsTr("Task Required"));
+
+    if (_hours.toDouble < 0 && _billable.checked)
+      throw new Error(qsTr("Billing of negative amounts is not supported"));
   }
   catch (e)
   {
     QMessageBox.critical(mywindow, qsTr("Processing Error"), e.message);
     return false;
   }
+
+  if (_hours.toDouble() <= 0 && _type.code == 'E' && !_prepaid.checked)
+  {
+    var msg = qsTr("The system only supports vouchering positive expense quantities.  "
+            +      "Do you want to save anyway?")
+    if (QMessageBox.question( mywindow, mywindow.windowTitle, msg, 
+        QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.No)
+      return false;
+  }
+
 
   var params = new Object();
   params.teitem_tehead_id      = _headid;
@@ -642,7 +655,7 @@ xtte.timeExpenseSheetItem.setSecurity = function()
 }
 
 // Initialize default states
-_hours.setValidator(mainwindow.qtyVal());
+_hours.setValidator(mainwindow.transQtyVal());
 
 _prev.enabled = false;
 _next.enabled = false;
