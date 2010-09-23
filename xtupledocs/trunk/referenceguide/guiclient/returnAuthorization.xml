@@ -168,7 +168,6 @@
                 <para>Money to be billed for service or repair should be set
                 at the New Sales Order.</para>
               </note>
-              <para> </para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -424,26 +423,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>At the top of the screen, the following buttons are available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>SAVE</term>
-      <listitem>
-        <para>Creates the Return Authorization and saves the Return
-        Authorization information. The SAVE button must be selected in order
-        to save the Return Authorization record. It is not enough to save
-        Return Authorization Line Item information. The Return Authorization
-        header must also be saved.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without creating a new Return Authorization,
-        returning you to the application desktop.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <para><indexterm significance="normal">
       <primary>return authorizations</primary>
       <secondary>adding line items to</secondary>
@@ -577,52 +556,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>At the top of and to the far right of the screen, the following
-  buttons are available:</para>
+  <para>The following buttons are unique to this screen:</para>
   <variablelist>
-    <varlistentry>
-      <term>NEW</term>
-      <listitem>
-        <para>Opens screen for creating a new Return Authorization Line
-        Item.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>EDIT</term>
-      <listitem>
-        <para id="returnAuthorizationEDIT">Enables you to edit highlighted
-        Return Authorization Line Items. The edit screen is the same as that
-        for creating a new Return Authorization Line Item&mdash;except that
-        when editing, the fields will contain Return Authorization Line Item
-        information. Double-clicking on a Return Authorization Line Item will
-        also bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>VIEW</term>
-      <listitem>
-        <para>Highlight a Return Authorization Line Item and then select this
-        button to reach a read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>CLOSE</term>
-      <listitem>
-        <para id="returnAuthorizationCLOSE">Highlight a Return Authorization
-        Line Item and then select this button to close the Return
-        Authorization Line Item. If the highlighted Line Item is already
-        closed, this button will revert to an OPEN button, which may be used
-        to open the closed Line Item.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>DELETE</term>
-      <listitem>
-        <para id="returnAuthorizationDELETE">Highlight a Return Authorization
-        Line Item and then select this button to remove the Return
-        Authorization Line Item from the list.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>AUTHORIZE LINE</term>
       <listitem>

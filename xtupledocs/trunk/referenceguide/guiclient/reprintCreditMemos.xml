@@ -19,6 +19,11 @@
     </screenshot></para>
   <para>When re-printing a Credit Memo, you are presented with the following
   options:</para>
+  <para role="standard"><note>
+      <para>If the Customer specified on a Credit Memo has an EDI Profile
+      attached, you may encounter an EDI processing interface when printing
+      it.</para>
+    </note></para>
   <variablelist>
     <varlistentry>
       <term>Invoices</term>
@@ -51,27 +56,6 @@
             </listitem>
           </varlistentry>
         </variablelist>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
-  <variablelist>
-    <varlistentry>
-      <term>CLOSE</term>
-      <listitem>
-        <para>Closes the screen without re-printing Credit Memos, returning
-        you to the application desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>PRINT</term>
-      <listitem>
-        <para>Prints the highlighted Credit Memos, using the specified
-        parameters.</para>
-        <para role="standard">If the Customer specified on a Credit Memo has
-        an EDI Profile attached, you may encounter an EDI processing interface
-        when printing it.</para>
       </listitem>
     </varlistentry>
   </variablelist>
