@@ -18,12 +18,14 @@ BEGIN
       FROM te.teitem
       WHERE ((teitem_tehead_id=pTeheadId)
        AND (teitem_billable)
+       AND (teitem_qty >= 0)
        AND (teitem_invcitem_id IS NOT NULL))
       UNION ALL
       SELECT 0 AS state
       FROM te.teitem
       WHERE ((teitem_tehead_id=pTeheadId)
        AND (teitem_billable)
+       AND (teitem_qty >= 0)
        AND (teitem_invcitem_id IS NULL))
      ) data
      ORDER BY state ASC
@@ -42,6 +44,7 @@ BEGIN
        AND ((teitem_type = 'E' AND NOT teitem_prepaid) 
          OR (teitem_type = 'T' AND COALESCE(teemp_contractor,false)))
        AND (vend_id IS NOT NULL)
+       AND (teitem_qty > 0)
        AND (teitem_vodist_id IS NOT NULL))
       UNION ALL
       SELECT 0 AS state
@@ -54,6 +57,7 @@ BEGIN
        AND ((teitem_type = 'E' AND NOT teitem_prepaid) 
          OR (teitem_type = 'T' AND COALESCE(teemp_contractor,false)))
        AND (vend_id IS NOT NULL)
+       AND (teitem_qty > 0)
        AND (teitem_vodist_id IS NULL))
      ) data
      ORDER BY state ASC

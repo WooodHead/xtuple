@@ -27,8 +27,7 @@ BEGIN
 
   -- Update header with last use info
   UPDATE te.tehead SET
-    tehead_lastupdate=('now'::text)::timestamp(6) with time zone,
-    tehead_username=current_user
+    tehead_lastupdated=('now'::text)::timestamp(6) with time zone
   WHERE (tehead_id=NEW.teitem_tehead_id);
 
   RETURN NEW;
