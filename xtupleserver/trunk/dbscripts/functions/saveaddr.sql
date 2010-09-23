@@ -122,9 +122,18 @@ BEGIN
   END IF;
 
   IF (_flag = 'CHANGEALL') THEN
+    _addrNumber := pNumber;
+    IF (_addrNumber IS NULL) THEN
+      SELECT addr_number INTO _addrNumber
+        FROM addr
+       WHERE(addr_id = _addrId);
+      IF (_addrNumber IS NULL) THEN
+        _addrNumber := fetchNextNumber('AddressNumber');
+      END IF;
+    END IF;
    
     UPDATE addr SET
-      addr_number = pNumber,
+      addr_number = _addrNumber,
       addr_line1 = pAddr1, addr_line2 = pAddr2, addr_line3 = pAddr3,
       addr_city = pCity, addr_state = pState,
       addr_postalcode = pPostalcode, addr_country = pCountry,
