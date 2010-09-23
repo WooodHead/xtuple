@@ -62,6 +62,11 @@ xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
       {
         var status = currentItem.rawValue("tehead_status");
 
+        tmpact = toolbox.menuAddAction(pMenu, qsTr("Print"), true);
+        tmpact.triggered.connect(xtte.timeExpenseSheets.printSheet);
+
+        pMenu.addSeparator();
+
         tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit..."), true);
         tmpact.triggered.connect(xtte.timeExpenseSheets.editSheet);
         tmpact.enabled = (status == 'O' && privileges.check("MaintainTimeExpense"));
@@ -521,28 +526,19 @@ xtte.timeExpenseSheets.fillList = function()
     return;
 }
 
-xtte.timeExpenseSheets.timeReport = function()
+xtte.timeExpenseSheets.printSheet = function()
 {
-  params = new Object();
-  params.headid = _sheets.id();
-  toolbox.printReport("TimeReport",params);
+  params = xtte.timeExpenseSheets.getParams();
+  params.tehead_id = _sheets.id();
+  toolbox.printReport("TimeExpenseSheet",params);
 }
-
-xtte.timeExpenseSheets.expenseReport = function()
-{
-  params = new Object();
-  params.headid = _sheets.id();
-  toolbox.printReport("ExpenseReport",params);
-}
-
 
 xtte.timeExpenseSheets.printReport = function()
 {
-  new params = getParams()
-  if (!params.statusList.length)
-    return;
+  var params = xtte.timeExpenseSheets.getParams();
+  params.includeFormatted = true;
 
-  toolbox.printReport("OpenSheetList",params);
+  toolbox.printReport("TimeExpenseSheets",params);
 }
 
 xtte.timeExpenseSheets.populateEmployees = function()

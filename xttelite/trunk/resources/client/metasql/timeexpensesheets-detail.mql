@@ -42,6 +42,10 @@ SELECT
   CASE WHEN (tehead_status = 'O') THEN 'emphasis'
        WHEN (tehead_status = 'A') THEN 'altemphasis'
   END AS tehead_status_qtforegroundrole
+<? if exists("includeFormatted") ?> ,
+  formatMoney(SUM(teitem_total)) AS f_total,
+  formatDate(tehead_weekending) AS f_weekending
+<? endif ?>
 FROM (
   SELECT 
     tehead_id, 
