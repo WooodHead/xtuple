@@ -6,23 +6,30 @@ _status CHAR(1) := 'C';
 BEGIN
 
   -- Update header status, default is to close if all processing complete
-  IF ((COALESCE(OLD.teitem_invcitem_id,-1) != COALESCE(NEW.teitem_invcitem_id,-1))
-    OR (COALESCE(OLD.teitem_vodist_id,-1) != COALESCE(NEW.teitem_vodist_id,-1))
-    OR (OLD.teitem_posted != NEW.teitem_posted)) THEN
+  IF (TG_OP = 'UPDATE') THEN
+    IF ((COALESCE(OLD.teitem_invcitem_id,-1) != COALESCE(NEW.teitem_invcitem_id,-1))
+      OR (COALESCE(OLD.teitem_vodist_id,-1) != COALESCE(NEW.teitem_vodist_id,-1))
+      OR (OLD.teitem_posted != NEW.teitem_posted)) THEN
 
-    SELECT 
-      te.sheetstate(NEW.teitem_tehead_id, 'I') AS invoiced,
-      te.sheetstate(NEW.teitem_tehead_id, 'V') AS vouchered,
-      te.sheetstate(NEW.teitem_tehead_id, 'P') AS posted
-    INTO _r;
+      SELECT 
+        te.sheetstate(NEW.teitem_tehead_id, 'I') AS invoiced,
+        te.sheetstate(NEW.teitem_tehead_id, 'V') AS vouchered,
+        te.sheetstate(NEW.teitem_tehead_id, 'P') AS posted
+      INTO _r;
 
-    IF (_r.invoiced = 0 OR _r.vouchered = 0 OR _r.posted = 0) THEN
-      _status := 'A'; -- Something is still open, so approved
-    END IF;
+      IF (_r.invoiced = 0 OR _r.vouchered = 0 OR _r.posted = 0) THEN
+        _status := 'A'; -- Something is still open, so approved
+      END IF;
     
-    UPDATE te.tehead SET tehead_status = _status WHERE (tehead_id=NEW.teitem_tehead_id);
-
+      UPDATE te.tehead SET tehead_status = _status WHERE (tehead_id=NEW.teitem_tehead_id);
+    END IF;
   END IF;
+
+  -- Update header with last use info
+  UPDATE te.tehead SET
+    tehead_lastupdate=('now'::text)::timestamp(6) with time zone,
+    tehead_username=current_user
+  WHERE (tehead_id=NEW.teitem_tehead_id);
 
   RETURN NEW;
 END;
@@ -30,7 +37,7 @@ $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'teitemtrigger', 'te');
 CREATE TRIGGER teitemTrigger
-  AFTER UPDATE
+  AFTER INSERT OR UPDATE OR DELETE
   ON te.teitem
   FOR EACH ROW
   EXECUTE PROCEDURE te.triggerteitem();

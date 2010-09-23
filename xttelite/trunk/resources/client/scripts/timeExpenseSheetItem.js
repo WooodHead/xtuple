@@ -460,10 +460,8 @@ xtte.timeExpenseSheetItem.actTotals = function()
 
   if (q.first())
   {
-    if(_type.code == "T")
-      _actual.setText(q.value("total_hours"));
-
-    _actualCost.setText(q.value("total_cost"));
+    _actual.setText(q.value("total_hours"));
+    _actualCost.setText(q.value("total_expense"));
   } 
   else
     xtte.errorCheck(q);
