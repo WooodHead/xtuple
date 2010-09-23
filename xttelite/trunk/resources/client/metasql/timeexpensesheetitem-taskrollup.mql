@@ -9,13 +9,13 @@ FROM
      SUM(teitem_qty) as total_hours,
      SUM(teitem_total) as total_cost
    FROM te.teitem 
-   WHERE teitem_prjtask_id = <? value("taskid") ?>
+   WHERE teitem_prjtask_id = <? value("task_id") ?>
     AND teitem_type = 'T' 
    UNION
    SELECT 
      0 as total_hours,
      SUM(teitem_total) AS total_cost
    FROM te.teitem 
-   WHERE teitem_prjtask_id = <? value("taskid") ?>
+   WHERE teitem_prjtask_id = <? value("task_id") ?>
      AND teitem_type = 'E'
-) AS rollup;"
+) AS rollup;
