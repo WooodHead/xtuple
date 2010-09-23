@@ -215,7 +215,9 @@ void CSVToolWindow::filePrint()
 
 void CSVToolWindow::fileExit()
 {
-  qApp->closeAllWindows();
+  if(_atlasWindow)
+    _atlasWindow->close();
+  close();
 }
 
 void CSVToolWindow::helpIndex()
