@@ -104,6 +104,7 @@ set = function(input)
       _buttonBox.addButton(QDialogButtonBox.Close);
       _buttonBox.button(QDialogButtonBox.Close).shortcut = shortcut;
       _lines.itemSelected.connect(_view, "animateClick");
+      _printSheet.hide();
 
       xtte.timeExpenseSheet.populate();
     }
@@ -196,6 +197,9 @@ xtte.timeExpenseSheet.accepted = function()
 {
   if (!xtte.timeExpenseSheet.save())
     return;
+
+  if (_printSheet.checked)
+    xtte.timeExpenseSheet.printSheet();
 
   mywindow.close();
 }
@@ -297,6 +301,17 @@ xtte.timeExpenseSheet.fillList = function()
   xtte.errorCheck(q);
 }
 
+xtte.timeExpenseSheet.printSheet = function()
+{
+  var params = new Object;
+  params.tehead_id = _id;
+  params.approved  = qsTr("Approved");
+  params.closed    = qsTr("Closed");
+  params.open      = qsTr("Open");
+
+  toolbox.printReport("TimeExpenseSheet", params);
+}
+
 xtte.timeExpenseSheet.close = function()
 {
   if (_mode == "new" && _id != -1)
@@ -322,7 +337,6 @@ xtte.timeExpenseSheet.close = function()
 // Initialize
 _employee.enabled = privileges.check("MaintainTimeExpenseOthers");
 _new.enabled = false;
-_printSheet.visible = false; // Not implemented yet
 
 // Make connections
 _employee.newId.connect(xtte.timeExpenseSheet.handleNewButton);
