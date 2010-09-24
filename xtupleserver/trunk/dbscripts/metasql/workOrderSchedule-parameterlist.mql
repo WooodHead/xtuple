@@ -86,6 +86,9 @@ WHERE ( (wo_itemsite_id=itemsite_id)
                  FROM wooper, wrkcnt
                  WHERE ((wooper_wrkcnt_id=wrkcnt_id) AND (wrkcnt_code ~ <? value("wrkcnt_pattern") ?>))))
 <? endif ?>
+<? if exists("wo_username") ?>
+  AND (wo_username=<? value("wo_username") ?>)
+<? endif ?>
    )
 ORDER BY 
 <? if exists("sortByStartDate") ?>

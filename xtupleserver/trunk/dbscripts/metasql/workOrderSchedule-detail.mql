@@ -34,5 +34,8 @@ WHERE ((wo_itemsite_id=itemsite_id)
 <? if exists("warehous_id") ?>
   AND (itemsite_warehous_id=<? value("warehous_id") ?>)
 <? endif ?>
+<? if exists("wo_username") ?>
+  AND (wo_username=<? value("wo_username") ?>)
+<? endif ?>
   )
 ORDER BY wo_startdate, wo_number, wo_subnumber;
