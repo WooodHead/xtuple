@@ -8,6 +8,9 @@
  * to be bound by its terms.
  */
 
+include("xtte");
+xtte.initMenu = new Object;
+
 // change the search_path to ensure existing client code works with overload functions
 var qry = toolbox.executeQuery("SHOW search_path;", new Object);
 if (! qry.first())
@@ -40,17 +43,30 @@ var crmMenu = mainwindow.findChild("menu.crm.projects");
 crmMenu.addSeparator();
 
 var tesheetAction = crmMenu.addAction(qsTr("Time and Expense..."), mainwindow);
-tesheetAction.objectName = "pm.timesheets";
+tesheetAction.objectName = "pm.teSheets";
 tesheetAction.setData("MaintainTimeExpense");
 tesheetAction.enabled = privileges.value("MaintainTimeExpense");
 
+var crmRptMenu = mainwindow.findChild("menu.crm.reports");
+var orderActPrj = mainwindow.findChild("pm.dspOrderActivityByProject");
+
+var historyAction = new QAction(qsTr("Time and Expense History"), mainwindow);
+historyAction.objectName = "pm.teHistory";
+historyAction.setData("ViewTimeExpenseHistory");
+historyAction.enabled = privileges.value("ViewTimeExpenseHistory");
+crmRptMenu.insertAction(orderActPrj, historyAction);
+
 // Define function(s)
-function sOpenSheets()
+xtte.initMenu.openSheets = function()
 {
-  var param = new Object;
-  var wind = toolbox.openWindow("timeExpenseSheets", mainwindow);
-  wind.set(param);
+  toolbox.openWindow("timeExpenseSheets");
 }
 
-// Connect Action(s)
-tesheetAction.triggered.connect(sOpenSheets);
+xtte.initMenu.openHistory = function()
+{
+  toolbox.openWindow("dspTimeExpenseHistory");
+}
+
+// Connect Actions
+tesheetAction.triggered.connect(xtte.initMenu.openSheets);
+historyAction.triggered.connect(xtte.initMenu.openHistory);

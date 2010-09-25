@@ -73,6 +73,10 @@
   <loadpriv name="PostTimeSheets" module="TE">
    Allowed to Post Time Sheets
   </loadpriv>
+
+  <loadpriv name="ViewTimeExpenseHistory" module="TE">
+   Allowed to view Time Expense Sheet history
+  </loadpriv>
     
   <script file="database/misc/insertIntopriv.sql" />
   <script file="database/misc/schemaComment.sql" />

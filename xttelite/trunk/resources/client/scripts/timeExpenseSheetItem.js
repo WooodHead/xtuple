@@ -169,6 +169,12 @@ xtte.timeExpenseSheetItem.getPrice = function()
 {
   if (_populating || !_clients.isValid())
     return;
+  if (_type.code == 'T' && !_billable.checked)
+  {
+    _rate.localValue = 0;
+    _rate.enabled = false;
+    return;
+  }
   else if (_mode == xtte.editMode)
   {
     if (QMessageBox.question(mywindow,
@@ -177,6 +183,8 @@ xtte.timeExpenseSheetItem.getPrice = function()
                         QMessageBox.Ok, QMessageBox.Cancel) == QMessageBox.Cancel)
       return;
   }
+
+  _rate.enabled = true;
 
   var params = new Object();
   params.item_id = _items.id();
@@ -193,6 +201,8 @@ xtte.timeExpenseSheetItem.getPrice = function()
     _rate.setBaseValue(qry.value("rate"));
   else
     xtte.errorCheck(qry);
+
+  xtte.timeExpenseSheetItem.modified();
 }
 
 xtte.timeExpenseSheetItem.populate = function()
@@ -210,26 +220,28 @@ xtte.timeExpenseSheetItem.populate = function()
       _mode = xtte.editMode;
     _populating = true; 
 
-    _type.code = qry.value("teitem_type");
-    _billable.checked = qry.value("teitem_billable");
-    _prepaid.checked = qry.value("teitem_prepaid")
-    _weekending.date = (qry.value("tehead_weekending"));
-    _workdate.date = (qry.value("teitem_workdate"));
-    _rate.setId(qry.value("teitem_curr_id") - 0);
-    _rate.localValue = (qry.value("teitem_rate"));
-    _hours.text = (qry.value("teitem_qty"));
-    _items.setId(qry.value("teitem_item_id"));
-    _employee.setId(qry.value("tehead_emp_id"));
-    _clients.setId(qry.value("teitem_cust_id"));
-    _po.text = (qry.value("teitem_po"));
-    _project.setId(qry.value("prj_id"));
-    _task.setId(qry.value("teitem_prjtask_id"));
+    _headid = qry.value("teitem_tehead_id");
     _sheet.text = (qry.value("tehead_number"));
     _sheetnum = (qry.value("tehead_number"));
+    _employee.setId(qry.value("tehead_emp_id"));
+    _weekending.date = (qry.value("tehead_weekending"));
+
     _linenumber.text = (qry.value("teitem_linenumber"));
     _linenum = (qry.value("teitem_linenumber"));
-    _notes.plainText = qry.value("teitem_notes");
+    _workdate.date = (qry.value("teitem_workdate"));
+    _type.code = qry.value("teitem_type");
+    _project.setId(qry.value("prj_id"));
+    _task.setId(qry.value("teitem_prjtask_id"));
+    _clients.setId(qry.value("teitem_cust_id"));
+    _po.text = (qry.value("teitem_po"));
+    _items.setId(qry.value("teitem_item_id"));
+    _hours.text = (qry.value("teitem_qty"));
+    _rate.setId(qry.value("teitem_curr_id") - 0);
+    _rate.localValue = (qry.value("teitem_rate"));
     _total.localValue = (qry.value("teitem_total"));
+    _billable.checked = qry.value("teitem_billable");
+    _prepaid.checked = qry.value("teitem_prepaid")
+    _notes.plainText = qry.value("teitem_notes");
 
     _last = qry.value("ismax");
     if (_last && _mode == xtte.editMode)
@@ -694,7 +706,7 @@ _project["newId(int)"].connect(xtte.timeExpenseSheetItem.projectChanged);
 _employee.newId.connect(xtte.timeExpenseSheetItem.modified);
 _po.textChanged.connect(xtte.timeExpenseSheetItem.modified);
 _workdate.newDate.connect(xtte.timeExpenseSheetItem.modified);
-_billable.toggled.connect(xtte.timeExpenseSheetItem.modified);
+_billable.toggled.connect(xtte.timeExpenseSheetItem.getPrice);
 _prepaid.toggled.connect(xtte.timeExpenseSheetItem.modified);
 _notes.textChanged.connect(xtte.timeExpenseSheetItem.modified);
 
