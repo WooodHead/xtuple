@@ -28,6 +28,13 @@ SELECT
 <? if exists("expenseOnly") ?>
   '0' AS teitem_total_xttotalrole,
 <? endif ?>
+<? if exists("includeFormatted") ?>
+  formatQty(teitem_qty) AS f_qty,
+  formatSalesPrice(teitem_rate) AS f_rate,
+  formatBoolYN(teitem_billable) AS f_billable,
+  formatExtPrice(teitem_total) AS f_total,
+  formatDate(teitem_workdate) AS f_workdate,
+<? endif ?>
   'qty' AS teitem_qty_xtnumericrole,
   'salesprice' AS teitem_rate_xtnumericrole,
   'extprice' AS teitem_total_xtnumericrole

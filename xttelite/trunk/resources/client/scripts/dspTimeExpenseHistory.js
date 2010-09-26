@@ -32,6 +32,7 @@ _list.addColumn(qsTr("PO"),		XTreeWidget.orderColumn,Qt.AlignLeft,    false, "te
 _list.addColumn(qsTr("Item"),		XTreeWidget.itemColumn, Qt.AlignLeft,    true, "item_number");
 _list.addColumn(qsTr("Description"),	-1,  		 Qt.AlignLeft,    true, "item_descrip1");
 _list.addColumn(qsTr("Qty"), 		XTreeWidget.qtyColumn,  Qt.AlignRight,   true, "teitem_qty");
+_list.addColumn(qsTr("Billable"), 		XTreeWidget.qtyColumn,  Qt.AlignRight,   false, "teitem_billable");
 privileges.check("CanViewRates")
   _list.addColumn(qsTr("Ext."), 		XTreeWidget.moneyColumn,  Qt.AlignRight,   true, "teitem_total");
 
@@ -99,7 +100,10 @@ xtte.dspTimeExpenseHistory.getParams = function()
 
 xtte.dspTimeExpenseHistory.print = function()
 {
-  toolbox.printReport("TimeExpenseHistory", xtte.dspTimeExpenseHistory.getParams());
+  var params = xtte.dspTimeExpenseHistory.getParams();
+  params.includeFormatted = true;
+
+  toolbox.printReport("TimeExpenseHistory", params);
 }
 
 xtte.dspTimeExpenseHistory.fillList = function()
