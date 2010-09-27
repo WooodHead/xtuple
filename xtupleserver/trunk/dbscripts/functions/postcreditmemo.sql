@@ -408,7 +408,8 @@ BEGIN
 -- Handle the Inventory and G/L Transactions for any returned Inventory
   FOR _r IN SELECT cmitem_itemsite_id AS itemsite_id, cmitem_id,
                    (cmitem_qtyreturned * cmitem_qty_invuomratio) AS qty,
-                   cmhead_number, cmhead_cust_id AS cust_id, item_number
+                   cmhead_number, cmhead_cust_id AS cust_id, item_number,
+                   cmhead_prj_id
             FROM cmhead, cmitem, itemsite, item
             WHERE ( (cmitem_cmhead_id=cmhead_id)
              AND (cmitem_itemsite_id=itemsite_id)
@@ -423,7 +424,7 @@ BEGIN
     SELECT postInvTrans( itemsite_id, 'RS', _r.qty,
                          'S/O', 'CM', _r.cmhead_number, '',
                          ('Credit Return ' || _r.item_number),
-                         costcat_asset_accnt_id, resolveCOSAccount(itemsite_id, _r.cust_id), 
+                         costcat_asset_accnt_id, getPrjAccntId(_r.cmhead_prj_id, resolveCOSAccount(itemsite_id, _r.cust_id)), 
                          _itemlocSeries, _glDate) INTO _invhistid
     FROM itemsite, costcat
     WHERE ( (itemsite_costcat_id=costcat_id)
