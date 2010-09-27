@@ -468,7 +468,7 @@ function payment()
     _saleitems.selectRow(idx);
   }
 
-  var childwnd = toolbox.openWindow("payment", mywindow, Qt.WindowModal, Qt.Window);
+  var childwnd = toolbox.openWindow("payment", mywindow, Qt.ApplicationModal);
   var params   = new Object;
   params.cust_id  	= _cust.id();
   params.name           = _contact.name();
