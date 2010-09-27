@@ -103,6 +103,27 @@ _terminal.newID.connect(handleItem);
 _type.newID.connect(typeChanged);
 _unitPrice.valueChanged.connect(extension);
 
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_number["setDataWidgetMap(XDataWidgetMapper*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_type["setDataWidgetMap(XDataWidgetMapper*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_contact["setDataWidgetMap(XDataWidgetMapper*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_terminal["setDataWidgetMap(XDataWidgetMapper*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_date["setDataWidgetMap(XDataWidgetMapper*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_notes["setDataWidgetMap(XDataWidgetMapper*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_taxzone["setDataWidgetMap(XDataWidgetMapper*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_total["setDataWidgetMap(XDataWidgetMapper*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_subtotal["setDataWidgetMap(XDataWidgetMapper*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_tax["setDataWidgetMap(XDataWidgetMapper*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_saleitems["setDataWidgetMap(XDataWidgetMapper*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_site["setDataWidgetMap(XDataWidgetMapper*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_closed["setDataWidgetMap(XDataWidgetMapper*)"]);
+_saleitem["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_extendedPrice["setDataWidgetMap(XDataWidgetMapper*)"]);
+_saleitem["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_item["setDataWidgetMap(XDataWidgetMapper*)"]);
+_saleitem["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_qty["setDataWidgetMap(XDataWidgetMapper*)"]);
+_saleitem["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_unitPrice["setDataWidgetMap(XDataWidgetMapper*)"]);
+_saleitems["newModel(XSqlTableModel*)"].connect(_saleitem["setModel(XSqlTableModel*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_cust["setDataWidgetMap(XDataWidgetMapper*)"]);
+_sale["newDataWidgetMapper(XDataWidgetMapper*)"].connect(_salesrep["setDataWidgetMap(XDataWidgetMapper*)"]);
+
 
 // Check Metrics
 if (metrics.value("MultiWhs") != "t")

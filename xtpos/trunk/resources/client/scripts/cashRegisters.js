@@ -59,7 +59,7 @@ function viewTerminal()
 
 function openTerminal(mode)
 {
-  var childwnd = toolbox.openWindow("cashRegister", mywindow, Qt.WindowModal, Qt.Sheet);
+  var childwnd = toolbox.openWindow("cashRegister", mywindow, Qt.ApplicationModal, Qt.Sheet);
   var params   = new Object;
 
   params.mode   = mode;

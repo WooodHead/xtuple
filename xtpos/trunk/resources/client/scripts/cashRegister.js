@@ -1,4 +1,3 @@
-debugger
 // Define Variables
 var _viewMode     	= 2;
 var _saleCurrIdx = 0-0; //TO DO: Get rid of me in 3.3.1
@@ -351,7 +350,6 @@ function saleNew()
 
 function saleOpen(mode, number)
 {
-  var childwnd = toolbox.openWindow("retailSale", mywindow, Qt.ApplicationModal, Qt.Dialog);
   var params   = new Object();
   params.site = _site.code;
   params.terminal = _terminal.text;
@@ -360,9 +358,12 @@ function saleOpen(mode, number)
   if (mode)
     params.index = _saleCurrIdx;
 
-  childwnd.findChild("_sale").setModel(_sale.model());
-  childwnd.set(params);
-  return childwnd;
+  var wnd = toolbox.openWindow("retailSale", mywindow, Qt.NonModal, Qt.Dialog);
+  toolbox.lastWindow().findChild("_sale").setModel(_sale.model());
+  toolbox.lastWindow().set(params);
+  var accepted = wnd.exec();
+  if (!accepted)
+    populateSales();
 }
 
 function saleView()
