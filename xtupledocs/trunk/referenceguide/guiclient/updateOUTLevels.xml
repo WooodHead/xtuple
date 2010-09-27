@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section548563">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>order up to levels</primary>
       <secondary>updating by planner code</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,17 +12,14 @@
     </indexterm>Update Order Up To Levels by Planner Code</title>
   <para>To update Order Up To Levels by Planner Code, select the "Order Up To
   Levels Planner Code" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/updateOUTLevels.png"/>
+          <imagedata fileref="images/updateOUTLevels.png" />
         </imageobject>
-        <caption>Update Order Up To Levels by Planner
-        Code</caption>
+        <caption>Update Order Up To Levels by Planner Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When updating Order Up To Levels by Planner Code, you are presented
   with the following options:</para>
   <variablelist>
@@ -36,8 +33,8 @@
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Site where Order Up To Levels by Planner Code are
-        to be updated.</para>
+        <para>Specify Site where Order Up To Levels by Planner Code are to be
+        updated.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -125,28 +122,13 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons are
-  available:</para>
+  <para>The following buttons are unique to this screen</para>
   <variablelist>
-    <varlistentry>
-      <term>CANCEL</term>
-      <listitem>
-        <para>Closes the screen without updating Reorder Levels by Planner
-        Code, returning you to the application desktop.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>UPDATE</term>
       <listitem>
         <para>Updates Reorder Levels by Planner Code, using the specified
         parameters.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>SUBMIT</term>
-      <listitem>
-        <para>Select to submit requested action to the Batch Manager for
-        processing.</para>
       </listitem>
     </varlistentry>
   </variablelist>
