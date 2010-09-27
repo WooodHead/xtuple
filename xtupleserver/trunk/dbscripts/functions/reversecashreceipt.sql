@@ -76,7 +76,8 @@ BEGIN
 --  Determine the amount to post to A/R Open Items
   SELECT COALESCE(SUM(cashrcptitem_amount),0) INTO _postToAR
   FROM cashrcptitem JOIN aropen ON (aropen_id=cashrcptitem_aropen_id)
-  WHERE (cashrcptitem_cashrcpt_id=pCashrcptid);
+  WHERE ((cashrcptitem_cashrcpt_id=pCashrcptid)
+   AND (cashrcptitem_applied));
   IF (NOT FOUND) THEN
     _postToAR := 0;
   END IF;
@@ -112,7 +113,8 @@ BEGIN
                    round(aropen_paid - 
                       currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,abs(cashrcptitem_amount),_p.cashrcpt_distdate),2) AS new_paid
             FROM cashrcptitem JOIN aropen ON (cashrcptitem_aropen_id=aropen_id)
-            WHERE (cashrcptitem_cashrcpt_id=pCashrcptid) LOOP
+            WHERE ((cashrcptitem_cashrcpt_id=pCashrcptid)
+              AND (cashrcptitem_applied)) LOOP
 
 --raise exception 'new paid %', _r.new_paid;
 --  Update the aropen item to post the paid amount
