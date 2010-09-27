@@ -40,7 +40,8 @@ BEGIN
 	   poitem_duedate AS duedate,
 	   poitem_unitprice AS orderitem_unitcost,
 	   pohead_curr_id AS orderitem_unitcost_curr_id,
-	   pohead_curr_id AS freight_curr_id INTO _o
+	   pohead_curr_id AS freight_curr_id,
+	   poitem_rlsd_duedate INTO _o
         FROM pohead
           JOIN poitem ON (pohead_id=poitem_pohead_id)
           JOIN vendinfo ON (pohead_vend_id=vend_id)
@@ -116,7 +117,7 @@ BEGIN
       recv_vend_id, recv_vend_item_number, recv_vend_item_descrip,
       recv_vend_uom, recv_qty, recv_duedate,
       recv_purchcost, recv_purchcost_curr_id,
-      recv_notes, recv_freight, recv_freight_curr_id
+      recv_notes, recv_freight, recv_freight_curr_id, recv_rlsd_duedate
     ) VALUES (
       _recvid, _timestamp,
       _o.orderhead_number, pordertype, _o.orderitem_id::INTEGER,
@@ -124,7 +125,7 @@ BEGIN
       _o.vend_id::INTEGER, _o.vend_item_number, _o.vend_item_descrip,
       _o.vend_uom, pQty, _o.duedate,
       _o.orderitem_unitcost, _o.orderitem_unitcost_curr_id::INTEGER,
-      pNotes, pFreight, _o.freight_curr_id::INTEGER);
+      pNotes, pFreight, _o.freight_curr_id::INTEGER, _o.poitem_rlsd_duedate);
   END IF;
 
   RETURN _recvid;
