@@ -7,7 +7,7 @@
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
  * to be bound by its terms.
  */
-debugger;
+
 // Import code from related scripts
 include("dockBankBal");
 include("dockExtensions");
