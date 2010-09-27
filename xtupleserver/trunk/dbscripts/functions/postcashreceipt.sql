@@ -315,9 +315,9 @@ BEGIN
     -- Create Cash Receipt Item to capture posting
     IF (_predist=false) THEN
       INSERT INTO cashrcptitem
-        ( cashrcptitem_cashrcpt_id, cashrcptitem_aropen_id, cashrcptitem_amount )
+        ( cashrcptitem_cashrcpt_id, cashrcptitem_aropen_id, cashrcptitem_amount, cashrcptitem_applied )
       VALUES
-        ( pCashrcptid, _aropenid, (_p.cashrcpt_amount - _posted) );
+        ( pCashrcptid, _aropenid, (_p.cashrcpt_amount - _posted), false );
     END IF;
 
   ELSIF (round(_posted_base, 2) > round((_p.cashrcpt_amount_base), 2)) THEN
@@ -362,9 +362,9 @@ BEGIN
     -- If there is any left over go ahead and create an additional cashrcptitem record for it with the amount
     IF (round(_posted, 2) < round(_p.cashrcpt_amount, 2)) THEN
       INSERT INTO cashrcptitem
-        ( cashrcptitem_cashrcpt_id, cashrcptitem_aropen_id, cashrcptitem_amount )
+        ( cashrcptitem_cashrcpt_id, cashrcptitem_aropen_id, cashrcptitem_amount, cashrcptitem_applied )
       VALUES
-        ( pCashrcptid, _aropenid, (_p.cashrcpt_amount - _posted) );
+        ( pCashrcptid, _aropenid, (_p.cashrcpt_amount - _posted), false );
     END IF;
   END IF;
 
