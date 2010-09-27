@@ -1,5 +1,12 @@
 
-CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, TEXT) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, TEXT) RETURNS INTEGER AS $$  
+  BEGIN
+    RETURN createTodoItem($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, NULL);
+  END;
+$$ LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, TEXT, INTEGER, INTEGER, INTEGER, DATE, DATE, CHARACTER(1), DATE, DATE, INTEGER, TEXT, TEXT, INTEGER) RETURNS INTEGER AS $$
   DECLARE
     ptodoid     ALIAS FOR  $1;
     pusername   ALIAS FOR  $2;
@@ -16,6 +23,7 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, TEXT, INTEGER, IN
     ppriority   ALIAS FOR $13;
     pnotes      ALIAS FOR $14;
     powner      ALIAS FOR $15;
+    pcntctid    ALIAS FOR $16;
 
     _todoid     INTEGER;
     _priority   INTEGER         := ppriority;
@@ -80,15 +88,18 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, TEXT, INTEGER, IN
                            todoitem_due_date, todoitem_assigned_date,
                            todoitem_completed_date, todoitem_priority_id,
                            todoitem_notes, todoitem_crmacct_id,
-                           todoitem_ophead_id, todoitem_owner_username 
+                           todoitem_ophead_id, todoitem_owner_username,
+                           todoitem_cntct_id
                 ) VALUES ( _todoid, pusername, pname,
                            pdesc, _incdtid,
                            CURRENT_USER, _status,
                            TRUE, pstarted,
                            pdue, _assigned,
-                           pcompleted, _priority, pnotes, _crmacctid, _opheadid, powner );
+                           pcompleted, _priority, pnotes, _crmacctid, _opheadid, powner,
+                           pcntctid );
 
     RETURN _todoid;
   END;
 $$ LANGUAGE 'plpgsql';
+
 
