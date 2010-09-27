@@ -1,0 +1,1 @@
+ALTER TABLE poitem ADD COLUMN poitem_rlsd_duedate date;
