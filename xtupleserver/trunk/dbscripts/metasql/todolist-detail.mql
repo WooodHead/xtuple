@@ -302,5 +302,14 @@
     
           )
   <? endif ?>
-ORDER BY due, seq, usr; 
 <? endif ?>
+<? if not exists("todoList")?>
+  <? if not exists("incidents")?>
+    <? if not exists("projects")?>
+      SELECT null AS due, 1 as seq, '' as usr where 1 = 0
+    <? elseif exists("crmacct_id") ?>
+      SELECT null AS due, 1 as seq, '' as usr where 1 = 0
+    <? endif ?>
+  <? endif ?>
+<? endif ?>
+ORDER BY due, seq, usr; 
