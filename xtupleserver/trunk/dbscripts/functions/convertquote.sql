@@ -114,7 +114,8 @@ BEGIN
     cohead_billto_cntct_id, cohead_billto_cntct_honorific,
     cohead_billto_cntct_first_name, cohead_billto_cntct_middle, cohead_billto_cntct_last_name, 
     cohead_billto_cntct_suffix, cohead_billto_cntct_phone, cohead_billto_cntct_title, 
-    cohead_billto_cntct_fax, cohead_billto_cntct_email, cohead_ophead_id )
+    cohead_billto_cntct_fax, cohead_billto_cntct_email, cohead_ophead_id,
+    cohead_calcfreight )
   SELECT _soheadid, _soNum, quhead_cust_id,
          CURRENT_DATE, quhead_packdate,
          quhead_custponumber, quhead_warehous_id,
@@ -139,7 +140,8 @@ BEGIN
 	 quhead_shipto_cntct_fax, quhead_shipto_cntct_email, quhead_billto_cntct_id,
 	 quhead_billto_cntct_honorific, quhead_billto_cntct_first_name, quhead_billto_cntct_middle,
 	 quhead_billto_cntct_last_name, quhead_billto_cntct_suffix, quhead_billto_cntct_phone,
-	 quhead_billto_cntct_title, quhead_billto_cntct_fax, quhead_billto_cntct_email, quhead_ophead_id
+	 quhead_billto_cntct_title, quhead_billto_cntct_fax, quhead_billto_cntct_email, quhead_ophead_id,
+         quhead_calcfreight
   FROM quhead JOIN custinfo ON (cust_id=quhead_cust_id)
   WHERE (quhead_id=pQuheadid);
 
