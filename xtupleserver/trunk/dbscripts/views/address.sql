@@ -19,8 +19,7 @@ SELECT * FROM (
     SELECT addr.*, -1, NULL, NULL 
     FROM addr 
     JOIN vendaddrinfo ON (vendaddr_addr_id=addr_id) 
-    JOIN vendinfo ON (vend_id=vendaddr_vend_id) 
-    JOIN crmacct ON (vend_id=crmacct_vend_id) 
+    JOIN crmacct ON (vendaddr_vend_id=crmacct_vend_id) 
     EXCEPT 
     SELECT addr.*, -1, NULL, NULL 
     FROM addr 
@@ -30,8 +29,7 @@ SELECT * FROM (
     SELECT addr.*, -1, NULL, NULL 
     FROM addr 
     JOIN shiptoinfo ON (shipto_addr_id=addr_id) 
-    JOIN cust ON (cust_id=shipto_cust_id) 
-    JOIN crmacct ON (cust_id=crmacct_cust_id) 
+    JOIN crmacct ON (shipto_cust_id=crmacct_cust_id) 
   ) AS base 
   UNION 
   -- Vendor
@@ -44,8 +42,7 @@ SELECT * FROM (
   SELECT addr.*, crmacct_id, crmacct_number, crmacct_name 
   FROM addr 
   JOIN vendaddrinfo ON (vendaddr_addr_id=addr_id) 
-  JOIN vendinfo ON (vend_id=vendaddr_vend_id) 
-  JOIN crmacct ON (vend_id=crmacct_vend_id) 
+  JOIN crmacct ON (vendaddr_vend_id=crmacct_vend_id) 
   UNION 
   -- Tax Authority
   SELECT addr.*, crmacct_id, crmacct_number, crmacct_name 
@@ -57,8 +54,7 @@ SELECT * FROM (
   SELECT addr.*, crmacct_id, crmacct_number, crmacct_name 
   FROM addr 
   JOIN shiptoinfo ON (shipto_addr_id=addr_id) 
-  JOIN cust ON (cust_id=shipto_cust_id) 
-  JOIN crmacct ON (cust_id=crmacct_cust_id) 
+  JOIN crmacct ON (shipto_cust_id=crmacct_cust_id) 
 ) AS addresses 
 ORDER BY addr_country, addr_state, addr_postalcode, addr_line1, addr_line2, addr_line3; 
 
