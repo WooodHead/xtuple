@@ -6,10 +6,8 @@ SELECT
 <? if exists("byLocation") ?>
        itemloc_id, warehous_code, item_number,
        f_descrip, f_lotserial, uom_name,
-       qoh, reservedqty,
-       formatQty(qoh) AS f_qoh,
-       formatQty(reservedqty) AS f_reservedqty,
-       'qty' AS qoh_xtnumericrole,
+       qty, reservedqty,
+       'qty' AS qty_xtnumericrole,
        'qty' AS reservedqty_xtnumericrole,
        level AS xtindentrole
 <? else ?>
@@ -25,32 +23,14 @@ SELECT
   <? endif ?>
        reorderlevel, qoh, nnqoh,
        CASE WHEN (itemsite_loccntrl) THEN nnqoh END AS f_nnqoh,
-       <? if exists("showValue") ?>
-         cost, (cost * qoh) AS value,
-         CASE WHEN (itemsite_loccntrl) THEN (cost * nnqoh) END AS f_nnvalue,
-         CASE WHEN(itemsite_costmethod='A') THEN 'Average'
-              WHEN(itemsite_costmethod='S') THEN 'Standard'
-              WHEN(itemsite_costmethod='J') THEN 'Job'
-              WHEN(itemsite_costmethod='N') THEN 'None'
-           ELSE 'UNKNOWN'
-         END AS f_costmethod,
-       <? else ?>
-         0.0 AS cost, 0.0 AS value,
-         0.0 AS f_nnvalue,
-         text('') AS f_costmethod,
-       <? endif ?>
-       formatQty(reorderlevel) AS f_reorderlevel,
-       formatQty(qoh) AS f_qoh, 
-       CASE WHEN (itemsite_loccntrl) THEN formatQty(nnqoh) ELSE 'N/A' END AS f_nonnetable,
-       <? if exists("showValue") ?>
-         formatCost(cost) AS f_cost,
-         formatExtPrice(noNeg(cost * qoh)) AS f_value,
-         CASE WHEN (itemsite_loccntrl) THEN formatExtPrice(noNeg(cost * nnqoh)) ELSE 'N/A' END AS f_nonnetvalue,
-       <? else ?>
-         text('') AS f_cost,
-         text('') AS f_value,
-         text('') AS f_nonnetvalue,
-       <? endif ?>
+       cost, (cost * qoh) AS value,
+       CASE WHEN (itemsite_loccntrl) THEN (cost * nnqoh) END AS f_nnvalue,
+       CASE WHEN(itemsite_costmethod='A') THEN 'Average'
+            WHEN(itemsite_costmethod='S') THEN 'Standard'
+            WHEN(itemsite_costmethod='J') THEN 'Job'
+            WHEN(itemsite_costmethod='N') THEN 'None'
+         ELSE 'UNKNOWN'
+       END AS f_costmethod,
        'qty' AS reorderlevel_xtnumericrole,
        'qty' AS qoh_xtnumericrole,
        'qty' AS f_nnqoh_xtnumericrole,
@@ -71,7 +51,7 @@ FROM (
       SELECT itemloc_id, 0 AS level, item_number AS sortkey, warehous_code, item_number,
              (item_descrip1 || ' ' || item_descrip2) AS f_descrip,
              formatlotserialnumber(itemloc_ls_id) AS f_lotserial, uom_name,
-             calcAsOfQoh(itemsite_id, itemloc_id, <? value("asOf") ?>) AS qoh,
+             itemloc_qty AS qty,
   <? if exists("EnableSOReservationsByLocation") ?>
              qtyReservedLocation(itemloc_id) AS reservedqty
   <? else ?>
@@ -87,7 +67,7 @@ FROM (
       SELECT -1 AS itemloc_id, 0 AS level, item_number AS sortkey, warehous_code, item_number,
              (item_descrip1 || ' ' || item_descrip2) AS f_descrip,
              <? value("na") ?> AS f_lotserial, uom_name,
-             calcAsOfQoh(itemsite_id, <? value("asOf") ?>) AS qoh,
+             itemsite_qtyonhand AS qty,
              0 AS reservedqty
       FROM itemsite, warehous, item, uom
       WHERE ((itemsite_item_id=item_id)
@@ -123,16 +103,14 @@ FROM (
   <? endif ?>
              warehous_code,
              CASE WHEN(itemsite_useparams) THEN itemsite_reorderlevel ELSE 0.0 END AS reorderlevel,
-             calcAsOfQoh(itemsite_id, <? value("asOf") ?>) AS qoh,
+             itemsite_qtyonhand AS qoh,
              itemsite_nnqoh AS nnqoh,
   <? if exists("useStandardCosts") ?>
              stdcost(item_id) AS cost
   <? elseif exists("useActualCosts") ?>
              actcost(item_id) AS cost
   <? else ?>
-             (itemsite_value / CASE WHEN (itemsite_qtyonhand=0.0) THEN 1.0
-                                    WHEN (calcAsOfQoh(itemsite_id, <? value("asOf") ?>)=0.0) THEN 1.0
-                                    ELSE calcAsOfQoh(itemsite_id, <? value("asOf") ?>) END) AS cost
+             (itemsite_value / CASE WHEN(itemsite_qtyonhand=0) THEN 1 ELSE itemsite_qtyonhand END) AS cost
   <? endif ?>
       FROM itemsite, item, warehous
   <? if exists("byParameterList") ?>
@@ -170,9 +148,9 @@ FROM (
                           FROM itemgrpitem))
     <? endif ?>
     <? if exists("showPositive") ?>
-         AND (calcAsOfQoh(itemsite_id, <? value("asOf") ?>) > 0)
+         AND (itemsite_qtyonhand > 0)
     <? elseif exists("showNegative") ?>
-         AND (calcAsOfQoh(itemsite_id, <? value("asOf") ?>) < 0)
+         AND (itemsite_qtyonhand < 0)
     <? endif ?>
   <? endif ?>
   <? if exists("warehous_id") ?>
