@@ -117,6 +117,7 @@ xtte.project.openTask = function(mode)
 {
   params = new Object;
   params.mode = mode;
+  params.prj_id = _prjid;
   if (mode != "new")
     params.prjtask_id = _prjtask.id();
   if (_cust.isValid())

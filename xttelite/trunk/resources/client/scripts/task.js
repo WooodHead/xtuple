@@ -62,7 +62,7 @@ xtte.task.save = function(prjtaskId)
 
   var params = new Object();
   params.teprjtask_id	= _teprjtaskid;
-  params.prjtask_id	= _prjtaskid;
+  params.prjtask_id	= prjtaskId;
   if (_cust.isValid())
     params.cust_id  	= _cust.id();
   if (_billingGroup.checked)
