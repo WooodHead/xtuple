@@ -16,11 +16,21 @@ var _tebilling = toolbox.loadUi("tebilling", mywindow);
 toolbox.tabInsertTab(_tab, 2, _tebilling, qsTr("Billing"));
 _tab.setEnabled(2, privileges.check("CanViewRates"));
 
+var _buttonBox = mywindow.findChild("_buttonBox");
+var _gantt = _buttonBox.addButton(qsTr("Gantt..."), QDialogButtonBox.ActionRole);
+
+var _owner = mywindow.findChild("_owner");
+var _assignedTo = mywindow.findChild("_assignedTo");
+var _started = mywindow.findChild("_started");
+var _due = mywindow.findChild("_due");
+var _assigned = mywindow.findChild("_assigned");
+var _completed = mywindow.findChild("_completed");
 var _prjtask = mywindow.findChild("_prjtask");
 var _newTask = mywindow.findChild("_newTask");
 var _editTask = mywindow.findChild("_editTask");
 var _viewTask = mywindow.findChild("_viewTask");
 var _number = mywindow.findChild("_number");
+var _name = mywindow.findChild("_name");
 var _billingGroup = mywindow.findChild("_billingGroup");
 var _itemGroup = _tebilling.findChild("_itemGroup");
 var _useItem = _tebilling.findChild("_useItem");
@@ -117,8 +127,17 @@ xtte.project.openTask = function(mode)
 {
   params = new Object;
   params.mode = mode;
+  if (mode == "new")
+  {
   params.prj_id = _prjid;
-  if (mode != "new")
+  params.prj_owner_username = _owner.username();
+  params.prj_username = _assignedTo.username();
+  params.prj_start_date = _started.date;
+  params.prj_due_date = _due.date;
+  params.prj_assigned_date = _assigned.date;
+  params.prj_completed_date = _completed.date;
+  }
+  else
     params.prjtask_id = _prjtask.id();
   if (_cust.isValid())
     params.cust_id = _cust.id();
@@ -130,6 +149,32 @@ xtte.project.openTask = function(mode)
     mywindow.populate();
 }
 
+xtte.project.gantt = function()
+{
+  if (!_due.isValid())
+  {
+    var msg = qsTr("You must enter a valid Due Date");
+    QMessageBox.critical(mywindow, qsTr("Invalid Date"), msg);
+    return;
+  }
+
+  var dparams = new Object;
+  dparams.startDate = _started.date;
+  dparams.dueDate = _due.date;
+
+  var qry = toolbox.executeDbQuery("project","formatdates",dparams);
+  if (qry.first())
+  {
+    var params = new Object;
+    params.prjNumber = _number.text;
+    params.prjName = _name.text;
+    params.startDate = qry.value("start_date");
+    params.dueDate = qry.value("due_date");
+
+    toolbox.openWindow("projectGantt", mywindow, Qt.ApplicationModal);
+    toolbox.lastWindow().set(params);
+  }
+}
 
 // Initialize
 _itemGroup.hide();
@@ -143,5 +188,6 @@ toolbox.coreDisconnect(_viewTask, "clicked()", mywindow, "sViewTask()");
 _newTask.clicked.connect(xtte.project.newTask);
 _editTask.clicked.connect(xtte.project.editTask);
 _viewTask.clicked.connect(xtte.project.viewTask);
+_gantt.clicked.connect(xtte.project.gantt);
 mydialog["finished(int)"].connect(xtte.project.save);
 
