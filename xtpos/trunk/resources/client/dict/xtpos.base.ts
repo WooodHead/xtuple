@@ -2,189 +2,197 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>Dialog</name>
+    <message>
+        <location filename="../uiforms/untitled.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>cashRegister</name>
     <message>
-        <location filename="../scripts/cashRegister.js" line="54"/>
+        <location filename="../scripts/cashRegister.js" line="53"/>
         <source>Number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="55"/>
+        <location filename="../scripts/cashRegister.js" line="54"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="56"/>
+        <location filename="../scripts/cashRegister.js" line="55"/>
         <source>Closed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="57"/>
+        <location filename="../scripts/cashRegister.js" line="56"/>
         <source>Cust#</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="58"/>
+        <location filename="../scripts/cashRegister.js" line="57"/>
         <source>Contact#</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="59"/>
+        <location filename="../scripts/cashRegister.js" line="58"/>
         <source>Hnfc.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="60"/>
+        <location filename="../scripts/cashRegister.js" line="59"/>
         <source>First</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="61"/>
+        <location filename="../scripts/cashRegister.js" line="60"/>
         <source>Middle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="62"/>
+        <location filename="../scripts/cashRegister.js" line="61"/>
         <source>Last</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="63"/>
+        <location filename="../scripts/cashRegister.js" line="62"/>
         <source>Suffix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="64"/>
+        <location filename="../scripts/cashRegister.js" line="63"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="65"/>
+        <location filename="../scripts/cashRegister.js" line="64"/>
         <source>Voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="66"/>
+        <location filename="../scripts/cashRegister.js" line="65"/>
         <source>Alternate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="67"/>
+        <location filename="../scripts/cashRegister.js" line="66"/>
         <source>Fax</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="68"/>
+        <location filename="../scripts/cashRegister.js" line="67"/>
         <source>Email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="69"/>
+        <location filename="../scripts/cashRegister.js" line="68"/>
         <source>Web</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="70"/>
+        <location filename="../scripts/cashRegister.js" line="69"/>
         <source>Cont. Change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="71"/>
+        <location filename="../scripts/cashRegister.js" line="70"/>
         <source>Address#</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="72"/>
+        <location filename="../scripts/cashRegister.js" line="71"/>
         <source>Address1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="73"/>
+        <location filename="../scripts/cashRegister.js" line="72"/>
         <source>Address2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="74"/>
+        <location filename="../scripts/cashRegister.js" line="73"/>
         <source>Address3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="75"/>
+        <location filename="../scripts/cashRegister.js" line="74"/>
         <source>City</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="76"/>
+        <location filename="../scripts/cashRegister.js" line="75"/>
         <source>State</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="77"/>
+        <location filename="../scripts/cashRegister.js" line="76"/>
         <source>Postal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="78"/>
+        <location filename="../scripts/cashRegister.js" line="77"/>
         <source>Country</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="79"/>
+        <location filename="../scripts/cashRegister.js" line="78"/>
         <source>Addr. Change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="80"/>
+        <location filename="../scripts/cashRegister.js" line="79"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="81"/>
+        <location filename="../scripts/cashRegister.js" line="80"/>
         <source>Sales Rep.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="82"/>
+        <location filename="../scripts/cashRegister.js" line="81"/>
         <source>Notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="83"/>
+        <location filename="../scripts/cashRegister.js" line="82"/>
         <source>Site</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="84"/>
+        <location filename="../scripts/cashRegister.js" line="83"/>
         <source>Terminal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="85"/>
+        <location filename="../scripts/cashRegister.js" line="84"/>
         <source>Tax Zone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="86"/>
+        <location filename="../scripts/cashRegister.js" line="85"/>
         <source>Subtotal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="87"/>
+        <location filename="../scripts/cashRegister.js" line="86"/>
         <source>Tax</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="88"/>
+        <location filename="../scripts/cashRegister.js" line="87"/>
         <source>Total</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="286"/>
+        <location filename="../scripts/cashRegister.js" line="285"/>
         <source>Database Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="287"/>
+        <location filename="../scripts/cashRegister.js" line="286"/>
         <source>Could not initialize printing system for multiple reports.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -617,12 +625,12 @@
 <context>
     <name>payment</name>
     <message>
-        <location filename="../scripts/payment.js" line="285"/>
+        <location filename="../scripts/payment.js" line="281"/>
         <source>Database Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/payment.js" line="286"/>
+        <location filename="../scripts/payment.js" line="282"/>
         <source>Could not initialize printing system.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1045,7 +1053,7 @@
 <context>
     <name>retailSale</name>
     <message>
-        <location filename="../scripts/retailSale.js" line="605"/>
+        <location filename="../scripts/retailSale.js" line="626"/>
         <source>This action will delete all listed items.  Are you sure you want to do this?</source>
         <translation type="unfinished"></translation>
     </message>
