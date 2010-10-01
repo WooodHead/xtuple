@@ -806,7 +806,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockBankBal.js" line="94"/>
+        <location filename="../scripts/dockBankBal.js" line="95"/>
         <source>Reconcile...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2109,138 +2109,6 @@
     <message>
         <location filename="../uiforms/preferencesSelections.ui" line="37"/>
         <source>Select Accounts to monitor:</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>whseCalendar</name>
-    <message>
-        <location filename="../scripts/whseCalendar.js" line="66"/>
-        <source>Enter Start/End Date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/whseCalendar.js" line="67"/>
-        <source>You must enter a valid start/end date for this Site Calendar before saving it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/whseCalendar.js" line="88"/>
-        <source>Date for Site Already Set</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/whseCalendar.js" line="89"/>
-        <source>The Dates specified for the Site is already in the system. Please edit that record or change you dates.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/whseCalendar.js" line="155"/>
-        <source>Database Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>whseCalendars</name>
-    <message>
-        <location filename="../scripts/whseCalendars.js" line="21"/>
-        <source>Site</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/whseCalendars.js" line="22"/>
-        <source>Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/whseCalendars.js" line="89"/>
-        <source>Database Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>whseWeek</name>
-    <message>
-        <location filename="../scripts/whseWeek.js" line="56"/>
-        <location filename="../scripts/whseWeek.js" line="73"/>
-        <source>Database Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/whseWeek.js" line="94"/>
-        <source>Unsaved Changes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/whseWeek.js" line="95"/>
-        <source>There are unsaved changes. Would you like to save before continuing?</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>workCenter</name>
-    <message>
-        <location filename="../scripts/workCenter.js" line="120"/>
-        <source>Cannot Save Work Center</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/workCenter.js" line="121"/>
-        <source>You must select a Site for this Work Center before you may save it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/workCenter.js" line="367"/>
-        <source>Database Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>workCenters</name>
-    <message>
-        <location filename="../scripts/workCenters.js" line="25"/>
-        <source>Site</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/workCenters.js" line="26"/>
-        <source>Work Cntr.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/workCenters.js" line="27"/>
-        <source>Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/workCenters.js" line="53"/>
-        <source>Edit Work Center...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/workCenters.js" line="56"/>
-        <source>View Work Center...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/workCenters.js" line="59"/>
-        <source>Copy Work Center...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/workCenters.js" line="62"/>
-        <source>Delete Work Center</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/workCenters.js" line="114"/>
-        <source>Could not Delete Work Center</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/workCenters.js" line="122"/>
-        <location filename="../scripts/workCenters.js" line="137"/>
-        <source>Database Error</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
