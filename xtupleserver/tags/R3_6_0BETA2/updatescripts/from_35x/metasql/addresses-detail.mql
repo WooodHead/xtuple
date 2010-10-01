@@ -1,0 +1,10 @@
+-- Group: addresses
+-- Name:  detail
+-- Notes: 
+SELECT addr_id, addr_line1, addr_line2, addr_line3, 
+  addr_city, addr_state, addr_country, addr_postalcode 
+FROM addr 
+<? if exists("activeOnly") ?> 
+WHERE addr_active 
+<? endif ?>
+ORDER BY addr_country, addr_state, addr_city, addr_line1;

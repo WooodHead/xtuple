@@ -1,0 +1,1 @@
+ALTER TABLE todoitem ADD COLUMN todoitem_cntct_id INTEGER REFERENCES cntct (cntct_id);
