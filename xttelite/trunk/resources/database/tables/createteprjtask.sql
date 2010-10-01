@@ -11,17 +11,19 @@ BEGIN
 
   ELSE  
     CREATE TABLE te.teprjtask
-     ( teprjtask_prj_id integer NOT NULL,
-       teprjtask_prjtask_number text NOT NULL,
-       teprjtask_cust_id integer,
-       teprjtask_rate numeric,
-       teprjtask_item_id integer,
-       CONSTRAINT teprjtask_pkey PRIMARY KEY				 		
-       (teprjtask_prj_id,teprjtask_prjtask_number));
-       ALTER TABLE te.teprjtask OWNER TO "admin";
-       GRANT ALL ON TABLE te.teprjtask TO "admin";
-       GRANT ALL ON TABLE te.teprjtask TO xtrole;
-       COMMENT ON TABLE te.teprjtask IS 't/e information for tasks';
+    (
+      teprjtask_id serial PRIMARY KEY,
+      teprjtask_cust_id integer,
+      teprjtask_rate numeric,
+      teprjtask_item_id integer REFERENCES item (item_id) ON DELETE SET NULL,
+      teprjtask_prjtask_id integer REFERENCES prjtask (prjtask_id) ON DELETE CASCADE,
+      teprjtask_curr_id integer DEFAULT basecurrid() REFERENCES curr_symbol (curr_id) ON DELETE SET DEFAULT,
+      UNIQUE (teprjtask_prjtask_id)
+    );
+
+    GRANT ALL ON TABLE te.teprjtask TO xtrole;
+    GRANT ALL ON SEQUENCE te.teprjtask_teprjtask_id_seq TO xtrole;
+    COMMENT ON TABLE te.teprjtask IS 't/e information for tasks';
 
   END IF;
   

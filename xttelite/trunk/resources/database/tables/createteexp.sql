@@ -11,15 +11,14 @@ BEGIN
 
   ELSE  
     CREATE TABLE te.teexp
-     ( teexp_id integer NOT NULL,
-       teexp_expcat_id integer,
-       teexp_accnt_id integer,
-       CONSTRAINT teexp_pkey PRIMARY KEY (teexp_id)  )
-       WITH (OIDS=FALSE);
-       ALTER TABLE te.teexp OWNER TO "admin";
-       GRANT ALL ON TABLE te.teexp TO "admin";
-       GRANT ALL ON TABLE te.teexp TO xtrole;
-       COMMENT ON TABLE te.teexp IS 'Expense/Item';
+    (
+      teexp_id integer PRIMARY KEY,
+      teexp_expcat_id integer,
+      teexp_accnt_id integer
+    );
+
+    GRANT ALL ON TABLE te.teexp TO xtrole;
+    COMMENT ON TABLE te.teexp IS 'Expense/Item';
 
   END IF;
 

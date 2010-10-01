@@ -9,14 +9,19 @@ BEGIN
     -- do nothing (this ensures that the table is created as needed.  Revisions should go here
   ELSE  
     CREATE TABLE te.tecustrate
-     ( tecustrate_cust_name text NOT NULL,
-       tecustrate_rate numeric(16,4) NOT NULL,
-       CONSTRAINT tecustrate_pkey PRIMARY KEY (tecustrate_cust_name) )
-       WITH (OIDS=FALSE);
-       ALTER TABLE te.tecustrate OWNER TO "admin";
-       GRANT ALL ON TABLE te.tecustrate TO "admin";
-       GRANT ALL ON TABLE te.tecustrate TO xtrole;
-       COMMENT ON TABLE te.tecustrate IS 'Default Customer Billing rate for Time/Expense';
+    (
+      tecustrate_cust_id integer NOT NULL PRIMARY KEY,
+      tecustrate_rate numeric(16,4) NOT NULL,
+      tecustrate_id serial NOT NULL,
+      tecustrate_curr_id integer NOT NULL DEFAULT basecurrid() 
+          REFERENCES curr_symbol (curr_id) ON DELETE SET DEFAULT,
+      FOREIGN KEY (tecustrate_cust_id)
+          REFERENCES custinfo (cust_id) ON DELETE CASCADE,
+      UNIQUE (tecustrate_cust_id)
+    );
+
+  GRANT ALL ON TABLE te.tecustrate TO xtrole;
+  COMMENT ON TABLE te.tecustrate IS 'Default Customer Billing rate for Time/Expense';
 
   END IF;
 
