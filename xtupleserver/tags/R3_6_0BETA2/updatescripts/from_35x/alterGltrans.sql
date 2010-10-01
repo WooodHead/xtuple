@@ -1,0 +1,1 @@
+ALTER TABLE gltrans ADD COLUMN gltrans_deleted boolean DEFAULT false;

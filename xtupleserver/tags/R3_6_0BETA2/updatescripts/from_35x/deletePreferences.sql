@@ -1,0 +1,1 @@
+DELETE FROM usrpref WHERE usrpref_name = 'ClusterButtons'
