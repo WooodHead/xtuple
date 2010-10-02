@@ -1,3 +1,4 @@
+ALTER TABLE te.tecustrate DROP CONSTRAINT tecustrate_pkey;
 ALTER TABLE te.tecustrate ADD COLUMN tecustrate_id SERIAL PRIMARY KEY;
 ALTER TABLE te.tecustrate ADD COLUMN tecustrate_cust_id INTEGER REFERENCES custinfo (cust_id) ON DELETE CASCADE;
 UPDATE te.tecustrate SET tecustrate_cust_id = cust_id
