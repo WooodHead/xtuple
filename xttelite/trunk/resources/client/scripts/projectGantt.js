@@ -11,14 +11,18 @@
 include("xtte");
 xtte.projectGantt = new Object;
 
-var _webView = mywindow.findChild("_webView");
+var _webView = new QWebView(mywindow);
+var _toolBar = mywindow.findChild("_toolBar");
+var _layout = toolbox.widgetGetLayout(_toolBar);
 var _prjid;
 var _prjNumber;
 var _prjName;
 var _startDate;
 var _dueDate;
-var _JSCode;
-var _CSSCode;
+var _jsCode;
+var _cssCode;
+var _jsPath;
+var _cssPath;
 var _qry;
 var _page;
 var _gantt;
@@ -50,8 +54,8 @@ xtte.projectGantt.populate = function()
 
     _page = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
     _page = _page + '<html><head>';
-    _page = _page + '<style type = "text/css">' + _CSSCode + '</style>';
-    _page = _page + '<script language="javascript">' + _JSCode + '</script>';
+    _page = _page + '<link rel="stylesheet" type="text/css" href="file:///' + _cssPath + '"/>';
+    _page = _page + '<script language="javascript" src="file:///' + _jsPath + '"></script>';
     _page = _page + '</head><body bgcolor="#F0F0F0"><div class="gantt" id="GanttChartDIV"></div></body></html>';
 
     _gantt = "<script>";
@@ -91,17 +95,35 @@ xtte.projectGantt.populate = function()
     _gantt = _gantt + "  }";
     _gantt = _gantt + "</script>";
      
-    _webView.setHtml(_page + _gantt);
+    var html = _page + _gantt;
+    _webView.setHtml(html);
+    // This snippet should make the link open in a new browser, but nothing happens. Why?
+    //_webView.page().linkDelegationPolicy = QWebPage.DelegateAllLinks;
 }
 
 // Initialize
-qry = toolbox.executeDbQuery("projectGantt","jsgantt");
-if (qry.first());
-  _JSCode = qry.value("script_source");
+mywindow.findChild("_close").triggered.connect(mywindow, "close");
 
-qry = toolbox.executeDbQuery("projectGantt","jsganttcss");
-if (qry.first());
-  _CSSCode = qry.value("script_source");
+_layout.addWidget(_webView, 1, 0);
 
-// Connections
-mywindow.findChild("_close").clicked.connect(mywindow, "close");
+// Create jsGantt files on local OS if they don't already exist
+var tmpdir = toolbox.getTempDir();
+_jsPath = tmpdir + "/jsgantt.js";
+_cssPath = tmpdir + "/jscantt.css";
+
+if (!toolbox.fileExists(_jsPath))
+{
+  // Create jsGantt script
+  qry = toolbox.executeDbQuery("projectGantt","jsgantt");
+  if (qry.first());
+    _jsCode = qry.value("script_source");
+
+  toolbox.textStreamWrite(_jsPath, _jsCode);
+
+  // Create jsGantt style sheet
+  qry = toolbox.executeDbQuery("projectGantt","jsganttcss");
+  if (qry.first());
+    _cssCode = qry.value("script_source");
+
+  toolbox.textStreamWrite(_cssPath, _cssCode);
+}

@@ -8,7 +8,7 @@ BEGIN
                 AND relnamespace=pg_namespace.oid
                 AND nspname='te')) THEN
 
-    SELECT dropIfExists('FUNCTION','insertmiscvoucher(te.voucher)','te');
+    DROP FUNCTION te.insertmiscvoucher(te.voucher) CASCADE;
   END IF;
 
   RETURN 0;
