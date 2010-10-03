@@ -7,8 +7,8 @@ It is licensed to you under the Common Public Attribution License
 version 1.0, the full text of which (including xTuple-specific Exhibits)
 is available at www.xtuple.com/CPAL.  By using this software, you agree
 to be bound by its terms.</comment>
- <class>newForm</class>
- <widget class="QWidget" name="newForm">
+ <class>projectGantt</class>
+ <widget class="QWidget" name="projectGantt">
   <property name="windowModality">
    <enum>Qt::NonModal</enum>
   </property>
@@ -27,57 +27,37 @@ to be bound by its terms.</comment>
    <string/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
    <item row="0" column="0">
-    <widget class="QWebView" name="_webView">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
+    <widget class="QToolBar" name="_toolBar">
+     <property name="enabled">
+      <bool>true</bool>
      </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
-     <property name="url">
-      <url>
-       <string>about:blank</string>
-      </url>
+     <property name="toolButtonStyle">
+      <enum>Qt::ToolButtonIconOnly</enum>
      </property>
+     <addaction name="_close"/>
+     <addaction name="separator"/>
     </widget>
    </item>
-   <item row="0" column="1">
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QPushButton" name="_close">
-       <property name="text">
-        <string>Close</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
-   </item>
   </layout>
+  <action name="_close">
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKit/QWebView</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
