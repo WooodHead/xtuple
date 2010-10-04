@@ -23,12 +23,11 @@ BEGIN
   IF (_type IN ('M', 'F', 'B', 'T')) THEN
     FOR _bomitem IN SELECT DISTINCT costelem_type
                     FROM ( SELECT costelem_type
-                           FROM itemcost, costelem, bomitem(pItemid)
-                           WHERE ( ( CURRENT_DATE BETWEEN bomitem_effective
-                                               AND (bomitem_expires - 1) )
-                            AND (NOT costelem_sys)
-                            AND (bomitem_item_id=itemcost_item_id)
-                            AND (itemcost_costelem_id=costelem_id) ) 
+                           FROM bomitem(pItemid)
+                             JOIN item ON (item_id=bomitem_item_id AND item_type <> 'T')
+                             JOIN itemcost ON (itemcost_item_id=bomitem_item_id)
+                             JOIN costelem ON (costelem_id=itemcost_costelem_id AND NOT costelem_sys)
+                           WHERE ( CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1) )
 
                            UNION SELECT costelem_type
                            FROM itemcost, costelem

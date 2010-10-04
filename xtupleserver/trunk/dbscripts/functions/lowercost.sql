@@ -35,14 +35,14 @@ BEGIN
     SELECT SUM( round(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE),6) * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd + bomitem_qtyper) * (1 + bomitem_scrap)) ),
            SUM( itemcost_stdcost * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/COALESCE(bomhead_batchsize,1) + bomitem_qtyper) * (1 + bomitem_scrap)) )
 	INTO _actCost, _stdCost
-    FROM itemcost, costelem, bomitem(pItemid)
+    FROM bomitem(pItemid)
+      JOIN item ON (item_id=bomitem_item_id AND item_type <> 'T')
+      JOIN itemcost ON (itemcost_item_id=bomitem_item_id)
+      JOIN costelem ON (costelem_id=itemcost_costelem_id AND costelem_type=pCosttype)
       LEFT OUTER JOIN bomhead ON ((bomhead_item_id=pItemId)
                              AND  (bomhead_rev_id=getActiveRevId('BOM',pItemId)))
     WHERE ( (bomitem_parent_item_id=pItemid)
-     AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1))
-     AND (bomitem_item_id=itemcost_item_id)
-     AND (itemcost_costelem_id=costelem_id)
-     AND (costelem_type=pCosttype) );
+     AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1)) );
 
     IF (NOT FOUND) THEN
       _actCost := NULL;
