@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="ediProfile" role="standard">
+<section id="ediProfile" role="xtconnect">
   <title><indexterm significance="normal">
       <primary>electronic data interchange</primary>
       <secondary>creating new profile</secondary>
@@ -141,6 +141,43 @@
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Profile.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Batching</term>
+      <listitem>
+        <para>This allows for creating and sending EDI files on a schedule,
+        instead of creating and sending the files individually as the requests
+        come in. Typically EDI requests are immediately processed whenever a
+        user prints a document that should also be sent by EDI. To process all
+        EDI requests for a Profile in batches, create a recurring EDIBatch Job
+        for that Profile using the Batching tab. When the EDIBatch Job runs,
+        it creates individual Scheduled Jobs for each EDI file to be created
+        and sent.</para>
+        <xi:include href="../widgets/recurrencewidget.xml"
+                    xpointer="recurrenceWidget"
+                    xmlns:xi="http://www.w3.org/2001/XInclude" />
+        <variablelist>
+          <varlistentry>
+            <term>From</term>
+            <term>Reply to</term>
+            <term>To</term>
+            <term>Bcc</term>
+            <listitem>
+              <para>Whenever an EDIBatch job runs, the xTuple Connect Batch
+              Manager will use these properties to send email about the
+              EDIBatch job itself. This email tells the recipients how many
+              RunReport, FTPReport, EmailCSV, FTPCSV, etc. jobs were generated
+              but does not give information about the success or failure of
+              the individual jobs.<warning>
+                  <para>This email configuration is stored as part of the
+                  EDIBatch job. If you delete all copies of the EDIBatch job,
+                  the email configuration information will also be deleted.
+                  </para>
+                </warning></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

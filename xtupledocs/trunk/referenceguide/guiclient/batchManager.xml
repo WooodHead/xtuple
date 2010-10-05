@@ -2,31 +2,31 @@
 <!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section937769" role="standard">
-  <title>Batch Manager</title>
-  <para>The Batch Manager is an application which connects to one or more
-  databases and waits for and then processes batched jobs that need to be run.
-  These batched jobs are submitted from various places within the application.
-  Often the type of jobs that can be submitted are jobs that either take long
-  periods of time to run or jobs that you would want to run periodically at a
-  given time. When you submit a job to the Batch Manager, you specify a time
-  for the job to start running. This job and others like it are stored on the
-  database, waiting for the Batch Manager to process them. You can see a list
-  of jobs submitted to the Batch Manager by selecting the "Batch Manager"
-  option from the System module.</para>
+<section id="Section937769" role="xtconnect">
+  <title>xTuple Connect Console</title>
+  <para>The xTuple Connect Batch Manager is an application which connects to a
+  database and waits for and then processes scheduled jobs that need to be
+  run. These scheduled jobs are submitted from various places within the
+  xTuple ERP application. Often the type of jobs that can be submitted are
+  jobs that either take long periods of time to run or jobs that you would
+  want to run periodically at a given time. When you submit a job to the Batch
+  Manager, you specify a time for the job to start running. This job and
+  others like it are stored on the database, waiting for the Batch Manager to
+  process them. You can see a list of jobs submitted to the Batch Manager by
+  selecting the "xTuple Connect Console" option from the System module.</para>
   <note>
     <para>For details on installing and setting up the Batch Manager at your
-    site, please see the Batch Manager documentation available in the
-    Downloads area of the xTuple community website.</para>
+    site, please see the xTuple Connect Product Guide available in the
+    Documentation area of the xTuple community website.</para>
   </note>
-  <para>To access the system interface to the Batch Manager, select the "Batch
-  Manager" option. The following screen will appear:</para>
+  <para>To access the system interface to the Batch Manager, select the
+  "xTuple Connect Console" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/batchManager.png" />
         </imageobject>
-        <caption>Batch Manager</caption>
+        <caption>xTuple Connect Console</caption>
       </mediaobject>
     </screenshot></para>
   <note>
@@ -38,8 +38,8 @@
     ASAP jobs will not necessarily be run immediately. Previously scheduled
     jobs will be run first.</para>
   </note>
-  <para>When managing Batch Items using the system interface to the Batch
-  Manager, you are presented with the following options:</para>
+  <para>When managing Scheduled Jobs using the xTuple Connect Console, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Submitted by</term>
@@ -56,20 +56,20 @@
     <varlistentry>
       <term>Show Completed Actions</term>
       <listitem>
-        <para>Select to include completed Batch Items in the display.</para>
+        <para>Select to include completed Scheduled Jobs in the
+        display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Batch</term>
+      <term>Jobs</term>
       <listitem>
-        <para>Displays Batch Items using the specified parameters.</para>
+        <para>Displays Scheduled Jobs using the specified parameters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Automatically Update</term>
       <listitem>
-        <para>Select to automatically update the display every five
-        minutes.</para>
+        <para>Select to automatically update the display every minute.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -78,8 +78,29 @@
     <varlistentry>
       <term>RESCHEDULE</term>
       <listitem>
-        <para>Highlight a Batch Item and then select this button to reschedule
-        the Item.</para>
+        <para>Highlight a Job and then select this button to reschedule the
+        Job.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>RETRY ASAP</term>
+      <listitem>
+        <para>Rerun one or more selected Jobs as soon as possible. This is a
+        shortcut for the RESCHEDULE button. It allows rescheduling multiple
+        jobs with one click. It will not reschedule existing jobs that have
+        not yet completed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Cancel (or delete) the selected Jobs, whether they have been run
+        or not.<warning>
+            <para>If the list of cancelled jobs contains all copies of a
+            recurring Job, the recurrence will stop immediately. You will have
+            to create a new copy of the Job and re-enter the recurrence
+            schedule.</para>
+          </warning></para>
       </listitem>
     </varlistentry>
   </variablelist>

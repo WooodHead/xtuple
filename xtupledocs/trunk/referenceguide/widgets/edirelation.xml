@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section role="standard">
+<section role="xtconnect">
   <title>EDI Relation Pseudo-widget</title>
   <para><remark>This should really be part of the xtbatch docs</remark></para>
-  <para id="edirelationWidget"><informalexample role="standard">
+  <para id="edirelationWidget"><informalexample role="xtconnect">
       <para>When associating EDI Profiles with EDI recipients, such as
       Customers, Ship-To Addresses, and Vendors, you are presented with the
       following options:</para>
@@ -35,8 +35,12 @@
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>To attach an existing EDI Profile to the current recipient, select
-      the ATTACH button. The following screen will appear:</para>
+      <para><note>
+          <para>Selecting the EDIT button will open the EDI Profile so you can
+          change it. All EDI recipients who share this EDI Profile will be
+          affected by changes.</para>
+        </note>To attach an existing EDI Profile to the current recipient,
+      select the ATTACH button. The following screen will appear:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
@@ -45,6 +49,12 @@
             <caption>Attach an EDI Profile</caption>
           </mediaobject>
         </screenshot></para>
+      <para>This screen lets you attach an existing EDI Profile to the
+      currently selected Recipient for a particular Document Type. This tells
+      xTuple Connect which documents should be sent by EDI and the EDI Profile
+      to use when sending documents of that type to a particular Recipient.
+      The Recipient and Recipient Type are displayed for your information
+      while attaching the EDI Profile.</para>
       <variablelist>
         <varlistentry>
           <term>Recipient</term>
@@ -66,7 +76,17 @@
           <term>Document Type</term>
           <listitem>
             <para>Choose from this list the type of document you want to use
-            the EDI Profile for.</para>
+            the EDI Profile for. The list of available Document Types changes
+            depending on the Recipient Type. For example, if the Recipient
+            Type is Vendor, the Document Type list will not contain "Sales
+            Order".</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Show All EDI Profiles</term>
+          <listitem>
+            <para>The list of EDI Profiles shows only those EDI Profiles that
+            have an EDI Form for the currently</para>
           </listitem>
         </varlistentry>
         <varlistentry>

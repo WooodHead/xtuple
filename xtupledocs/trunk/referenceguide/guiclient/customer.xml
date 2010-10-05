@@ -268,7 +268,7 @@
         Notes may be printed on shipping paperwork.</para>
       </listitem>
     </varlistentry>
-    <varlistentry role="standard">
+    <varlistentry role="xtconnect">
       <term>Transmission</term>
       <listitem>
         <para>Select the "Transmission" tab to associate EDI Profiles with the
@@ -277,7 +277,7 @@
         Associating an EDI Profile with a Ship-To Address overrides the
         association of an EDI Profile with the Customer.</para>
         <note>
-          <para role="standard">The buttons on the "Transmission" tab are
+          <para role="xtconnect">The buttons on the "Transmission" tab are
           disabled when creating a new Ship-To Address. If you want to set up
           EDI for a new Ship-To Address, save the Ship-To Address and edit it
           again.</para>
@@ -1187,11 +1187,11 @@
   </variablelist>
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <para role="standard">The Electronic Data Interchange (EDI) system enables
+  <para role="xtconnect">The Electronic Data Interchange (EDI) system enables
   you to send Quotes, Sales Orders, Credit Memos, A/R Statements, and Invoices
   electronically to your Customers. To establish a Customer's EDI preferences,
   select the "Transmission" tab. The following screen will appear:</para>
-  <para role="standard"><screenshot>
+  <para role="xtconnect"><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/customer_transmitTab.png" />
@@ -1199,7 +1199,7 @@
         <caption>Transmission Information for EDI</caption>
       </mediaobject>
     </screenshot></para>
-  <note role="standard">
+  <note role="xtconnect">
     <para>The buttons on the "Transmission" tab are disabled when creating a
     new Customer. If you want to set up EDI for a new Customer, save the
     Customer and edit it again.</para>

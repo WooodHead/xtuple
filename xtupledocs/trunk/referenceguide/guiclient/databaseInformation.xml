@@ -148,28 +148,28 @@
         </variablelist>
       </listitem>
     </varlistentry>
-    <varlistentry role="standard">
-      <term>Batch Manager</term>
+    <varlistentry role="xtconnect">
+      <term>xTuple Connect Enabled</term>
       <listitem>
-        <para>If you have the Batch Manager installed on your system and you
-        want to enable/activate it, then select this option. Once selected,
-        any jobs submitted to the Batch Manager will be processed. If the
-        option is not selected, then jobs submitted to the Batch Manager will
-        not be processed. The following options should also be
-        specified:</para>
+        <para>If you have xTuple Connect installed on your system and you want
+        to enable/activate it, then select this option. Once selected, any
+        jobs submitted to the xTuple Connect Batch Manager will be processed.
+        If the option is not selected, then you will not be able to submit
+        jobs to the xTuple Connect Batch Manager. The following options should
+        also be specified:</para>
         <variablelist>
           <varlistentry>
-            <term>Default Batch Email Address</term>
+            <term>Default From Email Address</term>
             <listitem>
               <para>Enter an email address to be used as the default "From"
               address in situations when no other "From" address is specified.
-              For example, this feature would apply if when scheduling an
-              Invoice for email delivery no email address is entered in the
-              "From" field.</para>
+              For example, this feature would apply if no email address is
+              entered in the "From" field when scheduling an Invoice for email
+              delivery.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Purge Batch Jobs after</term>
+            <term>Purge Jobs after</term>
             <listitem>
               <para>Specify how frequently (in days) you want to purge
               already-completed Batch Manager jobs.</para>

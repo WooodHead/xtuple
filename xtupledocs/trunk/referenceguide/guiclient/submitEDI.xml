@@ -2,13 +2,14 @@
 <!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section role="standard">
+<section role="xtconnect">
   <title>Send Document Electronically</title>
   <para id="submitEDI"><informalexample>
       <para>You may be presented with one of two screens, depending on whether
       the document will be sent by email or by FTP. If you do not see either
       screen, the EDI Profile has been set to disable review before sending
-      and will automatically be sent to the Batch Manager.</para>
+      and will automatically be sent to the xTuple Connect Batch
+      Manager.</para>
       <para>If the document will be sent by email, you will see the following
       screen:</para>
       <mediaobject>
@@ -54,9 +55,9 @@
             <para>This is the email address of the person sending the email.
             It can be set to the address of the user running the application
             or a generic address (e.g. "sales@xtuple.com"). If it is left
-            blank on this screen, the Batch Manager will fill in the email
-            address of the user running the application at the time the EDI
-            was prepared.</para>
+            blank on this screen, the xTuple Connect Batch Manager will fill
+            in the email address of the user running the application at the
+            time the EDI was prepared.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -136,21 +137,59 @@
                 <listitem>
                   <para>If the document is a Sales Order or an Invoice, the
                   Customer Form Assignment will be used. That report will be
-                  run by the Batch manager and attached to the email as a .PDF
+                  run by the Batch Manager and attached to the email as a .PDF
                   file.</para>
                 </listitem>
               </varlistentry>
               <varlistentry>
-                <term>Text Delimited By</term>
+                <term>Delimited Text</term>
                 <listitem>
-                  <para>The queries defined in the EDI Form Details for the
-                  EDI Profile will be run. The results will be used to build a
-                  file with the fields delimited by the given character.
-                  Pre-defined characters include the comma (",") and tab. If
-                  you need to change the delimiter, select "[ not delimited ]"
-                  from the drop-down menu, then replace that text with your
-                  own single character. Normally, however, this should be left
-                  to the value specified in the EDI Profile.</para>
+                  <para>The Query Set defined in the EDI Forms for the EDI
+                  Profile will be run. The results will be used to build a
+                  file with the fields delimited by the character selected in
+                  the drop-down list that appears when "Delimited Text" is
+                  selected. </para>
+                  <para>Pre-defined characters include the comma (",") and
+                  tab. If you need to change the delimiter, select "[ not
+                  delimited ]" from the drop-down menu, then replace that text
+                  with your own single character. Normally, however, this
+                  should be left to the value specified in the EDI
+                  Profile.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>HTML</term>
+                <listitem>
+                  <para>The Query Set defined in the EDI Forms for the EDI
+                  Profile will be run. The results will be used to build an
+                  HTML file. Each query will start a new HTML table.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>XML</term>
+                <listitem>
+                  <para>The Query Set defined in the EDI Forms for the EDI
+                  Profile will be run. The results will be used to build an
+                  XML file. Each row of output will be represented by an XML
+                  element named for the query that generated it and will
+                  contain child elements for the individual fields. Each field
+                  of output will be represented by an element with the name of
+                  the query result column and will contain the value of that
+                  field as the text of the element.</para>
+                  <para>The resulting XML can be transformed to another format
+                  by selecting from the list of XSLT mappings that appears
+                  when "XML" is selected.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Include Header Lines</term>
+                <listitem>
+                  <para>For Delimited Text, this will insert a line before
+                  each query showing the query result column names separated
+                  by the delimiting character. For HTML, this will insert a
+                  row at the beginning of each query's results showing the
+                  query results column names. This is ignored for PDF and XML
+                  output.</para>
                 </listitem>
               </varlistentry>
               <varlistentry>
@@ -200,9 +239,9 @@
       <para>The Attachment Options will be the same as for sending email but
       the transmission options will be different. Get the values for these
       from the EDI recipient (either your Vendor or Customer, depending on the
-      document type). See the xTuple Batch Manager Product Guide for one
-      suggestion on how to store these data. You are presented with the
-      following FTP-specific options:</para>
+      document type). See the xTuple Connect Product Guide for one suggestion
+      on how to store these data. You are presented with the following
+      FTP-specific options:</para>
       <variablelist>
         <varlistentry>
           <term>Server</term>
@@ -234,8 +273,8 @@
         </varlistentry>
       </variablelist>
       <para>If both the "Login Name" and "Password" fields are empty, the
-      Batch Manager will attempt an anonymous FTP, using the name "anonymous"
-      for the "Login Name" and the email address of the user submitting the
-      EDI for the "Password".</para>
+      xTuple Connect Batch Manager will attempt an anonymous FTP, using the
+      name "anonymous" for the "Login Name" and the email address of the user
+      submitting the EDI for the "Password".</para>
     </informalexample></para>
 </section>
