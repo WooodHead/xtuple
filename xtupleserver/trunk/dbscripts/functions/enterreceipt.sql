@@ -41,7 +41,7 @@ BEGIN
 	   poitem_unitprice AS orderitem_unitcost,
 	   pohead_curr_id AS orderitem_unitcost_curr_id,
 	   pohead_curr_id AS freight_curr_id,
-	   poitem_rlsd_duedate INTO _o
+	   poitem_rlsd_duedate AS rlsd_duedate INTO _o
         FROM pohead
           JOIN poitem ON (pohead_id=poitem_pohead_id)
           JOIN vendinfo ON (pohead_vend_id=vend_id)
@@ -59,7 +59,8 @@ BEGIN
 	   raitem_scheddate AS duedate,
 	   raitem_unitprice AS orderitem_unitcost,
 	   rahead_curr_id AS orderitem_unitcost_curr_id,
-	   rahead_curr_id AS freight_curr_id INTO _o
+	   rahead_curr_id AS freight_curr_id,
+           raitem_scheddate AS rlsd_duedate INTO _o
         FROM rahead
           JOIN raitem ON (rahead_id=raitem_rahead_id)
         WHERE (raitem_id=porderitemid);
@@ -76,7 +77,8 @@ BEGIN
 	   toitem_duedate AS duedate,
 	   toitem_stdcost AS orderitem_unitcost,
 	   baseCurrId() AS orderitem_unitcost_curr_id,
-	   toitem_freight_curr_id AS freight_curr_id INTO _o
+	   toitem_freight_curr_id AS freight_curr_id,
+           toitem_duedate AS rlsd_duedate INTO _o
         FROM itemsite, tohead
           JOIN toitem ON (tohead_id=toitem_tohead_id)
         WHERE ((toitem_id=porderitemid)
@@ -125,7 +127,7 @@ BEGIN
       _o.vend_id::INTEGER, _o.vend_item_number, _o.vend_item_descrip,
       _o.vend_uom, pQty, _o.duedate,
       _o.orderitem_unitcost, _o.orderitem_unitcost_curr_id::INTEGER,
-      pNotes, pFreight, _o.freight_curr_id::INTEGER, _o.poitem_rlsd_duedate);
+      pNotes, pFreight, _o.freight_curr_id::INTEGER, _o.rlsd_duedate);
   END IF;
 
   RETURN _recvid;
