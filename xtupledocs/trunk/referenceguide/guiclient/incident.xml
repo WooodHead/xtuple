@@ -142,7 +142,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <note role="standard">
+  <note role="xtconnect">
     <para>If CRM is configured with a default Incident EDI Profile or if the
     Category of this Incident has an EDI Profile, you may encounter an EDI
     processing interface when saving the Incident.</para>
@@ -225,29 +225,9 @@
         Incidents are generated when you run the recurring items utility,
         which is described in more detail here: <xref
         linkend="createRecurringItems" />.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Every</term>
-            <listitem>
-              <para>Specify how frequently you want the Incident to recur. For
-              example, once (1) per month, six (6) times per year, etc.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Until</term>
-            <listitem>
-              <para>Specify when the recurrence should stop. For example, on
-              the last day of the year, at the end of six months, etc.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Create no more than</term>
-            <listitem>
-              <para>Specify the maximum number of Incident copies you want
-              created when the recurring items utility is run.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        <xi:include href="../widgets/recurrencewidget.xml"
+                    xpointer="recurrenceWidget"
+                    xmlns:xi="http://www.w3.org/2001/XInclude" />
       </listitem>
     </varlistentry>
   </variablelist>
@@ -296,6 +276,49 @@
     </screenshot></para>
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para role="xtconnect">To view the Subscribers to an Incident, select the
+  "Subscribers" tab. The following screen will appear:<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="???" />
+        </imageobject>
+        <caption><para>Incident Subscribers</para></caption>
+      </mediaobject>
+    </screenshot></para>
+  <para role="xtconnect">Subscribers are automatically added to the list of
+  recipients when xTuple Connect sends email for changes to Incidents.
+  Subscribers can be either Users or Contacts, as long as they have an email
+  address. To add a Subscriber, click the NEW button. The following screen
+  will appear:<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="???" />
+        </imageobject>
+        <caption><para>Adding a Subscriber</para></caption>
+      </mediaobject>
+    </screenshot></para>
+  <para role="xtconnect">When adding a Subscriber, you are presented with the
+  following options:</para>
+  <variablelist role="xtconnect">
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Select either User or Contact.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>User</term>
+      <listitem>
+        <para>Type or select the Username of an xTuple ERP system User.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Contact</term>
+      <listitem>
+        <para>Type or select the first and last name of a Contact.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To view the documents associated with an Incident, select the
   "Documents" tab. The following screen will appear:<mediaobject>
       <imageobject>

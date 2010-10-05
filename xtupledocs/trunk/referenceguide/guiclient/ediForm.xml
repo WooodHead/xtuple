@@ -10,10 +10,11 @@
     </indexterm> <indexterm significance="normal">
       <primary>forms</primary>
       <secondary>creating new for edi</secondary>
-    </indexterm>EDI Forms specify the file format an EDI Profile will use. To
-  associate an EDI Form with a Profile, select the NEW button. For this
-  example, we will choose the "Report" format, as shown in the following
-  screenshot:</para>
+    </indexterm>EDI Forms specify the file format an EDI Profile will use.
+  They also define replacement tokens to fill in email or FTP details and to
+  use when running reports or queries. To associate an EDI Form with a
+  Profile, select the NEW button. For this example, we will choose the
+  "Report" format, as shown in the following screenshot:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -39,6 +40,13 @@
         Selecting the "Report" option indicates that document information will
         be written using the report definition specified below. Documents will
         be forwarded to EDI recipients in .PDF format.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Include Header Lines</term>
+      <listitem>
+        <para>When selecting CSV or HTML as the Output Format, check this box
+        to include a line containing column headings.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -146,13 +154,31 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>EDI Form Details</term>
+      <term>Use Query Set</term>
       <listitem>
-        <para>Displays a list of all the SQL queries to be used when
-        generating the CSV file output.</para>
+        <para>Displays a list of all the Query Sets currently defined. Select
+        the Query Set you want to run to generate the CSV data. If there is
+        more than one SQL statement in the Query Set, each query will be run
+        in the order specified in the Query Set and the data will be written
+        to the CSV file in the same order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Destination Format</term>
+      <listitem>
+        <para>If the selected "Output Format" is XML, you can either accept
+        the default xTuple XML output or transform this with an XSLT
+        stylesheet. If you need to transform the output, create an XSLT
+        stylesheet, register it in the system (see <xref
+        linkend="configureIE" />), and select it from the "Alternate XML"
+        list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>HTML is also supported as an output format. HTML output is much like
+  CSV output, with the data presented as rows and columns in HTML tables
+  instead of separated by line breaks and a single delimiting
+  character.</para>
   <xi:include href="ediFormDetail.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
