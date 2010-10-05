@@ -63,7 +63,21 @@
     <varlistentry>
       <term>Jobs</term>
       <listitem>
-        <para>Displays Scheduled Jobs using the specified parameters.</para>
+        <para>Displays Scheduled Jobs using the specified parameters.
+        Completed jobs will have a Run Status of <literal>Done</literal> and a
+        Completed timestamp. If the job failed for any reason, the first line
+        of the error message will appear in the Exit Status column. If you
+        allow the cursor to hover over the Exit Status text, the full version
+        will appear in a tooltip window.</para>
+        <note>
+          <para>Read the exit status carefully. Jobs might show error messages
+          for a number of different reasons. For example, a RunMRP job might
+          fail with a database error or with an email error. The database
+          error would mean that the planned orders were not created. The email
+          failure would indicate that the planned orders were created as they
+          should but this successful processing could not be reported
+          properly.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
