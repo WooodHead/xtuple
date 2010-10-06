@@ -2,25 +2,44 @@ Release Notes
 xTuple ERP
 PostBooks, Standard, and Manufacturing Editions
 Version 3.6.0Beta2
-October 05, 2010
+October 06, 2010
 ==================================
 
-These are the release notes for version 3.6.0Beta2. This is the 
-first public release in the 3.6.0 series, as there was no Alpha
-and the first Beta was held back because it did not pass our 
-internal, pre-release QA processes. 
+These are the release notes for version 3.6.0Beta2. This is the
+first public release in the 3.6.0 series, since there was no Alpha
+and the first Beta was not publicly released.
 
-So, 3.6.0Beta2 offers the community its first chance to use and
-test the following key features, among others:
+Here's an overview of several new features you will find in this 
+release:
 
+Subledger Accounting
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=5121 
 
+Print Preview
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=6250
+
+Consolidated Setup Screens
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=11491
+
+Wider Use of Parameter Widget 
+   * Full spec: http://www.xtuple.org/Parameter_Widget
+
+In conjunction with the release of 3.6.0Beta2, several extension 
+packages have also been updated. The following package versions
+are recommended for testing with 3.6.0Beta2:
+
+* xTuple Connect (xtbatch) v. 3.5.1Beta
+* Time & Expense (xtte) v. 2.0.0Beta
+  - This will upgrade both Lite and Pro versions
+* Point of Sale (xtpos) v. 3.6.0Beta2
+* Desktop (xtdesktop) v. 3.6.0Beta2
 
 ==================================
 
 The following features and bug fixes have been added to the
 applications since the first beta for version 3.6.0. Additional
-detail for each item listed below may be found on our community 
-website (www.xtuple.org). Simply go to the Issue Tracker and 
+detail for each item listed below may be found on our community
+website (www.xtuple.org). Simply go to the Issue Tracker and
 select the "Changelog" option.
 
 
@@ -30,167 +49,167 @@ New Features:
 * [Architectural] Implement standard shortcut keys
 * [CRM] Add Contact to ToDo's and Opportunities
 * [Inventory] Add costs button to item form
-* [Manufacture] Add Created By Column to wohead so that Schedule 
+* [Manufacture] Add Created By Column to wohead so that Schedule
 reports can be filtered by it
-* [Purchase] Add More Columns to PO Delivery Date Variance Report 
-* [System] XML Import Setup - Add Option To Define Location For 
-Error Files 
+* [Purchase] Add More Columns to PO Delivery Date Variance Report
+* [System] XML Import Setup - Add Option To Define Location For
+Error Files
 
 Bug Fixes:
 
-* [Accounting] Multi-select posting on cash receipts results in 
+* [Accounting] Multi-select posting on cash receipts results in
 error
-* [Accounting] Inconsistency presenting EFT options between 
-configure accounting and vendor windows 
-* [Accounting] Reversal of a cash receipt is not functional 
-* [Accounting] Financial reporting engine not honoring account 
-selection criteria 
-* [Accounting] Selecting to view Tax Registration crashes the 
+* [Accounting] Inconsistency presenting EFT options between
+configure accounting and vendor windows
+* [Accounting] Reversal of a cash receipt is not functional
+* [Accounting] Financial reporting engine not honoring account
+selection criteria
+* [Accounting] Selecting to view Tax Registration crashes the
 application
-* [Accounting] Vendor label is missing in vendor history screen 
-* [Accounting] Irrelevant end date is displayed in Accounting 
-Period screen 
-* [Accounting] Sales rep number requires employee name (or code) 
+* [Accounting] Vendor label is missing in vendor history screen
+* [Accounting] Irrelevant end date is displayed in Accounting
+Period screen
+* [Accounting] Sales rep number requires employee name (or code)
 not his/her number
-* [Accounting] Trouble entering dates on site exceptions screen 
-* [All] Application error closing app with pos (or other package) 
+* [Accounting] Trouble entering dates on site exceptions screen
+* [All] Application error closing app with pos (or other package)
 screens open
-* [All] Editing Comment Types from inside a To-Do 
-* [Architectural] The edit list option on the combo boxes does 
+* [All] Editing Comment Types from inside a To-Do
+* [Architectural] The edit list option on the combo boxes does
 not work
-* [Architectural] Runaway process 
-* [Batch Manager] Change “Submit” text for buttons sending to 
-batch mgr 
+* [Architectural] Runaway process
+* [Batch Manager] Change “Submit” text for buttons sending to
+batch mgr
 * [CRM] Projects option on to-do causes error if selected
-* [CRM] SQL error when running order activity by project with no 
-options selected 
-* [CRM] Adding comment to address on creation deletes address name 
-* [CRM] Can not save a new address 
-* [CRM] Accounts List screen is confusing 
-* [CRM] Duplicate filters on opportunity parameter widget 
-* [CRM] Screen title says Incident Workbench 
-* [CRM] Project window disappears when adding first task 
-* [Inventory] Inventory History Report calculating all pages when 
+* [CRM] SQL error when running order activity by project with no
+options selected
+* [CRM] Adding comment to address on creation deletes address name
+* [CRM] Can not save a new address
+* [CRM] Accounts List screen is confusing
+* [CRM] Duplicate filters on opportunity parameter widget
+* [CRM] Screen title says Incident Workbench
+* [CRM] Project window disappears when adding first task
+* [Inventory] Inventory History Report calculating all pages when
 Item is selected
-* [Inventory] Suggested patch for public._itemsitetrigger 
-* [Inventory] Zero amount is displayed for Total field in print 
-report of QOH by item 
-* [Inventory] “Time” field in print report of Inventory History by 
+* [Inventory] Suggested patch for public._itemsitetrigger
+* [Inventory] Zero amount is displayed for Total field in print
+report of QOH by item
+* [Inventory] “Time” field in print report of Inventory History by
 item group is blan
-* [Inventory] Print Preview of Usage Statistics doesn't display 
-transaction details 
-* [Inventory] Selecting to save a blank cost category displays 
+* [Inventory] Print Preview of Usage Statistics doesn't display
+transaction details
+* [Inventory] Selecting to save a blank cost category displays
 irrelevant label name
-* [Inventory] PB hangs when viewing an attached document  
-* [Inventory] Total tax on tax breakdown screen of a transfer order 
-is displayed incorrectly 
-* [Inventory] Saving a transfer order displays error dialog 
-* [Inventory] Recalling multiple shipments leads to duplicate lines 
+* [Inventory] PB hangs when viewing an attached document
+* [Inventory] Total tax on tax breakdown screen of a transfer order
+is displayed incorrectly
+* [Inventory] Saving a transfer order displays error dialog
+* [Inventory] Recalling multiple shipments leads to duplicate lines
 * [Manufacture] Totals on Production Time Clock Report
-* [Manufacture] Function is in the wrong schema 
-* [Manufacture] Total missing on costed indented bill of materials 
-screen 
-* [Manufacture] Partial Post Production do not backflush operations 
-* [Manufacture] Selecting to query work order costing displays error 
-dialog 
-* [Manufacture] “User” label is missing in Adjust Work Order Time 
-Clock Entry Screen 
-* [Manufacture] Post Operation Screen doesn't refresh after posting 
-operations 
+* [Manufacture] Function is in the wrong schema
+* [Manufacture] Total missing on costed indented bill of materials
+screen
+* [Manufacture] Partial Post Production do not backflush operations
+* [Manufacture] Selecting to query work order costing displays error
+dialog
+* [Manufacture] “User” label is missing in Adjust Work Order Time
+Clock Entry Screen
+* [Manufacture] Post Operation Screen doesn't refresh after posting
+operations
 * [Manufacture] “View Work Order Operations” option missing on right
-click of a work order 
-* [Manufacture] “Production Time Clock by Work Order” option missing 
-on right click of a work order 
-* [Manufacture] Posting Labor to a Work Order does not change status 
+click of a work order
+* [Manufacture] “Production Time Clock by Work Order” option missing
+on right click of a work order
+* [Manufacture] Posting Labor to a Work Order does not change status
 to In Proces
-* [Manufacture] Manufacture configuration option missing 
-* [Manufacture] Performance issue with xtmfg.woopertime(integer) 
+* [Manufacture] Manufacture configuration option missing
+* [Manufacture] Performance issue with xtmfg.woopertime(integer)
 * [Manufacture] Function takes long long time to execute
-* [Products] Item List is shown incorrectly on checking the “show 
-Inactive Items” checkbox in the Items search window 
-* [Products] Irrelevant item type is displayed for Planning items 
-* [Products] Report definition “inventoryhistorybyitem” cannot be 
-found 
-* [Products] Selecting to Print preview the BOM items in “Indented 
-Where Used” window displays a blank page 
-* [Products] It is possible to edit materials of BOO item in view 
+* [Products] Item List is shown incorrectly on checking the “show
+Inactive Items” checkbox in the Items search window
+* [Products] Irrelevant item type is displayed for Planning items
+* [Products] Report definition “inventoryhistorybyitem” cannot be
+found
+* [Products] Selecting to Print preview the BOM items in “Indented
+Where Used” window displays a blank page
+* [Products] It is possible to edit materials of BOO item in view
 mode
-* [Purchase] Typo error on Open Purchase Orders screen 
-* [Purchase] Creating a purchase order for a vendor with no address 
-generates DB log error 
-* [Purchase] Omnibus : Vendor label is missing in screens 
-* [Purchase] Print report of PO Items by vendor is blank 
-* [Purchase] Purchase Orders by vendor report doesn't display the 
+* [Purchase] Typo error on Open Purchase Orders screen
+* [Purchase] Creating a purchase order for a vendor with no address
+generates DB log error
+* [Purchase] Omnibus : Vendor label is missing in screens
+* [Purchase] Print report of PO Items by vendor is blank
+* [Purchase] Purchase Orders by vendor report doesn't display the
 filter headers in consistent with the selected filters
-* [Purchase] PO Header API gives error 
-* [Purchase] Cannot enter an alternate address for a new supplier 
-* [Purchase] Application crashes on selecting “Preview” button in 
-Vendor list screen 
-* [Purchase] Enter item receipt screen way too large 
-* [Purchase] Altering the vendor for a purchase order doesn't update 
-the unit price of item 
-* [Purchase] Purchase order report footer blank 
+* [Purchase] PO Header API gives error
+* [Purchase] Cannot enter an alternate address for a new supplier
+* [Purchase] Application crashes on selecting “Preview” button in
+Vendor list screen
+* [Purchase] Enter item receipt screen way too large
+* [Purchase] Altering the vendor for a purchase order doesn't update
+the unit price of item
+* [Purchase] Purchase order report footer blank
 * [Purchase] Cannot void check
-* [Sales] convertquote function does not pass quhead_calcfreight 
-* [Sales] Unable to process Return of type credit card 
-* [Sales] Freight amount is not included in total credit of a Return 
+* [Sales] convertquote function does not pass quhead_calcfreight
+* [Sales] Unable to process Return of type credit card
+* [Sales] Freight amount is not included in total credit of a Return
 at the time of creation
-* [Sales] Selecting to “View” customer details doesn't display "Cust#" 
-field 
-* [Sales] “View” option of a customer doesn't display “Customer #” 
+* [Sales] Selecting to “View” customer details doesn't display "Cust#"
+field
+* [Sales] “View” option of a customer doesn't display “Customer #”
 field detail
-* [Sales] Irrelevant symbols are displayed in Summarized sales 
+* [Sales] Irrelevant symbols are displayed in Summarized sales
 history screen
-* [Sales] Sales order retains values from default/previous ship-to 
-* [Sales] It is not possible to edit Sales Order 
-* [Sales] Toggling in and out of edit mode clears the customer window 
-* [Sales] Selecting to print Billing Edit List displays error dialog 
-* [Sales] Selecting to post a credit memo displays error dialog 
+* [Sales] Sales order retains values from default/previous ship-to
+* [Sales] It is not possible to edit Sales Order
+* [Sales] Toggling in and out of edit mode clears the customer window
+* [Sales] Selecting to print Billing Edit List displays error dialog
+* [Sales] Selecting to post a credit memo displays error dialog
 * [Sales] Duplicate tax registration numbers not allowed
-* [Sales] The list of ship via's in print invoices by ship via is 
-empty 
-* [Sales] Selecting to preview list of sales orders crashes the 
-application 
-* [Sales] dspSummarizedBacklog permission issue 
-* [Sales] Selecting to open Credit Memo edit list screen displays 
-error dialog 
-* [Sales] Error on tax breakdown link of Select Order for Billing 
-screen 
+* [Sales] The list of ship via's in print invoices by ship via is
+empty
+* [Sales] Selecting to preview list of sales orders crashes the
+application
+* [Sales] dspSummarizedBacklog permission issue
+* [Sales] Selecting to open Credit Memo edit list screen displays
+error dialog
+* [Sales] Error on tax breakdown link of Select Order for Billing
+screen
 * [Sales] Consolidate Invoice is not functional in migrated DB
-* [Schedule] Time Phased Rough Cut Capacity Plan by Work Center 
+* [Schedule] Time Phased Rough Cut Capacity Plan by Work Center
 Tooling inconsistency
-* [Schedule] Irrelevant data is displayed for “Resource” field in 
-print report of Capacity Buffer Status 
-* [Schedule] Resource field is displayed multiple times in print 
-report of Time phased load 
-* [Schedule] MPS Production Plans-Cannot type in product number, 
-must search 
+* [Schedule] Irrelevant data is displayed for “Resource” field in
+print report of Capacity Buffer Status
+* [Schedule] Resource field is displayed multiple times in print
+report of Time phased load
+* [Schedule] MPS Production Plans-Cannot type in product number,
+must search
 * [System] Screens for shifts and departments in wrong locatio
-* [System] Selecting to attach a group to an employee at the time of 
-creation displays error dialog 
-* [System] Employee comments are not saved during employee creation 
-* [System] Employee characteristics are not saved during employee 
+* [System] Selecting to attach a group to an employee at the time of
+creation displays error dialog
+* [System] Employee comments are not saved during employee creation
+* [System] Employee characteristics are not saved during employee
 creatio
-* [System] Employee screen not displaying values on edit 
-* [System] Exit screen designer pressing X on Widget box crash client 
-* [System] XML import should import whatever data can be processed 
-and gracefully handle failures 
+* [System] Employee screen not displaying values on edit
+* [System] Exit screen designer pressing X on Widget box crash client
+* [System] XML import should import whatever data can be processed
+and gracefully handle failures
 * [System] “CSV Tool” window exits xTuple Application
-* [System] Opening a window with a recurrence widget crashes the app 
+* [System] Opening a window with a recurrence widget crashes the app
 if the app is not connected to a database
 * [System] Misspelling on initialization screen
 * [System] Opening new employee record for edit causes cras
-* [System] The setup screen closes after clicking save even if a 
-component returns an error 
-* [System] Imports into api views salesline fail silently if order 
+* [System] The setup screen closes after clicking save even if a
+component returns an error
+* [System] Imports into api views salesline fail silently if order
 does not exis
-* [System] Opening “maintain csv atlases” while “csv tool” window is 
-open but "csv atlas window is closed crashes client. 
-* [System] Import option silent defaults to true when it should 
-default to false 
-* [Translation] Financial Report Engine does not work with translation 
-* [Translation] Context menu to see transaction from trial balance 
-doesn't work 
+* [System] Opening “maintain csv atlases” while “csv tool” window is
+open but "csv atlas window is closed crashes client.
+* [System] Import option silent defaults to true when it should
+default to false
+* [Translation] Financial Report Engine does not work with translation
+* [Translation] Context menu to see transaction from trial balance
+doesn't work
 
 ==================================
 Release Notes
