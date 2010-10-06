@@ -199,8 +199,7 @@
   <section>
     <title>Setup</title>
     <para>This is the setup section for the Products Module. The following
-    categories of Product Module setup tasks are described in this
-    section:</para>
+    Product Module setup tasks are described in this section:</para>
     <itemizedlist>
       <listitem>
         <para>Configuration</para>
@@ -221,26 +220,28 @@
           <secondary>for products module</secondary>
         </indexterm>Master Information</title>
       <para>Products Module Master Information section.</para>
-      <xi:include href="guiclient/uoms.xml" xpointer="element(/1)"
+      <xi:include href="guiclient/characteristics.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/classCodes.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/productCategories.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/freightClasses.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/characteristics.xml" xpointer="element(/1)"
+      <xi:include href="guiclient/laborRates.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/lotSerialSequences.xml"
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/laborRates.xml" xpointer="element(/1)"
+      <xi:include href="guiclient/productCategories.xml"
+                  xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/workCenters.xml" xpointer="element(/1)"
+      <xi:include href="guiclient/shifts.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/standardOperations.xml"
                   xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/uoms.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/workCenters.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
