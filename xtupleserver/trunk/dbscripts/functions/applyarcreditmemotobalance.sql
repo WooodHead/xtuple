@@ -28,7 +28,7 @@ BEGIN
   SELECT (aropen_amount - COALESCE(SUM(currToCurr(arcreditapply_curr_id,
                                                   aropen_curr_id,
                                                   arcreditapply_amount,
-                                                  aropen_docdate)), 0) - aropen_paid - COALESCE(prepared,0.0)),
+                                                  aropen_docdate)), 0) - aropen_paid - COALESCE(prepared,0.0) - COALESCE(cashapplied,0.0)),
          aropen_curr_id, aropen_curr_rate INTO _amount, _amountcurrid, _curr_rate
   FROM aropen LEFT OUTER JOIN arcreditapply ON (arcreditapply_source_aropen_id=aropen_id)
 	      LEFT OUTER JOIN (SELECT aropen_id AS prepared_aropen_id,
@@ -39,8 +39,15 @@ BEGIN
                                 AND  (NOT checkhead_void))
                                GROUP BY aropen_id) AS sub1
                       ON (prepared_aropen_id=aropen_id)
+             LEFT OUTER JOIN (SELECT aropen_id AS cash_aropen_id,
+                                     SUM(cashrcptitem_amount + cashrcptitem_discount) * -1.0 AS cashapplied
+                                FROM cashrcpt JOIN cashrcptitem ON (cashrcptitem_cashrcpt_id=cashrcpt_id)
+                                              JOIN aropen ON (cashrcptitem_aropen_id=aropen_id)
+                               WHERE (NOT cashrcpt_posted)
+                               GROUP BY aropen_id ) AS sub2
+                      ON (cash_aropen_id=aropen_id)
   WHERE (aropen_id=pSourceAropenid)
-  GROUP BY aropen_amount, aropen_paid, aropen_curr_id, aropen_curr_rate, prepared;
+  GROUP BY aropen_amount, aropen_paid, aropen_curr_id, aropen_curr_rate, prepared, cashapplied;
 
   IF (_amount < 0) THEN
     RETURN -1;
