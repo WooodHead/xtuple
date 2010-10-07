@@ -129,6 +129,15 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
+    <title>Retail</title>
+    <para>The features related to the xTuple Point of Sale (POS) package are
+    discussed in this section.</para>
+    <xi:include href="guiclient/cashRegisters.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/retailSaleSearch.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section>
     <title>Lookup</title>
     <para>Sales lookup section.</para>
     <section>
@@ -280,6 +289,9 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
+    <xi:include href="guiclient/dspDepositsRegister.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/dspEarnedCommissions.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -544,6 +556,8 @@
       <xi:include href="guiclient/arAccountAssignments.xml"
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/retailSites.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/salesAccounts.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/salesCategories.xml" xpointer="element(/1)"
@@ -577,6 +591,6 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/termses.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
-         </section>
+    </section>
   </section>
 </chapter>
