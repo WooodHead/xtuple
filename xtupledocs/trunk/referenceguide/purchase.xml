@@ -297,24 +297,6 @@
     <xi:include href="guiclient/itemSources.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section518524">
-    <title><indexterm significance="normal">
-        <primary>master information</primary>
-        <secondary>for p/o module</secondary>
-      </indexterm>Master Information</title>
-    <para>Purchase Master Information section.</para>
-    <xi:include href="guiclient/plannerCodes.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/rejectCodes.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/termses.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/expenseCategories.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/apAccountAssignments.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </section>
   <section id="Section951811">
     <title><indexterm significance="normal">
         <primary>utilities</primary>
@@ -330,5 +312,52 @@
     <xi:include href="guiclient/assignClassCodeToPlannerCode.xml"
                 xpointer="element(Section518990)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section>
+    <title>Setup</title>
+    <para>This is the setup section for the Purchase module. The following
+    Purchase module setup tasks are described in this section:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Configuration</para>
+      </listitem>
+      <listitem>
+        <para>Account Mappings</para>
+      </listitem>
+      <listitem>
+        <para>Master Information</para>
+      </listitem>
+    </itemizedlist>
+    <section>
+      <title>Configure</title>
+      <para>Products module configuration section.</para>
+      <xi:include href="guiclient/configurePO.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section>
+      <title>Accounting Mappings</title>
+      <para>Purchase module Account mappings section.</para>
+      <xi:include href="guiclient/apAccountAssignments.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/expenseCategories.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section id="Section518524">
+      <title><indexterm significance="normal">
+          <primary>master information</primary>
+          <secondary>for purchase module</secondary>
+        </indexterm>Master Information</title>
+      <para>Purchase module Master Information section.</para>
+      <xi:include href="guiclient/plannerCodes.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/rejectCodes.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/termses.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/vendorTypes.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
   </section>
 </chapter>

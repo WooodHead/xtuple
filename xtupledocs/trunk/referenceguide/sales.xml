@@ -445,8 +445,6 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/searchForCustomer.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/customerTypes.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/customerGroups.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
@@ -490,40 +488,6 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="Section518497">
-    <title><indexterm significance="normal">
-        <primary>master information</primary>
-        <secondary>for s/o module</secondary>
-      </indexterm>Master Information</title>
-    <para>Sales Master Information section.</para>
-    <xi:include href="guiclient/characteristics.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/salesReps.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/shippingZones.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/shipVias.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/shippingChargeTypes.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/taxCodes.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/shippingForms.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/salesCategories.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/termses.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/salesAccounts.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/arAccountAssignments.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/customerFormAssignments.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </section>
   <section id="Section520435">
     <title><indexterm significance="normal">
         <primary>utilities</primary>
@@ -552,5 +516,67 @@
     <xi:include href="guiclient/restoreSalesHistory.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section>
+    <title>Setup</title>
+    <para>This is the setup section for the Sales module. The following Sales
+    module setup tasks are described in this section:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Configuration</para>
+      </listitem>
+      <listitem>
+        <para>Account Mappings</para>
+      </listitem>
+      <listitem>
+        <para>Master Information</para>
+      </listitem>
+    </itemizedlist>
+    <section>
+      <title>Configure</title>
+      <para>Sales module configuration section.</para>
+      <xi:include href="guiclient/configureSO.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section>
+      <title>Accounting Mappings</title>
+      <para>Sales module Account mappings section.</para>
+      <xi:include href="guiclient/arAccountAssignments.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/salesAccounts.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/salesCategories.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section id="Section518497">
+      <title><indexterm significance="normal">
+          <primary>master information</primary>
+          <secondary>for s/o module</secondary>
+        </indexterm>Master Information</title>
+      <para>Sales module Master Information section.</para>
+      <xi:include href="guiclient/characteristics.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/customerFormAssignments.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/customerTypes.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/salesReps.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/shipVias.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/shippingChargeTypes.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/shippingForms.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/shippingZones.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/taxCodes.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/termses.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+         </section>
   </section>
 </chapter>

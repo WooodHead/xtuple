@@ -335,4 +335,20 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
+  <section>
+    <title>Setup</title>
+    <para>This is the setup section for the Manufacture module. The following
+    Manufacture module setup tasks are described in this section:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Configuration</para>
+      </listitem>
+    </itemizedlist>
+    <section>
+      <title>Configure</title>
+      <para>Manufacture module configuration section.</para>
+      <xi:include href="guiclient/configureWO.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+  </section>
 </chapter>

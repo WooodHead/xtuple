@@ -208,8 +208,8 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
-    <title>Reports</title>
-    <para>Schedule Reports section.</para>
+    <title role="standard">Reports</title>
+    <para role="standard">Schedule Reports section.</para>
     <section role="standard">
       <title>Planned Items</title>
       <para>Planned Items Reports section.</para>
@@ -249,19 +249,36 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section role="standard">
-    <title>Master Information</title>
-    <para>Schedule Master Information section.</para>
-    <section role="manufacturing">
-      <title>Planner Codes</title>
-      <xi:include href="guiclient/plannerCodes.xml" xpointer="element(/1)"
+  <section>
+    <title role="standard">Setup</title>
+    <para role="standard">This is the setup section for the Schedule module.
+    The following Schedule module setup tasks are described in this
+    section:</para>
+    <itemizedlist role="standard">
+      <listitem>
+        <para>Configuration</para>
+      </listitem>
+      <listitem>
+        <para>Master Information</para>
+      </listitem>
+    </itemizedlist>
+    <section>
+      <title role="standard">Configure</title>
+      <para role="standard">Schedule module configuration section.</para>
+      <xi:include href="guiclient/configureMS.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <xi:include href="guiclient/whseWeek.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/whseCalendars.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/workCenters.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section>
+      <title role="standard">Master Information</title>
+      <para role="standard">Schedule module Master Information section.</para>
+      <xi:include href="guiclient/plannerCodes.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/whseCalendars.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/whseWeek.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/workCenters.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
   </section>
 </chapter>

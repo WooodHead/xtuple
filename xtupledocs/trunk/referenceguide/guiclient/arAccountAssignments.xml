@@ -6,10 +6,9 @@
   <title><indexterm significance="normal">
       <primary>accounts receivable</primary>
       <secondary>account assignments for</secondary>
-    </indexterm>A/R Account Assignments</title>
-  <para>Accounts Receivable (A/R) Account assignments represent the default
-  General Ledger (G/L) Accounts used by the system when processing the
-  following:</para>
+    </indexterm>Receivables Assignments</title>
+  <para>Receivables assignments represent the default General Ledger (G/L)
+  Accounts used by the system when processing the following:</para>
   <itemizedlist>
     <listitem>
       <para>Invoices</para>
@@ -29,19 +28,19 @@
   </itemizedlist>
   <para>The Account assignments are made by Customer Type. This means that
   transactions involving a Customer will follow the assignments established
-  for the Customer Type&mdash;unless otherwise specified. To access the A/R
-  Account assignments master list, select the "A/R Account Assignments"
+  for the Customer Type&mdash;unless otherwise specified. To access the
+  Receivables assignments master list, select the "Receivables Assignments"
   option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/arAccountAssignments.png" />
         </imageobject>
-        <caption>A/R Account Assignments Master List</caption>
+        <caption>Receivables Assignments Master List</caption>
       </mediaobject>
     </screenshot></para>
-  <para>The "A/R Account Assignments" screen displays information on existing
-  A/R Account assignments.</para>
+  <para>The "Receivables Assignments" screen displays information on existing
+  Receivables assignments.</para>
   <xi:include href="arAccountAssignment.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

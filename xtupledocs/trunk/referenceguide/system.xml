@@ -117,48 +117,6 @@
     <xi:include href="guiclient/configureGL.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section518496">
-    <title><indexterm significance="normal">
-        <primary>master information</primary>
-        <secondary>for system module</secondary>
-      </indexterm>Master Information</title>
-    <para>System Master Information section.</para>
-    <xi:include href="guiclient/databaseInformation.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/images.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/forms.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/labelForms.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/calendars.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/currencies.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/currencyConversions.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/configureEncryption.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/configureCC.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/countries.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/states.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/locales.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/commentTypes.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/departments.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/configureIE.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/ediProfiles.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-  </section>
   <section>
     <title>Design</title>
     <para>System Design section.</para>
@@ -176,7 +134,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section975141">
-    <title>System Utilities</title>
+    <title>Utilities</title>
     <para>System Utilities section.</para>
     <xi:include href="guiclient/fixSerial.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -184,26 +142,85 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/importXML.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section id="Section519476">
+      <title>Print Alignment Page</title>
+      <para>The alignment page utility prints out a formatted grid template,
+      which you can use to align pre-printed forms (e.g., Invoices, Bills of
+      Lading, etc.) on your printer. When you select this option, you will be
+      prompted to select the printer where you want to print the formatted
+      grid template. Once the template prints, you can use it to align your
+      pre-printed forms. Use this utility before printing a batch of standard
+      forms.</para>
+    </section>
   </section>
-  <section id="Section519476">
-    <title>Print Alignment Page</title>
-    <para>The alignment page utility prints out a formatted grid template,
-    which you can use to align pre-printed forms (e.g., Invoices, Bills of
-    Lading, etc.) on your printer. When you select this option, you will be
-    prompted to select the printer where you want to print the formatted grid
-    template. Once the template prints, you can use it to align your
-    pre-printed forms. Use this utility before printing a batch of standard
-    forms.</para>
+  <section>
+    <title>Setup</title>
+    <para>This is the setup section for the System module. The following
+    System module setup tasks are described in this section:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Configuration</para>
+      </listitem>
+      <listitem>
+        <para>Master Information</para>
+      </listitem>
+    </itemizedlist>
+    <section>
+      <title>Configure</title>
+      <para>System module configuration section.</para>
+      <xi:include href="guiclient/configureCC.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/configureEncryption.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/configureIE.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/databaseInformation.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section id="Section518496">
+      <title><indexterm significance="normal">
+          <primary>master information</primary>
+          <secondary>for system module</secondary>
+        </indexterm>Master Information</title>
+      <para>System module Master Information section.</para>
+      <xi:include href="guiclient/calendars.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/commentTypes.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/countries.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/currencies.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/currencyConversions.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/departments.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/ediProfiles.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/forms.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/images.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/labelForms.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/locales.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/states.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
   </section>
   <section id="Section973211">
     <title><indexterm significance="normal">
         <primary>exiting</primary>
         <secondary>how to</secondary>
-      </indexterm>Exit the Application</title>
+      </indexterm>Exit xTuple ERP</title>
     <para>There are two ways to successfully exit the system. Either use the
     "X" symbol associated with the desktop window. Or use the System menu's
-    "Exit xTuple" option. Both work the same way and are equally valid methods
-    for exiting the application.</para>
+    "Exit xTuple ERP" option. Both work the same way and are equally valid
+    methods for exiting the application.</para>
     <para>After selecting this option, the application will close, returning
     you to your computer desktop.</para>
     <tip>
