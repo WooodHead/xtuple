@@ -196,10 +196,32 @@
   </section>
   <xi:include href="guiclient/lotSerial.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <section id="Section662694">
+    <title><indexterm significance="normal">
+        <primary>utilities</primary>
+        <secondary>in products module</secondary>
+      </indexterm>Utilities</title>
+    <para>Products Utilities section.</para>
+    <xi:include href="guiclient/dspUnusedPurchasedItems.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/dspUndefinedManufacturedItems.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/dspInvalidBillsOfMaterials.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/reassignClassCodeByClassCode.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/reassignProductCategoryByProductCategory.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
   <section>
     <title>Setup</title>
-    <para>This is the setup section for the Products Module. The following
-    Product Module setup tasks are described in this section:</para>
+    <para>This is the setup section for the Products module. The following
+    Product module setup tasks are described in this section:</para>
     <itemizedlist>
       <listitem>
         <para>Configuration</para>
@@ -210,7 +232,7 @@
     </itemizedlist>
     <section>
       <title>Configure</title>
-      <para>Products Module Configuration section.</para>
+      <para>Products module configuration section.</para>
       <xi:include href="guiclient/configurePD.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
@@ -219,7 +241,7 @@
           <primary>master information</primary>
           <secondary>for products module</secondary>
         </indexterm>Master Information</title>
-      <para>Products Module Master Information section.</para>
+      <para>Products module Master Information section.</para>
       <xi:include href="guiclient/characteristics.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/classCodes.xml" xpointer="element(/1)"
@@ -244,27 +266,5 @@
       <xi:include href="guiclient/workCenters.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-  </section>
-  <section id="Section662694">
-    <title><indexterm significance="normal">
-        <primary>utilities</primary>
-        <secondary>in products module</secondary>
-      </indexterm>Utilities</title>
-    <para>Products Utilities section.</para>
-    <xi:include href="guiclient/dspUnusedPurchasedItems.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/dspUndefinedManufacturedItems.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/dspInvalidBillsOfMaterials.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/reassignClassCodeByClassCode.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/reassignProductCategoryByProductCategory.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
 </chapter>

@@ -3,53 +3,54 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="bankAdjustmentType">
-  <title>Adjustment Type</title>
+  <title>Bank Adjustment Type</title>
   <para><indexterm significance="normal">
-      <primary>adjustment types</primary>
+      <primary>bank adjustment types</primary>
       <secondary>creating new</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>bank accounts</primary>
       <secondary>adjustment types for</secondary>
-    </indexterm>To create a new Adjustment Type, select the NEW button. The
-  following screen will appear:</para>
+    </indexterm>To create a new Bank Adjustment Type, select the NEW button.
+  The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/bankAdjustmentType.png" />
         </imageobject>
-        <caption>Create New Adjustment Type</caption>
+        <caption>Create New Bank Adjustment Type</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When creating a new Adjustment Type, you are presented with the
+  <para>When creating a new Bank Adjustment Type, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
       <term>Name</term>
       <listitem>
-        <para>Enter a name to describe the Adjustment Type.</para>
+        <para>Enter a name to describe the Bank Adjustment Type.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Description</term>
       <listitem>
-        <para>Enter a description to further describe the Adjustment
+        <para>Enter a description to further describe the Bank Adjustment
         Type.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Adj. Account</term>
       <listitem>
-        <para>Specify the Account to be used for the Adjustment Type.</para>
+        <para>Specify the Account to be used for the Bank Adjustment
+        Type.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Type</term>
       <listitem>
-        <para>Define the sense of the Adjustment Type by selecting one of the
-        following:</para>
-        <para>Debit: Select if the Adjustment should increase your Bank
+        <para>Define the sense of the Bank Adjustment Type by selecting one of
+        the following:</para>
+        <para>Debit: Select if the Bank Adjustment should increase your Bank
         Account balance.</para>
-        <para>Credit: Select if the Adjustment should decrease your Bank
+        <para>Credit: Select if the Bank Adjustment should decrease your Bank
         Account balance.</para>
       </listitem>
     </varlistentry>

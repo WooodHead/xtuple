@@ -4,21 +4,21 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="salesAccount">
   <title><indexterm significance="normal">
-      <primary>sales account assignments</primary>
+      <primary>sales assignments</primary>
       <secondary>creating new</secondary>
-    </indexterm>Sales Account Assignment</title>
-  <para>To create a new Sales Account assignment, select the NEW button. The
-  following screen will appear:</para>
+    </indexterm>Sales Assignment</title>
+  <para>To create a new Sales assignment, select the NEW button. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/salesAccount.png" />
         </imageobject>
-        <caption>Create New Sales Account Assignment</caption>
+        <caption>Create New Sales Assignment</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When creating a new Sales Account assignment, you are presented with
-  the following options:</para>
+  <para>When creating a new Sales assignment, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Site</term>
@@ -29,17 +29,17 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>In the case of conflicts between Sales Account assignments, the
-    system by default selects specific assignments before all-inclusive ones.
-    For example, if there were a choice between an assignment featuring
-    "WHSE-1" as the supplying Site and another featuring "ANY" Site, the
-    more-specific "WHSE-1" would be selected.</para>
+    <para>In the case of conflicts between Sales assignments, the system by
+    default selects specific assignments before all-inclusive ones. For
+    example, if there were a choice between an assignment featuring "WHSE-1"
+    as the supplying Site and another featuring "ANY" Site, the more-specific
+    "WHSE-1" would be selected.</para>
   </note>
   <variablelist>
     <varlistentry>
       <term>All Customer Types</term>
       <listitem>
-        <para>Select to associate all Customer Types with the Sales Account
+        <para>Select to associate all Customer Types with the Sales
         assignment.</para>
       </listitem>
     </varlistentry>
@@ -47,7 +47,7 @@
       <term>Selected</term>
       <listitem>
         <para>Specify the Customer Type you want to associate with the Sales
-        Account assignment.</para>
+        assignment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -61,14 +61,14 @@
       <term>All Product Categories</term>
       <listitem>
         <para>Select to associate all Product Categories with the Sales
-        Account assignment.</para>
+        assignment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Selected</term>
       <listitem>
         <para>Specify the Product Category you want to associate with the
-        Sales Account assignment.</para>
+        Sales assignment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -90,8 +90,8 @@
       <term>Credit Memo Account</term>
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
-        S/O Credit Memo Account. This is a Revenue contra Account. It will be
-        debited when S/O Credit Memos are posted.</para>
+        Sales Order Credit Memo Account. This is a Revenue contra Account. It
+        will be debited when Sales Order Credit Memos are posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
