@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION postItemlocSeries(INTEGER) RETURNS BOOLEAN AS '
+CREATE OR REPLACE FUNCTION postItemlocSeries(INTEGER) RETURNS BOOLEAN AS $$
 DECLARE
   pItemlocseries ALIAS FOR $1;
   _result INTEGER;
@@ -6,8 +6,13 @@ DECLARE
 BEGIN
 
   PERFORM postIntoTrialBalance(itemlocpost_glseq)
-  FROM itemlocpost
-  WHERE (itemlocpost_itemlocseries=pItemlocseries);
+  FROM (
+    SELECT DISTINCT itemlocpost_glseq, gltrans_accnt_id
+    FROM itemlocpost
+      JOIN gltrans ON (itemlocpost_glseq=gltrans_sequence)
+    WHERE (itemlocpost_itemlocseries=pItemlocseries)
+    ORDER BY gltrans_accnt_id
+  ) AS data;
   
   PERFORM postInvHist(invhist_id)
   FROM invhist
@@ -21,5 +26,5 @@ BEGIN
   RETURN TRUE;
   
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

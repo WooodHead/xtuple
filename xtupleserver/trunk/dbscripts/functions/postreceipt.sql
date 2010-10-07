@@ -109,23 +109,25 @@ BEGIN
     END IF;
 
     IF (_r.itemsite_id IS NOT NULL) THEN
-      SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+      SELECT insertGLTransaction( fetchJournalNumber('GL-MISC'), 
+				  'S/R', _r.recv_order_type, _o.orderhead_number,
 	  			  'Receive Non-Controlled Inventory from ' || _ordertypeabbr,
 				   costcat_liability_accnt_id,
 				   getPrjAccntId(_o.prj_id, costcat_exp_accnt_id), -1,
 				   round((_o.item_unitprice_base * _r.recv_qty),2),
-				   _glDate::DATE ) INTO _tmp
+				   _glDate::DATE, false ) INTO _tmp
       FROM poitem, itemsite, costcat
       WHERE((poitem_itemsite_id=itemsite_id)
         AND (itemsite_costcat_id=costcat_id)
         AND (poitem_id=_o.orderitem_id));
     ELSE
-      SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+      SELECT insertGLTransaction(fetchJournalNumber('GL-MISC'),
+				  'S/R', _r.recv_order_type, _o.orderhead_number,
 	  			  'Receive Non-Inventory from ' || 'P/O for ' || _r.vend_name || ' for ' || expcat_code,
 				   expcat_liability_accnt_id,
 				   getPrjAccntId(_o.prj_id, expcat_exp_accnt_id), -1,
 				   round((_o.item_unitprice_base * _r.recv_qty),2),
-				   _glDate::DATE ) INTO _tmp
+				   _glDate::DATE, false ) INTO _tmp
       FROM poitem, expcat
       WHERE((poitem_expcat_id=expcat_id)
         AND (poitem_id=_o.orderitem_id));
@@ -134,14 +136,19 @@ BEGIN
 
     IF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
       RETURN _tmp;
+    ELSE
+      -- Posting to trial balance is deferred to prevent locking
+      INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
+      VALUES ( _tmp, _itemlocSeries );
     END IF;
 
-    SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+    SELECT insertGLTransaction( fetchJournalNumber('GL-MISC'),
+				'S/R', _r.recv_order_type, _o.orderhead_number,
 				'Receive Non-Inventory Freight from ' || _ordertypeabbr,
 				 expcat_liability_accnt_id,
 				 getPrjAccntId(_o.prj_id, expcat_freight_accnt_id), -1,
 				 _r.recv_freight_base,
-				 _glDate::DATE ),
+				 _glDate::DATE, false ),
 	   expcat_freight_accnt_id INTO _tmp, _freightAccnt
     FROM poitem, expcat
     WHERE((poitem_expcat_id=expcat_id)
@@ -149,6 +156,10 @@ BEGIN
 
     IF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
       RETURN _tmp;
+    ELSE
+      -- Posting to trial balance is deferred to prevent locking
+      INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
+      VALUES ( _tmp, _itemlocSeries );
     END IF;
 
     _recvvalue := ROUND((_o.item_unitprice_base * _r.recv_qty),2);
@@ -195,12 +206,13 @@ BEGIN
         -- If difference exists then
         IF (_pricevar <> 0.00) THEN
           -- Record an additional GL Transaction for the purchase price variance
-          SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+          SELECT insertGLTransaction( fetchJournalNumber('GL-MISC'),
+				       'S/R', _r.recv_order_type, _o.orderhead_number,
                                       'Purchase price variance adjusted for P/O ' || _o.orderhead_number || ' for item ' || _r.item_number,
                                       costcat_liability_accnt_id,
                                       getPrjAccntId(_o.prj_id, costcat_purchprice_accnt_id), -1,
                                       _pricevar,
-                                      _glDate::DATE ) INTO _tmp
+                                      _glDate::DATE, false ) INTO _tmp
           FROM itemsite, costcat
           WHERE ((itemsite_costcat_id=costcat_id)
              AND (itemsite_id=_r.itemsite_id) );
@@ -209,16 +221,21 @@ BEGIN
             _r.itemsite_id;
           ELSIF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
             RETURN _tmp;
+          ELSE
+            -- Posting to trial balance is deferred to prevent locking
+            INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
+            VALUES ( _tmp, _itemlocSeries );
           END IF;
         END IF;
       END IF;
 
-      SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+      SELECT insertGLTransaction(fetchJournalNumber('GL-MISC'),
+				  'S/R', _r.recv_order_type, _o.orderhead_number,
 				  'Receive Inventory Freight from ' || _o.orderhead_number || ' for item ' || _r.item_number,
 				   costcat_liability_accnt_id,
 				   getPrjAccntId(_o.prj_id, costcat_freight_accnt_id), -1,
 				   _r.recv_freight_base,
-				   _glDate::DATE ),
+				   _glDate::DATE, false ),
 	     costcat_freight_accnt_id INTO _tmp, _freightAccnt
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
@@ -228,6 +245,10 @@ BEGIN
 	  _r.itemsite_id;
       ELSIF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
 	RETURN _tmp;
+      ELSE
+          -- Posting to trial balance is deferred to prevent locking
+          INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
+          VALUES ( _tmp, _itemlocSeries );
       END IF;
 
       UPDATE poitem
@@ -279,18 +300,23 @@ BEGIN
 		  'RR', _r.recv_id, _ra.rahead_id
 	);
 
-      SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+      SELECT insertGLTransaction(fetchJournalNumber('GL-MISC'),
+				  'S/R', _r.recv_order_type, _o.orderhead_number,
 				  'Receive Inventory Freight from ' || _o.orderhead_number || ' for item ' || _r.item_number,
 				   costcat_liability_accnt_id,
 				   getPrjAccntId(_o.prj_id, costcat_freight_accnt_id), -1,
 				   _r.recv_freight_base,
-				   _glDate::DATE ),
+				   _glDate::DATE, false ),
 	     costcat_freight_accnt_id INTO _tmp, _freightAccnt
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_r.itemsite_id) );
       IF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
 	RETURN _tmp;
+      ELSE
+        -- Posting to trial balance is deferred to prevent locking
+        INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
+        VALUES ( _tmp, _itemlocSeries );
       END IF;
 
       INSERT INTO rahist (rahist_date, rahist_descrip,
@@ -318,18 +344,23 @@ BEGIN
 	RETURN _tmp;
       END IF;
 
-      SELECT insertGLTransaction( 'S/R', _r.recv_order_type, _o.orderhead_number,
+      SELECT insertGLTransaction(fetchJournalNumber('GL-MISC'), 
+				  'S/R', _r.recv_order_type, _o.orderhead_number,
 				  'Receive Inventory Freight from ' || _o.orderhead_number || ' for item ' || _r.item_number,
 				   costcat_toliability_accnt_id,
 				   costcat_freight_accnt_id, -1,
 				   _r.recv_freight_base,
-				   _glDate::DATE ),
+				   _glDate::DATE, false ),
 	     costcat_freight_accnt_id INTO _tmp, _freightAccnt
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_r.itemsite_id) );
       IF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
 	RETURN _tmp;
+      ELSE
+        -- Posting to trial balance is deferred to prevent locking
+        INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
+        VALUES ( _tmp, _itemlocSeries );
       END IF;
 
       UPDATE toitem
