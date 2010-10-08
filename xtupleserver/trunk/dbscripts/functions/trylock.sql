@@ -2,7 +2,7 @@ CREATE OR REPLACE FUNCTION tryLock(integer, integer) RETURNS boolean AS $$
 DECLARE
   pKey1 ALIAS FOR $1;
   pKey2 ALIAS FOR $2;
-  _pid BOOLEAN;
+  _pid integer;
 BEGIN
 
   /* The standard try lock ignores locks made by the current user in same
