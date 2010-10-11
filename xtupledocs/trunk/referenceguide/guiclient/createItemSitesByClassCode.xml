@@ -773,47 +773,19 @@
               determined:</para>
               <informalexample>
                 <para>Start Date = Today's Date</para>
-                <para>End Date = Today's Date + Lead Time</para>
+                <para>End Date = Today's Date + Group Days</para>
                 <para>All subsequent periods are determined using the
                 following calculations:</para>
                 <informalexample>
                   <para>Start Date = End Date of Previous Period + 1</para>
                   <para>End Date = Start Date of Current Period + Group
-                  Value<tip>
-                      <para>To enforce <indexterm significance="normal">
-                          <primary>just-in-time</primary>
-                          <secondary>delivery of planned orders</secondary>
-                        </indexterm> <indexterm significance="normal">
-                          <primary>planned orders</primary>
-                          <secondary>just-in-time delivery and</secondary>
-                        </indexterm> <indexterm significance="normal">
-                          <primary>material requirements planning</primary>
-                          <secondary>just-in-time delivery and</secondary>
-                        </indexterm>Just-In-Time (JIT) delivery methods, set
-                      the MRP group value to "0." This will ensure that
-                      Planned Order due dates are the same as the demand due
-                      dates to which they correspond. If the MRP Order
-                      grouping value is set to "0", the initial period will be
-                      determined in the same way as for all Planned Order
-                      groups:</para>
-                      <informalexample>
-                        <para>Start Date = Today's Date</para>
-                        <para>End Date = Today's Date + Lead Time</para>
-                      </informalexample>
-                      <para>However, the date range for all subsequent JIT
-                      Planned Orders will be based on the following
-                      calculations:</para>
-                      <informalexample>
-                        <para>Start Date = Demand Due Date - Lead Time</para>
-                        <para>End Date = Demand Due Date</para>
-                      </informalexample>
-                    </tip></para>
+                  Days</para>
                   <variablelist>
                     <varlistentry>
                       <term>First Group</term>
                       <listitem>
-                        <para>Select to enable MRP to process those orders
-                        with lead times on the first grouping.</para>
+                        <para>Select to tell MRP to use the Item Site lead
+                        time for the date range of the first grouping.</para>
                       </listitem>
                     </varlistentry>
                   </variablelist>
