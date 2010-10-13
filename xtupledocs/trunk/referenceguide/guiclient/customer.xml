@@ -192,18 +192,23 @@
           <varlistentry>
             <term>Sales Rep</term>
             <listitem>
-              <para>Specify the Sales Representative for the Ship-To Address.
-              When entering Orders for a Customer, the name of the Sales
-              Representative specified on the Ship-To Address will be used if
-              it is different from the Customer default.</para>
+              <para>Specify the Sales Rep for the Ship-To Address. This is the
+              Sales Rep that will be used whenever an Order specifies this
+              Ship-To Address.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Commission</term>
             <listitem>
-              <para>Field accepts up to 4 whole numbers and 2 decimals. Enter
-              the Commission rate to be used when Sales Orders for this
-              Customer are shipped to the specified Ship-To Address.</para>
+              <para>When you first associate a Sales Rep with a
+              Customer&mdash;or with a Ship To Address&mdash;the system will
+              copy in the commission from the Sales Rep record as a
+              convenience. This commission may be changed locally at the
+              Customer record level, but any changes will not be inherited by
+              the Sales Rep record. Similarly, if you update the commission
+              percentage on a Sales Rep record, that update will not
+              recursively update all the commission records wherever that
+              Sales Rep is used.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -337,16 +342,23 @@
     <varlistentry>
       <term>Sales Rep</term>
       <listitem>
-        <para>Specify a default Sales Representative for the Customer. When
-        entering Orders for a Customer, the Sales Representative defined on
-        the specified Ship-To Address will be used.</para>
+        <para>Specify a default Sales Representative for the Customer. This
+        Sales Rep will be used for Customer Orders, unless a particular
+        Ship-To Address for the Customer specifies a different Sales
+        Rep.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Commission</term>
       <listitem>
-        <para>Specify the commission percentage for the selected Sales
-        Representative.</para>
+        <para>When you first associate a Sales Rep with a Customer&mdash;or
+        with a Ship To Address&mdash;the system will copy in the commission
+        from the Sales Rep record as a convenience. This commission may be
+        changed locally at the Customer record level, but any changes will not
+        be inherited by the Sales Rep record. Similarly, if you update the
+        commission percentage on a Sales Rep record, that update will not
+        recursively update all the commission records wherever that Sales Rep
+        is used.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
