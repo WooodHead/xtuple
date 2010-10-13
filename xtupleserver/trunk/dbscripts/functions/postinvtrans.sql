@@ -154,18 +154,6 @@ BEGIN
      AND (item_inv_uom_id=uom_id)
      AND (itemsite_id=pItemsiteid) );
 
-    -- If transaction date is before create date then
-    -- recalculate qohbefore and qohafter
-    /* This isn't ready yet
-    IF EXISTS( SELECT invhist_id
-               FROM invhist JOIN itemsite ON ( (itemsite_id=invhist_itemsite_id) AND
-                                               (NOT itemsite_freeze) )
-               WHERE ( (invhist_id=_invhistid)
-                 AND   (invhist_transdate<invhist_created) ) ) THEN
-      PERFORM recalculateinvhist(_invhistid);
-    END IF;
-    */
-
     IF (pCreditid IN (SELECT accnt_id FROM accnt)) THEN
       _creditid = pCreditid;
     ELSE
