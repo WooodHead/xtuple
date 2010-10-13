@@ -42,9 +42,16 @@ var _menuDesktop = new QMenu(qsTr("Desktop"),mainwindow);
 var _menuToolBar = new QMenu(mainwindow);
 var _menuWindow = mainwindow.findChild("menu.window");
 
+// Create Menu items for setup windows
+var _menuSetup = new QMenu(qsTr("Setup"),mainwindow);
+
 // Add desktop to main window
 if (mainwindow.showTopLevel())
 {
+
+  addAction("sys.currencies","currencies","CreateNewCurrency","CreateNewCurrency");
+  addAction("sys.exchangeRates","currencyConversions","MaintainCurrencyRates","ViewCurrencyRates");
+
   // Set up refresh timer
   _dtTimer = new QTimer(mainwindow);
   _dtTimer.setInterval(metrics.value("desktop/timer"));
@@ -243,4 +250,35 @@ function toolbarActionTriggered(action)
       _vToolBarActions[i].checked = false;
   }
 }
+
+function addAction(actionName, slotName, editPriv, viewPriv)
+{
+  var tempaction;
+  tmpaction = new QAction(mainwindow);
+  tmpaction.enabled = privileges.value(editPriv) || privileges.value(viewPriv);
+  tmpaction.setData(editPriv + " " + viewPriv);
+  tmpaction.objectName = actionName;
+  tmpaction.triggered.connect(this, slotName);
+  _menuSetup.appendAction(tmpaction);
+}
+
+function openSetup(uiName)
+{
+  var params = new Object;
+  params.uiName = uiName;
+  var wnd = toolbox.openWindow("setup", mainwindow);
+  toolbox.lastWindow().set(params);
+  wnd.exec();
+}
+
+function currencies()
+{
+  openSetup("currencies");
+}
+
+function currencyConversions()
+{
+  openSetup("currencyConversions");
+}
+
 
