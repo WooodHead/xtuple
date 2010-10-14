@@ -2,18 +2,18 @@
 CREATE OR REPLACE FUNCTION getShipToNumberFromInfo(TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, BOOLEAN, BOOLEAN) RETURNS TEXT AS $$
 DECLARE
   _custname TEXT := COALESCE(TRIM(UPPER( $1)), '');
-  _email TEXT := COALESCE(TRIM(UPPER( $2)), '');
-  _company TEXT := COALESCE(TRIM(UPPER( $3)), '');
-  _first TEXT := COALESCE(TRIM(UPPER( $4)), '');
-  _last TEXT := COALESCE(TRIM(UPPER( $5)), '');
+  _email TEXT 	 := COALESCE(TRIM(UPPER( $2)), '');
+  _company TEXT  := COALESCE(TRIM(UPPER( $3)), '');
+  _first TEXT 	 := COALESCE(TRIM(UPPER( $4)), '');
+  _last TEXT 	 := COALESCE(TRIM(UPPER( $5)), '');
   _fullname TEXT := COALESCE(TRIM(UPPER( $6)), '');
-  _addr1 TEXT := COALESCE(TRIM(UPPER( $7)), '');
-  _addr2 TEXT := COALESCE(TRIM(UPPER( $8)), '');
-  _addr3 TEXT := COALESCE(TRIM(UPPER( $9)), '');
-  _city TEXT := COALESCE(TRIM(UPPER($10)), '');
-  _state TEXT := COALESCE(TRIM(UPPER($11)), '');
+  _addr1 TEXT 	 := COALESCE(TRIM(UPPER( $7)), '');
+  _addr2 TEXT 	 := COALESCE(TRIM(UPPER( $8)), '');
+  _addr3 TEXT 	 := COALESCE(TRIM(UPPER( $9)), '');
+  _city TEXT 	 := COALESCE(TRIM(UPPER($10)), '');
+  _state TEXT 	 := COALESCE(TRIM(UPPER($11)), '');
   _postalcode TEXT := COALESCE(TRIM(UPPER($12)), '');
-  _country TEXT := COALESCE(TRIM(UPPER($13)), '');
+  _country TEXT  := COALESCE(TRIM(UPPER($13)), '');
   _generate BOOLEAN := COALESCE($14, FALSE);
   _create BOOLEAN := COALESCE($15, FALSE);
 
@@ -30,39 +30,60 @@ BEGIN
                      _fullname, FALSE);
   END IF;
 
+
   SELECT COUNT(*) INTO _counter
   FROM cust, shiptoinfo, addr
-  WHERE ((UPPER(cust_name)=_custname)
+  WHERE ((UPPER(cust_name)=UPPER(_custname))
+    AND UPPER(shipto_name)=UPPER(_fullname)
     AND (cust_id=shipto_cust_id)
     AND (shipto_addr_id=addr_id));
 
   IF (_counter = 1) THEN
     SELECT shipto_num INTO _candidate
     FROM cust, shiptoinfo, addr
-    WHERE ((UPPER(cust_name)=_custname)
+    WHERE ((UPPER(cust_name)=UPPER(_custname))
+      AND UPPER(shipto_name)=UPPER(_fullname)
       AND (cust_id=shipto_cust_id)
       AND (shipto_addr_id=addr_id));
 
     RETURN _candidate;
 
-  ELSIF (_counter > 1) THEN
-    SELECT shipto_num,
-       CASE WHEN (UPPER(addr_country) = _country) THEN 1 ELSE 0 END +
-       CASE WHEN (UPPER(addr_postalcode) = _postalcode) THEN 1 ELSE 0 END +
-       CASE WHEN (UPPER(addr_state) = _state) THEN 1 ELSE 0 END +
-       CASE WHEN (UPPER(addr_city) = _city) THEN 1 ELSE 0 END +
-       CASE WHEN (UPPER(addr_line3) = _addr3) THEN 1 ELSE 0 END +
-       CASE WHEN (UPPER(addr_line2) = _addr2) THEN 1 ELSE 0 END +
-       CASE WHEN (UPPER(addr_line1) = _addr1) THEN 1 ELSE 0 END
-       AS maxquotient INTO _candidate, _counter
-    FROM cust, shiptoinfo, addr
-    WHERE ((UPPER(cust_name)=_custname)
-      AND (cust_id=shipto_cust_id)
-      AND (shipto_addr_id=addr_id))
-    ORDER BY maxquotient desc
-    LIMIT 1;
+  ELSE
 
-    RETURN _candidate;
+    SELECT COUNT(*) INTO _counter
+    FROM cust, shiptoinfo, addr
+    WHERE ((UPPER(cust_name)=UPPER(_custname))
+      AND (cust_id=shipto_cust_id)
+      AND (shipto_addr_id=addr_id));
+
+    IF (_counter = 1) THEN
+      SELECT shipto_num INTO _candidate
+      FROM cust, shiptoinfo, addr
+      WHERE ((UPPER(cust_name)=UPPER(_custname))
+        AND (cust_id=shipto_cust_id)
+        AND (shipto_addr_id=addr_id));
+
+      RETURN _candidate;
+
+    ELSIF (_counter > 1) THEN
+      SELECT shipto_num,
+         CASE WHEN (UPPER(addr_country) = _country) THEN 1 ELSE 0 END +
+         CASE WHEN (UPPER(addr_postalcode) = _postalcode) THEN 1 ELSE 0 END +
+         CASE WHEN (UPPER(addr_state) = _state) THEN 1 ELSE 0 END +
+         CASE WHEN (UPPER(addr_city) = _city) THEN 1 ELSE 0 END +
+         CASE WHEN (UPPER(addr_line3) = _addr3) THEN 1 ELSE 0 END +
+         CASE WHEN (UPPER(addr_line2) = _addr2) THEN 1 ELSE 0 END +
+         CASE WHEN (UPPER(addr_line1) = _addr1) THEN 1 ELSE 0 END
+         AS maxquotient INTO _candidate, _counter
+      FROM cust, shiptoinfo, addr
+      WHERE ((UPPER(cust_name)=_custname)
+        AND (cust_id=shipto_cust_id)
+        AND (shipto_addr_id=addr_id))
+      ORDER BY maxquotient desc
+      LIMIT 1;
+
+      RETURN _candidate;
+    END IF;
   END IF;
 
   IF (_generate) THEN
