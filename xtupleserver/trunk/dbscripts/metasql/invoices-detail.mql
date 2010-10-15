@@ -18,6 +18,8 @@ SELECT invchead_id, cust_id,
             WHEN (recur_period='W') THEN <? value("week") ?>
             WHEN (recur_period='M') THEN <? value("month") ?>
             WHEN (recur_period='Y') THEN <? value("year") ?>
+            WHEN (recur_period='m') THEN <? value("minute") ?>
+            WHEN (recur_period='H') THEN <? value("hour") ?>
             ELSE <? value("none") ?>
        END AS recur_period_qtdisplayrole,
        recur_end,
