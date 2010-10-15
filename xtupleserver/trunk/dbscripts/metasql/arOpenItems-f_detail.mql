@@ -269,8 +269,8 @@ FROM aropen
             LEFT OUTER JOIN ccard     ON (ccpay_ccard_id=ccard_id)
 WHERE ((true)
 <? if not exists("showClosed") ?>
-  AND (aropen_docdate <= COALESCE(<? value ("asofDate") ?>,current_date))
-  AND (COALESCE(aropen_closedate, date <? value ("asofDate") ?> + integer '1', current_date + 1) > COALESCE(<? value("asofDate") ?>, current_date)) 
+  AND (aropen_docdate <= COALESCE(<? value("asofDate") ?>, current_date))
+  AND (COALESCE(aropen_closedate, DATE(<? value("asofDate") ?>) + 1, current_date + 1) > COALESCE(<? value("asofDate") ?>, current_date)) 
 <? endif ?>
 <? if exists("debitsOnly") ?>
   AND   (aropen_doctype IN ('D','I'))
@@ -357,8 +357,8 @@ FROM incdt JOIN aropen ON (aropen_id=incdt_aropen_id)
 	   LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
 WHERE ((true)
 <? if not exists("showClosed") ?>
-  AND (aropen_docdate <= COALESCE(<? value ("asofDate") ?>,current_date))
-  AND (COALESCE(aropen_closedate, date <? value ("asofDate") ?> + integer '1', current_date + 1) > COALESCE(<? value("asofDate") ?>, current_date)) 
+  AND (aropen_docdate <= COALESCE(<? value("asofDate") ?>, current_date))
+  AND (COALESCE(aropen_closedate, DATE(<? value("asofDate") ?>) + 1, current_date + 1) > COALESCE(<? value("asofDate") ?>, current_date)) 
 <? endif ?>
 <? if exists("debitsOnly") ?>
   AND   (NOT aropen_doctype IN ('C', 'R'))
