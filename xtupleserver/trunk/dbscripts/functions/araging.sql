@@ -5,6 +5,25 @@ DECLARE
   pAsOfDate ALIAS FOR $1;
   pUseDocDate ALIAS FOR $2;
   _row araging%ROWTYPE;
+
+BEGIN
+
+  FOR _row IN SELECT *
+            FROM araging(pAsOfDate, pUseDocDate, true)
+  LOOP
+    RETURN NEXT _row;
+  END LOOP;
+
+  RETURN;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION araging(date, boolean, boolean) RETURNS SETOF araging AS $$
+DECLARE
+  pAsOfDate ALIAS FOR $1;
+  pUseDocDate ALIAS FOR $2;
+  pConvBaseCurr ALIAS FOR $3;
+  _row araging%ROWTYPE;
   _x RECORD;
   _returnVal INTEGER;
   _asOfDate DATE;
@@ -18,38 +37,44 @@ BEGIN
 
         --today and greater base:
         CASE WHEN((aropen_duedate >= DATE(_asOfDate))) 
-        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/aropen_curr_rate *
+        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/
+        CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS cur_val,
 
         --0 to 30 base
         CASE WHEN((aropen_duedate >= DATE(_asOfDate)-30) AND (aropen_duedate < DATE(_asOfDate)))
-        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/aropen_curr_rate *
+        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/
+        CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS thirty_val,
 
         --30-60 base
         CASE WHEN((aropen_duedate >= DATE(_asOfDate)-60) AND (aropen_duedate < DATE(_asOfDate) - 30 ))
-        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/aropen_curr_rate *
+        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/
+        CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS sixty_val,
 
         --60-90 base
         CASE WHEN((aropen_duedate >= DATE(_asOfDate)-90) AND (aropen_duedate < DATE(_asOfDate) - 60))
-        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/aropen_curr_rate *
+        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/
+        CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS ninety_val,
 
         --greater than 90 base:
         CASE WHEN((aropen_duedate > DATE(_asOfDate)-10000) AND (aropen_duedate < DATE(_asOfDate) - 90))
-        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/aropen_curr_rate *
+        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/
+        CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS plus_val,
 
         --total amount base:
         CASE WHEN((aropen_duedate > DATE(_asOfDate)-10000)) 
-        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/aropen_curr_rate *
+        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/
+        CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS total_val,
 
         --AR Open Amount base
         CASE WHEN aropen_doctype IN ('C', 'R') 
-        THEN (aropen_amount * -1) / aropen_curr_rate
-        ELSE aropen_amount / aropen_curr_rate END AS aropen_amount,
+        THEN (aropen_amount * -1) / CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END
+        ELSE aropen_amount / CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END END AS aropen_amount,
 
         aropen_docdate,
         aropen_duedate,
