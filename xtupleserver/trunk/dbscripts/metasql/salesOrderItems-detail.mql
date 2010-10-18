@@ -96,7 +96,11 @@ FROM (
     AND  (coitem_status<>'C')
   <? endif ?>
   <? if exists("startDate") ?>
+    <? if exists("orderByOrderdate") ?>
+    AND  (cohead_orderdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+    <? else ?>
     AND  (coitem_scheddate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+    <? endif ?>
   <? endif ?>
 
   <? if exists("salesrep_id") ?>
@@ -218,7 +222,11 @@ FROM (
     AND  (coitem_status<>'C')
   <? endif ?>
   <? if exists("startDate") ?>
+    <? if exists("orderByOrderdate") ?>
+    AND  (cohead_orderdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+    <? else ?>
     AND  (coitem_scheddate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+    <? endif ?>
   <? endif ?>
 
   <? if exists("salesrep_id") ?>
