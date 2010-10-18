@@ -245,138 +245,12 @@
   tab. The following options will appear:</para>
   <variablelist>
     <varlistentry>
-      <term>Check Print Sales Order on Save by Default</term>
+      <term>Print Sales Order on Save by Default</term>
       <listitem>
         <para>Select to prompt users to print Sales Orders whenever Sales
         Orders are saved. If selected, users will be presented with a Sales
         Order print screen whenever a Sales Order is saved. To bypass this
         feature, do not select this option.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <variablelist>
-    <varlistentry>
-      <term>Price Control</term>
-      <listitem>
-        <para>Select from the following price control options:</para>
-        <variablelist>
-          <varlistentry>
-            <term><indexterm significance="normal">
-                <primary>sales orders</primary>
-                <secondary>discount defaults for</secondary>
-              </indexterm>Allow Price Discounts</term>
-            <listitem>
-              <para>Check this option to allow pricing discounts for select
-              customers. This option instructs the system to verify whether
-              any Pricing Discounts have been established for a Customer,
-              prior to calculating the Line Item Price for of an Item within a
-              Sales Order. If this option is unchecked, then the system will
-              apply the full List Price for an Item within a Sales
-              Order.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Disallow Override of Sales Price on Sales Order</term>
-            <listitem>
-              <para>Select to prevent all users from overriding the Sales
-              Price when entering Sales Order Line Items. This is a
-              system-wide setting, affecting all users. Do not select this
-              option if you want to selectively prevent users from overriding
-              Sales Prices. Individual users may be granted the ability to
-              override Sales Prices, use the S/O module's OverridePrice
-              privilege.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Hide Misc. Charges on Sales Order screen</term>
-            <listitem>
-              <para>Select to hide all fields related to Miscellaneous Charges
-              on the Sales Order Line Item tab. If your site does not use
-              Misc. Charges when entering Sales Orders, it may make sense to
-              hide this functionality to avoid confusion.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Price Effective Date</term>
-      <listitem>
-        <para>Specify one of the following options for when Item Prices should
-        be effective as of:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Current</term>
-            <listitem>
-              <para>Select if you want Item Prices to be effective as of the
-              current date.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Order</term>
-            <listitem>
-              <para>Select if you want Item Prices to be effective as of the
-              Order date.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Scheduled</term>
-            <listitem>
-              <para>Select if you want Item Prices to be effective as of the
-              scheduled date.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Pricing on Line Item Edits</term>
-      <listitem>
-        <para>Select one of the following as your preferred response when
-        users change Sales Order Line Item quantities:</para>
-        <note>
-          <para>The Sales Order Line Item pricing options apply only when
-          editing Line Item quantity.</para>
-        </note>
-        <variablelist>
-          <varlistentry>
-            <term>Update Price</term>
-            <listitem>
-              <para>If selected, the system will automatically update the Net
-              Unit Price for the Line Item, adjusting to accommodate the
-              newly-entered quantity.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Do not Update Price</term>
-            <listitem>
-              <para>If selected, the Net Unit Price will not be changed when
-              Line Item quantity is changed on EDIT&mdash;and users will not
-              be prompted to consider changing the Price.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Prompt before Updating</term>
-            <listitem>
-              <para>If selected, the system will ask users if they want to
-              update the Net Unit Price (YES/NO). If they answer "YES" because
-              they do want to update the Price, then they will have to
-              manually make the Price adjustment.</para>
-              <variablelist>
-                <varlistentry>
-                  <term>Ignore if Discounted</term>
-                  <listitem>
-                    <para>Select if you want Price update warnings to be
-                    ignored when Line Items being edited are already
-                    discounted. Also, if Sales Order header changes cause
-                    Prices to be updated, any discounted Line Items will not
-                    be updated.</para>
-                  </listitem>
-                </varlistentry>
-              </variablelist>
-            </listitem>
-          </varlistentry>
-        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -409,34 +283,72 @@
         </variablelist>
       </listitem>
     </varlistentry>
-    <varlistentry id="configureSO_freightPricing">
-      <term>Freight Pricing</term>
+    <varlistentry>
+      <term>Change Log</term>
       <listitem>
-        <para>Specify how you want freight charges to be handled when shipping
-        Orders and Returns:</para>
+        <para>Select from the following change log options</para>
         <variablelist>
           <varlistentry>
-            <term>Use calculated Freight values by default</term>
+            <term>Post Customer Changes</term>
             <listitem>
-              <para>If selected, Items issued to Shipping will be checked
-              against Pricing Schedules to determine the actual freight for a
-              given Shipment based on shipping quantities and weight rather
-              than assuming all freight should be billed. If not selected, the
-              freight amount on an Order or Return will be billed on every
-              Shipment.</para>
+              <para>Select to post to the Change Log any changes made to
+              Customer masters.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Include Package Weight in Freight Calculation</term>
+            <term>Post Sales Order Changes</term>
             <listitem>
-              <para>Select to include package weight in the freight
-              calculations. If not selected, package weight will be
-              excluded.</para>
+              <para>Select to post to the Change Log any changes made to Sales
+              Orders.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Credit Control</term>
+      <listitem>
+        <para>Select from the following credit control options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Restrict Credit Memos to Items that appear on their Apply-To
+            Document</term>
+            <listitem>
+              <para>Select if you want to restrict Credit Memo Items to their
+              Apply-To Document. Selecting this option narrows the Credit Memo
+              Item selection process to only those Items which appeared on the
+              Invoice the Credit Memo is being applied to. If not selected, a
+              sold Item master list will appear instead when selecting Credit
+              Memo Items for Credit Memos applied to a specific Invoice. This
+              setting has no bearing on unapplied Credit Memos.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Allocate Credit Memos to New Sales Order on Save</term>
+            <listitem>
+              <para>Select to have open Credit Memos for a Customer
+              automatically allocated to any new Sales Orders entered for that
+              Customer. This functionality helps reduce Customer credit
+              balances by ensuring that Customer credits are consumed when new
+              Sales Orders are entered. Any available, open Credit Memos are
+              eligible for allocation. The allocation of available Credit
+              Memos occurs only once&mdash;when a Sales Order is saved for the
+              first time. Subsequent saves will not result in additional
+              allocations. Credit Memos which have been allocated to a Sales
+              Order are applied at the point when the Invoice resulting from
+              the Sales Order is posted. Once the full balance of a Credit
+              Memo has been applied, the Credit Memo is then closed. The
+              printed Invoice the Customer receives will indicate whether
+              Credit Memos have been applied. In addition, the total due from
+              the Customer will be automatically adjusted to reflect any
+              applied credits.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
     <varlistentry role="standard">
       <term>Enable S/O Reservations</term>
       <listitem>
@@ -511,7 +423,8 @@
           <varlistentry>
             <term>Firm Sales Orders when added to Packing List Batch</term>
             <listitem>
-              <para></para>
+              <para>Select to make Sales Order Line Items firm when the Sales
+              Order they are on is added to the Packing List batch.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -541,65 +454,167 @@
         </variablelist>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <para>To establish Customer pricing options, select the "Pricing" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureSO_pricingTab.png" />
+        </imageobject>
+        <caption>Customer Pricing Options</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When establishing Customer pricing options, you are presented with the
+  following options:</para>
+  <variablelist>
     <varlistentry>
-      <term>Change Log</term>
+      <term>Price Control</term>
       <listitem>
-        <para>Select from the following change log options</para>
+        <para>Select from the following price control options:</para>
         <variablelist>
           <varlistentry>
-            <term>Post Customer Changes</term>
+            <term><indexterm significance="normal">
+                <primary>sales orders</primary>
+                <secondary>discount defaults for</secondary>
+              </indexterm>Allow Price Discounts</term>
             <listitem>
-              <para>Select to post to the Change Log any changes made to
-              Customer masters.</para>
+              <para>Check this option to allow pricing discounts for select
+              customers. This option instructs the system to verify whether
+              any Pricing Discounts have been established for a Customer,
+              prior to calculating the Line Item Price for of an Item within a
+              Sales Order. If this option is unchecked, then the system will
+              apply the full List Price for an Item within a Sales
+              Order.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Post Sales Order Changes</term>
+            <term>Disallow Override of Sales Price on Sales Order</term>
             <listitem>
-              <para>Select to post to the Change Log any changes made to Sales
-              Orders.</para>
+              <para>Select to prevent all users from overriding the Sales
+              Price when entering Sales Order Line Items. This is a
+              system-wide setting, affecting all users. Do not select this
+              option if you want to selectively prevent users from overriding
+              Sales Prices. Individual users may be granted the ability to
+              override Sales Prices, use the S/O module's OverridePrice
+              privilege.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Hide Misc. Charges on Sales Order screen</term>
+            <listitem>
+              <para>Select to hide all fields related to Miscellaneous Charges
+              on the Sales Order Line Item tab. If your site does not use
+              Misc. Charges when entering Sales Orders, it may make sense to
+              hide this functionality to avoid confusion.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry id="configureSO_freightPricing">
+      <term>Freight Pricing</term>
+      <listitem>
+        <para>Specify how you want freight charges to be handled when shipping
+        Orders and Returns:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use calculated Freight values by default</term>
+            <listitem>
+              <para>If selected, Items issued to Shipping will be checked
+              against Pricing Schedules to determine the actual freight for a
+              given Shipment based on shipping quantities and weight rather
+              than assuming all freight should be billed. If not selected, the
+              freight amount on an Order or Return will be billed on every
+              Shipment.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Include Package Weight in Freight Calculation</term>
+            <listitem>
+              <para>Select to include package weight in the freight
+              calculations. If not selected, package weight will be
+              excluded.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Credit Control</term>
+      <term>Pricing on Line Item Edits</term>
       <listitem>
-        <para>Select from the following credit control options:</para>
+        <para>Select one of the following as your preferred response when
+        users change Sales Order Line Item quantities:</para>
+        <note>
+          <para>The Sales Order Line Item pricing options apply only when
+          editing Line Item quantity.</para>
+        </note>
         <variablelist>
           <varlistentry>
-            <term>Restrict Credit Memos to Items that appear on their Apply-To
-            Document</term>
+            <term>Update Price</term>
             <listitem>
-              <para>Select if you want to restrict Credit Memo Items to their
-              Apply-To Document. Selecting this option narrows the Credit Memo
-              Item selection process to only those Items which appeared on the
-              Invoice the Credit Memo is being applied to. If not selected, a
-              sold Item master list will appear instead when selecting Credit
-              Memo Items for Credit Memos applied to a specific Invoice. This
-              setting has no bearing on unapplied Credit Memos.</para>
+              <para>If selected, the system will automatically update the Net
+              Unit Price for the Line Item, adjusting to accommodate the
+              newly-entered quantity.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Allocate Credit Memos to New Sales Order on Save</term>
+            <term>Do not Update Price</term>
             <listitem>
-              <para>Select to have open Credit Memos for a Customer
-              automatically allocated to any new Sales Orders entered for that
-              Customer. This functionality helps reduce Customer credit
-              balances by ensuring that Customer credits are consumed when new
-              Sales Orders are entered. Any available, open Credit Memos are
-              eligible for allocation. The allocation of available Credit
-              Memos occurs only once&mdash;when a Sales Order is saved for the
-              first time. Subsequent saves will not result in additional
-              allocations. Credit Memos which have been allocated to a Sales
-              Order are applied at the point when the Invoice resulting from
-              the Sales Order is posted. Once the full balance of a Credit
-              Memo has been applied, the Credit Memo is then closed. The
-              printed Invoice the Customer receives will indicate whether
-              Credit Memos have been applied. In addition, the total due from
-              the Customer will be automatically adjusted to reflect any
-              applied credits.</para>
+              <para>If selected, the Net Unit Price will not be changed when
+              Line Item quantity is changed on EDIT&mdash;and users will not
+              be prompted to consider changing the Price.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Prompt before Updating</term>
+            <listitem>
+              <para>If selected, the system will ask users if they want to
+              update the Net Unit Price (YES/NO). If they answer "YES" because
+              they do want to update the Price, then they will have to
+              manually make the Price adjustment.</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Ignore if Discounted</term>
+                  <listitem>
+                    <para>Select if you want Price update warnings to be
+                    ignored when Line Items being edited are already
+                    discounted. Also, if Sales Order header changes cause
+                    Prices to be updated, any discounted Line Items will not
+                    be updated.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Price Effective Date</term>
+      <listitem>
+        <para>Specify one of the following options for when Item Prices should
+        be effective as of:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Current</term>
+            <listitem>
+              <para>Select if you want Item Prices to be effective as of the
+              current date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Order</term>
+            <listitem>
+              <para>Select if you want Item Prices to be effective as of the
+              Order date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Scheduled</term>
+            <listitem>
+              <para>Select if you want Item Prices to be effective as of the
+              scheduled date.</para>
             </listitem>
           </varlistentry>
         </variablelist>

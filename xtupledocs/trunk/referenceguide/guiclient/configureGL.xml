@@ -241,27 +241,6 @@
         nature.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Meaning of Currency Exchange Rates</term>
-      <listitem>
-        <para>Specify how you want Exchange Rates to be implemented and also
-        displayed on the Exchange Rates master list:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Base x Exchange Rate = Foreign</term>
-            <listitem>
-              <para>If selected, this equation will be used.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Foreign x Exchange Rate = Base</term>
-            <listitem>
-              <para>If selected, this equation will be used.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
   </variablelist>
   <para id="configureGL_AP">To configure Accounts Payable options, select the
   "Accounts Payable" tab. The following screen will appear:</para>
@@ -511,6 +490,41 @@
       <listitem>
         <para>Select to automatically close Incidents tied to open Invoices
         when those Invoices are themselves paid in full and closed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To configure global accounting options, select the "Global" tab. The
+  following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/configureGL_globalTab.png" />
+      </imageobject>
+      <caption><para>Global Accounting Options</para></caption>
+    </mediaobject>
+  </screenshot>
+  <para>When configuring global accounting settings, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Meaning of Currency Exchange Rates</term>
+      <listitem>
+        <para>Specify how you want Exchange Rates to be implemented and also
+        displayed on the Exchange Rates master list:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Base x Exchange Rate = Foreign</term>
+            <listitem>
+              <para>If selected, this equation will be used.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Foreign x Exchange Rate = Base</term>
+            <listitem>
+              <para>If selected, this equation will be used.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
