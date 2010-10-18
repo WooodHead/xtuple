@@ -175,7 +175,7 @@ BEGIN
     IF (FOUND) THEN
       IF (TG_OP = 'INSERT') THEN
         PERFORM postComment(_cmnttypeid, 'P', NEW.poitem_pohead_id, ('Created Line #' || NEW.poitem_linenumber::TEXT));
-
+        PERFORM postComment(_cmnttypeid, 'PI', NEW.poitem_id, 'Created');
       ELSIF (TG_OP = 'UPDATE') THEN
         IF (NEW.poitem_qty_ordered <> OLD.poitem_qty_ordered) THEN
           PERFORM postComment( _cmnttypeid, 'PI', NEW.poitem_id,
