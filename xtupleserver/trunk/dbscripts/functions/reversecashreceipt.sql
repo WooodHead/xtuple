@@ -40,8 +40,9 @@ BEGIN
 
   SELECT cashrcpt_cust_id, ('Reverse Cash Receipt posting for ' || cust_number||'-'||cust_name) AS custnote,
          cashrcpt_fundstype, cashrcpt_number, cashrcpt_docnumber,
-         cashrcpt_distdate, cashrcpt_amount,
+         cashrcpt_distdate, cashrcpt_amount, cashrcpt_discount,
          currToBase(cashrcpt_curr_id, cashrcpt_amount, cashrcpt_distdate) AS cashrcpt_amount_base,
+         currToBase(cashrcpt_curr_id, cashrcpt_discount, cashrcpt_distdate) AS cashrcpt_discount_base,
          cashrcpt_notes,
          cashrcpt_bankaccnt_id AS bankaccnt_id,
          accnt_id AS prepaid_accnt_id,
@@ -105,21 +106,28 @@ BEGIN
                    aropen_duedate, aropen_curr_id, aropen_curr_rate,
                    round(aropen_amount - aropen_paid, 2) <=
                       round(aropen_paid + 
-                      currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,abs(cashrcptitem_amount),_p.cashrcpt_distdate),2)
+                      currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,abs(cashrcptitem_amount + cashrcptitem_discount),_p.cashrcpt_distdate),2)
                                AS closed,
-                   cashrcptitem_id, cashrcptitem_amount,
+                   cashrcptitem_id, cashrcptitem_amount, cashrcptitem_discount,
                    currToBase(_p.cashrcpt_curr_id, cashrcptitem_amount,
                               _p.cashrcpt_distdate) AS cashrcptitem_amount_base,
+                   currToBase(_p.cashrcpt_curr_id, cashrcptitem_discount,
+                              _p.cashrcpt_distdate) AS cashrcptitem_discount_base,
                    round(aropen_paid - 
-                      currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,abs(cashrcptitem_amount),_p.cashrcpt_distdate),2) AS new_paid
+                      currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,abs(cashrcptitem_amount),_p.cashrcpt_distdate),2) AS new_paid,
+                   round(currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,abs(cashrcptitem_discount),_p.cashrcpt_distdate),2) AS new_discount
             FROM cashrcptitem JOIN aropen ON (cashrcptitem_aropen_id=aropen_id)
             WHERE ((cashrcptitem_cashrcpt_id=pCashrcptid)
               AND (cashrcptitem_applied)) LOOP
 
---raise exception 'new paid %', _r.new_paid;
+--  Handle discount 
+    IF (_r.cashrcptitem_discount_base > 0) THEN
+      PERFORM reverseCashReceiptDisc(_r.cashrcptitem_id, pJournalNumber);
+    END IF;
+     
 --  Update the aropen item to post the paid amount
     UPDATE aropen
-    SET aropen_paid = _r.new_paid,
+    SET aropen_paid = _r.new_paid + _r.new_discount,
         aropen_open = TRUE,
         aropen_closedate = NULL
     WHERE (aropen_id=_r.aropen_id);
@@ -247,7 +255,7 @@ BEGIN
     PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CR',
                    'Currency Exchange Rounding - ' || _p.cashrcpt_docnumber,
                    getGainLossAccntId(),
-                   ((round(_posted_base, 2) - round(_p.cashrcpt_amount_base, 2)) * 1.0),
+                   ((round(_posted_base, 2) - round((_p.cashrcpt_amount_base + _p.cashrcpt_discount_base), 2)) * 1.0),
                    _p.cashrcpt_distdate, _p.custnote);
   END IF;
 
