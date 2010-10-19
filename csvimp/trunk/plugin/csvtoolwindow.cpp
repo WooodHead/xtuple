@@ -545,7 +545,9 @@ bool CSVToolWindow::importStart()
     _log->_log->append(errorList.join("\n"));
     _log->show();
     _log->raise();
-    if (! qobject_cast<InteractiveMessageHandler*>(_msghandler))
+    if (_msghandler &&  // log messages there's a non-interactive message handler
+        qobject_cast<XAbstractMessageHandler*>(_msghandler) &&
+        ! qobject_cast<InteractiveMessageHandler*>(_msghandler))
       _msghandler->message(error ? QtCriticalMsg : QtWarningMsg,
                            tr("Import Processing Status"),
                            _log->_log->toPlainText());
@@ -562,7 +564,7 @@ bool CSVToolWindow::importStart()
       _log->show();
       _log->raise();
       if(usetransaction) QSqlQuery rollback("ROLLBACK;");
-      QMessageBox::warning(this, tr("Error"),
+      _msghandler->message(QtCriticalMsg, tr("Error"),
                            tr("<p>There was an error running the post sql "
                               "query and changes were rolled back. "
                               "Please see the log for more details."));
