@@ -181,7 +181,7 @@
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/configureIE_importTab.png" />
+        <imagedata fileref="images/configureIE_dirTab.png" />
       </imageobject>
       <caption><para>XML Import</para></caption>
     </mediaobject>
@@ -211,9 +211,9 @@
   button. You will be presented with the following screen:<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="???" />
+          <imagedata fileref="images\importsrc.png" />
         </imageobject>
-        <caption><para>The Import Source screen</para></caption>
+        <caption><para>Import Source screen</para></caption>
       </mediaobject>
     </screenshot></para>
   <para role="xtconnect">When setting up an Import Source you are presented
@@ -302,6 +302,15 @@
     step. Use the Schedule Imports tab to schedule loading the data into the
     database.</para>
   </note>
+  <para></para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/configureIE_xmlImportTab.png" />
+      </imageobject>
+      <caption><para>General Import Options</para></caption>
+    </mediaobject>
+  </screenshot>
   <para>The <guilabel>General Import Options</guilabel> tab lets you choose
   how to handle files after their contents have been imported. You are
   presented with the following options:</para>
@@ -352,6 +361,15 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para></para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/configureIE_csvImportTab.png" />
+      </imageobject>
+      <caption><para>CSV Import Options</para></caption>
+    </mediaobject>
+  </screenshot>
   <para>The <guilabel>CSV Import Options</guilabel> tab lets you define
   options specific to importing CSV files.</para>
   <variablelist>
@@ -374,7 +392,7 @@
   choose, click the NEW button. The following screen will appear:<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="???" />
+          <imagedata fileref="images\atlasMap.png" />
         </imageobject>
         <caption><para>CSV File to Atlas Map</para></caption>
       </mediaobject>
@@ -430,6 +448,15 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para role="xtconnect"></para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/configureIE_scheduleTab.png" />
+      </imageobject>
+      <caption><para>Scheduling Options</para></caption>
+    </mediaobject>
+  </screenshot>
   <para role="xtconnect">The Schedule Imports tab lets you define a schedule
   for importing data with the xTuple Connect Batch Manager. When setting up an
   import schedule you are presented with the following options:</para>
