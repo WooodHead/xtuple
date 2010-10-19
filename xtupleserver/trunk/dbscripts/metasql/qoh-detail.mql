@@ -6,8 +6,8 @@ SELECT
 <? if exists("byLocation") ?>
        itemloc_id, warehous_code, item_number,
        f_descrip, f_lotserial, uom_name,
-       qty, reservedqty,
-       'qty' AS qty_xtnumericrole,
+       qoh, reservedqty,
+       'qty' AS qoh_xtnumericrole,
        'qty' AS reservedqty_xtnumericrole,
        level AS xtindentrole
 <? else ?>
@@ -51,7 +51,7 @@ FROM (
       SELECT itemloc_id, 0 AS level, item_number AS sortkey, warehous_code, item_number,
              (item_descrip1 || ' ' || item_descrip2) AS f_descrip,
              formatlotserialnumber(itemloc_ls_id) AS f_lotserial, uom_name,
-             itemloc_qty AS qty,
+             itemloc_qty AS qoh,
   <? if exists("EnableSOReservationsByLocation") ?>
              qtyReservedLocation(itemloc_id) AS reservedqty
   <? else ?>
@@ -67,7 +67,7 @@ FROM (
       SELECT -1 AS itemloc_id, 0 AS level, item_number AS sortkey, warehous_code, item_number,
              (item_descrip1 || ' ' || item_descrip2) AS f_descrip,
              <? value("na") ?> AS f_lotserial, uom_name,
-             itemsite_qtyonhand AS qty,
+             itemsite_qtyonhand AS qoh,
              0 AS reservedqty
       FROM itemsite, warehous, item, uom
       WHERE ((itemsite_item_id=item_id)
@@ -80,7 +80,7 @@ FROM (
       SELECT itemloc_id, 1 AS level, item_number AS sortkey, '' AS warehous_code, '' AS item_number,
              (itemlocrsrv_source || '-' || formatSOItemNumber(itemlocrsrv_source_id)) AS f_descrip,
              '' AS f_lotserial, '' AS uom_name,
-             NULL AS qty,
+             NULL AS qoh,
              itemlocrsrv_qty AS reservedqty
       FROM itemlocrsrv, itemloc, itemsite, item
       WHERE ((itemlocrsrv_itemloc_id=itemloc_id)
