@@ -55,10 +55,10 @@ if (privileges.check("CanViewRates"))
       xtte.errorCheck(q);
   }
 
-  xtte.customer.populate = function()
+  xtte.customer.populate = function(custId)
   {
     var params = new Object();
-    params.cust_id = _number.id();    
+    params.cust_id = custId;    
 
     var q = toolbox.executeDbQuery("customer", "seltecustrate", params);
 
@@ -83,6 +83,8 @@ if (privileges.check("CanViewRates"))
   QWidget.setTabOrder(_blanketPos, _rate);
 
   // Connections
-  _number.newId.connect(xtte.customer.populate);
+  mywindow["newId(int)"].connect(xtte.customer.populate);
   mywindow["saved(int)"].connect(xtte.customer.save);
+
+  xtte.customer.populate();
 }
