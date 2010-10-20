@@ -26,9 +26,15 @@ BEGIN
   END IF;
 
   -- Update header with last use info
-  UPDATE te.tehead SET
-    tehead_lastupdated=('now'::text)::timestamp(6) with time zone
-  WHERE (tehead_id=NEW.teitem_tehead_id);
+  IF (TG_OP = 'DELETE') THEN
+    UPDATE te.tehead SET
+      tehead_lastupdated=('now'::text)::timestamp(6) with time zone
+    WHERE (tehead_id=OLD.teitem_tehead_id);
+  ELSE
+    UPDATE te.tehead SET
+      tehead_lastupdated=('now'::text)::timestamp(6) with time zone
+    WHERE (tehead_id=NEW.teitem_tehead_id);
+  END IF;
 
   RETURN NEW;
 END;
