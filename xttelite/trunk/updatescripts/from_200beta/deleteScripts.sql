@@ -1,0 +1,1 @@
+DELETE FROM te.pkgscript WHERE script_name IN ('te','tesheet','time_expense');
