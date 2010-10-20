@@ -19,8 +19,8 @@
         Options</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When configuring the S/O module, you are presented with the following
-  options:</para>
+  <para>When configuring the Sales module, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
@@ -56,17 +56,17 @@
               Sales Order Number at the time of Sales Order creation.</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term>Next #</term>
+            <listitem>
+              <para>The next sequentially available Sales Order Number will
+              display here. You may change the number&mdash;creating a new
+              basis for the next Sales Order Number&mdash;by typing the new
+              number into this field. Any changes you make here will be
+              reflected the next time a new Sales Order is created.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Next #</term>
-      <listitem>
-        <para>The next sequentially available Sales Order Number will display
-        here. You may change the number&mdash;creating a new basis for the
-        next Sales Order Number&mdash;by typing the new number into this
-        field. Any changes you make here will be reflected the next time a new
-        Sales Order is created in the S/O module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -112,17 +112,17 @@
               read-only.</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term>Next #</term>
+            <listitem>
+              <para>The next sequentially available Quote Number will display
+              here. You may change the number&mdash;creating a new basis for
+              the next Quote Number&mdash;by typing the new number into this
+              field. Any changes you make here will be reflected the next time
+              a new Quote is created.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Next #</term>
-      <listitem>
-        <para>The next sequentially available Quote Number will display here.
-        You may change the number&mdash;creating a new basis for the next
-        Quote Number&mdash;by typing the new number into this field. Any
-        changes you make here will be reflected the next time a new Quote is
-        created in the S/O module.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -158,6 +158,17 @@
               described above. However, this option also allows you to
               manually override the Return Authorization Number at the time of
               Return Authorization creation.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Next #</term>
+            <listitem>
+              <para>The next sequentially available Return Authorization
+              Number will display here. You may change the
+              number&mdash;creating a new basis for the next Return
+              Authorization Number&mdash;by typing the new number into this
+              field. Any changes you make here will be reflected the next time
+              a new Return Authorization is created.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -207,17 +218,18 @@
               edited. They are read-only.</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term>Next #</term>
+            <listitem>
+              <para>The next sequentially available Credit Memo Number will
+              display here. You may change the number&mdash;creating a new
+              basis for the next Credit Memo Number&mdash;by typing the new
+              number into this field. Any changes you make here will be
+              reflected the next time you issue a new Sales Order Credit
+              Memo.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Next #</term>
-      <listitem>
-        <para>The next sequentially available Credit Memo Number will display
-        here. You may change the number&mdash;creating a new basis for the
-        next Credit Memo Number&mdash;by typing the new number into this
-        field. Any changes you make here will be reflected the next time you
-        issue a new Credit Memo within the S/O module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -228,21 +240,23 @@
       <listitem>
         <para>By default, Invoice Numbers are automatically generated. This
         system setting cannot be changed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Next #</term>
-      <listitem>
-        <para>The next sequentially available Invoice Number will display
-        here. You may change the number&mdash;creating a new basis for the
-        next Invoice Number&mdash;by typing the new number into this field.
-        Any changes you make here will be reflected the next time you create a
-        new Invoice within the S/O module.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Next #</term>
+            <listitem>
+              <para>The next sequentially available Invoice Number will
+              display here. You may change the number&mdash;creating a new
+              basis for the next Invoice Number&mdash;by typing the new number
+              into this field. Any changes you make here will be reflected the
+              next time you create a new Invoice.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To establish general settings for the S/O module, select the "General"
-  tab. The following options will appear:</para>
+  <para>To establish general settings for the Sales module, select the
+  "General" tab. The following options will appear:</para>
   <variablelist>
     <varlistentry>
       <term>Print Sales Order on Save by Default</term>
@@ -350,25 +364,25 @@
   </variablelist>
   <variablelist>
     <varlistentry role="standard">
-      <term>Enable S/O Reservations</term>
+      <term>Enable Sales Reservations</term>
       <listitem>
         <para>Select to enable the Sales Order Reservations functionality
         system-wide. This feature allows for the hard allocation of quantity
         to Sales Orders. If not selected, the Sales Order reservation options
         will be hidden from view.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Reserve by Location</term>
-      <listitem>
-        <para>Select to set S/O Reservations for discrete locations and lots.
-        The hard allocation of quantity will be for particular locations and
-        will prevent other orders from issuing reserved inventory. The S/O
-        Pick List will print the reserved location to expedite inventory
-        picking. You may choose the order of precedence for selecting
-        locations; Lowest Quantity First, Highest Quantity First, or Alpha by
-        Location Name.</para>
         <variablelist>
+          <varlistentry>
+            <term>Reserve by Location</term>
+            <listitem>
+              <para>Select to set Sales Reservations for discrete locations
+              and lots. The hard allocation of quantity will be for particular
+              locations and will prevent other orders from issuing reserved
+              inventory. The S/O Pick List will print the reserved location to
+              expedite inventory picking. You may choose the order of
+              precedence for selecting locations; Lowest Quantity First,
+              Highest Quantity First, or Alpha by Location Name.</para>
+            </listitem>
+          </varlistentry>
           <varlistentry>
             <term>Lowest Quantity First</term>
             <listitem>
@@ -395,13 +409,14 @@
               with the first Location and continue until the quantity required
               is fully reserved or there is insufficient quantity on
               hand.</para>
+              <note>
+                <para>The change of Reserve by Location from a state of
+                enabled to disabled will remove all location
+                reservations.</para>
+              </note>
             </listitem>
           </varlistentry>
         </variablelist>
-        <note>
-          <para>The change of Reserve by Location from a state of enabled to
-          disabled will remove all location reservations.</para>
-        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -496,7 +511,7 @@
               system-wide setting, affecting all users. Do not select this
               option if you want to selectively prevent users from overriding
               Sales Prices. Individual users may be granted the ability to
-              override Sales Prices, use the S/O module's OverridePrice
+              override Sales Prices, use the Sales module's OverridePrice
               privilege.</para>
             </listitem>
           </varlistentry>
@@ -759,20 +774,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Credit Limit</term>
-      <listitem>
-        <para>Specify the default credit limit to be used for all
-        Customers.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Credit Rating</term>
-      <listitem>
-        <para>Specify the default credit rating to be used for all
-        Customers.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Accepts Partial Shipments</term>
       <listitem>
         <para>Select to indicate Customers accept partial shipments by
@@ -791,6 +792,20 @@
       <listitem>
         <para>Select to indicate Customers allow free-form Ship-To's by
         default. This default appears on the Customer master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Limit</term>
+      <listitem>
+        <para>Specify the default credit limit to be used for all
+        Customers.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Rating</term>
+      <listitem>
+        <para>Specify the default credit rating to be used for all
+        Customers.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -954,6 +969,13 @@
               </listitem>
             </varlistentry>
           </variablelist>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Check Print on Save by Default</term>
+        <listitem>
+          <para>Select if you want the "Print on Save" option to always be
+          enabled when creating new Return Authorizations.</para>
         </listitem>
       </varlistentry>
     </variablelist></para>

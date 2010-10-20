@@ -55,17 +55,18 @@
               creation.</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term>Next #</term>
+            <listitem>
+              <para>The next sequentially available Purchase Order Number will
+              display here. You may change the number&mdash;creating a new
+              basis for the next Purchase Order Number&mdash;by typing the new
+              number into this field. Any changes you make here will be
+              reflected the next time a new Purchase Order is created in the
+              P/O module.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Next #</term>
-      <listitem>
-        <para>The next sequentially available Purchase Order Number will
-        display here. You may change the number&mdash;creating a new basis for
-        the next Purchase Order Number&mdash;by typing the new number into
-        this field. Any changes you make here will be reflected the next time
-        a new Purchase Order is created in the P/O module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -76,23 +77,25 @@
       <listitem>
         <para>By default, Voucher Numbers are automatically generated. This
         system setting cannot be changed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Next #</term>
-      <listitem>
-        <para>The next sequentially available Voucher Number will display
-        here. You may change the number&mdash;creating a new basis for the
-        next Voucher Number&mdash;by typing the new number into this field.
-        Any changes you make here will be reflected the next time a new
-        Voucher is created in the P/O module.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Next #</term>
+            <listitem>
+              <para>The next sequentially available Voucher Number will
+              display here. You may change the number&mdash;creating a new
+              basis for the next Voucher Number&mdash;by typing the new number
+              into this field. Any changes you make here will be reflected the
+              next time a new Voucher is created in the P/O module.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>purchase requests</primary>
           <secondary>numbering of</secondary>
-        </indexterm>P/R # Generation</term>
+        </indexterm>Purchase Request # Generation</term>
       <listitem>
         <para>Select one of the available Purchase Request Number generation
         methods:</para>
@@ -123,21 +126,22 @@
               creation.</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term>Next #</term>
+            <listitem>
+              <para>The next sequentially available Purchase Request Number
+              will display here. You may change the number&mdash;creating a
+              new basis for the next Purchase Request Number&mdash;by typing
+              the new number into this field. Any changes you make here will
+              be reflected the next time you issue a new Purchase Request
+              within the P/O module.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Next #</term>
-      <listitem>
-        <para>The next sequentially available Purchase Request Number will
-        display here. You may change the number&mdash;creating a new basis for
-        the next Purchase Request Number&mdash;by typing the new number into
-        this field. Any changes you make here will be reflected the next time
-        you issue a new Purchase Request within the P/O module.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Default P/O Copies</term>
+      <term>Default Purchase Order Copies</term>
       <listitem>
         <para>Indicate the copies you want to print.</para>
         <variablelist>
@@ -159,6 +163,24 @@
             <term># of Copies</term>
             <listitem>
               <para>Specify the number of copies you want to print.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>vendors</primary>
+          <secondary>default settings for</secondary>
+        </indexterm>Vendor Defaults</term>
+      <listitem>
+        <para>Specify the following Vendor defaults:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Ship Via</term>
+            <listitem>
+              <para>Specify the default Ship Via to be used for Purchase
+              Orders.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -187,15 +209,13 @@
         Purchase Order Line Items&mdash;requiring users to enter the date
         manually. Earliest Available dates are determined by adding Item
         Source Lead Times to the current date.</para>
+        <note>
+          <para>The "Use Earliest Avail." option applies only to Purchase
+          Orders entered manually. This option does not impact the scheduling
+          of POs generated from MRP Planned Orders.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>The "Use Earliest Avail." option applies only to Purchase Orders
-    entered manually. This option does not impact the scheduling of POs
-    generated from MRP Planned Orders.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Prevent Purchase Order Items when no Std. Cost Exists</term>
       <listitem>
@@ -229,24 +249,6 @@
               selected for billing at the point when they are received. If not
               selected, drop ship Items will need to be manually shipped and
               selected for billing after receipt.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>vendors</primary>
-          <secondary>default settings for</secondary>
-        </indexterm>Vendor Defaults</term>
-      <listitem>
-        <para>Specify the following Vendor defaults:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Ship Via</term>
-            <listitem>
-              <para>Specify the default Ship Via to be used for Purchase
-              Orders.</para>
             </listitem>
           </varlistentry>
         </variablelist>
