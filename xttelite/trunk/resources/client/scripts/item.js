@@ -26,25 +26,8 @@ var _expcatSelected = mywindow.findChild("_expcatSelected");
 var _allowExpenseGroup = mywindow.findChild("_allowExpenseGroup");
 var _inventoryUOM = mywindow.findChild("_inventoryUOM");
 
-var _itemid = -1;
 var _saved = false;
-
-set = function(params)
-{
-  if("item_id" in params)
-  {
-    _itemid = params.item_id;
-    xtte.item.populate();
-  }
-
-  if("mode" in params)
-  {
-    if (params.mode == "view")
-      _expensePage.enabled = false;
-  }
-
-  return mainwindow.NoError;
-}
+var _isnew = true;
 
 xtte.item.clickswitch = function()
 {
@@ -72,17 +55,17 @@ xtte.item.save = function(id)
   var query = "updteexp";
   if (!_projectExpense.checked)
     query = "delteexp";
-  else if (_itemid == -1)
+  else if (_isnew)
     query = "insteexp";
 
   var q = toolbox.executeDbQuery("item", query, params);
   xtte.errorCheck(q);
 }
 
-xtte.item.populate = function()
+xtte.item.populate = function(itemId)
 {
   var params = new Object;
-  params.item_id = _itemid;
+  params.item_id = itemId;
 
   var q = toolbox.executeDbQuery("item", "selteexp", params);
 
@@ -96,13 +79,15 @@ xtte.item.populate = function()
       _accountSelected.checked = true;
     else
       _expcatSelected.checked = true;
+
+    _isnew = false;
   }
   else if (!xtte.errorCheck(q))
     return
   else
   {
-    _itemid = -1;
     _projectExpense.checked = false;
+    _isnew = true;
   }
 
   xtte.item.handleExpense();
@@ -119,8 +104,8 @@ _account.setType(0x01 | 0x02 | 0x04); // Asset, Liability, Expense
 
 // Connections
 mywindow["saved(int)"].connect(xtte.item.save);
+mywindow["newId(int)"].connect(xtte.item.populate);
 _accountSelected.toggled.connect(xtte.item.clickswitch);
 _expcatSelected.toggled.connect(xtte.item.clickswitch);
 _itemtype['currentIndexChanged(QString)'].connect(xtte.item.handleExpense);
-_tab['currentChanged(int)'].connect(xtte.item.populate);
 _inventoryUOM.newID.connect(xtte.item.handleExpense);
