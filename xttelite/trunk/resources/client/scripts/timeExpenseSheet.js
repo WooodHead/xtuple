@@ -224,6 +224,7 @@ xtte.timeExpenseSheet.save = function()
   }
 
   var params   = new Object();
+  params.tehead_id = _id;
   params.emp_id = _employee.id();
   params.warehous_id = _site.id();
   params.weekending = _weekending.date;
