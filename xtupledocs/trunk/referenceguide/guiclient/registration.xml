@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section518504">
+<section id="Section518504" role="standard">
   <title><indexterm significance="normal">
       <primary>databases</primary>
       <secondary>registration for</secondary>
@@ -10,8 +10,11 @@
       <primary>registration</primary>
       <secondary>commercial versions and</secondary>
     </indexterm>Registration</title>
-  <para>To register your commercial installation, select the "Registration"
-  option. The following screen will appear:</para>
+  <para>Users of the commercial editions of xTuple ERP are required to enter a
+  license key to verify their registration of the software. This requirement
+  does not apply to users of the PostBooks edition. To register your
+  commercial installation, select the "Registration" option. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -26,7 +29,37 @@
     <varlistentry>
       <term>Registration Key</term>
       <listitem>
-        <para></para>
+        <para>Enter the license key you received from xTuple―or from your
+        authorized xTuple solution provider. Once a valid key has been
+        entered, the following information will be displayed:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Customer</term>
+            <listitem>
+              <para>Displays the name of your company.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Expiration Date</term>
+            <listitem>
+              <para>Displays the date when your registration expires. Expired
+              registration keys can be renewed for another term either by
+              contacting xTuple or your authorized xTuple solution
+              provider.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Max Concurrent Users</term>
+            <listitem>
+              <para>Displays the maximum number of concurrent users of the
+              xTuple software, as per the terms of your xTuple license
+              agreement. If you are exceeding your maximum number of allowed
+              concurrent users, you should arrange to update your license
+              agreement either by contacting xTuple or your authorized xTuple
+              solution provider.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
