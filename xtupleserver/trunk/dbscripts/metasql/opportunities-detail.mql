@@ -28,12 +28,12 @@ SELECT ophead_id,
        LEFT OUTER JOIN optype ON (ophead_optype_id=optype_id)
  WHERE((true)
 <? if exists("startDate") ?>
-     ((ophead_target_date >= <? value("startDate") ?>)
-   OR (<? value("startDate") ?> <= startOfTime()) AND (ophead_target_date IS NULL))
+   AND ((ophead_target_date >= <? value("startDate") ?>)
+    OR (<? value("startDate") ?> <= startOfTime()) AND (ophead_target_date IS NULL))
 <? endif ?>
 <? if exists("endDate") ?>
-     ((ophead_target_date <= <? value("endDate") ?>)
-   OR (<? value("endDate") ?> >= endOfTime()) AND (ophead_target_date IS NULL))
+   AND ((ophead_target_date <= <? value("endDate") ?>)
+    OR (<? value("endDate") ?> >= endOfTime()) AND (ophead_target_date IS NULL))
 <? endif ?>
 <? if exists("opsource_id") ?>
    AND (ophead_opsource_id=<? value("opsource_id") ?>)
