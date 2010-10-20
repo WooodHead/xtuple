@@ -302,7 +302,8 @@
     step. Use the Schedule Imports tab to schedule loading the data into the
     database.</para>
   </note>
-  <para></para>
+  <para>The <guilabel>General Import Options</guilabel> tab lets you choose
+  how to handle files after their contents have been imported. </para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -311,9 +312,8 @@
       <caption><para>General Import Options</para></caption>
     </mediaobject>
   </screenshot>
-  <para>The <guilabel>General Import Options</guilabel> tab lets you choose
-  how to handle files after their contents have been imported. You are
-  presented with the following options:</para>
+  <para>When defining general import options, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>After successful import</term>
@@ -361,7 +361,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
+  <para>The <guilabel>CSV Import Options</guilabel> tab lets you define
+  options specific to importing CSV files.</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -370,8 +371,8 @@
       <caption><para>CSV Import Options</para></caption>
     </mediaobject>
   </screenshot>
-  <para>The <guilabel>CSV Import Options</guilabel> tab lets you define
-  options specific to importing CSV files.</para>
+  <para>When defining options specific to importing CSV files, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>CSV Atlas Directory</term>
@@ -448,7 +449,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para role="xtconnect"></para>
+  <para role="xtconnect">The Schedule Imports tab lets you define a schedule
+  for importing data with the xTuple Connect Batch Manager.</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -457,9 +459,8 @@
       <caption><para>Scheduling Options</para></caption>
     </mediaobject>
   </screenshot>
-  <para role="xtconnect">The Schedule Imports tab lets you define a schedule
-  for importing data with the xTuple Connect Batch Manager. When setting up an
-  import schedule you are presented with the following options:</para>
+  <para role="xtconnect">When setting up an import schedule, you are presented
+  with the following options:</para>
   <variablelist role="xtconnect">
     <varlistentry>
       <term>Recurring</term>
