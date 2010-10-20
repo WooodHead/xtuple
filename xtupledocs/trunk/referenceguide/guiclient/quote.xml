@@ -124,26 +124,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Ship Complete</term>
-      <listitem>
-        <para>Select to require that all Quote Line Item quantities be issued
-        to Shipping before the Order is shipped. This feature is designed to
-        prevent partial shipments. If selected, users will be prevented from
-        shipping the Order unless all Line Item quantities have been issued to
-        Shipping. If not selected, partial shipments for the Order will be
-        allowed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Print on Save</term>
-      <listitem>
-        <para>Select to automatically print the Quote when it is saved.</para>
-        <para role="xtconnect">If the Customer specified on the Quote has an
-        EDI Profile attached, you may encounter an EDI processing interface
-        when printing the Quote.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Site</term>
       <listitem>
         <para>Specify the shipping Site associated with the Quote. The Site
@@ -179,6 +159,23 @@
             </listitem>
           </varlistentry>
         </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Quote Status</term>
+      <listitem>
+        <para>Displays the current status of the Quote. There are two possible
+        values: open and converted. Quotes get the converted status after they
+        have been converted to Sales Orders. If your Sales module is
+        configured to show Quotes after they have been converted, you may view
+        historical Quotes from the Customer Workbench. Converted Quotes will
+        not be visible on the list of open Quotes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expire</term>
+      <listitem>
+        <para>Enter the date when the Quote expires, if any.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
