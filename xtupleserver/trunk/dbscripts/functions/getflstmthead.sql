@@ -135,9 +135,9 @@ BEGIN
           SELECT (EXTRACT(year from py.yearperiod_end)||'') INTO _pryear
           FROM period cp, period pp, yearperiod cy, yearperiod py
           WHERE ((cp.period_id=pPeriodId)
-          AND (cp.period_yearperiod_id=cy.yearperiod_id)
-          AND (pp.period_yearperiod_id=py.yearperiod_id)
-          AND (cy.yearperiod_start > py.yearperiod_start))
+           AND (cp.period_id != pp.period_id)
+           AND (cp.period_start > pp.period_start)
+           AND (cp.period_number = pp.period_number))
           ORDER BY pp.period_start DESC LIMIT 1;
 
         ELSE
@@ -150,7 +150,8 @@ BEGIN
           END) INTO _pryear
           FROM period cp, period pp
           WHERE ((cp.period_id=pPeriodId)
-          AND ((cp.period_start - interval '1 year') >= pp.period_start))
+            AND (cp.period_number = pp.period_number)
+            AND (cp.period_id != pp.period_id))
           ORDER BY pp.period_start DESC LIMIT 1;
 
         END IF;
