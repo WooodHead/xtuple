@@ -144,7 +144,7 @@ BEGIN
   ELSE
     SELECT NEXTVAL('addr_addr_id_seq') INTO _addrId;
     
-    _addrNumber := fetchNextNumber('AddressNumber');
+    _addrNumber := COALESCE(pNumber,fetchNextNumber('AddressNumber'));
 
     INSERT INTO addr ( addr_id, addr_number,
     addr_line1, addr_line2, addr_line3, 
