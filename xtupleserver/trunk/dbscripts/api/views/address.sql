@@ -29,7 +29,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     ON INSERT TO api.address DO INSTEAD
 
 SELECT    saveAddr(
-	    getAddrId(NEW.address_number),
+	    NULL,
             NEW.address_number,
             NEW.address1,
             NEW.address2,
