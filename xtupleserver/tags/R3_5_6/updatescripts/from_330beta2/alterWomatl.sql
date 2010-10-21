@@ -1,0 +1,5 @@
+BEGIN;
+
+ALTER TABLE womatl ADD COLUMN womatl_scrapvalue NUMERIC(16,6) DEFAULT 0;
+
+COMMIT;
