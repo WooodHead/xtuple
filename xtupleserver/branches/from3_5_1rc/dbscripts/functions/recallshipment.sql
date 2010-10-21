@@ -139,8 +139,8 @@ BEGIN
 			  _shiphead.shiphead_order_type, formatToNumber(_ti.toitem_id),
 			  _to.tohead_number,
 			  'Recall Shipment from Transit To Src Warehouse',
-			  tc.costcat_shipasset_accnt_id,
 			  sc.costcat_asset_accnt_id,
+			  tc.costcat_shipasset_accnt_id,
 			  _itemlocSeries, _timestamp) INTO _invhistid
       FROM itemsite AS ti, costcat AS tc,
 	   itemsite AS si, costcat AS sc
