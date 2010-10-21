@@ -73,9 +73,9 @@
         </variablelist>
         <tip>
           <para>To calculate hourly labor rates for a Work Center, multiply
-          the number of people by the labor rate—either the run rate or the
-          setup rate. To calculate all Work Center charges, add overhead Costs
-          to the sum of the labor rates.</para>
+          the number of people by the labor rate&mdash;either the run rate or
+          the setup rate. To calculate all Work Center charges, add overhead
+          Costs to the sum of the labor rates.</para>
         </tip>
       </listitem>
     </varlistentry>
@@ -83,7 +83,7 @@
       <term><indexterm significance="normal">
           <primary>labor rates</primary>
           <secondary>for work centers</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>work centers</primary>
           <secondary>labor rates for</secondary>
         </indexterm>Run Labor Rate</term>
@@ -141,7 +141,7 @@
             <term><indexterm significance="normal">
                 <primary>overhead</primary>
                 <secondary>in work centers</secondary>
-              </indexterm> <indexterm significance="normal">
+              </indexterm><indexterm significance="normal">
                 <primary>work centers</primary>
                 <secondary>overhead in</secondary>
               </indexterm>Overhead % of Labor</term>
@@ -173,10 +173,9 @@
               overhead Costs, expressed in dollars per hour. Calculation is
               based on the following formula, using data entered into the Work
               Center screen:</para>
-              <para>(overhead % of labor * run labor rate) + </para>
-              <para>(overhead per labor Hr. * # of People) + </para>
-              <para>(overhead per mach. hr. * # of machines) = overhead
-              rate/Hr.</para>
+              <para><literal>(overhead % of labor * run labor rate) +
+              (overhead per labor Hr. * # of People) + (overhead per mach. hr.
+              * # of machines) = overhead rate/Hr.</literal></para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -215,8 +214,8 @@
             <varlistentry>
               <term>Queue Days</term>
               <listitem>
-                <para>Queue Days: Select a number using the arrow buttons, or
-                manually enter a value up to a maximum of 999. Amount entered
+                <para>Select a number using the arrow buttons, or manually
+                enter a value up to a maximum of 999. Amount entered
                 represents the average number of days between the day a job
                 arrives at the Work Center and the day work begins on the
                 job.</para>
@@ -225,11 +224,10 @@
             <varlistentry>
               <term>Setup Time</term>
               <listitem>
-                <para>Setup Time: Amount entered represents the average amount
-                of time required to set up the Work Center in preparation for
-                starting the job. This option also enables you to specify
-                whether setup time relates to labor time or machine
-                time.</para>
+                <para>Amount entered represents the average amount of time
+                required to set up the Work Center in preparation for starting
+                the job. This option also enables you to specify whether setup
+                time relates to labor time or machine time.</para>
               </listitem>
             </varlistentry>
           </variablelist></para>
