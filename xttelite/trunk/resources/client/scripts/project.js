@@ -110,6 +110,23 @@ xtte.project.populate = function()
 
 xtte.project.newTask = function()
 {
+  if (_prjid == -1)
+  {
+    if (!mywindow.sSave(true))
+      return;
+    else
+    {
+      var params = new Object;
+      params.prjNumber = _number.text;
+
+      var q = toolbox.executeDbQuery("projectGantt", "getprj", params);
+      if (q.first())
+        _prjid = q.value("prj_id");
+      else
+        return;
+    }
+  }
+
   xtte.project.openTask("new");
 }
 
