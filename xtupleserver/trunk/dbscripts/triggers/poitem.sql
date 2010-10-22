@@ -201,6 +201,13 @@ BEGIN
                                  COALESCE((SELECT taxtype_name FROM taxtype WHERE taxtype_id=NEW.poitem_taxtype_id), 'None') ||
                                  '" (' || COALESCE(NEW.poitem_taxtype_id, 0) || ')' ) );
         END IF;
+        IF (NEW.poitem_status <> OLD.poitem_status) THEN
+          IF (NEW.poitem_status = 'C') THEN
+            PERFORM postComment(_cmnttypeid, 'PI', NEW.poitem_id, 'Closed');
+          ELSIF (NEW.poitem_status = 'O') THEN
+            PERFORM postComment(_cmnttypeid, 'PI', NEW.poitem_id, 'Opened');
+          END IF;
+        END IF;
 
       ELSIF (TG_OP = 'DELETE') THEN
         PERFORM postComment(_cmnttypeid, 'P', OLD.poitem_pohead_id, ('Deleted Line #' || OLD.poitem_linenumber::TEXT));
