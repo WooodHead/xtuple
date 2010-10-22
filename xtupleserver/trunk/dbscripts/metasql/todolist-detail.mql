@@ -8,7 +8,7 @@
          incdtpriority_name AS priority, 
          todoitem_name AS name, 
          firstLine(todoitem_description) AS descrip, 
-         CASE WHEN (todoitem_status='C') THEN <? value("completed") ?>
+         CASE WHEN (todoitem_status='C') THEN <? value("complete") ?>
               WHEN (todoitem_status='D') THEN <? value("deferred") ?>
               WHEN (todoitem_status='P') THEN <? value("pending") ?>
               WHEN (todoitem_status='I') THEN <? value("inprocess") ?>
@@ -100,7 +100,7 @@
               WHEN (incdt_status='C') THEN <? value("confirmed") ?>
               WHEN (incdt_status='A') THEN <? value("assigned") ?>
               WHEN (incdt_status='R') THEN <? value("resolved") ?>
-              WHEN (incdt_status='L') THEN <? value("completed") ?>
+              WHEN (incdt_status='L') THEN <? value("complete") ?>
               ELSE '?'
          END AS status,
          CAST(incdt_timestamp AS date) AS start, 
@@ -164,7 +164,7 @@
            firstLine(prjtask_descrip) AS descrip, 
            CASE WHEN (prjtask_status='P') THEN <? value("concept") ?>
                 WHEN (prjtask_status='O') THEN <? value("inprocess") ?>
-                WHEN (prjtask_status='C') THEN <? value("completed") ?>
+                WHEN (prjtask_status='C') THEN <? value("complete") ?>
                 ELSE '?'
            END AS status,
            prjtask_start_date AS start, 
@@ -236,7 +236,7 @@
            firstLine(prj_descrip) AS descrip, 
            CASE WHEN (prj_status='P') THEN <? value("concept") ?>
                 WHEN (prj_status='O') THEN <? value("inprocess") ?>
-                WHEN (prj_status='C') THEN <? value("completed") ?>
+                WHEN (prj_status='C') THEN <? value("complete") ?>
                 ELSE '?'
            END AS status,
            prj_start_date AS start, 
