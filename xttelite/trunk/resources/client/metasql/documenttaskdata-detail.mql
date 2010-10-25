@@ -1,0 +1,20 @@
+-- Group: documenttaskdata
+-- Name:  detail
+-- Notes: 
+SELECT prjtask_id, baseCurrId(), prj_number, prj_name, prjtask_number, prjtask_name, 
+<? if exists("time") ?>
+  prjtask_hours_actual AS value
+<? endif ?>
+<? if exists("expense") ?>
+  prjtask_exp_actual AS value
+<? endif ?>
+FROM prj
+  JOIN public.prjtask ON (prj_id=prjtask_id)
+WHERE (true)
+<? if exists("time") ?>
+  AND (prjtask_hours_actual > 0)
+<? endif ?>
+<? if exists("expense") ?>
+  AND (prjtask_exp_actual > 0)
+<? endif ?>
+ORDER by prj_number, prjtask_number

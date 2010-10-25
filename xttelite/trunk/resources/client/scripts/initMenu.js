@@ -56,6 +56,13 @@ historyAction.setData("ViewTimeExpenseHistory");
 historyAction.enabled = privileges.value("ViewTimeExpenseHistory");
 crmRptMenu.insertAction(orderActPrj, historyAction);
 
+var crmUtilMenu = mainwindow.findChild("menu.crm.utilities");
+var doctaskAction = new QAction(qsTr("Document Task Data"), mainwindow);
+doctaskAction.objectName = "pm.documentTaskData";
+doctaskAction.setData("MaintainTimeExpense");
+doctaskAction.enabled = privileges.value("MaintainTimeExpense");
+crmUtilMenu.appendAction(doctaskAction);
+
 // Define function(s)
 xtte.initMenu.openSheets = function()
 {
@@ -67,6 +74,12 @@ xtte.initMenu.openHistory = function()
   toolbox.openWindow("dspTimeExpenseHistory");
 }
 
+xtte.initMenu.docTaskData = function()
+{
+  toolbox.openWindow("documentTaskData", mainwindow, Qt.ApplicationModal);
+}
+
 // Connect Actions
 tesheetAction.triggered.connect(xtte.initMenu.openSheets);
 historyAction.triggered.connect(xtte.initMenu.openHistory);
+doctaskAction.triggered.connect(xtte.initMenu.docTaskData);
