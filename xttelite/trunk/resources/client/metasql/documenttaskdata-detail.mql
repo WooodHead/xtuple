@@ -9,7 +9,7 @@ SELECT prjtask_id, baseCurrId(), prj_number, prj_name, prjtask_number, prjtask_n
   prjtask_exp_actual AS value
 <? endif ?>
 FROM prj
-  JOIN public.prjtask ON (prj_id=prjtask_id)
+  JOIN public.prjtask ON (prj_id=prjtask_prj_id)
 WHERE (true)
 <? if exists("time") ?>
   AND (prjtask_hours_actual > 0)
