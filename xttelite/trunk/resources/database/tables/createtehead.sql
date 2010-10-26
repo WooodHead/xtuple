@@ -21,6 +21,7 @@ BEGIN
       tehead_status character(1) NOT NULL DEFAULT 'O'::bpchar,
       tehead_emp_id integer,
       tehead_warehous_id integer NOT NULL,
+      tehead_username text NOT NULL DEFAULT current_user,
       CHECK (tehead_status = ANY (ARRAY['O'::bpchar, 'A'::bpchar, 'C'::bpchar]))
     );
     GRANT ALL ON TABLE te.tehead TO xtrole;
