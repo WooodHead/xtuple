@@ -1,8 +1,8 @@
-<package id="create_200beta"
+<package id="create_200rc"
          name="te"
          developer="xTuple"
          descrip="Time and Expense System"
-         version="2.0.0beta"
+         version="2.0.0rc"
          updater="2.2.2">
   <pkgnotes>Time and Expense System Lite add-on package for xTuple ERP.
 
@@ -105,10 +105,9 @@
   <createtable file="database/tables/createteprj.sql"           name="teprj"/>
   <createtable file="database/tables/createteprjtask.sql"       name="teprjtask"/>
 
+  <createtrigger name="teheadtrigger" file="database/triggers/tehead.sql">Time and Expense Package</createtrigger>
   <createtrigger name="teitemtrigger" file="database/triggers/teitem.sql">Time and Expense Package</createtrigger>
   <createtrigger name="teprjtrigger" file="database/triggers/teprj.sql">Time and Expense Package</createtrigger>
-
-  <createview name="prjtask" file="database/views/prjtask.sql">Time and Expense Package</createview>
 
   <loadappscript  file="client/scripts/configureCRM.js" name="configureCRM" order="0">Time and Expense package</loadappscript>
   <loadappscript  file="client/scripts/customer.js" name="customer" order="0">Time and Expense package</loadappscript>

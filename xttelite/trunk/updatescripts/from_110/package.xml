@@ -145,10 +145,9 @@
 
   <createtable file="database/tables/createteemp.sql"           name="teemp"/>
 
+  <createtrigger name="teheadtrigger" file="database/triggers/tehead.sql">Time and Expense Package</createtrigger>
   <createtrigger name="teitemtrigger" file="database/triggers/teitem.sql">Time and Expense Package</createtrigger>
   <createtrigger name="teprjtrigger" file="database/triggers/teprj.sql">Time and Expense Package</createtrigger>
-
-  <createview name="prjtask" file="database/views/prjtask.sql">Time and Expense Package</createview>
 
   <loadappscript  file="client/scripts/configureCRM.js" name="configureCRM" order="0">Time and Expense package</loadappscript>
   <loadappscript  file="client/scripts/customer.js" name="customer" order="0">Time and Expense package</loadappscript>
@@ -246,4 +245,7 @@
   <finalscript file="dropTemetric.sql"  />
   <finalscript file="dropTeselect.sql"  />
   <finalscript file="dropUiforms.sql"  />
+  <finalscript file="deleteScripts.sql"  />
+  <finalscript file="dropVoucher.sql"  />
+  
 </package>
