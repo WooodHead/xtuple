@@ -1929,12 +1929,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/initMenu.js" line="81"/>
+        <location filename="../scripts/initMenu.js" line="46"/>
+        <source>Setup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/initMenu.js" line="88"/>
         <source>Welcome</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/initMenu.js" line="128"/>
+        <location filename="../scripts/initMenu.js" line="135"/>
         <source>Sites</source>
         <translation type="unfinished"></translation>
     </message>
