@@ -89,7 +89,7 @@ xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
       else if (xtte.timeExpenseSheets.canUnapprove(selected))
       {
         pMenu.addSeparator();
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("Uanpprove"), 
+        tmpact = toolbox.menuAddAction(pMenu, qsTr("Unapprove"), 
                                        privileges.check("CanApprove"));
         tmpact.triggered.connect(xtte.timeExpenseSheets.unapproveSheets);
       }
