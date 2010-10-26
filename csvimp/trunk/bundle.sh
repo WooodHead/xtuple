@@ -17,6 +17,12 @@ if [ "$BASEDIR" = . ] ; then
   BASEDIR=`pwd`
 fi
 
+OS=`uname -s`
+if [ "$OS" = Darwin ] ; then
+  ARCH=`uname -p`
+  OSVER=MAC${ARCH}
+fi
+
 usage() {
   echo "$PROG -h"
   echo "$PROG -b -d [ -x ]"
@@ -54,9 +60,9 @@ bundle() {
   fi
 
   if $DEMO ; then
-    BUNDLENAME="${APPNAME}-${VERSION}Demo-MACUniversal"
+    BUNDLENAME="${APPNAME}-${VERSION}Demo-${OSVER}"
   else
-    BUNDLENAME="${APPNAME}-${VERSION}-MACUniversal"
+    BUNDLENAME="${APPNAME}-${VERSION}-${OSVER}"
   fi
   BUNDLEDIR="${2}/${BUNDLENAME}"
 
@@ -71,11 +77,11 @@ bundle() {
   fi
 
   if ! $DEMO ; then
-    if ! mv "$BASEDIR/$BINARY" "$BUNDLEDIR" ; then
+    if ! cp -R "$BASEDIR/$BINARY" "$BUNDLEDIR" ; then
       return 4
     fi
   else
-    if ! mv "$BASEDIR/$BINARY" "$BUNDLEDIR"/"${APPNAME}_Demo.app" ; then
+    if ! cp -R "$BASEDIR/$BINARY" "$BUNDLEDIR"/"${APPNAME}_Demo.app" ; then
       return 4
     fi
     BINARY="${APPNAME}_Demo.app"
