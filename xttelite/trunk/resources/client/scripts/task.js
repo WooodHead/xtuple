@@ -117,8 +117,6 @@ xtte.task.populate = function()
 }
 
 // Initialize
-_actualHours.enabled = false;  // Going to control strictly from T/E history
-_actualExp.enabled = false;    // ''
 _item.setQuery(xtte.itemSql);
 _useItem.checked = false;
 
