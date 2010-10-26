@@ -230,8 +230,6 @@ xtte.timeExpenseSheetItem.populate = function()
     _linenum = (qry.value("teitem_linenumber"));
     _workdate.date = (qry.value("teitem_workdate"));
     _type.code = qry.value("teitem_type");
-    _project.setId(qry.value("prj_id"));
-    _task.setId(qry.value("teitem_prjtask_id"));
     _clients.setId(qry.value("teitem_cust_id"));
     _po.text = (qry.value("teitem_po"));
     _items.setId(qry.value("teitem_item_id"));
@@ -239,6 +237,8 @@ xtte.timeExpenseSheetItem.populate = function()
     _rate.setId(qry.value("teitem_curr_id") - 0);
     _rate.localValue = (qry.value("teitem_rate"));
     _total.localValue = (qry.value("teitem_total"));
+    _project.setId(qry.value("prj_id"));
+    _task.setId(qry.value("teitem_prjtask_id"));
     _billable.checked = qry.value("teitem_billable");
     _prepaid.checked = qry.value("teitem_prepaid")
     _notes.plainText = qry.value("teitem_notes");
@@ -474,19 +474,31 @@ xtte.timeExpenseSheetItem.budgTotals = function()
 
 xtte.timeExpenseSheetItem.actTotals = function()
 {
-  var parms = new Object;
-  parms.task_id = _task.id();
+  var params = new Object;
+  params.task_id = _task.id();
+  params.teitem_id = _teitemid;
 
-  _totalCost = 0;
-  _totalhrs = 0;    
+  var expense = 0;
+  var hours = 0;  
 
   // get the task actuals then add the current
-  var q = toolbox.executeDbQuery("timeexpensesheetitem","taskrollup",parms);
+  var q = toolbox.executeDbQuery("timeexpensesheetitem","taskrollup",params);
 
   if (q.first())
   {
-    _actual.setText(q.value("total_hours"));
-    _actualCost.setText(q.value("total_expense"));
+    if (_type.code == 'T')
+    {
+      hours = _hours.toDouble() + q.value("total_hours");
+      expense = q.value("total_expense");
+    }
+    else
+    {
+      hours = q.value("total_hours")
+      expense = _total.localValue + q.value("total_expense");
+    }
+
+    _actual.setDouble(hours);
+    _actualCost.setDouble(expense);
   } 
   else
     xtte.errorCheck(q);
@@ -699,6 +711,8 @@ _next.clicked.connect(xtte.timeExpenseSheetItem.next);
 _task.newID.connect(xtte.timeExpenseSheetItem.taskChanged);
 _rate.valueChanged.connect(xtte.timeExpenseSheetItem.extension);
 _hours.textChanged.connect(xtte.timeExpenseSheetItem.extension);
+_hours.editingFinished.connect(xtte.timeExpenseSheetItem.actTotals);
+_rate.lostFocus.connect(xtte.timeExpenseSheetItem.actTotals);
 _type.newID.connect(xtte.timeExpenseSheetItem.typeChanged);
 _items["newId(int)"].connect(xtte.timeExpenseSheetItem.getPrice);
 _clients["newId(int)"].connect(xtte.timeExpenseSheetItem.customerChanged);
