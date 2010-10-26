@@ -263,24 +263,6 @@
     </message>
 </context>
 <context>
-    <name>newForm</name>
-    <message>
-        <location filename="../uiforms/projectGantt.ui" line="24"/>
-        <source>Project Gantt</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/projectGantt.ui" line="43"/>
-        <source>about:blank</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/projectGantt.ui" line="53"/>
-        <source>Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>project</name>
     <message>
         <location filename="../scripts/project.js" line="16"/>
@@ -293,13 +275,31 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/project.js" line="156"/>
+        <location filename="../scripts/project.js" line="173"/>
         <source>You must enter a valid Due Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/project.js" line="157"/>
+        <location filename="../scripts/project.js" line="174"/>
         <source>Invalid Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>projectGantt</name>
+    <message>
+        <location filename="../uiforms/projectGantt.ui" line="24"/>
+        <source>Project Gantt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiforms/projectGantt.ui" line="54"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiforms/projectGantt.ui" line="57"/>
+        <source>Ctrl+W</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -503,42 +503,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="293"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="294"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="294"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="295"/>
         <source>Expense</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="295"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="296"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="308"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="309"/>
         <source>Approved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="309"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="310"/>
         <source>Closed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="310"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="311"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="320"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="321"/>
         <source>Delete Sheet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="321"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="322"/>
         <source>&lt;p&gt;Are you sure you want to cancel this sheet and discard all your changes?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -648,7 +648,7 @@
     </message>
     <message>
         <location filename="../scripts/timeExpenseSheetItem.js" line="248"/>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="642"/>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="654"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
@@ -710,25 +710,25 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="524"/>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="565"/>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="536"/>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="577"/>
         <source>Unsaved Changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="525"/>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="566"/>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="537"/>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="578"/>
         <source>&lt;p&gt;You have made some changes which have not yet been saved!
 Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="686"/>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="698"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="687"/>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="699"/>
         <source>Expense</source>
         <translation type="unfinished"></translation>
     </message>
