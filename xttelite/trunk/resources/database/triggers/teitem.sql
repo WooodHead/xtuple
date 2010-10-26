@@ -32,7 +32,8 @@ BEGIN
     WHERE (tehead_id=OLD.teitem_tehead_id);
   ELSE
     UPDATE te.tehead SET
-      tehead_lastupdated=('now'::text)::timestamp(6) with time zone
+      tehead_lastupdated=('now'::text)::timestamp(6) with time zone,
+      tehead_username=current_user
     WHERE (tehead_id=NEW.teitem_tehead_id);
   END IF;
 
