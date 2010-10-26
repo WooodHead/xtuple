@@ -1,0 +1,17 @@
+-- Group: desktop
+-- Name:  userOnline
+-- Notes: 
+SELECT usr_id, usr_username, usr_propername, usr_email, count(*) as cnt, 
+  min(backend_start) as client_start, max(query_start) as query_start,
+  client_addr, '0' AS cnt_xttotalrole
+FROM (
+  SELECT DISTINCT usesysid, procpid, 
+    min(backend_start) as backend_start, max(query_start) as query_start,
+    client_addr
+  FROM pg_stat_activity 
+    WHERE (datid IN ( SELECT datid
+                      FROM pg_stat_activity
+                      WHERE (procpid=pg_backend_pid()) ) )
+  GROUP BY usesysid, procpid, client_addr ) data
+ JOIN usr ON (usr_id=usesysid)
+GROUP BY usr_id, usr_username, usr_propername, usr_email, client_addr
