@@ -1,0 +1,4 @@
+-- Group: glseries
+-- Name:  postsubledger
+-- Notes: 
+SELECT postSubledger(<? value("sequence") ?>) AS result;
