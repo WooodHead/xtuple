@@ -47,7 +47,8 @@ _lines.addColumn(qsTr("Cust. Name"),	-1,		 Qt.AlignLeft,    false, "cust_name");
 _lines.addColumn(qsTr("PO"),		XTreeWidget.orderColumn,Qt.AlignLeft,    false, "teitem_po");
 _lines.addColumn(qsTr("Item"),		XTreeWidget.itemColumn, Qt.AlignLeft,    true, "item_number");
 _lines.addColumn(qsTr("Description"),	-1,  		 Qt.AlignLeft,    true, "item_descrip1");
-_lines.addColumn(qsTr("Units"), 		XTreeWidget.qtyColumn,  Qt.AlignRight,   true, "teitem_qty");
+_lines.addColumn(qsTr("Hours"), 		XTreeWidget.qtyColumn,  Qt.AlignRight,   true, "hours");
+_lines.addColumn(qsTr("Expense"), 		XTreeWidget.qtyColumn,  Qt.AlignRight,   true, "expense");
 
 if (privileges.check("CanViewRates"))
 {
@@ -55,7 +56,7 @@ if (privileges.check("CanViewRates"))
   _lines.addColumn(qsTr("Rate"),		XTreeWidget.priceColumn, Qt.AlignRight,   false, "teitem_rate");
   _lines.addColumn(qsTr("Extended"),	XTreeWidget.moneyColumn, Qt.AlignRight,   false, "teitem_total");
 }
-_lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,  Qt.AlignLeft,    true, "teitem_type");
+_lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,  Qt.AlignLeft,    false, "teitem_type");
 
 set = function(input)
 {

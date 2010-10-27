@@ -3,6 +3,12 @@
 -- Notes: 
 SELECT
   teitem.*,
+  CASE WHEN (teitem_type = 'T') THEN
+    teitem_qty
+  END AS hours,
+  CASE WHEN (teitem_type = 'E') THEN
+    teitem_total
+  END AS expense,
   item_number, item_descrip1,
   cust_number, cust_name,
   tehead.*, emp_code,
@@ -16,8 +22,16 @@ SELECT
     <? value("error") ?>
   END AS teitem_type_qtdisplayrole,
   'qty' AS teitem_qty_xtnumericrole,
+  'qty' AS hours_xtnumericrole,
+  'qty' AS teitem_qty_xtnumericrole,
+  'qty' AS hours_xtnumericrole,
+  'extprice' AS expense_xtnumericrole,
+  '--' AS hours_xtnullrole,
+  '--' AS expense_xtnullrole,
   'salesprice' AS teitem_rate_xtnumericrole,
-  'extprice' AS teitem_total_xtnumericrole
+  'extprice' AS teitem_total_xtnumericrole,
+  0 AS hours_xttotalrole,
+  0 AS expense_xttotalrole
 FROM te.tehead
   JOIN te.teitem ON (tehead_id = teitem_tehead_id)
   JOIN emp ON (tehead_emp_id= emp_id)
