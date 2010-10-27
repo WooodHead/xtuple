@@ -27,7 +27,8 @@
   WHEN (tehead_status='A') THEN
     &lt;? value("approved") ?> 
   ELSE &lt;? value("closed") ?>
-  END AS f_status
+  END AS f_status,
+  tehead_notes
 FROM te.tehead
  JOIN emp ON (tehead_emp_id=emp_id)
  JOIN whsinfo ON (warehous_id=tehead_warehous_id)
@@ -56,7 +57,8 @@ WHERE (tehead_id=&lt;? value("tehead_id") ?>);
   CASE WHEN (teitem_billable) THEN
     teitem_total
   ELSE 0 END AS billing_total,
-  formatBoolYN(teitem_billable) AS f_billable
+  formatBoolYN(teitem_billable) AS f_billable,
+  teitem_notes
 FROM te.teitem
   JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
   JOIN prj ON (prjtask_prj_id=prj_id)
@@ -89,7 +91,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   CASE WHEN (teitem_billable) THEN
     teitem_total
   ELSE 0 END AS billing_total,
-  formatBoolYN(teitem_billable) AS f_billable
+  formatBoolYN(teitem_billable) AS f_billable,
+  teitem_notes
 FROM te.teitem
   JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
   JOIN prj ON (prjtask_prj_id=prj_id)
@@ -788,7 +791,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <key>
     <query>time</query>
    </key>
-   <height>40</height>
+   <height>35</height>
    <field>
     <rect>
      <x>626</x>
@@ -831,7 +834,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
     <rect>
      <x>385</x>
      <y>3.17</y>
-     <width>75</width>
+     <width>100</width>
      <height>15</height>
     </rect>
     <font>
@@ -886,9 +889,9 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    </field>
    <field>
     <rect>
-     <x>465</x>
+     <x>490</x>
      <y>3.18</y>
-     <width>75</width>
+     <width>50</width>
      <height>15</height>
     </rect>
     <font>
@@ -1002,7 +1005,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
     <rect>
      <x>386</x>
      <y>17.3</y>
-     <width>75</width>
+     <width>100</width>
      <height>15</height>
     </rect>
     <font>
@@ -1017,6 +1020,26 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
      <column>item_descrip1</column>
     </data>
    </field>
+   <text>
+    <rect>
+     <x>109</x>
+     <y>32.7</y>
+     <width>600</width>
+     <height>15</height>
+    </rect>
+    <bottompad>0</bottompad>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>normal</weight>
+    </font>
+    <left/>
+    <top/>
+    <data>
+     <query>time</query>
+     <column>teitem_notes</column>
+    </data>
+   </text>
   </detail>
  </section>
  <section>
@@ -1324,7 +1347,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <key>
     <query>expense</query>
    </key>
-   <height>40</height>
+   <height>35</height>
    <field>
     <rect>
      <x>300</x>
@@ -1348,7 +1371,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
     <rect>
      <x>386</x>
      <y>19</y>
-     <width>75</width>
+     <width>100</width>
      <height>15</height>
     </rect>
     <font>
@@ -1386,7 +1409,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
     <rect>
      <x>385</x>
      <y>4.51</y>
-     <width>75</width>
+     <width>100</width>
      <height>15</height>
     </rect>
     <font>
@@ -1403,9 +1426,9 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    </field>
    <field>
     <rect>
-     <x>465</x>
+     <x>490</x>
      <y>4.51</y>
-     <width>75</width>
+     <width>50</width>
      <height>15</height>
     </rect>
     <font>
@@ -1572,6 +1595,26 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
      <column>f_total</column>
     </data>
    </field>
+   <text>
+    <rect>
+     <x>110</x>
+     <y>33.3</y>
+     <width>600</width>
+     <height>15</height>
+    </rect>
+    <bottompad>0</bottompad>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>normal</weight>
+    </font>
+    <left/>
+    <top/>
+    <data>
+     <query>expense</query>
+     <column>teitem_notes</column>
+    </data>
+   </text>
   </detail>
  </section>
  <pgfoot>
@@ -1647,4 +1690,43 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <string>Report Date:</string>
   </label>
  </pgfoot>
+ <rptfoot>
+  <height>30</height>
+  <text>
+   <rect>
+    <x>110.667</x>
+    <y>5.66667</y>
+    <width>600</width>
+    <height>15</height>
+   </rect>
+   <bottompad>0</bottompad>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <left/>
+   <top/>
+   <data>
+    <query>header</query>
+    <column>tehead_notes</column>
+   </data>
+  </text>
+  <label>
+   <rect>
+    <x>10.7</x>
+    <y>4.33333</y>
+    <width>90</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <right/>
+   <vcenter/>
+   <string>Notes:</string>
+  </label>
+ </rptfoot>
 </report>
