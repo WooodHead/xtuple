@@ -51,9 +51,6 @@ WHERE ( (true)
 <? if exists("balanceOnly") ?>
   AND   (aropen_open AND (aropen_amount - aropen_paid > 0))
 <? endif ?>
-  AND   ((SELECT COUNT(*)
-          FROM invcitem, site()
-          WHERE ( (invcitem_invchead_id=invchead_id)
-            AND   ((warehous_id=invcitem_warehous_id) OR (invcitem_warehous_id=-1)) )) > 0) )
+  AND   (checkInvoiceSitePrivs(invchead_id)) )
 ORDER BY invchead_invcnumber
 ;
