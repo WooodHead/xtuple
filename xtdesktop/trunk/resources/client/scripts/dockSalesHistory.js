@@ -237,7 +237,10 @@ function openWindowSalesHist()
   // Open the window and perform any special handling required
   toolbox.openWindow(ui);
   if (_typeSalesHist == "bookings")
-    toolbox.lastWindow()._warehouse.setAll();
+  {
+    var warehouse = toolbox.lastWindow().findChild("_warehouse");
+    warehouse.setAll();
+  }
   if (ui == "dspBookingsBySalesRep") // Unfortunately no "set" function exists
   { 
     var dates = toolbox.lastWindow().findChild("_dates");
