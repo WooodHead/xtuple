@@ -88,6 +88,9 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   CASE WHEN (teitem_billable) THEN
     formatMoney(teitem_total)
   ELSE ' -- ' END AS f_billing_total,
+  CASE WHEN (teitem_type = 'E') THEN
+    teitem_total
+  ELSE 0 END AS expense_total,
   CASE WHEN (teitem_billable) THEN
     teitem_total
   ELSE 0 END AS billing_total,
@@ -1336,7 +1339,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
      <vcenter/>
      <data>
       <query>expense</query>
-      <column>billing_total</column>
+      <column>expense_total</column>
      </data>
      <format builtin="true">money</format>
      <tracktotal subtotal="true"/>
