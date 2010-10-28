@@ -138,6 +138,7 @@ function openWindowPurchAct()
       showUnreleased.checked = false;
       showOpen.checked = true;
     }
+    toolbox.lastWindow().sFillList();
   }
   else if (act == "L" || act == "Q" || act == "V") 
   {
