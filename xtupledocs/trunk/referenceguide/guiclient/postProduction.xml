@@ -104,8 +104,14 @@
       <listitem>
         <para>Select to indicate that the amount of materials indicated by the
         associated Work Order Material Requirement record will be issued to
-        the selected Work Order for all "Pull" or "Mixed" component
-        Items.</para>
+        the selected Work Order for all "Pull" or "Mixed" component Items. If
+        there are any "Pull" component Items on the requirements list, this
+        option will be selected and disabled (you must backflush "Pull"
+        Items). If there are any "Mixed" component Items on the requirements
+        list, this option will be selected and enabled (you can choose whether
+        to backflush or not). If there are no "Pull" or "Mixed" component
+        Items on the requirements list, this option will not be selected and
+        disabled ("Push" Items are not backflushed).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
