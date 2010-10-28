@@ -241,7 +241,8 @@ function openWindowPurchHist()
 
   // Open the window and perform any special handling required
   toolbox.openWindow(ui);
-  toolbox.lastWindow()._warehouse.setAll();
+  var warehouse = toolbox.lastWindow().findChild("_warehouse");
+  warehouse.setAll();
   if (_typePurchHist == "receipts")
   {
     toolbox.lastWindow().findChild("_showUnvouchered").forgetful = true;
