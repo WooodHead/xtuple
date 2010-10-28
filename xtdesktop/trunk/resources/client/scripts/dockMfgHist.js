@@ -220,7 +220,8 @@ function openWindowMfgHist()
 
   // Open the window and perform any special handling required
   toolbox.openWindow(ui);
-  toolbox.lastWindow()._warehouse.setAll();
+  var warehouse = toolbox.lastWindow().findChild("_warehouse");
+  warehouse.setAll();
   var dates = toolbox.lastWindow().findChild("_dates");
   dates.setStartDate(params.startDate);
   dates.setEndDate(params.endDate);
