@@ -1,5 +1,5 @@
 Trunk File for xtupleqa
-Last updated: October 21, 2009
+Last updated: October 29, 2010
 =====================================
 
 This directory contains scripts and other information related to
@@ -12,11 +12,30 @@ Linux info:
 -----------
 
 Here are the basic steps for getting Squish and your Linux environment
-configured to run ttthe first automated test for xTuple ERP, PopulateEmptyDB.
+configured to run the first automated test for xTuple ERP, PopulateEmptyDB.
+
+0) Install xTuple ERP and the PostgreSQL database server. You can
+   use either a binary installer or do things manually. In the directory
+   where the Qt libraries exist (this will be under .../xTuple/Client if
+   you use a binary installer or in a distinct Qt directory if you don't),
+   make sure the shared libraries all end with the .so prefix. If they
+   don't, you may need to create symbolic links:
+
+   For example, if all of the shared libraries after a binary install
+   look like this:
+	libQtCore.so.4
+   then run this:
+        $ cd .../xTuple/Client
+	$ for i in *.4 ; do
+	>   if [ ! -e `basename $i .4` ] ; then
+	>     ln -s $i `basename $i .4`
+	>   fi
+	> done
 
 1) Download and install Squish following the installation instructions
-   from FrogLogic. For xTuple ERP 3.X, you should use
-   squish-3.4.3-qt44x-linux32.
+   from FrogLogic:
+   For xTuple ERP 3.0-3.4       use squish-3.4.3-qt44x-linux32
+       xTuple ERP 3.5.x & 3.6.x     squish-4.0.1-qt46x-linux32
 
    When the installer asks for the libQtCore.so, you have two choices.
    If you have the same version of Qt installed on your system
@@ -24,6 +43,8 @@ configured to run ttthe first automated test for xTuple ERP, PopulateEmptyDB.
    path to libQtCore.so in your Qt installation. If you don't
    have Qt installed, then set the path to libQtCore.so in
    your xTuple ERP installation directory.
+
+  Select JavaScript as the preferred scripting language.
 
 2) Check out the test sources (you've probably already done this if
    you are reading this file!-):
@@ -44,16 +65,23 @@ configured to run ttthe first automated test for xTuple ERP, PopulateEmptyDB.
    - Restore the xTuple ERP empty database .backup file to this
      new database.
 
-4) Start Squish, either by double-clicking on the squish icon or
+4) Create a file /home/crypto/xTuple.key and place some simple text
+   in it:
+   $ sudo su root
+   # mkdir -p /home/crypto
+   # echo "this is a dumb encryption key" > /home/crypto/xTuple.key
+   # exit
+
+5) Start Squish, either by double-clicking on the squish icon or
    running the following in a Shell window:
      $ wherever-you-installed-squish/bin/squish
 
-5) Load the test in the Squish GUI:
+6) Load the test in the Squish GUI:
      File -> Open Test Suite...
    Navigate to .../xtupleqa/[trunk]/PopulateEmptyDB
    Click on the file suite.conf
 
-6) Create a data file to drive the test in your environment. Right-click
+7) Create a data file to drive the test in your environment. Right-click
    on the Test Data folder and select New Testdata. Change the name that
    appears to login.tsv. Right-click on the header line to add and name
    columns with the following names:
@@ -72,11 +100,25 @@ configured to run ttthe first automated test for xTuple ERP, PopulateEmptyDB.
    CONFIGURE - this should be a database administrator
    RUNREGISTER - this should be a non-administrative user
 
-7) Now tell Squish where to find the xTuple ERP application.
-   Select Preferences... in the Edit menu, click on the Server
-   Settings tab, and select the AUT Paths line. Click the Add...
-   button.  Navigate to the directory where you installed the xTuple
-   ERP application, and select bin.  Click OK to select that folder.
+8) Now tell Squish where to find the xTuple ERP application:
+     Edit -> Preferences...
+     Click on the Server Settings tab
+     Select AUT Paths
+     Click Add...
+     Navigate to the directory where you installed the xTuple ERP application
+     If you used an xTuple Installer then select Client
+     If you used a nightly build or similar bundle, select bin
+     Click OK to select that folder
+
+   Now tell Squish to test the xTuple ERP application itself:
+     Select Attachable AUTs
+     Click Add...
+     Type "xtuple" (without the quotes)
+     You'll get a warning about shell scripts; click OK
+     Click Add... again
+     Type "xtuple.bin"
+     Click OK
+
    Click OK to close the Preferences window.
 
 You should now be able to run the PopulateEmptyDB test. Select that test
