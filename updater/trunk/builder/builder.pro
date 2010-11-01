@@ -16,7 +16,15 @@ CONFIG += qt warn_on thread
 DESTDIR = ../bin
 
 LIBS += -L../lib -lupdatercommon -L../$${OPENRPT_DIR}/lib -lcommon -lrenderer
-PRE_TARGETDEPS += ../lib/libupdatercommon.a ../$${OPENRPT_DIR}/lib/libcommon.a ../$${OPENRPT_DIR}/lib/librenderer.a
+win32-msvc* {
+  PRE_TARGETDEPS += ../lib/updatercommon.lib          \
+                    ../$${OPENRPT_DIR}/lib/common.lib \
+                    ../$${OPENRPT_DIR}/lib/renderer.lib
+} else {
+  PRE_TARGETDEPS += ../lib/libupdatercommon.a          \
+                    ../$${OPENRPT_DIR}/lib/libcommon.a \
+                    ../$${OPENRPT_DIR}/lib/librenderer.a
+}
 
 MOC_DIR = tmp
 UI_DIR = tmp

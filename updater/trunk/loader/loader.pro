@@ -22,7 +22,16 @@ UI_DIR      = tmp
 
 LIBS += -L../$${OPENRPT_DIR}/lib -L../$${XTUPLE_DIR}/lib -lxtuplecommon -L../lib -lupdatercommon -lcommon -lrenderer
 macx: LIBS += -lz
-PRE_TARGETDEPS += ../lib/libupdatercommon.a ../$${OPENRPT_DIR}/lib/libcommon.a ../$${OPENRPT_DIR}/lib/librenderer.a
+
+win32-msvc* {
+  PRE_TARGETDEPS += ../lib/updatercommon.lib          \
+                    ../$${OPENRPT_DIR}/lib/common.lib \
+                    ../$${OPENRPT_DIR}/lib/renderer.lib
+} else {
+  PRE_TARGETDEPS += ../lib/libupdatercommon.a          \
+                    ../$${OPENRPT_DIR}/lib/libcommon.a \
+                    ../$${OPENRPT_DIR}/lib/librenderer.a
+}
 
 DESTDIR = ../bin
 
