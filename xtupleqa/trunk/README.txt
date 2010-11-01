@@ -174,3 +174,99 @@ and click on "Enable access for assistive devices".
 You should now be able to run the PopulateEmptyDB test. Select that
 test in the left-hand navigation pane and Test Suite -> Execute or
 click the Execute button on the toolbar.
+
+Windows info:
+-------------
+
+Here are the basic steps for getting Squish and your Windows environment
+configured to run the first automated test for xTuple ERP, PopulateEmptyDB.
+
+0) Install xTuple ERP and the PostgreSQL database server. You can
+   use either a binary installer or do things manually.
+
+1) Download and install Squish following the installation instructions
+   from FrogLogic:
+   For xTuple ERP 3.0-3.4       use squish-3.4.3-qt44x-win32-mingw
+       xTuple ERP 3.5.x & 3.6.x     squish-4.0.1-qt46x-win32-mingw
+
+   When the installer asks for the libQtCore.dll, you have two choices.
+   If you have the same version of Qt installed on your system
+   as was used to build the xTuple ERP aplication, set the
+   path to libQtCore.dll in your Qt installation. If you don't
+   have Qt installed, then set the path to libQtCore.dll in
+   your xTuple ERP installation directory.
+
+  Select JavaScript as the preferred scripting language.
+
+2) Check out the test sources (you've probably already done this if
+   you are reading this file!-):
+     $ svn checkout https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtupleqa/trunk xtupleqa
+   or
+     $ svn checkout https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtupleqa
+
+   Alternatively, if you already have them checked out, update your
+   existing checkout:
+     $ cd wherever-your-xtupleqa-is
+     $ svn update
+
+3) Create an xTuple ERP empty database:
+   - If you have just created a PostgreSQL database server instance,
+     run the init-*.sql file for the version of the xTuple ERP
+     application you are testing.
+   - Create a new PostgreSQL database.
+   - Restore the xTuple ERP empty database .backup file to this
+     new database.
+
+4) Create a file C:\crypto\xTuple.key and place some simple text
+   in it.
+
+5) Start Squish, either by double-clicking on the squish icon or
+   running the following in a Shell window:
+     $ wherever-you-installed-squish/bin/squish
+
+6) Load the test in the Squish GUI:
+     File -> Open Test Suite...
+   Navigate to .../xtupleqa/[trunk]/PopulateEmptyDB
+   Click on the file suite.conf
+
+7) Create a data file to drive the test in your environment. Right-click
+   on the Test Data folder and select New Testdata. Change the name that
+   appears to login.tsv. Right-click on the header line to add and name
+   columns with the following names:
+
+   HOST, DB, PORT, PASSWORD, ROLE, USERNAME, REALNAME
+
+   On each line, type the hostname or IP address of your database
+   server, the name of the database you want to test with (it should be
+   a freshly created database loaded with the xTuple ERP empty database
+   contents loaded), the port on which to contact your database server,
+   the password to use for the given test role, and the username and
+   human name to associate with each role. Separate each value with a
+   tab and type the values in the same order as the column headings above.
+
+   For PopulateEmptyDB, you'll need to create lines for the following roles:
+   CONFIGURE - this should be a database administrator
+   RUNREGISTER - this should be a non-administrative user
+
+8) Now tell Squish where to find the xTuple ERP application:
+     Edit -> Preferences...
+     Click on the Server Settings tab
+     Select AUT Paths
+     Click Add...
+     Navigate to the directory where you installed the xTuple ERP application
+     If you used an xTuple Installer then select Client
+     If you used a nightly build or similar bundle, select bin
+     Click OK to select that folder
+
+   Now tell Squish to test the xTuple ERP application itself:
+     Select Attachable AUTs
+     Click Add...
+     Type "xtuple" (without the quotes)
+     Click OK
+
+   Click OK to close the Preferences window.
+
+You should now be able to run the PopulateEmptyDB test. Select that test
+in the left-hand navigation pane and Test Suite -> Execute or click the
+Execute button on the toolbar.
+
