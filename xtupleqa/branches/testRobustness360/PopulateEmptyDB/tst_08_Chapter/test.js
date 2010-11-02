@@ -1069,7 +1069,7 @@ function main()
         waitForObject(":_customerGroup.Selected Customer Type:_QRadioButton");
         clickButton(":_customerGroup.Selected Customer Type:_QRadioButton");    
         if(findObject(":_ipshead_XComboBox").currentText!= "BASE - Base Price Schedule")
-            clickItem(":_ipshead_XComboBox","BASE",0,0,1,Qt.LeftButton);
+            clickItem(":_ipshead_XComboBox","BASE - Base Price Schedule",0,0,1,Qt.LeftButton);
         clickButton(":List Employees.Save_QPushButton_2");
         waitForObject(":List Pricing Schedule Assignments._ipsass_XTreeWidget");
         if(object.exists(":_ipsass.ANY_QModelIndex"))
@@ -1094,7 +1094,7 @@ function main()
         
         waitForObject(":List Pricing Schedule Assignments.Close_QPushButton");
         clickButton(":List Pricing Schedule Assignments.Close_QPushButton");
-    }catch(e){test.fail("Exception in pricing Schedule assignment"+ e);}  
+    }catch(e){test.fail("Exception in pricing Schedule assignment @" + e.lineNumber + " " + e);}  
     
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
