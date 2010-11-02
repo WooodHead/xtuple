@@ -1115,8 +1115,8 @@
 :List Items.New_QPushButton_2	{name='_new' text='New' type='QPushButton' visible='1' window=':List Items_items'}
 :List Items._item_XTreeWidget	{container=':xTuple ERP: OpenMFG Edition - [List Items].List Items_QWorkspaceChild' name='_item' type='XTreeWidget' visible='1'}
 :List Items._item_XTreeWidget_2	{container=':xTuple ERP: OpenMFG Edition.List Items_QWorkspaceChild' name='_item' type='XTreeWidget' visible='1'}
-:List Items._item_XTreeWidget_3	{name='_item' type='XTreeWidget' visible='1' window=':List Items_items'}
-:List Items_items	{name='items' type='items' visible='1' windowTitle='List Items'}
+:List Items._item_XTreeWidget_3	{name='_list' type='XTreeWidget' visible='1' window=':List Items_items'}
+:List Items_items	{name='items' type='items' visible='1' windowTitle='Items'}
 :List Locales.30/10/2008_QLabel	{container=':xTuple ERP: OpenMFG Edition.List Locales_QWorkspaceChild' name='_dateSample' text='30/10/2008' type='QLabel' visible='1'}
 :List Locales.Alternate:_QLabel	{container=':xTuple ERP: OpenMFG Edition.List Locales_QWorkspaceChild' name='_alternateLit' text='Alternate:' type='QLabel' visible='1'}
 :List Locales.Close_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Locales_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
@@ -1412,9 +1412,9 @@
 :List Tax Assignments_taxAssignments	{name='taxAssignments' type='taxAssignments' visible='1' windowTitle='List Tax Assignments'}
 :List Tax Authorities.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Tax Authorities_taxAuthorities'}
 :List Tax Authorities.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Tax Authorities_taxAuthorities'}
-:List Tax Authorities._taxauth_XTreeWidget	{name='_taxauth' type='XTreeWidget' visible='1' window=':List Tax Authorities_taxAuthorities'}
+:List Tax Authorities._taxauth_XTreeWidget	{name='_list' type='XTreeWidget' visible='1' window=':List Tax Authorities_taxAuthorities'}
 :List Tax Authorities.groupBox_QGroupBox	{name='groupBox' type='QGroupBox' visible='1'}
-:List Tax Authorities_taxAuthorities	{name='taxAuthorities' type='taxAuthorities' visible='1' windowTitle='List Tax Authorities'}
+:List Tax Authorities_taxAuthorities	{name='taxAuthorities' type='taxAuthorities' visible='1' windowTitle='Tax Authorities'}
 :List Tax Codes.Cancel_QPushButton	{container=':xTuple ERP: PostBooks Edition Build9656 - Practice Database on 192.168.0.48/Dev9656 AS usge.List Tax Codes_QWorkspaceChild' text='Cancel' type='QPushButton' unnamed='1' visible='1'}
 :List Tax Codes.Chart of Accounts_QLabel	{name='_titleLit' text='Chart of Accounts' type='QLabel' visible='1'}
 :List Tax Codes.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Tax Codes_taxCodes'}
@@ -1530,8 +1530,8 @@
 :List Vendor Types_vendorTypes	{name='vendorTypes' type='vendorTypes' visible='1' windowTitle='List Vendor Types'}
 :List Vendors.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Vendors_vendors'}
 :List Vendors.New_QPushButton	{name='_new' text='New' type='QPushButton' visible='1' window=':List Vendors_vendors'}
-:List Vendors._vendor_XTreeWidget	{name='_vendor' type='XTreeWidget' visible='1' window=':List Vendors_vendors'}
-:List Vendors_vendors	{name='vendors' type='vendors' visible='1' windowTitle='List Vendors'}
+:List Vendors._vendor_XTreeWidget	{name='_list' type='XTreeWidget' visible='1' window=':List Vendors_vendors'}
+:List Vendors_vendors	{name='vendors' type='vendors' visible='1' windowTitle='Vendors'}
 :List Work Centers.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1'}
 :List Work Centers.Close_QPushButton_2	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Work Centers_workCenters'}
 :List Work Centers.Copy_QPushButton	{name='_copy' text='Copy' type='QPushButton' visible='1'}
@@ -1572,7 +1572,7 @@
 :Login Options.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Login Options_login2Options'}
 :Login Options.Database:_QLabel	{name='_databaseLit' text='Database:' type='QLabel' visible='1' window=':Login Options_login2Options'}
 :Login Options.Port:_QLabel	{name='_portLit' text='Port:' type='QLabel' visible='1' window=':Login Options_login2Options'}
-:Login Options.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Login Options_login2Options'}
+:Login Options.Save_QPushButton	{text='Save' type='QPushButton' visible='1' window=':Login Options_login2Options'}
 :Login Options.Server:_QLabel	{name='_serverLit' text='Server:' type='QLabel' visible='1' window=':Login Options_login2Options'}
 :Login Options_login2Options	{name='login2Options' type='login2Options' visible='1' windowTitle='Login Options'}
 :Maintain Item Costs...._QPushButton	{name='_itemList' text='...' type='QPushButton' visible='1' window=':Maintain Item Costs_maintainItemCosts'}
