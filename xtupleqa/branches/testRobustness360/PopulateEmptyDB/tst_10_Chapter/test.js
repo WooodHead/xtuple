@@ -37,7 +37,8 @@ function main()
         else test.fail("Check Format not created: GENERIC-CHECK");
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in creating Check Format:"+e);}
+    }
+    catch(e){test.fail("Exception in creating Check Format @ " + e.lineNumber + ": "+e);}
     
     
     //------------------Chart Of Accounts------------------------
@@ -63,7 +64,8 @@ function main()
         
         waitForObject(":Chart of Accounts.Close_QPushButton_2");
         clickButton(":Chart of Accounts.Close_QPushButton_2");
-    }catch(e){test.fail("Exception in creating Chart of Accounts");}
+    }
+    catch(e){test.fail("Exception in creating Chart of Accounts @ " + e.lineNumber + ": " + e);}
     
     
     
@@ -99,7 +101,8 @@ function main()
             type(":_companyName_XLineEdit_2", "ProDiem Inc.");
             clickButton(":Accounting Configuration.Save_QPushButton");
             test.log("Accounting for ACH configured");
-        }catch(e){test.fail("Exception in configuring Accounting" + e);}
+        }
+	catch(e){test.fail("Exception in configuring Accounting @ " + e.lineNumber + ": " + e);}
         
     }
     else if(appEdition=="PostBooks")
@@ -120,7 +123,8 @@ function main()
             test.xverify(object.exists(":tab.Enable ACH Check Printing_QGroupBox"), "Enable ACH Check Printing GroupBox not found");
             waitForObject(":Setup.Save_QPushButton");
             clickButton(":Setup.Save_QPushButton");
-        }catch(e){test.fail("Exception in configuring Accounting");}
+        }
+	catch(e){test.fail("Exception in configuring Accounting @ " + e.lineNumber + ": " + e);}
     }
     snooze(3);//delay to allow save
     
@@ -211,7 +215,8 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in defining Bank Accounts:"+e)}  
+    }
+    catch(e){test.fail("Exception in defining Bank Accounts @ " + e.lineNumber + ": "+e)}  
     
     
     //--------------Create: Adjustment Types--------------
@@ -246,7 +251,8 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in defining Adjustment types:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Adjustment types @ " + e.lineNumber + ": "+e);}
   
     //------------Define: Fiscal Year----------------
     try{
@@ -287,7 +293,8 @@ function main()
         
         waitForObject(":List Fiscal Years.Close_QPushButton");
         clickButton(":List Fiscal Years.Close_QPushButton");
-    }catch(e){test.fail("Exception in creating Fiscal Year");}
+    }
+    catch(e){test.fail("Exception in creating Fiscal Year @ " + e.lineNumber + ": " + e);}
     
     
     //-------------Define: Fiscal Calendar--------------
@@ -362,6 +369,7 @@ function main()
         clickButton(":List Accounting Periods.Close_QPushButton");
         test.log("Accounting Periods Defined");
         
-    }catch(e){test.fail("Exception in creating fiscal calendar:"+e);}
+    }
+    catch(e){test.fail("Exception in creating fiscal calendar @ " + e.lineNumber + ": "+e);}
     
 }
