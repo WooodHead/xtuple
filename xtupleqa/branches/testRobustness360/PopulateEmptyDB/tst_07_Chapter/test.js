@@ -52,7 +52,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("Purchase Module Configured");
-    }catch(e){test.fail("Exception in configuring Product Module:"+e);}
+    }
+    catch(e){test.fail("Exception in configuring Product Module @ " + e.lineNumber + ": "+e);}
     
     //-------------Configure: Inventory Module---------------------
     try{
@@ -95,7 +96,7 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("Inventory Module configured");
-    }catch(e){test.log("Exception in configuring Inventory module:"+e)}
+    }catch(e){test.log("Exception in configuring Inventory module @ " + e.lineNumber + ": "+e)}
     
     //---------Configure: Accounting-Account Payble---------------
     try{
@@ -116,7 +117,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("Account-Accounts Payable configured");
-    }catch(e){test.fail("Exception in configuring Accounting"+e);}
+    }
+    catch(e){test.fail("Exception in configuring Accounting @ " + e.lineNumber + ": "+e);}
     
     
     //----------Define Vendor types--------------
@@ -143,7 +145,8 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in Defining Vendor types:"+e);}
+    }
+    catch(e){test.fail("Exception in Defining Vendor types @ " + e.lineNumber + ": "+e);}
     
     
     //---------Purchase: define Terms--------------
@@ -185,7 +188,8 @@ function main()
         else test.fail("Terms not created: 2-10N30");
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in defining Terms"+e);}
+    }
+    catch(e){test.fail("Exception in defining Terms @ " + e.lineNumber + ": "+e);}
     
     //-------------Define: Reject Codes-----------------
     try{
@@ -226,7 +230,8 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in defining Reject codes:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Reject codes @ " + e.lineNumber + ": "+e);}
     
     
     //-----------Chart Of Accounts-------------------------------
@@ -248,7 +253,8 @@ function main()
         
         waitForObject(":Chart of Accounts.Close_QPushButton_2");
         clickButton(":Chart of Accounts.Close_QPushButton_2");
-    }catch(e){test.fail("Exception in defining Chart of Accounts:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Chart of Accounts @ " + e.lineNumber + ": "+e);}
     
     
     //----------Purchase: A/P Account Assignments-----------
@@ -293,7 +299,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         
-    }catch(e){test.fail("Exception in Assigning Accounts:"+e);}
+    }
+    catch(e){test.fail("Exception in Assigning Accounts @ " + e.lineNumber + ": "+e);}
     
     //--------------Create new Vendor-------------
     try{
@@ -348,7 +355,8 @@ function main()
         
         waitForObject(":List Vendors.Close_QPushButton");
         clickButton(":List Vendors.Close_QPushButton");
-    }catch(e){test.fail("Exception in creating Vendor:"+e);}
+    }
+    catch(e){test.fail("Exception in creating Vendor @ " + e.lineNumber + ": "+e);}
     
     
     
@@ -367,15 +375,19 @@ function main()
         
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TBOX1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        snooze(0.5);
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TBOX1 completer @ " + e.lineNumber + ": " + e); }
         
         waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
         type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
-        snooze(0.5); 
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TPARTS completer @ " + e.lineNumber + ": " + e); }
         
         waitForObject(":_venditemGroup._vendorItemNumber_XLineEdit_2");
         type(":_venditemGroup._vendorItemNumber_XLineEdit_2", "TPBOX01");
@@ -419,7 +431,8 @@ function main()
             test.pass("Item Source created for: TBOX1");
         else test.fail("Item Source not created for: TBOX1");
         
-    }catch(e){test.fail("Exception in defining Item sources for TBOX1:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Item sources for TBOX1 @ " + e.lineNumber + ": "+e);}
     
     //----Item source for TBODY1--------------
     try{
@@ -428,16 +441,19 @@ function main()
         
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TBODY1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        snooze(0.5);
-        
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TBODY1 completer @ " + e.lineNumber + ": " + e); }
         
         waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
         type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
-        snooze(0.5);
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TPARTS completer @ " + e.lineNumber + ": " + e); }
         
         waitForObject(":_venditemGroup._vendorItemNumber_XLineEdit");
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPBODY01");
@@ -466,7 +482,8 @@ function main()
         if(object.exists("{column='0' container=':_frame._itemsrc_XTreeWidget' text='TBODY1' type='QModelIndex'}"))
             test.pass("Item Source created for: TBODY1");
         else test.fail("Item source not created for TBODY1");
-    }catch(e){test.fail("Exception in defining Item sources for TBODY1:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Item sources for TBODY1 @ " + e.lineNumber + ": "+e);}
     
     
     
@@ -477,15 +494,19 @@ function main()
         
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TINSERT1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        snooze(0.5);
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TINSERT1 completer @ " + e.lineNumber + ": " + e); }
         
         waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
         type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
-        snooze(0.5);
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TPARTS completer @ " + e.lineNumber + ": " + e); }
         
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPINSERT01");
         type(":_vendorUOM_XLineEdit", "PCS");
@@ -526,17 +547,20 @@ function main()
         clickButton(":_frame.New_QPushButton");
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TWHEEL1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        snooze(0.5);
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TWHEEL1 completer @ " + e.lineNumber + ": " + e); }
         
         
         waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
         type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
-        snooze(0.5);
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TPARTS completer @ " + e.lineNumber + ": " + e); }
         
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPWHEEL01");
         type(":_vendorUOM_XLineEdit", "PCS");
@@ -564,7 +588,8 @@ function main()
         if(object.exists("{column='0' container=':_frame._itemsrc_XTreeWidget' text='TWHEEL1' type='QModelIndex'}"))
             test.pass("Item Source created for: TWHEEL1");
         else test.fail("Item Source not created for: TWHEEL1");
-    }catch(e){test.fail("Exception in defining Item sources for TWHEEL1:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Item sources for TWHEEL1 @ " + e.lineNumber + ": "+e);}
     
     //----Item source for YPAINT1--------------
     try{
@@ -572,16 +597,19 @@ function main()
         clickButton(":_frame.New_QPushButton");
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "YPAINT1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        snooze(0.5);
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for YPAINT1 completer @ " + e.lineNumber + ": " + e); }
         
         waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
         type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
-        snooze(0.5);
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");    
-        
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TPARTS completer @ " + e.lineNumber + ": " + e); }
         
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPPAINT01");
         type(":_vendorUOM_XLineEdit", "PCS");
@@ -611,7 +639,8 @@ function main()
         else test.fail("Item Source not created for: YPAINT1");
         waitForObject(":List Item Sources.Close_QPushButton");
         clickButton(":List Item Sources.Close_QPushButton");
-    }catch(e){test.fail("Exception in defining Item sources for YPAINT1:"+e);}   
+    }
+    catch(e){test.fail("Exception in defining Item sources for YPAINT1 @ " + e.lineNumber + ": "+e);}   
     
     
 }

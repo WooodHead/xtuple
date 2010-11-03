@@ -30,7 +30,8 @@ function main()
         
         waitForObject(":List User-Defined Costing Elements.Close_QPushButton");
         clickButton(":List User-Defined Costing Elements.Close_QPushButton");
-    }catch(e){test.fail("Exception in creating User defined Costing:"+e)}
+    }
+    catch(e){test.fail("Exception in creating User defined Costing @ " + e.lineNumber + ": "+e)}
     
     
     //-------------Maintain Item Costs------------------
@@ -164,7 +165,8 @@ function main()
         
         waitForObject(":Maintain Item Costs.Close_QPushButton");
         clickButton(":Maintain Item Costs.Close_QPushButton");  
-    }catch(e){test.fail("Exception in creating costs for items" + e);}
+    }
+    catch(e){test.fail("Exception in creating costs for items @ " + e.lineNumber + ": " + e);}
     
     
     
@@ -187,7 +189,8 @@ function main()
         waitForObject(":Update Actual Costs by Class Code.Update_QPushButton");
         clickButton(":Update Actual Costs by Class Code.Update_QPushButton");
         test.log("Updated Actual Costs");
-    }catch(e){test.fail("Exception in updating Actual Costs");}
+    }
+    catch(e){test.fail("Exception in updating Actual Costs @ " + e.lineNumber + ": " + e);}
     
     //-----------Post Actual Costs------------------
     try{
@@ -208,20 +211,19 @@ function main()
         waitForObject(":Post Actual Costs by Class Code.Post_QPushButton");
         clickButton(":Post Actual Costs by Class Code.Post_QPushButton");
         test.log("Posted Actual Costs");
-    }catch(e){test.fail("Exception in Posting Actual Costs");}
+    }
+    catch(e){test.fail("Exception in Posting Actual Costs @ " + e.lineNumber + ": " + e);}
     
     //-------------Verify standard and actual cost in Intended Costed BOM---------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Reports");
-        activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Reports");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Reports_QMenu", "Costed BOM");
-        activateItem(":xTuple ERP: OpenMFG Edition.Reports_QMenu", "Costed BOM");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costed BOM_QMenu", "Indented...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Costed BOM_QMenu", "Indented...");
+        
+        activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products"));
+        activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing"));
+        activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Reports"));
+        activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Reports_QMenu", "Costed BOM"));
+        activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costed BOM_QMenu", "Indented..."));
+        
         waitForObject(":Costed Indented Bill of Materials.VirtualClusterLineEdit_ItemLineEdit");
         type(":Costed Indented Bill of Materials.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
         waitForObject(":_QTreeView");
@@ -246,6 +248,7 @@ function main()
             test.fail("Actual costs are not equal to Standard costs");
         waitForObject(":Costed Indented Bill of Materials.Query_QPushButton");
         nativeType("<Ctrl+w>");
-    }catch(e){test.fail("Exception in verifying standard and actual costs:"+e)}
+    }
+    catch(e){test.fail("Exception in verifying standard and actual costs @ " + e.lineNumber + ": "+e)}
     
 }
