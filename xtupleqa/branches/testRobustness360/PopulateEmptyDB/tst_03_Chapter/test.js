@@ -128,7 +128,8 @@ function main()
             test.pass("Item Created: YTRUCK1");
         else test.fail("Item not Created: YTRUCK1");
         
-    }catch(e) {test.fail("Exception in creating Item: YTRUCK1"+e)}
+    }
+    catch(e) {test.fail("Exception in creating Item YTRUCK1 @ " + e.lineNumber + ": " +e)}
     
     //----------Create Item YPAINT1------------
     try{
@@ -163,7 +164,7 @@ function main()
         if(object.exists("{column='0' container=':List Items._item_XTreeWidget_3' text='YPAINT1' type='QModelIndex'}"))
             test.pass("Item Created: YPAINT1");
         else test.fail("Item not created: YPAINT1");
-    }catch(e){test.fail("Exception in defining Item: YPAINT1"+e);}
+    }catch(e){test.fail("Exception in defining Item YPAINT1 @ " + e.lineNumber + ": "+e);}
     
     
     
@@ -200,7 +201,8 @@ function main()
         if(object.exists("{column='0' container=':List Items._item_XTreeWidget_3' text='TBODY1' type='QModelIndex'}"))
             test.pass("Item Created: TBODY1");
         else test.fail("Item not created: TBODY1");
-    }catch(e){test.fail("Exception in creating Item TBODY1"+e);}
+    }
+    catch(e){test.fail("Exception in creating Item TBODY1 @ " + e.lineNumber + ": "+e);}
     
     
     //----------Create Item TWHEEL1------------
@@ -232,7 +234,8 @@ function main()
         if(object.exists("{column='0' container=':List Items._item_XTreeWidget_3' text='TWHEEL1' type='QModelIndex'}"))
             test.pass("Item Created: TWHEEL1");
         else test.fail("Item not created: TWHEEL1");
-    }catch(e){test.fail("Exception in defining Item TWHEEL1:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Item TWHEEL1 @ " + e.lineNumber + ": "+e);}
     
     
     //----------Create Item TSUB1------------
@@ -264,7 +267,8 @@ function main()
         if(object.exists("{column='0' container=':List Items._item_XTreeWidget_3' text='TSUB1' type='QModelIndex'}"))
             test.pass("Item Created: TSUB1");
         else test.fail("Item not created: TSUB1");
-    }catch(e){test.fail("Exception in defining Item TSUB1:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Item TSUB1 @ " + e.lineNumber + ": "+e);}
     
     
     
@@ -298,7 +302,8 @@ function main()
             
             test.pass("Item Created: TBOX1");
         else test.fail("Item not created: TBOX1");
-    }catch(e){test.fail("Exception in creating item TBOX1:"+e);}
+    }
+    catch(e){test.fail("Exception in creating item TBOX1 @ " + e.lineNumber + ": "+e);}
     
     
     //----------Create Item TINSERT1------------
@@ -334,7 +339,8 @@ function main()
         
         waitForObject(":List Items.Close_QPushButton_3");
         clickButton(":List Items.Close_QPushButton_3");
-    }catch(e){test.fail("Exception in creating item: TINSERT1")}
+    }
+    catch(e){test.fail("Exception in creating item TINSERT1 @ " + e.lineNumber + ": " + e)}
     
     
     
@@ -355,10 +361,13 @@ function main()
         
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","YTRUCK1");
-        snooze(1);
+        //snooze(1);
+        try {
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
-        snooze(1);
+        }
+        catch (e) { test.warning("Exception waiting for YTRUCK1 completer @ " + e.lineNumber + ": " + e); }
+        //snooze(1);
         
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
@@ -438,7 +447,7 @@ function main()
         if(object.exists(":_itemSite.YTRUCK1_QModelIndex"))
             test.pass("Item Site Created: YTRUCK1");
         else test.fail("Item Site Created: YTRUCK1");
-    }catch(e){test.fail("Exception in creating Item site of YTRUCK1:"+e);}
+    }catch(e){test.fail("Exception in creating Item site of YTRUCK1 @ " + e.lineNumber + ": "+e);}
     
     
     
@@ -450,10 +459,11 @@ function main()
         
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TBODY1");
-        snooze(1);
+        try {
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
-        snooze(1);
+        }
+        catch (e) { test.warning("Exception waiting for TBODY1 completer @ " + e.lineNumber + ": " + e); }
         
         waitForObject(":Item Site.Sold from this Site_QGroupBox");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
@@ -532,7 +542,7 @@ function main()
         if(object.exists("{column='0' container=':_itemSite_XTreeWidget_2' text='TBODY1' type='QModelIndex'}"))
             test.pass("Item Site Created: TBODY1");
         else test.fail("Item site not created for TBODY1");
-    }catch(e){test.fail("Exception in creating TBODY1:"+e)}
+    }catch(e){test.fail("Exception in creating TBODY1 @ " + e.lineNumber + ": "+e)}
     
     
     
@@ -544,10 +554,13 @@ function main()
         clickButton(":List Item Sites.New_QPushButton_3");
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TINSERT1");
-        snooze(1);
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        snooze(1);
+        //snooze(1);
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for the TINSERT1 completer @ " + e.lineNumber + ": " + e); }
+        //snooze(1);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
             clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
@@ -575,10 +588,10 @@ function main()
         type(":_eventFence_QSpinBox_4", "<Ctrl+A>");
         type(":_eventFence_QSpinBox_4", "<Del>");
         type(":_eventFence_QSpinBox_4", "10");
-        snooze(2);  
+        //snooze(2);  
         waitForObject(":Item Site.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Item Site.qt_tabwidget_tabbar_QTabBar", "Planning");
-        snooze(1);
+        //snooze(1);
         waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_3");
         if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_3").checked)
             type(":_planningTab.Enforce Order Parameters_QGroupBox_3"," ");
@@ -621,9 +634,14 @@ function main()
         if(object.exists("{column='0' container=':_itemSite_XTreeWidget_2' text='TINSERT1' type='QModelIndex'}"))
             test.pass("Item Site Created: TINSERT1");
         else test.fail("Item site not created for TINSERT1");
-    }catch(e){test.fail("Exception in creating item TINSERT1:"+e);}
+    }
+    catch(e){
+        test.fail("Exception in creating item TINSERT1 @ " + e.lineNumber + ": "+e);
+        if (object.exists(":Item Site.Cancel_QPushButton"))
+            clickButton(":Item Site.Save_QPushButton");
+    }
     
-    snooze(1);
+    //snooze(1);
     
     //---------Item site: TWHEEL1----------------------
     try{
@@ -632,10 +650,11 @@ function main()
         
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TWHEEL1");
-        snooze(1);
+        try {
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
-        snooze(1);
+        }
+        catch (e) { test.warning("Exception waiting for TWHEEL1 completer @ " + e.lineNumber + ": " + e); }
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
             clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
@@ -708,7 +727,8 @@ function main()
             test.pass("Item Site Created: TWHEEL1");
         else test.fail("Item site not created for TWHEEL1");
         
-    }catch(e){test.fail("Exception in creating item TWHEEL1:"+e);}
+    }
+    catch(e){test.fail("Exception in creating item TWHEEL1 @ " + e.lineNumber + ": "+e);}
     
     snooze(1);
     
@@ -718,10 +738,11 @@ function main()
         clickButton(":List Item Sites.New_QPushButton_3");
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TSUB1");
-        snooze(1);
+        try {
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
-        snooze(1);
+        }
+        catch (e) { test.warning("Exception waiting for TSUB1 completer @ " + e.lineNumber + ": " + e); }
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
             clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
@@ -790,7 +811,8 @@ function main()
         waitForObject(":_itemSite_XTreeWidget_2");
         if(object.exists("{column='0' container=':_itemSite_XTreeWidget_2' text='TSUB1' type='QModelIndex'}"))
             test.pass("Item Site Created: TSUB1");
-    }catch(e){test.fail("Exception in creating Item site for TSUB1:"+e);}
+    }
+    catch(e){test.fail("Exception in creating Item site for TSUB1 @ " + e.lineNumber + ": "+e);}
     
     snooze(1);
     
@@ -800,10 +822,11 @@ function main()
         clickButton(":List Item Sites.New_QPushButton_3");
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TBOX1");
-        snooze(1);
+        try {
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
-        snooze(1);
+        }
+        catch (e) { test.warning("Exception waiting for TBOX1 completer @ " + e.lineNumber + ": " + e); }
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
             clickItem(":_warehouse_WComboBox_5", "WH1", 5, 5, 1, Qt.LeftButton);
@@ -874,7 +897,8 @@ function main()
         if(object.exists("{column='0' container=':_itemSite_XTreeWidget_2' text='TBOX1' type='QModelIndex'}"))
             test.pass("Item Site Created: TBOX1");
         else test.fail("Item site not created for TBOX1");
-    }catch(e){test.fail("Exception in creating Item TBOX1:"+e)}
+    }
+    catch(e){test.fail("Exception in creating Item TBOX1 @ " + e.lineNumber + ": "+e)}
     
     //---------Item site: YPAINT1----------------------
      try{
@@ -884,10 +908,11 @@ function main()
         
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","YPAINT1");
-        snooze(1);
+        try {
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
-        snooze(1);
+        }
+        catch (e) { test.warning("Exception waiting for YPAINT1 completer @ " + e.lineNumber + ": " + e); }
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
             clickItem(":_warehouse_WComboBox_5", "WH1", 0, 0, 1, Qt.LeftButton);
@@ -974,7 +999,8 @@ function main()
         
         waitForObject(":List Item Sites.Close_QPushButton_3");
         clickButton(":List Item Sites.Close_QPushButton_3");
-    }catch(e){test.fail("Exception in creating Item site of YPAINT1:"+e);}
+    }
+    catch(e){test.fail("Exception in creating Item site of YPAINT1 @ " + e.lineNumber + ": "+e);}
     
     
     

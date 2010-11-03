@@ -55,7 +55,8 @@ function main()
         
         waitForObject(":Chart of Accounts.Close_QPushButton_2");
         clickButton(":Chart of Accounts.Close_QPushButton_2");
-    }catch(e){test.fail("Exception while creating Chart of Accounts:"+e);}
+    }
+    catch(e){test.fail("Exception while creating Chart of Accounts @ " + e.lineNumber + ": "+e);}
     
     
     //---------------Create Inventory - new Cost Catergory------------
@@ -145,7 +146,8 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in creating new Cost category:"+e);}
+    }
+    catch(e){test.fail("Exception in creating new Cost category @ " + e.lineNumber + ": "+e);}
     
     
     
@@ -191,7 +193,8 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in creating Cost Category");}
+    }
+    catch(e){test.fail("Exception in creating Cost Category @ " + e.lineNumber + ": " + e);}
     
     
     
@@ -236,7 +239,8 @@ function main()
         else test.fail("Cost Category: CCWH2 not created");
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in Creating Cost Categories:"+e);}
+    }
+    catch(e){test.fail("Exception in Creating Cost Categories @ " + e.lineNumber + ": "+e);}
     
     
     //------------Inventory: create Expense Categories---------------------
@@ -380,7 +384,8 @@ function main()
         else test.fail("Expense Category: SALES_TAX not created");        
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in defining Expense categories:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Expense categories @ " + e.lineNumber + ": "+e);}
     
     
     
@@ -524,7 +529,8 @@ function main()
         waitForObject(":List Site Locations.Close_QPushButton_2");
         clickButton(":List Site Locations.Close_QPushButton_2");
         test.log("Inventory Site Locations created");
-    }catch(e){test.fail("Exception in creating Site locations");}
+    }
+    catch(e){test.fail("Exception in creating Site locations @ " + e.lineNumber + ": " + e);}
     
     
     
@@ -639,7 +645,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("Unit of Measures created");
-    }catch(e){test.fail("Exception in defining Unit of Measure:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Unit of Measure @ " + e.lineNumber + ": "+e);}
     
     
     
@@ -690,7 +697,8 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in defining Class Code:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Class Code @ " + e.lineNumber + ": "+e);}
     
     
     //-----------Define: Product Categories----------------
@@ -759,7 +767,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("Product Categories created");
-    }catch(e){test.fail("Exception in defining Product Category:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Product Category @ " + e.lineNumber + ": "+e);}
     
     
     
@@ -779,6 +788,12 @@ function main()
         waitForObject(":_freightClass_XLineEdit_2");
         type(":_freightClass_XLineEdit_2", "BULK");
         type(":_description_XLineEdit_34", "Bulk Freight");
+        try { waitForObject(":Setup.Save_QPushButton"); }
+        catch (e) {
+            test.warning("Exception waiting for Save button @ " + e.lineNumber + ": " + e + "\nTrying <Tab>s to enable it");
+            nativeType("<Tab>");
+            nativeType("<Tab>");
+        }
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         if(object.exists(":_freightClass.BULK_QModelIndex"))
@@ -787,7 +802,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("Freight Class: BULK created");
-    }catch(e){test.fail("Exception in creating Freight Classes:"+e);}
+    }
+    catch(e){test.fail("Exception in creating Freight Classes @ " + e.lineNumber + ": "+e);}
     
     
     //----Define Characterisitics-------
@@ -851,7 +867,8 @@ function main()
             waitForObject(":List Planner Codes.Close_QPushButton_2");
             clickButton(":List Planner Codes.Close_QPushButton_2");
             test.log("Planner Codes created");
-        }catch(e){test.fail("Exception in defining Planner Codes:"+e);}
+        }
+	catch(e){test.fail("Exception in defining Planner Codes @ " + e.lineNumber + ": "+e);}
         
         snooze(2);
         
@@ -891,7 +908,8 @@ function main()
             clickButton(":Site Work Week.Save_QPushButton_3");
             
             test.log("Site Week created");
-        }catch(e){test.fail("Exception in creating Site Week:"+e);}
+        }
+	catch(e){test.fail("Exception in creating Site Week @ " + e.lineNumber + ": "+e);}
         
         
         //----------Schedule: Site Calendar Exceptions---------------
@@ -931,7 +949,8 @@ function main()
                 test.pass("Calendar Exception: Christmas "+CurrentYearFull+" created");            
             else test.fail("Calendar Expceptin: Christmas "+CurrentYearFull+" not created");
             clickButton(":List Site Calendar Exceptions.Close_QPushButton_3");
-        }catch(e){test.fail("Exception in defining Site Calendar Exception:"+e);}
+        }
+	catch(e){test.fail("Exception in defining Site Calendar Exception @ " + e.lineNumber + ": "+e);}
     }
     else if(appEdition=="PostBooks")
     {
@@ -944,7 +963,8 @@ function main()
                 if(actions.at(i).text == menuItem || i==actions.count()-1) break;
             if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
             else test.pass(menuItem+"not found in "+appEdition);
-        }catch(e){test.fail("Exception in verifying Schedule Menu");}
+        }
+	catch(e){test.fail("Exception in verifying Schedule Menu @ " + e.lineNumber + ": " + e);}
         
     }
     
@@ -986,7 +1006,8 @@ function main()
             clickButton(":Setup.Save_QPushButton");
             test.log("Planner Codes created");
             
-        }catch(e){test.fail("Exception in defining Planner Codes");}
+        }
+	catch(e){test.fail("Exception in defining Planner Codes @ " + e.lineNumber + ": " + e);}
         
     }//end if
     

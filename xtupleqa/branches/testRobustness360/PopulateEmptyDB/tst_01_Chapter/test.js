@@ -54,19 +54,19 @@ function main()
             waitForObject(":OK_QPushButton");
             clickButton(":OK_QPushButton");
         }
-        if(findObject(":Setup._tree_XTreeWidget").itemsExpandable==true)
-        {
-            waitForObject(":Configure.Encryption_QModelIndex");
-            mouseClick(":Configure.Encryption_QModelIndex", 35, 9, 0, Qt.LeftButton);        
-        }
-        else
-        {
+        setupTree = waitForObject(":Setup._tree_XTreeWidget");
+        if (! setupTree.itemsExpandable)
+        {    try
+            {
             waitForObject(":_tree.Configure_QModelIndex");
             mouseClick(":_tree.Configure_QModelIndex", -11, 6, 0, Qt.LeftButton);
-            waitForObject(":Configure.Encryption_QModelIndex");
-            mouseClick(":Configure.Encryption_QModelIndex", 35, 9, 0, Qt.LeftButton);            
+            }
+            catch (e) { test.warn("Exception waiting for :_tree.Configure_QModelIndex @ " + e.lineNumber + ": " + e); }
         }
-        snooze(1);
+        
+        waitForObject(":Configure.Encryption_QModelIndex");
+        mouseClick(":Configure.Encryption_QModelIndex", 35, 9, 0, Qt.LeftButton);            
+        
         waitForObject(":OK_QPushButton");
         clickButton(":OK_QPushButton");
         waitForObject(":_ccEncKeyName_QLineEdit");
@@ -84,11 +84,11 @@ function main()
             type(":Encryption Configuration_FileLineEdit", "c:\\crypto");
             test.log("Encryption: Windows location changed");
         }
-        if(findObject(":Encryption Configuration_FileLineEdit_2").text!="\\home\\crypto")
+        if(findObject(":Encryption Configuration_FileLineEdit_2").text!="/home/crypto")
         {
             type(":Encryption Configuration_FileLineEdit_2", "<Right>");
             type(":Encryption Configuration_FileLineEdit_2", "<Ctrl+Backspace>");
-            type(":Encryption Configuration_FileLineEdit_2", "\\home\\crypto");
+            type(":Encryption Configuration_FileLineEdit_2", "/home/crypto");
             test.log("Encryption: Linux location changed");
         }
         if(findObject(":Encryption Configuration_FileLineEdit_3").text!="/Users/crypto")
@@ -98,10 +98,13 @@ function main()
             type(":Encryption Configuration_FileLineEdit_3", "/Users/crypto");
             test.log("Encryption: Mac location changed");
         }
+        test.log("Encryption defined");
+    }
+    catch(e){test.fail("Exception in defining Encryption @ " + e.lineNumber + ": "+e);}
+    finally {
         waitForObject(":xTuple ERP: *_QPushButton");
         clickButton(":xTuple ERP: *_QPushButton");
-        test.log("Encryption defined");
-    }catch(e){test.fail("Exception in defining Encryption:"+e);}
+    }
     
     
     //---Restarting Application--
@@ -148,7 +151,7 @@ function main()
             clickButton(":Setup.Save_QPushButton");     
             
         }
-        catch(e){test.fail("Exception in verifying Shifts Menu");}
+        catch(e){test.fail("Exception in verifying Shifts Menu @ " + e.lineNumber + ": " + e);}
         
     }
     
@@ -231,7 +234,7 @@ function main()
             clickButton(":Company ID Correct?.Yes_QPushButton");
         test.log("Acconting Module Configured");
     }
-    catch(e){test.fail("Exception in configuring Accounting:"+e);}
+    catch(e){test.fail("Exception in configuring Accounting @ " + e.lineNumber + ": "+e);}
     
     //-------Create Company: Prodiem---------
     createCompany("01","Prodiem");
@@ -263,7 +266,7 @@ function main()
         waitForObject(":List Profit Centers.Close_QPushButton");
         clickButton(":List Profit Centers.Close_QPushButton");
     }
-    catch(e){test.fail("Exception in defining Profit Centers:"+e);}
+    catch(e){test.fail("Exception in defining Profit Centers @ " + e.lineNumber + ": "+e);}
     
     //--------------Accounting-Account-SubAccount Numbers-----------------
     try{
@@ -289,7 +292,7 @@ function main()
         waitForObject(":List Subaccounts.Close_QPushButton");
         clickButton(":List Subaccounts.Close_QPushButton");
     }
-    catch(e){test.fail("Exception in defining Subaccount Numbers"+e);}
+    catch(e){test.fail("Exception in defining Subaccount Numbers @ " + e.lineNumber + ": "+e);}
     
     
     
@@ -353,7 +356,7 @@ function main()
         waitForObject(":List G/L Subaccount Types.Close_QPushButton");
         clickButton(":List G/L Subaccount Types.Close_QPushButton");
     }
-    catch(e){test.fail("Exception in creating Subaccounts:"+e);}
+    catch(e){test.fail("Exception in creating Subaccounts @ " + e.lineNumber + ": "+e);}
     
     
     
@@ -413,8 +416,7 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
     }
-    catch(e){test.fail("Exception caught in creating Currencies");
-    }
+    catch(e){test.fail("Exception caught in creating Currencies @ " + e.lineNumber + ": " + e); }
     
     
     //----------Create Exchange Rates-------------------
@@ -442,7 +444,7 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
     }
-    catch(e){test.fail("Exception in creating Exchange Rates:"+e);
+    catch(e){test.fail("Exception in creating Exchange Rates @ " + e.lineNumber + ": "+e);
     }
     
     
@@ -470,7 +472,8 @@ function main()
         waitForObject(":Chart of Accounts.Close_QPushButton");
         clickButton(":Chart of Accounts.Close_QPushButton");
         
-    }catch(e){test.fail("Exception caught in creating Chart of Accounts:"+e);}
+    }
+    catch(e){test.fail("Exception caught in creating Chart of Accounts @ " + e.lineNumber + ": "+e);}
     
     
     //------------Configure:Accounting Module---------------
@@ -503,7 +506,8 @@ function main()
         if(object.exists(":Company ID Correct?.Yes_QPushButton"))
             clickButton(":Company ID Correct?.Yes_QPushButton");
         test.log("Accounting Module configured"); 
-    }catch(e){test.fail("Exception in Configuring Accounting:"+e);}
+    }
+    catch(e){test.fail("Exception in Configuring Accounting @ " + e.lineNumber + ": "+e);}
     
     
     //-----------------Configure: Products Module--------------
@@ -556,7 +560,8 @@ function main()
             test.xverify(object.exists(":Cancel.Yes_QPushButton"), "Cancel Yes Button - not visible"); 
         
         test.log("Product Module Configured");
-    }catch(e){test.fail("Exception in configuring Products Module");}
+    }
+    catch(e){test.fail("Exception in configuring Products Module @ " + e.lineNumber + ": " + e);}
     
     
     //---------Define Database Information----------
@@ -610,7 +615,7 @@ function main()
         test.log("Database Information Defined");
         
     }
-    catch(e){test.fail("Exception while setting database options:"+e);}
+    catch(e){test.fail("Exception while setting database options @ " + e.lineNumber + ": "+e);}
     
     
     //----Configure EDI Profile----
@@ -745,7 +750,7 @@ function main()
             clickButton(":List EDI Profiles.Close_QPushButton");
             test.log("EDI Profile configured");
         }
-    }catch(e){test.fail("Exception in configuring EDI profile");}
+    }catch(e){test.fail("Exception in configuring EDI profile @ " + e.lineNumber + ": " + e);}
     
     
     //----------Create Incident Category-----------
@@ -771,10 +776,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");    
         
-    }catch(e)
-    {
-        test.fail("Exception in creating Incident Categories"+e);
     }
+    catch(e) { test.fail("Exception in creating Incident Categories @ " + e.lineNumber + ": "+e); }
     
     
     
@@ -793,7 +796,8 @@ function main()
         else test.fail("Title: Master not created");
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in defining Title:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Title @ " + e.lineNumber + ": "+e);}
     
     
     //-------------Create Site Types------------------
@@ -833,9 +837,7 @@ function main()
         clickButton(":Setup.Save_QPushButton");
         
     }
-    catch(e)
-    {test.fail("Exception in Creating Site:"+e);
-    }
+    catch(e) { test.fail("Exception in Creating Site @ " + e.lineNumber + ": "+e); }
     
     //---find Application Edition---
     var appEdition = findApplicationEdition();
@@ -1119,7 +1121,8 @@ function main()
             clickButton(":List Sites.Close_QPushButton");
         }
         
-    } catch(e){test.fail("Exception in Creating Site"+ e );}
+    }
+    catch(e){test.fail("Exception in Creating Site @ " + e.lineNumber + ": "+ e );}
     
     //----------Configure: Inventory Module-----------------
     try{
@@ -1170,7 +1173,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("Inventory Module Configured");
-    }catch(e){test.fail("Exception in configuring Inventory"+ e);}
+    }
+    catch(e){test.fail("Exception in configuring Inventory @ " + e.lineNumber + ": "+ e);}
     
   
     //---Create User by Role--
@@ -1187,7 +1191,8 @@ function main()
             if(role=="RUNREGISTER") break;
             
         }
-    }catch(e){test.fail("Exception caught in reading login.tsv");}
+    }
+    catch(e){test.fail("Exception caught in reading login.tsv @ " + e.lineNumber + ": " + e);}
     
     snooze(2);
   
@@ -1306,6 +1311,7 @@ function main()
         clickButton(":xTuple ERP: *_QPushButton");
         snooze(1);
         test.log("User Preferences of "+username +":saved");
-    }catch(e){test.fail("Exception in defining User Preferences:"+e);}
+    }
+    catch(e){test.fail("Exception in defining User Preferences @ " + e.lineNumber + ": "+e);}
     
 }
