@@ -422,7 +422,8 @@ function main()
             test.pass("Financial Report created:Official Income Statement");
         else test.fail("Financial Report not created:Official Income Statement");
         
-    }catch(e){test.fail("Exception in creating official income statement:"+e);}  
+    }
+    catch(e){test.fail("Exception in creating official income statement @ " + e.lineNumber + ": "+e);}  
     
     try{
         //-------------Create Official Balance Sheet------------
@@ -1206,7 +1207,8 @@ function main()
             test.pass("Financial Report created:Official Balance Sheet");
         else test.fail("Financial Report not created:Official Balance Sheet");
         
-    }catch(e){test.fail("Exception in creating Official Balanace Sheet");}
+    }
+    catch(e){test.fail("Exception in creating Official Balanace Sheet @ " + e.lineNumber + ": " + e);}
     
     
     //-----------Create: Adhoc Income Statement--------------
@@ -1547,12 +1549,14 @@ function main()
             waitForObject(":Show Columns.Show Beginning Balance_QCheckBox");
             if(findObject(":Show Columns.Show Beginning Balance_QCheckBox").checked)
                 clickButton(":Show Columns.Show Beginning Balance_QCheckBox");
-        } catch (e) { test.fail('exception ' + e + ' while handling ":Show Columns.Show Beginning Balance_QCheckBox"'); }
+        }
+	catch (e) { test.fail("Exception while handling :Show Columns.Show Beginning Balance_QCheckBox @ " + e.lineNumber + ": " + e); }
         try {
             waitForObject(":Show Columns.Show % of Group Total_QCheckBox");
             if(!findObject(":Show Columns.Show % of Group Total_QCheckBox").checked)
                 clickButton(":Show Columns.Show % of Group Total_QCheckBox");
-        } catch (e) { test.fail('exception ' + e + ' while handling ":Show Columns.Show % of Group Total_QCheckBox"'); }
+        }
+	catch (e) { test.fail("Exception while handling :Show Columns.Show % of Group Total_QCheckBox @ " + e.lineNumber + ": " + e); }
         waitForObject(":Show Columns.Show % of Group Total_QCheckBox_3");
         if(!findObject(":Show Columns.Show % of Group Total_QCheckBox_3").checked)
             clickButton(":Show Columns.Show % of Group Total_QCheckBox_3");
@@ -4713,7 +4717,8 @@ function main()
         if(!clickItem(":List Financial Reports._flhead_XTreeWidget", "BALANCE\\_SHEET", 5, 5, 1, Qt.LeftButton))
             test.pass("Financial Report created: BALANCE_SHEET");
         
-    }catch(e){test.fail("Exception in creating Official Balance Sheet:"+e);}
+    }
+    catch(e){test.fail("Exception in creating Official Balance Sheet @ " + e.lineNumber + ": "+e);}
     
     waitForObject(":List Financial Reports.Close_QPushButton");
     clickButton(":List Financial Reports.Close_QPushButton");

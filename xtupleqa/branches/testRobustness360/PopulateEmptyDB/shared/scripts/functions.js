@@ -59,11 +59,13 @@ function loginAppl(userrole)
 
 function findApplicationEdition()
 {
+    try {
     waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
-    if(findObject(":Setup._tree_XTreeWidget").itemsExpandable==true)
+    setupTree = waitForObject("{name='_tree' type='XTreeWidget'}");
+    if(setupTree.itemsExpandable==true)
     {
         waitForObject(":Configure.Database_QModelIndex");
         mouseClick(":Configure.Database_QModelIndex", 35, 9, 0, Qt.LeftButton);
@@ -81,6 +83,8 @@ function findApplicationEdition()
     waitForObject(":xTuple ERP: *_QPushButton");
     clickButton(":xTuple ERP: *_QPushButton");
     test.log("Application Edition: " + appEdition);
+    }
+    catch (e) { test.fail("Exception finding Application Edition @ " + e.lineNumber + ": " + e); }
     
     return appEdition;
 }
@@ -240,10 +244,10 @@ function createLocale(LocaleCode,LocaleDesc)
         waitForObject(":Work Center._description_XLineEdit");
         type(":Work Center._description_XLineEdit",  LocaleDesc);    
         
-        snooze(0.5);
+        //snooze(0.5);
         waitForObject(":_language_XComboBox_2");
         clickItem(":_language_XComboBox_2", "English",0,0,1,Qt.LeftButton);
-        snooze(0.5);
+        //snooze(0.5);
         waitForObject(":_country_XComboBox_2");
         clickItem(":_country_XComboBox_2", "United States",0,0,1,Qt.LeftButton);	
         
@@ -307,7 +311,7 @@ function createLocale(LocaleCode,LocaleDesc)
             test.pass("Locale created: MYLOCALE");
         
        clickItem(":_stack._locale_XTreeWidget","MYLOCALE", 5, 5, 1, Qt.LeftButton);
-       snooze(1);
+       //snooze(1);
        waitForObject(":_stack.Edit_QPushButton");
        clickButton(":_stack.Edit_QPushButton");
        snooze(0.5);
@@ -334,7 +338,7 @@ function createRole(GrpName, GrpDesc)
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        snooze(0.1);
+        //snooze(0.1);
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Roles...");
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Roles...");
         waitForObject(":List Groups.New_QPushButton");
@@ -428,7 +432,7 @@ function createUserByRole(userrole)
         waitForObject(":Employee.qt_tabwidget_tabbar_QTabBar");
         snooze(1);
         clickTab(":Employee.qt_tabwidget_tabbar_QTabBar", "Detail");
-        snooze(1);
+        //snooze(1);
         waitForObject(":_memberGroup._site_WComboBox");
         clickItem(":_memberGroup._site_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
         snooze(1);
@@ -460,7 +464,7 @@ function createUserByRole(userrole)
         clickItem(":_locale_XComboBox_2","MYLOCALE",0,0,1,Qt.LeftButton);
         waitForObject(":List Employees.qt_tabwidget_tabbar_QTabBar");
         clickTab(":List Employees.qt_tabwidget_tabbar_QTabBar", "Roles");
-        snooze(1);
+        //snooze(1);
         waitForObject(":_groupTab._availableGroup_XTreeWidget_2");
         sWidgetTreeControl = ":_groupTab._availableGroup_XTreeWidget_2";
         clickItem(":_groupTab._availableGroup_XTreeWidget_2","SUPER",0,0,1,Qt.LeftButton);
@@ -470,7 +474,7 @@ function createUserByRole(userrole)
         clickButton(":List Employees.Save_QPushButton");
         waitForObject(":Employee.Save_QPushButton");
         clickButton(":Employee.Save_QPushButton");
-        snooze(2);
+        //snooze(2);
         waitForObject(":_frame._emp_XTreeWidget");
         if(object.exists("{column='1' container=':_frame._emp_XTreeWidget' text='"+username+"' type='QModelIndex'}"))
             test.pass("User created:"+username);
@@ -524,15 +528,15 @@ function COA(COACompany,COAProfit,COANumber,COASub,COADesc,COAType,COASubType)
     try{
         waitForObject(":Chart of Accounts.New_QPushButton_2");
         clickButton(":Chart of Accounts.New_QPushButton_2");
-        snooze(1);
+        //snooze(1);
         waitForObject(":Account Number._company_XComboBox");
         if(findObject(":Account Number._company_XComboBox").currentText!=COACompany)
             clickItem(":Account Number._company_XComboBox","01",0,0,1,Qt.LeftButton);
-        snooze(1);
+        //snooze(1);
         waitForObject(":Account Number._profit_XComboBox");
         if(findObject(":Account Number._profit_XComboBox").currentText!=COAProfit)
             clickItem(":Account Number._profit_XComboBox", "01",0,0,1,Qt.LeftButton);
-        snooze(0.5);
+        //snooze(0.5);
         waitForObject(":Account Number._sub_XComboBox");
         snooze(1);
         if(findObject(":Account Number._sub_XComboBox").currentText!=COASub)
@@ -543,10 +547,10 @@ function COA(COACompany,COAProfit,COANumber,COASub,COADesc,COAType,COASubType)
         type(":_extReference_XLineEdit_2", COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub);
         waitForObject(":Account Number._type_XComboBox");
         clickItem(":Account Number._type_XComboBox", COAType, 0, 0, 1, Qt.LeftButton);
-        snooze(1);
+        //snooze(1);
         waitForObject(":Account Number._subType_XComboBox");
         type(":Account Number._subType_XComboBox", COASubType);
-        snooze(0.5);
+        waitForObject(":Account Number.Save_QPushButton");
         clickButton(":Account Number.Save_QPushButton");
         test.log("Acc: "+COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub+" created");
         
@@ -608,7 +612,7 @@ function defineTaxAuth(ta)
     type(":groupBox.XLineEdit_XLineEdit_5", "323525");
     clickItem(":groupBox._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
     clickButton(":Tax Authority.Save_QPushButton");
-    snooze(2);
+    //snooze(2);
     waitForObject(":List Tax Authorities._taxauth_XTreeWidget");
     if(object.exists(":_taxauth.TAX-AUTH1_QModelIndex"))
         test.pass("Tax Authority created:TAX-AUTH1");
@@ -643,10 +647,10 @@ function defineTaxCode(tc)
         nativeType("<Tab>");
         waitForObject(":Tax Code._taxClass_XComboBox");
         clickItem(":Tax Code._taxClass_XComboBox","1-Legacy Class 1",1,0,0,Qt.LeftButton);
-        snooze(0.5);
+        //snooze(0.5);
         waitForObject(":Tax Code._taxauth_XComboBox");
         clickItem(":Tax Code._taxauth_XComboBox","TAX-AUTH1",1,0,0,Qt.LeftButton);
-        snooze(0.5);
+        //snooze(0.5);
         waitForObject(":_frame.New_QPushButton_2");
         clickButton(":_frame.New_QPushButton_2");
         waitForObject(":_rateGroup._percent_XLineEdit");
@@ -655,7 +659,7 @@ function defineTaxCode(tc)
         waitForObject(":xTuple ERP: *_QPushButton");
         clickButton(":xTuple ERP: *_QPushButton");
     }
-    catch(e){test.fail("exception caught in creating Tax Code");}
+    catch(e){test.fail("Exception caught in creating Tax Code @ " + e.lineNumber + ": " + e);}
     
     
     //-------verify saved Tax Code-----
@@ -675,7 +679,7 @@ function defineTaxCode(tc)
         clickButton(":xTuple ERP: *_QPushButton");
         if(object.exists("{column='0' container=':List Tax Codes._tax_XTreeWidget' text='TAXAUTH1-GM' type='QModelIndex'}"))
             test.pass("Tax Code created:TAXAUTH1-GM");
-    } catch (e) { test.fail("caught exception " + e + " looking for tax code TAXAUTH1-GM"); }
+    } catch (e) { test.fail("Exception looking for tax code TAXAUTH1-GM @ " + e.lineNumber + ": " + e); }
     
     try{
         waitForObject(":List Tax Codes.New_QPushButton");
@@ -716,7 +720,7 @@ function defineTaxCode(tc)
         clickButton(":xTuple ERP: *_QPushButton");
         if(object.exists("{column='0' container=':List Tax Codes._tax_XTreeWidget' text='TAXAUTH1-EDU' type='QModelIndex'}"))
             test.pass("Tax Code created:TAXAUTH1-EDU");
-    } catch (e) { test.fail("caught exception " + e + " looking for tax code TAXAUTH1-EDU"); }
+    } catch (e) { test.fail("Exception looking for tax code TAXAUTH1-EDU @ " + e.lineNumber + ": " + e); }
     
     waitForObject(":List Tax Codes.Close_QPushButton");
     clickButton(":List Tax Codes.Close_QPushButton");
@@ -839,7 +843,7 @@ function RegTax(zone,treg)
         type(":_frame._notes_XTextEdit_2", treg);
         waitForObject(":List Employees.Save_QPushButton_2");
         clickButton(":List Employees.Save_QPushButton_2");
-        snooze(1);
+        //snooze(1);
         waitForObject(":List Tax Registrations.Close_QPushButton_2");
         clickButton(":List Tax Registrations.Close_QPushButton_2");
     }
@@ -868,7 +872,7 @@ function defineChartcs(name,desc,ctype)
         type(":_name_XLineEdit_6", name);
         waitForObject(":_description_QTextEdit_6");
         type(":_description_QTextEdit_6", desc);
-        snooze(1);
+        //snooze(1);
         
         switch(ctype)
         {
@@ -906,7 +910,7 @@ function defineChartcs(name,desc,ctype)
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-        snooze(2);
+        //snooze(2);
         waitForObject(":List Characteristics._char_XTreeWidget");
         if(object.exists("{column='0' container=':List Characteristics._char_XTreeWidget' text='"+name+"' type='QModelIndex'}"))                 
             test.pass("Characteristics:"+ name+" created");
