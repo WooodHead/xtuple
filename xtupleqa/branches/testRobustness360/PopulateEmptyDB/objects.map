@@ -933,8 +933,8 @@
 :List Customers.Close_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Customers_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Customers.Close_QPushButton_2	{name='_close' text='Close' type='QPushButton' visible='1' window=':List Customers_customers'}
 :List Customers._cust_XTreeWidget	{container=':xTuple ERP: OpenMFG Edition.List Customers_QWorkspaceChild' name='_cust' type='XTreeWidget' visible='1'}
-:List Customers._cust_XTreeWidget_2	{name='_cust' type='XTreeWidget' visible='1' window=':List Customers_customers'}
-:List Customers_customers	{name='customers' type='customers' visible='1' windowTitle='List Customers'}
+:List Customers._cust_XTreeWidget_2	{name='_list' type='XTreeWidget' visible='1' window=':List Customers_customers'}
+:List Customers_customers	{name='customers' type='customers' visible='1' windowTitle='Customers'}
 :List Departments.Close_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Departments_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Departments.New_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Departments_QWorkspaceChild' name='_new' text='New' type='QPushButton' visible='1'}
 :List Departments.Save_QPushButton	{container=':xTuple ERP: OpenMFG Edition.List Departments_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
