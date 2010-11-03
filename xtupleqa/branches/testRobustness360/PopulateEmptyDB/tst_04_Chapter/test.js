@@ -47,7 +47,8 @@ function main()
             
             waitForObject(":List Standard Labor Rates.Close_QPushButton_3");
             clickButton(":List Standard Labor Rates.Close_QPushButton_3");
-        }catch(e){test.fail("Exception in creating Standard Labor Rate:"+e);}
+        }
+	catch(e){test.fail("Exception in creating Standard Labor Rate @ " + e.lineNumber + ": "+e);}
         
         try{
             //---------Create Work Centers------------
@@ -191,7 +192,8 @@ function main()
             
             waitForObject(":List Work Centers.Close_QPushButton");
             clickButton(":List Work Centers.Close_QPushButton");
-        }catch(e){test.fail("Exception in creating work center:"+e)}
+        }
+	catch(e){test.fail("Exception in creating work center @ " + e.lineNumber + ": "+e)}
         
         
         //---------------------Products: Standard Operation--------------------
@@ -278,7 +280,8 @@ function main()
             
             waitForObject(":List Standard Operations.Close_QPushButton");
             clickButton(":List Standard Operations.Close_QPushButton");
-        }catch(e){test.fail("Exception in creating Standard Operations:"+e);}
+        }
+	catch(e){test.fail("Exception in creating Standard Operations @ " + e.lineNumber + ": "+e);}
         
         
         
@@ -335,7 +338,8 @@ function main()
             if(object.exists(":_boo.YTRUCK1_QModelIndex"))
                 test.pass("BOO created for: YTRUCK1");
             else test.fail("BOO not created for: YTRUCK1");
-        }catch(e){test.fail("Exception in creating BOO for Item YTRUCK1"+e);}
+        }
+	catch(e){test.fail("Exception in creating BOO for Item YTRUCK1 @ " + e.lineNumber + ": "+e);}
         
         //-----------Define BOO for TSUB1---------------
         try{
@@ -363,7 +367,8 @@ function main()
             else test.fail("BOO not created for: TSUB1");
             waitForObject(":Bills of Operations.Close_QPushButton");
             clickButton(":Bills of Operations.Close_QPushButton");
-        }catch(e){test.fail("Exception in creating BOO for Item TSUB1"+e);}
+        }
+	catch(e){test.fail("Exception in creating BOO for Item TSUB1 @ " + e.lineNumber + ": "+e);}
         
     }
     else if(appEdition=="PostBooks" || appEdition=="Standard")
@@ -423,16 +428,22 @@ function main()
         mouseClick(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", 63, 10, 0, Qt.LeftButton);
         waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
         type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for YTRUCK1 completer @ " + e.lineNumber + ": " + e); }
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TBODY1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TBODY1 completer @ " + e.lineNumber + ": " + e); }
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "1");
         findObject(":_scrap_XLineEdit").clear();
@@ -462,8 +473,11 @@ function main()
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "YPAINT1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for YPAINT1 completer @ " + e.lineNumber + ": " + e); }
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".01");
         findObject(":_scrap_XLineEdit").clear();
@@ -491,8 +505,11 @@ function main()
         clickButton(":frame_2.New_QPushButton");
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TWHEEL1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TWHEEL1 completer @ " + e.lineNumber + ": " + e); }
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "4");
         findObject(":_scrap_XLineEdit").clear();
@@ -509,7 +526,7 @@ function main()
         else if(appEdition=="PostBooks" || appEdition=="Standard")
         {
             test.xverify(object.exists(":Bill of Operations Items._booitem_XTreeWidget"), "Bill of Operations Item not found");
-            test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item doesnot have Schedule at W/O Operation checkbox");
+            test.xverify(object.exists(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox"), "Bill of Materials Item does not have Schedule at W/O Operation checkbox");
         }
         
         type(":_ecn_XLineEdit", "initial definition");
@@ -522,8 +539,11 @@ function main()
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TSUB1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TSUB1 completer @ " + e.lineNumber + ": " + e); }
         waitForObject(":_qtyPer_XLineEdit"); 
         type(":_qtyPer_XLineEdit", "1");
         findObject(":_scrap_XLineEdit").clear();
@@ -555,7 +575,8 @@ function main()
         if(object.exists(":_bom.YTRUCK1_QModelIndex"))
             test.pass("BOM created for: YTRUCK1");
         else test.fail("BOM not created for: YTRUCK1");
-    }catch(e){test.fail("Exception in creating BOM for Item YTRUCK1"+e);}
+    }
+    catch(e){test.fail("Exception in creating BOM for Item YTRUCK1 @ " + e.lineNumber + ": "+e);}
     
     
     //---------------Create BOM for TSUB1---------------
@@ -568,16 +589,22 @@ function main()
         mouseClick(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", 63, 10, 0, Qt.LeftButton);
         waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
         type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "TSUB1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TSUB1 completer @ " + e.lineNumber + ": " + e); }
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TBOX1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TBOX1 completer @ " + e.lineNumber + ": " + e); }
         waitForObject(":_qtyPer_XLineEdit"); 
         type(":_qtyPer_XLineEdit", "1");
         findObject(":_scrap_XLineEdit").clear();
@@ -606,8 +633,11 @@ function main()
         clickButton(":frame_2.New_QPushButton");
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TINSERT1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for TINSERT1 completer @ " + e.lineNumber + ": " + e); }
         waitForObject(":_qtyPer_XLineEdit"); 
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "1");
@@ -642,6 +672,7 @@ function main()
         
         waitForObject(":Bills of Materials.Close_QPushButton");
         clickButton(":Bills of Materials.Close_QPushButton");
-    }catch(e){test.fail("Exception in creating BOM for Item TSUB1"+e);}
+    }
+    catch(e){test.fail("Exception in creating BOM for Item TSUB1 @ " + e.lineNumber + ": "+e);}
     
 }

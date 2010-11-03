@@ -131,7 +131,8 @@ function main()
         if(object.exists("{column='0' container=':List Items._item_XTreeWidget_3' text='RTRUCK1' type='QModelIndex'}"))
             test.pass("Item Created: RTRUCK1");
         
-    }catch(e){test.fail("Exception in creating Item RTRUCK1:"+e)}
+    }
+    catch(e){test.fail("Exception in creating Item RTRUCK1 @ " + e.lineNumber + ": "+e)}
     
     //-----------Create Item BTRUCK1---------------
     try{
@@ -234,7 +235,8 @@ function main()
         if(object.exists("{column='0' container=':List Items._item_XTreeWidget_3' text='BTRUCK1' type='QModelIndex'}"))
             test.pass("Item Created: BTRUCK1");
         else test.fail("Item not created: BTRUCK1");
-    }catch(e){test.fail("Exception in creating item BTRUCK1:"+e);}
+    }
+    catch(e){test.fail("Exception in creating item BTRUCK1 @ " + e.lineNumber + ": "+e);}
     
     
     //-----------Create Item WTRUCK1---------------
@@ -353,7 +355,8 @@ function main()
         waitForObject(":List Items.Close_QPushButton_3");
         clickButton(":List Items.Close_QPushButton_3");
         
-    }catch(e){test.fail("Exception in creating Item WTRUCK1"+e);}
+    }
+    catch(e){test.fail("Exception in creating Item WTRUCK1 @ " + e.lineNumber + ": "+e);}
     
     
     
@@ -435,16 +438,22 @@ function main()
         mouseClick(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", 63, 10, 0, Qt.LeftButton);
         waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
         type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "COLLECTORS-LINE");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for COLLECTORS-LINE completer @ " + e.lineNumber + ": " + e); }
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for YTRUCK1 completer @ " + e.lineNumber + ": " + e); }
         
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".30");
@@ -457,8 +466,11 @@ function main()
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "WTRUCK1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for WTRUCK1 completer @ " + e.lineNumber + ": " + e); }
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".20");
         type(":_scrap_XLineEdit", "0");
@@ -470,8 +482,11 @@ function main()
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "BTRUCK1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        try {
+            waitForObject(":_QTreeView");
+            type(":_QTreeView", "<Tab>");
+        }
+        catch (e) { test.warning("Exception waiting for BTRUCK1 completer @ " + e.lineNumber + ": " + e); }
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".50");
         type(":_scrap_XLineEdit", "0");
@@ -486,7 +501,8 @@ function main()
         waitForObject(":Bills of Materials.Close_QPushButton");
         clickButton(":Bills of Materials.Close_QPushButton");
         
-    }catch(e){test.fail("Exception in creating Item COLLECTORS-LINE:"+e);}
+    }
+    catch(e){test.fail("Exception in creating Item COLLECTORS-LINE @ " + e.lineNumber + ": "+e);}
     
     if(appEdition=="Manufacturing")
     {
@@ -542,7 +558,8 @@ function main()
                 test.pass("Production Plan Created: COLLECTORS-LINE-PLAN");
             waitForObject(":List Production Plans.Close_QPushButton");
             clickButton(":List Production Plans.Close_QPushButton");
-        }catch(e){test.fail("Exception in creating COLLECTORS-LINE-PLAN:"+e);}
+        }
+	catch(e){test.fail("Exception in creating COLLECTORS-LINE-PLAN @ " + e.lineNumber + ": "+e);}
         
     }
     else if(appEdition=="PostBooks")
