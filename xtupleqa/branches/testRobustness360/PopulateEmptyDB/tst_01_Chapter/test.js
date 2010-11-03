@@ -578,7 +578,7 @@ function main()
             findObject(":_description_XLineEdit_4").clear();
             type(":_description_XLineEdit_4", "Practice Database");        
         }
-        if(appEdition=="Manufacturing"||appEdition=="Standard")
+        if(appEdition=="Manufacturing") // xtConnect
         {
             
             if(!findObject(":Database Information.xTuple Connect Enabled_QGroupBox").checked)
@@ -597,7 +597,7 @@ function main()
                 type(":xTuple Connect Enabled.qt_spinbox_lineedit_QLineEdit", "30");
             }
         }
-        else if(appEdition=="PostBooks")
+        else
         {
             test.xverify(object.exists(":_batchEmail_QLineEdit_2"), "From Address - not visible");
             test.xverify(object.exists(":Database Information.Batch Manager_QGroupBox"), "Enable Batch Manager - not visible");
@@ -621,7 +621,7 @@ function main()
     //----Configure EDI Profile----
     try{
         
-        if(appEdition=="Manufacturing" || appEdition=="Standard")
+        if(appEdition=="Manufacturing") // xtConnect
         {
             waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -645,8 +645,8 @@ function main()
             
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "EDI Profiles...");
             activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "EDI Profiles...");
             
@@ -1059,8 +1059,8 @@ function main()
             type(":_description_XLineEdit_38", "Raw Materials Zone1");
             clickButton(":Site Zone.Save_QPushButton");
             
-            waitForObject(":Save_QPushButton_2");
-            clickButton(":Save_QPushButton_2");
+            //waitForObject(":Save_QPushButton_2");
+            //clickButton(":Save_QPushButton_2");
             
             clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar","General");
             waitForObject(":_generalTab.Inventory Site_QRadioButton");
@@ -1228,6 +1228,7 @@ function main()
         snooze(0.1);
         findObject(":_idleTimeout_QSpinBox").clear();
         
+        waitForObject(":Interface Options.Ignore Missing Translations_QCheckBox");
         if(!findObject(":Interface Options.Ignore Missing Translations_QCheckBox").checked)
             clickButton(":Interface Options.Ignore Missing Translations_QCheckBox");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
@@ -1244,14 +1245,14 @@ function main()
         clickButton(":_menu.Show Products Menu_QCheckBox");
         waitForObject(":_menu.Show Products Toolbar_QCheckBox");
         clickButton(":_menu.Show Products Toolbar_QCheckBox");
-        if(appEdition=="Manufacturing")
+        if(appEdition=="Manufacturing"||appEdition=="Standard")
         {
             waitForObject(":_menu.Show Schedule Menu_QCheckBox");
             clickButton(":_menu.Show Schedule Menu_QCheckBox");
             waitForObject(":_menu.Show Schedule Toolbar_QCheckBox");
             clickButton(":_menu.Show Schedule Toolbar_QCheckBox");
         }
-        else if(appEdition=="Standard"||appEdition=="PostBooks")
+        else if(appEdition=="PostBooks")
         {
             test.xverify(object.exists(":_menu.Show Schedule Menu_QCheckBox"),"Show Schedule Menu_QCheckBox - not visible");
             test.xverify(object.exists(":_menu.Show Schedule Toolbar_QCheckBox"),"Show Schedule Toolbar - not visible");

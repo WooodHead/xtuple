@@ -55,7 +55,14 @@ function loginAppl(userrole)
     waitForObject(":_password_QLineEdit");
     type(":_password_QLineEdit", "<Return>");
     test.log("Logged in Application");
-   }
+    
+    snooze(1);
+    if(object.exists(":Registration Key_QMessageBox"))
+    {
+        waitForObject(":OK_QPushButton");
+        clickButton(":OK_QPushButton");
+    }
+}
 
 function findApplicationEdition()
 {
