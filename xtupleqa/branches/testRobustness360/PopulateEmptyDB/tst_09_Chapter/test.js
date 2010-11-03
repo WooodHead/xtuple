@@ -64,7 +64,8 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in defining Incident category:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Incident category @ " + e.lineNumber + ": "+e);}
     
     //--------------Create: Incident Severities----------------
     try{
@@ -93,7 +94,8 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in defining Incident Severities:"+e)}
+    }
+    catch(e){test.fail("Exception in defining Incident Severities @ " + e.lineNumber + ": "+e)}
     
     
     //--------------Create Incident Resolutions----------------
@@ -124,7 +126,8 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in defining Incident Resolution:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Incident Resolution @ " + e.lineNumber + ": "+e);}
     
     
     //------------CRM Oppurtunity Sources---------
@@ -164,7 +167,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         
-    }catch(e){test.fail("Exception in creating Opportunity sources:"+e)}
+    }
+    catch(e){test.fail("Exception in creating Opportunity sources @ " + e.lineNumber + ": "+e)}
     
     //------------CRM Oppurtunity Stages-------------
     try{
@@ -217,7 +221,8 @@ function main()
         clickButton(":Setup.Save_QPushButton");
         test.log("CRM oppurtunity stages created");
         
-    }catch(e){test.fail("Exception in creating CRM opportunity stages:"+e);}
+    }
+    catch(e){test.fail("Exception in creating CRM opportunity stages @ " + e.lineNumber + ": "+e);}
     
     //---------------CRM Oppurtunity Types------------
     try{
@@ -260,7 +265,7 @@ function main()
         
         if(object.exists("{column='0' container=':List Opportunity Types._oplist_XTreeWidget' text='PRICING' type='QModelIndex'}"))
             test.pass("Opportunity type: PRICING created:");
-        else test.fail("Opportunity type: PRICING not reated:");
+        else test.fail("Opportunity type: PRICING not created:");
         if(object.exists("{column='0' container=':List Opportunity Types._oplist_XTreeWidget' text='PRIVATE' type='QModelIndex'}"))
             test.pass("Opportunity type: PRIVATE created");
         else test.fail("Opportunity type: PRIVATE not created");
@@ -268,7 +273,8 @@ function main()
         clickButton(":Setup.Save_QPushButton");
         test.log("CRM Oppurtunity Types created");
         
-    }catch(e){test.fail("Exception in creating Opportunity types");}
+    }
+    catch(e){test.fail("Exception in creating Opportunity types @ " + e.lineNumber + ": " + e);}
     
     
     //--------------CRM Priorities-----------
@@ -298,7 +304,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("CRM Priorities created");
-    }catch(e){test.fail("Exception in creating CRM priorities");} 
+    }
+    catch(e){test.fail("Exception in creating CRM priorities @ " + e.lineNumber + ": " + e);} 
     
     
     //-------------CRM Characteristics-----------
@@ -346,6 +353,7 @@ function main()
         clickButton(":Setup.Save_QPushButton");
         test.log("CRM Characteristics created");
         
-    }catch(e){test.fail("Exception in defining Characteristics");}
+    }
+    catch(e){test.fail("Exception in defining Characteristics @ " + e.lineNumber + ": " + e);}
     
 }
