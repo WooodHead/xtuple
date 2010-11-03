@@ -130,50 +130,114 @@ Macintosh OSX info:
 
 Here are the basic steps for getting Squish and your Mac configured
 to run the first automated test for xTuple ERP, PopulateEmptyDB.
-OSX has some properties that make configuring Squish a little more
-complex than other platforms. In addition, xTuple ERP uses Qt a little
-differently than FrogLogic expected, so you need a special version of
-Squish.
+The xTuple ERP builds for releases, including those embedded in the
+installers, use Qt differently than FrogLogic expected, so you may
+need a special version of Squish, depending on how you build or
+obtain the xTuple ERP application.
 
 In addition, you need to configure your Mac to "enable access for
 assistive devices":
   Apple -> System Preferences... -> Universal Access
-and click on "Enable access for assistive devices".
+and click on "Enable access for assistive devices". The installers for 
+Squish 4.x ask if you want to do this during the Squish installation
+
+If using a release .dmg or installer:
+(this is outdated but here as a reminder of how to manage the differences):
+
+0) Install xTuple ERP and the PostgreSQL database server. You can
+   use either a binary installer or do things manually.
 
 1) Download and install Squish following the installation instructions
-   from FrogLogic. As of late March, 2009, the version to use is
-     squish-20090323-qt432zenqx-maci386-gcc4.0
+   from FrogLogic.
+   For xTuple ERP 3.0-3.4     use squish-20090323-qt432zenqx-maci386-gcc4.0
+                  3.5.x & 3.6.x   squish-4.0-20101102-1330-qt463zenqa-maci386-gcc4.0
 
-   When the installer asks for the libQtCore.dylib, you have two
-   choices. If you have the same version of Qt installed on your
-   system as was used to build the xTuple ERP application, set the
-   path to libQtCore.dylib in your Qt installation. If you don't
-   have Qt installed, then you need to take two steps:
+   When the installer asks for the libQtCore.dylib, take these steps:
    - Set the path to
      app-installation-dir/xtuple.app/Contents/Frameworks/lib/libQtCore.dylib
+     (you cannot browse to this location)
    - In a Terminal window:
      $ cd app-installation-dir/xtuple.app/Contents/Frameworks/lib
-     $ cp libQtCore.4.dylib libQtCore.dylib
+     $ for i in *.4.dylib ; do
+     >  ln -s $i `basename $i .4.dylib`.dylib
+     > done
 
-2) Follow steps 2-3 from the Linux description above
+  Select JavaScript as the preferred scripting language.
 
-4) Start Squish, either by double-clicking on the squish icon or
-   running the following in a Terminal window:
-     $ open wherever-you-installed-squish/bin/squish.app
+2) same as Linux
 
-6) Follow steps 5-6 from the Linux description above
+3) same as Linux
 
-7) Now tell Squish where to find the xTuple ERP application.
-   Select Preferences... in the Squish menu, click on the Server
-   Settings tab, and select the AUT Paths line. Click the Add...
-   button.  Navigate to the directory where you installed the xTuple
-   ERP application, expand xtuple.app, expand Contents, and select
-   MacOS.  Click OK to select that MacOS folder.
-   Click OK to close the Preferences window.
+4) same as for Linux but use a different path: /Users/crypto
+
+5) same as for Linux except from the command line:
+   $ open wherever-you-installed-squish/bin/squish.app
+
+6) same as for Linux
+
+7) same as for Linux
+
+8) Now tell Squish where to find the xTuple ERP application:
+     Squish -> Preferences...
+     Click on the Server Settings tab
+     Select AUT Paths
+     Click Add...
+     Navigate to the xtuple source directory
+     Navigate down to bin/xtuple/Contents/MacOS
+     Click OK
 
 You should now be able to run the PopulateEmptyDB test. Select that
 test in the left-hand navigation pane and Test Suite -> Execute or
 click the Execute button on the toolbar.
+
+Mac with nightly build using Frameworks edition of Qt:
+
+0) Build OpenRPT, CSVImp, and xTuple ERP using a Frameworks edition of Qt
+   4.6.x. This could be either a build from source or one of the binary
+   Qt installers.
+   Install and configure a PostgreSQL database server.
+
+1) Download and install Squish following the installation instructions
+   from FrogLogic:
+  For xTuple ERP 3.5.x & 3.6.x use squish-4.0.1-qt46x-maci386-gcc4.0
+
+  When the installer asks for the QtCore framework, browse to
+  /Library/Frameworks, select QtCore.framework, and click Choose.
+
+  Select JavaScript as the preferred scripting language.
+
+  If the Squish Installer asks if you want to enable the accessibility API,
+  click Yes. In the Universal Access window that appears, click on
+  "Enable access for assistive devices", then close the window.
+
+2) same as for Linux
+
+3) same as for Linux
+
+4) same as for Linux but use a different path: /Users/crypto
+
+5) same as for Linux except from the command line:
+   $ open wherever-you-installed-squish/bin/squish.app
+
+6) same as for Linux
+
+7) same as for Linux
+
+8) Now tell Squish where to find the xTuple ERP application:
+     Squish -> Preferences...
+     Click on the Server Settings tab
+     Select AUT Paths
+     Click Add...
+     Navigate to the xtuple source directory
+     Navigate down to bin/xtuple/Contents/MacOS
+     Click OK
+
+   Click OK to close the Preferences window.
+
+You should now be able to run the PopulateEmptyDB test. Select that test
+in the left-hand navigation pane and Test Suite -> Execute or click the
+Execute button on the toolbar.
+
 
 Windows info:
 -------------
