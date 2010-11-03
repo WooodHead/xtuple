@@ -73,7 +73,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         
-    }catch(e){test.fail("Exception in Creating Customer types:"+e);}
+    }
+    catch(e){test.fail("Exception in Creating Customer types @ " + e.lineNumber + ": "+e);}
     
     
     //---------------Create Shipping Zone--------------------
@@ -149,7 +150,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         
-    }catch(e){test.fail("Exception in created Shipping Zones:"+e);}
+    }
+    catch(e){test.fail("Exception in created Shipping Zones @ " + e.lineNumber + ": "+e);}
     
     
     //---------Create Shipping Vias---------------
@@ -187,7 +189,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton"); 
         
-    }catch(e){test.fail("Exception in creating Shipping Vias");}
+    }
+    catch(e){test.fail("Exception in creating Shipping Vias @ " + e.lineNumber + ": " + e);}
     
     //-----------Create Shipping Charges--------------
     try{
@@ -231,7 +234,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         
-    }catch(e){test.fail("Exception in creating Shipping Charge:"+e);} 
+    }
+    catch(e){test.fail("Exception in creating Shipping Charge @ " + e.lineNumber + ": "+e);} 
     
     //------Define Tax Authorities-------
     try{
@@ -266,7 +270,8 @@ function main()
         
         waitForObject(":List Tax Authorities.Close_QPushButton");
         clickButton(":List Tax Authorities.Close_QPushButton");
-    }catch(e){test.fail("Exception in defining Tax Authorities:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Tax Authorities @ " + e.lineNumber + ": "+e);}
     
     
     //---------------Define: Tax Codes-----------------------
@@ -303,7 +308,8 @@ function main()
         
         waitForObject(":List Tax Codes.Close_QPushButton");
         clickButton(":List Tax Codes.Close_QPushButton");
-    }catch(e){test.fail("Exception in defining Tax Codes");}
+    }
+    catch(e){test.fail("Exception in defining Tax Codes @ " + e.lineNumber + ": " + e);}
     
     //----Define Tax Zones----
     defineTaxZone("VA-SALES-TAX-ZONE", "Virginia Sales Tax Zone");	
@@ -354,7 +360,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("Shipping Forms defined");
-    }catch(e){test.fail("Exception in defining Shipping Forms:"+e);}
+    }
+    catch(e){test.fail("Exception in defining Shipping Forms @ " + e.lineNumber + ": "+e);}
     
     
     //-----------Chart Of Accounts-------------------------------
@@ -424,7 +431,8 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in defining Sales Category"+ e);}
+    }
+    catch(e){test.fail("Exception in defining Sales Category @ " + e.lineNumber + ": "+ e);}
     
     
     //----------------A/R Account Assignments----------------
@@ -479,7 +487,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton"); 
         test.log("A/R Accounts Assigned");
-    }catch(e){test.fail("Exception in defining Accounting Assignments"+ e);}
+    }
+    catch(e){test.fail("Exception in defining Accounting Assignments @ " + e.lineNumber + ": "+ e);}
     
     
     
@@ -522,7 +531,8 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in defining Form assignments");}
+    }
+    catch(e){test.fail("Exception in defining Form assignments @ " + e.lineNumber + ": " + e);}
     
     
     //--------------Define Forms--------------------
@@ -554,7 +564,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("System: Forms defined");
-    }catch(e){test.fail("Exception in defining Forms");}   
+    }
+    catch(e){test.fail("Exception in defining Forms @ " + e.lineNumber + ": " + e);}   
     
     //------------Configure Sales Module------------------
     try{
@@ -628,7 +639,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("Sales Module Configured");
-    }catch(e){test.fail("Exception in configuring Sales Module" + e);}   
+    }
+    catch(e){test.fail("Exception in configuring Sales Module @ " + e.lineNumber + ": " + e);}   
     
     
     
@@ -686,7 +698,8 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("Sales Account Assignments done");
-    }catch(e){test.fail("Exception in Sales Account assignment"+ e);}
+    }
+    catch(e){test.fail("Exception in Sales Account assignment @ " + e.lineNumber + ": "+ e);}
     
     //----Read Username based on Role------
     try{
@@ -699,7 +712,8 @@ function main()
             
             if(role=="RUNREGISTER") break;
         }
-    }catch(e){test.fail("Exception in reading login.tsv");}
+    }
+    catch(e){test.fail("Exception in reading login.tsv @ " + e.lineNumber + ": " + e);}
     
     //----Define Sales Rep---
     try{
@@ -735,7 +749,8 @@ function main()
         clickButton(":Employee.Save_QPushButton");
         waitForObject(":_frame.Close_QPushButton_2");
         clickButton(":_frame.Close_QPushButton_2");
-    }catch(e){test.fail("Exception in creating Employee record:"+e);}
+    }
+    catch(e){test.fail("Exception in creating Employee record @ " + e.lineNumber + ": "+e);}
     
     //----------------Create new Customer---------------
     try{
@@ -837,7 +852,8 @@ function main()
         clickButton(":Customer.Cancel_QPushButton");
         test.log("Customer: TTOYS created");
         snooze(1);
-    }catch(e){test.fail("Exception in creating Customer:"+e);} 
+    }
+    catch(e){test.fail("Exception in creating Customer @ " + e.lineNumber + ": "+e);} 
     
     
     //----------------Create Customer Group---------------
@@ -863,12 +879,17 @@ function main()
         if(object.exists(":_custgrp.US-VA_QModelIndex"))
             test.pass("Customer Group Created");
         else test.fail("Customer Group not Created");
-        snooze(1);
+    }
+    catch(e){
+        test.fail("Exception in creating Customer Groups @ " + e.lineNumber + ": "+e);
+        if (object.exists(":GroupBox1.Save_QPushButton"))
+            clickButton(":GroupBox1.Save_QPushButton");
+    }
+    finally {
         waitForObject(":List Customer Groups.Close_QPushButton");
         clickButton(":List Customer Groups.Close_QPushButton");
-        snooze(1);
-    }catch(e){test.fail("Exception in creating Customer Groups:"+e);}   
-  
+    }
+
     //-----------------Define: Reason Codes---------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -906,7 +927,8 @@ function main()
         else test.fail("Reason Code not Created:SO-WRONG-RETURNED");
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in defining Reason Codes");} 
+    }
+    catch(e){test.fail("Exception in defining Reason Codes @ " + e.lineNumber + ": " + e);} 
     
     //---------------Define Pricing Schedule---------------
     try{
@@ -959,7 +981,8 @@ function main()
         if(object.exists(":_ipshead.BASE_QModelIndex"))
             test.pass("Pricing Schedule created:BASE");
         else test.fail("Pricing Schedule not created:BASE");
-    }catch(e){test.fail("Exception in defining Pricing Schedule"+ e);}
+    }
+    catch(e){test.fail("Exception in defining Pricing Schedule @ " + e.lineNumber + ": "+ e);}
     
     //--------Pricing Schedule: FREIGHT-BULK-------------
     try{
@@ -994,7 +1017,8 @@ function main()
         if(object.exists(":_ipshead.FREIGHT-BULK_QModelIndex"))
             test.pass("Pricing Schedule created:FREIGHT-BULK");
         else test.fail("Pricing Schedule not created:FREIGHT-BULK");
-    }catch(e){test.fail("Exception in defining Pricing Schedule"+ e);}
+    }
+    catch(e){test.fail("Exception in defining Pricing Schedule @ " + e.lineNumber + ": "+ e);}
     
     //-----------Pricing Schedule: FREIGHT-TTOYS-BULK-------------
     try{
@@ -1033,7 +1057,8 @@ function main()
         
         waitForObject(":List Pricing Schedules.Close_QPushButton");
         clickButton(":List Pricing Schedules.Close_QPushButton");
-    }catch(e){test.fail("Exception in defining Pricing Schedule");}
+    }
+    catch(e){test.fail("Exception in defining Pricing Schedule @ " + e.lineNumber + ": " + e);}
     
     
     //-----------Assign Pricing Schedule---------------   
@@ -1094,7 +1119,8 @@ function main()
         
         waitForObject(":List Pricing Schedule Assignments.Close_QPushButton");
         clickButton(":List Pricing Schedule Assignments.Close_QPushButton");
-    }catch(e){test.fail("Exception in pricing Schedule assignment @" + e.lineNumber + " " + e);}  
+    }
+    catch(e){test.fail("Exception in pricing Schedule assignment @ " + e.lineNumber + ": "+ e);}  
     
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
@@ -1151,7 +1177,8 @@ function main()
             clickButton(":List Sites.Close_QPushButton_2");
             test.log("Item site for INTRAN created");
             
-        }catch(e){test.fail("Exception in creating INTRAN site:"+e);}
+        }
+	catch(e){test.fail("Exception in creating INTRAN site @ " + e.lineNumber + ": "+e);}
         
         try{
             //-----------Configure: Inventory Module--------------
@@ -1169,7 +1196,8 @@ function main()
             waitForObject(":Setup.Save_QPushButton");
             clickButton(":Setup.Save_QPushButton");
             test.log("Configure Module: Inventory");
-        }catch(e){test.fail("Exception in configuring Inventory module:"+e);}
+        }
+	catch(e){test.fail("Exception in configuring Inventory module @ " + e.lineNumber + ": "+e);}
         
     }
     
@@ -1189,7 +1217,8 @@ function main()
                 if(actions.at(i).text == menuItem || i==actions.count()-1) break;
             if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
             else test.pass(menuItem+"not found in "+appEdition);
-        }catch(e){test.fail("Exception in verifying menu in postbooks:"+e);}
+        }
+	catch(e){test.fail("Exception in verifying menu in postbooks @ " + e.lineNumber + ": "+e);}
         
     } 
     
