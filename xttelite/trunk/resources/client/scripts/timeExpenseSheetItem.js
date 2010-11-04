@@ -710,6 +710,7 @@ _next.clicked.connect(xtte.timeExpenseSheetItem.next);
 
 _task.newID.connect(xtte.timeExpenseSheetItem.taskChanged);
 _rate.valueChanged.connect(xtte.timeExpenseSheetItem.extension);
+_workdate.newDate.connect(xtte.timeExpenseSheetItem.empTotals);
 _hours.textChanged.connect(xtte.timeExpenseSheetItem.extension);
 _hours.editingFinished.connect(xtte.timeExpenseSheetItem.actTotals);
 _rate.lostFocus.connect(xtte.timeExpenseSheetItem.actTotals);
