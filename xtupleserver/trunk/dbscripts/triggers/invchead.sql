@@ -4,6 +4,23 @@ DECLARE
   _newparentid INTEGER;
 
 BEGIN
+  IF (TG_OP IN ('UPDATE','DELETE')) THEN
+    IF (OLD.invchead_posted
+      AND ((OLD.invchead_invcnumber != NEW.invchead_invcnumber)
+        OR (OLD.invchead_invcdate != NEW.invchead_invcdate)
+        OR (OLD.invchead_terms_id != NEW.invchead_terms_id)
+        OR (OLD.invchead_salesrep_id != NEW.invchead_salesrep_id)
+        OR (OLD.invchead_commission != NEW.invchead_commission)
+        OR (OLD.invchead_taxzone_id != NEW.invchead_taxzone_id)
+        OR (OLD.invchead_shipchrg_id != NEW.invchead_shipchrg_id)
+        OR (OLD.invchead_prj_id != NEW.invchead_prj_id)
+        OR (OLD.invchead_misc_accnt_id != NEW.invchead_misc_accnt_id)
+        OR (OLD.invchead_misc_amount != NEW.invchead_misc_amount)
+        OR (OLD.invchead_freight != NEW.invchead_freight))) THEN
+      RAISE EXCEPTION 'Edit not allow on Posted Invoice.';
+    END IF;
+  END IF;
+  
   IF (TG_OP = 'DELETE') THEN
     DELETE FROM invcheadtax
     WHERE (taxhist_parent_id=OLD.invchead_id);
