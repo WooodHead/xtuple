@@ -75,26 +75,21 @@
         completed.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Recurring</term>
-      <listitem>
-        <para>Describes how frequently the Job will repeat, if at all.</para>
-        <xi:include href="../widgets/recurrencewidget.xml"
-                    xpointer="recurrenceWidget"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-      </listitem>
-    </varlistentry>
   </variablelist>
+  <xi:include href="../widgets/recurrencewidget.xml"
+              xpointer="recurrenceWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>In addition to the single Parameter described above, individual Jobs
   usually require additional details to execute successfully. For example the
   user might have requested that a report be run showing information about a
   particular Class Code. In this case the Parameter described above will hold
   the name of the report but the report also needs to know which Class Code
   the user selected. To see these details, select the "Parameters Tab". The
-  following screen will appear:<screenshot>
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="???" />
+          <imagedata fileref="images/batchItem_parameterLit.png" />
         </imageobject>
         <caption><para>Parameter details passed to a Scheduled
         Job</para></caption>

@@ -331,8 +331,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="invoiceAdvancedTab">To specify advanced details related to the
-  Invoice, select the "Advanced" tab. The following screen will appear:</para>
+  <para id="invoiceAdvancedTab">To create recurring Invoices, select the
+  "Advanced" tab. The following screen will appear:</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -341,49 +341,9 @@
       <caption>Invoice Advanced</caption>
     </mediaobject>
   </screenshot>
-  <variablelist>
-    <varlistentry>
-      <term>Recurring</term>
-      <listitem>
-        <para>Select to indicate you want the Invoice to be a recurring
-        Invoice, using the frequency settings you specify below. This feature
-        enables you to automatically generate Invoices on a recurring basis
-        (e.g., the same day of every month). Recurring Invoices are generated
-        when you run the recurring Invoices utility, which is described in
-        more detail here: <xref linkend="CreateRecurringInvoices" />.
-        Newly-created recurring Invoices will appear on the list of unposted
-        Invoices. Their distribution date will depend on the frequency
-        specified and the Invoice date on the original Invoice. For example,
-        if the original Invoice is dated January 1 and the frequency is once
-        every month, then the next Invoices will be dated February 1, March 1,
-        etc.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>Once the recurring flag is set on the original Invoice, all
-    subsequent, recurring Invoices will be marked in the database as children
-    of the original parent Invoice. If you need to make changes to the
-    frequency of a recurring Invoice (or to cancel the recurring Invoice), you
-    must go back to the original parent Invoice and make the changes
-    there.</para>
-    <variablelist>
-      <varlistentry>
-        <term>Every</term>
-        <listitem>
-          <para>Specify how frequently you want the Invoice to recur. For
-          example, once (1) per month, six (6) times per year, etc.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Until</term>
-        <listitem>
-          <para>Specify when the recurrence should stop. For example, on the
-          last day of the year, at the end of six months, etc.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-  </tip>
+  <xi:include href="../widgets/recurrencewidget.xml"
+              xpointer="recurrenceWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <xi:include href="invoiceItem.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

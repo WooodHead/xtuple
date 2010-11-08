@@ -215,22 +215,10 @@
         </variablelist>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Recurring</term>
-      <listitem>
-        <para>Select to indicate you want the Incident to be a recurring
-        Incident, using the frequency settings you specify below. This feature
-        enables you to automatically generate copies of Incidents on a
-        recurring basis (e.g., the same day of every month). Recurring
-        Incidents are generated when you run the recurring items utility,
-        which is described in more detail here: <xref
-        linkend="createRecurringItems" />.</para>
-        <xi:include href="../widgets/recurrencewidget.xml"
-                    xpointer="recurrenceWidget"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-      </listitem>
-    </varlistentry>
   </variablelist>
+  <xi:include href="../widgets/recurrencewidget.xml"
+              xpointer="recurrenceWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>To view or associate To-Dos with an Incident, select the "To-Do List
   Items" tab. The following screen will appear:</para>
   <para><screenshot>
