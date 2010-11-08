@@ -1,8 +1,8 @@
-<package id="create_360beta2"
+<package id="resources"
          name="xtpos"
          developer="xTuple"
          descrip="Retail Point of Sale System"
-         version="3.6.0beta2"
+         version="3.6.0rc"
          updater="2.2.0">
   <pkgnotes>Retail Point of Sale add-on package for xTuple ERP.
 
@@ -197,7 +197,6 @@
   <loadmetasql file="client/metasql/registerreceipt-checks.mql" />
   <loadmetasql file="client/metasql/registerreceipt-creditcards.mql" />
   <loadmetasql file="client/metasql/registerreceipt-detail.mql" />
-  <loadmetasql file="client/metasql/retail-setpath.mql" />
   <loadmetasql file="client/metasql/retailcustomer-fetchcustnumber.mql" />
   <loadmetasql file="client/metasql/retailcustomer-getcrmacct.mql" />
   <loadmetasql file="client/metasql/retailcustomer-getcustid.mql" />
