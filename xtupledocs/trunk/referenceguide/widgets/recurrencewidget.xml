@@ -10,46 +10,51 @@
           <term>Recurring</term>
           <listitem>
             <para>Check this box if you want the event to repeat itself at
-            regular intervals.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Every</term>
-          <listitem>
-            <para>Enter a number and select a unit of time to describe how
-            frequently you want the event to occur. You can choose any regular
-            schedule, ranging from once every 1 minute to once every 99
-            years.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>From</term>
-          <listitem>
-            <para>Enter a date and time at which to start the first event. The
-            default value is the time the screen opened.</para>
-            <para>The "From" option only appears on some screens.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Until</term>
-          <listitem>
-            <para>Enter a date and time after which the event should no longer
-            occur.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Create no more than</term>
-          <listitem>
-            <para>Enter the maximum number of future copies of this event you
-            want the system to maintain. Whenever the <xref
-            linkend="createRecurringItems" /> screen is run, it will create up
-            to the number you enter here.<warning>
-                <para>If you delete all copies of a recurring event, the event
-                will stop repeating <emphasis>even if the "Until" date has not
-                yet been reached</emphasis>. xTuple recommends setting this to
-                at least 2 to reduce the likelihood of deleting all copies of
-                the event.</para>
-              </warning></para>
+            regular intervals, using the frequency settings you specify below.
+            Recurring events are generated when you run the recurring items
+            utility, which is described in more detail here: <xref
+            linkend="createRecurringItems" />.</para>
+            <variablelist>
+              <varlistentry>
+                <term>Every</term>
+                <listitem>
+                  <para>Enter a number and select a unit of time to describe
+                  how frequently you want the event to occur. You can choose
+                  any regular schedule, ranging from once every 1 minute to
+                  once every 99 years.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>From</term>
+                <listitem>
+                  <para>Enter a date and time at which to start the first
+                  event. The default value is the time the screen opened. The
+                  "From" option only appears on some screens.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Until</term>
+                <listitem>
+                  <para>Enter a date and time after which the event should no
+                  longer occur.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Create no more than</term>
+                <listitem>
+                  <para>Enter the maximum number of future copies of this
+                  event you want the system to maintain. Whenever the Create
+                  Recurring Items screen is run, it will create up to the
+                  number you enter here.<warning>
+                      <para>If you delete all copies of a recurring event, the
+                      event will stop repeating <emphasis>even if the "Until"
+                      date has not yet been reached</emphasis>. xTuple
+                      recommends setting this to at least 2 to reduce the
+                      likelihood of deleting all copies of the event.</para>
+                    </warning></para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
           </listitem>
         </varlistentry>
       </variablelist>
