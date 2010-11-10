@@ -30,7 +30,10 @@
     <varlistentry>
       <term>Document Type</term>
       <listitem>
-        <para>Select the type of document the Form will be used for.</para>
+        <para>Select the type of document the Form will be used for. The
+        following Document Types are supported: A/R Statement, Credit Memo,
+        Incident, Invoice, MetaSQL statement, Purchase Order, Query Set,
+        Quote, and Sales Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -39,7 +42,8 @@
         <para>For this example, we have selected the "Report" output format.
         Selecting the "Report" option indicates that document information will
         be written using the report definition specified below. Documents will
-        be forwarded to EDI recipients in .PDF format.</para>
+        be forwarded to EDI recipients in .PDF format. The following output
+        formats are supported: Report, CSV, HTML, and XML.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -93,6 +97,10 @@
       <listitem>
         <para>Specify the report definition you want to associate with the EDI
         Form.</para>
+        <note>
+          <para>The "Use Query Set" feature is not used with the Report output
+          format.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -175,10 +183,11 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>HTML is also supported as an output format. HTML output is much like
-  CSV output, with the data presented as rows and columns in HTML tables
-  instead of separated by line breaks and a single delimiting
-  character.</para>
+  <para>HTML and XML are also supported as an output format. HTML output is
+  much like CSV output, with the data presented as rows and columns in HTML
+  tables instead of separated by line breaks and a single delimiting
+  character. For XML, you will be given the option to send using either xTuple
+  XML or an alternate XML.</para>
   <xi:include href="ediFormDetail.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
