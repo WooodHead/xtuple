@@ -4,6 +4,9 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER"); 
+//    waitForObject(":OK_QPushButton");
+//    clickButton(":OK_QPushButton");
+    snooze(1);
     var appEdition = findApplicationEdition();
     
     if(appEdition=="Manufacturing")
@@ -11,52 +14,56 @@ function main()
         
         //-------------Standard Labor Rate -------------------
         try{
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-            activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
-            activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Labor Rates...");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            waitForObject(":Setup._modules_QComboBox");
+            clickItem(":Setup._modules_QComboBox","Products", 74, 11, 0, Qt.LeftButton);
+            waitForObject(":Master Information.Standard Labor Rates_QModelIndex");
+            mouseClick(":Master Information.Standard Labor Rates_QModelIndex", 96, 7, 0, Qt.LeftButton);
             
-            waitForObject(":List Standard Labor Rates.New_QPushButton_3");
-            clickButton(":List Standard Labor Rates.New_QPushButton_3");
+            waitForObject(":List Work Centers.New_QPushButton");
+            clickButton(":List Work Centers.New_QPushButton");
             waitForObject(":_code_XLineEdit_17");
             type(":_code_XLineEdit_17", "Assembly");
             waitForObject(":_description_XLineEdit_41");
             type(":_description_XLineEdit_41", "Assembly Rate");
             type(":_rate_XLineEdit_3", "12.00");
-            waitForObject(":Standard Labor Rate.Save_QPushButton_2");
-            clickButton(":Standard Labor Rate.Save_QPushButton_2");
-            waitForObject(":_lbrrate_XTreeWidget_2");
-            if(object.exists("{column='0' container=':_lbrrate_XTreeWidget_2' text='Assembly' type='QModelIndex'}"))
+            waitForObject(":List Employees.Save_QPushButton_2");
+            clickButton(":List Employees.Save_QPushButton_2");
+             waitForObject(":_lbrrate_XTreeWidget_3");
+            if(object.exists("{column='0' container=':_lbrrate_XTreeWidget_3' text='Assembly' type='QModelIndex'}"))
                 test.pass("Standard Labor Rate created: Assembly");
             
-            waitForObject(":List Standard Labor Rates.New_QPushButton_3");
-            clickButton(":List Standard Labor Rates.New_QPushButton_3");
+            waitForObject(":List Work Centers.New_QPushButton");
+            clickButton(":List Work Centers.New_QPushButton");
             waitForObject(":_code_XLineEdit_17");
             type(":_code_XLineEdit_17", "SETUP");
             waitForObject(":_description_XLineEdit_41");
             type(":_description_XLineEdit_41", "Setup Rate");
             type(":_rate_XLineEdit_3", "15.00");
-            waitForObject(":Standard Labor Rate.Save_QPushButton_2");
-            clickButton(":Standard Labor Rate.Save_QPushButton_2");
-            waitForObject(":_lbrrate_XTreeWidget_2");
-            if(object.exists(":_lbrrate.SETUP_QModelIndex"))
+            waitForObject(":List Employees.Save_QPushButton_2");
+            clickButton(":List Employees.Save_QPushButton_2");
+            waitForObject(":_lbrrate_XTreeWidget_3");
+             if(object.exists("{column='0' container=':_lbrrate_XTreeWidget_3' text='SETUP' type='QModelIndex'}"))
                 test.pass("Standard Labor Rate created: SETUP");
             else test.fail("Standard Labor Rate not created: SETUP");
             
-            waitForObject(":List Standard Labor Rates.Close_QPushButton_3");
-            clickButton(":List Standard Labor Rates.Close_QPushButton_3");
+            waitForObject(":List Employees.Save_QPushButton_2");
+            clickButton(":List Employees.Save_QPushButton_2");
         }catch(e){test.fail("Exception in creating Standard Labor Rate:"+e);}
         
         try{
             //---------Create Work Centers------------
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-            activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers...");
-            activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Work Centers...");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            waitForObject(":Setup._modules_QComboBox");
+            clickItem(":Setup._modules_QComboBox","Products", 74, 11, 0, Qt.LeftButton);
+            waitForObject(":Master Information.Work Centers_QModelIndex");
+            mouseClick(":Master Information.Work Centers_QModelIndex", 52, 5, 0, Qt.LeftButton);
             
             waitForObject(":List Work Centers.New_QPushButton");
             clickButton(":List Work Centers.New_QPushButton");
@@ -121,8 +128,8 @@ function main()
             waitForObject(":_notesTab._comments_QTextEdit");
             findObject(":_notesTab._comments_QTextEdit").clear();
             type(":_notesTab._comments_QTextEdit", "Assembly Work Center Number 1");
-            waitForObject(":Work Center.Save_QPushButton");
-            clickButton(":Work Center.Save_QPushButton");
+            waitForObject(":List Employees.Save_QPushButton_2");
+            clickButton(":List Employees.Save_QPushButton_2");
             waitForObject(":List Work Centers._wrkcnt_XTreeWidget");
             if(object.exists(":_wrkcnt.ASSEMBLY1_QModelIndex_2"))
                 test.pass("Work Center created: ASSEMBLY1");
@@ -148,8 +155,8 @@ function main()
             waitForObject(":_notesTab._comments_QTextEdit");
             findObject(":_notesTab._comments_QTextEdit").clear();
             type(":_notesTab._comments_QTextEdit", "Paint Work Center Number 1");
-            waitForObject(":Work Center.Save_QPushButton");
-            clickButton(":Work Center.Save_QPushButton");
+            waitForObject(":List Employees.Save_QPushButton_2");
+            clickButton(":List Employees.Save_QPushButton_2");
             waitForObject(":List Work Centers._wrkcnt_XTreeWidget");
             if(object.exists("{column='1' container=':List Work Centers._wrkcnt_XTreeWidget' text='PAINT1' type='QModelIndex'}"))
                 test.pass("Work Center created: PAINT1");
@@ -182,29 +189,31 @@ function main()
             waitForObject(":_notesTab._comments_QTextEdit");
             findObject(":_notesTab._comments_QTextEdit").clear();
             type(":_notesTab._comments_QTextEdit", "Shipping Work Center Number 1");
-            waitForObject(":Work Center.Save_QPushButton");
-            clickButton(":Work Center.Save_QPushButton");
+            waitForObject(":List Employees.Save_QPushButton_2");
+            clickButton(":List Employees.Save_QPushButton_2");
             waitForObject(":List Work Centers._wrkcnt_XTreeWidget");
             if(object.exists("{column='1' container=':List Work Centers._wrkcnt_XTreeWidget' text='SHIPPING1' type='QModelIndex'}"))
                 test.pass("Work Center created: SHIPPING1");
             else test.fail("Work Center not created: SHIPPING1");
             
-            waitForObject(":List Work Centers.Close_QPushButton");
-            clickButton(":List Work Centers.Close_QPushButton");
+            waitForObject(":List Employees.Save_QPushButton_2");
+            clickButton(":List Employees.Save_QPushButton_2");
         }catch(e){test.fail("Exception in creating work center:"+e)}
         
         
         //---------------------Products: Standard Operation--------------------
         try{
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-            activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Master Information");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
-            activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu_4", "Standard Operations...");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+            waitForObject(":Setup._modules_QComboBox");
+            clickItem(":Setup._modules_QComboBox","Products", 74, 11, 0, Qt.LeftButton);
+            waitForObject(":Master Information.Standard Operations_QModelIndex");
+            mouseClick(":Master Information.Standard Operations_QModelIndex", 74, 3, 0, Qt.LeftButton);
             
-            waitForObject(":List Standard Operations.New_QPushButton");
-            clickButton(":List Standard Operations.New_QPushButton");
+            waitForObject(":List Work Centers.New_QPushButton");
+            clickButton(":List Work Centers.New_QPushButton");
             waitForObject(":Standard Operation._number_XLineEdit");
             type(":Standard Operation._number_XLineEdit", "ASSEMBLY");
             type(":Standard Operation._description1_XLineEdit", "Standard Operation - Assembly");
@@ -224,15 +233,15 @@ function main()
             type(":_standardGroup._runQtyPer_XLineEdit", "100.00");
             type(":Standard Operation._instructions_QTextEdit", "Enter standard instructions through the Standard Operations session");
             
-            waitForObject(":Standard Operation.Save_QPushButton");        
-            clickButton(":Standard Operation.Save_QPushButton");
-            waitForObject(":List Standard Operations._stdopn_XTreeWidget",3);
-            if(!clickItem(":List Standard Operations._stdopn_XTreeWidget", "ASSEMBLY", 5, 5, 1, Qt.LeftButton))
+            waitForObject(":List Employees.Save_QPushButton_2");        
+            clickButton(":List Employees.Save_QPushButton_2");
+             waitForObject(":_stack._stdopn_XTreeWidget");
+            if(!clickItem(":_stack._stdopn_XTreeWidget", "ASSEMBLY", 5, 5, 1, Qt.LeftButton))
                 test.pass("Standard Operation created: ASSEMBLY");
             
             
-            waitForObject(":List Standard Operations.New_QPushButton");
-            clickButton(":List Standard Operations.New_QPushButton");
+            waitForObject(":List Work Centers.New_QPushButton");
+            clickButton(":List Work Centers.New_QPushButton");
             waitForObject(":Standard Operation._number_XLineEdit");
             type(":Standard Operation._number_XLineEdit", "PAINT");
             type(":Standard Operation._description1_XLineEdit", "Standard Operation - Paint");
@@ -246,16 +255,16 @@ function main()
             clickItem(":_standardGroup._runReport_XComboBox", "Direct Labor",0,0,1,Qt.LeftButton);
             type(":_standardGroup._runQtyPer_XLineEdit", "100.00");
             type(":Standard Operation._instructions_QTextEdit", "Enter standard instructions through the Standard Operations session");
-            waitForObject(":Standard Operation.Save_QPushButton");    
-            clickButton(":Standard Operation.Save_QPushButton");
-            waitForObject(":List Standard Operations._stdopn_XTreeWidget");
-            if(!clickItem(":List Standard Operations._stdopn_XTreeWidget", "PAINT", 5, 5, 1, Qt.LeftButton))
+            waitForObject(":List Employees.Save_QPushButton_2");    
+            clickButton(":List Employees.Save_QPushButton_2");
+            waitForObject(":_stack._stdopn_XTreeWidget");
+            if(!clickItem(":_stack._stdopn_XTreeWidget", "PAINT", 5, 5, 1, Qt.LeftButton))
                 test.pass("Standard Operation created: PAINT");
             
             
             
-            waitForObject(":List Standard Operations.New_QPushButton");
-            clickButton(":List Standard Operations.New_QPushButton");
+            waitForObject(":List Work Centers.New_QPushButton");
+            clickButton(":List Work Centers.New_QPushButton");
             waitForObject(":Standard Operation._number_XLineEdit");
             type(":Standard Operation._number_XLineEdit", "SHIPPING");
             type(":Standard Operation._description1_XLineEdit", "Standard Operation - Shipping");
@@ -270,14 +279,14 @@ function main()
             clickItem(":_standardGroup._runReport_XComboBox", "Direct Labor",0,0,1,Qt.LeftButton);
             type(":_standardGroup._runQtyPer_XLineEdit", "100.00");
             type(":Standard Operation._instructions_QTextEdit", "Enter standard instructions through the Standard Operations session");
-            waitForObject(":Standard Operation.Save_QPushButton");            
-            clickButton(":Standard Operation.Save_QPushButton");
-            waitForObject(":List Standard Operations._stdopn_XTreeWidget");
-            if(!clickItem(":List Standard Operations._stdopn_XTreeWidget", "SHIPPING", 5, 5, 1, Qt.LeftButton))
+            waitForObject(":List Employees.Save_QPushButton_2");            
+            clickButton(":List Employees.Save_QPushButton_2");
+            waitForObject(":_stack._stdopn_XTreeWidget");
+            if(!clickItem(":_stack._stdopn_XTreeWidget", "SHIPPING", 5, 5, 1, Qt.LeftButton))
                 test.pass("Standard Operation created: SHIPPING");
             
-            waitForObject(":List Standard Operations.Close_QPushButton");
-            clickButton(":List Standard Operations.Close_QPushButton");
+            waitForObject(":List Employees.Save_QPushButton_2");
+            clickButton(":List Employees.Save_QPushButton_2");
         }catch(e){test.fail("Exception in creating Standard Operations:"+e);}
         
         
@@ -295,11 +304,11 @@ function main()
             waitForObject(":Bills of Operations.New_QPushButton");
             clickButton(":Bills of Operations.New_QPushButton");
             
-            waitForObject(":itemGroup...._QPushButton_3");
-            clickButton(":itemGroup...._QPushButton_3");
-            waitForObject(":_listTab_XTreeWidget_4");
-            doubleClickItem(":_listTab_XTreeWidget_4", "YTRUCK1",0,0,0,Qt.LeftButton);
-            
+            waitForObject(":itemGroup.VirtualClusterLineEdit_ItemLineEdit");
+            type(":itemGroup.VirtualClusterLineEdit_ItemLineEdit","YTRUCK1");
+            snooze(0.5);
+            nativeType("<Tab>");
+               
             waitForObject(":frame.New_QPushButton_2");
             clickButton(":frame.New_QPushButton_2");
             waitForObject(":_stdopn_XComboBox");
@@ -341,10 +350,10 @@ function main()
         try{
             waitForObject(":Bills of Operations.New_QPushButton");
             clickButton(":Bills of Operations.New_QPushButton");
-            waitForObject(":itemGroup...._QPushButton_3");
-            clickButton(":itemGroup...._QPushButton_3");
-            waitForObject(":_listTab_XTreeWidget_4");
-            doubleClickItem(":_listTab_XTreeWidget_4", "TSUB1",0,0,0,Qt.LeftButton);        
+            waitForObject(":itemGroup.VirtualClusterLineEdit_ItemLineEdit");
+            type(":itemGroup.VirtualClusterLineEdit_ItemLineEdit","TSUB1");
+            snooze(0.5);
+            nativeType("<Tab>");    
             waitForObject(":frame.New_QPushButton_2");
             clickButton(":frame.New_QPushButton_2");
             waitForObject(":_stdopn_XComboBox");
@@ -405,7 +414,7 @@ function main()
         
     }
     
-    
+//    
     //---------------Create BOM for Items---------------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -423,16 +432,16 @@ function main()
         mouseClick(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", 63, 10, 0, Qt.LeftButton);
         waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
         type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        nativeType("<Tab>");
+        snooze(1);
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TBODY1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+         nativeType("<Tab>");
+        snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "1");
         findObject(":_scrap_XLineEdit").clear();
@@ -441,6 +450,7 @@ function main()
         {
             clickButton(":Bill of Materials Item...._QPushButton");
             waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
+            snooze(0.5);
             doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Paint", 141, 10, 0, Qt.LeftButton);
             waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
             clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
@@ -462,8 +472,8 @@ function main()
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "YPAINT1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+         nativeType("<Tab>");
+        snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".01");
         findObject(":_scrap_XLineEdit").clear();
@@ -472,6 +482,7 @@ function main()
         {
             clickButton(":Bill of Materials Item...._QPushButton");
             waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
+              snooze(0.5);
             doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Paint", 5, 5, 0, Qt.LeftButton);
             waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
             clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
@@ -491,8 +502,8 @@ function main()
         clickButton(":frame_2.New_QPushButton");
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TWHEEL1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+         nativeType("<Tab>");
+        snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "4");
         findObject(":_scrap_XLineEdit").clear();
@@ -502,6 +513,7 @@ function main()
             
             clickButton(":Bill of Materials Item...._QPushButton");
             waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
+              snooze(0.5);
             doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly", 5, 5, 0, Qt.LeftButton);
             waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
             clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
@@ -522,8 +534,8 @@ function main()
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TSUB1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+         nativeType("<Tab>");
+        snooze(1);
         waitForObject(":_qtyPer_XLineEdit"); 
         type(":_qtyPer_XLineEdit", "1");
         findObject(":_scrap_XLineEdit").clear();
@@ -535,6 +547,7 @@ function main()
             
             clickButton(":Bill of Materials Item...._QPushButton");
             waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
+              snooze(0.5);
             doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Shipping", 5, 5, 0, Qt.LeftButton);
             waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
             clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
@@ -568,16 +581,16 @@ function main()
         mouseClick(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", 63, 10, 0, Qt.LeftButton);
         waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
         type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "TSUB1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        
+         nativeType("<Tab>");
+        snooze(1);
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TBOX1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+         nativeType("<Tab>");
+        snooze(1);
+
         waitForObject(":_qtyPer_XLineEdit"); 
         type(":_qtyPer_XLineEdit", "1");
         findObject(":_scrap_XLineEdit").clear();
@@ -588,6 +601,7 @@ function main()
             
             clickButton(":Bill of Materials Item...._QPushButton");
             waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
+              snooze(0.5);
             doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly", 5, 5, 0, Qt.LeftButton);
             waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
             clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
@@ -606,8 +620,8 @@ function main()
         clickButton(":frame_2.New_QPushButton");
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TINSERT1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+         nativeType("<Tab>");
+        snooze(1);
         waitForObject(":_qtyPer_XLineEdit"); 
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "1");
@@ -617,6 +631,7 @@ function main()
         {
             clickButton(":Bill of Materials Item...._QPushButton");
             waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
+              snooze(0.5);
             doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly", 5, 5, 0, Qt.LeftButton);
             waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
             clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");

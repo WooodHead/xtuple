@@ -45,7 +45,8 @@ function loginAppl(userrole)
         findObject(":_port_QLineEdit").text=port;
         test.log("Port Changed to:" + port);
     }
-    clickButton(":Login Options.Save_QPushButton");
+    waitForObject(":List Employees.Save_QPushButton_2");
+    clickButton(":List Employees.Save_QPushButton_2");
     waitForObject(":_username_QLineEdit");    
     type(":_username_QLineEdit", username);
     waitForObject(":_username_QLineEdit");
@@ -54,8 +55,11 @@ function loginAppl(userrole)
     type(":_password_QLineEdit", pwd);
     waitForObject(":_password_QLineEdit");
     type(":_password_QLineEdit", "<Return>");
+    
     test.log("Logged in Application");
    }
+
+
 
 function findApplicationEdition()
 {
@@ -63,6 +67,7 @@ function findApplicationEdition()
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+    snooze(2);
     if(findObject(":Setup._tree_XTreeWidget").itemsExpandable==true)
     {
         waitForObject(":Configure.Database_QModelIndex");
@@ -78,7 +83,10 @@ function findApplicationEdition()
     
     waitForObject(":Database Information.*_QLabel");
     var appEdition = findObject(":Database Information.*_QLabel").text;
-    waitForObject(":xTuple ERP: *_QPushButton");
+    waitForObject(":_stack.Use toolbars on displays when available_QCheckBox");
+    if(!(findObject(":_stack.Use toolbars on displays when available_QCheckBox").checked))
+    clickButton(":_stack.Use toolbars on displays when available_QCheckBox");
+     waitForObject(":xTuple ERP: *_QPushButton");
     clickButton(":xTuple ERP: *_QPushButton");
     test.log("Application Edition: " + appEdition);
     
@@ -133,8 +141,7 @@ function assignAllPrivileges(userrole)
     waitForObject(":xTuple ERP: OpenMFG Edition.System_QMenu");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit xTuple ERP...");
     
-    snooze(5);
-    
+  
     if(OS.name=="Linux")
         startApplication("xtuple.bin");
     
@@ -144,7 +151,8 @@ function assignAllPrivileges(userrole)
     snooze(2);
     
     loginAppl("CONFIGURE"); 
-    
+//     waitForObject(":OK_QPushButton");
+//    clickButton(":OK_QPushButton");
 }
 
 //--------------Create New Dept----------------------
@@ -157,6 +165,7 @@ function createDept(DeptNum, DeptName)
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        snooze(1);
         if(findObject(":Setup._tree_XTreeWidget").itemsExpandable==true)
         {
             waitForObject(":Master Information.Departments_QModelIndex");
@@ -193,13 +202,25 @@ function createShift(ShiftNum, ShiftName)
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Master Information");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Shifts...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Master Information_QMenu", "Shifts...");
-        waitForObject(":List Shifts.New_QPushButton");
-        clickButton(":List Shifts.New_QPushButton");
-        
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Products", 74, 11, 0, Qt.LeftButton);
+        if(findObject(":Setup._tree_XTreeWidget").itemsExpandable==true)
+        {
+            waitForObject(":Master Information.Shifts_QModelIndex");
+            mouseClick(":Master Information.Shifts_QModelIndex", 35, 9, 0, Qt.LeftButton);
+        }
+        else
+        {
+            waitForObject(":_tree.Master Information_QModelIndex");
+            mouseClick(":_tree.Master Information_QModelIndex", -11, 6, 0, Qt.LeftButton);
+            waitForObject(":Master Information.Shifts_QModelIndex");
+            mouseClick(":Master Information.Shifts_QModelIndex", 35, 9, 0, Qt.LeftButton); 
+        }
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+           
         waitForObject(":List Shifts._number_XLineEdit");
         type(":List Shifts._number_XLineEdit",ShiftNum);
         type(":List Shifts._name_XLineEdit", ShiftName);
@@ -212,8 +233,8 @@ function createShift(ShiftNum, ShiftName)
         else
             test.fail("New Shift:"+ ShiftNum + "not created")
                     
-                    waitForObject(":List Shifts.Close_QPushButton");
-        clickButton(":List Shifts.Close_QPushButton");
+     waitForObject(":List Employees.Save_QPushButton_2");
+    clickButton(":List Employees.Save_QPushButton_2");
     }
     catch(e)
     {test.fail("Shift:"+ShiftName+" not created:"+e);}
@@ -227,6 +248,7 @@ function createLocale(LocaleCode,LocaleDesc)
 {  
     try{
         
+    
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
@@ -590,8 +612,8 @@ function defineTaxAuth(ta)
     activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Authorities...");
     
     
-    waitForObject(":List Tax Authorities.New_QPushButton");
-    clickButton(":List Tax Authorities.New_QPushButton");
+   waitForObject(":Tax Authorities.New_QToolButton");
+   clickButton(":Tax Authorities.New_QToolButton"); 
     waitForObject(":_code_XLineEdit_15");
     findObject(":_code_XLineEdit_15").clear();
     type(":_code_XLineEdit_15", ta);
@@ -609,13 +631,13 @@ function defineTaxAuth(ta)
     clickItem(":groupBox._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
     clickButton(":Tax Authority.Save_QPushButton");
     snooze(2);
-    waitForObject(":List Tax Authorities._taxauth_XTreeWidget");
+    waitForObject(":_list_XTreeWidget_4");
     if(object.exists(":_taxauth.TAX-AUTH1_QModelIndex"))
         test.pass("Tax Authority created:TAX-AUTH1");
     else test.fail("Tax Authority not created:TAX-AUTH1");
     
-    waitForObject(":List Tax Authorities.Close_QPushButton");
-    clickButton(":List Tax Authorities.Close_QPushButton");
+   waitForObject(":Tax Authorities.Close_QToolButton");
+   clickButton(":Tax Authorities.Close_QToolButton");
     
 }
 

@@ -4,7 +4,9 @@ function main()
     source(findFile("scripts","functions.js"));
     
     //---login Application--------
-    loginAppl("RUNREGISTER");       
+    loginAppl("RUNREGISTER");   
+//    waitForObject(":OK_QPushButton");
+//    clickButton(":OK_QPushButton");
     var appEdition = findApplicationEdition();
     
     //---------Assign Tax Authority for Customer----------
@@ -15,8 +17,10 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "List...");
         activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "List...");
-        waitForObject(":List Customers._cust_XTreeWidget_2");
-        doubleClickItem(":List Customers._cust_XTreeWidget_2", "NORMAL", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":Items.Query_QToolButton");
+        clickButton(":Items.Query_QToolButton");
+        waitForObject(":_list_XTreeWidget_5");
+        doubleClickItem(":_list_XTreeWidget_5", "NORMAL", 5, 5, 0, Qt.LeftButton);
         waitForObject(":Customer.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Customer.qt_tabwidget_tabbar_QTabBar", "Addresses");
         waitForObject(":_addressTab.Ship To_QRadioButton");
@@ -36,8 +40,9 @@ function main()
         clickButton(":Ship-To.Save_QPushButton");
         waitForObject(":Customer.Save_QPushButton");
         clickButton(":Customer.Save_QPushButton");
-        waitForObject(":List Customers.Close_QPushButton_2");
-        clickButton(":List Customers.Close_QPushButton_2");
+   
+        waitForObject(":Tax Authorities.Close_QToolButton");
+        clickButton(":Tax Authorities.Close_QToolButton");
         test.log("Tax Authority assigned for Customer: NORMAL");
         test.log("--Empty database staged for further transactions--");
         
