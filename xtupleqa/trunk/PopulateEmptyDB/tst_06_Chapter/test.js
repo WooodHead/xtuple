@@ -3,7 +3,9 @@ function main()
     source(findFile("scripts","functions.js"));    
     
     //---login Application--------
-    loginAppl("RUNREGISTER");     
+    loginAppl("RUNREGISTER");   
+//    waitForObject(":OK_QPushButton");
+//    clickButton(":OK_QPushButton");
     var appEdition = findApplicationEdition();
     
     
@@ -209,7 +211,7 @@ function main()
         clickButton(":Post Actual Costs by Class Code.Post_QPushButton");
         test.log("Posted Actual Costs");
     }catch(e){test.fail("Exception in Posting Actual Costs");}
-    
+  
     //-------------Verify standard and actual cost in Intended Costed BOM---------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -224,12 +226,12 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Costed BOM_QMenu", "Indented...");
         waitForObject(":Costed Indented Bill of Materials.VirtualClusterLineEdit_ItemLineEdit");
         type(":Costed Indented Bill of Materials.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+         nativeType("<Tab>");
+        snooze(1);
         
+        waitForObject(":Items.Query_QToolButton");
+        clickButton(":Items.Query_QToolButton");
         
-        waitForObject(":Costed Indented Bill of Materials.Query_QPushButton");
-        clickButton(":Costed Indented Bill of Materials.Query_QPushButton");
         
         waitForObject(":_costsGroup.Use Actual Costs_QRadioButton");
         clickButton(":_costsGroup.Use Actual Costs_QRadioButton");
@@ -244,7 +246,9 @@ function main()
             test.pass("Actual costs are equal to Standard costs");
         else 
             test.fail("Actual costs are not equal to Standard costs");
-        waitForObject(":Costed Indented Bill of Materials.Query_QPushButton");
+        waitForObject(":Items.Query_QToolButton");
+        
+       
         nativeType("<Ctrl+w>");
     }catch(e){test.fail("Exception in verifying standard and actual costs:"+e)}
     

@@ -5,6 +5,9 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER"); 
+  
+//     waitForObject(":OK_QPushButton");
+//    clickButton(":OK_QPushButton");
     var appEdition = findApplicationEdition();
     
     
@@ -17,11 +20,12 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
         activateItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List...");
-        
+        waitForObject(":Items.Query_QToolButton");
+        clickButton(":Items.Query_QToolButton");
         
         //-----------Create Item RTRUCK1---------------
-        waitForObject(":List Items.New_QPushButton_2");
-        clickButton(":List Items.New_QPushButton_2");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         waitForObject(":_itemNumber_XLineEdit_3");
         type(":_itemNumber_XLineEdit_3","RTRUCK1");
         type(":_description1_XLineEdit_3", "Red Collector’s Truck");
@@ -127,16 +131,16 @@ function main()
             test.xverify(object.exists(":Item Site.Cancel_QPushButton"), "Cancel button not found");
         }
         
-        waitForObject(":List Items._item_XTreeWidget_3");
-        if(object.exists("{column='0' container=':List Items._item_XTreeWidget_3' text='RTRUCK1' type='QModelIndex'}"))
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='0' container=':_list_XTreeWidget_3' text='RTRUCK1' type='QModelIndex'}"))
             test.pass("Item Created: RTRUCK1");
         
     }catch(e){test.fail("Exception in creating Item RTRUCK1:"+e)}
     
     //-----------Create Item BTRUCK1---------------
     try{
-        waitForObject(":List Items.New_QPushButton_2");
-        clickButton(":List Items.New_QPushButton_2");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         waitForObject(":_itemNumber_XLineEdit_3");
         type(":_itemNumber_XLineEdit_3","BTRUCK1");
         type(":_description1_XLineEdit_3", "Blue Collector’s Truck");
@@ -230,8 +234,8 @@ function main()
         {
             test.xverify(object.exists(":Item Site.Cancel_QPushButton"), "Cancel button not found");
         }   
-        waitForObject(":List Items._item_XTreeWidget_3");
-        if(object.exists("{column='0' container=':List Items._item_XTreeWidget_3' text='BTRUCK1' type='QModelIndex'}"))
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='0' container=':_list_XTreeWidget_3' text='BTRUCK1' type='QModelIndex'}"))
             test.pass("Item Created: BTRUCK1");
         else test.fail("Item not created: BTRUCK1");
     }catch(e){test.fail("Exception in creating item BTRUCK1:"+e);}
@@ -240,8 +244,8 @@ function main()
     //-----------Create Item WTRUCK1---------------
     
     try{
-        waitForObject(":List Items.New_QPushButton_2");
-        clickButton(":List Items.New_QPushButton_2");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         waitForObject(":_itemNumber_XLineEdit_3");
         type(":_itemNumber_XLineEdit_3","WTRUCK1");
         type(":_description1_XLineEdit_3", "White Collector’s Truck");
@@ -342,16 +346,16 @@ function main()
         {
             test.xverify(object.exists(":Item Site.Cancel_QPushButton"), "Cancel button not found");
         } 
-        while(!object.exists(":List Items._item_XTreeWidget_3"))
+        while(!object.exists(":_list_XTreeWidget_3"))
             snooze(0.1);
         
-        waitForObject(":List Items._item_XTreeWidget_3");
-        if(object.exists("{column='0' container=':List Items._item_XTreeWidget_3' text='WTRUCK1' type='QModelIndex'}"))
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='0' container=':_list_XTreeWidget_3' text='WTRUCK1' type='QModelIndex'}"))
             test.pass("Item Created: WTRUCK1");
         else test.fail("Item not created:WTRUCK1");
         
-        waitForObject(":List Items.Close_QPushButton_3");
-        clickButton(":List Items.Close_QPushButton_3");
+        waitForObject(":Tax Authorities.Close_QToolButton");
+        clickButton(":Tax Authorities.Close_QToolButton");
         
     }catch(e){test.fail("Exception in creating Item WTRUCK1"+e);}
     
@@ -435,17 +439,17 @@ function main()
         mouseClick(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", 63, 10, 0, Qt.LeftButton);
         waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
         type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "COLLECTORS-LINE");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        
+        nativeType("<Tab>");
+        snooze(1);
+       
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        
+         nativeType("<Tab>");
+        snooze(1);
+       
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".30");
         type(":_scrap_XLineEdit", "0");
@@ -457,8 +461,8 @@ function main()
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "WTRUCK1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+         nativeType("<Tab>");
+        snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".20");
         type(":_scrap_XLineEdit", "0");
@@ -470,8 +474,8 @@ function main()
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "BTRUCK1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+         nativeType("<Tab>");
+        snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".50");
         type(":_scrap_XLineEdit", "0");

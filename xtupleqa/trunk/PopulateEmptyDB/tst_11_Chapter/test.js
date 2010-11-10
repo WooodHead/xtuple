@@ -4,7 +4,9 @@ function main()
     source(findFile("scripts","functions.js"));
     
     //---login Application--------
-    loginAppl("RUNREGISTER");       
+    loginAppl("RUNREGISTER");     
+//     waitForObject(":OK_QPushButton");
+//    clickButton(":OK_QPushButton");
     var appEdition = findApplicationEdition();
     
     try{
@@ -14,7 +16,7 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Financial Statements");
         waitForObject(":xTuple ERP: OpenMFG Edition.Financial Statements_QMenu");
         activateItem(":xTuple ERP: OpenMFG Edition.Financial Statements_QMenu", "List Financial Reports...");
-        
+      
         //---------------Create Basic Income Statement---------------
         waitForObjectItem(":List Financial Reports._flhead_XTreeWidget", "Basic Income Statement");
         clickItem(":List Financial Reports._flhead_XTreeWidget", "Basic Income Statement", 5, 5, 1, Qt.LeftButton);
@@ -2359,7 +2361,7 @@ function main()
         waitForObject(":List Financial Reports._flhead_XTreeWidget");
         if(!clickItem(":List Financial Reports._flhead_XTreeWidget", "INCOME\\_STATEMENT", 5, 5, 1, Qt.LeftButton))
             test.pass("Financial Report created:INCOME_STATEMENT");
-        
+       
         
         //-------------Create Adhoc Balance Sheet--------------
         waitForObject(":List Financial Reports.New_QPushButton");

@@ -5,7 +5,9 @@ function main()
     source(findFile("scripts","functions.js"));
     
     //---login Application--------
-    loginAppl("RUNREGISTER");     
+    loginAppl("RUNREGISTER");  
+//     waitForObject(":OK_QPushButton");
+//    clickButton(":OK_QPushButton");
     var appEdition = findApplicationEdition();
     
     //--------Configure: Purchase Module-------------------
@@ -294,7 +296,7 @@ function main()
         clickButton(":Setup.Save_QPushButton");
         
     }catch(e){test.fail("Exception in Assigning Accounts:"+e);}
-    
+   
     //--------------Create new Vendor-------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -304,8 +306,10 @@ function main()
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Vendor_QMenu", "List...");
         activateItem(":xTuple ERP: OpenMFG Edition.Vendor_QMenu", "List...");
         
-        waitForObject(":List Vendors.New_QPushButton");
-        clickButton(":List Vendors.New_QPushButton");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
+   
+  
         waitForObject(":_number_XLineEdit_4");
         findObject(":_number_XLineEdit_4").clear();
         type(":_number_XLineEdit_4", "TPARTS");
@@ -340,14 +344,14 @@ function main()
         clickItem(":_addressStack._country_XComboBox", "India", 0, 0, 1, Qt.LeftButton);
         waitForObject(":Vendor.Save_QPushButton");
         clickButton(":Vendor.Save_QPushButton");
-        waitForObject(":List Vendors._vendor_XTreeWidget");
+        waitForObject(":_list_XTreeWidget_3");
         snooze(1);
         if(object.exists(":_vendor.STANDARD_QModelIndex"))
             test.pass("Vendor created: TPARTS");
         else test.fail("Vendor not created: TPARTS");
         
-        waitForObject(":List Vendors.Close_QPushButton");
-        clickButton(":List Vendors.Close_QPushButton");
+        waitForObject(":Tax Authorities.Close_QToolButton");
+        clickButton(":Tax Authorities.Close_QToolButton");
     }catch(e){test.fail("Exception in creating Vendor:"+e);}
     
     
@@ -367,16 +371,14 @@ function main()
         
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TBOX1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+        nativeType("<Tab>");
         snooze(0.5);
         
         waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
         type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
+         nativeType("<Tab>");
         snooze(0.5); 
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        
+       
         waitForObject(":_venditemGroup._vendorItemNumber_XLineEdit_2");
         type(":_venditemGroup._vendorItemNumber_XLineEdit_2", "TPBOX01");
         type(":_vendorUOM_XLineEdit", "PCS");
@@ -428,16 +430,14 @@ function main()
         
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TBODY1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+         nativeType("<Tab>");
         snooze(0.5);
         
         
         waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
         type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
+         nativeType("<Tab>");
         snooze(0.5);
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
         
         waitForObject(":_venditemGroup._vendorItemNumber_XLineEdit");
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPBODY01");
@@ -477,15 +477,13 @@ function main()
         
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TINSERT1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+         nativeType("<Tab>");
         snooze(0.5);
         
         waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
         type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
+         nativeType("<Tab>");
         snooze(0.5);
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
         
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPINSERT01");
         type(":_vendorUOM_XLineEdit", "PCS");
@@ -526,17 +524,15 @@ function main()
         clickButton(":_frame.New_QPushButton");
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TWHEEL1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+         nativeType("<Tab>");
         snooze(0.5);
         
         
         waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
         type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
+         nativeType("<Tab>");
         snooze(0.5);
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        
+       
         
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPWHEEL01");
         type(":_vendorUOM_XLineEdit", "PCS");
@@ -572,16 +568,14 @@ function main()
         clickButton(":_frame.New_QPushButton");
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "YPAINT1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
+         nativeType("<Tab>");
         snooze(0.5);
         
         waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
         type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
+         nativeType("<Tab>");
         snooze(0.5);
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");    
-        
+     
         
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPPAINT01");
         type(":_vendorUOM_XLineEdit", "PCS");

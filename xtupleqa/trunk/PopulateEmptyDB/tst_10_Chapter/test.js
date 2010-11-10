@@ -4,12 +4,14 @@ function main()
     
     source(findFile("scripts","functions.js"));
     
-    
+  
     //---login Application--------
-    loginAppl("RUNREGISTER");       
+    loginAppl("RUNREGISTER");     
+//    waitForObject(":OK_QPushButton");
+//    clickButton(":OK_QPushButton");
     var appEdition = findApplicationEdition();
-  
-  
+
+
     //--------------Define: Check Formats-------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -65,7 +67,7 @@ function main()
         clickButton(":Chart of Accounts.Close_QPushButton_2");
     }catch(e){test.fail("Exception in creating Chart of Accounts");}
     
-    
+  
     
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
@@ -97,7 +99,7 @@ function main()
             type(":_companyId_XLineEdit_2", "987654");
             clickButton(":Enable EFT Check Printing.Other_QRadioButton");
             type(":_companyName_XLineEdit_2", "ProDiem Inc.");
-            clickButton(":Accounting Configuration.Save_QPushButton");
+            clickButton(":Setup.Save_QPushButton");
             test.log("Accounting for ACH configured");
         }catch(e){test.fail("Exception in configuring Accounting" + e);}
         
@@ -248,6 +250,30 @@ function main()
         clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Adjustment types:"+e);}
   
+    //---Restarting Application--
+    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit xTuple ERP...");
+    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit xTuple ERP...");
+    
+    snooze(5);
+    
+    if(OS.name=="Linux")
+        startApplication("xtuple.bin");
+    
+    else
+        startApplication("xtuple");
+    
+    snooze(2);
+   
+    loginAppl("CONFIGURE"); 
+  
+//     waitForObject(":OK_QPushButton");
+//    clickButton(":OK_QPushButton");
+  
+    var appEdition = findApplicationEdition(); 
+
+
     //------------Define: Fiscal Year----------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -260,9 +286,9 @@ function main()
         waitForObject(":List Fiscal Years.New_QPushButton");
         clickButton(":List Fiscal Years.New_QPushButton");
         waitForObject(":Fiscal Year.XDateEdit_XDateEdit");
-        var d = new Date();
-        var CurrentYearFull = d.getFullYear();
-        var CurrentYear = CurrentYearFull.toString().slice(2);
+      var d = new Date();
+      var CurrentYearFull = d.getFullYear();
+      var CurrentYear = CurrentYearFull.toString().slice(2);
         type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+CurrentYearFull);
         type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+CurrentYearFull);
         waitForObject(":Fiscal Year.Save_QPushButton");
@@ -289,7 +315,7 @@ function main()
         clickButton(":List Fiscal Years.Close_QPushButton");
     }catch(e){test.fail("Exception in creating Fiscal Year");}
     
-    
+  
     //-------------Define: Fiscal Calendar--------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -313,9 +339,9 @@ function main()
                 clickButton(":List Accounting Periods.New_QPushButton");
                 
                 waitForObject(":_year_XComboBox");
-                if(findObject(":_year_XComboBox").currentText!="01/01/"+CurrentYear+"-12/31/"+CurrentYear)
-                    clickItem(":_year_XComboBox", "01/01/"+CurrentYear+"-12/31/"+CurrentYear,0,0,1,Qt.LeftButton);
-                while(findObject(":_year_XComboBox").currentText!="01/01/"+CurrentYear+"-12/31/"+CurrentYear)
+                if(findObject(":_year_XComboBox").currentText!="01 Jan "+CurrentYearFull+"-31 Dec "+CurrentYearFull)
+                    clickItem(":_year_XComboBox", "01 Jan "+CurrentYearFull+"-31 Dec "+CurrentYearFull,0,0,1,Qt.LeftButton);
+                while(findObject(":_year_XComboBox").currentText!="01 Jan "+CurrentYearFull+"-31 Dec "+CurrentYearFull)
                     snooze(0.1);
                 
                 
@@ -326,10 +352,9 @@ function main()
                 findObject(":Accounting Period.XDateEdit_XDateEdit_2").clear();        
                 type(":Accounting Period.XDateEdit_XDateEdit_2", j+"/"+YearSet[j-1]+"/"+i);
                 type(":Accounting Period.XDateEdit_XDateEdit_2", "<Tab>");
-                while(findObject(":Accounting Period.XDateEdit_XDateEdit_2").text!=j+"/"+YearSet[j-1]+"/"+i)
+                if(findObject(":Accounting Period.XDateEdit_XDateEdit_2").text!=j+"/"+YearSet[j-1]+"/"+i)
                     snooze(0.1);
                 
-                snooze(2);
                 waitForObject(":_name_QLineEdit");
                 findObject(":_name_QLineEdit").clear();
                 snooze(2);

@@ -5,9 +5,11 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");       
+     waitForObject(":OK_QPushButton");
+    clickButton(":OK_QPushButton");
     var appEdition = findApplicationEdition();
     
-  
+
     //----------Create Customer Type------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -232,7 +234,7 @@ function main()
         clickButton(":Setup.Save_QPushButton");
         
     }catch(e){test.fail("Exception in creating Shipping Charge:"+e);} 
-    
+   
     //------Define Tax Authorities-------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -243,8 +245,8 @@ function main()
         activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Authorities...");
         
         
-        waitForObject(":List Tax Authorities.New_QPushButton");
-        clickButton(":List Tax Authorities.New_QPushButton");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");           
         waitForObject(":_code_XLineEdit_15");
         findObject(":_code_XLineEdit_15").clear();
         type(":_code_XLineEdit_15", "VA-IRS");
@@ -260,12 +262,12 @@ function main()
         type(":groupBox.XLineEdit_XLineEdit_5", "24186");
         clickItem(":groupBox._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
         clickButton(":Tax Authority.Save_QPushButton");
-        waitForObject(":List Tax Authorities._taxauth_XTreeWidget");
-        if(object.exists("{column='0' container=':List Tax Authorities._taxauth_XTreeWidget' text='TAX-AUTH1' type='QModelIndex'}"))
+        waitForObject(":_list_XTreeWidget_4");
+        if(object.exists("{column='0' container=':_list_XTreeWidget_4' text='TAX-AUTH1' type='QModelIndex'}"))
             test.pass("Tax Authority created:TAX-AUTH1");
         
-        waitForObject(":List Tax Authorities.Close_QPushButton");
-        clickButton(":List Tax Authorities.Close_QPushButton");
+        waitForObject(":Tax Authorities.Close_QToolButton");
+        clickButton(":Tax Authorities.Close_QToolButton");
     }catch(e){test.fail("Exception in defining Tax Authorities:"+e);}
     
     
@@ -385,8 +387,8 @@ function main()
     waitForObject(":Chart of Accounts.Close_QPushButton_2");
     clickButton(":Chart of Accounts.Close_QPushButton_2");
     
-    
-    
+  
+  
     //-------------Create Sales Category----------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -425,8 +427,7 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Sales Category"+ e);}
-    
-    
+  
     //----------------A/R Account Assignments----------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -444,6 +445,9 @@ function main()
         if(findObject(":_customerTypeGroup._customerTypes_XComboBox").currentText!="NORMAL-Normal Customer")
             clickItem(":_customerTypeGroup._customerTypes_XComboBox", "NORMAL",0,0,1,Qt.LeftButton);   
         
+        
+        if(appEdition=="PostBooks")
+        {
         waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
         type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1100-01");
         nativeType("<Tab>");
@@ -458,20 +462,41 @@ function main()
         nativeType("<Tab>")
                 
                 
-                waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+          waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
         type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-4810-01");
         nativeType("<Tab>")
+            }      
                 
-                if(object.exists(":A/R Account Assignment._main_XLineEdit_5"))
+         if(appEdition=="Manufacturing"||appEdition=="Standard")
+        {       
+                
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1100-01");
+        nativeType("<Tab>");
+        
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-4800-01");
+        nativeType("<Tab>");
+        
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-4060-01");
+        nativeType("<Tab>")
+                
+                
+          waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-2445-01");
+        nativeType("<Tab>")
+          if(object.exists(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5"))
         {
-            type(":A/R Account Assignment._main_XLineEdit_5", "01-01-4800-01");
-            type(":A/R Account Assignment._main_XLineEdit_5", "<Tab>");
-        }
-        else
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5", "01-01-4810-01");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5", "<Tab>");
             snooze(0.5);
+        }
+       }
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-        waitForObject(":_stack._araccnt_XTreeWidget");
+         waitForObject(":_stack._araccnt_XTreeWidget");
         if(object.exists(":_araccnt.NORMAL_QModelIndex_2"))
             test.pass("A/R Accounts Assignments done");
         else test.fail("A/R Accounts Assignments not created");
@@ -630,7 +655,7 @@ function main()
         test.log("Sales Module Configured");
     }catch(e){test.fail("Exception in configuring Sales Module" + e);}   
     
-    
+  
     
     //------------Sales: Account Assignments-----------------
     try{
@@ -665,15 +690,24 @@ function main()
         
         if(appEdition=="Manufacturing"||appEdition=="Standard")
         {
-            type(":Sales Account Assignment._main_XLineEdit_4", "01-01-4700-01");
-            type(":Sales Account Assignment._main_XLineEdit_5", "01-01-5710-01");
-            type(":Sales Account Assignment._main_XLineEdit_6", "01-01-5720-01");
-        }
+            
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-4700-01");
+        nativeType("<Tab>");  
+         
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5","01-01-5710-01");
+        nativeType("<Tab>");
+        
+         waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6");
+        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6","01-01-5720-01");
+        nativeType("<Tab>");
+          }
         else if(appEdition=="PostBooks")
         {
-            test.xverify(object.exists(":Sales Account Assignment._main_XLineEdit_4"), "Sales account assignment not found");
-            test.xverify(object.exists(":Sales Account Assignment._main_XLineEdit_5"), "Sales account assignment not found");
-            test.xverify(object.exists(":Sales Account Assignment._main_XLineEdit_6"), "Sales account assignment not found");
+            test.xverify(object.exists(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4"), "Sales account assignment not found");
+            test.xverify(object.exists(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5"), "Sales account assignment not found");
+            test.xverify(object.exists(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6"), "Sales account assignment not found");
         }
         
         waitForObject(":Setup.Save_QPushButton");
@@ -786,6 +820,8 @@ function main()
         clickButton(":_addressStack.New_QPushButton_2");
         waitForObject(":_shipToNumber_XLineEdit");
         type(":_shipToNumber_XLineEdit", "Store1");
+        nativeType("<Tab>");
+        snooze(1);
         type(":_name_XLineEdit_13", "Old Towne Store 1");
         if(!findObject(":Ship-To.Default_QCheckBox").checked)
             clickButton(":Ship-To.Default_QCheckBox");
@@ -809,6 +845,8 @@ function main()
         clickButton(":_addressStack.New_QPushButton_2");
         waitForObject(":_shipToNumber_XLineEdit");
         type(":_shipToNumber_XLineEdit", "Store2");
+         nativeType("<Tab>");
+        snooze(1);
         type(":_name_XLineEdit_13", "Old Towne Store 2");
         if(findObject(":Ship-To.Default_QCheckBox").checked)
             clickButton(":Ship-To.Default_QCheckBox");
@@ -856,6 +894,7 @@ function main()
         type(":GroupBox1._descrip_XLineEdit", "National Accounts");
         clickButton(":Customer Group.New_QPushButton");
         waitForObject(":_listTab_XTreeWidget");
+        snooze(1);
         doubleClickItem(":_listTab_XTreeWidget", "TTOYS", 10, 10, 1, Qt.LeftButton);
         waitForObject(":GroupBox1.Save_QPushButton");
         clickButton(":GroupBox1.Save_QPushButton");
@@ -1069,7 +1108,7 @@ function main()
         waitForObject(":_customerGroup.Selected Customer Type:_QRadioButton");
         clickButton(":_customerGroup.Selected Customer Type:_QRadioButton");    
         if(findObject(":_ipshead_XComboBox").currentText!= "BASE - Base Price Schedule")
-            clickItem(":_ipshead_XComboBox","BASE",0,0,1,Qt.LeftButton);
+            clickItem(":_ipshead_XComboBox","BASE - Base Price Schedule",0,0,1,Qt.LeftButton);
         clickButton(":List Employees.Save_QPushButton_2");
         waitForObject(":List Pricing Schedule Assignments._ipsass_XTreeWidget");
         if(object.exists(":_ipsass.ANY_QModelIndex"))
