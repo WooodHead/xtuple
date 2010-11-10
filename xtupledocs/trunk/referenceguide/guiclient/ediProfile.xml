@@ -154,30 +154,48 @@
         for that Profile using the Batching tab. When the EDIBatch Job runs,
         it creates individual Scheduled Jobs for each EDI file to be created
         and sent.</para>
-        <xi:include href="../widgets/recurrencewidget.xml"
-                    xpointer="recurrenceWidget"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
         <variablelist>
           <varlistentry>
-            <term>From</term>
-            <term>Reply to</term>
-            <term>To</term>
-            <term>Bcc</term>
+            <term>Send Batch Status Notices</term>
             <listitem>
               <para>Whenever an EDIBatch job runs, the xTuple Connect Batch
-              Manager will use these properties to send email about the
-              EDIBatch job itself. This email tells the recipients how many
-              RunReport, FTPReport, EmailCSV, FTPCSV, etc. jobs were generated
-              but does not give information about the success or failure of
-              the individual jobs.<warning>
-                  <para>This email configuration is stored as part of the
-                  EDIBatch job. If you delete all copies of the EDIBatch job,
-                  the email configuration information will also be deleted.
-                  </para>
-                </warning></para>
+              Manager will use the provided email address properties to send
+              email about the EDIBatch job itself. This email tells the
+              recipients how many RunReport, FTPReport, EmailCSV, FTPCSV, etc.
+              jobs were generated but does not give information about the
+              success or failure of the individual jobs.</para>
             </listitem>
           </varlistentry>
         </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/ediProfile_batchTab.png" />
+        </imageobject>
+        <caption><para>Batch Processing Options</para></caption>
+      </mediaobject>
+    </screenshot></para>
+  <xi:include href="../widgets/recurrencewidget.xml"
+              xpointer="recurrenceWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <variablelist>
+    <varlistentry>
+      <term>Send Batch Status Notices</term>
+      <listitem>
+        <para>Whenever an EDIBatch job runs, the xTuple Connect Batch Manager
+        will use the provided email address properties to send email about the
+        EDIBatch job itself. This email tells the recipients how many
+        RunReport, FTPReport, EmailCSV, FTPCSV, etc. jobs were generated but
+        does not give information about the success or failure of the
+        individual jobs.</para>
+        <warning>
+          <para>This email configuration is stored as part of the EDIBatch
+          job. If you delete all copies of the EDIBatch job, the email
+          configuration information will also be deleted.</para>
+        </warning>
       </listitem>
     </varlistentry>
   </variablelist>
