@@ -90,14 +90,14 @@
         <note>
           <para>Each XSLT processor has its own command-line syntax.</para>
         </note>
-        <para>The "XSLT Processor" field you define the command line that the
-        xTuple application should execute to perform the transformation. Two
-        arguments that will always be required are the name of the XSLT file
-        which describes the transformation and the XML file to be transformed.
-        When typing the command line that should be run to call the XSLT
-        processor, put %f where the XSLT processor expects to find the name of
-        the XML file and %x where the XSLT processor expects to find the name
-        of the XSLT file.</para>
+        <para>The "XSLT Processor" field lets you define the command line that
+        the xTuple application should execute to perform the transformation.
+        Two arguments that will always be required are the name of the XSLT
+        file which describes the transformation and the XML file to be
+        transformed. When typing the command line that should be run to call
+        the XSLT processor, put %f where the XSLT processor expects to find
+        the name of the XML file and %x where the XSLT processor expects to
+        find the name of the XSLT file.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -303,7 +303,7 @@
     database.</para>
   </note>
   <para>The <guilabel>General Import Options</guilabel> tab lets you choose
-  how to handle files after their contents have been imported. </para>
+  how to handle files after their contents have been imported.</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -393,7 +393,7 @@
   choose, click the NEW button. The following screen will appear:<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images\atlasMap.png" />
+          <imagedata fileref="images/atlasMap.png" />
         </imageobject>
         <caption><para>CSV File to Atlas Map</para></caption>
       </mediaobject>
