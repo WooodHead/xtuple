@@ -50,7 +50,8 @@ function loginAppl(userrole)
         findObject(":_port_QLineEdit").text=port;
         test.log("Port Changed to:" + port);
     }
-    clickButton(":Login Options.Save_QPushButton");
+    waitForObject(":Login Options.Save_QPushButton_2");
+    clickButton(":Login Options.Save_QPushButton_2");
     waitForObject(":_username_QLineEdit");    
     type(":_username_QLineEdit", username);
     waitForObject(":_username_QLineEdit");
