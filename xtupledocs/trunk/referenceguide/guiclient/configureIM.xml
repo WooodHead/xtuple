@@ -331,6 +331,23 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Record Purchase Price Variance on Receipt</term>
+      <listitem>
+        <para>If selected, Purchase Price Variances (PPV) will be recorded
+        when Purchase Order receipts are posted. This applies to Inventory
+        Items using Standard Cost. If not selected, then the default system
+        behavior will be in effect―that is, PPV will be recorded when Vouchers
+        are posted. It's technically possible (although unlikely) for PPV be
+        recorded both at receipt and at Voucher time. This situation would
+        occur if and only if the vouchered cost is different from the Purchase
+        Order cost. For the PPV to be recorded twice, the following conditions
+        would have to exist: First, there would have to be a difference
+        between Purchase Order price and an Item's Standard Cost, and, second,
+        there would also have to be a difference between the Purchase Order
+        price and the vouchered price.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Default Shipping Form Copies</term>
       <listitem>
         <para>Indicate the number of Shipping Form copies you want to print by
