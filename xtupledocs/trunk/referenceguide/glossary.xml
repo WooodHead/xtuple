@@ -2513,8 +2513,14 @@
         <secondary>item type defined</secondary>
       </indexterm>tooling item</glossterm>
     <glossdef>
-      <para>An Item that must be manufactured in order to complete or support
-      the building of sold Items. Tooling Items may also be sold.</para>
+      <para>A material resource used in the manufacturing process that is
+      returned upon completion of a Work Order&mdash;for example, a reusable
+      mold, apparatus, fixture, or tool. It may be included on a Bill of
+      Materials for an Item, usually specifying a fixed quantity. Tooling
+      Items can be purchased, manufactured, or sold. A manufactured tool can
+      have a BOO, a BOM, and a Work Order. As with other material Items, tools
+      can be tracked as serialized Items. The cost of a tooling Item is not
+      included in the overall cost of the parent Item where it is used.</para>
     </glossdef>
   </glossentry>
   <glossentry>
