@@ -4,7 +4,7 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
   <title><indexterm significance="normal">
-      <primary>return authorizations</primary>
+      <primary>xvreturn authorizations</primary>
       <secondary>adding line items to</secondary>
     </indexterm>Return Authorization Item</title>
   <para>To add a new Return Authorization Line Item, select the NEW button.
@@ -697,6 +697,18 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To add Comments to a Return Authorization Line Item, select the
+  "Comments" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/returnAuthorizationItem_commentsTab.png" />
+        </imageobject>
+        <caption>Return Authorization Line Item Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <xi:include href="returnAuthItemLotSerial.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
