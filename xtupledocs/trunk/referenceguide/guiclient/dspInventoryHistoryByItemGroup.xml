@@ -63,20 +63,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Start Date</term>
-      <listitem>
-        <para>This is a required field. Inventory transactions conducted on
-        and after this date will be displayed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>End Date</term>
-      <listitem>
-        <para>This is a required field. Inventory transactions conducted on
-        and before this date will be displayed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Trans. Types</term>
       <listitem>
         <para>Select one of the available transaction types:</para>
@@ -128,13 +114,66 @@
         </variablelist>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Order Types</term>
+      <listitem>
+        <para>Select one of the available order types:</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Orders</term>
+            <listitem>
+              <para>Displays transactions for all order types.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Sales Orders</term>
+            <listitem>
+              <para>Displays only Sales Order transactions.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Purchase Orders</term>
+            <listitem>
+              <para>Displays only Purchase Order transactions.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Work Orders</term>
+            <listitem>
+              <para>Displays only Work Order transactions.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Transfer Orders</term>
+            <listitem>
+              <para>Displays only Transfer Order transactions.</para>
+              <note>
+                <para>The system prefixes Order Numbers with letters
+                indicating the Order type. For example, Work Orders are
+                prefixed with "WO", Purchase Orders with "PO", and Sales
+                Orders with "SO". These letters are for display purposes only
+                and are not considered part of the Order Number.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>This is a required field. Inventory transactions conducted on
+        and after this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>This is a required field. Inventory transactions conducted on
+        and before this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-  <note>
-    <para>The system prefixes Order Numbers with letters indicating the Order
-    type. For example, Work Orders are prefixed with "WO", Purchase Orders
-    with "PO", and Sales Orders with "SO". These letters are for display
-    purposes only and are not considered part of the Order Number.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term>Inventory History</term>
