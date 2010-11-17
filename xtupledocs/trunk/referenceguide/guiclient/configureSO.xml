@@ -238,9 +238,27 @@
           <secondary>numbering of</secondary>
         </indexterm>Invoice # Generation</term>
       <listitem>
-        <para>By default, Invoice Numbers are automatically generated. This
-        system setting cannot be changed.</para>
+        <para>Select one of the available Invoice Number generation
+        methods:</para>
         <variablelist>
+          <varlistentry>
+            <term>Automatic</term>
+            <listitem>
+              <para>Invoice Numbers will be automatically incremented by 1
+              each time a new Invoice is created. These
+              automatically-generated numbers may not be edited. They are
+              read-only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic With Override</term>
+            <listitem>
+              <para>Invoice Numbers will be automatically generated and
+              incremented, as under the "Automatic" option described above.
+              However, this option also allows you to manually override the
+              Invoice Number at the time of Invoice creation.</para>
+            </listitem>
+          </varlistentry>
           <varlistentry>
             <term>Next #</term>
             <listitem>
