@@ -47,14 +47,16 @@
         located to the far left of the display next to each line that may be
         expanded to lower levels. By clicking your mouse on a plus sign, you
         reveal lower levels of information related to the Documents.</para>
+        <note>
+          <para>The printed status for a Sales Order at Shipping may be either
+          "No," "Yes," or "Dirty." The first two options indicate whether
+          Shipping Forms have been printed for the Order or not. The Dirty
+          status indicates Shipping contents have changed since Shipping Forms
+          were printed for the Order.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>The printed status for a Sales Order at Shipping may be either "No,"
-    "Yes," or "Dirty." The first two options indicate whether Shipping Forms
-    have been printed for the Order or not. The Dirty status indicates
-    Shipping contents have changed since Shipping Forms were printed for the
-    Order.</para>
-  </note>
+  <xi:include href="shippingInformation.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
