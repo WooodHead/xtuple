@@ -411,6 +411,15 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To view the documents associated with a Purchase Order, select the
+  "Documents" tab. The following screen will appear:<mediaobject>
+      <imageobject>
+        <imagedata fileref="images/purchaseOrder_documentsTab.png" />
+      </imageobject>
+      <caption><para>Purchase Order Documents</para></caption>
+    </mediaobject></para>
+  <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <xi:include href="purchaseOrderItem.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
