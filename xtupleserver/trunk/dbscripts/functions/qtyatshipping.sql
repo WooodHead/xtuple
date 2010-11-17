@@ -1,10 +1,10 @@
-CREATE OR REPLACE FUNCTION qtyAtShipping(INTEGER) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION qtyAtShipping(INTEGER) RETURNS NUMERIC AS $$
 BEGIN
-  RETURN qtyAtShipping(''SO'', $1);
+  RETURN qtyAtShipping('SO', $1);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION qtyAtShipping(TEXT, INTEGER) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION qtyAtShipping(TEXT, INTEGER) RETURNS NUMERIC AS $$
 DECLARE
   pordertype	ALIAS FOR $1;
   plineitemid	ALIAS FOR $2;
@@ -12,8 +12,8 @@ DECLARE
 
 BEGIN
 
-  IF (pordertype NOT IN (''SO'', ''TO'')) THEN
-    RAISE EXCEPTION ''% is not a valid order type'', pordertype;
+  IF (pordertype NOT IN ('SO', 'TO')) THEN
+    RAISE EXCEPTION '% is not a valid order type', pordertype;
   END IF;
 
   SELECT COALESCE(SUM(shipitem_qty), 0.0) INTO _qty
@@ -26,4 +26,4 @@ BEGIN
   RETURN _qty;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql' STABLE;
