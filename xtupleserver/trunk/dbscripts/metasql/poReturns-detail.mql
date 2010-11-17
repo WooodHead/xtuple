@@ -12,7 +12,7 @@ WHERE ((poreject_posted)
    AND (poreject_vend_id=vend_id)
    AND (poreject_rjctcode_id=rjctcode_id)
    AND (poreject_itemsite_id=itemsite_id)
-   AND (vend_id=vend_id)
+   AND (vend_id=<? value("vend_id") ?>)
    AND (DATE(poreject_date) BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? if exists("warehous_id") ?>
    AND (itemsite_warehous_id=<? value("warehous_id") ?>)
