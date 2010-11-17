@@ -29,35 +29,6 @@
   with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Order #</term>
-      <listitem>
-        <para>Enter an Order Number or Regular Expression. The display will
-        show Inventory history for the specified Order Number(s). Purchase
-        Order Numbers, Sales Order Numbers, and Work Order Numbers are
-        supported.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>The "Order #" field supports pattern matching with Regular
-    Expressions.</para>
-  </tip>
-  <variablelist>
-    <varlistentry role="standard">
-      <term>All Sites</term>
-      <listitem>
-        <para>Select to display Inventory history by Order Number for all
-        Sites.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Selected</term>
-      <listitem>
-        <para>Specify Site whose Inventory history by Order Number you want to
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Trans. Types</term>
       <listitem>
         <para>Select one of the available transaction types:</para>
@@ -107,6 +78,72 @@
             </listitem>
           </varlistentry>
         </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Types</term>
+      <listitem>
+        <para>Select one of the available order types:</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Orders</term>
+            <listitem>
+              <para>Displays transactions for all order types.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Sales Orders</term>
+            <listitem>
+              <para>Displays only Sales Order transactions.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Purchase Orders</term>
+            <listitem>
+              <para>Displays only Purchase Order transactions.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Work Orders</term>
+            <listitem>
+              <para>Displays only Work Order transactions.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Transfer Orders</term>
+            <listitem>
+              <para>Displays only Transfer Order transactions.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order #</term>
+      <listitem>
+        <para>Enter an Order Number or Regular Expression to match orders
+        corresponding to the specified order type. The display will show
+        Inventory history for the specified Order Number(s).</para>
+        <tip>
+          <para>The "Order #" field supports pattern matching with Regular
+          Expressions.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display Inventory history by Order Number for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Inventory history by Order Number you want to
+        display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
