@@ -44,6 +44,35 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Show Order Types</term>
+      <listitem>
+        <para>Specify which Planned Order types you want to include:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Purchase</term>
+            <listitem>
+              <para>Select to include Planned Purchase Orders in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Manufacture</term>
+            <listitem>
+              <para>Select to include Planned Work Orders in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Transfer</term>
+            <listitem>
+              <para>Select to include Planned Transfer Orders in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>All Sites</term>
       <listitem>
         <para>Select to display Planned Orders by Planner Code for all
@@ -60,7 +89,7 @@
   </variablelist>
   <note>
     <para>In the case of Planned Purchase Orders, the quantity will always be
-    represented in the Inventory Unit of Measure (UOM)—regardless of the
+    represented in the Inventory Unit of Measure (UOM)&mdash;regardless of the
     Vendor UOM used on any existing Purchase Orders.</para>
   </note>
   <variablelist>
