@@ -45,27 +45,16 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Amount</term>
-      <listitem>
-        <para>Enter the monetary value of the Opportunity.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Probability</term>
-      <listitem>
-        <para>Project the likelihood the Opportunity will be closed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Target Close</term>
-      <listitem>
-        <para>Specify the date you expect the Opportunity will close.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Owner</term>
       <listitem>
         <para>Specify the user who owns the Opportunity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Contact</term>
+      <listitem>
+        <para>Enter the name of the Contact―or select a name from the Contacts
+        list. Details for the Contact will be shown after selection.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -89,6 +78,24 @@
       <term>Opp. Type</term>
       <listitem>
         <para>Specify the type of Opportunity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Amount</term>
+      <listitem>
+        <para>Enter the monetary value of the Opportunity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Probability</term>
+      <listitem>
+        <para>Project the likelihood the Opportunity will be closed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Target Close</term>
+      <listitem>
+        <para>Specify the date you expect the Opportunity will close.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -225,5 +232,14 @@
       </mediaobject>
     </screenshot></para>
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para>To view the documents associated with an Opportunity, select the
+  "Documents" tab. The following screen will appear:<mediaobject>
+      <imageobject>
+        <imagedata fileref="images/todoItem_documentsTab.png" />
+      </imageobject>
+      <caption><para>Opportunity Documents</para></caption>
+    </mediaobject></para>
+  <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
