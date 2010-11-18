@@ -39,6 +39,7 @@ public slots:
     virtual void setDebugPkg(bool);
     virtual bool openFile(QString filename);
     virtual void setWindowTitle();
+    virtual bool sStart();
 
 protected:
     Package * _package;
@@ -53,8 +54,6 @@ protected:
 
 protected slots:
     virtual void languageChange();
-    virtual void sStart();
-
 
 private:
     int _dbTimerId;

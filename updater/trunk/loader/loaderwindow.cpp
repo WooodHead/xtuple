@@ -62,6 +62,7 @@
 #endif
 
 extern QString _databaseURL;
+extern bool _autoRun;
 
 QString LoaderWindow::_rollbackMsg(tr("<p><font color=\"red\">The upgrade has "
                                       "been aborted due to an error and your "
@@ -468,8 +469,10 @@ void LoaderWindow::timerEvent( QTimerEvent * e )
  but use _premultitransfile to see if we need multiple transactions
  even if the user requested one.
  */
-void LoaderWindow::sStart()
+bool LoaderWindow::sStart()
 {
+  bool returnValue = false;
+
   _start->setEnabled(false);
   _text->setText("<p></p>");
 
@@ -497,7 +500,7 @@ void LoaderWindow::sStart()
       if(!_multitrans && !_premultitransfile)
       {
         _text->append(_rollbackMsg);
-        return;
+        return false;
       }
     }
 
@@ -510,7 +513,7 @@ void LoaderWindow::sStart()
       if(!_multitrans && !_premultitransfile)
       {
         _text->append(_rollbackMsg);
-        return;
+        return false;
       }
     }
   }
@@ -530,7 +533,7 @@ void LoaderWindow::sStart()
       {
         qry.exec("ROLLBACK;");
         _text->append(_rollbackMsg);
-        return;
+        return false;
       }
       else
         ignoredErrCnt += tmpReturn;
@@ -544,7 +547,7 @@ void LoaderWindow::sStart()
   {
     qry.exec("ROLLBACK;");
     _text->append(_rollbackMsg);
-    return;
+    return false;
   }
 
   if (_package->_privs.size() > 0)
@@ -556,7 +559,7 @@ void LoaderWindow::sStart()
     {
       tmpReturn = applyLoadable(*i, _files->_list[prefix + (*i)->filename()]);
       if (tmpReturn < 0)
-        return;
+        return false;
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
@@ -576,7 +579,7 @@ void LoaderWindow::sStart()
     {
       tmpReturn = applySql(*i, _files->_list[prefix + (*i)->filename()]);
       if (tmpReturn < 0)
-        return;
+        return false;
       else
         ignoredErrCnt += tmpReturn;
     }
@@ -591,7 +594,7 @@ void LoaderWindow::sStart()
     {
       tmpReturn = applySql(*i, _files->_list[prefix + (*i)->filename()]);
       if (tmpReturn < 0)
-        return;
+        return false;
       else
         ignoredErrCnt += tmpReturn;
     }
@@ -607,7 +610,7 @@ void LoaderWindow::sStart()
     {
       tmpReturn = applySql(*i, _files->_list[prefix + (*i)->filename()]);
       if (tmpReturn < 0)
-        return;
+        return false;
       else
         ignoredErrCnt += tmpReturn;
     }
@@ -623,7 +626,7 @@ void LoaderWindow::sStart()
     {
       tmpReturn = applySql(*i, _files->_list[prefix + (*i)->filename()]);
       if (tmpReturn < 0)
-        return;
+        return false;
       else
         ignoredErrCnt += tmpReturn;
     }
@@ -639,7 +642,7 @@ void LoaderWindow::sStart()
     {
       tmpReturn = applySql(*i, _files->_list[prefix + (*i)->filename()]);
       if (tmpReturn < 0)
-        return;
+        return false;
       else
         ignoredErrCnt += tmpReturn;
     }
@@ -655,7 +658,7 @@ void LoaderWindow::sStart()
     {
       tmpReturn = applyLoadable(*i, _files->_list[prefix + (*i)->filename()]);
       if (tmpReturn < 0)
-        return;
+        return false;
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
@@ -675,7 +678,7 @@ void LoaderWindow::sStart()
     {
       tmpReturn = applyLoadable(*i, _files->_list[prefix + (*i)->filename()]);
       if (tmpReturn < 0)
-        return;
+        return false;
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
@@ -698,7 +701,7 @@ void LoaderWindow::sStart()
                qPrintable((*i)->name()), qPrintable((*i)->filename()));
       tmpReturn = applyLoadable(*i, _files->_list[prefix + (*i)->filename()]);
       if (tmpReturn < 0)
-        return;
+        return false;
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
@@ -721,7 +724,7 @@ void LoaderWindow::sStart()
                qPrintable((*i)->name()), qPrintable((*i)->filename()));
       tmpReturn = applyLoadable(*i, _files->_list[prefix + (*i)->filename()]);
       if (tmpReturn < 0)
-        return;
+        return false;
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
@@ -742,7 +745,7 @@ void LoaderWindow::sStart()
     {
       qry.exec("ROLLBACK;");
       _text->append(_rollbackMsg);
-      return;
+      return false;
     }
     for(QList<LoadCmd*>::iterator i = _package->_cmds.begin();
         i != _package->_cmds.end(); ++i)
@@ -751,7 +754,7 @@ void LoaderWindow::sStart()
         qDebug("LoaderWindow::sStart() - loading cmd %s", qPrintable((*i)->name()));
       tmpReturn = applyLoadable(*i, _files->_list[prefix + (*i)->filename()]);
       if (tmpReturn < 0)
-        return;
+        return false;
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
@@ -775,7 +778,7 @@ void LoaderWindow::sStart()
                qPrintable((*i)->name()), qPrintable((*i)->filename()));
       tmpReturn = applyLoadable(*i, _files->_list[prefix + (*i)->filename()]);
       if (tmpReturn < 0)
-        return;
+        return false;
       else
         ignoredErrCnt += tmpReturn;
       _progress->setValue(_progress->value() + 1);
@@ -808,7 +811,7 @@ void LoaderWindow::sStart()
           if(!_multitrans && !_premultitransfile)
           {
             _text->append(_rollbackMsg);
-            return;
+            return false;
           }
         }
       }
@@ -824,7 +827,7 @@ void LoaderWindow::sStart()
   {
     qry.exec("ROLLBACK;");
     _text->append(_rollbackMsg);
-    return;
+    return false;
   }
 
   if (_package->_finalscripts.size() > 0)
@@ -836,7 +839,7 @@ void LoaderWindow::sStart()
     {
       tmpReturn = applySql(*i, _files->_list[prefix + (*i)->filename()]);
       if (tmpReturn < 0)
-        return;
+        return false;
       else
         ignoredErrCnt += tmpReturn;
     }
@@ -876,6 +879,13 @@ void LoaderWindow::sStart()
     qry.exec("commit;");
     _text->append(tr("<p>The Update is now complete!</p>"));
     _progress->setValue(_progress->maximum());
+    returnValue = true;
+    // Close the program if the -autoRun argument is used and the upgrade is successful.
+    if (_autoRun)
+    {
+      fileExit();
+      return returnValue;
+    }
   }
 
   if (DEBUG)
@@ -891,6 +901,8 @@ void LoaderWindow::sStart()
                      "again if you want to apply another update.</p>"));
 
   }
+
+  return returnValue;
 }
 
 void LoaderWindow::setMultipleTransactions(bool mt)

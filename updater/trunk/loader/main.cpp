@@ -25,6 +25,7 @@
 #include "loaderwindow.h"
 
 QString _databaseURL = "";
+bool    _autoRun     = false;
 
 int main(int argc, char* argv[])
 {
@@ -34,6 +35,8 @@ int main(int argc, char* argv[])
   _loggedIn        = FALSE;
   bool multitrans = false;
   bool debugpkg   = false;
+  bool autoRunArg   = false;
+  bool autoRunCheck = false;
   QString pkgfile = "";
 
   QApplication app(argc, argv);
@@ -52,7 +55,20 @@ int main(int argc, char* argv[])
     {
       QString argument(argv[intCounter]);
 
-      if (argument.startsWith("-databaseURL=", Qt::CaseInsensitive)) {
+      if (argument.startsWith("-help", Qt::CaseInsensitive))
+      {
+        qWarning("%s [ -databaseURL=PSQL7://hostname:port/databasename |"
+                 " -username=databaseUserName -passwd=databasePassword |"
+                 " -noauth ]"
+                 " [ -multitrans ]"
+                 " [ -debug ]"
+                 " [ -file=updaterFile.gz ]"
+                 " [ -autorun ]",
+                 argv[0]);
+        return 0;
+      }
+      else if (argument.startsWith("-databaseURL=", Qt::CaseInsensitive))
+      {
         haveDatabaseURL = TRUE;
         _databaseURL    = argument.right(argument.length() - 13);
       }
@@ -77,6 +93,8 @@ int main(int argc, char* argv[])
         debugpkg = true;
       else if (argument.startsWith("-file=", Qt::CaseInsensitive))
         pkgfile = argument.right(argument.size() - argument.indexOf("=") - 1);
+      else if (argument.toLower() == "-autorun")
+        autoRunArg = true;
     }
 
     if ( (haveDatabaseURL) && (haveUsername) && (havePasswd) )
@@ -174,8 +192,33 @@ int main(int argc, char* argv[])
   mainwin->setMultipleTransactions(multitrans);
   mainwin->setDebugPkg(debugpkg);
   if (! pkgfile.isEmpty())
-    mainwin->openFile(pkgfile);
-  mainwin->show();
+  {
+    autoRunCheck = mainwin->openFile(pkgfile);
+  }
+
+  // Start the upgrade if the -autoRun argument is used and file prereqs pass.
+  if (autoRunArg)
+  {
+    bool successful = autoRunCheck && ! pkgfile.isEmpty();
+    if (successful)
+    {
+      _autoRun = true;
+      successful = mainwin->sStart();
+    }
+    if (successful)     // not else if
+      return 0;
+    else
+    {
+#ifdef Q_OS_WIN32
+      mainwin->show();
+#else
+      qWarning("%s", qPrintable(mainwin->_text->toPlainText()));
+      return 1;
+#endif
+    }
+  }
+  else
+    mainwin->show();
 
   return app.exec();
 }
