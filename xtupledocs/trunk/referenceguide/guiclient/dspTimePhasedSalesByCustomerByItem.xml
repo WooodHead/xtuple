@@ -28,32 +28,13 @@
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>All Customer Types</term>
+      <term>Customer</term>
       <listitem>
-        <para>Select to display time-phased Sales history by Customer by Item
-        for all Customer Types.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected</term>
-      <listitem>
-        <para>Specify Customer Type whose time-phased Sales history by Item
-        you want to display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Pattern</term>
-      <listitem>
-        <para>Enter a Customer Type pattern to select a range of Customer
-        Types. Refine your search using Regular Expressions.</para>
+        <para>Specify the Customer whose time-phased Sales history by Item you
+        want to display.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>The type of Calendar and number of Calendar periods you choose to
-    display may have an impact on response time. The data may take longer to
-    display, depending on the time frame requested.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term>All Product Categories</term>
@@ -81,6 +62,11 @@
       <listitem>
         <para>Select the Calendar you want to use for the report. Associated
         Calendar periods will be displayed.</para>
+        <note>
+          <para>The type of Calendar and number of Calendar periods you choose
+          to display may have an impact on response time. The data may take
+          longer to display, depending on the time frame requested.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
