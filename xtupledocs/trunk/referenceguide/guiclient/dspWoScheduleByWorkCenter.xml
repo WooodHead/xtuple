@@ -44,17 +44,26 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Start W/O Start Date</term>
+      <term>Work Order Start Date</term>
       <listitem>
-        <para>Work Orders scheduled on and after this date will be
-        displayed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>End W/O Start Date</term>
-      <listitem>
-        <para>Work Orders scheduled on and before this date will be
-        displayed.</para>
+        <para>Specify the range of Work Order start dates you want to include
+        in the display:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Work Orders scheduled on and after this date will be
+              displayed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Work Orders scheduled on and before this date will be
+              displayed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -72,19 +81,40 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Only Show Released and In-Process W/O"s</term>
+      <term>Include Status</term>
       <listitem>
-        <para>Select to display only released and in-process Work Order
-        schedules. Selecting this option means only Work Orders whose Status
-        is released ("R") or in-process ("I") will be displayed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Only Show Top Level Work Orders</term>
-      <listitem>
-        <para>Select to display only top level Work Orders. Top level Work
-        Orders are Work Orders that have not been created to meet the
-        component demands of a parent Work Order.</para>
+        <para>Specify which Work Order statuses you want to include in the
+        display:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Open</term>
+            <listitem>
+              <para>Select to include open ("O") Work Orders in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Exploded</term>
+            <listitem>
+              <para>Select to include exploded ("E") Work Orders in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Released</term>
+            <listitem>
+              <para>Select to include released ("R") Work Orders in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>In-Process</term>
+            <listitem>
+              <para>Select to include in-process ("I") Work Orders in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -96,13 +126,6 @@
         is not yet in-process and is also past due. Once a Work Order's Status
         is changed to in-process ("I"), the start date will automatically
         revert to black type.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Automatically Update</term>
-      <listitem>
-        <para>Select to automatically update the display every five
-        minutes.</para>
       </listitem>
     </varlistentry>
   </variablelist>
