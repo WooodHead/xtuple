@@ -5,31 +5,46 @@
 <section id="Section566062">
   <title><indexterm significance="normal">
       <primary>contacts</primary>
-      <secondary>crm master list of</secondary>
+      <secondary>master list of</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>customer relationship management</primary>
       <secondary>contacts and</secondary>
     </indexterm>List Contacts</title>
   <para>Contacts are people who may be associated directly with CRM Accounts,
   Customers, Ship-To Addresses, Vendors, Vendor Addresses, and Sites. To
-  access the master list of Contacts, select the "List Contacts" option. The
+  access the list of Contacts, select the "List Contacts" option. The
   following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/contacts.png" />
         </imageobject>
-        <caption>Contacts Master List</caption>
+        <caption>Contacts List</caption>
       </mediaobject>
     </screenshot></para>
-  <para>The "List Contacts" screen displays information on all existing
-  Contacts, including Contact first name, last name, Account number, Account
-  name, phone number, alternate phone number, fax number, email address, and
-  web address.</para>
-  <tip>
-    <para>Web addresses will launch a web browser when selected. However, for
-    this to work you must drop the <literal>http://</literal> prefix from the
-    web address. Instead use the form
-    <literal>www.website.com.</literal></para>
-  </tip>
+  <para>When displaying the Contacts list, you are presented with the
+  following options:</para>
+  <note>
+    <para>The system-defined default filter on the Contacts list screen shows
+    all active Contacts.</para>
+  </note>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <variablelist>
+    <varlistentry>
+      <term>Search</term>
+      <listitem>
+        <para>Enter search terms then select the QUERY button to locate
+        specific Contact records.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Contacts</term>
+      <listitem>
+        <para>Display lists Contacts, using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

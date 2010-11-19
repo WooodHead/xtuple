@@ -10,7 +10,7 @@
       <primary>customer relationship management</primary>
       <secondary>crm accounts and</secondary>
     </indexterm>List CRM Accounts</title>
-  <para>Accounts are central to the CRM. An Account holds information about an
+  <para>Accounts are central to CRM. An Account holds information about an
   entity and serves to define it further as a Customer, Prospect, Vendor,
   Competitor, or Partner. To access the master list of CRM Accounts, select
   the "List CRM Accounts" option. The following screen will appear.</para>
@@ -19,10 +19,33 @@
         <imageobject>
           <imagedata fileref="images/crmaccounts.png" />
         </imageobject>
-        <caption>CRM Accounts Master List</caption>
+        <caption>CRM Accounts List</caption>
       </mediaobject>
     </screenshot></para>
-  <para>The "CRM Accounts" screen displays information on all existing CRM
-  Accounts, including Account number, Account name, and the various possible
-  Account relationships.</para>
+  <para>When displaying the CRM Accounts list, you are presented with the
+  following options:</para>
+  <note>
+    <para>The system-defined default filter on the CRM Accounts list screen
+    shows all active CRM Accounts.</para>
+  </note>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <variablelist>
+    <varlistentry>
+      <term>Search</term>
+      <listitem>
+        <para>Enter search terms then select the QUERY button to locate
+        specific CRM Account records.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Contacts</term>
+      <listitem>
+        <para>Display lists CRM Accounts, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
