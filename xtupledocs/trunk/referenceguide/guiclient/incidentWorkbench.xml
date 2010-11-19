@@ -9,49 +9,34 @@
     </indexterm><indexterm significance="normal">
       <primary>customer relationship management</primary>
       <secondary>incident workbench and</secondary>
-    </indexterm>Incident Workbench</title>
-  <para>The Incident Workbench enables you to monitor and take action on the
-  full range of Incidents entered in your system. For ease of use, the rows in
-  the workbench can be color-coded based on their status. To learn more about
-  color-coding for the Incident Workbench, see: <xref
+    </indexterm>List Incidents</title>
+  <para>The Incidents list enables you to monitor and take action on the full
+  range of Incidents entered in your system. For ease of use, the rows in the
+  workbench can be color-coded based on their status. To learn more about
+  color-coding for the Incident list, see: <xref
   linkend="Section971138" /></para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/incidentWorkbench.png" />
         </imageobject>
-        <caption>Incident Workbench</caption>
+        <caption>Incidents List</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When using the Incident Workbench, you are presented with the
-  following options:</para>
+  <para>When using the Incidents list, you are presented with the following
+  options:</para>
   <note>
-    <para>The system-defined default filter on the Incident Workbench shows
-    Incidents assigned to the logged-in user having a status above "Resolved."
-    </para>
+    <para>The system-defined default filter on the Incidents list shows
+    Incidents assigned to the logged-in user having a status above
+    "Resolved."</para>
   </note>
   <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <variablelist>
     <varlistentry>
-      <term>Search</term>
-      <listitem>
-        <para>Enter a text pattern to locate keywords found in existing
-        Incidents. The search will locate matching text strings found in the
-        "Number," "Summary" and/or "Description" fields.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Incidents</term>
       <listitem>
         <para>Display lists Incidents, using the specified parameters.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Automatically Update</term>
-      <listitem>
-        <para>Select to automatically update the display every five
-        minutes.</para>
       </listitem>
     </varlistentry>
   </variablelist>
