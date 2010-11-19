@@ -49,7 +49,8 @@ function loginAppl(userrole)
         findObject(":_port_QLineEdit").text=port;
         test.log("Port Changed to:" + port);
     }
-    clickButton(":Login Options.Save_QPushButton");
+    waitForObject(":Login Options.Save_QPushButton_2");
+    clickButton(":Login Options.Save_QPushButton_2");
     waitForObject(":_username_QLineEdit");    
     type(":_username_QLineEdit", username);
     waitForObject(":_username_QLineEdit");
@@ -155,12 +156,13 @@ try
         snooze(0.5);
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
-        waitForObject(":Quantities on Hand by Item.Query_QPushButton");
-        clickButton(":Quantities on Hand by Item.Query_QPushButton");      
+        waitForObject(":Quantities on Hand by Item.Query_QToolButton");
+        clickButton(":Quantities on Hand by Item.Query_QToolButton");
         waitForObject(":_list.QOH_QModelIndex");
         var qoh=findObject(":_list.QOH_QModelIndex").text;
         var qohi=parseInt(replaceSubstring(qoh,",",""));
-        nativeType("Ctrl+W");
+        waitForObject(":Quantities on Hand by Item.Close_QToolButton");
+         clickButton(":Quantities on Hand by Item.Close_QToolButton");
         return qohi;
    }
 }
