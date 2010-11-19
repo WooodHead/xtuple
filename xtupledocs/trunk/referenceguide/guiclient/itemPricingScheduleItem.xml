@@ -57,9 +57,9 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item you want to add to the Pricing
-        Schedule. The lookup feature located to the right of the field leads to
-        a searchable sold Items list. Multiple sold Items may be assigned to a
-        single Pricing Schedule.</para>
+        Schedule. The lookup feature located to the right of the field leads
+        to a searchable sold Items list. Multiple sold Items may be assigned
+        to a single Pricing Schedule.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -253,7 +253,7 @@
       <term><indexterm significance="normal">
           <primary>quantity breaks</primary>
           <secondary>in pricing schedules</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>pricing schedules</primary>
           <secondary>quantity breaks in</secondary>
         </indexterm>Qty. Break (Inventory UOM)</term>
@@ -274,6 +274,15 @@
         specified Quantity Break is reached. The List Prices for all Items in
         the Product Category will be reduced by the specified
         percentage.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discount By Fixed Amount</term>
+      <listitem>
+        <para>Enter the fixed amount you want to be discounted off the List
+        Price. If a Discount percentage is also used, the fixed amount will be
+        subtracted after the Discount percentage. However, the Price can never
+        go below zero.</para>
       </listitem>
     </varlistentry>
   </variablelist>
