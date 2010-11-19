@@ -7,10 +7,13 @@ function main()
     
     //-----login Application-----
     loginAppl("CONFIGURE"); 
+    waitForObject(":Registration Key.OK_QPushButton");
+    clickButton(":Registration Key.OK_QPushButton");
     
     //-----Editing of preferences----
     try
     {
+        
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
         activateItem(":xTuple ERP: *_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: *._System_QMenu", "Preferences...");
@@ -59,7 +62,8 @@ function main()
     snooze(2);
     
     loginAppl("CONFIGURE"); 
-    
+    waitForObject(":Registration Key.OK_QPushButton");
+    clickButton(":Registration Key.OK_QPushButton");
     //-----Variable Declaration-----
     var quote, quoteitem, quoteqty, sonumber, soitem, soqty, qtinvoice, qtamount, soinvoice, soamount;
     
@@ -90,6 +94,9 @@ function main()
         
         waitForObject(":Database Information.*_QLabel");
         var appEdition = findObject(":Database Information.*_QLabel").text;
+        waitForObject(":_stack.Use toolbars on displays when available_QCheckBox");
+         if(!findObject(":_stack.Use toolbars on displays when available_QCheckBox").checked)
+        clickButton(":_stack.Use toolbars on displays when available_QCheckBox");
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
     }
@@ -99,7 +106,7 @@ function main()
         
     }
     
-    
+  
     //------Creating a Lot controlled item------
     try
     {
@@ -109,44 +116,37 @@ function main()
         activateItem(":xTuple ERP:*.Products_QMenu", "Item");
         waitForObjectItem(":xTuple ERP:*.Item_QMenu", "List...");
         activateItem(":xTuple ERP:*.Item_QMenu", "List...");
-        waitForObject(":List Items._item_XTreeWidget");
-        clickItem(":List Items._item_XTreeWidget","YTRUCK1",5,5,0,Qt.LeftButton);
-        waitForObject(":List Items.Copy_QPushButton");
-        clickButton(":List Items.Copy_QPushButton");
-        waitForObject(":_targetItemNumber_XLineEdit");
-        type(":_targetItemNumber_XLineEdit", "ZTRUCK1");
-        waitForObject(":List Items.Copy_QPushButton_2");
-        clickButton(":List Items.Copy_QPushButton_2");
-        waitForObject(":List Items.Yes_QPushButton");
-        clickButton(":List Items.Yes_QPushButton");
+        waitForObject(":Items.Query_QToolButton");
+        clickButton(":Items.Query_QToolButton");
         
-        waitForObject(":_warehouse_WComboBox");
-        mouseClick(":_warehouse_WComboBox", 5, 5, 0, Qt.LeftButton);
-        waitForObject(":_warehouse.WH1_QModelIndex");
-        mouseClick(":_warehouse.WH1_QModelIndex", 5, 5, 0, Qt.LeftButton);
+        waitForObject(":_list_XTreeWidget_3");
+        openItemContextMenu(":_list_XTreeWidget_3","YTRUCK1",5,5,Qt.LeftButton);
+        waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Copy...");
+        activateItem(":xTuple ERP:*._menu_QMenu", "Copy...");
         
-        waitForObject(":Control._controlMethod_XComboBox");
-        mouseClick(":Control._controlMethod_XComboBox", 5, 5, 0, Qt.LeftButton);
-        waitForObject(":_controlMethod.Lot #_QModelIndex");
-        mouseClick(":_controlMethod.Lot #_QModelIndex", 31, 1, 0, Qt.LeftButton);
+        waitForObject(":_targetItemNumber_XLineEdit_2");
+        type(":_targetItemNumber_XLineEdit_2", "ZTRUCK1");
+        waitForObject(":Items.Copy_QPushButton");
+        clickButton(":Items.Copy_QPushButton");
+        waitForObject(":Items.Yes_QPushButton");
+        clickButton(":Items.Yes_QPushButton");
+        waitForObject(":_warehouse_WComboBox_2");
+        clickItem(":_warehouse_WComboBox_2", "WH1", 5,5, 0, Qt.LeftButton);
+        waitForObject(":Items.Site can manufacture this Item_QGroupBox");
+        mouseClick(":Items.Site can manufacture this Item_QGroupBox", 140, 9, 0, Qt.LeftButton);
+        waitForObject(":Control._controlMethod_XComboBox_2");
+        clickItem(":Control._controlMethod_XComboBox_2", "Lot #", 5,5, 0, Qt.LeftButton);
+        waitForObject(":_plannerCode_XComboBox_2");
+        clickItem(":_plannerCode_XComboBox_2", "MRP-MRP Items", 5,5, 0, Qt.LeftButton);
+        waitForObject(":_costcat_XComboBox_2");
+        clickItem(":_costcat_XComboBox_2", "FINISHED-Finished Product - WH1", 5,5, 0, Qt.LeftButton);
+        waitForObject(":Items.Save_QPushButton");
+        clickButton(":Items.Save_QPushButton");
+        waitForObject(":Items.Cancel_QPushButton");
+        clickButton(":Items.Cancel_QPushButton");
+        waitForObject(":Items.Close_QToolButton");
+        clickButton(":Items.Close_QToolButton");
         
-        waitForObject(":_plannerCode_XComboBox");
-        mouseClick(":_plannerCode_XComboBox", 5, 5, 0, Qt.LeftButton);
-        waitForObject(":_plannerCode.MRP-MRP Items_QModelIndex");
-        mouseClick(":_plannerCode.MRP-MRP Items_QModelIndex", 31, 1, 0, Qt.LeftButton);
-        
-        waitForObject(":_costcat_XComboBox");
-        mouseClick(":_costcat_XComboBox", 5, 5, 0, Qt.LeftButton);
-        waitForObject(":_costcat.DISTRIBUTION-Distribution - WH2_QModelIndex");
-        mouseClick(":_costcat.DISTRIBUTION-Distribution - WH2_QModelIndex", 46, 5, 0, Qt.LeftButton);
-        
-        waitForObject(":List Items.Save_QPushButton");
-        clickButton(":List Items.Save_QPushButton");
-        waitForObject(":List Items.Cancel_QPushButton");
-        clickButton(":List Items.Cancel_QPushButton");
-        
-        waitForObject(":List Items.Close_QPushButton");
-        clickButton(":List Items.Close_QPushButton");
     }
     catch(e)
     {
@@ -184,15 +184,15 @@ function main()
         clickButton(":Enter Miscellaneous Adjustment.OK_QPushButton");
         waitForObject(":Enter Miscellaneous Adjustment.OK_QPushButton");
         clickButton(":Enter Miscellaneous Adjustment.OK_QPushButton");
-        waitForObject(":Enter Miscellaneous Adjustment.Close_QPushButton");
-        clickButton(":Enter Miscellaneous Adjustment.Close_QPushButton");
-        
+        waitForObject(":Enter Miscellaneous Adjustment.Cancel_QPushButton");
+        clickButton(":Enter Miscellaneous Adjustment.Cancel_QPushButton");
+                
     }
     catch(e)
     {
         test.fail("Error in adjusting QOH of ZTRUCK1"+ e);
     }
-    
+  
     
     //------Adjusting QOH of Location controlled Item-------
     try
@@ -229,8 +229,8 @@ function main()
         clickButton(":Enter Miscellaneous Adjustment.Distribute_QPushButton");
         waitForObject(":Enter Miscellaneous Adjustment.Post_QPushButton_2");
         clickButton(":Enter Miscellaneous Adjustment.Post_QPushButton_2");
-        waitForObject(":Enter Miscellaneous Adjustment.Close_QPushButton");
-        clickButton(":Enter Miscellaneous Adjustment.Close_QPushButton");
+        waitForObject(":Enter Miscellaneous Adjustment.Cancel_QPushButton");
+        clickButton(":Enter Miscellaneous Adjustment.Cancel_QPushButton");
         
     }
     catch(e)
@@ -268,8 +268,8 @@ function main()
         clickButton(":Enter Miscellaneous Adjustment.Distribute_QPushButton");
         waitForObject(":Enter Miscellaneous Adjustment.Post_QPushButton_2");
         clickButton(":Enter Miscellaneous Adjustment.Post_QPushButton_2");
-        waitForObject(":Enter Miscellaneous Adjustment.Close_QPushButton");
-        clickButton(":Enter Miscellaneous Adjustment.Close_QPushButton");
+        waitForObject(":Enter Miscellaneous Adjustment.Cancel_QPushButton");
+        clickButton(":Enter Miscellaneous Adjustment.Cancel_QPushButton");
     }
     catch(e)
     {
@@ -286,8 +286,10 @@ function main()
         waitForObjectItem(":xTuple ERP: *.Quote_QMenu", "List...");
         activateItem(":xTuple ERP: *.Quote_QMenu", "List...");
         
-        waitForObject(":frame.New_QPushButton");
-        clickButton(":frame.New_QPushButton");
+        waitForObject(":Quotes.Query_QToolButton");
+        clickButton(":Quotes.Query_QToolButton");
+        waitForObject(":Quotes.New_QToolButton");
+        clickButton(":Quotes.New_QToolButton");
         waitForObject(":Bill-To.VirtualClusterLineEdit_CLineEdit");
         type(":Bill-To.VirtualClusterLineEdit_CLineEdit", "TTOYS");
         snooze(0.5);
@@ -323,8 +325,8 @@ function main()
         waitForObject(":Quote.Cancel_QPushButton");
         clickButton(":Quote.Cancel_QPushButton");
         
-        waitForObject(":_quote_XTreeWidget");
-        if(object.exists("{column='0' container=':_quote_XTreeWidget' text='"+quote+"' type='QModelIndex'}"))
+        waitForObject(":_list_XTreeWidget_4");
+        if(object.exists("{column='0' container=':_list_XTreeWidget_4' text='"+quote+"' type='QModelIndex'}"))
             test.pass("Quote Created Successfully");
         else 
             test.fail("Quote Creation Failed");
@@ -337,13 +339,13 @@ function main()
     
     //-----Convert Quote To Sales Order-----
     try
-    {
-        clickItem(":_quote_XTreeWidget", quote, 5, 5, 0, Qt.LeftButton);
-        waitForObject(":frame.Convert_QPushButton");
-        clickButton(":frame.Convert_QPushButton");
-        
-        waitForObject(":List Quotes.Yes_QPushButton");
-        clickButton(":List Quotes.Yes_QPushButton");
+    {   
+        waitForObject(":_list_XTreeWidget_4");
+        openItemContextMenu(":_list_XTreeWidget_4",quote,5,5,Qt.LeftButton);
+        waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Convert...");
+        activateItem(":xTuple ERP:*._menu_QMenu", "Convert...");
+        waitForObject(":Quotes.Yes_QPushButton");
+        clickButton(":Quotes.Yes_QPushButton");
         
         if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
             clickButton(":_headerPage.Print on Save_QCheckBox");
@@ -367,8 +369,8 @@ function main()
         clickButton(":Sales Order.Save_QPushButton_2");
         
         
-        waitForObject(":List Quotes.Close_QPushButton");
-        clickButton(":List Quotes.Close_QPushButton");
+        waitForObject(":Quotes.Close_QToolButton");
+        clickButton(":Quotes.Close_QToolButton");
     }
     catch(e)
     {
@@ -386,15 +388,16 @@ function main()
         activateItem(":xTuple ERP: *.Sales_QMenu", "Sales Order");
         waitForObjectItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
         activateItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
-        
-        waitForObject(":frame._so_XTreeWidget");
-        if(object.exists("{column='0' container=':frame._so_XTreeWidget' text='"+quote+"' type='QModelIndex'}"))
+        waitForObject(":Open Sales Orders.Query_QToolButton");
+        clickButton(":Open Sales Orders.Query_QToolButton");
+        waitForObject(":_list_XTreeWidget_5");
+        if(object.exists("{column='0' container=':_list_XTreeWidget_5' text='"+quote+"' type='QModelIndex'}"))
             test.pass("Quote successfully converted to Sales Order");
         else 
             test.fail("Quote convertion failed");
         
-        waitForObject(":List Open Sales Orders.Close_QPushButton");
-        clickButton(":List Open Sales Orders.Close_QPushButton");
+        waitForObject(":Open Sales Orders.Close_QToolButton");
+        clickButton(":Open Sales Orders.Close_QToolButton");
     }
     catch(e)
     {
@@ -412,8 +415,10 @@ function main()
         waitForObjectItem(":xTuple ERP: *.Prospect_QMenu", "List...");
         activateItem(":xTuple ERP: *.Prospect_QMenu", "List...");
         
-        waitForObject(":List Prospects.New_QPushButton");
-        clickButton(":List Prospects.New_QPushButton");
+        waitForObject(":Prospects.Query_QToolButton");
+        clickButton(":Prospects.Query_QToolButton");
+        waitForObject(":Prospects.New_QToolButton");
+        clickButton(":Prospects.New_QToolButton");
         waitForObject(":_number_XLineEdit");
         type(":_number_XLineEdit", "zenprospect");
         waitForObject(":_name_QLineEdit");
@@ -442,8 +447,8 @@ function main()
         {
             
             
-            waitForObject(":_listTab.Coltraine_QModelIndex");
-            doubleClick(":_listTab.Coltraine_QModelIndex", 34, 4, 0, Qt.LeftButton);
+            waitForObject(":_listTab.Anna_QModelIndex");
+            mouseClick(":_listTab.Anna_QModelIndex", 23, 7, 0, Qt.LeftButton);;
         }
         else
         {
@@ -451,16 +456,20 @@ function main()
             doubleClickItem(":_listTab_XTreeWidget_10", "Susanta", 5, 5, 0, Qt.LeftButton);
         }
         
+        
+        waitForObject(":_contactTab.OK_QPushButton");
+        clickButton(":_contactTab.OK_QPushButton");
         waitForObject(":Prospect.Save_QPushButton");
         clickButton(":Prospect.Save_QPushButton");
         
-        waitForObject(":List Prospects._prospect_XTreeWidget");
-        if(object.exists("{column='0' container=':List Prospects._prospect_XTreeWidget' text='ZENPROSPECT' type='QModelIndex'}"))         test.pass("ZENPROSPECT created");
+        waitForObject(":_list_XTreeWidget_7");
+        if(object.exists("{column='0' container=':_list_XTreeWidget_7' text='ZENPROSPECT' type='QModelIndex'}"))   
+            test.pass("ZENPROSPECT created");
         else 
             test.fail("Prospect creation failed");
         
-        waitForObject(":List Prospects.Close_QPushButton");
-        clickButton(":List Prospects.Close_QPushButton");
+        waitForObject(":Prospects.Close_QToolButton");
+        clickButton(":Prospects.Close_QToolButton");
     }
     catch(e)
     {
@@ -478,8 +487,10 @@ function main()
         waitForObjectItem(":xTuple ERP: *.Quote_QMenu", "List...");
         activateItem(":xTuple ERP: *.Quote_QMenu", "List...");
         
-        waitForObject(":frame.New_QPushButton");
-        clickButton(":frame.New_QPushButton");
+        waitForObject(":Quotes.Query_QToolButton");
+        clickButton(":Quotes.Query_QToolButton");
+        waitForObject(":Quotes.New_QToolButton");
+        clickButton(":Quotes.New_QToolButton");
         waitForObject(":Bill-To.VirtualClusterLineEdit_CLineEdit");
         type(":Bill-To.VirtualClusterLineEdit_CLineEdit", "ZENPROSPECT");
         snooze(0.5);
@@ -513,12 +524,10 @@ function main()
         waitForObject(":Quote.Cancel_QPushButton");
         clickButton(":Quote.Cancel_QPushButton");
         
-        if(!findObject(":Show.Quotes For Prospects_XCheckBox").checked)
-            clickButton(":Show.Quotes For Prospects_XCheckBox");
         snooze(0.5);
-        waitForObject(":_quote_XTreeWidget");
+        waitForObject(":_list_XTreeWidget_4");
         
-        if(object.exists("{column='0' container=':_quote_XTreeWidget' text='"+pquote+"' type='QModelIndex'}"))
+        if(object.exists("{column='0' container=':_list_XTreeWidget_4' text='"+pquote+"' type='QModelIndex'}"))
             
             test.pass("Quote using Prospect as Customer created Successfully");
         else 
@@ -526,34 +535,34 @@ function main()
     }
     catch(e)
     {
-        test.fail("Error in creating quote wiyh prospect" + e);
+        test.fail("Error in creating quote with prospect" + e);
     }
     
     
     //-----Conversion of Quote to Sales Order & Prospect to Customer-----
     try
     {
-        clickItem(":_quote_XTreeWidget", pquote, 5, 5, 0, Qt.LeftButton);
-        waitForObject(":_quote_XTreeWidget");
-        clickItem(":_quote_XTreeWidget", pquote, 5, 5, 1, Qt.LeftButton);
-        waitForObject(":frame.Convert_QPushButton");
-        clickButton(":frame.Convert_QPushButton");
+        waitForObject(":_list_XTreeWidget_4");
+        openItemContextMenu(":_list_XTreeWidget_4",pquote,5,5,Qt.LeftButton);
+        waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Convert...");
+        activateItem(":xTuple ERP:*._menu_QMenu", "Convert...");
+        waitForObject(":Quotes.Yes_QPushButton");
+        clickButton(":Quotes.Yes_QPushButton");
         
-        waitForObject(":List Quotes.Yes_QPushButton");
-        clickButton(":List Quotes.Yes_QPushButton");
         snooze(0.5);
         
-        waitForObject(":List Quotes.Yes_QPushButton");
-        clickButton(":List Quotes.Yes_QPushButton");
-        
+        waitForObject(":Quotes.Yes_QPushButton");
+        clickButton(":Quotes.Yes_QPushButton");
         if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
             clickButton(":_headerPage.Print on Save_QCheckBox");
         
         waitForObject(":Sales Order.Save_QPushButton_2");
         clickButton(":Sales Order.Save_QPushButton_2");
         
-        waitForObject(":List Quotes.Close_QPushButton");
-        clickButton(":List Quotes.Close_QPushButton");
+        waitForObject(":Quotes.Close_QToolButton");
+        clickButton(":Quotes.Close_QToolButton");
+        
+        
         
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
         activateItem(":xTuple ERP: *_QMenuBar", "Sales");
@@ -561,16 +570,17 @@ function main()
         activateItem(":xTuple ERP: *.Sales_QMenu", "Sales Order");
         waitForObjectItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
         activateItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
+        waitForObject(":Open Sales Orders.Query_QToolButton");
+        clickButton(":Open Sales Orders.Query_QToolButton");
+        waitForObject(":_list_XTreeWidget_5");
         
-        waitForObject(":frame._so_XTreeWidget");
-        
-        if(object.exists("{column='0' container=':frame._so_XTreeWidget' text='"+pquote+"' type='QModelIndex'}"))
+        if(object.exists("{column='0' container=':_list_XTreeWidget_5' text='"+pquote+"' type='QModelIndex'}"))
             test.pass("Quote using prospect as Customer converted successfully");
         else 
             test.fail("Quote using prospect as Customer conversion failed");
         
-        waitForObject(":List Open Sales Orders.Close_QPushButton");
-        clickButton(":List Open Sales Orders.Close_QPushButton");
+        waitForObject(":Open Sales Orders.Close_QToolButton");
+        clickButton(":Open Sales Orders.Close_QToolButton");
     }
     catch(e)
     {
@@ -581,21 +591,24 @@ function main()
     //-----Verify - Conversion of Prospect to Customer-----
     try
     {
+        
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
         activateItem(":xTuple ERP: *_QMenuBar", "Sales");
         waitForObjectItem(":xTuple ERP: *.Sales_QMenu", "Customer");
         activateItem(":xTuple ERP: *.Sales_QMenu", "Customer");
         waitForObjectItem(":xTuple ERP: *.Customer_QMenu", "List...");
         activateItem(":xTuple ERP: *.Customer_QMenu", "List...");
-        
-        waitForObject(":List Customers._cust_XTreeWidget");
-        if(object.exists("{column='1' container=':List Customers._cust_XTreeWidget' text='ZENPROSPECT' type='QModelIndex'}"))
+        waitForObject(":Customers.Query_QToolButton");
+        clickButton(":Customers.Query_QToolButton");
+        waitForObject(":_list_XTreeWidget_6");
+        snooze(0.5);
+        if(object.exists("{column='2' container=':_list_XTreeWidget_6' text='Zen Prospect' type='QModelIndex'}"))
             test.pass("Prospect converted to Customer successfully");
         else
             test.fail("Prospect conversion to Customer failed");
         
-        waitForObject(":List Customers.Close_QPushButton");
-        clickButton(":List Customers.Close_QPushButton");
+        waitForObject(":Customers.Close_QToolButton");
+        clickButton(":Customers.Close_QToolButton");
     }
     catch(e)
     {
@@ -613,8 +626,10 @@ function main()
         waitForObjectItem(":xTuple ERP: *.Quote_QMenu", "List...");
         activateItem(":xTuple ERP: *.Quote_QMenu", "List...");
         
-        waitForObject(":frame.New_QPushButton");
-        clickButton(":frame.New_QPushButton");
+        waitForObject(":Quotes.Query_QToolButton");
+        clickButton(":Quotes.Query_QToolButton");
+        waitForObject(":Quotes.New_QToolButton");
+        clickButton(":Quotes.New_QToolButton");
         waitForObject(":Bill-To.VirtualClusterLineEdit_CLineEdit");
         type(":Bill-To.VirtualClusterLineEdit_CLineEdit", "TTOYS");
         snooze(0.5);
@@ -657,8 +672,8 @@ function main()
     
     try
     {
-        waitForObject(":_quote_XTreeWidget");
-        doubleClickItem(":_quote_XTreeWidget",  quotenumber, 5, 5, 0, Qt.LeftButton);
+        waitForObject(":_list_XTreeWidget_4");
+        doubleClickItem(":_list_XTreeWidget_4",  quotenumber, 5, 5, 0, Qt.LeftButton);
         waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Quote.qt_tabwidget_tabbar_QTabBar", "Line Items");
         waitForObject(":_lineItemsPage._soitem_XTreeWidget_2");
@@ -681,8 +696,8 @@ function main()
         waitForObject(":Quote.Save_QPushButton_2");
         clickButton(":Quote.Save_QPushButton_2")
                 
-                waitForObject(":_quote_XTreeWidget");
-        doubleClickItem(":_quote_XTreeWidget", quotenumber, 5, 5, 0, Qt.LeftButton);
+                waitForObject(":_list_XTreeWidget_4");
+        doubleClickItem(":_list_XTreeWidget_4", quotenumber, 5, 5, 0, Qt.LeftButton);
         waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Quote.qt_tabwidget_tabbar_QTabBar", "Line Items");
         waitForObject(":_lineItemsPage._soitem_XTreeWidget_2");
@@ -703,8 +718,8 @@ function main()
             test.pass("Quote edit successful");
         else test.fail("Quote edit failed");
         
-        waitForObject(":List Quotes.Close_QPushButton");
-        clickButton(":List Quotes.Close_QPushButton");
+        waitForObject(":Quotes.Close_QToolButton");
+        clickButton(":Quotes.Close_QToolButton");
     }
     catch(e)
     {
@@ -722,18 +737,20 @@ function main()
         activateItem(":xTuple ERP: *.Sales_QMenu", "Quote");
         waitForObjectItem(":xTuple ERP: *.Quote_QMenu", "List...");
         activateItem(":xTuple ERP: *.Quote_QMenu", "List...");
+        waitForObject(":Quotes.Query_QToolButton");
+        clickButton(":Quotes.Query_QToolButton");
+        waitForObject(":_list_XTreeWidget_4");
+        openItemContextMenu(":_list_XTreeWidget_4",quotenumber, 5, 5, Qt.LeftButton);
+        waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Delete...");
+        activateItem(":xTuple ERP:*._menu_QMenu", "Delete...");
+        waitForObject(":Quotes.Yes_QPushButton");
+        clickButton(":Quotes.Yes_QPushButton");
         
-        waitForObject(":_quote_XTreeWidget");
-        clickItem(":_quote_XTreeWidget",quotenumber, 5, 5, 1, Qt.LeftButton);
-        waitForObject(":frame.Delete_QPushButton_2");
-        clickButton(":frame.Delete_QPushButton_2");
-        waitForObject(":List Quotes.Yes_QPushButton");
-        clickButton(":List Quotes.Yes_QPushButton");
         
         test.verify(quotenumber, "Quote deleted");
         
-        waitForObject(":List Quotes.Close_QPushButton");
-        clickButton(":List Quotes.Close_QPushButton");
+        waitForObject(":Quotes.Close_QToolButton");
+        clickButton(":Quotes.Close_QToolButton");
     }
     catch(e)
     {
@@ -755,8 +772,10 @@ function main()
             waitForObjectItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
             activateItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
             
-            waitForObject(":frame.New_QPushButton_2");
-            clickButton(":frame.New_QPushButton_2");
+            waitForObject(":Open Sales Orders.Query_QToolButton");
+            clickButton(":Open Sales Orders.Query_QToolButton");
+            waitForObject(":Open Sales Orders.New_QToolButton");
+            clickButton(":Open Sales Orders.New_QToolButton");
             waitForObject(":Bill-To.VirtualClusterLineEdit_CLineEdit_2");
             type(":Bill-To.VirtualClusterLineEdit_CLineEdit_2", "TTOYS");
             snooze(0.5);
@@ -799,8 +818,8 @@ function main()
             waitForObject(":Sales Order.Cancel_QPushButton");
             clickButton(":Sales Order.Cancel_QPushButton");
             
-            waitForObject(":frame._so_XTreeWidget");
-            if(object.exists("{column='0' container=':frame._so_XTreeWidget' text='"+sonumber+"' type='QModelIndex'}"))
+            waitForObject(":_list_XTreeWidget_5");
+            if(object.exists("{column='0' container=':_list_XTreeWidget_5' text='"+sonumber+"' type='QModelIndex'}"))
                 test.pass("Sales Order creation successful");
             else  
                 test.fail("Sales Order creation failed");
@@ -816,8 +835,10 @@ function main()
         try
         {
             
-            waitForObject(":frame.New_QPushButton_2");
-            clickButton(":frame.New_QPushButton_2");
+            waitForObject(":Open Sales Orders.Query_QToolButton");
+            clickButton(":Open Sales Orders.Query_QToolButton");
+            waitForObject(":Open Sales Orders.New_QToolButton");
+            clickButton(":Open Sales Orders.New_QToolButton");
             waitForObject(":Bill-To.VirtualClusterLineEdit_CLineEdit_2");
             type(":Bill-To.VirtualClusterLineEdit_CLineEdit_2", "TTOYS");
             snooze(0.5);
@@ -858,8 +879,8 @@ function main()
             waitForObject(":Sales Order.Cancel_QPushButton");
             clickButton(":Sales Order.Cancel_QPushButton");
             
-            waitForObject(":frame._so_XTreeWidget");
-            if(object.exists("{column='0' container=':frame._so_XTreeWidget' text='"+sonumlot+"' type='QModelIndex'}"))
+            waitForObject(":_list_XTreeWidget_5");
+            if(object.exists("{column='0' container=':_list_XTreeWidget_5' text='"+sonumlot+"' type='QModelIndex'}"))
                 test.pass("Sales Order creation successful");
             else  
                 test.fail("Sales Order creation failed");
@@ -876,8 +897,10 @@ function main()
         try
         {
             
-            waitForObject(":frame.New_QPushButton_2");
-            clickButton(":frame.New_QPushButton_2");
+            waitForObject(":Open Sales Orders.Query_QToolButton");
+            clickButton(":Open Sales Orders.Query_QToolButton");
+            waitForObject(":Open Sales Orders.New_QToolButton");
+            clickButton(":Open Sales Orders.New_QToolButton");
             waitForObject(":Bill-To.VirtualClusterLineEdit_CLineEdit_2");
             type(":Bill-To.VirtualClusterLineEdit_CLineEdit_2", "TTOYS");
             snooze(0.5);
@@ -918,8 +941,8 @@ function main()
             waitForObject(":Sales Order.Cancel_QPushButton");
             clickButton(":Sales Order.Cancel_QPushButton");
             
-            waitForObject(":frame._so_XTreeWidget");
-            if(object.exists("{column='0' container=':frame._so_XTreeWidget' text='"+sonumloc+"' type='QModelIndex'}"))
+            waitForObject(":_list_XTreeWidget_5");
+            if(object.exists("{column='0' container=':_list_XTreeWidget_5' text='"+sonumloc+"' type='QModelIndex'}"))
                 test.pass("Sales Order creation successful");
             else  
                 test.fail("Sales Order creation failed");
@@ -935,8 +958,10 @@ function main()
         try
         {
             
-            waitForObject(":frame.New_QPushButton_2");
-            clickButton(":frame.New_QPushButton_2");
+            waitForObject(":Open Sales Orders.Query_QToolButton");
+            clickButton(":Open Sales Orders.Query_QToolButton");
+            waitForObject(":Open Sales Orders.New_QToolButton");
+            clickButton(":Open Sales Orders.New_QToolButton");
             waitForObject(":Bill-To.VirtualClusterLineEdit_CLineEdit_2");
             type(":Bill-To.VirtualClusterLineEdit_CLineEdit_2", "TTOYS");
             snooze(0.5);
@@ -977,8 +1002,8 @@ function main()
             waitForObject(":Sales Order.Cancel_QPushButton");
             clickButton(":Sales Order.Cancel_QPushButton");
             
-            waitForObject(":frame._so_XTreeWidget");
-            if(object.exists("{column='0' container=':frame._so_XTreeWidget' text='"+sonumser+"' type='QModelIndex'}"))
+            waitForObject(":_list_XTreeWidget_5");
+            if(object.exists("{column='0' container=':_list_XTreeWidget_5' text='"+sonumser+"' type='QModelIndex'}"))
                 test.pass("Sales Order creation successful");
             else  
                 test.fail("Sales Order creation failed");
@@ -993,8 +1018,10 @@ function main()
         try
         {
             
-            waitForObject(":frame.New_QPushButton_2");
-            clickButton(":frame.New_QPushButton_2");
+            waitForObject(":Open Sales Orders.Query_QToolButton");
+            clickButton(":Open Sales Orders.Query_QToolButton");
+            waitForObject(":Open Sales Orders.New_QToolButton");
+            clickButton(":Open Sales Orders.New_QToolButton");
             waitForObject(":Bill-To.VirtualClusterLineEdit_CLineEdit_2");
             type(":Bill-To.VirtualClusterLineEdit_CLineEdit_2", "TTOYS");
             snooze(0.5);
@@ -1035,8 +1062,8 @@ function main()
             waitForObject(":Sales Order.Cancel_QPushButton");
             clickButton(":Sales Order.Cancel_QPushButton");
             
-            waitForObject(":frame._so_XTreeWidget");
-            if(object.exists("{column='0' container=':frame._so_XTreeWidget' text='"+sonumkit+"' type='QModelIndex'}"))
+            waitForObject(":_list_XTreeWidget_5");
+            if(object.exists("{column='0' container=':_list_XTreeWidget_5' text='"+sonumkit+"' type='QModelIndex'}"))
                 test.pass("Sales Order creation successful");
             else  
                 test.fail("Sales Order creation failed");
@@ -1053,8 +1080,10 @@ function main()
         
         try
         {
-            waitForObject(":frame.New_QPushButton_2");
-            clickButton(":frame.New_QPushButton_2");
+            waitForObject(":Open Sales Orders.Query_QToolButton");
+            clickButton(":Open Sales Orders.Query_QToolButton");
+            waitForObject(":Open Sales Orders.New_QToolButton");
+            clickButton(":Open Sales Orders.New_QToolButton");
             waitForObject(":Bill-To.VirtualClusterLineEdit_CLineEdit_2");
             type(":Bill-To.VirtualClusterLineEdit_CLineEdit_2", "TTOYS");
             snooze(0.5);
@@ -1095,8 +1124,8 @@ function main()
             waitForObject(":Sales Order.Cancel_QPushButton");
             clickButton(":Sales Order.Cancel_QPushButton");
             
-            waitForObject(":frame._so_XTreeWidget");
-            if(object.exists("{column='0' container=':frame._so_XTreeWidget' text='"+soret+"' type='QModelIndex'}"))
+            waitForObject(":_list_XTreeWidget_5");
+            if(object.exists("{column='0' container=':_list_XTreeWidget_5' text='"+soret+"' type='QModelIndex'}"))
                 test.pass("Sales Order creation successful");
             else  
                 test.fail("Sales Order creation failed");
@@ -1107,8 +1136,8 @@ function main()
             test.fail("Error in creating a sales order" + e);
         }
         
-        waitForObject(":List Open Sales Orders.Close_QPushButton");
-        clickButton(":List Open Sales Orders.Close_QPushButton");
+        waitForObject(":Open Sales Orders.Close_QToolButton");
+        clickButton(":Open Sales Orders.Close_QToolButton");
         
     }
     catch(e)
@@ -1125,17 +1154,18 @@ function main()
         activateItem(":xTuple ERP: *.Sales_QMenu", "Sales Order");
         waitForObjectItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
         activateItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
+        waitForObject(":Open Sales Orders.Query_QToolButton");
+        clickButton(":Open Sales Orders.Query_QToolButton");        
+        waitForObject(":_list_XTreeWidget_5");
+        openItemContextMenu(":_list_XTreeWidget_5",sonumber, 5, 5, Qt.LeftButton);         
+        waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Copy...");
+        activateItem(":xTuple ERP:*._menu_QMenu", "Copy...");
+        waitForObject(":Open Sales Orders.OK_QPushButton");
+        clickButton(":Open Sales Orders.OK_QPushButton");
+        waitForObject(":_list_XTreeWidget_5");
         
-        waitForObject(":frame._so_XTreeWidget");
-        clickItem(":frame._so_XTreeWidget", sonumber, 5, 5, 1, Qt.LeftButton);
-        waitForObject(":frame.Copy_QPushButton");
-        clickButton(":frame.Copy_QPushButton");
-        waitForObject(":List Open Sales Orders.Copy_QPushButton");
-        clickButton(":List Open Sales Orders.Copy_QPushButton");
-        waitForObject(":frame._so_XTreeWidget");
-        
-        waitForObject(":frame._so_XTreeWidget");
-        doubleClickItem(":frame._so_XTreeWidget", parseInt(sonumber.toString()) + 6, 5, 5, 0, Qt.LeftButton);
+        waitForObject(":_list_XTreeWidget_5");
+        doubleClickItem(":_list_XTreeWidget_5", parseInt(sonumber.toString()) + 6, 5, 5, 0, Qt.LeftButton);
         
         waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
         
@@ -1165,8 +1195,8 @@ function main()
         else test.fail("Sales order copy not successful");
         
         snooze(0.5);
-        waitForObject(":List Open Sales Orders.Close_QPushButton");
-        clickButton(":List Open Sales Orders.Close_QPushButton");
+        waitForObject(":Open Sales Orders.Close_QToolButton");
+        clickButton(":Open Sales Orders.Close_QToolButton");
     }
     catch(e)
     {
@@ -1183,9 +1213,10 @@ function main()
         activateItem(":xTuple ERP: *.Sales_QMenu", "Sales Order");
         waitForObjectItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
         activateItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
-        
-        waitForObject(":frame._so_XTreeWidget");
-        doubleClickItem(":frame._so_XTreeWidget", parseInt(sonumber.toString()) + 6, 5, 5, 0, Qt.LeftButton);
+        waitForObject(":Open Sales Orders.Query_QToolButton");
+        clickButton(":Open Sales Orders.Query_QToolButton"); 
+        waitForObject(":_list_XTreeWidget_5");
+        doubleClickItem(":_list_XTreeWidget_5", parseInt(sonumber.toString()) + 6, 5, 5, 0, Qt.LeftButton);
         waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
         
         if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
@@ -1222,8 +1253,8 @@ function main()
         waitForObject(":Sales Order.Save_QPushButton_2");
         clickButton(":Sales Order.Save_QPushButton_2");
         
-        waitForObject(":List Open Sales Orders.Close_QPushButton");
-        clickButton(":List Open Sales Orders.Close_QPushButton");
+        waitForObject(":Open Sales Orders.Close_QToolButton");
+        clickButton(":Open Sales Orders.Close_QToolButton");
         
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
         activateItem(":xTuple ERP: *_QMenuBar", "Sales");
@@ -1232,10 +1263,11 @@ function main()
         waitForObjectItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
         activateItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
         
-        
+        waitForObject(":Open Sales Orders.Query_QToolButton");
+        clickButton(":Open Sales Orders.Query_QToolButton"); 
         var x=parseInt(sonumber.toString()) + 6;
-        waitForObject(":frame._so_XTreeWidget");
-        doubleClickItem(":frame._so_XTreeWidget",x , 5, 5, 0, Qt.LeftButton);
+        waitForObject(":_list_XTreeWidget_5");
+        doubleClickItem(":_list_XTreeWidget_5",x , 5, 5, 0, Qt.LeftButton);
         waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
         
         if(findObject(":_headerPage.Print on Save_QCheckBox").checked)
@@ -1259,8 +1291,8 @@ function main()
             test.pass("Sales Order edit successful");
         else test.fail("Sales Order edit failed");
         
-        waitForObject(":List Open Sales Orders.Close_QPushButton");
-        clickButton(":List Open Sales Orders.Close_QPushButton");
+        waitForObject(":Open Sales Orders.Close_QToolButton");
+        clickButton(":Open Sales Orders.Close_QToolButton");
     }
     catch(e)
     {
@@ -1277,20 +1309,20 @@ function main()
         activateItem(":xTuple ERP: *.Sales_QMenu", "Sales Order");
         waitForObjectItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
         activateItem(":xTuple ERP: *.Sales Order_QMenu", "List Open...");
+        waitForObject(":Open Sales Orders.Query_QToolButton");
+        clickButton(":Open Sales Orders.Query_QToolButton"); 
+        waitForObject(":_list_XTreeWidget_5");
+        openItemContextMenu(":_list_XTreeWidget_5",  parseInt(sonumber.toString()) + 6, 5, 5, Qt.LeftButton);
+        waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Delete...");
+        activateItem(":xTuple ERP:*._menu_QMenu", "Delete...");
+        waitForObject(":Open Sales Orders.Yes_QPushButton");
+        clickButton(":Open Sales Orders.Yes_QPushButton");
         
-        waitForObject(":frame._so_XTreeWidget");
-        clickItem(":frame._so_XTreeWidget",  parseInt(sonumber.toString()) + 6, 5, 5, 1, Qt.LeftButton);
-        
-        waitForObject(":frame.Delete_QPushButton");
-        clickButton(":frame.Delete_QPushButton");
-        
-        waitForObject(":List Open Sales Orders.Yes_QPushButton");
-        clickButton(":List Open Sales Orders.Yes_QPushButton");
         
         test.verify(parseInt(sonumber.toString()) + 6, "Sales Order deleted");
         
-        waitForObject(":List Open Sales Orders.Close_QPushButton");
-        clickButton(":List Open Sales Orders.Close_QPushButton");
+        waitForObject(":Open Sales Orders.Close_QToolButton");
+        clickButton(":Open Sales Orders.Close_QToolButton");
     }
     catch(e)
     {
@@ -2286,42 +2318,43 @@ function main()
         type(":Document Date Range.XDateEdit_XDateEdit", "0");  
         waitForObject(":Document Date Range.XDateEdit_XDateEdit_2");
         type(":Document Date Range.XDateEdit_XDateEdit_2", "0");
-        waitForObject(":Customer History.Query_QPushButton");
-        clickButton(":Customer History.Query_QPushButton");
+        waitForObject(":Customer History.Query_QToolButton");
+        clickButton(":Customer History.Query_QToolButton");
         waitForObject(":_list_XTreeWidget");
         
-        if(object.exists("{column='2' container=':_frame._custhist_XTreeWidget' text='"+qtinvoice+"' type='QModelIndex'}"))
+        if(object.exists("{column='2' container=':_list_XTreeWidget' text='"+qtinvoice+"' type='QModelIndex'}"))
             test.pass(" Invoice for Quote posted and available in Customer History");
         else 
             test.fail("Invoice for Quote not available in Customer History");
         
-        if(object.exists("{column='2' container=':_frame._custhist_XTreeWidget' text='"+soinvoice+"' type='QModelIndex'}"))
+        if(object.exists("{column='2' container=':_list_XTreeWidget' text='"+soinvoice+"' type='QModelIndex'}"))
             test.pass(" Invoice for Sales Order posted and available in Customer History");
         else 
             test.fail("Invoice for Sales Order not available in Customer History");
         
         
-        if(object.exists("{column='2' container=':_frame._custhist_XTreeWidget' text='"+lotinvoice+"' type='QModelIndex'}"))
+        if(object.exists("{column='2' container=':_list_XTreeWidget' text='"+lotinvoice+"' type='QModelIndex'}"))
             test.pass(" Invoice for Sales Order posted and available in Customer History");
         else 
             test.fail("Invoice for Sales Order not available in Customer History");
         
-        if(object.exists("{column='2' container=':_frame._custhist_XTreeWidget' text='"+locinvoice+"' type='QModelIndex'}"))
+        if(object.exists("{column='2' container=':_list_XTreeWidget' text='"+locinvoice+"' type='QModelIndex'}"))
             test.pass(" Invoice for Sales Order posted and available in Customer History");
         else 
             test.fail("Invoice for Sales Order not available in Customer History");
         
-        if(object.exists("{column='2' container=':_frame._custhist_XTreeWidget' text='"+serinvoice+"' type='QModelIndex'}"))
+        if(object.exists("{column='2' container=':_list_XTreeWidget' text='"+serinvoice+"' type='QModelIndex'}"))
             test.pass(" Invoice for Sales Order posted and available in Customer History");
         else 
             test.fail("Invoice for Sales Order not available in Customer History");
         
-        if(object.exists("{column='2' container=':_frame._custhist_XTreeWidget' text='"+kitinvoice+"' type='QModelIndex'}"))
+        if(object.exists("{column='2' container=':_list_XTreeWidget' text='"+kitinvoice+"' type='QModelIndex'}"))
             test.pass(" Invoice for Sales Order posted and available in Customer History");
         else 
             test.fail("Invoice for Sales Order not available in Customer History");
         
-        nativeType("<Ctrl+w>");
+        waitForObject(":Customer History.Close_QToolButton");
+        clickButton(":Customer History.Close_QToolButton");
     }
     catch(e)
     {
