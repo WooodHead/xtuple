@@ -45,7 +45,8 @@ BEGIN
 
 --  Distribute any remaining wo_wipvalue to G/L - debit Inventory Cost, credit WIP
   PERFORM insertGLTransaction( 'W/O', 'WO', _woNumber, ('Manufacturing Inventory Cost Variance for ' || item_number),
-                               costcat_wip_accnt_id, costcat_invcost_accnt_id, -1,
+                               getPrjAccntId(wo_prj_id, costcat_wip_accnt_id), 
+                               getPrjAccntId(wo_prj_id, costcat_invcost_accnt_id), -1,
                                wo_wipvalue, pTransDate )
   FROM wo, itemsite, item, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)
@@ -57,7 +58,7 @@ BEGIN
   PERFORM insertGLTransaction( 'W/O', 'WO', _woNumber, ('Breeder Inventory Cost Variance for ' || item_number),
                                getPrjAccntId(wo_prj_id, costcat_wip_accnt_id),
                                CASE WHEN(itemsite_costmethod='A') THEN costcat_asset_accnt_id
-                                    ELSE costcat_invcost_accnt_id
+                                    ELSE getPrjAccntId(wo_prj_id, costcat_invcost_accnt_id)
                                END,
                                -1,
                                wo_brdvalue, pTransDate )
