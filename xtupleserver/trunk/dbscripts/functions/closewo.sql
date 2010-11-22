@@ -55,7 +55,7 @@ BEGIN
 
 --  Distribute any remaining wo_brdvalue to G/L - debit Inventory Cost, credit WIP
   PERFORM insertGLTransaction( 'W/O', 'WO', _woNumber, ('Breeder Inventory Cost Variance for ' || item_number),
-                               costcat_wip_accnt_id,
+                               getPrjAccntId(wo_prj_id, costcat_wip_accnt_id),
                                CASE WHEN(itemsite_costmethod='A') THEN costcat_asset_accnt_id
                                     ELSE costcat_invcost_accnt_id
                                END,
