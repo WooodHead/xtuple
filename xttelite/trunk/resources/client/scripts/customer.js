@@ -14,6 +14,7 @@ xtte.customer = new Object;
 
 if (privileges.check("CanViewRates"))
 {
+  var _custid = -1;
   var _creditGroup = mywindow.findChild("_creditGroup");
   var _layout = toolbox.widgetGetLayout(_creditGroup);
   var _tecustomer = toolbox.loadUi("tecustomer", mywindow);
@@ -34,11 +35,12 @@ if (privileges.check("CanViewRates"))
   var _tecustrateid = -1; 
   var _basecurrid = _rate.id();
 
-  xtte.customer.save = function(custId)
+  xtte.customer.save = function()
   {
+
     var params = new Object();
     params.tecustrate_id	= _tecustrateid;
-    params.cust_id  	= custId;
+    params.cust_id  	= _custid;
     params.curr_id	= _rate.id();
     params.rate	= _rate.localValue;
 
@@ -57,8 +59,13 @@ if (privileges.check("CanViewRates"))
 
   xtte.customer.populate = function(custId)
   {
+    if (_custid == custId)
+      return;
+
+    _custid = custId;
+
     var params = new Object();
-    params.cust_id = custId;    
+    params.cust_id = _custid;    
 
     var q = toolbox.executeDbQuery("customer", "seltecustrate", params);
 
