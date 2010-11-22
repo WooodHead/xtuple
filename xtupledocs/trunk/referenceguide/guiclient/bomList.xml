@@ -7,8 +7,8 @@
       <primary>bills of materials</primary>
       <secondary>master list of</secondary>
     </indexterm>List Bills of Materials</title>
-  <para>To access the master list of Bills of Materials, select the "List
-  Bills of Materials" option. The following screen will appear:</para>
+  <para>To access the master list of Bills of Materials (BOM), select the
+  "List Bills of Materials" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -21,8 +21,25 @@
   Item, begin typing in the search field. As you type, the "Bills of
   Materials" list will automatically scroll toward the Item Number you are
   typing. You can also search for Items manually by using the scroll bar to
-  the right of the "Bills of Materials" list. You may also show Bills of
-  Materials for inactive Items by selecting that option.</para>
+  the right of the "Bills of Materials" list. The following additional options
+  are also available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Show BOMs for Inactive Items</term>
+      <listitem>
+        <para>Select to include BOMs for Items which are inactive in the
+        display. If not selected, only active Items will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>BOMs with Component Items</term>
+      <listitem>
+        <para>Select to include only BOMs with BOM Items in the display. If
+        not selected, all BOMs will be shown―regardless of whether the BOM has
+        components, or not.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <tip role="standard">
     <para>You may not delete a Bill of Materials (BOM) if the Item in question
     has any Revision history. You must make the BOM inactive instead</para>
