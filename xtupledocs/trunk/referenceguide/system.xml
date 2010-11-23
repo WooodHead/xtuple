@@ -116,9 +116,9 @@
   <section id="Section975141">
     <title>Utilities</title>
     <para>System Utilities section.</para>
-    <xi:include href="guiclient/fixSerial.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/fixACL.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/fixSerial.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/importXML.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -132,6 +132,9 @@
       pre-printed forms. Use this utility before printing a batch of standard
       forms.</para>
     </section>
+    <xi:include href="guiclient/createRecurringItems.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
     <title>Setup</title>

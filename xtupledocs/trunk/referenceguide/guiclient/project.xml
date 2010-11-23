@@ -146,42 +146,10 @@
         <para>Date Project was actually completed.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Recurring</term>
-      <listitem>
-        <para>Select to indicate you want the Project to be a recurring
-        Project, using the frequency settings you specify below. This feature
-        enables you to automatically generate copies of Projects on a
-        recurring basis (e.g., the same day of every month). Recurring
-        Projects are generated when you run the recurring items utility, which
-        is described in more detail here: <xref
-        linkend="createRecurringItems" />.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Every</term>
-            <listitem>
-              <para>Specify how frequently you want the Project to recur. For
-              example, once (1) per month, six (6) times per year, etc.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Until</term>
-            <listitem>
-              <para>Specify when the recurrence should stop. For example, on
-              the last day of the year, at the end of six months, etc.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Create no more than</term>
-            <listitem>
-              <para>Specify the maximum number of Project copies you want
-              created when the recurring items utility is run.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
   </variablelist>
+  <xi:include href="../widgets/recurrencewidget.xml"
+              xpointer="recurrenceWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>To view a time and expenses summary of the Project, select the
   "Summary" tab. The following screen will appear:</para>
   <para><screenshot>
