@@ -147,6 +147,65 @@
     Category of this Incident has an EDI Profile, you may encounter an EDI
     processing interface when saving the Incident.</para>
   </note>
+  <para>To enter <indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>creating new for incidents</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>incidents having</secondary>
+    </indexterm> Characteristics associated with an Incident, select the
+  "Characteristics" tab. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/incident_characteristicsTab.png" />
+      </imageobject>
+      <caption>Incident Characteristics</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristics</term>
+      <listitem>
+        <para>Display lists the Characteristic name and Value of Incident
+        Characteristics related to the Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="configItemChar">To create a new Item Characteristic, select the
+  NEW button. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/characteristicAssignmentIncidents.png" />
+        </imageobject>
+        <caption>Create New Incident Characteristic</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristic</term>
+      <listitem>
+        <para>Select a Characteristic from the list of Characteristics
+        designated as being available for use as Item Characteristics.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Enter a value to associate with the Incident
+        Characteristic.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default</term>
+      <listitem>
+        <para>Select if the Value entered is the default Value for the
+        specified Characteristic. The default Value will be presented
+        initially wherever Incident Characteristics are used.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To define Item and Accounting relationships for an Incident, select
   the "Relationships" tab. The following screen will appear:</para>
   <para><screenshot>
@@ -268,7 +327,7 @@
   "Subscribers" tab. The following screen will appear:<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="???" />
+          <imagedata fileref="images/incident_subscribers.png" />
         </imageobject>
         <caption><para>Incident Subscribers</para></caption>
       </mediaobject>
@@ -280,7 +339,7 @@
   will appear:<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="???" />
+          <imagedata fileref="images/subscriber.png" />
         </imageobject>
         <caption><para>Adding a Subscriber</para></caption>
       </mediaobject>
