@@ -1,9 +1,8 @@
-CREATE OR REPLACE FUNCTION selectDueItemsForPayment(INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION selectDueItemsForPayment(INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pVendid ALIAS FOR $1;
   pBankaccntid ALIAS FOR $2;
   _currid INTEGER;
-  _r RECORD;
 
 BEGIN
 
@@ -11,18 +10,16 @@ BEGIN
   FROM bankaccnt
   WHERE (bankaccnt_id=pBankaccntid);
 
-  FOR _r IN SELECT apopen_id
-              FROM apopen
-             WHERE((apopen_duedate <= CURRENT_DATE)
-               AND (apopen_open)
-               AND (apopen_status = ''O'')
-               AND (apopen_doctype IN (''V'', ''D''))
-               AND (apopen_vend_id=pVendid)
-               AND (apopen_curr_id=_currid) ) LOOP
-    PERFORM selectPayment(_r.apopen_id, pBankaccntid);
-  END LOOP;
+  PERFORM selectPayment(apopen_id, pBankaccntid)
+     FROM apopen
+    WHERE((apopen_open)
+      AND (apopen_vend_id=pVendid)
+      AND (apopen_duedate <= CURRENT_DATE)
+      AND (apopen_status = 'O')
+      AND (apopen_doctype IN ('V', 'D'))
+      AND (apopen_curr_id=_currid) );
 
   RETURN 1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
