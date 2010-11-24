@@ -2,6 +2,7 @@
 -- Name: detail
 -- Notes: 
 
+SELECT * FROM (
 (SELECT cohead_id, 0 AS xtindentrole, salesrep_name, cohead_holdtype, cohead_number, 
    coheadstatecolor(cohead_id) AS qtforegroundrole, 
    cust_name,       
@@ -31,7 +32,8 @@
     END AS packed 
    <? if exists("showPrices") ?> 
     , 0 AS sales_xttotalrole, 0 AS cost_xttotalrole, 0 AS margin_xttotalrole 
-   <? endif ?>
+   <? endif ?>,
+   cohead_number AS seq
    FROM coitem, itemsite, item, cust, cohead 
      LEFT OUTER JOIN pack ON (cohead_id = pack_head_id), salesrep 
    WHERE ( (coitem_cohead_id=cohead_id)
@@ -54,8 +56,7 @@
    ) 
    GROUP BY cohead_id, salesrep_number, salesrep_name, cohead_number, cust_name,
             cohead_holdtype, cohead_orderdate, cohead_packdate,
-            cohead_created, pack_head_id 
-  ORDER BY cohead_number )
+            cohead_created, pack_head_id )
    UNION 
    (SELECT cohead_id, 1 AS xtindentrole, NULL, NULL, 
    shiphead_number AS cohead_number, 
@@ -77,7 +78,8 @@
    <? if exists("showPrices") ?> 
     , NULL, NULL, NULL 
    <? endif ?>
-   , NULL 
+   , NULL,
+   cohead_number AS seq 
    FROM coitem, itemsite, item, cust, cohead   
    LEFT OUTER JOIN shiphead ON ((shiphead_order_id=cohead_id)   
                             AND (shiphead_order_type='SO'))
@@ -105,7 +107,7 @@
    cohead_holdtype, cohead_orderdate, cohead_packdate,         
    shiphead_shipped, shiphead_shipvia, shiphead_shipdate,         
    shiphead_id, cobmisc_cohead_id, cohead_created, pack_head_id,
-   shiphead_number 
-   ORDER BY cohead_number, shiphead_shipped);
+   shiphead_number )) AS data
+  ORDER BY seq, cohead_number;
 
 
