@@ -2,7 +2,7 @@
 -- Name: detail
 -- Notes: used by dspTimePhasedSalesByCustomerGroup,dspTimePhasedSalesByCustomer, dspTimePhasedSalesByCustomerByItem
 
-SELECT cust_id, cust_number, cust_name
+SELECT DISTINCT ON (cust_number) cust_id, cust_number, cust_name
 <? foreach("period_id_list") ?>
   <? if exists("prodcat_id") ?>
        , shipmentsByCustomerValue(cust_id, <? value("period_id_list") ?>, <? value("prodcat_id") ?>)
