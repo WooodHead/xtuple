@@ -380,7 +380,7 @@ BEGIN
                 FROM period cp, period pp
                 WHERE ((cp.period_id = pPeriodId)
                 AND (cp.period_number = pp.period_number)
-                AND (cp.period_id != pp.period_id))
+                AND (cp.period_start > pp.period_start))
                 ORDER BY pp.period_start DESC LIMIT 1;
 
                 IF (_priorYrPeriodId IS NOT NULL) THEN
