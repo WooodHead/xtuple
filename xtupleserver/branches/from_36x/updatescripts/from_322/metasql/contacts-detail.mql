@@ -1,0 +1,16 @@
+-- Group: contacts
+-- Name: detail
+-- Notes:
+
+SELECT *
+FROM cntct LEFT OUTER JOIN crmacct ON (cntct_crmacct_id=crmacct_id) 
+
+WHERE ((true)
+<? if exists("activeOnly") ?> 
+AND (cntct_active )
+<? endif ?>
+<? if exists("crmAccountId") ?>
+AND (cntct_crmacct_id = <? value("crmAccountId") ?>)
+<? endif ?>
+)
+ORDER BY cntct_last_name, cntct_first_name, crmacct_number;

@@ -1,0 +1,14 @@
+-- Group: projects
+-- Name:  detail
+-- Notes: 
+SELECT prj_id, prj_number, prj_name,
+  CASE WHEN(prj_status='P') THEN <? value("planning") ?>
+       WHEN(prj_status='O') THEN <? value("open") ?>
+       WHEN(prj_status='C') THEN <? value("complete") ?>
+       ELSE <? value("undefined") ?>
+   END AS prj_status 
+    FROM prj
+<? if not exists("showComplete") ?>
+WHERE (prj_status <> 'C')
+<? endif ?>
+ORDER BY prj_number;
