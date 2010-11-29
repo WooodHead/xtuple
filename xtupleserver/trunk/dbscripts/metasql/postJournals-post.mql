@@ -1,8 +1,8 @@
--- Group: postSubLedger
+-- Group: postJournals
 -- Name:  post
 -- Notes: 
 SELECT * 
-FROM postSubLedger(
+FROM postJournals(
 ARRAY[
 <? foreach("source_list") ?>
   <? if not isfirst("source_list") ?>

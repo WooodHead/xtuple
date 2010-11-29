@@ -62,7 +62,7 @@ BEGIN
     WHERE ((bankrecitem_source='GL')
     AND (bankrecitem_source_id=_r.gltrans_id));
 
---  Unflag any sub ledger transactions as posted as a result of this series
+--  Unflag any journals as posted as a result of this series
     UPDATE sltrans SET
       sltrans_posted=false,
       sltrans_gltrans_journalnumber=null
