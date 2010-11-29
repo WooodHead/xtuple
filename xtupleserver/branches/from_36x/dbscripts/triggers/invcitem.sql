@@ -10,6 +10,15 @@ BEGIN
     RETURN OLD;
   END IF;
 
+  IF (TG_OP IN ('UPDATE','DELETE')) THEN
+    IF (SELECT COUNT(invchead_id) > 0
+        FROM invchead
+        WHERE ((invchead_id=OLD.invcitem_invchead_id)
+          AND (invchead_posted))) THEN
+      RAISE EXCEPTION 'Edit not allowed on Posted Invoices.';
+    END IF;
+  END IF;
+
   -- If regular Item then enforce item_fractional
   IF (COALESCE(NEW.invcitem_item_id, -1) <> -1) THEN
     SELECT item_fractional INTO _itemfractional
