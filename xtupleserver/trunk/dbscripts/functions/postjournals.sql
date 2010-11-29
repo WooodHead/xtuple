@@ -1,8 +1,8 @@
-CREATE OR REPLACE FUNCTION postSubledger(INTEGER) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION postJournals(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pSequence	ALIAS FOR $1;
   _transCount INTEGER := 0;
-  _journalnumber INTEGER := fetchJournalNumber('S/L');
+  _journalnumber INTEGER := fetchJournalNumber('J/P');
   _sequence INTEGER := fetchGLSequence();
   _sltrans RECORD;
 BEGIN
@@ -12,7 +12,7 @@ BEGIN
       FROM sltrans
       WHERE ((NOT sltrans_posted )
        AND (sltrans_sequence=pSequence))) THEN
-     RAISE EXCEPTION 'Can not post Sub Ledger. Transactions do not balance in selected date range.';
+     RAISE EXCEPTION 'Can not post journals. Transactions do not balance in selected date range.';
   END IF;
 
 --  March through the sltrans members, posting them one at a time
@@ -41,8 +41,8 @@ BEGIN
           gltrans_doctype, gltrans_docnumber, gltrans_amount, gltrans_journalnumber )
         VALUES
         ( FALSE, FALSE, CURRENT_TIMESTAMP, CURRENT_DATE,
-          _sequence, _sltrans.sltrans_accnt_id, _sltrans.sltrans_source, 'Subledger Posting',
-          'SL', _journalnumber, _sltrans.amount, _journalnumber );
+          _sequence, _sltrans.sltrans_accnt_id, _sltrans.sltrans_source, 'Journal Posting',
+          'JP', _journalnumber, _sltrans.amount, _journalnumber );
       
       _transCount := _transCount + 1;
     END IF;
@@ -62,7 +62,7 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION postSubledger(TEXT[], DATE, DATE, DATE) RETURNS SETOF INTEGER AS $$
+CREATE OR REPLACE FUNCTION postJournals(TEXT[], DATE, DATE, DATE) RETURNS SETOF INTEGER AS $$
 DECLARE
   pSources		ALIAS FOR $1;
   pStartDate 		ALIAS FOR $2;
@@ -72,21 +72,21 @@ DECLARE
 BEGIN
   FOR _i IN 1..ARRAY_UPPER(pSources,1)
   LOOP
-    RETURN NEXT postSubledger(pSources[_i], pStartDate, pEndDate, pDistDate);
+    RETURN NEXT postJournals(pSources[_i], pStartDate, pEndDate, pDistDate);
   END LOOP;
   RETURN;
 END;
 $$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION postSubledger(TEXT, DATE, DATE, DATE) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION postJournals(TEXT, DATE, DATE, DATE) RETURNS INTEGER AS $$
 DECLARE
   pSource		ALIAS FOR $1;
   pStartDate 		ALIAS FOR $2;
   pEndDate		ALIAS FOR $3;
   pDistDate     	ALIAS FOR $4;
   _transCount INTEGER := 0;
-  _journalnumber INTEGER := fetchJournalNumber('S/L');
+  _journalnumber INTEGER := fetchJournalNumber('J/P');
   _sequence INTEGER := fetchGLSequence();
   _sltrans RECORD;
 BEGIN
@@ -97,7 +97,7 @@ BEGIN
       WHERE ((NOT sltrans_posted )
        AND (sltrans_source=pSource)
        AND (sltrans_date BETWEEN pStartDate AND pEndDate))) THEN
-     RAISE EXCEPTION 'Can not post Sub Ledger. Transactions do not balance in selected date range.';
+     RAISE EXCEPTION 'Can not post journals. Transactions do not balance in selected date range.';
   END IF;
 
 --  March through the sltrans members, posting them one at a time
@@ -127,8 +127,8 @@ BEGIN
           gltrans_doctype, gltrans_docnumber, gltrans_amount, gltrans_journalnumber )
         VALUES
         ( FALSE, FALSE, CURRENT_TIMESTAMP, pDistDate,
-          _sequence, _sltrans.sltrans_accnt_id, _sltrans.sltrans_source, 'Subledger Posting',
-          'SL', _journalnumber, _sltrans.amount, _journalnumber );
+          _sequence, _sltrans.sltrans_accnt_id, _sltrans.sltrans_source, 'Journal Posting',
+          'JP', _journalnumber, _sltrans.amount, _journalnumber );
       
       _transCount := _transCount + 1;
     END IF;
