@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section535280">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>receipts</primary>
       <secondary>by date</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>Receipts and Returns by Date</title>
   <para>To view Receipts and Returns by date, select the "Receipts and Returns
   by Date" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspPoItemReceivingsByDate.png"/>
+          <imagedata fileref="images/dspPoItemReceivingsByDate.png" />
         </imageobject>
         <caption>Receipts and Returns by Date</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Receipts and Returns by date, you are presented with
   the following options:</para>
   <variablelist>
@@ -69,10 +67,25 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Show Purchase Price Variances</term>
+      <term>Show</term>
       <listitem>
-        <para>Select to include purchase Price variances in the
-        display.</para>
+        <para>Select from the following additional report options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Unvouchered</term>
+            <listitem>
+              <para>Select to include Receipts and Returns which have not been
+              vouchered yet in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Costs</term>
+            <listitem>
+              <para>Select to include Purchase Order costing information in
+              the display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
