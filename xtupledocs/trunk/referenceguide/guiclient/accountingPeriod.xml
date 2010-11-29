@@ -35,16 +35,17 @@
     <varlistentry>
       <term>Start Date</term>
       <listitem>
-        <para>Specify the start date for the Accounting Period. Start Date is
-        only editable if all periods are open.</para>
+        <para>Specify the start date for the Accounting Period. The start date
+        is only editable if all periods are open―and the date must fall before
+        the end date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem>
-        <para>Specify the end date for the Accounting Period. End Date is only
-        editable on a period when it is the last period and there is no trial
-        balance activity in it.</para>
+        <para>Specify the end date for the Accounting Period. The end date is
+        only editable on a period when it is the last period and there is no
+        trial balance activity in it.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -113,4 +114,4 @@
     Account activity is always posted to the General Ledger (G/L) regardless
     of whether Accounting Periods are closed or frozen.</para>
   </note>
- </section>
+</section>
