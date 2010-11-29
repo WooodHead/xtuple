@@ -4,10 +4,6 @@ DECLARE
   _externalCompany      BOOLEAN := false;
 BEGIN
   -- Checks
-  IF (NEW.sltrans_doctype='JE') THEN
-      RAISE EXCEPTION 'Journal Entries can not be posted to the Subledger';
-  END IF;
-
   SELECT company_external INTO _externalCompany
   FROM company JOIN accnt ON (company_number=accnt_company)
   WHERE (accnt_id=NEW.sltrans_accnt_id);
@@ -28,7 +24,7 @@ DECLARE
   _updated BOOLEAN := false;
 BEGIN
   IF(TG_OP='DELETE') THEN
-    RAISE EXCEPTION 'You may not delete Subledger Transactions once they have been created.';
+    RAISE EXCEPTION 'You may not delete Journal Transactions once they have been created.';
   ELSIF (TG_OP = 'UPDATE') THEN	
     IF(OLD.sltrans_id != NEW.sltrans_id) THEN
       _updated := true;
@@ -63,7 +59,7 @@ BEGIN
     END IF;
 
     IF(_updated) THEN
-      RAISE EXCEPTION 'You may not alter some Subledger Transaction fields once they have been created.';
+      RAISE EXCEPTION 'You may not alter some Journal Transaction fields once they have been created.';
     END IF;
   ELSE
     RAISE EXCEPTION 'trigger for sltrans table called in unexpected state.';
