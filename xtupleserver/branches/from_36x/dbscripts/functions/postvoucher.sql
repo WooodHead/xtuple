@@ -217,7 +217,7 @@ BEGIN
 
 --  Grab the G/L Accounts
     IF (_g.costcatid = -1) THEN
-      SELECT getPrjAcctnId(_g.poitem_prj_id, pp.accnt_id) AS pp_accnt_id,
+      SELECT getPrjAccntId(_g.poitem_prj_id, pp.accnt_id) AS pp_accnt_id,
              lb.accnt_id AS lb_accnt_id INTO _a
       FROM expcat, accnt AS pp, accnt AS lb
       WHERE ( (expcat_purchprice_accnt_id=pp.accnt_id)
