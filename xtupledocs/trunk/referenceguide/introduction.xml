@@ -508,24 +508,17 @@
     <section>
       <title>Searching for Information</title>
       <para>Every time you look up an Order or a Customer or an Item, you are
-      using search navigation. The system allows you to configure by user
-      preference how these lookups operate. The two available choices are the
-      "Menu" (auto complete) and "Button" search navigation options. In this
-      section, we'll discuss how each of these search methods works.</para>
+      using search navigation. In this section, we'll discuss some of the
+      various search methods available to you.</para>
       <section>
         <title><indexterm significance="normal">
             <primary>auto complete</primary>
-          </indexterm>Menu (Auto-Complete)</title>
-        <para>The "Menu" option is the default search navigation method for
-        xTuple ERP. If enabled, search (or lookup) fields will feature a
-        magnifying glass in them. Clicking on the magnifying glass will bring
-        up a list of menu options. These options will generally include "List"
-        and "Search," though other options may also be available. Choosing
-        this option also gives you access to auto-complete functionality,
-        assuming it is enabled on the Database Information screen. With
-        auto-complete turned on, the system will automatically complete search
-        strings for you as you type. The following screenshot shows the
-        Incident screen, with an auto-complete action underway:</para>
+          </indexterm>Auto-Complete</title>
+        <para>An auto-complete feature is available in most fields where data
+        needs to be pulled from existing records. With the auto-complete
+        feature, the system will automatically complete search strings for you
+        as you type. The following screenshot shows the Incident screen, with
+        an auto-complete action underway:</para>
         <para><screenshot>
             <mediaobject>
               <imageobject>
@@ -538,11 +531,10 @@
         into the search field and were met with four possible results. Typing
         "ma" would limit the results to two. And the string "mar" would give
         us the Contact record we are looking for. Auto-complete searching can
-        be far more efficient than the legacy browse button search method,
-        because it removes the need to open a separate list to search for
-        records you are looking for. Plus, if you don't know what you're
-        looking for, you can always click on the magnifying glass to reveal
-        additional options:</para>
+        be more efficient than other search methods, because it removes the
+        need to open a separate list to search for records you are looking
+        for. Plus, if you don't know what you're looking for, you can always
+        click on the magnifying glass to reveal additional options:</para>
         <para><screenshot>
             <mediaobject>
               <imageobject>
@@ -814,6 +806,18 @@
         The following keyboard shortcut will cancel or close a screen: ALT +
         C. Or, move a component Item down a notch in a Bill of Materials
         display with the following shortcut: ALT + W.</para>
+      </section>
+      <section>
+        <title><indexterm significance="normal">
+            <primary>ENTER key</primary>
+          </indexterm> <indexterm significance="normal">
+            <primary>keyboard shortcuts</primary>
+            <secondary>ENTER key</secondary>
+          </indexterm>ENTER Key</title>
+        <para>The ENTER key may be used in "Search" fields to prompt the
+        screen to return the requested search results. In this sense, hitting
+        the ENTER key after typing a search string into a "Search" field is
+        just like hitting the QUERY button.</para>
       </section>
       <section id="Section474757">
         <title><indexterm significance="normal">
