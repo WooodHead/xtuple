@@ -92,7 +92,18 @@
         required that is independent of the total quantity produced on a batch
         or Work Order. For example, tooling Items added to a Bill of Materials
         generally have a fixed quantity regardless of the total quantity of
-        finished goods produced.</para>
+        finished goods produced. Batch size does have an impact on the costing
+        for fixed quantity Items, however. For example, if the parent Item's
+        batch size is 100 and the cost of the fixed quantity Item is $100,
+        then the fixed Item's cost should be distributed across the batch, as
+        in the following: ((1/100) * $100) = $1.</para>
+        <tip>
+          <para>To ensure fixed quantity Item costs are distributed accurately
+          across an entire batch, make sure you select the "Fractional" option
+          on the Item master for the Item. If the Item is not fractional, then
+          the batch size conversion may not prorate the fixed quantity costs
+          accurately.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
