@@ -157,7 +157,7 @@ BEGIN
 --  Grab a sequence for the pair
   SELECT fetchGLSequence() INTO _sequence;
 
-  IF (NOT pOnlyGL AND fetchMetricBool('UseSubLedger')) THEN
+  IF (NOT pOnlyGL AND fetchMetricBool('UseJournals')) THEN
   --  First the credit	
     INSERT INTO sltrans
     ( sltrans_journalnumber, sltrans_posted, sltrans_created, sltrans_date,

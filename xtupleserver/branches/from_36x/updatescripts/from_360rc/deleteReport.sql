@@ -1,0 +1,1 @@
+DELETE FROM report WHERE report_name='Subledger' AND report_grade=0;
