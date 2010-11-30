@@ -40,7 +40,7 @@
   </variablelist>
   <note>
     <para>In the case of Planned Purchase Orders, the quantity will always be
-    represented in the Inventory Unit of Measure (UOM)—regardless of the
+    represented in the Inventory Unit of Measure (UOM)&mdash;regardless of the
     Vendor UOM used on any existing Purchase Orders.</para>
   </note>
   <variablelist>
@@ -61,13 +61,15 @@
       <term>Planned Orders</term>
       <listitem>
         <para>Display will show Planned Orders by Item, using the specified
-        parameters. Firm Planned Orders will display in blue.</para>
+        parameters. Firm Planned Orders will display in blue. Please note that
+        if you edit a firm Planned Order the Order will no longer be firm. It
+        will have to be re-firmed.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
     <para>Planned Orders must be firm before they will be considered as a
     valid source of supply by Material Requirements Planning (MRP) when MRP is
-    run.</para>
+    run. </para>
   </tip>
 </section>
