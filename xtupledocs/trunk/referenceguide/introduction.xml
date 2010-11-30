@@ -506,7 +506,7 @@
     simplify your use of the software. In this section, we describe those
     fundamentals in an effort to familiarize you with their use.</para>
     <section>
-      <title>Search Navigation</title>
+      <title>Search for Information</title>
       <para>Every time you look up an Order or a Customer or an Item, you are
       using search navigation. The system allows you to configure by user
       preference how these lookups operate. The two available choices are the
@@ -555,128 +555,85 @@
         "Search," but other options may also be available depending on the
         context.</para>
       </section>
-      <section id="Section456193">
+      <section id="introSearchFilters">
         <title><indexterm significance="normal">
-            <primary>browse button</primary>
-          </indexterm><indexterm significance="normal">
-            <primary>lookup</primary>
-            <see>browse button</see>
-          </indexterm>Browse Button</title>
-        <para>If you select the "Button" option on your User Preferences
-        screen, you will see browse buttons located next to fields where
-        search navigation is required. The browse button looks like
-        this:</para>
+            <primary>search filters</primary>
+            <secondary>explained</secondary>
+          </indexterm>Search Filters</title>
+        <para>On several screens throughout xTuple ERP you are able to
+        create&mdash;and save&mdash;custom search filters for getting at the
+        data you really need. This search capability can be found, for
+        example, on the Incident Workbench in the CRM Module. The following
+        graphic shows the basic features of the search filter:</para>
         <para><screenshot>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="images/INTRO_browseButton.png" />
+                <imagedata fileref="images/INTRO_parameterwidget.png" />
               </imageobject>
-              <caption>Browse Button</caption>
+              <caption>Build Custom Searches with Search Filter</caption>
             </mediaobject>
-          </screenshot></para>
-        <para>The browse button search navigation is legacy functionality
-        which will ultimately be replaced by the auto-complete capability of
-        the Menu search option. However, the browse button is still
-        supported&mdash;and wherever you see the button, you can manually
-        click on it to reveal underlying lists of information. The following
-        screenshot illustrates how clicking on a browse button launches a
-        detailed list:</para>
-        <para><screenshot>
-            <mediaobject>
-              <imageobject>
-                <imagedata fileref="images/INTRO_browseCallout.png" />
-              </imageobject>
-              <caption>Browse Button Detail</caption>
-            </mediaobject>
-          </screenshot></para>
-        <para>The browse button in our example is located next to the "Item
-        Number" field on the Bill of Materials screen. To search for an Item
-        Number, select the browse button. This will bring up an Item list,
-        which you can then scroll through to find the Item you are looking
-        for. Or, simply begin typing the first letters or numbers of the Item
-        Number in the "Search" field. The list will automatically begin
-        scrolling toward your Item in sequential order.</para>
-        <para>Use of the "Button"</para>
+          </screenshot>You build custom searches using the "+" and "-" buttons
+        featured on the search widget, as shown above. Use the "+" button to
+        add new search parameters. (There's no limit to the number of
+        parameters you can add.) And use the "-" button to remove those
+        parameters you don't want.</para>
+        <para>Search filters can be saved&mdash;and also shared with other
+        users. And when you're done building a query, simply save it. When
+        saving you will have the option to share the filter, or not, depending
+        on your preference.</para>
+        <tip>
+          <para>Some parameter lists allow you to select multiple options from
+          the same list. Look for drop-down lists that remain expanded after
+          you select them. This indicates you may choose more than one
+          parameter from the list of available options.</para>
+        </tip>
+        <para>The MANAGE button brings you to the list of saved
+        filters&mdash;both your private ones and any others that are shared
+        across your organization. When managing your filters you can choose to
+        either share them or remove them from the list. If a filter appears in
+        the "Apply Filter" drop-down list, that means it's a saved filter.
+        Only saved filters will appear in that list.</para>
+        <caution>
+          <para>Think twice before deleting a shared filter. Other people may
+          be using it.</para>
+        </caution>
+        <para>The search filter handles date values in two different ways.
+        Dates may be either absolute or relative.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Absolute dates</term>
+            <listitem>
+              <para>An absolute date is always the date that you entered. For
+              example, it you enter a date using the calendar tool&mdash;or
+              manually type in 04/05/2010&mdash;the filter will honor that
+              date always.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Relative dates</term>
+            <listitem>
+              <para>Relative dates shift over time. So, for example, you may
+              want to always search for information that is new <emphasis
+              role="bold">today</emphasis>. Rather than manually entering
+              today's date, then, you would enter "0" in the search parameter
+              date field. Today's date will appear there today. But tomorrow,
+              the date will be tomorrow's date. And so on, with the current
+              date always being used by that parameter. To learn more about
+              the full range of date shortcuts available for entering relative
+              dates, please see <xref linkend="Section474757" />.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para>Once you've created a working catalog of search filters, you may
+        decide you don't want to always see the details. The MORE button
+        allows you to show or hide parameter details, as you wish. Click the
+        MORE button once to reveal the underlying parameter details. Click it
+        again to hide them.</para>
+        <note>
+          <para>The "Default" filter will vary on a screen-by-screen
+          basis.</para>
+        </note>
       </section>
-    </section>
-    <section id="introSearchFilters">
-      <title><indexterm significance="normal">
-          <primary>search filters</primary>
-          <secondary>explained</secondary>
-        </indexterm>Search Filters</title>
-      <para>On several screens throughout xTuple ERP you are able to
-      create&mdash;and save&mdash;custom search filters for getting at the
-      data you really need. This search capability can be found, for example,
-      on the Incident Workbench in the CRM Module. The following graphic shows
-      the basic features of the search filter:</para>
-      <para><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/INTRO_parameterwidget.png" />
-            </imageobject>
-            <caption>Build Custom Searches with Search Filter</caption>
-          </mediaobject>
-        </screenshot>You build custom searches using the "+" and "-" buttons
-      featured on the search widget, as shown above. Use the "+" button to add
-      new search parameters. (There's no limit to the number of parameters you
-      can add.) And use the "-" button to remove those parameters you don't
-      want.</para>
-      <para>Search filters can be saved&mdash;and also shared with other
-      users. And when you're done building a query, simply save it. When
-      saving you will have the option to share the filter, or not, depending
-      on your preference.</para>
-      <tip>
-        <para>Some parameter lists allow you to select multiple options from
-        the same list. Look for drop-down lists that remain expanded after you
-        select them. This indicates you may choose more than one parameter
-        from the list of available options.</para>
-      </tip>
-      <para>The MANAGE button brings you to the list of saved
-      filters&mdash;both your private ones and any others that are shared
-      across your organization. When managing your filters you can choose to
-      either share them or remove them from the list. If a filter appears in
-      the "Apply Filter" drop-down list, that means it's a saved filter. Only
-      saved filters will appear in that list.</para>
-      <caution>
-        <para>Think twice before deleting a shared filter. Other people may be
-        using it.</para>
-      </caution>
-      <para>The search filter handles date values in two different ways. Dates
-      may be either absolute or relative.</para>
-      <variablelist>
-        <varlistentry>
-          <term>Absolute dates</term>
-          <listitem>
-            <para>An absolute date is always the date that you entered. For
-            example, it you enter a date using the calendar tool&mdash;or
-            manually type in 04/05/2010&mdash;the filter will honor that date
-            always.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Relative dates</term>
-          <listitem>
-            <para>Relative dates shift over time. So, for example, you may
-            want to always search for information that is new <emphasis
-            role="bold">today</emphasis>. Rather than manually entering
-            today's date, then, you would enter "0" in the search parameter
-            date field. Today's date will appear there today. But tomorrow,
-            the date will be tomorrow's date. And so on, with the current date
-            always being used by that parameter. To learn more about the full
-            range of date shortcuts available for entering relative dates,
-            please see <xref linkend="Section474757" />.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-      <para>Once you've created a working catalog of search filters, you may
-      decide you don't want to always see the details. The MORE button allows
-      you to show or hide parameter details, as you wish. Click the MORE
-      button once to reveal the underlying parameter details. Click it again
-      to hide them.</para>
-      <note>
-        <para>The "Default" filter will vary on a screen-by-screen
-        basis.</para>
-      </note>
     </section>
     <section id="Section456222">
       <title><indexterm significance="normal">
@@ -685,11 +642,58 @@
         </indexterm>Keyboard Shortcuts</title>
       <para>Many people prefer to use keyboard shortcuts&mdash;instead of a
       mouse&mdash;when navigating within a software application. xTuple ERP
-      features a number of keyboard shortcuts designed just for this purpose.
-      Keyboard shortcuts are available at several points throughout the
-      application. In fields where you see the magnifying class (e.g., Contact
-      lookup), you can click on the magnifying glass to see the full menu of
-      shortcuts available for that field.</para>
+      features a number of keyboard shortcuts designed just for this
+      purpose.</para>
+      <para>For example, keyboard shortcuts are universally available
+      throughout the application for each of the following actions:</para>
+      <itemizedlist>
+        <listitem>
+          <para>SAVE Buttons</para>
+        </listitem>
+        <listitem>
+          <para>POST Buttons</para>
+        </listitem>
+        <listitem>
+          <para>CLOSE Buttons</para>
+        </listitem>
+        <listitem>
+          <para>CANCEL Buttons</para>
+        </listitem>
+        <listitem>
+          <para>PRINT Buttons</para>
+        </listitem>
+        <listitem>
+          <para>QUERY Buttons</para>
+        </listitem>
+        <listitem>
+          <para>Next Tab (e.g., Function + Up Arrow)</para>
+        </listitem>
+        <listitem>
+          <para>Previous Tab (e.g., Function + Down Arrow)</para>
+        </listitem>
+        <listitem>
+          <para>Menu (e.g., CTRL + M)</para>
+        </listitem>
+        <listitem>
+          <para>DoubleClick (e.g., Highlight + ENTER)</para>
+        </listitem>
+      </itemizedlist>
+      <para>The key sequence for each of these shortcuts conforms to your
+      operating system's standard behavior. However, if you are unclear about
+      what the key sequence should be, simply hover your mouse over the button
+      or field in question to reveal a tool tip with that information.</para>
+      <para>Other keyboard shortcuts are available at several points
+      throughout the application. In fields where you see the magnifying glass
+      (e.g., Contact lookup), you can click on the magnifying glass to see the
+      full menu of shortcuts available for that field.</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_magnifyingMenu.png" />
+            </imageobject>
+            <caption>Magnifying Glass Menu Reveals Shortcuts</caption>
+          </mediaobject>
+        </screenshot></para>
       <section id="Section456225">
         <title><indexterm significance="normal">
             <primary>TAB key</primary>
