@@ -162,6 +162,17 @@
         option.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>APPLY ALL CREDITS</term>
+      <listitem>
+        <para>When selected, the application will start with the oldest open
+        and unapplied Credit Memo (based on its due date) and apply it to the
+        oldest open items (i.e., Vouchers and Debit Memos) until the credit is
+        fully applied―or until there are no more open items for the credit to
+        be applied against. This process continues applying all available
+        Credit Memos based on their due date.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
   <para>To view Credits associated with the Vendor(s), select the "Credits"
   tab. The following screen will appear:</para>
