@@ -455,8 +455,12 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/customers.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/searchForCustomer.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section>
+      <title>Customer Workbench</title>
+      <para>The Customer Workbench is the same screen as the screen used for
+      creating new Customers. For more information, please see <xref
+      linkend="Section656540" />.</para>
+    </section>
     <xi:include href="guiclient/customerGroups.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
