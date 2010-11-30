@@ -82,7 +82,7 @@ BEGIN
     END IF;
 
     IF (_glseries.amount != 0 OR pPostZero) THEN
-      IF (fetchMetricBool('UseSubLedger')) THEN
+      IF (fetchMetricBool('UseJournals')) THEN
        INSERT INTO sltrans
         ( sltrans_posted, sltrans_created, sltrans_date,
           sltrans_sequence, sltrans_accnt_id, sltrans_source, sltrans_notes,
