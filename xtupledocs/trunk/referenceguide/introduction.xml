@@ -309,26 +309,44 @@
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>Once your username and password have been successfully <indexterm
-          significance="normal">
-          <primary>authentication</primary>
-          <secondary>at log-in</secondary>
-        </indexterm>authenticated, the main application desktop will appear,
-      as shown below:</para>
+    </section>
+    <section>
+      <title>xTuple Desktop</title>
+      <para>Once you have logged in, the main application desktop will appear.
+      There are two different desktop options―and the one you see depends on
+      your user preference settings. (To learn more about user preferences,
+      please see <xref linkend="Section941111" />.) If you choose the "Show
+      windows as free-floating" preference, you will see the most popular
+      desktop option:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/INTRO_mainDesktop.png" />
+            </imageobject>
+            <caption>xTuple Desktop: Free-Floating</caption>
+          </mediaobject>
+        </screenshot></para>
+      <tip>
+        <para>The free-floating desktop enables you to take advantage of the
+        <ulink
+        url="http://www.xtuple.com/xchange/product/quickstart-wizard">QuickStart
+        Wizard</ulink> package.</para>
+      </tip>
+      <para>By contrast, if you choose the legacy "Show windows inside
+      workspace" preference, your desktop will look as follows:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
               <imagedata fileref="images/INTRO_appDesktop.png" />
             </imageobject>
-            <caption>Main xTuple ERP Desktop</caption>
+            <caption>xTuple Desktop: Inside the Workspace</caption>
           </mediaobject>
         </screenshot></para>
-      <note>
-        <para>The main application desktop may vary from user to user,
-        depending on the user's granted privileges, preference settings, and
-        the xTuple ERP version used.</para>
-      </note>
-      <para>In general, each of the main menu options corresponds to a
+      <para>Of course, regardless of the desktop you choose, the available
+      options may vary from user to user, depending on your granted
+      privileges, preference settings, and the xTuple ERP edition you are
+      on.</para>
+      <para>As a general rule, each of the main menu options corresponds to a
       different module. There are three exceptions to that rule:</para>
       <variablelist>
         <varlistentry>
