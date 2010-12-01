@@ -315,13 +315,27 @@
         Line Item is associated with&mdash;even if that Order Number has
         already been used by a previous Work Order.</para>
         <note>
-          <para>For purchased Items, the option "Create Purchase Request" will
-          appear instead. The displayed fields will resemble the fields shown
-          when "Create Work Order" is visible. One difference is you will be
-          given the option to override the purchase Price for the Line Item.
-          If used, this one-time override will replace any Item Source
-          Price(s) when the Purchase Request is converted to a Purchase Order
-          Line Item.</para>
+          <para>For purchased Items, two different options may appear,
+          depending on how the Item Site for the Item is set up:</para>
+          <itemizedlist>
+            <listitem>
+              <para>Create Purchase Request</para>
+            </listitem>
+            <listitem>
+              <para>Create Purchase Order</para>
+            </listitem>
+          </itemizedlist>
+          <para>In either case, you will be given the option to override any
+          Item Source Price(s) which are in place. Also, linked Purchase
+          Orders will be updated when Sales Order details are changed. If your
+          site is configured to use drop shipping, an additional "Drop Ship"
+          flag will also be shown for linked Purchase Orders. The drop ship
+          function will search for an existing Purchase Order linked to the
+          Sales Order with a matching Ship-To Address and add the Line Item to
+          that Order&mdash;or create a new Order if none exists. Drop ship
+          Purchase Orders inherit the Ship-To Address and Contact information
+          from the Sales Order. Item Sources must be defined for drop ship
+          Items&mdash;including each component of a Kit Item.</para>
         </note>
       </listitem>
     </varlistentry>
