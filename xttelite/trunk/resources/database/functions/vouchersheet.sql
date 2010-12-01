@@ -71,7 +71,7 @@ BEGIN
                vohead_notes, vohead_posted, vohead_misc, vohead_pohead_id )
            VALUES ( _voheadid, fetchVoNumber(), _s.vend_id, current_date, _s.tehead_weekending,
                determineDueDate(_s.vend_terms_id, current_date), _s.vend_terms_id,
-               _s.vend_taxzone_id, _s.tehead_number, _s.warehous_code , 0, _s.vend_1099, 
+               _s.vend_taxzone_id, 'N/A', ('T&E Sheet ' || _s.tehead_number), 0, _s.vend_1099, 
                _v.teitem_curr_id, _s.tehead_notes, false, true, -1 );
 
            _first := false;
