@@ -1729,22 +1729,6 @@
         from view.</para>
       </tip>
     </section>
-    <section id="Section483123">
-      <title><indexterm significance="normal">
-          <primary>drag-and-drop</primary>
-        </indexterm>Drag-and-Drop</title>
-      <para>The application supports drag-and-drop functionality for screens
-      which use the Item Number widget. Using this functionality, you have the
-      ability to drag an Item Number from one screen to another screen.</para>
-      <para>For example, let's say you have two xTuple ERP screens open on
-      your desktop at the same time: The Bill of Materials (BOM) for Item XYZ
-      and also the Quantity on Hand (QOH) by Item display. In this example,
-      the QOH display does not have an Item Number entered in it yet.</para>
-      <para>To drag Item Number XYZ from the BOM screen to the QOH display,
-      simply click your mouse on the Item Number in the BOM&mdash;and then
-      drag the Item Number over to the Item Number field on the QOH display.
-      You may now QUERY the display to get QOH information on Item XYZ.</para>
-    </section>
     <section id="Section456244">
       <title><indexterm significance="normal">
           <primary>common application buttons</primary>
@@ -1802,6 +1786,13 @@
           </listitem>
         </varlistentry>
         <varlistentry>
+          <term>QUERY</term>
+          <listitem>
+            <para>Generates report information, using the parameters you have
+            specified on the screen.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
           <term>APPLY</term>
           <listitem>
             <para>Acts like the SAVE button, but keeps the current screen open
@@ -1823,7 +1814,49 @@
             station.</para>
           </listitem>
         </varlistentry>
+        <varlistentry role="xtconnect">
+          <term>SCHEDULE</term>
+          <listitem>
+            <para>Submits the report or job to xTuple Connect for
+            processing.</para>
+          </listitem>
+        </varlistentry>
       </variablelist>
+    </section>
+    <section>
+      <title>Spell Checking</title>
+      <para>There is a user preference option to enable spell checking in
+      comment and text areas for users who want to enable that functionality.
+      xTuple uses the widely-adopted, open source <ulink
+      url="http://hunspell.sourceforge.net/">Hunspell spell checker</ulink> as
+      the basis for its spell checking feature.</para>
+      <para>To be functional, the spell checker requires that Hunspell
+      dictionary files be installed in the xTuple executable directory. By
+      default, the English dictionary files (English.dict and English.aff) are
+      distributed with the product. However, Hunspell dictionaries for other
+      languages are also available for download from many sites on the
+      Internet.</para>
+      <para>The spell checking feature has been designed to operate with a
+      user's Locale settings―which means that if you are using a Locale other
+      than English (and you have the correct Hunspell dictionary files
+      installed) the spell checker should work in your specified
+      language.</para>
+    </section>
+    <section id="Section483123">
+      <title><indexterm significance="normal">
+          <primary>drag-and-drop</primary>
+        </indexterm>Drag-and-Drop</title>
+      <para>The application supports drag-and-drop functionality for screens
+      which use the Item Number widget. Using this functionality, you have the
+      ability to drag an Item Number from one screen to another screen.</para>
+      <para>For example, let's say you have two xTuple ERP screens open on
+      your desktop at the same time: The Bill of Materials (BOM) for Item XYZ
+      and also the Quantity on Hand (QOH) by Item display. In this example,
+      the QOH display does not have an Item Number entered in it yet.</para>
+      <para>To drag Item Number XYZ from the BOM screen to the QOH display,
+      simply click your mouse on the Item Number in the BOM&mdash;and then
+      drag the Item Number over to the Item Number field on the QOH display.
+      You may now QUERY the display to get QOH information on Item XYZ.</para>
     </section>
   </section>
 </preface>
