@@ -10,8 +10,11 @@
       <primary>credit cards</primary>
       <secondary>configuration for</secondary>
     </indexterm>Credit Card</title>
-  <para>To configure your system to process Credit Cards, select the "Credit
-  Card" option. The following screen will appear:</para>
+  <para>The system supports several Credit Card verification services,
+  including YourPay, Authorize.Net, and CyberSource. The recording of Credit
+  Card transactions is also supported, even if an approved verification
+  service is not being used. To configure your system to process Credit Cards,
+  select the "Credit Card" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -20,10 +23,6 @@
         <caption>Configure Credit Card General Options</caption>
       </mediaobject>
     </screenshot></para>
-  <note>
-    <para>The system currently supports only the YourPay and Authorize.Net
-    verification services.</para>
-  </note>
   <para>When establishing the general settings for your Credit Card
   configuration, you are presented with the following options:</para>
   <variablelist>
@@ -86,6 +85,15 @@
               <para>Select if you will be using the YourPay payment gateway
               for handling Credit Card transactions. Specific YourPay options
               will be enabled on the screen if you select this service.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>CyberSource</term>
+            <listitem>
+              <para>Select if you will be using the CyberSource payment
+              gateway for handling Credit Card transactions. Specific
+              CyberSource options will be enabled on the screen if you select
+              this service.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -265,11 +273,11 @@
         <caption>Configure Credit Card Fraud Detection</caption>
       </mediaobject>
     </screenshot><tip>
-      <para>If YourPay is the service being used, the options on the "Fraud
-      Detection" tab will be enabled and selections should be made. These
-      options will be disabled if the Authorize.Net gateway is being used.
-      Fraud detection settings for Authorize.Net must be configured through
-      the Merchant Interface.</para>
+      <para>If the YourPay or CyberSource services are being used, the options
+      on the "Fraud Detection" tab will be enabled and selections should be
+      made. These options will be disabled if the Authorize.Net gateway is
+      being used. Fraud detection settings for Authorize.Net must be
+      configured through the Merchant Interface.</para>
     </tip>When configuring client-side fraud detection settings, if required,
   you are presented with the following options:</para>
   <variablelist>
@@ -477,11 +485,11 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Password</term>
+      <term>Password/Transaction Key</term>
       <listitem>
-        <para>YourPay does not require login information to be entered in this
-        field. Type your Transaction Key here for Authorize.Net. The label for
-        this field may change if you select Authorize.Net.</para>
+        <para>Enter either the password or transaction key for the selected
+        verification service. The label for this field will change depending
+        on the verification service being used.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -530,8 +538,9 @@
   </tip>
   <para>To establish the service option settings for your Credit Card
   configuration, select the "Service Options" tab. The options will vary
-  depending on the payment gateway being used. If YourPay is being used, the
-  following screen will appear:</para>
+  depending on the payment gateway being used. For example, the CyberSource
+  and External methods do not require service options to be entered. However,
+  if YourPay is being used, the following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
