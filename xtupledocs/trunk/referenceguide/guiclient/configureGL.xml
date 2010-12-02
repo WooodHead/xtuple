@@ -91,20 +91,47 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Module Journals Post to</term>
+      <term>Transactions Post to</term>
       <listitem>
-        <para></para>
+        <para>Specify how you want transactional activity to be posted, by
+        selecting one of the following options. You may toggle between these
+        two options, if you wish. However, to go from the Journal option to
+        the General Ledger option, all Journal transactions must be posted to
+        the General Ledger first.</para>
         <variablelist>
           <varlistentry>
             <term>General Ledger</term>
             <listitem>
-              <para></para>
+              <para>Select if you want all transactions and their full
+              transaction detail to be posted directly to the General Ledger
+              in real time.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Subledger</term>
+            <term>Journal</term>
             <listitem>
-              <para></para>
+              <para>Select if you want all transactions and their full
+              transaction detail to be posted in real time to intermediate
+              Journals (sometimes also referred to as "day books"). From the
+              Journals, transactions are later posted to the General Ledger―in
+              summary form. In this way, transaction detail remains in the
+              Journals, with the summarized version of that detail residing in
+              the General Ledger. You can post Journals to the General Ledger
+              on a daily, monthly, or weekly basis. It's up to you how you
+              want to implement this feature. Keep in mind that the trial
+              balance and other financial reports are based solely on General
+              Ledger transactions. This means that Journal transactions are
+              not included in financial reports―that is, until they are posted
+              over to the General Ledger. To learn more about posting Journals
+              to the General Ledger, please see <xref
+              linkend="postJournals" />.</para>
+              <tip>
+                <para>Be sure to give yourself the appropriate privileges to
+                use the Journal feature (i.e., <literal>PostJournals</literal>
+                and <literal>ViewJournals</literal>). Also be sure to log
+                out/log in to ensure all new menu actions associated with the
+                Journals become available. </para>
+              </tip>
             </listitem>
           </varlistentry>
         </variablelist>

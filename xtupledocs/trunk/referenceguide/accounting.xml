@@ -258,7 +258,7 @@
       <title><indexterm significance="normal">
           <primary>journals</primary>
           <secondary>standard</secondary>
-        </indexterm>Standard Journal</title>
+        </indexterm>Standard Journals</title>
       <para>Standard Journal section.</para>
       <xi:include href="guiclient/standardJournal.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -274,6 +274,8 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
+    <xi:include href="guiclient/postJournals.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
       <title>G/L Reports</title>
       <para>G/L Reports section.</para>

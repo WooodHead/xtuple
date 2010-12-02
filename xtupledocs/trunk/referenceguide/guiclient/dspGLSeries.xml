@@ -12,64 +12,135 @@
     </indexterm> <indexterm significance="normal">
       <primary>transactions</primary>
       <secondary>viewing in general ledger</secondary>
-    </indexterm>G/L Series</title>
-  <para>To view series of General Ledger transactions, select the "G/L Series"
-  option. The following screen will appear:</para>
+    </indexterm><indexterm significance="normal">
+      <primary>journals</primary>
+      <secondary>viewing transaction series for</secondary>
+    </indexterm>Journal Series</title>
+  <para>When transactions are posted in the system―either to the General
+  Ledger or intermediate Journals, depending on your accounting
+  configuration―the grouping of debits and credits associated with the
+  transaction is considered to be a Journal Series. Each series is categorized
+  by module and assigned a unique Journal Number. </para>
+  <para>From the Journal Series screen you can review your transaction
+  series―and also take action, when needed.</para>
+  <note>
+    <para>The following transaction series types may be reversed: Simple
+    Journal Entry, Series Journal Entry, Standard Journal, and Standard
+    Journal Group. The same transaction series types may also be deleted
+    (Simple and Series Journal entries may also be edited)―but only if they
+    were posted directly to the General Ledger. You cannot edit or delete
+    transactions posted to intermediate Journals.</para>
+  </note>
+  <tip>
+    <para>When a transaction has been deleted, it remains in the database and
+    may still be viewed using the "Show Deleted" option on the General Ledger
+    Transactions screen. Similarly, when you edit a Simple or Series Journal
+    transaction, the original transaction is marked as deleted―and the new,
+    edited version is posted in its place. Transactions found in closed or
+    frozen periods―or if they were part of a Bank Reconciliation―may not be
+    modified.</para>
+  </tip>
+  <para>To view transaction series for either the General Ledger or Journals
+  (depending on your configuration), select the "Journal Series" option. The
+  following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/dspGLSeries.png" />
         </imageobject>
-        <caption>G/L Series</caption>
+        <caption>Journal Series</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying series of General Ledger transactions, you are
-  presented with the following options:</para>
-  <note>
-    <para>You may only reverse transactions which result from the posting of
-    the following: Simple Journal Entry, Series Journal Entry, Standard
-    Journal, or Standard Journal Group.</para>
-  </note>
+  <para>When displaying transaction series for either the General Ledger or
+  Journals, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Sources</term>
       <listitem>
-        <para>Select to display serial G/L transactions from all source
+        <para>Select to display transaction series from all source
         modules.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Selected</term>
       <listitem>
-        <para>Specify source module whose serial G/L transactions you want to
+        <para>Specify source module whose transaction series you want to
         display.</para>
-        <para>Menu includes modules whose transactions generate G/L
-        records.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Journal Number Range</term>
+      <listitem>
+        <para>Select if you want to search for a specific range of Journal
+        Numbers within the time frame you specify.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start</term>
+            <listitem>
+              <para>Enter the first Journal Number in the range you want to
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End</term>
+            <listitem>
+              <para>Enter the last Journal Number in the range you want to
+              display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Start Date</term>
       <listitem>
-        <para>Serial G/L transactions posted on and after this date will be
+        <para>Transaction series posted on and after this date will be
         displayed. This is a required field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem>
-        <para>Serial G/L transactions posted on and before this date will be
+        <para>Transaction series posted on and before this date will be
         displayed. This is a required field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>G/L Transactions</term>
+      <term>Type</term>
       <listitem>
-        <para>Display lists serial G/L transactions based on the specified
+        <para>If your system is configured to post transactions to
+        intermediate Journals, then you will see the "Type" option on this
+        screen. However, you will not see this option if your system is
+        configured to post transactions directly to the General Ledger. For
+        more information on the system's accounting configuration, please see
+        <xref linkend="Section942568" />.</para>
+        <variablelist>
+          <varlistentry>
+            <term>General Ledger</term>
+            <listitem>
+              <para>Select if you want to review transaction series posted to
+              the General Ledger.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Journal</term>
+            <listitem>
+              <para>Select if you want to review transaction series posted to
+              Journals.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Journal Transactions</term>
+      <listitem>
+        <para>Display lists transaction series based on the specified
         parameters. This display is a nested list, with a plus ("+") sign
         located to the far left of the display next to each transaction that
         may be expanded to lower levels. By clicking your mouse on a plus
         sign, you reveal lower levels of information related to the
-        transaction.</para>
+        transaction series.</para>
       </listitem>
     </varlistentry>
   </variablelist>
