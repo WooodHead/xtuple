@@ -1,4 +1,4 @@
-DROP FUNCTION fetchQuNumber();
+SELECT dropIfExists('FUNCTION', 'fetchQuNumber()', 'public');
 
 CREATE OR REPLACE FUNCTION fetchQuNumber() RETURNS TEXT AS $$
 DECLARE
