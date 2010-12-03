@@ -1,8 +1,8 @@
 BEGIN;
-
+ 
 -- Quote Line Characteristics
 
-DROP VIEW api.quotelinechar;
+SELECT dropIfExists('VIEW', 'quotelinechar', 'api');
 CREATE VIEW api.quotelinechar
 AS 
 SELECT DISTINCT quhead_number AS quote_number, 

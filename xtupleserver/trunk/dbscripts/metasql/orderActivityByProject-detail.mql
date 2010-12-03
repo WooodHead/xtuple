@@ -30,10 +30,10 @@ UNION ALL
 
 SELECT quhead_id AS id, 
        15 AS type,
-       quhead_number::text AS subtype,
+       quhead_number AS subtype,
        1 AS section,
        <? value("quotes") ?> AS section_qtdisplayrole,
-       quhead_number::text AS name,
+       quhead_number AS name,
        CASE WHEN (quhead_status = 'C') THEN 
          <? value("converted") ?>
             WHEN (quhead_status = 'X') THEN
@@ -58,7 +58,7 @@ UNION ALL
 
 SELECT quitem_id AS id, 
        17 AS type,
-       quhead_number::text AS subtype,
+       quhead_number AS subtype,
        1 AS section,
        <? value("quotes") ?> AS section_qtdisplayrole,
        quitem_linenumber::text AS name, 
@@ -88,7 +88,7 @@ UNION ALL
 
 SELECT quhead_id AS id, 
        18 AS type,
-       quhead_number::text AS subtype,
+       quhead_number AS subtype,
        1 AS section,
        <? value("quotes") ?> AS section_qtdisplayrole,
        <? value("total") ?> AS name,
@@ -108,7 +108,7 @@ UNION ALL
 
 SELECT -1 AS id, 
        19 AS type,
-       MAX(quhead_number::text) AS subtype,
+       MAX(quhead_number) AS subtype,
        1 AS section,
        <? value("quotes") ?> AS section_qtdisplayrole,
        <? value("total") ?> || ' ' || <? value("quotes") ?> AS name,

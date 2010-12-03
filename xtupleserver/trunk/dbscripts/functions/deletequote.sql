@@ -1,26 +1,36 @@
-CREATE OR REPLACE FUNCTION deleteQuote(INTEGER) RETURNS BOOLEAN AS '
+DROP FUNCTION deleteQuote(INTEGER);
+DROP FUNCTION deleteQuote(INTEGER, INTEGER);
+
+CREATE OR REPLACE FUNCTION deleteQuote(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pQuheadid ALIAS FOR $1;
 BEGIN
-  RETURN deleteQuote(pQuheadid, NULL);
+  RETURN deleteQuote(pQuheadid, NULL::TEXT);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
--- should change deleteQuote and releaseQuNumber to return INTEGER
--- see comments for releaseSoNumber
-CREATE OR REPLACE FUNCTION deleteQuote(INTEGER, INTEGER) RETURNS BOOLEAN AS '
+CREATE OR REPLACE FUNCTION deleteQuote(INTEGER, INTEGER) RETURNS INTEGER AS $$
+DECLARE
+  pQuheadid ALIAS FOR $1;
+  pQuoteNumber	ALIAS FOR $2;
+BEGIN
+  RETURN deleteQuote(pQuheadid, pQuoteNumber::TEXT);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION deleteQuote(INTEGER, TEXT) RETURNS INTEGER AS $$
 DECLARE
   pQuheadid	ALIAS FOR $1;
   pQuoteNumber	ALIAS FOR $2;
 
   _quNumberScheme	TEXT;
-  _quoteNumber		INTEGER;
-  _returnVal		BOOLEAN	:= FALSE;
+  _quoteNumber		TEXT;
+  _quitemid             INTEGER;
+  _result               INTEGER;
 
 BEGIN
 
-  SELECT metric_value INTO _quNumberScheme
-  FROM metric WHERE metric_name = ''QUNumberGeneration'';
+  SELECT fetchMetricText('QUNumberGeneration') INTO _quNumberScheme;
 
   IF (pQuoteNumber IS NULL) THEN
     SELECT quhead_number INTO _quoteNumber
@@ -37,19 +47,19 @@ BEGIN
   WHERE (quhead_id=pQuheadid);
 
   IF (_quoteNumber IS NOT NULL) THEN
-    IF (_quNumberScheme = ''A'' OR _quNumberScheme = ''O'') THEN
+    IF (_quNumberScheme IN ('A', 'O')) THEN
       -- do not release quote # if quote converted to sales order
       IF (NOT EXISTS (SELECT cohead_id
 		      FROM cohead
-		      WHERE (cohead_number=CAST(_quoteNumber AS text)))) THEN
-	_returnVal = releaseQuNumber(_quoteNumber);
+		      WHERE (cohead_number=_quoteNumber))) THEN
+	_result = releaseQuNumber(_quoteNumber);
       END IF;
-    ELSEIF (_quNumberScheme = ''S'') THEN
-      _returnVal = releaseSoNumber(_quoteNumber);
+    ELSEIF (_quNumberScheme = 'S') THEN
+      _result = releaseSoNumber(_quoteNumber);
     END IF;
   END IF;
 
-  RETURN TRUE;	-- ToDo: use returnVal when releaseQuNumber returns INTEGER
+  RETURN _result;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

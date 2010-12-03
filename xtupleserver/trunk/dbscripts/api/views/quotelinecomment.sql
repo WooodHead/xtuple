@@ -1,8 +1,8 @@
 BEGIN;
-
+ 
 -- Quote Line Item Comment
 
-DROP VIEW api.quotelinecomment;
+SELECT dropIfExists('VIEW', 'quotelinecomment', 'api');
 CREATE VIEW api.quotelinecomment
 AS 
    SELECT 
@@ -38,7 +38,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   VALUES (
     COALESCE(NEW.date,current_date),
     'QI',
-    getQuoteLineItemId(text(NEW.quote_number),NEW.line_number),
+    getQuoteLineItemId(NEW.quote_number,NEW.line_number),
     COALESCE(NEW.username,current_user),
     getCmntTypeId(NEW.type),
     NEW.text);

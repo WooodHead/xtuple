@@ -44,14 +44,16 @@ BEGIN
 
 -- Delete Sales Order Items
   FOR _coitemid IN
-  SELECT coitem_id
-  FROM coitem
-  WHERE ( (coitem_cohead_id=pSoheadid)
-    AND   (coitem_subnumber=0) ) LOOP
+    SELECT coitem_id
+    FROM coitem
+    WHERE ( (coitem_cohead_id=pSoheadid)
+      AND   (coitem_subnumber=0) ) LOOP
+
     SELECT deleteSoItem(_coitemid) INTO _result;
     IF (_result < 0) THEN
       RETURN _result;
-    END IF;
+     END IF;
+
   END LOOP;
 
   DELETE FROM pack
@@ -66,18 +68,12 @@ BEGIN
   WHERE (aropenco_cohead_id=pSoheadid);
 
   IF (COALESCE(pSonumber,'') != '') THEN
-    IF (NOT releaseSoNumber(CAST(pSonumber AS INTEGER))) THEN
-      RETURN 0; -- change to -3 when releaseSoNumber returns INTEGER
-    END IF;
-
+    _result = releaseSoNumber(pSonumber);
   ELSEIF (_r.cohead_number IS NOT NULL) THEN
-    IF (NOT releaseSoNumber(CAST(_r.cohead_number AS INTEGER))) THEN
-      RETURN 0; -- change to -3 when releaseSoNumber returns INTEGER
-    END IF;
-      
+    _result = releaseSoNumber(_r.cohead_number);
   END IF;
 
-  RETURN 0;
+  RETURN _result;
 
 END;
 $$ LANGUAGE 'plpgsql';

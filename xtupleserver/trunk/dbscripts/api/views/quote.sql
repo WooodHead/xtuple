@@ -1,12 +1,12 @@
 BEGIN;
-
+ 
 -- Quote
 
 SELECT dropIfExists('VIEW', 'quote', 'api');
 CREATE VIEW api.quote
 AS
    SELECT 
-     quhead_number AS quote_number,
+     quhead_number::varchar AS quote_number,
      warehous_code AS site,
      quhead_quotedate AS quote_date,
      quhead_packdate AS pack_date,

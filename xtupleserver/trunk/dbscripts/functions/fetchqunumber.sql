@@ -1,19 +1,21 @@
-CREATE OR REPLACE FUNCTION fetchQuNumber() RETURNS INTEGER AS '
+DROP FUNCTION fetchQuNumber();
+
+CREATE OR REPLACE FUNCTION fetchQuNumber() RETURNS TEXT AS $$
 DECLARE
-  _quNumber INTEGER;
+  _quNumber TEXT;
   _test INTEGER;
 
 BEGIN
 
   LOOP
 
-    SELECT orderseq_number INTO _quNumber
+    SELECT CAST(orderseq_number AS text) INTO _quNumber
     FROM orderseq
-    WHERE (orderseq_name=''QuNumber'');
+    WHERE (orderseq_name='QuNumber');
 
     UPDATE orderseq
     SET orderseq_number = (orderseq_number + 1)
-    WHERE (orderseq_name=''QuNumber'');
+    WHERE (orderseq_name='QuNumber');
 
     SELECT quhead_id INTO _test
     FROM quhead
@@ -28,4 +30,4 @@ BEGIN
   RETURN _quNumber;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

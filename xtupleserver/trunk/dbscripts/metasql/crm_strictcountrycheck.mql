@@ -56,7 +56,7 @@ SELECT SUM(counter) AS counter FROM (
      <? if not exists("showAll") ?> AND (NOT invchead_posted) <? endif ?>
   UNION ALL
   SELECT <? if exists("count") ?> COUNT(*)
-         <? else ?> quhead_id, 'Quote', CAST(quhead_number AS TEXT), quhead_billtocountry, 'Bill-To'
+         <? else ?> quhead_id, 'Quote', quhead_number, quhead_billtocountry, 'Bill-To'
          <? endif ?>
     FROM quhead
    WHERE quhead_billtocountry != ''
@@ -66,7 +66,7 @@ SELECT SUM(counter) AS counter FROM (
      <? if not exists("showAll") ?> AND (quhead_expire>=CURRENT_DATE) <? endif ?>
   UNION ALL
   SELECT <? if exists("count") ?> COUNT(*)
-         <? else ?> quhead_id, 'Quote', CAST(quhead_number AS TEXT), quhead_shiptocountry, 'Ship-To'
+         <? else ?> quhead_id, 'Quote', quhead_number, quhead_shiptocountry, 'Ship-To'
          <? endif ?>
     FROM quhead
    WHERE quhead_shiptocountry != ''
