@@ -30,16 +30,20 @@
       <term>Amount</term>
       <listitem>
         <para>Specify the monetary value of the transaction item.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Sense</term>
-      <listitem>
-        <para>Choose one of the following options:</para>
-        <para>Debit: Select if transaction item Debits specified
-        Account.</para>
-        <para>Credit: Select if transaction item Credits specified
-        Account.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Debit</term>
+            <listitem>
+              <para>Select if the amount debits the specified Account.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit</term>
+            <listitem>
+              <para>Select if the amount credits the specified Account.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -47,6 +51,16 @@
       <listitem>
         <para>Specify the Account to be used for the transaction item
         record.</para>
+        <variablelist>
+          <varlistentry role="xtprjaccnt">
+            <term>Project</term>
+            <listitem>
+              <para>Select a Project to associate with the transaction. The
+              Project Number will be added as the final segment of the G/L
+              Account Number.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

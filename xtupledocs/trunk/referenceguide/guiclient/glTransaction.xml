@@ -12,7 +12,7 @@
     </indexterm> <indexterm significance="normal">
       <primary>transactions</primary>
       <secondary>creating simple g/l entry</secondary>
-    </indexterm>Simple G/L Journal Entry</title>
+    </indexterm>Simple Entry</title>
   <para>To manually create a simple G/L journal entry, select the "Simple
   Journal Entry" option. The following screen will appear:</para>
   <para><screenshot>
@@ -58,6 +58,16 @@
       <listitem>
         <para>Specify the Debit Account to be used for the transaction
         record.</para>
+        <variablelist>
+          <varlistentry role="xtprjaccnt">
+            <term>Project</term>
+            <listitem>
+              <para>Select a Project to associate with the transaction. The
+              Project Number will be added as the final segment of the G/L
+              Account Number.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -65,6 +75,16 @@
       <listitem>
         <para>Specify the Credit Account to be used for the transaction
         record.</para>
+        <variablelist>
+          <varlistentry role="xtprjaccnt">
+            <term>Project</term>
+            <listitem>
+              <para>Select a Project to associate with the transaction. The
+              Project Number will be added as the final segment of the G/L
+              Account Number.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
