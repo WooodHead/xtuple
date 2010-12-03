@@ -86,26 +86,39 @@
     <varlistentry>
       <term>Use Projects</term>
       <listitem>
-        <para>Select to provide the ability to create Projects.</para>
+        <para>Select to enable Project functionality.</para>
         <variablelist>
-          <varlistentry>
-            <term>Enable Project Accounting</term>
-            <listitem>
-              <para>Select to enable the Project Accounting package
-              features.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
+          <varlistentry role="xtte">
             <term>Project Labor And Overhead</term>
             <listitem>
-              <para></para>
+              <para>Enter a G/L Account to be used when approving Time Sheets
+              for Employees who record time against Projects. For this Account
+              to be used, the Employee must have a rate defined on their
+              Employee record―and they must also not be a contractor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry role="xtprjaccnt">
+            <term>Enable Project Accounting</term>
+            <listitem>
+              <para>Select to enable the features related to the Project
+              Accounting package. When Project Accounting is enabled, all G/L
+              Accounts are eligible to have transactions performed against
+              them―and to have an extra dynamic segment for the Project number
+              appended to the G/L Account Number. Project Accounts are created
+              on the fly as transactions are performed against them,
+              eliminating the need for users having to create G/L Accounts for
+              every possible G/L Account and Project combination. Financial
+              statement and transaction reporting will display
+              Project-specific transactions just as though the Project number
+              were the last segment of the G/L Account. Various reports can be
+              filtered by Project transaction.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Automatically create Projects for Sales Orders</term>
             <listitem>
-              <para>Select to allow the creation of Projects for Sales
-              Orders.</para>
+              <para>Select to create a Project for every Sales Order when a
+              new Sales Order is created.</para>
             </listitem>
           </varlistentry>
         </variablelist>
