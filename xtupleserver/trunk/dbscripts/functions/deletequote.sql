@@ -1,5 +1,5 @@
-DROP FUNCTION deleteQuote(INTEGER);
-DROP FUNCTION deleteQuote(INTEGER, INTEGER);
+SELECT dropIfExists('FUNCTION', 'deleteQuote(integer)', 'public');
+SELECT dropIfExists('FUNCTION', 'deleteQuote(integer, integer)', 'public');
 
 CREATE OR REPLACE FUNCTION deleteQuote(INTEGER) RETURNS INTEGER AS $$
 DECLARE

@@ -1,5 +1,5 @@
-DROP FUNCTION releaseSoNumber(INTEGER);
-DROP FUNCTION releaseSoNumber(TEXT);
+SELECT dropIfExists('FUNCTION', 'releaseSoNumber(integer)', 'public');
+SELECT dropIfExists('FUNCTION', 'releaseSoNumber(text)', 'public');
 
 CREATE OR REPLACE FUNCTION releaseSoNumber(INTEGER) RETURNS INTEGER AS $$
 DECLARE
