@@ -1,5 +1,5 @@
 BEGIN;
-
+ 
 -- Quote Line
 
 SELECT dropIfExists('VIEW', 'quoteline', 'api');
@@ -74,16 +74,16 @@ CREATE OR REPLACE RULE "_INSERT" AS
     quitem_price_uom_id,
     quitem_price_invuomratio)
   SELECT
-    getQuoteId(NEW.quote_number::text),
+    getQuoteId(NEW.quote_number),
     COALESCE(NEW.line_number,(
       SELECT (COALESCE(MAX(quitem_linenumber), 0) + 1)
               FROM quitem
-              WHERE (quitem_quhead_id=getQuoteId(NEW.quote_number::text)))),
+              WHERE (quitem_quhead_id=getQuoteId(NEW.quote_number)))),
     itemsite_id,
     COALESCE(NEW.scheduled_date,(
       SELECT MIN(quitem_scheddate)
       FROM quitem
-      WHERE (quitem_quhead_id=getQuoteId(NEW.quote_number::text)))),
+      WHERE (quitem_quhead_id=getQuoteId(NEW.quote_number)))),
     NEW.qty_ordered,
     stdCost(item_id),
     COALESCE(NEW.net_unit_price,itemPrice(getItemId(NEW.item_number),quhead_cust_id,
@@ -134,14 +134,14 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     quitem_prcost=NEW.overwrite_po_price,
     quitem_taxtype_id=getTaxTypeId(NEW.tax_type)
    FROM item
-   WHERE ((quitem_quhead_id=getQuoteId(OLD.quote_number::text))
+   WHERE ((quitem_quhead_id=getQuoteId(OLD.quote_number))
    AND (quitem_linenumber=OLD.line_number));
 
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO api.quoteline DO INSTEAD
 
   DELETE FROM quitem
-  WHERE ((quitem_quhead_id=getQuoteId(OLD.quote_number::text))
+  WHERE ((quitem_quhead_id=getQuoteId(OLD.quote_number))
   AND (quitem_linenumber=OLD.line_number));
 
 COMMIT;

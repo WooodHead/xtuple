@@ -12,7 +12,7 @@ DECLARE
   _showConvertedQuote BOOLEAN := false;
   _prospectid	INTEGER;
   _r RECORD;
-  _soNum INTEGER;
+  _soNum TEXT;
 
 BEGIN
 
@@ -77,7 +77,7 @@ BEGIN
   PERFORM quhead_number, cohead_id 
   FROM quhead, cohead 
   WHERE quhead_id = pQuheadid
-  AND cohead_number = CAST(quhead_number AS text);
+  AND cohead_number = quhead_number;
 
   IF (FOUND) THEN
     SELECT fetchSoNumber() INTO _soNum;
@@ -214,7 +214,7 @@ BEGIN
     IF (_r.quitem_createorder) THEN
 
       IF (_r.item_type IN ('M')) THEN
-        SELECT createWo( _r.quhead_number, supply.itemsite_id, 1, (_r.quitem_qtyord * _r.quitem_qty_invuomratio),
+        SELECT createWo( CAST(_r.quhead_number AS INTEGER), supply.itemsite_id, 1, (_r.quitem_qtyord * _r.quitem_qty_invuomratio),
                          _r.itemsite_leadtime, _r.quitem_scheddate, _r.quitem_memo, 'S', _soitemid, _r.quhead_prj_id ) INTO _orderId
         FROM itemsite sold, itemsite supply
         WHERE ((sold.itemsite_item_id=supply.itemsite_item_id)
@@ -230,7 +230,7 @@ BEGIN
            AND  (charass_target_id=_r.quitem_id));
 
       ELSIF ( (_r.item_type IN ('P', 'O')) AND (_r.itemsite_createsopr) ) THEN
-        SELECT createPr( _r.quhead_number, _r.quitem_itemsite_id, (_r.quitem_qtyord * _r.quitem_qty_invuomratio),
+        SELECT createPr( CAST(_r.quhead_number AS INTEGER), _r.quitem_itemsite_id, (_r.quitem_qtyord * _r.quitem_qty_invuomratio),
                          _r.quitem_scheddate, '', 'S', _soitemid ) INTO _orderId;
         _orderType := 'R';
         UPDATE pr SET pr_prj_id=_r.quhead_prj_id WHERE pr_id=_orderId;
