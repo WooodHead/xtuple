@@ -67,7 +67,7 @@ function fillListPurchAct()
     return;
 
   var params = new Object;
-  if (!metrics.value("Application") != "PostBooks")
+  if (metrics.value("Application") != "PostBooks")
   {
     params.planned = qsTr("Planned");
     params.firmed = qsTr("Firmed");
