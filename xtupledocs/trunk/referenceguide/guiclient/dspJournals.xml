@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="dspJournals">
+  <title><indexterm significance="normal">
+      <primary>journals</primary>
+      <secondary>viewing transactions in</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>transactions</primary>
+      <secondary>viewing in journals</secondary>
+    </indexterm>Journals</title>
+  <para>To view Journal transactions on systems configured to post
+  transactions to intermediate Journals, select the "Journals" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspJournals.png" />
+        </imageobject>
+        <caption>Journals</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Journal transactions, you are presented with the
+  following options:</para>
+  <note>
+    <para>The system-defined default filter on the Journals screen shows all
+    transactions for the current day.</para>
+  </note>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para role="xtprjaccnt"><note>
+      <para>Among its many features, the Journals query builder includes an
+      option for showing Accounts with a Project Number as the last segment.
+      If the "Show Project Detail" option is not used, balances will roll up
+      into the parent Account total.</para>
+    </note></para>
+  <variablelist>
+    <varlistentry>
+      <term>Transactions</term>
+      <listitem>
+        <para>Display lists Journals based on the specified parameters.</para>
+        <tip>
+          <para>If your transaction records are displaying a "No" value in the
+          "Posted" column, this means the transactions have not yet been
+          posted to the General Ledger. Until they are posted to the General
+          Ledger, Journal transactions will not appear in the Trial Balance or
+          other financial reports.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
