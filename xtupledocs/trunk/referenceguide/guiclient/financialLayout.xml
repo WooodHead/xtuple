@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section572534">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>financial reports</primary>
       <secondary>creating new</secondary>
-    </indexterm> <anchor id="Anchor14666" role="Cross-Ref" xreflabel="14666: Heading2: Create Financial Report"/>New Financial
+    </indexterm> <anchor id="Anchor14666" role="Cross-Ref"
+  xreflabel="14666: Heading2: Create Financial Report" />New Financial
   Report</title>
   <para>The Financial Reporting Engine (FRE) enables you to design custom
   Financial Reports, which can then be previewed, printed, or exported in
@@ -15,16 +16,14 @@
   Reports or executive summaries.</para>
   <para>To create a new Financial Report, select the "Create Financial Report"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/financialLayout.png"/>
+          <imagedata fileref="images/financialLayout.png" />
         </imageobject>
         <caption>Create New Financial Report</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When creating a new Financial Report, you are presented with the
   following options:</para>
   <variablelist>
@@ -97,12 +96,24 @@
               report.</para>
             </listitem>
           </varlistentry>
+          <varlistentry role="xtprjaccnt">
+            <term>Use in Projects</term>
+            <listitem>
+              <para>If the xTuple Project Accounting package is installed,
+              select this option to make the Financial Report available to
+              Projects.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutIncStatement.xml" xpointer="element(/1)"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutBalSheet.xml" xpointer="element(/1)"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutCashFlow.xml" xpointer="element(/1)"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutAdHoc.xml" xpointer="element(/1)"/>
+  <xi:include href="financialLayoutIncStatement.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="financialLayoutBalSheet.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="financialLayoutCashFlow.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="financialLayoutAdHoc.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

@@ -22,50 +22,44 @@
     </screenshot></para>
   <tip>
     <para>The system will automatically reset the beginning balances for
-    Revenue and Expense Accounts to $0 at the start of a new Fiscal
-    Year.</para>
+    Revenue and Expense Accounts to $0 at the start of a new Fiscal Year.
+    However, for the Year-End Equity Account, the beginning balance for the
+    first Period of the Fiscal Year will be equal to the ending balance for
+    the previous year. In addition, the Credit and Debit columns will
+    summarize the revenue and expense account activity for the previous year,
+    and the ending balance will be the actual year-end equity value for the
+    just-closed Fiscal Year.</para>
   </tip>
   <para>When viewing Trial Balances, you are presented with the following
   options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>All Accounts</term>
-      <listitem>
-        <para>Select to display Trial Balances from all G/L Accounts.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected Account</term>
-      <listitem>
-        <para>Specify G/L Account whose Trial Balance you want to
-        display.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <note>
-    <para>When viewing Trial Balances for the Year-End Equity Account, the
-    beginning balance for the first Period of the Fiscal Year will be equal to
-    the ending balance for the previous year. In addition, the Credit and
-    Debit columns will summarize the revenue and expense account activity for
-    the previous year, and the ending balance will be the actual year-end
-    equity value for the just-closed Fiscal Year.</para>
+    <para>The Trial Balance query builder includes options for displaying
+    Accounts having a zero balance.</para>
+    <para role="xtprjaccnt">Also included is an option for showing Accounts
+    with a Project Number as the last segment. If the "Show Project Detail"
+    option is not used, balances will roll up into the parent Account
+    total.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>trial balances</primary>
-          <secondary>periods included in</secondary>
-        </indexterm>All Periods</term>
+      <term>Trial Balances</term>
       <listitem>
-        <para>Select to display Trial Balances for all Accounting
-        Periods.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected Period</term>
-      <listitem>
-        <para>Specify Accounting Period whose Trial Balances you want to
-        display.</para>
+        <para>Display lists Trial Balances based on the specified parameters.
+        A "CR" may display after the following columns: Beg. Bal., Difference,
+        and End. Bal. The "CR" indicates the balance is a Credit balance. If
+        no "CR" appears, then the balance is a Debit balance. Ending balances
+        will display in orange type if either of the following conditions is
+        true: 1) The ending balance has not been forward-updated, or 2) the
+        ending balance has been forward-updated, but the account in question
+        has no activity during the specified Period.</para>
+        <note>
+          <para>Trial Balances will be automatically forward-updated unless
+          your system is configured to manually forward-update Trial Balances.
+          Ending balances cannot be forward-updated into future Periods. For
+          more information see <xref linkend="Section942568" />.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -81,24 +75,7 @@
         </note>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Trial Balances</term>
-      <listitem>
-        <para>Display lists Trial Balances based on the specified parameters.
-        A "CR" may display after the following columns: Beg. Bal., Difference,
-        and End. Bal. The "CR" indicates the balance is a Credit balance. If
-        no "CR" appears, then the balance is a Debit balance. Ending balances
-        will display in orange type if either of the following conditions is
-        true: 1) The ending balance has not been forward-updated, or 2) the
-        ending balance has been forward-updated, but the account in question
-        has no activity during the specified Period.</para>
-      </listitem>
-    </varlistentry>
   </variablelist>
-  <note>
-    <para>Trial Balances will be automatically forward-updated unless your
-    system is configured to manually forward-update Trial Balances. For more
-    information see <xref linkend="Section942568" />. Ending balances cannot
-    be forward-updated into future Periods.</para>
-  </note>
+  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

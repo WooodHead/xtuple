@@ -32,6 +32,16 @@
             <listitem>
               <para>Select a General Ledger Account to use for the
               distribution.</para>
+              <variablelist>
+                <varlistentry role="xtprjaccnt">
+                  <term>Project</term>
+                  <listitem>
+                    <para>Select a Project to associate with the transaction.
+                    The Project Number will be added as the final segment of
+                    the G/L Account Number.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
             </listitem>
           </varlistentry>
           <varlistentry>

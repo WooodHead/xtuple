@@ -29,6 +29,14 @@
   </note>
   <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <note>
+    <para>Among its many features, the G/L Transactions query builder includes
+    options for displaying "deleted" transactions.</para>
+    <para role="xtprjaccnt">Also included is an option for showing Accounts
+    with a Project Number as the last segment. If the "Show Project Detail"
+    option is not used, balances will roll up into the parent Account
+    total.</para>
+  </note>
   <variablelist>
     <varlistentry>
       <term>Transactions</term>

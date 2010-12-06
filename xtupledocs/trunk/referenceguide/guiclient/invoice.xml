@@ -203,21 +203,16 @@
     <varlistentry>
       <term>Project #</term>
       <listitem>
-        <para>Select a Project Number to associate with the Invoice. If the
-        Invoice was created from a Sales Order&mdash;and the Sales Order had a
-        Project Number associated with it&mdash;then the Project Number from
-        the originating Sales Order will automatically be entered here. Once a
-        Project Number is associated with a Sales Order, any Work Orders or
-        Purchase Orders created by the Sales Order demand will automatically
-        be linked to the same Project Number as the Sales Order. In this way,
-        Sales Orders, Work Orders, and Purchase Orders may be linked to the
-        same Project.</para>
-        <tip>
-          <para>If your site is configured to create Projects automatically
-          whenever new Sales Orders or Quotes are entered, the Projects
-          generated in this way will assume the number of the Sales Order or
-          Quote which caused their creation.</para>
-        </tip>
+        <para>If your system is configured to use Projects, select a Project
+        Number to associate with the Invoice. If the Invoice was created from
+        a Sales Order&mdash;and the Sales Order had a Project Number
+        associated with it&mdash;then the Project Number from the originating
+        Sales Order will automatically be entered here.</para>
+        <para role="xtprjaccnt">When you have the xTuple Project Accounting
+        package installed―and you link a Project to the Invoice (or it was
+        linked from the original Sales Order)―the Project Number will be added
+        as the final segment of affected G/L Account Numbers when the Invoice
+        is posted.</para>
       </listitem>
     </varlistentry>
   </variablelist>
