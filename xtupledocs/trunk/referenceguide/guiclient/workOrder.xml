@@ -178,16 +178,20 @@
     <varlistentry>
       <term>Project #</term>
       <listitem>
-        <para>Select a Project Number to associate with the Work Order. If the
-        Work Order was created from Sales Order demand&mdash;and the parent
-        Sales Order had a Project Number associated with it&mdash;then the
-        Project Number from the parent Sales Order will automatically be
-        entered here. In this way, Sales Orders and Work Orders may be linked
-        to the same Project.</para>
-        <note>
-          <para>The option to associate a Project with a Work Order will only
-          be visible if your site is configured to use Projects.</para>
-        </note>
+        <para>If your system is configured to use Projects, select a Project
+        Number to associate with the Work Order. If the Work Order was created
+        from Sales Order demand&mdash;and the parent Sales Order had a Project
+        Number associated with it&mdash;then the Project Number from the
+        parent Sales Order will automatically be entered here. In this way,
+        Sales Orders and Work Orders may be linked to the same Project.</para>
+        <para role="xtprjaccnt">When you have the xTuple Project Accounting
+        package installed―and you link a Project to the Work
+        Order―transactions related to the Work Order will include the Project
+        Number as the final segment of affected G/L Account Numbers. Account
+        Numbers related to the following transactions will include the Project
+        Number as the final segment: Issue Materials, Post Operations, Post
+        Production, Return Material, Correct Post Operations, Correct Post
+        Production, Scrap Material.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

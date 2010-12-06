@@ -39,12 +39,14 @@
       <listitem>
         <para>Enter the Item Number of the Item you want to enter an Expense
         transaction for.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>UOM</term>
-      <listitem>
-        <para>Inventory Unit of Measure.</para>
+        <variablelist>
+          <varlistentry>
+            <term>UOM</term>
+            <listitem>
+              <para>Inventory Unit of Measure.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -76,6 +78,16 @@
       <listitem>
         <para>Specify the Expense Category you want to assign the Expense
         transaction to.</para>
+        <variablelist>
+          <varlistentry role="xtprjaccnt">
+            <term>Project</term>
+            <listitem>
+              <para>Select a Project to associate with the transaction. The
+              Project Number will be added as the final segment of the G/L
+              Account Number.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>

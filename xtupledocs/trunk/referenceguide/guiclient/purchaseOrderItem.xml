@@ -128,11 +128,6 @@
       <listitem>
         <para>Displays the Extended Price. The Extended Price for a Line Item
         is based on the quantity ordered multiplied by the Unit Price.</para>
-        <note>
-          <para>The option to associate a Project with a Purchase Order Line
-          Item will only be visible if your site is configured to use
-          Projects.</para>
-        </note>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -166,13 +161,23 @@
     <varlistentry>
       <term>Project #</term>
       <listitem>
-        <para>Select a Project Number to associate with the Purchase Order
-        Line Item. If the Purchase Order Line Item is being created from a
-        Purchase Request driven by Sales Order demand&mdash;and the parent
-        Sales Order had a Project Number associated with it&mdash;then the
-        Project Number from the parent Sales Order will automatically be
-        entered here. In this way, Sales Orders and Purchase Order Line Items
-        may be linked to the same Project.</para>
+        <para>If your system is configured to use Projects, select a Project
+        Number to associate with the Purchase Order Line Item. If the Purchase
+        Order Line Item is being created from a Purchase Request driven by
+        Sales Order demand&mdash;and the parent Sales Order had a Project
+        Number associated with it&mdash;then the Project Number from the
+        parent Sales Order will automatically be entered here. In this way,
+        Sales Orders and Purchase Order Line Items may be linked to the same
+        Project.</para>
+        <para role="xtprjaccnt">When you have the xTuple Project Accounting
+        package installed―and you link a Project to the Purchase Order Line
+        Item―transactions related to the Purchase Order Line Item will include
+        the Project Number as the final segment of affected G/L Account
+        Numbers. Account Numbers related to the following transactions will
+        include Project Number as the final segment: Post Receipt, Correct
+        Receipt, and Post P/O Return. If there are cost variances when
+        vouchering, the Purchase Variance Account will also inherit the
+        Project Number segment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

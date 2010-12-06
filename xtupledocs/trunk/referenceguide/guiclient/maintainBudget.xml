@@ -44,6 +44,17 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Project #</term>
+      <listitem>
+        <para>If your system is configured to use Projects, select a Project
+        Number to associate with the Budget.</para>
+        <para role="xtprjaccnt">When you have the xTuple Project Accounting
+        package installed―and you link a Project to the Budget―the Project
+        Number will be added as the final segment of all G/L Account Numbers
+        used by the Budget.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Table Parameters</term>
       <listitem>
         <para>Select from the following options to determine which Accounts
@@ -61,12 +72,6 @@
                   <listitem>
                     <para>Select to add Accounts from your Chart of
                     Account.</para>
-                    <tip>
-                      <para>You may select multiple Accounts to add to your
-                      Budget by highlighting the Accounts using your
-                      mouse&mdash;or a combination of your mouse and either
-                      the SHIFT or CTRL keys.</para>
-                    </tip>
                   </listitem>
                 </varlistentry>
                 <varlistentry>
