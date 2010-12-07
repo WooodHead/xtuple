@@ -79,6 +79,44 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Due</term>
+      <listitem>
+        <para>Date Task is due.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Assigned</term>
+      <listitem>
+        <para>Date task was assigned.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Started</term>
+      <listitem>
+        <para>Date Task actually started.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Completed</term>
+      <listitem>
+        <para>Date Task was actually completed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view a time and expenses summary of the Project, select the
+  "Summary" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/task_planTab.png" />
+        </imageobject>
+        <caption>Task Planning</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing the time and expenses summary for a Project, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
       <term>Hours</term>
       <listitem>
         <para>Specify the number of hours associated with the Task using the
@@ -139,32 +177,44 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <variablelist>
-    <varlistentry>
-      <term>Due</term>
-      <listitem>
-        <para>Date Task is due.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Assigned</term>
-      <listitem>
-        <para>Date task was assigned.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Started</term>
-      <listitem>
-        <para>Date Task actually started.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Completed</term>
-      <listitem>
-        <para>Date Task was actually completed.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para role="xtte">With the Time and Expense package installed, you can
+  specify Customer and billing rate information by individual Tasks. To
+  specify the Customer and billing rate information by Task, select the
+  "Billing" tab. The following screen will appear:</para>
+  <screenshot role="xtte">
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/task_billing.png" />
+      </imageobject>
+      <caption>Task Billing</caption>
+    </mediaobject>
+  </screenshot>
+  <para role="xtte">When specifying Customer and billing rate information by
+  Task, you are presented with the following options:</para>
+  <para role="xtte"><variablelist>
+      <varlistentry>
+        <term>Customer</term>
+        <listitem>
+          <para>Enter the Customer you want to associate with the Task.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Use specified billing rate</term>
+        <listitem>
+          <para>Select if you want to specify a Customer billing rate for the
+          Task. If not selected, the rate may be entered manually on Time
+          Sheets.</para>
+          <variablelist>
+            <varlistentry>
+              <term>Rate</term>
+              <listitem>
+                <para>Specify the Customer billing rate for the Task.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>To add an Alarm related to a Task, select the "Alarms" tab. The
   following screen will appear:</para>
   <screenshot>
