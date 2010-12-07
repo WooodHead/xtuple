@@ -19,7 +19,7 @@ BEGIN
       _sense := CASE WHEN (SELECT tohead_trns_warehous_id=_r.itemsite_warehous_id
 			   FROM tohead
 			   WHERE (tohead_number=_r.invhist_ordnumber)) THEN -1
-			   ELSE 0
+			   ELSE 1
 			   END;
     ELSIF (_r.invhist_transtype='TR') THEN
       _sense := CASE WHEN (SELECT tohead_src_warehous_id=_r.itemsite_warehous_id
