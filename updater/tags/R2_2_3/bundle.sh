@@ -9,12 +9,18 @@
 #
 
 PROG=`basename $0`
+ARCH=
 VERFILE=common/data.cpp
 BUILD=false
 DEMO=false
 BASEDIR=`pwd`
 if [ "$BASEDIR" = . ] ; then
   BASEDIR=`pwd`
+fi
+OS=`uname -s`
+if [ "$OS" = Darwin ] ; then
+  ARCH=`uname -p`
+  OSVER=MAC${ARCH}
 fi
 
 usage() {
@@ -54,9 +60,9 @@ bundle() {
   fi
 
   if $DEMO ; then
-    BUNDLENAME="${APPNAME}-${VERSION}Demo-MACUniversal"
+    BUNDLENAME="${APPNAME}-${VERSION}Demo-${OSVER}"
   else
-    BUNDLENAME="${APPNAME}-${VERSION}-MACUniversal"
+    BUNDLENAME="${APPNAME}-${VERSION}-${OSVER}"
   fi
   BUNDLEDIR="${2}/${BUNDLENAME}"
 
@@ -70,18 +76,21 @@ bundle() {
     return 3
   fi
 
-  if ! $DEMO ; then
-    if ! mv "$BASEDIR/bin/$BINARY" "$BUNDLEDIR" ; then
-      return 4
-    fi
-  else
-    if ! mv "$BASEDIR/bin/$BINARY" "$BUNDLEDIR"/"${APPNAME}_Demo.app" ; then
-      return 4
-    fi
+  if $DEMO ; then
     BINARY="${APPNAME}_Demo.app"
+  else
+    BINARY="${APPNAME}.app"
+  fi
+  if [ "$OSVER" = MacUniversal ] ; then
+    cp -R "$BASEDIR/bin/${APPNAME}.app" "$BUNDLEDIR"  || return 4
+  else
+    ditto --rsrc -arch $ARCH "$BASEDIR/bin/${APPNAME}.app" "$BUNDLEDIR/$BINARY" || return 4
+  fi
+
+  if $DEMO ; then
     if [ -d "$HELPFILE" ] ; then
       if ! cp -R -L "$HELPFILE" \
-	      "$BUNDLEDIR"/bin/"${BINARY}"/Contents/Resources/helpOpenMFGGUIClient ; then
+	      "$BUNDLEDIR"/"${BINARY}"/Contents/Resources/helpOpenMFGGUIClient ; then
 	return 5
       fi
     elif [ -f "$HELPFILE" ] ; then
@@ -156,6 +165,8 @@ if [ `uname -s` != Darwin ] ; then
   usage
   exit 2
 fi
+ARCH=`uname -p`
+OSVER=MAC${ARCH}
 
 if [ -z "$QTDIR" ] ; then
   echo "$PROG: Cannot run properly without the QTDIR environment variable set"
