@@ -185,4 +185,15 @@ while [ `otool -L $APPROOT/Contents/Frameworks/* | egrep "($QTDIR|$PGDIR)" | wc 
   done
 done
 
+cd $APPROOT/Contents/MacOS
+for PDIR in sqldrivers imageformats ; do
+  if [ ! -e $PDIR ] ; then
+    if [ -L $PDIR ] ; then
+      rm $PDIR
+    fi
+    ln -s ../plugins/$PDIR                   || exit 4
+  fi
+done
+cd $APPROOT
+
 exit 0
