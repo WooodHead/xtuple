@@ -142,11 +142,11 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <note role="xtconnect">
-    <para>If CRM is configured with a default Incident EDI Profile or if the
-    Category of this Incident has an EDI Profile, you may encounter an EDI
-    processing interface when saving the Incident.</para>
-  </note>
+  <para role="xtconnect"><note>
+      <para>If CRM is configured with a default Incident EDI Profile or if the
+      Category of this Incident has an EDI Profile, you may encounter an EDI
+      processing interface when saving the Incident.</para>
+    </note></para>
   <para>To enter <indexterm significance="normal">
       <primary>characteristics</primary>
       <secondary>creating new for incidents</secondary>
@@ -346,26 +346,27 @@
     </screenshot></para>
   <para role="xtconnect">When adding a Subscriber, you are presented with the
   following options:</para>
-  <variablelist role="xtconnect">
-    <varlistentry>
-      <term>Type</term>
-      <listitem>
-        <para>Select either User or Contact.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>User</term>
-      <listitem>
-        <para>Type or select the Username of an xTuple ERP system User.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Contact</term>
-      <listitem>
-        <para>Type or select the first and last name of a Contact.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para role="xtconnect"><variablelist>
+      <varlistentry>
+        <term>Type</term>
+        <listitem>
+          <para>Select either User or Contact.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>User</term>
+        <listitem>
+          <para>Type or select the Username of an xTuple ERP system
+          User.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Contact</term>
+        <listitem>
+          <para>Type or select the first and last name of a Contact.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>To view the documents associated with an Incident, select the
   "Documents" tab. The following screen will appear:<mediaobject>
       <imageobject>

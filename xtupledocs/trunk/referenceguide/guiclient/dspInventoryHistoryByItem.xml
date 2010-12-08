@@ -137,20 +137,20 @@
               <para>Displays only Work Order transactions.</para>
             </listitem>
           </varlistentry>
-          <varlistentry>
+          <varlistentry role="standard">
             <term>Transfer Orders</term>
             <listitem>
               <para>Displays only Transfer Order transactions.</para>
-              <note>
-                <para>The system prefixes Order Numbers with letters
-                indicating the Order type. For example, Work Orders are
-                prefixed with "WO", Purchase Orders with "PO", and Sales
-                Orders with "SO". These letters are for display purposes only
-                and are not considered part of the Order Number.</para>
-              </note>
             </listitem>
           </varlistentry>
         </variablelist>
+        <note>
+          <para>The system prefixes Order Numbers with letters indicating the
+          Order type. For example, Work Orders are prefixed with "WO",
+          Purchase Orders with "PO", and Sales Orders with "SO". These letters
+          are for display purposes only and are not considered part of the
+          Order Number.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
