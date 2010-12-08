@@ -137,9 +137,11 @@
       <listitem>
         <para>Select to automatically print the Sales Order when it is
         saved.</para>
-        <para role="xtconnect">If the Customer specified on the Sales Order
-        has an EDI Profile attached, you may encounter an EDI processing
-        interface when printing the Sales Order.</para>
+        <para role="xtconnect"><note>
+            <para>If the Customer specified on the Sales Order has an EDI
+            Profile attached, you may encounter an EDI processing interface
+            when printing the Sales Order.</para>
+          </note></para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -379,7 +381,7 @@
               Packing hold will be prevented from doing so.</para>
             </listitem>
           </varlistentry>
-          <varlistentry>
+          <varlistentry role="standard">
             <term>Return</term>
             <listitem>
               <para>This hold type is set automatically when a Sales Order is
@@ -836,10 +838,11 @@
       <listitem>
         <para>If a Sales Order was converted from a Quote, the originating
         Quote Number will display here.</para>
-        <note>
-          <para>If the Sales Order was generated from a Return Authorization,
-          the Return Authorization Number will display here.</para>
-        </note>
+        <para role="standard"><note>
+            <para>If the Sales Order was generated from a Return
+            Authorization, the Return Authorization Number will display
+            here.</para>
+          </note></para>
       </listitem>
     </varlistentry>
   </variablelist>

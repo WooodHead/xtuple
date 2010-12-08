@@ -25,8 +25,7 @@
   <para id="Para519947"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/postCostsByClassCode.png"
-                     />
+          <imagedata fileref="images/postCostsByClassCode.png" />
         </imageobject>
         <caption>Post Actual Costs by Class Code</caption>
       </mediaobject>
@@ -68,9 +67,8 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term id="Para627994"><anchor id="Anchor627993" role="Index"
-      xreflabel="standard costs:rolling up of" /> <indexterm
-          significance="normal" zone="Anchor627993">
+      <term id="Para627994"><indexterm significance="normal"
+          zone="Anchor627993">
           <primary>standard costs</primary>
           <secondary>rolling up of</secondary>
         </indexterm>Roll Up Standard Costs</term>
@@ -86,15 +84,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para627996"><anchor id="Anchor630918" role="Index"
-      xreflabel="material costs:posting of;costing:posting of material costs;standard costs:material costs posted to" />
-      <indexterm significance="normal" zone="Anchor630918">
+      <term id="Para627996"><indexterm significance="normal"
+          zone="Anchor630918">
           <primary>material costs</primary>
           <secondary>posting of</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor630918">
+        </indexterm><indexterm significance="normal" zone="Anchor630918">
           <primary>costing</primary>
           <secondary>posting of material costs</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor630918">
+        </indexterm><indexterm significance="normal" zone="Anchor630918">
           <primary>standard costs</primary>
           <secondary>material costs posted to</secondary>
         </indexterm>Post Material Costs</term>
@@ -164,15 +161,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para628015"><anchor id="Anchor631528" role="Index"
-      xreflabel="user costs:posting of;costing:posting of user costs;standard costs:user costs posted to" />
-      <indexterm significance="normal" zone="Anchor631528">
+      <term id="Para628015"><indexterm significance="normal"
+          zone="Anchor631528">
           <primary>user costs</primary>
           <secondary>posting of</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor631528">
+        </indexterm><indexterm significance="normal" zone="Anchor631528">
           <primary>costing</primary>
           <secondary>posting of user costs</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor631528">
+        </indexterm><indexterm significance="normal" zone="Anchor631528">
           <primary>standard costs</primary>
           <secondary>user costs posted to</secondary>
         </indexterm>Post User Costs</term>
@@ -190,29 +186,15 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para628019">To the far right of the screen, the following buttons
-  are available:</para>
+  <para id="Para628019">The following buttons are unique to this
+  screen:</para>
   <variablelist>
-    <varlistentry>
-      <term id="Para628020">CANCEL</term>
-      <listitem>
-        <para>Closes the screen without posting selected Costs, returning you
-        to the application desktop.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term id="Para628021">POST</term>
       <listitem>
         <para>Posts all selected Actual Costs by Item to Standard Cost. If the
         option "Roll Up Standard Costs" has been selected, the total Standard
         Cost for the specified Item will be updated.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="xtconnect">
-      <term id="Para628047">SCHEDULE</term>
-      <listitem>
-        <para>Select to submit requested action to the Batch Manager for
-        processing.</para>
       </listitem>
     </varlistentry>
   </variablelist>
