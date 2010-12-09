@@ -208,100 +208,102 @@
     </varlistentry>
   </variablelist>
   <para role="xtconnect">To set up a new FTP server to check, click the NEW
-  button. You will be presented with the following screen:<screenshot>
+  button. You will be presented with the following screen:</para>
+  <para role="xtconnect"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images\importsrc.png" />
+          <imagedata fileref="images/importsrc.png" />
         </imageobject>
         <caption><para>Import Source screen</para></caption>
       </mediaobject>
     </screenshot></para>
   <para role="xtconnect">When setting up an Import Source you are presented
   with the following options:</para>
-  <variablelist role="xtconnect">
-    <varlistentry>
-      <term>Name</term>
-      <listitem>
-        <para>Enter a name for this Import Source.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Host</term>
-      <listitem>
-        <para>Enter the host name or IP address of the FTP server.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>User Name</term>
-      <listitem>
-        <para>Enter the user name with which to log in to the FTP
-        server.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Password</term>
-      <listitem>
-        <para>Enter the password with which to log in to the FTP
-        server.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Directory</term>
-      <listitem>
-        <para>Enter the directory in which to look for files to download, if
-        any.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Name or Pattern</term>
-      <listitem>
-        <para>Enter the file name or a regular expression to use to find files
-        to download. For example you can leave this blank if you want to
-        download all files that you find. To download all CSV files that
-        contain "TTOYS" and the current year, you could enter a regular
-        expression like <literal>.*TTOYS.*201[0-9].*\.csv$</literal></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>After Successful Download</term>
-      <listitem>
-        <para>Select an option from the list of how the xTuple Connect Batch
-        Manager should handle the file <emphasis>on the FTP server</emphasis>
-        after the file has been downloaded successfully.</para>
-        <xi:include href="../widgets/filemoveselector.xml"
-                    xpointer="fileMoveSelector"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Recurring</term>
-      <listitem>
-        <para>Enter a schedule for the xTuple Connect Batch Manager to connect
-        to the FTP server and try to download files.</para>
-        <xi:include href="../widgets/recurrencewidget.xml"
-                    xpointer="recurrenceWidget"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>From</term>
-      <term>Reply To</term>
-      <term>To</term>
-      <term>Cc</term>
-      <term>Bcc</term>
-      <listitem>
-        <para>Enter email information for sending the status of download
-        processing.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note role="xtconnect">
-    <para>Importing downloaded files with the xTuple Connect Batch Manager is
-    a two-step process. The FTP download and the file imports are scheduled
-    separately. The Import Source screen lets you schedule the FTP download
-    step. Use the Schedule Imports tab to schedule loading the data into the
-    database.</para>
-  </note>
+  <para role="xtconnect"><variablelist>
+      <varlistentry>
+        <term>Name</term>
+        <listitem>
+          <para>Enter a name for this Import Source.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Host</term>
+        <listitem>
+          <para>Enter the host name or IP address of the FTP server.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>User Name</term>
+        <listitem>
+          <para>Enter the user name with which to log in to the FTP
+          server.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Password</term>
+        <listitem>
+          <para>Enter the password with which to log in to the FTP
+          server.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Directory</term>
+        <listitem>
+          <para>Enter the directory in which to look for files to download, if
+          any.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Name or Pattern</term>
+        <listitem>
+          <para>Enter the file name or a regular expression to use to find
+          files to download. For example you can leave this blank if you want
+          to download all files that you find. To download all CSV files that
+          contain "TTOYS" and the current year, you could enter a regular
+          expression like <literal>.*TTOYS.*201[0-9].*\.csv$</literal></para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>After Successful Download</term>
+        <listitem>
+          <para>Select an option from the list of how the xTuple Connect Batch
+          Manager should handle the file <emphasis>on the FTP
+          server</emphasis> after the file has been downloaded
+          successfully.</para>
+          <xi:include href="../widgets/filemoveselector.xml"
+                      xpointer="fileMoveSelector"
+                      xmlns:xi="http://www.w3.org/2001/XInclude" />
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Recurring</term>
+        <listitem>
+          <para>Enter a schedule for the xTuple Connect Batch Manager to
+          connect to the FTP server and try to download files.</para>
+          <xi:include href="../widgets/recurrencewidget.xml"
+                      xpointer="recurrenceWidget"
+                      xmlns:xi="http://www.w3.org/2001/XInclude" />
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>From</term>
+        <term>Reply To</term>
+        <term>To</term>
+        <term>Cc</term>
+        <term>Bcc</term>
+        <listitem>
+          <para>Enter email information for sending the status of download
+          processing.</para>
+          <note>
+            <para>Importing downloaded files with the xTuple Connect Batch
+            Manager is a two-step process. The FTP download and the file
+            imports are scheduled separately. The Import Source screen lets
+            you schedule the FTP download step. Use the Schedule Imports tab
+            to schedule loading the data into the database.</para>
+          </note>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>The <guilabel>General Import Options</guilabel> tab lets you choose
   how to handle files after their contents have been imported.</para>
   <screenshot>
@@ -461,37 +463,37 @@
   </screenshot>
   <para role="xtconnect">When setting up an import schedule, you are presented
   with the following options:</para>
-  <variablelist role="xtconnect">
-    <varlistentry>
-      <term>Recurring</term>
-      <listitem>
-        <para>Enter a schedule for the xTuple Connect Batch Manager to check
-        the import directory and try to import the XML and CSV files found in
-        that directory</para>
-        <xi:include href="../widgets/recurrencewidget.xml"
-                    xpointer="recurrenceWidget"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>From</term>
-      <term>Reply To</term>
-      <term>To</term>
-      <term>Cc</term>
-      <term>Bcc</term>
-      <listitem>
-        <para>Enter email information for sending the status of import
-        processing.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note role="xtconnect">
-    <para>Importing downloaded files with the xTuple Connect Batch Manager is
-    a two-step process. The FTP download and the file imports are scheduled
-    separately. The Import Source screen lets you schedule the FTP download
-    step. Use the Schedule Imports tab to schedule loading the data into the
-    database.</para>
-  </note>
+  <para role="xtconnect"><variablelist>
+      <varlistentry>
+        <term>Recurring</term>
+        <listitem>
+          <para>Enter a schedule for the xTuple Connect Batch Manager to check
+          the import directory and try to import the XML and CSV files found
+          in that directory</para>
+          <xi:include href="../widgets/recurrencewidget.xml"
+                      xpointer="recurrenceWidget"
+                      xmlns:xi="http://www.w3.org/2001/XInclude" />
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>From</term>
+        <term>Reply To</term>
+        <term>To</term>
+        <term>Cc</term>
+        <term>Bcc</term>
+        <listitem>
+          <para>Enter email information for sending the status of import
+          processing.</para>
+          <note>
+            <para>Importing downloaded files with the xTuple Connect Batch
+            Manager is a two-step process. The FTP download and the file
+            imports are scheduled separately. The Import Source screen lets
+            you schedule the FTP download step. Use the Schedule Imports tab
+            to schedule loading the data into the database.</para>
+          </note>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>The <guilabel>XML Export</guilabel> tab on the <guilabel>Configure
   Import and Export</guilabel> window lets you define how the transformations
   are to be performed.</para>

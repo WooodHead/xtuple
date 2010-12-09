@@ -114,7 +114,19 @@
           <varlistentry>
             <term>Enable Spell Check on Text Edit Fields</term>
             <listitem>
-              <para></para>
+              <para>Select if you want to enable spell checking in comment and
+              text areas throughout the application. xTuple uses the
+              widely-adopted, open source <ulink
+              url="http://hunspell.sourceforge.net/">Hunspell spell
+              checker</ulink> as the basis for its spell checking feature. By
+              default, the English dictionary files (English.dict and
+              English.aff) are distributed with the product. However, Hunspell
+              dictionaries for other languages are also available for download
+              from many sites on the Internet. The spell checking feature has
+              been designed to operate with a user's Locale settings―which
+              means that if you are using a Locale other than English (and you
+              have the correct Hunspell dictionary files installed) the spell
+              checker should work in your specified language.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -133,7 +145,7 @@
         </variablelist>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term><indexterm significance="normal">
           <primary>users</primary>
           <secondary>preferred sites for</secondary>
@@ -271,7 +283,7 @@
         </variablelist>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Show Schedule Menu</term>
       <listitem>
         <para>Select to display the Schedule module menu on the user's main
@@ -425,7 +437,7 @@
         </note>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Sites</term>
       <listitem>
         <para>Displays the complete list of Sites. Highlight an Event in the
@@ -460,7 +472,7 @@
         event occurs.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="xtconnect">
       <term>Email</term>
       <listitem>
         <para>Select Email if you would like an alarm to alert you when a
