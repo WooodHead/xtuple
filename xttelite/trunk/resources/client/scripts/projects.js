@@ -8,14 +8,26 @@
  * to be bound by its terms.
  */
 
-mywindow.setMetaSQLOptions("projects","detailte");
+include("xtte");
+xtte.projects = new Object;
 
-var _list = mywindow.list();
+xtte.projects.init = function()
+{
+  mywindow.setMetaSQLOptions("projects","detailte");
 
-_list.addColumn("Assigned To", -1, Qt.AlignLeft, true, "prj_username");
-_list.addColumn("Budget Hrs.", -1, Qt.AlignLeft, true, "budget_hrs");
-_list.addColumn("Actual Hrs.", -1, Qt.AlignLeft, true, "actual_hrs");
-_list.addColumn("Balance Hrs.", -1, Qt.AlignLeft, true, "balance_hrs");
+  var _list = mywindow.list();
+
+  _list.addColumn("Assigned To", -1, Qt.AlignLeft, true, "prj_username");
+  _list.addColumn("Budget Hrs.", -1, Qt.AlignLeft, true, "budget_hrs");
+  _list.addColumn("Actual Hrs.", -1, Qt.AlignLeft, true, "actual_hrs");
+  _list.addColumn("Balance Hrs.", -1, Qt.AlignLeft, true, "balance_hrs");
+
+  mywindow.list().populated.disconnect(xtte.projects.init);
+  mywindow.sFillList();
+}
+
+// TO DO:  We really need to keep the core window from populating first
+mywindow.list().populated.connect(xtte.projects.init);
 
 
 
