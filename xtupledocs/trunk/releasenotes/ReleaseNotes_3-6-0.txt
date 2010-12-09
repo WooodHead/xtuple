@@ -1,0 +1,699 @@
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.6.0
+December 17, 2010
+==================================
+
+These are the release notes for the 3.6.0 Final. Thanks to all
+who contributed to make this release possible. This release
+contains mostly bug fixes.
+
+==================================
+
+The following features and bug fixes have been added to the
+applications since the second beta for version 3.6.0. Additional
+detail for each item listed below may be found on our community
+website (www.xtuple.org). Simply go to the Issue Tracker and
+select the "Changelog" option.
+
+
+New Features:
+
+N/A
+
+Bug Fixes:
+
+* [Accounting] Basic Income Statement YTD, Prior YTD column
+showing all 0.00's
+* [Accounting] Can't post voucher for Non inventory items
+* [Accounting] Prevent users from editing certain data on posted
+invoices
+* [Accounting] Blank context is missing from 3.5.6 xTuple.base.ts
+file
+* [Accounting] G/L transactions report give wrong final numbers
+when sorted
+* [Accounting] Replace term "Subledger" with "Journal"
+* [Accounting] General Journal Entries do not post to Journals
+* [Architectural] Retyping selected order number on order cluster
+causes lock up
+* [CRM] Selecting to open 'Setup' screen of CRM generates DB log
+error
+* [Documentation] There is no link to Customer WB on the Sales
+index of reference guide
+* [Documentation] List BOMs screen is not updated
+* [Inventory] scanning the xtuple barcode on the SO Pick list
+results in crash
+* [Inventory] SQL error viewing unposted receipts
+* [Inventory] Hitting 'Enter' button twice on order cluster causes
+lock up
+* [Inventory] Can't Auto Receive Transfer Order
+* [Manufacture] Time Clock Correction still not updating everywhere
+* [Manufacture] Production Time Clock by User (New and Delete
+doesn't work)
+* [Manufacture] Observation: W/O Number is not being populated in
+the Work Order Operation screen
+* [Manufacture] Selecting to query work order costing by keyboard
+shortcuts displays error dialog
+* [Manufacture] typo in the ParameterGroupUtils script in the
+xtmfg package
+* [Manufacture] Sticky checkbox gets confused by different work
+order issue methods
+* [Manufacture] W/O Variances doesn't post in the project
+* [Manufacture] Postbooks New Wo Gives Error Message
+* [Products] 'Issue Method' field in print report of sequenced BOM
+is blank
+* [Products] Saving an empty BOM generates DB log
+* [Products] Missing error message when changing Item Type
+* [Products] Item Master with no info...
+* [Purchase] Screens contain nonfunctional buttons on unchecking
+'Use toolbars on displays' option
+* [Sales] Updates to SO line characteristics do not get
+transferred to Linked PO item
+* [Sales] Sales Reservation Performance issue
+* [Sales] Sales Order Line entry fails with db error when Price
+Effective Dadte set to Scheduled
+* [Sales] Metric soPriceEffective not honored when Scheduled
+Date is changed
+* [Schedule] Selected work center option not functional in Time
+Phased Rough Cut Capacity Plan screen
+* [Schedule] It is possible to create a production with End date
+earlier to Start date
+* [Schedule] Firm Allocations in MRP Detail is not considering
+Production plan
+* [Setup] QS wizard is not opening set up screens
+* [System] Spell check dictionaries not distributed with release
+* [System] Typo on spell check message
+
+==================================
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.6.0RC
+November 11, 2010
+==================================
+
+These are the release notes for the 3.6.0 Release Candidate. Thanks
+to all who contributed to make this release possible. Here is an
+overview of several new features you will find in this release:
+
+Subledger Accounting
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=5121
+
+Print Preview
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=6250
+
+Consolidated Setup Screens
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=11491
+
+Wider Use of Parameter Widget
+   * Full spec: http://www.xtuple.org/Parameter_Widget
+
+In conjunction with the release of 3.6.0RC, several extension
+packages have also been updated. The following package versions
+are recommended for use with 3.6.0RC:
+
+* xTuple Connect (xtbatch) v. 3.5.1RC
+* Time & Expense (xtte) v. 2.0.0RC
+  - This will upgrade both Lite and Pro versions
+* Point of Sale (xtpos) v. 3.6.0RC
+* Desktop (xtdesktop) v. 3.6.0RC
+
+==================================
+
+The following features and bug fixes have been added to the
+applications since the second beta for version 3.6.0. Additional
+detail for each item listed below may be found on our community
+website (www.xtuple.org). Simply go to the Issue Tracker and
+select the "Changelog" option.
+
+
+New Features:
+
+* [Purchase] Add changelog to show when a purchase order and 
+return order line status changes
+* [Sales] Add Cybersource as a credit card processor
+* [Setup] Allow override on Invoice Number Generation 
+
+Bug Fixes:
+
+* [Accounting] Problems caused by new invoice number feature
+* [Accounting] Refund button is no longer available on A/R Open 
+Items window 
+* [Accounting] FRE Report Column Headers are incorrect for 4-4-5 
+accounting period (data is correct) 
+* [Accounting] Error message on delete GL series 
+* [Accounting] Incorrect text is displayed in the End Date field 
+of Post Subledger screen 
+* [Accounting] Error when previewing ad hoc report 
+* [Accounting] SQL error running ad hoc report 
+* [Accounting] Print Report of Customer History is inconsistent 
+* [Accounting] Failure of Clear Selection (of Payment) when 
+listed by Vendor Type Pattern 
+* [Accounting] “Paid” column in print report of Receivables 
+workbench displays incorrect values 
+* [Accounting] Irrelevant dialog is displayed on saving a check 
+applied to a credit memo
+* [Accounting] Irrelevant name is displayed for “Type” field for 
+recurring invoices created for minutes/hours 
+* [Accounting] Omnibus : Vendor label is missing in screens 
+* [Accounting] Inconsistent behavior is observed for Recurring 
+Invoices
+* [Accounting] Deadlocks occur when transactions being performed 
+* [Accounting] Box in “Search for Account” screen is too small in 
+Windows 
+* [Accounting] Reversing cash receipt with discount ignores 
+discount
+* [Accounting] Sales Analysis Bookings report date range is 
+schedule date not booking date 
+* [Accounting] Empty as-of date returns db error 
+* [Accounting] Canadian currency not showing on customer 
+statement
+* [Accounting] Application allows deleting GL trans in closed 
+periods
+* [Accounting] Posting simple JE creates duplicate “Close” 
+butto
+* [Accounting] Credit memo may be applied more than once
+* [Accounting] QTD, Budget does not show budget amounts 
+* [All] When using Search functionality, Tab no longer returns 
+results
+* [All] Contact search does not work 
+* [All] getshiptonumberfrominfo function works off customer 
+name, but not shipto name
+* [Architectural] “Create no more than” filter missing
+* [Architectural] Create a legacy mode for buttons vs. 
+toolbars
+* [Architectural] Improve XTreeWidget's loading of large 
+datasets
+* [CRM] Columns that were selected to display no longer do 
+* [CRM] Auto Update check box missing on Incident List 
+* [CRM] Unable to view or search for an Address to associate 
+with a Contact
+* [CRM] To Do List filter not honoring 'Completed' status
+* [CRM] api.address view has issues with INSERT
+* [CRM] Detach misspelled
+* [CRM] It is possible to edit Registration in View mode
+* [CRM] Error message on save task
+* [CRM] SQL Error when filtering Opportunities
+* [Inventory] Selecting to receive a Transfer Order displays 
+error dialog
+* [Inventory] “Edit List” option in Cost Category combo box 
+of item site displays irrelevant screen 
+* [Inventory] Performance Issue with Printing Packing Slips
+* [Inventory] Print Report of Inventory History doesn't honor 
+dates
+* [Inventory] Selecting to save a blank cost category displays 
+irrelevant label name 
+* [Inventory] Total tax on tax breakdown screen of a transfer 
+order is displayed incorrectly
+* [Inventory] Update item control by Reorder level crashes 
+the application 
+* [Inventory] Receiving stock with serial/lot control block 
+other receiving/shipping screens
+* [Inventory] Serial numbers lost when receiving
+* [Inventory] QOH column is blank in “Quantities on Hand by 
+Location” screen 
+* [Inventory] Update order up to level windows don't do 
+anything when you click update
+* [Inventory] Observation: Copying unreleased TO creates a 
+TO in Open status by default 
+* [Manufacture] Prevent deletion of in process W/O Operations
+* [Manufacture] Omnibus - xtmfg script failures due to 
+display subclassing 
+* [Manufacture] Selecting to preview work order costing 
+generates DB log error 
+* [Manufacture] Print Report of pending W/O material 
+availability is blan
+* [Manufacture] W/O availability field is blank in print 
+report of Inventory Availability by Work Order 
+* [Manufacture] Application crashes on selecting the Close 
+button of Work Order Operation screen
+* [Products] Fixed quantity bom item not honoring batch size 
+in costing 
+* [Products] Tooling cost included in item costs 
+* [Products] Problems with document widget implementation in 
+item.cpp
+* [Products] Error on importing revisions into xtmfg.api_boo
+* [Products] Observation: Unable to create a new BOO for an 
+item with no BOO from the Item screen
+* [Purchase] Receipts and Returns tab in vendor workbench 
+doesn't display the order details
+* [Sales] Buttons missing on customer workbench
+* [Sales] When item is exclusive and ONLY on future price 
+schedule = can't order 
+* [Sales] Selecting to close Freight Breakdown screen of RA 
+generates DB log
+* [Sales] Selecting “cancel” when copying a freight type 
+pricing schedule generates DB log error
+* [Setup] Invalid credit card warning in external mode
+* [System] New search functionality doesn't exclude items 
+which are exclusive in s/o line entr
+* [System] New search functionality doesn't exclude items 
+which are not salable in s/o line entr
+* [System] Employee middle name doesn't get save
+* [System] xtree widget cursor positioning erratic after 
+updating entr
+* [System] Import xml without special error handling gives 
+multiple sql errors
+
+==================================
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.6.0Beta2
+October 06, 2010
+==================================
+
+These are the release notes for version 3.6.0Beta2. This is the
+first public release in the 3.6.0 series, since there was no Alpha
+and the first Beta was not publicly released.
+
+Here's an overview of several new features you will find in this
+release:
+
+Subledger Accounting
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=5121
+
+Print Preview
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=6250
+
+Consolidated Setup Screens
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=11491
+
+Wider Use of Parameter Widget
+   * Full spec: http://www.xtuple.org/Parameter_Widget
+
+In conjunction with the release of 3.6.0Beta2, several extension
+packages have also been updated. The following package versions
+are recommended for testing with 3.6.0Beta2:
+
+* xTuple Connect (xtbatch) v. 3.5.1Beta
+* Time & Expense (xtte) v. 2.0.0Beta
+  - This will upgrade both Lite and Pro versions
+* Point of Sale (xtpos) v. 3.6.0Beta2
+* Desktop (xtdesktop) v. 3.6.0Beta2
+
+==================================
+
+The following features and bug fixes have been added to the
+applications since the first beta for version 3.6.0. Additional
+detail for each item listed below may be found on our community
+website (www.xtuple.org). Simply go to the Issue Tracker and
+select the "Changelog" option.
+
+
+New Features:
+
+* [All] Add Spell Check to Text Entry Fields
+* [Architectural] Implement standard shortcut keys
+* [CRM] Add Contact to ToDo's and Opportunities
+* [Inventory] Add costs button to item form
+* [Manufacture] Add Created By Column to wohead so that Schedule
+reports can be filtered by it
+* [Purchase] Add More Columns to PO Delivery Date Variance Report
+* [System] XML Import Setup - Add Option To Define Location For
+Error Files
+
+Bug Fixes:
+
+* [Accounting] Multi-select posting on cash receipts results in
+error
+* [Accounting] Inconsistency presenting EFT options between
+configure accounting and vendor windows
+* [Accounting] Reversal of a cash receipt is not functional
+* [Accounting] Financial reporting engine not honoring account
+selection criteria
+* [Accounting] Selecting to view Tax Registration crashes the
+application
+* [Accounting] Vendor label is missing in vendor history screen
+* [Accounting] Irrelevant end date is displayed in Accounting
+Period screen
+* [Accounting] Sales rep number requires employee name (or code)
+not his/her number
+* [Accounting] Trouble entering dates on site exceptions screen
+* [All] Application error closing app with pos (or other package)
+screens open
+* [All] Editing Comment Types from inside a To-Do
+* [Architectural] The edit list option on the combo boxes does
+not work
+* [Architectural] Runaway process
+* [Batch Manager] Change “Submit” text for buttons sending to
+batch mgr
+* [CRM] Projects option on to-do causes error if selected
+* [CRM] SQL error when running order activity by project with no
+options selected
+* [CRM] Adding comment to address on creation deletes address name
+* [CRM] Can not save a new address
+* [CRM] Accounts List screen is confusing
+* [CRM] Duplicate filters on opportunity parameter widget
+* [CRM] Screen title says Incident Workbench
+* [CRM] Project window disappears when adding first task
+* [Inventory] Inventory History Report calculating all pages when
+Item is selected
+* [Inventory] Suggested patch for public._itemsitetrigger
+* [Inventory] Zero amount is displayed for Total field in print
+report of QOH by item
+* [Inventory] “Time” field in print report of Inventory History by
+item group is blan
+* [Inventory] Print Preview of Usage Statistics doesn't display
+transaction details
+* [Inventory] Selecting to save a blank cost category displays
+irrelevant label name
+* [Inventory] PB hangs when viewing an attached document
+* [Inventory] Total tax on tax breakdown screen of a transfer order
+is displayed incorrectly
+* [Inventory] Saving a transfer order displays error dialog
+* [Inventory] Recalling multiple shipments leads to duplicate lines
+* [Manufacture] Totals on Production Time Clock Report
+* [Manufacture] Function is in the wrong schema
+* [Manufacture] Total missing on costed indented bill of materials
+screen
+* [Manufacture] Partial Post Production do not backflush operations
+* [Manufacture] Selecting to query work order costing displays error
+dialog
+* [Manufacture] “User” label is missing in Adjust Work Order Time
+Clock Entry Screen
+* [Manufacture] Post Operation Screen doesn't refresh after posting
+operations
+* [Manufacture] “View Work Order Operations” option missing on right
+click of a work order
+* [Manufacture] “Production Time Clock by Work Order” option missing
+on right click of a work order
+* [Manufacture] Posting Labor to a Work Order does not change status
+to In Proces
+* [Manufacture] Manufacture configuration option missing
+* [Manufacture] Performance issue with xtmfg.woopertime(integer)
+* [Manufacture] Function takes long long time to execute
+* [Products] Item List is shown incorrectly on checking the “show
+Inactive Items” checkbox in the Items search window
+* [Products] Irrelevant item type is displayed for Planning items
+* [Products] Report definition “inventoryhistorybyitem” cannot be
+found
+* [Products] Selecting to Print preview the BOM items in “Indented
+Where Used” window displays a blank page
+* [Products] It is possible to edit materials of BOO item in view
+mode
+* [Purchase] Typo error on Open Purchase Orders screen
+* [Purchase] Creating a purchase order for a vendor with no address
+generates DB log error
+* [Purchase] Omnibus : Vendor label is missing in screens
+* [Purchase] Print report of PO Items by vendor is blank
+* [Purchase] Purchase Orders by vendor report doesn't display the
+filter headers in consistent with the selected filters
+* [Purchase] PO Header API gives error
+* [Purchase] Cannot enter an alternate address for a new supplier
+* [Purchase] Application crashes on selecting “Preview” button in
+Vendor list screen
+* [Purchase] Enter item receipt screen way too large
+* [Purchase] Altering the vendor for a purchase order doesn't update
+the unit price of item
+* [Purchase] Purchase order report footer blank
+* [Purchase] Cannot void check
+* [Sales] convertquote function does not pass quhead_calcfreight
+* [Sales] Unable to process Return of type credit card
+* [Sales] Freight amount is not included in total credit of a Return
+at the time of creation
+* [Sales] Selecting to “View” customer details doesn't display "Cust#"
+field
+* [Sales] “View” option of a customer doesn't display “Customer #”
+field detail
+* [Sales] Irrelevant symbols are displayed in Summarized sales
+history screen
+* [Sales] Sales order retains values from default/previous ship-to
+* [Sales] It is not possible to edit Sales Order
+* [Sales] Toggling in and out of edit mode clears the customer window
+* [Sales] Selecting to print Billing Edit List displays error dialog
+* [Sales] Selecting to post a credit memo displays error dialog
+* [Sales] Duplicate tax registration numbers not allowed
+* [Sales] The list of ship via's in print invoices by ship via is
+empty
+* [Sales] Selecting to preview list of sales orders crashes the
+application
+* [Sales] dspSummarizedBacklog permission issue
+* [Sales] Selecting to open Credit Memo edit list screen displays
+error dialog
+* [Sales] Error on tax breakdown link of Select Order for Billing
+screen
+* [Sales] Consolidate Invoice is not functional in migrated DB
+* [Schedule] Time Phased Rough Cut Capacity Plan by Work Center
+Tooling inconsistency
+* [Schedule] Irrelevant data is displayed for “Resource” field in
+print report of Capacity Buffer Status
+* [Schedule] Resource field is displayed multiple times in print
+report of Time phased load
+* [Schedule] MPS Production Plans-Cannot type in product number,
+must search
+* [System] Screens for shifts and departments in wrong locatio
+* [System] Selecting to attach a group to an employee at the time of
+creation displays error dialog
+* [System] Employee comments are not saved during employee creation
+* [System] Employee characteristics are not saved during employee
+creatio
+* [System] Employee screen not displaying values on edit
+* [System] Exit screen designer pressing X on Widget box crash client
+* [System] XML import should import whatever data can be processed
+and gracefully handle failures
+* [System] “CSV Tool” window exits xTuple Application
+* [System] Opening a window with a recurrence widget crashes the app
+if the app is not connected to a database
+* [System] Misspelling on initialization screen
+* [System] Opening new employee record for edit causes cras
+* [System] The setup screen closes after clicking save even if a
+component returns an error
+* [System] Imports into api views salesline fail silently if order
+does not exis
+* [System] Opening “maintain csv atlases” while “csv tool” window is
+open but "csv atlas window is closed crashes client.
+* [System] Import option silent defaults to true when it should
+default to false
+* [Translation] Financial Report Engine does not work with translation
+* [Translation] Context menu to see transaction from trial balance
+doesn't work
+
+==================================
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.6.0Beta
+Septemer 20, 2010
+==================================
+
+This is the beta release of version 3.6.0.
+
+==================================
+
+The following features and bug fixes have been added to the
+applications since the release of 3.5.4. Additional detail for
+each item listed below may be found on our community website
+(www.xtuple.org). Simply go to the Issue Tracker and select the
+"Changelog" option.
+
+
+New Features:
+
+* [Accounting] Add ability to record Purchase Price Variance
+upon Receipt
+* [Accounting] Provide the ability to "delete" g/l transaction
+* [Accounting] Allow users to edit posted Journal Entries
+* [Accounting] Warning message when adding wrong "type" account
+to account assignment
+* [Accounting] Add Sub Ledger to Accounting
+* [Accounting] Add the ability for Credit Memos to be applied
+to Cash Receipts
+* [Architectural] Consolidate Setup screens
+* [Architectural] Convert "display" queries to MetaSQL stored
+in the database
+* [Architectural] Sub class Work Order Cluster to Virtual
+Cluster
+* [Architectural] Sub class Vendor Cluster to Virtual Cluster
+* [Architectural] Remove Transfer Order Cluster
+* [Architectural] Remove Sales Order Cluster
+* [Architectural] Sub class Planned Order Cluster to Virtual
+Cluste
+* [Architectural] Sub class G/L Cluster to Virtual Cluster
+* [Architectural] Sub class Customer Cluster to Virtual Cluster
+* [Architectural] Remove Purchase Order Cluster
+* [Architectural] Create a user preference to set lists to
+alternating colors
+* [Architectural] Remove user preference to show clusters as
+buttons
+* [Architectural] Expand subclassing of virtualcluster and
+virtualclusterlineedit
+* [CRM] Add parameter widget to Search Accounts screen
+* [CRM] Add Parameter Widget to Search Contacts scree
+* [CRM] Add Parameter Widget to Opportunity workbench
+* [Inventory] Break information on Shipping Information screen
+into tabs
+* [Reports] Print Preview
+* [Sales] Add an option to not delete Quotes when they are
+converted to Sales Orders
+* [Sales] Customer workbench--visual indication to show
+customers on credit hold or warn
+
+Bug Fixes:
+
+* [Accounting] Sub class Ship-To Cluster to Virtual Cluster
+* [Accounting] List unposted invoices too slow to be useful
+with large volumes of line items
+* [Accounting] Inactive Sales Category ignored on invoice
+item screen
+* [Accounting] Print report of Bank Accounts display irrelevant
+type field for Credit Card
+* [Accounting] Cannot view voucher qty. history
+* [Accounting] Can not save external company records
+* [Accounting] Start date on tax registration window cannot be
+changed by typing
+* [Accounting] Reference field is not populated in GL when you
+back flush operations
+* [Accounting] Revert Customer deposit creates a Debit Memo
+that can't be applied
+* [Accounting] Multi-select posting on cash receipts results
+in error
+* [Accounting] Hide Check/uncheck show running total on
+general ledger transactions display
+* [Accounting] Desktop, Reload button for G/L accounts doesn't
+seem active
+* [Accounting] In Desktop, certain accounts show as negative
+balances
+* [Accounting] In Desktop, GL Monitored Account balances are
+incorrect
+* [All] Item description text is cut off
+* [All] API view of itemsite record does not expose all required
+fields for CSVImport
+* [CRM] Double-clicking radio button turns all radio buttons
+off and shows credit card xtreewidget
+* [CRM] Can't save project
+* [Reports] Preview of landscape oriented reports doesn't work
+correctly
+* [CRM] A new Project doesn't get saved with first Save click
+* [CRM] Unable to save comments upon creating a new address
+* [CRM] “Owner” field on CRM Account form doesn't filter on
+active users
+* [CRM] Right Click Menu Options not coded correctly
+* [CRM] Incident workbench not refreshing
+* [CRM] View mode of an incident enables the user to edit/delete
+characteristics
+* [Inventory] Document number do not show on Inventory history
+displays on Site transfer
+* [Inventory] Inventory history by order number screen doesn't
+show all types of orders
+* [Inventory] Omnibus: Maintain Shipping Contents screen
+* [Inventory] Create P/R doesn't populate Purchase Request
+number
+* [Inventory] Error on tax breakdown window
+* [Inventory] “Buffer Status as of” field in print report of
+Inventory Status by planner code is blank
+* [Inventory] QOH of negative magnitude is not added to total
+QOH in print report of QOH by class code
+* [Manufacture] Error after deleting work center on post
+operations
+* [Manufacture] Purchase Requests are not created for manually
+entered materials
+* [Manufacture] Totals on Production Time Clock report
+* [Manufacture] WO Material Start Date for Manufacturing
+Edition
+* [Manufacture] Run Remaining on WO Edi
+* [Manufacture] WO Material Requirements screen does not
+consider qty. required as fractional
+* [Manufacture] System allows to Edit Work Order without
+MaintainWorkOrders privilege
+* [Manufacture] Entering the details and selecting “Disassembly”
+doesn't create a disassembly w/o
+* [Manufacture] Post Operations screen doesn't populate Setup
+Performed By and Run Performed By username
+* [Manufacture] Back-flushing for items w/o item sites
+* [Manufacture] Operations button missing in item screen when
+type is breeder
+* [Manufacture] Work Order screen has grammatical errors in
+some error messages
+* [Manufacture] Inventory Availability by WO Report doesn't
+display the filter headers in consistent with the selected filters
+* [Products] Typo in item changelog comments
+* [Products] When copying an item, get QT Script Debugger
+exception
+* [Products] Report definition "inventoryhistorybyitem" cannot
+be found
+* [Products] System allows to delete item without
+DeleteItemMaster priviledg
+* [Products] Script debugger catches exception in xtmfg package
+* [Products] Using the single quote in characteristics fields
+causes an error
+* [Products] Empty item number for BOO item
+* [Products] Error on importing revisions into xtmfg.api_boo
+* [Products] xtmfg.api_booitem does not populate boo_revision
+* [Purchase] P/O Items by Screens showing Inv UOM for Qty ordered
+by Vendor UOM
+* [Purchase] Able to select a new PO for a voucher that already
+has distributions against a different PO
+* [Purchase] Tax authority isn't displaying within vendor master
+record
+* [Purchase] Report of Purchase Order Receipts and Returns by
+Vendor for Expense items does not print
+* [Reports] PickingListSOLocsNoClosedLines - References to
+std/mfg only functions in PostBooks causes db Errors
+* [Reports] QOH report does not clear from previous query if new
+class has no items assigned
+* [Sales] Irrelevant labels are displayed on Select Order for
+Billing Screen
+* [Sales] Selecting to print from the “Print Invoices by Ship Via”
+window displays irrelevant dialog
+* [Sales] Time phased sales history by customer by item is really
+Time phased sales history by customer
+* [Sales] Selecting to delete a sales order for kit item displays
+error dialog
+* [Sales] quitem_id may overlap with soitem_id causing
+non-meaningful error message on quote
+* [Sales] Price list report does not exclude inactive items
+* [Sales] Toggling in and out of edit mode clears the customer
+window
+* [Sales] Able to create pricing schedule with expires date prior
+to effective date
+* [Sales] Loss of functionality within return authorization line
+item screen
+* [Sales] Db error using apply-to on sales credit memo
+* [Sales] Comments on Quotes should be preserved when converted
+to a Sales Orde
+* [Sales] Return Authorization of Kit item does not close properly
+* [Sales] Incident Name and description columns show wrong values
+on Customer WB
+* [Sales] Status column on CRM tab of Customer WB show id letter
+and not name
+* [Schedule] Time Phased Capacity Load Display not working as
+before
+* [Schedule] Time Phased Available Capacity Display not working as
+before
+* [Schedule] “View Parent Sales Order Information” screen doesn't
+display details of sales order
+* [Schedule] MPS Production Plans have Jumpy-Modal-Window behavior
+on Mac
+* [Schedule] MRP Creates WO requirement for TO
+* [Schedule] Print report of Time Phased Load by Work Center
+doesn't display Tooling items
+* [Schedule] Planned Revenue/Expenses Report doesn't display the
+filter headers in consistent with the selected filters
+* [Schedule] Time Phased Rough Cut Capacity Plan by Work Center
+Tooling inconsistency
+* [Schedule] Tooling items are not displayed in Capacity Buffer
+Status screen
+* [System] simple license manager
+* [System] Default Tax Authority obsolete
+* [System] typo on preference screen under the menu tab
+* [System] db error when user prints credit memos without the
+MaintainCreditMemos priv.
+* [System] [Observation]: User is allowed to delete employee
+group associated to an employee
+* [System] Using international characters on screen designer
+label crash client
+* [System] grade ignored in duplicate check when changing group
+or name of a metasql statement
+* [System] date range filter problem
+* [System] Editing user preferences
+* [System] Quote “Automatic Use S/O#” number generation is not
+functional
+* [Translation] .ts file for spanish-mexico have field names on
+lotSerialRegistration screen
+* [Translation] Context taxCode has the word “Never” as a
+literal that can't be translated
+* [Translation] Word Always is not present in .ts file for context
+taxCod
+* [Translation] Typo “Venbor type” in APassignmentsMasterList
