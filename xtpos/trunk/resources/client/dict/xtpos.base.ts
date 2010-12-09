@@ -187,12 +187,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="285"/>
+        <location filename="../scripts/cashRegister.js" line="283"/>
         <source>Database Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/cashRegister.js" line="286"/>
+        <location filename="../scripts/cashRegister.js" line="284"/>
         <source>Could not initialize printing system for multiple reports.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -619,6 +619,25 @@
     <message>
         <location filename="../uiforms/dspRegisterHistory.ui" line="146"/>
         <source>Print</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>initMenu</name>
+    <message>
+        <location filename="../scripts/initMenu.js" line="5"/>
+        <location filename="../scripts/initMenu.js" line="22"/>
+        <source>Initialize xtpos failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/initMenu.js" line="6"/>
+        <source>Failed to initialize the xtpos package. This functionality may not work correctly. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/initMenu.js" line="23"/>
+        <source>Failed to initialize the xtpos package. This functionality may not work correctly. %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1053,7 +1072,7 @@
 <context>
     <name>retailSale</name>
     <message>
-        <location filename="../scripts/retailSale.js" line="626"/>
+        <location filename="../scripts/retailSale.js" line="624"/>
         <source>This action will delete all listed items.  Are you sure you want to do this?</source>
         <translation type="unfinished"></translation>
     </message>
