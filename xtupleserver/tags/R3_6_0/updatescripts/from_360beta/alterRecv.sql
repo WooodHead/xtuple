@@ -1,0 +1,1 @@
+ALTER TABLE recv ADD COLUMN recv_rlsd_duedate date;
