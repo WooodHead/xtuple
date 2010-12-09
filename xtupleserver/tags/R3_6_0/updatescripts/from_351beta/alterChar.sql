@@ -1,0 +1,1 @@
+ALTER TABLE char ADD COLUMN char_incidents boolean DEFAULT false;

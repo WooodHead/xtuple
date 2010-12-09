@@ -1,0 +1,1 @@
+SELECT dropifexists('FUNCTION','getflitemaccntid(int4)');
