@@ -6,13 +6,35 @@ December 17, 2010
 ==================================
 
 These are the release notes for the 3.6.0 Final. Thanks to all
-who contributed to make this release possible. This release
-contains mostly bug fixes.
+who contributed to make this release possible. Here is an
+overview of several new features you will find in this release:
+
+Subledger Accounting
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=5121
+
+Print Preview
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=6250
+
+Consolidated Setup Screens
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=11491
+
+Wider Use of Parameter Widget
+   * Full spec: http://www.xtuple.org/Parameter_Widget
+
+In conjunction with the release of 3.6.0, several extension
+packages have also been updated. The following package versions
+are recommended for use with 3.6.0:
+
+* xTuple Connect (xtbatch) v. 3.5.1RC/Final
+* Time & Expense (xtte) v. 2.0.0RC/Final
+  - This will upgrade both Lite and Pro versions
+* Point of Sale (xtpos) v. 3.6.0RC/Final
+* Desktop (xtdesktop) v. 3.6.0RC/Final
 
 ==================================
 
 The following features and bug fixes have been added to the
-applications since the second beta for version 3.6.0. Additional
+applications since the 3.6.0 Release Candidate. Additional
 detail for each item listed below may be found on our community
 website (www.xtuple.org). Simply go to the Issue Tracker and
 select the "Changelog" option.
@@ -130,64 +152,64 @@ select the "Changelog" option.
 
 New Features:
 
-* [Purchase] Add changelog to show when a purchase order and 
+* [Purchase] Add changelog to show when a purchase order and
 return order line status changes
 * [Sales] Add Cybersource as a credit card processor
-* [Setup] Allow override on Invoice Number Generation 
+* [Setup] Allow override on Invoice Number Generation
 
 Bug Fixes:
 
 * [Accounting] Problems caused by new invoice number feature
-* [Accounting] Refund button is no longer available on A/R Open 
-Items window 
-* [Accounting] FRE Report Column Headers are incorrect for 4-4-5 
-accounting period (data is correct) 
-* [Accounting] Error message on delete GL series 
-* [Accounting] Incorrect text is displayed in the End Date field 
-of Post Subledger screen 
-* [Accounting] Error when previewing ad hoc report 
-* [Accounting] SQL error running ad hoc report 
-* [Accounting] Print Report of Customer History is inconsistent 
-* [Accounting] Failure of Clear Selection (of Payment) when 
-listed by Vendor Type Pattern 
-* [Accounting] “Paid” column in print report of Receivables 
-workbench displays incorrect values 
-* [Accounting] Irrelevant dialog is displayed on saving a check 
+* [Accounting] Refund button is no longer available on A/R Open
+Items window
+* [Accounting] FRE Report Column Headers are incorrect for 4-4-5
+accounting period (data is correct)
+* [Accounting] Error message on delete GL series
+* [Accounting] Incorrect text is displayed in the End Date field
+of Post Subledger screen
+* [Accounting] Error when previewing ad hoc report
+* [Accounting] SQL error running ad hoc report
+* [Accounting] Print Report of Customer History is inconsistent
+* [Accounting] Failure of Clear Selection (of Payment) when
+listed by Vendor Type Pattern
+* [Accounting] “Paid” column in print report of Receivables
+workbench displays incorrect values
+* [Accounting] Irrelevant dialog is displayed on saving a check
 applied to a credit memo
-* [Accounting] Irrelevant name is displayed for “Type” field for 
-recurring invoices created for minutes/hours 
-* [Accounting] Omnibus : Vendor label is missing in screens 
-* [Accounting] Inconsistent behavior is observed for Recurring 
+* [Accounting] Irrelevant name is displayed for “Type” field for
+recurring invoices created for minutes/hours
+* [Accounting] Omnibus : Vendor label is missing in screens
+* [Accounting] Inconsistent behavior is observed for Recurring
 Invoices
-* [Accounting] Deadlocks occur when transactions being performed 
-* [Accounting] Box in “Search for Account” screen is too small in 
-Windows 
-* [Accounting] Reversing cash receipt with discount ignores 
+* [Accounting] Deadlocks occur when transactions being performed
+* [Accounting] Box in “Search for Account” screen is too small in
+Windows
+* [Accounting] Reversing cash receipt with discount ignores
 discount
-* [Accounting] Sales Analysis Bookings report date range is 
-schedule date not booking date 
-* [Accounting] Empty as-of date returns db error 
-* [Accounting] Canadian currency not showing on customer 
+* [Accounting] Sales Analysis Bookings report date range is
+schedule date not booking date
+* [Accounting] Empty as-of date returns db error
+* [Accounting] Canadian currency not showing on customer
 statement
-* [Accounting] Application allows deleting GL trans in closed 
+* [Accounting] Application allows deleting GL trans in closed
 periods
-* [Accounting] Posting simple JE creates duplicate “Close” 
+* [Accounting] Posting simple JE creates duplicate “Close”
 butto
 * [Accounting] Credit memo may be applied more than once
-* [Accounting] QTD, Budget does not show budget amounts 
-* [All] When using Search functionality, Tab no longer returns 
+* [Accounting] QTD, Budget does not show budget amounts
+* [All] When using Search functionality, Tab no longer returns
 results
-* [All] Contact search does not work 
-* [All] getshiptonumberfrominfo function works off customer 
+* [All] Contact search does not work
+* [All] getshiptonumberfrominfo function works off customer
 name, but not shipto name
 * [Architectural] “Create no more than” filter missing
-* [Architectural] Create a legacy mode for buttons vs. 
+* [Architectural] Create a legacy mode for buttons vs.
 toolbars
-* [Architectural] Improve XTreeWidget's loading of large 
+* [Architectural] Improve XTreeWidget's loading of large
 datasets
-* [CRM] Columns that were selected to display no longer do 
-* [CRM] Auto Update check box missing on Incident List 
-* [CRM] Unable to view or search for an Address to associate 
+* [CRM] Columns that were selected to display no longer do
+* [CRM] Auto Update check box missing on Incident List
+* [CRM] Unable to view or search for an Address to associate
 with a Contact
 * [CRM] To Do List filter not honoring 'Completed' status
 * [CRM] api.address view has issues with INSERT
@@ -195,65 +217,65 @@ with a Contact
 * [CRM] It is possible to edit Registration in View mode
 * [CRM] Error message on save task
 * [CRM] SQL Error when filtering Opportunities
-* [Inventory] Selecting to receive a Transfer Order displays 
+* [Inventory] Selecting to receive a Transfer Order displays
 error dialog
-* [Inventory] “Edit List” option in Cost Category combo box 
-of item site displays irrelevant screen 
+* [Inventory] “Edit List” option in Cost Category combo box
+of item site displays irrelevant screen
 * [Inventory] Performance Issue with Printing Packing Slips
-* [Inventory] Print Report of Inventory History doesn't honor 
+* [Inventory] Print Report of Inventory History doesn't honor
 dates
-* [Inventory] Selecting to save a blank cost category displays 
-irrelevant label name 
-* [Inventory] Total tax on tax breakdown screen of a transfer 
+* [Inventory] Selecting to save a blank cost category displays
+irrelevant label name
+* [Inventory] Total tax on tax breakdown screen of a transfer
 order is displayed incorrectly
-* [Inventory] Update item control by Reorder level crashes 
-the application 
-* [Inventory] Receiving stock with serial/lot control block 
+* [Inventory] Update item control by Reorder level crashes
+the application
+* [Inventory] Receiving stock with serial/lot control block
 other receiving/shipping screens
 * [Inventory] Serial numbers lost when receiving
-* [Inventory] QOH column is blank in “Quantities on Hand by 
-Location” screen 
-* [Inventory] Update order up to level windows don't do 
+* [Inventory] QOH column is blank in “Quantities on Hand by
+Location” screen
+* [Inventory] Update order up to level windows don't do
 anything when you click update
-* [Inventory] Observation: Copying unreleased TO creates a 
-TO in Open status by default 
+* [Inventory] Observation: Copying unreleased TO creates a
+TO in Open status by default
 * [Manufacture] Prevent deletion of in process W/O Operations
-* [Manufacture] Omnibus - xtmfg script failures due to 
-display subclassing 
-* [Manufacture] Selecting to preview work order costing 
-generates DB log error 
-* [Manufacture] Print Report of pending W/O material 
+* [Manufacture] Omnibus - xtmfg script failures due to
+display subclassing
+* [Manufacture] Selecting to preview work order costing
+generates DB log error
+* [Manufacture] Print Report of pending W/O material
 availability is blan
-* [Manufacture] W/O availability field is blank in print 
-report of Inventory Availability by Work Order 
-* [Manufacture] Application crashes on selecting the Close 
+* [Manufacture] W/O availability field is blank in print
+report of Inventory Availability by Work Order
+* [Manufacture] Application crashes on selecting the Close
 button of Work Order Operation screen
-* [Products] Fixed quantity bom item not honoring batch size 
-in costing 
-* [Products] Tooling cost included in item costs 
-* [Products] Problems with document widget implementation in 
+* [Products] Fixed quantity bom item not honoring batch size
+in costing
+* [Products] Tooling cost included in item costs
+* [Products] Problems with document widget implementation in
 item.cpp
 * [Products] Error on importing revisions into xtmfg.api_boo
-* [Products] Observation: Unable to create a new BOO for an 
+* [Products] Observation: Unable to create a new BOO for an
 item with no BOO from the Item screen
-* [Purchase] Receipts and Returns tab in vendor workbench 
+* [Purchase] Receipts and Returns tab in vendor workbench
 doesn't display the order details
 * [Sales] Buttons missing on customer workbench
-* [Sales] When item is exclusive and ONLY on future price 
-schedule = can't order 
-* [Sales] Selecting to close Freight Breakdown screen of RA 
+* [Sales] When item is exclusive and ONLY on future price
+schedule = can't order
+* [Sales] Selecting to close Freight Breakdown screen of RA
 generates DB log
-* [Sales] Selecting “cancel” when copying a freight type 
+* [Sales] Selecting “cancel” when copying a freight type
 pricing schedule generates DB log error
 * [Setup] Invalid credit card warning in external mode
-* [System] New search functionality doesn't exclude items 
+* [System] New search functionality doesn't exclude items
 which are exclusive in s/o line entr
-* [System] New search functionality doesn't exclude items 
+* [System] New search functionality doesn't exclude items
 which are not salable in s/o line entr
 * [System] Employee middle name doesn't get save
-* [System] xtree widget cursor positioning erratic after 
+* [System] xtree widget cursor positioning erratic after
 updating entr
-* [System] Import xml without special error handling gives 
+* [System] Import xml without special error handling gives
 multiple sql errors
 
 ==================================
