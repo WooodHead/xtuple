@@ -159,15 +159,14 @@
       <listitem>
         <para>Select if the user is authorized to create new users. Not
         selecting means the user is not authorized to create new users.</para>
+        <note>
+          <para>System administrators are able to assign and/or revoke
+          privileges on a module-by-module basis. The application provides
+          granular security settings for each module, down to the submenu
+          level.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>System administrators are able to assign and/or revoke privileges on
-    a module-by-module basis. The application provides granular security
-    settings for each module, down to the submenu level.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Disable Export Display Contents</term>
       <listitem>
@@ -194,17 +193,16 @@
         enhanced authentication is not specified, users will be permitted to
         log in to the database using database tools other than the xTuple
         Client.</para>
+        <note>
+          <para>The enhanced authentication option will only affect users
+          whose passwords are created or updated after the option is
+          enabled/disabled. Legacy users will not be affected if the option is
+          not used. Legacy users may continue logging in as before this
+          feature was implemented.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>The enhanced authentication option will only affect users whose
-    passwords are created or updated after the option is enabled/disabled.
-    Legacy users will not be affected if the option is not used. Legacy users
-    may continue logging in as before this feature was implemented.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
+    <varlistentry role="manufacturing">
       <term>May only use Shop Floor Workbench</term>
       <listitem>
         <para>Select if you want the user to have access only to the Shop

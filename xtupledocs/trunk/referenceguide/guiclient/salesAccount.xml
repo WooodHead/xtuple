@@ -26,22 +26,20 @@
     your visibility into your Inventory Costs and valuation.</para>
   </tip>
   <variablelist>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Site</term>
       <listitem>
         <para>Specify Site to be associated with the Account
         assignment.</para>
+        <note>
+          <para>In the case of conflicts between Sales assignments, the system
+          by default selects specific assignments before all-inclusive ones.
+          For example, if there were a choice between an assignment featuring
+          "WHSE-1" as the supplying Site and another featuring "ANY" Site, the
+          more-specific "WHSE-1" would be selected.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>In the case of conflicts between Sales assignments, the system by
-    default selects specific assignments before all-inclusive ones. For
-    example, if there were a choice between an assignment featuring "WHSE-1"
-    as the supplying Site and another featuring "ANY" Site, the more-specific
-    "WHSE-1" would be selected.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>All Customer Types</term>
       <listitem>
