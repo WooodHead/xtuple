@@ -1048,34 +1048,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMfgHist.js" line="261"/>
+        <location filename="../scripts/dockMfgHist.js" line="262"/>
         <source>Class Code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMfgHist.js" line="262"/>
-        <location filename="../scripts/dockMfgHist.js" line="267"/>
-        <location filename="../scripts/dockMfgHist.js" line="272"/>
+        <location filename="../scripts/dockMfgHist.js" line="263"/>
+        <location filename="../scripts/dockMfgHist.js" line="268"/>
+        <location filename="../scripts/dockMfgHist.js" line="273"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMfgHist.js" line="266"/>
+        <location filename="../scripts/dockMfgHist.js" line="267"/>
         <source>Item Number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMfgHist.js" line="271"/>
+        <location filename="../scripts/dockMfgHist.js" line="272"/>
         <source>Planner Code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMfgHist.js" line="275"/>
+        <location filename="../scripts/dockMfgHist.js" line="276"/>
         <source>Amount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMfgHist.js" line="276"/>
+        <location filename="../scripts/dockMfgHist.js" line="277"/>
         <source>Qty.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1536,38 +1536,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockPurchHist.js" line="308"/>
+        <location filename="../scripts/dockPurchHist.js" line="309"/>
         <source>Vendor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockPurchHist.js" line="309"/>
-        <location filename="../scripts/dockPurchHist.js" line="319"/>
+        <location filename="../scripts/dockPurchHist.js" line="310"/>
+        <location filename="../scripts/dockPurchHist.js" line="320"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockPurchHist.js" line="313"/>
+        <location filename="../scripts/dockPurchHist.js" line="314"/>
         <source>Item Number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockPurchHist.js" line="314"/>
+        <location filename="../scripts/dockPurchHist.js" line="315"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockPurchHist.js" line="318"/>
+        <location filename="../scripts/dockPurchHist.js" line="319"/>
         <source>Purch. Agent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockPurchHist.js" line="322"/>
+        <location filename="../scripts/dockPurchHist.js" line="323"/>
         <source>Amount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockPurchHist.js" line="323"/>
+        <location filename="../scripts/dockPurchHist.js" line="324"/>
         <source>Qty.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1784,38 +1784,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="285"/>
+        <location filename="../scripts/dockSalesHistory.js" line="288"/>
         <source>Customer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="286"/>
-        <location filename="../scripts/dockSalesHistory.js" line="296"/>
+        <location filename="../scripts/dockSalesHistory.js" line="289"/>
+        <location filename="../scripts/dockSalesHistory.js" line="299"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="290"/>
+        <location filename="../scripts/dockSalesHistory.js" line="293"/>
         <source>Product Category</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="291"/>
+        <location filename="../scripts/dockSalesHistory.js" line="294"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="295"/>
+        <location filename="../scripts/dockSalesHistory.js" line="298"/>
         <source>Sales Rep.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="299"/>
+        <location filename="../scripts/dockSalesHistory.js" line="302"/>
         <source>Amount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="300"/>
+        <location filename="../scripts/dockSalesHistory.js" line="303"/>
         <source>Qty.</source>
         <translation type="unfinished"></translation>
     </message>
