@@ -15,8 +15,7 @@ BEGIN
       teprj_prj_id integer,
       teprj_cust_id integer REFERENCES custinfo (cust_id) ON DELETE SET NULL,
       teprj_rate numeric,
-      teprj_curr_id integer REFERENCES curr_symbol (curr_id)  ON DELETE SET NULL,
-      UNIQUE (teprj_cust_id)
+      teprj_curr_id integer REFERENCES curr_symbol (curr_id)  ON DELETE SET NULL
     );
 
     GRANT ALL ON TABLE te.teprj TO xtrole;
