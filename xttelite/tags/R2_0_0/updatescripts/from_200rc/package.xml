@@ -67,6 +67,8 @@
 
   <loadreport file="client/reports/TimeExpenseSheet.xml">Time and Expense package</loadreport>
 
+  <createtrigger name="teprjtrigger" file="database/triggers/teprj.sql">Time and Expense Package</createtrigger>
+
   <finalscript file="alterSchema.sql" />
   <finalscript file="alterTeprj.sql" />
 
