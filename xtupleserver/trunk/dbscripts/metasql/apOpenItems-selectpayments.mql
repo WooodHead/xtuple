@@ -15,17 +15,17 @@ SELECT apopen_id, COALESCE(apselect_id, -1) AS apselectid,
        (apopen_amount - apopen_paid - apCheckPending(apopen_id)) AS amount,
        ((apopen_amount - apopen_paid - apCheckPending(apopen_id)) / apopen_curr_rate) AS base_amount,
        ((apopen_amount - apopen_paid - apCheckPending(apopen_id)) / apopen_curr_rate) AS running_amount,
-       COALESCE(SUM(apselect_amount), 0) AS selected,
-       (COALESCE(SUM(apselect_amount), 0) / apopen_curr_rate) AS base_selected,
-       (COALESCE(SUM(apselect_amount), 0) / apopen_curr_rate) AS running_selected,
-       COALESCE(SUM(apselect_discount),0) AS discount,
-       (COALESCE(SUM(apselect_discount),0) / apopen_curr_rate)AS base_discount,
+       COALESCE(apselect_amount, 0.0) AS selected,
+       (COALESCE(apselect_amount, 0.0) / apopen_curr_rate) AS base_selected,
+       (COALESCE(apselect_amount, 0.0) / apopen_curr_rate) AS running_selected,
+       COALESCE(apselect_discount,0.0) AS discount,
+       (COALESCE(apselect_discount,0.0) / apopen_curr_rate)AS base_discount,
        CASE WHEN (apopen_duedate < CURRENT_DATE) THEN 'error'
-                 ELSE CASE WHEN(apopen_duedate > CURRENT_DATE) THEN 'emphasis'
-                   ELSE CASE WHEN(CURRENT_DATE <= (apopen_docdate + terms_discdays)) THEN 'altemphasis'
-                   END
-                 END
-               END AS apopen_duedate_qtforegroundrole, 
+            WHEN(apopen_duedate > CURRENT_DATE) THEN 'emphasis'
+            WHEN(CURRENT_DATE <= (apopen_docdate + COALESCE((SELECT terms_discdays
+                                                             FROM terms
+                                                             WHERE (terms_id=apopen_terms_id)), 0))) THEN 'altemphasis'
+       END AS apopen_duedate_qtforegroundrole, 
        apopen_invcnumber,
        currConcat(apopen_curr_id) AS curr_concat,
        'curr' AS amount_xtnumericrole,
@@ -45,7 +45,6 @@ SELECT apopen_id, COALESCE(apselect_id, -1) AS apselectid,
        1      AS running_amount_xtrunningrole
 FROM vendinfo JOIN apopen ON (apopen_vend_id=vend_id)
               LEFT OUTER JOIN apselect ON (apselect_apopen_id=apopen_id)
-              LEFT OUTER JOIN terms ON (apopen_terms_id=terms_id)
 WHERE ( (apopen_open)
  AND (apopen_doctype IN ('V', 'D'))
 <? if exists("vend_id") ?>
@@ -66,9 +65,5 @@ WHERE ( (apopen_open)
  AND (apopen_curr_id=<? value("curr_id") ?>)
 <? endif ?>
 )
-GROUP BY apopen_id, apselect_id, vend_number, vend_name, apopen_curr_rate,
-         apopen_doctype, apopen_docnumber, apopen_ponumber, vend_curr_id,
-         apopen_duedate, apopen_docdate, apopen_amount, apopen_paid,
-         curr_concat, apopen_curr_id, apselect_curr_id, apopen_invcnumber, apopen_status, terms.terms_discdays
 ORDER BY apopen_duedate, (apopen_amount - apopen_paid) DESC) AS data
 WHERE (amount != 0);
