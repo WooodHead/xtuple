@@ -3,7 +3,10 @@ BEGIN
 
   -- Reset status if any processing reversed
   IF (COALESCE(OLD.teprj_cust_id,-1) != COALESCE(NEW.teprj_cust_id,-1)) THEN
-    UPDATE te.teprjtask SET teprjtask_cust_id=NEW.teprj_cust_id;
+    UPDATE te.teprjtask SET teprjtask_cust_id=NEW.teprj_cust_id
+    FROM prjtask
+    WHERE ((teprjtask_prjtask_id=prjtask_id)
+    AND (prjtask_prj_id=NEW.teprj_prj_id));
   END IF;
 
   RETURN NEW;
