@@ -16,7 +16,11 @@ SELECT checkhead_id AS checkid,
        CASE when checkhead_number = -1 THEN
          'Unspecified'
        ELSE TEXT(checkhead_number) END AS number,
-       COALESCE(checkrecip_number || '-' || checkrecip_name,
+       COALESCE((SELECT checkrecip_number || '-' || checkrecip_name
+                 FROM checkrecip
+                 WHERE ((checkhead_recip_id=checkrecip_id)
+		   AND  (checkhead_recip_type=checkrecip_type)))
+                ,
 		checkhead_recip_type || '-' || checkhead_recip_id ) AS description,
        checkhead_checkdate AS checkdate,
        checkhead_amount AS amount, 
@@ -30,9 +34,7 @@ SELECT checkhead_id AS checkid,
        NULL AS checkhead_void_qtdisplayrole,    NULL AS checkhead_misc_qtdisplayrole,
        NULL AS checkhead_printed_qtdisplayrole, NULL AS checkhead_posted_qtdisplayrole,
        0 AS xtindentrole
-  FROM checkhead LEFT OUTER JOIN
-       checkrecip ON ((checkhead_recip_id=checkrecip_id)
-		 AND  (checkhead_recip_type=checkrecip_type))
+  FROM checkhead
  WHERE ((checkhead_bankaccnt_id=<? value("bankaccnt_id") ?>)
    <? if exists("startDate") ?>
      AND (checkhead_checkdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)

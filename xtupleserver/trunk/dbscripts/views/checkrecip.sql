@@ -14,11 +14,11 @@ AS
 SELECT cust_id, 'C', cust_number, cust_name, 'A/R', findARAccount(cust_id),
        cntct_addr_id
 FROM custinfo LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
-UNION
+UNION ALL
 SELECT taxauth_id, 'T', taxauth_code, taxauth_name, 'G/L', taxauth_accnt_id,
        taxauth_addr_id
 FROM taxauth
-UNION
+UNION ALL
 SELECT vend_id, 'V', vend_number, vend_name, 'A/P', findAPAccount(vend_id),
        vendaddr_addr_id
 FROM vendinfo LEFT OUTER JOIN vendaddrinfo ON ((vend_id=vendaddr_vend_id)
