@@ -4,7 +4,7 @@ DECLARE
   _newparentid INTEGER;
 
 BEGIN
-  IF (TG_OP IN ('UPDATE','DELETE')) THEN
+  IF (TG_OP = 'UPDATE') THEN
     IF (OLD.invchead_posted
       AND ((OLD.invchead_invcnumber != NEW.invchead_invcnumber)
         OR (OLD.invchead_invcdate != NEW.invchead_invcdate)
@@ -18,6 +18,12 @@ BEGIN
         OR (OLD.invchead_misc_amount != NEW.invchead_misc_amount)
         OR (OLD.invchead_freight != NEW.invchead_freight))) THEN
       RAISE EXCEPTION 'Edit not allow on Posted Invoice.';
+    END IF;
+  END IF;
+  
+  IF (TG_OP = 'DELETE') THEN
+    IF (OLD.invchead_posted) THEN
+      RAISE EXCEPTION 'Delete not allow on Posted Invoice.';
     END IF;
   END IF;
   
