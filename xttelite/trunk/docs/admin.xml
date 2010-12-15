@@ -73,14 +73,6 @@
           be debited when the Voucher is posted.</para>
         </listitem>
       </varlistentry>
-      <varlistentry>
-        <term>DELETE EXPENSE ITEM SETUP</term>
-        <listitem>
-          <para>Select this button to remove the relationship between the item
-          and the specified General Ledger (G/L) Account or Expense
-          Category.</para>
-        </listitem>
-      </varlistentry>
     </variablelist>
   </section>
   <section>
@@ -104,10 +96,9 @@
       </imageobject>
       <caption>Employee</caption>
     </mediaobject>
-    <para>In order to create vouchers to compensate employees and/or sub
-    contractors for services and expenses performed according to time sheet,
-    the employee must be selected as a vendor. Click on detail tab and click
-    vendor box.</para>
+    <para>In order to create vouchers to compensate employees for services and
+    expenses performed according to time sheet, the employee must be selected
+    as a vendor. Click on detail tab and click vendor box.</para>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/employeevendor.png" />
@@ -120,6 +111,15 @@
         <imagedata fileref="images/employeevendor2.png" />
       </imageobject>
       <caption>Vendor Information</caption>
+    </mediaobject>
+    <para>In order for vouchers to be generated and the cost of time recorded
+    to the general ledger the employee must be flagged as a Contractor. Select
+    the Financial tab and the following screen will appear.</para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/contractor.PNG" />
+      </imageobject>
+      <caption>Employee Contractor</caption>
     </mediaobject>
   </section>
   <section>
