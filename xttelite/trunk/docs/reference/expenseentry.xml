@@ -8,7 +8,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/expense.png" />
+          <imagedata fileref="images/expenseentry.PNG" />
         </imageobject>
         <caption>Expense Entry</caption>
       </mediaobject>
@@ -28,17 +28,11 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Time/Expense Radio buttons</term>
-      <listitem>
-        <para>Select Time or Expense (the fields change accordingly)</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Dates</term>
       <listitem>
         <variablelist>
           <varlistentry>
-            <term>Sheet Date</term>
+            <term>Week of</term>
             <listitem>
               <para>The date of the Sheet you are currently maintaining. There
               is a single Sheet Date per Sheet. The Work Date can vary by
@@ -58,6 +52,39 @@
             </listitem>
           </varlistentry>
         </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Select Time or Expense (the fields change accordingly)</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Project #</term>
+      <listitem>
+        <para>This is the Project Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Task</term>
+      <listitem>
+        <para>This is the Task. If a task isn't found, a DEFAULT task will be
+        created.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>This is the Customer number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cust. PO#</term>
+      <listitem>
+        <para>This is the Customer PO number. This is a free-form field. In
+        the Pro version, Invoice Consolidation will make use of this
+        value</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -100,20 +127,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Customer #</term>
-      <listitem>
-        <para>This is the Customer number.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Cust. PO#</term>
-      <listitem>
-        <para>This is the Customer PO number. This is a free-form field. In
-        the Pro version, Invoice Consolidation will make use of this
-        value.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Item Number</term>
       <listitem>
         <para>This is the Item number. This will list all Reference items that
@@ -121,30 +134,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Project Tab</term>
+      <term>Summary Tab</term>
       <listitem>
-        <variablelist>
-          <varlistentry>
-            <term>Project #</term>
-            <listitem>
-              <para>This is the Project Number.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Task</term>
-            <listitem>
-              <para>This is the Task. If a task isn't found, a DEFAULT task
-              will be created.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
         <variablelist>
           <varlistentry>
             <term>Budget/Actual</term>
             <listitem>
               <variablelist>
                 <varlistentry>
-                  <term>Planned Hours</term>
+                  <term>Task Planned Hours</term>
                   <listitem>
                     <para>These are the Planned Hours as setup in the
                     Project/Task.</para>
@@ -177,6 +175,20 @@
                     entries.</para>
                   </listitem>
                 </varlistentry>
+                <varlistentry>
+                  <term>Employee Day Total</term>
+                  <listitem>
+                    <para>Total of all the hours recorded for the same work
+                    date.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Sheet Total</term>
+                  <listitem>
+                    <para>Total of all the hours recorded on the same time
+                    sheet.</para>
+                  </listitem>
+                </varlistentry>
               </variablelist>
             </listitem>
           </varlistentry>
@@ -195,23 +207,23 @@
   available:</para>
   <variablelist>
     <varlistentry>
+      <term>PREVIOUS</term>
+      <listitem>
+        <para>Select to navigate to previous line items on the same
+        Sheet.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Select to create a new line item on the same Sheet.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>SAVE</term>
       <listitem>
         <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>PREVIOUS</term>
-      <listitem>
-        <para>Select to generate the display, using the specified
-        parameters.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>NEXT</term>
-      <listitem>
-        <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
