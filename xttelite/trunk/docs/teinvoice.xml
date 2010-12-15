@@ -30,28 +30,34 @@
         Expense...</guimenuitem></para>
       </listitem>
       <listitem>
+        <para>Select Stats Open and Query.</para>
+      </listitem>
+      <listitem>
+        <para>Right click on the open Sheet.</para>
+      </listitem>
+      <listitem>
         <para>The following screen will appear:</para>
       </listitem>
     </orderedlist>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/opensheetsapproval.png" />
+        <imagedata fileref="images/openapproval.PNG" />
       </imageobject>
       <caption>Open Sheets</caption>
     </mediaobject>
     <note>
       <para>The buttons that are disabled are controlled by privileges.
-      Privileges are discussed in Chapter 1 - System Administration.</para>
+      Privileges are discussed in System Administration.</para>
     </note>
-    <para>Let's approve the Sheet, 1011. To get started, follow these
+    <para>Let's approve the open Sheet. To get started, follow these
     steps:</para>
     <orderedlist>
       <listitem>
-        <para>Select the 1011 Sheet</para>
+        <para>Select the Sheet</para>
       </listitem>
       <listitem>
-        <para>Select the Approve button. The Sheet is now Approved and ready
-        for Invoicing and Vouchering.</para>
+        <para>Right click select the Approve button. The Sheet is now Approved
+        and ready for Invoicing and Vouchering.</para>
       </listitem>
     </orderedlist>
     <mediaobject>
@@ -72,27 +78,27 @@
         Expense...</guimenuitem></para>
       </listitem>
       <listitem>
+        <para>Check status Open and Approved then click query.</para>
+      </listitem>
+      <listitem>
         <para>The following screen will appear:</para>
       </listitem>
     </orderedlist>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/opensheets2.png" />
+        <imagedata fileref="images/approvedinvoice.PNG" />
       </imageobject>
       <caption>Open Sheets</caption>
     </mediaobject>
     <note>
       <para>The buttons that are disabled are controlled by privileges.
-      Privileges are discussed in Chapter 1 - System Administration.</para>
+      Privileges are discussed in System Administration.</para>
     </note>
     <orderedlist>
       <listitem>
-        <para>Select a Sheet that has been Approved</para>
-      </listitem>
-      <listitem>
-        <para>Click the Invoice button to generate an Invoice.</para>
+        <para>Click the Process button to generate an Invoice.</para>
         <note>
-          <para>The Invoice Status changes to 'C' for Completed.</para>
+          <para>The Invoice Status changes to 'Yes' for Completed.</para>
         </note>
       </listitem>
       <listitem>
@@ -106,7 +112,7 @@
             <para>The following screen will appear:</para>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="images/unpostedinvoicespecific.png" />
+                <imagedata fileref="images/consolidatedinvoice.PNG" />
               </imageobject>
               <caption>Unposted Invoices</caption>
             </mediaobject>
@@ -134,7 +140,7 @@
     To select multiple Sheets, follow these steps:</para>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/consolidation.png" />
+        <imagedata fileref="images/consolidatedinvoice.PNG" />
       </imageobject>
       <caption>Selection of multiple Sheets</caption>
     </mediaobject>
@@ -147,10 +153,9 @@
         <para>Select multiple Sheets that have been Approved</para>
       </listitem>
       <listitem>
-        <para>Click the Cons Invoice to generate the Consolidated
-        Invoice.</para>
+        <para>Click Process to generate the consolidated Invoice.</para>
         <note>
-          <para>The Invoice Status changes to 'C' for Completed.</para>
+          <para>The Invoice Status changes to 'Yes' for Completed.</para>
         </note>
       </listitem>
       <listitem>
@@ -164,7 +169,7 @@
             <para>The following screen will appear:</para>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="images/unpostedinvoices.png" />
+                <imagedata fileref="images/unpostedconsolidated.PNG" />
               </imageobject>
               <caption>Unposted Invoices</caption>
             </mediaobject>

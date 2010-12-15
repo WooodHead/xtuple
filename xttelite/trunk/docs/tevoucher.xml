@@ -27,40 +27,46 @@
         Expense...</guimenuitem></para>
       </listitem>
       <listitem>
+        <para>Select Stats Open and Query.</para>
+      </listitem>
+      <listitem>
+        <para>Right click on the open Sheet.</para>
+      </listitem>
+      <listitem>
         <para>The following screen will appear:</para>
       </listitem>
     </orderedlist>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/opensheetsapproval2.png" />
+        <imagedata fileref="images/openapproval.PNG" />
       </imageobject>
       <caption>Open Sheets</caption>
     </mediaobject>
     <note>
       <para>The buttons that are disabled are controlled by privileges.
-      Privileges are discussed in Chapter 1 - System Administration.</para>
+      Privileges are discussed in System Administration.</para>
     </note>
-    <para>Let's approve the Sheet, 1012. To get started, follow these
+    <para>Let's approve the open Sheet. To get started, follow these
     steps:</para>
     <orderedlist>
       <listitem>
-        <para>Select the 1012 Sheet</para>
+        <para>Select the Sheet</para>
       </listitem>
       <listitem>
-        <para>Select the Approve button. The Sheet is now Approved and ready
-        for Invoicing and Vouchering.</para>
+        <para>Right click select the Approve button. The Sheet is now Approved
+        and ready for Invoicing and Vouchering.</para>
       </listitem>
     </orderedlist>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/approved2.png" />
+        <imagedata fileref="images/approved.png" />
       </imageobject>
       <caption>Approved Sheet</caption>
     </mediaobject>
   </section>
   <section>
     <title>Vouchering Sheets</title>
-    <para>The invoicing of specific Sheets is performed in the Open Sheets
+    <para>The vouchering of specific Sheets is performed in the Open Sheets
     screen. For this scenario, we'll need to select a single sheet to begin.
     To select a Sheet, follow these steps:</para>
     <orderedlist>
@@ -69,18 +75,21 @@
         Open Sheets...</guimenuitem></para>
       </listitem>
       <listitem>
+        <para>Select Status Open and Approved click Query.</para>
+      </listitem>
+      <listitem>
         <para>The following screen will appear:</para>
       </listitem>
     </orderedlist>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/approved2.png" />
+        <imagedata fileref="images/approvedvoucher.PNG" />
       </imageobject>
       <caption>Open Sheets</caption>
     </mediaobject>
     <note>
       <para>The buttons that are disabled are controlled by privileges.
-      Privileges are discussed in Chapter 1 - System Administration.</para>
+      Privileges are discussed in System Administration.</para>
     </note>
     <note>
       <para>In order to generate a Voucher for an Employee, the Employee must
@@ -91,9 +100,10 @@
         <para>Select a Sheet that has been Approved</para>
       </listitem>
       <listitem>
-        <para>Click the Invoice button to generate a Voucher.</para>
+        <para>Check the Voucher check box at the bottom of the screen and
+        click Process to generate a Voucher.</para>
         <note>
-          <para>The Voucher Status changes to 'C' for Completed.</para>
+          <para>The Voucher Status changes to 'Yes' for Completed.</para>
         </note>
       </listitem>
       <listitem>
@@ -122,13 +132,7 @@
               <caption>Voucher with Distributions</caption>
             </mediaobject>
             <para>The Notes from the Expense entry are passed through to the
-            Voucher Item.</para>
-            <mediaobject>
-              <imageobject>
-                <imagedata fileref="images/voucherwithnotes.png" />
-              </imageobject>
-              <caption>Voucher with Notes</caption>
-            </mediaobject>
+            Voucher Item as well.</para>
           </listitem>
         </orderedlist>
       </listitem>
