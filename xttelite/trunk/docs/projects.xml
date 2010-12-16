@@ -4,48 +4,61 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter>
   <title>Projects</title>
+
   <para>In order to begin utlizing Time and Expense you must create projects
   in which to track time and expenses against. xTuple provides the ability to
   create basic projects with tasks and review project progress and budgets. In
   this chapter the following topics will be covered.</para>
+
   <itemizedlist>
     <listitem>
       <para>Creating Projects</para>
     </listitem>
+
     <listitem>
       <para>Creating Project Tasks</para>
     </listitem>
+
     <listitem>
       <para>Project Reporting</para>
     </listitem>
   </itemizedlist>
+
   <para>Once a project is created, you can begin entering Time and Expense
   Sheets!</para>
+
   <section>
     <title>Create Project</title>
+
     <para>The first thing that needs to get done before you can start entering
     time and expenses is to create a project to associate these costs with. In
     xTuple you can not create and track time sheets without a project. To
     create a project follow these steps:</para>
+
     <orderedlist>
       <listitem>
         <para>Go to this path: <guimenuitem>CRM &gt; Project &gt;
         New...</guimenuitem></para>
       </listitem>
+
       <listitem>
         <para>The following screen will appear.</para>
+
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Project.PNG" />
+            <imagedata fileref="images/project.png" />
           </imageobject>
+
           <caption>Project</caption>
         </mediaobject>
       </listitem>
+
       <listitem>
         <para>Complete the project information and refer to <ulink
         url="http://www.xtuple.org/docs/reference-guide">Reference
         Guide</ulink> for further details regarding specific project
         fields.</para>
+
         <note>
           <para>If you want the project to appear on time sheets project
           status must be "In-Process"</para>
@@ -53,83 +66,109 @@
       </listitem>
     </orderedlist>
   </section>
+
   <section>
     <title>Create Project Tasks</title>
+
     <para>In order to track time and expenses against a project a task will be
     required for time sheet enteries. When selecting the project Tasks Tab you
     will be presented with the following screen.</para>
+
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/projecttasklist.PNG" />
+        <imagedata fileref="images/projecttasklist.png" />
       </imageobject>
+
       <caption>Project Task List</caption>
     </mediaobject>
+
     <para>Click the NEW button to create a new task. Enter task description
     and details on the following screen.</para>
+
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/projecttask.PNG" />
+        <imagedata fileref="images/projecttask.png" />
       </imageobject>
+
       <caption>Project Task</caption>
     </mediaobject>
+
     <para>Under the Billing Tab you can specify a customer, billing rate, and
     a item that will appear as default values on time sheets.</para>
+
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/taskbilling.PNG" />
+        <imagedata fileref="images/taskbilling.png" />
       </imageobject>
+
       <caption>Project Billing</caption>
     </mediaobject>
+
     <para>Click SAVE to close and exit screens.</para>
   </section>
+
   <section>
     <title>Project Reporting</title>
+
     <para>As project team members are entering time and expenses against a
     project there are a few different areas where the Project Manager can
     monitor and track this information on the project itself. First open an
     existing project by following these steps.</para>
+
     <orderedlist>
       <listitem>
         <para>Go to this path: <guimenuitem>CRM &gt; Project &gt;
         List...</guimenuitem></para>
       </listitem>
+
       <listitem>
         <para>Select a project and click the ACTIVITY button on the Schedule
         Tab</para>
       </listitem>
+
       <listitem>
         <para>The following screen will appear:</para>
       </listitem>
     </orderedlist>
+
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/projectactivity.PNG" />
+        <imagedata fileref="images/projectactivity.png" />
       </imageobject>
+
       <caption>Project Activity</caption>
     </mediaobject>
+
     <para>This report illustrates current project activities associated with
     Sales Orders, Purchase Orders, Work Orders, and Invoices resulting from
     services billed out via time and expense.</para>
+
     <para>Next select the Summary Tab on the project. This Summary tab
     illustrates a summary of the time and expenses which have been recorded
     against the project thus far. Time and Expenses can be entered via a time
     sheet or a Project Manager can manually enter this data on specific
     tasks.</para>
+
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/projectsummary.PNG" />
+        <imagedata fileref="images/projectsummary.png" />
       </imageobject>
+
       <caption>Project Summary</caption>
     </mediaobject>
+
     <para>Finally if you need a break down of time and expenses by task.
     Select the Tasks Tab. You will again be presented with the following
     screen:</para>
+
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/projecttasklist.PNG" />
+        <imagedata fileref="images/projecttasklist.png" />
       </imageobject>
+
       <caption>Project Task List</caption>
     </mediaobject>
+
     <para>Click the PRINT button and you will be able to view a itemized list
     of tasks that lists the status of each task and the actual hours verses
     budgeted hours.</para>
