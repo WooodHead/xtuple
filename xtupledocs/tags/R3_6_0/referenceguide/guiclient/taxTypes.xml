@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section586876">
+  <title>
+<indexterm significance="normal">
+      <primary>tax types</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Tax Types</title>
+  <para>Tax Types provide a system for classifying goods and services into
+  taxable categories. For example, using the Item master you can associate an
+  Item with a particular Tax Type. To access the master list of Tax Types,
+  select the "Tax Types" option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/taxTypes.png"/>
+        </imageobject>
+        <caption>Tax Types Master List</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>The "Tax Types" screen displays information on all existing Tax Types,
+  including Tax Type name and description.</para>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="taxType.xml" xpointer="element(/1)"/>
+</section>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section570079">
+  <title><indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>workbench for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>workbenches</primary>
+      <secondary>for accounts receivable</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>workbench for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>workbenches</primary>
+      <secondary>for accounts receivable</secondary>
+    </indexterm>Receivables Workbench</title>
+  <para>The Receivable Workbench is designed to consolidate on one screen the
+  functions performed by Accounts Receivable personnel. To view the
+  Receivables Workbench, select the "Workbench" option. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/arWorkBench.png" />
+        </imageobject>
+        <caption>Receivables Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing the Receivables Workbench, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer</term>
+      <listitem>
+        <para>Select all or specific Customers whose A/R information you want
+        to display.</para>
+        <tip>
+          <para>To generate results in the display you first have to select
+          the QUERY button. If you are not seeing any results, this is
+          probably the reason why.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Debits</term>
+      <listitem>
+        <para>Select to include only Invoices and Debit Memos in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credits</term>
+      <listitem>
+        <para>Select to include only Credit Memos in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Both</term>
+      <listitem>
+        <para>Select to include both Debits and Credits in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Unposted</term>
+      <listitem>
+        <para>Select to include unposted Invoices in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Find Document #</term>
+      <listitem>
+        <para>Enter the number of the document you want to locate. The record
+        you are looking for will be highlighted in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Specify one of the following document due date options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>All</term>
+            <listitem>
+              <para>Select to include all due dates in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>On or before</term>
+            <listitem>
+              <para>Select to include only documents having due dates on or
+              before the date you specify.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Between</term>
+            <listitem>
+              <para>Select to include documents having due dates falling
+              between the dates you specify.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Receivables</term>
+      <listitem>
+        <para>Displays the current list of receivable open items for the
+        specified Customer, based on the parameters you specify. Documents in
+        the display may include Invoices, Debit Memos, and Credit Memos. You
+        can change the color for the following Document Types using the Locale
+        settings: Customer Deposit (Alternate) and Credit Memo
+        (Emphasis).</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PRINT STATEMENT</term>
+      <listitem>
+        <para>Select to print a statement for the specified Customer. This
+        option is only available when displaying information for individual
+        Customers.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>APPLY</term>
+      <listitem id="arWorkBenchAPPLYCM1">
+        <para>Highlight a Credit Memo in the list and then select this button
+        to apply the Credit Memo to an A/R open amount, as described in <xref
+        linkend="Section524414" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>REFUND</term>
+      <listitem>
+        <para>Highlight a Credit Memo which was created from a Credit Card
+        transaction to refund the transaction amount. This option only works
+        for Credit Memos specifically created from Credit Card
+        transactions.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To manage Cash Receipts on the Receivables Workbench, select the "Cash
+  Receipts" tab. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/arWorkBench_cashRecptTab.png" />
+      </imageobject>
+      <caption>Receivables Workbench Cash Receipts</caption>
+    </mediaobject>
+  </screenshot>
+  <para>When managing Cash Receipts on the Receivables Workbench, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Cash Receipts</term>
+      <listitem>
+        <para>Displays the current list of unposted Cash Receipts for the
+        specified Customer.</para>
+        <note>
+          <para>Once a Cash Receipt is posted, it will no longer appear in the
+          Cash Receipts list.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To process pre-authorized Credit Card payments on the Receivables
+  Workbench, select the "Credit Card" tab. The following screen will
+  appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/arWorkBench_creditCardTab.png" />
+      </imageobject>
+      <caption>Receivables Workbench Credit Card</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
+    <varlistentry>
+      <term>Show</term>
+      <listitem>
+        <para>Select from the following options to include in the
+        display:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Expired</term>
+            <listitem>
+              <para>Lists all Credit Cards, including Expired cards.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Valid Days</term>
+            <listitem>
+              <para>Displays Credit cards which expire on after the number of
+              days selected.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Credit Card</term>
+      <listitem>
+        <para>Displays the current list of pre-authorized Credit Card charges
+        for the specified Customer. Pre-authorizations are generated from the
+        "Payments" tab of the Sales Order header.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Highlight a pre-authorized Credit Card charge amount and then
+        select this button to post-authorize the charge. When a
+        pre-authorization is post-authorized, an unposted Cash Receipt is
+        created in the specified post-authorization amount.</para>
+        <tip>
+          <para>You only get one chance to post a Credit Card
+          pre-authorization. Once a pre-authorization is post-authorized, it
+          will no longer appear in the "Pre-authorized Credit Card Charges"
+          list.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VOID</term>
+      <listitem>
+        <para>Highlight a pre-authorized Credit Card charge amount and then
+        select this button to void the pre-authorization.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>AMOUNT</term>
+      <listitem>
+        <para>Specify the amount of the post-authorization. By default, the
+        pre-authorized amount will display here. However, you may override the
+        default amount. After posting, a Cash Receipt for the Customer will be
+        generated in the amount entered here (i.e., the post-authorization
+        amount).</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

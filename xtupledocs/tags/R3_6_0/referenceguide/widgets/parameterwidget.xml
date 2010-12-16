@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>Parameter Widget</title>
+  <para id="parameterwidget"><informalexample>
+      <variablelist>
+        <varlistentry>
+          <term>Filter</term>
+          <listitem>
+            <para>Select a filter from the list of available filters, then
+            select the QUERY button to generate search results. To learn more
+            about working with search filters, please see <xref
+            linkend="introSearchFilters" />.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>MORE</term>
+          <listitem>
+            <para>Select this button to show the parameters underlying the
+            saved filter. To hide the parameters, simply click the MORE button
+            a second time.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Query Builder</term>
+          <listitem>
+            <para>When building a query, you have the following
+            options:</para>
+            <variablelist>
+              <varlistentry>
+                <term>+</term>
+                <listitem>
+                  <para>Select to add new parameters to the query.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>-</term>
+                <listitem>
+                  <para>Select to remove parameters from the query.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>SAVE</term>
+                <listitem>
+                  <para>Select to save your filter for future use.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>MANAGE</term>
+                <listitem>
+                  <para>Select this button to manage your saved
+                  filters.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </informalexample></para>
+</section>

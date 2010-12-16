@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="shippingInformation">
+  <title><indexterm significance="normal">
+      <primary>shipping</primary>
+      <secondary>shipment information</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>shipping contents</primary>
+      <secondary>information about</secondary>
+    </indexterm>Shipping Information</title>
+  <para>To obtain detailed information about a Shipment, select the "Shipping
+  Information" option from the right-click menu on "Maintain Shipping
+  Contents". The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/shippingInformation.png" />
+        </imageobject>
+        <caption>Shipping Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When reviewing detailed shipping information, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Ship Date</term>
+      <listitem>
+        <para>Displays the current shipping date, which may be changed on this
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Via</term>
+      <listitem>
+        <para>Displays the current Ship Via information, which may be changed
+        on this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Freight</term>
+      <listitem>
+        <para>Displays the current Freight charges, if any. Freight charges
+        may be changed on this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipping Form</term>
+      <listitem>
+        <para>Displays the current Shipping Form, which may be changed on this
+        screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Shipment Line Item information, select the "Items" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/shippingInformation_tabshipmentlines.png" />
+        </imageobject>
+        <caption>Line Item Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>In addition to viewing Line Item information, you also have the
+  ability to perform some shipping tasks using the right-click menu on this
+  screen.</para>
+  <para>To view notes associated with the Shipment, select the "Notes" tab.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/shippingInformation_tabshipmentnotes.png" />
+        </imageobject>
+        <caption>Shipping Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>Displays the current Shipping Notes. You may add to or edit the
+        Notes on this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

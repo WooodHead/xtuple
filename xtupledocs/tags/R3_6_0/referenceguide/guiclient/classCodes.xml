@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518585">
+  <title><indexterm significance="normal">
+      <primary>class codes</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Class Codes</title>
+  <para>Specifically used for Inventory control, Class Codes provide a
+  mechanism for categorizing Items regardless of Item Type. To access the
+  master list of Class Codes, select the "Class Codes" option. The following
+  screen will appear.</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/classCodes.png" />
+        </imageobject>
+        <caption>Class Codes Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The Class Codes screen displays information on all existing Class
+  Codes, including Class Code and Class Code description.</para>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>DELETE UNUSED</term>
+      <listitem>
+        <para>Select to delete all unused Class Codes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="classCode.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

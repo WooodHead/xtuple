@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section972514">
+  <title><indexterm significance="normal">
+      <primary>purchase orders</primary>
+      <secondary>list of open</secondary>
+    </indexterm>List Open Purchase Orders</title>
+  <para>The Open Purchase Orders screen displays both unreleased and open
+  (i.e., unvouchered) Purchase Orders. From this screen you may create new or
+  edit existing Purchase Orders. To see the list of unreleased and open
+  Purchase Orders, select the "List Open Purchase Orders" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/unpostedPurchaseOrders.png" />
+        </imageobject>
+        <caption>List Open Purchase Orders</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>Unreleased Purchase Orders are considered to be a valid source of
+    supply by the planning systems.</para>
+  </note>
+  <para>When viewing the list of open Purchase Orders, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Show</term>
+      <listitem>
+        <para>Specify which Purchase Orders you want to display in the
+        list:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Unreleased</term>
+            <listitem>
+              <para>Select to include unreleased Purchase Orders in the
+              list.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Open</term>
+            <listitem>
+              <para>Select to include open Purchase Orders in the list.
+              Partially-vouchered Purchase Orders will also be displayed, as
+              long as at least one of the Line Items is still open.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>RELEASE</term>
+      <listitem id="unpostedPurchaseOrdersPOST">
+        <para>Highlight a Purchase Order and then select this button to
+        release the selected Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

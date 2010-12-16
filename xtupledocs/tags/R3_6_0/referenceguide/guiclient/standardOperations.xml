@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section663752" role="manufacturing">
+  <title>Standard Operations</title>
+  <para>Standard Operations are routine Operations which may occur throughout
+  the manufacturing process at multiple Work Centers. Storing these Operations
+  in the Master Information section streamlines the process of assigning
+  Operations to Bills of Operations. The Operations defined here may be
+  accessed from the Bill of Operations Item screen. To access the master list
+  of Standard Operations, select the "Standard Operations" option. The
+  following screen will appear.</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/standardOperations.png"/>
+        </imageobject>
+        <caption>Standard Operations Master List</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>Standard Operations are intended as initial templates used to set up
+    Bill of Operations (BOO) Items. Any changes made to a Standard Operation
+    will not automatically ripple throughout all your BOO Items that use the
+    Standard Operation.</para>
+  </note>
+  <para>The "Standard Operations" screen displays information on all existing
+  Standard Operations, including Standard Operation number and Standard
+  Operation description.</para>
+  <note>
+    <para>Standard Operations are intended as initial templates used to set up
+    Bill of Operations (BOO) Items. Any changes made to a Standard Operation
+    will not automatically ripple throughout all your BOO Items that use the
+    Standard Operation.</para>
+  </note>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="standardOperation.xml" xpointer="element(/1)"/>
+</section>

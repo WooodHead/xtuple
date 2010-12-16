@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section972122">
+  <title><indexterm significance="normal">
+      <primary>countries</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Countries</title>
+  <para>A comprehensive list of Country definitions is provided with the
+  system for use in Address and Currency masters. To access the master list of
+  Country definitions, select the "Countries" option. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/countries.png" />
+        </imageobject>
+        <caption>Countries Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>While Country definitions may be added or edited, you should
+    carefully consider before making any changes to the existing definitions.
+    In general, changing Country definitions should be discouraged.</para>
+  </tip>
+  <para>The "Countries" screen displays information on all existing Countries,
+  including Country abbreviation, Country name, Country Currency abbreviation,
+  Country Currency name, and Country Currency symbol.</para>
+  <xi:include href="country.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

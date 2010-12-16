@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section574794">
+  <title><indexterm significance="normal">
+      <primary>opportunities</primary>
+      <secondary>master list of</secondary>
+    </indexterm>List Opportunities</title>
+  <para>To access the list of Opportunities, select the "List Opportunities"
+  option. The following screen will appear.</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/opportunityList.png" />
+        </imageobject>
+        <caption>Opportunities Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When reviewing the Opportunities list, you are presented with the
+  following options:</para>
+  <note>
+    <para>The system-defined default filter on the Opportunities list shows
+    all active Opportunities.</para>
+  </note>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <variablelist>
+    <varlistentry>
+      <term>Opportunities</term>
+      <listitem>
+        <para>Display lists available Opportunities, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

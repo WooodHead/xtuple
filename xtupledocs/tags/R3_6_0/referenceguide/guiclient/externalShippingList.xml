@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>Maintain External Shipping Records</title>
+  <para>The Maintain External Shipping Records screen is a kind of workbench
+  where you can manage shipping information exported to UPS WorldShip and
+  similar packages. To maintain external shipping records, select the
+  "Maintain External Shipping Records" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/externalShippingList.png" />
+        </imageobject>
+        <caption>External Shipping List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The Maintain External Shipping Records screens lists all the shipping
+  records exported from xTuple ERP to UPS WorldShip and similar
+  packages.</para>
+  <xi:include href="externalShipping.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

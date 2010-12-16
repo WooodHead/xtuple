@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section556000">
+  <title>Production Time Clock by User</title>
+  <para>To view Time Clock information by user, select the "Production Time
+  Clock by User" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspWoEffortByUser.png" />
+        </imageobject>
+        <caption>Production Time Clock by User</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When users post Operations from the Shop Floor Workbench, they have
+  the option to post either standard or specified times―and the run time
+  recorded will vary depending on the option chosen. The standard times are
+  drawn from the Bill of Operations Item definitions. By contrast, the
+  specified times are based on the users' clock in/out times (i.e., "effort").
+  The specified effort for an Operation may be complicated by the fact that
+  users can be clocked into more than one Work Order at a time. In this case,
+  the users' effort will be spread across the various Work Orders they have
+  clocked into.</para>
+  <para>When displaying Time Clock information by User, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Username</term>
+      <listitem>
+        <para>Enter the username of the user whose Time Clock information you
+        want to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start W/O Start Date</term>
+      <listitem>
+        <para>Work Orders scheduled on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End W/O Start Date</term>
+      <listitem>
+        <para>Work Orders scheduled on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Work Orders</term>
+      <listitem>
+        <para>Display lists Work Orders the user has clocked-in to, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Automatically Update</term>
+      <listitem>
+        <para>Select to automatically update the information displayed in the
+        screen. The list will automatically update every 60 seconds if this
+        option is selected.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

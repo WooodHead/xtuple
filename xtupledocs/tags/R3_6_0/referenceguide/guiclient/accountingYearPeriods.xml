@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section559969">
+  <title><indexterm significance="normal">
+      <primary>fiscal years</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Fiscal Years</title>
+  <para>To access the master list of Fiscal Years, select the "Fiscal Years"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/accountingYearPeriods.png" />
+        </imageobject>
+        <caption>Fiscal Years Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>The system will automatically reset the beginning balances for
+    Revenue and Expense Accounts to $0 at the start of a new Fiscal
+    Year.</para>
+  </tip>
+  <para>The "Fiscal Years" screen displays information on all existing Fiscal
+  Years, including Fiscal Year start date, Fiscal Year end date, and closed
+  status.</para>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE YEAR</term>
+      <listitem id="accountingYearPeriodsCLOSEYEAR">
+        <para>Highlight a Fiscal Year and then select this button to close the
+        Fiscal Year. The act of closing a Fiscal Year causes prompts the
+        system to calculate retained earnings for the year&mdash;and then
+        transfer that balance to the Year End Equity Account defined at the
+        system level. You should be careful not to close a Fiscal Year until
+        you are certain you are ready to do so.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="accountingYearPeriod.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

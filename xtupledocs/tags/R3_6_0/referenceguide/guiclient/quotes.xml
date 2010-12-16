@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section528867">
+  <title><indexterm significance="normal">
+      <primary>quotes</primary>
+      <secondary>master list of</secondary>
+    </indexterm>List Quotes</title>
+  <para>To view a list of Quotes, select the "List Quotes" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/quotes.png" />
+        </imageobject>
+        <caption>Quotes Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>Quotes may not be converted to Sales Orders for Customers whose
+    credit status is either "On Credit Warning" or "On Credit Hold." Only
+    users with special privileges may override these credit settings.</para>
+  </note>
+  <para>When displaying a list of Quotes, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display Quotes for all Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Quotes you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Quotes for Prospects</term>
+      <listitem>
+        <para>Select to include Prospect Quotes in the list. While Quotes may
+        be created for Prospects, you cannot convert a Prospect Quote to a
+        Sales Order without first converting the Prospect to a
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Expired Quotes</term>
+      <listitem>
+        <para>Select to include expired Quotes in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Orders</term>
+      <listitem>
+        <para>Display lists Quotes, using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CONVERT</term>
+      <listitem>
+        <para>Select to convert a Customer Quote to a Sales Order. All Quote
+        Line Items must have valid Item Sites for a Quote to be converted
+        successfully. Also, you may not convert Quotes written for
+        Prospects.</para>
+        <note>
+          <para>By default, the Quote Number will be assumed by the Sales
+          Order when a Quote is converted to a Sales Order.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

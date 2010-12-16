@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="itemPricingSchedule">
+  <title><indexterm significance="normal">
+      <primary>pricing schedules</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Pricing Schedule</title>
+  <para>A single Pricing Schedule may contain multiple Items or Product
+  Categories&mdash;and multiple Quantity Breaks. To create a new Pricing
+  Schedule, select the NEW button. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemPricingSchedule.png" />
+        </imageobject>
+        <caption>Create New Pricing Schedule</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>When Sales Orders are entered, the system will search for Quantity
+    Break matches between the Sales Order Item and the relevant Pricing
+    Schedule. If duplicate Quantity Breaks are found, the lowest Price for the
+    given quantity will be used.</para>
+  </tip>
+  <para>When creating a new Pricing Schedule, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter the name of the Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a description to identify the Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Effective</term>
+      <listitem>
+        <para>Enter the date when the Pricing Schedule becomes
+        effective.</para>
+        <note>
+          <para>The effectivity and expiration dates for Pricing Schedules
+          correspond to the created date for Sales Orders. Changes to Line
+          Item quantities or scheduled dates for already-created Sales Orders
+          can also cause Pricing Schedule effectivity to be recalculated as of
+          the date the changes occur.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expires</term>
+      <listitem>
+        <para>Enter the date when the Pricing Schedule expires.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Schedule</term>
+      <listitem>
+        <para>Display lists all sold Items or Product Categories assigned to
+        this Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="itemPricingScheduleItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+</section>

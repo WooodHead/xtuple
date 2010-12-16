@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="checkFormat">
+  <title><indexterm significance="normal">
+      <primary>check formats</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Check Format</title>
+  <para>To add a new Check format, select the NEW button. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/checkFormat.png" />
+        </imageobject>
+        <caption>Create New Check Format</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Check format, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a name to describe the Check format.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a description to further describe the Check format.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Report</term>
+      <listitem>
+        <para>Specify the report definition you want to associate with the
+        Check format.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

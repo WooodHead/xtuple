@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section923258">
+  <title><indexterm significance="normal">
+      <primary>calendars</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Calendars</title>
+  <para>Throughout the application you have the ability to sort data and
+  schedule activities according to specified time periods&mdash;or Calendars.
+  Any users granted the "MaintainCalendars" privilege have the ability to
+  define and maintain Calendars. To access the master list of Calendars,
+  select the "Calendars" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/calendars.png" />
+        </imageobject>
+        <caption>Calendar Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Calendar Master List" screen displays information on all existing
+  Calendars, including Calendar name and Calendar description.</para>
+  <xi:include href="calendar.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

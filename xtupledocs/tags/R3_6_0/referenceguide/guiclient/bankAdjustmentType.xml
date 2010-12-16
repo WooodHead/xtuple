@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="bankAdjustmentType">
+  <title>Bank Adjustment Type</title>
+  <para><indexterm significance="normal">
+      <primary>bank adjustment types</primary>
+      <secondary>creating new</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>bank accounts</primary>
+      <secondary>adjustment types for</secondary>
+    </indexterm>To create a new Bank Adjustment Type, select the NEW button.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/bankAdjustmentType.png" />
+        </imageobject>
+        <caption>Create New Bank Adjustment Type</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Bank Adjustment Type, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a name to describe the Bank Adjustment Type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a description to further describe the Bank Adjustment
+        Type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Adj. Account</term>
+      <listitem>
+        <para>Specify the Account to be used for the Bank Adjustment
+        Type.</para>
+        <note>
+          <para>By default, the screen will limit your Account Number choices
+          to only those Accounts having the correct Account Type for the
+          chosen context. However, privileged users may override this default
+          behavior by manually entering any Account Number listed in the Chart
+          of Accounts.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Define the sense of the Bank Adjustment Type by selecting one of
+        the following:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Debit</term>
+            <listitem>
+              <para>Select if the Bank Adjustment should increase your Bank
+              Account balance.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit</term>
+            <listitem>
+              <para>Select if the Bank Adjustment should decrease your Bank
+              Account balance.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
