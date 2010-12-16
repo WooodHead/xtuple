@@ -69,7 +69,7 @@ BEGIN
       SELECT 1 AS state
       FROM te.teitem
        JOIN te.tehead ON (teitem_tehead_id=tehead_id)
-       JOIN te.teemp ON (tehead_emp_id=teemp_id)
+       JOIN te.teemp ON (tehead_emp_id=teemp_emp_id)
       WHERE ((teitem_tehead_id=pTeheadId)
        AND (teitem_type = 'T')
        AND (teitem_posted)
@@ -78,7 +78,7 @@ BEGIN
       SELECT 0 AS state
       FROM te.teitem
        JOIN te.tehead ON (teitem_tehead_id=tehead_id)
-       JOIN te.teemp ON (tehead_emp_id=teemp_id)
+       JOIN te.teemp ON (tehead_emp_id=teemp_emp_id)
       WHERE ((teitem_tehead_id=pTeheadId)
        AND (teitem_type = 'T')
        AND (NOT teitem_posted)
