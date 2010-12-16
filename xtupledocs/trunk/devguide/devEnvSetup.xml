@@ -787,7 +787,7 @@ LD_LIBRARY_PATH=/opt/lib:/opt/qt/Qt-version/lib</programlisting>
       fast machine.</para>
     </section>
     <section>
-      <title>Check out the PostBooks and OpenRPT source code</title>
+      <title>Check out the PostBooks, CSVImp, and OpenRPT source code</title>
       <para>The example here shows one possible arrangement of source code.
       There are several that will work. This example uses command line
       tools</para>
@@ -800,27 +800,30 @@ svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/csvimp/trunk csvi
       files in C:\Qt\xTuple-src.</para>
       <para>Start RapidSVN.</para>
       <para>In RapidSVN click REPOSITORY - CHECKOUT. Enter the URL and
-      destination directory. Do this twice with the following URL/Directory
-      combinations:</para>
+      destination directory. Do this three times with the following
+      URL/Directory combinations:</para>
       <programlisting>https://openrpt.svn.sourceforge.net/svnroot/openrpt/openrpt/trunk C:\Qt\xTuple-src\openrpt
-https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtuple/trunk C:\Qt\xTuple-src\xtuple </programlisting>
+https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtuple/trunk C:\Qt\xTuple-src\xtuple 
+https://postbooks.svn.sourceforge.net/svnroot/postbooks/csvimp/trunk C:\Qt\xTuple-src\csvimp</programlisting>
       <para>Accept a security key for each host when you connect. Once both
       sources are downloaded, you can close RapidSVN. Note that it is
-      necessary for OpenRPT and xTuple folders to be together in a folder, so
+      necessary for the three folders to be together in a folder, so
       that:</para>
       <programlisting>&lt;PARENT FOLDER&gt;
-  + OpenRPT
-  + xTuple</programlisting>
+  + csvimp
+  + openrpt
+  + xtuple</programlisting>
       <para>In our example, our folder structure is:</para>
       <programlisting>C:\Qt
   + 2009.03
   + pgsql
   - xTuple-src
-     + OpenRpt
-     + xTuple</programlisting>
-      <para>The OpenRPT and xTuple root folders must reside in the same folder
-      for the compile process to succeed (not really, but close
-      enough).</para>
+     + csvimp
+     + openrpt
+     + xtuple</programlisting>
+      <para>The OpenRPT, CSVImp, and xTuple root folders must reside in the
+      same folder for the compile process to succeed (not exactly true, but
+      close enough).</para>
     </section>
     <section>
       <title>Build OpenRPT</title>
@@ -863,7 +866,7 @@ $ make</programlisting>
       continuing.</para>
     </section>
     <section>
-      <title>Build CSVImp (optional)</title>
+      <title>Build CSVImp</title>
       <para>Next build CSVImp. Follow exactly the same steps as for OpenRPT,
       only change to the CSVImp checkout directory first.</para>
     </section>
@@ -942,10 +945,9 @@ ECHO *** END ***</programlisting>
       <section>
         <title>Including CSVImp</title>
         <para>You can use the CSV import tool from the main xTuple application
-        starting with xTuple ERP 3.5.1. If you want to do so, you must build
-        in csvimp (documented above) and copy the plugin library to the right
-        location. Assuming the xtuple, openrpt, and csvimp directories are
-        next to each other, here are the steps:</para>
+        starting with xTuple ERP 3.5.1. If you want to do so, copy the plugin
+        library to the right location. Assuming the xtuple, openrpt, and
+        csvimp directories are next to each other, here are the steps:</para>
         <para><programlisting condition="mingw" os="windows">% mkdir bin\plugins
 % cp ..\csvimp\plugins\csvimpplugin.dll bin\plugins</programlisting><programlisting
         condition="msvc" os="windows">% mkdir bin\plugins
