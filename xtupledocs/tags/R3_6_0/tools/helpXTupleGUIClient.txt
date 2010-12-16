@@ -1,0 +1,67 @@
+
+Installing xTuple Client Help Files
+==================================================
+Last Updated 03/11/08
+
+
+xTuple Clients feature a Help menu on the main menu bar. From this Help
+menu, users may access on-line documentation--that is, assuming the 
+required help files have also been installed. The process for installing 
+help files differs depending on the type of client you are using. See
+below for instructions on how to install help files for the various 
+platforms supported by xTuple.
+
+
+Client for Windows
+------------------
+You must first locate the directory where you installed your 'xtuple.exe' 
+file. xtuple.exe is the main xTuple application file. Among the various
+other files in this directory, you should see a file called 'assistant.exe'
+and a directory called 'helpXTupleGUIClient'. The assistant.exe file
+is the program xTuple uses to display on-line help. The helpXTupleGUIClient
+directory contains the necessary help content files. 
+
+If your installation does not include these files, then you should download
+a new copy of the xTuple client. The assistant.exe file is included with 
+current releases of the software. To get the needed help content files, you
+should download the 'helpXTupleGUIClient.zip' file from the xTuple website.
+This .zip file contains the help content files. Be sure When extracting the 
+.zip file to choose the appropriate options to ensure you maintain the 
+directory structure for the help files. If extracted correctly, a directory 
+called 'helpXTupleGUIClient' will be installed at the same level as the
+xtuple.exe file. This directory will contain the help content files.
+
+As long as the assistant.exe file and the help content files directory are 
+installed as described above, you may access on-line documentation using the 
+Help menu found within the xTuple client.
+
+
+Client for Mac
+--------------
+The xTuple application for Mac is distributed as a package. To view the 
+contents of the xTuple package, hold down the CTRL key on your keyboard and 
+then click on the package file. From the pop-up menu, select the 'Show 
+Package Contents' option. An application file called 'assistant' should be
+located in the Contents\Resources directory. The assistant file is the program 
+xTuple uses to display on-line help.
+
+Once you have verified the assistant program is installed in the Contents\
+Resources directory, you must then install the help content files into the
+same directory. To do so, download the 'helpXTupleGUIClient.zip' file from
+the xTuple website. This .zip file contains the help content files. Be sure
+When extracting the .zip file to choose the appropriate options to ensure you
+maintain the directory structure for the help files. If extracted correctly,
+a directory called 'helpXTupleGUIClient' will be installed in the Contents\
+Resources directory. This directory will contain the help content files.
+
+As long as the assistant file and the help content files directory are 
+installed as described above, you may access on-line documentation using the 
+Help menu found within the xTuple client.
+
+
+Client for Linux
+----------------
+Follow the same process as for the Client for Windows. The only difference is
+the main xTuple application and assistant files will not have the '.exe'
+extension.
+

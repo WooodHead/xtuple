@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section566062">
+  <title><indexterm significance="normal">
+      <primary>contacts</primary>
+      <secondary>master list of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customer relationship management</primary>
+      <secondary>contacts and</secondary>
+    </indexterm>List Contacts</title>
+  <para>Contacts are people who may be associated directly with CRM Accounts,
+  Customers, Ship-To Addresses, Vendors, Vendor Addresses, and Sites. To
+  access the list of Contacts, select the "List Contacts" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/contacts.png" />
+        </imageobject>
+        <caption>Contacts List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying the Contacts list, you are presented with the
+  following options:</para>
+  <note>
+    <para>The system-defined default filter on the Contacts list screen shows
+    all active Contacts.</para>
+  </note>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <variablelist>
+    <varlistentry>
+      <term>Search</term>
+      <listitem>
+        <para>Enter search terms then select the QUERY button to locate
+        specific Contact records.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Contacts</term>
+      <listitem>
+        <para>Display lists Contacts, using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

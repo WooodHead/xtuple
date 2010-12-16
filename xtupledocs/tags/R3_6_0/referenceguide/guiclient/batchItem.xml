@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="batchItem">
+  <title>Scheduled Job</title>
+  <para>To reschedule an xTuple Connect Job, select the RESCHEDULE button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/batchItem.png" />
+        </imageobject>
+        <caption>Reschedule Batch Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When rescheduling an xTuple Connect Job, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Submitted by</term>
+      <listitem>
+        <para>Displays the name of the user who submitted the Job.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Submitted on</term>
+      <listitem>
+        <para>Displays the date and time when the Job was submitted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Response Email</term>
+      <listitem>
+        <para>Displays the email address&mdash;typically belonging to the
+        submitting user&mdash;where the Batch Manager will send the Job
+        results once they are completed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Action</term>
+      <listitem>
+        <para>Displays the type of action to be performed when the Job is
+        run.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Parameter</term>
+      <listitem>
+        <para>Displays an additional piece of information about the Action, if
+        pertinent. For example, if the Action is "RunReport" then the
+        Parameter is the name of the report to run.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Scheduled</term>
+      <listitem>
+        <para>Schedule a date and time to run the Batch Item.</para>
+        <para>Specify a date in the first field using a standard date format.
+        Use the arrow buttons in the second field to specify a time of
+        day.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Started</term>
+      <listitem>
+        <para>Displays the date and time when processing of the Job
+        began.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Completed</term>
+      <listitem>
+        <para>Displays the date and time when processing of the Job was
+        completed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/recurrencewidget.xml"
+              xpointer="recurrenceWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para>In addition to the single Parameter described above, individual Jobs
+  usually require additional details to execute successfully. For example the
+  user might have requested that a report be run showing information about a
+  particular Class Code. In this case the Parameter described above will hold
+  the name of the report but the report also needs to know which Class Code
+  the user selected. To see these details, select the "Parameters Tab". The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/batchItem_parameterLit.png" />
+        </imageobject>
+        <caption><para>Parameter details passed to a Scheduled
+        Job</para></caption>
+      </mediaobject>
+    </screenshot></para>
+</section>

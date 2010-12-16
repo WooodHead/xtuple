@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section970006">
+  <title>View Database Log</title>
+  <para>The Database Log viewer is designed to simplify the process of
+  troubleshooting errors when and if they occur. If you experience an
+  unexplained error when using the system, open the Database Log and view the
+  messages written there. This information will help system
+  administrators&mdash;or your support provider&mdash;to analyze and determine
+  the root cause of the problem.</para>
+  <para>Software developers who are writing packages for xTuple will also find
+  this functionality is useful to them. In addition to capturing qCritical and
+  qFatal messages, the Database Log viewer can also be enabled to show qDebug
+  and qWarning messages. These qDebug and qWarning messages do not cause the
+  error icon to appear (like qCritical and qFatal messages do); however,
+  developers can simply keep the Database Log viewer open to see the lower
+  level messaging as it appears.</para>
+  <note>
+    <para>If you are running into database errors which are not being reported
+    on in the Database Log viewer, it's possible you may need to check your
+    PostgreSQL logs for more information&mdash;and to troubleshoot
+    further.</para>
+  </note>
+  <para>To view the Database Log, select the "View Database Log" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/errorLog.png" />
+        </imageobject>
+        <caption>View Database Log Messages</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>While the information written to the Database Log may seem cryptic to
+  the average user, the contents written there are invaluable to support
+  technicians and software developers as they attempt to discover the root
+  cause of a problem.</para>
+  <tip>
+    <para>Include the contents of the Log file when reporting problems to your
+    support provider. To copy the contents, highlight the portion you want to
+    copy, then select the "Copy" option from the right-click menu. Finally,
+    paste the copied text into an email or other form of communication (i.e,
+    issue tracking system).</para>
+  </tip>
+  <para>At the bottom of the screen, the following options are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Debug</term>
+      <listitem>
+        <para>Select to include script debugging information in the log
+        output. If not selected, script debugging information will not be
+        shown.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Warning</term>
+      <listitem>
+        <para>Select to include warning message information in the log output.
+        If not selected, warning message information will not be shown.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Critical</term>
+      <listitem>
+        <para>Select to include critical error information in the log output.
+        If not selected, critical error information will not be shown. When
+        critical errors occur, the error icon will appear in the lower
+        left-hand corner of the main desktop to notify you.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Fatal</term>
+      <listitem>
+        <para>Select to include fatal error information in the log output. If
+        not selected, fatal error information will not be shown. When fatal
+        errors occur, the error icon will appear in the lower left-hand corner
+        of the main desktop to notify you.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CLEAR</term>
+      <listitem>
+        <para>Select to clear the contents of the screen. This option will
+        help you narrow down the cause of an error when troubleshooting
+        problems. After the screen has been cleared, it will continue to show
+        errors the next time an error is encountered.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

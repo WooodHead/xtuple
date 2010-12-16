@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section role="xtpos">
+  <title><indexterm significance="normal">
+      <primary>retail</primary>
+      <secondary>sites for</secondary>
+    </indexterm>Retail Sites</title>
+  <para>Retail Sites are not limited to store fronts, but may include
+  warehouses, corporate offices, or any location you wish to manage and
+  maintain individually. To configure Retail Sites, select the "Retail Sites"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/retailSites.png" />
+        </imageobject>
+        <caption>Retail Sites</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>The ability to maintain multiple Retail Sites is only available in
+    the commercial editions of xTuple ERP.</para>
+  </note>
+  <para>When viewing the list of Retail Sites, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Sites</term>
+      <listitem>
+        <para>Display lists Retail Sites defined for your installation.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="retailSite.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560363">
+  <title><indexterm significance="normal">
+      <primary>incidents</primary>
+      <secondary>workbench for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>customer relationship management</primary>
+      <secondary>incident workbench and</secondary>
+    </indexterm>List Incidents</title>
+  <para>The Incidents list enables you to monitor and take action on the full
+  range of Incidents entered in your system. For ease of use, the rows in the
+  workbench can be color-coded based on their status. To learn more about
+  color-coding for the Incident list, see: <xref
+  linkend="Section971138" /></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incidentWorkbench.png" />
+        </imageobject>
+        <caption>Incidents List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When using the Incidents list, you are presented with the following
+  options:</para>
+  <note>
+    <para>The system-defined default filter on the Incidents list shows
+    Incidents assigned to the logged-in user having a status above
+    "Resolved."</para>
+  </note>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <variablelist>
+    <varlistentry>
+      <term>Incidents</term>
+      <listitem>
+        <para>Display lists Incidents, using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

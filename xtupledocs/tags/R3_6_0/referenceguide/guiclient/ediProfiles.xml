@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="ediProfilesTitle" role="xtconnect">
+  <title>EDI Profiles</title>
+  <para>The Electronic Data Interchange (EDI) system supports the export of
+  documents and files using either of the following two <indexterm
+      significance="normal">
+      <primary>electronic data interchange</primary>
+      <secondary>delivery methods for</secondary>
+    </indexterm>delivery methods:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Email</para>
+    </listitem>
+    <listitem>
+      <para>FTP</para>
+    </listitem>
+  </itemizedlist>
+  <para>EDI Profiles are the master records which describe what information to
+  send and how to send that information to EDI recipients&mdash;whether those
+  recipients are Customers, Suppliers, or intermediaries such as VANs
+  (Value-Added Networks). When creating an EDI Profile, you specify delivery
+  method, recipient details (or how to retrieve these from the database), and
+  output format. The following <indexterm significance="normal">
+      <primary>electronic data interchange</primary>
+      <secondary>supported formats</secondary>
+    </indexterm>output formats are available:</para>
+  <itemizedlist>
+    <listitem>
+      <para>xTuple Report (.PDF)</para>
+    </listitem>
+    <listitem>
+      <para>Comma Delimited (.CSV)</para>
+    </listitem>
+    <listitem>
+      <para>Tab Delimited (.TSV)</para>
+    </listitem>
+    <listitem>
+      <para>HTML</para>
+    </listitem>
+    <listitem>
+      <para>XML</para>
+    </listitem>
+  </itemizedlist>
+  <para>Using different combinations of delivery methods, output formats, and
+  database queries, you have the flexibility to create a wide range of unique
+  EDI Profiles.</para>
+  <tip>
+    <para>The EDI system exports files using the xTuple Connect Batch Manager.
+    The Batch Manager must be installed and running at your site for EDI
+    exports to be successful.</para>
+  </tip>
+  <para><indexterm significance="normal">
+      <primary>profiles</primary>
+      <secondary>master list of</secondary>
+    </indexterm>To access the master list of EDI Profiles, select the "EDI
+  Profiles" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/ediProfiles.png" />
+        </imageobject>
+        <caption>EDI Profiles Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "EDI Profiles" screen displays information on all existing EDI
+  Profiles.</para>
+  <xi:include href="ediProfile.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

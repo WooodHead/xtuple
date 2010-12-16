@@ -1,0 +1,623 @@
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.4.0
+December 15, 2009
+==================================
+
+This is the final release in the 3.4.0 release cycle. Many
+thanks to all in the community who have sponsored new
+functionality and also contributed valuable testing, patches,
+and other feedback.
+
+Here's an overview of the new features you will find in 3.4.0:
+
+Manufacturing Edition functionality as scripted Package
+  * Full spec: http://www.xtuple.org/issuetracker/view.php?id=8333
+
+Script Debugger
+  * Full spec: http://www.xtuple.org/issuetracker/view.php?id=8189
+
+CRM
+  * Multiple enhancements to Opportunities
+
+Free Country Fix Utility
+  * Packaged utility called "fixCountry.gz"
+  * Loads with Updater
+  * Makes country codes in database conform to standard ISO naming
+    conventions
+
+NOTE: Be sure to use the final release of Upgrader 2.2.0 when
+upgrading to this final release of xTuple ERP 3.4.0.  And if you are
+a subscriber to our XTN service (www.xtuple.com/xtn) and would like
+to test the new version before going live (highly recommended), please
+contact us and we can help you set up a "sandbox" copy of your
+database to work with.
+
+==================================
+
+The following features and bug fixes have been added to the
+applications since 3.4.0RC. Additional detail for each
+item listed below may be found on our community website
+(www.xtuple.org). Simply go to the Issue Tracker and select the
+"Changelog" option.
+
+
+New Features:
+
+* [All] Disable sample scripts by default in Demo database
+* [Purchase] Enhance PO History report to show expense items
+
+
+Bug Fixes:
+
+* [All] Demo data Vendor Addresses duplicate name in address 
+field
+* [Accounting] It is possible to get 'no exchange rate' errors 
+even in single-currency systems or single-currency transactions
+* [Accounting] Typo on Texts in the Simple G/L Journal Entry 
+screen
+* [Batch Manager] Submitted MRP/MPS date doesn't change
+* [CRM] Setting Default Country on CRM configuration to [ no 
+default ] saves 't' instead
+* [Documentation] Accounting A/P Reports shows Unposted vouchers 
+and should be vouchering edit list
+* [Documentation] Bank reconciliation history report screen has 
+changed
+* [Documentation] remove references to OpenMFG in demo guide
+* [Documentation] Documentation image error
+* [Inventory] Selecting to create a new external shipping record 
+crashes the application
+* [Inventory] Issue to Shipping SO Order Number Barcode Scan 
+Crashes Client
+* [Manufacture] Right-click data not found in time clock by work 
+order
+* [Manufacture] WOTC by user has empty right click options
+* [Manufacture] Cannot print WO traveller, routing
+* [Sales] Print Credit Memo doesn't print the memos
+* [Sales] Creating a Sales Order deletes customer contact 
+information globally
+* [Sales] Print report of summarized sales history displays an 
+irrelevant total field
+* [Sales] Tax calculating differently on printed invoice from 
+System Invoice
+* [Sales] State and Country entry and validation
+* [System] Add an index to the usrpref table
+
+
+==================================
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.4.0RC
+December 1, 2009
+==================================
+
+This is the official Release Candidate in the 3.4.0 release
+cycle. Many thanks to all in the community who have sponsored
+new functionality and also contributed valuable testing,
+patches, and other feedback.
+
+Here's an overview of the new features you will find in 3.4.0:
+
+Manufacturing Edition functionality as scripted Package
+  * Full spec: http://www.xtuple.org/issuetracker/view.php?id=8333
+
+Script Debugger
+  * Full spec: http://www.xtuple.org/issuetracker/view.php?id=8189
+
+CRM
+  * Multiple enhancements to Opportunities
+
+Free Country Fix Utility
+  * Packaged utility called "fixCountry.gz"
+  * Loads with Updater
+  * Makes country codes in database conform to standard ISO naming
+    conventions
+
+NOTE: Be sure to use the latest version of the Updater if you
+are upgrading to 3.4.0RC. And if you are a subscriber to our
+XTN service (www.xtuple.com/xtn) and would like to be an active
+participant in the testing process, please contact us and we
+can help you set up a "sandbox" copy of your database to test
+in.
+
+==================================
+
+The following features and bug fixes have been added to the
+applications since 3.4.0Beta2. Additional detail for each
+item listed below may be found on our community website
+(www.xtuple.org). Simply go to the Issue Tracker and select the
+"Changelog" option.
+
+
+New Features:
+
+* [Accounting] Display recurring invoices
+* [Architectural] Integrate QT script debugger
+* [Architectural] Make free-floating mode the default for
+Windows, Linux, and Mac
+* [Community] Add link to xChange in Community menu
+* [Manufacture] Add ability to backdate production posting
+* [Manufacture] Add function to calculate the working day date
+* [System] Improve connection error messages
+* [System] Add toolbar icons for Community and xChange
+
+Bug Fixes:
+
+* [All] Pasting a value with commas doesn't work
+* [All] Keyboard copy/cut/paste not working
+* [Accounting] Version # 3.3.1 Work Order Schedule reports
+do not match display
+* [Accounting] List label for g/l series should be moved
+* [Accounting] Unreleased transaction lock in group.cpp can
+lead to loss of data
+* [Accounting] Voucher tax distribution not calculated
+correctly on multi-cost elements
+* [Accounting] Amount displayed in tax code rates doesn't
+honor locale
+* [Accounting] Selecting to edit invoice displays error in
+Postbooks and Standard editions
+* [Accounting] Selecting to cancel voucher screen upon
+creating a voucher displays irrelevant dialog
+* [Accounting] Basic income statement (trend, year)
+generates all numbers of -1.00
+* [Accounting] Print check run on Mac: printer selection
+screen inaccessible
+* [Accounting] Cash Receipts screen: Reverse button never
+enables
+* [Accounting] Reverse customer deposit recursive
+* [Accounting] Problem creating new customers
+* [Accounting] Hide "Payment Received" field on invoice
+* [Accounting] Accounts with no activity not forward
+updating automatically
+* [Accounting] Trial balance only Debits & Credits have
+format
+* [Accounting] Cash Receipt from Credit Card - should write
+Customer Name to GL trans
+* [Accounting] Display multiple order numbers on invoice
+* [Accounting] Misc. Check doesn't clear CM amount
+* [CRM] Comments for Project Tasks can be added in view
+mode
+* [CRM] CRM Calendar Doesn't Default to current user log
+in name
+* [Inventory] User can only select warehouses that purchase
+or manufacture items to transfer from
+* [Inventory] View Orders generates a db log error in
+PostBooks
+* [Inventory] Selecting to edit order from "Total" label
+displays error message and generates DB log
+* [Inventory] Location details show up with qty zero
+* [Inventory] Premature screen message requiring item
+number
+* [Inventory] Premature screen message requiring customer
+number
+* [Inventory] Some options on item site utility still
+disable
+* [Inventory] Standard edition itemSite showing MPS time
+fence
+* [Inventory] Options in "Create Item Sites" not available
+* [Inventory] Using Barcode to issue to shipping on Kit
+BOM Items does not work
+* [Inventory] Releasing TO from line item closes line
+* [Manufacture] SQL divide by zero in dspWoEffortByWorkOrder
+* [Manufacture] Mis-spelling on "Post Miscellaneous
+Production" form
+* [Manufacture] Application crashes when posting scrap from
+post production window
+* [Manufacture] Default focus for Distribute Stock for
+serialized items should be on Lot/Serial input box
+* [Manufacture] workOrderOperations.ui button problems
+* [Manufacture] Clocked out operations are displayed as
+clocked in operations shop floor workbench screen
+* [Manufacture] Enter does not Save on Work Order scree
+* [Manufacture] woTimeClock.ui: Unable to select an
+operation
+* [Manufacture] The operations menu is missing when you
+right-click on an operation in the work order window
+* [Manufacture] Tab order on Issue Work Order Material Item
+screen incorrect
+* [Products] Item comments with numeric values don't honor
+the locale
+* [Products] Selecting to print pending BOM changes
+generates DB log error
+* [Products] Selecting to edit Bill of operations doesn't
+display items
+* [Products] Can not set Event Fence to 0
+* [Products] Voucher distribution costs updating as lower
+level costs
+* [Purchase] Duplicating expense category by "Copy"
+generates DB log error
+* [Purchase] Foreign key error when selecting costing
+element "None" on voucher
+* [Reports] Credit Memo total not displaying the correct
+amount
+* [Sales] Item reservations window does not display unit
+of measure
+* [Sales] Start and end dates are not displayed in print
+report of summarized sales history
+* [Sales] Tax and freight not displayed in Billing Edit
+List
+* [Sales] Tax and total information missing on billing
+selection screen
+* [Sales] Selecting to query brief sales history by wild
+card patterns generates DB log error
+* [Sales] Reservations stock check does not consider and
+convert sales UOM to stock UOM
+* [Sales] Edit SO overrides WO order parameters
+* [Sales] Edits to Characteristics are lost unless you
+save immediately
+* [Sales] Create Quotes/SO do not honor customer default
+tax zone
+* [Sales] Customer ship-to number assignment can cause
+data loss
+* [Sales] Can't see the quotes I create
+* [Sales] Tab order problem on sales order header
+information screen
+* [Sales] Return Authorizations not closing
+* [Sales] Create invoice is much slower than previous
+version
+* [Sales] Sales Tax calculation in sales order includes
+canceled items
+* [Sales] On inventory availability by customer type
+reservation quantities are in sale UOM when all others
+values are in inventory UOM
+* [Schedule] workCenter.ui: Save results in creation of a
+new record
+* [Schedule] workCenter.ui: Excessive decimal precision
+* [System] It is possible to edit employee in view mode
+* [System] formatNumeric function zero handling
+* [System] In Designer, the XComboBox type is always set
+to AddressCommentType
+* [System] pretty Vista theme doesn't appear in Windows7
+
+
+==================================
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.4.0Beta2
+November 18, 2009
+==================================
+
+This is the second Beta release in the 3.4.0 cycle. Thanks
+to all for your feedback on the first Beta. This release builds
+on the testing results from the first Beta and also includes
+a number of other bug fixes.
+
+Relatively few new features have been included. However, of special
+note is the new "Enforce Valid Country Names" option we've added
+to the CRM configuration screen. When selected, this option requires
+all country names in the database to conform to standard ISO naming
+conventions. While this feature is optional, we are also issuing
+a free packaged utility called "fixCountry.gz" to help users clean
+up any non-conforming country names in their data. Like any other
+package, the fixCountry.gz utility can be loaded using the Updater.
+If you are interested in this new functionality, please test it out
+in this second Beta--and send us any feedback you may have.
+
+NOTE: If you are upgrading your database to version 3.4.0Beta2,
+you must use the new Updater, version 2.2.0Beta. As always, please
+do not use beta software in a production environment. If you're a
+subscriber to our XTN service (www.xtuple.com/xtn), we would be
+happy to help you set up a "sandbox" copy of your database to
+test.
+
+==================================
+
+The following features and bug fixes have been added to the
+applications since the first 3.4.0 Beta. Additional detail for each
+item listed below may be found on our community website
+(www.xtuple.org). Simply go to the Issue Tracker and select the
+"Changelog" option.
+
+
+New Features:
+
+* [Architectural] Make free-floating mode the default for Windows,
+Linux, and Mac
+* [Manufacture] Add ability to backdate production posting
+* [Sales] State and country entry and validation
+* [Sales] Add a status column or bar that shows the status of the
+sales order
+* [System] Standardized state abbreviations in drop-down lists
+* [System] Add a hide capability to system scripts
+
+Bug Fixes:
+
+* [Accounting] The Invoice Register total is always displayed
+zero
+* [Accounting] Tax amount in the Recurring Invoices is double the
+amount in original invoice
+* [Accounting] Can't edit posted invoice (for recurring invoices)
+* [Accounting] Single Level BOM print out displays the wrong UOM
+* [Accounting] Selecting to create a Sales order in Standard
+edition displays error
+* [Accounting] Error posting $0 invoice when accounting config
+enabled
+* [Accounting] PO Status on Voucher screen is Open when received
+qty > ord qty
+* [Accounting] Invoice posting error column _r.item_id does not
+exist
+* [Accounting] Journal series in List unposted G/L series do not
+disappear on post
+* [Accounting] Unreleased transaction lock in group.cpp can lead
+to loss of data
+* [Accounting] SQL error written to database log but not shown to
+user after saving first non-base currency
+* [Accounting] Tax code rates window saves percentages as 0 when
+creating and when editing
+* [Accounting] Failed stored procedure when posting cash receipt
+* [Accounting] Error applying ar credit memo
+* [Accounting] Expense Category master list report breaks for some
+Chart of Accounts schemes
+* [Accounting] Deleting Invoice does not reopen Sales Order
+* [All] Indented items on XTreeWidget's not reselected after
+refresh
+* [Architectural] State list not populating correctly on address
+cluster
+* [Architectural] Group packages display not complete
+* [CRM] Country combo box should not be write-able
+* [CRM] Selecting to view a saved Alarm doesn't populate the
+details
+* [CRM] Incidents with closed To-do lists do not print
+* [CRM] Priority list not initialized on To-Do page
+* [CRM] Assigned-to field not filtering inactive users
+* [CRM] Prospect can share number with customer
+* [CRM] CRM search window performance slow
+* [Inventory] Disable RETURN STOCK button if not available
+* [Inventory] Selecting to print the list of TO, prints the closed
+orders
+* [Inventory] Selecting to ship sales order displays an error
+message
+* [Inventory] Unable to post Transformations for lot/serial/
+location controlled items
+* [Inventory] Selecting to update item controls generates DB log
+error
+* [Inventory] Selecting to delete an Item Site displays an error
+message
+* [Inventory] createLotSerial::sAssign() SQL SELECT statement
+error
+* [Inventory] Item WB shows an error when calling a reference
+type item
+* [Inventory] Item site save blocked in PostBooks
+* [Inventory] Can not view P/O through Running Availability
+* [Inventory] Typo in function "invhisttrig"
+* [Manufacture] WO: Post Production gives "Set is not defined"
+ error => Cannot close work order
+* [Manufacture] Unable to “clock in” to Work Order
+* [Manufacture] Post Misc. production is not functional
+* [Manufacture] Print report of Work Order Operations generates
+DB log error
+* [Manufacture] Unable to view Job Costing for work order
+* [Manufacture] Print report of Breeder Distribution Variance
+generates DB log error
+* [Manufacture] dspWoBufferStatusByParameterList.ui: Print
+generates error
+* [Manufacture] dspWoOperationBufrStsByWorkCenter.ui: Querying
+displays error
+* [Manufacture] Viewing of material requirements for Work
+Order generates a DB log error
+* [Manufacture] Rescheduling Work Order is not functional
+* [Manufacture] Closing Work Order is not functional
+* [Manufacture] Selecting to implode a work order displays a
+error message
+* [Manufacture] dspWoEffortByUser.ui console error message
+* [Manufacture] laborRates.ui: button problems
+* [Manufacture] plannedSchedules.ui: print and edit button
+problems
+* [Manufacture] dspWoEffortByWorkOrder.ui: button problems
+* [Manufacture] printWoRouting.ui Printing results in DB log
+error
+* [Manufacture] Attempting to add operation to item results
+in DB log
+* [Manufacture] Post Misc Production does not use
+Materialssue conversion
+* [Manufacture] Work order can be created for phantom item
+types
+* [Manufacture] Error on create WO, set due date
+* [Products] No "Bill of Operations" observed
+* [Products] Ref item allowed on w/o mat'ls but not bom
+* [Products] Can create a BOO for a kit and phantom type
+item
+* [Products] View Costing Detail displays an error message
+* [Products] Print report of Breeder Bill Of Materials
+generates a DB log error
+* [Products] Update Actual Cost by Class Code results in
+error
+* [Products] Shiporder.cpp at 198 Nothing to do as the
+value to post to G/L is 0
+* [Products] The "Indented Where Used" form has reversed
+logic for the "show expired" check box
+* [Products] Can not create new BOO item
+* [Products] Transform into a phantom is allowed
+* [Products] Creating a new bom item fails with not-null
+constraint violation
+* [Purchase] Voucher screen does not show vendor name
+* [Purchase] Close/delete button next to purchase order
+line items list deletes the line item without warning
+* [Purchase] It is possible to post an unbalanced voucher
+* [Purchase] Printing a PO without MaintainPurchaseOrder
+Privilege Give Error
+* [Purchase] Problem with right-click and view voucher on
+vendors WB
+* [Purchase] Tab to next field skips unit price
+* [Purchase] Exiting voucher screen without saving
+generates orphan lines
+* [Reports] Issue with the stock Packing List Form in
+relation to using it with Transfer Orders
+* [Reports] Varying print quality when printing an invoice
+* [Sales] View privileges allow user to upload new documents/
+files in Sales Order
+* [Sales] Delete SO gives an error, when customer is
+associated with a default tax zone
+* [Sales] Selecting to create a Sales Order with Kit item
+type gives error
+* [Sales] Selecting to edit a sales order generates a DB
+log error
+* [Sales] Canceled line items on SO still taken in to
+reflect scheduled date on List Open Sales Order screen
+* [Sales] Post receipts button on Return Authorization-Line
+Item tab doesn't work
+* [Sales] Cannot view history of in-active item
+* [Sales] Default ship to does not populate on credit memo
+screen
+* [Sales] Performance Loss Issue: The Customer Workbench
+takes 14 to 15 Seconds to open
+* [Sales] Ship-to info does not populate by entering
+Ship-to # in S/O header screen
+* [Schedule] dspPlannedRevenuExpensesbyPlannerCode.UI:
+Closing the Planned Revenue screen displays a blank screen
+* [Schedule] Unable to save production plan of Cumulative
+MPS schedule type
+* [Schedule] dspMPSdetail.ui: Item Sites are not displayed
+with the selection of a particular warehouse
+* [Schedule] dspTimePhasedLoadByWorkCenter.ui:Querying
+displays error
+* [System] The application edition doesn't change upon
+loading the package
+* [System] RA "Automatic,Use RA #'s, Allow Override" number
+generation display an error message
+* [System] Selecting to view serial columns display an
+error message
+* [System] Cannot enter warehouse in invoiceline view
+* [System] Horiz Space gets save as Vertical Space in
+embedded designe
+* [System] Screen builder misrepresents horizontal spacers
+
+==================================
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.4.0Beta
+October 27, 2009
+==================================
+
+This is the Beta release of version 3.4.0--and also the first
+release in this shortened release cycle. Implementing the
+Manufacturing Edition as a package is the major focus of this
+release. And because of that we are especially eager to hear
+feedback from beta testers running the Manufacturing Edition.
+Here's an overview of new features in this release:
+
+Manufacturing Edition functionality as scripted Package
+  * Full spec: http://www.xtuple.org/issuetracker/view.php?id=8333
+
+Script Debugger
+  * Full spec: http://www.xtuple.org/issuetracker/view.php?id=8189
+
+CRM
+  * Multiple enhancements to Opportunities
+
+NOTE: If you are upgrading your database to version 3.4.0Beta, you
+must use the new Updater, version 2.2.0Beta.
+
+==================================
+
+The following features and bug fixes have been added to the
+applications since the release of 3.3.1. Additional detail for each
+item listed below may be found on our community website
+(www.xtuple.org). Simply go to the Issue Tracker and select the
+"Changelog" option.
+
+
+New Features:
+
+* [All] Convert xTuple Manufacturing Edition into a package
+* [Architectural] Add a boolean property to the screen widget that
+designates document locking
+* [CRM] Link Quotes and Sales Orders to Opportunities
+* [CRM] Tracking Changes in Opportunities
+* [CRM] Need to be able to search Opportunities by Name and CRM
+Account
+* [CRM] Inactive Opportunities
+* [CRM] Additional filters on Opportunities
+* [Sales] Add documents widget to Sales Order and Quote
+* [System] Script debugger
+* [System] Create views for budget and budget entry
+* [System] Expose ability to communicate with web services to
+scripting
+* [System] Add Q_INVOKABLE functions to vendorsgroup widget
+
+
+Bug Fixes:
+
+* [Accounting] Rescan does not correctly update scripted menu
+items
+* [Accounting] Misc. Check doesn't clear CM amount
+* [Accounting] Deleting a multi-job sales order only deletes
+the first job item
+* [Accounting] Changing quantities of materials on work orders
+does not honor the fractional flag of the materia
+* [Accounting] When typing JE on the G/L series screen user
+only can jump to next field with tab key
+* [Accounting] Item Allocations display uses work order due
+date when it should use material requirement due date
+* [Accounting] indented BOM list description only shows
+item_descrip1 column
+* [Accounting] It is possible to change currency on bank
+account
+* [Accounting] Transaction pairs separated on gl trans printed
+report
+* [Accounting] Tax not reversed when voiding vouche
+* [Accounting] Voiding voucher does not undo misc. tax
+distribution
+* [Accounting] Incomplete vohead record precludes subsequent
+processing of voucher
+* [Accounting] Can not load more than one UI into a screen
+with scripting
+* [Architectural] Scripts can not access the user name in the
+username cluster
+* [Architectural] Flip Files and Images button on Documents
+Widget
+* [Architectural] Screens should specify "Grade" instead of
+"Order" and use grade logic
+* [Architectural] XComboBox updates mapper model after
+newID(int) signal
+* [CRM] Auto Populate CRM Acct in To-Do created through an
+Oppty
+* [Inventory] Cannot edit item site when created with utility
+* [Inventory] Releasing TO from Line Item closes lin
+* [Inventory] Running availability is much slower in version
+3.3.0RC2 than 3.2.2
+* [Inventory] Year End/Inventory count posting dates
+* [Inventory] Site window does not let you set up tax zone;
+still uses tax authority
+* [Inventory] Receiving TO line items with not enough stock
+in transit site gives an error
+* [Manufacture] Enter does not save on Work Order screen
+* [Manufacture] Comment types on Close Work Order not
+filtered
+* [Manufacture] Error While querying Production Time Clock
+by Work Order report
+* [Products] Viewing cost detail fails with error "rev" does
+not exist
+* [Purchase] Open/close PO line items do not show on "by
+vendor" report
+* [Purchase] Rescheduling purchase order accepts blank dates
+* [Purchase] Item Source screen: Vendor ellipsis pulls up a
+list and not a search window
+* [Purchase] Print Purchase Orders By Agent screen not
+working
+* [Reports] Quote Template total calculation omits Misc.
+Charges
+* [Reports] PO rounding problem
+* [Sales] Incorrect data fetched in soheadtrigger
+* [Sales] 3.3 Sales analysis report issues
+* [Sales] Credit memo line item UOM changes back to default
+when editing CM line
+* [Sales] Create invoice is much slower than previous version
+* [Sales] Voided Check to Customer creates incorrect AR
+document
+* [Schedule] MRP not creating order for demand because of
+existing PRs
+* [Schedule] Selecting to release Planned orders generates
+db log error
+* [System] Privs problem for custom menu items
+* [System] XCheckBox memory doesn't work in screen builder
+environment
+* [System] Vendor Cluster id() function stops script
+* [System] Problem importing an invoice with no Order Number
+* [System] lupdate gives errors when processing scripts that
+use #include
+* [System] Work order explosion ignores config option

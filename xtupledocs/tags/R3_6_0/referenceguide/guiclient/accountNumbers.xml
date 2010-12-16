@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section533006">
+  <title id="accountNumbers"><indexterm significance="normal">
+      <primary>general ledger</primary>
+      <secondary>account numbers in</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>account numbers</primary>
+      <secondary>master list of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>G/L</primary>
+      <see>general ledger</see>
+    </indexterm>Chart of Accounts</title>
+  <para>To access the Chart of Accounts, select the "Chart of Accounts"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/accountNumbers.png" />
+        </imageobject>
+        <caption>Chart of Accounts</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Chart of Accounts" screen displays information on all existing
+  G/L Account Numbers defined within the application, including Company
+  segment (if used), Profit Center (if used), Account Number, Subaccount
+  Number (if used), Account description, and Account Type</para>
+  <xi:include href="accountNumber.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

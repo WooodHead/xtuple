@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section545734">
+  <title><indexterm significance="normal">
+      <primary>receiving</primary>
+      <secondary>list unposted receipts</secondary>
+    </indexterm>List Unposted Receipts</title>
+  <para>When you are receiving an Order, you have the option to either post it
+  or save it for posting later. If a Receipt is saved for posting later, it
+  will appear on the List Unposted Receipts screen. To access your unposted
+  Receipts, select the "List Unposted Receipts" option. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/unpostedPoReceipts.png" />
+        </imageobject>
+        <caption>List Unposted Receipts</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Unposted Receipts" screen displays information on all existing
+  unposted Order Receipts, including Order Number, Order Type, Vendor name,
+  Line Item Number, Order due date, Inventory Item Number, Inventory UOM,
+  Vendor Item Number, Vendor UOM, quantity ordered, quantity received,
+  quantity to receive, receipt date, and G/L posted date.</para>
+  <tip>
+    <para>You may select multiple Receipts for printing or posting by
+    highlighting them using your mouse&mdash;or a combination of your mouse
+    and either the SHIFT or CTRL keys.</para>
+  </tip>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>VIEW ORDER ITEM</term>
+      <listitem id="listitemN0x180ac00N0x1857574">
+        <para>Highlight a Receipt and then select this button to reach a
+        read-only view of the original Order Line Item screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

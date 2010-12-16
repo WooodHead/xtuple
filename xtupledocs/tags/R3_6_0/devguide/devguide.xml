@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+  <title>xTuple Developer Guide</title>
+  <titleabbrev>xTuple Developer Guide</titleabbrev>
+  <bookinfo>
+    <copyright>
+      <year>1998-2010</year>
+      <holder>xTuple</holder>
+    </copyright>
+    <pubdate>April 2010</pubdate>
+    <releaseinfo>Version 3.5</releaseinfo>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/splashXTuple.png" />
+      </imageobject>
+    </mediaobject>
+  </bookinfo>
+  <chapter>
+    <title>Development Environment Setup</title>
+    <xi:include href="devEnvSetup_windows_installfromsrc_msvc.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_windows_installfrompkg_msvc.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_windows_installfromsrc_mingw.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_windows_installfrompkg_mingw.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_macosx_installfromsrc_.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_macosx_installfrompkg_.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_linux_installfromsrc_.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_linux_installfrompkg_.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </chapter>
+  <index></index>
+</book>

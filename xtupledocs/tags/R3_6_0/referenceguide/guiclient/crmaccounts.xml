@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section572007">
+  <title><indexterm significance="normal">
+      <primary>accounts</primary>
+      <secondary>crm master list of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customer relationship management</primary>
+      <secondary>crm accounts and</secondary>
+    </indexterm>List CRM Accounts</title>
+  <para>Accounts are central to CRM. An Account holds information about an
+  entity and serves to define it further as a Customer, Prospect, Vendor,
+  Competitor, or Partner. To access the master list of CRM Accounts, select
+  the "List CRM Accounts" option. The following screen will appear.</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/crmaccounts.png" />
+        </imageobject>
+        <caption>CRM Accounts List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying the CRM Accounts list, you are presented with the
+  following options:</para>
+  <note>
+    <para>The system-defined default filter on the CRM Accounts list screen
+    shows all active CRM Accounts.</para>
+  </note>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <variablelist>
+    <varlistentry>
+      <term>Search</term>
+      <listitem>
+        <para>Enter search terms then select the QUERY button to locate
+        specific CRM Account records.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Contacts</term>
+      <listitem>
+        <para>Display lists CRM Accounts, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

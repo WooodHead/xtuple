@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560390">
+  <title><indexterm significance="normal">
+      <primary>to-do lists</primary>
+      <secondary>maintenance of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customer relationship management</primary>
+      <secondary>maintaining to-do lists for</secondary>
+    </indexterm>To-Do List</title>
+  <para>To access the To-Do List, select the "To-Do List" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/todoList.png" />
+        </imageobject>
+        <caption>To-Do List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When working with the To-Do List, you are presented with the following
+  options:</para>
+  <note>
+    <para>Black type indicates the To-Do has been completed&mdash;or it is due
+    on the current day. Red To-Dos are late. Green To-Dos are not yet
+    due.</para>
+  </note>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <variablelist>
+    <varlistentry>
+      <term>Show</term>
+      <listitem>
+        <para>Select from the following display options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>To-Do List</term>
+            <listitem>
+              <para>Select to include To-Do List items in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Incidents</term>
+            <listitem>
+              <para>Select to include Incidents in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Projects</term>
+            <listitem>
+              <para>Select to include Project tasks in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Completed</term>
+            <listitem>
+              <para>Select to include completed To-Do List items in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>To-Dos</term>
+      <listitem>
+        <para>Display lists To-Do List items, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Automatically Update</term>
+      <listitem>
+        <para>Select to automatically update the display every five
+        minutes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total</term>
+      <listitem>
+        <para>Displays the total number of To-Do's listed in the
+        search.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
