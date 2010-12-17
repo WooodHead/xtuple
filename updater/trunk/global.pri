@@ -22,6 +22,11 @@ exists(../openrpt) {
   error("Could not set the OPENRPT_DIR qmake variable.")
 }
 
+OPENRPT_BLD=$${OPENRPT_DIR}
+exists($${OPENRPT_DIR}-build-desktop) {
+  OPENRPT_BLD=$${OPENRPT_DIR}-build-desktop
+}
+
 exists(../../../xtuple) {
   XTUPLE_DIR = ../../xtuple
 }
@@ -41,11 +46,26 @@ exists(../xtuple/trunk) {
   XTUPLE_DIR = ../xtuple/trunk
 }
 
+XTUPLE_BLD=$${XTUPLE_DIR}
+exists($${XTUPLE_DIR}-build-desktop) {
+  XTUPLE_BLD=$${XTUPLE_DIR}-build-desktop
+}
+
+UPDATER_BLD=.
+exists(../updater-desktop-build) {
+  UPDATER_BLD=../updater-desktop-build
+}
+
 message("Looking for OpenRPT code in $${OPENRPT_DIR}.")
 message("Looking for xTuple code in $${XTUPLE_DIR}.")
 
-INCLUDEPATH += ../common ../$${OPENRPT_DIR}/common ../$${OPENRPT_DIR}/MetaSQL
-DEPENDPATH  += $${INCLUDEPATH}
+INCLUDEPATH += ../common \
+               ../$${OPENRPT_DIR}/common \
+               ../$${OPENRPT_DIR}/MetaSQL \
+               ../$${XTUPLE_DIR}/common  ../$${XTUPLE_BLD}/common
+DEPENDPATH  += ../$${UPDATER_BLD}/common ../$${OPENRPT_BLD}/common ../$${OPENRPT_BLD}/MetaSQL
+
+INCLUDEPATH = $$unique(INCLUDEPATH)
 
 CONFIG += release
 
