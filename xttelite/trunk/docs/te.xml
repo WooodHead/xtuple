@@ -4,9 +4,9 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter>
   <title>Open Sheets</title>
-  <para>Now that you've installed and set up Time &amp; Expense, you are ready
-  to begin processing Time and Expense Sheets. In this chapter we will review
-  how to process Open Time and Expense Sheets. The following topics will be
+  <para>Now that you've set up employees and projects, you are ready to begin
+  processing Time and Expense Sheets. In this chapter we will review how to
+  process Open Time and Expense Sheets. The following topics will be
   covered:</para>
   <itemizedlist>
     <listitem>
@@ -76,18 +76,19 @@
   </section>
   <section>
     <title>Sheet Details</title>
-    <para>Once you've clicked on the Line Items tab, you are ready to enter
-    detail information on the Sheet. To begin entering Line Items, click NEW
-    button. The following screen shows what you will see when entering
-    time:</para>
+    <para>Once you're on the Sheet tab, you are ready to enter detail
+    information on the Sheet. To begin entering Line Items, click NEW button.
+    The following screen shows what you will see when entering time:</para>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/timeentry.png" />
       </imageobject>
       <caption>Time Entry</caption>
     </mediaobject>
-    <para>The following screen shows what you will see when entering
-    expense:</para>
+    <para>Select the project, task and reference item previously created in
+    earlier chapters. Click SAVE to close and exit line item.</para>
+    <para>The following screen shows what you will see when selecting type as
+    Expense:</para>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/expenseentry.png" />
@@ -95,7 +96,12 @@
       <caption>Expense Entry</caption>
     </mediaobject>
     <note>
-      <para>Individual fields are detailed in Appendix A.</para>
+      <para>Individual fields are detailed in <ulink
+      url="http://www.xtuple.org/docs/reference-guide">Reference
+      Guide</ulink></para>
     </note>
+    <para>Again, select the project, task and reference item previously
+    created in earlier chapters. Click SAVE to close and exit line
+    item.</para>
   </section>
 </chapter>
