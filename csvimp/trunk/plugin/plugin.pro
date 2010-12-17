@@ -25,15 +25,15 @@ INCLUDEPATH += ../csvimpcommon ../csvimpcommon/images \
                ../$${OPENRPT_DIR}/common ../$${OPENRPT_DIR}/MetaSQL
 win32:INCLUDEPATH += .
 DEPENDPATH  += $${INCLUDEPATH}
-LIBS += -L../$${OPENRPT_DIR}/lib -lcommon -lMetaSQL
+LIBS += -L../$${OPENRPT_BLD}/lib -lcommon -lMetaSQL
 
 win32-msvc* {
-  PRE_TARGETDEPS += ../$${OPENRPT_DIR}/lib/common.lib   \
-                    ../$${OPENRPT_DIR}/lib/MetaSQL.lib  \
+  PRE_TARGETDEPS += ../$${OPENRPT_BLD}/lib/common.lib   \
+                    ../$${OPENRPT_BLD}/lib/MetaSQL.lib  \
 
 } else {
-  PRE_TARGETDEPS += ../$${OPENRPT_DIR}/lib/libcommon.a  \
-                    ../$${OPENRPT_DIR}/lib/libMetaSQL.a \
+  PRE_TARGETDEPS += ../$${OPENRPT_BLD}/lib/libcommon.a  \
+                    ../$${OPENRPT_BLD}/lib/libMetaSQL.a \
 }
 
 FORMS    = csvaddmapinputdialog.ui \

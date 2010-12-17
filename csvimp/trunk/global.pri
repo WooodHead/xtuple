@@ -25,6 +25,11 @@ exists(../openrpt) {
   error("Could not set the OPENRPT_DIR qmake variable.")
 }
 
+OPENRPT_BLD=$${OPENRPT_DIR}
+exists($${OPENRPT_DIR}-build-desktop) {
+  OPENRPT_BLD=$${OPENRPT_DIR}-build-desktop
+}
+
 macx:exists(macx.pri) {
   include(macx.pri)
 }
