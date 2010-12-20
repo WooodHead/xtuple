@@ -6,9 +6,9 @@
   <title>System Administration</title>
   <para>Before you can begin processing Time and Expense Sheets, you must
   first set up the system with Expense Items, create Employees, and configure
-  appropriate User Permissions. These activities could be completed by a
-  manager responsible for time and expense or dedicated information technology
-  professional. In this chapter we'll cover the following topics:</para>
+  appropriate User Permissions. These activities should be completed by a
+  manager responsible for time and expense―or dedicated information technology
+  professional. In this chapter, we'll cover the following topics:</para>
   <itemizedlist>
     <listitem>
       <para>Setting up Expense Items</para>
@@ -24,9 +24,10 @@
   and Expense Sheets!</para>
   <section>
     <title>Expense Item Setup</title>
-    <para>In order to use items for project expenses you need to create or
-    edit existing reference items and map expense accounts to general ledger.
-    Follow the steps below:</para>
+    <para>In order to use items for Project expenses, you need to create or
+    edit existing reference Items and map expense accounts to the General
+    Ledger. To demonstrate how this is done, we will use examples taken from
+    the xTuple demo database. To begin, follow the steps below:</para>
     <orderedlist>
       <listitem>
         <para>Follow this path: <guimenuitem>Products &gt; Item &gt;
@@ -37,7 +38,7 @@
         item. For this example, we'll select the MILEAGE item.</para>
       </listitem>
       <listitem>
-        <para>Select the Project Tab.</para>
+        <para>Select the "Project" Tab.</para>
       </listitem>
       <listitem>
         <para>The following screen will appear:</para>
@@ -86,9 +87,9 @@
   </section>
   <section>
     <title>Configuring Employees</title>
-    <para>Configuring employees in xTuple is a critical component to time and
-    expense since time sheets are associated with employee. Only users that
-    are set up as an employee and have the correct level of permissions will
+    <para>Configuring Employees in xTuple is a critical component to time and
+    expense since time sheets are associated with Employee. Only users that
+    are set up as an Employee and have the correct level of permissions will
     have the ability to track their time.</para>
     <orderedlist>
       <listitem>
@@ -105,7 +106,7 @@
       </imageobject>
       <caption>List Employees</caption>
     </mediaobject>
-    <para>Simply select New and complete employee information. Once employee
+    <para>Simply select New and complete Employee information. Once Employee
     record is Saved they are ready for assigned permissions.</para>
     <mediaobject>
       <imageobject>
@@ -113,8 +114,8 @@
       </imageobject>
       <caption>Employee</caption>
     </mediaobject>
-    <para>In order to create vouchers to compensate employees for expenses
-    performed according to time sheet, the employee must be selected as a
+    <para>In order to create vouchers to compensate Employees for expenses
+    performed according to time sheet, the Employee must be selected as a
     vendor. Click on Detail tab and click vendor box.</para>
     <mediaobject>
       <imageobject>
@@ -129,7 +130,7 @@
       </imageobject>
       <caption>Vendor Information</caption>
     </mediaobject>
-    <para>In order track cost of employee time as an expense the employee must
+    <para>In order track cost of Employee time as an expense the Employee must
     NOT be flagged as a Contractor and the compensation field must have a
     value greater than zero. Select the Financial tab and the following screen
     will appear.</para>
@@ -158,7 +159,7 @@
       </imageobject>
       <caption>List Users</caption>
     </mediaobject>
-    <para>In this scenario, let's say we have a new employee whose permissions
+    <para>In this scenario, let's say we have a new Employee whose permissions
     we want to review. To begin, follow these steps:</para>
     <orderedlist>
       <listitem>
