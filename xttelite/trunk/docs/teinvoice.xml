@@ -99,11 +99,11 @@
       <para>The buttons that are disabled are controlled by privileges.
       Privileges are discussed in System Administration.</para>
     </note>
+    <para>Select the Invoice check box at the bottom of the screen and click
+    the Process button to generate an Invoice. The invoice Status will change
+    to 'Yes' for Completed.</para>
+    <para>Next follow these steps to review the unposted invoice:</para>
     <orderedlist>
-      <para>Select the the Invoice check box at the bottom of the screen and
-      click the Process button to generate an Invoice. The invoice Status will
-      change to 'Yes' for Completed.</para>
-      <para>Next follow these steps to review the unposted invoice:</para>
       <listitem>
         <para>Follow this path: <guimenuitem>Accounting &gt; Accounts
         Receivable &gt; Invoice &gt; List Unposted...</guimenuitem></para>
@@ -118,7 +118,7 @@
         </mediaobject>
       </listitem>
       <listitem>
-        <para>Edit the Invoice in order to review the details. .</para>
+        <para>Edit the Invoice in order to review the details.</para>
         <note>
           <para>The Notes from the Time entry are passed through to the
           Invoice Item. These Notes will print on the Invoice and provide
@@ -130,6 +130,7 @@
       <imageobject>
         <imagedata fileref="images/invoicewithnotes.png" />
       </imageobject>
+      <caption>Invoice Item</caption>
     </mediaobject>
   </section>
   <section>
