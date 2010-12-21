@@ -46,10 +46,11 @@
       </imageobject>
       <caption>Open Sheets</caption>
     </mediaobject>
-    <note>
-      <para>The buttons that are disabled are controlled by privileges.
-      Privileges are discussed in System Administration.</para>
-    </note>
+    <tip>
+      <para>Some of the button options available in the toolbar may be
+      disabled if you do not have the appropriate privileges. For more
+      information, please see <xref linkend="configurePermissions" />.</para>
+    </tip>
     <para>Let's approve the open Sheet. To get started, follow these
     steps:</para>
     <orderedlist>
@@ -71,8 +72,13 @@
   <section>
     <title>Vouchering Sheets</title>
     <para>The vouchering of specific Sheets is performed in the Open Sheets
-    screen. For this scenario, we'll need to select a single Sheet to begin.
-    To select a Sheet, follow these steps:</para>
+    screen. For this scenario, we'll need to select a single Sheet to
+    begin.</para>
+    <note>
+      <para>In order to generate a Voucher for an Employee, the Employee must
+      also be a Vendor.</para>
+    </note>
+    <para>To select a Sheet, follow these steps:</para>
     <orderedlist>
       <listitem>
         <para>Follow this path: <guimenuitem>CRM &gt; Time and Expense &gt;
@@ -94,14 +100,11 @@
       </imageobject>
       <caption>Open Sheets</caption>
     </mediaobject>
-    <note>
-      <para>The buttons that are disabled are controlled by privileges.
-      Privileges are discussed in System Administration.</para>
-    </note>
-    <note>
-      <para>In order to generate a Voucher for an Employee, the Employee must
-      also be a Vendor.</para>
-    </note>
+    <tip>
+      <para>Some of the button options available in the toolbar may be
+      disabled if you do not have the appropriate privileges. For more
+      information, please see <xref linkend="configurePermissions" />.</para>
+    </tip>
     <para>To voucher, follow these steps:</para>
     <orderedlist>
       <listitem>
