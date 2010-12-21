@@ -4,7 +4,7 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter>
   <title>Vouchering Sheets</title>
-  <para>Now that you've set up items and employees, you are ready to begin
+  <para>Now that you've set up Items and Employees, you are ready to begin
   processing Time and Expense Sheets. In this chapter we will review how to
   voucher Open Time and Expense Sheets. The following topics will be
   covered:</para>
@@ -18,9 +18,9 @@
   </itemizedlist>
   <section>
     <title>Approving Sheets</title>
-    <para>Before you can voucher a time sheet they must be approved. Approving
+    <para>Before you can Voucher a Time Sheet they must be approved. Approving
     Sheets is performed in the Open Sheets screen. For this scenario, we'll
-    need to select a single sheet to begin. To select a Sheet, follow these
+    need to select a single Sheet to begin. To select a Sheet, follow these
     steps:</para>
     <orderedlist>
       <listitem>
@@ -28,10 +28,13 @@
         Expense...</guimenuitem></para>
       </listitem>
       <listitem>
-        <para>Select Stats Open and Query.</para>
+        <para>Select Status Open</para>
       </listitem>
       <listitem>
-        <para>Right click on the open Sheet.</para>
+        <para>Click QUERY</para>
+      </listitem>
+      <listitem>
+        <para>Right click on the open Sheet</para>
       </listitem>
       <listitem>
         <para>The following screen will appear:</para>
@@ -54,7 +57,7 @@
         <para>Select the Sheet</para>
       </listitem>
       <listitem>
-        <para>Right click select the Approve button. The Sheet is now Approved
+        <para>Right click select the APPROVE button. The Sheet is now approved
         and ready for Invoicing and Vouchering.</para>
       </listitem>
     </orderedlist>
@@ -68,7 +71,7 @@
   <section>
     <title>Vouchering Sheets</title>
     <para>The vouchering of specific Sheets is performed in the Open Sheets
-    screen. For this scenario, we'll need to select a single sheet to begin.
+    screen. For this scenario, we'll need to select a single Sheet to begin.
     To select a Sheet, follow these steps:</para>
     <orderedlist>
       <listitem>
@@ -76,7 +79,10 @@
         Open Sheets...</guimenuitem></para>
       </listitem>
       <listitem>
-        <para>Select Status Open and Approved click Query.</para>
+        <para>Select Status Open and approved</para>
+      </listitem>
+      <listitem>
+        <para>Click QUERY</para>
       </listitem>
       <listitem>
         <para>The following screen will appear:</para>
@@ -96,48 +102,46 @@
       <para>In order to generate a Voucher for an Employee, the Employee must
       also be a Vendor.</para>
     </note>
-    <para>To voucher follow these steps:</para>
+    <para>To voucher, follow these steps:</para>
     <orderedlist>
       <listitem>
-        <para>Select a Sheet that has been Approved</para>
+        <para>Select a Sheet that has been approved</para>
       </listitem>
       <listitem>
-        <para>Check the Voucher check box at the bottom of the screen and
-        click Process to generate a Voucher.</para>
+        <para>Check the "Voucher" check box at the bottom of the screen</para>
+      </listitem>
+      <listitem>
+        <para>Click PROCESS to generate a Voucher</para>
         <note>
-          <para>The Voucher Status changes to 'Yes' for Completed.</para>
+          <para>The Voucher Status changes to "Yes" for Completed.</para>
         </note>
       </listitem>
       <listitem>
-        <para>Review the unposted voucher</para>
-        <orderedlist>
-          <listitem>
-            <para>Follow this path: <guimenuitem>Accounting &gt; Accounts
-            Payable &gt; Voucher &gt; List Unposted...</guimenuitem></para>
-          </listitem>
-          <listitem>
-            <para>The following screen will appear:</para>
-            <mediaobject>
-              <imageobject>
-                <imagedata fileref="images/unpostedvouchers.png" />
-              </imageobject>
-              <caption>Unposted Vouchers</caption>
-            </mediaobject>
-          </listitem>
-          <listitem>
-            <para>The Expense Item setup drives the automated distribution in
-            the Voucher.</para>
-            <mediaobject>
-              <imageobject>
-                <imagedata fileref="images/voucherwithdistributions.png" />
-              </imageobject>
-              <caption>Voucher with Distributions</caption>
-            </mediaobject>
-            <para>The Notes from the Expense entry are passed through to the
-            Voucher Item as well.</para>
-          </listitem>
-        </orderedlist>
+        <para>To review the unposted Voucher, follow this path:
+        <guimenuitem>Accounting &gt; Accounts Payable &gt; Voucher &gt; List
+        Unposted...</guimenuitem></para>
+      </listitem>
+      <listitem>
+        <para>The following screen will appear:</para>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/unpostedvouchers.png" />
+          </imageobject>
+          <caption>Unposted Vouchers</caption>
+        </mediaobject>
       </listitem>
     </orderedlist>
+    <para>The accounting distribution for the Voucher is determined by the
+    expense accounting information entered on the Item master for the
+    reference Item being used. The following screen shows the fully
+    distributed Voucher:</para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/voucherwithdistributions.png" />
+      </imageobject>
+      <caption>Voucher with Distributions</caption>
+    </mediaobject>
+    <para>In addition, the Voucher line item will also contain any notes that
+    were associated with the expense entry.</para>
   </section>
 </chapter>

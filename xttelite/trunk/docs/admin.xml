@@ -36,9 +36,13 @@
       <listitem>
         <para>Select an existing Reference item, or create a new Reference
         item. For this example, we'll select the MILEAGE item.</para>
+        <note>
+          <para>The Project tab is only available for reference Item
+          Types.</para>
+        </note>
       </listitem>
       <listitem>
-        <para>Select the "Project" Tab.</para>
+        <para>Select the "Project" tab.</para>
       </listitem>
       <listitem>
         <para>The following screen will appear:</para>
@@ -52,15 +56,12 @@
           <caption>Expense Item Setup</caption>
         </mediaobject>
       </screenshot></para>
+    <para>Once the "Allow use as Expense Item on Projects" has been selected,
+    the Project tab provides the ability to select a specific Account or
+    Expense Category.</para>
     <note>
-      <para>The Project tab is only available for Reference item types.</para>
-    </note>
-    <para>Once "Allow use as Expense Item on Projects" is checked, the Project
-    tab provides the ability to select a specific Account OR Expense
-    Category.</para>
-    <note>
-      <para>In order to track costs for a Project an account or category MUST
-      be selected for the item.</para>
+      <para>In order to track costs for a Project, an account or category MUST
+      be selected for the Item.</para>
     </note>
     <variablelist>
       <varlistentry>
@@ -87,14 +88,15 @@
   </section>
   <section>
     <title>Configuring Employees</title>
-    <para>Configuring Employees in xTuple is a critical component to time and
-    expense since time sheets are associated with Employee. Only users that
-    are set up as an Employee and have the correct level of permissions will
-    have the ability to track their time.</para>
+    <para>Configuring Employees in xTuple is a critical component of the Time
+    and Expense package, since Time Sheets are associated with Employees. Only
+    users who are set up as an Employee and have the correct level of
+    permissions will have the ability to track their time. Again, our example
+    will focus on users found in the xTuple demo database.</para>
     <orderedlist>
       <listitem>
         <para>To get started go to <guilabel>System &gt; Employees &gt;
-        List....</guilabel></para>
+        List...</guilabel></para>
       </listitem>
       <listitem>
         <para>The following screen will appear:</para>
@@ -106,47 +108,57 @@
       </imageobject>
       <caption>List Employees</caption>
     </mediaobject>
-    <para>Simply select New and complete Employee information. Once Employee
-    record is Saved they are ready for assigned permissions.</para>
+    <para>To create a new Employee, simply select the NEW button and enter the
+    required Employee information. The following screen will appear:</para>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/employee.png" />
       </imageobject>
       <caption>Employee</caption>
     </mediaobject>
-    <para>In order to create vouchers to compensate Employees for expenses
-    performed according to time sheet, the Employee must be selected as a
-    vendor. Click on Detail tab and click vendor box.</para>
+    <para>The first information you will be asked to enter is the Contact
+    information for the Employee. If that information already exists, you can
+    look it up and add it from this screen. Or if it does not already exist,
+    then you can manually enter the information now.</para>
+    <para>In order to create Vouchers to compensate Employees for expenses
+    performed according to their Time Sheets, the Employee must be selected as
+    a Vendor. Click on the "Detail" tab and select the "Vendor" option, as
+    shown in the next screenshot:</para>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/employeevendor.png" />
       </imageobject>
       <caption>Employee Vendor</caption>
     </mediaobject>
-    <para>Click Vendor button to enter detailed vendor information.</para>
+    <para>Once you have indicated you want to link the Employee to a Vendor
+    record, select the VENDOR button. This will launch the Vendor screen,
+    where you can enter detailed Vendor information.</para>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/employeevendor2.png" />
       </imageobject>
       <caption>Vendor Information</caption>
     </mediaobject>
-    <para>In order track cost of Employee time as an expense the Employee must
-    NOT be flagged as a Contractor and the compensation field must have a
-    value greater than zero. Select the Financial tab and the following screen
-    will appear.</para>
+    <para>Getting back to the Employee screen, select the "Financial" tab to
+    enter financial information. Keep in mind that in order to track the cost
+    of Employee time as an expense, the Employee must NOT be flagged as a
+    Contractor and the compensation field must have a value greater than
+    zero.</para>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/contractor.png" />
       </imageobject>
       <caption>Employee Financial</caption>
     </mediaobject>
+    <para>Once you have finished entering Employee information, you are ready
+    to assign permissions.</para>
   </section>
   <section>
     <title>Configuring User Permissions</title>
     <para>xTuple ERP has the powerful ability to manage user permissions,
     enabling you to allow or disallow access to various functional areas of
     the system. For example, a clerk may enter time and expense, while a
-    manager may have the ability to Approve entries.</para>
+    manager may have the ability to approve entries.</para>
     <para>There are several options available to you when managing system
     users. You can either A) assign individual permissions to users B) create
     preconfigured groups of permissions and assign individuals to these groups
@@ -192,8 +204,8 @@
     privileges defined according to standard job roles. The following path
     takes you to the screen for defining role privileges: <guimenuitem>System
     &gt; Maintain Roles</guimenuitem>. More information regarding Role setup,
-    please consult the xTuple ERP <ulink
-    url="http://www.xtuple.org/docs/reference-guide">Reference
+    please consult the <ulink
+    url="http://www.xtuple.org/docs/reference-guide">xTuple ERP Reference
     Guide</ulink>.</para>
     <tip>
       <para>Time and Expense entry is closely integrated with Projects and
