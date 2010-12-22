@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section role="xtconnect">
@@ -86,7 +86,11 @@
           <term>Show All EDI Profiles</term>
           <listitem>
             <para>The list of EDI Profiles shows only those EDI Profiles that
-            have an EDI Form for the currently</para>
+            have an EDI Form for the currently selected Document Type by
+            default. If this box is checked, all EDI Profiles will be listed.
+            You may attach an EDI Profile without an appropriate EDI Form but
+            it will not be used until the right EDI Form is added to the EDI
+            Profile.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
