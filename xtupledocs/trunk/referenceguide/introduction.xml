@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="US-ASCII"?>
 <!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
@@ -313,11 +313,11 @@
     <section>
       <title>xTuple Desktop</title>
       <para>Once you have logged in, the main application desktop will appear.
-      There are two different desktop options―and the one you see depends on
-      your user preference settings. (To learn more about user preferences,
-      please see <xref linkend="Section941111" />.) If you choose the "Show
-      windows as free-floating" preference, you will see the most popular
-      desktop option:</para>
+      There are two different desktop options&horbar;and the one you see
+      depends on your user preference settings. (To learn more about user
+      preferences, please see <xref linkend="Section941111" />.) If you choose
+      the "Show windows as free-floating" preference, you will see the most
+      popular desktop option:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
@@ -1578,8 +1578,8 @@
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>Right-click options will vary from screen to screen―and from
-      edition to edition. In our sample Bill of Materials example, the
+      <para>Right-click options will vary from screen to screen&horbar;and
+      from edition to edition. In our sample Bill of Materials example, the
       right-click options basically mirror the functionality of buttons
       already available within the screen. This will not always be the case,
       though. Often, the right-click feature reveals important and useful
@@ -1840,8 +1840,12 @@
         <varlistentry role="xtconnect">
           <term>SCHEDULE</term>
           <listitem>
-            <para>Submits the report or job to xTuple Connect for
-            processing.</para>
+            <para>Submits the report or job to xTuple Connect for processing.
+            When schedulinjg reports you have the option of sending them
+            directly to a printer or emailing them. If you choose to print,
+            the default printer on the computer running the xTuple Connect
+            Batch Manager is used. If you choose to send the report by email,
+            you will have to supply an email address and message text.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1860,8 +1864,8 @@
       languages are also available for download from many sites on the
       Internet.</para>
       <para>The spell checking feature has been designed to operate with a
-      user's Locale settings―which means that if you are using a Locale other
-      than English (and you have the correct Hunspell dictionary files
+      user's Locale settings&horbar;which means that if you are using a Locale
+      other than English (and you have the correct Hunspell dictionary files
       installed) the spell checker should work in your specified
       language.</para>
     </section>
