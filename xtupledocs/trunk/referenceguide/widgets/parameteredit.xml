@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="parameteredit">
+  <title>MetaSQL Parameter Editor</title>
+  <para>The MetaSQL Parameter Editor lets you choose whether or not a MetaSQL
+  query will use a particular Parameter and what the value of that Parameter
+  should be. The value can be constrained to legal values by choosing a data
+  type for it.</para>
+  <para>The MetaSQL Parameter Editor is usually embedded in another window.
+  Examples include the Export Data window and xTuple Connect's Review EDI
+  Before Sending window. This is an example of what it looks like:<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/parameteredit.png" />
+        </imageobject>
+      </mediaobject>
+    </screenshot></para>
+  <para>This example shows a single Parameter called
+  <literal>cust_number</literal>. The value of this parameter has not been set
+  yet and it is not active, so it will not be used when a MetaSQL query is
+  run.</para>
+  <para>If you click the EDIT button you can set the value of this Parameter
+  and whether it is active or not. You will see the following
+  screen:<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/parameterproperties.png" />
+        </imageobject>
+        <caption><para>The Parameter Properties window</para></caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When you open the Parameter Properties window, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Choose the data type of this parameter. Options include the
+        following:</para>
+        <variablelist>
+          <varlistentry>
+            <term>String</term>
+            <listitem>
+              <para>This lets you enter free-form text and is the most common
+              Type used.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Bool</term>
+            <listitem>
+              <para>This lets you choose either "True" or "False".</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Int</term>
+            <listitem>
+              <para>This restricts input to a valid integer value, reducing
+              the potential for errors. This should be used when entering
+              internal id numbers.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Double</term>
+            <listitem>
+              <para>This restricts input to valid numerical values, reducing
+              the potential for errors. This should be used when entering
+              monetary values, weights, and percentages.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>List</term>
+            <listitem>
+              <para>This allows entering a list of values. It is not used very
+              often.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <tip>
+          <para>Select "String" as the Type if you need to enter a date. Any
+          text value that the PostgreSQL database server can convert to a
+          valid date can be entered here.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>This is the name of the MetaSQL Parameter as it appears in the
+        MetaSQL query. If you are using the Parameter Editor when executing a
+        Query Set or MetaSQL Query from the xTuple ERP application, you should
+        not change the Name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Active</term>
+      <listitem>
+        <para>Check this box to pass this parameter and its value to the
+        MetaSQL Query.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Type or select the value you want to set for this Parameter. The
+        appearance of this field will change based on the Type.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
