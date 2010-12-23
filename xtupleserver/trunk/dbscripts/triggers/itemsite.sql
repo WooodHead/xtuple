@@ -318,7 +318,7 @@ BEGIN
         _state := _state + 4;
       END IF;
 
-      IF (_state IN (41, 43, 14, 34, 24, 42, 44)) THEN
+      IF ( (_application = 'Standard') AND (_state IN (41, 43, 14, 34, 24, 42, 44)) ) THEN
         -- Check for Reservations
         IF (SELECT COUNT(*) > 0
             FROM itemloc JOIN itemlocrsrv ON (itemlocrsrv_itemloc_id=itemloc_id)
