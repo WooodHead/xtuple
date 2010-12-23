@@ -83,7 +83,7 @@ BEGIN
     END IF;
 
     IF (pTransType = 'TS' OR pTransType = 'TR') THEN
-      SELECT * INTO _t FROM tohead WHERE (tohead_number=pOrderNumber);
+      SELECT * INTO _t FROM tohead WHERE (tohead_number=pDocNumber);
       IF (pTransType = 'TS') THEN
 	_xferwhsid := CASE
 	    WHEN (_t.tohead_src_warehous_id=_r.itemsite_warehous_id) THEN _t.tohead_trns_warehous_id
@@ -112,13 +112,13 @@ BEGIN
     IF (pTransType='TS') THEN
       _sense := CASE WHEN (SELECT tohead_trns_warehous_id=_r.itemsite_warehous_id
 			   FROM tohead
-			   WHERE (tohead_number=pOrderNumber)) THEN -1
+			   WHERE (tohead_number=pDocNumber)) THEN -1
 			   ELSE 0
 			   END;
     ELSIF (pTransType='TR') THEN
       _sense := CASE WHEN (SELECT tohead_src_warehous_id=_r.itemsite_warehous_id
 			   FROM tohead
-			   WHERE (tohead_number=pOrderNumber)) THEN 0
+			   WHERE (tohead_number=pDocNumber)) THEN 0
 			   ELSE 1
 			   END;
     ELSIF (pTransType IN ('IM', 'IB', 'IT', 'SH', 'SI', 'EX', 'RI')) THEN
