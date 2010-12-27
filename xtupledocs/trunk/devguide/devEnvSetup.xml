@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="US-ASCII"?>
 <!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
@@ -105,25 +105,27 @@
       to non-build machines or to run the resulting binaries from file
       servers.</para>
       <para condition="mingw" os="windows">Newer versions of the Qt SDK
-      include MinGW. If you need to obtain MinGW separately:<orderedlist>
-          <listitem>
-            <para>Point your browser to
-            http://sourceforge.net/projects/mingw/</para>
-          </listitem>
-          <listitem>
-            <para>Click on Download -&gt; SF File Release -&gt;
-            MinGW-version.exe</para>
-          </listitem>
-          <listitem>
-            <para>Run the downloaded installer. When it asks which components
-            to install, select at least MinGW base tools, g++ compiler, and
-            MinGW make. Otherwise accept all of the defaults</para>
-          </listitem>
-          <listitem>
-            <para>If you want to build PostgreSQL from source, see
-            below.</para>
-          </listitem>
-        </orderedlist></para>
+      include MinGW. If you plan to install from source, however, you will
+      need to obtain MinGW separately.</para>
+      <orderedlist condition="mingw" os="windows" userlevel="installfromsrc">
+        <listitem>
+          <para>Point your browser to <ulink
+          url="???">http://sourceforge.net/projects/mingw/</ulink></para>
+        </listitem>
+        <listitem>
+          <para>Click on Download Now</para>
+        </listitem>
+        <listitem>
+          <para>If you are prompted, choose to save the
+          <literal>mingw-get-inst-version.exe</literal> file</para>
+        </listitem>
+        <listitem>
+          <para>Run the downloaded installer. When it asks which components to
+          install, select at least the C++ compiler, the MSYS Basic System,
+          and the Developer Toolkit. Otherwise accept all of the
+          defaults</para>
+        </listitem>
+      </orderedlist>
       <para condition="msvc" os="windows">To get MSVC:<orderedlist>
           <listitem>
             <para>point your browser to Microsoft Visual C++ Express web
@@ -267,41 +269,32 @@
           </tbody>
         </tgroup>
       </table>
-      <para condition="mingw" os="windows" userlevel="installfrompkg">Install
-      the PostgreSQL binary distribution.<orderedlist>
-          <listitem>
-            <para>Click on binary -&gt; version number -&gt; win32 -&gt;
-            postgresql-version-1.zip</para>
-          </listitem>
-          <listitem>
-            <para>Extract the contents of the archive to a temporary location,
-            such as your desktop or C:\WINDOWS\Temp\postgres</para>
-          </listitem>
-          <listitem>
-            <para>If you just want the development libraries and header files,
-            look inside the extracted directory and copy the folder pgsql to
-            C:\Qt.</para>
-          </listitem>
-          <listitem>
-            <para>If you want to install the entire PostgreSQL system,
-            continue with the following steps:</para>
-            <orderedlist>
-              <listitem>
-                <para>Double-click postgresql-version.msi</para>
-              </listitem>
-              <listitem>
-                <para>At minimum you must install the Development packages and
-                the pgcrypto contributed software. You may install more if you
-                like.</para>
-              </listitem>
-            </orderedlist>
-          </listitem>
-        </orderedlist></para>
-      <para condition="msvc" os="windows" userlevel="installfrompkg">If you
-      already have a PostgreSQL database server installed somewhere and you
-      plan to install Qt with a prebuilt binary package, you do not need to
-      download or install any PostgreSQL packages. Just make sure that your
-      database server has the pgcrypto contributed software installed.</para>
+      <para condition="mingw" os="windows" userlevel="installfrompkg">The
+      PostgreSQL community no longer distributes binary packages of PostgreSQL
+      built with MinGW. According to the PostgreSQL documentation you will
+      have to build PostgreSQL from source.</para>
+      <para condition="msvc" os="windows" userlevel="installfrompkg">Install
+      the PostgreSQL binary distribution using the one-click installer from
+      Enterprise DB:</para>
+      <orderedlist condition="msvc" os="windows" userlevel="installfrompkg">
+        <listitem>
+          <para>There is a section marked "Binary Packages" near the top of
+          the Downloads page. Click on "Windows"</para>
+        </listitem>
+        <listitem>
+          <para>Click on the appropriate button for your Windows environment
+          in the "One click installer" section.</para>
+        </listitem>
+        <listitem>
+          <para>If you are prompted by your browser, choose to SAVE the
+          <literal>postgresql-version-windows.exe</literal> file.</para>
+        </listitem>
+        <listitem>
+          <para>After the download is complete, double-click
+          <literal>postgresq-version-windows.exe</literal> file and follow the
+          instructions.</para>
+        </listitem>
+      </orderedlist>
       <orderedlist os="macosx">
         <listitem>
           <para>Click on Mac OS X.</para>
@@ -330,6 +323,39 @@ $ bin/psql -d template1 -f share/postgresql/contrib/pgcrypto.sql </programlistin
         </listitem>
       </orderedlist>
       <para os="linux">?????</para>
+      <para userlevel="installfromsrc">To build PostgreSQL from source, first
+      download the source code from <ulink
+      url="www.postgresql.org">www.postgresql.org</ulink>:</para>
+      <orderedlist userlevel="installfromsrc">
+        <listitem>
+          <para>Click DOWNLOADS</para>
+        </listitem>
+        <listitem>
+          <para>Click SOURCE CODE</para>
+        </listitem>
+        <listitem>
+          <para>Click on the desired version number</para>
+        </listitem>
+        <listitem>
+          <para>Click on <literal>postgresql-version.tar.gz</literal></para>
+        </listitem>
+        <listitem>
+          <para>Click on one of the download sites near you</para>
+        </listitem>
+        <listitem>
+          <para>If prompted, choose to save the file</para>
+        </listitem>
+        <listitem>
+          <para>Copy the file to a location where you want to build PostgreSQL
+          (e.g. <literal>/usr/local/src/postgres</literal> or
+          <literal>c:\postgresql</literal>) and unpack the source files:
+          <literal>tar xzf postgresq-version.tar.gz</literal></para>
+        </listitem>
+      </orderedlist>
+      <para userlevel="installfromsrc">Then follow the steps in the PostgreSQL
+      documentation on <ulink
+      url="http://www.postgresql.org/docs/current/static/installation.html">installing
+      from source code</ulink>. </para>
       <para condition="msvc" os="windows" userlevel="installfromsrc">If you
       plan to build Qt from source, you will need to build the client-side
       library for PostgreSQL from source. Microsoft Visual C++ Express is not
@@ -351,11 +377,19 @@ $ bin/psql -d template1 -f share/postgresql/contrib/pgcrypto.sql </programlistin
             <programlisting>nmake /f win32.mak</programlisting>
           </listitem>
           <listitem>
-            <para>Build and install the pgcrypto contributed software for use
-            with credit card processing in the contrib\pgcrypto directory of
-            the distribution.</para>
+            <para>Build and install the pgcrypto contributed software in the
+            contrib\pgcrypto directory of the distribution.</para>
           </listitem>
         </orderedlist></para>
+      <para condition="mingw" os="windows" userlevel="installfromsrc">Launch
+      the msys application: <guimenuitem>Start &gt; MinGW &gt; MSys &gt;
+      msys</guimenuitem></para>
+      <para condition="mingw" os="windows" userlevel="installfromsrc">In the
+      shell window that appears:</para>
+      <programlisting condition="mingw" os="windows"
+                      userlevel="installfromsrc">./configure --prefix=/c/postgresql/pgversion #see table above for options, possibly --without-readline --without-zlib
+mingw32-make
+mingw32-make install</programlisting>
       <para os="macosx" userlevel="installfromsrc">If you need to build
       universal binaries of PostgreSQL, see Mark Liyanage's blog.
       Otherwise:<programlisting>mkdir /opt/postgresql
@@ -767,7 +801,7 @@ LD_LIBRARY_PATH=/opt/lib:/opt/qt/Qt-version/lib</programlisting>
       <para>In the cmd window that appears, execute the following
       commands:</para>
       <programlisting>&gt; cd src\plugins\sqldrivers\psql
-&gt; qmake "INCLUDEPATH+=C:\Qt\pgsql\include" "LIBS+=C:\Qt\pgsql\lib\libpq.lib"
+&gt; qmake "INCLUDEPATH+=C:\\Qt\\pgsql\\include" "LIBS+=C:\\Qt\\pgsql\\lib\\libpq.a"
 &gt; mingw32-make</programlisting>
       <para>We must now build QT to include the sqldrivers. First remove two
       files to avoid the dreaded "<code>*** [sub-webkit-make_default-ordered]
