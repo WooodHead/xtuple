@@ -1,8 +1,8 @@
-CREATE OR REPLACE FUNCTION itemAltCapUOM(INTEGER) RETURNS TEXT AS '
+CREATE OR REPLACE FUNCTION itemAltCapUOM(INTEGER) RETURNS TEXT STABLE AS $$
 DECLARE
   pItemid ALIAS FOR $1;
 
 BEGIN
-  RETURN itemUOMByType(pItemid, ''AltCapacity'');
+  RETURN itemUOMByType(pItemid, 'AltCapacity');
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
