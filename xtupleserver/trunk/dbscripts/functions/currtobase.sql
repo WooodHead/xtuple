@@ -5,7 +5,7 @@
 -- loss. now we have to use the same rate the user sees, so round the
 -- curr_rate.  see mantis #3901.
 
-CREATE OR REPLACE FUNCTION currToBase (integer, numeric, date) RETURNS NUMERIC AS $$
+CREATE OR REPLACE FUNCTION currToBase (integer, numeric, date) RETURNS NUMERIC STABLE AS $$
     DECLARE
 	pId     ALIAS FOR $1;
 	pValue  ALIAS FOR $2;

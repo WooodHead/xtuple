@@ -1,8 +1,8 @@
-CREATE OR REPLACE FUNCTION itemCapInvRat(INTEGER) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION itemCapInvRat(INTEGER) RETURNS NUMERIC STABLE AS $$
 DECLARE
   pItemid ALIAS FOR $1;
 
 BEGIN
-  RETURN itemUOMRatioByType(pItemid, ''Capacity'');
+  RETURN itemUOMRatioByType(pItemid, 'Capacity');
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
