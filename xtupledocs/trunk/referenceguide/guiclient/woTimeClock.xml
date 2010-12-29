@@ -23,14 +23,12 @@
     </tip></para>
   <para>Some users may be "Shop Floor Workbench only" users, meaning the only
   screen they see when they log in to xTuple is the Shop Floor Workbench.
-  There are no no particular user-level privileges required to start the Shop
-  Floor Workbench for these these users. However, certain privileges do
-  control the functioning of the Post Production and Post Operations screens,
-  which may be accessed by Shop Floor Workbench only users when they are
-  clocking out of a Work Order.</para>
-  <para>If your site is configured to use the Post Production style for the
-  Shop Floor Workbench, the following privileges may control the capabilities
-  of Shop Floor Workbench only users:</para>
+  These users do not require any privileges to run the Shop Floor Workbench.
+  The ability to post Production or post Operations is "baked into" the "Shop
+  Floor Workbench only" user functionality.</para>
+  <para>However, if your site is configured to use the "Post Production" style
+  for the Shop Floor Workbench, the following privileges may be used to
+  enhance the capabilities of Shop Floor Workbench users:</para>
   <itemizedlist>
     <listitem>
       <para><literal>AlterTransactionDates</literal></para>
@@ -42,8 +40,8 @@
       <para><literal>ChangeNonPickItems</literal></para>
     </listitem>
   </itemizedlist>
-  <para>By contrast, if you are configured to use the Post Operations style,
-  the following privileges are possible:</para>
+  <para>By contrast, if you are configured to use the "Post Operations" style,
+  the following privileges are available:</para>
   <itemizedlist>
     <listitem>
       <para><literal>OverrideWOTCTime</literal></para>
@@ -58,9 +56,9 @@
       <para><literal>ChangeReceiveInventory</literal></para>
     </listitem>
   </itemizedlist>
-  <para>In addition, when accessing the Shop Floor Workbench features and
-  reports from the main application menu, the following privileges are
-  required:</para>
+  <para>In addition, the following privileges may be assigned to allow for
+  accessing Shop Floor Workbench features and reports from the main
+  application menu:</para>
   <itemizedlist>
     <listitem>
       <para><literal>woTimeClock</literal> to open the Shop Floor Workbench
@@ -68,11 +66,11 @@
     </listitem>
     <listitem>
       <para><literal>ViewWoTimeClock</literal> to run the display/report
-      windows to see the data (such as Production Time Clock) </para>
+      windows to see the data (such as Production Time Clock)</para>
     </listitem>
     <listitem>
       <para><literal>MaintainWoTimeClock</literal> to turn on the ability to
-      change the clocked times </para>
+      change the clocked times</para>
     </listitem>
   </itemizedlist>
   <para>To access the Shop Floor Workbench, select the "Shop Floor Workbench"
