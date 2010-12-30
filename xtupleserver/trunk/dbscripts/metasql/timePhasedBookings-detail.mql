@@ -6,9 +6,9 @@ SELECT
 <? if exists("byCust") ?>
   cust_id, cust_number, cust_name, 
 <? elseif exists("byProdcat") ?>
-  prodcat_id, prodcat_code,
+  prodcat_id, prodcat_code, prodcat_descrip,
 <? elseif exists("byItem") ?>
-  item_id, item_number,
+  item_id, item_number, item_descrip1,
 <? endif ?>
   uom, warehous_code
 -- Loop through each period bucket to find bookings for period
@@ -28,9 +28,9 @@ FROM (
 <? if exists("byCust") ?>
          cust_id, cust_number, cust_name
 <? elseif exists("byProdcat") ?>
-         prodcat_id, prodcat_code
+         prodcat_id, prodcat_code, prodcat_descrip
 <? elseif exists("byItem") ?>
-         item_id, item_number
+         item_id, item_number, item_descrip1
 <? endif ?>
        , warehous_code
 <? if exists("salesDollars") ?>
@@ -59,7 +59,7 @@ FROM (
 <? if exists("inventoryUnits") ?>
    JOIN uom ON (item_inv_uom_id=uom_id)
 <? endif ?>
-   JOIN whsinfo ON (itemsite_warehous_id=warehous_id)
+   JOIN site() ON (itemsite_warehous_id=warehous_id)
 <? if reExists("[cC]ust") ?>
    JOIN custinfo ON (cohead_cust_id=cust_id)
 <? endif ?> 
@@ -76,6 +76,9 @@ FROM (
     AND findPeriodEnd(<? value("period_id_list") ?>)
   <? endif ?>
 <? endforeach ?>)
+<? if exists("cust_id") ?> 
+    AND (cust_id=<? value("cust_id") ?>)
+<? endif ?>
 <? if exists("custtype_id") ?> 
     AND (cust_custtype_id=<? value("custtype_id") ?>)
 <? endif ?>
@@ -100,9 +103,9 @@ GROUP BY
 <? if exists("byCust") ?>
   cust_id, cust_number, cust_name, 
 <? elseif exists("byProdcat") ?>
-  prodcat_id, prodcat_code,
+  prodcat_id, prodcat_code, prodcat_descrip,
 <? elseif exists("byItem") ?>
-  item_id, item_number,
+  item_id, item_number, item_descrip1,
 <? endif ?>
   uom, warehous_code
 ORDER BY 
