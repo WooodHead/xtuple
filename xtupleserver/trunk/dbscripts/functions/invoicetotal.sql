@@ -40,7 +40,7 @@ BEGIN
       AND   (aropen_docnumber=invchead_invcnumber)
       AND   (aropen_doctype='I')
       AND   (arapply_target_aropen_id=aropen_id)
-      AND   (arapply_reftype='S' OR arapply_reftype IS NULL)
+      AND   (arapply_reftype='S')
       AND   (invchead_posted) ) ;
   ELSE
     SELECT COALESCE(SUM(CASE WHEN((aropen_amount - aropen_paid) >=
