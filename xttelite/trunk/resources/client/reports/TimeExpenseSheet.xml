@@ -3,6 +3,10 @@
  <title>Time Expense Sheet</title>
  <name>TimeExpenseSheet</name>
  <description></description>
+ <parameter default="211" active="true" listtype="dynamic" type="string" name="tehead_id">
+  <description></description>
+  <query>SELECT tehead_id, tehead_number || '-' || tehead_username FROM tehead ORDER By tehead_number DESC;</query>
+ </parameter>
  <grid>
   <snap/>
   <show/>
@@ -66,7 +70,7 @@ FROM te.teitem
   LEFT OUTER JOIN custinfo ON (cust_id=teitem_cust_id)
 WHERE ((teitem_tehead_id=&lt;? value("tehead_id") ?>)
   AND (teitem_type='T'))
-ORDER BY teitem_workdate, teitem_linenumber;</sql>
+ORDER BY teitem_tehead_id, teitem_workdate, teitem_linenumber;</sql>
  </querysource>
  <querysource>
   <name>expense</name>
@@ -105,12 +109,43 @@ WHERE ((teitem_tehead_id=&lt;? value("tehead_id") ?>)
   AND (teitem_type='E'))
 ORDER BY teitem_workdate, teitem_linenumber;</sql>
  </querysource>
+ <querysource>
+  <name>prjsum</name>
+  <sql>SELECT
+  teitem_tehead_id,
+  prj_number,
+  SUM(teitem_qty) AS total_hours,
+  SUM(teitem_total) AS billing_total
+FROM te.teitem
+  JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
+  JOIN prj ON (prjtask_prj_id=prj_id)
+  JOIN item ON (item_id=teitem_item_id)
+  LEFT OUTER JOIN custinfo ON (cust_id=teitem_cust_id)
+WHERE ((teitem_tehead_id=&lt;? value("tehead_id") ?>)
+  AND (teitem_type='T'))
+GROUP BY teitem_tehead_id, prj_number;</sql>
+ </querysource>
+ <querysource>
+  <name>prjexpsum</name>
+  <sql>SELECT
+  teitem_tehead_id,
+  prj_number,
+  SUM(teitem_total) AS total
+FROM te.teitem
+  JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
+  JOIN prj ON (prjtask_prj_id=prj_id)
+  JOIN item ON (item_id=teitem_item_id)
+  LEFT OUTER JOIN custinfo ON (cust_id=teitem_cust_id)
+WHERE ((teitem_tehead_id=&lt;? value("tehead_id") ?>)
+  AND (teitem_type='E'))
+GROUP BY teitem_tehead_id, prj_number;</sql>
+ </querysource>
  <rpthead>
   <height>110</height>
   <label>
    <rect>
     <x>295</x>
-    <y>6.4</y>
+    <y>5</y>
     <width>450</width>
     <height>37</height>
    </rect>
@@ -125,8 +160,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>34</x>
-    <y>50.7</y>
+    <x>35</x>
+    <y>50</y>
     <width>83</width>
     <height>15</height>
    </rect>
@@ -141,8 +176,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>34</x>
-    <y>66.6333</y>
+    <x>35</x>
+    <y>65</y>
     <width>83</width>
     <height>15</height>
    </rect>
@@ -157,8 +192,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>34</x>
-    <y>82</y>
+    <x>35</x>
+    <y>80</y>
     <width>83</width>
     <height>15</height>
    </rect>
@@ -173,8 +208,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>34</x>
-    <y>34.0333</y>
+    <x>35</x>
+    <y>35</y>
     <width>83</width>
     <height>15</height>
    </rect>
@@ -189,8 +224,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>262</x>
-    <y>82</y>
+    <x>260</x>
+    <y>80</y>
     <width>83</width>
     <height>15</height>
    </rect>
@@ -205,8 +240,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <field>
    <rect>
-    <x>136</x>
-    <y>34</y>
+    <x>135</x>
+    <y>35</y>
     <width>175</width>
     <height>15</height>
    </rect>
@@ -224,7 +259,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </field>
   <field>
    <rect>
-    <x>136</x>
+    <x>135</x>
     <y>50</y>
     <width>175</width>
     <height>15</height>
@@ -243,8 +278,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </field>
   <field>
    <rect>
-    <x>136</x>
-    <y>66.6333</y>
+    <x>135</x>
+    <y>65</y>
     <width>175</width>
     <height>15</height>
    </rect>
@@ -262,8 +297,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </field>
   <field>
    <rect>
-    <x>136</x>
-    <y>82</y>
+    <x>135</x>
+    <y>80</y>
     <width>175</width>
     <height>15</height>
    </rect>
@@ -281,8 +316,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </field>
   <field>
    <rect>
-    <x>356</x>
-    <y>82</y>
+    <x>355</x>
+    <y>80</y>
     <width>100</width>
     <height>15</height>
    </rect>
@@ -298,17 +333,10 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
     <column>f_status</column>
    </data>
   </field>
-  <line>
-   <xstart>3.33333</xstart>
-   <ystart>171.333</ystart>
-   <xend>743.333</xend>
-   <yend>171.333</yend>
-   <weight>2</weight>
-  </line>
   <label>
    <rect>
-    <x>6.66667</x>
-    <y>114.967</y>
+    <x>5</x>
+    <y>115</y>
     <width>450</width>
     <height>22</height>
    </rect>
@@ -331,7 +359,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   <label>
    <rect>
     <x>200</x>
-    <y>9.33333</y>
+    <y>9</y>
     <width>90</width>
     <height>15</height>
    </rect>
@@ -347,7 +375,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   <label>
    <rect>
     <x>110</x>
-    <y>9.33333</y>
+    <y>9</y>
     <width>75</width>
     <height>15</height>
    </rect>
@@ -370,7 +398,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   <label>
    <rect>
     <x>10</x>
-    <y>9.33333</y>
+    <y>9</y>
     <width>95</width>
     <height>15</height>
    </rect>
@@ -385,7 +413,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>387.333</x>
+    <x>385</x>
     <y>24</y>
     <width>90</width>
     <height>15</height>
@@ -401,8 +429,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>487.333</x>
-    <y>9.33333</y>
+    <x>485</x>
+    <y>9</y>
     <width>75</width>
     <height>15</height>
    </rect>
@@ -417,8 +445,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>572.333</x>
-    <y>9.33333</y>
+    <x>570</x>
+    <y>9</y>
     <width>50</width>
     <height>15</height>
    </rect>
@@ -433,7 +461,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>304.333</x>
+    <x>305</x>
     <y>24</y>
     <width>75</width>
     <height>15</height>
@@ -449,8 +477,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>302.333</x>
-    <y>9.33333</y>
+    <x>300</x>
+    <y>9</y>
     <width>75</width>
     <height>15</height>
    </rect>
@@ -465,8 +493,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>387.333</x>
-    <y>9.33333</y>
+    <x>385</x>
+    <y>9</y>
     <width>90</width>
     <height>15</height>
    </rect>
@@ -481,8 +509,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>652.333</x>
-    <y>9.33333</y>
+    <x>650</x>
+    <y>9</y>
     <width>90</width>
     <height>15</height>
    </rect>
@@ -497,7 +525,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>109.333</x>
+    <x>110</x>
     <y>24</y>
     <width>75</width>
     <height>15</height>
@@ -513,7 +541,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </label>
   <label>
    <rect>
-    <x>199.333</x>
+    <x>200</x>
     <y>24</y>
     <width>90</width>
     <height>15</height>
@@ -617,7 +645,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
     </label>
     <label>
      <rect>
-      <x>464</x>
+      <x>480</x>
       <y>31.3</y>
       <width>75</width>
       <height>15</height>
@@ -713,7 +741,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
     </label>
     <label>
      <rect>
-      <x>648.667</x>
+      <x>655</x>
       <y>31.3333</y>
       <width>90</width>
       <height>15</height>
@@ -727,67 +755,36 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
      <vcenter/>
      <string>Billing Total</string>
     </label>
+    <line>
+     <xstart>3.33333</xstart>
+     <ystart>61.333</ystart>
+     <xend>743.333</xend>
+     <yend>61.333</yend>
+     <weight>2</weight>
+    </line>
    </head>
    <foot>
-    <height>30</height>
-    <field>
+    <height>40</height>
+    <text>
      <rect>
-      <x>670</x>
-      <y>4.66</y>
-      <width>75</width>
+      <x>5</x>
+      <y>1.42109e-14</y>
+      <width>370</width>
       <height>15</height>
      </rect>
-     <font>
-      <face>Arial</face>
-      <size>8</size>
-      <weight>bold</weight>
-     </font>
-     <right/>
-     <vcenter/>
-     <data>
-      <query>time</query>
-      <column>billing_total</column>
-     </data>
-     <format builtin="true">money</format>
-     <tracktotal subtotal="true"/>
-    </field>
-    <field>
-     <rect>
-      <x>465</x>
-      <y>4.66</y>
-      <width>75</width>
-      <height>15</height>
-     </rect>
-     <font>
-      <face>Arial</face>
-      <size>8</size>
-      <weight>bold</weight>
-     </font>
-     <right/>
-     <vcenter/>
-     <data>
-      <query>time</query>
-      <column>teitem_qty</column>
-     </data>
-     <format builtin="true">qty</format>
-     <tracktotal subtotal="true"/>
-    </field>
-    <label>
-     <rect>
-      <x>370</x>
-      <y>4.66</y>
-      <width>90</width>
-      <height>15</height>
-     </rect>
+     <bottompad>0</bottompad>
      <font>
       <face>Arial</face>
       <size>8</size>
       <weight>normal</weight>
      </font>
-     <right/>
-     <vcenter/>
-     <string>Total Time:</string>
-    </label>
+     <left/>
+     <top/>
+     <data>
+      <query>time</query>
+      <column>teitem_notes</column>
+     </data>
+    </text>
    </foot>
   </group>
   <detail>
@@ -797,8 +794,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <height>35</height>
    <field>
     <rect>
-     <x>626</x>
-     <y>3.17</y>
+     <x>625</x>
+     <y>5</y>
      <width>50</width>
      <height>15</height>
     </rect>
@@ -817,7 +814,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>200</x>
-     <y>3.17333</y>
+     <y>5</y>
      <width>90</width>
      <height>15</height>
     </rect>
@@ -836,7 +833,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>385</x>
-     <y>3.17</y>
+     <y>5</y>
      <width>100</width>
      <height>15</height>
     </rect>
@@ -855,7 +852,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>110</x>
-     <y>3.17333</y>
+     <y>5</y>
      <width>75</width>
      <height>15</height>
     </rect>
@@ -874,7 +871,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>670</x>
-     <y>3.17</y>
+     <y>5</y>
      <width>75</width>
      <height>15</height>
     </rect>
@@ -893,7 +890,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>490</x>
-     <y>3.18</y>
+     <y>5</y>
      <width>50</width>
      <height>15</height>
     </rect>
@@ -912,7 +909,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>10</x>
-     <y>3.17333</y>
+     <y>5</y>
      <width>90</width>
      <height>15</height>
     </rect>
@@ -931,7 +928,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>300</x>
-     <y>3.17</y>
+     <y>5</y>
      <width>75</width>
      <height>15</height>
     </rect>
@@ -950,7 +947,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>110</x>
-     <y>17.0333</y>
+     <y>15</y>
      <width>75</width>
      <height>15</height>
     </rect>
@@ -969,7 +966,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>200</x>
-     <y>17.3</y>
+     <y>15</y>
      <width>90</width>
      <height>15</height>
     </rect>
@@ -988,7 +985,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>300</x>
-     <y>17.3333</y>
+     <y>15</y>
      <width>75</width>
      <height>15</height>
     </rect>
@@ -1006,8 +1003,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    </field>
    <field>
     <rect>
-     <x>386</x>
-     <y>17.3</y>
+     <x>385</x>
+     <y>15</y>
      <width>100</width>
      <height>15</height>
     </rect>
@@ -1023,26 +1020,211 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
      <column>item_descrip1</column>
     </data>
    </field>
-   <text>
+  </detail>
+ </section>
+ <section>
+  <name>projsum</name>
+  <group>
+   <name>prj_sum</name>
+   <column>teitem_tehead_id</column>
+   <head>
+    <height>50</height>
+    <label>
+     <rect>
+      <x>5</x>
+      <y>0</y>
+      <width>190</width>
+      <height>22</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>12</size>
+      <weight>bold</weight>
+     </font>
+     <left/>
+     <vcenter/>
+     <string>Project Time Summary</string>
+    </label>
+    <label>
+     <rect>
+      <x>380</x>
+      <y>30</y>
+      <width>90</width>
+      <height>15</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>8</size>
+      <weight>normal</weight>
+     </font>
+     <left/>
+     <vcenter/>
+     <string>Project #</string>
+    </label>
+    <label>
+     <rect>
+      <x>465</x>
+      <y>30</y>
+      <width>90</width>
+      <height>15</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>8</size>
+      <weight>normal</weight>
+     </font>
+     <right/>
+     <vcenter/>
+     <string>Total Hours</string>
+    </label>
+    <label>
+     <rect>
+      <x>685</x>
+      <y>30</y>
+      <width>60</width>
+      <height>15</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>8</size>
+      <weight>normal</weight>
+     </font>
+     <right/>
+     <vcenter/>
+     <string>Billing Total</string>
+    </label>
+    <line>
+     <xstart>3.33333</xstart>
+     <ystart>46.333</ystart>
+     <xend>743.333</xend>
+     <yend>46.333</yend>
+     <weight>2</weight>
+    </line>
+   </head>
+   <foot>
+    <height>30</height>
+    <field>
+     <rect>
+      <x>695</x>
+      <y>5</y>
+      <width>50</width>
+      <height>15</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>8</size>
+      <weight>bold</weight>
+     </font>
+     <right/>
+     <vcenter/>
+     <data>
+      <query>prjsum</query>
+      <column>billing_total</column>
+     </data>
+     <format builtin="true">money</format>
+     <tracktotal subtotal="true"/>
+    </field>
+    <field>
+     <rect>
+      <x>505</x>
+      <y>5</y>
+      <width>50</width>
+      <height>15</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>8</size>
+      <weight>bold</weight>
+     </font>
+     <right/>
+     <vcenter/>
+     <data>
+      <query>prjsum</query>
+      <column>total_hours</column>
+     </data>
+     <format builtin="true">qty</format>
+     <tracktotal subtotal="true"/>
+    </field>
+    <line>
+     <xstart>360</xstart>
+     <ystart>5</ystart>
+     <xend>745</xend>
+     <yend>5</yend>
+     <weight>2</weight>
+    </line>
+    <line>
+     <xstart>420</xstart>
+     <ystart>5</ystart>
+     <xend>520</xend>
+     <yend>5</yend>
+     <weight>0</weight>
+    </line>
+   </foot>
+  </group>
+  <detail>
+   <key>
+    <query>prjsum</query>
+   </key>
+   <height>20</height>
+   <field>
     <rect>
-     <x>109</x>
-     <y>32.7</y>
-     <width>600</width>
+     <x>505</x>
+     <y>5</y>
+     <width>50</width>
      <height>15</height>
     </rect>
-    <bottompad>0</bottompad>
     <font>
      <face>Arial</face>
      <size>8</size>
-     <weight>normal</weight>
+     <weight>bold</weight>
+    </font>
+    <right/>
+    <vcenter/>
+    <data>
+     <query>prjsum</query>
+     <column>total_hours</column>
+    </data>
+    <format builtin="true">qty</format>
+   </field>
+   <field>
+    <rect>
+     <x>695</x>
+     <y>5</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
+    </font>
+    <right/>
+    <vcenter/>
+    <data>
+     <query>prjsum</query>
+     <column>billing_total</column>
+    </data>
+    <format builtin="true">money</format>
+   </field>
+   <field>
+    <rect>
+     <x>380</x>
+     <y>5</y>
+     <width>115</width>
+     <height>15</height>
+    </rect>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
     </font>
     <left/>
-    <top/>
+    <vcenter/>
     <data>
-     <query>time</query>
-     <column>teitem_notes</column>
+     <query>prjsum</query>
+     <column>prj_number</column>
     </data>
-   </text>
+   </field>
   </detail>
  </section>
  <section>
@@ -1051,7 +1233,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <name>expdetail</name>
    <column>teitem_tehead_id</column>
    <head>
-    <height>70</height>
+    <height>65</height>
     <label>
      <rect>
       <x>109.333</x>
@@ -1260,13 +1442,6 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
      <vcenter/>
      <string>Billing Total</string>
     </label>
-    <line>
-     <xstart>3.33333</xstart>
-     <ystart>59</ystart>
-     <xend>743.333</xend>
-     <yend>59</yend>
-     <weight>2</weight>
-    </line>
     <label>
      <rect>
       <x>550</x>
@@ -1289,7 +1464,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
     <field>
      <rect>
       <x>670</x>
-      <y>3.33</y>
+      <y>5</y>
       <width>75</width>
       <height>15</height>
      </rect>
@@ -1350,11 +1525,11 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <key>
     <query>expense</query>
    </key>
-   <height>35</height>
+   <height>50</height>
    <field>
     <rect>
      <x>300</x>
-     <y>19</y>
+     <y>20</y>
      <width>75</width>
      <height>15</height>
     </rect>
@@ -1372,8 +1547,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    </field>
    <field>
     <rect>
-     <x>386</x>
-     <y>19</y>
+     <x>385</x>
+     <y>20</y>
      <width>100</width>
      <height>15</height>
     </rect>
@@ -1392,7 +1567,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>300</x>
-     <y>4.51</y>
+     <y>5</y>
      <width>75</width>
      <height>15</height>
     </rect>
@@ -1411,7 +1586,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>385</x>
-     <y>4.51</y>
+     <y>5</y>
      <width>100</width>
      <height>15</height>
     </rect>
@@ -1430,7 +1605,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>490</x>
-     <y>4.51</y>
+     <y>5</y>
      <width>50</width>
      <height>15</height>
     </rect>
@@ -1448,8 +1623,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    </field>
    <field>
     <rect>
-     <x>626</x>
-     <y>4.51</y>
+     <x>625</x>
+     <y>5</y>
      <width>50</width>
      <height>15</height>
     </rect>
@@ -1468,7 +1643,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>670</x>
-     <y>4.51</y>
+     <y>5</y>
      <width>75</width>
      <height>15</height>
     </rect>
@@ -1487,7 +1662,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>110</x>
-     <y>19</y>
+     <y>20</y>
      <width>75</width>
      <height>15</height>
     </rect>
@@ -1506,7 +1681,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>200</x>
-     <y>4.51</y>
+     <y>5</y>
      <width>90</width>
      <height>15</height>
     </rect>
@@ -1525,7 +1700,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>110</x>
-     <y>4.51</y>
+     <y>5</y>
      <width>75</width>
      <height>15</height>
     </rect>
@@ -1544,7 +1719,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>200</x>
-     <y>19</y>
+     <y>20</y>
      <width>90</width>
      <height>15</height>
     </rect>
@@ -1563,7 +1738,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>10</x>
-     <y>4.51</y>
+     <y>5</y>
      <width>90</width>
      <height>15</height>
     </rect>
@@ -1582,7 +1757,7 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
    <field>
     <rect>
      <x>550</x>
-     <y>4.67</y>
+     <y>5</y>
      <width>75</width>
      <height>15</height>
     </rect>
@@ -1598,10 +1773,17 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
      <column>f_total</column>
     </data>
    </field>
+   <line>
+    <xstart>4.13052</xstart>
+    <ystart>-5.20281</ystart>
+    <xend>744.13</xend>
+    <yend>-5.20281</yend>
+    <weight>2</weight>
+   </line>
    <text>
     <rect>
      <x>110</x>
-     <y>33.3</y>
+     <y>35</y>
      <width>600</width>
      <height>15</height>
     </rect>
@@ -1618,6 +1800,147 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
      <column>teitem_notes</column>
     </data>
    </text>
+  </detail>
+ </section>
+ <section>
+  <name>prjexpsum</name>
+  <group>
+   <name>prjexpsum</name>
+   <column>teitem_tehead_id</column>
+   <head>
+    <height>60</height>
+    <label>
+     <rect>
+      <x>5</x>
+      <y>5</y>
+      <width>230</width>
+      <height>22</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>12</size>
+      <weight>bold</weight>
+     </font>
+     <left/>
+     <vcenter/>
+     <string>Project Expense Summary</string>
+    </label>
+    <label>
+     <rect>
+      <x>685</x>
+      <y>35</y>
+      <width>60</width>
+      <height>15</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>8</size>
+      <weight>normal</weight>
+     </font>
+     <right/>
+     <vcenter/>
+     <string>Expenses</string>
+    </label>
+    <label>
+     <rect>
+      <x>370</x>
+      <y>35</y>
+      <width>90</width>
+      <height>15</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>8</size>
+      <weight>normal</weight>
+     </font>
+     <left/>
+     <vcenter/>
+     <string>Project #</string>
+    </label>
+    <line>
+     <xstart>4.13052</xstart>
+     <ystart>53.1454</ystart>
+     <xend>744.13</xend>
+     <yend>53.1454</yend>
+     <weight>2</weight>
+    </line>
+   </head>
+   <foot>
+    <height>40</height>
+    <field>
+     <rect>
+      <x>695</x>
+      <y>5</y>
+      <width>50</width>
+      <height>15</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>8</size>
+      <weight>bold</weight>
+     </font>
+     <right/>
+     <vcenter/>
+     <data>
+      <query>prjexpsum</query>
+      <column>total</column>
+     </data>
+     <format builtin="true">money</format>
+     <tracktotal subtotal="true"/>
+    </field>
+    <line>
+     <xstart>655</xstart>
+     <ystart>5</ystart>
+     <xend>745</xend>
+     <yend>5</yend>
+     <weight>2</weight>
+    </line>
+   </foot>
+  </group>
+  <detail>
+   <key>
+    <query>prjexpsum</query>
+   </key>
+   <height>25</height>
+   <field>
+    <rect>
+     <x>370</x>
+     <y>5</y>
+     <width>115</width>
+     <height>15</height>
+    </rect>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
+    </font>
+    <left/>
+    <vcenter/>
+    <data>
+     <query>prjexpsum</query>
+     <column>prj_number</column>
+    </data>
+   </field>
+   <field>
+    <rect>
+     <x>695</x>
+     <y>5</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
+    </font>
+    <right/>
+    <vcenter/>
+    <data>
+     <query>prjexpsum</query>
+     <column>total</column>
+    </data>
+    <format builtin="true">money</format>
+   </field>
   </detail>
  </section>
  <pgfoot>
@@ -1697,8 +2020,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   <height>30</height>
   <text>
    <rect>
-    <x>110.667</x>
-    <y>5.66667</y>
+    <x>110</x>
+    <y>5</y>
     <width>600</width>
     <height>15</height>
    </rect>
@@ -1717,8 +2040,8 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   </text>
   <label>
    <rect>
-    <x>10.7</x>
-    <y>4.33333</y>
+    <x>10</x>
+    <y>5</y>
     <width>90</width>
     <height>15</height>
    </rect>
