@@ -310,17 +310,15 @@ BEGIN
     cohist_qtyshipped, cohist_unitprice, cohist_unitcost,
     cohist_salesrep_id, cohist_commission, cohist_commissionpaid,
     cohist_curr_id, cohist_sequence )
-  SELECT
-    _cohistid, cust_id, -1, -1,
+  VALUES
+  ( _cohistid, pCustid, -1, -1,
     'M', 'A/R Misc Credit Memo',
     pDocDate, '',
     '', '', pDocDate,
     'C', pDocNumber, pDocDate,
     1, (pAmount - _taxBaseValue) * -1, 0,
-    cust_salesrep_id, (cust_commprcnt * (pAmount - _taxBaseValue) * -1), FALSE,
-    pCurrId, _glSequence
-  FROM custinfo
-  WHERE (cust_id=pCustid);
+    pSalesrepid, (pCommissiondue * -1.0), FALSE,
+    pCurrId, _glSequence );
   INSERT INTO cohisttax
   ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
     taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
