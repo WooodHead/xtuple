@@ -764,34 +764,14 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
     </line>
    </head>
    <foot>
-    <height>40</height>
-    <text>
-     <rect>
-      <x>5</x>
-      <y>1.42109e-14</y>
-      <width>370</width>
-      <height>15</height>
-     </rect>
-     <bottompad>0</bottompad>
-     <font>
-      <face>Arial</face>
-      <size>8</size>
-      <weight>normal</weight>
-     </font>
-     <left/>
-     <top/>
-     <data>
-      <query>time</query>
-      <column>teitem_notes</column>
-     </data>
-    </text>
+    <height>15</height>
    </foot>
   </group>
   <detail>
    <key>
     <query>time</query>
    </key>
-   <height>35</height>
+   <height>45</height>
    <field>
     <rect>
      <x>625</x>
@@ -1020,6 +1000,26 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
      <column>item_descrip1</column>
     </data>
    </field>
+   <text>
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>370</width>
+     <height>15</height>
+    </rect>
+    <bottompad>0</bottompad>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>normal</weight>
+    </font>
+    <left/>
+    <top/>
+    <data>
+     <query>time</query>
+     <column>teitem_notes</column>
+    </data>
+   </text>
   </detail>
  </section>
  <section>
@@ -1032,7 +1032,7 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
     <label>
      <rect>
       <x>5</x>
-      <y>0</y>
+      <y>10</y>
       <width>190</width>
       <height>22</height>
      </rect>
