@@ -2,14 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>Dialog</name>
-    <message>
-        <location filename="../uiforms/untitled.ui" line="14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>cashRegister</name>
     <message>
         <location filename="../scripts/cashRegister.js" line="53"/>
@@ -202,15 +194,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegister.ui" line="20"/>
         <location filename="../uiforms/cashRegister.ui" line="116"/>
-        <location filename="../uiforms/cashRegister.ui" line="281"/>
         <source>xtpos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/cashRegister.ui" line="23"/>
-        <source>api_cashregister</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -219,28 +204,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegister.ui" line="44"/>
-        <source>site</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/cashRegister.ui" line="51"/>
         <source>Terminal:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegister.ui" line="61"/>
-        <source>terminal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/cashRegister.ui" line="68"/>
         <source>Active</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/cashRegister.ui" line="71"/>
-        <source>active</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -254,7 +224,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegister.ui" line="119"/>
         <location filename="../uiforms/cashRegister.ui" line="284"/>
         <source>api_sale</source>
         <translation type="unfinished"></translation>
@@ -295,11 +264,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegister.ui" line="302"/>
-        <source>sale_number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/cashRegister.ui" line="313"/>
         <source>Maintain</source>
         <translation type="unfinished"></translation>
@@ -310,18 +274,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegister.ui" line="334"/>
-        <source>opened</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/cashRegister.ui" line="354"/>
         <source>Action:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/cashRegister.ui" line="366"/>
-        <source>action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -335,18 +289,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegister.ui" line="420"/>
-        <source>opening_balance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/cashRegister.ui" line="436"/>
         <source>Cash Sales:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/cashRegister.ui" line="446"/>
-        <source>cash_sales</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -355,18 +299,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegister.ui" line="472"/>
-        <source>current_balance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/cashRegister.ui" line="488"/>
         <source>Credit Card Sales</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/cashRegister.ui" line="498"/>
-        <source>credit_card_sales</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -375,18 +309,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegister.ui" line="524"/>
-        <source>total_sales</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/cashRegister.ui" line="540"/>
         <source>Check Sales:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/cashRegister.ui" line="550"/>
-        <source>check_sales</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -400,33 +324,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegister.ui" line="604"/>
-        <source>account</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/cashRegister.ui" line="626"/>
         <source> Amount:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegister.ui" line="644"/>
-        <source>transfer_amount</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/cashRegister.ui" line="657"/>
-        <source>transfer_direction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/cashRegister.ui" line="664"/>
         <source>Deposit Checks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/cashRegister.ui" line="667"/>
-        <source>deposit_checks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -440,16 +344,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegister.ui" line="722"/>
-        <source>adjustment_amount</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/cashRegister.ui" line="735"/>
-        <source>adjustment_direction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/cashRegister.ui" line="762"/>
         <source>New Balance:</source>
         <translation type="unfinished"></translation>
@@ -457,11 +351,6 @@
     <message>
         <location filename="../uiforms/cashRegister.ui" line="802"/>
         <source>Notes:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/cashRegister.ui" line="818"/>
-        <source>notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -909,33 +798,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailCustomer.ui" line="22"/>
-        <source>xtpos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="25"/>
-        <source>api_cashregister</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="37"/>
-        <source>api</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="40"/>
-        <source>customer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailCustomer.ui" line="46"/>
         <source>Customer #:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="62"/>
-        <source>customer_number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -944,118 +808,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailCustomer.ui" line="92"/>
-        <source>customer_name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailCustomer.ui" line="103"/>
         <source>Billing Contact</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="121"/>
-        <source>billing_contact_change</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="124"/>
-        <source>billing_contact_number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="127"/>
-        <source>billing_contact_first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="130"/>
-        <source>billing_contact_middle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="133"/>
-        <source>billing_contact_last</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="136"/>
-        <source>billing_contact_suffix</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="139"/>
-        <source>billing_contact_job_title</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="142"/>
-        <source>billing_contact_voice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="145"/>
-        <source>billing_contact_alternate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="148"/>
-        <source>billing_contact_fax</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="151"/>
-        <source>billing_contact_email</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="154"/>
-        <source>billing_contact_web</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="157"/>
-        <source>billing_contact_address_change</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="160"/>
-        <source>billing_contact_address_number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="163"/>
-        <source>billing_contact_address1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="166"/>
-        <source>billing_contact_address2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="169"/>
-        <source>billing_contact_address3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="172"/>
-        <source>billing_contact_city</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="175"/>
-        <source>billing_contact_state</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="178"/>
-        <source>billing_contact_postalcode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailCustomer.ui" line="181"/>
-        <source>billing_contact_country</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1082,24 +836,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSale.ui" line="20"/>
-        <location filename="../uiforms/retailSale.ui" line="296"/>
-        <source>xtpos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="23"/>
-        <source>api_sale</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSale.ui" line="34"/>
         <source>Number:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="47"/>
-        <source>sale_number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1108,18 +846,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSale.ui" line="61"/>
-        <source>type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSale.ui" line="68"/>
         <source>Closed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="71"/>
-        <source>closed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1148,11 +876,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSale.ui" line="140"/>
-        <source>customer_number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSale.ui" line="163"/>
         <source>&amp;New</source>
         <translation type="unfinished"></translation>
@@ -1168,118 +891,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSale.ui" line="200"/>
-        <source>contact_change</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="203"/>
-        <source>contact_number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="206"/>
-        <source>first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="209"/>
-        <source>middle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="212"/>
-        <source>last</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="215"/>
-        <source>suffix</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="218"/>
-        <source>job_title</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="221"/>
-        <source>voice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="224"/>
-        <source>alternate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="227"/>
-        <source>fax</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="230"/>
-        <source>email</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="233"/>
-        <source>web</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="236"/>
-        <source>address_change</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="239"/>
-        <source>address_number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="242"/>
-        <source>address1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="245"/>
-        <source>address2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="248"/>
-        <source>address3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="251"/>
-        <source>city</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="254"/>
-        <source>state</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="257"/>
-        <source>postalcode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="260"/>
-        <source>country</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSale.ui" line="284"/>
         <source>&amp;Items</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="299"/>
-        <source>api_saleitem</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1308,18 +921,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSale.ui" line="397"/>
-        <source>item_number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSale.ui" line="409"/>
         <source>Qty:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="424"/>
-        <source>qty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1338,39 +941,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSale.ui" line="483"/>
-        <source>price</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="522"/>
-        <source>extension</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSale.ui" line="567"/>
         <source>&amp;Detail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="589"/>
-        <source>date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../uiforms/retailSale.ui" line="601"/>
         <location filename="../uiforms/retailSale.ui" line="714"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="610"/>
-        <source>sales_rep</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="640"/>
-        <source>site</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1399,23 +977,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSale.ui" line="723"/>
-        <source>tax_zone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="747"/>
-        <source>terminal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSale.ui" line="791"/>
         <source>Notes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="798"/>
-        <source>notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1424,28 +987,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSale.ui" line="842"/>
-        <source>subtotal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSale.ui" line="855"/>
         <source>Tax:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSale.ui" line="865"/>
-        <source>tax</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSale.ui" line="878"/>
         <source>Total:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSale.ui" line="888"/>
-        <source>total</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1607,28 +1155,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSite.ui" line="48"/>
-        <source>site</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSite.ui" line="75"/>
         <source>Tax Zone:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSite.ui" line="90"/>
-        <source>tax_zone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSite.ui" line="116"/>
         <source>Quotes Expire in</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSite.ui" line="126"/>
-        <source>quote_days</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1662,28 +1195,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSite.ui" line="227"/>
-        <source>asset</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSite.ui" line="247"/>
         <source>Adjustment:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSite.ui" line="257"/>
-        <source>adjustment</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSite.ui" line="277"/>
         <source>Check Clearing:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSite.ui" line="284"/>
-        <source>check_clearing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1716,11 +1234,6 @@
     <message>
         <location filename="../uiforms/retailSite.ui" line="401"/>
         <source>[ select a bank account ]</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSite.ui" line="410"/>
-        <source>bank_account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

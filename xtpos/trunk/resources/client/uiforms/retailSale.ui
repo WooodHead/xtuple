@@ -17,10 +17,10 @@
    <item row="0" column="0">
     <widget class="Screen" name="_sale">
      <property name="schemaName">
-      <string>xtpos</string>
+      <string notr="true">xtpos</string>
      </property>
      <property name="tableName">
-      <string>api_sale</string>
+      <string notr="true">api_sale</string>
      </property>
      <property name="primaryKeyColumns">
       <number>1</number>
@@ -44,7 +44,7 @@
            <string/>
           </property>
           <property name="fieldName">
-           <string>sale_number</string>
+           <string notr="true">sale_number</string>
           </property>
          </widget>
         </item>
@@ -58,7 +58,7 @@
         <item>
          <widget class="XComboBox" name="_type">
           <property name="fieldName">
-           <string>type</string>
+           <string notr="true">type</string>
           </property>
          </widget>
         </item>
@@ -68,7 +68,7 @@
            <string>Closed</string>
           </property>
           <property name="fieldName">
-           <string>closed</string>
+           <string notr="true">closed</string>
           </property>
           <property name="forgetful">
            <bool>true</bool>
@@ -137,7 +137,7 @@
                <enum>Qt::Horizontal</enum>
               </property>
               <property name="fieldName">
-               <string>customer_number</string>
+               <string notr="true">customer_number</string>
               </property>
              </widget>
             </item>
@@ -197,67 +197,67 @@
                 <bool>false</bool>
                </property>
                <property name="fieldNameChange">
-                <string>contact_change</string>
+                <string notr="true">contact_change</string>
                </property>
                <property name="fieldNameNumber">
-                <string>contact_number</string>
+                <string notr="true">contact_number</string>
                </property>
                <property name="fieldNameFirst">
-                <string>first</string>
+                <string notr="true">first</string>
                </property>
                <property name="fieldNameMiddle">
-                <string>middle</string>
+                <string notr="true">middle</string>
                </property>
                <property name="fieldNameLast">
-                <string>last</string>
+                <string notr="true">last</string>
                </property>
                <property name="fieldNameSuffix">
-                <string>suffix</string>
+                <string notr="true">suffix</string>
                </property>
                <property name="fieldNameTitle">
-                <string>job_title</string>
+                <string notr="true">job_title</string>
                </property>
                <property name="fieldNamePhone">
-                <string>voice</string>
+                <string notr="true">voice</string>
                </property>
                <property name="fieldNamePhone2">
-                <string>alternate</string>
+                <string notr="true">alternate</string>
                </property>
                <property name="fieldNameFax">
-                <string>fax</string>
+                <string notr="true">fax</string>
                </property>
                <property name="fieldNameEmailAddress">
-                <string>email</string>
+                <string notr="true">email</string>
                </property>
                <property name="fieldNameWebAddress">
-                <string>web</string>
+                <string notr="true">web</string>
                </property>
                <property name="fieldNameAddressChange" stdset="0">
-                <string>address_change</string>
+                <string notr="true">address_change</string>
                </property>
                <property name="fieldNameAddressNumber" stdset="0">
-                <string>address_number</string>
+                <string notr="true">address_number</string>
                </property>
                <property name="fieldNameLine1">
-                <string>address1</string>
+                <string notr="true">address1</string>
                </property>
                <property name="fieldNameLine2">
-                <string>address2</string>
+                <string notr="true">address2</string>
                </property>
                <property name="fieldNameLine3">
-                <string>address3</string>
+                <string notr="true">address3</string>
                </property>
                <property name="fieldNameCity">
-                <string>city</string>
+                <string notr="true">city</string>
                </property>
                <property name="fieldNameState">
-                <string>state</string>
+                <string notr="true">state</string>
                </property>
                <property name="fieldNamePostalCode">
-                <string>postalcode</string>
+                <string notr="true">postalcode</string>
                </property>
                <property name="fieldNameCountry">
-                <string>country</string>
+                <string notr="true">country</string>
                </property>
               </widget>
              </item>
@@ -293,10 +293,10 @@
              <set>QAbstractItemView::NoEditTriggers</set>
             </property>
             <property name="schemaName">
-             <string>xtpos</string>
+             <string notr="true">xtpos</string>
             </property>
             <property name="tableName">
-             <string>api_saleitem</string>
+             <string notr="true">api_saleitem</string>
             </property>
             <property name="primaryKeyCoulmns" stdset="0">
              <number>2</number>
@@ -394,7 +394,7 @@
                 <item row="0" column="0">
                  <widget class="ItemCluster" name="_item">
                   <property name="fieldName">
-                   <string>item_number</string>
+                   <string notr="true">item_number</string>
                   </property>
                  </widget>
                 </item>
@@ -421,7 +421,7 @@
                     <item>
                      <widget class="XLineEdit" name="_qty">
                       <property name="fieldName">
-                       <string>qty</string>
+                       <string notr="true">qty</string>
                       </property>
                       <property name="defaultText">
                        <string>1</string>
@@ -480,7 +480,7 @@
                        </sizepolicy>
                       </property>
                       <property name="fieldNameValue">
-                       <string>price</string>
+                       <string notr="true">price</string>
                       </property>
                       <property name="format">
                        <enum>CurrDisplay::SalesPrice</enum>
@@ -519,7 +519,7 @@
                        </sizepolicy>
                       </property>
                       <property name="fieldNameValue">
-                       <string>extension</string>
+                       <string notr="true">extension</string>
                       </property>
                       <property name="format">
                        <enum>CurrDisplay::ExtPrice</enum>
@@ -586,7 +586,7 @@
                  <enum>XDateEdit::Current</enum>
                 </property>
                 <property name="fieldName">
-                 <string>date</string>
+                 <string notr="true">date</string>
                 </property>
                </widget>
               </item>
@@ -607,7 +607,7 @@
                    <enum>XComboBox::First</enum>
                   </property>
                   <property name="fieldName">
-                   <string>sales_rep</string>
+                   <string notr="true">sales_rep</string>
                   </property>
                  </widget>
                 </item>
@@ -637,7 +637,7 @@
                    <enum>XComboBox::First</enum>
                   </property>
                   <property name="fieldName">
-                   <string>site</string>
+                   <string notr="true">site</string>
                   </property>
                  </widget>
                 </item>
@@ -720,7 +720,7 @@
                    <enum>XComboBox::First</enum>
                   </property>
                   <property name="fieldName">
-                   <string>tax_zone</string>
+                   <string notr="true">tax_zone</string>
                   </property>
                  </widget>
                 </item>
@@ -744,7 +744,7 @@
                 <item>
                  <widget class="XComboBox" name="_terminal">
                   <property name="fieldName">
-                   <string>terminal</string>
+                   <string notr="true">terminal</string>
                   </property>
                  </widget>
                 </item>
@@ -795,7 +795,7 @@
             <item>
              <widget class="XTextEdit" name="_notes">
               <property name="fieldName">
-               <string>notes</string>
+               <string notr="true">notes</string>
               </property>
              </widget>
             </item>
@@ -839,7 +839,7 @@
         <item>
          <widget class="CurrCluster" name="_subtotal">
           <property name="fieldNameValue">
-           <string>subtotal</string>
+           <string notr="true">subtotal</string>
           </property>
           <property name="currencyVisible">
            <bool>false</bool>
@@ -862,7 +862,7 @@
         <item>
          <widget class="CurrCluster" name="_tax">
           <property name="fieldNameValue">
-           <string>tax</string>
+           <string notr="true">tax</string>
           </property>
           <property name="currencyVisible">
            <bool>false</bool>
@@ -885,7 +885,7 @@
         <item>
          <widget class="CurrCluster" name="_total">
           <property name="fieldNameValue">
-           <string>total</string>
+           <string notr="true">total</string>
           </property>
           <property name="currencyVisible">
            <bool>false</bool>
