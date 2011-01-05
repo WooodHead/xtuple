@@ -22,7 +22,8 @@ BEGIN
             FROM apselect, apopen, vend
             WHERE ( (apselect_apopen_id=apopen_id)
              AND (apopen_vend_id=vend_id)
-             AND (apselect_bankaccnt_id=pBankaccntid) ) LOOP
+             AND (apselect_bankaccnt_id=pBankaccntid)
+             AND (apselect_date <= pCheckDate) ) LOOP
 
     -- if we owe this vendor anything (we might not) then create a check
     IF ((SELECT 
