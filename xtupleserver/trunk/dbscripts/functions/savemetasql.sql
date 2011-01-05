@@ -68,9 +68,9 @@ BEGIN
     _insertstr := 'INSERT INTO ' || _table ||
                   ' (metasql_group, metasql_name, metasql_notes, ' ||
                   '  metasql_query, metasql_grade) VALUES (' ||
-                  quote_literal(pGroup) || ',' || quote_literal(pName) || ',' ||
-                  quote_literal(pNotes) || ',' || quote_literal(pQuery) ||',' ||
-                  quote_literal(_grade) || ') RETURNING metasql_id;' ;
+                  COALESCE(quote_literal(pGroup),'NULL') || ',' || COALESCE(quote_literal(pName), 'NULL') || ',' ||
+                  COALESCE(quote_literal(pNotes), 'NULL') || ',' || COALESCE(quote_literal(pQuery), 'NULL') ||',' ||
+                  COALESCE(quote_literal(_grade), 'NULL') || ') RETURNING metasql_id;' ;
 
     IF (_debug) THEN RAISE NOTICE '%', _insertstr; END IF;
     EXECUTE _insertstr INTO _metasqlid;
