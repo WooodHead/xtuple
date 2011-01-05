@@ -19,10 +19,10 @@
    <string>Cash Register</string>
   </property>
   <property name="schemaName" stdset="0" >
-   <string>xtpos</string>
+   <string notr="true">xtpos</string>
   </property>
   <property name="tableName" stdset="0" >
-   <string>api_cashregister</string>
+   <string notr="true">api_cashregister</string>
   </property>
   <property name="primaryKeyColumns" stdset="0" >
    <number>2</number>
@@ -34,10 +34,10 @@
    <item row="0" column="0" >
     <widget class="Screen" name="_customer" >
      <property name="schemaName" >
-      <string>api</string>
+      <string notr="true">api</string>
      </property>
      <property name="tableName" >
-      <string>customer</string>
+      <string notr="true">customer</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2" >
       <item row="0" column="0" >
@@ -59,7 +59,7 @@
          </sizepolicy>
         </property>
         <property name="fieldName" >
-         <string>customer_number</string>
+         <string notr="true">customer_number</string>
         </property>
        </widget>
       </item>
@@ -89,7 +89,7 @@
       <item row="1" column="1" colspan="2" >
        <widget class="XLineEdit" name="_name" >
         <property name="fieldName" >
-         <string>customer_name</string>
+         <string notr="true">customer_name</string>
         </property>
        </widget>
       </item>
@@ -118,67 +118,67 @@
              <bool>false</bool>
             </property>
             <property name="fieldNameChange" >
-             <string>billing_contact_change</string>
+             <string notr="true">billing_contact_change</string>
             </property>
             <property name="fieldNameNumber" >
-             <string>billing_contact_number</string>
+             <string notr="true">billing_contact_number</string>
             </property>
             <property name="fieldNameFirst" >
-             <string>billing_contact_first</string>
+             <string notr="true">billing_contact_first</string>
             </property>
             <property name="fieldNameMiddle" >
-             <string>billing_contact_middle</string>
+             <string notr="true">billing_contact_middle</string>
             </property>
             <property name="fieldNameLast" >
-             <string>billing_contact_last</string>
+             <string notr="true">billing_contact_last</string>
             </property>
             <property name="fieldNameSuffix" >
-             <string>billing_contact_suffix</string>
+             <string notr="true">billing_contact_suffix</string>
             </property>
             <property name="fieldNameTitle" >
-             <string>billing_contact_job_title</string>
+             <string notr="true">billing_contact_job_title</string>
             </property>
             <property name="fieldNamePhone" >
-             <string>billing_contact_voice</string>
+             <string notr="true">billing_contact_voice</string>
             </property>
             <property name="fieldNamePhone2" >
-             <string>billing_contact_alternate</string>
+             <string notr="true">billing_contact_alternate</string>
             </property>
             <property name="fieldNameFax" >
-             <string>billing_contact_fax</string>
+             <string notr="true">billing_contact_fax</string>
             </property>
             <property name="fieldNameEmailAddress" >
-             <string>billing_contact_email</string>
+             <string notr="true">billing_contact_email</string>
             </property>
             <property name="fieldNameWebAddress" >
-             <string>billing_contact_web</string>
+             <string notr="true">billing_contact_web</string>
             </property>
             <property name="fieldNameAddressChange" stdset="0" >
-             <string>billing_contact_address_change</string>
+             <string notr="true">billing_contact_address_change</string>
             </property>
             <property name="fieldNameAddressNumber" stdset="0" >
-             <string>billing_contact_address_number</string>
+             <string notr="true">billing_contact_address_number</string>
             </property>
             <property name="fieldNameLine1" >
-             <string>billing_contact_address1</string>
+             <string notr="true">billing_contact_address1</string>
             </property>
             <property name="fieldNameLine2" >
-             <string>billing_contact_address2</string>
+             <string notr="true">billing_contact_address2</string>
             </property>
             <property name="fieldNameLine3" >
-             <string>billing_contact_address3</string>
+             <string notr="true">billing_contact_address3</string>
             </property>
             <property name="fieldNameCity" >
-             <string>billing_contact_city</string>
+             <string notr="true">billing_contact_city</string>
             </property>
             <property name="fieldNameState" >
-             <string>billing_contact_state</string>
+             <string notr="true">billing_contact_state</string>
             </property>
             <property name="fieldNamePostalCode" >
-             <string>billing_contact_postalcode</string>
+             <string notr="true">billing_contact_postalcode</string>
             </property>
             <property name="fieldNameCountry" >
-             <string>billing_contact_country</string>
+             <string notr="true">billing_contact_country</string>
             </property>
            </widget>
           </item>

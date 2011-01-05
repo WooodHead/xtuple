@@ -45,7 +45,7 @@
                <bool>true</bool>
               </property>
               <property name="fieldName">
-               <string>site</string>
+               <string notr="true">site</string>
               </property>
               <property name="type">
                <enum>WComboBox::Sold</enum>
@@ -87,7 +87,7 @@
                  <enum>XComboBox::TaxZones</enum>
                 </property>
                 <property name="fieldName">
-                 <string>tax_zone</string>
+                 <string notr="true">tax_zone</string>
                 </property>
                </widget>
               </item>
@@ -123,7 +123,7 @@
             <item>
              <widget class="XSpinBox" name="_expire">
               <property name="fieldName">
-               <string>quote_days</string>
+               <string notr="true">quote_days</string>
               </property>
               <property name="defaultValue">
                <string>30</string>
@@ -224,7 +224,7 @@
          <item row="0" column="1">
           <widget class="GLCluster" name="_asset">
            <property name="fieldName">
-            <string>asset</string>
+            <string notr="true">asset</string>
            </property>
           </widget>
          </item>
@@ -254,7 +254,7 @@
          <item row="1" column="1">
           <widget class="GLCluster" name="_adjust">
            <property name="fieldName">
-            <string>adjustment</string>
+            <string notr="true">adjustment</string>
            </property>
           </widget>
          </item>
@@ -281,7 +281,7 @@
          <item row="2" column="1">
           <widget class="GLCluster" name="_checkClearing">
            <property name="fieldName">
-            <string>check_clearing</string>
+            <string notr="true">check_clearing</string>
            </property>
           </widget>
          </item>
@@ -407,7 +407,7 @@
                       <enum>XComboBox::First</enum>
                      </property>
                      <property name="fieldName">
-                      <string>bank_account</string>
+                      <string notr="true">bank_account</string>
                      </property>
                     </widget>
                    </item>

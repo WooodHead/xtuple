@@ -17,10 +17,10 @@
    <item row="0" column="0">
     <widget class="Screen" name="_cashRegister">
      <property name="schemaName">
-      <string>xtpos</string>
+      <string notr="true">xtpos</string>
      </property>
      <property name="tableName">
-      <string>api_cashregister</string>
+      <string notr="true">api_cashregister</string>
      </property>
      <property name="primaryKeyColumns">
       <number>2</number>
@@ -41,7 +41,7 @@
         <item>
          <widget class="WComboBox" name="_site">
           <property name="fieldName">
-           <string>site</string>
+           <string notr="true">site</string>
           </property>
          </widget>
         </item>
@@ -58,7 +58,7 @@
         <item>
          <widget class="XLineEdit" name="_terminal">
           <property name="fieldName">
-           <string>terminal</string>
+           <string notr="true">terminal</string>
           </property>
          </widget>
         </item>
@@ -68,7 +68,7 @@
            <string>Active</string>
           </property>
           <property name="fieldName">
-           <string>active</string>
+           <string notr="true">active</string>
           </property>
           <property name="forgetful">
            <bool>true</bool>
@@ -116,7 +116,7 @@
              <string>xtpos</string>
             </property>
             <property name="tableName">
-             <string>api_sale</string>
+             <string notr="true">api_sale</string>
             </property>
             <layout class="QGridLayout" name="gridLayout_4">
              <property name="margin">
@@ -278,7 +278,7 @@
           <item row="1" column="0">
            <widget class="Screen" name="_selectedSale">
             <property name="schemaName">
-             <string>xtpos</string>
+             <string notr="true">xtpos</string>
             </property>
             <property name="tableName">
              <string>api_sale</string>
@@ -299,7 +299,7 @@
                 </sizepolicy>
                </property>
                <property name="fieldName">
-                <string>sale_number</string>
+                <string notr="true">sale_number</string>
                </property>
               </widget>
              </item>
@@ -331,7 +331,7 @@
                <bool>false</bool>
               </property>
               <property name="fieldName">
-               <string>opened</string>
+               <string notr="true">opened</string>
               </property>
              </widget>
             </item>
@@ -363,7 +363,7 @@
               <item>
                <widget class="XComboBox" name="_action">
                 <property name="fieldName">
-                 <string>action</string>
+                 <string notr="true">action</string>
                 </property>
                </widget>
               </item>
@@ -417,7 +417,7 @@
                  <item row="0" column="1">
                   <widget class="CurrCluster" name="_openBalance">
                    <property name="fieldNameValue">
-                    <string>opening_balance</string>
+                    <string notr="true">opening_balance</string>
                    </property>
                    <property name="currencyEnabled">
                     <bool>false</bool>
@@ -443,7 +443,7 @@
                  <item row="0" column="3">
                   <widget class="CurrCluster" name="_cashSales">
                    <property name="fieldNameValue">
-                    <string>cash_sales</string>
+                    <string notr="true">cash_sales</string>
                    </property>
                    <property name="currencyEnabled">
                     <bool>false</bool>
@@ -469,7 +469,7 @@
                  <item row="1" column="1">
                   <widget class="CurrCluster" name="_currentBalance">
                    <property name="fieldNameValue">
-                    <string>current_balance</string>
+                    <string notr="true">current_balance</string>
                    </property>
                    <property name="currencyEnabled">
                     <bool>false</bool>
@@ -495,7 +495,7 @@
                  <item row="1" column="3">
                   <widget class="CurrCluster" name="_ccSales">
                    <property name="fieldNameValue">
-                    <string>credit_card_sales</string>
+                    <string notr="true">credit_card_sales</string>
                    </property>
                    <property name="currencyEnabled">
                     <bool>false</bool>
@@ -521,7 +521,7 @@
                  <item row="2" column="1">
                   <widget class="CurrCluster" name="_totalSales">
                    <property name="fieldNameValue">
-                    <string>total_sales</string>
+                    <string notr="true">total_sales</string>
                    </property>
                    <property name="currencyEnabled">
                     <bool>false</bool>
@@ -547,7 +547,7 @@
                  <item row="2" column="3">
                   <widget class="CurrCluster" name="_checkSales">
                    <property name="fieldNameValue">
-                    <string>check_sales</string>
+                    <string notr="true">check_sales</string>
                    </property>
                    <property name="currencyEnabled">
                     <bool>false</bool>
@@ -601,7 +601,7 @@
                <item>
                 <widget class="XComboBox" name="_bankaccount">
                  <property name="fieldName">
-                  <string>account</string>
+                  <string notr="true">account</string>
                  </property>
                 </widget>
                </item>
@@ -641,7 +641,7 @@
                   </sizepolicy>
                  </property>
                  <property name="fieldNameValue">
-                  <string>transfer_amount</string>
+                  <string notr="true">transfer_amount</string>
                  </property>
                  <property name="currencyEnabled">
                   <bool>false</bool>
@@ -654,7 +654,7 @@
                <item>
                 <widget class="XComboBox" name="_transferDirection">
                  <property name="fieldName">
-                  <string>transfer_direction</string>
+                  <string notr="true">transfer_direction</string>
                  </property>
                 </widget>
                </item>
@@ -664,7 +664,7 @@
                   <string>Deposit Checks</string>
                  </property>
                  <property name="fieldName">
-                  <string>deposit_checks</string>
+                  <string notr="true">deposit_checks</string>
                  </property>
                  <property name="forgetful">
                   <bool>true</bool>
@@ -719,7 +719,7 @@
                   </sizepolicy>
                  </property>
                  <property name="fieldNameValue">
-                  <string>adjustment_amount</string>
+                  <string notr="true">adjustment_amount</string>
                  </property>
                  <property name="currencyEnabled">
                   <bool>false</bool>
@@ -732,7 +732,7 @@
                <item>
                 <widget class="XComboBox" name="_adjustDirection">
                  <property name="fieldName">
-                  <string>adjustment_direction</string>
+                  <string notr="true">adjustment_direction</string>
                  </property>
                 </widget>
                </item>
@@ -815,7 +815,7 @@
                </sizepolicy>
               </property>
               <property name="fieldName">
-               <string>notes</string>
+               <string notr="true">notes</string>
               </property>
              </widget>
             </item>
