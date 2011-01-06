@@ -1,0 +1,4 @@
+
+CREATE OR REPLACE FUNCTION formatPrice(NUMERIC) RETURNS TEXT IMMUTABLE AS $$
+  SELECT formatSalesPrice($1) AS result;
+$$ LANGUAGE 'sql';

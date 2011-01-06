@@ -1,0 +1,1 @@
+ALTER TABLE pohead ADD COLUMN pohead_released date;
