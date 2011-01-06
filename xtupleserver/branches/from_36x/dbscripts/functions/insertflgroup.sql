@@ -111,49 +111,49 @@ BEGIN
                    flitem_order AS orderby,
                    FALSE AS summarize,
                    flitem_subtract AS subtract,
-                   CASE WHEN (flitem_showstart AND (FIRST(trialbal_id) IS NULL)) THEN 0.00
-                        WHEN (flitem_showstart) THEN normalizeTrialBal(FIRST(trialbal_id), 'B')
+                   CASE WHEN (flitem_showstart AND (first_trialbal_id IS NULL)) THEN 0.00
+                        WHEN (flitem_showstart) THEN normalizeTrialBal(first_trialbal_id, 'B')
                         ELSE NULL
                    END AS beginning,
-                   CASE WHEN (flitem_showend AND (LAST(trialbal_id) IS NULL)) THEN 0.00
-                        WHEN (flitem_showend) THEN normalizeTrialBal(LAST(trialbal_id), 'E')
+                   CASE WHEN (flitem_showend AND (last_trialbal_id IS NULL)) THEN 0.00
+                        WHEN (flitem_showend) THEN normalizeTrialBal(last_trialbal_id, 'E')
                         ELSE NULL
                    END AS ending,
-                   CASE WHEN (flitem_showdelta) THEN SUM(trialbal_debits)
+                   CASE WHEN (flitem_showdelta) THEN sum_trialbal_debits
                         ELSE NULL
                    END AS debits,
-                   CASE WHEN (flitem_showdelta) THEN SUM(trialbal_credits)
+                   CASE WHEN (flitem_showdelta) THEN sum_trialbal_credits
                         ELSE NULL
                    END AS credits,
-                   CASE WHEN ((flitem_showbudget) AND (accnt_type IN ('R','E')) AND flhead_type IN ('I','C','A')) THEN COALESCE(SUM(budget_amount),0)
+                   CASE WHEN ((flitem_showbudget) AND (accnt_type IN ('R','E')) AND flhead_type IN ('I','C','A')) THEN COALESCE(sum_budget_amount,0)
                         WHEN ((flitem_showbudget) AND (accnt_type IN ('R','E')) AND flhead_type = 'B' ) THEN
                                 (SELECT COALESCE(SUM(b.budget_amount),0)
                                 FROM budget b,
                                         (SELECT ytd.period_id AS ytd_period_id
                                         FROM period cp, period ytd
-                                        WHERE ((cp.period_id = LAST(flitem_period_id))
+                                        WHERE ((cp.period_id = last_flitem_period_id)
                                         AND (ytd.period_start <= cp.period_start)
                                 AND (ytd.period_yearperiod_id = cp.period_yearperiod_id))) AS periods
                                 WHERE ((b.budget_accnt_id=accnt_id)
                                 AND (b.budget_period_id=ytd_period_id)))
-                        WHEN ((flitem_showbudget) AND (accnt_type IN ('A','L','Q')) AND flhead_type = 'C') THEN calccashbudget(accnt_id,LAST(flitem_period_id),pInterval)
-                        ELSE COALESCE(LAST(budget_amount),0)
+                        WHEN ((flitem_showbudget) AND (accnt_type IN ('A','L','Q')) AND flhead_type = 'C') THEN calccashbudget(accnt_id,last_flitem_period_id,pInterval)
+                        ELSE COALESCE(last_budget_amount,0)
                    END AS budget,
-                   CASE WHEN (flitem_showdiff AND (FIRST(trialbal_id) IS NULL)) THEN 0.00
-                        WHEN (flitem_showdiff) THEN COALESCE(normalizeTrialBal(LAST(trialbal_id), 'E') - normalizeTrialBal(FIRST(trialbal_id), 'B'), 0.00)
+                   CASE WHEN (flitem_showdiff AND (first_trialbal_id IS NULL)) THEN 0.00
+                        WHEN (flitem_showdiff) THEN COALESCE(normalizeTrialBal(last_trialbal_id, 'E') - normalizeTrialBal(first_trialbal_id, 'B'), 0.00)
                         ELSE NULL
                    END AS diff,
                    CASE WHEN (NOT flitem_showcustom) THEN NULL
-                        WHEN (flitem_custom_source='S' AND (FIRST(trialbal_id) IS NOT NULL)) THEN normalizeTrialBal(FIRST(trialbal_id), 'B')
-                        WHEN (flitem_custom_source='E' AND (FIRST(trialbal_id) IS NOT NULL)) THEN normalizeTrialBal(LAST(trialbal_id), 'E')
-                        WHEN (flitem_custom_source='D') THEN SUM(trialbal_debits)
-                        WHEN (flitem_custom_source='C') THEN SUM(trialbal_credits)
+                        WHEN (flitem_custom_source='S' AND (first_trialbal_id IS NOT NULL)) THEN normalizeTrialBal(first_trialbal_id, 'B')
+                        WHEN (flitem_custom_source='E' AND (first_trialbal_id IS NOT NULL)) THEN normalizeTrialBal(last_trialbal_id, 'E')
+                        WHEN (flitem_custom_source='D') THEN sum_trialbal_debits
+                        WHEN (flitem_custom_source='C') THEN sum_trialbal_credits
                         WHEN (flitem_custom_source='B') THEN (
                                 CASE
-                                  WHEN (accnt_type IN ('R','E')) THEN SUM(budget_amount)
-                                  ELSE LAST(budget_amount)
+                                  WHEN (accnt_type IN ('R','E')) THEN sum_budget_amount
+                                  ELSE last_budget_amount
                                 END)
-                        WHEN (flitem_custom_source='F' AND  (FIRST(trialbal_id) IS NOT NULL)) THEN COALESCE(normalizeTrialBal(LAST(trialbal_id), 'E') - normalizeTrialBal(FIRST(trialbal_id), 'B'), 0.00)
+                        WHEN (flitem_custom_source='F' AND  (first_trialbal_id IS NOT NULL)) THEN COALESCE(normalizeTrialBal(last_trialbal_id, 'E') - normalizeTrialBal(first_trialbal_id, 'B'), 0.00)
                         ELSE 0.00
                    END AS custom,
                    CASE WHEN(flitem_showstartprcnt) THEN 0.00
@@ -180,6 +180,17 @@ BEGIN
                    accnt_id,
                    public.formatglaccount(accnt_id) AS accnt_number
               FROM
+                (SELECT 
+                  flhead_type,flitem_id,flitem_order,flitem_subtract,flitem_showstart,flitem_showend,
+                  flitem_showdelta,flitem_showbudget,flitem_showdiff,flitem_showcustom,
+                  flitem_custom_source,flitem_showstartprcnt,flitem_showendprcnt,flitem_showdeltaprcnt,
+                  flitem_showbudgetprcnt,flitem_showdiffprcnt,flitem_showcustomprcnt,
+                  accnt_id,accnt_type,
+                  FIRST(trialbal_id) AS first_trialbal_id, LAST(trialbal_id) AS last_trialbal_id,
+                  SUM(trialbal_debits) AS sum_trialbal_debits, SUM(trialbal_debits) AS sum_trialbal_credits, 
+                  LAST(flitem_period_id) AS last_flitem_period_id,
+                  SUM(budget_amount) AS sum_budget_amount, LAST(budget_amount) AS last_budget_amount
+                  FROM
                 (SELECT period_id AS flitem_period_id, period_start,flhead_type,flitem_id,flitem_order,flitem_subtract,flitem_showstart,flitem_showend,
                         flitem_showdelta,flitem_showbudget,flitem_showdiff,flitem_showcustom,
                         flitem_custom_source,flitem_showstartprcnt,flitem_showendprcnt,flitem_showdeltaprcnt,
@@ -207,7 +218,7 @@ BEGIN
              GROUP BY flhead_type,flitem_id,flitem_order,flitem_subtract,flitem_showstart,flitem_showend,
                 flitem_showdelta,flitem_showbudget,flitem_showdiff,flitem_showcustom,
                 flitem_custom_source,flitem_showstartprcnt,flitem_showendprcnt,flitem_showdeltaprcnt,
-                flitem_showbudgetprcnt,flitem_showdiffprcnt,flitem_showcustomprcnt,accnt_id,accnt_type
+                flitem_showbudgetprcnt,flitem_showdiffprcnt,flitem_showcustomprcnt,accnt_id,accnt_type) AS agg
              UNION ALL
             SELECT 'S' AS type, flspec_id AS type_id,
                    flspec_order AS orderby,
