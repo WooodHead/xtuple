@@ -334,29 +334,6 @@ bool LoaderWindow::openFile(QString pfilename)
   multiple transactions.
   */
   _premultitransfile = false;
-  QString destver = fi.filePath();
-  // if follows OpenMFG/xTuple naming convention
-  if (destver.contains(QRegExp(".*/?[12][0123][0-9]((alpha|beta|rc)[1-9])?"
-			       "to"
-			       "[1-9][0-9][0-9]((alpha|beta|rc)[1-9])?.gz$")))
-  {
-    if (DEBUG)
-      qDebug("%s", destver.toAscii().data());
-    destver.remove(QRegExp(".*/?[12][0123][0-9]((alpha|beta|rc)[1-9])?to"));
-    if (DEBUG)
-      qDebug("%s", destver.toAscii().data());
-    destver.remove(QRegExp("((alpha|beta|rc)[1-9])?.gz$"));
-    if (DEBUG)
-      qDebug("%s", destver.toAscii().data());
-    // now destver is just the destination release #
-    if (destver.toInt() < 230)
-      _premultitransfile = true;
-  }
-  else
-  {
-    if (DEBUG)
-      qDebug("not one of our old files");
-  }
 
   _start->setEnabled(true);
   return true;
