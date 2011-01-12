@@ -184,7 +184,7 @@ void PackageWindow::helpAbout()
 {
   QMessageBox::about(this, tr("Package Manager: Builder"),
     tr("Create package manager content files."
-       "\n\nCopyright (c) 1999-2010 by OpenMFG LLC, d/b/a xTuple, All Rights Reserved"));
+       "\n\nCopyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple, All Rights Reserved"));
 }
 
 void PackageWindow::sPrereqSelectionChanged()
