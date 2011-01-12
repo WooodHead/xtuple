@@ -16,8 +16,28 @@ CREATE OR REPLACE FUNCTION postInvoice(INTEGER, INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pInvcheadid ALIAS FOR $1;
   pJournalNumber ALIAS FOR $2;
+  _itemlocSeries INTEGER;
+  _return INTEGER;
+
+BEGIN
+
+  SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
+  SELECT postInvoice(pInvcheadid, pJournalNumber, _itemlocseries) INTO _return;
+
+  RETURN _return;
+
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION postInvoice(INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
+DECLARE
+  pInvcheadid ALIAS FOR $1;
+  pJournalNumber ALIAS FOR $2;
+  pItemlocSeries ALIAS FOR $3;
   _aropenid INTEGER;
   _cohistid INTEGER;
+  _itemlocSeries INTEGER := 0;
+  _invhistid INTEGER := 0;
   _amount NUMERIC;
   _roundedBase NUMERIC;
   _sequence INTEGER;
@@ -58,6 +78,8 @@ BEGIN
        INTO _p 
   FROM invchead
   WHERE (invchead_id=pInvcheadid);
+
+  _itemlocSeries = pItemlocSeries;
 
   _glDate := COALESCE(_p.invchead_gldistdate, _p.invchead_invcdate);
 
@@ -541,6 +563,34 @@ BEGIN
     _p.invchead_ordernumber::text, _p.invchead_notes, pInvcheadid,
     _p.invchead_curr_id );
 
+-- Handle the Inventory and G/L Transactions for any billed Inventory where invcitem_updateinv is true
+  FOR _r IN SELECT itemsite_id AS itemsite_id, invcitem_id,
+                   (invcitem_billed * invcitem_qty_invuomratio) AS qty,
+                   invchead_invcnumber, invchead_cust_id AS cust_id, item_number,
+                   invchead_prj_id
+            FROM invchead JOIN invcitem ON ( (invcitem_invchead_id=invchead_id) AND
+                                             (invcitem_billed <> 0) AND
+                                             (invcitem_updateinv) )
+                          JOIN itemsite ON ( (itemsite_item_id=invcitem_item_id) AND
+                                             (itemsite_warehous_id=invcitem_warehous_id) )
+                          JOIN item ON (item_id=invcitem_item_id)
+            WHERE (invchead_id=pInvcheadid) LOOP
+
+--  Issue billed stock from inventory
+    IF (_itemlocSeries = 0) THEN
+      SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
+    END IF;
+    SELECT postInvTrans( itemsite_id, 'SH', _r.qty,
+                         'S/O', 'IN', _r.invchead_invcnumber, '',
+                         ('Invoice Billed ' || _r.item_number),
+                         costcat_asset_accnt_id, getPrjAccntId(_r.invchead_prj_id, resolveCOSAccount(itemsite_id, _r.cust_id)), 
+                         _itemlocSeries, _glDate) INTO _invhistid
+    FROM itemsite, costcat
+    WHERE ( (itemsite_costcat_id=costcat_id)
+     AND (itemsite_id=_r.itemsite_id) );
+
+  END LOOP;
+
 --  Mark the invoice as posted
   UPDATE invchead
   SET invchead_posted=TRUE, invchead_gldistdate=_glDate
@@ -594,7 +644,7 @@ BEGIN
     END LOOP;
   END IF;
 
-  RETURN pJournalNumber;
+  RETURN _itemlocSeries;
 
 END;
 $$ LANGUAGE plpgsql;
