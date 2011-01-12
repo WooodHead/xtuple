@@ -405,7 +405,7 @@ BEGIN
   FROM cmhead
   WHERE (cmhead_id=pCmheadid);
 
--- Handle the Inventory and G/L Transactions for any returned Inventory
+-- Handle the Inventory and G/L Transactions for any returned Inventory where cmitem_updateinv is true
   FOR _r IN SELECT cmitem_itemsite_id AS itemsite_id, cmitem_id,
                    (cmitem_qtyreturned * cmitem_qty_invuomratio) AS qty,
                    cmhead_number, cmhead_cust_id AS cust_id, item_number,
@@ -415,6 +415,7 @@ BEGIN
              AND (cmitem_itemsite_id=itemsite_id)
              AND (itemsite_item_id=item_id)
              AND (cmitem_qtyreturned <> 0)
+             AND (cmitem_updateinv)
              AND (cmhead_id=pCmheadid) ) LOOP
 
 --  Return credited stock to inventory
@@ -432,12 +433,14 @@ BEGIN
 
   END LOOP;
 
---  Update coitem to reflect the returned qty
+--  Update coitem to reflect the returned qty where cmitem_updateinv is true
   FOR _r IN SELECT cmitem_qtyreturned, cmitem_itemsite_id, cohead_id
             FROM cmitem, cmhead, invchead, cohead
             WHERE ( (cmitem_cmhead_id=cmhead_id)
              AND (cmhead_invcnumber=invchead_invcnumber)
              AND (invchead_ordernumber=cohead_number)
+             AND (cmitem_qtyreturned <> 0)
+             AND (cmitem_updateinv)
              AND (cmhead_id=pCmheadid) ) LOOP
     UPDATE coitem
     SET coitem_qtyreturned = (coitem_qtyreturned + _r.cmitem_qtyreturned)
