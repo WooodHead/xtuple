@@ -564,19 +564,21 @@
           system will place no restrictions on Customer Purchase Order
           Numbers.</para>
         </note>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>purchase orders</primary>
-          <secondary>customers using blanket</secondary>
-        </indexterm>Uses Blanket P/O's</term>
-      <listitem>
-        <para>Blanket P/O"s: Select to indicate that the Customer uses blanket
-        Purchase Orders. A blanket P/O is a Customer Purchase Order which may
-        be used for more than one Sales Order. Selecting this option means
-        users will be allowed to enter duplicate Purchase Order Numbers for
-        this Customer.</para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>purchase orders</primary>
+                <secondary>customers using blanket</secondary>
+              </indexterm>Uses Blanket P/O's</term>
+            <listitem>
+              <para>Select to indicate that the Customer uses blanket Purchase
+              Orders. A blanket Purchase Order is a Customer Purchase Order
+              which may be used for more than one Sales Order. Selecting this
+              option means users will be allowed to enter duplicate Purchase
+              Order Numbers for this Customer.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -625,23 +627,23 @@
       <term>Place on Credit Warning when Credit Limit is Exceeded</term>
       <listitem>
         <para>Select this option to automatically place the Customer on Credit
-        Warning if their open Accounts Receivable (A/R) balance exceeds their
-        Credit Limit. This option must also be selected for a Customer's A/R
-        open items to be evaluated when the Update Late Customer Credit Status
+        Warning if their open Receivables balance exceeds their
+        Credit Limit. This option must also be selected for a Customer's 
+        open Receivables to be evaluated when the Update Late Customer Credit Status
         utility is run. If a Customer is on Credit Warning, Sales Orders may
         not be entered for the Customer&mdash;except by users with override
-        privileges. Once the Customer's A/R open balance falls below their
+        privileges. Once the Customer's Receivables open balance falls below their
         Credit Limit, Sales Orders may once again be entered for the
         Customer.</para>
         <tip>
           <para>You must specify you want a Customer to be placed on credit
           warning to enable the late credit status utility to consider a
-          Customer's A/R open items.</para>
+          Customer's open Receivables.</para>
         </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Place Open S/Os on Credit Hold when Credit Limit is
+      <term>Place Open Sales Orders on Credit Hold when Credit Limit is
       Exceeded</term>
       <listitem>
         <para>Select this option to place all new and existing open Sales
@@ -663,7 +665,7 @@
           <varlistentry>
             <term>Grace Days</term>
             <listitem>
-              <para>Specify the number of days beyond the A/R open due date
+              <para>Specify the number of days beyond the Receivables open due date
               which will serve as a grace period for the Customer. The number
               of days entered here will override the global number of grace
               days.</para>
@@ -817,7 +819,7 @@
     <para>Customer Credit Cards may be used when entering Sales Orders or Cash
     Receipt transactions for the Customer. When entering a Sales Order, you
     have the option to either pre-authorize or charge a Credit Card. Any
-    pre-authorizations may later be post-authorized using the A/R
+    pre-authorizations may later be post-authorized using the Receivables
     Workbench.</para>
   </note>
   <para>When specifying Credit Card information for the Customer, you are
@@ -1203,7 +1205,7 @@
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para role="xtconnect">The Electronic Data Interchange (EDI) system enables
-  you to send Quotes, Sales Orders, Credit Memos, A/R Statements, and Invoices
+  you to send Quotes, Sales Orders, Credit Memos, Receivables Statements, and Invoices
   electronically to your Customers. To establish a Customer's EDI preferences,
   select the "Transmission" tab. The following screen will appear:</para>
   <para role="xtconnect"><screenshot>

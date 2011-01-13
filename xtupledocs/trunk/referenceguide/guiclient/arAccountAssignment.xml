@@ -42,7 +42,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>A/R Account</term>
+      <term>Receivables Account</term>
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
         Receivables. This is an Asset Account. For example, it will be debited
@@ -54,9 +54,9 @@
       <term>Prepaid Receivables Account</term>
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
-        A/R Prepaid Account. This is a Revenue contra Account. It will be
-        debited when Miscellaneous A/R Credit Memos are posted and credited
-        when Miscellaneous A/R Debit Memos are posted.</para>
+        Receivables Prepaid Account. This is a Revenue contra Account. It will be
+        debited when Miscellaneous Receivables Credit Memos are posted and credited
+        when Miscellaneous Receivables Debit Memos are posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -64,7 +64,7 @@
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
         Freight Account. This is a Revenue Account. It will be credited when
-        Invoices are posted and debited when S/O Credit Memos are
+        Invoices are posted and debited when Sales Order Credit Memos are
         posted.</para>
       </listitem>
     </varlistentry>
@@ -76,8 +76,8 @@
         optional Account, as systems may be configured to ignore it when
         handling Customer Deposits. When this Account is used, it will be
         credited when unapplied Cash Receipts are posted and debited when the
-        A/R Credit Memos resulting from unapplied Cash Receipts are applied to
-        A/R open items.</para>
+        Receivables Credit Memos resulting from unapplied Cash Receipts are applied to
+        open Receivables.</para>
         <note>
           <para>You can disable the use of a Deferred Revenue Account for
           handling Customer Deposits at the system level.</para>
@@ -88,7 +88,7 @@
       <term>Discount Account</term>
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
-        A/R Discount Account. This is a Revenue Account. It will be debited
+        Receivables Discount Account. This is a Revenue Account. It will be debited
         when Cash Receipts are posted and the Invoice the Cash Receipt is
         applied to is still within its discount Terms.</para>
       </listitem>

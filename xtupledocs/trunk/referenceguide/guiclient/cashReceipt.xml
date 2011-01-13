@@ -71,7 +71,7 @@
       <term>Discount</term>
       <listitem>
         <para>Displays the amount of any Discounts given when cash is applied
-        to open A/R items inside the billing Discount period for those
+        to open Receivables inside the billing Discount period for those
         items.</para>
       </listitem>
     </varlistentry>
@@ -102,7 +102,7 @@
             <term>Credit Memo</term>
             <listitem>
               <para>Select to treat the unapplied balance as a miscellaneous
-              Credit Memo, which may be applied to A/R open items at a later
+              Credit Memo, which may be applied to open Receivables at a later
               time.</para>
             </listitem>
           </varlistentry>
@@ -110,10 +110,10 @@
             <term>Customer Deposit</term>
             <listitem>
               <para>Select to treat the unapplied balance as a Customer
-              Deposit. The Deferred Revenue Account specified on the A/R
+              Deposit. The Deferred Revenue Account specified on the Receivables
               Account Assignments screen will be used. A Credit Memo will also
-              be created, allowing the Customer Deposit to be applied to A/R
-              open items at a later time.</para>
+              be created, allowing the Customer Deposit to be applied to 
+              open Receivables at a later time.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -155,7 +155,7 @@
       <term>Check/Document Date</term>
       <listitem>
         <para>Use this field to specify the date on the Check you received.
-        This is the Document date used when running the A/R aging
+        This is the Document date used when running the Receivables aging
         report.</para>
       </listitem>
     </varlistentry>
@@ -196,21 +196,21 @@
       <listitem>
         <para>Specify the date you want the cash to be applied to the selected
         receivables. By default, the current day's date will appear. To
-        prevent A/R aging and G/L balance mismatches, you may not enter an
+        prevent Receivable aging and G/L balance mismatches, you may not enter an
         application date prior to the earliest document date of receivables
         the cash is being applied to.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Use Alternate A/R Account From Sales Category</term>
+      <term>Use Alternate Receivables Account From Sales Category</term>
       <listitem>
-        <para>Select one of the following optional A/R Accounts:</para>
+        <para>Select one of the following optional Receivables Accounts:</para>
         <variablelist>
           <varlistentry>
             <term>Sales Category</term>
             <listitem>
-              <para>Specify a Sales Category whose A/R Account option you want
-              to use instead of the default A/R Account.</para>
+              <para>Specify a Sales Category whose Receivables Account option you want
+              to use instead of the default Receivables Account.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -218,8 +218,8 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>If an alternate A/R Account is not specified, the system will use
-    the default A/R Account specified for the Customer Type under A/R Account
+    <para>If an alternate Receivables Account is not specified, the system will use
+    the default Receivables Account specified for the Customer Type under Receivables Account
     Assignments.</para>
   </note>
   <variablelist>
@@ -236,9 +236,9 @@
     <varlistentry>
       <term>Include Credits</term>
       <listitem>
-        <para>Select to include Credit Memos in the list of A/R open items. If
+        <para>Select to include Credit Memos in the list of open Receivables. If
         shown, Credit Memos may be applied to a Customer's open balance in the
-        same way the Cash Receipt amount is applied―that is, using any of the
+        same way the Cash Receipt amount is applied?that is, using any of the
         available application buttons on the screen. This feature gives you
         the option of consuming open credits before cash is applied.</para>
       </listitem>
@@ -246,7 +246,7 @@
     <varlistentry>
       <term>Applications</term>
       <listitem>
-        <para>Display lists A/R open items (i.e., Invoices and Debit Memos)
+        <para>Display lists open Receivables (i.e., Invoices and Debit Memos)
         for the specified Customer.</para>
       </listitem>
     </varlistentry>
@@ -283,7 +283,7 @@
     <varlistentry>
       <term>APPLY TO BALANCE</term>
       <listitem>
-        <para>Select to apply the available balance to A/R open items. If the
+        <para>Select to apply the available balance to open Receivables. If the
         applied balance exceeds the amount due on an open Item, the remaining
         balance will be applied to the next open amount. This will all cause
         any eligible Discounts to be applied.</para>

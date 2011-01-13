@@ -10,7 +10,7 @@
       <primary>open items</primary>
       <secondary>applying cash receipts to</secondary>
     </indexterm>Cash Receipt Application</title>
-  <para>To apply a Cash Receipt to an individual open A/R Item, select the
+  <para>To apply a Cash Receipt to an individual open Receivable, select the
   APPLY button. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -67,7 +67,7 @@
       <term>Discount</term>
       <listitem>
         <para>Displays the amount of any Discount given when cash is applied
-        to an open A/R item inside the billing Discount period for that
+        to an open Receivable inside the billing Discount period for that
         item.</para>
       </listitem>
     </varlistentry>
@@ -90,30 +90,29 @@
     <varlistentry>
       <term>EDIT DISCOUNT</term>
       <listitem>
-        <para>Select to edit the Discount amount for the selected open A/R
-        item.</para>
+        <para>Select to edit the Discount amount for the selected open Receivable.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <para>Discounts are applied automatically when using the APPLY LINE BAL. or
   APPLY TO BALANCE buttons. However, you may have cases where you want to
   manually enter or override a Discount amount. When editing the Discount for
-  an open A/R item, you are presented with the following screen:</para>
+  an open Receivable, you are presented with the following screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/applyARDiscount.png" />
         </imageobject>
-        <caption>Apply A/R Discount</caption>
+        <caption>Apply Receivables Discount</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When editing the Discount for an open A/R item, you are presented with
+  <para>When editing the Discount for an open Receivable, you are presented with
   the following options</para>
   <variablelist>
     <varlistentry>
       <term>Customer</term>
       <listitem>
-        <para>Displays the name of the Customer whose open A/R item you are
+        <para>Displays the name of the Customer whose open Receivable you are
         applying cash to.</para>
       </listitem>
     </varlistentry>
@@ -121,7 +120,7 @@
       <term>Doc. Type</term>
       <listitem>
         <para>Displays the Document Type. Valid Document Types include posted
-        Invoices and miscellaneous A/R Debit Memos.</para>
+        Invoices and miscellaneous Receivables Debit Memos.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -181,7 +180,7 @@
         automatically calculate the Discount amount for you. The Discount
         amount will be equal to the total owed multiplied by the Discount
         percentage. The Account used for posting Discounts to the General
-        Ledger (G/L) is defined on the A/R Account Assignments screen.</para>
+        Ledger (G/L) is defined on the Receivables Account Assignments screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>

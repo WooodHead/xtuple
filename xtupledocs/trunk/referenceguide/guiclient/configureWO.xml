@@ -34,7 +34,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>W/O Number Creation</term>
+      <term>Work Order Number Creation</term>
       <listitem>
         <para>Select one of the available Work Order Number creation
         methods:</para>
@@ -71,7 +71,7 @@
       <term><indexterm significance="normal">
           <primary>work orders</primary>
           <secondary>automatic explosion of</secondary>
-        </indexterm>Automatically Explode W/O's</term>
+        </indexterm>Automatically Explode Work Order's</term>
       <listitem>
         <para>Select if you want Work Orders to be exploded automatically.
         Work Order explosion is the process whereby Work Order Material
@@ -100,7 +100,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Explode W/O's Effective as of</term>
+      <term>Explode Work Orders Effective as of</term>
       <listitem>
         <para>Select one of the following Work Order explosion effectivity
         dates:</para>
@@ -114,14 +114,14 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>W/O Start Date</term>
+            <term>Work Order Start Date</term>
             <listitem>
               <para>Explode Work Orders effective on the scheduled start date,
               incorporating Bills of Materials and Bills of Operations
               effective on that date.</para>
               <tip>
                 <para>Pick a default explosion level if you have not
-                configured the W/O module to automatically explode Work
+                configured the Manufacture module to automatically explode Work
                 Orders. If Work Orders are exploded by default, the selection
                 of an explosion level is not relevant.</para>
               </tip>
@@ -187,7 +187,7 @@
       <term><indexterm significance="normal">
           <primary>work orders</primary>
           <secondary>default explosion levels for</secondary>
-        </indexterm>Default W/O Explosion Level</term>
+        </indexterm>Default Work Order Explosion Level</term>
       <listitem>
         <para>Select one of the following default explosion levels, if Work
         Orders will not be exploded automatically by default:</para>

@@ -6,7 +6,7 @@
   <title><indexterm significance="normal">
       <primary>credit memos</primary>
       <secondary>applying unapplied</secondary>
-    </indexterm>Apply A/P Credit Memo</title>
+    </indexterm>Apply Payables Credit Memo</title>
   <para>To apply a Credit Memo amount, select the APPLY button. The following
   screen will appear:</para>
   <para><screenshot>
@@ -14,7 +14,7 @@
         <imageobject>
           <imagedata fileref="images/applyAPCreditMemo.png" />
         </imageobject>
-        <caption>Apply A/P Credit Memo</caption>
+        <caption>Apply Payables Credit Memo</caption>
       </mediaobject>
     </screenshot></para>
   <note>
@@ -69,7 +69,7 @@
     <varlistentry>
       <term>Items</term>
       <listitem>
-        <para>Display lists A/P open items for the specified Customer.</para>
+        <para>Display lists open Payables for the specified Customer.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -78,10 +78,10 @@
     <varlistentry>
       <term>APPLY TO BALANCE</term>
       <listitem>
-        <para>Select to apply the available balance to any A/P open items
+        <para>Select to apply the available balance to any open Payables
         which have not been applied-to yet. Open items having a pre-existing
         application will be skipped. When making the application, if the
-        applied balance exceeds the amount due on an A/P open item, the
+        applied balance exceeds the amount due on an open payable, the
         remaining balance will be applied to the next open amount. </para>
       </listitem>
     </varlistentry>

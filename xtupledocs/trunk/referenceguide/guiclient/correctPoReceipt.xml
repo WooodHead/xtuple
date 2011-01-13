@@ -22,16 +22,23 @@
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term>P/O Number</term>
+      <term>Order Type</term>
       <listitem>
-        <para>Displays the selected Purchase Order Number.</para>
+        <para>Display the type of order received (e.g., Purchase Order,
+        Transfer Order).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Number</term>
+      <listitem>
+        <para>Displays the Order Number of the selected order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Line #</term>
       <listitem>
         <para>Displays the selected Line Item Number from the specified
-        Purchase Order.</para>
+        order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -60,34 +67,37 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Qty. to Receive in Inv. UOM</term>
+      <listitem>
+        <para>Displays the quantity received in its Inventory Unit of
+        Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor UOM Ratio</term>
+      <listitem>
+        <para>Displays the ratio between your Inventory Unit of Measure and
+        the Vendor's UOM. For example, if you store an Item in single units,
+        but a Vendor sells you the Item in cases of 12, then the ratio would
+        be 12&mdash;or 12:1. When a Vendor ratio is specified, the system
+        allows you to purchase Items using the Vendor's UOM; however, when the
+        Items are received, the system will automatically convert the
+        Inventory to your Inventory UOM.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Correct Qty. to</term>
+      <listitem>
+        <para>Enter the quantity you want to correct the received quantity to.
+        This correction will create adjusting General Ledger entries when the
+        CORRECT button is selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Vendor UOM</term>
       <listitem>
         <para>Displays the Unit of Measure the Vendor uses for the specified
         Item.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Inventory/Vendor UOM Ratio</term>
-      <listitem>
-        <para>/Vendor UOM Ratio: Displays the ratio between Inventory and
-        Vendor Units of Measure.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <note>
-    <para>The Inv./Vendor UOM Ratio specifies the ratio between Inventory and
-    Vendor Units of Measure (UOM). For example, if you store an Item in single
-    units, but a Vendor sells you the Item in cases of 12, then the ratio
-    would be 12&mdash;or 12:1. When an Inv./Vend. ratio is specified, the
-    system allows you to purchase Items using the Vendor's UOM; however, when
-    the Items are received, the system will automatically convert the
-    Inventory to your Inventory UOM.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
-      <term>Due Date</term>
-      <listitem>
-        <para>Displays the date when the Line Item is due.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -103,11 +113,9 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Correct Qty. to</term>
+      <term>Qty. Returned</term>
       <listitem>
-        <para>Enter the quantity you want to correct the received quantity to.
-        This correction will create adjusting General Ledger entries when the
-        CORRECT button is selected.</para>
+        <para>Displays the total Line Item quantity returned to date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -122,20 +130,39 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Displays the date when the Line Item is due.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Date Received</term>
+      <listitem>
+        <para>Displays the date when the Line Item was received.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Notes</term>
       <listitem>
-        <para>This is a scrolling text field with word-wrapping for entering
-        Notes related to the correction.</para>
+        <para>Select the "Notes" tab to reach a scrolling text field with
+        word-wrapping for entering Notes related to the correction.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
     <varlistentry>
-      <term>CORRECT</term>
+      <term>OK</term>
       <listitem>
         <para>Select to post the correction. This action will result in
         adjusting General Ledger transactions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print Label</term>
+      <listitem>
+        <para>Select to print a receiving label at the time when you select
+        the OK button.</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -7,10 +7,10 @@
       <primary>packing lists</primary>
       <secondary>printing of</secondary>
     </indexterm>Print Packing List</title>
-  <para>To print a Packing List or Sales Order (S/O) Pick List, select the
+  <para>To print a Packing List or Sales Order Pick List, select the
   "Print Packing List" option. If the order has a Shipment Number, the Packing
   List form should be used. If there is no Shipment Number&mdash;that is, if
-  no Line Item quantity has been issued to shipping&mdash;then the S/O Pick
+  no Line Item quantity has been issued to shipping&mdash;then the Sales Order Pick
   List form should be used. Both forms are defined under <guimenuitem>Sales
   &gt; Master Information &gt; Customer Form Assignments</guimenuitem>.</para>
   <para><screenshot>
@@ -48,7 +48,7 @@
           <varlistentry>
             <term>Pick List</term>
             <listitem>
-              <para>Select to have the S/O Pick List form printed. If the
+              <para>Select to have the Sales Order Pick List form printed. If the
               Order does not have a Shipment Number, this form is used.</para>
             </listitem>
           </varlistentry>
@@ -67,7 +67,7 @@
           is, if no Line Item quantity has been issued to shipping. If stock
           has been issued to Shipping, then the Packing List report definition
           will be used.</para>
-          <para>The system includes two alternate S/O Pick List report
+          <para>The system includes two alternate Sales Order Pick List report
           definitions:</para>
           <itemizedlist>
             <listitem>

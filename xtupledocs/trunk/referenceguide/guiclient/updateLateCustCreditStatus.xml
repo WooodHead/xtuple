@@ -8,16 +8,16 @@
       <secondary>warning for lateness</secondary>
     </indexterm>Update Late Customer Credit Status</title>
   <para>The system can be configured to place Customers on credit warning when
-  their A/R open items become past due. Instructions for setting up that
+  their open Receivables become past due. Instructions for setting up that
   configuration can be found here: <xref linkend="Section942568" />. To take
   full advantage of this functionality, you will need to regularly run the
   Update Late Customer Credit Status utility.</para>
   <note>
     <para>This utility will be hidden if your system is not configured to
-    place Customers on credit warning when their A/R open items become past
+    place Customers on credit warning when their open Receivables become past
     due.</para>
   </note>
-  <para>When run, this utility will review all late A/R open items for all
+  <para>When run, this utility will review all late open Receivables for all
   Customers. Any Customers found to have late items falling outside the grace
   period will be placed on credit warning. These Customers will automatically
   be taken off credit warning once their late items are paid. You can run the

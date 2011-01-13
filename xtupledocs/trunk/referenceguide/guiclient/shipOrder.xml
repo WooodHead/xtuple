@@ -19,7 +19,7 @@
     </screenshot></para>
   <tip>
     <para>Before an Order can be shipped successfully, Sales Account and
-    Accounts Receivable (A/R) Account Assignments for the specified Customer
+    Receivables Assignments for the specified Customer
     must be in place.</para>
   </tip>
   <para>When Shipping an Order, you are presented with the following
@@ -55,9 +55,11 @@
         posting. By default, the "Select for Billing" option will also be
         selected. This option will be disabled if a Transfer Order is
         specified.</para>
-        <para role="xtconnect">If the Customer specified on the Sales Order has
-        an EDI Profile attached, you may encounter an EDI processing interface
-        when printing the Invoice.</para>
+        <para role="xtconnect"><tip>
+            <para>If the Customer specified on the Sales Order has an EDI
+            Profile attached, you may encounter an EDI processing interface
+            when printing the Invoice.</para>
+          </tip></para>
       </listitem>
     </varlistentry>
     <varlistentry>
