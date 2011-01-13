@@ -585,8 +585,8 @@
       <para>An accounting mechanism used to confirm that Items have been
       returned by a Customer or that an allowance has been made to a Customer.
       Confirmation results in a debit to the Customer's Accounts Receivable
-      (A/R) Account. Sales Order (S/O) Credit Memos are used to issue credit
-      for sold Inventory. A/R Credit Memos are miscellaneous, meaning they are
+      Account. Sales Order Credit Memos are used to issue credit
+      for sold Inventory. Receivables Credit Memos are miscellaneous, meaning they are
       not tied to a specific Sales Order.</para>
     </glossdef>
   </glossentry>
@@ -699,8 +699,8 @@
       </indexterm>Debit Memo</glossterm>
     <glossdef>
       <para>An accounting mechanism used to debit a Customer's Accounts
-      Receivable (A/R) Accounts. Debit Memos are not tied to a specific Sales
-      Order. They may be used as miscellaneous A/R Invoices.</para>
+      Receivable Accounts. Debit Memos are not tied to a specific Sales
+      Order. They may be used as miscellaneous Receivables Invoices.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -1025,7 +1025,7 @@
     <glossdef>
       <para>Inventory is considered insufficient if existing Quantity on Hand
       will not meet the specified demand; however, replenishment orders do
-      exist in the system―and, once these replenishment orders are received,
+      exist in the system?and, once these replenishment orders are received,
       the demand will be satisfied. Insufficient Inventory will have positive
       Availability, distinguishing it from short Inventory, whose Availability
       is negative.</para>

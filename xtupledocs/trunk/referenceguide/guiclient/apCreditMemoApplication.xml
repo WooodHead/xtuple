@@ -11,7 +11,7 @@
       <primary>debit memos</primary>
       <secondary>applying unapplied</secondary>
     </indexterm>Apply Credit Memo Amount</title>
-  <para>To apply a Credit Memo amount to an A/P open item,
+  <para>To apply a Credit Memo amount to an open payable,
   select the APPLY button. The following screen will appear:</para>
   <para>
 <screenshot>
@@ -19,26 +19,24 @@
         <imageobject>
           <imagedata fileref="images/apCreditMemoApplication.png"/>
         </imageobject>
-        <caption>Apply Credit Memo Amount to A/P Open
-        Item</caption>
+        <caption>Apply Credit Memo Amount to Open
+        Payable</caption>
       </mediaobject>
     </screenshot>
 </para>
-  <para>When applying a Credit Memo amount to an A/P open
-  item, you are presented with the following options:</para>
+  <para>When applying a Credit Memo amount to an open payable, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Vendor #</term>
       <listitem>
-        <para>Displays the Vendor number of the Vendor whose A/P open item the
+        <para>Displays the Vendor number of the Vendor whose open payable the
         amount is being applied to. The Vendor name will also display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Doc. Number</term>
       <listitem>
-        <para>Displays the Document Number associated with the A/P open
-        item.</para>
+        <para>Displays the Document Number associated with the open payable.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -89,7 +87,7 @@
     <varlistentry>
       <term>Amount to Apply</term>
       <listitem>
-        <para>Specify the amount to apply to the A/P open item.</para>
+        <para>Specify the amount to apply to the open payable.</para>
       </listitem>
     </varlistentry>
   </variablelist>

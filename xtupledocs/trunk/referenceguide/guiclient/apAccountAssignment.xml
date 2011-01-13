@@ -5,7 +5,7 @@
 <section id="apAccountAssignment">
   <title><indexterm significance="normal">
       <primary>account assignments</primary>
-      <secondary>creating new for a/p</secondary>
+      <secondary>creating new for payables</secondary>
     </indexterm>Payables Assignment</title>
   <para>To create a new Payables assignment, select the NEW button. The
   following screen will appear:</para>
@@ -30,7 +30,7 @@
     <varlistentry>
       <term>All Vendor Types</term>
       <listitem>
-        <para>Select to assign the A/P Accounts to all Vendor Types.</para>
+        <para>Select to assign the Payables Accounts to all Vendor Types.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -48,10 +48,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>A/P Account</term>
+      <term>Payables Account</term>
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
-        A/P Account. This is a Liability Account. It will be credited when
+        Payables Account. This is a Liability Account. It will be credited when
         Vouchers are posted and debited when Checks are posted.</para>
       </listitem>
     </varlistentry>
@@ -59,10 +59,10 @@
       <term>Prepaid Account</term>
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
-        A/P Prepaid Account. This is an Asset Account. It should not be
-        confused with or used interchangeably with the default A/P Account.
-        The Prepaid Account will be credited when Miscellaneous A/P Credit
-        Memos are posted and debited when Miscellaneous A/P Debit Memos are
+        Payables Prepaid Account. This is an Asset Account. It should not be
+        confused with or used interchangeably with the default Payables Account.
+        The Prepaid Account will be credited when Miscellaneous Payables Credit
+        Memos are posted and debited when Miscellaneous Payables Debit Memos are
         posted.</para>
       </listitem>
     </varlistentry>

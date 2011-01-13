@@ -21,7 +21,7 @@
       </mediaobject>
     </screenshot></para>
   <tip>
-    <para>Privileged users will be given the option to generate an A/P Credit
+    <para>Privileged users will be given the option to generate an Payables Credit
     Memo in the amount of the Return when the Return is posted. This option is
     available when returning against closed Purchase Order Line Items. Closed
     Purchase Orders will be reopened automatically in this scenario to allow
@@ -33,10 +33,10 @@
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term>P/O #</term>
+      <term>Order #</term>
       <listitem>
-        <para>Enter the Purchase Order Number of the Purchase Order whose Line
-        Item(s) you want to return.</para>
+        <para>Enter the Order Number of the Order whose Line Item(s) you want
+        to return.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -45,13 +45,6 @@
         <para>If your system is configured to use drop shipping, this
         informational, read-only field will be displayed. It will be selected
         if the Purchase Order entered was a drop ship Order.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Closed P/Os</term>
-      <listitem>
-        <para>Select to include closed Purchase Orders in the list accessible
-        from the "P/O#" field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -86,7 +79,7 @@
       <listitem>
         <para>Highlight a Line Item, then select this button to remove the
         returned Line Item quantity from Inventory. For privileged users, an
-        A/P Credit Memo may be generated in the amount of the Return when the
+        Payables Credit Memo may be generated in the amount of the Return when the
         Return is posted. This option is available when returning against
         closed Line Items. If used, the Line Item will be automatically
         reopened to allow for future Receipts. Also, a Return report will be

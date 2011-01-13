@@ -45,9 +45,6 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/openSalesOrders.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/rescheduleSoLineItems.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section528858">
     <title>Billing</title>
@@ -82,7 +79,7 @@
     <section id="Section655862">
       <title>Credit Memo</title>
       <para>Sales Order Credit Memos are used to issue credit for sold
-      Inventory. They differ from Accounts Receivable (A/R) Credit Memos,
+      Inventory. They differ from Receivables Credit Memos,
       which are issued for non-Inventory purposes. In this section we describe
       the features of sales Credit Memos.</para>
       <xi:include href="guiclient/creditMemo.xml" xpointer="element(/1)"
@@ -507,7 +504,7 @@
   <section id="Section520435">
     <title><indexterm significance="normal">
         <primary>utilities</primary>
-        <secondary>in s/o module</secondary>
+        <secondary>in sales module</secondary>
       </indexterm>Utilities</title>
     <para>Sales Utilities section.</para>
     <xi:include href="guiclient/dspCustomerInformationExport.xml"
@@ -570,7 +567,7 @@
     <section id="Section518497">
       <title><indexterm significance="normal">
           <primary>master information</primary>
-          <secondary>for s/o module</secondary>
+          <secondary>for sales module</secondary>
         </indexterm>Master Information</title>
       <para>Sales module Master Information section.</para>
       <xi:include href="guiclient/characteristics.xml" xpointer="element(/1)"
