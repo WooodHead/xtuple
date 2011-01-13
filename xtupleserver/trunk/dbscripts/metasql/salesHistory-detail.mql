@@ -1,6 +1,6 @@
 -- Group: salesHistory
 -- Name: detail
--- Notes: used by dspEarnedCommissions, dspSalesHistoryByBilltoName, dspSalesHistoryByCustomer, dspSalesHistoryByItem, dspSalesHistoryByParameterList, dspSalesHistoryBySalesrep, dspSalesHistoryByShipTo
+-- Notes: 
 
 SELECT cohist.*,
        CASE WHEN (cohist_invcnumber='-1') THEN  <? value("credit") ?>
@@ -70,20 +70,24 @@ WHERE ( (1=1)
 <? endif ?>
 <? if exists("cust_id") ?>
   AND  (cohist_cust_id=<? value("cust_id") ?>)
-<? elseif exists("custtype_id") ?>
+<? endif ?>
+<? if exists("custtype_id") ?>
   AND  (cust_custtype_id=<? value("custtype_id") ?>)
 <? elseif exists("custtype_pattern") ?>
   AND  (cust_custtype_id IN (SELECT DISTINCT custtype_id
                              FROM custtype
                              WHERE (custtype_code ~ <? value("custtype_pattern") ?>)))
-<? elseif exists("by_custgrp" ?>
+<? endif ?>
+<? if exists("by_custgrp" ?>
   AND (cust_id IN (SELECT DISTINCT custgrpitem_cust_id
                    FROM custgrpitem))
-<? elseif exists("custgrp_id") ?>
+<? endif ?>
+<? if exists("custgrp_id") ?>
   AND (cust_id IN (SELECT DISTINCT custgrpitem_cust_id
                    FROM custgrpitem
                    WHERE (custgrpitem_custgrp_id=<? value("custgrp_id") ?>)))
-<? elseif exists("custgrp_pattern") ?>
+<? endif ?>
+<? if exists("custgrp_pattern") ?>
   AND (cust_id IN (SELECT DISTINCT custgrpitem_cust_id
                    FROM custgrp, custgrpitem
                    WHERE ( (custgrpitem_custgrp_id=custgrp_id)
@@ -92,9 +96,11 @@ WHERE ( (1=1)
 
 <? if exists("item_id") ?>
   AND  (itemsite_item_id=<? value("item_id") ?>)
-<? elseif exists("prodcat_id") ?>
+<? endif ?>
+<? if exists("prodcat_id") ?>
   AND (item_prodcat_id=<? value("prodcat_id") ?>)
-<? elseif exists("prodcat_pattern") ?>
+<? endif ?>
+<? if exists("prodcat_pattern") ?>
   AND (item_prodcat_id IN (SELECT DISTINCT prodcat_id
                            FROM prodcat
                            WHERE (prodcat_code ~ <? value("prodcat_pattern") ?>)))
@@ -104,16 +110,5 @@ WHERE ( (1=1)
   AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
 <? endif ?>
       )
-<? if exists("orderByInvcdateItem") ?>
-  ORDER BY cohist_invcdate, item_number
-<? elseif exists("orderByInvcdateCust") ?>
-  ORDER BY cohist_invcdate, cust_number
-<? elseif exists("orderByInvcdateBillto") ?>
-  ORDER BY cohist_invcdate, cohist_billtoname, item_number
-<? elseif exists("orderBySalesRepInvcdate") ?>
-  ORDER BY salesrep_name, cohist_invcdate
-<? else ?>
-  ORDER BY cohist_invcnumber
-<? endif ?>
-;
+ORDER BY cohist_invcdate, item_number;
 
