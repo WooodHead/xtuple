@@ -49,6 +49,7 @@ WHERE ((true)
 <? endif ?>
 <? if exists("woHistoryByClassCode") ?>
    AND (itemsite_item_id=item_id)
+   AND (wo_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
   <? if exists("classcode_id") ?>
     AND (item_classcode_id=<? value("classcode_id") ?>)
   <? elseif exists("classcode_pattern") ?>
