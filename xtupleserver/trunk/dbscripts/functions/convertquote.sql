@@ -165,7 +165,7 @@ BEGIN
                    quhead_number, quhead_prj_id,
                    itemsite_item_id, itemsite_leadtime,
                    itemsite_createsopo, itemsite_createsopr,
-                   item_type, itemsrc_id
+                   item_type, COALESCE(quitem_itemsrc_id, itemsrc_id, -1) AS itemsrcid
             FROM quhead JOIN quitem ON (quitem_quhead_id=quhead_id)
                         JOIN itemsite ON (itemsite_id=quitem_itemsite_id)
                         JOIN item ON (item_id=itemsite_item_id)
@@ -236,9 +236,9 @@ BEGIN
         UPDATE pr SET pr_prj_id=_r.quhead_prj_id WHERE pr_id=_orderId;
       ELSIF ( (_r.item_type IN ('P', 'O')) AND (_r.itemsite_createsopo) ) THEN
         IF (_r.quitem_prcost=0) THEN
-          SELECT createPurchaseToSale(_soitemid, _r.itemsrc_id, _r.quitem_dropship) INTO _orderId;
+          SELECT createPurchaseToSale(_soitemid, _r.itemsrcid, _r.quitem_dropship) INTO _orderId;
         ELSE
-          SELECT createPurchaseToSale(_soitemid, _r.itemsrc_id, _r.quitem_dropship, _r.quitem_prcost) INTO _orderId;
+          SELECT createPurchaseToSale(_soitemid, _r.itemsrcid, _r.quitem_dropship, _r.quitem_prcost) INTO _orderId;
         END IF;
         _orderType := 'P';
       END IF;
