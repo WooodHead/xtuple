@@ -2,8 +2,8 @@
 -- Name: detail
 -- Notes: 
 
-SELECT 
-       cust_id, cohist_ponumber,
+SELECT
+       COALESCE(cohead_id,-1) AS cohead_id, cust_id, cohist_ponumber,
        cust_custtype_id, custtype_code,
        cohist_cust_id, SUM(extcost) AS extcost,
        'curr' AS extcost_xtnumericrole,
@@ -15,6 +15,7 @@ SELECT
        'curr' AS extended_xtnumericrole,
        0 AS extended_xttotalrole
 FROM saleshistory
+  LEFT OUTER JOIN cohead ON (cohead_number=cohist_ordernumber)
 WHERE ((cohist_invcdate BETWEEN <? value("startDate") ?> AND  <? value("endDate") ?>)
 <? if exists("cust_id") ?>
    AND (cohist_cust_id=<? value("cust_id") ?>)
@@ -57,7 +58,7 @@ WHERE ((cohist_invcdate BETWEEN <? value("startDate") ?> AND  <? value("endDate"
    AND (cohist_salesrep_id=<? value("salesrep_id") ?>)
 <? endif ?>
       )
-GROUP BY cust_id,cust_number,cust_custtype_id,cohist_cust_id,custtype_code,
+GROUP BY cohead_id, cust_id,cust_number,cust_custtype_id,cohist_cust_id,custtype_code,
          cust_name,cohist_ordernumber, cohist_ponumber,
          invoicenumber,cohist_orderdate, cohist_invcdate
 ORDER BY cohist_invcdate, cohist_orderdate;

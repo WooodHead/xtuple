@@ -4,22 +4,22 @@
 
 SELECT 1 AS dummy,
        <? if exists("byCustomer") ?>
-         cust_number, cust_name,
+         cust_number, cust_id AS cust_number_xtidrole, cust_name,
        <? endif ?> 
        <? if exists("byCustomerType") ?>
-         cust_custtype_id, custtype_code,
+         custtype_code, cust_custtype_id AS custtype_code_xtidrole, 
        <? endif ?>  
        <? if exists("byItem") ?>
-         item_number, itemdescription, 
+         item_number, item_id AS item_number_xtidrole, itemdescription, 
        <? endif ?> 
        <? if exists("bySalesRep") ?>
-         salesrep_number, salesrep_name, 
+         salesrep_number, salesrep_id AS salesrep_number_xtidrole, salesrep_name, 
        <? endif ?> 
        <? if exists("byShippingZone") ?>
-         shipzone_name, 
+         shipzone_name, shipzone_id AS shipzone_name_xtidrole,
        <? endif ?> 
        <? if exists("bySite") ?>
-         warehous_code,
+         warehous_code, warehous_id AS warehous_code_xtidrole,
        <? endif ?>  
        <? if exists("byCurrency") ?>
          currAbbr,
