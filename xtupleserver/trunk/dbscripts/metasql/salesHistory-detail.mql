@@ -51,6 +51,13 @@ SELECT cohist.*,
               JOIN site() ON (warehous_id=itemsite_warehous_id)
               JOIN item ON (item_id=itemsite_item_id)
 <? endif ?>
+<? if exists("shipzone_id") ?>
+              JOIN shiptoinfo ON (shipto_id=cohist_shipto_id)
+              JOIN shipzone ON (shipzone_id=shipto_shipzone_id)
+<? endif ?>
+<? if exists("cohead_id") ?>
+              JOIN cohead ON (cohead_number=cohist_ordernumber)
+<? endif ?>
 WHERE ( (1=1)
 <? if exists("includeMisc") ?>
   AND  (COALESCE(cohist_misc_type, '') <> 'F')
@@ -108,6 +115,12 @@ WHERE ( (1=1)
 
 <? if exists("warehous_id") ?>
   AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
+<? endif ?>
+<? if exists("shipzone_id") ?>
+  AND (shipzone_id=<? value("shipzone_id") ?>)
+<? endif ?>
+<? if exists("cohead_id") ?>
+  AND (cohead_id=<? value("cohead_id") ?>)
 <? endif ?>
       )
 ORDER BY cohist_invcdate, item_number;

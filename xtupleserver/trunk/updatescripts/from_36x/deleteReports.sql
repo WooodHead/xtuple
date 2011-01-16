@@ -8,5 +8,19 @@ WHERE report_name IN (
 'BookingsByShipTo',
 'TimePhasedBookingsByCustomer',
 'TimePhasedBookingsByProductCategory',
-'TimePhasedBookingsByItem')
+'TimePhasedBookingsByItem',
+'TimePhasedSalesHistoryByCustomer',
+'TimePhasedSalesHistoryByItem',
+'TimePhasedSalesHistoryByCustomerByItem',
+'TimePhasedSalesHistoryByCustomerGroup',
+'TimePhasedSalesHistoryByProductCategory',
+'SalesHistoryByCustomerType',
+'SalesHistoryByCustomerGroup',
+'SalesHistoryByProductCategory',
+'SalesHistoryByCustomer',
+'SalesHistoryByParameterList',
+'SalesHistoryByBilltoName',
+'SalesHistoryByItem',
+'SalesHistoryBySalesRep',
+'SalesHistoryByShipTo') 
 AND report_grade=0;
