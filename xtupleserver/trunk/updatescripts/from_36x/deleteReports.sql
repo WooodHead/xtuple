@@ -22,5 +22,7 @@ WHERE report_name IN (
 'SalesHistoryByBilltoName',
 'SalesHistoryByItem',
 'SalesHistoryBySalesRep',
-'SalesHistoryByShipTo') 
+'SalesHistoryByShipTo',
+'BriefSalesHistoryByCustomer',
+'BriefSalesHistoryByCustomerType') 
 AND report_grade=0;
