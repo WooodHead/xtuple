@@ -58,13 +58,22 @@ SELECT cohist.*,
 <? if exists("cohead_id") ?>
               JOIN cohead ON (cohead_number=cohist_ordernumber)
 <? endif ?>
-WHERE ( (1=1)
+WHERE ( (true)
 <? if exists("includeMisc") ?>
   AND  (COALESCE(cohist_misc_type, '') <> 'F')
   AND  (COALESCE(cohist_misc_type, '') <> 'T')
 <? endif ?>
 <? if exists("startDate") ?>
-  AND  (cohist_invcdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+  AND  (cohist_invcdate >= <? value("startDate") ?>)
+<? endif ?>
+<? if exists("endDate") ?>
+  AND  (cohist_invcdate <= <? value("endDate") ?>)
+<? endif ?>
+<? if exists("shipStartDate") ?>
+  AND  (cohist_shipdate >= <? value("shipStartDate") ?>)
+<? endif ?>
+<? if exists("shipEndDate") ?>
+  AND  (cohist_shipdate <= <? value("shipEndDate") ?>)
 <? endif ?>
 <? if exists("salesrep_id") ?>
   AND  (cohist_salesrep_id=<? value("salesrep_id") ?>)

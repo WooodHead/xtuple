@@ -4,7 +4,7 @@
 
 SELECT 1 AS dummy,
        <? if exists("byCustomer") ?>
-         cust_number, cust_id AS cust_number_xtidrole, cust_name,
+         cust_number, cohist_cust_id AS cust_number_xtidrole, cust_name,
        <? endif ?> 
        <? if exists("byCustomerType") ?>
          custtype_code, cust_custtype_id AS custtype_code_xtidrole, 
@@ -13,13 +13,13 @@ SELECT 1 AS dummy,
          item_number, item_id AS item_number_xtidrole, itemdescription, 
        <? endif ?> 
        <? if exists("bySalesRep") ?>
-         salesrep_number, salesrep_id AS salesrep_number_xtidrole, salesrep_name, 
+         salesrep_number, cohist_salesrep_id AS salesrep_number_xtidrole, salesrep_name, 
        <? endif ?> 
        <? if exists("byShippingZone") ?>
          shipzone_name, shipzone_id AS shipzone_name_xtidrole,
        <? endif ?> 
        <? if exists("bySite") ?>
-         warehous_code, warehous_id AS warehous_code_xtidrole,
+         warehous_code, itemsite_warehous_id AS warehous_code_xtidrole,
        <? endif ?>  
        <? if exists("byCurrency") ?>
          currAbbr,
@@ -56,12 +56,12 @@ SELECT 1 AS dummy,
          0 AS totalsales_xttotalrole 
 FROM saleshistory 
 WHERE (true
-<? if exists("invoiceStartDate") ?>
- AND (cohist_invcdate >= <? value("invoiceStartDate") ?>)
+<? if exists("startDate") ?>
+ AND (cohist_invcdate >= <? value("startDate") ?>)
 <? endif ?>
 
-<? if exists("invoiceEndDate") ?>
- AND (cohist_invcdate <= <? value("invoiceEndDate") ?>)
+<? if exists("endDate") ?>
+ AND (cohist_invcdate <= <? value("endDate") ?>)
 <? endif ?>
 
 <? if exists("shipStartDate") ?>
@@ -113,7 +113,7 @@ GROUP BY dummy
  , cohist_salesrep_id, salesrep_number, salesrep_name
 <? endif ?>
 <? if exists("byShippingZone") ?>
- , shipzone_name
+ , shipzone_id, shipzone_name
 <? endif ?>
 <? if exists("byCustomer") ?>
  , cohist_cust_id, cust_number, cust_name
@@ -122,10 +122,10 @@ GROUP BY dummy
  , cust_custtype_id, custtype_code
 <? endif ?>
 <? if exists("byItem") ?>
- , item_number, itemdescription
+ , item_id, item_number, itemdescription
 <? endif ?>
 <? if exists("bySite") ?>
- , warehous_code
+ , itemsite_warehous_id, warehous_code
 <? endif ?>
 <? if exists("byCurrency") ?>
  , cust_curr_id, currAbbr
