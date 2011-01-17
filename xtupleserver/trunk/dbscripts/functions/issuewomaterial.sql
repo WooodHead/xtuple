@@ -84,7 +84,10 @@ BEGIN
          womatl_wo_id, womatl_qtyreq, itemsite_item_id, womatl_uom_id, wo_prj_id,
          roundQty(item_fractional, itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)) AS qty,
          formatWoNumber(wo_id) AS woNumber,
-         CASE WHEN(itemsite_costmethod='A') THEN avgcost(itemsite_id) ELSE stdcost(itemsite_item_id) END AS cost,
+         CASE WHEN(itemsite_costmethod IN ('A','J')) THEN avgcost(itemsite_id)
+              WHEN(itemsite_costmethod='S') THEN stdcost(itemsite_item_id)
+              ELSE 0.0
+         END AS cost,
          womatl_issuemethod AS issueMethod INTO _p
   FROM wo, womatl, itemsite, item
   WHERE ( (womatl_wo_id=wo_id)

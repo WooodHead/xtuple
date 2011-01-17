@@ -125,7 +125,11 @@ BEGIN
 --  Increase this W/O's received qty decrease its WIP value
   UPDATE wo
   SET wo_qtyrcv = (wo_qtyrcv + _parentQty),
-      wo_wipvalue = (wo_wipvalue - (CASE WHEN (itemsite_costmethod IN ('A','J')) THEN _wipPost ELSE (stdcost(itemsite_item_id) * _parentQty)  END))
+      wo_wipvalue = (wo_wipvalue - (CASE WHEN (itemsite_costmethod IN ('A','J'))
+                                               THEN _wipPost
+                                         WHEN (itemsite_costmethod='S')
+                                               THEN (stdcost(itemsite_item_id) * _parentQty)
+                                         ELSE 0.0  END))
   FROM itemsite, item
   WHERE ((wo_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)
