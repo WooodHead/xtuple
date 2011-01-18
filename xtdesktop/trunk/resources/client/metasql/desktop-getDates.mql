@@ -2,4 +2,4 @@
 -- Name:  getDates
 -- Notes: 
 SELECT date_trunc(<? value("timeFrame") ?>, current_date) AS startDate,
-       date_trunc(<? value("timeFrame") ?>, current_date) + <? value("interval") ?> AS endDate
+       date_trunc(<? value("timeFrame") ?>, current_date) + <? value("interval") ?>  + '-1 day' AS endDate
