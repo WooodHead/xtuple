@@ -52,6 +52,7 @@ BEGIN
                tehead_warehous_id,
                teitem_type,
                tehead_emp_id,
+               cust_taxzone_id,
                item_number,
                teitem_cust_id,
                teitem_po,
@@ -62,6 +63,7 @@ BEGIN
                teitem_notes
              FROM te.teitem
                JOIN te.tehead ON (teitem_tehead_id = tehead_id)
+               JOIN custinfo ON (cust_id = teitem_cust_id)
                JOIN item ON (item_id = teitem_item_id)
                JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
                JOIN prj ON (prjtask_prj_id=prj_id)
@@ -81,7 +83,7 @@ BEGIN
             SELECT 
               _invcitemid, _invcheadid, _linenum, _t.teitem_item_id,
               _t.tehead_warehous_id, '', '', '', _t.teitem_qty, _t.teitem_qty, _t.teitem_rate,
-              _t.teitem_rate, _t.teitem_notes, -1, null, 
+              _t.teitem_rate, _t.teitem_notes, -1, getItemTaxType(item_id, _t.cust_taxzone_id), 
               _t.teitem_uom_id, itemuomtouomratio(item_id, _t.teitem_uom_id, item_inv_uom_id),
               _t.teitem_uom_id, itemuomtouomratio(item_id, _t.teitem_uom_id, item_inv_uom_id),
               null
