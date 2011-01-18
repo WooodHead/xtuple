@@ -61,7 +61,7 @@ FROM (
     JOIN poitem ON (recv_orderitem_id=poitem_id)
     JOIN pohead ON (poitem_pohead_id=pohead_id)
     LEFT OUTER JOIN usr ON (pohead_agent_username=usr_username)
-  WHERE ((recv_date BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+  WHERE ((recv_date::date BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
     AND (recv_posted)
     AND (recv_order_type = 'PO'))
   UNION ALL
@@ -78,7 +78,7 @@ FROM (
     JOIN poitem ON (poreject_poitem_id=poitem_id)
     JOIN pohead ON (poitem_pohead_id=pohead_id)
     LEFT OUTER JOIN usr ON (pohead_agent_username=usr_username)
-  WHERE ((poreject_date BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+  WHERE ((poreject_date::date BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
     AND (poreject_posted))
 ) data
 GROUP BY <? literal("group_id") ?>, <? literal("group_number") ?>, <? literal("group_name") ?>

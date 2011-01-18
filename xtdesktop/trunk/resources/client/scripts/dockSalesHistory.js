@@ -209,48 +209,19 @@ function openWindowSalesHist()
     return;
 
   // Determine which window to open
+  if (_typeSalesHist == "bookings")
+    ui = "dspBookings";
+  else
+    ui = "dspSalesHistory";
   if (_groupBySalesHist == "cust")
-  {
-    if (_typeSalesHist == "bookings")
-      ui = "dspBookingsByCustomer";
-    else
-      ui = "dspSalesHistoryByCustomer";
     params.cust_id = _salesHist.id();
-  }
   else if (_groupBySalesHist == "prodcat")
-  {
-    if (_typeSalesHist == "bookings")
-      ui = "dspBookingsByProductCategory";
-    else
-      ui = "dspSalesHistoryByParameterList";
     params.prodcat_id = _salesHist.id();
-  }
   else if (_groupBySalesHist == "salesrep")
-  {
-    if (_typeSalesHist == "bookings")
-      ui = "dspBookingsBySalesRep";
-    else
-      ui = "dspSalesHistoryBySalesrep";
     params.salesrep_id = _salesHist.id();
-  }
 
   // Open the window and perform any special handling required
   toolbox.openWindow(ui);
-  if (_typeSalesHist == "bookings")
-  {
-    var warehouse = toolbox.lastWindow().findChild("_warehouse");
-    warehouse.setAll();
-  }
-  if (ui == "dspBookingsBySalesRep") // Unfortunately no "set" function exists
-  { 
-    var dates = toolbox.lastWindow().findChild("_dates");
-    var salesrep = toolbox.lastWindow().findChild("_salesrep");
-    dates.setStartDate(params.startDate);
-    dates.setEndDate(params.endDate);
-    salesrep.setId(params.salesrep_id);
-    toolbox.lastWindow().sFillList();
-    return;
-  }
   toolbox.lastWindow().set(params);
 }
 
