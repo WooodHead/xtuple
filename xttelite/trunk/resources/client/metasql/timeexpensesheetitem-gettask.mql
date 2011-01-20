@@ -6,4 +6,5 @@ SELECT
   prjtask_id,
   (prjtask_number || ' - ' || prjtask_name) AS name 
 FROM prjtask 
-WHERE (prjtask_prj_id = <? value("prj_id") ?>);
+WHERE (prjtask_prj_id = <? value("prj_id") ?>)
+ORDER by prjtask_number;
