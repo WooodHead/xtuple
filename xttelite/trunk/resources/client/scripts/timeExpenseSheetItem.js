@@ -106,6 +106,11 @@ set = function(input)
         _notes.enabled = false;
         _billable.enabled = false; 
       }
+      else if (input.mode == xtte.editMode)
+      {
+        _project.enabled = false;
+        _task.enabled = false;
+      }
 
       xtte.timeExpenseSheetItem.populate();
     }
@@ -129,6 +134,8 @@ xtte.timeExpenseSheetItem.gettask = function()
     var params = new Object();
     params.prj_id = _project.id();
     params.name = qsTr("Default");
+    if (_mode == xtte.newMode)
+      params.active = true;
     if (_workdate.isValid())
       params.startDate = _workdate.date;
 
@@ -396,7 +403,7 @@ xtte.timeExpenseSheetItem.customerChanged = function()
 xtte.timeExpenseSheetItem.projectChanged = function()
 {
   //enable and reset the task fields
-  _task.enabled = (_project.isValid() && _mode != xtte.viewMode);
+  _task.enabled = (_project.isValid() && _mode == xtte.newMode);
 
   xtte.timeExpenseSheetItem.gettask();
   xtte.timeExpenseSheetItem.modified();
