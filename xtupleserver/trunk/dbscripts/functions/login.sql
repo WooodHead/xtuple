@@ -5,6 +5,10 @@ DECLARE
 
 BEGIN
 
+  PERFORM pg_try_advisory_lock(datid::integer, procpid)
+     FROM pg_stat_activity
+    WHERE(procpid = pg_backend_pid());
+
   SELECT usr_id, userCanLogin(usr_username) AS usr_active INTO _p
   FROM usr
   WHERE (usr_username=CURRENT_USER);

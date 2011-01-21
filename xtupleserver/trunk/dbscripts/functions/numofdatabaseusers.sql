@@ -1,15 +1,17 @@
 
-CREATE OR REPLACE FUNCTION numOfDatabaseUsers() RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION numOfDatabaseUsers() RETURNS INTEGER AS $$
 DECLARE
   _count INTEGER;
 
 BEGIN
 
-  SELECT COUNT(*) INTO _count
-  FROM pg_stat_activity
-  WHERE (datid IN ( SELECT datid
-                    FROM pg_stat_activity
-                    WHERE (procpid=pg_backend_pid()) ) );
+  SELECT count(*)
+    INTO _count
+    FROM pg_stat_activity, pg_locks
+   WHERE((database=datid)
+     AND (classid=datid)
+     AND (objsubid=2)
+     AND (procpid = pg_backend_pid()));
   IF (_count IS NULL) THEN
     _count := 0;
   END IF;
@@ -17,5 +19,5 @@ BEGIN
   RETURN _count;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
