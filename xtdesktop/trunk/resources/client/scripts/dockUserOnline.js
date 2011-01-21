@@ -24,7 +24,8 @@ function initDockUserOnline()
   _userOnline.addColumn(qsTr("Username"), -1,  Qt.AlignLeft, true, "usr_username");
   _userOnline.addColumn(qsTr("Proper Name"), -1,  Qt.AlignLeft, true, "usr_propername");
   _userOnline.addColumn(qsTr("Email"), -1,  Qt.AlignLeft, true, "usr_email");
-  _userOnline.addColumn(qsTr("Count"), -1,  Qt.AlignLeft, true, "cnt");
+  _userOnline.addColumn(qsTr("# Internal"), -1,  Qt.AlignLeft, true, "cnt_internal");
+  _userOnline.addColumn(qsTr("# External"), -1,  Qt.AlignLeft, true, "cnt_external");
   _userOnline.addColumn(qsTr("Client Start"), XTreeWidget.timeDateColumn, Qt.AlignLeft, true, "client_start"); 
   _userOnline.addColumn(qsTr("Query Start"), XTreeWidget.timeDateColumn, Qt.AlignLeft, true, "query_start");
   _userOnline.addColumn(qsTr("Client Address"), -1,  Qt.AlignLeft, true, "client_addr");
