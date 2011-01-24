@@ -31,5 +31,10 @@ WHERE report_name IN (
 'SummarizedSalesHistoryByCustomer',
 'SummarizedSalesHistoryByItem',
 'SummarizedSalesHistoryBySalesRep',
-'SummarizedSalesHistoryByShippingZone') 
+'SummarizedSalesHistoryByShippingZone',
+'InventoryAvailabilityByPlannerCode',
+'InventoryAvailabilityByClassCode',
+'InventoryAvailabilityByItemGroup',
+'InventoryAvailabilityByItem',
+'InventoryAvailabilityByParameterList') 
 AND report_grade=0;
