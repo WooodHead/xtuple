@@ -1,4 +1,5 @@
-DROP TYPE cntctdup;
+SELECT dropIfExists('FUNCTION', 'cntctdups(text, boolean, boolean, boolean, boolean, boolean, boolean, boolean, boolean, boolean, boolean, boolean, boolean, boolean, boolean, boolean)');
+SELECT dropIfExists('TYPE', 'cntctdup');
 
 CREATE TYPE cntctdup AS
 (
@@ -21,6 +22,7 @@ CREATE TYPE cntctdup AS
     cntct_middle text,
     cntct_suffix text,
     cntct_owner_username text,
+    cntct_name text,
     crmacct_number text, 
     crmacct_name text,
     addr_id integer,
