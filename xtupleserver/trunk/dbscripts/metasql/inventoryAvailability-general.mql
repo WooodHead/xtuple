@@ -1,8 +1,6 @@
 -- Group: inventoryAvailability
 -- Name:  general
--- Notes: incorporates query from dspInventoryAvailabilityByParameterList
---        ByItem
---        BySourceVendor
+-- Notes: 
 
 SELECT itemsite_id, altId,
        item_number, (item_descrip1 || ' ' || item_descrip2) AS itemdescrip,
@@ -26,7 +24,11 @@ SELECT itemsite_id, altId,
        CASE WHEN ((qoh - allocated + ordered) < 0) THEN 'error'
             WHEN ((qoh - allocated + ordered) <= reorderlevel) THEN 'warning'
        END AS available_qtforegroundrole
-FROM (SELECT itemsite_id,
+FROM (SELECT 
+           <? if reExists("[vV]end") ?>
+             DISTINCT
+           <? endif ?>
+             itemsite_id,
              CASE WHEN (item_type IN ('P', 'O')) THEN 1
                   WHEN (item_type IN ('M')) THEN 2
                   ELSE 0
@@ -63,7 +65,7 @@ FROM (SELECT itemsite_id,
                qtypr(itemsite_id,   <? value("startDate") ?>, <? value("endDate") ?>) AS requests
              <? endif ?>
       FROM item, itemsite, warehous 
-           <? if exists("byVend") ?>
+           <? if reExists("[vV]end") ?>
              , vend JOIN itemsrc ON (itemsrc_vend_id=vend_id)
            <? endif ?>
       WHERE ( (itemsite_active)
@@ -98,7 +100,7 @@ FROM (SELECT itemsite_id,
           <? elseif exists("itemgrp") ?>
             AND (item_id IN (SELECT DISTINCT itemgrpitem_item_id FROM itemgrpitem))
           <? endif ?>
-          <? if exists("byVend") ?>
+          <? if reExists("[vV]end") ?>
             AND (itemsrc_item_id=item_id)
           <? endif ?>
           <? if exists("vend_id") ?>
