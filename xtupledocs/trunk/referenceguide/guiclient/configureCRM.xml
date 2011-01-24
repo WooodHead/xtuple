@@ -88,15 +88,6 @@
       <listitem>
         <para>Select to enable Project functionality.</para>
         <variablelist>
-          <varlistentry role="xtte">
-            <term>Project Labor And Overhead</term>
-            <listitem>
-              <para>Enter a G/L Account to be used when approving Time Sheets
-              for Employees who record time against Projects. For this Account
-              to be used, the Employee must have a rate defined on their
-              Employee record?and they must also not be a contractor.</para>
-            </listitem>
-          </varlistentry>
           <varlistentry role="xtprjaccnt">
             <term>Enable Project Accounting</term>
             <listitem>
@@ -112,6 +103,15 @@
               Project-specific transactions just as though the Project number
               were the last segment of the G/L Account. Various reports can be
               filtered by Project transaction.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry role="xtte">
+            <term>Project Labor And Overhead</term>
+            <listitem>
+              <para>Enter a G/L Account to be used when approving Time Sheets
+              for Employees who record time against Projects. For this Account
+              to be used, the Employee must have a rate defined on their
+              Employee record?and they must also not be a contractor.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
