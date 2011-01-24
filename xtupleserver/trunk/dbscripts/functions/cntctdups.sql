@@ -80,6 +80,7 @@ BEGIN
     END IF;
     _qry := _qry || ' cntct_suffix,';
     _qry := _qry || ' '''' AS cntct_owner_username,';
+    _qry := _qry || ' '''' AS cntct_name,';
     _qry := _qry || ' '''' AS crmacct_number, ';
     _qry := _qry || ' '''' AS crmacct_name, ';
     _qry := _qry || ' NULL AS addr_id,
@@ -115,6 +116,7 @@ BEGIN
 		UPPER(cntct_middle) AS cntct_middle,
 		UPPER(cntct_suffix) AS cntct_suffix,
 		cntct_owner_username,
+                cntct_name,
 		crmacct_number, 
 		crmacct_name,
 		addr.*,
@@ -295,6 +297,7 @@ BEGIN
         _qry := _qry || ' AND (UPPER(cntct_email)=''' || _cntct.cntct_email || ''')';
       END IF;
 
+-- raise exception '%',_qry;
       FOR _cntctdup IN
         EXECUTE _qry
       LOOP
