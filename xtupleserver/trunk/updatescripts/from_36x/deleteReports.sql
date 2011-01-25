@@ -36,5 +36,8 @@ WHERE report_name IN (
 'InventoryAvailabilityByClassCode',
 'InventoryAvailabilityByItemGroup',
 'InventoryAvailabilityByItem',
-'InventoryAvailabilityByParameterList') 
+'InventoryAvailabilityByParameterList',
+'QOHByParameterList',
+'QOHByClassCode',
+'QOHByItem') 
 AND report_grade=0;

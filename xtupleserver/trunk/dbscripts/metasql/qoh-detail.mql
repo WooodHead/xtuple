@@ -1,53 +1,16 @@
 -- Group: qoh
 -- Name: detail
--- Notes: used by dspQOHByItem, dspQOHByLocation, dspQOHByParameterList
+-- Notes: 
 
-SELECT
+--  Quanity on Hand By Location
 <? if exists("byLocation") ?>
-       itemloc_id, warehous_code, item_number,
+SELECT itemloc_id, warehous_code, item_number,
        f_descrip, f_lotserial, uom_name,
        qoh, reservedqty,
        'qty' AS qoh_xtnumericrole,
        'qty' AS reservedqty_xtnumericrole,
        level AS xtindentrole
-<? else ?>
-       itemsite_id, detail,warehous_code,
-  <? if exists("byItem") ?>
-       CASE WHEN (NOT useDefaultLocation(itemsite_id)) THEN <? value("none") ?>
-         ELSE defaultLocationName(itemsite_id)
-       END AS defaultlocation,
-  <? elseif exists("byParameterList") ?>
-       classcode_code, item_number, uom_name,
-       (item_descrip1 || ' ' || item_descrip2) AS itemdescrip,
-       defaultlocation,
-  <? endif ?>
-       reorderlevel, qoh, nnqoh,
-       CASE WHEN (itemsite_loccntrl) THEN nnqoh END AS f_nnqoh,
-       cost, (cost * qoh) AS value,
-       CASE WHEN (itemsite_loccntrl) THEN (cost * nnqoh) END AS f_nnvalue,
-       CASE WHEN(itemsite_costmethod='A') THEN 'Average'
-            WHEN(itemsite_costmethod='S') THEN 'Standard'
-            WHEN(itemsite_costmethod='J') THEN 'Job'
-            WHEN(itemsite_costmethod='N') THEN 'None'
-         ELSE 'UNKNOWN'
-       END AS f_costmethod,
-       'qty' AS reorderlevel_xtnumericrole,
-       'qty' AS qoh_xtnumericrole,
-       'qty' AS f_nnqoh_xtnumericrole,
-       0 AS qoh_xttotalrole,
-       0 AS f_nnqoh_xttotalrole,
-       'cost' AS cost_xtnumericrole,
-       'curr' AS value_xtnumericrole,
-       'curr' AS f_nnvalue_xtnumericrole,
-       0 AS value_xttotalrole,
-       0 AS f_nnvalue_xttotalrole,
-       <? value("na") ?> AS f_nnqoh_xtnullrole,
-       <? value("na") ?> AS f_nnvalue_xtnullrole,
-       CASE WHEN (qoh < 0) THEN 'error' END AS qoh_qtforegroundrole,
-       CASE WHEN (reorderlevel > qoh) THEN 'warning' END AS qoh_qtforegroundrole
-<? endif ?>
 FROM (
-<? if exists("byLocation") ?>
       SELECT itemloc_id, 0 AS level, item_number AS sortkey, warehous_code, item_number,
              (item_descrip1 || ' ' || item_descrip2) AS f_descrip,
              formatlotserialnumber(itemloc_ls_id) AS f_lotserial, uom_name,
@@ -88,19 +51,48 @@ FROM (
          AND(item_id=itemsite_item_id)
          AND(itemloc_location_id=<? value("location_id") ?>))
   <? endif ?>
+     ) AS data
+ORDER BY
+         sortkey, itemloc_id, level;
 <? else ?>
+--  Quantity on Hand
+SELECT itemsite_id, detail,warehous_code,
+       classcode_code, item_number, uom_name,
+       costcat_code, 
+       (item_descrip1 || ' ' || item_descrip2) AS itemdescrip,
+       defaultlocation,
+       reorderlevel, qoh, nnqoh,
+       CASE WHEN (itemsite_loccntrl) THEN nnqoh END AS f_nnqoh,
+       cost, (cost * qoh) AS value,
+       CASE WHEN (itemsite_loccntrl) THEN (cost * nnqoh) END AS f_nnvalue,
+       CASE WHEN(itemsite_costmethod='A') THEN 'Average'
+            WHEN(itemsite_costmethod='S') THEN 'Standard'
+            WHEN(itemsite_costmethod='J') THEN 'Job'
+            WHEN(itemsite_costmethod='N') THEN 'None'
+         ELSE 'UNKNOWN'
+       END AS f_costmethod,
+       'qty' AS reorderlevel_xtnumericrole,
+       'qty' AS qoh_xtnumericrole,
+       'qty' AS f_nnqoh_xtnumericrole,
+       0 AS qoh_xttotalrole,
+       0 AS f_nnqoh_xttotalrole,
+       'cost' AS cost_xtnumericrole,
+       'curr' AS value_xtnumericrole,
+       'curr' AS f_nnvalue_xtnumericrole,
+       0 AS value_xttotalrole,
+       0 AS f_nnvalue_xttotalrole,
+       <? value("na") ?> AS f_nnqoh_xtnullrole,
+       <? value("na") ?> AS f_nnvalue_xtnullrole,
+       CASE WHEN (qoh < 0) THEN 'error' END AS qoh_qtforegroundrole,
+       CASE WHEN (reorderlevel > qoh) THEN 'warning' END AS qoh_qtforegroundrole
+FROM (
       SELECT itemsite_id, itemsite_loccntrl, itemsite_costmethod,
-  <? if exists("byItem") ?>
-             CASE WHEN ((itemsite_loccntrl) OR (itemsite_controlmethod IN ('L', 'S'))) THEN 1
-               ELSE 0
-             END AS detail,
-  <? elseif exists("byParameterList") ?>
              ((itemsite_loccntrl) OR (itemsite_controlmethod IN ('L', 'S')) ) AS detail,
              classcode_code, item_number, uom_name, item_descrip1, item_descrip2,
+             costcat_code, 
              CASE WHEN (NOT useDefaultLocation(itemsite_id)) THEN <? value("none") ?>
                ELSE defaultLocationName(itemsite_id)
              END AS defaultlocation,
-  <? endif ?>
              warehous_code,
              CASE WHEN(itemsite_useparams) THEN itemsite_reorderlevel ELSE 0.0 END AS reorderlevel,
              itemsite_qtyonhand AS qoh,
@@ -112,59 +104,52 @@ FROM (
   <? else ?>
              (itemsite_value / CASE WHEN(itemsite_qtyonhand=0) THEN 1 ELSE itemsite_qtyonhand END) AS cost
   <? endif ?>
-      FROM itemsite, item, warehous
-  <? if exists("byParameterList") ?>
-           , classcode, uom
-  <? endif ?>
+      FROM itemsite, item, warehous, classcode, uom, costcat
       WHERE ((itemsite_item_id=item_id)
          AND (itemsite_warehous_id=warehous_id)
          AND (itemsite_active)
-  <? if exists("byItem") ?>
-         AND (itemsite_item_id=<? value("item_id") ?>)
-  <? elseif exists("byParameterList") ?>
          AND (item_inv_uom_id=uom_id)
          AND (item_classcode_id=classcode_id)
-    <? if exists("byParameter") ?>
-      <? if exists("classcode") ?>
+         AND (itemsite_costcat_id=costcat_id)
+  <? if exists("item_id") ?>
+         AND (itemsite_item_id=<? value("item_id") ?>)
+  <? endif ?>
+  <? if exists("classcode_id") ?>
          AND (classcode_id=<? value("classcode_id") ?>)
-      <? elseif exists("itemgrp") ?>
-         AND (item_id IN (SELECT itemgrpitem_item_id
-                          FROM itemgrpitem
-                          WHERE (itemgrpitem_itemgrp_id=<? value("itemgrp_id") ?>)))
-      <? endif ?>
-    <? elseif exists("byParameterPattern") ?>
-      <? if exists("classcode") ?>
+  <? endif ?>
+  <? if exists("classcode_pattern") ?>
          AND (classcode_id IN (SELECT classcode_id
                                FROM classcode
                                WHERE classcode_code ~ <? value("classcode_pattern") ?>))
-      <? elseif exists("itemgrp") ?>
+  <? endif ?>
+  <? if exists("costcat_id") ?>
+         AND (costcat_id=<? value("costcat_id") ?>)
+  <? endif ?>
+  <? if exists("costcat_pattern") ?>
+         AND (costcat_id IN (SELECT costcat_id
+                               FROM costcat
+                               WHERE costcat_code ~ <? value("costcat_pattern") ?>))
+  <? endif ?>
+  <? if exists("itemgrp_id") ?>
+         AND (item_id IN (SELECT itemgrpitem_item_id
+                          FROM itemgrpitem
+                          WHERE (itemgrpitem_itemgrp_id=<? value("itemgrp_id") ?>)))
+  <? endif ?>
+  <? if exists("itemgrp_pattern") ?>
          AND (item_id IN (SELECT itemgrpitem_item_id
                           FROM itemgrpitem, itemgrp
                           WHERE ((itemgrpitem_itemgrp_id=itemgrp_id)
                              AND (itemgrp_name ~ <? value("itemgrp_pattern") ?>))))
-      <? endif ?>
-    <? elseif exists("byParameterType") ?>
-         AND (item_id IN (SELECT DISTINCT itemgrpitem_item_id
-                          FROM itemgrpitem))
-    <? endif ?>
-    <? if exists("showPositive") ?>
-         AND (itemsite_qtyonhand > 0)
-    <? elseif exists("showNegative") ?>
-         AND (itemsite_qtyonhand < 0)
-    <? endif ?>
+  <? endif ?>
+  <? if exists("showPositive") ?>
+       AND (itemsite_qtyonhand > 0)
+  <? elseif exists("showNegative") ?>
+       AND (itemsite_qtyonhand < 0)
   <? endif ?>
   <? if exists("warehous_id") ?>
          AND (itemsite_warehous_id=<? value("warehous_id") ?>)
   <? endif ?>
             )
-<? endif ?>
      ) AS data
-ORDER BY
-<? if exists("byLocation") ?>
-         sortkey, itemloc_id, level;
-<? else ?>
-         warehous_code
-  <? if exists("byParameterList") ?>
-         , item_number;
-  <? endif ?>
+ORDER BY warehous_code, item_number;
 <? endif ?>
