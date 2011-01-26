@@ -1,0 +1,8 @@
+<div id="messages" class="ui-state-highlight ui-corner-all" style="padding: 4px">
+  <?php foreach($parts as $msg) { ?>
+  <div>
+  <span class="ui-icon ui-icon-info" style="float:left; clear: both; margin-right: 3em;"></span>
+  <span class="redirect-message"><?php print $msg ?></span>
+  </div>
+  <?php } ?>
+</div>

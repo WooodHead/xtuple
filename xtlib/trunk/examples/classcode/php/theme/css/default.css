@@ -1,0 +1,61 @@
+@charset "utf-8"
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: verdana, sans-serif;
+    font-size: 9pt;
+}
+
+a:link {
+    color: #222;
+}
+a:visited {
+    color: #222;
+}
+a:hover {
+    text-decoration: none;
+}
+
+thead {
+    background-color: #222;
+    color: #fff;
+}
+tr.even {
+    background-color: #eee;
+}
+tr.odd {
+    background-color: #ddd;
+}
+
+div#portal-container {
+}
+
+div#logo-container {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+div#main-menu-container {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+div.section-header {
+    font-weight: bold;
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+
+form {
+  display: table;
+}
+div.form-elem {
+  display: table-row;
+}
+div.form-elem span {
+  padding: 5px;
+  display: table-cell;
+}

@@ -1,0 +1,33 @@
+<?php
+
+class templater {
+    private function __construct() {}
+    public static function inject($tpl=null,$params=null) {
+
+        //if there is no string, return false
+        if(!$tpl)
+            return false;
+        $content = self::parse($tpl,$params);
+
+		return $content;
+    }
+    private static function parse($tpl=null,$params=null) {
+        $content = $tpl;
+        if(is_array($params)) {
+            self::fix_keys($params);
+            $content = preg_replace(array_keys($params),array_values($params),$content);
+        }
+        $content = preg_replace('/\{(.*)+\}/','',$content);
+        return $content;
+    }
+    private static function fix_keys(&$params) {
+        //a temporary array
+        $tmp = array();
+        foreach($params as $key => $value) {
+            $tmp['/\{'.$key.'\}/'] = $value;
+        }
+        $params = $tmp;
+    }
+}
+
+?>
