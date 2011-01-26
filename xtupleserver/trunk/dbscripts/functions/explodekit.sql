@@ -14,6 +14,7 @@ DECLARE
   _type TEXT;
   _coitemid INTEGER;
   _count INTEGER;
+  _orderid INTEGER := 0;
   _itemsrcid INTEGER;
 BEGIN
 
@@ -34,14 +35,13 @@ BEGIN
          item_id,
          item_type,
          item_price_uom_id,
-         itemsite_createpr,itemsite_createwo,itemsite_createsopo,
+         itemsite_createsopr,itemsite_createwo,itemsite_createsopo, itemsite_dropship,
          bomitem_uom_id,
          itemuomtouomratio(item_id, bomitem_uom_id, item_inv_uom_id) AS invuomratio,
-         roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id),(bomitem_qtyfxd + bomitem_qtyper * pQty) * (1 + bomitem_scrap)) AS qty,
-         itemsite_createsopo, itemsite_dropship
-    FROM bomitem, item LEFT OUTER JOIN itemsite ON ((itemsite_item_id=item_id) AND (itemsite_warehous_id=_warehousid))
+         roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id),(bomitem_qtyfxd + bomitem_qtyper * pQty) * (1 + bomitem_scrap)) AS qty
+    FROM bomitem JOIN item ON (item_id=bomitem_item_id)
+                  LEFT OUTER JOIN itemsite ON ((itemsite_item_id=item_id) AND (itemsite_warehous_id=_warehousid))
    WHERE((bomitem_parent_item_id=_itemid)
-     AND (bomitem_item_id=item_id)
      AND (bomitem_rev_id=_revid)
      AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1)))
    ORDER BY bomitem_seqnumber LOOP
@@ -53,7 +53,7 @@ BEGIN
       SELECT explodeKit(pSoheadid, pLinenumber, _subnumber, _item.itemsite_id, _item.qty)
         INTO _subnumber;
     ELSE
-      IF (_item.itemsite_createpr) THEN
+      IF (_item.itemsite_createsopr) THEN
         _type := 'R';
       ELSIF (_item.itemsite_createsopo) THEN
         _type := 'P';
@@ -88,7 +88,19 @@ BEGIN
              _type, -1,
              '', '',
              0);
-            
+
+      IF (_item.itemsite_createsopr) THEN
+        SELECT createPR(cohead_number::INTEGER, 'S', _coitemid) INTO _orderid
+        FROM cohead
+        WHERE (cohead_id=pSoheadid);
+        IF (_orderid > 0) THEN
+          UPDATE coitem SET coitem_order_id=_orderid
+          WHERE (coitem_id=_coitemid);
+        ELSE
+          RAISE EXCEPTION 'Could not explode kit. CreatePR failed, result=%', _orderid; 
+        END IF;
+      END IF;
+
       IF (_item.itemsite_createsopo) THEN
         SELECT itemsrc_id INTO _itemsrcid
         FROM itemsrc
