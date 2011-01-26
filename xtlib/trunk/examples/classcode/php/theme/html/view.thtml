@@ -1,0 +1,32 @@
+<div id="view-container">
+  <h3>View Classcode(s)</h3>
+  <?php if(!empty($parts[1]) && $parts[1] == 'all'): ?>
+  <?php print classcode_view() ?>
+    <p>
+    <h3>Search for a classcode</h3>
+    Use the following fields to narrow your search<br />
+    The code/description fields can be string literal searches or regex if you begin and end with a '/'<br />
+    If you enter an ID any values for code/description will be ignored
+    </p>
+  <form name="classcode-search" action="" method="post">
+    <div class="form-elem">
+      <span>CODE</span><span><input type="text" name="code" value="" /></span>
+    </div>
+    <div class="form-elem">
+      <span>DESCRIPTION</span><span><input type="text" name="description" value="" /></span>
+    </div>
+    <div class="form-elem">
+      <span>ID</span><span><input type="text" size="4" name="id" value="" /></span>
+    </div>
+    <div class="form-elem">
+      <input type="submit" name="submit" value="Search" />
+    </div>
+    <input type="hidden" name="form-handler" value="classcode_search_form" />
+  </form>
+  <?php elseif(!empty($parts[1]) && $parts[1] == 'matches'): ?>
+    <h3>Matched classcodes according to your search criteria</h3>
+    <?php print classcode_matches() ?>
+  <?php else: ?>
+  <?php redirect('view/all') ?>
+  <?php endif; ?>
+</div>

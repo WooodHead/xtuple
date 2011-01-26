@@ -1,0 +1,31 @@
+<?php if(empty($_SESSION['dbconnectstring']) && $currenturl != 'select-database') redirect('select-database','You must have a database selected') ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        <?php print $title ?>
+    </title>
+    <!--begin css-->
+    <?php print $css ?>
+    <!--end css-->
+    <!--begin js-->
+    <?php print $js ?>
+    <!--end js-->
+    <!--begin rendered js-->
+    <?php print $cjs ?>
+    <!--end rendered js-->
+</head>
+<body>
+<section id="header">
+    <div id="header-container">
+        <div id="logo-container">
+            <div id="logo">
+                <h3>SWIG EXAMPLE | PHP EXPOSURE | </h3>
+            </div>
+        </div>
+        <div id="main-menu-container">
+        <?php load('main-menu','thtml') ?>
+        </div>
+        <?php get_messages() ?>
+    </div>
+</section>

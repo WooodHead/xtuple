@@ -1,0 +1,39 @@
+# This file defines:
+# - POSTGRES_LIBRARIES
+# - POSTGRES_INCLUDE_DIRS
+# - POSTGRES_FOUND
+#
+
+FIND_LIBRARY(POSTGRES_LIBRARIES
+  NAMES
+    pq libpq
+  PATHS
+    /usr/lib
+    /usr/local/lib
+    /opt/local/lib
+    /usr/local/pgsql/lib
+    $ENV{POSTGRES_ROOT}/lib
+    $ENV{USERLIB_ROOT}/lib
+)
+
+FIND_PATH(POSTGRES_INCLUDE libpq-fe.h
+    /usr/include
+    /usr/include/postgresql
+    /usr/local/include
+    /usr/local/include/postgresql
+    /opt/local/include
+    /opt/local/include/postgresql
+    /usr/local/pgsql/include
+    $ENV{POSTGRES_ROOT}/include
+    $ENV{POSTGRES_ROOT}/postgresql/include
+    $ENV{USERLIB_ROOT}/include
+    $ENV{USERLIB_ROOT}/postgresql/include
+)
+
+SET(POSTGRES_FOUND FALSE)
+
+IF(POSTGRES_LIBRARIES AND POSTGRES_INCLUDE)
+  SET(POSTGRES_FOUND TRUE)
+  SET(POSTGRES_INCLUDE_DIRS ${POSTGRES_INCLUDE})
+ENDIF(POSTGRES_LIBRARIES AND POSTGRES_INCLUDE)
+
