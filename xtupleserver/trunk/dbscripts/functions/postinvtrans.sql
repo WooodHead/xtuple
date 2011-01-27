@@ -216,7 +216,7 @@ BEGIN
             itemlocdist_itemsite_id, itemlocdist_ls_id, itemlocdist_expiration,
             itemlocdist_qty, itemlocdist_series, itemlocdist_invhist_id ) 
         SELECT _itemlocdistid, 'L', COALESCE(invdetail_location_id, -1),
-               invhist_itemsite_id, invdetail_ls_id,  COALESCE(invdetail_expiration, startoftime()),
+               invhist_itemsite_id, invdetail_ls_id,  COALESCE(invdetail_expiration, endoftime()),
                (invdetail_qty * -1.0), pItemlocSeries, _invhistid
         FROM invhist JOIN invdetail ON (invdetail_invhist_id=invhist_id)
         WHERE (invhist_id=pInvhistid);
