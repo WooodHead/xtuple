@@ -28,10 +28,17 @@ SELECT accnt_id, period_id, accnt_descrip, trialbal_dirty,
        CASE WHEN ((trialbal_debits - trialbal_credits) < 0.0) THEN ABS(trialbal_debits - trialbal_credits) END AS diff_qtdisplayrole,
        CASE WHEN (trialbal_dirty) THEN 'warning' END AS ending_qtforegroundrole
 FROM trialbal, accnt, period
+<? if exists("company_id") ?>
+   ,company
+<? endif ?>
 WHERE ((trialbal_accnt_id=accnt_id)
    AND (trialbal_period_id=period_id)
 <? if exists("accnt_id") ?>
    AND (trialbal_accnt_id=<? value("accnt_id") ?>)
+<? endif ?>
+<? if exists("company_id") ?>
+   AND (accnt_company=company_number)
+   AND (company_id=<? value("company_id") ?>)
 <? endif ?>
 <? if exists("period_id") ?>
    AND (period_id=<? value("period_id") ?>)
