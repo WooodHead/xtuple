@@ -10,7 +10,7 @@ message( STATUS "System-specific include file for " ${CMAKE_SYSTEM_NAME} ": " ${
 
 INCLUDE_DIRECTORIES(${POSTGRES_INCLUDE})
 
-add_library (xtlib SHARED
+add_library (xtlib STATIC
 xtAbstractCode.cpp
 xtAnyUtility.cpp
 xtClassCode.cpp
@@ -38,5 +38,6 @@ set_target_properties(xtlib PROPERTIES VERSION 0.0.1 SOVERSION 0)
 target_link_libraries ( xtlib
                         boost_date_time
                         boost_regex
+                        pq
                        ${POSTGRES_LIBRARIES}
                       )
