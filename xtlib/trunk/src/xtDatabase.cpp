@@ -22,6 +22,7 @@
 
    This is more of a short term solution.
  */
+#define NO_DB_IMPLEMENTATION
 #ifndef NO_DB_IMPLEMENTATION
 
 #include <stdexcept>
