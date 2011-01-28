@@ -24,6 +24,7 @@ DECLARE
   _ti			RECORD;
   _to			RECORD;
   _variance           	NUMERIC;
+  _k                    RECORD;
 
 BEGIN
 
@@ -56,6 +57,40 @@ BEGIN
     ELSIF (_coholdtype = 'S') THEN
       RETURN -15;
     END IF;
+
+---Must Ship Kit components (coitem_subnumber <> 0 complete---------------
+    IF ((
+         --  Test to see if order's customer accepts backorders and partials 
+         --  If not then test for shipping kit components complete 
+        SELECT cohead_number
+        FROM shiphead, cohead, custinfo
+        WHERE 
+          (shiphead_order_id = cohead_id) AND
+          (cohead_cust_id = cust_id) AND
+          (shiphead_order_type = 'SO') AND 
+          (cust_partialship) AND
+          (cust_backorder) AND
+          (shiphead_id = pshipheadid)
+         ) IS NULL) THEN
+      FOR _k IN SELECT (coitem_qtyord -
+			(COALESCE(SUM(shipitem_qty),0) +
+			 (coitem_qtyshipped - coitem_qtyreturned))) AS remain
+		  FROM (coitem LEFT OUTER JOIN (itemsite JOIN item ON (itemsite_item_id=item_id)) ON (coitem_itemsite_id=itemsite_id)) LEFT OUTER JOIN
+		       shipitem ON (shipitem_orderitem_id=coitem_id
+		                AND shipitem_shiphead_id=pshipheadid)
+		 WHERE ((coitem_status NOT IN ('C','X'))
+                   AND  (item_type != 'K')
+		   AND  (coitem_cohead_id=_shiphead.shiphead_order_id)
+                   AND  (coitem_subnumber <> 0)
+		   )
+	      GROUP BY coitem_id, coitem_qtyshipped, coitem_qtyord,
+		       coitem_qtyreturned LOOP
+	IF (_k.remain > 0) THEN
+	  RAISE EXCEPTION 'Kit component item not shipped complete.  Kits must be shipped and shipped complete or closed on the order.';
+	END IF;
+      END LOOP;
+    END IF;
+---End--------------------------------------------------------------------
 
     IF ( _shipcomplete ) THEN
       FOR _c IN SELECT (coitem_qtyord -
