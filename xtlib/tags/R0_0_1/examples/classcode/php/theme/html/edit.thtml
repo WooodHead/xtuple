@@ -1,0 +1,9 @@
+<div id="edit-container">
+  <h3>Edit Classcode</h3>
+  <?php if(!empty($parts[1])): ?>
+    <?php print classcode_edit($parts[1]) ?>
+  <?php else: ?>
+    <div>Select a classcode from the table to edit it</div>
+    <?php print classcode_view() ?>
+  <?php endif; ?>
+</div>

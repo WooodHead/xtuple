@@ -1,0 +1,16 @@
+<div id="classcode-edit-form-container">
+  <form name="classcode-edit-form" action="" method="post">
+    <div class="form-elem">
+      <span>CODE</span><span><input type="text" name="code" value="{code}" /></span>
+    </div>
+    <div class="form-elem">
+      <span>DESCRIPTION</span><span><input type="text" name="description" value="{description}" /></span>
+    </div>
+    <div class="form-elem">
+      <input type="submit" name="submit" value="Edit" />
+      <input type="submit" name="cancel" value="Cancel" />
+    </div>
+    <input type="hidden" name="form-handler" value="classcode_edit_form" />
+    <input type="hidden" name="id" value="{id}" />
+  </form>
+</div>
