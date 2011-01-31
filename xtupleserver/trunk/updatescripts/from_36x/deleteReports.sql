@@ -39,5 +39,11 @@ WHERE report_name IN (
 'InventoryAvailabilityByParameterList',
 'QOHByParameterList',
 'QOHByClassCode',
-'QOHByItem') 
+'QOHByItem',
+'WOScheduleByClassCode',
+'WOScheduleByItemGroup',
+'WOScheduleByPlannerCode',
+'WOScheduleByWarehouse',
+'WOScheduleByItem',
+'WOScheduleByParameterList') 
 AND report_grade=0;
