@@ -1,0 +1,27 @@
+<?php if(known('dbconnectstring')): redirect('view/all','You have already selected a database'); ?>
+<?php else: ?>
+<div id="select-database-container">
+  <h3>Please input credentials to select the database you wish to connect to</h3>
+  <form name="select-database" action="" method="post">
+    <div class="form-elem">
+      <span>HOST</span><span><input type="text" name="host" value="hostname or ip" autocomplete=off /></span>
+    </div>
+    <div class="form-elem">
+      <span>PORT</span><span><input type="text" name="port" value="port number" autocomplete=off /></span>
+    </div>
+    <div class="form-elem">
+      <span>DATABASE</span><span><input type="text" name="database" value="database" autocomplete=off /></span>
+    </div>
+    <div class="form-elem">
+      <span>USER</span><span><input type="text" name="user" value="database user" autocomplete=off /></span>
+    </div>
+    <div class="form-elem">
+      <span>PASSWORD</span><span><input type="password" name="password" /></span>
+    </div>
+    <div class="form-elem">
+      <input type="submit" name="submit" value="Connect" />
+    </div>
+    <input type="hidden" name="form-handler" value="select_database_form" />
+  </form>
+</div>
+<?php endif; ?>
