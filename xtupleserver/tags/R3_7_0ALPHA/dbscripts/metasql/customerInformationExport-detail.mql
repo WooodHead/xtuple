@@ -1,0 +1,89 @@
+-- Group: customerInformationExport
+-- Name: detail
+-- Notes: used by dspCustomerInformationExport
+
+SELECT cust_id
+     <? if exists("cust_number") ?>
+       , cust_number
+     <? endif ?>
+     <? if exists("cust_name") ?>
+       , cust_name
+     <? endif ?>
+     <? if exists("cust_address1") ?>
+       , cust_address1
+     <? endif ?>
+     <? if exists("cust_address2") ?>
+       , cust_address2
+     <? endif ?>
+     <? if exists("cust_address3") ?>
+       , cust_address3
+     <? endif ?>
+     <? if exists("cust_city") ?>
+       , cust_city
+     <? endif ?>
+     <? if exists("cust_state") ?>
+       , cust_state
+     <? endif ?>
+     <? if exists("cust_zipcode") ?>
+       , cust_zipcode
+     <? endif ?>
+     <? if exists("cust_country") ?>
+       , cust_country
+     <? endif ?>
+     <? if exists("cust_contact") ?>
+       , cust_contact
+     <? endif ?>
+     <? if exists("cust_phone") ?>
+       , cust_phone
+     <? endif ?>
+     <? if exists("cust_fax") ?>
+       , cust_fax
+     <? endif ?>
+     <? if exists("cust_email") ?>
+       , cust_email
+     <? endif ?>
+     <? if exists("cust_corraddress1") ?>
+       , cust_corraddress1
+     <? endif ?>
+     <? if exists("cust_corraddress2") ?>
+       , cust_corraddress2
+     <? endif ?>
+     <? if exists("cust_corraddress3") ?>
+       , cust_corraddress3
+     <? endif ?>
+     <? if exists("cust_corrcity") ?>
+       , cust_corrcity
+     <? endif ?>
+     <? if exists("cust_corrstate") ?>
+       , cust_corrstate
+     <? endif ?>
+     <? if exists("cust_corrzipcode") ?>
+       , cust_corrzipcode
+     <? endif ?>
+     <? if exists("cust_corrcountry") ?>
+       , cust_corrcountry
+     <? endif ?>
+     <? if exists("cust_corrcontact") ?>
+       , cust_corrcontact
+     <? endif ?>
+     <? if exists("cust_corrphone") ?>
+       , cust_corrphone
+     <? endif ?>
+     <? if exists("cust_corrfax") ?>
+       , cust_corrfax
+     <? endif ?>
+     <? if exists("cust_corremail") ?>
+       , cust_corremail
+     <? endif ?>
+FROM cust, custtype
+WHERE ( (cust_custtype_id=custtype_id)
+  <? if exists("showInactive") ?>
+    AND (cust_active)
+  <? endif ?>
+  <? if exists("custtype_id") ?>
+    AND (custtype_id=<? value("custtype_id") ?>)
+  <? elseif exists("custtype_pattern") ?>
+    AND (custtype_code ~ <? value("custtype_pattern") ?>)
+  <? endif ?>
+      )
+ORDER BY cust_number;
