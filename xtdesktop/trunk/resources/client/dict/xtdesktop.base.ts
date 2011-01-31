@@ -1784,38 +1784,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="288"/>
+        <location filename="../scripts/dockSalesHistory.js" line="259"/>
         <source>Customer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="289"/>
-        <location filename="../scripts/dockSalesHistory.js" line="299"/>
+        <location filename="../scripts/dockSalesHistory.js" line="260"/>
+        <location filename="../scripts/dockSalesHistory.js" line="270"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="293"/>
+        <location filename="../scripts/dockSalesHistory.js" line="264"/>
         <source>Product Category</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="294"/>
+        <location filename="../scripts/dockSalesHistory.js" line="265"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="298"/>
+        <location filename="../scripts/dockSalesHistory.js" line="269"/>
         <source>Sales Rep.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="302"/>
+        <location filename="../scripts/dockSalesHistory.js" line="273"/>
         <source>Amount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockSalesHistory.js" line="303"/>
+        <location filename="../scripts/dockSalesHistory.js" line="274"/>
         <source>Qty.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1897,21 +1897,26 @@
     </message>
     <message>
         <location filename="../scripts/dockUserOnline.js" line="27"/>
-        <source>Count</source>
+        <source># Internal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../scripts/dockUserOnline.js" line="28"/>
-        <source>Client Start</source>
+        <source># External</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../scripts/dockUserOnline.js" line="29"/>
-        <source>Query Start</source>
+        <source>Client Start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../scripts/dockUserOnline.js" line="30"/>
+        <source>Query Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/dockUserOnline.js" line="31"/>
         <source>Client Address</source>
         <translation type="unfinished"></translation>
     </message>
