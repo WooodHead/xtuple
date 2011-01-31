@@ -1,4 +1,0 @@
--- Group: desktop
--- Name:  todoDelete
--- Notes: 
-DELETE FROM todoitem WHERE (todoitem_id=<? value("todoitem_id") ?>);

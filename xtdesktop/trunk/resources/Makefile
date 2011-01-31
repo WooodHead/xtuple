@@ -1,4 +1,4 @@
-../packages/xtdesktop-3.6.0.gz: FORCE
-	cd .. ; tar czf packages/xtdesktop-3.6.0.gz -h --exclude CVS --exclude .\* --exclude Makefile resources
+../packages/xtdesktop-3.7.0alpha.gz: FORCE
+	cd .. ; tar czf packages/xtdesktop-3.7.0alpha.gz -h --exclude CVS --exclude .\* --exclude Makefile resources
 
 FORCE:
