@@ -86,7 +86,8 @@
     <varlistentry>
       <term>Use Projects</term>
       <listitem>
-        <para>Select to enable Project functionality.</para>
+        <para>Select to enable Project functionality. This option must be
+        enabled for Project Accounting to be enabled.</para>
         <variablelist>
           <varlistentry role="xtprjaccnt">
             <term>Enable Project Accounting</term>
@@ -94,9 +95,9 @@
               <para>Select to enable the features related to the Project
               Accounting package. When Project Accounting is enabled, all G/L
               Accounts are eligible to have transactions performed against
-              them?and to have an extra dynamic segment for the Project number
-              appended to the G/L Account Number. Project Accounts are created
-              on the fly as transactions are performed against them,
+              them&mdash;and to have an extra dynamic segment for the Project
+              number appended to the G/L Account Number. Project Accounts are
+              created on the fly as transactions are performed against them,
               eliminating the need for users having to create G/L Accounts for
               every possible G/L Account and Project combination. Financial
               statement and transaction reporting will display
@@ -111,7 +112,8 @@
               <para>Enter a G/L Account to be used when approving Time Sheets
               for Employees who record time against Projects. For this Account
               to be used, the Employee must have a rate defined on their
-              Employee record?and they must also not be a contractor.</para>
+              Employee record&mdash;and they must also not be a
+              contractor.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
