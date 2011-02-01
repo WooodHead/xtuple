@@ -9,6 +9,7 @@ DECLARE
   pshipheadid		ALIAS FOR $1;
   _timestamp		TIMESTAMP WITH TIME ZONE := $2;
   _allInvoiced		BOOLEAN;
+  _invoicePosted	BOOLEAN;
   _in                   RECORD;
   _co			RECORD;
   _cobill		RECORD;
@@ -51,6 +52,16 @@ BEGIN
 
     IF (_allInvoiced AND NOT hasPriv('RecallInvoicedShipment')) THEN
       RETURN -2;
+    END IF;
+
+    -- Check for any associated posted Invoices
+    SELECT COALESCE(BOOL_AND(invchead_posted), FALSE) INTO _invoicePosted
+    FROM shipitem JOIN invcitem ON (invcitem_id=shipitem_invcitem_id)
+                  JOIN invchead ON (invchead_id=invcitem_invchead_id)
+    WHERE (shipitem_shiphead_id=pshipheadid);
+
+    IF (_invoicePosted) THEN
+      RETURN -4;
     END IF;
 
     -- Delete any associated unposted Invoices
