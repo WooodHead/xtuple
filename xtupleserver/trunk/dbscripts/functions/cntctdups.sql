@@ -33,7 +33,7 @@ BEGIN
     RETURN;
   END IF;
 
-  _text = ''' || pSearchText || ''';
+  _text = quote_literal(pSearchText);
 
   IF (pIndentedDups) THEN
     _qry := 'SELECT 
@@ -146,25 +146,23 @@ BEGIN
     _qry := _qry || '(false ';
 
   IF (pSearchNumber) THEN
-    _qry := _qry || ' OR (crmacct_number ~* ''' || pSearchText || ''') ';
+    _qry := _qry || ' OR (crmacct_number ~* ' || quote_literal(pSearchText) || ') ';
   END IF;
 
   IF (pSearchName) THEN
-    _qry := _qry || ' OR (crmacct_name ~* ''' || pSearchText || ''') ';
+    _qry := _qry || ' OR (crmacct_name ~* ' || quote_literal(pSearchText) || ') ';
   END IF;
 
   IF (pSearchContactName) THEN
-    _qry := _qry || ' OR (cntct_first_name || '' '' || cntct_last_name 
-	             ~* ''' || pSearchText || ''') ';
+    _qry := _qry || ' OR (cntct_first_name || '' '' || cntct_last_name ~* ' || quote_literal(pSearchText) || ') ';
   END IF;
   
   IF (pSearchPhone) THEN
-    _qry := _qry || ' OR (cntct_phone || '' '' || cntct_phone2 || '' '' || 
-	             cntct_fax ~* ''' || pSearchText || ''') ';
+    _qry := _qry || ' OR (cntct_phone || '' '' || cntct_phone2 || '' '' || cntct_fax ~* ' || quote_literal(pSearchText) || ') ';
   END IF;
 
   IF (pSearchEmail) THEN
-    _qry := _qry || ' OR (cntct_email ~* ''' || pSearchText || ''') ';
+    _qry := _qry || ' OR (cntct_email ~* ' || quote_literal(pSearchText) || ') ';
   END IF;
 
   _qry := _qry || ' ) ';
@@ -270,31 +268,31 @@ BEGIN
                WHERE (true) ';
 
       IF (pCheckHnfc) THEN
-        _qry := _qry || ' AND (UPPER(cntct_honorific)=''' || _cntct.cntct_honorific || ''')';
+        _qry := _qry || ' AND (UPPER(cntct_honorific)=' || quote_literal(_cntct.cntct_honorific) || ')';
       END IF;
 
       IF (pCheckFirst) THEN
-        _qry := _qry || ' AND (UPPER(cntct_first_name)=''' || _cntct.cntct_first_name || ''')';
+        _qry := _qry || ' AND (UPPER(cntct_first_name)=' || quote_literal(_cntct.cntct_first_name) || ')';
       END IF;
 
       IF (pCheckMiddle) THEN
-        _qry := _qry || ' AND (UPPER(cntct_middle)=''' || _cntct.cntct_middle || ''')';
+        _qry := _qry || ' AND (UPPER(cntct_middle)=' || quote_literal(_cntct.cntct_middle) || ')';
       END IF;
 
       IF (pCheckLast) THEN
-        _qry := _qry || ' AND (UPPER(cntct_last_name)=''' || _cntct.cntct_last_name || ''')';
+        _qry := _qry || ' AND (UPPER(cntct_last_name)=' || quote_literal(_cntct.cntct_last_name) || ')';
       END IF;
 
       IF (pCheckSuffix) THEN
-        _qry := _qry || ' AND (UPPER(cntct_suffix)=''' ||  _cntct.cntct_suffix || ''')';
+        _qry := _qry || ' AND (UPPER(cntct_suffix)=' ||  quote_literal(_cntct.cntct_suffix) || ')';
       END IF;
 
       IF (pCheckPhone) THEN
-        _qry := _qry || ' AND (cntct_phone=''' || _cntct.cntct_phone  || ''')';
+        _qry := _qry || ' AND (cntct_phone=' || quote_literal(_cntct.cntct_phone)  || ')';
       END IF;
 
       IF (pCheckEmail) THEN
-        _qry := _qry || ' AND (UPPER(cntct_email)=''' || _cntct.cntct_email || ''')';
+        _qry := _qry || ' AND (UPPER(cntct_email)=' || quote_literal(_cntct.cntct_email) || ')';
       END IF;
 
 -- raise exception '%',_qry;
