@@ -25,6 +25,7 @@ var _accountSelected = mywindow.findChild("_accountSelected");
 var _expcatSelected = mywindow.findChild("_expcatSelected");
 var _allowExpenseGroup = mywindow.findChild("_allowExpenseGroup");
 var _inventoryUOM = mywindow.findChild("_inventoryUOM");
+var _save = mywindow.findChild("_save");
 
 var _saved = false;
 var _isnew = true;
@@ -98,14 +99,31 @@ xtte.item.handleExpense = function()
   _tab.setTabEnabled(_tab.indexOf(_expensePage), _itemtype.currentIndex == 3);
 }
 
+xtte.item.checkSave = function()
+{
+  if (_projectExpense.checked == true &&
+      !_expcat.isValid() && 
+      !_account.isValid())
+  {
+    QMessageBox.critical(mywindow,
+                       qsTr("Can not save item"),
+                       qsTr("You must select a G/L Account or an expense account for Project Expense Items."));
+  }
+  else
+    mywindow.sSave();
+}
+
 // Initialize
 _expcat.enabled = false;
 _account.setType(0x01 | 0x02 | 0x04); // Asset, Liability, Expense
 
 // Connections
+toolbox.coreDisconnect(_save, "clicked()", mywindow, "sSave()"); 
+_save.clicked.connect(xtte.item.checkSave);
 mywindow["saved(int)"].connect(xtte.item.save);
 mywindow["newId(int)"].connect(xtte.item.populate);
 _accountSelected.toggled.connect(xtte.item.clickswitch);
 _expcatSelected.toggled.connect(xtte.item.clickswitch);
 _itemtype['currentIndexChanged(QString)'].connect(xtte.item.handleExpense);
 _inventoryUOM.newID.connect(xtte.item.handleExpense);
+
