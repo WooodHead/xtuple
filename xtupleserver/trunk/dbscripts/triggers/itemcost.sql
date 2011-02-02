@@ -101,7 +101,19 @@ BEGIN
   WHERE (costelem_id=NEW.itemcost_costelem_id);
 
   IF (_maxCost > 0.0) THEN
-    IF (stdCost(NEW.itemcost_item_id) > _maxCost) THEN
+    IF (stdCost(NEW.itemcost_item_id) > _maxCost) 
+      AND
+      ( 
+               (SELECT COUNT(evntlog_id) FROM
+                      evntlog, evnttype
+                      WHERE evntlog_evnttype_id = evnttype_id 
+                      AND evntlog_number LIKE 
+                           (_itemNumber || '%' || 
+                           'New: ' || formatCost(stdCost(NEW.itemcost_item_id)) || 
+                           ' Max: ' || formatCost(_maxCost))
+                      AND CAST(evntlog_evnttime AS DATE) = current_date
+                      ) = 0)
+       THEN
       IF (TG_OP = 'INSERT') THEN
         _oldStdCost := 0;
         _oldActCost := 0;
@@ -114,21 +126,37 @@ BEGIN
                             evntlog_newvalue, evntlog_oldvalue )
       SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
              '', NEW.itemcost_item_id, itemsite_warehous_id,
-             (_itemNumber || '-' || _costElem || '-' || 'Standard' || ' ' || formatCost(stdCost(NEW.itemcost_item_id))),
-             NEW.itemcost_stdcost, _oldStdCost
+               (_itemNumber || ' -Standard- ' || 
+               'New: ' || formatCost(stdCost(NEW.itemcost_item_id)) ||
+               ' Max: '|| formatCost(_MaxCost)),
+               NEW.itemcost_stdcost, _oldStdCost
       FROM evntnot, evnttype, itemsite
       WHERE ( (evntnot_evnttype_id=evnttype_id)
         AND   (itemsite_item_id=NEW.itemcost_item_id)
         AND   (evntnot_warehous_id=itemsite_warehous_id)
         AND   (evnttype_name='CostExceedsMaxDesired') );
     END IF;
-    IF (actCost(NEW.itemcost_item_id) > _maxCost) THEN
+    IF (actCost(NEW.itemcost_item_id) > _maxCost) 
+     AND   ( 
+                (SELECT COUNT(evntlog_id) FROM
+                      evntlog, evnttype
+                      WHERE evntlog_evnttype_id = evnttype_id 
+                      AND evntlog_number LIKE 
+                           (_itemNumber || '%' || 
+                           'New: ' || formatCost(actCost(NEW.itemcost_item_id)) || 
+                           ' Max: ' || formatCost(_maxCost))
+                      AND CAST(evntlog_evnttime AS DATE) = current_date
+                      ) = 0
+              )
+      THEN
       INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
                             evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number,
                             evntlog_newvalue, evntlog_oldvalue )
       SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
              '', NEW.itemcost_item_id, itemsite_warehous_id,
-             (_itemNumber || '-' || _costElem || '-' || 'Actual' || ' ' || formatCost(actCost(NEW.itemcost_item_id))),
+               (_itemNumber || ' -Actual- ' || 
+               'New: ' || formatCost(actCost(NEW.itemcost_item_id)) ||
+               ' Max: '|| formatCost(_MaxCost)),
              NEW.itemcost_actcost, _oldActCost
       FROM evntnot, evnttype, itemsite
       WHERE ( (evntnot_evnttype_id=evnttype_id)
