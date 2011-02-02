@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION openAccountingPeriod(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION openAccountingPeriod(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pPeriodid ALIAS FOR $1;
   _r RECORD;
@@ -20,6 +20,17 @@ BEGIN
     RETURN -2;
   END IF;
 
+  IF ( ( SELECT (count(period_id) > 0)
+           FROM period
+          WHERE ((period_end > (
+            SELECT period_end 
+            FROM period 
+            WHERE (period_id=pPeriodId))
+          )
+           AND (period_closed)) ) ) THEN
+    RETURN -3;
+  END IF;
+
 --  Reset the period_closed flag
   UPDATE period
   SET period_closed=FALSE
@@ -37,5 +48,5 @@ BEGIN
   RETURN pPeriodid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
