@@ -1,4 +1,5 @@
-CREATE OR REPLACE FUNCTION explodeWo(INTEGER, BOOL) RETURNS INTEGER AS $$
+
+CREATE OR REPLACE FUNCTION explodeWo(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pWoid ALIAS FOR $1;
   pExplodeChildren ALIAS FOR $2;
@@ -185,7 +186,7 @@ BEGIN
            0::NUMERIC, FALSE,
            0::NUMERIC, FALSE,
            0::NUMERIC, booitem_instruc,
-           (wo_startdate + booitem_execday - 1),
+           xtmfg.calculatenextworkingdate(itemsite_warehous_id,wo_startdate,booitem_execday-1),
            booitem_wip_location_id
     FROM xtmfg.booitem, wo, itemsite
     WHERE ((wo_itemsite_id=itemsite_id)
