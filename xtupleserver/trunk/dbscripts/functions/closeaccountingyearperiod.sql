@@ -20,6 +20,24 @@ BEGIN
     RETURN -1;
   END IF;
 
+  IF ( ( SELECT (count(period_id) > 0)
+           FROM period
+          WHERE ((period_yearperiod_id=pYearPeriodid)
+           AND (NOT period_closed)) ) ) THEN
+    RETURN -10;
+  END IF;
+
+  IF ( ( SELECT (count(yearperiod_id) > 0)
+           FROM yearperiod
+          WHERE ((yearperiod_end< (
+            SELECT yearperiod_end 
+            FROM yearperiod 
+            WHERE (yearperiod_id=pYearPeriodId))
+          )
+           AND (NOT yearperiod_closed)) ) ) THEN
+    RETURN -11;
+  END IF;
+
 --  Should we check for a previous yearperiod existing already ?
 --  If so then we should return -2 if one does not.
 
