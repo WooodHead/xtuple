@@ -31,7 +31,8 @@ SELECT
   'salesprice' AS teitem_rate_xtnumericrole,
   'extprice' AS teitem_total_xtnumericrole,
   0 AS hours_xttotalrole,
-  0 AS expense_xttotalrole
+  0 AS expense_xttotalrole,
+  firstLine(teitem_notes) AS f_notes
 FROM te.tehead
   JOIN te.teitem ON (tehead_id = teitem_tehead_id)
   JOIN emp ON (tehead_emp_id= emp_id)
