@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION changeAccountingYearPeriodDates(INTEGER, DATE, DATE) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION changeAccountingYearPeriodDates(INTEGER, DATE, DATE) RETURNS INTEGER AS $$
 DECLARE
   pPeriodid ALIAS FOR $1;
   pStartDate ALIAS FOR $2;
@@ -39,11 +39,20 @@ BEGIN
     RETURN -3;
   END IF;
 
+--  Check to make sure that the passed yearperiod is not closed
+  IF ( ( SELECT (count(period_id) > 0)
+         FROM period
+         WHERE ((period_yearperiod_id=pPeriodid)
+          AND (period_start < pStartDate OR period_end > pEndDate)) ) ) THEN
+    RETURN -4;
+  END IF;
+
 --  Make sure that the passed start is prior to the end date
   SELECT (pStartDate > pEndDate) INTO _checkBool;
   IF (_checkBool) THEN
     RETURN -5;
   END IF;
+
 
 --  Alter the start and end dates of the pass period
   UPDATE yearperiod
@@ -54,5 +63,5 @@ BEGIN
   RETURN 1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
