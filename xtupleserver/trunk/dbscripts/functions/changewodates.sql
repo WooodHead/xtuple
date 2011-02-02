@@ -1,4 +1,5 @@
-CREATE OR REPLACE FUNCTION changeWoDates(INTEGER, DATE, DATE, BOOL) RETURNS INTEGER AS $$
+
+CREATE OR REPLACE FUNCTION changeWoDates(INTEGER, DATE, DATE, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE 
   pWoid ALIAS FOR $1;
   pStartDate ALIAS FOR $2;
@@ -6,11 +7,14 @@ DECLARE
   changeChildren ALIAS FOR $4;
   _p RECORD;
   returnCode INTEGER;
+  _vtemp NUMERIC;
 
 BEGIN
 
-  SELECT wo_status, wo_startdate INTO _p
+  SELECT wo_status, wo_startdate, itemsite_warehous_id INTO _p
   FROM wo
+  Inner Join itemsite on
+      wo_itemsite_id=itemsite_id
   WHERE (wo_id=pWoid);
 
   IF (_p.wo_status = 'C') THEN 
@@ -41,9 +45,14 @@ BEGIN
          WHERE (metric_name='Routings') ) ) THEN
 
 --    Reschedule wooper
+    --_vtemp := xtmfg.calculateworkdays(itemsite_warehous_id, DATE(wo_startdate), DATE(wooper_scheduled));
     UPDATE xtmfg.wooper
-    SET wooper_scheduled = (wooper_scheduled::DATE + (pStartDate - wo_startdate))
+    --SET wooper_scheduled = (wooper_scheduled::DATE + (pStartDate - wo_startdate))
+    SET wooper_scheduled = xtmfg.calculatenextworkingdate(itemsite_warehous_id,DATE(pStartDate),
+	CAST(xtmfg.calculateworkdays(itemsite_warehous_id, DATE(wo_startdate), DATE(wooper_scheduled)) as INTEGER))
     FROM wo
+    Inner Join itemsite on
+      wo_itemsite_id=itemsite_id
     WHERE ( (wooper_wo_id=wo_id)
      AND (wo_id=pWoid) );
 
