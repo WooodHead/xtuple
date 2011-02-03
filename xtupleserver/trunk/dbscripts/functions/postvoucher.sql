@@ -297,7 +297,7 @@ BEGIN
     IF (round(_exchGainFreight, 2) <> 0) THEN
 	PERFORM insertIntoGLSeries(_sequence, 'A/P', 'VO',
 	    text(_p.vohead_number),
-	    getGainLossAccntId(), round(_exchGainFreight, 2),
+	    getGainLossAccntId(_a.lb_accnt_id), round(_exchGainFreight, 2),
 	   _glDate, _p.glnotes);
     END IF;
 

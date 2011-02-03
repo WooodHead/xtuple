@@ -5,6 +5,7 @@ DECLARE
   _r RECORD;
   _totalAmount NUMERIC := 0;
   _exchGain NUMERIC;
+  _apaccntid INTEGER;
 
 BEGIN
 
@@ -104,13 +105,16 @@ BEGIN
     _exchGain := _totalAmount / _src.apopen_curr_rate - _totalAmount / _r.apopen_curr_rate;
   END IF;
 
+  IF (_src.apopen_accnt_id > -1) THEN
+    _apaccntid := _src.apopen_accnt_id;
+  ELSE 
+    _apaccntid := findAPAccount(_src.apopen_vend_id);
+  END IF;
+
   PERFORM insertGLTransaction(fetchJournalNumber('AP-MISC'), 'A/P', 'CM',
                             _src.apopen_docnumber, 'CM Application',
-                            CASE WHEN (_src.apopen_accnt_id > -1) THEN
-				_src.apopen_accnt_id
-			    ELSE findAPAccount(_src.apopen_vend_id)
-			    END,
-			    getGainLossAccntId(), -1,
+                            _apaccntid,
+			    getGainLossAccntId(_apaccntid), -1,
                             _exchGain,
                             CURRENT_DATE);
 

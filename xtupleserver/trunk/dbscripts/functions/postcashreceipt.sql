@@ -227,7 +227,7 @@ BEGIN
   
       _exchGain := arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, abs(_r.cashrcptitem_amount),
                              _p.cashrcpt_distdate);
-     
+
        PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR',
                           (_r.aropen_doctype || '-' || _r.aropen_docnumber),
                           CASE WHEN _r.aropen_doctype != 'R' THEN _arAccntid
@@ -238,7 +238,10 @@ BEGIN
       IF (_exchGain <> 0) THEN
           PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CR',
                  _r.aropen_doctype || '-' || _r.aropen_docnumber,
-                 getGainLossAccntId(), round(_exchGain, 2) * -1,
+                 getGainLossAccntId(
+                   CASE WHEN _r.aropen_doctype != 'R' THEN _arAccntid
+                   ELSE findDeferredAccount(_p.cashrcpt_cust_id) END
+                 ), round(_exchGain, 2) * -1,
                  _p.cashrcpt_distdate, _p.custnote);
       END IF;
 
@@ -323,7 +326,7 @@ BEGIN
   ELSIF (round(_posted_base, 2) > round((_p.cashrcpt_amount_base), 2)) THEN
     PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CR',
                    'Currency Exchange Rounding - ' || _p.cashrcpt_docnumber,
-                   getGainLossAccntId(),
+                   getGainLossAccntId(_debitAccntid),
                    round(_posted_base, 2) - round((_p.cashrcpt_amount_base + _p.cashrcpt_discount_base), 2),
                    _p.cashrcpt_distdate, _p.custnote);
   END IF;

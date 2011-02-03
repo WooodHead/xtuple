@@ -503,7 +503,7 @@ BEGIN
                           _firstExchDate, _glDate);
     IF (_exchGain <> 0) THEN
         SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN',
-                                   _p.invchead_invcnumber, getGainLossAccntId(),
+                                   _p.invchead_invcnumber, getGainLossAccntId(_p.araccntid),
                                    round(_exchGain, 2) * -1,
                                    _glDate, _p.invchead_billto_name ) INTO _test ;
         IF (_test < 0) THEN
