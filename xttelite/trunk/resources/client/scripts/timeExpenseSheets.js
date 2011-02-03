@@ -296,7 +296,7 @@ xtte.timeExpenseSheets.process = function()
         (item.rawValue("tehead_status") == 'A') &&
         (item.rawValue("posted") == 0))
     {
-      if (!metrics.value("PrjLaborAndOverhead") > 0)
+      if (metrics.value("PrjLaborAndOverhead") - 0 <= 0)
       {
         QMessageBox.critical(mywindow, qsTr("Setup Error"),
                          qsTr("No Labor and Overhead Account defined in CRM Setup."));
@@ -311,7 +311,10 @@ xtte.timeExpenseSheets.process = function()
 
       q = toolbox.executeDbQuery("timeexpensesheets", "post", params );	  
       if (!xtte.errorCheck(q))
+      {
+        toolbox.executeRollback();
         return;
+      }
     } 
   }
 
@@ -367,7 +370,7 @@ xtte.timeExpenseSheets.processSheets = function(selected, invoice, voucher, post
 
     if (post)
     {
-      if (!metrics.value("PrjLaborAndOverhead") > 0)
+      if (metrics.value("PrjLaborAndOverhead") - 0 <= 0)
       {
         QMessageBox.critical(mywindow, qsTr("Setup Error"),
                          qsTr("No Labor and Overhead Account defined in CRM Setup."));
@@ -382,7 +385,10 @@ xtte.timeExpenseSheets.processSheets = function(selected, invoice, voucher, post
 
       q = toolbox.executeDbQuery("timeexpensesheets", "post", params );	  
       if (!xtte.errorCheck(q))
+      {
+        toolbox.executeRollback();   
         return false;
+      }
     }
   }
    
