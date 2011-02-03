@@ -224,7 +224,7 @@ BEGIN
       IF (_exchGainTmp <> 0) THEN
 	PERFORM insertIntoGLSeries( _sequence, _t.checkrecip_gltrans_source,
 				    'CK', CAST(_p.checkhead_number AS TEXT),
-				    getGainLossAccntId(), round(_exchGainTmp,2),
+				    getGainLossAccntId(_t.checkrecip_accnt_id), round(_exchGainTmp,2),
 				    _p.checkhead_checkdate, _gltransNote );
       END IF;
 
@@ -245,7 +245,7 @@ BEGIN
 	PERFORM insertIntoGLSeries( _sequence, _t.checkrecip_gltrans_source,
 				    'CK',
 				    CAST(_p.checkhead_number AS TEXT),
-                                    getGainLossAccntId(),
+                                    getGainLossAccntId(_p.bankaccntid),
 				    round(_amount_base, 2) -
 				      round(_exchGain, 2) -
 				      round(_p.checkhead_amount_base, 2),

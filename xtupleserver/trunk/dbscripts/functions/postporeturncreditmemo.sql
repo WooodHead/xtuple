@@ -29,6 +29,7 @@ DECLARE
   _tax RECORD;
   _taxAmount NUMERIC := 0;
   _taxAmount_base NUMERIC;
+  _apaccntid INTEGER;
 
 BEGIN
 --Set things up
@@ -155,15 +156,17 @@ BEGIN
      WHERE (poitem_id=_p.poitem_id);
 
 --  Post to A/P
-  SELECT insertIntoGLSeries( _sequence, 'A/P', 'CM', _docNumber,
-                             accnt_id, round(_itemAmount_base + _taxAmount_base, 2) *-1,
-                             current_date, _p.notes ) INTO _test
-  FROM accnt
-  WHERE (findAPAccount(_p.pohead_vend_id)=accnt_id);
+  SELECT findAPAccount(_p.pohead_vend_id) INTO _apaccntid;
   IF (NOT FOUND) THEN
     RAISE EXCEPTION 'Cannot Post Credit Memo due to an unassigned A/P Account.';
   END IF;
 
+  SELECT insertIntoGLSeries( _sequence, 'A/P', 'CM', _docNumber,
+                             _apaccntid, round(_itemAmount_base + _taxAmount_base, 2) *-1,
+                             current_date, _p.notes ) INTO _test;
+  IF (NOT FOUND) THEN
+    RAISE EXCEPTION 'Cannot Post Credit Memo.';
+  END IF;
 
 -- Clean up loose ends
 
@@ -172,7 +175,7 @@ BEGIN
   IF (round(_glseriesTotal, 2) != 0) THEN
         PERFORM insertIntoGLSeries(_sequence, 'A/P', 'CM',
             'Currency Exchange Rounding - ' || _docNumber,
-            getGainLossAccntId(), round(_glseriesTotal, 2) * -1,
+            getGainLossAccntId(_apaccntid), round(_glseriesTotal, 2) * -1,
            current_date, _p.notes);
   END IF;
 

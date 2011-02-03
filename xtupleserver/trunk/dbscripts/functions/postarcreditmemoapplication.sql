@@ -17,6 +17,7 @@ DECLARE
   _totalTarget NUMERIC := 0;
   _exchGain NUMERIC := 0;
   _result NUMERIC;
+  _araccntid INTEGER;
 
 BEGIN
 
@@ -105,15 +106,18 @@ BEGIN
       _exchGain := _totalAmount / _p.aropen_curr_rate - _totalTarget / _r.aropen_curr_rate;
     END IF;
 
+    IF (_p.aropen_accnt_id > -1) THEN
+      _araccntid := _p.aropen_accnt_id;
+    ELSE 
+      _araccntid := findARAccount(_p.aropen_cust_id);
+    END IF;
+    
     IF (_exchGain <> 0) THEN
         PERFORM insertGLTransaction(fetchJournalNumber('AR-MISC'), 'A/R',
                                     'CR', _p.aropen_doctype,
                                     _p.aropen_docnumber,
-                                    CASE WHEN (_p.aropen_accnt_id = -1) THEN
-                                        findARAccount(_p.aropen_cust_id)
-                                        ELSE _p.aropen_accnt_id
-                                        END,
-                                    getGainLossAccntId(),
+                                    _araccntid,
+                                    getGainLossAccntId(_araccntid),
                                     -1, _exchGain * -1, _applyDate);
     END IF;
 

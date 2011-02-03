@@ -37,8 +37,24 @@ DECLARE
   _delta NUMERIC;
   _discrepDate DATE;
   _discrepAccntid INTEGER;
+  _rows INTEGER;
+  _r RECORD;
 BEGIN
+--  Make sure we don't create an imbalance across companies
+  IF (fetchMetricValue('GLCompanySize') > 0 
+    AND fetchMetricBool('IgnoreCompanyBalance') = false)  THEN
 
+    SELECT DISTINCT accnt_company INTO _r
+    FROM accnt 
+      JOIN glseries ON (glseries_accnt_id=accnt_id)
+    WHERE (glseries_sequence=pSequence);
+
+    GET DIAGNOSTICS _rows = ROW_COUNT;
+    IF (_rows != 1) THEN
+      RAISE EXCEPTION 'G/L Series can not be posted because multiple companies are referenced in the same series.';
+    END IF;
+  END IF;
+  
 --  Make sure that we balance
   SELECT SUM(glseries_amount), MAX(glseries_distdate) INTO _delta, _discrepDate
     FROM glseries
