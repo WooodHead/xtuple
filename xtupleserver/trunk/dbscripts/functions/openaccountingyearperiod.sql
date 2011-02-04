@@ -29,7 +29,7 @@ BEGIN
   SET yearperiod_closed=FALSE
   WHERE (yearperiod_id=pYearPeriodId);
 
-  RETURN pPeriodid;
+  RETURN pYearPeriodid;
 
 END;
 $$ LANGUAGE 'plpgsql';
