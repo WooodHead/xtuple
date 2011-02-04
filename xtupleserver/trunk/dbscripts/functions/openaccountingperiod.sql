@@ -30,6 +30,14 @@ BEGIN
            AND (period_closed)) ) ) THEN
     RETURN -3;
   END IF;
+  
+--  Make sure the year is open
+  IF ( ( SELECT (yearperiod_closed)
+         FROM yearperiod
+           JOIN period ON (period_yearperiod_id=yearperiod_id)
+         WHERE (period_id=pPeriodid) ) ) THEN
+    RETURN -4;
+  END IF;
 
 --  Reset the period_closed flag
   UPDATE period
