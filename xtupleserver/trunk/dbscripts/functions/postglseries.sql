@@ -38,18 +38,25 @@ DECLARE
   _discrepDate DATE;
   _discrepAccntid INTEGER;
   _rows INTEGER;
-  _r RECORD;
 BEGIN
---  Make sure we don't create an imbalance across companies
-  IF (fetchMetricValue('GLCompanySize') > 0 
-    AND fetchMetricBool('IgnoreCompanyBalance') = false)  THEN
+/*  Make sure we don't create an imbalance across companies.
+    The 'IgnoreCompanyBalance' metric is a back door mechanism to
+    allow legacy users to create transactions accross companies if
+    they have been using the company segment for something else
+    and they MUST continue to be able to do so.  It can only be 
+    implemented by direct sql update to the metric table and should 
+    otherwise be discouraged.
+*/ 
+  IF (COALESCE(fetchMetricValue('GLCompanySize'),0) > 0 
+    AND fetchMetricBool('IgnoreCompany') = false)  THEN
 
-    SELECT DISTINCT accnt_company INTO _r
-    FROM accnt 
-      JOIN glseries ON (glseries_accnt_id=accnt_id)
-    WHERE (glseries_sequence=pSequence);
-
-    GET DIAGNOSTICS _rows = ROW_COUNT;
+    SELECT count(accnt_company) INTO _rows
+    FROM (
+      SELECT DISTINCT accnt_company
+      FROM accnt 
+        JOIN glseries ON (glseries_accnt_id=accnt_id)
+      WHERE (glseries_sequence=pSequence)) _data;
+    
     IF (_rows != 1) THEN
       RAISE EXCEPTION 'G/L Series can not be posted because multiple companies are referenced in the same series.';
     END IF;
@@ -60,13 +67,24 @@ BEGIN
     FROM glseries
    WHERE (glseries_sequence=pSequence);
   IF ( _delta <> 0 ) THEN
-    SELECT accnt_id INTO _discrepAccntid
-      FROM accnt, metric
-     WHERE ((metric_name='GLSeriesDiscrepancyAccount')
-       AND  (accnt_id=CAST(metric_value AS INTEGER)));
+    IF (COALESCE(fetchMetricValue('GLCompanySize'),0) = 0) THEN
+      SELECT accnt_id INTO _discrepAccntid
+        FROM accnt, metric
+       WHERE ((metric_name='GLSeriesDiscrepancyAccount')
+         AND  (accnt_id=CAST(metric_value AS INTEGER)));
+    ELSE
+       SELECT company_dscrp_accnt_id INTO _discrepAccntid
+        FROM company
+          JOIN accnt ON (accnt_company=company_number) 
+          JOIN glseries ON (glseries_accnt_id=accnt_id)
+       WHERE (glseries_sequence=pSequence)
+       LIMIT 1;
+    END IF;
+
     IF (NOT FOUND) THEN
       RETURN -5;
     END IF;
+    
     INSERT INTO glseries
            ( glseries_sequence, glseries_source, glseries_doctype, glseries_docnumber,
              glseries_accnt_id, glseries_amount, glseries_distdate, glseries_notes )

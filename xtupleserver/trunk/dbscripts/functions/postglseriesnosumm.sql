@@ -20,9 +20,32 @@ DECLARE
   pJournalNumber ALIAS FOR $2;
   _glseries RECORD;
   _transCount INTEGER := 0;
+  _rows INTEGER;
 
 BEGIN
+/*  Make sure we don't create an imbalance across companies.
+    The 'IgnoreCompanyBalance' metric is a back door mechanism to
+    allow legacy users to create transactions accross companies if
+    they have been using the company segment for something else
+    and they MUST continue to be able to do so.  It can only be 
+    implemented by direct sql update to the metric table and should 
+    otherwise be discouraged.
+*/  
+  IF (COALESCE(fetchMetricValue('GLCompanySize'),0) > 0 
+    AND fetchMetricBool('IgnoreCompany') = false)  THEN
 
+    SELECT count(accnt_company) INTO _rows
+    FROM (
+      SELECT DISTINCT accnt_company
+      FROM accnt 
+        JOIN glseries ON (glseries_accnt_id=accnt_id)
+      WHERE (glseries_sequence=pSequence)) _data;
+    
+    IF (_rows != 1) THEN
+      RAISE EXCEPTION 'G/L Series can not be posted because multiple companies are referenced in the same series.';
+    END IF;
+  END IF;
+  
 --  Make sure that we balance
   IF ( ( SELECT SUM(glseries_amount)
          FROM glseries

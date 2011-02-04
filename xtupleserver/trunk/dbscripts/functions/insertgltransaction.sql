@@ -126,6 +126,26 @@ BEGIN
     RETURN -3;
   END IF;
 
+/*  Make sure we don't create an imbalance across companies.
+    The 'IgnoreCompanyBalance' metric is a back door mechanism to
+    allow legacy users to create transactions accross companies if
+    they have been using the company segment for something else
+    and they MUST continue to be able to do so.  It can only be 
+    implemented by direct sql update to the metric table and should 
+    otherwise be discouraged.
+*/ 
+  IF (COALESCE(fetchMetricValue('GLCompanySize'),0) > 0 
+    AND fetchMetricBool('IgnoreCompany') = false)  THEN
+
+    IF (SELECT (COALESCE(d.accnt_company,'') != COALESCE(c.accnt_company,''))
+       FROM accnt d, accnt c
+       WHERE ((d.accnt_id=pDebitid)
+        AND (c.accnt_id=pCreditid))) THEN
+      RAISE EXCEPTION 'G/L Transaction can not be posted because accounts % and % reference two differnt companies.',
+        formatGlaccount(pDebitid), formatGlaccount(pCreditid);
+    END IF;
+  END IF;
+
 --  Validate pDebitid
   IF (pDebitid IN (SELECT accnt_id FROM accnt)) THEN
     _debitid := pDebitid;
