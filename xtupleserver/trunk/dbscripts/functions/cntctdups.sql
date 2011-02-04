@@ -190,6 +190,7 @@ BEGIN
     END IF;
     IF (pCheckPhone) THEN
       _clause := _clause || ',cntct_phone';
+      _clause := _clause || ',cntct_phone2';
     END IF;
 
     _qry := _qry || _clause; 
@@ -214,7 +215,8 @@ BEGIN
       _clause := _clause || 'OR COUNT(cntct_email) > 1 ';
     END IF;
     IF (pCheckPhone) THEN
-      _clause := _clause || 'OR COUNT(cntct_phone) > 1 ';
+      _clause := _clause || 'OR (COUNT(cntct_phone) > 1 AND LENGTH(cntct_phone) > 0) ';
+      _clause := _clause || 'OR (COUNT(cntct_phone2) > 1 AND LENGTH(cntct_phone2) > 0) ';
     END IF;
     _clause := _clause || ') ';
     _clause := overlay(_clause placing '' from 9 for 2);
@@ -236,9 +238,6 @@ BEGIN
     END IF;
     IF (pCheckEmail) THEN
       _clause := _clause || 'AND LENGTH(cntct_email) > 0  ';
-    END IF;
-    IF (pCheckPhone) THEN
-      _clause := _clause || 'AND LENGTH(cntct_phone) > 0  ';
     END IF;
     
     _qry := _qry || _clause;
