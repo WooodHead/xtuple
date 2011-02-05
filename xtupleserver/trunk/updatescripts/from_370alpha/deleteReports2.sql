@@ -6,5 +6,11 @@ WHERE report_name IN (
 'BacklogByParameterList',
 'BacklogByCustomer',
 'BacklogByItemNumber',
-'BacklogBySalesOrder') 
+'BacklogBySalesOrder',
+'ItemSitesByClassCode',
+'ItemSitesByCostCategory',
+'ItemSitesByPlannerCode',
+'ItemSitesByWarehouse',
+'ItemSitesByItem',
+'ItemSitesByParameterList') 
 AND report_grade=0;
