@@ -12,5 +12,7 @@ WHERE report_name IN (
 'ItemSitesByPlannerCode',
 'ItemSitesByWarehouse',
 'ItemSitesByItem',
-'ItemSitesByParameterList') 
+'ItemSitesByParameterList',
+'CustomersByCustomerType',
+'CustomersByCharacteristic') 
 AND report_grade=0;
