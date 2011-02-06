@@ -6,11 +6,36 @@ SELECT
   cust_id, cust_custtype_id, 
   cust_active, cust_number, cust_name,
   custtype_code,
-  cntct.*, addr.*
-FROM custinfo 
+  bill_cntct.cntct_first_name AS bill_first_name,
+  bill_cntct.cntct_last_name AS bill_last_name,
+  bill_cntct.cntct_phone AS bill_phone,
+  bill_cntct.cntct_fax AS bill_fax,
+  bill_cntct.cntct_email AS bill_email,
+  bill_addr.addr_line1 AS bill_line1,
+  bill_addr.addr_line2 AS bill_line2,
+  bill_addr.addr_line3 AS bill_line3,
+  bill_addr.addr_city AS bill_city,
+  bill_addr.addr_state AS bill_state,
+  bill_addr.addr_postalcode AS bill_postalcode,
+  bill_addr.addr_country AS bill_country,
+  corr_cntct.cntct_first_name AS corr_first_name,
+  corr_cntct.cntct_last_name AS corr_last_name,
+  corr_cntct.cntct_phone AS corr_phone,
+  corr_cntct.cntct_fax AS corr_fax,
+  corr_cntct.cntct_email AS corr_email,
+  corr_addr.addr_line1 AS corr_line1,
+  corr_addr.addr_line2 AS corr_line2,
+  corr_addr.addr_line3 AS corr_line3,
+  corr_addr.addr_city AS corr_city,
+  corr_addr.addr_state AS corr_state,
+  corr_addr.addr_postalcode AS corr_postalcode,
+  corr_addr.addr_country AS corr_country
+FROM custinfo
   JOIN custtype ON (cust_custtype_id=custtype_id)
-  LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id) 
-  LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id) 
+  LEFT OUTER JOIN cntct bill_cntct ON (cust_cntct_id=bill_cntct.cntct_id) 
+  LEFT OUTER JOIN addr bill_addr ON (bill_cntct.cntct_addr_id=bill_addr.addr_id)
+  LEFT OUTER JOIN cntct corr_cntct ON (cust_corrcntct_id=corr_cntct.cntct_id) 
+  LEFT OUTER JOIN addr corr_addr ON (corr_cntct.cntct_addr_id=corr_addr.addr_id)  
 WHERE true
 <? if not exists("showInactive") ?> 
   AND cust_active 
@@ -19,14 +44,22 @@ WHERE true
   AND ((cust_number ~* <? value("search_pattern") ?>)
        OR (cust_name ~* <? value("search_pattern") ?>)
        OR (custtype_code ~* <? value("search_pattern") ?>)
-       OR (cntct_first_name || ' ' || cntct_last_name ~* <? value("search_pattern") ?>)
-       OR (cntct_phone || ' ' || cntct_phone2 || ' ' || cntct_fax ~* <? value("search_pattern") ?>)
-       OR (cntct_email ~* <? value("search_pattern") ?>)
-       OR (addr_line1 || ' ' || addr_line2 || ' ' || addr_line3 ~* <? value("search_pattern") ?>)
-       OR (addr_city ~* <? value("search_pattern") ?>)
-       OR (addr_state ~* <? value("search_pattern") ?>)
-       OR (addr_postalcode ~* <? value("search_pattern") ?>)
-       OR (addr_country ~* <? value("search_pattern") ?>))
+       OR (COALESCE(bill_cntct.cntct_first_name || ' ' || bill_cntct.cntct_last_name,'') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(bill_cntct.cntct_phone || ' ' || bill_cntct.cntct_phone2 || ' ' || bill_cntct.cntct_fax, '') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(bill_cntct.cntct_email, '') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(bill_addr.addr_line1 || ' ' || bill_addr.addr_line2 || ' ' || bill_addr.addr_line3,'') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(bill_addr.addr_city,'') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(bill_addr.addr_state,'') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(bill_addr.addr_postalcode,'') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(bill_addr.addr_country,'') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(corr_cntct.cntct_first_name || ' ' || corr_cntct.cntct_last_name,'') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(corr_cntct.cntct_phone || ' ' || corr_cntct.cntct_phone2 || ' ' || corr_cntct.cntct_fax, '') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(corr_cntct.cntct_email, '') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(corr_addr.addr_line1 || ' ' || corr_addr.addr_line2 || ' ' || corr_addr.addr_line3,'') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(corr_addr.addr_city,'') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(corr_addr.addr_state,'') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(corr_addr.addr_postalcode,'') ~* <? value("search_pattern") ?>)
+       OR (COALESCE(corr_addr.addr_country,'') ~* <? value("search_pattern") ?>))
 <? endif ?>
 <? if exists("cust_number_pattern") ?>
   AND (cust_number ~* <? value("cust_number_pattern") ?>)
@@ -38,27 +71,35 @@ WHERE true
   AND (custtype_code ~* <? value("custtype_code_pattern") ?>)
 <? endif ?>
 <? if exists("cntct_name_pattern") ?>
-  AND (cntct_first_name || ' ' || cntct_last_name ~* <? value("cntct_name_pattern") ?>)
+  AND (COALESCE(bill_cntct.cntct_first_name || ' ' || bill_cntct.cntct_last_name, '') ~* <? value("cntct_name_pattern") ?> 
+   OR  COALESCE(corr_cntct.cntct_first_name || ' ' || corr_cntct.cntct_last_name, '') ~* <? value("cntct_name_pattern") ?>)
 <? endif ?>
 <? if exists("cntct_phone_pattern") ?>
-  AND (cntct_phone || ' ' || cntct_phone2 || ' ' || cntct_fax ~* <? value("cntct_phone_pattern") ?>)
+  AND (COALESCE(bill_cntct.cntct_phone || ' ' || bill_cntct.cntct_phone2 || ' ' || bill_cntct.cntct_fax,'') ~* <? value("cntct_phone_pattern") ?>
+   OR  COALESCE(corr_cntct.cntct_phone || ' ' || corr_cntct.cntct_phone2 || ' ' || corr_cntct.cntct_fax,'') ~* <? value("cntct_phone_pattern") ?>)
 <? endif ?>
 <? if exists("cntct_email_pattern") ?>
-  AND (cntct_email ~* <? value("cntct_email_pattern") ?>)
+  AND (COALESCE(bill_cntct.cntct_email,'') ~* <? value("cntct_email_pattern") ?>
+   OR  COALESCE(corr_cntct.cntct_email,'') ~* <? value("cntct_email_pattern") ?>)
 <? endif ?>
 <? if exists("addr_street_pattern") ?>
-  AND (addr_line1 || ' ' || addr_line2 || ' ' || addr_line3 ~* <? value("addr_street_pattern") ?>)
+  AND (COALESCE(bill_addr.addr_line1 || ' ' || bill_addr.addr_line2 || ' ' || bill_addr.addr_line3,'') ~* <? value("addr_street_pattern") ?>
+   OR  COALESCE(corr_addr.addr_line1 || ' ' || corr_addr.addr_line2 || ' ' || corr_addr.addr_line3,'') ~* <? value("addr_street_pattern") ?>)
 <? endif ?>
 <? if exists("addr_city_pattern") ?>
-  AND (addr_city ~* <? value("addr_city_pattern") ?>)
+  AND (COALESCE(bill_addr.addr_city,'') ~* <? value("addr_city_pattern") ?>
+   OR  COALESCE(corr_addr.addr_city,'') ~* <? value("addr_city_pattern") ?>)
 <? endif ?>
 <? if exists("addr_state_pattern") ?>
-  AND (addr_state ~* <? value("addr_state_pattern") ?>)
+  AND (COALESCE(bill_addr.addr_state,'') ~* <? value("addr_state_pattern") ?>
+   OR  COALESCE(corr_addr.addr_state,'') ~* <? value("addr_state_pattern") ?>)
 <? endif ?>
 <? if exists("addr_postalcode_pattern") ?>
-  AND (addr_postalcode ~* <? value("addr_postalcode_pattern") ?>)
+  AND (COALESCE(bill_addr.addr_postalcode,'') ~* <? value("addr_postalcode_pattern") ?>
+   OR  COALESCE(corr_addr.addr_postalcode,'') ~* <? value("addr_postalcode_pattern") ?>)
 <? endif ?>
 <? if exists("addr_country_pattern") ?>
-  AND (addr_country ~* <? value("addr_country_pattern") ?>)
+  AND (COALESCE(bill_addr.addr_country,'') ~* <? value("addr_country_pattern") ?>
+   OR  COALESCE(corr_addr.addr_country,'') ~* <? value("addr_country_pattern") ?>)
 <? endif ?>
 ORDER BY cust_number; 
