@@ -2,7 +2,7 @@
 -- Name:  detail
 -- Notes: 
 
-SELECT 
+SELECT DISTINCT ON ( cust_number ) 
   cust_id, cust_custtype_id, 
   cust_active, cust_number, cust_name,
   custtype_code,
@@ -30,12 +30,21 @@ SELECT
   corr_addr.addr_state AS corr_state,
   corr_addr.addr_postalcode AS corr_postalcode,
   corr_addr.addr_country AS corr_country
+<? foreach("char_id_list") ?>
+  , charass_alias<? literal("char_id_list") ?>.charass_value AS char<? literal("char_id_list") ?>
+<? endforeach ?>
 FROM custinfo
   JOIN custtype ON (cust_custtype_id=custtype_id)
   LEFT OUTER JOIN cntct bill_cntct ON (cust_cntct_id=bill_cntct.cntct_id) 
   LEFT OUTER JOIN addr bill_addr ON (bill_cntct.cntct_addr_id=bill_addr.addr_id)
   LEFT OUTER JOIN cntct corr_cntct ON (cust_corrcntct_id=corr_cntct.cntct_id) 
-  LEFT OUTER JOIN addr corr_addr ON (corr_cntct.cntct_addr_id=corr_addr.addr_id)  
+  LEFT OUTER JOIN addr corr_addr ON (corr_cntct.cntct_addr_id=corr_addr.addr_id)
+<? foreach("char_id_list") ?>
+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_list") ?> ON ((charass_alias<? literal("char_id_list") ?>.charass_target_type='C') 
+                                                                    AND  (charass_alias<? literal("char_id_list") ?>.charass_target_id=cust_id)
+                                                                    AND  (charass_alias<? literal("char_id_list") ?>.charass_char_id=<? value("char_id_list") ?>))
+  LEFT OUTER JOIN char char_alias<? literal("char_id_list") ?> ON (charass_alias<? literal("char_id_list") ?>.charass_char_id=char_alias<? literal("char_id_list") ?>.char_id)
+<? endforeach ?>
 WHERE true
 <? if not exists("showInactive") ?> 
   AND cust_active 
@@ -102,4 +111,5 @@ WHERE true
   AND (COALESCE(bill_addr.addr_country,'') ~* <? value("addr_country_pattern") ?>
    OR  COALESCE(corr_addr.addr_country,'') ~* <? value("addr_country_pattern") ?>)
 <? endif ?>
+<? literal("charClause") ?>
 ORDER BY cust_number; 
