@@ -53,3 +53,22 @@ $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'accntTrigger');
 CREATE TRIGGER accntTrigger BEFORE INSERT OR UPDATE ON accnt FOR EACH ROW EXECUTE PROCEDURE _accntTrigger();
+
+CREATE OR REPLACE FUNCTION _accntUniqueTrigger () RETURNS TRIGGER AS $$
+DECLARE
+BEGIN
+  -- This trigger is to protect against id collision on inherited tables since there is no way 
+  -- to enforce that with regular constraints.  It should be applied to accnt and any table that 
+  -- inherits accnt.
+  IF (SELECT (count(accnt_id) > 0) FROM accnt WHERE (accnt_id = NEW.accnt_id)) THEN
+    RAISE EXCEPTION 'Can not create record on account with duplicate key %.', NEW.accnt_id;
+  END IF;
+  
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'accntUniqueTrigger');
+CREATE TRIGGER accntUniqueTrigger BEFORE INSERT ON accnt FOR EACH ROW EXECUTE PROCEDURE _accntUniqueTrigger();
+
+
