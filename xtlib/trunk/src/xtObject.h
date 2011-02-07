@@ -10,10 +10,10 @@
 #ifndef __xtObject_H__
 #define __xtObject_H__
 
-#include <boost/any.hpp>
-
 #include <set>
 #include <string>
+
+#include <QVariant>
 
 #include "xtlib.h"
 
@@ -32,8 +32,8 @@ class xtObject
     int getObjectState() const;
     int getObjectMode() const;
 
-    boost::any getProperty(const std::string &name, int role = xtlib::ValueRole) const;
-    void setProperty(const std::string &name, boost::any value, int role = xtlib::ValueRole);
+    QVariant getProperty(const std::string &name, int role = xtlib::ValueRole) const;
+    void setProperty(const std::string &name, const QVariant & value, int role = xtlib::ValueRole);
 
     // Observer related methods for xiDestroyed interface
     void attachDestroyed(xiDestroyedObserver *observer);
@@ -57,7 +57,7 @@ class xtObject
   protected:
     void setObjectState(int state);
     void setObjectMode(int mode);
-    void setPropertyP(const std::string &name, boost::any value, int role = xtlib::ValueRole);
+    void setPropertyP(const std::string &name, const QVariant & value, int role = xtlib::ValueRole);
 
   private:
     xtObjectPrivate * _data;

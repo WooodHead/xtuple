@@ -11,7 +11,6 @@
 #define __xtAbstractCode_H__
 
 #include "xtStorable.h"
-#include <vector>
 
 class xtEntity;
 class xtAbstractCodePrivate;
@@ -22,11 +21,11 @@ class xtAbstractCode : public xtStorable
     xtAbstractCode();
 
     // User Data
-    boost::any getCode(int role = xtlib::ValueRole) const;
-    virtual void setCode(boost::any code, int role = xtlib::ValueRole);
+    QVariant getCode(int role = xtlib::ValueRole) const;
+    virtual void setCode(const QVariant & code, int role = xtlib::ValueRole);
 
-    boost::any getDescription(int role = xtlib::ValueRole) const;
-    virtual void setDescription(boost::any description, int role = xtlib::ValueRole);
+    QVariant getDescription(int role = xtlib::ValueRole) const;
+    virtual void setDescription(const QVariant & description, int role = xtlib::ValueRole);
 
   private:
     xtAbstractCodePrivate * _data;

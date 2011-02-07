@@ -53,7 +53,7 @@
   The example object should be constructed and initialized before calling
   xtStorableQuery(). To initialize it, choose the properties of the object
   to use as the basis of the query, then set those properties on the example.
-  Use a \c std::string value to get an exact match or a \c boost::regex to
+  Use a \c std::string value to get an exact match or a \c QRegExp to
   look for multiple values.
   
   \param example A pointer to a freshly-constructed and initialized xtStorable.

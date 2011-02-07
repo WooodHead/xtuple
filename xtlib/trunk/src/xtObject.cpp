@@ -47,7 +47,7 @@ class xtObjectPrivate
     void modeChanged();
     void propertyChanged(const std::string &, int role);
 
-    typedef std::map< std::pair<std::string, int> , boost::any> propertyMap;
+    typedef std::map< std::pair<std::string, int> , QVariant> propertyMap;
     propertyMap _properties;
 
     int _state;
@@ -335,21 +335,21 @@ void xtObject::detachPropertyObserver(xiPropertyObserver * observer)
 
     Retrieve the value for the property name passed in.
     The default role is \c xtlib::ValueRole. If the given name/role
-    combination does not exist then an empty \c boost::any value will
+    combination does not exist then an empty \c QVariant value will
     be returned.
 
     \param name The property name to get.
     \param role The role to get.
     \return The value for the given name and role if it has been set,
-            otherwise \c boost::any::empty.
+            otherwise an empty \c QVariant.
  */
-boost::any xtObject::getProperty(const std::string & name, int role) const
+QVariant xtObject::getProperty(const std::string & name, int role) const
 {
   std::pair< std::string, int > key (name, role);
   xtObjectPrivate::propertyMap::const_iterator it = _data->_properties.find(key);
 
   if(it == _data->_properties.end())
-    return boost::any();
+    return QVariant();
 
   return (*it).second;
 }
@@ -386,7 +386,7 @@ std::set<std::string> xtObject::getPropertyNames() const
     This overload returns the names of all properties for a particular
     role, regardless of the value assigned to that role.  Callers
     who use this set to retrieve values must check to see if the
-    value is \c boost::any::empty().
+    value is an invalid \c QVariant.
 
     \param role The role to select property names by.
     \return A set of property names for this object having the role specified.
@@ -432,7 +432,7 @@ std::set<std::string> xtObject::getPropertyNames(xtlib::ObjectDataRole role) con
 
     \sa setPropertyP(), xtlib::ObjectDataRole
  */
-void xtObject::setProperty(const std::string & name, boost::any value, int role)
+void xtObject::setProperty(const std::string & name, const QVariant & value, int role)
 {
   if(role == xtlib::RequiredRole
   || role == xtlib::PreviousValueRole
@@ -457,14 +457,14 @@ void xtObject::setProperty(const std::string & name, boost::any value, int role)
     \throw std::runtime_error If the the value fails the property checker
                               this exception is thrown.
  */
-void xtObject::setPropertyP(const std::string & name, boost::any value, int role)
+void xtObject::setPropertyP(const std::string & name, const QVariant & value, int role)
 {
-  boost::any pChecker = getProperty(name, xtlib::CheckerRole);
-  if(!pChecker.empty())
+  QVariant pChecker = getProperty(name, xtlib::CheckerRole);
+  if(!pChecker.isNull())
   {
     xiPropertyChecker * pc = 0;
     try {
-      pc = boost::any_cast<xiPropertyChecker *>(pChecker);
+      pc = pChecker.value<xiPropertyChecker *>();
     } catch (...) {}
     if(pc != 0 && !pc->check(value, role))
       throw std::runtime_error("Unable to set property. Installed property checker returned false.");
@@ -473,7 +473,7 @@ void xtObject::setPropertyP(const std::string & name, boost::any value, int role
   // TODO: do a type check for FieldRole and CheckerRole values?
 
   std::pair< std::string, int > key (name, role);
-  boost::any oldval = getProperty(name, role);
+  QVariant oldval = getProperty(name, role);
   _data->_properties[key] = value;
   //if(_oldval != value)
     _data->propertyChanged(name, role);

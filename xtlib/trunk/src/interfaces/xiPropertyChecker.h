@@ -10,17 +10,19 @@
 #ifndef __xiPropertyChecker_H__
 #define __xiPropertyChecker_H__
 
-#include <boost/any.hpp>
+#include <QVariant>
 
 class xiPropertyChecker
 {
   public:
     virtual ~xiPropertyChecker();
 
-    virtual bool check(boost::any value, int role) = 0;
+    virtual bool check(const QVariant & value, int role) = 0;
 
   protected:
     xiPropertyChecker();
 };
+
+Q_DECLARE_METATYPE(xiPropertyChecker*)
 
 #endif // __xiPropertyChecker_H__

@@ -35,19 +35,17 @@ class xtAbstractCodePrivate
 
     xtAbstractCode * _parent;
 
-    std::vector<xtEntity *> _vent;
-
     class NotEmptyChecker : public xiPropertyChecker
     {
       xtAbstractCodePrivate * self;
       public:
         NotEmptyChecker(xtAbstractCodePrivate * parent) : self(parent) {}
-        bool check(boost::any value, int role)
+        bool check(const QVariant & value, int role)
         {
-          if(role == xtlib::ValueRole && value.type() == typeid(std::string))
+          if(role == xtlib::ValueRole && value.type() == QVariant::String)
           {
-            std::string str = boost::any_cast<std::string>(value);
-            if(str.empty())
+            QString str = value.toString();
+            if(str.isEmpty())
               return false;
           }
           return true;
@@ -79,15 +77,15 @@ xtAbstractCode::xtAbstractCode()
 {
   _data = new xtAbstractCodePrivate(this);
 
-  setCode(boost::any());
-  setPropertyP("code", boost::any(true),    xtlib::RequiredRole);
-  setPropertyP("code", std::string("Code"), xtlib::LabelRole);
-  setPropertyP("code", xtFieldData("code",  xtFieldData::String), xtlib::FieldRole);
-  setPropertyP("code", _data->notEmpty, xtlib::CheckerRole);
+  setCode(QVariant());
+  setPropertyP("code", QVariant(true),    xtlib::RequiredRole);
+  setPropertyP("code", QVariant("Code"), xtlib::LabelRole);
+  setPropertyP("code", QVariant::fromValue(xtFieldData("code",  xtFieldData::String)), xtlib::FieldRole);
+  setPropertyP("code", QVariant::fromValue(_data->notEmpty), xtlib::CheckerRole);
 
-  setDescription(boost::any());
-  setPropertyP("description", std::string("Description"), xtlib::LabelRole);
-  setPropertyP("description", xtFieldData("descrip",  xtFieldData::String), xtlib::FieldRole);
+  setDescription(QVariant());
+  setPropertyP("description", QVariant("Description"), xtlib::LabelRole);
+  setPropertyP("description", QVariant::fromValue(xtFieldData("descrip",  xtFieldData::String)), xtlib::FieldRole);
 }
 
 /**
@@ -98,11 +96,11 @@ xtAbstractCode::xtAbstractCode()
     with the code.
 
     \param role The role value to return.
-    \return A value as \c boost::any.
+    \return A value as \c QVariant.
 
     \sa xtObject::getProperty()
  */
-boost::any xtAbstractCode::getCode(int role) const
+QVariant xtAbstractCode::getCode(int role) const
 {
   return getProperty("code", role);
 }
@@ -112,11 +110,10 @@ boost::any xtAbstractCode::getCode(int role) const
 
     \param code The value to set.
     \param role The role value to set.
-    \return A value as \c boost::any.
 
     \sa xtObject::setProperty()
  */
-void xtAbstractCode::setCode(boost::any code, int role)
+void xtAbstractCode::setCode(const QVariant & code, int role)
 {
   setProperty("code", code, role);
 }
@@ -129,11 +126,11 @@ void xtAbstractCode::setCode(boost::any code, int role)
     associated with the description.
 
     \param role The role value to return.
-    \return A value as \c boost::any.
+    \return A value as \c QVariant.
 
     \sa xtObject::getProperty()
  */
-boost::any xtAbstractCode::getDescription(int role) const
+QVariant xtAbstractCode::getDescription(int role) const
 {
   return getProperty("description", role);
 }
@@ -143,11 +140,10 @@ boost::any xtAbstractCode::getDescription(int role) const
 
     \param description The value to set.
     \param role The role value to set.
-    \return A value as \c boost::any.
 
     \sa xtObject::setProperty()
  */
-void xtAbstractCode::setDescription(boost::any description, int role)
+void xtAbstractCode::setDescription(const QVariant & description, int role)
 {
   setProperty("description", description, role);
 }

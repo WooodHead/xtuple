@@ -88,9 +88,9 @@ xeInvalidStorable::xeInvalidStorable(const xtStorable &storable)
     for (std::set<std::string>::iterator it = req.begin();
          it != req.end(); it++)
     {
-      boost::any required = storable.getProperty(*it, xtlib::RequiredRole);
-      if (! required.empty() && boost::any_cast<bool>(required) &&
-          storable.getProperty(*it).empty())
+      QVariant required = storable.getProperty(*it, xtlib::RequiredRole);
+      if (! required.isNull() && required.toBool() &&
+          storable.getProperty(*it).isNull())
       _data->_missing.insert(*it);
     }
   }

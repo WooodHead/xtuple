@@ -50,7 +50,7 @@ xiPropertyChecker::xiPropertyChecker() {}
 xiPropertyChecker::~xiPropertyChecker() {}
 
 /**
-    \fn void xiPropertyChecker::check(boost::any value, int role)
+    \fn void xiPropertyChecker::check(const QVariant & value, int role)
 
     \brief Called when an object's property is changed.
 

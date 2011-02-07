@@ -15,12 +15,11 @@
  */
 
 #include "xtClassCode.h"
-#include "xtQuery.h"
 
-#include <boost/lexical_cast.hpp>
-
-#include <iostream>
 #include <stdexcept>
+
+#include <QDebug>
+#include <QSqlQuery>
 
 //
 // xtClassCode implementation
@@ -38,18 +37,17 @@ xtClassCode::xtClassCode()
 
 void xtClassCode::doDelete()
 {
-  std::string sql = "SELECT deleteClassCode(";
-  sql += boost::lexical_cast<std::string>(getId());
-  sql += ") AS result;";
-
+  QString sql = "SELECT deleteClassCode(%1) AS result;";
+  sql = sql.arg(getId());
   if(xtlib::debug)
-    std::cerr << "executing: " << sql << std::endl;
-  xtQuery query;
+    qDebug() << "executing: " << sql;
+  QSqlQuery query;
   query.exec(sql);
-  if(query.rowCount() < 1)
-    return;
-  if(boost::lexical_cast<long long>(query.getValue(0, "result")) < 0)
+  if(query.first())
   {
-    throw std::runtime_error("Can not delete Class Code as one or more items reference it.");
+    if(query.value(0).toInt() < 0)
+    {
+      throw std::runtime_error("Can not delete Class Code as one or more items reference it.");
+    }
   }
 }

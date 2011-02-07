@@ -126,21 +126,18 @@
 #include "xtAnyUtility.h"
 #include "xtFieldData.h"
 #include "interfaces/xiPropertyChecker.h"
-#include "xtQuery.h"
 #include "exceptions/xeInvalidStorable.h"
 #include "exceptions/xeDataNotFound.h"
 #include "xtSecurity.h"
 
-#include <iostream>
 #include <map>
 #include <set>
 #include <stdexcept>
 
-#include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
-#include <boost/date_time/posix_time/posix_time.hpp>
-
-using namespace boost;
+#include <QSqlQuery>
+#include <QSqlRecord>
+#include <QDateTime>
+#include <QDebug>
 
 //
 // xtStorablePrivate implementation
@@ -169,7 +166,7 @@ class xtStorablePrivate
       xtStorablePrivate * self;
       public:
         ReadOnlyChecker(xtStorablePrivate * parent) : self(parent) {}
-        bool check(boost::any, int role)
+        bool check(const QVariant &, int role)
         {
           if(self->_enforceReadOnly && role == xtlib::ValueRole)
             return false;
@@ -204,17 +201,17 @@ xtStorable::xtStorable()
   : xtObject()
 {
   _data = new xtStorablePrivate(this);
-  setPropertyP("creator", _data->readOnly, xtlib::CheckerRole);
-  setPropertyP("created", _data->readOnly, xtlib::CheckerRole);
-  setPropertyP("modifier", _data->readOnly, xtlib::CheckerRole);
-  setPropertyP("modified", _data->readOnly, xtlib::CheckerRole);
-  setPropertyP("type", _data->readOnly, xtlib::CheckerRole);
+  setPropertyP("creator", QVariant::fromValue(_data->readOnly), xtlib::CheckerRole);
+  setPropertyP("created", QVariant::fromValue(_data->readOnly), xtlib::CheckerRole);
+  setPropertyP("modifier", QVariant::fromValue(_data->readOnly), xtlib::CheckerRole);
+  setPropertyP("modified", QVariant::fromValue(_data->readOnly), xtlib::CheckerRole);
+  setPropertyP("type", QVariant::fromValue(_data->readOnly), xtlib::CheckerRole);
 
-  setPropertyP("creator", xtFieldData("creator", xtFieldData::String), xtlib::FieldRole);
-  setPropertyP("created", xtFieldData("created", xtFieldData::Timestamp), xtlib::FieldRole);
-  setPropertyP("modifier", xtFieldData("modifier", xtFieldData::String), xtlib::FieldRole);
-  setPropertyP("modified", xtFieldData("modified", xtFieldData::Timestamp), xtlib::FieldRole);
-  setPropertyP("type", xtFieldData("type", xtFieldData::String), xtlib::FieldRole);
+  setPropertyP("creator", QVariant::fromValue(xtFieldData("creator", xtFieldData::String)), xtlib::FieldRole);
+  setPropertyP("created", QVariant::fromValue(xtFieldData("created", xtFieldData::Timestamp)), xtlib::FieldRole);
+  setPropertyP("modifier", QVariant::fromValue(xtFieldData("modifier", xtFieldData::String)), xtlib::FieldRole);
+  setPropertyP("modified", QVariant::fromValue(xtFieldData("modified", xtFieldData::Timestamp)), xtlib::FieldRole);
+  setPropertyP("type", QVariant::fromValue(xtFieldData("type", xtFieldData::String)), xtlib::FieldRole);
 }
 
 /**
@@ -246,15 +243,15 @@ void xtStorable::load(long long id)
   sql += "\" WHERE ";
   sql += _data->_prefix;
   sql += "id = '";
-  sql += boost::lexical_cast<std::string>(id);
+  sql += QString::number(id).toStdString();
   sql += "';";
 
   if(xtlib::debug)
-    std::cerr << "executing: " << sql << std::endl;
-  xtQuery query;
-  query.exec(sql);
+    qDebug() << "executing: " << QString::fromStdString(sql);
+  QSqlQuery query;
+  query.exec(QString::fromStdString(sql));
 
-  if(query.rowCount() < 1)
+  if(!query.first())
     return;
 
   _data->_enforceReadOnly = false;
@@ -263,50 +260,24 @@ void xtStorable::load(long long id)
        it != propList.end();
        it++)
   {
-    boost::any pFieldData = getProperty(*it, xtlib::FieldRole);
-    try
+    QVariant pFieldData = getProperty(*it, xtlib::FieldRole);
+    xtFieldData fd = pFieldData.value<xtFieldData>();
+    if(fd.fieldName != "")
     {
-      xtFieldData fd = boost::any_cast<xtFieldData>(pFieldData);
-      boost::any val; // an empty value which we'll leave for null values
+      QVariant val; // an empty value which we'll leave for null values
       std::string fieldName = _data->_prefix + fd.fieldName;
-      if(!query.isNull(0, fieldName))
+      int fi = query.record().indexOf(QString::fromStdString(fieldName));
+      if(!query.isNull(fi))
       {
-        std::string sval = query.getValue(0, fieldName); // get the value which is a string? 
-        switch(fd.type)
-        {
-          case xtFieldData::Serial:
-            val = lexical_cast<long long>(sval);
-            break;
-          case xtFieldData::Integer:
-            val = lexical_cast<int>(sval);
-            break;
-          case xtFieldData::Numeric:
-            val = lexical_cast<double>(sval);
-            break;
-          case xtFieldData::Bool:
-            val = lexical_cast<bool>(sval);
-            break;
-          case xtFieldData::Timestamp:
-          case xtFieldData::TimestampTZ:
-            val = boost::posix_time::time_from_string(sval); // TODO: are these really the same?
-            break;
-          case xtFieldData::Date:
-            val = boost::gregorian::from_string(sval);
-            break;
-          case xtFieldData::Time:
-            // TODO: figure this one out
-          case xtFieldData::String:
-          default:
-            val = sval;
-        };
+        val = query.value(fi);
       }
-      
+    
       setProperty(*it, val);
       setPropertyP(*it, val, xtlib::PreviousValueRole);
     }
-    catch(const boost::bad_any_cast &e)
+    else
     {
-      std::cerr << "problem reading field: " << e.what();
+      qDebug() << "problem reading field";
     }
   }
   _data->_enforceReadOnly = true;
@@ -346,7 +317,7 @@ void xtStorable::save()
     return;
   }
 
-  std::map<std::string, boost::any> changed;
+  std::map<std::string, QVariant> changed;
   std::set<std::string> fieldnames = getPropertyNames(xtlib::FieldRole);
   for (std::set<std::string>::const_iterator it = fieldnames.begin();
        it != fieldnames.end();
@@ -354,18 +325,18 @@ void xtStorable::save()
   {
     if(! xtAnyUtility::equal(getProperty(*it),
                              getProperty(*it, xtlib::PreviousValueRole)))
-      changed.insert(std::pair<std::string, boost::any>(*it, getProperty(*it)));
+      changed.insert(std::pair<std::string, QVariant>(*it, getProperty(*it)));
   }
 
   if(changed.size())
   {
     _data->_enforceReadOnly = false;
-    std::string tuser = xtSecurity::logicalUser();
+    QString tuser = QString::fromStdString(xtSecurity::logicalUser());
     setProperty("modifier", tuser);
-    changed.insert(std::pair<std::string, boost::any>("modifier", tuser));
-    boost::posix_time::ptime newt = boost::posix_time::second_clock::local_time();
+    changed.insert(std::pair<std::string, QVariant>("modifier", tuser));
+    QDateTime newt = QDateTime::currentDateTime();
     setProperty("modified", newt);
-    changed.insert(std::pair<std::string, boost::any>("modified", newt));
+    changed.insert(std::pair<std::string, QVariant>("modified", newt));
     _data->_enforceReadOnly = true;
     std::string sql;
     if(_data->_id)
@@ -374,12 +345,12 @@ void xtStorable::save()
       sql += _data->_tableName;
       sql += "\" SET ";
       int colcnt = 0;
-      for (std::map<std::string, boost::any>::iterator it = changed.begin();
+      for (std::map<std::string, QVariant>::iterator it = changed.begin();
            it != changed.end();
            it++, colcnt++)
       {
-        boost::any pFieldData = getProperty((*it).first, xtlib::FieldRole);
-        xtFieldData fd = boost::any_cast<xtFieldData>(pFieldData);
+        QVariant pFieldData = getProperty((*it).first, xtlib::FieldRole);
+        xtFieldData fd = pFieldData.value<xtFieldData>();
         std::string fieldName = _data->_prefix + fd.fieldName;
         if(colcnt)
           sql += ", ";
@@ -387,16 +358,16 @@ void xtStorable::save()
         sql += "\"='" + xtAnyUtility::toString((*it).second) + "'";
       }
       sql += " WHERE (" + _data->_prefix + "id='";
-      sql += boost::lexical_cast<std::string>(_data->_id);
+      sql += QString::number(_data->_id).toStdString();
       sql += "');";
     }
     else
     {
       _data->_enforceReadOnly = false;
       setProperty("creator", tuser);
-      changed.insert(std::pair<std::string, boost::any>("creator", tuser));
+      changed.insert(std::pair<std::string, QVariant>("creator", tuser));
       setProperty("created", newt);
-      changed.insert(std::pair<std::string, boost::any>("created", newt));
+      changed.insert(std::pair<std::string, QVariant>("created", newt));
       _data->_enforceReadOnly = true;
       sql = "INSERT INTO \"";
       sql += _data->_tableName;
@@ -405,12 +376,12 @@ void xtStorable::save()
       int colcnt = 0;
       std::string values;
 
-      for (std::map<std::string, boost::any>::iterator it = changed.begin();
+      for (std::map<std::string, QVariant>::iterator it = changed.begin();
            it != changed.end();
            it++, colcnt++)
       {
-        boost::any pFieldData = getProperty((*it).first, xtlib::FieldRole);
-        xtFieldData fd = boost::any_cast<xtFieldData>(pFieldData);
+        QVariant pFieldData = getProperty((*it).first, xtlib::FieldRole);
+        xtFieldData fd = pFieldData.value<xtFieldData>();
         std::string fieldName = _data->_prefix + fd.fieldName;
         if(colcnt)
         {
@@ -426,11 +397,11 @@ void xtStorable::save()
     }
 
     if(xtlib::debug)
-      std::cerr << "executing: " << sql;
-    xtQuery query;
-    query.exec(sql);
-    if(query.rowCount() >= 1)
-      _data->_id = boost::lexical_cast<long long>(query.getValue(0, _data->_prefix + "id"));
+      qDebug() << "executing: " << QString::fromStdString(sql);
+    QSqlQuery query;
+    query.exec(QString::fromStdString(sql));
+    if(query.first())
+      _data->_id = query.value(query.record().indexOf(QString::fromStdString(_data->_prefix) + "id")).toLongLong();
 
     load(_data->_id);
   }
@@ -458,7 +429,7 @@ void xtStorable::saveAs()
        it != fieldnames.end();
        it++)
   {
-    setPropertyP(*it, boost::any(), xtlib::PreviousValueRole);
+    setPropertyP(*it, QVariant(), xtlib::PreviousValueRole);
   }
 
   save();
@@ -475,18 +446,18 @@ void xtStorable::lock()
   if(isLocked())
     throw std::runtime_error("cannot lock an object that is already locked.");
 
-  xtQuery qry;
-  std::string sql = "SELECT pg_try_advisory_lock(oid::integer, ";
-  sql += boost::lexical_cast<std::string>(_data->_id);
+  QSqlQuery qry;
+  QString sql = "SELECT pg_try_advisory_lock(oid::integer, ";
+  sql += QString::number(_data->_id);
   sql += ") AS locked FROM pg_class WHERE relname='";
-  sql += _data->_tableName;
+  sql += QString::fromStdString(_data->_tableName);
   sql += "';";
+  if(xtlib::debug)
+    qDebug() << "executing: " << sql;
   qry.exec(sql);
-  if (qry.rowCount() > 0)
+  if (qry.first())
   {
-    std::string sval = qry.getValue(0, "locked"); // get the value which is a string?
-    bool val = sval == "t";
-    if (val != true)
+    if (qry.value(0).toBool() != true)
       throw std::runtime_error("cannot lock record that is already locked.");
     else
       _data->_locked = true;
@@ -508,18 +479,16 @@ void xtStorable::unlock()
   if(!_data->_locked)
     throw std::runtime_error("cannot unlock the object when this instance didn't initiate the lock.");
 
-  xtQuery qry;
-  std::string sql = "SELECT pg_advisory_unlock(oid::integer, ";
-  sql += boost::lexical_cast<std::string>(_data->_id);
+  QSqlQuery qry;
+  QString sql = "SELECT pg_advisory_unlock(oid::integer, ";
+  sql += QString::number(_data->_id);
   sql += ") AS result FROM pg_class WHERE relname='";
-  sql += _data->_tableName;
+  sql += QString::fromStdString(_data->_tableName);
   sql += "';";
   qry.exec(sql);
-  if (qry.rowCount() > 0)
+  if (qry.first())
   {
-    std::string sval = qry.getValue(0, "result"); // get the value which is a string?
-    bool val = sval == "t";
-    if (val != true)
+    if (qry.value(0).toBool() != true)
       throw std::runtime_error("cannot unlock record due to an unexpected error.");
     else
       _data->_locked = false;
@@ -542,14 +511,14 @@ bool xtStorable::isLocked() const
     return true; // we locked ourselves so we know we are locked
 
   // TODO: check to see if this object is locked by anyone.
-  xtQuery qry;
-  std::string sql = "SELECT pid FROM pg_locks WHERE ((classid=(SELECT oid::integer FROM pg_class WHERE relname='";
-  sql += _data->_tableName;
+  QSqlQuery qry;
+  QString sql = "SELECT pid FROM pg_locks WHERE ((classid=(SELECT oid::integer FROM pg_class WHERE relname='";
+  sql += QString::fromStdString(_data->_tableName);
   sql += "')) AND (objid=";
-  sql += boost::lexical_cast<std::string>(_data->_id);
+  sql += QString::number(_data->_id);
   sql += ") AND (objsubid=2));";
   qry.exec(sql);
-  if(qry.rowCount() > 0)
+  if(qry.first())
     return true;
 
   return false;
@@ -611,9 +580,9 @@ bool xtStorable::isValid() const
          it != names.end();
          it++)
     {
-      boost::any required = getProperty(*it, xtlib::RequiredRole);
-      if (! required.empty() && any_cast<bool>(required))
-        returnValue &= ! getProperty(*it).empty();
+      QVariant required = getProperty(*it, xtlib::RequiredRole);
+      if (! required.isNull() && required.toBool())
+        returnValue &= ! getProperty(*it).isNull();
     }
   }
 
@@ -643,11 +612,11 @@ long long xtStorable::getId() const
     \brief Convenience method that returns the role value for the type property.
 
     \param role The role value to retreive.
-    \return \c boost::any value or and empty \c boost::any.
+    \return \c QVariant value or and empty \c QVariant.
 
     \sa xtObject::getProperty()
  */
-boost::any xtStorable::getType(int role) const
+QVariant xtStorable::getType(int role) const
 {
   return getProperty("type", role);
 }
@@ -656,11 +625,11 @@ boost::any xtStorable::getType(int role) const
     \brief Convenience method that returns the role value for the created property.
 
     \param role The role value to retreive.
-    \return \c boost::any value or and empty \c boost::any.
+    \return \c QVariant value or and empty \c QVariant.
 
     \sa xtObject::getProperty()
  */
-boost::any xtStorable::getCreated(int role) const
+QVariant xtStorable::getCreated(int role) const
 {
   return getProperty("created", role);
 }
@@ -669,11 +638,11 @@ boost::any xtStorable::getCreated(int role) const
     \brief Convenience method that returns the role value for the creator property.
 
     \param role The role value to retreive.
-    \return \c boost::any value or and empty \c boost::any.
+    \return \c Qvariant value or and empty \c Qvariant.
 
     \sa xtObject::getProperty()
  */
-boost::any xtStorable::getCreator(int role) const
+QVariant xtStorable::getCreator(int role) const
 {
   return getProperty("creator", role);
 }
@@ -682,11 +651,11 @@ boost::any xtStorable::getCreator(int role) const
     \brief Convenience method that returns the role value for the modified property.
 
     \param role The role value to retreive.
-    \return \c boost::any value or and empty \c boost::any.
+    \return \c QVariant value or and empty \c QVariant.
 
     \sa xtObject::getProperty()
  */
-boost::any xtStorable::getModified(int role) const
+QVariant xtStorable::getModified(int role) const
 {
   return getProperty("modified", role);
 }
@@ -695,11 +664,11 @@ boost::any xtStorable::getModified(int role) const
     \brief Convenience method that returns the role value for the modifier property.
 
     \param role The role value to retreive.
-    \return \c boost::any value or and empty \c boost::any.
+    \return \c QVariant value or and empty \c QVariant.
 
     \sa xtObject::getProperty()
  */
-boost::any xtStorable::getModifier(int role) const
+QVariant xtStorable::getModifier(int role) const
 {
   return getProperty("modifier", role);
 }
@@ -723,17 +692,17 @@ void xtStorable::doDelete()
   if(_data->_tableName.empty())
     throw std::runtime_error("cannot delete from the database without a table name");
 
-  std::string sql = "DELETE FROM \"";
-  sql += _data->_tableName;
+  QString sql = "DELETE FROM \"";
+  sql += QString::fromStdString(_data->_tableName);
   sql += "\" WHERE ";
-  sql += _data->_prefix;
+  sql += QString::fromStdString(_data->_prefix);
   sql += "id = '";
-  sql += boost::lexical_cast<std::string>(getId());
+  sql += QString::number(getId());
   sql += "';";
 
   if(xtlib::debug)
-    std::cerr << "executing: " << sql << std::endl;
-  xtQuery query;
+    qDebug() << "executing: " << sql;
+  QSqlQuery query;
   query.exec(sql);
 }
 
@@ -749,7 +718,7 @@ void xtStorable::doDelete()
 void xtStorable::setType(const std::string & type)
 {
   _data->_enforceReadOnly = false;
-  setProperty("type", type);
+  setProperty("type", QString::fromStdString(type));
   _data->_enforceReadOnly = true;
 }
 
