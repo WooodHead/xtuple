@@ -146,7 +146,7 @@ QRegExp xtAnyUtility::toRegex(const std::string &value)
 std::vector<std::string> xtAnyUtility::toVector(const std::set<std::string> &value)
 {
     std::vector<std::string> vec;
-    std::set<std::string>::iterator it;
+    std::set<std::string>::const_iterator it;
     for(it=value.begin();it!=value.end();it++)
         vec.push_back((*it));
     return vec;
