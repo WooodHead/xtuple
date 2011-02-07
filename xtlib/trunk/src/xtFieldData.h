@@ -11,6 +11,7 @@
 #define __xtFieldData_H__
 
 #include <string>
+#include <QVariant>
 
 class xtFieldData {
   public:
@@ -36,6 +37,8 @@ class xtFieldData {
     std::string fieldName;
     enum Type type;
 };
+
+Q_DECLARE_METATYPE(xtFieldData);
 
 #endif // __xtFieldData_H__
 

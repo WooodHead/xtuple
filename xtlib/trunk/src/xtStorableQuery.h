@@ -10,13 +10,11 @@
 #ifndef __xtStorableQuery_H__
 #define __xtStorableQuery_H__
 
-#include <boost/regex.hpp>
-#include <boost/lexical_cast.hpp>
-
 #include "xtAnyUtility.h"
 #include "xtFieldData.h"
-#include "xtQuery.h"
 #include "xtStorable.h"
+
+#include <stdexcept>
 
 // templates must be declared and defined in the .h file
 
@@ -81,16 +79,16 @@ template<class T> class xtStorableQuery
            field != fields.end();
            field++)
       {
-        boost::any pFieldData = storable->getProperty(*field, xtlib::FieldRole);
-        boost::any pCriterion = storable->getProperty(*field);
-        xtFieldData fd = boost::any_cast<xtFieldData>(pFieldData);
-        if (! pCriterion.empty())
+        QVariant pFieldData = storable->getProperty(*field, xtlib::FieldRole);
+        QVariant pCriterion = storable->getProperty(*field);
+        xtFieldData fd = pFieldData.value<xtFieldData>();
+        if (! pCriterion.isNull())
         {
           if (! where.empty())
               where += " AND ";
           where += "(\"" + storable->getFieldPrefix() + fd.fieldName + "\"";
 
-          if (pCriterion.type() == typeid(boost::regex))
+          if (pCriterion.type() == QVariant::RegExp)
             where += "~*";
           else
             where += "=";
@@ -102,12 +100,12 @@ template<class T> class xtStorableQuery
         sql += " WHERE (" + where + ")";
       sql += ";";
 
-      xtQuery query;
-      query.exec(sql);
-      for (int row = 0; row < query.rowCount(); row++)
+      QSqlQuery query;
+      query.exec(QString::fromStdString(sql));
+      while(query.next())
       {
         T *newone = new T();
-        newone->load(boost::lexical_cast<long long>(query.getValue(row, storable->getFieldPrefix() + "id")));
+        newone->load(query.value(0).toLongLong());
         _queryResults.insert(newone);
       }
     }

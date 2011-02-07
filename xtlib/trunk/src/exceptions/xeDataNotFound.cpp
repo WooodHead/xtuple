@@ -10,7 +10,7 @@
 
 #include "xeDataNotFound.h"
 
-#include <boost/lexical_cast.hpp>
+#include <QString>
 
 class xeDataNotFoundPrivate
 {
@@ -114,7 +114,7 @@ const char* xeDataNotFound::what() const throw()
   if(! _data->_source.empty())
   {
     what += " source: " + _data->_source;
-    what += " id: " + boost::lexical_cast<std::string>(_data->_id);
+    what += QString(" id: %1").arg(_data->_id).toStdString();
   }
 
   return what.c_str();

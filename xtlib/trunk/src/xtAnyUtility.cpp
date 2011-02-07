@@ -10,28 +10,23 @@
 
 /** \class xtAnyUtility
 
-  \brief A utility class to mediate between the \c boost::any class
+  \brief A utility class to mediate between the \c QVariant class
          and xTuple classes.
 
-    xtlib keeps values of a number of data types in \c boost::any
+    xtlib keeps values of a number of data types in \c QVariant
     variables.  These types come from standard C++, the standard
-    C++ library, the Boost library, and xtlib itself.  xtAnyUtility
-    provides standard ways not provided by the Boost library itself
-    for xtlib to handle \c boost::any values.
+    C++ library, the Qt library, and xtlib itself.  xtAnyUtility
+    provides standard ways not provided by the Qt library itself
+    for xtlib to handle \c QVariant values.
 
 */
 
 #include "xtAnyUtility.h"
 #include <stdexcept>
-#include <boost/regex.hpp>
-#include <boost/lexical_cast.hpp>
-#include <boost/date_time/posix_time/posix_time.hpp>
 
-using namespace boost;
+/** \brief Compare two \c QVariant values.
 
-/** \brief Compare two \c boost::any values.
-
-  equal() compares two \c boost::any values in a type-sensitive way.
+  equal() compares two \c QVariant values in a type-sensitive way.
   If the two values have the same type, they are cast to instances of
   that type and compared using the \c == operator.
 
@@ -40,23 +35,24 @@ using namespace boost;
 
   \return \c true if the two parameters have the same type
 	  and the same value within that type, including \c
-	  any::empty(), otherwise \c false.
+	  QVariant(), otherwise \c false.
 
   \throw std::runtime_error equal() cannot compare \c left and \c right
                              because it does not recognize the type of the
                              parameters.
 
  */
-bool xtAnyUtility::equal(const boost::any &left, const boost::any &right)
+bool xtAnyUtility::equal(const QVariant &left, const QVariant &right)
 {
+/*
   if (left.type() != right.type())
     return false;
 
-  if(left.empty() && right.empty())
+  if(left.isNull() && right.isNull())
     return true;
 
-  if (left.type() == typeid(std::string))
-    return any_cast<std::string>(left) == any_cast<std::string>(right);
+  if (left.type() == QVariant::String)
+    return left.toString() == right.toString();
   else if (left.type() == typeid(int))
     return any_cast<int>(left) == any_cast<int>(right);
   else if (left.type() == typeid(bool))
@@ -71,105 +67,71 @@ bool xtAnyUtility::equal(const boost::any &left, const boost::any &right)
                       std::string(" values");
     throw std::runtime_error(msg);
   }
+*/
+  return left == right;
 }
 
-/** \brief Convert a \c boost::any value to a standard string.
+/** \brief Convert a \c QVariant value to a standard string.
 
-    This method converts a \c boost::any value to a standard string.
+    This method converts a \c QVariant value to a standard string.
 
-    \param value The \c boost::any value to convert to a string.
+    \param value The \c QVariant value to convert to a string.
 
-    \return A string representation of the \c boost::any value passed in.
+    \return A string representation of the \c QVariant value passed in.
 
-    \throw std::runtime_error The type of the \c boost:any is not known or
+    \throw std::runtime_error The type of the \c QVariant is not known or
                                the string does not fit in the allocated buffer.
 */
-std::string xtAnyUtility::toString(const boost::any &value)
+std::string xtAnyUtility::toString(const QVariant &value)
 {
-  if(value.empty())
-    return std::string();
-
-  if (value.type() == typeid(std::string))
-    return any_cast<std::string>(value);
-  else if (value.type() == typeid(int))
-  {
-    char result[1024];
-    int size = sprintf(result, "%-d", any_cast<int>(value));
-    if (size > sizeof(result))
-      throw std::runtime_error("buffer overrun");
-    return result;
-  }
-  else if (value.type() == typeid(bool))
-    return any_cast<bool>(value) ? "true" : "false";
-  else if (value.type() == typeid(long long))
-    return lexical_cast<std::string>(any_cast<long long>(value));
-  else if (value.type() == typeid(long))
-    return lexical_cast<std::string>(any_cast<long>(value));
-  else if (value.type() == typeid(short))
-    return lexical_cast<std::string>(any_cast<short>(value));
-  else if (value.type() == typeid(int))
-    return lexical_cast<std::string>(any_cast<int>(value));
-  else if (value.type() == typeid(float))
-    return lexical_cast<std::string>(any_cast<float>(value));
-  else if (value.type() == typeid(double))
-    return lexical_cast<std::string>(any_cast<double>(value));
-  else if (value.type() == typeid(posix_time::ptime))
-  {
-    posix_time::ptime ts = any_cast<posix_time::ptime>(value);
-    return posix_time::to_simple_string(ts);
-  }
-  else if (value.type() == typeid(regex))
-    return any_cast<regex>(value).str();
+  QString str;
+  if(value.type() == QVariant::RegExp)
+    str = value.toRegExp().pattern();
   else
-  {
-    std::string msg = std::string("cannot convert ") + value.type().name() +
-                      std::string(" to a string");
-    throw std::runtime_error(msg);
-  }
+    str = value.toString();
+  return str.toStdString();
 }
 
-/** \brief Convert a standard string to a \c boost::any object.
+/** \brief Convert a standard string to a \c QVariant object.
 
-    This method converts a standard string to a \c boost::any object.
+    This method converts a standard string to a \c QVariant object.
 
     \param value The standard string to be converted.
 
-    \return A \c boost::any object.
+    \return A \c QVariant object.
 
 */
-any xtAnyUtility::toAny(const std::string &value)
+QVariant xtAnyUtility::toAny(const std::string &value)
 {
-    return any(value);
+    return QVariant(QString::fromStdString(value));
 }
 
-/** \brief Convert a boost::regex to a \c boost::any object.
+/** \brief Convert a QVariant to a \c QVariant object.
 
-    This method converts a boost:regex object to a \c boost::any object.
+    This method converts a QRegExp object to a \c QVariant object.
 
-    \param value The boost:regex to be converted.
+    \param value The QRegExp to be converted.
 
-    \return A \c boost::any object.
+    \return A \c QVariant object.
 
 */
-any xtAnyUtility::toAny(const regex &value)
+QVariant xtAnyUtility::toAny(const QRegExp &value)
 {
-    return any(value);
+    return QVariant(value);
 }
 
-/** \brief Convert a standard string to a \c boost::regex object.
+/** \brief Convert a standard string to a \c QRegExp object.
 
-    This method converts a standard string to a \c boost::regex object.
+    This method converts a standard string to a \c QRegExp object.
 
     \param value The standard string to be converted.
 
-    \return A \c boost::regex object.
+    \return A \c QRegExp object.
 
 */
-regex xtAnyUtility::toRegex(const std::string &value)
+QRegExp xtAnyUtility::toRegex(const std::string &value)
 {
-    //this forced a link against libboost_regex
-    //but should be avoidable?
-    return regex(value);
+    return QRegExp(QString::fromStdString(value));
 }
 
 /** \brief Convert a standard std::set<std::string> to a \c std::vector<std::string> object.

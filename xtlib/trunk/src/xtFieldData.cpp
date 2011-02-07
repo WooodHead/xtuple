@@ -21,7 +21,6 @@
 
 #include "xtFieldData.h"
 
-// TODO: should enum values be doxymented in the .h file?
 /**
     \enum xtFieldData::Type
     \brief Data type enumeration.

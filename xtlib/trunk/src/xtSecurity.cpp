@@ -19,8 +19,10 @@
 #include <stdexcept>
 
 #include "xtSecurity.h"
-#include "xtDatabase.h"
-#include "xtQuery.h"
+
+#include <QString>
+#include <QSqlQuery>
+#include <QVariant>
 
 //
 // Internal data
@@ -43,31 +45,25 @@ xtSecurity::~xtSecurity()
 
 bool xtSecurity::hasPriv(const std::string & privname)
 {
-  std::string sql = "SELECT priv_name"
-                    "  FROM usrpriv, priv"
-                    " WHERE((usrpriv_priv_id=priv_id)"
-                    "   AND (usrpriv_username='";
-  sql += xtDatabase::getInstance()->escapeString(_logicalUsername);
-  sql += "')"
-                    "   AND (priv_name='";
-  sql += xtDatabase::getInstance()->escapeString(privname);
-  sql += "'))"
-                    " UNION "
-                    "SELECT priv_name"
-                    "  FROM priv, grppriv, usrgrp"
-                    " WHERE((usrgrp_grp_id=grppriv_grp_id)"
-                    "   AND (grppriv_priv_id=priv_id)"
-                    "   AND (usrgrp_username='";
-  sql += xtDatabase::getInstance()->escapeString(_logicalUsername);
-  sql += "')"
-                    "   AND (priv_name='";
-  sql += xtDatabase::getInstance()->escapeString(privname);
-  sql += "'));";
+  QString sql = "SELECT priv_name"
+                "  FROM usrpriv, priv"
+                " WHERE((usrpriv_priv_id=priv_id)"
+                "   AND (usrpriv_username=:logicalUsername)"
+                "   AND (priv_name=:privname))"
+                " UNION "
+                "SELECT priv_name"
+                "  FROM priv, grppriv, usrgrp"
+                " WHERE((usrgrp_grp_id=grppriv_grp_id)"
+                "   AND (grppriv_priv_id=priv_id)"
+                "   AND (usrgrp_username=:logicalUsername)"
+                "   AND (priv_name=:privname));";
+  QSqlQuery query;
+  query.prepare(sql);
+  query.bindValue(":logicalUsername", QString::fromStdString(_logicalUsername));
+  query.bindValue(":privname", QString::fromStdString(privname));
+  query.exec();
 
-  xtQuery query;
-  query.exec(sql);
-
-  if(query.rowCount() < 1)
+  if(!query.first())
     return false;
 
   return true;

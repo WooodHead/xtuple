@@ -41,11 +41,11 @@ class xtStorable : public xtObject
 
     // System Data
     long long getId() const;
-    boost::any getType(int role = xtlib::ValueRole) const;
-    boost::any getCreated(int role = xtlib::ValueRole) const;
-    boost::any getCreator(int role = xtlib::ValueRole) const;
-    boost::any getModified(int role = xtlib::ValueRole) const;
-    boost::any getModifier(int role = xtlib::ValueRole) const;
+    QVariant getType(int role = xtlib::ValueRole) const;
+    QVariant getCreated(int role = xtlib::ValueRole) const;
+    QVariant getCreator(int role = xtlib::ValueRole) const;
+    QVariant getModified(int role = xtlib::ValueRole) const;
+    QVariant getModifier(int role = xtlib::ValueRole) const;
 
     // User Data
     bool isDeleted() const;
