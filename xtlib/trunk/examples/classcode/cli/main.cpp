@@ -15,37 +15,43 @@
 
  */
 
+#include <QCoreApplication>
+#include <QString>
+#include <QStringList>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QVariant>
+
 #include <exceptions/xeDataNotFound.h>
-#include <xtDatabase.h>
 #include <xtClassCode.h>
 #include <xtAnyUtility.h>
 #include <xtStorableQuery.h>
 
 #include <iostream>
 
-#include <boost/lexical_cast.hpp>
-#include <boost/regex.hpp>
-
-
 using namespace std;
 
 int main(int argc, char **argv)
 {
-  string dbhost, dbport, dbuser, dbpass, dbname;
+  QCoreApplication app(argc, argv);
 
-  for(int i = 1; i < argc; i++)
+  QString dbhost, dbport, dbuser, dbpass, dbname;
+
+  for(int i = 1; i < app.arguments().size(); i++)
   {
-    if(strcmp("-h", argv[i]) == 0)
-      dbhost = argv[++i];
-    else if(strcmp("-p", argv[i]) == 0)
-      dbport = argv[++i];
-    else if(strcmp("-U", argv[i]) == 0)
-      dbuser = argv[++i];
-    else if(strcmp("--password", argv[i]) == 0)
-      dbpass = argv[++i];
-    else if(strcmp("--help", argv[i]) == 0)
+    QString arg = app.arguments().at(i);
+    if(arg.compare("-h") == 0)
+      dbhost = app.arguments().at(++i);
+    else if(arg.compare("-p") == 0)
+      dbport = app.arguments().at(++i);
+    else if(arg.compare("-U") == 0)
+      dbuser = app.arguments().at(++i);
+    else if(arg.compare("--password") == 0)
+      dbpass = app.arguments().at(++i);
+    else if(arg.compare("--help") == 0)
     {
-      cout << argv[0] << " [--help] [-h <host>] [-p <port>] [-U <username>] [--password <password>] [dbname]" << endl;
+      cout << app.arguments().at(0).toStdString() << " [--help] [-h <host>] [-p <port>] [-U <username>] [--password <password>] [dbname]" << endl;
       cout << endl;
       cout << "  --help                  This help page" << endl;
       cout << "  -h <host>               Host to connect to." << endl;
@@ -56,20 +62,26 @@ int main(int argc, char **argv)
       return 0;
     }
     else
-      dbname = argv[i];
+      dbname = arg;
   }
 
-  string connectOptions;
-  if(!dbhost.empty())
-    connectOptions += " host="+dbhost;
-  if(!dbport.empty())
-    connectOptions += " port="+dbport;
-  if(!dbuser.empty())
-    connectOptions += " user="+dbuser;
-  if(!dbpass.empty())
-    connectOptions += " password="+dbpass;
-  if(!dbname.empty())
-    connectOptions += " dbname="+dbname;
+  QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
+  if(!db.isValid())
+  {
+    cout << "Failed to instantiate Database object." << endl;
+    return -1;
+  }
+
+  if(!dbhost.isEmpty())
+    db.setHostName(dbhost);
+  if(!dbport.isEmpty())
+    db.setPort(dbport.toInt());
+  if(!dbuser.isEmpty())
+    db.setUserName(dbuser);
+  if(!dbpass.isEmpty())
+    db.setPassword(dbpass);
+  if(!dbname.isEmpty())
+    db.setDatabaseName(dbname);
 
   cout << endl;
   cout << "Welcome to the xTuple Domain Command Line Interface (CLI) Example" << endl;
@@ -79,17 +91,14 @@ int main(int argc, char **argv)
   cout << "the results." << endl;
   cout << endl;
 
-  xtDatabase * db = xtDatabase::getInstance();
-  if(!db)
+  if(!db.open())
   {
-    cout << "Failed to instantiate xtDatabase object." << endl;
+    cout << "Failed to open Database object. " << db.lastError().text().toStdString() << endl;
     return -1;
   }
 
   try
   {
-    db->open(connectOptions);
-
     xtClassCode * cc = 0;
     string input = "m";
 
@@ -127,9 +136,9 @@ int main(int argc, char **argv)
           }
           xtClassCode ex;
           if(isregex == "y" || isregex == "Y")
-            ex.setProperty(expn, boost::regex(exval));
+            ex.setProperty(expn, QRegExp(QString::fromStdString(exval)));
           else
-            ex.setProperty(expn, exval);
+            ex.setProperty(expn, QString::fromStdString(exval));
           xtStorableQuery<xtClassCode> sq(&ex);
           sq.exec();
           set<xtClassCode*> codes = sq.result();
@@ -157,15 +166,11 @@ int main(int argc, char **argv)
         }
         try
         {
-          int id = boost::lexical_cast<int>(input);
+          int id = QString::fromStdString(input).toInt();
           cc = new xtClassCode();
           cc->load(id);
           if(!cc->isValid())
             cout << "No item with the specified id " << id << " could be found." << endl;
-        }
-        catch (boost::bad_lexical_cast &e)
-        {
-          cout << "Invalid integer input: " << e.what() << endl;
         }
         catch (xeDataNotFound &e)
         {
@@ -192,7 +197,7 @@ int main(int argc, char **argv)
           getline(cin, propName);
           cout << "New value: ";
           getline(cin, strValue);
-          cc->setProperty(propName, strValue);
+          cc->setProperty(propName, QString::fromStdString(strValue));
         }
         else
           cout << "No Object loaded." << endl;
@@ -238,7 +243,7 @@ int main(int argc, char **argv)
     cout << "    terminating..." << endl;
   }
 
-  db->close();
+  db.close();
 
   return 0;
 }
