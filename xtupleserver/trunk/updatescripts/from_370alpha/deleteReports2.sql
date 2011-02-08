@@ -14,5 +14,8 @@ WHERE report_name IN (
 'ItemSitesByItem',
 'ItemSitesByParameterList',
 'CustomersByCustomerType',
-'CustomersByCharacteristic') 
+'CustomersByCharacteristic',
+'ItemsByCharacteristic',
+'ItemsByClassCode',
+'ItemsByProductCategory') 
 AND report_grade=0;
