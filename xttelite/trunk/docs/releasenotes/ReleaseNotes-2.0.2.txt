@@ -1,7 +1,7 @@
 Release Notes
 xTuple Time & Expense (xtte)
 Version 2.0.2
-February 7, 2011
+February 8, 2011
 ==================================
 
 This is the 2.0.2 patch release of the xTuple Time & Expense
@@ -26,11 +26,11 @@ to the Time & Expense project on the Issue Tracker and select the
 New Features:
 
 * Add notes column to timeSheet window
+* Do not allow timesheets to be created against "Closed" tasks [#13521]
 
 Bug Fixes:
 
 * System throws you out if you try to post time sheets without overhead account set [#13677]
-* Do not allow timesheets to be created against "Closed" tasks [#13521]
 * Unable to select a project for a time sheet if not associated to any orders [#13519]
 * Line items not taxable on AR invoice from TE [#13469]
 * Item window does not require user to select an expense category or account [#13013]
