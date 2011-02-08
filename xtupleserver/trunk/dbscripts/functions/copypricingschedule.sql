@@ -29,10 +29,12 @@ BEGIN
       INSERT INTO ipsitem 
           (ipsitem_id, ipsitem_ipshead_id, ipsitem_item_id, 
            ipsitem_qtybreak, ipsitem_price,
-           ipsitem_qty_uom_id, ipsitem_price_uom_id) 
+           ipsitem_qty_uom_id, ipsitem_price_uom_id,
+           ipsitem_discntprcnt, ipsitem_fixedamtdiscount) 
       SELECT _ipsitemid, _ipsheadid, ipsitem_item_id, 
            ipsitem_qtybreak, ipsitem_price,
-           ipsitem_qty_uom_id, ipsitem_price_uom_id 
+           ipsitem_qty_uom_id, ipsitem_price_uom_id,
+           ipsitem_discntprcnt, ipsitem_fixedamtdiscount
       FROM ipsitem 
       WHERE (ipsitem_id=_x.ipsitem_id); 
 
