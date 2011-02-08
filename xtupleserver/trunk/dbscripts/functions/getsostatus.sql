@@ -19,4 +19,4 @@ BEGIN
   RETURN COALESCE(_r.coitem_status,'O');
 
 END;
-$$ LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql' STABLE;
