@@ -1,7 +1,10 @@
 -- Group: items
 -- Name:  detail
 -- Notes: 
- SELECT *,
+ SELECT  DISTINCT ON ( item_number ) item.*, classcode.*, uom.*, prodcat.*, freightclass.*,
+               <? foreach("char_id_list") ?>
+                      charass_alias<? literal("char_id_list") ?>.charass_value AS char<? literal("char_id_list") ?>,
+               <? endforeach ?>
                       (item_descrip1 || ' ' || item_descrip2) as item_descrip,
                       CASE WHEN (item_type='P') THEN text(<? value("purchased") ?>)
                            WHEN (item_type='M') THEN text(<? value("manufactured") ?>)
@@ -17,7 +20,7 @@
                            WHEN (item_type='L') THEN text(<? value("planning") ?>)
                            WHEN (item_type='K') THEN text(<? value("kit") ?>)
                            ELSE text(<? value("error") ?>)
-                      END AS item_type_qtdisplayrole 
+                      END AS item_type_qtdisplayrole
                FROM item
                  JOIN classcode ON (item_classcode_id=classcode_id)
                  JOIN uom ON (item_inv_uom_id=uom_id)
@@ -27,6 +30,14 @@
                  JOIN itemgrpitem ON (item_id=itemgrpitem_item_id)
                  JOIN itemgrp ON (itemgrp_id=itemgrpitem_itemgrp_id)
                <? endif ?>
+               <? foreach("char_id_list") ?>
+                 LEFT OUTER JOIN charass charass_alias<? literal("char_id_list") ?> 
+                   ON ((charass_alias<? literal("char_id_list") ?>.charass_target_type='I') 
+                   AND  (charass_alias<? literal("char_id_list") ?>.charass_target_id=item_id)
+                   AND  (charass_alias<? literal("char_id_list") ?>.charass_char_id=<? value("char_id_list") ?>))
+                 LEFT OUTER JOIN char char_alias<? literal("char_id_list") ?> 
+                   ON (charass_alias<? literal("char_id_list") ?>.charass_char_id=char_alias<? literal("char_id_list") ?>.char_id)
+               <? endforeach ?>
                WHERE ( true
                <? if exists("search_pattern") ?>
                 AND ( (item_number ~* <? value("search_pattern") ?>)
@@ -69,6 +80,7 @@
                <? if exists("freightclass_pattern") ?>
                 AND (freightclass_code ~* <? value("freightclass_pattern") ?>)
                <? endif ?>
+               <? literal("charClause") ?>
                ) ORDER BY
                <? if exists("ListNumericItemNumbersFirst") ?>
                 toNumeric(item_number, 999999999999999),
