@@ -17,5 +17,8 @@ WHERE report_name IN (
 'CustomersByCharacteristic',
 'ItemsByCharacteristic',
 'ItemsByClassCode',
-'ItemsByProductCategory') 
+'ItemsByProductCategory',
+'UsageStatisticsByClassCode',
+'UsageStatisticsByWarehouse',
+'UsageStatisticsByItem') 
 AND report_grade=0;
