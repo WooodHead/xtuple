@@ -20,5 +20,7 @@ WHERE report_name IN (
 'ItemsByProductCategory',
 'UsageStatisticsByClassCode',
 'UsageStatisticsByWarehouse',
-'UsageStatisticsByItem') 
+'UsageStatisticsByItem',
+'PlannedOrdersByPlannerCode',
+'PlannedOrdersByItem') 
 AND report_grade=0;
