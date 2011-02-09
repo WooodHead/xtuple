@@ -155,8 +155,8 @@ BEGIN
 
   -- Copy Comments
   INSERT INTO comment
-  ( comment_cmnttype_id, comment_source, comment_source_id, comment_date, comment_user, comment_text )
-  SELECT comment_cmnttype_id, 'S', _soheadid, comment_date, comment_user, ('Quote-' || comment_text)
+  ( comment_cmnttype_id, comment_source, comment_source_id, comment_date, comment_user, comment_text, comment_public )
+  SELECT comment_cmnttype_id, 'S', _soheadid, comment_date, comment_user, ('Quote-' || comment_text), comment_public
   FROM comment
   WHERE ( (comment_source='Q')
     AND   (comment_source_id=pQuheadid) );
