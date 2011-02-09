@@ -146,12 +146,16 @@ BEGIN
   WHERE (quhead_id=pQuheadid);
 
   UPDATE url SET url_source_id = _soheadid,
-		 url_source = 'S'
-	    WHERE url_source_id = pQuheadid;
+                 url_source = 'S'
+  WHERE ((url_source='Q') AND (url_source_id = pQuheadid));
 
   UPDATE imageass SET imageass_source_id = _soheadid,
-		imageass_source = 'S'
-	    WHERE imageass_source_id = pQuheadid;
+                      imageass_source = 'S'
+  WHERE ((imageass_source='Q') AND (imageass_source_id = pQuheadid));
+
+  UPDATE docass SET docass_source_id = _soheadid,
+                    docass_source_type = 'S'
+  WHERE ((docass_source_type='Q') AND (docass_source_id = pQuheadid));
 
   -- Copy Comments
   INSERT INTO comment
