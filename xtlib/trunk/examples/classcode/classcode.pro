@@ -7,24 +7,6 @@
 # is available at www.xtuple.com/CPAL.  By using this software, you agree
 # to be bound by its terms.
 #
-
-TEMPLATE = app
-TARGET = classcode_qt
-INCLUDEPATH += . \
-               ../../../src \
-               ../../../src/interfaces
-DEPENDPATH += $${INCLUDEPATH}
-LIBS += -L../../../lib -lxtlib
-
-QT += sql
-CONFIG += qt warn_on debug
-
-OBJECTS_DIR = tmp
-UI_DIR = tmp
-MOC_DIR = tmp
-
-# Input
-HEADERS += ClassCode.h ClassCodeList.h
-FORMS += ClassCode.ui ClassCodeList.ui
-SOURCES += ClassCode.cpp ClassCodeList.cpp main.cpp
-
+TEMPLATE = subdirs
+SUBDIRS = cli qt
+CONFIG += ordered

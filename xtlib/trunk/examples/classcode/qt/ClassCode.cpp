@@ -43,8 +43,8 @@ void ClassCode::accept()
   {
     try
     {
-      cc->setCode(code->text().toStdString());
-      cc->setDescription(desc->text().toStdString());
+      cc->setCode(code->text());
+      cc->setDescription(desc->text());
       cc->save();
     }
     catch (std::exception & e)
