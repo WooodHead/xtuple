@@ -22,11 +22,13 @@ DECLARE
   _cntctemlid INTEGER;
   _rows INTEGER;
 BEGIN
-  IF (TG_OP = 'INSERT' AND length(coalesce(NEW.cntct_email,'')) > 0) THEN
-    INSERT INTO cntcteml (
-      cntcteml_cntct_id, cntcteml_primary, cntcteml_email )
-    VALUES (
-      NEW.cntct_id, true, NEW.cntct_email );
+  IF (TG_OP = 'INSERT') THEN
+    IF(length(coalesce(NEW.cntct_email,'')) > 0) THEN
+      INSERT INTO cntcteml (
+        cntcteml_cntct_id, cntcteml_primary, cntcteml_email )
+      VALUES (
+        NEW.cntct_id, true, NEW.cntct_email );
+    END IF;
   ELSIF (TG_OP = 'UPDATE') THEN
     IF (OLD.cntct_email != NEW.cntct_email) THEN
       SELECT cntcteml_id INTO _cntctemlid

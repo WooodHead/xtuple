@@ -16,6 +16,7 @@ BEGIN
     AND conrelid=con.oid
     AND f.relname = 'cntct'
     AND con.relnamespace=pg_namespace.oid
+    AND con.relname NOT IN ('cntctsel', 'cntctmrgd', 'mrghist','trgthist')
   LOOP
     -- Validate
     IF (ARRAY_UPPER(_fk.seq,1) > 1) THEN
@@ -45,19 +46,29 @@ BEGIN
          
   END LOOP;
 
-  -- Check for comments
-  SELECT cntct_id INTO _r
+  -- Check for relationships without keys
+  SELECT id INTO _r
   FROM (
-  SELECT comment_id AS cntct_id
+  SELECT comment_id AS id
   FROM comment
   WHERE ((comment_source_id= pCntctId)
    AND (comment_source='T'))
   UNION
-  SELECT vend_id AS cntct_id
+  SELECT docass_id AS id
+  FROM docass
+  WHERE ((docass_target_id= pCntctId)
+   AND (docass_target_type='T'))
+  UNION
+  SELECT docass_id AS id
+  FROM docass
+  WHERE ((docass_source_id= pCntctId)
+   AND (docass_source_type='T'))
+  UNION
+  SELECT vend_id AS id
   FROM vendinfo
   WHERE (vend_cntct1_id=pCntctId OR vend_cntct2_id=pCntctId)
   ) data;
- 
+
   IF (FOUND) THEN
     RETURN true;
   END IF;
