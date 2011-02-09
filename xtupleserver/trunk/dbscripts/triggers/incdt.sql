@@ -100,7 +100,16 @@ DECLARE
   _counter	INTEGER :=  0;
   _whsId	INTEGER := -1;
   _evntType	TEXT;
+  _cmnttypeid   INTEGER := -1;
+  _cmntid       INTEGER := -1;
 BEGIN
+
+  SELECT cmnttype_id INTO _cmnttypeid
+    FROM cmnttype
+    WHERE (cmnttype_name='Notes to Comment');
+  IF NOT FOUND OR _cmnttypeid IS NULL THEN
+    _cmnttypeid := -1;
+  END IF;
 
   IF (TG_OP = 'DELETE') THEN
 --  This should never happen
@@ -116,6 +125,9 @@ BEGIN
 
     _evntType = 'NewIncident';
 
+    IF (_cmnttypeid <> -1 AND COALESCE(NEW.incdt_descrip, '') <> '') THEN
+      PERFORM postComment(_cmnttypeid, 'INCDT', NEW.incdt_id, NEW.incdt_descrip);
+    END IF;
   ELSIF (TG_OP = 'UPDATE') THEN
     _evntType = 'UpdatedIncident';
 
@@ -159,6 +171,21 @@ BEGIN
 	      '..." -> "' ||
 	       substr(COALESCE(NEW.incdt_descrip, ''), 1, 20) ||
 	      '..."') );
+
+      IF (_cmnttypeid <> -1) THEN
+        -- find an existing comment
+        SELECT comment_id
+          INTO _cmntid
+          FROM comment
+         WHERE comment_source = 'INCDT'
+           AND comment_source_id = NEW.incdt_id
+           AND comment_cmnttype_id = _cmnttypeid;
+        IF FOUND THEN
+          UPDATE comment SET comment_text = NEW.incdt_descrip WHERE comment_id = _cmntid;
+        ELSE
+          PERFORM postComment(_cmnttypeid, 'INCDT', NEW.incdt_id, NEW.incdt_descrip);
+        END IF;
+      END IF;
     END IF;
 
     IF (NEW.incdt_status <> OLD.incdt_status) THEN
