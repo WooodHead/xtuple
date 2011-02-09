@@ -3,7 +3,7 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = 
+TARGET = classcode_cli
 DEPENDPATH += .
 INCLUDEPATH += . ../../../src
 

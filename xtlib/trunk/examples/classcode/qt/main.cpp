@@ -15,19 +15,19 @@
 
  */
 
+#include <QSqlQuery>
+
 #include <exceptions/xeDataNotFound.h>
-#include <xtDatabase.h>
 #include <xtClassCode.h>
 #include <xtAnyUtility.h>
 #include <xtStorableQuery.h>
-
-#include <boost/lexical_cast.hpp>
-#include <boost/regex.hpp>
 
 #include <iostream>
 
 #include <QApplication>
 #include <QMessageBox>
+#include <QSqlDatabase>
+#include <QSqlError>
 
 #include "ClassCodeList.h"
 
@@ -37,21 +37,22 @@ int main(int argc, char **argv)
 {
   QApplication app(argc, argv);
 
-  string dbhost, dbport, dbuser, dbpass, dbname;
+    QString dbhost, dbport, dbuser, dbpass, dbname;
 
-  for(int i = 1; i < argc; i++)
+  for(int i = 1; i < app.arguments().size(); i++)
   {
-    if(strcmp("-h", argv[i]) == 0)
-      dbhost = argv[++i];
-    else if(strcmp("-p", argv[i]) == 0)
-      dbport = argv[++i];
-    else if(strcmp("-U", argv[i]) == 0)
-      dbuser = argv[++i];
-    else if(strcmp("--password", argv[i]) == 0)
-      dbpass = argv[++i];
-    else if(strcmp("--help", argv[i]) == 0)
+    QString arg = app.arguments().at(i);
+    if(arg.compare("-h") == 0)
+      dbhost = app.arguments().at(++i);
+    else if(arg.compare("-p") == 0)
+      dbport = app.arguments().at(++i);
+    else if(arg.compare("-U") == 0)
+      dbuser = app.arguments().at(++i);
+    else if(arg.compare("--password") == 0)
+      dbpass = app.arguments().at(++i);
+    else if(arg.compare("--help") == 0)
     {
-      cout << argv[0] << " [--help] [-h <host>] [-p <port>] [-U <username>] [--password <password>] [dbname]" << endl;
+      cout << app.arguments().at(0).toStdString() << " [--help] [-h <host>] [-p <port>] [-U <username>] [--password <password>] [dbname]" << endl;
       cout << endl;
       cout << "  --help                  This help page" << endl;
       cout << "  -h <host>               Host to connect to." << endl;
@@ -62,32 +63,35 @@ int main(int argc, char **argv)
       return 0;
     }
     else
-      dbname = argv[i];
+      dbname = arg;
   }
 
-  string connectOptions;
-  if(!dbhost.empty())
-    connectOptions += " host="+dbhost;
-  if(!dbport.empty())
-    connectOptions += " port="+dbport;
-  if(!dbuser.empty())
-    connectOptions += " user="+dbuser;
-  if(!dbpass.empty())
-    connectOptions += " password="+dbpass;
-  if(!dbname.empty())
-    connectOptions += " dbname="+dbname;
-
-  xtDatabase * db = xtDatabase::getInstance();
-  if(!db)
+  QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
+  if(!db.isValid())
   {
-    QMessageBox::critical(0, "Error", "Failed to instantiate xtDatabase object.");
+    cout << "Failed to instantiate Database object." << endl;
+    return -1;
+  }
+
+  if(!dbhost.isEmpty())
+    db.setHostName(dbhost);
+  if(!dbport.isEmpty())
+    db.setPort(dbport.toInt());
+  if(!dbuser.isEmpty())
+    db.setUserName(dbuser);
+  if(!dbpass.isEmpty())
+    db.setPassword(dbpass);
+  if(!dbname.isEmpty())
+    db.setDatabaseName(dbname);
+
+  if(!db.open())
+  {
+    cout << "Failed to open Database object. " << db.lastError().text().toStdString() << endl;
     return -1;
   }
 
   try
   {
-    db->open(connectOptions);
-
     ClassCodeList cclist;
     cclist.show();
     app.exec();
@@ -97,7 +101,7 @@ int main(int argc, char **argv)
     QMessageBox::critical(0, "Error", QString("An unexpected exception was caught: %1\nterminating...").arg(QString::fromStdString(e.what())));
   }
 
-  db->close();
+  db.close();
 
   return 0;
 }

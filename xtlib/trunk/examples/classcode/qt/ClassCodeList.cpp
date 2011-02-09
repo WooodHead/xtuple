@@ -9,15 +9,16 @@
  */
 #include "ClassCodeList.h"
 
+#include <QSqlQuery>
+
 #include <xtClassCode.h>
 #include <xtStorableQuery.h>
 #include <xiPropertyObserver.h>
 
-#include <boost/regex.hpp>
-
 #include <QMessageBox>
 #include <QListWidget>
 #include <QListWidgetItem>
+#include <QRegExp>
 
 #include "ClassCode.h"
 
@@ -65,13 +66,13 @@ void ClassCodeList::sQuery()
   {
     xtClassCode ex;
     if(codeOpt->currentIndex() == 1)
-      ex.setCode(code->text().toStdString());
+      ex.setCode(code->text());
     else if(codeOpt->currentIndex() == 2)
-      ex.setCode(boost::regex(code->text().toStdString()));
+      ex.setCode(QRegExp(code->text()));
     if(descOpt->currentIndex() == 1)
-      ex.setDescription(desc->text().toStdString());
+      ex.setDescription(desc->text());
     else if(descOpt->currentIndex() == 2)
-      ex.setDescription(boost::regex(desc->text().toStdString()));
+      ex.setDescription(QRegExp(desc->text()));
 
     xtStorableQuery<xtClassCode> sq(&ex);
     sq.exec();
