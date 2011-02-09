@@ -2,12 +2,14 @@
 -- Name: detail
 -- Notes: 
 
-SELECT cntct_id, addr.*,
+SELECT DISTINCT ON (length(cntct_last_name)=0, length(cntct_first_name)=0, cntct_last_name, cntct_first_name, cntct_number) 
+  cntct_id, addr.*,
   crmacct_id AS id, crmacct_number, crmacct_name,
   cntct.* 
 FROM cntct 
   LEFT OUTER JOIN crmacct ON (cntct_crmacct_id=crmacct_id) 
   LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id) 
+  LEFT OUTER JOIN cntcteml ON (cntcteml_cntct_id=cntct_id)
 WHERE true
 <? if exists("activeOnly") ?> 
   AND cntct_active
@@ -18,7 +20,7 @@ WHERE true
   OR (crmacct_name ~* <? value("search_pattern") ?>)
   OR (cntct_first_name || ' ' || cntct_last_name ~* <? value("search_pattern") ?>)
   OR (cntct_phone || ' ' || cntct_phone2 || ' ' || cntct_fax ~* <? value("search_pattern") ?>)
-  OR (cntct_email ~* <? value("search_pattern") ?>)
+  OR (cntcteml_email ~* <? value("search_pattern") ?>)
   OR (addr_line1 || ' ' || addr_line2 || ' ' || addr_line3 ~* <? value("search_pattern") ?>)
   OR (addr_city ~* <? value("search_pattern") ?>)
   OR (addr_state ~* <? value("search_pattern") ?>)
@@ -36,7 +38,7 @@ WHERE true
   AND (cntct_phone || ' ' || cntct_phone2 || ' ' || cntct_fax ~* <? value("cntct_phone_pattern") ?>)
 <? endif ?>
 <? if exists("cntct_email_pattern") ?>
-  AND (cntct_email ~* <? value("cntct_email_pattern") ?>)
+  AND (cntcteml_email ~* <? value("cntct_email_pattern") ?>)
 <? endif ?>
 <? if exists("addr_street_pattern") ?>
   AND (addr_line1 || ' ' || addr_line2 || ' ' || addr_line3 ~* <? value("addr_street_pattern") ?>)
@@ -53,4 +55,4 @@ WHERE true
 <? if exists("addr_country_pattern") ?>
   AND (addr_country ~* <? value("addr_country_pattern") ?>)
 <? endif ?>
-;
+ORDER BY length(cntct_last_name)=0, length(cntct_first_name)=0, cntct_last_name, cntct_first_name, cntct_number, cntcteml_primary desc;
