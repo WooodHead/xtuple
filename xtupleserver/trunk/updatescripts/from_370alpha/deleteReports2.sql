@@ -22,5 +22,8 @@ WHERE report_name IN (
 'UsageStatisticsByWarehouse',
 'UsageStatisticsByItem',
 'PlannedOrdersByPlannerCode',
-'PlannedOrdersByItem') 
+'PlannedOrdersByItem',
+'ItemSourcesByItem',
+'ItemSourcesByVendor',
+'ItemSourceMasterList') 
 AND report_grade=0;
