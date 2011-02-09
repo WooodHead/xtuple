@@ -27,32 +27,34 @@ BEGIN
       cntcteml_cntct_id, cntcteml_primary, cntcteml_email )
     VALUES (
       NEW.cntct_id, true, NEW.cntct_email );
-  ELSIF (TG_OP = 'UPDATE' AND OLD.cntct_email != NEW.cntct_email) THEN
-    SELECT cntcteml_id INTO _cntctemlid
-    FROM cntcteml
-    WHERE ((cntcteml_cntct_id=NEW.cntct_id)
-      AND (cntcteml_email=NEW.cntct_email));
-
-    GET DIAGNOSTICS _rows = ROW_COUNT;
-    IF (_rows = 0) THEN
-      UPDATE cntcteml SET
-        cntcteml_primary=false
+  ELSIF (TG_OP = 'UPDATE') THEN
+    IF (OLD.cntct_email != NEW.cntct_email) THEN
+      SELECT cntcteml_id INTO _cntctemlid
+      FROM cntcteml
       WHERE ((cntcteml_cntct_id=NEW.cntct_id)
-       AND (cntcteml_primary=true));
+        AND (cntcteml_email=NEW.cntct_email));
+
+      GET DIAGNOSTICS _rows = ROW_COUNT;
+      IF (_rows = 0) THEN
+        UPDATE cntcteml SET
+          cntcteml_primary=false
+        WHERE ((cntcteml_cntct_id=NEW.cntct_id)
+         AND (cntcteml_primary=true));
        
-      INSERT INTO cntcteml (
-        cntcteml_cntct_id, cntcteml_primary, cntcteml_email )
-      VALUES (
-        NEW.cntct_id, true, NEW.cntct_email ); 
-    ELSE
-      UPDATE cntcteml SET
-        cntcteml_primary=false
-      WHERE ((cntcteml_cntct_id=NEW.cntct_id)
-       AND (cntcteml_primary=true));
+        INSERT INTO cntcteml (
+          cntcteml_cntct_id, cntcteml_primary, cntcteml_email )
+        VALUES (
+          NEW.cntct_id, true, NEW.cntct_email ); 
+      ELSE
+        UPDATE cntcteml SET
+          cntcteml_primary=false
+        WHERE ((cntcteml_cntct_id=NEW.cntct_id)
+         AND (cntcteml_primary=true));
 
-      UPDATE cntcteml SET
-        cntcteml_primary=true
-      WHERE (cntcteml_id=_cntctemlid);
+        UPDATE cntcteml SET
+          cntcteml_primary=true
+        WHERE (cntcteml_id=_cntctemlid);
+      END IF;
     END IF;
   ELSIF (TG_OP = 'DELETE') THEN
       DELETE FROM cntcteml WHERE cntcteml_cntct_id=OLD.cntct_id;

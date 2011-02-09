@@ -1,6 +1,6 @@
 create table cntcteml	 (
   cntcteml_id serial,
-  cntcteml_cntct_id integer,
+  cntcteml_cntct_id integer references cntct (cntct_id) on delete cascade,
   cntcteml_primary boolean not null default false,
   cntcteml_email text not null,
   unique (cntcteml_cntct_id, cntcteml_email)
