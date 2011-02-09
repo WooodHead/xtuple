@@ -13,7 +13,15 @@ DECLARE
   _multi	BOOLEAN;
 
 BEGIN
-
+  -- Validate
+  IF (pSourceCntctId IS NULL) THEN
+    RAISE EXCEPTION 'Source contact id can not be null';
+  ELSIF (pTargetCntctId IS NULL) THEN
+    RAISE EXCEPTION 'Target contact id can not be null';
+  ELSIF (pPurge IS NULL) THEN
+    RAISE EXCEPTION 'Purge flag can not be null';
+  END IF;
+  
   -- Determine where this contact is used by analyzing foreign key linkages and update each
   FOR _fk IN
     SELECT pg_namespace.nspname AS schemaname, con.relname AS tablename, conkey AS seq, conrelid AS class_id 
@@ -22,6 +30,7 @@ BEGIN
     AND conrelid=con.oid
     AND f.relname = 'cntct'
     AND con.relnamespace=pg_namespace.oid
+    AND con.relname NOT IN ('cntctsel', 'cntctmrgd', 'mrghist','trgthist')
   LOOP
     -- Validate
     IF (ARRAY_UPPER(_fk.seq,1) > 1) THEN
@@ -107,6 +116,26 @@ BEGIN
 
     INSERT INTO mrghist 
     SELECT pSourceCntctId,
+      'docass',
+      'docass_id', 
+      docass_id,
+      'docass_source_id'
+    FROM docass
+    WHERE ((docass_source_id= pSourceCntctId)
+    AND (docass_source_type='T'));
+
+    INSERT INTO mrghist 
+    SELECT pSourceCntctId,
+      'docass',
+      'docass_id', 
+      docass_id,
+      'docass_target_id'
+    FROM docass
+    WHERE ((docass_target_id= pSourceCntctId)
+    AND (docass_target_type='T'));
+
+    INSERT INTO mrghist 
+    SELECT pSourceCntctId,
       'vendinfo',
       'vend_id', 
       vend_id,
@@ -122,12 +151,34 @@ BEGIN
       'vend_cntct2_id'
     FROM vendinfo
     WHERE (vend_cntct2_id=pSourceCntctId);
+
+    IF (fetchMetricBool('EnableBatchManager')) THEN
+      INSERT INTO mrghist 
+      SELECT pSourceCntctId,
+      'xtbatch.emlassc',
+      'emlassc_id', 
+      emlassc_id,
+      'emlassc_assc_id'
+      FROM xtbatch.emlassc
+      WHERE ((emlassc_assc_id= pSourceCntctId)
+      AND (emlassc_type='T'));
+    END IF;
   END IF;
 
   UPDATE comment
   SET comment_source_id = pTargetCntctId
   WHERE ((comment_source = 'T')
    AND (comment_source_id = pSourceCntctId));
+
+  UPDATE docass
+  SET docass_source_id = pTargetCntctId
+  WHERE ((docass_source_type = 'T')
+   AND (docass_source_id = pSourceCntctId));
+
+  UPDATE docass
+  SET docass_target_id = pTargetCntctId
+  WHERE ((docass_target_type = 'T')
+   AND (docass_target_id = pSourceCntctId));
 
   UPDATE vendinfo
   SET vend_cntct1_id = pTargetCntctId
@@ -137,11 +188,18 @@ BEGIN
   SET vend_cntct2_id = pTargetCntctId
   WHERE (vend_cntct2_id = pSourceCntctId);
 
+  IF (fetchMetricBool('EnableBatchManager')) THEN
+    UPDATE xtbatch.emlassc
+    SET emlassc_assc_id = pTargetCntctId
+    WHERE ((emlassc_type = 'T')
+     AND (emlassc_assc_id = pSourceCntctId));
+  END IF;
+
   IF (NOT pPurge) THEN
   -- Record that this has been merged if not already
     IF (SELECT (COUNT(cntctmrgd_cntct_id) = 0) 
         FROM cntctmrgd
-        WHERE (cntctmrgd_cntct_id=pTargetCntctId)) THEN
+        WHERE (cntctmrgd_cntct_id=pSourceCntctId)) THEN
       INSERT INTO cntctmrgd VALUES (pSourceCntctId,false);
     END IF;
   END IF;
