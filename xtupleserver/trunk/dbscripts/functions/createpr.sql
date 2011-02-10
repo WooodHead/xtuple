@@ -73,7 +73,9 @@ BEGIN
 
   IF (pParentType = 'W') THEN
     SELECT womatl_itemsite_id AS itemsiteid,
-           itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq) AS qty, womatl_duedate AS duedate INTO _parent
+           itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq) AS qty,
+           womatl_duedate AS duedate,
+           womatl_notes AS notes INTO _parent
     FROM wo, womatl, itemsite
     WHERE ((womatl_wo_id=wo_id)
      AND (womatl_itemsite_id=itemsite_id)
@@ -82,14 +84,16 @@ BEGIN
   ELSIF (pParentType = 'S') THEN
     SELECT coitem_itemsite_id AS itemsiteid,
            (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) AS qty,
-           coitem_scheddate AS duedate INTO _parent
+           coitem_scheddate AS duedate,
+           coitem_memo AS notes INTO _parent
     FROM coitem
     WHERE ((coitem_id=pParentId));
 
   ELSIF (pParentType = 'F') THEN
     SELECT planord_itemsite_id AS itemsiteid,
            planord_qty AS qty,
-           planord_duedate AS duedate INTO _parent
+           planord_duedate AS duedate,
+           planord_comments AS notes INTO _parent
     FROM planord
     WHERE (planord_id=pParentId);
 
@@ -105,11 +109,13 @@ BEGIN
   INSERT INTO pr
   ( pr_id, pr_number, pr_subnumber, pr_status,
     pr_order_type, pr_order_id,
-    pr_itemsite_id, pr_qtyreq, pr_duedate )
+    pr_itemsite_id, pr_qtyreq,
+    pr_duedate, pr_releasenote )
   VALUES
   ( _prid, _orderNumber, nextPrSubnumber(_orderNumber), 'O',
     pParentType, pParentId,
-    _parent.itemsiteid, _parent.qty, _parent.duedate );
+    _parent.itemsiteid, _parent.qty,
+    _parent.duedate, _parent.notes );
 
   RETURN _prid;
 
@@ -176,7 +182,8 @@ BEGIN
 
   IF (pParentType = 'W') THEN
     SELECT womatl_itemsite_id AS itemsiteid,
-           itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq) AS qty, womatl_duedate AS duedate INTO _parent
+           itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq) AS qty,
+           womatl_duedate AS duedate INTO _parent
     FROM wo, womatl, itemsite
     WHERE ((womatl_wo_id=wo_id)
      AND (womatl_itemsite_id=itemsite_id)
