@@ -86,20 +86,21 @@ BEGIN
         cust_number,
         cust_custtype_id,
         custtype_code,
-        terms_descrip
+        COALESCE(arterms.terms_descrip, custterms.terms_descrip, '') AS terms_descrip
 
-        FROM custinfo, custtype, aropen
-          LEFT OUTER JOIN terms ON (aropen_terms_id=terms_id)
+        FROM aropen
+          JOIN custinfo ON (cust_id=aropen_cust_id)
+          JOIN custtype ON (custtype_id=cust_custtype_id)
+          LEFT OUTER JOIN terms arterms ON (arterms.terms_id=aropen_terms_id)
+          LEFT OUTER JOIN terms custterms ON (custterms.terms_id=cust_terms_id)
           LEFT OUTER JOIN arapply ON (((aropen_id=arapply_target_aropen_id)
                                     OR (aropen_id=arapply_source_aropen_id))
                                    AND (arapply_distdate>_asOfDate))
-        WHERE ( (aropen_cust_id = cust_id)
-        AND (cust_custtype_id=custtype_id)
-        AND (CASE WHEN (pUseDocDate) THEN aropen_docdate ELSE aropen_distdate END <= _asOfDate)
+        WHERE ( (CASE WHEN (pUseDocDate) THEN aropen_docdate ELSE aropen_distdate END <= _asOfDate)
         AND (COALESCE(aropen_closedate,_asOfDate+1)>_asOfDate) )
         GROUP BY aropen_id,aropen_docdate,aropen_duedate,aropen_ponumber,aropen_docnumber,aropen_doctype,aropen_paid,
-                 aropen_curr_id,aropen_amount,cust_id,cust_name,cust_number,cust_custtype_id,custtype_code,terms_descrip,
-                 aropen_curr_rate
+                 aropen_curr_id,aropen_amount,cust_id,cust_name,cust_number,cust_custtype_id,custtype_code,
+                 arterms.terms_descrip,custterms.terms_descrip, aropen_curr_rate
         ORDER BY cust_number, aropen_duedate
   LOOP
         _row.araging_docdate := _x.aropen_docdate;
