@@ -23,29 +23,29 @@ SELECT porecv_id, porecv_ponumber, porecv_date,
   porecv_purchcost, 
   currConcat(porecv_curr_id) AS poCurrAbbr,
 <? if exists("baseCurr") ?>
-  COALESCE((porecv_value / porecv_qty),0)                                                   AS porecv_recvcost,
-  porecv_value,
-  currToBase(vohead_curr_id, SUM(vodist_amount) / SUM(vodist_qty), vohead_distdate)         AS vouchercost,
-  currToBase(vohead_curr_id, SUM(vodist_amount) / SUM(vodist_qty), vohead_distdate) * porecv_qty AS voucher_value,
-  currToBase(vohead_curr_id, SUM(vodist_amount) / SUM(vodist_qty), vohead_distdate) * porecv_qty -
-  porecv_value                                                                              AS variance, 
+  COALESCE((porecv_value / CASE WHEN (porecv_qty <> 0.0) THEN porecv_qty ELSE 1.0 END), 0.0) AS porecv_recvcost,
+  COALESCE(porecv_value, 0.0) AS porecv_value,
+  COALESCE(currToBase(vohead_curr_id, SUM(vodist_amount) / CASE WHEN (SUM(vodist_qty) <> 0.0) THEN SUM(vodist_qty) ELSE 1.0 END, vohead_distdate), 0.0) AS vouchercost,
+  COALESCE(currToBase(vohead_curr_id, SUM(vodist_amount) / CASE WHEN (SUM(vodist_qty) <> 0.0) THEN SUM(vodist_qty) ELSE 1.0 END, vohead_distdate) * porecv_qty, 0.0) AS voucher_value,
+  COALESCE(currToBase(vohead_curr_id, SUM(vodist_amount) / CASE WHEN (SUM(vodist_qty) <> 0.0) THEN SUM(vodist_qty) ELSE 1.0 END, vohead_distdate) * porecv_qty - porecv_value, 0.0) AS variance, 
   CASE WHEN (COALESCE(porecv_value, 0.0) <> 0.0) THEN
-    ((currToBase(vohead_curr_id, SUM(vodist_amount) / SUM(vodist_qty), vohead_distdate) * porecv_qty /
-    porecv_value) -1)    * 100 ELSE 100.0 END                                               AS varprcnt,     
-  currConcat(baseCurrId())                                                                  AS currAbbr,
+    ((currToBase(vohead_curr_id, SUM(vodist_amount) / CASE WHEN (SUM(vodist_qty) <> 0.0) THEN SUM(vodist_qty) ELSE 1.0 END, vohead_distdate) *
+     porecv_qty / porecv_value) -1.0) * 100.0
+       ELSE 100.0 END AS varprcnt,     
+  currConcat(baseCurrId()) AS currAbbr,
   '0' AS porecv_value_xttotalrole,
   '0' AS voucher_value_xttotalrole,
   '0' AS variance_xttotalrole,
 <? else ?> -- local Currency
-  currToLocal(vohead_curr_id, COALESCE((porecv_value / porecv_qty),0), vohead_distdate)     AS porecv_recvcost,
-  currToLocal(vohead_curr_id, porecv_value, vohead_distdate)                                AS porecv_value, 
-  SUM(vodist_amount) / SUM(vodist_qty)                                                      AS vouchercost,
-  SUM(vodist_amount) / SUM(vodist_qty) * porecv_qty                                         AS voucher_value,
-  SUM(vodist_amount) / SUM(vodist_qty) * porecv_qty -
-    currToLocal(vohead_curr_id, porecv_value, vohead_distdate)                              AS variance, 
+  COALESCE(currToLocal(vohead_curr_id, (porecv_value / CASE WHEN (porecv_qty <> 0.0) THEN porecv_qty ELSE 1.0 END), vohead_distdate), 0.0) AS porecv_recvcost,
+  COALESCE(currToLocal(vohead_curr_id, porecv_value, vohead_distdate), 0.0) AS porecv_value, 
+  COALESCE(SUM(vodist_amount) / CASE WHEN (SUM(vodist_qty) <> 0.0) THEN SUM(vodist_qty) ELSE 1.0 END, 0.0)  AS vouchercost,
+  COALESCE(SUM(vodist_amount) / CASE WHEN (SUM(vodist_qty) <> 0.0) THEN SUM(vodist_qty) ELSE 1.0 END * porecv_qty, 0.0) AS voucher_value,
+  COALESCE(SUM(vodist_amount) / CASE WHEN (SUM(vodist_qty) <> 0.0) THEN SUM(vodist_qty) ELSE 1.0 END * porecv_qty - currToLocal(vohead_curr_id, porecv_value, vohead_distdate), 0.0) AS variance, 
   CASE WHEN (COALESCE(porecv_value, 0.0) <> 0.0) THEN
-    ((SUM(vodist_amount) / SUM(vodist_qty) * porecv_qty /
-  currToLocal(vohead_curr_id, porecv_value, vohead_distdate)) -1) * 100 ELSE 100.0 END      AS varprcnt,       
+    ((SUM(vodist_amount) / CASE WHEN (SUM(vodist_qty) <> 0.0) THEN SUM(vodist_qty) ELSE 1.0 END *
+     porecv_qty / currToLocal(vohead_curr_id, porecv_value, vohead_distdate)) -1.0) * 100.0
+       ELSE 100.0 END AS varprcnt,       
   currConcat(vohead_curr_id) AS currAbbr,
 <? endif ?>
   'qty' AS porecv_qty_xtnumericrole,
