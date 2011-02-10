@@ -38,6 +38,20 @@ SELECT <? if exists("byIndented") ?>
          CASE WHEN (COALESCE(bomitem_expires, endoftime()) = endoftime()) 
               THEN 'Never' 
          END AS bomitem_expires_qtdisplayrole,
+-- formatted for report
+         item_descrip1, item_descrip2,
+         formatQty(itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyfxd)) AS f_qtyfxd,
+         formatQtyper(itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper)) AS f_qtyper,
+         formatScrap(bomitem_scrap) AS f_scrap,
+         formatDate(bomitem_effective, <? value("Always") ?>) AS f_effective,
+         formatDate(bomitem_expires, <? value("Never") ?>) AS f_expires,
+         formatBoolYN(bomitem_createwo) AS f_createwo,
+         CASE WHEN (bomitem_issuemethod='S') THEN <? value("Push") ?>
+              WHEN (bomitem_issuemethod='L') THEN <? value("Pull") ?>
+              WHEN (bomitem_issuemethod='M') THEN <? value("Mixed") ?>
+              ELSE <? value("Special") ?>
+         END AS f_issuemethod,
+         formatQtyper(itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd + bomitem_qtyper) * (1 + bomitem_scrap))) as f_qtyreq,
        <? endif ?>
        (item_descrip1 || ' ' || item_descrip2) AS descrip,
        uom_name
