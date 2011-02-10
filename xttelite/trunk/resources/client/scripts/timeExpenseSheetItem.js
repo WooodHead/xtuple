@@ -450,6 +450,7 @@ xtte.timeExpenseSheetItem.taskChanged = function()
       _items.enabled = false;
     }
     else
+      _items.setId(-1);
       _items.enabled = true;
   }
 
