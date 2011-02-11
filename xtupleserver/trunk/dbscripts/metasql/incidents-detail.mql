@@ -72,14 +72,14 @@ AND (incdt_public=<? value("public") ?>)
 <? endif ?> 
 )
  
-<? if exists("pattern") ?> 
-AND ((incdt_number::text ~* <? value("pattern") ?>)
-OR (incdt_summary ~* <? value("pattern") ?>)
-OR (incdt_descrip ~* <? value("pattern") ?>)
+<? if exists("search_pattern") ?> 
+AND ((incdt_number::text ~* <? value("search_pattern") ?>)
+OR (incdt_summary ~* <? value("search_pattern") ?>)
+OR (incdt_descrip ~* <? value("search_pattern") ?>)
 OR (incdt_id IN (SELECT comment_source_id
 FROM comment
 WHERE((comment_source='INCDT')
-AND (comment_text ~* <? value("pattern") ?>)))))
+AND (comment_text ~* <? value("search_pattern") ?>)))))
 <? endif ?>
 AND (incdt_timestamp BETWEEN <? value("startDate") ?> AND DATE <? value("endDate") ?>+1) 
 ORDER BY incdt_number;
