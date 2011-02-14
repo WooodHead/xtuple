@@ -59,7 +59,8 @@ BEGIN
     END IF;
   END IF;
 
-  RETURN _result;
+  -- Don't care about result of release number
+  RETURN 0;
 
 END;
 $$ LANGUAGE 'plpgsql';
