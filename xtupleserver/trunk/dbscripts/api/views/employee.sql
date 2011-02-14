@@ -154,7 +154,7 @@ CREATE OR REPLACE RULE "_INSERT" AS ON INSERT TO api.employee DO INSTEAD
         END, 
         getdeptid(new.department), 
         getshiftid(new.shift), 
-        (SELECT pg_user.usename::text AS usename FROM pg_user WHERE pg_user.usename = new.code::name), 
+        (SELECT pg_user.usename::text AS usename FROM pg_user WHERE pg_user.usename = lower(new.code)::name), 
         getimageid(new.image), 
         new.rate, 
         CASE
@@ -221,7 +221,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS ON UPDATE TO api.employee DO INSTEAD
 				      END, 
 	emp_dept_id = getdeptid(new.department), 
 	emp_shift_id = getshiftid(new.shift), 
-	emp_username = ( SELECT pg_user.usename::text AS usename FROM pg_user WHERE pg_user.usename = new.code::name), 
+	emp_username = ( SELECT pg_user.usename::text AS usename FROM pg_user WHERE pg_user.usename = lower(new.code)::name), 
 	emp_image_id = getimageid(new.image), 
 	emp_extrate = new.rate, 
 	emp_extrate_period = CASE WHEN new.billing_period = 'Hour' 	THEN 'H'
