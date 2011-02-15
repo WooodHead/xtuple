@@ -1,0 +1,1 @@
+alter table char add column char_type int not null default (0);
