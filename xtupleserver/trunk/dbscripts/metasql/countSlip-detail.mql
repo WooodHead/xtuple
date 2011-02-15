@@ -33,7 +33,7 @@ FROM cntslip, invcnt
 <? endif ?>
 WHERE ((cntslip_cnttag_id=invcnt_id)
 <? if exists("byWarehouse") ?>
-   AND (cntslip_entered BETWEEN <? value("startDate") ?> AND  <? value("endDate") ?>)
+   AND (cntslip_entered BETWEEN <? value("startDate") ?> AND  (<? value("endDate") ?>::DATE + 1))
   <? if not exists("showUnposted") ?>
     AND (cntslip_posted)
   <? endif ?>
