@@ -2,8 +2,14 @@
 -- Name:  detail
 -- Notes: 
  SELECT  DISTINCT ON ( item_number ) item.*, classcode.*, uom.*, prodcat.*, freightclass.*,
-               <? foreach("char_id_list") ?>
-                      charass_alias<? literal("char_id_list") ?>.charass_value AS char<? literal("char_id_list") ?>,
+               <? foreach("char_id_text_list") ?>
+                      charass_alias<? literal("char_id_text_list") ?>.charass_value AS char<? literal("char_id_text_list") ?>,
+               <? endforeach ?>
+               <? foreach("char_id_list_list") ?>
+                      charass_alias<? literal("char_id_list_list") ?>.charass_value AS char<? literal("char_id_list_list") ?>,
+               <? endforeach ?>
+               <? foreach("char_id_date_list") ?>
+                      charass_alias<? literal("char_id_date_list") ?>.charass_value::date AS char<? literal("char_id_date_list") ?>,
                <? endforeach ?>
                       (item_descrip1 || ' ' || item_descrip2) as item_descrip,
                       CASE WHEN (item_type='P') THEN text(<? value("purchased") ?>)
@@ -30,13 +36,28 @@
                  JOIN itemgrpitem ON (item_id=itemgrpitem_item_id)
                  JOIN itemgrp ON (itemgrp_id=itemgrpitem_itemgrp_id)
                <? endif ?>
-               <? foreach("char_id_list") ?>
-                 LEFT OUTER JOIN charass charass_alias<? literal("char_id_list") ?> 
-                   ON ((charass_alias<? literal("char_id_list") ?>.charass_target_type='I') 
-                   AND  (charass_alias<? literal("char_id_list") ?>.charass_target_id=item_id)
-                   AND  (charass_alias<? literal("char_id_list") ?>.charass_char_id=<? value("char_id_list") ?>))
-                 LEFT OUTER JOIN char char_alias<? literal("char_id_list") ?> 
-                   ON (charass_alias<? literal("char_id_list") ?>.charass_char_id=char_alias<? literal("char_id_list") ?>.char_id)
+               <? foreach("char_id_text_list") ?>
+                 LEFT OUTER JOIN charass charass_alias<? literal("char_id_text_list") ?> 
+                   ON ((charass_alias<? literal("char_id_text_list") ?>.charass_target_type='I') 
+                   AND  (charass_alias<? literal("char_id_text_list") ?>.charass_target_id=item_id)
+                   AND  (charass_alias<? literal("char_id_text_list") ?>.charass_char_id=<? value("char_id_text_list") ?>))
+                 LEFT OUTER JOIN char char_alias<? literal("char_id_text_list") ?> 
+                   ON (charass_alias<? literal("char_id_text_list") ?>.charass_char_id=char_alias<? literal("char_id_text_list") ?>.char_id)
+               <? endforeach ?>
+               <? foreach("char_id_list_list") ?>
+                 LEFT OUTER JOIN charass charass_alias<? literal("char_id_list_list") ?> 
+                   ON ((charass_alias<? literal("char_id_list_list") ?>.charass_target_type='I') 
+                   AND  (charass_alias<? literal("char_id_list_list") ?>.charass_target_id=item_id)
+                   AND  (charass_alias<? literal("char_id_list_list") ?>.charass_char_id=<? value("char_id_list_list") ?>))
+                 LEFT OUTER JOIN char char_alias<? literal("char_id_list_list") ?> 
+                   ON (charass_alias<? literal("char_id_list_list") ?>.charass_char_id=char_alias<? literal("char_id_list_list") ?>.char_id)
+               <? foreach("char_id_date_list") ?>
+                 LEFT OUTER JOIN charass charass_alias<? literal("char_id_date_list") ?> 
+                   ON ((charass_alias<? literal("char_id_date_list") ?>.charass_target_type='I') 
+                   AND  (charass_alias<? literal("char_id_date_list") ?>.charass_target_id=item_id)
+                   AND  (charass_alias<? literal("char_id_date_list") ?>.charass_char_id=<? value("char_id_date_list") ?>))
+                 LEFT OUTER JOIN char char_alias<? literal("char_id_date_list") ?> 
+                   ON (charass_alias<? literal("char_id_date_list") ?>.charass_char_id=char_alias<? literal("char_id_date_list") ?>.char_id)
                <? endforeach ?>
                WHERE ( true
                <? if exists("search_pattern") ?>

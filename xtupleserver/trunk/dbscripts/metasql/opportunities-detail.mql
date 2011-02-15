@@ -2,7 +2,8 @@
 -- Name: detail
 -- Notes: used by opportunityList
 
-SELECT ophead_id,
+SELECT DISTINCT ON (ophead_target_date, ophead_name, ophead_id) 
+       ophead_id,
        CASE WHEN (ophead_active) THEN 0 ELSE 1 END,
        ophead_name,
        ophead_active,
@@ -21,11 +22,38 @@ SELECT ophead_id,
        formatDate(ophead_actual_date) AS f_actualdate,
        'extprice' AS ophead_amount_xtnumericrole,
        'percent' AS ophead_probability_prcnt_xtnumericrole
+<? foreach("char_id_text_list") ?>
+  , charass_alias<? literal("char_id_text_list") ?>.charass_value AS char<? literal("char_id_text_list") ?>
+<? endforeach ?>
+<? foreach("char_id_list_list") ?>
+  , charass_alias<? literal("char_id_list_list") ?>.charass_value AS char<? literal("char_id_list_list") ?>
+<? endforeach ?>
+<? foreach("char_id_date_list") ?>
+  , charass_alias<? literal("char_id_date_list") ?>.charass_value::date AS char<? literal("char_id_date_list") ?>
+<? endforeach ?>
   FROM ophead
        LEFT OUTER JOIN crmacct ON (ophead_crmacct_id=crmacct_id)
        LEFT OUTER JOIN opstage ON (ophead_opstage_id=opstage_id)
        LEFT OUTER JOIN opsource ON (ophead_opsource_id=opsource_id)
        LEFT OUTER JOIN optype ON (ophead_optype_id=optype_id)
+<? foreach("char_id_text_list") ?>
+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_text_list") ?> ON ((charass_alias<? literal("char_id_text_list") ?>.charass_target_type='OPP') 
+                                                                    AND  (charass_alias<? literal("char_id_text_list") ?>.charass_target_id=ophead_id)
+                                                                    AND  (charass_alias<? literal("char_id_text_list") ?>.charass_char_id=<? value("char_id_text_list") ?>))
+  LEFT OUTER JOIN char char_alias<? literal("char_id_text_list") ?> ON (charass_alias<? literal("char_id_text_list") ?>.charass_char_id=char_alias<? literal("char_id_text_list") ?>.char_id)
+<? endforeach ?>
+<? foreach("char_id_list_list") ?>
+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_list_list") ?> ON ((charass_alias<? literal("char_id_list_list") ?>.charass_target_type='OPP') 
+                                                                    AND  (charass_alias<? literal("char_id_list_list") ?>.charass_target_id=ophead_id)
+                                                                    AND  (charass_alias<? literal("char_id_list_list") ?>.charass_char_id=<? value("char_id_list_list") ?>))
+  LEFT OUTER JOIN char char_alias<? literal("char_id_list_list") ?> ON (charass_alias<? literal("char_id_list_list") ?>.charass_char_id=char_alias<? literal("char_id_list_list") ?>.char_id)
+<? endforeach ?>
+<? foreach("char_id_date_list") ?>
+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_date_list") ?> ON ((charass_alias<? literal("char_id_date_list") ?>.charass_target_type='OPP') 
+                                                                    AND  (charass_alias<? literal("char_id_date_list") ?>.charass_target_id=ophead_id)
+                                                                    AND  (charass_alias<? literal("char_id_date_list") ?>.charass_char_id=<? value("char_id_date_list") ?>))
+  LEFT OUTER JOIN char char_alias<? literal("char_id_date_list") ?> ON (charass_alias<? literal("char_id_date_list") ?>.charass_char_id=char_alias<? literal("char_id_date_list") ?>.char_id)
+<? endforeach ?>
  WHERE((true)
 <? if exists("startDate") ?>
    AND ((ophead_target_date >= <? value("startDate") ?>)
@@ -64,5 +92,6 @@ SELECT ophead_id,
 <? if exists("activeOnly") ?> 
    AND (ophead_active)
 <? endif ?>
+<? literal("charClause") ?>
  )
- ORDER BY ophead_target_date;
+ ORDER BY ophead_target_date, ophead_name, ophead_id;

@@ -1,8 +1,8 @@
 -- Group: incidents 
 -- Name: detail
--- Notes:
+-- Notes: 
 
-SELECT incdt_id,
+SELECT DISTINCT ON (incdt_number) incdt_id,
 incdt_number, DATE(incdt_timestamp) AS incdt_timestamp,
 crmacct_name, incdt_owner_username,  
 incdtcat_name, incdtseverity_name,  
@@ -19,12 +19,39 @@ incdt_assigned_username, incdt_owner_username,
 incdt_summary, cntct_name, incdt_updated::date AS incdt_updated,
 prj_number, incdt_public,
 status_color AS qtbackgroundrole 
+<? foreach("char_id_text_list") ?>
+  , charass_alias<? literal("char_id_text_list") ?>.charass_value AS char<? literal("char_id_text_list") ?>
+<? endforeach ?>
+<? foreach("char_id_list_list") ?>
+  , charass_alias<? literal("char_id_list_list") ?>.charass_value AS char<? literal("char_id_list_list") ?>
+<? endforeach ?>
+<? foreach("char_id_date_list") ?>
+  , charass_alias<? literal("char_id_date_list") ?>.charass_value::date AS char<? literal("char_id_date_list") ?>
+<? endforeach ?>
 FROM crmacct, status, incdt
   JOIN cntct ON (incdt_cntct_id=cntct_id)
   LEFT OUTER JOIN incdtcat ON (incdtcat_id=incdt_incdtcat_id) 
   LEFT OUTER JOIN incdtseverity ON (incdtseverity_id=incdt_incdtseverity_id) 
   LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=incdt_incdtpriority_id) 
   LEFT OUTER JOIN prj ON (incdt_prj_id=prj_id)
+<? foreach("char_id_text_list") ?>
+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_text_list") ?> ON ((charass_alias<? literal("char_id_text_list") ?>.charass_target_type='INCDT') 
+                                                                    AND  (charass_alias<? literal("char_id_text_list") ?>.charass_target_id=incdt_id)
+                                                                    AND  (charass_alias<? literal("char_id_text_list") ?>.charass_char_id=<? value("char_id_text_list") ?>))
+  LEFT OUTER JOIN char char_alias<? literal("char_id_text_list") ?> ON (charass_alias<? literal("char_id_text_list") ?>.charass_char_id=char_alias<? literal("char_id_text_list") ?>.char_id)
+<? endforeach ?>
+<? foreach("char_id_list_list") ?>
+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_list_list") ?> ON ((charass_alias<? literal("char_id_list_list") ?>.charass_target_type='INCDT') 
+                                                                    AND  (charass_alias<? literal("char_id_list_list") ?>.charass_target_id=incdt_id)
+                                                                    AND  (charass_alias<? literal("char_id_list_list") ?>.charass_char_id=<? value("char_id_list_list") ?>))
+  LEFT OUTER JOIN char char_alias<? literal("char_id_list_list") ?> ON (charass_alias<? literal("char_id_list_list") ?>.charass_char_id=char_alias<? literal("char_id_list_list") ?>.char_id)
+<? endforeach ?>
+<? foreach("char_id_date_list") ?>
+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_date_list") ?> ON ((charass_alias<? literal("char_id_date_list") ?>.charass_target_type='INCDT') 
+                                                                    AND  (charass_alias<? literal("char_id_date_list") ?>.charass_target_id=incdt_id)
+                                                                    AND  (charass_alias<? literal("char_id_date_list") ?>.charass_char_id=<? value("char_id_date_list") ?>))
+  LEFT OUTER JOIN char char_alias<? literal("char_id_date_list") ?> ON (charass_alias<? literal("char_id_date_list") ?>.charass_char_id=char_alias<? literal("char_id_date_list") ?>.char_id)
+<? endforeach ?>
 WHERE ((incdt_crmacct_id=crmacct_id)
 AND (status_type='INCDT')
 AND (incdt_status=status_code)
@@ -82,4 +109,5 @@ WHERE((comment_source='INCDT')
 AND (comment_text ~* <? value("search_pattern") ?>)))))
 <? endif ?>
 AND (incdt_timestamp BETWEEN <? value("startDate") ?> AND DATE <? value("endDate") ?>+1) 
+<? literal("charClause") ?>
 ORDER BY incdt_number;
