@@ -1,7 +1,7 @@
 -- Group: crmaccounts
 -- Name:  detail
 -- Notes: 
-SELECT 
+SELECT DISTINCT ON (crmacct_number)
   crmacct_id AS id, crmacct_number, crmacct_name,
   cntct.*, addr.*,
   (crmacct_cust_id IS NOT NULL) AS cust,
@@ -10,9 +10,36 @@ SELECT
   (crmacct_competitor_id IS NOT NULL) AS competitor,
   (crmacct_partner_id IS NOT NULL) AS partner,
   (crmacct_taxauth_id IS NOT NULL) AS taxauth 
+<? foreach("char_id_text_list") ?>
+  , charass_alias<? literal("char_id_text_list") ?>.charass_value AS char<? literal("char_id_text_list") ?>
+<? endforeach ?>
+<? foreach("char_id_list_list") ?>
+  , charass_alias<? literal("char_id_list_list") ?>.charass_value AS char<? literal("char_id_list_list") ?>
+<? endforeach ?>
+<? foreach("char_id_date_list") ?>
+  , charass_alias<? literal("char_id_date_list") ?>.charass_value::date AS char<? literal("char_id_date_list") ?>
+<? endforeach ?>
 FROM crmacct LEFT OUTER JOIN
   cntct ON (crmacct_cntct_id_1=cntct_id) LEFT OUTER JOIN
   addr ON (cntct_addr_id=addr_id) 
+<? foreach("char_id_text_list") ?>
+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_text_list") ?> ON ((charass_alias<? literal("char_id_text_list") ?>.charass_target_type='CRMACCT') 
+                                                                    AND  (charass_alias<? literal("char_id_text_list") ?>.charass_target_id=crmacct_id)
+                                                                    AND  (charass_alias<? literal("char_id_text_list") ?>.charass_char_id=<? value("char_id_text_list") ?>))
+  LEFT OUTER JOIN char char_alias<? literal("char_id_text_list") ?> ON (charass_alias<? literal("char_id_text_list") ?>.charass_char_id=char_alias<? literal("char_id_text_list") ?>.char_id)
+<? endforeach ?>
+<? foreach("char_id_list_list") ?>
+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_list_list") ?> ON ((charass_alias<? literal("char_id_list_list") ?>.charass_target_type='CRMACCT') 
+                                                                    AND  (charass_alias<? literal("char_id_list_list") ?>.charass_target_id=crmacct_id)
+                                                                    AND  (charass_alias<? literal("char_id_list_list") ?>.charass_char_id=<? value("char_id_list_list") ?>))
+  LEFT OUTER JOIN char char_alias<? literal("char_id_list_list") ?> ON (charass_alias<? literal("char_id_list_list") ?>.charass_char_id=char_alias<? literal("char_id_list_list") ?>.char_id)
+<? endforeach ?>
+<? foreach("char_id_date_list") ?>
+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_date_list") ?> ON ((charass_alias<? literal("char_id_date_list") ?>.charass_target_type='CRMACCT') 
+                                                                    AND  (charass_alias<? literal("char_id_date_list") ?>.charass_target_id=crmacct_id)
+                                                                    AND  (charass_alias<? literal("char_id_date_list") ?>.charass_char_id=<? value("char_id_date_list") ?>))
+  LEFT OUTER JOIN char char_alias<? literal("char_id_date_list") ?> ON (charass_alias<? literal("char_id_date_list") ?>.charass_char_id=char_alias<? literal("char_id_date_list") ?>.char_id)
+<? endforeach ?>
 WHERE true
 <? if not exists("showInactive") ?> 
   AND crmacct_active 
@@ -59,4 +86,5 @@ WHERE true
 <? if exists("addr_country_pattern") ?>
   AND (addr_country ~* <? value("addr_country_pattern") ?>)
 <? endif ?>
+<? literal("charClause") ?>
 ORDER BY crmacct_number; 

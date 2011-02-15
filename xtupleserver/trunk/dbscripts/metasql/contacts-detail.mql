@@ -6,10 +6,37 @@ SELECT DISTINCT ON (length(cntct_last_name)=0, length(cntct_first_name)=0, cntct
   cntct_id, addr.*,
   crmacct_id AS id, crmacct_number, crmacct_name,
   cntct.* 
+<? foreach("char_id_text_list") ?>
+  , charass_alias<? literal("char_id_text_list") ?>.charass_value AS char<? literal("char_id_text_list") ?>
+<? endforeach ?>
+<? foreach("char_id_list_list") ?>
+  , charass_alias<? literal("char_id_list_list") ?>.charass_value AS char<? literal("char_id_list_list") ?>
+<? endforeach ?>
+<? foreach("char_id_date_list") ?>
+  , charass_alias<? literal("char_id_date_list") ?>.charass_value::date AS char<? literal("char_id_date_list") ?>
+<? endforeach ?>
 FROM cntct 
   LEFT OUTER JOIN crmacct ON (cntct_crmacct_id=crmacct_id) 
   LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id) 
   LEFT OUTER JOIN cntcteml ON (cntcteml_cntct_id=cntct_id)
+<? foreach("char_id_text_list") ?>
+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_text_list") ?> ON ((charass_alias<? literal("char_id_text_list") ?>.charass_target_type='CNTCT') 
+                                                                    AND  (charass_alias<? literal("char_id_text_list") ?>.charass_target_id=cntct_id)
+                                                                    AND  (charass_alias<? literal("char_id_text_list") ?>.charass_char_id=<? value("char_id_text_list") ?>))
+  LEFT OUTER JOIN char char_alias<? literal("char_id_text_list") ?> ON (charass_alias<? literal("char_id_text_list") ?>.charass_char_id=char_alias<? literal("char_id_text_list") ?>.char_id)
+<? endforeach ?>
+<? foreach("char_id_list_list") ?>
+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_list_list") ?> ON ((charass_alias<? literal("char_id_list_list") ?>.charass_target_type='CNTCT') 
+                                                                    AND  (charass_alias<? literal("char_id_list_list") ?>.charass_target_id=cntct_id)
+                                                                    AND  (charass_alias<? literal("char_id_list_list") ?>.charass_char_id=<? value("char_id_list_list") ?>))
+  LEFT OUTER JOIN char char_alias<? literal("char_id_list_list") ?> ON (charass_alias<? literal("char_id_list_list") ?>.charass_char_id=char_alias<? literal("char_id_list_list") ?>.char_id)
+<? endforeach ?>
+<? foreach("char_id_date_list") ?>
+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_date_list") ?> ON ((charass_alias<? literal("char_id_date_list") ?>.charass_target_type='CNTCT') 
+                                                                    AND  (charass_alias<? literal("char_id_date_list") ?>.charass_target_id=cntct_id)
+                                                                    AND  (charass_alias<? literal("char_id_date_list") ?>.charass_char_id=<? value("char_id_date_list") ?>))
+  LEFT OUTER JOIN char char_alias<? literal("char_id_date_list") ?> ON (charass_alias<? literal("char_id_date_list") ?>.charass_char_id=char_alias<? literal("char_id_date_list") ?>.char_id)
+<? endforeach ?>
 WHERE true
 <? if exists("activeOnly") ?> 
   AND cntct_active
@@ -55,4 +82,5 @@ WHERE true
 <? if exists("addr_country_pattern") ?>
   AND (addr_country ~* <? value("addr_country_pattern") ?>)
 <? endif ?>
+<? literal("charClause") ?>
 ORDER BY length(cntct_last_name)=0, length(cntct_first_name)=0, cntct_last_name, cntct_first_name, cntct_number, cntcteml_primary desc;
