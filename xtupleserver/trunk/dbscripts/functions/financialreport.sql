@@ -1269,28 +1269,20 @@ DECLARE
   _count INTEGER;
   _n NUMERIC;
   _fld NUMERIC[];
-  _grndttl NUMERIC[];
-  _rowcount INTEGER;
+  _grndttl NUMERIC;
   _i INTEGER;
   _first BOOLEAN;
   _prevlevel INTEGER;
   _subgrp INTEGER;
-  _wrap INTEGER;
-  _w INTEGER;
 
 BEGIN
-      _wrap := (ARRAY_UPPER(pPeriodIds,1) - 1) / 12 + 1;
-      
-      FOR _w IN 1.._wrap
-      LOOP
         _first := true;
         _subgrp := 0;
-        _rowcount := 1;
-      
-        IF ARRAY_UPPER(pPeriodIds,1) <= 12 * _w THEN
-                _count := ARRAY_UPPER(pPeriodIds,1) - 12 * (_w - 1);
+
+        IF ARRAY_UPPER(pPeriodIds,1) <= 12 THEN
+                _count := ARRAY_UPPER(pPeriodIds,1);
         ELSE
-                _count := 12 * _w;
+                _count := 12;
         END IF;
 
         --Get Type
@@ -1299,7 +1291,7 @@ BEGIN
         --Build Financial Data
         FOR _i IN 1.._count
         LOOP
-          PERFORM financialreport(pFlheadId,pPeriodIds[_i + (_w - 1) * 12],pInterval,pPrjid);
+                PERFORM financialreport(pFlheadId,pPeriodIds[_i],pInterval,pPrjid);
         END LOOP;
 
         --Get Row Data
@@ -1325,7 +1317,7 @@ BEGIN
         WHERE ((flrpt_flhead_id=pFlheadId)
         AND (flgrp_id=flrpt_type_id)
         AND (flrpt_type='G')
-        AND (flrpt_period_id=pPeriodIds[1 + (_w - 1) * 12])
+        AND (flrpt_period_id=pPeriodIds[1])
         AND (flrpt_interval=pInterval)
         AND (flrpt_username=CURRENT_USER))
         UNION
@@ -1351,7 +1343,7 @@ BEGIN
         AND (flrpt_accnt_id=accnt_id)
         AND (flitem_id=flrpt_type_id)
         AND (flrpt_type='I')
-        AND (flrpt_period_id=pPeriodIds[1 + (_w - 1) * 12])
+        AND (flrpt_period_id=pPeriodIds[1])
         AND (flrpt_interval=pInterval)
         AND (flrpt_username=CURRENT_USER))
         UNION
@@ -1383,23 +1375,18 @@ BEGIN
         FROM flrpt
         WHERE ((flrpt_flhead_id=pFlheadId)
         AND (flrpt_type NOT IN ('I','S','G'))
-        AND (flrpt_period_id=pPeriodIds[1 + (_w - 1) * 12])
+        AND (flrpt_period_id=pPeriodIds[1])
         AND (flrpt_interval=pInterval)
         AND (flrpt_username=CURRENT_USER))
         ORDER BY flrpt_order
         LOOP
 
                 IF _type IN ('I','C') THEN
-                  IF (_w = 1) THEN
-                    _grndttl[_rowcount] := _p.f_fld1;
-                  ELSE
-                    _grndttl[_rowcount] := _grndttl[_rowcount] + _p.f_fld1;
-                  END IF;
+                        _grndttl := _p.f_fld1;
                 END IF;
 
                 --Loop through and calculate period column values
                 IF (_p.display) THEN
-
                         FOR _i IN 2.._count
                         LOOP
                                 SELECT
@@ -1412,20 +1399,15 @@ BEGIN
                                 END INTO _n
                                 FROM flrpt
                                 WHERE ((flrpt_flhead_id=pFlheadId)
-                                AND (flrpt_period_id=pPeriodIds[_i + (_w - 1) * 12])
+                                AND (flrpt_period_id=pPeriodIds[_i])
                                 AND (flrpt_interval=pInterval)
                                 AND (flrpt_username=CURRENT_USER)
                                 AND (flrpt_order=_p.flrpt_order));
-                                raise notice 'number %', _n;
                                 _fld[_i-1] := _n;
                                 IF _type IN ('I','C') THEN
-                                        _grndttl[_rowcount] := _grndttl[_rowcount]+_n;
+                                        _grndttl := _grndttl+_n;
                                 END IF;
                         END LOOP;
-                        FOR _i IN _count + 1..12
-                        LOOP
-                          _fld[_i-1] := null;
-                        END LOOP; 
                 END IF;
 
                 --Send it all back to the caller
@@ -1463,7 +1445,7 @@ BEGIN
                         _row.fltrenditem_fld10 := (_fld[9]);
                         _row.fltrenditem_fld11 := (_fld[10]);
                         _row.fltrenditem_fld12 := (_fld[11]);
-                        _row.fltrenditem_grndttl := (_grndttl[_rowcount]);
+                        _row.fltrenditem_grndttl := (_grndttl);
                 ELSE
                         _row.fltrenditem_fld1 := NULL;
                         _row.fltrenditem_fld2 := NULL;
@@ -1480,13 +1462,10 @@ BEGIN
                         _row.fltrenditem_grndttl := NULL;
                 END IF;
 
-          _rowcount := _rowcount + 1;
         END LOOP;
 
         _row.fltrenditem_subgrp := _subgrp + 1;
         RETURN NEXT _row;
-
-      END LOOP;
 
 END;
 $$ LANGUAGE 'plpgsql';
