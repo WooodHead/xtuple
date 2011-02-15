@@ -25,7 +25,7 @@ BEGIN
           JOIN item ON (item_id=itemsite_item_id)
   WHERE (wo_id=pWoid);
 
-  IF (NOT woStatus IN ('O', 'E')) THEN
+  IF (NOT woStatus IN ('O', 'E', 'C')) THEN
     RETURN -3;
   END IF;
 
