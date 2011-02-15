@@ -21,8 +21,14 @@ SELECT
 <? endif ?>
 <? if not exists("woHistoryByItem") ?>
        item_number, (item_descrip1 || ' ' || item_descrip2) AS itemdescrip,
+       item_descrip1, item_descrip2, uom_name,
 <? endif ?>
        warehous_code,
+       formatDate(wo_startdate) AS f_wo_startdate,
+       formatDate(wo_duedate) AS f_wo_duedate,
+       formatQty(wo_qtyord) AS f_wo_qtyord,
+       formatQty(wo_qtyrcv) AS f_wo_qtyrcv,
+       formatCost(wo_postedvalue) AS f_wo_postedvalue,
        'qty' AS wo_qtyord_xtnumericrole,
        'qty' AS wo_qtyrcv_xtnumericrole,
        'cost' AS wo_postedvalue_xtnumericrole
@@ -30,6 +36,7 @@ FROM wo JOIN itemsite ON (itemsite_id=wo_itemsite_id)
         JOIN warehous ON (warehous_id=itemsite_warehous_id)
 <? if not exists("woHistoryByItem") ?>
         JOIN item ON (item_id=itemsite_item_id)
+        JOIN uom ON (uom_id=item_inv_uom_id)
 <? endif ?>
 <? if exists("revControl") ?>
         LEFT OUTER JOIN rev bom ON (bom.rev_id=wo_bom_rev_id)
