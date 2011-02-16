@@ -1,0 +1,6 @@
+BEGIN;
+
+ALTER TABLE char ADD UNIQUE (char_name);
+ALTER TABLE char ALTER COLUMN char_name SET NOT NULL;
+
+COMMIT;

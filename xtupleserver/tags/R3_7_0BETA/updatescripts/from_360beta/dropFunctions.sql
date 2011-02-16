@@ -1,0 +1,1 @@
+SELECT dropIfExists('FUNCTION','logWOTCEvent(INTEGER, TEXT, TEXT)');
