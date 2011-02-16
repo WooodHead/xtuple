@@ -133,12 +133,11 @@ BEGIN
         IF (_p.flcol_prioryear='F') THEN
 
           SELECT (EXTRACT(year from py.yearperiod_end)||'') INTO _pryear
-          FROM period cp, period pp, yearperiod cy, yearperiod py
+          FROM period cp, yearperiod cy, yearperiod py
           WHERE ((cp.period_id=pPeriodId)
-           AND (cp.period_id != pp.period_id)
-           AND (cp.period_start > pp.period_start)
-           AND (cp.period_number = pp.period_number))
-          ORDER BY pp.period_start DESC LIMIT 1;
+           AND (cp.period_yearperiod_id = cy.yearperiod_id)
+           AND (cy.yearperiod_start > py.yearperiod_start))
+          ORDER BY py.yearperiod_start DESC LIMIT 1;
 
         ELSE
 
@@ -151,7 +150,7 @@ BEGIN
           FROM period cp, period pp
           WHERE ((cp.period_id=pPeriodId)
             AND (cp.period_number = pp.period_number)
-            AND (cp.period_id != pp.period_id))
+            AND (cp.period_start > pp.period_start))
           ORDER BY pp.period_start DESC LIMIT 1;
 
         END IF;
