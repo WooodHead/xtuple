@@ -25,8 +25,6 @@ SELECT pohead_id, pohead_number, vend_number, vend_name, pohead_shipvia,
 FROM pohead 
   JOIN vendinfo ON (pohead_vend_id=vend_id) 
   JOIN poitem ON (poitem_pohead_id=pohead_id) 
-  JOIN itemsite ON (poitem_itemsite_id=itemsite_id) 
-  JOIN whsinfo ON (itemsite_warehous_id=warehous_id) 
 WHERE (poitem_status IN ('U','O'))
 GROUP BY pohead_id, pohead_number, pohead_status, vend_number, vend_name, pohead_shipvia, pohead_vend_cntct_id, 
   pohead_shipto_cntct_id, pohead_vend_cntct_phone, pohead_shipto_cntct_phone, pohead_vend_cntct_honorific,   
