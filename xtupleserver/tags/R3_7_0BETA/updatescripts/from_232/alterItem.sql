@@ -1,0 +1,5 @@
+BEGIN;
+
+ALTER TABLE item ADD COLUMN item_warrdays INTEGER DEFAULT 0;
+
+COMMIT;
