@@ -85,6 +85,11 @@ AND (incdt_incdtcat_id IN (-1
 <? elseif exists("category_id") ?> 
 AND (incdt_incdtcat_id=<? value("category_id") ?>) 
 <? endif ?> 
+<? if exists("incdtpriority_id_list") ?>
+AND (incdt_incdtpriority_id IN (-1
+  <? foreach("incdtpriority_id_list") ?> , <? value("incdtpriority_id_list") ?> <? endforeach ?>
+  ))
+<? endif ?>
 <? if exists("severity_id") ?> 
 AND (incdt_incdtseverity_id=<? value("severity_id") ?>) 
 <? endif ?>
