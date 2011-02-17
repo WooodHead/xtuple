@@ -4,7 +4,7 @@
 
 SELECT pohead_id, pohead_number,
        warehous_code AS warehousecode,
-       poitem_status,
+       poitem_status, pohead_orderdate,
        CASE WHEN(poitem_status='C') THEN TEXT(<? value("closed") ?>)
             WHEN(poitem_status='U') THEN TEXT(<? value("unposted") ?>)
             WHEN(poitem_status='O'
