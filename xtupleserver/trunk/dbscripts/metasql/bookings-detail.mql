@@ -2,44 +2,21 @@
 -- Name: detail
 -- Notes: 
 
-SELECT   coitem_id,        coitem_cohead_id,
-         coitem_linenumber, formatSoLineNumber(coitem_id) AS f_linenumber,
-         coitem_itemsite_id,
-         coitem_status,    coitem_scheddate,
+SELECT   coitem_id AS id, coitem_cohead_id AS altId,
+         formatSoLineNumber(coitem_id) AS f_linenumber,
          getSoSchedDate(cohead_id) AS sort_scheddate,
-         coitem_promdate,  coitem_qtyord,
-         coitem_unitcost,  coitem_price,
-         coitem_custprice, coitem_qtyshipped,
-         coitem_order_id,  coitem_memo,
-         coitem_imported,  coitem_qtyreturned,
-         coitem_closedate,
-         coitem_custpn,    coitem_order_type,
-         coitem_close_username,
-         coitem_lastupdated,
-         coitem_substitute_item_id,
-         coitem_created,   coitem_creator,
-         coitem_prcost,
-         coitem_qty_uom_id,
-         coitem_qty_invuomratio,
-         coitem_price_uom_id,
-         coitem_price_invuomratio,
-         coitem_warranty,
-         coitem_cos_accnt_id,
-         coitem_qtyreserved,
-         coitem_subnumber,
-         cohead.*,
+         coitem.*, cohead.*,
          cust_number, cust_name,
          item_number, item_descrip1, (item_descrip1 || ' ' || item_descrip2) AS itemdescription,
          uom_name,
          warehous_code,
-         ( SELECT SUM(coship_qty)
-             FROM coship JOIN cosmisc ON ( (coship_cosmisc_id=cosmisc_id) AND (NOT cosmisc_shipped) )
-            WHERE (coship_coitem_id=coitem_id) ) AS qtyatshipping,
-         qtyAvailable(itemsite_id, coitem_scheddate) AS qtyavailable,
-         (qtyAvailable(itemsite_id, coitem_scheddate) < 0.0) AS stockout,
-         CASE WHEN (itemsite_useparams) THEN (qtyAvailable(itemsite_id, coitem_scheddate) <= itemsite_reorderlevel)
-              ELSE (qtyAvailable(itemsite_id, coitem_scheddate) <= 0.0)
-         END AS reorder,
+         qtyAtShipping(coitem_id) AS qtyatshipping,
+-- TODO - not needed, remove? (very slow)
+--         qtyAvailable(itemsite_id, coitem_scheddate) AS qtyavailable,
+--         (qtyAvailable(itemsite_id, coitem_scheddate) < 0.0) AS stockout,
+--         CASE WHEN (itemsite_useparams) THEN (qtyAvailable(itemsite_id, coitem_scheddate) <= itemsite_reorderlevel)
+--              ELSE (qtyAvailable(itemsite_id, coitem_scheddate) <= 0.0)
+--         END AS reorder,
          noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) AS qtybalance,
          currtobase(cohead_curr_id, coitem_price, cohead_orderdate) AS baseunitprice,
          round((coitem_qtyord * coitem_qty_invuomratio) *
@@ -51,10 +28,11 @@ SELECT   coitem_id,        coitem_cohead_id,
          round((noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) * coitem_qty_invuomratio) *
                      (currtobase(cohead_curr_id, coitem_price, cohead_orderdate) / coitem_price_invuomratio), 2) AS baseextpricebalance,
          curr_abbr AS currAbbr,
-         CASE WHEN (qtyAvailable(itemsite_id, coitem_scheddate) < 0.0) THEN 'error'
-              WHEN itemsite_useparams AND (qtyAvailable(itemsite_id, coitem_scheddate) <= itemsite_reorderlevel) THEN 'warning'
-              WHEN NOT itemsite_useparams AND (qtyAvailable(itemsite_id, coitem_scheddate) <= 0.0) THEN 'warning'
-         END AS qtyavailable_qtforegroundrole,
+-- TODO - not needed, remove? (very slow)
+--         CASE WHEN (qtyAvailable(itemsite_id, coitem_scheddate) < 0.0) THEN 'error'
+--              WHEN itemsite_useparams AND (qtyAvailable(itemsite_id, coitem_scheddate) <= itemsite_reorderlevel) THEN 'warning'
+--              WHEN NOT itemsite_useparams AND (qtyAvailable(itemsite_id, coitem_scheddate) <= 0.0) THEN 'warning'
+--         END AS qtyavailable_qtforegroundrole,
        'qty' AS coitem_qtyord_xtnumericrole,
        'qty' AS coitem_qtyshipped_xtnumericrole,
        'qty' AS coitem_qtyreturned_xtnumericrole,
