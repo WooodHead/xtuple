@@ -13,10 +13,10 @@ SELECT <? if exists("bySingleLvl") ?>
          'qtyper' AS bomitem_qtyper_xtnumericrole,
          'qtyper' AS invqtyper_xtnumericrole,
          'percent' AS bomitem_scrap_xtnumericrole,
-         CASE WHEN COALESCE(bomitem_effective, startOfTime()) <= startOfTime() 
+         CASE WHEN COALESCE(bomitem_effective, startOfTime()) = startOfTime() 
            THEN <? value("always") ?>
          END AS bomitem_effective_qtdisplayrole,
-         CASE WHEN COALESCE(bomitem_expires, endOfTime()) <= endOfTime() 
+         CASE WHEN COALESCE(bomitem_expires, endOfTime()) = endOfTime() 
            THEN <? value("never") ?>
          END AS bomitem_expires_qtdisplayrole,
          CASE WHEN (bomitem_expires < CURRENT_DATE) THEN 'expired'
