@@ -93,7 +93,10 @@ FROM
      WHERE ( (coitem_cohead_id=cohead_id)
       AND (coitem_status = 'O')
       AND (shiphead_shipped)
-      AND (NOT shipitem_invoiced) )
+      AND (NOT shipitem_invoiced)
+      AND (shipitem_qty > COALESCE((SELECT sum(cobill_qty)
+                                    FROM cobill
+                                    WHERE cobill_coitem_id=coitem_id AND cobill_invcitem_id IS NULL), 0)) )
    GROUP BY cohead_id, coitem_id, coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned, 
             cust_partialship, item_type) data
 HAVING (COUNT(cohead_id) > 0)
