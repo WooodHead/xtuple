@@ -16,8 +16,8 @@ BEGIN
 --  Make sure the P/O and Voucher are same currency
 
   SELECT COALESCE(COUNT(*),0) INTO _count
-        FROM pohead, poitem
-        WHERE ((pohead_id=poitem_pohead_id)
+        FROM poitem JOIN pohead ON (pohead_id=poitem_pohead_id)
+        WHERE ((poitem_id=pPoitemid)
         AND (pohead_curr_id=pCurrId));
   IF (_count = 0) THEN
         RETURN -3;
