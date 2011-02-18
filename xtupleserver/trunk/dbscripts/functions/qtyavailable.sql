@@ -11,7 +11,7 @@ BEGIN
            (SELECT qtyOrdered(pItemsiteid, pLookAheadDays)) -
            (SELECT qtyAllocated(pitemsiteid, pLookAheadDays)) );
 END;
-' LANGUAGE 'plpgsql';
+' LANGUAGE 'plpgsql' STABLE;
 
 
 CREATE OR REPLACE FUNCTION qtyAvailable(INTEGER, DATE) RETURNS NUMERIC AS '
@@ -27,5 +27,5 @@ BEGIN
            (SELECT qtyOrdered(pItemsiteid, (pDate - CURRENT_DATE))) -
            (SELECT qtyAllocated(pItemsiteid, (pDate - CURRENT_DATE))) );
 END;
-' LANGUAGE 'plpgsql';
+' LANGUAGE 'plpgsql' STABLE;
 
