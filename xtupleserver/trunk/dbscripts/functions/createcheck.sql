@@ -70,9 +70,10 @@ BEGIN
     RETURN -6;
   END IF;
 
-  if (_journalNumber IS NULL) THEN
-    _journalNumber := fetchJournalNumber('AP-CK');
-  END IF;
+-- Do not assign Journal Number until check is posted
+--  if (_journalNumber IS NULL) THEN
+--    _journalNumber := fetchJournalNumber('AP-CK');
+--  END IF;
 
   _checkid := NEXTVAL('checkhead_checkhead_id_seq');
 
