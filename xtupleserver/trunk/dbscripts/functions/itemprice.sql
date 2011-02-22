@@ -69,9 +69,7 @@ BEGIN
 -- First get a sales price if any so we when we find other prices
 -- we can determine if we want that price or this price.
 --  Check for a Sale Price
-  SELECT currToCurr(ipshead_curr_id, pCurrid,
-                      ipsprice_price - (ipsprice_price * cust_discntprcnt),
-                      pEffective) INTO _sales
+  SELECT currToCurr(ipshead_curr_id, pCurrid, ipsprice_price, pEffective) INTO _sales
   FROM (
   SELECT ipsitem_ipshead_id AS ipsprice_ipshead_id,
          itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak) AS ipsprice_qtybreak,
