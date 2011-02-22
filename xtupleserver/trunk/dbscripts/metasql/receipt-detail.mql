@@ -25,15 +25,13 @@ SELECT poitem_id AS orderitem_id, COALESCE(poitem_itemsite_id,-1) AS itemsite_id
        'qty' AS qty_returned_xtnumericrole,
        'qty' AS qty_toreceive_xtnumericrole
 FROM poitem 
-  LEFT OUTER JOIN 
-     ( itemsite 
+  LEFT OUTER JOIN itemsite ON (poitem_itemsite_id=itemsite_id) 
 <? if exists("selectedOnly") ?>
-       JOIN usrsite ON (itemsite_warehous_id=usrsite_warehous_id) 
+  LEFT OUTER JOIN usrsite ON (itemsite_warehous_id=usrsite_warehous_id) 
 <? endif ?>
-       JOIN item ON (itemsite_item_id=item_id) 
-       JOIN uom ON (item_inv_uom_id=uom_id)
-       JOIN whsinfo ON (itemsite_warehous_id=warehous_id)
-     ) ON (poitem_itemsite_id=itemsite_id) 
+  LEFT OUTER JOIN item ON (itemsite_item_id=item_id) 
+  LEFT OUTER JOIN uom ON (item_inv_uom_id=uom_id)
+  LEFT OUTER JOIN whsinfo ON (itemsite_warehous_id=warehous_id)
   LEFT OUTER JOIN itemsrc ON (itemsrc_id=poitem_itemsrc_id)
 WHERE ( (poitem_status <> 'C')
 <? if exists("selectedOnly") ?>
