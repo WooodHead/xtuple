@@ -1,0 +1,9 @@
+BEGIN;
+
+ALTER TABLE char DROP COLUMN char_type;
+
+ALTER TABLE char ADD COLUMN char_mask TEXT;
+ALTER TABLE char ADD COLUMN char_validator TEXT;
+
+COMMIT;
+

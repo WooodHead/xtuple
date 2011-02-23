@@ -1,0 +1,44 @@
+-- Group: itemReceipt
+-- Name: populateEdit
+-- Notes: used by enterPoitemReceipt, splitReceipt
+
+SELECT orderhead_number AS order_number, orderitem_linenumber,
+       (orderitem_itemsite_id > 0) AS inventoryitem,
+<? if exists("MultiWhs") ?>
+       CASE WHEN (orderitem_orderhead_type!='TO') THEN
+		COALESCE(orderitem_itemsite_id,  -1)
+	    ELSE (SELECT itemsite_id
+		  FROM itemsite, tohead, toitem
+		  WHERE ((itemsite_warehous_id=tohead_dest_warehous_id)
+		    AND  (tohead_id=toitem_tohead_id)
+		    AND  (itemsite_item_id=toitem_item_id)
+		    AND  (toitem_id=orderitem_id)))
+	    END AS itemsiteid,
+<? else ?>
+       COALESCE(orderitem_itemsite_id, -1) AS itemsiteid,
+<? endif ?>
+       COALESCE(poitem_vend_item_number, '') AS vend_item_number,
+       COALESCE(poitem_vend_uom, '') AS vend_uom,
+       COALESCE(poitem_vend_item_descrip, '') AS vend_item_descrip,
+       orderitem_qty_invuomratio,
+       orderitem_scheddate AS duedate,
+       orderitem_qty_ordered,
+       recv_qty AS qtyreceived,
+       orderitem_qty_shipped AS qtyreturned,
+       qtyToReceive(orderhead_type, orderitem_id) AS qtytoreceive,
+       (orderitem_qty_ordered) AS receivable,
+       recv_notes AS notes, recv_freight, recv_order_type,
+       recv_freight_curr_id AS curr_id, recv_date AS effective,
+       'uomratio' AS orderitem_qty_invuomratio_xtnumericrole,
+       'qty' AS orderitem_qty_ordered_xtnumericrole, 
+       'qty' AS qtyreceived_xtnumericrole, 
+       'qty' AS qtyreturned_xtnumericrole, 
+       'qty' AS qtytoreceive_xtnumericrole, 
+       'qty' AS receivable_xtnumericrole 
+FROM recv, orderhead, orderitem LEFT OUTER JOIN
+      poitem ON (orderitem_orderhead_type='PO' AND orderitem_id=poitem_id)
+WHERE ((orderitem_orderhead_id=orderhead_id)
+  AND  (orderitem_orderhead_type=orderhead_type)
+  AND  (orderitem_status <> 'C')
+  AND  (recv_orderitem_id=orderitem_id)
+  AND  (recv_id=<? value("recv_id") ?>) );
