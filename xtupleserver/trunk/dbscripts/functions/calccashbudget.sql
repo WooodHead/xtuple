@@ -1,5 +1,4 @@
-CREATE OR REPLACE FUNCTION calccashbudget(INTEGER,INTEGER,bpchar)
-  RETURNS numeric AS '
+CREATE OR REPLACE FUNCTION calccashbudget(integer, integer, character) RETURNS numeric AS $$
 DECLARE
   pAccntId ALIAS FOR $1;
   pPeriodId ALIAS FOR $2;
@@ -19,7 +18,7 @@ BEGIN
         WHERE ((budget_accnt_id=pAccntId)
         AND (budget_period_id=pPeriodId));
 
-        IF (pInterval=''M'') THEN
+        IF (pInterval='M') THEN
         SELECT (COALESCE(SUM(budget_amount),0)) INTO _priorBudget
                 FROM budget,
                 (SELECT COALESCE(pp.period_id,-1) AS prior_period_id
@@ -30,7 +29,7 @@ BEGIN
                 WHERE ((budget_accnt_id=pAccntId)
                 AND (budget_period_id=prior_period_id));
 
-                ELSE IF (pInterval=''Q'') THEN
+                ELSE IF (pInterval='Q') THEN
                         SELECT (COALESCE(SUM(budget_amount),0)) INTO _priorBudget
                         FROM budget,
                                 (SELECT COALESCE(pp.period_id,-1) AS prior_period_id
@@ -41,7 +40,7 @@ BEGIN
                                 CASE WHEN cp.period_quarter > 1 THEN
                                         cp.period_quarter - 1
                                 ELSE 4 END)
-                                AND (pp.period_start >= cp.period_start - interval ''1 year''))
+                                AND (pp.period_start >= cp.period_start - interval '1 year'))
                                 ORDER BY pp.period_start DESC LIMIT 1) AS data
                         WHERE ((budget_accnt_id=pAccntId)
                         AND (budget_period_id=prior_period_id));
@@ -63,11 +62,11 @@ BEGIN
                 END IF;
         END IF;
 
-        IF _accntType=''A'' THEN
-                _result := ((_priorBudget-_currentBudget) * -1);
+        IF _accntType='A' THEN
+                _result := ((_priorBudget-_currentBudget) * -1 );
 
-        ELSE IF (_accntType IN (''L'',''Q'')) THEN
-                _result := (_priorBudget-_currentBudget);
+        ELSE IF (_accntType IN ('L','Q')) THEN
+                _result := ((_priorBudget-_currentBudget) *-1);
 
         ELSE RETURN -1;
         END IF;
@@ -78,4 +77,4 @@ BEGIN
 
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
