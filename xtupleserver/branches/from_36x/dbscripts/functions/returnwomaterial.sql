@@ -111,8 +111,16 @@ BEGIN
 
 --  Decrease the parent W/O's WIP value by the value of the returned components
   UPDATE wo
-  SET wo_wipvalue = (wo_wipvalue - (CASE WHEN(itemsite_costmethod IN ('A','J')) THEN _cost ELSE stdcost(itemsite_item_id) * _invqty END )),
-      wo_postedvalue = (wo_postedvalue - (CASE WHEN(itemsite_costmethod IN ('A','J')) THEN _cost ELSE stdcost(itemsite_item_id) * _invqty END ))
+  SET wo_wipvalue = (wo_wipvalue - (CASE WHEN(itemsite_costmethod IN ('A','J'))
+                                              THEN _cost
+                                         WHEN(itemsite_costmethod='S')
+                                              THEN stdcost(itemsite_item_id) * _invqty
+                                         ELSE 0.0 END )),
+      wo_postedvalue = (wo_postedvalue - (CASE WHEN(itemsite_costmethod IN ('A','J'))
+                                                    THEN _cost
+                                               WHEN(itemsite_costmethod='S')
+                                                    THEN stdcost(itemsite_item_id) * _invqty
+                                               ELSE 0.0 END ))
   FROM womatl, itemsite
   WHERE ( (wo_id=womatl_wo_id)
    AND (womatl_itemsite_id=itemsite_id)
@@ -210,8 +218,16 @@ BEGIN
 
 --  Decrease the parent W/O's WIP value by the value of the returned components
   UPDATE wo
-  SET wo_wipvalue = (wo_wipvalue - (CASE WHEN(itemsite_costmethod IN ('A','J')) THEN _cost ELSE stdcost(itemsite_item_id) * _qty END )),
-      wo_postedvalue = (wo_postedvalue - (CASE WHEN(itemsite_costmethod IN ('A','J')) THEN _cost ELSE stdcost(itemsite_item_id) * _qty END ))
+  SET wo_wipvalue = (wo_wipvalue - (CASE WHEN(itemsite_costmethod IN ('A','J'))
+                                              THEN _cost
+                                         WHEN(itemsite_costmethod='S')
+                                              THEN stdcost(itemsite_item_id) * _qty
+                                         ELSE 0.0 END )),
+      wo_postedvalue = (wo_postedvalue - (CASE WHEN(itemsite_costmethod IN ('A','J'))
+                                                    THEN _cost
+                                               WHEN(itemsite_costmethod='S')
+                                                    THEN stdcost(itemsite_item_id) * _qty
+                                               ELSE 0.0 END ))
   FROM womatl, itemsite
   WHERE ( (wo_id=womatl_wo_id)
    AND (womatl_itemsite_id=itemsite_id)
