@@ -26,7 +26,8 @@ BEGIN
                              itemlocdist_ls_id AS lotserialid,
                              itemlocdist_expiration AS expiration,
                              itemlocdist_flush,
-                             itemlocdist_warranty AS warranty
+                             itemlocdist_warranty AS warranty,
+                             itemlocdist_series AS series
                       FROM itemlocdist, itemsite
                       WHERE ( (itemlocdist_itemsite_id=itemsite_id)
                        AND (itemlocdist_series=pItemlocSeries) )
@@ -142,7 +143,8 @@ BEGIN
           invhist_qoh_before, invhist_qoh_after,
           invhist_docnumber, invhist_comments,
           invhist_invuom, invhist_unitcost,
-          invhist_costmethod, invhist_value_before, invhist_value_after ) 
+          invhist_costmethod, invhist_value_before, invhist_value_after,
+          invhist_series ) 
         SELECT _invhistid, itemsite_id, 
                'NN', (_itemlocdist.qty * -1),
                itemsite_qtyonhand, (itemsite_qtyonhand - _itemlocdist.qty),
@@ -151,7 +153,8 @@ BEGIN
                itemsite_costmethod, itemsite_value,
                (itemsite_value + (_itemlocdist.qty * -1 * CASE WHEN(itemsite_costmethod='A') THEN avgcost(itemsite_id)
                                                                ELSE stdCost(itemsite_item_id)
-                                                          END))
+                                                          END)),
+               _itemlocdist.series
         FROM item, itemsite, invhist, uom
         WHERE ((itemsite_item_id=item_id)
          AND (item_inv_uom_id=uom_id)
