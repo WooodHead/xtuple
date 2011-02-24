@@ -18,6 +18,7 @@ var _tespcr = new QSpacerItem(10, 0, 1, 1 | 4);
 var _laborAndOverheadLit = toolbox.createWidget("QLabel", mywindow, "_laborAndOverheadLit");
 var _laborAndOverhead = toolbox.createWidget("GLCluster", mywindow, "_laborAndOverhead");
 _laborAndOverheadLit.text = qsTr("Project Labor And Overhead:");
+_laborAndOverheadLit.buddy= _laborAndOverhead;
 _laborAndOverhead.setType(0x02);  // Liability
 
 _telayout.addWidget(_laborAndOverheadLit);
@@ -42,5 +43,6 @@ _laborAndOverhead.setId(metrics.value("PrjLaborAndOverhead"));
 
 // Connections
 mywindow.saving.connect(xtte.configureCRM.save);
-_useProjects["toggled(bool)"].connect(_laborAndOverhead["setEnabled(bool)"]);
+_useProjects["toggled(bool)"].connect(_laborAndOverheadLit, "setEnabled(bool)");
+_useProjects["toggled(bool)"].connect(_laborAndOverhead, "setEnabled(bool)");
 
