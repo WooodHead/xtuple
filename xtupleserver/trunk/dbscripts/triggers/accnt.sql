@@ -47,6 +47,8 @@ BEGIN
     END IF;
   END IF;
 
+  NEW.accnt_name := formatGlAccount(NEW.accnt_company, NEW.accnt_profit, NEW.accnt_number, NEW.accnt_sub);
+
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
