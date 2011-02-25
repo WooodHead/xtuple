@@ -2,12 +2,9 @@
 CREATE OR REPLACE FUNCTION formatGLAccount(INTEGER) RETURNS TEXT IMMUTABLE AS $$
 DECLARE
   pAccntid ALIAS FOR $1;
-  _number TEXT;
   _accnt RECORD;
 
 BEGIN
-
-  _number := '';
 
   SELECT COALESCE(accnt_company, '') AS accnt_company,
          COALESCE(accnt_profit, '') AS accnt_profit,
@@ -20,24 +17,39 @@ BEGIN
     RETURN 'Error';
   END IF;
 
+  RETURN formatGlAccount(_accnt.accnt_company, _accnt.accnt_profit, _accnt.accnt_number, _accnt.accnt_sub);
+
+END;
+$$	 LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION formatGLAccount(TEXT, TEXT, TEXT, TEXT) RETURNS TEXT IMMUTABLE AS $$
+DECLARE
+  pCompany ALIAS FOR $1;
+  pProfit ALIAS FOR $2;
+  pNumber ALIAS FOR $3;
+  pSub    ALIAS FOR $4;
+  _number TEXT := '';
+
+BEGIN
+
   IF ( ( SELECT metric_value::INTEGER
          FROM metric
          WHERE (metric_name='GLCompanySize') ) > 0 ) THEN
-    _number := _accnt.accnt_company || '-';
+    _number := pCompany || '-';
   END IF;
 
   IF ( ( SELECT metric_value::INTEGER
          FROM metric
          WHERE (metric_name='GLProfitSize') ) > 0 ) THEN
-    _number := _number || _accnt.accnt_profit || '-';
+    _number := _number || pProfit || '-';
   END IF;
 
-  _number := _number || _accnt.accnt_number;
+  _number := _number || pNumber;
 
   IF ( ( SELECT metric_value::INTEGER
          FROM metric
          WHERE (metric_name='GLSubaccountSize') ) > 0 ) THEN
-    _number := _number || '-' || _accnt.accnt_sub;
+    _number := _number || '-' || pSub;
   END IF;
 
   RETURN _number;
