@@ -57,7 +57,7 @@ BEGIN
         JOIN glseries ON (glseries_accnt_id=accnt_id)
       WHERE (glseries_sequence=pSequence)) _data;
     
-    IF (_rows != 1) THEN
+    IF (_rows > 1) THEN
       RAISE EXCEPTION 'G/L Series can not be posted because multiple companies are referenced in the same series.';
     END IF;
   END IF;
