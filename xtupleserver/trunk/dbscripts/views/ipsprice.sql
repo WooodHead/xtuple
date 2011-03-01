@@ -1,19 +1,20 @@
 
 SELECT dropIfExists('VIEW', 'ipsprice', 'public', true);
 CREATE OR REPLACE VIEW ipsprice AS
-  SELECT ipsitem_id AS ipsprice_id,
+  SELECT t.ipsitem_id AS ipsprice_id,
          'I' AS ipsprice_source,
-         ipsitem_ipshead_id AS ipsprice_ipshead_id,
-         ipsitem_item_id AS ipsprice_item_id,
-         itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak) AS ipsprice_qtybreak,
-         (ipsitem_price * itemuomtouomratio(ipsitem_item_id, NULL, ipsitem_price_uom_id)) * iteminvpricerat(ipsitem_item_id) AS ipsprice_price,
-         ipsitem_qtybreak AS ipsprice_uomqtybreak,
-         ipsitem_qty_uom_id AS ipsprice_uomqtybreak_uom_id,
-         ipsitem_price AS ipsprice_uomprice,
-         ipsitem_price_uom_id AS ipsprice_uomprice_uom_id,
-         NULL AS ipsprice_discountpercent,
-         NULL AS ipsprice_discountfixed
-    FROM ipsitem
+         t.ipsitem_ipshead_id AS ipsprice_ipshead_id,
+         t.ipsitem_item_id AS ipsprice_item_id,
+         itemuomtouom(t.ipsitem_item_id, t.ipsitem_qty_uom_id, NULL, t.ipsitem_qtybreak) AS ipsprice_qtybreak,
+         (v.ipsitem_price * itemuomtouomratio(t.ipsitem_item_id, NULL, t.ipsitem_price_uom_id)) * iteminvpricerat(t.ipsitem_item_id) AS ipsprice_price,
+         t.ipsitem_qtybreak AS ipsprice_uomqtybreak,
+         t.ipsitem_qty_uom_id AS ipsprice_uomqtybreak_uom_id,
+         v.ipsitem_price AS ipsprice_uomprice,
+         t.ipsitem_price_uom_id AS ipsprice_uomprice_uom_id,
+         t.ipsitem_discntprcnt AS ipsprice_discountpercent,
+         t.ipsitem_fixedamtdiscount AS ipsprice_discountfixed
+    FROM ipsiteminfo t
+      JOIN ipsitem v ON (v.ipsitem_id=t.ipsitem_id)
    UNION
   SELECT ipsprodcat_id AS ipsprice_id,
          'P' AS ipsprice_source,
