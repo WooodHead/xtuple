@@ -170,6 +170,10 @@ BEGIN
   SELECT findAPAccount(pVendid) INTO _apAccntid;
   SELECT findAPPrepaidAccount(pVendid) INTO _prepaidAccntid;
 
+  SELECT vend_name INTO _vendName
+  FROM vendinfo
+  WHERE (vend_id=pVendid);
+
   _accntid := pAccntid;
 
   PERFORM accnt_id
