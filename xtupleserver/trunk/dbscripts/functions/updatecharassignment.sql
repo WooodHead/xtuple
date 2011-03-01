@@ -61,7 +61,7 @@ BEGIN
       _charassid := 0;
     END IF;
   ELSE
-    IF (_explodedJob) THEN
+    IF ( (_explodedJob) AND (COALESCE(pValue, '')!='') ) THEN
       RAISE EXCEPTION  'Characteristics may not be updated for Configured Item with exploded Work Order.';
     ELSIF(COALESCE(pValue, '')!='') THEN
       SELECT nextval('charass_charass_id_seq') INTO _charassid;
