@@ -77,15 +77,19 @@ BEGIN
   IF (_r.coitem_order_type='P') THEN
 -- Delete associated Purchase Order Item
     SELECT deletepoitem(_r.coitem_order_id) INTO _result;
-    IF (_result = -10) THEN
-      RETURN -10;
-    ELSE
-      IF (_result = -20) THEN
-        DELETE FROM coitem
-        WHERE (coitem_id=pSoitemid);
+    -- TODO not sure why??
+    --IF (_result = -10) THEN
+    --  RETURN -10;
+    --ELSE
+    --  IF (_result = -20) THEN
+    --    DELETE FROM coitem
+    --    WHERE (coitem_id=pSoitemid);
 
-        RETURN -20;
-      END IF;
+    --    RETURN -20;
+    --  END IF;
+    --END IF;
+    IF (_result < 0) THEN
+      RETURN _result;
     END IF;
   END IF;
 
