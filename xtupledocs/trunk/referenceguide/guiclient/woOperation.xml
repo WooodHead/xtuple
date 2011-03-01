@@ -4,8 +4,8 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519180">
   <title>Create Work Order Operation</title>
-  <para>To create a Work Order Operation, select the "Create Work Order Operation"
-  option. The following screen will appear:</para>
+  <para>To create a Work Order Operation, select the "Create Work Order
+  Operation" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -61,7 +61,7 @@
     <varlistentry>
       <term>Standard Oper.</term>
       <listitem>
-        <para>: Select a Standard Operation to be used, if any.</para>
+        <para>Select a Standard Operation to be used, if any.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -87,7 +87,7 @@
     <varlistentry>
       <term>Tooling Reference</term>
       <listitem>
-        <para>Enter a tooling reference—if applicable.</para>
+        <para>Enter a tooling reference&mdash;if applicable.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -101,7 +101,7 @@
       <term><indexterm significance="normal">
           <primary>execution days</primary>
           <secondary>in work orders</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>work orders</primary>
           <secondary>execution days in</secondary>
         </indexterm>Execution Day</term>
@@ -124,31 +124,30 @@
       <term>Throughput</term>
       <listitem>
         <para>Indicates the number of units, in the given Item's Inventory
-        UOM, that can be produced in a minute—and also the number of minutes
-        that are required to produce 1 unit, expressed in the given Item's
-        Inventory UOM.</para>
+        UOM, that can be produced in a minute&mdash;and also the number of
+        minutes that are required to produce 1 unit, expressed in the given
+        Item's Inventory UOM.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>setup time</primary>
           <secondary>in work orders</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>work orders</primary>
           <secondary>setup time for operations</secondary>
         </indexterm>Total Setup Time</term>
       <listitem>
-        <para>Setup Time: Amount entered represents the number of minutes
-        required to set up the Work Center for the Operation.</para>
+        <para>Amount entered represents the time required to set up the Work
+        Center for the Operation, measured in minutes.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Report Setup Time</term>
       <listitem>
-        <para>Select to report setup time.</para>
-        <para>Must be selected for labor Costs associated with setup to be
-        tracked in the G/L and elsewhere. If not selected, these Costs will
-        not be reported.</para>
+        <para>Select to report setup time. Must be selected for labor Costs
+        associated with setup to be tracked in the G/L and elsewhere. If not
+        selected, these Costs will not be reported.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -160,8 +159,8 @@
           <secondary>run time for operations</secondary>
         </indexterm>Total Run Time</term>
       <listitem>
-        <para>Run Time: Amount entered represents the total run time for the
-        Operation measured in minutes.</para>
+        <para>Amount entered represents the total run time for the Operation,
+        measured in minutes.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -178,9 +177,9 @@
           <secondary>in operations</secondary>
         </indexterm>Production UOM</term>
       <listitem>
-        <para>Select a Unit of Measure—or enter a free-form UOM. Specify a UOM
-        to be used optionally when Work Order Operations are posted for the
-        specified Operation. Operations may be posted using either the
+        <para>Select a Unit of Measure&mdash;or enter a free-form UOM. Specify
+        a UOM to be used optionally when Work Order Operations are posted for
+        the specified Operation. Operations may be posted using either the
         Inventory or Production UOM. In addition, different Operations in a
         single Bill of Operations may use different Production UOMs. For
         example, if you are producing soup, you might mix the soup in one

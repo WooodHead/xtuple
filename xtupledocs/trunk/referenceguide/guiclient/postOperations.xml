@@ -179,20 +179,21 @@
     <varlistentry>
       <term>Post Standard Setup Time</term>
       <listitem>
-        <para>Select to post standard setup time. Typically, standard times
-        will not be used if Operations are being posted using the Shop Floor
-        Workbench. Instead, labor times will be calculated based on clock-in
-        and clock-out times. Only users with privileges to override the
-        Production Time Clock will be able to post standard times.</para>
+        <para>Select to post standard setup time, measured in minutes.
+        Typically, standard times will not be used if Operations are being
+        posted using the Shop Floor Workbench. Instead, labor times will be
+        calculated based on clock-in and clock-out times. Only users with
+        privileges to override the Production Time Clock will be able to post
+        standard times.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Post Specified Setup Time</term>
       <listitem>
-        <para>Specify the non-standard amount of setup time required. The
-        amount of time entered will be posted. If you are posting Operations
-        from the Shop Floor Workbench, the setup time entered will be
-        automatically deducted from the run-time total.</para>
+        <para>Specify the actual amount of setup time that was required,
+        measured in minutes. The amount of time entered will be posted. If you
+        are posting Operations from the Shop Floor Workbench, the setup time
+        entered will be automatically deducted from the run-time total.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -221,22 +222,22 @@
     <varlistentry>
       <term>Post Standard Run Time</term>
       <listitem>
-        <para>Select to post the standard run time for specified Item.
-        Typically, standard times will not be used if Operations are being
-        posted using the Shop Floor Workbench. Instead, labor times will be
-        calculated based on clock-in and clock-out times. Only users with
-        privileges to override the Production Time Clock will be able to post
-        standard times.</para>
+        <para>Select to post the standard run time for specified Item,
+        measured in minutes. Typically, standard times will not be used if
+        Operations are being posted using the Shop Floor Workbench. Instead,
+        labor times will be calculated based on clock-in and clock-out times.
+        Only users with privileges to override the Production Time Clock will
+        be able to post standard times.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Post Specified Run Time</term>
       <listitem>
-        <para>Specify the non-standard amount of run time required. The amount
-        of time entered will be posted. If you are posting Operations from the
-        Shop Floor Workbench, run time will be automatically calculated based
-        on the accumulated time elapsed between clock-ins and
-        clock-outs.</para>
+        <para>Specify the actual amount of run time required, measured in
+        minutes. The amount of time entered will be posted. If you are posting
+        Operations from the Shop Floor Workbench, run time will be
+        automatically calculated based on the accumulated time elapsed between
+        clock-ins and clock-outs.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

@@ -302,16 +302,16 @@
               <para>Cost distributions are based on actual accumulation of
               costs on a Work Order. This Cost Method should be used for
               manufactured Items which you want to handle as Job Items. Job
-              Items are specifically for make-to-order scenarios where
-              simplified production is required. Job Items cannot be
-              maintained in Inventory. Job Items also have no concept of
-              Standard Cost or Cost variances. All Costs for Job Items are
-              Actual. The Work Orders which create Job Items can only be
-              created via a Sales Order. The Costs for Job Item Work Orders
-              are accumulated to WIP, and then transferred directly to Cost of
-              Sales when the job is shipped. Production for a Job Item Work
-              Order is posted when the linked Sales Order Item is issued to
-              Shipping. BOM and BOO Items may be assigned to Job Items;
+              Items are specifically for make-to-order or service (i.e.,
+              repair) senarios where simplified production is required. Job
+              Items cannot be maintained in Inventory. Job Items also have no
+              concept of Standard Cost or Cost variances. All Costs for Job
+              Items are Actual. The Work Orders which create Job Items can
+              only be created via a Sales Order. The Costs for Job Item Work
+              Orders are accumulated to WIP, and then transferred directly to
+              Cost of Sales when the job is shipped. Production for a Job Item
+              Work Order is posted when the linked Sales Order Item is issued
+              to Shipping. BOM and BOO Items may be assigned to Job Items;
               however, they will not roll up to a Standard Cost for Job Items.
               Job Items may be configured. This means you can add List Prices
               to any Job Item Characteristics. These Characteristic Prices are
