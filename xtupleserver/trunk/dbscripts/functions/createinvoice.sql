@@ -109,6 +109,8 @@ BEGIN
      WHERE (invdetail_id IN (SELECT invdetail_id
                                FROM invhist JOIN invdetail ON (invdetail_invhist_id=invhist_id)
                               WHERE ( (invhist_ordnumber = _r.ordnumber)
+                                AND   (invhist_ordtype = 'SO')
+                                AND   (invhist_transtype = 'SH')
                                 AND   (invdetail_invcitem_id IS NULL) ) ));
 
 --  Mark any shipped, uninvoiced shipitems for the current coitem as invoiced
