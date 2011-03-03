@@ -71,8 +71,8 @@ UNION SELECT cmhead_id AS orderid, -1 AS itemid,
              -1 AS linenumber,
              'Sales Tax' AS item, tax_descrip AS itemdescrip, '' AS iteminvuom,
              '' AS qtytobill,
-             formatMoney(taxhist_tax) AS price,
-             formatMoney(taxhist_tax) AS extprice,
+             formatMoney(taxhist_tax * -1.0) AS price,
+             formatMoney(taxhist_tax * -1.0) AS extprice,
              'Debit' AS sence,
              CASE WHEN (accnt_id IS NULL) THEN 'Not Assigned'
                   ELSE (formatGLAccountLong(accnt_id) || ' - ' || accnt_descrip)
@@ -92,8 +92,8 @@ UNION SELECT cmhead_id AS orderid, -1 AS itemid,
              -1 AS linenumber,
              'Sales Tax' AS item, tax_descrip AS itemdescrip, '' AS iteminvuom,
              '' AS qtytobill,
-             formatMoney(taxhist_tax) AS price,
-             formatMoney(taxhist_tax) AS extprice,
+             formatMoney(taxhist_tax * -1.0) AS price,
+             formatMoney(taxhist_tax * -1.0) AS extprice,
              'Debit' AS sence,
              CASE WHEN (accnt_id IS NULL) THEN 'Not Assigned'
                   ELSE (formatGLAccountLong(accnt_id) || ' - ' || accnt_descrip)
