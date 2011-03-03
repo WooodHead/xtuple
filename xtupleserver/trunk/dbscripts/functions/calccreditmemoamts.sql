@@ -32,7 +32,7 @@ BEGIN
   WHERE (cmhead_id=pCmheadid);
 
   _amount := _headamount + _itemamount;
-  RETURN _amount;
+  RETURN (_amount * -1.0);
 
 END;
 $$ LANGUAGE 'plpgsql';
