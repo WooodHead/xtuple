@@ -96,17 +96,11 @@ BEGIN
     END LOOP;
   END IF;
 
-  SELECT CASE
-           WHEN (wo_cosmethod = 'D') THEN
-             wo_wipvalue
-           ELSE
-             round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord -
-               CASE
-                 WHEN (wo_qtyord < wo_qtyrcv + pQty) THEN
-                       wo_qtyord
-                 ELSE
-                       wo_qtyrcv + pQty
-                 END ))),2)
+  SELECT CASE WHEN (wo_cosmethod = 'D') THEN wo_wipvalue
+              ELSE  round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord -
+                    CASE WHEN (wo_qtyord < wo_qtyrcv + pQty) THEN wo_qtyord
+                         ELSE wo_qtyrcv + pQty
+                    END ))),2)
          END INTO _wipPost
   FROM wo
   WHERE (wo_id=pWoid);
@@ -125,8 +119,10 @@ BEGIN
 --  Increase this W/O's received qty decrease its WIP value
   UPDATE wo
   SET wo_qtyrcv = (wo_qtyrcv + _parentQty),
-      wo_wipvalue = (wo_wipvalue - (CASE WHEN (itemsite_costmethod IN ('A','J'))
+      wo_wipvalue = (wo_wipvalue - (CASE WHEN (itemsite_costmethod='J')
                                                THEN _wipPost
+                                         WHEN (itemsite_costmethod='A')
+                                               THEN (avgcost(itemsite_id) * _parentQty)
                                          WHEN (itemsite_costmethod='S')
                                                THEN (stdcost(itemsite_item_id) * _parentQty)
                                          ELSE 0.0  END))
