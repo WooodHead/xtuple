@@ -271,6 +271,10 @@ BEGIN
 
   PERFORM postGLSeries(_sequence, pJournalNumber);
 
+--  Delete the cashrcpt items
+  DELETE FROM cashrcptitem
+  WHERE (cashrcptitem_cashrcpt_id=pCashrcptid);
+
 --  Update the posted cashrcpt
   UPDATE cashrcpt SET cashrcpt_posted=FALSE,
                       cashrcpt_posteddate=NULL,
