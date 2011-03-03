@@ -22,12 +22,6 @@ BEGIN
   END IF;
   
   IF (TG_OP = 'DELETE') THEN
-    IF (OLD.invchead_posted) THEN
-      RAISE EXCEPTION 'Delete not allow on Posted Invoice.';
-    END IF;
-  END IF;
-  
-  IF (TG_OP = 'DELETE') THEN
     DELETE FROM invcheadtax
     WHERE (taxhist_parent_id=OLD.invchead_id);
 
