@@ -184,28 +184,8 @@
   <section id="manufactureReports">
     <title>Reports</title>
     <para>Manufacturing reports are contained in this section.</para>
-    <section>
-      <title>Work Order Schedule</title>
-      <para>Manufacturing Schedule Reports section.</para>
-      <xi:include href="guiclient/dspWoScheduleByPlannerCode.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspWoScheduleByClassCode.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspWoScheduleByWorkCenter.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspWoScheduleByItemGroup.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspWoScheduleByItem.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspWoScheduleByWorkOrder.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
+    <xi:include href="guiclient/dspWoSchedule.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
       <title>Work Order Status</title>
       <para>Manufacturing Buffer Status Reports section.</para>
