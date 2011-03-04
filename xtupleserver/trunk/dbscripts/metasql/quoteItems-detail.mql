@@ -16,6 +16,11 @@ WHERE ( (1=1)
 <? if exists("item_id") ?>
   AND  (itemsite_item_id=<? value("item_id") ?>)
 <? endif ?>
+<? if exists("showConverted") ?>
+  AND (quhead_status IN ('C','O'))
+<? else ?>
+  AND (quhead_status NOT IN ('C','X'))
+<? endif ?>
 <? if exists("startDate") ?>
   AND  (quhead_quotedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? endif ?>
