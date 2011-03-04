@@ -248,11 +248,10 @@ BEGIN
                               _comment, -1, -1, -1, _p.cashrcpt_distdate, -1, -1, 0,
                               _p.cashrcpt_curr_id) INTO _aropenid;
     -- Create Cash Receipt Item to capture posting
-    -- Removed, do not apply the Debit Memo to the Cash Receipt
-    --INSERT INTO cashrcptitem
-    --  ( cashrcptitem_cashrcpt_id, cashrcptitem_aropen_id, cashrcptitem_amount )
-    --VALUES
-    --  ( pCashrcptid, _aropenid, ((_p.cashrcpt_amount - _posted) * 1.0) );
+    INSERT INTO cashrcptitem
+      ( cashrcptitem_cashrcpt_id, cashrcptitem_aropen_id, cashrcptitem_amount )
+    VALUES
+      ( pCashrcptid, _aropenid, ((_p.cashrcpt_amount - _posted) * 1.0) );
 
   ELSIF (round(_posted_base, 2) > round(_p.cashrcpt_amount_base, 2)) THEN
     PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CR',
@@ -271,14 +270,11 @@ BEGIN
 
   PERFORM postGLSeries(_sequence, pJournalNumber);
 
---  Delete the cashrcpt items
-  DELETE FROM cashrcptitem
-  WHERE (cashrcptitem_cashrcpt_id=pCashrcptid);
-
---  Update the posted cashrcpt
+--  Update and void the posted cashrcpt
   UPDATE cashrcpt SET cashrcpt_posted=FALSE,
                       cashrcpt_posteddate=NULL,
-                      cashrcpt_postedby=NULL
+                      cashrcpt_postedby=NULL,
+                      cashrcpt_void=TRUE
   WHERE (cashrcpt_id=pCashrcptid);
 
   RETURN 1;
