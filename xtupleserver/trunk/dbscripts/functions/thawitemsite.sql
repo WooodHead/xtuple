@@ -79,7 +79,9 @@ BEGIN
                       AND (NOT invhist_posted)
                       AND (invhist_itemsite_id=pItemsiteid)
                       AND (invdetail_location_id=_coarse.invdetail_location_id)
-                      AND (COALESCE(invdetail_ls_id,-1)=COALESCE(_coarse.invdetail_ls_id,-1)) )
+                      AND (COALESCE(invdetail_ls_id,-1)=COALESCE(_coarse.invdetail_ls_id,-1))
+                      AND (COALESCE(invdetail_expiration,endOfTime())=COALESCE(_coarse.invdetail_expiration,endOfTime()))
+                      AND (COALESCE(invdetail_warrpurc,endOfTime())=COALESCE(_coarse.invdetail_warrpurc,endOfTime())) )
                      ORDER BY invhist_transdate LOOP
 
 --  Update the running qoh fields in the detail record
