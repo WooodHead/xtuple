@@ -127,6 +127,8 @@ DECLARE
   _isLocationControl BOOLEAN;
   _wasLotSerial BOOLEAN;
   _isLotSerial BOOLEAN;
+  _wasPerishable BOOLEAN;
+  _isPerishable BOOLEAN;
   _qty NUMERIC;
   _maint BOOLEAN;
   _cost NUMERIC;
@@ -296,6 +298,8 @@ BEGIN
       _isLocationControl := NEW.itemsite_loccntrl;
       _wasLotSerial := OLD.itemsite_controlmethod IN ('S','L');
       _isLotSerial := NEW.itemsite_controlmethod IN ('S','L'); 
+      _wasPerishable := OLD.itemsite_perishable;
+      _isPerishable := NEW.itemsite_perishable;
       _state := 0;
     
       IF ( (_wasLocationControl) AND (_isLocationControl) ) THEN
@@ -401,6 +405,13 @@ BEGIN
           UPDATE itemsite SET itemsite_value = _cost WHERE (itemsite_id = NEW.itemsite_id);
         END IF;
       END IF;
+    END IF;
+
+--  Handle Perishable
+    IF ( (_application = 'Standard') AND (_wasPerishable) AND (NOT _isPerishable) ) THEN
+      UPDATE itemloc SET itemloc_expiration = endOfTime()
+      WHERE (itemloc_itemsite_id = OLD.itemsite_id);
+      PERFORM consolidateLotSerial(OLD.itemsite_id);
     END IF;
 
 --  If Planning Type changed to None then delete all Planned Orders
