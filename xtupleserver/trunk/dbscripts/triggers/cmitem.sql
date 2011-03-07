@@ -91,7 +91,7 @@ BEGIN
          (NEW.cmitem_qty_invuomratio <> OLD.cmitem_qty_invuomratio) OR
          (NEW.cmitem_unitprice <> OLD.cmitem_unitprice) OR
          (NEW.cmitem_price_invuomratio <> OLD.cmitem_price_invuomratio) OR
-         (NEW.cmitem_taxtype_id <> OLD.cmitem_taxtype_id) ) THEN
+         (COALESCE(NEW.cmitem_taxtype_id, -1) <> COALESCE(OLD.cmitem_taxtype_id, -1)) ) THEN
       PERFORM calculateTaxHist( 'cmitemtax',
                                 NEW.cmitem_id,
                                 COALESCE(_r.cmhead_taxzone_id, -1),
