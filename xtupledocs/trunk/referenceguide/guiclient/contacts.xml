@@ -10,10 +10,30 @@
       <primary>customer relationship management</primary>
       <secondary>contacts and</secondary>
     </indexterm>List Contacts</title>
-  <para>Contacts are people who may be associated directly with CRM Accounts,
-  Customers, Ship-To Addresses, Vendors, Vendor Addresses, and Sites. To
-  access the list of Contacts, select the "List Contacts" option. The
-  following screen will appear:</para>
+  <para>Contacts are the people you do business with. They are linked to CRM
+  Accounts, Incidents, Customer records, Vendor records, and more. You can
+  create Contact records from this screen using the NEW button. Or you can
+  create Contacts right on the screens where they are used. For example, if
+  you are entering an Incident for a new Contact at an Account, you can create
+  the Contact record on the Incident screen. That Contact will be added to the
+  master list of Contacts.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>If you have a long Contacts list, don't hit the QUERY button as
+      soon as the screen opens. By default, the screen will display all your
+      active Contacts―unless you specify otherwise.</para>
+    </listitem>
+    <listitem>
+      <para>Enter Contact names or other details in the Search window, then
+      select the QUERY button. This will narrow the list for you.</para>
+    </listitem>
+    <listitem>
+      <para>When you edit a Contact on this screen, the Contact record will be
+      updated wherever it is used.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "List Contacts" screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -22,29 +42,9 @@
         <caption>Contacts List</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying the Contacts list, you are presented with the
-  following options:</para>
-  <note>
-    <para>The system-defined default filter on the Contacts list screen shows
-    all active Contacts.</para>
-  </note>
+  <para>The default filter on the Contacts list screen shows all active
+  Contacts. You can build your own search criteria using the following
+  options:</para>
   <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <variablelist>
-    <varlistentry>
-      <term>Search</term>
-      <listitem>
-        <para>Enter search terms then select the QUERY button to locate
-        specific Contact records.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Contacts</term>
-      <listitem>
-        <para>Display lists Contacts, using the specified parameters.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

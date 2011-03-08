@@ -10,8 +10,29 @@
       <primary>customer relationship management</primary>
       <secondary>maintaining to-do lists for</secondary>
     </indexterm>To-Do List</title>
-  <para>To access the To-Do List, select the "To-Do List" option. The
-  following screen will appear:</para>
+  <para>The To-Do List, like the Incident List, is an extremely versatile
+  screen which can be used by a variety of Employees from different functional
+  groups across your organization. From this screen you can manage only your
+  To-Do items. Or you can also track the Incidents and Projects you are
+  working on―all on this one workbench.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Black type indicates the To-Do has been completed&mdash;or it is
+      due on the current day. Red To-Dos are late. Green To-Dos are not yet
+      due.</para>
+    </listitem>
+    <listitem>
+      <para>You can create new To-Do items and also new Incidents from this
+      screen.</para>
+    </listitem>
+    <listitem>
+      <para>To see all the related data for everyone in the organization,
+      select to show all the options and remove any search parameters. When
+      you query the screen, all the available information will appear.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "To-Do List" screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -20,71 +41,9 @@
         <caption>To-Do List</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When working with the To-Do List, you are presented with the following
-  options:</para>
-  <note>
-    <para>Black type indicates the To-Do has been completed&mdash;or it is due
-    on the current day. Red To-Dos are late. Green To-Dos are not yet
-    due.</para>
-  </note>
+  <para>The default filter on the To-Do List shows To-Do List items assigned
+  to the logged-in user. You can build your own search criteria using the
+  following options:</para>
   <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <variablelist>
-    <varlistentry>
-      <term>Show</term>
-      <listitem>
-        <para>Select from the following display options:</para>
-        <variablelist>
-          <varlistentry>
-            <term>To-Do List</term>
-            <listitem>
-              <para>Select to include To-Do List items in the display.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Incidents</term>
-            <listitem>
-              <para>Select to include Incidents in the display.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Projects</term>
-            <listitem>
-              <para>Select to include Project tasks in the display.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Completed</term>
-            <listitem>
-              <para>Select to include completed To-Do List items in the
-              display.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>To-Dos</term>
-      <listitem>
-        <para>Display lists To-Do List items, using the specified
-        parameters.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Automatically Update</term>
-      <listitem>
-        <para>Select to automatically update the display every five
-        minutes.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Total</term>
-      <listitem>
-        <para>Displays the total number of To-Do's listed in the
-        search.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

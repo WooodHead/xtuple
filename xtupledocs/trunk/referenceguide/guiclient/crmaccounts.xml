@@ -10,10 +10,28 @@
       <primary>customer relationship management</primary>
       <secondary>crm accounts and</secondary>
     </indexterm>List CRM Accounts</title>
-  <para>Accounts are central to CRM. An Account holds information about an
-  entity and serves to define it further as a Customer, Prospect, Vendor,
-  Competitor, or Partner. To access the master list of CRM Accounts, select
-  the "List CRM Accounts" option. The following screen will appear.</para>
+  <para>Accounts are central to CRM. The CRM Account record should be the
+  screen where you begin to collect information about the entities you do
+  business with. From the CRM Account you build information outward, linking
+  Customer and Vendor records―as well as Contact records associated with the
+  Account.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use the right-click menu to open a CRM Account for viewing or
+      editing.</para>
+    </listitem>
+    <listitem>
+      <para>If you have a long list of CRM Accounts, don't hit the QUERY
+      button as soon as the screen opens. By default, the screen will display
+      all your active CRM Accounts―unless you specify otherwise.</para>
+    </listitem>
+    <listitem>
+      <para>Enter CRM Account names or other details in the Search window,
+      then select the QUERY button. This will narrow the list for you.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "List CRM Accounts" screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -22,30 +40,9 @@
         <caption>CRM Accounts List</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying the CRM Accounts list, you are presented with the
-  following options:</para>
-  <note>
-    <para>The system-defined default filter on the CRM Accounts list screen
-    shows all active CRM Accounts.</para>
-  </note>
+  <para>The default filter on the CRM Accounts list screen shows all active
+  CRM Accounts. You can build your own search criteria using the following
+  options:</para>
   <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <variablelist>
-    <varlistentry>
-      <term>Search</term>
-      <listitem>
-        <para>Enter search terms then select the QUERY button to locate
-        specific CRM Account records.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Contacts</term>
-      <listitem>
-        <para>Display lists CRM Accounts, using the specified
-        parameters.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

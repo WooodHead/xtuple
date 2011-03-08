@@ -7,8 +7,24 @@
       <primary>opportunities</primary>
       <secondary>master list of</secondary>
     </indexterm>List Opportunities</title>
-  <para>To access the list of Opportunities, select the "List Opportunities"
-  option. The following screen will appear.</para>
+  <para>The Opportunities list gives you a high-level view into the sales
+  prospects and deals you are working on and trying to convert. You can use
+  this screen to manage your Opportunities―from creating new ones to
+  deactivating the older ones you are no longer actively pursuing.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Make sure to enable all the column headers, especially the
+      "Amount" column which describes the monetary value of the
+      Opportunity.</para>
+    </listitem>
+    <listitem>
+      <para>Look beyond the list of Opportunities you own by building custom
+      search criteria. After you build a search, save it so you can use it
+      again later.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "List Opportunities" screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -17,23 +33,9 @@
         <caption>Opportunities Master List</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When reviewing the Opportunities list, you are presented with the
-  following options:</para>
-  <note>
-    <para>The system-defined default filter on the Opportunities list shows
-    all active Opportunities.</para>
-  </note>
+  <para>The default filter on the Opportunities list shows all the
+  Opportunities owned by the logged in user. You can build your own search
+  criteria using the following options:</para>
   <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <variablelist>
-    <varlistentry>
-      <term>Opportunities</term>
-      <listitem>
-        <para>Display lists available Opportunities, using the specified
-        parameters.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <xi:include href="../widgets/fliterManager.xml" xpointer="filterManager"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
