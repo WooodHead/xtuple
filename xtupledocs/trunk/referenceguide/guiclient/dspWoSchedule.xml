@@ -10,8 +10,39 @@
       <primary>scheduling</primary>
       <secondary>for work orders</secondary>
     </indexterm>Work Order Schedule</title>
-  <para>To view Work Order schedules, select the "Work Order Schedule" option.
-  The following screen will appear:</para>
+  <para>The "Work Order Schedule" screen is an essential workbench where you
+  can both view the status of current Work Orders and also perform any work
+  that needs to be done on Work Orders.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>The following codes describe the various Work Order statuses: Open
+      ("O"), Exploded ("E"), Released ("R"), In-Process ("I"), Closed
+      ("C").</para>
+    </listitem>
+    <listitem>
+      <para>To edit a Work Order after it has been created, use the "Edit W/O"
+      option in the right-click menu.</para>
+    </listitem>
+    <listitem>
+      <para>Use the right-click menu to locate any of the actions that can be
+      performed on Work Orders.</para>
+    </listitem>
+    <listitem>
+      <para>The start dates and end dates are color-coded for ease of use.
+      Both dates will display in red type if the Work Order is not yet
+      in-process and is also past due. Once a Work Order's Status is changed
+      to in-process ("I"), the start date will automatically revert to black
+      type.</para>
+    </listitem>
+    <listitem>
+      <para>If you use the "Show Only Top Level" search parameter, this refers
+      to Work Orders that have not been created to meet the component demands
+      of a parent Work Order.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Work Order Schedule"
+  screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -20,145 +51,9 @@
         <caption>Work Order Schedule</caption>
       </mediaobject>
     </screenshot></para>
-  <tip>
-    <para>To edit a Work Order after it has been created, use the right-click
-    menu in any of the "Work Order Schedule by..." displays. There you will
-    find an "Edit W/O" option.</para>
-  </tip>
-  <para>When displaying Work Order schedules by Planner Code, you are
-  presented with the following options:</para>
-  <note>
-    <para>The system-defined default filter on the Work Order Schedule screen
-    shows all open Work Orders.</para>
-  </note>
+  <para>The default filter on the Work Order Schedule screen shows all open
+  Work Orders. You can build your own search criteria using the following
+  options:</para>
   <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <variablelist>
-    <varlistentry>
-      <term>All Planner Codes</term>
-      <listitem>
-        <para>Select to display Work Order schedules for all Planner
-        Codes.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected</term>
-      <listitem>
-        <para>Specify Planner Code whose Work Order schedule you want to
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Pattern</term>
-      <listitem>
-        <para>Enter a Planner Code pattern to select a range of Planner Codes.
-        Refine your search using Regular Expressions.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Work Order Start Date</term>
-      <listitem>
-        <para>Specify the range of Work Order start dates you want to include
-        in the display:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Start Date</term>
-            <listitem>
-              <para>Work Orders scheduled on and after this date will be
-              displayed.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>End Date</term>
-            <listitem>
-              <para>Work Orders scheduled on and before this date will be
-              displayed.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>All Sites</term>
-      <listitem>
-        <para>Select to display Work Order schedules by Planner Code for all
-        Sites.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Selected</term>
-      <listitem>
-        <para>Specify Site whose Work Order schedules by Planner Code you want
-        to display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Include Status</term>
-      <listitem>
-        <para>Specify which Work Order statuses you want to include in the
-        display:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Open</term>
-            <listitem>
-              <para>Select to include open ("O") Work Orders in the
-              display.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Exploded</term>
-            <listitem>
-              <para>Select to include exploded ("E") Work Orders in the
-              display.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Released</term>
-            <listitem>
-              <para>Select to include released ("R") Work Orders in the
-              display.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>In-Process</term>
-            <listitem>
-              <para>Select to include in-process ("I") Work Orders in the
-              display.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Only</term>
-      <listitem>
-        <para>Specify how many levels of Work Orders you want to include in
-        the display:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Top Level</term>
-            <listitem>
-              <para>Select to display only top level Work Orders. Top level
-              Work Orders are Work Orders that have not been created to meet
-              the component demands of a parent Work Order. If not selected,
-              multiple level Work Orders will be shown.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Work Orders</term>
-      <listitem>
-        <para>Display lists Work Order schedules by Planner Code, using the
-        specified parameters. The start dates and end dates are color-coded
-        for ease of use. Both dates will display in red type if the Work Order
-        is not yet in-process and is also past due. Once a Work Order's Status
-        is changed to in-process ("I"), the start date will automatically
-        revert to black type.</para>
-        <para>Top level Work Orders are Work Orders that have not been created
-        to meet the component demands of a parent Work Order.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
 </section>
