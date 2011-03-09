@@ -10,8 +10,60 @@
       <primary>financial reports</primary>
       <secondary>trial balances</secondary>
     </indexterm>View Trial Balances</title>
-  <para>To view the Trial Balances for General Ledger Accounts, select the
-  "View Trial Balances" option. The following screen will appear:</para>
+  <para>The "Trial Balances" screen provides a mechanism for viewing the
+  detailed financial information which underlies xTuple Financial Reports. The
+  sequence of events is as follows: Transactions are posted to the General
+  Ledger, these transactions update the Trial Balance, and Financial Reports
+  use the Trial Balance when calculating their results.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use the right-click menu to view the underlying G/L transactions
+      which support the Trial Balance values.</para>
+    </listitem>
+    <listitem>
+      <para>If G/L transactions are not posted, they will not appear in the
+      Trial Balance. G/L transactions may be unposted if they were posted into
+      a closed or non-existent Accounting Period.</para>
+    </listitem>
+    <listitem>
+      <para>Trial Balances will be automatically forward-updated unless your
+      system is configured to manually forward-update Trial Balances. Ending
+      balances cannot be forward-updated into future Periods. For more
+      information see <xref linkend="Section942568" />.</para>
+    </listitem>
+    <listitem>
+      <para>Ending balances will display in orange type if either of the
+      following conditions is true: 1) The ending balance has not been
+      forward-updated, or 2) the ending balance has been forward-updated, but
+      the account in question has no activity during the specified
+      Period.</para>
+    </listitem>
+    <listitem>
+      <para>For Fiscal Year closings, the system will automatically reset the
+      beginning balances for Revenue and Expense Accounts to $0 at the start
+      of a new Fiscal Year. However, for the Year-End Equity Account, the
+      beginning balance for the first Period of the Fiscal Year will be equal
+      to the ending balance for the previous year.</para>
+    </listitem>
+    <listitem>
+      <para>A "CR" may display after the following columns: Beg. Bal.,
+      Difference, and End. Bal. The "CR" indicates the balance is a Credit
+      balance. If no "CR" appears, then the balance is a Debit balance.</para>
+    </listitem>
+    <listitem>
+      <para>The Trial Balance query builder includes an option for displaying
+      Accounts having a zero balance. If not selected, zero-balance Trial
+      Balances will be hidden―unless a specific Account is specified, in which
+      case the balance will be shown regardless of whether it is zero.</para>
+    </listitem>
+    <listitem>
+      <para>Also included is an option for showing Accounts with a Project
+      Number as the last segment. If the "Show Project Detail" option is not
+      used, balances will roll up into the parent Account total.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Trial Balances" screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -20,60 +72,9 @@
         <caption>View Trial Balances</caption>
       </mediaobject>
     </screenshot></para>
-  <tip>
-    <para>The system will automatically reset the beginning balances for
-    Revenue and Expense Accounts to $0 at the start of a new Fiscal Year.
-    However, for the Year-End Equity Account, the beginning balance for the
-    first Period of the Fiscal Year will be equal to the ending balance for
-    the previous year. In addition, the Credit and Debit columns will
-    summarize the revenue and expense account activity for the previous year,
-    and the ending balance will be the actual year-end equity value for the
-    just-closed Fiscal Year.</para>
-  </tip>
-  <para>When viewing Trial Balances, you are presented with the following
-  options:</para>
+  <para>The default filter on the Trial Balances screen shows all Trial
+  Balances for the current Accounting Period. You can build your own search
+  criteria using the following options:</para>
   <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <note>
-    <para>The Trial Balance query builder includes options for displaying
-    Accounts having a zero balance.</para>
-    <para role="xtprjaccnt">Also included is an option for showing Accounts
-    with a Project Number as the last segment. If the "Show Project Detail"
-    option is not used, balances will roll up into the parent Account
-    total.</para>
-  </note>
-  <variablelist>
-    <varlistentry>
-      <term>Trial Balances</term>
-      <listitem>
-        <para>Display lists Trial Balances based on the specified parameters.
-        A "CR" may display after the following columns: Beg. Bal., Difference,
-        and End. Bal. The "CR" indicates the balance is a Credit balance. If
-        no "CR" appears, then the balance is a Debit balance. Ending balances
-        will display in orange type if either of the following conditions is
-        true: 1) The ending balance has not been forward-updated, or 2) the
-        ending balance has been forward-updated, but the account in question
-        has no activity during the specified Period.</para>
-        <note>
-          <para>Trial Balances will be automatically forward-updated unless
-          your system is configured to manually forward-update Trial Balances.
-          Ending balances cannot be forward-updated into future Periods. For
-          more information see <xref linkend="Section942568" />.</para>
-        </note>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Trial Balances with Zero</term>
-      <listitem>
-        <para>Select to display Trial Balances with a zero balance for the
-        specified Period(s). If not selected, zero-balance Trial Balances will
-        be hidden.</para>
-        <note>
-          <para>If a specific Account is selected using the Selected Account
-          option, the Account will appear regardless of whether the Trial
-          Balance is zero.</para>
-        </note>
-      </listitem>
-    </varlistentry>
-  </variablelist>
 </section>

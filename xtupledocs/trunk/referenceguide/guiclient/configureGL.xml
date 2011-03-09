@@ -113,7 +113,7 @@
               <para>Select if you want all transactions and their full
               transaction detail to be posted in real time to intermediate
               Journals (sometimes also referred to as "day books"). From the
-              Journals, transactions are later posted to the General Ledger?in
+              Journals, transactions are later posted to the General Ledger―in
               summary form. In this way, transaction detail remains in the
               Journals, with the summarized version of that detail residing in
               the General Ledger. You can post Journals to the General Ledger
@@ -121,7 +121,7 @@
               want to implement this feature. Keep in mind that the trial
               balance and other financial reports are based solely on General
               Ledger transactions. This means that Journal transactions are
-              not included in financial reports?that is, until they are posted
+              not included in financial reports―that is, until they are posted
               over to the General Ledger. To learn more about posting Journals
               to the General Ledger, please see <xref
               linkend="postJournals" />.</para>
@@ -130,7 +130,7 @@
                 use the Journal feature (i.e., <literal>PostJournals</literal>
                 and <literal>ViewJournals</literal>). Also be sure to log
                 out/log in to ensure all new menu actions associated with the
-                Journals become available. </para>
+                Journals become available.</para>
               </tip>
             </listitem>
           </varlistentry>
@@ -271,11 +271,12 @@
               Currency losses arising from fluctuating Exchange Rates.
               Currency gains/losses may be recognized at the following points:
               1) When posting a Cash Receipt applied to an Invoice; 2) when
-              posting a Payables Check applied to a Voucher; 3) when applying a
-              Receivable Misc. Credit Memo to an Invoice; and 4) when applying a Payables
-              Misc. Credit Memo to a Voucher. In each case, the gain or loss
-              arises when the Exchange Rate used for the Apply-To document
-              differs from the Exchange Rate used for the application.</para>
+              posting a Payables Check applied to a Voucher; 3) when applying
+              a Receivable Misc. Credit Memo to an Invoice; and 4) when
+              applying a Payables Misc. Credit Memo to a Voucher. In each
+              case, the gain or loss arises when the Exchange Rate used for
+              the Apply-To document differs from the Exchange Rate used for
+              the application.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -303,16 +304,16 @@
       <caption><para>Configure Accounts Payable</para></caption>
     </mediaobject>
   </screenshot>
-  <para>When configuring the Accounting module, you are presented with the following
-  options:</para>
+  <para>When configuring the Accounting module, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Next Accounts Payable Memo #</term>
       <listitem>
         <para>The next sequentially available Accounts Payable Memo Number
         will display here. You may change the number&mdash;creating a new
-        basis for the next Payables Memo Number&mdash;by typing the new number into
-        this field.</para>
+        basis for the next Payables Memo Number&mdash;by typing the new number
+        into this field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -451,8 +452,8 @@
       <listitem>
         <para>The next sequentially available Accounts Receivable Memo Number
         will display here. You may change the number&mdash;creating a new
-        basis for the next Receivables Memo Number&mdash;by typing the new number into
-        this field.</para>
+        basis for the next Receivables Memo Number&mdash;by typing the new
+        number into this field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -469,20 +470,22 @@
       <listitem>
         <para>Select if you want to hide the APPLY TO BALANCE button on the
         "Enter Cash Receipt" screen. If this option is selected, users will be
-        required to apply Cash Receipts manually to individual open Receivables.</para>
+        required to apply Cash Receipts manually to individual open
+        Receivables.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Enable Customer Deposits</term>
       <listitem>
         <para>Select if you want unapplied Cash Receipts from Customers to be
-        handled by a Deferred Revenue Account. If selected, the Receivables Account
-        Assignments screen will include a Deferred Revenue Account option. Not
-        selecting this option will hide the Deferred Revenue Account option on
-        the Receivables Account assignments screen. Also hidden will be Customer
-        Deposit options on the Cash Receipts screen. If the Deferred Revenue
-        approach is not being used, then unapplied Cash Receipts will be
-        handled by the Asset Account for the specified Bank Account.</para>
+        handled by a Deferred Revenue Account. If selected, the Receivables
+        Account Assignments screen will include a Deferred Revenue Account
+        option. Not selecting this option will hide the Deferred Revenue
+        Account option on the Receivables Account assignments screen. Also
+        hidden will be Customer Deposit options on the Cash Receipts screen.
+        If the Deferred Revenue approach is not being used, then unapplied
+        Cash Receipts will be handled by the Asset Account for the specified
+        Bank Account.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -500,10 +503,10 @@
       <term>Credit Warn Customers when Late</term>
       <listitem>
         <para>Select to globally enable the ability to place Customers on
-        credit warning when the due dates on their open Receivables become late
-        past the specified grace period. If this option is selected, you will
-        have the ability to run a utility called "Update Late Customer Credit
-        Status" described here: <xref
+        credit warning when the due dates on their open Receivables become
+        late past the specified grace period. If this option is selected, you
+        will have the ability to run a utility called "Update Late Customer
+        Credit Status" described here: <xref
         linkend="UpdateLateCustomerCreditStatus" />. When run, this utility
         will review all late open Receivables for all Customers. Any Customers
         found to have late items falling outside the grace period will be
@@ -513,11 +516,12 @@
           <varlistentry>
             <term>Default Grace Period Days</term>
             <listitem>
-              <para>Specify the standard number of days beyond the open Receivables
-              due date which will serve as a grace period. As long as Receivable             due dates are within the grace period, Customers will not
-              be put on credit warning when the late status utility is run.
-              Once outside the grace period, they will be placed on credit
-              warning.</para>
+              <para>Specify the standard number of days beyond the open
+              Receivables due date which will serve as a grace period. As long
+              as Receivable due dates are within the grace period, Customers
+              will not be put on credit warning when the late status utility
+              is run. Once outside the grace period, they will be placed on
+              credit warning.</para>
             </listitem>
           </varlistentry>
         </variablelist>

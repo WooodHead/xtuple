@@ -31,13 +31,20 @@
     </listitem>
     <listitem>
       <para>Among its many features, the G/L Transactions query builder
-      includes options for displaying "deleted" transactions.</para>
+      includes an option to display "deleted" transactions.</para>
     </listitem>
     <listitem>
-      <para>If you have Project Accounting enabled, there is a search
-      parameter designed to show Accounts with a Project Number as the last
-      segment. If the "Show Project Detail" option is not used, balances will
-      roll up into the parent Account total.</para>
+      <para>The total quantity of G/L transactions will be greatly reduced if
+      your site is configured to post transactions to an intermediate Journal
+      before they are posted to the G/L. To learn more about this
+      configuration option, please see <xref linkend="Section942568" />.
+      </para>
+    </listitem>
+    <listitem>
+      <para>When Project Accounting enabled, there is a search parameter
+      designed to show Accounts with a Project Number as the last segment. If
+      the "Show Project Detail" option is not used, balances will roll up into
+      the parent Account total.</para>
     </listitem>
   </itemizedlist>
   <para>The following screenshot shows the "G/L Transactions" screen:</para>
