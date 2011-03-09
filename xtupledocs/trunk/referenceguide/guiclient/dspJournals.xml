@@ -10,9 +10,49 @@
       <primary>transactions</primary>
       <secondary>viewing in journals</secondary>
     </indexterm>Journals</title>
-  <para>To view Journal transactions on systems configured to post
-  transactions to intermediate Journals, select the "Journals" option. The
-  following screen will appear:</para>
+  <para>If your site is configured to post transactions to an intermediate
+  Journal instead of directly to the General Ledger, this Journals screen will
+  be visible to you. To learn more about this configuration option, please see
+  <xref linkend="Section942568" />. When Journals are in use, all transactions
+  and their full transaction detail are posted in real time to intermediate
+  Journals (sometimes also referred to as "day books"). From the Journals,
+  transactions are later posted to the General Ledger―in summary form. In this
+  way, transaction detail remains in the Journals, with the summarized version
+  of that detail residing in the General Ledger. </para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use the right-click menu to drill down into the details of
+      individual transactions.</para>
+    </listitem>
+    <listitem>
+      <para>If your transaction records are displaying a "No" value in the
+      "Posted" column, this means the transactions have not yet been posted to
+      the General Ledger. Until they are posted to the General Ledger, Journal
+      transactions will not appear in the Trial Balance or other financial
+      reports.</para>
+    </listitem>
+    <listitem>
+      <para>You can post Journals to the General Ledger on a daily, monthly,
+      or weekly basis. It's up to you how you want to implement this
+      feature.</para>
+    </listitem>
+    <listitem>
+      <para>Keep in mind that the trial balance and other financial reports
+      are based solely on General Ledger transactions. This means that Journal
+      transactions are not included in financial reports―that is, until they
+      are posted over to the General Ledger. To learn more about posting
+      Journals to the General Ledger, please see <xref
+      linkend="postJournals" />.</para>
+    </listitem>
+    <listitem>
+      <para>When Project Accounting enabled, there is a search parameter
+      designed to show Accounts with a Project Number as the last segment. If
+      the "Show Project Detail" option is not used, balances will roll up into
+      the parent Account total.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Journals" screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -21,33 +61,9 @@
         <caption>Journals</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying Journal transactions, you are presented with the
-  following options:</para>
-  <note>
-    <para>The system-defined default filter on the Journals screen shows all
-    transactions for the current day.</para>
-  </note>
+  <para>The default filter on the Journals screen shows all transactions for
+  the current day. You can build your own search criteria using the following
+  options:</para>
   <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <para role="xtprjaccnt"><note>
-      <para>Among its many features, the Journals query builder includes an
-      option for showing Accounts with a Project Number as the last segment.
-      If the "Show Project Detail" option is not used, balances will roll up
-      into the parent Account total.</para>
-    </note></para>
-  <variablelist>
-    <varlistentry>
-      <term>Transactions</term>
-      <listitem>
-        <para>Display lists Journals based on the specified parameters.</para>
-        <tip>
-          <para>If your transaction records are displaying a "No" value in the
-          "Posted" column, this means the transactions have not yet been
-          posted to the General Ledger. Until they are posted to the General
-          Ledger, Journal transactions will not appear in the Trial Balance or
-          other financial reports.</para>
-        </tip>
-      </listitem>
-    </varlistentry>
-  </variablelist>
 </section>
