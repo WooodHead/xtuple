@@ -201,17 +201,17 @@ function openWindowMfgHist()
   // Determine which window to open
   if (_groupByMfgHist == "classcode")
   {
-    ui = "dspInventoryHistoryByParameterList";
+    ui = "dspInventoryHistory";
     params.classcode_id = _mfgHist.id();
   }
   else if (_groupByMfgHist == "item")
   {
-    ui = "dspInventoryHistoryByItem";
+    ui = "dspInventoryHistory";
     params.item_id = _mfgHist.id();
   }
   else if (_groupByMfgHist == "plancode")
   {
-    ui = "dspInventoryHistoryByParameterList";
+    ui = "dspInventoryHistory";
     params.plancode_id = _mfgHist.id();
   }
   params.transtype = "R";
@@ -220,11 +220,6 @@ function openWindowMfgHist()
 
   // Open the window and perform any special handling required
   toolbox.openWindow(ui);
-  var warehouse = toolbox.lastWindow().findChild("_warehouse");
-  warehouse.setAll();
-  var dates = toolbox.lastWindow().findChild("_dates");
-  dates.setStartDate(params.startDate);
-  dates.setEndDate(params.endDate);
   toolbox.lastWindow().set(params);
 }
 
