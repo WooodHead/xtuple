@@ -31,11 +31,13 @@ BEGIN
   FROM bomitem, item
   WHERE ((bomitem_item_id=pItemid)
     AND (bomitem_parent_item_id=item_id)
+    AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1))
     AND (bomitem_rev_id=getActiveRevId('BOM',bomitem_parent_item_id)));
 
   WHILE ( ( SELECT count(*)
             FROM bomwork
-            WHERE ((bomwork_status='U')
+            WHERE ((bomwork_item_type IN ('M', 'F', 'K', 'T'))
+              AND (bomwork_status='U')
               AND (bomwork_set_id=_indexid)) ) > 0) LOOP
 
     _level := _level + 1;
@@ -51,8 +53,8 @@ BEGIN
     SELECT _indexid, bomwork_id,
            _level, bomitem_seqnumber,
            item_id, item_type, bomitem_createwo,
-           itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyfxd),
-           itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper),
+           (bomwork_qtyper * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyfxd)),
+           (bomwork_qtyper * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper)),
            bomitem_scrap, bomitem_issuemethod,
            CASE WHEN bomitem_effective < bomwork_effective THEN
              bomwork_effective
@@ -63,8 +65,8 @@ BEGIN
            'N',
            stdcost(item_id), actcost(item_id)
     FROM bomwork JOIN bomitem ON ( (bomitem_item_id=bomwork_item_id)
-                               AND (bomitem_rev_id=getActiveRevId('BOM',bomitem_parent_item_id))
-                               AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1)) )
+                               AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1))
+                               AND (bomitem_rev_id=getActiveRevId('BOM',bomitem_parent_item_id)) )
                  JOIN item ON (item_id=bomitem_parent_item_id)
     WHERE (bomwork_status='U');
 
