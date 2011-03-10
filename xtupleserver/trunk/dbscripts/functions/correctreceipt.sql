@@ -75,7 +75,8 @@ BEGIN
 
 	UPDATE recv
 	SET recv_qty=pQty,
-	    recv_value=(recv_value + ROUND(_o.unitprice_base * _qty, 2))
+	    recv_value=(recv_value + ROUND(_o.unitprice_base * _qty, 2)),
+            recv_date = pEffective
 	WHERE (recv_id=precvid);
 
       ELSE
@@ -100,12 +101,14 @@ BEGIN
         IF(_r.itemsite_costmethod='A') THEN
 	  UPDATE recv
 	     SET recv_qty=pQty,
-	         recv_value=(recv_value + _o.unitprice_base * _qty * _o.orderitem_qty_invuomratio)
+	         recv_value=(recv_value + _o.unitprice_base * _qty * _o.orderitem_qty_invuomratio),
+                 recv_date = pEffective
 	   WHERE(recv_id=precvid);
         ELSE
 	  UPDATE recv
 	     SET recv_qty=pQty,
-	         recv_value=(recv_value + stdcost(_r.itemsite_item_id) * _qty * _o.orderitem_qty_invuomratio)
+	         recv_value=(recv_value + stdcost(_r.itemsite_item_id) * _qty * _o.orderitem_qty_invuomratio),
+                 recv_date = pEffective
 	   WHERE(recv_id=precvid);
         END IF;
 
