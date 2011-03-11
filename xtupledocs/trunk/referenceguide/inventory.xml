@@ -312,35 +312,15 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section>
-      <title>Inventory History</title>
-      <para>Inventory history Reports section.</para>
-      <xi:include href="guiclient/dspInventoryHistoryByClassCode.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspInventoryHistoryByClassCode.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspInventoryHistoryByOrderNumber.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspInventoryHistoryByItemGroup.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspInventoryHistoryByItem.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
-    <section>
-      <title>Detailed Inventory History</title>
-      <para>Detailed Inventory history Reports section.</para>
-      <xi:include href="guiclient/dspDetailedInventoryHistoryByLocation.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspDetailedInventoryHistoryByLotSerial.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
+    <xi:include href="guiclient/dspInventoryHistory.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/dspDetailedInventoryHistoryByLocation.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/dspDetailedInventoryHistoryByLotSerial.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
       <title>Usage Statistics</title>
       <para>Usage statistics Reports section.</para>
