@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520050">
+  <title><indexterm significance="normal">
+      <primary>quantity on hand</primary>
+      <secondary>reporting by</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>QOH</primary>
+      <see>quantity on hand</see>
+    </indexterm>Quantities on Hand</title>
+  <para>The "Quantities on Hand" screen provides up-to-date QOH information,
+  as well as information about Inventory values by Item Site. This is a
+  particularly useful screen for anyone who manages physical Inventory. From
+  the right-click menu, you can transfer and adjust quantities―or enter Count
+  Tags and miscellaneous physical counts. The columns in the screen also
+  provide detailed Item Site information, including Location details, reorder
+  levels, and more.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Don't confuse QOH with Availability. You may be showing a certain
+      QOH, but because of order commitments the actual available quantity may
+      be different.</para>
+    </listitem>
+    <listitem>
+      <para>If the "Show Inventory Value" box is selected, the display will
+      also show unit Cost, value, and non-netable value. Totals for each
+      column will be calculated at the bottom of the display. It is not
+      currently possible to view Inventory value at a point in time in the
+      past.</para>
+    </listitem>
+    <listitem>
+      <para>When a Quantity on Hand value displays in the color orange, this
+      means the actual or projected Quantity on Hand is at or below the
+      Reorder Level. When the color is red, the current or projected Quantity
+      on Hand is below 0.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Quantities on Hand" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspQOH.png" />
+        </imageobject>
+        <caption>Quantities on Hand</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The following options on this screen are a supplement to the choices
+  available under the search filter:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Show All Quantities</term>
+      <listitem>
+        <para>Select to show all Quantities on Hand in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Only Show Positive QOHs</term>
+      <listitem>
+        <para>Select to show only Inventory with a positive Quantity on Hand
+        in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Only Show Negative QOHs</term>
+      <listitem>
+        <para>Select to show only Inventory with a negative Quantity on Hand
+        in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Inventory Value</term>
+      <listitem>
+        <para>Select to include the Inventory value of Quantities on Hand by
+        Class Code in the display. Once selected, specify one of the following
+        costing options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use Posted Costs</term>
+            <listitem>
+              <para>Select to show Inventory value based on the costing method
+              defined for the Item Site. Item Sites may use the following
+              costing methods, depending on the Item Type: Standard, Average,
+              Job (i.e., Job Items), and None (i.e., Reference Items and any
+              Items having a control method = None).</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Standard Costs</term>
+            <listitem>
+              <para>Select to show Inventory value based on Standard
+              Costs.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Actual Costs</term>
+            <listitem>
+              <para>Select to show Inventory value based on Actual
+              Costs.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The default filter on the "Quantities on Hand" screen shows quantities
+  for all Items. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

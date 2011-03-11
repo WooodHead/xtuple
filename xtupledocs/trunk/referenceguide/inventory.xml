@@ -280,20 +280,10 @@
     <xi:include href="guiclient/dspValidLocationsByItem.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section>
-      <title>Quantities on Hand</title>
-      <para>Quantities on Hand Reports section.</para>
-      <xi:include href="guiclient/dspQOHByClassCode.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspQOHByItemGroup.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspQOHByLocation.xml" xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspQOHByItem.xml" xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
+    <xi:include href="guiclient/dspQOH.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/dspQOHByLocation.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/dspInventoryLocator.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
