@@ -14,8 +14,46 @@
   availability for all of your Inventory Items. And with the right-click menu
   you can easily drill down to research the specific details underlying the
   summary information shown here.</para>
-  <para></para>
-  <para></para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>If you don't see the orders or other information you are looking
+      for, make sure to check your "As of" date setting. If orders or activity
+      don't fall within the specified "As of" time frame, then you won't see
+      this information displayed on the screen.</para>
+    </listitem>
+    <listitem>
+      <para>When Planned Availability displays in the color orange, this means
+      the actual or projected Quantity on Hand is at or below the Reorder
+      Level. When the color is red, the current or projected Quantity on Hand
+      is below 0.</para>
+    </listitem>
+    <listitem>
+      <para>When quantity appears in the "On Order" column, this refers to
+      quantity that is on order through either a Work Order or Purchase Order.
+      In the case of Purchase Orders, the quantity will always be represented
+      in the Inventory Unit of Measure (UOM)&mdash;regardless of the Vendor
+      UOM used on the Purchase Order.</para>
+    </listitem>
+    <listitem>
+      <para>The right-click menu is context-sensitive within each row of
+      information. If a right-click option is unavailable, that means there is
+      no detailed information to view for that column during the specified
+      time frame.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Inventory Availability"
+  screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspInventoryAvailability.png" />
+        </imageobject>
+        <caption>Inventory Availability</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The following options on this screen are a supplement to the choices
+  available under the search filter:</para>
   <variablelist>
     <varlistentry>
       <term>As of</term>
@@ -71,42 +109,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
-  <para>Here are some tips for using this screen:</para>
-  <itemizedlist>
-    <listitem>
-      <para></para>
-    </listitem>
-    <listitem>
-      <para></para>
-    </listitem>
-    <listitem>
-      <para>If Planned Availability displays in the color orange, this means
-      the actual or projected Quantity on Hand is at or below the Reorder
-      Level. If the color is red, the current or projected Quantity on Hand is
-      below 0.</para>
-    </listitem>
-    <listitem>
-      <para>When quantity appears in the "On Order" column, this refers to
-      quantity that is on order through either a Work Order or Purchase Order.
-      In the case of Purchase Orders, the quantity will always be represented
-      in the Inventory Unit of Measure (UOM)&mdash;regardless of the Vendor
-      UOM used on the Purchase Order.</para>
-    </listitem>
-  </itemizedlist>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para>The following screenshot shows the "Inventory Availability"
-  screen:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/dspInventoryAvailability.png" />
-        </imageobject>
-        <caption>Inventory Availability</caption>
-      </mediaobject>
-    </screenshot></para>
   <para>The default filter on the "Inventory Availability" screen shows
   availability for all Items based on their Item Site lead times. You can
   build your own search criteria using the following options:</para>
