@@ -261,22 +261,6 @@
   <section id="Section519902">
     <title>Reports</title>
     <para>Inventory Reports section.</para>
-    <section>
-      <title>Item Sites</title>
-      <para>Item Site Reports section.</para>
-      <xi:include href="guiclient/dspItemSitesByPlannerCode.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspItemSitesByCostCategory.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspItemSitesByClassCode.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspItemSitesByItem.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
     <xi:include href="guiclient/dspValidLocationsByItem.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />

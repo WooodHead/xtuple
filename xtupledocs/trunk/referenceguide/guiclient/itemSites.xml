@@ -7,39 +7,35 @@
       <primary>item sites</primary>
       <secondary>master list of</secondary>
     </indexterm>Item Sites</title>
-  <para>To access the master list of Item Sites in your system, select the
-  "List Item Sites" option. The "following screen will appear:</para>
+  <para>The "Item Site" screen lists all your company's Item Sites. An Item
+  Site is used to identify and define the methods and controls used when
+  maintaining a given Item within a given Site. In addition to provide the
+  complete list of Item Sites, this screen can also be used to build detailed
+  Item Site reports. Use the search filter options to sort the Item Sites into
+  categories you want to look at.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Be sure to enable the full range of column headers on the screen
+      so you will have the maximum detail when building Item Site reports with
+      the search filter.</para>
+    </listitem>
+    <listitem>
+      <para>Sort the information by clicking on the column header you want to
+      sort by.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Item Sites" screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/itemSites.png" />
         </imageobject>
-        <caption>Item Sites Master List</caption>
+        <caption>Item Sites</caption>
       </mediaobject>
     </screenshot></para>
-  <para>At the top of the screen is a "Search for" field. To search for an
-  Item Site, begin typing in the search field. As you type, the Item Site list
-  will automatically scroll toward the Item Number you are typing. You can
-  also search for Item Sites manually by scrolling through the list. The
-  following views are also available:</para>
-  <variablelist>
-    <varlistentry role="standard">
-      <term>All Sites</term>
-      <listitem>
-        <para>Select to display a list of all Item Sites for all Sites.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Selected</term>
-      <listitem>
-        <para>Specify Site whose Item Sites you want to display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Inactive Item Sites</term>
-      <listitem>
-        <para>Select to display active as well as inactive Item Sites.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para>The default filter on the "Item Sites" screen shows all Item Sites.
+  You can build your own search criteria using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
