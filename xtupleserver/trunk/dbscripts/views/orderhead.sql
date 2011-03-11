@@ -1,4 +1,3 @@
--- another view of of the same name but fewer UNIONs exists in xtupleserver
 
 SELECT dropIfExists('view', 'orderhead');
 CREATE VIEW orderhead AS
@@ -20,8 +19,7 @@ CREATE VIEW orderhead AS
 	 pohead_shipvia		AS orderhead_shipvia
   FROM pohead LEFT OUTER JOIN vendinfo ON (pohead_vend_id=vend_id)
   UNION ALL
-  SELECT DISTINCT ON (cohead_id)
-         cohead_id		AS orderhead_id,
+  SELECT cohead_id		AS orderhead_id,
 	 'SO'::text		AS orderhead_type,
   	 cohead_number		AS orderhead_number,
 	 cohead_status		AS orderhead_status,
@@ -40,7 +38,7 @@ CREATE VIEW orderhead AS
 	 cohead_curr_id		AS orderhead_curr_id,
 	 ''::text		AS orderhead_agent_username,
 	 cohead_shipvia		AS orderhead_shipvia
-  FROM cohead
+  FROM cohead) AS data;
 
 REVOKE ALL ON TABLE orderhead FROM PUBLIC;
 GRANT  ALL ON TABLE orderhead TO GROUP xtrole;
