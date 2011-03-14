@@ -6,29 +6,47 @@
   <title><indexterm significance="normal">
       <primary>item sources</primary>
       <secondary>master list of</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>item sources</primary>
+      <secondary>reporting for</secondary>
     </indexterm>List Item Sources</title>
-  <para>To access the master list of Item Sources, select the "List Item
-  Sources" option. The following screen will appear:</para>
+  <para>The "Item Sources" screen lists all your company's Item Sources. An
+  Item Source makes the link between an Item you stock and the Vendor who
+  sells it to you. You must define Item Sources to take advantage of many of
+  xTuple's purchasing features―including Purchase Requests, Drop Shipping, and
+  releasing Planned Orders from the Schedule Module. In addition to providing
+  the complete list of Item Sources, this screen can also be used to build
+  detailed Item Source reports. Use the search filter options to sort the
+  information into Item Source categories you want to look at.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use the right-click menu to edit an Item Source in the
+      list.</para>
+    </listitem>
+    <listitem>
+      <para>Don't confuse Item Sites and Item Sources. An Item Site links an
+      Item to the Site where it is located in your Inventory. Item Sources, on
+      the other hand, define the relationship between your Items and the
+      Vendor who sells them to you.</para>
+    </listitem>
+    <listitem>
+      <para>The search filter allows you to group Item Sources by Item or
+      Vendor.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Item Sources" screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/itemSources.png" />
         </imageobject>
-        <caption>Item Sources Master List</caption>
+        <caption>Item Sources</caption>
       </mediaobject>
     </screenshot></para>
-  <para>At the top of the screen is a "Search for" field. To search for an
-  Item Source, begin typing in the search field. As you type, the Item Source
-  list will automatically scroll toward the Item Source you are typing. You
-  can also search for Item Sources manually by scrolling through the list. You
-  have the option of applying the following filter when searching for Item
-  Sources:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Show Inactive Item Sources</term>
-      <listitem>
-        <para>Select to include inactive Item Sources in the list.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para>The default filter on the "Item Sources" screen shows all active Item
+  Sources. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

@@ -175,19 +175,8 @@
   <section id="Section518907">
     <title>Reports</title>
     <para>Purchase Reports section.</para>
-    <xi:include href="guiclient/dspItemSitesByPlannerCode.xml"
-                xpointer="element(/1)"
+    <xi:include href="guiclient/ItemSites.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section>
-      <title>Item Sources</title>
-      <para>Item Sources Reports section.</para>
-      <xi:include href="guiclient/dspItemSourcesByVendor.xml"
-                  xpointer="element(Section954960)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspItemSourcesByItem.xml"
-                  xpointer="element(Section518921)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
     <xi:include href="guiclient/buyCard.xml" xpointer="element(Section921353)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
