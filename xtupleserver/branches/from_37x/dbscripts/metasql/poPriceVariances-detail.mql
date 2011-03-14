@@ -1,6 +1,6 @@
 -- Group: poPriceVariances
 -- Name:  detail
--- Notes: 
+-- Notes: poPriveVariances detail metasql
 SELECT *
 <? if exists("includeFormatted") ?>,
   formatDate(distdate)        AS f_date,
