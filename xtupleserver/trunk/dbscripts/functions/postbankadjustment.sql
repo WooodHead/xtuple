@@ -1,6 +1,5 @@
 
-CREATE OR REPLACE FUNCTION postBankAdjustment(INTEGER) RETURNS INTEGER
-    AS '
+CREATE OR REPLACE FUNCTION postBankAdjustment(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pBankadjid ALIAS FOR $1;
   _sequence INTEGER;
@@ -9,14 +8,15 @@ DECLARE
 BEGIN
 
 --  Post the G/L transaction
-  SELECT insertGLTransaction( ''G/L'', ''AD'',
+  SELECT insertGLTransaction( fetchJournalNumber('GL-MISC'), 'G/L', 'AD',
                               bankadj_docnumber, bankadjtype_name,
                               bankadjtype_accnt_id, bankaccnt_accnt_id, bankadj_id,
                               round(currToBase(bankaccnt_curr_id,
                                          CASE WHEN(bankadjtype_iscredit) THEN
                                              (bankadj_amount * -1)
                                          ELSE bankadj_amount END,
-                                         bankadj_date), 2), bankadj_date ) INTO _sequence
+                                         bankadj_date), 2),
+                              bankadj_date, TRUE, TRUE ) INTO _sequence
     FROM bankadj, bankaccnt, bankadjtype
    WHERE ( (bankadj_bankaccnt_id=bankaccnt_id)
      AND   (bankadj_bankadjtype_id=bankadjtype_id)
@@ -37,5 +37,5 @@ BEGIN
   RETURN _sequence;
 
 END;
-' LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql;
 
