@@ -7,9 +7,31 @@
       <primary>items</primary>
       <secondary>master list of</secondary>
     </indexterm>List Items</title>
-  <para>The Items master list provides a complete list of Items in Inventory.
-  To access the master list of Items, select the "List Items" option. The
-  following screen will appear:</para>
+  <para>The "Items" screen lists all your company's Items. In addition to
+  providing the complete Items list, this screen can also be used to build
+  detailed Item reports. Use the search filter options to sort the information
+  into Item categories you want to look at.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Be sure to enable the full range of column headers on the screen
+      so you will have the maximum detail when building Item reports with the
+      search filter.</para>
+    </listitem>
+    <listitem>
+      <para>Sort the information by clicking on the column header you want to
+      sort by.</para>
+    </listitem>
+    <listitem>
+      <para>The search filter supports reporting by individual
+      Characteristics.</para>
+    </listitem>
+    <listitem>
+      <para>To show inactive Items, select the search filter option for
+      that.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Items" screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -18,45 +40,8 @@
         <caption>Items Master List</caption>
       </mediaobject>
     </screenshot></para>
-  <para>At the top of the screen is a "Search for" field. To search for an
-  Item, begin typing in the search field. As you type, the Item list will
-  automatically scroll toward the Item Number you are typing. You can also
-  search for Items manually by scrolling through the list. Apply any
-  combination of the following filters when searching for Items:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Show Item Types</term>
-      <listitem>
-        <para>Select to display a list of all Items.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Buy Items</term>
-      <listitem>
-        <para>Select to display a list of all purchased and outside process
-        items.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Make Items</term>
-      <listitem>
-        <para>Select to display a list of all manufactured, breeder,
-        co-product, by-product, job, and kit Items.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Sold Items</term>
-      <listitem>
-        <para>Select to display a list of all sold Items.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Inactive Items</term>
-      <listitem>
-        <para>Select to show inactive Items as well as active Items, using the
-        parameters specified above. By default, inactive Items are not
-        displayed.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para>The default filter on the "Item" screen shows all active Items. You
+  can build your own search criteria using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
