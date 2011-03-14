@@ -9,19 +9,6 @@
     <title>Reports</title>
     <para>Product Reports section.</para>
     <section>
-      <title>Items</title>
-      <para>Item Reports section.</para>
-      <xi:include href="guiclient/dspItemsByProductCategory.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspItemsByClassCode.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspItemsByCharacteristic.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
-    <section>
       <title>Bills of Materials</title>
       <para>Bills of Materials Reports section.</para>
       <xi:include href="guiclient/dspSingleLevelBOM.xml"
