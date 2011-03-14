@@ -1,0 +1,70 @@
+-- Group: incidents 
+-- Name: detail
+-- Notes:
+
+SELECT incdt_id,
+incdt_number, DATE(incdt_timestamp) AS incdt_timestamp,
+crmacct_name, incdt_owner_username,  
+incdtcat_name, incdtseverity_name,  
+incdtpriority_name, crmacct_name, 
+CASE WHEN(incdt_status='N') THEN <? value("new") ?>
+WHEN(incdt_status='F') THEN <? value("feedback") ?>
+WHEN(incdt_status='C') THEN <? value("confirmed") ?>
+WHEN(incdt_status='A') THEN <? value("assigned") ?>
+WHEN(incdt_status='R') THEN <? value("resolved") ?>
+WHEN(incdt_status='L') THEN <? value("closed") ?>
+ELSE incdt_status
+END,
+incdt_assigned_username, incdt_owner_username,
+incdt_summary, cntct_name, incdt_updated::date AS incdt_updated,
+status_color AS qtbackgroundrole 
+FROM crmacct, status, incdt
+  JOIN cntct ON (incdt_cntct_id=cntct_id)
+  LEFT OUTER JOIN incdtcat ON (incdtcat_id=incdt_incdtcat_id) 
+  LEFT OUTER JOIN incdtseverity ON (incdtseverity_id=incdt_incdtseverity_id) 
+  LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=incdt_incdtpriority_id) 
+WHERE ((incdt_crmacct_id=crmacct_id)
+AND (status_type='INCDT')
+AND (incdt_status=status_code)
+<? if exists("status_equal") ?> 
+AND (status_seq = <? value("status_equal") ?>) 
+<? endif ?>
+<? if exists("status_above") ?> 
+AND (status_seq < <? value("status_above") ?>) 
+<? endif ?>
+<? if exists("cntct_id") ?> 
+AND (incdt_cntct_id = <? value("cntct_id") ?>) 
+<? endif ?>
+<? if exists("owner_username") ?> 
+AND (incdt_owner_username=<? value("owner_username") ?>) 
+<? elseif exists("owner_usr_pattern" ?>
+AND (incdt_owner_username ~ <? value("owner_usr_pattern") ?>) 
+<? endif ?>
+<? if exists("assigned_username") ?> 
+AND (incdt_assigned_username=<? value("assigned_username") ?>) 
+<? elseif exists("assigned_usr_pattern" ?>
+AND (incdt_assigned_username ~ <? value("assigned_usr_pattern") ?>) 
+<? endif ?>
+<? if exists("category_id") ?> 
+AND (incdt_incdtcat_id=<? value("category_id") ?>) 
+<? endif ?> 
+<? if exists("severity_id") ?> 
+AND (incdt_incdtseverity_id=<? value("severity_id") ?>) 
+<? endif ?>
+<? if exists("crmAccountId") ?> 
+AND (incdt_crmacct_id=<? value("crmAccountId") ?>) 
+<? endif ?> 
+)
+ 
+<? if exists("pattern") ?> 
+AND ((incdt_number::text ~* <? value("pattern") ?>)
+OR (incdt_summary ~* <? value("pattern") ?>)
+OR (incdt_descrip ~* <? value("pattern") ?>)
+OR (incdt_id IN (SELECT comment_source_id
+FROM comment
+WHERE((comment_source='INCDT')
+AND (comment_text ~* <? value("pattern") ?>)))))
+<? endif ?>
+AND (incdt_timestamp BETWEEN <? value("startDate") ?> 
+AND <? value("endDate")?> ) 
+ORDER BY incdt_number;
