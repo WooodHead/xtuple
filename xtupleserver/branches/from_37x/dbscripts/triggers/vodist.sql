@@ -1,3 +1,4 @@
+
 CREATE OR REPLACE FUNCTION _vodistBeforeTrigger() RETURNS "trigger" AS $$
 DECLARE
 
@@ -84,3 +85,4 @@ CREATE TRIGGER vodistAfterTrigger
   ON vodist
   FOR EACH ROW
   EXECUTE PROCEDURE _vodistAfterTrigger();
+

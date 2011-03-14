@@ -28,7 +28,7 @@ CREATE OR REPLACE VIEW ipsprice AS
          item_price_uom_id AS ipsprice_uomprice_uom_id,
          ipsprodcat_discntprcnt AS ipsprice_discountpercent,
          ipsprodcat_fixedamtdiscount AS ipsprice_discountfixed
-         
+
     FROM ipsprodcat JOIN item ON (ipsprodcat_prodcat_id=item_prodcat_id);
 
 REVOKE ALL ON TABLE ipsprice FROM PUBLIC;

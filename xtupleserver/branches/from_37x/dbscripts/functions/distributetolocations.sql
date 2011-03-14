@@ -1,3 +1,4 @@
+
 CREATE OR REPLACE FUNCTION distributeToLocations(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pItemlocdistid ALIAS FOR $1;
