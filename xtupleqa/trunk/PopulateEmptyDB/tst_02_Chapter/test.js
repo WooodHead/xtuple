@@ -6,6 +6,7 @@ function main()
     source(findFile("scripts","functions.js"));
     
     //---login Application--------
+   
     loginAppl("RUNREGISTER"); 
     waitForObject(":OK_QPushButton");
     clickButton(":OK_QPushButton");
@@ -22,8 +23,8 @@ function main()
     }
     
     var appEdition = findApplicationEdition();
-    
-    
+  
+  
     //-----------Chart Of Accounts------------------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -957,9 +958,10 @@ function main()
                 clickButton(":_stack.Friday_QCheckBox");
             if(findObject(":_stack.Saturday_QCheckBox").checked)
                 clickButton(":_stack.Saturday_QCheckBox");
-             waitForObject(":List Employees.Save_QPushButton_2");
-             clickButton(":List Employees.Save_QPushButton_2");
-            
+             waitForObject(":Setup.Apply_QPushButton");
+             clickButton(":Setup.Apply_QPushButton");
+             waitForObject(":Setup.Cancel_QPushButton");
+             clickButton(":Setup.Cancel_QPushButton");                       
             test.log("Site Week created");
         }catch(e){test.fail("Exception in creating Site Week:"+e);}
         

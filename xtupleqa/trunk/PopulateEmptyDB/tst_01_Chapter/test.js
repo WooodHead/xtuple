@@ -157,8 +157,8 @@ function main()
         startApplication("xtuple");
    
     snooze(2);
-  
-    loginAppl("CONFIGURE"); 
+//  
+   loginAppl("CONFIGURE"); 
     waitForObject(":OK_QPushButton");
     clickButton(":OK_QPushButton");
   
