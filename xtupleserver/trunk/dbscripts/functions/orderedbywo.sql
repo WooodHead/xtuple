@@ -49,7 +49,7 @@ BEGIN
         JOIN womatlpost ON (womatl_id=womatlpost_womatl_id)
         JOIN invhist ON ((womatlpost_invhist_id=invhist_id)
                      AND (invhist_invqty < 0))   
-      LEFT OUTER JOIN wooper ON (womatl_wooper_id=wooper_id)
+      LEFT OUTER JOIN xtmfg.wooper ON (womatl_wooper_id=wooper_id)
     WHERE ( NOT (COALESCE(wooper_rncomplete,wo_status = 'C'))
      AND (womatl_itemsite_id=pItemsiteid)
      AND (wo_duedate BETWEEN pStartDate AND pEndDate) )
@@ -57,7 +57,7 @@ BEGIN
    INTO _qty
     FROM wo
       JOIN womatl ON (womatl_wo_id=wo_id)
-      LEFT OUTER JOIN wooper ON (womatl_wooper_id=wooper_id)
+      LEFT OUTER JOIN xtmfg.wooper ON (womatl_wooper_id=wooper_id)
     WHERE ( NOT (COALESCE(wooper_rncomplete,wo_status = 'C'))
      AND (womatl_itemsite_id=pItemsiteid)
      AND (wo_duedate BETWEEN pStartDate AND pEndDate) )
