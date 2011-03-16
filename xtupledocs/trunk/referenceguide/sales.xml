@@ -79,9 +79,9 @@
     <section id="Section655862">
       <title>Credit Memo</title>
       <para>Sales Order Credit Memos are used to issue credit for sold
-      Inventory. They differ from Receivables Credit Memos,
-      which are issued for non-Inventory purposes. In this section we describe
-      the features of sales Credit Memos.</para>
+      Inventory. They differ from Receivables Credit Memos, which are issued
+      for non-Inventory purposes. In this section we describe the features of
+      sales Credit Memos.</para>
       <xi:include href="guiclient/creditMemo.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/unpostedCreditMemos.xml"
@@ -273,19 +273,15 @@
     <xi:include href="guiclient/dspPartiallyShippedOrders.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section>
-      <title>Inventory Availability</title>
-      <para>Inventory Availability Reports section.</para>
-      <xi:include href="guiclient/dspInventoryAvailabilityBySalesOrder.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspInventoryAvailabilityByItem.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspInventoryAvailabilityByCustomerType.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
+    <xi:include href="guiclient/dspInventoryAvailability.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/dspInventoryAvailabilityBySalesOrder.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/dspInventoryAvailabilityByCustomerType.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/dspDepositsRegister.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
