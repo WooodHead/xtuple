@@ -83,10 +83,14 @@ function findApplicationEdition()
     
     waitForObject(":Database Information.*_QLabel");
     var appEdition = findObject(":Database Information.*_QLabel").text;
+    
+    if(object.exists(":_stack.Use toolbars on displays when available_QCheckBox"))
+    {
     waitForObject(":_stack.Use toolbars on displays when available_QCheckBox");
     if(!(findObject(":_stack.Use toolbars on displays when available_QCheckBox").checked))
     clickButton(":_stack.Use toolbars on displays when available_QCheckBox");
-     waitForObject(":xTuple ERP: *_QPushButton");
+    }
+    waitForObject(":xTuple ERP: *_QPushButton");
     clickButton(":xTuple ERP: *_QPushButton");
     test.log("Application Edition: " + appEdition);
     
