@@ -67,6 +67,10 @@ BEGIN
   DELETE FROM prjtask
    WHERE (prjtask_prj_id=pPrjid);
 
+  UPDATE prj
+     SET prj_recurring_prj_id=null
+   WHERE(prj_recurring_prj_id=pPrjid);
+
   DELETE FROM prj
    WHERE (prj_id=pPrjid);
   RETURN pPrjid;
