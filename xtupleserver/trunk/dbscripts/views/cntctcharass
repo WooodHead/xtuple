@@ -1,0 +1,47 @@
+-- Contact Characteristic Assignments
+SELECT dropIfExists('VIEW', 'cntctcharass');
+CREATE VIEW cntctcharass
+AS 
+   SELECT     
+    charass_id,
+    charass_target_id,
+    charass_char_id,
+    charass_value
+   FROM charass
+   WHERE charass_target_type='CNTCT';
+
+GRANT ALL ON TABLE cntctcharass TO xtrole;
+COMMENT ON VIEW cntctcharass IS 'Contact Characteristic Assignments';
+
+--Rules
+
+CREATE OR REPLACE RULE "_INSERT" AS
+    ON INSERT TO cntctcharass DO INSTEAD
+
+  INSERT INTO charass (
+    charass_id,
+    charass_target_type,
+    charass_target_id,
+    charass_char_id,
+    charass_value
+  )
+  VALUES (
+    new.charass_id,
+    'CNTCT',
+    new.charass_target_id,
+    new.charass_char_id,
+    new.charass_value
+  );
+
+CREATE OR REPLACE RULE "_UPDATE" AS
+    ON UPDATE TO cntctcharass DO INSTEAD 
+
+    UPDATE charass SET
+      charass_char_id=new.charass_char_id,
+      charass_value=new.charass_value
+    WHERE charass_id=old.charass_id;
+
+CREATE OR REPLACE RULE "_DELETE" AS
+    ON DELETE TO cntctcharass DO INSTEAD
+
+    DELETE FROM charass WHERE charass_id=old.charass_id;
