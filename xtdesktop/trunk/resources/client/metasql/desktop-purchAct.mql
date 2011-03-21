@@ -25,7 +25,7 @@ SELECT 'U' AS activity, <? value("unreleased") ?> AS activity_qtdisplayrole, 3 A
   COUNT(pohead_id) AS count, COALESCE(sum(amount),0) AS amount, 'curr' AS amount_xtnumericrole
 FROM
   (SELECT pohead_id,
-    SUM(round((noNeg(poitem_qty_ordered - poitem_qty_received + poitem_qty_returned) * poitem_invvenduomratio) *            
+    SUM(round((noNeg(poitem_qty_ordered - poitem_qty_received + poitem_qty_returned)) *            
         currToBase(pohead_curr_id, poitem_unitprice, pohead_orderdate), 2) ) AS amount
      FROM poitem
        JOIN pohead ON (poitem_pohead_id=pohead_id)
@@ -37,7 +37,7 @@ SELECT 'O' AS activity, <? value("open") ?> AS activity_qtdisplayrole, 4 AS seq,
   COUNT(pohead_id) AS count, COALESCE(sum(amount),0) AS amount, 'curr' AS amount_xtnumericrole
 FROM
   (SELECT pohead_id,
-    SUM(round((noNeg(poitem_qty_ordered - poitem_qty_received + poitem_qty_returned) * poitem_invvenduomratio) *            
+    SUM(round((noNeg(poitem_qty_ordered - poitem_qty_received + poitem_qty_returned)) *            
         currToBase(pohead_curr_id, poitem_unitprice, pohead_orderdate), 2) ) AS amount
      FROM poitem
        JOIN pohead ON (poitem_pohead_id=pohead_id)
