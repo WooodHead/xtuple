@@ -102,7 +102,8 @@ FROM (
   <? elseif exists("useActualCosts") ?>
              actcost(item_id) AS cost
   <? else ?>
-             (itemsite_value / CASE WHEN(itemsite_qtyonhand=0) THEN 1 ELSE itemsite_qtyonhand END) AS cost
+             (itemsite_value / CASE WHEN((itemsite_qtyonhand + itemsite_nnqoh)=0) THEN 1
+                                    ELSE (itemsite_qtyonhand + itemsite_nnqoh) END) AS cost
   <? endif ?>
       FROM itemsite, item, warehous, classcode, uom, costcat
       WHERE ((itemsite_item_id=item_id)
