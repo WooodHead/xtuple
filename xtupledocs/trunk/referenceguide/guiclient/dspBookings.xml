@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="dspBookingsBySalesRep">
+  <title><indexterm significance="normal">
+      <primary>bookings</primary>
+      <secondary>reporting for</secondary>
+    </indexterm> Bookings</title>
+  <para>The "Bookings" screen provides information on all open, invoiced, and
+  closed Sales Order Line Items. Here are some tips for using this
+  screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Because bookings represent both active and past Customer demand,
+      Sales Order Line Items that have been deleted before any activity is
+      registered are not considered bookings. </para>
+    </listitem>
+    <listitem>
+      <para>Be sure to enable all the column headers you want to see in order
+      to take full advantage of the data available on this screen.</para>
+    </listitem>
+    <listitem>
+      <para>Isolate the sales information you're looking for by building a
+      custom search filter.</para>
+    </listitem>
+    <listitem>
+      <para>Don't forget to save your custom search filters so you and others
+      in your organization can use them for future searches.</para>
+    </listitem>
+    <listitem>
+      <para>Prices are normalized to the Base Currency using the Currency
+      Exchange Rate effective on the Order Date.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Bookings" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspBookings.png" />
+        </imageobject>
+        <caption>Bookings</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Bookings" screen shows all bookings for the
+  current day. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
