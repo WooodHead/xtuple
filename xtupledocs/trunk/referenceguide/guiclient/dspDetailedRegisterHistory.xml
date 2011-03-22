@@ -3,20 +3,18 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
-  <title>Register History</title>
-  <para>To review information regarding all transactions which took place on a
-  Cash Register (including who conducted the transaction, the start and end
-  balances, and which journal entry they were posted to), select the "Register
+  <title>Detailed Register History</title>
+  <para>To view detailed Cash Register history, select the "Detailed Register
   History" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/dspRegisterHistory.png" />
         </imageobject>
-        <caption>Register History</caption>
+        <caption>Detailed Register History</caption>
       </mediaobject>
-    </screenshot>When reviewing Cash Register history, you are presented with
-  the following options:</para>
+    </screenshot>When reviewing detailed Cash Register history, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry role="standard">
       <term>All Sites</term>
@@ -30,6 +28,20 @@
       <term>Selected</term>
       <listitem>
         <para>Specify Site whose Cash Register history you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Terminals</term>
+      <listitem>
+        <para>Select to display Cash Register history for all
+        Terminals.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Specific Terminal</term>
+      <listitem>
+        <para>Specify Terminal whose Cash Register history you want to
         display.</para>
       </listitem>
     </varlistentry>
@@ -52,10 +64,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Register Posting Detail</term>
+      <term>Results</term>
       <listitem>
-        <para>Display lists Cash Register transaction history, using the
-        specified parameters.</para>
+        <para>Display lists detailed Cash Register transaction history, using
+        the specified parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
