@@ -273,6 +273,10 @@
     <xi:include href="guiclient/dspPartiallyShippedOrders.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section>
+      <title>Reservations by Item</title>
+      <para></para>
+    </section>
     <xi:include href="guiclient/dspInventoryAvailability.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -282,7 +286,9 @@
     <xi:include href="guiclient/dspInventoryAvailabilityByCustomerType.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/dspDepositsRegister.xml"
+    <xi:include href="guiclient/dspRegisterHistory.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/dspDetailedRegisterHistory.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/dspEarnedCommissions.xml"
