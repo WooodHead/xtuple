@@ -3,8 +3,8 @@
 -- Notes: 
 
 SELECT DISTINCT ON (length(cntct_last_name)=0, length(cntct_first_name)=0, cntct_last_name, cntct_first_name, cntct_number) 
-  cntct_id, addr.*,
-  crmacct_id AS id, crmacct_number, crmacct_name,
+  cntct_id AS id, addr_id AS altId, addr.*,
+  crmacct_id, crmacct_number, crmacct_name,
   cntct.* 
 <? foreach("char_id_text_list") ?>
   , charass_alias<? literal("char_id_text_list") ?>.charass_value AS char<? literal("char_id_text_list") ?>
@@ -55,6 +55,9 @@ WHERE true
   OR (addr_country ~* <? value("search_pattern") ?>)
 )
 <? endif ?>
+<? if exists("cntct_id") ?>
+  AND (cntct_id=<? value("cntct_id")?>)
+<? endif ?>
 <? if exists("crmacct_id") ?>
   AND (crmacct_id=<? value("crmacct_id")?>)
 <? endif ?>
@@ -81,6 +84,9 @@ WHERE true
 <? endif ?>
 <? if exists("addr_country_pattern") ?>
   AND (addr_country ~* <? value("addr_country_pattern") ?>)
+<? endif ?>
+<? if exists("id") ?>
+  AND (cntct_id=<? value("id") ?>)
 <? endif ?>
 <? literal("charClause") ?>
 ORDER BY length(cntct_last_name)=0, length(cntct_first_name)=0, cntct_last_name, cntct_first_name, cntct_number, cntcteml_primary desc;
