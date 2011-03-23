@@ -5,43 +5,54 @@
 <section id="Section519100">
   <title><indexterm significance="normal">
       <primary>bookings</primary>
-      <secondary>time-phased by customer</secondary>
-    </indexterm> <indexterm significance="normal">
-      <primary>customers</primary>
-      <secondary>time-phased bookings for</secondary>
-    </indexterm>Time-Phased Bookings by Customer</title>
-  <para>To view time-phased Bookings by Customer, select the "Time-Phased
-  Bookings by Customer" option. The following screen will appear:</para>
+      <secondary>time-phased reporting</secondary>
+    </indexterm> Time-Phased Bookings</title>
+  <para>The "Time-Phased Bookings" screen provides a time-phased perspective
+  on all open, invoiced, and closed Sales Order Line Items. Here are some tips
+  for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>When selecting a Calendar from the list, make sure to also select
+      corresponding periods.</para>
+    </listitem>
+    <listitem>
+      <para>Calendars are defined under the System module setup screen.</para>
+    </listitem>
+    <listitem>
+      <para>Because bookings represent both active and past Customer demand,
+      Sales Order Line Items that have been deleted before any activity is
+      registered are not considered bookings.</para>
+    </listitem>
+    <listitem>
+      <para>Prices are normalized to the Base Currency using the Currency
+      Exchange Rate effective on the Order Date.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Time-Phased Bookings"
+  screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspTimePhasedBookingsByCustomer.png" />
+          <imagedata fileref="images/dspTimePhasedBookings.png" />
         </imageobject>
-        <caption>Time-Phased Bookings by Customer</caption>
+        <caption>Time-Phased Bookings</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying time-phased Bookings by Customer, you are presented
-  with the following options:</para>
+  <para>The following options on this screen are a supplement to the choices
+  available under the search filter:</para>
   <variablelist>
     <varlistentry>
-      <term>All Customer Types</term>
+      <term>Group By</term>
       <listitem>
-        <para>Select to display time-phased Bookings by Customer for all
-        Customer Types.</para>
+        <para>Specify how you want the information grouped: by Customer,
+        Product Category, or Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Selected</term>
+      <term>Units</term>
       <listitem>
-        <para>Specify Customer Type whose time-phased Bookings you want to
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Pattern</term>
-      <listitem>
-        <para>Enter a Customer Type pattern to select a range of Customer
-        Types. Refine your search using Regular Expressions.</para>
+        <para>Specify the units you want to see the results sorted by: Sales
+        Dollars, Inventory, Capacity, Alternate Capacity</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -69,13 +80,10 @@
         selected. The entire group is now selected.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Bookings</term>
-      <listitem>
-        <para>Display lists time-phased Bookings by Customer, using the
-        specified parameters. Prices are normalized to the Base Currency using
-        the Currency Exchange Rate effective on the Order Date.</para>
-      </listitem>
-    </varlistentry>
   </variablelist>
+  <para>The default filter on the "Time-Phased Bookings" screen shows all
+  bookings for the specified Calendar period(s). You can build your own search
+  criteria using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

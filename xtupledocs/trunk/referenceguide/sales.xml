@@ -294,19 +294,9 @@
     <para>Sales Analysis section.</para>
     <xi:include href="guiclient/dspBookings.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section>
-      <title>Time-Phased Bookings</title>
-      <para>Time-Phased Bookings section.</para>
-      <xi:include href="guiclient/dspTimePhasedBookingsByCustomer.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspTimePhasedBookingsByProductCategory.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspTimePhasedBookingsByItem.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
+    <xi:include href="guiclient/dspTimePhasedBookings.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/dspSalesHistory.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
