@@ -76,6 +76,9 @@ FROM (
     AND findPeriodEnd(<? value("period_id_list") ?>)
   <? endif ?>
 <? endforeach ?>)
+<? if exists("item_id") ?> 
+    AND (item_id=<? value("item_id") ?>)
+<? endif ?>
 <? if exists("cust_id") ?> 
     AND (cust_id=<? value("cust_id") ?>)
 <? endif ?>
