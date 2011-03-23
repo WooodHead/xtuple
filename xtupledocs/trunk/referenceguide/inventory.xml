@@ -196,19 +196,8 @@
     <section>
       <title>Reports</title>
       <para>Shipping Reports section.</para>
-      <section>
-        <title>Backlog</title>
-        <para>Backlog Reports section.</para>
-        <xi:include href="guiclient/dspBacklogByItem.xml"
-                    xpointer="element(/1)"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-        <xi:include href="guiclient/dspBacklogByCustomer.xml"
-                    xpointer="element(/1)"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-        <xi:include href="guiclient/dspBacklogByProductCategory.xml"
-                    xpointer="element(/1)"
-                    xmlns:xi="http://www.w3.org/2001/XInclude" />
-      </section>
+      <xi:include href="guiclient/dspBacklog.xml" xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspSummarizedBacklogByWarehouse.xml"
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
