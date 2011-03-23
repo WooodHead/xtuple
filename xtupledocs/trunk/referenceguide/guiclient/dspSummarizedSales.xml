@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518962">
+  <title><indexterm significance="normal">
+      <primary>sales history</primary>
+      <secondary>summarized reporting</secondary>
+    </indexterm> Summarized Sales History</title>
+  <para>The "Summarized Sales History" screen provides several different
+  filters for getting at summarized sales history information. Here are some
+  tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Be sure to enable all the column headers you want to see in order
+      to take full advantage of the data available on this screen.</para>
+    </listitem>
+    <listitem>
+      <para>Isolate the sales information you're looking for by combining the
+      grouping options with the custom search filter options.</para>
+    </listitem>
+    <listitem>
+      <para>Don't forget to save your custom search filters so you and others
+      in your organization can use them for future searches.</para>
+    </listitem>
+    <listitem>
+      <para>Prices are normalized to the Base Currency using the Currency
+      Exchange Rate effective on the Invoice Date.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Summarized Sales History"
+  screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspSummarizedSales.png" />
+        </imageobject>
+        <caption>Summarized Sales History</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The following options on this screen are a supplement to the choices
+  available under the search filter:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Group By</term>
+      <listitem>
+        <para>Specify how you want the information grouped: by Customer, Sales
+        Rep., Customer Type, Shipping Zone, Item, or Site.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Currency</term>
+      <listitem>
+        <para>Specify the Currency you want to see the results in: base
+        Currency or the local Currency from the original Sales Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The default filter on the "Summarized Sales History" screen shows all
+  transactions for the current day. You can build your own search criteria
+  using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
