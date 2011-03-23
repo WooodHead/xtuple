@@ -2,18 +2,18 @@
 <!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section528735">
+<section id="Section547373">
   <title><indexterm significance="normal">
       <primary>sales history</primary>
-      <secondary>reporting on</secondary>
-    </indexterm> Sales History</title>
-  <para>The "Sales History" screen offers a wide range of options for locating
-  and analyzing sales history information. Here are some tips for using this
-  screen:</para>
+      <secondary>brief version</secondary>
+    </indexterm> Brief Sales History</title>
+  <para>The "Brief Sales History" screen provides a quick view into sales
+  history without presenting a lot of detail at the top level. Here are some
+  tips for using this screen:</para>
   <itemizedlist>
     <listitem>
-      <para>Be sure to enable all the column headers you want to see in order
-      to take full advantage of the data available on this screen.</para>
+      <para>Use the right-click menu to uncover more detailed sales
+      information.</para>
     </listitem>
     <listitem>
       <para>Isolate the sales information you're looking for by building a
@@ -28,20 +28,19 @@
       Exchange Rate effective on the Invoice Date.</para>
     </listitem>
   </itemizedlist>
-  <para>The following screenshot shows the "Sales History" screen:</para>
+  <para>The following screenshot shows the "Brief Sales History"
+  screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspSalesHistory.png" />
+          <imagedata fileref="images/dspBriefSalesHistory.png" />
         </imageobject>
-        <caption>Sales History</caption>
+        <caption>Brief Sales History</caption>
       </mediaobject>
     </screenshot></para>
-  <para>The default filter on the "Sales History" screen shows all
+  <para>The default filter on the "Brief Sales History" screen shows all
   transactions for the current day. You can build your own search criteria
   using the following options:</para>
   <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <xi:include href="salesHistoryInformation.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
