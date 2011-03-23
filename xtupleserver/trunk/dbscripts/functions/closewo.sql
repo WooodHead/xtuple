@@ -47,7 +47,7 @@ BEGIN
   PERFORM insertGLTransaction( 'W/O', 'WO', _woNumber, ('Manufacturing Inventory Cost Variance for ' || item_number),
                                getPrjAccntId(wo_prj_id, costcat_wip_accnt_id), 
                                getPrjAccntId(wo_prj_id, costcat_invcost_accnt_id), -1,
-                               wo_wipvalue, pTransDate )
+                               COALESCE(wo_wipvalue, 0), pTransDate )
   FROM wo, itemsite, item, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)
@@ -61,7 +61,7 @@ BEGIN
                                     ELSE getPrjAccntId(wo_prj_id, costcat_invcost_accnt_id)
                                END,
                                -1,
-                               wo_brdvalue, pTransDate )
+                               COALESCE(wo_brdvalue, 0), pTransDate )
   FROM wo, itemsite, item, costcat
   WHERE ( (wo_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)
