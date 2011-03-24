@@ -1,0 +1,39 @@
+-- Group: documents
+-- Name:  detail
+-- Notes: Query for docments list in SproutCore
+SELECT id::text || '.' || target_type || '.' || target_id::text || '.' || source_type || '.' || source_id::text AS id,
+  id AS doc_id, target_number, target_type, 
+  target_id AS target_number_xtidrole, source_type, source_id, purpose, 
+  name, description, 
+  CASE WHEN (purpose='I') THEN <? value("inventory") ?>
+  WHEN (purpose='P') THEN <? value("product") ?>
+  WHEN (purpose='E') THEN <? value("engineering") ?>
+  WHEN (purpose='M') THEN <? value("misc") ?>
+  WHEN (purpose='A') THEN <? value("child") ?>
+  WHEN (purpose='C') THEN <? value("parent") ?>
+  WHEN (purpose='S') THEN <? value("sibling") ?>
+  WHEN (purpose='D') THEN <? value("dupe") ?>
+  ELSE <? value("other") ?> 
+  END AS purpose_qtdisplayrole, 
+  CASE WHEN (target_type='T') THEN <? value("contact") ?>
+  WHEN (target_type='CRMA') THEN <? value("crma") ?> 
+  WHEN (target_type='C') THEN <? value("cust") ?> 
+  WHEN (target_type='EMP') THEN <? value("emp") ?> 
+  WHEN (target_type='URL') THEN <? value("url") ?> 
+  WHEN (target_type='FILE') THEN <? value("file") ?> 
+  WHEN (target_type='IMG') THEN <? value("image") ?> 
+  WHEN (target_type='INCDT') THEN <? value("incident") ?> 
+  WHEN (target_type='I') THEN <? value("item") ?> 
+  WHEN (target_type='OPP') THEN <? value("opp") ?> 
+  WHEN (target_type='J') THEN <? value("project") ?> 
+  WHEN (target_type='P') THEN <? value("po") ?> 
+  WHEN (target_type='S') THEN <? value("so") ?> 
+  WHEN (target_type='V') THEN <? value("vendor") ?> 
+  WHEN (target_type='W') THEN <? value("wo") ?> 
+  WHEN (target_type='TODO') THEN <? value("todo") ?> 
+  ELSE <? value("error") ?> 
+  END AS target_type_qtdisplayrole 
+FROM docinfo 
+WHERE ((source_type=<? value("source") ?>) 
+  AND (source_id=<? value("sourceid") ?> ))
+ORDER by target_type_qtdisplayrole, target_number;
