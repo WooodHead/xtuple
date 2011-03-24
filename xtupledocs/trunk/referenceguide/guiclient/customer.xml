@@ -627,13 +627,13 @@
       <term>Place on Credit Warning when Credit Limit is Exceeded</term>
       <listitem>
         <para>Select this option to automatically place the Customer on Credit
-        Warning if their open Receivables balance exceeds their
-        Credit Limit. This option must also be selected for a Customer's
-        open Receivables to be evaluated when the Update Late Customer Credit Status
-        utility is run. If a Customer is on Credit Warning, Sales Orders may
-        not be entered for the Customer&mdash;except by users with override
-        privileges. Once the Customer's Receivables open balance falls below their
-        Credit Limit, Sales Orders may once again be entered for the
+        Warning if their open Receivables balance exceeds their Credit Limit.
+        This option must also be selected for a Customer's open Receivables to
+        be evaluated when the Update Late Customer Credit Status utility is
+        run. If a Customer is on Credit Warning, Sales Orders may not be
+        entered for the Customer&mdash;except by users with override
+        privileges. Once the Customer's Receivables open balance falls below
+        their Credit Limit, Sales Orders may once again be entered for the
         Customer.</para>
         <tip>
           <para>You must specify you want a Customer to be placed on credit
@@ -665,10 +665,10 @@
           <varlistentry>
             <term>Grace Days</term>
             <listitem>
-              <para>Specify the number of days beyond the Receivables open due date
-              which will serve as a grace period for the Customer. The number
-              of days entered here will override the global number of grace
-              days.</para>
+              <para>Specify the number of days beyond the Receivables open due
+              date which will serve as a grace period for the Customer. The
+              number of days entered here will override the global number of
+              grace days.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -1169,7 +1169,7 @@
       <imageobject>
         <imagedata fileref="images/customer_documentsTab.png" />
       </imageobject>
-      <caption><para>Customer Images</para></caption>
+      <caption><para>Customer Documents</para></caption>
     </mediaobject></para>
   <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -1205,9 +1205,10 @@
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para role="xtconnect">The Electronic Data Interchange (EDI) system enables
-  you to send Quotes, Sales Orders, Credit Memos, Receivables Statements, and Invoices
-  electronically to your Customers. To establish a Customer's EDI preferences,
-  select the "Transmission" tab. The following screen will appear:</para>
+  you to send Quotes, Sales Orders, Credit Memos, Receivables Statements, and
+  Invoices electronically to your Customers. To establish a Customer's EDI
+  preferences, select the "Transmission" tab. The following screen will
+  appear:</para>
   <para role="xtconnect"><screenshot>
       <mediaobject>
         <imageobject>
