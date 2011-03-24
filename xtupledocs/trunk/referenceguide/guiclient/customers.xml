@@ -7,8 +7,36 @@
       <primary>customers</primary>
       <secondary>master list of</secondary>
     </indexterm>Customers</title>
-  <para>To access the Customer master list, select the "Customers" option. The
-  following screen will appear:</para>
+  <para>The "Customers" screen lists all your company's Customers. In
+  addition, the screen can be used to generate Customer reports&mdash;for
+  example, Customers by Customer Type. You can also export detailed Customer
+  information to a spreadsheet. Use the right-click menu to export Customer
+  information to a plain-text, TAB-delimited file.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use the right-click menu to edit a Customer in the list.</para>
+    </listitem>
+    <listitem>
+      <para>When exporting information, be sure to activate all the column
+      headers you want to include in your export file. This screen contains
+      nearly 30 columns of information. Many of these columns may be hidden by
+      default.</para>
+    </listitem>
+    <listitem>
+      <para>If you have Customer Characteristics defined, you can search and
+      report on these Characteristics using the search filter options and also
+      the column headers.</para>
+    </listitem>
+    <listitem>
+      <para>Build Customer reports using the search filters.</para>
+    </listitem>
+    <listitem>
+      <para>You can reassign the Customer Type for individual Customers using
+      the right-click menu.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Customers" screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -17,7 +45,9 @@
         <caption>Customer Master List</caption>
       </mediaobject>
     </screenshot></para>
-  <para>The Customer master list displays basic information on all existing
-  Customers, including Customer Type, Customer Number, active status, Customer
-  name, billing address, and phone number.</para>
+  <para>The default filter on the "Customers" screen shows all active
+  Customers. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

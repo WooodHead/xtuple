@@ -278,16 +278,6 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/dspTaxHistory.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section>
-      <title>Customers</title>
-      <para>Customer Reports section.</para>
-      <xi:include href="guiclient/dspCustomersByCustomerType.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspCustomersByCharacteristic.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
   </section>
   <section id="Section518499">
     <title>Analysis</title>
@@ -379,9 +369,6 @@
         <secondary>in sales module</secondary>
       </indexterm>Utilities</title>
     <para>Sales Utilities section.</para>
-    <xi:include href="guiclient/dspCustomerInformationExport.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/reassignCustomerTypeByCustomerType.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
