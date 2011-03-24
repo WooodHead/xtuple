@@ -210,16 +210,8 @@
   <section>
     <title>Reports</title>
     <para role="standard">Schedule Reports section.</para>
-    <section role="standard">
-      <title>Planned Items</title>
-      <para>Planned Items Reports section.</para>
-      <xi:include href="guiclient/dspPlannedOrdersByPlannerCode.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspPlannedOrdersByItem.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
+    <xi:include href="guiclient/dspPlannedOrders.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/dspRunningAvailability.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
