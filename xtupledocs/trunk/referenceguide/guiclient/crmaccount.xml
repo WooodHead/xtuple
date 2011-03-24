@@ -410,44 +410,6 @@
     </imageobject>
     <caption>Account Documents</caption>
   </mediaobject>
-  <para>When associating Images with an Item, you are presented with the
-  following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Images</term>
-      <listitem>
-        <para>Display lists information about stored CRM Images.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>The following buttons are unique to this screen:</para>
-  <variablelist>
-    <varlistentry>
-      <term>VIEW IMAGE</term>
-      <listitem>
-        <para>Allows you the ability to preview Image.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>When associating Files with a CRM Account, you are presented with the
-  following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Files</term>
-      <listitem>
-        <para>Display lists the title and URL for any Files related to the CRM
-        Account.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>The following buttons are unique to this screen:</para>
-  <variablelist>
-    <varlistentry>
-      <term>OPEN FILE</term>
-      <listitem>
-        <para>Highlight a CRM File definition and then select this button to
-        open the URL in a web browser.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
