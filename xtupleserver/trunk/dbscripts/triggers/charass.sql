@@ -34,6 +34,58 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-DROP TRIGGER charassTrigger ON charass;
+select dropIfExists('TRIGGER', 'charassTrigger');
 CREATE TRIGGER charassTrigger AFTER INSERT OR UPDATE ON charass FOR EACH ROW EXECUTE PROCEDURE _charassTrigger();
+
+CREATE OR REPLACE FUNCTION _charassHistoryTrigger () RETURNS TRIGGER AS $$
+BEGIN
+  IF(TG_OP = 'DELETE') THEN
+    IF (OLD.charass_target_type = 'INCDT') THEN
+      INSERT INTO incdthist
+            (incdthist_incdt_id, incdthist_descrip)
+      VALUES(OLD.charass_target_id,
+             ('Characteristic ' || 
+               COALESCE((SELECT char_name 
+                           FROM char
+                          WHERE (char_id=OLD.charass_char_id)), '')
+              || ' Deleted: "' || 
+              COALESCE(OLD.charass_value,'')
+              || '"') );
+    END IF;
+    RETURN OLD;
+  ELSIF (NEW.charass_target_type = 'INCDT') THEN
+    IF (TG_OP = 'INSERT') THEN
+      INSERT INTO incdthist
+            (incdthist_incdt_id, incdthist_descrip)
+      VALUES(NEW.charass_target_id,
+             ('Characteristic ' || 
+               COALESCE((SELECT char_name 
+                           FROM char
+                          WHERE (char_id=NEW.charass_char_id)), '')
+              || ' Added: "' || 
+              COALESCE(NEW.charass_value,'')
+              || '"') );
+    ELSIF (TG_OP = 'UPDATE') THEN
+      IF (COALESCE(NEW.charass_value,'') <> COALESCE(OLD.charass_value,'')) THEN
+        INSERT INTO incdthist
+              (incdthist_incdt_id, incdthist_descrip)
+        VALUES(NEW.charass_target_id,
+               ('Characteristic ' || 
+                 COALESCE((SELECT char_name 
+                             FROM char
+                            WHERE (char_id=NEW.charass_char_id)), '')
+                || ' Changed: "' || 
+                COALESCE(OLD.charass_value,'')
+                || '" -> "' ||
+                COALESCE(NEW.charass_value,'')
+                || '"') );
+      END IF;
+    END IF;
+  END IF;
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+select dropIfExists('TRIGGER', 'charassHistoryTrigger');
+CREATE TRIGGER charassHistoryTrigger BEFORE INSERT OR UPDATE OR DELETE ON charass FOR EACH ROW EXECUTE PROCEDURE _charassHistoryTrigger();
 
