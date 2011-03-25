@@ -6,49 +6,44 @@
   <title><indexterm significance="normal">
       <primary>sales orders</primary>
       <secondary>list open</secondary>
-    </indexterm>List Open Sales Orders</title>
-  <para>A Sales Order appears on the List Open Sales Orders screen if one or
-  more of its Line Items remains open. Once all Line Items for a Sales Order
-  have been closed, the Sales Order will no longer appear on the list.
-  Typically, Sales Order Line Items are closed when the Order is selected for
-  billing. To display open Sales Orders by Site, select the "Open Sales
-  Orders" option. The following screen will appear:</para>
+    </indexterm>Open Sales Orders</title>
+  <para>The "Open Sales Orders" screen lists all your open Sales Orders. In
+  addition to providing the list of Sales Orders, this screen can also be used
+  to build Sales Order reports. Use the search filter options to sort the
+  information into categories you want to look at.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>A Sales Order appears on the Open Sales Orders screen if one or
+      more of its Line Items remains open. Once all Line Items for a Sales
+      Order have been closed, the Sales Order will no longer appear on the
+      list.</para>
+    </listitem>
+    <listitem>
+      <para>Sales Order Line Items are generally closed when the Order is
+      selected for billing.</para>
+    </listitem>
+    <listitem>
+      <para>To copy a Sales Order, use the "Copy" option in the right-click
+      menu.</para>
+    </listitem>
+    <listitem>
+      <para>If a Sales Order was converted from a Quote, you can see this
+      history on the Sales Order "Relationship" tab.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Open Sales Orders" screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/openSalesOrders.png" />
         </imageobject>
-        <caption>Open Sales Orders Master List</caption>
+        <caption>Open Sales Orders</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying open Sales Orders, you are presented with the
-  following options:</para>
-  <variablelist>
-    <varlistentry role="standard">
-      <term>All Sites</term>
-      <listitem>
-        <para>Select to display a list of open Sales Orders for all
-        Sites.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Selected</term>
-      <listitem>
-        <para>Specify Site whose open Sales Orders you want to display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Sales Orders</term>
-      <listitem>
-        <para>Display lists open Sales Orders.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Automatically Update</term>
-      <listitem>
-        <para>Select to automatically update the display every five
-        minutes.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para>The default filter on the "Open Sales Orders" screen shows all open
+  Sales Orders. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
