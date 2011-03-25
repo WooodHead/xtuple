@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section618696">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>quotes</primary>
       <secondary>looking up by customer</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,14 @@
     </indexterm>Quote Lookup by Customer</title>
   <para>To view Quotes by Customer, select the "Quote Lookup by Customer"
   option from the "Displays" menu. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspQuotesByCustomer.png"/>
+          <imagedata fileref="images/dspQuotesByCustomer.png" />
         </imageobject>
         <caption>Quote Lookup by Customer</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Quotes by Customer, you are presented with the
   following options:</para>
   <variablelist>
@@ -33,12 +31,12 @@
         a searchable Customers list. You may also access this list using the
         keyboard shortcut "CTRL + L". Once a Customer Number is entered, the
         Customer name and billing address will display. Select the "?" or "$"
-        symbol to view Customer information for the
-        specified Customer. If a Customer's credit is "In Good Standing," the
-        button will feature a black question mark ("?") icon. If the icon
-        turns to an orange dollar sign ("$"), the Customer's credit Status is
-        "On Credit Warning." A red dollar sign ("$") indicates the Customer's
-        credit Status is "On Credit Hold."</para>
+        symbol to view Customer information for the specified Customer. If a
+        Customer's credit is "In Good Standing," the button will feature a
+        black question mark ("?") icon. If the icon turns to an orange dollar
+        sign ("$"), the Customer's credit Status is "On Credit Warning." A red
+        dollar sign ("$") indicates the Customer's credit Status is "On Credit
+        Hold."</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -53,6 +51,15 @@
       <listitem>
         <para>Specify the Customer Purchase Order Number you want to
         display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Converted</term>
+      <listitem>
+        <para>Select to include Sales Orders which were originally converted
+        from Quotes. Converted Quotes will show as closed in the display. For
+        this feature to work, your Sales module must be configured to show
+        Quotes after they have been converted to Sales Orders.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

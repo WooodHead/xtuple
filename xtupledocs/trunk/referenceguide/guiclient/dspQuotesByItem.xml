@@ -38,6 +38,27 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Starting Order Date</term>
+      <listitem>
+        <para>Quotes entered on and after this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ending Order Date</term>
+      <listitem>
+        <para>Quotes entered on and before this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Converted</term>
+      <listitem>
+        <para>Select to include Sales Orders which were originally converted
+        from Quotes. Converted Quotes will show as closed in the display. For
+        this feature to work, your Sales module must be configured to show
+        Quotes after they have been converted to Sales Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Quotes</term>
       <listitem>
         <para>Display lists Quotes for the specified Item.</para>
