@@ -76,6 +76,10 @@ WHERE (true
  AND (itemsite_warehous_id=<? value("warehous_id") ?>)
 <? endif ?>
 
+<? if exists("item_id") ?>
+ AND (itemsite_item_id=<? value("item_id") ?>)
+<? endif ?>
+
 <? if exists("cust_id") ?>
  AND (cohist_cust_id=<? value("cust_id") ?>)
 <? endif ?>
