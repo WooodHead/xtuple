@@ -27,7 +27,7 @@ SELECT womatlvar_id, posted,
        formatQty(actqtyper - projqtyper) AS f_qtypervar,
        CASE WHEN (actqtyper=projqtyper) THEN formatQty(0)
             WHEN (projqtyper=0) THEN formatQty(actqtyper)
-            ELSE formatQty((1 - (actqtyper / projqtyper)) * -1)
+            ELSE formatPrcnt((1 - (actqtyper / projqtyper)) * -1)
        END AS f_qtypervarpercent,
 <? endif ?>
        'qty' AS ordered_xtnumericrole,
