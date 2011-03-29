@@ -32,17 +32,22 @@ if (privileges.check("CanViewRates"))
   var _blanketPos = mywindow.findChild("_blanketPos");
   var _billingGroup = mywindow.findChild("_billingGroup");
   var _rate = _tecustomer.findChild("_rate");
-  var _tecustrateid = -1; 
+  var _tecustrateid = -1;
   var _basecurrid = _rate.id();
+
+  xtte.customer.modeChanged = function(mode)
+  {
+    _billingGroup.enabled = (mode == mainwindow.cNew || mode == mainwindow.cEdit);
+  }
 
   xtte.customer.save = function()
   {
 
     var params = new Object();
-    params.tecustrate_id	= _tecustrateid;
-    params.cust_id  	= _custid;
-    params.curr_id	= _rate.id();
-    params.rate	= _rate.localValue;
+    params.tecustrate_id = _tecustrateid;
+    params.cust_id       = _custid;
+    params.curr_id       = _rate.id();
+    params.rate          = _rate.localValue;
 
     var query = "updtecustrate";
     if (!_billingGroup.checked)
@@ -65,7 +70,7 @@ if (privileges.check("CanViewRates"))
     _custid = custId;
 
     var params = new Object();
-    params.cust_id = _custid;    
+    params.cust_id = _custid;
 
     var q = toolbox.executeDbQuery("customer", "seltecustrate", params);
 
@@ -79,7 +84,7 @@ if (privileges.check("CanViewRates"))
     }
     else
       xtte.errorCheck(q);
-  
+
     _billingGroup.checked = false;
     _tecustrateid = -1;
     _rate.setId(_basecurrid);
@@ -89,8 +94,8 @@ if (privileges.check("CanViewRates"))
   // Initialize
   QWidget.setTabOrder(_blanketPos, _rate);
 
-  // Connections
   mywindow["newId(int)"].connect(xtte.customer.populate);
+  mywindow["newMode(int)"].connect(xtte.customer.modeChanged);
   mywindow["saved(int)"].connect(xtte.customer.save);
 
   xtte.customer.populate();
