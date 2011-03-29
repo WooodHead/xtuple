@@ -18,6 +18,13 @@
     Items. Only Items designated as MRP Items will be affected by an MRP
     run.</para>
   </note>
+  <para>Depending on the size of your database and the amount of demand in the
+  system, running MRP can take some time to complete. To compensate for this,
+  companies often schedule MRP runs so they run overnight, using xTuple
+  Connect. If you are running MRP during regular business hours, you will see
+  there is a progress indicator showing how far along the MRP job is. The
+  progress screen also features a cancel option, which allows you to kill the
+  MRP job if you feel it has gone on for too long.</para>
   <para>To run MRP by Planner Code, select the "Run MRP by Planner Code"
   option. The following screen will appear:</para>
   <para><screenshot>
@@ -78,17 +85,15 @@
       <listitem>
         <para>Specify how far into the future the MRP run should look for
         demand.</para>
+        <tip>
+          <para>If you schedule an MRP or MPS job submitted to the xTuple
+          Connect Batch Manager to run on a periodic basis&mdash;daily,
+          weekly, monthly&mdash;the cutoff date used for the run will
+          automatically be updated by the number of days in the specified
+          reschedule interval (Day = +1, Week = +7, and Month = +30).</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>If you schedule an MRP or MPS job submitted to the xTuple Connect
-    Batch Manager to run on a periodic basis&mdash;daily, weekly,
-    monthly&mdash;the cutoff date used for the run will automatically be
-    updated by the number of days in the specified reschedule interval (Day =
-    +1, Week = +7, and Month = +30).</para>
-  </tip>
-  <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>firmed orders</primary>
@@ -102,11 +107,11 @@
         Planned Orders are deleted when MRP is run, they will automatically be
         replaced by soft (i.e., non-firmed) Planned Orders, assuming the
         demand for the requirements still exists.</para>
+        <tip>
+          <para>Unposted Purchase Orders and Purchase Requests are considered
+          as valid sources of supply when MRP is run.</para>
+        </tip>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>Unposted Purchase Orders and Purchase Requests are considered as
-    valid sources of supply when MRP is run.</para>
-  </tip>
 </section>
