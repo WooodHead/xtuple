@@ -357,6 +357,7 @@ xtte.timeExpenseSheetItem.typeChanged = function()
     _rate.enabled = _clients.isValid();
     _billable.visible = true;
     _prepaid.visible = false;
+    _prepaid.checked = false;
   } 
   else
   {
