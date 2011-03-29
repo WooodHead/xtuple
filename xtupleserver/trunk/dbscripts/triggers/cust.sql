@@ -117,6 +117,17 @@ BEGIN
                                (''Credit Status Changed from "'' || _oldCreditStatus || ''" to "'' || _newCreditStatus || ''"'') );
         END IF;
 
+        -- Handle customer type
+        IF (OLD.cust_custtype_id <> NEW.cust_custtype_id) THEN
+          PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
+            (''Customer type changed from "'' || (SELECT custtype_code
+                                                  FROM custtype JOIN custinfo ON custtype_id = OLD.cust_custtype_id
+                                                 WHERE cust_id = OLD.cust_id)
+            || ''" to "'' || (SELECT custtype_code
+                              FROM custtype JOIN custinfo ON custtype_id = NEW.cust_custtype_id
+                              WHERE cust_id = NEW.cust_id)|| ''"'') );
+        END IF;
+
       END IF;
     END IF;
   END IF;
