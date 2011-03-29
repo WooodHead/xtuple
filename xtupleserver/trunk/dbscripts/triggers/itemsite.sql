@@ -108,6 +108,21 @@ BEGIN
                                  ' to ' || COALESCE(NEW.itemsite_controlmethod,'None') ) );
         END IF;
 
+        IF (OLD.itemsite_sold <> NEW.itemsite_sold) THEN
+          PERFORM postComment( _cmnttypeid, 'IS', NEW.itemsite_id,
+            CASE WHEN (NEW.itemsite_sold) THEN 'Sold Changed from FALSE to TRUE'
+                                          ELSE 'Sold Changed from TRUE to FALSE'
+            END );
+        END IF;
+
+        IF (OLD.itemsite_active <> NEW.itemsite_active) THEN
+          IF (NEW.itemsite_active) THEN
+            PERFORM postComment(_cmnttypeid, 'IS', NEW.itemsite_id, 'Activated');
+          ELSE
+            PERFORM postComment(_cmnttypeid, 'IS', NEW.itemsite_id, 'Deactivated');
+          END IF;
+        END IF;
+
       END IF;
     END IF;
   END IF;
