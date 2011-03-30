@@ -72,6 +72,9 @@
                <? elseif exists("showSold") ?>
                 AND (item_sold)
                <? endif ?>
+               <? if exists("item_type") ?>
+                AND (item_type=<? value("item_type") ?>)
+               <? endif ?>
                <? if not exists("showInactive") ?>
                 AND (item_active)
                <? endif ?>
