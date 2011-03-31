@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION createCountTag(int, text, bool, bool) RETURNS integer AS '
+CREATE OR REPLACE FUNCTION createCountTag(int, text, bool, bool) RETURNS integer AS $$
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pComments ALIAS FOR $2;
@@ -7,10 +7,10 @@ DECLARE
 BEGIN
   RETURN createCountTag(pItemsiteid, pComments, pPriority, pFreeze, NULL);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION createcounttag(integer, text, boolean, boolean, integer)
-  RETURNS integer AS '
+  RETURNS integer AS $$
 
 DECLARE
   pItemsiteid ALIAS FOR $1;
@@ -21,14 +21,16 @@ DECLARE
   _invcntid INTEGER;
   _whs		RECORD;
   _type CHARACTER;
+  _controlmethod        CHARACTER;
 
 BEGIN
 
-  SELECT item_type INTO _type
+  SELECT item_type, itemsite_controlmethod INTO _type, _controlmethod
     FROM itemsite, item
    WHERE ((itemsite_item_id=item_id)
      AND  (itemsite_id=pItemsiteid));
-  IF(NOT FOUND OR _type IN (''F'', ''R'', ''L'',''J'')) THEN
+
+  IF (NOT FOUND OR _type IN ('F', 'R', 'L','J') OR _controlmethod = 'N') THEN
     RETURN 0; -- We simply do not do these item types.
   END IF;
 
@@ -50,7 +52,7 @@ BEGIN
   END IF;
 
   IF (NOT FOUND) THEN
-    SELECT NEXTVAL(''invcnt_invcnt_id_seq'') INTO _invcntid;
+    SELECT NEXTVAL('invcnt_invcnt_id_seq') INTO _invcntid;
 
     SELECT whsinfo.* INTO _whs
       FROM whsinfo, itemsite
@@ -83,4 +85,4 @@ BEGIN
 
   RETURN _invcntid;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
