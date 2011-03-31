@@ -18,6 +18,7 @@ DECLARE
   _includepkgweight BOOLEAN := FALSE;
   _freight RECORD;
   _qry TEXT;
+  _asof DATE;
   _debug BOOLEAN := false;
 BEGIN
   IF (_debug) THEN
@@ -101,6 +102,13 @@ BEGIN
     RAISE NOTICE 'currAbbr = %', _order.currAbbr;
   END IF;
 
+  --Get pricing effectivity metric
+  IF (SELECT fetchMetricText('soPriceEffective') = 'OrderDate') THEN
+    _asof := _order.orderdate;
+  ELSE
+    _asof := CURRENT_DATE;
+  END IF;  
+
   --Get a list of aggregated weights from sites and
   --freight classes used on order lines
 
@@ -152,7 +160,7 @@ BEGIN
     AND   ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=_weights.item_freightclass_id))
     AND   ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=_order.shipzone_id))
     AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=_order.shipvia))
-    AND   (CURRENT_DATE BETWEEN sale_startdate AND sale_enddate)
+    AND   (_asof BETWEEN sale_startdate AND sale_enddate)
     AND   (_order.cust_id IS NOT NULL) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
@@ -178,7 +186,7 @@ BEGIN
     AND   ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=_weights.item_freightclass_id))
     AND   ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=_order.shipzone_id))
     AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=_order.shipvia))
-    AND   (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+    AND   (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
     AND   (ipsass_cust_id=_order.cust_id)
     AND   (ipsass_shipto_id != -1)
     AND   (ipsass_shipto_id=_order.shipto_id) )
@@ -203,7 +211,7 @@ BEGIN
   FROM ipsfreight JOIN ipshead ON (ipshead_id=ipsfreight_ipshead_id)
                   JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
   WHERE ( (ipsfreight_qtybreak <= _weights.weight)
-    AND   (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+    AND   (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
     AND   (ipsass_cust_id=_order.cust_id)
     AND   (COALESCE(LENGTH(ipsass_shipto_pattern), 0) > 0)
     AND   (_order.shipto_num ~ ipsass_shipto_pattern)
@@ -238,7 +246,7 @@ BEGIN
     AND   ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=_weights.item_freightclass_id))
     AND   ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=_order.shipzone_id))
     AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=_order.shipvia))
-    AND   (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+    AND   (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
     AND   (ipsass_cust_id=_order.cust_id)
     AND   (COALESCE(LENGTH(ipsass_shipto_pattern), 0) = 0) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
@@ -268,7 +276,7 @@ BEGIN
     AND   ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=_weights.item_freightclass_id))
     AND   ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=_order.shipzone_id))
     AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=_order.shipvia))
-    AND   (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+    AND   (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
     AND   (ipsass_custtype_id=_order.custtype_id) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
@@ -297,7 +305,7 @@ BEGIN
     AND   ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=_weights.item_freightclass_id))
     AND   ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=_order.shipzone_id))
     AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=_order.shipvia))
-    AND   (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
+    AND   (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
     AND   (COALESCE(LENGTH(ipsass_custtype_pattern), 0) > 0)
     AND   (_order.custtype_code ~ ipsass_custtype_pattern) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
