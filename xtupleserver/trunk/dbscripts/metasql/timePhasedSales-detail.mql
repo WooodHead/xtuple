@@ -80,6 +80,9 @@ FROM (
 <? if exists("item_id") ?> 
     AND (item_id=<? value("item_id") ?>)
 <? endif ?>
+<? if exists("cust_id") ?> 
+    AND (cust_id=<? value("cust_id") ?>)
+<? endif ?>
 <? if exists("custtype_id") ?> 
     AND (cust_custtype_id=<? value("custtype_id") ?>)
 <? endif ?>
