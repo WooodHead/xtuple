@@ -9,13 +9,16 @@
     </indexterm>Count Tag Edit List</title>
   <para>The Count Tag Edit List displays the unposted Count Tags currently
   available in your system. From this list, you can manage current Count Tags
-  and their associated Count Slips. To display available Count Tags, select
-  the "Count Tag Edit List" option. The following screen will appear:</para>
+  and their associated Count Slips. By default, the system allows only one
+  unposted Count Tag per Item Site. </para>
   <tip>
-    <para>By default, the system allows only one unposted Count Tag per Item
-    Site. Use the Count Tag Edit List to view all unposted Count Tags in your
-    system.</para>
+    <para>The Count Tag Edit List supports multiple-select, using the SHIFT
+    and/or CTRL keys. This is helpful when posting or deleting multiple Count
+    Tags. This feature only works, however, when the "Show Count Slips" option
+    is turned off.</para>
   </tip>
+  <para>To display available Count Tags, select the "Count Tag Edit List"
+  option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -139,10 +142,6 @@
     specific Site Location within an Item Site.</para>
   </tip>
   <para>The following buttons are unique to this screen:</para>
-  <note>
-    <para>The Count Tag Edit List supports multiple-select, using the SHIFT
-    and/or CTRL keys.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term>POST</term>
