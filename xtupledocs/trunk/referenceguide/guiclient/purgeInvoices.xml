@@ -6,22 +6,44 @@
   <title><indexterm significance="normal">
       <primary>invoices</primary>
       <secondary>purging records for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>shipments</primary>
+      <secondary>purging records for</secondary>
     </indexterm>Purge Invoices</title>
   <para>Purging Invoice records is one method for freeing up disk storage
   space&mdash;without losing important sales history. Running this utility
-  will also purge the whole chain of documents associated with an Invoice. The
-  chain of documents which will be purged when this utility is run include the
-  following: Invoices (<literal>invchead</literal>,
-  <literal>invcitem</literal>); Return Authorization
-  (<literal>rahead</literal>, <literal>raitem</literal>,
-  <literal>rahist</literal>); Lot/Serial Registrations
-  (<literal>lsreg</literal>); Sales Orders (<literal>cohead</literal>,
-  <literal>coitem</literal>, <literal>payco</literal>,
-  <literal>backup_payco</literal>); Shipments (<literal>shiphead</literal>,
-  <literal>shipitem</literal>, <literal>pack</literal>); and Billing
-  (<literal>cobmisc</literal>, <literal>cobill</literal>). Again, running this
-  utility will not purge sales history. That information is retained for
-  historical sales analysis purposes.</para>
+  purges the whole chain of documents associated with an Invoice. It will also
+  purge other types of records. The following list shows the documents and
+  records affected by running this utility:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Invoices: (<literal>invchead</literal>,
+      <literal>invcitem</literal>)</para>
+    </listitem>
+    <listitem>
+      <para>Return Authorizations: (<literal>rahead</literal>,
+      <literal>raitem</literal>, <literal>rahist</literal>)</para>
+    </listitem>
+    <listitem>
+      <para>Lot/Serial Registrations: (<literal>lsreg</literal>)</para>
+    </listitem>
+    <listitem>
+      <para>Sales Orders: (<literal>cohead</literal>,
+      <literal>coitem</literal>, <literal>payco</literal>,
+      <literal>backup_payco</literal>)</para>
+    </listitem>
+    <listitem>
+      <para>Shipments, including Transfer Order Shipments:
+      (<literal>shiphead</literal>, <literal>shipitem</literal>,
+      <literal>pack</literal>)</para>
+    </listitem>
+    <listitem>
+      <para>Billing: (<literal>cobmisc</literal>,
+      <literal>cobill</literal>)</para>
+    </listitem>
+  </itemizedlist>
+  <para>Again, running this utility will not purge sales history. That
+  information is retained for historical sales analysis purposes.</para>
   <para>To purge Invoices and their associated documents, select the "Purge
   Invoices" option. The following screen will appear:</para>
   <para><screenshot>
