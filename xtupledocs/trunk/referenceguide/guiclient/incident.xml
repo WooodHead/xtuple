@@ -11,10 +11,11 @@
       <secondary>creating incidents for</secondary>
     </indexterm>New Incident</title>
   <para>Incidents can be used for multiple purposes, including customer
-  service, trouble-ticketing and more. And for sites where the Batch Manager
-  is installed and running, various Incident notification options are
-  available (e.g., email notification). To enter a new Incident, select the
-  "New Incident" option. The following screen will appear:</para>
+  service, trouble-ticketing, web-based communication with Customers and
+  Vendors using the xTuple Web Portal&mdash;and more. For sites where xTuple
+  Connect is installed and running, various email notification options are
+  also available. To enter a new Incident, select the "New Incident" option.
+  The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -43,6 +44,20 @@
       <term>Category</term>
       <listitem>
         <para>Specify a user-defined Category to assign the Incident.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Public</term>
+      <listitem>
+        <para>If your CRM module is configured to allow for public/private
+        Incidents, this option will be shown. When shown, select to indicate
+        you want the Incident to be viewable publicly. This option applies
+        primarily to sites where the xTuple Web Portal has been implemented.
+        With the Web Portal, xTuple Incidents may be viewed by Customers,
+        Vendors, and others on your website. Depending on your website rules,
+        private incidents may be hidden from most website users. To learn more
+        about the CRM configuration which enables this option, please see
+        <xref linkend="Section971138" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
