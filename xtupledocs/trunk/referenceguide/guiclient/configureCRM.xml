@@ -135,6 +135,28 @@
         not be tracked automatically.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Show Incident Public checkbox</term>
+      <listitem>
+        <para>Select if you want to show the "Public" checkbox option on the
+        Incidents screen. In not selected, the "Public" checkbox will not be
+        shown. This option applies primarily to sites where the xTuple Web
+        Portal has been implemented. With the Web Portal, xTuple Incidents may
+        be viewed by Customers, Vendors, and others on your website. Depending
+        on your website rules, private incidents may be hidden from most
+        website users.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Incidents Public by Default</term>
+      <listitem>
+        <para>If you are showing the "Public" checkbox on Incidents, select
+        this option to make Incidents publicly viewable by default. Incidents
+        will be private by default if this option is not selected. Regardless
+        of the setting you make here, the "Public" flag can be overridden on
+        the Incident screen.</para>
+      </listitem>
+    </varlistentry>
     <varlistentry role="xtconnect">
       <term>Default Incident Email Delivery Profile</term>
       <listitem>
