@@ -10,9 +10,20 @@
       <primary>contacts</primary>
       <secondary>managing</secondary>
     </indexterm>Contact Merge</title>
-  <para>To add a new Calendar Item to a Calendar, select the NEW button. The
-  following screen will appear if the specified Calendar is an absolute
-  Calendar:</para>
+  <para>If you are importing Contact information&mdash;either through the
+  xTuple web Portal or xTuple Email Integration or some other
+  feature&mdash;it's likely you will encounter duplicate Contact records. The
+  Contact Merge utility is designed to help you resolve this scenario. Using
+  the Contact Merge utility, you can easily locate duplicate records and merge
+  them into one single Contact record. In this way you can also preserve
+  multiple email addresses for your Contacts.</para>
+  <tip>
+    <para>How-to information about using the Contact Merge utility is
+    available on our community website here: <ulink
+    url="http://www.xtuple.org/contactmerge">www.xtuple.org/contactmerge</ulink>.</para>
+  </tip>
+  <para>To begin using the Contact Merge utility, select the "Contact Merge"
+  option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -21,8 +32,85 @@
         <caption>Contact Merge Utility</caption>
       </mediaobject>
     </screenshot></para>
-  <para>Enter text.</para>
-  <para></para>
+  <para>When using the Contact Merge utility, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Mode</term>
+      <listitem>
+        <para>Select one of the following modes to expedite processing:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Merge</term>
+            <listitem>
+              <para>Allows the user to query Contacts using the specified
+              search criteria. Merges all source Contact selections when
+              "Merge" is clicked.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Purge</term>
+            <listitem>
+              <para>Displays all merged Contacts. Purges all merged Contacts
+              at once when "Purge" is clicked.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Merge and Purge</term>
+            <listitem>
+              <para>Allows the user to query Contacts using the specified
+              search criteria. Merges and purges source Contacts in one step
+              when "Merge and Purge" is clicked.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Restore</term>
+            <listitem>
+              <para>Displays all merged Contacts. Restores all merged Contacts
+              at once when "Restore" is clicked.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Search for:</term>
+      <listitem>
+        <para>Enter search terms or patterns to locate the Contact records you
+        are looking for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Search Through</term>
+      <listitem>
+        <para>Specify which of the search filters you want to be included when
+        you are searching for Contact records.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Find duplicates with matching criteria</term>
+      <listitem>
+        <para>Select if you want the Contact Merge utility to automatically
+        locate duplicate records using search criteria you specify with your
+        selections.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Contacts</term>
+      <listitem>
+        <para>Display lists Contact records matching the search criteria you
+        specified. In this display you mark Contacts you want to merge as
+        either "source" or "target" Contacts. When merging Contact records,
+        source Contacts are merged into target Contacts&mdash;leaving behind
+        only the target Contact record.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>In addition to the basic Contact references, specific data elements of
+  a source Contact may also be carried over to the merged target
+  Contact&mdash;information such as the notes, phone numbers, or the email
+  address. To select these specific data elements for merging, go to the
+  "Selections" tab":</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -31,4 +119,25 @@
         <caption>Selected Contacts</caption>
       </mediaobject>
     </screenshot></para>
+  <para>When merging specific data elements for selected Contacts, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Source Contacts</term>
+      <listitem>
+        <para>Displays any Contact records you specified as source Contacts on
+        the "Contacts" tab. If you right-click on any of the cells of the
+        Source Contacts list, you can choose to merge that cell to the target
+        Contact. The cell's contents will turn blue when selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Target Contact</term>
+      <listitem>
+        <para>Displays the target Contact record. When you merge Contacts, the
+        target Contact record will receive the specified data elements
+        selected in the source Contact(s) records.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
