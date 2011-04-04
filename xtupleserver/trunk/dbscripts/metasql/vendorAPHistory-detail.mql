@@ -19,15 +19,18 @@ SELECT apopen_id, -1 AS applyid, 0 AS type,
        CASE WHEN (apopen_doctype='C') THEN apopen_amount / apopen_curr_rate * -1.0
          ELSE apopen_amount / apopen_curr_rate
        END AS base_amount,
+       0 AS base_applied,
        CASE WHEN (apopen_doctype='C') THEN (apopen_amount - apopen_paid) / apopen_curr_rate * -1.0
          ELSE (apopen_amount - apopen_paid) / apopen_curr_rate
        END AS base_balance,
        'curr' AS amount_xtnumericrole,
        'curr' AS base_amount_xtnumericrole,
-       'curr' AS base_amount_xttotalrole,
+       0 AS base_amount_xttotalrole,
+       'curr' AS base_applied_xtnumericrole,
+       0 AS base_applied_xttotalrole,
        'curr' AS balance_xtnumericrole,
        'curr' AS base_balance_xtnumericrole,
-       'curr' AS base_balance_xttotalrole,
+       0 AS base_balance_xttotalrole,
        0 AS xtindentrole 
 FROM apopen 
 WHERE ( (apopen_vend_id=<? value("vend_id") ?>) 
@@ -48,14 +51,17 @@ SELECT apopen_id, apapply_target_apopen_id AS applyid, 1 AS type,
        apapply_amount AS amount,
        0 AS balance,
        currconcat(apapply_curr_id) AS currAbbr,
-       (apapply_amount / apopen_curr_rate) AS base_amount, 
+       0 AS base_amount,
+       (apapply_amount / apopen_curr_rate) AS base_applied, 
        0 AS base_balance,
        'curr' AS amount_xtnumericrole,
        'curr' AS base_amount_xtnumericrole,
-       'curr' AS base_amount_xttotalrole,
+       0 AS base_amount_xttotalrole,
+       'curr' AS base_applied_xtnumericrole,
+       0 AS base_applied_xttotalrole,
        'curr' AS balance_xtnumericrole,
        'curr' AS base_balance_xtnumericrole,
-       'curr' AS base_balance_xttotalrole,
+       0 AS base_balance_xttotalrole,
        1 AS xtindentrole 
 FROM apapply, apopen 
 WHERE ( (apapply_target_apopen_id=apopen_id)
@@ -78,14 +84,17 @@ SELECT apopen_id, apapply_target_apopen_id AS applyid, 2 AS type,
        apapply_amount AS amount,
        0 AS balance,
        currconcat(apapply_curr_id) AS currAbbr,
-       (apapply_amount / apopen_curr_rate) AS base_amount, 
+       0 AS base_amount,
+       (apapply_amount / apopen_curr_rate) AS base_applied, 
        0 AS base_balance,
        'curr' AS amount_xtnumericrole,
        'curr' AS base_amount_xtnumericrole,
-       'curr' AS base_amount_xttotalrole,
+       0 AS base_amount_xttotalrole,
+       'curr' AS base_applied_xtnumericrole,
+       0 AS base_applied_xttotalrole,
        'curr' AS balance_xtnumericrole,
        'curr' AS base_balance_xtnumericrole,
-       'curr' AS base_balance_xttotalrole,
+       0 AS base_balance_xttotalrole,
        1 AS xtindentrole 
 FROM apapply, apopen 
 WHERE ( (apapply_source_doctype IN ('C', 'K'))
