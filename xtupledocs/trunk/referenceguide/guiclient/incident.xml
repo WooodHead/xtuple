@@ -160,7 +160,11 @@
       <term>Notes</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
-        general Notes related to the Incident.</para>
+        general Notes related to the Incident. When a Note is entered, the
+        content of the Note will also automatically be inserted as a Comment
+        on the Incident. The Comment created this way may not be edited;
+        however, if you edit the Note, the associated Comment will include
+        your edits.</para>
       </listitem>
     </varlistentry>
   </variablelist>
