@@ -153,31 +153,44 @@
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to your database.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Number of Database Users</term>
-      <listitem>
-        <para>Displays the number of concurrent Database users.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Number of Server Users</term>
-      <listitem>
-        <para>Displays the number of concurrent server users.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Number of Server Licenses</term>
-      <listitem>
-        <para>Displays the number of licenses available for your
-        server.</para>
         <note>
           <para>Only users with the appropriate privileges will be permitted
           to change Database information. For all other users, this screen
           will be view-only&mdash;and the SAVE button will not be
           visible.</para>
         </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Number of Database Users</term>
+      <listitem>
+        <para>Displays the total number of concurrent xTuple ERP user
+        connections combined with any non-xTuple ERP connections (e.g.,
+        pgAdmin, third-party software tools, etc.) for the xTuple ERP Database
+        whose "Database Information" screen you are looking at. Keep in mind
+        that concurrent connections made by xTuple tools such as xTuple
+        Connect, the Updater, CSVimp, and others count toward your maximum
+        concurrent users total. To get an accurate view of all your current
+        connections, use the following menu path from the xTuple Desktop:
+        <guimenu>Window &gt; Desktop &gt; Users Online</guimenu>.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Number of Server Users</term>
+      <listitem>
+        <para>Displays the total number of concurrent users connected to the
+        PostgreSQL server where the xTuple ERP Database is running. Because
+        it's possible to have more than one database running on a PostgreSQL
+        server instance, the total number of concurrent users accessing the
+        databases on that server may exceed the total number of concurrent
+        users connected to a single xTuple ERP Database.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Number of Server Licenses</term>
+      <listitem>
+        <para>For more information, please see <xref
+        linkend="registration" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>

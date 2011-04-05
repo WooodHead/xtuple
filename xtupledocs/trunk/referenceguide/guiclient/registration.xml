@@ -29,8 +29,8 @@
     <varlistentry>
       <term>Registration Key</term>
       <listitem>
-        <para>Enter the license key you received from xTuple&mdash;or from your
-        authorized xTuple solution provider. Once a valid key has been
+        <para>Enter the license key you received from xTuple&mdash;or from
+        your authorized xTuple solution provider. Once a valid key has been
         entered, the following information will be displayed:</para>
         <variablelist>
           <varlistentry>
@@ -51,12 +51,25 @@
           <varlistentry>
             <term>Max Concurrent Users</term>
             <listitem>
-              <para>Displays the maximum number of concurrent users of the
-              xTuple software, as per the terms of your xTuple license
-              agreement. If you are exceeding your maximum number of allowed
-              concurrent users, you should arrange to update your license
-              agreement either by contacting xTuple or your authorized xTuple
-              solution provider.</para>
+              <para>Displays the maximum number of concurrent xTuple ERP users
+              you are permitted to have, as per the terms of your xTuple ERP
+              license agreement. If you are exceeding your maximum number of
+              allowed concurrent xTuple ERP users, you should arrange to
+              update your license agreement either by contacting xTuple or
+              your authorized xTuple solution provider. Keep in mind that
+              concurrent connections made by xTuple tools such as xTuple
+              Connect, the Updater, CSVimp, and others count toward your
+              maximum concurrent users total. The license manager does provide
+              for non-xTuple ERP connections (e.g., pgAdmin, third-party
+              software tools, etc.). These non-xTuple ERP connections are
+              counted separately. You are allowed as many non-xTuple ERP
+              connections as you are allowed concurrent xTuple ERP
+              connections. For example, if you are registered for 15 xTuple
+              ERP users, you may also have 15 concurrent non-xTuple ERP
+              connections to the xTuple ERP Database. To get an accurate view
+              of all your current connections, use the following menu path
+              from the graphical xTuple Desktop: <guimenu>Window &gt; Desktop
+              &gt; Users Online</guimenu>.</para>
             </listitem>
           </varlistentry>
         </variablelist>
