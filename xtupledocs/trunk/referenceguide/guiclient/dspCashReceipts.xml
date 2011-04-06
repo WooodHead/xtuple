@@ -26,8 +26,8 @@
     retained for use by this screen. As a result, you will not see Cash
     Receipt history for any Cash Receipts entered prior to version 3.3.0.
     Since old Cash Receipt information is not available prior to version
-    3.3.0, the Receivables Applications screen should be used until sufficient Cash
-    Receipt history is accumulated.</para>
+    3.3.0, the Receivables Applications screen should be used until sufficient
+    Cash Receipt history is accumulated.</para>
   </note>
   <para>When viewing Cash Receipts and their applications, you are presented
   with the following options:</para>
@@ -86,8 +86,8 @@
             <listitem>
               <para>Select to order the results by Cash Receipt. Only Cash
               Receipts entered in or after xTuple ERP version 3.3.0 will be
-              shown. For older Cash Receipt history, see the Receivables Applications
-              screen.</para>
+              shown. For older Cash Receipt history, see the Receivables
+              Applications screen.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -96,15 +96,21 @@
     <varlistentry>
       <term>Cash Receipts</term>
       <listitem>
-        <para>Display lists Cash Receipt details, using the specified
-        parameters.</para>
+        <para>Display lists Cash Receipt details for both posted and unposted
+        Cash Receipts, using the specified parameters. From the right-click
+        menu you can void posted cash receipts. When a Cash Receipt is voided,
+        any applications will also be reversed. Keep in mind that any Credit
+        Memos or Customer Deposits created from the unapplied balance when the
+        original Cash Receipt was posted will not be reversed when a Cash
+        Receipt is voided. Instead, a misc. Receivables Debit Memo will be
+        created in the amount of the original unapplied balance.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>The display will include unposted as well as posted Cash
-    Receipts.</para>
-  </note>
+  <tip>
+    <para>You can only void Cash Receipts entered in xTuple ERP version 3.3.0
+    or later.</para>
+  </tip>
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
     <varlistentry>
@@ -115,9 +121,9 @@
         reversed. Keep in mind that any Credit Memos or Customer Deposits
         created from the unapplied balance when the original Cash Receipt was
         posted will not be reversed when a Cash Receipt is voided. Instead, a
-        misc. Receivables Debit Memo will be created in the amount of the original
-        unapplied balance. You may only reverse Cash Receipts entered in
-        xTuple ERP version 3.3.0 or later.</para>
+        misc. Receivables Debit Memo will be created in the amount of the
+        original unapplied balance. You may only reverse Cash Receipts entered
+        in xTuple ERP version 3.3.0 or later.</para>
       </listitem>
     </varlistentry>
   </variablelist>
