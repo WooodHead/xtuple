@@ -700,6 +700,25 @@
         enclose individual parts of the messages sent by the gateway to the
         client application. If this field is blank then Authorize.Net will not
         use any character for this purpose.</para>
+        <warning>
+          <para>You should set the Encapsulating Character to a value.
+          Otherwise some transactions may fail with an error reporting that
+          the response from the payment gateway has the wrong number of
+          fields.</para>
+          <para>Several of these configuration options may be set through the
+          Authorize.Net Merchant Interface. If you set any of these options
+          there, you <emphasis>must</emphasis> use exactly the same values
+          here in the Service Options tab. If you do not then most or all of
+          your credit card transactions will fail, often with mysterious
+          errors.</para>
+          <para>If you want to use the MD5 Hash feature, you must set it to
+          exactly the same value here and on the Merchant Interface, including
+          spaces and capitalization.</para>
+          <para>You may set the Delimiting Character, Encapsulating Character,
+          Duplicate Window, and Currency of Transactions in the xTuple
+          application without setting them through the Authorize.Net Merchant
+          Interface.</para>
+        </warning>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -791,26 +810,18 @@
               with this service.</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term>Ignore SSL Errors</term>
+            <listitem>
+              <para>Select if you want xTuple ERP to ignore Secure Sockets
+              Layer (SSL) errors when connecting to the Authorize.Net
+              gateway.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <warning>
-    <para>You should set the Encapsulating Character to a value. Otherwise
-    some transactions may fail with an error reporting that the response from
-    the payment gateway has the wrong number of fields.</para>
-    <para>Several of these configuration options may be set through the
-    Authorize.Net Merchant Interface. If you set any of these options there,
-    you <emphasis>must</emphasis> use exactly the same values here in the
-    Service Options tab. If you do not then most or all of your credit card
-    transactions will fail, often with mysterious errors.</para>
-    <para>If you want to use the MD5 Hash feature, you must set it to exactly
-    the same value here and on the Merchant Interface, including spaces and
-    capitalization.</para>
-    <para>You may set the Delimiting Character, Encapsulating Character,
-    Duplicate Window, and Currency of Transactions in the xTuple application
-    without setting them through the Authorize.Net Merchant Interface.</para>
-  </warning>
   <para><indexterm>
       <primary>credit cards</primary>
       <secondary>key files and</secondary>
