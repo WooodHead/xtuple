@@ -164,15 +164,16 @@
     <varlistentry>
       <term>Number of Database Users</term>
       <listitem>
-        <para>Displays the total number of concurrent xTuple ERP user
+        <para>Displays the total number of concurrent xTuple ERP client user
         connections combined with any non-xTuple ERP connections (e.g.,
         pgAdmin, third-party software tools, etc.) for the xTuple ERP Database
         whose "Database Information" screen you are looking at. Keep in mind
         that concurrent connections made by xTuple tools such as xTuple
         Connect, the Updater, CSVimp, and others count toward your maximum
-        concurrent users total. To get an accurate view of all your current
-        connections, use the following menu path from the xTuple Desktop:
-        <guimenu>Window &gt; Desktop &gt; Users Online</guimenu>.</para>
+        concurrent xTuple client users total. To get an accurate view of all
+        your current connections, use the following menu path from the xTuple
+        Desktop: <guimenu>Window &gt; Desktop &gt; Users
+        Online</guimenu>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
