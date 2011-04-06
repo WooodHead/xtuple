@@ -139,6 +139,9 @@ BEGIN
     IF (NOT FOUND) THEN
       RETURN -1;
     END IF;
+    IF (_to.tohead_status = 'C') THEN
+      RETURN -6;
+    END IF;
 
     FOR _ti IN SELECT toitem_id, toitem_item_id,
 		      toitem_qty_received, toitem_qty_ordered, SUM(shipitem_qty) AS qty
