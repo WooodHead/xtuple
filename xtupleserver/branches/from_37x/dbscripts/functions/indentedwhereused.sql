@@ -36,7 +36,7 @@ BEGIN
 
   WHILE ( ( SELECT count(*)
             FROM bomwork
-            WHERE ((bomwork_item_type IN ('M', 'F', 'K', 'T'))
+            WHERE ((bomwork_item_type IN ('M', 'F'))
               AND (bomwork_status='U')
               AND (bomwork_set_id=_indexid)) ) > 0) LOOP
 
@@ -68,7 +68,8 @@ BEGIN
                                AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1))
                                AND (bomitem_rev_id=getActiveRevId('BOM',bomitem_parent_item_id)) )
                  JOIN item ON (item_id=bomitem_parent_item_id)
-    WHERE (bomwork_status='U');
+    WHERE ((bomwork_status='U')
+      AND  (bomwork_item_type IN ('M', 'F')));
 
     UPDATE bomwork
     SET bomwork_status='C'
