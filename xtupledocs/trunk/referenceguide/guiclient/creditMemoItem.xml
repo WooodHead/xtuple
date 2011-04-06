@@ -89,13 +89,21 @@
     <varlistentry>
       <term>Qty. Returned</term>
       <listitem>
-        <para>Enter the quantity of the Item returned for credit.</para>
-        <note>
-          <para>If the Credit Memo is created from a Return Authorization, the
-          quantity returned will be zero on the Credit Memo Item screen.
-          Return Authorization returns are handled separately, outside of the
-          normal sales Credit Memo Inventory handling process.</para>
-        </note>
+        <para>Enter the quantity of the Item returned for credit. If the
+        Credit Memo was created from a Return Authorization, the quantity
+        returned will be zero on the Credit Memo Item screen. Return
+        Authorization returns are handled separately, outside of the normal
+        sales Credit Memo Inventory handling process.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Update Inventory</term>
+            <listitem>
+              <para>Select if you want the quantity returned to be added back
+              into Inventory when you post the Credit Memo. If not selected,
+              your Inventory will not be updated.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
