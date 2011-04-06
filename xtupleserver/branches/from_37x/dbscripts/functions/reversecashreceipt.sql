@@ -127,7 +127,7 @@ BEGIN
      
 --  Update the aropen item to post the paid amount
     UPDATE aropen
-    SET aropen_paid = _r.new_paid + _r.new_discount,
+    SET aropen_paid = _r.new_paid - _r.new_discount,
         aropen_open = TRUE,
         aropen_closedate = NULL
     WHERE (aropen_id=_r.aropen_id);
