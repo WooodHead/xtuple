@@ -28,12 +28,21 @@
     </note></para>
   <variablelist>
     <varlistentry>
-      <term>First Invoice #</term>
+      <term>All Ship Vias</term>
       <listitem>
-        <para>The next Invoice Number in the automatic sequence of Invoice
-        Numbers will display here. Once this Invoice Number has been printed,
-        the next Invoice Number will appear. Default values for Invoice
-        Numbers are configurable at the system level.</para>
+        <para>Select if you want to print Invoices for any and all Ship
+        Vias.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship Via</term>
+      <listitem>
+        <para>Specify the Ship Via whose Invoices you want to print.</para>
+        <tip>
+          <para>The system supports up-to-date shipment tracking with links to
+          the websites of many leading shipping companies (i.e., "Ship
+          Vias").</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -41,14 +50,13 @@
       <listitem>
         <para>Select to automatically post Invoices after they have been
         printed.</para>
+        <note>
+          <para>Invoices are posted effective on the date they are
+          distributed, not on the date they are posted&mdash;as might be
+          assumed.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>Invoices are posted effective on the date they are distributed, not
-    on the date they are posted&mdash;as might be assumed.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Invoice Copies</term>
       <listitem>
