@@ -184,6 +184,10 @@ BEGIN
 
 	    IF (_billedQty >= _s.shipitem_qty) THEN
 	      UPDATE shipitem SET shipitem_invoiced=TRUE WHERE shipitem_id=_s.shipitem_id;
+              -- Close coitem where fully shipped and invoiced
+              UPDATE coitem SET coitem_status='C'
+              WHERE ( (coitem_id=_c.coitem_id)
+                AND   (coitem_qtyshipped >= coitem_qtyord) );
 	    ELSE
 	      _newQty := _s.shipitem_qty - _billedQty;
 	      UPDATE shipitem SET shipitem_invoiced=TRUE, shipitem_qty=_billedQty WHERE shipitem_id=_s.shipitem_id;
