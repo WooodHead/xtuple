@@ -1,5 +1,6 @@
 -- Group: manufacture
 -- Name: jobcosting
+-- Notes: used by dspJobCosting
 SELECT *, 0 AS cost_xttotalrole,
        'qty' AS qty_xtnumericrole,
        'cost' AS cost_xtnumericrole
