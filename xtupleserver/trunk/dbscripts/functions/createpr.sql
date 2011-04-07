@@ -114,7 +114,7 @@ BEGIN
   VALUES
   ( _prid, _orderNumber, nextPrSubnumber(_orderNumber), 'O',
     pParentType, pParentId,
-    _parent.itemsiteid, _parent.qty,
+    _parent.itemsiteid, validateOrderQty(_parent.itemsiteid, _parent.qty, TRUE),
     _parent.duedate, _parent.notes );
 
   RETURN _prid;
