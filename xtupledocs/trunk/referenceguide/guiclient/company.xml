@@ -7,6 +7,18 @@
       <primary>companies</primary>
       <secondary>adding new</secondary>
     </indexterm>Company</title>
+  <para>If you need to track and report on Account activity for multiple
+  Companies&mdash;or if you are consolidating external Companies into your
+  parent xTuple Database&mdash;then you will need to define Company
+  information on this screen. To prevent unbalanced Trial Balances at the
+  Company level, G/L transactions and series postings will not be allowed that
+  cross Companies.</para>
+  <note>
+    <para>If prior to xTuple ERP 3.7.0 you were using the Company segment for
+    something other than separate Company reporting&mdash;and you need to
+    continue that usage&mdash;please contact your xTuple support
+    representative.</para>
+  </note>
   <para>To add a new Company, select the NEW button. The following screen will
   appear:</para>
   <para><screenshot>
@@ -30,6 +42,46 @@
       <term>Description</term>
       <listitem>
         <para>Enter a brief description of the Company.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Retained Earnings</term>
+      <listitem>
+        <para>Select a valid General Ledger Account. This is an Equity
+        Account. It will be credited if retained earnings are
+        positive&mdash;and debited if retained earnings are negative. The
+        retained earnings calculation occurs when a Fiscal Year is closed.
+        Total Expenses for the year are subtracted from total Revenues, and
+        the balance is transferred to the Year End Equity Account. The system
+        then automatically resets the beginning balances for Revenue and
+        Expense Accounts to $0 for the start of the new Fiscal Year.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Currency Gain/Loss</term>
+      <listitem>
+        <para>Select a valid General Ledger Account. This is an Expense
+        Account only needed for xTuple ERP Databases where multiple Currencies
+        are in use. The Account will debited for Currency gains and credited
+        for Currency losses arising from fluctuating Exchange Rates. Currency
+        gains/losses may be recognized at the following points: 1) When
+        posting a Cash Receipt applied to an Invoice; 2) when posting a
+        Payables Check applied to a Voucher; 3) when applying a Receivable
+        Misc. Credit Memo to an Invoice; and 4) when applying a Payables Misc.
+        Credit Memo to a Voucher. In each case, the gain or loss arises when
+        the Exchange Rate used for the Apply-To document differs from the
+        Exchange Rate used for the application.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>G/L Series Discrepancy</term>
+      <listitem>
+        <para>Select a valid General Ledger Account. This is an Expense
+        Account. It will be debited or credited if rounding errors cause
+        discrepancies when multiple line item (i.e., series) transactions are
+        posted to the General Ledger. If used, the amounts posted to this
+        Account will be minuscule, as rounding errors are fractional by
+        nature.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
