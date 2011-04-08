@@ -9,8 +9,27 @@
   <para>The synchronize Companies utility is designed to synchronize a parent
   database with child databases for the purpose of consolidated financial
   reporting. This utility will only be visible when external Company
-  consolidation is enabled&mdash;and then only when users have appropriate
-  permissions.</para>
+  consolidation is enabled on the Accounting configuration screen&mdash;and
+  then only when users have appropriate permissions.</para>
+  <para>When you elect to synchronize a child database with a parent, the
+  application will check to make sure a Currency Exchange Rate exists between
+  the functional Currency of the child and that of the parent for each
+  Accounting Period to be imported. The system will also check for needed
+  Account Assignments, including the Unrealized Gain/Loss Account tied to the
+  child Company's Currency. If any requirements are missing, the process will
+  stop and you will be presented with an error message describing the missing
+  information.</para>
+  <para>Once all synchronization criteria are met, the synchronizer will
+  import the Trial Balance of the child database to the Trial Balance table of
+  the parent database in the parent's functional Currency using the Exchange
+  Rate defined for the end of the specified Accounting Period(s) in the parent
+  database. The parent database will keep a record of the Exchange Rate used
+  for the import. If the Exchange Rate for that date is subsequently changed,
+  the Exchange Rate record will be marked as "dirty"&mdash;and on the next
+  subsequent synchronization, the Trial Balance data of the child will be
+  re-imported using the new Exchange Rate. A warning will be shown when
+  running Trial Balances or Financial Reports having "dirty" Exchange Rate
+  data.</para>
   <para>To synchronize Companies, select the "Synchronize Companies" option.
   The following screen will appear:</para>
   <para><screenshot>
@@ -27,13 +46,13 @@
     <varlistentry>
       <term>Periods</term>
       <listitem>
-        <para>Select one or more financial periods to synchronize.</para>
+        <para>Select one or more Accounting Periods to synchronize.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Companies</term>
       <listitem>
-        <para>Select one or more external companies to synchronize.</para>
+        <para>Select one or more external Companies to synchronize.</para>
       </listitem>
     </varlistentry>
   </variablelist>

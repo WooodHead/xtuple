@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="financialLayoutOptions">
   <title>Additional Options</title>
-  <para>To specify additional configuration options for the
-  layout of your Ad Hoc report, select the "Options" tab. The following screen
-  will appear:</para>
-  <para>
-<screenshot>
+  <para>To specify additional configuration options for the layout of your Ad
+  Hoc report, select the "Options" tab. The following screen will
+  appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/financialLayoutOptions.png"/>
+          <imagedata fileref="images/financialLayoutOptions.png" />
         </imageobject>
         <caption>Ad Hoc Report Options</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When specifying additional configuration options for
-  the layout of your Ad Hoc report, you are presented with the following
-  options:</para>
+    </screenshot></para>
+  <para>When specifying additional configuration options for the layout of
+  your Ad Hoc report, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Show Grand Total</term>
@@ -147,4 +145,9 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <note>
+    <para>Any Notes you add to a Financial Report definition will appear at
+    the bottom of the Financial Report when the Financial Report is
+    printed.</para>
+  </note>
 </section>
