@@ -45,9 +45,7 @@ BEGIN
          WHERE (metric_name='Routings') ) ) THEN
 
 --    Reschedule wooper
-    --_vtemp := xtmfg.calculateworkdays(itemsite_warehous_id, DATE(wo_startdate), DATE(wooper_scheduled));
     UPDATE xtmfg.wooper
-    --SET wooper_scheduled = (wooper_scheduled::DATE + (pStartDate - wo_startdate))
     SET wooper_scheduled = xtmfg.calculatenextworkingdate(itemsite_warehous_id,DATE(pStartDate),
 	CAST(xtmfg.calculateworkdays(itemsite_warehous_id, DATE(wo_startdate), DATE(wooper_scheduled)) as INTEGER))
     FROM wo
