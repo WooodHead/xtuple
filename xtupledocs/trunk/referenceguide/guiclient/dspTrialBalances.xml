@@ -54,13 +54,20 @@
     <listitem>
       <para>The Trial Balance query builder includes an option for displaying
       Accounts having a zero balance. If not selected, zero-balance Trial
-      Balances will be hidden&mdash;unless a specific Account is specified, in which
-      case the balance will be shown regardless of whether it is zero.</para>
+      Balances will be hidden&mdash;unless a specific Account is specified, in
+      which case the balance will be shown regardless of whether it is
+      zero.</para>
     </listitem>
     <listitem>
       <para>Also included is an option for showing Accounts with a Project
       Number as the last segment. If the "Show Project Detail" option is not
       used, balances will roll up into the parent Account total.</para>
+    </listitem>
+    <listitem>
+      <para>If you are synchronizing the Trial Balances of multiple external
+      Companies, you may get a warning message if Exchange Rates covering the
+      imported Accounting Periods were changed after the fact. For more
+      information, please see <xref linkend="syncCompanies" />.</para>
     </listitem>
   </itemizedlist>
   <para>The following screenshot shows the "Trial Balances" screen:</para>
