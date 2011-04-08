@@ -118,7 +118,7 @@ BEGIN
     _qry := 'SELECT SUM(orderitem_qty_ordered * item_prodweight) AS weight, ';
   END IF;
 
-  _qry := _qry || 'itemsite_warehous_id, item_freightclass_id
+  _qry := _qry || 'itemsite_warehous_id, COALESCE(item_freightclass_id, -1) AS item_freightclass_id
            FROM orderitem JOIN itemsite ON (itemsite_id=orderitem_itemsite_id)
                           JOIN item ON (item_id=itemsite_item_id) ';
 
@@ -130,8 +130,7 @@ BEGIN
   _qry := _qry || '
     WHERE ( (orderitem_orderhead_type=' || quote_literal(pOrderType) || ')
       AND   (orderitem_orderhead_id=' || quote_literal(pOrderId) || ')
-      AND   (orderitem_status <> ''X'')
-      AND   (item_freightclass_id IS NOT NULL) )
+      AND   (orderitem_status <> ''X'') )
     GROUP BY itemsite_warehous_id, item_freightclass_id;';
   
   FOR _weights IN
