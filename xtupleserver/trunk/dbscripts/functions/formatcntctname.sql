@@ -33,7 +33,11 @@ DECLARE
 BEGIN
 
   IF (LENGTH(TRIM(both from COALESCE(pHonorific,''))) > 0) THEN
-    _name:= pHonorific || '.';
+    IF (POSITION('.' IN COALESCE(pHonorific, '')) > 0) THEN
+      _name:= pHonorific;
+    ELSE
+      _name:= pHonorific || '.';
+    END IF;
   END IF;
 
   IF (LENGTH(TRIM(both from COALESCE(pFirstName,''))) > 0)  THEN
@@ -47,7 +51,11 @@ BEGIN
         IF (LENGTH(TRIM(both from _name)) > 0) THEN
                 _name:=_name || ' ';
         END IF;
-    _name:=_name || pMiddle || '.';
+    IF (POSITION('.' IN COALESCE(pHonorific, '')) > 0) THEN
+      _name:=_name || pMiddle;
+    ELSE
+      _name:=_name || pMiddle || '.';
+    END IF;
   END IF;
 
   IF (LENGTH(TRIM(both from COALESCE(pLastName,''))) > 0)  THEN
