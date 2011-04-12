@@ -15,7 +15,9 @@
     <para>When running MRP by Item for manufactured Items, the system
     generates Planned Work Orders only. If you want to also generate Planned
     Orders for purchased requirements, you should run MRP by Planner Code.
-    Only Items designated as MRP Items will be affected by an MRP run.</para>
+    Only Items designated as MRP Items will be affected by an MRP run.
+    Unposted Purchase Orders and Purchase Requests are considered as valid
+    sources of supply when MRP is run.</para>
   </tip>
   <para>To run MRP for an individual Item, select the "Run MRP by Item"
   option. The following screen will appear:</para>
@@ -62,7 +64,11 @@
       <term>Cutoff Date</term>
       <listitem>
         <para>Specify how far into the future the MRP run should look for
-        demand.</para>
+        demand. If you schedule an MRP or MPS job submitted to the xTuple
+        Connect Batch Manager to run on a periodic basis&mdash;daily, weekly,
+        monthly&mdash;the cutoff date used for the run will automatically be
+        updated by the number of days in the specified reschedule interval
+        (Day = +1, Week = +7, and Month = +30).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -90,11 +96,24 @@
         requirements still exists.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Create MRP Exceptions</term>
+      <listitem>
+        <para>If you are using the MRP Exceptions feature set for planning
+        purposes, you should always select this option when running MRP. Not
+        only will this option create MRP Exceptions for you&mdash;it will also
+        force MRP to recognize those exceptions and adjust its calculations
+        when creating Planned Orders. The end result will be Planned Orders
+        that are netted against the known exceptions. Planner Code options
+        related to exceptions handling may also impact your results. If you do
+        not select this option&mdash;and you are using the MRP Exceptions
+        feature set&mdash;the netting effect will not be applied and you could
+        end up with excess supply orders. Do not select this option if you are
+        not using the MRP Exceptions feature set. For more information about
+        MRP Exceptions, please see <xref linkend="dspMRPExceptions" />.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-  <tip>
-    <para>Unposted Purchase Orders and Purchase Requests are considered as
-    valid sources of supply when MRP is run.</para>
-  </tip>
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
     <varlistentry>
