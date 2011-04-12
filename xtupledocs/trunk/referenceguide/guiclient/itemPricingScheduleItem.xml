@@ -77,7 +77,7 @@
       <term><indexterm significance="normal">
           <primary>quantity breaks</primary>
           <secondary>in pricing schedules</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>pricing schedules</primary>
           <secondary>quantity breaks in</secondary>
         </indexterm>Qty. Break</term>
@@ -185,8 +185,9 @@
         <imagedata fileref="images/characteristicPrice.png" />
       </imageobject>
       <caption>Characteristic Pricing</caption>
-    </mediaobject>When adding a new Characteristic pricing Item, you are
-  presented with the following options:</para>
+    </mediaobject></para>
+  <para>When adding a new Characteristic pricing Item, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Characteristic</term>
@@ -229,12 +230,22 @@
       <secondary>pricing schedules for</secondary>
     </indexterm>If you are creating a new Pricing Schedule for a Product
   Category, the following screen will appear:</para>
+  <para></para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/itemPricingScheduleItem_prodcatSelected.png" />
+          <imagedata fileref="images/itemPricingScheduleItem_discountSelected_prodCat.png" />
         </imageobject>
-        <caption>Pricing Schedule for Product Category</caption>
+        <caption>Discount for Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemPricingScheduleItem_discountSelected.png" />
+        </imageobject>
+        <caption>Discount for Product Category</caption>
       </mediaobject>
     </screenshot></para>
   <para>When creating a new Pricing Schedule for a Product Category, you are
@@ -286,4 +297,15 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para></para>
+  <para></para>
+  <para><mediaobject>
+      <imageobject>
+        <imagedata fileref="images/itemPricingScheduleItem_freightSelected.png" />
+      </imageobject>
+      <caption>Freight</caption>
+    </mediaobject>When defining Characteristic pricing for configured Items,
+  you are presented with the following options:</para>
+  <para></para>
+  <para></para>
 </section>
