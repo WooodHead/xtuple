@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="dspMRPExceptions" role="standard">
+  <title><indexterm significance="normal">
+      <primary>mrp</primary>
+      <secondary>exceptions handling and</secondary>
+    </indexterm> MRP Exceptions</title>
+  <para>The MRP Exceptions feature set extends the MRP planning system by
+  offering advice on existing Work Orders and Purchase Orders in the form of
+  exception messages. The goal of these messages is to identify supply orders
+  which need to be either scheduled farther into the future (i.e., pushed),
+  scheduled closer to the present day (i.e., pulled), or removed as
+  unnecessary (i.e., canceled). Using the "MRP Exceptions" screen, you can
+  manage these exception messages manually&mdash;taking action as deemed
+  necessary. Or you can automate the process using MRP and the Planner Code
+  options designed for MRP Exception handling. For more information about the
+  Planner Code settings related to MRP Exceptions, please see <xref
+  linkend="plannerCode" />.</para>
+  <para>To manage your MRP Exceptions, select the "MRP Exceptions" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspMRPException.png" />
+        </imageobject>
+        <caption>MRP Exceptions</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When managing MRP Exceptions, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Filter By</term>
+      <listitem>
+        <para>Specify the primary filter you want to use when managing MRP
+        Exceptions:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Planner Code</term>
+            <listitem>
+              <para>If selected, you will be presented with a range of Planner
+              Code options to filter by.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Item</term>
+            <listitem>
+              <para>If selected, you will be prompted to enter the Item Number
+              you want to filter by.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Specify the Site filter you want to use:</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Sites</term>
+            <listitem>
+              <para>Select to display MRP Exceptions for all Sites.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Selected</term>
+            <listitem>
+              <para>Specify Site whose MRP Exceptions you want to
+              display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Only</term>
+      <listitem>
+        <para>To limit the displayed information to include only results
+        having exception messages, select one or both of the following
+        options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Schedule Exceptions</term>
+            <listitem>
+              <para>Select to include exception message results for supply
+              orders that need to be rescheduled&mdash;that is, either pushed
+              into the future or pulled closer to the present day. Using the
+              "Min. Days" feature, specify the minimum number of days you care
+              about. For example, if you only want to see supply orders that
+              are less than a week off schedule, enter a value of "6".</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Cancel Exceptions</term>
+            <listitem>
+              <para>Select to include exception message results for supply
+              orders that need to be canceled. Using the "Min. Quantity"
+              feature, specify the minimum quantity you care about. For
+              example, if you only want to see supply orders where the excess
+              is less than 100 units, enter a value of "99".</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Exceptions</term>
+      <listitem>
+        <para>Display lists MRP Exceptions, using the specified parameters. If
+        you do not limit the display using one or both of the "Show Only"
+        options, some results may not have exception suggestions&mdash;and in
+        those cases the information shown will resemble running availability.
+        For rows where exceptions have been found, the details of the
+        exception (push, pull, or cancel) will be shown under the "Exception
+        Messages" column. Use the right-click menu to quickly take action on
+        the exception messages.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CREATE</term>
+      <listitem>
+        <para>Select to generate MRP Exceptions. When selected, you will be
+        presented with the "Run MRP Exceptions" screen which allows you to
+        specify additional options. This button performs the same action as
+        the "Create MRP Exceptions" flag that is available when you are
+        running MRP. Depending on how your Planner Codes are set up, the
+        action taken in response to MRP Exceptions may either be automatic or
+        manual.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="runMRPException.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
