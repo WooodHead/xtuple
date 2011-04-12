@@ -69,6 +69,10 @@ int main(int argc, char *argv[])
   QApplication app(argc, argv);
   app.addLibraryPath(".");
 
+#ifndef Q_WS_MACX
+  QApplication::setWindowIcon(QIcon(":/images/CSVimpIcon-32x32.png"));
+#endif
+
 #ifdef Q_WS_WIN
   if (QSysInfo::WindowsVersion == QSysInfo::WV_XP)
     app.setStyle(QStyleFactory::create("windowsxpstyle"));

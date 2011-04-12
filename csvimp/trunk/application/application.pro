@@ -19,7 +19,7 @@ OBJECTS_DIR = tmp
 MOC_DIR     = tmp
 UI_DIR      = tmp
 
-INCLUDEPATH += ../csvimpcommon ../plugin \
+INCLUDEPATH += ../csvimpcommon ../csvimpcommon/images ../plugin \
                ../$${OPENRPT_DIR}/common ../$${OPENRPT_DIR}/MetaSQL \
                ../$${OPENRPT_BLD}/common ../$${OPENRPT_BLD}/MetaSQL
 INCLUDEPATH = $$unique(INCLUDEPATH)
@@ -36,6 +36,12 @@ win32-msvc* {
 } else {
   PRE_TARGETDEPS += ../$${OPENRPT_BLD}/lib/libcommon.a      \
                     ../$${OPENRPT_BLD}/lib/libMetaSQL.a     \
+}
+win32:RC_FILE = application.rc
+
+macx {
+  RC_FILE = ../csvimpcommon/images/CSVimp.icns
+  QMAKE_INFO_PLIST = Info.plist
 }
 
 # Input
