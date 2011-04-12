@@ -40,7 +40,7 @@ win32-msvc* {
 win32:RC_FILE = application.rc
 
 macx {
-  RC_FILE = ../csvimpcommon/images/CSVimp.icns
+  RC_FILE = ../csvimpcommon/images/icons.icns
   QMAKE_INFO_PLIST = Info.plist
 }
 
