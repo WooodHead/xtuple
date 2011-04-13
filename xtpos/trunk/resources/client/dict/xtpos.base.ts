@@ -580,7 +580,7 @@
     <message>
         <location filename="../uiforms/payment.ui" line="151"/>
         <location filename="../uiforms/payment.ui" line="202"/>
-        <location filename="../uiforms/payment.ui" line="493"/>
+        <location filename="../uiforms/payment.ui" line="498"/>
         <source>Amount:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -741,51 +741,56 @@
     </message>
     <message>
         <location filename="../uiforms/payment.ui" line="435"/>
+        <source>2019</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiforms/payment.ui" line="440"/>
         <source>2020</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/payment.ui" line="443"/>
+        <location filename="../uiforms/payment.ui" line="448"/>
         <source>Name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/payment.ui" line="456"/>
+        <location filename="../uiforms/payment.ui" line="461"/>
         <source>CVV:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/payment.ui" line="479"/>
+        <location filename="../uiforms/payment.ui" line="484"/>
         <source>Check</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/payment.ui" line="510"/>
+        <location filename="../uiforms/payment.ui" line="515"/>
         <source>Document #:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/payment.ui" line="573"/>
+        <location filename="../uiforms/payment.ui" line="578"/>
         <source>Change Due:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/payment.ui" line="635"/>
+        <location filename="../uiforms/payment.ui" line="640"/>
         <source>Balance:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/payment.ui" line="642"/>
+        <location filename="../uiforms/payment.ui" line="647"/>
         <source>Paid:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/payment.ui" line="693"/>
+        <location filename="../uiforms/payment.ui" line="698"/>
         <source>Print Receipt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/payment.ui" line="719"/>
+        <location filename="../uiforms/payment.ui" line="724"/>
         <source>Options...</source>
         <translation type="unfinished"></translation>
     </message>
