@@ -187,7 +187,7 @@ BEGIN
       coitem_qty_uom_id, coitem_qty_invuomratio,
       coitem_price_uom_id, coitem_price_invuomratio,
       coitem_unitcost, coitem_prcost,
-      coitem_custpn, coitem_memo, coitem_taxtype_id )
+      coitem_custpn, coitem_memo, coitem_taxtype_id, coitem_order_id )
     VALUES
     ( _soitemid, _soheadid, _r.quitem_linenumber, _r.quitem_itemsite_id,
       'O', _r.quitem_scheddate, _r.quitem_promdate,
@@ -196,7 +196,7 @@ BEGIN
       _r.quitem_qty_uom_id, _r.quitem_qty_invuomratio,
       _r.quitem_price_uom_id, _r.quitem_price_invuomratio,
       stdcost(_r.itemsite_item_id), _r.quitem_prcost,
-      _r.quitem_custpn, _r.quitem_memo, _r.quitem_taxtype_id );
+      _r.quitem_custpn, _r.quitem_memo, _r.quitem_taxtype_id, -1 );
 
     INSERT INTO charass
           (charass_target_type, charass_target_id, charass_char_id, charass_value, charass_default, charass_price)
