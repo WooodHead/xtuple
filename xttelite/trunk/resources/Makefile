@@ -1,4 +1,4 @@
-../packages/xtte-2.0.0.gz: FORCE
-	cd .. ; tar czf packages/xtte-2.0.0.gz -h --exclude CVS --exclude .\* --exclude Makefile resources
+../packages/xtte-2.0.3.gz: FORCE
+	cd .. ; gnutar czf packages/xtte-2.0.3.gz -h -w --format gnu --exclude CVS --exclude .\* --exclude Makefile resources
 
 FORCE:
