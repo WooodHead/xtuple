@@ -60,7 +60,8 @@ SELECT invhist.*, 0 AS level,
        END AS costmethod,
        0 AS invdetail_id, '' AS locationname,
        0 AS invdetail_qty, 0 AS invdetail_qty_before, 0 AS invdetail_qty_after,
-       CASE WHEN (invhist_transtype='TW') THEN whs1.warehous_code
+       CASE WHEN (invhist_transtype='TW' AND invhist_invqty < 0) THEN whs1.warehous_code
+            WHEN (invhist_transtype='TW') THEN whs2.warehous_code
             WHEN (invhist_transtype='IB') THEN whs1.warehous_code
             WHEN (invhist_transtype='IM') THEN whs1.warehous_code
             WHEN (invhist_transtype='IT') THEN whs1.warehous_code
@@ -77,7 +78,8 @@ SELECT invhist.*, 0 AS level,
 	 WHEN (invhist_transtype='RI') THEN whs1.warehous_code
             ELSE ''
        END AS locfrom,
-       CASE WHEN (invhist_transtype='TW') THEN whs2.warehous_code
+       CASE WHEN (invhist_transtype='TW' AND invhist_invqty < 0) THEN whs2.warehous_code
+            WHEN (invhist_transtype='TW') THEN whs1.warehous_code
             WHEN (invhist_transtype='AD') THEN whs1.warehous_code
             WHEN (invhist_transtype='CC') THEN whs1.warehous_code
             WHEN (invhist_transtype='IB') THEN 'WIP'
