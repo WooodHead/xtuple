@@ -1,0 +1,241 @@
+-- make sure vendor number is unique so we can create a unique index
+SELECT COUNT(*) = 0
+FROM vendinfo a, vendinfo b
+WHERE ((a.vend_number=b.vend_number)
+   AND (a.vend_id!=b.vend_id));
+
+-- make sure item source is unique so we can create a unique index
+SELECT count(*) = 0
+  FROM (SELECT count(*)
+          FROM itemsrc
+         GROUP BY itemsrc_item_id,itemsrc_vend_id
+        HAVING count(*) > 1) AS data;
+
+-- make sure item source uom is not null
+SELECT count(*) = 0
+  FROM itemsrc
+  WHERE (itemsrc_vend_uom IS NULL);
+
+-- make sure item source item id is not null
+SELECT count(*) = 0
+  FROM itemsrc
+  WHERE (itemsrc_vend_uom IS NULL);
+
+-- make sure item source vend uom ratio is not null
+SELECT count(*) = 0
+  FROM itemsrc
+  WHERE (itemsrc_invvendoruomratio IS NULL);
+
+-- make sure item source vendor is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM itemsrc LEFT OUTER JOIN vendinfo ON (vend_id=itemsrc_vend_id)
+WHERE (vend_id IS NULL);
+
+-- make sure item source item is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM itemsrc LEFT OUTER JOIN item ON (item_id=itemsrc_item_id)
+WHERE (item_id IS NULL);
+
+-- make sure item source is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM itemsrcp LEFT OUTER JOIN itemsrc ON (itemsrc_id=itemsrcp_itemsrc_id)
+WHERE (itemsrc_id IS NULL);
+
+-- make sure company number is unique so we can create a unique index
+SELECT COUNT(*) = 0
+FROM company a, company b
+WHERE ((a.company_number=b.company_number)
+   AND (a.company_id!=b.company_id));
+
+-- make sure profit center number is unique so we can create a unique index
+SELECT COUNT(*) = 0
+FROM prftcntr a, prftcntr b
+WHERE ((a.prftcntr_number=b.prftcntr_number)
+   AND (a.prftcntr_id!=b.prftcntr_id));
+
+-- make sure subaccount number is unique so we can create a unique index
+SELECT COUNT(*) = 0
+FROM subaccnt a, subaccnt b
+WHERE ((a.subaccnt_number=b.subaccnt_number)
+   AND (a.subaccnt_id!=b.subaccnt_id));
+
+-- make sure warehouse default account is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM whsinfo LEFT OUTER JOIN accnt ON (accnt_id=warehous_default_accnt_id)
+WHERE (accnt_id IS NULL);
+
+-- make sure warehouse contact is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM whsinfo LEFT OUTER JOIN cntct ON (cntct_id=warehous_cntct_id)
+WHERE (cntct_id IS NULL);
+
+-- make sure cashrcpt customer is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM cashrcpt LEFT OUTER JOIN cust ON (cust_id=cashrcpt_cust_id)
+WHERE (cust_id IS NULL);
+
+-- make sure cashrcpt bank account is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM cashrcpt LEFT OUTER JOIN bankaccnt ON (bankaccnt_id=cashrcpt_bankaccnt_id)
+WHERE (bankaccnt_id IS NULL);
+
+-- make sure cashrcptitem cashrcpt is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM cashrcptitem LEFT OUTER JOIN cashrcpt ON (cashrcpt_id=cashrcptitem_cashrcpt_id)
+WHERE (cashrcpt_id IS NULL);
+
+-- make sure cashrcptitem aropen is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM cashrcptitem LEFT OUTER JOIN aropen ON (aropen_id=cashrcptitem_aropen_id)
+WHERE (aropen_id IS NULL);
+
+-- make sure cashrcptmisc cashrcpt is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM cashrcptmisc LEFT OUTER JOIN cashrcpt ON (cashrcpt_id=cashrcptmisc_cashrcpt_id)
+WHERE (cashrcpt_id IS NULL);
+
+-- make sure cashrcptmisc accnt is valid
+-- so we can create a foreign key constraint
+SELECT COUNT(*) = 0
+FROM cashrcptmisc LEFT OUTER JOIN accnt ON (accnt_id=cashrcptmisc_accnt_id)
+WHERE (accnt_id IS NULL);
+
+-- Check for custinfo to make sure all customer numbers are unique
+SELECT count(*) = 0
+  FROM (SELECT cust_number, count(*)
+          FROM custinfo
+         GROUP BY cust_number
+        HAVING count(*) > 1) AS data;
+
+-- Check for custtype to make sure all customer types are unique
+SELECT count(*) = 0
+  FROM (SELECT custtype_code, count(*)
+          FROM custtype
+         GROUP BY custtype_code
+        HAVING count(*) > 1) AS data;
+
+-- Check to make sure all warehouses on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id
+       FROM cohead
+       WHERE cohead_warehous_id != -1 AND cohead_warehous_id NOT IN (SELECT warehous_id FROM whsinfo WHERE warehous_id=cohead_warehous_id)) AS data;
+
+-- Check to make sure all sales reps on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id
+       FROM cohead
+       WHERE cohead_salesrep_id NOT IN (SELECT salesrep_id FROM salesrep WHERE salesrep_id=cohead_salesrep_id)) AS data;
+
+-- Check to make sure all ship forms on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id
+       FROM cohead
+       WHERE cohead_shipform_id NOT IN (SELECT shipform_id FROM shipform WHERE shipform_id=cohead_shipform_id)) AS data;
+
+-- Check to make sure all ship charges on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id,cohead_shipchrg_id
+       FROM cohead
+       WHERE cohead_shipchrg_id IS NOT NULL 
+       AND cohead_shipchrg_id != -1
+       AND cohead_shipchrg_id NOT IN (SELECT shipchrg_id FROM shipchrg WHERE shipchrg_id=cohead_shipchrg_id)) AS data;
+  
+-- Check to make sure all shiptos on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id
+       FROM cohead
+       WHERE cohead_shipto_id != -1 AND cohead_shipto_id NOT IN (SELECT shipto_id FROM shipto WHERE shipto_id=cohead_shipto_id)) AS data;
+
+-- Check to make sure all account numbers on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id
+       FROM cohead
+       WHERE cohead_misc_accnt_id != -1 AND cohead_misc_accnt_id NOT IN (SELECT accnt_id FROM accnt WHERE accnt_id=cohead_misc_accnt_id)) AS data;
+
+-- Check to make sure all project numbers on cohead exist
+SELECT count(*) = 0
+ FROM (SELECT cohead_id
+       FROM cohead
+       WHERE cohead_prj_id != -1 AND cohead_prj_id NOT IN (SELECT prj_id FROM prj WHERE prj_id=cohead_prj_id)) AS data;
+
+-- Check for cohead to make sure all so numbers are unique
+SELECT count(*) = 0
+  FROM (SELECT cohead_number, count(*)
+          FROM cohead
+         GROUP BY cohead_number
+        HAVING count(*) > 1) AS data;
+
+-- Check to make sure all warehouses on quhead exist
+SELECT count(*) = 0
+ FROM (SELECT quhead_id
+       FROM quhead
+       WHERE quhead_warehous_id != -1 AND quhead_warehous_id NOT IN (SELECT warehous_id FROM whsinfo WHERE warehous_id=quhead_warehous_id)) AS data;
+
+-- Check to make sure all shiptos on quhead exist
+SELECT count(*) = 0
+ FROM (SELECT quhead_id
+       FROM quhead
+       WHERE quhead_shipto_id != -1 AND quhead_shipto_id NOT IN (SELECT shipto_id FROM shipto WHERE shipto_id=quhead_shipto_id)) AS data;
+
+-- Check to make sure all account numbers on quhead exist
+SELECT count(*) = 0
+ FROM (SELECT quhead_id
+       FROM quhead
+       WHERE quhead_misc_accnt_id != -1 AND quhead_misc_accnt_id NOT IN (SELECT accnt_id FROM accnt WHERE accnt_id=quhead_misc_accnt_id)) AS data;
+
+-- Check to make sure all project numbers on quhead exist
+SELECT count(*) = 0
+ FROM (SELECT quhead_id
+       FROM quhead
+       WHERE quhead_prj_id != -1 AND quhead_prj_id NOT IN (SELECT prj_id FROM prj WHERE prj_id=quhead_prj_id)) AS data;
+
+-- Check for quhead to make sure all so numbers are unique
+SELECT count(*) = 0
+  FROM (SELECT quhead_number, count(*)
+          FROM quhead
+         GROUP BY quhead_number
+        HAVING count(*) > 1) AS data;
+
+-- Check whsinfo to make sure all codes are unique
+SELECT count(*) = 0
+  FROM (SELECT warehous_code, count(*)
+          FROM whsinfo
+         GROUP BY warehous_code
+        HAVING count(*) > 1) AS data;
+
+-- Check item to make sure all numbers are unique
+SELECT count(*) = 0
+  FROM (SELECT item_number, count(*)
+          FROM item
+         GROUP BY item_number
+        HAVING count(*) > 1) AS data;
+
+-- Check to make sure all itemsites on coitem exist
+SELECT count(*) = 0
+ FROM (SELECT coitem_id
+       FROM coitem
+       WHERE coitem_itemsite_id NOT IN (SELECT itemsite_id FROM itemsite WHERE itemsite_id=coitem_itemsite_id)) AS data;
+
+-- Check to make sure all substitute itemsites on coitem exist
+SELECT count(*) = 0
+ FROM (SELECT coitem_id, coitem_substitute_item_id
+       FROM coitem
+       WHERE coitem_substitute_item_id IS NOT NULL AND coitem_substitute_item_id NOT IN (SELECT itemsite_id FROM itemsite WHERE itemsite_id=coitem_substitute_item_id)) AS data;
+
+-- check for any duplicated coitem line numbers on a single sales line
+SELECT count(*) = 0
+  FROM (SELECT coitem_cohead_id, coitem_linenumber, count(*)
+          FROM coitem
+         GROUP BY coitem_cohead_id, coitem_linenumber
+        HAVING count(*) > 1) AS data;
+
