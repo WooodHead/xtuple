@@ -112,11 +112,11 @@ TodoList
 WOHistoryByClassCode
 WOHistoryByNumber
 
- 
+
  ====================================================================
  REPORT: AROpenItems
  QUERY: head
- SELECT 
+ SELECT
 -formatDate(<? value("asofDate") ?>) AS asOfDate,
 +CASE WHEN (<? value("asofDate") ?> = endOfTime()) THEN 'Latest'
 +     ELSE formatDate(<? value("asofDate") ?>) END AS asOfDate,
@@ -134,7 +134,7 @@ WOHistoryByNumber
  <? elseif exists("custtype_pattern") ?>
    ('Customer Type pattern = ' || <? value("custtype_pattern") ?>) AS selection,
  <? elseif exists("custgrp_id") ?>
-   (SELECT custgrp_name FROM custgrp WHERE 
+   (SELECT custgrp_name FROM custgrp WHERE
   custgrp_id=<? value("custgrp_id") ?>) AS selection,
  <? else ?>
    'All Customers' AS selection,
@@ -143,7 +143,7 @@ WOHistoryByNumber
        'Start Doc Date:' AS start_label,
        'End Doc Date:' AS end_label,
  <? else ?>
-       'Start Due Date:' AS start_label,   
+       'Start Due Date:' AS start_label,
        'End Due Date:' AS end_label,
  <? endif ?>
         formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
@@ -154,18 +154,12 @@ WOHistoryByNumber
  <? else ?>
    'No' AS incidentsOnly
  <? endif ?>;
- --------------------------------------------------------------------
-   
- QUERY: detail
- == MetaSQL statement arOpenItems-f_detail
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: AddressesMasterList
  QUERY: detail
-+SELECT * 
++SELECT *
 +FROM (
  SELECT 'Contact' AS type, cntct_first_name AS first,
         cntct_last_name AS last, crmacct_number, cntct_phone AS phone,
@@ -202,7 +196,7 @@ WOHistoryByNumber
  FROM addr, whsinfo
  WHERE (warehous_addr_id=addr_id)
 -  <? if exists("activeOnly") ?> AND addr_active <? endif ?>
- 
+
  UNION
  SELECT '' AS type, '' AS first, '' AS last,
         '' AS crmacct_number, '' AS phone,
@@ -211,26 +205,26 @@ WOHistoryByNumber
  FROM addr
  WHERE addr_id NOT IN (
              SELECT cntct_addr_id FROM cntct WHERE (cntct_addr_id IS NOT NULL)
-             UNION SELECT shipto_addr_id FROM shiptoinfo WHERE (shipto_addr_id IS NOT NULL) 
+             UNION SELECT shipto_addr_id FROM shiptoinfo WHERE (shipto_addr_id IS NOT NULL)
              UNION SELECT vend_addr_id FROM vendinfo WHERE (vend_addr_id IS NOT NULL)
              UNION SELECT vendaddr_addr_id FROM vendaddrinfo WHERE (vendaddr_addr_id IS NOT NULL)
              UNION SELECT warehous_addr_id FROM whsinfo WHERE (warehous_addr_id IS NOT NULL))
 -<? if exists("activeOnly") ?> AND addr_active <? endif ?>
 +) data
 +<? foreach("char_id_text_list") ?>
-+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_text_list") ?> ON ((charass_alias<? literal("char_id_text_list") ?>.charass_target_type='ADDR') 
++  LEFT OUTER JOIN charass charass_alias<? literal("char_id_text_list") ?> ON ((charass_alias<? literal("char_id_text_list") ?>.charass_target_type='ADDR')
 +                                                                    AND  (charass_alias<? literal("char_id_text_list") ?>.charass_target_id=addr_id)
 +                                                                    AND  (charass_alias<? literal("char_id_text_list") ?>.charass_char_id=<? value("char_id_text_list") ?>))
 +  LEFT OUTER JOIN char char_alias<? literal("char_id_text_list") ?> ON (charass_alias<? literal("char_id_text_list") ?>.charass_char_id=char_alias<? literal("char_id_text_list") ?>.char_id)
 +<? endforeach ?>
 +<? foreach("char_id_list_list") ?>
-+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_list_list") ?> ON ((charass_alias<? literal("char_id_list_list") ?>.charass_target_type='ADDR') 
++  LEFT OUTER JOIN charass charass_alias<? literal("char_id_list_list") ?> ON ((charass_alias<? literal("char_id_list_list") ?>.charass_target_type='ADDR')
 +                                                                    AND  (charass_alias<? literal("char_id_list_list") ?>.charass_target_id=addr_id)
 +                                                                    AND  (charass_alias<? literal("char_id_list_list") ?>.charass_char_id=<? value("char_id_list_list") ?>))
 +  LEFT OUTER JOIN char char_alias<? literal("char_id_list_list") ?> ON (charass_alias<? literal("char_id_list_list") ?>.charass_char_id=char_alias<? literal("char_id_list_list") ?>.char_id)
 +<? endforeach ?>
 +<? foreach("char_id_date_list") ?>
-+  LEFT OUTER JOIN charass charass_alias<? literal("char_id_date_list") ?> ON ((charass_alias<? literal("char_id_date_list") ?>.charass_target_type='ADDR') 
++  LEFT OUTER JOIN charass charass_alias<? literal("char_id_date_list") ?> ON ((charass_alias<? literal("char_id_date_list") ?>.charass_target_type='ADDR')
 +                                                                    AND  (charass_alias<? literal("char_id_date_list") ?>.charass_target_id=addr_id)
 +                                                                    AND  (charass_alias<? literal("char_id_date_list") ?>.charass_char_id=<? value("char_id_date_list") ?>))
 +  LEFT OUTER JOIN char char_alias<? literal("char_id_date_list") ?> ON (charass_alias<? literal("char_id_date_list") ?>.charass_char_id=char_alias<? literal("char_id_date_list") ?>.char_id)
@@ -241,10 +235,8 @@ WOHistoryByNumber
  ORDER BY addr_country, addr_state, addr_city,
           addr_postalcode, addr_line1, addr_line2,
           addr_line3, type, last, first;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: CashReceiptsEditList
  QUERY: detail
@@ -285,7 +277,7 @@ WOHistoryByNumber
 -  AND   (NOT cashrcpt_posted) )
 +  AND   (NOT cashrcpt_posted)
 +  AND   (NOT cashrcpt_void) )
- 
+
  UNION
  SELECT cashrcpt_id, 2 AS orderBy,
         '' AS cust_number, '' AS cust_name,
@@ -304,7 +296,7 @@ WOHistoryByNumber
 -  AND   (NOT cashrcpt_posted) )
 +  AND   (NOT cashrcpt_posted)
 +  AND   (NOT cashrcpt_void) )
- 
+
  UNION
  SELECT cashrcpt_id, 3 AS orderBy,
         '' AS cust_number, '' AS cust_name,
@@ -323,30 +315,12 @@ WOHistoryByNumber
 -  AND   (NOT cashrcpt_posted) )
 +  AND   (NOT cashrcpt_posted)
 +  AND   (NOT cashrcpt_void) )
- 
+
  ORDER BY cashrcpt_id, orderBy;
- 
- 
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: CountSlipsByWarehouse
- QUERY: head
- SELECT <? if exists("warehous_id") ?>
-          ( SELECT warehous_code
-              FROM warehous
-             WHERE (warehous_id=<? value("warehous_id") ?>) )
-        <? else ?>
-          text('All Sites')
-        <? endif ?>
-        AS warehouse,
-        formatDate(<? value("startDate") ?>) AS startdate,
-        formatDate(<? value("endDate") ?>) AS enddate
- 
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT invcnt_tagnumber AS tagnum,
         <? if exists("asNumeric") ?>
@@ -378,109 +352,10 @@ WOHistoryByNumber
  <? endif ?>
  )
  ORDER BY slipnum;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: CustOrderAcknowledgement
- QUERY: head
- <? if not exists("cosmisc_id") ?>
- --Run query if no cosmisc_id passed - No Shipment Pack List
- SELECT cust_number,
-        formatsobarcode(cohead_id) AS order_barcode,
-        formataddr(cust_address1, cust_address2, cust_address3, (cust_city || '  ' ||  cust_state || '  ' || cust_zipcode), cust_country) AS corr_address, 
-        formataddr(cohead_billtoaddress1, cohead_billtoaddress2, cohead_billtoaddress3, (cohead_billtocity || '  ' ||   cohead_billtostate || '  ' || cohead_billtozipcode), cohead_billtocountry) AS billing_address, 
- 
-   formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2, cohead_shiptoaddress3, (cohead_shiptocity || '  ' ||   cohead_shiptostate || '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
- 
-        cust_contact,
-        cohead_fob,
-        cohead_billtoname,
-        cohead_billtoaddress1,
-        cohead_billtoaddress2,
-        cohead_billtoaddress3,
-        (cohead_billtocity || '  ' || cohead_billtostate || '  ' || cohead_billtozipcode) AS billtocitystatezip,
-        cust_phone,
-        cohead_shiptoname,
-        cohead_shiptoaddress1,
-        cohead_shiptoaddress2,
-        cohead_shiptoaddress3,
-        (cohead_shiptocity || '  ' || cohead_shiptostate || ' ' || cohead_shiptozipcode) AS shiptocitystatezip,
-        cohead_number,
-        cohead_shipvia,
-        cohead_shiptophone,
-        cohead_custponumber,
-        formatDate(cohead_orderdate) AS orderdate,
-        cohead_shipcomments, 
-        terms_descrip
-   FROM cohead, cust, terms 
-  WHERE ((cohead_cust_id=cust_id)
-    AND (cohead_terms_id=terms_id)
-    AND (cohead_id=<? value("sohead_id") ?>)
- );
- 
- -------------------
- <? else ?>
- --Run New Query for Header with shipment number
- -----------------------------------------------
- 
- SELECT cosmisc_number,
- 
-        cohead_number,
-        formatsobarcode(cohead_id) AS order_barcode,
-        cohead_shipvia,
-        cohead_shiptophone,
-        cohead_custponumber,
-        formatDate(cohead_orderdate) AS orderdate,
-        cohead_shipcomments,   
-        cohead_billtoname,
-        formataddr(cohead_billtoaddress1, cohead_billtoaddress2, cohead_billtoaddress3,
-                   (cohead_billtocity || '  ' ||   cohead_billtostate || '  ' || cohead_billtozipcode), cohead_billtocountry) AS billing_address,
-        cohead_shiptoname,
-        formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2, cohead_shiptoaddress3,
-                   (cohead_shiptocity || '  ' ||   cohead_shiptostate || '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
- 
-        cust_number,
-        cust_contact,
-        cust_phone,
-        cohead_shipchrg_id,
-        shipchrg_descrip,
- 
-        terms_descrip
-   FROM cosmisc, cohead, cust, terms, shipchrg
-  WHERE ((cohead_cust_id=cust_id)
-    AND (cohead_terms_id=terms_id)
-    AND (cohead_id=cosmisc_cohead_id)
-    AND (cohead_shipchrg_id = shipchrg_id)
-    AND (cosmisc_id=<? value("cosmisc_id") ?>)
- );
- 
- <? endif ?>
- --------------------------------------------------------------------
-   
- QUERY: scheddate
- <? if not exists("cosmisc_id") ?>
- --Query without shipment number
- 
- SELECT formatDate(MIN(coitem_scheddate)) AS scheddate
-   FROM coitem
-  WHERE ((coitem_status <> 'X') AND (coitem_cohead_id=<? value("sohead_id") ?>));
- 
- --
- <? else ?>
- --------------------------
- 
- 
- SELECT formatDate(MIN(coitem_scheddate)) AS scheddate
-   FROM coitem, coship
-  WHERE ((coitem_status <> 'X')
-    AND  (coitem_id=coship_coitem_id)
-    AND  (coship_cosmisc_id=<? value("cosmisc_id") ?>));
- 
- <? endif ?>
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT 1 AS groupby,
 -       coitem_linenumber,
@@ -544,13 +419,13 @@ WOHistoryByNumber
 -       JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
 -       JOIN item ON (item_id=itemsite_item_id)
 -       JOIN uom ON (uom_id=item_inv_uom_id)
--       LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=coitem_custpn) 
+-       LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=coitem_custpn)
 - WHERE ( (coitem_status <> 'X')
 -   AND (coitem_status <> 'C')
---- 1 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST  
+--- 1 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST
 -   <? if exists("hide closed") ?>
 -   AND (coitem_status <> 'C')
---- 2 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST  
+--- 2 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST
 --- <? endif ?>
 -   AND (coitem_cohead_id=<? value("sohead_id") ?>)
 -)
@@ -563,25 +438,7 @@ WOHistoryByNumber
 -ORDER BY coitem_linenumber;
 +== MetaSQL statement salesOrderItems-list
  --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
- QUERY: footer
- SELECT formatMoney(SUM(round(coitem_qtyord * coitem_price,2)) + cohead_freight + cohead_misc) AS f_totaldue,
-        formatMoney(SUM(round(coitem_qtyord * coitem_price,2))) AS f_subtotal,
-        formatMoney(cohead_freight) AS f_freight,
-        formatMoney(cohead_misc) AS f_miscamt
- FROM coitem,cohead
- WHERE (coitem_cohead_id=<? value("sohead_id") ?> AND coitem_cohead_id= cohead_id)
- AND coitem_status <> 'X'
- GROUP BY cohead_freight,cohead_misc
- 
- --------------------------------------------------------------------
-   
+
  QUERY: lastupdated
  SELECT formatDate(MAX(lastupdated)) AS f_lastupdated
    FROM (SELECT cohead_lastupdated AS lastupdated
@@ -592,320 +449,20 @@ WOHistoryByNumber
          SELECT coitem_lastupdated AS lastupdated
            FROM coitem
           WHERE (coitem_cohead_id=<? value("sohead_id") ?>) ) AS data;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: FinancialReport
- QUERY: head
- SELECT flhead_name,
-        CASE WHEN(trim(BOTH FROM COALESCE(flhead_custom_label,''))='') THEN 'Custom'
-             ELSE flhead_custom_label
-        END AS custom_label,
-        CASE WHEN(flhead_usealtbegin) THEN flhead_altbegin
-             ELSE text('Begining')
-        END AS begining_label,
-        CASE WHEN(flhead_usealtend) THEN flhead_altend
-             ELSE text('Ending')
-        END AS ending_label,
-        CASE WHEN(flhead_usealtdebits) THEN flhead_altdebits
-             ELSE text('Debits')
-        END AS debits_label,
-        CASE WHEN(flhead_usealtcredits) THEN flhead_altcredits
-             ELSE text('Credits')
-        END AS credits_label,
-        CASE WHEN(flhead_usealtbudget) THEN flhead_altbudget
-             ELSE text('Budget')
-        END AS budget_label,
-        CASE WHEN(flhead_usealtdiff) THEN flhead_altdiff
-             ELSE text('Difference')
-        END AS diff_label
-   FROM flhead
-  WHERE (flhead_id=<? value("flhead_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT financialReport(<? value("flhead_id") ?>, period_id,<? value("interval") ?>,<? value("prj_id") ?>)
-   FROM period
-  WHERE (period_id IN (
- <? foreach("period_id_list") ?>
-   <? if not isfirst("period_id_list") ?>
-     ,
-   <? endif ?>
-   <? value("period_id_list") ?>
- <? endforeach ?>
-                      ));
- SELECT period_id, period_start, formatperiodname(period_id,<? value("interval") ?>) AS f_period, flrpt_order,
-        ( repeat('   ', flrpt_level) || flgrp_name ) AS name,
-        CASE WHEN(flgrp_summarize AND flgrp_showstart) THEN formatMoney(flrpt_beginning)
-             ELSE NULL
-        END AS beginning,
-        CASE WHEN(flgrp_summarize AND flgrp_showdelta) THEN formatMoney(flrpt_debits)
-             ELSE NULL
-        END AS debits,
-        CASE WHEN(flgrp_summarize AND flgrp_showdelta) THEN formatMoney(flrpt_credits)
-             ELSE NULL
-        END AS credits,
-        CASE WHEN(flgrp_summarize AND flgrp_showend) THEN formatMoney(flrpt_ending)
-             ELSE NULL
-        END AS ending,
-        CASE WHEN(flgrp_summarize AND flgrp_showbudget) THEN formatMoney(flrpt_budget)
-             ELSE NULL
-        END AS budget,
-        CASE WHEN(flgrp_summarize AND flgrp_showdiff) THEN formatMoney(flrpt_diff)
-             ELSE NULL
-        END AS diff,
-        CASE WHEN(flgrp_summarize AND flgrp_showcustom) THEN formatMoney(flrpt_custom)
-             ELSE NULL
-        END AS custom,
-        CASE WHEN(flgrp_summarize AND flgrp_showstartprcnt) THEN formatPrcnt(flrpt_beginningprcnt)
-             ELSE NULL
-        END AS beginningprcnt,
-        CASE WHEN(flgrp_summarize AND flgrp_showdeltaprcnt) THEN formatPrcnt(flrpt_debitsprcnt)
-             ELSE NULL
-        END AS debitsprcnt,
-        CASE WHEN(flgrp_summarize AND flgrp_showdeltaprcnt) THEN formatPrcnt(flrpt_creditsprcnt)
-             ELSE NULL
-        END AS creditsprcnt,
-        CASE WHEN(flgrp_summarize AND flgrp_showendprcnt) THEN formatPrcnt(flrpt_endingprcnt)
-             ELSE NULL
-        END AS endingprcnt,
-        CASE WHEN(flgrp_summarize AND flgrp_showbudgetprcnt) THEN formatPrcnt(flrpt_budgetprcnt)
-             ELSE NULL
-        END AS budgetprcnt,
-        CASE WHEN(flgrp_summarize AND flgrp_showdiffprcnt) THEN formatPrcnt(flrpt_diffprcnt)
-             ELSE NULL
-        END AS diffprcnt,
-        CASE WHEN(flgrp_summarize AND flgrp_showcustomprcnt) THEN formatPrcnt(flrpt_customprcnt)
-             ELSE NULL
-        END AS customprcnt
-   FROM flrpt, flgrp, period
-  WHERE ((flrpt_type='G')
-    AND  (flrpt_type_id=flgrp_id)
-    AND  (flrpt_flhead_id=<? value("flhead_id") ?>)
-    AND  (flrpt_period_id=period_id)
-    AND  (flrpt_username=CURRENT_USER)
-    AND  (flrpt_interval=<? value("interval") ?>)
-    AND  (period_id IN (
- <? foreach("period_id_list") ?>
-   <? if not isfirst("period_id_list") ?>
-     ,
-   <? endif ?>
-   <? value("period_id_list") ?>
- <? endforeach ?>
-                      )))
- UNION
- SELECT period_id, period_start, formatperiodname(period_id,<? value("interval") ?>) AS f_period, flrpt_order,
-        ( repeat('   ', flrpt_level) ||
-          CASE WHEN(accnt_id IS NULL) THEN ('Unknown Account ID ' || flitem_accnt_id)
-               ELSE (formatGLAccount(accnt_id) || '-' || accnt_descrip)
-          END
-        ) AS name,
-        formatMoney(flrpt_beginning) AS beginning,
-        formatMoney(flrpt_debits) AS debits,
-        formatMoney(flrpt_credits) AS credits,
-        formatMoney(flrpt_ending) AS ending,
-        formatMoney(flrpt_budget) AS budget,
-        formatMoney(flrpt_diff) AS diff,
-        formatMoney(flrpt_custom) AS custom,
-        formatPrcnt(flrpt_beginningprcnt) AS beginningprcnt,
-        formatPrcnt(flrpt_debitsprcnt) AS debitsprcnt,
-        formatPrcnt(flrpt_creditsprcnt) AS creditsprcnt,
-        formatPrcnt(flrpt_endingprcnt) AS endingprcnt,
-        formatPrcnt(flrpt_budgetprcnt) AS budgetprcnt,
-        formatPrcnt(flrpt_diffprcnt) AS diffprcnt,
-        formatPrcnt(flrpt_customprcnt) AS customprcnt
-   FROM flrpt LEFT OUTER JOIN accnt ON (flrpt_accnt_id=accnt_id), flitem, period
-  WHERE ((flrpt_type='I')
-    AND  (flrpt_type_id=flitem_id)
-    AND  (flrpt_flhead_id=<? value("flhead_id") ?>)
-    AND  (flrpt_period_id=period_id)
-    AND  (flrpt_username=CURRENT_USER)
-    AND  (flrpt_interval=<? value("interval") ?>)
- <? if not exists("showzeros") ?>
-    AND ((flrpt_beginning <> 0) 
-     OR (flrpt_debits <> 0)
-     OR (flrpt_credits <> 0)
-     OR (flrpt_ending <> 0)
-     OR (flrpt_budget <> 0)
-     OR (flrpt_diff <> 0)
-     OR (flrpt_custom <> 0))
- <? endif ?>
-    AND  (period_id IN (
- <? foreach("period_id_list") ?>
-   <? if not isfirst("period_id_list") ?>
-     ,
-   <? endif ?>
-   <? value("period_id_list") ?>
- <? endforeach ?>
-                      )))
- UNION
- SELECT period_id, period_start, formatperiodname(period_id,<? value("interval") ?>) AS f_period, flrpt_order,
-        ( repeat('   ', flrpt_level) || flspec_name ) AS name,
-        formatMoney(flrpt_beginning) AS beginning,
-        formatMoney(flrpt_debits) AS debits,
-        formatMoney(flrpt_credits) AS credits,
-        formatMoney(flrpt_ending) AS ending,
-        formatMoney(flrpt_budget) AS budget,
-        formatMoney(flrpt_diff) AS diff,
-        formatMoney(flrpt_custom) AS custom,
-        formatPrcnt(flrpt_beginningprcnt) AS beginningprcnt,
-        formatPrcnt(flrpt_debitsprcnt) AS debitsprcnt,
-        formatPrcnt(flrpt_creditsprcnt) AS creditsprcnt,
-        formatPrcnt(flrpt_endingprcnt) AS endingprcnt,
-        formatPrcnt(flrpt_budgetprcnt) AS budgetprcnt,
-        formatPrcnt(flrpt_diffprcnt) AS diffprcnt,
-        formatPrcnt(flrpt_customprcnt) AS customprcnt
-   FROM flrpt, flspec, period
-  WHERE ((flrpt_type='S')
-    AND  (flrpt_type_id=flspec_id)
-    AND  (flrpt_flhead_id=<? value("flhead_id") ?>)
-    AND  (flrpt_period_id=period_id)
-    AND  (flrpt_username=CURRENT_USER)
-    AND  (flrpt_interval=<? value("interval") ?>)
-    AND  (period_id IN (
- <? foreach("period_id_list") ?>
-   <? if not isfirst("period_id_list") ?>
-     ,
-   <? endif ?>
-   <? value("period_id_list") ?>
- <? endforeach ?>
-                      )))
- UNION
- SELECT period_id, period_start, formatperiodname(period_id,<? value("interval") ?>) AS f_period, flrpt_order,
-        ( repeat('   ', flrpt_level) ||
-          CASE WHEN(flrpt_type='T' AND flrpt_level=0) THEN COALESCE(flrpt_altname,'Total')
-               WHEN(flrpt_type='T') THEN COALESCE(flrpt_altname,'Subtotal')
-               ELSE ('Type ' || flrpt_type || ' ' || text(flrpt_type_id))
-          END
-        ) AS name,
-        formatMoney(flrpt_beginning) AS beginning,
-        formatMoney(flrpt_debits) AS debits,
-        formatMoney(flrpt_credits) AS credits,
-        formatMoney(flrpt_ending) AS ending,
-        formatMoney(flrpt_budget) AS budget,
-        formatMoney(flrpt_diff) AS diff,
-        formatMoney(flrpt_custom) AS custom,
-        formatPrcnt(flrpt_beginningprcnt) AS beginningprcnt,
-        formatPrcnt(flrpt_debitsprcnt) AS debitsprcnt,
-        formatPrcnt(flrpt_creditsprcnt) AS creditsprcnt,
-        formatPrcnt(flrpt_endingprcnt) AS endingprcnt,
-        formatPrcnt(flrpt_budgetprcnt) AS budgetprcnt,
-        formatPrcnt(flrpt_diffprcnt) AS diffprcnt,
-        formatPrcnt(flrpt_customprcnt) AS customprcnt
-   FROM flrpt, period
-  WHERE ((NOT (flrpt_type IN ('G','I','S')))
-    AND  (flrpt_flhead_id=<? value("flhead_id") ?>)
-    AND  (flrpt_period_id=period_id)
-    AND  (flrpt_username=CURRENT_USER)
-    AND  (flrpt_interval=<? value("interval") ?>)
-    AND  (period_id IN (
- <? foreach("period_id_list") ?>
-   <? if not isfirst("period_id_list") ?>
-     ,
-   <? endif ?>
-   <? value("period_id_list") ?>
- <? endforeach ?>
-                      )))
-  ORDER BY period_start, flrpt_order;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT flhead_notes AS notes
 +FROM flhead
 +WHERE ((flhead_id=<? value("flhead_id") ?>)
 +  AND (length(flhead_notes) > 0))
 +--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
++
+
  ====================================================================
  REPORT: FinancialReportMonth
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- -- Group: financialReport
- -- Name:  detail
- -- Notes: 
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_month <> 0) OR  (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -923,91 +480,10 @@ WOHistoryByNumber
 +ORDER BY seq;
 +
 +--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
++
+
  ====================================================================
  REPORT: FinancialReportMonthBudget
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_month <> 0) OR (flstmtitem_monthbudget <> 0) OR (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -1025,92 +501,9 @@ WOHistoryByNumber
 +ORDER BY seq;
 +
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: FinancialReportMonthDbCr
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_monthdb <> 0) OR (flstmtitem_monthcr <> 0) OR (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -1128,93 +521,10 @@ WOHistoryByNumber
 +ORDER BY seq;
 +
 +--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
++
+
  ====================================================================
  REPORT: FinancialReportMonthPriorMonth
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_typedescrip2 || ' Diff.' AS f_diff,
-     flstmthead_typedescrip2 || ' % Diff.' AS f_diffprcnt,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_month <> 0) OR (flstmtitem_prmonth <> 0) OR (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -1231,94 +541,10 @@ WOHistoryByNumber
 +  AND (length(flnotes_notes) > 0))) data
 +ORDER BY seq;
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
++
+
  ====================================================================
  REPORT: FinancialReportMonthPriorQuarter
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_typedescrip2 || 'Diff.' AS f_diff,
-     flstmthead_typedescrip2 || ' % Diff.' AS f_diffprcnt,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_month <> 0) OR (flstmtitem_prqtr <> 0) OR (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -1335,94 +561,9 @@ WOHistoryByNumber
 +  AND (length(flnotes_notes) > 0))) data
 +ORDER BY seq;
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: FinancialReportMonthPriorYear
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_typedescrip2 || ' Diff.' AS f_diff,
-     flstmthead_typedescrip2 || ' % Diff.' AS f_diffprcnt,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_month <> 0) OR (flstmtitem_pryear <> 0) OR (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -1439,92 +580,10 @@ WOHistoryByNumber
 +  AND (length(flnotes_notes) > 0))) data
 +ORDER BY seq;
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
++
+
  ====================================================================
  REPORT: FinancialReportMonthQuarter
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_month <> 0) OR (flstmtitem_qtr <> 0) OR (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -1541,92 +600,9 @@ WOHistoryByNumber
 +  AND (length(flnotes_notes) > 0))) data
 +ORDER BY seq;
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: FinancialReportMonthYear
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_month <> 0) OR (flstmtitem_year <> 0) OR (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -1643,92 +619,9 @@ WOHistoryByNumber
 +  AND (length(flnotes_notes) > 0))) data
 +ORDER BY seq;
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: FinancialReportQuarter
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_qtr <> 0) OR  (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -1745,92 +638,9 @@ WOHistoryByNumber
 +  AND (length(flnotes_notes) > 0))) data
 +ORDER BY seq;
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: FinancialReportQuarterBudget
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_qtr <> 0) OR (flstmtitem_qtrbudget <> 0) OR (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -1847,94 +657,9 @@ WOHistoryByNumber
 +  AND (length(flnotes_notes) > 0))) data
 +ORDER BY seq;
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: FinancialReportQuarterPriorQuarter
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_typedescrip2 || ' Diff.' AS f_diff,
-     flstmthead_typedescrip2 || ' % Diff.' AS f_diffprcnt,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_qtr <> 0) OR (flstmtitem_prqtr <> 0) OR (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -1951,92 +676,9 @@ WOHistoryByNumber
 +  AND (length(flnotes_notes) > 0))) data
 +ORDER BY seq;
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: FinancialReportYear
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_year <> 0) OR  (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -2053,92 +695,9 @@ WOHistoryByNumber
 +  AND (length(flnotes_notes) > 0))) data
 +ORDER BY seq;
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: FinancialReportYearBudget
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_year <> 0) OR (flstmtitem_yearbudget <> 0) OR (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -2155,94 +714,9 @@ WOHistoryByNumber
 +  AND (length(flnotes_notes) > 0))) data
 +ORDER BY seq;
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: FinancialReportYearPriorYear
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     flstmthead_username,
-     flstmthead_flhead_name || ' - ' || flstmthead_flcol_name AS f_name,
-     flstmthead_typedescrip1,
-     flstmthead_typedescrip2,
-     flstmthead_typedescrip2 || 'Diff.' AS f_diff,
-     flstmthead_typedescrip2 || ' % Diff.' AS f_diffprcnt,
-     flstmthead_month,
-     flstmthead_qtr,
-     flstmthead_year,
-     flstmthead_prmonth,
-     flstmthead_prqtr,
-     flstmthead_pryear
- FROM getflstmthead(<? value("flcol_id") ?>,<? value("period_id") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     flstmtitem_flhead_id,
-     flstmtitem_period_id,
-     flstmtitem_username,
-     flstmtitem_order,
-     flstmtitem_level,
-     flstmtitem_subgrp,
-     flstmtitem_type,
-     flstmtitem_type_id,
-     flstmtitem_parent_id,
-     flstmtitem_accnt_id,
-     flstmtitem_name,
-     formatMoney(flstmtitem_month) AS flstmtitem_month,
-     formatMoney(flstmtitem_monthdb) AS flstmtitem_monthdb,
-     formatMoney(flstmtitem_monthcr) AS flstmtitem_monthcr,
-     formatPrcnt(flstmtitem_monthprcnt) AS flstmtitem_monthprcnt,
-     formatMoney(flstmtitem_monthbudget) AS flstmtitem_monthbudget,
-     formatPrcnt(flstmtitem_monthbudgetprcnt) AS flstmtitem_monthbudgetprcnt,
-     formatMoney(flstmtitem_monthbudgetdiff) AS flstmtitem_monthbudgetdiff,
-     formatPrcnt(flstmtitem_monthbudgetdiffprcnt) AS flstmtitem_monthbudgetdiffprcnt,
-     formatMoney(flstmtitem_qtr) AS flstmtitem_qtr,
-     formatMoney(flstmtitem_qtrdb) AS flstmtitem_qtrdb,
-     formatMoney(flstmtitem_qtrcr) AS flstmtitem_qtrcr,
-     formatPrcnt(flstmtitem_qtrprcnt) AS flstmtitem_qtrprcnt,
-     formatMoney(flstmtitem_qtrbudget) AS flstmtitem_qtrbudget,
-     formatPrcnt(flstmtitem_qtrbudgetprcnt) AS flstmtitem_qtrbudgetprcnt,
-     formatMoney(flstmtitem_qtrbudgetdiff) AS flstmtitem_qtrbudgetdiff,
-     formatPrcnt(flstmtitem_qtrbudgetdiffprcnt) AS flstmtitem_qtrbudgetdiffprcnt,
-     formatMoney(flstmtitem_year) AS flstmtitem_year,
-     formatMoney(flstmtitem_yeardb) AS flstmtitem_yeardb,
-     formatMoney(flstmtitem_yearcr) AS flstmtitem_yearcr,
-     formatPrcnt(flstmtitem_yearprcnt) AS flstmtitem_yearprcnt,
-     formatMoney(flstmtitem_yearbudget) AS flstmtitem_yearbudget,
-     formatPrcnt(flstmtitem_yearbudgetprcnt) AS flstmtitem_yearbudgetprcnt,
-     formatMoney(flstmtitem_yearbudgetdiff) AS flstmtitem_yearbudgetdiff,
-     formatPrcnt(flstmtitem_yearbudgetdiffprcnt) AS flstmtitem_yearbudgetdiffprcnt,
-     formatMoney(flstmtitem_prmonth) AS flstmtitem_prmonth,
-     formatPrcnt(flstmtitem_prmonthprcnt) AS flstmtitem_prmonthprcnt,
-     formatMoney(flstmtitem_prmonthdiff) AS flstmtitem_prmonthdiff,
-     formatPrcnt(flstmtitem_prmonthdiffprcnt) AS flstmtitem_prmonthdiffprcnt,
-     formatMoney(flstmtitem_prqtr) AS flstmtitem_prqtr,
-     formatPrcnt(flstmtitem_prqtrprcnt) AS flstmtitem_prqtrprcnt,
-     formatMoney(flstmtitem_prqtrdiff) AS flstmtitem_prqtrdiff,
-     formatPrcnt(flstmtitem_prqtrdiffprcnt) AS flstmtitem_prqtrdiffprcnt,
-     formatMoney(flstmtitem_pryear) AS flstmtitem_pryear,
-     formatPrcnt(flstmtitem_pryearprcnt) AS flstmtitem_pryearprcnt,
-     formatMoney(flstmtitem_pryeardiff) AS flstmtitem_pryeardiff,
-     formatPrcnt(flstmtitem_pryeardiffprcnt) AS flstmtitem_pryeardiffprcnt
- FROM financialreport(<? value("flcol_id") ?>,<? value("period_id") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,True,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((flstmtitem_year <> 0) OR (flstmtitem_pryear <> 0) OR (flstmtitem_type <> 'I'))
- <? endif ?>
- ;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
 +SELECT 1 AS seq, flhead_notes AS notes
@@ -2259,110 +733,18 @@ WOHistoryByNumber
 +  AND (length(flnotes_notes) > 0))) data
 +ORDER BY seq;
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: FinancialTrend
- QUERY: head
- SELECT 
-     <? value("project") ?> AS project,
-     (SELECT prj_name FROM prj WHERE prj_id=<? value("prj_id") ?>) AS prj_name,
-     fltrendhead_username,
-     fltrendhead_flhead_name,
-     fltrendhead_typedescrip,
-     fltrendhead_fld1,
-     fltrendhead_fld2,
-     fltrendhead_fld3,
-     fltrendhead_fld4,
-     fltrendhead_fld5,
-     fltrendhead_fld6,
-     fltrendhead_fld7,
-     fltrendhead_fld8,
-     fltrendhead_fld9,
-     fltrendhead_fld10,
-     fltrendhead_fld11,
-     fltrendhead_fld12,
-     fltrendhead_grndttl
- FROM getfltrendhead(<? value("flhead_id") ?>,ARRAY[
-    <? foreach("period_id_list") ?>
-      <? if not isfirst("period_id_list") ?>
-       ,
-      <? endif ?>
-     <? value("period_id_list") ?>
-    <? endforeach ?>
- ],<? value("interval") ?>)
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 
-     fltrenditem_flhead_id,
-     fltrenditem_username,
-     fltrenditem_order,
-     fltrenditem_level,
-     fltrenditem_subgrp,
-     fltrenditem_type,
-     fltrenditem_type_id,
-     fltrenditem_parent_id,
-     fltrenditem_accnt_id,
-     fltrenditem_name,
-     fltrenditem_fld1,
-     fltrenditem_fld2,
-     fltrenditem_fld3,
-     fltrenditem_fld4,
-     fltrenditem_fld5,
-     fltrenditem_fld6,
-     fltrenditem_fld7,
-     fltrenditem_fld8,
-     fltrenditem_fld9,
-     fltrenditem_fld10,
-     fltrenditem_fld11,
-     fltrenditem_fld12,
-     fltrenditem_grndttl
- FROM
-    financialReport(<? value("flhead_id") ?>, ARRAY[
-    <? foreach("period_id_list") ?>
-      <? if not isfirst("period_id_list") ?>
-       ,
-      <? endif ?>
-     <? value("period_id_list") ?>
-    <? endforeach ?>
- ],<? value("interval") ?>,
- <? if exists("shownumbers") ?>
-   true
- <? else ?>
-   false
- <? endif ?>
- ,<? value("prj_id") ?>)
- <? if not exists("showzeros") ?>
-   WHERE ((fltrenditem_fld1 <> formatMoney(0) AND fltrenditem_fld1 IS NOT NULL) 
- 	OR (fltrenditem_fld1 <> formatMoney(0) AND fltrenditem_fld1 IS NOT NULL)
- 	OR (fltrenditem_fld2 <> formatMoney(0) AND fltrenditem_fld2 IS NOT NULL)
- 	OR (fltrenditem_fld3 <> formatMoney(0) AND fltrenditem_fld3 IS NOT NULL)
- 	OR (fltrenditem_fld4 <> formatMoney(0) AND fltrenditem_fld4 IS NOT NULL)
- 	OR (fltrenditem_fld5 <> formatMoney(0) AND fltrenditem_fld5 IS NOT NULL)
- 	OR (fltrenditem_fld6 <> formatMoney(0) AND fltrenditem_fld6 IS NOT NULL)
- 	OR (fltrenditem_fld7 <> formatMoney(0) AND fltrenditem_fld7 IS NOT NULL)
- 	OR (fltrenditem_fld8 <> formatMoney(0) AND fltrenditem_fld8 IS NOT NULL)
- 	OR (fltrenditem_fld9 <> formatMoney(0) AND fltrenditem_fld9 IS NOT NULL)
- 	OR (fltrenditem_fld10 <> formatMoney(0) AND fltrenditem_fld10 IS NOT NULL)
- 	OR (fltrenditem_fld11 <> formatMoney(0) AND fltrenditem_fld11 IS NOT NULL)
- 	OR (fltrenditem_fld12 <> formatMoney(0) AND fltrenditem_fld12 IS NOT NULL)
- 	OR (fltrenditem_type <> 'I'))
- <? endif ?>
- --------------------------------------------------------------------
-   
-\ No newline at end of file
 +QUERY: notes
 +SELECT * FROM (
-+SELECT 1 AS seq, text('Notes') AS label, flhead_notes AS notes, 
++SELECT 1 AS seq, text('Notes') AS label, flhead_notes AS notes,
 +  startOfTime() AS period_end
 +FROM flhead
 +WHERE ((flhead_id=<? value("flhead_id") ?>)
 +  AND (length(flhead_notes) > 0))
 +UNION ALL
-+SELECT 2 AS seq, period_name AS label, flnotes_notes AS notes, 
++SELECT 2 AS seq, period_name AS label, flnotes_notes AS notes,
 +  period_end
 +FROM flnotes
 +  JOIN period ON (flnotes_period_id=period_id)
@@ -2370,7 +752,7 @@ WOHistoryByNumber
 +  AND (
 +   <? foreach("period_id_list") ?>
 +     <? if not isfirst("period_id_list") ?>
-+      OR 
++      OR
 +     <? endif ?>
 +    (flnotes_period_id=<? value("period_id_list") ?>)
 +   <? endforeach ?>
@@ -2378,37 +760,9 @@ WOHistoryByNumber
 +  AND (length(flnotes_notes) > 0))) data
 +ORDER BY seq, period_end;
 +
-+--------------------------------------------------------------------
-+  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: GLTransactions
- QUERY: head
- SELECT formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
-        formatDate(<? value("endDate") ?>, 'Latest') AS enddate,
-        <? if exists("source") ?>
-          text(<? value("source") ?>)
-        <? else ?>
-          text('All Sources')
-        <? endif  ?>
-        AS source,
-        <? if exists("accnt_id") ?>
-          ( SELECT (accnt_number || '-' || accnt_descrip)
-              FROM accnt
-             WHERE (accnt_id=<? value("accnt_id") ?>) )
-        <? else ?>
-          text('All Accounts')
-        <? endif ?>
-        AS accnt,
-        <? if exists("showUsernames") ?>
-          text('Username')
-        <? else ?>
-          text('')
-        <? endif ?>
-        AS f_username
- --------------------------------------------------------------------
-   
  QUERY: detail
  <? if exists("beginningBalance") ?>
  SELECT -1 AS gltrans_id,
@@ -2424,7 +778,7 @@ WOHistoryByNumber
                       ABS(<? value("beginningBalance") ?>)
              ELSE 0
         END AS debit_amt,
- 
+
         CASE WHEN (<? value("beginningBalance") ?> > 0) THEN
                       formatMoney(ABS(<? value("beginningBalance") ?>))
              ELSE ''
@@ -2444,7 +798,7 @@ WOHistoryByNumber
   WHERE (accnt_id=<? value("accnt_id") ?>)
  UNION
  <? endif ?>
- 
+
  SELECT gltrans_id,
         gltrans_created, formatDate(gltrans_date) AS transdate,
         gltrans_source, gltrans_doctype, gltrans_docnumber, invhist_docnumber,
@@ -2453,10 +807,10 @@ WOHistoryByNumber
  -- Debits:
         CASE WHEN (gltrans_amount < 0) THEN formatMoney(ABS(gltrans_amount))
              ELSE ''
-        END AS f_debit,       
+        END AS f_debit,
         CASE WHEN (gltrans_amount < 0 AND NOT gltrans_deleted) THEN ABS(gltrans_amount)
              ELSE 0
-        END AS debit_amt, 
+        END AS debit_amt,
  --Credits:
         CASE WHEN (gltrans_amount > 0) THEN formatMoney(gltrans_amount)
              ELSE ''
@@ -2466,32 +820,32 @@ WOHistoryByNumber
         END AS credit_amt,
  --Balance:
         CASE WHEN (NOT gltrans_deleted) THEN
-          gltrans_amount * -1 
+          gltrans_amount * -1
         ELSE 0 END AS balance_amt,
         gltrans_amount,
-        CASE WHEN (accnt_type IN ('A','E') AND NOT gltrans_deleted) THEN 
+        CASE WHEN (accnt_type IN ('A','E') AND NOT gltrans_deleted) THEN
           gltrans_amount * -1
-        WHEN (NOT gltrans_deleted) THEN 
-          gltrans_amount 
+        WHEN (NOT gltrans_deleted) THEN
+          gltrans_amount
         ELSE 0 END AS running,
         formatBoolYN(gltrans_posted) AS f_posted,
         formatBoolYN(gltrans_deleted) AS f_deleted,
         gltrans_username AS f_username,
         gltrans_sequence
- FROM gltrans JOIN accnt ON (gltrans_accnt_id=accnt_id) 
+ FROM gltrans JOIN accnt ON (gltrans_accnt_id=accnt_id)
       LEFT OUTER JOIN invhist ON (gltrans_misc_id=invhist_id
-                             AND gltrans_docnumber='Misc.') 
+                             AND gltrans_docnumber='Misc.')
  <? if exists("company_id") ?>
-      JOIN company ON (accnt_company=company_number) 
+      JOIN company ON (accnt_company=company_number)
  <? endif ?>
  <? if exists("prfcntr_id") ?>
-      JOIN prftcntr ON (accnt_profit=prftcntr_number) 
+      JOIN prftcntr ON (accnt_profit=prftcntr_number)
  <? endif ?>
  <? if exists("subaccnt_id") ?>
-      JOIN subaccnt ON (accnt_sub=subaccnt_number) 
+      JOIN subaccnt ON (accnt_sub=subaccnt_number)
  <? endif ?>
  <? if exists("subType") ?>
-      JOIN subaccnttype ON (subaccnttype_code=accnt_subaccnttype_code) 
+      JOIN subaccnttype ON (subaccnttype_code=accnt_subaccnttype_code)
  <? endif ?>
  WHERE (
  <? if exists("startDate") ?>
@@ -2536,9 +890,9 @@ WOHistoryByNumber
     AND (gltrans_accnt_id=<? value("accnt_id") ?>)
  <? endif ?>
  <? if exists("docnum") ?>
-    AND (gltrans_docnumber = case when <? value("docnum") ?> = '' then 
-  gltrans_docnumber else 
- <? value("docnum") ?> end ) 
+    AND (gltrans_docnumber = case when <? value("docnum") ?> = '' then
+  gltrans_docnumber else
+ <? value("docnum") ?> end )
  <? endif ?>
  <? if exists("source") ?>
     AND (gltrans_source=<? value("source") ?>)
@@ -2546,17 +900,12 @@ WOHistoryByNumber
         )
  ORDER BY gltrans_created <? if not exists("beginningBalance") ?> DESC <? endif ?>,
          gltrans_sequence, gltrans_amount
- 
+
  ;
  --------------------------------------------------------------------
-   
-\ No newline at end of file
+
  ====================================================================
  REPORT: IncidentWorkbenchList
- QUERY: detail
- == MetaSQL statement incidents-detail
- --------------------------------------------------------------------
-   
 -QUERY: username
 -SELECT
 -  <? if exists("username") ?>
@@ -2567,10 +916,7 @@ WOHistoryByNumber
 -    'ALL' AS usr
 -  <? endif ?>
 -;
----------------------------------------------------------------------
--  
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: InventoryAvailabilityBySourceVendor
  QUERY: head
@@ -2612,7 +958,7 @@ WOHistoryByNumber
 -<? endif ?>
 +       AS ltcriteria
  --------------------------------------------------------------------
-   
+
  QUERY: detail
  SELECT item_number,
         item_descrip1,
@@ -2635,7 +981,7 @@ WOHistoryByNumber
 -               itemsite_leadtime,
 -               CASE WHEN(itemsite_useparams) THEN itemsite_reorderlevel ELSE 0.0 END AS reorderlevel,
 -               CASE WHEN(itemsite_useparams) THEN itemsite_ordertoqty ELSE 0.0 END AS outlevel,
-+  FROM (SELECT 
++  FROM (SELECT
 +           <? if reExists("[vV]end") ?>
 +             DISTINCT
 +           <? endif ?>
@@ -2664,18 +1010,18 @@ WOHistoryByNumber
 +             <? endif ?>
 +             <? if exists("byLeadTime") ?>
 +               qtyAllocated(itemsite_id, itemsite_leadtime) AS allocated,
-+               qtyOrdered(itemsite_id,   itemsite_leadtime) AS ordered, 
++               qtyOrdered(itemsite_id,   itemsite_leadtime) AS ordered,
 +               qtypr(itemsite_id,   itemsite_leadtime) AS requests
 +             <? elseif exists("byDays") ?>
 +               qtyAllocated(itemsite_id, CAST(<? value("byDays") ?> AS INTEGER)) AS allocated,
 +               qtyOrdered(itemsite_id,   CAST(<? value("byDays") ?> AS INTEGER)) AS ordered,
-+               qtypr(itemsite_id,   CAST(<? value("byDays") ?> AS INTEGER)) AS requests  
++               qtypr(itemsite_id,   CAST(<? value("byDays") ?> AS INTEGER)) AS requests
 +             <? elseif exists("byDate") ?>
                 qtyAllocated(itemsite_id, (<? value("byDate") ?> - CURRENT_DATE)) AS allocated,
 -               qtyOrdered(itemsite_id, (<? value("byDate") ?> - CURRENT_DATE)) AS ordered
 -<? elseif exists("byDates") ?>
 +               qtyOrdered(itemsite_id,   (<? value("byDate") ?> - CURRENT_DATE)) AS ordered,
-+               qtypr(itemsite_id,   (<? value("byDate") ?> - CURRENT_DATE)) AS requests 
++               qtypr(itemsite_id,   (<? value("byDate") ?> - CURRENT_DATE)) AS requests
 +             <? elseif exists("byDates") ?>
                 qtyAllocated(itemsite_id, <? value("startDate") ?>, <? value("endDate") ?>) AS allocated,
 -               qtyOrdered(itemsite_id, <? value("startDate") ?>, <? value("endDate") ?>) AS ordered
@@ -2688,7 +1034,7 @@ WOHistoryByNumber
 +               qtyOrdered(itemsite_id,   <? value("startDate") ?>, <? value("endDate") ?>) AS ordered,
 +               qtypr(itemsite_id,   <? value("startDate") ?>, <? value("endDate") ?>) AS requests
 +             <? endif ?>
-+      FROM item, itemsite, warehous 
++      FROM item, itemsite, warehous
 +           <? if reExists("[vV]end") ?>
 +             , vend JOIN itemsrc ON (itemsrc_vend_id=vend_id)
 +           <? endif ?>
@@ -2759,10 +1105,8 @@ WOHistoryByNumber
   WHERE ((qtyonhand - allocated + ordered) < 0)
  <? endif ?>
  ORDER BY vend_number, item_number, warehous_code DESC;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: InventoryHistory
 -QUERY: head
@@ -2833,7 +1177,7 @@ WOHistoryByNumber
 -       <? endif ?>
 -       AS lbl_title;
 ---------------------------------------------------------------------
--  
+-
  QUERY: detail
  SELECT invhist_id,
         invhist_transdate,
@@ -2920,22 +1264,22 @@ WOHistoryByNumber
 +<? if exists("cohead_id") ?>
 +  AND  (invhist_ordtype='SO')
 +  AND  (invhist_ordnumber ~ (
-+    SELECT cohead_number 
-+    FROM cohead 
++    SELECT cohead_number
++    FROM cohead
 +    WHERE cohead_id=<? value("cohead_id") ?>))
 +<? endif ?>
 +<? if exists("pohead_id") ?>
 +  AND  (invhist_ordtype='PO')
 +  AND  (invhist_ordnumber ~ (
-+    SELECT pohead_number 
-+    FROM pohead 
++    SELECT pohead_number
++    FROM pohead
 +    WHERE pohead_id=<? value("pohead_id") ?>))
 +<? endif ?>
 +<? if exists("tohead_id") ?>
 +  AND  (invhist_ordtype='TO')
 +  AND  (invhist_ordnumber ~ (
-+    SELECT tohead_number 
-+    FROM tohead 
++    SELECT tohead_number
++    FROM tohead
 +    WHERE tohead_id=<? value("tohead_id") ?>))
 +<? endif ?>
 +<? if exists("wo_id") ?>
@@ -3082,22 +1426,22 @@ WOHistoryByNumber
 +<? if exists("cohead_id") ?>
 +  AND  (invhist_ordtype='SO')
 +  AND  (invhist_ordnumber ~ (
-+    SELECT cohead_number 
-+    FROM cohead 
++    SELECT cohead_number
++    FROM cohead
 +    WHERE cohead_id=<? value("cohead_id") ?>))
 +<? endif ?>
 +<? if exists("pohead_id") ?>
 +  AND  (invhist_ordtype='PO')
 +  AND  (invhist_ordnumber ~ (
-+    SELECT pohead_number 
-+    FROM pohead 
++    SELECT pohead_number
++    FROM pohead
 +    WHERE pohead_id=<? value("pohead_id") ?>))
 +<? endif ?>
 +<? if exists("tohead_id") ?>
 +  AND  (invhist_ordtype='TO')
 +  AND  (invhist_ordnumber ~ (
-+    SELECT tohead_number 
-+    FROM tohead 
++    SELECT tohead_number
++    FROM tohead
 +    WHERE tohead_id=<? value("tohead_id") ?>))
 +<? endif ?>
 +<? if exists("wo_id") ?>
@@ -3153,73 +1497,16 @@ WOHistoryByNumber
     AND (item_id IN (SELECT DISTINCT itemgrpitem_item_id FROM itemgrpitem))
  <? endif ?>
  );
- --------------------------------------------------------------------
-   
- QUERY: footer
- SELECT formatMoney(sum(invhist_value_after-invhist_value_before)) AS transvalue_total
- FROM itemsite, item, warehous AS whs1, invhist LEFT OUTER JOIN
-      warehous AS whs2 ON (invhist_xfer_warehous_id=whs2.warehous_id) 
- WHERE ( (invhist_itemsite_id=itemsite_id)
-   AND  (itemsite_item_id=item_id) 
-   AND  (itemsite_warehous_id=whs1.warehous_id)
-   AND  (DATE(invhist_transdate) BETWEEN <? value("startDate") ?> AND <? value("endDate") ?> )
-   AND  (transType(invhist_transtype, <? value("transType") ?>))
- <? if exists("orderType") ?>
-   AND  (invhist_ordtype=<? value("orderType") ?>)
- <? endif ?>
- <? if exists("orderNumber") ?>
-   AND  (invhist_ordnumber ~ <? value("orderNumber") ?>)
-   AND  (invhist_ordtype = 'SO')
- <? endif ?>
- <? if exists("warehous_id") ?>
-   AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
- <? endif ?>
- <? if exists("item_id") ?>
-   AND  (itemsite_item_id=<? value("item_id") ?>)
- <? endif ?>
- <? if exists("classcode_id") ?>
-   AND  (item_classcode_id=<? value("classcode_id") ?>)
- <? elseif exists("itemgrp_id") ?>
-   AND (item_id IN (SELECT itemgrpitem_item_id
- 		   FROM itemgrpitem
- 		   WHERE (itemgrpitem_itemgrp_id=<? value("itemgrp_id") ?>)))
- <? elseif exists("plancode_id") ?>
-   AND  (itemsite_plancode_id=<? value("plancode_id") ?>)
- <? elseif exists("classcode_pattern") ?>
-   AND  (item_classcode_id IN (SELECT classcode_id
- 			      FROM classcode
- 			      WHERE (classcode_code ~ <? value ("classcode_pattern") ?>)))
- <? elseif exists("itemgrp_pattern") ?>
-   AND (item_id IN (SELECT itemgrpitem_item_id
- 		   FROM itemgrpitem, itemgrp
- 		   WHERE ( (itemgrpitem_itemgrp_id=itemgrp_id)
- 		     AND  (itemgrp_name ~ <? value ("itemgrp_pattern") ?>))))
- <? elseif exists("plancode_pattern") ?>
-   AND (itemsite_plancode_id IN (SELECT plancode_id
- 				FROM plancode
- 				WHERE (plancode_code ~ <? value("plancode_pattern") ?>)))
- <? elseif exists("itemgrp") ?>
-   AND (item_id IN (SELECT DISTINCT itemgrpitem_item_id FROM itemgrpitem))
- <? endif ?>
- )
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: OrderActivityByProject
- QUERY: head
- SELECT prj_name, prj_number
-   FROM prj
-  WHERE (prj_id=<? value("prj_id") ?>);
- --------------------------------------------------------------------
-   
  QUERY: detail
  -- Group: orderActivityByProject
  -- Name:  detail
- -- Notes: 
- 
- SELECT *, 
+ -- Notes:
+
+ SELECT *,
    formatQty(qty) AS f_qty,
    formatMoney(value) AS f_value,
    'curr' AS qty_xtnumericrole,
@@ -3227,13 +1514,13 @@ WOHistoryByNumber
  FROM (
  <? if exists("showSo") ?>
  ----- QUOTES -----
- SELECT quhead_id AS id, 
+ SELECT quhead_id AS id,
         15 AS type,
         quhead_number::text AS subtype,
         1 AS section,
         <? value("quotes") ?> AS section_qtdisplayrole,
         quhead_number::text AS name,
-        CASE WHEN (quhead_status = 'C') THEN 
+        CASE WHEN (quhead_status = 'C') THEN
           <? value("converted") ?>
              WHEN (quhead_status = 'X') THEN
           <? value("canceled") ?>
@@ -3253,16 +1540,16 @@ WOHistoryByNumber
      JOIN quitem ON (quitem_quhead_id = quhead_id)
   WHERE (quhead_prj_id = <? value("prj_id") ?>)
  GROUP BY quhead_id, quhead_number, quhead_status, quhead_expire, quhead_freight, quhead_misc
- 
+
  UNION ALL
- 
- SELECT quitem_id AS id, 
+
+ SELECT quitem_id AS id,
         17 AS type,
         quhead_number::text AS subtype,
         1 AS section,
         <? value("quotes") ?> AS section_qtdisplayrole,
-        quitem_linenumber::text AS name, 
-        CASE WHEN (quhead_status = 'C') THEN 
+        quitem_linenumber::text AS name,
+        CASE WHEN (quhead_status = 'C') THEN
           <? value("converted") ?>
              WHEN (quhead_status = 'X') THEN
           <? value("canceled") ?>
@@ -3284,10 +1571,10 @@ WOHistoryByNumber
      JOIN itemsite ON (quitem_itemsite_id = itemsite_id)
      JOIN item ON (itemsite_item_id = item_id)
   WHERE (quhead_prj_id = <? value("prj_id") ?>)
- 
+
  UNION ALL
- 
- SELECT quhead_id AS id, 
+
+ SELECT quhead_id AS id,
         18 AS type,
         quhead_number::text AS subtype,
         1 AS section,
@@ -3305,17 +1592,17 @@ WOHistoryByNumber
      JOIN quitem ON (quitem_quhead_id = quhead_id)
   WHERE (quhead_prj_id = <? value("prj_id") ?>)
  GROUP BY quhead_id, quhead_number
- 
+
  UNION ALL
- 
+
  ------ SALES ORDERS ------
- SELECT cohead_id AS id, 
+ SELECT cohead_id AS id,
         25 AS type,
         cohead_number::text AS subtype,
         2 AS section,
         <? value("sos") ?> AS section_qtdisplayrole,
         cohead_number::text AS name,
-       COALESCE((SELECT 
+       COALESCE((SELECT
                    CASE WHEN (coitem_status = 'O') THEN
                      <? value("open") ?>
                         WHEN (coitem_status = 'C') THEN
@@ -3323,9 +1610,9 @@ WOHistoryByNumber
                        ELSE
                      <? value("canceled") ?>
                    END
-                 FROM 
+                 FROM
                 (SELECT coitem_status,
-                    CASE 
+                    CASE
                       WHEN (coitem_status = 'O') THEN 1
                       WHEN (coitem_status = 'C') then 2
                       ELSE  3
@@ -3346,15 +1633,15 @@ WOHistoryByNumber
      JOIN coitem ON (coitem_cohead_id = cohead_id)
   WHERE (cohead_prj_id = <? value("prj_id") ?>)
  GROUP BY cohead_id, cohead_number
- 
+
  UNION ALL
- 
- SELECT coitem_id AS id, 
+
+ SELECT coitem_id AS id,
         27 AS type,
         cohead_number::text AS subtype,
         2 AS section,
         <? value("sos") ?> AS section_qtdisplayrole,
-        coitem_linenumber::text AS name, 
+        coitem_linenumber::text AS name,
         CASE WHEN (coitem_status = 'O') THEN
           <? value("open") ?>
              WHEN (coitem_status = 'C') THEN
@@ -3375,10 +1662,10 @@ WOHistoryByNumber
      JOIN itemsite ON (coitem_itemsite_id = itemsite_id)
      JOIN item ON (itemsite_item_id = item_id)
   WHERE (cohead_prj_id = <? value("prj_id") ?>)
- 
+
  UNION ALL
- 
- SELECT cohead_id AS id, 
+
+ SELECT cohead_id AS id,
         28 AS type,
         cohead_number::text AS subtype,
         2 AS section,
@@ -3396,9 +1683,9 @@ WOHistoryByNumber
      JOIN coitem ON (coitem_cohead_id = cohead_id)
   WHERE (cohead_prj_id = <? value("prj_id") ?>)
  GROUP BY cohead_id, cohead_number
- 
+
  UNION ALL
- 
+
  ------ INVOICES -------
  SELECT invchead_id AS id,
         35 AS type,
@@ -3421,15 +1708,15 @@ WOHistoryByNumber
      JOIN invcitem ON (invcitem_invchead_id = invchead_id)
   WHERE (invchead_prj_id = <? value("prj_id") ?>)
  GROUP BY invchead_id, invchead_invcnumber, invchead_freight, invchead_misc_amount, invchead_posted
- 
+
  UNION ALL
- 
- SELECT invcitem_id AS id, 
+
+ SELECT invcitem_id AS id,
         37 AS type,
         invchead_invcnumber::text AS subtype,
         3 AS section,
         <? value("invoices") ?> AS section_qtdisplayrole,
-        invcitem_linenumber::text AS name, 
+        invcitem_linenumber::text AS name,
         CASE WHEN (invchead_posted) THEN
           <? value("posted") ?>
         ELSE <? value("unposted") ?>
@@ -3446,10 +1733,10 @@ WOHistoryByNumber
      LEFT OUTER JOIN item ON (invcitem_item_id = item_id)
      LEFT OUTER JOIN uom ON (invcitem_qty_uom_id = uom_id)
   WHERE (invchead_prj_id = <? value("prj_id") ?>)
- 
+
  UNION ALL
- 
- SELECT invchead_id AS id, 
+
+ SELECT invchead_id AS id,
         38 AS type,
         invchead_invcnumber::text AS subtype,
         3 AS section,
@@ -3467,20 +1754,20 @@ WOHistoryByNumber
      JOIN invcitem ON (invcitem_invchead_id = invchead_id)
   WHERE (invchead_prj_id = <? value("prj_id") ?>)
  GROUP BY invchead_id, invchead_invcnumber
- 
+
  <? endif ?>
- 
- 
+
+
  <? if exists("showWo") ?>
- 
+
  <?   if exists("showSo") ?>
- 
+
  UNION ALL
- 
+
  <?   endif ?>
- 
+
  ------ WORK ORDERS -------
- SELECT wo_id AS id, 
+ SELECT wo_id AS id,
         45 AS type,
         formatWoNumber(wo_id) AS subtype,
         4 AS section,
@@ -3509,25 +1796,25 @@ WOHistoryByNumber
      JOIN item ON (itemsite_item_id=item_id)
      JOIN uom ON (item_inv_uom_id=uom_id)
   WHERE (wo_prj_id = <? value("prj_id") ?>)
- 
+
  <? endif ?>
- 
- 
+
+
  <? if exists("showPo") ?>
  <?   if exists("showSo") ?>
   UNION ALL
  <? elseif exists("showWo") ?>
   UNION ALL
- 
+
  <? endif ?>
  ------ PURCHASE REQUESTS ------
- SELECT pr_id AS id, 
+ SELECT pr_id AS id,
         55 AS type,
         pr_number::text || '-' || pr_subnumber::text AS subtype,
         5 AS section,
         <? value("prs") ?> AS section_qtdisplayrole,
         pr_number::text || '-' || pr_subnumber::text AS name,
-        <? value("open") ?> AS status, 
+        <? value("open") ?> AS status,
         item_number AS item,
         (item_descrip1 || ' ' || item_descrip2) AS descrip,
         pr_qtyreq AS qty,
@@ -3540,9 +1827,9 @@ WOHistoryByNumber
      JOIN item ON (itemsite_item_id = item_id)
      JOIN uom ON (item_inv_uom_id = uom_id)
   WHERE (pr_prj_id=<? value("prj_id") ?>)
- 
+
  UNION ALL
- 
+
  ------ PURCHASE ORDERS ------
  SELECT pohead_id AS id,
         65 AS type,
@@ -3568,15 +1855,15 @@ WOHistoryByNumber
      JOIN poitem ON (poitem_pohead_id = pohead_id)
   WHERE (poitem_prj_id = <? value("prj_id") ?>)
  GROUP BY pohead_id, pohead_number, pohead_freight, pohead_status
- 
+
  UNION ALL
- 
- SELECT poitem_id AS id, 
+
+ SELECT poitem_id AS id,
         67 AS type,
         pohead_number::text AS subtype,
         6 AS section,
         <? value("pos") ?> AS section_qtdisplayrole,
-        poitem_linenumber::text AS name, 
+        poitem_linenumber::text AS name,
         CASE WHEN (poitem_status = 'U') THEN
           <? value("unreleased") ?>
              WHEN (poitem_status = 'O') THEN
@@ -3596,10 +1883,10 @@ WOHistoryByNumber
      LEFT OUTER JOIN itemsite ON (poitem_itemsite_id=itemsite_id)
      LEFT OUTER JOIN item ON (itemsite_item_id = item_id)
   WHERE (poitem_prj_id = <? value("prj_id") ?>)
- 
+
  UNION ALL
- 
- SELECT pohead_id AS id, 
+
+ SELECT pohead_id AS id,
         68 AS type,
         pohead_number::text AS subtype,
         6 AS section,
@@ -3617,15 +1904,13 @@ WOHistoryByNumber
      JOIN poitem ON (poitem_pohead_id = pohead_id)
   WHERE (poitem_prj_id = <? value("prj_id") ?>)
  GROUP BY pohead_id, pohead_number
- 
+
  <? endif ?>
- 
+
  ) data
  ORDER BY section, subtype, type, id;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: POLineItemsByVendor
  QUERY: head
@@ -3666,14 +1951,8 @@ WOHistoryByNumber
 - WHERE (vend_id=<? value("vend_id") ?>);
 -
 +;
- --------------------------------------------------------------------
-   
- QUERY: detail
- == MetaSQL statement poItems-detail
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: PackingList-Shipment
  QUERY: head
@@ -3684,7 +1963,7 @@ WOHistoryByNumber
         cohead_shiptophone AS shiptophone,
         cohead_custponumber,
         formatDate(cohead_orderdate) AS orderdate,
-        cohead_shipcomments AS shipcomments,   
+        cohead_shipcomments AS shipcomments,
         cohead_billtoname AS billtoname,
         formataddr(cohead_billtoaddress1, cohead_billtoaddress2,
                    cohead_billtoaddress3,
@@ -3694,8 +1973,8 @@ WOHistoryByNumber
         formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2,
                    cohead_shiptoaddress3,
                    (cohead_shiptocity || '  ' ||   cohead_shiptostate ||
-                   '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
- 
+                   '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,
+
         cust_number,
         cust_contact,
         cust_phone,
@@ -3738,170 +2017,8 @@ WOHistoryByNumber
     AND  (shiphead_id=<? value("shiphead_id") ?>)
  )
  <? endif ?>;
- --------------------------------------------------------------------
-   
- QUERY: scheddate
- SELECT formatDate(MIN(coitem_scheddate)) AS scheddate
-   FROM coitem, coship
-  WHERE ((coitem_status <> 'X')
-    AND  (coitem_id=coship_coitem_id)
-    AND  (coship_cosmisc_id=<? value("coship_cosmisc_id") ?>));
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 1 AS groupby,
- --     coitem_linenumber AS linenumber,
- --     In 3.1 replace line above with line below to support 
- --     kitting functionality
-        formatsolinenumber(coitem_id) AS linenumber,
-        coitem_memo AS memo,
-        CASE WHEN (coitem_custpn != '') THEN coitem_custpn
-             ELSE item_number
-        END AS item_number,
-        formatitemsitebarcode(itemsite_id) AS item_barcode,
-        formatsoitembarcode(coitem_id) AS orderitem_barcode,
- --     In 2.3 replaced the next line:
- --     uom_name,
- --     with:
-        (select uom_name from uom where uom_id = coitem_qty_uom_id) AS uom_name,
-        itemsellinguom(item_id) AS shipuom,
-        CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip1
-             ELSE item_descrip1
-        END AS item_descrip1,
-        CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip2
-             ELSE item_descrip2
-        END AS item_descrip2,
- 
-        formatQty(coitem_qtyord) AS ordered,
-        (SELECT formatQty(SUM(coship_qty)) FROM coship WHERE ((coship_cosmisc_id=<? value("cosmisc_id") ?>) AND (coship_coitem_id=coitem_id))) AS shipped,
- 
-        CASE WHEN (coitem_status='O' AND (SELECT cust_creditstatus
-                                            FROM cust,cohead
-                                           WHERE coitem_cohead_id=cohead_id
-                                             AND cust_id=cohead_cust_id)='H') THEN 'H'
-             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
-                                             FROM cohead, invchead, invcitem
-                                            WHERE ((invchead_ordernumber=cohead_number)
-                                              AND  (invcitem_invchead_id=invchead_id)
-                                              AND  (invcitem_item_id=item_id)
-                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
-                                              AND  (invcitem_linenumber=coitem_linenumber)
-                                              AND  (cohead_id=coitem_cohead_id))) >= coitem_qtyord)) THEN 'I'
-             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
-                                             FROM cohead, invchead, invcitem
-                                            WHERE ((invchead_ordernumber=cohead_number)
-                                              AND  (invcitem_invchead_id=invchead_id)
-                                              AND  (invcitem_item_id=item_id)
-                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
-                                              AND  (invcitem_linenumber=coitem_linenumber)
-                                              AND  (cohead_id=coitem_cohead_id))) > 0)) THEN 'P'
-             WHEN (coitem_status='O' AND (itemsite_qtyonhand - qtyAllocated(itemsite_id, CURRENT_DATE)
-                                          + qtyOrdered(itemsite_id, CURRENT_DATE))
-                                           >= (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned)) THEN 'R'
-             ELSE coitem_status
-        END AS f_status,
-        CASE
-          WHEN (getPacklistItemLotSerial(coship_cosmisc_id, coitem_id) = '') THEN
-            ''
-          ELSE
-            'Serial #/Lot Information:'
-        END AS lotserial_title,
-        getPacklistItemLotSerial(coship_cosmisc_id, coitem_id) AS lotserial,
-        CASE
-          WHEN (getPacklistCharName(coship_cosmisc_id, coitem_id) = '') THEN
-            ''
-          ELSE
-            'Characteristics:'
-        END AS char_title,
-        getPacklistCharName(coship_cosmisc_id, coitem_id) AS char_name,
-        getPacklistCharValue(coship_cosmisc_id, coitem_id) AS char_value
-   FROM coship
-        JOIN coitem ON (coitem_id=coship_coitem_id)
-        JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
-        JOIN item ON (item_id=itemsite_item_id)
-        JOIN uom ON (uom_id=item_inv_uom_id)
-        LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=coitem_custpn) 
-  WHERE ( (coitem_status <> 'X')
-    AND (coship_cosmisc_id=<? value("cosmisc_id") ?>)
- )
- <? if exists("MultiWhs") ?>
- UNION
- SELECT 2 AS groupby,
- --     For 3.1 added CAST to match column type of corresponding column in other SELECT 
- --     in this UNION
-        CAST(toitem_linenumber AS text) AS linenumber,
-        toitem_notes AS memo,
-        item_number,
-        formatitemsitebarcode(itemsite_id) AS item_barcode,
-        formattoitembarcode(toitem_id) AS orderitem_barcode,
-        uom_name,
-        itemsellinguom(item_id) AS shipuom,
-        item_descrip1,
-        item_descrip2,
- 
-        formatQty(toitem_qty_ordered) AS ordered,
- 
-        (SELECT formatQty(SUM(shipitem_qty))
-         FROM shipitem
-         WHERE ((shipitem_shiphead_id=<? value("shiphead_id") ?>)
-           AND  (shipitem_orderitem_id=toitem_id))
-        ) AS shipped,
- 
-        toitem_status AS f_status,
-        CASE
-          WHEN (getPacklistItemLotSerial(shiphead_id, toitem_id) = '') THEN
-            ''
-          ELSE
-            'Serial #/Lot Information:'
-        END AS lotserial_title,
-        getPacklistItemLotSerial(shiphead_id, toitem_id) AS lotserial,
-        '' AS char_title,
-        '' AS char_name,
-        '' AS char_value
-   FROM itemsite, item, toitem, tohead, shipitem, shiphead, uom
-  WHERE ((toitem_item_id=item_id)
-    AND  (item_inv_uom_id=uom_id)
-    AND  (item_id=itemsite_item_id)
-    AND  (toitem_tohead_id=tohead_id)
-    AND  (toitem_status <> 'X')
-    AND  (tohead_src_warehous_id=itemsite_warehous_id)
-    AND  (toitem_id=shipitem_orderitem_id)
-    AND  (shipitem_shiphead_id=shiphead_id)
-    AND  (shiphead_order_type='TO')
-    AND  (shiphead_id=<? value("shiphead_id") ?>)
- )
- <? endif ?>
- ORDER BY linenumber;
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
- QUERY: so_ra_relation
- --added in 2.3 to show RA link to S/O if the SO
- --was created as the result of a replacement RA
- <? if exists("EnableReturnAuth") ?>
- select 
- 'RA #' AS ratext,
- rahead_number
- from
- rahead, cohead, shiphead
- where 
- rahead_new_cohead_id = cohead_id
- and cohead_id = shiphead_order_id
- and shiphead_id = <? value("shiphead_id") ?>;
- <? else ?>
- select 
- '' AS ratext,
- '' AS rahead_number
- <? endif ?>
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: PackingList
  QUERY: head
@@ -3923,8 +2040,8 @@ WOHistoryByNumber
         formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2,
                    cohead_shiptoaddress3,
                    (cohead_shiptocity || '  ' ||   cohead_shiptostate ||
-                   '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
- 
+                   '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,
+
         cust_number,
         cust_contact,
         cust_phone,
@@ -3945,7 +2062,7 @@ WOHistoryByNumber
     AND  (cohead_id=<? value("head_id") ?>)
  <? endif ?>
  )
- 
+
  <? if exists("MultiWhs") ?>
  UNION
  SELECT COALESCE(shiphead_number::TEXT, 'Not Issued To Shipping') AS shiphead_number,
@@ -3972,7 +2089,7 @@ WOHistoryByNumber
         tohead_destcntct_name AS cust_contact,
         tohead_destphone AS cust_phone,
         '' AS terms_descrip
-   FROM tohead 
+   FROM tohead
  <? if exists("shiphead_id") ?>
  	JOIN
  <? else ?>
@@ -3987,258 +2104,10 @@ WOHistoryByNumber
     )
  <? endif ?>
  <? endif ?>;
- --------------------------------------------------------------------
-   
- QUERY: scheddate
- SELECT formatDate(MIN(orderitem_scheddate)) AS scheddate
-   FROM orderitem
-        <? if exists("shiphead_id") ?>
-        JOIN shiphead ON ((orderitem_orderhead_type=shiphead_order_type)
- 		     AND (orderitem_orderhead_id=shiphead_order_id)
- 		     AND (shiphead_id=<? value("shiphead_id")?>))
-        JOIN shipitem ON ((shiphead_id=shipitem_shiphead_id)
- 		     AND (shipitem_orderitem_id=orderitem_id))
-        <? endif ?>
-  WHERE ((orderitem_status <> 'X')
- <? if exists("head_id") ?>
-    AND  (orderitem_orderhead_type=<? value("head_type") ?>)
-    AND  (orderitem_orderhead_id=<? value("head_id") ?>)
- <? endif ?>
-  );
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT 1 AS groupby,
-        coitem_linenumber AS linenumber,
-        coitem_memo AS memo,
-        CASE WHEN (coitem_custpn != '') THEN coitem_custpn
-             ELSE item_number
-        END AS item_number,
-        formatitemsitebarcode(itemsite_id) AS item_barcode,
-        formatsoitembarcode(coitem_id) AS orderitem_barcode,
-        (select uom_name from uom where uom_id = coitem_qty_uom_id) AS uom_name,
-        itemsellinguom(item_id) AS shipuom,
-        CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip1
-             ELSE item_descrip1
-        END AS item_descrip1,
-        CASE WHEN (coitem_custpn != '' AND itemalias_usedescrip=TRUE) THEN itemalias_descrip2
-             ELSE item_descrip2
-        END AS item_descrip2,
-        formatQty(coitem_qtyord) AS ordered,
-        ( SELECT formatQty(COALESCE(SUM(shipitem_qty), 0))
-          FROM shipitem JOIN shiphead ON (shiphead_id=shipitem_shiphead_id)
-          WHERE ((shipitem_orderitem_id=coitem_id) AND (shiphead_order_type='SO')) ) AS atShipping,
- 
-        CASE WHEN (coitem_status='O' AND (SELECT cust_creditstatus
-                                            FROM cust,cohead
-                                           WHERE coitem_cohead_id=cohead_id
-                                             AND cust_id=cohead_cust_id)='H') THEN 'H'
-             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
-                                             FROM cohead, invchead, invcitem
-                                            WHERE ((invchead_ordernumber=cohead_number)
-                                              AND  (invcitem_invchead_id=invchead_id)
-                                              AND  (invcitem_item_id=item_id)
-                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
-                                              AND  (invcitem_linenumber=coitem_linenumber)
-                                              AND  (cohead_id=coitem_cohead_id))) >= coitem_qtyord)) THEN 'I'
-             WHEN (coitem_status='O' AND ((SELECT SUM(invcitem_billed)
-                                             FROM cohead, invchead, invcitem
-                                            WHERE ((invchead_ordernumber=cohead_number)
-                                              AND  (invcitem_invchead_id=invchead_id)
-                                              AND  (invcitem_item_id=item_id)
-                                              AND  (invcitem_warehous_id=itemsite_warehous_id)
-                                              AND  (invcitem_linenumber=coitem_linenumber)
-                                              AND  (cohead_id=coitem_cohead_id))) > 0)) THEN 'P'
-             WHEN (coitem_status='O' AND (itemsite_qtyonhand - qtyAllocated(itemsite_id, CURRENT_DATE)
-                                          + qtyOrdered(itemsite_id, CURRENT_DATE))
-                                           >= (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned)) THEN 'R'
-             ELSE coitem_status
-        END AS f_status
-   FROM coitem
-        JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
-        JOIN item ON (item_id=itemsite_item_id)
-        JOIN uom ON (uom_id=item_inv_uom_id)
-        LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=coitem_custpn) 
-  WHERE ( (coitem_status <> 'X')
- <? if exists("shiphead_id") ?>
-    AND  (coitem_cohead_id IN (SELECT shiphead_order_id FROM shiphead
- 			      WHERE ((shiphead_id=<? value("shiphead_id") ?>)
- 			        AND  (shiphead_order_type='SO'))))
- <? endif ?>
- <? if exists("head_id") ?>
-    AND  (<? value("head_type") ?>='SO')
-    AND  (coitem_cohead_id=<? value("head_id") ?>)
- <? endif ?>
- )
- GROUP BY coitem_qty_uom_id, coitem_linenumber, coitem_id, coitem_memo, item_number, uom_name, shipuom,
-          coitem_custpn, itemalias_usedescrip, itemalias_descrip1, itemalias_descrip2,
-          item_descrip1, item_descrip2, coitem_qtyord, coitem_qty_invuomratio, coitem_qtyshipped,
-          coitem_qtyreturned, coitem_status, coitem_cohead_id,
-          itemsite_id, itemsite_qtyonhand, itemsite_warehous_id, item_id
- <? if exists("MultiWhs") ?>
- UNION
- SELECT 2 AS groupby,
-        toitem_linenumber AS linenumber,
-        toitem_notes AS memo,
-        item_number,
-        formatitemsitebarcode(itemsite_id) AS item_barcode,
-        formattoitembarcode(toitem_id) AS orderitem_barcode,
-        uom_name,
-        itemsellinguom(item_id) AS shipuom,
-        item_descrip1,
-        item_descrip2,
- 
-        formatQty(toitem_qty_ordered) AS ordered,
-        ( SELECT formatQty(COALESCE(SUM(shipitem_qty), 0))
-          FROM shipitem JOIN shiphead ON (shiphead_id=shipitem_shiphead_id)
-          WHERE ((shipitem_orderitem_id=toitem_id) AND (shiphead_order_type='TO')) ) AS atShipping,
- 
-        toitem_status AS f_status
-   FROM itemsite, item, toitem, tohead, uom
-  WHERE ((toitem_item_id=item_id)
-    AND  (item_inv_uom_id=uom_id)
-    AND  (item_id=itemsite_item_id)
-    AND  (toitem_tohead_id=tohead_id)
-    AND  (toitem_status <> 'X')
-    AND  (tohead_src_warehous_id=itemsite_warehous_id)
- <? if exists("shiphead_id") ?>
-    AND  (toitem_tohead_id IN (SELECT shiphead_order_id FROM shiphead
- 			      WHERE ((shiphead_id=<? value("shiphead_id") ?>)
- 			        AND  (shiphead_order_type='TO'))))
- <? endif ?>
- <? if exists("head_id") ?>
-    AND  (<? value("head_type") ?>='TO')
-    AND  (toitem_tohead_id=<? value("head_id") ?>)
- <? endif ?>
- )
- <? endif ?>
- ORDER BY linenumber;
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
- QUERY: lotdetail
- SELECT * FROM 
- (
-   SELECT
-     shiphead_number AS cosmisc_number,
-     (cohead_number || '-' || coitem_linenumber) AS ordernumber,
-     item_number,
-     formatlotserialnumber(invdetail_ls_id) AS invdetail_lotserial,
-     SUM(invdetail_qty) * -1 AS lotqty,
-     SUM(invhist_invqty) as totalshipmentqty,
-     invhist_transtype,
-     formatdate(MAX(invhist_transdate)) AS invhistdate,
-     formatdate(MAX(shipitem_transdate)) AS shiptransdate
-   FROM shiphead
-     JOIN shipitem ON (shipitem_shiphead_id=shiphead_id)
-     JOIN invhist ON (invhist_id=shipitem_invhist_id)
-     JOIN invdetail ON (invdetail_invhist_id=invhist_id)
-     JOIN cohead ON (cohead_id=shiphead_order_id)
-     JOIN coitem ON (coitem_id=shipitem_orderitem_id)
-     JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
-     JOIN item ON (item_id=itemsite_item_id)
-   WHERE ( (shiphead_id = <? value("shiphead_id") ?> )
-     AND ('SO'=shiphead_order_type) )
-   GROUP BY shiphead_number,cohead_number,item_number,invdetail_ls_id,
-     coitem_linenumber,invhist_transtype
- <? if exists("MultiWhs") ?>
- UNION
-   SELECT
-     shiphead_number AS cosmisc_number,
-     (tohead_number || '-' || toitem_linenumber) AS ordernumber,
-     item_number,
-     formatlotserialnumber(invdetail_ls_id) AS invdetail_lotserial,
-     SUM(invdetail_qty) * -1 AS lotqty,
-     SUM(invhist_invqty) as totalshipmentqty,
-     invhist_transtype,
-     formatdate(MAX(invhist_transdate)) AS invhistdate,
-     formatdate(MAX(shipitem_transdate)) AS shiptransdate
-   FROM shiphead
-     JOIN shipitem ON (shipitem_shiphead_id=shiphead_id)
-     JOIN invhist ON (invhist_id=shipitem_invhist_id)
-     JOIN invdetail ON (invdetail_invhist_id=invhist_id)
-     JOIN tohead ON (tohead_id=shiphead_order_id)
-     JOIN toitem ON (toitem_id=shipitem_orderitem_id)
-     JOIN item ON (item_id=toitem_item_id)
-   WHERE ( (shiphead_id = <? value("shiphead_id") ?> )
-     AND ('TO'=shiphead_order_type) )
-   GROUP BY shiphead_number,tohead_number,item_number,invdetail_ls_id,
-     toitem_linenumber,invhist_transtype
- <? endif ?>
- ) data
- ORDER BY ordernumber;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: PendingBOMChanges
- QUERY: head
- SELECT item_number,
-        uom_name,
-        item_descrip1,
-        item_descrip2,
-        CASE WHEN (<? value("cutOffDate") ?> >= date('2099-12-31')) THEN text('Latest')
-             ELSE formatDate(<? value("cutOffDate") ?>)
-        END AS cutoffdate
-   FROM item JOIN uom ON (item_inv_uom_id=uom_id)
-  WHERE (item_id=<? value("item_id") ?>);
-     
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT formatDate(bomitem_effective) as actiondate,
-        'Effective' AS action,
-        bomitem_seqnumber, item_number, uom_name,
-        item_descrip1, item_descrip2, uom_name,
-        formatQty(itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyfxd)) AS qtyfxd,
-        formatQtyPer(itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper)) AS qtyper,
-        formatScrap(bomitem_scrap) AS scrap,
-        formatQtyPer(itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd + bomitem_qtyper) * (1 + bomitem_scrap))) AS qtyreq,
-        formatDate(bomitem_effective, 'Always') AS effective,
-        formatDate(bomitem_expires, 'Never') AS expires,
-        formatBoolYN(bomitem_createwo) AS createchild,
-        CASE WHEN (bomitem_issuemethod='S') THEN 'Push'
-             WHEN (bomitem_issuemethod='L') THEN 'Pull'
-             WHEN (bomitem_issuemethod='M') THEN 'Mixed'
-             ELSE 'Special'
-        END AS issuemethod
-   FROM bomitem(<? value("item_id") ?>,<? value("revision_id") ?>), item, uom
-  WHERE ((bomitem_item_id=item_id)
-    AND (item_inv_uom_id=uom_id)
-    AND (bomitem_effective BETWEEN CURRENT_DATE AND <? value("cutOffDate") ?>)
- )
- UNION
- SELECT formatDate(bomitem_expires) as actiondate,
-        'Expires' AS action,
-        bomitem_seqnumber, item_number, uom_name,
-        item_descrip1, item_descrip2, uom_name,
-        formatQty(itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyfxd)) AS qtyfxd,
-        formatQtyPer(itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper)) AS qtyper,
-        formatScrap(bomitem_scrap) AS scrap,
-        formatQtyPer(itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper + (1 * bomitem_scrap))) AS qtyreq,
-        formatDate(bomitem_effective, 'Always') AS effective,
-        formatDate(bomitem_expires, 'Never') AS expires,
-        formatBoolYN(bomitem_createwo) AS createchild,
-        CASE WHEN (bomitem_issuemethod='S') THEN 'Push'
-             WHEN (bomitem_issuemethod='L') THEN 'Pull'
-             WHEN (bomitem_issuemethod='M') THEN 'Mixed'
-             ELSE 'Special'
-        END AS issuemethod
- FROM bomitem(<? value("item_id") ?>,<? value("revision_id") ?>), item, uom
- WHERE ((bomitem_item_id=item_id)
-  AND (item_inv_uom_id=uom_id)
-  AND (bomitem_expires BETWEEN CURRENT_DATE AND <? value("cutOffDate") ?>)
- )
- ORDER BY action, actiondate, bomitem_seqnumber;
-     
- --------------------------------------------------------------------
-   
  QUERY: bomhead
 -SELECT bomhead_docnum, bomhead_revision,
 -formatDate(bomhead_revisiondate) AS f_revisiondate
@@ -4247,52 +2116,10 @@ WOHistoryByNumber
  WHERE ((bomhead_item_id=<? value("item_id") ?>)
 -AND (bomhead_rev_id=<? value("revision_id") ?>));
 +  AND  (bomhead_rev_id=<? value("revision_id") ?>));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: PickingListSOClosedLines
- QUERY: head
- SELECT cust_number,
-        formatsobarcode(cohead_id) AS order_barcode,
- 
-        formataddr(cohead_billtoaddress1, cohead_billtoaddress2, cohead_billtoaddress3, (cohead_billtocity || '  ' ||   cohead_billtostate || '  ' || cohead_billtozipcode), cohead_billtocountry) AS billing_address, 
- 
-   formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2, cohead_shiptoaddress3, (cohead_shiptocity || '  ' ||   cohead_shiptostate || '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
- 
-        cust_contact,
-        cohead_billtoname,
-        cohead_billtoaddress1,
-        cohead_billtoaddress2,
-        cohead_billtoaddress3,
-        (cohead_billtocity || '  ' || cohead_billtostate || '  ' || cohead_billtozipcode) AS billtocitystatezip,
-        cust_phone,
-        cohead_shiptoname,
-        cohead_shiptoaddress1,
-        cohead_shiptoaddress2,
-        cohead_shiptoaddress3,
-        (cohead_shiptocity || '  ' || cohead_shiptostate || ' ' || cohead_shiptozipcode) AS shiptocitystatezip,
-        cohead_number,
-        cohead_shipvia,
-        cohead_shiptophone,
-        cohead_custponumber,
-        formatDate(cohead_orderdate) AS orderdate,
-        cohead_shipcomments, 
-        terms_descrip
-   FROM cohead, cust, terms
-  WHERE ((cohead_cust_id=cust_id)
-    AND (cohead_terms_id=terms_id)
-    AND (cohead_id=<? value("sohead_id") ?>)
- );
- --------------------------------------------------------------------
-   
- QUERY: scheddate
- SELECT formatDate(MIN(coitem_scheddate)) AS scheddate
-   FROM coitem
-  WHERE ((coitem_status <> 'X') AND (coitem_cohead_id=<? value("sohead_id") ?>));
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT 1 AS groupby,
         formatsolinenumber(coitem_id) AS linenumber,
@@ -4360,61 +2187,12 @@ WOHistoryByNumber
           coitem_qtyreturned, coitem_status, coitem_cohead_id,
           itemsite_id, itemsite_qtyonhand, itemsite_warehous_id, item_id
  ORDER BY linenumber;
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: PickingListSOLocsNoClosedLines
- QUERY: head
- SELECT cust_number,
-        formatsobarcode(cohead_id) AS order_barcode,
- 
-        formataddr(cohead_billtoaddress1, cohead_billtoaddress2, cohead_billtoaddress3, (cohead_billtocity || '  ' ||   cohead_billtostate || '  ' || cohead_billtozipcode), cohead_billtocountry) AS billing_address, 
- 
-   formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2, cohead_shiptoaddress3, (cohead_shiptocity || '  ' ||   cohead_shiptostate || '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
- 
-        cust_contact,
-        cohead_billtoname,
-        cohead_billtoaddress1,
-        cohead_billtoaddress2,
-        cohead_billtoaddress3,
-        (cohead_billtocity || '  ' || cohead_billtostate || '  ' || cohead_billtozipcode) AS billtocitystatezip,
-        cust_phone,
-        cohead_shiptoname,
-        cohead_shiptoaddress1,
-        cohead_shiptoaddress2,
-        cohead_shiptoaddress3,
-        (cohead_shiptocity || '  ' || cohead_shiptostate || ' ' || cohead_shiptozipcode) AS shiptocitystatezip,
-        cohead_number,
-        cohead_shipvia,
-        cohead_shiptophone,
-        cohead_custponumber,
-        formatDate(cohead_orderdate) AS orderdate,
-        cohead_shipcomments, 
-        terms_descrip
-   FROM cust, cohead
-   LEFT OUTER JOIN terms on (cohead_terms_id=terms_id)
-  WHERE ((cohead_cust_id=cust_id)
- --   AND (cohead_id='9999')
-     AND (cohead_id=<? value("sohead_id") ?>)
- );
- --------------------------------------------------------------------
-   
- QUERY: scheddate
- SELECT formatDate(MIN(coitem_scheddate)) AS scheddate
-   FROM coitem
-  WHERE ((coitem_status <> 'X') AND (coitem_cohead_id=<? value("sohead_id") ?>));
- --------------------------------------------------------------------
-   
  QUERY: detail
- SELECT 
+ SELECT
         formatsolinenumber(coitem_id) AS linenumber,
         coitem_memo,
         item_number,
@@ -4426,7 +2204,7 @@ WOHistoryByNumber
         formatlotserialnumber(itemloc_ls_id),
         formatDate(itemloc_expiration, 'N/A') AS expiration,
         itemloc_qty AS location_qty_qty,
- <? if exists("EnableSOReservationsByLocation") 
+ <? if exists("EnableSOReservationsByLocation")
         formatQty(qtyReservedLocation(itemloc_id, 'SO', coitem_id)) AS location_reserved_qty,
  <? else ?>
         formatQty(0) AS location_reserved_qty,
@@ -4477,7 +2255,7 @@ WOHistoryByNumber
                                            >= (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned)) THEN 'R'
              ELSE coitem_status
         END AS f_status
-        
+
  FROM coitem
       JOIN cohead ON (cohead_id = coitem_cohead_id)
  	 JOIN cust ON (cust_id = cohead_cust_id)
@@ -4485,7 +2263,7 @@ WOHistoryByNumber
  	 JOIN item ON (item_id = itemsite_item_id)
  	 JOIN whsinfo ON (warehous_id = itemsite_warehous_id)
  	 JOIN uom invuom ON (invuom.uom_id = item_inv_uom_id)
- 	 JOIN uom coitemuom ON (coitemuom.uom_id = coitem_qty_uom_id) 
+ 	 JOIN uom coitemuom ON (coitemuom.uom_id = coitem_qty_uom_id)
       LEFT OUTER JOIN itemloc  ON (itemloc_itemsite_id = itemsite_id)
       LEFT OUTER JOIN location ON (itemloc_location_id = location_id)
   WHERE ( (coitem_status <> 'X')
@@ -4494,60 +2272,12 @@ WOHistoryByNumber
  --REMOVE LINE ABOVE AND CLOSED LINES WILL BE DISPLAYED
     AND   (coitem_cohead_id=<? value("sohead_id") ?>)
  )
- 
+
  ORDER BY linenumber, expiration, location_name;
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: PickingListSONoClosedLines
- QUERY: head
- SELECT cust_number,
-        formatsobarcode(cohead_id) AS order_barcode,
- 
-        formataddr(cohead_billtoaddress1, cohead_billtoaddress2, cohead_billtoaddress3, (cohead_billtocity || '  ' ||   cohead_billtostate || '  ' || cohead_billtozipcode), cohead_billtocountry) AS billing_address, 
- 
-   formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2, cohead_shiptoaddress3, (cohead_shiptocity || '  ' ||   cohead_shiptostate || '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
- 
-        cust_contact,
-        cohead_billtoname,
-        cohead_billtoaddress1,
-        cohead_billtoaddress2,
-        cohead_billtoaddress3,
-        (cohead_billtocity || '  ' || cohead_billtostate || '  ' || cohead_billtozipcode) AS billtocitystatezip,
-        cust_phone,
-        cohead_shiptoname,
-        cohead_shiptoaddress1,
-        cohead_shiptoaddress2,
-        cohead_shiptoaddress3,
-        (cohead_shiptocity || '  ' || cohead_shiptostate || ' ' || cohead_shiptozipcode) AS shiptocitystatezip,
-        cohead_number,
-        cohead_shipvia,
-        cohead_shiptophone,
-        cohead_custponumber,
-        formatDate(cohead_orderdate) AS orderdate,
-        cohead_shipcomments, 
-        terms_descrip
-   FROM cohead, cust, terms
-  WHERE ((cohead_cust_id=cust_id)
-    AND (cohead_terms_id=terms_id)
-    AND (cohead_id=<? value("sohead_id") ?>)
- );
- --------------------------------------------------------------------
-   
- QUERY: scheddate
- SELECT formatDate(MIN(coitem_scheddate)) AS scheddate
-   FROM coitem
-  WHERE ((coitem_status <> 'X') AND (coitem_cohead_id=<? value("sohead_id") ?>));
- --------------------------------------------------------------------
-   
  QUERY: detail
  SELECT 1 AS groupby,
         formatsolinenumber(coitem_id) AS linenumber,
@@ -4608,10 +2338,10 @@ WOHistoryByNumber
     AND (coitem_status <> 'X')
     AND (coitem_status <> 'C')
     AND (item_type != 'K')
- -- 1 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST  
+ -- 1 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST
     <? if exists("hide closed") ?>
     AND (coitem_status <> 'C')
- -- 2 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST  
+ -- 2 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST
  -- <? endif ?>
     AND (coitem_cohead_id=<? value("sohead_id") ?>)
  )
@@ -4620,93 +2350,10 @@ WOHistoryByNumber
           coitem_qtyreturned, coitem_status, coitem_cohead_id,
           itemsite_id, itemsite_qtyonhand, itemsite_warehous_id, item_id
  ORDER BY linenumber;
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: Quote
- QUERY: head
- SELECT quhead_number,
-        quhead_shipvia,
-        formatDate(quhead_quotedate) as f_orderdate,
-        formatDate(quhead_packdate) as f_packdate,
-        CASE WHEN(quhead_origin='C') THEN 'Customer'
-             WHEN(quhead_origin='I') THEN 'Internet'
-             WHEN(quhead_origin='S') THEN 'Sales Rep.'
-             ELSE quhead_origin
-        END AS f_origin,
-        salesrep_name,
-        formatScrap(quhead_commission) as f_commission,
-        (terms_code||' - '||terms_descrip) as f_terms,
-        cust_number,
-        quhead_billtoname,
-        formatAddr(quhead_billtoaddress1,
-                   quhead_billtoaddress2,
-                   quhead_billtoaddress3,
-                  (quhead_billtocity || ', ' || quhead_billtostate || ' ' || quhead_billtozip),
-                   quhead_billtocountry) AS f_billtoaddress,
-        CASE WHEN(quhead_shipto_id=-1) THEN text('')
-             ELSE (select text(shipto_num) from shipto where shipto_id=quhead_shipto_id)
-        END AS f_shiptonum,
-        quhead_shiptoname,
-        formatAddr(quhead_shiptoaddress1,
-                   quhead_shiptoaddress2,
-                   quhead_shiptoaddress3,
-                  (quhead_shiptocity || ', ' || quhead_shiptostate || ' ' || quhead_shiptozipcode),
-                   quhead_shiptocountry) AS f_shiptoaddress,
-        quhead_custponumber,
-        quhead_fob
- FROM quhead
-      LEFT OUTER JOIN cust ON (quhead_cust_id = cust_id)
-      LEFT OUTER JOIN terms ON (quhead_terms_id = terms_id)
-      LEFT OUTER JOIN salesrep ON (quhead_salesrep_id = salesrep_id)
- WHERE (quhead_id = <? value("quhead_id") ?>)
- 
- --------------------------------------------------------------------
-   
- QUERY: notes
- SELECT quhead_ordercomments,
-        quhead_shipcomments
-   FROM quhead
-  WHERE (quhead_id=<? value("quhead_id") ?>);
- --------------------------------------------------------------------
-   
- QUERY: items
- SELECT quitem_id,
-        quitem_linenumber,
-        quitem_custpn, 
-        item_number,
-        item_descrip1,
-        --The following 2 lines are new in 2.3
-        (select uom_name from uom where uom_id = quitem_qty_uom_id) AS uom_ordered,
-        (select uom_name from uom where uom_id = quitem_price_uom_id) AS uom_pricing,
-        warehous_code,
-        formatQty(quitem_qtyord) as f_ordered,
-        formatPrice(quitem_price) as f_price,
-        --The following line was changed in 2.3 from:
-        --formatExtprice(quitem_qtyord * (quitem_price / iteminvpricerat(item_id))) as f_extprice
-        --To:
-        formatExtprice((quitem_qtyord * quitem_qty_invuomratio) * (quitem_price / quitem_price_invuomratio)) as f_extprice,
-        quitem_memo,
-        char_name, 
-        charass_value 
- FROM quitem
-      JOIN item ON (item_id=quitem_item_id)
-      LEFT OUTER JOIN (itemsite JOIN warehous ON (itemsite_warehous_id=warehous_id)) ON (quitem_itemsite_id=itemsite_id)
-      LEFT OUTER JOIN charass ON ((charass_target_id = quitem_id) 
-                             AND (charass_target_type = 'QI'))
-      LEFT OUTER JOIN char ON (charass_char_id = char_id)
- WHERE (quitem_quhead_id=<? value("quhead_id") ?>) 
- ORDER BY quitem_linenumber;
- --------------------------------------------------------------------
-   
  QUERY: totals
  SELECT 1 as one,
         formatExtPrice(subtotal) AS f_subtotal,
@@ -4719,106 +2366,22 @@ WOHistoryByNumber
 +       (SELECT SUM(ROUND((quitem_qtyord * quitem_qty_invuomratio) * (quitem_price / quitem_price_invuomratio),2)) AS subtotal
            FROM quitem
           WHERE (quitem_quhead_id=<? value("quhead_id") ?>) ) AS subtot,
--       (SELECT COALESCE(SUM(tax),0) AS tax 
-+       (SELECT COALESCE(SUM(tax),0.0) AS tax 
+-       (SELECT COALESCE(SUM(tax),0) AS tax
++       (SELECT COALESCE(SUM(tax),0.0) AS tax
          FROM (
-           SELECT ROUND(SUM(taxdetail_tax),2) AS tax 
-           FROM tax 
+           SELECT ROUND(SUM(taxdetail_tax),2) AS tax
+           FROM tax
            JOIN calculateTaxDetailSummary('Q', <? value("quhead_id") ?>, 'T') ON (taxdetail_tax_id=tax_id)
  	GROUP BY tax_id) AS data) AS taxtot
-        
- 
- 
+
+
+
   WHERE (quhead_id=<? value("quhead_id") ?>);
- 
+
 -
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
- QUERY: currency_info
- --this was added in version 2.3
- SELECT curr_name,
-        curr_symbol,
-        curr_abbr
- FROM quhead, curr_symbol
- WHERE ( (quhead_curr_id = curr_id)
-   AND   (quhead_id = <? value("quhead_id") ?>) );
- --------------------------------------------------------------------
-   
- QUERY: address
- SELECT warehous_descrip,
-        formatAddr(addr_line1,
-                   addr_line2,
-                   addr_line3,
-                  (addr_city || '  ' || addr_state || '  ' || addr_postalcode),
-                   addr_country) AS warehouse_address
- FROM whsinfo, 
-      addr, 
-      quhead
- WHERE ( (addr_id = warehous_addr_id)
-   AND   (quhead_warehous_id = warehous_id)
-   AND   (quhead_id=<? value("quhead_id") ?>) );
- --------------------------------------------------------------------
-   
- QUERY: contact_fax_phone
- SELECT cntct_fax,
-        cntct_phone
- FROM cntct, quhead, custinfo
- WHERE ( (cust_id = quhead_cust_id)
-   AND   (cust_cntct_id = cntct_id)
-   AND   (quhead_id = <? value("quhead_id") ?>) );
- 
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
  ====================================================================
  REPORT: SalesOrderAcknowledgement
- QUERY: head
- SELECT cust_number,
-        formatsobarcode(cohead_id) AS order_barcode,
- 
-        formataddr(cohead_billtoaddress1, cohead_billtoaddress2, cohead_billtoaddress3, (cohead_billtocity || '  ' ||   cohead_billtostate || '  ' || cohead_billtozipcode), cohead_billtocountry) AS billing_address, 
- 
-   formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2, cohead_shiptoaddress3, (cohead_shiptocity || '  ' ||   cohead_shiptostate || '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,           
- 
-        cust_contact,
-        cohead_billtoname,
-        cohead_billtoaddress1,
-        cohead_billtoaddress2,
-        cohead_billtoaddress3,
-        (cohead_billtocity || '  ' || cohead_billtostate || '  ' || cohead_billtozipcode) AS billtocitystatezip,
-        cust_phone,
-        cohead_shiptoname,
-        cohead_shiptoaddress1,
-        cohead_shiptoaddress2,
-        cohead_shiptoaddress3,
-        (cohead_shiptocity || '  ' || cohead_shiptostate || ' ' || cohead_shiptozipcode) AS shiptocitystatezip,
-        cohead_number,
-        cohead_shipvia,
-        cohead_shiptophone,
-        cohead_custponumber,
-        formatDate(cohead_orderdate) AS orderdate,
-        cohead_shipcomments, 
-        terms_descrip
-   FROM cohead, cust, terms
-  WHERE ((cohead_cust_id=cust_id)
-    AND (cohead_terms_id=terms_id)
-    AND (cohead_id=<? value("sohead_id") ?>)
- );
- --------------------------------------------------------------------
-   
- QUERY: scheddate
- SELECT formatDate(MIN(coitem_scheddate)) AS scheddate
-   FROM coitem
-  WHERE ((coitem_status <> 'X') AND (coitem_cohead_id=<? value("sohead_id") ?>));
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT 1 AS groupby,
 -       coitem_linenumber,
@@ -4880,13 +2443,13 @@ WOHistoryByNumber
 -       JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
 -       JOIN item ON (item_id=itemsite_item_id)
 -       JOIN uom ON (uom_id=item_inv_uom_id)
--       LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=coitem_custpn) 
+-       LEFT OUTER JOIN itemalias ON (itemalias_item_id=item_id AND itemalias_number=coitem_custpn)
 - WHERE ( (coitem_status <> 'X')
 -   AND (coitem_status <> 'C')
---- 1 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST  
+--- 1 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST
 -   <? if exists("hide closed") ?>
 -   AND (coitem_status <> 'C')
---- 2 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST  
+--- 2 REMOVE THIS AND CLOSED LINES WILL NOT DISPLAY ON PACKING LIST
 --- <? endif ?>
 -   AND (coitem_cohead_id=<? value("sohead_id") ?>)
 -)
@@ -4898,34 +2461,10 @@ WOHistoryByNumber
 -         itemsite_id, itemsite_qtyonhand, itemsite_warehous_id, item_id
 -ORDER BY coitem_linenumber;
 +== MetaSQL statement salesOrderItems-list
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: SingleLevelWhereUsed
- QUERY: head
- SELECT item_number,
-        uom_name,
-        item_descrip1,
-        item_descrip2,
-        <? if exists("effective") ?>
-          formatDate(<? value("effective") ?>)
-        <? else ?>
-          text('Now')
-        <? endif ?>
-        AS effective
-   FROM item JOIN uom ON (item_inv_uom_id=uom_id)
-  WHERE (item_id=<? value("item_id") ?>);
-     
- --------------------------------------------------------------------
-   
  QUERY: detail
 -SELECT bomitem_seqnumber, item_number,
 -       item_descrip1, item_descrip2, uom_name,
@@ -4953,16 +2492,10 @@ WOHistoryByNumber
 -)
 -ORDER BY item_number;
 +== MetaSQL statement whereUsed-detail
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: TodoList
- QUERY: detail
- == MetaSQL statement todolist-detail
- --------------------------------------------------------------------
-   
  QUERY: queryParams
  SELECT
 -  <? if exists("startStartDate") ?>
@@ -4971,14 +2504,14 @@ WOHistoryByNumber
 -  <? else ?>
 -  'All' AS f_startStartDate,
 -  'All' AS f_startEndDate,
--  <? endif ?> 
+-  <? endif ?>
 -  <? if exists("dueStartDate") ?>
 -  formatDate(<? value("dueStartDate") ?>) AS f_dueStartDate,
 -  formatDate(<? value("dueEndDate") ?>) AS f_dueEndDate,
 -  <? else ?>
 -  'All' AS f_dueStartDate,
 -  'All' AS f_dueEndDate,
--  <? endif ?> 
+-  <? endif ?>
    <? if exists("completed") ?> 'Yes' <? else ?> 'No' <? endif ?> AS showClosed,
    <? if exists("projects") ?>    'Yes' <? else ?> 'No' <? endif ?> AS showTasks,
 -  <? if exists("incidents") ?> 'Yes' <? else ?> 'No' <? endif ?> AS showIncdts,
@@ -4991,10 +2524,8 @@ WOHistoryByNumber
 -  <? endif ?>
 -;
 +  <? if exists("incidents") ?> 'Yes' <? else ?> 'No' <? endif ?> AS showIncdts;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: WOHistoryByClassCode
  QUERY: Detail
@@ -5029,10 +2560,10 @@ WOHistoryByNumber
 -<? endif ?>
 - )
 -ORDER BY item_number;
--    
+-
 +== MetaSQL statement workOrderHistory-detail
  --------------------------------------------------------------------
-   
+
  QUERY: head
  SELECT <? if exists("warehous_id") ?>
           ( SELECT warehous_code
@@ -5066,10 +2597,8 @@ WOHistoryByNumber
 +       <? endif ?>
 +       AS lbl_cost
 +;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
- 
+
+
  ====================================================================
  REPORT: WOHistoryByNumber
  QUERY: Detail
@@ -5103,7 +2632,3 @@ WOHistoryByNumber
  <? endif ?>
   )
  ORDER BY wo_subnumber;
-     
- --------------------------------------------------------------------
-   
-\ No newline at end of file
