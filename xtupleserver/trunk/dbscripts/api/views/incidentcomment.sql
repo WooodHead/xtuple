@@ -14,7 +14,6 @@ COMMENT ON VIEW api.incidentcomment IS 'Incident Comment';
 
 
 -- Rule: "_DELETE" ON api.incidentcomment
-
 -- DROP RULE "_DELETE" ON api.incidentcomment;
 
 CREATE OR REPLACE RULE "_DELETE" AS
