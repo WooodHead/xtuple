@@ -1,49 +1,37 @@
-BEGIN;
+-- View: api.incidentcomment
 
--- Incident Comment
+-- DROP VIEW api.incidentcomment;
 
-SELECT dropIfExists('VIEW', 'incidentcomment', 'api');
-CREATE VIEW api.incidentcomment
-AS 
-   SELECT 
-     incdt_number AS incident_number,
-     cmnttype_name AS type,
-     comment_date AS date,
-     comment_user AS username,
-     comment_text AS text
+CREATE OR REPLACE VIEW api.incidentcomment AS 
+ SELECT incdt.incdt_number AS incident_number, cmnttype.cmnttype_name AS type, comment.comment_date AS date, comment.comment_user AS username, comment.comment_text AS text, comment.comment_public AS public
    FROM incdt, cmnttype, comment
-   WHERE ((comment_source='INCDT')
-   AND (comment_source_id=incdt_id)
-   AND (comment_cmnttype_id=cmnttype_id));
+  WHERE comment.comment_source = 'INCDT'::text AND comment.comment_source_id = incdt.incdt_id AND comment.comment_cmnttype_id = cmnttype.cmnttype_id;
 
+ALTER TABLE api.incidentcomment OWNER TO "admin";
+GRANT ALL ON TABLE api.incidentcomment TO "admin";
 GRANT ALL ON TABLE api.incidentcomment TO xtrole;
 COMMENT ON VIEW api.incidentcomment IS 'Incident Comment';
 
---Rules
 
-CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO api.incidentcomment DO INSTEAD
+-- Rule: "_DELETE" ON api.incidentcomment
 
-  INSERT INTO comment (
-    comment_date,
-    comment_source,
-    comment_source_id,
-    comment_user,
-    comment_cmnttype_id,
-    comment_text
-    )
-  VALUES (
-    COALESCE(NEW.date,now()),
-    'INCDT',
-    getincidentid(NEW.incident_number),
-    COALESCE(NEW.username,current_user),
-    getCmntTypeId(NEW.type),
-    NEW.text);
-
-CREATE OR REPLACE RULE "_UPDATE" AS
-    ON UPDATE TO api.incidentcomment DO INSTEAD NOTHING;
+-- DROP RULE "_DELETE" ON api.incidentcomment;
 
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.incidentcomment DO INSTEAD NOTHING;
 
-COMMIT;
+-- Rule: "_INSERT" ON api.incidentcomment
+
+-- DROP RULE "_INSERT" ON api.incidentcomment;
+
+CREATE OR REPLACE RULE "_INSERT" AS
+    ON INSERT TO api.incidentcomment DO INSTEAD  INSERT INTO comment (comment_date, comment_source, comment_source_id, comment_user, comment_cmnttype_id, comment_text, comment_public) 
+  VALUES (COALESCE(new.date, now()), 'INCDT'::text, getincidentid(new.incident_number), COALESCE(new.username, "current_user"()::text), getcmnttypeid(new.type), new.text, COALESCE(new.public, true));
+
+-- Rule: "_UPDATE" ON api.incidentcomment
+
+-- DROP RULE "_UPDATE" ON api.incidentcomment;
+
+CREATE OR REPLACE RULE "_UPDATE" AS
+    ON UPDATE TO api.incidentcomment DO INSTEAD NOTHING;
+
