@@ -23,36 +23,16 @@
     <varlistentry>
       <term>Type</term>
       <listitem>
-        <para>Specify which type of Pricing Schedule Item you want to
-        create:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Item</term>
-            <listitem>
-              <para>Select if the Pricing Schedule is for an individual
-              Item.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Product Category</term>
-            <listitem>
-              <para>Select if the Pricing Schedule is for a Product
-              Category.</para>
-              <tip>
-                <para>The screen options will differ depending on whether the
-                Pricing Schedule is for an Item or a Product Category.</para>
-              </tip>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Freight</term>
-            <listitem>
-              <para>Select if the Pricing Schedule is for Freight.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        <para>Specify which type of Pricing Schedule Item you want to create:
+        Nominal, Discount, or Freight. The screen will present different
+        options depending on which type option you select.</para>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <para>Select the "Nominal" option for simple quantity break pricing by Item.
+  When the "Nominal" option is selected, you will be presented with the
+  following choices:</para>
+  <variablelist>
     <varlistentry>
       <term>Item Number</term>
       <listitem>
@@ -68,11 +48,6 @@
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para>To define the base Pricing Schedule details for non-configured Items,
-  select the "Base" tab. The "Characteristics" tab is only available for
-  configured Items (i.e., Job and Reference Items).</para>
-  <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>quantity breaks</primary>
@@ -100,6 +75,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>List Price</term>
+      <listitem>
+        <para>Displays the List Price for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Qty. UOM</term>
       <listitem>
         <para>Specify the Unit of Measure you want to use for the Quantity
@@ -120,12 +101,6 @@
         Quantity Break UOM. If you select a Selling UOM for the Qty. UOM, you
         will not be able to select a Price UOM. For Selling UOMs, the Selling
         UOM and the Price UOM are the same.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>List Price</term>
-      <listitem>
-        <para>Displays the List Price for the specified Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -156,19 +131,20 @@
     </indexterm><indexterm significance="normal">
       <primary>configuration</primary>
       <secondary>pricing for</secondary>
-    </indexterm>If the specified Item is a configured Item (i.e., Job and
-  Reference Items), then the "Characteristics" tab will be available.
-  Characteristics for configured Items can carry their own List Prices. These
-  Characteristic Prices may be added to the Base Price when configured Items
-  are sold. To define Characteristic pricing for configured Items, select the
-  "Characteristics" tab. The following screen will appear:</para>
+    </indexterm>If the specified Item is a configured Item, then the
+  "Characteristics" tab will be available. Characteristics for configured
+  Items can carry their own List Prices. These Characteristic Prices may be
+  added to the Base Price when configured Items are sold. To define
+  Characteristic pricing for configured Items, select the "Characteristics"
+  tab. The following screen will appear:</para>
   <para><mediaobject>
       <imageobject>
         <imagedata fileref="images/itemPricingScheduleItem_configuredPrices.png" />
       </imageobject>
       <caption>Configured Item Pricing</caption>
-    </mediaobject>When defining Characteristic pricing for configured Items,
-  you are presented with the following options:</para>
+    </mediaobject></para>
+  <para>When defining Characteristic pricing for configured Items, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Characteristic</term>
@@ -222,34 +198,77 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para><indexterm significance="normal">
-      <primary>pricing schedules</primary>
-      <secondary>by product category</secondary>
-    </indexterm> <indexterm significance="normal">
-      <primary>product categories</primary>
-      <secondary>pricing schedules for</secondary>
-    </indexterm>If you are creating a new Pricing Schedule for a Product
-  Category, the following screen will appear:</para>
-  <para></para>
+  <para>Select the "Discount" option for fixed amount or percentage based
+  discount pricing by Item or Product Category. For discounts by Item, select
+  the "Item" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/itemPricingScheduleItem_discountSelected_prodCat.png" />
         </imageobject>
-        <caption>Discount for Item</caption>
+        <caption>Item Discounts</caption>
       </mediaobject>
     </screenshot></para>
-  <para></para>
+  <para>When discounting by Item, you will be presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Specify the Item you want to add to the Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>quantity breaks</primary>
+          <secondary>in pricing schedules</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>pricing schedules</primary>
+          <secondary>quantity breaks in</secondary>
+        </indexterm>Qty. Break (Inventory UOM)</term>
+      <listitem>
+        <para>Enter the lowest quantity that must be purchased to receive the
+        specified Discount.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>pricing schedules</primary>
+          <secondary>discount percentage for</secondary>
+        </indexterm>Discount Percent (List Price)</term>
+      <listitem>
+        <para>Enter the Discount percentage off List Price to be used when the
+        specified Quantity Break is reached.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Discount By Fixed Amount</term>
+      <listitem>
+        <para>Enter the fixed amount you want to be discounted off the List
+        Price. If a Discount percentage is also used, the fixed amount will be
+        subtracted after the Discount percentage. However, the Price can never
+        go below zero.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>For discounts by Product Category, select the "Product Category"
+  option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/itemPricingScheduleItem_discountSelected.png" />
         </imageobject>
-        <caption>Discount for Product Category</caption>
+        <caption>Product Category Discounts</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When creating a new Pricing Schedule for a Product Category, you are
-  presented with the following options:</para>
+  <para><indexterm significance="normal">
+      <primary>pricing schedules</primary>
+      <secondary>by product category</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>product categories</primary>
+      <secondary>pricing schedules for</secondary>
+    </indexterm>When discounting by Product Category, you will be presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Product Category</term>
@@ -297,15 +316,122 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para></para>
-  <para></para>
+  <para>Select the "Freight" option to create Price breaks for Freight. When
+  the "Freight" option is selected, you will be presented with the following
+  choices:</para>
   <para><mediaobject>
       <imageobject>
         <imagedata fileref="images/itemPricingScheduleItem_freightSelected.png" />
       </imageobject>
       <caption>Freight</caption>
-    </mediaobject>When defining Characteristic pricing for configured Items,
-  you are presented with the following options:</para>
-  <para></para>
-  <para></para>
+    </mediaobject></para>
+  <para>When creating Price breaks for Freight, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Qty. Break</term>
+      <listitem>
+        <para>Enter the quantity (measured in pounds) required to earn the
+        Price break. This option applies only when the "Price per LB" option
+        is selected. Flat rate Freight schedules do not use quantity
+        breaks.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Price</term>
+      <listitem>
+        <para>Enter the Price you want to charge.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Flat Rate</term>
+      <listitem>
+        <para>Select if the Pricing Schedule Item is a flat rate. If selected,
+        you will not need to enter a quantity break&mdash;only the flat rate
+        Price amount.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Price per LB</term>
+      <listitem>
+        <para>Select if the Pricing Schedule Item uses a quantity break to
+        earn the Price break. If selected, you must enter the number of pounds
+        required to earn the Price break in the "Qty. Break" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>From</term>
+      <listitem>
+        <para>Specify which sold from Sites the Pricing Schedule Item applies
+        to:</para>
+        <variablelist>
+          <varlistentry role="standard">
+            <term>All Sites</term>
+            <listitem>
+              <para>Select if the Pricing Schedule Item applies to all sold
+              from Sites.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry role="standard">
+            <term>Selected</term>
+            <listitem>
+              <para>Specify the sold from Site you want the Pricing Schedule
+              Item to apply to.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>To</term>
+      <listitem>
+        <para>Specify which Shipping Zones the Pricing Schedule Item applies
+        to:</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Shipping Zones</term>
+            <listitem>
+              <para>Select if the Pricing Schedule Item applies to all
+              Shipping Zones.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Selected</term>
+            <listitem>
+              <para>Specify the Shipping Zones you want the Pricing Schedule
+              Item to apply to.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Ship Vias</term>
+      <listitem>
+        <para>Select if the Pricing Schedule Item applies to all Ship
+        Vias.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify the Ship Vias you want the Pricing Schedule Item to
+        apply to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Freight Classes</term>
+      <listitem>
+        <para>Select if the Pricing Schedule Item applies to all Freight
+        Classes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify the Freight Classes you want the Pricing Schedule Item
+        to apply to.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
