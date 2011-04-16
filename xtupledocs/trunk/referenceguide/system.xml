@@ -63,8 +63,6 @@
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <xi:include href="guiclient/userPreferences.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <xi:include href="guiclient/hotkeys.xml" xpointer="element(/1)"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <section id="Section955801">
     <title><indexterm significance="normal">
         <primary>rescan privileges</primary>
@@ -95,8 +93,15 @@
     <xi:include href="guiclient/empGroups.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <xi:include href="guiclient/schedServerMaint.xml" xpointer="element(/1)"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <section>
+    <title>Check for Updates</title>
+    <para>This option is available to system administrators and/or any users
+    who have the privilege to create new users. When you select this option,
+    the system will scan your xTuple system configuration and tell you if any
+    updates are available for you to download. The feature does not perform
+    the updates for you. Instead, it simply identifies updates that may be
+    available to you.</para>
+  </section>
   <section>
     <title>Design</title>
     <para>System Design section.</para>
@@ -225,4 +230,6 @@
       help prevent data loss.</para>
     </tip>
   </section>
+  <xi:include href="guiclient/schedServerMaint.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </chapter>
