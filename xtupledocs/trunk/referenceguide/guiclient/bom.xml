@@ -40,7 +40,7 @@
         </indexterm><indexterm significance="normal">
           <primary>bills of materials</primary>
           <secondary>expired components in</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>expiration</primary>
           <secondary>of components in BOMs</secondary>
         </indexterm>Show Expired Components</term>
@@ -57,7 +57,7 @@
         </indexterm><indexterm significance="normal">
           <primary>bills of materials</primary>
           <secondary>adding components in future</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>future</primary>
           <secondary>of components in BOMs</secondary>
         </indexterm>Show Future Components</term>
@@ -146,11 +146,10 @@
     <varlistentry>
       <term>Bill of Materials</term>
       <listitem>
-        <para>Display lists component Items for the Bill of Materials.</para>
-        <tip>
-          <para>Manufactured subcomponents will be displayed in green text, to
-          help distinguish them from other components.</para>
-        </tip>
+        <para>Display lists component Items for the Bill of Materials. Some
+        line items may be color-coded for ease of use. Manufactured
+        subcomponents will display in green text, expired components will be
+        red, and future components will be blue.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
