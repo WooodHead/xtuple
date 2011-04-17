@@ -7,10 +7,10 @@
       <primary>financial reports</primary>
       <secondary>viewing of</secondary>
     </indexterm>View Financial Report</title>
-  <para>Once a Financial Report has been created using the Financial Reporting
-  Engine, you may then generate it using time-phased information. To view a
-  Financial Report, select the "View Financial Report" option. The following
-  screen will appear:</para>
+  <para>Once a Financial Report has been created using the Financial Report
+  layout tools, you may then generate it using time-phased information. To
+  view a Financial Report, select the "View Financial Report" option. The
+  following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -55,8 +55,7 @@
       <listitem>
         <para>Select the column layout you want the Financial Report to use.
         This feature may not be used in conjunction with the "Trend Report"
-        option.</para>
-        <para>When defining a Financial Report using one of the standard
+        option. When defining a Financial Report using one of the standard
         report types (i.e., Balance Sheet, Income Statement, or Cash Flow),
         you must define a column layout to specify the time buckets financial
         information will be sorted into. A standard Financial Report may have
@@ -70,22 +69,22 @@
       <term>Periods</term>
       <listitem>
         <para>Specify the Accounting Period(s) whose details you want to
-        display.</para>
-        <para>For Financial Reports created using one of the standard report
-        types (i.e., Balance Sheet, Income Statement, or Cash Flow), you can
-        only select a single Accounting Period&mdash;unless you are running a
-        Trend Report, in which case multiple Periods may be chosen. Ad Hoc
-        reports may always use either single or multiple Periods. To select an
-        individual Period, highlight the Period using your mouse button. The
-        Period is now selected. To select a sequence of Periods, highlight the
-        first in the sequence using your mouse button. Then, holding down the
-        SHIFT key on your keyboard, highlight the last Period in the sequence.
-        The entire sequence is now selected. To select Periods that are out of
-        sequence (e.g., January, April, July, October), highlight the first
-        Period in the group. Then, holding down the CTRL key on your keyboard,
-        highlight the next Period you want to select. Continue highlighting
-        Periods with the CTRL key depressed until all desired Periods are
-        selected. The entire group is now selected.</para>
+        display. For Financial Reports created using one of the standard
+        report types (i.e., Balance Sheet, Income Statement, or Cash Flow),
+        you can only select a single Accounting Period&mdash;unless you are
+        running a Trend Report, in which case multiple Periods may be chosen.
+        Ad Hoc reports may always use either single or multiple Periods. To
+        select an individual Period, highlight the Period using your mouse
+        button. The Period is now selected. To select a sequence of Periods,
+        highlight the first in the sequence using your mouse button. Then,
+        holding down the SHIFT key on your keyboard, highlight the last Period
+        in the sequence. The entire sequence is now selected. To select
+        Periods that are out of sequence (e.g., January, April, July,
+        October), highlight the first Period in the group. Then, holding down
+        the CTRL key on your keyboard, highlight the next Period you want to
+        select. Continue highlighting Periods with the CTRL key depressed
+        until all desired Periods are selected. The entire group is now
+        selected.</para>
         <tip>
           <para>You can export the generated financial data in tab-delimited
           format using the "Export Contents" option from the right-click
@@ -457,7 +456,11 @@
         nested list, with a plus ("+") sign located to the far left of the
         display next to each Financial Report Group that may be expanded to
         lower levels. By clicking your mouse on a plus sign, you reveal lower
-        levels of information related to the group.</para>
+        levels of information related to the group. From the layout, you can
+        right-click on individual Accounts to view the underlying G/L
+        transaction detail. The right-click feature is context-sensitive and
+        works only on rows that contain G/L Account Numbers and columns that
+        contain numbers for actual G/L Account total values.</para>
       </listitem>
     </varlistentry>
   </variablelist>
