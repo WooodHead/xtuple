@@ -552,12 +552,13 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>If you have purchased xTuple Connect, it is possible to integrate
-  Email with xTuple ERP. You can learn more about Email Integration in the
-  <ulink url="http://www.xtuple.org/docs/reference-guide">xTuple Connect
-  Product Guide</ulink>. To enable Email Integration for xTuple ERP, select
-  the "Email" tab. The following screen will appear:</para>
-  <para><screenshot>
+  <para role="xtconnect">If you have purchased xTuple Connect, it is possible
+  to integrate Email with xTuple ERP. You can learn more about Email
+  Integration in the <ulink
+  url="http://www.xtuple.org/docs/reference-guide">xTuple Connect Product
+  Guide</ulink>. To enable Email Integration for xTuple ERP, select the
+  "Email" tab. The following screen will appear:</para>
+  <para role="xtconnect"><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/userPreferences_email.png" />
@@ -565,41 +566,42 @@
         <caption>Email Integration</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When enabling Email Integration for xTuple ERP, you are presented with
-  the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Synchronize Email while running application</term>
-      <listitem>
-        <para>Select if you want your Email to be synchronized with xTuple ERP
-        while xTuple ERP is running. If you don't select this option, your
-        Email will not be synchronized.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>The following buttons are unique to this screen:</para>
-  <variablelist>
-    <varlistentry>
-      <term>START NOW</term>
-      <listitem>
-        <para>Select to begin synchronizing your Email.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>STOP NOW</term>
-      <listitem>
-        <para>Select to stop the Email synchronization.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>START TROJITA EMAIL CLIENT</term>
-      <listitem>
-        <para>Select to start the Trojita Email client, which is used to
-        integrate your Email with xTuple ERP. Enter the details of your IMAP
-        mail settings into the Trojita Email client</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para role="xtconnect">When enabling Email Integration for xTuple ERP, you
+  are presented with the following options:</para>
+  <para role="xtconnect"><variablelist>
+      <varlistentry>
+        <term>Synchronize Email while running application</term>
+        <listitem>
+          <para>Select if you want your Email to be synchronized with xTuple
+          ERP while xTuple ERP is running. If you don't select this option,
+          your Email will not be synchronized.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
+  <para role="xtconnect">The following buttons are unique to this
+  screen:</para>
+  <para role="xtconnect"><variablelist>
+      <varlistentry>
+        <term>START NOW</term>
+        <listitem>
+          <para>Select to begin synchronizing your Email.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>STOP NOW</term>
+        <listitem>
+          <para>Select to stop the Email synchronization.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>START TROJITA EMAIL CLIENT</term>
+        <listitem>
+          <para>Select to start the Trojita Email client, which is used to
+          integrate your Email with xTuple ERP. Enter the details of your IMAP
+          mail settings into the Trojita Email client</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <xi:include href="hotkey.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
