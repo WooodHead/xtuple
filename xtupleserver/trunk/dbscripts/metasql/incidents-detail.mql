@@ -2,7 +2,7 @@
 -- Name: detail
 -- Notes: 
 
-SELECT DISTINCT ON (incdt_number) incdt_id,
+SELECT DISTINCT ON (incdt_number) incdt_id AS id,
 incdt_number, DATE(incdt_timestamp) AS incdt_timestamp,
 crmacct_name, incdt_owner_username,  
 incdtcat_name, incdtseverity_name,  
@@ -112,6 +112,9 @@ OR (incdt_id IN (SELECT comment_source_id
 FROM comment
 WHERE((comment_source='INCDT')
 AND (comment_text ~* <? value("search_pattern") ?>)))))
+<? endif ?>
+<? if exists("id") ?>
+AND (incdt_id=<? value("id") ?>
 <? endif ?>
 AND (incdt_timestamp BETWEEN <? value("startDate") ?> AND DATE <? value("endDate") ?>+1) 
 <? literal("charClause") ?>

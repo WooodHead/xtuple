@@ -86,5 +86,8 @@ WHERE true
 <? if exists("addr_country_pattern") ?>
   AND (addr_country ~* <? value("addr_country_pattern") ?>)
 <? endif ?>
+<? if exists("id") ?>
+  AND (crmacct_id=<? value("id") ?>)
+<? endif ?>
 <? literal("charClause") ?>
 ORDER BY crmacct_number; 
