@@ -59,7 +59,8 @@ AND (incdt_status=status_code)
 AND (status_seq IN (-1
   <? foreach("statuslist") ?> , <? value("statuslist") ?> <? endforeach ?>
   ))
-<? elseif exists("status_equal") ?> 
+<? endif ?>
+<? if exists("status_equal") ?> 
 AND (status_seq = <? value("status_equal") ?>) 
 <? endif ?>
 <? if exists("status_above") ?> 
@@ -70,26 +71,29 @@ AND (incdt_cntct_id = <? value("cntct_id") ?>)
 <? endif ?>
 <? if exists("owner_username") ?> 
 AND (incdt_owner_username=<? value("owner_username") ?>) 
-<? elseif exists("owner_usr_pattern" ?>
+<? endif ?>
+<? if exists("owner_usr_pattern" ?>
 AND (incdt_owner_username ~ <? value("owner_usr_pattern") ?>) 
 <? endif ?>
 <? if exists("assigned_username") ?> 
 AND (incdt_assigned_username=<? value("assigned_username") ?>) 
-<? elseif exists("assigned_usr_pattern" ?>
+<? endif ?>
+<? if exists("assigned_usr_pattern" ?>
 AND (incdt_assigned_username ~ <? value("assigned_usr_pattern") ?>) 
 <? endif ?>
-<? if exists("categorylist") ?>
-AND (incdt_incdtcat_id IN (-1
-  <? foreach("categorylist") ?> , <? value("categorylist") ?> <? endforeach ?>
-  ))
-<? elseif exists("category_id") ?> 
-AND (incdt_incdtcat_id=<? value("category_id") ?>) 
-<? endif ?> 
 <? if exists("incdtpriority_id_list") ?>
 AND (incdt_incdtpriority_id IN (-1
   <? foreach("incdtpriority_id_list") ?> , <? value("incdtpriority_id_list") ?> <? endforeach ?>
   ))
 <? endif ?>
+<? if exists("categorylist") ?>
+AND (incdt_incdtcat_id IN (-1
+  <? foreach("categorylist") ?> , <? value("categorylist") ?> <? endforeach ?>
+  ))
+<? endif ?>
+<? if exists("category_id") ?> 
+AND (incdt_incdtcat_id=<? value("category_id") ?>) 
+<? endif ?> 
 <? if exists("severity_id") ?> 
 AND (incdt_incdtseverity_id=<? value("severity_id") ?>) 
 <? endif ?>
@@ -114,7 +118,7 @@ WHERE((comment_source='INCDT')
 AND (comment_text ~* <? value("search_pattern") ?>)))))
 <? endif ?>
 <? if exists("id") ?>
-AND (incdt_id=<? value("id") ?>
+AND (incdt_id=<? value("id") ?>)
 <? endif ?>
 AND (incdt_timestamp BETWEEN <? value("startDate") ?> AND DATE <? value("endDate") ?>+1) 
 <? literal("charClause") ?>
