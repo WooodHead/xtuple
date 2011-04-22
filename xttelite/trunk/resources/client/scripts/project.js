@@ -36,27 +36,34 @@ var _itemGroup = _tebilling.findChild("_itemGroup");
 var _useItem = _tebilling.findChild("_useItem");
 var _cust = _tebilling.findChild("_cust");
 var _rate = _tebilling.findChild("_rate");
+var _mode = 'new';
 var _teprjid = -1; 
 var _prjid = -1;
 
-set = function(input)
+//set = function(input)
+xtte.project.populated = function(input)
 {
-  if("prj_id" in input)
+  if (_number.enabled)
+    _mode = "edit";
+  else
+    _mode = "view";
+
+  if (input.mode == "view")
   {
-    _prjid = input.prj_id;
+    _cust.enabled = false;
+    _billingGroup.enabled = false;
+  }
+
+  sql = "SELECT prj_id FROM prj WHERE prj_number=<? value(\"prj_number\") ?>;";
+  var params = new Object;
+  params.prj_number = _number.text;
+ 
+  var data = toolbox.executeQuery(sql, params);
+  if (data.first())
+  {
+    _prjid = data.value("prj_id");
     xtte.project.populate();
   }
-
-  if("mode" in input)
-  {
-    if (input.mode == "view")
-    {
-      _cust.enabled = false;
-      _billingGroup.enabled = false;
-    }
-  }
-
-  return mainwindow.NoError;
 }
 
 xtte.project.save = function(prjId)
@@ -202,6 +209,7 @@ toolbox.coreDisconnect(_newTask, "clicked()", mywindow, "sNewTask()");
 toolbox.coreDisconnect(_editTask, "clicked()", mywindow, "sEditTask()");
 toolbox.coreDisconnect(_viewTask, "clicked()", mywindow, "sViewTask()");
 
+mywindow.populated.connect(xtte.project.populated);
 _newTask.clicked.connect(xtte.project.newTask);
 _editTask.clicked.connect(xtte.project.editTask);
 _viewTask.clicked.connect(xtte.project.viewTask);
