@@ -1,9 +1,14 @@
-CREATE OR REPLACE FUNCTION findardiscountaccount(integer) RETURNS integer AS '
+CREATE OR REPLACE FUNCTION findardiscountaccount(integer) RETURNS integer AS $$
 DECLARE
   pCustid ALIAS FOR $1;
   _accntid INTEGER;
 
 BEGIN
+
+--  Check GL Interface metric
+  IF (fetchMetricBool('InterfaceToGL') = false) THEN
+    RETURN 0;
+  END IF;
 
 --  Check for a Customer Type specific Account
   SELECT araccnt_discount_accnt_id INTO _accntid
@@ -28,4 +33,4 @@ BEGIN
   RETURN -1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

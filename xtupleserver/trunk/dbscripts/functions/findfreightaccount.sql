@@ -1,9 +1,14 @@
-CREATE OR REPLACE FUNCTION findFreightAccount(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION findFreightAccount(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pCustid ALIAS FOR $1;
   _accntid INTEGER;
 
 BEGIN
+
+--  Check GL Interface metric
+  IF (fetchMetricBool('InterfaceToGL') = false) THEN
+    RETURN 0;
+  END IF;
 
 --  Check for a Customer Type specific Account
   SELECT araccnt_freight_accnt_id INTO _accntid
@@ -28,7 +33,7 @@ BEGIN
 --  Find the default
   SELECT metric_value::INTEGER INTO _accntid
   FROM metric
-  WHERE (metric_name=''FreightAccount'');
+  WHERE (metric_name='FreightAccount');
   IF (FOUND) THEN
     RETURN _accntid;
   END IF;
@@ -36,4 +41,4 @@ BEGIN
   RETURN -1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
