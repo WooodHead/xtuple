@@ -6,7 +6,7 @@ BEGIN
 
   FOR _r IN SELECT ipshead_id
     FROM ipshead
-    WHERE (ipshead_expires < current_date)
+    WHERE (ipshead_expires <= current_date)
   LOOP
 
     DELETE FROM ipsass
