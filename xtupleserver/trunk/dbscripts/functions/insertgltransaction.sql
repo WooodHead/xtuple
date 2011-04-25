@@ -120,6 +120,11 @@ DECLARE
 
 BEGIN
 
+--  Check GL Interface metric
+  IF (fetchMetricBool('InterfaceToGL') = false) THEN
+    RETURN 0;
+  END IF;
+
 --  Is there anything to post?
 --  ToDo - 2 should really be the scale of the base currency
   IF (round(pAmount, 2) = 0) THEN
