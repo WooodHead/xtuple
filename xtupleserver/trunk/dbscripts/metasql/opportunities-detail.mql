@@ -2,8 +2,9 @@
 -- Name: detail
 -- Notes: used by opportunityList
 
-SELECT DISTINCT ON (ophead_target_date, ophead_name, ophead_id) 
+SELECT DISTINCT ON (incdtpriority_order, ophead_target_date, ophead_name, ophead_id) 
        ophead_id AS id,
+       ophead_number,
        CASE WHEN (ophead_active) THEN 0 ELSE 1 END,
        ophead_name,
        ophead_active,
@@ -11,6 +12,7 @@ SELECT DISTINCT ON (ophead_target_date, ophead_name, ophead_id)
        ophead_owner_username,
        ophead_username,
        opstage_name,
+       incdtpriority_name,
        opsource_name,
        optype_name,
        (ophead_probability_prcnt * .01) AS ophead_probability_prcnt,
@@ -33,6 +35,7 @@ SELECT DISTINCT ON (ophead_target_date, ophead_name, ophead_id)
   , charass_alias<? literal("char_id_date_list") ?>.charass_value::date AS char<? literal("char_id_date_list") ?>
 <? endforeach ?>
 FROM ophead
+  LEFT OUTER JOIN incdtpriority ON (ophead_priority_id=incdtpriority_id)
   LEFT OUTER JOIN crmacct ON (ophead_crmacct_id=crmacct_id)
   LEFT OUTER JOIN opstage ON (ophead_opstage_id=opstage_id)
   LEFT OUTER JOIN opsource ON (ophead_opsource_id=opsource_id)
@@ -102,4 +105,4 @@ WHERE((true)
 <? endif ?>
 <? literal("charClause") ?>
  )
-ORDER BY ophead_target_date, ophead_name, ophead_id;
+ORDER BY incdtpriority_order, ophead_target_date, ophead_name, ophead_id;
