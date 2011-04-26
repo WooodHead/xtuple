@@ -7,7 +7,7 @@ SELECT *,
      <? if exists("varianceValue") ?>
             WHEN (ABS(variancecost) >  <? value("varianceValue") ?>) THEN 'error'
      <? elseif exists("variancePercent") ?>
-            WHEN (ABS(varianceprcnt) >  <? value("variancePercent") ?>) THEN 'error'
+            WHEN (ABS(varianceprcnt * 100.0) >  <? value("variancePercent") ?>) THEN 'error'
      <? else ?>
             ELSE NULL
      <? endif ?>
