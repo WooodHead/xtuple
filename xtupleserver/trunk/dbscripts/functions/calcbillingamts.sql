@@ -59,8 +59,16 @@ DECLARE
 
 BEGIN
 
-  SELECT SUM(COALESCE(calcCobillTax(cobill_id), 0)) INTO _amount
+  SELECT SUM(
+         COALESCE(calculateTax(cobmisc_taxzone_id,
+                               cobill_taxtype_id,
+                               cobmisc_shipdate,
+                               cobmisc_curr_id,
+                               COALESCE(round((cobill_qty * coitem_qty_invuomratio) * (coitem_price / coitem_price_invuomratio), 2), 0))
+                 , 0)
+            ) INTO _amount
   FROM cobmisc JOIN cobill ON (cobmisc_id=cobill_cobmisc_id)
+               JOIN coitem ON (coitem_id=cobill_coitem_id)
   WHERE (cobmisc_id=pCobmiscid);
 
   RETURN _amount;
