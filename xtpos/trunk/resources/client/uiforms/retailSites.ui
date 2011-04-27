@@ -14,10 +14,10 @@
    <string>Retail Sites</string>
   </property>
   <property name="schemaName" stdset="0">
-   <string>xtpos</string>
+   <string notr="true">xtpos</string>
   </property>
   <property name="tableName" stdset="0">
-   <string>api_retailsite</string>
+   <string notr="true">api_retailsite</string>
   </property>
   <property name="primaryKeyColumns" stdset="0">
    <number>1</number>
@@ -29,10 +29,10 @@
    <item row="0" column="0">
     <widget class="XTreeView" name="_sites">
      <property name="schemaName">
-      <string>xtpos</string>
+      <string notr="true">xtpos</string>
      </property>
      <property name="tableName">
-      <string>api_retailsite</string>
+      <string notr="true">api_retailsite</string>
      </property>
     </widget>
    </item>

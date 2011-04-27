@@ -17,10 +17,10 @@
    <item row="0" column="0">
     <widget class="Screen" name="_retailSite">
      <property name="schemaName">
-      <string>xtpos</string>
+      <string notr="true">xtpos</string>
      </property>
      <property name="tableName">
-      <string>api_retailsite</string>
+      <string notr="true">api_retailsite</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_6">
       <item row="0" column="0">
@@ -323,10 +323,10 @@
                 <bool>false</bool>
                </property>
                <property name="schemaName">
-                <string>xtpos</string>
+                <string notr="true">xtpos</string>
                </property>
                <property name="tableName">
-                <string>api_retailsitebankaccnt</string>
+                <string notr="true">api_retailsitebankaccnt</string>
                </property>
                <property name="primaryKeyCoulmns" stdset="0">
                 <number>2</number>
@@ -449,10 +449,10 @@
                 <enum>QAbstractItemView::SelectRows</enum>
                </property>
                <property name="schemaName">
-                <string>xtpos</string>
+                <string notr="true">xtpos</string>
                </property>
                <property name="tableName">
-                <string>api_retailsiteterminal</string>
+                <string notr="true">api_retailsiteterminal</string>
                </property>
                <property name="primaryKeyCoulmns" stdset="0">
                 <number>2</number>

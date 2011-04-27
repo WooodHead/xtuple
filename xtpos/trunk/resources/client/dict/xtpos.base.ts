@@ -194,11 +194,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegister.ui" line="116"/>
-        <source>xtpos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/cashRegister.ui" line="34"/>
         <source>Site:</source>
         <translation type="unfinished"></translation>
@@ -221,11 +216,6 @@
     <message>
         <location filename="../uiforms/cashRegister.ui" line="110"/>
         <source>Sales</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/cashRegister.ui" line="284"/>
-        <source>api_sale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -382,16 +372,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/cashRegisters.ui" line="61"/>
-        <source>xtpos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/cashRegisters.ui" line="64"/>
-        <source>api_cashregister</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/cashRegisters.ui" line="78"/>
         <source>&amp;Use</source>
         <translation type="unfinished"></translation>
@@ -545,16 +525,6 @@
     <message>
         <location filename="../uiforms/payment.ui" line="14"/>
         <source>Payment</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/payment.ui" line="17"/>
-        <source>xtpos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/payment.ui" line="20"/>
-        <source>api_cashregister</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1015,16 +985,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSaleSearch.ui" line="19"/>
-        <source>xtpos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSaleSearch.ui" line="22"/>
-        <source>api_sale</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSaleSearch.ui" line="33"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
@@ -1143,18 +1103,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSite.ui" line="20"/>
-        <location filename="../uiforms/retailSite.ui" line="326"/>
-        <location filename="../uiforms/retailSite.ui" line="452"/>
-        <source>xtpos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSite.ui" line="23"/>
-        <source>api_retailsite</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSite.ui" line="33"/>
         <source>Site:</source>
         <translation type="unfinished"></translation>
@@ -1215,11 +1163,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/retailSite.ui" line="329"/>
-        <source>api_retailsitebankaccnt</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/retailSite.ui" line="341"/>
         <location filename="../uiforms/retailSite.ui" line="467"/>
         <source>Add</source>
@@ -1244,11 +1187,6 @@
     <message>
         <location filename="../uiforms/retailSite.ui" line="437"/>
         <source>Terminals</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSite.ui" line="455"/>
-        <source>api_retailsiteterminal</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1292,18 +1230,6 @@
     <message>
         <location filename="../uiforms/retailSites.ui" line="14"/>
         <source>Retail Sites</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSites.ui" line="17"/>
-        <location filename="../uiforms/retailSites.ui" line="32"/>
-        <source>xtpos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/retailSites.ui" line="20"/>
-        <location filename="../uiforms/retailSites.ui" line="35"/>
-        <source>api_retailsite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
