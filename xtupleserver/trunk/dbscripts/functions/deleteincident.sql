@@ -2,6 +2,7 @@ CREATE OR REPLACE FUNCTION deleteIncident(INTEGER) RETURNS INTEGER AS $$
   DECLARE
     pincdtid    ALIAS FOR $1;
     _count      INTEGER := 0;
+    _incdtnbr   INTEGER := 0;
   BEGIN
     SELECT COUNT(*) INTO _count
     FROM todoitem
@@ -25,13 +26,14 @@ CREATE OR REPLACE FUNCTION deleteIncident(INTEGER) RETURNS INTEGER AS $$
     WHERE ((url_source='INCDT')
        AND (url_source_id=pincdtid));
 
-    PERFORM releaseIncidentNumber(incdt_number)
+    SELECT incdt_number INTO _incdtnbr
     FROM incdt
     WHERE (incdt_id=pincdtid);
-    RAISE NOTICE 'called releaseIncidentNumber';
 
     DELETE FROM incdt
       WHERE (incdt_id=pincdtid);
+
+    PERFORM releaseIncidentNumber(_incdtnbr);
 
     RETURN 0;
   END;
