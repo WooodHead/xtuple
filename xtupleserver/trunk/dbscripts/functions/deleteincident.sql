@@ -33,7 +33,8 @@ CREATE OR REPLACE FUNCTION deleteIncident(INTEGER) RETURNS INTEGER AS $$
     DELETE FROM incdt
       WHERE (incdt_id=pincdtid);
 
-    PERFORM releaseIncidentNumber(_incdtnbr);
+-- Incident #11538 needs to be fully resolved before release can be implemented
+--    PERFORM releaseIncidentNumber(_incdtnbr);
 
     RETURN 0;
   END;
