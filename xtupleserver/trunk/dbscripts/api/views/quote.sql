@@ -61,7 +61,13 @@ AS
      quhead_ordercomments AS order_notes,
      quhead_shipcomments AS shipping_notes,
      false AS add_to_packing_list_batch,
-     quhead_expire AS expire_date
+     quhead_expire AS expire_date,
+     CASE
+       WHEN quhead_status='C' THEN
+         'Converted'
+       ELSE
+         'Open'
+     END AS status
    FROM curr_symbol,quhead
      LEFT OUTER JOIN whsinfo ON (quhead_warehous_id=warehous_id)
      LEFT OUTER JOIN prj ON (quhead_prj_id=prj_id)
@@ -124,7 +130,8 @@ CREATE OR REPLACE RULE "_INSERT" AS
     quhead_taxzone_id,
     quhead_taxtype_id,
     quhead_imported,
-    quhead_expire
+    quhead_expire,
+    quhead_status
     )
   VALUES (
     NEW.quote_number,
@@ -175,7 +182,14 @@ CREATE OR REPLACE RULE "_INSERT" AS
     getTaxZoneId(NEW.tax_zone),
     getTaxTypeId(NEW.tax_type),
     true,
-    NEW.expire_date);
+    NEW.expire_date,
+    CASE
+      WHEN NEW.status = 'Converted' THEN
+        'C'
+      ELSE
+        'O'
+    END
+);
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
     ON UPDATE TO api.quote DO INSTEAD
