@@ -32,6 +32,11 @@
         modules within the system. By default, a menu option named "Custom"
         will be added to the bottom of a module's menu tree when a Custom
         Command is created for that module.</para>
+        <note>
+          <para>You must restart the application to see any new Custom Command
+          menu options. Some changes, like newly-added arguments, are
+          effective immediately for existing Custom Commands.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -50,18 +55,21 @@
         Custom Command. By associating a privilege with a Custom Command, you
         gain the ability to grant or withhold access to the menu option on a
         user-by-user basis. Users who have been granted the privilege will
-        have access to the Custom Command; all others will not.</para>
+        have access to the Custom Command; all others will not. Keep in mind,
+        this is an optional setting. If the privilege name is left empty, then
+        all users will have access to the Custom Command.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Action Name</term>
       <listitem>
         <para>Enter a programmatic-style name for the Custom Command, so the
-        system will be able to locate and process the information easily.
-        Having an action name also makes it possible to create a Hot Key for
-        the Custom Command. Because of the Hot Key feature, you should
-        consider using an action name which conforms to the already-existing
-        naming convention for Hot Key actions. For more information see <xref
+        system will be able to locate and process the information easily. This
+        is an optional setting but it is recommended. Having an action name
+        also makes it possible to create a Hot Key for the Custom Command.
+        Because of the Hot Key feature, you should consider using an action
+        name which conforms to the already-existing naming convention for Hot
+        Key actions. For more information see <xref
         linkend="hotkey" />.</para>
       </listitem>
     </varlistentry>
@@ -69,48 +77,15 @@
       <term>Executable</term>
       <listitem>
         <para>The information entered in this field will vary depending on the
-        use case. If the Custom Command is designed to launch a custom screen,
-        then the following text should be entered:</para>
-        <informalexample>
-          <para><code>!customuiform</code></para>
-        </informalexample>
-        <para>If the Custom Command should open a file or web page, then the
-        following text should be entered:</para>
-        <para><code>!openurl</code></para>
-        <para>If, on the other hand, the Custom Command will launch an
-        executable program (e.g., RPTRender), then you should enter the path
-        to the location where the executable program is located. When users
-        select the associated Custom Command menu option, the executable
-        program will be launched. For example, if you want to run a custom
-        report, specify the location for the standalone report renderer
-        (RPTrender). The following examples illustrate how (on Windows) you
-        can map to either local or network drives:</para>
-        <informalexample>
-          <para><emphasis role="bold">Local Drive</emphasis>:
-          <code>C:\\Program Files\\xTuple\\RPTrender.exe</code></para>
-          <para><emphasis role="bold">Network URL</emphasis>:
-          <code>\\\\drive_name\\dir_name\\xTuple\\RPTrender.exe</code></para>
-        </informalexample>
+        use case&mdash;that is, whether you are launching a custom screen,
+        custom report, other executable program, etc. If the Custom Command
+        will launch an executable program (e.g., RPTRender), then you should
+        enter the path to the location where the executable program is
+        located. When users select the associated Custom Command menu option,
+        the executable program will be launched.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>You may encounter cross-platform conflicts when placing executables
-    on network drives. To reduce these conflicts, it may be necessary to
-    create separate custom menus to support executables designed for different
-    operating systems.</para>
-  </note>
-  <tip>
-    <para>Macintosh users should enter an executable path which points all the
-    way to the executable file located within a package's Contents directory.
-    For example, to launch the report renderer, enter the following
-    path:</para>
-    <informalexample>
-      <para><code>../rptrender.app/Contents/MacOS/rptrender</code></para>
-    </informalexample>
-    <para>Under Mac, the RPTrender application will not open if the path does
-    not continue past the rptrender.app file.</para>
-  </tip>
   <variablelist>
     <varlistentry>
       <term>Description</term>
@@ -131,131 +106,183 @@
       </mediaobject>
     </screenshot></para>
   <para>The arguments display lists all arguments defined for the specified
-  executable. When trying top open a web page or file (i.e., the Executable is
+  executable. When trying to open a web page or file (i.e., the Executable is
   set to <code>!openurl</code>), create a new argument and enter the URL to
   open (see <ulink
   url="http://qt.nokia.com/doc/4.5/qdesktopservices.html#openUrl">Qt's
-  documentation</ulink> for details).</para>
-  <para>The following table shows the range of possible arguments if the
-  executable is a custom screen (i.e., ui form):</para>
-  <table>
-    <title>Arguments Used for Custom Screens</title>
-    <tgroup cols="2">
-      <thead>
-        <row>
-          <entry><para>Syntax</para></entry>
-          <entry><para>Description</para></entry>
-        </row>
-      </thead>
-      <tbody>
-        <row>
-          <entry><para>uiform=</para></entry>
-          <entry><para>Use this argument followed by the name of the ui form
-          (i.e., the screen) which the Custom Command will be executing. The
-          screen name is the name entered on the main custom screen
-          window.</para><para><emphasis
-          role="bold">Example</emphasis>:</para><para><code>uiform=Calculator</code></para></entry>
-        </row>
-        <row>
-          <entry><para>uiformtype=</para></entry>
-          <entry><para>Use this argument to specify which type of screen it
-          is. There are two possible values: <code>dialog</code> and
-          <code>window</code>.</para><para><emphasis
-          role="bold">Example</emphasis>:</para><para><code>uiformtype=dialog</code></para></entry>
-        </row>
-      </tbody>
-    </tgroup>
-  </table>
-  <para>The next table shows the range of possible arguments you can pass to
-  the report renderer (RPTRender) if you are running custom reports:</para>
-  <table>
-    <title>Arguments Used for Custom Reports</title>
-    <tgroup cols="2">
-      <thead>
-        <row>
-          <entry><para>Syntax</para></entry>
-          <entry><para>Description</para></entry>
-        </row>
-      </thead>
-      <tbody>
-        <row>
-          <entry><para>-databaseURL</para></entry>
-          <entry><para>Used to specify the location of the database server.
-          This is followed by the server address, database name, and port
-          number. If running a custom report, the program will automatically
-          connect to the database specified when the report renderer
-          (RPTrender) is launched</para><para><emphasis
-          role="bold">Example</emphasis>:</para><para><code>-databaseURL=psql://server.manufacturing.com/demo:5432</code></para></entry>
-        </row>
-        <row>
-          <entry><para>-username</para></entry>
-          <entry><para>Enter the username RPTrender should use to connect to
-          the specified database.</para><para><emphasis
-          role="bold">Example</emphasis>:</para><para><code>-username=jsmith</code></para></entry>
-        </row>
-        <row>
-          <entry><para>-passwd</para></entry>
-          <entry><para>Enter the password for the specified
-          user.</para><para><emphasis
-          role="bold">Example</emphasis>:</para><para><code>-passwd=abc123</code></para></entry>
-        </row>
-        <row>
-          <entry><para>-param</para></entry>
-          <entry><para>Enter any parameters you want the system to pass to the
-          report renderer. These pre-defined parameters will be used when
-          RPTrender runs the specified report
-          definition.</para><para><emphasis
-          role="bold">Example</emphasis>:</para><para><code>-param=user_active:bool</code></para></entry>
-        </row>
-        <row>
-          <entry><para>-print</para></entry>
-          <entry><para>This argument tells RPTrender to print the specified
-          report definition using the indicated parameters&mdash;if
-          any.</para><para><emphasis
-          role="bold">Example</emphasis>:</para><para><code>-print</code></para></entry>
-        </row>
-        <row>
-          <entry><para>-close</para></entry>
-          <entry><para>Use this argument to close the RPTrender program when
-          its work is done.</para><para><emphasis
-          role="bold">Example</emphasis>:</para><para><code>-close</code></para></entry>
-        </row>
-        <row>
-          <entry><para>-noAuth</para></entry>
-          <entry><para>This argument tell RPTrender that not all login fields,
-          if any, are required and it will attempt to login to the specified
-          database without presenting the login screen.</para><para><emphasis
-          role="bold">Example</emphasis>:</para><para><code>-noAuth</code></para></entry>
-        </row>
-        <row>
-          <entry><para>-loadfromdb=</para></entry>
-          <entry><para>This argument specifies the name a report definition to
-          load from the database that is being connected
-          to.</para><para><emphasis
-          role="bold">Example</emphasis>:</para><para><code>-loadfromdb=SomeReportName</code></para></entry>
-        </row>
-        <row>
-          <entry><para>-printerName=</para></entry>
-          <entry><para>This argument specified the printer to print to by it's
-          name. Names vary from system to system and you must determine the
-          correct name for this option.</para><para><emphasis
-          role="bold">Example</emphasis>:</para><para><code>-printerName=default</code></para></entry>
-        </row>
-        <row>
-          <entry><para>-pdf</para></entry>
-          <entry><para>This argument specifies that you want the output to be
-          in .pdf format.</para><para><emphasis
-          role="bold">Example</emphasis>:</para><para><code>-pdf</code></para></entry>
-        </row>
-        <row>
-          <entry><para>-outpdf=</para></entry>
-          <entry><para>This argument specifies the name you want pdf output to
-          be sent to.</para><para><emphasis
-          role="bold">Example</emphasis>:</para><para><code>-outpdf=myreport.pdf</code></para></entry>
-        </row>
-      </tbody>
-    </tgroup>
-  </table>
+  documentation</ulink> for details). If there are multiple arguments, each
+  will be opened.</para>
   <xi:include href="customCommandArgument.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <section>
+    <title>Custom Report Details</title>
+    <para>If the Custom Command is designed to launch a custom report, specify
+    the location for the standalone report renderer (RPTrender) in the
+    "Executable" field. The following examples illustrate how (on Windows) you
+    can map to either local or network drives:</para>
+    <informalexample>
+      <para><emphasis role="bold">Local Drive</emphasis>: <code>C:\Program
+      Files\xTuple\RPTrender.exe</code></para>
+      <para><emphasis role="bold">Network URL</emphasis>:
+      <code>\\drive_name\dir_name\xTuple\RPTrender.exe</code><note>
+          <para>You may encounter cross-platform conflicts when placing
+          executables on network drives. To reduce these conflicts, it may be
+          necessary to create separate custom menus to support executables
+          designed for different operating systems.</para>
+        </note><tip>
+          <para>Macintosh users should enter an executable path which points
+          all the way to the executable file located within a package's
+          Contents directory. For example, to launch the report renderer,
+          enter the following path:</para>
+          <informalexample>
+            <para><code>../rptrender.app/Contents/MacOS/rptrender</code></para>
+          </informalexample>
+          <para>Under Mac, the RPTrender application will not open if the path
+          does not continue past the rptrender.app file.</para>
+        </tip></para>
+    </informalexample>
+    <para>The next table shows the range of possible arguments you can pass to
+    the report renderer (RPTRender) if you are running custom reports:</para>
+    <table>
+      <title>Arguments Used for Custom Reports</title>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry><para>Syntax</para></entry>
+            <entry><para>Description</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para>-databaseURL</para></entry>
+            <entry><para>Used to specify the location of the database server.
+            This is followed by the server address, database name, and port
+            number. If running a custom report, the program will automatically
+            connect to the database specified when the report renderer
+            (RPTrender) is launched</para><para><emphasis
+            role="bold">Example</emphasis>:</para><para><code>-databaseURL=psql://server.manufacturing.com/demo:5432</code></para></entry>
+          </row>
+          <row>
+            <entry><para>-username</para></entry>
+            <entry><para>Enter the username RPTrender should use to connect to
+            the specified database.</para><para><emphasis
+            role="bold">Example</emphasis>:</para><para><code>-username=jsmith</code></para></entry>
+          </row>
+          <row>
+            <entry><para>-passwd</para></entry>
+            <entry><para>Enter the password for the specified
+            user.</para><para><emphasis
+            role="bold">Example</emphasis>:</para><para><code>-passwd=abc123</code></para></entry>
+          </row>
+          <row>
+            <entry><para>-param</para></entry>
+            <entry><para>Enter any parameters you want the system to pass to
+            the report renderer. These pre-defined parameters will be used
+            when RPTrender runs the specified report
+            definition.</para><para><emphasis
+            role="bold">Example</emphasis>:</para><para><code>-param=user_active:bool</code></para></entry>
+          </row>
+          <row>
+            <entry><para>-print</para></entry>
+            <entry><para>This argument tells RPTrender to print the specified
+            report definition using the indicated parameters&mdash;if
+            any.</para><para><emphasis
+            role="bold">Example</emphasis>:</para><para><code>-print</code></para></entry>
+          </row>
+          <row>
+            <entry><para>-close</para></entry>
+            <entry><para>Use this argument to close the RPTrender program when
+            its work is done.</para><para><emphasis
+            role="bold">Example</emphasis>:</para><para><code>-close</code></para></entry>
+          </row>
+          <row>
+            <entry><para>-noAuth</para></entry>
+            <entry><para>This argument tell RPTrender that not all login
+            fields, if any, are required and it will attempt to login to the
+            specified database without presenting the login
+            screen.</para><para><emphasis
+            role="bold">Example</emphasis>:</para><para><code>-noAuth</code></para></entry>
+          </row>
+          <row>
+            <entry><para>-loadfromdb=</para></entry>
+            <entry><para>This argument specifies the name a report definition
+            to load from the database that is being connected
+            to.</para><para><emphasis
+            role="bold">Example</emphasis>:</para><para><code>-loadfromdb=SomeReportName</code></para></entry>
+          </row>
+          <row>
+            <entry><para>-printerName=</para></entry>
+            <entry><para>This argument specified the printer to print to by
+            it's name. Names vary from system to system and you must determine
+            the correct name for this option.</para><para><emphasis
+            role="bold">Example</emphasis>:</para><para><code>-printerName=default</code></para></entry>
+          </row>
+          <row>
+            <entry><para>-pdf</para></entry>
+            <entry><para>This argument specifies that you want the output to
+            be in .pdf format.</para><para><emphasis
+            role="bold">Example</emphasis>:</para><para><code>-pdf</code></para></entry>
+          </row>
+          <row>
+            <entry><para>-outpdf=</para></entry>
+            <entry><para>This argument specifies the name you want pdf output
+            to be sent to.</para><para><emphasis
+            role="bold">Example</emphasis>:</para><para><code>-outpdf=myreport.pdf</code></para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+  <section>
+    <title>Custom Screen Details</title>
+    <para>If the Custom Command is designed to launch a custom screen, then
+    the following text should be entered in the "Executable" field:</para>
+    <informalexample>
+      <para><code>!customuiform</code></para>
+      <para>It should be noted, however, that launching custom screens in this
+      matter is a deprecated approach. This same functionality can be
+      addressed more elegantly using xTuple's scripting tool set.</para>
+    </informalexample>
+    <para>The following table shows the range of possible arguments if the
+    executable is a custom screen (i.e., ui form):</para>
+    <table>
+      <title>Arguments Used for Custom Screens</title>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry><para>Syntax</para></entry>
+            <entry><para>Description</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para>uiform=</para></entry>
+            <entry><para>This is a required argument. Use the argument
+            followed by the name of the ui form (i.e., the screen) which the
+            Custom Command will be executing. The screen name is the name
+            entered on the main custom screen window.</para><para><emphasis
+            role="bold">Example</emphasis>:</para><para><code>uiform=Calculator</code></para></entry>
+          </row>
+          <row>
+            <entry><para>uiformtype=</para></entry>
+            <entry><para>Use this argument to specify which type of screen it
+            is. There are two possible values:
+            <code><literal>dialog</literal></code> and
+            <code><literal>window</literal></code>.</para><para><emphasis
+            role="bold">Example</emphasis>:</para><para><code>uiformtype=dialog</code></para><para>This
+            is an optional argument. The default value is
+            <literal>window</literal>.</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+  <section>
+    <title>OpenURL Details</title>
+    <para>If the Custom Command should open a file or web page, then the
+    following text should be entered in the "Executable" field:</para>
+    <para><code>!openurl</code></para>
+    <para>This command is good for opening either URLs or files in a
+    cross-platform manner.</para>
+  </section>
 </section>
