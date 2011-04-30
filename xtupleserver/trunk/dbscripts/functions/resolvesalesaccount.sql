@@ -9,9 +9,7 @@ BEGIN
 
   SELECT findSalesAccnt(pItemsiteid, pCustid) INTO _salesaccntid;
   IF (_salesaccntid = -1) THEN
-    SELECT metric_value::INTEGER INTO _accntid
-    FROM metric
-    WHERE (metric_name=''UnassignedAccount'');
+    SELECT getUnassignedAccntId() INTO _accntid;
   ELSE
     SELECT salesaccnt_sales_accnt_id INTO _accntid
     FROM salesaccnt

@@ -155,18 +155,14 @@ BEGIN
   IF (pDebitid IN (SELECT accnt_id FROM accnt)) THEN
     _debitid := pDebitid;
   ELSE
-    SELECT metric_value::INTEGER INTO _debitid
-    FROM metric
-    WHERE (metric_name='UnassignedAccount');
+    SELECT getUnassignedAccntId() INTO _debitid;
   END IF;
 
 --  Validate pCreditid
   IF (pCreditid IN (SELECT accnt_id FROM accnt)) THEN
     _creditid := pCreditid;
   ELSE
-    SELECT metric_value::INTEGER INTO _creditid
-    FROM metric
-    WHERE (metric_name='UnassignedAccount');
+    SELECT getUnassignedAccntId() INTO _creditid;
   END IF;
 
 -- refuse to accept postings into closed periods if any of the accounts disallow it
