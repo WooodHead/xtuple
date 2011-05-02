@@ -120,6 +120,6 @@ AND (comment_text ~* <? value("search_pattern") ?>)))))
 <? if exists("id") ?>
 AND (incdt_id=<? value("id") ?>)
 <? endif ?>
-AND (incdt_timestamp BETWEEN <? value("startDate") ?> AND DATE <? value("endDate") ?>+1) 
+AND (incdt_timestamp BETWEEN COALESCE(<? value("startDate") ?>, startOfTime()) AND COALESCE(<? value("endDate") ?>, endOfTime())+1) 
 <? literal("charClause") ?>
 ORDER BY incdt_number;
