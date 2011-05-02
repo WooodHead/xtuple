@@ -166,10 +166,10 @@ bool LoaderWindow::openFile(QString pfilename)
   contentsnames << "package.xml" << "contents.xml";
   for (int i = 0; i < contentsnames.size() && contentFile.isNull(); i++)
   {
-    QRegExp re(".*" + contentsnames.at(i) + "$");
     for(QStringList::Iterator mit = list.begin(); mit != list.end(); ++mit)
     {
-      if(re.exactMatch(*mit))
+      QFileInfo fi(*mit);
+      if(fi.fileName() == contentsnames.at(i))
       {
         if(!contentFile.isNull())
         {
