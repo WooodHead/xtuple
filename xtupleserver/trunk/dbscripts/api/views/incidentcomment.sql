@@ -1,14 +1,11 @@
--- View: api.incidentcomment
 
--- DROP VIEW api.incidentcomment;
+SELECT dropIfExists('VIEW', 'incidentcomment', 'api');
 
 CREATE OR REPLACE VIEW api.incidentcomment AS 
  SELECT incdt.incdt_number AS incident_number, cmnttype.cmnttype_name AS type, comment.comment_date AS date, comment.comment_user AS username, comment.comment_text AS text, comment.comment_public AS public
    FROM incdt, cmnttype, comment
   WHERE comment.comment_source = 'INCDT'::text AND comment.comment_source_id = incdt.incdt_id AND comment.comment_cmnttype_id = cmnttype.cmnttype_id;
 
-ALTER TABLE api.incidentcomment OWNER TO "admin";
-GRANT ALL ON TABLE api.incidentcomment TO "admin";
 GRANT ALL ON TABLE api.incidentcomment TO xtrole;
 COMMENT ON VIEW api.incidentcomment IS 'Incident Comment';
 
