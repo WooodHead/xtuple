@@ -92,7 +92,7 @@ function openWindowMfgAct()
 
   // Determine which window to open
   if (act == "L")
-    ui = "dspPlannedOrdersByPlannerCode";
+    ui = "dspPlannedOrders";
   else
     ui = "dspWoSchedule";
 
@@ -100,22 +100,22 @@ function openWindowMfgAct()
   var win = toolbox.openWindow(ui);
   if (act == "L")
   {
-    win.findChild("_purchase").forgetful = true;
-    win.findChild("_manufacture").forgetful = true;
-    win.findChild("_transfer").forgetful = true;
-    win.findChild("_purchase").checked = false;
-    win.findChild("_manufacture").checked = true;
-    win.findChild("_transfer").checked = false;
-    if (act == 'O')
-      win.findChild("_open").checked = true;
-    else if (act == 'E')
-      win.findChild("_exploded").checked = true;
-    else if (act == 'R')
-      win.findChild("_released").checked = true;
-    else if (act == 'I')
-      win.findChild("_inprocess").checked = true;
+//    win.findChild("_purchase").forgetful = true;
+//    win.findChild("_manufacture").forgetful = true;
+//    win.findChild("_transfer").forgetful = true;
+//    win.findChild("_purchase").checked = false;
+//    win.findChild("_manufacture").checked = true;
+//    win.findChild("_transfer").checked = false;
+//    if (act == 'O')
+//      win.findChild("_open").checked = true;
+//    else if (act == 'E')
+//      win.findChild("_exploded").checked = true;
+//    else if (act == 'R')
+//      win.findChild("_released").checked = true;
+//    else if (act == 'I')
+//      win.findChild("_inprocess").checked = true;
 
-    win.findChild("_warehouse").setAll();
+//    win.findChild("_warehouse").setAll();
   }
   else
   {
