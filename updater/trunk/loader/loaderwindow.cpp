@@ -861,9 +861,9 @@ bool LoaderWindow::sStart()
     _text->append(tr("<p>Completed Update at %1</p>").arg(endTime.toString()));
     int elapsed = startTime.secsTo(endTime);
     int sec = elapsed % 60;
-    elapsed -= sec;
+    elapsed = (elapsed - sec) / 60;
     int min = elapsed % 60;
-    elapsed -= min;
+    elapsed = (elapsed - min) / 60;
     int hour = elapsed;
     _text->append(tr("<p>Total elapsed time is %1h %2m %3s</p>").arg(hour).arg(min).arg(sec));
 // end of the section being done in two places
@@ -883,9 +883,9 @@ bool LoaderWindow::sStart()
     _text->append(tr("<p>Completed Update at %1</p>").arg(endTime.toString()));
     int elapsed = startTime.secsTo(endTime);
     int sec = elapsed % 60;
-    elapsed -= sec;
+    elapsed = (elapsed - sec) / 60;
     int min = elapsed % 60;
-    elapsed -= min;
+    elapsed = (elapsed - min) / 60;
     int hour = elapsed;
     _text->append(tr("<p>Total elapsed time is %1h %2m %3s</p>").arg(hour).arg(min).arg(sec));
 // end of the section being done in two places
