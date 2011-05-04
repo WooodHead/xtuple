@@ -13,6 +13,11 @@ CONFIG         += plugin qt warn_on release
 TARGET          = $$qtLibraryTarget(csvimpplugin)
 DESTDIR         = ../plugins
 
+# TODO: why is shared not implied by plugin on mac win32-x-g++?
+win32-x-g++ {
+  CONFIG += shared
+}
+
 QT += sql xml xmlpatterns
 
 include(../global.pri)
