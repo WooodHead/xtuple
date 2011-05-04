@@ -54,6 +54,7 @@ DECLARE
   _iteminvpricerat NUMERIC;
   _qty NUMERIC;
   _asof DATE;
+  _debug BOOLEAN := false;
 
 BEGIN
 -- Return the itemPrice in the currency passed in as pCurrid
@@ -94,6 +95,10 @@ BEGIN
   ORDER BY uommatched DESC, ipsprice_qtybreak DESC, ipsprice_price ASC
   LIMIT 1;
 
+  IF(_debug) THEN
+    raise notice 'Determined sale price is %', _sales;
+  END IF;
+
 --  Check for a Customer Shipto Price
   SELECT currToCurr(ipshead_curr_id, pCurrid, ipsprice_price, pEffective) INTO _price
   FROM (
@@ -120,6 +125,10 @@ BEGIN
    AND (ipsass_shipto_id=pShiptoid) )
   ORDER BY uommatched DESC, ipsprice_qtybreak DESC, ipsprice_price ASC
   LIMIT 1;
+
+  IF(_debug) THEN
+    raise notice 'Ship-to price is %', _price;
+  END IF;
 
   IF (_price IS NOT NULL) THEN
     IF ((_sales IS NOT NULL) AND (_sales < _price)) THEN
@@ -157,6 +166,10 @@ BEGIN
   ORDER BY uommatched DESC, ipsprice_qtybreak DESC, ipsprice_price ASC
   LIMIT 1;
 
+  IF(_debug) THEN
+    raise notice 'Ship-to pattern price is %', _price;
+  END IF;
+
   IF (_price IS NOT NULL) THEN
     IF ((_sales IS NOT NULL) AND (_sales < _price)) THEN
       RETURN _sales;
@@ -191,6 +204,10 @@ BEGIN
   ORDER BY uommatched DESC, ipsprice_qtybreak DESC, ipsprice_price ASC
   LIMIT 1;
 
+  IF(_debug) THEN
+    raise notice 'Customer price is %', _price;
+  END IF;
+
   IF (_price IS NOT NULL) THEN
     IF ((_sales IS NOT NULL) AND (_sales < _price)) THEN
       RETURN _sales;
@@ -224,6 +241,10 @@ BEGIN
    AND (cust_id=pCustid) )
   ORDER BY uommatched DESC, ipsprice_qtybreak DESC, ipsprice_price ASC
   LIMIT 1;
+
+  IF(_debug) THEN
+    raise notice 'Customer type price is %', _price;
+  END IF;
 
   IF (_price IS NOT NULL) THEN
     IF ((_sales IS NOT NULL) AND (_sales < _price)) THEN
@@ -261,6 +282,10 @@ BEGIN
   ORDER BY uommatched DESC, ipsprice_qtybreak DESC, ipsprice_price ASC
   LIMIT 1;
 
+  IF(_debug) THEN
+    raise notice 'Customer type pattern price is %', _price;
+  END IF;
+
   IF (_price IS NOT NULL) THEN
     IF ((_sales IS NOT NULL) AND (_sales < _price)) THEN
       RETURN _sales;
@@ -274,15 +299,22 @@ BEGIN
     RETURN _sales;
   END IF;
 
+  IF(_debug) THEN
+    raise notice 'No Prices found -- using list price';
+  END IF;
+
 --  Check for a list price
   SELECT MIN(currToLocal(pCurrid,
                        item_listprice - (item_listprice * COALESCE(cust_discntprcnt, 0)),
-                       pEffective) * _iteminvpricerat) AS price,
+                       pEffective) * itemuomtouomratio(pItemid, pPriceUOM, item_price_uom_id)) AS price,
          item_exclusive INTO _item
   FROM item LEFT OUTER JOIN custinfo ON (cust_id=pCustid)
   WHERE (item_id=pItemid)
   GROUP BY item_exclusive;
   IF (FOUND) THEN
+    IF(_debug) THEN
+      raise notice 'list price %', _item.price;
+    END IF;
     IF (NOT _item.item_exclusive) THEN
       IF (_item.price < 0) THEN
         RETURN 0;
