@@ -99,7 +99,7 @@ function openWindowPurchAct()
 
   // Determine which window to open
   if (act == "L")
-    ui = "dspPlannedOrdersByPlannerCode";
+    ui = "dspPlannedOrders";
   else if (act == "Q")
     ui = "dspPurchaseReqsByPlannerCode";
   else if (act == "U" || act == "O")
@@ -115,12 +115,16 @@ function openWindowPurchAct()
   toolbox.openWindow(ui);
   if (act == "L")
   {
-    toolbox.lastWindow().findChild("_purchase").forgetful = true;
-    toolbox.lastWindow().findChild("_manufacture").forgetful = true;
-    toolbox.lastWindow().findChild("_transfer").forgetful = true;
-    toolbox.lastWindow().findChild("_purchase").checked = true;
-    toolbox.lastWindow().findChild("_manufacture").checked = false;
-    toolbox.lastWindow().findChild("_transfer").checked = false;
+//    toolbox.lastWindow().findChild("_purchase").forgetful = true;
+//    toolbox.lastWindow().findChild("_manufacture").forgetful = true;
+//    toolbox.lastWindow().findChild("_transfer").forgetful = true;
+//    toolbox.lastWindow().findChild("_purchase").checked = true;
+//    toolbox.lastWindow().findChild("_manufacture").checked = false;
+//    toolbox.lastWindow().findChild("_transfer").checked = false;
+    var params = new Object();
+    params.type = "P";
+    toolbox.lastWindow().set(params);
+    toolbox.lastWindow().sFillList();
   }
   if (act == "U" || act == "O") // Set options for open P/O list
   {
@@ -140,7 +144,7 @@ function openWindowPurchAct()
     }
     toolbox.lastWindow().sFillList();
   }
-  else if (act == "L" || act == "Q" || act == "V") 
+  else if (act == "Q" || act == "V") 
   {
     toolbox.lastWindow().findChild("_warehouse").setAll();
     toolbox.lastWindow().sFillList();
