@@ -100,7 +100,10 @@ BEGIN
                            taxhist_amount,
                            taxhist_tax,
                            taxhist_docdate,
-                           taxhist_distdate )
+                           taxhist_distdate,
+                           taxhist_curr_id,
+                           taxhist_curr_rate,
+                           taxhist_journalnumber )
   SELECT taxhist_id,
          taxhist_parent_id,
          taxhist_taxtype_id,
@@ -112,7 +115,10 @@ BEGIN
          taxhist_amount,
          taxhist_tax,
          taxhist_docdate,
-         taxhist_distdate
+         taxhist_distdate,
+         taxhist_curr_id,
+         taxhist_curr_rate,
+         taxhist_journalnumber
   FROM cohisttax
   WHERE (taxhist_parent_id=pSohistid);
 
