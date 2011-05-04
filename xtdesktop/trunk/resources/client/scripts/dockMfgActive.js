@@ -116,6 +116,9 @@ function openWindowMfgAct()
 //      win.findChild("_inprocess").checked = true;
 
 //    win.findChild("_warehouse").setAll();
+    var params = new Object();
+    params.type = "W";
+    toolbox.lastWindow().set(params);
   }
   else
   {
