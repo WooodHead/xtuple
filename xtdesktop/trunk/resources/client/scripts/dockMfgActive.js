@@ -114,7 +114,6 @@ function openWindowMfgAct()
 //      win.findChild("_released").checked = true;
 //    else if (act == 'I')
 //      win.findChild("_inprocess").checked = true;
-
 //    win.findChild("_warehouse").setAll();
     var params = new Object();
     params.type = "W";
