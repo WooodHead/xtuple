@@ -1,0 +1,5 @@
+-- Group: util
+-- Name:  fetchnextnumber
+-- Notes: 
+SELECT CAST(REGEXP_REPLACE(newnum, '[^0-9]', '', 'g') AS INTEGER) AS id, newnum
+  FROM (SELECT fetchNextNumber(<? value('numbertype') ?>) AS newnum) AS getnum;

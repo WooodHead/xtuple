@@ -1,0 +1,10 @@
+-- Group: user
+-- Name:  cancreateusers
+-- Notes: 
+SELECT usr_username AS username,
+       CAST(userCanCreateUsers(usr_username) AS BOOLEAN) AS cancreate
+FROM usr
+<? if exists('username') ?>
+WHERE (usr_username=<? value('username') ?>)
+<? endif ?>
+;
