@@ -1,0 +1,33 @@
+-- Group: workOrderSoStatus
+-- Name: detail
+-- Notes: used by dspWoSoStatus, dspWoSoStatusMismatch
+
+SELECT wo_id,
+       formatWONumber(wo_id) AS wonumber,
+       wo_status, item_number, uom_name,
+       warehous_code,
+       cohead_number,
+       wo_qtyord,
+       wo_qtyrcv,
+       wo_startdate,
+       wo_duedate,
+       'qty' AS wo_qtyord_xtnumericrole,
+       'qty' AS wo_qtyrcv_xtnumericrole
+FROM coitem, cohead, wo, itemsite, warehous, item, uom
+WHERE ((coitem_cohead_id=cohead_id)
+   AND (coitem_order_id=wo_id)
+<? if exists("woSoStatus") ?>
+   AND (coitem_status <> 'X')
+<? elseif exists("woSoStatusMismatch") ?>
+   AND (coitem_status='C')
+<? endif ?>
+   AND (wo_itemsite_id=itemsite_id)
+   AND (itemsite_item_id=item_id)
+   AND (item_inv_uom_id=uom_id)
+   AND (itemsite_warehous_id=warehous_id)
+   AND (wo_status IN ('O','E','S','R','I'))
+<? if exists("warehous_id") ?>
+   AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+<? endif ?>
+      )
+ORDER BY wo_duedate;
