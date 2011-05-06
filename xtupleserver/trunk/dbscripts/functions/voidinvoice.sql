@@ -66,7 +66,6 @@ BEGIN
 
   SELECT fetchGLSequence() INTO _glSequence;
   SELECT fetchJournalNumber('AR-IN') INTO _glJournal;
-  SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
 
   _glDate := COALESCE(_p.invchead_gldistdate, _p.invchead_invcdate);
 
@@ -264,8 +263,7 @@ BEGIN
   DELETE FROM aropen
   WHERE (aropen_doctype='I' AND aropen_docnumber=_p.invchead_invcnumber);
 
--- Handle the Inventory and G/L Transactions for any billed Inventory where invcitem_updateinv is true
--- Reverse sense and accounts
+-- Handle the Inventory and G/L Transactions for any billed Inventory where invcitem_updateinv is true (reverse sense)
   FOR _r IN SELECT itemsite_id AS itemsite_id, invcitem_id,
                    (invcitem_billed * invcitem_qty_invuomratio) AS qty,
                    invchead_invcnumber, invchead_cust_id AS cust_id, item_number,
@@ -279,10 +277,13 @@ BEGIN
             WHERE (invchead_id=_p.invchead_id) LOOP
 
 --  Issue billed stock from inventory
+    IF (_itemlocSeries = 0) THEN
+      SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
+    END IF;
     SELECT postInvTrans( itemsite_id, 'SH', (_r.qty * -1.0),
                          'S/O', 'IN', _r.invchead_invcnumber, '',
                          ('Invoice Voided ' || _r.item_number),
-                         costcat_asset_accnt_id, getPrjAccntId(_r.invchead_prj_id, resolveCOSAccount(itemsite_id, _r.cust_id)), 
+                         getPrjAccntId(_r.invchead_prj_id, resolveCOSAccount(itemsite_id, _r.cust_id)), costcat_asset_accnt_id, 
                          _itemlocSeries, _glDate) INTO _invhistid
     FROM itemsite, costcat
     WHERE ( (itemsite_costcat_id=costcat_id)
