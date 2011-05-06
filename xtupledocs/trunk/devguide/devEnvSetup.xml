@@ -84,13 +84,61 @@
     from Ubuntu 10):</para>
     <itemizedlist os="linux">
       <listitem>
-        <para>gcc-4.4</para>
+        <para>gcc</para>
       </listitem>
       <listitem>
-        <para>g++-4.4</para>
+        <para>g++</para>
       </listitem>
       <listitem>
         <para>make</para>
+      </listitem>
+      <listitem>
+        <para>libreadline-dev</para>
+      </listitem>
+      <listitem>
+        <para>libncurses5-dev</para>
+      </listitem>
+      <listitem>
+        <para>libpam-dev</para>
+      </listitem>
+      <listitem>
+        <para>libldap-dev</para>
+      </listitem>
+      <listitem>
+        <para>zlib1g-dev</para>
+      </listitem>
+      <listitem>
+        <para>libkrb5-dev</para>
+      </listitem>
+      <listitem>
+        <para>libssl-dev</para>
+      </listitem>
+      <listitem>
+        <para>libx11-dev</para>
+      </listitem>
+      <listitem>
+        <para>unixodbc-dev</para>
+      </listitem>
+      <listitem>
+        <para>libglib</para>
+      </listitem>
+      <listitem>
+        <para>libsqlit0-dev</para>
+      </listitem>
+      <listitem>
+        <para>libmysqlclient-dev</para>
+      </listitem>
+      <listitem>
+        <para>libcups2-dev</para>
+      </listitem>
+      <listitem>
+        <para>libext-dev</para>
+      </listitem>
+      <listitem>
+        <para>libdbus-1-dev</para>
+      </listitem>
+      <listitem>
+        <para>libdbus-c++-dev</para>
       </listitem>
       <listitem>
         <para>php5-dev (only if you plan on changing xtlib and using those
@@ -99,7 +147,8 @@
     </itemizedlist>
     <note os="linux">
       <para>This list is a rough estimate of what you need. It does not
-      include all required dependencies.</para>
+      include all required dependencies. Some of these may only be required if
+      you are building PostgreSQL and Qt from source.</para>
     </note>
   </section>
   <section>
