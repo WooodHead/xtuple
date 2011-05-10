@@ -1,5 +1,4 @@
 SELECT dropIfExists('FUNCTION', 'araging(date)', 'public');
-
 CREATE OR REPLACE FUNCTION araging(date, boolean) RETURNS SETOF araging AS $$
 DECLARE
   pAsOfDate ALIAS FOR $1;

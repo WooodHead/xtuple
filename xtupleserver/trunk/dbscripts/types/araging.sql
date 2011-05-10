@@ -1,9 +1,10 @@
 SELECT dropIfExists('FUNCTION', 'araging(date)', 'public');
 SELECT dropIfExists('FUNCTION', 'araging(date, boolean)', 'public');
+SELECT dropIfExists('FUNCTION', 'araging(date, boolean, boolean)', 'public');
 SELECT dropIfExists('TYPE', 'araging', 'public');
 
 CREATE TYPE araging AS (
-  araging_docdate		 text,
+  araging_docdate		 date,
   araging_duedate		 date,
   araging_ponumber		 text,
   araging_docnumber		 text,
