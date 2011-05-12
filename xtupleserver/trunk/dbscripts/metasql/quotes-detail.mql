@@ -2,7 +2,10 @@
 -- Name: detail
 -- Notes: 
 
-SELECT quhead.*, firstline(quhead_ordercomments) AS notes,
+SELECT quhead.*, firstline(quhead_ordercomments) AS notes, quhead_id AS id,
+  CASE WHEN quhead_status = 'O' THEN <? value("open") ?>
+       WHEN quhead_status = 'C' THEN <? value("converted") ?>
+  ELSE <? value("undefined") ?> END AS quhead_status_qtdisplayrole,
 <? if exists("customersOnly") ?>
        cust_id, cust_number, cust_name,
 <? endif ?>
@@ -45,7 +48,10 @@ WHERE (checkQuoteSitePrivs(quhead_id, <? value("warehous_id") ?>))
   AND  (quhead_quotedate <= <? value("endDate") ?>)
 <? endif ?>
 <? if exists("salesrep_id") ?>
-  AND  (quhead_salesrep_id = <? value("salesrep_id") ?>)
+  AND  (quhead_salesrep_id = <? value("salesrep_id") ?>
+<? endif ?>
+<? if exists("id") ?>
+  AND  (quhead_id = <? value("id") ?>)
 <? endif ?>
 <? if exists("orderByCust") ?>
 ORDER BY cust_number, quhead_number;
