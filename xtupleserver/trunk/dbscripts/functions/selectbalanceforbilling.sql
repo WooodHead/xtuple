@@ -30,7 +30,7 @@ BEGIN
            coitem_qtyord AS qty,
            TRUE AS toclose
     FROM cohead JOIN custinfo ON (cust_id=cohead_cust_id)
-                JOIN coitem ON (coitem_cohead_id=cohead_id)
+                JOIN coitem ON (coitem_cohead_id=cohead_id AND coitem_status='O')
                 JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
                 JOIN item ON ( (item_id=itemsite_item_id) AND (item_type='K') )
     WHERE (cohead_id=pSoheadid)

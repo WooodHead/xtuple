@@ -36,6 +36,7 @@ BEGIN
               FROM cosmisc, cohead, custinfo, itemsite, item, coitem AS kit
              WHERE((cosmisc_cohead_id=cohead_id)
                AND (coitem_cohead_id=cohead_id)
+               AND (coitem_status='O')
                AND (cosmisc_shipped)
                AND (coitem_itemsite_id=itemsite_id)
                AND (itemsite_item_id=item_id)
