@@ -114,10 +114,8 @@ BEGIN
     
     IF (_exchGain <> 0) THEN
         PERFORM insertGLTransaction(fetchJournalNumber('AR-MISC'), 'A/R',
-                                    'CR', _p.aropen_doctype,
-                                    _p.aropen_docnumber,
-                                    _araccntid,
-                                    getGainLossAccntId(_araccntid),
+                                    'CR', _p.aropen_docnumber, 'CM Application',
+                                    _araccntid, getGainLossAccntId(_araccntid),
                                     -1, _exchGain * -1, _applyDate);
     END IF;
 
@@ -127,9 +125,9 @@ BEGIN
 --       the we need to convert the total to a base transaction
   IF(_p.aropen_doctype='R') THEN
     SELECT insertGLTransaction(fetchJournalNumber('AR-MISC'), 'A/R',
-                               'CD', _p.aropen_doctype, _p.aropen_docnumber,
-                               cr.accnt_id, db.accnt_id, -1,
-                               currToBase(_p.aropen_curr_id, _totalAmount, _p.aropen_docdate),
+                               'CD', _p.aropen_docnumber, 'CM Application',
+                               cr.accnt_id, db.accnt_id,
+                               -1, currToBase(_p.aropen_curr_id, _totalAmount, _p.aropen_docdate),
                                _applyDate)
       INTO _result
       FROM accnt AS cr, accnt AS db
