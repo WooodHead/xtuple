@@ -46,7 +46,7 @@ BEGIN
         THEN (((apopen_amount-apopen_paid+COALESCE(SUM(apapply_target_paid),0)))/apopen_curr_rate *
         CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END) ELSE 0 END AS total_val,
 
-        --AR Open Amount base
+        --AP Open Amount base
         CASE WHEN apopen_doctype IN ('C', 'R') 
         THEN (apopen_amount * -1) / apopen_curr_rate
         ELSE apopen_amount / apopen_curr_rate END AS apopen_amount,
@@ -62,7 +62,13 @@ BEGIN
         vend_number,
         vend_vendtype_id,
         vendtype_code,
-        terms_descrip
+        terms_descrip,
+        determineDiscountDate(terms_id, apopen_docdate) AS discdate,
+        noNeg(apopen_discountable_amount *
+                     CASE WHEN (CURRENT_DATE <= determineDiscountDate(terms_id, apopen_docdate)) THEN terms_discprcnt
+                     ELSE 0.0 END) AS disc_val,
+        terms_discdays AS discdays,
+        (terms_discprcnt * 100.0) AS discprcnt
 
         FROM vendinfo, vendtype, apopen
           LEFT OUTER JOIN terms ON (apopen_terms_id=terms_id)
@@ -75,7 +81,7 @@ BEGIN
         AND (COALESCE(apopen_closedate,_asOfDate+1)>_asOfDate) )
         GROUP BY apopen_id,apopen_docdate,apopen_duedate,apopen_ponumber, apopen_invcnumber, apopen_docnumber,apopen_doctype,apopen_paid,
                  apopen_curr_id,apopen_amount,vend_id,vend_name,vend_number,vend_vendtype_id,vendtype_code,terms_descrip,
-                 apopen_curr_rate
+                 apopen_curr_rate, terms_id, terms_discdays, terms_discprcnt, apopen_discountable_amount
         ORDER BY vend_number, apopen_duedate
   LOOP
         _row.apaging_docdate := _x.apopen_docdate;
@@ -97,6 +103,10 @@ BEGIN
         _row.apaging_ninety_val := _x.ninety_val;
         _row.apaging_plus_val := _x.plus_val;
         _row.apaging_total_val := _x.total_val;
+        _row.apaging_discdate := _x.discdate;
+        _row.apaging_disc_val := _x.disc_val;
+        _row.apaging_discdays := _x.discdays;
+        _row.apaging_discprcnt := _x.discprcnt;
         RETURN NEXT _row;
   END LOOP;
   RETURN;
