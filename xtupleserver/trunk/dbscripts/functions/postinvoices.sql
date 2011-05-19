@@ -11,15 +11,23 @@ CREATE OR REPLACE FUNCTION postInvoices(BOOLEAN, BOOLEAN) RETURNS INTEGER AS $$
 DECLARE
   pPostUnprinted ALIAS FOR $1;
   pInclZeros     ALIAS FOR $2;
+BEGIN
+  RETURN postInvoices(pPostUnprinted, pInclZeros, fetchJournalNumber('AR-IN'));
+END;
+$$ LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION postInvoices(BOOLEAN, BOOLEAN, INTEGER) RETURNS INTEGER AS $$
+DECLARE
+  pPostUnprinted ALIAS FOR $1;
+  pInclZeros     ALIAS FOR $2;
+  pJournalNumber ALIAS FOR $3;
   _invcheadid    INTEGER;
-  _journalNumber INTEGER;
   _itemlocSeries INTEGER;
   _counter INTEGER;
   _r RECORD;
 
 BEGIN
-
-  SELECT fetchJournalNumber('AR-IN') INTO _journalNumber;
 
   _itemlocSeries := 0;
 
@@ -32,7 +40,7 @@ BEGIN
        AND (checkInvoiceSitePrivs(invchead_id))
        AND (pPostUnprinted OR invchead_printed) ) LOOP
 
-      SELECT postInvoice(_invcheadid, _journalNumber, _itemlocSeries) INTO _itemlocSeries;
+      SELECT postInvoice(_invcheadid, pJournalNumber, _itemlocSeries) INTO _itemlocSeries;
       IF (_itemlocSeries < 0) THEN
         RETURN _itemlocSeries;
       END IF;
@@ -53,7 +61,7 @@ BEGIN
               ELSE invcitem_price_invuomratio END), 2)),0)
              + invchead_freight + invchead_misc_amount) > 0 LOOP
 
-      SELECT postInvoice(_invcheadid, _journalNumber, _itemlocSeries) INTO _itemlocSeries;
+      SELECT postInvoice(_invcheadid, pJournalNumber, _itemlocSeries) INTO _itemlocSeries;
       IF (_itemlocSeries < 0) THEN
         RETURN _itemlocSeries;
       END IF;
