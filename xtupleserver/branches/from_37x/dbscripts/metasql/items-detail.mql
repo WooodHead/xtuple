@@ -1,7 +1,13 @@
 -- Group: items
 -- Name:  detail
 -- Notes: 
- SELECT  DISTINCT ON ( item_number ) item.*, classcode.*, uom.*, prodcat.*, freightclass.*,
+ SELECT
+        <? if exists("ListNumericItemNumbersFirst") ?>
+         DISTINCT ON ( toNumeric(item_number, 999999999999999), item_number )
+        <? else ?>
+         DISTINCT ON ( item_number )
+        <? endif ?>
+               item.*, classcode.*, uom.*, prodcat.*, freightclass.*,
                <? foreach("char_id_text_list") ?>
                       charass_alias<? literal("char_id_text_list") ?>.charass_value AS char<? literal("char_id_text_list") ?>,
                <? endforeach ?>
