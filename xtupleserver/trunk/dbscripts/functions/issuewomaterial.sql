@@ -93,8 +93,7 @@ BEGIN
   WHERE ( (womatl_wo_id=wo_id)
    AND (womatl_itemsite_id=itemsite_id)
    AND (itemsite_item_id=item_id)
-   AND (womatl_id=pWomatlid) )
-  FOR UPDATE;
+   AND (womatl_id=pWomatlid) );
 
   IF (pQty < 0) THEN
     RETURN pItemlocSeries;
