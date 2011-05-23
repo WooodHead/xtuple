@@ -12,7 +12,9 @@ DECLARE
   _pricevar             NUMERIC := 0.00;
   _tmp			INTEGER;
   _toitemitemid		INTEGER;
-  _soitemid		INTEGER;
+  _coheadid		INTEGER;
+  _coitemid		INTEGER;
+  _linenumber           INTEGER;
   _invhistid		INTEGER;
   _shipheadid		INTEGER;
 
@@ -331,6 +333,99 @@ BEGIN
       UPDATE raitem
       SET raitem_qtyreceived = (raitem_qtyreceived + _r.recv_qty)
       WHERE (raitem_id=_o.orderitem_id);
+
+--  If receiving a qty on a shippable and upon receipt item, create coitem
+      IF ((_ra.rahead_timing='R') AND
+          (_ra.raitem_disposition IN ('P','V','S')) AND
+          (_ra.raitem_new_coitem_id IS NULL) AND
+          (_ra.raitem_qtyauthorized > 0)) THEN
+
+          IF (_ra.rahead_new_cohead_id IS NULL) THEN
+--  No header, so create a Sales Order header first.
+            SELECT nextval('cohead_cohead_id_seq') INTO _coheadid;
+
+            INSERT INTO cohead (
+              cohead_id,cohead_number,cohead_cust_id,cohead_custponumber,
+              cohead_origin,cohead_orderdate,cohead_salesrep_id,cohead_terms_id,
+              cohead_shipvia,cohead_shipto_id,cohead_shiptoname,
+              cohead_shiptoaddress1,cohead_shiptoaddress2,cohead_shiptoaddress3,
+              cohead_shiptocity,cohead_shiptostate,cohead_shiptozipcode,
+              cohead_shiptocountry,cohead_freight,cohead_shiptophone,
+              cohead_shipto_cntct_id, cohead_shipto_cntct_honorific,
+              cohead_shipto_cntct_first_name, cohead_shipto_cntct_middle,
+              cohead_shipto_cntct_last_name, cohead_shipto_cntct_suffix,
+              cohead_shipto_cntct_phone, cohead_shipto_cntct_title,
+              cohead_shipto_cntct_fax, cohead_shipto_cntct_email,
+              cohead_shipchrg_id, cohead_shipform_id,cohead_billtoname,
+              cohead_billtoaddress1,cohead_billtoaddress2,cohead_billtoaddress3,
+              cohead_billtocity,cohead_billtostate,cohead_billtozipcode,
+              cohead_billtocountry,cohead_misc_accnt_id,cohead_misc_descrip,
+              cohead_commission,cohead_holdtype,cohead_prj_id,cohead_shipcomplete,
+              cohead_curr_id,cohead_taxzone_id)
+            SELECT _coheadid,fetchsonumber(),rahead_cust_id,rahead_custponumber,
+              'C',current_date,rahead_salesrep_id,COALESCE(cohead_terms_id,cust_terms_id),
+              COALESCE(cohead_shipvia,cust_shipvia),rahead_shipto_id,rahead_shipto_name,
+              rahead_shipto_address1,rahead_shipto_address2,rahead_shipto_address3,
+              rahead_shipto_city,rahead_shipto_state,rahead_shipto_zipcode,
+              rahead_shipto_country,0,COALESCE(cohead_shiptophone,''),
+              cntct_id, cntct_honorific,
+              cntct_first_name, cntct_middle,
+              cntct_last_name, cntct_suffix,
+              cntct_phone, cntct_title,
+              cntct_fax, cntct_email,
+              COALESCE(cohead_shipchrg_id,cust_shipchrg_id),
+              COALESCE(cohead_shipform_id,cust_shipform_id),
+              rahead_billtoname,rahead_billtoaddress1,rahead_billtoaddress2,rahead_billtoaddress3,
+              rahead_billtocity,rahead_billtostate,rahead_billtozip,
+              rahead_billtocountry,NULL,'',rahead_commission, 
+              CASE WHEN rahead_timing='R' THEN
+                'R'
+              ELSE
+                'N'
+              END,rahead_prj_id,
+              COALESCE(cohead_shipcomplete,
+                CASE WHEN cust_partialship THEN 
+                  false 
+                ELSE true
+                END),rahead_curr_id,rahead_taxzone_id
+            FROM rahead
+              JOIN custinfo ON (rahead_cust_id=cust_id)
+              LEFT OUTER JOIN cohead ON (rahead_orig_cohead_id=cohead_id)
+              LEFT OUTER JOIN shiptoinfo ON (rahead_shipto_id=shipto_id)
+              LEFT OUTER JOIN cntct ON (shipto_cntct_id=cntct_id)
+            WHERE (rahead_id=_ra.rahead_id);
+
+            UPDATE rahead SET rahead_new_cohead_id=_coheadid WHERE rahead_id=_ra.rahead_id;
+        END IF;
+
+-- Now enter the line item
+        SELECT nextval('coitem_coitem_id_seq') INTO _coitemid;
+
+        SELECT COALESCE(MAX(coitem_linenumber),0)+1 INTO _linenumber
+        FROM coitem
+        WHERE (coitem_cohead_id=_coheadid);
+      
+        INSERT INTO coitem (
+          coitem_id,coitem_cohead_id,coitem_linenumber,coitem_itemsite_id,
+          coitem_status,coitem_scheddate,coitem_promdate, coitem_qtyord,
+          coitem_unitcost,coitem_price,coitem_custprice,coitem_qtyshipped,
+          coitem_order_id,coitem_memo,coitem_qtyreturned,
+          coitem_taxtype_id,coitem_qty_uom_id,coitem_qty_invuomratio,
+          coitem_price_uom_id,coitem_price_invuomratio,coitem_warranty,
+          coitem_cos_accnt_id)
+        SELECT _coitemid,_coheadid,_linenumber,_ra.raitem_coitem_itemsite_id,
+            'O',_ra.raitem_scheddate,_ra.raitem_scheddate,_ra.raitem_qtyauthorized,
+            stdcost(itemsite_item_id),COALESCE(_ra.raitem_saleprice,0),0,0,
+            -1,_ra.raitem_notes,0,
+            _ra.raitem_taxtype_id,_ra.raitem_qty_uom_id,_ra.raitem_qty_invuomratio,
+            _ra.raitem_price_uom_id,_ra.raitem_price_invuomratio,_ra.raitem_warranty,
+            _ra.raitem_cos_accnt_id
+        FROM itemsite
+        WHERE (itemsite_id=_ra.raitem_coitem_itemsite_id);
+
+        UPDATE raitem SET raitem_new_coitem_id=_coitemid WHERE (raitem_id=_ra.raitem_id);
+      END IF;
+
 
     ELSIF (_r.recv_order_type = 'TO' AND fetchMetricBool('MultiWhs')) THEN
       SELECT interWarehouseTransfer(toitem_item_id, tohead_trns_warehous_id,
