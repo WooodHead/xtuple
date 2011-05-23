@@ -163,12 +163,14 @@ BEGIN
          AND (invhist_id=_itemlocdist.invhistid));
 
 --  Adjust the parent itemsite
-        UPDATE itemsite
-        SET itemsite_qtyonhand = (itemsite_qtyonhand - _itemlocdist.qty),
-            itemsite_nnqoh = (itemsite_nnqoh + _itemlocdist.qty)
-        FROM itemloc
-        WHERE ((itemloc_itemsite_id=itemsite_id)
-         AND (itemloc_id=_itemlocid));
+        IF (NOT _itemlocdist.itemsite_freeze) THEN
+          UPDATE itemsite
+          SET itemsite_qtyonhand = (itemsite_qtyonhand - _itemlocdist.qty),
+              itemsite_nnqoh = (itemsite_nnqoh + _itemlocdist.qty)
+          FROM itemloc
+          WHERE ((itemloc_itemsite_id=itemsite_id)
+           AND (itemloc_id=_itemlocid));
+        END IF;
       END IF;
 
     END IF;
