@@ -142,27 +142,59 @@ try
 {
     function queryQoh(inputString)
     {
-        waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
-        activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
-        waitForObjectItem(":xTuple ERP: *.Inventory_QMenu", "Reports");
-        activateItem(":xTuple ERP: *.Inventory_QMenu", "Reports");
-        waitForObjectItem(":xTuple ERP: *_.Reports_QMenu", "Quantities On Hand");
-        activateItem(":xTuple ERP: *_.Reports_QMenu", "Quantities On Hand");
-        waitForObjectItem(":xTuple ERP: *.Quantities On Hand_QMenu", "by Item...");
-        activateItem(":xTuple ERP: *.Quantities On Hand_QMenu", "by Item...");
-        
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", inputString);
-        snooze(0.5);
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        waitForObject(":Quantities on Hand by Item.Query_QToolButton");
-        clickButton(":Quantities on Hand by Item.Query_QToolButton");
-        waitForObject(":_list.QOH_QModelIndex");
-        var qoh=findObject(":_list.QOH_QModelIndex").text;
-        var qohi=parseInt(replaceSubstring(qoh,",",""));
-        waitForObject(":Quantities on Hand by Item.Close_QToolButton");
-         clickButton(":Quantities on Hand by Item.Close_QToolButton");
+    waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP: *.Inventory_QMenu", "Reports");
+    activateItem(":xTuple ERP: *.Inventory_QMenu", "Reports");
+    waitForObjectItem(":xTuple ERP: *_.Reports_QMenu", "Quantities On Hand...");
+    activateItem(":xTuple ERP: *_.Reports_QMenu", "Quantities On Hand...");
+     
+    if(!object.exists(":_filterGroup.Manage_QPushButton"))
+    {
+     waitForObject(":Quantities on Hand.More_QToolButton");
+     clickButton(":Quantities on Hand.More_QToolButton");
+    }
+    waitForObject(":_filterGroup.xcomboBox1_XComboBox");
+     clickItem(":_filterGroup.xcomboBox1_XComboBox","Site",10,10,0, Qt.LeftButton);
+    waitForObject(":_filterGroup.widget1_WComboBox");
+    clickItem(":_filterGroup.widget1_WComboBox","WH1",10,10,0, Qt.LeftButton);
+    waitForObject(":_filterGroup.+_QToolButton");
+    clickButton(":_filterGroup.+_QToolButton");
+    waitForObject(":_filterGroup.xcomboBox2_XComboBox");
+    clickItem(":_filterGroup.xcomboBox2_XComboBox","Item",10,10,0, Qt.LeftButton);
+    waitForObject(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit");
+    type(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit",inputString);
+    snooze(0.5);
+    nativeType("<Tab>");
+    waitForObject(":Quantities on Hand.Query_QToolButton");
+    clickButton(":Quantities on Hand.Query_QToolButton");
+    waitForObject(":_list.QOH_QModelIndex");
+    var qoh=findObject(":_list.QOH_QModelIndex").text;
+    var qohi=parseInt(replaceSubstring(qoh,",",""));
+    waitForObject(":Quantities on Hand.Close_QToolButton");
+    clickButton(":Quantities on Hand.Close_QToolButton");
+    
+//        waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
+//        activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
+//        waitForObjectItem(":xTuple ERP: *.Inventory_QMenu", "Reports");
+//        activateItem(":xTuple ERP: *.Inventory_QMenu", "Reports");
+//        waitForObjectItem(":xTuple ERP: *_.Reports_QMenu", "Quantities On Hand..");
+//        activateItem(":xTuple ERP: *_.Reports_QMenu", "Quantities On Hand..");
+//        waitForObjectItem(":xTuple ERP: *.Quantities On Hand_QMenu", "by Item...");
+//        activateItem(":xTuple ERP: *.Quantities On Hand_QMenu", "by Item...");
+//        
+//        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
+//        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", inputString);
+//        snooze(0.5);
+//        waitForObject(":_QTreeView");
+//        type(":_QTreeView", "<Tab>");
+//        waitForObject(":Quantities on Hand by Item.Query_QToolButton");
+//        clickButton(":Quantities on Hand by Item.Query_QToolButton");
+//        waitForObject(":_list.QOH_QModelIndex");
+//        var qoh=findObject(":_list.QOH_QModelIndex").text;
+//        var qohi=parseInt(replaceSubstring(qoh,",",""));
+//        waitForObject(":Quantities on Hand by Item.Close_QToolButton");
+//         clickButton(":Quantities on Hand by Item.Close_QToolButton");
         return qohi;
    }
 }
