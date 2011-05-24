@@ -7,8 +7,8 @@ function main()
     
     //-----login Application-----
     loginAppl("CONFIGURE"); 
-    waitForObject(":Registration Key.OK_QPushButton");
-    clickButton(":Registration Key.OK_QPushButton");
+    waitForObject(":Registration Key.Yes_QPushButton");
+    clickButton(":Registration Key.Yes_QPushButton");
     
     //-----Editing of preferences----
     try
@@ -62,8 +62,9 @@ function main()
     snooze(2);
     
     loginAppl("CONFIGURE"); 
-    waitForObject(":Registration Key.OK_QPushButton");
-    clickButton(":Registration Key.OK_QPushButton");
+    waitForObject(":Registration Key.Yes_QPushButton");
+    clickButton(":Registration Key.Yes_QPushButton");
+
     //-----Variable Declaration-----
     var quote, quoteitem, quoteqty, sonumber, soitem, soqty, qtinvoice, qtamount, soinvoice, soamount;
     
@@ -94,9 +95,13 @@ function main()
         
         waitForObject(":Database Information.*_QLabel");
         var appEdition = findObject(":Database Information.*_QLabel").text;
+        
+        if(object.exists(":_stack.Use toolbars on displays when available_QCheckBox"))
+        {
         waitForObject(":_stack.Use toolbars on displays when available_QCheckBox");
-         if(!findObject(":_stack.Use toolbars on displays when available_QCheckBox").checked)
+        if(!findObject(":_stack.Use toolbars on displays when available_QCheckBox").checked)
         clickButton(":_stack.Use toolbars on displays when available_QCheckBox");
+        }
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
     }
@@ -106,7 +111,7 @@ function main()
         
     }
     
-  
+
     //------Creating a Lot controlled item------
     try
     {
@@ -153,7 +158,7 @@ function main()
         test.fail("Error in creating item " + e);
     }
     
-    
+  
     //-----Adjusting QOH of Item----
     try
     {
@@ -182,8 +187,8 @@ function main()
         
         waitForObject(":Enter Miscellaneous Adjustment.OK_QPushButton");
         clickButton(":Enter Miscellaneous Adjustment.OK_QPushButton");
-        waitForObject(":Enter Miscellaneous Adjustment.OK_QPushButton");
-        clickButton(":Enter Miscellaneous Adjustment.OK_QPushButton");
+        waitForObject(":Enter Miscellaneous Adjustment.OK_QPushButton_2");
+        clickButton(":Enter Miscellaneous Adjustment.OK_QPushButton_2");
         waitForObject(":Enter Miscellaneous Adjustment.Cancel_QPushButton");
         clickButton(":Enter Miscellaneous Adjustment.Cancel_QPushButton");
                 
@@ -193,7 +198,7 @@ function main()
         test.fail("Error in adjusting QOH of ZTRUCK1"+ e);
     }
   
-    
+  
     //------Adjusting QOH of Location controlled Item-------
     try
     {
@@ -260,8 +265,8 @@ function main()
         type(":Enter Miscellaneous Adjustment._lotSerial_XComboBox", "SERIAL1");
         waitForObject(":Enter Miscellaneous Adjustment.OK_QPushButton");
         clickButton(":Enter Miscellaneous Adjustment.OK_QPushButton");
-        waitForObject(":Enter Miscellaneous Adjustment.OK_QPushButton");
-        clickButton(":Enter Miscellaneous Adjustment.OK_QPushButton");
+        waitForObject(":Enter Miscellaneous Adjustment.OK_QPushButton_2");
+        clickButton(":Enter Miscellaneous Adjustment.OK_QPushButton_2");
         waitForObject(":_frame._itemloc_XTreeWidget");
         doubleClickItem(":_frame._itemloc_XTreeWidget","Yes",5,5,0,Qt.LeftButton);
         waitForObject(":Enter Miscellaneous Adjustment.Distribute_QPushButton");
@@ -275,7 +280,7 @@ function main()
     {
         test.fail("Error in adjusting QOH of STRUCK1" + e);
     }
-    
+
     //-----Create a Quote-----
     try
     {
@@ -1173,6 +1178,7 @@ function main()
             clickButton(":_headerPage.Print on Save_QCheckBox");
         
         waitForObject(":_headerPage._custPONumber_XLineEdit_2");
+        findObject(":_headerPage._custPONumber_XLineEdit_2").clear();
         type(":_headerPage._custPONumber_XLineEdit_2", "104");
         
         waitForObject(":Sales Order.qt_tabwidget_tabbar_QTabBar");
@@ -2110,9 +2116,8 @@ function main()
     {
         test.fail("Error in posting invoices" + e);
     }
-    
-    
-    
+  
+   
     //-----Entering Cash Receipts-----
     try
     {
@@ -2139,8 +2144,9 @@ function main()
         qtamount = findObject(":Cash Receipt.XLineEdit_XLineEdit_2").text;
         
         type(":Cash Receipt.XLineEdit_XLineEdit", qtamount);
-        waitForObject(":Cash Receipt.Save_QPushButton");
-        clickButton(":Cash Receipt.Save_QPushButton");
+   
+        waitForObject(":Cash Receipt.Save_QPushButton_3");
+        clickButton(":Cash Receipt.Save_QPushButton_3");
         
         waitForObject(":_amountGroup.XLineEdit_XLineEdit");
         type(":_amountGroup.XLineEdit_XLineEdit", qtamount);
@@ -2162,8 +2168,8 @@ function main()
         soamount = findObject(":Cash Receipt.XLineEdit_XLineEdit_2").text;
         
         type(":Cash Receipt.XLineEdit_XLineEdit", soamount);
-        waitForObject(":Cash Receipt.Save_QPushButton");
-        clickButton(":Cash Receipt.Save_QPushButton");
+        waitForObject(":Cash Receipt.Save_QPushButton_3");
+        clickButton(":Cash Receipt.Save_QPushButton_3");
         
         waitForObject(":_amountGroup.XLineEdit_XLineEdit");
         type(":_amountGroup.XLineEdit_XLineEdit", soamount);
@@ -2186,8 +2192,8 @@ function main()
         var soamountlot = findObject(":Cash Receipt.XLineEdit_XLineEdit_2").text;
         
         type(":Cash Receipt.XLineEdit_XLineEdit", soamountlot);
-        waitForObject(":Cash Receipt.Save_QPushButton");
-        clickButton(":Cash Receipt.Save_QPushButton");
+        waitForObject(":Cash Receipt.Save_QPushButton_3");
+        clickButton(":Cash Receipt.Save_QPushButton_3");
         
         waitForObject(":_amountGroup.XLineEdit_XLineEdit");
         type(":_amountGroup.XLineEdit_XLineEdit", soamountlot);
@@ -2210,8 +2216,8 @@ function main()
         var soamountloc = findObject(":Cash Receipt.XLineEdit_XLineEdit_2").text;
         
         type(":Cash Receipt.XLineEdit_XLineEdit", soamountloc);
-        waitForObject(":Cash Receipt.Save_QPushButton");
-        clickButton(":Cash Receipt.Save_QPushButton");
+        waitForObject(":Cash Receipt.Save_QPushButton_3");
+        clickButton(":Cash Receipt.Save_QPushButton_3");
         
         waitForObject(":_amountGroup.XLineEdit_XLineEdit");
         type(":_amountGroup.XLineEdit_XLineEdit", soamountloc);
@@ -2234,8 +2240,8 @@ function main()
         var soamountser = findObject(":Cash Receipt.XLineEdit_XLineEdit_2").text;
         
         type(":Cash Receipt.XLineEdit_XLineEdit", soamountser);
-        waitForObject(":Cash Receipt.Save_QPushButton");
-        clickButton(":Cash Receipt.Save_QPushButton");
+        waitForObject(":Cash Receipt.Save_QPushButton_3");
+        clickButton(":Cash Receipt.Save_QPushButton_3");
         
         waitForObject(":_amountGroup.XLineEdit_XLineEdit");
         type(":_amountGroup.XLineEdit_XLineEdit", soamountser);
@@ -2260,8 +2266,8 @@ function main()
         var soamountkit = findObject(":Cash Receipt.XLineEdit_XLineEdit_2").text;
         
         type(":Cash Receipt.XLineEdit_XLineEdit", soamountkit);
-        waitForObject(":Cash Receipt.Save_QPushButton");
-        clickButton(":Cash Receipt.Save_QPushButton");
+        waitForObject(":Cash Receipt.Save_QPushButton_3");
+        clickButton(":Cash Receipt.Save_QPushButton_3");
         
         waitForObject(":_amountGroup.XLineEdit_XLineEdit");
         type(":_amountGroup.XLineEdit_XLineEdit", soamountkit);
@@ -2308,7 +2314,7 @@ function main()
         activateItem(":xTuple ERP: *.Accounts Receivable_QMenu", "Reports");
         waitForObjectItem(":xTuple ERP:  *.Reports_QMenu", "Customer History...");
         activateItem(":xTuple ERP:  *.Reports_QMenu", "Customer History...");
-        
+           
         waitForObject(":Selection.VirtualClusterLineEdit_CLineEdit");
         type(":Selection.VirtualClusterLineEdit_CLineEdit", "TTOYS");
         snooze(0.5);
