@@ -42,7 +42,7 @@ BEGIN
 
   SELECT currToBase(orderitem_unitcost_curr_id, orderitem_unitcost,
 		    _r.recv_date::DATE) AS unitprice_base,
-	 orderhead_number,
+	 orderhead_number, orderitem_linenumber,
 	 orderhead_curr_id AS freight_curr_id,
 	 orderitem_orderhead_type,
 	 orderitem_qty_invuomratio INTO _o
@@ -87,7 +87,7 @@ BEGIN
 	SELECT postInvTrans( itemsite_id, 'RP',
 			     (_qty * _o.orderitem_qty_invuomratio),
 			     'S/R', _r.recv_order_type,
-			     _o.orderhead_number, '',
+			     _o.orderhead_number::TEXT || '-' || _o.orderitem_linenumber::TEXT, '',
 			     'Receive Inventory from ' || _r.recv_order_type,
 			     costcat_asset_accnt_id,
 			     costcat_liability_accnt_id,
