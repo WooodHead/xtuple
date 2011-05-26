@@ -1,0 +1,43 @@
+-- Group: briefSalesHistory
+-- Name: detail
+-- Notes: used by dspBriefSalesHistoryByCustomer, dspBriefSalesHistoryByCustomerType, dspBriefSalesHistoryBySalesRep
+
+SELECT 
+       cust_id, cohist_ponumber,
+       cust_custtype_id, custtype_code,
+       cohist_cust_id, SUM(extcost) AS extcost,
+       'curr' AS extcost_xtnumericrole,
+       0 AS extcost_xttotalrole,
+       cohist_ordernumber,
+       cust_name, invoicenumber,
+       cohist_orderdate, cohist_invcdate,
+       SUM(baseextprice) AS extended,
+       'curr' AS extended_xtnumericrole,
+       0 AS extended_xttotalrole
+FROM saleshistory
+WHERE ((cohist_invcdate BETWEEN <? value("startDate") ?> AND  <? value("endDate") ?>)
+<? if exists("cust_id") ?>
+   AND (cohist_cust_id=<? value("cust_id") ?>)
+<? elseif exists("custtype_id") ?>
+   AND (cust_custtype_id=<? value("custtype_id") ?>)
+<? elseif exists("custtype_pattern") ?>
+   AND (custtype_code ~ <? value("custtype_pattern") ?>)
+<? endif ?>
+<? if exists("warehous_id") ?>
+   AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+<? endif ?>
+<? if exists("prodcat_id") ?>
+   AND (item_prodcat_id=<? value("prodcat_id") ?>)
+<? elseif exists("prodcat_pattern") ?>
+   AND (item_prodcat_id IN (SELECT prodcat_id
+                            FROM prodcat
+                            WHERE (prodcat_code ~ <? value("prodcat_pattern") ?>)))
+<? endif ?>
+<? if exists("salesrep_id") ?>
+   AND (cohist_salesrep_id=<? value("salesrep_id") ?>)
+<? endif ?>
+      )
+GROUP BY cust_id,cust_custtype_id,cohist_cust_id,custtype_code,
+         cust_name,cohist_ordernumber, cohist_ponumber,
+         invoicenumber,cohist_orderdate, cohist_invcdate
+ORDER BY cohist_invcdate, cohist_orderdate;

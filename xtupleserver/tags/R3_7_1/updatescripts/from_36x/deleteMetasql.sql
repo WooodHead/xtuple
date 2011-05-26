@@ -1,0 +1,2 @@
+DELETE FROM metasql WHERE metasql_group='timePhasedSalesByCustomer' AND metasql_name = 'detail' AND metasql_grade = 0;
+DELETE FROM metasql WHERE metasql_group='timePhasedSalesByCustomerByItem' AND metasql_name = 'detail' AND metasql_grade = 0;	
