@@ -2,7 +2,7 @@
 -- Name:  detail
 -- Notes: 
 SELECT 
-  prospect_id, prospect_number, prospect_name,
+  prospect_id AS id, prospect_number, prospect_name,
   cntct.*, addr.*
 FROM prospect 
   LEFT OUTER JOIN cntct ON (prospect_cntct_id=cntct_id) 
@@ -52,5 +52,8 @@ WHERE true
 <? endif ?>
 <? if exists("addr_country_pattern") ?>
   AND (addr_country ~* <? value("addr_country_pattern") ?>)
+<? endif ?>
+<? if exists("id") ?>
+  AND (prospect_id=<? value("id") ?>
 <? endif ?>
 ORDER BY prospect_number; 
