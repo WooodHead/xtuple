@@ -97,22 +97,7 @@ BEGIN
   END IF;
 
   IF (_flag = 'CHECK') THEN
-    SELECT COUNT(*) INTO _cnt FROM (
-	SELECT cntct_id, 'cntct' FROM cntct 
-		WHERE cntct_addr_id = _addrId 
-	UNION 
-	SELECT vend_id, 'vendinfo' FROM vendinfo
-		WHERE vend_addr_id = _addrId 
-	UNION 
-	SELECT shipto_id, 'shiptoinfo' FROM shiptoinfo
-		WHERE shipto_addr_id = _addrId 
-	UNION 
-	SELECT vendaddr_id, 'vendaddrinfo' FROM vendaddrinfo
-		WHERE vendaddr_addr_id = _addrId 
-	UNION 
-	SELECT warehous_id, 'whsinfo' FROM whsinfo
-	WHERE warehous_addr_id = _addrId) AS useQ;
-    IF _cnt > 1 THEN
+    IF addrUsed(_addrId) THEN
       RETURN -2;
     ELSIF (SELECT COUNT(addr_id)=0 FROM addr WHERE (addr_id=_addrId)) THEN
       _flag := 'CHANGEONE';
