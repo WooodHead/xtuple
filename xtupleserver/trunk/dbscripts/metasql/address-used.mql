@@ -1,0 +1,4 @@
+-- Group: address
+-- Name:  used
+-- Notes: Find out if an address is referenced by anything
+SELECT addrUsed(<? value("id") ?>) AS result;
