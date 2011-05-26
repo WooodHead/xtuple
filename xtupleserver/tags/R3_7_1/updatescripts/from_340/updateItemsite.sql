@@ -1,0 +1,1 @@
+UPDATE itemsite SET itemsite_controlmethod='R' WHERE itemsite_costmethod='J';

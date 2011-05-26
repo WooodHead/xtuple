@@ -1,0 +1,7 @@
+BEGIN;
+
+GRANT ALL ON SCHEMA api TO xtrole;
+REVOKE ALL ON SCHEMA api FROM openmfg;
+
+COMMIT;
+
