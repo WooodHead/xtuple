@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section548992">
+  <title>
+<indexterm significance="normal">
+      <primary>subaccounts</primary>
+      <secondary>types for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>subaccount types</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Subaccount Types</title>
+  <para>Subaccount Types may be used to assign additional detail to an Account
+  Number's Account Type. An Account Type may have multiple Subaccount Types.
+  For example, the Account Type "Asset" may have the following Subaccount
+  Types: Cash, Inventory, Accounts Receivable, etc. To access the master list
+  of Subaccount Types, select the "Subaccount Types" option. The following
+  screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/subAccntTypes.png"/>
+        </imageobject>
+        <caption>Subaccount Types Master List</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>The "Subaccount Types" screen displays information on all existing
+  Subaccount Types, including Subaccount code, Account Type, and Subaccount
+  description.</para>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="subAccntType.xml" xpointer="element(/1)"/>
+</section>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="queryset">
+  <title>Query Sets and the QuerySet widget</title>
+  <para>A Query Set is a collection of database queries that are run in
+  sequence. They can be used for exporting data, checking the status of the
+  database, or performing routine database maintenance tasks. When the Query
+  Set is run, each individual query in the Query Set is run in the order you
+  choose. The results of the individual queries, called Query Items, are saved
+  together in a single file.</para>
+  <para>To create, edit, and use a Query Set, follow this path:
+  <guimenuitem>System &gt; Utilities &gt; Export Data</guimenuitem></para>
+  <note role="xtconnect">
+    <para>If you have xTuple Connect installed and enabled, you can also work
+    with Query Sets when editing an EDI Form as part of an EDI Profile. The
+    EDI Form must have CSV, HTML, or XML as its output format. The results of
+    the Query Set are then sent by email or FTP. See the <ulink
+    url="http://xtuple.com/docs/reference-guide">xTuple Connect Product
+    Guide</ulink> for more information.</para>
+  </note>
+  <para>You will see a screen that contains the following:<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/queryset_widget.png" />
+        </imageobject>
+        <caption><para>The QuerySet widget</para></caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>In this example there is one Query Set defined in the database, named
+  "ARStmt".</para>
+  <para>To modify an existing Query Set, select it from the list and click the
+  EDIT button. Similarly, to delete an existing Query Set, select it from the
+  list and click the DELETE button.</para>
+  <para>To create a new Query Set, click the NEW button. You will see the
+  following screen:<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/queryset.png" />
+        </imageobject>
+        <caption><para>The Query Set window</para></caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>You are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a short name for this query set.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a simple description of what this Query Set does.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Queries in this set</term>
+      <listitem>
+        <para>This is a list of the Query Items which have already been
+        defined as part of this Query Set.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>Enter notes about this Query Set&mdash;a full description of why
+        you created it or what it is intended to do.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Use the NEW button to add a Query Item to this Query Set. You will see
+  the following screen:<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/queryitem.png" />
+        </imageobject>
+        <caption><para>The Query Item window showing an example of a custom
+        MetaSQL query</para></caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>You are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a name for this Query Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order</term>
+      <listitem>
+        <para>Select the position of this Query Item in the sequence. Query
+        Items with a lower Order value will be run before those with a higher
+        Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Type of Query</term>
+      <listitem>
+        <para>Choose whether this Query Item should list all data from a
+        particular database table or view, if it should use a MetaSQL
+        statement already defined in the database for another screen or
+        report, or if you want to create a new MetaSQL statement for use just
+        by this Query Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>Add comments about this Query Item here.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>If you choose "Custom Query" as the Type of Query, you will see the
+  MetaSQL Editor. The MetaSQL language and MetaSQL Editor are described in the
+  <ulink url="http://www.xtuple.org/docs/reference-guide">OpenRPT Product
+  Guide</ulink>. To summarize that information, the MetaSQL language lets you
+  build SQL queries dynamically and the MetaSQL Editor lets you type and test
+  MetaSQL statements. The query shown in the example above lists all of the
+  header data for every sales order with one or more open line items,
+  optionally restricted to a single customer.</para>
+  <para>Click SAVE to save this Query Item.</para>
+  <para>To add line item data to this query set, create another Query Item.
+  Set the Order to 1, select "Custom Query" as the Type of Query, and enter
+  the following text in the MetaSQL editor:<programlisting>SELECT *
+  FROM api.salesline
+ WHERE status='O'
+&lt;? if exists('cust_number') ?&gt;
+  AND order_number IN (SELECT order_number
+                         FROM api.salesline
+                        WHERE customer_number = &lt;? value('cust_number') ?&gt;)
+&lt;? endif ?&gt;
+;</programlisting></para>
+  <para>If this Query Set gets run with no active parameters, it will show all
+  Sales Orders with at least one open line item followed by all open Sales
+  Line Items. If you make the cust_number parameter active and set it to a
+  valid Customer Number, the Query Set will produce all open Sales Orders and
+  their open Sales Line Items for just that one Customer.</para>
+</section>

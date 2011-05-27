@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section972514">
+  <title><indexterm significance="normal">
+      <primary>purchase orders</primary>
+      <secondary>list of open</secondary>
+    </indexterm>Open Purchase Orders</title>
+  <para>The "Open Purchase Orders" screen lists all your open Purchase Orders.
+  Both unreleased and open (i.e., unvouchered) Purchase Orders are included in
+  the list. From this screen you can create new or edit existing Purchase
+  Orders. In addition to listing Purchase Orders, this screen can also be used
+  to build Purchase Order reports. Use the search filter options to sort the
+  information into categories you want to look at.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use the right-click menu to perform actions on a highlighted
+      Purchase Order.</para>
+    </listitem>
+    <listitem>
+      <para>A Purchase Order must be released before it can be
+      received.</para>
+    </listitem>
+    <listitem>
+      <para>An open Purchase Order has been released but not fully Vouchered
+      yet.</para>
+    </listitem>
+    <listitem>
+      <para>Partially-vouchered Purchase Orders will be displayed, as long as
+      at least one of the Line Items is still open.</para>
+    </listitem>
+    <listitem>
+      <para>Unreleased Purchase Orders are considered to be a valid source of
+      supply by the planning systems.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Open Purchase Orders"
+  screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/unpostedPurchaseOrders.png" />
+        </imageobject>
+        <caption>Open Purchase Orders</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The following options on this screen are a supplement to the choices
+  available under the search filter:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Open</term>
+      <listitem>
+        <para>Select to include open Purchase Orders in the list.
+        Partially-vouchered Purchase Orders will also be displayed, as long as
+        at least one of the Line Items is still open.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Unreleased</term>
+      <listitem>
+        <para>Select to include unreleased Purchase Orders in the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The default filter on the "Open Purchase Orders" screen shows all open
+  Purchase Orders. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

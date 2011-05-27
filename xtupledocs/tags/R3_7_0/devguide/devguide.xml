@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2010 by xTuple. All rights reserved. -->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+  <title>xTuple Developer Guide</title>
+  <titleabbrev>xTuple Developer Guide</titleabbrev>
+  <bookinfo>
+    <copyright>
+      <year>1998-2011</year>
+      <holder>xTuple</holder>
+    </copyright>
+    <pubdate>February 2011</pubdate>
+    <releaseinfo>Version 3.7</releaseinfo>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/splashXTuple.png" />
+      </imageobject>
+    </mediaobject>
+  </bookinfo>
+  <chapter>
+    <title>Development Environment Setup</title>
+    <section>
+      <title>Overview</title>
+      <para>This chapter describes the tools you need and the steps you must
+      follow to create a software environment to contribute to the open source
+      xTuple software projects:</para>
+      <itemizedlist>
+        <listitem>
+          <para>OpenRPT</para>
+        </listitem>
+        <listitem>
+          <para>xTuple ERP core, including xtlib for underlying business logic
+          and the xTuple ERP GUI</para>
+        </listitem>
+        <listitem>
+          <para>CSVImp</para>
+        </listitem>
+        <listitem>
+          <para>Updater</para>
+        </listitem>
+      </itemizedlist>
+      <para>It assumes that you have a software development background, are
+      familiar with the operating system you will be working on, are
+      comfortable downloading software and source code bundles from the Web,
+      and have worked with tools similar to those described below. This
+      chapter does not describe the only way to do things, just those we have
+      tried with success.</para>
+      <tip>
+        <para>Read the section for your build environment in its entirety
+        before attempting this process.</para>
+      </tip>
+      <para>The following tools all have to be present to successfully create
+      a binary version of the xTuple ERP application.</para>
+      <variablelist>
+        <varlistentry>
+          <term>Subversion</term>
+          <listitem>
+            <para>The source code management tool xTuple uses for version
+            control.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Software Development Environment</term>
+          <listitem>
+            <para>The particular development tools that xTuple uses or
+            recommends are described below. In general, however, the
+            development environment must include a C++ compiler and an
+            application build tool similar to make.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Qt</term>
+          <listitem>
+            <para>This is the Graphical User Interface toolkit used to build
+            the xTuple ERP, and OpenRPT applications. Qt is available with a
+            free LGPL license.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>PostgreSQL</term>
+          <listitem>
+            <para>PostgreSQL is an open-source database engine at the heart of
+            the xTuple ERP applications. Most of the logic of the application
+            is written in PL/pgSQL, the PostgreSQL stored procedure
+            language.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry role="xtconnect">
+          <term>Git</term>
+          <listitem>
+            <para>Another source code management tool used by some of our
+            development partners.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>In addition to the information below, you may need the following
+      information from xTuple before you begin:</para>
+      <itemizedlist>
+        <listitem>
+          <para>The tags to use when checking out the source code</para>
+        </listitem>
+        <listitem>
+          <para>Steps for getting the source code specific to proprietary
+          xTuple packages</para>
+        </listitem>
+      </itemizedlist>
+      <para>See <xref linkend="devenvsetup.otherthings" /> for some other
+      tools you might find handy.</para>
+    </section>
+    <xi:include href="devEnvSetup_windows_installfromsrc_msvc.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_windows_installfrompkg_msvc.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_windows_installfromsrc_mingw.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_windows_installfrompkg_mingw.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_macosx_installfromsrc_.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_macosx_installfrompkg_.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_linux_installfromsrc_.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_linux_installfrompkg_.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <section id="devenvsetup.otherthings">
+      <title>Other things you may need</title>
+      <para>You might also need the following tools, depending on what your
+      role is in the development effort:</para>
+      <variablelist>
+        <varlistentry>
+          <term>SWIG</term>
+          <listitem>
+            <para>SWIG helps create interfaces to C and C++ libraries for
+            other languages. xTuple uses SWIG to generate a PHP interface to
+            the business logic in xtlib for developing Web applications. If
+            you plan on building xTuple extensions using anything other than
+            the built-in application scripting and need to add to or modify
+            xtlib, you will need version 2.0 or later of this tool. See <ulink
+            url="http://swig.org">http://swig.org</ulink> for more
+            information.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Squish</term>
+          <listitem>
+            <para>Squish is a GUI testing tool. You'll need a license to use
+            it. You'll also need to check out the xtupleqa sources using SVN.
+            See <ulink
+            url="http://froglogic.com">http://www.froglogic.com</ulink> for
+            more information.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>XXE or another XML editor</term>
+          <listitem>
+            <para>xTuple uses the XMLMind XML Editor (XXE) for editing
+            documentation. There both personal and professional editions.
+            You'll also need to check out the xtupledocs sources using SVN.
+            Most of the documentation for xTuple ERP is written in DocBook.
+            See <ulink url="http://xmlmind.com/">http://xmlmind.com/</ulink>
+            for more information.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>cURL</term>
+          <listitem>
+            <para>cURL is a library and command line file transfer utility.
+            The xTuple ERP application may be run with an option that uses
+            cURL instead of Qt's networking classes when processing credit
+            card transactions. You should not need to build cURL, as this is
+            only needed in special circumstances when
+            <emphasis>running</emphasis> xTuple ERP. See <ulink
+            url="http://www.haxx.se/curl/">http://www.haxx.se/curl/</ulink>
+            for more information.</para>
+            <para os="windows" userlevel="installfrompkg">Download two files
+            for Windows from the cURL website:
+            <filename>curl-version-win32-ssl.zip</filename> and
+            <filename>libcurl-version-ssl-sspi-sspi.zip</filename>. Extract
+            the contents of these two files to
+            <filename>c:\curl</filename>.</para>
+            <para os="macosx">cURL is pre-installed on most Macs.</para>
+            <para os="linux" userlevel="installfrompkg">Most versions of Linux
+            have cURL packages. For example, on Ubuntu you can type <code>sudo
+            apt-get install curl</code> to install it if you don't already
+            have it.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+  </chapter>
+  <index></index>
+</book>

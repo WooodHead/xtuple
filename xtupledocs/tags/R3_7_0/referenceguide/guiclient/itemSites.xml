@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>item sites</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Item Sites</title>
+  <para>The "Item Sites" screen lists all your company's Item Sites. An Item
+  Site is used to identify and define the methods and controls used when
+  maintaining a given Item within a given Site. In addition to providing the
+  complete list of Item Sites, this screen can also be used to build detailed
+  Item Site reports. Use the search filter options to sort the information
+  into Item Site categories you want to look at.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Be sure to enable the full range of column headers on the screen
+      so you will have the maximum detail when building Item Site reports with
+      the search filter.</para>
+    </listitem>
+    <listitem>
+      <para>Sort the information by clicking on the column header you want to
+      sort by.</para>
+    </listitem>
+    <listitem>
+      <para>To show inactive Item Sites, select the search filter option for
+      that.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Item Sites" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemSites.png" />
+        </imageobject>
+        <caption>Item Sites</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Item Sites" screen shows all active Item
+  Sites. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

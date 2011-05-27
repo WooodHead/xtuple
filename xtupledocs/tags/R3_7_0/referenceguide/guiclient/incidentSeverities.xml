@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560609">
+  <title>
+<indexterm significance="normal">
+      <primary>crm</primary>
+      <secondary>incident severities and</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>incidents</primary>
+      <secondary>severities for</secondary>
+    </indexterm>Incident Severities</title>
+  <para>Incident Severities are used by the Incident Management system to
+  categorize the severity of Incidents. When Incident Severities are entered
+  in the Master Information section, these Severities are then available for
+  use when entering or updating Incidents.</para>
+  <tip>
+    <para>You must manually create Incident Severities if you want the ability
+    to assign them to Incidents. If no Incident Severities are defined, then
+    none will be available when entering Incidents.</para>
+  </tip>
+  <para>To access the master list of Incident Severities, select the "Incident
+  Severities" option. The following screen will appear.</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incidentSeverities.png"/>
+        </imageobject>
+        <caption>Incident Severities Master List</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>The "Incident Severities" screen displays information on all existing
+  Incident Severities, including Incident Severity order, name, and
+  description.</para>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="incidentSeverity.xml" xpointer="element(/1)"/>
+</section>

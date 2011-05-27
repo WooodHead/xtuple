@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section563769">
+  <title><indexterm significance="normal">
+      <primary>standard journals</primary>
+      <secondary>posting history of</secondary>
+    </indexterm>Standard Journal History</title>
+  <para>To view detailed information on past Standard Journal postings, select
+  the "Standard Journal History" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspStandardJournalHistory.png" />
+        </imageobject>
+        <caption>Standard Journal History</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying detailed information on past Standard Journal
+  postings, you are presented with the following options:</para>
+  <note>
+    <para>You may only reverse transactions which result from the posting of
+    the following: Simple Journal Entry, Series Journal Entry, Standard
+    Journal, or Standard Journal Group.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Standard Journals posted on and after this date will be
+        displayed. This is a required field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Standard Journals posted on and before this date will be
+        displayed. This is a required field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>G/L Transactions</term>
+      <listitem>
+        <para>Display lists Standard Journal posting history based on the
+        specified parameters.</para>
+        <para>This display is a nested list, with a plus ("+") sign located to
+        the far left of the display next to each transaction that may be
+        expanded to lower levels. By clicking your mouse on a plus sign, you
+        reveal lower levels of information related to the transaction.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

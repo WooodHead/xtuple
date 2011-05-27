@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section547373">
+  <title><indexterm significance="normal">
+      <primary>sales history</primary>
+      <secondary>brief version</secondary>
+    </indexterm> Brief Sales History</title>
+  <para>The "Brief Sales History" screen provides a quick view into sales
+  history without presenting a lot of detail at the top level. Here are some
+  tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use the right-click menu to uncover more detailed sales
+      information.</para>
+    </listitem>
+    <listitem>
+      <para>Isolate the sales information you're looking for by building a
+      custom search filter.</para>
+    </listitem>
+    <listitem>
+      <para>Don't forget to save your custom search filters so you and others
+      in your organization can use them for future searches.</para>
+    </listitem>
+    <listitem>
+      <para>Prices are normalized to the Base Currency using the Currency
+      Exchange Rate effective on the Invoice Date.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Brief Sales History"
+  screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspBriefSalesHistory.png" />
+        </imageobject>
+        <caption>Brief Sales History</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Brief Sales History" screen shows all
+  transactions for the current day. You can build your own search criteria
+  using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

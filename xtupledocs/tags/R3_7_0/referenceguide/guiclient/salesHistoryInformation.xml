@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>sales history</primary>
+      <secondary>editing of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>sales representatives</primary>
+      <secondary>and sales history for</secondary>
+    </indexterm>Sales History Information</title>
+  <para>From the Sales History screen you have the option to right-click on a
+  row of information to view and/or edit the sales history information. It's
+  important to note for anyone who wants to edit this information that this
+  underlying detail represents sales history only, for sales analysis
+  purposes. Any changes or edits made here to any of the available fields do
+  not affect the General Ledger or original sales or invoice information in
+  any way. Again, this information is for sales analysis purposes only.</para>
+  <para>Perhaps the most useful aspect of this screen is the feature allowing
+  you to mark Sales Representative commissions as paid or not. The setting of
+  the paid flag has a direct impact on the commission reports available within
+  the Sales module. The "Sales History Information" screen is the only place
+  where sales commissions can be marked as paid.</para>
+  <para>The following screenshot shows the "Sales History Information"
+  screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/salesHistoryInformation.png" />
+        </imageobject>
+        <caption>Sales History Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Order Number</term>
+      <listitem>
+        <para>Displays the original Sales Order Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Invoice Number</term>
+      <listitem>
+        <para>Displays the original Invoice Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Date</term>
+      <listitem>
+        <para>Displays the original Sales Order date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Invoice Date</term>
+      <listitem>
+        <para>Displays the original Invoice date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bill-To</term>
+      <listitem>
+        <para>Displays the original Bill-To Address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ship-To</term>
+      <listitem>
+        <para>Displays the original Ship-To Address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays the sold Item Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Displays the original sold from Site.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Rep.</term>
+      <listitem>
+        <para>Displays the original Sales Representative.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commission</term>
+      <listitem>
+        <para>Displays the commission amount.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Paid</term>
+      <listitem>
+        <para>Indicate whether the commission has been paid or not. This flag
+        has a direct impact on the commission reports available in the Sales
+        module.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipped</term>
+      <listitem>
+        <para>Displays the original Item quantity shipped.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Unit Price</term>
+      <listitem>
+        <para>Displays the original Unit Price of the Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Extended Price</term>
+      <listitem>
+        <para>Displays the original Extended Price for the Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Unit Cost</term>
+      <listitem>
+        <para>Displays the original Unit Cost for the Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Extended Cost</term>
+      <listitem>
+        <para>Displays the original Extended Cost for the Line Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

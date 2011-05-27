@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560368">
+  <title><indexterm significance="normal">
+      <primary>incidents</primary>
+      <secondary>creating new</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>customer relationship management</primary>
+      <secondary>creating incidents for</secondary>
+    </indexterm>New Incident</title>
+  <para>Incidents can be used for multiple purposes, including customer
+  service, trouble-ticketing, web-based communication with Customers and
+  Vendors using the xTuple Web Portal&mdash;and more. For sites where xTuple
+  Connect is installed and running, various email notification options are
+  also available. To enter a new Incident, select the "New Incident" option.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident.png" />
+        </imageobject>
+        <caption>Create New Incident</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When entering a new Incident, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Incident #</term>
+      <listitem>
+        <para>Displays the Incident Number. You may set a beginning Incident
+        Number at the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a few words to briefly describe the Incident</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Category</term>
+      <listitem>
+        <para>Specify a user-defined Category to assign the Incident.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Public</term>
+      <listitem>
+        <para>If your CRM module is configured to allow for public/private
+        Incidents, this option will be shown. When shown, select to indicate
+        you want the Incident to be viewable publicly. This option applies
+        primarily to sites where the xTuple Web Portal has been implemented.
+        With the Web Portal, xTuple Incidents may be viewed by Customers,
+        Vendors, and others on your website. Depending on your website rules,
+        private incidents may be hidden from most website users. To learn more
+        about the CRM configuration which enables this option, please see
+        <xref linkend="Section971138" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CRM Account</term>
+      <listitem>
+        <para>Specify the CRM Account the Incident is associated with.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Assigned To</term>
+      <listitem>
+        <para>Specify the user you want to assign the Incident to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Specify a system-defined Incident status to assign to the
+        Incident from the available options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>New</term>
+            <listitem>
+              <para>This is the default Incident status when a new Incident is
+              entered.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Feedback</term>
+            <listitem>
+              <para>This status can be used for Incidents which require more
+              information before they can be confirmed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Confirmed</term>
+            <listitem>
+              <para>A confirmed Incident is ready to be acted on.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Assigned</term>
+            <listitem>
+              <para>When Incidents are assigned to a user, they become that
+              user's responsibility.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Resolve</term>
+            <listitem>
+              <para>A resolved Incident is ready to be closed. Typically,
+              users work to resolve the Incidents assigned to them.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Closed:</term>
+            <listitem>
+              <para>This is the final status and indicates an Incident
+              requires no further action. It is completed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Severity</term>
+      <listitem>
+        <para>Specify a user-defined Severity to assign the Incident.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Priority</term>
+      <listitem>
+        <para>Specify a user-defined Priority to assign the Incident.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Resolution</term>
+      <listitem>
+        <para>Specify a user-defined Resolution to assign the Incident.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Contact</term>
+      <listitem>
+        <para>Manually enter Contact information in the fields below&mdash;or
+        use the lookup feature to select pre-existing Contact information. If
+        the Contact you select is linked to a CRM Account, the Account will be
+        filled in automatically.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Project</term>
+      <listitem>
+        <para>If your system is configured to use Projects, select a Project
+        Number to associate with the Incident.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Notes</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        general Notes related to the Incident. When a Note is entered, the
+        content of the Note will also automatically be inserted as a Comment
+        on the Incident. The Comment created this way may not be edited;
+        however, if you edit the Note, the associated Comment will include
+        your edits.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para role="xtconnect"><note>
+      <para>If CRM is configured with a default Incident EDI Profile or if the
+      Category of this Incident has an EDI Profile, you may encounter an EDI
+      processing interface when saving the Incident.</para>
+    </note></para>
+  <para>To enter <indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>creating new for incidents</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>incidents having</secondary>
+    </indexterm> Characteristics associated with an Incident, select the
+  "Characteristics" tab. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/incident_characteristicsTab.png" />
+      </imageobject>
+      <caption>Incident Characteristics</caption>
+    </mediaobject>
+  </screenshot>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristics</term>
+      <listitem>
+        <para>Display lists the Characteristic name and Value of Incident
+        Characteristics related to the Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Item Characteristic, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/characteristicAssignmentIncidents.png" />
+        </imageobject>
+        <caption>Create New Incident Characteristic</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristic</term>
+      <listitem>
+        <para>Select a Characteristic from the list of Characteristics
+        designated as being available for use as Item Characteristics.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Enter a value to associate with the Incident
+        Characteristic.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default</term>
+      <listitem>
+        <para>Select if the Value entered is the default Value for the
+        specified Characteristic. The default Value will be presented
+        initially wherever Incident Characteristics are used.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To define Item and Accounting relationships for an Incident, select
+  the "Relationships" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident_relationshipsTab.png" />
+        </imageobject>
+        <caption>Incident Relationships Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When defining Item and Accounting relationships for an Incident, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item</term>
+      <listitem>
+        <para>Use the following fields to link an Incident to a specific Item
+        or Lot/Serial Number:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item Number</term>
+            <listitem>
+              <para>Enter the Item Number of the Item (if any) you want to
+              associate with the Incident.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>UOM</term>
+            <listitem>
+              <para>Inventory Unit of Measure.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry role="standard">
+            <term>Lot/Serial #</term>
+            <listitem>
+              <para>Manually enter a Lot/Serial Number (if any) to associate
+              with the Item&mdash;or use the lookup feature to select
+              pre-existing Lot/Serial Number information.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Receivable</term>
+      <listitem>
+        <para>Incidents may be linked to a specific Receivable item from the
+        right-click menu on the <link linkend="Section556338">Open Receivables
+        screen</link>. When an Incident is linked to a specific Receivable
+        item, you are presented with the following options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Type</term>
+            <listitem>
+              <para>Displays the type of document associated with the
+              Incident. Document types would include Credit Memo, Debit Memo,
+              Invoice, and Cash Deposit.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Doc #</term>
+            <listitem>
+              <para>Displays the identifying number of the Document.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/recurrencewidget.xml"
+              xpointer="recurrenceWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para>To view or associate To-Dos with an Incident, select the "To-Do List
+  Items" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident_todoTab.png" />
+        </imageobject>
+        <caption>Incident To-Dos</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>To-Do List Items</term>
+      <listitem>
+        <para>Display lists To-Do List Items associated with the
+        Incident.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view the history associated with an Incident, select the "History"
+  tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident_historyTab.png" />
+        </imageobject>
+        <caption>Incident History</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "History" screen displays information related to the Incident,
+  including username of Incident creator, created date, status, and
+  description.</para>
+  <para>To view system-generated Comments associated with an Incident&mdash;or
+  to add new Comments of your own&mdash;select the "Comments" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident_commentsTab.png" />
+        </imageobject>
+        <caption>Incident Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para role="xtconnect">To view the Subscribers to an Incident, select the
+  "Subscribers" tab. The following screen will appear:<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incident_subscribers.png" />
+        </imageobject>
+        <caption><para>Incident Subscribers</para></caption>
+      </mediaobject>
+    </screenshot></para>
+  <para role="xtconnect">Subscribers are automatically added to the list of
+  recipients when xTuple Connect sends email for changes to Incidents.
+  Subscribers can be either Users or Contacts, as long as they have an email
+  address. To add a Subscriber, click the NEW button. The following screen
+  will appear:<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/subscriber.png" />
+        </imageobject>
+        <caption><para>Adding a Subscriber</para></caption>
+      </mediaobject>
+    </screenshot></para>
+  <para role="xtconnect">When adding a Subscriber, you are presented with the
+  following options:</para>
+  <para role="xtconnect"><variablelist>
+      <varlistentry>
+        <term>Type</term>
+        <listitem>
+          <para>Select either User or Contact.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>User</term>
+        <listitem>
+          <para>Type or select the Username of an xTuple ERP system
+          User.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Contact</term>
+        <listitem>
+          <para>Type or select the first and last name of a Contact.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
+  <para>To view the documents associated with an Incident, select the
+  "Documents" tab. The following screen will appear:<mediaobject>
+      <imageobject>
+        <imagedata fileref="images/incident_documentsTab.png" />
+      </imageobject>
+      <caption><para>Incident Documents</para></caption>
+    </mediaobject></para>
+  <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para>To view the alarms associated with an Incident, select the "Alarms"
+  tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/incident_alarmTab.png" />
+    </imageobject>
+    <caption>Incident Alarms</caption>
+  </mediaobject>
+  <para>Upon selecting Alarms you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Alarms</term>
+      <listitem>
+        <para>Displays a list of Alarms you can create to send reminders to
+        various users associated with an event or system message.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/alarmMaint.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

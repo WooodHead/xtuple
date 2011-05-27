@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section549768">
+  <title><indexterm significance="normal">
+      <primary>item usage statistics</primary>
+      <secondary>reporting for</secondary>
+    </indexterm> Item Usage Statistics</title>
+  <para>The "Item Usage Statistics" screen provides a summarized view of
+  Inventory transactions, where the summary information is separated out into
+  common Inventory categories. By specifying a date range, you are able to
+  generate a summarized Inventory report for the specified time frame.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>The right-click menu is context-sensitive by column header,
+      meaning you can drill down to see the underlying detail for each
+      Inventory category.</para>
+    </listitem>
+    <listitem>
+      <para>Use the "Item" filter to see statistics for individual
+      Items.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Item Usage Statistics"
+  screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspUsageStatistics.png" />
+        </imageobject>
+        <caption>Item Usage Statistics</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Item Usage Statistics" screen shows all
+  transactions for the current day. You can build your own search criteria
+  using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

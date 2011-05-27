@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="incidentResolution">
+  <title>
+<indexterm significance="normal">
+      <primary>incidents</primary>
+      <secondary>creating new priorities for</secondary>
+    </indexterm>Incident Resolution</title>
+  <para>To create a new Incident Resolution, select the NEW
+  button. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/incidentResolution.png"/>
+        </imageobject>
+        <caption>Create New Incident Resolution</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When creating a new Incident Resolution, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Incident Priority</term>
+      <listitem>
+        <para>Enter a name to define the Resolution (e.g., Fixed, Pending,
+        Open, etc.).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order</term>
+      <listitem>
+        <para>Specify the order in which the Resolution should appear when
+        using the drop-down list on the Incident screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a brief description of the Incident Resolution.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

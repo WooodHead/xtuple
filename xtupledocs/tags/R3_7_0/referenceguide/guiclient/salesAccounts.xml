@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section537936">
+  <title><indexterm significance="normal">
+      <primary>sales assignments</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Sales Assignments</title>
+  <para>Sales assignments are used to identify the General Ledger (G/L)
+  Accounts to be used when processing the following:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Sales Orders</para>
+    </listitem>
+    <listitem>
+      <para>Invoices</para>
+    </listitem>
+    <listitem>
+      <para>Sales Order Credit Memos</para>
+    </listitem>
+  </itemizedlist>
+  <para>The Account assignments are made using a combination of Customer Type,
+  Product Category, and Site designations. This means that transactions
+  conforming to the defined combination will follow the assignments
+  established for that combination. To access the Sales Account assignments
+  master list, select the "Sales Account Assignments" option. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/salesAccounts.png" />
+        </imageobject>
+        <caption>Sales Assignments Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Sales Assignments" screen displays information on existing Sales
+  Account assignments.</para>
+  <xi:include href="salesAccount.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

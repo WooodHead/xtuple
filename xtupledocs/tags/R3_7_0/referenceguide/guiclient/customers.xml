@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section656923">
+  <title><indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Customers</title>
+  <para>The "Customers" screen lists all your company's Customers. In
+  addition, the screen can be used to generate Customer reports&mdash;for
+  example, Customers by Customer Type. You can also export detailed Customer
+  information to a spreadsheet. Use the right-click menu to export Customer
+  information to a plain-text, TAB-delimited file.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use the right-click menu to edit a Customer in the list.</para>
+    </listitem>
+    <listitem>
+      <para>When exporting information, be sure to activate all the column
+      headers you want to include in your export file. This screen contains
+      nearly 30 columns of information. Many of these columns may be hidden by
+      default.</para>
+    </listitem>
+    <listitem>
+      <para>If you have Customer Characteristics defined, you can search and
+      report on these Characteristics using the search filter options and also
+      the column headers.</para>
+    </listitem>
+    <listitem>
+      <para>Build Customer reports using the search filters.</para>
+    </listitem>
+    <listitem>
+      <para>You can reassign the Customer Type for individual Customers using
+      the right-click menu.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Customers" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/customers.png" />
+        </imageobject>
+        <caption>Customer Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Customers" screen shows all active
+  Customers. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

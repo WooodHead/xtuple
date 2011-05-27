@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="salesRep">
+  <title><indexterm significance="normal">
+      <primary>sales reps</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Sales Rep</title>
+  <para>To create a new Sales Rep, select the NEW button. The following screen
+  will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/salesRep.png" id="salesRep.imagedata" />
+        </imageobject>
+        <caption id="salesRep.caption">Create New Sales Rep</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Sales Rep, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Number</term>
+      <listitem>
+        <para>Enter an identification number for the Sales Rep.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Active</term>
+      <listitem>
+        <para>Select if the Sales Rep is currently active. Not selecting means
+        the Sales Rep is inactive.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter the name of the Sales Rep.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales reps</primary>
+          <secondary>commission percentages for</secondary>
+        </indexterm>Comm. Prcnt</term>
+      <listitem>
+        <para>Enter the commission percentage for the Sales Rep. For example,
+        if the commission is to be 5%, enter the value ".05". The commission
+        on the Sales Rep record is a default value. When you first associate a
+        Sales Rep with a Customer&mdash;or with a Ship-To Address&mdash;the
+        system will copy in the commission from the Sales Rep record as a
+        convenience. If you later update the commission percentage on a Sales
+        Rep record, that update will not recursively update all the commission
+        records wherever that Sales Rep is used.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

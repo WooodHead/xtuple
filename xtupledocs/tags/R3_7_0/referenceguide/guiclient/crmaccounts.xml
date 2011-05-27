@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section572007">
+  <title><indexterm significance="normal">
+      <primary>accounts</primary>
+      <secondary>crm master list of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customer relationship management</primary>
+      <secondary>crm accounts and</secondary>
+    </indexterm>List CRM Accounts</title>
+  <para>Accounts are central to CRM. The CRM Account record should be the
+  screen where you begin to collect information about the entities you do
+  business with. From the CRM Account you build information outward, linking
+  Customer and Vendor records&mdash;as well as Contact records associated with the
+  Account.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use the right-click menu to open a CRM Account for viewing or
+      editing.</para>
+    </listitem>
+    <listitem>
+      <para>If you have a long list of CRM Accounts, don't hit the QUERY
+      button as soon as the screen opens. By default, the screen will display
+      all your active CRM Accounts&mdash;unless you specify otherwise.</para>
+    </listitem>
+    <listitem>
+      <para>Enter CRM Account names or other details in the Search window,
+      then select the QUERY button. This will narrow the list for you.</para>
+    </listitem>
+    <listitem>
+      <para>If you have CRM Account Characteristics defined, you can search
+      and report on these Characteristics using the search filter options and
+      also the column headers.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "List CRM Accounts" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/crmaccounts.png" />
+        </imageobject>
+        <caption>CRM Accounts List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "CRM Accounts" screen shows all active CRM
+  Accounts. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
