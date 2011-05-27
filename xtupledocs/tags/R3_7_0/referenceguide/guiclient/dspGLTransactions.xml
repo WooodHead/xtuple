@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section524434">
+  <title><indexterm significance="normal">
+      <primary>general ledger</primary>
+      <secondary>viewing transactions in</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>transactions</primary>
+      <secondary>viewing in general ledger</secondary>
+    </indexterm>G/L Transactions</title>
+  <para>The "G/L Transactions" screen is a great tool for locating information
+  about the complete range of General Ledger transaction activity. From this
+  screen you can locate every transaction posted to the G/L. And using the
+  custom search tools, you can narrow down your search to locate the specific
+  records you are looking for.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use the right-click menu to drill down into the details of
+      individual transactions.</para>
+    </listitem>
+    <listitem>
+      <para>If your transaction records are displaying a "No" value in the
+      "Posted" column, this means the transactions were not posted into an
+      Accounting Period because one doesn't exist or the Accounting Period was
+      frozen/closed at the time of posting. Once you create an Accounting
+      Period for the time Period in question, your transaction records will
+      display "Yes" in the posted column.</para>
+    </listitem>
+    <listitem>
+      <para>Among its many features, the G/L Transactions query builder
+      includes an option to display "deleted" transactions.</para>
+    </listitem>
+    <listitem>
+      <para>The total quantity of G/L transactions will be greatly reduced if
+      your site is configured to post transactions to an intermediate Journal
+      before they are posted to the G/L. To learn more about this
+      configuration option, please see <xref
+      linkend="Section942568" />.</para>
+    </listitem>
+    <listitem>
+      <para>When Project Accounting enabled, there is a search parameter
+      designed to show Accounts with a Project Number as the last segment. If
+      the "Show Project Detail" option is not used, balances will roll up into
+      the parent Account total.</para>
+    </listitem>
+    <listitem>
+      <para>The option "Exclude Child Accounts" is available when viewing G/L
+      transactions for a single Account. This option is used to show or hide
+      the child transactions which may be associated with a G/L Account when
+      Project Accounting is enabled.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "G/L Transactions" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspGLTransactions.png" />
+        </imageobject>
+        <caption>G/L Transactions</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "G/L Transactions" screen shows all
+  transactions for the current day. You can build your own search criteria
+  using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

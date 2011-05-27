@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="postJournals">
+  <title><indexterm significance="normal">
+      <primary>journals</primary>
+      <secondary>posting to g/l</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>general ledger</primary>
+      <secondary>posting journals to</secondary>
+    </indexterm>Post Journals to Ledger</title>
+  <para>If your system is configured to post transactions to intermediate
+  Journals (sometimes also referred to as "day books"), it is important that
+  you periodically post transactions from the Journals to the General Ledger.
+  The reason for this is that the trial balance and other financial reports
+  draw their information solely from the General Ledger. If Journal
+  transactions are not posted to the General Ledger, then they will not be
+  included in the system's financial reports.</para>
+  <para>One advantage to using intermediate Journals is that transactions are
+  summarized when they are posted over to the General Ledger. In this way,
+  transaction detail remains in the Journals, with the summarized version of
+  that detail residing in the General Ledger. You can post Journals to the
+  General Ledger on a daily, monthly, or weekly basis. It's up to you how you
+  want to implement this feature. But again, keep in mind that financial
+  reports will only be updated when Journal transactions are posted over to
+  the General Ledger.</para>
+  <para>To review and post Journals to the General Ledger, select the "Post
+  Journals to Ledger" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/postJournals.png" />
+        </imageobject>
+        <caption>Post Journals to General Ledger</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When reviewing Journals for posting to the General Ledger, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Transaction Dates</term>
+      <listitem>
+        <para>Specify a date range for the Journals you want to review and
+        post.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Journal transactions posted on and after this date will be
+              included in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Journal transactions posted on and before this date will
+              be included in the display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Preview Posting</term>
+      <listitem>
+        <para>Select if you want to review the transaction detail for the
+        Journals before posting. You will not be able to post Journals while
+        in preview mode.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>General Ledger Distribution</term>
+      <listitem>
+        <para>Specify a distribution date:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Date</term>
+            <listitem>
+              <para>Enter the date when you want the selected Journals to be
+              posted to the General Ledger.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Eligible Sources</term>
+      <listitem>
+        <para>Display lists unposted Journals available for posting to the
+        General Ledger. You may select one or multiple Journals for posting
+        using your mouse and the SHIFT or CTRL keys. To select all Journals
+        for posting, select the SELECT ALL button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print on Post</term>
+      <listitem>
+        <para>Select if you want to print a report of the posted Journals
+        after the POST button has been pushed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Select to post the selected Journals to the General Ledger,
+        using the specified distribution date. Only selected Journals will be
+        posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SELECT ALL</term>
+      <listitem>
+        <para>Select to include all available Journals for posting to the
+        General Ledger.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

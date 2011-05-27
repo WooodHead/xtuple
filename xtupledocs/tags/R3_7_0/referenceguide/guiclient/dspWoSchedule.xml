@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section537350">
+  <title><indexterm significance="normal">
+      <primary>work orders</primary>
+      <secondary>scheduling for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>scheduling</primary>
+      <secondary>for work orders</secondary>
+    </indexterm>Work Order Schedule</title>
+  <para>The "Work Order Schedule" screen is an essential workbench where you
+  can both view the status of current Work Orders and also perform any work
+  that needs to be done on Work Orders.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>The following codes describe the various Work Order statuses: Open
+      ("O"), Exploded ("E"), Released ("R"), In-Process ("I"), Closed
+      ("C").</para>
+    </listitem>
+    <listitem>
+      <para>To edit a Work Order after it has been created, use the "Edit W/O"
+      option in the right-click menu.</para>
+    </listitem>
+    <listitem>
+      <para>Use the right-click menu to locate any of the actions that can be
+      performed on Work Orders.</para>
+    </listitem>
+    <listitem>
+      <para>The start dates and end dates are color-coded for ease of use.
+      Both dates will display in red type if the Work Order is not yet
+      in-process and is also past due. Once a Work Order's Status is changed
+      to in-process ("I"), the start date will automatically revert to black
+      type.</para>
+    </listitem>
+    <listitem>
+      <para>If you use the "Show Only Top Level" search parameter, this refers
+      to Work Orders that have not been created to meet the component demands
+      of a parent Work Order.</para>
+    </listitem>
+    <listitem>
+      <para>To view open Work Orders whose parent Sales Orders are closed,
+      select the "Open Work Orders with Closed Parent Sales Orders"
+      option.</para>
+    </listitem>
+    <listitem>
+      <para>To see the relationship between Sales Orders and the open Work
+      Orders they are associated with, select the "Open Work Orders with
+      Parent Sales Orders" option.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Work Order Schedule"
+  screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspWoSchedule.png" />
+        </imageobject>
+        <caption>Work Order Schedule</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Work Order Schedule" screen shows all open
+  Work Orders. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

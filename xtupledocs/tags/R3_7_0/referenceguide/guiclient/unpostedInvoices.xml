@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657071">
+  <title><indexterm significance="normal">
+      <primary>invoices</primary>
+      <secondary>unposted list of</secondary>
+    </indexterm>List Unposted Invoices</title>
+  <para>To edit or post Sales Orders that have been selected for billing and
+  are ready to be invoiced, select the "Unposted Invoices" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/unpostedInvoices.png" />
+        </imageobject>
+        <caption>List Unposted Invoices</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>Deleting an Invoice effectively reverses the transaction which
+    created it. In other words, when you delete an Invoice the source Sales
+    Order will be returned to the Billing Selections list. From there, you
+    have the ability to either A) cancel the Billing Selection or B) re-create
+    the Invoice.</para>
+  </tip>
+  <para>The Unposted Invoices list displays information on all Invoices
+  available for posting. Users with the appropriate privilege will also see
+  the G/L distribution date column. To view the list of already-posted
+  recurring Invoices, see <xref linkend="dspRecurringInvoices" />.</para>
+  <para role="xtconnect"><note>
+      <para>If the Customer specified on the Invoice has an EDI Profile
+      attached, you may encounter an EDI processing interface when printing
+      Invoices.</para>
+    </note></para>
+  <variablelist>
+    <varlistentry>
+      <term>Print Sales Journal</term>
+      <listitem>
+        <para>Select to print the Sales Journal when selected Invoices are
+        posted.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

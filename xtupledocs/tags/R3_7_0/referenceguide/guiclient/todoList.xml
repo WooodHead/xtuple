@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560390">
+  <title><indexterm significance="normal">
+      <primary>to-do lists</primary>
+      <secondary>maintenance of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customer relationship management</primary>
+      <secondary>maintaining to-do lists for</secondary>
+    </indexterm>To-Do List</title>
+  <para>The To-Do List, like the Incident List, is an extremely versatile
+  screen which can be used by a variety of Employees from different functional
+  groups across your organization. From this screen you can manage only your
+  To-Do items. Or you can also track the Incidents and Projects you are
+  working on&mdash;all on this one workbench.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Black type indicates the To-Do has been completed&mdash;or it is
+      due on the current day. Red To-Dos are late. Green To-Dos are not yet
+      due.</para>
+    </listitem>
+    <listitem>
+      <para>You can create new To-Do items and also new Incidents from this
+      screen.</para>
+    </listitem>
+    <listitem>
+      <para>To see all the related data for everyone in the organization,
+      select to show all the options and remove any search parameters. When
+      you query the screen, all the available information will appear.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "To-Do List" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/todoList.png" />
+        </imageobject>
+        <caption>To-Do List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "To-Do List" screen shows To-Do List items
+  assigned to the logged-in user. You can build your own search criteria using
+  the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

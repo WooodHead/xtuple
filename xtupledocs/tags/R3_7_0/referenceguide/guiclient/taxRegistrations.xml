@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section586878">
+  <title><indexterm significance="normal">
+      <primary>tax registrations</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm>Tax Registrations</title>
+
+  <para>Tax Registrations are the registration numbers used by Tax Authorities
+  to identify businesses and/or individuals. An Employer Identification
+  Numbers (EIN) is an example of a Tax Registration Number. Use the Tax
+  Registration list for entering Tax Registration Numbers related to your
+  Company.</para>
+
+  <tip>
+    <para>Tax Registration information for individual Customers and Vendors is
+    stored on the Customer and Vendor master files.</para>
+  </tip>
+
+  <para>To access the master list of your Company's Tax Registrations, select
+  the "Tax Registrations" option. The following screen will appear:</para>
+
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/taxRegistrations.png" />
+        </imageobject>
+
+        <caption>Tax Registrations Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para>The "Tax Registrations" screen displays information on all existing
+  Tax Registrations, including Tax Authority and Tax Registration
+  Number.</para>
+  <xi:include href="taxRegistration.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

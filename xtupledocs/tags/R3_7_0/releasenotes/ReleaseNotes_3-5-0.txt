@@ -1,0 +1,908 @@
+==================================
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.5.0
+April 26 2010
+==================================
+
+This is the official 3.5.0 release. Thanks to all in the community who
+contributed their time and resources to make this release possible.
+And a particular note of thanks to everyone who participated in the
+haxTuple bug derby contest! Here's an overview of the many new
+features you will find in this release:
+
+Drop Ship Purchasing
+  * Full spec: http://www.xtuple.org/node/2481
+
+Expanded Pricing Effectivity Support
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=9603
+
+Embedded MetaSQL Editor
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=7732
+
+Tooling Management
+  * Full spec: http://www.xtuple.org/node/2197
+
+Also of note:
+  * Auto-complete when searching
+  * Build your own search filter
+  * Automatic A/R Discounts
+  * Improved Lot/Serial Support
+  * Support for Postgres 8.4
+
+
+==================================
+The following bug fixes have been added to the applications since
+the release of 3.5.0RC. Additional detail for each item listed
+below may be found on our community website (www.xtuple.org).
+Simply go to the Issue Tracker and select the "Changelog" option.
+
+
+Bug Fixes:
+
+* [Accounting] 4-4-5 Defined Accounting Periods do not compare
+  correctly to previous year
+* [Accounting] Cash Receipt uses wrong date to calculate currency
+  conversion on application
+* [Accounting] Can not delete G/L accounts
+* [Accounting] DB Error: Accounting | Accounts Receivable | Reports
+  | Open Receivables...
+* [Accounting] Invoices for kit items have odd line numbers
+* [Accounting] Invoice reprint displays wrong total after certain
+  applicaitons
+* [Inventory] Average costing should use average cost on physical
+  counts
+* [Inventory] SQL error when searching on shipment cluster in print
+  packing list
+* [Manufacture] Automatic tooling return on closing work order does
+  not post the inventory transaction
+* [Manufacture] Cannot create work order for tooling item
+* [Products] Print report of Breeder BOM ignores filter
+* [Sales] Sales order line: second line does not populate price
+* [Sales] Foreign key error in no vendor contact
+* [System] Drop ship configuration option is overriden on save
+
+
+==================================
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.5.0RC
+April 7 2010
+==================================
+
+The following bug fixes have been added to the applications since
+the release of 3.5.0Beta3. Additional detail for each item listed
+below may be found on our community website (www.xtuple.org).
+Simply go to the Issue Tracker and select the "Changelog" option.
+
+
+Bug Fixes:
+
+* [All] Saving Parameter Widget Filters crashes client after save
+(appears to be Linux only)
+* [All] Cannot view Documents
+* [All] Selecting a filter that was saved prior recent changes
+causes crash
+* [Accounting] Apply to Balance generates error
+* [Accounting] CC payment items do not show if customer is not
+part of group
+* [Accounting] Multi-currency cash receipt does not work
+* [Accounting] Clicking detach on documents widget when no
+documents are selected causes crash
+* [Architectural] User cluster loses user information when user
+inactivated or deleted
+* [Architectural] Short cut keys on search cluster conflict with
+shortcut standards
+* [Architectural] Recent fixes to parameter widget cause it to
+be misaligned on Mac
+* [CRM] Parameter widget: cannot set a blank filte
+* [CRM] Saving multiple statuses on parameter widget crashes app
+* [CRM] Parameter widget: cannot select multiple values for a
+single query field
+* [CRM] Cannot filter by same filter twice
+* [CRM] Parameter widget filter option mis-labeled
+* [CRM] Cannot delete contacts in list contacts
+* [CRM] Contacts List needs to be updated so the Delete button
+uses the MaintainContacts privilege
+* [Inventory] Selecting to create item site displays error
+message
+* [Inventory] Editing a posted count slip quantity does not
+update Count tag Count Qty
+* [Inventory] Item site setting settings should not allow a group
+order setting of zero
+* [Manufacture] Cannot specify operator when posting Operation
+* [Manufacture] Child work orders would show better if indented
+* [Products] Item auto-complete not filtering and validating
+correctly
+* [Purchase] Old Purchase Order address and contact info missing
+* [Sales] List Open Sales Orders - Close button closes and locks
+open Sales Order window as well
+* [Sales] Cannot reprint cc receip
+* [Sales] Ship-To number is not saved
+* [Sales] Can't save Ship-To Addresse
+* [Sales] Cannot save Sales Order once Opportunity is assigned
+* [System] Apostrophe character breaks XML import
+
+==================================
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.5.0Beta3
+March 22 2010
+==================================
+
+The following features and bug fixes have been added to the
+applications since the release of 3.5.0Beta2. Additional detail
+for each item listed below may be found on our community website
+(www.xtuple.org). Simply go to the Issue Tracker and select the
+"Changelog" option.
+
+
+New Features:
+
+* [All] Populate default address on new contacts where applicable
+* [Accounting] Enable discount days on terms screen to accept 0
+* [Accounting] Added search on Document number
+* [CRM] Add "delete" to right-click on Search Contact results
+* [CRM] Multiple-select on List Contacts
+* [CRM] CRM Parameter Widget
+* [CRM] Address selection for Contacts
+* [CRM] CRM > Account > Contacts > All --add "Job Title" column
+* [Manufacture] Child work orders would show better if indented
+* [Sales] Port Issue 9987 to core: Enhance changelog tracking for
+changes to a customer's Ship-Tos
+* [System] Config Modules / Accounting - toggle "Require Vendor
+Invoice #”
+
+Bug Fixes:
+
+* [All] Cannot view Documents
+* [All] It is possible to save Purchase Order and Transfer
+without line Items
+* [All] Column header removed, can't get it back
+* [All] Incident cluster auto-complete gives a database error
+* [All] Customer Form Assignment link with report is fragile
+* [Accounting] Selecting a customer doesn't populate the details
+of “Shipping Charge” on Invoice Header
+* [Accounting] Invoice Information screen displays 'Zero' invoice
+amount
+* [Accounting] 4-4-5 Defined Accounting Periods do not compare
+correctly to previous year
+* [Accounting] Sales rep number requires employee name (or code)
+not his/her number
+* [Accounting] Multi-currency cash receipt does not work
+* [Accounting] Issue with Cash Receipt
+* [Accounting] Issue with Accounts Receivable Workbench
+* [Accounting] A/P Debit Memos not selected for payment
+* [Accounting] Apply cash with discount rounding problem in
+function
+* [Accounting] Cash Receipt always uses current date instead of
+document date when determining discount
+* [Accounting] Print statements by customer type only prints
+past due
+* [Accounting] Post credit memo doubles tax on freight
+* [Accounting] Bank Reconciliation: selecting different bank
+account after clearing items orphans those items
+* [Accounting] Misc. Invoice not handling exclusive well
+* [Accounting] Remove accounts in Budgets is not functional
+* [Accounting] Invoice item window and api.invoiceline view do
+not enforce item_fractional
+* [Accounting] Trial balance not calculating total difference
+correctly
+* [Accounting] Cash receipt application screen not handling
+discount correctly
+* [Accounting] Tax distribution of voucher is not calculated
+correctly on multi-cost elements
+* [Accounting] Tax Breakdown does not match invoice tax
+* [Accounting] New item added to demo database not pricing when
+adding invoice line item
+* [Accounting] AP debit memo line select not working
+* [Accounting] Wrong Purchase Price Variance for PO returns and
+receipts
+* [Accounting] Tax breakdown not displaying misc. tax adjustment
+with no line item create
+* [Accounting] Reversal of credit card charges not resulting in
+a zero balance
+* [Accounting] G/L Processing for Purchase and Outside Process
+Items with Control Method None
+* [Architectural] First column on auto-complete disappears
+sometimes
+* [Architectural] Modality problems with documents widget
+* [Architectural] Include .addExtraClause as a scriptable
+function
+* [Architectural] Auto complete doesn't work on image cluster
+* [Architectural] Sticky check box isn't sticky if on a secondary
+tab
+* [Architectural] Item cluster don't show Item description
+* [Architectural] Widget UsernameClusted do not disable list/
+search button when disabled
+* [CRM] Changes made to the Incident do not always update "Last
+Updated" date
+* [CRM] 'To Do' tab in opportunity screen doesn't display the
+newly created To Do items
+* [CRM] Username displays beneath blank owner field on incident
+workbench
+* [CRM] Print Incident Report
+* [CRM] Irrelevant label name is displayed on user screen when
+selecting the owner from Incident screen
+* [CRM] Records in Incident workbench displayed with black
+background & foreground
+* [CRM] Selecting to view the vendor information attached to
+an incident displays blank page
+* [CRM] Selecting to Edit/View customer information attached
+to an incident displays error dialo
+* [CRM] “More” option is not functional in CRM opportunity list
+screen
+* [CRM] When searching for an Address on the Contact tab of CRM,
+the data returned are incorrect
+* [CRM] Viewing others Opportunity
+* [CRM] Incident Workbench Date Range does not work with the
+same first and last dates
+* [CRM] User can assign and reassing ToDoList Items to any
+incident
+* [CRM] Double clicking a contact in contact search window
+prompts to delete the contact
+* [CRM] Unable to create sales order while creating a new
+opportunity
+* [CRM] Address ellipses no longer available on the Contact
+Screen
+* [CRM] It is possible to add Sales orders/Quotes to
+Opportunity with vendor CRM account
+* [CRM] Opportunity Tab on CRM Account has extra clutter
+* [CRM] Contacts List needs to be updated to use the
+DeleteContacts priv instead of the MaintainContacts pri
+* [CRM] privilege for Delete Contact
+* [CRM] Show balance of Hours and Expense budgeted as columns
+on Project Task tab
+* [CRM] Selected owner on opportunity list not disabled if all
+users selected
+* [CRM] Error printing blank to-do list
+* [Inventory] Update Reorder Level By Accepts a 0 for Stocked
+Items
+* [Inventory] Inventory issue
+* [Inventory] SQL function does not exist
+* [Inventory] Inventory History by Order Number - PostBooks
+shouldn't show transfer in the type drop down
+* [Inventory] Transfer is listed as a filter type
+* [Inventory] Wrong options on createItemSitesByClassCode
+* [Inventory] xTuple Client crashes when printing in the Packing
+List Batch window
+* [Inventory] Notes should differ between TS and TR
+* [Inventory] Improve error wording if SO reservations exist
+* [Inventory] Header address information clears when an new
+T/O is save
+* [Inventory] Editing a posted count slip quantity does not
+update Count tag Count Qty
+* [Inventory] Update Reorder level by item does not run
+* [Inventory] Negative inventory when cost gets updated
+* [Inventory] deleteSO Needs to clean up pack table
+* [Inventory] Rounding issue causing Avg Costed item to go
+negative (one cent)
+* [Inventory] Invalid table reference in report query
+* [Inventory] “Issue Line Bal” to the items of a released
+transfer order, displays error
+* [Inventory] It is possible to release a blank TO
+* [Inventory] Inventory History by Order Number - no order
+number lookup
+* [Inventory] Issue Additional Stock to Order Line doesn't
+populate with the order number in Maintain Shipping Contents
+* [Inventory] Backdated transactions are included in the wrong
+date range
+* [Inventory] Update Lead time does not work if "Can
+manufacture Item" is not checked
+* [Inventory] Item site setting settings should not allow a
+group order setting of zero
+* [Inventory] Valid Location by Item prints all locations
+ignoring the filters
+* [Inventory] Count tag edit list % variance has incorrect
+formatting
+* [Inventory] Shipping form loophole on transfer order
+* [Manufacture] Print report of WO material requirement by
+component item screen displays blank “Total Required” field
+* [Manufacture] Transaction date null on return materials batch
+screen
+* [Manufacture] dspWoOperationsByWorkCenter.ui does not select
+WO on right-click menu
+* [Manufacture] bomitem API view calls formatbooseq, which is
+referencing missing booitem function
+* [Manufacture] Material posted twice if Ops posted for Job Item
+* [Manufacture] Post Production does not mark operation as
+complete
+* [Manufacture] Inventory Availability By Work Order Right Menu
+Error
+* [Manufacture] Inconsistencies with correct operations
+* [Manufacture] Correct production posting does not backflush
+all items correctly
+* [Manufacture] Entering more ordered than requested in WO with
+average cost creates negative costs in proportional cost
+* [Manufacture] Crash When Creating Work Order Using Item
+Located At Different Site
+* [Products] API should not allow import of material cost for
+manufactured items
+* [Products] xtmfg.schema is not referencing xmfg
+* [Products] Print report of costed indented BOM displays an
+irrelevant "Total Cost" field
+* [Products] Kit items not filtered at BOM item lookup
+* [Products] Info dialog on deleting item with item site
+* [Products] Tab order is wrong on item window
+* [Products] Expired BOM Component causing a recursive BOM error
+-- no way to get around
+* [Products] Selecting to define UOM conversion for the same UOM
+type, generates DB log error
+* [Products] Print report of kit type item master doesn't
+completely display item type
+* [Products] Enter doesn't work at boo item screen
+* [Products] Unable to view work center for BOO item
+* [Products] Item auto-complete not filtering and validating
+correctly
+* [Products] Selecting to delete an UOM with a conversion ratio
+defined displays an error message
+* [Products] Saving an empty BOO generates DB log
+* [Products] Saving an empty BOM generates DB lo
+* [Products] Attach button on BOO item screen material tab shows
+duplicate row
+* [Purchase] Drop ship: scheduled date on SO line should set the
+due date on PO line
+* [Purchase] Inventory receipt screen excessive key stroke
+* [Purchase] Purchase Request Notes
+* [Purchase] Tax is not recalculated after answering No to
+recalculate price screen
+* [Purchase] Vendor name not shown in PO Screen any more
+* [Purchase] Purchase order line search doesn't look up info. in
+descrip. line 1
+* [Purchase] Purchase Price Variances by Item screen - populate
+Earliest and Latest in dates fields
+* [Purchase] Quick PO Entry Gives Expense Cat. Error
+* [Purchase] Releasing P/R when multiple open P/Os for VENDOR
+* [Purchase] Unable to view running availability for an item
+* [Purchase] Deleted drop ship PO not cleaning up linked SO
+* [Purchase] System error deleting SO linked to PO
+* [Purchase] Need warning when deleting drop ship PO
+* [Purchase] User is allowed to post a blank PO
+* [Purchase] Vendor widget field is right-justified
+* [Reports] Quantity on Hand By Parameter - correct title
+* [Reports] CountTagEditList report hardcoded to show $ for
+variance value
+* [Reports] Order activity by project report OMITS non-inventory
+PO lines
+* [Sales] Remove auto-search on the sales order lookup by
+customer type
+* [Sales] “Customer Type Pattern” filter is not functional in
+Return Workbench screen
+* [Sales] Deleting a sales order does not give the option to refund
+credit card transactions
+* [Sales] Sales rep not linked to Ship-to in Credit Memo
+* [Sales] Total amount of unposted CM not same as detail
+* [Sales] Select to create a sales order for “Freight” pricing
+schedule type displays error message
+* [Sales] You should be able to multi-select schedules on Replace
+and Update pricing
+* [Sales] Disable CustInfo workbench button for prospects
+* [Sales] Double click should move item from left window to right
+in schedule update windows
+* [Sales] Sort on Pricing Update tools needs to be more logical
+* [Sales] The price update window should clear the quantity value
+after the "Success Message"
+* [Sales] Time Phased Sales History ignores pattern filter
+* [Sales] Arrow Down will not advance to next line Item
+* [Sales] Updating Schedule Date on sales orders can lead to prices
+of -9999 if no applicable schedule
+* [Sales] Report: Bookings by Sales Rep generates error
+* [Sales] Selecting to view Earned Commissions generates error
+* [Sales] Printing inconsistency Uninvoiced Shipment scree
+* [Sales] Customer ship-to number assignment can cause data loss
+* [Sales] Selecting to process RA with Credit by as 'check'
+displays error message
+* [Sales] Copy Sales Order does not honor "Reschedule all dates"
+* [Sales] Drop Ship: Selecting to delete a sales order displays
+error dialog
+* [Sales] Observation: Selecting to save a existing sales order
+line item displays 'Item Source' dialog
+* [Sales] Contact search screen opens out of reach
+* [Sales] Contact info does not refresh properly
+* [Sales] cannot add employee record reference to sales rep
+information
+* [Sales] Create P/R to meet sales demand does not work for kit
+components
+* [Sales] YourPay processing gives not-null and fkey constraint
+errors when receiving SUBMITTED response
+* [Sales] Multiple fields in the Sales Order Header are editable
+when in View Mode
+* [Sales] Unable to view Order Line for an item
+* [Sales] Selecting to print Brief Earned Commissions by selected
+sales representative filter generates DB log error
+* [Sales] Documents on Quotes Don't come over to Sales Order
+* [Sales] Alt Cost of Sales Account - editable when in View Mode
+* [Sales] Credit card amount charged for RA doesn't include tax
+* [Sales] Remove payment received field on billing selection
+* [Sales] Proximo terms generate a query error when cutoff date is
+a day over the end of the month
+* [Sales] Sales order ship-to change warning messag
+* [Sales] Customer WB display unposted CM wrong
+* [Sales] Copy pricing schedule does not copy freight sched
+contents
+* [Sales] Address Fields Not Accessible in Credit Memo when Ship
+To is Set to Free Form
+* [Sales] Selecting to edit or view credit memo for a customer
+with no tax zone defined displays error message
+* [Sales] Selecting to post a credit memo displays error message
+* [Schedule] Running Availability from Right Click does not
+show Planned Orders
+* [System] Non-admin can access fixACL screen
+* [System] “Print Preview” and “Print” options are not functional
+in report definition
+* [System] File creation error when exporting xml from xtuple
+* [System] Right click and view PoItem do not show taxes properly
+* [System] fixAcl is referencing role openmfg when should reference
+xtrole
+* [System] Using international characters on screen designer label
+crash client
+* [System] During XML Import, ignore is great, but we need a silent
+attribute as well
+* [System] Apostrophe character breaks XML import
+* [System] Minor enhancements to Employee master
+
+
+==================================
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.5.0Beta2
+March 3, 2010
+==================================
+
+This is the second beta release in the 3.5.0 release cycle. If
+you've been following our community site, you know our haxTuple
+bug derby is well under way, with several community members
+currently vying for the top prizes. If you have not registered
+yet for haxTuple, there's still time to get involved. The contest
+runs from February 15th to March 8th. Learn more about the rules
+and the prizes being offered here: http://www.xtuple.org/haxtuple-2010
+
+Of course, you don't have to be a developer to get involved.
+We are also looking for feedback from community beta testers. So
+load up your sandboxes and test away! NOTE: If you are testing
+the Manufacturing Edition, the upgrade from 3.5.0Alpha to
+3.5.0Beta does not require an upgrade script for the xtmfg
+package--only the std350alphato350beta.gz script is required.
+
+Sure to be of interest to everyone are the new enhancements to
+the virtual (search) cluster. Beginning with 3.5.0Beta, users
+will find auto-complete functionality in lookup fields
+throughout the applications. Legacy lookup buttons will still be
+supported. But auto-recognition of partially-entered strings
+is now supported.
+
+In this release look for the debut of the new "Parameter Widget" in
+the To-Do List and Incident Workbench windows. This new widget
+allows programmers to define unlimited possible filter criteria on a
+report as list of parameter types (i.e. CRM Account, Contact Name,
+Start Date, User Name) rather than as a fixed collection of widgets
+laid out on the screen as we have traditionally done. Users can then
+dynamically select from this list and build filter combination
+criteria to apply to their query which they can save for future use.
+Expect to see this methodology deployed throughout the application in
+future releases.
+
+Here is a list of new features to check out in 3.5.0:
+
+Drop Ship Purchasing
+  * Full spec: http://www.xtuple.org/node/2481
+
+Expanded Pricing Effectivity Support
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=9603
+
+Embedded MetaSQL Editor
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=7732
+
+Tooling Management
+  * Full spec: http://www.xtuple.org/node/2197
+
+Also of note:
+  * Automatic A/R Discounts
+  * Improved Lot/Serial Support
+  * Support for Postgres 8.4
+==================================
+The following features and bug fixes have been added to the
+applications since the release of 3.5.0Beta. Additional detail
+for each item listed below may be found on our community website
+(www.xtuple.org). Simply go to the Issue Tracker and select the
+"Changelog" option.
+
+
+New Features:
+
+* [Accounting] Add "Post All" button to Checks tab on AP Workbench
+* [Architectural] Expose OpenRPT option to pass printer to scripting
+* [CRM] Add advanced incident workbench features to the core
+* [CRM] Contact cluster should behave like other search clusters
+* [CRM] Show total hours and expenses on Project header
+* [Products] Enable DELETE BOM Item
+* [Purchase] Add support for drop ship to purchase orders
+* [Sales] Port Issue 9987 to core: Enhance changelog tracking for changes to a customer's ship-to's
+* [System] Complete the XML Export functionality
+
+Bug Fixes:
+
+* [Accounting] Sales rep number requires employee name (or code) not his/her number
+* [Accounting] Zero balance option should disable when single account selected
+* [Accounting] Add show unposted option to AR workbench
+* [Accounting] Post Invoice After Printing generates warning message
+* [Accounting] Find on Script Editor says text not found even when it is
+* [Accounting] Posting of cash receipt with discount does not use new discount G/L account
+* [Accounting] Creating a Credit Memo from a Return do not complete account cycle
+* [Accounting] Address clusters on invoice window are misaligned on Mac
+* [Accounting] ACH does not work in commercial editions without batch manager
+* [Accounting] Add query button to maintain shipping window
+* [Accounting] Acceptance of Posting an A/P Credit Memo without a Vendor Code
+* [Accounting] It is possible to create incomplete JE when canceling series entries
+* [Accounting] Credit memo on vendor history is added to total
+* [Accounting] Manufacturers List on Item Source Mfg ta
+* [Accounting] API view api.glaccount gives error when updating
+* [Accounting] Tax codes do not allow negative tax rates
+* [Accounting] Summarized sales history ignored by privilege
+* [Accounting] can't click on vendor widget in Misc. Voucher screen
+* [Accounting] Contact information is "squished" on Mac
+* [Accounting] Selecting to edit a cash receipt displays 'No Bank Account' dialog
+* [Accounting] Strange behavior when reversing a reversal entry
+* [Accounting] Trial balance query have unneeded transaction
+* [Accounting] Invoice reprint displays wrong total after certain application
+* [Accounting] Tab order Series G/L Journal Entry
+* [Accounting] Sales tax credit double credits a/
+* [Accounting] Post credit memo doubles tax on freigh
+* [Accounting] Duplicate tax rate possible for tax code
+* [Accounting] Bill of Operations: Final Location field is very narrow
+* [Accounting] crash when creating a wo not designated as "site can manufacture"
+* [Accounting] Posting Operations from Work Order window does not populate the W/O number
+* [Accounting] Credit Memo does not display correctly from GL Transactions
+* [Accounting] Cash Receipt Journal does NOT print
+* [Accounting] Invoice does not recalculate tax when tax zone is changed
+* [Accounting] Australian ABA file generation function for Electronic Checking formatABAChecks
+* [Accounting] "Total" field on Invoice doesn't have comma formatting
+* [Accounting] voucheringeditlist view is faulty
+* [Accounting] Taxes are generated when they shouldn't be
+* [Accounting] PreAuth to Charged Credit Cards cause Unbalanced Bank Reconciliation
+* [Accounting] move ACH functionality in A/P to PostBooks
+* [Accounting] Can not apply credit memos in A/R workbench
+* [Architectural] Work center cluster does not auto complete
+* [Architectural] Packages -> Load does not check correct location for Updater
+* [Architectural] Short cut keys don't open Alias search on item cluster
+* [CRM] Opportunity Tab on CRM Account has extra clutter
+* [CRM] Error using pattern search in Opportunity screen
+* [CRM] Show balance of Hours and Expense budgeted as columns on Project Task tab
+* [CRM] It is possible to edit Characteristics in View mode
+* [CRM] Tab Order incorrect when adding Primary and New Contacts from CRM Account
+* [CRM] Detaching a contact and saving generates DB error
+* [CRM] Contact details are not saved
+* [CRM] UsernameCluster or CRMAcctCluster do not emit signals until focus is lost
+* [CRM] Contact cluster duplicate check returns too many results
+* [Documentation] Unable to prove statement on opening closed line on PO
+* [Documentation] Docs refer to shopfloor workbench in postbooks
+* [Inventory] 'Selected' option is not disabled if 'pattern' option is selected in detailed inventory history screen
+* [Inventory] Performance slow on print packing list by ship via
+* [Inventory] Missing ship vias in print packing list by ship vias
+* [Inventory] Item availability workbench screen is visible even after revoking 'View Item Availability Workbench' privilege
+* [Inventory] Sales Reservations are not reverted back if an item issued to shipping is returned
+* [Inventory] Selecting to edit order from 'Total' label displays error message and generates DB log
+* [Inventory] Order cluster generates sql error on search
+* [Inventory] Unable to post the receipt of an expense item
+* [Inventory] Editing a posted count slip quantity does not update Count tag Count Qty
+* [Inventory] Cannot Ship TO Item that has already been received
+* [Inventory] Selecting to summarize transaction history generates DB log error
+* [Inventory] Enter Order Receipts screen displays 'O' instead of the PO Number
+* [Inventory] Selecting to Reassign Lot/serial Item displays error message
+* [Inventory] Can't recall partial transfer order shipment
+* [Inventory] Error shipping transfer order
+* [Inventory] Maintain Shipping Takes Over 5 minutes to load
+* [Inventory] Transfer Orders - location detail on history
+* [Inventory] New item sites default to average costed
+* [Inventory] Selecting to Relocate Inventory displays error message
+* [Inventory] Error when opening item site in PostBooks
+* [Inventory] 'Issue Line Bal' to the items of a released transfer order, displays error
+* [Inventory] Selecting to post Misc Inventory Count displays error message
+* [Inventory] Selecting to create an item site for a newly created kit item generates DB log
+* [Inventory] Marking Expense Categories as Inactive is not honore
+* [Inventory] Can't delete any item sit
+* [Inventory] DB Error on itemsite Delete in postbooks
+* [Inventory] Shipping Hold Type not displayed
+* [Manufacture] postproduction function does not handle backflush of operations correctly
+* [Manufacture] Manufacture->Transaction->Scrap does not work for controlled finished items
+* [Manufacture] Cannot Add Operations in Work Order Screen
+* [Manufacture] Add Date to Close Work Order
+* [Manufacture] Job Cost Items
+* [Manufacture] Job Costing Report
+* [Manufacture] Response to dialog is opposite selection
+* [Manufacture] Tab order incorrect on Work Order Material Requirement screen
+* [Manufacture] Error dialog on correct operation posting
+* [Manufacture] Print Traveler button behavior on Create Work Order
+* [Manufacture] Print report of Material Usage Variance by BOM item doesn't display item details
+* [Manufacture] Problems with post operations screen
+* [Manufacture] Close work order window doesn't go away after closing w
+* [Manufacture] dspWoOperationsByWorkCenter.ui does not select WO on right-click menu
+* [Manufacture] Post and correct operations screen is displayed on clicking "OK" button in the warning
+* [Manufacture] Cannot post operations from work order right-click
+* [Manufacture] post operation after wo closed
+* [Manufacture] Posting Operation time
+* [Manufacture] "Split" Items to backflush BOM and BOO upon Issue to Shipping
+* [Manufacture] Inconsitencies with correct operations
+* [Manufacture] Unable to return product on a work order
+* [Manufacture] Deleting Materials from Work Order
+* [Manufacture] Selecting to correct operation posting displays an error
+* [Manufacture] dspWoOperationBufrStsByWorkCenter.ui:View or Edit operation doesn't populate work order number
+* [Manufacture] Work Order indented screen Materials not sorted
+* [Products] Unable to create a kit item site record
+* [Products] xtmfg.schema is not referencing xmfg
+* [Products] Expired BOM Component causing a recursive BOM error -- no way to get around
+* [Products] Can not delete items
+* [Products] Typo on texts in print report of single level where used
+* [Products] Print report of costed indented BOM displays an irrelevant 'Total Cost' field
+* [Products] View mode of an item enables the user to edit BOM,BOO and customer workbench
+* [Products] Can not add item sites when creating a new item
+* [Products] Boohead not inserting for BOO's created in previous versions
+* [Products] Cannot thaw avg cost item after erro
+* [Products] 'Type' field of planning item is displayed incorrectly
+* [Products] Incorrect Expiry dates after mass expire are displayed in BOM
+* [Products] Selecting to Mass Replace an item displays error message
+* [Products] Selecting to print pending BOM changes generates DB log error
+* [Purchase] Selecting to reopen a purchase order unchecks the 'Drop Ship' option
+* [Purchase] Bold cursor in PO field if method is manual
+* [Purchase] Saving a purchase order doesn't reset the 'subtotal' field
+* [Purchase] Vendor Delete does not give user a second chance
+* [Purchase] Make the vendor currency read only on item source
+* [Purchase] Username on purchase orders defaults to login name not proper name
+* [Reports] Invoice Report does not display Total Due when no tax is applied
+* [Reports] Submitted report of Credit Memo is empty
+* [Sales] Column header on Sales Report displays S/O # and should have CM as well
+* [Sales] 'Selected customer' option is not disabled if 'customer ship-to' option is selected in Allocate Reservations screen
+* [Sales] Choosing [caluclated freight] or [manual freight] on sales order doesn't update sales order
+* [Sales] Cannot reprint cc receipt
+* [Sales] Change Post Billing Selections to Create Invoice
+* [Sales] Sales account assignments / Sales categories
+* [Sales] cannot delete a line item after stock has been issued and returned from shipping
+* [Sales] GUI issue with historical sales order view with inactive rep's name no longer appearing.
+* [Sales] Deleting a Shipping Charge type creates errors
+* [Sales] Customer WB not refreshing properly when changing between customers
+* [Sales] Creating a new Contact from the SO New Customer option generates Error
+* [Sales] Contact search screen opens out of reach
+* [Sales] Table cohist does not populate cohist_ordernumber on consolidated invoice entries
+* [Sales] Converting Sales Order from Quote
+* [Sales] It is possible to edit prospect in view mod
+* [Sales] 'Print' button is always disabled in print RA form
+* [Sales] Selecting to purge invoices generates DB log error
+* [Sales] Set default cursor focus to Customer Number Field on Customer Info Workbench
+* [Sales] Pricing and items on sales report does not reflect the change of a customer in a sales order
+* [Sales] Duplicated tax when processing a paymen
+* [Sales] Sales credit allocation does not work correctly
+* [Schedule] Create Planned Order defaults to Work Order not item type
+* [Schedule] Planned Order comments not Displayed
+* [Schedule] Enforce no multi-level MRP on planner codes in STD Edition
+* [Schedule] Standard DB Version throws error whr "Run MRP by Planner" is used
+* [Schedule] Time phase production by item report do not honor selected warehouse
+* [System] Config Modules / Accounting - toggle "Require Vendor Invoice #"
+* [System] Edit Comment of Type Genera
+* [System] Fix serial columns screen accessed by non-admin user
+* [System] Hide Shift from Employee Screen
+* [System] there is no StatesMasterList report
+* [System] User association with the employee is not indicated
+* [System] MetaSQL Window has no icons on button
+* [System] Allow a custom QValidator to be created with script
+* [System] Eternal Light Bulb due to bad metasql
+
+==================================
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.5.0Beta
+February 12, 2010
+==================================
+
+This is the first beta release in the 3.5.0 release cycle. Anyone
+who has not registered yet for haxTuple (our 2d annual bug
+derby), there's still time to get involved. The contest runs from
+February 15th to March 8th. Learn more about the rules and the
+prizes being offered here: http://www.xtuple.org/haxtuple-2010
+
+Of course, you don't have to be a developer to get involved.
+We are also looking for feedback from community beta testers. So
+load up your sandboxes and test away! NOTE: If you are testing
+the Manufacturing Edition, the upgrade from 3.5.0Alpha to
+3.5.0Beta does not require an upgrade script for the xtmfg
+package--only the std350alphato350beta.gz script is required.
+
+Sure to be of interest to everyone are the new enhancements to
+the virtual (search) cluster. Beginning with 3.5.0Beta, users
+will find auto-complete functionality in lookup fields
+throughout the applications. Legacy lookup buttons will still be
+supported. But auto-recognition of partially-entered strings
+is now supported.
+
+Also, the new Drop Ship Purchasing features are now available for
+testing in 3.5.0Beta. To learn more, see the full Drop Ship
+Purchasing spec here: http://www.xtuple.org/node/2481
+
+And don't forget to check out and test the new features
+introduced in the alpha:
+
+Expanded Pricing Effectivity Support
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=9603
+
+Embedded MetaSQL Editor
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=7732
+
+Tooling Management
+  * Full spec: http://www.xtuple.org/node/2197
+
+Also of note:
+  * Automatic A/R Discounts
+  * Improved Lot/Serial Support
+  * Support for Postgres 8.4
+
+==================================
+
+The following features and bug fixes have been added to the
+applications since the release of 3.5.0Alpha. Additional detail
+for each item listed below may be found on our community website
+(www.xtuple.org). Simply go to the Issue Tracker and select the
+"Changelog" option.
+
+
+New Features:
+
+* [Accounting] Add List Open Vouchers tab to AP workbench
+* [Architectural] Enhancements to virtual (search) cluster
+* [Architectural] Subclass item cluster from virtual cluster
+* [CRM] Add recurring capability to activities in CRM
+* [Inventory] Allow purchase receipts by bar code
+* [Inventory] Avoid receive Transfer Order lines if has not been
+shipped
+* [Inventory] Inventory distribution should present list of
+existing lots for lot-controlled items being adjusted in
+
+Bug Fixes:
+
+* [All] Cannot highlight by dragging across text in Item Number
+field
+* [All] xLineEdit copy always copies everything
+* [Accounting] AR open items do not show up on screen
+* [Accounting] Apply cash with discount rounding problem in
+function
+* [Architectural] User cluster loses user information when user
+inactivated or deleted
+* [Inventory] Average costing should use average cost on physical
+counts
+* [Sales] Returns don't properly handle Job Costed items
+* [System] Updater fails to load Metasql with error after new
+Metasql trigger implemented
+
+==================================
+
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.5.0Alpha
+January 29, 2010
+==================================
+
+This is the alpha release of version 3.5.0. This release is
+packed with lots of new features, and more still to come in the
+next stage of the release cycle. As always, we are looking for
+feedback from alpha testers. But testers please note: the
+purchasing module should be avoided, since extensive changes to
+support drop shipping are not yet complete.
+
+Here's an overview of new features in this release:
+
+Expanded Pricing Effectivity Support
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=9603
+
+Embedded MetaSQL Editor
+  * More info: http://www.xtuple.org/issuetracker/view.php?id=7732
+
+Tooling Management
+  * Full spec: http://www.xtuple.org/node/2197
+
+Also of note:
+  * Automatic A/R Discounts
+  * Improved Lot/Serial Support
+  * Support for Postgres 8.4
+
+==================================
+
+The following features and bug fixes have been added to the
+applications since the release of 3.4.0. Additional detail for each
+item listed below may be found on our community website
+(www.xtuple.org). Simply go to the Issue Tracker and select the
+"Changelog" option.
+
+
+New Features:
+
+* [Accounting] Reconcile Bank Accounts by Credit Card
+* [Accounting] Add support for A/R discounts to Cash Receipt
+* [Accounting] Add the ability to select by customer group in to
+the A/R aging display and the printed report
+* [Accounting] Add pricing effectivity options to sales order
+* [Accounting] Selection hold button on Payables Workbenc
+* [Accounting] Provide color emphasis on credit type columns on
+Open Receivables display
+* [Accounting] "Apply line bal." button within the "Apply A/R
+Credit Memo" screen
+* [Accounting] Tooling issue and return
+* [Accounting] Calculate freight on Returns using freight
+pricing schedules
+* [Accounting] The ship order window should use the freight
+calculation algorithm
+* [Accounting] Add radio buttons to the Print Packlist Form
+window to explicitly choose whether to print Picklist
+* [Accounting] Bank rec history label should refer to date
+range
+* [Architectural] Embed MetaSQL editor into xTuple ERP
+application and add some enhancements
+* [Architectural] Adding index on arapply to improve
+performance
+* [Architectural] Added First Group field to api.itemsite vie
+* [Architectural] Capture and log qWarning/qDebug output to
+window accessible from application
+* [Architectural] Remove dependency on curl for credit card
+processing
+* [CRM] Prompt "are you sure" when deleting a Contact
+* [Inventory] Serialized Job Items
+* [Inventory] Automatically generate Serial Numbers
+* [Inventory] Preserve lot # during Inter-Warehouse Transfer
+* [Inventory] Ability to add back into inventory previously
+scrapped or expensed items
+* [Inventory] Auto populate Lot/Serial
+* [Manufacture] Add the ability to set W/O item cost recognition
+defaults at the item site level
+* [Purchase] Increase price precision
+* [Purchase] Add a notes field to voucher distributions
+* [Sales] Move sales order reschedule feature to the Sales Order
+Window
+* [Sales] Price Schedule enhancement pack
+* [Sales] Add option to recalculate pricing on a sales order
+when the shipto is changed
+* [Sales] Add "Scheduled Date Range" criteria to the Print
+Packing List by Ship Via window
+* [Sales] Remove freight charge on Back Order Invoices
+* [System] Rename user "groups" to "roles"; add column to List
+Users
+
+Bug Fixes:
+
+* [All] Idle timeout does not roll back partial transactions
+* [All] Blocks on db when certain screens are open
+* [All] Distribution screen holds Postgres
+* [Accounting] Return work order material revalues WIP
+incorrectly on average cost
+* [Accounting] Return Stock to Shipping for Lot/Serial MLC
+items can miss distribution history
+* [Accounting] reloading some api view definitions gives sql
+errors on tax fields
+* [Accounting] List Price UOM on item master is misleading
+* [Architectural] Type setting of the XComboBox not being set
+correctly to type "Adhoc"
+* [Batch Manager] Update buffers status by planner code returns
+query error
+* [CRM] Sticky options not remembering settings
+* [CRM] Cannot Delete CRM Account w/ Primary and/or Secondary
+Contacts
+* [CRM] when you detach a Primary/Secondary Contact from a CRM
+Account, it's still there
+* [Inventory] Only one item site for any item may ship at any
+time
+* [Inventory] Incomplete Lot/Serial transaction leaves orphaned
+itemlocdist entries
+* [Manufacture] Standard Operation data not available when
+adding operations
+* [Manufacture] BOO Instructions not in display
+* [Products] Qty Per limits to Qty decimal precision on BOM
+item
+* [Sales] Deleting sales orders and SO line items slow
+* [Sales] Performance issue with Sales -> List Quotes
+* [Sales] Tax and freight not displayed in Billing Edit list
+* [Sales] System Hangs on Credit Memo Line Item when item
+number entered (after turning items to Exclusive)
+* [System] Maintaining others preferences
+* [System] XML import automatically prepends api. to all views

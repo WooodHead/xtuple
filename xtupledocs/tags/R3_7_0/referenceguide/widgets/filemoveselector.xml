@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>File Move Selector Widget</title>
+  <para id="fileMoveSelector"><informalexample>
+      <para>When selecting what to do with a file after it has been processed,
+      choose from the following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Do Nothing</term>
+          <listitem>
+            <para>Continue processing and do not touch the file
+            further.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Add a Suffix</term>
+          <listitem>
+            <para>Try to change the name of the file by adding a suffix to it.
+            Type this suffix in the <guilabel>Append</guilabel> field that
+            appears when you select this option. If you want a period ('.') as
+            part of the suffix, include this as part of the suffix.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Move to a Subdirectory</term>
+          <listitem>
+            <para>Try to move the file to the named directory. Typically this
+            is a subdirectory of where the processing originally took place.
+            Type the directory name in the <guilabel>Move to</guilabel>
+            field.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Delete</term>
+          <listitem>
+            <para>Try to delete the file that was just processed.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </informalexample></para>
+</section>
