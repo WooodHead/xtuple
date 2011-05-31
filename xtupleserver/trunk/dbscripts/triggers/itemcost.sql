@@ -2,7 +2,7 @@ CREATE OR REPLACE FUNCTION _itemCostTrigger() RETURNS TRIGGER AS $$
 BEGIN
 
   --Privilege Checks
-  IF ( (TG_OP = 'INSERT') AND (NOT checkPrivilege('CreateCosts')) ) THEN
+  IF ( (TG_OP = 'INSERT') AND (NOT checkPrivilege('CreateCosts')) AND (NOT checkPrivilege('PostVouchers')) ) THEN
     RAISE EXCEPTION 'You do not have privileges to enter Item Costs.';
   END IF;
 
