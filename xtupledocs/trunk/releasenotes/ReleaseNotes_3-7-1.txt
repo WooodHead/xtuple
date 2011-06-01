@@ -1,32 +1,30 @@
-==================================
 Release Notes
 xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
 Version 3.7.1
-June 01, 2011
+May 26, 2011
 ==================================
 
-These are the release notes for the 3.7.1 release. Thanks to all 
+These are the release notes for the 3.7.1 Patch Release. Thanks to all
 who contributed to make this release possible.
 
 ==================================
 
 The following features and bug fixes have been added to the
-applications since the release of 3.7.0. Additional detail
-for each item listed below may be found on our community
-website under the Issue Tracker.
+applications since the 3.7.0 Final. Additional detail for
+each item listed below may be found on our community
+website (www.xtuple.org). Simply go to the Issue Tracker and
+select the "Changelog" option.
 
-New Features:
-
- N/A
 
 Bug Fixes:
 
-* Unable to delete line items on a sales order
-* Create Planned Orders by Item does not create planned orders
-* Error on Query Item List
-* Previously frozen inventory unbalanced after thaw
-* Itemsource Description Column Blank
-* Can't get to Edit Series from GL Transactions
-* Posting Lot/MLC count tag causing imbalance
-* Opening AP workbench takes longer than usual time
-
+* [Accounting] 14179:can't get to Edit Series from GL Transactions
+* [Accounting] 12624:Opening AP workbench takes longer than usual time
+* [Inventory] 14370:Previously frozen inventory unbalanced after thaw
+* [Inventory] 13581:Posting Lot/MLC count tag causing imbalance
+* [Inventory] 14813:Correct Post Produciton
+* [Products] 14506:Error on Query Item List
+* [Purchasing] 14238:Itemsource Description Column Blank
+* [Sales] 14716:Unable to delete line items on a sales order
+* [Scheduling] 14630:Create Planned Orders by Item does not create planned orders
