@@ -188,7 +188,7 @@ BEGIN
                        ('Correct Receive Inventory ' || item_number || ' ' || _sense || ' Manufacturing'),
                        costcat_asset_accnt_id, getPrjAccntId(wo_prj_id, costcat_wip_accnt_id), _itemlocSeries, pGlDistTS,
                        CASE WHEN (wo_qtyrcv > 0) THEN
-                       ((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) * _parentQty -- only used when cost is average
+                       NONEG(((wo_postedvalue - wo_wipvalue) / wo_qtyrcv) * _parentQty) -- only used when cost is average
                             ELSE 0 END
                        , pInvhistId) INTO _invhistid
   FROM wo, itemsite, item, costcat
