@@ -19,7 +19,17 @@ DECLARE
   _table	TEXT;
   _query	TEXT;
 BEGIN
-  IF (UPPER(pType) = 'TABLE') THEN
+  IF (UPPER(pType) = 'INDEX') THEN
+    _query = 'DROP INDEX ' || quote_ident(LOWER(pSchema)) || '.' || quote_ident(LOWER(pObject));
+    
+    BEGIN
+      EXECUTE _query;
+    EXCEPTION WHEN undefined_object OR invalid_schema_name THEN
+		RETURN 0;
+	      WHEN OTHERS THEN RAISE EXCEPTION '% %', SQLSTATE, SQLERRM;
+    END;
+
+  ELSEIF (UPPER(pType) = 'TABLE') THEN
     _query = 'DROP TABLE ' || quote_ident(LOWER(pSchema)) || '.' || quote_ident(LOWER(pObject)); 
     
     IF (pCascade) THEN
