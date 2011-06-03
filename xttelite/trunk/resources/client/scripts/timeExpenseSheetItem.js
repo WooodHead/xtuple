@@ -495,19 +495,8 @@ xtte.timeExpenseSheetItem.actTotals = function()
 
   if (q.first())
   {
-    if (_type.code == 'T')
-    {
-      hours = _hours.toDouble() + q.value("total_hours");
-      expense = q.value("total_expense");
-    }
-    else
-    {
-      hours = q.value("total_hours")
-      expense = _total.localValue + q.value("total_expense");
-    }
-
-    _actual.setDouble(hours);
-    _actualCost.setDouble(expense);
+      _actual.text = q.value("total_hours");
+      _actualCost.text = q.value("total_expense");
   } 
   else
     xtte.errorCheck(q);

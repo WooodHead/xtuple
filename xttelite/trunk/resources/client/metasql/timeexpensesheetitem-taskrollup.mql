@@ -2,8 +2,8 @@
 -- Name:  taskrollup
 -- Notes: Total hours and expenses including unapproved sheets
 SELECT 
-  SUM(total_hours) AS total_hours,
-  SUM(total_expense) AS total_expense
+  formatQty(SUM(total_hours)) AS total_hours,
+  formatMoney(SUM(total_expense)) AS total_expense
 FROM
   (
    SELECT 
@@ -19,7 +19,7 @@ FROM
      JOIN te.tehead ON (tehead_id=teitem_tehead_id)
    WHERE teitem_prjtask_id = <? value("task_id") ?>
     AND teitem_type = 'T' 
-    AND teitem_id != <? value("teitem_id") ?>
+--    AND teitem_id != <? value("teitem_id") ?>
     AND tehead_status = 'O'
    UNION
    SELECT 
@@ -29,6 +29,6 @@ FROM
      JOIN te.tehead ON (tehead_id=teitem_tehead_id)
    WHERE teitem_prjtask_id = <? value("task_id") ?>
      AND teitem_type = 'E'
-     AND teitem_id != <? value("teitem_id") ?>
+--     AND teitem_id != <? value("teitem_id") ?>
      AND tehead_status = 'O'
 ) AS rollup;
