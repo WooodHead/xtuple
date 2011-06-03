@@ -135,7 +135,7 @@ BEGIN
 						SELECT getActiveRevId('BOM',itemsite_item_id)
 						FROM itemsite
 						WHERE (itemsite_id=NEW.poitem_itemsite_id)));
-    NEW.poitem_boo_rev_id		:= COALESCE(NEW.poitem_bom_rev_id,(
+    NEW.poitem_boo_rev_id		:= COALESCE(NEW.poitem_boo_rev_id,(
 						SELECT getActiveRevId('BOO',itemsite_item_id)
 						FROM itemsite
 						WHERE (itemsite_id=NEW.poitem_itemsite_id)));
