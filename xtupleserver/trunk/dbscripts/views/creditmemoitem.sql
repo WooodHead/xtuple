@@ -12,7 +12,9 @@ SELECT cmitem.*, itemsite_item_id AS item_id,
        ( SELECT COALESCE(SUM(taxhist_tax), 0)
          FROM cmitemtax
          WHERE (taxhist_parent_id = cmitem_id) ) AS tax,
-       stdCost(itemsite_item_id) AS unitcost
+       CASE WHEN (itemsite_costmethod='A') THEN avgCost(itemsite_id)
+            ELSE stdCost(itemsite_item_id)
+       END AS unitcost
 FROM cmitem JOIN cmhead ON (cmhead_id = cmitem_cmhead_id)
             LEFT OUTER JOIN itemsite ON (itemsite_id=cmitem_itemsite_id);
 
