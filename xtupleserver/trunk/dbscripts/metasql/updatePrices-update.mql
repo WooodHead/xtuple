@@ -2,7 +2,7 @@
 -- Name: update
 -- Notes:
 
-UPDATE ipsitem SET
+UPDATE ipsiteminfo SET
   ipsitem_price=
 <? if exists("updateByValue") ?>
   ipsitem_price + <? value("updateBy") ?>
