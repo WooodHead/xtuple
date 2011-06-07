@@ -108,7 +108,8 @@ BEGIN
                            AND curr_expires) );
 
 -- Process line items
-  FOR _r IN SELECT *
+-- Always use std cost
+  FOR _r IN SELECT *, stdCost(item_id) AS std_cost
             FROM creditmemoitem
             WHERE ( (cmitem_cmhead_id=pCmheadid)
               AND   (cmitem_qtycredit <> 0 ) ) LOOP
@@ -157,7 +158,7 @@ BEGIN
       _p.cmhead_docdate, '',
       _p.cmhead_number, _p.cmhead_custponumber, _p.cmhead_docdate,
       'C', _p.cmhead_invcnumber, _p.cmhead_docdate,
-      (_r.qty * -1), _r.unitprice, _r.unitcost,
+      (_r.qty * -1), _r.unitprice, _r.std_cost,
       _p.cmhead_salesrep_id, (_p.cmhead_commission * _r.extprice * -1), FALSE,
       _p.cmhead_billtoname, _p.cmhead_billtoaddress1,
       _p.cmhead_billtoaddress2, _p.cmhead_billtoaddress3,
@@ -409,7 +410,7 @@ BEGIN
   FOR _r IN SELECT cmitem_itemsite_id AS itemsite_id, cmitem_id,
                    (cmitem_qtyreturned * cmitem_qty_invuomratio) AS qty,
                    cmhead_number, cmhead_cust_id AS cust_id, item_number,
-                   cmhead_prj_id
+                   stdCost(item_id) AS std_cost, cmhead_prj_id
             FROM cmhead, cmitem, itemsite, item
             WHERE ( (cmitem_cmhead_id=cmhead_id)
              AND (cmitem_itemsite_id=itemsite_id)
@@ -426,7 +427,7 @@ BEGIN
                          'S/O', 'CM', _r.cmhead_number, '',
                          ('Credit Return ' || _r.item_number),
                          costcat_asset_accnt_id, getPrjAccntId(_r.cmhead_prj_id, resolveCOSAccount(itemsite_id, _r.cust_id)), 
-                         _itemlocSeries, _glDate) INTO _invhistid
+                         _itemlocSeries, _glDate, _r.std_cost) INTO _invhistid
     FROM itemsite, costcat
     WHERE ( (itemsite_costcat_id=costcat_id)
      AND (itemsite_id=_r.itemsite_id) );
