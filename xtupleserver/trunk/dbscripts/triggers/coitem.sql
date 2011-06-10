@@ -617,7 +617,7 @@ BEGIN
 --      --Dropship processing
       IF(_po) THEN
         IF (TG_OP = 'UPDATE') THEN
-          IF ((NEW.coitem_qtyord <> OLD.coitem_qtyord) OR (NEW.coitem_scheddate <> OLD.coitem_scheddate)) THEN
+          IF ((NEW.coitem_qtyord <> OLD.coitem_qtyord) OR (NEW.coitem_qty_invuomratio <> OLD.coitem_qty_invuomratio) OR (NEW.coitem_scheddate <> OLD.coitem_scheddate)) THEN
             --Update related poitem
             UPDATE poitem
             SET poitem_qty_ordered = roundQty(_fractional, (NEW.coitem_qtyord * NEW.coitem_qty_invuomratio / poitem_invvenduomratio)),
