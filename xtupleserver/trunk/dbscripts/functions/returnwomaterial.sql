@@ -191,6 +191,8 @@ BEGIN
    AND (invhist_qoh_before > invhist_qoh_after)
    AND (womatl_id=pWomatlId));
 
+  _cost := COALESCE(_cost, 0); -- make sure it's not a null value
+
   -- Post the transaction
   SELECT postInvTrans( ci.itemsite_id, 'IM', (_qty * -1), 
                        'W/O', 'WO', _woNumber, '',
