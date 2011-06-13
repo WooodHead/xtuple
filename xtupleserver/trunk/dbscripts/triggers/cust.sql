@@ -117,7 +117,7 @@ BEGIN
                                (''Credit Status Changed from "'' || _oldCreditStatus || ''" to "'' || _newCreditStatus || ''"'') );
         END IF;
 
-        -- Handle customer type
+-- Handle customer type
         IF (OLD.cust_custtype_id <> NEW.cust_custtype_id) THEN
           PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
             (''Customer type changed from "'' || (SELECT custtype_code
@@ -126,6 +126,22 @@ BEGIN
             || ''" to "'' || (SELECT custtype_code
                               FROM custtype JOIN custinfo ON custtype_id = NEW.cust_custtype_id
                               WHERE cust_id = NEW.cust_id)|| ''"'') );
+        END IF;
+
+--  Handle customer grace period days
+        IF (COALESCE(OLD.cust_gracedays,-1) <> COALESCE(NEW.cust_gracedays,-1)) THEN
+          PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
+                               (''Grace Days changed from "'' || CASE WHEN OLD.cust_gracedays IS NULL THEN ''Default'' ELSE TEXT(OLD.cust_gracedays) END
+                                 || ''" to "'' || CASE WHEN NEW.cust_gracedays IS NULL THEN ''Default'' ELSE TEXT(NEW.cust_gracedays) END || ''"'') );
+        END IF;
+
+--  Handle customer terms
+        IF (OLD.cust_terms_id <> NEW.cust_terms_id) THEN
+          PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
+                               (''Terms changed from "'' || (SELECT terms_code
+                                                  FROM terms WHERE terms_id = OLD.cust_terms_id)
+            || ''" to "'' || (SELECT terms_code
+                                                  FROM terms WHERE terms_id = NEW.cust_terms_id) || ''"'') );
         END IF;
 
       END IF;
