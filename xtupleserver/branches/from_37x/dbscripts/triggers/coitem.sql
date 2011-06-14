@@ -485,6 +485,7 @@ DECLARE
   _custID INTEGER;
   _po BOOLEAN;
   _kit BOOLEAN;
+  _fractional BOOLEAN;
   _purchase BOOLEAN;
   _rec RECORD;
   _kstat TEXT;
@@ -505,12 +506,13 @@ BEGIN
   WHERE (cohead_id=_rec.coitem_cohead_id);
 
   --Determine if this is a kit for later processing
-  SELECT COALESCE(item_type,'')='K'
-    INTO _kit
+  SELECT COALESCE(item_type,'')='K', item_fractional
+    INTO _kit, _fractional
     FROM itemsite, item
    WHERE((itemsite_item_id=item_id)
      AND (itemsite_id=_rec.coitem_itemsite_id));
   _kit := COALESCE(_kit, false);
+  _fractional := COALESCE(_fractional, false);
 
  --Select purchase items
   SELECT COALESCE(item_type,'')='P'
@@ -615,10 +617,10 @@ BEGIN
 --      --Dropship processing
       IF(_po) THEN
         IF (TG_OP = 'UPDATE') THEN
-          IF ((NEW.coitem_qtyord <> OLD.coitem_qtyord) OR (NEW.coitem_scheddate <> OLD.coitem_scheddate)) THEN
+          IF ((NEW.coitem_qtyord <> OLD.coitem_qtyord) OR (NEW.coitem_qty_invuomratio <> OLD.coitem_qty_invuomratio) OR (NEW.coitem_scheddate <> OLD.coitem_scheddate)) THEN
             --Update related poitem
             UPDATE poitem
-            SET poitem_qty_ordered = NEW.coitem_qtyord,
+            SET poitem_qty_ordered = roundQty(_fractional, (NEW.coitem_qtyord * NEW.coitem_qty_invuomratio / poitem_invvenduomratio)),
                 poitem_duedate = NEW.coitem_scheddate 
             WHERE (poitem_id = OLD.coitem_order_id);
 

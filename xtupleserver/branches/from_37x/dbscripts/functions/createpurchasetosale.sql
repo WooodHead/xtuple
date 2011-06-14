@@ -34,10 +34,13 @@ DECLARE
 
 BEGIN
 
-  SELECT * INTO _s
+  SELECT *,
+         COALESCE(roundQty(item_fractional, (coitem_qtyord * coitem_qty_invuomratio)), 0.0) AS orderqty
+  INTO _s
   FROM cohead JOIN coitem ON (cohead_id = coitem_cohead_id)
     LEFT OUTER JOIN shiptoinfo ON (cohead_shipto_id = shipto_id)
     LEFT OUTER JOIN itemsite ON (coitem_itemsite_id = itemsite_id)
+    LEFT OUTER JOIN item ON (item_id = itemsite_item_id)
   WHERE (coitem_id = pCoitemId);
   IF (NOT FOUND) THEN
     RETURN -1;
@@ -209,7 +212,7 @@ BEGIN
     SELECT currToCurr(itemsrcp_curr_id, _i.vend_curr_id, itemsrcp_price, CURRENT_DATE) INTO _price
     FROM itemsrcp
     WHERE ( (itemsrcp_itemsrc_id = pItemSourceId)
-      AND (itemsrcp_qtybreak <= _s.coitem_qtyord) )
+      AND (itemsrcp_qtybreak <= _s.orderqty) )
     ORDER BY itemsrcp_qtybreak DESC
     LIMIT 1;
   ELSE
@@ -229,7 +232,7 @@ BEGIN
     ( _poitemid, 'U', _poheadid, _polinenumber,
       _s.coitem_scheddate, _s.coitem_itemsite_id,
       COALESCE(_i.itemsrc_vend_item_descrip, TEXT('')), COALESCE(_i.itemsrc_vend_uom, TEXT('')),
-      COALESCE(_i.itemsrc_invvendoruomratio, 1.00), COALESCE(_s.coitem_qtyord, 0.00),
+      COALESCE(_i.itemsrc_invvendoruomratio, 1.00), (_s.orderqty / COALESCE(_i.itemsrc_invvendoruomratio, 1.00)),
       _price, COALESCE(_i.itemsrc_vend_item_number, TEXT('')),
       pItemSourceId, pCoitemId, _s.cohead_prj_id, stdcost(_i.itemsrc_item_id),
       COALESCE(_i.itemsrc_manuf_name, TEXT('')), COALESCE(_i.itemsrc_manuf_item_number, TEXT('')),
