@@ -52,7 +52,7 @@ SELECT t.oid AS pkgitem_id, 'G' AS pkgitem_type,
        JOIN pg_namespace ON (relnamespace=pg_namespace.oid)
  WHERE ((nspname=<? value("pkgname") ?>) 
 <? if not exists("showsystemdetails") ?>
-    AND (NOT tgisconstraint)
+    AND (tgconstraint = 0)
    AND  (tgname !~ '^pkg(cmd(arg)?|image|metasql|priv|report|script|uiform)')
 <? endif ?>
     )
