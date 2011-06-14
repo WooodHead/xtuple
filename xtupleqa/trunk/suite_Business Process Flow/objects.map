@@ -86,8 +86,9 @@
 :Cash Receipt.Save_QPushButton_2	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
 :Cash Receipt.Save_QPushButton_3	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' text='Save' type='QPushButton' unnamed='1' visible='1'}
 :Cash Receipt.VirtualClusterLineEdit_CLineEdit	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='VirtualClusterLineEdit' type='CLineEdit' visible='1'}
-:Cash Receipt.XLineEdit_XLineEdit	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='XLineEdit' occurrence='8' type='XLineEdit' visible='1'}
-:Cash Receipt.XLineEdit_XLineEdit_2	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='XLineEdit' occurrence='7' type='XLineEdit' visible='1'}
+:Cash Receipt.XLineEdit_XLineEdit	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='XLineEdit' type='XLineEdit' visible='1'}
+:Cash Receipt.XLineEdit_XLineEdit_2	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='XLineEdit' type='XLineEdit' visible='1'}
+:Cash Receipt.XLineEdit_XLineEdit_3	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='XLineEdit' type='XLineEdit' visible='1'}
 :Cash Receipt.Yes_QPushButton	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' text='Yes' type='QPushButton' unnamed='1' visible='1'}
 :Cash Receipt._amountGroup_QGroupBox	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='_amountGroup' type='QGroupBox' visible='1'}
 :Cash Receipt._currency_XComboBox	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='_currency' type='XComboBox' visible='1'}
@@ -825,12 +826,15 @@
 :_amount_XLineEdit_4	{container=':[*]Voucher._amount_QGroupBox' occurrence='3' type='XLineEdit' unnamed='1' visible='1'}
 :_application.Interface Options_QGroupBox	{container=':qt_tabwidget_stackedwidget._application_QWidget' name='_interfaceGroup' title='Interface Options' type='QGroupBox' visible='1'}
 :_application.Search Navigation_QGroupBox	{container=':qt_tabwidget_stackedwidget._application_QWidget' name='_clusterModeGroup' title='Search Navigation' type='QGroupBox' visible='1'}
+:_applicationsTab.Apply to Balance_QPushButton	{container=':qt_tabwidget_stackedwidget._applicationsTab_QWidget' name='_applyToBalance' text='Apply to Balance' type='QPushButton' visible='1'}
 :_applicationsTab.Apply_QPushButton	{container=':qt_tabwidget_stackedwidget._applicationsTab_QWidget' name='_apply' text='Apply' type='QPushButton' visible='1'}
 :_applicationsTab._aropen_XTreeWidget	{container=':qt_tabwidget_stackedwidget._applicationsTab_QWidget' name='_aropen' type='XTreeWidget' visible='1'}
 :_applicationsTab._searchDocNum_QLineEdit	{container=':qt_tabwidget_stackedwidget._applicationsTab_QWidget' name='_searchDocNum' type='QLineEdit' visible='1'}
 :_aropen.2010-12-30_QModelIndex	{column='3' container=':_applicationsTab._aropen_XTreeWidget' text='2010-12-30' type='QModelIndex'}
 :_aropen.50201_QModelIndex	{column='2' container=':_applicationsTab._aropen_XTreeWidget' text='50201' type='QModelIndex'}
+:_aropen.50222_QModelIndex	{column='2' container=':_applicationsTab._aropen_XTreeWidget' text='50222' type='QModelIndex'}
 :_aropen.60100_QModelIndex	{column='4' container=':_aropenFrame._aropen_XTreeWidget' text='60100' type='QModelIndex'}
+:_aropen.CR_QModelIndex	{column='5' container=':_applicationsTab._aropen_XTreeWidget' type='QModelIndex'}
 :_aropen._QModelIndex	{column='5' container=':_applicationsTab._aropen_XTreeWidget' type='QModelIndex'}
 :_aropenFrame.Receivables_QLabel	{container=':_receivablesTab._aropenFrame_QFrame' name='_listLabel' text='Receivables' type='QLabel' visible='1'}
 :_aropenFrame._aropen_XTreeWidget	{container=':_receivablesTab._aropenFrame_QFrame' name='_aropen' type='XTreeWidget' visible='1'}
@@ -944,6 +948,7 @@
 :_invGroup.Qty. Ordered:_QLabel	{name='_qtyOrderedLit' text='Qty. Ordered:' type='QLabel' visible='1' windowTitle?='*'}
 :_invGroup.Qty. Ordered:_QLabel_2	{name='_qtyOrderedLit' text='Qty. Ordered:' type='QLabel' visible='1' windowTitle?='*'}
 :_invGroup.Qty. Ordered:_QLabel_3	{container=':Sales Order._invGroup_QGroupBox_2' name='_qtyOrderedLit' text='Qty. Ordered:' type='QLabel' visible='1'}
+:_invchead.50222_QModelIndex	{column='2' container=':_invchead_XTreeWidget' text='50222' type='QModelIndex'}
 :_invchead.60082_TreeWidgetItem	{checkstate='0' column='0' container=':_invchead_XTreeWidget' text='60082' tooltip='' type='TreeWidgetItem'}
 :_invchead_XTreeWidget	{buddy=':List Unposted Invoices.Unposted Invoices:_QLabel' name='_invchead' type='XTreeWidget' visible='1'}
 :_invcitem_QHeaderView	{container=':lineItemsTab._invcitem_XTreeWidget' type='QHeaderView' unnamed='1' visible='1'}
@@ -1262,6 +1267,7 @@
 :headerTab.Invoice #:_QLabel	{container=':qt_tabwidget_stackedwidget.headerTab_QWidget' name='_invoiceNumberLit' text='Invoice #:' type='QLabel' visible='1'}
 :headerTab._titleLit_QLabel	{name='_titleLit' type='QLabel' visible='1' windowTitle?='*'}
 :lineItemsTab.New_QPushButton	{container=':qt_tabwidget_stackedwidget.lineItemsTab_QWidget' name='_new' text='New' type='QPushButton' visible='1'}
+:lineItemsTab.XLineEdit_XLineEdit	{container=':qt_tabwidget_stackedwidget.lineItemsTab_QWidget' name='XLineEdit' occurrence='8' type='XLineEdit' visible='1'}
 :lineItemsTab._invcitem_XTreeWidget	{container=':qt_tabwidget_stackedwidget.lineItemsTab_QWidget' name='_invcitem' type='XTreeWidget' visible='1'}
 :qt_tabwidget_stackedwidget._application_QWidget	{container=':User Preferences.qt_tabwidget_stackedwidget_QStackedWidget' name='_application' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._applicationsTab_QWidget	{container=':Cash Receipt.qt_tabwidget_stackedwidget_QStackedWidget' name='_applicationsTab' type='QWidget' visible='1'}

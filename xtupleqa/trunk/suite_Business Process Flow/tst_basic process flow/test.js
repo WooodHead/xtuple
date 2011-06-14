@@ -226,8 +226,8 @@ function main()
     {
         test.fail("Error in extracting sales order number" + e);
     }
-  
-  
+    
+    
     //-----Creating a Sales Order-----
     try
     {
@@ -292,7 +292,7 @@ function main()
     {
         test.fail("Error in creating sales order" + e);
     }
-  
+    
     //---find Application Edition------ 
     try
     {
@@ -318,39 +318,6 @@ function main()
     if(appEdition == "PostBooks")
     {
         
-        //------------Accounting Configuration---------------
-        try
-        {
-            waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
-            activateItem(":xTuple ERP:*_QMenuBar_2", "System");
-            waitForObjectItem(":xTuple ERP:*.System_QMenu", "Setup...");
-            activateItem(":xTuple ERP:*.System_QMenu", "Setup..."); 
-            waitForObject(":Setup._modules_QComboBox");
-            mouseClick(":Setup._modules_QComboBox", 77, 6, 0, Qt.LeftButton);
-            waitForObject(":_modules.Accounting_QModelIndex");
-            mouseClick(":_modules.Accounting_QModelIndex", 32, 4, 0, Qt.LeftButton);
-            waitForObject(":Configure.Accounting_QModelIndex");
-            mouseClick(":Configure.Accounting_QModelIndex", 16, 4, 0, Qt.LeftButton);
-            waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar_3");
-            clickTab(":Quote.qt_tabwidget_tabbar_QTabBar_3", "Accounts Payable");
-            waitForObject(":tab.Enable EFT Check Printing_QGroupBox");
-            mouseClick(":tab.Enable EFT Check Printing_QGroupBox", 17, 9, 0, Qt.LeftButton);
-            waitForObject(":_nextACHBatchNumber_XLineEdit");
-            findObject(":_nextACHBatchNumber_XLineEdit").clear();
-            type(":_nextACHBatchNumber_XLineEdit", "12345");
-            waitForObject(":_companyId_XLineEdit");
-            findObject(":_companyId_XLineEdit").clear();
-            type(":_companyId_XLineEdit", "company");
-            waitForObject(":Enable EFT Check Printing.Other_QRadioButton");
-            clickButton(":Enable EFT Check Printing.Other_QRadioButton");
-            waitForObject(":Setup.Save_QPushButton");
-            clickButton(":Setup.Save_QPushButton");
-            test.log("Account module is configured"); 
-        }
-        catch(e)
-        {
-            test.fail("Error in configuring the Accounts module" + e);
-        }   
         
         //-----------------Bank Account Configuration---------------
         try
@@ -817,8 +784,8 @@ function main()
             waitForObject(":_filterGroup.+_QToolButton_2");
             clickButton(":_filterGroup.+_QToolButton_2");
             
-            waitForObject(":_filterGroup.xcomboBox2_XComboBox")
-                    clickItem(":_filterGroup.xcomboBox2_XComboBox", "Site",5, 5, 1, Qt.LeftButton);
+            waitForObject(":_filterGroup.xcomboBox2_XComboBox");
+            clickItem(":_filterGroup.xcomboBox2_XComboBox", "Site",5, 5, 1, Qt.LeftButton);
             
             waitForObject(":_filterGroup.widget2_WComboBox");
             clickItem(":_filterGroup.widget2_WComboBox", "WH1",5, 5, 1, Qt.LeftButton);
@@ -900,8 +867,8 @@ function main()
             waitForObject(":_filterGroup.+_QToolButton_2");
             clickButton(":_filterGroup.+_QToolButton_2");
             
-            waitForObject(":_filterGroup.xcomboBox2_XComboBox")
-                    clickItem(":_filterGroup.xcomboBox2_XComboBox", "Site",5, 5, 1, Qt.LeftButton);
+            waitForObject(":_filterGroup.xcomboBox2_XComboBox");
+            clickItem(":_filterGroup.xcomboBox2_XComboBox", "Site",5, 5, 1, Qt.LeftButton);
             
             waitForObject(":_filterGroup.widget2_WComboBox");
             clickItem(":_filterGroup.widget2_WComboBox", "WH1",5, 5, 1, Qt.LeftButton);
@@ -2118,8 +2085,8 @@ function main()
             waitForObject(":_filterGroup.+_QToolButton_2");
             clickButton(":_filterGroup.+_QToolButton_2");
             
-            waitForObject(":_filterGroup.xcomboBox2_XComboBox")
-                    clickItem(":_filterGroup.xcomboBox2_XComboBox", "Site",5, 5, 1, Qt.LeftButton);
+            waitForObject(":_filterGroup.xcomboBox2_XComboBox");
+            clickItem(":_filterGroup.xcomboBox2_XComboBox", "Site",5, 5, 1, Qt.LeftButton);
             
             waitForObject(":_filterGroup.widget2_WComboBox");
             clickItem(":_filterGroup.widget2_WComboBox", "WH1",5, 5, 1, Qt.LeftButton);
@@ -2233,8 +2200,8 @@ function main()
                 waitForObject(":_filterGroup.+_QToolButton_2");
                 clickButton(":_filterGroup.+_QToolButton_2");
                 
-                waitForObject(":_filterGroup.xcomboBox2_XComboBox")
-                        clickItem(":_filterGroup.xcomboBox2_XComboBox", "Site",5, 5, 1, Qt.LeftButton);
+                waitForObject(":_filterGroup.xcomboBox2_XComboBox");
+                clickItem(":_filterGroup.xcomboBox2_XComboBox", "Site",5, 5, 1, Qt.LeftButton);
                 
                 waitForObject(":_filterGroup.widget2_WComboBox");
                 clickItem(":_filterGroup.widget2_WComboBox", "WH1",5, 5, 1, Qt.LeftButton);
@@ -2305,8 +2272,8 @@ function main()
             waitForObject(":_filterGroup.+_QToolButton_2");
             clickButton(":_filterGroup.+_QToolButton_2");
             
-            waitForObject(":_filterGroup.xcomboBox2_XComboBox")
-                    clickItem(":_filterGroup.xcomboBox2_XComboBox", "Site",5, 5, 1, Qt.LeftButton);
+            waitForObject(":_filterGroup.xcomboBox2_XComboBox");
+            clickItem(":_filterGroup.xcomboBox2_XComboBox", "Site",5, 5, 1, Qt.LeftButton);
             
             waitForObject(":_filterGroup.widget2_WComboBox");
             clickItem(":_filterGroup.widget2_WComboBox", "WH1",5, 5, 1, Qt.LeftButton);
@@ -2403,8 +2370,8 @@ function main()
             waitForObject(":_filterGroup.+_QToolButton_2");
             clickButton(":_filterGroup.+_QToolButton_2");
             
-            waitForObject(":_filterGroup.xcomboBox2_XComboBox")
-                    clickItem(":_filterGroup.xcomboBox2_XComboBox", "Site",5, 5, 1, Qt.LeftButton);
+            waitForObject(":_filterGroup.xcomboBox2_XComboBox");
+            clickItem(":_filterGroup.xcomboBox2_XComboBox", "Site",5, 5, 1, Qt.LeftButton);
             
             waitForObject(":_filterGroup.widget2_WComboBox");
             clickItem(":_filterGroup.widget2_WComboBox", "WH1",5, 5, 1, Qt.LeftButton);
@@ -2441,7 +2408,7 @@ function main()
         test.fail("Error in verifying QOH after issuing stock" + e);
     }    
     
-   
+    
     //-----Select Order for Billing-----
     try
     {
@@ -2523,8 +2490,12 @@ function main()
         waitForObject(":Invoice.Close_QPushButton");
         
         invoice = findObject(":_invoiceNumber_XLineEdit").text;
+        waitForObject(":Invoice.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":Invoice.qt_tabwidget_tabbar_QTabBar", "Line Items");
         
-        clickButton(":Invoice.Close_QPushButton");
+        var invamt=findObject(":lineItemsTab.XLineEdit_XLineEdit").text;
+        waitForObject(":Invoice.Close_QPushButton");
+        clickButton(":Invoice.Close_QPushButton");        
         waitForObject(":List Unposted Invoices.Post_QPushButton");
         clickButton(":List Unposted Invoices.Post_QPushButton");
         waitForObject(":List Unposted Invoices.Continue_QPushButton");
@@ -2627,16 +2598,14 @@ function main()
         type(":Cash Receipt.VirtualClusterLineEdit_CLineEdit", "TTOYS");
         snooze(0.5);
         nativeType("<Tab>");
-       
-        waitForObject(":_applicationsTab._aropen_XTreeWidget");
-        doubleClickItem(":_applicationsTab._aropen_XTreeWidget", sonumber, 5, 5, 1, Qt.LeftButton);
-         var amt=findObject(":Cash Receipt.XLineEdit_XLineEdit_2").text;
-        waitForObject(":Cash Receipt.XLineEdit_XLineEdit");
-        type(":Cash Receipt.XLineEdit_XLineEdit", amt);
-        waitForObject(":Cash Receipt.Save_QPushButton_3");
-        clickButton(":Cash Receipt.Save_QPushButton_3");       
         waitForObject(":_amountGroup.XLineEdit_XLineEdit");
-        type(":_amountGroup.XLineEdit_XLineEdit", amt);
+        type(":_amountGroup.XLineEdit_XLineEdit", invamt);
+        waitForObject(":_applicationsTab._aropen_XTreeWidget");
+        clickItem(":_applicationsTab._aropen_XTreeWidget", sonumber, 5, 5, 1, Qt.LeftButton);
+        var amt=findObject(":Cash Receipt.XLineEdit_XLineEdit_2").text;
+        waitForObject(":_applicationsTab.Apply to Balance_QPushButton");
+        clickButton(":_applicationsTab.Apply to Balance_QPushButton");
+        
         waitForObject(":Cash Receipt.Save_QPushButton_2");
         clickButton(":Cash Receipt.Save_QPushButton_2");
         test.log("Cash receipt created for the Invoice");
