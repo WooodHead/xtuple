@@ -135,3 +135,46 @@ CREATE TRIGGER invcheadtrigger
   ON invchead
   FOR EACH ROW
   EXECUTE PROCEDURE _invcheadTrigger();
+
+
+CREATE OR REPLACE FUNCTION _invcheadaftertrigger()
+  RETURNS trigger AS
+$BODY$
+  DECLARE
+    _cmnttypeid INTEGER;
+    _cohead_id INTEGER;
+
+  BEGIN
+--  Create a comment entry when on a Sales Order when an Invoice is Posted for that order
+
+--  Cache the cmnttype_id for ChangeLog
+    SELECT cmnttype_id INTO _cmnttypeid
+    FROM cmnttype
+    WHERE (cmnttype_name='ChangeLog');
+    IF (FOUND) THEN
+      IF (TG_OP = 'UPDATE') THEN
+	IF ((OLD.invchead_posted != NEW.invchead_posted) AND NEW.invchead_posted) THEN
+	  SELECT cohead_id INTO _cohead_id
+	  FROM cohead
+	  WHERE (cohead_number = OLD.invchead_ordernumber);
+	  IF (FOUND) THEN
+            PERFORM postComment( _cmnttypeid, 'S', _cohead_id,
+                                 ('Invoice, ' || NEW.invchead_invcnumber || ', posted for this order') );
+          END IF;
+	END IF;
+      END IF;
+    END IF;
+  RETURN NEW;
+  END;
+$BODY$
+  LANGUAGE 'plpgsql' VOLATILE
+  COST 100;
+
+SELECT dropIfExists('TRIGGER', 'invcheadaftertrigger');
+CREATE TRIGGER invcheadaftertrigger
+  AFTER UPDATE
+  ON invchead
+  FOR EACH ROW
+  EXECUTE PROCEDURE _invcheadaftertrigger();
+
+
