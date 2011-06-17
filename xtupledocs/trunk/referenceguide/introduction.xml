@@ -39,6 +39,11 @@
   <para>For more information on the differences between the xTuple ERP
   Editions, including licensing options, please visit <ulink
   url="http://www.xtuple.com/comparison">www.xtuple.com/comparison</ulink>.</para>
+  <para>The screenshots and examples used throughout this Reference Guide are
+  taken from the Manufacturing Edition Client for Windows, running on Windows
+  XP. There is no functional difference between the Windows, Mac, or Linux
+  Clients. You will find only minor graphical user interface differences. The
+  same holds true for the xTuple ERP products.</para>
   <para role="xtconnect">This Reference Guide also includes screen reference
   material for the xTuple Connect extension package. You can learn more about
   this extension in the xTuple Connect Product Guide, which you can find on
@@ -53,41 +58,32 @@
     throughout the application. We wanted to introduce them to you early so
     you would be familiar with them as you work your way through the xTuple
     Application modules.</para>
-    <note>
-      <para>The screenshots and examples used throughout this Reference Guide
-      are taken from the Manufacturing Edition Client for Windows, running on
-      Windows XP. There is no functional difference between the Windows, Mac,
-      or Linux Clients. You will find only minor graphical user interface
-      differences. The same holds true for the xTuple ERP products.</para>
-    </note>
     <para>The next sections describe the steps required to log in to and exit
     xTuple ERP. In some cases, you may need to ask your system administrator
     for information concerning site-specific settings.</para>
     <section id="Section466744">
-      <title>Log In Options</title>
-      <para>To log in using a Windows client, you should double-click on the
-      xTuple ERP icon wherever it appears on your computer desktop. Likewise,
-      Macintosh users may click on the xTuple ERP icon from their desktop.
-      <indexterm significance="normal">
+      <title>Log In Options<indexterm significance="normal">
           <primary>linux</primary>
           <secondary>client log in procedure</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>windows</primary>
           <secondary>client log in procedure</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>log in</primary>
           <secondary>linux</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>log in</primary>
           <secondary>windows</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>mac</primary>
           <secondary>client log in procedure</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>log in</primary>
           <secondary>mac</secondary>
-        </indexterm>Linux users should run the appropriate xTuple ERP .sh file
-      to launch the application. The following screen will appear:</para>
+        </indexterm></title>
+      <para>To log in to xTuple ERP on either Windows or Macintosh, simply
+      locate the xTuple application or application shortcut and double-click
+      on it. This will bring you to the log in screen shown below:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
@@ -96,6 +92,12 @@
             <caption>Log In Screen</caption>
           </mediaobject>
         </screenshot></para>
+      <para>Linux users should run the appropriate xTuple ERP .sh file to
+      launch the application.</para>
+      <para>When you are logging in, the following screen will appear. Of
+      course, this examples shows the log in for the Windows client. However,
+      the screen is essentially the same regardless of the operating system
+      used:</para>
       <tip>
         <para>You should always be sure to use a version of xTuple ERP which
         matches the version of your xTuple Database. Using mis-matched
