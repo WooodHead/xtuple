@@ -111,7 +111,9 @@ BEGIN
       ipsitem_qtybreak, 
       ipsitem_price, 
       ipsitem_qty_uom_id, 
-      ipsitem_price_uom_id) 
+      ipsitem_price_uom_id,
+      ipsitem_discntprcnt,
+      ipsitem_fixedamtdiscount) 
     VALUES (
       _ipsitemid,
       pIpsheadId,
@@ -124,7 +126,9 @@ BEGIN
           COALESCE(pPriceUomId,pQtyUomId,(SELECT item_inv_uom_id FROM item WHERE item_id = pItemId))
         ELSE
           COALESCE(pQtyUomId,(SELECT item_inv_uom_id FROM item WHERE item_id = pItemId))
-      END);
+      END,
+      0.0,
+      0.0);
   ELSE 
     UPDATE ipsitem SET 
       ipsitem_qtybreak = pQtyBreak, 
