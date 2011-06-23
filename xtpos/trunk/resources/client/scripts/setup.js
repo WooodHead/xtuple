@@ -15,5 +15,5 @@ else
 }
 
 modeVal = mywindow.mode("MaintainRetailSites");
-mywindow.insert( name, uiName, setup.AccountMapping, Xt.SalesModule, modeVal, modeVal);
+mywindow.insert( name, uiName, setup.AccountMapping, Xt.SalesModule, modeVal, modeVal, "save");
 

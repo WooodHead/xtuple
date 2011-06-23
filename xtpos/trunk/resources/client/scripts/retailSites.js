@@ -1,4 +1,3 @@
-debugger
 // Define Variables
 var _close		= mywindow.findChild("_close");
 var _delete		= mywindow.findChild("_delete");
