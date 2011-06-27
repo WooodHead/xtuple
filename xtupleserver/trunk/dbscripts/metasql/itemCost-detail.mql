@@ -44,8 +44,9 @@ SELECT
           ELSE 0
         END,
         costelem_type, formatBoolYN(itemcost_lowlevel) AS lowlevel,
-        itemcost_stdcost, itemcost_posted,
-        itemcost_actcost, itemcost_updated,
+        itemcost_stdcost,
+        currToBase(itemcost_curr_id, itemcost_actcost, NULL) AS itemcost_actcost,
+        itemcost_updated, itemcost_posted,
         'cost' AS itemcost_stdcost_xtnumericrole,
         'cost' AS itemcost_actcost_xtnumericrole,
         0 AS itemcost_stdcost_xttotalrole,
