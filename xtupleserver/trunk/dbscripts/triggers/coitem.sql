@@ -216,8 +216,14 @@ BEGIN
     END IF;
 
     IF ((NEW.coitem_status = 'X') AND (OLD.coitem_status <> 'X')) THEN
+      IF ((OLD.coitem_order_type = 'W') AND
+	  (SELECT wo_status IN ('O', 'E')
+	    FROM wo
+	    WHERE (wo_id=OLD.coitem_order_id))) THEN
+      -- Delete any associated W/O
+        PERFORM deleteWo(OLD.coitem_order_id, TRUE);
+      ELSIF (OLD.coitem_order_type = 'R') THEN 
       -- Delete any associated P/R
-      IF (OLD.coitem_order_type = 'R') THEN 
         PERFORM deletePr(OLD.coitem_order_id);
       END IF;
 
