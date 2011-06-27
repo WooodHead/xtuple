@@ -39,7 +39,7 @@ FROM cohist
   JOIN itemsite ON (itemsite_id=cohist_itemsite_id)
   JOIN item ON (item_id=itemsite_item_id)
   JOIN prodcat ON (item_prodcat_id=prodcat_id)
-WHERE (cohist_shipdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+WHERE (cohist_invcdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 GROUP BY <? literal("group_id") ?>, <? literal("group_number") ?>, <? literal("group_name") ?>
 ORDER BY <? literal("group_number") ?>;
 <? endif ?>
