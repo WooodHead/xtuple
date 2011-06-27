@@ -20,10 +20,10 @@ FROM uom, item, (
                           bomitem_qtyper * (1 + bomitem_scrap)) *
              itemcost_stdcost) AS extendedcost 
   <? elseif exists("actualCost") ?>
-            itemcost_actcost AS cost,
+            currToBase(itemcost_curr_id, itemcost_actcost, NULL) AS cost,
             (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
                           bomitem_qtyper * (1 + bomitem_scrap)) *
-             itemcost_actcost) AS extendedcost 
+             currToBase(itemcost_curr_id, itemcost_actcost, NULL)) AS extendedcost 
   <? endif ?>
     FROM bomitem
          JOIN itemcost ON (itemcost_item_id=bomitem_item_id)
@@ -44,8 +44,8 @@ FROM uom, item, (
             (itemcost_stdcost / bbomitem_qtyper *
              bbomitem_costabsorb) AS extendedcost 
   <? elseif exists("actualCost") ?>
-            itemcost_actcost AS cost,
-            (itemcost_actcost / bbomitem_qtyper *
+            currToBase(itemcost_curr_id, itemcost_actcost, NULL) AS cost,
+            (currToBase(itemcost_curr_id, itemcost_actcost, NULL) / bbomitem_qtyper *
              bbomitem_costabsorb) AS extendedcost 
   <? endif ?>
     FROM xtmfg.bbomitem
@@ -62,8 +62,8 @@ FROM uom, item, (
            (itemcost_stdcost * source.bbomitem_qtyper /
             target.bbomitem_qtyper * target.bbomitem_costabsorb) AS extendedcost 
   <? elseif exists("actualCost") ?>
-           itemcost_actcost AS cost,
-           (itemcost_actcost * source.bbomitem_qtyper /
+           currToBase(itemcost_curr_id, itemcost_actcost, NULL) AS cost,
+           (currToBase(itemcost_curr_id, itemcost_actcost, NULL) * source.bbomitem_qtyper /
             target.bbomitem_qtyper * target.bbomitem_costabsorb) AS extendedcost 
   <? endif ?>
     FROM xtmfg.bbomitem AS source
