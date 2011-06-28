@@ -155,7 +155,11 @@ function save()
     _site["newID(int)"].connect(check);
     toolbox.executeRollback();
     toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+
+    return false;
   }
+
+  return true;
 }
 
 function set(input)
