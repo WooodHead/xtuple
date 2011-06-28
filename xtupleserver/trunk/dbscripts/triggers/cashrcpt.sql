@@ -4,6 +4,8 @@ DECLARE
   _checkId    INTEGER;
   _currId     INTEGER;
   _bankCurrId INTEGER;
+  _evntType   TEXT;
+  _whsId      INTEGER;
 
 BEGIN
 
@@ -26,6 +28,27 @@ BEGIN
     _currId = COALESCE(NEW.cashrcpt_curr_id, basecurrid());
   ELSE
     _currId = NEW.cashrcpt_curr_id;
+  END IF;
+
+  -- Create CashReceiptPosted Event
+  IF (TG_OP = 'UPDATE') THEN
+    IF (OLD.cashrcpt_posted=FALSE AND NEW.cashrcpt_posted=TRUE) THEN
+      _evntType = 'CashReceiptPosted';
+      -- Find the warehouse for which to create evntlog entries
+      SELECT usrpref_value  INTO _whsId
+      FROM usrpref
+      WHERE usrpref_username = CURRENT_USER
+        AND usrpref_name = 'PreferredWarehouse';
+
+      INSERT INTO evntlog (evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
+                           evntlog_ord_id, evntlog_warehous_id, evntlog_number)
+      SELECT DISTINCT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
+                      NEW.cashrcpt_id, _whsId,
+                     (NEW.cashrcpt_docnumber || ' ' || currConcat(NEW.cashrcpt_curr_id) || formatMoney(NEW.cashrcpt_amount))
+      FROM evntnot, evnttype
+      WHERE ((evntnot_evnttype_id=evnttype_id)
+        AND  (evnttype_name=_evntType));
+    END IF;
   END IF;
 
   RETURN NEW;
