@@ -9,7 +9,7 @@ SELECT coitem_id, coitem_altid, groupby,
        enhanced_status, coitem_firm,
        qty_uom, price_uom, ship_uom,
        coitem_memo,
-<? if exists("includeFormatted") ?>
+-- always create formatted columns for scheduled reports
        formatDate(coitem_scheddate) AS f_scheddate,
        formatSalesPrice(coitem_price) AS f_price,
        formatSalesPrice(coitem_custprice) AS f_custprice,
@@ -20,7 +20,7 @@ SELECT coitem_id, coitem_altid, groupby,
        CASE WHEN (qtyatshipping > 0.0) THEN formatQty(qtyatshipping) ELSE NULL END AS f_qtyatshipping,
        formatMoney(extprice) AS f_extprice,
        CASE WHEN (extprice_shipped > 0.0) THEN formatMoney(extprice_shipped) ELSE NULL END AS f_extprice_shipped,
-<? else ?>
+-- end formatted columns
        coitem_scheddate, coitem_price, coitem_custprice, discountfromcust,
        coitem_qtyord, qtyshipped, balance, qtyatshipping,
        extprice, extprice_shipped,
@@ -47,7 +47,6 @@ SELECT coitem_id, coitem_altid, groupby,
        CASE WHEN coitem_subnumber = 0 THEN 0
             ELSE 1
        END AS xtindentrole,
-<? endif ?>
        spplytype, ordrnumbr
 FROM (
 SELECT coitem_id,
