@@ -13,9 +13,6 @@ include( ../global.pri )
 TEMPLATE = lib
 CONFIG += qt warn_on thread staticlib
 
-INCLUDEPATH += $(QTDIR)/src/3rdparty/zlib
-DEPENDPATH  += $(QTDIR)/src/3rdparty/zlib
-
 TARGET = updatercommon
 DESTDIR = ../lib
 OBJECTS_DIR = tmp
@@ -45,8 +42,6 @@ HEADERS = data.h \
           loadreport.h \
           pkgschema.h \
           prerequisite.h \
-          tarfile.h \
-          gunzip.h \
           xversion.h
 
 SOURCES = data.cpp \
@@ -69,8 +64,6 @@ SOURCES = data.cpp \
           loadreport.cpp \
           pkgschema.cpp \
           prerequisite.cpp \
-          tarfile.cpp \
-          gunzip.cpp \
           xversion.cpp
 
 QT += xml sql
