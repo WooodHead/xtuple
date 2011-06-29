@@ -1,0 +1,280 @@
+<chart>
+
+	<axis_category shadow='low' size='8' alpha='50' />
+	<axis_ticks value_ticks='1' category_ticks='1' major_thickness='1' minor_thickness='1' major_color='000000' minor_color='555555' />
+	<axis_value shadow='low' size='9' color='000000' alpha='65' steps='4' suffix='%' max='100' />
+	
+	<chart_border color='000000' top_thickness='0' bottom_thickness='0' left_thickness='3' right_thickness='0' />
+	<chart_data>
+		<row>
+			<null/>
+			<string>12:00</string>
+			<string>11:00</string>
+			<string>10:00</string>
+			<string>9:00</string>
+			<string>8:00</string>
+			<string>7:00</string>
+			<string>6:00</string>
+			<string>5:00</string>
+			<string>4:00</string>
+			<string>3:00</string>
+			<string>2:00</string>
+			<string>1:00</string>
+			<string>12:00</string>
+			<string>11:00</string>
+			<string>10:00</string>
+			<string>9:00</string>
+			<string>8:00</string>
+			<string>7:00</string>
+			<string>6:00</string>
+			<string>5:00</string>
+			<string>4:00</string>
+			<string>3:00</string>
+			<string>2:00</string>
+			<string>1:00</string>
+		</row>
+		<row>
+			<string></string>
+			<?php
+			switch ( $_REQUEST['category'] ){
+				case "SUN":
+				print "<number>6</number>
+					<number>11</number>
+					<number>13</number>
+					<number>20</number>
+					<number>23</number>
+					<number>27</number>
+					<number>30</number>
+					<number>31</number>
+					<number>30</number>
+					<number>27</number>
+					<number>25</number>
+					<number>26</number>
+					<number>25</number>
+					<number>27</number>
+					<number>26</number>
+					<number>23</number>
+					<number>21</number>
+					<number>22</number>
+					<number>21</number>
+					<number>20</number>
+					<number>17</number>
+					<number>11</number>
+					<number>7</number>
+					<number>4</number>";
+				break;
+					
+				case "MON":
+				print "<number>8</number>
+					<number>15</number>
+					<number>17</number>
+					<number>25</number>
+					<number>30</number>
+					<number>27</number>
+					<number>32</number>
+					<number>35</number>
+					<number>40</number>
+					<number>45</number>
+					<number>42</number>
+					<number>40</number>
+					<number>30</number>
+					<number>25</number>
+					<number>23</number>
+					<number>20</number>
+					<number>25</number>
+					<number>28</number>
+					<number>26</number>
+					<number>28</number>
+					<number>20</number>
+					<number>15</number>
+					<number>9</number>
+					<number>6</number>";
+				break;
+				   
+				case "TUE":
+				print "<number>18</number>
+					<number>35</number>
+					<number>40</number>
+					<number>60</number>
+					<number>70</number>
+					<number>85</number>
+					<number>90</number>
+					<number>95</number>
+					<number>92</number>
+					<number>90</number>
+					<number>85</number>
+					<number>80</number>
+					<number>85</number>
+					<number>87</number>
+					<number>85</number>
+					<number>80</number>
+					<number>75</number>
+					<number>76</number>
+					<number>73</number>
+					<number>70</number>
+					<number>62</number>
+					<number>45</number>
+					<number>32</number>
+					<number>12</number>";
+				break;
+					
+				case "WED":
+				print "<number>10</number>
+					<number>30</number>
+					<number>38</number>
+					<number>50</number>
+					<number>65</number>
+					<number>80</number>
+					<number>86</number>
+					<number>92</number>
+					<number>90</number>
+					<number>88</number>
+					<number>80</number>
+					<number>75</number>
+					<number>74</number>
+					<number>75</number>
+					<number>73</number>
+					<number>72</number>
+					<number>68</number>
+					<number>69</number>
+					<number>65</number>
+					<number>66</number>
+					<number>67</number>
+					<number>70</number>
+					<number>60</number>
+					<number>50</number>";
+				break;
+				   
+				case "THU":
+				print "<number>10</number>
+					<number>20</number>
+					<number>21</number>
+					<number>40</number>
+					<number>60</number>
+					<number>70</number>
+					<number>72</number>
+					<number>72</number>
+					<number>75</number>
+					<number>75</number>
+					<number>70</number>
+					<number>83</number>
+					<number>80</number>
+					<number>81</number>
+					<number>80</number>
+					<number>82</number>
+					<number>75</number>
+					<number>74</number>
+					<number>70</number>
+					<number>72</number>
+					<number>71</number>
+					<number>60</number>
+					<number>50</number>
+					<number>40</number>";
+				break;
+					
+				case "SAT":
+				print "<number>5</number>
+					<number>10</number>
+					<number>12</number>
+					<number>25</number>
+					<number>30</number>
+					<number>35</number>
+					<number>40</number>
+					<number>41</number>
+					<number>42</number>
+					<number>40</number>
+					<number>45</number>
+					<number>50</number>
+					<number>45</number>
+					<number>50</number>
+					<number>55</number>
+					<number>57</number>
+					<number>50</number>
+					<number>45</number>
+					<number>43</number>
+					<number>42</number>
+					<number>41</number>
+					<number>40</number>
+					<number>30</number>
+					<number>20</number>";
+				break;
+					
+				default:
+				print "<number>9</number>
+					<number>15</number>
+					<number>16</number>
+					<number>35</number>
+					<number>55</number>
+					<number>65</number>
+					<number>80</number>
+					<number>81</number>
+					<number>82</number>
+					<number>83</number>
+					<number>75</number>
+					<number>70</number>
+					<number>65</number>
+					<number>70</number>
+					<number>65</number>
+					<number>67</number>
+					<number>60</number>
+					<number>55</number>
+					<number>53</number>
+					<number>52</number>
+					<number>51</number>
+					<number>50</number>
+					<number>40</number>
+					<number>30</number>";
+				break;
+			}
+			?>
+		</row>
+	</chart_data>
+	<chart_rect x='250' y='50' width='100' height='200' positive_color='004488' positive_alpha='40' />
+	<chart_type>bar</chart_type>
+	
+	<draw>
+		<text shadow='high' color='004488' alpha='35' size='25' x='245' y='26' width='400' height='150'><?php
+		switch ( $_REQUEST['category'] ){
+			case "SUN":
+			print "Sunday";
+			break;
+	
+			case "MON":
+			print "Monday";
+			break;
+
+			case "TUE":
+			print "Tuesday";
+			break;
+	
+			case "WED":
+			print "Wednesday";
+			break;
+
+			case "THU":
+			print "Thursday";
+			break;
+	
+			case "SAT":
+			print "Saturday";
+			break;
+	
+			default:
+			print "Friday";
+			break;
+		}
+		?></text>
+	</draw>
+	<filter>
+		<shadow id='low' distance='2' angle='45' color='0' alpha='50' blurX='4' blurY='4' />
+		<shadow id='high' distance='5' angle='45' color='0' alpha='50' blurX='10' blurY='10' />
+	</filter>
+	
+	<context_menu full_screen='false' />
+	<legend layout='hide' />	
+	<series_color>
+		<color>ffff44</color>
+	</series_color>
+	<series set_gap='40' />
+
+</chart>

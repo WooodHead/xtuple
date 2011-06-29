@@ -1,0 +1,2182 @@
+<?php 
+//For queries dealing with the translation tables, complete works as follows:
+//0 translation disapproved
+//1 for translation pending
+//2 for translation approved
+//obsolete translations have version number 0.0
+// for languages that are not managed, the translation that will be used in the .ts file is one with the highest revision number regardless of if it is complete or not
+// for managed languages, translations will only show up if complete is 2 (approved).
+function xttranslate_perm()
+{
+        return array(
+        'view xttranslate node', 'manage translations'
+        );
+}
+
+/**
+ * Implements hook_access()   
+ */
+function xttranslate_access($op, $node, $account)
+{
+        switch ($op)
+        {
+                case 'view':
+                return user_access('view xttranslate node', $account);
+        }
+}
+
+
+function xttranslate_menu()
+{        
+    $items = array();   
+
+    $items['admin/settings/xttranslate'] = array(
+    'title' => 'Translation Portal',
+    'description' => 'Manage the Translation Portal.',
+    'position' => 'right',
+    'weight' => -5,
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('administer site configuration'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+
+  $items['admin/settings/xttranslate/import'] = array(
+    'title' => 'Import File',
+    'description' => 'Import a .ts file to get a new language project started. Use this option if the .ts file has had a phrasebook applied to it already. This option 
+will automatically create the new project in the Translation Portal. Nothing more has to be done to get the new project started. NOTE: Do not use to upgrade an existing 
+project. Importing a .ts file over an already existing project will cause problems. If you need to replace an existing project, simply delete it and then re-import a new 
+.ts file to recreate the project. 
+ ',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('xttranslate_import_base_file'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'xttranslate.admin.inc',
+    'weight' => 40,
+  );
+
+  $items['admin/settings/xttranslate/export'] = array(
+    'title' => 'Export File',
+    'description' => 'Export a .ts or .qm file.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('xttranslate_export_file'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'xttranslate.admin.inc',
+    'weight' => 50,
+  );
+
+  $items['admin/settings/xttranslate/delete'] = array(
+    'title' => 'Delete Language',
+    'description' => 'Delete a language from your site.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('xttranslate_delete_language'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'xttranslate.admin.inc',
+    'weight' => 60,
+  );
+
+
+
+  $items['admin/settings/xttranslate/hide'] = array(
+    'title' => 'Hide Language',
+    'description' => 'Hide a language from view.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('xttranslate_hide_language'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'xttranslate.admin.inc',
+    'weight' => 70,
+  );
+
+  $items['admin/settings/xttranslate/unhide'] = array(
+    'title' => 'Unhide Language',
+    'description' => 'Unhides a language for viewing.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('xttranslate_unhide_language'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'xttranslate.admin.inc',
+    'weight' => 80,
+  );
+
+  $items['admin/settings/xttranslate/add'] = array(
+    'title' => 'Add Language',
+    'description' => 'Add a new empty language project. This option should only be used if no phrasebook is available.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('xttranslate_add_language'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'xttranslate.admin.inc',
+    'weight' => 90,
+  );
+
+  $items['admin/settings/xttranslate/assign'] = array(
+    'title' => 'Assign Translation Managers',
+    'description' => t('Assign Translation Managers to translation projects'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('xttranslate_assign_manager'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'xttranslate.manager.inc',
+    'weight' => 90,
+  );
+
+  $items['translate/manage'] = array(
+    'title' => 'Manage Translation',
+    'description' => t('Manage Translation'),
+    'page callback' => 'xttranslate_manager_main',
+    'access arguments' => array('manage translations'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'xttranslate.manager.inc',
+  );
+
+  $items['xttranslate/manage/submit'] = array(
+    'title' => 'Manage Translation',
+    'description' => t('Manage Translation'),
+    'page callback' => 'xttranslate_manager_process_translations',
+    'access arguments' => array('manage translations'),
+		'type' => MENU_CALLBACK,
+    'file' => 'xttranslate.manager.inc',
+  );
+
+  $items['xttranslate/manage/edit/submit'] = array(
+    'title' => 'Manage Translation',
+    'description' => t('Manage Translation'),
+    'page callback' => 'xttranslate_manager_edit_translation',
+    'access arguments' => array('manage translations'),
+		'type' => MENU_CALLBACK,
+    'file' => 'xttranslate.manager.inc',
+  );
+
+
+  $items['xttranslate/manage/list'] = array(
+    'title' => 'Manage Translation',
+    'description' => t('Manage Translations'),
+    'page callback' => 'xttranslate_manager_get_pending',
+    'access arguments' => array('manage translations'),
+		'type' => MENU_CALLBACK,
+    'file' => 'xttranslate.manager.inc',
+  );
+
+  $items['admin/settings/xttranslate/settings'] = array(
+    'title' => 'Settings',
+    'description' => 'Update the settings (i.e., main page) for the Translation Portal.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('xttranslate_admin_settings'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'xttranslate.admin.inc',
+	'weight' => 100,
+  );
+
+	$items['translate'] = array(
+		'title' => 'Translate xTuple ERP',
+		'page callback' => 'xttranslate_main',
+		'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK
+	);
+
+	$items['translate/statistics'] = array(
+		'title' => 'Translation Statistics',
+		'page callback' => 'xttranslate_statistics',
+		'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK
+	);
+
+	$items['xttranslate/guiexport/%/%/%'] = array(
+                'title' => 'Translate xTuple ERP',
+                'page callback' => 'xttranslate_gui_export',
+                'access arguments' => array('access content'),
+                'type' => MENU_CALLBACK,
+		'page arguments' => array(2,3,4),
+        );
+
+	$items['translate/edit-language'] = array(
+		'title' => 'Translation Portal',
+		'page callback' => 'xttranslate_edit_language',
+		//'access arguments' => array('access content'),
+		'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK
+	);
+	
+	$items['xttranslate/context'] = array(
+		'title' => 'Translation Portal',
+		'page callback' => 'xttranslate_get_contexts',
+		'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK
+	);
+
+	$items['xttranslate/context/search'] = array(
+		'title' => 'Translation Portal',
+		'page callback' => 'xttranslate_search_contexts',
+		'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK
+	);
+
+	$items['xttranslate/source'] = array(
+		'title' => 'Translation Portal',
+		'page callback' => 'xttranslate_get_sources',
+		'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK
+	);
+	$items['xttranslate/source/search'] = array(
+		'title' => 'Translation Portal',
+		'page callback' => 'xttranslate_search_sources',
+		'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK
+	);
+	$items['xttranslate/translation/search'] = array(
+		'title' => 'Translation Portal',
+		'page callback' => 'xttranslate_search_translations',
+		'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK
+	);
+	$items['xttranslate/default/search'] = array(
+		'title' => 'Translation Portal',
+		'page callback' => 'xttranslate_search_default',
+		'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK
+	);
+	$items['xttranslate/translation'] = array(
+		'title' => 'Translation Portal',
+		'page callback' => 'xttranslate_process_translation',
+		'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK
+	);
+
+	$items['xttranslate/suggest'] = array(
+		'title' => 'Translation Portal',
+		'page callback' => 'xttranslate_suggest_translations',
+		'access arguments' => array('access content'),
+		'type' => MENU_CALLBACK
+	);
+	
+	return $items;
+
+}        
+
+/**
+ * Implementation of hook_theme().
+ * Let Drupal know about our theme function.
+ */
+function xttranslate_theme() {
+  return array(
+    'xttranslate_context' => array(
+      'arguments' => array('language_code', 'country_code', 'version'),
+    ),
+  );
+}
+
+
+
+function xttranslate_main()
+{
+	require_once('xttranslate.admin.inc');
+
+	$db_prefix = variable_get('xttranslate_db_prefix', '');
+	
+	global $user;
+
+	$roles = $user->roles;
+
+	$module_path = drupal_get_path('module', 'xttranslate');
+ 	$full_path = $module_path .'/xttranslate.css';
+  	drupal_add_css($full_path);
+
+
+	//$module_path = drupal_get_path('module', 'xttranslate');
+
+	drupal_add_js($module_path . '/xttranslate.chart.js');
+
+
+	//xttranslate_populate_chart();
+	
+	$output = '<div id="xttranslate-front-container">';
+	
+
+	$output .= '
+	<br>
+	<div id="xttranslate-front-chart">
+	<script language="javascript">AC_FL_RunContent = 0;</script>
+	<script language="javascript"> DetectFlashVer = 0; </script>
+	<script src="/sites/default/files/xttranslate/charts/AC_RunActiveContent.js" language="javascript"></script>
+	<script language="JavaScript" type="text/javascript">
+	<!--
+	var requiredMajorVersion = 9;
+	var requiredMinorVersion = 0;
+	var requiredRevision = 45;
+	-->
+	</script>
+	';
+	
+	$output .= "
+	<script type=\"text/javascript\">
+	<!--
+	if (AC_FL_RunContent == 0 || DetectFlashVer == 0) {
+        alert('This page requires AC_RunActiveContent.js.');
+	} else {
+        var hasRightVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+        if(hasRightVersion) { 
+                AC_FL_RunContent(
+                        'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,45,0',
+                        'width', '400',
+                        'height', '480',
+                        'scale', 'showall',
+                        'salign', 'TL',
+                        'bgcolor', '#DDEDF7',
+                        'wmode', 'opaque',
+                        'movie', 'charts',
+                        'src', 'charts',
+                        'FlashVars', 'library_path=charts_library&xml_source=current.xml', 
+                        'id', 'my_chart',
+                        'name', 'my_chart',
+                        'menu', 'true',
+                        'allowFullScreen', 'true',
+                        'allowScriptAccess','sameDomain',
+                        'quality', 'high',
+                        'align', 'middle',
+                        'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+                        'play', 'true',
+                        'devicefont', 'false'
+                        ); 
+        } else { 
+                var alternateContent = 'This content requires the Adobe Flash Player. '
+                + '<u><a href=http://www.macromedia.com/go/getflash/>Get Flash</a></u>.';
+                document.write(alternateContent); 
+        }
+	}
+	// -->
+	</script>
+	<noscript>
+     	   <P>This content requires JavaScript.</P>
+	</noscript>
+	</div>
+	";
+
+	$output .= '<div id="xttranslate-front-form">';
+
+	//print_r ($roles);
+
+
+	$output .=  variable_get('xttranslate_fronttop_page_message', '');	
+
+	if ( in_array('anonymous user', $roles) )
+	{
+		$output .= "You must <a href='/user'>login</a> or <a href='/user/register/'>register</a> to download translation files.<br><br>";
+	}
+	else
+	{
+		$output .= 'Select a language and xTuple version below.';
+		$output .= drupal_get_form('xttranslate_frontpage_exportfile');
+	}
+	$output .= '</div>'; //end of xttranslate-front-form
+
+	$output .= variable_get('xttranslate_front_page_message', '');
+
+	$output .= "</div>"; //end of xttranslate-front-container	
+
+	return $output;
+}
+
+function xttranslate_edit_language()
+{
+	require_once('xttranslate.admin.inc');
+
+	$db_prefix = variable_get('xttranslate_db_prefix', '');
+
+	if ( !xttranslate_user_check() )
+	{
+		$output = "<p>The Translation Portal is for authorized users only. To join the translation team, please send an email to xttranslate(at)xtuple.com and 
+          request access to the Translation Portal. Once you have been granted Translator access, please <a href='/user'>login</a> and return here to use this tool.</p>";
+		
+		return $output;
+	}
+	
+	global $user;
+	$roles = $user->roles;
+
+	//print_r($user);
+	$module_path = drupal_get_path('module', 'xttranslate');
+ 	$full_path = $module_path .'/xttranslate.css';
+
+	$version = xttranslate_get_product_version();
+	$languages = xttranslate_admin_get_language_display_array();
+
+	
+  	drupal_add_css($full_path);
+	
+	$output = "<p>The Translation Portal allows multiple users to work together on a translation file. The files are stored in a database on our server,
+	and the web-based front end allows users to view and edit content in the translation file. To begin, select a language and a version from the boxes below.</p>";
+
+	$output .= '<div id="popupContact">  
+         <a id="popupContactClose">x</a>  
+         <h1>Search</h1>  
+         <p id="contactArea">
+        </p>  
+     </div>  
+     <div id="backgroundPopup"></div>';
+
+	//$version_result = db_query("select distinct version from ac_translate_consource_version where version in ( '" . implode('\' ,\'', variable_get('xttranslate_display_version', array(''))) . "' ) order by version");
+	$version_result = db_query("select distinct version from ac_translate_consource_version order by version");
+
+  //$version = array();
+	$version_display = '&nbsp;<select id="edit-version">'; 
+  while ($row = db_fetch_object($version_result))
+  {
+		if ($version == $row->version)
+    	$version_display .= "<option selected=selected value='{$row->version}'>{$row->version}</option>";
+		else
+    	$version_display .= "<option value='{$row->version}'>{$row->version}</option>";
+  } 
+	$version_display .= "</select>";
+
+	$output .= "<div id='xttranslate-menu'>";
+	$output .= "<select id='edit-lang'>";
+	$output .= "<option value='init'>Choose A Language</option>";
+	foreach ($languages as $index => $value)
+	{
+		$output .= "<option value=" . $index . ">" . $value . "</option>";
+	}
+
+	$output .= "</select>$version_display&nbsp;<button id='xttranslate-lang-submit'>Select</button>&nbsp;&nbsp;";
+	$output .= '<img id="xttranslate-ajaxBusy" src="/sites/default/files/xttranslate/ajax-loader.gif" />';
+
+	$output .= "&nbsp;&nbsp;&nbsp;<span id='xttranslate-completed'></span>&nbsp;";
+	$output .= "<input type=hidden id=xttranslate-version value=" . $version . " />";
+	//$output .= drupal_get_form('select_boxes');
+	
+	$output .= "<br><span class='link' id='xttranslate-prev-context'><<</span>
+	&nbsp;Context&nbsp;<span class='link' id='xttranslate-next-context'>>></span>
+	&nbsp;&nbsp;&nbsp;<span class='link' id='xttranslate-prev-unfinished'><<</span>
+	&nbsp;Unfinished&nbsp;<span class='link' id='xttranslate-next-unfinished'>>></span>";
+
+ 	if (in_array( 'administrator', $roles))
+	{
+		//$output .= "&nbsp;&nbsp;<a id='xttranslate-search'>Find and Replace</a>";
+		//$output .= '<button id="xttranslate-find-next">Find Next</button>';
+
+		//print_r($user);
+	}
+
+	$output .= "<br><div id='xttranslate-context-pages'></div>";
+
+	//<label>Find:&nbsp;</label><input type="text" id="xttranslate-search-term"></input>
+	//<button id="xttranslate-search-button">Submit</button>
+		
+	$output .= '<br>	
+		<div id="xttranslate-search-box">
+		<label>Find:&nbsp;</label><input type="text" id="xttranslate-find-term"></input> 
+		<button id="xttranslate-find-button">Find</button>
+		<button id="xttranslate-find-next">Find Next</button><br>
+		<label>Replace With:&nbsp;</label><input type="text" id="xttranslate-replace-term"></input>
+		<button id="xttranslate-tsubmit-button">Replace</button>
+		<button id="xttranslate-all-button">Replace All</button>
+		<button id="xttranslate-clearsearch">Clear Search</button>
+		';
+		if (in_array( 'administrator', $roles))
+        	{
+			$output .= '<br><label>Replace Options:&nbsp;</label>
+			<input type="radio" name="xttranslate-replace-whole" id="xttranslate-replace-whole">Match Whole Phrase</input>
+			<input type="radio" name="xttranslate-replace-part" id="xttranslate-replace-part">Match Words in Phrases</input>		
+			';
+		}
+		$output .= '
+		</div>
+	';
+	
+	$output .= "</div>"; //end of xttranslate-menu
+
+	//drupal_set_html_head("<script type='text/javascript' src='/sites/all/modules/xtuple/xttranslate/resizable-tables.js'></script>");
+	drupal_set_html_head("<script type='text/javascript' src='/$module_path/webtoolkit.scrollable.js'></script>");
+	drupal_set_html_head("<script type='text/javascript' src='/$module_path/css_browser_selector.js'></script>");
+
+	drupal_add_js($module_path . '/xttranslate.context.js');
+	drupal_add_js($module_path . '/xttranslate.translation.js');
+	drupal_add_js($module_path . '/popup.js');
+	//drupal_add_js('http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js');
+	jqp_add_js('jquery-ui-personalized-1.5.3.js'); 
+	jqp_add_js('jquery-base64.js');
+	jqp_add_js('jquery-scrollabletable-min.js');
+	jqp_add_js('jquery-json-1.3.min.js');
+	jqp_add_js('jquery.serialScroll-1.2.1-min.js');
+	jqp_add_js('jquery.scrollTo-1.4.0-min.js');
+
+	//drupal_set_html_head($head);
+	
+	$output .= "<div id='xttranslate-main'>";
+
+	$output .= "<div id='xttranslate-context'>";
+
+	$output .= "<table id='xttranslate-context-table' class='resizable'>";
+	
+	$output .= "<thead><tr><th style='border-right: 1px solid black'>Context</th><th>Items</th></tr></thead>";
+	
+	$output .= "
+	<tbody>
+	</tbody>
+	</table>";
+	
+	/*
+	$output .= "<script type='text/javascript'>
+	var y = document.getElementById('xttranslate-context').offsetHeight;
+	//x = x-20;
+	y = y-20;
+	//alert (x);
+	var f = new ScrollableTable(document.getElementById('xttranslate-context-table'), y, 19);
+	</script>";
+	*/
+
+	$output .= "</div>"; //end of context div
+	
+	$output .="<div id='xttranslate-right'>";
+
+	$output .= "<div id='xttranslate-view-source'>";
+
+	$output .= "<table id='xttranslate-view-source-table' class='resizable'>";
+	$output .= "<thead><tr><th style='border-right: 1px solid black'>Source Text</th><th>Translation</th></tr></thead>";
+	$output .= "<tbody>
+	</tbody></table>";
+
+
+	$output .= "</div>"; //end of view-source div
+
+	$output .= "<div id='xttranslate-edit-source'>";
+	
+	$output .= "<b>Source Text:</b><br><br><div id='xttranslate-display-source'></div><br>";
+	$output .= "<input type='hidden' id='xttranslate-tconsource'></input>";
+	//$output .= drupal_get_form('translation_submit_form');
+	
+	$output .="<b>Translation:</b><br><textarea id='edit-translation'></textarea><br>";
+
+	$output .="<div id='xttranslate-history'></div><br>";
+	
+	$output .="<div id='xttranslate-warning'></div><br>";
+	
+	$output .="<div id='xttranslate-submitarea'>
+	<input id='xttranslate-override' type='checkbox'></input>&nbsp;<label>Override warnings</label>&nbsp;
+	<button id='xttranslate-translation-submit'>Submit</button>
+	</div>";
+	
+	$output .= "</div>"; //end of edit-source div
+
+	$output .= "<div id='xttranslate-suggest'><b>Suggestions&nbsp;(click to select)</b><br><br>";
+	$output .= "<div id='xttranslate-suggest-box'></div>";
+	$output .= "</div>"; //end of suggest div
+	
+	$output .="</div>"; //end of xttranslate-right
+	$output .= "</div>"; //end of xttranslate-main
+	
+	return $output;
+}
+
+//new version
+function xttranslate_get_contexts()
+{
+   if ( !xttranslate_user_check() )
+  {
+    $output = "<p>The Translation Portal is for authorized users only. To join the translation team, please send an email to xttranslate(at)xtuple.com and
+          request access to the Translation Portal. Once you have been granted Translator access, please <a href='/user'>login</a> and return here to use this tool.</p>";
+
+    return $output;
+  }
+
+  require_once('xttranslate.admin.inc');
+  $unfinished_only = FALSE;
+  $type = 'view';
+  $slice = 0;
+  if (func_num_args() > 0)
+  {
+    list($language_code, $country_code, $slice, $unfinished_only, $type, $term) = func_get_args();
+  }
+  else
+  {
+    $language_code = $_POST['lang'];
+    $country_code = $_POST['country'];
+    $slice = $_POST['slice'];
+    $unfinished_only = ($_POST['unfinished']=='true') ? TRUE : FALSE;
+    $term = $_POST['search'];
+    $type = $_POST['type'];
+    $version = $_POST['version'];
+  }
+        
+  //print "get contexts start: ";
+  //print date('h-i-s') . "\n";
+   
+  $db_prefix = variable_get('xttranslate_db_prefix', '');
+
+  $term = db_escape_string($term);
+
+	$language_temp = explode(':', $language_code);
+
+     if ( is_array($language_temp) && count($language_temp) > 2)
+     {
+          $language_code = $language_temp[0];
+          $country_code = $language_temp[1];
+     }
+
+  if (is_numeric($language_code) || is_numeric($country_code) )
+  {
+    exit(); //no weird numbers allowed!
+  }
+  //print $term;  
+  $current_version = xttranslate_get_product_version(); //restricting to current version only - for now
+	$managed = db_result(db_query("select managed from " . $db_prefix . "translate_languages where language = '%s' and code = '%s'", xttranslate_get_language_array( $language_code ), $country_code));        
+	$version = db_escape_string($version);
+	$current_version = db_escape_string($current_version);
+
+	$l = db_escape_string($language_code);
+	$c = db_escape_string($country_code);
+
+	$search = ($type == 'search') ? " and context like '$term%' " : "";	
+	$unfin = ($unfinished_only==true) ? " and ( query1.count != query2.count or query2.count is null) " : "";
+  if($managed == 't')
+	{
+		$query = "
+			select context, query1.contextid, query1.count as total_amount, query2.count as completed from
+			(
+select contextid, count(contextid)
+from {$db_prefix}translate_consource_version a
+inner join {$db_prefix}translate_consource b on b.id = a.consourceid
+where version = '$version'
+group by contextid
+) as query1
+left outer join 
+(
+select contextid, count(distinct c.consourceid)
+from {$db_prefix}translate_consource_version a
+inner join {$db_prefix}translate_consource b on b.id = a.consourceid
+inner join {$db_prefix}translate_{$l}_{$c}_translation c on c.consourceid = b.id
+where a.version = '$version'
+and complete = 2
+group by contextid
+) as query2 on query1.contextid = query2.contextid
+left outer join {$db_prefix}translate_context a on a.id = query1.contextid
+where 1=1
+$unfin
+$search
+order by context
+		";	
+	}
+	else
+	{
+		$query = "
+		select context, query1.contextid, query1.count as total_amount, query2.count as completed from
+(
+select contextid, count(contextid)
+from {$db_prefix}translate_consource_version a
+inner join {$db_prefix}translate_consource b on b.id = a.consourceid
+where version = '$version'
+group by contextid
+) as query1
+left outer join 
+(
+select contextid, count(distinct c.consourceid)
+from {$db_prefix}translate_consource_version a
+inner join {$db_prefix}translate_consource b on b.id = a.consourceid
+inner join {$db_prefix}translate_{$l}_{$c}_translation c on c.consourceid = b.id
+ join (
+          select max(e.id) as mrev, e.consourceid as sid
+          from {$db_prefix}translate_{$l}_{$c}_translation as e
+          inner join {$db_prefix}translate_consource_version as f on f.consourceid = e.consourceid
+          where f.version = '$version'
+          and translation != '' and complete != 0
+          --and complete = 2
+          group by e.consourceid
+        ) as foo on c.consourceid = foo.sid
+where a.version = '$version'
+and complete != 0
+and c.id = foo.mrev
+group by contextid
+) as query2 on query1.contextid = query2.contextid
+left outer join {$db_prefix}translate_context a on a.id = query1.contextid
+where 1=1
+$unfin
+$search
+order by context
+		";
+	}
+watchdog('xttranslate', $query);
+$result = db_query($query); 
+$max = pg_num_rows($result);
+while($row = db_fetch_object($result)) 
+{
+	$contexts[$row->context] = $row->context;
+	$items[$row->context] = (empty($row->completed)) ? "0/{$row->total_amount}" : $row->completed . '/' . $row->total_amount;
+	$context_ids[$row->context] = $row->contextid;
+}
+
+	$contexts = array_slice($contexts, $slice, 15, true);
+  $items = array_slice($items, $slice, 15, true);
+  $context_ids = array_slice($context_ids, $slice, 15, true);
+          
+  $percent_complete = xttranslate_percent_complete( $language_code, $country_code, $version);
+          
+  print drupal_json( array ( 'contexts' => $contexts, 'items' => $items, 'contextids' => $context_ids, 'max' => $max, 'complete' => $percent_complete ) );
+
+}
+
+
+function xttranslate_search_contexts( $term, $language_code, $country_code, $slice = 0, $unfinished_only = FALSE )
+{
+	$term = base64_decode($term);
+
+	return xttranslate_get_contexts( $language_code, $country_code, $slice, $unfinished_only, 'search', $term);
+}
+
+function xttranslate_percent_complete( $language_code, $country_code, $version )
+{
+	$db_prefix = variable_get('xttranslate_db_prefix', '');
+	$current_version = xttranslate_get_product_version(); 
+	$version = db_escape_string($version);
+	$l = db_escape_string($language_code);
+	$c = db_escape_string($country_code);
+	$managed = db_result(db_query("select managed from " . $db_prefix . "translate_languages where language = '%s' and code = '%s'", xttranslate_get_language_array( $language_code ), $country_code));
+
+	//get the total finished
+
+	if ($managed == 't')
+	{
+	$finished_query = "
+	select sum(count) as total from (
+	select contextid, count(distinct c.consourceid)
+	from {$db_prefix}translate_consource_version a
+	inner join {$db_prefix}translate_consource b on b.id = a.consourceid
+	inner join {$db_prefix}translate_{$l}_{$c}_translation c on c.consourceid = b.id
+	where a.version = '$version'
+	and complete = 2
+	group by contextid
+	) as foo
+	";
+	}
+	else
+	{
+	
+	$finished_query = "
+	select count(distinct e.consourceid) as total
+     from " . $db_prefix . "translate_context as a
+     join " . $db_prefix . "translate_consource as c
+     on c.contextid = a.id
+     join " . $db_prefix . "translate_consource_version as d
+     on d.consourceid = c.id
+     join " . $db_prefix . "translate_{$l}_{$c}_translation as e
+     on e.consourceid = c.id
+     where d.version = '$version'
+		 and translation != ''";
+	}
+
+	//get the total
+
+	$total_query = "
+	select count(a.id) 
+  from ac_translate_consource a 
+  inner join ac_translate_consource_version b on a.id = b.consourceid 
+  inner join ac_translate_context c on c.id = a.contextid
+  where b.version = '%s'
+	";
+
+	$finished = db_result( db_query($finished_query) );
+	$total = db_result( db_query($total_query, $version) );
+
+	$round = ($total == intval(0) ) ? 0 : round( (($finished / $total) * 100), 2 );
+	$percent = array( $finished, $total, $round );
+	
+	return $percent;
+}
+
+//function xttranslate_get_sources( $language_code, $country_code, $contextid )
+function xttranslate_get_sources()
+{
+
+	if ( !xttranslate_user_check() )
+	{
+		$output = "<p>The Translation Portal is for authorized users only. To join the translation team, please send an email to xttranslate(at)xtuple.com and 
+          request access to the Translation Portal. Once you have been granted Translator access, please <a href='/user'>login</a> and return here to use this tool.</p>";
+		
+		return $output;
+	}
+
+	require_once('xttranslate.admin.inc');
+
+	if (func_num_args() > 0)
+	{
+		list($language_code, $country_code, $contextid, $return_finished) = func_get_args();
+	}
+	else
+	{
+		$language_code = $_POST['lang'];
+		$country_code = $_POST['country'];
+		$contextid = $_POST['cid'];
+		$version = $_POST['version'];		
+	}
+
+	if ( !is_numeric($contextid) )
+	{
+		exit(); //numbers only!
+	}
+
+	if (empty($return_finished))
+	{	
+		$return_finished = false;
+	}
+
+	$db_prefix = variable_get('xttranslate_db_prefix', '');
+	
+	$current_version = xttranslate_get_product_version();
+	$language = xttranslate_get_language_array( $language_code );
+	$managed = db_result(db_query("select managed from " . $db_prefix . "translate_languages where language = '%s' and code = '%s'", $language, $country_code));
+
+	$version = db_escape_string($version);
+	$current_version = db_escape_string($current_version);
+
+	//grab sources and translations
+	$source_query = "select source,translation, b.consourceid as consourceid, complete
+     from " . $db_prefix . "translate_consource as a                        
+     join " . $db_prefix . "translate_consource_version as consource_version
+     on consource_version.consourceid = a.id      
+     join " . $db_prefix . "translate_%s_%s_translation as b
+     on a.id = b.consourceid
+     join " . $db_prefix . "translate_source as d
+     on d.id = a.sourceid
+     join (
+			select max(id) as mrev, z.consourceid as sid from(                                                                                                                                                                                    
+          select e.consourceid, max(complete)                                                                                                                                                           
+          from {$db_prefix}translate_%s_%s_translation as e
+          inner join {$db_prefix}translate_consource_version as f on f.consourceid = e.consourceid
+          where f.version = '$version'
+          and complete != 0
+          group by e.consourceid
+          ) bar
+          inner join ac_translate_%s_%s_translation z on z.consourceid = bar.consourceid
+          and bar.max = z.complete
+          group by z.consourceid
+		 ) as foo             
+     on b.consourceid = foo.sid
+     where consource_version.version = '%s'
+     and b.id = foo.mrev and complete != 0
+     and a.contextid = %d
+     order by source";
+	
+	$source_query_result = db_query($source_query, $language_code, $country_code, $language_code, $country_code, $language_code, $country_code, $version, $contextid);
+	watchdog('xttranslate', sprintf($source_query, $language_code, $country_code, $language_code, $country_code, $language_code, $country_code, $version, $contextid));
+	
+	$sources = array();
+	$consources = array();
+	
+	$source_query_result = db_query($source_query, $language_code, $country_code, $language_code, $country_code, $language_code, $country_code, $version, $contextid);
+
+	$finished_count = 0;
+	while ( $row = db_fetch_object($source_query_result) )
+	{
+		if ($managed == 't')
+		{
+			$key = ($row->complete == 1) ? "<span style='color: red'>{$row->source}</span>" : $row->source;
+		}	
+		else
+    	$key = $row->source;
+			if (!empty($row->translation))
+				$finished_count++;
+			$sources[$key] = $row->translation;
+			$consources[$key] = $row->consourceid;
+	}
+	if ($return_finished)
+	{
+		return $finished_count;	
+	}
+	print drupal_json( array ( 'sources' => $sources, 'consources' => $consources ) );
+
+}
+
+function xttranslate_process_translation( $mode = 'default' )
+{
+	if ( !xttranslate_user_check() )
+	{
+		$output = "<p>The Translation Portal is for authorized users only. To join the translation team, please send an email to xttranslate(at)xtuple.com and 
+          request access to the Translation Portal. Once you have been granted Translator access, please <a href='/user'>login</a> and return here to use this tool.</p>";
+		
+		return $output;
+	}
+
+	$version = $_POST['v'];
+	$translation = $_POST['t'];
+	//$translation = pg_escape_string($_POST['t']);
+	$consourceid = $_POST['cs'];
+	$lang_code = $_POST['lc'];
+	$country_code = $_POST['cc'];
+	$sourcematch = $_POST['sm'];
+	$replacetype = $_POST['rt'];
+	
+	$db_prefix = variable_get('xttranslate_db_prefix', '');
+
+	//print "MODE IS $mode";
+	
+	//all being xttranslate all matches found from search result.
+	if ($mode == 'all')
+	{
+		$sourcematch = preg_replace('/&/', '', $sourcematch);
+		//var_dump($consourceid);
+		//return;
+		//print "TYPE IS  " . gettype($consourceid);
+		$consourceid = json_decode($consourceid, true);
+		//print_r($consourceid);
+		//print gettype($consourceid);
+		//print gettype($version);
+		//print "SOURCEMATCH IS: " . $sourcematch;
+		//consourceid is search result array from javascript
+		foreach($consourceid as $id => $source)
+		{
+			//print $id;
+			$checksource = preg_replace('/&/', '', $source);
+			//print "   SOURCE: " . $checksource . " MATCHVALUE: " . $sourcematch . "<br>  ";
+
+			if ( strcasecmp($sourcematch, $checksource) == 0 )
+			{
+				//print "MATCH";
+				xttranslate_insert_translation($translation, $version, $id, $lang_code, $country_code);
+			}
+		
+			//new - partial source replacement
+			//replaces the exact sourcematch submitted by user from the source string and submits it as the translation
+		
+			if ($replacetype == 'part')
+			{
+				$find = '/' . $sourcematch . '/i';
+				$newtranslation = preg_replace($find, $translation, $checksource);				
+				xttranslate_insert_translation($newtranslation, $version, $id, $lang_code, $country_code);
+			}
+		}
+	}
+	else
+	{
+		xttranslate_insert_translation($translation, $version, $consourceid, $lang_code, $country_code);
+	}
+	return;
+	
+	//exit();
+}
+
+function xttranslate_insert_translation($translation, $version, $consourceid, $lang_code, $country_code)
+{
+	//get the translation's original revision
+	global $user;
+
+	$db_prefix = variable_get('xttranslate_db_prefix', '');
+	$translation = pg_escape_string($translation);
+
+	$rev_query = "select a.id
+	from {$db_prefix}translate_%s_%s_translation a
+     where a.consourceid = %d 
+     and rev_number = 0";
+	
+	$rev_query_result = db_query($rev_query, $lang_code, $country_code, $consourceid);
+	$rev_id = db_result($rev_query_result);
+
+	//get the latest revision number
+	//no need to add 1 to rev_number since our count starts at 0; count(*) will return 1 initially
+
+	$count_query = "select count(*)
+	from {$db_prefix}translate_%s_%s_translation a
+     where a.consourceid = %d";
+	
+	$count_query_result = db_query($count_query, $lang_code, $country_code, $consourceid);
+	$rev_number = db_result($count_query_result);
+	
+	//insert the translation
+	//$version_query = db_query("select distinct version from ac_translate_consource_version");
+	//while ($row = db_fetch_object($version_query))
+	//{
+		$insert_query = "insert into {$db_prefix}translate_%s_%s_translation(translation,consourceid,revised_id,rev_number,complete,\"user\")
+		values ('%s', %d, %d, %d, 1, '%s')";
+	
+		$insert_result = db_query($insert_query, $lang_code, $country_code, $translation, $consourceid, $rev_id, $rev_number, $user->name);
+	//}
+	//print $user->name;
+	//print $version;
+	
+	return;	
+}
+
+function xttranslate_suggest_translations()
+{
+	if ( !xttranslate_user_check() )
+	{
+		$output = "<p>The Translation Portal is for authorized users only. To join the translation team, please send an email to xttranslate(at)xtuple.com and 
+          request access to the Translation Portal. Once you have been granted Translator access, please <a href='/user'>login</a> and return here to use this tool.</p>";
+		
+		return $output;
+	}
+
+
+        $lang_code = $_REQUEST['language'];
+        $country_code = $_REQUEST['country'];
+        $source = preg_replace( '/\s+/', '&', $_REQUEST['suggest']);
+	$db_prefix = variable_get('xttranslate_db_prefix', '');
+
+	if ( is_numeric($source) || is_numeric($lang_code) || is_numeric($country_code) )
+	{
+		exit(); //strings only!
+	}
+
+	$source = db_escape_string($source);
+	//find some suggestions based off the english string
+
+
+	$suggest_query = "select distinct source, translation, ts_rank(to_tsvector(source), query, 16 | 8 | 4) as rank
+	from " . $db_prefix . "translate_source as a,
+	" . $db_prefix . "translate_consource as b,
+	" . $db_prefix . "translate_%s_%s_translation as c,
+	to_tsquery( '" . str_replace(" ", " & ", $source) . "' ) query
+	where b.sourceid = a.id
+	and query @@ to_tsvector(source)
+	and c.consourceid = b.id and translation != ''
+	order by rank desc
+        limit 10";
+
+
+	$suggest_result = db_query($suggest_query, $lang_code, $country_code);
+	
+	
+	$suggestions = array();
+	
+	while ($s = db_fetch_object($suggest_result) )
+	{
+		$suggestions[$s->source] = filter_xss( $s->translation );
+	}
+
+	//global $user;
+	//var_dump($user);	
+	//print $source;
+	print drupal_json( array ( 'suggestions' => $suggestions ) );
+
+}
+
+
+function xttranslate_frontpage_exportfile()
+{
+	$current_version = xttranslate_get_product_version();
+	//$version_result = db_query("select distinct version from ac_translate_consource_version order by version");
+	$version_result = db_query("select distinct version from ac_translate_consource_version where version in ( '" . implode('\' ,\'', variable_get('xttranslate_display_version', array(''))) . "' ) order by version");
+	$version = array();
+	while ($row = db_fetch_object($version_result))
+	{
+		$version[$row->version] = $row->version;
+	}
+
+	$language_array = xttranslate_admin_get_language_display_array();
+
+	$form['xttranslate_front_export']['lang'] = array(
+          '#type' => 'select',
+          '#options' => $language_array,
+     );
+
+     $form['xttranslate_front_export']['version'] = array(
+          '#type' => 'select',
+          '#options' => $version,
+  				'#default_value' => $current_version
+	   );
+
+	$form['xttranslate_front_export']['submit'] = array(
+          '#type' => 'submit',
+          '#value' => t('Download .qm file'),
+     );
+
+     return $form;
+
+}
+
+function xttranslate_frontpage_exportfile_validate($form, &$form_state)
+{
+	if ( empty($form_state['values']['lang']) )
+     {
+          form_set_error('lang', t('Please select a language') );
+     }
+     if ( empty($form_state['values']['version']) )
+     {
+          form_set_error('version', t('Please select a version') );
+     }
+
+}
+
+function xttranslate_frontpage_exportfile_submit($form, &$form_state)
+{
+	global $user;
+
+        $version = $form_state['values']['version'];
+        $language_temp = explode(':', $form_state['values']['lang']);
+
+        if ( is_array($language_temp) )
+        {
+                $language_code = $language_temp[0];
+                $country_code = $language_temp[1];
+        }
+
+        $language = xttranslate_get_language_array( $language_code );
+        $country = xttranslate_get_country_array( $country_code );
+
+		$db_prefix = variable_get('xttranslate_db_prefix', '');
+
+
+	   $official = db_result(db_query("select official from " . $db_prefix . "translate_languages where language = '%s' and code = '%s'", $language, $country_code));
+
+$managed = db_result(db_query("select managed from " . $db_prefix . "translate_languages where language = '%s' and code = '%s'", $language, $country_code));
+
+  $complete_part = ($managed == 't') ? " b.complete = 2 " : " b.complete = 1 ";
+	$current_version = xttranslate_get_product_version();
+
+			if ($managed == 't')
+			{
+				$query = "
+				select context,source,translation,b.consourceid 
+				from {$db_prefix}translate_consource as a 
+				join {$db_prefix}translate_consource_version as consource_version on consource_version.consourceid = a.id 
+				join {$db_prefix}translate_%s_%s_translation as b on a.id = b.consourceid 
+				join {$db_prefix}translate_context as c on c.id = a.contextid 
+				join {$db_prefix}translate_source as d on d.id = a.sourceid  
+				join (
+					select max(e.id) as mrev, e.consourceid as sid 
+					from {$db_prefix}translate_%s_%s_translation as e 
+					inner join {$db_prefix}translate_consource_version as f on f.consourceid = e.consourceid 
+					where f.version = '{$version}'
+					and complete = 2
+					group by e.consourceid
+				) as foo on b.consourceid = foo.sid 
+				where consource_version.version = '{$version}' 
+				and b.id = foo.mrev 
+				and b.complete = 2 
+				order by context,source
+				";
+        $query_result = db_query($query, $language_code, $country_code, $language_code, $country_code);				
+			}
+			else
+			{
+
+
+        $query = "
+        select context,source,translation,b.consourceid
+        from " . $db_prefix . "translate_consource as a
+        join " . $db_prefix . "translate_consource_version as consource_version
+        on consource_version.consourceid = a.id
+        join " . $db_prefix . "translate_%s_%s_translation as b
+        on a.id = b.consourceid
+        join " . $db_prefix . "translate_context as c
+        on c.id = a.contextid
+        join " . $db_prefix . "translate_source as d
+        on d.id = a.sourceid
+        --join " . $db_prefix . "translate_source_location as s_location
+        --on s_location.consourceid = a.id
+        join (select max(rev_number) as mrev, e.consourceid as sid 
+        from " . $db_prefix . "translate_%s_%s_translation as e
+        inner join " . $db_prefix . "translate_consource_version as f
+        on f.consourceid = e.consourceid
+        where f.version = '%s' group by e.consourceid) as foo
+        on b.consourceid = foo.sid
+        where consource_version.version = '%s'
+        and b.rev_number = foo.mrev and " . $complete_part . " 
+        order by context
+        ";
+        $query_result = db_query($query, $language_code, $country_code, $language_code, $country_code, $version, $version);
+        watchdog('xttranslate', sprintf($query, $language_code, $country_code, $language_code, $country_code, $version, $version));
+			}
+
+     $myFile = $language . $version . ".ts";
+     $myFile = "/tmp/" . $myFile;
+
+     $FILE = fopen($myFile, 'w') or die ("Can't create file");
+
+        $xw = xmlwriter_open_memory();
+        xmlwriter_set_indent($xw, TRUE);
+     xmlwriter_start_document($xw, '1.0', 'UTF-8'); 
+     xmlwriter_start_dtd($xw, 'TS'); 
+               
+     xmlwriter_end_dtd($xw);
+        
+     xmlwriter_start_element($xw, 'TS');
+                
+     xmlwriter_write_attribute($xw, 'version', '1.1');
+                
+     $startContext = 0;
+     $currContext = '';
+	$blankcontext = 0;
+		$currentLocations = array();
+
+     $bar = 0;
+     while ($line = db_fetch_object($query_result) )
+     {
+
+        if ($currContext != '' || $blankcontext == 1)
+        {
+               if ($currContext == $line->context)
+               {
+                   xmlwriter_start_element($xw, 'message');
+                   xmlwriter_write_element($xw, 'source', $line->source);
+
+                   if ($line->translation != '')
+                   {
+                     //xmlwriter_write_element($xw, 'translation', $line->translation);
+										 xmlwriter_write_element($xw, 'translation', html_entity_decode($line->translation, ENT_QUOTES, 'UTF-8'));	
+                   }
+                   elseif ($line->translation == '')
+                   {
+                     //xmlwriter_write_element($xw, 'translation', $line->translation);                     
+										 xmlwriter_write_element($xw, 'translation', html_entity_decode($line->translation, ENT_QUOTES, 'UTF-8'));	
+										 xmlwriter_write_attribute($xw, 'type', 'unfinished');
+                   }
+                   else
+                   {
+                     //xmlwriter_write_element($xw, 'translation', $line->translation);                     
+										 xmlwriter_write_element($xw, 'translation', html_entity_decode($line->translation, ENT_QUOTES, 'UTF-8'));	
+                     xmlwriter_write_attribute($xw, 'type', 'obsolete');
+                   }
+                   xmlwriter_full_end_element($xw);
+               }
+               else
+               {
+                if ($startContext == 1)
+                    {
+                        xmlwriter_full_end_element($xw);
+                    }
+                    xmlwriter_start_element($xw, 'context');
+                    xmlwriter_write_element($xw, 'name', $line->context);
+                    xmlwriter_start_element($xw, 'message');
+                    xmlwriter_write_element($xw, 'source', $line->source);
+                    
+                    if ($line->translation != '')
+                    {
+                        xmlwriter_write_element($xw, 'translation', html_entity_decode($line->translation, ENT_QUOTES, 'UTF-8'));
+                    }
+                    elseif ($line->translation == '')
+                    {
+                        xmlwriter_write_element($xw, 'translation', html_entity_decode($line->translation, ENT_QUOTES, 'UTF-8'));
+                         xmlwriter_write_attribute($xw, 'type', 'unfinished');
+                    }
+                    else
+                    {
+                        xmlwriter_write_element($xw, 'translation', html_entity_decode($line->translation, ENT_QUOTES, 'UTF-8'));
+                         xmlwriter_write_attribue($xw, 'type', 'obsolete');
+                    }
+                    xmlwriter_full_end_element($xw);
+                    $startContext = 1;
+                    $currContext = $line->context;
+               }
+          }
+          else
+          {
+               xmlwriter_start_element($xw, 'context');
+               xmlwriter_write_element($xw, 'name', $line->context);
+               xmlwriter_start_element($xw, 'message');
+               xmlwriter_write_element($xw, 'source', $line->source);
+                   
+							 $currentLocations = array();									
+							 $currentLocations[] = $line->location;
+               if ($line->translation != '')
+               {
+                xmlwriter_write_element($xw, 'translation', html_entity_decode($line->translation, ENT_QUOTES, 'UTF-8'));
+               }
+               elseif ($line->translation == '')
+               {
+                    xmlwriter_write_element($xw, 'translation', html_entity_decode($line->translation, ENT_QUOTES, 'UTF-8'));
+                    xmlwriter_write_attribute($xw, 'type', 'unfinished');
+               }
+               else
+               {
+                xmlwriter_write_element($xw, 'translation', html_entity_decode($line->translation, ENT_QUOTES, 'UTF-8'));
+                    xmlwriter_write_attribue($xw, 'type', 'obsolete');
+               }
+               xmlwriter_full_end_element($xw);
+               $startContext = 1;
+               $currContext = $line->context;
+
+			if ($line->context == '') //special case     
+               {
+                    $blankcontext = 1;
+               }
+               else
+               {
+                    $blankcontext = 0;
+               }
+
+          }
+        }
+     xmlwriter_full_end_element($xw);
+     xmlwriter_full_end_element($xw);
+
+     xmlwriter_end_dtd($xw);
+     fwrite($FILE, xmlwriter_output_memory($xw, true));
+
+     fclose($FILE);
+
+        $linguist_path = variable_get('xttranslate_qt_location', '');
+          $cmd = $linguist_path . "lrelease " . $myFile;
+					shell_exec($cmd);
+          $newFile = $language . $version . ".qm";
+          $newFile = "/tmp/" . $newFile;
+	
+	
+	$filename = ($official == 't') ? 'xTuple.' . $language_code . '.qm' : 'xTuple.' .$language_code . '_' . $country_code . '.qm'; 
+
+          while( @ob_end_clean() );
+                header('Content-Disposition: attachment; filename=' . $filename);
+          readfile($newFile);
+                        
+          $cmd = "rm " . $newFile;
+          //shell_exec($cmd);        
+          $cmd = "rm " . $myFile;
+          //shell_exec($cmd);
+  
+   $qm_query = "insert into " . $db_prefix . "translate_qmdownload (username, version, language, country) values ('%s', '%s', '%s', '%s')";
+     $qm_query_result = db_query($qm_query,$user->name,$version,$language,$country);
+
+
+}
+
+function xttranslate_process_locations(&$xw, $consourceid)
+{
+	$result = db_query("select location from ac_translate_source_location where consourceid = %d",$consourceid);
+	if (pg_num_rows($result) > 0)
+	{
+		while ($row = pg_fetch_object($result))
+		{
+			$location = $row->location;
+			list($filename, $location_line) = explode(" ", $location);
+			list($fattr, $filename) = explode("=",$filename);
+			list($lattr, $location_line) = explode("=", $location_line);
+			$location_line = str_replace('"', '', $location_line);
+			$filename = str_replace('"', '', $filename);
+			xmlwriter_start_element($xw, 'location');
+      xmlwriter_write_attribute($xw, $fattr, $filename);
+      xmlwriter_write_attribute($xw, $lattr, $location_line);
+			xmlwriter_full_end_element($xw);				
+		}
+	}
+	else
+	{
+		return;
+	}
+}
+
+//populates an XML file for use with the translation tables complete chart on the main page
+function xttranslate_populate_chart()
+{
+	require_once('xttranslate.admin.inc');
+
+	$db_prefix = variable_get('xttranslate_db_prefix', '');
+
+	//get all non-hidden languages
+	$lang_query = "select b.language, a.code as lang_code, b.code as country_code, official
+	from " . $db_prefix . "translate_language_codes as a
+	join " . $db_prefix . "translate_languages as b
+	on a.language = b.language
+	where hide != 1";
+	
+	$version = xttranslate_get_product_version();
+
+	$lang_result = db_query($lang_query);
+
+	$lang_array = array();
+	
+	$content = '<chart_data>';
+	$content .= "<row><null/>";
+	
+	while ( $language = db_fetch_object($lang_result) )
+	{
+		$temp_lang = xttranslate_percent_complete($language->lang_code, $language->country_code, $version);
+		$language_value = ($language->official == 't') ? $language->language : $language->language . ': ' . xttranslate_get_country_array($language->country_code);
+		$language_index = ($language->official == 't') ? $language->language : $language->language . ':' . xttranslate_get_country_array($language->country_code);
+
+	
+		$lang_array[$language_index] = round($temp_lang[2], 0);
+	}
+
+	//watchdog('xttranslate', print_r($lang_array, true));
+	
+	arsort($lang_array);
+
+	foreach( $lang_array as $index => $value)
+	{
+		$content .= "<string>" . $index . "</string>";	
+	}
+
+	//print_r($lang_array);	
+	$content .= "</row><row><string>Percent Complete</string>";
+
+	foreach ($lang_array as $index => $value)
+	{
+		$content .= "<number shadow='shadow1'>" . $value . "</number>";
+	}
+	
+	$content .= "</row></chart_data>";
+
+	$file = file_directory_path() . '/xttranslate/charts/sample.xml';
+
+     $string = file_get_contents($file);
+
+	$string = preg_replace('/\<chart\_data\>\<\/chart\_data\>/', $content, $string);	
+
+     $xml = simplexml_load_string($string);
+
+	$myFile = "/tmp/current.xml";
+
+     $FILE = fopen($myFile, 'w') or die ("Can't create file");
+
+	fwrite($FILE, $string);
+     fclose($FILE);
+	
+	file_move($myFile, '/usr/local/apache2/htdocs/openmfginfo/sites/default/files/xttranslate/charts', FILE_EXISTS_REPLACE );
+	//var_dump ($xml);
+
+	
+}
+
+
+function xttranslate_user_check()
+{
+	global $user;
+
+	$db_prefix = variable_get('xttranslate_db_prefix', '');
+
+	$roles = $user->roles;
+	
+	$allowed_roles = array('Translator', 'Translator Manager', 'administrator');
+		
+	$allowed = false;
+
+	foreach ($allowed_roles as $index => $value)
+	{
+		if (in_array($value, $roles) )
+		{
+			$allowed = true;
+		}
+	}
+
+	if (!$allowed)
+	{
+		/*
+		$output = "<p>The Translation Portal is for authorized users only. To join the translation team, please send an email to xttranslate(at)xtuple.com and 
+		request access to the Translation Portal. Once you have been granted Translator access, please <a href='/user'>login</a> and return here to use this tool.</p>";
+		*/
+	
+		return FALSE;			
+	}
+	
+	return TRUE;
+
+}
+
+function xttranslate_statistics()
+{
+	require_once('xttranslate.admin.inc');
+
+	$module_path = drupal_get_path('module', 'xttranslate');
+     $full_path = $module_path .'/xttranslate.css';
+
+	drupal_add_css($full_path);
+	drupal_add_js($module_path . "/css_browser_selector.js");
+
+	$db_prefix = variable_get('xttranslate_db_prefix', '');
+
+	//get all languages not hidden
+	$lang_query = "select b.language, lower(c.name) as country, a.code as lang_code, b.code as country_code, official
+     from " . $db_prefix . "translate_language_codes as a
+     join " . $db_prefix . "translate_languages as b
+     on a.language = b.language
+	join " . $db_prefix . "translate_country as c
+     on  lower(c.iso) = b.code
+     where hide != 1";
+
+	$version = xttranslate_get_product_version();
+
+     $lang_result = db_query($lang_query);
+
+	//qm downloads for last 30 days
+	$qm_thirtydays = "
+	select language, country, count(*) as last_month
+	from " . $db_prefix . "translate_qmdownload
+	where time > (now() - interval '30 day') 
+	group by language,country;	
+	";
+
+	//qm downloads total
+	$qm_total = "
+	select language, country, count(*) as total
+	from " . $db_prefix . "translate_qmdownload
+	group by language,country;
+	";
+
+
+	$qm = array();
+	$qm_thirtydays_result = db_query($qm_thirtydays);
+	$qm_total_result = db_query($qm_total);
+
+	
+	while ( $qm_temp = db_fetch_object($qm_total_result) )
+	{
+		$qm_temp->last_month = 0;
+		$qm[$qm_temp->language] = $qm_temp;
+	}
+
+	while ( $qm_temp = db_fetch_object($qm_thirtydays_result) )
+	{
+		$temp = $qm[$qm_temp->language];
+		$temp->last_month = $qm_temp->last_month;
+		$qm[$qm_temp->language] = $temp;
+	}
+	
+	$temp = '';
+
+	$lang_array = array();
+	$top_users = array();	
+	
+	while ( $language = db_fetch_object($lang_result) )
+	{
+		$index = $language->language . ":" . $language->country;
+
+		//languages last 30 days
+		$lang_thirtydays = "
+		select count(distinct a.consourceid) as last_month
+    		from " . $db_prefix . "translate_" . $language->lang_code . "_" . $language->country_code . "_translation as a
+    	 	where translation != ''
+    	 	and time > (now() - interval '30 day') 
+    		and \"user\" != 'Administrator'
+		";
+
+		//languages total
+		$lang_total = "
+		select count(distinct a.consourceid) as total
+    		from " . $db_prefix . "translate_" . $language->lang_code . "_" . $language->country_code . "_translation as a
+    	 	where translation != ''
+    		and \"user\" != 'Administrator'
+		";
+
+		//user submissions
+		$user_query = "
+		select \"user\", count(distinct a.consourceid) as total
+     	from " . $db_prefix . "translate_%s_%s_translation as a
+     	where translation != ''
+     	and \"user\" != 'Administrator'
+     	group by \"user\"
+     	order by total
+     	limit 10
+		";		
+		
+
+		$lang_thirtydays_result = db_query($lang_thirtydays);
+		$lang_total_result = db_query($lang_total);
+
+		while ( $temp_lang = db_fetch_object($lang_total_result) )
+		{
+			$temp_lang->last_month = 0;
+			$lang_array[$index] = $temp_lang;
+		}
+		
+		while ( $temp_lang = db_fetch_object($lang_thirtydays_result) )
+		{
+			$temp = $lang_array[$index];
+			$temp->last_month = $temp_lang->last_month;
+			$lang_array[$index] = $temp;
+		}
+		$lang_array[$index]->language = $language->language;
+		$lang_array[$index]->country = $language->country;
+		
+
+		$users_query_result = db_query($user_query, $language->lang_code, $language->country_code);
+		
+		while ( $top = db_fetch_object($users_query_result) )
+		{
+			//if the user xttranslates other languages, just add to his total, else asign his total
+			$top_users[$top->user] = ( isset($top_users[$top->user]) ) ? $top_users[$top->user] + $top->total : $top->total;			
+		}
+		
+	}
+	
+	//sort all the results by totals for every language, keeping the user association 
+	arsort($top_users);
+
+	//grab the top ten
+	$top_users = array_slice($top_users, 0, 10, true);
+
+	$output = "&nbsp;&nbsp;Here's a snapshot of download activity for the various language projects for xTuple ERP.";
+	$output .= "<div id='xttranslate-stats-main'>";
+	
+	$output .= "<b>.QM File Downloads</b><br>
+	<div id='xttranslate-stats-downloads'>
+	<table>
+	<thead>
+	<tr><th>Language</th><th>Country</th><th>Last 30 Days</th><th>Total</th></tr>
+	</thead>
+	<tbody>
+	";
+	
+	foreach ($qm as $language => $row)
+	{
+		$output .= "
+		<tr>
+		<td>" . $row->language . "</td><td>" . $row->country . "</td><td>" . $row->last_month . "</td><td>" . $row->total . "</td>
+		</tr>";
+
+	}
+	
+	$output .= "</tbody></table></div><br>";
+
+	$output .= "<div style='float: right'>Currently included products:<ul>";
+  
+        $products = db_query("select * from " . $db_prefix . "translate_product_version order by product");
+        while ($xtuple = db_fetch_object($products))
+        {
+                $output .= "<li>" . $xtuple->product . " " . $xtuple->current_version . "</li>";
+        }
+
+        $output .= "</ul></div>";	
+	
+	$output .= "
+	<span id='xttranslate-submission-label'>Here's a look at translation activity.<br><br>
+	<b>Submissions</b></span>
+	<div id='xttranslate-stats-submission'>
+	<table id='xttranslate-stats-submission-table'><thead>
+	<tr><th>Language</th><th>Country</th><th>Last 30 Days</th><th>Total</th></tr>
+	</thead>
+	<tbody>
+	";
+	
+	foreach ( $lang_array as $lang_country => $row )
+	{
+		$output .= "
+		<tr><td>" . $row->language . "</td><td>" . ucfirst($row->country) . "</td><td>" . $row->last_month . "</td><td>" . $row->total . "</td>
+		</tr>";
+	}
+	
+	$output .= "</tbody></table>
+	</div>
+	<label id='xttranslate-users-label'><b>Top Translators</b></label>
+	<div id='xttranslate-stats-translators'>
+	<table id='xttranslate-topusers-table'><thead>
+	<tr><th>User</th><th>Translations</th></tr>
+	</thead>
+	<tbody>
+	";
+	
+	foreach ($top_users as $user => $total)
+	{
+		$output .= "<tr><td>" . $user . "</td><td>" . $total . "</td><tr>";
+	}
+	
+	$output .= "</tbody></table>
+	</div>
+	";	
+
+	$output .= "</div>"; //end of stats-main
+	return $output;
+}
+
+function xttranslate_search_sources( $term = '', $language_code, $country_code, $slice = 0, $unfinished_only = FALSE, $type = 'source')
+{
+
+	if ( !xttranslate_user_check() )
+	{
+		$output = "<p>The Translation Portal is for authorized users only. To join the translation team, please send an email to xttranslate(at)xtuple.com and 
+          request access to the Translation Portal. Once you have been granted Translator access, please <a href='/user'>login</a> and return here to use this tool.</p>";
+		
+		return $output;
+	}
+	
+	$term = (empty($_POST['term'])) ?  '' : $_POST['term'];
+	$slice = (empty($_POST['slice'])) ? 0 : $_POST['slice'];
+	//$unfinished_only = (empty($_POST['unfinished'])) ? FALSE : $_POST['unfinished'];
+	$unfinished_only = ($_POST['unfinished'] == 'true') ? TRUE : FALSE;
+	$type = (empty($_POST['type'])) ? 'source' : $_POST['type'];
+	$language_code = $_POST['language'];
+	$country_code = $_POST['country'];
+	$version = $_POST['version'];
+	
+
+	if ($type == 'source')
+	{
+		//$term = base64_decode($term);
+	}
+	$term = db_escape_string($term);
+	//print $term;
+	//$term = urldecode($term);
+	//$term = pg_escape_string($term);
+	$term = strtolower($term);
+	//print $term;
+	//print $type;
+	$language_temp = explode(':', $language_code);                  
+
+     if ( is_array($language_temp) && count($language_temp) > 2)
+     {
+          $language_code = $language_temp[0];
+          $country_code = $language_temp[1];
+     }
+	
+	if (is_numeric($language_code) || is_numeric($country_code) )
+	{
+		return; //no weird numbers allowed!
+	}
+
+	require_once('xttranslate.admin.inc');
+
+	$db_prefix = variable_get('xttranslate_db_prefix', '');
+
+	//print "TERM: " . $term;	
+	$current_version = xttranslate_get_product_version(); //restricting to current version only - for now
+	
+	//var_dump($version);
+
+	//var_dump ($language_temp);
+	//var_dump ($language_code);
+	//var_dump ($country_code);
+
+	//print $term;
+	//grab sources and translations
+	$source_query = "select distinct source,translation, b.consourceid as consourceid, context, a.contextid as contextid
+     from " . $db_prefix . "translate_consource as a                        
+     join " . $db_prefix . "translate_consource_version as consource_version
+     on consource_version.consourceid = a.id      
+     join " . $db_prefix . "translate_%s_%s_translation as b
+     on a.id = b.consourceid
+     join " . $db_prefix . "translate_source as d
+     on d.id = a.sourceid
+		 join " . $db_prefix . "translate_context as g
+		 on g.id = a.contextid
+     join (select max(rev_number) as mrev, e.consourceid as sid
+          from " . $db_prefix . "translate_%s_%s_translation as e
+          inner join " . $db_prefix . "translate_consource_version as f
+          on f.consourceid = e.consourceid
+          where f.version = '%s' group by e.consourceid) as foo             
+     on b.consourceid = foo.sid
+     where consource_version.version = '%s'
+     and b.rev_number = foo.mrev and b.complete != 0";
+	if ($unfinished_only)
+	{
+		$source_query .= " and translation = '' ";
+	}
+	if ($type == 'translation')
+	{
+		$source_query .= " and lower(translation) like lower('%%{$term}%') ";
+	}
+	else if ($type == 'both')
+	{
+		$source_query .= " and ( lower(translation) like lower('%%{$term}%') or lower(source) like '%%{$term}%') ";
+	}
+	else 
+	{		
+     	$source_query .= " and ( lower(source) like '%%{$term}%%' ) ";
+	}
+	$source_query .= "
+	order by source";
+
+	if ($type == 'both')
+	{
+		$source_query_result = db_query($source_query, $language_code, $country_code, $language_code, $country_code, 
+		$version, $version);
+	}
+	else
+	{
+		$source_query_result = db_query($source_query, $language_code, $country_code, $language_code, $country_code, 
+		$version, $version);
+
+		//watchdog('xttranslate', $source_query);
+		watchdog('xttranslate', sprintf($source_query, $language_code, $country_code, $language_code, $country_code, $version, $version));
+		
+	}
+
+	//grab results per context
+	$total_sources_found = "
+	select context,count(distinct source) as total
+     from " . $db_prefix . "translate_consource as a                        
+     join " . $db_prefix . "translate_consource_version as consource_version
+     on consource_version.consourceid = a.id      
+     join " . $db_prefix . "translate_%s_%s_translation as b
+     on a.id = b.consourceid
+     join " . $db_prefix . "translate_source as d 
+     on d.id = a.sourceid
+     join " . $db_prefix . "translate_context as g
+     on g.id = a.contextid
+     join (select max(rev_number) as mrev, e.consourceid as sid
+          from " . $db_prefix . "translate_%s_%s_translation as e
+          inner join " . $db_prefix . "translate_consource_version as f
+          on f.consourceid = e.consourceid   
+          where f.version = '%s' group by e.consourceid) as foo             
+     on b.consourceid = foo.sid
+     where consource_version.version = '%s'
+     and b.rev_number = foo.mrev and b.complete != 0";
+	if ($unfinished_only)
+	{
+		$total_sources_found .= " and translation = '' ";
+	}
+	if ($type == 'translation')
+	{
+		$total_sources_found .= " and lower(translation) like lower('%%{$term}%') ";
+	}
+	else if ($type == 'both')
+	{
+		$total_sources_found .= " and ( lower(translation) like lower('%%{$term}%') or lower(source) like '%%{$term}%') ";
+	}
+	else
+	{		
+     	$total_sources_found .= " and lower(source) like '%%{$term}%%' ";
+	}
+	$total_sources_found .= "
+     group by context
+     order by total desc
+	";
+
+
+	if ($type == 'both')
+	{
+		$total_sources_found_result = db_query($total_sources_found, $language_code, $country_code, $language_code, 
+    $country_code, $version, $version);
+	}	
+	else	
+	{		
+		$total_sources_found_result = db_query($total_sources_found, $language_code, $country_code, 
+		$language_code, $country_code, $version, $version);
+	}
+	
+	$sources = array();
+	$consources = array();
+	$found_contexts = array();
+	$found_cids = array();
+	$similar = array();
+	$match_source = array(); //for use in sourcesearch in javascript
+	$found_sources = array();
+
+	$source_query_result = db_query($source_query, $language_code, $country_code, $language_code, $country_code, $version, $version);
+
+	while ( $row = db_fetch_object($source_query_result) )
+	{
+		$p = 0;
+          $sim = similar_text($term, $row->source, $p);
+		$sources[$row->consourceid] = $row->source;
+		//$consources[$row->source] = $row->consourceid;
+		$translations[$row->consourceid] = $row->translation;
+		$found_contexts[$row->context] = $row->context;
+		$found_cids[$row->context] = $row->contextid;
+		$match_source[$row->consourceid] = $row->contextid;
+
+		if ( array_key_exists($row->context, $similar) )
+		{
+			if ($p >= $similar[$row->context] )
+			{
+				$similar[$row->context] = $p;
+			}
+		}
+		else
+		{
+			$similar[$row->context] = $p;			
+		}
+	}
+
+	while ( $row = db_fetch_object($total_sources_found_result) )
+	{
+		$found_sources[$row->context] = $row->total;
+	}
+	
+	//print_r($sources);
+	//print drupal_json( array ( 'sources' => $sources, 'consources' => $consources ) );
+
+	//get all completed contexts/totals 
+	/*
+	$complete_contexts = "select a.id as cid, context, count(distinct e.consourceid) as total
+	from " . $db_prefix . "translate_context as a
+	join " . $db_prefix . "translate_consource as c
+	on c.contextid = a.id
+	join " . $db_prefix . "translate_consource_version as d
+	on d.consourceid = c.id
+	join " . $db_prefix . "translate_%s_%s_translation as e
+	on e.consourceid = c.id
+	where b.version = '%s' and d.version = '%s'
+	";
+	*/
+
+	$complete_contexts = "select a.id as cid, context, count(distinct d.consourceid) as total
+	from " . $db_prefix . "translate_context as a
+	join " . $db_prefix . "translate_consource as c
+	on c.contextid = a.id
+	join " . $db_prefix . "translate_consource_version as d
+	on d.consourceid = c.id
+	where d.version = '%s' 
+	group by context, cid
+	order by context";
+
+	//get all contexts/totals with non empty translations - finished
+
+	$uncomplete_contexts = "select a.id as cid, context, count(distinct e.consourceid) as total
+	from " . $db_prefix . "translate_context as a
+	join " . $db_prefix . "translate_consource as c
+	on c.contextid = a.id
+	join " . $db_prefix . "translate_consource_version as d
+	on d.consourceid = c.id
+	join " . $db_prefix . "translate_%s_%s_translation as e
+	on e.consourceid = c.id
+	inner join (
+		select max(rev_number) as mrev, g.consourceid as sid
+  	from " . $db_prefix . "translate_%s_%s_translation as g
+    inner join " . $db_prefix . "translate_consource as x
+		on x.id = g.consourceid
+    inner join " . $db_prefix . "translate_consource_version as f
+    on f.consourceid = x.id
+    where f.version = '%s' 
+		and g.complete != 0 group by g.consourceid
+	) as foo
+  on e.consourceid = foo.sid
+	where translation != ''
+	and d.version = '%s'
+	and e.complete != 0
+	and e.rev_number = foo.mrev
+	group by context, cid
+	order by context
+	";
+
+
+	
+	$complete_contexts_result = db_query($complete_contexts, $version);
+	$uncomplete_contexts_result = db_query($uncomplete_contexts, $language_code, $country_code, $language_code, $country_code, $version, $version);
+
+	$contexts = array();
+	$items = array();
+	$tempitems = array();
+	$context_ids = array();
+
+	$max = array( pg_num_rows($source_query_result) );
+
+
+	while ($uncomplete_row = db_fetch_object($uncomplete_contexts_result) )
+	{
+		$tempitems[$uncomplete_row->context] = $uncomplete_row->total;
+	}
+
+	//append on the totals
+	
+	$unfinished_max = 0;
+	//print_r($tempitems);
+	while ($complete_row = db_fetch_object($complete_contexts_result) )
+	{
+
+		$finished_entries = ( empty($tempitems[$complete_row->context]) ) ? 0 : $tempitems[$complete_row->context];
+		$total_entries = ( empty($complete_row->total) ) ? 0 : $complete_row->total;
+			
+		if ($unfinished_only)
+		{			
+			//xtres_set_message("Context: {$complete_row->context} finished: $finished_entries total: $total_entries");
+			if ($finished_entries != $total_entries)
+			{
+				if ( $complete_row->context == $found_contexts[$complete_row->context] )
+				{
+					//$unfinished_max += $finished_entries;
+					$unfinished_max += $found_sources[$complete_row->context];
+					$contexts[$complete_row->context] = $complete_row->context;
+					//$items[$complete_row->context] = $finished_entries . '/' . $total_entries;
+					$items[$complete_row->context] = $found_sources[$complete_row->context] . '/' . $total_entries;
+					$context_ids[$complete_row->context] = $complete_row->cid;
+				}
+			}
+			else
+			{
+				//only want unfinished (non-equal) entries, so delete the context from the list
+				//unset($contexts[$complete_row->context]);
+				unset( $similar[$complete_row->context] ); 
+				unset($items[$complete_row->context]);
+			}
+			
+		}
+		else
+		{
+			
+				//if the context was found with the source search sql, keep it
+				if ( $complete_row->context == $found_contexts[$complete_row->context] )
+				{
+					$contexts[$complete_row->context] = $complete_row->context;
+					//$items[$complete_row->context] = $finished_entries . '/' . $total_entries;
+					$items[$complete_row->context] = $found_sources[$complete_row->context] . '/' . $total_entries;
+					$context_ids[$complete_row->context] = $complete_row->cid;
+				}
+		}
+		
+	}
+	if ($unfinished_only)	
+	{
+		$max = array( $unfinished_max );
+	}
+	//reduce the load to 15 contexts at a time
+	//should use limit on SQL but limiting unfinished won't work
+
+	//print_r($contexts);
+	//print_r($context_ids);
+	//print_r($similar);
+
+	arsort($similar);
+
+	//$similar = array_slice($similar, $slice, 15);
+
+	$new_contexts = array();
+	$new_items = array();
+	$new_context_ids = array();
+	$new_found_sources = array();
+	
+	//loop for relavence. Needs to be done better later.
+	foreach ($similar as $c => $percentage)
+	{
+		$new_contexts[$c] = $contexts[$c];
+		$new_items[$c] = $items[$c];
+		$new_context_ids[$c] = $context_ids[$c];
+		$new_found_sources[$c] = $found_sources[$c];
+	}
+		
+	$contexts = $new_contexts;
+	$items = $new_items;
+	$context_ids = $new_context_ids;	
+	$found_sources = $new_found_sources;
+
+	$max_contexts = count($contexts);
+
+	$contexts = array_slice($contexts, $slice, 15);
+	$items = array_slice($items, $slice, 15);
+	$context_ids = array_slice($context_ids, $slice, 15);
+
+	//print "SLICE $slice";
+
+	$percent_complete = xttranslate_percent_complete( $language_code, $country_code, $version);
+
+	print drupal_json( array ( 'contexts' => $contexts, 'items' => $items, 'contextids' => $context_ids, 'max' => $max, 'complete' => $percent_complete, 'sources' => 
+	$sources, 'match_source' => $match_source, 'translations' => $translations, 'max_contexts' => $max_contexts ) );
+
+}
+
+
+function xttranslate_search_translations($term = '', $language_code, $country_code, $slice = 0, $unfinished_only = FALSE)
+{
+	return xttranslate_search_sources($term, $language_code, $country_code, $slice, $unfinished_only, 'translation');
+}
+
+function xttranslate_search_default($unfinished_only = FALSE)
+{
+	return xttranslate_search_sources($_REQUEST['term'], $_REQUEST['language'], $_REQUEST['country'], $_REQUEST['slice'], $unfinished_only, 'both');
+}
+
+function xttranslate_gui_export($source, $language_code, $version)
+{
+  require_once('xttranslate.admin.inc');
+  if(empty($version) || $version == 'current')
+    $version = xttranslate_get_product_version();
+  else
+  {
+    $version_result = db_query("SELECT DISTINCT version
+                                  FROM ac_translate_consource_version
+                                 WHERE version IN ( '" . implode('\' ,\'', variable_get('xttranslate_display_version', array(''))) . "' )
+                              ORDER BY version");
+    $found = false;
+    while ($row = db_fetch_object($version_result))
+    {
+      if($row->version == $version)
+      {
+        $found = true;
+      }
+    }
+    if($found == false)
+    {
+      return; // bad version requested
+    }
+  }
+
+  if($source == "xTuple")
+  {
+    $language_temp = explode('_', $language_code);
+    $country_code = null;
+    if ( is_array($language_temp) )
+    {
+      $language_code = $language_temp[0];
+      $country_code = $language_temp[1];
+    }
+    $language = xttranslate_get_language_array( $language_code );
+    $country = xttranslate_get_country_array( $country_code );
+    $db_prefix = variable_get('xttranslate_db_prefix', '');
+    $count = db_result(db_query("SELECT count(*) FROM " . $db_prefix . "translate_languages WHERE language = '%s' AND code = '%s'", $language, $country_code));
+    if($count < 1)
+      return; // no language exists
+    if(!empty($country) && !is_array($country))
+      $lang = $language_code . ':' . $country_code;
+    else
+      $lang = $language_code;
+  
+    $form_state = array( 'values' => array(
+                           'version' => $version,
+                           'lang' => $lang
+                         )
+                       );
+    xttranslate_frontpage_exportfile_submit(null, $form_state);
+  }
+  else if($source == "qt")
+  {
+    $loc = dirname(__FILE__) . "/qttranslations";
+    $file = "";
+    if(file_exists($loc."/qt.".$language_code.".qm"))
+      $file = "/qt.".$language_code.".qm";
+    else
+    {
+      $language_temp = explode('_', $language_code);
+      $country_code = null;
+      if ( is_array($language_temp) )
+      {
+        $language_code = $language_temp[0];
+        $country_code = $language_temp[1];
+      }
+      if(file_exists($loc."/qt.".$language_code.".qm"))
+        $file = "qt.".$language_code.".qm";
+    }
+    if(!empty($file))
+    {
+      while( @ob_end_clean() );
+      header('Content-Disposition: attachment; filename=' . $file);
+      readfile($loc."/".$file);
+    }
+  }
+}
+
+//used with exportgui.php
+function xttranslate_get_language_display_array( $hidden = FALSE )
+{
+
+        $db_prefix = variable_get('xttranslate_db_prefix', '');
+
+
+        $hide = ($hidden) ? 1 : 0;
+
+        $language_query = "select c.printable_name as country, a.language as language, official,
+     a.code as country_code, b.code as language_code
+     from " . $db_prefix . "translate_languages as a
+     inner join " . $db_prefix . "translate_language_codes as b
+     on a.language = b.language
+     join " . $db_prefix . "translate_country as c
+     on lower(c.iso) = a.code
+        where hide = %d
+     order by language asc";
+
+     $language_query_result = db_query($language_query, $hide);
+
+     //$language = db_fetch_object($language_query_result);
+
+     $language_array = array();
+     //print pg_num_rows($language_query_result); 
+     while ( $language = db_fetch_object($language_query_result) )
+     {
+          //if it's not the official language for the country, display the language with its country
+          //$language_value = $language->language;
+          $language_value = ($language->official == 't') ? $language->language : $language->language . ':' . $language->country;
+          $language_index = $language->language_code . ':' . $language->country_code;
+          $language_array[$language_index] = $language_value;
+     }
+
+                foreach ($language_array as $index => $value)
+                {
+                        $val .= $index . "|" . $value . ",";
+                }
+
+                $val = substr($val, 0, -1);
+
+                print $val;
+
+
+}
+

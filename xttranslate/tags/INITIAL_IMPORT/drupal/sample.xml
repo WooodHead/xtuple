@@ -1,0 +1,91 @@
+<chart>
+
+   <chart_type>bar</chart_type>
+   <!-- make the chart's border red, 4 pixels thick, except for the top -->
+
+   <!-- drop the chart parts by series -->	
+   <chart_transition type='slide_right'
+                     delay='1'
+                     duration='2'
+                     order='series'
+                     />
+
+   <!-- show the default labels -->
+   <chart_label position='outside' size='12' color='FF4400' alpha='100' />   
+
+   <axis_value min='0'  
+            max='100' 
+            steps='5'  
+            prefix='' 
+            suffix='%' 
+            decimals=''
+            decimal_char='.'  
+            separator='' 
+            show_min='true' 
+            font='arial' 
+            bold='true' 
+            size='12' 
+            color='FF0000' 
+            alpha='75'
+            orientation='horizontal' 
+            />
+
+
+   <chart_data>
+      <row>
+         <null/>
+         <string>Bulgarian</string>
+         <string>Chinese</string>
+         <string>French</string>
+         <string>French:Canada</string>
+         <string>German</string>
+         <string>Italian</string>
+         <string>Japanese</string>
+         <string>Norwegian</string>
+         <string>Portuguese</string>
+         <string>Russian</string>
+         <string>Spanish</string>
+         <string>Turkish</string>
+         <string>Ukranian</string>
+      </row>
+      <row>
+         <string>Percent Complete</string>
+         <number shadow='shadow1'>5</number>
+         <number shadow='shadow1'>10</number>
+         <number shadow='shadow1'>30</number>
+         <number shadow='shadow1'>63</number>
+         <number shadow='shadow1'>5</number>
+         <number shadow='shadow1'>10</number>
+         <number shadow='shadow1'>30</number>
+         <number shadow='shadow1'>63</number>
+         <number shadow='shadow1'>5</number>
+         <number shadow='shadow1'>10</number>
+         <number shadow='shadow1'>30</number>
+         <number shadow='shadow1'>63</number>
+         <number shadow='shadow1'>63</number>
+      </row>
+   </chart_data>
+
+   <!-- define the shadow and bevel filters to use in chart_data -->
+   <filter>
+      <shadow id='shadow1' distance='5' angle='45' blurX='5' blurY='5' alpha='50' />
+      <bevel id='bevel1' angle='45' blurX='5' blurY='5' distance='10' />
+   </filter>
+
+   <!-- small chart rectangle with 2 rounded corners -->
+   <!-- make the area above the zero line blue -->
+   <!-- make the area below the zero line red -->
+   <!-- make both colors transparent to blend with the background color -->   
+   <chart_rect x='133'
+               y='50'
+               width='230'
+               height='380'
+               positive_color='8888FF'
+               negative_color='FF0000'
+               positive_alpha='75'
+               negative_alpha='25'
+               />
+
+
+   
+</chart>
