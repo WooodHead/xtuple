@@ -303,6 +303,37 @@ CREATE VIEW docinfo AS
         WHERE ((docass_source_type='OPP')
          AND (docass_source_id=ophead_id))
  UNION ALL
+------------ QUOTE -----------
+ SELECT docass_id AS id,
+        quhead_number AS target_number,
+        docass_target_type AS target_type,
+        docass_target_id AS target_id,
+        docass_source_type AS source_type,
+        docass_source_id AS source_id,
+        cust_name AS name, firstline(quhead_ordercomments) AS description,
+        docass_purpose AS purpose
+        FROM docass, quhead, custinfo
+        WHERE ((docass_target_type='Q')
+         AND (docass_target_id=quhead_id)
+         AND (cust_id=quhead_cust_id))
+ UNION ALL
+ SELECT docass_id AS id,
+        quhead_number AS target_number,
+        docass_source_type AS target_type,
+        docass_source_id AS target_id,
+        docass_target_type AS source_type,
+        docass_target_id AS source_id,
+        cust_name AS name, firstline(quhead_ordercomments) AS description,
+        CASE 
+          WHEN docass_purpose = 'A' THEN 'C'
+          WHEN docass_purpose = 'C' THEN 'A'
+          ELSE docass_purpose
+        END AS purpose
+        FROM docass, quhead, custinfo
+        WHERE ((docass_source_type='Q')
+         AND (docass_source_id=quhead_id)
+         AND (cust_id=quhead_cust_id))
+ UNION ALL
 ------------ SALES ORDER -----------
  SELECT docass_id AS id,
         cohead_number AS target_number,
