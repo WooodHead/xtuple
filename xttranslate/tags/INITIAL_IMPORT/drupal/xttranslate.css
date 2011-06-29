@@ -1,0 +1,458 @@
+.gecko #xttranslate-menu {
+	/* border: 1px solid black; */
+	width: 100%;
+}
+.safari #xttranslate-menu {
+	/* border: 1px solid black; */
+	width: 100%;
+}
+.ie #xttranslate-main {
+	border: 1px solid black;
+	position: relative; 
+	width: 99%; 
+	height: 600px;
+}
+
+.gecko #xttranslate-main {
+	border: 1px solid black; 
+	position: relative; 
+	width: 100%; 
+	height: 600px;
+}
+
+.safari #xttranslate-main {
+	border: 1px solid black; 
+	position: relative; 
+	width: 100%; 
+	height: 600px;
+}
+
+.chrome #xttranslate-main {
+	border: 1px solid black; 
+	position: relative; 
+	width: 100%; 
+	height: 600px;
+}
+
+.ie #xttranslate-context {
+	/* border: 1px solid blue;  */
+	border-right: 1px solid black;
+	position: absolute;
+	float: left; 
+	width: 20%; 
+	height: 100%;
+}
+
+#xttranslate-context {
+	/* border: 1px solid blue; */
+	border-right: 1px solid black;
+	position: absolute;
+	float: left; 
+	width: 20%; 
+	height: 100%;
+}
+
+.safari #xttranslate-context {
+	/* border: 1px solid blue; */
+	border-right: 1px solid black;
+	position: absolute;
+	float: left; 
+	width: 20%; 
+	height: 100%;
+}
+
+#xttranslate-right {
+	/* border: 1px solid brown; */
+	 width:80%; 
+	height: 100%;
+	 position: absolute; 
+	right: 0px;
+}
+.safari #xttranslate-right {
+	/* border: 1px solid brown; */
+	 width:80%; 
+	height: 100%;
+	 position: absolute; 
+	right: 0px;
+}
+
+.ie #xttranslate-right {
+	/* border: 2px solid brown; */
+	 width:80%; 
+	height: 100%;
+	 position: absolute; 
+	right: 0px;
+	
+}
+/*
+.chrome #xttranslate-context {
+	border: 1px solid blue; 
+	position: absolute;
+	float: left; 
+	width: 20%; 
+	height: 100%;
+}
+*/
+.ie #xttranslate-view-source {
+	/* border: 1px solid red; */
+	border-bottom: 1px solid black;
+	position: absolute;
+	width:100%; 
+	height:25%;
+	overflow: auto;
+}
+
+#xttranslate-view-source {
+	/* border: 1px solid red; */
+	border-bottom: 1px solid black;
+	/* margin-left: 20%; */
+	position: absolute;
+	right: 0px;
+	width:100%; 
+	height:25%;
+	overflow: auto;
+}
+.safari #xttranslate-view-source {
+	/* border: 1px solid red; */
+	border-bottom: 1px solid black;
+	/* margin-left: 20%; */
+	position: absolute;
+	right: 0px;
+	width:100%; 
+	height:25%;
+	overflow: auto;
+}
+
+.ie #xttranslate-view-source-table {
+	/* table-layout: auto; */
+	/* height: 25%; */
+	width: 100%;
+}
+
+#xttranslate-view-source-table {
+	position: relative; 
+	max-width:100%;
+	right: 0px;
+	/* max-height:25%; */
+}
+.safari #xttranslate-view-source-table {
+	position: relative; 
+	max-width:100%;
+	right: 0px;
+	/* max-height:25%; */
+}
+
+#xttranslate-view-source-table td {
+	cursor: pointer;
+}
+
+#xttranslate-menu span.link {
+	color: blue;
+	cursor: pointer;
+	
+}
+
+tr.orange{
+	background-color: #ff9933;
+}
+
+
+tr.grey{
+	background-color: #cdcdcd;
+}
+
+span.orange{
+	background-color: #ff9933;
+}
+
+tr.white{
+	background-color: white;
+}
+
+tr.shaded{
+	background-color: #ddedf7;
+}
+
+tr.sourceshaded {
+	background-color: #666666;
+}
+
+#xttranslate-context-table tbody{
+	overflow: auto;
+	overflow-x: hidden;
+	height: 50%;
+}
+
+#xttranslate-context-table td{
+	cursor: pointer;
+}
+.safari #xttranslate-context-table tbody{
+	overflow: auto;
+	overflow-x: hidden;
+	height: 50%;
+}
+
+.safari #xttranslate-context-table td{
+	cursor: pointer;
+}
+
+.ie #xttranslate-context-table td {
+	cursor: pointer;	
+}
+
+.ie #xttranslate-edit-source {
+	/* border: 1px solid green;  */
+	border-bottom: 1px solid black;
+	position: absolute;
+	top: 25%;
+	width:98%; 
+	height:38%;
+	padding: 1%;
+}
+
+#xttranslate-edit-source {
+	/* border: 1px solid green;  */
+	border-bottom: 1px solid black;
+	/* margin-left: 20%; */
+	position: absolute;
+	right: 0px;
+	top: 25%;
+	width:98%; 
+	height:39%;
+	padding: 1%;
+}
+
+.safari #xttranslate-edit-source {
+	/* border: 1px solid green;  */
+	border-bottom: 1px solid black;
+	/* margin-left: 20%; */
+	position: absolute;
+	right: 0px;
+	top: 25%;
+	width:98%; 
+	height:39%;
+	padding: 1%;
+}
+
+
+.ie #xttranslate-suggest {
+	/* border: 1px solid yellow;  */
+	position: absolute;
+	top: 65%;
+	width:97.5%; 
+	height:32%;
+	padding: 1%; 
+}
+
+#xttranslate-suggest {
+	/* border: 1px solid yellow;  */
+	/* margin-left: 20%; */
+	width:97.5%; 
+	max-height:30%;
+	height:30%;
+	padding: 1%; 
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+.safari #xttranslate-suggest {
+	/* border: 1px solid yellow;  */
+	/* margin-left: 20%; */
+	width:97.5%; 
+	max-height:30%;
+	height:30%;
+	padding: 1%; 
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+
+#xttranslate-suggest span {
+	cursor: pointer;
+}
+
+#xttranslate-suggest-box {
+	border: 1px solid black;
+	width: 99%;
+	height: 70%;
+	overflow: auto;	
+}
+#xttranslate-submitarea {
+	position: absolute;
+	right: 2%;
+	bottom: 4%;
+}
+
+#edit-translation {
+	width: 98%;
+	height: 15%;
+}
+
+.safari #edit-translation {
+	width: 98%;
+	height: 15%;
+}
+
+.ie #edit-translation {
+	width: 98%;
+	height: 18%;
+}
+
+
+#xttranslate-front-form {
+	/* positon: absolute; */
+}
+
+#xttranslate-front-chart {
+	border: 1px solid black; 
+	width: 400px; 
+	height: 480px;
+	float: right;	
+}
+
+#xttranslate-front-container {
+	position: relative;	
+	height: auto;
+}
+
+#xttranslate-ajaxBusy {
+	display: none; 
+	/*
+     margin: 0px;
+     paddingLeft: 0px;
+     paddingRight: 0px;
+     paddingTop: 0px;
+     paddingBottom: 0px;
+	*/
+     width: 50px; 
+}
+#xttranslate-context-pages {
+	width: 30%;
+}
+
+#xttranslate-search-box {
+	position: relative;
+	float: right;
+	bottom: 69px;
+	text-align: right;
+	
+}
+#backgroundPopup {
+display:none;
+position:fixed;
+_position:absolute; /* hack for internet explorer 6*/
+height:100%;
+width:100%;
+top:0;
+left:0;
+background:#000000;
+border:1px solid #cecece;
+z-index:1;
+}
+
+#popupContact {
+display:none;
+position:fixed;
+_position:absolute; /* hack for internet explorer 6*/
+height:384px;
+width:408px;
+background:#FFFFFF;
+border:2px solid #cecece;
+z-index:2;
+padding:12px;
+font-size:13px;
+}
+
+#popupContact a {
+	cursor: pointer;
+}
+
+#xttranslate-search {
+	cursor: pointer;
+}
+
+#xttranslate-search-warning {
+	display: none;
+}
+#popupContact h1 {
+text-align:left;
+color:#6FA5FD;
+font-size:22px;
+font-weight:700;
+border-bottom:1px dotted #D3D3D3;
+padding-bottom:2px;
+margin-bottom:20px;
+}
+
+#popupContactClose {
+font-size:14px;
+line-height:14px;
+right:6px;
+top:4px;
+position:absolute;
+color:#6fa5fd;
+font-weight:700;
+display:block;
+}
+
+#xttranslate-stats-downloads {
+	border: 1px solid black;
+	width: 50%;
+	height: 42%;
+	position: absolute;
+	overflow: auto;
+}
+
+#xttranslate-stats-main {
+	width: 98%;
+	height: 620px;
+	position: relative;
+	padding: 10px;
+}
+
+.ie #xttranslate-stats-main {
+	height: 620px;
+	float: left;
+}
+
+#xttranslate-stats-submission {
+	border: 1px solid black;
+	width: 60%;
+	height: 230px;
+	position: absolute;
+	bottom: 10px;
+	overflow: auto;
+}
+
+#xttranslate-stats-translators {
+	border: 1px solid black;
+	width: 35%;
+	height: 230px;
+	overflow: auto;	
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	
+}
+
+#xttranslate-stats-submission-table {
+
+	/* position: relative; */
+
+}
+
+#xttranslate-topusers-table {
+	width: 100%;
+	height: 100%;
+}
+
+#xttranslate-users-label {
+	position: relative;
+	top: 52%;
+	left: 64%;
+}
+
+#xttranslate-submission-label {
+	position: absolute;
+	bottom: 250px;
+}

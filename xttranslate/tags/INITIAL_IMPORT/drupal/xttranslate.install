@@ -1,0 +1,263 @@
+<?php
+
+function xttranslate_install()
+{
+	drupal_install_schema('xttranslate');
+}
+
+function xttranslate_uninstall()
+{
+	drupal_uninstall_schema('xttranslate');
+}
+
+function xttranslate_schema()
+{
+	$schema['ac_xttranslate_context'] = array(
+  		'description' => t('Translation Contexts Table'),
+  		'fields' => array(
+    			'context' => array(
+      			'description' => t('Context'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+    			'base' => array(
+      			'description' => t('Is the context is a part of the base language or not'),
+      			'type' => 'boolean',
+      			'not null' => TRUE,
+    			),
+    			'id' => array(
+      			'description' => t('Unique Key'),
+      			'type' => 'serial',
+      			'not null' => TRUE,
+    			),
+  		),
+  		'primary key' => array('id'),
+	);
+
+	$schema['ac_xttranslate_context_version'] = array(
+  		'description' => t('Translation Context Version Table'),
+  		'fields' => array(
+    			'version' => array(
+      			'description' => t('Version the context appears in'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+    			'id' => array(
+      			'description' => t('Unique Key'),
+      			'type' => 'serial',
+      			'not null' => TRUE,
+    			),
+    			'contextid' => array(
+      			'description' => t('Foreign key belonging to the context'),
+      			'type' => 'serial',
+      			'not null' => TRUE,
+    			),
+  		),
+  		'primary key' => array('id'),
+	);
+
+	$schema['ac_xttranslate_consource'] = array(
+ 		'description' => t('TODO: please describe this table!'),
+  		'fields' => array(
+    			'sourceid' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'int',
+      			'unsigned' => 1,
+      			'not null' => TRUE,
+    			),
+    			'id' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'serial',
+      			'not null' => TRUE,
+    			),
+    			'contextid' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'serial',
+      			'not null' => TRUE,
+    			),
+  		),
+  		'primary key' => array('id'),
+	);
+
+	$schema['ac_xttranslate_consource_version'] = array(
+  		'description' => t('TODO: please describe this table!'),
+  		'fields' => array(
+    			'id' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'serial',
+      			'not null' => TRUE,
+    			),
+    			'consourceid' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'serial',
+      			'not null' => TRUE,
+    			),
+    			'version' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+  		),
+  		'primary key' => array('id'),
+	);
+
+	$schema['ac_xttranslate_languages'] = array(
+  		'description' => t('TODO: please describe this table!'),
+  		'fields' => array(
+    			'language' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+    			'hide' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'int',
+      			'unsigned' => 1,
+      			'not null' => TRUE,
+      			'default' => 0,
+    			),
+    			'code' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+    			'official' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'boolean',
+      			'not null' => TRUE,
+      			'default' => 'true',
+    			),
+    			'id' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'serial',
+      			'not null' => TRUE,
+    			),
+  		),
+  		'primary key' => array('id'),
+	);
+
+	$schema['ac_xttranslate_source'] = array(
+  		'description' => t('TODO: please describe this table!'),
+  		'fields' => array(
+    			'source' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+    			'time' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'datetime',
+      			'not null' => TRUE,
+      			'default' => 'now()',
+  			),
+    			'id' => array(
+     	 		'description' => t('TODO: please describe this field!'),
+     	 		'type' => 'serial',
+     	 		'not null' => TRUE,
+    			),
+  		),
+  		'primary key' => array('id'),
+	);
+
+	$schema['ac_xttranslate_source_location'] = array(
+ 		'description' => t('TODO: please describe this table!'),
+  		'fields' => array(
+    			'location' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+    			'id' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'serial',
+      			'not null' => TRUE,
+    			),
+    			'consourceid' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'serial',
+      			'not null' => TRUE,
+    			),
+  		),
+ 		 'primary key' => array('id'),
+	);
+
+	$schema['ac_xttranslate_source_version'] = array(
+		'description' => t('TODO: please describe this table!'),
+  		'fields' => array(
+    			'version' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+    			'id' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'serial',
+      			'not null' => TRUE,
+    			),
+    			'sourceid' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'serial',
+      			'not null' => TRUE,
+    			),
+  		),
+  		'primary key' => array('id'),
+	);
+
+	$schema['ac_xttranslate_product_version'] = array(
+  		'description' => t('TODO: please describe this table!'),
+  		'fields' => array(
+    			'product' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+    			'current_version' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+  		),
+  		'primary key' => array('current_version'),
+	);
+
+	$schema['ac_xttranslate_qmdownload'] = array(
+  		'description' => t('TODO: please describe this table!'),
+  		'fields' => array(
+    			'id' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'serial',
+      			'not null' => TRUE,
+    			),
+    			'username' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+    			'time' => array(
+     			'description' => t('TODO: please describe this field!'),
+     		 	'type' => 'datetime',
+      			'not null' => TRUE,
+      			'default' => 'now()',
+    			),
+    			'version' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+    			'language' => array(
+     			'description' => t('TODO: please describe this field!'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+    			'country' => array(
+      			'description' => t('TODO: please describe this field!'),
+      			'type' => 'text',
+      			'not null' => TRUE,
+    			),
+  		),
+  		'primary key' => array('id'),
+	);
+		
+
+	return $schema;
+}
