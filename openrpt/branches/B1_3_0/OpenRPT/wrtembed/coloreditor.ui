@@ -1,0 +1,264 @@
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<class>ColorEditor</class>
+<comment>/*
+ * Copyright (c) 2002-2006 by OpenMFG, LLC
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * If you do not wish to be bound by the terms of the GNU General Public
+ * License, DO NOT USE THIS SOFTWARE.  Please contact OpenMFG, LLC at
+ * info@openmfg.com for details on how to purchase a commercial license.
+ */</comment>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>ColorEditor</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>300</width>
+            <height>159</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Color Editor</string>
+    </property>
+    <hbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>11</number>
+        </property>
+        <property name="spacing">
+            <number>6</number>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>Layout6</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>Layout3</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <property name="margin">
+                            <number>0</number>
+                        </property>
+                        <property name="spacing">
+                            <number>6</number>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>_lblName</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Name:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>_editName</cstring>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QGroupBox">
+                    <property name="name">
+                        <cstring>_gbComponents</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Components</string>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <property name="margin">
+                            <number>11</number>
+                        </property>
+                        <property name="spacing">
+                            <number>6</number>
+                        </property>
+                        <widget class="QLineEdit" row="0" column="2">
+                            <property name="name">
+                                <cstring>_editBlue</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit" row="0" column="1">
+                            <property name="name">
+                                <cstring>_editGreen</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="1" column="1">
+                            <property name="name">
+                                <cstring>_lblGreen</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Green</string>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignCenter</set>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="1" column="0">
+                            <property name="name">
+                                <cstring>_lblRed</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Red</string>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignCenter</set>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="1" column="2">
+                            <property name="name">
+                                <cstring>_lblBlue</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Blue</string>
+                            </property>
+                            <property name="textFormat">
+                                <enum>AutoText</enum>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignCenter</set>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit" row="0" column="0">
+                            <property name="name">
+                                <cstring>_editRed</cstring>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>Layout4</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>_btnAccept</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;OK</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>_btnCancel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Cancel</string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>Spacer2</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>_btnColor</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Color...</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </hbox>
+</widget>
+<connections>
+    <connection>
+        <sender>_btnAccept</sender>
+        <signal>clicked()</signal>
+        <receiver>ColorEditor</receiver>
+        <slot>accept()</slot>
+    </connection>
+    <connection>
+        <sender>_btnCancel</sender>
+        <signal>clicked()</signal>
+        <receiver>ColorEditor</receiver>
+        <slot>reject()</slot>
+    </connection>
+    <connection>
+        <sender>_btnColor</sender>
+        <signal>clicked()</signal>
+        <receiver>ColorEditor</receiver>
+        <slot>_btnColor_clicked()</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>_editName</tabstop>
+    <tabstop>_editRed</tabstop>
+    <tabstop>_editGreen</tabstop>
+    <tabstop>_editBlue</tabstop>
+    <tabstop>_btnColor</tabstop>
+    <tabstop>_btnAccept</tabstop>
+    <tabstop>_btnCancel</tabstop>
+</tabstops>
+<includes>
+    <include location="local" impldecl="in implementation">coloreditor.ui.h</include>
+</includes>
+<slots>
+    <slot>_btnColor_clicked()</slot>
+    <slot>init()</slot>
+    <slot>setColorName( QString name )</slot>
+    <slot>setColor( const QColor &amp; col )</slot>
+    <slot returnType="QColor">getColor()</slot>
+    <slot returnType="QString">getColorName()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

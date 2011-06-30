@@ -1,0 +1,70 @@
+#!/bin/bash
+
+APPNAME=`awk '/^QMAKE_TARGET/ {print $3}' Makefile`
+echo $0 for $APPNAME
+
+if [ -z "$QTDIR" ] ; then
+  QTDIR=/opt/qt/4.1.4
+fi
+if ! [ -d "$QTDIR" ] ; then
+  echo "Cannot find QTDIR"
+  exit 1
+fi
+
+if [ -z "$PGDIR" ] ; then
+  PGDIR="$QTDIR"
+fi
+if ! [ -d $PGDIR/lib ] ; then
+  echo "Cannot find PGDIR/lib"
+  exit 1
+fi
+FRAMEWORKSDIR=../../bin/${APPNAME}.app/Contents/Frameworks
+
+if ! [ -d "$FRAMEWORKSDIR" ] ; then
+  mkdir "$FRAMEWORKSDIR"
+fi
+cd "$FRAMEWORKSDIR"
+
+LIBLIST=`otool -L ../MacOS/${APPNAME} | awk '{print $1}' | grep "$QTDIR"`
+for ORIGLIB in $LIBLIST "$PGDIR"/lib/libpq.4.dylib ; do
+  NEWLIB=`basename "$ORIGLIB"`
+  cp "$ORIGLIB" $NEWLIB
+
+  install_name_tool -id @executable_path/../Frameworks/"$NEWLIB" "$NEWLIB"
+  install_name_tool -change $ORIGLIB @executable_path/../Frameworks/"$NEWLIB" ../MacOS/${APPNAME}
+done
+
+# update lib path for the current library in any others that refer to it
+for REPLLIB in *.dylib ; do
+  LIBLIST=`otool -L ${REPLLIB} | awk '{print $1}' | grep "$QTDIR"`
+  for ORIGLIB in $LIBLIST ; do
+    NEWLIB=`basename "$ORIGLIB"`
+    install_name_tool -change "$ORIGLIB" @executable_path/../Frameworks/"$NEWLIB" "$REPLLIB"
+  done
+done
+
+if ! [ -d "../plugins/sqldrivers" ]; then
+  mkdir -p ../plugins/sqldrivers
+fi
+cd ../plugins/sqldrivers
+cp $QTDIR/plugins/sqldrivers/libqsqlpsql.dylib .
+install_name_tool -change $QTDIR/lib/libQtSql.4.dylib @executable_path/../Frameworks/libQtSql.4.dylib libqsqlpsql.dylib
+install_name_tool -change $QTDIR/lib/libQtCore.4.dylib @executable_path/../Frameworks/libQtCore.4.dylib libqsqlpsql.dylib
+install_name_tool -change $PGDIR/lib/libpq.4.dylib @executable_path/../Frameworks/libpq.4.dylib libqsqlpsql.dylib
+
+cd ..
+
+if ! [ -d "imageformats" ]; then
+  mkdir imageformats
+fi
+cd imageformats
+for IMAGELIB in libqgif.dylib libqjpeg.dylib libqmng.dylib ; do
+  cp $QTDIR/plugins/imageformats/$IMAGELIB .
+  install_name_tool -change $QTDIR/lib/libQtGui.4.dylib @executable_path/../Frameworks/libQtGui.4.dylib $IMAGELIB
+  install_name_tool -change $QTDIR/lib/libQtCore.4.dylib @executable_path/../Frameworks/libQtCore.4.dylib $IMAGELIB
+done
+
+cd ../../Resources
+
+echo "[Paths]" > qt.conf
+echo "Prefix = .." >> qt.conf

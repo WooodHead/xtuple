@@ -1,0 +1,126 @@
+#!/bin/bash
+#
+# OpenRPT report writer and rendering engine
+# Copyright (C) 2001-2008 by OpenMFG, LLC
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+# Please contact info@openmfg.com with any questions on this license.
+#
+
+if [ -z $QTDIR ]; then
+  QTDIR=/opt/qt/4.1.4
+fi
+if ! [ -d $QTDIR ]; then
+  echo "Cannot find QTDIR"
+  exit
+fi
+if [ -z $PGDIR ]; then
+  PGDIR=$QTDIR
+fi
+if ! [ -d $PGDIR/lib ]; then
+  echo "Cannot find PGDIR/lib"
+  exit
+fi
+FRAMEWORKSDIR=../../bin/importmqlgui.app/Contents/Frameworks
+
+if ! [ -d $FRAMEWORKSDIR ]; then
+  mkdir $FRAMEWORKSDIR
+fi
+cd $FRAMEWORKSDIR
+
+cp $QTDIR/lib/libQt3Support.4.dylib .
+cp $QTDIR/lib/libQtNetwork.4.dylib .
+cp $QTDIR/lib/libQtSql.4.dylib .
+cp $QTDIR/lib/libQtXml.4.dylib .
+cp $QTDIR/lib/libQtGui.4.dylib .
+cp $QTDIR/lib/libQtCore.4.dylib .
+cp $PGDIR/lib/libpq.4.dylib .
+
+install_name_tool -id @executable_path/../Frameworks/libpq.4.dylib libpq.4.dylib
+
+install_name_tool -id @executable_path/../Frameworks/libQt3Support.4.dylib libQt3Support.4.dylib
+install_name_tool -change $QTDIR/lib/libQtSql.4.dylib @executable_path/../Frameworks/libQtSql.4.dylib libQt3Support.4.dylib
+install_name_tool -change $QTDIR/lib/libQtXml.4.dylib @executable_path/../Frameworks/libQtXml.4.dylib libQt3Support.4.dylib
+install_name_tool -change $QTDIR/lib/libQtGui.4.dylib @executable_path/../Frameworks/libQtGui.4.dylib libQt3Support.4.dylib
+install_name_tool -change $QTDIR/lib/libQtNetwork.4.dylib @executable_path/../Frameworks/libQtNetwork.4.dylib libQt3Support.4.dylib
+install_name_tool -change $QTDIR/lib/libQtCore.4.dylib @executable_path/../Frameworks/libQtCore.4.dylib libQt3Support.4.dylib
+
+install_name_tool -id @executable_path/../Frameworks/libQtNetwork.4.dylib libQtNetwork.4.dylib
+install_name_tool -change $QTDIR/lib/libQtCore.4.dylib @executable_path/../Frameworks/libQtCore.4.dylib libQtNetwork.4.dylib
+
+install_name_tool -id @executable_path/../Frameworks/libQtSql.4.dylib libQtSql.4.dylib
+install_name_tool -change $QTDIR/lib/libQtCore.4.dylib @executable_path/../Frameworks/libQtCore.4.dylib libQtSql.4.dylib
+
+install_name_tool -id @executable_path/../Frameworks/libQtXml.4.dylib libQtXml.4.dylib
+install_name_tool -change $QTDIR/lib/libQtCore.4.dylib @executable_path/../Frameworks/libQtCore.4.dylib libQtXml.4.dylib
+
+install_name_tool -id @executable_path/../Frameworks/libQtGui.4.dylib libQtGui.4.dylib
+install_name_tool -change $QTDIR/lib/libQtCore.4.dylib @executable_path/../Frameworks/libQtCore.4.dylib libQtGui.4.dylib
+
+install_name_tool -id @executable_path/../Frameworks/libQtCore.4.dylib libQtCore.4.dylib
+
+cd ../MacOS
+install_name_tool -change $QTDIR/lib/libQt3Support.4.dylib @executable_path/../Frameworks/libQt3Support.4.dylib importmqlgui
+install_name_tool -change $QTDIR/lib/libQtNetwork.4.dylib @executable_path/../Frameworks/libQtNetwork.4.dylib importmqlgui
+install_name_tool -change $QTDIR/lib/libQtSql.4.dylib @executable_path/../Frameworks/libQtSql.4.dylib importmqlgui
+install_name_tool -change $QTDIR/lib/libQtXml.4.dylib @executable_path/../Frameworks/libQtXml.4.dylib importmqlgui
+install_name_tool -change $QTDIR/lib/libQtGui.4.dylib @executable_path/../Frameworks/libQtGui.4.dylib importmqlgui
+install_name_tool -change $QTDIR/lib/libQtCore.4.dylib @executable_path/../Frameworks/libQtCore.4.dylib importmqlgui
+
+if ! [ -d "../plugins" ]; then
+  mkdir ../plugins
+fi
+cd ../plugins
+
+if ! [ -d "sqldrivers" ]; then
+  mkdir sqldrivers
+fi
+cd sqldrivers
+
+cp $QTDIR/plugins/sqldrivers/libqsqlpsql.dylib .
+install_name_tool -change $QTDIR/lib/libQtSql.4.dylib @executable_path/../Frameworks/libQtSql.4.dylib libqsqlpsql.dylib
+install_name_tool -change $QTDIR/lib/libQtCore.4.dylib @executable_path/../Frameworks/libQtCore.4.dylib libqsqlpsql.dylib
+install_name_tool -change $PGDIR/lib/libpq.4.dylib @executable_path/../Frameworks/libpq.4.dylib libqsqlpsql.dylib
+
+##
+## importmqlgui doesn't need the extra image plugins to do it's job.
+##
+#cd ..
+#if ! [ -d "imageformats" ]; then
+#  mkdir imageformats
+#fi
+#cd imageformats
+#cp $QTDIR/plugins/imageformats/libqgif.dylib .
+#install_name_tool -change $QTDIR/lib/libQtGui.4.dylib @executable_path/../Frameworks/libQtGui.4.dylib libqgif.dylib
+#install_name_tool -change $QTDIR/lib/libQtCore.4.dylib @executable_path/../Frameworks/libQtCore.4.dylib libqgif.dylib
+#
+#cp $QTDIR/plugins/imageformats/libqjpeg.dylib .
+#install_name_tool -change $QTDIR/lib/libQtGui.4.dylib @executable_path/../Frameworks/libQtGui.4.dylib libqjpeg.dylib
+#install_name_tool -change $QTDIR/lib/libQtCore.4.dylib @executable_path/../Frameworks/libQtCore.4.dylib libqjpeg.dylib
+#
+#cp $QTDIR/plugins/imageformats/libqmng.dylib .
+#install_name_tool -change $QTDIR/lib/libQtGui.4.dylib @executable_path/../Frameworks/libQtGui.4.dylib libqmng.dylib
+#install_name_tool -change $QTDIR/lib/libQtCore.4.dylib @executable_path/../Frameworks/libQtCore.4.dylib libqmng.dylib
+
+
+cd ../..
+if ! [ -d "Resources" ]; then
+  mkdir Resources
+fi
+cd Resources
+
+echo "[Paths]" > qt.conf
+echo "Prefix = .." >> qt.conf
+

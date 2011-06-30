@@ -1,0 +1,475 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>RenderWindow</class>
+<comment>/*
+ * Copyright (c) 2002-2005 by OpenMFG, LLC
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * If you do not wish to be bound by the terms of the GNU General Public
+ * License, DO NOT USE THIS SOFTWARE.  Please contact OpenMFG, LLC at
+ * info@openmfg.com for details on how to purchase a commercial license.
+ */</comment>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>RenderWindow</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>605</width>
+            <height>468</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>OpenRPT Renderer</string>
+    </property>
+    <property name="icon">
+        <pixmap>image0</pixmap>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout3</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>_reportLbl</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Report Definition:</string>
+                    </property>
+                    <property name="alignment">
+                        <set>AlignVCenter|AlignRight</set>
+                    </property>
+                </widget>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>_report</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>7</hsizetype>
+                            <vsizetype>5</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>Not Loaded</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>_reportInfo</cstring>
+            </property>
+            <property name="enabled">
+                <bool>false</bool>
+            </property>
+            <property name="title">
+                <string>Report Information</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QTextEdit" row="2" column="1">
+                    <property name="name">
+                        <cstring>_reportDescription</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>7</hsizetype>
+                            <vsizetype>1</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="hScrollBarMode">
+                        <enum>AlwaysOff</enum>
+                    </property>
+                    <property name="linkUnderline">
+                        <bool>false</bool>
+                    </property>
+                    <property name="readOnly">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="2" column="0">
+                    <property name="name">
+                        <cstring>_reportDescriptionLbl</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Description:</string>
+                    </property>
+                    <property name="alignment">
+                        <set>AlignTop|AlignRight</set>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>_reportNameLbl</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Name:</string>
+                    </property>
+                    <property name="alignment">
+                        <set>AlignVCenter|AlignRight</set>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="1">
+                    <property name="name">
+                        <cstring>_reportTitle</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="0" column="1">
+                    <property name="name">
+                        <cstring>_reportName</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="0">
+                    <property name="name">
+                        <cstring>_reportTitleLbl</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Title:</string>
+                    </property>
+                    <property name="alignment">
+                        <set>AlignVCenter|AlignRight</set>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>groupBox1</cstring>
+            </property>
+            <property name="title">
+                <string>Parameters</string>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QTable">
+                    <column>
+                        <property name="text">
+                            <string>Active</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Name</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Type</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Value</string>
+                        </property>
+                    </column>
+                    <property name="name">
+                        <cstring>_table</cstring>
+                    </property>
+                    <property name="numRows">
+                        <number>0</number>
+                    </property>
+                    <property name="numCols">
+                        <number>4</number>
+                    </property>
+                    <property name="readOnly">
+                        <bool>true</bool>
+                    </property>
+                    <property name="selectionMode">
+                        <enum>SingleRow</enum>
+                    </property>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout2</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>_add</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Add</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+A</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>_edit</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Edit</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+E</string>
+                            </property>
+                        </widget>
+                        <widget class="Line">
+                            <property name="name">
+                                <cstring>line2</cstring>
+                            </property>
+                            <property name="frameShape">
+                                <enum>HLine</enum>
+                            </property>
+                            <property name="frameShadow">
+                                <enum>Sunken</enum>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>_delete</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Delete</string>
+                            </property>
+                            <property name="accel">
+                                <string></string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Vertical</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>40</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </vbox>
+                </widget>
+            </hbox>
+        </widget>
+    </vbox>
+</widget>
+<menubar>
+    <property name="name">
+        <cstring>MenuBar</cstring>
+    </property>
+    <item text="&amp;File" name="fileMenu">
+        <action name="fileOpenAction"/>
+        <separator/>
+        <action name="filePrintAction"/>
+        <separator/>
+        <action name="fileExitAction"/>
+    </item>
+    <separator/>
+    <item text="&amp;Help" name="helpMenu">
+        <action name="helpAboutAction"/>
+    </item>
+</menubar>
+<toolbars>
+</toolbars>
+<actions>
+    <action>
+        <property name="name">
+            <cstring>fileOpenAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image1</iconset>
+        </property>
+        <property name="text">
+            <string>Open</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Open...</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+O</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>filePrintAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image2</iconset>
+        </property>
+        <property name="text">
+            <string>Print</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Print...</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+P</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileExitAction</cstring>
+        </property>
+        <property name="text">
+            <string>Exit</string>
+        </property>
+        <property name="menuText">
+            <string>E&amp;xit</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>helpAboutAction</cstring>
+        </property>
+        <property name="text">
+            <string>About</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;About</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+</actions>
+<images>
+    <image name="image0">
+        <data format="PNG" length="1414">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af40000054d49444154789cc5977d68d55518c73fcff9ddddddbb3bb6e5a6f9da9b60b469105254a6a4904989a9106a12898124988585652c4b2d88a017a97fcc44a3a03789902909be2e9d46306c582a6a6d6bd5746d73eeedeededfef9cfe38bfdf6faff7eefa57cf3f97737edfe73cdfe739cfcbb9525353c3ff29915c406dc98479ffd3c3c40bc780f1fc5df17f0d66e09270dbdf54600cc99e2ede5a3773282a3702e7eadb3972e00253673d0038b8a9de117191687cc47d3795a4e1e7b3b06ee6709d5c088cbd390e13c6337bd11c926e277802ca7e5306b4006840c0a87e45d1b86e9a58ac9486df2e8d4c3a93d193e753e6d8e97a62b755d076a10e101a7f6fa2e9ef7f73e11cca5d778f43d475106fc4ef19091c387e99a387cec3d82b4854888f2de3f8f1d378da43c4bff7200c78a004b4023448c446a9ab9b8af2c751f962f76f84804cbc03ca3a58b57631aee9cf9d8898517c8664aa9b967f3a38bcf71098003f2cff8613385baf4de3953e0a4be234d435005073e20c5aa7c0681feefa8789f51cdf6bed208e21e2b84c9b713b8634e0a132181e91c007bbab39f7eb5fc48ae214951432b938c2b58b75a37a1c482b05781d3d94cf28f7cb558daa338840a2b884a9d34bb974704dce4607ca17d56d3cbdf26d24b83265f094642db541df1ce3e026db003855d7485373277989e1b5ad4c2f5aec7ebabb97fc0258f450054eaa0b741f9ef2ef5d83d299d26f0402460c4adb727975db2eaaf7d7425111684378d781770260c073212f89d7bc2fa047681dc1a0b35ec420021a8d560e00fbbedd92456db078a9340a703debab13568d20a8dc23e01807ed67ed9ff52db476a7504e041374394021e881471a708ccbacf229888fd10411c3d7c991007888d8c3d76ed8ce89aa5a882540a741e5f5c374da3f390fdc24c40d6e6b15e25802fd6dc3d85e9d3b015f09f872cf463afbd228a5acf31a9402d7801340fd56a08c8b4330280d6206e641f6241c121d8720d4da8b87cada77c20d9cd1b6c179063c05c99e8167080ae3330efdc928194b74e5b35bec15141659521a5b530610150e3f5b05bd98d62ac401fb3e18bd5d672460fc00efdaf112575b5314c66c90ba923690519d22a5a2215ea38969d7ea6a8b91e021a255a6119099402065c58524121a250a311ee30b62a3bbe3f5574b302f8c4f33930cc9010fc136a227966f6172c91226962e6542c952923ee2c4f92bcc5db695eab38dcc5db695c6f674a8ad95cd561d0e2a8d0a6de7300ded055bce1fbeb386964d3d2847c0f3880167ea5b983d7733e495d19717e1587513773ef81a0db5ef322e2e03269f9d8e004605937364890c5d1a6315a74fbb254ca53efff7f90ddb211223964811eded838228c96bd759fdc26eaa3e591d362045f064b3861dc95c0e430868947f2b0b966de5d8fe5a881782d3836efe8e3d3b2b51f118da85494550ffcb471823e8d475acb9fe4e681fc50a9d8e434f348c485602de80d7ceeb2f2f67d5330bc2b5008f2c7e8f3f7e3a0905c51c3cf2268fce790552291e5e723f47bfdeec23ed19a281788cef777c066e3b243b47276087884dc279f74e1b06fe71ff2626dfb31ed2514c3c0145658cbb750a3ff8c60d06c4412482380aaeb651b37771d6421c36278c1f85d94b2b91e86348c90aa474217dc0a42245efe58fa9dcb0909b8ca172e353349f7a83fc304a02c621cf2bf077d2438fcf1e01506863eb66fd732b58b0703e11270f47a77ca02186b0edc57900dc573ec567ad411422808af0d5cecfc1ed816bed3746c088c1f13be193f32b32a804cd4608cb560644b9ab839a6fb2873d23018503f925a1193d0c24e17b2158dbe1e3af0ac7e46a7764021d1d2d349cbc8844f765c2679758029cd21b5291fffbeff97fdb5ff9a7f85f0fcb0000000049454e44ae426082</data>
+    </image>
+    <image name="image1">
+        <data format="PNG" length="210">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000009949444154789ced94410e85200c445f89c7367f61bc775d2848a42860ffced9548bbe8e13043e1d928177f481a123dc2b34f6f47a3de2b865a8843f4001982a0b3d5f62c58300aa1ad70550449ab9d507a773a8a4ba4f92a2df333c64c63bebbd82e5b8addecbcc7820eb4266c639745dfa80f36faf66c66fa19c3f882fb470ec05cdc0bed07893f68e171492635f686c3eeff6ba3c8fdd366dc4c0452cf153a9590000000049454e44ae426082</data>
+    </image>
+    <image name="image2">
+        <data format="PNG" length="725">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000029c49444154789c8d95ad76db4010853ff718cc3289d950d06136344c98c362964087256f503f426161021be6b2842550612e8be14299496c866dc14ab2fc77da2192665777eedc3b5af53813afafaf414448d3742f6f6600a82a005555912409575757bdeebefe396011613299b440876b4d946589f7fe68cf596080cd6673047658485571cefd3ff02900333b2a70aa23806fa792799e07336b9938e770ceede9dde82f2247fa9e65acaa244942599688486b54374eb5ff4fc6105b3c9c882e6853ec9c142719376c4e31ede655756f42ba71a40dc06ab50a5996311c0ecf8237467e7e7e022092309f5fb7787b8cdfdfdf83f79efc2347668288b40087d786695994e479ceb6daf2f0f01066b319d7d7d7bd5e1774b3f154c5163580d34c019ca408020e7ce159afffb0dd16a81a1717198bc5224ad130bd9c5ee2d2145503538e6c3103849c4f3e78656a53d2af94e79767fc57fcfad4946c7411419f9e7e85b228c3ffc457f80aa3300a12248cc228acd7ebf0e3fbcf301e8fc360908524494236c842bfda56dcdddd9c75f73052522e999223cc98311e8f4964486905cfbf5ea8aa8a7490d237c0fb22cea31988106b48ed36385c54dc14c4f160dfb9c133b4217fd88019e97018d76b77fa6551e045a29e66b4be39882ed69d38031520e604f0b6c5886788df6c5a4f1cf5b835096b00b17628148b35746f673b39d278da0945e9236065e705adc976371a200a76b8e2302ba9fb6c7a633299f20debb06cc96a7cb4faba07ea9a6d35680d58cb39180c582cee2263ef7d631588412540159d338b30d2b0b21d183bcd31430496cb25f3f9bcd7cfb28c8fb70f7ebfbda16ac4f347d81b3ee93ccb0eb2edb39ea6e572c9e3e3630f3a87d06ab50aabd51bdbfaffa5686dcace99dd5f0354cb785f1993e984dbdb5beeefef5bbcbfd1f69e0c0f8448030000000049454e44ae426082</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>fileOpenAction</sender>
+        <signal>activated()</signal>
+        <receiver>RenderWindow</receiver>
+        <slot>fileOpen()</slot>
+    </connection>
+    <connection>
+        <sender>filePrintAction</sender>
+        <signal>activated()</signal>
+        <receiver>RenderWindow</receiver>
+        <slot>filePrint()</slot>
+    </connection>
+    <connection>
+        <sender>fileExitAction</sender>
+        <signal>activated()</signal>
+        <receiver>RenderWindow</receiver>
+        <slot>fileExit()</slot>
+    </connection>
+    <connection>
+        <sender>helpAboutAction</sender>
+        <signal>activated()</signal>
+        <receiver>RenderWindow</receiver>
+        <slot>helpAbout()</slot>
+    </connection>
+    <connection>
+        <sender>_delete</sender>
+        <signal>clicked()</signal>
+        <receiver>RenderWindow</receiver>
+        <slot>sDelete()</slot>
+    </connection>
+    <connection>
+        <sender>_edit</sender>
+        <signal>clicked()</signal>
+        <receiver>RenderWindow</receiver>
+        <slot>sEdit()</slot>
+    </connection>
+    <connection>
+        <sender>_add</sender>
+        <signal>clicked()</signal>
+        <receiver>RenderWindow</receiver>
+        <slot>sAdd()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="global" impldecl="in implementation">qmessagebox.h</include>
+    <include location="global" impldecl="in implementation">qapplication.h</include>
+    <include location="local" impldecl="in implementation">data.h</include>
+    <include location="global" impldecl="in implementation">newvariant.h</include>
+    <include location="global" impldecl="in implementation">intedit.h</include>
+    <include location="global" impldecl="in implementation">booledit.h</include>
+    <include location="global" impldecl="in implementation">stringedit.h</include>
+    <include location="global" impldecl="in implementation">listedit.h</include>
+    <include location="global" impldecl="in implementation">doubleedit.h</include>
+    <include location="global" impldecl="in implementation">qcheckbox.h</include>
+    <include location="global" impldecl="in implementation">qlineedit.h</include>
+    <include location="global" impldecl="in implementation">qcombobox.h</include>
+    <include location="global" impldecl="in implementation">qfiledialog.h</include>
+    <include location="global" impldecl="in implementation">openreports.h</include>
+    <include location="global" impldecl="in declaration">qdom.h</include>
+    <include location="global" impldecl="in declaration">qmap.h</include>
+    <include location="global" impldecl="in declaration">qvariant.h</include>
+    <include location="global" impldecl="in declaration">parameter.h</include>
+    <include location="local" impldecl="in implementation">renderwindow.ui.h</include>
+</includes>
+<variables>
+    <variable>QMap&lt;QString,QVariant&gt; _params;</variable>
+    <variable>QDomDocument _doc;</variable>
+</variables>
+<slots>
+    <slot access="private">init()</slot>
+    <slot>helpAbout()</slot>
+    <slot>fileOpen()</slot>
+    <slot>filePrint()</slot>
+    <slot>fileExit()</slot>
+    <slot access="protected">sAdd()</slot>
+    <slot access="protected">sEdit()</slot>
+    <slot access="protected">sDelete()</slot>
+</slots>
+<functions>
+    <function returnType="ParameterList">getParameterList()</function>
+</functions>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

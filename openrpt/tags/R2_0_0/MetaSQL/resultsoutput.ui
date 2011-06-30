@@ -1,0 +1,54 @@
+<ui version="4.0" stdsetdef="1" >
+  <author></author>
+  <comment> * Copyright (c) 2002-2006 by OpenMFG, LLC
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * If you do not wish to be bound by the terms of the GNU General Public
+ * License, DO NOT USE THIS SOFTWARE.  Please contact OpenMFG, LLC at
+ * info@openmfg.com for details on how to purchase a commercial license.</comment>
+  <exportmacro></exportmacro>
+  <class>ResultsOutput</class>
+  <widget class="QDialog" name="ResultsOutput" >
+    <property name="geometry" >
+      <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>620</width>
+        <height>257</height>
+      </rect>
+    </property>
+    <property name="windowTitle" >
+      <string>Results Output</string>
+    </property>
+    <layout class="QHBoxLayout" >
+      <item>
+        <widget class="Q3Table" name="_table" >
+          <property name="numRows" >
+            <number>0</number>
+          </property>
+          <property name="numCols" >
+            <number>0</number>
+          </property>
+          <property name="readOnly" >
+            <bool>true</bool>
+          </property>
+        </widget>
+      </item>
+    </layout>
+  </widget>
+  <layoutdefault spacing="6" margin="11" />
+  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+</ui>

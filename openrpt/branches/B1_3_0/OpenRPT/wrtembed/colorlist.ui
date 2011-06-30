@@ -1,0 +1,189 @@
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<class>ColorList</class>
+<comment>/*
+ * Copyright (c) 2002-2006 by OpenMFG, LLC
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * If you do not wish to be bound by the terms of the GNU General Public
+ * License, DO NOT USE THIS SOFTWARE.  Please contact OpenMFG, LLC at
+ * info@openmfg.com for details on how to purchase a commercial license.
+ */</comment>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>ColorList</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>330</width>
+            <height>222</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Color Definitions</string>
+    </property>
+    <hbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>11</number>
+        </property>
+        <property name="spacing">
+            <number>6</number>
+        </property>
+        <widget class="QListBox">
+            <property name="name">
+                <cstring>_lbColors</cstring>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>Layout2</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>_btnClose</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Close</string>
+                    </property>
+                </widget>
+                <widget class="Line">
+                    <property name="name">
+                        <cstring>_line1</cstring>
+                    </property>
+                    <property name="frameShape">
+                        <enum>HLine</enum>
+                    </property>
+                    <property name="frameShadow">
+                        <enum>Sunken</enum>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>_btnAdd</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Add</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>_btnEdit</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Edit</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>_btnDelete</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Delete</string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>Spacer1</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+            </vbox>
+        </widget>
+    </hbox>
+</widget>
+<connections>
+    <connection>
+        <sender>_btnClose</sender>
+        <signal>clicked()</signal>
+        <receiver>ColorList</receiver>
+        <slot>accept()</slot>
+    </connection>
+    <connection>
+        <sender>_btnAdd</sender>
+        <signal>clicked()</signal>
+        <receiver>ColorList</receiver>
+        <slot>_btnAdd_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>_btnEdit</sender>
+        <signal>clicked()</signal>
+        <receiver>ColorList</receiver>
+        <slot>_btnEdit_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>_btnDelete</sender>
+        <signal>clicked()</signal>
+        <receiver>ColorList</receiver>
+        <slot>_btnDelete_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>_lbColors</sender>
+        <signal>doubleClicked(QListBoxItem*)</signal>
+        <receiver>ColorList</receiver>
+        <slot>_lbColors_dblClick(QListBoxItem*)</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>_lbColors</tabstop>
+    <tabstop>_btnAdd</tabstop>
+    <tabstop>_btnEdit</tabstop>
+    <tabstop>_btnDelete</tabstop>
+    <tabstop>_btnClose</tabstop>
+</tabstops>
+<includes>
+    <include location="global" impldecl="in declaration">qmap.h</include>
+    <include location="local" impldecl="in implementation">colorlist.ui.h</include>
+</includes>
+<variables>
+    <variable>QMap&lt;QString, QColor&gt;* _colorMap;</variable>
+</variables>
+<slots>
+    <slot>_btnAdd_clicked()</slot>
+    <slot>_lbColors_dblClick( QListBoxItem * item )</slot>
+    <slot>_btnEdit_clicked()</slot>
+    <slot>_btnDelete_clicked()</slot>
+    <slot>init( QMap&lt;QString, QColor&gt; * cmap )</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
