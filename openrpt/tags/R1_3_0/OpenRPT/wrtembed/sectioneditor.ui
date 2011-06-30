@@ -1,0 +1,504 @@
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<class>SectionEditor</class>
+<comment>/*
+ * Copyright (c) 2002-2006 by OpenMFG, LLC
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * If you do not wish to be bound by the terms of the GNU General Public
+ * License, DO NOT USE THIS SOFTWARE.  Please contact OpenMFG, LLC at
+ * info@openmfg.com for details on how to purchase a commercial license.
+ */</comment>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>SectionEditor</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>615</width>
+            <height>442</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Section Editor</string>
+    </property>
+    <property name="sizeGripEnabled">
+        <bool>true</bool>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>11</number>
+        </property>
+        <property name="spacing">
+            <number>6</number>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>Layout5</cstring>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <widget class="QCheckBox" row="0" column="0">
+                    <property name="name">
+                        <cstring>cbReportHeader</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Report Header</string>
+                    </property>
+                </widget>
+                <widget class="QGroupBox" row="1" column="1">
+                    <property name="name">
+                        <cstring>gbPageFooter</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Page Footer</string>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <property name="margin">
+                            <number>11</number>
+                        </property>
+                        <property name="spacing">
+                            <number>6</number>
+                        </property>
+                        <widget class="QCheckBox" row="1" column="0">
+                            <property name="name">
+                                <cstring>cbFootEven</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Even Page(s)</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox" row="0" column="0">
+                            <property name="name">
+                                <cstring>cbFootFirst</cstring>
+                            </property>
+                            <property name="text">
+                                <string>First Page</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox" row="0" column="1">
+                            <property name="name">
+                                <cstring>cbFootLast</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Last Page</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox" row="1" column="1">
+                            <property name="name">
+                                <cstring>cbFootOdd</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Odd Page(s)</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox" row="2" column="0">
+                            <property name="name">
+                                <cstring>cbFootAny</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Any Page(s)</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+                <widget class="QCheckBox" row="0" column="1">
+                    <property name="name">
+                        <cstring>cbReportFooter</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Report Footer</string>
+                    </property>
+                </widget>
+                <widget class="QGroupBox" row="1" column="0">
+                    <property name="name">
+                        <cstring>gbPageHeader</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Page Header</string>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <property name="margin">
+                            <number>11</number>
+                        </property>
+                        <property name="spacing">
+                            <number>6</number>
+                        </property>
+                        <widget class="QCheckBox" row="0" column="1">
+                            <property name="name">
+                                <cstring>cbHeadLast</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Last Page</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox" row="1" column="1">
+                            <property name="name">
+                                <cstring>cbHeadOdd</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Odd Page(s)</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox" row="0" column="0">
+                            <property name="name">
+                                <cstring>cbHeadFirst</cstring>
+                            </property>
+                            <property name="text">
+                                <string>First Page</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox" row="1" column="0">
+                            <property name="name">
+                                <cstring>cbHeadEven</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Even Pages(s)</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox" row="2" column="0">
+                            <property name="name">
+                                <cstring>cbHeadAny</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Any Pages(s)</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>GroupBox3</cstring>
+            </property>
+            <property name="title">
+                <string>Detail Sections</string>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>11</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <widget class="QListBox">
+                    <item>
+                        <property name="text">
+                            <string>New Item</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>lbSections</cstring>
+                    </property>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>Layout8</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <property name="margin">
+                            <number>0</number>
+                        </property>
+                        <property name="spacing">
+                            <number>1</number>
+                        </property>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>btnAdd</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Add</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>btnEdit</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Edit</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>btnRemove</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Delete</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>btnMoveUp</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Move &amp;Up</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>brnMoveDown</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Move &amp;Down</string>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>Layout7</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <spacer>
+                    <property name="name">
+                        <cstring>Horizontal Spacing2</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>buttonOk</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Close</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+C</string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>true</bool>
+                    </property>
+                    <property name="default">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </vbox>
+</widget>
+<connections>
+    <connection>
+        <sender>buttonOk</sender>
+        <signal>clicked()</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>accept()</slot>
+    </connection>
+    <connection>
+        <sender>btnAdd</sender>
+        <signal>clicked()</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>btnAdd_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>btnEdit</sender>
+        <signal>clicked()</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>btnEdit_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>btnRemove</sender>
+        <signal>clicked()</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>btnRemove_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>btnMoveUp</sender>
+        <signal>clicked()</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>btnMoveUp_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>brnMoveDown</sender>
+        <signal>clicked()</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>brnMoveDown_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>cbReportHeader</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>cbReportHeader_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cbReportFooter</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>cbReportFooter_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cbHeadFirst</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>cbHeadFirst_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cbHeadLast</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>cbHeadLast_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cbHeadEven</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>cbHeadEven_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cbHeadOdd</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>cbHeadOdd_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cbFootFirst</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>cbFootFirst_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cbFootLast</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>cbFootLast_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cbFootEven</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>cbFootEven_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cbFootOdd</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>cbFootOdd_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cbHeadAny</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>cbHeadAny_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cbFootAny</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>SectionEditor</receiver>
+        <slot>cbFootAny_toggled(bool)</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>cbReportHeader</tabstop>
+    <tabstop>cbReportFooter</tabstop>
+    <tabstop>cbHeadFirst</tabstop>
+    <tabstop>cbHeadLast</tabstop>
+    <tabstop>cbHeadEven</tabstop>
+    <tabstop>cbHeadOdd</tabstop>
+    <tabstop>cbHeadAny</tabstop>
+    <tabstop>cbFootFirst</tabstop>
+    <tabstop>cbFootLast</tabstop>
+    <tabstop>cbFootEven</tabstop>
+    <tabstop>cbFootOdd</tabstop>
+    <tabstop>cbFootAny</tabstop>
+    <tabstop>lbSections</tabstop>
+    <tabstop>btnAdd</tabstop>
+    <tabstop>btnEdit</tabstop>
+    <tabstop>btnRemove</tabstop>
+    <tabstop>btnMoveUp</tabstop>
+    <tabstop>brnMoveDown</tabstop>
+    <tabstop>buttonOk</tabstop>
+</tabstops>
+<includes>
+    <include location="global" impldecl="in implementation">qcombobox.h</include>
+    <include location="global" impldecl="in implementation">qlineedit.h</include>
+    <include location="global" impldecl="in implementation">querysource.h</include>
+    <include location="local" impldecl="in implementation">detailsectiondialog.h</include>
+    <include location="local" impldecl="in implementation">sectioneditor.ui.h</include>
+</includes>
+<forwards>
+    <forward>class ReportWindow</forward>
+</forwards>
+<variables>
+    <variable>ReportWindow * rw</variable>
+</variables>
+<slots>
+    <slot>btnAdd_clicked()</slot>
+    <slot>btnEdit_clicked()</slot>
+    <slot>btnRemove_clicked()</slot>
+    <slot>btnMoveUp_clicked()</slot>
+    <slot>brnMoveDown_clicked()</slot>
+    <slot>cbReportHeader_toggled( bool yes )</slot>
+    <slot>cbReportFooter_toggled( bool yes )</slot>
+    <slot>cbHeadFirst_toggled( bool yes )</slot>
+    <slot>cbHeadLast_toggled( bool yes )</slot>
+    <slot>cbHeadEven_toggled( bool yes )</slot>
+    <slot>cbHeadOdd_toggled( bool yes )</slot>
+    <slot>cbFootFirst_toggled( bool yes )</slot>
+    <slot>cbFootLast_toggled( bool yes )</slot>
+    <slot>cbFootEven_toggled( bool yes )</slot>
+    <slot>cbFootOdd_toggled( bool yes )</slot>
+    <slot>init( ReportWindow * rw )</slot>
+    <slot>cbHeadAny_toggled( bool yes )</slot>
+    <slot>cbFootAny_toggled( bool yes )</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

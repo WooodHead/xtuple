@@ -1,0 +1,221 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>DBFileDialog</class>
+<comment>/*
+ * Copyright (c) 2002-2005 by OpenMFG, LLC
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * If you do not wish to be bound by the terms of the GNU General Public
+ * License, DO NOT USE THIS SOFTWARE.  Please contact OpenMFG, LLC at
+ * info@openmfg.com for details on how to purchase a commercial license.
+ */</comment>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>DBFileDialog</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>506</width>
+            <height>291</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Database File</string>
+    </property>
+    <hbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout5</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QListView">
+                    <property name="name">
+                        <cstring>_list</cstring>
+                    </property>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout4</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>_lblReport</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Report Name:</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>_name</cstring>
+                            </property>
+                            <property name="frameShape">
+                                <enum>LineEditPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                                <enum>Sunken</enum>
+                            </property>
+                        </widget>
+                        <widget class="QLabel">
+                            <property name="name">
+                                <cstring>_gradeLabel</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Grade:</string>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignVCenter|AlignRight</set>
+                            </property>
+                        </widget>
+                        <widget class="QSpinBox">
+                            <property name="name">
+                                <cstring>_grade</cstring>
+                            </property>
+                            <property name="specialValueText">
+                                <string>##</string>
+                            </property>
+                            <property name="minValue">
+                                <number>-1</number>
+                            </property>
+                            <property name="value">
+                                <number>-1</number>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+            </vbox>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout13</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>_btnOk</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;OK</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>_btnCancel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Cancel</string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer4</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>40</height>
+                        </size>
+                    </property>
+                </spacer>
+            </vbox>
+        </widget>
+    </hbox>
+</widget>
+<connections>
+    <connection>
+        <sender>_btnOk</sender>
+        <signal>clicked()</signal>
+        <receiver>DBFileDialog</receiver>
+        <slot>accept()</slot>
+    </connection>
+    <connection>
+        <sender>_btnCancel</sender>
+        <signal>clicked()</signal>
+        <receiver>DBFileDialog</receiver>
+        <slot>reject()</slot>
+    </connection>
+    <connection>
+        <sender>_list</sender>
+        <signal>currentChanged(QListViewItem*)</signal>
+        <receiver>DBFileDialog</receiver>
+        <slot>sSelectedReport()</slot>
+    </connection>
+    <connection>
+        <sender>_name</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>DBFileDialog</receiver>
+        <slot>sNameChanged(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>_list</sender>
+        <signal>doubleClicked(QListViewItem*)</signal>
+        <receiver>DBFileDialog</receiver>
+        <slot>accept()</slot>
+    </connection>
+    <connection>
+        <sender>_grade</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>DBFileDialog</receiver>
+        <slot>sGradeChanged(int)</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>_name</tabstop>
+    <tabstop>_grade</tabstop>
+    <tabstop>_btnOk</tabstop>
+    <tabstop>_btnCancel</tabstop>
+    <tabstop>_list</tabstop>
+</tabstops>
+<includes>
+    <include location="global" impldecl="in implementation">qmessagebox.h</include>
+    <include location="global" impldecl="in implementation">xsqlquery.h</include>
+    <include location="local" impldecl="in implementation">dbfiledialog.ui.h</include>
+</includes>
+<slots>
+    <slot>init()</slot>
+    <slot returnType="int">getId()</slot>
+    <slot returnType="QString">getName()</slot>
+    <slot returnType="int">getGrade()</slot>
+    <slot returnType="QString">getSource()</slot>
+    <slot returnType="QString">getNameById()</slot>
+    <slot returnType="int">getGradeById()</slot>
+    <slot access="protected">sSelectedReport()</slot>
+    <slot access="protected">sNameChanged( const QString &amp; text )</slot>
+    <slot>sGradeChanged( int )</slot>
+    <slot access="protected">sNameGradeChanged()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

@@ -1,0 +1,156 @@
+<ui version="4.0" stdsetdef="1" >
+  <author></author>
+  <comment> * Copyright (c) 2002-2006 by OpenMFG, LLC
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * If you do not wish to be bound by the terms of the GNU General Public
+ * License, DO NOT USE THIS SOFTWARE.  Please contact OpenMFG, LLC at
+ * info@openmfg.com for details on how to purchase a commercial license.</comment>
+  <exportmacro></exportmacro>
+  <class>ParameterEdit</class>
+  <widget class="QDialog" name="ParameterEdit" >
+    <property name="geometry" >
+      <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>600</width>
+        <height>304</height>
+      </rect>
+    </property>
+    <property name="windowTitle" >
+      <string>Parameter List</string>
+    </property>
+    <layout class="QHBoxLayout" >
+      <item>
+        <widget class="Q3Table" name="_table" >
+          <property name="numRows" >
+            <number>3</number>
+          </property>
+          <property name="numCols" >
+            <number>4</number>
+          </property>
+          <property name="readOnly" >
+            <bool>true</bool>
+          </property>
+          <property name="selectionMode" >
+            <enum>SingleRow</enum>
+          </property>
+        </widget>
+      </item>
+      <item>
+        <layout class="QVBoxLayout" >
+          <property name="margin" >
+            <number>0</number>
+          </property>
+          <item>
+            <widget class="QPushButton" name="_ok" >
+              <property name="text" >
+                <string>&amp;OK</string>
+              </property>
+              <property name="shortcut" >
+                <string>Alt+O</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QPushButton" name="_cancel" >
+              <property name="text" >
+                <string>&amp;Cancel</string>
+              </property>
+              <property name="shortcut" >
+                <string>Alt+C</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="Line" name="line1" >
+              <property name="frameShape" >
+                <enum>QFrame::HLine</enum>
+              </property>
+              <property name="frameShadow" >
+                <enum>QFrame::Sunken</enum>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QPushButton" name="_new" >
+              <property name="text" >
+                <string>&amp;New</string>
+              </property>
+              <property name="shortcut" >
+                <string>Alt+N</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QPushButton" name="_edit" >
+              <property name="text" >
+                <string>&amp;Edit</string>
+              </property>
+              <property name="shortcut" >
+                <string>Alt+E</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QPushButton" name="_delete" >
+              <property name="text" >
+                <string>Delete</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <spacer name="spacer2" >
+              <property name="sizeHint" >
+                <size>
+                  <width>20</width>
+                  <height>20</height>
+                </size>
+              </property>
+              <property name="sizeType" >
+                <enum>Expanding</enum>
+              </property>
+              <property name="orientation" >
+                <enum>Vertical</enum>
+              </property>
+            </spacer>
+          </item>
+        </layout>
+      </item>
+    </layout>
+  </widget>
+  <layoutdefault spacing="6" margin="11" />
+  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+  <includes>
+    <include location="global" >qmap.h</include>
+    <include location="global" >qvariant.h</include>
+    <include location="global" >parameter.h</include>
+  </includes>
+  <connections>
+    <connection>
+      <sender>_cancel</sender>
+      <signal>clicked()</signal>
+      <receiver>ParameterEdit</receiver>
+      <slot>reject()</slot>
+    </connection>
+    <connection>
+      <sender>_ok</sender>
+      <signal>clicked()</signal>
+      <receiver>ParameterEdit</receiver>
+      <slot>accept()</slot>
+    </connection>
+  </connections>
+</ui>

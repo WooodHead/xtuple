@@ -1,0 +1,115 @@
+/*
+ * Copyright (c) 2002-2007 by OpenMFG, LLC
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * If you do not wish to be bound by the terms of the GNU General Public
+ * License, DO NOT USE THIS SOFTWARE.  Please contact OpenMFG, LLC at
+ * info@openmfg.com for details on how to purchase a commercial license.
+ */
+
+#include "graphwindow.h"
+
+#include <QSqlQuery>
+
+/*
+ *  Constructs a GraphWindow as a child of 'parent', with the
+ *  name 'name' and widget flags set to 'f'.
+ *
+ */
+GraphWindow::GraphWindow(QWidget* parent, const char* name, Qt::WFlags fl)
+    : QMainWindow(parent, name, fl)
+{
+    setupUi(this);
+
+    (void)statusBar();
+
+    // signals and slots connections
+    connect(_hPadSpinbox, SIGNAL(valueChanged(int)), _graph, SLOT(setHPadding(int)));
+    connect(_vPadSpinbox, SIGNAL(valueChanged(int)), _graph, SLOT(setVPadding(int)));
+    connect(_titleEdit, SIGNAL(textChanged(const QString&)), _graph, SLOT(setTitle(const QString&)));
+    connect(_dataEdit, SIGNAL(textChanged(const QString&)), _graph, SLOT(setDataLabel(const QString&)));
+    connect(_valueEdit, SIGNAL(textChanged(const QString&)), _graph, SLOT(setValueLabel(const QString&)));
+    connect(_maxValueSpinbox, SIGNAL(valueChanged(int)), _graph, SLOT(setMaxValue(int)));
+    connect(_minValueSpinbox, SIGNAL(valueChanged(int)), _graph, SLOT(setMinValue(int)));
+    connect(_numSetSpinbox, SIGNAL(valueChanged(int)), _dataTable, SLOT(setNumCols(int)));
+    connect(_numRefSpinbox, SIGNAL(valueChanged(int)), _dataTable, SLOT(setNumRows(int)));
+    connect(_dataTable, SIGNAL(valueChanged(int,int)), this, SLOT(_dataTable_valueChanged(int,int)));
+    connect(_labelTable, SIGNAL(valueChanged(int,int)), this, SLOT(_labelTable_valueChanged(int,int)));
+    connect(_numRefSpinbox, SIGNAL(valueChanged(int)), _labelTable, SLOT(setNumRows(int)));
+    connect(_cbBars, SIGNAL(toggled(bool)), _graph, SLOT(setDrawBars(bool)));
+    connect(_cbLines, SIGNAL(toggled(bool)), _graph, SLOT(setDrawLines(bool)));
+    connect(_cbPoints, SIGNAL(toggled(bool)), _graph, SLOT(setDrawPoints(bool)));
+    connect(_btnClear, SIGNAL(clicked()), this, SLOT(_btnClear_clicked()));
+    connect(_btnSql, SIGNAL(clicked()), this, SLOT(_btnSql_clicked()));
+}
+
+/*
+ *  Destroys the object and frees any allocated resources
+ */
+GraphWindow::~GraphWindow()
+{
+    // no need to delete child widgets, Qt does it all for us
+}
+
+/*
+ *  Sets the strings of the subwidgets using the current
+ *  language.
+ */
+void GraphWindow::languageChange()
+{
+    retranslateUi(this);
+}
+
+void GraphWindow::_dataTable_valueChanged( int r, int s)
+{
+    if(!_noUpdate)
+        _graph->setSetValue(r, s, _dataTable->item(r, s)->text().toDouble());
+}
+
+void GraphWindow::_labelTable_valueChanged( int r, int s)
+{
+    if(!_noUpdate)
+        _graph->setReferenceLabel(r, _labelTable->item(r, s)->text());
+}
+
+void GraphWindow::_btnClear_clicked()
+{
+    _noUpdate = TRUE;
+    for(int r = 0; r < _labelTable->rowCount(); r++) {
+        _labelTable->item(r, 0)->setText(QString::null);
+        for(int c = 0; c < _dataTable->columnCount(); c++) {
+            _dataTable->item(r, c)->setText(QString::null);
+        }
+    }
+    _graph->clear();
+    _noUpdate = FALSE;
+}
+
+void GraphWindow::init(bool haveDB)
+{
+    _noUpdate = FALSE;
+    _gbSql->setEnabled(haveDB);
+}
+
+void GraphWindow::_btnSql_clicked()
+{
+    _noUpdate = TRUE;
+    _btnClear_clicked();
+    QString sql = _editSql->text();
+    QSqlQuery qry = QSqlQuery(sql);
+    _graph->populateFromResult(qry);
+    _noUpdate = FALSE;
+}

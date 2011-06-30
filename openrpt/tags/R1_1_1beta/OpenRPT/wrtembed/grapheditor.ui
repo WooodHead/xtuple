@@ -1,0 +1,1611 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>GraphEditor</class>
+<comment>/*
+ * Copyright (c) 2002-2005 by OpenMFG, LLC
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * If you do not wish to be bound by the terms of the GNU General Public
+ * License, DO NOT USE THIS SOFTWARE.  Please contact OpenMFG, LLC at
+ * info@openmfg.com for details on how to purchase a commercial license.
+ */</comment>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>GraphEditor</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>377</width>
+            <height>562</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Graph Editor</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>11</number>
+        </property>
+        <property name="spacing">
+            <number>6</number>
+        </property>
+        <widget class="QTabWidget">
+            <property name="name">
+                <cstring>_tabWidget</cstring>
+            </property>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>generalTab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>General</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <property name="margin">
+                        <number>11</number>
+                    </property>
+                    <property name="spacing">
+                        <number>6</number>
+                    </property>
+                    <widget class="QLayoutWidget">
+                        <property name="name">
+                            <cstring>Layout3</cstring>
+                        </property>
+                        <hbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>0</number>
+                            </property>
+                            <property name="spacing">
+                                <number>6</number>
+                            </property>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>TextLabel1_3</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Query Source:</string>
+                                </property>
+                            </widget>
+                            <widget class="QComboBox">
+                                <property name="name">
+                                    <cstring>cbQuery</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                            </widget>
+                        </hbox>
+                    </widget>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>GroupBox1</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Position/Size</string>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>11</number>
+                            </property>
+                            <property name="spacing">
+                                <number>6</number>
+                            </property>
+                            <widget class="QLineEdit" row="1" column="3">
+                                <property name="name">
+                                    <cstring>leHeight</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>0.01</string>
+                                </property>
+                            </widget>
+                            <widget class="QLineEdit" row="0" column="3">
+                                <property name="name">
+                                    <cstring>leWidth</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>0.01</string>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="1" column="0">
+                                <property name="name">
+                                    <cstring>TextLabel2</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Y:</string>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="1" column="2">
+                                <property name="name">
+                                    <cstring>TextLabel4</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Height:</string>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="0" column="0">
+                                <property name="name">
+                                    <cstring>TextLabel1_3_2</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>X:</string>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="0" column="2">
+                                <property name="name">
+                                    <cstring>TextLabel3</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Width:</string>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="2" column="3">
+                                <property name="name">
+                                    <cstring>TextLabel5</cstring>
+                                </property>
+                                <property name="font">
+                                    <font>
+                                        <family>Helvetica [Cronyx]</family>
+                                        <pointsize>6</pointsize>
+                                        <italic>1</italic>
+                                    </font>
+                                </property>
+                                <property name="text">
+                                    <string>in inches</string>
+                                </property>
+                                <property name="textFormat">
+                                    <enum>AutoText</enum>
+                                </property>
+                                <property name="alignment">
+                                    <set>AlignVCenter|AlignRight</set>
+                                </property>
+                            </widget>
+                            <widget class="QLineEdit" row="1" column="1">
+                                <property name="name">
+                                    <cstring>leYPos</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>0.00</string>
+                                </property>
+                            </widget>
+                            <widget class="QLineEdit" row="0" column="1">
+                                <property name="name">
+                                    <cstring>leXPos</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>0.00</string>
+                                </property>
+                            </widget>
+                        </grid>
+                    </widget>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>GroupBox2</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Base Font</string>
+                        </property>
+                        <hbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>11</number>
+                            </property>
+                            <property name="spacing">
+                                <number>6</number>
+                            </property>
+                            <widget class="QLineEdit">
+                                <property name="name">
+                                    <cstring>_leBaseFont</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>7</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                                <property name="readOnly">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>Layout2</cstring>
+                                </property>
+                                <vbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>0</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <spacer>
+                                        <property name="name">
+                                            <cstring>Spacer2</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Vertical</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Expanding</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>20</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                    <widget class="QPushButton">
+                                        <property name="name">
+                                            <cstring>_btnBaseFont</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Font...</string>
+                                        </property>
+                                    </widget>
+                                </vbox>
+                            </widget>
+                        </hbox>
+                    </widget>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>_gbTitle</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Title</string>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>11</number>
+                            </property>
+                            <property name="spacing">
+                                <number>6</number>
+                            </property>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>Layout5</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>0</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>_lblTitle</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Title:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLineEdit">
+                                        <property name="name">
+                                            <cstring>_leTitle</cstring>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                            <widget class="QCheckBox">
+                                <property name="name">
+                                    <cstring>_cbTitleUseBase</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Use Base Font</string>
+                                </property>
+                            </widget>
+                            <widget class="QGroupBox">
+                                <property name="name">
+                                    <cstring>_gbTitleFont</cstring>
+                                </property>
+                                <property name="title">
+                                    <string>Title Font</string>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>11</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <widget class="QLineEdit">
+                                        <property name="name">
+                                            <cstring>_leTitleFont</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>7</hsizetype>
+                                                <vsizetype>7</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="readOnly">
+                                            <bool>true</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLayoutWidget">
+                                        <property name="name">
+                                            <cstring>Layout4</cstring>
+                                        </property>
+                                        <vbox>
+                                            <property name="name">
+                                                <cstring>unnamed</cstring>
+                                            </property>
+                                            <property name="margin">
+                                                <number>0</number>
+                                            </property>
+                                            <property name="spacing">
+                                                <number>6</number>
+                                            </property>
+                                            <spacer>
+                                                <property name="name">
+                                                    <cstring>Spacer3</cstring>
+                                                </property>
+                                                <property name="orientation">
+                                                    <enum>Vertical</enum>
+                                                </property>
+                                                <property name="sizeType">
+                                                    <enum>Expanding</enum>
+                                                </property>
+                                                <property name="sizeHint">
+                                                    <size>
+                                                        <width>20</width>
+                                                        <height>20</height>
+                                                    </size>
+                                                </property>
+                                            </spacer>
+                                            <widget class="QPushButton">
+                                                <property name="name">
+                                                    <cstring>_btnTitleFont</cstring>
+                                                </property>
+                                                <property name="text">
+                                                    <string>Font...</string>
+                                                </property>
+                                            </widget>
+                                        </vbox>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                        </vbox>
+                    </widget>
+                </vbox>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>dataTab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Data Axis</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <property name="margin">
+                        <number>11</number>
+                    </property>
+                    <property name="spacing">
+                        <number>6</number>
+                    </property>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>_gbDataAxis</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Data Axis Labels</string>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>11</number>
+                            </property>
+                            <property name="spacing">
+                                <number>6</number>
+                            </property>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>Layout5_2_2</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>0</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>_lblData</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Column:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLineEdit">
+                                        <property name="name">
+                                            <cstring>_leData</cstring>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                            <widget class="QCheckBox">
+                                <property name="name">
+                                    <cstring>_cbDataUseBase</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Use Base Font</string>
+                                </property>
+                            </widget>
+                            <widget class="QGroupBox">
+                                <property name="name">
+                                    <cstring>_gbDataFont</cstring>
+                                </property>
+                                <property name="title">
+                                    <string>Data Axis Font</string>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>11</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <widget class="QLineEdit">
+                                        <property name="name">
+                                            <cstring>_leDataFont</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>7</hsizetype>
+                                                <vsizetype>7</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="readOnly">
+                                            <bool>true</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLayoutWidget">
+                                        <property name="name">
+                                            <cstring>Layout4_2_2</cstring>
+                                        </property>
+                                        <vbox>
+                                            <property name="name">
+                                                <cstring>unnamed</cstring>
+                                            </property>
+                                            <property name="margin">
+                                                <number>0</number>
+                                            </property>
+                                            <property name="spacing">
+                                                <number>6</number>
+                                            </property>
+                                            <spacer>
+                                                <property name="name">
+                                                    <cstring>Spacer3_2_2</cstring>
+                                                </property>
+                                                <property name="orientation">
+                                                    <enum>Vertical</enum>
+                                                </property>
+                                                <property name="sizeType">
+                                                    <enum>Expanding</enum>
+                                                </property>
+                                                <property name="sizeHint">
+                                                    <size>
+                                                        <width>20</width>
+                                                        <height>20</height>
+                                                    </size>
+                                                </property>
+                                            </spacer>
+                                            <widget class="QPushButton">
+                                                <property name="name">
+                                                    <cstring>_btnDataFont</cstring>
+                                                </property>
+                                                <property name="text">
+                                                    <string>Font...</string>
+                                                </property>
+                                            </widget>
+                                        </vbox>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                        </vbox>
+                    </widget>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>_gbDataAxisTitle</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Data Axis Title</string>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>11</number>
+                            </property>
+                            <property name="spacing">
+                                <number>6</number>
+                            </property>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>Layout5_2</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>0</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>_lblDataTitle</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Title:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLineEdit">
+                                        <property name="name">
+                                            <cstring>_leDataTitle</cstring>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                            <widget class="QCheckBox">
+                                <property name="name">
+                                    <cstring>_cbDataTitleUseBase</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Use Base Font</string>
+                                </property>
+                            </widget>
+                            <widget class="QGroupBox">
+                                <property name="name">
+                                    <cstring>_gbDataTitleFont</cstring>
+                                </property>
+                                <property name="title">
+                                    <string>Data Axis Title Font</string>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>11</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <widget class="QLineEdit">
+                                        <property name="name">
+                                            <cstring>_leDataTitleFont</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>7</hsizetype>
+                                                <vsizetype>7</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="readOnly">
+                                            <bool>true</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLayoutWidget">
+                                        <property name="name">
+                                            <cstring>Layout4_2</cstring>
+                                        </property>
+                                        <vbox>
+                                            <property name="name">
+                                                <cstring>unnamed</cstring>
+                                            </property>
+                                            <property name="margin">
+                                                <number>0</number>
+                                            </property>
+                                            <property name="spacing">
+                                                <number>6</number>
+                                            </property>
+                                            <spacer>
+                                                <property name="name">
+                                                    <cstring>Spacer3_2</cstring>
+                                                </property>
+                                                <property name="orientation">
+                                                    <enum>Vertical</enum>
+                                                </property>
+                                                <property name="sizeType">
+                                                    <enum>Expanding</enum>
+                                                </property>
+                                                <property name="sizeHint">
+                                                    <size>
+                                                        <width>20</width>
+                                                        <height>20</height>
+                                                    </size>
+                                                </property>
+                                            </spacer>
+                                            <widget class="QPushButton">
+                                                <property name="name">
+                                                    <cstring>_btnDataTitleFont</cstring>
+                                                </property>
+                                                <property name="text">
+                                                    <string>Font...</string>
+                                                </property>
+                                            </widget>
+                                        </vbox>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                        </vbox>
+                    </widget>
+                </vbox>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>valueTab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Value Axis</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <property name="margin">
+                        <number>11</number>
+                    </property>
+                    <property name="spacing">
+                        <number>6</number>
+                    </property>
+                    <widget class="QLayoutWidget">
+                        <property name="name">
+                            <cstring>Layout13</cstring>
+                        </property>
+                        <hbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>0</number>
+                            </property>
+                            <property name="spacing">
+                                <number>6</number>
+                            </property>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>_lblMin</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Min:</string>
+                                </property>
+                                <property name="alignment">
+                                    <set>AlignVCenter|AlignRight</set>
+                                </property>
+                            </widget>
+                            <widget class="QLineEdit">
+                                <property name="name">
+                                    <cstring>_leMin</cstring>
+                                </property>
+                            </widget>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>_lblMax</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Max:</string>
+                                </property>
+                                <property name="alignment">
+                                    <set>AlignVCenter|AlignRight</set>
+                                </property>
+                            </widget>
+                            <widget class="QLineEdit">
+                                <property name="name">
+                                    <cstring>_leMax</cstring>
+                                </property>
+                            </widget>
+                        </hbox>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>_cbAutoMinMax</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Expand Min/Max if needed</string>
+                        </property>
+                    </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>_cbValueUseBase</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Use Base Font</string>
+                        </property>
+                    </widget>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>_gbValueFont</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Value Axis Font</string>
+                        </property>
+                        <hbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>11</number>
+                            </property>
+                            <property name="spacing">
+                                <number>6</number>
+                            </property>
+                            <widget class="QLineEdit">
+                                <property name="name">
+                                    <cstring>_leValueFont</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>7</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                                <property name="readOnly">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>Layout4_2_3_2</cstring>
+                                </property>
+                                <vbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>0</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <spacer>
+                                        <property name="name">
+                                            <cstring>Spacer3_2_3_2</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Vertical</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Expanding</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>20</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                    <widget class="QPushButton">
+                                        <property name="name">
+                                            <cstring>_btnValueFont</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Font...</string>
+                                        </property>
+                                    </widget>
+                                </vbox>
+                            </widget>
+                        </hbox>
+                    </widget>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>_gbDataAxisTitle_2</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Value Axis Title</string>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>11</number>
+                            </property>
+                            <property name="spacing">
+                                <number>6</number>
+                            </property>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>Layout5_2_3</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>0</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>_lblValueTitle</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Title:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLineEdit">
+                                        <property name="name">
+                                            <cstring>_leValueTitle</cstring>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                            <widget class="QCheckBox">
+                                <property name="name">
+                                    <cstring>_cbValueTitleUseBase</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Use Base Font</string>
+                                </property>
+                            </widget>
+                            <widget class="QGroupBox">
+                                <property name="name">
+                                    <cstring>_gbValueTitleFont</cstring>
+                                </property>
+                                <property name="title">
+                                    <string>Value Axis Title Font</string>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>11</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <widget class="QLineEdit">
+                                        <property name="name">
+                                            <cstring>_leValueTitleFont</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>7</hsizetype>
+                                                <vsizetype>7</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="readOnly">
+                                            <bool>true</bool>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLayoutWidget">
+                                        <property name="name">
+                                            <cstring>Layout4_2_3</cstring>
+                                        </property>
+                                        <vbox>
+                                            <property name="name">
+                                                <cstring>unnamed</cstring>
+                                            </property>
+                                            <property name="margin">
+                                                <number>0</number>
+                                            </property>
+                                            <property name="spacing">
+                                                <number>6</number>
+                                            </property>
+                                            <spacer>
+                                                <property name="name">
+                                                    <cstring>Spacer3_2_3</cstring>
+                                                </property>
+                                                <property name="orientation">
+                                                    <enum>Vertical</enum>
+                                                </property>
+                                                <property name="sizeType">
+                                                    <enum>Expanding</enum>
+                                                </property>
+                                                <property name="sizeHint">
+                                                    <size>
+                                                        <width>20</width>
+                                                        <height>20</height>
+                                                    </size>
+                                                </property>
+                                            </spacer>
+                                            <widget class="QPushButton">
+                                                <property name="name">
+                                                    <cstring>_btnValueTitleFont</cstring>
+                                                </property>
+                                                <property name="text">
+                                                    <string>Font...</string>
+                                                </property>
+                                            </widget>
+                                        </vbox>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                        </vbox>
+                    </widget>
+                </vbox>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>seriesTab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Series</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <property name="margin">
+                        <number>11</number>
+                    </property>
+                    <property name="spacing">
+                        <number>6</number>
+                    </property>
+                    <widget class="QLayoutWidget">
+                        <property name="name">
+                            <cstring>Layout17</cstring>
+                        </property>
+                        <hbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>0</number>
+                            </property>
+                            <property name="spacing">
+                                <number>6</number>
+                            </property>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>Layout16</cstring>
+                                </property>
+                                <vbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>0</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <widget class="QLayoutWidget">
+                                        <property name="name">
+                                            <cstring>Layout15</cstring>
+                                        </property>
+                                        <hbox>
+                                            <property name="name">
+                                                <cstring>unnamed</cstring>
+                                            </property>
+                                            <property name="margin">
+                                                <number>0</number>
+                                            </property>
+                                            <property name="spacing">
+                                                <number>6</number>
+                                            </property>
+                                            <widget class="QLabel">
+                                                <property name="name">
+                                                    <cstring>_lblSeries</cstring>
+                                                </property>
+                                                <property name="text">
+                                                    <string>Series:</string>
+                                                </property>
+                                            </widget>
+                                            <widget class="QComboBox">
+                                                <property name="name">
+                                                    <cstring>_cbSeries</cstring>
+                                                </property>
+                                                <property name="sizePolicy">
+                                                    <sizepolicy>
+                                                        <hsizetype>7</hsizetype>
+                                                        <vsizetype>0</vsizetype>
+                                                        <horstretch>0</horstretch>
+                                                        <verstretch>0</verstretch>
+                                                    </sizepolicy>
+                                                </property>
+                                            </widget>
+                                        </hbox>
+                                    </widget>
+                                    <spacer>
+                                        <property name="name">
+                                            <cstring>Spacer8</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Vertical</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Minimum</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>20</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                </vbox>
+                            </widget>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>Layout14</cstring>
+                                </property>
+                                <vbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>0</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <widget class="QPushButton">
+                                        <property name="name">
+                                            <cstring>_btnNewSeries</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>New</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QPushButton">
+                                        <property name="name">
+                                            <cstring>_btnRemoveSeries</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Remove</string>
+                                        </property>
+                                    </widget>
+                                </vbox>
+                            </widget>
+                        </hbox>
+                    </widget>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>_gbSeriesProperties</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>5</hsizetype>
+                                <vsizetype>7</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="title">
+                            <string>Series Properties</string>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>11</number>
+                            </property>
+                            <property name="spacing">
+                                <number>6</number>
+                            </property>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>Layout21</cstring>
+                                </property>
+                                <grid>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>0</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <widget class="QLineEdit" row="0" column="1">
+                                        <property name="name">
+                                            <cstring>_leSeriesName</cstring>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="2" column="0">
+                                        <property name="name">
+                                            <cstring>_lblSeriesColor</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Color:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLayoutWidget" row="2" column="1">
+                                        <property name="name">
+                                            <cstring>Layout20</cstring>
+                                        </property>
+                                        <hbox>
+                                            <property name="name">
+                                                <cstring>unnamed</cstring>
+                                            </property>
+                                            <property name="margin">
+                                                <number>0</number>
+                                            </property>
+                                            <property name="spacing">
+                                                <number>6</number>
+                                            </property>
+                                            <widget class="QComboBox">
+                                                <property name="name">
+                                                    <cstring>_cbColors</cstring>
+                                                </property>
+                                                <property name="sizePolicy">
+                                                    <sizepolicy>
+                                                        <hsizetype>7</hsizetype>
+                                                        <vsizetype>0</vsizetype>
+                                                        <horstretch>0</horstretch>
+                                                        <verstretch>0</verstretch>
+                                                    </sizepolicy>
+                                                </property>
+                                                <property name="duplicatesEnabled">
+                                                    <bool>false</bool>
+                                                </property>
+                                            </widget>
+                                            <widget class="QPushButton">
+                                                <property name="name">
+                                                    <cstring>_btnEditColors</cstring>
+                                                </property>
+                                                <property name="text">
+                                                    <string>Edit</string>
+                                                </property>
+                                            </widget>
+                                        </hbox>
+                                    </widget>
+                                    <widget class="QLineEdit" row="1" column="1">
+                                        <property name="name">
+                                            <cstring>_leSeriesColumn</cstring>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="0" column="0">
+                                        <property name="name">
+                                            <cstring>_lblSeriesName</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Name:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="1" column="0">
+                                        <property name="name">
+                                            <cstring>_lblSeriesColumn</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Column:</string>
+                                        </property>
+                                    </widget>
+                                </grid>
+                            </widget>
+                            <widget class="QGroupBox">
+                                <property name="name">
+                                    <cstring>_gbSeriesStyle</cstring>
+                                </property>
+                                <property name="title">
+                                    <string>Style</string>
+                                </property>
+                                <vbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <property name="margin">
+                                        <number>11</number>
+                                    </property>
+                                    <property name="spacing">
+                                        <number>6</number>
+                                    </property>
+                                    <widget class="QCheckBox">
+                                        <property name="name">
+                                            <cstring>_cbSeriesStyleBars</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Bars</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QCheckBox">
+                                        <property name="name">
+                                            <cstring>_cbSeriesStyleLines</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Lines</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QCheckBox">
+                                        <property name="name">
+                                            <cstring>_cbSeriesStylePoints</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Points</string>
+                                        </property>
+                                    </widget>
+                                </vbox>
+                            </widget>
+                        </vbox>
+                    </widget>
+                </vbox>
+            </widget>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>Layout12</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <spacer>
+                    <property name="name">
+                        <cstring>Spacer5</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>buttonOk</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;OK</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+O</string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>true</bool>
+                    </property>
+                    <property name="default">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>buttonCancel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Cancel</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+C</string>
+                    </property>
+                    <property name="autoDefault">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </vbox>
+</widget>
+<connections>
+    <connection>
+        <sender>buttonOk</sender>
+        <signal>clicked()</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>accept()</slot>
+    </connection>
+    <connection>
+        <sender>buttonCancel</sender>
+        <signal>clicked()</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>reject()</slot>
+    </connection>
+    <connection>
+        <sender>_btnBaseFont</sender>
+        <signal>clicked()</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_btnBaseFont_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>_cbTitleUseBase</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>_gbTitleFont</receiver>
+        <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>_btnTitleFont</sender>
+        <signal>clicked()</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_btnTitleFont_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>_cbDataTitleUseBase</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>_gbDataTitleFont</receiver>
+        <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>_btnDataTitleFont</sender>
+        <signal>clicked()</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_btnDataTitleFont_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>_cbDataUseBase</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>_gbDataFont</receiver>
+        <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>_btnDataFont</sender>
+        <signal>clicked()</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_btnDataFont_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>_cbValueTitleUseBase</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>_gbValueTitleFont</receiver>
+        <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>_btnValueTitleFont</sender>
+        <signal>clicked()</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_btnValueTitleFont_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>_cbValueUseBase</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>_gbValueFont</receiver>
+        <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>_btnValueFont</sender>
+        <signal>clicked()</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_btnValueFont_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>_btnNewSeries</sender>
+        <signal>clicked()</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_btnNewSeries_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>_btnRemoveSeries</sender>
+        <signal>clicked()</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_btnRemoveSeries_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>_btnEditColors</sender>
+        <signal>clicked()</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_btnEditColors_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>_cbSeriesStyleBars</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_cbSeriesStyleBars_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>_cbSeriesStyleLines</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_cbSeriesStyleLines_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>_cbSeriesStylePoints</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_cbSeriesStylePoints_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>_leSeriesColumn</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_leSeriesColumn_textChanged(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>_leSeriesName</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_leSeriesName_textChanged(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>_cbSeries</sender>
+        <signal>activated(const QString&amp;)</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_cbSeries_activated(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>_cbColors</sender>
+        <signal>activated(const QString&amp;)</signal>
+        <receiver>GraphEditor</receiver>
+        <slot>_cbColors_activated(const QString&amp;)</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>_tabWidget</tabstop>
+    <tabstop>cbQuery</tabstop>
+    <tabstop>leXPos</tabstop>
+    <tabstop>leWidth</tabstop>
+    <tabstop>leYPos</tabstop>
+    <tabstop>leHeight</tabstop>
+    <tabstop>_leBaseFont</tabstop>
+    <tabstop>_btnBaseFont</tabstop>
+    <tabstop>_leTitle</tabstop>
+    <tabstop>_cbTitleUseBase</tabstop>
+    <tabstop>_leTitleFont</tabstop>
+    <tabstop>_btnTitleFont</tabstop>
+    <tabstop>_leData</tabstop>
+    <tabstop>_cbDataUseBase</tabstop>
+    <tabstop>_leDataFont</tabstop>
+    <tabstop>_btnDataFont</tabstop>
+    <tabstop>_leDataTitle</tabstop>
+    <tabstop>_cbDataTitleUseBase</tabstop>
+    <tabstop>_leDataTitleFont</tabstop>
+    <tabstop>_btnDataTitleFont</tabstop>
+    <tabstop>_leMin</tabstop>
+    <tabstop>_leMax</tabstop>
+    <tabstop>_cbAutoMinMax</tabstop>
+    <tabstop>_cbValueUseBase</tabstop>
+    <tabstop>_leValueFont</tabstop>
+    <tabstop>_btnValueFont</tabstop>
+    <tabstop>_leValueTitle</tabstop>
+    <tabstop>_cbValueTitleUseBase</tabstop>
+    <tabstop>_leValueTitleFont</tabstop>
+    <tabstop>_btnValueTitleFont</tabstop>
+    <tabstop>_cbSeries</tabstop>
+    <tabstop>_btnNewSeries</tabstop>
+    <tabstop>_btnRemoveSeries</tabstop>
+    <tabstop>_leSeriesName</tabstop>
+    <tabstop>_leSeriesColumn</tabstop>
+    <tabstop>_cbColors</tabstop>
+    <tabstop>_btnEditColors</tabstop>
+    <tabstop>_cbSeriesStyleBars</tabstop>
+    <tabstop>_cbSeriesStyleLines</tabstop>
+    <tabstop>_cbSeriesStylePoints</tabstop>
+    <tabstop>buttonOk</tabstop>
+    <tabstop>buttonCancel</tabstop>
+</tabstops>
+<includes>
+    <include location="global" impldecl="in declaration">qptrlist.h</include>
+    <include location="global" impldecl="in declaration">parsexmlutils.h</include>
+    <include location="local" impldecl="in implementation">grapheditor.ui.h</include>
+</includes>
+<variables>
+    <variable>QMap&lt;QString,QColor&gt;* _colorMap;</variable>
+    <variable>ORSeriesData * _seriesData;</variable>
+    <variable>QPtrList&lt;ORSeriesData&gt; _seriesList;</variable>
+</variables>
+<slots>
+    <slot>init()</slot>
+    <slot>_btnBaseFont_clicked()</slot>
+    <slot>setBaseFont( QFont fnt )</slot>
+    <slot returnType="QFont">getBaseFont()</slot>
+    <slot>_btnTitleFont_clicked()</slot>
+    <slot returnType="QFont">getTitleFont()</slot>
+    <slot>setTitleFont( QFont fnt )</slot>
+    <slot returnType="bool">getUseTitleFont()</slot>
+    <slot>setUseTitleFont( bool yes )</slot>
+    <slot returnType="QString">getTitle()</slot>
+    <slot>setTitle( QString str )</slot>
+    <slot returnType="QString">getDataTitle()</slot>
+    <slot>setDataTitle( QString str )</slot>
+    <slot returnType="bool">getUseDataTitleFont()</slot>
+    <slot>setUseDataTitleFont( bool yes )</slot>
+    <slot returnType="QFont">getDataTitleFont()</slot>
+    <slot>setDataTitleFont( QFont fnt )</slot>
+    <slot>_btnDataTitleFont_clicked()</slot>
+    <slot returnType="QString">getDataColumn()</slot>
+    <slot>setDataColumn( QString str )</slot>
+    <slot returnType="bool">getUseDataFont()</slot>
+    <slot>setUseDataFont( bool yes )</slot>
+    <slot>_btnDataFont_clicked()</slot>
+    <slot returnType="QFont">getDataFont()</slot>
+    <slot>setDataFont( QFont fnt )</slot>
+    <slot returnType="QString">getValueTitle()</slot>
+    <slot>setValueTitle( QString str )</slot>
+    <slot returnType="bool">getUseValueTitleFont()</slot>
+    <slot>setUseValueTitleFont( bool yes )</slot>
+    <slot>_btnValueTitleFont_clicked()</slot>
+    <slot returnType="QFont">getValueTitleFont()</slot>
+    <slot>setValueTitleFont( QFont fnt )</slot>
+    <slot>_btnValueFont_clicked()</slot>
+    <slot returnType="QFont">getValueFont()</slot>
+    <slot>setValueFont( QFont fnt )</slot>
+    <slot returnType="bool">getUseValueFont()</slot>
+    <slot>setUseValueFont( bool yes )</slot>
+    <slot returnType="bool">getAutoMinMax()</slot>
+    <slot>setAutoMinMax( bool yes )</slot>
+    <slot returnType="double">getMinValue()</slot>
+    <slot returnType="double">getMaxValue()</slot>
+    <slot>setMaxValue( double val )</slot>
+    <slot>setMinValue( double val )</slot>
+    <slot>_btnNewSeries_clicked()</slot>
+    <slot>_btnRemoveSeries_clicked()</slot>
+    <slot>_btnEditColors_clicked()</slot>
+    <slot>_cbSeriesStyleBars_toggled( bool yes )</slot>
+    <slot>_cbSeriesStyleLines_toggled( bool yes )</slot>
+    <slot>_cbSeriesStylePoints_toggled( bool yes )</slot>
+    <slot>_cbColors_activated( const QString &amp; str )</slot>
+    <slot>_leSeriesColumn_textChanged( const QString &amp; str )</slot>
+    <slot>_leSeriesName_textChanged( const QString &amp; str )</slot>
+    <slot>_cbSeries_activated( const QString &amp; str )</slot>
+    <slot returnType="QPtrList&lt;ORSeriesData&gt;&amp;">getSeriesList()</slot>
+    <slot>setColorMap( QMap&lt;QString, QColor&gt; * cmap )</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
