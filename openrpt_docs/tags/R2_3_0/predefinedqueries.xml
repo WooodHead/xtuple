@@ -1,0 +1,138 @@
+<?xml version='1.0'?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+
+  <title>Predefined System Queries</title>
+
+  <synopsis>Review and detail the two predefined system queries and the 
+  possible fields that can be referenced from them.</synopsis>
+  <para>When creating fields and text labels you have the ability to 
+  select a query source and specify a field from that query source to 
+  pull information from. Two predefined query sources are defined by 
+  the system, Context Query and Parameter Query.</para>
+
+  <section>
+
+    <title>Parameter Query</title>
+
+    <para>The Parameter Query allows you to reference any of the 
+    parameter variables that are passed to the report renderer at the 
+    time the report is rendered. You can reference the name of any of 
+    the parameters and get the passed in value as the result.</para>
+
+  </section>
+
+  <section>
+
+    <title>Context Query</title>
+
+    <para>The Context Query defines several fields that can be 
+    referenced that are either defined elsewhere in the report 
+    definition for convenience or is information that changes for 
+    rendering to rendering of the report for one reason or 
+    another.</para>
+
+    <para>Following is a list of the different fields that can 
+    references from the Context Query and what they return</para>
+
+    <variablelist>
+
+      <varlistentry>
+
+        <term>report_name</term>
+
+        <listitem>
+
+          <para>This field returns the value as specified in the report 
+          Name of the documents properties.</para>
+
+        </listitem>
+
+      </varlistentry>
+
+      <varlistentry>
+
+        <term>report_title</term>
+
+        <listitem>
+
+          <para>This field returns the value as specified in the report 
+          Title of the documents properties.</para>
+
+        </listitem>
+
+      </varlistentry>
+
+      <varlistentry>
+
+        <term>report_description</term>
+
+        <listitem>
+
+          <para>This field returns the value as specified in teh report 
+          Description of the documents properties.</para>
+
+        </listitem>
+
+      </varlistentry>
+
+      <varlistentry>
+
+        <term>report_date</term>
+
+        <listitem>
+
+          <para>This field returns the current date the report is 
+          rendered on using the function formatDate(CURRENT_DATE) for 
+          formatting purposes.</para>
+
+        </listitem>
+
+      </varlistentry>
+
+      <varlistentry>
+
+        <term>report_time</term>
+
+        <listitem>
+
+          <para>This field returns the current time the report is 
+          rendered on using the function formatTime(CURRENT_TIMESTAMP) 
+          for formatting purposes.</para>
+
+        </listitem>
+
+      </varlistentry>
+
+      <varlistentry>
+
+        <term>page_number</term>
+
+        <listitem>
+
+          <para>This field returns the current page number that is 
+          being rendered when the field is referenced.</para>
+
+        </listitem>
+
+      </varlistentry>
+
+      <varlistentry>
+
+        <term>page_count</term>
+
+        <listitem>
+
+          <para>This field returns the total page count of the report
+          being rendered.</para>
+
+        </listitem>
+
+      </varlistentry>
+
+    </variablelist>
+
+  </section>
+
+</article>
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<article>
+  <title>Import Report GUI (<command>importrptgui</command>) Tool</title>
+
+  <section>
+    <title>Description</title>
+
+    <para>The <command>importrptgui</command> tool is designed to simplify the
+    process of uploading multiple reports to an OpenMFG database.</para>
+
+    <para>When you open the utility, you will notice you are brought to the
+    standard log in screen. Log in to the database where you want to upload
+    your reports--these may be newly created reports, or updated versions of
+    already existing reports.</para>
+
+    <para>Using the ADD button on the GUI screen, browse for the directory
+    where the report .xml files are located on your system. Once you have
+    located and opened the directory where the files are stored, you may add
+    them individually by double-clicking on them one-at-a-time. Or you may
+    select all or a subset of the total using your window manager.</para>
+
+    <para>If after you are done adding reports to the list you find a report
+    which you do not want to upload, simply hightlight the reoprt and select
+    the REMOVE button. THe report will be removed from the list, and it will
+    not be uploaded. Once you are satisfied with your list of reports,
+    highlight individual reports or use the SELECT ALL button to select all
+    the reports for importing. Once the desired reports have been highlighted,
+    select the IMPORT button. The hightlighted reports will be uploaded to the
+    database you loggted into at the beginning of your session.</para>
+
+    <para>By default all the reports you load into the
+    <command>importrptgui</command> tool will be loaded with a grade of 0. If
+    you wish to change this you may do so on a report-by-report basis. To do
+    this double-click a report definition that you have opened. This will
+    present you with a screen that allows you to change the value of the grade
+    that report will be loaded as.</para>
+
+    <para>To exit, select the EXIT option from the "File" menu.</para>
+  </section>
+</article>

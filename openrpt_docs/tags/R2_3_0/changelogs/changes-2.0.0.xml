@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>2.0.0 ChangeLog</title>
+
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+
+      <listitem>
+        <para>Added support to XSqlQuery to be able to capture errors and
+        notify a listener</para>
+      </listitem>
+
+      <listitem>
+        <para>Converted code-base to Qt4</para>
+      </listitem>
+
+      <listitem>
+        <para>Added/Updated command line argument support for RPTrender
+        application</para>
+      </listitem>
+
+      <listitem>
+        <para>Added Export to PDF functionality to API and RPTrender
+        application</para>
+      </listitem>
+
+      <listitem>
+        <para>Added Page Break functionality</para>
+      </listitem>
+
+      <listitem>
+        <para>Added API methods to handle printing multiple reports to a
+        single print session</para>
+      </listitem>
+
+      <listitem>
+        <para>Enhanced the Defined Parameters functionality in OpenRPT and
+        RPTrender applications</para>
+      </listitem>
+    </itemizedlist></para>
+
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+
+      <listitem>
+        <para>Updated XSqlQuery to pre-bind a null value as the first value to
+        overcome a Qt4 architecture change</para>
+      </listitem>
+
+      <listitem>
+        <para>Updated code to support using MinGW</para>
+      </listitem>
+
+      <listitem>
+        <para>Improved Bar Code rendering code</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed crash problem that occurred under some
+        circumstances</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed subtotal problem reporting incorrectly on last group
+        footer</para>
+      </listitem>
+    </itemizedlist></para>
+</article>

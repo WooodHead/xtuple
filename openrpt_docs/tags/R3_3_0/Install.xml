@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>OpenRPT Installation Instructions</title>
+
+  <para>Before compiling OpenRPT you will need to have the appropriate <ulink
+  url="http://www.trolltech.com/">Qt</ulink> libraries installed on your
+  system. In addition, OpenRPT currently supports the <ulink
+  url="http://www.postgresql.org/">PostgreSQL</ulink> and ODBC database
+  connections using Qt's SQL drivers. At this time, if you wish to use a
+  different driver you will have to compile the appropriate Qt drivers and
+  make any changes necessary to OpenRPT to support driver specific
+  code.</para>
+
+  <para>To compile OpenRPT you can run the following:</para>
+
+  <para><screen><command>qmake</command>
+<command>make</command></screen></para>
+
+  <para>This will compile all the various libraries, components, and
+  tools.</para>
+
+  <para>At the time of this writing the following platforms have been
+  tested:</para>
+
+  <para><itemizedlist>
+      <title>Tested Platforms</title>
+
+      <listitem>
+        <para>Red Hat Enterprise Linux 3 Work Station</para>
+      </listitem>
+
+      <listitem>
+        <para>Red Hat 9</para>
+      </listitem>
+
+      <listitem>
+        <para>Fedora Core 5</para>
+      </listitem>
+
+      <listitem>
+        <para>Windows XP using MSVC6</para>
+      </listitem>
+
+      <listitem>
+        <para>Windows XP using MinGW</para>
+      </listitem>
+
+      <listitem>
+        <para>Mac OS X.3</para>
+      </listitem>
+
+      <listitem>
+        <para>Mac OS X.4</para>
+      </listitem>
+    </itemizedlist></para>
+
+  <para>In each of the above cases Qt 4.1.4 and PostgreSQL 8.1.4 were
+  used.</para>
+
+  <para>If you have successfully compiled and used OpenRPT on other
+  configurations, and would like to tell us, we would be pleased to hear from
+  you.</para>
+</article>

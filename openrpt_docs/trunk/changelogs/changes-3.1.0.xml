@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>3.1.0 ChangeLog</title>
+
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+
+      <listitem>
+        <para>Added additional command line support to set some variables via stdin</para>
+      </listitem>
+
+      <listitem>
+        <para>Added Itialian Translation</para>
+      </listitem>
+
+      <listitem>
+        <para>Added Spanish Translation</para>
+      </listitem>
+
+      <listitem>
+        <para>Format options extended to non-totalling fields</para>
+      </listitem>
+
+      <listitem>
+        <para>Add ability to move selected items with arrow keys</para>
+      </listitem>
+
+      <listitem>
+        <para>Add ability to modify font on several items are once</para>
+      </listitem>
+
+      <listitem>
+        <para>Added in memory so OpenRPT window remembers last size/position</para>
+      </listitem>
+
+    </itemizedlist></para>
+
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+
+      <listitem>
+        <para>Updated some of the existing translations</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed problem with queries not being reset the first item after being used in a detail section</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed problem certain options not saving correctly</para>
+      </listitem>
+
+      <listitem>
+        <para>Changed the way RPTrender's edit list behaved when loading reports, now clears out previous information</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed importmqlgui to strip whitespace characters from end of names when loading</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed OpenRPT editor to not cut-off the bottom of long reports</para>
+      </listitem>
+
+      <listitem>
+        <para>Improved UI for document window to address some minor problems and ease of use</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed jittery snap-to on Mac</para>
+      </listitem>
+
+      <listitem>
+        <para>Improved presentation of grid so it did not disappear when you zoomed in</para>
+      </listitem>
+
+      <listitem>
+        <para>Improved the way custom page size are handled when printing</para>
+      </listitem>
+
+    </itemizedlist></para>
+</article>

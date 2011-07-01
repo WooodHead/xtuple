@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>2.3.0 ChangeLog</title>
+
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+
+      <listitem>
+        <para>Added additional support for Oracle databases.</para>
+      </listitem>
+
+      <listitem>
+        <para>Added in support for accessing XML files and querying via SQLite
+        driver</para>
+      </listitem>
+
+      <listitem>
+        <para>Added support to project file to support parallelized
+        builds</para>
+      </listitem>
+
+      <listitem>
+        <para>Added support for a rectangle primitive to
+        writer/renderer</para>
+      </listitem>
+
+      <listitem>
+        <para>Added support for print preview functionality</para>
+      </listitem>
+
+      <listitem>
+        <para>Added additional support for language translations, French
+        included</para>
+      </listitem>
+
+      <listitem>
+        <para>Added "Word Wrap" option to Field entity</para>
+      </listitem>
+
+      <listitem>
+        <para>Added in better support for Custom Page sizes when rendering
+        reports</para>
+      </listitem>
+    </itemizedlist></para>
+
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+
+      <listitem>
+        <para>Fixed a problem where database arguments were not passed
+        correctly to API</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed include path in project file to compile on windows
+        correctly</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed some compile time warnings</para>
+      </listitem>
+
+      <listitem>
+        <para>Removed some Qt3 Backwards compatibility classes</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed code to find correct window when using top-level
+        windows</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed Linux bug where print-range was being corrupted</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed render bug where reports were queries were being executed
+        several times</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed a problem where an error occurred if a report was not
+        loaded from the database</para>
+      </listitem>
+    </itemizedlist></para>
+</article>

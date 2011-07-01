@@ -1,0 +1,1860 @@
+/* 
+ This file is intended for editing and viewing DocBook and Simplified DocBook
+ XML files with web browsers, print media, and the XMLMind XML Editor (XXE).
+ 
+ The following are some conventions used by OpenMFG to unify format and layout
+ between tags in
+ Simplified DocBook		and standard DocBook
+ <command role="application">	<application>
+ <command role="productname">	<productname>
+
+ Other particularities in usage:
+ <sidebar role="question">
+ 		is intended for questions the author wants to ask the reader
+ <ulink>	is intended for text that should act as a hyperlink but not
+ 		necessarily show the URL
+ <ulink role="direct">
+		is intended for URLs that should appear in the text literally
+ */
+
+/* media-specific formatting goes at the end because CSS is a last-wins lang */
+
+/* multiple-element and large-scale formatting decisions */
+/* unless we say otherwise, use these values */
+*
+{
+  border-width:	1px;
+}
+
+article, book
+{
+  display: block;
+  margin: .25in;
+}
+
+classname,
+code,
+command,
+computeroutput,
+database,
+filename,
+funcsynopsis,
+guibutton,
+literal,
+programlisting,
+screen,
+systemitem,
+type,
+ulink[role="direct"],
+ulink:after
+{
+  font-size: smaller;
+  font-family:  monospace;
+}
+
+caution	  para:before,
+important para:before,
+note	  para:before,
+tip	  para:before,
+warning	  para:before
+{
+  display: block;
+  text-align: center;
+  margin-top: 2px;
+  margin-bottom: 1ex;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: bold;
+}
+
+caution	  > title,
+important > title,
+note	  > title,
+tip	  > title ,
+warning	  > title
+{
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+caution	  > para,
+important > para,
+note	  > para,
+tip	  > para,
+warning	  > para
+{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+caution,
+important,
+note,
+tip,
+warning
+{
+  border-style: solid;
+  
+  border-left-color: transparent;
+  border-right-color: transparent;
+ 
+  display: block;
+  padding: 1ex;
+  margin-top: 4ex;
+  margin-bottom: 4ex;
+  margin-left: 7em;
+  margin-right: 7em;
+}
+
+application, productname,
+command[role="application"],	/* Simplified DocBook */
+command[role="productname"]	/* Simplified DocBook */
+{
+  display: inline;
+  font-style: italic;
+  /* font-family: serif; */
+  font-size: inherit;
+}
+
+book	> preface > title,
+book	> part	  > title,
+article	> title
+{
+  font-size: 160%;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 1ex;
+  text-align: center;
+  vertical-align: middle;
+  
+  padding-bottom: 6px;
+}
+
+appendix,
+chapter,
+glossary,
+preface,
+section, sect1, sect2, sect3, sect4, sect5
+{
+  display: block;
+}
+
+appendix > title, 
+section	 > title,
+sect1	 > title,
+chapter	 > title,
+glossary > title,
+glossary > glossaryinfo	> title
+{
+  font-size: 140%;
+  font-weight: bold;
+  display: block;
+  text-align: left;
+}
+
+appendix > section > title,
+section	 > section > title,
+sect2	 > title,
+glossdiv > title
+{
+  font-style: italic;
+  font-weight: bold;
+  font-size: 120%;
+  display: block;
+  text-align: left;
+}
+
+appendix > section > section > title,
+section	 > section > section > title,
+sect3	 > title
+{
+  font-weight: bold;
+  font-style: normal;
+  font-size: 100%;
+  display: block;
+  text-align: left;
+}
+
+appendix > section > section > section > title,
+section	 > section > section > section > title,
+sect4	 > title
+{
+  font-style: italic;
+  font-weight: bold;
+  font-size: 100%;
+  display: block;
+  margin-top: .25in;
+  margin-bottom: .1in;
+  text-align: left;
+}
+
+appendix > section > section > section > section > title,
+section	 > section > section > section > section > title,
+sect5    > title
+{
+  font-weight: bold;
+  font-size: 90%;
+  display: block;
+  margin-top: .25in;
+  margin-bottom: .1in;
+  text-align: left;
+}
+
+appendix > section > section > section > section > section > title,
+section	 > section > section > section > section > section > title,
+sect6	 > title
+{
+  font-weight: bold;
+  font-size: 90%;
+  display: block;
+  margin-top: .25in;
+  margin-bottom: .1in;
+  text-align: left;
+}
+
+example > title,
+figure > title,
+table > title
+{
+  display:	block;
+  font-style:	italic;
+  font-weight:	bold;
+  text-align:	center;
+}
+
+/* beware of parent items which are positioned */
+footnote,
+sidebar
+{
+  display:	inline-block;
+  float:	right;
+  width:	50%;
+  border-style:		solid;
+  border-left-color:	black;
+  border-top-color:	black;
+  border-bottom-color:	black;
+  border-right-color:	black;
+}
+
+procedure,
+substeps
+{
+  display: block;
+  margin-left: 2em;
+}
+
+itemizedlist,
+segmentedlist
+{
+  display: block;
+  margin-left: 1em;
+}
+
+code[lang="sql"],
+code[lang="SQL"],
+funcsynopsis[lang="sql"],
+funcsynopsis[lang="SQL"],
+type[lang="sql"],
+type[lang="SQL"],
+literal[role="sql"]	/* Simplified DocBook */
+{
+  font-variant: small-caps;
+  /* text-transform: uppercase; */
+}
+
+/* individual elements */
+
+abbrev
+{
+  display: inline;
+}
+
+abstract
+{
+  font-style: italic;
+  margin-left: 0.5in;
+  margin-right: 0.5in;
+  display: block;
+  padding: 6px;
+}
+
+acronym
+{
+  display: inline;
+}
+
+address
+{
+  display: block;
+}
+
+affiliation
+{
+  display: block;
+  margin-left: 10px;
+}
+
+articleinfo
+{
+  display: block;
+}
+
+articleinfo email
+{
+  display: block;
+}
+
+articleinfo email:before
+{
+  content: "Email: ";
+  font-weight: bold;
+}
+
+attribution
+{
+  display: block;
+  font-style: italic;
+  text-align: right;
+}
+
+attribution:before
+{
+  content: '-- ';
+}
+
+audiodata
+{
+  display: inline;
+}
+
+audioobject
+{
+  display: inline;
+}
+
+author
+{
+  display: block;
+}
+
+author:before
+{
+  content: 'Author: ';
+  font-weight: bold;
+}
+
+authorblurb
+{
+  display: block;
+}
+
+authorgroup:before
+{
+  content: 'Authors: ';
+  font-weight: bold;
+}
+
+authorgroup
+{
+  display: block;
+}
+
+authorgroup author:before
+{
+  content: '';
+}
+
+authorgroup author
+{
+  display: inline;
+}
+
+authorinitials
+{
+  display: inline;
+}
+
+bibliodiv
+{
+  display: block;
+}
+
+bibliography
+{
+  display: block;
+}
+
+bibliomisc
+{
+  display: inline;
+}
+
+bibliomixed
+{
+  display: block;
+}
+
+bibliomset
+{
+  display: block;
+}
+
+blockquote
+{
+  display: block;
+  margin-left: 0.5in;
+  margin-right: 0.5in;
+}
+
+bookinfo
+{
+  border: 1px solid #669;
+  display: block;
+  margin-bottom: .25in;
+  padding: 3px;
+}
+
+bookinfo:before 
+{
+  content: 'Book Info';
+  font-weight: bold;
+  display: block;
+  padding: 3px;
+}
+
+bookinfo > title:before
+{
+  content: "Title: ";
+  font-weight: bold;
+}
+
+bookinfo email
+{
+  display: block;
+}
+
+bookinfo email:before
+{
+  content: "Email: ";
+  font-weight: bold;
+}
+
+caption
+{
+  display: block;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  caption-side: bottom;
+}
+
+callout
+{
+  display: block;
+}
+
+caution > para:first-child:before
+{
+  content: 'Caution';
+}
+
+citetitle
+{
+  display: inline;
+  font-style: italic;
+}
+
+collab + collab:before
+{
+  content: ', ';
+}
+
+colspec
+{
+  display: inline;
+}
+
+command
+{
+  display: inline;
+}
+
+computeroutput
+{
+  display: inline;
+}
+
+copyright
+{
+  display: block;
+}
+
+copyright:before
+{
+  content: 'Copyright \A9 ';
+}
+
+corpauthor
+{
+  display: block;
+}
+
+corpauthor:before
+{
+  content: 'Corporate Author: ';
+  font-weight: bold;
+}
+
+database
+{
+  display: inline;
+}
+
+date
+{
+  display: inline;
+}
+
+bookinfo > date:before
+{
+  content: 'Date: ';
+  font-weight: bold;
+}
+
+edition
+{
+  display: inline;
+}
+
+articleinfo > edition:before
+{
+  content: 'Version: ';
+  font-weight: bold;
+}
+
+editor
+{
+  display: inline;
+}
+
+email
+{
+  display: inline;
+  font-style: italic;
+}
+
+emphasis[role="bold"]
+{
+  font-weight: bold;
+  font-style: normal;
+}
+
+emphasis
+{
+  display: inline;
+  font-style: italic;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+thead > row > entry
+{
+  text-align:	center;
+  font-weight:	bold;
+}
+
+entry
+{
+  display: table-cell;
+  padding: 0.5ex;
+}
+
+entrytbl
+{
+  display: table;
+}
+
+epigraph
+{
+  font-style: italic;
+  display: block;
+  margin-left: 0.5in;
+}
+
+example
+{
+  display: block;
+}
+
+example title:before
+{
+  content: 'Example: ' counter(e-) ": ";
+}
+/* this is stupid - why does counter e reset in every subsection? */
+section section section section example > title:before
+{
+  content:	"Example " counter(nnnne-) ": ";
+}
+
+section section section example > title:before
+{
+  content:	"Example " counter(nnne-) ": ";
+}
+
+section section example > title:before
+{
+  content:	"Example " counter(nne-) ": ";
+}
+
+section example > title:before
+{
+  content:	"Example " counter(ne-) ": ";
+}
+
+example > title:before
+{
+  content:	"Example " counter(e-) ": ";
+}
+
+
+figure
+{
+  display: block;
+}
+
+figure title
+{
+  display: block;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* this is stupid - why does counter f reset in every subsection? */
+section section section section figure title:before
+{
+  content:	"Figure " counter(nnnnf-) ": ";
+}
+
+section section section figure title:before
+{
+  content:	"Figure " counter(nnnf-) ": ";
+}
+
+section section figure title:before
+{
+  content:	"Figure " counter(nnf-) ": ";
+}
+
+section figure title:before
+{
+  content:	"Figure " counter(nf-) ": ";
+}
+
+figure title:before
+{
+  content:	"Figure " counter(f-) ": ";
+}
+
+figure[role="informal"] title:before	/* Simplified DocBook - no informalfigure? */
+{
+  content: '';
+}
+
+filename
+{
+  display: inline;
+}
+
+firstname
+{
+  display: inline;
+}
+
+foreignphrase
+{
+  font-style: italic;
+}
+
+funcsynopsis
+{
+  display: block;
+  text-indent: 2em;
+}
+
+entry > funcsynopsis
+{
+  display: inline;
+  text-indent: 0em;
+}
+
+funcsynopsis *
+{
+  font-family:  monospace;
+  font-size:	inherit;
+}
+
+funcsynopsis[lang="sql"] function,
+funcsynopsis[lang="SQL"] function
+{
+  /* text-transform: none; */
+}
+
+funcprototype + funcsynopsisinfo:before
+{
+  content: " ";
+}
+
+funcsynopsisinfo + funcprototype:before
+{
+  content: "\A";
+}
+
+function
+{
+  font-family:  monospace;
+  font-variant: normal;
+  font-size: smaller;
+}
+
+glossaryinfo
+{
+  display: block;
+}
+
+glossdef
+{
+  display: block;
+  margin: 20px 60px;
+}
+
+glossdiv,
+glosssee
+{
+  display: block;
+}
+
+glossentry
+{
+  display: block;
+}
+
+glosssee:before
+{
+  content: 'See ';
+  display: block;
+  font-style: italic;
+}
+
+glossseealso 
+{
+  display: block;
+}
+  
+glossseealso:before
+{
+  content: 'See also ';
+  display: block;
+  font-style: italic;
+}
+
+glossterm
+{
+  display: inline;
+  font-style: italic;
+}
+
+glossentry > glossterm
+{
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+holder:before
+{
+  content: " "
+}
+
+holder
+{
+  display: inline;
+}
+
+honorific
+{
+  display: inline;
+}
+
+indexterm:before
+{
+	content: "[index "
+}
+
+indexterm:after
+{
+	content: "]"
+}
+
+indexterm
+{
+  display: inline;
+  font-size: smaller;
+  content: " "
+}
+
+imageobject
+{
+  display: inline;
+}
+
+important > para:first-child:before
+{
+  content: 'Important';
+}
+
+informalexample
+{
+  display: block;
+}
+
+inlinemediaobject
+{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+isbn
+{
+  display: inline;
+}
+
+issn
+{
+  display: inline;
+}
+
+issuenum
+{
+  display: inline;
+}
+
+itemizedlist
+{
+  list-style-type: disc;
+}
+
+itemizedlist itemizedlist
+{
+  list-style-type: circle;
+}
+
+itemizedlist itemizedlist itemizedlist
+{
+  list-style-type: square;
+}
+
+itermset
+{
+  display: block;
+}
+
+itermset:before
+{
+  content: "Index Terms: ";
+  display: inline;
+  font-weight: bold;
+}
+
+
+keyword
+{
+  display: inline;
+}
+
+keywordset
+{
+  display: block;
+}
+
+keywordset:before
+{
+  content: "Keywords: ";
+  display: inline;
+  font-weight: bold;
+}
+
+legalnotice
+{
+  display: block;
+}
+
+legalnotice:before
+{
+  content: "Legal Notice:";
+  display: inline;
+  font-weight: bold;
+}
+
+lineage
+{
+  display: inline;
+}
+
+lineannotation
+{
+  display: inline;
+}
+
+link
+{
+  display: inline;
+  color:   #003399;
+}
+
+listitem
+{
+  display: list-item;
+  margin-left: 1em;
+}
+
+literal
+{
+  display: inline;
+}
+
+literallayout
+{
+  display: inline;
+}
+
+mediaobject
+{
+  display: inline;
+}
+
+member
+{
+  display: inline;
+}
+
+objectinfo
+{
+  display: inline;
+}
+
+option
+{
+  display: inline;
+}
+
+orderedlist
+{
+  display: block;
+  list-style-type: decimal;
+  margin-left: 1em;
+  /* counter-reset: ol-counter; */
+}
+
+orderedlist orderedlist
+{
+  list-style-type: lower-alpha;
+}
+
+orderedlist orderedlist orderedlist
+{
+  list-style-type: lower-roman;
+}
+
+/*
+orderedlist > listitem:before
+{
+  counter-increment: ol-counter;
+  content: counter(ol-counter);
+}
+*/
+
+otheraddr
+{
+  display: inline;
+}
+
+othercredit
+{
+  display: inline;
+}
+
+othername
+{
+  display: inline;
+}
+
+pagenums
+{
+  display: inline;
+}
+
+listitem > para
+{
+  margin-bottom: 0.2ex;
+  margin-top:	 0.2ex;
+}
+
+listitem > itemizedlist > listitem > para,
+listitem > orderedlist > listitem > para
+{
+  margin-bottom: 0ex;
+  margin-top:	 0ex;
+}
+
+para
+{
+  display: block;
+  margin-bottom: 1ex;
+  margin-top: 1ex;
+}
+
+funcdef + paramdef:before
+{
+  content: "(";
+}
+
+paramdef + paramdef:before
+{
+  content: ", ";
+}
+
+paramdef:last-child:after
+{
+  content: ")";
+}
+
+part
+{
+  display: block;
+}
+
+phone
+{
+  display: inline;
+}
+
+phrase
+{
+  display: inline;
+}
+
+pob
+{
+  display: inline;
+}
+
+postcode
+{
+  display: inline;
+}
+
+primary
+{
+	display: inline;
+	content: "Primary: "
+}
+
+printhistory
+{
+  display: inline;
+}
+
+programlisting
+{
+  /* border: 1px solid black; */
+  display: block;
+  padding: 3px;
+  margin-right: 2em;
+  white-space: pre;
+}
+
+programlistingco > programlisting,
+stepalternatives > step
+{
+  display: table-cell;
+  width: 50%;
+}
+
+programlistingco > calloutlist,
+stepalternatives > step + step
+{
+  display: table-cell;
+  width: 50%;
+}
+
+prompt
+{
+  font-weight: bold;
+  display: inline;
+}
+
+pubdate
+{
+  display: block;
+}
+
+pubdate:before
+{
+  content: "Publication Date: ";
+  font-weight: bold;
+}
+
+publisher
+{
+  display: inline;
+}
+
+publishername
+{
+  display: inline;
+}
+
+qandaentry {
+  display: block;
+}
+
+qandaset {
+  display: block;
+}
+
+question {
+  display: block;
+  font-weight: bold;
+}
+
+answer {
+  display: block;
+  margin-left: 30px;
+}
+
+quote:before
+{
+  content: "\"";
+}
+
+quote
+{
+  display: inline;
+}
+
+quote:after
+{
+  content: "\"";
+}
+
+releaseinfo
+{
+  display: block;
+}
+
+releaseinfo:before
+{
+  content: "Release Info: ";
+  font-weight: bold;
+}
+
+replaceable
+{
+  display: inline;
+  font-style: italic;
+  font-weight: normal;
+  font-size:	inherit;
+  font-family:	inherit;
+}
+
+revhistory
+{
+  display: block;
+  margin-top: 10px;
+}
+
+revhistory:before
+{
+  content: "Revision History:";
+  font-weight: bold;
+}
+
+revision
+{
+  display: block;
+}
+
+revnumber
+{
+  display: inline;
+}
+
+revremark
+{
+  display: inline;
+}
+
+row
+{
+  display: table-row;
+}
+
+screen
+{
+  /* border-left: 2px solid black; */
+  display: block;
+  padding: 3px;
+  white-space: pre;
+}
+
+secondary
+{
+	display: inline;
+	content: "Secondary: "
+}
+
+sectioninfo
+{
+  display: none;
+}
+
+sidebar > para:first-child:before
+{
+  display:	block;
+  content:	"Sidebar";
+  font-weight:	bold;
+}
+
+sidebar[role="question"] > para:first-child:before
+{
+  content:	"Question";
+}
+
+simpara
+{
+  display: block;
+}
+
+simplelist
+{
+  display: inline;
+}
+
+state
+{
+  display: inline;
+}
+
+step
+{
+  display: block;
+}
+
+street
+{
+  display: inline;
+}
+
+subtitle
+{
+  font-family: "Gill Sans", sans-serif;
+  font-weight: bold;
+  font-size: 140%;
+  display: block;
+  margin-bottom: 2ex;
+  text-align: center;
+  color: #003399;
+}
+
+authorgroup > author + author:before
+{
+  content: ', ';
+}
+
+surname:before
+{
+  content: ' ';
+}
+
+surname
+{
+  display: inline;
+}
+
+systemitem
+{
+  display: inline;
+}
+
+/* keep most of the table stuff all together */
+
+informaltable,
+table
+{
+  display:	 table;
+  margin-bottom: 3ex;
+}
+
+/* this is stupid - why does counter t reset in every subsection? */
+section section section section table > title:before
+{
+  content:	"Table " counter(nnnnt-) ": ";
+}
+
+section section section table > title:before
+{
+  content:	"Table " counter(nnnt-) ": ";
+}
+
+section section table > title:before
+{
+  content:	"Table " counter(nnt-) ": ";
+}
+
+section table > title:before
+{
+  content:	"Table " counter(nt-) ": ";
+}
+
+table > title:before
+{
+  content:	"Table " counter(t-) ": ";
+}
+
+
+tbody
+{
+  display:	table-row-group;
+}
+
+tgroup
+{
+  display:		table;
+  border-style:		solid;
+  border-left-color:	transparent;
+  border-right-color:	transparent;
+}
+
+thead
+{
+  display:	table-row-group;
+}
+
+/* objects embedded within tables may need different formatting rules */
+entry term	/* for variable lists embedded within tables */
+{
+  width:	4ex;
+}
+
+/* end of table stuff */
+
+term
+{
+  display:	table-cell;
+  width:	8em;
+  white-space:	nowrap;
+}
+
+textobject
+{
+  display:	inline;
+}
+
+tip > para:first-child:before
+{
+  content: 'Tip';
+}
+
+title
+{
+  font-family: "Gill Sans", sans-serif;
+  display: block;
+  margin-top: 1ex;
+  margin-bottom: 0.5ex;
+  color: #003399;
+}
+
+appendix > title:before
+{
+  content: 'Appendix: ';
+}
+
+book > title
+{
+  font-size:	 200%;
+  font-weight:	 bold;
+  margin-bottom: 5ex;
+  text-align:	 center;
+
+  border-style:		 solid;
+  border-width:		 2px;
+  border-top-color:	 #003399;
+  border-left-color:	 transparent;
+  border-right-color:	 transparent;
+  border-bottom-color:	 #003399;
+  padding: 2ex;
+}
+
+titleabbrev
+{
+  display: none;
+}
+
+trademark
+{
+  display: inline;
+}
+
+type
+{
+  display: inline;
+}
+
+ulink[role="direct"]
+{
+  color: #003399;
+  display: inline;
+  content: attr(url);
+}
+
+ulink:after
+{
+  color: #003399;
+  display: inline;
+}
+
+ulink[role="direct"]:after
+{
+  content: "";
+}
+
+userinput
+{
+  display: inline;
+}
+
+variablelist
+{
+  display: table;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 1ex;
+  margin-bottom: 1ex;
+}
+
+entry variablelist
+{
+  margin-left:	 0em;
+  margin-right:	 0em;
+  margin-top:	 0ex;
+  margin-bottom: 0ex;
+}
+
+varlistentry
+{
+  display: table-row;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 1ex;
+  margin-bottom: 1ex;
+}
+
+varlistentry listitem
+{
+  display: table-cell;
+  margin-right: 5em;
+  padding: 0.25ex;
+}
+
+varlistentry listitem > para
+{
+  display: inline;
+  margin-bottom: 3ex;
+  margin-top: 3ex;
+}
+
+table variablelist > varlistentry > listitem
+{
+  padding:	0ex;
+}
+
+videodata
+{
+  display: inline;
+}
+
+videoobject
+{
+  display: inline;
+}
+
+volumenum
+{
+  display: inline;
+}
+
+warning > para:first-child:before
+{
+  content: 'Warning';
+}
+
+xref
+{
+  display: inline;  
+  content: attr(endterm);
+}
+
+year
+{
+  display: inline;
+}
+
+/* media-specific formatting decisions */
+@media screen
+{
+  ulink:after
+  {
+    content: " (" attr(url) ")";
+  }
+
+  *
+  {
+    font-family: "Gill Sans", verdana, arial, sans;
+    font-size:	 11pt;
+  }
+
+  imagedata
+  {
+    display: inline;
+    content: attr(fileref);
+  }
+
+  application, productname,
+  command[role="application"],	/* Simplified DocBook */
+  command[role="productname"]	/* Simplified DocBook */
+  {
+    font-family: "Gill Sans", verdana, arial, sans;
+  }
+}
+
+@media xmlmind-xml-editor
+{
+  ulink
+  {
+    color: #003399;
+  }
+
+  ulink:after
+  {
+    content: "";
+  }
+
+  imagedata
+  {
+    display: inline;
+    content: image(attr(fileref), -6in, -7in, smooth);
+  }
+
+   /* make sections and blocks with titles collapsible.  */
+
+  appendix,
+  article,
+  book,
+  chapter,
+  note,
+  sect1,
+  sect2,
+  sect3,
+  sect4,
+  section
+  {
+      collapsible: yes;
+      not-collapsible-head: 1; /* title or metainfo */
+  }
+
+  appendix > title:first-child:before
+  {
+      content: collapser() " Appendix " counter(n-, upper-alpha) ": "; 
+  }
+
+  article > title:first-child:before,
+  book > title:first-child:before
+  {
+    content: collapser() " " image('../specs/logo.gif') " ";
+    vertical-align: middle;
+  }
+
+  chapter > title:first-child:before
+  {
+      content: collapser() " Chapter " counter(n-, decimal) ": "; 
+  }
+
+  note > para:first-child:before
+  {
+    content: collapser() " Note ";
+  }
+
+  sect1 > title:first-child:before
+  {
+      content: collapser() " " counter(n-) " "; 
+  }
+
+  sect2 > title:first-child:before
+  {
+      content: collapser() " " counter(nn-) " "; 
+  }
+
+  sect3 > title:first-child:before
+  {
+      content: collapser() " " counter(nnn-) " "; 
+  }
+
+  sect4 > title:first-child:before
+  {
+      content: collapser() " " counter(nnnn-) " "; 
+  }
+
+  section > title:first-child:before
+  {
+      content: collapser() " " counter(n-) " "; 
+  }
+
+  section section > title:first-child:before
+  {
+      content: collapser() " " counter(nn-) " "; 
+  }
+
+  section section section > title:first-child:before
+  {
+      content: collapser() " " counter(nnn-) " "; 
+  }
+
+  section section section section > title:first-child:before
+  {
+      content: collapser() " " counter(nnnn-) " "; 
+  }
+
+  section section section * section > title:first-child:before
+  {
+      content: ""; 
+  }
+
+  appendixinfo:first-child,
+  articleinfo:first-child,
+  bookinfo:first-child,
+  chapterinfo:first-child,
+  sect1info:first-child,
+  sect2info:first-child,
+  sect3info:first-child,
+  sect4info:first-child,
+  sectioninfo:first-child
+  {
+      margin-left: 20px;
+  }
+
+  appendixinfo:first-child:before,
+  articleinfo:first-child:before,
+  bookinfo:first-child:before,
+  chapterinfo:first-child:before,
+  sect1info:first-child:before,
+  sect2info:first-child:before,
+  sect3info:first-child:before,
+  sect4info:first-child:before,
+  sectioninfo:first-child:before
+  {
+      content: collapser();
+      display: marker;
+  }
+
+  sidebar para:before
+  {
+    display:	block;
+    text-align:	center;
+    margin-top:	2px;
+    margin-bottom:	1ex;
+    font-family:	"Gill Sans", sans-serif;
+    font-weight:	bold;
+  }
+
+  sidebar > para
+  {
+    margin-top:		0;
+    margin-bottom:	0;
+  }
+
+  sidebar
+  {
+    display:		block;
+    border-style:	solid;
+    border-left-color:	gray;
+    border-right-color:	gray;
+    border-top-color:	gray;
+    border-bottom-color:	gray;
+    padding: 1ex;
+    margin-top: 4ex;
+    margin-bottom: 4ex;
+    margin-left: 3em;
+    margin-right: 3em;
+
+    color:	gray;
+  }
+
+  sidebar[role="question"]
+  {
+    color:	red;
+  }
+
+}
+
+@media print
+{
+  *
+  {
+    font-size: 12pt;
+  }
+
+  *,
+  application, productname,
+  command[role="application"],	/* Simplified DocBook */
+  command[role="productname"]	/* Simplified DocBook */
+  {
+    font-family: serif;
+  }
+
+  ulink:after
+  {
+    content: "";
+  }
+
+  caution,
+  important,
+  note,
+  tip,
+  warning
+  {
+    page-break-inside: avoid;
+  }
+
+  /* hide XXE collapsers when printing */
+  appendix,
+  article,
+  book,
+  chapter,
+  sect1,
+  sect2,
+  sect3,
+  sect4,
+  section
+  {
+      collapsible: no;
+      not-collapsible-head: 0; /* title or metainfo */
+  }
+  appendix > title:first-child:before
+  {
+      content: "Appendix " counter(n-, upper-alpha) ": "; 
+  }
+
+  article > title:first-child:before,
+  book > title:first-child:before
+  {
+      /* content: " "; */
+      content: image('../specs/logo.gif') " ";
+      vertical-align: middle;
+  }
+
+  chapter > title:first-child:before
+  {
+      content: "Chapter " counter(n-, decimal) ": "; 
+  }
+
+  note > para:first-child:before
+  {
+    content: 'Note';
+  }
+
+  sect1 > title:first-child:before
+  {
+      content: counter(n-) " "; 
+  }
+
+  sect2 > title:first-child:before
+  {
+      content: counter(nn-) " "; 
+  }
+
+  sect3 > title:first-child:before
+  {
+      content: counter(nnn-) " "; 
+  }
+
+  sect4 > title:first-child:before
+  {
+      content: counter(nnnn-) " "; 
+  }
+
+  section > title:first-child:before
+  {
+      content: counter(n-) " "; 
+  }
+
+  section section > title:first-child:before
+  {
+      content: counter(nn-) " "; 
+  }
+
+  section section section > title:first-child:before
+  {
+      content: counter(nnn-) " "; 
+  }
+
+  section section section section > title:first-child:before
+  {
+      content: counter(nnnn-) " "; 
+  }
+
+  section section section * section > title:first-child:before
+  {
+      content: ""; 
+  }
+
+  appendixinfo:first-child,
+  articleinfo:first-child,
+  bookinfo:first-child,
+  chapterinfo:first-child,
+  sect1info:first-child,
+  sect2info:first-child,
+  sect3info:first-child,
+  sect4info:first-child,
+  sectioninfo:first-child
+  {
+      margin-left: inherit;
+  }
+
+  appendixinfo:first-child:before,
+  articleinfo:first-child:before,
+  bookinfo:first-child:before,
+  chapterinfo:first-child:before,
+  sect1info:first-child:before,
+  sect2info:first-child:before,
+  sect3info:first-child:before,
+  sect4info:first-child:before,
+  sectioninfo:first-child:before
+  {
+      content: "";
+      display: marker;
+  }
+
+  figure,
+  table
+  {
+    page-break-inside:	avoid;
+  }
+
+  title
+  {
+    page-break-after:	avoid;
+  }
+}

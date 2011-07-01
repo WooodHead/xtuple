@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>3.2.0 ChangeLog</title>
+
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+
+      <listitem>
+        <para>Switched Scroll with ctrl + mouse wheel.</para>
+      </listitem>
+
+      <listitem>
+        <para>Zoom range increase.</para>
+      </listitem>
+
+      <listitem>
+        <para>Added default format for totals.</para>
+      </listitem>
+
+      <listitem>
+        <para>Added save grid options in document.</para>
+      </listitem>
+
+      <listitem>
+        <para>Added Undo / redo feature.</para>
+      </listitem>
+
+    </itemizedlist></para>
+
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+
+      <listitem>
+        <para>Fixed Stand-alone metasql editor to correctly list schemas and queries.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed when multiple items are dragged to another section, they appear to move, but don't all change the section they belong to.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed Items that don't change section when they are moved with the keyboard arrows.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed tranlation to load internal Qt strings that were not being translated.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed Human readable part of barcodes not adjusted properly when bar width is changed.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed Embedded MetaSQL edit File->Exit closes out of host client all together.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed Parameter Query that was not workin correctly on MySQL database.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed incorrect print and preview reports in non-ASCII.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed newly inserted items not being printed or saved.</para>
+      </listitem>
+
+    </itemizedlist></para>
+</article>
+

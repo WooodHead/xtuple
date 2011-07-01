@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>3.1.1 ChangeLog</title>
+
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+
+      <listitem>
+        <para>Added rotation functionality for a number of entities.</para>
+      </listitem>
+
+    </itemizedlist></para>
+
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+
+      <listitem>
+        <para>Fixed a number of memory leaks.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed crash problem when rendering cross-tab.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed image preview on image entity editor and document properties dialog to use scroll bars when loading large images.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed bug that messed up locale formatting strings when loading report definitions.</para>
+      </listitem>
+
+      <listitem>
+        <para>Removed old backward compatibility code that was no longer being used.</para>
+      </listitem>
+
+    </itemizedlist></para>
+</article>

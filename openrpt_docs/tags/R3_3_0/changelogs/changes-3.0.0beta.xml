@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>3.0.0Beta ChangeLog</title>
+
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+
+      <listitem>
+        <para role="300beta">Add metasql pointer option so metasql queries can be drawn from a database</para>
+      </listitem>
+
+      <listitem>
+        <para>Added support for changing the color of fonts and border/fill of boxes</para>
+      </listitem>
+
+      <listitem>
+        <para role="300alpha">Align Objects Across Sections</para>
+      </listitem>
+
+      <listitem>
+        <para>Redesigned Writer interface to be more WYSIWYG</para>
+      </listitem>
+
+      <listitem>
+        <para>Support for zooming using mousewheel in writer</para>
+      </listitem>
+
+      <listitem>
+        <para>RPT Render - File -> Load From DB - Show a List of Reports</para>
+      </listitem>
+
+      <listitem>
+        <para>Simple CrossTab addition</para>
+      </listitem>
+
+      <listitem>
+        <para>Printing of external image files</para>
+      </listitem>
+
+      <listitem>
+        <para>Added additional support to translation of application</para>
+      </listitem>
+
+      <listitem>
+        <para>New importmql utility</para>
+      </listitem>
+
+      <listitem>
+        <para>Updated menu's and toolbar's</para>
+      </listitem>
+
+    </itemizedlist></para>
+
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+
+      <listitem>
+        <para role="300alpha">Cannot Select Entry On List Screen for Embedded Query/Parameter List</para>
+      </listitem>
+
+      <listitem>
+        <para>Rectangle item must not block the selection of the items inside it</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed MetaSQL tool so it won't timeout when connected to database</para>
+      </listitem>
+
+      <listitem>
+        <para>Removed all Qt3 Support backward-compatibility code</para>
+      </listitem>
+
+      <listitem>
+        <para role="231">Fixed resolution lookup problem in prerendering engine</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed unreleased memory when prerenderer completes</para>
+      </listitem>
+
+      <listitem>
+        <para>Consolidated some code reducing redundancy.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed problem with embedded writer when switching windows</para>
+      </listitem>
+
+    </itemizedlist></para>
+</article>

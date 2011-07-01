@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>3.0.0RC ChangeLog</title>
+
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+
+      <listitem>
+        <para>Added Russian translation files to project</para>
+      </listitem>
+
+      <listitem>
+        <para>Added ability to hold Shift or Alt to keep a line horizontal or vertical, respectively, when dragging ends; re-add of feature pre-conversion</para>
+      </listitem>
+
+    </itemizedlist></para>
+
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+
+      <listitem>
+        <para>Fixed parsing problem on section heights if height was a real number and not a whole number</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed empty list on RPTrender app for dynamic list query</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed crash problem when changing color on production release builds</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed renderer to use QImage rather than QPixmap to prevent potential problems with threads</para>
+      </listitem>
+
+    </itemizedlist></para>
+</article>
