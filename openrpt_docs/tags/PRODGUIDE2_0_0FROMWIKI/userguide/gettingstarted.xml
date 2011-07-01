@@ -1,0 +1,1091 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<chapter>
+  <title id="i554447">Getting Started</title>
+  <para>In this chapter, we will be taking a hands-on approach to illustrate
+  fundamental report writer functionality. The exercises will focus on the
+  embedded xTuple report writer, connected to an xTuple Database. However, the
+  fundamentals described here also apply to the standalone OpenRPT
+  application.</para>
+  <section id="i554553">
+    <title>Modifying an Existing Report</title>
+    <para>The best way to illustrate report writer functionality is to work
+    with an existing report definition&mdash;rather than create a new one from
+    scratch. So, for this first exercise we will be modifying a report
+    definition called “UsersMasterList.” The “UsersMasterList” report
+    definition is a stock xTuple report designed to provide information about
+    xTuple users.</para>
+    <note>
+      <para>The data used in this exercise is pulled from a sample xTuple
+      Database.</para>
+    </note>
+    <para>To begin, we must first log in to xTuple. By logging in, we
+    automatically connect to an xTuple Database. The user information we will
+    be working with is stored in the xTuple Database.</para>
+    <para>We can access the “UsersMasterList” report by selecting the
+    “Reports” option from the “Master Information” section of the System
+    Module. Scroll down the master list of report definitions until you reach
+    the “UsersMasterList” report. Highlight the report, then select the EDIT
+    button. The following screen will appear:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_050_RepDef.png" />
+          </imageobject>
+          <caption>Users Master List Report Definition</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>In the Report Writer Basics chapter, we discussed the importance of
+    grades&mdash;and how multiple versions of the same report may be stored on
+    a database using different grades. By default, xTuple uses the report
+    definition having the highest grade.</para>
+    <para>To differentiate our working version of the “UsersMasterList” report
+    definition from the standard version, we will save it with a different
+    grade. To save a report definition with a different grade, select the
+    “Save to DB” option from the “Database” menu. The following screen will
+    appear:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_070_DBGrade50.png" />
+          </imageobject>
+          <caption>Save Report to Database with a Higher Grade</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>We will keep the same name, but change the grade to 50. When we
+    select the OK button, the report definition is saved to the
+    database.</para>
+    <tip>
+      <para>If you want to save your changes to the database, be sure to
+      select the “Save to DB” option. Report definitions stored on a local or
+      network drive may also be saved to a database in this way.</para>
+    </tip>
+    <para>We have now made a copy of the report definition&mdash;and assigned
+    it a high grade (“50”). When xTuple runs the report, it will use our
+    version of the report definition because ours has been assigned the
+    highest grade in the sample database.</para>
+    <section id="i553538">
+      <title>Query Sources Overview</title>
+      <para>The report writer uses Structured Query Language (SQL) to retrieve
+      information from a database. In this section, we will look at how report
+      definitions use SQL queries to collect the information which is
+      displayed in a report.</para>
+      <para>To view the SQL query associated with the “UsersMasterList” report
+      definition, select the “Query Sources” option from the “Document” menu.
+      The following screen will appear:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_075_QueryList.png" />
+            </imageobject>
+            <caption>Query List</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>The query master list shows all the queries defined for a report
+      definition. In this case, only one query has been defined. To view the
+      query, double-click on it&mdash;or highlight it and then select EDIT.
+      The following screen will appear:</para>
+      <para id="i555117"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_100_SQL.png" />
+            </imageobject>
+            <caption>Query Editor Showing SQL Statement</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>The basic SQL query structure used by many report definitions
+      reads as follows:</para>
+      <para><literal>SELECT (column) FROM (table) WHERE (condition) and,
+      optionally, ORDER BY (column). </literal></para>
+      <para>The query shown above follows this basic format.</para>
+      <para>Readers familiar with SQL may have noticed portions of the
+      statement surrounded by &lt;?...?&gt; tags. These tags signal the use of
+      MetaSQL. MetaSQL is an embedded query language designed to make SQL
+      queries dynamic. The MetaSQL language was developed by xTuple for use by
+      the report writer.</para>
+      <note>
+        <para>For more information on MetaSQL, the embedded query language
+        designed by xTuple to make SQL queries dynamic, please see the
+        Advanced Topics chapter.</para>
+      </note>
+      <para>We could edit the query using the query editor. But at this point,
+      we simply want to familiarize ourselves with the query. We will be
+      making cosmetic changes to the report in the next sections.</para>
+    </section>
+    <section>
+      <title>Editing Labels</title>
+      <para>Label objects contain static text displayed in a report. Text is
+      considered static if it resides in a report definition and is not pulled
+      dynamically from a database. A report title is an example of static text
+      contained within a Label object. In our next exercise, we will show how
+      to modify a report title.</para>
+      <para>To change the title appearing on the “UsersMasterList” report
+      definition, locate the Label object containing the title in the Report
+      Header section. The title of the report is “Users Master List.”
+      Double-clicking on the object will open the Label properties screen. We
+      will change the text of the Label and align the text on the left margin,
+      as shown in the following screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_105_LabelProps.png" />
+            </imageobject>
+            <caption>Modified Label Properties</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>After we have made the changes, we select the OK button. The
+      changes are now applied to the Label object. Finally, we click on the
+      Label object and drag it to the left-hand margin of the report
+      definition&mdash;then save the report definition to the database. All
+      these changes appear in the following screenshot:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_110_ModfiedLabel.png" />
+            </imageobject>
+            <caption>Report Definition Showing Updated Label</caption>
+          </mediaobject>
+        </screenshot></para>
+      <tip>
+        <para>Using your mouse, you can click on a Label object and drag it to
+        a new position. Or you can resize a Label object, using the handles on
+        the perimeter of the object.</para>
+      </tip>
+    </section>
+    <section id="i571645">
+      <title>Editing Fields</title>
+      <para>Field objects contain dynamic information retrieved from a
+      database. The dynamic information is pulled into the Field using query
+      sources. For this exercise, we will be making a cosmetic change to the
+      user name Field. The user name Field is the Field used to print user
+      names on the “UsersMasterList” report. Later, we will add a new Field
+      object.</para>
+      <para>Our goal in this exercise is to increase the font size used to
+      print user names on the “UsersMasterList” report. By default, these
+      names are printed in 8-pt font. We will be increasing the font size to
+      14-pt.</para>
+      <para>To begin, we must first locate the Field object which contains the
+      user name Field. We find it partially obscured on the left-hand margin
+      of the Detail section. It is the Field having the name
+      “usr_username:detail”, as shown in the following screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_112_UserField1.png" />
+            </imageobject>
+            <caption>Standard Size Font for User Name Field</caption>
+          </mediaobject>
+        </screenshot></para>
+      <note>
+        <para>Don’t be concerned if Field objects overlap, causing the names
+        which identify them to become partially obscured. This is common when
+        Field objects are located adjacent to each other.</para>
+      </note>
+      <para>To edit the properties of the user name Field, we double-click on
+      the Field object. The following Field properties screen will
+      appear.</para>
+      <para id="i556383"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_120_FieldProp1.png" />
+            </imageobject>
+            <caption>Field Properties</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see, the query source being used to populate the Field
+      is the “detail” query source. This is the same query source we looked at
+      previously. The “detail” query uses SQL to retrieve user information
+      from the database the report writer is connected to. The column
+      <literal>usr_username</literal> is one of the columns mentioned in the
+      “detail” query’s <literal>SELECT</literal> statement. Only this column
+      will be used when retrieving data into the Field. All other columns
+      referenced in the <literal>SELECT</literal> statement will be
+      ignored.</para>
+      <note>
+        <para>This explains how Field names are determined: They begin with
+        the name of a column referenced in a query source, and are followed by
+        the name of the very same query source. And so, in our current
+        example, we get “usr_username:detail.”</para>
+      </note>
+      <para>For now, we are concerned only with changing the font size used to
+      print user names on the “UsersMasterList” report. We select the FONT
+      button at the bottom of the screen and specify a 14-pt font size. After
+      we select the OK button, we see the change reflected in the report
+      definition, as shown below:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_125_UserField2.png" />
+            </imageobject>
+            <caption>Enlarged Font Size for User Name Field</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>For now, we won’t worry about the length of the Field. We will,
+      however, adjust the height of the Field object to accommodate the larger
+      font. Once we have saved our changes to the database, we can run the
+      report and see how our updates have affected the printed results.</para>
+      <para>To run the report from within xTuple, open the “Maintain Users”
+      option from the System Module menu. After selecting the PRINT button,
+      the report will print out as follows:</para>
+      <para id="i556741"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_130_RunReport.png" />
+            </imageobject>
+            <caption>Modified Report Output</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see, the user names have in fact been printed in 14-pt
+      font, as expected. The information contained in other
+      Fields&mdash;active status, proper name, initials, etc.&mdash;still
+      appears in the default 8-pt font. Notice that the printed title of the
+      report has also been modified, per our report definition changes.</para>
+    </section>
+    <section>
+      <title>Adding Bar Codes</title>
+      <para>Now that we have a made a few cosmetic changes to a report
+      definition, we are now ready to make a more significant change. In this
+      next exercise, we will add a bar code object to print user names in bar
+      code format.</para>
+      <para>The mechanics of adding a bar code object are the same as adding a
+      human-readable Field object. When we are done, we will have a report
+      that looks like the following:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_150_ReportWithBarcode.png" />
+            </imageobject>
+            <caption>Preview of Report with Bar Codes Added</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>We will be adding the bar code object just below the Field object
+      containing the human-readable user name. To do so, we first need to
+      expand the lower boundary of the “UsersMasterList” Detail
+      section.</para>
+      <tip>
+        <para>To expand the height of a section, simply hold your mouse over
+        the lower boundary of the section. When the double arrows of the
+        resize cursor appear, use your mouse to expand the section.</para>
+      </tip>
+      <para>Once the Detail section has been expanded, we select the bar code
+      option from the toolbar and then click in the section just below the
+      user name Field. We have now inserted the bar code object into the
+      report definition, as shown in the following screen.</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_135_AddBarcode.png" />
+            </imageobject>
+            <caption>Bar Code Object Inserted into Report Definition</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>We must now specify the properties of the bar code object. To do
+      so, we double-click on the bar code object. The following screen will
+      appear:</para>
+      <para id="i558356"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_140_BarcodeProp.png" />
+            </imageobject>
+            <caption>Bar Code Properties</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>Like Field objects, bar code objects contain dynamic information
+      retrieved from a database. As you can see, the bar code properties
+      screen requires a query source and column name. The dynamic information
+      we need for this exercise is the same as we needed
+      previously&mdash;namely, user names retrieved from the
+      <literal>usr</literal> table. The only difference here is that we will
+      be representing user names in bar code format. We enter the following
+      parameters:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Format</term>
+          <listitem>
+            <para>3of9 (The report writer supports the following bar code
+            formats: 3of9, 3of9+, 128, ean13, ean8, upc-a, and upc-e.)</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Query Source</term>
+          <listitem>
+            <para>detail</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Column</term>
+          <listitem>
+            <para>usr_username</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Maximum Length of Value</term>
+          <listitem>
+            <para>10 (Specifies the maximum number of characters the bar code
+            is expected to contain.)</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>After we select the OK button, we see the bar code object has been
+      updated in the report definition, as shown below:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_145_BarcodeDetail.png" />
+            </imageobject>
+            <caption>Detail Section with Bar Code Added</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see, the bar code object is now identified with the
+      name <literal>usr_username:detail barcode</literal>. This name refers to
+      the column and query source which will be used to generate user name
+      data in bar code format. Before we save our changes to the database, we
+      click on the right side of the bar code object and drag it to make it
+      longer.</para>
+      <para>We have now successfully created a bar code object that will print
+      in “3of9” format&mdash;one of several widely-used bar code formats
+      supported by the report writer. Now let’s print the report and see the
+      results.</para>
+      <para>To print the Users Master List, select the “Maintain Users” option
+      from the System Module menu. When the master list of users appears,
+      select the PRINT button. The following screen shows a portion of the
+      printed report:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_150_ReportWithBarcode.png" />
+            </imageobject>
+            <caption>Report with Bar-Coded Username</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see, the final result matches the result we expected to
+      see when we began this section. The user names on the Users Master List
+      are now both human-readable and machine-readable.</para>
+    </section>
+  </section>
+  <section>
+    <title>Column Headings</title>
+    <para>The “UsersMasterList” report definition utilizes three different
+    Header types: Page Header (First), Page Header (Any), and Report Header.
+    The following screenshot shows how each of these Headers fits within the
+    report definition:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_160_Headers.png" />
+          </imageobject>
+          <caption>Technique for Managing Report Titles and Column
+          Headings</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>You may be wondering if we need both a Page Header (First) and a
+    Page Header (Any)&mdash;particularly since the Page Header (First) is
+    empty. But this technique actually serves a useful purpose, as explained
+    below:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Page Header (First)</term>
+        <listitem>
+          <para>This is blank because the Report Header, which always displays
+          on the first page only, contains column headings. The Page Header
+          (Any) also contains column headings. Following the report writer’s
+          rules of precedence, a Page Header (First), if defined, prints in
+          place of a Page Header (Any). This logic ensures the Page Header
+          (Any) does not print on the first page&mdash;and so we avoid having
+          two sets of column headings on the first page.</para>
+          <note>
+            <para>For more information on precedence and other Header details,
+            see the “Report Headers” and “Page Headers” sections in the Report
+            Writer Basics chapter.</para>
+          </note>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Page Header (Any)</term>
+        <listitem>
+          <para>This Header contains the column headings that appear on the
+          second page and all subsequent pages. The Page Header (Any) will not
+          print on the first page because a Page Header (First) is
+          defined.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Report Header</term>
+        <listitem>
+          <para>The Report Header displays on the first page only. In this
+          case, the Report Header contains both a report title and report
+          columns.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <section id="i549548">
+      <title>Modifying Column Headings</title>
+      <para>For this exercise, we will change the wording of the “Locale”
+      column heading. As you can see in the following screenshot, this column
+      heading appears in both the Page Header (Any) and Report Header
+      sections:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_170_NewLabel.png" />
+            </imageobject>
+            <caption>Locale Column Heading Selected</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>A Locale is frequently used to define a user’s language. And so,
+      for the purpose of this exercise, let’s change the column heading from
+      “Locale” to “Language.” To edit the column heading, double-click on the
+      Label object which contains the text. The following screen will
+      appear:</para>
+      <para id="i563365"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_170_NewLabelProps.png" />
+            </imageobject>
+            <caption>Label Properties for Column Heading</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see, we have entered the new wording in the “Text”
+      field. We make the same change to the “Locale” column heading found in
+      the Report Header. And after saving the changes to the database, we see
+      them both applied to the report definition, as shown below:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_170_NewLabelProps.png" />
+            </imageobject>
+            <caption>Label Changed for Locale Column Heading</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>The techniques used to edit Label objects are the same regardless
+      of where a Label object is located in the report definition.</para>
+    </section>
+    <section id="i548203">
+      <title>Adding Column Headings</title>
+      <para>Over the course of the next few sections, we will perform the
+      steps necessary to add email addresses to our Users Master List. The
+      first step is to add a column heading. The new “Email Address” column
+      heading will ensure the data we retrieve from the database is labeled
+      appropriately.</para>
+      <para>To add the new column heading, we select the Label option from the
+      toolbar and then click in the Page Header (Any) section. We place the
+      Label object to the right of the “Language” column heading, as shown in
+      the following screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_170_NewLabel.png" />
+            </imageobject>
+            <caption>Adding New Column Headings</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>Now that we have placed the Label object, we must define its
+      properties. Double-clicking on the Label object opens the Label
+      properties screen:</para>
+      <para id="i564291"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_170_NewLabelProps.png" />
+            </imageobject>
+            <caption>Column Heading Properties</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see, we have entered “Email Address” in the “Text”
+      field. This is the text which will appear as a column heading. We repeat
+      the same steps to add the same new column heading to the Report Header
+      section. And after moving the Label objects into place using our mouse
+      and saving the changes to the database, the column headings are located
+      where we want them, as shown in the following screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_175_EmailAddress.png" />
+            </imageobject>
+            <caption>Email Address Labels Added to Report Definition</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>Adding column headings for email addresses is only the first step
+      in the multi-step process of inserting email addresses into the report.
+      In the following sections, we will examine how to retrieve the needed
+      information from the database.</para>
+    </section>
+  </section>
+  <section>
+    <title>Modifying Query Sources</title>
+    <para>We’ve successfully added a column heading called “Email Address” to
+    our report definition. Now we need to work on retrieving user email
+    addresses from the database. To begin, let’s look at the query sources
+    defined for this report definition. To view the available query sources,
+    select the “Query Sources” option from the “Database” menu. The following
+    screen will appear:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_075_QueryList.png" />
+          </imageobject>
+          <caption>Query List</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>As we have seen before, the “detail” query source is the only query
+    source defined for the “UsersMasterList” report definition. To open the
+    query source for editing, simply double-click on it, or highlight it and
+    select the EDIT button. The following screen will appear:</para>
+    <para id="i564487"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_100_SQL.png" />
+          </imageobject>
+          <caption>Query Source for “UsersMasterList” Report</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Because we are familiar with our sample database, we know the
+    <literal>usr</literal> table has a column called
+    <literal>usr_email</literal>, which stores user email addresses. However,
+    if we look closely at the <literal>SELECT</literal> statement, we do not
+    see references to the <literal>usr_email</literal> column. Without a
+    reference to the <literal>usr_email</literal> column, we will not be able
+    to retrieve user email address information from the database. We need to
+    add that reference to the <literal>SELECT</literal> statement.</para>
+    <section>
+      <title>Editing SQL Statements</title>
+      <para>As we saw in the previous section, the <literal>SELECT</literal>
+      statement in our query source does not refer to the
+      <literal>usr_email</literal> column. Without that column reference, we
+      will not be able to retrieve user email address information from the
+      database. In this section, we will edit the <literal>SELECT</literal>
+      statement so the <literal>usr_email</literal> column is referenced. The
+      SQL found in the “Query” display of a query source is straight text. It
+      can be edited in the same was as any text can be edited. We simply click
+      in the <literal>SELECT</literal> statement after the reference to the
+      <literal>usr_initials</literal> column. Then, after hitting ENTER to
+      create an extra line, we type in the <literal>usr_email</literal>
+      reference, as shown below:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_180_EmailSQL.png" />
+            </imageobject>
+            <caption>Email Column Added to SQL SELECT Statement</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>We are careful to add a comma “,” at the end of the
+      <literal>usr_email</literal> reference, to indicate the column is one in
+      a series of columns data may be retrieved from. To save the edited SQL,
+      select the OK button. Finally, we save all report definition changes to
+      the database.</para>
+      <para>In our next step, we will add a new Field object to the Detail
+      section of the report definition. The Field object will handle the
+      display of user email addresses retrieved from the database.</para>
+    </section>
+    <section>
+      <title>Retrieving Data</title>
+      <para>Field objects are used to display dynamic data retrieved from a
+      database. Typically, they are placed in the Detail section of a report
+      definition. In this section, we will add a Field object to handle our
+      user email addresses.</para>
+      <para>To add a Field object to the report definition, we select the
+      Field option from the toolbar and then click in the Detail section. We
+      place the Field object to the far-right of the section, lined up beneath
+      the “Email Address” column heading, as shown in the following
+      screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_182_EmailField.png" />
+            </imageobject>
+            <caption>New Field Added to Report Definition</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>Now that we have placed the Field object, we must define its
+      properties. Double-clicking on the Field object opens the Field
+      properties screen:</para>
+      <para id="i565574"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_184_FieldProps.png" />
+            </imageobject>
+            <caption>Properties for Email Address Field</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see, we have filled in the following
+      information:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Query Source</term>
+          <listitem>
+            <para>We selected the “detail” query from the list of available
+            query sources. This is the query whose <literal>SELECT</literal>
+            statement includes the newly-added reference to the
+            <literal>usr_email</literal> column.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Column</term>
+          <listitem>
+            <para>Here we enter the name of the <literal>usr_email</literal>
+            column&mdash;since this is the column whose data we need for the
+            Field object. A column must be referenced in the
+            <literal>SELECT</literal> statement of the associated query source
+            to successfully retrieve data from the database.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Preview</term>
+          <listitem>
+            <para>The preview shows us both the name assigned to the Field
+            object <literal>usr_email:detail</literal> and also the font
+            choice. To make the font consistent with the other Field objects
+            in the report definition, we select the FONT button and specify
+            8-pt bold Arial.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>After we select the OK button, we see the Field object has been
+      updated in the report definition, as shown below:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_185_FieldUpdated.png" />
+            </imageobject>
+            <caption>Field Object for Displaying User Email
+            Addresses</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>We have now added the Field object to the report
+      definition&mdash;and aligned it correctly beneath the “Email Address”
+      column headings. Once we save the report definition changes to the
+      database, we will be ready to run the report and see the results.</para>
+      <para>To run the Users Master List report from xTuple, select the
+      “Maintain Users” option from the System Module menu. After selecting the
+      PRINT button, the following report is generated:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_186_EmailPrinted.png" />
+            </imageobject>
+            <caption>Email Address Appearing on Printed Report</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see, the user email addresses have been successfully
+      added to the report.</para>
+    </section>
+  </section>
+  <section>
+    <title>Total Fields</title>
+    <para>We have seen how Field objects may be used to retrieve text (i.e.,
+    user email addresses) from a database. In this section, we will show how
+    to create running totals using Field objects.</para>
+    <para>Our goal for this exercise is to provide a running total of all
+    active users. There are currently three active users in the database. We
+    will add a fourth user and make that user inactive, as shown in the
+    following screen:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_190_UserList.png" />
+          </imageobject>
+          <caption>Master List of xTuple Users</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>If we are successful, the Field object should ignore the inactive
+    user and include only the three active users in the running total.</para>
+    <para>To begin, we will create a Report Footer section in the report
+    definition. As you may recall, Report Footers print only on the last page
+    of a report&mdash;which is exactly what we want. We want the running total
+    to print at the end of the report.</para>
+    <note>
+      <para>For more information on Report Footers, see the “Report Footers”
+      section in the Report Writer Basics chapter.</para>
+    </note>
+    <para>To create a Report Footer section, we select the “Section Editor”
+    option from the “Document” menu. The following screen will appear:</para>
+    <para id="i566106"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_191_RepFooter.png" />
+          </imageobject>
+          <caption>Add Report Footer Using Section Editor</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>As you can see, we have selected the “Report Footer” option.
+    Selecting this option causes a Report Footer to be added to the report
+    definition, as shown in the following screen:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_192_FooterAdded.png" />
+          </imageobject>
+          <caption>Report Footer Section Added to Report Definition</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Now that we have added the Report Footer section, our next step is
+    to add a Field object to the section. The Field object will display the
+    running total of all active users.</para>
+    <para>To add a Field object to the report definition, we select the Field
+    option from the toolbar and then click in the Report Footer section. We
+    place the Field object in the section, as shown in the following
+    screen:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_193_TotalField.png" />
+          </imageobject>
+          <caption>Field Object Added to Report Footer Section</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Now that we have placed the Field object, we must define its
+    properties. Double-clicking on the Field object opens the Field properties
+    screen:</para>
+    <para id="i568493"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_194_TotalProps.png" />
+          </imageobject>
+          <caption>Properties for Running Total Field</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>As you can see, we have filled in the following properties for the
+    running total Field object:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Query Source</term>
+        <listitem>
+          <para>We selected the “detail” query from the list of available
+          query sources. This is the query whose <literal>SELECT</literal>
+          statement includes the reference to the
+          <literal>usr_active</literal> column.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Column</term>
+        <listitem>
+          <para>Here we enter the name of the <literal>usr_active</literal>
+          column&mdash;since this is the column whose data we need for the
+          Field object. A column must be referenced in the
+          <literal>SELECT</literal> statement of the associated query source
+          to successfully retrieve data from the database.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Display as Running Total</term>
+        <listitem>
+          <para>By selecting this option, we indicate we want the records on
+          active users to be displayed as a running total. When the running
+          total is calculated, active users will be assigned a value of “1,”
+          while inactive users will be assigned a value of “0.”</para>
+          <note>
+            <para>When running totals are calculated for columns designated as
+            Boolean, the “true” values are assigned a value of “1,” while
+            “false” values are assigned a value of “0.” In this example,
+            active users would be assigned a value of “1”, while inactive
+            users would be assigned a value of “0”.</para>
+          </note>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Built-in Locale Format</term>
+        <listitem>
+          <para>We specify we want the running total to be displayed as a
+          quantity.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Preview</term>
+        <listitem>
+          <para>The preview shows us both the name assigned to the Field
+          object <literal>usr_active:detail</literal> and also the font
+          choice. To make the font consistent with the other Field objects in
+          the report definition, we select the FONT button and specify 8-pt
+          bold Arial.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>After we select the OK button, we see the Field object has been
+    updated in the report definition, as shown below:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_195_AddTotalField.png" />
+          </imageobject>
+          <caption>Running Total Field Added</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>We have added the Field object which will retrieve data from the
+    <literal>usr_active</literal> column and display the information as a
+    running total. Next, we need to insert a Label object to appropriately
+    identify the Field.</para>
+    <para>To add the new Label, we select the Label option from the toolbar
+    and then click in the Report Footer section. We place the Label object to
+    the left of the <literal>usr_active:detail</literal> field, as shown in
+    the following screen:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_196_TotalLabel.png" />
+          </imageobject>
+          <caption>Label Object Added Next to Running Total Field</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Now that we have placed the Label object, we must define its
+    properties. Double-clicking on the Label object opens the Label properties
+    screen:</para>
+    <para id="i568600"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_197_TotalLabProps.png" />
+          </imageobject>
+          <caption>Running Total Label Properties</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>As you can see, we have entered “Total Active Users:” in the “Text”
+    field. This text identifies the running total, as shown in the following
+    screen:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_198_TotalLabel.png" />
+          </imageobject>
+          <caption>Label Object Identifying Running Total</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>We have now added the running total to the report
+    definition&mdash;and labeled it appropriately. Once we save the report
+    definition changes to the database, we will be ready to run the report and
+    see the results.</para>
+    <para>To run the Users Master List report from xTuple, select the
+    “Maintain Users” option from the System Module menu. After selecting the
+    PRINT button, the following report is generated:</para>
+    <para id="i569519"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_199_RunningTotal.png" />
+          </imageobject>
+          <caption>Running Total Appearing on Printed Report</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>If we scrutinize the example closely, we see the appearance of the
+    report would benefit if we added a horizontal line separating the user
+    names from the running total. In the next section, we will add a separator
+    line.</para>
+    <section>
+      <title>Adding Horizontal Lines</title>
+      <para>Lines make reports easier to view. In this section, we will add a
+      horizontal Line to separate the user names from the running total at the
+      bottom of the report.</para>
+      <para>To add a Line, we select the Line option from the toolbar and then
+      click in the Report Footer section.</para>
+      <tip>
+        <para>If you hold down the SHIFT key when you are dragging a Line
+        object, this will keep the Line perfectly straight. Also, to
+        reposition a Line, simply click in its mid-point and drag the object
+        to a new location.</para>
+      </tip>
+      <para>We place the Line just above the running total field&mdash;and
+      then drag the Line using our mouse from the left margin to the right
+      margin. Finally, we double-click on the Line object to adjust its
+      properties. The following screen appears:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_205_LineWidth.png" />
+            </imageobject>
+            <caption>Setting Line Properties</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>In the “Width” field, we set the width of the Line to “2.” Line
+      widths are measured in pixels. After saving our changes to the database,
+      we print the Users Master List report. The following screenshot shows
+      our result:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C02_210_LineAdded.png" />
+            </imageobject>
+            <caption>Line Added Above Running Total Field</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>We are almost done modifying the “UsersMasterList” report
+      definition for this chapter. However, we still want to display a total
+      of all users&mdash;as a complement to the running total of active users.
+      We will add this additional information in the next section.</para>
+    </section>
+  </section>
+  <section>
+    <title>Counter Fields</title>
+    <para>The last change we will make to the “UsersMasterList” report
+    definition in this chapter is to add a total count of all displayed users.
+    This total will complement the running total of active users, which we
+    have already added, since the “UsersMasterList” report may display both
+    active and inactive users.</para>
+    <para>To provide this total information, we will add a COUNTER variable to
+    the “detail” query source. The COUNTER variable will increment by 1 for
+    every row returned by a query. For example, if a column contains 10 rows
+    of data, the COUNTER will total “10” after the query has been run.</para>
+    <para>To add the COUNTER, we open the “detail” query source by
+    double-clicking on it from the list of available query sources. Next, we
+    add the COUNTER to the query’s <literal>SELECT</literal> statement, as
+    shown in the following screen:</para>
+    <para id="i570032"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_215_CounterSQL.png" />
+          </imageobject>
+          <caption>Counter Added to Query Source</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>As you can see, the COUNTER syntax is highlighted at the end of the
+    <literal>SELECT</literal> statement. The “1 AS COUNTER” syntax indicates
+    two things: 1) For every row of data retrieved from the database, that row
+    will be assigned a value of “1,” and 2) the result set of retrieved rows
+    will be stored in memory in a temporary column we have called
+    <literal>COUNTER</literal>. Notice we have been careful to add a comma
+    after the reference to the <literal>locale_code</literal> column. The
+    comma separates the COUNTER from the other items in the
+    <literal>SELECT</literal> statement series. We do not insert a comma after
+    the COUNTER line.</para>
+    <para>Now that we have inserted the COUNTER into the query source, we are
+    ready to add a Field object to display the results.</para>
+    <para>To add a Field object to the report definition, we select the Field
+    option from the toolbar and then click in the Report Footer section. We
+    place the Field object in the section, as shown in the following
+    screen:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_222_CounterField.png" />
+          </imageobject>
+          <caption>Counter Field Added to Report Footer Section</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Now that we have placed the Field object, we must define its
+    properties. Double-clicking on the Field object opens the Field properties
+    screen:</para>
+    <para id="i570773"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_217_CounterProps.png" />
+          </imageobject>
+          <caption>Properties for Counter Field</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>As you can see, we have filled in the following properties for the
+    COUNTER Field object:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Query Source</term>
+        <listitem>
+          <para>We selected the “detail” query from the list of available
+          query sources. This is the query whose <literal>SELECT</literal>
+          statement includes the reference to the temporary
+          <literal>COUNTER</literal> column.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Column</term>
+        <listitem>
+          <para>Here we enter the name of the temporary
+          <literal>COUNTER</literal> column&mdash;since this is the column
+          whose data we need for the Field object. A column must be referenced
+          in the <literal>SELECT</literal> statement of the associated query
+          source to successfully retrieve data from the database.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Display as Running Total</term>
+        <listitem>
+          <para>By selecting this option, we indicate we want all the records
+          written to the <literal>COUNTER</literal> column to be displayed as
+          a running total. When the running total is calculated, each record
+          (i.e., displayed user) will be assigned a value of “1.”</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Built-in Locale Format</term>
+        <listitem>
+          <para>We specify we want the running total to be displayed as a
+          quantity.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Preview</term>
+        <listitem>
+          <para>The preview shows us both the name assigned to the Field
+          object <literal>COUNTER:detail</literal> and also the font choice.
+          To make the font consistent with the other Field objects in the
+          report definition, we select the FONT button and specify 8-pt bold
+          Arial.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>After we select the OK button, we see the Field object has been
+    updated in the report definition, as shown below:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_223_CounterAdded.png" />
+          </imageobject>
+          <caption>Counter Field Added to Report Footer Section</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>We have added the Field object which will retrieve data from the
+    <literal>COUNTER</literal> column and display the information as a running
+    total. Next, we need to insert a Label object to appropriately identify
+    the Field.</para>
+    <para>To add the new Label, we select the Label option from the toolbar
+    and then click in the Report Footer section. We place the Label object to
+    the left of the “COUNTER:detail” Field, as shown in the following
+    screen:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_224_CounterLabel.png" />
+          </imageobject>
+          <caption>Label Object Added Next to Counter Field</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Now that we have placed the Label object, we must define its
+    properties. Double-clicking on the Label object opens the Label properties
+    screen:</para>
+    <para id="i571069"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_225_CountLabProps.png" />
+          </imageobject>
+          <caption>Counter Label Properties</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>As you can see, we have entered “Total Displayed Users:” in the
+    “Text” field. This text identifies the running total, as shown in the
+    following screen:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_226_CountLabAdded.png" />
+          </imageobject>
+          <caption>Label Object Identifying Counter</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>We have now added a COUNTER to the report definition&mdash;and
+    labeled it appropriately. Once we save the report definition changes to
+    the database, we will be ready to run the report and see the
+    results.</para>
+    <para>To run the Users Master List report from xTuple, select the
+    “Maintain Users” option from the System Module menu. After selecting the
+    PRINT button, the following report is generated:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C02_227_CounterPrint.png" />
+          </imageobject>
+          <caption>Counter Appearing on Printed Report</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>We have now reached the end of the exercises contained in the this
+    chapter. Over the course of this chapter we have taken a hands-on approach
+    to learning fundamental report writer functionality. You should now
+    understand how the report writer retrieves information from a database and
+    displays that information in printed form. More advanced functionality
+    will be explored in subsequent chapters.</para>
+  </section>
+</chapter>

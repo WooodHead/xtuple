@@ -1,0 +1,1793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<chapter>
+  <title id="i564782">Advanced Topics</title>
+  <para>In this chapter we will cover a range of advanced topics. We touched
+  on some of these topics in earlier chapters. Others will be presented here
+  for the first time. Subjects covered in this chapter include the
+  following:</para>
+  <itemizedlist>
+    <listitem>
+      <para>MetaSQL</para>
+    </listitem>
+    <listitem>
+      <para>MetaSQL Editor</para>
+    </listitem>
+    <listitem>
+      <para>Report Renderer</para>
+    </listitem>
+    <listitem>
+      <para>Watermarks and Background Images</para>
+    </listitem>
+    <listitem>
+      <para>Barcodes</para>
+    </listitem>
+    <listitem>
+      <para>Graphs</para>
+    </listitem>
+  </itemizedlist>
+  <section>
+    <title>MetaSQL</title>
+    <para>MetaSQL is a scripting language developed by xTuple for use by the
+    report writer. The language is designed to handle dynamic database
+    queries. MetaSQL statements are embedded within standard SQL&mdash;for
+    example, within the query source of a report definition. When a report is
+    run, a parsing engine interprets the MetaSQL using a list of named
+    parameters. The parsed result is standard SQL, which in turn is sent to
+    the target database. The following diagram illustrates this
+    process:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C03_metaSQL.png" />
+          </imageobject>
+          <caption>MetaSQL Parser Handles Embedded MetaSQL</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Dynamic queries are queries which contain conditional statements.
+    Query results will vary depending on how the conditions are satisfied. For
+    example, a report may return one result if a user makes one
+    selection&mdash;or a different result if the user makes a different
+    selection. The report results are conditional upon choices made by the
+    user. The MetaSQL scripting language enables you to allow for and
+    incorporate this conditionality into your report definitions.</para>
+    <section>
+      <title>MetaSQL in Practice</title>
+      <para>To illustrate how dynamic, conditional queries are handled using
+      MetaSQL, let’s examine a sample report definition called
+      “UsersMasterList”. This is the same report definition we have worked
+      with in previous chapters.</para>
+      <para>The “UsersMasterList” report definition is called whenever someone
+      using the xTuple application wants to print a copy of the users master
+      list. That xTuple master list appears in the following
+      screenshot:</para>
+      <para id="i565640"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_100_UsersSession.png" />
+            </imageobject>
+            <caption>Master List of xTuple Users</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>When someone selects the PRINT button, the information displayed
+      on the screen is printed out using the “UsersMasterList” report
+      definition.</para>
+      <para>If you look closely, you can see the option “Show Inactive Users”
+      is selected. As a result, the users master list is displaying both
+      active and inactive users. The “Show Inactive Users” option is an
+      example of a dynamic condition. If the option is selected, one list of
+      users will be displayed. If it’s not selected, another list of users
+      will be displayed. Logically, the report definition must accommodate
+      either of these two conditions.</para>
+      <para>The report definition uses MetaSQL to handle these conditions.
+      Let’s look at the query source for the “UsersMasterList” report
+      definition to understand how MetaSQL is embedded within a report
+      definition:</para>
+      <para id="i565925"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_105_UsersQuery.png" />
+            </imageobject>
+            <caption>Query Source for UsersMasterList Report
+            Definition</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>To locate embedded MetaSQL in a query source, simply look for the
+      <literal>&lt;?</literal> and <literal>?&gt;</literal> tags. These are
+      the tags used to identify MetaSQL statements. As you can see, the
+      <literal>WHERE</literal> clause contains several MetaSQL tags.</para>
+      <para>Let’s examine the <literal>WHERE</literal> clause to gain a better
+      understanding for how MetaSQL works:</para>
+      <programlisting>WHERE ((usr_locale_id=locale_id)
+&lt;? if not exists("showInactive") ?&gt;
+    AND (usr_active=true)
+&lt;? endif ?&gt;
+)
+</programlisting>
+      <simpara>The MetaSQL is always contained inside <literal>&lt;?</literal>
+      and <literal>?&gt;</literal> tags. Our sample <literal>WHERE</literal>
+      clause contains the following two lines of MetaSQL:</simpara>
+      <orderedlist>
+        <listitem>
+          <para><literal>&lt;? if not exists("showInactive")
+          ?&gt;</literal></para>
+        </listitem>
+        <listitem>
+          <para><literal>&lt;? endif ?&gt;</literal></para>
+        </listitem>
+      </orderedlist>
+      <simpara>MetaSQL Statements:</simpara>
+      <variablelist>
+        <varlistentry>
+          <term>if not</term>
+          <listitem>
+            <para>This statement begins a MetaSQL condition.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>endif</term>
+          <listitem>
+            <para>This statement ends the condition.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <simpara>MetaSQL Function:</simpara>
+      <variablelist>
+        <varlistentry>
+          <term>exists</term>
+          <listitem>
+            <para>This MetaSQL function takes the name of the parameter
+            provided. In this case, the provided parameter is named
+            <literal>showInactive</literal>.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <simpara>Parameters:</simpara>
+      <variablelist>
+        <varlistentry>
+          <term>showInactive</term>
+          <listitem>
+            <para>The conditionality of the report centers on this parameter.
+            It is this parameter which determines whether inactive users
+            should be included in the report. Like all valid parameters
+            referenced in a MetaSQL statement, the parameter
+            <literal>showInactive</literal>. The
+            <literal>showInactive</literal> parameter originates from within
+            the source code of the application utilizing the report writer. In
+            this case, that application is xTuple&mdash;and the parameter is
+            included in the source code for the Users Master List screen. When
+            an xTuple user sends a print request from the Users Master List
+            screen, the MetaSQL parser interprets the existing
+            conditions&mdash;namely, is the <literal>showInactive</literal>
+            parameter being used, or not? The parser then uses this
+            information to produce standard SQL meeting the specified
+            conditions. This standard SQL, which has been stripped of its
+            MetaSQL elements by the parser, is then delivered to the target
+            database for processing.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <tip>
+        <para>The xTuple application automatically generates a parameter list
+        whenever a user submits a print request. The parameter list will
+        contain as many (or as few) parameters as pertain to the screen the
+        print request was sent from. When a MetaSQL statement in an xTuple
+        report definition refers to a parameter, that parameter should be one
+        which would appear on the generated parameter list.</para>
+      </tip>
+      <simpara>Resulting SQL:</simpara>
+      <para>If a user selects the “Show Inactive Users” option, the MetaSQL
+      parser will send the following standard SQL to the target
+      database:</para>
+      <programlisting>SELECT usr_username,
+       usr_propername,
+       usr_initials,
+       formatBoolYN(usr_active) AS
+f_active,
+       formatBoolYN(usr_agent) AS
+f_pa,
+       locale_code
+FROM usr, locale
+WHERE ((usr_locale_id=locale_id)
+AND (usr_active=true))
+ORDER BY usr_username;
+</programlisting>
+      <para>If the user does not select the “Show Inactive Users” option, the
+      MetaSQL parser will send the following standard SQL to the target
+      database:</para>
+      <programlisting>SELECT usr_username,
+       usr_propername,
+       usr_initials,
+       formatBoolYN(usr_active) AS
+f_active,
+       formatBoolYN(usr_agent) AS
+f_pa,
+       locale_code
+FROM usr, locale
+WHERE ((usr_locale_id=locale_id)
+ORDER BY usr_username;
+</programlisting>
+      <note>
+        <para>You may have noticed the <literal>AND</literal> is excluded in
+        the second example. This occurs because in the second example the
+        value of the parameter showInactive is false.</para>
+      </note>
+      <para>As the “UsersMasterList” example demonstrates, static report
+      definitions can be made to handle dynamic conditions using MetaSQL. In
+      the following sections, we will examine the range of MetaSQL building
+      blocks.</para>
+    </section>
+    <section>
+      <title>MetaSQL Syntax</title>
+      <para>MetaSQL syntax is comprised of control statements and functions.
+      Control statements contain standard SQL which will be used if certain
+      conditions are met. Functions are generally used to evaluate parameters.
+      Collectively, control statements and functions are referred to as
+      “statements.” When these statements are embedded within standard SQL,
+      they create MetaSQL.</para>
+      <para>As we have mentioned previously, MetaSQL statements are bracketed
+      between an opening angle bracket and question mark pair
+      (“<literal>&lt;?</literal>”) and a closing question mark and angle
+      bracket pair (“<literal>?&gt;</literal>”). All content within (and
+      including) the opening and closing character pairs is referred to as a
+      “tag.” Each tag is comprised of a single statement and also any
+      additional arguments, parameters, or modifiers which apply to the
+      statement. The first word following the tag opening (i.e.,
+      “<literal>&lt;?</literal>”) is the statement. Any additional text after
+      the statement up to the closing angle bracket
+      (“<literal>?&gt;</literal>”) is broken into tokens and processed
+      accordingly.</para>
+      <tip>
+        <para>You don’t need to worry about inserting excess blank spaces when
+        writing MetaSQL statements. The MetaSQL parser ignores excess blank
+        spaces.</para>
+      </tip>
+      <para>Next we will look at the range of available control statements and
+      functions, offering descriptions for how each may be used.</para>
+      <section>
+        <title>Control Statements</title>
+        <para>Control statements form blocks which contain standard SQL and
+        MetaSQL tags. While control statements are not directly responsible
+        for producing output, they do determine whether their contents should
+        be outputted or not. The complete list of available MetaSQL control
+        statements is described below:</para>
+        <variablelist>
+          <varlistentry>
+            <term>if</term>
+            <listitem>
+              <para>Use the <literal>if</literal> statement to begin a
+              conditional control block. One or more tokens (i.e., single
+              elements) should follow this opening statement. Individual
+              tokens may be separated from each other using the
+              <literal>and</literal> and <literal>or</literal> tokens.
+              Explicit token groups should be enclosed within parentheses
+              <literal>( )</literal>. You can reverse the boolean result of a
+              token group by placing a <literal>not</literal> token directly
+              proceeding the token group. If the aggregate sum of all the
+              token groups in a control block is a true value, then the
+              contents of the <literal>if</literal> block will be executed. If
+              the condition is false, then the next following
+              <literal>elseif</literal> condition will be evaluated, assuming
+              one exists.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>elseif</term>
+            <listitem>
+              <para>Place an <literal>elseif</literal> statement within an
+              <literal>if</literal> block to divide the <literal>if</literal>
+              block into multiple blocks. An <literal>elseif</literal>
+              statement behaves in the same manner as an <literal>if</literal>
+              statement. Any number of <literal>elseif</literal> conditions
+              may be included within an <literal>if</literal> block.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>else</term>
+            <listitem>
+              <para>An else condition, if present, is executed when both the
+              <literal>if</literal> condition and any
+              <literal>elseif</literal> conditions are false. At most, there
+              may be one <literal>else</literal> condition included within an
+              <literal>if</literal> block.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>endif</term>
+            <listitem>
+              <para>Use this statement to end an <literal>if</literal>
+              block.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>foreach</term>
+            <listitem>
+              <para>This statement operates on the parameter which immediately
+              follows it. If the parameter represents a list of values, the
+              <literal>foreach</literal> block will be executed once for each
+              value in the list. If the parameter represents a single value,
+              then the block will be executed once. If no values exists, the
+              block will not be executed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>endforeach</term>
+            <listitem>
+              <para>Use this statement to end a <literal>foreach</literal>
+              block.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </section>
+      <section>
+        <title>Functions</title>
+        <para>Functions are independent statements which perform specific
+        operations. If a function returns a value, the value will be
+        outputted. The complete list of available MetaSQL functions is
+        described below:</para>
+        <variablelist>
+          <varlistentry>
+            <term>value</term>
+            <listitem>
+              <para>This function operates on the parameter which immediately
+              follows it and returns the value of that parameter. If the
+              parameter is called within a <literal>foreach</literal> block
+              and the parameter represents a list, the function will return
+              the current item of that list. If the parameter is called
+              outside of a <literal>foreach</literal> block and the parameter
+              represents a list, the value will default to the first entry. If
+              the parameter named does not exist, then a blank or null value
+              will be returned.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>exists</term>
+            <listitem>
+              <para>This function operates on the parameter which immediately
+              follows it and returns true if that parameter exists. If the
+              parameter does not exist, then the function returns false. If
+              the parameter is null or blank, the function will still return
+              true because the parameter exists.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>reExists</term>
+            <listitem>
+              <para>This function takes a regular expression and returns true
+              if one or more parameter exists which match the regular
+              expression. The regular expression is case-sensitive.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>isFirst</term>
+            <listitem>
+              <para>his function operates on the parameter which immediately
+              follows it. If the parameter is called inside a
+              <literal>foreach</literal> block and the parameter represents a
+              list, the function will return true if the item returned by the
+              call would be the first item in the list. If the parameter is
+              called outside a <literal>foreach</literal> block&mdash;or if
+              the parameter specified does not represent a list but does
+              exist&mdash;then the function will return true. In all other
+              situations, the function will return false.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>isLast</term>
+            <listitem>
+              <para>This function operates on the parameter which immediately
+              follows it. If the parameter is called inside a
+              <literal>foreach</literal> block and the parameter represents a
+              list, the function will return true if the item returned by the
+              call would be the last item in the list. If the parameter is
+              called outside a <literal>foreach</literal> block and the
+              parameter represents a list, the function will return true only
+              if the list contains one item. In all cases, the function will
+              return true if the parameter does not represent a list, but
+              instead represents a single parameter. If the parameter does not
+              exist&mdash;or in any other case&mdash;this function will return
+              false.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>continue</term>
+            <listitem>
+              <para>This function will cause the innermost loop to execute to
+              the end and continue as normal. If this statement is used
+              outside of a loop, the function has no effect. If a number is
+              specified, the specified number determines how many loops will
+              be continued. If the number of specified loops is greater than
+              the number of nested loops, then the function will continue the
+              outermost loop.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>break</term>
+            <listitem>
+              <para>This function will cause the current loop to execute to
+              the end and stop. If the function is used outside of a loop, the
+              function will have no effect. If the number of loops is
+              specified, that determines how many loops will be terminated. If
+              the number of loops to break is greater than the number of
+              nested loops, then all loops will broken.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </section>
+    </section>
+  </section>
+  <section>
+    <title>MetaSQL Editor</title>
+    <para>As we have seen, MetaSQL is a non-standard language embedded within
+    standard SQL. MetaSQL cannot be executed directly on a database, but must
+    first pass through and be interpreted by the MetaSQL parser. The MetaSQL
+    parser then generates standard SQL which is sent to the target database
+    for processing.</para>
+    <para>The MetaSQL Editor is a tool designed to facilitate the process of
+    writing report definitions having MetaSQL elements. Using the MetaSQL
+    Editor, report authors can develop complex queries, test them with
+    different values for parameters, and then view the resulting standard SQL.
+    Report authors can save time and effort using the MetaSQL Editor to test
+    any portion of a complex query having MetaSQL elements.</para>
+    <note>
+      <para>The MetaSQL Editor is a multi-platform tool, running identically
+      on Windows, Linux, and Mac. For testing report definitions linked to the
+      xTuple application, the MetaSQL binary file should be installed in the
+      same directory as the xTuple client.</para>
+    </note>
+    <para>The example we will be using in this section focuses on running the
+    MetaSQL Editor against an xTuple database. However, the MetaSQL Editor
+    source code can be modified to work with other database
+    applications.</para>
+    <section>
+      <title>Connecting to a Database</title>
+      <para>The MetaSQL Editor can be an extremely useful tool for report
+      authors who want to test the accuracy of their MetaSQL statements during
+      the process of writing report definitions. To open the MetaSQL Editor,
+      run it from the location where it is installed. The following screen
+      will appear:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_110_MsqlEditor.png" />
+            </imageobject>
+            <caption>MetaSQL Editor</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>To perform tests using the MetaSQL Editor, you must first connect
+      to your target database. To connect to a database, select the “Database”
+      option from the “File” submenu, as shown in the following screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_115_ConnectDb.png" />
+            </imageobject>
+            <caption>Connecting to a Database</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>For the purposes of this example, we will be connecting to an
+      xTuple database. That explains why, when we select the “Connect” option,
+      we are brought to a database login screen which has been customized for
+      the xTuple application:</para>
+      <para id="i571974"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_200_MetaSQL_Logon.png" />
+            </imageobject>
+            <caption>MetaSQL Editor - Connecting to the Database</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>Under the OPTIONS button, we specify our server, database, and
+      port connection information. And then, we are asked to enter a valid
+      username and password.</para>
+      <para>Once we have successfully connected to our target database, we can
+      begin testing the accuracy of embedded MetaSQL statements using the
+      MetaSQL Editor.</para>
+    </section>
+    <section>
+      <title>Entering a Query</title>
+      <para>For this exercise, we will demonstrate the MetaSQL Editor
+      functionality using a very basic and simple query. The goal of the
+      exercise is to leave you with an understanding of fundamental MetaSQL
+      Editor mechanics. You are free to perform more complex and extensive
+      testing on your own.</para>
+      <para>Now that we are connected to a database&mdash;in this case, an
+      xTuple database&mdash;we can write a simple query and then test the
+      results. To enter a query, simply type in the MetaSQL Editor’s main text
+      field, as shown in the following screen:</para>
+      <para id="i570586"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_210_MetaSQL_SQL_IN.png" />
+            </imageobject>
+            <caption>Simple SQL Query with Embedded MetaSQL</caption>
+          </mediaobject>
+        </screenshot></para>
+      <note>
+        <para>Test queries may be saved for future use by selecting either the
+        SAVE or SAVE AS options from the “File” menu.</para>
+      </note>
+      <para>As you can see, the query begins with standard SQL. We are seeking
+      to <literal>SELECT</literal> four pieces of Item information FROM the
+      <literal>item</literal> table. Our MetaSQL is inserted within the
+      <literal>WHERE</literal> clause. The MetaSQL states that the
+      <literal>item_number</literal> for the selected Item must match a
+      specified <literal>item_code</literal>. The term
+      <literal>item_code</literal> is a parameter. We can set different values
+      for the <literal>item_code</literal> parameter using the MetaSQL
+      Editor&mdash;and then run the query to test the results.</para>
+      <para>However, before we run the query, we must first define the
+      parameter <literal>item_code</literal> and assign it a value.</para>
+    </section>
+    <section>
+      <title>Defining Parameters and Values</title>
+      <para>Earlier in this chapter we discussed parameters and how they
+      enable reports to respond to dynamic conditions presented by application
+      users. The MetaSQL Editor enables you to simulate these dynamic
+      conditions, by defining parameters and assigning values to them.</para>
+      <para>Let’s assign a value to the parameter we entered in our MetaSQL
+      example&mdash;namely, the parameter <literal>item_code</literal>. In our
+      example, we are simulating a situation in which an xTuple user inputs an
+      <literal>item_code</literal>. The <literal>item_code</literal>, in turn,
+      corresponds to an <literal>item_number</literal> in the
+      <literal>item</literal> table.</para>
+      <para>Before we can test our MetaSQL, we must first create the parameter
+      <literal>item_code</literal>. To create a parameter, we open the
+      “Parameter List” option from the “View” menu. The following screen will
+      appear:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_211_ParamList-1.png" />
+            </imageobject>
+            <caption>Parameter List</caption>
+          </mediaobject>
+        </screenshot></para>
+      <note>
+        <para>Parameters will be saved only for the duration of the current
+        MetaSQL Editor session. Once the MetaSQL Editor is closed, any saved
+        parameters will be erased.</para>
+      </note>
+      <para>The parameter list screen displays information on all parameters
+      which have been created for testing purposes, including Active status,
+      parameter name, data type, and value.</para>
+      <para>To create a new parameter, select the NEW button. The following
+      screen will appear:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_212_NewParamName.png" />
+            </imageobject>
+            <caption>Enter New Parameter</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>When entering a new parameter, you are presented with the
+      following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Name</term>
+          <listitem>
+            <para>Enter a name to identify the parameter. The names of
+            parameters should correspond to parameter names referenced in your
+            test queries.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Type</term>
+          <listitem>
+            <para>Select the appropriate data type from the list of available
+            data types. Data types are defined on the database&mdash;and may
+            vary from column to column. To be successful, your selection must
+            match the data type for the target column in the database. In our
+            example, the target column is <literal>item_number</literal>. The
+            data type for this column is <literal>text</literal> in the
+            MetaSQL Editor. The <literal>text</literal> data type corresponds
+            to the <literal>string</literal> type.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>To the far right of the screen, the following buttons are
+      available:</para>
+      <variablelist>
+        <varlistentry>
+          <term>OK</term>
+          <listitem>
+            <para>Select to save the entered values.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>CANCEL</term>
+          <listitem>
+            <para>Select to cancel the transaction and return to the parameter
+            list.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>After we have entered the appropriate values and selected the OK
+      button, the following screen appears:</para>
+      <para id="i571179"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_213_NewParamValue.png" />
+            </imageobject>
+            <caption>Specify Value for Parameter</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see, we are asked to enter a value for the parameter.
+      In this case, we enter <literal>YTRUCK1</literal>. This is an
+      <literal>item_number</literal> from our sample database. By entering
+      that value here, we are linking the parameter
+      <literal>item_code</literal> to <literal>item_number</literal>
+      <literal>YTRUCK1</literal>. Selecting the OK button saves our
+      information.</para>
+      <para>Back on the parameter list, we can verify the information has been
+      entered correctly, as shown in the following screen:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_214_ParamList-2.png" />
+            </imageobject>
+            <caption>Parameter List Containing Sample Parameter</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>Now that we have our sample query and corresponding parameter, we
+      are ready to begin our testing.</para>
+    </section>
+    <section>
+      <title>Parsing and Executing a Query</title>
+      <para>Before we execute our query, we must first parse it using the
+      MetaSQL parser. As we have discussed previously, the MetaSQL parser
+      interprets MetaSQL statements embedded in a query, evaluates the
+      available parameters, and then produces standard SQL. The resulting
+      standard SQL is then sent to the database for processing.</para>
+      <para>To parse select the “Parse Query” option from the “Tools” menu.
+      The following screen will appear:</para>
+      <para id="i571430"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_230_Parse.png" />
+            </imageobject>
+            <caption>Parsed Query in MetaSQL Editor</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>Notice that the MetaSQL parser creates a Log Output screen, where
+      messages related to the parsing process will be written. In our case, we
+      get a “Query parsed” message, which means our MetaSQL was parsed
+      successfully.</para>
+      <para>Once a query has been parsed, we are ready to execute it.
+      Executing a query means the standard SQL produced by the MetaSQL parser
+      is sent to the database for processing. To execute a query, select the
+      “Execute Query” option from the “Tools” menu. The following screen will
+      appear:</para>
+      <para id="i571506"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_235_Result.png" />
+            </imageobject>
+            <caption>Results of Executed Query</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>When a query is executed successfully, the results will be
+      displayed in a Results Output screen. As you can see in the example, the
+      value returned in the <literal>item_number</literal> column equals the
+      value assigned to the parameter <literal>item_code</literal>.</para>
+    </section>
+    <section>
+      <title>Resulting Standard SQL</title>
+      <para>One of the most powerful features of the MetaSQL Editor is the
+      ability to view the standard SQL generated by the MetaSQL parser. This
+      is the same standard SQL the parser sends to the database for
+      processing. This visibility is especially helpful when attempting to
+      troubleshoot lengthy queries having complex MetaSQL statements and
+      numerous parameters. To view the standard SQL output, select the
+      “Executed SQL” option from the “View” menu. The following screen will
+      appear:</para>
+      <para id="i571700"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_240_ExecutedQuery.png" />
+            </imageobject>
+            <caption>Standard SQL Output from MetaSQL Parser</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see, the MetaSQL parser has stripped the MetaSQL
+      elements from the original query to produce standard SQL which can be
+      processed by the database.</para>
+      <tip>
+        <para>If you save your MetaSQL queries to a local file, you can load
+        them into the MetaSQL Editor at a later time. Parameter lists may not
+        be saved, however.</para>
+      </tip>
+      <para>This concludes the section on using the MetaSQL Editor. Again, we
+      used a very simple query to illustrate the basic mechanics of the
+      MetaSQL Editor. We encourage you to test more complex queries and
+      parameter lists on your own.</para>
+    </section>
+  </section>
+  <section>
+    <title>Report Renderer</title>
+    <para>The report renderer generates printed reports from report
+    definitions. Like the report writer, the report renderer is a
+    multi-platform tool which is available as either a standalone application
+    or an embedded version bundled with xTuple. The report renderer is
+    designed to connect to PostgreSQL databases; however, the application’s
+    source code could be modified to enable connections to other databases, as
+    well.</para>
+    <tip>
+      <para>The standalone report renderer can be used by xTuple users to
+      generate custom reports&mdash;that is, reports which are not available
+      using the xTuple menu structure. This flexibility enables users to
+      extend the reporting capabilities of xTuple.</para>
+    </tip>
+    <para>In this section, we will focus on the standalone report renderer.
+    The standalone version gives users the ability to connect to multiple
+    databases&mdash;and generate custom reports from those databases.</para>
+    <section>
+      <title>Connecting to a Database</title>
+      <para>To open the report renderer, locate the renderer application file
+      on your system. It should be installed in a directory along with its
+      required support libraries. These support libraries will vary depending
+      on your operating system. Once you have opened the file, you will be
+      presented with the initial log in screen, as shown in the following
+      screenshot:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_254_RenderLog-1.png" />
+            </imageobject>
+            <caption>Report Renderer Log In Screen</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see, the server and database information has yet to be
+      specified. To specify connection details, select the OPTIONS button. The
+      following screen will appear:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_255_RendLogOpt.png" />
+            </imageobject>
+            <caption>Specifying Database Connection Details</caption>
+          </mediaobject>
+        </screenshot></para>
+      <note>
+        <para>The report renderer is designed to connect to PostgreSQL
+        databases. However, the application’s source code could be modified to
+        enable connections to other databases, as well.</para>
+      </note>
+      <para>When specifying database connection details, you are presented
+      with the following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Server</term>
+          <listitem>
+            <para>Enter the host name for the server you want to connect
+            to.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Database</term>
+          <listitem>
+            <para>Enter the name of the target database.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Port</term>
+          <listitem>
+            <para>Enter the port number for the target database.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>Once you have entered connection details, the server and database
+      information will display on the initial log in screen, as shown
+      below:</para>
+      <para id="i573090"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_256_RenderLog-2.png" />
+            </imageobject>
+            <caption>Connection Details on Log In Screen</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>Finally, we enter username and password information, then select
+      the LOGIN button. Once authentication is complete, the report renderer’s
+      main application screen will appear, as shown below:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_260_RenderMain.png" />
+            </imageobject>
+            <caption>Report Renderer Main Application Screen</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see, no report definition has been loaded yet. Once a
+      report definition is loaded&mdash;and parameters defined, if
+      necessary&mdash;we can run the report and print the results.</para>
+      <para>In the next section, we will look at a sample report
+      definition&mdash;and later we will load this sample into the report
+      renderer.</para>
+    </section>
+    <section>
+      <title>Ad Hoc Reports</title>
+      <para>As we have said, the report renderer can be used to generate
+      miscellaneous reports using data stored within PostgreSQL databases. The
+      report renderer’s miscellaneous or “ad hoc” reporting capability also
+      extends to xTuple databases, which run on PostgreSQL. For xTuple users,
+      this means you can use the report renderer to generate your own
+      reports&mdash;thereby extending your reporting capability beyond the
+      range of standard reports included with the xTuple application.</para>
+      <tip>
+        <para>The report renderer enables xTuple users to extend their
+        reporting capabilities. Use the report renderer to generate ad hoc, or
+        custom xTuple reports.</para>
+      </tip>
+      <para>Before we can demonstrate report renderer functionality, we must
+      first identify a report definition to work with. For this exercise, we
+      created a simple report definition designed to retrieve basic Item
+      information from an xTuple database. As the following screenshot shows,
+      we created the report “AdHocItemReport” using the standalone OpenRPT
+      application:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_600_OpenRPT_AdHocReport.png" />
+            </imageobject>
+            <caption>Report Definition for Ad Hoc Report</caption>
+          </mediaobject>
+        </screenshot></para>
+      <note>
+        <para>xTuple users can create report definitions using either the
+        embedded report writer or the standalone OpenRPT application. The
+        report renderer then uses these report definitions to generate printed
+        reports.</para>
+      </note>
+      <para>As you can tell from the figure, this simple “AdHocItemReport”
+      will list Items and report on whether they are sold or active. The
+      “AdHocItemReport” report is not one of the standard xTuple reports
+      available in the application’s menu structure. However, we can retrieve
+      this data and generate an ad hoc report when we combine this report
+      definition with the standalone report renderer.</para>
+      <para>The next screenshot shows the query source the report definition
+      will use to retrieve the data from our database:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_610_OpenRPT_Qry.png" />
+            </imageobject>
+            <caption>Ad Hoc Report Definition Query Source</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>As you can see in the query source, the <literal>SELECT</literal>
+      statement retrieves basic Item information from the
+      <literal>item</literal> table. Then, MetaSQL is used in the
+      <literal>WHERE</literal> clause to introduce two parameters:
+      <literal>sold_param</literal> and <literal>active_param</literal>. The
+      parameters refer to the report must interpret to accommodate two dynamic
+      parameters. These parameters will enable the namely, whether application
+      users have marked the Item as sold and/or active.</para>
+      <note>
+        <para>The report displays whether or not an Item is sold and whether
+        it is active. In the next section we see the query source and
+        corresponding SQL query that retrieves the data from the database. As
+        part of the SQL we will assign parameters that, when we generate the
+        report with the Renderer, filter data based on user provided values
+        for these two parameters.</para>
+      </note>
+      <para>Later, using OpenRPT, we will pass runtime parameter values to the
+      report definition when we generate its output and in this way control
+      the nature of the data displayed on the resulting report.</para>
+      <tip>
+        <para>To accelerate the creation of any report definition, use the
+        MetaSQL Editor to verify the accuracy of your SQL queries. Once
+        queries have been validated, you can then copy and paste them into
+        your report definition’s query source.</para>
+      </tip>
+    </section>
+    <section>
+      <title>Loading Report Definitions</title>
+      <para>In this section we will look at a simple ad hoc report definition
+      against the xTuple <literal>item</literal> table. Keep in mind that you
+      are not restricted to xTuple databases and tables when using OpenRPT in
+      conjunction with the OpenRPT Renderer. After reviewing a few key aspects
+      of the report definition we will look at how to generate the report’s
+      output with the OpenRPT Renderer.</para>
+      <para>This first step when using the OpenRPT Renderer is opening a
+      report definition. Remember, these definitions are created using OpenRPT
+      and are saved in XML format.</para>
+      <tip>
+        <para>XML report definitions may be saved to a network drive. In this
+        way many users can have access to a collection of Ad Hoc
+        reports.</para>
+      </tip>
+      <para>To open an XML report definition file:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Pull down the OpenRPT Renderer File menu</para>
+        </listitem>
+        <listitem>
+          <para>Select the option Open</para>
+        </listitem>
+        <listitem>
+          <para>In the Operating System’s open file dialogue, locate the
+          report definition’s XML file and select it</para>
+        </listitem>
+      </itemizedlist>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_257_LoadReport.png" />
+            </imageobject>
+            <caption><para>Locating Report Definition to Load into
+            Renderer</para></caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>The following screenshot shows the renderer after the report
+      definition has been loaded:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_261_ReportLoaded.png" />
+            </imageobject>
+            <caption><para>Report Definition Loaded</para></caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>The top half of the OpenRPT Renderer contains a section called
+      Report information. In it you will see the following information read
+      from the report definition’s XML file:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Name</para>
+        </listitem>
+        <listitem>
+          <para>Title</para>
+        </listitem>
+        <listitem>
+          <para>Description</para>
+        </listitem>
+      </itemizedlist>
+      <para>Developers of report definitions should utilize the Description
+      section of a report definition to communicate information about what the
+      report does to those who will use it.</para>
+    </section>
+    <section>
+      <title>Adding OpenRPT Renderer Runtime Parameters</title>
+      <para>You may recall that when we created our report definition’s SQL,
+      we embedded in it (within the MetaSQL tags ‘<literal>&lt;?’</literal>
+      and ‘<literal>?&gt;</literal>’ parameters that will accept user defined
+      values at run time. After we open an OpenRPT report definition, we must
+      define these parameters and set their values before generating the
+      report. The report definition we defined contains two parameters:</para>
+      <itemizedlist>
+        <listitem>
+          <para><literal>sold_param</literal></para>
+        </listitem>
+        <listitem>
+          <para><literal>active_param</literal></para>
+        </listitem>
+      </itemizedlist>
+      <para>Let’s look at how a parameter is defined and a value
+      assigned.</para>
+      <section>
+        <title>Define Parameter</title>
+        <para>After opening the report definition click the ADD button. You
+        will see the New Variant screen:</para>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C03_670_Render_NewParam_1.png" />
+          </imageobject>
+          <caption><para>New Variant Screen</para></caption>
+        </mediaobject>
+        <para>You must enter the exact Name of the parameter, as defined in
+        the report definition, and assign it a Type. Above we see the
+        <literal>sold_param</literal> defined as a Type “Bool” (Boolean) which
+        means it has a True/False value in the database.</para>
+        <para>After clicking the OK button, you will be prompted to enter a
+        value for the parameter and check whether or not it is Active.</para>
+      </section>
+      <section>
+        <title>Set Parameter Value</title>
+        <para>Below we see the screen that enables us to set a value for the
+        parameter we just define. This screen displays after we click the OK
+        button on the New Variant screen.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/C03_680_Render_NewParam_2.png" />
+              </imageobject>
+              <caption><para>Setting Variant Values</para></caption>
+            </mediaobject>
+          </screenshot>Note that because the parameter was defined as type
+        Bool, we are presented only with the options True of False for the
+        parameter’s value.</para>
+        <para>It is important to set the parameter as Active if you want its
+        value passed to the report definition at report run time.</para>
+        <para>Clicking the OK button returns you to the main screen for the
+        OpenRPT Renderer and displays information about the parameter(s) in
+        the Parameters section of the screen</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/C03_690_Render_FinishSetup.png" />
+              </imageobject>
+              <caption>Two Parameters Defined Along With Values</caption>
+            </mediaobject>
+          </screenshot></para>
+      </section>
+      <section>
+        <title>Changing Parameter Values</title>
+        <para>Parameters values may changed by clicking the EDIT button found
+        on the main OpenRPT Rendered screen. The user first selects a
+        parameter to edit by clicking on it and then clicks the EDIT button.
+        The OpenRPT Renderer displays the screen that enables the user to
+        change the parameter’s value or uncheck the Active option to
+        deactivate the parameter.</para>
+      </section>
+      <section>
+        <title>Deleting a Parameter</title>
+        <para>Parameters may be deleted with the DELETE button found on the
+        main OpenRPT Renderer screen. The user first selects a parameter to
+        delete by clicking on it and then clicks the DELETE button. The
+        OpenRPT Renderer removes the parameter from the list of parameters
+        displayed.</para>
+        <note>
+          <para>Currently parameters are not saved. When the Renderer is
+          closed, all parameter settings are lost and must be re-entered the
+          next time the report definition is opened with the OpenRPT
+          Renderer.</para>
+        </note>
+      </section>
+      <section>
+        <title>Generating the Ad Hoc Report</title>
+        <para>Now that you have:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Connected to the database</para>
+          </listitem>
+          <listitem>
+            <para>Opened report definition’s XML file</para>
+          </listitem>
+          <listitem>
+            <para>Defined parameters and set their values</para>
+          </listitem>
+        </itemizedlist>
+        <para>It is possible to render the report’s output. Simply:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Pull down the File menu on the main OpenRPT Renderer
+            screen</para>
+          </listitem>
+          <listitem>
+            <para>Select the Print option</para>
+          </listitem>
+          <listitem>
+            <para>Choose a printer and start the print job</para>
+          </listitem>
+        </itemizedlist>
+        <para>Below we see our Ad Hoc Item Report:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/C03_695_AdHocReportOutput.png" />
+              </imageobject>
+              <caption>Ad Hoc Report Generated Through The OpenRPT
+              Renderer.</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>Above we see that the user, prior to running this report, set
+        parameters that show only Items that are sold (sold_param = true) and
+        that have been set to inactive status (active_param = false). The user
+        could return to the OpenRPT Renderer and change one or both of the
+        parameter’s values to generate a different report.</para>
+        <tip>
+          <para>Utilities exist on the three support client platforms that
+          enable the generation of printed output to a PDF formatted file (as
+          seen above) for viewing on-screen.</para>
+        </tip>
+      </section>
+    </section>
+  </section>
+  <section>
+    <title>Watermarks and Background Images</title>
+    <para>The xTuple report writer supports two advanced features that enable
+    you to make your reports visually appealing and add a level of security
+    that makes it easier to determine if a printed report is the original or a
+    duplicate. These two features are watermarks and background images.</para>
+    <variablelist>
+      <varlistentry>
+        <term>Watermark</term>
+        <listitem>
+          <para>A watermark is text that is printed across the background of a
+          report and is usually defined with an opacity factor that cause the
+          printing to be lighter than the report’s foreground content.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Background Image</term>
+        <listitem>
+          <para>A background image is similar to a watermark in that it is
+          displayed in the background of the report’s output and its opacity
+          can be controlled. However, as its name implies, a background image
+          is graphical, not textual, in nature.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>The use of watermarks and background images is not mutually
+    exclusive; a report may employ both. Also, both may be static or dynamic
+    in nature. That is to say, a watermark may have a fixed value, or its
+    value may be derived from a query source that retrieves it from the
+    database. A static background image references a single image for the
+    report. A dynamic background image can use a query against the
+    <literal>images</literal> table to retrieve a different image (perhaps a
+    customer’s logo) based on parameter values passed to the report at
+    run-time.</para>
+    <para>Below is a report that employees both an static background image and
+    a static watermark:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C03_400_AReptWithWatermarks.png" />
+          </imageobject>
+          <caption>Portion of a Sample Report Showing Static Background Image
+          and Static Watermark</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Both watermarks and background images are defined in the Report
+    Properties session. To open this session first open the report writer and
+    then the report to which you want to add or change the watermark or
+    background image. Next:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Pull down the Document menu</para>
+      </listitem>
+      <listitem>
+        <para>Click on the “Properties” option</para>
+      </listitem>
+    </itemizedlist>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C03_400_RptProp1.png" />
+          </imageobject>
+          <caption>Report Properties Info Tab</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>The Info tab enables you to provide a descriptive title for your
+    report and a detailed description that may, in the future, help others
+    understand how your report works or should be used.</para>
+    <section>
+      <title>Background Images</title>
+      <para>Background images are defined on the Report Properties session
+      under the Background tab:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_410_ReptPropBackgroundGeneral.png" />
+            </imageobject>
+            <caption>General Tab for Background Images</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>To enable Background images, the Enable Background image box must
+      be checked.</para>
+      <para>There are two types of Background image: static and dynamic. Our
+      example depicts a static background image: one where the image shown
+      never changes.</para>
+      <para>A dynamic background image can be displayed from the xTuple
+      <literal>images</literal> table based on the results of a the SQL in a
+      query source. The column field would then reference the
+      <literal>image_data</literal> column which contains the image data.
+      Company logos, product images, and employee photos, just to name a few,
+      can be stored in the <literal>images</literal> table and pulled
+      dynamically into a report through the SQL in a query source.</para>
+      <para>Within the Background tab there are three sub-tabs: General,
+      Layout, and Static Image.</para>
+      <section>
+        <title>General</title>
+        <para>The General tab controls the Source of the image: static or
+        dynamic. The query source and column, if it is a dynamic background
+        image, references the SQL query source and the column retrieved by it
+        that contains the image data. The Opacity slider controls the level of
+        transparency that the background image will posses when
+        displayed.</para>
+      </section>
+      <section>
+        <title>Layout</title>
+        <para>The Layout tab for background images controls whether the image
+        is shown at its original size (the Clip option) or it is stretched
+        (the Stretch option) based on the values of the fields Width and
+        Height.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/C03_412_ReptPropBackgroundLayout.png" />
+              </imageobject>
+              <caption>Layout Tab for Background Images</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>Other settings on this tab control the position of the
+        background image in the report</para>
+      </section>
+      <section>
+        <title>Static Image</title>
+        <para>The Static Image tab for background images only applies to
+        static background images.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/C03_416_ReptPropBackgroundStatImage.png" />
+              </imageobject>
+              <caption>Static Image for Display</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>When you click on the LOAD button, you are presented with your
+        operating system’s locate file dialogue. Selecting the image locally
+        and clicking OK returns you to the Static Image tab and a view of the
+        image.</para>
+        <note>
+          <para>Static background images are embedded in XML that is stored in
+          the column <literal>report_source</literal> in the table report. As
+          such, when you save a report definition locally in XML format, the
+          static image is embedded in it and transported with it.</para>
+        </note>
+      </section>
+    </section>
+    <section>
+      <title>Watermarks</title>
+      <para>Watermarks are defined on the Report Properties session under the
+      Watermarks tab. Let’s take a look at the screen that enable us to
+      control watermarks:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_420_ReptPropBackgrndWatermark.png" />
+            </imageobject>
+            <caption>Watermark Tab on Report Properties</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>Like background images, watermarks can also be static or
+      dynamic.</para>
+      <para>The value of a dynamic watermark may be provided through the
+      results of an SQL query referenced in the fields query source and
+      columns. Likewise, the value of a parameter value passed to the report
+      at run-time can also be displayed by selecting Parameter Query in the
+      query source field and entering the name of the parameter in the column
+      field.</para>
+      <para>The characteristics of the watermark, its size, font, and opacity,
+      are controlled by the other fields on the Watermark tab.</para>
+    </section>
+  </section>
+  <section>
+    <title>Bar Coding</title>
+    <para>The two major benefits to Bar coding are accuracy and speed during
+    data collection. The report writer makes it easy to add bar coded
+    information to report definitions. In this section we look at a simple but
+    powerful example.</para>
+    <para>The photo below is of a wedge type bar code scanner. This type of
+    scanner is attached to a PC running the xTuple Client. When a bar code is
+    scanned, the information read by the scanner is entered on the screen
+    wherever the cursor is currently located. Put another way, a wedge scanner
+    is a substitute for the user’s manual data entry. Today these scanners are
+    durable, inexpensive, and easy to connect.</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C03_500_Scanner.png" />
+          </imageobject>
+          <caption>Low Cost Bar Code Scanner</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Frequently bar code scanners are used to collect information on the
+    shop floor. Below is the xTuple Post Production screen:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C03_510_WOPostProd.png" />
+          </imageobject>
+          <caption>xTuple Post Production Screen</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Users posting production are required to enter two pieces of
+    information: the Work Order Number and the Quantity to Post. This
+    information is available on the Work Order’s Router. But the standard
+    Router (see below) contains this information only in human readable
+    form.</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C03_520_STDRouter.png" />
+          </imageobject>
+          <caption>xTuple Work Order Routing</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>The information that we need for Posting Production is on the
+    Routing, but in human readable form. Let’s look at how easy it is to add
+    two addition fields that display this information in bar code
+    Format.</para>
+    <para>Below we see the report definition called Routing:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C03_530_RepDefBefore.png" />
+          </imageobject>
+          <caption>Routing Before Bar Code Added</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>To added the human readable fields we are interested in at referred
+    to on the screen as <literal>wonumber:Head</literal> field and
+    <literal>qtyord:Head</literal> field. We will leave these fields as they
+    are, but, we will need to move the <literal>wonumber:Head</literal> field
+    and its corresponding label up a little to make room for the bar code
+    field which we will place underneath it.</para>
+    <para>Once we have room on the report definition for the bar code we can
+    use the bar code tool to place bar code in the report definition. Below we
+    see the bar code Properties screen:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C03_540_FieldDefForBC.png" />
+          </imageobject>
+          <caption>Bar Code Properties Definition For the Work Order Number
+          Field</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>There are four critical settings on this screen:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Format</term>
+        <listitem>
+          <para>You should check which formats your scanner supports. Most
+          modern scanners enable auto-selection which means that the scanner
+          can read more than one format and determine the format when the bar
+          code is scanned. xTuple provides the following standard bar code
+          formats: 3 of 9; 3 of 9+; 128; ean13; ean8; upc-a; upc-e</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Query Source</term>
+        <listitem>
+          <para>We can look at this settings for the human readable
+          <literal>wonumber:Head field</literal> field and <literal>qtyord:
+          Head field</literal> fields and use that same query for our bar
+          coded fields</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Column</term>
+        <listitem>
+          <para>We can look at this settings for the human readable
+          <literal>wonumber:H</literal><literal><literal>ead</literal>
+          field</literal> and <literal>qtyord: Head field</literal> fields and
+          use that same column for our bar coded fields</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Maximum Length of Value</term>
+        <listitem>
+          <para>Here we set the number characters wide the work order number
+          and quantity ordered could be. Ten and six respectively will work
+          for these two bar codes.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>After the addition of our bar code fields the new report definition
+    will look something like this:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C03_550_ReportDefAfterBC.png" />
+          </imageobject>
+          <caption>Routing Report After Bar Code Added</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Remember when you Save to DB to use a grade other than 0 for your
+    new routing report definition. To view the new routing, go to the W/O -
+    W/O Control menu and select Print Routing. Enter a the Work Order Number
+    for a currently released work Order and click the PRINT button. The new
+    routing looks like this:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C03_560_BARCODE_Router.png" />
+          </imageobject>
+          <caption>New Routing Enhances Accuracy and Speed</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>Now, a user recording production on the Post Production screen need
+    only scan the Work Order Number and the Quantity to Post from the new
+    Routing, and click the POST button.</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/C03_510_WOPostProd.png" />
+          </imageobject>
+          <caption>Scanning into Post Production Screen</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para>As you become more and more familiar with xTuple and the data
+    collection screens in it that you use to run your business, pay close
+    attention to the xTuple documentation that users rely on to provide that
+    data. You will likely find many other opportunities to add bar coded
+    fields to report definitions and by doing so, improve the speed and
+    accuracy of the information that is collected.</para>
+  </section>
+  <section>
+    <title>Graphing</title>
+    <para>The report writer provides the capability to display information
+    graphically. In this section we will examine this functionality by looking
+    at how an existing report definition defined in the xTuple ERP application
+    suite that displays inventory history can be enhanced to show the
+    information in both numerical and graphical form.</para>
+    <section>
+      <title>Graphical Report Output</title>
+      <para>The basis for our discussion is an existing report that is
+      generated by xTuple in the Inventory Management module. The display is
+      called Time-Phased Item Usage Statistics by Item and the report is
+      generated by clicking the PRINT button.</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_700_GenTimePhaseGraphicReport.png" />
+            </imageobject>
+            <caption>Time-Phased Item Usage Statistics Report</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>Data for the report can be viewed prior to initiating the report.
+      Above we see eight weeks of historical information for a specified Item
+      in a specific warehouse. The standard report definition displays this
+      same information in a vertical format on a printed page. But, with the
+      report writer’s graphing capability, we can display the same information
+      visually as well.</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_710_OutputTimePhaseGraphicReport.png" />
+            </imageobject>
+            <caption>Time-Phased Data Displayed Graphically</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>To do this, the standard report definition was enhanced so that
+      the Header area at the top was large enough to accommodate the new
+      graph. Then, the same columns in the query definition that were used in
+      the body of the report to display the period were used to plot the Y
+      axis. Likewise, the columns in the query definition that were used to
+      display the quantity information (Received, Issued, etc.) were used to
+      define the X axis. Let’s take a look under the hood and see how this was
+      done.</para>
+    </section>
+    <section>
+      <title>Graphical Report Definition</title>
+      <para>The nature of a report definition that displays information
+      graphically is fundamentally the same as one that displays information
+      textually. Indeed, a report definition that displays numerical
+      information is often a good candidate for graphical enhancement.</para>
+      <para>Below we see the report definition for the Time Phased usage
+      Statistics By Item after the section Report Header has been enlarged and
+      a Graph object has been added to it:</para>
+      <para><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C03_720_RepWriterMainDef.png" />
+            </imageobject>
+            <caption>Enhanced Report Header</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para>A Graph object is added using the graphing tool on the toolbar.
+      Start by clicking on the graphing tool. Then, click on the area in the
+      section of the report definition where you want the graph to display.
+      Next, resize the resulting Graph object box with your mouse. Finally,
+      double-click on the Graph object to define detailed information about
+      its behavior.</para>
+      <para>We will cover Graphing object definition shortly. First, let’s
+      take a look at the <literal>SELECT</literal> clause in the report’s
+      Query Definition to see the origin of the column values that will be
+      used to define values and information for the X and Y axes.</para>
+      <section>
+        <title>Query Source</title>
+        <para>The <literal>SELECT</literal> clause in the SQL statement that
+        is used in the report’s Query Definition is shown below. It is
+        important to note two factors in relation to this query source:</para>
+        <itemizedlist>
+          <listitem>
+            <para>The existing report definition’s query source was not
+            modified in any way to accommodate the graph.</para>
+          </listitem>
+          <listitem>
+            <para>The SQL utilizes embedded PL/pgSQL (the PostgreSQL
+            Procedural Language) functions <literal>summTransR()</literal>,
+            <literal>summTransI()</literal>, <literal>summTransS()</literal>,
+            <literal>summTransC()</literal> and
+            <literal>summTransA()</literal> to actually query the table
+            <literal>invhist</literal>.</para>
+          </listitem>
+        </itemizedlist>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/C03_730_RepDefSQLSelect.png" />
+              </imageobject>
+              <caption>SELECT Clause Contains Columns for Graphing</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>Ultimately the query returns values for columns: received,
+        issued, sold, scrap, adjustments, and period. These will be used in
+        the graph’s definition to supply the dynamic data upon which the
+        resulting graph will render the information visually.</para>
+      </section>
+      <section>
+        <title>Color Definitions</title>
+        <para>Colors must be defined for each report writer report definition.
+        We will assign our color definitions to the bars, lines, points that
+        define to display the graph.</para>
+        <para>To define colors:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Pull down the report writer’s Document menu</para>
+          </listitem>
+          <listitem>
+            <para>Click on the option “Color Definitions”</para>
+          </listitem>
+        </itemizedlist>
+        <para>You will see the Color Definitions screen:</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/C03_740_ColorDef_1.png" />
+              </imageobject>
+              <caption>Assigning Names to Bars, Lines, and Points</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>The color Definitions Screen enables you to add, edit, and
+        delete a color. To add a color, click the ADD button. The report
+        writer displays the Color Editor screen. You may define a color in two
+        ways:</para>
+        <itemizedlist>
+          <listitem>
+            <para>If you know the levels of Red, Green, and Blue that define
+            the color you want simply enter the color’s Name, fill in the
+            values in the Components fields, and click the OK button.</para>
+          </listitem>
+          <listitem>
+            <para>You may also have the Component values filled in for you by
+            entering the Name for your color and clicking the COLOR button.
+            This displays the Select color screen which provides a color
+            palette.</para>
+          </listitem>
+        </itemizedlist>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/C03_745_ColorDef_2.png" />
+              </imageobject>
+              <caption>Selecting Colors</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>You may use the color palette to select the exact color you want
+        to define. When you click the OK button, you are returned to the Color
+        Editor screen. The color Component values are filled in for you based
+        on your selection.</para>
+      </section>
+    </section>
+    <section>
+      <title>Defining the Graphing Object</title>
+      <para>Now that we have looked at the query source and identified the
+      columns that will provide the data we want to graph, and we have defined
+      colors that we will associate with bars, lines, and points in our graph,
+      we can define the details of our graphing object. Double-clicking on the
+      Graph object we placed in our report definition displays a dialogue with
+      four tabs. Let’s take a look at each:</para>
+      <section>
+        <title>Graph Editor General Tab</title>
+        <para>The most significant aspect of the General tab is that it is the
+        place where we link our Graph object to a query source. We also can
+        precisely control the size and location of the graph on the report
+        give it a title and assign a base Font that can be used throughout the
+        rest of the Graph object’s definition or overridden by
+        exception.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/C03_750_GraphEd_General.png" />
+              </imageobject>
+              <caption>Graph Editor General Tab</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>The Graph Editor tab provides the following options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Query Source</term>
+            <listitem>
+              <para>From the pull down list select the query source that
+              provides the columns containing the values you want
+              graphed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Position/Size</term>
+            <listitem>
+              <para>It is easiest to simply drag the Graph object in the
+              report definition and resize it with your mouse. However, for
+              very precise control you may enter X and Y coordinates for the
+              location and a Width and Height defined in inches.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Base Font</term>
+            <listitem>
+              <para>You may click the FONT button to define the
+              characteristics of a base font for your graph. Then, on other
+              tabs in the Graph Editor, simply check “Use Base Font” to select
+              it for use on that element of the graph.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Title</term>
+            <listitem>
+              <para>Enter the title you want to appear above (but within) your
+              graph</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para>Next we will define the Data Axis.</para>
+      </section>
+      <section>
+        <title>Graph Editor Data Axis Tab</title>
+        <para>The Data Axis tab in the Graph Editor defines your graph’s X
+        axis.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/C03_752_GraphEd_DataAxis.png" />
+              </imageobject>
+              <caption>Graph Editor Data Axis Tab</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>You may define the following information in the Data Axis
+        tab:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Data Axis Labels</term>
+            <listitem>
+              <para>The column field in this section refers to columns that
+              are the query source you referenced under the General tab. This
+              column contains the dynamic data you want displayed along the
+              bottom of the X axis. In our example, the column
+              <literal>period</literal> contains the date for each period that
+              will be displayed in our time-series graph of inventory
+              activity.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Data Axis Title</term>
+            <listitem>
+              <para>This section enables you to provide a static description
+              for the X axis that displays along its base.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para>Both sections under the Data Axis tab enable you to select the
+        base font defined under the General tab, or, leave the option
+        unchecked and use the FONT button to specify a different font and
+        size.</para>
+        <para>Now that the X axis is defined, it is time to define the static
+        information and other parameters that control the Y axis.</para>
+      </section>
+      <section>
+        <title>Graph Editor Value Tab</title>
+        <para>The Graph Editor’s Value Axis tab enables you to define
+        properties of a graph’s Y Axis.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/C03_754_GraphEd_ValueAxis.png" />
+              </imageobject>
+              <caption>Graph Editor Value Tab</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>There are two main sections in the Value Axis tab:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Min/Max</term>
+            <listitem>
+              <para>The Min/Max values control the minimum and maximum value
+              that will for displayed for a graphed element. If the values are
+              set to 0 and “Expand Min/Max if needed” is checked, the limits
+              of the Y axis will equal largest and smallest graphed
+              element.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Value Axis Title</term>
+            <listitem>
+              <para>The value of the field Title is static and will display
+              vertically along the Y axis of the graph.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para>Both sections under the Value Axis tab enable you to select the
+        base font defined under the General tab, or, leave the option
+        unchecked and use the FONT button to specify a different font and
+        size.</para>
+      </section>
+      <section>
+        <title>Graph Editor Series Tab</title>
+        <para>The Series tab in the Graph Editor enables you to define one or
+        more series that are plotted on your graph.</para>
+        <para><screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="images/C03_756_GraphEd_Series.png" />
+              </imageobject>
+              <caption>Graph Editor Series Tab</caption>
+            </mediaobject>
+          </screenshot></para>
+        <para>To Establish a series click the NEW button and then fill in the
+        following:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Name</term>
+            <listitem>
+              <para>Assign your new series a descriptive name. This name is
+              for internal reference only and is not displayed on the
+              graph.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Column</term>
+            <listitem>
+              <para>Link your series to a column in the query source (linked
+              to the graph under the General tab) that contains the
+              information you want graphed.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Color</term>
+            <listitem>
+              <para>Select from the drop down list a color that you defined
+              earlier. You may also click the EDIT button and define one or
+              more new colors.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Style</term>
+            <listitem>
+              <para>Check one or more styles to define how the data will
+              display in the graph:</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Bars</term>
+                  <listitem>
+                    <para>Displays the series in bar format, or stacked bars
+                    for multiple series defined as bars.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Lines</term>
+                  <listitem>
+                    <para>Displays the series in line format.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Points</term>
+                  <listitem>
+                    <para>Displays the series as a point on the graph.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para>If you want to continue by adding another series, click the NEW
+        button. The series you are defining is saved and all values cleared so
+        you can defined the new series’ properties.</para>
+        <para>If you are done entering series information, you may click the
+        OK button to exit the Graph Editor, or click on another tab under
+        it.</para>
+        <para>This completes the mechanics for defining a graph in the report
+        writer. Earlier in this section we saw the output of a report with an
+        embedded graph. The definition process was easy and straight forward.
+        The graphing capability enables you to quickly enhance existing
+        reports or define new reports that improve how complex information is
+        presented to users.</para>
+      </section>
+    </section>
+  </section>
+</chapter>

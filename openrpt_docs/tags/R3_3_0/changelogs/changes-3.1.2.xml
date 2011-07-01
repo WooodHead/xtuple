@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>3.1.2 ChangeLog</title>
+
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+
+      <listitem>
+        <para>Added support for OpenRPT to load translations and support translating labels with those translations.</para>
+      </listitem>
+
+    </itemizedlist></para>
+
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+
+      <listitem>
+        <para>Fixed textarea entities to overflow onto new pages, except when they are in page footers.</para>
+      </listitem>
+
+      <listitem>
+        <para>Changed the "Print To PDF" menu option in RPTRender application to use Screen resolution to prevent PDF's that are excessively large when they contain images.</para>
+      </listitem>
+
+    </itemizedlist></para>
+</article>

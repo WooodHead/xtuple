@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>Import Report (<abbrev>importrpt</abbrev>) Reference</title>
+
+  <section>
+    <title>Name</title>
+
+    <para><command>importrpt</command> - Report definition import tool</para>
+  </section>
+
+  <section>
+    <title>Synopsis</title>
+
+    <para><command>importrpt</command>
+    <parameter>-databaseURL=<replaceable>&lt;connection
+    URL&gt;</replaceable></parameter>
+    <parameter>-username=<replaceable>&lt;user
+    name&gt;</replaceable></parameter>
+    <parameter>-passwd=<replaceable>&lt;password&gt;</replaceable></parameter>
+    <optional><parameter>-grade=<replaceable>&lt;number&gt;</replaceable></parameter></optional>
+    <parameter>-f=<replaceable>&lt;report
+    definition&gt;</replaceable></parameter> <replaceable>&lt;report
+    definition&gt;</replaceable></para>
+  </section>
+
+  <section>
+    <title>Description</title>
+
+    <para>Importrpt is a command-line tool for loading report definitions from
+    a file into a database.</para>
+  </section>
+
+  <section>
+    <title>Options</title>
+
+    <para><parameter>-databaseURL=<replaceable>&lt;connection
+    URL&gt;</replaceable></parameter> <blockquote>
+        <para>Specify the connection information that
+        <command>importrpt</command> should use when loading a report
+        definition. The connection URL is in the following format:</para>
+
+        <blockquote>
+          <example>
+            <title></title>
+
+            <para>psql://<replaceable>servername</replaceable>/<replaceable>database</replaceable><optional>:<replaceable>port</replaceable></optional></para>
+          </example>
+        </blockquote>
+
+        <para>In the connection URL, the servername is the host or IP address
+        of the server where the database is running.</para>
+
+        <blockquote>
+          <example>
+            <title></title>
+
+            <para>somehost.openmfg.com</para>
+          </example>
+        </blockquote>
+
+        <para>The database is the name of the actual database you want to
+        connect to on the specified server.</para>
+
+        <blockquote>
+          <example>
+            <title></title>
+
+            <para>mydb</para>
+          </example>
+        </blockquote>
+
+        <para>The last option, port, is optional. If included, it must follow
+        the color and be a valid port number. If the port is not specified,
+        the default port of '5432' is used.</para>
+
+        <para>For example, if you wanted to connect to the database 'mydb' on
+        the server 'somehost.openmfg.com' using the default port, you would
+        use the following URL:</para>
+
+        <blockquote>
+          <example>
+            <title></title>
+
+            <para>psql://somehost.openmfg.com/mydb</para>
+          </example>
+        </blockquote>
+
+        <para>Similarly, if you wanted to connect to the database 'dbtest' on
+        the server '192.168.128.64' using the port 2345 you would use the
+        following connection URL:</para>
+
+        <blockquote>
+          <example>
+            <title></title>
+
+            <para>psql://192.168.128.64/dbtest:2345</para>
+          </example>
+        </blockquote>
+      </blockquote></para>
+
+    <para><parameter>-username=<replaceable>&lt;password&gt;</replaceable></parameter>
+    <blockquote>
+        <para>The user name you are using to connect to the server and
+        database.</para>
+      </blockquote></para>
+
+    <para><parameter>-passwd=<replaceable>&lt;password&gt;</replaceable></parameter>
+    <blockquote>
+        <para>The password for the user name you specified.</para>
+      </blockquote></para>
+
+    <para><parameter>-grade=<replaceable>&lt;number&gt;</replaceable></parameter>
+    <blockquote>
+        <para>The grade used to load a report into the database. A numeric
+        value from 0 to 99 is valid. The default value is 0 if this option is
+        not specified.</para>
+      </blockquote></para>
+
+    <para><parameter>-f=<replaceable>&lt;report
+    definition&gt;</replaceable></parameter> <blockquote>
+        <para>The name of the report definition file (as it appears on your
+        disk) that you are loading into the database. Any additional arguments
+        that are present and do not begin with a hyphen (-) will be used as
+        the file to load.</para>
+      </blockquote></para>
+  </section>
+</article>

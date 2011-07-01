@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>3.3.0 ChangeLog</title>
+
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+
+      <listitem>
+        <para>Added Array of Field entity support</para>
+      </listitem>
+
+      <listitem>
+        <para>Added Customizable Label support</para>
+      </listitem>
+
+    </itemizedlist></para>
+
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+
+      <listitem>
+        <para>Improve database portability for ODBC/MySql databases</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed rendering problem of group footers using some ODBC drivers</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed crash problem with empty query sources</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed font dialog not working in crosstab entity</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed compiler warning/errors</para>
+      </listitem>
+
+    </itemizedlist></para>
+</article>
+

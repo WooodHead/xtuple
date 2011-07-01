@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>2.1.0 ChangeLog</title>
+
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+
+      <listitem>
+        <para>Added new Pre/Print renderer engine that allows for
+        pre-rendering a document in a meta format then using one or more
+        post-renderers to render that document in a device dependant
+        manner</para>
+      </listitem>
+
+      <listitem>
+        <para>Added new literal() function to MetaSQL</para>
+      </listitem>
+
+      <listitem>
+        <para>Added command-line support for print-to-pdf in RPTRender
+        application</para>
+      </listitem>
+
+      <listitem>
+        <para>Added wrapper code for old renderer to use new rendering engine
+        which is compile time enabled by default</para>
+      </listitem>
+
+      <listitem>
+        <para>Updated OpenRPT Writer tool bar icons</para>
+      </listitem>
+
+      <listitem>
+        <para>Added support for new Label "CILS ALP1-9200-1"</para>
+      </listitem>
+
+      <listitem>
+        <para>Added support for standard URL formatting with backward support
+        for old style</para>
+      </listitem>
+
+      <listitem>
+        <para>Added configuration option to compile MAC binaries as Universal
+        Binaries</para>
+      </listitem>
+    </itemizedlist></para>
+
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+
+      <listitem>
+        <para>Additional Qt3-&gt;4 conversion/backward compatibility
+        removal</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed MetaSQL Editor tool bar icons to always show up
+        correctly</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed the menu handling code in embedded writer library to work
+        correctly when using free-floating windows</para>
+      </listitem>
+    </itemizedlist></para>
+</article>

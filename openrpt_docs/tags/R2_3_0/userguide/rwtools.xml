@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<?xml-stylesheet href="docbook-omfg.css" type="text/css"?>
+<chapter>
+  <title>Tools</title>
+
+  <para>In this chapter we will examine several third party tools you may find
+  useful when creating OpenRPT report definitions. The tools can also be
+  helpful to system administrators responsible for maintaining OpenMFG
+  Databases and/or other PostgreSQL databases.</para>
+
+  <para>The first tool we will look at is pgAdmin III, an open source database
+  administration utility for PostgreSQL. Next we will look at the ODBC driver
+  available for PostgreSQL. We will show you how to install and configure an
+  ODBC connection from a Windows client to a PostgreSQL database. Finally, we
+  will examine how a query tool can be used to generate SQL that can then be
+  copied and pasted into an OpenMFG report definition Query Source to
+  accelerate the development of a new report.</para>
+
+  <sect1>
+    <title>pgAdmin III</title>
+
+    <para>The best description of pgAdmin III can be found on the project’s
+    website:</para>
+
+    <simpara>“pgAdmin III is the most popular and feature rich Open Source
+    administration and development platform for PostgreSQL, the most advanced
+    Open Source database in the world. The application may be used on Linux,
+    FreeBSD, Solaris, Mac OSX and Windows platforms to manage PostgreSQL 7.3
+    and above running on any platform, as well as commercial versions of
+    PostgreSQL such as Pervasive Postgres, EnterpriseDB, Mammoth Replicator
+    and SRA PowerGres.</simpara>
+
+    <simpara>“pgAdmin III is designed to answer the needs of all users, from
+    writing simple SQL queries to developing complex databases. The graphical
+    interface supports all PostgreSQL features and makes administration easy.
+    The application also includes a syntax highlighting SQL editor, a
+    server-side code editor, an SQL/batch/shell job scheduling agent, support
+    for the Slony-I replication engine and much more. Server connection may be
+    made using TCP/IP or Unix Domain Sockets (on *nix platforms), and may be
+    SSL encrypted for security. No additional drivers are required to
+    communicate with the database server.</simpara>
+
+    <simpara>“pgAdmin III is developed by a community of PostgreSQL experts
+    around the world and is available in more than a dozen languages. It is
+    Free Software released under the Artistic License.”</simpara>
+
+    <para>Those who use pgAdmin III find it to be invaluable for performing
+    database maintenance, along with simply examining database structures and
+    data.</para>
+
+    <sect2>
+      <title>Where Can I Find pgAdmin III?</title>
+
+      <para>You can download pgAdmin III for free either from the pgAdmin
+      website (http://www.pgadmin.org/) or from the PostgreSQL website
+      (http://www.postgresql.org). It is available for multiple operating
+      systems and features an easy-to-use installation utility.</para>
+    </sect2>
+
+    <sect2>
+      <title>Connecting to an OpenMFG Database</title>
+
+      <para>Once you have completed the installation of pgAdmin III, it is
+      time to configure a connection to your OpenMFG Database. To begin,
+      select the “Add Server” option from the pgAdmin III “File” menu. You
+      will be presented with the following screen:</para>
+
+      <para><figure>
+          <title>pgAdmin III Connection Definition Screen</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_100_ConToServer.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>You will need to provide the URL or IP address of your server
+      along with the port on which PostgreSQL is listening. Then, you will
+      identify the name of your OpenMFG Database—as well as the username and
+      password for the user who will be establishing the connection.</para>
+
+      <para>Once the server has been added and you have established a
+      connection, the pgAdmin will screen will look as follows:</para>
+
+      <para><figure>
+          <title>Table View in pgAdmin III</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_110_pgAdminIIIMain.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>pgAdmin III will add your new connection to its list of servers.
+      In the future, you can simply double-click on the name of a server to
+      initiate a connection.</para>
+
+      <para>Using pgAdmin III is helpful when creating OpenRPT reports because
+      it enables you to see all of a database’s tables and their corresponding
+      columns. It is also possible to see data—and even maintain data—by
+      drilling down to a specific table, right clicking on it, and selecting
+      the “View Data” from the resulting menu. The following screenshot
+      illustrates the data view:</para>
+
+      <para><figure>
+          <title>Viewing and Maintenance of Data</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_120_pgAdminIIIViewData.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>The pgAdmin III utility is a very powerful tool. Be sure to take
+      care when using the “View Data” option, as it enables you to manually
+      update data in the database.</para>
+
+      <note>
+        <title>Note</title>
+
+        <para>Also worth noting is pgAdmin’s SQL Help option located under the
+        Help menu. These help filed provide very detailed descriptions and
+        examples of SQL commands, syntax, and statements.</para>
+      </note>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>What is ODBC?</title>
+
+    <para>The online technical resource Whatis.com provides the following
+    definition for ODBC:</para>
+
+    <para>“Open Database Connectivity (ODBC) is an open standard application
+    programming interface (API) for accessing a database. By using ODBC
+    statements in a program, you can access files in a number of different
+    databases, including Access, dBase, DB2, Excel, and Text. In addition to
+    the ODBC software, a separate module or driver is needed for each database
+    to be accessed. The main proponent and supplier of ODBC programming
+    support is Microsoft.</para>
+
+    <para>“ODBC is based on and closely aligned with The Open Group standard
+    Structured Query Language (SQL) Call-Level Interface. It allows programs
+    to use SQL requests that will access databases without having to know the
+    proprietary interfaces to the databases. ODBC handles the SQL request and
+    converts it into a request the individual database system
+    understands.”</para>
+
+    <sect2>
+      <title>Locating the ODBC Driver For PostgreSQL</title>
+
+      <para>The ODBC driver for PostgreSQL can be downloaded from the
+      PostgreSQL web site. If you are running Windows, the driver also comes
+      with an installer.</para>
+    </sect2>
+
+    <sect2>
+      <title>Configuring an ODBC Connection to OpenMFG</title>
+
+      <para>After installing the PostgreSQL ODBC driver, it is time to
+      configure it. This is a simple task. If you are running Windows, you
+      perform the configuration by opening your Windows Control Panel,
+      selecting Administrative Tools, and then Data Sources (ODBC), as shown
+      in the following screen:</para>
+
+      <para><figure>
+          <title>Configuring ODBC Connection</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_200_ODBCSources.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>On the ODBC Data Source Administrator Panel, click the ADD button
+      to begin configuring a connection to your OpenMFG PostgreSQL database.
+      The following screen will appear:</para>
+
+      <para><figure>
+          <title>Selecting PostgreSQL Driver</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_210_ODBCCreatNew.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>Select the PostgreSQL driver from the list of available drivers
+      and click the FINISH button. You will be presented with the following
+      screen:</para>
+
+      <para><figure>
+          <title>Final Driver Set Up</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_220_ODBCSetup.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>When finalizing the set up of the PostgreSQL driver, you are
+      presented with the following options:</para>
+
+      <simpara>Data Source: Give your connection a name (leave out
+      spaces).</simpara>
+
+      <simpara>Description: Describe your connection.</simpara>
+
+      <simpara>Database: Enter the name of the PostgreSQL database.</simpara>
+
+      <simpara>Server: Provide the name or IP address of the PostgreSQL
+      server.</simpara>
+
+      <simpara>Port: Enter the port on which the PostgreSQL database is
+      listening.</simpara>
+
+      <simpara>User Name: Provide a database user’s user name.</simpara>
+
+      <simpara>Password: Provide the database user’s password.</simpara>
+
+      <para>Now that our ODBC configuration is complete, we will use the
+      connection to access data in an OpenMFG Database.</para>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>Capturing SQL with MS Query</title>
+
+    <para>If you know of a query tool that generates SQL statements, you may
+    consider using that tool to facilitate the writing of queries used in
+    OpenRPT report definitions. Having an external query builder can help to
+    accelerate the creation of report definitions. In this section we will
+    look at an example of how this process works using one such query builder:
+    Microsoft Query, which is a component of the Excel program.</para>
+
+    <note>
+      <title>Note</title>
+
+      <para>Using external query tools can be helpful, as OpenRPT does not
+      currently have a native query builder.</para>
+    </note>
+
+    <sect2>
+      <title>What is MS Query?</title>
+
+      <para>Microsoft defines the query builder embedded within its Excel
+      application as follows: “Microsoft Query is a program for bringing data
+      from external sources into other Microsoft Office programs— in
+      particular, Microsoft Excel. By using Query to retrieve data from your
+      corporate databases.”</para>
+
+      <para>Remember, we are most interested in MS Query as a means for
+      generating SQL statements which we can then run against our OpenMFG
+      Database. Again, having predefined queries will help accelerate the
+      report building process in OpenRPT.</para>
+    </sect2>
+
+    <sect2>
+      <title>Using Predefined Queries in OpenRPT</title>
+
+      <para>In this section we will illustrate how to use Excel’s MS Query to
+      build a query which we will then insert into an OpenRPT report
+      definition to generate a report. Below is the final SQL generated by MS
+      Query using our ODBC connection to the <synopsis>usr</synopsis> table in
+      our OpenMFG Database:</para>
+
+      <para id="i562938"><programlisting>SELECT usr.usr_id, usr.usr_username, usr.usr_propername, usr.usr_passwd,
+       usr.usr_locale_id, usr.usr_initials, usr.usr_agent, usr.usr_active,
+       usr.usr_email
+FROM public.usr usr
+ORDER BY usr.usr_username</programlisting></para>
+
+      <para>Now we will show the steps involved to generate the predefined
+      query shown in <xref linkend="i562938" />.</para>
+
+      <para>First, open the Excel application. From the “Data” menu select the
+      “Get External Data” option. Then select the “New Database Query” option.
+      You will be presented with the following screen:</para>
+
+      <para><figure>
+          <title>Selecting ODBC Data Source</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_230_ODBC_Excel_ChooseData.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>Select the new ODBC connection you just created against your
+      PostgreSQL database, and then click the OK button.</para>
+
+      <para><figure>
+          <title>Choosing Columns with Query Wizard</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_300_QueryWizardTableCols.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>In the left column, scroll to the table <synopsis>usr</synopsis>
+      and click on it. Then select the “&gt;” button to select all columns in
+      the table. Finally, select the NEXT button to be brought to the
+      following screen:</para>
+
+      <para><figure>
+          <title>Filtering Data with Query Wizard</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_310_QueryWizardFilter.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>Next, the Query Wizard provides you with the opportunity to filter
+      the data. For this exercise, we will choose not apply a filter to the
+      data. Click the NEXT button to reach the following screen:</para>
+
+      <para><figure>
+          <title>Sorting Criteria with Query Wizard</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_320_QueryWizardSort.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>We will define one sort criteria. In the “Sort by” field select
+      the column <synopsis>usr_username</synopsis> and check “Ascending” next
+      to it. Click the NEXT button to reach the next screen:</para>
+
+      <para><figure>
+          <title>Multiple Output Options</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_330_QueryWizardReturnData.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>Because we are only using Query to generate an SQL statement, we
+      check the option “View data or edit query in Microsoft Query.” Click the
+      FINISH button.</para>
+
+      <para><figure>
+          <title>Viewing the SQL</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_340_QueryResultAndSQL.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>Initially, Query displays the results of the query we just created
+      with the Query Wizard. To see the syntax of the SQL statement, click the
+      SQL tool in the toolbar.</para>
+
+      <para>To copy this SQL statement for importing into an OpenRPT report
+      definition, select the statement and then right click and use the “Copy”
+      option. Later you can paste the statement into an OpenRPT Query
+      Source.</para>
+
+      <para>Earlier chapters in this user guide covered the details of
+      modifying and creating OpenRPT report definitions. The next few screens
+      show the core elements of a report definition and the resulting
+      output.</para>
+
+      <para><figure>
+          <title>SQL Pasted in Query Editor</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_400_QueryDetailEditor.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>Above you can see the SQL statement exactly as it was copied from
+      Microsoft Query and pasted into an OpenRPT Query Source for a new report
+      definition. We will run this report using the OpenMFG application—and so
+      we will save it with the already-existing report definition name
+      “UsersMasterList.” To distinguish this version of the report from
+      others, we will assign this version a Grade of “20.” In OpenMFG, report
+      definitions having the highest grade are used. Assuming “20” is the
+      highest grade for “UsersMasterList,” our new version will be run with
+      users select PRINT from the OpenMFG master list of users.</para>
+
+      <note>
+        <title>Note</title>
+
+        <para>The SQL in our example is the exact same SQL statement as it was
+        copied from Microsoft Query. MetaSQL has not been added to it. When
+        printing the user master list from OpenMFG, the client passes the
+        parameters <synopsis>locale_id</synopsis> and <synopsis>showInactive</synopsis>
+        to the report definition at run time. These parameter values can be
+        used to create sophisticated WHERE clauses that show data on the
+        report based on user entries on the User screen. Remember, you can use
+        the MetaSQL Editor to test SQL that contains MetaSQL before pasting
+        into a report’s Query Source. MetaSQL is covered in another chapter of
+        this user guide.</para>
+      </note>
+
+      <para>Below is a look at the report definition we created using the
+      query we built with Microsoft Query.</para>
+
+      <para><figure>
+          <title>View of Report Definition</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_410_ReportDef.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>This report definition will be run when an OpenMFG user selects
+      PRINT on the following OpenMFG screen:</para>
+
+      <para><figure>
+          <title>OpenMFG Users Master List</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_420_ReportPrint.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>After we select PRINT, the report definition is printed just as we
+      planned:</para>
+
+      <para><figure>
+          <title>Final Report Output</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/C05_430_SpecialReportOutput.png" />
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>The report shown above was generated using the SQL we copied from
+      Microsoft Query. It demonstrates the speed and ease with which new
+      reports can be created and deployed using OpenRPT.</para>
+    </sect2>
+  </sect1>
+</chapter>

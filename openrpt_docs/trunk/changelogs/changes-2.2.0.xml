@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>2.2.0 ChangeLog</title>
+
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+
+      <listitem>
+        <para>Changed project license from GPL to LGPL.</para>
+      </listitem>
+
+      <listitem>
+        <para>Added new utility that will check a database for the report
+        table and create it if it is not present.</para>
+      </listitem>
+
+      <listitem>
+        <para>Added support to RPTrender application for loading report
+        definitions from the currently connected database. Including
+        new command line argument '-loadfromdb=[reportname]' to take
+        advantage of the new functionality.</para>
+      </listitem>
+
+      <listitem>
+        <para>Added command-line support in OpenRPT application for loading
+        report definitions from file.</para>
+      </listitem>
+
+    </itemizedlist></para>
+
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+
+      <listitem>
+        <para>N/A</para>
+      </listitem>
+
+    </itemizedlist></para>
+</article>

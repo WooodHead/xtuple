@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>3.2.1 ChangeLog</title>
+
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+
+      <listitem>
+        <para>N/A</para>
+      </listitem>
+
+    </itemizedlist></para>
+
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+
+      <listitem>
+        <para>Fixed Status bar not showing correct message in non-latin character sets.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed Context Query not always save correctly when using translations.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed changing of queries that was not detected when editing existing document.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed resizing a section that was not detected as a change.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed Line items that are hard to grab.</para>
+      </listitem>
+
+      <listitem>
+        <para>Added warning message at save when detail section does not have query selected.</para>
+      </listitem>
+
+      <listitem>
+        <para>Removed debug message about unknown element grid when previewing in openrpt.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed Line items that don't always change section correctly.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed newly created line items that were not displayed.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed Snap To Grid that was not working consistently.</para>
+      </listitem>
+
+      <listitem>
+        <para>Fixed Items that don't change section correctly when they are moved using their resizing handles.</para>
+      </listitem>
+
+    </itemizedlist></para>
+</article>
+
