@@ -56,13 +56,16 @@ WHERE ( (wo_itemsite_id=itemsite_id)
                      WHERE (wo_id=<? value("wo_id") ?>)))
 <? endif ?>
 <? if exists("status_list") ?>
-  AND (wo_status IN (
 <? foreach("status_list") ?>
-  <? if not isfirst("status_list") ?>
-    ,
+  <? if isfirst("status_list") ?>
+    AND (wo_status=<? value("status_list") ?>
+  <? else ?>
+    OR wo_status=<? value("status_list") ?>
   <? endif ?>
-  <? value("status_list") ?>
-<? endforeach ?> ))
+  <? if islast("status_list") ?>
+    )
+  <? endif ?>
+<? endforeach ?>
 <? elseif exists("showOnlyRI") ?>
   AND (wo_status IN ('R','I'))
 <? else ?>
