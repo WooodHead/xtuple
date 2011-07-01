@@ -73,7 +73,7 @@ BEGIN
     _result = releaseSoNumber(_r.cohead_number);
   END IF;
 
-  RETURN _result;
+  RETURN 0;
 
 END;
 $$ LANGUAGE 'plpgsql';
