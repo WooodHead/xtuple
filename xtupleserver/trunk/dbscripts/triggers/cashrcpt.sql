@@ -6,6 +6,7 @@ DECLARE
   _bankCurrId INTEGER;
   _evntType   TEXT;
   _whsId      INTEGER;
+  _custNumber TEXT;
 
 BEGIN
 
@@ -39,12 +40,16 @@ BEGIN
       FROM usrpref
       WHERE usrpref_username = CURRENT_USER
         AND usrpref_name = 'PreferredWarehouse';
+      -- Find the Customer Number
+      SELECT cust_number INTO _custNumber
+      FROM custinfo
+      WHERE (cust_id=NEW.cashrcpt_cust_id);
 
       INSERT INTO evntlog (evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
                            evntlog_ord_id, evntlog_warehous_id, evntlog_number)
       SELECT DISTINCT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
                       NEW.cashrcpt_id, _whsId,
-                     (NEW.cashrcpt_docnumber || ' ' || currConcat(NEW.cashrcpt_curr_id) || formatMoney(NEW.cashrcpt_amount))
+                     (_custNumber || '-' || NEW.cashrcpt_docnumber || ' ' || currConcat(NEW.cashrcpt_curr_id) || formatMoney(NEW.cashrcpt_amount))
       FROM evntnot, evnttype
       WHERE ((evntnot_evnttype_id=evnttype_id)
         AND  (evnttype_name=_evntType));
