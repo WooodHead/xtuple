@@ -90,6 +90,8 @@
 :An Open Purchase Order Exists.Yes_QPushButton	{text='Yes' type='QPushButton' unnamed='1' visible='1' window=':An Open Purchase Order Exists_QMessageBox'}
 :An Open Purchase Order Exists_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='An Open Purchase Order Exists'}
 :Bill To._billtoFrame_QFrame	{container=':headerTab.Bill To_QGroupBox' name='_billtoFrame' type='QFrame' visible='1'}
+:Bill-To.CLineEdit_CLineEdit	{container=':_headerPage.Bill-To_QGroupBox' name='CLineEdit' type='CLineEdit' visible='1'}
+:Bill-To.CLineEdit_CLineEdit_2	{container=':_headerPage.Bill-To_QGroupBox_2' name='CLineEdit' type='CLineEdit' visible='1'}
 :Bill-To.VirtualClusterLineEdit_CLineEdit	{container=':_headerPage.Bill-To_QGroupBox' name='VirtualClusterLineEdit' type='CLineEdit' visible='1'}
 :Bill-To.VirtualClusterLineEdit_CLineEdit_2	{container=':_headerPage.Bill-To_QGroupBox_2' name='VirtualClusterLineEdit' type='CLineEdit' visible='1'}
 :Cannot Connect to xTuple ERP Server.OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':Cannot Connect to xTuple ERP Server_QMessageBox'}
@@ -97,9 +99,11 @@
 :Cannot Perform Partial Distribution_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Cannot Perform Partial Distribution'}
 :Cannot Save Voucher_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Cannot Save Voucher'}
 :Cash Receipt...._QPushButton	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='_list' text='...' type='QPushButton' visible='1'}
+:Cash Receipt.CLineEdit_CLineEdit	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='CLineEdit' type='CLineEdit' visible='1'}
 :Cash Receipt.Cash Receipt_QWorkspaceTitleBar	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='Cash Receipt'}
 :Cash Receipt.Save_QPushButton	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='_save' occurrence='2' text='Save' type='QPushButton' visible='1'}
 :Cash Receipt.Save_QPushButton_2	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='_save' text='Save' type='QPushButton' visible='1'}
+:Cash Receipt.Save_QPushButton_3	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' text='Save' type='QPushButton' unnamed='1' visible='1'}
 :Cash Receipt.VirtualClusterLineEdit_CLineEdit	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='VirtualClusterLineEdit' type='CLineEdit' visible='1'}
 :Cash Receipt.XLineEdit_XLineEdit	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='XLineEdit' occurrence='8' type='XLineEdit' visible='1'}
 :Cash Receipt.XLineEdit_XLineEdit_2	{container=':xTuple ERP:*.Cash Receipt_QWorkspaceChild' name='XLineEdit' occurrence='7' type='XLineEdit' visible='1'}
@@ -128,6 +132,7 @@
 :Customer Information Workbench._titleLit_QLabel	{container=':xTuple ERP:*.Customer Information Workbench_QWorkspaceChild' name='_titleLit' type='QLabel' visible='1'}
 :Customer Information Workbench.qt_tabwidget_stackedwidget_QStackedWidget	{container=':xTuple ERP:*.Customer Information Workbench_QWorkspaceChild' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
 :Customer Information Workbench.qt_tabwidget_tabbar_QTabBar	{container=':xTuple ERP:*.Customer Information Workbench_QWorkspaceChild' name='qt_tabwidget_tabbar' type='QTabBar' visible='1'}
+:Customer.CLineEdit_CLineEdit	{container=':xTuple ERP:*.Customer_QWorkspaceChild' name='CLineEdit' type='CLineEdit' visible='1'}
 :Customer.Name:_QLabel	{container=':xTuple ERP:*.Customer_QWorkspaceChild' name='_nameLit' text='Name:' type='QLabel' visible='1'}
 :Customer.VirtualClusterLineEdit_CLineEdit	{container=':xTuple ERP:*.Customer_QWorkspaceChild' name='VirtualClusterLineEdit' type='CLineEdit' visible='1'}
 :Customer._taxzone_XComboBox	{container=':xTuple ERP:*.Customer_QWorkspaceChild' name='_taxzone' type='XComboBox' visible='1'}
@@ -360,6 +365,7 @@
 :Open Purchase Orders_openPurchaseOrder	{name='openPurchaseOrder' type='openPurchaseOrder' visible='1' windowTitle='Open Purchase Orders'}
 :Open Sales Orders.Close_QToolButton	{container=':xTuple ERP:*.Open Sales Orders_QWorkspaceChild' name='_closeBtn' text='Close' type='QToolButton' visible='1'}
 :Open Sales Orders.New_QToolButton	{container=':xTuple ERP:*.Open Sales Orders_QWorkspaceChild' name='_newBtn' text='New' type='QToolButton' visible='1'}
+:Open Sales Orders.Open Sales Orders_QWorkspaceTitleBar	{container=':xTuple ERP:*.Open Sales Orders_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='Open Sales Orders'}
 :Open Sales Orders.Query_QToolButton	{container=':xTuple ERP:*.Open Sales Orders_QWorkspaceChild' name='_queryBtn' text='Query' type='QToolButton' visible='1'}
 :Open Sales Orders._listLabelFrame_QFrame	{container=':xTuple ERP:*.Open Sales Orders_QWorkspaceChild' name='_listLabelFrame' type='QFrame' visible='0'}
 :Orders.20085_QModelIndex	{column='0' container=':_listTab_XTreeWidget_14' text='20085' type='QModelIndex'}
@@ -387,6 +393,10 @@
 :Planned Orders by Planner Code._listLabelFrame_QFrame	{container=':xTuple ERP:*.Planned Orders by Planner Code_QWorkspaceChild' name='_listLabelFrame' type='QFrame' visible='1'}
 :Planned Orders by Planner Code._warehouse_WarehouseGroup	{container=':xTuple ERP:*.Planned Orders by Planner Code_QWorkspaceChild' name='_warehouse' type='WarehouseGroup' visible='1'}
 :Planned Orders by Planner Code.frame_QFrame	{container=':xTuple ERP:*.Planned Orders by Planner Code_QWorkspaceChild' name='frame' type='QFrame' visible='1'}
+:Planned Orders.Close_QToolButton	{container=':xTuple ERP:*.Planned Orders_QWorkspaceChild' name='_closeBtn' text='Close' type='QToolButton' visible='1'}
+:Planned Orders.Create_QPushButton	{container=':xTuple ERP:*.Planned Orders_QWorkspaceChild' name='_create' text='Create' type='QPushButton' visible='1'}
+:Planned Orders.Query_QToolButton	{container=':xTuple ERP:*.Planned Orders_QWorkspaceChild' name='_queryBtn' text='Query' type='QToolButton' visible='1'}
+:Planned Orders._listLabelFrame_QFrame	{container=':xTuple ERP:*.Planned Orders_QWorkspaceChild' name='_listLabelFrame' type='QFrame' visible='0'}
 :Post Billing Selections.Consolidate By Customer_XCheckBox	{name='_consolidate' text='Consolidate By Customer' type='XCheckBox' visible='1' window=':Post Billing Selections_postBillingSelections'}
 :Post Billing Selections.Post_QPushButton	{name='_post' text='Post' type='QPushButton' visible='1' window=':Post Billing Selections_postBillingSelections'}
 :Post Billing Selections_postBillingSelections	{name='postBillingSelections' type='postBillingSelections' visible='1' windowTitle='Post Billing Selections'}
@@ -448,11 +458,13 @@
 :Quotes.Query_QToolButton	{container=':xTuple ERP:*.Quotes_QWorkspaceChild' name='_queryBtn' text='Query' type='QToolButton' visible='1'}
 :Quotes._listLabelFrame_QFrame	{container=':xTuple ERP:*.Quotes_QWorkspaceChild' name='_listLabelFrame' type='QFrame' visible='0'}
 :Reference_HeaderViewItem	{container=':_gltrans_QHeaderView' text='Reference' type='HeaderViewItem'}
+:Registration Key.No_QPushButton	{text='No' type='QPushButton' unnamed='1' visible='1' window=':Registration Key_QMessageBox'}
 :Registration Key.OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':Registration Key_QMessageBox'}
 :Registration Key_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Registration Key'}
 :Returned_HeaderViewItem	{container=':_poitem_QHeaderView' text='Returned' type='HeaderViewItem'}
 :Reverse G/L Series_reverseGLSeries	{name='reverseGLSeries' type='reverseGLSeries' visible='1' windowTitle='Reverse G/L Series'}
 :Run MRP by Planner Code.Create_QPushButton	{name='_create' text='Create' type='QPushButton' visible='1' window=':Run MRP by Planner Code_createPlannedOrdersByPlannerCode'}
+:Run MRP by Planner Code.OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':Run MRP by Planner Code_createPlannedOrdersByPlannerCode'}
 :Run MRP by Planner Code.XDateEdit_XDateEdit	{name='XDateEdit' type='XDateEdit' visible='1' window=':Run MRP by Planner Code_createPlannedOrdersByPlannerCode'}
 :Run MRP by Planner Code_createPlannedOrdersByPlannerCode	{name='createPlannedOrdersByPlannerCode' type='createPlannedOrdersByPlannerCode' visible='1' windowTitle='Run MRP by Planner Code'}
 :Sales Configuration._nextInNumber_XLineEdit	{name='_nextInNumber' type='XLineEdit' visible='1' window=':Sales Configuration_configureSO'}
@@ -606,6 +618,17 @@
 :Work Order Schedule by Planner Code._listLabelFrame_QFrame	{container=':xTuple ERP:*.Work Order Schedule by Planner Code_QWorkspaceChild' name='_listLabelFrame' type='QFrame' visible='1'}
 :Work Order Schedule by Planner Code._optionsGroup_QGroupBox	{container=':xTuple ERP:*.Work Order Schedule by Planner Code_QWorkspaceChild' name='_optionsGroup' type='QGroupBox' visible='1'}
 :Work Order Schedule by Planner Code._qtyGroup_QGroupBox	{container=':xTuple ERP:*.Work Order Schedule by Planner Code_QWorkspaceChild' name='_qtyGroup' type='QGroupBox' visible='1'}
+:Work Order Schedule.Close W/O_QPushButton	{container=':xTuple ERP:*.Work Order Schedule_QWorkspaceChild' name='_closeWo' text='Close W/O' type='QPushButton' visible='1'}
+:Work Order Schedule.Close_QToolButton	{container=':xTuple ERP:*.Work Order Schedule_QWorkspaceChild' name='_closeBtn' text='Close' type='QToolButton' visible='1'}
+:Work Order Schedule.Explode_QPushButton	{container=':xTuple ERP:*.Work Order Schedule_QWorkspaceChild' name='_explode' text='Explode' type='QPushButton' visible='1'}
+:Work Order Schedule.Implode_QPushButton	{container=':xTuple ERP:*.Work Order Schedule_QWorkspaceChild' name='_implode' text='Implode' type='QPushButton' visible='1'}
+:Work Order Schedule.Post_QPushButton	{container=':xTuple ERP:*.Work Order Schedule_QWorkspaceChild' name='_issue' text='Post' type='QPushButton' visible='1'}
+:Work Order Schedule.Post_QPushButton_2	{container=':xTuple ERP:*.Work Order Schedule_QWorkspaceChild' name='_correct' text='Post' type='QPushButton' visible='1'}
+:Work Order Schedule.Query_QToolButton	{container=':xTuple ERP:*.Work Order Schedule_QWorkspaceChild' name='_queryBtn' text='Query' type='QToolButton' visible='1'}
+:Work Order Schedule._componentGroup_QGroupBox	{container=':xTuple ERP:*.Work Order Schedule_QWorkspaceChild' name='_componentGroup' type='QGroupBox' visible='1'}
+:Work Order Schedule._listLabelFrame_QFrame	{container=':xTuple ERP:*.Work Order Schedule_QWorkspaceChild' name='_listLabelFrame' type='QFrame' visible='0'}
+:Work Order Schedule._optionsGroup_QGroupBox	{container=':xTuple ERP:*.Work Order Schedule_QWorkspaceChild' name='_optionsGroup' type='QGroupBox' visible='1'}
+:Work Order Schedule._qtyGroup_QGroupBox	{container=':xTuple ERP:*.Work Order Schedule_QWorkspaceChild' name='_qtyGroup' type='QGroupBox' visible='1'}
 :Work Order.Close_QPushButton	{container=':xTuple ERP:*.Work Order_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :Work Order.Create_QPushButton	{container=':xTuple ERP:*.Work Order_QWorkspaceChild' name='_create' text='Create' type='QPushButton' visible='1'}
 :Work Order.Work Order_QWorkspaceTitleBar	{container=':xTuple ERP:*.Work Order_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='Work Order'}
@@ -655,6 +678,7 @@
 :_availabilityStack.Availability_QGroupBox	{container=':supplyTab._availabilityStack_QStackedWidget' name='_availabilityGroup' title='Availability' type='QGroupBox' visible='1'}
 :_bankaccnt_XComboBox	{buddy=':Select Payments.Bank Account:_QLabel' name='_bankaccnt' type='XComboBox' visible='1'}
 :_billed_XLineEdit	{buddy=':_qtyGroup.Qty. Billed:_QLabel' name='_billed' type='XLineEdit' visible='1'}
+:_billtoFrame.CLineEdit_CLineEdit	{container=':Bill To._billtoFrame_QFrame' name='CLineEdit' type='CLineEdit' visible='1'}
 :_billtoFrame.VirtualClusterLineEdit_CLineEdit	{container=':Bill To._billtoFrame_QFrame' name='VirtualClusterLineEdit' type='CLineEdit' visible='1'}
 :_check.No_QModelIndex	{column='0' container=':_frame._check_XTreeWidget' text='No' type='QModelIndex'}
 :_check.No_QModelIndex_2	{column='1' container=':_frame._check_XTreeWidget' text='No' type='QModelIndex'}
@@ -664,6 +688,7 @@
 :_code_XLineEdit	{buddy=':*.Code:_QLabel' name='_code' type='XLineEdit' visible='1'}
 :_componentGroup._itemNumber_XComboBox	{container=':W/O Schedule by Planner Code._componentGroup_QGroupBox' name='_itemNumber' type='XComboBox' visible='1'}
 :_componentGroup._itemNumber_XComboBox_2	{container=':Work Order Schedule by Planner Code._componentGroup_QGroupBox' name='_itemNumber' type='XComboBox' visible='1'}
+:_componentGroup._itemNumber_XComboBox_3	{container=':Work Order Schedule._componentGroup_QGroupBox' name='_itemNumber' type='XComboBox' visible='1'}
 :_componentGroup_QComboBoxListView	{container=':W/O Schedule by Planner Code._componentGroup_QGroupBox' type='QComboBoxListView' unnamed='1' visible='1'}
 :_costcat.DISTRIBUTION-Distribution - WH2_QModelIndex	{container=':_costcat_XComboBox' text='DISTRIBUTION-Distribution - WH2' type='QModelIndex'}
 :_costcat.FINISHED-Finished Product - WH1_QModelIndex	{container=':_costcat_XComboBox_2' text='FINISHED-Finished Product - WH1' type='QModelIndex'}
@@ -684,7 +709,9 @@
 :_expenseGroup.Expense Categories_QLabel	{container=':_groupButton._expenseGroup_QGroupBox' name='_titleLit' text='Expense Categories' type='QLabel' visible='1'}
 :_expenseGroup.VirtualClusterLineEdit_ExpenseLineEdit	{container=':_groupButton._expenseGroup_QGroupBox' name='VirtualClusterLineEdit' type='ExpenseLineEdit' visible='1'}
 :_filterGroup.+_QToolButton	{container=':General Ledger Transactions._filterGroup_QFrame' name='_addFilterRow' text='+' type='QToolButton' visible='1'}
+:_filterGroup.widget3_XComboBox	{container=':General Ledger Transactions._filterGroup_QFrame' name='widget3' type='XComboBox' visible='1'}
 :_filterGroup.widget4_XComboBox	{container=':General Ledger Transactions._filterGroup_QFrame' name='widget4' type='XComboBox' visible='1'}
+:_filterGroup.xcomboBox3_XComboBox	{container=':General Ledger Transactions._filterGroup_QFrame' name='xcomboBox3' type='XComboBox' visible='1'}
 :_filterGroup.xcomboBox4_XComboBox	{container=':General Ledger Transactions._filterGroup_QFrame' name='xcomboBox4' type='XComboBox' visible='1'}
 :_frame.Add->_QPushButton	{container=':*._frame_QFrame_3' name='_add' text='Add->' type='QPushButton' visible='1'}
 :_frame.Distribute_QPushButton	{container=':Distribute Stock To/From Site Locations._frame_QFrame' name='_distribute' text='Distribute' type='QPushButton' visible='1'}
@@ -793,6 +820,8 @@
 :_itemGroup.VirtualClusterLineEdit_ItemLineEdit_4	{container=':Sales Order._itemGroup_QGroupBox_2' name='VirtualClusterLineEdit' type='ItemLineEdit' visible='1'}
 :_itemGroup.VirtualClusterLineEdit_ItemLineEdit_5	{container=':Enter Miscellaneous Adjustment._itemGroup_QGroupBox' name='VirtualClusterLineEdit' type='ItemLineEdit' visible='1'}
 :_itemNumber.TWHEEL1_QModelIndex	{container=':_componentGroup._itemNumber_XComboBox_2' text='TWHEEL1' type='QModelIndex'}
+:_itemNumber.YPAINT1_QModelIndex	{container=':_componentGroup._itemNumber_XComboBox_3' text='YPAINT1' type='QModelIndex'}
+:_itemNumber_QModelIndex	{container=':_componentGroup._itemNumber_XComboBox_3' text='' type='QModelIndex'}
 :_itemSite_XTreeWidget	{buddy=':List Item Sites.Item Sites:_QLabel' name='_itemSite' type='XTreeWidget' visible='1'}
 :_itemSite_XTreeWidget_2	{buddy=':List Item Sites.Item Sites:_QLabel_2' name='_itemSite' type='XTreeWidget' visible='1'}
 :_itemTypeGroup.Item_QGroupBox	{container=':Invoice._itemTypeGroup_QGroupBox' name='_itemGroup' title='Item' type='QGroupBox' visible='1'}
@@ -833,6 +862,7 @@
 :_lineItemsPage_XLineEdit	{container=':qt_tabwidget_stackedwidget._lineItemsPage_QWidget_2' occurrence='6' type='XLineEdit' unnamed='1' visible='1'}
 :_lineitemsTab.Select Balance_QPushButton	{container=':qt_tabwidget_stackedwidget._lineitemsTab_QWidget' name='_selectBalance' text='Select Balance' type='QPushButton' visible='1'}
 :_lineitemsTab._soitem_XTreeWidget	{container=':qt_tabwidget_stackedwidget._lineitemsTab_QWidget' name='_soitem' type='XTreeWidget' visible='1'}
+:_list.10085-1_QModelIndex	{column='1' container=':_list_XTreeWidget_12' text='10085-1' type='QModelIndex'}
 :_list.10085_QModelIndex	{column='0' container=':_list_XTreeWidget_8' text='10085' type='QModelIndex'}
 :_list.10086_QModelIndex	{column='0' container=':_list_XTreeWidget_8' text='10086' type='QModelIndex'}
 :_list.10088-1_QModelIndex	{column='1' container=':_list_XTreeWidget_2' text='10088-1' type='QModelIndex'}
@@ -841,7 +871,9 @@
 :_list.20117_QModelIndex	{column='0' container=':_list_XTreeWidget_5' text='20117' type='QModelIndex'}
 :_list.40015_QModelIndex	{column='0' container=':_list_XTreeWidget' text='40015' type='QModelIndex'}
 :_list.50.00_QModelIndex	{column='3' container=':_list_XTreeWidget_9' text='50.00' type='QModelIndex'}
+:_list.50217-1_QModelIndex	{column='1' container=':_list_XTreeWidget_12' text='50217-1' type='QModelIndex'}
 :_list.50223_QModelIndex	{column='0' container=':_list_XTreeWidget_4' text='50223' type='QModelIndex'}
+:_list.90419-1_QModelIndex	{column='0' text='90419-1' type='QModelIndex'}
 :_list.90547-1_QModelIndex	{column='0' container=':_list_XTreeWidget_3' text='90547-1' type='QModelIndex'}
 :_list.Reversal for Journal_QModelIndex	{column='4' container=':_list_XTreeWidget_10' type='QModelIndex'}
 :_list.STRUCK1_QModelIndex	{column='0' container=':_list_XTreeWidget_7' text='STRUCK1' type='QModelIndex'}
@@ -856,6 +888,8 @@
 :_listLabelFrame.Results_QLabel_2	{container=':Open Sales Orders._listLabelFrame_QFrame' name='_listLabel' text='Results' type='QLabel' visible='0'}
 :_listLabelFrame.Results_QLabel_3	{container=':Open Purchase Orders._listLabelFrame_QFrame' name='_listLabel' text='Results' type='QLabel' visible='0'}
 :_listLabelFrame.Results_QLabel_4	{container=':Items._listLabelFrame_QFrame' name='_listLabel' text='Results' type='QLabel' visible='0'}
+:_listLabelFrame.Results_QLabel_5	{container=':Work Order Schedule._listLabelFrame_QFrame' name='_listLabel' text='Results' type='QLabel' visible='0'}
+:_listLabelFrame.Results_QLabel_6	{container=':Planned Orders._listLabelFrame_QFrame' name='_listLabel' text='Results' type='QLabel' visible='0'}
 :_listLabelFrame.Transactions_QLabel	{container=':General Ledger Transactions._listLabelFrame_QFrame' name='_listLabel' text='Transactions' type='QLabel' visible='1'}
 :_listLabelFrame.Transactions_QLabel_2	{container=':Invoice Register._listLabelFrame_QFrame' name='_listLabel' text='Transactions' type='QLabel' visible='1'}
 :_listLabelFrame.Work Orders_QLabel	{container=':Work Order Schedule by Planner Code._listLabelFrame_QFrame' name='_listLabel' text='Work Orders' type='QLabel' visible='1'}
@@ -905,6 +939,8 @@
 :_list_XTreeWidget	{buddy=':_listLabelFrame.Results_QLabel' name='_list' type='XTreeWidget' visible='1'}
 :_list_XTreeWidget_10	{buddy=':_listLabelFrame.Transactions_QLabel' name='_list' type='XTreeWidget' visible='1'}
 :_list_XTreeWidget_11	{buddy=':_listLabelFrame.Transactions_QLabel_2' name='_list' type='XTreeWidget' visible='1'}
+:_list_XTreeWidget_12	{buddy=':_listLabelFrame.Results_QLabel_5' name='_list' type='XTreeWidget' visible='1'}
+:_list_XTreeWidget_13	{buddy=':_listLabelFrame.Results_QLabel_6' name='_list' type='XTreeWidget' visible='1'}
 :_list_XTreeWidget_2	{buddy=':_listLabelFrame.Work Orders_QLabel' name='_list' type='XTreeWidget' visible='1'}
 :_list_XTreeWidget_3	{buddy=':_listLabelFrame.Planned Orders_QLabel' name='_list' type='XTreeWidget' visible='1'}
 :_list_XTreeWidget_4	{buddy=':_listLabelFrame.Results_QLabel_2' name='_list' type='XTreeWidget' visible='1'}
@@ -929,6 +965,7 @@
 :_optionsGroup.Close W/O after Posting_XCheckBox	{container=':W/O Schedule by Planner Code._optionsGroup_QGroupBox' name='_closeWo' text='Close W/O after Posting' type='XCheckBox' visible='1'}
 :_optionsGroup.Close Work Order after Posting_XCheckBox	{container=':W/O Schedule by Planner Code._optionsGroup_QGroupBox' name='_closeWo' text='Close Work Order after Posting' type='XCheckBox' visible='1'}
 :_optionsGroup.Close Work Order after Posting_XCheckBox_2	{container=':Work Order Schedule by Planner Code._optionsGroup_QGroupBox' name='_closeWo' text='Close Work Order after Posting' type='XCheckBox' visible='1'}
+:_optionsGroup.Close Work Order after Posting_XCheckBox_3	{container=':Work Order Schedule._optionsGroup_QGroupBox' name='_closeWo' text='Close Work Order after Posting' type='XCheckBox' visible='1'}
 :_orderGroup.VirtualClusterLineEdit_OrderLineEdit	{container=':Select Order for Billing._orderGroup_QGroupBox' name='VirtualClusterLineEdit' type='OrderLineEdit' visible='1'}
 :_ordered_XLineEdit	{buddy=':_qtyGroup.Qty. Ordered:_QLabel' name='_ordered' type='XLineEdit' visible='1'}
 :_ordered_XLineEdit_2	{buddy=':_qtyGroup.Qty. Ordered:_QLabel_2' name='_ordered' type='XLineEdit' visible='1'}
@@ -980,17 +1017,21 @@
 :_qtyGroup.100.00_XLabel	{container=':W/O Schedule by Planner Code._qtyGroup_QGroupBox' name='_qtyBalance' text='100.00' type='XLabel' visible='1'}
 :_qtyGroup.100.00_XLabel_2	{container=':W/O Schedule by Planner Code._qtyGroup_QGroupBox' name='_qtyOrdered' text='100.00' type='XLabel' visible='1'}
 :_qtyGroup.100.00_XLabel_3	{container=':Work Order Schedule by Planner Code._qtyGroup_QGroupBox' name='_qtyOrdered' text='100.00' type='XLabel' visible='1'}
+:_qtyGroup.100.00_XLabel_4	{container=':Work Order Schedule._qtyGroup_QGroupBox' name='_qtyOrdered' text='100.00' type='XLabel' visible='1'}
 :_qtyGroup.50.00_XLabel	{name='_qtyReceived' text='50.00' type='XLabel' visible='1'}
 :_qtyGroup.50.00_XLabel_2	{container=':W/O Schedule by Planner Code._qtyGroup_QGroupBox' name='_qtyBalance' text='50.00' type='XLabel' visible='1'}
 :_qtyGroup.50.00_XLabel_3	{container=':Work Order Schedule by Planner Code._qtyGroup_QGroupBox' name='_qtyBalance' text='50.00' type='XLabel' visible='1'}
+:_qtyGroup.50.00_XLabel_4	{container=':Work Order Schedule._qtyGroup_QGroupBox' name='_qtyBalance' text='50.00' type='XLabel' visible='1'}
 :_qtyGroup.Adjustment Qty.:_QLabel	{container=':*._qtyGroup_QGroupBox' name='_adjustment_QtyLit' text='Adjustment Qty.:' type='QLabel' visible='1'}
 :_qtyGroup.Qty. Billed:_QLabel	{container=':Invoice._qtyGroup_QGroupBox' name='_qtyBilledLit' text='Qty. Billed:' type='QLabel' visible='1'}
 :_qtyGroup.Qty. Ordered:_QLabel	{container=':Invoice._qtyGroup_QGroupBox' name='_qtyOrderedLit' text='Qty. Ordered:' type='QLabel' visible='1'}
 :_qtyGroup.Qty. Ordered:_QLabel_2	{container=':Purchase Order._qtyGroup_QGroupBox' name='_orderedLit' text='Qty. Ordered:' type='QLabel' visible='1'}
 :_qtyGroup.Qty. to Correct:_QLabel	{container=':W/O Schedule by Planner Code._qtyGroup_QGroupBox' name='_qtyLit' text='Qty. to Correct:' type='QLabel' visible='1'}
 :_qtyGroup.Qty. to Correct:_QLabel_2	{container=':Work Order Schedule by Planner Code._qtyGroup_QGroupBox' name='_qtyLit' text='Qty. to Correct:' type='QLabel' visible='1'}
+:_qtyGroup.Qty. to Correct:_QLabel_3	{container=':Work Order Schedule._qtyGroup_QGroupBox' name='_qtyLit' text='Qty. to Correct:' type='QLabel' visible='1'}
 :_qtyGroup.Qty. to Post:_QLabel	{container=':W/O Schedule by Planner Code._qtyGroup_QGroupBox' name='_qtyLit' text='Qty. to Post:' type='QLabel' visible='1'}
 :_qtyGroup.Qty. to Post:_QLabel_2	{container=':Work Order Schedule by Planner Code._qtyGroup_QGroupBox' name='_qtyLit' text='Qty. to Post:' type='QLabel' visible='1'}
+:_qtyGroup.Qty. to Post:_QLabel_3	{container=':Work Order Schedule._qtyGroup_QGroupBox' name='_qtyLit' text='Qty. to Post:' type='QLabel' visible='1'}
 :_qtyGroup._qty_XLineEdit	{container=':Work Order._qtyGroup_QGroupBox' name='_qty' type='XLineEdit' visible='1'}
 :_qtyOrdered_XLineEdit	{buddy=':_invGroup.Qty. Ordered:_QLabel' name='_qtyOrdered' type='XLineEdit' visible='1'}
 :_qtyOrdered_XLineEdit_2	{buddy=':_invGroup.Qty. Ordered:_QLabel_2' name='_qtyOrdered' type='XLineEdit' visible='1'}
@@ -1000,6 +1041,8 @@
 :_qty_XLineEdit_3	{buddy=':_qtyGroup.Qty. to Correct:_QLabel' name='_qty' type='XLineEdit' visible='1'}
 :_qty_XLineEdit_4	{buddy=':_qtyGroup.Qty. to Post:_QLabel_2' name='_qty' type='XLineEdit' visible='1'}
 :_qty_XLineEdit_5	{buddy=':_qtyGroup.Qty. to Correct:_QLabel_2' name='_qty' type='XLineEdit' visible='1'}
+:_qty_XLineEdit_6	{buddy=':_qtyGroup.Qty. to Post:_QLabel_3' name='_qty' type='XLineEdit' visible='1'}
+:_qty_XLineEdit_7	{buddy=':_qtyGroup.Qty. to Correct:_QLabel_3' name='_qty' type='XLineEdit' visible='1'}
 :_quote.40011_QModelIndex	{column='0' container=':_quote_XTreeWidget_2' text='40011' type='QModelIndex'}
 :_quote_XTreeWidget	{buddy=':frame.Quotes:_QLabel' name='_quote' type='XTreeWidget' visible='1'}
 :_quote_XTreeWidget_2	{buddy=':frame.Quotes:_QLabel_2' name='_quote' type='XTreeWidget' visible='1'}
@@ -1212,6 +1255,7 @@
 :qt_tabwidget_stackedwidget.lineItemsTab_QWidget	{container=':Invoice.qt_tabwidget_stackedwidget_QStackedWidget' name='lineItemsTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.supplyTab_QWidget	{container=':Sales Order.qt_tabwidget_stackedwidget_QStackedWidget_3' name='supplyTab' type='QWidget' visible='1'}
 :supplyTab._availabilityStack_QStackedWidget	{container=':qt_tabwidget_stackedwidget.supplyTab_QWidget' name='_availabilityStack' type='QStackedWidget' visible='1'}
+:widget3.G/L_QModelIndex	{container=':_filterGroup.widget3_XComboBox' text='G/L' type='QModelIndex'}
 :widget4.G/L_QModelIndex	{container=':_filterGroup.widget4_XComboBox' text='G/L' type='QModelIndex'}
 :xTuple ERP:*.Accounting Tools_QToolBar	{name='Accounting Tools' type='QToolBar' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='Accounting Tools'}
 :xTuple ERP:*.Accounting_QMenu	{name='menu.accnt' title='Accounting' type='QMenu' visible='1' window=':xTuple ERP:*_GUIClient'}
@@ -1285,6 +1329,7 @@
 :xTuple ERP:*.Payments_QMenu	{name='menu.accnt.appayments' title='Payments' type='QMenu' visible='1' window=':xTuple ERP:*_GUIClient'}
 :xTuple ERP:*.Planned Orders by Planner Code_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='Planned Orders by Planner Code'}
 :xTuple ERP:*.Planned Orders_QMenu	{name='menu.sched.reportsplanned' title='Planned Orders' type='QMenu' visible='1' window=':xTuple ERP:*_GUIClient'}
+:xTuple ERP:*.Planned Orders_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='Planned Orders'}
 :xTuple ERP:*.Products Tools_QToolBar	{name='Products Tools' type='QToolBar' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='Products Tools'}
 :xTuple ERP:*.Products Tools_QWorkspace	{aboveWidget=':xTuple ERP:*.Products Tools_QToolBar' type='QWorkspace' unnamed='1' visible='1' window=':xTuple ERP:*_GUIClient'}
 :xTuple ERP:*.Products_QMenu	{name='menu.prod' title='Products' type='QMenu' visible='1' window=':xTuple ERP:*_GUIClient'}
@@ -1334,6 +1379,7 @@
 :xTuple ERP:*.W/O Schedule by Planner Code_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='W/O Schedule by Planner Code'}
 :xTuple ERP:*.Work Order Schedule by Planner Code_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='Work Order Schedule by Planner Code'}
 :xTuple ERP:*.Work Order Schedule_QMenu	{name='menu.manu.reportsschedule' title='Work Order Schedule' type='QMenu' visible='1' window=':xTuple ERP:*_GUIClient'}
+:xTuple ERP:*.Work Order Schedule_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='Work Order Schedule'}
 :xTuple ERP:*.Work Order_QMenu	{name='menu.manu.orders' title='Work Order' type='QMenu' visible='1' window=':xTuple ERP:*_GUIClient'}
 :xTuple ERP:*.Work Order_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP:*_GUIClient' windowTitle='Work Order'}
 :xTuple ERP:*.Workbench_QToolButton	{text='Workbench' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP:*_GUIClient'}
@@ -1357,5 +1403,6 @@
 :xTuple ERP:*_QPushButton	{type='QPushButton' unnamed='1' visible='1' window=':xTuple ERP:*_GUIClient'}
 :xTuple ERP:*_QSizeGrip	{type='QSizeGrip' unnamed='1' visible='1' window=':xTuple ERP:*_GUIClient'}
 :xTuple ERP:*_QStatusBar	{type='QStatusBar' unnamed='1' visible='1' window=':xTuple ERP:*_GUIClient'}
+:xcomboBox3.Source_QModelIndex	{container=':_filterGroup.xcomboBox3_XComboBox' text='Source' type='QModelIndex'}
 :xcomboBox4.Source_QModelIndex	{container=':_filterGroup.xcomboBox4_XComboBox' text='Source' type='QModelIndex'}
 	{column='4' container=':*._gltrans_XTreeWidget' text='Reversal for Journal ' type='QModelIndex'}
