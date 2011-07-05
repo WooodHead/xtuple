@@ -226,11 +226,11 @@ BEGIN
 
     IF ((NEW.coitem_status = 'X') AND (OLD.coitem_status <> 'X')) THEN
       IF ((OLD.coitem_order_type = 'W') AND
-	  (SELECT wo_status IN ('O', 'E')
+	  (SELECT wo_status IN ('O', 'E', 'R')
 	    FROM wo
 	    WHERE (wo_id=OLD.coitem_order_id))) THEN
-      -- Delete any associated W/O
-        PERFORM deleteWo(OLD.coitem_order_id, TRUE);
+      -- Close any associated W/O
+        PERFORM closeWo(OLD.coitem_order_id, FALSE, CURRENT_DATE);
       ELSIF (OLD.coitem_order_type = 'R') THEN 
       -- Delete any associated P/R
         PERFORM deletePr(OLD.coitem_order_id);
@@ -545,14 +545,8 @@ BEGIN
   -- Kit Processing
     IF (TG_OP = 'INSERT') THEN
   -- Create Sub Lines for Kit Components
-      PERFORM explodeKit(NEW.coitem_cohead_id, NEW.coitem_linenumber, 0, NEW.coitem_itemsite_id, NEW.coitem_qtyord);
-  -- Update kit line item dates
-      UPDATE coitem
-      SET coitem_scheddate = NEW.coitem_scheddate,
-          coitem_promdate = NEW.coitem_promdate
-      WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
-        AND (coitem_linenumber = NEW.coitem_linenumber)
-        AND (coitem_subnumber > 0));
+      PERFORM explodeKit(NEW.coitem_cohead_id, NEW.coitem_linenumber, 0, NEW.coitem_itemsite_id,
+                         NEW.coitem_qtyord, NEW.coitem_scheddate, NEW.coitem_promdate);
       IF (fetchMetricBool('KitComponentInheritCOS')) THEN
   -- Update kit line item COS
         UPDATE coitem
@@ -581,18 +575,8 @@ BEGIN
           END IF;
         END LOOP;
 
-        PERFORM explodeKit(NEW.coitem_cohead_id, NEW.coitem_linenumber, 0, NEW.coitem_itemsite_id, NEW.coitem_qtyord);
-      END IF;
-      IF ( (NEW.coitem_qtyord <> OLD.coitem_qtyord) OR
-           (NEW.coitem_scheddate <> OLD.coitem_scheddate) OR
-           (NEW.coitem_promdate <> OLD.coitem_promdate) ) THEN
-  -- Update kit line item dates
-        UPDATE coitem
-        SET coitem_scheddate = NEW.coitem_scheddate,
-            coitem_promdate = NEW.coitem_promdate
-        WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
-          AND (coitem_linenumber = NEW.coitem_linenumber)
-          AND (coitem_subnumber > 0));
+        PERFORM explodeKit(NEW.coitem_cohead_id, NEW.coitem_linenumber, 0, NEW.coitem_itemsite_id,
+                           NEW.coitem_qtyord, NEW.coitem_scheddate, NEW.coitem_promdate);
       END IF;
       IF ( (NEW.coitem_qtyord <> OLD.coitem_qtyord) OR
            (NEW.coitem_cos_accnt_id <> OLD.coitem_cos_accnt_id) ) THEN
