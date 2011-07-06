@@ -90,7 +90,7 @@ FROM (
     AND  (coitem_scheddate >= <? value("startDateSched") ?>)
   <? endif ?>
   <? if exists("endDateSched") ?>
-    AND  (coitem_scheddate >= <? value("endDateSched") ?>)
+    AND  (coitem_scheddate <= <? value("endDateSched") ?>)
   <? endif ?>
   <? if exists("salesrep_id") ?>
     AND  (cohead_salesrep_id=<? value("salesrep_id") ?>)
@@ -206,7 +206,7 @@ FROM (
     AND  (coitem_scheddate >= <? value("startDateSched") ?>)
   <? endif ?>
   <? if exists("endDateSched") ?>
-    AND  (coitem_scheddate >= <? value("endDateSched") ?>)
+    AND  (coitem_scheddate <= <? value("endDateSched") ?>)
   <? endif ?>
   <? if exists("salesrep_id") ?>
     AND  (cohead_salesrep_id=<? value("salesrep_id") ?>)
