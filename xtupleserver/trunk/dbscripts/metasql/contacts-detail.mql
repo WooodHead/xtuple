@@ -3,7 +3,9 @@
 -- Notes: 
 
 SELECT DISTINCT ON (length(cntct_last_name)=0, length(cntct_first_name)=0, cntct_last_name, cntct_first_name, cntct_number) 
-  cntct_id AS id, addr_id AS altId, addr.*,
+  cntct_id AS id
+<? if not exists("idOnly") ?> 
+, addr_id AS altId, addr.*,
   crmacct_id, crmacct_number, crmacct_name,
   cntct.* 
 <? foreach("char_id_text_list") ?>
@@ -15,6 +17,7 @@ SELECT DISTINCT ON (length(cntct_last_name)=0, length(cntct_first_name)=0, cntct
 <? foreach("char_id_date_list") ?>
   , charass_alias<? literal("char_id_date_list") ?>.charass_value::date AS char<? literal("char_id_date_list") ?>
 <? endforeach ?>
+<? endif ?>
 FROM cntct 
   LEFT OUTER JOIN crmacct ON (cntct_crmacct_id=crmacct_id) 
   LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id) 
@@ -86,7 +89,10 @@ WHERE true
   AND (addr_country ~* <? value("addr_country_pattern") ?>)
 <? endif ?>
 <? if exists("id") ?>
-  AND (cntct_id=<? value("id") ?>)
+  AND (cntct_id=<? literal("id") ?>)
+<? endif ?>
+<? if exists("addr_id") ?>
+  AND (addr_id=<? value("addr_id") ?>)
 <? endif ?>
 <? literal("charClause") ?>
 ORDER BY length(cntct_last_name)=0, length(cntct_first_name)=0, cntct_last_name, cntct_first_name, cntct_number, cntcteml_primary desc;
