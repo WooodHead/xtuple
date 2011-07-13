@@ -64,8 +64,9 @@ BEGIN
 
   PERFORM deleteProject(_r.cohead_prj_id);
 
-  DELETE FROM aropenco
-  WHERE (aropenco_cohead_id=pSoheadid);
+  DELETE FROM aropenalloc
+  WHERE ((aropenalloc_doctype='S')
+    AND  (aropenalloc_doc_id=pSoheadid));
 
   IF (COALESCE(pSonumber,'') != '') THEN
     _result = releaseSoNumber(pSonumber);
