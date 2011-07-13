@@ -600,17 +600,18 @@ BEGIN
     -- get a list of allocated CMs
     FOR _r IN SELECT aropen_id,
 		     CASE WHEN((aropen_amount - aropen_paid) >=
-                                aropenco_amount / (1 / aropen_curr_rate / 
-                                currRate(aropenco_curr_id,_firstExchDate))) THEN
-			      aropenco_amount / (1 / aropen_curr_rate / 
-                                currRate(aropenco_curr_id,_firstExchDate))
+                                aropenalloc_amount / (1 / aropen_curr_rate / 
+                                currRate(aropenalloc_curr_id,_firstExchDate))) THEN
+			      aropenalloc_amount / (1 / aropen_curr_rate / 
+                                currRate(aropenalloc_curr_id,_firstExchDate))
 			  ELSE (aropen_amount - aropen_paid)
 		     END AS balance,
 		     aropen_curr_id, aropen_curr_rate,
-		     aropenco_cohead_id
-                FROM aropenco, aropen, cohead
-               WHERE ( (aropenco_aropen_id=aropen_id)
-                 AND   (aropenco_cohead_id=cohead_id)
+		     aropenalloc_doctype, aropenalloc_doc_id
+                FROM aropenalloc, aropen, cohead
+               WHERE ( (aropenalloc_aropen_id=aropen_id)
+                 AND   ((aropenalloc_doctype='S' AND aropenalloc_doc_id=cohead_id) OR
+                        (aropenalloc_doctype='I' AND aropenalloc_doc_id=_p.invchead_id))
                  AND   (cohead_number=_p.invchead_ordernumber) ) LOOP
 
       _appliedAmount := _r.balance;
@@ -630,7 +631,7 @@ BEGIN
         INSERT INTO arcreditapply
               (arcreditapply_source_aropen_id, arcreditapply_target_aropen_id,
 	       arcreditapply_amount, arcreditapply_curr_id, arcreditapply_reftype, arcreditapply_ref_id)
-        VALUES(_r.aropen_id, _aropenid, _appliedAmount, _tmpCurrId, 'S',  _r.aropenco_cohead_id);
+        VALUES(_r.aropen_id, _aropenid, _appliedAmount, _tmpCurrId, 'S',  _r.aropenalloc_doc_id);
 
         -- call postARCreditMemoApplication(aropen_id of C/M)
         SELECT postARCreditMemoApplication(_r.aropen_id) into _test;

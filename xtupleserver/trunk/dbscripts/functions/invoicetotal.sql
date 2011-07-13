@@ -44,19 +44,18 @@ BEGIN
       AND   (invchead_posted) ) ;
   ELSE
     SELECT COALESCE(SUM(CASE WHEN((aropen_amount - aropen_paid) >=
-                       currToCurr(aropenco_curr_id, aropen_curr_id,
-                          aropenco_amount, aropen_docdate))
-           THEN currToCurr(aropenco_curr_id, invchead_curr_id,
-                   aropenco_amount, aropen_docdate)
+                       currToCurr(aropenalloc_curr_id, aropen_curr_id,
+                          aropenalloc_amount, aropen_docdate))
+           THEN currToCurr(aropenalloc_curr_id, invchead_curr_id,
+                   aropenalloc_amount, aropen_docdate)
            ELSE currToCurr(aropen_curr_id, invchead_curr_id,
                    aropen_amount - aropen_paid, aropen_docdate)
            END),0) INTO _allocated
-     FROM aropenco, aropen, cohead, invchead
-    WHERE ( (aropenco_aropen_id=aropen_id)
-      AND   (aropenco_cohead_id=cohead_id)
-      AND   ((aropen_amount - aropen_paid) > 0)
-      AND   (cohead_number=invchead_ordernumber)
-      AND   (NOT invchead_posted)
+     FROM invchead LEFT OUTER JOIN cohead ON (cohead_number=invchead_ordernumber)
+                   JOIN aropenalloc ON ((aropenalloc_doctype='I' AND aropenalloc_doc_id=invchead_id) OR
+                                        (aropenalloc_doctype='S' AND aropenalloc_doc_id=cohead_id))
+                   JOIN aropen ON (aropen_id=aropenalloc_aropen_id AND (aropen_amount - aropen_paid) > 0.0)
+    WHERE ( (NOT invchead_posted)
       AND   (invchead_id=pInvoiceId) );
   END IF;
   

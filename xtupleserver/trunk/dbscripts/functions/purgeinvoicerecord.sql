@@ -222,15 +222,17 @@ BEGIN
     END IF;
 
 -- Cash Advances associated with Sales Order cannot exist
-    SELECT aropenco_cohead_id INTO _result   
-      FROM aropenco
-     WHERE (aropenco_cohead_id=_r.ordship_id);
+    SELECT aropenalloc_doc_id INTO _result   
+      FROM aropenalloc
+     WHERE ((aropenalloc_doctype='S')
+       AND  (aropenalloc_doc_id=_r.ordship_id));
     IF (FOUND) THEN
       RETURN 'Shipped Cash Advance not closed';
     END IF;
-    SELECT aropenco_cohead_id INTO _result   
-      FROM aropenco
-     WHERE (aropenco_cohead_id=_r.ordinv_id);
+    SELECT aropenalloc_doc_id INTO _result   
+      FROM aropenalloc
+     WHERE ((aropenalloc_doctype='S')
+       AND  (aropenalloc_doc_id=_r.ordinv_id));
     IF (FOUND) THEN
       RETURN 'Invoiced Cash Advance not closed';
     END IF;

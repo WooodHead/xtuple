@@ -92,8 +92,8 @@ BEGIN
   IF (NEW.aropen_paid = NEW.aropen_amount) THEN
     NEW.aropen_open=FALSE;
 
---  Remove any aropenco regards that reference this aropen item
-    DELETE FROM aropenco WHERE (aropenco_aropen_id=NEW.aropen_id);
+--  Remove any aropenalloc regards that reference this aropen item
+    DELETE FROM aropenalloc WHERE (aropenalloc_aropen_id=NEW.aropen_id);
   END IF;
 
   IF (TG_OP = 'INSERT') THEN

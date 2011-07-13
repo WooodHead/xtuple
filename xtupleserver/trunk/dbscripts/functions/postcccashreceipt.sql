@@ -78,10 +78,10 @@ BEGIN
                            payaropen_amount,   payaropen_curr_id)
                   VALUES  (pccpay,             _aropenid,
                            _c.ccpay_amount,    _c.ccpay_curr_id);
-    INSERT INTO aropenco (aropenco_aropen_id, aropenco_cohead_id,
-                          aropenco_amount,    aropenco_curr_id)
-                  VALUES (_aropenid,          pdocid,
-                          _c.ccpay_amount,    _c.ccpay_curr_id);
+    INSERT INTO aropenalloc (aropenalloc_aropen_id, aropenalloc_doctype, aropenalloc_doc_id,
+                             aropenalloc_amount,    aropenalloc_curr_id)
+                     VALUES (_aropenid, 'S',          pdocid,
+                             _c.ccpay_amount,    _c.ccpay_curr_id);
     _return := _aropenid;
   END IF;
 
