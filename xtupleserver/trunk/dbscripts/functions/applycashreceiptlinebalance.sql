@@ -42,7 +42,7 @@ BEGIN
     RAISE NOTICE 'DocType (%)', _doctype;
   END IF;
 
-  IF (_amount = 0 AND _doctype IN ('I','D')) THEN
+  IF (_amount <= 0 AND _doctype IN ('I','D')) THEN
     RETURN 0;
   END IF;
 
