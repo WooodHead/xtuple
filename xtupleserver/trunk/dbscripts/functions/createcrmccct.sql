@@ -83,12 +83,14 @@ CREATE OR REPLACE FUNCTION createCrmAcct(TEXT, TEXT, BOOLEAN, TEXT, INTEGER, INT
                          crmacct_type, crmacct_cust_id, crmacct_competitor_id,
                          crmacct_partner_id, crmacct_prospect_id,
                          crmacct_vend_id, crmacct_taxauth_id,
-                         crmacct_cntct_id_1, crmacct_cntct_id_2
+                         crmacct_cntct_id_1, crmacct_cntct_id_2,
+                         crmacct_owner_username
                 ) VALUES (_crmacctid,pnumber, pname, pactive,
                          ptype, _custid, _competitorid,
                          _partnerid, _prospectid,
                          _vendid, _taxauthid,
-                         _cntct1, _cntct2);
+                         _cntct1, _cntct2,
+                         CURRENT_USER);
     UPDATE cntct SET cntct_crmacct_id=_crmacctid WHERE cntct_id IN (_cntct1,_cntct2);
     RETURN _crmacctid;
   END;
