@@ -61,6 +61,33 @@ BEGIN
     RETURN FALSE;
   END IF;
 
+  IF ( SELECT metric_value
+        FROM metric
+        WHERE ((metric_name = 'EnableAsOfQOH')
+        AND (metric_value = 't'))) THEN
+    IF (pNewcost IS NOT NULL) THEN
+      _newcost := pNewcost;
+    END IF;
+    IF (pOldcost IS NULL) THEN
+      _oldcost := 0;
+    ELSE
+      _oldcost := pOldcost;
+    END IF;
+  --  Distribute to G/L, debit Inventory Asset, credit Inventory Cost Variance
+    PERFORM postValueIntoInvBalance(
+                  itemsite_id,
+                  current_date,
+                  asofinvqty(itemsite_id,current_date),
+                  asofinvnn(itemsite_id,current_date),
+                  _oldcost,
+                  _newcost)
+       FROM itemsite
+       JOIN item ON (itemsite_item_id=item_id)
+       JOIN itemcost ON (itemcost_item_id=item_id)
+      WHERE((itemsite_costmethod = 'S')
+        AND (itemcost_id=pItemcostid));
+  END IF;
+
   RETURN TRUE;
 
 END;

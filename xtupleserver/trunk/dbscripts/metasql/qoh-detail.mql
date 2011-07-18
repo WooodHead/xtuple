@@ -55,6 +55,62 @@ FROM (
 ORDER BY
          sortkey, itemloc_id, level;
 <? else ?>
+<? if exists("asOf") ?>
+SELECT forwardupdateinvbalance(invbal_id)
+FROM (
+      SELECT DISTINCT ON (itemsite_id) invbal_id
+      FROM invbal, itemsite, item, warehous, classcode, uom, costcat, period
+      WHERE ((invbal_dirty)
+         AND (invbal_period_id=period_id)
+         AND (itemsite_item_id=item_id)
+         AND (itemsite_warehous_id=warehous_id)
+         AND (itemsite_active)
+         AND (item_inv_uom_id=uom_id)
+         AND (item_classcode_id=classcode_id)
+         AND (itemsite_costcat_id=costcat_id)
+  <? if exists("item_id") ?>
+         AND (itemsite_item_id=<? value("item_id") ?>)
+  <? endif ?>
+  <? if exists("classcode_id") ?>
+         AND (classcode_id=<? value("classcode_id") ?>)
+  <? endif ?>
+  <? if exists("classcode_pattern") ?>
+         AND (classcode_id IN (SELECT classcode_id
+                               FROM classcode
+                               WHERE classcode_code ~ <? value("classcode_pattern") ?>))
+  <? endif ?>
+  <? if exists("costcat_id") ?>
+         AND (costcat_id=<? value("costcat_id") ?>)
+  <? endif ?>
+  <? if exists("costcat_pattern") ?>
+         AND (costcat_id IN (SELECT costcat_id
+                               FROM costcat
+                               WHERE costcat_code ~ <? value("costcat_pattern") ?>))
+  <? endif ?>
+  <? if exists("itemgrp_id") ?>
+         AND (item_id IN (SELECT itemgrpitem_item_id
+                          FROM itemgrpitem
+                          WHERE (itemgrpitem_itemgrp_id=<? value("itemgrp_id") ?>)))
+  <? endif ?>
+  <? if exists("itemgrp_pattern") ?>
+         AND (item_id IN (SELECT itemgrpitem_item_id
+                          FROM itemgrpitem, itemgrp
+                          WHERE ((itemgrpitem_itemgrp_id=itemgrp_id)
+                             AND (itemgrp_name ~ <? value("itemgrp_pattern") ?>))))
+  <? endif ?>
+  <? if exists("showPositive") ?>
+       AND (itemsite_qtyonhand > 0)
+  <? elseif exists("showNegative") ?>
+       AND (itemsite_qtyonhand < 0)
+  <? endif ?>
+  <? if exists("warehous_id") ?>
+         AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+  <? endif ?>
+            )
+       ORDER BY itemsite_id, period_start
+     ) AS data
+;
+<? endif ?>
 --  Quantity on Hand
 SELECT itemsite_id, detail,warehous_code,
        classcode_code, item_number, uom_name,
@@ -95,17 +151,31 @@ FROM (
              END AS defaultlocation,
              warehous_code,
              CASE WHEN(itemsite_useparams) THEN itemsite_reorderlevel ELSE 0.0 END AS reorderlevel,
+  <? if exists("asOf") ?>
+             COALESCE(invbal_qoh_ending,0) AS qoh,
+             COALESCE(invbal_nn_ending,0) AS nnqoh,
+  <? else ?>
              itemsite_qtyonhand AS qoh,
              itemsite_nnqoh AS nnqoh,
+  <? endif ?>
   <? if exists("useStandardCosts") ?>
              stdcost(item_id) AS cost
   <? elseif exists("useActualCosts") ?>
              actcost(item_id) AS cost
   <? else ?>
+    <? if exists("asOf") ?>
+             COALESCE((invbal_value_ending / CASE WHEN(invbal_qoh_ending=0) THEN 1
+                                                  ELSE invbal_qoh_ending END),0) AS cost
+    <? else ?>
              (itemsite_value / CASE WHEN((itemsite_qtyonhand + itemsite_nnqoh)=0) THEN 1
                                     ELSE (itemsite_qtyonhand + itemsite_nnqoh) END) AS cost
+    <? endif ?>
   <? endif ?>
-      FROM itemsite, item, warehous, classcode, uom, costcat
+      FROM item, warehous, classcode, uom, costcat, itemsite
+  <? if exists("asOf") ?>
+        LEFT OUTER JOIN invbal ON ((itemsite_id=invbal_itemsite_id)
+                               AND (invbal_period_id=<? value("asOf") ?>))
+  <? endif ?>
       WHERE ((itemsite_item_id=item_id)
          AND (itemsite_warehous_id=warehous_id)
          AND (itemsite_active)
