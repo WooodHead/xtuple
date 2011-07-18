@@ -5,6 +5,15 @@ DECLARE
   _sense INTEGER;
 BEGIN
 
+    IF ( SELECT metric_value
+        FROM metric
+        WHERE ((metric_name = 'EnableAsOfQOH')
+        AND (metric_value = 't'))) THEN
+      IF (NOT postIntoInvBalance(pInvhistId)) THEN
+        RAISE EXCEPTION 'Post into Inventory Balance for invhist_id=% was unsuccessful',pInvhistId;
+      END IF;
+    END IF;
+
     SELECT invhist_ordnumber, invhist_transtype, itemsite_warehous_id INTO _r
     FROM invhist, itemsite
     WHERE ((invhist_id=pInvhistId)
