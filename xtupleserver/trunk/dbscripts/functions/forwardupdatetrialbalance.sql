@@ -7,13 +7,17 @@ DECLARE
   _ending NUMERIC;
   _prevYear INTEGER;
   _currYear INTEGER;
+  _yearEndCrossed BOOLEAN := FALSE;
+  _result INTEGER;
 
 BEGIN
 
   SELECT trialbal_accnt_id, trialbal_ending,
+         yearperiod_id, yearperiod_closed,
          period_end, accnt_type IN ('E', 'R') AS revexp INTO _p
-  FROM trialbal, period, accnt
+  FROM trialbal, period, yearperiod, accnt
   WHERE ( (trialbal_period_id=period_id)
+   AND (yearperiod_id=period_yearperiod_id)
    AND (trialbal_accnt_id=accnt_id)
    AND (trialbal_id=pTrialbalid) );
 
@@ -44,6 +48,7 @@ BEGIN
 
     IF (_p.revexp AND _currYear != _prevYear) THEN
       _ending := 0;
+      _yearEndCrossed := TRUE;
     END IF;
 
     _prevYear := _currYear;
@@ -80,6 +85,13 @@ BEGIN
   UPDATE trialbal
   SET trialbal_dirty = FALSE
   WHERE (trialbal_id=pTrialbalid);
+
+  IF (_yearEndCrossed AND _p.yearperiod_closed) THEN
+    SELECT updateRetainedEarnings(_p.yearperiod_id) INTO _result;
+    IF (_result < 0) THEN
+      RETURN _result;
+    END IF;
+  END IF;
 
   RETURN pTrialbalid;
 
