@@ -59,7 +59,7 @@ BEGIN
   ELSIF (_r.recv_order_type ='RA') THEN
     _ordertypeabbr := 'R/A for item ' || _r.item_number;
 
-    SELECT rahead_number AS orderhead_number, raitem_id AS orderitem_id,
+    SELECT rahead_id AS orderhead_id, rahead_number AS orderhead_number, raitem_id AS orderitem_id,
            raitem_linenumber AS orderitem_linenumber,
 	   currToBase(rahead_curr_id, raitem_unitprice,
 		    recv_date::DATE) AS item_unitprice_base,
@@ -333,6 +333,11 @@ BEGIN
       UPDATE raitem
       SET raitem_qtyreceived = (raitem_qtyreceived + _r.recv_qty)
       WHERE (raitem_id=_o.orderitem_id);
+
+      -- Expire date doesn't mean anything once the RA is received
+      UPDATE rahead
+      SET rahead_expiredate = NULL
+      WHERE (rahead_id=_o.orderhead_id);
 
 --  If receiving a qty on a shippable and upon receipt item, create coitem
       IF ((_ra.rahead_timing='R') AND
