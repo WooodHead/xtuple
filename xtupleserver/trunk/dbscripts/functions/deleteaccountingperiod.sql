@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION deleteAccountingPeriod(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION deleteAccountingPeriod(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pPeriodid ALIAS FOR $1;
   _check RECORD;
@@ -25,6 +25,15 @@ BEGIN
     RETURN -4;
   END IF;
 
+  SELECT b.period_id INTO _check
+    FROM period AS a, period AS b
+   WHERE((a.period_id=pPeriodid)
+     AND (a.period_end < b.period_start))
+   LIMIT 1;
+  IF (FOUND) THEN
+    RETURN -5;
+  END IF;
+
 --  Delete the period
   DELETE FROM period
   WHERE (period_id=pPeriodid);
@@ -32,5 +41,5 @@ BEGIN
   RETURN 1;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
