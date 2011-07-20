@@ -38,11 +38,11 @@ BEGIN
        INSERT INTO gltrans
         ( gltrans_posted, gltrans_exported, gltrans_created, gltrans_date,
           gltrans_sequence, gltrans_accnt_id, gltrans_source, gltrans_notes,
-          gltrans_doctype, gltrans_docnumber, gltrans_amount, gltrans_journalnumber )
+          gltrans_doctype, gltrans_docnumber, gltrans_amount, gltrans_journalnumber, gltrans_rec )
         VALUES
         ( FALSE, FALSE, CURRENT_TIMESTAMP, CURRENT_DATE,
           _sequence, _sltrans.sltrans_accnt_id, _sltrans.sltrans_source, 'Journal Posting',
-          'JP', _journalnumber, _sltrans.amount, _journalnumber );
+          'JP', _journalnumber, _sltrans.amount, _journalnumber, TRUE );
       
       _transCount := _transCount + 1;
     END IF;
@@ -124,11 +124,11 @@ BEGIN
        INSERT INTO gltrans
         ( gltrans_posted, gltrans_exported, gltrans_created, gltrans_date,
           gltrans_sequence, gltrans_accnt_id, gltrans_source, gltrans_notes,
-          gltrans_doctype, gltrans_docnumber, gltrans_amount, gltrans_journalnumber )
+          gltrans_doctype, gltrans_docnumber, gltrans_amount, gltrans_journalnumber, gltrans_rec )
         VALUES
         ( FALSE, FALSE, CURRENT_TIMESTAMP, pDistDate,
           _sequence, _sltrans.sltrans_accnt_id, _sltrans.sltrans_source, 'Journal Posting',
-          'JP', _journalnumber, _sltrans.amount, _journalnumber );
+          'JP', _journalnumber, _sltrans.amount, _journalnumber, TRUE );
       
       _transCount := _transCount + 1;
     END IF;
