@@ -64,6 +64,16 @@ BEGIN
                               AND  (bankrecitem_bankrec_id=pBankrecid) ) ) )
      AND   (gltrans_accnt_id=_accntid) ) ;
 
+-- Mark all the sltrans items that have been cleared as reconciled.
+  UPDATE sltrans
+     SET sltrans_rec = TRUE
+   WHERE ( (sltrans_id IN (SELECT bankrecitem_source_id
+                             FROM bankrecitem
+                            WHERE ((bankrecitem_source = 'SL')
+                              AND  (bankrecitem_cleared)
+                              AND  (bankrecitem_bankrec_id=pBankrecid) ) ) )
+     AND   (sltrans_accnt_id=_accntid) ) ;
+
 -- Mark the bankrec record as posted
   UPDATE bankrec SET 
     bankrec_posted = TRUE,
