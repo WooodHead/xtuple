@@ -1,10 +1,11 @@
-CREATE OR REPLACE FUNCTION hasPriv(TEXT) RETURNS BOOLEAN AS '
+CREATE OR REPLACE FUNCTION hasPriv(TEXT) RETURNS BOOLEAN AS $$
 DECLARE
   pPrivName	ALIAS FOR $1;
   _result       INTEGER;
   _returnVal	BOOLEAN;
 
 BEGIN
+  RAISE NOTICE 'hasPriv(TEXT) is deprecated. Use checkPrivilege(TEXT) instead.';
   SELECT priv_id INTO _result
     FROM priv, grppriv, usrgrp
    WHERE((usrgrp_grp_id=grppriv_grp_id)
@@ -25,4 +26,4 @@ BEGIN
 
   RETURN _returnVal;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

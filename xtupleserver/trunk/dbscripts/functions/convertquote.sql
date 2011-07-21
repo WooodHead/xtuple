@@ -58,9 +58,9 @@ BEGIN
     ELSE
       RETURN -3;
     END IF;
-  ELSIF (_creditstatus = 'H' AND NOT hasPriv('CreateSOForHoldCustomer')) THEN
+  ELSIF (_creditstatus = 'H' AND NOT checkPrivilege('CreateSOForHoldCustomer')) THEN
     RETURN -4;
-  ELSIF (_creditstatus = 'W' AND NOT hasPriv('CreateSOForWarnCustomer')) THEN
+  ELSIF (_creditstatus = 'W' AND NOT checkPrivilege('CreateSOForWarnCustomer')) THEN
     RETURN -5;
   END IF;
 

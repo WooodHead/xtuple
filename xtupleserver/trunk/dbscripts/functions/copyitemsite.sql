@@ -24,7 +24,7 @@ BEGIN
     END IF;
   END IF;
 
-  IF (NOT hasPriv('MaintainItemSites')) THEN
+  IF (NOT checkPrivilege('MaintainItemSites')) THEN
     RETURN -3;
   END IF;
 

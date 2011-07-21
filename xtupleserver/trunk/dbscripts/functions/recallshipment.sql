@@ -50,7 +50,7 @@ BEGIN
     WHERE ((cobill_coitem_id=shipitem_orderitem_id)
       AND  (shipitem_shiphead_id=pshipheadid));
 
-    IF (_allInvoiced AND NOT hasPriv('RecallInvoicedShipment')) THEN
+    IF (_allInvoiced AND NOT checkPrivilege('RecallInvoicedShipment')) THEN
       RETURN -2;
     END IF;
 
