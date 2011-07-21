@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION bomLevelByItem(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION bomLevelByItem(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pItemid ALIAS FOR $1;
   _cnt INTEGER;
@@ -8,6 +8,7 @@ DECLARE
 BEGIN
   _cnt := 0;
 
+  BEGIN
   FOR _bomitem IN SELECT bomitem_parent_item_id
                     FROM bomitem
                    WHERE (bomitem_item_id=pItemid) LOOP
@@ -16,12 +17,15 @@ BEGIN
       _cnt := _result;
     END IF;
   END LOOP;
+  EXCEPTION WHEN statement_too_complex THEN
+      RAISE EXCEPTION 'potential recursive BOM found for item_id %', pItemid;
+  END;
 
   return _cnt;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION bomLevelByItem(INTEGER,INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION bomLevelByItem(INTEGER,INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pItemid ALIAS FOR $1;
   pBomrevid ALIAS FOR $2;
@@ -32,6 +36,7 @@ DECLARE
 BEGIN
   _cnt := 0;
 
+  BEGIN
   FOR _bomitem IN SELECT bomitem_parent_item_id
                     FROM bomitem
                    WHERE ((bomitem_item_id=pItemid)
@@ -41,7 +46,10 @@ BEGIN
       _cnt := _result;
     END IF;
   END LOOP;
+  EXCEPTION WHEN statement_too_complex THEN
+      RAISE EXCEPTION 'potential recursive BOM found for item_id %', pItemid;
+  END;
 
   return _cnt;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
