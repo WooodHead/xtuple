@@ -61,6 +61,9 @@ BEGIN
     IF (NEW.item_type <> OLD.item_type) THEN
       PERFORM updateCost(itemcost_id, 0) FROM itemcost WHERE (itemcost_item_id=OLD.item_id);
       UPDATE itemsite SET itemsite_active=false WHERE (itemsite_item_id=OLD.item_id);
+      IF (NEW.item_type = 'R') THEN
+        UPDATE itemsite SET itemsite_controlmethod='N' WHERE (itemsite_item_id=OLD.item_id);
+      END IF;
     END IF;
   END IF;
 
