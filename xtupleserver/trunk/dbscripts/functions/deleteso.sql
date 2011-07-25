@@ -62,7 +62,9 @@ BEGIN
   DELETE FROM cohead
   WHERE (cohead_id=pSoheadid);
 
-  PERFORM deleteProject(_r.cohead_prj_id);
+  IF (fetchMetricBool('AutoCreateProjectsForOrders')) THEN
+    PERFORM deleteProject(_r.cohead_prj_id);
+  END IF;
 
   DELETE FROM aropenalloc
   WHERE ((aropenalloc_doctype='S')
