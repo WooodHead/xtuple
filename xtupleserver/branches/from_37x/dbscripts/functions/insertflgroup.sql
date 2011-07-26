@@ -187,7 +187,7 @@ BEGIN
                   flitem_showbudgetprcnt,flitem_showdiffprcnt,flitem_showcustomprcnt,
                   accnt_id,accnt_type,
                   FIRST(trialbal_id) AS first_trialbal_id, LAST(trialbal_id) AS last_trialbal_id,
-                  SUM(trialbal_debits) AS sum_trialbal_debits, SUM(trialbal_debits) AS sum_trialbal_credits, 
+                  SUM(trialbal_debits) AS sum_trialbal_debits, SUM(trialbal_credits) AS sum_trialbal_credits, 
                   LAST(flitem_period_id) AS last_flitem_period_id,
                   SUM(budget_amount) AS sum_budget_amount, LAST(budget_amount) AS last_budget_amount
                   FROM
