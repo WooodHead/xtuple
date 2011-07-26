@@ -1,6 +1,3 @@
-BEGIN;
-
-  --Prospect View
 
   SELECT dropIfExists('VIEW', 'prospect', 'api', true);
   CREATE OR REPLACE VIEW api.prospect AS
@@ -141,7 +138,5 @@ UPDATE prospect SET
 
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.prospect DO INSTEAD
+    DELETE FROM public.prospect WHERE (prospect_number=OLD.prospect_number);
 
-SELECT deleteProspect(getProspectId(OLD.Prospect_number));
-
-COMMIT;

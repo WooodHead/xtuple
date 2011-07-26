@@ -1,6 +1,3 @@
-BEGIN;
-
---Vendor View
 
 SELECT dropIfExists('VIEW', 'vendor', 'api');
 CREATE OR REPLACE VIEW api.vendor AS
@@ -288,7 +285,5 @@ WHERE vend_id=getVendId(OLD.vendor_number);
 
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.vendor DO INSTEAD
+    DELETE FROM public.vendinfo WHERE (vend_number=OLD.vendor_number);
 
-SELECT deletevendor(getVendId(OLD.vendor_number));
-
-COMMIT;

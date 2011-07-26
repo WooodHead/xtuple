@@ -4,12 +4,15 @@
 SELECT DISTINCT ON (crmacct_number)
   crmacct_id AS id, crmacct_number, crmacct_name,
   cntct.*, addr.*,
-  (crmacct_cust_id IS NOT NULL) AS cust,
-  (crmacct_prospect_id IS NOT NULL) AS prospect,
-  (crmacct_vend_id IS NOT NULL) AS vend,
+  (crmacct_cust_id       IS NOT NULL) AS cust,
+  (crmacct_prospect_id   IS NOT NULL) AS prospect,
+  (crmacct_vend_id       IS NOT NULL) AS vend,
   (crmacct_competitor_id IS NOT NULL) AS competitor,
-  (crmacct_partner_id IS NOT NULL) AS partner,
-  (crmacct_taxauth_id IS NOT NULL) AS taxauth 
+  (crmacct_partner_id    IS NOT NULL) AS partner,
+  (crmacct_taxauth_id    IS NOT NULL) AS taxauth,
+  (crmacct_usr_username  IS NOT NULL) AS usr,
+  (crmacct_emp_id        IS NOT NULL) AS emp,
+  (crmacct_salesrep_id   IS NOT NULL) AS salesrep
 <? foreach("char_id_text_list") ?>
   , charass_alias<? literal("char_id_text_list") ?>.charass_value AS char<? literal("char_id_text_list") ?>
 <? endforeach ?>

@@ -1,216 +1,229 @@
-CREATE OR REPLACE FUNCTION _custTrigger () RETURNS TRIGGER AS '
-DECLARE
-  _cmnttypeid INTEGER;
-  _oldCreditStatus TEXT;
-  _newCreditStatus TEXT;
-  _openAmount NUMERIC;
-  _check BOOLEAN;
-
+CREATE OR REPLACE FUNCTION _custTrigger () RETURNS TRIGGER AS $$
 BEGIN
 
---  Checks
-  SELECT checkPrivilege(''MaintainCustomerMasters'') OR checkPrivilege(''PostMiscInvoices'') INTO _check;
-  IF NOT (_check) THEN
-    RAISE EXCEPTION ''You do not have privileges to maintain Customers.'';
+  IF NOT (checkPrivilege('MaintainCustomerMasters') OR
+          checkPrivilege('PostMiscInvoices')) THEN
+    RAISE EXCEPTION 'You do not have privileges to maintain Customers.';
   END IF;
 
-  IF (TG_OP IN (''INSERT'',''UPDATE'')) THEN
+  IF (TG_OP IN ('INSERT','UPDATE')) THEN
     IF (NEW.cust_number IS NULL) THEN
-	  RAISE EXCEPTION ''You must supply a valid Customer Number.'';
+	  RAISE EXCEPTION 'You must supply a valid Customer Number.';
     END IF;
 
-    IF (LENGTH(COALESCE(NEW.cust_name,''''))=0) THEN
-	  RAISE EXCEPTION ''You must supply a valid Customer Name.'';
+    IF (LENGTH(COALESCE(NEW.cust_name,''))=0) THEN
+	  RAISE EXCEPTION 'You must supply a valid Customer Name.';
     END IF;
 
     IF (NEW.cust_custtype_id IS NULL) THEN
-	  RAISE EXCEPTION ''You must supply a valid Customer Type ID.'';
+	  RAISE EXCEPTION 'You must supply a valid Customer Type ID.';
     END IF;
 
     IF (NEW.cust_salesrep_id IS NULL) THEN
-  	  RAISE EXCEPTION ''You must supply a valid Sales Rep ID.'';
+  	  RAISE EXCEPTION 'You must supply a valid Sales Rep ID.';
     END IF;
 
     IF (NEW.cust_shipform_id IS NULL) THEN
-	  RAISE EXCEPTION ''You must supply a valid Ship Form ID.'';
+	  RAISE EXCEPTION 'You must supply a valid Ship Form ID.';
     END IF;
 
     IF (NEW.cust_terms_id IS NULL) THEN
-	  RAISE EXCEPTION ''You must supply a valid Terms Code ID.'';
+	  RAISE EXCEPTION 'You must supply a valid Terms Code ID.';
     END IF;
+
+  ELSIF (TG_OP = 'DELETE') THEN
+    UPDATE crmacct SET crmacct_cust_id = NULL
+     WHERE crmacct_cust_id = OLD.cust_id;
+    RETURN OLD;
+  END IF;
+  
+  RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'custTrigger');
+CREATE TRIGGER custTrigger BEFORE INSERT OR UPDATE OR DELETE ON custinfo
+       FOR EACH ROW EXECUTE PROCEDURE _custTrigger();
+
+CREATE OR REPLACE FUNCTION _custAfterTrigger () RETURNS TRIGGER AS $$
+DECLARE
+  _cmnttypeid INTEGER;
+
+BEGIN
+
+  IF (TG_OP = 'INSERT') THEN
+    -- http://www.postgresql.org/docs/current/static/plpgsql-control-structures.html#PLPGSQL-UPSERT-EXAMPLE
+    LOOP
+      UPDATE crmacct SET crmacct_cust_id=NEW.cust_id,
+                         crmacct_name=NEW.cust_name,
+                         crmacct_prospect_id=NULL
+      WHERE crmacct_number=NEW.cust_number;
+      IF (FOUND) THEN
+        DELETE FROM prospect WHERE prospect_id=NEW.cust_id;
+        EXIT;
+      END IF;
+      BEGIN
+        INSERT INTO crmacct(crmacct_number,  crmacct_name,    crmacct_active,
+                            crmacct_type,    crmacct_cust_id, crmacct_cntct_id_1,
+                            crmacct_cntct_id_2
+                  ) VALUES (NEW.cust_number, NEW.cust_name,   NEW.cust_active,
+                            'O',             NEW.cust_id,     NEW.cust_cntct_id,
+                            NEW.cust_corrcntct_id);
+        EXIT;
+      EXCEPTION WHEN unique_violation THEN
+            -- do nothing, and loop to try the UPDATE again
+      END;
+    END LOOP;
+
+    PERFORM updateCharAssignment('C', NEW.cust_id, char_id, charass_value) 
+       FROM custtype
+       JOIN charass ON (custtype_id=charass_target_id AND charass_target_type='CT') 
+       JOIN char ON (charass_char_id=char_id)
+       WHERE ((custtype_id=NEW.cust_custtype_id)
+          AND (custtype_char)
+          AND (charass_default));
+
+  ELSIF (TG_OP = 'UPDATE') THEN
+    UPDATE crmacct SET crmacct_number = NEW.cust_number
+    WHERE ((crmacct_cust_id=NEW.cust_id)
+      AND  (crmacct_number!=NEW.cust_number));
+
+    UPDATE crmacct SET crmacct_name = NEW.cust_name
+    WHERE ((crmacct_cust_id=NEW.cust_id)
+      AND  (crmacct_name!=NEW.cust_name));
   END IF;
 
-  IF ( SELECT (metric_value=''t'')
-       FROM metric
-       WHERE (metric_name=''CustomerChangeLog'') ) THEN
-
---  Cache the cmnttype_id for ChangeLog
+  IF (fetchMetricBool('CustomerChangeLog')) THEN
     SELECT cmnttype_id INTO _cmnttypeid
-    FROM cmnttype
-    WHERE (cmnttype_name=''ChangeLog'');
-    IF (FOUND) THEN
-      IF (TG_OP = ''INSERT'') THEN
-        PERFORM postComment(_cmnttypeid, ''C'', NEW.cust_id, ''Created'');
+      FROM cmnttype
+     WHERE (cmnttype_name='ChangeLog');
 
-      ELSIF (TG_OP = ''DELETE'') THEN
-	PERFORM postComment(_cmnttypeid, ''C'', OLD.cust_id,
-			    (''Deleted "'' || OLD.cust_number || ''"''));
+    IF (_cmnttypeid IS NOT NULL) THEN
+      IF (TG_OP = 'INSERT') THEN
+        PERFORM postComment(_cmnttypeid, 'C', NEW.cust_id, 'Created');
 
-      ELSIF (TG_OP = ''UPDATE'') THEN
+      ELSIF (TG_OP = 'DELETE') THEN
+	PERFORM postComment(_cmnttypeid, 'C', OLD.cust_id,
+                            ('Deleted "' || OLD.cust_number || '"'));
 
---  Handle cust_number
+      ELSIF (TG_OP = 'UPDATE') THEN
+
         IF (OLD.cust_number <> NEW.cust_number) THEN
-          PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
-                               (''Number Changed from "'' || OLD.cust_number || ''" to "'' || NEW.cust_number || ''"'') );
+          PERFORM postComment( _cmnttypeid, 'C', NEW.cust_id,
+                              ('Number changed from "' || OLD.cust_number ||
+                               '" to "' || NEW.cust_number || '"') );
         END IF;
 
         IF (OLD.cust_name <> NEW.cust_name) THEN
-          PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
-                               (''Name Changed from "'' || OLD.cust_name || ''" to "'' || NEW.cust_name || ''"'') );
+          PERFORM postComment( _cmnttypeid, 'C', NEW.cust_id,
+                              ('Name changed from "' || OLD.cust_name ||
+                               '" to "' || NEW.cust_name || '"') );
         END IF;
 
---  Handle cust_active
         IF (OLD.cust_active <> NEW.cust_active) THEN
-          IF (NEW.cust_active) THEN
-            PERFORM postComment(_cmnttypeid, ''C'', NEW.cust_id, ''Activated'');
-          ELSE
-            PERFORM postComment(_cmnttypeid, ''C'', NEW.cust_id, ''Deactivated'');
-          END IF;
+          PERFORM postComment(_cmnttypeid, 'C', NEW.cust_id,
+                              CASE WHEN NEW.cust_active THEN 'Activated'
+                                   ELSE 'Deactivated' END);
         END IF;
 
---  Handle cust_discntprcnt
         IF (OLD.cust_discntprcnt <> NEW.cust_discntprcnt) THEN
-          PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
-                               (''Discount Changed from "'' || formatprcnt(OLD.cust_discntprcnt)
-                                 || ''%" to "'' || formatprcnt(NEW.cust_discntprcnt) || ''%"'') );
+          PERFORM postComment(_cmnttypeid, 'C', NEW.cust_id,
+                              ('Discount changed from "' ||
+                               formatprcnt(OLD.cust_discntprcnt) || '%" to "' ||
+                               formatprcnt(NEW.cust_discntprcnt) || '%"') );
         END IF;
 
---  Handle cust_creditlmt
         IF (OLD.cust_creditlmt <> NEW.cust_creditlmt) THEN
-          PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
-                               ( ''Credit Limit Changed from '' || formatMoney(OLD.cust_creditlmt) ||
-                                 '' to '' || formatMoney(NEW.cust_creditlmt) ) );
+          PERFORM postComment(_cmnttypeid, 'C', NEW.cust_id,
+                              ('Credit Limit changed from ' || formatMoney(OLD.cust_creditlmt) ||
+                               ' to ' || formatMoney(NEW.cust_creditlmt)));
         END IF;
 
         IF (OLD.cust_creditstatus <> NEW.cust_creditstatus) THEN
-          IF (OLD.cust_creditstatus = ''G'') THEN
-            _oldCreditStatus := ''In Good Standing'';
-          ELSIF (OLD.cust_creditstatus = ''W'') THEN
-            _oldCreditStatus := ''Credit Warning'';
-          ELSIF (OLD.cust_creditstatus = ''H'') THEN
-            _oldCreditStatus := ''Credit Hold'';
-          ELSE
-            _oldCreditStatus := ''Unknown/Error'';
-          END IF;
-
-          IF (NEW.cust_creditstatus = ''G'') THEN
-            _newCreditStatus := ''In Good Standing'';
-          ELSIF (NEW.cust_creditstatus = ''W'') THEN
-            _newCreditStatus := ''Credit Warning'';
-          ELSIF (NEW.cust_creditstatus = ''H'') THEN
-            _newCreditStatus := ''Credit Hold'';
-          ELSE
-            _newCreditStatus := ''Unknown/Error'';
-          END IF;
-
-          PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
-                               (''Credit Status Changed from "'' || _oldCreditStatus || ''" to "'' || _newCreditStatus || ''"'') );
+          PERFORM postComment(_cmnttypeid, 'C', NEW.cust_id,
+                              ('Credit Status Changed from "' ||
+                               CASE OLD.cust_creditstatus
+                                    WHEN 'G' THEN 'In Good Standing'
+                                    WHEN 'W' THEN 'Credit Warning'
+                                    WHEN 'H' THEN 'Credit Hold'
+                                    ELSE 'Unknown/Error'
+                               END || '" to "' ||
+                               CASE NEW.cust_creditstatus
+                                    WHEN 'G' THEN 'In Good Standing'
+                                    WHEN 'W' THEN 'Credit Warning'
+                                    WHEN 'H' THEN 'Credit Hold'
+                                    ELSE 'Unknown/Error'
+                               END || '"') );
         END IF;
 
--- Handle customer type
         IF (OLD.cust_custtype_id <> NEW.cust_custtype_id) THEN
-          PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
-            (''Customer type changed from "'' || (SELECT custtype_code
-                                                  FROM custtype JOIN custinfo ON custtype_id = OLD.cust_custtype_id
-                                                 WHERE cust_id = OLD.cust_id)
-            || ''" to "'' || (SELECT custtype_code
-                              FROM custtype JOIN custinfo ON custtype_id = NEW.cust_custtype_id
-                              WHERE cust_id = NEW.cust_id)|| ''"'') );
+          PERFORM postComment(_cmnttypeid, 'C', NEW.cust_id,
+                              ('Customer type changed from "' ||
+                               (SELECT custtype_code FROM custtype
+                                 WHERE custtype_id = OLD.cust_custtype_id) || '" to "' ||
+                               (SELECT custtype_code FROM custtype
+                                 WHERE custtype_id = NEW.cust_custtype_id) || '"') );
         END IF;
 
---  Handle customer grace period days
         IF (COALESCE(OLD.cust_gracedays,-1) <> COALESCE(NEW.cust_gracedays,-1)) THEN
-          PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
-                               (''Grace Days changed from "'' || CASE WHEN OLD.cust_gracedays IS NULL THEN ''Default'' ELSE TEXT(OLD.cust_gracedays) END
-                                 || ''" to "'' || CASE WHEN NEW.cust_gracedays IS NULL THEN ''Default'' ELSE TEXT(NEW.cust_gracedays) END || ''"'') );
+          PERFORM postComment(_cmnttypeid, 'C', NEW.cust_id,
+                              ('Grace Days changed from "' ||
+                               COALESCE(TEXT(OLD.cust_gracedays), 'Default') ||
+                               '" to "' ||
+                               COALESCE(TEXT(NEW.cust_gracedays), 'Default') || '"'));
         END IF;
 
---  Handle customer terms
         IF (OLD.cust_terms_id <> NEW.cust_terms_id) THEN
-          PERFORM postComment( _cmnttypeid, ''C'', NEW.cust_id,
-                               (''Terms changed from "'' || (SELECT terms_code
-                                                  FROM terms WHERE terms_id = OLD.cust_terms_id)
-            || ''" to "'' || (SELECT terms_code
-                                                  FROM terms WHERE terms_id = NEW.cust_terms_id) || ''"'') );
+          PERFORM postComment(_cmnttypeid, 'C', NEW.cust_id,
+                              ('Terms changed from "' ||
+                               (SELECT terms_code FROM terms
+                                 WHERE terms_id = OLD.cust_terms_id) || '" to "' ||
+                               (SELECT terms_code FROM terms
+                                 WHERE terms_id = NEW.cust_terms_id) || '"'));
         END IF;
 
       END IF;
     END IF;
   END IF;
 
-  IF (TG_OP = ''DELETE'') THEN
-    UPDATE crmacct SET crmacct_cust_id = NULL WHERE crmacct_cust_id = OLD.cust_id;
+  IF (TG_OP = 'DELETE') THEN
+    -- handle transitory state when converting customer to prospect
+    IF EXISTS(SELECT quhead_id
+                FROM quhead
+               WHERE (quhead_cust_id=OLD.cust_id) AND
+       NOT EXISTS(SELECT prospect_id
+                    FROM prospect
+                   WHERE prospect_id=OLD.cust_id)) THEN
+      RAISE EXCEPTION '[xtuple: deleteCustomer, -8]';
+    END IF;
+
+    IF EXISTS(SELECT invchead_id
+                FROM invchead
+               WHERE (invchead_cust_id=OLD.cust_id)) THEN
+      RAISE EXCEPTION '[xtuple: deleteCustomer, -7]';
+    END IF;
+    -- end TODO
+
+    IF EXISTS(SELECT checkhead_recip_id
+                FROM checkhead
+               WHERE ((checkhead_recip_id=OLD.cust_id)
+                 AND  (checkhead_recip_type='C'))) THEN
+      RAISE EXCEPTION '[xtuple: deleteCustomer, -6]';
+    END IF;
+
+    DELETE FROM taxreg
+     WHERE ((taxreg_rel_type='C')
+       AND  (taxreg_rel_id=OLD.cust_id));
+
+    DELETE FROM ipsass
+     WHERE (ipsass_cust_id=OLD.cust_id);
+    
     RETURN OLD;
   END IF;
-  
   RETURN NEW;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
-DROP TRIGGER custTrigger ON custinfo;
-CREATE TRIGGER custTrigger BEFORE INSERT OR UPDATE OR DELETE ON custinfo FOR EACH ROW EXECUTE PROCEDURE _custTrigger();
-
-
-CREATE OR REPLACE FUNCTION _custAfterTrigger () RETURNS TRIGGER AS '
-DECLARE
-  _crmacctid	INTEGER;
-BEGIN
-  SELECT crmacct_id INTO _crmacctid
-  FROM crmacct
-  WHERE crmacct_cust_id = NEW.cust_id;
-
-  IF (TG_OP = ''INSERT'') THEN
-    SELECT crmacct_id INTO _crmacctid
-    FROM crmacct
-    WHERE crmacct_number=NEW.cust_number;
-    IF (FOUND) THEN
-      UPDATE crmacct 
-      SET crmacct_cust_id=NEW.cust_id,crmacct_name=NEW.cust_name,crmacct_prospect_id=NULL
-      WHERE crmacct_id=_crmacctid;
-      DELETE FROM prospect WHERE prospect_id=NEW.cust_id;
-    ELSE
-      PERFORM createCrmAcct(NEW.cust_number, NEW.cust_name, NEW.cust_active, ''O'', NEW.cust_id,
-                            NULL, NULL, NULL, NULL, NULL, NEW.cust_cntct_id, NEW.cust_corrcntct_id); 
-    END IF;
-  END IF;
-
-  IF (TG_OP = ''UPDATE'') THEN
-    UPDATE crmacct SET crmacct_number = NEW.cust_number
-    WHERE ((crmacct_cust_id=NEW.cust_id)
-      AND  (crmacct_number!=NEW.cust_number));
-    UPDATE crmacct SET crmacct_name = NEW.cust_name
-    WHERE ((crmacct_cust_id=NEW.cust_id)
-      AND  (crmacct_name!=NEW.cust_name));
-  END IF;
-
-  -- If this is imported, go ahead and insert default characteristics
-   IF (TG_OP = ''INSERT'') THEN
-     PERFORM updateCharAssignment(''C'', NEW.cust_id, char_id, charass_value) 
-     FROM (
-       SELECT DISTINCT char_id, char_name, charass_value
-       FROM charass, char, custtype
-       WHERE ((custtype_id=NEW.cust_custtype_id)
-       AND (custtype_char)
-       AND (charass_target_type=''CT'') 
-       AND (charass_target_id=custtype_id)
-       AND (charass_default)
-       AND (char_id=charass_char_id))
-       ORDER BY char_name) AS data;
-   END IF;
-
-  RETURN NEW;
-END;
-' LANGUAGE 'plpgsql';
-
-DROP TRIGGER custAfterTrigger ON custinfo;
-CREATE TRIGGER custAfterTrigger AFTER INSERT OR UPDATE ON custinfo FOR EACH ROW EXECUTE PROCEDURE _custAfterTrigger();
+SELECT dropIfExists('TRIGGER', 'custAfterTrigger');
+CREATE TRIGGER custAfterTrigger AFTER INSERT OR UPDATE OR DELETE ON custinfo
+       FOR EACH ROW EXECUTE PROCEDURE _custAfterTrigger();

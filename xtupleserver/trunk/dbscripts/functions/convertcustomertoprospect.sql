@@ -1,27 +1,17 @@
-
+/*  TODO: push this code into the crmacct before trigger?
+          then convert customer -> prospect becomes simply
+          UPDATE crmacct SET crmacct_prospect_id=crmacct_cust_id,
+                             crmacct_cust_id=NULL
+                WHERE crmacct_cust_id=pCustId;
+ */
 CREATE OR REPLACE FUNCTION convertCustomerToProspect(INTEGER) RETURNS INTEGER AS $$
   DECLARE
     pCustId     ALIAS FOR $1;
-    _returnVal  INTEGER := 0;
     _c          RECORD;
-    _crmacctId  INTEGER := 0;
   BEGIN
-    IF (EXISTS(SELECT prospect_id FROM prospect WHERE (prospect_id=pCustId))) THEN
-      RETURN -10;
-    END IF;
-
     SELECT * INTO _c
     FROM custinfo
     WHERE (cust_id=pCustId);
-
-    SELECT crmacct_id INTO _crmacctId
-    FROM crmacct
-    WHERE (crmacct_cust_id=pCustId);
-
-    _returnVal := deleteCustomer(pCustId);
-    IF (_returnVal < 0) THEN
-      RETURN _returnVal;
-    END IF;
 
     INSERT INTO prospect (
           prospect_id, prospect_active, prospect_number,
@@ -38,9 +28,7 @@ CREATE OR REPLACE FUNCTION convertCustomerToProspect(INTEGER) RETURNS INTEGER AS
          END,
          _c.cust_comments);
 
-    UPDATE crmacct SET crmacct_prospect_id=pCustId,
-                       crmacct_cust_id=NULL
-    WHERE (crmacct_id=_crmacctId);
+    DELETE FROM custinfo WHERE (cust_id=pCustId);
 
     RETURN pCustId;
   END;

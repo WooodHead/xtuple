@@ -1,4 +1,3 @@
-BEGIN;
 
   --Account View
 
@@ -216,7 +215,5 @@ UPDATE crmacct SET
 
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.account DO INSTEAD
+  DELETE FROM crmacct WHERE crmacct_number = OLD.account_number;
 
-SELECT deleteCrmAccount(getCrmAcctId(OLD.account_number));
-
-COMMIT;

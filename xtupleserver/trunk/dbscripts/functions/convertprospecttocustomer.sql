@@ -1,32 +1,23 @@
-
 CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER) RETURNS INTEGER AS $$
+BEGIN
+  RETURN convertProspectToCustomer($1, FALSE);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
   DECLARE
     pProspectId ALIAS FOR $1;
-    _returnVal  INTEGER := 0;
+    pdoquotes   ALIAS FOR $2;
     _p          RECORD;
-    _crmacctId  INTEGER := 0;
-  BEGIN
-    IF (EXISTS(SELECT cust_id FROM custinfo WHERE cust_id=pProspectId)) THEN
-      RETURN -10;
-    END IF;
+    _q          RECORD;
 
+  BEGIN
     SELECT * INTO _p
     FROM prospect
     WHERE (prospect_id=pProspectId);
 
-    SELECT crmacct_id INTO _crmacctId
-    FROM crmacct
-    WHERE (crmacct_prospect_id=pProspectId);
-
-    _returnVal := deleteProspect(pProspectId);
-    IF (_returnVal = -1) THEN   -- prospect has quotes
-      UPDATE crmacct SET crmacct_prospect_id=NULL
-      WHERE crmacct_prospect_id=pprospectId;
-
-      DELETE FROM prospect WHERE (prospect_id=pprospectId);
-
-    ELSEIF (_returnVal < 0) THEN
-      RETURN _returnVal;
+    IF (EXISTS(SELECT cust_id FROM custinfo WHERE cust_id=pProspectId)) THEN
+      RAISE EXCEPTION '[xtuple: convertProspectToCustomer, -10]';
     END IF;
 
     INSERT INTO custinfo (
@@ -66,9 +57,23 @@ CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER) RETURNS INTEGER AS
         false, false
     FROM salesrep WHERE (salesrep_id=FetchMetricValue('DefaultSalesRep'));
 
-    UPDATE crmacct SET crmacct_cust_id=pProspectId,
-                       crmacct_prospect_id=NULL
-    WHERE (crmacct_id=_crmacctId);
+    DELETE FROM prospect WHERE (prospect_id=pprospectId);
+
+    IF (pdoquotes) THEN
+      BEGIN
+        FOR _q IN SELECT quhead_number, convertQuote(quhead_id) AS err
+                    FROM quhead
+                   WHERE ((COALESCE(quhead_expire, endOfTime()) >= CURRENT_DATE)
+                      AND (quhead_cust_id=pProspectId)) LOOP
+          IF (_q.err < 0) THEN
+            RAISE NOTICE 'Quote % for % didn''t convert to a Sales Order [xtuple: convertQuote, %]',
+                         _q.quhead_number, _p.prospect_number, _q.err;
+          END IF;
+        END LOOP;
+      EXCEPTION WHEN OTHERS THEN
+        RAISE NOTICE 'Ignored errors convering quotes: % %', SQLSTATE, SQLERRM;
+      END;
+    END IF;
 
     RETURN pProspectId;
   END;
