@@ -15,7 +15,7 @@ SELECT orderid, seq,
        END AS vouchernumber, ponumber, itemnumber,
        vendnumber, description, itemtype, iteminvuom, f_qty, cost,
        'curr' AS cost_xtnumericrole,
-       seq AS cost_xttotalrole,
+       0 AS cost_xttotalrole,
        CASE WHEN seq = 3 THEN 1
             ELSE seq END AS xtindentrole,
        CASE WHEN findAPAccount(vendid) < 0 THEN 'error'
