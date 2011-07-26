@@ -1,4 +1,3 @@
-BEGIN;
 
   --Customer View
 
@@ -366,7 +365,5 @@ UPDATE custinfo SET
 
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.customer DO INSTEAD
+    DELETE FROM custinfo WHERE (cust_number=OLD.customer_number);
 
-SELECT deleteCustomer(getCustId(OLD.customer_number));
-
-COMMIT;

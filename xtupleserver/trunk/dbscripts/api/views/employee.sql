@@ -1,4 +1,3 @@
-BEGIN;
 
   SELECT dropIfExists('VIEW', 'employee', 'api');
 
@@ -52,7 +51,7 @@ BEGIN;
     END AS wage_period, 
     dept.dept_number AS department, 
     shift.shift_number AS shift, 
-    e.emp_username IS NOT NULL AS is_user,
+    crmacct_usr_username IS NOT NULL AS is_user,
     salesrep.salesrep_id IS NOT NULL AS is_salesrep,
     vendinfo.vend_id IS NOT NULL AS is_vendor,
     e.emp_notes AS notes,
@@ -69,14 +68,15 @@ BEGIN;
          ELSE 'Error'
    	END AS billing_period
   FROM emp e
+         JOIN crmacct           ON (e.emp_id = crmacct_emp_id)
    	 LEFT JOIN cntct 	ON (e.emp_cntct_id = cntct.cntct_id)
    	 LEFT JOIN addr 	ON (cntct.cntct_addr_id = addr.addr_id)
    	 LEFT JOIN whsinfo 	ON (e.emp_warehous_id = whsinfo.warehous_id)
    	 LEFT JOIN emp m 	ON (e.emp_mgr_emp_id = m.emp_id)
    	 LEFT JOIN dept 	ON (e.emp_dept_id = dept.dept_id)
    	 LEFT JOIN shift 	ON (e.emp_shift_id = shift.shift_id)
-   	 LEFT JOIN salesrep ON (e.emp_code = salesrep.salesrep_number)
-   	 LEFT JOIN vendinfo ON (upper(e.emp_number) = upper(vendinfo.vend_number))
+   	 LEFT JOIN salesrep     ON (crmacct_salesrep_id = salesrep_id)
+   	 LEFT JOIN vendinfo     ON (crmacct_vend_id = vend_id)
    	 LEFT JOIN image 	ON (e.emp_image_id = image.image_id)
    	 JOIN curr_symbol 	ON (e.emp_wage_curr_id = curr_symbol.curr_id);
 
@@ -101,7 +101,6 @@ CREATE OR REPLACE RULE "_INSERT" AS ON INSERT TO api.employee DO INSTEAD
       emp_wage_period,
       emp_dept_id,
       emp_shift_id,
-      emp_username,
       emp_image_id,
       emp_extrate, 
       emp_extrate_period,
@@ -154,7 +153,6 @@ CREATE OR REPLACE RULE "_INSERT" AS ON INSERT TO api.employee DO INSTEAD
         END, 
         getdeptid(new.department), 
         getshiftid(new.shift), 
-        (SELECT pg_user.usename::text AS usename FROM pg_user WHERE pg_user.usename = lower(new.code)::name), 
         getimageid(new.image), 
         new.rate, 
         CASE
@@ -221,7 +219,6 @@ CREATE OR REPLACE RULE "_UPDATE" AS ON UPDATE TO api.employee DO INSTEAD
 				      END, 
 	emp_dept_id = getdeptid(new.department), 
 	emp_shift_id = getshiftid(new.shift), 
-	emp_username = ( SELECT pg_user.usename::text AS usename FROM pg_user WHERE pg_user.usename = lower(new.code)::name), 
 	emp_image_id = getimageid(new.image), 
 	emp_extrate = new.rate, 
 	emp_extrate_period = CASE WHEN new.billing_period = 'Hour' 	THEN 'H'
@@ -237,6 +234,5 @@ CREATE OR REPLACE RULE "_UPDATE" AS ON UPDATE TO api.employee DO INSTEAD
 
 
 CREATE OR REPLACE RULE "_DELETE" AS ON DELETE TO api.employee DO INSTEAD  
-    SELECT deleteemp(getempid(old.code::text)) AS deleteemp;
+    DELETE FROM emp WHERE (emp_code=old.code::text);
 
-COMMIT;
