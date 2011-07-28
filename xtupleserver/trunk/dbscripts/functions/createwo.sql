@@ -132,23 +132,25 @@ DECLARE
   pBomRevId ALIAS FOR $11;
   pBooRevId ALIAS FOR $12;
   pCosMethod ALIAS FOR $13;
+  _startDate DATE;
   _woid INTEGER;
   _result INTEGER;
   _parentType char(1);
   _cosmethod char(1);
-
+  _itemsite RECORD;
+  
 BEGIN
-
+  
   IF (pParentType IS NULL) THEN
     _parentType := ' ';
   ELSE
     _parentType := pParentType;
   END IF;
 
---  Check to make sure the itemsite specified is a supplied at itemsite
-  IF ( SELECT (NOT itemsite_wosupply)
-       FROM itemsite
-       WHERE (itemsite_id=pItemsiteid) ) THEN
+  SELECT * INTO _itemsite FROM itemsite WHERE itemsite_id = pItemsiteid;
+
+--  Check to make sure the itemsite specified is supplied at itemsite
+  IF (NOT _itemsite.itemsite_wosupply) THEN
     RETURN -1;
   END IF;
 
@@ -157,22 +159,24 @@ BEGIN
   IF (pCosMethod IN ('D', 'P')) THEN
     _cosmethod := pCosMethod;
   ELSE
-    IF (SELECT (itemsite_costmethod = 'J')
-         FROM itemsite, item
-         WHERE ((itemsite_id = pItemsiteid)
-         AND (itemsite_item_id = item_id))) THEN
+    IF (_itemsite.itemsite_costmethod = 'J') THEN
       IF (_parentType != 'S') THEN
         RAISE EXCEPTION 'Work Orders for Item Sites that are Job cost must be created from a sales order';
       ELSE
         SELECT COALESCE(itemsite_cosdefault,fetchmetrictext('JobItemCosDefault'),'D') INTO _cosmethod FROM itemsite WHERE itemsite_id=pItemsiteid;
       END IF;
-    ELSIF (SELECT (itemsite_costmethod = 'A')
-             FROM itemsite
-            WHERE (itemsite_id = pItemsiteid)) THEN
-      SELECT COALESCE(itemsite_cosdefault,fetchmetrictext('JobItemCosDefault'),'D') INTO _cosmethod FROM itemsite WHERE itemsite_id=pItemsiteid;
+    ELSIF (_itemsite.itemsite_costmethod = 'A') THEN
+      _cosmethod := COALESCE(_itemsite.itemsite_cosdefault,fetchmetrictext('JobItemCosDefault'),'D');
     END IF;
   END IF;
 
+--  Check to see if the site calendar metric is set, and if so adjust the start date
+  IF (fetchmetricbool('UseSiteCalforWO')) THEN
+    _startDate := calculatenextworkingdate(_itemsite.itemsite_warehous_id, pDueDate, -_itemsite.itemsite_leadtime);
+  ELSE
+    _startDate := pStartDate;
+  END IF;
+  
 --  Grab the next wo_id
   SELECT NEXTVAL('wo_wo_id_seq') INTO _woid;
 
@@ -185,7 +189,7 @@ BEGIN
     wo_bom_rev_id, wo_boo_rev_id, wo_cosmethod )
   SELECT _woid, pWoNumber, nextWoSubnumber(pWoNumber), itemsite_id,
          pPriority, _parentType, pParentId,
-         'O', pStartDate, pDueDate,
+         'O', _startDate, pDueDate,
          roundQty(item_fractional, pQtyOrdered), 0, pProductionNotes, pProjectId, 
          pBomRevid, pBooRevid, _cosmethod
   FROM itemsite, item
