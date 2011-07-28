@@ -6,10 +6,14 @@ DECLARE
 BEGIN
 
   IF EXISTS(SELECT cashrcpt_id
-            FROM cashrcpt, ccpay
+            FROM cashrcpt
+            JOIN ccpay ON (cashrcpt_cust_id=ccpay_cust_id)
+                       AND ((CASE WHEN TRIM(COALESCE(cashrcpt_docnumber, ''))='' THEN TEXT(cashrcpt_id)
+                                  ELSE cashrcpt_docnumber
+                             END)=ccpay_order_number)
             WHERE ((cashrcpt_fundstype IN ('A', 'D', 'M', 'V'))
-               AND ((CASE WHEN(TRIM(both from COALESCE(cashrcpt_docnumber, ''))='') THEN text(cashrcpt_id) ELSE cashrcpt_docnumber END)=ccpay_order_number)
                AND (ccpay_status NOT IN ('D', 'X'))
+               AND (ccpay_id NOT IN (SELECT payco_ccpay_id FROM payco))
                AND (cashrcpt_id=pcashrcptid))) THEN
     RETURN -1;
   END IF;
