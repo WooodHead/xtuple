@@ -1,4 +1,4 @@
-BEGIN;
+--BEGIN;
 
 -- View: api.salescredit
 
@@ -30,5 +30,5 @@ CREATE OR REPLACE RULE "_INSERT" AS
     'S', getcoheadid(new.so_number),
     new.amount, getcurrid(new.currency) );
 
-COMMIT;
+--COMMIT;
 

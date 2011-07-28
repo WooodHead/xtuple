@@ -1,4 +1,4 @@
-BEGIN;
+--BEGIN;
  
 -- Quote
 
@@ -253,5 +253,5 @@ CREATE OR REPLACE RULE "_DELETE" AS
   FROM quhead
   WHERE (quhead_number=OLD.quote_number);
 
-COMMIT;
+--COMMIT;
 
