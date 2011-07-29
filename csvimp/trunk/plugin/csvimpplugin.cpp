@@ -71,8 +71,6 @@ QMainWindow *CSVImpPlugin::getCSVToolWindow(QWidget *parent, Qt::WindowFlags fla
 
     if (_msghandler)
       _csvtoolwindow->setMessageHandler(_msghandler);
-    else
-      _msghandler = _csvtoolwindow->messageHandler();
   }
 
   if (DEBUG)
@@ -176,19 +174,15 @@ bool CSVImpPlugin::setFirstLineHeader(bool isheader)
 
 void CSVImpPlugin::setInteractive(bool interactive)
 {
-  if (isInteractive() && interactive)
-    ; // nothing to do
-  else if (isInteractive() && ! interactive)
+  if (isInteractive() != interactive)
   {
     if (_msghandler)
       delete _msghandler;
-    _msghandler = new BatchMessageHandler(parent());
-  }
-  else if (!isInteractive() && ! interactive)
-  {
-    if (_msghandler)
-      delete _msghandler;
-    _msghandler = new BatchMessageHandler(parent());
+
+    if (interactive)
+      _msghandler = new InteractiveMessageHandler(parent());
+    else
+      _msghandler = new BatchMessageHandler(parent());
   }
 
   if (_msghandler)
@@ -212,6 +206,8 @@ void CSVImpPlugin::cleanupDestroyedObject(QObject *object)
   }
   else if (object == _atlaswindow)
     _atlaswindow = 0;
+  else if (object == _msghandler)
+    _msghandler = 0;
 }
 
 Q_EXPORT_PLUGIN2(csvimpplugin, CSVImpPlugin);
