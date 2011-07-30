@@ -7,7 +7,8 @@ DECLARE
   _ending NUMERIC;
   _prevYear INTEGER;
   _currYear INTEGER;
-  _yearEndCrossed BOOLEAN := FALSE;
+  _prevYearClosed BOOLEAN;
+  _currYearClosed BOOLEAN;
   _result INTEGER;
 
 BEGIN
@@ -23,11 +24,12 @@ BEGIN
 
   _ending = _p.trialbal_ending;
 
-  SELECT yearperiod_id INTO _prevYear
+  SELECT yearperiod_id, yearperiod_closed INTO _prevYear, _prevYearClosed
     FROM yearperiod
    WHERE (_p.period_end BETWEEN yearperiod_start AND yearperiod_end);
   IF (NOT FOUND) THEN
     _prevYear := -1;
+    _prevYearClosed := false;
   END IF;
 
 --  Find all of the subsequent periods and their trialbal, if they exist
@@ -39,16 +41,22 @@ BEGIN
             WHERE (period_start > _p.period_end)
             ORDER BY period_start LOOP
 
-    SELECT yearperiod_id INTO _currYear
+    SELECT yearperiod_id, yearperiod_closed INTO _currYear, _currYearClosed
       FROM yearperiod
      WHERE (_r.period_end BETWEEN yearperiod_start AND yearperiod_end);
     IF (NOT FOUND) THEN
       _currYear := -1;
+      _currYearClosed := false;
     END IF;
 
     IF (_p.revexp AND _currYear != _prevYear) THEN
       _ending := 0;
-      _yearEndCrossed := TRUE;
+      IF (_prevYearClosed) THEN
+        SELECT updateRetainedEarnings(_prevYear) INTO _result;
+        IF (_result < 0) THEN
+          RETURN _result;
+        END IF;
+      END IF;
     END IF;
 
     _prevYear := _currYear;
@@ -85,13 +93,6 @@ BEGIN
   UPDATE trialbal
   SET trialbal_dirty = FALSE
   WHERE (trialbal_id=pTrialbalid);
-
-  IF (_yearEndCrossed AND _p.yearperiod_closed) THEN
-    SELECT updateRetainedEarnings(_p.yearperiod_id) INTO _result;
-    IF (_result < 0) THEN
-      RETURN _result;
-    END IF;
-  END IF;
 
   RETURN pTrialbalid;
 
