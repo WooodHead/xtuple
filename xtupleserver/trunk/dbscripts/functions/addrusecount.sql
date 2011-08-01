@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION addrUsed(integer) RETURNS boolean STABLE AS $$
+CREATE OR REPLACE FUNCTION addrUseCount(integer) RETURNS integer STABLE AS $$
 DECLARE
   pAddrId ALIAS FOR $1;
   _fk RECORD;
@@ -6,6 +6,7 @@ DECLARE
   _seq INTEGER;
   _col TEXT;
   _qry TEXT;
+  _count INTEGER = 0;
 
 BEGIN
   -- Determine where this address is used by analyzing foreign key linkages
@@ -42,12 +43,12 @@ BEGIN
     FOR _r IN 
       EXECUTE _qry
     LOOP
-      RETURN true;
+      _count := _count + 1;
     END LOOP;
          
   END LOOP;
 
-  RETURN false;
+  RETURN _count;
 
 END;
 $$ LANGUAGE 'plpgsql';

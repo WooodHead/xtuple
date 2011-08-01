@@ -97,7 +97,7 @@ BEGIN
   END IF;
 
   IF (_flag = 'CHECK') THEN
-    IF addrUsed(_addrId) THEN
+    IF addrUseCount(_addrId) > 1 THEN
       RETURN -2;
     ELSIF (SELECT COUNT(addr_id)=0 FROM addr WHERE (addr_id=_addrId)) THEN
       _flag := 'CHANGEONE';
