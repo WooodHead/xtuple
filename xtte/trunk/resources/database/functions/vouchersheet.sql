@@ -69,8 +69,8 @@ BEGIN
                vohead_terms_id, vohead_taxzone_id, vohead_invcnumber, 
                vohead_reference, vohead_amount, vohead_1099, vohead_curr_id, 
                vohead_notes, vohead_posted, vohead_misc, vohead_pohead_id )
-           VALUES ( _voheadid, fetchVoNumber(), _s.vend_id, current_date, _s.tehead_weekending,
-               determineDueDate(_s.vend_terms_id, current_date), _s.vend_terms_id,
+           VALUES ( _voheadid, fetchVoNumber(), _s.vend_id, _s.tehead_weekending, _s.tehead_weekending,
+               determineDueDate(_s.vend_terms_id, _s.tehead_weekending), _s.vend_terms_id,
                _s.vend_taxzone_id, 'N/A', ('T&E Sheet ' || _s.tehead_number), 0, _s.vend_1099, 
                _v.teitem_curr_id, _s.tehead_notes, false, true, -1 );
 
