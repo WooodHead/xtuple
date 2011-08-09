@@ -58,6 +58,9 @@ BEGIN
     IF (_r.recur_parent_type = 'I') THEN
       _maxdate := CURRENT_TIMESTAMP + CAST(fetchMetricText('RecurringInvoiceBuffer') || ' days' AS INTERVAL);
     END IF;
+    IF (_r.recur_parent_type = 'V') THEN
+      _maxdate := CURRENT_TIMESTAMP + CAST(fetchMetricText('RecurringVoucherBuffer') || ' days' AS INTERVAL);
+    END IF;
     IF (_maxdate > _r.recur_end) THEN   -- if recur_end is null, _maxdate is ok
       _maxdate = _r.recur_end;
     END IF;
