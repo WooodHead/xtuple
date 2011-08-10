@@ -10,8 +10,8 @@
       <year>1998-2011</year>
       <holder>xTuple</holder>
     </copyright>
-    <pubdate>February 2011</pubdate>
-    <releaseinfo>Version 3.7</releaseinfo>
+    <pubdate>August 2011</pubdate>
+    <releaseinfo>Version 3.8alpha</releaseinfo>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/splashXTuple.png" />
@@ -137,19 +137,6 @@
       <para>You might also need the following tools, depending on what your
       role is in the development effort:</para>
       <variablelist>
-        <varlistentry>
-          <term>SWIG</term>
-          <listitem>
-            <para>SWIG helps create interfaces to C and C++ libraries for
-            other languages. xTuple uses SWIG to generate a PHP interface to
-            the business logic in xtlib for developing Web applications. If
-            you plan on building xTuple extensions using anything other than
-            the built-in application scripting and need to add to or modify
-            xtlib, you will need version 2.0 or later of this tool. See <ulink
-            url="http://swig.org">http://swig.org</ulink> for more
-            information.</para>
-          </listitem>
-        </varlistentry>
         <varlistentry>
           <term>Squish</term>
           <listitem>
