@@ -63,3 +63,6 @@ LANGUAGE 'plpgsql';
 
 SELECT createCrmAccountsForUpgrade();
 SELECT dropIfExists('FUNCTION', 'createCrmAccountsForUpgrade()');
+
+UPDATE orderseq SET orderseq_table='crmacct', orderseq_numcol='crmacct_number'
+ WHERE orderseq_name='CRMAccountNumber';
