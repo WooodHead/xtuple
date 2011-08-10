@@ -4,28 +4,21 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter>
   <title>Development Environment Setup</title>
-  <para>Here are the specific steps to follow to create a development
-  environment. Basic goals and platform-independent information are given at
-  the beginning of each step, followed by platform-specific
-  information.</para>
+  <para>This chapter is intended for use by experienced software developers
+  who need to modify the xTuple ERP source code. It covers specific steps and
+  details required to create a C++ development environment. People who simply
+  want to create xTuple ERP application scripts and scripted packages, or
+  people who want to write reports, can skip this chapter.</para>
   <section>
     <title>Operating System and Basic Development Tools</title>
-    <para>To set up a development environment, you will need a web browser to
-    download files and a C++ compiler and a version of the make utility to
-    build the application.</para>
-    <para os="windows">This chapter was tested using Windows XP and the
-    Firefox web browser.</para>
     <para os="windows">xTuple recommends using MinGW for developing on Windows
     although we have also tried Microsoft Visual C++ Express (MSVC). We found
     that MSVC required more work than MinGW to distribute binaries to
     non-build machines or to run the resulting binaries from file
     servers.</para>
-    <para os="windows" userlevel="installfrompkg">The steps in this document
-    were tested using Windows Vista and the Internet Explorer web
-    browser.</para>
     <para condition="mingw" os="windows" userlevel="installfromsrc">Newer
-    versions of the Qt SDK include MinGW. If you plan to install Qt from
-    source, however, you will need to obtain MinGW separately.</para>
+    versions of the Qt SDK include MinGW. If you plan to build Qt from source,
+    however, you will need to obtain MinGW separately.</para>
     <orderedlist condition="mingw" os="windows" userlevel="installfromsrc">
       <listitem>
         <para>Point your browser to <ulink
@@ -46,30 +39,28 @@
     </orderedlist>
     <para condition="msvc" os="windows">To get MSVC:<orderedlist>
         <listitem>
-          <para>point your browser to Microsoft Visual C++ Express web
-          page</para>
+          <para>point your browser to <ulink
+          url="http://www.microsoft.com/visualstudio/en-us/products/2010-editions/visual-cpp-express">http://www.microsoft.com/visualstudio/en-us/products/2010-editions/visual-cpp-express</ulink></para>
         </listitem>
         <listitem>
-          <para>click on Download Now and follow the instructions</para>
+          <para>click on Install Now and follow the instructions</para>
         </listitem>
         <listitem>
           <para>accept the defaults</para>
         </listitem>
       </orderedlist></para>
-    <para os="macosx">This chapter was tested using OS X 10.4 and 10.6 with
-    the Safari web browser.</para>
     <para os="macosx">Get and install Xcode. The operating system installation
     DVD should have it. If not:<orderedlist>
         <listitem>
           <para>http://developer.apple.com/</para>
         </listitem>
         <listitem>
-          <para>click Visit Mac Dev Center and either sign in if you are an
-          Apple Developer Connection member or sign up if you are not a member
-          yet. After you've signed in, click the Download button. This is a
-          large download, so be prepared to wait for a while and possibly
-          restart the download. If the disk image is not automatically mounted
-          for you, double-click on the xcode .dmg file and mount it.</para>
+          <para>click Mac Dev Center and either sign in if you are an Apple
+          Developer Connection member or sign up if you are not a member yet.
+          After you've signed in, click the Download button. This is a large
+          download, so be prepared to wait for a while and possibly restart
+          the download. If the disk image is not automatically mounted for
+          you, double-click on the xcode .dmg file and mount it.</para>
         </listitem>
         <listitem>
           <para>Double-click on the installer icon and follow the
@@ -84,55 +75,13 @@
     from Ubuntu 10):</para>
     <itemizedlist os="linux">
       <listitem>
-        <para>gcc</para>
-      </listitem>
-      <listitem>
         <para>g++</para>
       </listitem>
       <listitem>
-        <para>make</para>
-      </listitem>
-      <listitem>
-        <para>libreadline-dev</para>
-      </listitem>
-      <listitem>
-        <para>libncurses5-dev</para>
-      </listitem>
-      <listitem>
-        <para>libpam-dev</para>
-      </listitem>
-      <listitem>
-        <para>libldap-dev</para>
-      </listitem>
-      <listitem>
-        <para>zlib1g-dev</para>
-      </listitem>
-      <listitem>
-        <para>libkrb5-dev</para>
-      </listitem>
-      <listitem>
-        <para>libssl-dev</para>
-      </listitem>
-      <listitem>
-        <para>libx11-dev</para>
-      </listitem>
-      <listitem>
-        <para>unixodbc-dev</para>
-      </listitem>
-      <listitem>
-        <para>libglib</para>
-      </listitem>
-      <listitem>
-        <para>libsqlit0-dev</para>
-      </listitem>
-      <listitem>
-        <para>libmysqlclient-dev</para>
+        <para>gcc</para>
       </listitem>
       <listitem>
         <para>libcups2-dev</para>
-      </listitem>
-      <listitem>
-        <para>libext-dev</para>
       </listitem>
       <listitem>
         <para>libdbus-1-dev</para>
@@ -141,13 +90,54 @@
         <para>libdbus-c++-dev</para>
       </listitem>
       <listitem>
-        <para>php5-dev (only if you plan on changing xtlib and using those
-        changes in a PHP application)</para>
+        <para>libext-dev</para>
+      </listitem>
+      <listitem>
+        <para>libglib</para>
+      </listitem>
+      <listitem>
+        <para>libkrb5-dev</para>
+      </listitem>
+      <listitem>
+        <para>libldap-dev</para>
+      </listitem>
+      <listitem>
+        <para>libmysqlclient-dev</para>
+      </listitem>
+      <listitem>
+        <para>libncurses5-dev</para>
+      </listitem>
+      <listitem>
+        <para>libpam-dev or libpam0g-dev</para>
+      </listitem>
+      <listitem>
+        <para>libreadline-dev</para>
+      </listitem>
+      <listitem>
+        <para>libsqlite0-dev</para>
+      </listitem>
+      <listitem>
+        <para>libssl-dev</para>
+      </listitem>
+      <listitem>
+        <para>libx11-dev</para>
+      </listitem>
+      <listitem>
+        <para>libxinerama-dev</para>
+      </listitem>
+      <listitem>
+        <para>make</para>
+      </listitem>
+      <listitem>
+        <para>unixodbc-dev</para>
+      </listitem>
+      <listitem>
+        <para>zlib1g-dev</para>
       </listitem>
     </itemizedlist>
     <note os="linux">
       <para>This list is a rough estimate of what you need. It does not
-      include all required dependencies. Some of these may only be required if
+      include all required dependencies. Some of these are only required if
       you are building PostgreSQL and Qt from source.</para>
     </note>
   </section>
@@ -158,11 +148,11 @@
     <para os="macosx">The command line utilities for Subversion are installed
     with Xcode.</para>
     <para os="linux">Most Linux distributions have packages available for
-    installing the SVN command line tools.</para>
+    installing the SVN command line tools called "subversion".</para>
     <para>If you need a graphical user interface environment for Subversion,
     xTuple suggests using RapidSVN. Several of our developers use it in-house,
     so we may be able to answer questions about it. If you decide to use
-    RapidSVN, you will need to get that separately from <ulink
+    RapidSVN, you need to get that separately from <ulink
     url="http://rapidsvn.tigris.org/">http://rapidsvn.tigris.org/</ulink>.</para>
   </section>
   <section role="xtconnect">
@@ -174,8 +164,9 @@
     url="???">http://git-scm.com/</ulink> and click Download. Click on the
     link for your operating system. Click on the link for your particular work
     environment. Run the downloaded executable or open the .dmg.</para>
-    <para os="linux">Most Linux distributions have a git package. If yours
-    does not, you will have to build git from source.</para>
+    <para os="linux">Most Linux distributions have a git package, typically
+    called "git". If yours does not, you will have to build git from
+    source.</para>
     <para userlevel="installfromsrc">To build Git from sources, go to
     http://www.kernel.org/pub/software/scm/git/ and click on the link for a
     recent <literal>git-version.tar.gz</literal> to download it. Then follow
@@ -245,7 +236,11 @@
               <tbody>
                 <row>
                   <entry>3.2.0</entry>
-                  <entry>at least 3.7.0</entry>
+                  <entry>3.7.x</entry>
+                </row>
+                <row>
+                  <entry>3.8.0</entry>
+                  <entry>?</entry>
                 </row>
               </tbody>
             </entrytbl>
@@ -256,13 +251,18 @@
                   <entry>8.4</entry>
                   <entry>8.3.3</entry>
                 </row>
+                <row>
+                  <entry>8.2</entry>
+                  <entry>9.0.4</entry>
+                  <entry>9.0.4</entry>
+                </row>
               </tbody>
             </entrytbl>
             <entry userlevel="installfromsrc">--with-krb5 --with-pam
             --with-ldap --with-openssl --with-readline
             --prefix=/dir/where/you/want/to/install/postgresql<para
-            os="macosx"
-            userlevel="installfromsrc">--with-bonjour</para></entry>
+            os="macosx" userlevel="installfromsrc">--with-bonjour
+            CFLAGS="-arch i386"</para></entry>
           </row>
         </tbody>
       </tgroup>
@@ -293,6 +293,13 @@
         instructions.</para>
       </listitem>
     </orderedlist>
+    <para os="macosx">xTuple strongly recommends that you build PostgreSQL
+    from source on Mac OS X. Otherwise you run the significant risk that
+    PostgreSQL and Qt will not be compatible. We have had repeated problems
+    with packages being built for different hardware architectures. In our
+    experience PostgreSQL has been built for PPC and 32-bit Intel processors
+    while Qt has been built for 64-bit Intel processors, so the two packages
+    cannot interact.</para>
     <orderedlist os="macosx">
       <listitem>
         <para>Click on Mac OS X.</para>
@@ -599,15 +606,25 @@ $ su
             -universal</para></entry>
           </row>
           <row>
-            <entry>3.6.0</entry>
+            <entry>3.6.0-3.7.x</entry>
             <entry>4.6.3 or Qt SDK 2010.04</entry>
-            <entry>-plugin-sql-psql -plugin-sql-odbc -plugin-sql-sqlite
-            -qt-zlib -qt-gif -qt-libtiff -qt-libpng -qt-libmng -qt-libjpeg
-            -I/path/to/postgresql/include -L/path/to/postgresql/lib<para
-            os="windows"
+            <entry>-prefix-install -prefix /where/you/want/qt -plugin-sql-psql
+            -plugin-sql-odbc -plugin-sql-sqlite -qt-zlib -qt-gif -qt-libtiff
+            -qt-libpng -qt-libmng -qt-libjpeg -I/path/to/postgresql/include
+            -L/path/to/postgresql/lib<para os="windows"
             userlevel="installfromsrc">-qt-style-windowsxp</para><para
             os="macosx" userlevel="installfromsrc">-no-framework
             -universal</para></entry>
+          </row>
+          <row>
+            <entry>3.8-</entry>
+            <entry>4.8.0</entry>
+            <entry><para>-prefix-install -prefix /where/you/want/qt
+            -plugin-sql-psql -plugin-sql-odbc -plugin-sql-sqlite -qt-zlib
+            -qt-libtiff -qt-libpng -qt-libmng -qt-libjpeg
+            -I/Library/PostgreSQL/8.4/include -L/Library/PostgreSQL/8.4/lib
+            -nomake examples -nomake demos</para><para os="macosx">-arch x86
+            -arch x86_64</para></entry>
           </row>
         </tbody>
       </tgroup>
@@ -629,12 +646,17 @@ $ su
     url="http://qt.nokia.com/downloads/sdk-windows-cpp">http://qt.nokia.com/downloads/sdk-windows-cpp</ulink>.
     Install the Qt SDK, accepting the default options. This will create a
     C:\Qt folder containing 2009.04.</para>
+    <para os="macosx">If you are going to build xTuple application binaries
+    for release on OS X, xTuple currently recommends building Qt from source.
+    Different Qt binary releases are built for different hardware
+    architectures and some are built without PostgreSQL support.</para>
     <para os="macosx" userlevel="installfrompkg">The prebuilt package for Qt
     for Mac OSX can be downloaded from <ulink
     url="http://qt.nokia.com/downloads/sdk-mac-os-cpp">http://qt.nokia.com/downloads/sdk-mac-os-cpp</ulink>.
-    Install the Qt SDK, accepting the default options. This package contains
-    universal binaries for i386 and PPC but not the newer 64 bit Intel
-    processors.</para>
+    Install the Qt SDK, accepting the default options. Be careful with this,
+    as different versions of the Qt SDK binary packages are built for
+    different hardware architectures and you may have trouble getting the Qt
+    database drivers to work with the PostgreSQL client library.</para>
     <para os="linux">Do not use the Qt packages installed by your Linux
     distribution's package manager. This can lead to problems when packages
     get automatically upgraded. xTuple rarely switches to new Qt versions as
@@ -652,27 +674,16 @@ $ su
         </listitem>
         <listitem>
           <para>In a command window</para>
-          <programlisting>&gt; cd \qt\qt-win-commercial-src-4.5.1
+          <programlisting>&gt; cd \qt\qt-everywhere-opensource-src-4.8.0
 &gt; configure.exe [ Configuration Parameters from above ] -platform win32-g++
 &gt; mingw32-make</programlisting>
-        </listitem>
-        <listitem>
-          <para>When Qt has successfully built, add the following values to
-          your environment variables:</para>
-          <programlisting>PATH c:\qt\qt-win-commercial-src-4.5.1\bin
-INCLUDE c:\qt\qt-win-commercial-src-4.5.1\include
-LIB c:\qt\qt-win-commercial-src-4.5.1\lib</programlisting>
-          <tip>
-            <para>If the Qt build quits without finishing successfully, try
-            adding these environment variables before rebuilding.</para>
-          </tip>
         </listitem>
       </orderedlist></para>
     <para condition="msvc" os="windows" userlevel="installfromsrc">After
     downloading the source .zip file:<orderedlist>
         <listitem>
           <para>Extract the .zip file to</para>
-          <programlisting>c:\qt\qt-win-commercial-src-4.5.1 .</programlisting>
+          <programlisting>c:\qt\qt-everywhere-opensource-src-4.8.0 .</programlisting>
         </listitem>
         <listitem>
           <para>Start &gt; Programs -&gt; Microsoft Visual C++ Express Edition
@@ -680,7 +691,7 @@ LIB c:\qt\qt-win-commercial-src-4.5.1\lib</programlisting>
           Prompt</para>
         </listitem>
         <listitem>
-          <programlisting>&gt; cd \qt\qt-win-commercial-src-4.5.1
+          <programlisting>&gt; cd \qt\qt-everywhere-opensource-src-4.8.0
 &gt; configure.exe -platform win32-msvc # Configuration Parameters from above</programlisting>
         </listitem>
         <listitem>
@@ -695,9 +706,9 @@ LIB c:\qt\qt-win-commercial-src-4.5.1\lib</programlisting>
     location, skip the mkdir and cd steps and leaf off the -prefix* options to
     the configure command.<programlisting>$ mkdir /opt/qt
 $ cd /opt/qt
-$ tar xzf wherever-the-tarball-is/qt-mac-commercial-src-version.tar.gz
-$ cd qt-mac-commercial-src-version
-$ ./configure -prefix-install -prefix /opt/qt/Qt-version # Configuration Parameters from above
+$ tar xzf wherever-the-tarball-is/qt-everywhere-opensource-src-4.8.0.tar.gz
+$ cd qt-everywhere-opensource-src-4.8.0
+$ ./configure # Configuration Parameters from above
 $ make
 $ sudo make install</programlisting>The<literal> -no-framework</literal>
     argument in the table above has been selected to reduce the risk of
@@ -706,11 +717,11 @@ $ sudo make install</programlisting>The<literal> -no-framework</literal>
     PostgreSQL in <literal>/usr</literal>, which is the default for many
     PostgreSQL binary installers.<caution>
         <para>Make sure you give yourself permissions to write to the folder
-        <literal>/opt/qt/qt-mac-commercial-src-version/plugins/designer</literal>.
-        When xTuple is compiled it will need to create a library here for
-        xTuple widget plugins. Without adequate permissions the library will
-        not be created and you will not be able to properly edit and use files
-        using xTuple widgets in Qt Designer.</para>
+        <literal>/where/you/put/qt/plugins/designer</literal>. When xTuple is
+        compiled it will need to create a library here for xTuple widget
+        plugins. Without adequate permissions the library will not be created
+        and you will not be able to properly edit and use files using xTuple
+        widgets in Qt Designer.</para>
       </caution><tip>
         <para>If you want to build universal binaries then you must have
         PostgreSQL universal binaries as well.</para>
@@ -719,9 +730,9 @@ $ sudo make install</programlisting>The<literal> -no-framework</literal>
     PostBooks using Qt directly from Linux distribution installations, such as
     RPMs. If you try doing this then you are on your own.<programlisting>$ mkdir /opt/qt
 $ cd /opt/qt
-$ tar xzf whereever-the-tarball-is/qt-x11-commercial-src-version.tar.gz
-$ cd qt-x11-commercial-src-version
-$ ./configure -prefix /opt/qt/Qt-version -v # Configuration Parameters from above
+$ tar xzf whereever-the-tarball-is/qt-everywhere-opensource-src-4.8.0.tar.gz
+$ cd qt-everywhere-opensource-src-4.8.0
+$ ./configure # Configuration Parameters from above
 $ make
 $ sudo make install</programlisting>The <literal>-I</literal> and
     <literal>-L</literal> options are not necessary if you installed
@@ -778,19 +789,19 @@ set PATH=%PATH%;C:\Qt\2009.03\qt</programlisting></para>
    C:\Program Files\Microsoft Visual Studio 8\Common\IDE;
    C:\Program Files\Microsoft Platform SDK for Windows Server 2003 R2\Bin;
    C:\postgresql\postgresql-version\src\interfaces\libpq\Release;
-   C:\qt\qt-win-commercial-src-4.5.1\bin
+   C:\qt\qt-everywhere-opensource-src-4.8.0\bin
 INCLUDE=C:\Program Files\Microsoft Visual Studio 8\VC\include;
       C:\Program Files\Microsoft Platform SDK for Windows Server 2003 R2\Include;
       C:\postgresql\postgresql-version\src\include;
       C:\postgresql\postgresql-version\src\interfaces\libpq;
-      C:\qt\qt-win-commercial-src-4.5.1\include
+      C:\qt\qt-everywhere-opensource-src-4.8.0\include
 LIB=C:\Program Files\Microsoft Platform SDK for Windows Server 2003 R2\Lib;
   C:\postgresql\postgresql-version\src\interfaces\libpq\Release;
-  C:\qt\qt-win-commercial-src-4.5.1\lib</programlisting>In addition to the
-    normal Windows environment settings, Qt has a special Qt Command Prompt
-    command which overrides the PATH set in the System Properties. You will
-    need to edit C:\Qt\2009.04\bin\qtenv.bat with a text editor to change the
-    PATH set in that .bat file. Add the following lines:<programlisting>set PATH=%PATH%;C:\Qt\pgsql\bin
+  C:\qt\qt-everywhere-opensource-src-4.8.0\lib</programlisting>In addition to
+    the normal Windows environment settings, Qt has a special Qt Command
+    Prompt command which overrides the PATH set in the System Properties. You
+    will need to edit C:\Qt\2009.04\bin\qtenv.bat with a text editor to change
+    the PATH set in that .bat file. Add the following lines:<programlisting>set PATH=%PATH%;C:\Qt\pgsql\bin
 set PATH=%PATH%;C:\Qt\2009.03\qt</programlisting></para>
     <programlisting os="macosx">PATH=/opt/postgresql/pg-version/bin:
    /opt/qt/qt-version/bin</programlisting>
@@ -829,8 +840,7 @@ LD_LIBRARY_PATH=/opt/lib:/opt/qt/Qt-version/lib</programlisting>
     fast machine.</para>
   </section>
   <section>
-    <title>Check out the OpenRPT, CSVImp, xtlib, and PostBooks source
-    code</title>
+    <title>Get the OpenRPT, CSVImp, and PostBooks source code</title>
     <para>The source code for the xTuple projects is broken into several
     distinct pieces (listed in increasing order of dependency):</para>
     <itemizedlist>
@@ -839,9 +849,6 @@ LD_LIBRARY_PATH=/opt/lib:/opt/qt/Qt-version/lib</programlisting>
       </listitem>
       <listitem>
         <para>CSVImp</para>
-      </listitem>
-      <listitem>
-        <para>xtlib (starting with xTuple ERP 3.7.0alpha)</para>
       </listitem>
       <listitem>
         <para>xTuple GUI client</para>
@@ -853,7 +860,6 @@ LD_LIBRARY_PATH=/opt/lib:/opt/qt/Qt-version/lib</programlisting>
     <programlisting>&lt;PARENT FOLDER&gt;
 + csvimp
 + openrpt
-+ xtlib
 + xtuple</programlisting>
     <para>Here is an example of checking out the sources using command line
     tools:</para>
@@ -861,8 +867,7 @@ LD_LIBRARY_PATH=/opt/lib:/opt/qt/Qt-version/lib</programlisting>
 $ cd postbooks-checkout-area
 $ svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtuple/trunk xtuple
 $ svn co https://openrpt.svn.sourceforge.net/svnroot/openrpt/openrpt/trunk openrpt
-$ svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/csvimp/trunk csvimp
-$ svn co https://poostbooks.svn.sourceforge.net/svnroot/postbooks/xtlib/trunk xtlib</programlisting>
+$ svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/csvimp/trunk csvimp</programlisting>
     <para>Here is an example using RapidSVN on Windows. It places the source
     files in C:\Qt\xTuple-src.</para>
     <orderedlist>
@@ -874,8 +879,7 @@ $ svn co https://poostbooks.svn.sourceforge.net/svnroot/postbooks/xtlib/trunk xt
         destination directory. Do this four times with the following
         URL/Directory combinations:<programlisting>https://openrpt.svn.sourceforge.net/svnroot/openrpt/openrpt/trunk C:\Qt\xTuple-src\openrpt
 https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtuple/trunk C:\Qt\xTuple-src\xtuple 
-https://postbooks.svn.sourceforge.net/svnroot/postbooks/csvimp/trunk C:\Qt\xTuple-src\csvimp
-https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtlib/trunk C:\Qt\xTuple-src\xtlib</programlisting></para>
+https://postbooks.svn.sourceforge.net/svnroot/postbooks/csvimp/trunk C:\Qt\xTuple-src\csvimp</programlisting></para>
         <para>Accept a security key for each host when you connect. Once the
         sources are downloaded, you can close RapidSVN.</para>
       </listitem>
@@ -926,19 +930,41 @@ $ make</programlisting>
     only change to the CSVImp checkout directory first.</para>
   </section>
   <section>
-    <title>Build xtlib</title>
-    <para>To build xtlib, follow exactly the same steps as for OpenRPT, only
-    change to the <literal>checkout-dir/xtlib/src directory</literal>
-    first.</para>
-  </section>
-  <section>
     <title>Build the main xTuple application</title>
+    <para os="macosx">If you are building xTuple ERP versions 3.4.0 and
+    earlier and you are <emphasis>not</emphasis> making a universal binary,
+    edit the <filename>global.pri</filename> file and remove the processor
+    entry, x86 or ppc, that is <emphasis>not</emphasis> applicable to your
+    system from the macx section.</para>
+    <para os="macosx">In versions after 3.4.0, you need to add a special
+    <filename>macx.pri</filename> file in the top level of the xtuple sources
+    to get universal binaries. Add a line that looks like
+    this:<programlisting>CONFIG += ppc x86 x86_64</programlisting>The exact
+    text will differ depending on the architectures you want to build for and
+    the way PostgreSQL and Qt were built.</para>
     <programlisting>$ cd checkout-dir/xtuple
 $ qmake
 $ make
 </programlisting>
-    <para>The same platform-specific qualifiers apply as when building
-    OpenRPT.</para>
+    <para os="macosx" userlevel="installfrompkg">By default the qmake that
+    comes with Qt binary installations tries to create Xcode project files
+    instead of Makefiles. To work around this, use the -spec argument when you
+    run qmake at the top level:<programlisting>$ qmake -spec macx-g++</programlisting></para>
+    <para>You can use the CSV import tool from the main xTuple application
+    starting with xTuple ERP 3.5.1. If you want to do so, copy the plugin
+    library to the right location. Assuming the xtuple, openrpt, and csvimp
+    directories are next to each other, here are the steps:</para>
+    <para><programlisting condition="mingw" os="windows">% mkdir bin\plugins
+% cp ..\csvimp\plugins\csvimpplugin.dll bin\plugins</programlisting><programlisting
+    condition="msvc" os="windows">% mkdir bin\plugins
+% cp ..\csvimp\plugins\pluginlibraryname bin\plugins</programlisting><programlisting
+    os="macosx">$ mkdir bin/xtuple.app/Contents/plugins
+$ cp ../csvimp/plugins/libcsvimpplugin.dylib bin/xtuple.app/Contents/plugins</programlisting><programlisting
+    os="linux">$ mkdir bin/xtuple/plugins
+$ cp ../csvimp/plugins/libcsvimpplugin.so bin/xtuple/plugins</programlisting></para>
+  </section>
+  <section>
+    <title>Bundle xTuple ERP for distribution</title>
     <para>If you want to distribute your compiled xTuple ERP binaries to other
     machines, you'll need to bundle the necessary shared libraries and
     distribute the whole collection.</para>
@@ -973,50 +999,19 @@ COPY c:\qt\2009.03\qt\bin\QTXML4.DLL c:\qt\xtuple-src\xtuple\bin\
 ECHO *** END ***</programlisting>
     <para condition="msvc" os="windows">Distribution on Windows with Visual
     C++ is not documented yet.</para>
+    <para os="macosx"><programlisting>$ mkdir .../xtuple/../xTuple-version
+$ cd .../xTuple-version
+$ cp -r ../xtuple/bin/xtuple.app .
+$ cp ../xtuple/share/XTupleGUIClient.qch xtuple.app/Contents/Resources
+$ cp ../xtuple/share/XTupleGUIClient.qhc xtuple.app/Contents/Resources
+$ cp ../xtuple/hunspell/English.* xtuple.app/Contents/MacOS
+$ mkdir xtuple.app/Contents/MacOS/welcome
+$ cp ../xtuple/share/dict/welcome/*.qm xtuple.app/Contents/MacOS/welcome
+$ macdeployqt xtuple.app
+$ echo "[Paths]
+&gt; Plugins = PlugIns" &gt;&gt; xtuple.app/Contents/Resources/qt.conf
+$ cd ..
+$ hdiutil create -fs HFS+ -volname xTuple-version -srcfolder xTuple-version xTuple-version.dmg</programlisting></para>
     <para os="linux">Distribution on Linux is not documented yet.</para>
-    <section os="macosx">
-      <title>Macintosh</title>
-      <para>If you are building xTuple ERP versions 3.4.0 and earlier and you
-      are <emphasis>not</emphasis> making a universal binary, edit the
-      <filename>global.pri</filename> file and remove the processor entry, x86
-      or ppc, that is <emphasis>not</emphasis> applicable to your system from
-      the macx section.</para>
-      <para>In versions after 3.4.0, you need to add a special
-      <filename>macx.pri</filename> file in the top level of the xtuple
-      sources to get universal binaries. Add a line that looks like
-      this:<programlisting>CONFIG += ppc x86 x86_64</programlisting>The exact
-      text will differ depending on the architectures you want to build for
-      and the way PostgreSQL and Qt were built.</para>
-      <para userlevel="installfrompkg">By default the qmake that comes with Qt
-      binary installations try to create Xcode project files instead of
-      Makefiles. To work around this, use the -spec argument when you run
-      qmake at the top level before building OpenRPT:<programlisting>$ qmake -spec macx-g++</programlisting></para>
-      <para userlevel="installfrompkg">We don't yet know how to bundle
-      binaries for distribution if Qt was installed with a binary package. Why
-      not? Because we've been building Qt with <literal>-no-framework
-      </literal>for years but the binary distributions use Mac Frameworks. It
-      shouldn't be hard but we haven't yet had a chance to work out the
-      details of bundling with a framework.</para>
-      <para userlevel="installfromsrc">If you built Qt from source and
-      selected the <literal>-no-framework</literal> option when you configured
-      Qt, you can create a .dmg with the xTuple binary by running
-      <command>bundle.sh</command> from the top directory of the xtuple source
-      hierarchy. This is not an installer.</para>
-    </section>
-    <section>
-      <title>Including CSVImp</title>
-      <para>You can use the CSV import tool from the main xTuple application
-      starting with xTuple ERP 3.5.1. If you want to do so, copy the plugin
-      library to the right location. Assuming the xtuple, openrpt, and csvimp
-      directories are next to each other, here are the steps:</para>
-      <para><programlisting condition="mingw" os="windows">% mkdir bin\plugins
-% cp ..\csvimp\plugins\csvimpplugin.dll bin\plugins</programlisting><programlisting
-      condition="msvc" os="windows">% mkdir bin\plugins
-% cp ..\csvimp\plugins\pluginlibraryname bin\plugins</programlisting><programlisting
-      os="macosx">$ mkdir bin/xtuple.app/Contents/plugins
-$ cp ../csvimp/plugins/libcsvimpplugin.dylib bin/xtuple.app/Contents/plugins</programlisting><programlisting
-      os="linux">$ mkdir bin/xtuple/plugins
-$ cp ../csvimp/plugins/libcsvimpplugin.so bin/xtuple/plugins</programlisting></para>
-    </section>
   </section>
 </chapter>
