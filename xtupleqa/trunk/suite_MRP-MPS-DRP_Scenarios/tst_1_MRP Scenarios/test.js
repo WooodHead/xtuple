@@ -195,32 +195,12 @@ function main()
         test.fail("Error in setting up  Item Site of TBOX1" + e);
     } 
     
-    MRP("+99");
     
+    MRPbyItem("TBOX1","WH1","+99");
+//    MRP("+99");
+  
     
-    //--------View Planned Orders----        
-    try
-    {
-        waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
-        activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
-        waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
-        activateItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
-        waitForObjectItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders...");
-        activateItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders...");
-        waitForObject(":Planned Orders.Query_QToolButton");
-        clickButton(":Planned Orders.Query_QToolButton");      
-        waitForObject(":_list_XTreeWidget_10");
-        if((findObject(":_list_XTreeWidget_10").topLevelItemCount)==0)
-            test.pass("No Planned Order generated");
-        else test.fail("Planned Order generated");
-        waitForObject(":Planned Orders.Close_QToolButton");
-        clickButton(":Planned Orders.Close_QToolButton");
-    }
-    catch(e)
-    {
-        test.fail("Error in viewing planned orders" + e);
-    }
-    
+   
     //MRP REORDER POINT TEST   
     test.log("MRP REORDER POINT TEST");
     
@@ -285,7 +265,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     } 
     
-    MRP("+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -398,7 +379,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
-    MRP("+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -509,7 +491,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
-    MRP("+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -617,7 +600,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
-    MRP("+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -737,7 +721,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
-    MRP("+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -847,7 +832,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
-    MRP("+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -957,7 +943,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
-    MRP("+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -1061,7 +1048,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
-    MRP("+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -1151,7 +1139,8 @@ function main()
         test.fail("Error in setting  up Item Site of TBOX1 " + e);
     }
     
-    MRP("+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     
     //--------Verify generated Planned Orders-----
@@ -1238,7 +1227,8 @@ function main()
         test.fail("Error in setting  up Item Site of TBOX1 " + e);
     }
     
-    MRP("+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     
     //--------Verify generated Planned Orders-----
@@ -1357,7 +1347,8 @@ function main()
         test.fail("Error in setting  up Item Site of TBOX1 " + e);
     }
     
-    MRP("+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //--------View Planned Orders----        
     try
@@ -1469,7 +1460,8 @@ function main()
         test.fail("Error in setting  up Item Site of TBOX1 " + e);
     }
     
-    MRP("+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //--------View Planned Orders----        
     try
@@ -1627,8 +1619,9 @@ function main()
     
     NewWO("TSUB1",300,0,0)
             
-            
-            MRP("+99");
+    MRPbyItem("TSUB1","WH1","+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //------Verify generated Planned Orders-----
     try
@@ -1788,7 +1781,9 @@ function main()
     
     NewWO("TSUB1",350,0,0);
     
-    MRP("+99");
+    MRPbyItem("TSUB1","WH1","+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //------Verify generated Planned Orders-----
     try
@@ -2032,7 +2027,10 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
-    MRP("+99");
+    
+    MRPbyItem("TSUB1","WH1","+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //------Verify generated Planned Orders-----
     try
@@ -2186,7 +2184,8 @@ function main()
     DelAllWO();
     NewScheduledWO("TSUB1",200,"+10",0);
     FirmPlndOrder();
-    MRP("+99");
+    MRPbyItem("TBOX1","WH1","+99");
+    //MRP("+99");
     
     //------Verify generated Planned Orders-----
     try

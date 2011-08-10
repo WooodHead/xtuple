@@ -316,6 +316,44 @@ catch(e)
     test.fail("Error in running MRP" + e);
 }
 
+
+try
+    {
+        function MRPbyItem(item,site,period)
+        {    
+            
+            //---------------Run MRP By Item-----------------------
+            waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
+            activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
+            waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
+            activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
+            waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "Run MRP");
+            activateItem(":xTuple ERP:*.Scheduling_QMenu", "Run MRP");
+            waitForObjectItem(":xTuple ERP:*.Run MRP_QMenu", "by Item...");
+            activateItem(":xTuple ERP:*.Run MRP_QMenu", "by Item...");
+            waitForObject(":Run MRP by Item.VirtualClusterLineEdit_ItemLineEdit");
+            type(":Run MRP by Item.VirtualClusterLineEdit_ItemLineEdit", item);
+            nativeType("<Tab>");
+            snooze(0.5);
+            waitForObject(":_warehouse_WComboBox_9");
+            clickItem(":_warehouse_WComboBox_9",site,10,10,0,Qt.LeftButton);
+            waitForObject(":Run MRP by Item.XDateEdit_XDateEdit");
+            type(":Run MRP by Item.XDateEdit_XDateEdit", period);
+            nativeType("<Tab>");
+            snooze(0.5);
+            waitForObject(":Run MRP by Item.Create_QPushButton");
+            clickButton(":Run MRP by Item.Create_QPushButton");
+            waitForObject(":Run MRP by Item.Close_QPushButton");
+            clickButton(":Run MRP by Item.Close_QPushButton");
+        }
+        
+    }
+    catch(e)
+    {
+        test.fail("Error in running MRP by item" + e);
+    }
+
+
 try
 {
     function MPS(period)
