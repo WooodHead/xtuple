@@ -4,6 +4,19 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter>
   <title>Development Environment Setup</title>
+  <!--This chapter is designed to be split into separate subsections before rendering.
+That makes it hard to edit unless viewed in XXE with xTuple's docbook-xtuple.css.
+This CSS file labels and colors elements by OS and adds markers to distinguish
+between install-from-source and install-from-binary-package content.
+xsltproc and xtupledocs/xsl/splitbyos.xsl can be used to extract the subsections.
+The book file xtupledocs/devguide/devguide.xml xincludes these subsections.
+Contact xTuple for help configuring XXE to use the .css and .xsl files.
+
+Use the following attributes and values to mark elements that only pertain to
+specific configurations:
+  os        windows, linux, macosx     platform-specific
+  condition mingw, msvc                compiler-specific, only use when os=windows
+  userlevel installfromsrc, installfrompkg-->
   <para>This chapter is intended for use by experienced software developers
   who need to modify the xTuple ERP source code. It covers specific steps and
   details required to create a C++ development environment. People who simply
@@ -182,6 +195,9 @@
     <table>
       <title>PostgreSQL compatibility</title>
       <tgroup cols="3">
+        <colspec colnum="1" colwidth="1*" />
+        <colspec colnum="2" colwidth="1*" />
+        <colspec colnum="3" colwidth="2*" />
         <tbody>
           <row>
             <entry>xTuple ERP</entry>
@@ -491,6 +507,9 @@ $ su
       <title>Qt versions required to build various releases of xTuple
       ERP</title>
       <tgroup cols="3">
+        <colspec colnum="1" colwidth="1*" />
+        <colspec colnum="2" colwidth="1*" />
+        <colspec colnum="3" colwidth="3*" />
         <tbody>
           <row>
             <entry>xTuple ERP</entry>
@@ -606,24 +625,40 @@ $ su
             -universal</para></entry>
           </row>
           <row>
-            <entry>3.6.0-3.7.x</entry>
+            <entrytbl cols="2">
+              <tbody>
+                <row>
+                  <entry>3.6.0</entry>
+                  <entry>3.7.x</entry>
+                </row>
+              </tbody>
+            </entrytbl>
             <entry>4.6.3 or Qt SDK 2010.04</entry>
-            <entry>-prefix-install -prefix /where/you/want/qt -plugin-sql-psql
-            -plugin-sql-odbc -plugin-sql-sqlite -qt-zlib -qt-gif -qt-libtiff
-            -qt-libpng -qt-libmng -qt-libjpeg -I/path/to/postgresql/include
+            <entry userlevel="installfromsrc">-prefix-install -prefix
+            /where/you/want/qt -plugin-sql-psql -plugin-sql-odbc
+            -plugin-sql-sqlite -qt-zlib -qt-gif -qt-libtiff -qt-libpng
+            -qt-libmng -qt-libjpeg -I/path/to/postgresql/include
             -L/path/to/postgresql/lib<para os="windows"
             userlevel="installfromsrc">-qt-style-windowsxp</para><para
             os="macosx" userlevel="installfromsrc">-no-framework
             -universal</para></entry>
           </row>
           <row>
-            <entry>3.8-</entry>
+            <entrytbl cols="2">
+              <tbody>
+                <row>
+                  <entry>3.8</entry>
+                  <entry></entry>
+                </row>
+              </tbody>
+            </entrytbl>
             <entry>4.8.0</entry>
-            <entry><para>-prefix-install -prefix /where/you/want/qt
-            -plugin-sql-psql -plugin-sql-odbc -plugin-sql-sqlite -qt-zlib
-            -qt-libtiff -qt-libpng -qt-libmng -qt-libjpeg
-            -I/Library/PostgreSQL/8.4/include -L/Library/PostgreSQL/8.4/lib
-            -nomake examples -nomake demos</para><para os="macosx">-arch x86
+            <entry userlevel="installfromsrc"><para>-prefix-install -prefix
+            /where/you/want/qt -plugin-sql-psql -plugin-sql-odbc
+            -plugin-sql-sqlite -qt-zlib -qt-libtiff -qt-libpng -qt-libmng
+            -qt-libjpeg -I/Library/PostgreSQL/8.4/include
+            -L/Library/PostgreSQL/8.4/lib -nomake examples -nomake
+            demos</para><para os="macosx" userlevel="installfromsrc">-arch x86
             -arch x86_64</para></entry>
           </row>
         </tbody>
@@ -803,8 +838,7 @@ LIB=C:\Program Files\Microsoft Platform SDK for Windows Server 2003 R2\Lib;
     will need to edit C:\Qt\2009.04\bin\qtenv.bat with a text editor to change
     the PATH set in that .bat file. Add the following lines:<programlisting>set PATH=%PATH%;C:\Qt\pgsql\bin
 set PATH=%PATH%;C:\Qt\2009.03\qt</programlisting></para>
-    <programlisting os="macosx">PATH=/opt/postgresql/pg-version/bin:
-   /opt/qt/qt-version/bin</programlisting>
+    <programlisting os="macosx">PATH=/opt/postgresql/pg-version/bin:/opt/qt/qt-version/bin</programlisting>
     <programlisting os="linux">PATH=/opt/bin:/opt/qt/Qt-version/bin
 INCLUDE=/opt/include:/opt/qt/Qt-version/include
 LD_LIBRARY_PATH=/opt/lib:/opt/qt/Qt-version/lib</programlisting>
@@ -825,13 +859,11 @@ LD_LIBRARY_PATH=/opt/lib:/opt/qt/Qt-version/lib</programlisting>
     <para>We must now build QT to include the sqldrivers. First remove two
     files to avoid the dreaded "<code>*** [sub-webkit-make_default-ordered]
     Error 2</code>":</para>
-    <programlisting>C:\Qt\2009.03\qt\src\3rdparty\webkit\WebCore\tmp\moc\debug_shared\mocinclude.tmp
-          C:\Qt\2009.03\qt\src\3rdparty\webkit\WebCore\tmp\moc\release_shared\mocinclude.tmp</programlisting>
+    <programlisting>&gt; DEL C:\Qt\2009.03\qt\src\3rdparty\webkit\WebCore\tmp\moc\debug_shared\moc\include.tmp
+&gt; DEL C:\Qt\2009.03\qt\src\3rdparty\webkit\WebCore\tmp\moc\release_shared\moc\include.tmp</programlisting>
     <para>Once those two files are deleted, run Qt Command Prompt and execute
     the following command:</para>
-    <programlisting>&gt; configure.exe -debug-and-release -plugin-sql-psql -plugin-sql-odbc -plugin-sql-sqlite -qt-zlib \
-              -qt-gif -qt-libtiff -qt-libpng -qt-libmng -qt-libjpeg -qt-style-windowsxp \
-              -platform win32-g++ -L C:\Qt\pgsql\lib -I C:\Qt\pgsql\include</programlisting>
+    <programlisting>&gt; configure.exe -debug-and-release -plugin-sql-psql -plugin-sql-odbc -plugin-sql-sqlite -qt-zlib -qt-gif -qt-libtiff -qt-libpng -qt-libmng -qt-libjpeg -qt-style-windowsxp -platform win32-g++ -L C:\Qt\pgsql\lib -I C:\Qt\pgsql\include</programlisting>
     <para>You will be prompted for the edition of Qt you want to use, and then
     the license agreement. The configure command will take a few minutes to
     complete. Now run this command:</para>
@@ -944,8 +976,7 @@ $ make</programlisting>
     the way PostgreSQL and Qt were built.</para>
     <programlisting>$ cd checkout-dir/xtuple
 $ qmake
-$ make
-</programlisting>
+$ make</programlisting>
     <para os="macosx" userlevel="installfrompkg">By default the qmake that
     comes with Qt binary installations tries to create Xcode project files
     instead of Makefiles. To work around this, use the -spec argument when you
@@ -968,35 +999,19 @@ $ cp ../csvimp/plugins/libcsvimpplugin.so bin/xtuple/plugins</programlisting></p
     <para>If you want to distribute your compiled xTuple ERP binaries to other
     machines, you'll need to bundle the necessary shared libraries and
     distribute the whole collection.</para>
-    <programlisting condition="mingw" os="windows">ECHO *** BEGIN ***
-
-COPY c:\qt\2009.03\mingw\bin\MINGWM10.DLL c:\qt\xtuple-src\xtuple\bin\
-
+    <programlisting condition="mingw" os="windows">COPY c:\qt\2009.03\mingw\bin\MINGWM10.DLL c:\qt\xtuple-src\xtuple\bin\
 COPY c:\qt\2009.03\qt\bin\QT3SUPPORT4.DLL c:\qt\xtuple-src\xtuple\bin\
-
 COPY c:\qt\2009.03\qt\bin\QTASSISTANTCLIENT4.DLL c:\qt\xtuple-src\xtuple\bin\
-
 COPY c:\qt\2009.03\qt\bin\QTCORE4.DLL c:\qt\xtuple-src\xtuple\bin\
-
 COPY c:\qt\2009.03\qt\bin\QTDESIGNER4.DLL c:\qt\xtuple-src\xtuple\bin\
-
 COPY c:\qt\2009.03\qt\bin\QTDESIGNERCOMPONENTS4.DLL c:\qt\xtuple-src\xtuple\bin\
-
 COPY c:\qt\2009.03\qt\bin\QTGUI4.DLL c:\qt\xtuple-src\xtuple\bin\
-
 COPY c:\qt\2009.03\qt\bin\QTNETWORK4.DLL c:\qt\xtuple-src\xtuple\bin\
-
 COPY c:\qt\2009.03\qt\bin\QTSCRIPT4.DLL c:\qt\xtuple-src\xtuple\bin\
-
 COPY c:\qt\2009.03\qt\bin\QTSCRIPTTOOLS4.DLL c:\qt\xtuple-src\xtuple\bin\
-
 COPY c:\qt\2009.03\qt\bin\QTSQL4.DLL c:\qt\xtuple-src\xtuple\bin\
-
 COPY c:\qt\2009.03\qt\bin\QTWEBKIT4.DLL c:\qt\xtuple-src\xtuple\bin\
-
-COPY c:\qt\2009.03\qt\bin\QTXML4.DLL c:\qt\xtuple-src\xtuple\bin\
-
-ECHO *** END ***</programlisting>
+COPY c:\qt\2009.03\qt\bin\QTXML4.DLL c:\qt\xtuple-src\xtuple\bin\</programlisting>
     <para condition="msvc" os="windows">Distribution on Windows with Visual
     C++ is not documented yet.</para>
     <para os="macosx"><programlisting>$ mkdir .../xtuple/../xTuple-version
