@@ -5,8 +5,8 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");     
-//    waitForObject(":OK_QPushButton");
-//    clickButton(":OK_QPushButton");
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
     var appEdition = findApplicationEdition();
     
     //---------Define: Incident Categories----------------
@@ -320,9 +320,11 @@ function main()
         type(":_name_XLineEdit_6", "RFP#");
         waitForObject(":May be used on:.Opportunity_QCheckBox_2");
         clickButton(":May be used on:.Opportunity_QCheckBox_2");
-        type(":_description_QTextEdit_6", "Request For Quote #");
-        waitForObject(":_mask_QLineEdit");
-        type(":_mask_QLineEdit", ".*");
+        waitForObject(":Work Center.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar", "Description");
+        waitForObject(":_descripPage._description_QTextEdit");
+        type(":_descripPage._description_QTextEdit","Request For Quote #");
+        
         waitForObject(":xTuple ERP: *_QPushButton");
         clickButton(":xTuple ERP: *_QPushButton");
         
@@ -332,17 +334,18 @@ function main()
         type(":_name_XLineEdit_6", "START"); 
         waitForObject(":May be used on:.Employee_QCheckBox_2");
         clickButton(":May be used on:.Employee_QCheckBox_2");
-        type(":_description_QTextEdit_6", "Employee Start Date");
-        waitForObject(":_mask_QLineEdit");
-        type(":_mask_QLineEdit", ".*");
+        waitForObject(":Work Center.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar", "Description");
+        waitForObject(":_descripPage._description_QTextEdit");
+        type(":_descripPage._description_QTextEdit","Employee Start Date");
+        waitForObject(":xTuple ERP: *_QPushButton");
+        clickButton(":xTuple ERP: *_QPushButton");
         if(object.exists(":_char.I-COLOR_QModelIndex"))
             test.pass("Characteristics: START created");
         else test.fail("Characteristics: START not created");
         if(object.exists(":_char.I-COLOR_QModelIndex"))
             test.pass("Characteristics: I-COLOR created");
         else test.fail("Characteristics: I-COLOR not created");
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");

@@ -5,12 +5,12 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER"); 
-  
-//     waitForObject(":OK_QPushButton");
-//    clickButton(":OK_QPushButton");
+    
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
     var appEdition = findApplicationEdition();
     
-    
+  
     
     //----------Create Items---------------------
     try{
@@ -61,23 +61,19 @@ function main()
         waitForObject(":_characteristicsTab.New_QPushButton_6");
         clickButton(":_characteristicsTab.New_QPushButton_6");
         snooze(1);
-        waitForObject(":_char_XComboBox_2");
-        clickItem(":_char_XComboBox_2", "I-COLOR - Product Color",0,0,1,Qt.LeftButton);
-        snooze(1);
+        
         waitForObject(":_value_XLineEdit_3");
         type(":_value_XLineEdit_3", "PL-126");
-        waitForObject(":Item Characteristic.Save_QPushButton");
-        clickButton(":Item Characteristic.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         
         snooze(2);
         waitForObject(":_characteristicsTab.New_QPushButton_6");
         clickButton(":_characteristicsTab.New_QPushButton_6");
-        waitForObject(":_char_XComboBox_2");
-        clickItem(":_char_XComboBox_2", "I-COLOR - Product Color",0,0,1,Qt.LeftButton);
-        snooze(1);
+        
         type(":_value_XLineEdit_3", "PL-227");
-        waitForObject(":Item Characteristic.Save_QPushButton");    
-        clickButton(":Item Characteristic.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");    
+        clickButton(":List Employees.Save_QPushButton_2");
         snooze(1);
         waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
         clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Tax Types");
@@ -171,21 +167,17 @@ function main()
         snooze(1);
         waitForObject(":_characteristicsTab.New_QPushButton_6");
         clickButton(":_characteristicsTab.New_QPushButton_6");
-        waitForObject(":_char_XComboBox_2");
-        type(":_char_XComboBox_2", "I-COLOR");
-        snooze(0.5);
+        
         type(":_value_XLineEdit_3", "PL-126");
-        waitForObject(":Item Characteristic.Save_QPushButton");
-        clickButton(":Item Characteristic.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         
         waitForObject(":_characteristicsTab.New_QPushButton_6");
         clickButton(":_characteristicsTab.New_QPushButton_6");
-        waitForObject(":_char_XComboBox_2");
-        type(":_char_XComboBox_2", "I-COLOR");
-        snooze(0.5);
+        
         type(":_value_XLineEdit_3", "PL-227");
-        waitForObject(":Item Characteristic.Save_QPushButton");    
-        clickButton(":Item Characteristic.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");    
+        clickButton(":List Employees.Save_QPushButton_2");
         
         waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
         clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Tax Types");
@@ -272,26 +264,21 @@ function main()
         type(":_prodWeight_XLineEdit_3", "3.5");
         waitForObject(":_packWeight_XLineEdit_3");
         type(":_packWeight_XLineEdit_3", ".25");
-        waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8",5);
+        waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
         clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8", "Characteristics");
         snooze(1);
         waitForObject(":_characteristicsTab.New_QPushButton_6");
         clickButton(":_characteristicsTab.New_QPushButton_6");
-        waitForObject(":_char_XComboBox_2");
-        clickItem(":_char_XComboBox_2", "I-COLOR - Product Color",0,0,1,Qt.LeftButton);
         waitForObject(":_value_XLineEdit_3");
         type(":_value_XLineEdit_3", "PL-126");
-        waitForObject(":Item Characteristic.Save_QPushButton");    
-        clickButton(":Item Characteristic.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");    
+        clickButton(":List Employees.Save_QPushButton_2");
         
-        waitForObject(":_characteristicsTab.New_QPushButton_6",2);
+        waitForObject(":_characteristicsTab.New_QPushButton_6");
         clickButton(":_characteristicsTab.New_QPushButton_6");
-        waitForObject(":_char_XComboBox_2");
-        clickItem(":_char_XComboBox_2", "I-COLOR - Product Color",0,0,1,Qt.LeftButton);
-        snooze(1);
         type(":_value_XLineEdit_3", "PL-227");
-        waitForObject(":Item Characteristic.Save_QPushButton");    
-        clickButton(":Item Characteristic.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");    
+        clickButton(":List Employees.Save_QPushButton_2");
         
         snooze(2);
         waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
@@ -441,46 +428,46 @@ function main()
         type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "COLLECTORS-LINE");
         nativeType("<Tab>");
         snooze(1);
-       
+        
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
-       
+        
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".30");
         type(":_scrap_XLineEdit", "0");
-        waitForObject(":Bill of Materials Item.Save_QPushButton");
-        clickButton(":Bill of Materials Item.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "WTRUCK1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".20");
         type(":_scrap_XLineEdit", "0");
-        waitForObject(":Bill of Materials Item.Save_QPushButton");
-        clickButton(":Bill of Materials Item.Save_QPushButton");
-        
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
+        snooze(2);
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "BTRUCK1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".50");
         type(":_scrap_XLineEdit", "0");
-        waitForObject(":Bill of Materials Item.Save_QPushButton");
-        clickButton(":Bill of Materials Item.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         
         
         waitForObject(":Bill of Materials.Save_QPushButton");
@@ -489,7 +476,7 @@ function main()
         
         waitForObject(":Bills of Materials.Close_QPushButton");
         clickButton(":Bills of Materials.Close_QPushButton");
-        
+                
     }catch(e){test.fail("Exception in creating Item COLLECTORS-LINE:"+e);}
     
     if(appEdition=="Manufacturing")

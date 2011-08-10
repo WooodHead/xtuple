@@ -1,4 +1,4 @@
-
+               
 function main()
 {
     
@@ -6,12 +6,12 @@ function main()
     source(findFile("scripts","functions.js"));
     
     //---login Application--------
-   
     loginAppl("RUNREGISTER"); 
-    waitForObject(":OK_QPushButton");
-    clickButton(":OK_QPushButton");
-  
-    snooze(1);
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
+    
+    snooze(2);
+    
     if(object.exists(":Notice.Remind me about this again._QCheckBox"))
     {
         waitForObject(":Notice.Remind me about this again._QCheckBox");
@@ -23,8 +23,8 @@ function main()
     }
     
     var appEdition = findApplicationEdition();
-  
-  
+    
+    
     //-----------Chart Of Accounts------------------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -81,71 +81,71 @@ function main()
         
         if(appEdition=="Manufacturing" || appEdition=="Standard")
         {
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1250-01");
-        nativeType("<Tab>");
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8980-01");
-        nativeType("<Tab>");
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-1210-01");
-        nativeType("<Tab>");
-        
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-1620-01");
-        nativeType("<Tab>");
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5","01-01-1930-01");
-        nativeType("<Tab>");  
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6","01-01-1460-01");
-        nativeType("<Tab>");
-        
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7","01-01-8910-01");
-        nativeType("<Tab>");
-        
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8","01-01-8920-01");
-        nativeType("<Tab>");
-        
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9","01-01-8930-01");
-        nativeType("<Tab>");
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10","01-01-2490-01");
-        nativeType("<Tab>");
-        
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11","01-01-1260-01");
-        nativeType("<Tab>");
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_12");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_12","01-01-6550-01");
-        nativeType("<Tab>");
-        
-         waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_13");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_13","01-01-2480-01");
-        nativeType("<Tab>");
-        
-        if(object.exists(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_14")) 
-        {
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_14");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_14","01-01-2320-01");
-        nativeType("<Tab>");
-        }
-        
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1250-01");
+            nativeType("<Tab>");
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8980-01");
+            nativeType("<Tab>");
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-1210-01");
+            nativeType("<Tab>");
+            
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-1620-01");
+            nativeType("<Tab>");
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5","01-01-1930-01");
+            nativeType("<Tab>");  
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6","01-01-1460-01");
+            nativeType("<Tab>");
+            
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7","01-01-8910-01");
+            nativeType("<Tab>");
+            
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8","01-01-8920-01");
+            nativeType("<Tab>");
+            
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9","01-01-8930-01");
+            nativeType("<Tab>");
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10","01-01-2490-01");
+            nativeType("<Tab>");
+            
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11","01-01-1260-01");
+            nativeType("<Tab>");
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_12");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_12","01-01-6550-01");
+            nativeType("<Tab>");
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_13");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_13","01-01-2480-01");
+            nativeType("<Tab>");
+            
+            if(object.exists(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_14")) 
+            {
+                waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_14");
+                type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_14","01-01-2320-01");
+                nativeType("<Tab>");
+            }
+            
         }
         
         
@@ -153,61 +153,61 @@ function main()
             
         {
             
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1250-01");
-        nativeType("<Tab>");
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8980-01");
-        nativeType("<Tab>");
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-1210-01");
-        nativeType("<Tab>");
-        
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-1620-01");
-        nativeType("<Tab>");
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5","01-01-1460-01");
-        nativeType("<Tab>");  
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6","01-01-8910-01");
-        nativeType("<Tab>");
-        
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7","01-01-8920-01");
-        nativeType("<Tab>");
-        
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8","01-01-8930-01");
-        nativeType("<Tab>");
-        
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9","01-01-2490-01");
-        nativeType("<Tab>");
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10","01-01-1260-01");
-        nativeType("<Tab>");
-        
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11","01-01-6550-01");
-        nativeType("<Tab>");
-    
-    
-       }  
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1250-01");
+            nativeType("<Tab>");
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8980-01");
+            nativeType("<Tab>");
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-1210-01");
+            nativeType("<Tab>");
+            
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-1620-01");
+            nativeType("<Tab>");
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5","01-01-1460-01");
+            nativeType("<Tab>");  
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6","01-01-8910-01");
+            nativeType("<Tab>");
+            
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7","01-01-8920-01");
+            nativeType("<Tab>");
+            
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8","01-01-8930-01");
+            nativeType("<Tab>");
+            
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9","01-01-2490-01");
+            nativeType("<Tab>");
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10","01-01-1260-01");
+            nativeType("<Tab>");
+            
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11","01-01-6550-01");
+            nativeType("<Tab>");
+            
+            
+        }  
         waitForObject(":Setup.Save_QPushButton");
-        clickButton(":Setup.Save_QPushButton");
-        snooze(2);
+        clickButton(":Setup.Save_QPushButton");        
         waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
+        snooze(1);
         if(object.exists(":_costcat.CCWH1_QModelIndex"))
             test.pass("Cost Category: CCWH1 created");
         else test.fail("Cost Category: CCWH1 not created");
@@ -253,6 +253,7 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
+        snooze(1);
         if(object.exists(":_costcat.CCINTRAN_QModelIndex"))
             test.pass("Cost Category: CCINTRAN created");
         else test.fail("Cost Category: CCINTRAN not created");
@@ -298,8 +299,8 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-        snooze(2);
         waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
+        snooze(1);
         if(object.exists(":_costcat.CCWH2_QModelIndex"))
             test.pass("Cost Category: CCWH2 created");
         else test.fail("Cost Category: CCWH2 not created");
@@ -847,8 +848,8 @@ function main()
         clickButton(":List Freight Classes.New_QPushButton_2");
         waitForObject(":_freightClass_XLineEdit_2");
         type(":_freightClass_XLineEdit_2", "BULK");
-         nativeType("<Tab>");
-         snooze(2);
+        nativeType("<Tab>");
+        snooze(2);
         type(":_description_XLineEdit_34", "Bulk Freight");
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
@@ -870,7 +871,7 @@ function main()
     defineChartcs("ADR-ROUTE","Delivery Route","address");
     defineChartcs("CTC-BDAY","Birthday","contact");
     defineChartcs("LOT-QA-TEST1","QA Results for Test Type 1","lot");
-    
+  
     
     if(appEdition=="Manufacturing")
         
@@ -896,7 +897,7 @@ function main()
             waitForObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2");
             if(!findObject(":_explosionGroup.Multiple Level Explosion_QRadioButton_2").checked)
                 clickButton(":_explosionGroup.Multiple Level Explosion_QRadioButton_2");
-             waitForObject(":List Employees.Save_QPushButton_2");
+            waitForObject(":List Employees.Save_QPushButton_2");
             clickButton(":List Employees.Save_QPushButton_2");
             waitForObject(":List Planner Codes._plancode_XTreeWidget");
             if(object.exists(":_plancode.MPS-ITEMS_QModelIndex"))
@@ -920,12 +921,11 @@ function main()
                 test.pass("Planner Code: MRP-ITEMS created");
             else test.fail("Planner Code: MRP-ITEMS not created");
             
-             waitForObject(":List Employees.Save_QPushButton_2");
-             clickButton(":List Employees.Save_QPushButton_2");
+            waitForObject(":List Employees.Save_QPushButton_2");
+            clickButton(":List Employees.Save_QPushButton_2");
             test.log("Planner Codes created");
         }catch(e){test.fail("Exception in defining Planner Codes:"+e);}
         
-        snooze(2);
         
         //--------------Schedule: Site week--------------
         try{
@@ -938,11 +938,7 @@ function main()
             clickItem(":Setup._modules_QComboBox","Schedule",10,10, 0, Qt.LeftButton);
             waitForObject(":Master Information.Site Week_QModelIndex");
             mouseClick(":Master Information.Site Week_QModelIndex", 50, 5, 0, Qt.LeftButton);
-            waitForObject(":_warehouse.Selected:_QRadioButton_8");
-            clickButton(":_warehouse.Selected:_QRadioButton_8");
-            waitForObject(":_warehouse._warehouses_WComboBox_9");
-            clickItem(":_warehouse._warehouses_WComboBox_9", "WH1", 0, 0, 1, Qt.LeftButton);
-            
+           
             waitForObject(":_stack.Sunday_QCheckBox");
             if(findObject(":_stack.Sunday_QCheckBox").checked)
                 clickButton(":_stack.Sunday_QCheckBox");
@@ -958,10 +954,9 @@ function main()
                 clickButton(":_stack.Friday_QCheckBox");
             if(findObject(":_stack.Saturday_QCheckBox").checked)
                 clickButton(":_stack.Saturday_QCheckBox");
-             waitForObject(":Setup.Apply_QPushButton");
-             clickButton(":Setup.Apply_QPushButton");
-             waitForObject(":Setup.Cancel_QPushButton");
-             clickButton(":Setup.Cancel_QPushButton");                       
+            waitForObject(":List Employees.Save_QPushButton_2");
+            clickButton(":List Employees.Save_QPushButton_2");
+            
             test.log("Site Week created");
         }catch(e){test.fail("Exception in creating Site Week:"+e);}
         
@@ -1002,8 +997,8 @@ function main()
             if(object.exists(":_whsecal.Christmas 2010_QModelIndex"))
                 test.pass("Calendar Exception: Christmas "+CurrentYearFull+" created");            
             else test.fail("Calendar Expceptin: Christmas "+CurrentYearFull+" not created");
-           waitForObject(":List Employees.Save_QPushButton_2");
-           clickButton(":List Employees.Save_QPushButton_2");
+            waitForObject(":List Employees.Save_QPushButton_2");
+            clickButton(":List Employees.Save_QPushButton_2");
         }catch(e){test.fail("Exception in defining Site Calendar Exception:"+e);}
     }
     else if(appEdition=="PostBooks")

@@ -4,8 +4,8 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER"); 
-//    waitForObject(":OK_QPushButton");
-//    clickButton(":OK_QPushButton");
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
     snooze(1);
     var appEdition = findApplicationEdition();
     
@@ -32,7 +32,7 @@ function main()
             type(":_rate_XLineEdit_3", "12.00");
             waitForObject(":List Employees.Save_QPushButton_2");
             clickButton(":List Employees.Save_QPushButton_2");
-             waitForObject(":_lbrrate_XTreeWidget_3");
+            waitForObject(":_lbrrate_XTreeWidget_3");
             if(object.exists("{column='0' container=':_lbrrate_XTreeWidget_3' text='Assembly' type='QModelIndex'}"))
                 test.pass("Standard Labor Rate created: Assembly");
             
@@ -46,7 +46,7 @@ function main()
             waitForObject(":List Employees.Save_QPushButton_2");
             clickButton(":List Employees.Save_QPushButton_2");
             waitForObject(":_lbrrate_XTreeWidget_3");
-             if(object.exists("{column='0' container=':_lbrrate_XTreeWidget_3' text='SETUP' type='QModelIndex'}"))
+            if(object.exists("{column='0' container=':_lbrrate_XTreeWidget_3' text='SETUP' type='QModelIndex'}"))
                 test.pass("Standard Labor Rate created: SETUP");
             else test.fail("Standard Labor Rate not created: SETUP");
             
@@ -235,7 +235,7 @@ function main()
             
             waitForObject(":List Employees.Save_QPushButton_2");        
             clickButton(":List Employees.Save_QPushButton_2");
-             waitForObject(":_stack._stdopn_XTreeWidget");
+            waitForObject(":_stack._stdopn_XTreeWidget");
             if(!clickItem(":_stack._stdopn_XTreeWidget", "ASSEMBLY", 5, 5, 1, Qt.LeftButton))
                 test.pass("Standard Operation created: ASSEMBLY");
             
@@ -308,7 +308,7 @@ function main()
             type(":itemGroup.VirtualClusterLineEdit_ItemLineEdit","YTRUCK1");
             snooze(0.5);
             nativeType("<Tab>");
-               
+            
             waitForObject(":frame.New_QPushButton_2");
             clickButton(":frame.New_QPushButton_2");
             waitForObject(":_stdopn_XComboBox");
@@ -413,8 +413,7 @@ function main()
         clickButton(":Setup.Save_QPushButton");    
         
     }
-    
-//    
+    //        
     //---------------Create BOM for Items---------------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -435,12 +434,13 @@ function main()
         nativeType("<Tab>");
         snooze(1);
         
+        
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TBODY1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "1");
@@ -462,8 +462,8 @@ function main()
         }
         
         type(":_ecn_XLineEdit", "initial definition");
-        waitForObject(":Bill of Materials Item.Save_QPushButton");
-        clickButton(":Bill of Materials Item.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         
         
         
@@ -472,7 +472,7 @@ function main()
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "YPAINT1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", ".01");
@@ -482,7 +482,7 @@ function main()
         {
             clickButton(":Bill of Materials Item...._QPushButton");
             waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-              snooze(0.5);
+            snooze(0.5);
             doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Paint", 5, 5, 0, Qt.LeftButton);
             waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
             clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
@@ -494,15 +494,15 @@ function main()
         }
         
         type(":_ecn_XLineEdit", "initial defintion");
-        waitForObject(":Bill of Materials Item.Save_QPushButton");
-        clickButton(":Bill of Materials Item.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TWHEEL1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "4");
@@ -513,7 +513,7 @@ function main()
             
             clickButton(":Bill of Materials Item...._QPushButton");
             waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-              snooze(0.5);
+            snooze(0.5);
             doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly", 5, 5, 0, Qt.LeftButton);
             waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
             clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
@@ -525,8 +525,8 @@ function main()
         }
         
         type(":_ecn_XLineEdit", "initial definition");
-        waitForObject(":Bill of Materials Item.Save_QPushButton");
-        clickButton(":Bill of Materials Item.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         
         
         waitForObject(":frame_2.New_QPushButton");
@@ -534,7 +534,7 @@ function main()
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TSUB1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit"); 
         type(":_qtyPer_XLineEdit", "1");
@@ -547,7 +547,7 @@ function main()
             
             clickButton(":Bill of Materials Item...._QPushButton");
             waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-              snooze(0.5);
+            snooze(0.5);
             doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Shipping", 5, 5, 0, Qt.LeftButton);
             waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
             clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
@@ -559,8 +559,8 @@ function main()
         } 
         
         type(":_ecn_XLineEdit", "initial defintion");
-        waitForObject(":Bill of Materials Item.Save_QPushButton");
-        clickButton(":Bill of Materials Item.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         
         waitForObject(":Bill of Materials.Save_QPushButton");
         clickButton(":Bill of Materials.Save_QPushButton");
@@ -581,16 +581,16 @@ function main()
         mouseClick(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", 63, 10, 0, Qt.LeftButton);
         waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
         type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "TSUB1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TBOX1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
-
+        
         waitForObject(":_qtyPer_XLineEdit"); 
         type(":_qtyPer_XLineEdit", "1");
         findObject(":_scrap_XLineEdit").clear();
@@ -601,7 +601,7 @@ function main()
             
             clickButton(":Bill of Materials Item...._QPushButton");
             waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-              snooze(0.5);
+            snooze(0.5);
             doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly", 5, 5, 0, Qt.LeftButton);
             waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
             clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
@@ -613,14 +613,14 @@ function main()
         } 
         
         type(":_ecn_XLineEdit", "intial definition");
-        waitForObject(":Bill of Materials Item.Save_QPushButton");
-        clickButton(":Bill of Materials Item.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
         type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TINSERT1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit"); 
         waitForObject(":_qtyPer_XLineEdit");
@@ -631,7 +631,7 @@ function main()
         {
             clickButton(":Bill of Materials Item...._QPushButton");
             waitForObject(":Bill of Operations Items._booitem_XTreeWidget");
-              snooze(0.5);
+            snooze(0.5);
             doubleClickItem(":Bill of Operations Items._booitem_XTreeWidget", "Standard Operation - Assembly", 5, 5, 0, Qt.LeftButton);
             waitForObject(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
             clickButton(":Bill of Materials Item.Schedule at W/O Operation_QCheckBox");
@@ -643,8 +643,8 @@ function main()
         } 
         
         type(":_ecn_XLineEdit", "intial defintion");
-        waitForObject(":Bill of Materials Item.Save_QPushButton");
-        clickButton(":Bill of Materials Item.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         
         waitForObject(":Bill of Materials.Save_QPushButton");
         clickButton(":Bill of Materials.Save_QPushButton");
