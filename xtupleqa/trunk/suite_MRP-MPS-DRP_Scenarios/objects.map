@@ -394,6 +394,12 @@
 :Run MPS by Planner Code._warehouse_WarehouseGroup_2	{name='_warehouse' type='WarehouseGroup' visible='1' window=':Run MPS by Planner Code_XMainWindow'}
 :Run MPS by Planner Code_XMainWindow	{name='runMPSByPlannerCode' type='XMainWindow' visible='1' windowTitle='Run MPS by Planner Code'}
 :Run MPS by Planner Code_runMPSByPlannerCode	{name='runMPSByPlannerCode' type='XMainWindow' visible='1' windowTitle='Run MPS by Planner Code'}
+:Run MRP by Item.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':Run MRP by Item_createPlannedOrdersByItem'}
+:Run MRP by Item.Create_QPushButton	{name='_create' text='Create' type='QPushButton' visible='1' window=':Run MRP by Item_createPlannedOrdersByItem'}
+:Run MRP by Item.Site:_QLabel	{name='_warehouseLit' text='Site:' type='QLabel' visible='1' window=':Run MRP by Item_createPlannedOrdersByItem'}
+:Run MRP by Item.VirtualClusterLineEdit_ItemLineEdit	{name='VirtualClusterLineEdit' type='ItemLineEdit' visible='1' window=':Run MRP by Item_createPlannedOrdersByItem'}
+:Run MRP by Item.XDateEdit_XDateEdit	{name='XDateEdit' type='XDateEdit' visible='1' window=':Run MRP by Item_createPlannedOrdersByItem'}
+:Run MRP by Item_createPlannedOrdersByItem	{name='createPlannedOrdersByItem' type='createPlannedOrdersByItem' visible='1' windowTitle='Run MRP by Item'}
 :Run MRP by Planner Code.Create_QPushButton	{name='_create' text='Create' type='QPushButton' visible='1' window=':Run MRP by Planner Code_createPlannedOrdersByPlannerCode'}
 :Run MRP by Planner Code.OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':Run MRP by Planner Code_createPlannedOrdersByPlannerCode'}
 :Run MRP by Planner Code._optionsGroup_QGroupBox	{name='_optionsGroup' type='QGroupBox' visible='1' window=':Run MRP by Planner Code_createPlannedOrdersByPlannerCode'}
@@ -817,6 +823,7 @@
 :_warehouse.Selected:_QRadioButton_2	{container=':Run MPS by Planner Code._warehouse_WarehouseGroup' name='_selected' text='Selected:' type='QRadioButton' visible='1'}
 :_warehouse.WH1_QModelIndex	{container=':_warehouse_WComboBox_6' text='WH1' type='QModelIndex'}
 :_warehouse.WH2_QModelIndex	{container=':_warehouse_WComboBox_8' text='WH2' type='QModelIndex'}
+:_warehouse.WH2_QModelIndex_2	{container=':_warehouse_WComboBox_9' text='WH2' type='QModelIndex'}
 :_warehouse._warehouses_WComboBox	{container=':List Item Sites._warehouse_WarehouseGroup' name='_warehouses' type='WComboBox' visible='1'}
 :_warehouse_WComboBox	{buddy=':List Items.Site:  _QLabel' name='_warehouse' type='WComboBox' visible='1'}
 :_warehouse_WComboBox_2	{buddy=':List Production Plans.Site:_QLabel' name='_warehouse' type='WComboBox' visible='1'}
@@ -826,6 +833,7 @@
 :_warehouse_WComboBox_6	{buddy=':Items.Site:  _QLabel' name='_warehouse' type='WComboBox' visible='1'}
 :_warehouse_WComboBox_7	{buddy=':Production Plan.Site:_QLabel' name='_warehouse' type='WComboBox' visible='1'}
 :_warehouse_WComboBox_8	{buddy=':Item Sites.Site:  _QLabel' name='_warehouse' type='WComboBox' visible='1'}
+:_warehouse_WComboBox_9	{buddy=':Run MRP by Item.Site:_QLabel' name='_warehouse' type='WComboBox' visible='1'}
 :_whsTypeStack._numberGroup_QGroupBox	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_numberGroup' type='QGroupBox' visible='1'}
 :_whsTypeStack._optionsGroup_QGroupBox	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_optionsGroup' type='QGroupBox' visible='1'}
 :_whsTypeStack._planGroup_QGroupBox	{container=':_generalTab._whsTypeStack_QStackedWidget' name='_planGroup' type='QGroupBox' visible='1'}
