@@ -8,10 +8,9 @@ function main()
     //---login Application--------
     loginAppl("RUNREGISTER");    
     
-  
-//    waitForObject(":OK_QPushButton");
-//    clickButton(":OK_QPushButton");
-     snooze(1);
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
+    snooze(1);
     var appEdition = findApplicationEdition();
     
     //-----------Chart Of Accounts-------------------------------
@@ -38,8 +37,8 @@ function main()
     assignTax("TZONE1","EDU","TAXAUTH1-EDU");
     assignTax("TZONE1","GM","TAXAUTH1-GM");
     RegTax("TZONE1","tax reg1");
-  
-  
+    
+    
     //----------Create Items---------------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -87,26 +86,22 @@ function main()
         snooze(1);
         waitForObject(":_characteristicsTab.New_QPushButton_6");
         clickButton(":_characteristicsTab.New_QPushButton_6");
-        waitForObject(":_char_XComboBox_2");
-        clickItem(":_char_XComboBox_2", "I-COLOR - Product Color", 0, 0, 1, Qt.LeftButton);
-        snooze(1);
+        
         findObject(":_value_XLineEdit_3").clear();
         type(":_value_XLineEdit_3", "PL-126");
         if(!findObject(":Item Characteristic.Default_QCheckBox").checked)
             clickButton(":Item Characteristic.Default_QCheckBox");
-        waitForObject(":Item Characteristic.Save_QPushButton");
-        clickButton(":Item Characteristic.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         waitForObject(":_characteristicsTab.New_QPushButton_6");
         clickButton(":_characteristicsTab.New_QPushButton_6");
-        waitForObject(":_char_XComboBox_2");
-        clickItem(":_char_XComboBox_2", "I-COLOR - Product Color", 0, 0, 1, Qt.LeftButton);
-        snooze(1);
+        
         findObject(":_value_XLineEdit_3").clear();    
         type(":_value_XLineEdit_3", "PL-227");
         if(findObject(":Item Characteristic.Default_QCheckBox").checked)
             clickButton(":Item Characteristic.Default_QCheckBox");
-        waitForObject(":Item Characteristic.Save_QPushButton");
-        clickButton(":Item Characteristic.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         waitForObject(":Item.qt_tabwidget_tabbar_QTabBar_8");
         snooze(1);
         clickTab(":Item.qt_tabwidget_tabbar_QTabBar_8","Tax Types");    
@@ -343,21 +338,22 @@ function main()
     }catch(e){test.fail("Exception in creating item: TINSERT1")}
     
     
-  
+    
     //---------------Create Item sites------------------------------
     try{
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
         activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Item Site_QMenu", "List...");
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");
+        waitForObject(":Items.Query_QToolButton");
+        clickButton(":Items.Query_QToolButton");
         
         //---------Item site: YTRUCK1----------------------
-        waitForObject(":List Item Sites.New_QPushButton_3");
-        clickButton(":List Item Sites.New_QPushButton_3");
         
-        
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","YTRUCK1");
@@ -439,10 +435,12 @@ function main()
             waitForObject(":Item Site.Cancel_QPushButton");
             clickButton(":Item Site.Cancel_QPushButton");
         }
-        waitForObject(":_itemSite_XTreeWidget_2");
-        if(object.exists(":_itemSite.YTRUCK1_QModelIndex"))
+        waitForObject(":Items.Query_QToolButton");
+        clickButton(":Items.Query_QToolButton");
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='1' container=':_list_XTreeWidget_3' text='YTRUCK1' type='QModelIndex'}"))
             test.pass("Item Site Created: YTRUCK1");
-        else test.fail("Item Site Created: YTRUCK1");
+        else test.fail("Item Site is not Created: YTRUCK1");
     }catch(e){test.fail("Exception in creating Item site of YTRUCK1:"+e);}
     
     
@@ -450,13 +448,13 @@ function main()
     //---------Item site: TBODY1----------------------
     
     try{
-        waitForObject(":List Item Sites.New_QPushButton_3");
-        clickButton(":List Item Sites.New_QPushButton_3");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TBODY1");
         snooze(1);
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         
         waitForObject(":Item Site.Sold from this Site_QGroupBox");
@@ -532,8 +530,10 @@ function main()
             clickButton(":Item Site.Cancel_QPushButton");
         }
         snooze(1);
-        waitForObject(":_itemSite_XTreeWidget_2");
-        if(object.exists("{column='0' container=':_itemSite_XTreeWidget_2' text='TBODY1' type='QModelIndex'}"))
+        waitForObject(":Items.Query_QToolButton");
+        clickButton(":Items.Query_QToolButton");
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='1' container=':_list_XTreeWidget_3' text='TBODY1' type='QModelIndex'}"))
             test.pass("Item Site Created: TBODY1");
         else test.fail("Item site not created for TBODY1");
     }catch(e){test.fail("Exception in creating TBODY1:"+e)}
@@ -544,12 +544,12 @@ function main()
     //---------Item site: TINSERT1----------------------
     snooze(1);
     try{
-        waitForObject(":List Item Sites.New_QPushButton_3");
-        clickButton(":List Item Sites.New_QPushButton_3");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TINSERT1");
         snooze(1);
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
@@ -619,9 +619,10 @@ function main()
             waitForObject(":Item Site.Cancel_QPushButton");
             clickButton(":Item Site.Cancel_QPushButton");
         }
-        
-        waitForObject(":_itemSite_XTreeWidget_2");
-        if(object.exists("{column='0' container=':_itemSite_XTreeWidget_2' text='TINSERT1' type='QModelIndex'}"))
+        waitForObject(":Items.Query_QToolButton");
+        clickButton(":Items.Query_QToolButton");
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='1' container=':_list_XTreeWidget_3' text='TINSERT1' type='QModelIndex'}"))
             test.pass("Item Site Created: TINSERT1");
         else test.fail("Item site not created for TINSERT1");
     }catch(e){test.fail("Exception in creating item TINSERT1:"+e);}
@@ -630,13 +631,13 @@ function main()
     
     //---------Item site: TWHEEL1----------------------
     try{
-        waitForObject(":List Item Sites.New_QPushButton_3");
-        clickButton(":List Item Sites.New_QPushButton_3");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TWHEEL1");
         snooze(1);
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
@@ -704,9 +705,10 @@ function main()
             waitForObject(":Item Site.Cancel_QPushButton");
             clickButton(":Item Site.Cancel_QPushButton");
         }
-        
-        waitForObject(":_itemSite_XTreeWidget_2");
-        if(object.exists("{column='0' container=':_itemSite_XTreeWidget_2' text='TWHEEL1' type='QModelIndex'}"))
+        waitForObject(":Items.Query_QToolButton");
+        clickButton(":Items.Query_QToolButton");
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='1' container=':_list_XTreeWidget_3' text='TWHEEL1' type='QModelIndex'}"))
             test.pass("Item Site Created: TWHEEL1");
         else test.fail("Item site not created for TWHEEL1");
         
@@ -716,12 +718,12 @@ function main()
     
     //---------Item site: TSUB1----------------------
     try{
-        waitForObject(":List Item Sites.New_QPushButton_3");
-        clickButton(":List Item Sites.New_QPushButton_3");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TSUB1");
         snooze(1);
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
@@ -787,9 +789,10 @@ function main()
             waitForObject(":Item Site.Cancel_QPushButton");
             clickButton(":Item Site.Cancel_QPushButton");
         }
-        
-        waitForObject(":_itemSite_XTreeWidget_2");
-        if(object.exists("{column='0' container=':_itemSite_XTreeWidget_2' text='TSUB1' type='QModelIndex'}"))
+        waitForObject(":Items.Query_QToolButton");
+        clickButton(":Items.Query_QToolButton");
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='0' container=':_list_XTreeWidget_3' text='TSUB1' type='QModelIndex'}"))
             test.pass("Item Site Created: TSUB1");
     }catch(e){test.fail("Exception in creating Item site for TSUB1:"+e);}
     
@@ -797,12 +800,12 @@ function main()
     
     //---------Item site: TBOX1----------------------
     try{
-        waitForObject(":List Item Sites.New_QPushButton_3");
-        clickButton(":List Item Sites.New_QPushButton_3");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TBOX1");
         snooze(1);
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
@@ -869,23 +872,24 @@ function main()
             waitForObject(":Item Site.Cancel_QPushButton");
             clickButton(":Item Site.Cancel_QPushButton");
         }
-        
-        waitForObject(":_itemSite_XTreeWidget_2");
-        if(object.exists("{column='0' container=':_itemSite_XTreeWidget_2' text='TBOX1' type='QModelIndex'}"))
+        waitForObject(":Items.Query_QToolButton");
+        clickButton(":Items.Query_QToolButton");
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='1' container=':_list_XTreeWidget_3' text='TBOX1' type='QModelIndex'}"))
             test.pass("Item Site Created: TBOX1");
         else test.fail("Item site not created for TBOX1");
     }catch(e){test.fail("Exception in creating Item TBOX1:"+e)}
     
     //---------Item site: YPAINT1----------------------
-     try{
-        waitForObject(":List Item Sites.New_QPushButton_3");
-        clickButton(":List Item Sites.New_QPushButton_3");
+    try{
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         snooze(0.5);
         
         waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","YPAINT1");
         snooze(1);
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         waitForObject(":Sold from this Site.qt_spinbox_lineedit_QLineEdit_3");
         if(appEdition=="Manufacturing"||appEdition=="Standard")
@@ -965,14 +969,15 @@ function main()
             waitForObject(":Item Site.Cancel_QPushButton");
             clickButton(":Item Site.Cancel_QPushButton");
         }
-        
-        waitForObject(":_itemSite_XTreeWidget_2");
-        if(object.exists("{column='0' container=':_itemSite_XTreeWidget_2' text='YPAINT1' type='QModelIndex'}"))
+        waitForObject(":Items.Query_QToolButton");
+        clickButton(":Items.Query_QToolButton");
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='1' container=':_list_XTreeWidget_3' text='YPAINT1' type='QModelIndex'}"))
             test.pass("Item Site Created: YPAINT1");
         else test.fail("Item site not created for YPAINT1");
         
-        waitForObject(":List Item Sites.Close_QPushButton_3");
-        clickButton(":List Item Sites.Close_QPushButton_3");
+        waitForObject(":Tax Authorities.Close_QToolButton");
+        clickButton(":Tax Authorities.Close_QToolButton");
     }catch(e){test.fail("Exception in creating Item site of YPAINT1:"+e);}
     
     

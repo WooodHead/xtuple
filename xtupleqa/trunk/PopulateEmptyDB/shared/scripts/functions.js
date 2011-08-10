@@ -57,7 +57,7 @@ function loginAppl(userrole)
     type(":_password_QLineEdit", "<Return>");
     
     test.log("Logged in Application");
-   }
+}
 
 
 
@@ -86,9 +86,9 @@ function findApplicationEdition()
     
     if(object.exists(":_stack.Use toolbars on displays when available_QCheckBox"))
     {
-    waitForObject(":_stack.Use toolbars on displays when available_QCheckBox");
-    if(!(findObject(":_stack.Use toolbars on displays when available_QCheckBox").checked))
-    clickButton(":_stack.Use toolbars on displays when available_QCheckBox");
+        waitForObject(":_stack.Use toolbars on displays when available_QCheckBox");
+        if(!(findObject(":_stack.Use toolbars on displays when available_QCheckBox").checked))
+            clickButton(":_stack.Use toolbars on displays when available_QCheckBox");
     }
     waitForObject(":xTuple ERP: *_QPushButton");
     clickButton(":xTuple ERP: *_QPushButton");
@@ -145,7 +145,7 @@ function assignAllPrivileges(userrole)
     waitForObject(":xTuple ERP: OpenMFG Edition.System_QMenu");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit xTuple ERP...");
     
-  
+    
     if(OS.name=="Linux")
         startApplication("xtuple.bin");
     
@@ -155,8 +155,8 @@ function assignAllPrivileges(userrole)
     snooze(2);
     
     loginAppl("CONFIGURE"); 
-//     waitForObject(":OK_QPushButton");
-//    clickButton(":OK_QPushButton");
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
 }
 
 //--------------Create New Dept----------------------
@@ -224,7 +224,7 @@ function createShift(ShiftNum, ShiftName)
         }
         waitForObject(":List Work Centers.New_QPushButton");
         clickButton(":List Work Centers.New_QPushButton");
-           
+        
         waitForObject(":List Shifts._number_XLineEdit");
         type(":List Shifts._number_XLineEdit",ShiftNum);
         type(":List Shifts._name_XLineEdit", ShiftName);
@@ -237,8 +237,8 @@ function createShift(ShiftNum, ShiftName)
         else
             test.fail("New Shift:"+ ShiftNum + "not created")
                     
-     waitForObject(":List Employees.Save_QPushButton_2");
-    clickButton(":List Employees.Save_QPushButton_2");
+                    waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
     }
     catch(e)
     {test.fail("Shift:"+ShiftName+" not created:"+e);}
@@ -252,7 +252,7 @@ function createLocale(LocaleCode,LocaleDesc)
 {  
     try{
         
-    
+        
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
@@ -332,11 +332,11 @@ function createLocale(LocaleCode,LocaleDesc)
         if(!clickItem(":_stack._locale_XTreeWidget","MYLOCALE", 5, 5, 1, Qt.LeftButton))
             test.pass("Locale created: MYLOCALE");
         
-       clickItem(":_stack._locale_XTreeWidget","MYLOCALE", 5, 5, 1, Qt.LeftButton);
-       snooze(1);
-       waitForObject(":_stack.Edit_QPushButton");
-       clickButton(":_stack.Edit_QPushButton");
-       snooze(0.5);
+        clickItem(":_stack._locale_XTreeWidget","MYLOCALE", 5, 5, 1, Qt.LeftButton);
+        snooze(1);
+        waitForObject(":_stack.Edit_QPushButton");
+        clickButton(":_stack.Edit_QPushButton");
+        snooze(0.5);
         if(findObject(":_stack._percentScale_QSpinBox").text!="2")
         {
             findObject(":_stack._percentScale_QSpinBox").clear();
@@ -527,8 +527,12 @@ function createCompany(CompNum, CompDesc)
         type(":_number_XLineEdit", CompNum);
         findObject(":_descrip_XTextEdit").clear();
         type(":_descrip_XTextEdit", CompDesc);
-        waitForObject(":List Companies.Save_QPushButton");
-        clickButton(":List Companies.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
+        waitForObject(":OK_QPushButton");
+        clickButton(":OK_QPushButton");
+        //        waitForObject(":List Companies.Save_QPushButton");
+        //        clickButton(":List Companies.Save_QPushButton");
         snooze(1);
         var sWidgetTreeControl = ":List Companies._company_XTreeWidget";
         if(findObject(":_company.01_QModelIndex").text == "01")
@@ -573,7 +577,8 @@ function COA(COACompany,COAProfit,COANumber,COASub,COADesc,COAType,COASubType)
         waitForObject(":Account Number._subType_XComboBox");
         type(":Account Number._subType_XComboBox", COASubType);
         snooze(0.5);
-        clickButton(":Account Number.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         test.log("Acc: "+COACompany+"-"+COAProfit+"-"+COANumber+"-"+COASub+" created");
         
         createdCOA = "{column='2' container=':_account_XTreeWidget_2' text='"+COANumber+"' type='QModelIndex'}";
@@ -608,40 +613,50 @@ function IsLeapYear(datea)
 function defineTaxAuth(ta)
 {
     //------Define Tax Authorities-------
-    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
-    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
-    waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Authorities...");
-    activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Authorities...");
+    try{
+        
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
+        activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
+        waitForObjectItem(":xTuple ERP: *.Tax_QMenu", "Tax Authorities...");
+        activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Authorities...");
+        
+        
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton"); 
+        waitForObject(":_code_XLineEdit_15");
+        findObject(":_code_XLineEdit_15").clear();
+        type(":_code_XLineEdit_15", ta);
+        type(":_name_XLineEdit_22", "Virginia");
+        type(":_extref_XLineEdit", "Smith");
+        if(findObject(":_currency_XComboBox_2").currentText!= "USD - $")
+            type(":_currency_XComboBox_2", "USD");
+        type(":Tax Authority._county_QLineEdit", "United States");
+        type(":groupBox.XLineEdit_XLineEdit", "Street Addr Line1");
+        type(":groupBox.XLineEdit_XLineEdit_2", "Street addr line2");
+        type(":groupBox.XLineEdit_XLineEdit_3", "Street Addr line3");
+        type(":groupBox.XLineEdit_XLineEdit_4", "city1");
+        
+        waitForObject(":groupBox._state_XComboBox_2");
+        clickItem(":groupBox._state_XComboBox_2", "VA", 0, 0, 1, Qt.LeftButton);
+        
+        type(":groupBox.XLineEdit_XLineEdit_5", "323525");
+        clickButton(":Tax Authority.Save_QPushButton");
+        snooze(1);
+        waitForObject(":_list_XTreeWidget_4");
+        snooze(1);
+        if(object.exists(":_taxauth.TAX-AUTH1_QModelIndex"))
+            test.pass("Tax Authority created:TAX-AUTH1");
+        else test.fail("Tax Authority not created:TAX-AUTH1");
+        
+        waitForObject(":Tax Authorities.Close_QToolButton");
+        clickButton(":Tax Authorities.Close_QToolButton");
+    }
     
-    
-   waitForObject(":Tax Authorities.New_QToolButton");
-   clickButton(":Tax Authorities.New_QToolButton"); 
-    waitForObject(":_code_XLineEdit_15");
-    findObject(":_code_XLineEdit_15").clear();
-    type(":_code_XLineEdit_15", ta);
-    type(":_name_XLineEdit_22", "Virginia");
-    type(":_extref_XLineEdit", "Smith");
-    if(findObject(":_currency_XComboBox_2").currentText!= "USD - $")
-    type(":_currency_XComboBox_2", "USD");
-    type(":Tax Authority._county_QLineEdit", "United States");
-    type(":groupBox.XLineEdit_XLineEdit", "Street Addr Line1");
-    type(":groupBox.XLineEdit_XLineEdit_2", "Street addr line2");
-    type(":groupBox.XLineEdit_XLineEdit_3", "Street Addr line3");
-    type(":groupBox.XLineEdit_XLineEdit_4", "VA");
-    type(":_state_QLineEdit_3", "State1");
-    type(":groupBox.XLineEdit_XLineEdit_5", "323525");
-    clickItem(":groupBox._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
-    clickButton(":Tax Authority.Save_QPushButton");
-    snooze(2);
-    waitForObject(":_list_XTreeWidget_4");
-    if(object.exists(":_taxauth.TAX-AUTH1_QModelIndex"))
-        test.pass("Tax Authority created:TAX-AUTH1");
-    else test.fail("Tax Authority not created:TAX-AUTH1");
-    
-   waitForObject(":Tax Authorities.Close_QToolButton");
-   clickButton(":Tax Authorities.Close_QToolButton");
+    catch(e){
+        test.fail("Exception :"+e);
+    }
     
 }
 
@@ -650,7 +665,7 @@ function defineTaxCode(tc)
 {
     try{
         //----------Create: Tax Codes---------------
-       waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
@@ -663,7 +678,7 @@ function defineTaxCode(tc)
         waitForObject(":_code_XLineEdit_12");
         type(":_code_XLineEdit_12", tc);
         type(":_description_XLineEdit_23", "Tax Authority 1 General Merchandise");
-   
+        
         waitForObject(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit");
         type(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit","01-01-4050-01");
         nativeType("<Tab>");
@@ -892,8 +907,12 @@ function defineChartcs(name,desc,ctype)
         
         waitForObject(":_name_XLineEdit_6");
         type(":_name_XLineEdit_6", name);
-        waitForObject(":_description_QTextEdit_6");
-        type(":_description_QTextEdit_6", desc);
+        
+        waitForObject(":Work Center.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar", "Description");
+        waitForObject(":_descripPage._description_QTextEdit");
+        type(":_descripPage._description_QTextEdit",desc);
+        
         snooze(1);
         
         switch(ctype)
@@ -930,8 +949,8 @@ function defineChartcs(name,desc,ctype)
                  break;
              }
         
-        waitForObject(":Setup.Save_QPushButton");
-        clickButton(":Setup.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         snooze(2);
         waitForObject(":List Characteristics._char_XTreeWidget");
         if(object.exists("{column='0' container=':List Characteristics._char_XTreeWidget' text='"+name+"' type='QModelIndex'}"))                 
@@ -952,9 +971,35 @@ function exitAppl()
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit xTuple ERP...");
 }
 
+//---------------Maintain Item Costs------------
 
-
-
-
-
+function maintainItemCosts(Item,cost)
+{
+    try{
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
+        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
+        waitForObject(":Maintain Item Costs.VirtualClusterLineEdit_ItemLineEdit");
+        type(":Maintain Item Costs.VirtualClusterLineEdit_ItemLineEdit",Item);
+        waitForObject(":_QTreeView");
+        type(":_QTreeView", "<Tab>");
+        waitForObject(":Maintain Item Costs.New Cost_QPushButton");
+        clickButton(":Maintain Item Costs.New Cost_QPushButton");
+        waitForObject(":Create Item Cost._costelem_XComboBox");
+        if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
+            clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
+        if(findObject(":Create Item Cost._currency_XComboBox").currentText!="USD - $")
+            clickItem(":Create Item Cost._currency_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
+        type(":Maintain Item Costs.XLineEdit_XLineEdit", cost);
+        clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
+        clickButton(":Create Item Cost.Save_QPushButton");
+        test.log("Material cost for "+Item+" defined");  
+        waitForObject(":Maintain Item Costs.Close_QPushButton");
+        clickButton(":Maintain Item Costs.Close_QPushButton"); 
+    }
+    catch(e){test.fail("Exception in defining material cost for "+Item+" :"+e);}
+}
 

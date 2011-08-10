@@ -4,8 +4,8 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");   
-//    waitForObject(":OK_QPushButton");
-//    clickButton(":OK_QPushButton");
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
     var appEdition = findApplicationEdition();
     
     
@@ -36,139 +36,12 @@ function main()
     
     
     //-------------Maintain Item Costs------------------
-    try{
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
-        waitForObject(":Maintain Item Costs.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Maintain Item Costs.VirtualClusterLineEdit_ItemLineEdit", "TBODY1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        
-        waitForObject(":Maintain Item Costs.New Cost_QPushButton");
-        clickButton(":Maintain Item Costs.New Cost_QPushButton");
-        waitForObject(":Create Item Cost._costelem_XComboBox");
-        if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
-            clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
-        if(findObject(":Create Item Cost._currency_XComboBox").currentText!="USD - $")
-            clickItem(":Create Item Cost._currency_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
-        type(":Maintain Item Costs.XLineEdit_XLineEdit", "1.0");
-        clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
-        clickButton(":Create Item Cost.Save_QPushButton");
-        test.log("Material cost for TBODY1 defined");    
-        waitForObject(":Maintain Item Costs.Close_QPushButton");
-        clickButton(":Maintain Item Costs.Close_QPushButton"); 
-        
-        
-        
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
-        
-        waitForObject(":Maintain Item Costs.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Maintain Item Costs.VirtualClusterLineEdit_ItemLineEdit", "TBOX1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        clickButton(":Maintain Item Costs.New Cost_QPushButton");
-        snooze(1);
-        waitForObject(":Create Item Cost._costelem_XComboBox");
-        if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
-            clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
-        if(findObject(":Create Item Cost._currency_XComboBox").currentText!="USD - $")
-            clickItem(":Create Item Cost._currency_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
-        type(":Maintain Item Costs.XLineEdit_XLineEdit", "0.25");
-        clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
-        clickButton(":Create Item Cost.Save_QPushButton");
-        test.log("Material cost for TBOX1 defined"); 
-        waitForObject(":Maintain Item Costs.Close_QPushButton");
-        clickButton(":Maintain Item Costs.Close_QPushButton"); 
-        
-        
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
-        waitForObject(":Maintain Item Costs.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Maintain Item Costs.VirtualClusterLineEdit_ItemLineEdit", "TINSERT1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        waitForObject(":Maintain Item Costs.New Cost_QPushButton");
-        clickButton(":Maintain Item Costs.New Cost_QPushButton");
-        waitForObject(":Create Item Cost._costelem_XComboBox");
-        if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
-            clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
-        if(findObject(":Create Item Cost._currency_XComboBox").currentText!="USD - $")
-            clickItem(":Create Item Cost._currency_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
-        type(":Maintain Item Costs.XLineEdit_XLineEdit", "0.5");
-        clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
-        clickButton(":Create Item Cost.Save_QPushButton");
-        test.log("Material cost for TINSERT1 defined");  
-        waitForObject(":Maintain Item Costs.Close_QPushButton");
-        clickButton(":Maintain Item Costs.Close_QPushButton"); 
-        
-        
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
-        waitForObject(":Maintain Item Costs.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Maintain Item Costs.VirtualClusterLineEdit_ItemLineEdit", "TWHEEL1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        
-        waitForObject(":Maintain Item Costs.New Cost_QPushButton");
-        clickButton(":Maintain Item Costs.New Cost_QPushButton");
-        waitForObject(":Create Item Cost._costelem_XComboBox");
-        if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
-            clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
-        if(findObject(":Create Item Cost._currency_XComboBox").currentText!="USD - $")
-            clickItem(":Create Item Cost._currency_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
-        type(":Maintain Item Costs.XLineEdit_XLineEdit", "0.10");
-        clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
-        clickButton(":Create Item Cost.Save_QPushButton");
-        test.log("Material cost for TWHEEL1 defined"); 
-        waitForObject(":Maintain Item Costs.Close_QPushButton");
-        clickButton(":Maintain Item Costs.Close_QPushButton"); 
-        
-        
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-        activateItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Costing");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Costing_QMenu", "Maintain Item Costs...");
-        waitForObject(":Maintain Item Costs.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Maintain Item Costs.VirtualClusterLineEdit_ItemLineEdit", "YPAINT1");
-        waitForObject(":_QTreeView");
-        type(":_QTreeView", "<Tab>");
-        
-        waitForObject(":Maintain Item Costs.New Cost_QPushButton");
-        clickButton(":Maintain Item Costs.New Cost_QPushButton");
-        waitForObject(":Create Item Cost._costelem_XComboBox");
-        if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
-            clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
-        if(findObject(":Create Item Cost._currency_XComboBox").currentText!="USD - $")
-            clickItem(":Create Item Cost._currency_XComboBox", "USD - $",0,0,1,Qt.LeftButton);
-        type(":Maintain Item Costs.XLineEdit_XLineEdit", "5.00");
-        clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
-        clickButton(":Create Item Cost.Save_QPushButton");
-        test.log("Material cost for YPAINT1 defined"); 
-        
-        waitForObject(":Maintain Item Costs.Close_QPushButton");
-        clickButton(":Maintain Item Costs.Close_QPushButton");  
-    }catch(e){test.fail("Exception in creating costs for items" + e);}
     
-    
+    maintainItemCosts("TBODY1","1.0");
+    maintainItemCosts("TBOX1","0.25");
+    maintainItemCosts("TINSERT1","0.5");
+    maintainItemCosts("TWHEEL1","0.10");
+    maintainItemCosts("YPAINT1","5.00");
     
     snooze(2);
     //---------Update Actual Costs-------------
@@ -211,7 +84,7 @@ function main()
         clickButton(":Post Actual Costs by Class Code.Post_QPushButton");
         test.log("Posted Actual Costs");
     }catch(e){test.fail("Exception in Posting Actual Costs");}
-  
+    
     //-------------Verify standard and actual cost in Intended Costed BOM---------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -226,7 +99,7 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Costed BOM_QMenu", "Indented...");
         waitForObject(":Costed Indented Bill of Materials.VirtualClusterLineEdit_ItemLineEdit");
         type(":Costed Indented Bill of Materials.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         
         waitForObject(":Items.Query_QToolButton");
@@ -248,7 +121,7 @@ function main()
             test.fail("Actual costs are not equal to Standard costs");
         waitForObject(":Items.Query_QToolButton");
         
-       
+        
         nativeType("<Ctrl+w>");
     }catch(e){test.fail("Exception in verifying standard and actual costs:"+e)}
     

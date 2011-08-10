@@ -4,14 +4,14 @@ function main()
     
     source(findFile("scripts","functions.js"));
     
-  
+    
     //---login Application--------
     loginAppl("RUNREGISTER");     
-//    waitForObject(":OK_QPushButton");
-//    clickButton(":OK_QPushButton");
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
     var appEdition = findApplicationEdition();
-
-
+    
+    
     //--------------Define: Check Formats-------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -67,11 +67,9 @@ function main()
         clickButton(":Chart of Accounts.Close_QPushButton_2");
     }catch(e){test.fail("Exception in creating Chart of Accounts");}
     
-  
     
-    if(appEdition=="Manufacturing"||appEdition=="Standard")
-    {
-        
+    
+          
         //---------------Configure ACH in Accounting-------------
         try{
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -102,30 +100,7 @@ function main()
             clickButton(":Setup.Save_QPushButton");
             test.log("Accounting for ACH configured");
         }catch(e){test.fail("Exception in configuring Accounting" + e);}
-        
-    }
-    else if(appEdition=="PostBooks")
-    {
-        try{
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
-            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
-            waitForObject(":Setup._modules_QComboBox");
-            clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
-            waitForObject(":Configure.Accounting_QModelIndex");
-            mouseClick(":Configure.Accounting_QModelIndex", 43, 5, 0, Qt.LeftButton);
-            
-            waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
-            clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
-            
-            test.xverify(object.exists(":tab.Enable ACH Check Printing_QGroupBox"), "Enable ACH Check Printing GroupBox not found");
-            waitForObject(":Setup.Save_QPushButton");
-            clickButton(":Setup.Save_QPushButton");
-        }catch(e){test.fail("Exception in configuring Accounting");}
-    }
-    snooze(3);//delay to allow save
-    
+          
     if(object.exists(":No_QPushButton"))
         clickButton(":No_QPushButton");
     
@@ -249,31 +224,9 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Adjustment types:"+e);}
-  
-    //---Restarting Application--
-    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit xTuple ERP...");
-    activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Exit xTuple ERP...");
     
-    snooze(5);
     
-    if(OS.name=="Linux")
-        startApplication("xtuple.bin");
     
-    else
-        startApplication("xtuple");
-    
-    snooze(2);
-   
-    loginAppl("CONFIGURE"); 
-  
-//     waitForObject(":OK_QPushButton");
-//    clickButton(":OK_QPushButton");
-  
-    var appEdition = findApplicationEdition(); 
-
-
     //------------Define: Fiscal Year----------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -286,22 +239,27 @@ function main()
         waitForObject(":List Fiscal Years.New_QPushButton");
         clickButton(":List Fiscal Years.New_QPushButton");
         waitForObject(":Fiscal Year.XDateEdit_XDateEdit");
-      var d = new Date();
-      var CurrentYearFull = d.getFullYear();
-      var CurrentYear = CurrentYearFull.toString().slice(2);
+        var d = new Date();
+        var CurrentYearFull = d.getFullYear();
+        var CurrentYear = CurrentYearFull.toString().slice(2);
+        findObject(":Fiscal Year.XDateEdit_XDateEdit").clear();
         type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+CurrentYearFull);
+        findObject(":Fiscal Year.XDateEdit_XDateEdit_2").clear();
         type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+CurrentYearFull);
-        waitForObject(":Fiscal Year.Save_QPushButton");
-        clickButton(":Fiscal Year.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
+        
         var NxtYear = CurrentYearFull+1;
         snooze(0.5);
         waitForObject(":List Fiscal Years.New_QPushButton");
         clickButton(":List Fiscal Years.New_QPushButton");
         waitForObject(":Fiscal Year.XDateEdit_XDateEdit");
+        findObject(":Fiscal Year.XDateEdit_XDateEdit").clear();
         type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+NxtYear);
+        findObject(":Fiscal Year.XDateEdit_XDateEdit_2").clear();
         type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+NxtYear);
-        waitForObject(":Fiscal Year.Save_QPushButton");
-        clickButton(":Fiscal Year.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
         waitForObject(":List Fiscal Years._period_XTreeWidget");
         if(object.exists(":_period.No_QModelIndex"))
             test.pass("Fiscal Year created");
@@ -315,7 +273,7 @@ function main()
         clickButton(":List Fiscal Years.Close_QPushButton");
     }catch(e){test.fail("Exception in creating Fiscal Year");}
     
-  
+    
     //-------------Define: Fiscal Calendar--------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -339,11 +297,10 @@ function main()
                 clickButton(":List Accounting Periods.New_QPushButton");
                 
                 waitForObject(":_year_XComboBox");
-                if(findObject(":_year_XComboBox").currentText!="01 Jan "+CurrentYearFull+"-31 Dec "+CurrentYearFull)
-                    clickItem(":_year_XComboBox", "01 Jan "+CurrentYearFull+"-31 Dec "+CurrentYearFull,0,0,1,Qt.LeftButton);
-                while(findObject(":_year_XComboBox").currentText!="01 Jan "+CurrentYearFull+"-31 Dec "+CurrentYearFull)
-                    snooze(0.1);
-                
+                if((findObject(":_year_XComboBox").currentText!="01/01/"+CurrentYear+"-12/31/"+CurrentYear))
+                    clickItem(":_year_XComboBox", "01/01/"+CurrentYear+"-12/31/"+CurrentYear,0,0,1,Qt.LeftButton);
+                while(findObject(":_year_XComboBox").currentText!="01/01/"+CurrentYear+"-12/31/"+CurrentYear)
+                    snooze(0.1);                             
                 
                 waitForObject(":Accounting Period.XDateEdit_XDateEdit");
                 findObject(":Accounting Period.XDateEdit_XDateEdit").clear();
@@ -375,8 +332,8 @@ function main()
                 
                 
                 
-                waitForObject(":Accounting Period.Save_QPushButton");
-                clickButton(":Accounting Period.Save_QPushButton");
+                waitForObject(":List Employees.Save_QPushButton_2");
+                clickButton(":List Employees.Save_QPushButton_2");
                 snooze(1);
                 while(!object.exists("{column='0' container=':List Accounting Periods._period_XTreeWidget' text='"+CurrentYearFull+"-"+(j<10?"0"+j:j)+"' type='QModelIndex'}"))
                     snooze(0.1);
@@ -388,5 +345,6 @@ function main()
         test.log("Accounting Periods Defined");
         
     }catch(e){test.fail("Exception in creating fiscal calendar:"+e);}
+    
     
 }

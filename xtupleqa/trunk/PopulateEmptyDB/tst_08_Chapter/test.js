@@ -1,3 +1,4 @@
+
 function main()
 {
     
@@ -5,11 +6,11 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");       
-     waitForObject(":OK_QPushButton");
-    clickButton(":OK_QPushButton");
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
     var appEdition = findApplicationEdition();
     
-
+    
     //----------Create Customer Type------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -33,36 +34,30 @@ function main()
         
         snooze(1);
         clickButton(":Enable Characteristics Profile.New_QPushButton");
-        waitForObject(":_char_XComboBox_3");
-        if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN - Customer Feedback")
-            clickItem(":_char_XComboBox_3", "SUPPORT-PLAN - Customer Feedback",0,0,1,Qt.LeftButton);
+        
         waitForObject(":_value_XLineEdit_4");
         type(":_value_XLineEdit_4", "Standard");
         if(!findObject(":Customer Characteristic.Default_QCheckBox").checked)
             clickButton(":Customer Characteristic.Default_QCheckBox");
-        clickButton(":Customer Characteristic.Save_QPushButton");
+        clickButton(":List Financial Reports.Save_QPushButton");
         
         snooze(1);
         clickButton(":Enable Characteristics Profile.New_QPushButton");
-        waitForObject(":_char_XComboBox_3");
-        if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN - Customer Feedback")
-            clickItem(":_char_XComboBox_3", "SUPPORT-PLAN - Customer Feedback",0,0,1,Qt.LeftButton);
+        
         waitForObject(":_value_XLineEdit_4");    
         type(":_value_XLineEdit_4", "Complete");
         if(findObject(":Customer Characteristic.Default_QCheckBox").checked)
             clickButton(":Customer Characteristic.Default_QCheckBox");
-        clickButton(":Customer Characteristic.Save_QPushButton");
+        clickButton(":List Financial Reports.Save_QPushButton");
         
         snooze(1);
         clickButton(":Enable Characteristics Profile.New_QPushButton");
-        waitForObject(":_char_XComboBox_3");
-        if(findObject(":_char_XComboBox_3").currentText!="SUPPORT-PLAN - Customer Feedback ")
-            clickItem(":_char_XComboBox_3", "SUPPORT-PLAN - Customer Feedback",0,0,1,Qt.LeftButton);
+        
         waitForObject(":_value_XLineEdit_4");    
         type(":_value_XLineEdit_4", "None");
         if(findObject(":Customer Characteristic.Default_QCheckBox").checked)
             clickButton(":Customer Characteristic.Default_QCheckBox");
-        clickButton(":Customer Characteristic.Save_QPushButton");
+        clickButton(":List Financial Reports.Save_QPushButton");
         
         snooze(1);
         waitForObject(":Setup.Save_QPushButton");
@@ -234,7 +229,7 @@ function main()
         clickButton(":Setup.Save_QPushButton");
         
     }catch(e){test.fail("Exception in creating Shipping Charge:"+e);} 
-   
+    
     //------Define Tax Authorities-------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -258,9 +253,11 @@ function main()
         type(":groupBox.XLineEdit_XLineEdit", "Street Addr Line1");
         type(":groupBox.XLineEdit_XLineEdit_2", "Street addr line2");
         type(":groupBox.XLineEdit_XLineEdit_3", "Street Addr line3");
-        type(":groupBox.XLineEdit_XLineEdit_4", "VA");
+        waitForObject(":groupBox._state_XComboBox_2");
+        clickItem(":groupBox._state_XComboBox_2", "VA", 0, 0, 1, Qt.LeftButton);
+        
         type(":groupBox.XLineEdit_XLineEdit_5", "24186");
-        clickItem(":groupBox._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
+        
         clickButton(":Tax Authority.Save_QPushButton");
         waitForObject(":_list_XTreeWidget_4");
         if(object.exists("{column='0' container=':_list_XTreeWidget_4' text='TAX-AUTH1' type='QModelIndex'}"))
@@ -331,6 +328,7 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         waitForObject(":List Shipping Forms._bolformat_XTreeWidget");
+        snooze(1);
         if(object.exists(":_bolformat.STANDARD-PACKING-LIST_QModelIndex"))
             test.pass("Shipping Forms created: STANDARD-PACKING-LIST");
         else test.fail("Shipping Forms not created: STANDARD-PACKING-LIST");
@@ -387,8 +385,8 @@ function main()
     waitForObject(":Chart of Accounts.Close_QPushButton_2");
     clickButton(":Chart of Accounts.Close_QPushButton_2");
     
-  
-  
+    
+    
     //-------------Create Sales Category----------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -427,7 +425,7 @@ function main()
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in defining Sales Category"+ e);}
-  
+    
     //----------------A/R Account Assignments----------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -448,55 +446,55 @@ function main()
         
         if(appEdition=="PostBooks")
         {
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1100-01");
-        nativeType("<Tab>");
-        
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-4800-01");
-        nativeType("<Tab>");
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-4060-01");
-        nativeType("<Tab>")
-                
-                
-          waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-4810-01");
-        nativeType("<Tab>")
-            }      
-                
-         if(appEdition=="Manufacturing"||appEdition=="Standard")
-        {       
-                
             waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1100-01");
-        nativeType("<Tab>");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1100-01");
+            nativeType("<Tab>");
+            
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-4800-01");
+            nativeType("<Tab>");
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-4060-01");
+            nativeType("<Tab>")
+                    
+                    
+                    waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-4810-01");
+            nativeType("<Tab>")
+                }      
         
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-4800-01");
-        nativeType("<Tab>");
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-4060-01");
-        nativeType("<Tab>")
-                
-                
-          waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-2445-01");
-        nativeType("<Tab>")
-          if(object.exists(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5"))
-        {
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5", "01-01-4810-01");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5", "<Tab>");
-            snooze(0.5);
+        if(appEdition=="Manufacturing"||appEdition=="Standard")
+        {       
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1100-01");
+            nativeType("<Tab>");
+            
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-4800-01");
+            nativeType("<Tab>");
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-4060-01");
+            nativeType("<Tab>")
+                    
+                    
+                    waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-2445-01");
+            nativeType("<Tab>")
+                    if(object.exists(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5"))
+            {
+                type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5", "01-01-4810-01");
+                type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5", "<Tab>");
+                snooze(0.5);
+            }
         }
-       }
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-         waitForObject(":_stack._araccnt_XTreeWidget");
+        waitForObject(":_stack._araccnt_XTreeWidget");
         if(object.exists(":_araccnt.NORMAL_QModelIndex_2"))
             test.pass("A/R Accounts Assignments done");
         else test.fail("A/R Accounts Assignments not created");
@@ -655,7 +653,7 @@ function main()
         test.log("Sales Module Configured");
     }catch(e){test.fail("Exception in configuring Sales Module" + e);}   
     
-  
+    
     
     //------------Sales: Account Assignments-----------------
     try{
@@ -691,18 +689,18 @@ function main()
         if(appEdition=="Manufacturing"||appEdition=="Standard")
         {
             
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-4700-01");
-        nativeType("<Tab>");  
-         
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5","01-01-5710-01");
-        nativeType("<Tab>");
-        
-         waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6");
-        type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6","01-01-5720-01");
-        nativeType("<Tab>");
-          }
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-4700-01");
+            nativeType("<Tab>");  
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5","01-01-5710-01");
+            nativeType("<Tab>");
+            
+            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6");
+            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6","01-01-5720-01");
+            nativeType("<Tab>");
+        }
         else if(appEdition=="PostBooks")
         {
             test.xverify(object.exists(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4"), "Sales account assignment not found");
@@ -773,14 +771,13 @@ function main()
     
     //----------------Create new Customer---------------
     try{
+        
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
         activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Customer");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "New...");
         activateItem(":xTuple ERP: OpenMFG Edition.Customer_QMenu", "New...");
-        
-        
         waitForObject(":Customer.VirtualClusterLineEdit_CLineEdit");
         findObject(":Customer.VirtualClusterLineEdit_CLineEdit").clear();
         type(":Customer.VirtualClusterLineEdit_CLineEdit", "TTOYS");
@@ -825,12 +822,16 @@ function main()
         type(":_name_XLineEdit_13", "Old Towne Store 1");
         if(!findObject(":Ship-To.Default_QCheckBox").checked)
             clickButton(":Ship-To.Default_QCheckBox");
-        type(":Address.XLineEdit_XLineEdit", "Street Addr line1");
-        type(":Address.XLineEdit_XLineEdit_2", "Street Addr line2");
-        type(":Address.XLineEdit_XLineEdit_3", "Street Addr line 3");
-        type(":_state_QLineEdit_7", "WDC");
+        
+        type(":Maintain Item Costs.XLineEdit_XLineEdit", "Street Addr line1");
+        type(":Address.XLineEdit_XLineEdit", "Street Addr line2");
+        type(":Address.XLineEdit_XLineEdit_2", "Street Addr line3");
+        type(":Address.XLineEdit_XLineEdit_3", "City");
+        
+        waitForObject(":Address._state_XComboBox");
+        clickItem(":Address._state_XComboBox","VA",15, 0, 0, Qt.LeftButton);
         type(":Address.XLineEdit_XLineEdit_4", "235235");
-        clickItem(":Ship-To._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
+        
         snooze(1);
         findObject(":_commission_XLineEdit").clear();
         type(":_commission_XLineEdit", "7.5");
@@ -845,17 +846,18 @@ function main()
         clickButton(":_addressStack.New_QPushButton_2");
         waitForObject(":_shipToNumber_XLineEdit");
         type(":_shipToNumber_XLineEdit", "Store2");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(1);
         type(":_name_XLineEdit_13", "Old Towne Store 2");
         if(findObject(":Ship-To.Default_QCheckBox").checked)
             clickButton(":Ship-To.Default_QCheckBox");
-        type(":Address.XLineEdit_XLineEdit", "Street Addr line11");
-        type(":Address.XLineEdit_XLineEdit_2", "Street Addr line22");
-        type(":Address.XLineEdit_XLineEdit_3", "Street Addr line 33");
-        type(":_state_QLineEdit_7", "WDC");
+        type(":Maintain Item Costs.XLineEdit_XLineEdit", "Street Addr line11");
+        type(":Address.XLineEdit_XLineEdit", "Street Addr line22");
+        type(":Address.XLineEdit_XLineEdit_2", "Street Addr line33");
+        type(":Address.XLineEdit_XLineEdit_3", "City");
+        waitForObject(":Address._state_XComboBox");
+        clickItem(":Address._state_XComboBox","VA",15, 0, 0, Qt.LeftButton);
         type(":Address.XLineEdit_XLineEdit_4", "345235");
-        clickItem(":Ship-To._country_XComboBox", "United States", 0, 0, 1, Qt.LeftButton);
         findObject(":_commission_XLineEdit").clear();
         type(":_commission_XLineEdit", "7.5");
         waitForObject(":Defaults:._shipform_XComboBox");
@@ -907,7 +909,7 @@ function main()
         clickButton(":List Customer Groups.Close_QPushButton");
         snooze(1);
     }catch(e){test.fail("Exception in creating Customer Groups:"+e);}   
-  
+    
     //-----------------Define: Reason Codes---------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -969,8 +971,8 @@ function main()
         
         type(":_qtyBreak_XLineEdit_3", "0");
         type(":_baseTab.XLineEdit_XLineEdit", "9.99");
-        waitForObject(":Pricing Schedule Item.Save_QPushButton");
-        clickButton(":Pricing Schedule Item.Save_QPushButton");    
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");    
         
         waitForObject(":Pricing Schedule.New_QPushButton");
         clickButton(":Pricing Schedule.New_QPushButton");
@@ -979,8 +981,8 @@ function main()
         type(":_widgetStack.VirtualClusterLineEdit_ItemLineEdit", "<Tab>");
         type(":_qtyBreak_XLineEdit_3", "100");
         type(":_baseTab.XLineEdit_XLineEdit", "9.5");
-        waitForObject(":Pricing Schedule Item.Save_QPushButton");
-        clickButton(":Pricing Schedule Item.Save_QPushButton");    
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");     
         
         waitForObject(":Pricing Schedule.New_QPushButton");
         clickButton(":Pricing Schedule.New_QPushButton");
@@ -988,8 +990,8 @@ function main()
         type(":_widgetStack.VirtualClusterLineEdit_ItemLineEdit", "<Tab>");
         type(":_qtyBreak_XLineEdit_3", "500");
         type(":_baseTab.XLineEdit_XLineEdit", "9.25");
-        waitForObject(":Pricing Schedule Item.Save_QPushButton");
-        clickButton(":Pricing Schedule Item.Save_QPushButton");    
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");     
         
         waitForObject(":GroupBox1.Save_QPushButton_2");
         clickButton(":GroupBox1.Save_QPushButton_2");
@@ -1025,7 +1027,8 @@ function main()
         clickButton(":To.All Shipping Zones_QRadioButton_2");
         clickButton(":_freightClassGroup.Selected:_QRadioButton_2");
         clickItem(":_freightClassGroup._freightClass_XComboBox_2", "BULK-Bulk Freight",0,0,1,Qt.LeftButton);
-        clickButton(":Pricing Schedule Item.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2"); 
         
         waitForObject(":GroupBox1.Save_QPushButton_2");
         clickButton(":GroupBox1.Save_QPushButton_2");
@@ -1062,7 +1065,8 @@ function main()
         clickButton(":To.All Shipping Zones_QRadioButton_2");
         clickButton(":_freightClassGroup.Selected:_QRadioButton_2");
         clickItem(":_freightClassGroup._freightClass_XComboBox_2", "BULK-Bulk Freight",0,0,1,Qt.LeftButton);
-        clickButton(":Pricing Schedule Item.Save_QPushButton");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2"); 
         
         waitForObject(":GroupBox1.Save_QPushButton_2");
         clickButton(":GroupBox1.Save_QPushButton_2");
@@ -1096,6 +1100,7 @@ function main()
         waitForObject(":_listTab.TTOYS_QModelIndex");
         doubleClick(":_listTab.TTOYS_QModelIndex", 38, 6, 0, Qt.LeftButton);
         clickItem(":_ipshead_XComboBox", "FREIGHT-TTOYS-BULK - Freight Pricing for Bulk Toys",0,0,1,Qt.LeftButton);
+        snooze(1);
         clickButton(":List Employees.Save_QPushButton_2");
         waitForObject(":List Pricing Schedule Assignments._ipsass_XTreeWidget");
         if(object.exists(":_ipsass.FREIGHT-TTOYS-BULK_QModelIndex"))
@@ -1109,6 +1114,7 @@ function main()
         clickButton(":_customerGroup.Selected Customer Type:_QRadioButton");    
         if(findObject(":_ipshead_XComboBox").currentText!= "BASE - Base Price Schedule")
             clickItem(":_ipshead_XComboBox","BASE - Base Price Schedule",0,0,1,Qt.LeftButton);
+        snooze(1);
         clickButton(":List Employees.Save_QPushButton_2");
         waitForObject(":List Pricing Schedule Assignments._ipsass_XTreeWidget");
         if(object.exists(":_ipsass.ANY_QModelIndex"))
@@ -1124,6 +1130,7 @@ function main()
         waitForObject(":_customerGroup._customerType_XLineEdit_2");
         type(":_customerGroup._customerType_XLineEdit_2", ".*");
         type(":_ipshead_XComboBox", "FREIGHT-BULK");
+        snooze(1);
         clickButton(":List Employees.Save_QPushButton_2");
         waitForObject(":List Pricing Schedule Assignments._ipsass_XTreeWidget");
         if(object.exists(":_ipsass.FREIGHT-BULK_QModelIndex"))
@@ -1138,6 +1145,7 @@ function main()
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         try{     
+            
             //-----------Create Item site for INTRAN------------
             waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
@@ -1158,9 +1166,9 @@ function main()
             type(":_addressGroup.XLineEdit_XLineEdit_2", "Vittal Rao Colony");
             type(":_addressGroup.XLineEdit_XLineEdit_3", "Santh Nagar");
             type(":_addressGroup.XLineEdit_XLineEdit_4", "Pune");
-            type(":_state_QLineEdit_6", "Maharastra");
+            clickItem(":_addressGroup._state_XComboBox", "VA", 12, 1, 0, Qt.LeftButton);
+            
             type(":_addressGroup.XLineEdit_XLineEdit_5", "23234324");
-            clickItem(":_addressGroup._country_XComboBox_2", "United States", 0, 0, 1, Qt.LeftButton);
             waitForObject(":_accountGroup.VirtualClusterLineEdit_GLClusterLineEdit");
             waitForObject(":_accountGroup_QLabel");
             sendEvent("QMouseEvent", ":_accountGroup_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
@@ -1190,10 +1198,15 @@ function main()
             clickButton(":List Sites.Close_QPushButton_2");
             test.log("Item site for INTRAN created");
             
-        }catch(e){test.fail("Exception in creating INTRAN site:"+e);}
+        }
+        catch(e)
+        {
+            test.fail("Exception in creating INTRAN site:"+e);
+        }
         
+        //-----------Configure: Inventory Module--------------
         try{
-            //-----------Configure: Inventory Module--------------
+            
             waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
@@ -1208,7 +1221,11 @@ function main()
             waitForObject(":Setup.Save_QPushButton");
             clickButton(":Setup.Save_QPushButton");
             test.log("Configure Module: Inventory");
-        }catch(e){test.fail("Exception in configuring Inventory module:"+e);}
+        }
+        catch(e)
+        {
+            test.fail("Exception in configuring Inventory module:"+e);
+        }
         
     }
     
@@ -1226,9 +1243,14 @@ function main()
             actions = menu.actions();
             for(i=0;i<actions.count();i++)
                 if(actions.at(i).text == menuItem || i==actions.count()-1) break;
-            if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
+            if(actions.at(i).text==menuItem)
+                test.fail(menuItem+"present in "+ appEdition);
             else test.pass(menuItem+"not found in "+appEdition);
-        }catch(e){test.fail("Exception in verifying menu in postbooks:"+e);}
+        }
+        catch(e)
+        {
+            test.fail("Exception in verifying menu in postbooks:"+e);
+        }
         
     } 
     

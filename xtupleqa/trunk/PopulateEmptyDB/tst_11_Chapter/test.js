@@ -5,8 +5,8 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");     
-//     waitForObject(":OK_QPushButton");
-//    clickButton(":OK_QPushButton");
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
     var appEdition = findApplicationEdition();
     
     try{

@@ -6,8 +6,8 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");  
-//     waitForObject(":OK_QPushButton");
-//    clickButton(":OK_QPushButton");
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
     var appEdition = findApplicationEdition();
     
     //--------Configure: Purchase Module-------------------
@@ -38,23 +38,33 @@ function main()
             clickButton(":Default Purchase Order Copies:.Vendor_QCheckBox");
         if(findObject(":Default Purchase Order Copies:.Internal_QCheckBox").checked)
             clickButton(":Default Purchase Order Copies:.Internal_QCheckBox");
-        if(!findObject(":Purchase Configuration.Post Purchase Order Changes to the Change Log_QCheckBox"))
+        if(!findObject(":Purchase Configuration.Post Purchase Order Changes to the Change Log_QCheckBox").checked)
             clickButton(":Purchase Configuration.Post Purchase Order Changes to the Change Log_QCheckBox");
-        if(!findObject(":Purchase Configuration.Post Vendor Changes to the Change Log_QCheckBox"))
+        if(!findObject(":Purchase Configuration.Post Vendor Changes to the Change Log_QCheckBox").checked)
             clickButton(":Purchase Configuration.Post Vendor Changes to the Change Log_QCheckBox");
-        if(!findObject(":Purchase Configuration.Use Earliest Avail. as Due Date for Purchase Order Item_QCheckBox"))
-            clickButton(":Purchase Configuration.Use Earliest Avail. as Due Date for Purchase Order Item_QCheckBox");
-        if(!findObject(":Purchase Configuration.Prevent Purchase Order Items when no Std. Cost Exists_QCheckBox"))
+        if(!findObject(":Purchase Configuration.Use Earliest Avail. as Due Date for Purchase Order Item_QCheckBox").checked)            clickButton(":Purchase Configuration.Use Earliest Avail. as Due Date for Purchase Order Item_QCheckBox");
+        if(!findObject(":Purchase Configuration.Prevent Purchase Order Items when no Std. Cost Exists_QCheckBox").checked)
             clickButton(":Purchase Configuration.Prevent Purchase Order Items when no Std. Cost Exists_QCheckBox");
-        if(!findObject(":Purchase Configuration.Check Print Purchase Order on Save by Default_QCheckBox"))
+        if(findObject(":Purchase Configuration.Check Print Purchase Order on Save by Default_QCheckBox").checked)
             clickButton(":Purchase Configuration.Check Print Purchase Order on Save by Default_QCheckBox");
+        if(!findObject(":Options.Copy Purchase Request notes to Purchase Order Item notes_QCheckBox").checked)
+            clickButton(":Options.Copy Purchase Request notes to Purchase Order Item notes_QCheckBox");
+        if(object.exists(":Options.Enable Drop Shipments_QCheckBox"))
+        {
+            if(!findObject(":Options.Enable Drop Shipments_QCheckBox").checked)
+            { clickButton(":Options.Enable Drop Shipments_QCheckBox");
+                if(!findObject(":Options.Select Drop Shipped Orders for Billing on Receipt_QCheckBox").checked)
+                    clickButton(":Options.Select Drop Shipped Orders for Billing on Receipt_QCheckBox");
+            }
+        }
         type(":_defaultShipVia_XLineEdit", "<Ctrl+A>");    
         type(":_defaultShipVia_XLineEdit", "<Del>");
         type(":_defaultShipVia_XLineEdit", "UPS Account 1234567");
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
         test.log("Purchase Module Configured");
-    }catch(e){test.fail("Exception in configuring Product Module:"+e);}
+    }catch(e){test.fail("Exception in configuring Purchase Module:"+e);}
+    
     
     //-------------Configure: Inventory Module---------------------
     try{
@@ -75,8 +85,9 @@ function main()
             clickButton(":tab_2.Disallow Purchase Order Receipt of Qty greater than ordered_QCheckBox");
         if(!findObject(":tab_2.Warn if Purchase Order Receipt Qty differs from receivable Qty_QCheckBox").checked)
             clickButton(":tab_2.Warn if Purchase Order Receipt Qty differs from receivable Qty_QCheckBox");
-        waitForObject(":_tolerance_QLineEdit");
+        findObject(":_tolerance_QLineEdit").clear();
         type(":_tolerance_QLineEdit", "5");
+        
         findObject(":_shipformNumOfCopies_QSpinBox").clear();
         type(":_shipformNumOfCopies_QSpinBox", "2");
         snooze(2);
@@ -296,7 +307,7 @@ function main()
         clickButton(":Setup.Save_QPushButton");
         
     }catch(e){test.fail("Exception in Assigning Accounts:"+e);}
-   
+    
     //--------------Create new Vendor-------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -308,8 +319,7 @@ function main()
         
         waitForObject(":Tax Authorities.New_QToolButton");
         clickButton(":Tax Authorities.New_QToolButton");
-   
-  
+        
         waitForObject(":_number_XLineEdit_4");
         findObject(":_number_XLineEdit_4").clear();
         type(":_number_XLineEdit_4", "TPARTS");
@@ -338,10 +348,12 @@ function main()
         type(":_addressStack.XLineEdit_XLineEdit", "Alpha Industries PVt ltd");
         type(":_addressStack.XLineEdit_XLineEdit_2", "Vengal Rao  Nagar");
         type(":_addressStack.XLineEdit_XLineEdit_3", "Kolkata");
-        type(":_state_QLineEdit_4", "WB");
+        
+        waitForObject(":_addressStack._state_XComboBox_3");
+        clickItem(":_addressStack._state_XComboBox_3", "VA", 8, 12, 0, Qt.LeftButton);
+        
         waitForObject(":_addressStack.XLineEdit_XLineEdit_4");
         type(":_addressStack.XLineEdit_XLineEdit_4", "300838");
-        clickItem(":_addressStack._country_XComboBox", "India", 0, 0, 1, Qt.LeftButton);
         waitForObject(":Vendor.Save_QPushButton");
         clickButton(":Vendor.Save_QPushButton");
         waitForObject(":_list_XTreeWidget_3");
@@ -354,8 +366,7 @@ function main()
         clickButton(":Tax Authorities.Close_QToolButton");
     }catch(e){test.fail("Exception in creating Vendor:"+e);}
     
-    
-    
+           
     //------------Create Item Sources------------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -366,19 +377,20 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
         
         //----Item source for TBOX1--------------
-        waitForObject(":_frame.New_QPushButton");
-        clickButton(":_frame.New_QPushButton");
+        
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TBOX1");
         nativeType("<Tab>");
         snooze(0.5);
         
-        waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
-        type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
-         nativeType("<Tab>");
+        waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit_2");
+        type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit_2", "TPARTS");
+        nativeType("<Tab>");
         snooze(0.5); 
-       
+        
         waitForObject(":_venditemGroup._vendorItemNumber_XLineEdit_2");
         type(":_venditemGroup._vendorItemNumber_XLineEdit_2", "TPBOX01");
         type(":_vendorUOM_XLineEdit", "PCS");
@@ -394,30 +406,22 @@ function main()
         waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
         
-        waitForObject(":_pricesTab.Add_QPushButton");
-        clickButton(":_pricesTab.Add_QPushButton");
-        
+        waitForObject(":_pricesTab.Add_QPushButton_2");
+        clickButton(":_pricesTab.Add_QPushButton_2");
         waitForObject(":_qtyBreak_XLineEdit");
-        type(":_qtyBreak_XLineEdit", "0");
-        type(":Maintain Item Costs.XLineEdit_XLineEdit", ".25");
-        clickButton(":Item Source Price.Save_QPushButton");
-        
-        waitForObject(":_pricesTab.Add_QPushButton");
-        clickButton(":_pricesTab.Add_QPushButton");
-        waitForObject(":_qtyBreak_XLineEdit");
-        type(":_qtyBreak_XLineEdit", "1000");
+        type(":_qtyBreak_XLineEdit", "100");
         type(":Maintain Item Costs.XLineEdit_XLineEdit", ".20");
         waitForObject(":Item Source Price.Save_QPushButton");
         clickButton(":Item Source Price.Save_QPushButton");
         
         waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Vendor Description");
-        waitForObject(":_vendorTab._vendorItemDescrip_QTextEdit");
-        type(":_vendorTab._vendorItemDescrip_QTextEdit", "ProDiem Box For Truck Type 1");
+        waitForObject(":_vendorTab._vendorItemDescrip_QTextEdit_2");
+        type(":_vendorTab._vendorItemDescrip_QTextEdit_2", "ProDiem Box For Truck Type 1");
         waitForObject(":Item Source.Save_QPushButton");
         clickButton(":Item Source.Save_QPushButton");
-        waitForObject(":_frame._itemsrc_XTreeWidget");
-        if(object.exists("{column='0' container=':_frame._itemsrc_XTreeWidget' text='TBOX1' type='QModelIndex'}"))
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='1' container=':_list_XTreeWidget_3' text='TBOX1' type='QModelIndex'}"))
             test.pass("Item Source created for: TBOX1");
         else test.fail("Item Source not created for: TBOX1");
         
@@ -425,18 +429,18 @@ function main()
     
     //----Item source for TBODY1--------------
     try{
-        waitForObject(":_frame.New_QPushButton");
-        clickButton(":_frame.New_QPushButton");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TBODY1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(0.5);
         
         
-        waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
-        type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
-         nativeType("<Tab>");
+        waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit_2");
+        type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit_2", "TPARTS");
+        nativeType("<Tab>");
         snooze(0.5);
         
         waitForObject(":_venditemGroup._vendorItemNumber_XLineEdit");
@@ -454,16 +458,16 @@ function main()
         waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
         
-        waitForObject(":_pricesTab.Add_QPushButton");
-        clickButton(":_pricesTab.Add_QPushButton");
+        waitForObject(":_pricesTab.Add_QPushButton_2");
+        clickButton(":_pricesTab.Add_QPushButton_2");
         waitForObject(":_qtyBreak_XLineEdit");
         type(":_qtyBreak_XLineEdit", "0");
         type(":Maintain Item Costs.XLineEdit_XLineEdit", "1");
         clickButton(":Item Source Price.Save_QPushButton");
         waitForObject(":Item Source.Save_QPushButton");
         clickButton(":Item Source.Save_QPushButton");
-        waitForObject(":_frame._itemsrc_XTreeWidget");
-        if(object.exists("{column='0' container=':_frame._itemsrc_XTreeWidget' text='TBODY1' type='QModelIndex'}"))
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='1' container=':_list_XTreeWidget_3' text='TBODY1' type='QModelIndex'}"))
             test.pass("Item Source created for: TBODY1");
         else test.fail("Item source not created for TBODY1");
     }catch(e){test.fail("Exception in defining Item sources for TBODY1:"+e);}
@@ -472,17 +476,17 @@ function main()
     
     //----Item source for TINSERT1--------------
     try{
-        waitForObject(":_frame.New_QPushButton");
-        clickButton(":_frame.New_QPushButton");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TINSERT1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(0.5);
         
-        waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
-        type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
-         nativeType("<Tab>");
+        waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit_2");
+        type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit_2", "TPARTS");
+        nativeType("<Tab>");
         snooze(0.5);
         
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPINSERT01");
@@ -499,16 +503,16 @@ function main()
         waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
         
-        waitForObject(":_pricesTab.Add_QPushButton");
-        clickButton(":_pricesTab.Add_QPushButton");
+        waitForObject(":_pricesTab.Add_QPushButton_2");
+        clickButton(":_pricesTab.Add_QPushButton_2");
         waitForObject(":_qtyBreak_XLineEdit");
         type(":_qtyBreak_XLineEdit", "0");
         type(":Maintain Item Costs.XLineEdit_XLineEdit", ".25");
         clickButton(":Item Source Price.Save_QPushButton");
         waitForObject(":Item Source.Save_QPushButton");
         clickButton(":Item Source.Save_QPushButton");
-        waitForObject(":_frame._itemsrc_XTreeWidget");
-        if(object.exists("{column='0' container=':_frame._itemsrc_XTreeWidget' text='TINSERT1' type='QModelIndex'}"))
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='1' container=':_list_XTreeWidget_3' text='TINSERT1' type='QModelIndex'}"))
             test.pass("Item Source created for: TINSERT1");
         else test.fail("Item Source not created for: TINSERT1");
     }
@@ -520,19 +524,19 @@ function main()
     
     //----Item source for TWHEEL1--------------
     try{
-        waitForObject(":_frame.New_QPushButton");
-        clickButton(":_frame.New_QPushButton");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TWHEEL1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(0.5);
         
         
-        waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
-        type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
-         nativeType("<Tab>");
+        waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit_2");
+        type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit_2", "TPARTS");
+        nativeType("<Tab>");
         snooze(0.5);
-       
+        
         
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPWHEEL01");
         type(":_vendorUOM_XLineEdit", "PCS");
@@ -548,34 +552,34 @@ function main()
         waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
         
-        waitForObject(":_pricesTab.Add_QPushButton");
-        clickButton(":_pricesTab.Add_QPushButton");
+        waitForObject(":_pricesTab.Add_QPushButton_2");
+        clickButton(":_pricesTab.Add_QPushButton_2");
         waitForObject(":_qtyBreak_XLineEdit");
         type(":_qtyBreak_XLineEdit", "0");
         type(":Maintain Item Costs.XLineEdit_XLineEdit", ".10");
         clickButton(":Item Source Price.Save_QPushButton");
         waitForObject(":Item Source.Save_QPushButton");
         clickButton(":Item Source.Save_QPushButton");
-        waitForObject(":_frame._itemsrc_XTreeWidget");
-        if(object.exists("{column='0' container=':_frame._itemsrc_XTreeWidget' text='TWHEEL1' type='QModelIndex'}"))
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='1' container=':_list_XTreeWidget_3' text='TWHEEL1' type='QModelIndex'}"))
             test.pass("Item Source created for: TWHEEL1");
         else test.fail("Item Source not created for: TWHEEL1");
     }catch(e){test.fail("Exception in defining Item sources for TWHEEL1:"+e);}
     
     //----Item source for YPAINT1--------------
     try{
-        waitForObject(":_frame.New_QPushButton");
-        clickButton(":_frame.New_QPushButton");
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
         type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "YPAINT1");
-         nativeType("<Tab>");
+        nativeType("<Tab>");
         snooze(0.5);
         
-        waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit");
-        type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit", "TPARTS");
-         nativeType("<Tab>");
+        waitForObject(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit_2");
+        type(":_vendorGroup.VirtualClusterLineEdit_VendorLineEdit_2", "TPARTS");
+        nativeType("<Tab>");
         snooze(0.5);
-     
+        
         
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPPAINT01");
         type(":_vendorUOM_XLineEdit", "PCS");
@@ -591,20 +595,20 @@ function main()
         waitForObject(":Item Source.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Item Source.qt_tabwidget_tabbar_QTabBar", "Prices");
         
-        waitForObject(":_pricesTab.Add_QPushButton");
-        clickButton(":_pricesTab.Add_QPushButton");
+        waitForObject(":_pricesTab.Add_QPushButton_2");
+        clickButton(":_pricesTab.Add_QPushButton_2");
         waitForObject(":_qtyBreak_XLineEdit");
         type(":_qtyBreak_XLineEdit", "0");
         type(":Maintain Item Costs.XLineEdit_XLineEdit", ".10");
         clickButton(":Item Source Price.Save_QPushButton");
         waitForObject(":Item Source.Save_QPushButton");
         clickButton(":Item Source.Save_QPushButton");
-        waitForObject(":_frame._itemsrc_XTreeWidget");
-        if(object.exists("{column='0' container=':_frame._itemsrc_XTreeWidget' text='YPAINT1' type='QModelIndex'}"))
+        waitForObject(":_list_XTreeWidget_3");
+        if(object.exists("{column='1' container=':_list_XTreeWidget_3' text='YPAINT1' type='QModelIndex'}"))
             test.pass("Item Source created for: YPAINT1");
         else test.fail("Item Source not created for: YPAINT1");
-        waitForObject(":List Item Sources.Close_QPushButton");
-        clickButton(":List Item Sources.Close_QPushButton");
+        waitForObject(":Tax Authorities.Close_QToolButton");
+        clickButton(":Tax Authorities.Close_QToolButton");
     }catch(e){test.fail("Exception in defining Item sources for YPAINT1:"+e);}   
     
     
