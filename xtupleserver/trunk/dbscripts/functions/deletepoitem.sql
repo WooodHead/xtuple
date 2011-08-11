@@ -6,13 +6,13 @@ DECLARE
   _status CHARACTER;
 
 BEGIN
-  SELECT poitem_pohead_id INTO _poheadid
+  SELECT poitem_pohead_id, poitem_status INTO _poheadid, _status
   FROM poitem
   WHERE (poitem_id=pPoitemid);
 
-  SELECT poitem_status INTO _status
-  FROM poitem
-  WHERE (poitem_id=pPoitemid);
+  IF NOT(FOUND) THEN
+    RETURN 0;
+  END IF;
 
   IF ( _status = 'U' ) THEN
     DELETE FROM poitem
