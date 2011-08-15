@@ -1,8 +1,0 @@
--- Group: session
--- Name:  preferences
--- Notes: The list of user preferences.
-select 
-  scusrpref_name as preference, 
-  scusrpref_value as value
-from scusrpref
-where scusr_username = current_user

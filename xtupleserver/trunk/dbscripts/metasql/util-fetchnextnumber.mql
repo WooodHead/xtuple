@@ -1,9 +1,0 @@
--- Group: util
--- Name:  fetchnextnumber
--- Notes: 
-SELECT CAST(REGEXP_REPLACE(newnum, '[^0-9]', '', 'g') AS INTEGER) AS id, newnum
-  FROM (SELECT CASE WHEN <? value('numbertype') ?>  != 'CRMAccountNumber' THEN
-                 fetchNextNumber(<? value('numbertype') ?>)
-               ELSE
-                 fetchCRMAccountNumber()::text
-               END AS newnum) AS getnum;
