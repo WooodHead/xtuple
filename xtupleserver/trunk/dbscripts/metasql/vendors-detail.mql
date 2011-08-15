@@ -29,7 +29,7 @@ WHERE true
        OR (addr_country ~* <? value("search_pattern") ?>))
 <? endif ?>
 <? if exists("vend_number_pattern") ?>
-  AND (crmacct_number ~* <? value("vend_number_pattern") ?>)
+  AND (vend_number ~* <? value("vend_number_pattern") ?>)
 <? endif ?>
 <? if exists("vend_name_pattern") ?>
   AND (vend_name ~* <? value("vend_name_pattern") ?>)
