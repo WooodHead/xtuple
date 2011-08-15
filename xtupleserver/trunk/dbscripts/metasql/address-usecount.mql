@@ -1,4 +1,0 @@
--- Group: address
--- Name:  useCount
--- Notes: Return how many places an address is used.
-SELECT addrUseCount(<? value("id") ?>) AS result;
