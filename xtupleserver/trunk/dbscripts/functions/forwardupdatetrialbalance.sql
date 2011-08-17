@@ -60,6 +60,7 @@ BEGIN
     END IF;
 
     _prevYear := _currYear;
+    _prevYearClosed := _currYearClosed;
 
     IF (_r.trialbal_id IS NULL) THEN
       -- SELECT SUM(gltrans_amount) INTO _glAmount
