@@ -13,6 +13,6 @@
 #include <QObject>
 
 QString CSVImp::build     = QObject::tr("%1 %2").arg(__DATE__, __TIME__);
-QString CSVImp::copyright = QObject::tr("Copyright (c) 1999-2010, OpenMFG, LLC");
+QString CSVImp::copyright = QObject::tr("Copyright (c) 1999-2011, OpenMFG, LLC");
 QString CSVImp::name      = QObject::tr("CSV Import");
-QString CSVImp::version   = QString("0.4.3");
+QString CSVImp::version   = QString("0.4.4");
