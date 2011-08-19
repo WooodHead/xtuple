@@ -1,0 +1,140 @@
+-- Group: summarizedSalesHistory
+-- Name: detail
+-- Notes: used by dspSummarizedSalesHistoryByShippingZone, dspSummarizedSalesBySalesRep, dspSummarizedSalesbyCustomerType, dspSummarizedSalesByCustomer, dspSummarizedSalesByCustomerByItem, dspSummarizedSalesByCustomerTypeByItem, dspSummarizedSalesByItem
+
+SELECT <? if exists("byItem") ?>
+         itemsite_item_id, item_number, itemdescription, 
+         MIN(cohist_invcdate) AS firstdate, 
+         MAX(cohist_invcdate) AS lastdate, 
+       <? elseif exists("bySalesRep") ?>
+         cohist_salesrep_id, 
+         (salesrep_number || '-' || salesrep_name) AS rep, 
+         MIN(cohist_invcdate) AS firstdate, MAX(cohist_invcdate) AS lastdate, 
+       <? elseif exists("byShippingZone") ?>
+         shipzone_id, cust_id, shipzone_name,  
+         item_number, itemdescription, 
+         (cust_number || '-' || cust_name) AS customer, 
+       <? elseif exists("byCustomer") ?>
+         cohist_cust_id, 
+	 (cust_number || '-' || cust_name) AS customer, 
+	 MIN(cohist_invcdate) AS firstsale, MAX(cohist_invcdate) AS lastsale, 
+	 SUM(cohist_qtyshipped) AS qtyshipped, 
+         SUM(custextprice) AS extprice, 
+         currConcat(cust_curr_id) AS currAbbr, 
+         'qty' AS qtyshipped_xtnumericrole, 
+         'curr' AS extprice_xtnumericrole 
+       <? else ?>
+         <? if exists("byCustomerType") ?>
+         cust_custtype_id, custtype_code, warehous_code, 
+         <? endif ?>
+         <? if exists("byCustomerByItem") ?>
+         cohist_itemsite_id, itemsite_item_id, item_number, itemdescription, warehous_code, 
+         <? endif ?>
+         <? if exists("byCustomerTypeByItem") ?>
+         cohist_itemsite_id, item_number, itemdescription, warehous_code, 
+         <? endif ?> 
+         minprice, maxprice, avgprice, wtavgprice, totalunits, totalsales, 
+         'salesprice' AS minprice_xtnumericrole, 
+         'salesprice' AS maxprice_xtnumericrole, 
+         'salesprice' AS avgprice_xtnumericrole, 
+         'salesprice' AS wtavgprice_xtnumericrole, 
+       <? endif ?> 
+    
+       <? if not exists("byCustomer") ?>
+         <? if not exists("byCustomerType") ?>
+           <? if not exists("byCustomerByItem") ?>
+             <? if not exists("byCustomerTypeByItem") ?>
+               SUM(cohist_qtyshipped) AS totalunits, 
+               SUM(baseextprice) AS totalsales, 
+             <? endif ?>
+           <? endif ?>
+         <? endif ?>
+         'qty' AS totalunits_xtnumericrole, 
+         'curr' AS totalsales_xtnumericrole, 
+         0 AS totalunits_xttotalrole, 
+         0 AS totalsales_xttotalrole 
+       <? endif ?>
+
+<? if not exists("byShippingZone") ?>
+  <? if not exists("bySalesRep") ?>
+    <? if not exists("byCustomer") ?>
+      <? if not exists("byItem") ?>
+        FROM (SELECT  
+        <? if exists("byCustomerType") ?>
+          cust_custtype_id, custtype_code, warehous_code, 
+        <? elseif exists("byCustomerByItem") ?>
+          cohist_itemsite_id, itemsite_item_id, item_number, itemdescription, warehous_code, 
+        <? elseif exists("byCustomerTypeByItem") ?> 
+          cohist_itemsite_id, item_number, itemdescription, warehous_code,
+        <? endif ?>
+        MIN(baseunitprice) AS minprice, MAX(baseunitprice) AS maxprice, 
+        AVG(baseunitprice) AS avgprice, SUM(cohist_qtyshipped) AS totalunits, 
+        SUM(baseextprice) AS totalsales, 
+        CASE WHEN (SUM(cohist_qtyshipped) = 0) THEN 0 
+        ELSE SUM(baseextprice) / SUM(cohist_qtyshipped) 
+        END AS wtavgprice 
+      <? endif ?>       
+    <? endif ?>       
+  <? endif ?>       
+<? endif ?>    
+
+FROM saleshistory 
+WHERE (
+<? if exists("byShippingZone") ?>
+  (cohist_shipdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>) 
+<? else ?>
+  (cohist_invcdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>) 
+<? endif ?>
+
+<? if exists("warehous_id") ?>
+ AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+<? endif ?>
+
+<? if exists("cust_id") ?>
+ AND (cohist_cust_id=<? value("cust_id") ?>)
+<? endif ?>
+
+<? if exists("prodcat_id") ?>
+ AND (item_prodcat_id=<? value("prodcat_id") ?>)
+<? elseif exists("prodcat_pattern") ?>
+ AND (item_prodcat_id IN (SELECT prodcat_id FROM prodcat WHERE (prodcat_code ~ <? value("prodcat_pattern") ?>))) 
+<? endif ?>
+
+<? if exists("custtype_id") ?>
+ AND (cust_custtype_id=<? value("custtype_id") ?>)
+<? elseif exists("custtype_pattern") ?>
+ <? if exists("byItem") ?>
+   AND (cust_custtype_id IN (SELECT custtype_id FROM custtype WHERE
+ (custtype_code ~ <? value("custtype_pattern") ?>)))
+ <? else ?>
+  AND (custtype_code ~ <? value("custtype_pattern") ?>)
+ <? endif ?> 
+<? endif ?> 
+
+<? if exists("shipzone_id") ?>
+ AND (shipzone_id=<? value("shipzone_id") ?>)
+<? endif ?>
+
+<? if exists("curr_id") ?>
+ AND cust_curr_id = <? value("curr_id") ?>
+<? elseif exists("currConcat_pattern") ?>
+ AND cust_curr_id IN (SELECT curr_id FROM curr_symbol WHERE currConcat(curr_id) ~ <? value("currConcat_pattern") ?>) 
+<? endif ?>
+) 
+<? if exists("byItem") ?>
+ GROUP BY itemsite_item_id, item_number, itemdescription;
+<? elseif exists("bySalesRep") ?>
+ GROUP BY cohist_salesrep_id, salesrep_number, salesrep_name;
+<? elseif exists("byShippingZone") ?>
+ GROUP BY shipzone_id, cust_id, shipzone_name, cust_number, cust_name, item_number,  itemdescription;
+<? elseif exists("byCustomer") ?>
+ GROUP BY cohist_cust_id, cust_number, cust_name, cust_curr_id;
+<? elseif exists("byCustomerType") ?>
+ GROUP BY cust_custtype_id, custtype_code, warehous_code) AS data 
+ ORDER BY custtype_code, warehous_code;
+<? elseif exists("byCustomerByItem") ?>
+ GROUP BY cohist_itemsite_id, itemsite_item_id, item_number, itemdescription, warehous_code) AS data; 
+<? elseif exists("byCustomerTypeByItem") ?>
+ GROUP BY cohist_itemsite_id, item_number, itemdescription, warehous_code ) AS data
+ ORDER BY item_number, warehous_code;
+<? endif ?>
