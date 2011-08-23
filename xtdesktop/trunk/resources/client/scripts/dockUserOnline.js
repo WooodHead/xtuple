@@ -77,12 +77,14 @@ function fillListUserOnline()
 function openWindowUserOnline()
 { 
   // Make sure we can open the window for this activity
-  if (!privilegeCheckUserOnline ||
+  if (!privilegeCheckUserOnline() ||
       !_userOnline.currentItem().rawValue("usr_username").length)
     return;
 
   params = new Object;
   params.username = _userOnline.currentItem().rawValue("usr_username");
+  if (privilegeCheckUserOnline())
+    params.mode="edit";
 
   // Open the window and perform any handling required
   var user = toolbox.openWindow("user");
