@@ -255,7 +255,7 @@ SELECT t.oid AS pkgitem_id, 32 AS seq,
   FROM pg_trigger t
        JOIN pg_class ON (tgrelid=pg_class.oid)
        JOIN pg_namespace ON (relnamespace=pg_namespace.oid)
- WHERE (NOT tgisconstraint)
+ WHERE (NOT tgconstraint)
    AND  (tgname !~ '^pkg(cmd(arg)?|image|metasql|priv|report|script|uiform)')
 UNION
 ------ VIEWS ------
