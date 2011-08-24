@@ -55,6 +55,7 @@ BEGIN
      FROM gltrans, accnt
      WHERE ( (gltrans_accnt_id = accnt_id)
        AND   (accnt_type IN ( 'R', 'E' ) )
+       AND   (gltrans_posted)
        AND   (NOT gltrans_deleted)
        AND   (gltrans_date between _r.yearperiod_start and _r.yearperiod_end ) );
     IF (_totalProfitLoss IS NULL) THEN
@@ -95,6 +96,7 @@ BEGIN
        FROM gltrans, accnt
        WHERE ( (gltrans_accnt_id = accnt_id)
          AND   (accnt_type IN ( 'R', 'E' ) )
+         AND   (gltrans_posted)
          AND   (NOT gltrans_deleted)
          AND   (accnt_company = _c.company_number)
          AND   (gltrans_date between _r.yearperiod_start and _r.yearperiod_end ) );
