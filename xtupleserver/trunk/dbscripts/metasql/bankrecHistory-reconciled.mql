@@ -23,8 +23,10 @@ SELECT gltrans_id, gltrans_date, formatDate(gltrans_date) AS f_date,
             WHEN gltrans_doctype = 'CR' THEN 2
             ELSE '3' END AS sort,
        gltrans_notes AS notes,
-       currtolocal(bankaccnt_curr_id,gltrans_amount,gltrans_date) * -1 AS amount,
-       formatMoney(currtolocal(bankaccnt_curr_id,gltrans_amount,gltrans_date) * -1) AS f_amount,
+       COALESCE( (bankrecitem_curr_rate * gltrans_amount * -1.0),
+                 (currtolocal(bankaccnt_curr_id, gltrans_amount, gltrans_date) * -1.0) ) AS amount,
+       formatMoney(COALESCE( (bankrecitem_curr_rate * gltrans_amount * -1.0),
+                             (currtolocal(bankaccnt_curr_id, gltrans_amount, gltrans_date) * -1.0) ) ) AS f_amount,
        'curr' AS amount_xtnumericrole,
        1 AS xtindentrole
   FROM gltrans, bankrecitem 
@@ -33,6 +35,30 @@ SELECT gltrans_id, gltrans_date, formatDate(gltrans_date) AS f_date,
  WHERE ((bankrecitem_bankrec_id=<? value("bankrec_id") ?>)
    AND (bankrecitem_source='GL')
    AND (bankrecitem_source_id=gltrans_id) ) 
+
+UNION
+
+SELECT sltrans_id, sltrans_date, formatDate(sltrans_date) AS f_date,
+       sltrans_docnumber,
+       CASE WHEN sltrans_doctype = 'CK' THEN <? value("Checks") ?>
+            WHEN sltrans_doctype = 'CR' THEN <? value("Deposits") ?>
+            ELSE <? value("Adjustments") ?> END AS type,
+       CASE WHEN sltrans_doctype = 'CK' THEN 1
+            WHEN sltrans_doctype = 'CR' THEN 2
+            ELSE '3' END AS sort,
+       sltrans_notes AS notes,
+       COALESCE( (bankrecitem_curr_rate * sltrans_amount * -1.0),
+                 (currtolocal(bankaccnt_curr_id, sltrans_amount, sltrans_date) * -1.0) ) AS amount,
+       formatMoney(COALESCE( (bankrecitem_curr_rate * sltrans_amount * -1.0),
+                             (currtolocal(bankaccnt_curr_id, sltrans_amount, sltrans_date) * -1.0) ) ) AS f_amount,
+       'curr' AS amount_xtnumericrole,
+       1 AS xtindentrole
+  FROM sltrans, bankrecitem 
+    JOIN bankrec ON (bankrecitem_bankrec_id=bankrec_id)
+    JOIN bankaccnt ON (bankaccnt_id=bankrec_bankaccnt_id)
+ WHERE ((bankrecitem_bankrec_id=<? value("bankrec_id") ?>)
+   AND (bankrecitem_source='SL')
+   AND (bankrecitem_source_id=sltrans_id) ) 
 
 <? if exists("treeView") ?>
 UNION

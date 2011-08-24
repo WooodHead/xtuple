@@ -48,14 +48,14 @@ BEGIN
   SELECT cashrcpt_cust_id, (cust_number||'-'||cust_name) AS custnote,
          cashrcpt_fundstype, cashrcpt_number, cashrcpt_docnumber,
          cashrcpt_distdate, cashrcpt_amount, cashrcpt_discount,
-         currToBase(cashrcpt_curr_id, cashrcpt_amount, cashrcpt_distdate) AS cashrcpt_amount_base,
-	 currToBase(cashrcpt_curr_id, cashrcpt_discount, cashrcpt_distdate) AS cashrcpt_discount_base,
+         (cashrcpt_amount / cashrcpt_curr_rate) AS cashrcpt_amount_base,
+	 (cashrcpt_discount / cashrcpt_curr_rate) AS cashrcpt_discount_base,
          cashrcpt_notes,
          cashrcpt_bankaccnt_id AS bankaccnt_id,
          accnt_id AS prepaid_accnt_id,
          cashrcpt_usecustdeposit,
          COALESCE(cashrcpt_applydate, cashrcpt_distdate) AS applydate,
-         cashrcpt_curr_id, cashrcpt_posted, cashrcpt_void INTO _p
+         cashrcpt_curr_id, cashrcpt_curr_rate, cashrcpt_posted, cashrcpt_void INTO _p
   FROM accnt, cashrcpt LEFT OUTER JOIN cust ON (cashrcpt_cust_id=cust_id)
   WHERE ( (findPrepaidAccount(cashrcpt_cust_id)=accnt_id)
    AND (cashrcpt_id=pCashrcptid) );
@@ -164,10 +164,8 @@ BEGIN
                         round(currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,abs(cashrcptitem_amount + cashrcptitem_discount),_p.cashrcpt_distdate),2)
                                  AS closed,
                      cashrcptitem_id, cashrcptitem_amount, cashrcptitem_discount,
-                       currToBase(_p.cashrcpt_curr_id, cashrcptitem_amount,
-                                _p.cashrcpt_distdate) AS cashrcptitem_amount_base,
-		       currToBase(_p.cashrcpt_curr_id, cashrcptitem_discount,
-                                _p.cashrcpt_distdate) AS cashrcptitem_discount_base,
+                     (cashrcptitem_amount / _p.cashrcpt_curr_rate) AS cashrcptitem_amount_base,
+		     (cashrcptitem_discount / _p.cashrcpt_curr_rate) AS cashrcptitem_discount_base,
                      round(aropen_paid + 
                        currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,abs(cashrcptitem_amount),_p.cashrcpt_distdate),2) AS new_paid,
                      round(currToCurr(_p.cashrcpt_curr_id, aropen_curr_id,cashrcptitem_discount,_p.cashrcpt_distdate),2) AS new_discount
@@ -249,8 +247,7 @@ BEGIN
 
 --  Distribute Misc. Applications
   FOR _r IN SELECT cashrcptmisc_id, cashrcptmisc_accnt_id, cashrcptmisc_amount,
-                   currToBase(cashrcpt_curr_id, cashrcptmisc_amount,
-                              cashrcpt_distdate) AS cashrcptmisc_amount_base,
+                   (cashrcptmisc_amount / cashrcpt_curr_rate) AS cashrcptmisc_amount_base,
                    cashrcptmisc_notes, cashrcpt_curr_id
             FROM cashrcptmisc JOIN
                  cashrcpt ON (cashrcptmisc_cashrcpt_id = cashrcpt_id)
