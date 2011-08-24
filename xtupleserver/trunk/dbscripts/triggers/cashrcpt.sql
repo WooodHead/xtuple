@@ -7,6 +7,7 @@ DECLARE
   _evntType   TEXT;
   _whsId      INTEGER;
   _custNumber TEXT;
+  _currrate   NUMERIC;
 
 BEGIN
 
@@ -29,6 +30,18 @@ BEGIN
     _currId = COALESCE(NEW.cashrcpt_curr_id, basecurrid());
   ELSE
     _currId = NEW.cashrcpt_curr_id;
+  END IF;
+
+-- get the base exchange rate for the dist date
+  SELECT curr_rate INTO _currrate
+  FROM curr_rate
+  WHERE ( (NEW.cashrcpt_curr_id=curr_id)
+    AND ( NEW.cashrcpt_distdate BETWEEN curr_effective 
+                                 AND curr_expires) );
+  IF (FOUND) THEN
+    NEW.cashrcpt_curr_rate := _currrate;
+  ELSE
+    RAISE EXCEPTION 'Currency exchange rate not found';
   END IF;
 
   -- Create CashReceiptPosted Event
