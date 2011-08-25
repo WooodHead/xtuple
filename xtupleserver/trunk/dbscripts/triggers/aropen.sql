@@ -25,6 +25,16 @@ BEGIN
     RAISE EXCEPTION 'You must enter a positive Amount for this A/R Memo.';
   END IF;
 
+  IF (TG_OP IN ('INSERT', 'UPDATE') AND NEW.aropen_cust_id < 0) THEN
+    RAISE NOTICE 'Fixing deprecated use of negative aropen_cust_id';
+    NEW.aropen_cust_id := NULL;
+  END IF;
+
+  IF (TG_OP IN ('INSERT', 'UPDATE') AND NEW.aropen_salesrep_id < 0) THEN
+    RAISE NOTICE 'Fixing deprecated use of negative aropen_salesrep_id';
+    NEW.aropen_salesrep_id := NULL;
+  END IF;
+
   IF (TG_OP = 'INSERT') THEN
     SELECT aropen_id INTO _id
     FROM aropen

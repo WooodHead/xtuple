@@ -93,7 +93,8 @@ BEGIN
        -- Create credit memo for discount
        SELECT createARCreditMemo(_ardiscountid, _r.cashrcpt_cust_id, _arMemoNumber, '',
                                  _r.cashrcpt_distdate, _r.cashrcptitem_discount,
-                                 _comment, -1, -1, _discountAccntid, _r.cashrcpt_distdate, -1, -1, 0,
+                                 _comment, -1, -1, _discountAccntid, _r.cashrcpt_distdate,
+                                 -1, NULL, 0,
                                  pJournalNumber, _r.cashrcpt_curr_id) INTO _ardiscountid;
 
        -- Apply discount credit memo

@@ -43,7 +43,7 @@ BEGIN
   VALUES
   ( _aropenid, getEffectiveXtUser(), pJournalNumber,
     pCustid, pDocNumber, 'R', pOrderNumber,
-    pDocDate, pDocDate, pDocDate, -1, -1,
+    pDocDate, pDocDate, pDocDate, -1, NULL,
     round(pAmount, 2), 0, 0.0, FALSE,
     '', '', -1,
     TRUE, pNotes, -1,

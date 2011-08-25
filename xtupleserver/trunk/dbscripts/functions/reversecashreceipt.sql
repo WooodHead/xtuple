@@ -241,7 +241,7 @@ BEGIN
     -- Post A/R Debit Memo
     SELECT createARDebitMemo(NULL, _p.cashrcpt_cust_id, pJournalNumber, _arMemoNumber, '',
                               _p.cashrcpt_distdate, (_p.cashrcpt_amount - _posted),
-                              _comment, -1, -1, -1, _p.cashrcpt_distdate, -1, -1, 0,
+                              _comment, -1, -1, -1, _p.cashrcpt_distdate, -1, NULL, 0,
                               _p.cashrcpt_curr_id) INTO _aropenid;
     -- Create Cash Receipt Item to capture posting
     INSERT INTO cashrcptitem
