@@ -43,7 +43,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     COALESCE(NEW.date,current_date),
     'SI',
     getCoitemId(NEW.order_number,NEW.line_number),
-    COALESCE(NEW.username,current_user),
+    COALESCE(NEW.username,getEffectiveXtUser()),
     getCmntTypeId(NEW.type),
     NEW.text);
 

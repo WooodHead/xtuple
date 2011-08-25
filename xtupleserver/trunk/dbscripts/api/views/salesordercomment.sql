@@ -35,7 +35,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     COALESCE(NEW.date,current_date),
     'S',
     getSalesOrderId(NEW.order_number),
-    COALESCE(NEW.username,current_user),
+    COALESCE(NEW.username,getEffectiveXtUser()),
     getCmntTypeId(NEW.type),
     NEW.text);
 

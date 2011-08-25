@@ -3,7 +3,7 @@ CREATE OR REPLACE FUNCTION formatDate(TIMESTAMP WITH TIME ZONE) RETURNS TEXT IMM
 SELECT TO_CHAR($1, COALESCE((SELECT locale_dateformat
                              FROM locale, usr
                              WHERE ((usr_locale_id=locale_id)
-                              AND (usr_username=CURRENT_USER)) ),
+                              AND (usr_username=getEffectiveXtUser())) ),
                             ''yyyy-mm-dd'' )) AS result
 ' LANGUAGE 'sql';
 
@@ -12,7 +12,7 @@ CREATE OR REPLACE FUNCTION formatDate(DATE) RETURNS TEXT IMMUTABLE AS '
 SELECT TO_CHAR($1, COALESCE((SELECT locale_dateformat
                              FROM locale, usr
                              WHERE ((usr_locale_id=locale_id)
-                              AND (usr_username=CURRENT_USER)) ),
+                              AND (usr_username=getEffectiveXtUser())) ),
                             ''yyyy-mm-dd'') ) AS result
 ' LANGUAGE 'sql';
 

@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION _metasqlTrigger() RETURNS TRIGGER AS $$
 BEGIN
 
-  NEW.metasql_lastuser 		:= current_user;
+  NEW.metasql_lastuser 		:= getEffectiveXtUser();
   NEW.metasql_lastupdate 	:= current_date;
   RETURN NEW;
 
@@ -16,11 +16,11 @@ CREATE OR REPLACE FUNCTION _metasqlalterTrigger() RETURNS TRIGGER AS $$
 DECLARE
   _isdba BOOLEAN := false;
 BEGIN
-  SELECT rolsuper INTO _isdba FROM pg_roles WHERE (rolname=CURRENT_USER);
+  SELECT rolsuper INTO _isdba FROM pg_roles WHERE (rolname=getEffectiveXtUser());
 
   IF (NOT (_isdba OR checkPrivilege('MaintainMetaSQL'))) THEN
     RAISE EXCEPTION '% does not have privileges to maintain MetaSQL statements in %.% (DBA=%)',
-                CURRENT_USER, TG_TABLE_SCHEMA, TG_TABLE_NAME, _isdba;
+                getEffectiveXtUser(), TG_TABLE_SCHEMA, TG_TABLE_NAME, _isdba;
   END IF;
 
   IF ((TG_OP = 'UPDATE' OR TG_OP = 'DELETE')

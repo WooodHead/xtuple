@@ -13,7 +13,7 @@ BEGIN
                              ELSE invcnt_comments
                         END,
       invcnt_cntdate = CURRENT_TIMESTAMP,
-      invcnt_cnt_username = CURRENT_USER
+      invcnt_cnt_username = getEffectiveXtUser()
   WHERE (invcnt_id=pInvcntid);
 
   RETURN 0;

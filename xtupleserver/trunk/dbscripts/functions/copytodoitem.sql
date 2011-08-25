@@ -18,7 +18,7 @@ BEGIN
             todoitem_username,  todoitem_recurring_todoitem_id
   ) SELECT  todoitem_name,      todoitem_description,
             CASE WHEN pincdtid IS NULL THEN todoitem_incdt_id ELSE pincdtid END,
-            CURRENT_USER,                               'N',
+            getEffectiveXtUser(),                               'N',
             TRUE,               _duedate,
             CASE WHEN (todoitem_username IS NOT NULL) THEN CURRENT_DATE
                  ELSE NULL

@@ -78,7 +78,7 @@ BEGIN
       ( _src.apopen_vend_id, round(_r.apply_amountSource, 2),
         pApopenid, 'C', _src.apopen_docnumber,
         _r.apopen_id, _r.apopen_doctype, _r.apopen_docnumber,
-        CURRENT_DATE, 0, CURRENT_USER, _src.apopen_curr_id );
+        CURRENT_DATE, 0, getEffectiveXtUser(), _src.apopen_curr_id );
 
     END IF;
 

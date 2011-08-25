@@ -8,7 +8,7 @@ DECLARE
 BEGIN
   SELECT locale_qty_scale INTO _scale
   FROM locale, usr
-  WHERE ((usr_locale_id=locale_id) AND (usr_username=CURRENT_USER));
+  WHERE ((usr_locale_id=locale_id) AND (usr_username=getEffectiveXtUser()));
 
   IF (_fractional) THEN
     RETURN ROUND(_qty, _scale);

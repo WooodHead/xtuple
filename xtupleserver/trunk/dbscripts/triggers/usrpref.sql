@@ -16,7 +16,7 @@ BEGIN
     -- 2 IFs because plpgsql doesn't always evaluate boolean exprs left-to-right
     IF (TG_OP = 'DELETE') THEN
       RAISE EXCEPTION 'You do not have privileges to change this User Preference.';
-    ELSIF (NEW.usrpref_username = CURRENT_USER) THEN
+    ELSIF (NEW.usrpref_username = getEffectiveXtUser()) THEN
       RAISE EXCEPTION 'You do not have privileges to change this User Preference.';
     END IF;
   END IF;

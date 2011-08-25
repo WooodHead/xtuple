@@ -7,11 +7,11 @@ DECLARE
   _isdba        BOOLEAN := false;
 
 BEGIN
-  SELECT rolsuper INTO _isdba FROM pg_roles WHERE (rolname=CURRENT_USER);
+  SELECT rolsuper INTO _isdba FROM pg_roles WHERE (rolname=getEffectiveXtUser());
 
   IF (NOT (_isdba OR checkPrivilege('MaintainMetaSQL'))) THEN
     RAISE EXCEPTION '% does not have privileges to maintain MetaSQL statements in %.% (DBA=%)',
-                CURRENT_USER, TG_TABLE_SCHEMA, TG_TABLE_NAME, _isdba;
+                getEffectiveXtUser(), TG_TABLE_SCHEMA, TG_TABLE_NAME, _isdba;
   END IF;
 
   IF (TG_OP = 'UPDATE') THEN
@@ -52,7 +52,7 @@ DECLARE
   _isdba        BOOLEAN := false;
 
 BEGIN
-  SELECT rolsuper INTO _isdba FROM pg_roles WHERE (rolname=CURRENT_USER);
+  SELECT rolsuper INTO _isdba FROM pg_roles WHERE (rolname=getEffectiveXtUser());
 
   IF (pkgMayBeModified(TG_TABLE_SCHEMA)) THEN
     IF (TG_OP = 'DELETE') THEN

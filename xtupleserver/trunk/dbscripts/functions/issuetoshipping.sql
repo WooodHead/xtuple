@@ -171,7 +171,7 @@ BEGIN
       shipitem_value, shipitem_invhist_id )
     VALUES
     ( _shipitemid, _shipheadid, pitemid, pQty,
-      _timestamp, CURRENT_USER, FALSE,
+      _timestamp, getEffectiveXtUser(), FALSE,
       _value, 
       CASE WHEN _invhistid = -1 THEN
         NULL
@@ -263,7 +263,7 @@ BEGIN
       shipitem_invhist_id )
     SELECT
       _shipheadid, pitemid, pQty,
-      _timestamp, CURRENT_USER, invhist_invqty * invhist_unitcost,
+      _timestamp, getEffectiveXtUser(), invhist_invqty * invhist_unitcost,
       _invhistid
     FROM toitem, item, invhist
     WHERE ((toitem_id=pitemid)

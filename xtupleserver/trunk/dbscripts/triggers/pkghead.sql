@@ -7,14 +7,14 @@ CREATE OR REPLACE FUNCTION _pkgheadbeforetrigger() RETURNS "trigger" AS $$
     IF (TG_OP = 'UPDATE') THEN
       NEW.pkghead_created := OLD.pkghead_created;
       NEW.pkghead_updated := CURRENT_TIMESTAMP;
-      IF (NEW.pkghead_indev AND NOT userCanCreateUsers(CURRENT_USER)) THEN
+      IF (NEW.pkghead_indev AND NOT userCanCreateUsers(getEffectiveXtUser())) THEN
         NEW.pkghead_indev = FALSE;
       END IF;
 
     ELSIF (TG_OP = 'INSERT') THEN
       NEW.pkghead_created := CURRENT_TIMESTAMP;
       NEW.pkghead_updated := NEW.pkghead_created;
-      IF (NEW.pkghead_indev AND NOT userCanCreateUsers(CURRENT_USER)) THEN
+      IF (NEW.pkghead_indev AND NOT userCanCreateUsers(getEffectiveXtUser())) THEN
         NEW.pkghead_indev = FALSE;
       END IF;
 

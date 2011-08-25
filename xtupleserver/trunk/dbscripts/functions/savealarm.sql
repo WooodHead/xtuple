@@ -129,7 +129,7 @@ BEGIN
       _alarmId, _alarmNumber,
       pEvent, pEmail, pSysmsg, _alarmTrigger,
       _alarmTime, pOffset, pQualifier,
-      CURRENT_USER, pEventRecipient, pEmailRecipient, pSysmsgRecipient,
+      getEffectiveXtUser(), pEventRecipient, pEmailRecipient, pSysmsgRecipient,
       pSource, pSourceId );
 
     RETURN _alarmId;

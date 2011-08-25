@@ -75,7 +75,7 @@ BEGIN
     VALUES
     ( pItemsiteid, _endDate, _invhist.invhist_transtype,
       _invhist.qty, 0, 0,
-      _itemuom, CURRENT_USER, 'Summary',
+      _itemuom, getEffectiveXtUser(), 'Summary',
       _invhist.invhist_costmethod, 0, 0,
       _itemlocSeries );
 

@@ -121,7 +121,7 @@ BEGIN
 	    apopen_accnt_id, apopen_curr_id, apopen_discount, apopen_curr_rate,
             apopen_closedate )
           VALUES
-          ( _apopenid, CURRENT_USER, pJournalNumber,
+          ( _apopenid, getEffectiveXtUser(), pJournalNumber,
             _p.checkhead_recip_id, _docnumber, 'D', '',
             pVoidDate, pVoidDate, pVoidDate, -1,
             _r.checkitem_discount, _r.checkitem_discount, FALSE,
@@ -150,7 +150,7 @@ BEGIN
             apapply_target_apopen_id, apapply_target_doctype, apapply_target_docnumber,
             apapply_journalnumber, apapply_amount, apapply_curr_id )
           VALUES
-          ( _p.checkhead_recip_id, pVoidDate, CURRENT_USER,
+          ( _p.checkhead_recip_id, pVoidDate, getEffectiveXtUser(),
             _apopenid, 'D', _docnumber,
             _r.apopen_id, _r.apopen_doctype, _r.apopen_docnumber,
             pJournalNumber, (_r.checkitem_discount * -1), _r.checkitem_curr_id );
@@ -174,7 +174,7 @@ BEGIN
           apapply_target_apopen_id, apapply_target_doctype, apapply_target_docnumber,
           apapply_journalnumber, apapply_amount, apapply_curr_id )
         VALUES
-        ( _p.checkhead_recip_id, pVoidDate, CURRENT_USER,
+        ( _p.checkhead_recip_id, pVoidDate, getEffectiveXtUser(),
           -1, 'K', _p.checkhead_number,
           _r.apopen_id, _r.apopen_doctype, _r.apopen_docnumber,
           pJournalNumber, (_r.checkitem_amount * -1), _r.checkitem_curr_id );
@@ -194,7 +194,7 @@ BEGIN
           arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
           arapply_journalnumber, arapply_applied, arapply_curr_id )
         VALUES
-        ( _p.checkhead_recip_id, pVoidDate, pVoidDate, CURRENT_USER,
+        ( _p.checkhead_recip_id, pVoidDate, pVoidDate, getEffectiveXtUser(),
           -1, 'K', _p.checkhead_number,
           _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
           pJournalNumber, (_r.checkitem_amount * -1), _r.checkitem_curr_id );

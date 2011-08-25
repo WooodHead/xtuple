@@ -4,7 +4,7 @@ DECLARE
 BEGIN
     SELECT CAST(usrpref_value AS INTEGER) INTO _result
     FROM usrpref
-    WHERE ((usrpref_username=current_user)
+    WHERE ((usrpref_username=getEffectiveXtUser())
     AND (usrpref_name=''PreferredWarehouse''));
 
     RETURN _result;

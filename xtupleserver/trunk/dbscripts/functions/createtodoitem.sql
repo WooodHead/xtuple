@@ -92,7 +92,7 @@ CREATE OR REPLACE FUNCTION createTodoItem(INTEGER, TEXT, TEXT, TEXT, INTEGER, IN
                            todoitem_cntct_id
                 ) VALUES ( _todoid, pusername, pname,
                            pdesc, _incdtid,
-                           CURRENT_USER, _status,
+                           getEffectiveXtUser(), _status,
                            TRUE, pstarted,
                            pdue, _assigned,
                            pcompleted, _priority, pnotes, _crmacctid, _opheadid, powner,

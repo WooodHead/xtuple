@@ -109,7 +109,7 @@ BEGIN
  SELECT relname FROM pg_class INTO _tblName
  WHERE relname = ''tmp_flgrpxref'';
  IF (_tblName IS NULL) THEN
-  EXECUTE ''CREATE TEMPORARY TABLE tmp_flgrpxref'' || current_user || '' 
+  EXECUTE ''CREATE TEMPORARY TABLE tmp_flgrpxref'' || getEffectiveXtUser() || '' 
   (
 	flgrpxref_oldid int4,
 	flgrpxref_newid int4
@@ -125,19 +125,19 @@ BEGIN
 -- Update Group Percent settings
   EXECUTE ''UPDATE flgrp
   SET flgrp_prcnt_flgrp_id=flgrpxref_newid
-  FROM tmp_flgrpxref'' || current_user || '' 
+  FROM tmp_flgrpxref'' || getEffectiveXtUser() || '' 
   WHERE ((flgrp_flhead_id='' || _flheadid || '')
   AND (flgrp_prcnt_flgrp_id=flgrpxref_oldid));'';
 
   EXECUTE ''UPDATE flitem
   SET flitem_prcnt_flgrp_id=flgrpxref_newid
-  FROM tmp_flgrpxref'' || current_user || '' 
+  FROM tmp_flgrpxref'' || getEffectiveXtUser() || '' 
   WHERE ((flitem_flhead_id='' || _flheadid || '')
   AND (flitem_prcnt_flgrp_id=flgrpxref_oldid));'';
 
   EXECUTE ''UPDATE flspec
   SET flspec_prcnt_flgrp_id=flgrpxref_newid
-  FROM tmp_flgrpxref'' || current_user || '' 
+  FROM tmp_flgrpxref'' || getEffectiveXtUser() || '' 
   WHERE ((flspec_flhead_id='' || _flheadid || '')
   AND (flspec_prcnt_flgrp_id=flgrpxref_oldid));'';
 

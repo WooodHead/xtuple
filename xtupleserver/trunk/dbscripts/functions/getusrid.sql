@@ -5,7 +5,7 @@ DECLARE
 BEGIN
   SELECT usr_id INTO _returnVal
   FROM usr
-  WHERE (usr_username=COALESCE(pUsr, CURRENT_USER));
+  WHERE (usr_username=COALESCE(pUsr, getEffectiveXtUser()));
 
   IF (_returnVal IS NULL) THEN
 	RAISE EXCEPTION 'User % not found.', pUsr;

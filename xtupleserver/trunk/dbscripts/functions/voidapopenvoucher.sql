@@ -292,7 +292,7 @@ BEGIN
     apopen_vend_id, apopen_docnumber, apopen_doctype, apopen_ponumber,
     apopen_docdate, apopen_duedate, apopen_distdate, apopen_terms_id, apopen_curr_id,
     apopen_amount, apopen_paid, apopen_open, apopen_notes, apopen_discount, apopen_curr_rate )
-  SELECT _apopenid, CURRENT_USER, pJournalnumber,
+  SELECT _apopenid, getEffectiveXtUser(), pJournalnumber,
          apopen_vend_id, apopen_docnumber, 'C', apopen_ponumber,
          CURRENT_DATE, CURRENT_DATE, CURRENT_DATE, -1, apopen_curr_id,
          apopen_amount - apopen_paid, 0, TRUE, _reference, TRUE, apopen_curr_rate

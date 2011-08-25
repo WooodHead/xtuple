@@ -5,7 +5,7 @@ DECLARE
   pPrefValue ALIAS FOR $2;
 
 BEGIN
-  RETURN setUserPreferences(CURRENT_USER, pPrefName, pPrefValue);
+  RETURN setUserPreferences(getEffectiveXtUser(), pPrefName, pPrefValue);
 END;
 $$ LANGUAGE 'plpgsql';
 

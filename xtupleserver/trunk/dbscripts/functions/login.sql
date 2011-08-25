@@ -16,7 +16,7 @@ BEGIN
 
   SELECT usr_id, userCanLogin(usr_username) AS usr_active INTO _p
   FROM usr
-  WHERE (usr_username=CURRENT_USER);
+  WHERE (usr_username=getEffectiveXtUser());
 
   IF (NOT FOUND) THEN
     RETURN -1;

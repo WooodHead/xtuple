@@ -33,7 +33,7 @@ BEGIN
 
 -- Store temporary cross ref info
    
-   EXECUTE '' INSERT INTO tmp_flgrpxref'' || current_user || '' (flgrpxref_oldid,flgrpxref_newid) VALUES ('' || pSourceGroup || '','' || _flgrpid || '');'';
+   EXECUTE '' INSERT INTO tmp_flgrpxref'' || getEffectiveXtUser() || '' (flgrpxref_oldid,flgrpxref_newid) VALUES ('' || pSourceGroup || '','' || _flgrpid || '');'';
 
 -- Copy any children flitems
   INSERT INTO flitem

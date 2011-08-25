@@ -13,7 +13,7 @@ BEGIN
   SELECT locale_cost_scale INTO _scale
   FROM locale, usr
   WHERE ((usr_locale_id=locale_id)
-     AND (usr_username=CURRENT_USER));
+     AND (usr_username=getEffectiveXtUser()));
 
   RETURN ROUND(_pCost, _scale);
 

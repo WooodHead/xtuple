@@ -10,7 +10,7 @@ BEGIN
      false
     END INTO _returnVal
   FROM usrpref
-  WHERE ( (usrpref_username=current_user)
+  WHERE ( (usrpref_username=getEffectiveXtUser())
     AND   (usrpref_name=_pPrefName) );
   RETURN _returnVal;
 END;

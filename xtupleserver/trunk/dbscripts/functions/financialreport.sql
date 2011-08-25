@@ -42,7 +42,7 @@ BEGIN
    WHERE ((flrpt_flhead_id=pFlheadid)
      AND  (flrpt_period_id=pPeriodId)
      AND  (flrpt_interval=pInterval)
-     AND  (flrpt_username=CURRENT_USER));
+     AND  (flrpt_username=getEffectiveXtUser()));
 
 -- Find out if we need to show a Grand Total and which if any of the values
 -- we want to show in that grand total.
@@ -87,7 +87,7 @@ BEGIN
             flrpt_beginning, flrpt_ending,
             flrpt_debits, flrpt_credits, flrpt_budget, flrpt_diff,
             flrpt_custom, flrpt_altname, flrpt_interval )
-    VALUES (pFlheadid, pPeriodid, CURRENT_USER,
+    VALUES (pFlheadid, pPeriodid, getEffectiveXtUser(),
             0, -1, 'G', -1,
             _r.beginning, _r.ending,
             _r.debits, _r.credits, _r.budget, _r.diff,
@@ -103,7 +103,7 @@ BEGIN
              WHERE ((flrpt_flhead_id=pFlheadid)
                AND  (flrpt_period_id=pPeriodid)
                AND  (flrpt_interval=pInterval)
-               AND  (flrpt_username=CURRENT_USER)
+               AND  (flrpt_username=getEffectiveXtUser())
                AND  (flrpt_type='G')
                AND  (flrpt_type_id=flgrp_id))
              UNION
@@ -112,7 +112,7 @@ BEGIN
              WHERE ((flrpt_flhead_id=pFlheadid)
                AND  (flrpt_period_id=pPeriodid)
                AND  (flrpt_interval=pInterval)
-               AND  (flrpt_username=CURRENT_USER)
+               AND  (flrpt_username=getEffectiveXtUser())
                AND  (flrpt_type='I')
                AND  (flrpt_type_id=flitem_id))
              UNION
@@ -121,7 +121,7 @@ BEGIN
              WHERE ((flrpt_flhead_id=pFlheadid)
                AND  (flrpt_period_id=pPeriodid)
                AND  (flrpt_interval=pInterval)
-               AND  (flrpt_username=CURRENT_USER)
+               AND  (flrpt_username=getEffectiveXtUser())
                AND  (flrpt_type='S')
                AND  (flrpt_type_id=flspec_id)) LOOP
 
@@ -137,7 +137,7 @@ BEGIN
        WHERE ((flrpt_flhead_id=pFlheadid)
          AND  (flrpt_period_id=pPeriodid)
          AND  (flrpt_interval=pInterval)
-         AND  (flrpt_username=CURRENT_USER)
+         AND  (flrpt_username=getEffectiveXtUser())
          AND  (flrpt_type != 'T')
          AND  (flrpt_parent_id=_t.flgrp_id));
     ELSE
@@ -152,7 +152,7 @@ BEGIN
        WHERE ((flrpt_flhead_id=pFlheadid)
          AND  (flrpt_period_id=pPeriodid)
          AND  (flrpt_interval=pInterval)
-         AND  (flrpt_username=CURRENT_USER)
+         AND  (flrpt_username=getEffectiveXtUser())
          AND  (flrpt_type = 'G')
          AND  (flrpt_type_id=_t.flgrp_id));
     END IF;
@@ -167,7 +167,7 @@ BEGIN
      WHERE ((flrpt_flhead_id=pFlheadid)
        AND  (flrpt_period_id=pPeriodid)
        AND  (flrpt_interval=pInterval)
-       AND  (flrpt_username=CURRENT_USER)
+       AND  (flrpt_username=getEffectiveXtUser())
        AND  (flrpt_order=_t.flrpt_order));
   END LOOP;
 
@@ -186,7 +186,7 @@ BEGIN
              WHERE ((a.flrpt_flhead_id=pFlheadid)
                AND  (a.flrpt_period_id=pPeriodid)
                AND  (a.flrpt_interval=pInterval)
-               AND  (a.flrpt_username=CURRENT_USER)
+               AND  (a.flrpt_username=getEffectiveXtUser())
                AND  (a.flrpt_type='T')
                AND  (b.flrpt_flhead_id=a.flrpt_flhead_id)
                AND  (b.flrpt_period_id=a.flrpt_period_id)
@@ -204,7 +204,7 @@ BEGIN
                WHERE ((flrpt_flhead_id=pFlheadid)
                  AND  (flrpt_period_id=pPeriodid)
                  AND  (flrpt_interval=pInterval)
-                 AND  (flrpt_username=CURRENT_USER)
+                 AND  (flrpt_username=getEffectiveXtUser())
                  AND  (flrpt_order=_t.flrpt_order));
   END LOOP;
 
@@ -217,14 +217,14 @@ BEGIN
                                     WHERE ((flrpt_flhead_id=pFlheadid)
                                       AND  (flrpt_period_id=pPeriodid)
                                       AND  (flrpt_interval=pInterval)
-                                      AND  (flrpt_username=CURRENT_USER))
+                                      AND  (flrpt_username=getEffectiveXtUser()))
                                   ), 0) + 1,
            flrpt_level = 0,
            flrpt_type = 'T'
      WHERE ((flrpt_flhead_id=pFlheadid)
        AND  (flrpt_period_id=pPeriodid)
        AND  (flrpt_interval=pInterval)
-       AND  (flrpt_username=CURRENT_USER)
+       AND  (flrpt_username=getEffectiveXtUser())
        AND  (flrpt_order=0)
        AND  (flrpt_level = -1)
        AND  (flrpt_type = 'G')
@@ -285,7 +285,7 @@ BEGIN
 
 --Delete old data from all periods
   DELETE FROM flrpt
-  WHERE ((flrpt_username=CURRENT_USER)
+  WHERE ((flrpt_username=getEffectiveXtUser())
   AND (flrpt_flhead_id=_p.flhead_id));
 
 --Populate report data...
@@ -673,7 +673,7 @@ BEGIN
                 WHERE ((flrpt_type='G')
                 AND (flrpt_flhead_id=_p.flhead_id)
                 AND (flrpt_period_id=pPeriodId)
-                AND (flrpt_username=CURRENT_USER))) AS flrpt
+                AND (flrpt_username=getEffectiveXtUser()))) AS flrpt
                         LEFT OUTER JOIN flrpt flrptmo
                                 ON ((flrptmo.flrpt_type=flrpt.flrpt_type)
                                 AND (flrptmo.flrpt_type_id=flrpt.flrpt_type_id)
@@ -914,7 +914,7 @@ BEGIN
                 WHERE ((flrpt_type='I')
                 AND (flrpt_flhead_id=_p.flhead_id)
                 AND (flrpt_period_id=pPeriodid)
-                AND (flrpt_username=CURRENT_USER)
+                AND (flrpt_username=getEffectiveXtUser())
                 AND (accnt_id=flrpt_accnt_id))) AS flrpt
                         LEFT OUTER JOIN flrpt flrptmo
                                 ON ((flrptmo.flrpt_type=flrpt.flrpt_type)
@@ -1143,7 +1143,7 @@ BEGIN
                 WHERE ((NOT (flrpt_type IN ('G','I','S')))
                 AND (flrpt_flhead_id=_p.flhead_id)
                 AND (flrpt_period_id=pPeriodId)
-                AND (flrpt_username=CURRENT_USER))) AS flrpt
+                AND (flrpt_username=getEffectiveXtUser()))) AS flrpt
                         LEFT OUTER JOIN flrpt flrptmo
                                 ON ((flrptmo.flrpt_type=flrpt.flrpt_type)
                                 AND (flrptmo.flrpt_order=flrpt.flrpt_order)
@@ -1319,7 +1319,7 @@ BEGIN
         AND (flrpt_type='G')
         AND (flrpt_period_id=pPeriodIds[1])
         AND (flrpt_interval=pInterval)
-        AND (flrpt_username=CURRENT_USER))
+        AND (flrpt_username=getEffectiveXtUser()))
         UNION
         SELECT flrpt_flhead_id,
                 flrpt_username,
@@ -1345,7 +1345,7 @@ BEGIN
         AND (flrpt_type='I')
         AND (flrpt_period_id=pPeriodIds[1])
         AND (flrpt_interval=pInterval)
-        AND (flrpt_username=CURRENT_USER))
+        AND (flrpt_username=getEffectiveXtUser()))
         UNION
         SELECT flrpt_flhead_id,
                 flrpt_username,
@@ -1377,7 +1377,7 @@ BEGIN
         AND (flrpt_type NOT IN ('I','S','G'))
         AND (flrpt_period_id=pPeriodIds[1])
         AND (flrpt_interval=pInterval)
-        AND (flrpt_username=CURRENT_USER))
+        AND (flrpt_username=getEffectiveXtUser()))
         ORDER BY flrpt_order
         LOOP
 
@@ -1401,7 +1401,7 @@ BEGIN
                                 WHERE ((flrpt_flhead_id=pFlheadId)
                                 AND (flrpt_period_id=pPeriodIds[_i])
                                 AND (flrpt_interval=pInterval)
-                                AND (flrpt_username=CURRENT_USER)
+                                AND (flrpt_username=getEffectiveXtUser())
                                 AND (flrpt_order=_p.flrpt_order));
                                 _fld[_i-1] := _n;
                                 IF _type IN ('I','C') THEN

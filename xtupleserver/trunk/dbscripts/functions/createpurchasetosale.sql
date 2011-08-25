@@ -121,7 +121,7 @@ BEGIN
           pohead_vendzipcode, pohead_vendcountry )
       VALUES
         ( _poheadid, _ponumber, 'U', pDropShip,
-          CURRENT_USER, _i.itemsrc_vend_id, _i.vend_taxzone_id,
+          getEffectiveXtUser(), _i.itemsrc_vend_id, _i.vend_taxzone_id,
 	  CURRENT_DATE, COALESCE(_i.vend_curr_id, basecurrid()), _s.cohead_id,
           COALESCE(_s.cohead_warehous_id, -1), COALESCE(_i.vend_shipvia, TEXT('')),
           COALESCE(_i.vend_terms_id, -1), COALESCE(_s.cohead_shipto_cntct_id, _shipto.shipto_cntct_id),
@@ -172,7 +172,7 @@ BEGIN
           pohead_vendzipcode, pohead_vendcountry )
       VALUES
         ( _poheadid, _ponumber, 'U', pDropShip,
-          CURRENT_USER, _i.itemsrc_vend_id, _i.vend_taxzone_id,
+          getEffectiveXtUser(), _i.itemsrc_vend_id, _i.vend_taxzone_id,
 	  CURRENT_DATE, COALESCE(_i.vend_curr_id, basecurrid()), _s.cohead_id,
           COALESCE(_s.cohead_warehous_id, -1), COALESCE(_i.vend_shipvia, TEXT('')),
           COALESCE(_i.vend_terms_id, -1), _w.cntct_id,

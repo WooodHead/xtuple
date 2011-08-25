@@ -5,7 +5,7 @@ BEGIN
   PERFORM evntlog_id
   FROM evntlog
   WHERE ( (evntlog_dispatched IS NULL)
-   AND (evntlog_username=CURRENT_USER) )
+   AND (evntlog_username=getEffectiveXtUser()) )
   LIMIT 1;
   RETURN FOUND;
 

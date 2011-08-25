@@ -10,12 +10,12 @@ BEGIN
         FROM usrpref
         WHERE ((usrpref_name=''selectedSites'')
         AND (usrpref_value=''t'')
-        AND (usrpref_username=current_user))) ) THEN
+        AND (usrpref_username=getEffectiveXtUser()))) ) THEN
 
     FOR _r IN SELECT *
             FROM whsinfo,usrsite
             WHERE ((warehous_id=usrsite_warehous_id)
-            AND (usrsite_username=current_user))
+            AND (usrsite_username=getEffectiveXtUser()))
     LOOP
       _row.warehous_id:=_r.warehous_id;
       _row.warehous_code:=_r.warehous_code;

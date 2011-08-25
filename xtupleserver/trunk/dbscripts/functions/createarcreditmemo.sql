@@ -238,7 +238,7 @@ BEGIN
   -- CreatelUpdate aropen for full amount
   IF (_aropenid IS NOT NULL) THEN
     UPDATE aropen SET
-      aropen_username=CURRENT_USER, aropen_journalnumber=_journalNumber,
+      aropen_username=getEffectiveXtUser(), aropen_journalnumber=_journalNumber,
       aropen_cust_id=pCustid, aropen_docnumber=pDocNumber, aropen_doctype='C', 
       aropen_ordernumber=pOrderNumber,aropen_docdate=pDocDate, aropen_duedate=pDueDate, 
       aropen_distdate=pDocDate, aropen_terms_id=pTermsid, 
@@ -259,7 +259,7 @@ BEGIN
       aropen_open, aropen_notes, aropen_rsncode_id,
       aropen_salescat_id, aropen_accnt_id, aropen_curr_id )
     VALUES
-    ( _aropenid, CURRENT_USER, _journalNumber,
+    ( _aropenid, getEffectiveXtUser(), _journalNumber,
       pCustid, pDocNumber, 'C', pOrderNumber,
       pDocDate, pDueDate, pDocDate, pTermsid, pSalesrepid,
       round(pAmount, 2), 0, pCommissiondue, FALSE,

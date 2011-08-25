@@ -163,7 +163,7 @@ BEGIN
               WHERE ((warehous_id=CAST(usrpref_value AS INTEGER))
                 AND (warehous_shipping)
                 AND (warehous_active)
-                AND (usrpref_username=current_user)
+                AND (usrpref_username=getEffectiveXtUser())
                 AND (usrpref_name='PreferredWarehouse'));
             ELSE
               SELECT warehous_id,warehous_fob INTO _w

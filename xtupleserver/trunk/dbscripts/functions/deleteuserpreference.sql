@@ -5,7 +5,7 @@ DECLARE
 
 BEGIN
 
-  SELECT deleteUserPreference(CURRENT_USER, pPrefname) INTO _return;
+  SELECT deleteUserPreference(getEffectiveXtUser(), pPrefname) INTO _return;
 
   RETURN _return;
 

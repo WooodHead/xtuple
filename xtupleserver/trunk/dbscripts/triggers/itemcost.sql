@@ -24,7 +24,7 @@ BEGIN
         costhist_oldcurr_id, costhist_newcurr_id )
       VALUES
       ( NEW.itemcost_item_id, NEW.itemcost_costelem_id, 'A',
-        NEW.itemcost_lowlevel, CURRENT_USER, CURRENT_TIMESTAMP,
+        NEW.itemcost_lowlevel, getEffectiveXtUser(), CURRENT_TIMESTAMP,
         OLD.itemcost_actcost, NEW.itemcost_actcost,
         OLD.itemcost_curr_id, NEW.itemcost_curr_id );
     END IF;
@@ -37,7 +37,7 @@ BEGIN
         costhist_oldcurr_id, costhist_newcurr_id )
       VALUES
       ( NEW.itemcost_item_id, NEW.itemcost_costelem_id, 'S',
-        NEW.itemcost_lowlevel, CURRENT_USER, CURRENT_TIMESTAMP,
+        NEW.itemcost_lowlevel, getEffectiveXtUser(), CURRENT_TIMESTAMP,
         OLD.itemcost_stdcost, NEW.itemcost_stdcost,
         baseCurrId(), baseCurrId() );
     END IF;
@@ -52,7 +52,7 @@ BEGIN
       costhist_oldcurr_id, costhist_newcurr_id )
     VALUES
     ( NEW.itemcost_item_id, NEW.itemcost_costelem_id, 'N',
-      NEW.itemcost_lowlevel, CURRENT_USER, CURRENT_TIMESTAMP,
+      NEW.itemcost_lowlevel, getEffectiveXtUser(), CURRENT_TIMESTAMP,
       0, NEW.itemcost_actcost,
       baseCurrId(), NEW.itemcost_curr_id );
 
@@ -66,7 +66,7 @@ BEGIN
       costhist_oldcurr_id, costhist_newcurr_id )
     VALUES
     ( OLD.itemcost_item_id, OLD.itemcost_costelem_id, 'D',
-      OLD.itemcost_lowlevel, CURRENT_USER, CURRENT_TIMESTAMP,
+      OLD.itemcost_lowlevel, getEffectiveXtUser(), CURRENT_TIMESTAMP,
       OLD.itemcost_stdcost, 0,
       OLD.itemcost_curr_id, baseCurrId() );
 

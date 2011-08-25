@@ -19,7 +19,7 @@ DECLARE
 BEGIN
   FOR _alarm IN SELECT *
                 FROM alarm
-                WHERE ((alarm_creator=CURRENT_USER)
+                WHERE ((alarm_creator=getEffectiveXtUser())
                    AND (CURRENT_TIMESTAMP > alarm_trigger)) LOOP
     _returnVal := TRUE;
 
