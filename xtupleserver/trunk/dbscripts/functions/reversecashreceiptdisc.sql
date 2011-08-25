@@ -94,7 +94,7 @@ BEGIN
        SELECT createARDebitMemo(_ardiscountid, _r.cashrcpt_cust_id, pJournalNumber, _arMemoNumber, '',
                                  _r.cashrcpt_distdate, _r.cashrcptitem_discount,
                                  _comment, -1, -1, _discountAccntid, _r.cashrcpt_distdate,
-                                 -1, -1, 0, _r.cashrcpt_curr_id) INTO _ardiscountid;
+                                 -1, NULL, 0, _r.cashrcpt_curr_id) INTO _ardiscountid;
 
      END IF; -- End handle Discount
 

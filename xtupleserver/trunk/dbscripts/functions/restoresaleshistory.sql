@@ -46,7 +46,7 @@ BEGIN
                        cohist_taxtype_id,
                        cohist_taxzone_id )
   SELECT asohist_id,
-         asohist_cust_id,
+         CASE asohist_cust_id WHEN -1 THEN NULL ELSE asohist_cust_id END,
          asohist_itemsite_id,
          asohist_shipdate,
          asohist_invcdate,
@@ -73,7 +73,7 @@ BEGIN
          asohist_shiptozip,
          asohist_shipto_id,
          asohist_shipvia,
-         asohist_salesrep_id,
+         CASE asohist_salesrep_id WHEN -1 THEN NULL ELSE asohist_salesrep_id END,
          asohist_misc_type,
          asohist_misc_descrip,
          asohist_misc_id,

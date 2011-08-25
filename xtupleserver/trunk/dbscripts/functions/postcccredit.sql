@@ -100,7 +100,7 @@ BEGIN
             _r.aropen_cust_id, NULL, fetchARMemoNumber(),
             _r.aropen_ordernumber, current_date, _r.aropen_amount,
             'Reverse credit for voided Sales Order',
-            -1, -1, -1, current_date, -1, -1, 0, 
+            -1, -1, -1, CURRENT_DATE, -1, NULL, 0, 
             _r.aropen_curr_id) INTO _dmaropenid;
 
     -- See if the original credit memo is still open

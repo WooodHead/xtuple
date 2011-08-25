@@ -83,6 +83,11 @@ BEGIN
 
   _glDate := COALESCE(_p.invchead_gldistdate, _p.invchead_invcdate);
 
+  IF (_p.invchead_salesrep_id < 0) THEN
+    RAISE NOTICE 'Patch negative invchead_salesrep_id until invchead_salesrep_id is a true fkey';
+    _p.invchead_salesrep_id := NULL;
+  END IF;
+
 -- the 1st MC iteration used the cohead_orderdate so we could get curr exch
 -- gain/loss between the sales and invoice dates, but see issue 3892.  leave
 -- this condition TRUE until we make this configurable or decide not to.

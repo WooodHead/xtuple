@@ -56,7 +56,7 @@ BEGIN
 				  fetchARMemoNumber(), '', 
 				  pVoidDate, _p.checkhead_amount,
 				  _gltransNote || ' '|| _p.checkhead_notes,
-				  -1, -1, -1, pVoidDate, -1, -1, 0.0,
+				  -1, -1, -1, pVoidDate, -1, NULL, 0.0,
 				  pJournalNumber, _p.checkhead_curr_id );
 	_credit_glaccnt := _p.prepaidaccntid;
 
