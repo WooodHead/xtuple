@@ -553,7 +553,7 @@ BEGIN
     aropen_ordernumber, aropen_notes, aropen_cobmisc_id,
     aropen_curr_id )
   VALUES
-  ( _aropenid, CURRENT_USER, pJournalNumber,
+  ( _aropenid, getEffectiveXtUser(), pJournalNumber,
     TRUE, FALSE,
     _p.invchead_cust_id, _p.invchead_ponumber,
     _p.invchead_invcnumber, _p.invchead_invcnumber, 'I',

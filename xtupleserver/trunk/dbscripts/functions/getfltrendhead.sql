@@ -78,7 +78,7 @@ BEGIN
 
         SELECT
                 flhead_id AS fltrendhead_flhead_id,
-                CURRENT_USER AS fltrendhead_username,
+                getEffectiveXtUser() AS fltrendhead_username,
                 CASE
                         WHEN flhead_type = ''I'' THEN ''Income Statement''
                         WHEN flhead_type = ''B'' THEN ''Balance Sheet''

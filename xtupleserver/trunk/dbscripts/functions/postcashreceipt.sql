@@ -205,7 +205,7 @@ BEGIN
         _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
         _p.cashrcpt_fundstype, _p.cashrcpt_docnumber, 'CRA', _r.cashrcptitem_id,
         round(_r.cashrcptitem_amount, 2), _r.closed,
-        _p.applydate, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id);
+        _p.applydate, _p.cashrcpt_distdate, pJournalNumber, getEffectiveXtUser(), _p.cashrcpt_curr_id);
     ELSE
       INSERT INTO arapply
       ( arapply_cust_id,
@@ -220,7 +220,7 @@ BEGIN
         -1, 'R', _p.cashrcpt_number,
         '', '', 'CRA', _r.cashrcptitem_id,
         round(abs(_r.cashrcptitem_amount), 2), _r.closed,
-        _p.applydate, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id );
+        _p.applydate, _p.cashrcpt_distdate, pJournalNumber, getEffectiveXtUser(), _p.cashrcpt_curr_id );
     END IF;
   
       _exchGain := arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, abs(_r.cashrcptitem_amount),
@@ -272,7 +272,7 @@ BEGIN
       -1, 'Misc.', '',
       _p.cashrcpt_fundstype, _p.cashrcpt_docnumber,
       round(_r.cashrcptmisc_amount, 2), TRUE,
-      _p.applydate, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, 
+      _p.applydate, _p.cashrcpt_distdate, pJournalNumber, getEffectiveXtUser(), 
       _r.cashrcpt_curr_id, 'CRD', _r.cashrcptmisc_id );
     PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR', _r.cashrcptmisc_notes,
                                 _r.cashrcptmisc_accnt_id,
@@ -371,7 +371,7 @@ BEGIN
 --  Update the posted cashrcpt
   UPDATE cashrcpt SET cashrcpt_posted=TRUE,
                       cashrcpt_posteddate=CURRENT_DATE,
-                      cashrcpt_postedby=CURRENT_USER
+                      cashrcpt_postedby=getEffectiveXtUser()
   WHERE (cashrcpt_id=pCashrcptid);
 
   RETURN 1;

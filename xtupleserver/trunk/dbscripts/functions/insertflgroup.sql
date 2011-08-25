@@ -287,13 +287,13 @@ BEGIN
               flrpt_beginningprcnt, flrpt_endingprcnt,
               flrpt_debitsprcnt, flrpt_creditsprcnt, flrpt_budgetprcnt, flrpt_diffprcnt, flrpt_customprcnt,
               flrpt_parent_id, flrpt_interval)
-      VALUES (pFlheadid, pPeriodid, CURRENT_USER,
+      VALUES (pFlheadid, pPeriodid, getEffectiveXtUser(),
               (COALESCE(( SELECT MAX(flrpt_order)
                             FROM flrpt
                            WHERE ((flrpt_flhead_id=pFlheadid)
                              AND  (flrpt_period_id=pPeriodid)
                              AND (flrpt_interval=pInterval)
-                             AND  (flrpt_username=CURRENT_USER))
+                             AND  (flrpt_username=getEffectiveXtUser()))
                         ), 1) + 1),
               pLevel, _r.type, _r.type_id,
               _r.beginning, _r.ending,
@@ -316,7 +316,7 @@ BEGIN
        WHERE ((flrpt_flhead_id=pFlheadid)
          AND  (flrpt_period_id=pPeriodid)
           AND (flrpt_interval=pInterval)
-         AND  (flrpt_username=CURRENT_USER)
+         AND  (flrpt_username=getEffectiveXtUser())
          AND  (flrpt_type=_r.type)
          AND  (flrpt_type_id=_r.type_id));
       IF (_r.subtract) THEN
@@ -331,7 +331,7 @@ BEGIN
          WHERE ((flrpt_flhead_id=pFlheadid)
            AND  (flrpt_period_id=pPeriodid)
            AND  (flrpt_interval=pInterval)
-           AND  (flrpt_username=CURRENT_USER)
+           AND  (flrpt_username=getEffectiveXtUser())
            AND  (flrpt_type='G')
            AND  (flrpt_type_id=pFlgrpid));
       ELSE
@@ -346,7 +346,7 @@ BEGIN
          WHERE ((flrpt_flhead_id=pFlheadid)
            AND  (flrpt_period_id=pPeriodid)
            AND  (flrpt_interval=pInterval)
-           AND  (flrpt_username=CURRENT_USER)
+           AND  (flrpt_username=getEffectiveXtUser())
            AND  (flrpt_type='G')
            AND  (flrpt_type_id=pFlgrpid));
       END IF;
@@ -357,7 +357,7 @@ BEGIN
          WHERE ((flrpt_flhead_id=pFlheadid)
           AND  (flrpt_period_id=pPeriodid)
           AND  (flrpt_interval=pInterval)
-          AND  (flrpt_username=CURRENT_USER)
+          AND  (flrpt_username=getEffectiveXtUser())
           AND  (flrpt_type=_r.type)
           AND  (flrpt_type_id=_r.type_id));
       END IF;
@@ -376,13 +376,13 @@ BEGIN
                   flrpt_beginningprcnt, flrpt_endingprcnt,
                   flrpt_debitsprcnt, flrpt_creditsprcnt, flrpt_budgetprcnt, flrpt_diffprcnt, flrpt_customprcnt,
                   flrpt_parent_id,flrpt_accnt_id,flrpt_interval)
-          VALUES (pFlheadid, pPeriodid, CURRENT_USER,
+          VALUES (pFlheadid, pPeriodid, getEffectiveXtUser(),
                   (COALESCE(( SELECT MAX(flrpt_order)
                                FROM flrpt
                               WHERE ((flrpt_flhead_id=pFlheadid)
                                 AND  (flrpt_period_id=pPeriodid)
                                 AND  (flrpt_interval=pInterval)
-                                AND  (flrpt_username=CURRENT_USER))
+                                AND  (flrpt_username=getEffectiveXtUser()))
                             ), 1) + 1),
                   pLevel, _r.type, _r.type_id,
                   _r.beginning, _r.ending,
@@ -405,7 +405,7 @@ BEGIN
            WHERE ((flrpt_flhead_id=pFlheadid)
              AND  (flrpt_period_id=pPeriodid)
              AND  (flrpt_interval=pInterval)
-             AND  (flrpt_username=CURRENT_USER)
+             AND  (flrpt_username=getEffectiveXtUser())
              AND  (flrpt_type='G')
              AND  (flrpt_type_id=pFlgrpid));
         ELSE
@@ -420,7 +420,7 @@ BEGIN
            WHERE ((flrpt_flhead_id=pFlheadid)
              AND  (flrpt_interval=pInterval)
              AND  (flrpt_period_id=pPeriodid)
-             AND  (flrpt_username=CURRENT_USER)
+             AND  (flrpt_username=getEffectiveXtUser())
              AND  (flrpt_type='G')
              AND  (flrpt_type_id=pFlgrpid));
         END IF;
@@ -442,13 +442,13 @@ BEGIN
               flrpt_beginningprcnt, flrpt_endingprcnt,
               flrpt_debitsprcnt, flrpt_creditsprcnt, flrpt_budgetprcnt, flrpt_diffprcnt, flrpt_customprcnt,
               flrpt_parent_id, flrpt_altname,flrpt_interval )
-      SELECT pFlheadid, pPeriodid, CURRENT_USER,
+      SELECT pFlheadid, pPeriodid, getEffectiveXtUser(),
              (COALESCE(( SELECT MAX(flrpt_order)
                            FROM flrpt
                           WHERE ((flrpt_flhead_id=pFlheadid)
                             AND  (flrpt_period_id=pPeriodid)
                             AND  (flrpt_interval=pInterval)
-                            AND  (flrpt_username=CURRENT_USER))
+                            AND  (flrpt_username=getEffectiveXtUser()))
                        ), 1) + 1),
              pLevel, 'T', -1,
              CASE WHEN (flgrp_showstart) THEN flrpt_beginning
@@ -503,7 +503,7 @@ BEGIN
          AND  (flrpt_flhead_id=pFlheadid)
          AND  (flrpt_period_id=pPeriodid)
          AND  (flrpt_interval=pInterval)
-         AND  (flrpt_username=CURRENT_USER)
+         AND  (flrpt_username=getEffectiveXtUser())
          AND  (flrpt_type='G')
          AND  (flrpt_type_id=pFlgrpid));
     END IF;

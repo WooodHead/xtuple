@@ -36,7 +36,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     COALESCE(NEW.date,now()),
     'CRMA',
     getCrmAcctId(NEW.account_number),
-    COALESCE(NEW.username,current_user),
+    COALESCE(NEW.username,getEffectiveXtUser()),
     getCmntTypeId(NEW.type),
     NEW.text);
 

@@ -72,7 +72,7 @@ BEGIN
     IF (FOUND) THEN
       UPDATE cobill
          SET cobill_selectdate = CURRENT_DATE,
-             cobill_select_username = CURRENT_USER,
+             cobill_select_username = getEffectiveXtUser(),
              cobill_qty = cobill_qty + _r.qty,
              cobill_toclose = _r.toclose,
              cobill_taxtype_id = _r.coitem_taxtype_id
@@ -86,7 +86,7 @@ BEGIN
         cobill_taxtype_id )
       VALUES
       ( _cobmiscid, _r.coitem_id,
-        CURRENT_DATE, CURRENT_USER,
+        CURRENT_DATE, getEffectiveXtUser(),
         _r.qty, _r.toclose,
          _r.coitem_taxtype_id );
      END IF;      

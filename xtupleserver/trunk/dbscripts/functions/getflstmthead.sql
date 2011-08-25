@@ -165,7 +165,7 @@ BEGIN
                 flhead_id AS flstmthead_flhead_id,
                 flcol_id AS flstmthead_flcol_id,
                 pPeriodid AS flstmthead_period,
-                CURRENT_USER AS flstmthead_username,
+                getEffectiveXtUser() AS flstmthead_username,
                 CASE
                         WHEN flhead_type = 'I' THEN 'Income Statement'
                         WHEN flhead_type = 'B' THEN 'Balance Sheet'

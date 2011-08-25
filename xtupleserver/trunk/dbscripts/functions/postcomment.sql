@@ -30,7 +30,7 @@ BEGIN
     comment_date, comment_user, comment_text, comment_public )
   VALUES
   ( _commentid, pCmnttypeid, pSource, pSourceid,
-    CURRENT_TIMESTAMP, CURRENT_USER, pText, _public );
+    CURRENT_TIMESTAMP, getEffectiveXtUser(), pText, _public );
 
   RETURN _commentid;
 

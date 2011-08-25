@@ -22,7 +22,7 @@ CREATE OR REPLACE RULE "_DELETE" AS
 
 CREATE OR REPLACE RULE "_INSERT" AS
     ON INSERT TO api.incidentcomment DO INSTEAD  INSERT INTO comment (comment_date, comment_source, comment_source_id, comment_user, comment_cmnttype_id, comment_text, comment_public) 
-  VALUES (COALESCE(new.date, now()), 'INCDT'::text, getincidentid(new.incident_number), COALESCE(new.username, "current_user"()::text), getcmnttypeid(new.type), new.text, COALESCE(new.public, true));
+  VALUES (COALESCE(new.date, now()), 'INCDT'::text, getincidentid(new.incident_number), COALESCE(new.username, getEffectiveXtUser()), getcmnttypeid(new.type), new.text, COALESCE(new.public, true));
 
 -- Rule: "_UPDATE" ON api.incidentcomment
 

@@ -13,7 +13,7 @@ BEGIN
   INSERT INTO msg
   (msg_id, msg_posted, msg_scheduled, msg_expires, msg_username, msg_text)
   VALUES
-  (_msgid, CURRENT_TIMESTAMP, pScheduled, pExpires, CURRENT_USER, pText);
+  (_msgid, CURRENT_TIMESTAMP, pScheduled, pExpires, getEffectiveXtUser(), pText);
 
   INSERT INTO msguser
   ( msguser_msg_id, msguser_username )
@@ -38,13 +38,13 @@ BEGIN
   INSERT INTO msg
   (msg_id, msg_posted, msg_scheduled, msg_expires, msg_username, msg_text)
   VALUES
-  (_msgid, CURRENT_TIMESTAMP, pScheduled, pExpires, CURRENT_USER, pText);
+  (_msgid, CURRENT_TIMESTAMP, pScheduled, pExpires, getEffectiveXtUser(), pText);
 
   INSERT INTO msguser
   ( msguser_msg_id, msguser_username )
   SELECT _msgid, usr_username
   FROM usr
-  WHERE (usr_username <> CURRENT_USER);
+  WHERE (usr_username <> getEffectiveXtUser());
 
   RETURN _msgid;
 
@@ -64,7 +64,7 @@ BEGIN
   INSERT INTO msg
   (msg_id, msg_posted, msg_scheduled, msg_expires, msg_username, msg_text)
   VALUES
-  (_msgid, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, endOfTime(), CURRENT_USER, pText);
+  (_msgid, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, endOfTime(), getEffectiveXtUser(), pText);
 
   INSERT INTO msguser
   ( msguser_msg_id, msguser_username )

@@ -151,7 +151,7 @@ BEGIN
         _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
         _p.cashrcpt_fundstype, _p.cashrcpt_docnumber, 'CRA', _r.cashrcptitem_id,
         (round(_r.cashrcptitem_amount, 2) * -1.0), _r.closed,
-        CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id );
+        CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, getEffectiveXtUser(), _p.cashrcpt_curr_id );
     ELSE
       INSERT INTO arapply
       ( arapply_cust_id,
@@ -166,7 +166,7 @@ BEGIN
         -1, 'R', _p.cashrcpt_number,
         '', '', 'CRA', _r.cashrcptitem_id,
         (round(abs(_r.cashrcptitem_amount), 2) * -1.0), _r.closed,
-        CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, _p.cashrcpt_curr_id );
+        CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, getEffectiveXtUser(), _p.cashrcpt_curr_id );
     END IF;
 
     _exchGain := arCurrGain(_r.aropen_id,_p.cashrcpt_curr_id, abs(_r.cashrcptitem_amount),
@@ -218,7 +218,7 @@ BEGIN
       -1, 'Misc.', '',
       _p.cashrcpt_fundstype, _p.cashrcpt_docnumber,
       (round(_r.cashrcptmisc_amount, 2) * -1.0), TRUE,
-      CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, CURRENT_USER, 
+      CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, getEffectiveXtUser(), 
       _r.cashrcpt_curr_id, 'CRD', _r.cashrcptmisc_id );
 
     PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR', _r.cashrcptmisc_notes,

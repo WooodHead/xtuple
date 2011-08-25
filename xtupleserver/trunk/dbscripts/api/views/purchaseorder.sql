@@ -142,7 +142,7 @@ COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
     COALESCE(getTermsId(NEW.terms),vend_terms_id),
     COALESCE(getTaxzoneId(NEW.tax_zone),vend_taxzone_id),
     COALESCE(getWarehousId(NEW.receiving_site,'ALL'),fetchPrefwarehousid()),
-    COALESCE(NEW.purchasing_agent,current_user),
+    COALESCE(NEW.purchasing_agent,getEffectiveXtUser()),
     getVendId(NEW.vendor_number),
     CASE WHEN (NEW.alt_address='MAIN') THEN NULL
       ELSE getVendAddrId(NEW.vendor_number, NEW.alt_address) END,

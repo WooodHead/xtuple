@@ -423,7 +423,7 @@ BEGIN
   SELECT pJournalNumber, vohead_docdate, vohead_duedate, _glDate, TRUE,
          vohead_terms_id, vohead_vend_id, 'V',
          vohead_number, vohead_invcnumber, COALESCE(TEXT(pohead_number), 'Misc.'), vohead_reference,
-         round(_totalAmount, 2), 0, '', CURRENT_USER, FALSE,
+         round(_totalAmount, 2), 0, '', getEffectiveXtUser(), FALSE,
          vohead_curr_id, round(_totalDiscountableAmount, 2)
   FROM vohead LEFT OUTER JOIN pohead ON (vohead_pohead_id=pohead_id)
   WHERE (vohead_id=pVoheadid);

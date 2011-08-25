@@ -390,7 +390,7 @@ BEGIN
     aropen_salesrep_id, aropen_commission_due, aropen_commission_paid,
     aropen_ordernumber, aropen_notes,
     aropen_rsncode_id, aropen_curr_id )
-  SELECT _aropenid, CURRENT_USER, pJournalNumber,
+  SELECT _aropenid, getEffectiveXtUser(), pJournalNumber,
          TRUE, FALSE,
          cmhead_cust_id, cmhead_custponumber,
          cmhead_number,

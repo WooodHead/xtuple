@@ -35,7 +35,7 @@ FROM poitem
   LEFT OUTER JOIN itemsrc ON (itemsrc_id=poitem_itemsrc_id)
 WHERE ( (poitem_status <> 'C')
 <? if exists("selectedOnly") ?>
- AND (usrsite_username=current_user) 
+ AND (usrsite_username=getEffectiveXtUser()) 
 <? endif ?>
 <? if exists("bc") ?>
  AND ( (item_number=<? value("bc") ?>) OR
@@ -83,7 +83,7 @@ WHERE ( (raitem_status <> 'C')
  AND (raitem_rahead_id=rahead_id)
  AND (raitem_qty_uom_id=ru.uom_id)
 <? if exists("selectedOnly") ?>
- AND (usrsite_username=current_user) 
+ AND (usrsite_username=getEffectiveXtUser()) 
 <? endif ?>
 <? if exists("bc") ?>
  AND ( (item_number=<? value("bc") ?>) OR
@@ -123,7 +123,7 @@ WHERE ((toitem_item_id=item_id)
   AND  (toitem_status NOT IN ('C','X'))
   AND  (toitem_qty_shipped > toitem_qty_received)
 <? if exists("selectedOnly") ?>
- AND (usrsite_username=current_user) 
+ AND (usrsite_username=getEffectiveXtUser()) 
 <? endif ?>
 <? if exists("bc") ?>
  AND ( (item_number=<? value("bc") ?>) OR

@@ -8,7 +8,7 @@ BEGIN
    WHERE((usrgrp_grp_id=grppriv_grp_id)
      AND (grppriv_priv_id=priv_id)
      AND (priv_name=pPrivilege)
-     AND (usrgrp_username=CURRENT_USER));
+     AND (usrgrp_username=getEffectiveXtUser()));
   IF (FOUND) THEN
     RETURN true;
   END IF;
@@ -17,7 +17,7 @@ BEGIN
   FROM priv, usrpriv
   WHERE ((priv_id=usrpriv_priv_id)
   AND (priv_name=pPrivilege)
-  AND (usrpriv_username=CURRENT_USER));
+  AND (usrpriv_username=getEffectiveXtUser()));
   
   IF (FOUND) THEN
     RETURN true;

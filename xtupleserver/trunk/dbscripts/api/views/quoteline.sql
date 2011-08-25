@@ -113,7 +113,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   AND (warehous_code=COALESCE(NEW.sold_from_site,(
                                 SELECT warehous_code
                                 FROM usrpref,whsinfo
-                                WHERE ((usrpref_username=current_user)
+                                WHERE ((usrpref_username=getEffectiveXtUser())
                                 AND (usrpref_name='PreferredWarehouse')
                                 AND (warehous_id=CAST(usrpref_value AS INTEGER))))))));
 

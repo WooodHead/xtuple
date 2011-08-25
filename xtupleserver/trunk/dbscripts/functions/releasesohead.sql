@@ -7,7 +7,7 @@ BEGIN
 
   DELETE FROM soheadlock
    WHERE ( (soheadlock_sohead_id=pSoheadid)
-     AND   (soheadlock_username=CURRENT_USER)
+     AND   (soheadlock_username=getEffectiveXtUser())
      AND   (soheadlock_procpid=pg_backend_pid()) );
 
   RETURN TRUE;

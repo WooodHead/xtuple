@@ -41,7 +41,7 @@ BEGIN
     aropen_open, aropen_notes, aropen_rsncode_id,
     aropen_salescat_id, aropen_accnt_id, aropen_curr_id )
   VALUES
-  ( _aropenid, CURRENT_USER, pJournalNumber,
+  ( _aropenid, getEffectiveXtUser(), pJournalNumber,
     pCustid, pDocNumber, 'R', pOrderNumber,
     pDocDate, pDocDate, pDocDate, -1, -1,
     round(pAmount, 2), 0, 0.0, FALSE,

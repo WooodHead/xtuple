@@ -67,7 +67,7 @@ BEGIN
     ) VALUES (
       _invcntid, pItemsiteid, CURRENT_TIMESTAMP,
       (_whs.warehous_counttag_prefix || _whs.warehous_counttag_number::TEXT),
-      CURRENT_USER, FALSE,
+      getEffectiveXtUser(), FALSE,
       pPriority, pComments, pLocationid
     );
 

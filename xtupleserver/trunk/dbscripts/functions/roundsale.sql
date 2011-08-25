@@ -12,7 +12,7 @@ BEGIN
   SELECT locale_salesprice_scale INTO _scale
   FROM locale, usr
   WHERE ((usr_locale_id=locale_id)
-     AND (usr_username=CURRENT_USER));
+     AND (usr_username=getEffectiveXtUser()));
 
   RETURN ROUND(_pSale, _scale);
 

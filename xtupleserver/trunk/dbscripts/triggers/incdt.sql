@@ -311,7 +311,7 @@ BEGIN
   -- find the warehouse for which to create evntlog entries
     SELECT usrpref_value  INTO _whsId
     FROM usrpref
-    WHERE usrpref_username = CURRENT_USER
+    WHERE usrpref_username = getEffectiveXtUser()
       AND usrpref_name = 'PreferredWarehouse';
 
   INSERT INTO evntlog (evntlog_evnttime, evntlog_username,

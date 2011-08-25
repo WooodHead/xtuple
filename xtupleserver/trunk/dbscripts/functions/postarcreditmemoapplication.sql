@@ -91,7 +91,7 @@ BEGIN
         _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
         '', '',
         round(_r.arcreditapply_amountSource, 2), TRUE, _applyDate, _applyDate,
-        0, CURRENT_USER, _p.aropen_curr_id, 
+        0, getEffectiveXtUser(), _p.aropen_curr_id, 
         _r.arcreditapply_reftype, _r.arcreditapply_ref_id );
 
     END IF;

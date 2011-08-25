@@ -3,7 +3,7 @@ CREATE OR REPLACE FUNCTION formatTime(TIMESTAMP WITH TIME ZONE) RETURNS TEXT IMM
   SELECT TO_CHAR($1, ( SELECT locale_timeformat
                        FROM locale, usr
                        WHERE ((usr_locale_id=locale_id)
-                        AND (usr_username=CURRENT_USER)) ) ) AS result
+                        AND (usr_username=getEffectiveXtUser())) ) ) AS result
 ' LANGUAGE 'sql';
 
 

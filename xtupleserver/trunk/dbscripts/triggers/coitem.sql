@@ -207,7 +207,7 @@ BEGIN
 
     IF ((NEW.coitem_status = 'C') AND (OLD.coitem_status <> 'C')) THEN
       NEW.coitem_closedate = CURRENT_TIMESTAMP;
-      NEW.coitem_close_username = CURRENT_USER;
+      NEW.coitem_close_username = getEffectiveXtUser();
       NEW.coitem_qtyreserved := 0;
 
       IF (_cmnttypeid <> -1) THEN

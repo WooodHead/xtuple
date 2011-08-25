@@ -195,7 +195,7 @@ BEGIN
 
   IF (_apopenid IS NOT NULL) THEN
     UPDATE apopen SET
-      apopen_username=CURRENT_USER, apopen_journalnumber=_journalNumber,
+      apopen_username=getEffectiveXtUser(), apopen_journalnumber=_journalNumber,
       apopen_vend_id=pVendid, apopen_docnumber=pDocNumber,
       apopen_doctype='D', apopen_ponumber=pPoNumber,
       apopen_docdate=pDocDate, apopen_duedate=pDueDate,
@@ -214,7 +214,7 @@ BEGIN
       apopen_amount, apopen_paid, apopen_discountable_amount, apopen_open, apopen_notes, apopen_accnt_id, apopen_curr_id,
       apopen_closedate )
     VALUES
-    ( _apopenid, CURRENT_USER, _journalNumber,
+    ( _apopenid, getEffectiveXtUser(), _journalNumber,
       pVendid, pDocNumber, 'D', pPoNumber,
       pDocDate, pDueDate, pDocDate, pTermsid,
       pAmount, 0, 0, (pAmount <> 0), pNotes, _accntid, pCurrId,

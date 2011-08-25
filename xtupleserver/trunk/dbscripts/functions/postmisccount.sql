@@ -24,8 +24,8 @@ BEGIN
        invcnt_priority, invcnt_comments )
     SELECT _invcntid, pItemsiteid, now(),
            itemsite_qtyonhand, pQty,
-           CURRENT_USER, now(), CURRENT_USER,
-           now(), CURRENT_USER, FALSE,
+           getEffectiveXtUser(), now(), getEffectiveXtUser(),
+           now(), getEffectiveXtUser(), FALSE,
            FALSE, pComments
     FROM itemsite
     WHERE (itemsite_id=pItemsiteid);

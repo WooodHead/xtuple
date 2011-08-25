@@ -11,14 +11,14 @@ BEGIN
    WHERE((usrgrp_grp_id=grppriv_grp_id)
      AND (grppriv_priv_id=priv_id)
      AND (priv_name=pPrivName)
-     AND (usrgrp_username=CURRENT_USER));
+     AND (usrgrp_username=getEffectiveXtUser()));
   IF (FOUND) THEN
     RETURN true;
   END IF;
 
   SELECT COALESCE(usrpriv_id, 0) != 0 INTO _returnVal
   FROM priv LEFT OUTER JOIN
-       usrpriv ON (priv_id=usrpriv_priv_id AND usrpriv_username = CURRENT_USER)
+       usrpriv ON (priv_id=usrpriv_priv_id AND usrpriv_username = getEffectiveXtUser())
   WHERE (priv_name=pPrivName);
   IF (_returnVal IS NULL) THEN
     _returnVal := FALSE;

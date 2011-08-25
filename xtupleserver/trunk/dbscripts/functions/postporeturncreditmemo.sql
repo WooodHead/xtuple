@@ -95,7 +95,7 @@ BEGIN
       apopen_amount, apopen_paid, apopen_open, apopen_notes, apopen_accnt_id, apopen_curr_id,
       apopen_closedate )
     VALUES
-    ( _apopenid, CURRENT_USER, _journalNumber,
+    ( _apopenid, getEffectiveXtUser(), _journalNumber,
       _p.pohead_vend_id, _docNumber, 'C', _p.pohead_number,
       CURRENT_DATE, CURRENT_DATE, CURRENT_DATE, -1,
       round(_itemAmount, 2), 0, (round(_itemAmount, 2) <> 0), _p.notes, -1, _p.pohead_curr_id,

@@ -313,7 +313,7 @@ BEGIN
 --  Mark the invoice as voided
   UPDATE invchead
   SET invchead_void=TRUE,
-      invchead_notes=(invchead_notes || 'Voided on ' || current_date || ' by ' || current_user)
+      invchead_notes=(invchead_notes || 'Voided on ' || current_date || ' by ' || getEffectiveXtUser())
   WHERE (invchead_id=_p.invchead_id);
  
   RETURN _itemlocSeries;

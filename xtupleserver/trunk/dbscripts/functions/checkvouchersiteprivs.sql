@@ -22,7 +22,7 @@ BEGIN
               AND   (poitem_itemsite_id=itemsite_id)
               AND   (itemsite_warehous_id NOT IN (SELECT usrsite_warehous_id
                                                     FROM usrsite
-                                                   WHERE (usrsite_username=current_user))) )
+                                                   WHERE (usrsite_username=getEffectiveXtUser()))) )
            UNION
            SELECT pohead_warehous_id
              FROM vohead, pohead
@@ -30,7 +30,7 @@ BEGIN
               AND   (pohead_id=vohead_pohead_id)
               AND   (pohead_warehous_id NOT IN (SELECT usrsite_warehous_id
                                                   FROM usrsite
-                                                 WHERE (usrsite_username=current_user))) )
+                                                 WHERE (usrsite_username=getEffectiveXtUser()))) )
          ) AS data;
   IF (_result > 0) THEN
     RETURN false;

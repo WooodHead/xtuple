@@ -4,7 +4,7 @@ DECLARE
 BEGIN
 
   New.ccard_lastupdated := current_timestamp;
-  New.ccard_last_updated_by_username := current_user;
+  New.ccard_last_updated_by_username := getEffectiveXtUser();
 
   IF (TG_OP = ''UPDATE'') THEN
     INSERT INTO ccardaud

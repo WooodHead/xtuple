@@ -175,7 +175,7 @@ BEGIN
           apapply_target_apopen_id, apapply_target_doctype, apapply_target_docnumber,
           apapply_journalnumber, apapply_amount, apapply_curr_id, apapply_checkhead_id )
         VALUES
-        ( _p.checkhead_recip_id, _p.checkhead_checkdate, CURRENT_USER,
+        ( _p.checkhead_recip_id, _p.checkhead_checkdate, getEffectiveXtUser(),
           -1, 'K', _p.checkhead_number,
           _r.apopen_id, _r.apopen_doctype, _r.apopen_docnumber,
           _journalNumber, _r.checkitem_amount, _r.checkitem_curr_id, _p.checkhead_id );
@@ -198,7 +198,7 @@ BEGIN
           arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
           arapply_journalnumber, arapply_applied, arapply_curr_id )
         VALUES
-        ( _p.checkhead_recip_id, _p.checkhead_checkdate, _p.checkhead_checkdate, CURRENT_USER,
+        ( _p.checkhead_recip_id, _p.checkhead_checkdate, _p.checkhead_checkdate, getEffectiveXtUser(),
           _r.aropen_id,_r.aropen_doctype, _r.aropen_docnumber,
           -1, 'K',_p.checkhead_number ,
           _journalNumber, _r.checkitem_amount, _r.checkitem_curr_id );

@@ -23,7 +23,7 @@ SELECT postMiscCount(
   COALESCE(NEW.site,
 		(SELECT warehous_code
 		 FROM usrpref,whsinfo
-		 WHERE (usrpref_username=current_user)
+		 WHERE (usrpref_username=getEffectiveXtUser())
 		 AND (usrpref_name='PreferredWarehouse')
 		 AND (warehous_id=CAST(usrpref_value AS INTEGER)))), NEW.item_number),
   NEW.quantity,

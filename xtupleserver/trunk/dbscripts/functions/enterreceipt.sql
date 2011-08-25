@@ -123,7 +123,7 @@ BEGIN
     ) VALUES (
       _recvid, _timestamp,
       _o.orderhead_number, pordertype, _o.orderitem_id::INTEGER,
-      CURRENT_USER, _o.orderhead_agent_username, _o.itemsite_id::INTEGER,
+      getEffectiveXtUser(), _o.orderhead_agent_username, _o.itemsite_id::INTEGER,
       _o.vend_id::INTEGER, _o.vend_item_number, _o.vend_item_descrip,
       _o.vend_uom, pQty, _o.duedate,
       _o.orderitem_unitcost, _o.orderitem_unitcost_curr_id::INTEGER,
