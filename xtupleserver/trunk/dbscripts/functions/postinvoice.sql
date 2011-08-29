@@ -613,11 +613,12 @@ BEGIN
 		     END AS balance,
 		     aropen_curr_id, aropen_curr_rate,
 		     aropenalloc_doctype, aropenalloc_doc_id
-                FROM aropenalloc, aropen, cohead
+                FROM aropenalloc, aropen
                WHERE ( (aropenalloc_aropen_id=aropen_id)
-                 AND   ((aropenalloc_doctype='S' AND aropenalloc_doc_id=cohead_id) OR
-                        (aropenalloc_doctype='I' AND aropenalloc_doc_id=_p.invchead_id))
-                 AND   (cohead_number=_p.invchead_ordernumber) ) LOOP
+                 AND   ((aropenalloc_doctype='S' AND aropenalloc_doc_id=(SELECT cohead_id
+                                                                           FROM cohead
+                                                                          WHERE cohead_number=_p.invchead_ordernumber)) OR
+                        (aropenalloc_doctype='I' AND aropenalloc_doc_id=_p.invchead_id)) ) LOOP
 
       _appliedAmount := _r.balance;
       IF (_totalAmount < _appliedAmount / (1 / currRate(_r.aropen_curr_id,_firstExchDate) /
