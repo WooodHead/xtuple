@@ -29,7 +29,7 @@ BEGIN
     END IF;
     RETURN -2;
   ELSE
-    RETURN _p.usr_id;
+    RETURN 1;
   END IF;
 
 END;
