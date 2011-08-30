@@ -49,7 +49,7 @@ BEGIN
     IF (_rows = 0 ) THEN
       -- Was it a non-controlled sales order item?
       SELECT shipitem_id, shipitem_qty, shipitem_orderitem_id,
-        shiphead_id, shiphead_order_type,
+        shiphead_id, shiphead_order_type, shipitem_value, shipitem_invhist_id,
         itemsite_loccntrl, itemsite_costmethod, itemsite_controlmethod,
         cohead_prj_id AS prj_id
       INTO _r
@@ -67,7 +67,7 @@ BEGIN
     IF (_rows = 0 AND fetchmetricbool('MultiWhs') ) THEN
       -- Was it a non-controlled transfer order item?
       SELECT shipitem_id, shipitem_qty, shipitem_orderitem_id,
-        shiphead_id, shiphead_order_type,
+        shiphead_id, shiphead_order_type, shipitem_value, shipitem_invhist_id,
         itemsite_loccntrl, itemsite_costmethod, itemsite_controlmethod,
         NULL AS prj_id
       INTO _r
