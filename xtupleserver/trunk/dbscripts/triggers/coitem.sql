@@ -105,6 +105,13 @@ BEGIN
     NEW.coitem_memo		:= COALESCE(NEW.coitem_memo,'');
     NEW.coitem_prcost		:= COALESCE(NEW.coitem_prcost,0);
     NEW.coitem_warranty	:= COALESCE(NEW.coitem_warranty,false);
+
+    IF (NEW.coitem_status='O') THEN
+      UPDATE cohead SET cohead_status = 'O'
+       WHERE ((cohead_id=NEW.coitem_cohead_id)
+         AND  (cohead_status='C'));
+    END IF;
+
     RETURN NEW;
 
   ELSIF (TG_OP = 'DELETE') THEN
@@ -288,23 +295,22 @@ BEGIN
     END IF;
 
     RETURN OLD;
-  ELSE
-    IF (TG_OP = 'UPDATE') THEN
-    
-      IF (OLD.coitem_status <> NEW.coitem_status) THEN
-        IF ( (SELECT (count(*) < 1)
-                FROM coitem
-               WHERE ((coitem_cohead_id=NEW.coitem_cohead_id)
-                 AND  (coitem_id != NEW.coitem_id)
-                 AND  (coitem_status='O')) ) AND (NEW.coitem_status<>'O') ) THEN
-          UPDATE cohead SET cohead_status = 'C'
-           WHERE ((cohead_id=NEW.coitem_cohead_id)
-             AND  (cohead_status='O'));
-        ELSE
-          UPDATE cohead SET cohead_status = 'O'
-           WHERE ((cohead_id=NEW.coitem_cohead_id)
-             AND  (cohead_status='C'));
-        END IF;
+  END IF;
+
+  IF (TG_OP = 'UPDATE') THEN
+    IF (OLD.coitem_status <> NEW.coitem_status) THEN
+      IF ( (SELECT (count(*) < 1)
+              FROM coitem
+             WHERE ((coitem_cohead_id=NEW.coitem_cohead_id)
+               AND  (coitem_id != NEW.coitem_id)
+               AND  (coitem_status='O')) ) AND (NEW.coitem_status<>'O') ) THEN
+        UPDATE cohead SET cohead_status = 'C'
+         WHERE ((cohead_id=NEW.coitem_cohead_id)
+           AND  (cohead_status='O'));
+      ELSE
+        UPDATE cohead SET cohead_status = 'O'
+         WHERE ((cohead_id=NEW.coitem_cohead_id)
+           AND  (cohead_status='C'));
       END IF;
     END IF;
   END IF;
