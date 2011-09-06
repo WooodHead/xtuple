@@ -118,7 +118,7 @@ BEGIN
           pohead_vend_cntct_email, pohead_vendaddress1,
           pohead_vendaddress2, pohead_vendaddress3,
           pohead_vendcity, pohead_vendstate,
-          pohead_vendzipcode, pohead_vendcountry )
+          pohead_vendzipcode, pohead_vendcountry, pohead_comments )
       VALUES
         ( _poheadid, _ponumber, 'U', pDropShip,
           getEffectiveXtUser(), _i.itemsrc_vend_id, _i.vend_taxzone_id,
@@ -143,7 +143,7 @@ BEGIN
           COALESCE(_i.cntct_email, TEXT('')), COALESCE(_i.addr_line1, TEXT('')),
           COALESCE(_i.addr_line2, TEXT('')), COALESCE(_i.addr_line3, TEXT('')),
           COALESCE(_i.addr_city, TEXT('')), COALESCE(_i.addr_state, TEXT('')),
-          COALESCE(_i.addr_postalcode, TEXT('')), COALESCE(_i.addr_country, TEXT('')) );
+          COALESCE(_i.addr_postalcode, TEXT('')), COALESCE(_i.addr_country, TEXT('')), COALESCE(_s.cohead_shipcomments, TEXT('')) );
     ELSE
       INSERT INTO pohead
         ( pohead_id, pohead_number, pohead_status, pohead_dropship,
@@ -219,25 +219,46 @@ BEGIN
     _price := pPrice;
   END IF;
 
-  INSERT INTO poitem
-    ( poitem_id, poitem_status, poitem_pohead_id, poitem_linenumber, 
-      poitem_duedate, poitem_itemsite_id,
-      poitem_vend_item_descrip, poitem_vend_uom,
-      poitem_invvenduomratio, poitem_qty_ordered, 
-      poitem_unitprice, poitem_vend_item_number, 
-      poitem_itemsrc_id, poitem_soitem_id, poitem_prj_id, poitem_stdcost, 
-      poitem_manuf_name, poitem_manuf_item_number, 
-      poitem_manuf_item_descrip, poitem_taxtype_id )
-  VALUES
-    ( _poitemid, 'U', _poheadid, _polinenumber,
-      _s.coitem_scheddate, _s.coitem_itemsite_id,
-      COALESCE(_i.itemsrc_vend_item_descrip, TEXT('')), COALESCE(_i.itemsrc_vend_uom, TEXT('')),
-      COALESCE(_i.itemsrc_invvendoruomratio, 1.00), (_s.orderqty / COALESCE(_i.itemsrc_invvendoruomratio, 1.00)),
-      _price, COALESCE(_i.itemsrc_vend_item_number, TEXT('')),
-      pItemSourceId, pCoitemId, _s.cohead_prj_id, stdcost(_i.itemsrc_item_id),
-      COALESCE(_i.itemsrc_manuf_name, TEXT('')), COALESCE(_i.itemsrc_manuf_item_number, TEXT('')),
-      COALESCE(_i.itemsrc_manuf_item_descrip, TEXT('')), _taxtypeid );
-
+  IF (pDropShip) THEN
+    INSERT INTO poitem
+      ( poitem_id, poitem_status, poitem_pohead_id, poitem_linenumber, 
+        poitem_duedate, poitem_itemsite_id,
+        poitem_vend_item_descrip, poitem_vend_uom,
+        poitem_invvenduomratio, poitem_qty_ordered, 
+        poitem_unitprice, poitem_vend_item_number, 
+        poitem_itemsrc_id, poitem_soitem_id, poitem_prj_id, poitem_stdcost, 
+        poitem_manuf_name, poitem_manuf_item_number, 
+        poitem_manuf_item_descrip, poitem_taxtype_id, poitem_comments )
+    VALUES
+      ( _poitemid, 'U', _poheadid, _polinenumber,
+        _s.coitem_scheddate, _s.coitem_itemsite_id,
+        COALESCE(_i.itemsrc_vend_item_descrip, TEXT('')), COALESCE(_i.itemsrc_vend_uom, TEXT('')),
+        COALESCE(_i.itemsrc_invvendoruomratio, 1.00), (_s.orderqty / COALESCE(_i.itemsrc_invvendoruomratio, 1.00)),
+        _price, COALESCE(_i.itemsrc_vend_item_number, TEXT('')),
+        pItemSourceId, pCoitemId, _s.cohead_prj_id, stdcost(_i.itemsrc_item_id),
+        COALESCE(_i.itemsrc_manuf_name, TEXT('')), COALESCE(_i.itemsrc_manuf_item_number, TEXT('')),
+        COALESCE(_i.itemsrc_manuf_item_descrip, TEXT('')), _taxtypeid,
+        COALESCE(_s.coitem_memo, TEXT('')));
+  ELSE
+    INSERT INTO poitem
+      ( poitem_id, poitem_status, poitem_pohead_id, poitem_linenumber, 
+        poitem_duedate, poitem_itemsite_id,
+        poitem_vend_item_descrip, poitem_vend_uom,
+        poitem_invvenduomratio, poitem_qty_ordered, 
+        poitem_unitprice, poitem_vend_item_number, 
+        poitem_itemsrc_id, poitem_soitem_id, poitem_prj_id, poitem_stdcost, 
+        poitem_manuf_name, poitem_manuf_item_number, 
+        poitem_manuf_item_descrip, poitem_taxtype_id )
+    VALUES
+      ( _poitemid, 'U', _poheadid, _polinenumber,
+        _s.coitem_scheddate, _s.coitem_itemsite_id,
+        COALESCE(_i.itemsrc_vend_item_descrip, TEXT('')), COALESCE(_i.itemsrc_vend_uom, TEXT('')),
+        COALESCE(_i.itemsrc_invvendoruomratio, 1.00), (_s.orderqty / COALESCE(_i.itemsrc_invvendoruomratio, 1.00)),
+        _price, COALESCE(_i.itemsrc_vend_item_number, TEXT('')),
+        pItemSourceId, pCoitemId, _s.cohead_prj_id, stdcost(_i.itemsrc_item_id),
+        COALESCE(_i.itemsrc_manuf_name, TEXT('')), COALESCE(_i.itemsrc_manuf_item_number, TEXT('')),
+        COALESCE(_i.itemsrc_manuf_item_descrip, TEXT('')), _taxtypeid );
+  END IF;
   -- Copy characteristics from the coitem to the poitem
   INSERT INTO charass
     ( charass_target_type, charass_target_id, charass_char_id,
