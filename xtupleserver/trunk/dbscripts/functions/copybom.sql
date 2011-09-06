@@ -44,6 +44,15 @@ BEGIN
     PERFORM deleteBOMWorkset(_bomworksetid);
   END IF;
 
+  INSERT INTO bomhead
+  ( bomhead_item_id, bomhead_serial, bomhead_docnum,
+    bomhead_batchsize, bomhead_requiredqtyper )
+  SELECT pTItemid, bomhead_serial, bomhead_docnum,
+         bomhead_batchsize, bomhead_requiredqtyper
+  FROM bomhead
+  WHERE ((bomhead_item_id=pSItemid)
+    AND  (bomhead_rev_id=getActiveRevID('BOM', pSItemid)));
+
   FOR _r IN SELECT bomitem.*
             FROM bomitem(pSItemid) 
             WHERE (bomitem_expires>CURRENT_DATE) LOOP
