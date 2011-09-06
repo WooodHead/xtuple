@@ -4,7 +4,11 @@ DECLARE
 BEGIN
 
   --  Checks
-  IF NOT (checkPrivilege('MaintainProjects')) THEN
+  IF (NEW.prj_owner_username=getEffectiveXtUser()) THEN
+    IF (NOT checkPrivilege('MaintainAllProjects') AND NOT checkPrivilege('MaintainPersonalProjects')) THEN
+      RAISE EXCEPTION 'You do not have privileges to maintain Projects.';
+    END IF;
+  ELSIF (NOT checkPrivilege('MaintainAllProjects')) THEN
     RAISE EXCEPTION 'You do not have privileges to maintain Projects.';
   END IF;
 
@@ -20,7 +24,11 @@ DECLARE
   _recurid     INTEGER;
   _newparentid INTEGER;
 BEGIN
-  IF NOT (checkPrivilege('MaintainProjects')) THEN
+  IF (OLD.prj_owner_username=getEffectiveXtUser()) THEN
+    IF (NOT checkPrivilege('MaintainAllProjects') AND NOT checkPrivilege('MaintainPersonalProjects')) THEN
+      RAISE EXCEPTION 'You do not have privileges to maintain Projects.';
+    END IF;
+  ELSIF (NOT checkPrivilege('MaintainAllProjects')) THEN
     RAISE EXCEPTION 'You do not have privileges to maintain Projects.';
   END IF;
 
