@@ -24,7 +24,14 @@ SELECT DISTINCT -1 AS id,
        NULL::numeric AS value,
        0 AS xtindentrole
   FROM quhead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=quhead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
  WHERE (quhead_prj_id = <? value("prj_id") ?>)
+<? if exists("owner_username") ?>
+   AND (quhead_owner_username=<? value("owner_username") ?>)
+<? endif ?>
 
 UNION ALL
 
@@ -50,8 +57,15 @@ SELECT quhead_id AS id,
        NULL AS value,
        1 AS xtindentrole
   FROM quhead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=quhead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN quitem ON (quitem_quhead_id = quhead_id)
  WHERE (quhead_prj_id = <? value("prj_id") ?>)
+<? if exists("owner_username") ?>
+   AND (quhead_owner_username=<? value("owner_username") ?>)
+<? endif ?>
 GROUP BY quhead_id, quhead_number, quhead_status, quhead_expire, quhead_freight, quhead_misc
 
 UNION ALL
@@ -78,11 +92,18 @@ SELECT quitem_id AS id,
        (quitem_qtyord * quitem_qty_invuomratio) * (quitem_price / quitem_price_invuomratio) AS value,
        2 AS xtindentrole
   FROM quhead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=quhead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN quitem ON (quitem_quhead_id = quhead_id)
     JOIN uom ON (quitem_qty_uom_id = uom_id)
     JOIN itemsite ON (quitem_itemsite_id = itemsite_id)
     JOIN item ON (itemsite_item_id = item_id)
  WHERE (quhead_prj_id = <? value("prj_id") ?>)
+<? if exists("owner_username") ?>
+   AND (quhead_owner_username=<? value("owner_username") ?>)
+<? endif ?>
 
 UNION ALL
 
@@ -100,8 +121,15 @@ SELECT quhead_id AS id,
        SUM((quitem_qtyord * quitem_qty_invuomratio) * (quitem_price / quitem_price_invuomratio)) AS value,
        1 AS xtindentrole
   FROM quhead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=quhead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN quitem ON (quitem_quhead_id = quhead_id)
  WHERE (quhead_prj_id = <? value("prj_id") ?>)
+<? if exists("owner_username") ?>
+   AND (quhead_owner_username=<? value("owner_username") ?>)
+<? endif ?>
 GROUP BY quhead_id, quhead_number
 
 UNION ALL
@@ -120,8 +148,15 @@ SELECT -1 AS id,
        SUM((quitem_qtyord * quitem_qty_invuomratio) * (quitem_price / quitem_price_invuomratio)) AS value,
        1 AS xtindentrole
   FROM quhead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=quhead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN quitem ON (quitem_quhead_id = quhead_id)
  WHERE (quhead_prj_id = <? value("prj_id") ?>)
+<? if exists("owner_username") ?>
+   AND (quhead_owner_username=<? value("owner_username") ?>)
+<? endif ?>
 
 UNION ALL
 
@@ -140,6 +175,10 @@ SELECT DISTINCT -1 AS id,
        NULL::numeric AS value,
        0 AS xtindentrole
   FROM cohead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=cohead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
  WHERE (cohead_prj_id = <? value("prj_id") ?>)
 
 UNION ALL
@@ -177,6 +216,10 @@ SELECT cohead_id AS id,
        NULL AS value,
        1 AS xtindentrole
   FROM cohead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=cohead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN coitem ON (coitem_cohead_id = cohead_id)
  WHERE (cohead_prj_id = <? value("prj_id") ?>)
 GROUP BY cohead_id, cohead_number
@@ -203,6 +246,10 @@ SELECT coitem_id AS id,
        (coitem_qtyord * coitem_qty_invuomratio) * (coitem_price / coitem_price_invuomratio) AS value,
        2 AS xtindentrole
   FROM cohead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=cohead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN coitem ON (coitem_cohead_id = cohead_id)
     JOIN uom ON (coitem_qty_uom_id = uom_id)
     JOIN itemsite ON (coitem_itemsite_id = itemsite_id)
@@ -225,6 +272,10 @@ SELECT cohead_id AS id,
        SUM((coitem_qtyord * coitem_qty_invuomratio) * (coitem_price / coitem_price_invuomratio)) AS value,
        1 AS xtindentrole
   FROM cohead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=cohead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN coitem ON (coitem_cohead_id = cohead_id)
  WHERE (cohead_prj_id = <? value("prj_id") ?>)
 GROUP BY cohead_id, cohead_number
@@ -245,6 +296,10 @@ SELECT -1 AS id,
        SUM((coitem_qtyord * coitem_qty_invuomratio) * (coitem_price / coitem_price_invuomratio)) AS value,
        1 AS xtindentrole
   FROM cohead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=cohead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN coitem ON (coitem_cohead_id = cohead_id)
  WHERE (cohead_prj_id = <? value("prj_id") ?>)
 
@@ -265,6 +320,10 @@ SELECT DISTINCT -1 AS id,
        NULL::numeric AS value,
        0 AS xtindentrole
   FROM invchead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=invchead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
  WHERE (invchead_prj_id = <? value("prj_id") ?>)
 
 UNION ALL
@@ -286,6 +345,10 @@ SELECT invchead_id AS id,
        NULL AS value,
        1 AS xtindentrole
   FROM invchead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=invchead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN invcitem ON (invcitem_invchead_id = invchead_id)
  WHERE (invchead_prj_id = <? value("prj_id") ?>)
 GROUP BY invchead_id, invchead_invcnumber, invchead_freight, invchead_misc_amount, invchead_posted
@@ -309,6 +372,10 @@ SELECT invcitem_id AS id,
        (invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio) AS value,
        2 AS xtindentrole
   FROM invchead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=invchead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN invcitem ON (invcitem_invchead_id = invchead_id)
     LEFT OUTER JOIN item ON (invcitem_item_id = item_id)
     LEFT OUTER JOIN uom ON (invcitem_qty_uom_id = uom_id)
@@ -330,6 +397,10 @@ SELECT invchead_id AS id,
        SUM((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio)) AS value,
        1 AS xtindentrole
   FROM invchead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=invchead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN invcitem ON (invcitem_invchead_id = invchead_id)
  WHERE (invchead_prj_id = <? value("prj_id") ?>)
 GROUP BY invchead_id, invchead_invcnumber
@@ -350,6 +421,10 @@ SELECT -1 AS id,
        SUM((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price / invcitem_price_invuomratio)) AS value,
        1 AS xtindentrole
   FROM invchead
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=invchead_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN invcitem ON (invcitem_invchead_id = invchead_id)
  WHERE (invchead_prj_id = <? value("prj_id") ?>)
 
@@ -379,6 +454,10 @@ SELECT DISTINCT -1 AS id,
        NULL::numeric AS value,
        0 AS xtindentrole
   FROM wo
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=wo_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
  WHERE (wo_prj_id = <? value("prj_id") ?>)
 
 UNION ALL
@@ -407,6 +486,10 @@ SELECT wo_id AS id,
        wo_postedvalue AS value,
        1 AS xtindentrole
   FROM wo
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=wo_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN itemsite ON (itemsite_id=wo_itemsite_id)
     JOIN item ON (itemsite_item_id=item_id)
     JOIN uom ON (item_inv_uom_id=uom_id)
@@ -428,6 +511,10 @@ SELECT -1 AS id,
        SUM(wo_postedvalue) AS value,
        1 AS xtindentrole
   FROM wo
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=wo_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
  WHERE (wo_prj_id = <? value("prj_id") ?>)
 
 <? endif ?>
@@ -455,6 +542,10 @@ SELECT DISTINCT -1 AS id,
        NULL::numeric AS value,
        0 AS xtindentrole
   FROM pr
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=pr_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
  WHERE (pr_prj_id = <? value("prj_id") ?>)
 
 UNION ALL
@@ -473,6 +564,10 @@ SELECT pr_id AS id,
        stdcost(item_id) * pr_qtyreq AS value,
        1 AS xtindentrole
   FROM pr
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=pr_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN itemsite ON (itemsite_id = pr_itemsite_id)
     JOIN item ON (itemsite_item_id = item_id)
     JOIN uom ON (item_inv_uom_id = uom_id)
@@ -494,6 +589,10 @@ SELECT -1 AS id,
        SUM(stdcost(item_id) * pr_qtyreq) AS value,
        1 AS xtindentrole
   FROM pr
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=pr_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     JOIN itemsite ON (itemsite_id = pr_itemsite_id)
     JOIN item ON (itemsite_item_id = item_id)
  WHERE (pr_prj_id = <? value("prj_id") ?>)
@@ -515,6 +614,10 @@ SELECT DISTINCT -1 AS id,
        NULL::numeric AS value,
        0 AS xtindentrole
   FROM poitem
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=poitem_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
  WHERE (poitem_prj_id = <? value("prj_id") ?>)
 
 UNION ALL
@@ -540,6 +643,10 @@ SELECT pohead_id AS id,
        1 AS xtindentrole
   FROM pohead
     JOIN poitem ON (poitem_pohead_id = pohead_id)
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=poitem_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
  WHERE (poitem_prj_id = <? value("prj_id") ?>)
 GROUP BY pohead_id, pohead_number, pohead_freight, pohead_status
 
@@ -566,6 +673,10 @@ SELECT poitem_id AS id,
        2 AS xtindentrole
   FROM pohead
     JOIN poitem ON (poitem_pohead_id = pohead_id)
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=poitem_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
     LEFT OUTER JOIN itemsite ON (poitem_itemsite_id=itemsite_id)
     LEFT OUTER JOIN item ON (itemsite_item_id = item_id)
  WHERE (poitem_prj_id = <? value("prj_id") ?>)
@@ -587,6 +698,10 @@ SELECT pohead_id AS id,
        1 AS xtindentrole
   FROM pohead
     JOIN poitem ON (poitem_pohead_id = pohead_id)
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=poitem_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
  WHERE (poitem_prj_id = <? value("prj_id") ?>)
 GROUP BY pohead_id, pohead_number
 
@@ -607,6 +722,10 @@ SELECT -1 AS id,
        1 AS xtindentrole
   FROM pohead
     JOIN poitem ON (poitem_pohead_id = pohead_id)
+<? if exists("owner_username") ?>
+    JOIN prj ON (prj_id=poitem_prj_id
+            AND ((prj_owner_username=<? value("owner_username") ?>) OR (prj_username=<? value("owner_username") ?>)))
+<? endif ?>
  WHERE (poitem_prj_id = <? value("prj_id") ?>)
 
 <? endif ?>

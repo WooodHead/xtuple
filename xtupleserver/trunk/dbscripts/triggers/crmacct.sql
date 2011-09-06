@@ -81,7 +81,7 @@ BEGIN
     END IF;
 
     IF (NEW.crmacct_prospect_id IS NOT NULL) THEN
-      _gotpriv := grantPriv(getEffectiveXtUser(), 'MaintainProspectMasters');
+      _gotpriv := grantPriv(getEffectiveXtUser(), 'MaintainAllProspects');
       UPDATE prospect SET prospect_number = NEW.crmacct_number
       WHERE ((prospect_id=NEW.crmacct_prospect_id)
         AND  (prospect_number!=NEW.crmacct_number));
@@ -89,7 +89,7 @@ BEGIN
       WHERE ((prospect_id=NEW.crmacct_prospect_id)
         AND  (prospect_name!=NEW.crmacct_name));
       IF (_gotpriv) THEN
-        PERFORM revokePriv(getEffectiveXtUser(), 'MaintainProspectMasters');
+        PERFORM revokePriv(getEffectiveXtUser(), 'MaintainAllProspects');
       END IF;
     END IF;
 
@@ -134,20 +134,20 @@ BEGIN
 
     -- Link Primary and Secondary Contacts to this Account if they are not already
     IF (NEW.crmacct_cntct_id_1 IS NOT NULL) THEN
-      _gotpriv := grantPriv(getEffectiveXtUser(), 'MaintainContacts');
+      _gotpriv := grantPriv(getEffectiveXtUser(), 'MaintainAllContacts');
       UPDATE cntct SET cntct_crmacct_id = NEW.crmacct_id
        WHERE cntct_id=NEW.crmacct_cntct_id_1;
       IF (_gotpriv) THEN
-        PERFORM revokePriv(getEffectiveXtUser(), 'MaintainContacts');
+        PERFORM revokePriv(getEffectiveXtUser(), 'MaintainAllContacts');
       END IF;
     END IF;
 
     IF (NEW.crmacct_cntct_id_2 IS NOT NULL) THEN
-      _gotpriv := grantPriv(getEffectiveXtUser(), 'MaintainContacts');
+      _gotpriv := grantPriv(getEffectiveXtUser(), 'MaintainAllContacts');
       UPDATE cntct SET cntct_crmacct_id = NEW.crmacct_id
        WHERE cntct_id=NEW.crmacct_cntct_id_2;
       IF (_gotpriv) THEN
-        PERFORM revokePriv(getEffectiveXtUser(), 'MaintainContacts');
+        PERFORM revokePriv(getEffectiveXtUser(), 'MaintainAllContacts');
       END IF;
     END IF;
 

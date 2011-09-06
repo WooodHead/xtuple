@@ -4,7 +4,7 @@
 
 SELECT DISTINCT ON (incdt_number) incdt_id AS id,
 incdt_number, DATE(incdt_timestamp) AS incdt_timestamp,
-crmacct_name, incdt_owner_username,  
+crmacct_name,
 incdtcat_name, incdtseverity_name,  
 incdtpriority_name, crmacct_name, 
 CASE WHEN(incdt_status='N') THEN <? value("new") ?>
@@ -68,6 +68,9 @@ AND (status_seq < <? value("status_above") ?>)
 <? endif ?>
 <? if exists("cntct_id") ?> 
 AND (incdt_cntct_id = <? value("cntct_id") ?>) 
+<? endif ?>
+<? if exists("username") ?>
+AND (incdt_assigned_username=<? value("username") ?> OR incdt_owner_username=<? value("username") ?>)
 <? endif ?>
 <? if exists("owner_username") ?> 
 AND (incdt_owner_username=<? value("owner_username") ?>) 

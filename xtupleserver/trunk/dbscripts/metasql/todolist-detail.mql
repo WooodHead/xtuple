@@ -216,8 +216,16 @@ WHERE (true)
   <? if not exists("completed") ?>
   AND (active)			
   <? endif ?>
-  <? if exists("username") ?> 
-  AND (owner=<? value("username") ?> OR assigned=<? value("username") ?>) 
-  <? elseif exists("usr_pattern") ?>
-  AND (owner ~ <? value("usr_pattern") ?> OR assigned ~ <? value("username") ?>) 
+  <? if exists("username") ?>
+  AND (assigned=<? value("username") ?> OR owner=<? value("username") ?>)
+  <? endif ?>
+  <? if exists("assigned_username") ?> 
+  AND (assigned=<? value("assigned_username") ?>) 
+  <? elseif exists("assigned_usr_pattern") ?>
+  AND (assigned ~ <? value("assigned_usr_pattern") ?>) 
+  <? endif ?>
+  <? if exists("owner_username") ?> 
+  AND (owner=<? value("owner_username") ?>) 
+  <? elseif exists("owner_usr_pattern") ?>
+  AND (owner ~ <? value("owner_usr_pattern") ?>) 
   <? endif ?>

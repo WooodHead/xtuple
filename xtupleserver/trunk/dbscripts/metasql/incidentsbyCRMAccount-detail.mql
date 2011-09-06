@@ -24,8 +24,12 @@ FROM crmacct
                       AND (incdt_status != 'L')
 <? endif ?>
                        )
+WHERE (true)
 <? if exists("crmacct_id") ?>
-WHERE (crmacct_id=<? value("crmacct_id") ?>)
+  AND (crmacct_id=<? value("crmacct_id") ?>)
+<? endif ?>
+<? if exists("owner_username") ?>
+  AND (crmacct_owner_username=<? value("owner_username") ?>)
 <? endif ?>
 GROUP BY crmacct_id, crmacct_number, crmacct_name
 
@@ -59,6 +63,10 @@ WHERE ((incdt_crmacct_id=crmacct_id)
 <? if exists("crmacct_id") ?>
    AND (crmacct_id=<? value("crmacct_id") ?>)
 <? endif ?>
+<? if exists("owner_username") ?>
+  AND (crmacct_owner_username=<? value("owner_username") ?>)
+  AND ((incdt_owner_username=<? value("owner_username") ?>) OR (incdt_assigned_username=<? value("owner_username") ?>))
+<? endif ?>
       )
 
 UNION
@@ -87,6 +95,11 @@ FROM crmacct
 WHERE ((todoitem_status IS NULL OR todoitem_status != 'C')
 <? if exists("crmacct_id") ?>
    AND (crmacct_id=<? value("crmacct_id") ?>)
+<? endif ?>
+<? if exists("owner_username") ?>
+  AND (crmacct_owner_username=<? value("owner_username") ?>)
+  AND ((incdt_owner_username=<? value("owner_username") ?>) OR (incdt_assigned_username=<? value("owner_username") ?>))
+  AND ((todoitem_owner_username=<? value("owner_username") ?>) OR (todoitem_username=<? value("owner_username") ?>))
 <? endif ?>
       )
 ORDER BY crmacct_name, incdt_timestamp, xtindentrole, duedate;

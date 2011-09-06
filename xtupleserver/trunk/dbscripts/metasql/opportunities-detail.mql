@@ -86,10 +86,19 @@ WHERE((true)
    AND (optype_name ~ <? value("optype_pattern") ?>)
 <? endif ?>
 <? if exists("username") ?>
-   AND (ophead_owner_username=<? value("username") ?> OR ophead_username=<? value("username") ?>)
+   AND (ophead_username=<? value("username") ?> OR ophead_owner_username=<? value("username") ?>)
 <? endif ?>
-<? if exists("usr_pattern") ?>
-   AND (ophead_owner_username ~ <? value("usr_pattern") ?> OR ophead_username ~ <? value("usr_pattern") ?>)
+<? if exists("assigned_username") ?>
+   AND (ophead_username=<? value("assigned_username") ?>)
+<? endif ?>
+<? if exists("assigned_usr_pattern") ?>
+   AND (ophead_username ~ <? value("assigned_usr_pattern") ?>)
+<? endif ?>
+<? if exists("owner_username") ?>
+   AND (ophead_owner_username=<? value("owner_username") ?>)
+<? endif ?>
+<? if exists("owner_usr_pattern") ?>
+   AND (ophead_owner_username ~ <? value("owner_usr_pattern") ?>)
 <? endif ?>
 <? if exists("crmacct_id") ?>
    AND (ophead_crmacct_id = <? value("crmacct_id") ?>)

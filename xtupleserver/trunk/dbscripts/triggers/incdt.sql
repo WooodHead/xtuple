@@ -1,22 +1,25 @@
 CREATE OR REPLACE FUNCTION _incdtBeforeTrigger() RETURNS "trigger" AS $$
 DECLARE
+  _rec          RECORD;
   _check        BOOLEAN;
   _crmacct      INTEGER;
 
 BEGIN
 
-  --  Checks
-  -- Start with privileges
-  IF (TG_OP = 'INSERT') THEN
-    SELECT checkPrivilege('AddIncidents') INTO _check;
-    IF NOT (_check) THEN
-      RAISE EXCEPTION 'You do not have privileges to add new Incidents.';
-    END IF;
+  IF(TG_OP = 'DELETE') THEN
+    _rec := OLD;
   ELSE
-    SELECT checkPrivilege('MaintainIncidents') INTO _check;
-    IF NOT (_check) THEN
-      RAISE EXCEPTION 'You do not have privileges to alter an Incident.';
-    END IF;
+    _rec := NEW;
+  END IF;
+
+  --  Checks
+  IF (_rec.incdt_owner_username=getEffectiveXtUser()) THEN
+    SELECT (checkPrivilege('MaintainAllIncidents') OR checkPrivilege('MaintainPersonalIncidents')) INTO _check;
+  ELSE
+    SELECT checkPrivilege('MaintainAllIncidents') INTO _check;
+  END IF;
+  IF NOT (_check) THEN
+    RAISE EXCEPTION 'You do not have privileges to maintain Incidents.';
   END IF;
 
   -- Set the incident number if blank
