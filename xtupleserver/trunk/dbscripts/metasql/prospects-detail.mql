@@ -2,7 +2,7 @@
 -- Name:  detail
 -- Notes: 
 SELECT 
-  prospect_id AS id, prospect_number, prospect_name,
+  prospect.*,
   cntct.*, addr.*
 FROM prospect 
   LEFT OUTER JOIN cntct ON (prospect_cntct_id=cntct_id) 
@@ -10,6 +10,11 @@ FROM prospect
 WHERE true
 <? if not exists("showInactive") ?> 
   AND prospect_active 
+<? endif ?>
+<? if exists("owner_username") ?> 
+  AND (prospect_owner_username=<? value("owner_username") ?>) 
+<? elseif exists("owner_usr_pattern") ?>
+  AND (prospect_owner_username ~ <? value("owner_usr_pattern") ?>) 
 <? endif ?>
 <? if exists("search_pattern") ?>
   AND ((prospect_number ~* <? value("search_pattern") ?>)

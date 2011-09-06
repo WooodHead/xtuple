@@ -1,10 +1,23 @@
 CREATE OR REPLACE FUNCTION _opheadBeforeTrigger () RETURNS TRIGGER AS $$
 DECLARE
+  _rec record;
+  _check boolean;
   _test text;
 BEGIN
 
+  IF(TG_OP = 'DELETE') THEN
+    _rec := OLD;
+  ELSE
+    _rec := NEW;
+  END IF;
+
   --  Checks
-  IF NOT (checkPrivilege('MaintainOpportunities')) THEN
+  IF (_rec.ophead_username=getEffectiveXtUser()) THEN
+    SELECT (checkPrivilege('MaintainAllOpportunities') OR checkPrivilege('MaintainPersonalOpportunities')) INTO _check;
+  ELSE
+    SELECT checkPrivilege('MaintainAllOpportunities') INTO _check;
+  END IF;
+  IF NOT (_check) THEN
     RAISE EXCEPTION 'You do not have privileges to maintain Opportunities.';
   END IF;
 

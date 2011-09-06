@@ -41,6 +41,11 @@ FROM cntct
   LEFT OUTER JOIN char char_alias<? literal("char_id_date_list") ?> ON (charass_alias<? literal("char_id_date_list") ?>.charass_char_id=char_alias<? literal("char_id_date_list") ?>.char_id)
 <? endforeach ?>
 WHERE true
+<? if exists("owner_username") ?> 
+  AND (cntct_owner_username=<? value("owner_username") ?>) 
+<? elseif exists("owner_usr_pattern") ?>
+  AND (cntct_owner_username ~ <? value("owner_usr_pattern") ?>) 
+<? endif ?>
 <? if exists("activeOnly") ?> 
   AND cntct_active
 <? endif ?>
