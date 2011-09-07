@@ -561,7 +561,7 @@ BEGIN
     IF (TG_OP = 'INSERT') THEN
   -- Create Sub Lines for Kit Components
       PERFORM explodeKit(NEW.coitem_cohead_id, NEW.coitem_linenumber, 0, NEW.coitem_itemsite_id,
-                         NEW.coitem_qtyord, NEW.coitem_scheddate, NEW.coitem_promdate);
+                         NEW.coitem_qtyord, NEW.coitem_scheddate, NEW.coitem_promdate, NEW.coitem_memo);
       IF (fetchMetricBool('KitComponentInheritCOS')) THEN
   -- Update kit line item COS
         UPDATE coitem
