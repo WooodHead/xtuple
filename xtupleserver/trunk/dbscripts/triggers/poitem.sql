@@ -117,6 +117,9 @@ BEGIN
 						WHERE (poitem_pohead_id=NEW.poitem_pohead_id)));
     NEW.poitem_status                  := _status;
     NEW.poitem_invvenduomratio 	:= COALESCE(NEW.poitem_invvenduomratio,1);
+    IF (NEW.poitem_invvenduomratio = 0.0) THEN
+      NEW.poitem_invvenduomratio = 1.0;
+    END IF;
     NEW.poitem_vend_item_number 	:= COALESCE(NEW.poitem_vend_item_number,'');
     NEW.poitem_vend_item_descrip   	:= COALESCE(NEW.poitem_vend_item_descrip,'');
     NEW.poitem_unitprice       	:= COALESCE(NEW.poitem_unitprice,(
