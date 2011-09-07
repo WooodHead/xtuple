@@ -20,6 +20,21 @@ DECLARE
   pQty ALIAS FOR $5;
   pScheddate ALIAS FOR $6;
   pPromdate ALIAS FOR $7;
+BEGIN
+  RETURN explodeKit(pSoheadid, pLinenumber, pSubnumber, pItemsiteid, pQty, CURRENT_DATE, NULL, '');
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION explodeKit(INTEGER, INTEGER, INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT) RETURNS INTEGER AS $$
+DECLARE
+  pSoheadid ALIAS FOR $1;
+  pLinenumber ALIAS FOR $2;
+  pSubnumber ALIAS FOR $3;
+  pItemsiteid ALIAS FOR $4;
+  pQty ALIAS FOR $5;
+  pScheddate ALIAS FOR $6;
+  pPromdate ALIAS FOR $7;
+  pMemo ALIAS FOR $8;
   _subnumber INTEGER := COALESCE(pSubnumber,0);
   _revid INTEGER;
   _itemid INTEGER;
@@ -100,7 +115,7 @@ BEGIN
              stdCost(_item.item_id), 0,
              0, _item.item_price_uom_id, 1,
              _type, -1,
-             '', '',
+             '', pMemo,
              0);
 
       IF (_item.itemsite_createsopr) THEN
