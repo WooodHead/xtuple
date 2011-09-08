@@ -58,4 +58,10 @@ UPDATE priv set priv_name='MaintainAllQuotes', priv_descrip='Can Add/Edit/Delete
 INSERT INTO priv (priv_module, priv_name, priv_descrip) VALUES ('Sales', 'ViewPersonalQuotes', 'Can View Quotes when Owner or Assigned');
 INSERT INTO priv (priv_module, priv_name, priv_descrip) VALUES ('Sales', 'MaintainPersonalQuotes', 'Can Add/Edit/Delete Quotes when Owner or Assigned');
 
+ALTER TABLE priv ADD COLUMN priv_seq INTEGER;
+UPDATE priv set priv_seq = 0 WHERE priv_name ~ 'MaintainAll';
+UPDATE priv set priv_seq = 1 WHERE priv_name ~ 'ViewAll';
+UPDATE priv set priv_seq = 2 WHERE priv_name ~ 'MaintainPersonal';
+UPDATE priv set priv_seq = 4 WHERE priv_name ~ 'ViewPersonal';
+
 COMMIT;
