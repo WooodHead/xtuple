@@ -199,7 +199,7 @@ UNION ALL
 ) data
 WHERE (true)
   <? if exists("startStartDate") ?>
-  AND (start =< <? value("startStartDate") ?>)
+  AND (start <= <? value("startStartDate") ?>)
   <? endif ?>
   <? if exists("startEndDate") ?>
   AND (start >= <? value("startEndDate") ?>)
