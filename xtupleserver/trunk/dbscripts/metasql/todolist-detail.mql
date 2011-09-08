@@ -31,12 +31,17 @@ SELECT * FROM (
            'OPP'
               WHEN (todoitem_incdt_id IS NOT NULL) THEN
            'INCDT'
-         END AS parent,        
+         END AS parent,
          CASE WHEN (todoitem_ophead_id IS NOT NULL) THEN
            <? value("opportunity") ?> || '-' || ophead_number
               WHEN (todoitem_incdt_id IS NOT NULL) THEN
            <? value("incident") ?> || '-' || incdt_number
          END AS parent_qtdisplayrole,
+         CASE WHEN (todoitem_ophead_id IS NOT NULL) THEN
+           <? value("opportunity") ?> || '-' || ophead_number
+              WHEN (todoitem_incdt_id IS NOT NULL) THEN
+           <? value("incident") ?> || '-' || incdt_number
+         END AS f_parent,
          COALESCE(todoitem_ophead_id, todoitem_incdt_id) AS parent_xtidrole,
          COALESCE(crmacct_cust_id,-1) > 0 AS cust_qtdisplayrole,
          crmacct_cust_id AS cust,
@@ -79,6 +84,7 @@ UNION ALL
          crmacct_name,
          '' AS parent,
          '' AS parent_qtdisplay_role,
+         '' AS f_parent,
          NULL AS parent_xtidrole,
          COALESCE(crmacct_cust_id,-1) > 0 AS cust_qtdisplayrole,
          COALESCE(crmacct_cust_id,-1) AS cust,
@@ -115,6 +121,7 @@ UNION ALL
            '' AS crmacct_name,
            'PRJ' AS parent,
            <? value("project") ?> || '-' || prj_number AS parent_qtdisplay_role,
+           <? value("project") ?> || '-' || prj_number AS f_parent,
            prjtask_prj_id AS parent_xtidrole,
            false AS cust_qtdisplayrole, 
            null AS cust,
@@ -152,6 +159,7 @@ UNION ALL
            '' AS crmacct_name,
            '' AS parent,
            '' AS parent_qtdisplayrole,
+           '' AS f_parent,
            NULL AS parent_xtidrole,
            false AS cust_qtdisplayrole, 
            null AS cust,
@@ -184,6 +192,7 @@ UNION ALL
          crmacct_name, 
          '' AS parent,
          '' AS parent_qtdisplayrole,
+         '' AS f_parent,
          NULL AS parent_xtidrole,
          COALESCE(crmacct_cust_id,-1) > 0 AS cust_qtdisplayrole,
          crmacct_cust_id AS cust,
