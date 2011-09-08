@@ -74,7 +74,7 @@ BEGIN
   END IF;
 
   --  Find a Shipping-Entered freight charge
-  SELECT MAX(currToCurr(shiphead_freight_curr_id, _cohead.cohead_curr_id,
+  SELECT SUM(currToCurr(shiphead_freight_curr_id, _cohead.cohead_curr_id,
 			shiphead_freight, CURRENT_DATE)),
 	 shiphead_shipvia INTO _freight, _shipVia
   FROM shiphead, shipitem
