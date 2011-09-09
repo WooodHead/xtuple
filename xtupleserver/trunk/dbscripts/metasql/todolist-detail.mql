@@ -8,7 +8,9 @@ SELECT * FROM (
          <? value("todo") ?> AS type, 
          CAST(incdt_number AS text) AS number,
          todoitem_name AS name,
-         todoitem_active AS active,
+         CASE WHEN (todoitem_active AND todoitem_status != 'C') THEN TRUE
+              ELSE FALSE
+         END AS active,
          CASE WHEN (todoitem_status='C') THEN <? value("complete") ?>
               WHEN (todoitem_status='D') THEN <? value("deferred") ?>
               WHEN (todoitem_status='P') THEN <? value("pending") ?>
