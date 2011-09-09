@@ -98,4 +98,17 @@ WHERE true
   AND (crmacct_id=<? value("id") ?>)
 <? endif ?>
 <? literal("charClause") ?>
+
+<? if exists("excludeMergeWIP") ?>
+  AND (crmacct_id NOT IN (SELECT mrgundo_base_id
+                            FROM mrgundo
+                           WHERE (mrgundo_base_schema='public')
+                             AND (mrgundo_base_table='crmacct')
+                          UNION
+                          SELECT crmacctsel_src_crmacct_id
+                            FROM crmacctsel
+                          UNION
+                          SELECT crmacctsel_dest_crmacct_id
+                            FROM crmacctsel))
+<? endif ?>
 ORDER BY crmacct_number; 
