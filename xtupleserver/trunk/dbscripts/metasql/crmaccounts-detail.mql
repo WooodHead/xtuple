@@ -22,7 +22,7 @@ SELECT DISTINCT ON (crmacct_number)
 <? foreach("char_id_date_list") ?>
   , charass_alias<? literal("char_id_date_list") ?>.charass_value::date AS char<? literal("char_id_date_list") ?>
 <? endforeach ?>
-FROM crmacct LEFT OUTER JOIN
+FROM crmacct() LEFT OUTER JOIN
   cntct ON (crmacct_cntct_id_1=cntct_id) LEFT OUTER JOIN
   addr ON (cntct_addr_id=addr_id) 
 <? foreach("char_id_text_list") ?>
