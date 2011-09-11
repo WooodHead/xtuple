@@ -1,19 +1,6 @@
 CREATE OR REPLACE FUNCTION prospect() RETURNS SETOF prospect AS $$
 DECLARE
   _row prospect%ROWTYPE;
-
-BEGIN
-  FOR _row IN SELECT * FROM prospect(false)
-  LOOP
-    RETURN NEXT _row;
-  END LOOP;
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION prospect(boolean) RETURNS SETOF prospect AS $$
-DECLARE
-  pCanBrowse ALIAS FOR $1;
-  _row prospect%ROWTYPE;
   _priv TEXT;
   _grant BOOLEAN;
 
@@ -39,44 +26,6 @@ BEGIN
     LOOP
       RETURN NEXT _row;
     END LOOP;
-    -- Allow partial view data they don't own if browsing enabled
-    IF(pCanBrowse) THEN
-      FOR _row IN 
-        SELECT prospect_id, 
-          prospect_active,
-          prospect_number, 
-          prospect_name, 
-          null AS prospect_cntct_id,
-          null AS prospect_comments,
-          null AS prospect_created,
-          null AS salesrep_id,
-          null As prospect_warehous_id,
-          null AS prospect_taxzone_id,
-          prospect_owner_username
-        FROM prospect 
-        WHERE COALESCE(prospect_owner_username,'') != getEffectiveXtUser()
-      LOOP
-        RETURN NEXT _row;
-      END LOOP;
-    END IF;
-  -- No privilege so only allow basic browsing info if specified
-  ELSIF(pCanBrowse) THEN
-    FOR _row IN 
-      SELECT prospect_id, 
-        prospect_active,
-        prospect_number, 
-        prospect_name, 
-        null AS prospect_cntct_id,
-        null AS prospect_comments,
-        null AS prospect_created,
-        null AS salesrep_id,
-        null As prospect_warehous_id,
-        null AS prospect_taxzone_id,
-        prospect_owner_username
-      FROM prospect
-    LOOP
-      RETURN NEXT _row;
-    END LOOP;
   END IF;
 
   RETURN;
@@ -84,4 +33,4 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-COMMENT ON FUNCTION prospect() IS 'A table function that returns Prospect results according to privilege settings. Optional boolen for canBrowse can be passed in to view at least partial data for all records.';
+COMMENT ON FUNCTION prospect() IS 'A table function that returns Prospect results according to privilege settings.';

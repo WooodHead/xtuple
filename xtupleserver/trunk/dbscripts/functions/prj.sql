@@ -1,19 +1,6 @@
 CREATE OR REPLACE FUNCTION prj() RETURNS SETOF prj AS $$
 DECLARE
   _row prj%ROWTYPE;
-
-BEGIN
-  FOR _row IN SELECT * FROM prj(false)
-  LOOP
-    RETURN NEXT _row;
-  END LOOP;
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION prj(boolean) RETURNS SETOF prj AS $$
-DECLARE
-  pCanBrowse ALIAS FOR $1;
-  _row prj%ROWTYPE;
   _priv TEXT;
   _grant BOOLEAN;
 
@@ -36,45 +23,7 @@ BEGIN
   ELSIF (_grant) THEN
     FOR _row IN 
       SELECT * FROM prj 
-      WHERE prj_owner_username = getEffectiveXtUser()
-      UNION
-      SELECT * FROM prj 
-      WHERE prj_username = getEffectiveXtUser()
-    LOOP
-      RETURN NEXT _row;
-    END LOOP;
-    -- Allow partial view data they don't own if browsing enabled
-    IF(pCanBrowse) THEN
-      FOR _row IN 
-        SELECT prj_id, 
-          prj_number, 
-          prj_name, 
-          null AS prj_descrip,
-          prj_status,
-          null AS prj_so,
-          null AS prj_wo,
-          null AS prj_po,
-          prj_owner_username 
-        FROM prj 
-        WHERE prj_owner_username != getEffectiveXtUser()
-          AND prj_username != getEffectiveXtUser()
-      LOOP
-        RETURN NEXT _row;
-      END LOOP;
-    END IF;
-  -- No privilege so only allow basic browsing info if specified
-  ELSIF(pCanBrowse) THEN
-    FOR _row IN 
-      SELECT prj_id, 
-        prj_number, 
-        prj_name, 
-        null AS prj_descrip,
-        prj_status,
-        null AS prj_so,
-        null AS prj_wo,
-        null AS prj_po,
-        prj_owner_username 
-      FROM prj
+      WHERE getEffectiveXtUser() IN (prj_owner_username, prj_username)
     LOOP
       RETURN NEXT _row;
     END LOOP;
@@ -85,4 +34,4 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-COMMENT ON FUNCTION prj() IS 'A table function that returns Project results according to privilege settings. Optional boolen for canBrowse can be passed in to view at least partial data for all records.';
+COMMENT ON FUNCTION prj() IS 'A table function that returns Project results according to privilege settings.';
