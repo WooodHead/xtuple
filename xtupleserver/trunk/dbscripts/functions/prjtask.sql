@@ -1,19 +1,6 @@
 CREATE OR REPLACE FUNCTION prjtask() RETURNS SETOF prjtask AS $$
 DECLARE
   _row prjtask%ROWTYPE;
-
-BEGIN
-  FOR _row IN SELECT * FROM prjtask(false)
-  LOOP
-    RETURN NEXT _row;
-  END LOOP;
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION prjtask(boolean) RETURNS SETOF prjtask AS $$
-DECLARE
-  pCanBrowse ALIAS FOR $1;
-  _row prjtask%ROWTYPE;
   _priv TEXT;
   _grant BOOLEAN;
 
@@ -35,63 +22,9 @@ BEGIN
   -- Otherwise if have any other grant, must be personal privilege.
   ELSIF (_grant) THEN
     FOR _row IN 
-      SELECT * FROM prjtask 
-      WHERE prjtask_owner_username = getEffectiveXtUser()
-      UNION
-      SELECT * FROM prjtask 
-      WHERE prjtask_username = getEffectiveXtUser()
-      UNION
       SELECT prjtask.* FROM prjtask
       JOIN prj ON prj_id=prjtask_prj_id
-      WHERE prj_username = getEffectiveXtUser()
-      UNION
-      SELECT prjtask.* FROM prjtask
-      JOIN prj ON prj_id=prjtask_prj_id
-      WHERE prj_owner_username = getEffectiveXtUser()
-    LOOP
-      RETURN NEXT _row;
-    END LOOP;
-    -- Allow partial view data they don't own if browsing enabled
-    IF(pCanBrowse) THEN
-      FOR _row IN 
-        SELECT prjtask_id, 
-          prjtask_number, 
-          prjtask_name, 
-          null AS prjtask_descrip,
-          null AS prjtask_prj_id,
-          null AS prjtask_anyuser,
-          null AS prjtask_status,
-          null AS prjtask_hours_budget,
-          null AS prjtask_hours_actual,
-          null AS prjtask_exp_budget,
-          null AS prjtask_exp_actual,
-          prjtask_owner_username
-        FROM prjtask 
-          JOIN prj ON prj_id=prjtask_prj_id
-        WHERE COALESCE(prjtask_owner_username,'') != getEffectiveXtUser()
-         AND COALESCE(prjtask_username,'') != getEffectiveXtUser()
-         AND COALESCE(prj_owner_username,'') != getEffectiveXtUser()
-         AND COALESCE(prj_username,'') != getEffectiveXtUser()
-      LOOP
-        RETURN NEXT _row;
-      END LOOP;
-    END IF;
-  -- No privilege so only allow basic browsing info if specified
-  ELSIF(pCanBrowse) THEN
-    FOR _row IN 
-      SELECT prjtask_id, 
-          prjtask_number, 
-          prjtask_name, 
-          null AS prjtask_descrip,
-          null AS prjtask_prj_id,
-          null AS prjtask_anyuser,
-          null AS prjtask_status,
-          null AS prjtask_hours_budget,
-          null AS prjtask_hours_actual,
-          null AS prjtask_exp_budget,
-          null AS prjtask_exp_actual,
-          prjtask_owner_username 
-      FROM prjtask
+      WHERE getEffectiveXtUser() IN (prjtask_owner_username,prjtask_username,prj_username,prj_owner_username)
     LOOP
       RETURN NEXT _row;
     END LOOP;
@@ -102,4 +35,4 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-COMMENT ON FUNCTION prjtask() IS 'A table function that returns Project results according to privilege settings. Optional boolen for canBrowse can be passed in to view at least partial data for all records.';
+COMMENT ON FUNCTION prjtask() IS 'A table function that returns Project results according to privilege settings.';
