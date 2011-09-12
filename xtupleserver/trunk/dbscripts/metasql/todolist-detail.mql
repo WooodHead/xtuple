@@ -224,7 +224,9 @@ WHERE (true)
   <? if exists("crmacct_id") ?>
   AND (crmacct_id =<? value("crmacct_id") ?>)
   <? endif ?>
-  <? if not exists("completed") ?>
+  <? if exists("completedonly") ?>
+  AND (NOT active)			
+  <? elseif not exists("completed") ?>
   AND (active)			
   <? endif ?>
   <? if exists("username") ?>
