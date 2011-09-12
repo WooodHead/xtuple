@@ -48,16 +48,6 @@ UPDATE priv set priv_name='MaintainAllProjects', priv_descrip='Can Add/Edit/Dele
 INSERT INTO priv (priv_module, priv_name, priv_descrip) VALUES ('CRM', 'ViewPersonalProjects', 'Can View Projects when Owner or Assigned');
 INSERT INTO priv (priv_module, priv_name, priv_descrip) VALUES ('CRM', 'MaintainPersonalProjects', 'Can Add/Edit/Delete Projects when Owner or Assigned');
 
-UPDATE priv set priv_name='ViewAllProspects', priv_descrip='Can View all Prospects' where priv_name='ViewProspectMasters';
-UPDATE priv set priv_name='MaintainAllProspects', priv_descrip='Can Add/Edit/Delete all Prospects' where priv_name='MaintainProspectMasters';
-INSERT INTO priv (priv_module, priv_name, priv_descrip) VALUES ('Sales', 'ViewPersonalProspects', 'Can View Prospects when Owner or Assigned');
-INSERT INTO priv (priv_module, priv_name, priv_descrip) VALUES ('Sales', 'MaintainPersonalProspects', 'Can Add/Edit/Delete Prospects when Owner or Assigned');
-
-UPDATE priv set priv_name='ViewAllQuotes', priv_descrip='Can View all Quotes' where priv_name='ViewQuotes';
-UPDATE priv set priv_name='MaintainAllQuotes', priv_descrip='Can Add/Edit/Delete all Quotes' where priv_name='MaintainQuotes';
-INSERT INTO priv (priv_module, priv_name, priv_descrip) VALUES ('Sales', 'ViewPersonalQuotes', 'Can View Quotes when Owner or Assigned');
-INSERT INTO priv (priv_module, priv_name, priv_descrip) VALUES ('Sales', 'MaintainPersonalQuotes', 'Can Add/Edit/Delete Quotes when Owner or Assigned');
-
 ALTER TABLE priv ADD COLUMN priv_seq INTEGER;
 UPDATE priv set priv_seq = 0 WHERE priv_name ~ 'MaintainAll';
 UPDATE priv set priv_seq = 1 WHERE priv_name ~ 'ViewAll';
