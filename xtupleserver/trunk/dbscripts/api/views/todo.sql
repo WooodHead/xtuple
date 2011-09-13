@@ -1,5 +1,3 @@
-BEGIN;
-
 -- To-Do List View
 
 SELECT dropIfExists('VIEW', 'todo', 'api');
@@ -142,5 +140,3 @@ CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.todo DO INSTEAD
 
   SELECT deleteTodoItem(OLD.task_number);
-
-COMMIT;

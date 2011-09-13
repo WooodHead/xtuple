@@ -1,5 +1,3 @@
-BEGIN;
-
 -- Incident Image
 
 SELECT dropifexists('VIEW', 'incidentimage','API');
@@ -43,5 +41,3 @@ CREATE OR REPLACE RULE "_DELETE" AS
   WHERE ((imageass_source_id=getIncidentId(OLD.incident_number))
   AND (imageass_source='INCDT')
   AND (imageass_image_id=getImageId(OLD.image_name)));
-
-COMMIT;

@@ -1,8 +1,6 @@
-BEGIN;
-
   --Contact View
 
-  DROP VIEW api.contact;
+SELECT dropIfExists('VIEW', 'contact', 'api');
   CREATE OR REPLACE VIEW api.contact AS
  
   SELECT 
@@ -116,5 +114,3 @@ CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.contact DO INSTEAD
 
 SELECT deleteContact(getCntctId(OLD.contact_number));
-
-COMMIT;

@@ -1,8 +1,6 @@
-BEGIN;
-
 -- Account Characteristic
 
-DROP VIEW api.accountchar;
+SELECT dropIfExists('VIEW', 'accountchar', 'api');
 CREATE VIEW api.accountchar
 AS 
    SELECT 
@@ -52,5 +50,3 @@ CREATE OR REPLACE RULE "_DELETE" AS
   WHERE ((charass_target_type='CRMACCT')
   AND (charass_target_id=getCrmAcctId(OLD.account_number))
   AND (charass_char_id=getCharId(OLD.characteristic,'CRMACCT')));
-
-COMMIT;

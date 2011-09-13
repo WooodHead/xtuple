@@ -1,5 +1,3 @@
-BEGIN;
-
 -- Account Comment
 
 DROP VIEW api.accountcomment;
@@ -45,5 +43,3 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.accountcomment DO INSTEAD NOTHING;
-
-COMMIT;

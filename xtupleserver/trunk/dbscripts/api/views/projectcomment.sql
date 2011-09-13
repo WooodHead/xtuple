@@ -1,5 +1,3 @@
-BEGIN;
-
 -- Project Comment
 
 SELECT dropIfExists('VIEW', 'projectcomment', 'api');
@@ -45,5 +43,3 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.projectcomment DO INSTEAD NOTHING;
-
-COMMIT;

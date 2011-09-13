@@ -1,5 +1,3 @@
-BEGIN;
-
 -- Project
 SELECT dropIfExists('VIEW', 'project', 'api');
 CREATE VIEW api.project
@@ -105,6 +103,3 @@ CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.project DO INSTEAD
 
   SELECT deleteproject (getPrjId(OLD.number));
-
-COMMIT;
-

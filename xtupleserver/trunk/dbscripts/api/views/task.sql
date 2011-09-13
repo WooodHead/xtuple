@@ -1,5 +1,3 @@
-BEGIN;
-
 -- Task
 SELECT dropIfExists('VIEW', 'task', 'api');
 CREATE VIEW api.task
@@ -116,6 +114,3 @@ CREATE OR REPLACE RULE "_DELETE" AS
   DELETE FROM prjtask
   WHERE ((prjtask_prj_id=getPrjId(OLD.project_number))
    AND (prjtask_number=OLD.number));
-
-COMMIT;
-

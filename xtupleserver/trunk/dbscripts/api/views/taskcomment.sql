@@ -1,5 +1,3 @@
-BEGIN;
-
 -- Task Comment
 
 SELECT dropIfExists('VIEW', 'taskcomment', 'api');
@@ -47,5 +45,3 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.taskcomment DO INSTEAD NOTHING;
-
-COMMIT;
