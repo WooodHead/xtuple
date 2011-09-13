@@ -6,7 +6,7 @@ AS
    SELECT 
      incdt_number AS incident_number,
      image_name AS image_name
-   FROM incdt, imageass, image
+   FROM incdt(), imageass, image
    WHERE ((incdt_id=imageass_source_id)
    AND (imageass_source='INCDT')
    AND (imageass_image_id=image_id));

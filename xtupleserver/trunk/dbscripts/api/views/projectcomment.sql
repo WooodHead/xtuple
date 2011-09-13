@@ -9,7 +9,7 @@ AS
      comment_date AS date,
      comment_user AS username,
      comment_text AS text
-   FROM prj, cmnttype, comment
+   FROM prj(), cmnttype, comment
    WHERE ((comment_source='J')
    AND (comment_source_id=prj_id)
    AND (comment_cmnttype_id=cmnttype_id));
