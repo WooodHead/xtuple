@@ -28,7 +28,7 @@ AS
      prjtask_start_date AS started,
      prjtask_completed_date AS completed
    FROM prjtask
-    JOIN prj ON (prj_id=prjtask_prj_id);
+    JOIN prj() ON (prj_id=prjtask_prj_id);
 
 GRANT ALL ON TABLE api.task TO xtrole;
 COMMENT ON VIEW api.task IS 'Task';

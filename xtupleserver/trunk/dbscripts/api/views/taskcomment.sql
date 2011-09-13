@@ -10,7 +10,7 @@ AS
      comment_date AS date,
      comment_user AS username,
      comment_text AS text
-   FROM prj, prjtask, cmnttype, comment
+   FROM prj(), prjtask, cmnttype, comment
    WHERE ((comment_source='TA')
    AND (prj_id=prjtask_prj_id)
    AND (comment_source_id=prjtask_id)
