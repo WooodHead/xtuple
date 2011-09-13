@@ -1,7 +1,7 @@
 
   --Account View
 
-  DROP VIEW api.account;
+SELECT dropIfExists('VIEW', 'account', 'api');
   CREATE OR REPLACE VIEW api.account AS
  
   SELECT 

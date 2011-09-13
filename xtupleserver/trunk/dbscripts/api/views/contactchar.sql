@@ -1,8 +1,6 @@
-BEGIN;
-
 -- Contact Characteristic
 
-DROP VIEW api.contactchar;
+SELECT dropIfExists('VIEW', 'contactchar', 'api');
 CREATE VIEW api.contactchar
 AS 
    SELECT 
@@ -52,5 +50,3 @@ CREATE OR REPLACE RULE "_DELETE" AS
   WHERE ((charass_target_type='CNTCT')
   AND (charass_target_id=getCntctId(OLD.contact_number))
   AND (charass_char_id=getCharId(OLD.characteristic,'CNTCT')));
-
-COMMIT;

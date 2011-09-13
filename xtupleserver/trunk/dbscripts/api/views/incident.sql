@@ -1,5 +1,3 @@
-BEGIN;
-
 -- Incident View
 
 SELECT dropIfExists('VIEW', 'incident', 'api');
@@ -192,5 +190,3 @@ CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.incident DO INSTEAD
 
   NOTHING;
-
-COMMIT;
