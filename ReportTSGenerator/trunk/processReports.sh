@@ -10,7 +10,8 @@
 
 
 PROG=`basename $0 .sh`
-OUTPUTDIR=${TMPDIR:-/tmp}/$PROG_$$.tmp
+PROGDIR=`dirname $0`
+OUTPUTDIR=${TMPDIR:-/tmp}/${PROG}_$$.tmp
 OUTPUTFILE=
 
 function usage() {
@@ -53,7 +54,7 @@ fi
 mkdir $OUTPUTDIR                                                      || exit 2
 
 for REPORTXML in $* ; do
-  xsltproc context.xsl $REPORTXML > $OUTPUTDIR/`basename $REPORTXML`  || exit 3
+  xsltproc "$PROGDIR"/context.xsl $REPORTXML > $OUTPUTDIR/`basename $REPORTXML`  || exit 3
 done
 
 # how can we consolidate the two cases?
