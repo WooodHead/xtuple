@@ -1,0 +1,56 @@
+-- Group: products
+-- Name:  items
+-- Notes: combined query to give a basic list of items
+SELECT item_id, item_number, (item_descrip1 || ' ' || item_descrip2) AS descrip,
+<? if exists("byCharacteristic") ?>
+       char_name, charass_value,
+<? elseif exists("byClassCode") ?>
+       classcode_code,
+<? endif ?>
+       CASE WHEN (item_type='P') THEN <? value("purchased") ?>
+            WHEN (item_type='M') THEN <? value("manufactured") ?>
+            WHEN (item_type='J') THEN <? value("job") ?>
+            WHEN (item_type='F') THEN <? value("phantom") ?>
+            WHEN (item_type='B') THEN <? value("breeder") ?>
+            WHEN (item_type='C') THEN <? value("coProduct") ?>
+            WHEN (item_type='Y') THEN <? value("byProduct") ?>
+            WHEN (item_type='R') THEN <? value("reference") ?>
+            WHEN (item_type='S') THEN <? value("costing") ?>
+            WHEN (item_type='T') THEN <? value("tooling") ?>
+            WHEN (item_type='O') THEN <? value("outside") ?>
+            WHEN (item_type='K') THEN <? value("kit") ?>
+            ELSE <? value("error") ?>
+       END AS type,
+       uom_name
+FROM item JOIN uom ON (item_inv_uom_id=uom_id)
+<? if exists("byCharacteristic") ?>
+     JOIN charass ON (charass_target_type='I' AND charass_target_id=item_id)
+     JOIN char    ON (charass_char_id=char_id)
+<? elseif exists("byClassCode") ?>
+     JOIN classcode ON (item_classcode_id=classcode_id)
+<? endif ?>
+WHERE (true
+<? if exists("sold") ?>
+  AND item_sold
+<? endif ?>
+<? if exists("prodcat_id") ?>
+  AND (item_prodcat_id=<? value("prodcat_id") ?>)
+<? elseif exists("prodcat_pattern") ?>
+  AND (item_prodcat_id IN (SELECT prodcat_id
+                           FROM prodcat
+                           WHERE (prodcat_code ~ <? value("prodcat_pattern") ?>)))
+<? elseif exists("classcode_id") ?>
+  AND (classcode_id=<? value("classcode_id") ?>)
+<? elseif exists("classcode_pattern") ?>
+  AND (classcode_code ~ <? value("classcode_pattern") ?>)
+<? elseif exists("char_id") ?>
+  AND (char_id=<? value("char_id") ?>)
+  <? if exists("value") ?>
+  AND (charass_value ~* <? value("value") ?>)
+  <? endif ?>
+<? endif ?>
+<? if not exists("showInactive") ?>
+  AND item_active
+<? endif ?>
+)
+ORDER BY item_number;
