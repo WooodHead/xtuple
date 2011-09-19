@@ -2,7 +2,7 @@
 Installing the xTuple Databases:
 OpenMFG and PostBooks
 ===========================================
-Last Updated: August 7, 2009
+Last Updated: September 19, 2011
 
 
 QUICK OVERVIEW
@@ -11,7 +11,7 @@ QUICK OVERVIEW
 1) Download and extract xTuple application to a local directory
 2) Download and install PostgreSQL
 3) Initialize PostgreSQL for xTuple (This simply means adding the 
-super user 'mfgadmin' and the group 'xtrole'.)
+super user 'admin' and the group 'xtrole'.)
 4) Create a database
 5) Download and restore an xTuple database on your new database
 
@@ -19,36 +19,37 @@ super user 'mfgadmin' and the group 'xtrole'.)
 POSTGRESQL CONSIDERATIONS
 -------------------------
 
-Before you can start using the xTuple Applications, you must first 
-have PostgreSQL 8.3.x or later installed and properly configured. 
-For additional information on installing PostgreSQL, please visit 
-http://www.postgresql.org where you will find in-depth documentation 
-and other resources related to PostgreSQL. Installation support is 
-also available from xTuple. To learn more about xTuple's PostgreSQL 
+Before you can start using the xTuple Applications, you must first
+have PostgreSQL 8.3.x or later installed and properly configured.
+For additional information on installing PostgreSQL, please visit
+http://www.postgresql.org where you will find in-depth documentation
+and other resources related to PostgreSQL. Installation support is
+also available from xTuple. To learn more about xTuple's PostgreSQL
 services, please visit http://www.xtuple.com/postgres.
 
-[NOTE: The xTuple applications use encryption for credit card 
+[NOTE: The xTuple applications use encryption for credit card
 processing which requires the PostgreSQL pgcrypto module. You should
-be sure to include the pgcrypto module when installing PostgreSQL. 
+be sure to include the pgcrypto module when installing PostgreSQL.
 If you do not, you will encounter errors.]
 
 
 DETAILED INSTRUCTIONS
 ---------------------
 
-The following paragraphs detail the steps (long version) required to 
-both a) initialize your PostgreSQL instance to support the xTuple 
-Database and b) load the database schema. To skip these details, see 
-the (short version) "Command Line Examples" section below. 
- 
-Once you have the PostgreSQL server running, the next step is to 
-establish the user 'mfgadmin' and the group 'xtrole' on your 
-PostgreSQL instance. This is done by executing the 'init.sql' script, 
-which is available in the downloads area. The complete text of the 
+The following paragraphs detail the steps (long version) required to
+a) initialize your PostgreSQL instance to support the xTuple Database
+b) load the database schema.
+To skip these details, see the (short version) "Command Line Examples"
+section below.
+
+Once you have the PostgreSQL server running, the next step is to
+establish the user 'mfgadmin' and the group 'xtrole' on your
+PostgreSQL instance. This is done by executing the 'init.sql' script,
+which is available in the downloads area. The complete text of the
 'init.sql' file is as follows:
 
 --
--- This script creates the group xtrole and the user mfgadmin
+-- This script creates the group xtrole and the user admin
 --
 
 --
@@ -72,8 +73,8 @@ PLEASE NOTE: The 'init.sql' script must be loaded by the 'postgres'
 superuser. (For more information, see the "Command Line Examples" 
 section below.)
 
-Please also note that since the default password for user mfgadmin 
-is "mfgadmin," you'll want to change it immediately. 
+Please also note that since the default password for user admin 
+is "admin," you'll want to change it immediately. 
 
 When you have finished executing the init.sql script, you should 
 next create a new PostgreSQL database to contain the xTuple Database 
@@ -84,8 +85,9 @@ Once the database has been created, you are ready to load the
 xTuple schema into it. There are several starter schema to choose 
 from, including the following:
 
-* empty.backup - This is an empty database with no data, but all the 
-tables and structures created.
+* empty.backup - This database contains all of the xTuple tables and
+structures but only the minimum required data to launch the application
+(e.g. a list of countries).
 
 * quickstart.backup - This database contains a basic Chart of 
 Accounts and also the Account Assignments required to run the full 
@@ -124,9 +126,9 @@ database named 'production' in the following example.
 With a clean PostgreSQL instance installed, you can use the 
 following commands to get started:
 
-	psql -U postgres -f init.sql template1
-	createdb -U mfgadmin production
-      pg_restore -U mfgadmin -d production quickstart.backup -v
+  $ psql -U postgres -f init.sql template1
+  $ createdb -U admin production
+  $ pg_restore -U admin -d production quickstart.backup -v
 
 The first command line example uses the 'psql' utility to load the 
 'init.sql' script. This script creates the user 'mfgadmin' and the 
@@ -141,15 +143,15 @@ read the init.sql script and execute the commands. The last option
 you create. Also: In newer versions of PostgreSQL, the 'postgres' 
 database is the new default template.]
 
-By default, the init.sql script will create the 'mfgadmin' user with 
-the password of "mfgadmin". You should be sure to change the password 
+By default, the init.sql script will create the 'admin' user with 
+the password of "admin". You should be sure to change the password 
 once you have your xTuple system installed and running.
 
 The second command line example uses 'createdb' to create a new 
 database. Notice that this command uses the same first two options 
 as used in the psql command to specify the user to connect as. Note 
-that now we are using the option '-U mfgadmin' to indicate we want 
-to connect as the mfgadmin user created previously. The last option 
+that now we are using the option '-U admin' to indicate we want 
+to connect as the admin user created previously. The last option 
 is the name of the new database we want to create (e.g., 
 'production').
 
@@ -168,7 +170,7 @@ need to specify this with '-p XXXX' where XXXX is the port number.
 [TIP: If you want a .sql file instead of a .backup, you can easily
 do this using pg_restore, as follows:
 
-	pg_restore -f quickstart.sql quickstart.backup
+  $ pg_restore -f quickstart.sql quickstart.backup
 
 This example says use pg_restore to create a file called 
 'quickstart.sql' from the file called 'quickstart.backup'.]
