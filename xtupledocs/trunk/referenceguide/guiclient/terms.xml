@@ -70,8 +70,8 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para567246">Payables billing Terms may be applied and Discounts taken
-    when selecting a posted Voucher for payment.</para>
+    <para id="Para567246">Payables billing Terms may be applied and Discounts
+    taken when selecting a posted Voucher for payment.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -85,10 +85,11 @@
       <listitem>
         <para>Select a number using the arrow buttons, or manually enter a
         value up to a maximum of 999. If the Terms type is "Days," then this
-        refers to the number of days after the document (Invoice, Voucher,
-        etc.) date which a payment is considered overdue. If the Terms type is
-        "Proximo," then the setting refers to the day of the month of the
-        document (Invoice, Voucher, etc.) date on which payment is due.</para>
+        refers to the number of days after the document date (Invoice,
+        Voucher, etc.) when a payment is considered overdue. If the Terms type
+        is "Proximo," then the setting refers to the day of the month when
+        payment is due. For example, if the cut-off day = 0 and the due days =
+        15, then the due date will be on the 15th of the next month.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -100,10 +101,13 @@
           <secondary>terms for</secondary>
         </indexterm>Discnt. Days</term>
       <listitem>
-        <para>Days: Select a number using the arrow buttons, or manually enter
-        a value up to a maximum of 999. Specifies the number of days within
+        <para>Select a number using the arrow buttons, or manually enter a
+        value up to a maximum of 999. Specifies the number of days within
         which a payment must be made or received to take advantage of any
-        Terms discount.</para>
+        Terms discount. Discount days for Proximo Terms are handled in the
+        same way as Proximo due days. For example, if the cut-off day = 0 and
+        the discount days = 10, then the discount date will be on the 10th of
+        the next month.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -117,8 +121,12 @@
       <listitem>
         <para>Specify the day of the month on or after which the due date will
         advance to the next month. Putting "0" in this field will enable
-        Proximo invoices to calculate properly on the first of the
-        month.</para>
+        documents that use Proximo Terms to calculate properly on the first of
+        the next month. If you put any value other than "0" in this
+        field&mdash;and you are using Proximo Terms&mdash;then the due date
+        and the discount date may fall within the current month, depending on
+        where the document date falls in relation to the cut-off day in the
+        current month.</para>
       </listitem>
     </varlistentry>
   </variablelist>
