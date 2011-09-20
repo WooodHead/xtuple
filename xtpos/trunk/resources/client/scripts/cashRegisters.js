@@ -1,3 +1,13 @@
+/*
+ * This file is part of the xtpos package for xTuple ERP: PostBooks Edition, a free and
+ * open source Enterprise Resource Planning software suite,
+ * Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+ * It is licensed to you under the Common Public Attribution License
+ * version 1.0, the full text of which (including xTuple-specific Exhibits)
+ * is available at www.xtuple.com/CPAL.  By using this software, you agree
+ * to be bound by its terms.
+*/
+
 // Define local variables
 var terminalCol = 1;
 
@@ -7,10 +17,10 @@ var viewMode    = 2;
 var _model = new XSqlTableModel();
 var _currIdx = 0 - 0;
 
-var _close		= mywindow.findChild("_close");
-var _terminals 	= mywindow.findChild("_terminals");
-var _use		= mywindow.findChild("_use");
-var _view		= mywindow.findChild("_view");
+var _close              = mywindow.findChild("_close");
+var _terminals  = mywindow.findChild("_terminals");
+var _use                = mywindow.findChild("_use");
+var _view               = mywindow.findChild("_view");
 
 // Terminal list  connections
 _close.clicked.connect(mywindow, "close");
@@ -22,19 +32,19 @@ _terminals["rowSelected(int)"].connect(setIndex);
 // Populate the list
 populate();
 
-// Column settings	
+// Column settings      
 with (_terminals)
 {
-  setColumn("Site"		, 100	, 0, true	,"site");
-  setColumn("Terminal"		, 60	, 0, true	,"terminal");
-  setColumn("Active"		, 60	, 0, true	,"active");
-  setColumn("Opened"		, -1	, 0, true	,"opened");
-  setColumn("Opening Balance"	, 100	, 0, false	,"opening_balance");
-  setColumn("Current Balance"	, 100	, 0, true	,"current_balance");
-  setColumn("Total Sales"		, 100	, 0, false	,"total_sales");
-  setColumn("Cash Sales"		, 100	, 0, false	,"cash_sales");
-  setColumn("Credit Sales"	, 100	, 0, false	,"credit_card_sales");
-  setColumn("Check Sales"		, 100	, 0, false	,"check_sales");
+  setColumn("Site"              , 100   , 0, true       ,"site");
+  setColumn("Terminal"          , 60    , 0, true       ,"terminal");
+  setColumn("Active"            , 60    , 0, true       ,"active");
+  setColumn("Opened"            , -1    , 0, true       ,"opened");
+  setColumn("Opening Balance"   , 100   , 0, false      ,"opening_balance");
+  setColumn("Current Balance"   , 100   , 0, true       ,"current_balance");
+  setColumn("Total Sales"               , 100   , 0, false      ,"total_sales");
+  setColumn("Cash Sales"                , 100   , 0, false      ,"cash_sales");
+  setColumn("Credit Sales"      , 100   , 0, false      ,"credit_card_sales");
+  setColumn("Check Sales"               , 100   , 0, false      ,"check_sales");
 }
 
 function setIndex(idx)

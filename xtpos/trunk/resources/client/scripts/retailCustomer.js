@@ -1,3 +1,13 @@
+/*
+ * This file is part of the xtpos package for xTuple ERP: PostBooks Edition, a free and
+ * open source Enterprise Resource Planning software suite,
+ * Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+ * It is licensed to you under the Common Public Attribution License
+ * version 1.0, the full text of which (including xTuple-specific Exhibits)
+ * is available at www.xtuple.com/CPAL.  By using this software, you agree
+ * to be bound by its terms.
+*/
+
 // Define variables
 var _customer = mywindow.findChild("_customer");
 var _number   = mywindow.findChild("_number");
@@ -34,7 +44,7 @@ function check()
   {
     msg = "A customer with this number already exists.  "
         + "Would you like to load that customer?";
-    if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg, 
+    if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg,
         msgBox.Yes | msgBox.Default, msgBox.No | msgBox.Escape) == msgBox.Yes)
     {
       _customer.mode = 1; // Edit
@@ -56,7 +66,7 @@ function check()
     {
       msg = "A CRM Account with this number already exists.  "
           + "Would you like to associate this customer that CRM Account?";
-      if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg, 
+      if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg,
           msgBox.Yes | msgBox.Default, msgBox.No | msgBox.Escape) == msgBox.Yes)
       {
         mywindow.findChild("_name").text = crmacct.name;
@@ -85,7 +95,7 @@ function getCrmAcct(number)
   if (data.first())
   {
     results.id = data.value("crmacct_id");
-    results.name = data.value("crmacct_name"); 
+    results.name = data.value("crmacct_name");
   }
 
   return results;
