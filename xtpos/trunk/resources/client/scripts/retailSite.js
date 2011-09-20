@@ -1,22 +1,32 @@
+/*
+ * This file is part of the xtpos package for xTuple ERP: PostBooks Edition, a free and
+ * open source Enterprise Resource Planning software suite,
+ * Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+ * It is licensed to you under the Common Public Attribution License
+ * version 1.0, the full text of which (including xTuple-specific Exhibits)
+ * is available at www.xtuple.com/CPAL.  By using this software, you agree
+ * to be bound by its terms.
+*/
+
 // Variables
-var _adjust		= mywindow.findChild("_adjust");
-var _asset		= mywindow.findChild("_asset");
-var _bnkacct	= mywindow.findChild("_bnkacct");
-var _bnkacctGroup	= mywindow.findChild("_bnkacctGroup");
-var _bnkacctName	= mywindow.findChild("_bnkacctName");
-var _bnkaccts	= mywindow.findChild("_bnkaccts");
-var _cancel		= mywindow.findChild("_cancel");
-var _checkClearing	= mywindow.findChild("_checkClearing");
-var _expire		= mywindow.findChild("_expire");
-var _insertBankAcct	= mywindow.findChild("_insertBankAcct");
-var _removeBankAcct	= mywindow.findChild("_removeBankAcct");
-var _insertTerminal	= mywindow.findChild("_insertTerminal");
-var _removeTerminal	= mywindow.findChild("_removeTerminal");
-var _retailSite	= mywindow.findChild("_retailSite");
-var _save		= mywindow.findChild("_save");
-var _site 		= mywindow.findChild("_site");
-var _siteLit	= mywindow.findChild("_siteLit");
-var _terminals	= mywindow.findChild("_terminals");
+var _adjust             = mywindow.findChild("_adjust");
+var _asset              = mywindow.findChild("_asset");
+var _bnkacct    = mywindow.findChild("_bnkacct");
+var _bnkacctGroup       = mywindow.findChild("_bnkacctGroup");
+var _bnkacctName        = mywindow.findChild("_bnkacctName");
+var _bnkaccts   = mywindow.findChild("_bnkaccts");
+var _cancel             = mywindow.findChild("_cancel");
+var _checkClearing      = mywindow.findChild("_checkClearing");
+var _expire             = mywindow.findChild("_expire");
+var _insertBankAcct     = mywindow.findChild("_insertBankAcct");
+var _removeBankAcct     = mywindow.findChild("_removeBankAcct");
+var _insertTerminal     = mywindow.findChild("_insertTerminal");
+var _removeTerminal     = mywindow.findChild("_removeTerminal");
+var _retailSite = mywindow.findChild("_retailSite");
+var _save               = mywindow.findChild("_save");
+var _site               = mywindow.findChild("_site");
+var _siteLit    = mywindow.findChild("_siteLit");
+var _terminals  = mywindow.findChild("_terminals");
 
 // Define local functions
 function cancel()
@@ -56,7 +66,7 @@ function checkBankAccts()
       params.name = _bnkaccts.value(row,1);
       var data = toolbox.executeDbQuery("retailsite","getbankaccnt",params);
       if (!data.first())
-      { 
+      {
         var msg = qsTr("Bank Account ") + params.name + qsTr(" is invalid.");
         throw msg;
       }
@@ -76,7 +86,7 @@ function checkTerminals()
       params.terminal = _terminals.value(row,1);
       var data = toolbox.executeDbQuery("retailsite","getapi_retailsiteterminal",params);
       if (data.first())
-      { 
+      {
         var msg = qsTr("Terminal ") + params.terminal + qsTr(" already exists on site ")
                 + data.value("site") + "."
         throw msg;
@@ -127,7 +137,7 @@ function save()
     if (!_asset.isValid())
       throw  qsTr("You must select a valid Asset account.");
 
-    if (!_adjust.isValid()) 
+    if (!_adjust.isValid())
       throw  qsTr("You must select a valid Adjustment account.");
 
     if (!_checkClearing.isValid())
@@ -165,7 +175,7 @@ function save()
 function set(input)
 {
   if ("mode" in input)
-  { 
+  {
     _retailSite.setMode(input.mode);
 
     if (input.mode > 0) // Edit or View

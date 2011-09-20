@@ -1,38 +1,48 @@
+/*
+ * This file is part of the xtpos package for xTuple ERP: PostBooks Edition, a free and
+ * open source Enterprise Resource Planning software suite,
+ * Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+ * It is licensed to you under the Common Public Attribution License
+ * version 1.0, the full text of which (including xTuple-specific Exhibits)
+ * is available at www.xtuple.com/CPAL.  By using this software, you agree
+ * to be bound by its terms.
+*/
+
 // Define Variables
-var _viewMode     	= 2;
+var _viewMode           = 2;
 var _saleCurrIdx = 0-0; //TO DO: Get rid of me in 3.3.1
 
-var _action 	= mywindow.findChild("_action");
-var _active		= mywindow.findChild("_active");
-var _adjustAmt   	= mywindow.findChild("_adjustAmt");
+var _action     = mywindow.findChild("_action");
+var _active             = mywindow.findChild("_active");
+var _adjustAmt          = mywindow.findChild("_adjustAmt");
 var _adjustDirection   = mywindow.findChild("_adjustDirection");
-var _adjustGroup	= mywindow.findChild("_adjustGroup");
-var _bankaccount	= mywindow.findChild("_bankaccount");
-var _cashRegister	= mywindow.findChild("_cashRegister");
-var _currentBalance	= mywindow.findChild("_currentBalance");
-var _close		= mywindow.findChild("_close");
-var _delete		= mywindow.findChild("_delete");
-var _depositChecks 	= mywindow.findChild("_depositChecks");
-var _edit		= mywindow.findChild("_edit");
-var _maintainTab	= mywindow.findChild("_maintainTab");
-var _new		= mywindow.findChild("_new");
-var _newbalance	= mywindow.findChild("_newbalance");
-var _notes		= mywindow.findChild("_notes");
-var _opened		= mywindow.findChild("_opened");
-var _post		= mywindow.findChild("_post");
-var _print		= mywindow.findChild("_print");
-var _printReceipt	= mywindow.findChild("_printReceipt");
-var _sale		= mywindow.findChild("_sale"); //TO DO: Get rid of me in 3.3.1
-var _sales		= mywindow.findChild("_sales");
-var _search		= mywindow.findChild("_search");
-var _site		= mywindow.findChild("_site");
-var _siteLit	= mywindow.findChild("_siteLit");
-var _tab		= mywindow.findChild("_tab");
-var _terminal	= mywindow.findChild("_terminal");
-var _transferAmt	= mywindow.findChild("_transferAmt");
+var _adjustGroup        = mywindow.findChild("_adjustGroup");
+var _bankaccount        = mywindow.findChild("_bankaccount");
+var _cashRegister       = mywindow.findChild("_cashRegister");
+var _currentBalance     = mywindow.findChild("_currentBalance");
+var _close              = mywindow.findChild("_close");
+var _delete             = mywindow.findChild("_delete");
+var _depositChecks      = mywindow.findChild("_depositChecks");
+var _edit               = mywindow.findChild("_edit");
+var _maintainTab        = mywindow.findChild("_maintainTab");
+var _new                = mywindow.findChild("_new");
+var _newbalance = mywindow.findChild("_newbalance");
+var _notes              = mywindow.findChild("_notes");
+var _opened             = mywindow.findChild("_opened");
+var _post               = mywindow.findChild("_post");
+var _print              = mywindow.findChild("_print");
+var _printReceipt       = mywindow.findChild("_printReceipt");
+var _sale               = mywindow.findChild("_sale"); //TO DO: Get rid of me in 3.3.1
+var _sales              = mywindow.findChild("_sales");
+var _search             = mywindow.findChild("_search");
+var _site               = mywindow.findChild("_site");
+var _siteLit    = mywindow.findChild("_siteLit");
+var _tab                = mywindow.findChild("_tab");
+var _terminal   = mywindow.findChild("_terminal");
+var _transferAmt        = mywindow.findChild("_transferAmt");
 var _transferDirection = mywindow.findChild("_transferDirection");
-var _transferGroup	= mywindow.findChild("_transferGroup");
-var _view		= mywindow.findChild("_view");
+var _transferGroup      = mywindow.findChild("_transferGroup");
+var _view               = mywindow.findChild("_view");
 var _selectedSale       = mywindow.findChild("_selectedSale");
 var _number             = mywindow.findChild("_number");
 var _options           = mywindow.findChild("_options");
@@ -40,7 +50,7 @@ var _options           = mywindow.findChild("_options");
 _selectedSale.visible = false;
 
 // Fill comboboxes
-// When translation capability is available, tranlate second value, 
+// When translation capability is available, tranlate second value,
 // but not third which is code.
 _adjustDirection.append(0,"In","In");
 _adjustDirection.append(1,"Out","Out");
@@ -96,7 +106,7 @@ if (metrics.value("MultiWhs") != "t")
 
 // Check Privileges
 toolbox.tabSetTabEnabled(_tab, toolbox.tabTabIndex(_tab,_maintainTab)
- 			,privileges.value("MaintainCashRegisters"))
+                        ,privileges.value("MaintainCashRegisters"))
 if (privileges.value("MaintainRetailSales"))
 {
   _active["toggled(bool)"].connect(_new["setEnabled(bool)"]);
@@ -138,14 +148,14 @@ function calcBalance()
 {
   var transfer = _transferAmt.localValue;
   var adjust   = _adjustAmt.localValue;
- 
+
   if (_transferDirection.code == "Out")
     transfer = transfer * -1;
 
   if (_adjustDirection.code == "Out")
     adjust = adjust * -1;
-    
-  _newbalance.localValue = 
+
+  _newbalance.localValue =
   _currentBalance.localValue + transfer + adjust;
 }
 
@@ -196,7 +206,7 @@ function populate()
 }
 
 function populateAccount()
-{   
+{
   var sql =  "SELECT bankaccnt_id,  bankaccnt_name, bankaccnt_name "
               + "FROM bankaccnt "
               + "  JOIN xtpos.rtlsitebnkacct ON (bankaccnt_id=rtlsitebnkacct_bankaccnt_id) "
@@ -241,14 +251,14 @@ function post()
     if (_newbalance.localValue < 0)
       throw "The new balance must be positive.";
 
-    params.action  		= _action.code;
-    params.terminal		= _terminal.text;
-    params.bankaccount		= _bankaccount.code;
-    params.transfer_amount	= _transferAmt.localValue;
-    params.transfer_direction	= _transferDirection.code;
-    params.adjustment_amount	= _adjustAmt.localValue;
-    params.adjustment_direction	= _adjustDirection.code;
-    params.notes		= _notes.plainText;
+    params.action               = _action.code;
+    params.terminal             = _terminal.text;
+    params.bankaccount          = _bankaccount.code;
+    params.transfer_amount      = _transferAmt.localValue;
+    params.transfer_direction   = _transferDirection.code;
+    params.adjustment_amount    = _adjustAmt.localValue;
+    params.adjustment_direction = _adjustDirection.code;
+    params.notes                = _notes.plainText;
     var data = toolbox.executeDbQuery("cashregister","post",params);
     if (data.first())
     {
@@ -273,7 +283,7 @@ function printReceipt(detailId)
   var userCanceled = false;
 
   if (presetPrinter.length)
-  { 
+  {
     printer.setPrinterName(presetPrinter);
     orReport.beginMultiPrint(printer);
   }
@@ -288,10 +298,10 @@ function printReceipt(detailId)
 
   var params = new Object();
   params.regdetail_id  = detailId;
-  params.mastercard 	= "Master Card";
-  params.visa	= "Visa";
-  params.amex	= "American Express";
-  params.discover	= "Discover";
+  params.mastercard     = "Master Card";
+  params.visa   = "Visa";
+  params.amex   = "American Express";
+  params.discover       = "Discover";
 
   var report = new orReport("RetailRegisterReceipt", params);
   if (! report.isValid() || ! report.print(printer, true))
@@ -415,7 +425,7 @@ function set(input)
     if (input.mode == _viewMode)
     {
        _close.text = "Close";
-       _sales.enabled 	= false;
+       _sales.enabled   = false;
        _new.hide();
        _edit.hide();
        _delete.hide();

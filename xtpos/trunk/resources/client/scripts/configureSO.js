@@ -1,7 +1,17 @@
+/*
+ * This file is part of the xtpos package for xTuple ERP: PostBooks Edition, a free and
+ * open source Enterprise Resource Planning software suite,
+ * Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+ * It is licensed to you under the Common Public Attribution License
+ * version 1.0, the full text of which (including xTuple-specific Exhibits)
+ * is available at www.xtuple.com/CPAL.  By using this software, you agree
+ * to be bound by its terms.
+*/
+
 //  Insert Retail Tab
 var _tab 	= mywindow.findChild("_tab");
 var idx	= toolbox.tabCount(_tab) + 1;
-var page	= toolbox.loadUi("configureRetail", mywindow); 
+var page	= toolbox.loadUi("configureRetail", mywindow);
 toolbox.tabInsertTab(_tab,idx,page, "Retail");
 
 //  Define variables
@@ -49,7 +59,7 @@ function populate()
   _retailCust.setId(metrics.value("RetailCustId"));
 
   _retailOnlyDefaultCust.checked = (metrics.value("RetailOnlyUseInternalCust") == "t");
-  
+
   _custTax.checked = (metrics.value("RetailUseCustTaxZone") == "t");
 }
 
@@ -57,7 +67,7 @@ function save()
 {
   if (_retailCustGroup.checked && _retailCust.id() == -1)
     _retaiCustGroup.checked = false;
-    
+
   params = new Object();
   params.sale_number = _retailSaleNumber.text;
   toolbox.executeDbQuery("configureretail","setsalenumber",params);

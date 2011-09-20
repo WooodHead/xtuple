@@ -1,36 +1,46 @@
+/*
+ * This file is part of the xtpos package for xTuple ERP: PostBooks Edition, a free and
+ * open source Enterprise Resource Planning software suite,
+ * Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+ * It is licensed to you under the Common Public Attribution License
+ * version 1.0, the full text of which (including xTuple-specific Exhibits)
+ * is available at www.xtuple.com/CPAL.  By using this software, you agree
+ * to be bound by its terms.
+*/
+
 // Define variables
 var _custId;
 var _ccOn;
-var _ccp         	= toolbox.getCreditCardProcessor();
+var _ccp                = toolbox.getCreditCardProcessor();
 var _ccPayId;
 var _number;
 var _receiptNumber = "";
 var _type;
 
-var _address	= mywindow.findChild("_address");
-var _balance	= mywindow.findChild("_balance");
-var _buttonBox	= mywindow.findChild("_buttonBox");
-var _cashAmount	= mywindow.findChild("_cashAmount");
-var _cashGroup	= mywindow.findChild("_cashGroup");
-var _change		= mywindow.findChild("_change");
-var _checkAmount	= mywindow.findChild("_checkAmount");
-var _creditAmount	= mywindow.findChild("_creditAmount");
-var _creditCardNumber	= mywindow.findChild("_creditCardNumber");
-var _creditGroup 	= mywindow.findChild("_creditGroup");
-var _checkGroup  	= mywindow.findChild("_checkGroup");
-var _checkNumber	= mywindow.findChild("_checkNumber");
-var _cvv		= mywindow.findChild("_cvv");
-var _expireMonth	= mywindow.findChild("_expireMonth");
-var _expireYear	= mywindow.findChild("_expireYear");
-var _fundsType	= mywindow.findChild("_fundsType");
-var _name		= mywindow.findChild("_name");
+var _address    = mywindow.findChild("_address");
+var _balance    = mywindow.findChild("_balance");
+var _buttonBox  = mywindow.findChild("_buttonBox");
+var _cashAmount = mywindow.findChild("_cashAmount");
+var _cashGroup  = mywindow.findChild("_cashGroup");
+var _change             = mywindow.findChild("_change");
+var _checkAmount        = mywindow.findChild("_checkAmount");
+var _creditAmount       = mywindow.findChild("_creditAmount");
+var _creditCardNumber   = mywindow.findChild("_creditCardNumber");
+var _creditGroup        = mywindow.findChild("_creditGroup");
+var _checkGroup         = mywindow.findChild("_checkGroup");
+var _checkNumber        = mywindow.findChild("_checkNumber");
+var _cvv                = mywindow.findChild("_cvv");
+var _expireMonth        = mywindow.findChild("_expireMonth");
+var _expireYear = mywindow.findChild("_expireYear");
+var _fundsType  = mywindow.findChild("_fundsType");
+var _name               = mywindow.findChild("_name");
 var _options           = mywindow.findChild("_options");
-var _paid		= mywindow.findChild("_paid");
-var _paidLit	= mywindow.findChild("_paidLit");
-var _print		= mywindow.findChild("_print");
-var _subtotal	= mywindow.findChild("_subtotal");
-var _tax		= mywindow.findChild("_tax");
-var _total		= mywindow.findChild("_total");
+var _paid               = mywindow.findChild("_paid");
+var _paidLit    = mywindow.findChild("_paidLit");
+var _print              = mywindow.findChild("_print");
+var _subtotal   = mywindow.findChild("_subtotal");
+var _tax                = mywindow.findChild("_tax");
+var _total              = mywindow.findChild("_total");
 
 _ccOn = (_ccp != null && _ccp.testConfiguration() >= 0);
 if (! _ccOn)
@@ -78,7 +88,7 @@ function calc()
     _balance.localValue = _total.localValue - _paid.localValue;
     _change.localValue = 0;
   }
-  
+
   if (_cashAmount.localValue >= _total.localValue)
   {
     _checkAmount.valueChanged.disconnect(calc);
@@ -88,7 +98,7 @@ function calc()
     _creditGroup.setEnabled(false);
     _creditAmount.localValue = 0;
     _checkGroup.setChecked(false);
-    _checkGroup.setEnabled(false); 
+    _checkGroup.setEnabled(false);
     _checkAmount.localValue = 0;
 
     _checkAmount.valueChanged.connect(calc);
@@ -98,7 +108,7 @@ function calc()
   {
     _creditGroup.setEnabled(_ccOn);
     if (_type != "Return")
-      _checkGroup.setEnabled(true); 
+      _checkGroup.setEnabled(true);
   }
 }
 
@@ -107,18 +117,18 @@ function charge()
   // First save the card info
   var ccardId = toolbox.saveCreditCard(mywindow,
                                     _custId,
-			  _name.text,
-			  _address.line1(),
-			  _address.line2(),
-			  _address.city(),
-			  _address.state(),
-			  _address.postalCode(),
-			  _address.country(),
-			  _creditCardNumber.text,
-			  _fundsType.text.charAt(0),
-			  _expireMonth.text,
-			  _expireYear.text,
-			  0);
+                          _name.text,
+                          _address.line1(),
+                          _address.line2(),
+                          _address.city(),
+                          _address.state(),
+                          _address.postalCode(),
+                          _address.country(),
+                          _creditCardNumber.text,
+                          _fundsType.text.charAt(0),
+                          _expireMonth.text,
+                          _expireYear.text,
+                          0);
 
   switch (ccardId)
   {
@@ -209,18 +219,18 @@ function closeSale()
       if (ccpayId < 0)
         return;
 
-      params.credit = true; 
+      params.credit = true;
       params.ccpay_id = ccpayId;
     }
     else if (_checkGroup.checked)
-    { 
+    {
       params.check = true;
       params.check_amount = _checkAmount.localValue;
       params.check_number = _checkNumber.text;
     }
     else
       params.cash = true;
-    
+
     var data = toolbox.executeDbQuery("payment","closesale",params);
     if (data.first())
     {
@@ -229,7 +239,7 @@ function closeSale()
     }
     else
       throw "Sale was not closed successfully.  Please see your administrator."
-  
+
     if (_print.checked)
       printReceipt(_number);
 
@@ -271,7 +281,7 @@ function printReceipt(number)
   var userCanceled = false;
 
   if (presetPrinter.length)
-  { 
+  {
     printer.setPrinterName(presetPrinter);
     orReport.beginMultiPrint(printer);
   }
@@ -334,7 +344,7 @@ function set(input)
     _receiptNumber = input.receipt_number;
 
   if ("sale_number" in input)
-    _number = input.sale_number; 
+    _number = input.sale_number;
 
   if ("subtotal" in input)
     _subtotal.localValue = input.subtotal;

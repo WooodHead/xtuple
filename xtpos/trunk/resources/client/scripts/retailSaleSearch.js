@@ -1,27 +1,37 @@
+/*
+ * This file is part of the xtpos package for xTuple ERP: PostBooks Edition, a free and
+ * open source Enterprise Resource Planning software suite,
+ * Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+ * It is licensed to you under the Common Public Attribution License
+ * version 1.0, the full text of which (including xTuple-specific Exhibits)
+ * is available at www.xtuple.com/CPAL.  By using this software, you agree
+ * to be bound by its terms.
+*/
+
 // Define variables
-var _close 		= mywindow.findChild("_close");
-var _dates 		= mywindow.findChild("_dates");
-var _print		= mywindow.findChild("_print");
-var _query		= mywindow.findChild("_query");
-var _sale 		= mywindow.findChild("_sale");
-var _sales 		= mywindow.findChild("_sales");
-var _search		= mywindow.findChild("_search");
-var _select  	= mywindow.findChild("_select");
-var _showQuotes	= mywindow.findChild("_showQuotes");
-var _showReturns	= mywindow.findChild("_showReturns");
-var _showSales	= mywindow.findChild("_showSales");
-var _view 		= mywindow.findChild("_view");
+var _close              = mywindow.findChild("_close");
+var _dates              = mywindow.findChild("_dates");
+var _print              = mywindow.findChild("_print");
+var _query              = mywindow.findChild("_query");
+var _sale               = mywindow.findChild("_sale");
+var _sales              = mywindow.findChild("_sales");
+var _search             = mywindow.findChild("_search");
+var _select     = mywindow.findChild("_select");
+var _showQuotes = mywindow.findChild("_showQuotes");
+var _showReturns        = mywindow.findChild("_showReturns");
+var _showSales  = mywindow.findChild("_showSales");
+var _view               = mywindow.findChild("_view");
 
 // Define Columns
 with (_sales)
 {
-  addColumn("Number" 		,80  , 1, true, "salehead_number");
-  addColumn("Type"		,80  , 4, true, "type");
-  addColumn("Closed"		,50  , 1, true, "salehead_closed");
-  addColumn("Cust#"           	,80  , 1, true, "cust_number");
-  addColumn("Contact Name"    	,-1  , 1, true, "contact_name");
-  addColumn("Phone"    	,100 , 1, true, "cntct_phone");
-  addColumn("Time"		,100 , 1, true, "salehead_time");
+  addColumn("Number"            ,80  , 1, true, "salehead_number");
+  addColumn("Type"              ,80  , 4, true, "type");
+  addColumn("Closed"            ,50  , 1, true, "salehead_closed");
+  addColumn("Cust#"             ,80  , 1, true, "cust_number");
+  addColumn("Contact Name"      ,-1  , 1, true, "contact_name");
+  addColumn("Phone"     ,100 , 1, true, "cntct_phone");
+  addColumn("Time"              ,100 , 1, true, "salehead_time");
 }
 
 // Define connections
@@ -69,15 +79,15 @@ function fillList()
   }
 
   var params = new Object();
-  params.start_date	= _dates.startDate;
-  params.end_date	= _dates.endDate;
-  params.search	= _search.text;
+  params.start_date     = _dates.startDate;
+  params.end_date       = _dates.endDate;
+  params.search = _search.text;
   if (!_showSales.checked)
-    params.noSales	= true;
+    params.noSales      = true;
   if (!_showQuotes.checked)
-     params.noQuotes	= true;
+     params.noQuotes    = true;
   if (!_showReturns.checked)
-     params.noReturns	= true;
+     params.noReturns   = true;
   params.Sale = "Sale";
   params.Quote = "Quote";
   params.Return = "Return";

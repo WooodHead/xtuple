@@ -1,11 +1,21 @@
+/*
+ * This file is part of the xtpos package for xTuple ERP: PostBooks Edition, a free and
+ * open source Enterprise Resource Planning software suite,
+ * Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+ * It is licensed to you under the Common Public Attribution License
+ * version 1.0, the full text of which (including xTuple-specific Exhibits)
+ * is available at www.xtuple.com/CPAL.  By using this software, you agree
+ * to be bound by its terms.
+*/
+
 // Define Variables
-var _close		= mywindow.findChild("_close");
-var _delete		= mywindow.findChild("_delete");
-var _edit		= mywindow.findChild("_edit");
-var _new		= mywindow.findChild("_new");
-var _print		= mywindow.findChild("_print");
-var _sites		= mywindow.findChild("_sites");
-var _view 		= mywindow.findChild("_view");
+var _close              = mywindow.findChild("_close");
+var _delete             = mywindow.findChild("_delete");
+var _edit               = mywindow.findChild("_edit");
+var _new                = mywindow.findChild("_new");
+var _print              = mywindow.findChild("_print");
+var _sites              = mywindow.findChild("_sites");
+var _view               = mywindow.findChild("_view");
 
 var _siteCol = 0;
 var _sites = mywindow.findChild("_sites");
@@ -46,9 +56,9 @@ function siteDelete()
   try
   {
     var msg = qsTr("Are you sure you want to delete this retail site?")
-    if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg, 
-	QMessageBox.Yes | QMessageBox.Escape, 
-	QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
+    if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg,
+        QMessageBox.Yes | QMessageBox.Escape,
+        QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
     {
       _sites.removeSelected();
       _sites.save();

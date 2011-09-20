@@ -1,3 +1,13 @@
+/*
+ * This file is part of the xtpos package for xTuple ERP: PostBooks Edition, a free and
+ * open source Enterprise Resource Planning software suite,
+ * Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+ * It is licensed to you under the Common Public Attribution License
+ * version 1.0, the full text of which (including xTuple-specific Exhibits)
+ * is available at www.xtuple.com/CPAL.  By using this software, you agree
+ * to be bound by its terms.
+*/
+
 // Define local variables
 var _linenumCol = 1;
 var _itemCol    = 2;
@@ -19,41 +29,41 @@ var _newMode    = 0;
 var _editMode   = 1;
 var _viewMode   = 2;
 
-var _add		= mywindow.findChild("_add");
-var _cancel		= mywindow.findChild("_cancel");
-var _contact	= mywindow.findChild("_contact");
-var _cust      	= mywindow.findChild("_cust");
-var _custTab	= mywindow.findChild("_custTab");
+var _add                = mywindow.findChild("_add");
+var _cancel             = mywindow.findChild("_cancel");
+var _contact    = mywindow.findChild("_contact");
+var _cust       = mywindow.findChild("_cust");
+var _custTab    = mywindow.findChild("_custTab");
 var _date              = mywindow.findChild("_date");
-var _edit		= mywindow.findChild("_edit");
-var _extendedPrice	= mywindow.findChild("_extendedPrice");
-var _item      	= mywindow.findChild("_item");
-var _itemGroup    	= mywindow.findChild("_itemGroup");
+var _edit               = mywindow.findChild("_edit");
+var _extendedPrice      = mywindow.findChild("_extendedPrice");
+var _item       = mywindow.findChild("_item");
+var _itemGroup          = mywindow.findChild("_itemGroup");
 var _itemsTab          = mywindow.findChild("_itemsTab");
-var _new		= mywindow.findChild("_new");
-var _number		= mywindow.findChild("_number");
-var _payment	= mywindow.findChild("_payment");
-var _qty       	= mywindow.findChild("_qty");
-var _receiptNumberLit	= mywindow.findChild("_receiptNumberLit");
-var _receiptNumber	= mywindow.findChild("_receiptNumber");
-var _receiptSearch	= mywindow.findChild("_receiptSearch");
-var _remove		= mywindow.findChild("_remove");
-var _sale		= mywindow.findChild("_sale");
-var _saleitem 	= mywindow.findChild("_saleitem");
-var _saleitems 	= mywindow.findChild("_saleitems");
-var _salesrep	= mywindow.findChild("_salesrep");
-var _save		= mywindow.findChild("_save");
-var _site		= mywindow.findChild("_site");
-var _siteLit	= mywindow.findChild("_siteLit");
-var _closed		= mywindow.findChild("_closed");
-var _subtotal   	= mywindow.findChild("_subtotal");
-var _tab		= mywindow.findChild("_tab");
-var _tax		= mywindow.findChild("_tax");
+var _new                = mywindow.findChild("_new");
+var _number             = mywindow.findChild("_number");
+var _payment    = mywindow.findChild("_payment");
+var _qty        = mywindow.findChild("_qty");
+var _receiptNumberLit   = mywindow.findChild("_receiptNumberLit");
+var _receiptNumber      = mywindow.findChild("_receiptNumber");
+var _receiptSearch      = mywindow.findChild("_receiptSearch");
+var _remove             = mywindow.findChild("_remove");
+var _sale               = mywindow.findChild("_sale");
+var _saleitem   = mywindow.findChild("_saleitem");
+var _saleitems  = mywindow.findChild("_saleitems");
+var _salesrep   = mywindow.findChild("_salesrep");
+var _save               = mywindow.findChild("_save");
+var _site               = mywindow.findChild("_site");
+var _siteLit    = mywindow.findChild("_siteLit");
+var _closed             = mywindow.findChild("_closed");
+var _subtotal           = mywindow.findChild("_subtotal");
+var _tab                = mywindow.findChild("_tab");
+var _tax                = mywindow.findChild("_tax");
 var _taxzone           = mywindow.findChild("_taxzone");
-var _terminal	= mywindow.findChild("_terminal")
-var _total		= mywindow.findChild("_total");
-var _type		= mywindow.findChild("_type");	
-var _unitPrice  	= mywindow.findChild("_unitPrice");
+var _terminal   = mywindow.findChild("_terminal")
+var _total              = mywindow.findChild("_total");
+var _type               = mywindow.findChild("_type");  
+var _unitPrice          = mywindow.findChild("_unitPrice");
 var _notes              = mywindow.findChild("_notes");
 var _notes2             = mywindow.findChild("_notes2");
 
@@ -63,14 +73,14 @@ _notes.textChanged.connect(notesChanged);
 // Set Columns
 with (_saleitems)
 {
-  setColumn("Line#"  		, 40,  0, true, "line_number");
-  setColumn("Item"   		, 100, 0, true, "item_number");
-  setColumn("UPC"    		, 100, 0, true, "upc");
-  setColumn("Description"	, -1 , 0, true, "description");
-  setColumn("Quantity"		, 80 , 0, true, "qty");
-  setColumn("Price" 		, 60 , 0, true, "price");
-  setColumn("Extended"		, 100, 0, true, "extension");
-  setColumn("Tax"      	, 60 , 0, true,"tax");
+  setColumn("Line#"             , 40,  0, true, "line_number");
+  setColumn("Item"              , 100, 0, true, "item_number");
+  setColumn("UPC"               , 100, 0, true, "upc");
+  setColumn("Description"       , -1 , 0, true, "description");
+  setColumn("Quantity"          , 80 , 0, true, "qty");
+  setColumn("Price"             , 60 , 0, true, "price");
+  setColumn("Extended"          , 100, 0, true, "extension");
+  setColumn("Tax"       , 60 , 0, true,"tax");
 }
 
 _terminal.populate("SELECT terminal_id, terminal_number, terminal_number"
@@ -241,7 +251,7 @@ function customerOpen(mode)
     params.filter = "customer_number='" + _cust.number + "'";
 
   var tmp = toolbox.lastWindow().set(params);
-  var execval = childwnd.exec(); 
+  var execval = childwnd.exec();
 
   if (execval)
   {
@@ -273,13 +283,13 @@ function extension()
     // Recalculate Tax
     var params = new Object;
     params.item_number = _item.number;
-    params.extension	= ext;
-    params.sale_date	= _date.date;
-    params.taxzone_id	= _taxzone.id();
-  
+    params.extension    = ext;
+    params.sale_date    = _date.date;
+    params.taxzone_id   = _taxzone.id();
+
     var data = toolbox.executeDbQuery("sale","saleitemtax",params);
     if (data.first())
-    { 
+    {
       tax = data.value("item_tax") - 0;
       _saleitems.setValue(_saleitem.currentIndex(),_taxCol,tax);
     }
@@ -289,8 +299,8 @@ function extension()
     {
       if (!_saleitems.isRowHidden(row))
       {
-        hsub += _saleitems.value(row, _qtyCol) * 		
-		_saleitems.value(row, _priceCol);
+        hsub += _saleitems.value(row, _qtyCol) *                
+                _saleitems.value(row, _priceCol);
         htax += _saleitems.value(row, _taxCol) - 0;
       }
       row++;
@@ -304,7 +314,7 @@ function extension()
   {
     print(e);
     toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
-  } 
+  }
 }
 
 function fetchSalesRep()
@@ -317,7 +327,7 @@ function fetchSalesRep()
   return "";
 }
 
-function handleItem() 
+function handleItem()
 {
   _item.setQuery("SELECT DISTINCT item_id, item_number, item_descrip1,"
                + "                item_descrip2, uom_name, item_type,"
@@ -343,7 +353,7 @@ function handleItem()
 
 function handleButtons()
 {
-  var state = (_cust.id() != -1 && 
+  var state = (_cust.id() != -1 &&
                _salesrep.id() != -1 &&
               (_saleitems.rowCountVisible() > 1 ||
                _item.number.length))
@@ -404,7 +414,7 @@ function payment()
     {
       var params = new Object();
       params.sale_number = _receiptNumber.text;
-  
+
       var data = toolbox.executeDbQuery("salereceipt","detail",params);
       if (data.first())
       {
@@ -450,7 +460,7 @@ function payment()
     _sale.submit();
     _saleitem.submit();
     _sale.setFilter(filter);
-    _sale.select(); 
+    _sale.select();
     toolbox.executeCommit();
     _submitted = true;
   }
@@ -468,13 +478,13 @@ function payment()
 
   var childwnd = toolbox.openWindow("payment", mywindow, Qt.ApplicationModal);
   var params   = new Object;
-  params.cust_id  	= _cust.id();
+  params.cust_id        = _cust.id();
   params.name           = _contact.name();
   params.sale_number    = _number.text;
-  params.subtotal 	= _subtotal.localValue;
-  params.tax      	= _tax.localValue;
-  params.total   	= _total.localValue;
-  params.type	= _type.code;
+  params.subtotal       = _subtotal.localValue;
+  params.tax            = _tax.localValue;
+  params.total          = _total.localValue;
+  params.type   = _type.code;
   if (_receiptNumber.text)
     params.receipt_number = _receiptNumber.text;
   if (previous_ccpay_id != null)
@@ -520,8 +530,8 @@ function populate()
   {
     var msg = "The Sales Rep number on this order is not your Sales Rep number.  "
             + "Do you want to change it to your number?"
-    if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg, 
-        QMessageBox.Yes | QMessageBox.Default, 
+    if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg,
+        QMessageBox.Yes | QMessageBox.Default,
         QMessageBox.No | QMessageBox.Escape) == QMessageBox.Yes)
       _salesrep.code = _salesrepCache;
   }
@@ -576,9 +586,9 @@ function populateTaxzone()
   var data = toolbox.executeDbQuery("sale","fetchtaxzone", params);
   if(data.first())
     _taxzone.code = data.value("taxzone_code");
-    
+
   _taxzone.setEnabled(metrics.value("RetailUseCustTaxZone") == "t"
-	&& _sale.mode != _viewMode);
+        && _sale.mode != _viewMode);
 }
 
 function prepare()
@@ -623,12 +633,12 @@ function receiptSearch()
   {
     var msg = qsTr("This action will delete all listed items.  "
             + "Are you sure you want to do this?")
-    if (toolbox.messageBox("warning", mywindow, mywindow.windowTitle, msg, 
-          QMessageBox.Yes | QMessageBox.Escape, 
+    if (toolbox.messageBox("warning", mywindow, mywindow.windowTitle, msg,
+          QMessageBox.Yes | QMessageBox.Escape,
           QMessageBox.No | QMessageBox.Default) == QMessageBox.No)
       return;
   }
-  
+
   while(_saleitems.rowCountVisible())
     remove();
 
@@ -675,7 +685,7 @@ function receiptSearch()
     handleButtons();
     populating = false;
     return;
-  } 
+  }
   // Reset for normal sale activity
   else if (_returnReceipt)
     setReturnReceipt(false);
@@ -837,16 +847,16 @@ function setMode(mode)
      _edit.hide();
      _payment.hide();
      _add.hide();
-     _remove.hide(); 
+     _remove.hide();
      _itemGroup.hide();
   }
 
-  //These widgets are automatically enabled by new or edit mode, 
+  //These widgets are automatically enabled by new or edit mode,
   //but we don't want them enabled
-  _number.enabled 	= false;
-  _closed.enabled 	= false;
-  _site.enabled 	= false;  
-  _terminal.enabled	= false;
+  _number.enabled       = false;
+  _closed.enabled       = false;
+  _site.enabled         = false;
+  _terminal.enabled     = false;
 }
 
 function setReturnReceipt(hasReceipt)
