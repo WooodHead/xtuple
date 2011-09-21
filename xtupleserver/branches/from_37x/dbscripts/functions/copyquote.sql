@@ -4,10 +4,16 @@ DECLARE
   pQuheadid ALIAS FOR $1;
   pSchedDate ALIAS FOR $2;
   _quheadid INTEGER;
+  _qunumber TEXT;
 
 BEGIN
 
   SELECT NEXTVAL('quhead_quhead_id_seq') INTO _quheadid;
+  IF (fetchMetricText('QUNumberGeneration') = 'S') THEN
+    SELECT fetchSoNumber() INTO _qunumber;
+  ELSE
+    SELECT fetchQuNumber() INTO _qunumber;
+  END IF;
 
   INSERT INTO quhead
   ( quhead_id, quhead_number, quhead_cust_id, quhead_prj_id,
@@ -26,7 +32,7 @@ BEGIN
     quhead_shipto_cntct_fax, quhead_shipto_cntct_email, quhead_billto_cntct_id, quhead_billto_cntct_honorific,
     quhead_billto_cntct_first_name, quhead_billto_cntct_middle, quhead_billto_cntct_last_name, quhead_billto_cntct_suffix,
     quhead_billto_cntct_phone, quhead_billto_cntct_title, quhead_billto_cntct_fax, quhead_billto_cntct_email )
-  SELECT _quheadid, fetchQuNumber(), quhead_cust_id, quhead_prj_id,
+  SELECT _quheadid, _qunumber, quhead_cust_id, quhead_prj_id,
          CURRENT_DATE, COALESCE(pSchedDate, quhead_packdate), quhead_origin, quhead_fob,
          quhead_warehous_id, quhead_terms_id, quhead_salesrep_id,
          quhead_custponumber, quhead_shipvia,
