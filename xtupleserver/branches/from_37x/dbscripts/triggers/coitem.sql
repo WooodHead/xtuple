@@ -222,6 +222,15 @@ BEGIN
       END IF;
     END IF;
 
+    IF ((NEW.coitem_status <> 'C') AND (OLD.coitem_status = 'C')) THEN
+      NEW.coitem_closedate = NULL;
+      NEW.coitem_close_username = NULL;
+
+      IF (_cmnttypeid <> -1) THEN
+	PERFORM postComment(_cmnttypeid, 'SI', NEW.coitem_id, 'Reopened');
+      END IF;
+    END IF;
+
     IF ((NEW.coitem_status = 'X') AND (OLD.coitem_status <> 'X')) THEN
       IF ((OLD.coitem_order_type = 'W') AND
 	  (SELECT wo_status IN ('O', 'E')
