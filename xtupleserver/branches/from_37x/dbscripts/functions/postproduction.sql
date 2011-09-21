@@ -149,7 +149,7 @@ WHERE
                                getPrjAccntId(wo_prj_id, costelem_exp_accnt_id), 
                                getPrjAccntId(wo_prj_id,costcat_wip_accnt_id), _invhistid,
 			       (itemcost_stdcost * _parentQty),
-                               CURRENT_DATE )
+                                pGlDistTS::DATE )
 FROM wo, costelem, itemcost, costcat, itemsite, item
 WHERE 
   ((wo_id=pWoid) AND
