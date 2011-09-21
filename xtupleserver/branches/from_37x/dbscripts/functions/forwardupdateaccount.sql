@@ -6,14 +6,21 @@ DECLARE
   _trialbalid INTEGER;
 
 BEGIN
-  SELECT trialbal_id INTO _r
+  SELECT trialbal_id, trialbal_dirty,
+         CASE WHEN (trialbal_dirty) THEN 0
+              ELSE 1
+         END AS dirty_seq INTO _r
     FROM trialbal, period
    WHERE ((trialbal_period_id=period_id)
      AND  (trialbal_accnt_id=pAccntid))
-   ORDER BY period_start
+   ORDER BY dirty_seq, period_start
    LIMIT 1;
   IF (FOUND) THEN
-    RETURN forwardUpdateTrialBalance(_r.trialbal_id);
+    IF (_r.trialbal_dirty) THEN
+      RETURN forwardUpdateTrialBalance(_r.trialbal_id);
+    ELSE
+      RETURN _r.trialbal_id;
+    END IF;
   ELSE
       _trialbalid := nextval('trialbal_trialbal_id_seq');
       
