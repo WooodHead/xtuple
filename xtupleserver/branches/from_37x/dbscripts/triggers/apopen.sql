@@ -31,10 +31,12 @@ BEGIN
   IF (TG_OP = 'UPDATE') THEN
     IF ((OLD.apopen_open=TRUE) AND (NEW.apopen_open=FALSE)) THEN
       NEW.apopen_status='C';
+      NEW.apopen_closedate=CURRENT_DATE;
     END IF;
     
     IF ((OLD.apopen_open=FALSE) AND (NEW.apopen_open=TRUE)) THEN
       NEW.apopen_status='O';
+      NEW.apopen_closedate=NULL;
     END IF;
   END IF;
 
