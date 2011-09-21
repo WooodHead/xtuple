@@ -152,7 +152,7 @@ BEGIN
     FROM vendinfo
     WHERE (vend_cntct2_id=pSourceCntctId);
 
-    IF (fetchMetricBool('EnableBatchManager')) THEN
+    IF (fetchMetricBool('EnableBatchManager') AND packageIsEnabled('xtbatch')) THEN
       INSERT INTO mrghist 
       SELECT pSourceCntctId,
       'xtbatch.emlassc',
@@ -188,7 +188,7 @@ BEGIN
   SET vend_cntct2_id = pTargetCntctId
   WHERE (vend_cntct2_id = pSourceCntctId);
 
-  IF (fetchMetricBool('EnableBatchManager')) THEN
+  IF (fetchMetricBool('EnableBatchManager') AND packageIsEnabled('xtbatch')) THEN
     UPDATE xtbatch.emlassc
     SET emlassc_assc_id = pTargetCntctId
     WHERE ((emlassc_type = 'T')
