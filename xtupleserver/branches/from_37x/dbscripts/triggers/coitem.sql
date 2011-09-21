@@ -329,6 +329,7 @@ DECLARE
   _itemNumber TEXT;
   _r RECORD;
   _kit BOOLEAN;
+
 BEGIN
 
   --Determine if this is a kit for later processing
@@ -362,9 +363,15 @@ BEGIN
 
   -- Create work order and process if flagged to do so
   IF ((NEW.coitem_order_type='W') AND (NEW.coitem_order_id=-1)) THEN
-    SELECT createwo(CAST(cohead_number AS INTEGER),     NEW.coitem_itemsite_id, 1,
-		    NEW.coitem_qtyord, itemsite_leadtime,  NEW.coitem_scheddate,
-		    NEW.coitem_memo,   'S',              NEW.coitem_id,
+    SELECT createwo(CAST(cohead_number AS INTEGER),
+                    NEW.coitem_itemsite_id,
+                    1, -- priority
+		    validateOrderQty(NEW.coitem_itemsite_id, NEW.coitem_qtyord, TRUE),
+                    itemsite_leadtime,
+                    NEW.coitem_scheddate,
+		    NEW.coitem_memo,
+                    'S',
+                    NEW.coitem_id,
 		    cohead_prj_id) INTO NEW.coitem_order_id
     FROM cohead, itemsite 
     WHERE ((cohead_id=NEW.coitem_cohead_id)
@@ -513,6 +520,8 @@ DECLARE
   _pstat TEXT;
   _result INTEGER;
   _coitemid INTEGER;
+  _itemsrcid INTEGER;
+
 BEGIN
 
   IF(TG_OP = 'DELETE') THEN
@@ -613,6 +622,25 @@ BEGIN
            RAISE EXCEPTION 'Error deleting kit components: deleteSoItem(integer) Error:%', _result;
         END IF;
       END LOOP;
+    END IF;
+  END IF;
+
+  IF (TG_OP = 'INSERT') THEN
+    -- Create Purchase Order if flagged to do so
+    IF ((NEW.coitem_order_type='P') AND (NEW.coitem_order_id=-1)) THEN
+      SELECT itemsrc_id INTO _itemsrcid
+      FROM itemsite JOIN itemsrc ON (itemsrc_item_id=itemsite_item_id AND itemsrc_default)
+      WHERE (itemsite_id=NEW.coitem_itemsite_id);
+      IF (FOUND) THEN
+        SELECT createPurchaseToSale(NEW.coitem_id,
+                                    _itemsrcid,
+                                    itemsite_dropship,
+                                    CASE WHEN (NEW.coitem_prcost=0.0) THEN NULL
+                                         ELSE NEW.coitem_prcost
+                                    END) INTO NEW.coitem_order_id
+        FROM itemsite
+        WHERE (itemsite_id=NEW.coitem_itemsite_id);
+      END IF;
     END IF;
   END IF;
 
