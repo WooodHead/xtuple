@@ -1,0 +1,1 @@
+ALTER TABLE incdt ADD COLUMN incdt_updated timestamp without time zone NOT NULL DEFAULT now();

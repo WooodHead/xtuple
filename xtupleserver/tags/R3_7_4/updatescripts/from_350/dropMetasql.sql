@@ -1,0 +1,1 @@
+DELETE FROM metasql WHERE (metasql_group = 'inventoryHistoryByOrderNumber' AND metasql_name='detail' AND metasql_grade = 0);
