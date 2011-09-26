@@ -2,7 +2,7 @@ Release Notes
 xTuple ERP
 PostBooks, Standard, and Manufacturing Editions
 Version 3.8.0Beta
-September 22, 2011
+September 26, 2011
 ==================================
 
 This is the beta release of version 3.8.0. This release includes
@@ -10,19 +10,33 @@ several new features and bug fixes. As always, we are looking for
 feedback from beta testers. But please do not use beta software
 in production.
 
+PLEASE NOTE: The CRM Expansion features may require some CRM 
+Account data cleanup before you can complete the upgrade process 
+to 3.8.0. The Updater application will provide more information 
+during the upgrade.
+
+ALSO: The Inventory valuation feature should only be enabled during 
+off-peak hours to avoid performance issues.
+
 Here's an overview of notable new features in this release:
 
-Topic
-  * Detail
+CRM Privileges
+  * New security in CRM allows for personal-only vs. all access
+    privileges throughout the CRM module
 
-Topic
-  * Detail
+CRM Account Expansion
+  * Added CRM Account linkages for User, Employee and Sales Rep
+    records. 
+
+Point-in-Time Inventory Valuation
+  * Added Inventory module configuration option to enable "As-of"
+    QOH reporting.
 
 ==================================
 
 The following features and bug fixes have been added to the
-applications since the 3.8.0 alpha, which was never released 
-to the public. Additional detail for each item listed below 
+applications since the 3.8.0 alpha, which was never released
+to the public. Additional detail for each item listed below
 may be found on our community website under the Issue Tracker.
 
 New Features:
@@ -152,7 +166,7 @@ New Features:
 * Include opportunities on To-Do list [14524]
 * Detach button on documents widget doesn't confirm [14687]
 * Add "apply" button to outstanding CMs on Invoice [14689]
-* Spelll check files naming convention not standard [14828]
+* Spell check files naming convention not standard [14828]
 * Registration Violation reports need to include both the registered user count and total user counts [14945]
 * PATCH - Add Comment Log for Customer Term and Grace Days Edits [14980]
 * Convert quote to Invoice function and script [15002]
