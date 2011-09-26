@@ -1,5 +1,7 @@
 -- TODO: add special handling for converting prospects <-> customers?
 CREATE OR REPLACE FUNCTION _crmacctBeforeTrigger () RETURNS TRIGGER AS $$
+DECLARE
+  _count        INTEGER;
 BEGIN
   -- disallow reusing crmacct_numbers
   IF (TG_OP IN ('INSERT', 'UPDATE')) THEN
@@ -33,6 +35,15 @@ BEGIN
       END IF;
     END IF;
 
+  ELSIF (TG_OP = 'DELETE') THEN
+    UPDATE cntct SET cntct_crmacct_id = NULL
+     WHERE cntct_crmacct_id = OLD.crmacct_id;
+
+    GET DIAGNOSTICS _count = ROW_COUNT;
+    RAISE DEBUG 'updated % contacts', _count;
+
+    RETURN OLD;
+
   END IF;
 
   RETURN NEW;
@@ -40,7 +51,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 DROP TRIGGER crmacctBeforeTrigger ON crmacct;
-CREATE TRIGGER crmacctBeforeTrigger BEFORE INSERT OR UPDATE ON crmacct FOR EACH ROW EXECUTE PROCEDURE _crmacctBeforeTrigger();
+CREATE TRIGGER crmacctBeforeTrigger BEFORE INSERT OR UPDATE OR DELETE
+  ON crmacct FOR EACH ROW EXECUTE PROCEDURE _crmacctBeforeTrigger();
 
 CREATE OR REPLACE FUNCTION _crmacctAfterTrigger () RETURNS TRIGGER AS $$
 DECLARE
