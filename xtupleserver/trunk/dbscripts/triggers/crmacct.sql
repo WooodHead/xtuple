@@ -186,34 +186,34 @@ BEGIN
 
   ELSIF (TG_OP = 'DELETE') THEN
     IF (OLD.crmacct_cust_id IS NOT NULL) THEN
-      RAISE EXCEPTION '[xtuple: deleteCrmAccount, -1]';
+      RAISE EXCEPTION 'Cannot delete CRM Account because it is a Customer [xtuple: deleteCrmAccount, -1]';
     END IF;
 
     IF (OLD.crmacct_emp_id IS NOT NULL) THEN
-      RAISE EXCEPTION '[xtuple: deleteCrmAccount, -7]';
+      RAISE EXCEPTION 'Cannot delete CRM Account because it is an Employee [xtuple: deleteCrmAccount, -7]';
     END IF;
 
     IF (OLD.crmacct_prospect_id IS NOT NULL) THEN
-      RAISE EXCEPTION '[xtuple: deleteCrmAccount, -3]';
+      RAISE EXCEPTION 'Cannot delete CRM Account because it is a Prospect [xtuple: deleteCrmAccount, -3]';
     END IF;
 
     DELETE FROM salesrep WHERE salesrep_id  = OLD.crmacct_salesrep_id;
     IF (OLD.crmacct_salesrep_id IS NOT NULL) THEN
-      RAISE EXCEPTION '[xtuple: deleteCrmAccount, -6]';
+      RAISE EXCEPTION 'Cannot delete CRM Account because it is a Sales Rep [xtuple: deleteCrmAccount, -6]';
     END IF;
 
     IF (OLD.crmacct_taxauth_id IS NOT NULL) THEN
-      RAISE EXCEPTION '[xtuple: deleteCrmAccount, -5]';
+      RAISE EXCEPTION 'Cannot delete CRM Account because it is a Tax Authority [xtuple: deleteCrmAccount, -5]';
     END IF;
 
     IF (EXISTS(SELECT usename
                  FROM pg_user
                 WHERE usename=OLD.crmacct_usr_username)) THEN
-      RAISE EXCEPTION '[xtuple: deleteCrmAccount, -8]';
+      RAISE EXCEPTION 'Cannot delete CRM Account because it is a User [xtuple: deleteCrmAccount, -8]';
     END IF;
 
     IF (OLD.crmacct_vend_id IS NOT NULL) THEN
-      RAISE EXCEPTION '[xtuple: deleteCrmAccount, -2]';
+      RAISE EXCEPTION 'Cannot delete CRM Account because it is a Vendor [xtuple: deleteCrmAccount, -2]';
     END IF;
 
     DELETE FROM imageass
