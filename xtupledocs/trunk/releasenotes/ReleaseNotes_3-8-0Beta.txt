@@ -9,27 +9,34 @@ several new features and bug fixes. As always, we are looking for
 feedback from beta testers. But please do not use beta software
 in production.
 
-PLEASE NOTE: The CRM Expansion features may require some CRM
-Account data cleanup before you can complete the upgrade process
-to 3.8.0. The Updater application will provide more information
-during the upgrade.
-
-ALSO: The Inventory valuation feature should only be enabled during
-off-peak hours to avoid performance issues.
+PLEASE NOTE: The CRM Expansion features mentioned below may require 
+some CRM data cleanup before you can complete the upgrade process
+to 3.8.0. To help with this, we've created a pre-3.8.0 upgrade
+utility package. When installed in a 3.7.x database, the upgrade
+utility helps you easily identify and fix problem CRM records. You
+should use this utility prior to upgrading to help ensure your
+upgrade goes smoothly.
 
 Here's an overview of notable new features in this release:
-
-CRM Privileges
-  * New security in CRM allows for personal-only vs. all access
-    privileges throughout the CRM module
 
 CRM Account Expansion
   * Added CRM Account linkages for User, Employee and Sales Rep
     records.
 
+CRM Account Merge Utility
+  * Added a preview version of the CRM Account Merge utility to
+    combine duplicate CRM Accounts. Works just like the existing 
+    Contact Merge utility.
+
+CRM Privileges
+  * New security in CRM allows for personal-only vs. all access
+    privileges throughout the CRM module.
+
 Point-in-Time Inventory Valuation
   * Added Inventory module configuration option to enable "As-of"
-    QOH reporting.
+    QOH reporting. 
+  ** NOTE: The Inventory valuation feature should only be enabled 
+     during off-peak hours to avoid performance issues. **
 
 ==================================
 
