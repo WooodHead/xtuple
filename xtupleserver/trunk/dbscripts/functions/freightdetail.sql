@@ -19,7 +19,7 @@ DECLARE
   _freight RECORD;
   _qry TEXT;
   _asof DATE;
-  _debug BOOLEAN := false;
+  _debug BOOLEAN := true;
 BEGIN
   IF (_debug) THEN
     RAISE NOTICE 'pOrderType = %', pOrderType;
@@ -135,6 +135,9 @@ BEGIN
   
   FOR _weights IN
     EXECUTE _qry LOOP
+
+  _freightid := NULL;
+  _totalprice := 0.0;
 
   IF (_debug) THEN
     RAISE NOTICE '_weights.weight - %', _weights.weight;
