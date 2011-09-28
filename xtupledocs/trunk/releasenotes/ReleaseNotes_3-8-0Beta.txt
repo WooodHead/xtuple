@@ -1,7 +1,7 @@
 Release Notes
 xTuple ERP
 Version 3.8.0Beta
-September 26, 2011
+September 28, 2011
 ==================================
 
 This is the beta release of version 3.8.0. This release includes
@@ -9,7 +9,13 @@ several new features and bug fixes. As always, we are looking for
 feedback from beta testers. But please do not use beta software
 in production.
 
-PLEASE NOTE: The CRM Expansion features mentioned below may require 
+Information about compatibility issues related to this software
+version can be found on the xTuple Compatibility Matrix at the 
+following address: www.xtuple.org/compatibility-matrix. One change
+system administrators should be aware of is that PostgreSQL 8.4.x 
+is the minimum requirement for xTuple ERP 3.8.0.
+
+PLEASE NOTE: The CRM Expansion features mentioned below may require
 some CRM data cleanup before you can complete the upgrade process
 to 3.8.0. To help with this, we've created a pre-3.8.0 upgrade
 utility package. When installed in a 3.7.x database, the upgrade
@@ -25,7 +31,7 @@ CRM Account Expansion
 
 CRM Account Merge Utility
   * Added a preview version of the CRM Account Merge utility to
-    combine duplicate CRM Accounts. Works just like the existing 
+    combine duplicate CRM Accounts. Works just like the existing
     Contact Merge utility.
 
 CRM Privileges
@@ -34,8 +40,8 @@ CRM Privileges
 
 Point-in-Time Inventory Valuation
   * Added Inventory module configuration option to enable "As-of"
-    QOH reporting. 
-  ** NOTE: The Inventory valuation feature should only be enabled 
+    QOH reporting.
+  ** NOTE: The Inventory valuation feature should only be enabled
      during off-peak hours to avoid performance issues. **
 
 ==================================
