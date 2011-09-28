@@ -19,7 +19,7 @@ DECLARE
   _freight RECORD;
   _qry TEXT;
   _asof DATE;
-  _debug BOOLEAN := true;
+  _debug BOOLEAN := false;
 BEGIN
   IF (_debug) THEN
     RAISE NOTICE 'pOrderType = %', pOrderType;
