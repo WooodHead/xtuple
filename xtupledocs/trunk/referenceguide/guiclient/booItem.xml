@@ -39,7 +39,7 @@
     <varlistentry>
       <term>Standard Oper.</term>
       <listitem>
-        <para>: Select a Standard Operation to use for the Operation, if
+        <para>Select a Standard Operation to use for the Operation, if
         any.</para>
       </listitem>
     </varlistentry>
@@ -101,22 +101,36 @@
       <listitem>
         <para>Specify the operation's effectivity, using the following
         parameters:</para>
-        <para>Effective: The system enables you to specify when an operation
-        can be used in a Bill of Materials. For example, the company's
-        engineering department may be working on a new design for an existing
-        Item&mdash;but that new design will not be available for use until a
-        given date in the future. In this case, you can specify the
-        "effective" date when the component will be available for use.</para>
-        <para>Expires: The system also enables you to specify when an
-        operation is planned to be obsoleted from (i.e., no longer used in) a
-        Bill of Materials. As mentioned above, the company's engineering
-        department may be working on a new design for an existing
-        Item&mdash;but that new design will not be available for use until a
-        given date in the future. In this case, the old component Item must be
-        marked for "expiration" on a given date. This expiration date will
-        most likely coincide with the effective date of the replacement part.
-        Setting this parameter will instruct the system to stop using the
-        specified component on the date entered into this field.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Effective</term>
+            <listitem>
+              <para>The system enables you to specify when an operation can be
+              used in a Bill of Materials. For example, the company's
+              engineering department may be working on a new design for an
+              existing Item&mdash;but that new design will not be available
+              for use until a given date in the future. In this case, you can
+              specify the "effective" date when the component will be
+              available for use.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Expires</term>
+            <listitem>
+              <para>The system also enables you to specify when an operation
+              is planned to be obsoleted from (i.e., no longer used in) a Bill
+              of Materials. As mentioned above, the company's engineering
+              department may be working on a new design for an existing
+              Item&mdash;but that new design will not be available for use
+              until a given date in the future. In this case, the old
+              component Item must be marked for "expiration" on a given date.
+              This expiration date will most likely coincide with the
+              effective date of the replacement part. Setting this parameter
+              will instruct the system to stop using the specified component
+              on the date entered into this field.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
         <note>
           <para>Standard Operations are intended as initial templates used to
           set up Bill of Operations (BOO) Items. Any changes made to a
@@ -198,54 +212,44 @@
         Standard Costs for manufactured Items, you should specify a per
         quantity which accurately reflects your normal batch size for the
         Operation. Specifying a standard batch size helps ensure your
-        Operations Costs are evenly distributed. For an example of how the
-        batch size can help distribute Costs from Operations, see the
-        following table.</para>
+        Operations Costs are evenly distributed. The following equation
+        indicates how Operations Costs are distributed using batch
+        sizes:</para>
+        <equation>
+          <mathphrase>((Setup Time * Setup Cost) + (Run Time * Run Cost))/per
+          = Extended Total</mathphrase>
+        </equation>
+        <para>The following table illustrates two examples of how differing
+        batch sizes produce different Operations Costs per unit:</para>
         <para><table>
-            <title>Affect of Batch Size on Manufactured Item Costing</title>
-            <tgroup cols="8">
+            <title>Example Batch Sizes with Operations Costing</title>
+            <tgroup cols="6">
               <thead>
                 <row>
                   <entry><para> Setup Time (Mins) </para></entry>
                   <entry><para> Run Time (Mins) </para></entry>
                   <entry><para> Units in Run ("per") </para></entry>
-                  <entry><para> Total Mins </para></entry>
-                  <entry><para> Mins Per </para></entry>
-                  <entry><para> Cost @ .10c per Min </para></entry>
-                  <entry><para> Material Cost per Unit </para></entry>
-                  <entry><para> Total Mfg. Cost per Run </para></entry>
+                  <entry><para>Setup Cost from WC (Per Min)</para></entry>
+                  <entry><para>Run Cost from WC (Per Min)</para></entry>
+                  <entry><para> Extended Cost per Unit </para></entry>
                 </row>
               </thead>
               <tbody>
                 <row>
-                  <entry><para> 60 </para></entry>
+                  <entry><para> 15 </para></entry>
                   <entry><para> 100 </para></entry>
                   <entry><para> 10 </para></entry>
-                  <entry><para> 160 </para></entry>
-                  <entry><para> 16 </para></entry>
-                  <entry><para> $1.60 </para></entry>
-                  <entry><para> $5.00 </para></entry>
-                  <entry><para> $66.00 </para></entry>
+                  <entry><para>$0.500</para></entry>
+                  <entry><para>$0.417</para></entry>
+                  <entry><para>$4.920</para></entry>
                 </row>
                 <row>
-                  <entry><para> 60 </para></entry>
+                  <entry><para> 15</para></entry>
                   <entry><para> 1000 </para></entry>
                   <entry><para> 100 </para></entry>
-                  <entry><para> 1060 </para></entry>
-                  <entry><para> 10.6 </para></entry>
-                  <entry><para> $1.06 </para></entry>
-                  <entry><para> $5.00 </para></entry>
-                  <entry><para> $606.00 </para></entry>
-                </row>
-                <row>
-                  <entry><para> 60 </para></entry>
-                  <entry><para> 10 </para></entry>
-                  <entry><para> 1 </para></entry>
-                  <entry><para> 70 </para></entry>
-                  <entry><para> 70 </para></entry>
-                  <entry><para> $7.00 </para></entry>
-                  <entry><para> $5.00 </para></entry>
-                  <entry><para> $12.00 </para></entry>
+                  <entry><para>$0.500</para></entry>
+                  <entry><para>$0.417</para></entry>
+                  <entry><para>$4.245</para></entry>
                 </row>
               </tbody>
             </tgroup>
