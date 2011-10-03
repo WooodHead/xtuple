@@ -246,17 +246,14 @@ SELECT pkghead_id AS pkgitem_id, 31 AS seq,
        '' AS pkgitem_descrip
   FROM pkghead
 UNION
-SELECT t.oid AS pkgitem_id, 32 AS seq,
+SELECT 0 AS pkgitem_id, 32 AS seq,
        3 AS xtindentrole,
-       nspname AS pkgname,
+       trigger_schema AS pkgname,
        'G' AS pkgitem_type,
-       tgname AS pkgitem_name,
-       pg_catalog.obj_description(t.oid, 'pg_trigger') AS pkgitem_descrip 
-  FROM pg_trigger t
-       JOIN pg_class ON (tgrelid=pg_class.oid)
-       JOIN pg_namespace ON (relnamespace=pg_namespace.oid)
- WHERE (NOT tgconstraint)
-   AND  (tgname !~ '^pkg(cmd(arg)?|image|metasql|priv|report|script|uiform)')
+       trigger_name AS pkgitem_name,
+       event_object_table AS pkgitem_descrip
+  FROM information_schema.triggers
+ WHERE (trigger_name !~ '^pkg(cmd(arg)?|image|metasql|priv|report|script|uiform)')
 UNION
 ------ VIEWS ------
 SELECT pkghead_id AS pkgitem_id, 33 AS seq,
