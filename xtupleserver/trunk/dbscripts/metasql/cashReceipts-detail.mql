@@ -88,7 +88,7 @@ SELECT cashrcpt_id, 2 AS type, '' AS cashrcpt_number, cust_number, cust_name,
 <? if exists("includeFormatted") ?>
        formatDate(cashrcpt_distdate) AS f_postdate,
        formatMoney(cashrcpt_amount) AS f_applied,
-       formatMoney(cashrcpt_amount, / cashrcpt_curr_rate) AS f_base_applied,
+       formatMoney(cashrcpt_amount / cashrcpt_curr_rate) AS f_base_applied,
 <? endif ?>
        'curr' AS base_applied_xtnumericrole,
        0 AS base_applied_xttotalrole,
