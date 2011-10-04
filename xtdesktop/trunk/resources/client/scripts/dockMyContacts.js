@@ -82,7 +82,7 @@ function openWindowMyCntcts()
 
   // Determine which contact to open
   params = new Object;
-  if (privileges.check("MaintainContacts"))
+  if (privileges.check("MaintainAllContacts") || privileges.check("MaintainPersonalContacts"))
     params.mode = "edit";
   else
     params.mode = "view";
@@ -110,6 +110,8 @@ function populateMenuMyCntcts(pMenu)
 */
 function privilegeCheckMyCntcts()
 {
-  return privileges.check("MaintainContacts") ||
-         privileges.check("ViewContacts");
+  return privileges.check("MaintainAllContacts") ||
+         privileges.check("MaintainPersonalContacts") ||
+         privileges.check("ViewAllContacts") ||
+         privileges.check("ViewPersonalContacts");
 }

@@ -123,7 +123,7 @@ function openWindowToDo()
   if (act == "D") // To Do
   {
     ui = "todoItem";
-    if (privileges.check("MaintainPersonalTodoList"))
+    if (privileges.check("MaintainPersonalToDoItems"))
       params.mode = "edit";
     else
       params.mode = "view";
@@ -132,7 +132,7 @@ function openWindowToDo()
   else if (act == "I")
   {
     ui = "incident";
-    if (privileges.check("MaintainIncidents"))
+    if (privileges.check("MaintainAllIncidents") || privileges.check("MaintainPersonalIncidents"))
       params.mode = "edit";
     else
       params.mode = "view";
@@ -141,7 +141,7 @@ function openWindowToDo()
   else if (act == "T")
   {
     ui = "task";
-    if (privileges.check("MaintainProjects"))
+    if (privileges.check("MaintainAllProjects") || privileges.check("MaintainPersonalProjects"))
       params.mode = "edit";
     else
       params.mode = "view"
@@ -150,7 +150,7 @@ function openWindowToDo()
   else if (act == "P")
   {
     ui = "project";
-    if (privileges.check("MaintainProjects"))
+    if (privileges.check("MaintainAllProjects") || privileges.check("MaintainPersonalProjects"))
       params.mode = "edit";
     else
       params.mode = "view";
@@ -193,7 +193,7 @@ function populateMenuToDo(pMenu)
   if (act == "D")
   {
     menuItem = toolbox.menuAddAction(pMenu, qsTr("Delete"),
-                                     privileges.check("MaintainPersonalTodoList"));
+                                     privileges.check("MaintainPersonalToDoItems"));
     menuItem.triggered.connect(deleteToDo);
   }
 }
@@ -204,14 +204,14 @@ function populateMenuToDo(pMenu)
 function privilegeCheckToDo(act)
 {
   if (act == "D") // To Do list
-    return privileges.check("MaintainPersonalTodoList") ||
-           privileges.check("ViewPersonalTodoList");
+    return privileges.check("MaintainPersonalToDoItems") ||
+           privileges.check("ViewPersonalToDoItems");
   else if (act == "I") // Incidents
-    return privileges.check("MaintainIncidents") ||
-           privileges.check("ViewIncidents");
+    return privileges.check("MaintainPersonalIncidents") ||
+           privileges.check("ViewPersonalIncidents");
   else if (act == "P" || act == "T") // Projects and Tasks
-    return privileges.check("MaintainProjects") ||
-           privileges.check("ViewProjects");
+    return privileges.check("MaintainPersonalProjects") ||
+           privileges.check("ViewPersonalProjects");
 
   return false;
 }
