@@ -90,7 +90,7 @@ function openWindowMyAccts()
   // Determine which contact to open
   params = new Object;
   params.crmacct_id = _accountList.id();
-  if (privileges.check("MaintainCRMAccounts"))
+  if (privileges.check("MaintainAllCRMAccounts") || privileges.check("MaintainPersonalCRMAccounts"))
     params.mode = "edit"
   else
     params.mode = "view"
@@ -116,8 +116,10 @@ function populateMenuMyAccts(pMenu)
 */
 function privilegeCheckMyAccts()
 {
-  return privileges.check("MaintainCRMAccounts") ||
-         privileges.check("ViewCRMAccounts");
+  return privileges.check("MaintainAllCRMAccounts") ||
+         privileges.check("MaintainPersonalCRMAccounts") ||
+         privileges.check("ViewAllCRMAccounts") ||
+         privileges.check("ViewPersonalCRMAccounts");
 }
 
 /*!
