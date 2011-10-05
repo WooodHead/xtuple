@@ -48,7 +48,7 @@ SELECT gltrans_id AS id, 1 AS altid,
        gltrans_doctype AS doc_type,
        gltrans_docnumber AS docnumber,
        gltrans_notes AS notes,
-       (SELECT currConcat(COALESCE(cashrcpt_curr_id, baseCurrId()))) AS doc_curr,
+       currConcat(COALESCE(cashrcpt_curr_id, baseCurrId())) AS doc_curr,
        COALESCE(bankrecitem_curr_rate, cashrcpt_curr_rate, currRate(bankaccnt_curr_id, gltrans_date)) AS doc_exchrate,
        (gltrans_amount * -1.0) AS base_amount,
        COALESCE( (gltrans_amount * bankrecitem_curr_rate * -1.0),
@@ -56,17 +56,19 @@ SELECT gltrans_id AS id, 1 AS altid,
                  (currToLocal(bankaccnt_curr_id, gltrans_amount, gltrans_date) * -1.0) ) AS amount,
        COALESCE(date(jrnluse_date), gltrans_date) AS jrnldate,
        gltrans_date AS sortdate
-  FROM (bankaccnt CROSS JOIN gltrans)
-              LEFT OUTER JOIN bankrecitem ON ((bankrecitem_source='GL')
-                                          AND (bankrecitem_source_id=gltrans_id)
-                                          AND (bankrecitem_bankrec_id=<? value("bankrecid") ?>)
-                                          AND (bankrecitem_cleared))
-              LEFT OUTER JOIN jrnluse ON (jrnluse_number=gltrans_journalnumber AND jrnluse_use='C/R')
-              LEFT OUTER JOIN cashrcpt  ON ((gltrans_source='A/R')
-                                        AND (gltrans_doctype='CR')
-                                        AND (gltrans_docnumber=('C-' || cashrcpt_docnumber)))
- WHERE ((gltrans_accnt_id=bankaccnt_accnt_id)
-   AND (NOT gltrans_deleted)
+  FROM bankaccnt
+  JOIN gltrans ON (bankaccnt_accnt_id=gltrans_accnt_id)
+  LEFT OUTER JOIN bankrecitem ON ((bankrecitem_source='GL')
+                              AND (bankrecitem_source_id=gltrans_id)
+                              AND (bankrecitem_bankrec_id=<? value("bankrecid") ?>)
+                              AND (bankrecitem_cleared))
+  LEFT OUTER JOIN jrnluse ON (jrnluse_number=gltrans_journalnumber AND jrnluse_use='C/R')
+  LEFT OUTER JOIN cashrcpt  ON ((gltrans_source='A/R')
+                            AND (gltrans_doctype='CR')
+                            AND (gltrans_docnumber=('C-' || cashrcpt_docnumber))
+                            AND (gltrans_amount=cashrcpt_amount)
+                            AND (gltrans_date=cashrcpt_distdate))
+ WHERE ((NOT gltrans_deleted)
    AND (NOT gltrans_rec)
    AND (gltrans_amount < 0)
    AND (bankaccnt_id=<? value("bankaccntid") ?>) )
@@ -79,7 +81,7 @@ SELECT sltrans_id AS id, 2 AS altid,
        sltrans_doctype AS doc_type,
        sltrans_docnumber AS docnumber,
        sltrans_notes AS notes,
-       (SELECT currConcat(COALESCE(cashrcpt_curr_id, baseCurrId()))) AS doc_curr,
+       currConcat(COALESCE(cashrcpt_curr_id, baseCurrId())) AS doc_curr,
        COALESCE(bankrecitem_curr_rate, cashrcpt_curr_rate, currRate(bankaccnt_curr_id, sltrans_date)) AS doc_exchrate,
        (sltrans_amount * -1.0) AS base_amount,
        COALESCE( (sltrans_amount * bankrecitem_curr_rate * -1.0),
@@ -87,17 +89,19 @@ SELECT sltrans_id AS id, 2 AS altid,
                  (currToLocal(bankaccnt_curr_id, sltrans_amount, sltrans_date) * -1.0) ) AS amount,
        COALESCE(date(jrnluse_date), sltrans_date) AS jrnldate,
        sltrans_date AS sortdate
-  FROM (bankaccnt CROSS JOIN sltrans)
-              LEFT OUTER JOIN bankrecitem ON ((bankrecitem_source='SL')
-                                          AND (bankrecitem_source_id=sltrans_id)
-                                          AND (bankrecitem_bankrec_id=<? value("bankrecid") ?>)
-                                          AND (bankrecitem_cleared))
-              LEFT OUTER JOIN jrnluse ON (jrnluse_number=sltrans_journalnumber AND jrnluse_use='C/R')
-              LEFT OUTER JOIN cashrcpt  ON ((sltrans_source='A/R')
-                                        AND (sltrans_doctype='CR')
-                                        AND (sltrans_docnumber=('C-' || cashrcpt_docnumber)))
- WHERE ((sltrans_accnt_id=bankaccnt_accnt_id)
-   AND (NOT sltrans_rec)
+  FROM bankaccnt
+  JOIN sltrans ON (bankaccnt_accnt_id=sltrans_accnt_id)
+  LEFT OUTER JOIN bankrecitem ON ((bankrecitem_source='SL')
+                              AND (bankrecitem_source_id=sltrans_id)
+                              AND (bankrecitem_bankrec_id=<? value("bankrecid") ?>)
+                              AND (bankrecitem_cleared))
+  LEFT OUTER JOIN jrnluse ON (jrnluse_number=sltrans_journalnumber AND jrnluse_use='C/R')
+  LEFT OUTER JOIN cashrcpt  ON ((sltrans_source='A/R')
+                            AND (sltrans_doctype='CR')
+                            AND (sltrans_docnumber=('C-' || cashrcpt_docnumber))
+                            AND (sltrans_amount=cashrcpt_amount)
+                            AND (sltrans_date=cashrcpt_distdate))
+ WHERE ((NOT sltrans_rec)
    AND (sltrans_amount < 0)
    AND (bankaccnt_id=<? value("bankaccntid") ?>) )
  UNION ALL
@@ -108,7 +112,7 @@ SELECT bankadj_id AS id, 3 AS altid,
        'ADJ' AS doc_type,
        bankadj_docnumber AS docnumber,
        bankadjtype_name AS notes,
-       (SELECT currConcat(bankadj_curr_id)) AS doc_curr,
+       currConcat(bankadj_curr_id) AS doc_curr,
        1.0 AS doc_exchrate,
        CASE WHEN(bankadjtype_iscredit=true) THEN (bankadj_amount * -1.0) ELSE bankadj_amount END AS base_amount,
        CASE WHEN(bankadjtype_iscredit=true) THEN (bankadj_amount * -1.0) ELSE bankadj_amount END AS amount,
