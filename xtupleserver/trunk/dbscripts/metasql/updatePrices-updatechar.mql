@@ -9,7 +9,7 @@ UPDATE ipsitemchar SET
 <? else ?>
   roundSale(ipsitemchar_price * (1.0 + (<? value("updateBy") ?> / 100.0)))
 <? endif ?>
-FROM selsched, item, ipsitem
+FROM selsched, ipsitem, item
 <? if reExists("itemgrp") ?>
   JOIN itemgrpitem ON (itemgrpitem_item_id=item_id)
   JOIN itemgrp ON (itemgrpitem_itemgrp_id=itemgrp_id)
