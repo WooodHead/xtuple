@@ -186,7 +186,7 @@ BEGIN
            0::NUMERIC, FALSE,
            0::NUMERIC, FALSE,
            0::NUMERIC, booitem_instruc,
-           xtmfg.calculatenextworkingdate(itemsite_warehous_id,wo_startdate,booitem_execday-1),
+           calculatenextworkingdate(itemsite_warehous_id,wo_startdate,booitem_execday-1),
            booitem_wip_location_id
     FROM xtmfg.booitem, wo, itemsite
     WHERE ((wo_itemsite_id=itemsite_id)

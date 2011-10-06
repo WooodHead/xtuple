@@ -46,8 +46,8 @@ BEGIN
 
 --    Reschedule wooper
     UPDATE xtmfg.wooper
-    SET wooper_scheduled = xtmfg.calculatenextworkingdate(itemsite_warehous_id,DATE(pStartDate),
-	CAST(xtmfg.calculateworkdays(itemsite_warehous_id, DATE(wo_startdate), DATE(wooper_scheduled)) as INTEGER))
+    SET wooper_scheduled = calculatenextworkingdate(itemsite_warehous_id,DATE(pStartDate),
+	CAST(calculateworkdays(itemsite_warehous_id, DATE(wo_startdate), DATE(wooper_scheduled)) as INTEGER))
     FROM wo
     Inner Join itemsite on
       wo_itemsite_id=itemsite_id
