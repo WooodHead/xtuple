@@ -3,9 +3,13 @@ DECLARE
 
 BEGIN
   IF (TG_OP = 'DELETE') THEN
-    DELETE FROM voheadtax
-    WHERE ( (taxhist_parent_id=OLD.vodist_vohead_id)
-      AND   (taxhist_taxtype_id=getAdjustmentTaxTypeId()) );
+    IF (OLD.vodist_tax_id <> -1) THEN
+    -- Delete any existing voheadtax adjustment records
+      DELETE FROM voheadtax
+      WHERE ( (taxhist_parent_id=OLD.vodist_vohead_id)
+        AND   (taxhist_tax_id=OLD.vodist_tax_id)
+        AND   (taxhist_taxtype_id=getAdjustmentTaxTypeId()) );
+    END IF;
 
     RETURN OLD;
   END IF;
