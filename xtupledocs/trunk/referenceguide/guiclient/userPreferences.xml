@@ -86,6 +86,15 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term>Alternating Row Colors</term>
+            <listitem>
+              <para>Select to turn on alternating row colors (white and gray)
+              where lists are displayed in xTuple. If not selected, all
+              displayed rows will appear on a white background with no color
+              distinction between them.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term>Ignore Missing Translations</term>
             <listitem>
               <para>Select to bypass the warning message which may be
@@ -103,20 +112,13 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Alternating Row Colors</term>
-            <listitem>
-              <para>Select to turn on alternating row colors (white and gray)
-              where lists are displayed in xTuple. If not selected, all
-              displayed rows will appear on a white background with no color
-              distinction between them.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
             <term>Enable Spell Check on Text Edit Fields</term>
             <listitem>
               <para>Select if you want to enable spell checking in most
-              Comment, Note, and text areas throughout the application. xTuple
-              uses the widely-adopted, open source <ulink
+              Comment, Note, and text areas throughout the application. Select
+              the GET DICTIONARIES button to download spell check dictionaries
+              to match the language defined on your user's Locale. xTuple uses
+              the widely-adopted, open source <ulink
               url="http://hunspell.sourceforge.net/">Hunspell spell
               checker</ulink> as the basis for its spell checking feature. By
               default, the English dictionary files (English.dict and
