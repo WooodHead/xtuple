@@ -123,6 +123,7 @@ SELECT itemsite_id, detail,warehous_code,
        nnqoh, formatQty(nnqoh) AS f_nnqoh,
        CASE WHEN (itemsite_loccntrl) THEN nnqoh END AS f_nnqoh,
        cost, (cost * qoh) AS value,
+  <? if exists("showValue") ?>
        formatMoney(cost) AS f_cost, formatMoney(cost * qoh) AS f_value,
        CASE WHEN (itemsite_loccntrl) THEN (cost * nnqoh) END AS f_nnvalue,
        CASE WHEN(itemsite_costmethod='A') THEN 'Average'
@@ -131,6 +132,7 @@ SELECT itemsite_id, detail,warehous_code,
             WHEN(itemsite_costmethod='N') THEN 'None'
          ELSE 'UNKNOWN'
        END AS f_costmethod,
+  <? endif ?>
        'qty' AS reorderlevel_xtnumericrole,
        'qty' AS qoh_xtnumericrole,
        'qty' AS f_nnqoh_xtnumericrole,
