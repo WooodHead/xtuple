@@ -112,13 +112,26 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term>GET TRANSLATIONS</term>
+            <listitem>
+              <para>Select to download the latest translation file to match
+              the language defined on your user's Locale. Translation files
+              are downloaded from the <ulink
+              url="http://www.xtuple.org/translate">xTuple Translation
+              Portal</ulink>&mdash;and they are stored on your local file
+              system in a standard location for application support files.
+              Once the translation file is downloaded, the xTuple ERP
+              interface will automatically appear as translated using the most
+              current translation file available. A message will alert you if
+              no translation is available for your language. </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term>Enable Spell Check on Text Edit Fields</term>
             <listitem>
               <para>Select if you want to enable spell checking in most
-              Comment, Note, and text areas throughout the application. Select
-              the GET DICTIONARIES button to download spell check dictionaries
-              to match the language defined on your user's Locale. xTuple uses
-              the widely-adopted, open source <ulink
+              Comment, Note, and text areas throughout the application. xTuple
+              uses the widely-adopted, open source <ulink
               url="http://hunspell.sourceforge.net/">Hunspell spell
               checker</ulink> as the basis for its spell checking feature. By
               default, the English dictionary files (English.dict and
@@ -130,6 +143,14 @@
               than English (and you have the correct Hunspell dictionary files
               installed) the spell checker should work in your specified
               language.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>GET DICTIONARIES</term>
+            <listitem>
+              <para>Select to download spell check dictionaries to match the
+              language defined on your user's Locale. A message will alert you
+              if no dictionaries are available for your language. </para>
             </listitem>
           </varlistentry>
           <varlistentry>
