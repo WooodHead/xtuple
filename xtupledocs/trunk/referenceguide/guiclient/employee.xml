@@ -24,15 +24,22 @@
     <varlistentry>
       <term>Employee</term>
       <listitem>
-        <para>Enter the Employee's name. If the Employee is also an xTuple ERP
-        system user, then you should enter the Employee's system username
-        here.</para>
+        <para>Enter a code to identify the Employee. This is the same as the
+        Employee's CRM Account Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Employee Number</term>
       <listitem>
-        <para>Enter a number to uniquely identify the Employee.</para>
+        <para>Enter a number to uniquely identify the Employee. This is the
+        same as a badge number for the Employee.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Employee Name</term>
+      <listitem>
+        <para>Enter the full name of the Employee. This is the same as the
+        Employee's CRM Account Name.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -53,6 +60,15 @@
           here, that information will be added automatically to the master
           list of Contacts and/or Addresses.</para>
         </note>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CRM ACCOUNT</term>
+      <listitem>
+        <para>Select to open the Employee's CRM Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>
