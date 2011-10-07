@@ -18,7 +18,7 @@ BEGIN
   END IF;
   
   -- increase inventory: AD RM RT RP RR RS RX RB TR
-  -- decrease inventory: IM IB IT SH SI EX
+  -- decrease inventory: IM IB IT SH SI EX RI
   -- TS and TR are special: shipShipment and recallShipment should not change
   -- QOH at the Transfer Order src whs (as this was done by issueToShipping)
   -- but postReceipt should change QOH at the transit whs
@@ -34,7 +34,7 @@ BEGIN
                                   WHERE (tohead_number=_row.invhist_ordnumber)) THEN 0
                 ELSE 1
                 END;
-  ELSIF (_row.invhist_transtype IN ('IM', 'IB', 'IT', 'SH', 'SI', 'EX')) THEN
+  ELSIF (_row.invhist_transtype IN ('IM', 'IB', 'IT', 'SH', 'SI', 'EX', 'RI')) THEN
       _sense := -1;
     ELSE
       _sense := 1;
