@@ -23,7 +23,15 @@
     <varlistentry>
       <term>Number</term>
       <listitem>
-        <para>Enter an identification number for the Sales Rep.</para>
+        <para>Enter a code to identify the Sales Rep. This is the same as the
+        Sales Rep's CRM Account Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter the full name of the Sales Rep. This is the same as the
+        Sales Rep's CRM Account Name.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -31,12 +39,6 @@
       <listitem>
         <para>Select if the Sales Rep is currently active. Not selecting means
         the Sales Rep is inactive.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Name</term>
-      <listitem>
-        <para>Enter the name of the Sales Rep.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -53,6 +55,15 @@
         convenience. If you later update the commission percentage on a Sales
         Rep record, that update will not recursively update all the commission
         records wherever that Sales Rep is used.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CRM ACCOUNT</term>
+      <listitem>
+        <para>Select to open the Sales Rep's CRM Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>
