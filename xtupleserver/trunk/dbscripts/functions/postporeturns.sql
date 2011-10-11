@@ -11,7 +11,7 @@ BEGIN
   _itemlocSeries := 0;
 
   FOR _p IN SELECT pohead_number, pohead_curr_id, poreject_id, poitem_prj_id,
-		   poreject_poitem_id, poitem_id, poitem_expcat_id,
+		   poreject_poitem_id, poitem_id, poitem_expcat_id, poitem_linenumber,
 		   currToBase(pohead_curr_id, poitem_unitprice,
 			      pohead_orderdate) AS poitem_unitprice_base,
                    COALESCE(itemsite_id, -1) AS itemsiteid, poitem_invvenduomratio,
@@ -24,7 +24,7 @@ BEGIN
              AND (pohead_id=pPoheadid)
              AND (NOT poreject_posted) )
             GROUP BY poreject_id, pohead_number, poreject_poitem_id, poitem_id,
-		     poitem_expcat_id, poitem_unitprice, pohead_curr_id,
+		     poitem_expcat_id, poitem_linenumber, poitem_unitprice, pohead_curr_id,
 		     pohead_orderdate, itemsite_id, poitem_invvenduomratio,
                     itemsite_item_id, itemsite_costmethod, poitem_prj_id LOOP
 
@@ -47,7 +47,7 @@ BEGIN
       END IF;
 
       SELECT postInvTrans( itemsite_id, 'RP', (_p.totalqty * _p.poitem_invvenduomratio * -1),
-                           'S/R', 'PO', _p.pohead_number, '', 'Return Inventory to P/O',
+                           'S/R', 'PO', (_p.pohead_number || '-' || _p.poitem_linenumber::TEXT), '', 'Return Inventory to P/O',
                            costcat_asset_accnt_id, costcat_liability_accnt_id, _itemlocSeries, CURRENT_TIMESTAMP) INTO _returnval
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
