@@ -2,4 +2,4 @@
 -- Name: delete
 -- Notes: Delete a contact
 
-SELECT deleteContact(<? value("cntct_id") ?>) AS result;
+DELETE FROM cntct WHERE (cntct_id=<? value("cntct_id") ?>);

@@ -113,4 +113,4 @@ SELECT saveCntct(
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.contact DO INSTEAD
 
-SELECT deleteContact(getCntctId(OLD.contact_number));
+DELETE FROM cntct WHERE (cntct_number=OLD.contact_number);

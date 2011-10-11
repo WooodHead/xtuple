@@ -16,6 +16,48 @@ CREATE TRIGGER cntcttrigger
   FOR EACH ROW
   EXECUTE PROCEDURE _cntctTrigger();
 
+CREATE OR REPLACE FUNCTION _cntctTriggerBeforeDelete() RETURNS "trigger" AS $$
+BEGIN
+  IF (TG_OP = 'DELETE') THEN
+    DELETE FROM cntctaddr WHERE cntctaddr_cntct_id=OLD.cntct_id;
+    DELETE FROM cntctdata WHERE cntctdata_cntct_id=OLD.cntct_id;
+    DELETE FROM cntcteml  WHERE cntcteml_cntct_id=OLD.cntct_id;
+
+    -- these have denormalized cntct info so it should be ok to update them
+    UPDATE cohead SET cohead_billto_cntct_id=NULL
+     WHERE cohead_billto_cntct_id=OLD.cntct_id;
+    UPDATE cohead SET cohead_shipto_cntct_id=NULL
+     WHERE cohead_shipto_cntct_id=OLD.cntct_id;
+
+    UPDATE pohead SET pohead_vend_cntct_id=NULL
+     WHERE pohead_vend_cntct_id=OLD.cntct_id;
+    UPDATE pohead SET pohead_shipto_cntct_id=NULL
+     WHERE pohead_shipto_cntct_id=OLD.cntct_id;
+
+    UPDATE quhead SET quhead_billto_cntct_id=NULL
+     WHERE quhead_billto_cntct_id=OLD.cntct_id;
+    UPDATE quhead SET quhead_shipto_cntct_id=NULL
+     WHERE quhead_shipto_cntct_id=OLD.cntct_id;
+
+    IF (fetchMetricBool('MultiWhs')) THEN
+      UPDATE tohead SET tohead_destcntct_id=NULL
+       WHERE tohead_destcntct_id=OLD.cntct_id;
+      UPDATE tohead SET tohead_srccntct_id=NULL
+       WHERE tohead_srccntct_id=OLD.cntct_id;
+    END IF;
+
+  END IF;
+  RETURN OLD;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'cntctTriggerBeforeDelete');
+CREATE TRIGGER cntcttriggerbeforedelete
+  BEFORE DELETE
+  ON cntct
+  FOR EACH ROW
+  EXECUTE PROCEDURE _cntctTriggerBeforeDelete();
+
 -- After trigger
 CREATE OR REPLACE FUNCTION _cntctTriggerAfter() RETURNS "trigger" AS $$
 DECLARE
@@ -59,7 +101,11 @@ BEGIN
       END IF;
     END IF;
   ELSIF (TG_OP = 'DELETE') THEN
-      DELETE FROM cntcteml WHERE cntcteml_cntct_id=OLD.cntct_id;
+      DELETE FROM comment
+       WHERE (comment_source_id=OLD.cntct_id AND comment_source = 'T');
+      DELETE FROM docass
+       WHERE (docass_source_id=OLD.cntct_id AND docass_source_type = 'T')
+          OR (docass_target_id=OLD.cntct_id AND docass_target_type = 'T');
       
       RETURN OLD;
   END IF;
