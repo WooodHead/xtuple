@@ -45,8 +45,9 @@ BEGIN
      AND (wo_id = ' || pwoid || ')
      AND (womatl_itemsite_id = itemsite_id)
      AND (itemsite_item_id=item_id)
-     AND (womatl_uom_id=uom_id)
-     AND (NOT womatl_createwo OR womatl_createwo IS NULL) ';
+     AND (womatl_uom_id=uom_id) ';
+-- Need to display in case child w/o is deleted
+--     AND (NOT womatl_createwo OR womatl_createwo IS NULL) ';
 
   IF (pwooperid IS NOT NULL) THEN
     _qry := _qry || 'AND (womatl_wooper_id=' || pwooperid  || ')';
