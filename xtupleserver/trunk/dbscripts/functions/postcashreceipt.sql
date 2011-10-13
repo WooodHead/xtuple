@@ -231,7 +231,7 @@ BEGIN
                           CASE WHEN _r.aropen_doctype != 'R' THEN _arAccntid
                           ELSE findDeferredAccount(_p.cashrcpt_cust_id) END, 
                           round(_r.cashrcptitem_amount_base + _exchGain, 2),
-                          _p.cashrcpt_distdate, _p.custnote );      
+                          _p.cashrcpt_distdate, _p.custnote, pCashrcptid );      
                           
       IF (_exchGain <> 0) THEN
           PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CR',
@@ -240,7 +240,7 @@ BEGIN
                    CASE WHEN _r.aropen_doctype != 'R' THEN _arAccntid
                    ELSE findDeferredAccount(_p.cashrcpt_cust_id) END
                  ), round(_exchGain, 2) * -1,
-                 _p.cashrcpt_distdate, _p.custnote);
+                 _p.cashrcpt_distdate, _p.custnote, pCashrcptid);
       END IF;
 
     END LOOP;
@@ -277,7 +277,7 @@ BEGIN
     PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR', _r.cashrcptmisc_notes,
                                 _r.cashrcptmisc_accnt_id,
                                 round(_r.cashrcptmisc_amount_base, 2),
-                                _p.cashrcpt_distdate, _p.custnote );
+                                _p.cashrcpt_distdate, _p.custnote, pCashrcptid );
 
   END LOOP;
 
@@ -290,7 +290,7 @@ BEGIN
                                 _p.prepaid_accnt_id,
                                 round(_p.cashrcpt_amount_base, 2) -
                                                         round(_posted_base, 2),
-                                _p.cashrcpt_distdate, _p.custnote );
+                                _p.cashrcpt_distdate, _p.custnote, pCashrcptid );
     SELECT fetchArMemoNumber() INTO _arMemoNumber;
     IF(_p.cashrcpt_usecustdeposit) THEN
       -- Post Customer Deposit
@@ -325,7 +325,7 @@ BEGIN
                    'Currency Exchange Rounding - ' || _p.cashrcpt_docnumber,
                    getGainLossAccntId(_debitAccntid),
                    round(_posted_base, 2) - round((_p.cashrcpt_amount_base + _p.cashrcpt_discount_base), 2),
-                   _p.cashrcpt_distdate, _p.custnote);
+                   _p.cashrcpt_distdate, _p.custnote, pCashrcptid);
   END IF;
 
 --  Debit Cash
@@ -333,7 +333,7 @@ BEGIN
                     (_p.cashrcpt_fundstype || '-' || _p.cashrcpt_docnumber),
                      _debitAccntid, round(_p.cashrcpt_amount_base, 2) * -1, 
                      _p.cashrcpt_distdate,
-                     _p.custnote );
+                     _p.custnote, pCashrcptid );
 
   PERFORM postGLSeries(_sequence, pJournalNumber);
 
