@@ -15,6 +15,7 @@ DECLARE
   _laborAndOverheadCost	NUMERIC;
   _machineOverheadCost NUMERIC;
   _componentCost NUMERIC := 0;
+  _userCost NUMERIC := 0;
   _itemNumber TEXT;
 
 BEGIN
@@ -27,6 +28,7 @@ BEGIN
 --  Cache some item and itemsite parameters
   SELECT item_number, item_id,
          itemsite_loccntrl, itemsite_controlmethod,
+         itemsite_costmethod,
          accnt_id AS parentWIP INTO _p
   FROM itemsite, item, costcat, accnt
   WHERE ( (itemsite_item_id=item_id)
@@ -60,14 +62,6 @@ BEGIN
   END IF;
 
   SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
-  SELECT postInvTrans( pItemsiteid, 'RM', _parentQty,
-                       'W/O', 'WO', 'Misc.', pDocNumber,
-                       ('Receive from Misc. Production for Item Number ' || _p.item_number || '
-                       ' || pComments),
-                       costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries ) INTO _invhistid
-  FROM itemsite, costcat
-  WHERE ( (itemsite_costcat_id=costcat_id)
-   AND (itemsite_id=pItemsiteid) );
   
   IF (pBackflush) THEN
     FOR _c IN SELECT cs.itemsite_id AS c_itemsite_id,
@@ -122,7 +116,6 @@ BEGIN
     _machineOverheadCost := 0;
   END IF;
 
-
 -- Distribute to G/L - create Misc Costing Elements
   PERFORM insertGLTransaction( 'W/O', 'WO', 'Misc.',
                                ('Post Other Cost to Misc. Production for Item Number ' || _p.item_number),
@@ -138,25 +131,37 @@ BEGIN
     (costelem_exp_accnt_id IS NOT NULL)  AND 
     (NOT costelem_sys));
 
+-- Calculate total user defined cost(s)
+  SELECT COALESCE(SUM(itemcost_stdcost * _parentQty),0) INTO _userCost
+  FROM costelem, itemcost, itemsite
+  WHERE ((itemsite_id=pItemsiteid) 
+    AND (costelem_id = itemcost_costelem_id) 
+    AND (itemcost_item_id = itemsite_item_id) 
+    AND (costelem_exp_accnt_id IS NOT NULL )
+    AND (NOT costelem_sys));
 
-
---  Distribute to G/L - create Cost Variance, debit WIP
-  PERFORM insertGLTransaction( 'W/O', 'WO', 'Misc.',
-                               ('Cost Variance of Post to Misc. Production for Item Number ' || _p.item_number),
-                               costcat_invcost_accnt_id, costcat_wip_accnt_id, _invhistid,
-			        stdcost(_p.item_id) * _parentQty - _laborAndOverheadCost - _machineOverheadCost - _componentCost - ( 
-			         -- User defined cost(s)
-                                SELECT COALESCE(SUM(itemcost_stdcost * _parentQty),0)
-                                FROM costelem, itemcost, itemsite
-                                WHERE ((itemsite_id=pItemsiteid) 
-                                AND (costelem_id = itemcost_costelem_id) 
-                                AND (itemcost_item_id = itemsite_item_id) 
-                                AND (costelem_exp_accnt_id IS NOT NULL )
-                                AND (NOT costelem_sys))),
-                               CURRENT_DATE )
+-- Post the receipt
+  SELECT postInvTrans( pItemsiteid, 'RM', _parentQty,
+                       'W/O', 'WO', 'Misc.', pDocNumber,
+                       ('Receive from Misc. Production for Item Number ' || _p.item_number || '
+                       ' || pComments),
+                       costcat_asset_accnt_id, costcat_wip_accnt_id, _itemlocSeries, now(),
+                       _componentCost + _laborAndOverheadCost + _machineOverheadCost + _userCost) INTO _invhistid
   FROM itemsite, costcat
   WHERE ( (itemsite_costcat_id=costcat_id)
    AND (itemsite_id=pItemsiteid) );
+
+--  Distribute to G/L - create Cost Variance, debit WIP
+  IF (_p.itemsite_costmethod = 'S') THEN
+    PERFORM insertGLTransaction( 'W/O', 'WO', 'Misc.',
+                                 ('Cost Variance of Post to Misc. Production for Item Number ' || _p.item_number),
+                                 costcat_invcost_accnt_id, costcat_wip_accnt_id, _invhistid,
+	  		          stdcost(_p.item_id) * _parentQty - _laborAndOverheadCost - _machineOverheadCost - _componentCost - _userCost,
+                                 CURRENT_DATE )
+    FROM itemsite, costcat
+    WHERE ( (itemsite_costcat_id=costcat_id)
+     AND (itemsite_id=pItemsiteid) );
+  END IF;
 
   RETURN _itemlocSeries;
 END;
