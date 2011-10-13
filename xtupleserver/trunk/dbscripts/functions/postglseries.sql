@@ -99,12 +99,14 @@ BEGIN
 --  March through the glseries members, posting them one at a time
   FOR _glseries IN SELECT glseries_source, glseries_doctype, glseries_docnumber,
                           glseries_accnt_id, glseries_distdate, glseries_notes,
+                          glseries_misc_id,
                           SUM(glseries_amount) as amount
                      FROM glseries
                     WHERE ((glseries_amount<>0.0)
                       AND  (glseries_sequence=pSequence))
                     GROUP BY glseries_source, glseries_doctype, glseries_docnumber,
-                             glseries_accnt_id, glseries_distdate, glseries_notes LOOP
+                             glseries_accnt_id, glseries_distdate, glseries_notes,
+                             glseries_misc_id LOOP
 
 -- refuse to accept postings into closed periods if any of the accounts disallow it
     IF (SELECT NOT BOOL_AND(accnt_closedpost) AND
@@ -119,20 +121,20 @@ BEGIN
     IF (_glseries.amount != 0 OR pPostZero) THEN
       IF (fetchMetricBool('UseJournals')) THEN
        INSERT INTO sltrans
-        ( sltrans_posted, sltrans_created, sltrans_date,
+        ( sltrans_posted, sltrans_created, sltrans_date, sltrans_misc_id,
           sltrans_sequence, sltrans_accnt_id, sltrans_source, sltrans_notes,
           sltrans_doctype, sltrans_docnumber, sltrans_amount, sltrans_journalnumber )
         VALUES
-        ( FALSE, CURRENT_TIMESTAMP, _glseries.glseries_distdate,
+        ( FALSE, CURRENT_TIMESTAMP, _glseries.glseries_distdate, _glseries.glseries_misc_id,
           pSequence, _glseries.glseries_accnt_id, _glseries.glseries_source, _glseries.glseries_notes,
           _glseries.glseries_doctype, _glseries.glseries_docnumber, _glseries.amount, pJournalNumber );      
       ELSE
        INSERT INTO gltrans
-        ( gltrans_posted, gltrans_exported, gltrans_created, gltrans_date,
+        ( gltrans_posted, gltrans_exported, gltrans_created, gltrans_date, gltrans_misc_id,
           gltrans_sequence, gltrans_accnt_id, gltrans_source, gltrans_notes,
           gltrans_doctype, gltrans_docnumber, gltrans_amount, gltrans_journalnumber )
         VALUES
-        ( FALSE, FALSE, CURRENT_TIMESTAMP, _glseries.glseries_distdate,
+        ( FALSE, FALSE, CURRENT_TIMESTAMP, _glseries.glseries_distdate, _glseries.glseries_misc_id,
           pSequence, _glseries.glseries_accnt_id, _glseries.glseries_source, _glseries.glseries_notes,
           _glseries.glseries_doctype, _glseries.glseries_docnumber, _glseries.amount, pJournalNumber );
       END IF;

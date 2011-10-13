@@ -127,7 +127,7 @@ BEGIN
 				CAST(_p.checkhead_number AS TEXT),
 				_credit_glaccnt,
 				round(_p.checkhead_amount_base, 2) * -1,
-				_p.checkhead_checkdate, _gltransNote );
+				_p.checkhead_checkdate, _gltransNote, pcheckid );
 
     _amount_base := _p.checkhead_amount_base;
 
@@ -220,12 +220,12 @@ BEGIN
 				  'CK', CAST(_p.checkhead_number AS TEXT),
                                   _t.checkrecip_accnt_id,
                                   round(_r.checkitem_amount_base, 2) * -1,
-                                  _p.checkhead_checkdate, _gltransNote );
+                                  _p.checkhead_checkdate, _gltransNote, pcheckid );
       IF (_exchGainTmp <> 0) THEN
 	PERFORM insertIntoGLSeries( _sequence, _t.checkrecip_gltrans_source,
 				    'CK', CAST(_p.checkhead_number AS TEXT),
 				    getGainLossAccntId(_t.checkrecip_accnt_id), round(_exchGainTmp,2),
-				    _p.checkhead_checkdate, _gltransNote );
+				    _p.checkhead_checkdate, _gltransNote, pcheckid );
       END IF;
 
       _amount_check := (_amount_check + _r.amount_check);
@@ -249,7 +249,7 @@ BEGIN
 				    round(_amount_base, 2) -
 				      round(_exchGain, 2) -
 				      round(_p.checkhead_amount_base, 2),
-				    _p.checkhead_checkdate, _gltransNote );
+				    _p.checkhead_checkdate, _gltransNote, pcheckid );
       ELSE
 	RAISE EXCEPTION 'checkhead_id % does not balance (% - % <> %)', pcheckid,
 	      _amount_base, _exchGain, _p.checkhead_amount_base;
@@ -261,13 +261,9 @@ BEGIN
 			      CAST(_p.checkhead_number AS TEXT),
                               _p.bankaccntid,
 			      round(_p.checkhead_amount_base, 2),
-                              _p.checkhead_checkdate, _gltransNote );
+                              _p.checkhead_checkdate, _gltransNote, pcheckid );
 
   PERFORM postGLSeries(_sequence, _journalNumber);
-
-  UPDATE gltrans
-     SET gltrans_misc_id=pcheckid
-   WHERE gltrans_sequence=_sequence;
 
   UPDATE checkhead
   SET checkhead_posted=TRUE,

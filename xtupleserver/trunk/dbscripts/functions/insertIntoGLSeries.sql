@@ -50,6 +50,29 @@ DECLARE
   pAmount ALIAS FOR $6;
   pDistDate ALIAS FOR $7;
   pNotes ALIAS FOR $8;
+  _returnValue INTEGER;
+
+BEGIN
+
+  SELECT insertIntoGLSeries( pSequence, pSource, pDocType, pDocNumber,
+                             pAccntid, pAmount, pDistDate, pNotes, NULL ) INTO _returnValue;
+
+  RETURN _returnValue;
+
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION insertIntoGLSeries(INTEGER, TEXT, TEXT, TEXT, INTEGER, NUMERIC, DATE, TEXT, INTEGER) RETURNS INTEGER AS $$
+DECLARE
+  pSequence ALIAS FOR $1;
+  pSource ALIAS FOR $2;
+  pDocType ALIAS FOR $3;
+  pDocNumber ALIAS FOR $4;
+  pAccntid ALIAS FOR $5;
+  pAmount ALIAS FOR $6;
+  pDistDate ALIAS FOR $7;
+  pNotes ALIAS FOR $8;
+  pMiscid ALIAS FOR $9;
   _glseriesid INTEGER;
 
 BEGIN
@@ -78,10 +101,10 @@ BEGIN
   SELECT NEXTVAL('glseries_glseries_id_seq') INTO _glseriesid;
   INSERT INTO glseries
   ( glseries_id, glseries_sequence, glseries_source, glseries_doctype, glseries_docnumber,
-    glseries_accnt_id, glseries_amount, glseries_distdate, glseries_notes )
+    glseries_accnt_id, glseries_amount, glseries_distdate, glseries_notes, glseries_misc_id )
   VALUES
   ( _glseriesid, pSequence, pSource, pDocType, pDocNumber,
-    pAccntid, pAmount, pDistDate, pNotes );
+    pAccntid, pAmount, pDistDate, pNotes, pMiscid );
 
   RETURN _glseriesid;
 
