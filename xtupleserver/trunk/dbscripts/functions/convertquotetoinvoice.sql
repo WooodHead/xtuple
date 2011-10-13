@@ -247,7 +247,7 @@ BEGIN
 
       IF (_r.item_type IN ('M')) THEN
         SELECT createWo( CAST(_r.quhead_number AS INTEGER), supply.itemsite_id, 1, (_r.quitem_qtyord * _r.quitem_qty_invuomratio),
-                         _r.itemsite_leadtime, _r.quitem_scheddate, _r.quitem_memo, 'S', _iitemid, _r.quhead_prj_id ) INTO _orderId
+                         _r.itemsite_leadtime, _r.quitem_scheddate, _r.quitem_memo, 'Q', _iitemid, _r.quhead_prj_id ) INTO _orderId
         FROM itemsite sold, itemsite supply
         WHERE ((sold.itemsite_item_id=supply.itemsite_item_id)
          AND (supply.itemsite_warehous_id=_r.quitem_order_warehous_id)
