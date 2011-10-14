@@ -767,6 +767,7 @@ BEGIN
     UPDATE coitem
        SET coitem_status = _pstat
      WHERE((coitem_cohead_id=_rec.coitem_cohead_id)
+       AND (coitem_linenumber=_rec.coitem_linenumber)
        AND (coitem_subnumber = 0));
   END IF;
 
