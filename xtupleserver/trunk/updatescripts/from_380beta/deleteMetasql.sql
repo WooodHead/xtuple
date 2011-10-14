@@ -1,0 +1,1 @@
+delete from metasql where metasql_group = 'voucher' and metasql_name = 'editlist' and metasql_grade = 0;
