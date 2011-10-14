@@ -17,6 +17,8 @@ DECLARE
   _linenumber           INTEGER;
   _invhistid		INTEGER;
   _shipheadid		INTEGER;
+  _ship               	BOOLEAN;
+  _i			RECORD;
 
 BEGIN
   SELECT recv_id, recv_order_type, recv_orderitem_id, recv_qty,
@@ -339,11 +341,19 @@ BEGIN
       SET rahead_expiredate = NULL
       WHERE (rahead_id=_o.orderhead_id);
 
+--  Look for 'ship' lines
+    SELECT (count(*) > 1) INTO _ship
+    FROM raitem
+    WHERE ((raitem_disposition = 'S')
+     AND (raitem_new_coitem_id IS NULL)
+     AND (raitem_rahead_id=_ra.rahead_id));
+
 --  If receiving a qty on a shippable and upon receipt item, create coitem
       IF ((_ra.rahead_timing='R') AND
-          (_ra.raitem_disposition IN ('P','V','S')) AND
+          (_ship OR (
+          (_ra.raitem_disposition IN ('P','V')) AND
           (_ra.raitem_new_coitem_id IS NULL) AND
-          (_ra.raitem_qtyauthorized > 0)) THEN
+          (_ra.raitem_qtyauthorized > 0)))) THEN
 
           IF (_ra.rahead_new_cohead_id IS NULL) THEN
 --  No header, so create a Sales Order header first.
@@ -403,33 +413,78 @@ BEGIN
             UPDATE rahead SET rahead_new_cohead_id=_coheadid WHERE rahead_id=_ra.rahead_id;
         END IF;
 
--- Now enter the line item
-        SELECT nextval('coitem_coitem_id_seq') INTO _coitemid;
+-- Now enter the line item(s)
+        IF (_ra.raitem_disposition IN ('P','V')) AND
+           (_ra.raitem_new_coitem_id IS NULL) AND
+           (_ra.raitem_qtyauthorized > 0) THEN
+           
+          SELECT nextval('coitem_coitem_id_seq') INTO _coitemid;
 
-        SELECT COALESCE(MAX(coitem_linenumber),0)+1 INTO _linenumber
-        FROM coitem
-        WHERE (coitem_cohead_id=_coheadid);
+          SELECT COALESCE(MAX(coitem_linenumber),0)+1 INTO _linenumber
+          FROM coitem
+          WHERE (coitem_cohead_id=_coheadid);
       
-        INSERT INTO coitem (
-          coitem_id,coitem_cohead_id,coitem_linenumber,coitem_itemsite_id,
-          coitem_status,coitem_scheddate,coitem_promdate, coitem_qtyord,
-          coitem_unitcost,coitem_price,coitem_custprice,coitem_qtyshipped,
-          coitem_order_id,coitem_memo,coitem_qtyreturned,
-          coitem_taxtype_id,coitem_qty_uom_id,coitem_qty_invuomratio,
-          coitem_price_uom_id,coitem_price_invuomratio,coitem_warranty,
-          coitem_cos_accnt_id,coitem_order_type)
-        SELECT _coitemid,_coheadid,_linenumber,_ra.raitem_coitem_itemsite_id,
-            'O',_ra.raitem_scheddate,_ra.raitem_scheddate,_ra.raitem_qtyauthorized,
-            stdcost(itemsite_item_id),COALESCE(_ra.raitem_saleprice,0),0,0,
-            -1,_ra.raitem_notes,0,
-            _ra.raitem_taxtype_id,_ra.raitem_qty_uom_id,_ra.raitem_qty_invuomratio,
-            _ra.raitem_price_uom_id,_ra.raitem_price_invuomratio,_ra.raitem_warranty,
-            _ra.raitem_cos_accnt_id,
-            CASE WHEN itemsite_createwo THEN 'W' ELSE NULL END
-        FROM itemsite
-        WHERE (itemsite_id=_ra.raitem_coitem_itemsite_id);
+          INSERT INTO coitem (
+            coitem_id,coitem_cohead_id,coitem_linenumber,coitem_itemsite_id,
+            coitem_status,coitem_scheddate,coitem_promdate, coitem_qtyord,
+            coitem_unitcost,coitem_price,coitem_custprice,coitem_qtyshipped,
+            coitem_order_id,coitem_memo,coitem_qtyreturned,
+            coitem_taxtype_id,coitem_qty_uom_id,coitem_qty_invuomratio,
+            coitem_price_uom_id,coitem_price_invuomratio,coitem_warranty,
+            coitem_cos_accnt_id,coitem_order_type)
+          SELECT _coitemid,_coheadid,_linenumber,_ra.raitem_coitem_itemsite_id,
+              'O',_ra.raitem_scheddate,_ra.raitem_scheddate,_ra.raitem_qtyauthorized,
+              stdcost(itemsite_item_id),COALESCE(_ra.raitem_saleprice,0),0,0,
+              -1,_ra.raitem_notes,0,
+              _ra.raitem_taxtype_id,_ra.raitem_qty_uom_id,_ra.raitem_qty_invuomratio,
+              _ra.raitem_price_uom_id,_ra.raitem_price_invuomratio,_ra.raitem_warranty,
+              _ra.raitem_cos_accnt_id,
+              CASE WHEN itemsite_createwo THEN 'W' ELSE NULL END
+          FROM itemsite
+          WHERE (itemsite_id=_ra.raitem_coitem_itemsite_id);
 
-        UPDATE raitem SET raitem_new_coitem_id=_coitemid WHERE (raitem_id=_ra.raitem_id);
+          UPDATE raitem SET raitem_new_coitem_id=_coitemid WHERE (raitem_id=_ra.raitem_id);
+        END IF;
+        
+        -- Create items to ship that have no direct relation to receipts.
+        IF (_ship) THEN
+          FOR _i IN
+            SELECT raitem_id FROM raitem
+            WHERE ((raitem_rahead_id=_ra.rahead_id)
+              AND (raitem_disposition = 'S')
+              AND (raitem_new_coitem_id IS NULL))
+          LOOP
+
+            SELECT nextval('coitem_coitem_id_seq') INTO _coitemid;
+
+            SELECT COALESCE(MAX(coitem_linenumber),0)+1 INTO _linenumber
+              FROM coitem
+            WHERE (coitem_cohead_id=_coheadid);
+      
+            INSERT INTO coitem (
+              coitem_id,coitem_cohead_id,coitem_linenumber,coitem_itemsite_id,
+              coitem_status,coitem_scheddate,coitem_promdate, coitem_qtyord,
+              coitem_unitcost,coitem_price,coitem_custprice,coitem_qtyshipped,
+              coitem_order_id,coitem_memo,coitem_qtyreturned,
+              coitem_taxtype_id,coitem_qty_uom_id,coitem_qty_invuomratio,
+              coitem_price_uom_id,coitem_price_invuomratio,coitem_warranty,
+              coitem_cos_accnt_id,coitem_order_type)
+            SELECT _coitemid,_coheadid,_linenumber,raitem_coitem_itemsite_id,
+              'O',raitem_scheddate,raitem_scheddate,raitem_qtyauthorized,
+              stdcost(itemsite_item_id),COALESCE(raitem_saleprice,0),0,0,
+              -1,raitem_notes,0,
+              raitem_taxtype_id,raitem_qty_uom_id,raitem_qty_invuomratio,
+              raitem_price_uom_id,raitem_price_invuomratio,raitem_warranty,
+              raitem_cos_accnt_id,
+              CASE WHEN itemsite_createwo THEN 'W' ELSE NULL END
+            FROM raitem
+              JOIN itemsite ON (itemsite_id=raitem_itemsite_id)
+            WHERE (raitem_id=_i.raitem_id);
+
+            UPDATE raitem SET raitem_new_coitem_id=_coitemid WHERE (raitem_id=_i.raitem_id);
+
+          END LOOP;
+        END IF;
       END IF;
 
 
