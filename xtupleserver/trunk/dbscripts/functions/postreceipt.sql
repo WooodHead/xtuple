@@ -417,14 +417,15 @@ BEGIN
           coitem_order_id,coitem_memo,coitem_qtyreturned,
           coitem_taxtype_id,coitem_qty_uom_id,coitem_qty_invuomratio,
           coitem_price_uom_id,coitem_price_invuomratio,coitem_warranty,
-          coitem_cos_accnt_id)
+          coitem_cos_accnt_id,coitem_order_type)
         SELECT _coitemid,_coheadid,_linenumber,_ra.raitem_coitem_itemsite_id,
             'O',_ra.raitem_scheddate,_ra.raitem_scheddate,_ra.raitem_qtyauthorized,
             stdcost(itemsite_item_id),COALESCE(_ra.raitem_saleprice,0),0,0,
             -1,_ra.raitem_notes,0,
             _ra.raitem_taxtype_id,_ra.raitem_qty_uom_id,_ra.raitem_qty_invuomratio,
             _ra.raitem_price_uom_id,_ra.raitem_price_invuomratio,_ra.raitem_warranty,
-            _ra.raitem_cos_accnt_id
+            _ra.raitem_cos_accnt_id,
+            CASE WHEN itemsite_createwo THEN 'W' ELSE NULL END
         FROM itemsite
         WHERE (itemsite_id=_ra.raitem_coitem_itemsite_id);
 
