@@ -178,7 +178,10 @@ void CSVToolWindow::filePrint()
     QTextDocument    textdoc(_table);
     QTextCursor      cursor(&textdoc);
     QTextTableFormat tblfmt;
-    QTextTableCell   cell;
+    
+    // to avoid attempting to access text from an empty
+    // element (pointer)
+    QTableWidgetItem *cell;
 
     QFont docfont = textdoc.defaultFont();
     docfont.setPointSize(8);
@@ -191,20 +194,22 @@ void CSVToolWindow::filePrint()
       tblfmt.setHeaderRowCount(1);
       for (int i = 0; i < _table->columnCount(); i++)
       {
-        cell = cursor.currentTable()->cellAt(cursor.position());
-        cursor.insertText(_table->horizontalHeaderItem(i)->text());
+        cell = _table->horizontalHeaderItem(i);
+        if(cell)
+          cursor.insertText(cell->text());
         cursor.movePosition(QTextCursor::NextCell);
       }
     }
-
+  
     for (int row = 0; row < _table->rowCount(); row++)
       for (int col = 0; col < _table->columnCount(); col++)
       {
-        cell = cursor.currentTable()->cellAt(cursor.position());
-        cursor.insertText(_table->item(row, col)->text());
+        cell = _table->item(row, col);
+        if(cell)
+          cursor.insertText(cell->text());
         cursor.movePosition(QTextCursor::NextCell);
       }
-
+    
     QPrinter printer(QPrinter::HighResolution);
     printer.setOrientation(QPrinter::Landscape);
     QPrintDialog printdlg(&printer, this);
