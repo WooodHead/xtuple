@@ -66,7 +66,7 @@ BEGIN
 	   ( (salesaccnt_custtype_id=custtype_id) ) )
      AND (itemsite_id=pid)
      AND (cust_id=pCustid) ) 
-    ORDER BY orderby, salesaccnt_custtype DESC, salesaccnt_prodcat DESC
+    ORDER BY orderby, salesaccnt_custtype DESC, salesaccnt_prodcat DESC, salesaccnt_warehous_id DESC
     LIMIT 1;
 
   ELSE
