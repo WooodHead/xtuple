@@ -97,7 +97,7 @@ BEGIN
                                   COALESCE(checkitem_docdate, _p.checkhead_checkdate)) 
                      END AS checkitem_amount_base,
                        checkitem_amount / checkitem_curr_rate	 AS amount_check,
-                     apopen_id, apopen_doctype, apopen_docnumber, apopen_curr_rate,
+                     apopen_id, apopen_doctype, apopen_docnumber, apopen_curr_rate, apopen_docdate,
                      aropen_id, aropen_doctype, aropen_docnumber,
                      checkitem_curr_id, checkitem_curr_rate,
                      COALESCE(checkitem_docdate, _p.checkhead_checkdate) AS docdate
@@ -203,9 +203,11 @@ BEGIN
 
 --  calculate currency gain/loss
       IF (_r.apopen_id IS NOT NULL) THEN
-        SELECT apCurrGain(_r.apopen_id,_r.checkitem_curr_id, _r.checkitem_amount,
-                        _p.checkhead_checkdate)
-              INTO _exchGainTmp;
+      	IF (_r.apopen_docdate > _p.checkhead_checkdate) THEN
+	  _exchGainTmp := (_r.checkitem_amount/_r.checkitem_currrate - (_r.checkitem_amount / _r.apopen_curr_rate)) * -1;
+	ELSE
+          _exchGainTmp := (_r.checkitem_amount / _r.apopen_curr_rate) - _r.checkitem_amount/_r.checkitem_curr_rate;
+	END IF;
       ELSIF (_r.aropen_id IS NOT NULL) THEN
         SELECT arCurrGain(_r.aropen_id,_r.checkitem_curr_id, _r.checkitem_amount,
                         _p.checkhead_checkdate)
