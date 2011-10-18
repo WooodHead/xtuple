@@ -81,6 +81,7 @@ BEGIN
                 WHERE ( (recv_vohead_id IS NULL)
                         AND (poitem_id=recv_orderitem_id)
                         AND (NOT recv_invoiced)
+                        AND (recv_posted)
 			AND (recv_order_type='PO')
                         AND (recv_orderitem_id=pPoitemId) )
 
