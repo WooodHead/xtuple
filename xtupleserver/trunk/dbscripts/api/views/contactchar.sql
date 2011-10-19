@@ -7,7 +7,7 @@ AS
      cntct_number AS contact_number,
      char_name::varchar AS characteristic,
      charass_value AS value
-   FROM cntct(), char, charass
+   FROM cntct, char, charass
    WHERE (('CNTCT'=charass_target_type)
    AND (cntct_id=charass_target_id)
    AND (charass_char_id=char_id));

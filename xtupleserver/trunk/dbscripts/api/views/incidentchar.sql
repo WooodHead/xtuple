@@ -7,7 +7,7 @@ AS
      incdt_number AS incident_number,
      char_name::varchar AS characteristic,
      charass_value AS value
-   FROM incdt(), char, charass
+   FROM incdt, char, charass
    WHERE (('INCDT'=charass_target_type)
    AND (incdt_id=charass_target_id)
    AND (charass_char_id=char_id));

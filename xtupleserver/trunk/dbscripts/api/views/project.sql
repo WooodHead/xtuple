@@ -25,7 +25,7 @@ AS
      prj_assigned_date AS assigned,
      prj_start_date AS started,
      prj_completed_date AS completed
-   FROM prj();
+   FROM prj;
 
 GRANT ALL ON TABLE api.project TO xtrole;
 COMMENT ON VIEW api.project IS 'Project';

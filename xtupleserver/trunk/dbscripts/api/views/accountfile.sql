@@ -7,7 +7,7 @@ AS
      crmacct_number AS account_number,
      url_title AS title,
      url_url AS url
-   FROM crmacct(), url
+   FROM crmacct, url
    WHERE ((crmacct_id=url_source_id)
    AND (url_source='CRMA'));
 

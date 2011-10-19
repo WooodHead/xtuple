@@ -7,7 +7,7 @@ AS
      crmacct_number::varchar AS account_number,
      char_name::varchar AS characteristic,
      charass_value AS value
-   FROM crmacct(), char, charass
+   FROM crmacct, char, charass
    WHERE (('CRMACCT'=charass_target_type)
    AND (crmacct_id=charass_target_id)
    AND (charass_char_id=char_id));

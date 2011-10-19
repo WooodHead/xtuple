@@ -31,7 +31,7 @@ SELECT dropIfExists('VIEW', 'contact', 'api');
     cntct_notes AS notes, 
     ''::TEXT AS address_change
   FROM
-    cntct() 
+    cntct
       LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
       LEFT OUTER JOIN crmacct ON (cntct_crmacct_id=crmacct_id);
 
