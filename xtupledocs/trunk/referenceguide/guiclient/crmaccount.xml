@@ -47,13 +47,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Parent Account</term>
-      <listitem>
-        <para>Enter the Account Number of the CRM Account (if any) which
-        serves as the parent for the Account.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Type</term>
       <listitem>
         <para>Specify one of the following Account Types:</para>
@@ -74,58 +67,95 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Relationships</term>
+      <term>Parent</term>
+      <listitem>
+        <para>Enter the Account Number of the CRM Account (if any) which
+        serves as the parent for the Account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Owner</term>
+      <listitem>
+        <para>Enter a Contact who serves as the Owner of the CRM
+        Account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Roles</term>
       <listitem>
         <para>Indicate how the Account relates to your business by selecting
-        from the available options. You may select multiple relationships from
-        the list. The buttons located to the right of check boxes will open
-        the corresponding master file records:</para>
+        from the available options. A single CRM Account may have multiple
+        different roles:</para>
         <variablelist>
           <varlistentry>
             <term>Prospect</term>
             <listitem>
-              <para>Select if the Account is a Prospect. The Account serves as
-              the master record for Prospects.</para>
+              <para>Select if the Account is a Prospect. Specific Prospect
+              information is maintained on the Prospect screen, which can be
+              reached by selecting the PROSPECT button.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Customer</term>
             <listitem>
-              <para>Select if the Account is a Customer Account. If selected,
-              Account information&mdash;including the Account Number, Account
-              Name, and Contact information&mdash;will be used to populate a
-              Customer master.</para>
+              <para>Select if the Account is a Customer Account. Specific
+              Customer information is maintained on the Customer screen, which
+              can be reached by selecting the CUSTOMER button.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Vendor</term>
             <listitem>
-              <para>Select if the Account is a Vendor Account. If selected,
-              Account information&mdash;including the Account Number, Account
-              Name, and Contact information&mdash;will be used to populate a
-              Vendor master. For existing Vendor Accounts, the button provides
-              the following options: Edit, View, Workbench.</para>
+              <para>Select if the Account is a Vendor Account. Specific Vendor
+              information is maintained on the Vendor screen, which can be
+              reached by selecting the VENDOR button.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Sales Rep</term>
+            <listitem>
+              <para>Select if the Account is a Sales Representative. Specific
+              Sales Rep information is maintained on the Sales Rep screen,
+              which can be reached by selecting the SALES REP button.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Employee</term>
+            <listitem>
+              <para>Select if the Account is an Employee. Specific Employee
+              information is maintained on the Employee screen, which can be
+              reached by selecting the EMPLOYEE button.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>User</term>
+            <listitem>
+              <para>Select if the Account is a User. Specific User information
+              is maintained on the User screen, which can be reached by
+              selecting the USER button.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Tax Authority</term>
             <listitem>
-              <para>Select if the Account is a Tax Authority. The CRM Account
-              serves as the master record for Tax Authorities.</para>
+              <para>Select if the Account is a Tax Authority. Specific Tax
+              Authority information is maintained on the Tax Authority screen,
+              which can be reached by selecting the TAX AUTHORITY
+              button.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Competitor</term>
             <listitem>
-              <para>Select if the Account is a Competitor. The CRM Account
-              serves as the master record for Competitors.</para>
+              <para>Select if the Account is a Competitor. There is no
+              separate screen for maintaining Competitor information.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Partner</term>
             <listitem>
-              <para>Select if the Account is a Partner. The CRM Account serves
-              as the master record for Partners.</para>
+              <para>Select if the Account is a Partner. There is no separate
+              screen for maintaining Partner information.</para>
             </listitem>
           </varlistentry>
         </variablelist>
