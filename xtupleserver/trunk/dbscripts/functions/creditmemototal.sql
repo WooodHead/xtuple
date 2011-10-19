@@ -1,22 +1,21 @@
-
-CREATE OR REPLACE FUNCTION creditmemototal(integer) RETURNS numeric AS $$
+CREATE OR REPLACE FUNCTION creditmemototal(INTEGER) RETURNS NUMERIC AS $$
 DECLARE
   pCreditmemoId ALIAS FOR $1;
-  _result NUMERIC;
+  _result       NUMERIC;
 
 BEGIN
 
   -- TO DO:  Add in line item taxes
   SELECT COALESCE(cmhead_freight,0.0) + COALESCE(cmhead_misc,0.0) +
-         ( SELECT COALESCE(ROUND(SUM((cmitem_qtycredit * cmitem_qty_invuomratio) * cmitem_unitprice / cmitem_price_invuomratio), 2), 0.0) 
+         ( SELECT COALESCE(ROUND(SUM((cmitem_qtycredit * cmitem_qty_invuomratio) * cmitem_unitprice / cmitem_price_invuomratio), 2), 0.0)
              FROM cmitem
-            WHERE (cmitem_cmhead_id=pCreditmemoId)
+            WHERE (cmitem_cmhead_id=cmhead_id)
            ) +
-         ( SELECT SUM(tax) * -1 AS tax
+         (SELECT COALESCE(SUM(tax) * -1, 0) AS tax
            FROM ( SELECT ROUND(SUM(taxdetail_tax),2) AS tax
                   FROM tax
-                  JOIN calculateTaxDetailSummary('CM', pCreditmemoId, 'T') ON (taxdetail_tax_id=tax_id)
-                  GROUP BY tax_id) AS data )
+                  JOIN calculateTaxDetailSummary('CM', cmhead_id, 'T') ON (taxdetail_tax_id=tax_id)
+                  GROUP BY tax_id) AS data)
            INTO _result
   FROM cmhead
   WHERE (cmhead_id=pCreditmemoId);

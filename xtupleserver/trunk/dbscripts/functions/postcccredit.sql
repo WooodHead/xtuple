@@ -3,15 +3,13 @@ DECLARE
   pCCpay	ALIAS FOR $1;
   preftype      ALIAS FOR $2;
   prefid        ALIAS FOR $3;
-  _amountclosed NUMERIC;
   _c		RECORD;
   _ccOrderDesc	TEXT;
-  _closed       BOOLEAN;
   _cglaccnt     INTEGER;
   _dglaccnt	INTEGER;
-  _journalNum	INTEGER;
-  _notes	TEXT := 'Credit Customer via Credit Card';
-  _r		aropen%ROWTYPE;
+  _glseriesres  INTEGER;
+  _notes	TEXT := 'Credit via Credit Card';
+  _r		RECORD;
   _sequence	INTEGER;
   _dmaropenid	INTEGER;
 
@@ -19,11 +17,18 @@ BEGIN
   IF ((preftype = 'cohead') AND NOT EXISTS(SELECT cohead_id
 					     FROM cohead
 					     WHERE (cohead_id=prefid))) THEN
-    RETURN -2;
+    RAISE EXCEPTION 'Cannot find original Sales Order for this Credit Card credit [xtuple: postCCcredit, -2, %, %, %]',
+                    pCCpay, preftype, prefid;
   ELSIF ((preftype = 'aropen') AND NOT EXISTS(SELECT aropen_id
                                                 FROM aropen
                                                 WHERE (aropen_id=prefid))) THEN
-    RETURN -2;
+    RAISE EXCEPTION 'Cannot find original A/R Open record for this Credit Card credit [xtuple: postCCcredit, -2, %, %, %]',
+                    pCCpay, preftype, prefid;
+  ELSIF ((preftype = 'cmhead') AND NOT EXISTS(SELECT cmhead_id
+                                                FROM cmhead
+                                               WHERE cmhead_id=prefid)) THEN
+    RAISE EXCEPTION 'Cannot find original Credit Memo record for this Credit Card credit [xtuple: postCCcredit, -2, %, %, %]',
+                    pCCpay, preftype, prefid;
   END IF;
 
   SELECT * INTO _c
@@ -33,7 +38,8 @@ BEGIN
     WHERE (ccpay_id = pCCpay);
 
   IF (NOT FOUND) THEN
-    RETURN -3;
+    RAISE EXCEPTION 'Cannot find the record for this Credit Card credit [xtuple: postCCcredit, -3, %, %, %]',
+                    pCCpay, preftype, prefid;
   END IF;
 
   IF (preftype = 'cohead') THEN
@@ -47,11 +53,13 @@ BEGIN
   WHERE (bankaccnt_id=_c.ccbank_bankaccnt_id);
 
   IF (NOT FOUND) THEN
-    RETURN -1;
+    RAISE EXCEPTION 'Cannot find the default Bank Account for this Credit Card [xtuple: postCCcredit, -1, %]',
+                    pCCpay;
   END IF;
 
   IF (_c.ccpay_type != 'R') THEN
-    RETURN -4;
+    RAISE EXCEPTION 'This Credit Card transaction is not a credit/refund [xtuple: postCCcredit, -4, %]',
+                    pCCpay;
   END IF;
 
   _sequence := fetchGLSequence();
@@ -63,21 +71,33 @@ BEGIN
 		     '-' || COALESCE(_c.ccpay_order_number_seq::TEXT, ''));
   END IF;
 
-  PERFORM insertIntoGLSeries(_sequence, 'A/R', 'CC', _ccOrderDesc,
-			     _dglaccnt,
-			     ROUND(currToBase(_c.ccpay_curr_id,
-					      _c.ccpay_amount,
-					      _c.ccpay_transaction_datetime::DATE), 2) * -1,
-			     CURRENT_DATE, _notes );
+  _glseriesres := insertIntoGLSeries(_sequence, 'A/R', 'CC', _ccOrderDesc,
+                                     _dglaccnt,
+                                     ROUND(currToBase(_c.ccpay_curr_id,
+                                                      _c.ccpay_amount,
+                                                      _c.ccpay_transaction_datetime::DATE), 2) * -1,
+                                     CURRENT_DATE, _notes);
+  IF (_glseriesres < 0) THEN
+    RAISE EXCEPTION 'Could not write debit side of Credit Card credit to the G/L [xtuple: insertIntoGLSeries, %]',
+                    _glseriesres;
+  END IF;
 
-  PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CC', _ccOrderDesc,
-			      _cglaccnt,
-			      ROUND(currToBase(_c.ccpay_curr_id,
-					       _c.ccpay_amount,
-					       _c.ccpay_transaction_datetime::DATE),2),
-			      CURRENT_DATE, _notes );
+  _glseriesres := insertIntoGLSeries(_sequence, 'A/R', 'CC', _ccOrderDesc,
+                                     _cglaccnt,
+                                     ROUND(currToBase(_c.ccpay_curr_id,
+                                                      _c.ccpay_amount,
+                                                      _c.ccpay_transaction_datetime::DATE),2),
+                                     CURRENT_DATE, _notes);
+  IF (_glseriesres < 0) THEN
+    RAISE EXCEPTION 'Could not write credit side of Credit Card credit to the G/L [xtuple: insertIntoGLSeries, %]',
+                    _glseriesres;
+  END IF;
 
-  PERFORM postGLSeries(_sequence, fetchJournalNumber('C/R') );
+  _glseriesres := postGLSeries(_sequence, fetchJournalNumber('C/R') );
+  IF (_glseriesres < 0) THEN
+    RAISE EXCEPTION 'Could not post Credit Card credit to the G/L [xtuple: postglseries, %]',
+                    _glseriesres;
+  END IF;
 
   IF (preftype = 'aropen') THEN
     SELECT * INTO _r
@@ -94,18 +114,15 @@ BEGIN
   END IF;
 
   IF (FOUND) THEN
-  -- create debit memo for refund that offsets original credit memo
     SELECT createardebitmemo(
             NULL, 
             _r.aropen_cust_id, NULL, fetchARMemoNumber(),
-            _r.aropen_ordernumber, current_date, _r.aropen_amount,
-            'Reverse credit for voided Sales Order',
+            _r.aropen_ordernumber, current_date, _c.ccpay_amount,
+            _notes,
             -1, -1, -1, CURRENT_DATE, -1, NULL, 0, 
             _r.aropen_curr_id) INTO _dmaropenid;
 
-    -- See if the original credit memo is still open
     IF (_r.aropen_open) THEN
-      -- Apply original as much of  orignial credit memo to new debit memo as possible
       PERFORM applyARCreditMemoToBalance(_r.aropen_id, _dmaropenid);
       PERFORM postARCreditMemoApplication(_r.aropen_id);
     END IF;
