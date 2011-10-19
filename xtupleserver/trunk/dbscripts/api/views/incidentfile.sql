@@ -7,7 +7,7 @@ AS
      incdt_number AS incident_number,
      url_title AS title,
      url_url AS url
-   FROM incdt(), url
+   FROM incdt, url
    WHERE ((incdt_id=url_source_id)
    AND (url_source='INCDT'));
 
