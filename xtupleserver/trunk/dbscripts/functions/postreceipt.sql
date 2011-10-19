@@ -392,12 +392,7 @@ BEGIN
               COALESCE(cohead_shipform_id,cust_shipform_id),
               rahead_billtoname,rahead_billtoaddress1,rahead_billtoaddress2,rahead_billtoaddress3,
               rahead_billtocity,rahead_billtostate,rahead_billtozip,
-              rahead_billtocountry,NULL,'',rahead_commission, 
-              CASE WHEN rahead_timing='R' THEN
-                'R'
-              ELSE
-                'N'
-              END,rahead_prj_id,
+              rahead_billtocountry,NULL,'',rahead_commission, 'N', rahead_prj_id,
               COALESCE(cohead_shipcomplete,
                 CASE WHEN cust_partialship THEN 
                   false 
