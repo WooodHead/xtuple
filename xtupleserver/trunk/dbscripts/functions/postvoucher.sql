@@ -54,7 +54,13 @@ BEGIN
 	 COALESCE(pohead_curr_id, vohead_curr_id) AS pohead_curr_id INTO _p
   FROM vendinfo, vohead LEFT OUTER JOIN pohead ON (vohead_pohead_id = pohead_id)
   WHERE ( (vohead_id=pVoheadid)
-  AND (vend_id=vohead_vend_id) );
+  AND (vend_id=vohead_vend_id) )
+  FOR UPDATE OF vohead;
+
+  IF (_p.vohead_posted) THEN
+    RAISE EXCEPTION 'Cannot post Voucher #% as it is already posted [xtuple: postVoucher, -10, %]',
+			_p.vohead_number, _p.vohead_number;
+  END IF;
 
   _glDate := COALESCE(_p.vohead_gldistdate, _p.vohead_distdate);
 
