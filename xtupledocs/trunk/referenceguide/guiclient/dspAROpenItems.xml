@@ -16,9 +16,8 @@
       <primary>open items</primary>
       <secondary>complete receivables list</secondary>
     </indexterm>Open Receivables</title>
-  <para>To view the complete list of open receivables, select xv</para>
-  <para>the "Open Receivables" option. The following screen will
-  appear:</para>
+  <para>To view the complete list of open receivables, select the "Open
+  Receivables" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -28,10 +27,10 @@
       </mediaobject>
     </screenshot></para>
   <note>
-    <para>If a Customer's open Receivables balance exceeds their
-    Credit Limit, the Customer will automatically be placed on Credit Warning.
-    In addition, any new or open Sales Orders for the Customer will also be
-    placed on Credit Hold.</para>
+    <para>If a Customer's open Receivables balance exceeds their Credit Limit,
+    the Customer will automatically be placed on Credit Warning. In addition,
+    any new or open Sales Orders for the Customer will also be placed on
+    Credit Hold.</para>
   </note>
   <para>When displaying open receivables, you are presented with the following
   options:</para>
@@ -40,12 +39,9 @@
       <term>Customer</term>
       <listitem>
         <para>Select all or specific Customers whose Open Receivables you want
-        to display.</para>
-        <tip>
-          <para>To generate results in the display you first have to select
-          the QUERY button. If you are not seeing any results, this is
-          probably the reason why.</para>
-        </tip>
+        to display. To generate results in the display you must first select
+        the QUERY button. If you are not seeing any results, this is probably
+        the reason why.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -90,11 +86,9 @@
         <para>Specify the date you want the open receivables to be relative
         to. The report will include any open receivables which were
         open&mdash;that is, not yet paid&mdash;as of the specified date. This
-        feature provides "point-in-time" open balance functionality.</para>
-        <note>
-          <para>The payment date used as a reference for the "As of Date"
-          field is the G/L distribution date, not the posting date.</para>
-        </note>
+        feature provides "point-in-time" open balance functionality. The
+        payment date used as a reference for the "As of Date" field is the G/L
+        distribution date, not the posting date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -142,14 +136,42 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Print</term>
+      <listitem>
+        <para>When viewing open receivables for a single Customer, you can
+        select from the following two print options. These options are not
+        available when viewing open receivables for more than one Customer.
+        The choice made here governs which type of document will be printed
+        when you choose to print this report.</para>
+        <variablelist>
+          <varlistentry>
+            <term>List</term>
+            <listitem>
+              <para>Select if you want to print the list of the Customer's
+              open receivables.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Statement</term>
+            <listitem>
+              <para>Select if you want to print a Customer statement.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Receivables</term>
       <listitem>
         <para>Display lists open receivables by Customer, using the specified
         parameters. The right-click menu includes many options, including the
-        ability to enter Cash Receipts and also Incidents linked to the
-        receivable. You can change the color for the following Document Types
-        using the Locale settings: Customer Deposit (Alternate) and Credit
-        Memo (Emphasis).</para>
+        ability to enter Cash Receipts and Incidents linked to the receivable.
+        You can also void posted Invoices from the right-click menu.</para>
+        <tip>
+          <para>To change the color for the following Document Types, adjust
+          your Locale settings: Customer Deposit (Alternate) and Credit Memo
+          (Emphasis).</para>
+        </tip>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -172,10 +194,10 @@
           <varlistentry>
             <term>Statement</term>
             <listitem>
-              <para>Print an Receivables Statement report for the selected Customer.
-              If the selected Customer has an EDI Profile attached, you may
-              encounter an EDI processing interface when printing the Receivables
-              Statement.</para>
+              <para>Print an Receivables Statement report for the selected
+              Customer. If the selected Customer has an EDI Profile attached,
+              you may encounter an EDI processing interface when printing the
+              Receivables Statement.</para>
             </listitem>
           </varlistentry>
         </variablelist>
