@@ -1,17 +1,8 @@
-CREATE TRIGGER prjTrigger BEFORE INSERT OR UPDATE ON prj FOR EACH ROW EXECUTE PROCEDURE _prjTrigger();
-
 CREATE OR REPLACE FUNCTION _prjBeforeDeleteTrigger() RETURNS TRIGGER AS $$
 DECLARE
   _recurid     INTEGER;
   _newparentid INTEGER;
 BEGIN
-  IF (OLD.prj_owner_username=getEffectiveXtUser()) THEN
-    IF (NOT checkPrivilege('MaintainAllProjects') AND NOT checkPrivilege('MaintainPersonalProjects')) THEN
-      RAISE EXCEPTION 'You do not have privileges to maintain Projects.';
-    END IF;
-  ELSIF (NOT checkPrivilege('MaintainAllProjects')) THEN
-    RAISE EXCEPTION 'You do not have privileges to maintain Projects.';
-  END IF;
 
   IF (TG_OP = 'DELETE') THEN
     SELECT recur_id INTO _recurid
