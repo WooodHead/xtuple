@@ -1,22 +1,3 @@
-CREATE OR REPLACE FUNCTION _prjTrigger () RETURNS TRIGGER AS $$
-DECLARE
-  _test text;
-BEGIN
-
-  --  Checks
-  IF (NEW.prj_owner_username=getEffectiveXtUser()) THEN
-    IF (NOT checkPrivilege('MaintainAllProjects') AND NOT checkPrivilege('MaintainPersonalProjects')) THEN
-      RAISE EXCEPTION 'You do not have privileges to maintain Projects.';
-    END IF;
-  ELSIF (NOT checkPrivilege('MaintainAllProjects')) THEN
-    RAISE EXCEPTION 'You do not have privileges to maintain Projects.';
-  END IF;
-
-  RETURN NEW;
-END;
-$$ LANGUAGE 'plpgsql';
-
-SELECT dropIfExists('TRIGGER', 'prjTrigger');
 CREATE TRIGGER prjTrigger BEFORE INSERT OR UPDATE ON prj FOR EACH ROW EXECUTE PROCEDURE _prjTrigger();
 
 CREATE OR REPLACE FUNCTION _prjBeforeDeleteTrigger() RETURNS TRIGGER AS $$
