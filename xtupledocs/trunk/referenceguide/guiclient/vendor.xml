@@ -58,10 +58,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>If a new Address is manually entered here, that Address will be
-    added automatically to the master list of Addresses.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term>Default</term>
@@ -159,6 +155,45 @@
         to Items having a defined Item Source. If not selected, you may choose
         from all purchased Items when entering a Purchase Order Line
         Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Miscellaneous Distribution</term>
+      <listitem>
+        <para>You have the option to select a default accounting distribution
+        option to be used when entering Vouchers for the Vendor:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Account</term>
+            <listitem>
+              <para>Select a General Ledger Account to use for the
+              distribution.</para>
+              <variablelist>
+                <varlistentry role="xtprjaccnt">
+                  <term>Project</term>
+                  <listitem>
+                    <para>Select a Project to associate with the transaction.
+                    The Project Number will be added as the final segment of
+                    the G/L Account Number.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Expense Category</term>
+            <listitem>
+              <para>Select an Expense Category to use for the
+              distribution.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Tax</term>
+            <listitem>
+              <para>Select a Tax Code to use for the distribution.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
