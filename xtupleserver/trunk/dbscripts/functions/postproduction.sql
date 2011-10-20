@@ -96,13 +96,16 @@ BEGIN
     END LOOP;
   END IF;
 
-  SELECT CASE WHEN (wo_cosmethod = 'D') THEN wo_wipvalue
+  SELECT CASE WHEN (pQty < 0 AND itemsite_costmethod='S') THEN stdcost(itemsite_item_id)
+              WHEN (pQty < 0) THEN avgcost(itemsite_id)
+              WHEN (wo_cosmethod = 'D') THEN wo_wipvalue
               ELSE  round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord -
                     CASE WHEN (wo_qtyord < wo_qtyrcv + pQty) THEN wo_qtyord
                          ELSE wo_qtyrcv + pQty
                     END ))),2)
          END INTO _wipPost
   FROM wo
+    JOIN itemsite ON (wo_itemsite_id=itemsite_id)
   WHERE (wo_id=pWoid);
 
   SELECT postInvTrans( itemsite_id, 'RM', _parentQty,
@@ -116,6 +119,10 @@ BEGIN
    AND (itemsite_costcat_id=costcat_id)
    AND (wo_id=pWoid) );
 
+  IF (pQty < 0 ) THEN
+    _wipPost := _wipPost * -1;
+  END IF;
+  
 --  Increase this W/O's received qty decrease its WIP value
   UPDATE wo
   SET wo_qtyrcv = (wo_qtyrcv + _parentQty),
