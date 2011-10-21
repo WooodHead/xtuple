@@ -421,6 +421,20 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term id="configureGLRecurVoBuffer">Recurring Voucher Buffer</term>
+      <listitem>
+        <para>Specify the number of buffer days you want to allow for when
+        automatically processing recurring Vouchers. This setting is used by
+        the Create Recurring Items utility, which is described in more detail
+        here <xref linkend="createRecurringItems" />. Essentially, the buffer
+        days setting tells the utility how far to look ahead. When it runs,
+        the utility will create new Vouchers for any recurring Vouchers having
+        Voucher dates within the look-ahead (i.e., buffer) days. If a Voucher
+        date falls outside the buffer period, then no new Voucher will be
+        created.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Require Vendor Invoice # on:</term>
       <listitem>
         <para>You have the option to specify whether you want users to be
@@ -545,8 +559,8 @@
       <listitem>
         <para>Specify the number of buffer days you want to allow for when
         automatically processing recurring Invoices. This setting is used by
-        the recurring Invoices utility, which is described in more detail here
-        <xref linkend="CreateRecurringInvoices" />. Essentially, the buffer
+        the Create Recurring Items utility, which is described in more detail
+        here <xref linkend="createRecurringItems" />. Essentially, the buffer
         days setting tells the utility how far to look ahead. When it runs,
         the utility will create new Invoices for any recurring Invoices having
         Invoice dates within the look-ahead (i.e., buffer) days. If an Invoice
