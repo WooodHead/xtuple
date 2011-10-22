@@ -394,6 +394,12 @@ BEGIN
   END IF;
 
   IF (TG_OP = 'UPDATE') THEN
+--  Update P/R date if applicable
+
+    IF (NEW.coitem_scheddate <> OLD.coitem_scheddate AND NEW.coitem_order_type='R' AND NEW.coitem_order_id > 1) THEN
+      UPDATE pr SET pr_duedate = NEW.coitem_scheddate WHERE (pr_order_id=NEW.coitem_id AND pr_order_type='S');
+    END IF;
+    
 --  If closing or cancelling and there is a job item work order, then close job and distribute remaining costs
     IF ((NEW.coitem_status = 'C' AND OLD.coitem_status <> 'C')
      OR (NEW.coitem_status = 'X' AND OLD.coitem_status <> 'X'))
