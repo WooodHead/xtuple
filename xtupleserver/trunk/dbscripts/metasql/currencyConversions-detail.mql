@@ -11,6 +11,7 @@ SELECT curr_rate_id, currConcat(curr_id) AS f_curr,
 <? else ?>
        round(curr_rate,5) AS rate,
 <? endif ?>
+       'uomratio' AS rate_xtnumericrole,
        curr_effective, curr_expires
 FROM curr_symbol NATURAL JOIN curr_rate
 WHERE ( (curr_base = FALSE)
