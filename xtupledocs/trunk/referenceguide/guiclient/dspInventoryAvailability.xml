@@ -8,9 +8,9 @@
       <secondary>reporting on</secondary>
     </indexterm> Inventory Availability</title>
   <para>The "Inventory Availability" screen is a valuable tool for Inventory
-  managers and production planners&mdash;particularly when used in conjunction with
-  the planning and scheduling features found in the commercial editions of
-  xTuple ERP. From this screen you can get a quick overview of the current
+  managers and production planners&mdash;particularly when used in conjunction
+  with the planning and scheduling features found in the commercial editions
+  of xTuple ERP. From this screen you can get a quick overview of the current
   availability for all of your Inventory Items. And with the right-click menu
   you can easily drill down to research the specific details underlying the
   summary information shown here.</para>
@@ -97,14 +97,43 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Show Shortages</term>
+      <term>Show</term>
       <listitem>
-        <para>Select to only show Inventory shortages in display. Shortages
-        are always shown in the report, if they exist. However, using this
-        option simply separates shortages out so you can see only them. A
-        shortage exists if Availability is less than zero, as in</para>
+        <para>Select from the following optional choices:</para>
         <informalexample>
-          <para>QOH - Allocated + Ordered &lt; 0</para>
+          <variablelist>
+            <varlistentry>
+              <term>Shortages</term>
+              <listitem>
+                <para>Select to only show Inventory shortages in display.
+                Shortages are always shown in the report, if they exist.
+                However, using this option simply separates shortages out so
+                you can see only them. A shortage exists if Availability is
+                less than zero, as in</para>
+                <informalexample>
+                  <para>QOH - Allocated + Ordered &lt; 0</para>
+                </informalexample>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Reorder Exceptions</term>
+              <listitem>
+                <para>Select to show Reorder Exceptions in the display.
+                Reorder Exceptions are an indication that an Item Site's
+                projected Availability will drop below the Reorder Level for
+                the Item Site&mdash;or to zero or below if no Reorder Level
+                exists. Reorder Exceptions are a type of Event.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Ignore Reorder at 0</term>
+              <listitem>
+                <para>Select if you want the report to ignore Reorder
+                Exceptions when the projected availability for an Item Site is
+                zero.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
         </informalexample>
       </listitem>
     </varlistentry>
