@@ -51,25 +51,26 @@
           <varlistentry>
             <term>Max Concurrent Users</term>
             <listitem>
-              <para>Displays the maximum number of concurrent xTuple ERP users
-              you are permitted to have, as per the terms of your xTuple ERP
-              license agreement. If you are exceeding your maximum number of
-              allowed concurrent xTuple ERP users, you should arrange to
-              update your license agreement either by contacting xTuple or
-              your authorized xTuple solution provider. Keep in mind that
-              concurrent connections made by xTuple tools such as xTuple
-              Connect, the Updater, CSVimp, and others count toward your
-              maximum concurrent users total. The license manager does provide
-              for non-xTuple ERP connections (e.g., pgAdmin, third-party
-              software tools, etc.). These non-xTuple ERP connections are
-              counted separately. You are allowed as many non-xTuple ERP
-              connections as you are allowed concurrent xTuple ERP
-              connections. For example, if you are registered for 15 xTuple
-              ERP users, you may also have 15 concurrent non-xTuple ERP
-              connections to the xTuple ERP Database. To get an accurate view
-              of all your current connections, use the following menu path
-              from the graphical xTuple Desktop: <guimenu>Window &gt; Desktop
-              &gt; Users Online</guimenu>.</para>
+              <para>Displays the maximum number of concurrent registered
+              xTuple ERP users you are permitted to have, as per the terms of
+              your xTuple ERP license agreement. If you are exceeding your
+              maximum number of concurrent registered xTuple ERP users, you
+              should arrange to update your license agreement either by
+              contacting xTuple or your authorized xTuple solution provider.
+              Database connections made by xTuple-provided tools&mdash;such as
+              xTuple Connect, the Updater, CSVimp, and others&mdash;count
+              toward your concurrent registered users total. The license
+              manager also keeps track of connections from non-xTuple tools
+              (e.g., pgAdmin, third-party software tools, etc.). These
+              non-xTuple connections are counted separately from the
+              concurrent registered users count. The system permits twice the
+              number of non-xTuple connections as there are registered users.
+              For example, if you purchased 15 xTuple ERP registered users,
+              then you are permitted 30 concurrent non-xTuple connections. Web
+              Portal connections are excluded from this count. To get an
+              accurate view of all your current connections, use the following
+              menu path from the graphical xTuple Desktop: <guimenu>Window
+              &gt; Desktop &gt; Users Online</guimenu>.</para>
             </listitem>
           </varlistentry>
         </variablelist>
