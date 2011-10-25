@@ -617,5 +617,26 @@
         </variablelist>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Interface Control</term>
+      <listitem>
+        <para>During initial implementations of xTuple ERP (or at other
+        times), it may be desirable to block inventory transactions from
+        hitting the General Ledger. The following configuration controls this
+        behavior:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Interface Inventory to General Ledger</term>
+            <listitem>
+              <para>If selected, all inventory transactions will be posted to
+              the General Ledger. When <emphasis>not</emphasis>
+              selected&mdash;and the G/L source is either I/M, P/D, S/R, or
+              W/O&mdash;then transactions from those G/L sources will be
+              blocked and not posted to the General Ledger.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
   </variablelist>
 </section>
