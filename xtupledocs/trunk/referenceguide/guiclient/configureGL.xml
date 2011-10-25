@@ -52,13 +52,14 @@
       <listitem>
         <para>Select to utilize a Company Segment in your G/L Account Numbers.
         This is an optional setting to be used if you are tracking Account
-        activity for multiple Companies. If selected, the Account Assignments
-        on this screen for retained earnings, G/L series discrepancy, and
-        Currency gain/loss will be disabled. You will need to make those
-        Account Assignments on the Company screen. For more information,
-        please see <xref linkend="company" />. To prevent unbalanced Trial
-        Balances at the Company level, G/L transactions and series postings
-        will not be allowed that cross Companies.</para>
+        activity for multiple Companies. Once transactions have been performed
+        using this segment, the segment may not be disabled. If selected, the
+        Account Assignments on this screen for retained earnings, G/L series
+        discrepancy, and Currency gain/loss will be disabled. You will need to
+        make those Account Assignments on the Company screen. For more
+        information, please see <xref linkend="company" />. To prevent
+        unbalanced Trial Balances at the Company level, G/L transactions and
+        series postings will not be allowed that cross Companies.</para>
         <note>
           <para>If prior to xTuple ERP 3.7.0 you were using the Company
           segment for something other than separate Company
@@ -87,7 +88,9 @@
     <varlistentry>
       <term>Main</term>
       <listitem>
-        <para>Options related to the main Account Number segment.</para>
+        <para>Options related to the main Account Number segment. Once
+        transactions have been performed using this segment, the segment may
+        not be disabled.</para>
         <variablelist>
           <varlistentry>
             <term>Main Segment Size</term>
@@ -154,7 +157,8 @@
       <term>Use Profit Centers</term>
       <listitem>
         <para>Select to utilize Profit Centers by default. This is an optional
-        setting.</para>
+        setting. Once transactions have been performed using this segment, the
+        segment may not be disabled.</para>
         <variablelist>
           <varlistentry>
             <term>Profit Center Segment Size</term>
@@ -184,7 +188,8 @@
       <term>Use Subaccounts</term>
       <listitem>
         <para>Select to utilize Subaccounts by default. This is an optional
-        setting.</para>
+        setting. Once transactions have been performed using this segment, the
+        segment may not be disabled.</para>
         <variablelist>
           <varlistentry>
             <term>Subaccount Segment Size</term>
