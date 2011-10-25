@@ -71,6 +71,20 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Include in searches</term>
+      <listitem>
+        <para>Select to indicate you want the Characteristic to be included in
+        searches related to records where the Characteristic is used. Not
+        selecting this option means the Characteristic will not be included in
+        searches. This feature exists to help improve potential performance
+        penalties incurred when multiple Characteristics are included in
+        search criteria. If you use multiple Characteristics to define certain
+        records (e.g., Items, Customers, etc.), you can improve search
+        performance by choosing to only include in searches those
+        Characteristics which you are most likely to search on.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>May be used on</term>
       <listitem>
         <para>Select one of the following Characteristic assignment
