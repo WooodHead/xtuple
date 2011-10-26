@@ -315,81 +315,55 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To enter or associate To-Dos and/or Incidents with a CRM Account,
-  select the "To-Do List" tab. The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/crmaccount_todoIncdtTab.png" />
-        </imageobject>
-        <caption>Account To-Do List</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>When entering or associating To-Dos and/or Incidents with a CRM
-  Account, you are presented with the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Show To-Do List</term>
-      <listitem>
-        <para>Select to include To-Dos in the display. If not selected, To-Dos
-        will not be included.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Incidents</term>
-      <listitem>
-        <para>Select to include Incidents in the display. If not selected,
-        Incidents will not be included.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Active Only</term>
-      <listitem>
-        <para>Select to include only active To-Dos in the display. If not
-        selected, inactive To-Dos will not be included.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Completed</term>
-      <listitem>
-        <para>Select to include completed Incidents in the display. An
-        Incident is considered completed when its status is "Closed." If this
-        option is not selected, then completed Incidents will not be
-        included.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>To-Do List</term>
-      <listitem>
-        <para>Displays To-Dos associated with the Account.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>To view a list of Opportunities associated with the Account, select
-  the "Opportunities" tab. The following screen will appear:</para>
+  <para>To enter or associate To-Dos, Opportunities, or Incidents with a CRM
+  Account, select the "Activities" tab. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/crmaccount_todoListTab.png" />
         </imageobject>
-        <caption>Account Opportunities</caption>
+        <caption>Account Activities</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When reviewing the list of Opportunities associated with the Account,
-  you are presented with the following options:</para>
+  <para>When associating To-Dos, Opportunities, or Incidents with a CRM
+  Account, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Search</term>
+      <term>Show </term>
       <listitem>
-        <para>Enter a text pattern to locate keywords found in existing
-        Opportunities.</para>
+        <para>Specify which of the following options you want to include in
+        the list:</para>
+        <variablelist>
+          <varlistentry>
+            <term>To-Do List</term>
+            <listitem>
+              <para>Select to include To-Dos in the display. If not selected,
+              To-Dos will not be included.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Opportunities</term>
+            <listitem>
+              <para>Select to include Opportunities in the display. If not
+              selected, To-Dos will not be included.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Incidents</term>
+            <listitem>
+              <para>Select to include Incidents in the display. If not
+              selected, Incidents will not be included.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Opportunities</term>
+      <term>To-Do List</term>
       <listitem>
-        <para>Display lists Opportunities associated with the CRM
-        Account</para>
+        <para>Displays To-Dos, Opportunities, and Incidents associated with
+        the Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>

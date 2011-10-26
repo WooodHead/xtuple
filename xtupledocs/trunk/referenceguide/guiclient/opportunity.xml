@@ -24,6 +24,13 @@
   options:</para>
   <variablelist>
     <varlistentry>
+      <term>Number</term>
+      <listitem>
+        <para>Displays the system-defined number used to identify the
+        Opportunity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Name</term>
       <listitem>
         <para>Enter a name to identify the Opportunity.</para>
@@ -45,17 +52,27 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Amount</term>
+      <listitem>
+        <para>Enter the monetary value of the Opportunity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Probability</term>
+      <listitem>
+        <para>Project the likelihood the Opportunity will be closed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Owner</term>
       <listitem>
         <para>Specify the user who owns the Opportunity.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Contact</term>
+      <term>Assigned to</term>
       <listitem>
-        <para>Enter the name of the Contact&mdash;or select a name from the
-        Contacts list. Details for the Contact will be shown after
-        selection.</para>
+        <para>Specify the user the Opportunity is assigned to.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -67,6 +84,12 @@
         more about configuring your system to automatically mark Opportunities
         as inactive when they reach a certain stage, see <xref
         linkend="opportunityStage" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Priority</term>
+      <listitem>
+        <para>Specify the priority level for the Opportunity.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -82,27 +105,48 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Amount</term>
+      <term>Contact</term>
       <listitem>
-        <para>Enter the monetary value of the Opportunity.</para>
+        <para>Enter the name of the Contact&mdash;or select a name from the
+        Contacts list. Details for the Contact will be shown after
+        selection.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Probability</term>
+      <term>Dates</term>
       <listitem>
-        <para>Project the likelihood the Opportunity will be closed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Target Close</term>
-      <listitem>
-        <para>Specify the date you expect the Opportunity will close.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Actual Close</term>
-      <listitem>
-        <para>Specify the date when the Opportunity closed.</para>
+        <para>Enter dates for the following:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Started</term>
+            <listitem>
+              <para>Specify the date when the Opportunity was first
+              identified. This date will be auto-populated when the
+              Opportunity is created.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Assigned</term>
+            <listitem>
+              <para>Specify the date when the Opportunity was assigned. This
+              date will be auto-populated when the Opportunity is
+              assigned.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Target Close</term>
+            <listitem>
+              <para>Specify the date you expect the Opportunity will
+              close.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Actual Close</term>
+            <listitem>
+              <para>Specify the date when the Opportunity closed.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -195,9 +239,9 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/opportunity_comment.png" />
+          <imagedata fileref="images/opportunity_salesTab.png" />
         </imageobject>
-        <caption>Opportunity Sales</caption>
+        <caption>Sales Opportunities</caption>
       </mediaobject>
     </screenshot></para>
   <para>When managing and tracking Quotes and Sales Orders associated with an
