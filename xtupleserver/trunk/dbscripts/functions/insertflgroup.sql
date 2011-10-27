@@ -206,7 +206,7 @@ BEGIN
                         AND (flitem_flgrp_id=pFlgrpid)
                         AND (_all OR prj_id=pPrjId)
                         AND (period_id IN  (SELECT * FROM getperiodid(pPeriodId,pInterval))))
-                        ORDER BY flitem_id
+                        ORDER BY flitem_id, period_start
                         ) AS flitem
                    LEFT OUTER JOIN trialbal
                      ON ((trialbal_accnt_id=accnt_id)
