@@ -206,7 +206,7 @@ BEGIN
                         AND (flitem_flgrp_id=pFlgrpid)
                         AND (_all OR prj_id=pPrjId)
                         AND (period_id IN  (SELECT * FROM getperiodid(pPeriodId,pInterval))))
-                        ORDER BY flitem_id, period_start
+                        ORDER BY flitem_id
                         ) AS flitem
                    LEFT OUTER JOIN trialbal
                      ON ((trialbal_accnt_id=accnt_id)
@@ -214,7 +214,7 @@ BEGIN
                    LEFT OUTER JOIN budget
                      ON ((budget_accnt_id=accnt_id)
                      AND (budget_period_id=period_id))
-             ORDER BY period_start) AS data
+             ORDER BY accnt_id, period_start) AS data
              GROUP BY flhead_type,flitem_id,flitem_order,flitem_subtract,flitem_showstart,flitem_showend,
                 flitem_showdelta,flitem_showbudget,flitem_showdiff,flitem_showcustom,
                 flitem_custom_source,flitem_showstartprcnt,flitem_showendprcnt,flitem_showdeltaprcnt,
