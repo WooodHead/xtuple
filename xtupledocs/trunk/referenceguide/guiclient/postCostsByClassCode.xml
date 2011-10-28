@@ -6,22 +6,29 @@
   <title><indexterm>
       <primary>actual costs</primary>
       <secondary>posting to standard by class code</secondary>
-    </indexterm> <indexterm>
+    </indexterm><indexterm>
       <primary>class codes</primary>
       <secondary>posting actual costs to standard for</secondary>
-    </indexterm> <indexterm>
+    </indexterm><indexterm>
       <primary>costing</primary>
       <secondary>posting actual to standard</secondary>
     </indexterm>Post Actual Costs by Class Code</title>
-  <para id="Para519943">In addition to posting Actual Costs to Standard Cost
-  individually by Item, you may also post Actual Costs by Class Code. To post
-  Actual Costs by Class Code, select the "Post Actual Costs by Item" option.
-  The following screen will appear:</para>
+  <para id="Para519943">When you post Actual Costs you are replacing your
+  existing Standard Costs with your newer Actual Costs. The Standard Cost of
+  an Item is the Cost used for posting General Ledger transactions. Standard
+  Cost is distinguished from Actual Cost in the sense that Standard Cost is
+  fixed, whereas Actual Cost is subject to fluctuations arising from material
+  or production changes. For example, the Actual Costs for purchased Items may
+  be updated whenever Vouchers are posted for those Items. Because Standard
+  and Actual Costs may diverge, posting Actual Costs to Standard is the way
+  you bring the two costs into alignment.</para>
   <tip>
-    <para id="Para645935">For best performance, you should run this utility by
-    All Class Codes. This will also ensure your Costs are updated properly for
-    any Items which cross Class Code lines.</para>
+    <para id="Para645935">For best results, you should run this utility by All
+    Class Codes. This will ensure your Costs are updated properly for any
+    Items which cross Class Code lines.</para>
   </tip>
+  <para>To post Actual Costs by Class Code, select the "Post Actual Costs by
+  Item" option. The following screen will appear:</para>
   <para id="Para519947"><screenshot>
       <mediaobject>
         <imageobject>
@@ -30,12 +37,10 @@
         <caption>Post Actual Costs by Class Code</caption>
       </mediaobject>
     </screenshot></para>
-  <note>
-    <para id="Para628118">The Costing Elements that are selected for posting
-    must correspond to the Costing Elements selected during the update
-    process. If the elements don"t correspond, there may not be any associated
-    Costs available for posting.</para>
-  </note>
+  <warning>
+    <para>If you are blending the Average Cost method with the Standard Cost
+    method, your results may vary.</para>
+  </warning>
   <para id="Para519949">When posting Actual Costs by Class Code, you are
   presented with the following options:</para>
   <variablelist>

@@ -17,12 +17,22 @@
       <secondary>updating actual costs for</secondary>
     </indexterm>Update Actual Costs by Item</title>
   <para>Actual Costs are the real-time Costs associated with an Item,
-  including current material and production charges. The Actual Cost of an
-  Item may fluctuate given changes in the Cost for materials, or other Costs
-  related to changes in Bills of Materials or Bills of Operations. The Actual
-  Cost provides a current record of charges actually incurred by an Item. To
-  update Actual Costs individually by Item, select the "Update Actual Costs by
-  Item" option. The following screen will appear:</para>
+  including current material and production costs. The Actual Cost of an Item
+  may fluctuate given changes in the Cost for materials, or other Costs
+  related to changes in Bills of Materials or Bills of Operations. For
+  example, the Actual Costs for purchased Items may be updated whenever
+  Vouchers are posted for those Items. Actual Costs provide a current record
+  of costs actually incurred by an Item.</para>
+  <tip>
+    <para>Cost roll ups in xTuple are performed from the bottom up. In other
+    words, to update the costs for a parent Item you need to roll the costs
+    for all the child Items up into the parent Item. For this reason, updating
+    Actual Costs by Class Code is the generally preferred method. That way you
+    can guarantee all the required costs are updated&mdash;and none are
+    missed.</para>
+  </tip>
+  <para>To update Actual Costs individually by Item, select the "Update Actual
+  Costs by Item" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -31,6 +41,10 @@
         <caption>Update Actual Costs by Item</caption>
       </mediaobject>
     </screenshot></para>
+  <warning>
+    <para>If you are blending the Average Cost method with the Standard Cost
+    method, your results may vary.</para>
+  </warning>
   <para>When updating Actual Costs by Item, you are presented with the
   following options:</para>
   <variablelist>
@@ -38,8 +52,8 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item whose Actual Costs you want to
-        update. The lookup feature located to the right of the field leads to a
-        searchable list of make and buy items.</para>
+        update. The lookup feature located to the right of the field leads to
+        a searchable list of make and buy items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

@@ -1,35 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519861">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>actual costs</primary>
       <secondary>updating by class code</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>class codes</primary>
       <secondary>updating actual costs for</secondary>
     </indexterm>Update Actual Costs by Class Code</title>
-  <para>In addition to updating Actual Costs individually by Item, you may
-  also update Actual Costs by Class Code. To update Actual Costs by Class
-  Code, select the "Update Actual Costs by Class Code" option. The following
-  screen will appear:</para>
-  <para>
-<screenshot>
+  <para>The purpose of updating Actual Costs is to ensure your parent Items
+  include the current Actual Costs for their components and materials. Actual
+  Costs are the real-time Costs associated with an Item, including current
+  material and production costs. The Actual Cost of an Item may fluctuate
+  given changes in the Cost for materials, or other Costs related to changes
+  in Bills of Materials or Bills of Operations. For example, the Actual Costs
+  for purchased Items may be updated whenever Vouchers are posted for those
+  Items. Actual Costs provide a current record of costs actually incurred by
+  an Item.</para>
+  <tip>
+    <para>For best results, you should run this utility by All Class Codes.
+    This will ensure your Costs are updated properly for any Items which cross
+    Class Code lines.</para>
+  </tip>
+  <para>To update Actual Costs by Class Code, select the "Update Actual Costs
+  by Class Code" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/updateActualCostsByClassCode.png"/>
+          <imagedata fileref="images/updateActualCostsByClassCode.png" />
         </imageobject>
-        <caption>Update Actual Costs by Class
-        Code</caption>
+        <caption>Update Actual Costs by Class Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <tip>
-    <para>For best performance, you should run this utility by All Class
-    Codes. This will also ensure your Costs are updated properly for any Items
-    which cross Class Code lines.</para>
-  </tip>
+    </screenshot></para>
+  <warning>
+    <para>If you are blending the Average Cost method with the Standard Cost
+    method, your results may vary.</para>
+  </warning>
   <para>When updating Actual Costs by Class Code, you are presented with the
   following options:</para>
   <variablelist>
@@ -60,8 +68,7 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>actual costs</primary>
           <secondary>rolling up of</secondary>
         </indexterm>Roll Up Actual Costs</term>
@@ -77,8 +84,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>material costs</primary>
           <secondary>updating of</secondary>
         </indexterm> <indexterm significance="normal">
@@ -146,8 +152,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>user costs</primary>
           <secondary>updating of</secondary>
         </indexterm> <indexterm significance="normal">
