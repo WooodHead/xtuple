@@ -9,13 +9,25 @@
     </indexterm><indexterm significance="normal">
       <primary>class codes</primary>
       <secondary>updating standard costs for</secondary>
-    </indexterm>Update Standard Costs by Class Code</title>
-  <para>In addition to updating Standard Costs individually by Item, you may
-  also update Standard Costs by Class Code. Updating Standard Costs has
-  absolutely no impact on an Item's Actual Costs. The only Costs affected will
-  be Standard Costs. To update Standard Costs by Class Code, select the
-  "Update Standard Costs by Class Code" option. The following screen will
-  appear:</para>
+    </indexterm>Post Standard Costs by Class Code</title>
+  <para>Posting Standard Costs is <emphasis>not</emphasis> the same process as
+  updating Actual Costs or posting Actual Costs to Standard. It is an entirely
+  different process&mdash;and in most cases, it will only be used in rare
+  circumstances.</para>
+  <para>Standard Costs are the Costs which are recorded in the General Ledger
+  whenever transactions are posted. As such, they are the Costs of record.
+  Typically, a company will update its Standard Costs on a periodic
+  basis&mdash;for example, annually or quarterly. However, if you introduce
+  new products into production between Standard Cost updates, you may want to
+  roll up existing Standard Costs into the cost of your new manufactured
+  Items.</para>
+  <tip>
+    <para id="Para645935">For best results, you should run this utility by All
+    Class Codes. This will ensure your Costs are updated properly for any
+    Items which cross Class Code lines.</para>
+  </tip>
+  <para>To update Standard Costs by Class Code, select the "Update Standard
+  Costs by Class Code" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -24,11 +36,6 @@
         <caption>Update Standard Costs by Class Code</caption>
       </mediaobject>
     </screenshot></para>
-  <tip>
-    <para>For best performance, you should run this utility by All Class
-    Codes. This will also ensure your Costs are updated properly for any Items
-    which cross Class Code lines.</para>
-  </tip>
   <para>When updating Standard Costs by Class Code, you are presented with the
   following options:</para>
   <variablelist>
