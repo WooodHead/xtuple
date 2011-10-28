@@ -6,21 +6,32 @@
   <title><indexterm>
       <primary>actual costs</primary>
       <secondary>posting to standard by item</secondary>
-    </indexterm> <indexterm>
+    </indexterm><indexterm>
       <primary>items</primary>
       <secondary>posting actual costs to standard for</secondary>
-    </indexterm> <indexterm>
+    </indexterm><indexterm>
       <primary>costing</primary>
       <secondary>posting actual to standard</secondary>
     </indexterm>Post Actual Costs by Item</title>
-  <para id="Para627665">The Standard Cost for an Item is the Cost used for
-  posting General Ledger transactions. Standard Cost is distinguished from
-  Actual Cost in the sense that Standard Cost is fixed, whereas Actual Cost is
-  subject to fluctuations arising from material or production changes. The two
-  Costs may diverge. However, they can be brought back into alignment by
-  posting Actual Cost to Standard. To post Actual Costs to Standard Cost
-  individually by Item, select the "Post Actual Costs by Item" option. The
-  following screen will appear:</para>
+  <para id="Para627665">When you post Actual Costs you are replacing your
+  existing Standard Costs with your newer Actual Costs. The Standard Cost of
+  an Item is the Cost used for posting General Ledger transactions. Standard
+  Cost is distinguished from Actual Cost in the sense that Standard Cost is
+  fixed, whereas Actual Cost is subject to fluctuations arising from material
+  or production changes. For example, the Actual Costs for purchased Items may
+  be updated whenever Vouchers are posted for those Items. Because Standard
+  and Actual Costs may diverge, posting Actual Costs to Standard is the way
+  you bring the two costs into alignment.</para>
+  <tip>
+    <para>Cost roll ups in xTuple are performed from the bottom up. In other
+    words, to update the costs for a parent Item you need to roll the costs
+    for all the child Items up into the parent Item. For this reason, posting
+    Actual Costs by Class Code is the generally preferred method. That way you
+    can guarantee all the required costs are posted&mdash;and none are
+    missed.</para>
+  </tip>
+  <para>To post Actual Costs to Standard Cost individually by Item, select the
+  "Post Actual Costs by Item" option. The following screen will appear:</para>
   <para id="Para519903"><screenshot>
       <mediaobject>
         <imageobject>
@@ -29,12 +40,10 @@
         <caption>Post Actual Costs by Item</caption>
       </mediaobject>
     </screenshot></para>
-  <note>
-    <para id="Para552031">The Costing Elements that are selected for posting
-    must correspond to the Costing Elements selected during the update
-    process. If the elements don"t correspond, there may not be any associated
-    Costs available for posting.</para>
-  </note>
+  <warning>
+    <para>If you are blending the Average Cost method with the Standard Cost
+    method, your results may vary.</para>
+  </warning>
   <para id="Para519911">When posting Actual Costs by Item, you are presented
   with the following options:</para>
   <variablelist>
