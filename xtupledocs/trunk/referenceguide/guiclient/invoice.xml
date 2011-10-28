@@ -242,32 +242,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Subtotal</term>
-      <listitem>
-        <para>Displays the subtotal for the Invoice Line Items.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Tax</term>
-      <listitem>
-        <para>Tax is not calculated automatically when creating a
-        miscellaneous Invoice&mdash;as it is when an Invoice is generated from
-        a Sales Order. You must manually enter a Tax amount if you want to add
-        Tax to a miscellaneous Invoice. To get a detailed view of the Tax
-        calculation, click on the Tax link using your mouse.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Misc. Charge Amount</term>
-      <listitem>
-        <para>Enter the amount of any miscellaneous charge. Examples of
-        miscellaneous charges include palletization costs, co-op refund, etc.
-        Before entering a miscellaneous charge amount, you must first assign
-        the charge to a Sales Account and also enter a description of the
-        charge.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Misc. Charge Description</term>
       <listitem>
         <para>Enter a description to identify the miscellaneous charge.</para>
@@ -278,6 +252,60 @@
       <listitem>
         <para>Enter a Sales Account to assign the miscellaneous charge
         to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Allocated Credit</term>
+      <listitem>
+        <para>Displays the monetary value of any Credit Memos and/or Credit
+        Card charges which have been specifically allocated to the Invoice. To
+        allocate Credit Memos to the Invoice, select the "Allocated C/M's"
+        link.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Outstanding Credit</term>
+      <listitem>
+        <para>Displays the total monetary value of all unallocated Credit
+        Memos for the Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Authorized CC Payments</term>
+      <listitem>
+        <para>Displays the monetary value of any credit card
+        pre-authorizations for the Order. Credit Card charges may be
+        pre-authorized using the options found under the "Payment" tab. When a
+        Credit Card charge is pre-authorized, the authorization is stored and
+        may later be posted as a completed charge using the Receivables
+        Workbench.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Freight Weight</term>
+      <listitem>
+        <para>Displays the combined weight of all Sales Order Line Items.
+        Freight weight represents the sum of an Item's product weight and
+        packaging weight, both of which are defined on the Item master. The
+        per unit freight weight multiplied by the quantity per gives you the
+        Line Item freight weight. The sum of all Line Item freight weights is
+        the combined weight for the Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Subtotal</term>
+      <listitem>
+        <para>Displays the subtotal for the Invoice Line Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Misc. Charge Amount</term>
+      <listitem>
+        <para>Enter the amount of any miscellaneous charge. Examples of
+        miscellaneous charges include palletization costs, co-op refund, etc.
+        Before entering a miscellaneous charge amount, you must first assign
+        the charge to a Sales Account and also enter a description of the
+        charge.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -294,12 +322,32 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>Tax is not calculated automatically when creating a
+        miscellaneous Invoice&mdash;as it is when an Invoice is generated from
+        a Sales Order. You must manually enter a Tax amount if you want to add
+        Tax to a miscellaneous Invoice. To get a detailed view of the Tax
+        calculation, click on the Tax link using your mouse.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Total</term>
       <listitem>
         <para>Displays total amount of the Invoice.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Outstanding Balance</term>
+      <listitem>
+        <para>Displays the open balance of the Invoice, which is equal to the
+        total minus any allocated Credit Memos.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
+  <xi:include href="../widgets/allocateARCreditMemo.xml"
+              xpointer="documentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>To add Notes to an Invoice, select the "Notes" tab at the top of the
   "Invoice" screen. If the Invoice was created from a Sales Order, any Sales
   Order Notes will be transferred to the Invoice. The following screen will

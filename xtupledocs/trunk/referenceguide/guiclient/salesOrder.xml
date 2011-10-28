@@ -564,31 +564,19 @@
     <varlistentry>
       <term>Allocated Credit</term>
       <listitem>
-        <para>Displays the monetary value of any open Credit Memos and/or
-        Credit Card charges which have been specifically allocated to the
-        Sales Order. If your system is configured to automatically allocate
-        open Credit Memo balances to new Sales Orders, then the monetary value
-        of these allocated Credit Memos&mdash;plus any Credit Card charges
-        applied to the Order&mdash;will display here. If your system is not
-        configured to automatically allocate Credit Memos, then this field
-        will display only the monetary value of any Credit Card charges
-        applied to the Order&mdash;if any. The automatic allocation of Credit
-        Memos helps reduce Customer credit balances by ensuring that Customer
-        credits are consumed when new Sales Orders are entered. Any available,
-        open Credit Memos are eligible for allocation. The allocation of
-        available Credit Memos occurs only once&mdash;when a Sales Order is
-        saved for the first time. Subsequent saves will not result in
-        additional allocations. Credit Memos which have been allocated to a
-        Sales Order are applied at the point when the Invoice resulting from
-        the Sales Order is posted. Once the full balance of a Credit Memo has
-        been applied, the Credit Memo is then closed. The printed Invoice the
-        Customer receives will indicate whether Credit Memos have been
-        applied. In addition, the total due from the Customer will be
-        automatically adjusted to reflect any applied credits.</para>
+        <para>Displays the monetary value of any Credit Memos and/or Credit
+        Card charges which have been specifically allocated to the Sales
+        Order. If your system is configured to automatically allocate open
+        Credit Memo balances to new Sales Orders, then the monetary value of
+        these allocated Credit Memos&mdash;plus any Credit Card charges
+        applied to the Order&mdash;will display here. You can also select the
+        "Allocated Credit" link to manually allocate Credit Memos to the Sales
+        Order.</para>
         <note>
-          <para>The allocation of available Credit Memos occurs only
-          once&mdash;when a Sales Order is saved for the first time.
-          Subsequent saves will not result in additional allocations.</para>
+          <para>The automatic allocation of available Credit Memos occurs only
+          once&mdash;when a Sales Order is saved for the first time. After
+          that first save, any additional allocations will need to be applied
+          manually.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -596,12 +584,7 @@
       <term>Outstanding Credit</term>
       <listitem>
         <para>Displays the total monetary value of all unallocated Credit
-        Memos for the Customer. If no Credit Memos are allocated to the Sales
-        Order, then the amount displayed here will be equal to the Customer's
-        total open Credit Memo balance. If Credit Memos are allocated to the
-        Order, then the remaining Credit Memo balance will be displayed. The
-        open Credit Memo balance is considered when calculating the
-        outstanding balance due for the Order.</para>
+        Memos for the Customer.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -716,6 +699,9 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <xi:include href="../widgets/allocateARCreditMemo.xml"
+              xpointer="documentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
     <varlistentry>
@@ -813,11 +799,11 @@
         Project.</para>
         <para role="xtprjaccnt">When you have the xTuple Project Accounting
         package installed&mdash;and you link a Project to the Sales
-        Order&mdash;transactions related to the Sales Order will include the Project
-        Number as the final segment of affected G/L Account Numbers. Account
-        Numbers related to the following transactions will include the Project
-        Number as the final segment: Issue to Shipping, Return Stock, Ship
-        Shipment, Recall Shipment, and Post Invoice.</para>
+        Order&mdash;transactions related to the Sales Order will include the
+        Project Number as the final segment of affected G/L Account Numbers.
+        Account Numbers related to the following transactions will include the
+        Project Number as the final segment: Issue to Shipping, Return Stock,
+        Ship Shipment, Recall Shipment, and Post Invoice.</para>
         <tip>
           <para>If your site is configured to create Projects automatically
           whenever new Sales Orders or Quotes are entered, the Projects
