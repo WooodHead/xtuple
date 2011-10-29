@@ -426,7 +426,7 @@ BEGIN
             coitem_order_id,coitem_memo,coitem_qtyreturned,
             coitem_taxtype_id,coitem_qty_uom_id,coitem_qty_invuomratio,
             coitem_price_uom_id,coitem_price_invuomratio,coitem_warranty,
-            coitem_cos_accnt_id,coitem_order_type)
+            coitem_cos_accnt_id,coitem_order_type, coitem_custpn)
           SELECT _coitemid,_coheadid,_linenumber,_ra.raitem_coitem_itemsite_id,
               'O',_ra.raitem_scheddate,_ra.raitem_scheddate,_ra.raitem_qtyauthorized,
               stdcost(itemsite_item_id),COALESCE(_ra.raitem_saleprice,0),0,0,
@@ -434,7 +434,7 @@ BEGIN
               _ra.raitem_taxtype_id,_ra.raitem_qty_uom_id,_ra.raitem_qty_invuomratio,
               _ra.raitem_price_uom_id,_ra.raitem_price_invuomratio,_ra.raitem_warranty,
               _ra.raitem_cos_accnt_id,
-              CASE WHEN itemsite_createwo THEN 'W' ELSE NULL END
+              CASE WHEN itemsite_createwo THEN 'W' ELSE NULL END, _ra.raitem_custpn
           FROM itemsite
           WHERE (itemsite_id=_ra.raitem_coitem_itemsite_id);
 
@@ -463,7 +463,7 @@ BEGIN
               coitem_order_id,coitem_memo,coitem_qtyreturned,
               coitem_taxtype_id,coitem_qty_uom_id,coitem_qty_invuomratio,
               coitem_price_uom_id,coitem_price_invuomratio,coitem_warranty,
-              coitem_cos_accnt_id,coitem_order_type)
+              coitem_cos_accnt_id,coitem_order_type,coitem_custpn)
             SELECT _coitemid,_coheadid,_linenumber,raitem_coitem_itemsite_id,
               'O',raitem_scheddate,raitem_scheddate,raitem_qtyauthorized,
               stdcost(itemsite_item_id),COALESCE(raitem_saleprice,0),0,0,
@@ -471,7 +471,7 @@ BEGIN
               raitem_taxtype_id,raitem_qty_uom_id,raitem_qty_invuomratio,
               raitem_price_uom_id,raitem_price_invuomratio,raitem_warranty,
               raitem_cos_accnt_id,
-              CASE WHEN itemsite_createwo THEN 'W' ELSE NULL END
+              CASE WHEN itemsite_createwo THEN 'W' ELSE NULL END,raitem_custpn
             FROM raitem
               JOIN itemsite ON (itemsite_id=raitem_itemsite_id)
             WHERE (raitem_id=_i.raitem_id);
