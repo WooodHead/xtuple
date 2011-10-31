@@ -1,26 +1,26 @@
--- Contact Comment
+-- Account Comment
 
-DROP VIEW api.contactcomment;
-CREATE VIEW api.contactcomment
+DROP VIEW api.accountcomment;
+CREATE VIEW api.accountcomment
 AS 
    SELECT 
-     cntct_number AS contact_number,
+     crmacct_number::varchar AS account_number,
      cmnttype_name AS type,
      comment_date AS date,
      comment_user AS username,
      comment_text AS text
-   FROM cntct, cmnttype, comment
-   WHERE ((comment_source='T')
-   AND (comment_source_id=cntct_id)
+   FROM crmacct, cmnttype, comment
+   WHERE ((comment_source='CRMA')
+   AND (comment_source_id=crmacct_id)
    AND (comment_cmnttype_id=cmnttype_id));
 
-GRANT ALL ON TABLE api.contactcomment TO xtrole;
-COMMENT ON VIEW api.contactcomment IS 'Contact Comment';
+GRANT ALL ON TABLE api.accountcomment TO xtrole;
+COMMENT ON VIEW api.accountcomment IS 'Account Comment';
 
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO api.contactcomment DO INSTEAD
+    ON INSERT TO api.accountcomment DO INSTEAD
 
   INSERT INTO comment (
     comment_date,
@@ -32,14 +32,14 @@ CREATE OR REPLACE RULE "_INSERT" AS
     )
   VALUES (
     COALESCE(NEW.date,now()),
-    'T',
-    getCntctId(NEW.contact_number),
+    'CRMA',
+    getCrmAcctId(NEW.account_number),
     COALESCE(NEW.username,getEffectiveXtUser()),
     getCmntTypeId(NEW.type),
     NEW.text);
 
 CREATE OR REPLACE RULE "_UPDATE" AS
-    ON UPDATE TO api.contactcomment DO INSTEAD NOTHING;
+    ON UPDATE TO api.accountcomment DO INSTEAD NOTHING;
 
 CREATE OR REPLACE RULE "_DELETE" AS
-    ON DELETE TO api.contactcomment DO INSTEAD NOTHING;
+    ON DELETE TO api.accountcomment DO INSTEAD NOTHING;
