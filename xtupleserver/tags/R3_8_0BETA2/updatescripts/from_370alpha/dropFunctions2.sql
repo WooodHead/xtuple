@@ -1,0 +1,1 @@
+select dropifexists('FUNCTION','getGainLossAccntId()');

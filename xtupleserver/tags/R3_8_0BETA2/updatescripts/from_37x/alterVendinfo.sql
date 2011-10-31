@@ -1,0 +1,3 @@
+ALTER TABLE vendinfo ADD COLUMN vend_accnt_id INTEGER;
+ALTER TABLE vendinfo ADD COLUMN vend_expcat_id INTEGER DEFAULT -1;
+ALTER TABLE vendinfo ADD COLUMN vend_tax_id INTEGER DEFAULT -1;
