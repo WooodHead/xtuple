@@ -1,5 +1,3 @@
-BEGIN;
-
 CREATE OR REPLACE FUNCTION insertCreditTaxDiscount() RETURNS INTEGER AS $$
 DECLARE
   _result INTEGER;
@@ -19,6 +17,3 @@ $$ LANGUAGE 'plpgsql';
 
 SELECT insertCreditTaxDiscount();
 DROP FUNCTION insertCreditTaxDiscount();
-
-COMMIT;
-
