@@ -70,6 +70,9 @@ to be bound by its terms.</comment>
      </item>
      <item>
       <widget class="QGroupBox" name="_allowExpenseGroup">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="title">
         <string/>
        </property>
@@ -220,64 +223,16 @@ to be bound by its terms.</comment>
   <connection>
    <sender>_projectExpense</sender>
    <signal>toggled(bool)</signal>
-   <receiver>_account</receiver>
+   <receiver>_allowExpenseGroup</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>232</x>
+     <x>196</x>
      <y>25</y>
     </hint>
     <hint type="destinationlabel">
-     <x>278</x>
-     <y>88</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>_projectExpense</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>_accountSelected</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>232</x>
-     <y>25</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>97</x>
-     <y>89</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>_projectExpense</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>_expcat</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>232</x>
-     <y>25</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>298</x>
-     <y>157</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>_projectExpense</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>_expcatSelected</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>232</x>
-     <y>25</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>97</x>
-     <y>158</y>
+     <x>186</x>
+     <y>96</y>
     </hint>
    </hints>
   </connection>
