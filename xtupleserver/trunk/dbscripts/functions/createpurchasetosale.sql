@@ -34,6 +34,14 @@ DECLARE
 
 BEGIN
 
+  -- Check for existing poitem for this coitem
+  SELECT poitem_id INTO _poitemid
+  FROM poitem
+  WHERE (poitem_soitem_id=pCoitemId);
+  IF (FOUND) THEN
+    RETURN _poitemid;
+  END IF;
+
   SELECT *,
          COALESCE(roundQty(item_fractional, (coitem_qtyord * coitem_qty_invuomratio)), 0.0) AS orderqty
   INTO _s
