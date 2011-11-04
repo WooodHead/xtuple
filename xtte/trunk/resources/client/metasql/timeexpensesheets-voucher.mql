@@ -1,4 +1,7 @@
 -- Group: timeexpensesheets
 -- Name:  voucher
 -- Notes: Voucher Time Expense Sheet
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT te.voucherSheet(<? value("tehead_id") ?>);

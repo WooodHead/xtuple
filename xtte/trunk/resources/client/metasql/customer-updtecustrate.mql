@@ -1,6 +1,9 @@
 -- Group: customer
 -- Name:  updtecustrate
 -- Notes: Update customer rate record
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 UPDATE te.tecustrate SET
   tecustrate_cust_id=<? value("cust_id") ?>,
   tecustrate_rate=<? value("rate") ?>,

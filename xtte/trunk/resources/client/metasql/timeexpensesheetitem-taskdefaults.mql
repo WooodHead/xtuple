@@ -1,6 +1,9 @@
 -- Group: timeexpensesheetitem
 -- Name:  taskdefaults
 -- Notes: Project Task default values
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT 
   COALESCE(teprj_cust_id,teprjtask_cust_id,-1) AS cust_id,
   COALESCE(teprjtask_item_id,-1) AS item_id

@@ -1,6 +1,9 @@
 -- Group: timeexpensesheetitem
 -- Name:  emptotals
 -- Notes: Employee Hours Totals
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT
   formatqty(coalesce(sum(day_hours),0)  + coalesce(<? value("hours") ?>,0)) as day_hours,
   formatqty(coalesce(sum(sheet_hours),0) + coalesce(<? value("hours") ?>,0)) as sheet_hours
