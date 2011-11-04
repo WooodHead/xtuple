@@ -1,6 +1,8 @@
 -- Group: payment
 -- Name: fetchccinfo
 -- Notes: fetch information about a previously-used credit card
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT ccard_id, ccard_seq, ccard_active,
        formatbytea(decrypt(setbytea(ccard_name),

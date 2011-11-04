@@ -4,6 +4,8 @@
 --        We cannot use the fetch function here because that increments the
 --        number, while the purpose of this query is simply to see what that
 --        next number will be.
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT last_value + 1 AS sale_number
 FROM xtpos.sale_number_seq;

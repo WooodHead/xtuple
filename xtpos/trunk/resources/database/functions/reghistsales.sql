@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION xtpos.reghistSales(integer) RETURNS NUMERIC AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pReghistId 	ALIAS FOR $1;
   _returnVal	NUMERIC;
@@ -10,6 +12,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION xtpos.reghistSales(integer, text) RETURNS NUMERIC AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pReghistId 	ALIAS FOR $1;
   pType		ALIAS FOR $2;
