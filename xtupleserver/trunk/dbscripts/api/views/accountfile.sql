@@ -1,4 +1,4 @@
--- Account File
+-- Account File 
 
 SELECT dropifexists('VIEW', 'accountfile','API');
 CREATE VIEW api.accountfile

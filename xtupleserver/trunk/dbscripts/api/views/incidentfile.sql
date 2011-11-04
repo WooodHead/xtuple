@@ -1,4 +1,4 @@
--- Account File
+-- Incident File
 
 SELECT dropifexists('VIEW', 'incidentfile','API');
 CREATE VIEW api.incidentfile
