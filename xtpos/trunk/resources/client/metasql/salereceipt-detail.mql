@@ -1,6 +1,8 @@
 -- Group: salereceipt
 -- Name: detail
 -- Notes:
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT salehead_number, formatdatetime(salehead_time) AS f_time, 
   salehead_notes, terminal_number, warehous_code, salesrep_number, 

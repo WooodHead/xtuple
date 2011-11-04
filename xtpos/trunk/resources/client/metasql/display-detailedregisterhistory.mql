@@ -2,6 +2,9 @@
 -- Name:  detailedRegisterHistory
 -- Notes: Show all sales, open, close, and adjustment transactions for a
 --        single or all cash register Terminals during a range of dates.
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT *,
          formatdatetime(timestamp) AS f_timestamp,
          CASE WHEN tendered IS NULL THEN NULL

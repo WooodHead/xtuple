@@ -1,6 +1,8 @@
 -- Group: salesearch
 -- Name: defaultdates
 -- Notes: Default dates for search
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT current_date - interval '1 month' AS start_date, 
   current_date AS end_date;
