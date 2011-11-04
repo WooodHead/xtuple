@@ -1,5 +1,5 @@
 -- Item File
-
+ 
 SELECT dropIfExists('VIEW', 'itemfile', 'api');
 CREATE VIEW api.itemfile
 AS 

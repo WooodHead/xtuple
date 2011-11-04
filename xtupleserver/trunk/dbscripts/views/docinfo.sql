@@ -1,4 +1,4 @@
-SELECT dropIfExists('VIEW','docinfo');
+SELECT dropIfExists('VIEW','docinfo'); 
 CREATE VIEW docinfo AS
 ------------ IMAGE -----------
  SELECT imageass_id AS id,
