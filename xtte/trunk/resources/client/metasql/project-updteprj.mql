@@ -1,6 +1,9 @@
 -- Group: project
 -- Name:  updteprj
 -- Notes: Update project time expense
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 UPDATE te.teprj SET
   teprj_cust_id=<? value("cust_id") ?>,
   teprj_rate=<? value("rate") ?>,

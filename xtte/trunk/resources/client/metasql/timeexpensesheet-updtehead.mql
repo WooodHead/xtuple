@@ -1,6 +1,9 @@
 -- Group: timeexpensesheet
 -- Name:  updtehead
 -- Notes: 
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 UPDATE te.tehead SET 
   tehead_emp_id = <? value("emp_id") ?>,
   tehead_warehous_id = <? value("warehous_id") ?>,

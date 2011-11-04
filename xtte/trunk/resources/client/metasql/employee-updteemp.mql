@@ -1,6 +1,9 @@
 -- Group: employee
 -- Name:  updteemp
 -- Notes: Update employee time expense
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 UPDATE te.teemp SET
   teemp_contractor=<? value("contractor") ?>
 WHERE (teemp_id=<? value("teemp_id") ?>);

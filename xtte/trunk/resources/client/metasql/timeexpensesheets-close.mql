@@ -1,6 +1,9 @@
 -- Group: timeexpensesheets
 -- Name:  close
 -- Notes: Close Time Expense Sheet
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 UPDATE te.tehead SET 
   tehead_status = 'C' 
 WHERE (tehead_id=<? value("tehead_id") ?>);

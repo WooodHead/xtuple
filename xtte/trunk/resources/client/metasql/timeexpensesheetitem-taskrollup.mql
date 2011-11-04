@@ -1,6 +1,9 @@
 -- Group: timeexpensesheetitem
 -- Name:  taskrollup
 -- Notes: Total hours and expenses including unapproved sheets
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT 
   formatQty(SUM(total_hours)) AS total_hours,
   formatMoney(SUM(total_expense)) AS total_expense

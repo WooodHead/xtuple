@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION te.triggertehead() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
 _r RECORD;
 _sense INTEGER := 0;
