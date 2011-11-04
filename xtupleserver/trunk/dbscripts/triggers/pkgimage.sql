@@ -1,6 +1,8 @@
 -- NO create trigger statements. the updater will create them.
 SELECT dropIfExists('TRIGGER', 'pkgimagebeforetrigger');
 CREATE OR REPLACE FUNCTION _pkgimagebeforetrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _imageid     INTEGER;
   _debug       BOOL := false;
@@ -38,6 +40,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgimagealterTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (pkgMayBeModified(TG_TABLE_SCHEMA)) THEN
     IF (TG_OP = 'DELETE') THEN
@@ -63,6 +67,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgimageaftertrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (TG_OP = 'DELETE') THEN
     RETURN OLD;

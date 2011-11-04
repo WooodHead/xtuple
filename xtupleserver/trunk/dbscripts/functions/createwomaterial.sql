@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION createWoMaterial(INTEGER, INTEGER, char(1), NUMERIC, NUMERIC, NUMERIC) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoid ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -17,6 +19,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION createWoMaterial(INTEGER, INTEGER, char(1), INTEGER, NUMERIC, NUMERIC, NUMERIC) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoid ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -36,6 +40,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION createWoMaterial(INTEGER, INTEGER, char(1), INTEGER, NUMERIC, NUMERIC, NUMERIC, INTEGER, TEXT, TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoid ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;

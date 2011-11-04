@@ -1,6 +1,8 @@
 -- Group: standardJournalHistory
 -- Name: detail
 -- Notes: used by dspStandardJournalHistory
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT gltrans_sequence, gltrans_id,
        sortdate, sortdoc, level, gltrans_amount,

@@ -1,6 +1,8 @@
 -- Group: pendingBOMChanges
 -- Name: detail
 -- Notes: used by dspPendingBOMChanges
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT bomitem_id, actiondate, action,
        bomitem_seqnumber, item_number, description,

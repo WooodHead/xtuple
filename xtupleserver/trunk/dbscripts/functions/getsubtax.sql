@@ -1,7 +1,9 @@
 
 CREATE OR REPLACE FUNCTION getsubtax(integer, integer)
   RETURNS SETOF subtax AS
-$BODY$
+$$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pTaxCodeId ALIAS FOR $1;
   pLevel ALIAS FOR $2;
@@ -40,5 +42,5 @@ BEGIN
   END LOOP;
 
 END;
-$BODY$
+$$
   LANGUAGE 'plpgsql' VOLATILE;

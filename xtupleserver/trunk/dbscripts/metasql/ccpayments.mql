@@ -1,6 +1,9 @@
 -- Group: ccpayments
 -- Name:  list
 -- Notes: list credit card payments, optionally by customer
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT ccpay_id AS id, 
        CASE WHEN ((ccpay_status = 'A') AND 
                  (date_part('day', CURRENT_TIMESTAMP - ccpay_transaction_datetime) < COALESCE(<? value("ccValidDays") ?>,0))) THEN

@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION invhistSense(INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pInvhistId ALIAS FOR $1;
   _count INTEGER;

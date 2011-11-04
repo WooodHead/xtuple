@@ -5,6 +5,8 @@
 --        display class.  Used to be printed version got an extra parameter. Formatted
 --        values slow things down considerably on screen version otherwise. This
 --        should go away if/when we get OpenRPT to do its own formatting.
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 <? if exists("totalOnly") ?>
 SELECT SUM(CASE WHEN (aropen_doctype IN ('C', 'R')) THEN

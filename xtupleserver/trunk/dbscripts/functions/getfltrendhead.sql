@@ -1,5 +1,7 @@
 CREATE OR REPLACE FUNCTION getfltrendhead(INTEGER, _int4, bpChar)
   RETURNS SETOF fltrendhead AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pFlheadid ALIAS FOR $1;
   pPeriodids ALIAS FOR $2;

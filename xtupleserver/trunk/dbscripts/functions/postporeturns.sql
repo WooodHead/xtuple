@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION postPoReturns(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pPoheadid ALIAS FOR $1;
   pCreateMemo ALIAS FOR $2;
@@ -87,6 +89,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION postPoReturns(INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pPoheadid ALIAS FOR $1;
   _itemlocSeries INTEGER;

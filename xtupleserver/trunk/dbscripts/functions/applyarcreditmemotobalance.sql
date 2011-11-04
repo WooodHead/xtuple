@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION applyARCreditMemoToBalance(INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pAropenid ALIAS FOR $1;
 
@@ -11,6 +13,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION applyARCreditMemoToBalance(INTEGER, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pSourceAropenid ALIAS FOR $1;
   pTargetAropenid ALIAS FOR $2;

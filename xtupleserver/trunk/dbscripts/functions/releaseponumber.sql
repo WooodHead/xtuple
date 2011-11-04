@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION releasePoNumber(INTEGER) RETURNS BOOLEAN AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   RETURN releasePoNumber(CAST($1 AS TEXT));
 END;
@@ -6,6 +8,8 @@ END;
 
 
 CREATE OR REPLACE FUNCTION releasePoNumber(TEXT) RETURNS BOOLEAN AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pPoNumber ALIAS FOR $1;
   _test INTEGER;

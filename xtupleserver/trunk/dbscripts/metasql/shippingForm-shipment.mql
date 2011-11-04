@@ -1,6 +1,8 @@
 -- Group: shippingForm
 -- Name: shipment
 -- Notes: used by printShippingForm
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT cohead_id AS order_id, cohead_shiptoname AS shipto, 
        cohead_shiptoaddress1 AS addr1, shiphead_order_type, 

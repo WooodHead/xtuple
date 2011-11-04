@@ -3,8 +3,10 @@
 -- Notes: replace the not-so-old pkgitem table with direct query of catalogs
 --        and tables so we never miss anything and do not have to maintain the
 --        data
-
 -- TODO: is there a better sort order?
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT *,
        CASE WHEN pkgitem_type='C' THEN <? value("script") ?>
             WHEN pkgitem_type='D' THEN <? value("cmd") ?>

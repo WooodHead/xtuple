@@ -1,5 +1,7 @@
 
 CREATE OR REPLACE FUNCTION createPriv(text, text, text) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pModule ALIAS FOR $1;
   pName   ALIAS FOR $2;

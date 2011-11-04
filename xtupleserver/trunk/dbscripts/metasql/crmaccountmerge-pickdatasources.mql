@@ -2,6 +2,8 @@
 -- Name:  pickdatasources
 -- Notes: Show the records the user has selected to merge crm accounts. Emphasize
 --        the particular fields in each record that s/he has selected.
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT c.crmacct_id,
        crmacctsel_dest_crmacct_id,

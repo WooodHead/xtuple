@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION updateABCClass(TEXT, NUMERIC, NUMERIC, DATE, DATE) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pClassCodePattern ALIAS FOR $1;
   pACutoff ALIAS FOR $2;
@@ -17,6 +19,8 @@ END;
 
 
 CREATE OR REPLACE FUNCTION updateABCClass(TEXT, INTEGER, NUMERIC, NUMERIC, DATE, DATE) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pClassCodePattern ALIAS FOR $1;
   pWarehousid ALIAS FOR $2;
@@ -123,6 +127,8 @@ END;
 
 
 CREATE OR REPLACE FUNCTION updateABCClass(INTEGER, NUMERIC, NUMERIC, DATE, DATE) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pClasscodeid ALIAS FOR $1;
   pACutoff ALIAS FOR $2;
@@ -141,6 +147,8 @@ END;
 
 
 CREATE OR REPLACE FUNCTION updateABCClass(INTEGER, INTEGER, NUMERIC, NUMERIC, DATE, DATE) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pClasscodeid ALIAS FOR $1;
   pWarehousid ALIAS FOR $2;

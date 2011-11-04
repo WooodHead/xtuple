@@ -1,9 +1,10 @@
 -- Group: currencyConversions
 -- Name: detail
 -- Notes: used by currencyConversions
-
--- the N in round(curr_rate, N) has to be SCALE - 1 of curr_rates
--- NUMERIC(p, SCALE) type definition
+--        the N in round(curr_rate, N) has to be SCALE - 1 of curr_rates
+--        NUMERIC(p, SCALE) type definition
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT curr_rate_id, currConcat(curr_id) AS f_curr,
 <? if exists("invert") ?>

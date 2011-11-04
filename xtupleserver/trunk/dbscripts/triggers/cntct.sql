@@ -1,5 +1,7 @@
 -- Before trigger
 CREATE OR REPLACE FUNCTION _cntctTrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
 
   NEW.cntct_name := formatCntctName(NULL, NEW.cntct_first_name, NEW.cntct_middle, NEW.cntct_last_name, NEW.cntct_suffix);
@@ -17,6 +19,8 @@ CREATE TRIGGER cntcttrigger
   EXECUTE PROCEDURE _cntctTrigger();
 
 CREATE OR REPLACE FUNCTION _cntctTriggerBeforeDelete() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (TG_OP = 'DELETE') THEN
     DELETE FROM cntctaddr WHERE cntctaddr_cntct_id=OLD.cntct_id;
@@ -60,6 +64,8 @@ CREATE TRIGGER cntcttriggerbeforedelete
 
 -- After trigger
 CREATE OR REPLACE FUNCTION _cntctTriggerAfter() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cntctemlid INTEGER;
   _rows INTEGER;

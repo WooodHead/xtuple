@@ -1,5 +1,7 @@
 CREATE OR REPLACE FUNCTION saveItemUomConv(integer, integer, numeric, integer, numeric, boolean, integer[])
   RETURNS integer AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemId ALIAS FOR $1;
   pFromUomId ALIAS FOR $2;

@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION updateCost(INTEGER, NUMERIC) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemcostid ALIAS FOR $1;
   pCost ALIAS FOR $2;
@@ -9,6 +11,8 @@ END;
 ' LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION updateCost(INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
     pItemcostid ALIAS FOR $1;
     pCost ALIAS FOR $2;
@@ -38,6 +42,8 @@ END;
 
 
 CREATE OR REPLACE FUNCTION updateCost(INTEGER, TEXT, BOOLEAN, NUMERIC) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   returnVal INTEGER;
 
@@ -49,6 +55,8 @@ END;
 
 
 CREATE OR REPLACE FUNCTION updateCost(INTEGER, INTEGER, BOOLEAN, NUMERIC) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   returnVal INTEGER;
 
@@ -59,6 +67,8 @@ END;
 ' LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION updateCost(INTEGER, TEXT, BOOLEAN, NUMERIC, INTEGER) RETURNS integer AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemid ALIAS FOR $1;
   pCosttype ALIAS FOR $2;
@@ -131,6 +141,8 @@ END;
 
 
 CREATE OR REPLACE FUNCTION updateCost(INTEGER, INTEGER, BOOLEAN, NUMERIC, INTEGER) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemid ALIAS FOR $1;
   pCostelemid ALIAS FOR $2;

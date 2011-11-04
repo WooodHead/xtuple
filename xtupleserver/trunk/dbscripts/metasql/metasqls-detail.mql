@@ -1,6 +1,9 @@
 -- Group: metasqls
 -- Name:  detail
 -- Notes: 
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 <? if exists('byPackage') ?>
 SELECT metasql_id, metasql_group, metasql_name,
        firstline(metasql_notes) AS metasql_notes, metasql_grade,

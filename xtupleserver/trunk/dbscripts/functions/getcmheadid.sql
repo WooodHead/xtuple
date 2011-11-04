@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION getCmheadId(text) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pCreditMemoNumber ALIAS FOR $1;
 BEGIN
@@ -7,6 +9,8 @@ END;
 ' LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION getCmheadId(text, boolean) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pCreditMemoNumber ALIAS FOR $1;
   pPosted ALIAS FOR $2;

@@ -1,6 +1,8 @@
 -- Group: apOpenItems
 -- Name:  selectedpayments
 -- Notes: 
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT apopen_id, apselect_id,
        (bankaccnt_name || '-' || bankaccnt_descrip) AS f_bank,

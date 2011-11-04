@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWomatlid ALIAS FOR $1;
   pQty ALIAS FOR $2;
@@ -14,6 +16,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWomatlid ALIAS FOR $1;
   pItemlocSeries ALIAS FOR $2;
@@ -126,6 +130,8 @@ $$ LANGUAGE 'plpgsql';
 COMMENT ON FUNCTION returnwomaterial(integer, integer, timestamp with time zone, integer) IS 'Returns material by reversing a specific historical transaction';
 
 CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWomatlid ALIAS FOR $1;
   pQty ALIAS FOR $2;

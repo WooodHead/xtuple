@@ -1,36 +1,39 @@
 CREATE OR REPLACE FUNCTION selectforbilling(integer, numeric, boolean)
   RETURNS integer AS
 $BODY$
-  DECLARE
-    pSoitemid	ALIAS FOR $1;
-    pQty	ALIAS FOR $2;
-    pClose	ALIAS FOR $3;
-    _itemid	INTEGER := NULL;
-    _taxzoneid	INTEGER := NULL;
-    _taxid	INTEGER := NULL;
-    _taxtypeid	INTEGER := NULL;
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+DECLARE
+  pSoitemid	ALIAS FOR $1;
+  pQty	ALIAS FOR $2;
+  pClose	ALIAS FOR $3;
+  _itemid	INTEGER := NULL;
+  _taxzoneid	INTEGER := NULL;
+  _taxid	INTEGER := NULL;
+  _taxtypeid	INTEGER := NULL;
 
-  BEGIN
-    SELECT cobmisc_taxzone_id,  item_id, coitem_taxtype_id
-    INTO _taxzoneid,  _itemid, _taxtypeid
-    FROM cobmisc, coitem, itemsite, item
-    WHERE ((cobmisc_cohead_id = coitem_cohead_id)
-    AND   (NOT cobmisc_posted)
-    AND   (coitem_itemsite_id = itemsite_id)
-    AND   (itemsite_item_id = item_id)
-    AND   (coitem_id = pSoitemid) )
-    LIMIT 1;
+BEGIN
+  SELECT cobmisc_taxzone_id,  item_id, coitem_taxtype_id
+  INTO _taxzoneid,  _itemid, _taxtypeid
+  FROM cobmisc, coitem, itemsite, item
+  WHERE ((cobmisc_cohead_id = coitem_cohead_id)
+  AND   (NOT cobmisc_posted)
+  AND   (coitem_itemsite_id = itemsite_id)
+  AND   (itemsite_item_id = item_id)
+  AND   (coitem_id = pSoitemid) )
+  LIMIT 1;
 
-     RETURN selectforbilling(pSoitemid, pQty, pClose, _taxtypeid);
-  END;
-$BODY$
-  LANGUAGE 'plpgsql' VOLATILE;
+   RETURN selectforbilling(pSoitemid, pQty, pClose, _taxtypeid);
+END;
+$BODY$ LANGUAGE 'plpgsql' VOLATILE;
 
 ---------------------------------------------------------------------
 
 CREATE OR REPLACE FUNCTION selectforbilling(integer, numeric, boolean, integer)
   RETURNS integer AS
 $BODY$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pSoitemid	ALIAS FOR $1;
   pQty		ALIAS FOR $2;

@@ -2,6 +2,8 @@ SELECT dropIfExists('FUNCTION', 'releaseSoNumber(integer)', 'public');
 SELECT dropIfExists('FUNCTION', 'releaseSoNumber(text)', 'public');
 
 CREATE OR REPLACE FUNCTION releaseSoNumber(INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pSoNumber ALIAS FOR $1;
 
@@ -12,6 +14,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION releaseSoNumber(TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pSoNumber ALIAS FOR $1;
   _test INTEGER;

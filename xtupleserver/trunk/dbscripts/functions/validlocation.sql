@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION validLocation(INTEGER, INTEGER) RETURNS BOOLEAN AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pLocationid ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -44,6 +46,8 @@ END;
 -- testing.
 -- TODO: uncomment the following and test it. if it works, drop the one above
 -- CREATE OR REPLACE FUNCTION validLocation(INTEGER, INTEGER) RETURNS BOOLEAN AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 -- DECLARE
 --   pLocationid ALIAS FOR $1;
 --   pItemsiteid ALIAS FOR $2;

@@ -1,7 +1,6 @@
 -- Group: customers
 -- Name:  statement
 -- Notes: used by printStatementsByCustomerType
-
 --SELECT cust_id, (cust_number || '-' || cust_name) AS customer,
 --       findCustomerForm(cust_id, 'S') AS reportname
 --FROM
@@ -28,6 +27,8 @@
 --             CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1
 --                  ELSE 1 END) > 0)
 --ORDER BY cust_number;
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT araging_cust_id AS cust_id,
        (araging_cust_number || '-' || araging_cust_name) AS customer,

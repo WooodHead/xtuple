@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION getLotSerialId(text, text) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemNumber ALIAS FOR $1;
   pLotSerialNumber ALIAS FOR $2;

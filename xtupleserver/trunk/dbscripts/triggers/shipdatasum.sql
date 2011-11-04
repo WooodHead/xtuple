@@ -1,4 +1,6 @@
-CREATE OR REPLACE FUNCTION _shipdatasumtrigger() RETURNS TRIGGER AS '
+CREATE OR REPLACE FUNCTION _shipdatasumtrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
 
   IF (LENGTH(TRIM(NEW.shipdatasum_shiphead_number)) = 0) THEN
@@ -8,8 +10,7 @@ BEGIN
   RETURN NEW;
 
 END;
-'
-  LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'shipdatasumtrigger');
 CREATE TRIGGER shipdatasumtrigger BEFORE INSERT OR UPDATE ON shipdatasum FOR EACH ROW EXECUTE PROCEDURE _shipdatasumtrigger();

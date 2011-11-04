@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _itemCostTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
 
   --Privilege Checks
@@ -82,6 +84,8 @@ CREATE TRIGGER itemCostTrigger BEFORE INSERT OR UPDATE OR DELETE ON itemcost FOR
 
 
 CREATE OR REPLACE FUNCTION _itemCostAfterTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _itemNumber TEXT;
   _maxCost NUMERIC;

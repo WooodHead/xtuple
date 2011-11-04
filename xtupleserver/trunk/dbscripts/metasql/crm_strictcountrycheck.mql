@@ -3,6 +3,9 @@
 -- Notes: select details about countries used throughout the database
 --        that do not match country.country_name
 --
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 <? if exists("count") ?>
 SELECT SUM(counter) AS counter FROM (
 <? endif ?>

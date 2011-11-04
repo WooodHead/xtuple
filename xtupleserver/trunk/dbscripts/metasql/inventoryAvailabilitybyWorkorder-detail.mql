@@ -1,6 +1,8 @@
 -- Group: inventoryAvailabilitybyWorkorder
 -- Name: detail
 -- Notes: used by dspInventoryAvailabilityByWorkOrder
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT *, 'qty' AS woinvav_qoh_xtnumericrole,
        'qty' AS woinvav_balance_xtnumericrole,

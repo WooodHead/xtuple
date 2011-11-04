@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION getCntctId(text) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pContactNumber ALIAS FOR $1;
   _returnVal INTEGER;
@@ -10,6 +12,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION getCntctId(text,boolean) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pContactNumber ALIAS FOR $1;
   pNotFoundErr ALIAS FOR $2;

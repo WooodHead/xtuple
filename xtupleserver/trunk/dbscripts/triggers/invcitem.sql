@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _invcitemBeforeTrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _itemfractional BOOLEAN;
 
@@ -46,6 +48,8 @@ CREATE TRIGGER invcitemBeforeTrigger
   EXECUTE PROCEDURE _invcitemBeforeTrigger();
 
 CREATE OR REPLACE FUNCTION _invcitemTrigger() RETURNS "trigger" AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _r RECORD;
 

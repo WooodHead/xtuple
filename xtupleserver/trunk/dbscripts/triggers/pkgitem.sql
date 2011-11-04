@@ -1,5 +1,7 @@
 SELECT dropIfExists('TRIGGER', 'pkgitembeforetrigger', 'public');
 CREATE OR REPLACE FUNCTION _pkgitembeforetrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
   DECLARE
     _functionargs TEXT;
     _group        TEXT;

@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION closeWo(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoid ALIAS FOR $1;
   pPostMaterialVariances ALIAS FOR $2;
@@ -11,6 +13,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION closeWo(INTEGER, BOOLEAN, DATE) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoid ALIAS FOR $1;
   pPostMaterialVariances ALIAS FOR $2;

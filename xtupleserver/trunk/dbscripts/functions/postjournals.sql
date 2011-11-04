@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION postJournals(INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pSequence	ALIAS FOR $1;
   _transCount INTEGER := 0;
@@ -63,6 +65,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION postJournals(TEXT[], DATE, DATE, DATE) RETURNS SETOF INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pSources		ALIAS FOR $1;
   pStartDate 		ALIAS FOR $2;
@@ -80,6 +84,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION postJournals(TEXT, DATE, DATE, DATE) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pSource		ALIAS FOR $1;
   pStartDate 		ALIAS FOR $2;

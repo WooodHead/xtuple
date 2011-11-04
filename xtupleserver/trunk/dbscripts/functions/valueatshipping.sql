@@ -1,10 +1,14 @@
 CREATE OR REPLACE FUNCTION valueAtShipping(INTEGER) RETURNS NUMERIC AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   RETURN valueAtShipping('SO', $1);
 END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION valueAtShipping(TEXT, INTEGER) RETURNS NUMERIC AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pordertype	ALIAS FOR $1;
   plineitemid	ALIAS FOR $2;

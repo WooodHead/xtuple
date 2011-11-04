@@ -2,6 +2,8 @@
 
 SELECT dropIfExists('TRIGGER', 'pkgreportbeforetrigger');
 CREATE OR REPLACE FUNCTION _pkgreportbeforetrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _reportid     INTEGER;
   _debug        BOOL := false;
@@ -45,6 +47,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgreportalterTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (pkgMayBeModified(TG_TABLE_SCHEMA)) THEN
     IF (TG_OP = 'DELETE') THEN
@@ -70,6 +74,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgreportaftertrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (TG_OP = 'DELETE') THEN
     RETURN OLD;

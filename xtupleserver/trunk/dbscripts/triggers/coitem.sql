@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _soitemTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid INTEGER;
   _check BOOLEAN;
@@ -324,6 +326,8 @@ DROP TRIGGER soitemTrigger ON coitem;
 CREATE TRIGGER soitemTrigger BEFORE INSERT OR UPDATE OR DELETE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemTrigger();
 
 CREATE OR REPLACE FUNCTION _soitemBeforeTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _check NUMERIC;
   _itemNumber TEXT;
@@ -514,6 +518,8 @@ CREATE TRIGGER soitemBeforeTrigger BEFORE INSERT OR UPDATE ON coitem FOR EACH RO
 
 
 CREATE OR REPLACE FUNCTION _soitemAfterTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _check NUMERIC;
   _custID INTEGER;

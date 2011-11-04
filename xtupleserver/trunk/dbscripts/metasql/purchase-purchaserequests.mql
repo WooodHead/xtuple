@@ -1,5 +1,8 @@
 -- Group: purchase
 -- Name:  purchaserequests
+-- Notes:
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT pr_id, itemsite_id, item_number,
        (item_descrip1 || ' ' || item_descrip2) AS description,

@@ -1,5 +1,7 @@
 
 CREATE OR REPLACE FUNCTION formatAddr(INTEGER) RETURNS TEXT AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pAddrId       ALIAS FOR $1;
   _return       TEXT;
@@ -17,6 +19,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION formatAddr(TEXT, TEXT, TEXT, TEXT, INTEGER) RETURNS TEXT AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   f_addr1 ALIAS FOR $1;
   f_addr2 ALIAS FOR $2;
@@ -30,6 +34,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION formatAddr(TEXT, TEXT, TEXT, TEXT, TEXT, INTEGER) RETURNS TEXT AS $$ 
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   f_addr1 ALIAS FOR $1;
   f_addr2 ALIAS FOR $2;
@@ -88,6 +94,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION formatAddr(TEXT, TEXT, TEXT, TEXT, TEXT) RETURNS TEXT AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   f_addr1 ALIAS FOR $1;
   f_addr2 ALIAS FOR $2;

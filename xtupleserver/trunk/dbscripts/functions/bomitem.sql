@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION bomitem(INTEGER) RETURNS SETOF bomitem AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemid ALIAS FOR $1;
   _row bomitem%ROWTYPE;
@@ -19,6 +21,8 @@ END;
 ' LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION bomitem(INTEGER,INTEGER) RETURNS SETOF bomitem AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemid ALIAS FOR $1;
   pRevid ALIAS FOR $2;

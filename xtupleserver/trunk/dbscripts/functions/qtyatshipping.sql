@@ -1,16 +1,22 @@
 CREATE OR REPLACE FUNCTION qtyAtShipping(INTEGER) RETURNS NUMERIC AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   RETURN qtyAtShipping('SO', $1);
 END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION qtyAtShipping(TEXT, INTEGER) RETURNS NUMERIC AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   RETURN qtyAtShipping($1, $2, 'U');
 END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION qtyAtShipping(TEXT, INTEGER, TEXT) RETURNS NUMERIC AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pordertype	ALIAS FOR $1;
   plineitemid	ALIAS FOR $2;

@@ -2,6 +2,8 @@ SELECT dropIfExists('FUNCTION', 'releaseQuNumber(integer)', 'public');
 SELECT dropIfExists('FUNCTION', 'releaseQuNumber(text)', 'public');
 
 CREATE OR REPLACE FUNCTION releaseQuNumber(INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pQuNumber ALIAS FOR $1;
 
@@ -12,6 +14,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION releaseQuNumber(TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pQuNumber ALIAS FOR $1;
   _test INTEGER;

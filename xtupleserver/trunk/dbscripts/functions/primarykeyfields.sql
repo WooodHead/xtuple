@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION primaryKeyFields(TEXT, TEXT) RETURNS TEXT[] AS $$ 
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pSchema       ALIAS FOR $1;
   pRelation     ALIAS FOR $2;

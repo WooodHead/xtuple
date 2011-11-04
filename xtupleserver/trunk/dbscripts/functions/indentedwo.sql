@@ -1,5 +1,7 @@
 
 CREATE OR REPLACE FUNCTION indentedwo(integer, boolean, boolean, boolean) RETURNS SETOF wodata AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
    pwoid ALIAS FOR $1;
    pshowops ALIAS FOR $2;
@@ -120,6 +122,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION indentedwo(integer, integer, integer, boolean, boolean) RETURNS SETOF wodata AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
    pwoid ALIAS FOR $1;   
    pwooperid ALIAS FOR $2;

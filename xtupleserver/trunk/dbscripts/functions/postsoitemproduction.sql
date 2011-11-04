@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION postSoItemProduction(INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pSoitemId      ALIAS FOR $1;
   pGlDistTS      ALIAS FOR $2;
@@ -21,6 +23,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION postSoItemProduction(INTEGER, NUMERIC, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pSoitemId ALIAS FOR $1;
   pQty ALIAS FOR $2;

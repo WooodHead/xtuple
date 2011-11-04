@@ -2,6 +2,8 @@ SELECT dropIfExists('TRIGGER', 'voheadBeforeTrigger');
 SELECT dropIfExists('TRIGGER', 'voheadAfterTrigger');
 
 CREATE OR REPLACE FUNCTION _voheadBeforeTrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _recurid     INTEGER;
   _newparentid INTEGER;
@@ -62,6 +64,8 @@ CREATE TRIGGER voheadBeforeTrigger
   EXECUTE PROCEDURE _voheadBeforeTrigger();
 
 CREATE OR REPLACE FUNCTION _voheadAfterTrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (TG_OP = 'DELETE') THEN
     PERFORM releaseVoNumber(CAST(OLD.vohead_number AS INTEGER));

@@ -1,4 +1,6 @@
-CREATE OR REPLACE FUNCTION _addrtrigger() RETURNS "trigger" AS '
+CREATE OR REPLACE FUNCTION _addrtrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
   DECLARE
     _uses	INTEGER	:= 0;
 
@@ -8,14 +10,14 @@ CREATE OR REPLACE FUNCTION _addrtrigger() RETURNS "trigger" AS '
     WHERE ((cntct_addr_id=OLD.addr_id)
       AND   cntct_active);
 
-    IF (TG_OP = ''UPDATE'') THEN
+    IF (TG_OP = 'UPDATE') THEN
       IF (OLD.addr_active AND NOT NEW.addr_active AND _uses > 0) THEN
-	RAISE EXCEPTION ''Cannot inactivate Address with Active Contacts (%)'',
+	RAISE EXCEPTION 'Cannot inactivate Address with Active Contacts (%)',
 			_uses;
       END IF;
-    ELSIF (TG_OP = ''DELETE'') THEN
+    ELSIF (TG_OP = 'DELETE') THEN
       IF (_uses > 0) THEN
-	RAISE EXCEPTION ''Cannot Delete Address with Active Contacts (%)'',
+	RAISE EXCEPTION 'Cannot Delete Address with Active Contacts (%)',
 			_uses;
       END IF;
 
@@ -28,7 +30,7 @@ CREATE OR REPLACE FUNCTION _addrtrigger() RETURNS "trigger" AS '
 
     RETURN NEW;
   END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 DROP TRIGGER addrtrigger ON addr;
 CREATE TRIGGER addrtrigger

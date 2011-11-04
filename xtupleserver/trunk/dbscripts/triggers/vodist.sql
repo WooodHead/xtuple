@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _vodistBeforeTrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
 
 BEGIN
@@ -26,6 +28,8 @@ CREATE TRIGGER vodistBeforeTrigger
   EXECUTE PROCEDURE _vodistBeforeTrigger();
 
 CREATE OR REPLACE FUNCTION _vodistAfterTrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _r RECORD;
 

@@ -1,5 +1,7 @@
 
 CREATE OR REPLACE FUNCTION initEffectiveXtUser() RETURNS VOID AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   -- Effective users use a temporary table to store the user information
   -- and this function, called by the other functions, makes sure the temp

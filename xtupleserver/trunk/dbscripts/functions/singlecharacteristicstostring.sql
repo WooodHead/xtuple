@@ -1,5 +1,7 @@
 CREATE OR REPLACE FUNCTION singleCharacteristicsToString(TEXT, INTEGER, TEXT, TEXT, INTEGER) RETURNS text AS
 $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pTargetType ALIAS FOR $1;
   pTargetId ALIAS FOR $2;

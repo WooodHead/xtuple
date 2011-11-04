@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION createPr(INTEGER, INTEGER, NUMERIC, DATE, TEXT, CHARACTER(1), INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pOrderNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -28,6 +30,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION createPr(INTEGER, INTEGER, NUMERIC, DATE, TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pOrderNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -55,6 +59,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION createPr(INTEGER, CHAR, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pOrderNumber ALIAS FOR $1;
   pParentType ALIAS FOR $2;
@@ -125,6 +131,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION createPr(CHAR, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pParentType ALIAS FOR $1;
   pParentId ALIAS FOR $2;
@@ -164,6 +172,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION createpr(INTEGER, CHARACTER, INTEGER, TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pOrderNumber ALIAS FOR $1;
   pParentType ALIAS FOR $2;

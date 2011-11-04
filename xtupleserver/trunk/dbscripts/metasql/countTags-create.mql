@@ -1,6 +1,8 @@
 -- Group: countTags
 -- Name: create
 -- Notes: used by createCountTagsByParameterList
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT createCountTag(itemsite_id, <? value("comments") ?>, <? value("priority") ?>, <? value("freeze") ?>, <? value("location_id") ?>)
 FROM ( SELECT itemsite_id

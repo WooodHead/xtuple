@@ -1,10 +1,14 @@
 CREATE OR REPLACE FUNCTION releaseInvcNumber(INTEGER) RETURNS BOOLEAN AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   RETURN releaseInvcNumber(CAST($1 AS TEXT));
 END;
 ' LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION releaseInvcNumber(TEXT) RETURNS BOOLEAN AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pNumber ALIAS FOR $1;
   _test INTEGER;

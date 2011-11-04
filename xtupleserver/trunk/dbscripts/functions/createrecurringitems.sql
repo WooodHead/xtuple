@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION createRecurringItems(INTEGER, TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pParentid  ALIAS FOR $1;      -- if NULL then all items with the given pType
   pType      TEXT := UPPER($2); -- if NULL then all types

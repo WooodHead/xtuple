@@ -1,6 +1,8 @@
 
 CREATE OR REPLACE FUNCTION getlasttrialbalid(INTEGER, INTEGER)
   RETURNS INTEGER STABLE AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pAccntId ALIAS FOR $1;
   pPeriodId ALIAS FOR $2;

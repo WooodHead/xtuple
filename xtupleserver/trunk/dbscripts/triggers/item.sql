@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _itemTrigger () RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
  
 -- Override values to avoid invalid data combinations
@@ -30,6 +32,8 @@ DROP TRIGGER itemTrigger ON item;
 CREATE TRIGGER itemTrigger BEFORE INSERT OR UPDATE ON item FOR EACH ROW EXECUTE PROCEDURE _itemTrigger();
 
 CREATE OR REPLACE FUNCTION _itemAfterTrigger () RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid INTEGER;
 

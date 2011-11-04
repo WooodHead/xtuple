@@ -1,6 +1,8 @@
 CREATE OR REPLACE FUNCTION formatbytea(bytea)
   RETURNS text AS
 '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pField ALIAS FOR $1;
   output_field TEXT;

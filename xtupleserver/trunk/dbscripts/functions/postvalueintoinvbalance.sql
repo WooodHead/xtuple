@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION postValueintoInvBalance(INTEGER, DATE, NUMERIC, NUMERIC, NUMERIC, NUMERIC) RETURNS BOOLEAN AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemsiteId ALIAS FOR $1;
   pDate ALIAS FOR $2;

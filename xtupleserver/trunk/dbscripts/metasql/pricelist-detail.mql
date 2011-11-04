@@ -7,6 +7,9 @@
 --        Then the outer query modifies the sourcecode to indicate
 --        item vs product category.
 --        TODO: possible improvements include removing OUTER JOINs with uom table
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT sourcecode + CASE WHEN ipsprice_source='P' THEN 10 ELSE 0 END AS source,
        sourceid, schedulename, type,
        invqty AS qty_break,

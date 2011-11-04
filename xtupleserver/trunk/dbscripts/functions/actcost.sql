@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION actCost(INTEGER) RETURNS NUMERIC AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemid ALIAS FOR $1;
   _cost NUMERIC;
@@ -9,6 +11,8 @@ END;
 ' LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION actCost(INTEGER, INTEGER) RETURNS NUMERIC AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemid ALIAS FOR $1;
   pCurrid ALIAS FOR $2;

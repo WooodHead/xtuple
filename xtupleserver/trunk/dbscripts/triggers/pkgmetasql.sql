@@ -2,6 +2,8 @@
 
 SELECT dropIfExists('TRIGGER', 'pkgmetasqlbeforetrigger');
 CREATE OR REPLACE FUNCTION _pkgmetasqlbeforetrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _metasqlid    INTEGER;
   _isdba        BOOLEAN := false;
@@ -48,6 +50,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgmetasqlalterTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _isdba        BOOLEAN := false;
 
@@ -87,6 +91,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgmetasqlaftertrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (TG_OP = 'DELETE') THEN
     RETURN OLD;

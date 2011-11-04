@@ -1,5 +1,7 @@
 -- TODO: add special handling for converting prospects <-> customers?
 CREATE OR REPLACE FUNCTION _crmacctBeforeTrigger () RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _count        INTEGER;
 BEGIN
@@ -55,6 +57,8 @@ CREATE TRIGGER crmacctBeforeTrigger BEFORE INSERT OR UPDATE OR DELETE
   ON crmacct FOR EACH ROW EXECUTE PROCEDURE _crmacctBeforeTrigger();
 
 CREATE OR REPLACE FUNCTION _crmacctAfterTrigger () RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid INTEGER;
   _gotpriv    BOOLEAN;

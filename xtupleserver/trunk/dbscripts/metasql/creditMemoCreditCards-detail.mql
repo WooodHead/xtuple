@@ -1,6 +1,8 @@
 -- Group: creditMemoCreditCards
 -- Name: detail
 -- Notes: used by arWorkBench, returnAuthorization, returnAuthorizationWorkbench
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT cmhead_number, cmhead_freight, cmhead_curr_id,
        SUM(ROUND((cmitem_qtycredit * cmitem_qty_invuomratio) * 

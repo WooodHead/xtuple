@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _voitemBeforeTrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
 
 BEGIN
@@ -21,6 +23,8 @@ CREATE TRIGGER voitemBeforeTrigger
   EXECUTE PROCEDURE _voitemBeforeTrigger();
 
 CREATE OR REPLACE FUNCTION _voitemAfterTrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _r RECORD;
 

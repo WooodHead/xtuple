@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION insertccard(text,boolean,text,bytea,bytea,bytea,bytea,bytea,bytea,bytea,bytea,bytea,bytea,text) RETURNS boolean AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pCustomer ALIAS FOR $1;
   pActive ALIAS FOR $2;

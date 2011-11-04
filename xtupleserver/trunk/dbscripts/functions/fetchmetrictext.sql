@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION FetchMetricText(text) RETURNS TEXT STABLE AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _pMetricName ALIAS FOR $1;
   _returnVal TEXT;

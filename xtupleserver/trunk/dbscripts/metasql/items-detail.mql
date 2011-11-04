@@ -1,6 +1,9 @@
 -- Group: items
 -- Name:  detail
 -- Notes: 
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
  SELECT
         <? if exists("ListNumericItemNumbersFirst") ?>
          DISTINCT ON ( toNumeric(item_number, 999999999999999), item_number )

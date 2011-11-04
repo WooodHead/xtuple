@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _cmitemBeforeTrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _check BOOLEAN;
   _id INTEGER;
@@ -42,6 +44,8 @@ CREATE TRIGGER cmitembeforetrigger
 
 
 CREATE OR REPLACE FUNCTION _cmitemTrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _ext NUMERIC;
   _r RECORD;
