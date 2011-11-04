@@ -38,12 +38,71 @@
         Detail" report.</para>
       </listitem>
     </varlistentry>
-    <varlistentry role="manufacturing">
-      <term>Enable Constraint Management</term>
-      <listitem>
-        <para>Select to enable the Constraint Management system. If not
-        selected, the system will be hidden from view.</para>
-      </listitem>
-    </varlistentry>
   </variablelist>
+  <para role="manufacturing"><variablelist>
+      <varlistentry>
+        <term>Enable Constraint Management</term>
+        <listitem>
+          <para>Select to enable the Constraint Management system. If not
+          selected, the system will be hidden from view.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Use Site Calendar for</term>
+        <listitem>
+          <para>Select any of the following order types if want the
+          calendaring system to honor the Site Week and Site Calendar
+          Exceptions when these types of orders are entered.</para>
+          <note>
+            <para>When this feature is enabled, users entering order dates
+            will get a warning about non-working days and be prompted to pick
+            the next available working day. For example, the scheduled date on
+            the Sales Order Item screen will not accept dates that are
+            non-working days, as defined on the Site Week calendar.</para>
+          </note>
+          <variablelist>
+            <varlistentry>
+              <term>Purchase Orders</term>
+              <listitem>
+                <para>Select if you want Purchase Orders to honor the Site
+                Week and Site Calendar Exceptions. If not selected, Purchase
+                Orders may be entered for any calendar day.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Sales Orders</term>
+              <listitem>
+                <para>Select if you want Sales Orders to honor the Site Week
+                and Site Calendar Exceptions. If not selected, Sales Orders
+                may be entered for any calendar day.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Transfer Orders</term>
+              <listitem>
+                <para>Select if you want Transfer Orders to honor the Site
+                Week and Site Calendar Exceptions. If not selected, Transfer
+                Orders may be entered for any calendar day.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Work Orders</term>
+              <listitem>
+                <para>Select if you want Work Orders to honor the Site Week
+                and Site Calendar Exceptions. If not selected, Work Orders may
+                be entered for any calendar day.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Returns</term>
+              <listitem>
+                <para>Select if you want Returns to honor the Site Week and
+                Site Calendar Exceptions. If not selected, Returns may be
+                entered for any calendar day.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
 </section>
