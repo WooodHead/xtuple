@@ -6,44 +6,46 @@
 -- curr_rate.  see mantis #3901.
 
 CREATE OR REPLACE FUNCTION currToCurr(INTEGER, INTEGER, NUMERIC, DATE)
-    RETURNS NUMERIC AS '
-    DECLARE
-	pFromCurr ALIAS FOR $1;
-	pToCurr ALIAS FOR $2;
-	pValue   ALIAS FOR $3;
-	pEffective ALIAS FOR $4;
-	_convertedValue NUMERIC;
-	_fromRate NUMERIC;
-	_toRate NUMERIC;
-    BEGIN
-	IF pFromCurr = pToCurr THEN
-	    RETURN pValue;
-	END IF;
+    RETURNS NUMERIC AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+DECLARE
+  pFromCurr ALIAS FOR $1;
+  pToCurr ALIAS FOR $2;
+  pValue   ALIAS FOR $3;
+  pEffective ALIAS FOR $4;
+  _convertedValue NUMERIC;
+  _fromRate NUMERIC;
+  _toRate NUMERIC;
+BEGIN
+  IF pFromCurr = pToCurr THEN
+    RETURN pValue;
+  END IF;
 
-	IF pValue = 0 OR pValue IS NULL THEN
-	    RETURN 0;
-	END IF;
+  IF pValue = 0 OR pValue IS NULL THEN
+    RETURN 0;
+  END IF;
 
-	SELECT curr_rate INTO _fromRate
-	FROM curr_rate
-	WHERE curr_id = pFromCurr
-	  AND pEffective BETWEEN curr_effective AND curr_expires;
+  SELECT curr_rate INTO _fromRate
+  FROM curr_rate
+  WHERE curr_id = pFromCurr
+    AND pEffective BETWEEN curr_effective AND curr_expires;
 
-	IF (NOT FOUND) THEN
-	  RAISE EXCEPTION ''No exchange rate for % on %'', pFromCurr, pEffective;
-	END IF;
+  IF (NOT FOUND) THEN
+    RAISE EXCEPTION 'No exchange rate for % on %', pFromCurr, pEffective;
+  END IF;
 
-	SELECT curr_rate INTO _toRate
-	FROM curr_rate
-	WHERE curr_id = pToCurr
-	  AND pEffective BETWEEN curr_effective AND curr_expires;
+  SELECT curr_rate INTO _toRate
+  FROM curr_rate
+  WHERE curr_id = pToCurr
+    AND pEffective BETWEEN curr_effective AND curr_expires;
 
-	IF (NOT FOUND) THEN
-	  RAISE EXCEPTION ''No exchange rate for % on %'', pToCurr, pEffective;
-	END IF;
+  IF (NOT FOUND) THEN
+    RAISE EXCEPTION 'No exchange rate for % on %', pToCurr, pEffective;
+  END IF;
 
-	_convertedValue := pValue * _toRate / _fromRate;
+  _convertedValue := pValue * _toRate / _fromRate;
 
-	RETURN _convertedValue;
-    END;
-' LANGUAGE plpgsql;
+  RETURN _convertedValue;
+END;
+$$ LANGUAGE plpgsql;

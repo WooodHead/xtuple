@@ -1,5 +1,7 @@
 
 CREATE OR REPLACE FUNCTION deleteSo(INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pSoheadid    ALIAS FOR $1;
 BEGIN
@@ -8,6 +10,8 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION deleteSo(INTEGER, TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pSoheadid	ALIAS FOR $1;
   pSonumber	ALIAS FOR $2;

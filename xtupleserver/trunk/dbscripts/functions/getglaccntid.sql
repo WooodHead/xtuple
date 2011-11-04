@@ -1,5 +1,7 @@
 
 CREATE OR REPLACE FUNCTION getGlAccntId(text) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pGlAccnt ALIAS FOR $1;
   _returnVal INTEGER;
@@ -21,6 +23,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION getglaccntid(TEXT,TEXT,TEXT,TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pCompany ALIAS FOR $1;
   pProfit ALIAS FOR $2;

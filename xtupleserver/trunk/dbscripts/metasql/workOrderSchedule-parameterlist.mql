@@ -1,6 +1,8 @@
 -- Group: workOrderSchedule
 -- Name: parameterlist
 -- Notes: used by dspWoScheduleByParameterList
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT wo_id,
        CASE WHEN (wo_ordid IS NULL) THEN -1

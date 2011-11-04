@@ -1,5 +1,7 @@
 CREATE OR REPLACE FUNCTION saveAddr(int4, text, text, text, text, text, text, text, text, boolean, text, text)
   RETURNS integer AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pAddrId ALIAS FOR $1;
   pNumber ALIAS FOR $2;
@@ -149,6 +151,8 @@ $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION saveAddr(int4, text, text, text, text, text, text, text, text, text)
   RETURNS integer AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pAddrId ALIAS FOR $1;
   pNumber ALIAS FOR $2;

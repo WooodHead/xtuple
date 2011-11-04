@@ -1,10 +1,14 @@
 CREATE OR REPLACE FUNCTION issueAllBalanceToShipping(INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   RETURN issueAllBalanceToShipping('SO', $1, 0, NULL);
 END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION issueAllBalanceToShipping(TEXT, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pordertype		ALIAS FOR $1;
   pheadid		ALIAS FOR $2;

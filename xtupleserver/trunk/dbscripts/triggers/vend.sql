@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _vendTrigger () RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
 
   IF NOT (checkPrivilege('MaintainVendors')) THEN
@@ -47,6 +49,8 @@ CREATE TRIGGER vendTrigger BEFORE INSERT OR UPDATE OR DELETE ON vendinfo
        FOR EACH ROW EXECUTE PROCEDURE _vendTrigger();
 
 CREATE OR REPLACE FUNCTION _vendAfterTrigger () RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid   INTEGER;
 

@@ -1,5 +1,7 @@
 
 CREATE OR REPLACE FUNCTION _soheadTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid INTEGER;
   _oldHoldType TEXT;
@@ -519,6 +521,8 @@ DROP TRIGGER soheadTrigger ON cohead;
 CREATE TRIGGER soheadTrigger BEFORE INSERT OR UPDATE OR DELETE ON cohead FOR EACH ROW EXECUTE PROCEDURE _soheadTrigger();
 
 CREATE OR REPLACE FUNCTION _soheadTriggerAfter() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (COALESCE(NEW.cohead_taxzone_id,-1) <> COALESCE(OLD.cohead_taxzone_id,-1)) THEN
     UPDATE coitem SET coitem_taxtype_id=getItemTaxType(itemsite_item_id,NEW.cohead_taxzone_id)

@@ -1,6 +1,8 @@
 -- Group: receipt
 -- Name: receiveAll
 -- Notes: used by enterPoReceipt, returnAuthorization, shipOrder
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 <? if exists ("shiphead_id") ?>
   SELECT enterReceipt(<? value("ordertype") ?>,

@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION postAPCreditMemoApplication(INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pApopenid ALIAS FOR $1;
   _src RECORD;

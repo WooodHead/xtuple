@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION copyTodoitem(INTEGER, DATE, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pparentid   ALIAS FOR $1;
   _duedate    DATE := COALESCE($2, CURRENT_DATE);

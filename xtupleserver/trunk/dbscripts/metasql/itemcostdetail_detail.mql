@@ -1,6 +1,9 @@
 -- Group: itemcostdetail
 -- Name:  detail
 -- Notes: dspItemCostDetail
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT id, item.item_id, seqnumber, item_number,
        (item_descrip1 || ' ' || item_descrip2) AS itemdescrip, uom_name,
        qtyper,       'qtyper' AS qtyper_xtnumericrole,

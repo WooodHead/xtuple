@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION postVoucher(INTEGER, BOOLEAN) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pVoheadid ALIAS FOR $1;
   pPostCosts ALIAS FOR $2;
@@ -10,6 +12,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION postVoucher(INTEGER, INTEGER, BOOLEAN) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pVoheadid ALIAS FOR $1;
   pJournalNumber ALIAS FOR $2;

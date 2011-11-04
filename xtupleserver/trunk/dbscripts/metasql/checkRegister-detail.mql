@@ -5,6 +5,9 @@
 --        check number(optional), and recipient(optional), optionally restricted
 --        to 'new' (un-posted/replaced/deleted) checks for viewing check runs.
 --        fills in the check item detail if showDetail is passed.
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT checkhead_id AS checkid,
        CASE WHEN(checkhead_void) THEN -1
             WHEN(checkhead_posted) THEN 1

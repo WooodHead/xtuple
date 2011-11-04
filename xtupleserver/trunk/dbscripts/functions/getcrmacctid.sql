@@ -1,4 +1,6 @@
-CREATE OR REPLACE FUNCTION getCrmAcctId(text) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION getCrmAcctId(text) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pAcctNumber ALIAS FOR $1;
   _returnVal INTEGER;
@@ -13,9 +15,9 @@ BEGIN
   WHERE (UPPER(crmacct_number)=UPPER(pAcctNumber));
   
   IF (_returnVal IS NULL) THEN
-      RAISE EXCEPTION ''CRM Account Number % not found.'', pAcctNumber;
+      RAISE EXCEPTION 'CRM Account Number % not found.', pAcctNumber;
   END IF;
 
   RETURN _returnVal;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

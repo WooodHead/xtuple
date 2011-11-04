@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION orderedByPo(INTEGER, INTEGER) RETURNS NUMERIC AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pLookAhead ALIAS FOR $2;
@@ -14,6 +16,8 @@ END;
 
 
 CREATE OR REPLACE FUNCTION orderedByPo(INTEGER, DATE, DATE) RETURNS NUMERIC AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pStartDate ALIAS FOR $2;

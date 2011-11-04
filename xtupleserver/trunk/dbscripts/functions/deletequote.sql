@@ -2,6 +2,8 @@ SELECT dropIfExists('FUNCTION', 'deleteQuote(integer)', 'public');
 SELECT dropIfExists('FUNCTION', 'deleteQuote(integer, integer)', 'public');
 
 CREATE OR REPLACE FUNCTION deleteQuote(INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pQuheadid ALIAS FOR $1;
 BEGIN
@@ -10,6 +12,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION deleteQuote(INTEGER, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pQuheadid ALIAS FOR $1;
   pQuoteNumber	ALIAS FOR $2;
@@ -19,6 +23,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION deleteQuote(INTEGER, TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pQuheadid	ALIAS FOR $1;
   pQuoteNumber	ALIAS FOR $2;

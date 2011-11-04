@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION itemuomtouomratio(INTEGER, INTEGER, INTEGER) RETURNS NUMERIC AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemid ALIAS FOR $1;
   pUomidFrom ALIAS FOR $2;

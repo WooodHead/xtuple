@@ -57,6 +57,8 @@ COMMENT ON VIEW api.creditmemo IS 'Credit Memo Header';
 
 CREATE OR REPLACE FUNCTION insertCreditMemo(api.creditmemo) RETURNS boolean AS
 $insertCreditMemo$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
 	pNew ALIAS FOR $1;
 BEGIN

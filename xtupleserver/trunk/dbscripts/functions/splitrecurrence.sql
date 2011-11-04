@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION splitRecurrence(INTEGER, TEXT, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pParentid     ALIAS FOR $1;
   pType         TEXT := UPPER($2);

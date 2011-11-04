@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION createCheck(INTEGER, TEXT, INTEGER, DATE, NUMERIC, INTEGER, INTEGER, INTEGER, TEXT, TEXT, BOOL) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pBankaccntid		ALIAS FOR  $1;
   pRecipType		ALIAS FOR  $2;
@@ -23,6 +25,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION createCheck(INTEGER, TEXT, INTEGER, DATE, NUMERIC, INTEGER, INTEGER, INTEGER, TEXT, TEXT, BOOL, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pBankaccntid		ALIAS FOR  $1;
   pRecipType		ALIAS FOR  $2;

@@ -1,6 +1,8 @@
 -- Group: bomItems
 -- Name: detail
 -- Notes: used by bom, booItem
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT bomitem_id, item_id, *,
        (item_descrip1 || ' ' || item_descrip2) AS item_description,

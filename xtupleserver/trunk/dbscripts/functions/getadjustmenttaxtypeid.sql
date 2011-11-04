@@ -1,6 +1,8 @@
 CREATE OR REPLACE FUNCTION getadjustmenttaxtypeid()
   RETURNS integer AS
-$BODY$
+$$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _taxtypeid INTEGER;
 BEGIN
@@ -11,5 +13,5 @@ BEGIN
 
   RETURN _taxtypeid;
 END;
-$BODY$
+$$
   LANGUAGE 'plpgsql' IMMUTABLE;

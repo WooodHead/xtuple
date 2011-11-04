@@ -1,6 +1,8 @@
 SELECT dropIfExists('FUNCTION','qtyLocation(INTEGER, INTEGER, DATE, DATE, INTEGER, TEXT, INTEGER)');
 
 CREATE OR REPLACE FUNCTION qtyLocation(INTEGER, INTEGER, DATE, DATE, INTEGER, TEXT, INTEGER, INTEGER) RETURNS NUMERIC AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pLocationId  ALIAS FOR $1;
   pLsId        ALIAS FOR $2;

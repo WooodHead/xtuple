@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _itemsiteTrigger () RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid INTEGER;
   _r RECORD;
@@ -136,6 +138,8 @@ SELECT dropIfExists('trigger', 'itemsiteTrigger');
 CREATE TRIGGER itemsiteTrigger BEFORE INSERT OR UPDATE ON itemsite FOR EACH ROW EXECUTE PROCEDURE _itemsiteTrigger();
 
 CREATE OR REPLACE FUNCTION _itemsiteAfterTrigger () RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _state INTEGER;
   _wasLocationControl BOOLEAN;

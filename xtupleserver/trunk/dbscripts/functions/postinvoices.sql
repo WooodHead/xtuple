@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION postInvoices(BOOLEAN) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pPostUnprinted ALIAS FOR $1;
 BEGIN
@@ -8,6 +10,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION postInvoices(BOOLEAN, BOOLEAN) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pPostUnprinted ALIAS FOR $1;
   pInclZeros     ALIAS FOR $2;
@@ -18,6 +22,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION postInvoices(BOOLEAN, BOOLEAN, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pPostUnprinted ALIAS FOR $1;
   pInclZeros     ALIAS FOR $2;

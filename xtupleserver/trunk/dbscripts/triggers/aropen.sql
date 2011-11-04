@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _aropenTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _openAmount NUMERIC;
   _p RECORD;
@@ -204,6 +206,8 @@ DROP TRIGGER aropenTrigger ON aropen;
 CREATE TRIGGER aropenTrigger BEFORE INSERT OR UPDATE ON aropen FOR EACH ROW EXECUTE PROCEDURE _aropenTrigger();
 
 CREATE OR REPLACE FUNCTION _aropenAfterTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _openAmount NUMERIC;
   _lateCount INTEGER := 0;

@@ -1,5 +1,7 @@
 
 CREATE OR REPLACE FUNCTION getperiodid(INTEGER,  char) RETURNS SETOF INTEGER IMMUTABLE AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pPeriodId ALIAS FOR $1;
   pInterval ALIAS FOR $2;
@@ -42,6 +44,8 @@ $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION getPeriodId(date)
   RETURNS integer AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pPeriodDate ALIAS FOR $1;
   _returnVal INTEGER;

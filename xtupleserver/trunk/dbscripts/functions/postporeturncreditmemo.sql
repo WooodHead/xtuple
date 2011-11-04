@@ -1,5 +1,7 @@
 
 CREATE OR REPLACE FUNCTION postPoReturnCreditMemo(INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pPorejectId ALIAS FOR $1;
 
@@ -9,6 +11,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION postPoReturnCreditMemo(INTEGER, NUMERIC) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pPorejectId ALIAS FOR $1;
   pAmount ALIAS FOR $2;

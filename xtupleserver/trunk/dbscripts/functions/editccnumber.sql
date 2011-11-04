@@ -1,6 +1,8 @@
 CREATE OR REPLACE FUNCTION editccnumber(text, text)
   RETURNS text AS
 '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pCcardnum ALIAS FOR $1;
   pCcardtype ALIAS FOR $2;

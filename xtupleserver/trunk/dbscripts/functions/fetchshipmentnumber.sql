@@ -1,4 +1,6 @@
-CREATE OR REPLACE FUNCTION fetchshipmentnumber() RETURNS TEXT AS '
+CREATE OR REPLACE FUNCTION fetchshipmentnumber() RETURNS TEXT AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _number		TEXT;
   _test			INTEGER;
@@ -6,7 +8,7 @@ DECLARE
 BEGIN
   LOOP
 
-    SELECT CAST(nextval(''shipment_number_seq'') AS TEXT) INTO _number;
+    SELECT CAST(nextval('shipment_number_seq') AS TEXT) INTO _number;
     
     SELECT shiphead_id INTO _test
       FROM shiphead
@@ -20,7 +22,5 @@ BEGIN
   RETURN _number;
   
 END;
-' LANGUAGE 'plpgsql';
-
-
+$$ LANGUAGE 'plpgsql';
 

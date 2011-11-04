@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT, CHAR, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -19,6 +21,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT, CHAR, INTEGER, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -39,6 +43,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT, CHAR, INTEGER, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -62,6 +68,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT, CHAR, INTEGER, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -97,6 +105,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT, CHAR, INTEGER, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -118,6 +128,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT, CHAR, INTEGER, INTEGER, INTEGER, INTEGER, TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -213,6 +225,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -230,6 +244,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT, CHAR, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;
@@ -249,6 +265,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWoNumber ALIAS FOR $1;
   pItemsiteid ALIAS FOR $2;

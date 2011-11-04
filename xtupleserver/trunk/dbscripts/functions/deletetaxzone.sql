@@ -1,6 +1,8 @@
 CREATE OR REPLACE FUNCTION deletetaxzone(integer)
   RETURNS integer AS
-$BODY$
+$$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
 pTaxzoneid ALIAS FOR $1;
 _result INTEGER;
@@ -29,5 +31,5 @@ DELETE FROM taxzone WHERE taxzone_id = pTaxzoneid ;
 RETURN pTaxzoneid;
 
 END;
-$BODY$
+$$
   LANGUAGE 'plpgsql' VOLATILE;

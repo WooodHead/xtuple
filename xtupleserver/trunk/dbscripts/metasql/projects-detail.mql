@@ -1,6 +1,9 @@
 -- Group: projects
 -- Name:  detail
 -- Notes: 
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT prj_id AS id, prj_number, prj_name,
   prj_start_date, prj_due_date, prj_assigned_date, prj_completed_date, 
   CASE WHEN(prj_status='P') THEN <? value("planning") ?>

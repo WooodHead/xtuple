@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION arapplied(INTEGER, DATE) RETURNS NUMERIC AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pAropenid ALIAS FOR $1;
   pDate ALIAS FOR $2;

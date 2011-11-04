@@ -4,6 +4,8 @@ CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, INTEGER, CH
                                           BOOL, INTEGER, BOOL, TEXT, CHAR, INTEGER,
                                           INTEGER, TEXT, TEXT, TEXT )
                            RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pBomitemid ALIAS FOR $1;
   pParentItemid ALIAS FOR $2;
@@ -86,6 +88,8 @@ CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, INTEGER, CH
                                           BOOL, INTEGER, BOOL, TEXT, CHAR, INTEGER,
                                           INTEGER, TEXT )
                            RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pBomitemid ALIAS FOR $1;
   pParentItemid ALIAS FOR $2;
@@ -131,6 +135,8 @@ CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, CHAR,
                                           BOOL, INTEGER, BOOL, TEXT, CHAR(1), INTEGER,
                                           INTEGER, TEXT, TEXT, TEXT )
                            RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pBomitemid ALIAS FOR $1;
   pParentItemid ALIAS FOR $2;

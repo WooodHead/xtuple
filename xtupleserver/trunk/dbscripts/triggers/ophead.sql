@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _opheadBeforeTrigger () RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _rec record;
   _check boolean;
@@ -38,6 +40,8 @@ CREATE TRIGGER opheadBeforeTrigger BEFORE INSERT OR UPDATE ON ophead
 FOR EACH ROW EXECUTE PROCEDURE _opheadBeforeTrigger();
 
 CREATE OR REPLACE FUNCTION _opheadAfterTrigger () RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid INTEGER;
 BEGIN

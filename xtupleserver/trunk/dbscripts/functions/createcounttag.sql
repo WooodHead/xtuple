@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION createCountTag(int, text, bool, bool) RETURNS integer AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pComments ALIAS FOR $2;
@@ -12,6 +14,8 @@ $$ LANGUAGE 'plpgsql';
 CREATE OR REPLACE FUNCTION createcounttag(integer, text, boolean, boolean, integer)
   RETURNS integer AS $$
 
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pComments ALIAS FOR $2;

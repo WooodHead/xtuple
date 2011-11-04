@@ -1,6 +1,9 @@
 -- Group: gltransactions
 -- Name:  detail
 -- Notes: 
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT gltrans_id, gltrans_accnt_id,gltrans_date,gltrans_source,
        gltrans_doctype,gltrans_journalnumber,gltrans_posted,gltrans_username,
        CASE WHEN(gltrans_docnumber='Misc.' AND

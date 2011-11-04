@@ -36,6 +36,8 @@ COMMENT ON VIEW api.armemo IS 'A/R Credit and Debit Memo';
 
 
 CREATE OR REPLACE FUNCTION insertARMemo(api.armemo) RETURNS boolean AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pNew ALIAS FOR $1;
   _result INTEGER;

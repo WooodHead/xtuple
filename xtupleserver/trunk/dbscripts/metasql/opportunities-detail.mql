@@ -1,6 +1,8 @@
 -- Group: opportunities
 -- Name: detail
 -- Notes: used by opportunityList
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT DISTINCT ON (incdtpriority_order, ophead_target_date, ophead_name, ophead_id) 
        ophead_id AS id,

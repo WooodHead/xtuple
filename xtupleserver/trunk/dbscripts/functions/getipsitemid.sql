@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION getIpsitemId(text,text,numeric,text,text) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pIpsName 	ALIAS FOR $1;
   pItemNumber 	ALIAS FOR $2;

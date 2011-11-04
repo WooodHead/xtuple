@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _empBeforeTrigger () RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
 
   IF NOT (checkPrivilege('MaintainEmployees')) THEN
@@ -54,6 +56,8 @@ CREATE TRIGGER empBeforeTrigger BEFORE INSERT OR UPDATE OR DELETE ON emp
        FOR EACH ROW EXECUTE PROCEDURE _empBeforeTrigger();
 
 CREATE OR REPLACE FUNCTION _empAfterTrigger () RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid     INTEGER;
   _newcrmacctname TEXT;

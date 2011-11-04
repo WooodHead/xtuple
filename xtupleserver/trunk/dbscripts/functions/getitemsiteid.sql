@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION getItemsiteId(text, text) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWarehouseCode ALIAS FOR $1;
   pItemNumber ALIAS FOR $2;
@@ -11,6 +13,8 @@ END;
 ' LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION getItemsiteId(text, text, text) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWarehouseCode ALIAS FOR $1;
   pItemNumber ALIAS FOR $2;

@@ -2,6 +2,8 @@
 
 SELECT dropIfExists('TRIGGER', 'pkgscriptbeforetrigger');
 CREATE OR REPLACE FUNCTION _pkgscriptbeforetrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _scriptid     INTEGER;
   _debug        BOOL := false;
@@ -22,6 +24,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgscriptalterTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (pkgMayBeModified(TG_TABLE_SCHEMA)) THEN
     IF (TG_OP = 'DELETE') THEN
@@ -47,6 +51,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgscriptaftertrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (TG_OP = 'DELETE') THEN
     RETURN OLD;

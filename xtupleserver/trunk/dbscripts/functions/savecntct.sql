@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION saveCntct(int,text,int,int,text,text,text,text,text,text,bool,text,text,text,text,text,text,text,text, text) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pCntctId ALIAS FOR $1;
   pContactNumber ALIAS FOR $2;
@@ -143,6 +145,8 @@ END;
 ' LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION saveCntct(int,text,int,int,text,text,text,text,text,text,bool,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pCntctId ALIAS FOR $1;
   pContactNumber ALIAS FOR $2;
@@ -175,6 +179,8 @@ END;
 ' LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION saveCntct(int,text,int,text,text,text,text,text,text,text,text,text,text,text,text) RETURNS INTEGER AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pCntctId ALIAS FOR $1;
   pContactNumber ALIAS FOR $2;

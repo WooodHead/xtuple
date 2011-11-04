@@ -1,6 +1,8 @@
 -- Group: briefEarnedCommission
 -- Name: detail
 -- Notes: used by dspBriefEarnedCommissions
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT cohist_salesrep_id, salesrep_number, salesrep_name, cust_number, cust_name,
        cohist_ordernumber, cohist_invcnumber, cohist_invcdate, currAbbr,

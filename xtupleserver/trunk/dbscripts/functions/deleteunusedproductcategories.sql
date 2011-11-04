@@ -1,4 +1,6 @@
-CREATE OR REPLACE FUNCTION deleteUnusedProductCategories() RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION deleteUnusedProductCategories() RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
 
 --  Delete any associated records
@@ -12,4 +14,4 @@ BEGIN
   RETURN 0;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION site() RETURNS SETOF whsinfo AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _row whsinfo%ROWTYPE;
   _r RECORD;

@@ -1,4 +1,6 @@
-CREATE OR REPLACE FUNCTION resetLowLevelCode(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION resetLowLevelCode(INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
 
     pItemId ALIAS FOR $1;
@@ -28,7 +30,7 @@ BEGIN
                         WHERE (item_id=pItemId);
       FOR _r IN SELECT item_id, bomdata_bomwork_level, item_type
                 FROM item,
-                     indentedBOM(pItemId, getActiveRevId(''BOM'',pItemId),0,0)
+                     indentedBOM(pItemId, getActiveRevId('BOM',pItemId),0,0)
                 WHERE (bomdata_item_id=item_id)
                 ORDER BY bomdata_bomwork_level LOOP
 
@@ -54,5 +56,5 @@ BEGIN
     RETURN _result;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION _cobillBeforeTrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
 
 BEGIN
@@ -20,12 +22,14 @@ CREATE TRIGGER cobillBeforeTrigger
   FOR EACH ROW
   EXECUTE PROCEDURE _cobillBeforeTrigger();
 
-CREATE OR REPLACE FUNCTION _cobillTrigger() RETURNS "trigger" AS '
+CREATE OR REPLACE FUNCTION _cobillTrigger() RETURNS "trigger" AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _r RECORD;
 
 BEGIN
-  IF (TG_OP = ''DELETE'') THEN
+  IF (TG_OP = 'DELETE') THEN
     RETURN OLD;
   END IF;
 
@@ -34,14 +38,14 @@ BEGIN
   FROM cobmisc
   WHERE (cobmisc_id=NEW.cobill_cobmisc_id);
   IF (NOT FOUND) THEN
-    RAISE EXCEPTION ''Billing head not found'';
+    RAISE EXCEPTION 'Billing head not found';
   END IF;
 
 -- Insert new row
-  IF (TG_OP = ''INSERT'') THEN
+  IF (TG_OP = 'INSERT') THEN
 
   -- Calculate Tax
-      PERFORM calculateTaxHist( ''cobilltax'',
+      PERFORM calculateTaxHist( 'cobilltax',
                                 NEW.cobill_id,
                                 COALESCE(_r.cobmisc_taxzone_id, -1),
                                 NEW.cobill_taxtype_id,
@@ -54,12 +58,12 @@ BEGIN
   END IF;
 
 -- Update row
-  IF (TG_OP = ''UPDATE'') THEN
+  IF (TG_OP = 'UPDATE') THEN
 
   -- Calculate Tax
     IF ( (NEW.cobill_qty <> OLD.cobill_qty) OR
          (NEW.cobill_taxtype_id <> OLD.cobill_taxtype_id) ) THEN
-      PERFORM calculateTaxHist( ''cobilltax'',
+      PERFORM calculateTaxHist( 'cobilltax',
                                 NEW.cobill_id,
                                 COALESCE(_r.cobmisc_taxzone_id, -1),
                                 NEW.cobill_taxtype_id,
@@ -74,7 +78,7 @@ BEGIN
 
   RETURN NEW;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'cobilltrigger');
 CREATE TRIGGER cobilltrigger

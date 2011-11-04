@@ -1,4 +1,6 @@
-CREATE OR REPLACE FUNCTION getActiveRevId(TEXT,INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION getActiveRevId(TEXT,INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pTargetType ALIAS FOR $1;
   pTargetid ALIAS FOR $2;
@@ -6,30 +8,30 @@ DECLARE
 
 BEGIN
   --See if revcontrol turned on
-  IF (fetchmetricbool(''RevControl'')) THEN
+  IF (fetchmetricbool('RevControl')) THEN
 
-    IF (pTargetType=''BOM'') THEN
+    IF (pTargetType='BOM') THEN
       SELECT rev_id INTO _revid
       FROM rev
-      WHERE ((rev_target_type=''BOM'')
+      WHERE ((rev_target_type='BOM')
       AND (rev_target_id=pTargetid)
-      AND (rev_status=''A''));
+      AND (rev_status='A'));
       IF (NOT FOUND) THEN
         _revid:=-1;
       END IF;
 
-      ELSE IF (pTargetType=''BOO'') THEN
+      ELSE IF (pTargetType='BOO') THEN
       SELECT rev_id INTO _revid
       FROM rev
-      WHERE ((rev_target_type=''BOO'')
+      WHERE ((rev_target_type='BOO')
       AND (rev_target_id=pTargetid)
-      AND (rev_status=''A''));
+      AND (rev_status='A'));
       IF (NOT FOUND) THEN
         _revid:=-1;
       END IF;
 
       ELSE
-        RAISE EXCEPTION ''Invalid Revision Type'';
+        RAISE EXCEPTION 'Invalid Revision Type';
       END IF;
     END IF;
 
@@ -40,4 +42,4 @@ BEGIN
   RETURN _revid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

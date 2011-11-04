@@ -1,5 +1,7 @@
 
 CREATE OR REPLACE FUNCTION findCalendarOrigin(INTEGER) RETURNS DATE AS '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pCalheadid ALIAS FOR $1;
   _originType CHAR(1);

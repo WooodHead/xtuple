@@ -1,6 +1,8 @@
 CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
                                          TEXT, TEXT, TEXT, TEXT, TEXT,
                                          INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   RETURN postInvTrans($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, CURRENT_TIMESTAMP, NULL);
 END;
@@ -9,6 +11,8 @@ $$ LANGUAGE 'plpgsql';
 CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
                                          TEXT, TEXT, TEXT, TEXT, TEXT,
                                          INTEGER, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   RETURN postInvTrans($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, NULL);
 END;
@@ -18,6 +22,8 @@ CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
                                          TEXT, TEXT, TEXT, TEXT, TEXT,
                                          INTEGER, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE,
                                          NUMERIC) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   RETURN postInvTrans($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, NULL);
 END;
@@ -27,6 +33,8 @@ CREATE OR REPLACE FUNCTION postInvTrans( INTEGER, TEXT, NUMERIC,
                                          TEXT, TEXT, TEXT, TEXT, TEXT,
                                          INTEGER, INTEGER, INTEGER, TIMESTAMP WITH TIME ZONE,
                                          NUMERIC, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemsiteid	     ALIAS FOR $1;
   pTransType	     ALIAS FOR $2;

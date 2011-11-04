@@ -2,6 +2,8 @@
 CREATE OR REPLACE FUNCTION calculatetaxdetail(integer, integer, date, integer, numeric)
   RETURNS SETOF taxdetail AS
 $BODY$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pTaxZoneId ALIAS FOR  $1;
   pTaxTypeId ALIAS FOR  $2;

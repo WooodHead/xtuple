@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION checkQuoteSitePrivs(INTEGER) RETURNS BOOLEAN STABLE AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pQuheadid ALIAS FOR $1;
 
@@ -10,6 +12,8 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION checkQuoteSitePrivs(INTEGER, INTEGER) RETURNS BOOLEAN STABLE AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pQuheadid ALIAS FOR $1;
   pWarehousid ALIAS FOR $2;

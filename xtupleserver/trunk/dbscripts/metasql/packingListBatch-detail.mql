@@ -1,6 +1,8 @@
 -- Group: packingListBatch
 -- Name: detail
 -- Notes: used by packingListBatch
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT cohead_id, pack_shiphead_id, 
        cohead_number AS order_number, pack_head_type,

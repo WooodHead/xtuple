@@ -1,4 +1,6 @@
-CREATE OR REPLACE FUNCTION bomworkItemSequence(INTEGER) RETURNS TEXT AS '
+CREATE OR REPLACE FUNCTION bomworkItemSequence(INTEGER) RETURNS TEXT AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWorkid ALIAS FOR $1;
   _wid INTEGER;
@@ -26,16 +28,16 @@ BEGIN
       AND (bomwork_item_id=item_id));
 
       IF (FOUND) THEN
-        _seqnum := _bomwork.seq || ''-'' || _seqnum;
+        _seqnum := _bomwork.seq || '-' || _seqnum;
         _wid    := _bomwork.parent;
       ELSE
         _wid := -1;
       END IF;
     END LOOP;
   ELSE
-    _seqnum := ''''::TEXT;
+    _seqnum := ''::TEXT;
   END IF;
 
   RETURN _seqnum;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION copyIncdt(INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pparentid   ALIAS FOR $1;
   ptimestamp  TIMESTAMP WITH TIME ZONE := COALESCE($2, CURRENT_TIMESTAMP);

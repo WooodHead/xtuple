@@ -1,6 +1,8 @@
 CREATE OR REPLACE FUNCTION formatCCdashes(text, text)
   RETURNS text AS
 '
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pCCard ALIAS FOR $1;
   pCCardType ALIAS FOR $2;

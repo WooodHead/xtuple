@@ -1,6 +1,8 @@
 -- Group: receipt
 -- Name: detail
 -- Notes: used by enterPoReceipt
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 <? if exists("pohead_id") ?>
 SELECT poitem_id AS orderitem_id, COALESCE(poitem_itemsite_id,-1) AS itemsite_id, poitem_linenumber AS linenumber,

@@ -1,13 +1,14 @@
 -- Group: voucher
 -- Name: editlist
 -- Notes: used by voucheringEditList
-
 -- indent: order
 --            line item
 --              credit account
 --            line item
 --              credit account
 --            debit account for entire order
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT orderid, seq,
        CASE WHEN seq = 0 THEN vouchernumber

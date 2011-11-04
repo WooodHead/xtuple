@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION enablePackage(TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   ppkgname  ALIAS FOR $1;
   _i        INTEGER := 0;
@@ -21,6 +23,8 @@ $$
 LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION enablePackage(INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   ppkgheadid    ALIAS FOR $1;
   _pkgname      TEXT;

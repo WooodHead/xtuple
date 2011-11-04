@@ -1,4 +1,6 @@
 CREATE OR REPLACE FUNCTION allocatedForWo(INTEGER, INTEGER) RETURNS NUMERIC AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pLookAheadDays ALIAS FOR $2;
@@ -12,6 +14,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION allocatedForWo(INTEGER, DATE) RETURNS NUMERIC AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pDate ALIAS FOR $2;
@@ -25,6 +29,8 @@ $$ LANGUAGE 'plpgsql';
 
 
 CREATE OR REPLACE FUNCTION allocatedForWo(INTEGER, DATE, DATE) RETURNS NUMERIC AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pStartDate ALIAS FOR $2;

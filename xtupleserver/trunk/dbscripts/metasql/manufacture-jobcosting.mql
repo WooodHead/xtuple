@@ -1,6 +1,9 @@
 -- Group: manufacture
 -- Name: jobcosting
 -- Notes: used by dspJobCosting
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT *, 0 AS cost_xttotalrole,
        'qty' AS qty_xtnumericrole,
        'cost' AS cost_xtnumericrole
