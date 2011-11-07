@@ -49,10 +49,10 @@ int CreateTrigger::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
 
   _oidMql = new MetaSQLQuery("SELECT pg_trigger.oid AS oid "
                              "FROM pg_trigger, pg_class, pg_namespace "
-                             "WHERE ((tgname=<? value(\"name\") ?>)"
+                             "WHERE ((tgname=<? value('name') ?>)"
                              "  AND  (tgrelid=pg_class.oid)"
                              "  AND  (relnamespace=pg_namespace.oid)"
-                             "  AND  (nspname=<? value(\"schema\") ?>));");
+                             "  AND  (nspname=<? value('schema') ?>));");
   ParameterList params;
   int returnVal = CreateDBObj::writeToDB(pdata, pkgname, params, errMsg);
 

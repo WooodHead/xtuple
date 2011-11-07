@@ -117,8 +117,8 @@ int LoadMetasql::writeToDB(const QByteArray &pdata, const QString pkgname, QStri
 
   XSqlQuery gradedsavepoint("SAVEPOINT savemetasql_graded;");
   MetaSQLQuery upsertm("SELECT saveMetasql(<? value('group') ?>,"
-                       "       <? value('name') ?>,   <? value('notes') ?>,"
-                       "       <? value('query') ?>,"
+                       "       <? value('name') ?>,  <? value('notes') ?>,"
+                       "       E<? value('query') ?>,"
                        "       CAST(<? value('system') ?> AS BOOLEAN),"
                        "       <? value('schema') ?>"
                        "<? if not exists('skipgrade') ?>"

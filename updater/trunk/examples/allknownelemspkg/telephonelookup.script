@@ -7,11 +7,14 @@ function getParams()
 
 function query()
 {
+  var params;
   var metasqlqry = toolbox.executeQuery("SELECT metasql_query "
                                       + "FROM metasql "
-                                      + "WHERE ((metasql_group='telephonelookup')"
-                                      + "  AND  (metasql_name='detail'));",
-                                      new Object);
+                                      + "WHERE ((metasql_group=<? value(\"group\") ?>)"
+                                      + "  AND  (metasql_name=<? value(\"name\") ?>));",
+                                      { group = 'telephonelookup', 
+                                        name  = 'detail' }
+                                      );
   if (! metasqlqry.first())
   {
     toolbox.messageBox("critical", mywindow, "Could Not Find Query",
