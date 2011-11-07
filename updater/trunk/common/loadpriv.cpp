@@ -82,20 +82,20 @@ int LoadPriv::writeToDB(const QString pkgname, QString &errMsg)
   }
 
   _selectMql = new MetaSQLQuery("SELECT priv_id AS id, -1, -1"
-                      "  FROM <? literal(\"tablename\") ?> "
-                      " WHERE (priv_name=<? value(\"name\") ?>);");
+                      "  FROM <? literal('tablename') ?> "
+                      " WHERE (priv_name=<? value('name') ?>);");
 
-  _updateMql = new MetaSQLQuery("UPDATE <? literal(\"tablename\") ?> "
-                      "   SET priv_module=<? value(\"module\") ?>, "
-                      "       priv_descrip=<? value(\"comment\") ?> "
-                      " WHERE (priv_id=<? value(\"id\") ?>) "
+  _updateMql = new MetaSQLQuery("UPDATE <? literal('tablename') ?> "
+                      "   SET priv_module=<? value('module') ?>, "
+                      "       priv_descrip=<? value('notes') ?> "
+                      " WHERE (priv_id=<? value('id') ?>) "
                       "RETURNING priv_id AS id;");
 
-  _insertMql = new MetaSQLQuery("INSERT INTO <? literal(\"tablename\") ?> ("
+  _insertMql = new MetaSQLQuery("INSERT INTO <? literal('tablename') ?> ("
                       "    priv_id, priv_module, priv_name, priv_descrip "
                       ") VALUES ("
-                      "    DEFAULT, <? value(\"module\") ?>,"
-                      "    <? value(\"name\") ?>, <? value(\"notes\") ?>) "
+                      "    DEFAULT, <? value('module') ?>,"
+                      "    <? value('name') ?>, <? value('notes') ?>) "
                       "RETURNING priv_id AS id;");
 
   ParameterList params;

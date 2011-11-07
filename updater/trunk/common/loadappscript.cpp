@@ -88,32 +88,33 @@ int LoadAppScript::writeToDB(const QByteArray &pdata, const QString pkgname, QSt
 
   _minMql = new MetaSQLQuery("SELECT MIN(script_order) AS min "
                    "FROM script "
-                   "WHERE (script_name=<? value(\"name\") ?>);");
+                   "WHERE (script_name=<? value('name') ?>);");
 
   _maxMql = new MetaSQLQuery("SELECT MAX(script_order) AS max "
                    "FROM script "
-                   "WHERE (script_name=<? value(\"name\") ?>);");
+                   "WHERE (script_name=<? value('name') ?>);");
 
   _selectMql = new MetaSQLQuery("SELECT script_id, -1, -1"
-                      "  FROM <? literal(\"tablename\") ?> "
-                      " WHERE ((script_name=<? value(\"name\") ?>)"
-                      "    AND (script_order=<? value(\"grade\") ?>));");
+                      "  FROM <? literal('tablename') ?> "
+                      " WHERE ((script_name=<? value('name') ?>)"
+                      "    AND (script_order=<? value('grade') ?>));");
 
-  _updateMql = new MetaSQLQuery("UPDATE <? literal(\"tablename\") ?> "
-                      "   SET script_order=<? value(\"grade\") ?>, "
-                      "       script_enabled=<? value(\"enabled\") ?>,"
-                      "       script_source=<? value(\"source\") ?>,"
-                      "       script_notes=<? value(\"notes\") ?> "
-                      " WHERE (script_id=<? value(\"id\") ?>) "
+  _updateMql = new MetaSQLQuery("UPDATE <? literal('tablename') ?> "
+                      "   SET script_order=<? value('grade') ?>, "
+                      "       script_enabled=<? value('enabled') ?>,"
+                      "       script_source=E<? value('source') ?>,"
+                      "       script_notes=<? value('notes') ?> "
+                      " WHERE (script_id=<? value('id') ?>) "
                       "RETURNING script_id AS id; ");
 
-  _insertMql = new MetaSQLQuery("INSERT INTO <? literal(\"tablename\") ?> ("
+  _insertMql = new MetaSQLQuery("INSERT INTO <? literal('tablename') ?> ("
                       "    script_id, script_name,"
                       "    script_order, script_enabled,"
                       "    script_source, script_notes"
-                      ") VALUES (DEFAULT, <? value(\"name\") ?>, "
-                      "    <? value(\"grade\") ?>,  <? value(\"enabled\") ?>,"
-                      "    <? value(\"source\") ?>, <? value(\"notes\") ?>) "
+                      ") VALUES (DEFAULT, <? value('name') ?>, "
+                      "    <? value('grade') ?>,  <? value('enabled') ?>,"
+                      "    E<? value('source') ?>,"
+                      "    <? value('notes') ?>) "
                       "RETURNING script_id AS id;");
 
   ParameterList params;

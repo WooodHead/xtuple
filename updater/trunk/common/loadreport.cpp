@@ -128,30 +128,30 @@ int LoadReport::writeToDB(const QByteArray &pdata, const QString pkgname, QStrin
 
   _minMql = new MetaSQLQuery("SELECT MIN(report_grade) AS min "
                    "FROM report "
-                   "WHERE (report_name=<? value(\"name\") ?>);");
+                   "WHERE (report_name=<? value('name') ?>);");
 
   _maxMql = new MetaSQLQuery("SELECT MAX(report_grade) AS max "
                    "FROM report "
-                   "WHERE (report_name=<? value(\"name\") ?>);");
+                   "WHERE (report_name=<? value('name') ?>);");
 
   _selectMql = new MetaSQLQuery("SELECT report_id, -1, -1"
                       "  FROM report "
-                      " WHERE ((report_name=<? value(\"name\") ?>) "
-                      "    AND (report_grade=<? value(\"grade\") ?>) );");
+                      " WHERE ((report_name=<? value('name') ?>) "
+                      "    AND (report_grade=<? value('grade') ?>) );");
 
-  _updateMql = new MetaSQLQuery("UPDATE <? literal(\"tablename\") ?> "
-                      "   SET report_descrip=<? value(\"notes\") ?>, "
-                      "       report_source=<? value(\"source\") ?> "
-                      " WHERE (report_id=<? value(\"id\") ?>) "
+  _updateMql = new MetaSQLQuery("UPDATE <? literal('tablename') ?> "
+                      "   SET report_descrip=<? value('notes') ?>, "
+                      "       report_source=<? value('source') ?> "
+                      " WHERE (report_id=<? value('id') ?>) "
                       "RETURNING report_id AS id;");
 
-  _insertMql = new MetaSQLQuery("INSERT INTO <? literal(\"tablename\") ?> ("
+  _insertMql = new MetaSQLQuery("INSERT INTO <? literal('tablename') ?> ("
                       "    report_id, report_name,"
                       "    report_grade, report_source, report_descrip"
                       ") VALUES ("
-                      "    DEFAULT, <? value(\"name\") ?>,"
-                      "    <? value(\"grade\") ?>, <? value(\"source\") ?>,"
-                      "    <? value(\"notes\") ?>) "
+                      "    DEFAULT, <? value('name') ?>,"
+                      "    <? value('grade') ?>, <? value('source') ?>,"
+                      "    <? value('notes') ?>) "
                       "RETURNING report_id AS id;");
 
   ParameterList params;

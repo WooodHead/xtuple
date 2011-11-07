@@ -115,33 +115,34 @@ int LoadAppUI::writeToDB(const QByteArray &pdata, const QString pkgname, QString
 
   _minMql = new MetaSQLQuery("SELECT MIN(uiform_order) AS min "
                    "FROM uiform "
-                   "WHERE (uiform_name=<? value(\"name\") ?>);");
+                   "WHERE (uiform_name=<? value('name') ?>);");
 
   _maxMql = new MetaSQLQuery("SELECT MAX(uiform_order) AS max "
                    "FROM uiform "
-                   "WHERE (uiform_name=<? value(\"name\") ?>);");
+                   "WHERE (uiform_name=<? value('name') ?>);");
 
   _selectMql = new MetaSQLQuery("SELECT uiform_id, -1, -1"
-                      "  FROM <? literal(\"tablename\") ?> "
-                      " WHERE ((uiform_name=<? value(\"name\") ?>)"
-                      "   AND  (uiform_order=<? value(\"grade\") ?>));");
+                      "  FROM <? literal('tablename') ?> "
+                      " WHERE ((uiform_name=<? value('name') ?>)"
+                      "   AND  (uiform_order=<? value('grade') ?>));");
 
-  _updateMql = new MetaSQLQuery("UPDATE <? literal(\"tablename\") ?> "
-                      "   SET uiform_order=<? value(\"grade\") ?>, "
-                      "       uiform_enabled=<? value(\"enabled\") ?>,"
-                      "       uiform_source=<? value(\"source\") ?>,"
-                      "       uiform_notes=<? value(\"notes\") ?> "
-                      " WHERE (uiform_id=<? value(\"id\") ?>) "
+  _updateMql = new MetaSQLQuery("UPDATE <? literal('tablename') ?> "
+                      "   SET uiform_order=<? value('grade') ?>, "
+                      "       uiform_enabled=<? value('enabled') ?>,"
+                      "       uiform_source=E<? value('source') ?>,"
+                      "       uiform_notes=<? value('notes') ?> "
+                      " WHERE (uiform_id=<? value('id') ?>) "
                       "RETURNING uiform_id AS id;");
 
-  _insertMql = new MetaSQLQuery("INSERT INTO <? literal(\"tablename\") ?> ("
+  _insertMql = new MetaSQLQuery("INSERT INTO <? literal('tablename') ?> ("
                       "    uiform_id, uiform_name,"
                       "    uiform_order, uiform_enabled, "
                       "    uiform_source, uiform_notes"
                       ") VALUES ("
-                      "    DEFAULT, <? value(\"name\") ?>,"
-                      "    <? value(\"grade\") ?>, <? value(\"enabled\") ?>,"
-                      "    <? value(\"source\") ?>, <? value(\"notes\") ?>) "
+                      "    DEFAULT, <? value('name') ?>,"
+                      "    <? value('grade') ?>, <? value('enabled') ?>,"
+                      "    E<? value('source') ?>,"
+                      "    <? value('notes') ?>) "
                       "RETURNING uiform_id AS id;");
 
   ParameterList params;

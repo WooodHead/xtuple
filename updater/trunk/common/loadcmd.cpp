@@ -131,28 +131,28 @@ QDomElement LoadCmd::createElement(QDomDocument &doc)
 int LoadCmd::writeToDB(const QString pkgname, QString &errMsg)
 {
   _selectMql = new MetaSQLQuery("SELECT cmd_id, -1, -1"
-                      "  FROM <? literal(\"tablename\") ?> "
-                      " WHERE (cmd_name=<? value(\"name\") ?>);");
+                      "  FROM <? literal('tablename') ?> "
+                      " WHERE (cmd_name=<? value('name') ?>);");
 
-  _updateMql = new MetaSQLQuery("UPDATE <? literal(\"tablename\") ?> "
-                      "   SET cmd_module=<? value(\"module\") ?>, "
-                      "       cmd_title=<? value(\"title\") ?>, "
-                      "       cmd_privname=<? value(\"privname\") ?>, "
-                      "       cmd_executable=<? value(\"executable\") ?>, "
-                      "       cmd_descrip=<? value(\"notes\") ?> "
-                      " WHERE (cmd_id=<? value(\"id\") ?>) "
+  _updateMql = new MetaSQLQuery("UPDATE <? literal('tablename') ?> "
+                      "   SET cmd_module=<? value('module') ?>, "
+                      "       cmd_title=<? value('title') ?>, "
+                      "       cmd_privname=<? value('privname') ?>, "
+                      "       cmd_executable=<? value('executable') ?>, "
+                      "       cmd_descrip=<? value('notes') ?> "
+                      " WHERE (cmd_id=<? value('id') ?>) "
                       "RETURNING cmd_id AS id;");
 
-  _insertMql = new MetaSQLQuery("INSERT INTO <? literal(\"tablename\") ?> ("
+  _insertMql = new MetaSQLQuery("INSERT INTO <? literal('tablename') ?> ("
                       "  cmd_id, cmd_module,"
                       "  cmd_title, cmd_descrip, "
                       "  cmd_privname,"
                       "  cmd_executable, cmd_name"
                       ") VALUES ("
-                      "  DEFAULT, <? value(\"module\") ?>,"
-                      "  <? value(\"title\") ?>, <? value(\"notes\") ?>,"
-                      "  <? value(\"privname\") ?>,"
-                      "  <? value(\"executable\") ?>, <? value(\"name\") ?>)"
+                      "  DEFAULT, <? value('module') ?>,"
+                      "  <? value('title') ?>, <? value('notes') ?>,"
+                      "  <? value('privname') ?>,"
+                      "  <? value('executable') ?>, <? value('name') ?>)"
                       " RETURNING cmd_id AS id;");
 
   ParameterList params;

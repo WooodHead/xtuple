@@ -117,21 +117,22 @@ int LoadImage::writeToDB(const QByteArray &pdata, const QString pkgname, QString
   }
 
   _selectMql = new MetaSQLQuery("SELECT image_id, -1, -1"
-                      "  FROM <? literal(\"tablename\") ?> "
-                      " WHERE (image_name=<? value(\"name\") ?>);");
+                      "  FROM <? literal('tablename') ?> "
+                      " WHERE (image_name=<? value('name') ?>);");
 
-  _updateMql = new MetaSQLQuery("UPDATE <? literal(\"tablename\") ?> "
-                      "   SET image_data=<? value(\"source\") ?>,"
-                      "       image_descrip=<? value(\"notes\") ?> "
-                      " WHERE (image_id=<? value(\"id\") ?>) "
-                      "RETURNING image_id AS id;");
+  _updateMql = new MetaSQLQuery("UPDATE <? literal('tablename') ?> "
+                      "   SET image_data=E<? value('source') ?>,"
+                      "       image_descrip=<? value('notes') ?>"
+                      " WHERE (image_id=<? value('id') ?>)"
+                      " RETURNING image_id AS id;");
 
-  _insertMql = new MetaSQLQuery("INSERT INTO <? literal(\"tablename\") ?> ("
+  _insertMql = new MetaSQLQuery("INSERT INTO <? literal('tablename') ?> ("
                       "   image_id, image_name, image_data, image_descrip"
                       ") VALUES ("
-                      "  DEFAULT, <? value(\"name\") ?>,"
-                      "  <? value(\"source\") ?>, <? value(\"notes\") ?>) "
-                      "RETURNING image_id AS id;");
+                      "  DEFAULT, <? value('name') ?>,"
+                      "  E<? value('source') ?>,"
+                      "  <? value('notes') ?>"
+                      ") RETURNING image_id AS id;");
 
   ParameterList params;
   params.append("tablename", "image");
