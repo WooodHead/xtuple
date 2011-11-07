@@ -3,7 +3,7 @@ BEGIN
 
   --  Checks
   IF NOT (checkPrivilege('MaintainPricingSchedules')) THEN
-    RAISE EXCEPTION ''You do not have privileges to maintain Price Schedules.'';
+    RAISE EXCEPTION 'You do not have privileges to maintain Price Schedules.';
   END IF;
   
   IF (TG_OP IN ('INSERT','UPDATE')) THEN
@@ -15,4 +15,4 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'ipsiteminfoBeforeTrigger');
-CREATE TRIGGER ipsiteminfoBeforeTrigger BEFORE INSERT OR UPDATE OR DELETE ON ipsitem FOR EACH ROW EXECUTE PROCEDURE _ipsiteminfoBeforeTrigger();
+CREATE TRIGGER ipsiteminfoBeforeTrigger BEFORE INSERT OR UPDATE OR DELETE ON ipsiteminfo FOR EACH ROW EXECUTE PROCEDURE _ipsiteminfoBeforeTrigger();
