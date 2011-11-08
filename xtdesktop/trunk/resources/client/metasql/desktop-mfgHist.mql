@@ -1,6 +1,8 @@
 -- Group: desktop
 -- Name:  mfgHist
 -- Notes: Summarized Manufacture History for Desktop
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT <? literal("group_id") ?>, <? literal("group_number") ?>,  <? literal("group_name") ?>,
        sum(invhist_value_after-invhist_value_before) as amount, sum(invhist_qoh_after-invhist_qoh_before) AS qty,

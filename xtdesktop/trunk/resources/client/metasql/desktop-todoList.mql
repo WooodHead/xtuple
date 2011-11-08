@@ -1,6 +1,9 @@
 -- Group: desktop
 -- Name:  todoList
--- Notes: 
+-- Notes: Select the list of activities that need attention
+--        including to-do items, incidents, tasks, and projects.
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
 
 ------ TO DO ITEMS-------
   SELECT todoitem_id AS id, 1 AS altId, todoitem_owner_username AS owner, 
