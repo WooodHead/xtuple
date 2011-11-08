@@ -1,4 +1,4 @@
-SELECT dropIfExists('TABLE', 'pkgtestitem');
+SELECT dropIfExists('TABLE', 'pkgtestitem', 'telephonelookup');
 CREATE TABLE pkgtestitem (a INTEGER REFERENCES pkgtest(a), b INTEGER);
 
 REVOKE ALL ON TABLE pkgtestitem FROM PUBLIC;

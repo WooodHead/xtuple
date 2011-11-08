@@ -1,4 +1,6 @@
-SELECT dropIfExists('TABLE', 'pkgtest');
+SELECT dropIfExists('VIEW', 'pkgtestview',  'telephonelookup');
+SELECT dropIfExists('TABLE', 'pkgtestitem', 'telephonelookup');
+SELECT dropIfExists('TABLE', 'pkgtest',     'telephonelookup');
 CREATE TABLE pkgtest (a INTEGER PRIMARY KEY, b INTEGER);
 
 REVOKE ALL ON TABLE pkgtest FROM PUBLIC;
