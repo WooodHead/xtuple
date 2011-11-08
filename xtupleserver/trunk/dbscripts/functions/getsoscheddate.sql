@@ -10,7 +10,7 @@ BEGIN
   SELECT MIN(coitem_scheddate) INTO _minscheddate
   FROM coitem
   WHERE ( (coitem_cohead_id=pCoheadid)
-    AND   (coitem_status <> 'X') );
+    AND   (coitem_status NOT IN ('C', 'X')) );
 
   RETURN _minscheddate;
 
