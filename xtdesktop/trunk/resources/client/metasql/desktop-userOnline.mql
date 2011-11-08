@@ -1,6 +1,9 @@
 -- Group: desktop
 -- Name:  userOnline
 -- Notes: 
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT usr_id, usr_username, usr_propername, usr_email,
        min(backend_start) AS client_start, max(query_start) AS query_start,
        sum(CASE WHEN(database IS NULL) THEN 0 ELSE 1 END) AS cnt_internal,

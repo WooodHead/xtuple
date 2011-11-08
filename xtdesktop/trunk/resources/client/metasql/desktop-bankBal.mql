@@ -1,8 +1,10 @@
 -- Group: desktop
 -- Name:  bankBal
 -- Notes: 
-
 -- Forward update balances if applicable
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT forwardUpdateAccount(bankaccnt_accnt_id) AS result 
 FROM bankaccnt 
 WHERE (NOT fetchmetricbool('ManualForwardUpdate'));

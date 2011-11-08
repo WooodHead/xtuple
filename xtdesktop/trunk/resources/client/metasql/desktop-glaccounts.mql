@@ -1,6 +1,9 @@
 -- Group: desktop
 -- Name:  glaccounts
 -- Notes: 
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
 SELECT accnt_id, formatGlAccount(accnt_id) AS accnt_id_qtdisplayrole, 
   accnt_descrip, accnt_type,
   CASE WHEN(accnt_type='A') THEN <? value("asset") ?>
