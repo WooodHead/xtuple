@@ -1,10 +1,10 @@
 Release Notes
 xTuple ERP
 Version 3.8.0Beta2
-November 7, 2011
+November 8, 2011
 ==================================
 This is the second beta release of version 3.8.0. This is primarily
-a bug fix release. As always, we are looking for feedback from beta 
+a bug fix release. As always, we are looking for feedback from beta
 testers. But please do not use beta software in production.
 
 Information about compatibility issues related to this software
@@ -45,13 +45,13 @@ Point-in-Time Inventory Valuation
 ==================================
 
 The following features and bug fixes have been added to the
-applications since 3.8.0 Beta. Additional detail for each item 
-listed below may be found on our community website under the Issue 
+applications since 3.8.0 Beta. Additional detail for each item
+listed below may be found on our community website under the Issue
 Tracker.
 
 New Features:
 
-* Windows with indented lists of package components should allow a 
+* Windows with indented lists of package components should allow a
 flat view, too [15626]
 * Remove Billing Edit List [15966]
 
@@ -59,14 +59,14 @@ Bug Fixes:
 
 * Tax amount not displayed on voucher edit list [9808]
 * Double Click on an operation - slow [10431]
-* Additional work order G/L entry is created for RA of "Service" 
+* Additional work order G/L entry is created for RA of "Service"
 type [11660]
-* Erroneous "voided sales order" Debit Memo generated upon RA 
+* Erroneous "voided sales order" Debit Memo generated upon RA
 credit card refund [12348]
 * Parentheses in item number field [13511]
-* Auto Compete: If Multiple Contacts exist, you may only select 
+* Auto Compete: If Multiple Contacts exist, you may only select
 the first one [13544]
-* Authorize.net response reports "the card code is invalid" for 
+* Authorize.net response reports "the card code is invalid" for
 every transaction for all charge transactions [13752]
 * User entries deleted before corrections could be made... [13965]
 * qtyunreserved() looks at all coitems with reservations [14375]
@@ -76,43 +76,43 @@ every transaction for all charge transactions [13752]
 * Cannot void posted check with Multi-Currency [14956]
 * Cannot delete contacts from list contacts [14982]
 * Disassembly Return materials [14984]
-* It is not possible to manually enter the contacts created during 
+* It is not possible to manually enter the contacts created during
 Email Synchronization [15112]
 * Customer List does not display Correspondence email [15117]
 * Decimal points in exchange rate [15170]
-* Capacity buffer report doesn't allow a lead time larger than 99 
+* Capacity buffer report doesn't allow a lead time larger than 99
 days [15291]
 * Website URL on Contact Fails to excute if includes "http" [15342]
 * Autogenerate Lot/Serial does not always work [15377]
-* Setttings not remembered (query button) on Open Sales Orders 
+* Setttings not remembered (query button) on Open Sales Orders
 screen [15400]
-* Disassembly workorders present confusing message when reopened 
+* Disassembly workorders present confusing message when reopened
 for editing [15401]
 * Totaling incorrect on vouchering edit list [15405]
 * Can't change currency in RA [15458]
 * As Of QOH does not calculate correctly on INTRAN sites [15526]
-* Inventory Availability - Reorder Exception Checkbox not 
+* Inventory Availability - Reorder Exception Checkbox not
 documented [15574]
 * Sales Order Stpre Procedure Error [15583]
 * Selecting to View Demand displays a System message [15593]
-* Selecting to release a Planned Purchase Order generates a DB log 
+* Selecting to release a Planned Purchase Order generates a DB log
 error [15594]
-* Incorrect error message is displayed in Time-Phased Production 
+* Incorrect error message is displayed in Time-Phased Production
 by Planner code screen [15596]
-* Newly created contacts are not available in auto complete fields 
+* Newly created contacts are not available in auto complete fields
 [15604]
 * To-Do list shows no results w/ "completed" only checked [15631]
-* RMA Issue: Incident number disappears after its been entered 
+* RMA Issue: Incident number disappears after its been entered
 [15636]
 * Unable to edit and save a Quote item [15642]
-* Changing the Schedule date in the Sales Order Screen doesn't 
+* Changing the Schedule date in the Sales Order Screen doesn't
 update the linked Purchase Request [15655]
-* Charging a credit card incorrectly uses only 1 decimal place 
+* Charging a credit card incorrectly uses only 1 decimal place
 [15665]
-* Linked Work orders are not created for Return Authorizations 
+* Linked Work orders are not created for Return Authorizations
 [15688]
 * Discount days for proximo not calculating correctly [15690]
-* Return Authorization with Disposition set to "Service" doesn't 
+* Return Authorization with Disposition set to "Service" doesn't
 creates Sales Order [15693]
 * New user level privileges cause application sluggishness [15702]
 * Open a CRM Account from CRM Account List is slow [15703]
@@ -120,186 +120,186 @@ creates Sales Order [15693]
 * deleting CRM accounts complains about attached contacts [15707]
 * crm account merge crashes [15711]
 * Customer # field details are not saved [15717]
-* Release Planned Orders by planner code doesn't release planned 
+* Release Planned Orders by planner code doesn't release planned
 purchase orders [15721]
-* Selecting to Post a miscellaneous voucher generates a DB Log 
+* Selecting to Post a miscellaneous voucher generates a DB Log
 error [15724]
-* Multi-currency labels appearing on single currency system 
+* Multi-currency labels appearing on single currency system
 [15726]
 * Quotes tab is always greyed out on customer window [15727]
-* Irrelevant date is displayed on selecting "View Allocations" 
+* Irrelevant date is displayed on selecting "View Allocations"
 from "Inventory Availabilty by Work Order" screen [15732]
-* Irrelevant date is displayed on selecting "View Orders" from 
+* Irrelevant date is displayed on selecting "View Orders" from
 "Inventory Availabilty by Work Order" screen [15733]
 * Item susbstitute limited number of decimals [15744]
-* Print report of the Summarized Sales History screen doesn't 
+* Print report of the Summarized Sales History screen doesn't
 honour the "Sales Rep." filter selected [15745]
-* Omnibus: Filters are not functional in Summarized Sales screen 
+* Omnibus: Filters are not functional in Summarized Sales screen
 [15746]
 * Incorrect lead time is displayed for MRP planned orders [15748]
 * Incorrect lead time is displayed for MPS planned orders [15749]
-* Issue Stock and Issue Line Bal. buttons are active for unreleased 
+* Issue Stock and Issue Line Bal. buttons are active for unreleased
 Transfer order items [15750]
 * Bank Reconciliation displays checks multiple times [15755]
-* Unable to view list of customers/prospects from quote screen 
+* Unable to view list of customers/prospects from quote screen
 [15762]
-* Selecting to print the Items screen displays blank print report 
+* Selecting to print the Items screen displays blank print report
 [15764]
-* Incorrect Effective and Expires Dates are displayed in "Bill of 
+* Incorrect Effective and Expires Dates are displayed in "Bill of
 Materials Item" screen [15765]
-* Freight amount is calculated incorrectly for items with no 
+* Freight amount is calculated incorrectly for items with no
 freight class defined [15766]
 * Creating New CRM Account, default is "Inactive" [15768]
-* Creating New CRM Account, no Auto Complete on Contacts 
+* Creating New CRM Account, no Auto Complete on Contacts
 Available [15769]
-* CostedIndentedBOM report incorrect when using Actual Costing 
+* CostedIndentedBOM report incorrect when using Actual Costing
 [15770]
-* Return Authorization with Disposition set to "Substitute" doesn't 
+* Return Authorization with Disposition set to "Substitute" doesn't
 create linked Sales Order [15774]
-* Bill of Materials screen is opened in Edit mode on selecting to 
+* Bill of Materials screen is opened in Edit mode on selecting to
 view [15784]
-* Incorrect behaviour is observed in Print Invoice screen when 
+* Incorrect behaviour is observed in Print Invoice screen when
 copies decreased by more than 1 [15789]
 * Quotes Bullet Unselectable [15795]
 * syntax error at end of input [15796]
-* Bank Rec enhancement to get document exchange rate leads to 
+* Bank Rec enhancement to get document exchange rate leads to
 duplicate receipts and payments [15808]
-* Cancelling the clock out operation results in unexpected 
+* Cancelling the clock out operation results in unexpected
 behavior [15809]
-* Clocked out work orders are displayed as clocked in work orders 
+* Clocked out work orders are displayed as clocked in work orders
 when zero qty posted [15810]
-* Setup time and Run time values are not displayed in Production 
+* Setup time and Run time values are not displayed in Production
 Time clock by Work order screen [15811]
-* Incorrect Deposit amount is displayed for a cash receipt in 
+* Incorrect Deposit amount is displayed for a cash receipt in
 Reconcile Bank Account screen [15812]
-* Print report of Bank Reconciliation History displays incorrect 
+* Print report of Bank Reconciliation History displays incorrect
 details [15814]
-* Selecting to query Cash Receipts by Applications generates DB 
+* Selecting to query Cash Receipts by Applications generates DB
 log error [15816]
-* DB log error is generated on selecting to Update Pricing 
+* DB log error is generated on selecting to Update Pricing
 Schedules [15820]
-* Quantity on Hand by Location screen print report displays 
+* Quantity on Hand by Location screen print report displays
 irrelevant value [15821]
-* Selecting to print "Inventory Availability by Customer Type" 
+* Selecting to print "Inventory Availability by Customer Type"
 screen generates DB log error [15822]
-* Selecting to create a new task for a project generates DB log 
+* Selecting to create a new task for a project generates DB log
 error [15833]
-* Print report of the Bill of Operations screen doesn't display 
+* Print report of the Bill of Operations screen doesn't display
 the Operations with effective date set to current date [15835]
 * It is possible to edit a firmed sales order line item [15842]
-* "Edit" Alarm button is active in view mode of Incident screen 
+* "Edit" Alarm button is active in view mode of Incident screen
 [15844]
-* Incorrect column name is being displayed in print report of 
+* Incorrect column name is being displayed in print report of
 To-Do Items screen [15846]
-* It is not possible to create a Quote from the Opportunity screen 
+* It is not possible to create a Quote from the Opportunity screen
 [15847]
-* New Button is active in Breeder Bill of Materials screen without 
+* New Button is active in Breeder Bill of Materials screen without
 any item number being selected [15848]
 * Auto-complete response to ENTER inconsistent [15861]
 * Cost printing on QOH report when cost is not checked [15862]
 * Multiple Posting of Voucher [15863]
-* Deletion of the child work order will hide the material 
+* Deletion of the child work order will hide the material
 requirement in WO edit view [15876]
-* "Site" details are not displayed in the print report of QOH 
+* "Site" details are not displayed in the print report of QOH
 screen [15877]
-* "Order Activity by Project" screen doesn't get refreshed on 
+* "Order Activity by Project" screen doesn't get refreshed on
 unchecking all the "Show Types" Check boxes [15879]
-* Observation: Line Number is missing in Inventory history screen 
+* Observation: Line Number is missing in Inventory history screen
 on posting a Purchase order return [15887]
-* Selecting to "Issue Line" for a Transfer order for a Average 
+* Selecting to "Issue Line" for a Transfer order for a Average
 costing item displays irrelevant system message [15888]
-* "Selected Work Center" drop down list is active when "All Work 
-Centers" option is selected in "Rough Cut Capacity Plan" screen 
+* "Selected Work Center" drop down list is active when "All Work
+Centers" option is selected in "Rough Cut Capacity Plan" screen
 [15889]
-* "Running Availability" option is not functional in Purchase Order 
+* "Running Availability" option is not functional in Purchase Order
 Status by Buffer Status screen [15890]
-* Blank Purchase Order Item screen is displayed on selecting "View 
+* Blank Purchase Order Item screen is displayed on selecting "View
 Item" [15891]
-* Irrelevant dialog is displayed on selecting to Reschedule a 
+* Irrelevant dialog is displayed on selecting to Reschedule a
 Purchase Order Item [15892]
-* Order details are not populated in "Change P/O Item quantity" 
+* Order details are not populated in "Change P/O Item quantity"
 screen [15893]
-* Unable to close a Purchase order item from "Purchase Order items 
+* Unable to close a Purchase order item from "Purchase Order items
 by buffer status" screen [15894]
-* Transaction Date field is blank in "Distribute Consolidate Past 
+* Transaction Date field is blank in "Distribute Consolidate Past
 Production" screen [15895]
 * Omnibus: Unable to view the comments in the View mode [15896]
-* Incorrect text is displayed in Time Phase Planned Rough Cut by 
+* Incorrect text is displayed in Time Phase Planned Rough Cut by
 Work Center screen [15906]
-* Selecting to view parent sales order information for a work order 
+* Selecting to view parent sales order information for a work order
 displays a blank screen [15907]
 * Omnibus: It possible to edit a comment in View mode [15910]
-* "Running Availability" option is not functional in "Work Order 
+* "Running Availability" option is not functional in "Work Order
 Operations By Work Center" screen [15913]
-* Work order details are not populated in Post Production screen 
+* Work order details are not populated in Post Production screen
 [15914]
-* Post Operations screen doesn't display the Work Order number 
+* Post Operations screen doesn't display the Work Order number
 [15915]
-* "MPS Detail" option is not functional in "Work Order Operations 
+* "MPS Detail" option is not functional in "Work Order Operations
 By Work Center" screen [15916]
 * Print report of "Pick List" is displayed blank [15919]
 * Sales Order with incorrect subtotal [15920]
-* Irrelevant dialog is displayed on selecting to print credit 
+* Irrelevant dialog is displayed on selecting to print credit
 memos [15921]
-* Order with multiple kit line items do not handle status changes 
+* Order with multiple kit line items do not handle status changes
 correctly [15929]
-* api.contact access hindered via new privs and xteffectiveuser 
+* api.contact access hindered via new privs and xteffectiveuser
 when accessed from 3rd party app [15930]
-* Print report of Time-Phased Bookings screen doesn't honor the 
+* Print report of Time-Phased Bookings screen doesn't honor the
 filter selected [15934]
-* Irrelevant text is displayed in Contacts Master List print 
+* Irrelevant text is displayed in Contacts Master List print
 report [15935]
-* Print report of the Summarized Sales History screen doesn't 
+* Print report of the Summarized Sales History screen doesn't
 honor the "Item" filter selected [15937]
-* Selecting to print the "Labor Variance By Work Center" screen 
+* Selecting to print the "Labor Variance By Work Center" screen
 displays blank print report [15939]
-* Selecting to save a Purchase Order Line item generates DB log 
+* Selecting to save a Purchase Order Line item generates DB log
 error [15942]
 * Remove subaccounts from structure [15943]
-* Observation: Unable to edit the code of a "Subaccount" Type 
+* Observation: Unable to edit the code of a "Subaccount" Type
 [15955]
 * "Previous" button is not functional in the edit mode of "Vendor"
 screen [15957]
-* Print report of "List Open Voucher" screen doesn't include the Tax 
+* Print report of "List Open Voucher" screen doesn't include the Tax
 amount [15958]
-* Invoice report does not show all currency symbols or total page 
+* Invoice report does not show all currency symbols or total page
 count [15960]
-* Cancel line item (kit) when component are issued to shipping 
+* Cancel line item (kit) when component are issued to shipping
 [15963]
 * Sales Account Assignments [15964]
-* Printing Journals does not work when system is set to post to 
+* Printing Journals does not work when system is set to post to
 Journals instead of General Ledger [15968]
-* Sales Order Shipping Notes is not added to the Drop-Ship Purchase 
+* Sales Order Shipping Notes is not added to the Drop-Ship Purchase
 Orders linked to the Sales orders [15971]
-* History by Location report gives all locations and not specfic 
+* History by Location report gives all locations and not specfic
 ones [15976]
 * Problem with CRM personal security [15982]
 * Able to voucher an unposted receipt [15983]
 * Query Bug in returnAuthorizationItem.cpp [15988]
 * Sales order created by return receipts are on return hold [15991]
 * Manual changes are not saved in the RA screen [15997]
-* Can not open a sales order after posting receipt form a Return 
+* Can not open a sales order after posting receipt form a Return
 [16002]
-* Unable to edit/view contacts from the "Merge contacts" screen 
+* Unable to edit/view contacts from the "Merge contacts" screen
 [16008]
-* DB error if creating a sales order with auto-create projects 
+* DB error if creating a sales order with auto-create projects
 turned on and no privilege [16015]
-* postBillingselection(integer) has been deprecated. Please use 
+* postBillingselection(integer) has been deprecated. Please use
 createInvoice(integer) [16017]
 * returnWoMaterial.sql [16018]
 * Legacy submit button on run mrp [16024]
-* Can not edit Item Sources on the item window when in view mode 
+* Can not edit Item Sources on the item window when in view mode
 [16026]
-* User is prompted whether to update work order dates when there 
+* User is prompted whether to update work order dates when there
 are no work orders [16029]
 * List customers [16030]
 * Blank Ship-To records created for customers [16034]
 * FRE YTD figure incorrect [16035]
 * Fixes and enhancements to MRP Exceptions [16064]
 * Sitecal - wo select next working day is not working [16068]
-* Irrelevant dialog is displayed on selecting the Due date for a 
+* Irrelevant dialog is displayed on selecting the Due date for a
 work order [16073]
-* Omnibus issue: sitecal errors for date widget on PO, SO, TO, WO 
+* Omnibus issue: sitecal errors for date widget on PO, SO, TO, WO
 and Returns [16077]
 
 ==================================
