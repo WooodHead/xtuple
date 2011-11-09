@@ -112,21 +112,21 @@ function sVoid()
 
     // build the message
     var params = new Object;
-    params.ccpayid = _transactions.id;
+    params.ccpayid = _transactions.id();
     params.key     = mainwindow.key;
     var anq = toolbox.executeQuery(
           "SELECT ccard_active,"
-        + "  formatbytea(decrypt(setbytea(ccard_number),   setbytea(<? value(\"key\" ?>),'bf'))   AS ccard_number,"
-        + "  formatccnumber(decrypt(setbytea(ccard_number),setbytea(<? value(\"key\" ?>),'bf')) AS ccard_number_x,"
-        + "  formatbytea(decrypt(setbytea(ccard_name),     setbytea(<? value(\"key\" ?>),'bf')) AS ccard_name,"
-        + "  formatbytea(decrypt(setbytea(ccard_address1), setbytea(<? value(\"key\" ?>),'bf')) AS ccard_address1,"
-        + "  formatbytea(decrypt(setbytea(ccard_address2), setbytea(<? value(\"key\" ?>),'bf')) AS ccard_address2,"
-        + "  formatbytea(decrypt(setbytea(ccard_city),     setbytea(<? value(\"key\" ?>),'bf')) AS ccard_city,"
-        + "  formatbytea(decrypt(setbytea(ccard_state),    setbytea(<? value(\"key\" ?>),'bf')) AS ccard_state,"
-        + "  formatbytea(decrypt(setbytea(ccard_zip),      setbytea(<? value(\"key\" ?>),'bf')) AS ccard_zip,"
-        + "  formatbytea(decrypt(setbytea(ccard_country),  setbytea(<? value(\"key\" ?>),'bf')) AS ccard_country,"
-        + "  formatbytea(decrypt(setbytea(ccard_month_expired),setbytea(<? value(\"key\" ?>),'bf')) AS ccard_month_expired,"
-        + "  formatbytea(decrypt(setbytea(ccard_year_expired),setbytea(<? value(\"key\" ?>), 'bf')) AS ccard_year_expired,"
+        + "  formatbytea(decrypt(setbytea(ccard_number),   setbytea(<? value('key' ?>),'bf'))   AS ccard_number,"
+        + "  formatccnumber(decrypt(setbytea(ccard_number),setbytea(<? value('key' ?>),'bf')) AS ccard_number_x,"
+        + "  formatbytea(decrypt(setbytea(ccard_name),     setbytea(<? value('key' ?>),'bf')) AS ccard_name,"
+        + "  formatbytea(decrypt(setbytea(ccard_address1), setbytea(<? value('key' ?>),'bf')) AS ccard_address1,"
+        + "  formatbytea(decrypt(setbytea(ccard_address2), setbytea(<? value('key' ?>),'bf')) AS ccard_address2,"
+        + "  formatbytea(decrypt(setbytea(ccard_city),     setbytea(<? value('key' ?>),'bf')) AS ccard_city,"
+        + "  formatbytea(decrypt(setbytea(ccard_state),    setbytea(<? value('key' ?>),'bf')) AS ccard_state,"
+        + "  formatbytea(decrypt(setbytea(ccard_zip),      setbytea(<? value('key' ?>),'bf')) AS ccard_zip,"
+        + "  formatbytea(decrypt(setbytea(ccard_country),  setbytea(<? value('key' ?>),'bf')) AS ccard_country,"
+        + "  formatbytea(decrypt(setbytea(ccard_month_expired),setbytea(<? value('key' ?>),'bf')) AS ccard_month_expired,"
+        + "  formatbytea(decrypt(setbytea(ccard_year_expired),setbytea(<? value('key' ?>), 'bf')) AS ccard_year_expired,"
         + "  cust.*,"
         + "  ccpay.*,"
         + "  curr_symbol.*"
@@ -134,7 +134,7 @@ function sVoid()
         + "WHERE ((ccard_cust_id=cust_id)"
         + "  AND  (ccard_id=ccpay_ccard_id)"
         + "  AND  (curr_id=ccpay_curr_id)"
-        + "  AND  (ccpay_id=<? value(\"ccpayid\") ?>));",
+        + "  AND  (ccpay_id=<? value('ccpayid') ?>));",
           params);
 
     if (anq.first())

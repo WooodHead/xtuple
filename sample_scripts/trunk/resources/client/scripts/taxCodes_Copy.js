@@ -5,22 +5,18 @@ function copyClicked()
 
   var qry = toolbox.executeQuery("INSERT INTO tax"
                                 +"      (tax_code, tax_descrip,"
-                                +"       tax_sales_accnt_id, tax_ratea,"
-                                +"       tax_salesb_accnt_id, tax_rateb,"
-                                +"       tax_salesc_accnt_id, tax_ratec,"
-                                +"       tax_freight, tax_cumulative) "
+                                +"       tax_sales_accnt_id, tax_taxclass_id,"
+                                + "      tax_taxauth_id, tax_basis_tax_id) "
                                 +"SELECT tax_code||'_copy', tax_descrip,"
-                                +"       tax_sales_accnt_id, tax_ratea,"
-                                +"       tax_salesb_accnt_id, tax_rateb,"
-                                +"       tax_salesc_accnt_id, tax_ratec,"
-                                +"       tax_freight, tax_cumulative"
+                                +"       tax_sales_accnt_id, tax_taxclass_id,"
+                                + "      tax_taxauth_id, tax_basis_tax_id"
                                 +"  FROM tax"
-                                +" WHERE(tax_id=<? value(\"tax_id\") ?>);", params);
+                                +" WHERE(tax_id=<? value('tax_id') ?>);", params);
   if(qry.numRowsAffected()<1)
   {
-    toolbox.messageBox("information", mywindow,
-      "Copy Failed", "There was an error copying the selected Tax Code. "
-     +"Please check the Database Logs for additional information.");
+    QMessageBox.warning(mywindow, qsTr("Copy Failed"),
+                        qsTr("<p>There was an error copying the selected Tax Code. "
+                           + "Please check the Database Logs for additional information."));
     return;
   }
 
@@ -28,11 +24,13 @@ function copyClicked()
 }
 
 var btnView = mywindow.findChild("_view");
-var layout = toolbox.widgetGetLayout(btnView);
 var newbutton = toolbox.createWidget("QPushButton", mywindow, "_copyButton");
-newbutton.text="Cop&y";
-toolbox.layoutBoxInsertWidget(layout, 3, newbutton);
-newbutton.clicked.connect(copyClicked);
+newbutton.text=qsTr("Cop&y");
 newbutton.enabled=false;
+newbutton.clicked.connect(copyClicked);
+
+var layout = toolbox.widgetGetLayout(btnView);
+layout.addWidget(newbutton);
+
 var taxlist = mywindow.findChild("_tax");
 taxlist.valid.connect(newbutton, "setEnabled");
