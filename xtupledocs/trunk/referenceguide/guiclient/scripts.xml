@@ -5,10 +5,8 @@
 <section id="scriptsTitle">
   <title><indexterm significance="normal">
       <primary>scripts</primary>
-
       <secondary>master list of</secondary>
     </indexterm>Scripts</title>
-
   <para>xTuple ERP supports <ulink
   url="http://doc.trolltech.com/4.3/qtscript.html">QtScript</ulink>, a tool
   for loading UI forms using <ulink
@@ -20,7 +18,6 @@
   url="http://trolltech.com/products/qt/features/tools/designer">QtDesigner</ulink>.
   To learn more about scripting for xTuple ERP, please see the <ulink
   url="http://wiki.xtuple.org/ScriptingGuide">Scripting Guide</ulink>.</para>
-
   <tip>
     <para>You can enable automatic script debugging using the <ulink
     url="http://doc.trolltech.com/4.5/qtscriptdebugger-manual.html">Qt Script
@@ -30,25 +27,22 @@
     your script with this command. To learn more about the User Preferences
     setting, see <xref linkend="Section941111" />.</para>
   </tip>
-
   <para>To view the master list of available scripts, select the "Scripts"
   option. The following screen will appear:</para>
-
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/scripts.png" />
         </imageobject>
-
         <caption>Scripts Master List</caption>
       </mediaobject>
     </screenshot></para>
-
   <para>The scripts master list displays information on all stored scripts,
   including script name, description, order, and enabled status. If the script
   is part of a larger package, the name of the parent package will be
-  displayed—with all the child scripts appearing in a nested list below
-  it.</para>
+  displayed&mdash;with all the child scripts appearing in a nested list below
+  it. Select the "Organize By Package" option to see an indented view of the
+  scripts and the package they belong to.</para>
   <xi:include href="scriptEditor.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
