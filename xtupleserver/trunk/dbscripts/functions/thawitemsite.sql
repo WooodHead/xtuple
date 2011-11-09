@@ -4,6 +4,8 @@ CREATE OR REPLACE FUNCTION thawItemSite(INTEGER) RETURNS INTEGER AS $$
 DECLARE
   pItemsiteid ALIAS FOR $1;
   _qoh NUMERIC;
+  _netable_qoh NUMERIC;
+  _nonnetable_qoh NUMERIC;
   _value NUMERIC;
   _itemlocid INTEGER;
   _itemloc RECORD;
@@ -46,8 +48,9 @@ BEGIN
 
 --  Cache the initial qty of the itemloc specified by the
 --  itemsite/location/lot/serial
-        SELECT itemloc_id, itemloc_qty INTO _itemloc
-        FROM itemloc
+        SELECT itemloc_id, itemloc_qty, COALESCE(location_netable, TRUE) AS location_netable
+        INTO _itemloc
+        FROM itemloc LEFT OUTER JOIN location ON (location_id=itemloc_location_id)
         WHERE ( (itemloc_itemsite_id=pItemsiteid)
          AND (itemloc_location_id=_coarse.invdetail_location_id)
          AND (COALESCE(itemloc_ls_id,-1)=COALESCE(_coarse.invdetail_ls_id,-1))
@@ -66,11 +69,18 @@ BEGIN
             _coarse.invdetail_location_id, _coarse.invdetail_ls_id,
             0, endOfTime() );
 
-          _qoh := 0;
+          _qoh := 0.0;
+          _netable_qoh := 0.0;
+          _nonnetable_qoh := 0.0;
 
         ELSE
           _itemlocid := _itemloc.itemloc_id;
           _qoh := _itemloc.itemloc_qty;
+          IF (_itemloc.location_netable) THEN
+            _netable_qoh := _itemloc.itemloc_qty;
+          ELSE
+            _nonnetable_qoh := _itemloc.itemloc_qty;
+          END IF;
         END IF;
 
 --  Now step through each unposted invdetail record for a given
@@ -94,6 +104,11 @@ BEGIN
 
 --  Update the running qoh
           _qoh = (_qoh + _fine.invdetail_qty);
+          IF (_itemloc.location_netable) THEN
+            _netable_qoh := (_netable_qoh + _fine.invdetail_qty);
+          ELSE
+            _nonnetable_qoh := (_nonnetable_qoh + _fine.invdetail_qty);
+          END IF;
 
         END LOOP;
 
@@ -152,7 +167,8 @@ BEGIN
     END LOOP;
 
     UPDATE itemsite
-       SET itemsite_qtyonhand = _qoh,
+       SET itemsite_qtyonhand = _netable_qoh,
+           itemsite_nnqoh = _nonnetable_qoh,
            itemsite_value = CASE WHEN ((itemsite_costmethod='A') AND (_value < 0.0)) THEN 0.0
                                  ELSE _value END
      WHERE(itemsite_id=pItemsiteid);
