@@ -711,7 +711,7 @@ _rate.valueChanged.connect(xtte.timeExpenseSheetItem.extension);
 _workdate.newDate.connect(xtte.timeExpenseSheetItem.empTotals);
 _hours.textChanged.connect(xtte.timeExpenseSheetItem.extension);
 _hours.editingFinished.connect(xtte.timeExpenseSheetItem.actTotals);
-_rate.lostFocus.connect(xtte.timeExpenseSheetItem.actTotals);
+_rate.valueChanged.connect(xtte.timeExpenseSheetItem.actTotals);
 _type.newID.connect(xtte.timeExpenseSheetItem.typeChanged);
 _items["newId(int)"].connect(xtte.timeExpenseSheetItem.getPrice);
 _clients["newId(int)"].connect(xtte.timeExpenseSheetItem.customerChanged);
