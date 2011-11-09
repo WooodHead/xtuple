@@ -107,18 +107,15 @@
               specified quantity. This disposition is valid only for Job
               Items. Price controls will be disabled for this disposition. A
               new Sales Order with linked Work Order(s) will be created to
-              track work and shipping on the repair or service. Service or
-              repair items should first be received by the Return
-              Authorization. If the Job Item is Lot/Serial controlled, you
-              will be prompted to assign Lot/Serial numbers when the receipt
-              is posted. This assignment of Lot/Serial Numbers can be
+              track work and shipping on the repair or service. The billing
+              for service or repair work should be handled on the new Sales
+              Order. Service or repair items should first be received by the
+              Return Authorization. If the Job Item is Lot/Serial controlled,
+              you will be prompted to assign Lot/Serial numbers when the
+              receipt is posted. This assignment of Lot/Serial Numbers can be
               simplified if you link authorized line items with existing
               Lot/Serial Numbers at the line item level. For more information,
               please see <xref linkend="returnAuthItemLotSerial" />.</para>
-              <note>
-                <para>Money to be billed for service or repair should be set
-                at the New Sales Order.</para>
-              </note>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -127,8 +124,13 @@
               <para>Select to authorize a shipment of a specified quantity on
               a new Sales Order. The Price controls will be disabled for this
               disposition. A new corresponding Sales Order and line will be
-              created if one does not already exist. Any money to be billed
-              should be set on the new Sales Order line item.</para>
+              created if one does not already exist. The billing should be
+              handled on the new Sales Order. When there are line items on the
+              Return Authorization having the disposition "Ship" and the
+              timing is "Upon Receipt," then all the "Ship" disposition line
+              items will be created on the new Sales Order at the same
+              time&mdash;at the moment when the return is first
+              received.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -342,16 +344,16 @@
               located to the right of the field leads to a Price List
               screen.</para>
               <para>If your Pricing Schedule has multiple Units of Measure
-              (UOM) on it&mdash;or if several Pricing Schedules share the same level
-              of Price specificity, but they have different UOMs&mdash;then the UOM
-              which matches the selected UOM will be chosen&mdash;that is, as long
-              as the quantity break does not exceed the quantity being priced.
-              If no entry matches the UOM with a quantity break less than the
-              quantity being priced, then the lowest value Price for any UOM
-              will be chosen. To make sure a specific UOM is always chosen at
-              the desired level of Price specificity, then your Pricing
-              Schedules should include at least one UOM with a quantity break
-              of 0.</para>
+              (UOM) on it&mdash;or if several Pricing Schedules share the same
+              level of Price specificity, but they have different
+              UOMs&mdash;then the UOM which matches the selected UOM will be
+              chosen&mdash;that is, as long as the quantity break does not
+              exceed the quantity being priced. If no entry matches the UOM
+              with a quantity break less than the quantity being priced, then
+              the lowest value Price for any UOM will be chosen. To make sure
+              a specific UOM is always chosen at the desired level of Price
+              specificity, then your Pricing Schedules should include at least
+              one UOM with a quantity break of 0.</para>
               <note>
                 <para>The Price controls will be automatically disabled for
                 Line Items if a credit method has not been specified or for
