@@ -20,6 +20,13 @@
   same MetaSQL Statement. For more information, please see the <ulink
   url="http://www.xtuple.org/node/270">MetaSQL advanced topic</ulink> in the
   OpenRPT User Guide.</para>
+  <note>
+    <para>You must have been granted the <literal>ViewMetaSQL</literal>
+    privilege to view statements, the <literal>MaintainMetaSQL</literal>
+    privilege to create or edit statements, and the
+    <literal>ExecuteMetaSQL</literal> privilege to run statements that change
+    the database.</para>
+  </note>
   <para>To access the master list of MetaSQL Statements, select the "MetaSQL
   Statements" option. The following screen will appear:</para>
   <para><screenshot>
@@ -31,14 +38,11 @@
       </mediaobject>
     </screenshot></para>
   <para>The "MetaSQL Statements" screen displays information on all existing
-  MetaSQL Statements, including Group, Name and Notes.</para>
-  <note>
-    <para>You must have been granted the <literal>ViewMetaSQL</literal>
-    privilege to view statements, the <literal>MaintainMetaSQL</literal>
-    privilege to create or edit statements, and the
-    <literal>ExecuteMetaSQL</literal> privilege to run statements that change
-    the database.</para>
-  </note>
+  MetaSQL Statements, including Group, Name and Notes. If the MetaSQL is part
+  of a larger package, the name of the parent package will be
+  displayed&mdash;with all the child MetaSQL statements appearing in a nested
+  list below it. Select the "Organize By Package" option to see an indented
+  view of the MetaSQL statements and the package they belong to.</para>
   <xi:include href="metasqlEditor.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
