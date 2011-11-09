@@ -10,9 +10,9 @@
             or all warehouses
    _list    an XTreeWidget to display the resulting data in tabular form
    _update  an XCheckBox with which the user can request automatic updates
-   _close   \
+   _close   -
    _query    } QPushButtons to perform the obvious
-   _print   /
+   _print   -
 */
 
 /*
@@ -79,8 +79,8 @@ function query()
         +"   LEFT OUTER JOIN location ON (itemloc_location_id = location_id)"
         +" WHERE ((itemsite_item_id = item_id)"
         // restrict but only if the user selected a single warehouse with _group
-        +" <? if exists(\"warehous_id\") ?> "
-        +"   and (itemsite_warehous_id = <? value(\"warehous_id\") ?>)"
+        +" <? if exists('warehous_id') ?> "
+        +"   and (itemsite_warehous_id = <? value('warehous_id') ?>)"
         +" <? endif ?> "
         +"   and (itemsite_warehous_id = warehous_id) "
         +"   and (itemsite_loccntrl = 't' or itemsite_controlmethod = 'L')      )  "

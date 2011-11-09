@@ -9,11 +9,12 @@ function womatlClicked()
                                 +" WHERE((wo_ordtype='S')"
                                 +"   AND (wo_ordid=coitem_id)"
                                 +"   AND (coitem_cohead_id=cohead_id)"
-                                +"   AND (coitem_linenumber=<? value(\"linenumber\") ?>)"
-                                +"   AND (cohead_number=<? value(\"sonumber\") ?>));", params);
+                                +"   AND (coitem_linenumber=<? value('linenumber') ?>)"
+                                +"   AND (cohead_number=<? value('sonumber') ?>));", params);
   if(!qry.first())
   {
-    toolbox.messageBox("information", mywindow, "No W/O Available", "There currently is no W/O available for displaying.");
+    QMessageBox.warning(mywindow, qsTr("No W/O Available"),
+                        qsTr("There is no W/O available to display."));
     return;
   }
   
@@ -31,9 +32,11 @@ function womatlClicked()
   }
 }
 
+var newbutton = toolbox.createWidget("QPushButton", mywindow, "_womatlButton");
+newbutton.text=qsTr("W/O Matl.");
+
 var btnCancel = mywindow.findChild("_cancel");
 var layout = toolbox.widgetGetLayout(btnCancel);
-var newbutton = toolbox.createWidget("QPushButton", mywindow, "_womatlButton");
-newbutton.text="W/O Matl.";
-toolbox.layoutBoxInsertWidget(layout, 4, newbutton);
+
+layout.addWidget(newbutton);
 newbutton.clicked.connect(womatlClicked);
