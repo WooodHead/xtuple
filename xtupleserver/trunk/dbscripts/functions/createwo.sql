@@ -183,7 +183,7 @@ BEGIN
   END IF;
 
 --  Check to see if the site calendar metric is set, and if so adjust the start date
-  IF (fetchmetricbool('UseSiteCalforWO')) THEN
+  IF (fetchmetricbool('UseSiteCalendar')) THEN
     _startDate := calculatenextworkingdate(_itemsite.itemsite_warehous_id, pDueDate, -_itemsite.itemsite_leadtime);
   ELSE
     _startDate := pStartDate;
