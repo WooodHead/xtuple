@@ -54,7 +54,7 @@ xtte.project.populated = function(input)
     _billingGroup.enabled = false;
   }
 
-  sql = "SELECT prj_id FROM prj WHERE prj_number=<? value(\"prj_number\") ?>;";
+  sql = "SELECT prj_id FROM prj WHERE prj_number=<? value('prj_number') ?>;";
   var params = new Object;
   params.prj_number = _number.text;
  
