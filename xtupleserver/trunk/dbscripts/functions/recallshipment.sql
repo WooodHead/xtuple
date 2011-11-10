@@ -136,6 +136,23 @@ BEGIN
 
     END LOOP;
 
+-- Kit billing selection
+-- Set kit billing qty to zero since kits are shipped complete
+    FOR _cobill IN SELECT cobill_id, cobill_qty
+                   FROM shipitem JOIN coitem sub ON (sub.coitem_id=shipitem_orderitem_id)
+                                 JOIN coitem kit ON (kit.coitem_id <> sub.coitem_id AND
+                                                     kit.coitem_cohead_id = sub.coitem_cohead_id AND
+                                                     kit.coitem_linenumber = sub.coitem_linenumber AND
+                                                     kit.coitem_subnumber = 0)
+                                 JOIN cobill ON (cobill_coitem_id=kit.coitem_id)
+                   WHERE (shipitem_shiphead_id=pshipheadid)
+                     AND (sub.coitem_subnumber > 0)
+                   GROUP BY cobill_id, cobill_qty
+    LOOP
+      UPDATE cobill SET cobill_qty = 0.0
+      WHERE (cobill_id=_cobill.cobill_id);
+    END LOOP;
+
   ELSEIF (_shiphead.shiphead_order_type = 'TO') THEN
     SELECT * INTO _to
       FROM tohead
