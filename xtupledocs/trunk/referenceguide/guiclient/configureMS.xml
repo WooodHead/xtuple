@@ -48,60 +48,17 @@
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term>Use Site Calendar for</term>
+        <term>Enforce Site Calendar for Planning and Orders</term>
         <listitem>
-          <para>Select any of the following order types if want the
-          calendaring system to honor the Site Week and Site Calendar
-          Exceptions when these types of orders are entered.</para>
-          <note>
-            <para>When this feature is enabled, users entering order dates
-            will get a warning about non-working days and be prompted to pick
-            the next available working day. For example, the scheduled date on
-            the Sales Order Item screen will not accept dates that are
-            non-working days, as defined on the Site Week calendar.</para>
-          </note>
-          <variablelist>
-            <varlistentry>
-              <term>Purchase Orders</term>
-              <listitem>
-                <para>Select if you want Purchase Orders to honor the Site
-                Week and Site Calendar Exceptions. If not selected, Purchase
-                Orders may be entered for any calendar day.</para>
-              </listitem>
-            </varlistentry>
-            <varlistentry>
-              <term>Sales Orders</term>
-              <listitem>
-                <para>Select if you want Sales Orders to honor the Site Week
-                and Site Calendar Exceptions. If not selected, Sales Orders
-                may be entered for any calendar day.</para>
-              </listitem>
-            </varlistentry>
-            <varlistentry>
-              <term>Transfer Orders</term>
-              <listitem>
-                <para>Select if you want Transfer Orders to honor the Site
-                Week and Site Calendar Exceptions. If not selected, Transfer
-                Orders may be entered for any calendar day.</para>
-              </listitem>
-            </varlistentry>
-            <varlistentry>
-              <term>Work Orders</term>
-              <listitem>
-                <para>Select if you want Work Orders to honor the Site Week
-                and Site Calendar Exceptions. If not selected, Work Orders may
-                be entered for any calendar day.</para>
-              </listitem>
-            </varlistentry>
-            <varlistentry>
-              <term>Returns</term>
-              <listitem>
-                <para>Select if you want Returns to honor the Site Week and
-                Site Calendar Exceptions. If not selected, Returns may be
-                entered for any calendar day.</para>
-              </listitem>
-            </varlistentry>
-          </variablelist>
+          <para>Select if you want the planning and order entry systems to
+          recognize non-working days, as defined by the Site Week and Site
+          Calendar Exceptions. If not selected, every day will be treated as a
+          working day when either running the planning systems or entering the
+          following types of orders: Purchase Orders, Sales Orders, Transfer
+          Orders, Work Orders, Return Authorizations. When this feature is
+          enabled, users entering order dates will be warned about non-working
+          days and will be prompted to pick the next available working
+          day.</para>
         </listitem>
       </varlistentry>
     </variablelist></para>
