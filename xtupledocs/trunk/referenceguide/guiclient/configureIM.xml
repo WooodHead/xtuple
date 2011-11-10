@@ -129,6 +129,20 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Enable As-Of QOH Reporting</term>
+      <listitem>
+        <para>Select to add an "As Of" date option to the Quantity on Hand
+        report so that Inventory quantities and values can be determined for
+        any given date. If not selected, Inventory values shown in the
+        Quantity on Hand report will always reflect current values.</para>
+        <warning>
+          <para>You should only enable As-Of QOH reporting during off hours,
+          as this option may require extensive processing when it is
+          run.</para>
+        </warning>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Set default Location while transacting Location-controlled
       Items</term>
       <listitem>
@@ -312,7 +326,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Warn if Purchase Order Receipt Qty differs from receivable Qty</term>
+      <term>Warn if Purchase Order Receipt Qty differs from receivable
+      Qty</term>
       <listitem>
         <para>Select to generate a warning message if the entered quantity to
         receive does not match the quantity remaining to be received. The
@@ -336,15 +351,15 @@
         <para>If selected, Purchase Price Variances (PPV) will be recorded
         when Purchase Order receipts are posted. This applies to Inventory
         Items using Standard Cost. If not selected, then the default system
-        behavior will be in effect&mdash;that is, PPV will be recorded when Vouchers
-        are posted. It's technically possible (although unlikely) for PPV be
-        recorded both at receipt and at Voucher time. This situation would
-        occur if and only if the vouchered cost is different from the Purchase
-        Order cost. For the PPV to be recorded twice, the following conditions
-        would have to exist: First, there would have to be a difference
-        between Purchase Order price and an Item's Standard Cost, and, second,
-        there would also have to be a difference between the Purchase Order
-        price and the vouchered price.</para>
+        behavior will be in effect&mdash;that is, PPV will be recorded when
+        Vouchers are posted. It's technically possible (although unlikely) for
+        PPV be recorded both at receipt and at Voucher time. This situation
+        would occur if and only if the vouchered cost is different from the
+        Purchase Order cost. For the PPV to be recorded twice, the following
+        conditions would have to exist: First, there would have to be a
+        difference between Purchase Order price and an Item's Standard Cost,
+        and, second, there would also have to be a difference between the
+        Purchase Order price and the vouchered price.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
