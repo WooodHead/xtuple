@@ -13,8 +13,8 @@
   <para>The "Quantities on Hand" screen provides up-to-date QOH information,
   as well as information about Inventory values by Item Site. This is a
   particularly useful screen for anyone who manages physical Inventory. From
-  the right-click menu, you can transfer and adjust quantities&mdash;or enter Count
-  Tags and miscellaneous physical counts. The columns in the screen also
+  the right-click menu, you can transfer and adjust quantities&mdash;or enter
+  Count Tags and miscellaneous physical counts. The columns in the screen also
   provide detailed Item Site information, including Location details, reorder
   levels, and more.</para>
   <para>Here are some tips for using this screen:</para>
@@ -30,6 +30,17 @@
       column will be calculated at the bottom of the display. It is not
       currently possible to view Inventory value at a point in time in the
       past.</para>
+    </listitem>
+    <listitem>
+      <para>You can choose to see historical Inventory values using the
+      "As-Of" filter option. This option shows point-in-time Inventory values
+      by Accounting Period. If you do not see the "As-Of" option, then you
+      probably haven't enabled the feature. You can learn more about enabling
+      the As-Of QOH feature here: <xref linkend="Anchor19758" />.</para>
+      <warning>
+        <para>You should only enable As-Of QOH reporting during off hours, as
+        this option may require extensive processing when it is run.</para>
+      </warning>
     </listitem>
     <listitem>
       <para>When a Quantity on Hand value displays in the color orange, this
