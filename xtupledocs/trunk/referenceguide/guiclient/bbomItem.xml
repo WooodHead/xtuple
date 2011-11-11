@@ -6,7 +6,7 @@
   <title><indexterm significance="normal">
       <primary>breeder items</primary>
       <secondary>adding to breeder bill</secondary>
-    </indexterm> <indexterm significance="normal">
+    </indexterm><indexterm significance="normal">
       <primary>components</primary>
       <secondary>adding new to breeder bill</secondary>
     </indexterm> Breeder Bill of Materials Item</title>
@@ -50,7 +50,7 @@
       <term><indexterm significance="normal">
           <primary>costing</primary>
           <secondary>for co-products</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>co-products</primary>
           <secondary>costs absorbed by</secondary>
         </indexterm>Effective</term>
@@ -68,10 +68,10 @@
       <term><indexterm significance="normal">
           <primary>costing</primary>
           <secondary>for co-products</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>breeder bills of materials</primary>
           <secondary>cost absorption in</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>co-products</primary>
           <secondary>costs absorbed by</secondary>
         </indexterm>Cost Absorption</term>
@@ -86,12 +86,17 @@
         <para><informalequation>
             <mathphrase>Absorption % x Total Breeder Item Cost / Co-Product
             Qty. Per on Breeder BOM</mathphrase>
-          </informalequation><note>
-            <para>As a rule, the system does not generate Costs for
-            By-Products. However, you may choose to assign User-Defined
-            Costing Elements to By-Products. Any manual By-Product Costs will
-            be factored into the costing for Co-Products.</para>
-          </note></para>
+          </informalequation></para>
+        <para>For best results, all your Breeder Co-Products and By-Products
+        should use the same costing method (i.e., either Standard or Average
+        Cost). Mixing the two costing methods on one Breeder Bill of Materials
+        can lead to unexpected results.</para>
+        <note>
+          <para>As a rule, the system does not generate Costs for By-Products.
+          However, you may choose to assign User-Defined Costing Elements to
+          By-Products. Any manual By-Product Costs will be factored into the
+          costing for Co-Products.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
