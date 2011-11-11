@@ -227,14 +227,8 @@
         application modules are included in the list.</para>
         <tip>
           <para>You can dramatically speed up the process of adding new users
-          by adding privileges by user role.</para>
+          by adding privileges by user role. </para>
         </tip>
-        <note>
-          <para>If individual user privileges appear to be disabled, that
-          means the user is assigned to a user role. The only way to change
-          individual privileges in this case is to remove the user from the
-          role.</para>
-        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -270,6 +264,62 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>Many of the available privileges govern users' ability to either view
+  or edit information. In some cases, however, it may be possible to perform
+  editing tasks on screens where only view privileges have been granted. Take
+  Item Sites, for example. Item Sites exist as their own objects with their
+  own privileges independent of Items. When you edit an Item Site, you are not
+  editing the Item itself, but an object associated with the Item. By
+  contrast, when you edit Item notes, Item transformations, or Item aliases,
+  you are editing things which belong exclusively and intrinsically to Item
+  records. On the Item screen, there is an option to view/edit Item Sites for
+  the Item. Let's imagine a user has privileges to edit Item Sites but to only
+  view Items. Following this example, xTuple would allow the user to edit Item
+  Sites from the Item record, even when in view mode.</para>
+  <para>Here are some examples of independent objects which may be editable
+  from a parent window, even in view mode:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Sales Orders when viewing a Customer</para>
+    </listitem>
+    <listitem>
+      <para>Item Sources when viewing an Item</para>
+    </listitem>
+    <listitem>
+      <para>Contacts when viewing a CRM Account</para>
+    </listitem>
+    <listitem>
+      <para>Documents from any screen that supports them</para>
+    </listitem>
+  </itemizedlist>
+  <para>Conversely, here are examples of attributes that belong exclusively to
+  and are editable only from a parent window in edit mode:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Number</para>
+    </listitem>
+    <listitem>
+      <para>Name</para>
+    </listitem>
+    <listitem>
+      <para>Notes</para>
+    </listitem>
+    <listitem>
+      <para>Characteristics</para>
+    </listitem>
+    <listitem>
+      <para>Alarms</para>
+    </listitem>
+    <listitem>
+      <para>Comments</para>
+    </listitem>
+    <listitem>
+      <para>Transformations (Item)</para>
+    </listitem>
+    <listitem>
+      <para>Ship-to Addresses (Customer)</para>
+    </listitem>
+  </itemizedlist>
   <para>The following buttons are located between the Available Privileges and
   Granted Privileges columns:</para>
   <variablelist>
@@ -318,9 +368,14 @@
   <para>While you may assign individual privileges by user, you also have the
   option to add user privileges by user role. Adding user privileges by user
   role can dramatically speed up the process of adding new users. You can
-  learn more about user roles here <xref linkend="groupsTitle" />. To add user
-  role privileges to a user profile, select the "Roles" tab, as shown in the
-  following screen:</para>
+  learn more about user roles here <xref linkend="groupsTitle" />.</para>
+  <tip>
+    <para>If individual user privileges appear to be disabled, that means the
+    user is assigned to a user role. The only way to change individual
+    privileges in this case is to remove the user from the role.</para>
+  </tip>
+  <para>To add user role privileges to a user profile, select the "Roles" tab,
+  as shown in the following screen:</para>
   <para><mediaobject>
       <imageobject>
         <imagedata fileref="images/user_groupTab.png" />
