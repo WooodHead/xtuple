@@ -252,10 +252,10 @@ specific configurations:
               <tbody>
                 <row>
                   <entry>3.2.0</entry>
-                  <entry>3.7.x</entry>
+                  <entry>3.7.3</entry>
                 </row>
                 <row>
-                  <entry>3.8.0</entry>
+                  <entry>3.7.4, 3.8.0</entry>
                   <entry>?</entry>
                 </row>
               </tbody>
@@ -275,7 +275,7 @@ specific configurations:
               </tbody>
             </entrytbl>
             <entry userlevel="installfromsrc">--with-krb5 --with-pam
-            --with-ldap --with-openssl --with-readline
+            --with-openssl --with-readline
             --prefix=/dir/where/you/want/to/install/postgresql<para
             os="macosx" userlevel="installfromsrc">--with-bonjour
             CFLAGS="-arch i386"</para></entry>
@@ -397,6 +397,13 @@ $ bin/psql -d template1 -f share/postgresql/contrib/pgcrypto.sql </programlistin
         <literal>tar xzf postgresq-version.tar.gz</literal></para>
       </listitem>
     </orderedlist>
+    <tip userlevel="installfromsrc">
+      <para>While you are at the PostgreSQL web site, you might want to get
+      the pgadmin GUI client as well. After your download of the PostgreSQL
+      source code is complete, back up your web browser two levels and then
+      click on pgadmin3 -&gt; release -&gt; latest version -&gt; os-name -&gt;
+      pgadmin3-version.suffix and install from this bundle.</para>
+    </tip>
     <para userlevel="installfromsrc">Then follow the steps in the PostgreSQL
     documentation on <ulink
     url="http://www.postgresql.org/docs/current/static/installation.html">installing
@@ -467,39 +474,41 @@ $ su
           work before you install them.</para>
         </listitem>
       </orderedlist></para>
+    <warning os="macosx" userlevel="installfromsrc">
+      <para>If building Mac Universal binaries, you need to adjust the
+      internal name that the PostgreSQL client library assigns to itself
+      <emphasis>before you build Qt</emphasis>. Otherwise there may be
+      problems logging in to the database server from the client
+      applications.<programlisting>$ cd .../wherever/postgres/is/installed/lib
+$ install_name_tool -id libpq.5.dylib libpq.5.dylib</programlisting></para>
+    </warning>
     <para os="linux" userlevel="installfromsrc"><programlisting>$ mkdir /opt/postgresql
 $ cd /opt/postgresql
 $ tar xzvf download-directory/postgresql-version.tar.gz
 $ cd postgresql-version
-$ ./configure # see table above for options
-$ make
+$ ./configure # see table above for options</programlisting></para>
+    <para os="linux" userlevel="installfromsrc">If there is the slightest
+    chance that you are going to use this PostgreSQL build to bundle xTuple
+    software releases, xTuple recommends that you modify the
+    <filename>Makefile</filename> for <filename>libpq</filename>. The
+    following change reduces the number of external dependencies by statically
+    linking various libraries used by <filename>libpq</filename>. Edit
+    <filename>/postgres/source/directory/src/interfaces/libpq/Makefile</filename>
+    and change the line that sets SHLIB_LINK if not win32 (line 59 in
+    PostgreSQL 9.0): <programlisting><code>SHLIB_LINK += -Wl,-Bstatic $(filter -lcrypt -ldes -lcom_err -lcrypto -lk5crypto -lkrb5 \
+              -lgssapi_krb5 -lgss -lgssapi -lssl -lsocket -lnsl -lresolv -lintl, $(LIBS))\
+              -Wl,-Bdynamic $(LDAP_LIBS_FE) $(PTHREAD_LIBS)</code></programlisting>This
+    adds the <literal>-Wl,-Bstatic</literal> flag before the
+    <literal>$(filter)</literal>, then turns off static linking afterward the
+    <literal>$(filter)</literal> with <literal>-Wl,-Bdynamic</literal>.</para>
+    <para os="linux" userlevel="installfromsrc">Now proceed to build
+    PostgreSQL, then test and install it:<programlisting>$ make
 $ make check
 $ su
 # make install
 # cd contrib/pgcrypto
-# make install</programlisting><orderedlist>
-        <listitem>
-          <para>Build and install PostgreSQL by following the directions in
-          the INSTALL file up through and including the gmake install
-          step.</para>
-        </listitem>
-        <listitem>
-          <para>Create a directory to hold the PostgreSQL installation.</para>
-        </listitem>
-        <listitem>
-          <para>If gmake does not exist, use make instead.</para>
-        </listitem>
-        <listitem>
-          <para>make check tests the binaries to make sure they work before
-          you install them.</para>
-        </listitem>
-      </orderedlist><tip>
-        <para>While you are at the PostgreSQL web site, you might want to get
-        the pgadmin GUI client as well. After your download of the PostgreSQL
-        source code is complete, back up your web browser two levels and then
-        click on pgadmin3 -&gt; release -&gt; latest version -&gt; os-name
-        -&gt; pgadmin3-version.suffix and install from this bundle.</para>
-      </tip></para>
+# make install</programlisting>On some distributions you may have to use
+    <literal>gmake</literal> instead of <literal>make</literal>.</para>
   </section>
   <section>
     <title>Get Qt from Nokia</title>
@@ -629,7 +638,7 @@ $ su
               <tbody>
                 <row>
                   <entry>3.6.0</entry>
-                  <entry>3.7.x</entry>
+                  <entry>3.8.0</entry>
                 </row>
               </tbody>
             </entrytbl>
@@ -647,7 +656,7 @@ $ su
             <entrytbl cols="2">
               <tbody>
                 <row>
-                  <entry>3.8</entry>
+                  <entry>3.8.1???</entry>
                   <entry></entry>
                 </row>
               </tbody>
@@ -656,10 +665,10 @@ $ su
             <entry userlevel="installfromsrc"><para>-prefix-install -prefix
             /where/you/want/qt -plugin-sql-psql -plugin-sql-odbc
             -plugin-sql-sqlite -qt-zlib -qt-libtiff -qt-libpng -qt-libmng
-            -qt-libjpeg -I/Library/PostgreSQL/8.4/include
-            -L/Library/PostgreSQL/8.4/lib -nomake examples -nomake
-            demos</para><para os="macosx" userlevel="installfromsrc">-arch x86
-            -arch x86_64</para></entry>
+            -qt-libjpeg -I/path/to/postgresql/include
+            -L/path/to/postgresql/lib -nomake examples -nomake
+            demos</para><para os="macosx" userlevel="installfromsrc">-arch
+            x86</para></entry>
           </row>
         </tbody>
       </tgroup>
@@ -700,7 +709,12 @@ $ su
     <para userlevel="installfromsrc">You can find the Qt sources at <ulink
     url="http://download.qt.nokia.com/qt/source/">http://download.qt.nokia.com/qt/source/</ulink>.
     Building Qt from source takes a long time, so start your Qt build when you
-    have lots of other work to do or before leaving work for the day.</para>
+    have lots of other work to do or before leaving work for the day.<note>
+        <para>Even though the xTuple applications do not rely on the Qt3
+        Support library, the Squish test framework does. If you are planning
+        on testing the application with Squish, make sure that you build Qt
+        with Qt3 support.</para>
+      </note></para>
     <para condition="mingw" os="windows" userlevel="installfromsrc">After
     downloading the source . zip file, follow these steps to build from
     source:<orderedlist>
@@ -761,6 +775,7 @@ $ sudo make install</programlisting>The<literal> -no-framework</literal>
         <para>If you want to build universal binaries then you must have
         PostgreSQL universal binaries as well.</para>
       </tip></para>
+    <para os="macosx">If you have problems with loading the</para>
     <para os="linux" userlevel="installfromsrc">xTuple has not tried building
     PostBooks using Qt directly from Linux distribution installations, such as
     RPMs. If you try doing this then you are on your own.<programlisting>$ mkdir /opt/qt
