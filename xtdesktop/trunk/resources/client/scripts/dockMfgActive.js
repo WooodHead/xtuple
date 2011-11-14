@@ -131,7 +131,7 @@ function openWindowMfgAct()
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on a Purch Activity item.
+  Adds actions to @a pMenu, typically from a right click on a Purch Activity item.
 */
 function populateMenuMfgAct(pMenu, pItem)
 {
@@ -139,7 +139,8 @@ function populateMenuMfgAct(pMenu, pItem)
   var act = pItem.rawValue("activity");
   var enable = privilegeCheckMfgAct(act);
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, enable);
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = enable;
   menuItem.triggered.connect(openWindowMfgAct);
 }
 

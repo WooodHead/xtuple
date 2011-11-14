@@ -87,7 +87,7 @@ function initDockSalesHist()
   Fills the list with sales history data based on parameters determined by
   sales history preferences.
 
-  \sa preferencesSalesHist()
+  @sa preferencesSalesHist()
 */
 function fillListSalesHist()
 {
@@ -147,13 +147,13 @@ function fillListSalesHist()
 }
 
 /*!
-  Returns an object with a list containing \a startDate and \a endDate
+  Returns an object with a list containing @a startDate and @a endDate
   that is used for fetching data and opening windows using the date range
   stored in local preferences.
  
-  \sa preferencesSalesHist()
-  \sa openWindowSalesHist()
-  \sa fillListSalesHist()
+  @sa preferencesSalesHist()
+  @sa openWindowSalesHist()
+  @sa fillListSalesHist()
 */
 function getDatesSalesHist()
 {
@@ -176,7 +176,7 @@ function getDatesSalesHist()
 /*! 
   Loads local Sales History preferences into memory.
 
-  \sa preferencesSalesHist()
+  @sa preferencesSalesHist()
 */
 function loadPreferencesSalesHist()
 {
@@ -226,14 +226,15 @@ function openWindowSalesHist()
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on sales history.
+  Adds actions to @a pMenu, typically from a right click on sales history.
 */
 function populateMenuSalesHist(pMenu)
 {
   var menuItem;
   var enable = privilegeCheckSalesHist();
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, enable);
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = enable;
   menuItem.triggered.connect(openWindowSalesHist);
 }
 
@@ -248,7 +249,7 @@ function privilegeCheckSalesHist()
 /*! 
   Set up columns depending on local preferences.
 
-  \sa preferencesSalesHist()
+  @sa preferencesSalesHist()
 */
 function setColumnsSalesHist()
 {

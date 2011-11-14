@@ -91,7 +91,7 @@ function initDockGLAccounts()
   Fills the list with sales history data based on parameters determined by
   sales history preferences.
 
-  \sa preferencesGLAccounts()
+  @sa preferencesGLAccounts()
 */
 function fillListGLAccounts()
 {
@@ -138,7 +138,7 @@ function openWindowGLAccounts()
   params.period_id = _periodId;
   params.accnt_id = _glAccounts.id();
   params.run = true;
-  
+
   // Make sure we can open the window
   if (!privilegeCheckGLAccounts())
     return;
@@ -149,14 +149,15 @@ function openWindowGLAccounts()
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on sales history.
+  Adds actions to @a pMenu, typically from a right click on sales history.
 */
 function populateMenuGLAccounts(pMenu)
 {
   var menuItem;
   var enable = privilegeCheckGLAccounts();
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, enable);
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = enable;
   menuItem.triggered.connect(openWindowGLAccounts);
 }
 
@@ -165,7 +166,9 @@ function populateMenuGLAccounts(pMenu)
 */
 function privilegeCheckGLAccounts()
 {
-  return privileges.check("ViewGLTransactions");
+  var returnval = privileges.check("ViewGLTransactions");
+  print("privilegeCheckGLAccounts returning " + returnval);
+  return returnval;
 }
 
 /*! 

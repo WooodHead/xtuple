@@ -152,7 +152,7 @@ function openWindowPurchAct()
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on a Purch Activity item.
+  Adds actions to @a pMenu, typically from a right click on a Purch Activity item.
 */
 function populateMenuPurchAct(pMenu, pItem)
 {
@@ -160,7 +160,8 @@ function populateMenuPurchAct(pMenu, pItem)
   var act = pItem.rawValue("activity");
   var enable = privilegeCheckPurchAct(act);
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, enable);
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = enable;
   menuItem.triggered.connect(openWindowPurchAct);
 }
 

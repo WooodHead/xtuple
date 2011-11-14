@@ -85,14 +85,15 @@ function openWindowBankBal()
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on a bank account item.
+  Adds actions to @a pMenu, typically from a right click on a bank account item.
 */
 function populateMenuBankBal(pMenu, pItem)
 {
   var menuItem;
   var enable = privilegeCheckBankBal();
 
-  menuItem = toolbox.menuAddAction(pMenu, qsTr("Reconcile..."), enable);
+  menuItem = pMenu.addAction(qsTr("Reconcile..."));
+  menuItem.enabled = enable;
   menuItem.triggered.connect(openWindowBankBal);
 }
 

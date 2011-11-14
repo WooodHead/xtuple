@@ -95,13 +95,14 @@ function openWindowMyCntcts()
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on My Contacts.
+  Adds actions to @a pMenu, typically from a right click on My Contacts.
 */
 function populateMenuMyCntcts(pMenu)
 {
   var menuItem;
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, privilegeCheckMyCntcts());
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = privilegeCheckMyCntcts();
   menuItem.triggered.connect(openWindowMyCntcts);
 }
 

@@ -178,7 +178,7 @@ function toDoAct(actId)
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on My Contacts.
+  Adds actions to @a pMenu, typically from a right click on My Contacts.
 */
 function populateMenuToDo(pMenu)
 {
@@ -187,13 +187,14 @@ function populateMenuToDo(pMenu)
 
   var enable = privilegeCheckToDo(act);
   
-  menuItem = toolbox.menuAddAction(pMenu, _open, enable);
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = enable;
   menuItem.triggered.connect(openWindowToDo);
 
   if (act == "D")
   {
-    menuItem = toolbox.menuAddAction(pMenu, qsTr("Delete"),
-                                     privileges.check("MaintainPersonalToDoItems"));
+    menuItem = pMenu.addAction(qsTr("Delete"));
+    menuItem.enabled = privileges.check("MaintainPersonalToDoItems");
     menuItem.triggered.connect(deleteToDo);
   }
 }

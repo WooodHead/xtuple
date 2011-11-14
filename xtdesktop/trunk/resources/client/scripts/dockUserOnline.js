@@ -94,7 +94,7 @@ function openWindowUserOnline()
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on a user record.
+  Adds actions to @a pMenu, typically from a right click on a user record.
 */
 function populateMenuUserOnline(pMenu, pItem)
 {
@@ -104,7 +104,8 @@ function populateMenuUserOnline(pMenu, pItem)
   var menuItem;
   var enable = privilegeCheckUserOnline();
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, enable);
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = enable;
   menuItem.triggered.connect(openWindowUserOnline);
 }
 
