@@ -549,12 +549,13 @@ xtte.timeExpenseSheets.printReport = function()
 
 xtte.timeExpenseSheets.populateEmployees = function()
 {
-  currSql = "SELECT emp_id "
-          + "FROM  emp "
-          + "WHERE emp_username = CURRENT_USER;";
+  currSql = "SELECT crmacct_emp_id "
+          + "FROM  crmacct "
+          + "WHERE crmacct_usr_username = getEffectiveXtUser();";
+
   q = toolbox.executeQuery(currSql);
   if (q.first()) 
-    _employee.setId(q.value("emp_id"));
+    _employee.setId(q.value("crmacct_emp_id"));
 
   if (privileges.check("MaintainTimeExpenseOthers"))
     _showAllEmployees.visible = true;
