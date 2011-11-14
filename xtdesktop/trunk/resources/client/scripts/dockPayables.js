@@ -134,14 +134,15 @@ function openWindowPayables()
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on a bank account item.
+  Adds actions to @a pMenu, typically from a right click on a bank account item.
 */
 function populateMenuPayables(pMenu, pItem)
 {
   var menuItem;
   var enable = privilegeCheckPayables();
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, enable);
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = enable;
   menuItem.triggered.connect(openWindowPayables);
 }
 

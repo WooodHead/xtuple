@@ -102,14 +102,15 @@ function openWindowPurchOpen()
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on a Purchase Order item.
+  Adds actions to @a pMenu, typically from a right click on a Purchase Order item.
 */
 function populateMenuPurchOpen(pMenu, pItem)
 {
   var menuItem;
   var enable = privilegeCheckPurchOpen();
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, enable);
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = enable;
   menuItem.triggered.connect(openWindowPurchOpen);
 }
 

@@ -161,7 +161,7 @@ function openWindowExtensions()
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on an Extension item.
+  Adds actions to @a pMenu, typically from a right click on an Extension item.
 */
 function populateMenuExtensions(pMenu, pItem)
 {
@@ -179,7 +179,8 @@ function populateMenuExtensions(pMenu, pItem)
       (type != "U"))
     return;
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, enable);
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = enable;
   menuItem.triggered.connect(openWindowExtensions);
 }
 

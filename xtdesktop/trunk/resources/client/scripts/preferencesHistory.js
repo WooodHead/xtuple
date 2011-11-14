@@ -23,7 +23,7 @@ _timeFrame.append(3, qsTr("This Year"), "year");
 mydialog.accepted.connect(save);
 
 /*!
-  Parameters \a params are passed to set up selection criteria for the window
+  Parameters @a params are passed to set up selection criteria for the window
 */
 function set(params)
 {

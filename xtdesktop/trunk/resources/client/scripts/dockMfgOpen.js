@@ -113,14 +113,15 @@ function openWindowMfgOpen()
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on a Sales Order item.
+  Adds actions to @a pMenu, typically from a right click on a Sales Order item.
 */
 function populateMenuMfgOpen(pMenu, pItem)
 {
   var menuItem;
   var enable = privilegeCheckMfgOpen();
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, enable);
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = enable;
   menuItem.triggered.connect(openWindowMfgOpen);
 }
 

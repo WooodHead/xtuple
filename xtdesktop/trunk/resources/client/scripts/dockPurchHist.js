@@ -85,7 +85,7 @@ function initDockPurchHist()
   Fills the list with sales history data based on parameters determined by
   sales history preferences.
 
-  \sa preferencesPurchHist()
+  @sa preferencesPurchHist()
 */
 function fillListPurchHist()
 {
@@ -146,13 +146,13 @@ function fillListPurchHist()
 }
 
 /*!
-  Returns an object with a list containing \a startDate and \a endDate
+  Returns an object with a list containing @a startDate and @a endDate
   that is used for fetching data and opening windows using the date range
   stored in local preferences.
  
-  \sa preferencesPurchHist()
-  \sa openWindowPurchHist()
-  \sa fillListPurchHist()
+  @sa preferencesPurchHist()
+  @sa openWindowPurchHist()
+  @sa fillListPurchHist()
 */
 function getDatesPurchHist()
 {
@@ -175,7 +175,7 @@ function getDatesPurchHist()
 /*! 
   Loads local Sales History preferences into memory.
 
-  \sa preferencesPurchHist()
+  @sa preferencesPurchHist()
 */
 function loadPreferencesPurchHist()
 {
@@ -271,14 +271,15 @@ function openWindowPurchHist()
 }
 
 /*!
-  Adds actions to \a pMenu, typically from a right click on sales history.
+  Adds actions to @a pMenu, typically from a right click on sales history.
 */
 function populateMenuPurchHist(pMenu)
 {
   var menuItem;
   var enable = privilegeCheckPurchHist();
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, enable);
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = enable;
   menuItem.triggered.connect(openWindowPurchHist);
 }
 
@@ -298,7 +299,7 @@ function privilegeCheckPurchHist()
 /*! 
   Set up columns depending on local preferences.
 
-  \sa preferencesPurchHist()
+  @sa preferencesPurchHist()
 */
 function setColumnsPurchHist()
 {

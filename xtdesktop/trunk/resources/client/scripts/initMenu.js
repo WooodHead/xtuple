@@ -143,8 +143,8 @@ else
 }
 
 /*!
-  Adds screen with name of \a uiName to the desktop stack so long as the user has
-  been granted the privilege a\ privName. The a\ windowTitle of the UI object is 
+  Adds screen with name of @a uiName to the desktop stack so long as the user has
+  been granted the privilege @a privName. The @a windowTitle of the UI object is 
   added to the Desktop Dock so that when it is clicked, the associated window is 
   selected on the Desktop.
 */
@@ -161,7 +161,7 @@ function addDesktop(uiName, imageName, privilege)
 }
 
 /*!
-  Add a buttun with \a label and \a imageName to the left desktop toolbar
+  Add a button with @a label and @a imageName to the left desktop toolbar
 */
 function addToolBarAction(label, imageName, privilege)
 {
