@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION toggleBankrecCleared(INTEGER, TEXT, INTEGER, NUMERIC) RETURNS BOOLEAN AS $$
+CREATE OR REPLACE FUNCTION toggleBankrecCleared(INTEGER, TEXT, INTEGER, NUMERIC, NUMERIC) RETURNS BOOLEAN AS $$
 -- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -7,6 +7,7 @@ DECLARE
   pSource    ALIAS FOR $2;
   pSourceid  ALIAS FOR $3;
   pCurrrate  ALIAS FOR $4;
+  pAmount    ALIAS FOR $5;
   _cleared BOOLEAN;
   _r RECORD;
 
@@ -22,16 +23,17 @@ BEGIN
     INSERT INTO bankrecitem
     (bankrecitem_bankrec_id, bankrecitem_source,
      bankrecitem_source_id, bankrecitem_cleared,
-     bankrecitem_curr_rate)
+     bankrecitem_curr_rate, bankrecitem_amount)
     VALUES
     (pBankrecid, pSource,
      pSourceid, _cleared,
-     pCurrrate);
+     pCurrrate, pAmount);
   ELSE
     _cleared := (NOT _r.bankrecitem_cleared);
     UPDATE bankrecitem
        SET bankrecitem_cleared=_cleared,
-           bankrecitem_curr_rate=pCurrrate
+           bankrecitem_curr_rate=pCurrrate,
+           bankrecitem_amount=pAmount
      WHERE (bankrecitem_id=_r.bankrecitem_id);
   END IF;
 
