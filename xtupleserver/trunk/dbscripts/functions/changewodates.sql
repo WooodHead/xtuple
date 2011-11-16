@@ -42,19 +42,23 @@ BEGIN
   END IF;
   
 --  Reschedule operations if routings enabled
-  IF ( ( SELECT (metric_value='t')
-         FROM metric
-         WHERE (metric_name='Routings') ) ) THEN
+  IF (fetchMetricBool('Routings')) THEN
 
 --    Reschedule wooper
-    UPDATE xtmfg.wooper
-    SET wooper_scheduled = calculatenextworkingdate(itemsite_warehous_id,DATE(pStartDate),
-	CAST(calculateworkdays(itemsite_warehous_id, DATE(wo_startdate), DATE(wooper_scheduled)) as INTEGER))
-    FROM wo
-    Inner Join itemsite on
-      wo_itemsite_id=itemsite_id
-    WHERE ( (wooper_wo_id=wo_id)
-     AND (wo_id=pWoid) );
+    IF (fetchMetricBool('UseSiteCalendar')) THEN
+      UPDATE xtmfg.wooper
+      SET wooper_scheduled = calculatenextworkingdate(itemsite_warehous_id,DATE(pStartDate),
+                             CAST(calculateworkdays(itemsite_warehous_id, DATE(wo_startdate), DATE(wooper_scheduled)) as INTEGER))
+      FROM wo JOIN itemsite ON (wo_itemsite_id=itemsite_id)
+      WHERE ( (wooper_wo_id=wo_id)
+        AND   (wo_id=pWoid) );
+    ELSE
+      UPDATE xtmfg.wooper
+      SET wooper_scheduled = (wooper_scheduled::DATE + (pStartDate - wo_startdate))
+      FROM wo
+      WHERE ( (wooper_wo_id=wo_id)
+        AND   (wo_id=pWoid) );
+    END IF;
 
 --    Reschedule any womatl that is linked to wooper items
 --    and is set to be scheduled with the wooper in question
@@ -64,6 +68,7 @@ BEGIN
     WHERE ( (womatl_schedatwooper)
      AND (womatl_wooper_id=wooper_id)
      AND (womatl_wo_id=pWoid) );
+
   END IF;
 
 -- Reschedule any womatl that is not linked to wooper items
