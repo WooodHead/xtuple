@@ -1,8 +1,8 @@
 -- Group: bankrec
 -- Name: checks
 -- Notes: used by reconcileBankaccount
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
--- See www.xtuple.com/CPAL for the full text of the software license.
+--        Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+--        See www.xtuple.com/CPAL for the full text of the software license.
 
 <? if exists("summary") ?>
 SELECT COALESCE(SUM(amount),0.0) AS cleared_amount
@@ -69,6 +69,7 @@ SELECT gltrans_id AS id, 1 AS altid,
  WHERE ((gltrans_accnt_id=bankaccnt_accnt_id)
    AND (NOT gltrans_deleted)
    AND (NOT gltrans_rec)
+   AND (NOT COALESCE(checkhead_void, false))
    AND (gltrans_amount > 0)
    AND (bankaccnt_id=<? value("bankaccntid") ?>) )
  UNION ALL
@@ -98,6 +99,7 @@ SELECT sltrans_id AS id, 2 AS altid,
                                         AND (sltrans_misc_id=checkhead_id))
  WHERE ((sltrans_accnt_id=bankaccnt_accnt_id)
    AND (NOT sltrans_rec)
+   AND (NOT COALESCE(checkhead_void, false))
    AND (sltrans_amount > 0)
    AND (bankaccnt_id=<? value("bankaccntid") ?>) )
  UNION ALL
