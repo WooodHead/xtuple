@@ -1,8 +1,8 @@
 -- Group: bankrecHistory
 -- Name: unreconciled
 -- Notes: 
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
--- See www.xtuple.com/CPAL for the full text of the software license.
+--        Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+--        See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT gltrans_id, gltrans_date, formatDate(gltrans_date) AS f_date,
       gltrans_docnumber,
@@ -34,9 +34,13 @@ SELECT gltrans_id, gltrans_date, formatDate(gltrans_date) AS f_date,
 
                               AND (bankrecitem_source_id=gltrans_id))
    LEFT OUTER JOIN bankrec actrec ON (actrec.bankrec_id = bankrecitem_bankrec_id)
+   LEFT OUTER JOIN checkhead ON ((gltrans_source='A/P')
+                             AND (gltrans_doctype='CK')
+                             AND (gltrans_misc_id=checkhead_id))
 <? if exists("showUnreconciled") ?>
  WHERE ((COALESCE(actrec.bankrec_postdate,endoftime()) > COALESCE(selrec.bankrec_postdate,now()))
-  AND (NOT gltrans_deleted))
+  AND (NOT gltrans_deleted)
+  AND (NOT COALESCE(checkhead_void, false)))
 <? else ?>
  WHERE (false)
 <? endif ?>
@@ -73,9 +77,12 @@ SELECT sltrans_id, sltrans_date, formatDate(sltrans_date) AS f_date,
 
                               AND (bankrecitem_source_id=sltrans_id))
    LEFT OUTER JOIN bankrec actrec ON (actrec.bankrec_id = bankrecitem_bankrec_id)
+   LEFT OUTER JOIN checkhead ON ((sltrans_source='A/P')
+                             AND (sltrans_doctype='CK')
+                             AND (sltrans_misc_id=checkhead_id))
 <? if exists("showUnreconciled") ?>
- WHERE ((COALESCE(actrec.bankrec_postdate,endoftime()) > COALESCE(selrec.bankrec_postdate,now())))
-
+ WHERE ((COALESCE(actrec.bankrec_postdate,endoftime()) > COALESCE(selrec.bankrec_postdate,now()))
+  AND (NOT COALESCE(checkhead_void, false)))
 <? if exists("treeView") ?>
 UNION
 SELECT -1, NULL, NULL, <? value("Checks") ?>, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL,'curr', 0 
