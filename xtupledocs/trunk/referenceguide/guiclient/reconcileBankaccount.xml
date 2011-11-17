@@ -35,13 +35,29 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Currency</term>
+      <listitem>
+        <para>Displays the Currency of the selected Bank Account. To help with
+        the reconciliation of foreign Currency transactions, the screen allows
+        you to edit the Exchange Rate for specific transactions. Simply click
+        on the "Exchange Rate" field for a given record to edit the Exchange
+        Rate for that record. Once the rate has been edited, double-click on
+        the row to save the changes. This feature is designed to help you
+        reconcile your Bank Accounts only and does <emphasis>not</emphasis>
+        have any impact on the General Ledger or your global Exchange
+        Rates.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Start Date</term>
       <listitem>
         <para>By default the start date field will be pre-populated based on
         the end date of your most recent Bank Reconciliation&mdash;if it
         exists. The date used will be one day after the previous Bank
         Reconciliation end date. If you want to use a different start date,
-        simply edit the date to your preferred date.</para>
+        simply edit the date to your preferred date. Keep in mind that once a
+        date range has been reconciled, it's not possible to re-reconcile the
+        same range twice. You must select new date range.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -49,7 +65,9 @@
       <listitem>
         <para>Specify the ending date of the current Bank Reconciliation
         period. Bank Reconciliations are identified by their date ranges, for
-        reporting purposes.</para>
+        reporting purposes. Keep in mind that once a date range has been
+        reconciled, it's not possible to re-reconcile the same range twice.
+        You must select new date range.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -69,14 +87,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>Double-click on a Deposit or Payment line to mark the Document as
-    "Cleared."</para>
-  </tip>
-  <note>
-    <para>Once a date range has been reconciled, it's not possible to
-    re-reconcile the same range twice. You must select new date range.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
@@ -95,7 +105,8 @@
         ("+") sign located to the far left of the display next to each Receipt
         or Deposit that may be expanded to lower levels. By clicking your
         mouse on a plus sign, you reveal lower levels of information related
-        to the group.</para>
+        to the group. Double-click on a Deposit line to mark the Document as
+        "Cleared" and to save any edits made to the Exchange Rate. </para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -108,14 +119,12 @@
       <term>Payments</term>
       <listitem>
         <para>Display lists posted Checks and other Payments which have not
-        been previously reconciled.</para>
+        been previously reconciled. Double-click on a Payment line to mark the
+        Document as "Cleared" and to save any edits made to the Exchange
+        Rate.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>Double-click on a Deposit or Payment line to mark the Document as
-    "Cleared."</para>
-  </tip>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
