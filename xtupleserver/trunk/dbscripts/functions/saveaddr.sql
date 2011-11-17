@@ -120,7 +120,6 @@ BEGIN
     END IF;
    
     UPDATE addr SET
-      addr_number = _addrNumber,
       addr_line1 = pAddr1, addr_line2 = pAddr2, addr_line3 = pAddr3,
       addr_city = pCity, addr_state = pState,
       addr_postalcode = pPostalcode, addr_country = pCountry,
