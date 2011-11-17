@@ -23,9 +23,7 @@ BEGIN
 
   -- If regular Item then enforce item_fractional
   IF (COALESCE(NEW.invcitem_item_id, -1) <> -1) THEN
-    SELECT item_fractional INTO _itemfractional
-    FROM item
-    WHERE (item_id=NEW.invcitem_item_id);
+    SELECT itemuomfractionalbyuom(NEW.invcitem_item_id, NEW.invcitem_qty_uom_id) INTO _itemfractional;
     IF (NOT _itemfractional) THEN
       IF (TRUNC(NEW.invcitem_ordered) <> NEW.invcitem_ordered) THEN
         RAISE EXCEPTION 'Item does not support fractional quantities';
