@@ -27,6 +27,7 @@ DECLARE
   _cost		NUMERIC;
   _cost1	NUMERIC;
   _cost2	NUMERIC;
+  _batchsize	NUMERIC;
 
 BEGIN
 
@@ -34,29 +35,35 @@ BEGIN
   FROM item
   WHERE (item_id=pItemid);
 
+  _batchsize := COALESCE( (
+    SELECT bomhead_batchsize
+    FROM bomhead
+    WHERE ((bomhead_item_id=pItemId)
+     AND  (bomhead_rev_id=getActiveRevId('BOM',pItemId)))), 1);
+
   -- find the lowercost in the base currency at the current conversion rate
   IF (_type IN ('M', 'F', 'B', 'T')) THEN
-    SELECT SUM( round(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE),6) * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/COALESCE(bomhead_batchsize,1) + bomitem_qtyper) * (1 + bomitem_scrap)) ),
-           SUM( itemcost_stdcost * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/COALESCE(bomhead_batchsize,1) + bomitem_qtyper) * (1 + bomitem_scrap)) )
-	INTO _actCost, _stdCost
-    FROM bomitem(pItemid)
-      JOIN item ON (item_id=bomitem_item_id AND item_type <> 'T')
-      JOIN itemcost ON (itemcost_item_id=bomitem_item_id)
-      JOIN costelem ON (costelem_id=itemcost_costelem_id AND costelem_type=pCosttype)
-      LEFT OUTER JOIN bomhead ON ((bomhead_item_id=pItemId)
-                             AND  (bomhead_rev_id=getActiveRevId('BOM',pItemId)))
-    WHERE ( (bomitem_parent_item_id=pItemid)
-     AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1)) );
-
-    IF (NOT FOUND) THEN
-      _actCost := NULL;
-      _stdCost := NULL;
-    END IF;
 
     IF (pActual) THEN
-	_cost  = _actCost;
+      SELECT SUM( round(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE),6) * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) )
+	  INTO _cost
+      FROM bomitem(pItemid)
+        JOIN item ON (item_id=bomitem_item_id AND item_type <> 'T')
+        JOIN itemcost ON (itemcost_item_id=bomitem_item_id)
+        JOIN costelem ON (costelem_id=itemcost_costelem_id AND costelem_type=pCosttype)
+      WHERE ( CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1) );
     ELSE
-	_cost  = _stdCost;
+      SELECT SUM( itemcost_stdcost * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) )
+	  INTO _cost
+      FROM bomitem(pItemid)
+        JOIN item ON (item_id=bomitem_item_id AND item_type <> 'T')
+        JOIN itemcost ON (itemcost_item_id=bomitem_item_id)
+        JOIN costelem ON (costelem_id=itemcost_costelem_id AND costelem_type=pCosttype)
+      WHERE ( CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1) ); 
+    END IF;
+    
+    IF (NOT FOUND) THEN
+      _cost := NULL;
     END IF;
 
   ELSIF (_type IN ('C')) THEN
