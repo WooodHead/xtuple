@@ -14,36 +14,9 @@
         <caption>Labor Variance by Work Center</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When viewing labor variances by Work Center, you are presented with
-  the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Work Center</term>
-      <listitem>
-        <para>Specify Work Center whose labor variances you want to
-        display.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Start Date</term>
-      <listitem>
-        <para>Labor variances by Work Center generated on or after this date
-        will be displayed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>End Date</term>
-      <listitem>
-        <para>Labor variances by Work Center generated on or before this date
-        will be displayed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Labor Variance</term>
-      <listitem>
-        <para>Display lists labor variances by Work Center, using the
-        specified parameters.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para>The default filter on the "Labor Variance by Work Center" screen shows
+  start/end dates and a Work Center selector. You can build your own search
+  criteria using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

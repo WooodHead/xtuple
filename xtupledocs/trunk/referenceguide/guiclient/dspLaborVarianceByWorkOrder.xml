@@ -14,49 +14,9 @@
         <caption>Material Usage Variance by Work Order</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying labor variances by Work Order, you are presented with
-  the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Work Order #</term>
-      <listitem>
-        <para>Enter the Work Order Number of the Work Order whose labor
-        variances you want to view.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Site</term>
-      <listitem>
-        <para>Displays Site code automatically when Work Order Number is
-        entered into "Work Order #" field.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Item Number</term>
-      <listitem>
-        <para>Displays Item Number automatically when Work Order Number is
-        entered into "Work Order #" field.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>UOM</term>
-      <listitem>
-        <para>Inventory Unit of Measure.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Status</term>
-      <listitem>
-        <para>Displays Work Order Status automatically when Work Order Number
-        is entered into "Work Order #" field.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Labor Variance</term>
-      <listitem>
-        <para>Display lists labor variances by Work Order, using the specified
-        parameters.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para>The default filter on the "Labor Variance by Work Order" screen shows
+  a Work Order selector. You can build your own search criteria using the
+  following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
