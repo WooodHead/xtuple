@@ -125,8 +125,15 @@ SELECT itemsite_id, detail,warehous_code,
        nnqoh, formatQty(nnqoh) AS f_nnqoh,
        CASE WHEN (itemsite_loccntrl) THEN nnqoh END AS f_nnqoh,
        cost, (cost * qoh) AS value,
+       CASE WHEN (itemsite_loccntrl) THEN (cost * nnqoh) END AS nnvalue,
+       CASE WHEN(itemsite_costmethod='A') THEN 'Average'
+            WHEN(itemsite_costmethod='S') THEN 'Standard'
+            WHEN(itemsite_costmethod='J') THEN 'Job'
+            WHEN(itemsite_costmethod='N') THEN 'None'
+         ELSE 'UNKNOWN'
+       END AS costmethod,
   <? if exists("showValue") ?>
-       formatMoney(cost) AS f_cost, formatMoney(cost * qoh) AS f_value,
+       formatMoney(cost) AS f_cost, (cost * qoh) AS f_value,
        CASE WHEN (itemsite_loccntrl) THEN (cost * nnqoh) END AS f_nnvalue,
        CASE WHEN(itemsite_costmethod='A') THEN 'Average'
             WHEN(itemsite_costmethod='S') THEN 'Standard'
@@ -139,14 +146,14 @@ SELECT itemsite_id, detail,warehous_code,
        'qty' AS qoh_xtnumericrole,
        'qty' AS f_nnqoh_xtnumericrole,
        0 AS qoh_xttotalrole,
-       0 AS f_nnqoh_xttotalrole,
+       0 AS nnqoh_xttotalrole,
        'cost' AS cost_xtnumericrole,
        'curr' AS value_xtnumericrole,
-       'curr' AS f_nnvalue_xtnumericrole,
+       'curr' AS nnvalue_xtnumericrole,
        0 AS value_xttotalrole,
-       0 AS f_nnvalue_xttotalrole,
-       <? value("na") ?> AS f_nnqoh_xtnullrole,
-       <? value("na") ?> AS f_nnvalue_xtnullrole,
+       0 AS nnvalue_xttotalrole,
+       <? value("na") ?> AS nnqoh_xtnullrole,
+       <? value("na") ?> AS nnvalue_xtnullrole,
        CASE WHEN (qoh < 0) THEN 'error' END AS qoh_qtforegroundrole,
        CASE WHEN (reorderlevel > qoh) THEN 'warning' END AS qoh_qtforegroundrole
 FROM (
