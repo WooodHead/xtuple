@@ -14,7 +14,7 @@ BEGIN
   FROM char
   WHERE ((char_name=pChar)
   AND ((pType IN ('C','CT') AND char_customers)
-    OR (pType IN ('I','SI','QI','W') AND char_items)
+    OR (pType IN ('I','SI','QI','W','PI','TI') AND char_items)
     OR (pType='CRMACCT' AND char_crmaccounts)
     OR (pType='ADDR' AND char_addresses)
     OR (pType='CNTCT' AND char_contacts)
