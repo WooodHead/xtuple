@@ -95,14 +95,13 @@ function openWindowMyCntcts()
 }
 
 /*!
-  Adds actions to @a pMenu, typically from a right click on My Contacts.
+  Adds actions to \a pMenu, typically from a right click on My Contacts.
 */
 function populateMenuMyCntcts(pMenu)
 {
   var menuItem;
 
-  menuItem = pMenu.addAction(_open);
-  menuItem.enabled = privilegeCheckMyCntcts();
+  menuItem = toolbox.menuAddAction(pMenu, _open, privilegeCheckMyCntcts());
   menuItem.triggered.connect(openWindowMyCntcts);
 }
 
@@ -111,8 +110,6 @@ function populateMenuMyCntcts(pMenu)
 */
 function privilegeCheckMyCntcts()
 {
-  return privileges.check("MaintainAllContacts") ||
-         privileges.check("MaintainPersonalContacts") ||
-         privileges.check("ViewAllContacts") ||
-         privileges.check("ViewPersonalContacts");
+  return privileges.check("MaintainAllContacts") || privileges.check("MaintainPersonalContacts") ||
+         privileges.check("ViewAllContacts") || privileges.check("ViewPersonalContacts");
 }

@@ -101,14 +101,13 @@ function openWindowMyAccts()
 }
 
 /*!
-  Adds actions to @a pMenu, typically from a right click on My Contacts.
+  Adds actions to \a pMenu, typically from a right click on My Contacts.
 */
 function populateMenuMyAccts(pMenu)
 {
   var menuItem;
 
-  menuItem = pMenu.addAction(_open);
-  menuItem.enabled = privilegeCheckMyAccts();
+  menuItem = toolbox.menuAddAction(pMenu, _open, privilegeCheckMyAccts());
   menuItem.triggered.connect(openWindowMyAccts);
 }
 
@@ -117,10 +116,8 @@ function populateMenuMyAccts(pMenu)
 */
 function privilegeCheckMyAccts()
 {
-  return privileges.check("MaintainAllCRMAccounts") ||
-         privileges.check("MaintainPersonalCRMAccounts") ||
-         privileges.check("ViewAllCRMAccounts") ||
-         privileges.check("ViewPersonalCRMAccounts");
+  return privileges.check("MaintainAllCRMAccounts") || privileges.check("MaintainPersonalAccounts") ||
+         privileges.check("ViewAllCRMAccounts") || privileges.check("ViewPersonalCRMAccounts");
 }
 
 /*!
