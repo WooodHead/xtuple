@@ -1,9 +1,6 @@
 -- Group: desktop
 -- Name:  pkgItems
 -- Notes: 
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
--- See www.xtuple.com/CPAL for the full text of the software license.
-
 SELECT *,
        CASE WHEN pkgitem_type='P' THEN <? value("package") ?>
             WHEN pkgitem_type='C' THEN <? value("script") ?>
@@ -249,14 +246,17 @@ SELECT pkghead_id AS pkgitem_id, 31 AS seq,
        '' AS pkgitem_descrip
   FROM pkghead
 UNION
-SELECT 0 AS pkgitem_id, 32 AS seq,
+SELECT t.oid AS pkgitem_id, 32 AS seq,
        3 AS xtindentrole,
-       trigger_schema AS pkgname,
+       nspname AS pkgname,
        'G' AS pkgitem_type,
-       trigger_name AS pkgitem_name,
-       event_object_table AS pkgitem_descrip
-  FROM information_schema.triggers
- WHERE (trigger_name !~ '^pkg(cmd(arg)?|image|metasql|priv|report|script|uiform)')
+       tgname AS pkgitem_name,
+       pg_catalog.obj_description(t.oid, 'pg_trigger') AS pkgitem_descrip 
+  FROM pg_trigger t
+       JOIN pg_class ON (tgrelid=pg_class.oid)
+       JOIN pg_namespace ON (relnamespace=pg_namespace.oid)
+ WHERE (NOT tgisconstraint)
+   AND  (tgname !~ '^pkg(cmd(arg)?|image|metasql|priv|report|script|uiform)')
 UNION
 ------ VIEWS ------
 SELECT pkghead_id AS pkgitem_id, 33 AS seq,
