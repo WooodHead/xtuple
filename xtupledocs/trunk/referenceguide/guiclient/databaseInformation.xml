@@ -108,10 +108,18 @@
         users.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Do not allow user logins that exceed licensed user count</term>
       <listitem>
-        <para></para>
+        <para>Select if you want to prevent users from logging in once you've
+        hit your limit for maximum concurrent licensed users. Turning this
+        flag on puts a hard limit on concurrent logins, thereby shielding
+        users from messages warning them that the user count has been
+        exceeded. If not selected, users logging in after the license limit
+        has been met will be presented with a warning message. This setting
+        only affects commercial editions of xTuple ERP. To learn more about
+        xTuple license limits, please see <xref
+        linkend="registration" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -162,8 +170,7 @@
         <note>
           <para>Only users with the appropriate privileges will be permitted
           to change Database information. For all other users, this screen
-          will be view-only&mdash;and the SAVE button will not be
-          visible.</para>
+          will be view-only—and the SAVE button will not be visible.</para>
         </note>
       </listitem>
     </varlistentry>
