@@ -197,7 +197,7 @@
     </message>
     <message>
         <location filename="../uiforms/dspTimeExpenseHistory.ui" line="21"/>
-        <source>Time Expense History</source>
+        <source>Time and Expense History</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -378,12 +378,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/teexpense.ui" line="87"/>
+        <location filename="../uiforms/teexpense.ui" line="90"/>
         <source>Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/teexpense.ui" line="97"/>
+        <location filename="../uiforms/teexpense.ui" line="100"/>
         <source>Expense Category</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1042,27 +1042,27 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheets.js" line="569"/>
+        <location filename="../scripts/timeExpenseSheets.js" line="570"/>
         <source>It appears that your current user isn&apos;t an active employee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheets.js" line="573"/>
+        <location filename="../scripts/timeExpenseSheets.js" line="574"/>
         <source>Permissions Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheets.js" line="574"/>
+        <location filename="../scripts/timeExpenseSheets.js" line="575"/>
         <source>You do not have permissions to maintain time and expense entries</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheets.js" line="584"/>
+        <location filename="../scripts/timeExpenseSheets.js" line="585"/>
         <source>Earliest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheets.js" line="585"/>
+        <location filename="../scripts/timeExpenseSheets.js" line="586"/>
         <source>Latest</source>
         <translation type="unfinished"></translation>
     </message>
