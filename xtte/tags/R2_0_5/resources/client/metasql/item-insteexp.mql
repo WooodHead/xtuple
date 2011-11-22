@@ -1,0 +1,14 @@
+-- Group: item
+-- Name:  insteexp
+-- Notes: Insert item expense settings
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+INSERT INTO te.teexp (
+  teexp_id,
+  teexp_expcat_id,
+  teexp_accnt_id )
+VALUES (
+  <? value("item_id") ?>,
+  <? value("expcat_id") ?>,
+  <? value("accnt_id") ?>);
