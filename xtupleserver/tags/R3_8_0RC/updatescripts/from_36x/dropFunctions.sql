@@ -1,0 +1,10 @@
+SELECT dropIfExists('FUNCTION','bookingsbycustomervalue(integer, integer)');
+SELECT dropIfExists('FUNCTION','bookingsbyitemqty(integer, integer)');
+SELECT dropIfExists('FUNCTION','bookingsbyitemvalue(integer, integer)');
+SELECT dropIfExists('FUNCTION','shipmentsbycustomerbyitemvalue(integer, integer, integer)');
+SELECT dropIfExists('FUNCTION','shipmentsbycustomervalue(integer, integer)');
+SELECT dropIfExists('FUNCTION','shipmentsbycustomervalue(integer, integer, integer)');
+SELECT dropIfExists('FUNCTION','shipmentsbycustomervalue(integer, integer, text)');
+SELECT dropIfExists('FUNCTION','shipmentsbyitemqty(integer, integer)');
+SELECT dropIfExists('FUNCTION','shipmentsbyitemvalue(integer, integer)');
+SELECT dropIfExists('FUNCTION','salesbycustomerbyitemsite(integer, integer, integer)');
