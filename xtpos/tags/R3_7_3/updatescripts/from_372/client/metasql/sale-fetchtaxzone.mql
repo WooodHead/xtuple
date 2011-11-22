@@ -1,0 +1,17 @@
+-- Group: sale
+-- Name: fetchtaxzone
+-- Notes:
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+<? if exists("cust_id") ?>
+  SELECT taxzone_code
+  FROM custinfo 
+   JOIN taxzone ON (cust_taxzone_id=taxzone_id)
+  WHERE (cust_id=<? value("cust_id") ?>); 
+<? else if exists("warehous_id") ?>
+  SELECT taxzone_code
+  FROM xtpos.rtlsite
+   JOIN taxzone ON (rtlsite_taxzone_id=taxzone_id)
+  WHERE (rtlsite_warehous_id=<? value("warehous_id") ?>); 
+<? endif ?>
