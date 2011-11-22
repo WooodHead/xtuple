@@ -1,3 +1,4 @@
+SELECT dropIfExists('VIEW',     'purchaseorder', 'api');
 SELECT dropIfExists('FUNCTION', 'calculatetaxdetailsummary(text,integer,text)');
 SELECT dropIfExists('FUNCTION', 'calculatetaxdetailline(text,integer)');
 SELECT dropIfExists('FUNCTION', 'calculatetaxdetail(integer,integer,date,integer,numeric)');
