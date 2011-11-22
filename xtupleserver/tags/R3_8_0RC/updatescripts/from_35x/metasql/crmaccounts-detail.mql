@@ -1,0 +1,62 @@
+-- Group: crmaccounts
+-- Name:  detail
+-- Notes: 
+SELECT 
+  crmacct_id AS id, crmacct_number, crmacct_name,
+  cntct.*, addr.*,
+  crmacct_cust_id IS NULL AS cust,
+  crmacct_prospect_id IS NULL AS prospect,
+  crmacct_vend_id IS NULL AS vend,
+  crmacct_competitor_id IS NULL AS competitor,
+  crmacct_partner_id IS NULL AS partner,
+  crmacct_taxauth_id IS NULL AS taxauth 
+FROM crmacct LEFT OUTER JOIN
+  cntct ON (crmacct_cntct_id_1=cntct_id) LEFT OUTER JOIN
+  addr ON (cntct_addr_id=addr_id) 
+WHERE true
+<? if not exists("showInactive") ?> 
+  AND crmacct_active 
+<? endif ?>
+<? if exists("search_pattern") ?>
+  AND ((crmacct_number ~* <? value("search_pattern") ?>)
+       OR (crmacct_name ~* <? value("search_pattern") ?>)
+       OR (cntct_first_name || ' ' || cntct_last_name ~* <? value("search_pattern") ?>)
+       OR (cntct_phone || ' ' || cntct_phone2 || ' ' || cntct_fax ~* <? value("search_pattern") ?>)
+       OR (cntct_email ~* <? value("search_pattern") ?>)
+       OR (addr_line1 || ' ' || addr_line2 || ' ' || addr_line3 ~* <? value("search_pattern") ?>)
+       OR (addr_city ~* <? value("search_pattern") ?>)
+       OR (addr_state ~* <? value("search_pattern") ?>)
+       OR (addr_postalcode ~* <? value("search_pattern") ?>)
+       OR (addr_country ~* <? value("search_pattern") ?>))
+<? endif ?>
+<? if exists("crmacct_number_pattern") ?>
+  AND (crmacct_number ~* <? value("crmacct_number_pattern") ?>)
+<? endif ?>
+<? if exists("crmacct_name_pattern") ?>
+  AND (crmacct_name ~* <? value("crmacct_name_pattern") ?>)
+<? endif ?>
+<? if exists("cntct_name_pattern") ?>
+  AND (cntct_first_name || ' ' || cntct_last_name ~* <? value("cntct_name_pattern") ?>)
+<? endif ?>
+<? if exists("cntct_phone_pattern") ?>
+  AND (cntct_phone || ' ' || cntct_phone2 || ' ' || cntct_fax ~* <? value("cntct_phone_pattern") ?>)
+<? endif ?>
+<? if exists("cntct_email_pattern") ?>
+  AND (cntct_email ~* <? value("cntct_email_pattern") ?>)
+<? endif ?>
+<? if exists("addr_street_pattern") ?>
+  AND (addr_line1 || ' ' || addr_line2 || ' ' || addr_line3 ~* <? value("addr_street_pattern") ?>)
+<? endif ?>
+<? if exists("addr_city_pattern") ?>
+  AND (addr_city ~* <? value("addr_city_pattern") ?>)
+<? endif ?>
+<? if exists("addr_state_pattern") ?>
+  AND (addr_state ~* <? value("addr_state_pattern") ?>)
+<? endif ?>
+<? if exists("addr_postalcode_pattern") ?>
+  AND (addr_postalcode ~* <? value("addr_postalcode_pattern") ?>)
+<? endif ?>
+<? if exists("addr_country_pattern") ?>
+  AND (addr_country ~* <? value("addr_country_pattern") ?>)
+<? endif ?>
+ORDER BY crmacct_number; 

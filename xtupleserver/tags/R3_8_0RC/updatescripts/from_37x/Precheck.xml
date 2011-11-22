@@ -1,0 +1,273 @@
+<!-- there may be performance problems running all of these queries on the crmacct table. can we speed them up? -->
+<!-- new crmacct_crmacct_number_key -->
+<prerequisite type="Query" name="Confirming CRM Account Numbers are unique">
+  <query>SELECT COUNT(*) = 0
+           FROM (SELECT COUNT(*) AS counter
+                   FROM crmacct
+               GROUP BY crmacct_number) AS dummy
+          WHERE counter > 1;</query>
+  <message>There is at least one CRM Account Number that is used more than once.</message>
+</prerequisite>
+
+<!-- new crmacct_crmacct_type_check -->
+<prerequisite type="Query" name="Confirming CRM Account all have valid types">
+  <query> SELECT COUNT(*) = 0
+            FROM crmacct
+           WHERE crmacct_type NOT IN ('I', 'O');</query>
+  <message>There is at least one CRM Account with an invalid Type.</message>
+</prerequisite>
+
+<!-- new crmacct_crmacct_vend_id_fkey -->
+<prerequisite type="Query" name="Verifying all Vendors are associated with CRM Accounts">
+  <query>SELECT COUNT(*) = 0
+           FROM vendinfo
+          WHERE NOT EXISTS(SELECT crmacct_vend_id
+                             FROM crmacct
+                            WHERE crmacct_vend_id = vend_id);</query>
+  <message>At least one Vendor has no corresponding CRM Account record.</message>
+</prerequisite>
+
+<!-- new crmacct_crmacct_owner_username -->
+<prerequisite type="Query" name="Verifying all CRM Account owners exist">
+  <query>SELECT COUNT(*) = 0
+           FROM crmacct 
+          WHERE COALESCE(crmacct_owner_username, '') != ''
+            AND crmacct_owner_username IS NOT NULL
+            AND NOT EXISTS(SELECT usename
+                             FROM pg_user
+                            WHERE UPPER(usename)=UPPER(crmacct_owner_username));</query>
+  <message>At least one CRM Account has a non-existent Owner.</message>
+</prerequisite>
+
+<!-- new prospect_prospect_number_key -->
+<prerequisite type="Query" name="Verifying all Prospect Numbers are unique">
+  <query>SELECT COUNT(*) = 0
+           FROM (SELECT COUNT(*) AS counter
+                   FROM prospect
+               GROUP BY prospect_number) AS dummy
+          WHERE counter > 1;</query>
+  <message>There is at least one Prospect Number that is used more than once.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Confirming at-most-one relationship between CRM Accounts and child records.">
+  <query> SELECT COUNT(*) = 0 FROM (
+                  SELECT COUNT(*) AS counter
+                    FROM crmacct
+                   WHERE crmacct_cust_id IS NOT NULL
+                GROUP BY crmacct_cust_id
+            UNION SELECT COUNT(*)
+                   FROM crmacct
+                  WHERE crmacct_prospect_id IS NOT NULL
+                GROUP BY crmacct_prospect_id
+            UNION SELECT COUNT(*)
+                   FROM crmacct
+                  WHERE crmacct_taxauth_id IS NOT NULL
+                GROUP BY crmacct_taxauth_id
+            UNION SELECT COUNT(*)
+                   FROM crmacct
+                  WHERE crmacct_vend_id IS NOT NULL
+                GROUP BY crmacct_vend_id
+            ) AS oneToOneCheck
+           WHERE counter > 1;</query>
+  <message>There is at least one pair of CRM Accounts that shares a Customer, Prospect, Vendor, or Tax Authority.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Confirming Customer and CRM Account numbers match">
+  <query> SELECT COUNT(*) = 0
+            FROM crmacct
+           WHERE EXISTS(SELECT cust_id
+                          FROM custinfo
+                        WHERE crmacct_cust_id = cust_id
+                          AND (crmacct_number != cust_number));</query>
+  <message>There is at least one Customer with a number that doesn't match its CRM Account.</message>
+</prerequisite>
+<prerequisite type="Query" name="Confirming Prospect and CRM Accounts numbers match">
+  <query> SELECT COUNT(*) = 0
+            FROM crmacct
+           WHERE EXISTS(SELECT prospect_id
+                          FROM prospect
+                        WHERE crmacct_prospect_id = prospect_id
+                          AND (crmacct_number != prospect_number));</query>
+  <message>There is at least one Prospect with a number that doesn't match its CRM Account.</message>
+</prerequisite>
+<prerequisite type="Query" name="Confirming Tax Authority and CRM Accounts numbers match">
+  <query> SELECT COUNT(*) = 0
+            FROM crmacct
+           WHERE EXISTS(SELECT taxauth_id
+                          FROM taxauth
+                        WHERE crmacct_taxauth_id = taxauth_id
+                          AND (crmacct_number != taxauth_code));</query>
+  <message>There is at least one Tax Authority with a number that doesn't match its CRM Account.</message>
+</prerequisite>
+<prerequisite type="Query" name="Confirming Vendor and CRM Accounts numbers match">
+  <query> SELECT COUNT(*) = 0
+            FROM crmacct
+           WHERE EXISTS(SELECT vend_id
+                          FROM vendinfo
+                        WHERE crmacct_vend_id = vend_id
+                          AND (crmacct_number != vend_number));</query>
+  <message>There is at least one Vendor with a number that doesn't match its CRM Account.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for Employees and CRM Accounts with the same number">
+  <query> SELECT COUNT(*) = 0
+            FROM crmacct
+           WHERE EXISTS(SELECT emp_code
+                          FROM emp
+                         WHERE emp_code=crmacct_number);</query>
+  <message>At least one CRM Account has the same number as an Employee.</message>
+</prerequisite>
+<prerequisite type="Query" name="Looking for Sales Reps and CRM Accounts with the same number">
+  <query> SELECT COUNT(*) = 0
+            FROM crmacct
+           WHERE EXISTS(SELECT salesrep_number
+                          FROM salesrep
+                         WHERE salesrep_number=crmacct_number);</query>
+  <message>At least one CRM Account has the same number as a Sales Rep.</message>
+</prerequisite>
+<prerequisite type="Query" name="Looking for Users and CRM Accounts with the same number">
+  <query> SELECT COUNT(*) = 0
+            FROM crmacct
+           WHERE EXISTS(SELECT usename
+                          FROM pg_user
+                         WHERE usename=crmacct_number);</query>
+  <message>At least one CRM Account has the same number as a User.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for mismatched Employees and Users">
+  <query>SELECT COUNT(*) = 0
+           FROM emp
+          WHERE UPPER(emp_code) != UPPER(emp_username)
+            AND COALESCE(emp_username, '') != '';</query>
+  <message>There is at least one Employee with a Username that doesn't match the Employee Code.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for Employees associated with non-existent Users">
+  <query>SELECT COUNT(*) = 0
+           FROM emp
+          WHERE NOT EXISTS(SELECT usename
+                         FROM pg_user
+                        WHERE UPPER(usename)=UPPER(emp_code))
+            AND COALESCE(emp_username, '') != '';</query>
+  <message>There is at least one Employee associated with a User that doesn't exist.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for A/R Open records with missing Sales Reps">
+  <query>SELECT COUNT(*) = 0
+           FROM aropen
+          WHERE COALESCE(aropen_salesrep_id, -1) >= 0
+            AND NOT EXISTS(SELECT salesrep_id
+                             FROM salesrep
+                            WHERE salesrep_id = aropen_salesrep_id);</query>
+  <message>There is at least one A/R Open record that has a Sales Rep assignment for a missing Sales Rep.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for A/R Open records with missing Customers">
+  <query>SELECT COUNT(*) = 0
+           FROM aropen
+          WHERE COALESCE(aropen_cust_id, -1) >= 0
+            AND NOT EXISTS(SELECT cust_id
+                             FROM custinfo
+                            WHERE cust_id = aropen_cust_id);</query>
+  <message>There is at least one A/R Open record for a missing Customer.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for Misc Credit Memos with missing Sales Reps">
+  <query>SELECT COUNT(*) = 0
+           FROM cmhead
+          WHERE COALESCE(cmhead_salesrep_id, -1) >= 0
+            AND NOT EXISTS(SELECT salesrep_id
+                             FROM salesrep
+                            WHERE salesrep_id = cmhead_salesrep_id);</query>
+  <message>There is at least one A/R Open record that has a Sales Rep assignment for a non-existent Sales Rep.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for A/R Open records with missing Sales Reps">
+  <query>SELECT COUNT(*) = 0
+           FROM aropen
+          WHERE COALESCE(aropen_salesrep_id, -1) >= 0
+            AND NOT EXISTS(SELECT salesrep_id
+                             FROM salesrep
+                            WHERE salesrep_id = aropen_salesrep_id);</query>
+  <message>There is at least one Misc Credit Memo with a Sales Rep assignment for a non-existent Sales Rep.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for Sales Order History with missing Sales Reps">
+  <query>SELECT COUNT(*) = 0
+           FROM cohist
+          WHERE COALESCE(cohist_salesrep_id, -1) >= 0
+            AND NOT EXISTS(SELECT salesrep_id
+                             FROM salesrep
+                            WHERE salesrep_id = cohist_salesrep_id);</query>
+  <message>There is at least one Sales Order History record with a Sales Rep assignment for a non-existent Sales Rep.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for Sales Order History with missing Customers">
+  <query>SELECT COUNT(*) = 0
+           FROM cohist
+          WHERE COALESCE(cohist_cust_id, -1) >= 0
+            AND NOT EXISTS(SELECT cust_id
+                             FROM custinfo
+                            WHERE cust_id = cohist_cust_id);</query>
+  <message>There is at least one Sales Order History record for a missing Customer.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for Misc Credit Memos with missing Sales Reps">
+  <query>SELECT COUNT(*) = 0
+           FROM cmhead
+          WHERE COALESCE(cmhead_salesrep_id, -1) >= 0
+            AND NOT EXISTS(SELECT salesrep_id
+                             FROM salesrep
+                            WHERE salesrep_id = cmhead_salesrep_id);</query>
+  <message>There is at least one Misc Credit Memo assigned to a missing Sales Rep.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for Misc Credit Memos with missing Customers">
+  <query>SELECT COUNT(*) = 0
+           FROM cmhead
+          WHERE COALESCE(cmhead_cust_id, -1) >= 0
+            AND NOT EXISTS(SELECT cust_id
+                             FROM custinfo
+                            WHERE cust_id = cmhead_cust_id);</query>
+  <message>There is at least one Misc Credit Memo for a missing Customer.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for poreject records with invalid vendors">
+  <query>SELECT COUNT(*) = 0
+           FROM poreject
+          WHERE COALESCE(poreject_vend_id, -1) >= 0
+            AND NOT EXISTS(SELECT vend_id
+                             FROM vendinfo
+                            WHERE vend_id = poreject_vend_id);</query>
+  <message>There is at least one poreject record for a missing Vendor.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for Vouchers with invalid vendors">
+  <query>SELECT COUNT(*) = 0
+           FROM vohead
+          WHERE COALESCE(vohead_vend_id, -1) >= 0
+            AND NOT EXISTS(SELECT vend_id
+                             FROM vendinfo
+                            WHERE vend_id = vohead_vend_id);</query>
+  <message>There is at least one Voucher for a missing Vendor.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for A/P Open records with missing Vendors">
+  <query>SELECT COUNT(*) = 0
+           FROM apopen
+          WHERE COALESCE(apopen_vend_id, -1) >= 0
+            AND NOT EXISTS(SELECT vend_id
+                             FROM vendinfo
+                            WHERE vend_id = apopen_vend_id);</query>
+  <message>There is at least one A/P Open record for a missing Vendor.</message>
+</prerequisite>
+
+<prerequisite type="Query" name="Looking for A/P Applications with missing Vendors">
+  <query>SELECT COUNT(*) = 0
+           FROM apapply
+          WHERE COALESCE(apapply_vend_id, -1) >= 0
+            AND NOT EXISTS(SELECT vend_id
+                             FROM vendinfo
+                            WHERE vend_id = apapply_vend_id);</query>
+  <message>There is at least one A/P Application for a missing Vendor.</message>
+</prerequisite>
