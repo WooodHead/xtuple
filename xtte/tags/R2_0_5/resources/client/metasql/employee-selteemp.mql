@@ -1,0 +1,9 @@
+-- Group: employee
+-- Name:  selteemp
+-- Notes: Select Default Employee Time Expense Info
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+SELECT *
+FROM te.teemp
+WHERE (teemp_emp_id=<? value("emp_id") ?>);
