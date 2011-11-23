@@ -1,0 +1,29 @@
+Release Notes
+xTuple Desktop (xtDesktop)
+Version 3.7.1rc2
+November 30, 2011
+==================================
+
+This is the second release candidate of the 3.7.1 xTuple Desktop package,
+a free and open source extension package for xTuple ERP (PostBooks, 
+Standard, and Manufacturing Editions). 
+
+xtDesktop is available under the same Common Public Attribution 
+License (CPAL) as the PostBooks Edition of xTuple ERP 
+(www.xtuple.com/CPAL). For more information on xTuple's extension 
+package architecture, please see www.xtuple.org/developer-zone.
+
+==================================
+
+Bug fixes in xtdesktop 3.7.1rc2:
+
+* Extensions query is broken on the desktop in 3.8.0beta2 [16260]
+* CRM Dockwidget drill down is broken on the Desktiop in 380beta2
+  [16261]
+* Clicking on Maintenance Desktop generates DB log error [15492]
+* Contact screen error in xtdesktop package [15752]
+* 'Open' option is inactive in My Contacts, My Accounts, and To Do
+  docs [15831]
+* Copyright and licencing information were added
+* Database scripts were changed to have normalized line terminators
+* Unnecessary backslashes were removed from scripts
