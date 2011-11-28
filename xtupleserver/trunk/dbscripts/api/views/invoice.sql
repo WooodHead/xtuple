@@ -1,4 +1,6 @@
-SELECT dropIfExists('VIEW', 'invoice', 'api', true);
+CREATE OR REPLACE RULE "_INSERT" AS ON INSERT TO api.invoice DO INSTEAD NOTHING;
+SELECT dropIfExists('FUNCTION', 'insertInvoice(api.invoice)');
+SELECT dropIfExists('VIEW', 'invoice', 'api');
 CREATE OR REPLACE VIEW api.invoice
 AS
 	SELECT

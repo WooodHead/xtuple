@@ -1,4 +1,10 @@
-SELECT dropIfExists('VIEW', 'creditmemoline', 'api', true);
+CREATE OR REPLACE RULE "_INSERT" AS
+  ON INSERT TO api.creditmemoline DO INSTEAD NOTHING;
+CREATE OR REPLACE RULE "_UPDATE" AS 
+  ON UPDATE TO api.creditmemoline DO INSTEAD NOTHING;
+SELECT dropIfExists('FUNCTION', 'insertCreditMemoLine(api.creditmemoline)');
+SELECT dropIfExists('FUNCTION', 'updateCreditMemoLine(api.creditmemoline, api.creditmemoline)');
+SELECT dropIfExists('VIEW', 'creditmemoline', 'api');
 CREATE OR REPLACE VIEW api.creditmemoline AS
   SELECT cmhead_number AS memo_number,
          cmitem_linenumber AS line_number,

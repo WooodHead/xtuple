@@ -1,4 +1,5 @@
-SELECT dropIfExists('VIEW', 'ipsitem', 'public', true);
+SELECT dropIfExists('VIEW', 'ipsitem', 'public');
+
 CREATE OR REPLACE VIEW ipsitem AS
   SELECT ipsitem_id,
          ipsitem_ipshead_id,

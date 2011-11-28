@@ -1,5 +1,5 @@
 
-  SELECT dropIfExists('VIEW', 'prospect', 'api', true);
+  SELECT dropIfExists('VIEW', 'prospect', 'api');
   CREATE OR REPLACE VIEW api.prospect AS
  
   SELECT 

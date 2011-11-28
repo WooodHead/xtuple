@@ -1,7 +1,7 @@
 
   --Customer View
 
-  SELECT dropIfExists('VIEW', 'customer', 'api', true);
+  SELECT dropIfExists('VIEW', 'customer', 'api');
   CREATE OR REPLACE VIEW api.customer AS
  
   SELECT 

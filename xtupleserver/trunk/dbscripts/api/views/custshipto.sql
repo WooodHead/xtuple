@@ -1,6 +1,6 @@
 -- Customer Shipto
 
-SELECT dropIfExists('VIEW', 'custshipto', 'api', true);
+SELECT dropIfExists('VIEW', 'custshipto', 'api');
 CREATE VIEW api.custshipto
 AS 
    SELECT 

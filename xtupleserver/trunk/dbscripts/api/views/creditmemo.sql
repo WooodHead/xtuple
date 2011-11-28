@@ -1,56 +1,59 @@
-  SELECT dropIfExists('VIEW', 'creditmemo', 'api', true);
-  CREATE OR REPLACE VIEW api.creditmemo AS
-    SELECT cmhead_number AS memo_number,
-           CASE
-             WHEN (cmhead_invcnumber = '-1') THEN ''
-             ELSE cmhead_invcnumber
-           END AS apply_to,
-           cmhead_docdate AS memo_date,
-           CASE
-             WHEN (cmhead_posted) THEN 'Posted'
-             ELSE 'Unposted'
-           END AS status,
-           salesrep_number AS sales_rep,
-           cmhead_commission AS commission,
-           COALESCE(taxzone_code, 'None') AS tax_zone,
-           COALESCE(rsncode_code, 'None') AS reason_code,
-           cmhead_hold AS on_hold,
-           cust_number AS customer_number,
-           cmhead_billtoname AS billto_name,
-           cmhead_billtoaddress1 AS billto_address1,
-           cmhead_billtoaddress2 AS billto_address2,
-           cmhead_billtoaddress3 AS billto_address3,
-           cmhead_billtocity AS billto_city,
-           cmhead_billtostate AS billto_state,
-           cmhead_billtozip AS billto_postal_code,
-           cmhead_billtocountry AS billto_country,
-           shipto_num AS shipto_number,
-           cmhead_shipto_name AS shipto_name,
-           cmhead_shipto_address1 AS shipto_address1,
-           cmhead_shipto_address2 AS shipto_address2,
-           cmhead_shipto_address3 AS shipto_address3,
-           cmhead_shipto_city AS shipto_city,
-           cmhead_shipto_state AS shipto_state,
-           cmhead_shipto_zipcode AS shipto_postal_code,
-           cmhead_shipto_country AS shipto_country,
-           cmhead_custponumber AS customer_po_number,
-           cmhead_comments AS notes,
-           curr.curr_abbr AS currency,
-           cmhead_misc_descrip AS misc_charge_description,
-           cmhead_misc AS misc_charge_amount,
-           CASE
-             WHEN cmhead_misc_accnt_id = -1 THEN ''
-             ELSE formatglaccount(cmhead_misc_accnt_id)
-           END AS misc_charge_credit_account,
-           cmhead_freight AS freight
-         FROM cmhead
-           LEFT OUTER JOIN custinfo ON (cust_id=cmhead_cust_id)
-           LEFT OUTER JOIN shiptoinfo ON (shipto_id=cmhead_shipto_id)
-           LEFT OUTER JOIN curr_symbol AS curr ON (curr.curr_id=cmhead_curr_id)
-           LEFT OUTER JOIN salesrep ON (salesrep_id=cmhead_salesrep_id)
-           LEFT OUTER JOIN taxzone ON (taxzone_id=cmhead_taxzone_id)
-           LEFT OUTER JOIN rsncode ON (rsncode_id=cmhead_rsncode_id);
-	
+CREATE OR REPLACE RULE "_INSERT" AS ON INSERT TO api.creditmemo DO INSTEAD NOTHING;
+SELECT dropIfExists('FUNCTION', 'insertCreditMemo(api.creditmemo)');
+
+SELECT dropIfExists('VIEW', 'creditmemo', 'api');
+CREATE OR REPLACE VIEW api.creditmemo AS
+  SELECT cmhead_number AS memo_number,
+         CASE
+           WHEN (cmhead_invcnumber = '-1') THEN ''
+           ELSE cmhead_invcnumber
+         END AS apply_to,
+         cmhead_docdate AS memo_date,
+         CASE
+           WHEN (cmhead_posted) THEN 'Posted'
+           ELSE 'Unposted'
+         END AS status,
+         salesrep_number AS sales_rep,
+         cmhead_commission AS commission,
+         COALESCE(taxzone_code, 'None') AS tax_zone,
+         COALESCE(rsncode_code, 'None') AS reason_code,
+         cmhead_hold AS on_hold,
+         cust_number AS customer_number,
+         cmhead_billtoname AS billto_name,
+         cmhead_billtoaddress1 AS billto_address1,
+         cmhead_billtoaddress2 AS billto_address2,
+         cmhead_billtoaddress3 AS billto_address3,
+         cmhead_billtocity AS billto_city,
+         cmhead_billtostate AS billto_state,
+         cmhead_billtozip AS billto_postal_code,
+         cmhead_billtocountry AS billto_country,
+         shipto_num AS shipto_number,
+         cmhead_shipto_name AS shipto_name,
+         cmhead_shipto_address1 AS shipto_address1,
+         cmhead_shipto_address2 AS shipto_address2,
+         cmhead_shipto_address3 AS shipto_address3,
+         cmhead_shipto_city AS shipto_city,
+         cmhead_shipto_state AS shipto_state,
+         cmhead_shipto_zipcode AS shipto_postal_code,
+         cmhead_shipto_country AS shipto_country,
+         cmhead_custponumber AS customer_po_number,
+         cmhead_comments AS notes,
+         curr.curr_abbr AS currency,
+         cmhead_misc_descrip AS misc_charge_description,
+         cmhead_misc AS misc_charge_amount,
+         CASE
+           WHEN cmhead_misc_accnt_id = -1 THEN ''
+           ELSE formatglaccount(cmhead_misc_accnt_id)
+         END AS misc_charge_credit_account,
+         cmhead_freight AS freight
+       FROM cmhead
+         LEFT OUTER JOIN custinfo ON (cust_id=cmhead_cust_id)
+         LEFT OUTER JOIN shiptoinfo ON (shipto_id=cmhead_shipto_id)
+         LEFT OUTER JOIN curr_symbol AS curr ON (curr.curr_id=cmhead_curr_id)
+         LEFT OUTER JOIN salesrep ON (salesrep_id=cmhead_salesrep_id)
+         LEFT OUTER JOIN taxzone ON (taxzone_id=cmhead_taxzone_id)
+         LEFT OUTER JOIN rsncode ON (rsncode_id=cmhead_rsncode_id);
+      
 GRANT ALL ON TABLE api.creditmemo TO xtrole;
 COMMENT ON VIEW api.creditmemo IS 'Credit Memo Header';
 

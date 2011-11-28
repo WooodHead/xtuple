@@ -1,5 +1,5 @@
 
-SELECT dropIfExists('VIEW', 'ipsprice', 'public', true);
+SELECT dropIfExists('VIEW', 'ipsprice', 'public');
 CREATE OR REPLACE VIEW ipsprice AS
   SELECT t.ipsitem_id AS ipsprice_id,
          'I' AS ipsprice_source,
@@ -14,7 +14,7 @@ CREATE OR REPLACE VIEW ipsprice AS
          t.ipsitem_discntprcnt AS ipsprice_discountpercent,
          t.ipsitem_fixedamtdiscount AS ipsprice_discountfixed
     FROM ipsiteminfo t
-      JOIN ipsitem v ON (v.ipsitem_id=t.ipsitem_id)
+      JOIN ipsiteminfo v ON (v.ipsitem_id=t.ipsitem_id)
    UNION
   SELECT ipsprodcat_id AS ipsprice_id,
          'P' AS ipsprice_source,
