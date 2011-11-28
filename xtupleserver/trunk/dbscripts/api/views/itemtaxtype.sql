@@ -1,6 +1,6 @@
 -- Item Tax Type
 
-SELECT dropIfExists('VIEW', 'itemtaxtype', 'api', true);
+SELECT dropIfExists('VIEW', 'itemtaxtype', 'api');
 CREATE VIEW api.itemtaxtype
 AS 
    SELECT 

@@ -1,6 +1,6 @@
 -- Pricing Schedule Item
 
-SELECT dropIfExists('VIEW', 'pricingscheduleitem', 'api', true);
+SELECT dropIfExists('VIEW', 'pricingscheduleitem', 'api');
 CREATE OR REPLACE VIEW api.pricingscheduleitem AS 
  SELECT 
    ipshead_name::VARCHAR AS pricing_schedule, 
@@ -13,7 +13,7 @@ CREATE OR REPLACE VIEW api.pricingscheduleitem AS
    ipsitem_price AS price,
    0 AS discount_percent,
    0 AS discount_fixed 
- FROM ipsitem
+ FROM ipsiteminfo
    JOIN ipshead ON (ipsitem_ipshead_id = ipshead_id)
    JOIN item ON (ipsitem_item_id = item_id)
    JOIN uom qtyuom ON (ipsitem_qty_uom_id = qtyuom.uom_id)

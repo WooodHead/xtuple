@@ -12,7 +12,7 @@ AS
      char_name::VARCHAR AS characteristic,
      ipsitemchar_value::VARCHAR AS value,
      ipsitemchar_price AS price
-   FROM ipshead, ipsitem, ipsitemchar, item, char, uom qtyuom, uom priceuom
+   FROM ipshead, ipsiteminfo, ipsitemchar, item, char, uom qtyuom, uom priceuom
    WHERE ((ipshead_id=ipsitem_ipshead_id)
      AND (ipsitem_id=ipsitemchar_ipsitem_id)
      AND (ipsitem_item_id=item_id)
