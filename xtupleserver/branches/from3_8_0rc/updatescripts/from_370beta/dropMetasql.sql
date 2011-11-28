@@ -1,0 +1,1 @@
+delete from metasql where metasql_group='itemSource' and metasql_name='invVendorUOM' and metasql_grade = 0;
