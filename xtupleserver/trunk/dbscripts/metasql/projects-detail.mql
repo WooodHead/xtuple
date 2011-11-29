@@ -23,6 +23,10 @@ SELECT prj_id AS id, prj_number, prj_name,
 FROM prj()
 LEFT OUTER JOIN prjtask ON (prj_id=prjtask_prj_id)
 WHERE (true)
+<? if exists("search_pattern") ?>
+   AND ( (prj_number ~* <? value("search_pattern") ?>)
+     OR  (prj_name ~* <? value("search_pattern") ?>) )
+<? endif ?>
 <? if exists("username") ?>
   AND (prj_username=<? value("username") ?> OR prj_owner_username=<? value("username") ?>)
 <? endif ?>
