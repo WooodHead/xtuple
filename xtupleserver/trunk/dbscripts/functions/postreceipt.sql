@@ -344,7 +344,7 @@ BEGIN
       WHERE (rahead_id=_o.orderhead_id);
 
 --  Look for 'ship' lines
-    SELECT (count(*) > 1) INTO _ship
+    SELECT (count(*) > 0) INTO _ship
     FROM raitem
     WHERE ((raitem_disposition = 'S')
      AND (raitem_new_coitem_id IS NULL)
