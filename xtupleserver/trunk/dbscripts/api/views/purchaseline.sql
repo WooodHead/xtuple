@@ -32,7 +32,7 @@
     LEFT OUTER JOIN item ON (itemsite_item_id=item_id)
     LEFT OUTER JOIN whsinfo ON (itemsite_warehous_id=warehous_id)
     LEFT OUTER JOIN (coitem JOIN cohead ON (coitem_cohead_id=cohead_id))
-      ON (poitem_id=coitem_order_id)
+      ON (coitem_order_type='P' AND poitem_id=coitem_order_id)
     LEFT OUTER JOIN wo ON (poitem_wohead_id=wo_id)
   ORDER BY pohead_number,poitem_linenumber;
 --TODO add label to expense category
