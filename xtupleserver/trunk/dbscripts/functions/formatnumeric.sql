@@ -38,7 +38,7 @@ BEGIN
                    WHEN _type = 'qtyper'     THEN _r.locale_qtyper_scale
                    WHEN _type = 'salesprice' THEN _r.locale_salesprice_scale
                    WHEN _type = 'uomratio'   THEN _r.locale_uomratio_scale
-                   WHEN _type = 'weight'     THEN 2
+                   WHEN _type = 'weight'     THEN _r.locale_weight_scale
                    WHEN SUBSTRING(_type FOR 4) = 'curr' THEN _r.locale_curr_scale
                    ELSE 2
               END;
