@@ -79,7 +79,7 @@ SELECT ipsfreight_id AS id, 3 AS altid, <? value("freight") ?> AS type,
        0.00 AS fixedAmtDiscount,
        NULL AS discounted_prc,
        NULL AS method,
-       'qty' AS qtybreak_xtnumericrole,
+       'weight' AS qtybreak_xtnumericrole,
        'curr' AS price_xtnumericrole
 FROM ipsfreight LEFT OUTER JOIN uom ON (uom_item_weight)
                 LEFT OUTER JOIN whsinfo ON (warehous_id=ipsfreight_warehous_id)
