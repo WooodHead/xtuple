@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>3.3.1Beta ChangeLog</title>
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+      <listitem>
+        <para>Added Datamatrix barcode support</para>
+      </listitem>
+      <listitem>
+        <para>Changed the MetaSQL parser to use the Standard C++ library
+        instead of Qt</para>
+      </listitem>
+      <listitem>
+        <para>Added a warning when the user tries to import MetaSQL statements
+        with importmql_gui but has not selected any items</para>
+      </listitem>
+      <listitem>
+        <para>Improved the handling of layout items and the sections they are
+        in</para>
+      </listitem>
+    </itemizedlist></para>
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+      <listitem>
+        <para>Fixed Mac-specific overlap problem with right-aligned text
+        areas</para>
+      </listitem>
+      <listitem>
+        <para>Fixed section repositioning code not to take space for hidden
+        headers and footers</para>
+      </listitem>
+      <listitem>
+        <para>Fixed report_date and report_time Context Query values</para>
+      </listitem>
+      <listitem>
+        <para>Fixed problems with MetaSQL parameters including '-' and '_' in
+        the parameter name</para>
+      </listitem>
+      <listitem>
+        <para>Fixed parsing problems when MetaSQL statements have single
+        quotes inside comments</para>
+      </listitem>
+      <listitem>
+        <para>Fixed problems importing MetaSQL statements containing
+        backslashes when the PostgreSQL database server has
+        standard_conforming_strings set to true</para>
+      </listitem>
+      <listitem>
+        <para>Fixed problem opening Print Preview dialog from modal
+        windows</para>
+      </listitem>
+    </itemizedlist></para>
+</article>
