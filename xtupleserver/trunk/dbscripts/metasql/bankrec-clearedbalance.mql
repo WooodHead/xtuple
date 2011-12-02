@@ -8,7 +8,7 @@ SELECT (COALESCE(SUM(amount),0.0) + <? value("begBal") ?>) AS cleared_amount,
        <? value("endBal") ?> AS end_amount,
        (<? value("endBal") ?> - (<? value("begBal") ?> + (COALESCE(SUM(amount),0.0)))) AS diff_amount,
        round(<? value("endBal") ?> - (<? value("begBal") ?> + COALESCE(SUM(amount),0.0)), 2) AS diff_value
-  FROM ( SELECT (bankrecitem_amount * -1.0) AS amount
+  FROM ( SELECT bankrecitem_amount AS amount
            FROM bankaccnt, gltrans, bankrecitem
           WHERE ((gltrans_accnt_id=bankaccnt_accnt_id)
             AND (bankrecitem_source='GL')
@@ -18,7 +18,7 @@ SELECT (COALESCE(SUM(amount),0.0) + <? value("begBal") ?>) AS cleared_amount,
             AND (NOT gltrans_rec)
             AND (bankaccnt_id=<? value("bankaccntid") ?>) ) 
           UNION ALL
-         SELECT (bankrecitem_amount * -1.0) AS amount
+         SELECT bankrecitem_amount AS amount
            FROM bankaccnt, sltrans, bankrecitem
           WHERE ((sltrans_accnt_id=bankaccnt_accnt_id)
             AND (bankrecitem_source='SL')
