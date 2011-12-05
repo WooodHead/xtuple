@@ -1,0 +1,13 @@
+--group: telephonelookup
+--name:  detail
+--notes: this is a sample metasql statement
+--       with a two line comment
+SELECT cntct_first_name, cntct_last_name,
+       cntct_phone, cntct_phone2,
+       E'a\nb' AS test_escaped_string,
+       'a\nb'  AS test_unescaped_string,
+       'a
+       b' AS standard_conforming_string
+  FROM cntct
+ WHERE((cntct_phone ~ <? value("search") ?>)
+    OR (cntct_phone2 ~ <? value("search") ?>));
