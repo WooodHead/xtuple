@@ -1,0 +1,24 @@
+==================================
+Release Notes
+xTuple Updater
+Version 2.2.5
+December 7, 2011
+==================================
+
+This is the xTuple Updater 2.2.5 patch release. This version of
+the Updater can be used with any release of xTuple ERP.
+
+The following features and bug fixes have been added since the
+release of the xTuple Updater 2.2.4. Additional detail for each item
+listed below may be found on our community website, www.xtuple.org.
+
+New Features:
+
+* Updater F/R to report elapsed time [8711]
+
+Bug Fixes:
+
+* updater silently corrupts some application scripts when postgres
+  is configured with standard_conforming_strings set to true
+* Update progress bar shows incorrect information with some packages
+* Mac tar files cause errors in updater
