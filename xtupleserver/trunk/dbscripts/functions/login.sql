@@ -16,6 +16,10 @@ BEGIN
     SET bytea_output TO escape;
   END IF;
 
+  -- this is temporary until either qt fixes the postgres driver or we find &
+  -- fix all of the places in our app that can write strings with backslashes
+  SET standard_conforming_strings TO false;
+
   SELECT usr_id, userCanLogin(usr_username) AS usr_active INTO _p
   FROM usr
   WHERE (usr_username=getEffectiveXtUser());
