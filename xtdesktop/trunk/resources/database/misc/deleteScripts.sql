@@ -1,0 +1,1 @@
+delete from xtdesktop.pkgscript where script_name = 'userPreferences';
