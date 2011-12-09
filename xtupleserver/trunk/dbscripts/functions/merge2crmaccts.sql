@@ -58,9 +58,6 @@ BEGIN
           + changePseudoFKeyPointers('public', 'imageass', 'imageass_source_id',
                                      pSourceId, 'public', 'crmacct', pTargetId,
                                      'imageass_source', 'CRMA', _purge)
-          + changePseudoFKeyPointers('public', 'url', 'url_source_id',
-                                     pSourceId, 'public', 'crmacct', pTargetId,
-                                     'url_source', 'CRMA', _purge)
           ;
 
   -- TODO: find a generic way to handle pseudofkeys in packages - see 9401
