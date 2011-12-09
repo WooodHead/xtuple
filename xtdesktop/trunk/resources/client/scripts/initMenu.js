@@ -46,100 +46,96 @@ var _menuWindow = mainwindow.findChild("menu.window");
 var _menuSetup = new QMenu(qsTr("Setup"),mainwindow);
 
 // Add desktop to main window
+addAction("sys.currencies","currencies","CreateNewCurrency","CreateNewCurrency");
+addAction("sys.exchangeRates","currencyConversions","MaintainCurrencyRates","ViewCurrencyRates");
+
+// Set up refresh timer
+_dtTimer = new QTimer(mainwindow);
+_dtTimer.setInterval(metrics.value("desktop/timer"));
+_dtTimer.start();
+
+// Set the desktop
+_desktopStack = toolbox.createWidget("QStackedWidget", mainwindow, "_desktopStack");
 if (mainwindow.showTopLevel())
 {
-
-  addAction("sys.currencies","currencies","CreateNewCurrency","CreateNewCurrency");
-  addAction("sys.exchangeRates","currencyConversions","MaintainCurrencyRates","ViewCurrencyRates");
-
-  // Set up refresh timer
-  _dtTimer = new QTimer(mainwindow);
-  _dtTimer.setInterval(metrics.value("desktop/timer"));
-  _dtTimer.start();
-
-  // Intialize the left toolbar
-  _vToolBar = new QToolBar(mainwindow);
-  _vToolBar.objectName = "_vToolBar";
-  _vToolBar.windowTitle = "Desktop Toolbar";
-  _vToolBar.floatable = false;
-  _vToolBar.movable = false;
-  _vToolBar.visible = true;
-  _vToolBar.toolButtonStyle = Qt.ToolButtonTextUnderIcon;
-  mainwindow.addToolBar(Qt.LeftToolBarArea, _vToolBar);
-
-  // Set the desktop
-  // TODO: The QStackedWidget prototype doesn't work for this.  Why?
-  //_desktopStack = new QStackedWidget(mainwindow);
-  //_desktopStack.objectName = "_desktopStack";
-
-  _desktopStack = toolbox.createWidget("QStackedWidget", mainwindow, "_desktopStack");
   mainwindow.setCentralWidget(_desktopStack);
-
-  // Initialize Desktop
-  // Set up browser for home Page
-  var _welcome = new QWebView(mainwindow);
-  var url = new QUrl(metrics.value("desktop/welcome"));
-  _welcome.objectName = "_welcome";
-  _welcome["loadFinished(bool)"].connect(loadLocalHtml);
-  _welcome["linkClicked(const QUrl &)"].connect(openUrl);
-  _welcome.load(url);
-  _welcome.page().linkDelegationPolicy = QWebPage.DelegateAllLinks;
-  _desktopStack.addWidget(_welcome);
-  addToolBarAction(qsTr("Welcome"), "home_32");
-  _vToolBarActions[0].checked = true;
-
-  // Initialize additional desktop UIs and Dock Widgets
-  // (Init functions come from the code pulled in by the include statements)
-  addDesktop("desktopCRM", "clients_32", "ViewCRMDesktop");
-  initDockTodo();
-  initDockAccounts();
-  initDockMyCntcts();
-
-  addDesktop("desktopSales", "reward_32", "ViewSalesDesktop");
-  initDockSalesAct();
-  initDockSalesHist();
-  initDockSalesOpen();
-
-  addDesktop("desktopAccounting", "accounting_32", "ViewAccountingDesktop");
-  initDockPayables();
-  initDockReceivables();
-  initDockBankBal();
-  initDockGLAccounts();
-
-  addDesktop("desktopPurchase", "order_32", "ViewPurchaseDesktop");
-  initDockPurchAct();
-  initDockPurchHist();
-  initDockPurchOpen();
-
-  addDesktop("desktopManufacture", "industry_32", "ViewManufactureDesktop");
-  initDockMfgAct();
-  initDockMfgHist();
-  initDockMfgOpen();
-
-  var maintWin = addDesktop("desktopMaintenance", "gear_32", "ViewMaintenanceDesktop");
-  initDockExtensions();
-  initDockUserOnline();
-
-  // Hack to fix icon size problem until next core release
-  var maintToolbar = maintWin.findChild("_toolbar");
-  _vToolBar.iconSize = maintToolbar.iconSize;
-  maintWin.removeToolBar(maintToolbar);
-
-  // Handle window actions
-  _menuWindow.aboutToShow.connect(prepareWindowMenu);
-
-  // Change behavior of item site button if commercial edition
-  if (metrics.boolean("MultiWhs"))
-  {
-    var button = mainwindow.findChild("_sites");
-    button.label = qsTr("Sites");
-    button.actionName = "im.warehouses";
-  }
+  _vToolBar = new QToolBar(mainwindow);
+  mainwindow.addToolBar(Qt.LeftToolBarArea, _vToolBar);
 }
-else
+else 
 {
-  if (!preferences.boolean("NoDesktopNotice"))
-    toolbox.openWindow("desktopNotice",mainwindow, Qt.WindowModal, Qt.Dialog);
+  var win = toolbox.openWindow("desktop", mainwindow);
+  win.setCentralWidget(_desktopStack);
+  _vToolBar = new QToolBar(win);
+  win.addToolBar(Qt.LeftToolBarArea, _vToolBar);
+}
+
+// Intialize the left toolbar
+_vToolBar.objectName = "_vToolBar";
+_vToolBar.windowTitle = "Desktop Toolbar";
+_vToolBar.floatable = false;
+_vToolBar.movable = false;
+_vToolBar.visible = true;
+_vToolBar.toolButtonStyle = Qt.ToolButtonTextUnderIcon;
+
+// Initialize Desktop
+// Set up browser for home Page
+var _welcome = new QWebView(mainwindow);
+var url = new QUrl(metrics.value("desktop/welcome"));
+_welcome.objectName = "_welcome";
+_welcome["loadFinished(bool)"].connect(loadLocalHtml);
+_welcome["linkClicked(const QUrl &)"].connect(openUrl);
+_welcome.load(url);
+_welcome.page().linkDelegationPolicy = QWebPage.DelegateAllLinks;
+_desktopStack.addWidget(_welcome);
+addToolBarAction(qsTr("Welcome"), "home_32");
+_vToolBarActions[0].checked = true;
+
+// Initialize additional desktop UIs and Dock Widgets
+// (Init functions come from the code pulled in by the include statements)
+addDesktop("desktopCRM", "clients_32", "ViewCRMDesktop");
+initDockTodo();
+initDockAccounts();
+initDockMyCntcts();
+
+addDesktop("desktopSales", "reward_32", "ViewSalesDesktop");
+initDockSalesAct();
+initDockSalesHist();
+initDockSalesOpen();
+addDesktop("desktopAccounting", "accounting_32", "ViewAccountingDesktop");
+initDockPayables();
+initDockReceivables();
+initDockBankBal();
+initDockGLAccounts();
+
+addDesktop("desktopPurchase", "order_32", "ViewPurchaseDesktop");
+initDockPurchAct();
+initDockPurchHist();
+initDockPurchOpen();
+
+addDesktop("desktopManufacture", "industry_32", "ViewManufactureDesktop");
+initDockMfgAct();
+initDockMfgHist();
+initDockMfgOpen();
+
+var maintWin = addDesktop("desktopMaintenance", "gear_32", "ViewMaintenanceDesktop");
+initDockExtensions();
+initDockUserOnline();
+
+// Hack to fix icon size problem until next core release
+var maintToolbar = maintWin.findChild("_toolbar");
+_vToolBar.iconSize = maintToolbar.iconSize;
+maintWin.removeToolBar(maintToolbar);
+
+// Handle window actions
+_menuWindow.aboutToShow.connect(prepareWindowMenu);
+
+// Change behavior of item site button if commercial edition
+if (metrics.boolean("MultiWhs"))
+{
+  var button = mainwindow.findChild("_sites");
+  button.label = qsTr("Sites");
+  button.actionName = "im.warehouses";
 }
 
 /*!
