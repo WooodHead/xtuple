@@ -162,8 +162,8 @@ try
     clickButton(":_filterGroup.+_QToolButton");
     waitForObject(":_filterGroup.xcomboBox2_XComboBox");
     clickItem(":_filterGroup.xcomboBox2_XComboBox","Item",10,10,0, Qt.LeftButton);
-    waitForObject(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit");
-    type(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit",inputString);
+    waitForObject(":_filterGroup.ItemLineEdit_ItemLineEdit");
+    type(":_filterGroup.ItemLineEdit_ItemLineEdit",inputString);
     snooze(0.5);
     nativeType("<Tab>");
     waitForObject(":Quantities on Hand.Query_QToolButton");
