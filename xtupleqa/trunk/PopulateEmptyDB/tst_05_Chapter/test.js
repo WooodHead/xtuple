@@ -5,7 +5,7 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER"); 
-    
+  
     waitForObject(":Cancel.Yes_QPushButton");
     clickButton(":Cancel.Yes_QPushButton");
     var appEdition = findApplicationEdition();
@@ -349,7 +349,7 @@ function main()
     
     
     //------------Create Planning Item: COLLECTORS-LINE-----------------
-    try{
+   try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item");
@@ -412,7 +412,7 @@ function main()
         
         test.log("Planning Item: COLLECTORS-LINE created");
         
-        
+//        
         //----------BOM for COLLECTORS LINE--------------
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products");
@@ -422,18 +422,17 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Bill Of Materials_QMenu", "List...");
         waitForObject(":Bills of Materials.New_QPushButton");
         clickButton(":Bills of Materials.New_QPushButton");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-        mouseClick(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", 63, 10, 0, Qt.LeftButton);
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "COLLECTORS-LINE");
+        
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "COLLECTORS-LINE");
         nativeType("<Tab>");
         snooze(1);
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
-        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
+        waitForObject(":Bill of Materials.ItemLineEdit_ItemLineEdit");
+        type(":Bill of Materials.ItemLineEdit_ItemLineEdit", "YTRUCK1");
         nativeType("<Tab>");
         snooze(1);
         
@@ -446,8 +445,8 @@ function main()
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
-        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "WTRUCK1");
+        waitForObject(":Bill of Materials.ItemLineEdit_ItemLineEdit");
+        type(":Bill of Materials.ItemLineEdit_ItemLineEdit", "WTRUCK1");
         nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
@@ -459,8 +458,8 @@ function main()
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
-        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "BTRUCK1");
+        waitForObject(":Bill of Materials.ItemLineEdit_ItemLineEdit");
+        type(":Bill of Materials.ItemLineEdit_ItemLineEdit", "BTRUCK1");
         nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
@@ -478,7 +477,7 @@ function main()
         clickButton(":Bills of Materials.Close_QPushButton");
                 
     }catch(e){test.fail("Exception in creating Item COLLECTORS-LINE:"+e);}
-    
+  
     if(appEdition=="Manufacturing")
     {
         //-------------Schedule: Production Plan-----------------
@@ -492,7 +491,7 @@ function main()
             waitForObject(":List Production Plans.New_QPushButton");
             clickButton(":List Production Plans.New_QPushButton");
             waitForObject(":_number_QLineEdit");
-            type(":_number_QLineEdit", "COLLECTORS-LINE-PLAN");
+            type(":_number_QLineEdit", "COLLECTORS-LINE");
             type(":_descrip_QLineEdit", "Truck Production Plan");
             type(":Production Plan.XDateEdit_XDateEdit", "-30");
             type(":Production Plan.XDateEdit_XDateEdit", "<Tab>");
@@ -504,10 +503,11 @@ function main()
                 clickItem(":_schedtype_QComboBox", "Forecast Netted to MPS",0,0,1,Qt.LeftButton);
             
             snooze(1);
+
             waitForObject(":frame.New_QPushButton_3");
             clickButton(":frame.New_QPushButton_3");
             
-            type(":Production Plan Item.VirtualClusterLineEdit_ItemLineEdit", "COLLECTORS-LINE");
+            type(":Item Sites.ItemLineEdit_ItemLineEdit", "COLLECTORS-LINE");
             ;
             type(":Production Plan Item.XDateEdit_XDateEdit", "+45");
             type(":Production Plan Item._qty_XLineEdit", "500");
@@ -517,7 +517,7 @@ function main()
             snooze(1);
             waitForObject(":frame.New_QPushButton_3");
             clickButton(":frame.New_QPushButton_3");
-            type(":Production Plan Item.VirtualClusterLineEdit_ItemLineEdit", "COLLECTORS-LINE");
+            type(":Item Sites.ItemLineEdit_ItemLineEdit", "COLLECTORS-LINE");
             
             type(":Production Plan Item.XDateEdit_XDateEdit", "+75");
             type(":Production Plan Item._qty_XLineEdit", "1000");

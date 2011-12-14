@@ -8,7 +8,7 @@ function main()
     clickButton(":Cancel.Yes_QPushButton");
     var appEdition = findApplicationEdition();
     
-    
+  
     
     //---------Define: User defined costing element----------------
     try{
@@ -97,8 +97,9 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Reports_QMenu", "Costed BOM");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costed BOM_QMenu", "Indented...");
         activateItem(":xTuple ERP: OpenMFG Edition.Costed BOM_QMenu", "Indented...");
-        waitForObject(":Costed Indented Bill of Materials.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Costed Indented Bill of Materials.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
+      
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "YTRUCK1");
         nativeType("<Tab>");
         snooze(1);
         

@@ -1,4 +1,4 @@
-//********** This Test Suite is developed to execute the xTuple Training Guide ****************
+////********** This Test Suite is developed to execute the xTuple Training Guide ****************
 //---Functions/common libraries created are placed in 'shared/scripts/functions.js' script
 
 
@@ -12,12 +12,12 @@ function main()
     
     //---login Application--------
     loginAppl("CONFIGURE"); 
-    
-    
+  
+  
     waitForObject(":Cancel.Yes_QPushButton");
     clickButton(":Cancel.Yes_QPushButton");
     snooze(1);
-    
+
     //-----Editing the preferences----
     
     if(OS.name=="Darwin")
@@ -28,7 +28,7 @@ function main()
         waitForObjectItem("{ title='Products' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient'}","Preferences...");
         
         activateItem("{ title='Products' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient'}","Preferences...");
-    } 
+   } 
     else
     {
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -146,7 +146,7 @@ function main()
         test.log("Encryption defined");
     }catch(e){test.fail("Exception in defining Encryption:"+e);}
     
-    
+  
     //---Restarting Application--
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -163,16 +163,16 @@ function main()
     snooze(2);
   
   loginAppl("CONFIGURE"); 
-  waitForObject(":Cancel.Yes_QPushButton");
-  clickButton(":Cancel.Yes_QPushButton");
-  
+//  waitForObject(":Cancel.Yes_QPushButton");
+//  clickButton(":Cancel.Yes_QPushButton");
+   
   var appEdition = findApplicationEdition(); 
-  
-  
+
+
     //-----create Entities-------
     createDept("MFG","Manufacturing");
     assignAllPrivileges("CONFIGURE");
-    
+ 
     var appEdition = findApplicationEdition();
     if(appEdition=="Manufacturing")
         createShift("1ST","First");
@@ -216,48 +216,49 @@ function main()
             type(":_mainSize_QSpinBox", "4");
         }
         
-        waitForObject(":_gl.Use Company Segment_QGroupBox");
-        if(!findObject(":_gl.Use Company Segment_QGroupBox").checked)
-            clickButton(":_gl.Use Company Segment_QGroupBox");
         
-        if(findObject(":_companySegmentSize_QSpinBox_2").currentText!="2")
+        waitForObject(":_gl.Use Company Segment_QCheckBox");
+        if(!findObject(":_gl.Use Company Segment_QCheckBox").checked)
+            clickButton(":_gl.Use Company Segment_QCheckBox");
+        
+        if(findObject(":_companySegmentSize_QSpinBox_3").currentText!="2")
         {
-            findObject(":_companySegmentSize_QSpinBox_2").clear();
-            type(":_companySegmentSize_QSpinBox_2", "2");
+            findObject(":_companySegmentSize_QSpinBox_3").clear();
+            type(":_companySegmentSize_QSpinBox_3", "2");
         }
         
-        if(findObject(":_subaccountSize_QSpinBox_2").currentText!="2")
+        if(findObject(":_subaccountSize_QSpinBox_3").currentText!="2")
         {
-            findObject(":_subaccountSize_QSpinBox_2").clear();    
-            type(":_subaccountSize_QSpinBox_2", "2");
+            findObject(":_subaccountSize_QSpinBox_3").clear();    
+            type(":_subaccountSize_QSpinBox_3", "2");
         }
         if(appEdition=="Manufacturing"||appEdition=="Standard")
         {
-            waitForObject(":Use Company Segment.Enable External Company Consolidation_QCheckBox");
-            if(!findObject(":Use Company Segment.Enable External Company Consolidation_QCheckBox").checked)
-                clickButton(":Use Company Segment.Enable External Company Consolidation_QCheckBox");
+            waitForObject(":_useCompanySegmentGroup.Enable External Company Consolidation_QCheckBox");
+            if(!findObject(":_useCompanySegmentGroup.Enable External Company Consolidation_QCheckBox").checked)
+                clickButton(":_useCompanySegmentGroup.Enable External Company Consolidation_QCheckBox");
         }
         else if(appEdition=="PostBooks")
         {
-            test.xverify(object.exists(":Use Company Segment.Enable External Company Consolidation_QCheckBox"), "External Company - checkbox not visible");
+            test.xverify(object.exists(":_useCompanySegmentGroup.Enable External Company Consolidation_QCheckBox"), "External Company - checkbox not visible");
         }
-        waitForObject(":_gl.Use Profit Centers_QGroupBox");
-        if(!findObject(":_gl.Use Profit Centers_QGroupBox").checked)
-            type(":_gl.Use Profit Centers_QGroupBox"," ");
-        waitForObject(":Use Profit Centers.Allow Free-Form Profit Centers_QCheckBox");
-        if(!findObject(":Use Profit Centers.Allow Free-Form Profit Centers_QCheckBox").checked)
-            clickButton(":Use Profit Centers.Allow Free-Form Profit Centers_QCheckBox");
-        waitForObject(":_gl.Use Subaccounts_QGroupBox");
-        if(!findObject(":_gl.Use Subaccounts_QGroupBox").checked)
-            type(":_gl.Use Subaccounts_QGroupBox"," ");
-        waitForObject(":Use Subaccounts.Allow Free-Form Subaccounts_QCheckBox");
-        if(findObject(":Use Subaccounts.Allow Free-Form Subaccounts_QCheckBox").checked)
-            clickButton(":Use Subaccounts.Allow Free-Form Subaccounts_QCheckBox");
-        if(findObject(":_profitCenterSize_QSpinBox_2").currentText!="2")
+        waitForObject(":_gl.Use Profit Centers_QCheckBox");
+        if(!findObject(":_gl.Use Profit Centers_QCheckBox").checked)
+            type(":_gl.Use Profit Centers_QCheckBox"," ");
+        waitForObject(":_useProfitCentersGroup.Allow Free-Form Profit Centers_QCheckBox");
+        if(!findObject(":_useProfitCentersGroup.Allow Free-Form Profit Centers_QCheckBox").checked)
+            clickButton(":_useProfitCentersGroup.Allow Free-Form Profit Centers_QCheckBox");
+        waitForObject(":_gl.Use Subaccounts_QCheckBox");
+        if(!findObject(":_gl.Use Subaccounts_QCheckBox").checked)
+            type(":_gl.Use Subaccounts_QCheckBox"," ");
+        waitForObject(":_useSubaccountsGroup.Allow Free-Form Subaccounts_QCheckBox");
+        if(findObject(":_useSubaccountsGroup.Allow Free-Form Subaccounts_QCheckBox").checked)
+            clickButton(":_useSubaccountsGroup.Allow Free-Form Subaccounts_QCheckBox");
+        if(findObject(":_profitCenterSize_QSpinBox_3").currentText!="2")
         {
-            waitForObject(":_profitCenterSize_QSpinBox_2");
-            findObject(":_profitCenterSize_QSpinBox_2").clear();
-            type(":_profitCenterSize_QSpinBox_2", "2");
+            waitForObject(":_profitCenterSize_QSpinBox_3");
+            findObject(":_profitCenterSize_QSpinBox_3").clear();
+            type(":_profitCenterSize_QSpinBox_3", "2");
         }
         waitForObject(":_miscGroup.Mandatory notes for Manual Journal Entries_QCheckBox");
         if(!findObject(":_miscGroup.Mandatory notes for Manual Journal Entries_QCheckBox").checked)
@@ -276,7 +277,7 @@ function main()
         test.log("Acconting Module Configured");
     }
     catch(e){test.fail("Exception in configuring Accounting:"+e);}
-    
+//    
     //-------Create Company: Prodiem---------
     createCompany("01","Prodiem");
     
@@ -289,26 +290,26 @@ function main()
         waitForObject(":Master Information.Currencies_QModelIndex");
         mouseClick(":Master Information.Currencies_QModelIndex", 34, 2, 0, Qt.LeftButton);
         
-        //----------Create Base Currency-----------------------
-        waitForObject(":List Work Centers.New_QPushButton");
-        clickButton(":List Work Centers.New_QPushButton");
-        waitForObject(":_stack._currName_QLineEdit");
-        type(":_stack._currName_QLineEdit", "US Dollars");
-        waitForObject(":_stack._currSymbol_QLineEdit");
-        type(":_stack._currSymbol_QLineEdit", "$");
-        waitForObject(":_stack._currAbbr_QLineEdit");
-        type(":_stack._currAbbr_QLineEdit",  "USD");         
-        waitForObject(":_stack.Base Currency_QCheckBox");
-        clickButton(":_stack.Base Currency_QCheckBox");
-        snooze(0.1);
-        waitForObject(":Cancel.Yes_QPushButton");
-        clickButton(":Cancel.Yes_QPushButton");
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");
-        waitForObject(":Cancel.Yes_QPushButton");
-        clickButton(":Cancel.Yes_QPushButton");
-        
-        
+//        //----------Create Base Currency-----------------------
+//        waitForObject(":List Work Centers.New_QPushButton");
+//        clickButton(":List Work Centers.New_QPushButton");
+//        waitForObject(":_stack._currName_QLineEdit");
+//        type(":_stack._currName_QLineEdit", "US Dollars");
+//        waitForObject(":_stack._currSymbol_QLineEdit");
+//        type(":_stack._currSymbol_QLineEdit", "$");
+//        waitForObject(":_stack._currAbbr_QLineEdit");
+//        type(":_stack._currAbbr_QLineEdit",  "USD");         
+//        waitForObject(":_stack.Base Currency_QCheckBox");
+//        clickButton(":_stack.Base Currency_QCheckBox");
+//        snooze(0.1);
+//        waitForObject(":Cancel.Yes_QPushButton");
+//        clickButton(":Cancel.Yes_QPushButton");
+//        waitForObject(":xTuple ERP: *_QPushButton");
+//        clickButton(":xTuple ERP: *_QPushButton");
+//        waitForObject(":Cancel.Yes_QPushButton");
+//        clickButton(":Cancel.Yes_QPushButton");
+//        
+//        
         //----------Create Foreign currency - EUR------------
         waitForObject(":List Work Centers.New_QPushButton");
         clickButton(":List Work Centers.New_QPushButton");
@@ -883,9 +884,79 @@ function main()
     catch(e)
     {test.fail("Exception in Creating Site Type:"+e);
     }
+  
+  //---find Application Edition---
+  var appEdition = findApplicationEdition();
+  
+      //-------------------Assigning Accounts to Company-------------------
+    if(appEdition=="Manufacturing"||appEdition=="Standard")
+    {
+        try
+        {
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+            activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Companies...");
+            activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Companies...");
+            waitForObject(":List Companies._company_XTreeWidget");
+            doubleClickItem(":List Companies._company_XTreeWidget","01", 10, 10,0,Qt.LeftButton);
+            
+            waitForObject(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit");
+            type(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit","01-01-3030-01");
+            nativeType("<Tab>");
+            waitForObject(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_2");
+            type(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8990-01");
+            nativeType("<Tab>");
+            waitForObject(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_3");
+            type(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-8995-01");
+            nativeType("<Tab>");
+            snooze(0.5);
+            waitForObject(":List Employees.Save_QPushButton_2");
+            clickButton(":List Employees.Save_QPushButton_2");
+            waitForObject(":List Companies.Close_QPushButton");
+            clickButton(":List Companies.Close_QPushButton");
+            test.log("Accounts Assigned to the company");
+        }
+        catch(e)
+        {
+            test.fail("Error in assigning accounts to the company"+ e);
+        }
+    }
+    else
+    {
+        try  
+        {
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+            activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Companies...");
+            activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Companies...");
+            waitForObject(":List Companies._company_XTreeWidget");
+            doubleClickItem(":List Companies._company_XTreeWidget","01", 10, 10,0,Qt.LeftButton);
+            waitForObject(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit");
+            type(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-3030-01");
+            nativeType("<Tab>");
+            waitForObject(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit");
+            type(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit","01-01-8990-01");
+            nativeType("<Tab>");
+            waitForObject(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_2");
+            type(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8995-01");
+            nativeType("<Tab>");
+            snooze(0.5);
+            waitForObject(":List Employees.Save_QPushButton_2");
+            clickButton(":List Employees.Save_QPushButton_2");
+            waitForObject(":List Companies.Close_QPushButton");
+            clickButton(":List Companies.Close_QPushButton");
+            test.log("Accounts Assigned to the company");
+        }
+        catch(e)
+        {
+            test.fail("Error in assigning accounts to the company"+ e);
+        }
+    }
     
-    //---find Application Edition---
-    var appEdition = findApplicationEdition();
     
     
     //-----------Create Inventory Site: WH1-----------------
@@ -1146,6 +1217,8 @@ function main()
         
     } catch(e){test.fail("Exception in Creating Site"+ e );}
     
+    
+    
     //----------Configure: Inventory Module-----------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -1197,74 +1270,7 @@ function main()
         test.log("Inventory Module Configured");
     }catch(e){test.fail("Exception in configuring Inventory module"+ e);}
     
-    //-------------------Assigning Accounts to Company-------------------
-    if(appEdition=="Manufacturing"||appEdition=="Standard")
-    {
-        try
-        {
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-            activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Companies...");
-            activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Companies...");
-            waitForObject(":List Companies._company_XTreeWidget");
-            doubleClickItem(":List Companies._company_XTreeWidget","01", 10, 10,0,Qt.LeftButton);
-            waitForObject(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit");
-            type(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit","01-01-3030-01");
-            nativeType("<Tab>");
-            waitForObject(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_2");
-            type(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8990-01");
-            nativeType("<Tab>");
-            waitForObject(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_3");
-            type(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-8995-01");
-            nativeType("<Tab>");
-            snooze(0.5);
-            waitForObject(":List Employees.Save_QPushButton_2");
-            clickButton(":List Employees.Save_QPushButton_2");
-            waitForObject(":List Companies.Close_QPushButton");
-            clickButton(":List Companies.Close_QPushButton");
-            test.log("Accounts Assigned to the company");
-        }
-        catch(e)
-        {
-            test.fail("Error in assigning accounts to the company"+ e);
-        }
-    }
-    else
-    {
-        try  
-        {
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-            activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Companies...");
-            activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Companies...");
-            waitForObject(":List Companies._company_XTreeWidget");
-            doubleClickItem(":List Companies._company_XTreeWidget","01", 10, 10,0,Qt.LeftButton);
-            waitForObject(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit");
-            type(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-3030-01");
-            nativeType("<Tab>");
-            waitForObject(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit");
-            type(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit","01-01-8990-01");
-            nativeType("<Tab>");
-            waitForObject(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_2");
-            type(":List Companies.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8995-01");
-            nativeType("<Tab>");
-            snooze(0.5);
-            waitForObject(":List Employees.Save_QPushButton_2");
-            clickButton(":List Employees.Save_QPushButton_2");
-            waitForObject(":List Companies.Close_QPushButton");
-            clickButton(":List Companies.Close_QPushButton");
-            test.log("Accounts Assigned to the company");
-        }
-        catch(e)
-        {
-            test.fail("Error in assigning accounts to the company"+ e);
-        }
-    }
-    
+  
     
     //---Create User by Role--
     createUserByRole("RUNREGISTER");

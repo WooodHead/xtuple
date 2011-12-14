@@ -938,7 +938,11 @@ function main()
             clickItem(":Setup._modules_QComboBox","Schedule",10,10, 0, Qt.LeftButton);
             waitForObject(":Master Information.Site Week_QModelIndex");
             mouseClick(":Master Information.Site Week_QModelIndex", 50, 5, 0, Qt.LeftButton);
-           
+//            waitForObject(":_warehouse.Selected:_QRadioButton_8");
+//            clickButton(":_warehouse.Selected:_QRadioButton_8");
+//            waitForObject(":_warehouse._warehouses_WComboBox_9");
+//            clickItem(":_warehouse._warehouses_WComboBox_9", "WH1", 0, 0, 1, Qt.LeftButton);
+            
             waitForObject(":_stack.Sunday_QCheckBox");
             if(findObject(":_stack.Sunday_QCheckBox").checked)
                 clickButton(":_stack.Sunday_QCheckBox");

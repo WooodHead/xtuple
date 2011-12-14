@@ -9,8 +9,8 @@ function main()
     waitForObject(":Cancel.Yes_QPushButton");
     clickButton(":Cancel.Yes_QPushButton");
     var appEdition = findApplicationEdition();
-    
-    
+
+
     //----------Create Customer Type------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -735,40 +735,34 @@ function main()
     
     //----Define Sales Rep---
     try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Employees");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Employees");
-        waitForObjectItem(":xTuple ERP: *.Employees_QMenu", "List...");
-        activateItem(":xTuple ERP: *.Employees_QMenu", "List...");
-        
-        waitForObject(":_frame._emp_XTreeWidget_2");
-        doubleClickItem(":_frame._emp_XTreeWidget_2", username, 0, 0, 0, Qt.LeftButton);
-        waitForObject(":Employee.qt_tabwidget_tabbar_QTabBar");
-        clickTab(":Employee.qt_tabwidget_tabbar_QTabBar", "Detail");
-        waitForObject(":_relationshipsGroup._salesrep_XCheckBox_2");
-        if(!findObject(":_relationshipsGroup._salesrep_XCheckBox_2").checked)
-            clickButton(":_relationshipsGroup._salesrep_XCheckBox_2");
-        waitForObject(":_relationshipsGroup.Sales Rep..._QPushButton_2");
-        clickButton(":_relationshipsGroup.Sales Rep..._QPushButton_2");
-        snooze(1);
-        if(object.exists(":Cancel.Yes_QPushButton"))
-        {
-            waitForObject(":Cancel.Yes_QPushButton");
-            clickButton(":Cancel.Yes_QPushButton");
-        }
-        waitForObject(":_name_XLineEdit_9");
-        type(":_name_XLineEdit_9", username);
-        waitForObject(":_commPrcnt_XLineEdit");
-        type(":_commPrcnt_XLineEdit", "7.5");
-        waitForObject(":List Employees.Save_QPushButton_2");
-        clickButton(":List Employees.Save_QPushButton_2");
-        waitForObject(":Employee.Save_QPushButton");
-        clickButton(":Employee.Save_QPushButton");
-        waitForObject(":_frame.Close_QPushButton_2");
-        clickButton(":_frame.Close_QPushButton_2");
-    }catch(e){test.fail("Exception in creating Employee record:"+e);}
+      
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Setup...");
+    activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Setup...");
     
+    waitForObjectItem(":Setup._tree_XTreeWidget", "Master Information.Sales Reps");
+    clickItem(":Setup._tree_XTreeWidget", "Master Information.Sales Reps", 24, 5, 0, Qt.LeftButton);
+    waitForObject(":List Sales Representatives.New_QPushButton");
+    clickButton(":List Sales Representatives.New_QPushButton");
+    waitForObject(":_number_XLineEdit_5");
+    type(":_number_XLineEdit_5", "usge");
+    waitForObject(":_name_XLineEdit_9");
+    type(":_name_XLineEdit_9", "usge");
+    waitForObject(":_commPrcnt_XLineEdit")
+    type(":_commPrcnt_XLineEdit", "7.5");
+    if(!findObject(":_stack.Active_QCheckBox"))
+        clickButton(":_stack.Active_QCheckBox");
+    waitForObject(":List Employees.Save_QPushButton_2");
+    clickButton(":List Employees.Save_QPushButton_2");
+    
+    waitForObject(":Setup.Save_QPushButton");
+    clickButton(":Setup.Save_QPushButton");
+
+    
+    }
+    catch(e){test.fail("Exception in creating Sales Rep.:"+e);}
+  
     //----------------Create new Customer---------------
     try{
         
@@ -789,8 +783,8 @@ function main()
         clickTab(":Customer.qt_tabwidget_tabbar_QTabBar", "Settings");
         
         waitForObject(":_defaultGroup._salesrep_XComboBox");
-        if(findObject(":_defaultGroup._salesrep_XComboBox").currentText!= username+"-"+username)
-            clickItem(":_defaultGroup._salesrep_XComboBox",username+"-"+username,0,0,1,Qt.LeftButton);
+        if(findObject(":_defaultGroup._salesrep_XComboBox").currentText!= "USGE-"+username)
+            clickItem(":_defaultGroup._salesrep_XComboBox","USGE-"+username,0,0,1,Qt.LeftButton);
         waitForObject(":_defaultGroup._shipform_XComboBox");
         clickItem(":_defaultGroup._shipform_XComboBox","STANDARD-PACKING-LIST",10, 10, 0, Qt.LeftButton); 
         waitForObject(":_settingsTab.Terms_QRadioButton");
@@ -817,6 +811,7 @@ function main()
         clickButton(":_addressStack.New_QPushButton_2");
         waitForObject(":_shipToNumber_XLineEdit");
         type(":_shipToNumber_XLineEdit", "Store1");
+        snooze(1);
         nativeType("<Tab>");
         snooze(1);
         type(":_name_XLineEdit_13", "Old Towne Store 1");
@@ -840,6 +835,11 @@ function main()
         snooze(2);
         if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
             clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);
+         waitForObject(":_shipToNumber_XLineEdit");
+         mouseClick(":_shipToNumber_XLineEdit",55, 7, 0, Qt.LeftButton);
+         snooze(1);
+         nativeType("<Tab>");
+         snooze(2);
         clickButton(":Ship-To.Save_QPushButton");
         snooze(2);
         waitForObject(":_addressStack.New_QPushButton_2");
@@ -868,6 +868,11 @@ function main()
         if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
             clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);	
         snooze(2);
+  
+          waitForObject(":_shipToNumber_XLineEdit");
+          mouseClick(":_shipToNumber_XLineEdit",55, 7, 0, Qt.LeftButton);
+          snooze(1);
+          nativeType("<Tab>");
         waitForObject(":Ship-To.Save_QPushButton");
         clickButton(":Ship-To.Save_QPushButton");
         snooze(2);
@@ -878,8 +883,8 @@ function main()
         test.log("Customer: TTOYS created");
         snooze(1);
     }catch(e){test.fail("Exception in creating Customer:"+e);} 
-    
-    
+  
+
     //----------------Create Customer Group---------------
     try{
         
@@ -966,8 +971,8 @@ function main()
         waitForObject(":Pricing Schedule.New_QPushButton");
         clickButton(":Pricing Schedule.New_QPushButton");
         
-        type(":_widgetStack.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
-        type(":_widgetStack.VirtualClusterLineEdit_ItemLineEdit", "<Tab>");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "YTRUCK1");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "<Tab>");
         
         type(":_qtyBreak_XLineEdit_3", "0");
         type(":_baseTab.XLineEdit_XLineEdit", "9.99");
@@ -977,8 +982,8 @@ function main()
         waitForObject(":Pricing Schedule.New_QPushButton");
         clickButton(":Pricing Schedule.New_QPushButton");
         
-        type(":_widgetStack.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
-        type(":_widgetStack.VirtualClusterLineEdit_ItemLineEdit", "<Tab>");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "YTRUCK1");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "<Tab>");
         type(":_qtyBreak_XLineEdit_3", "100");
         type(":_baseTab.XLineEdit_XLineEdit", "9.5");
         waitForObject(":List Employees.Save_QPushButton_2");
@@ -986,8 +991,8 @@ function main()
         
         waitForObject(":Pricing Schedule.New_QPushButton");
         clickButton(":Pricing Schedule.New_QPushButton");
-        type(":_widgetStack.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
-        type(":_widgetStack.VirtualClusterLineEdit_ItemLineEdit", "<Tab>");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "YTRUCK1");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "<Tab>");
         type(":_qtyBreak_XLineEdit_3", "500");
         type(":_baseTab.XLineEdit_XLineEdit", "9.25");
         waitForObject(":List Employees.Save_QPushButton_2");
