@@ -110,7 +110,7 @@ function main()
         test.fail("Error in identifying the application edition" + e);       
         
     }
-    
+  
 
     //------Creating a Lot controlled item------
     try
@@ -168,8 +168,8 @@ function main()
         activateItem(":xTuple ERP: *.Inventory_QMenu", "Transactions");
         waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
         activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "ZTRUCK1");
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_2");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_2", "ZTRUCK1");
         snooze(0.5);
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
@@ -208,8 +208,8 @@ function main()
         activateItem(":xTuple ERP: *.Inventory_QMenu", "Transactions");
         waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
         activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "WTRUCK1");
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_2");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_2", "WTRUCK1");
         snooze(0.5);
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
@@ -252,8 +252,8 @@ function main()
         activateItem(":xTuple ERP: *.Inventory_QMenu", "Transactions");
         waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
         activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2", "STRUCK1");
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_2");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_2", "STRUCK1");
         snooze(0.5);
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
@@ -311,8 +311,8 @@ function main()
         
         waitForObject(":_lineItemsPage.New_QPushButton");
         clickButton(":_lineItemsPage.New_QPushButton");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3", "YTRUCK1");
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_3");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_3", "YTRUCK1");
         snooze(0.5);
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
@@ -347,8 +347,8 @@ function main()
     {   
         waitForObject(":_list_XTreeWidget_4");
         openItemContextMenu(":_list_XTreeWidget_4",quote,5,5,Qt.LeftButton);
-        waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Convert...");
-        activateItem(":xTuple ERP:*._menu_QMenu", "Convert...");
+        waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Convert to S/O...");
+        activateItem(":xTuple ERP:*._menu_QMenu", "Convert to S/O...");
         waitForObject(":Quotes.Yes_QPushButton");
         clickButton(":Quotes.Yes_QPushButton");
         
@@ -482,7 +482,7 @@ function main()
     }
     
     
-    //-----Create a Quote using Prospect-----
+     //-----Create a Quote using Prospect-----
     try
     {
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "Sales");
@@ -503,15 +503,17 @@ function main()
         type(":_QTreeView", "<Tab>");
         waitForObject(":_headerPage._custPONumber_XLineEdit");
         type(":_headerPage._custPONumber_XLineEdit", "101");
-        
+        waitForObjectItem(":_terms_XComboBox", "2-10N30-2% Discount in 10 Days - Net 30 Days");
+        clickItem(":_terms_XComboBox", "2-10N30-2% Discount in 10 Days - Net 30 Days", 5,5, 0, Qt.LeftButton);
+                
         var pquote = findObject(":_headerPage._orderNumber_XLineEdit").text;
         
         waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Quote.qt_tabwidget_tabbar_QTabBar", "Line Items");
         waitForObject(":_lineItemsPage.New_QPushButton");
         clickButton(":_lineItemsPage.New_QPushButton");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3", "YTRUCK1");
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_3");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_3", "YTRUCK1");
         snooze(0.5);
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
@@ -549,8 +551,8 @@ function main()
     {
         waitForObject(":_list_XTreeWidget_4");
         openItemContextMenu(":_list_XTreeWidget_4",pquote,5,5,Qt.LeftButton);
-        waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Convert...");
-        activateItem(":xTuple ERP:*._menu_QMenu", "Convert...");
+        waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Convert to S/O...");
+        activateItem(":xTuple ERP:*._menu_QMenu", "Convert to S/O...");
         waitForObject(":Quotes.Yes_QPushButton");
         clickButton(":Quotes.Yes_QPushButton");
         
@@ -649,8 +651,8 @@ function main()
         clickTab(":Quote.qt_tabwidget_tabbar_QTabBar", "Line Items");
         waitForObject(":_lineItemsPage.New_QPushButton");
         clickButton(":_lineItemsPage.New_QPushButton");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3", "YTRUCK1");
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_3");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_3", "YTRUCK1");
         snooze(0.5);
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
@@ -798,15 +800,15 @@ function main()
             clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
             waitForObject(":_lineItemsPage.New_QPushButton_2");
             clickButton(":_lineItemsPage.New_QPushButton_2");
-            waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-            type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
+            waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit");
+            type(":_itemGroup.ItemLineEdit_ItemLineEdit", "YTRUCK1");
             snooze(0.5);
             waitForObject(":_QTreeView");
             type(":_QTreeView", "<Tab>");
             waitForObject(":_qtyOrdered_XLineEdit_2");
             type(":_qtyOrdered_XLineEdit_2", "100");
             
-            soitem = findObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit").text;
+            soitem = findObject(":_itemGroup.ItemLineEdit_ItemLineEdit").text;
             
             soqty = findObject(":_qtyOrdered_XLineEdit_2").text;
             
@@ -861,8 +863,8 @@ function main()
             clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
             waitForObject(":_lineItemsPage.New_QPushButton_2");
             clickButton(":_lineItemsPage.New_QPushButton_2");
-            waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-            type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "ZTRUCK1");
+            waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit");
+            type(":_itemGroup.ItemLineEdit_ItemLineEdit", "ZTRUCK1");
             snooze(0.5);
             waitForObject(":_QTreeView");
             type(":_QTreeView", "<Tab>");
@@ -923,8 +925,8 @@ function main()
             clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
             waitForObject(":_lineItemsPage.New_QPushButton_2");
             clickButton(":_lineItemsPage.New_QPushButton_2");
-            waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-            type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "WTRUCK1");
+            waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit");
+            type(":_itemGroup.ItemLineEdit_ItemLineEdit", "WTRUCK1");
             snooze(0.5);
             waitForObject(":_QTreeView");
             type(":_QTreeView", "<Tab>");
@@ -984,8 +986,8 @@ function main()
             clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
             waitForObject(":_lineItemsPage.New_QPushButton_2");
             clickButton(":_lineItemsPage.New_QPushButton_2");
-            waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-            type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "STRUCK1");
+            waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit");
+            type(":_itemGroup.ItemLineEdit_ItemLineEdit", "STRUCK1");
             snooze(0.5);
             waitForObject(":_QTreeView");
             type(":_QTreeView", "<Tab>");
@@ -1044,8 +1046,8 @@ function main()
             clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
             waitForObject(":_lineItemsPage.New_QPushButton_2");
             clickButton(":_lineItemsPage.New_QPushButton_2");
-            waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-            type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "KCAR1");
+            waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit");
+            type(":_itemGroup.ItemLineEdit_ItemLineEdit", "KCAR1");
             snooze(0.5);
             waitForObject(":_QTreeView");
             type(":_QTreeView", "<Tab>");
@@ -1106,8 +1108,8 @@ function main()
             clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
             waitForObject(":_lineItemsPage.New_QPushButton_2");
             clickButton(":_lineItemsPage.New_QPushButton_2");
-            waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-            type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "BTRUCK1");
+            waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit");
+            type(":_itemGroup.ItemLineEdit_ItemLineEdit", "BTRUCK1");
             snooze(0.5);
             waitForObject(":_QTreeView");
             type(":_QTreeView", "<Tab>");
@@ -1187,7 +1189,7 @@ function main()
         doubleClickItem(":_lineItemsPage._soitem_XTreeWidget", "1", 5, 5, 0, Qt.LeftButton);
         snooze(0.5);
         
-        var soitem1 =findObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit").text;
+        var soitem1 =findObject(":_itemGroup.ItemLineEdit_ItemLineEdit").text;
         
         var soqty1 = findObject(":_qtyOrdered_XLineEdit_2").text;
         
