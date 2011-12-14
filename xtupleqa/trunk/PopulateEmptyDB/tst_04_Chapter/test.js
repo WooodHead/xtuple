@@ -8,7 +8,7 @@ function main()
     clickButton(":Cancel.Yes_QPushButton");
     snooze(1);
     var appEdition = findApplicationEdition();
-    
+  
     if(appEdition=="Manufacturing")
     {
         
@@ -288,9 +288,9 @@ function main()
             waitForObject(":List Employees.Save_QPushButton_2");
             clickButton(":List Employees.Save_QPushButton_2");
         }catch(e){test.fail("Exception in creating Standard Operations:"+e);}
-        
-        
-        
+//        
+//        
+//        
         //-----------Define BOO for Items---------------
         try{
             waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -304,8 +304,9 @@ function main()
             waitForObject(":Bills of Operations.New_QPushButton");
             clickButton(":Bills of Operations.New_QPushButton");
             
-            waitForObject(":itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-            type(":itemGroup.VirtualClusterLineEdit_ItemLineEdit","YTRUCK1");
+   
+            waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+            type(":Item Sites.ItemLineEdit_ItemLineEdit","YTRUCK1");
             snooze(0.5);
             nativeType("<Tab>");
             
@@ -350,8 +351,8 @@ function main()
         try{
             waitForObject(":Bills of Operations.New_QPushButton");
             clickButton(":Bills of Operations.New_QPushButton");
-            waitForObject(":itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-            type(":itemGroup.VirtualClusterLineEdit_ItemLineEdit","TSUB1");
+            waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+            type(":Item Sites.ItemLineEdit_ItemLineEdit","TSUB1");
             snooze(0.5);
             nativeType("<Tab>");    
             waitForObject(":frame.New_QPushButton_2");
@@ -413,7 +414,7 @@ function main()
         clickButton(":Setup.Save_QPushButton");    
         
     }
-    //        
+           
     //---------------Create BOM for Items---------------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -427,10 +428,9 @@ function main()
         //---------------Create BOM for YTRUCK1---------------
         waitForObject(":Bills of Materials.New_QPushButton");
         clickButton(":Bills of Materials.New_QPushButton");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-        mouseClick(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", 63, 10, 0, Qt.LeftButton);
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "YTRUCK1");
+
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit","YTRUCK1");
         nativeType("<Tab>");
         snooze(1);
         
@@ -438,8 +438,8 @@ function main()
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
-        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TBODY1");
+        waitForObject(":Bill of Materials.ItemLineEdit_ItemLineEdit");
+        type(":Bill of Materials.ItemLineEdit_ItemLineEdit", "TBODY1");
         nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
@@ -470,8 +470,8 @@ function main()
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
-        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "YPAINT1");
+        waitForObject(":Bill of Materials.ItemLineEdit_ItemLineEdit");
+        type(":Bill of Materials.ItemLineEdit_ItemLineEdit", "YPAINT1");
         nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
@@ -500,15 +500,15 @@ function main()
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TWHEEL1");
+        waitForObject(":Bill of Materials.ItemLineEdit_ItemLineEdit");
+        type(":Bill of Materials.ItemLineEdit_ItemLineEdit", "TWHEEL1");
         nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit");
         type(":_qtyPer_XLineEdit", "4");
         findObject(":_scrap_XLineEdit").clear();
         type(":_scrap_XLineEdit", "0");
-        if(appEdition=="Manufacturing")
+      if(appEdition=="Manufacturing")
         {
             
             clickButton(":Bill of Materials Item...._QPushButton");
@@ -532,8 +532,8 @@ function main()
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
-        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TSUB1");
+        waitForObject(":Bill of Materials.ItemLineEdit_ItemLineEdit");
+        type(":Bill of Materials.ItemLineEdit_ItemLineEdit", "TSUB1");
         nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit"); 
@@ -573,21 +573,19 @@ function main()
     
     //---------------Create BOM for TSUB1---------------
     try{
+
         waitForObject(":Bills of Materials.New_QPushButton");
         clickButton(":Bills of Materials.New_QPushButton");
         
-        
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-        mouseClick(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", 63, 10, 0, Qt.LeftButton);
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit", "TSUB1");
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "TSUB1");
         nativeType("<Tab>");
         snooze(1);
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
         
-        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TBOX1");
+        waitForObject(":Bill of Materials.ItemLineEdit_ItemLineEdit");
+        type(":Bill of Materials.ItemLineEdit_ItemLineEdit", "TBOX1");
         nativeType("<Tab>");
         snooze(1);
         
@@ -618,8 +616,8 @@ function main()
         
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Bill of Materials Item.VirtualClusterLineEdit_ItemLineEdit", "TINSERT1");
+        waitForObject(":Bill of Materials.ItemLineEdit_ItemLineEdit");
+        type(":Bill of Materials.ItemLineEdit_ItemLineEdit", "TINSERT1");
         nativeType("<Tab>");
         snooze(1);
         waitForObject(":_qtyPer_XLineEdit"); 

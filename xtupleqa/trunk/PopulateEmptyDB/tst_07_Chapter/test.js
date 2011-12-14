@@ -9,7 +9,7 @@ function main()
     waitForObject(":Cancel.Yes_QPushButton");
     clickButton(":Cancel.Yes_QPushButton");
     var appEdition = findApplicationEdition();
-    
+  
     //--------Configure: Purchase Module-------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -366,23 +366,23 @@ function main()
         clickButton(":Tax Authorities.Close_QToolButton");
     }catch(e){test.fail("Exception in creating Vendor:"+e);}
     
-           
-    //------------Create Item Sources------------------
-    try{
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-        activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
-        
+         
+  //------------Create Item Sources------------------
+  try{
+      waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+      waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+      activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+      waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+      activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+      
         //----Item source for TBOX1--------------
         
         waitForObject(":Tax Authorities.New_QToolButton");
         clickButton(":Tax Authorities.New_QToolButton");
-        
-        waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TBOX1");
+                
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "TBOX1");
         nativeType("<Tab>");
         snooze(0.5);
         
@@ -425,15 +425,16 @@ function main()
             test.pass("Item Source created for: TBOX1");
         else test.fail("Item Source not created for: TBOX1");
         
-    }catch(e){test.fail("Exception in defining Item sources for TBOX1:"+e);}
+    }catch(e){test.fail("Exception in defining Item sources for TBOX1:"+e);
+    }
     
     //----Item source for TBODY1--------------
     try{
         waitForObject(":Tax Authorities.New_QToolButton");
         clickButton(":Tax Authorities.New_QToolButton");
         
-        waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TBODY1");
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "TBODY1");
         nativeType("<Tab>");
         snooze(0.5);
         
@@ -479,8 +480,8 @@ function main()
         waitForObject(":Tax Authorities.New_QToolButton");
         clickButton(":Tax Authorities.New_QToolButton");
         
-        waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TINSERT1");
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "TINSERT1");
         nativeType("<Tab>");
         snooze(0.5);
         
@@ -526,8 +527,8 @@ function main()
     try{
         waitForObject(":Tax Authorities.New_QToolButton");
         clickButton(":Tax Authorities.New_QToolButton");
-        waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "TWHEEL1");
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "TWHEEL1");
         nativeType("<Tab>");
         snooze(0.5);
         
@@ -570,8 +571,8 @@ function main()
     try{
         waitForObject(":Tax Authorities.New_QToolButton");
         clickButton(":Tax Authorities.New_QToolButton");
-        waitForObject(":Item Source.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Item Source.VirtualClusterLineEdit_ItemLineEdit", "YPAINT1");
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit", "YPAINT1");
         nativeType("<Tab>");
         snooze(0.5);
         

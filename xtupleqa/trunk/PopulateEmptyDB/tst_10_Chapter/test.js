@@ -273,7 +273,7 @@ function main()
         clickButton(":List Fiscal Years.Close_QPushButton");
     }catch(e){test.fail("Exception in creating Fiscal Year");}
     
-    
+  
     //-------------Define: Fiscal Calendar--------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -285,7 +285,8 @@ function main()
         
         for(loop=0;loop<2; loop++,CurrentYearFull++) //for two years
         {
-            var CurrentYear = CurrentYearFull.toString().slice(2);
+//            var CurrentYear = CurrentYearFull.toString().slice(2);
+            var CurrentYear = CurrentYearFull.toString();
             i=CurrentYear;
             if(IsLeapYear(CurrentYearFull)) //find whether the current year is leap year
                 var YearSet = new Array("31","29","31","30","31","30","31","31","30","31","30","31");
@@ -297,9 +298,9 @@ function main()
                 clickButton(":List Accounting Periods.New_QPushButton");
                 
                 waitForObject(":_year_XComboBox");
-                if((findObject(":_year_XComboBox").currentText!="01/01/"+CurrentYear+"-12/31/"+CurrentYear))
-                    clickItem(":_year_XComboBox", "01/01/"+CurrentYear+"-12/31/"+CurrentYear,0,0,1,Qt.LeftButton);
-                while(findObject(":_year_XComboBox").currentText!="01/01/"+CurrentYear+"-12/31/"+CurrentYear)
+                if((findObject(":_year_XComboBox").currentText!="01 Jan "+CurrentYear+"-31 Dec "+CurrentYear))
+                    clickItem(":_year_XComboBox", "01 Jan "+CurrentYear+"-31 Dec "+CurrentYear,0,0,1,Qt.LeftButton);
+                while(findObject(":_year_XComboBox").currentText!="01 Jan "+CurrentYear+"-31 Dec "+CurrentYear)
                     snooze(0.1);                             
                 
                 waitForObject(":Accounting Period.XDateEdit_XDateEdit");

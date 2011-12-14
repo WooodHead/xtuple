@@ -355,8 +355,8 @@ function main()
         waitForObject(":Tax Authorities.New_QToolButton");
         clickButton(":Tax Authorities.New_QToolButton");
         
-        waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","YTRUCK1");
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit","YTRUCK1");
         snooze(1);
         nativeType("<Tab>");
         snooze(1);
@@ -451,8 +451,8 @@ function main()
         waitForObject(":Tax Authorities.New_QToolButton");
         clickButton(":Tax Authorities.New_QToolButton");
         
-        waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TBODY1");
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit","TBODY1");
         snooze(1);
         nativeType("<Tab>");
         snooze(1);
@@ -546,8 +546,8 @@ function main()
     try{
         waitForObject(":Tax Authorities.New_QToolButton");
         clickButton(":Tax Authorities.New_QToolButton");
-        waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TINSERT1");
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit","TINSERT1");
         snooze(1);
         nativeType("<Tab>");
         snooze(1);
@@ -634,8 +634,8 @@ function main()
         waitForObject(":Tax Authorities.New_QToolButton");
         clickButton(":Tax Authorities.New_QToolButton");
         
-        waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TWHEEL1");
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit","TWHEEL1");
         snooze(1);
         nativeType("<Tab>");
         snooze(1);
@@ -720,8 +720,8 @@ function main()
     try{
         waitForObject(":Tax Authorities.New_QToolButton");
         clickButton(":Tax Authorities.New_QToolButton");
-        waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TSUB1");
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit","TSUB1");
         snooze(1);
         nativeType("<Tab>");
         snooze(1);
@@ -802,8 +802,8 @@ function main()
     try{
         waitForObject(":Tax Authorities.New_QToolButton");
         clickButton(":Tax Authorities.New_QToolButton");
-        waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","TBOX1");
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit","TBOX1");
         snooze(1);
         nativeType("<Tab>");
         snooze(1);
@@ -886,8 +886,8 @@ function main()
         clickButton(":Tax Authorities.New_QToolButton");
         snooze(0.5);
         
-        waitForObject(":Item Site.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Item Site.VirtualClusterLineEdit_ItemLineEdit","YPAINT1");
+        waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
+        type(":Item Sites.ItemLineEdit_ItemLineEdit","YPAINT1");
         snooze(1);
         nativeType("<Tab>");
         snooze(1);
