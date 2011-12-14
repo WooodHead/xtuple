@@ -290,8 +290,9 @@ function main()
         clickButton(":_filterGroup.+_QToolButton");
         waitForObject(":_filterGroup.xcomboBox2_XComboBox");
         clickItem(":_filterGroup.xcomboBox2_XComboBox","Item", 10, 10, 0, Qt.LeftButton);
-        waitForObject(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit");
-        type(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit", "DTRUCK2");
+        
+        waitForObject(":_filterGroup.ItemLineEdit_ItemLineEdit");
+        type(":_filterGroup.ItemLineEdit_ItemLineEdit", "DTRUCK2");
         nativeType("<Tab>");
         snooze(2);
         
@@ -1619,7 +1620,7 @@ function main()
     //DRP S/O DEMAND P/O AND W/O SUPPLY NETTING TEST
     test.log("DRP S/O DEMAND P/O AND W/O SUPPLY NETTING TEST");
     
-    DelPlanOrdrs();
+//    DelPlanOrdrs();
     DelAllSO();
     DelAllWO();
     NewSOWh("DTRUCK2",100,"WH2");
@@ -1643,8 +1644,8 @@ function main()
         clickButton(":_filterGroup.+_QToolButton");
         waitForObject(":_filterGroup.xcomboBox2_XComboBox");
         clickItem(":_filterGroup.xcomboBox2_XComboBox","Item", 10, 10, 0, Qt.LeftButton);
-        waitForObject(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit");
-        type(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit", "TWHEEL1");
+        waitForObject(":_filterGroup.ItemLineEdit_ItemLineEdit");
+        type(":_filterGroup.ItemLineEdit_ItemLineEdit", "TWHEEL1");
         nativeType("<Tab>");
         snooze(2);
         
@@ -1759,8 +1760,8 @@ function main()
         clickButton(":_filterGroup.+_QToolButton");
         waitForObject(":_filterGroup.xcomboBox2_XComboBox");
         clickItem(":_filterGroup.xcomboBox2_XComboBox","Item", 10, 10, 0, Qt.LeftButton);
-        waitForObject(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit");
-        type(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit", "TBODY1");
+        waitForObject(":_filterGroup.ItemLineEdit_ItemLineEdit");
+        type(":_filterGroup.ItemLineEdit_ItemLineEdit", "TBODY1");
         nativeType("<Tab>");
         snooze(2);
         
@@ -1803,8 +1804,8 @@ function main()
         clickButton(":_filterGroup.+_QToolButton");
         waitForObject(":_filterGroup.xcomboBox2_XComboBox");
         clickItem(":_filterGroup.xcomboBox2_XComboBox","Item", 10, 10, 0, Qt.LeftButton);
-        waitForObject(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit");
-        type(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit", "TSUB1");
+        waitForObject(":_filterGroup.ItemLineEdit_ItemLineEdit");
+        type(":_filterGroup.ItemLineEdit_ItemLineEdit", "TSUB1");
         nativeType("<Tab>");
         snooze(2);
         
@@ -1845,8 +1846,8 @@ function main()
         clickButton(":_filterGroup.+_QToolButton");
         waitForObject(":_filterGroup.xcomboBox2_XComboBox");
         clickItem(":_filterGroup.xcomboBox2_XComboBox","Item", 10, 10, 0, Qt.LeftButton);
-        waitForObject(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit");
-        type(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit", "YPAINT1");
+        waitForObject(":_filterGroup.ItemLineEdit_ItemLineEdit");
+        type(":_filterGroup.ItemLineEdit_ItemLineEdit", "YPAINT1");
         nativeType("<Tab>");
         snooze(2);
         

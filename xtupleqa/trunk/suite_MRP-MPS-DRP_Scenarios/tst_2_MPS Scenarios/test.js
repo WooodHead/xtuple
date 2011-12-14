@@ -135,8 +135,8 @@ function main()
         type(":Production Plan.XDateEdit_XDateEdit_2", "<Tab>");
         waitForObject(":frame.New_QPushButton_3");
         clickButton(":frame.New_QPushButton_3");
-        waitForObject(":Production Plan Item.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Production Plan Item.VirtualClusterLineEdit_ItemLineEdit", "BTRUCK1");
+        waitForObject(":Production Plan Item.ItemLineEdit_ItemLineEdit");
+        type(":Production Plan Item.ItemLineEdit_ItemLineEdit", "BTRUCK1");
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":Production Plan Item.XDateEdit_XDateEdit");
@@ -2249,47 +2249,6 @@ function main()
     //MPS – SUPPLY SIDE NETTING – TRANSFER ORDER
     test.log("MPS – SUPPLY SIDE NETTING – TRANSFER ORDER");
     
-    //    //---Create Item Site----
-    //    try
-    //    {
-    //        waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
-    //        activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
-    //        waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-    //        activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
-    //        waitForObjectItem(":_QMenu", "List...");
-    //        activateItem(":_QMenu", "List...");
-    //        waitForObject(":Item Sites.More_QToolButton");
-    //        clickButton(":Item Sites.More_QToolButton");
-    //        waitForObject(":_filterGroup.xcomboBox1_XComboBox");
-    //        clickItem(":_filterGroup.xcomboBox1_XComboBox","Site", 10, 10, 0, Qt.LeftButton);
-    //        waitForObject(":_filterGroup.widget1_WComboBox");
-    //        clickItem(":_filterGroup.widget1_WComboBox","WH1", 10, 10, 0, Qt.LeftButton);   
-    //        waitForObject(":_filterGroup.+_QToolButton");
-    //        clickButton(":_filterGroup.+_QToolButton");
-    //        waitForObject(":_filterGroup.xcomboBox2_XComboBox");
-    //        clickItem(":_filterGroup.xcomboBox2_XComboBox","Item", 10, 10, 0, Qt.LeftButton);
-    //        waitForObject(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit");
-    //        type(":_filterGroup.VirtualClusterLineEdit_ItemLineEdit", "BTRUCK1");
-    //        nativeType("<Tab>");
-    //         snooze(2);   
-    //         waitForObject(":Item Sites.Query_QToolButton");
-    //        clickButton(":Item Sites.Query_QToolButton");
-    //         openContextMenu(":_list_XTreeWidget_11", 10, 10, 0);
-    //         waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Copy...");
-    //         activateItem(":xTuple ERP:*._menu_QMenu", "Copy...");
-    //         waitForObject(":_warehouse_WComboBox_8");
-    //         clickItem(":_warehouse_WComboBox_8","WH2", 10, 10, 0, Qt.LeftButton);
-    //         waitForObject(":Item Sites.Save_QPushButton");
-    //         clickButton(":Item Sites.Save_QPushButton");
-    //         waitForObject(":Item Sites.Close_QToolButton");
-    //         clickButton(":Item Sites.Close_QToolButton");
-    //        
-    //    }
-    //    catch(e)
-    //    {
-    //        test.fail("Error in creating Item site" + e);
-    //    }
-    //  
     //---Create and Release the TO------
     try
     {
@@ -2308,8 +2267,8 @@ function main()
         clickTab(":Transfer Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
         waitForObject(":_lineItemsPage.New_QPushButton_3");
         clickButton(":_lineItemsPage.New_QPushButton_3");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_6");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_6", "BTRUCK1");
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_6");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_6", "BTRUCK1");
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_qtyOrdered_XLineEdit_2");
@@ -2512,8 +2471,8 @@ function main()
         clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
         waitForObject(":_lineItemsPage.New_QPushButton");
         clickButton(":_lineItemsPage.New_QPushButton");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3", "BTRUCK1");
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_2");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_2", "BTRUCK1");
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_qtyOrdered_XLineEdit");
@@ -2695,8 +2654,8 @@ function main()
         clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
         waitForObject(":_lineItemsPage.New_QPushButton");
         clickButton(":_lineItemsPage.New_QPushButton");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3", "BTRUCK1");
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_2");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_2", "BTRUCK1");
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_qtyOrdered_XLineEdit");
@@ -2785,8 +2744,8 @@ function main()
         
         waitForObject(":frame.New_QPushButton_3");
         clickButton(":frame.New_QPushButton_3");
-        waitForObject(":Production Plan Item.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Production Plan Item.VirtualClusterLineEdit_ItemLineEdit", "BTRUCK1");
+        waitForObject(":Production Plan Item.ItemLineEdit_ItemLineEdit");
+        type(":Production Plan Item.ItemLineEdit_ItemLineEdit", "BTRUCK1");
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":Production Plan Item.XDateEdit_XDateEdit");
@@ -2800,8 +2759,8 @@ function main()
         
         waitForObject(":frame.New_QPushButton_3");
         clickButton(":frame.New_QPushButton_3");
-        waitForObject(":Production Plan Item.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Production Plan Item.VirtualClusterLineEdit_ItemLineEdit", "BTRUCK1");
+        waitForObject(":Production Plan Item.ItemLineEdit_ItemLineEdit");
+        type(":Production Plan Item.ItemLineEdit_ItemLineEdit", "BTRUCK1");
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":Production Plan Item.XDateEdit_XDateEdit");

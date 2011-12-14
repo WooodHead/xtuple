@@ -9,6 +9,7 @@
 :Bill of Materials...._QPushButton_2	{container=':xTuple ERP:*.Bill of Materials_QWorkspaceChild' name='_itemList' text='...' type='QPushButton' visible='1'}
 :Bill of Materials.Bill of Materials_QWorkspaceTitleBar	{container=':xTuple ERP:*.Bill of Materials_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='Bill of Materials'}
 :Bill of Materials.Effectivity_QGroupBox	{container=':xTuple ERP:*.Bill of Materials_QWorkspaceChild' name='_effectivityGroup' title='Effectivity' type='QGroupBox' visible='1'}
+:Bill of Materials.ItemLineEdit_ItemLineEdit	{container=':xTuple ERP:*.Bill of Materials_QWorkspaceChild' name='ItemLineEdit' occurrence='2' type='ItemLineEdit' visible='1'}
 :Bill of Materials.Items:_QLabel	{container=':xTuple ERP:*.Bill of Materials_QWorkspaceChild' name='_itemsLit' text='Items:' type='QLabel' visible='1'}
 :Bill of Materials.Qty. Per:_QLabel	{container=':xTuple ERP:*.Bill of Materials_QWorkspaceChild' name='_qtyPerLit' text='Qty. Per:' type='QLabel' visible='1'}
 :Bill of Materials.Save_QPushButton	{container=':xTuple ERP:*.Bill of Materials_QWorkspaceChild' name='_save' occurrence='2' text='Save' type='QPushButton' visible='1'}
@@ -342,6 +343,7 @@
 :Print Purchase Order.Print_QPushButton	{name='_print' text='Print' type='QPushButton' visible='1' window=':Print Purchase Order_printPurchaseOrder'}
 :Print Purchase Order_printPurchaseOrder	{name='printPurchaseOrder' type='printPurchaseOrder' visible='1' windowTitle='Print Purchase Order'}
 :Production Plan Item.Cancel_QPushButton	{name='_cancel' text='Cancel' type='QPushButton' visible='1' window=':Production Plan Item_XMainWindow'}
+:Production Plan Item.ItemLineEdit_ItemLineEdit	{name='ItemLineEdit' type='ItemLineEdit' visible='1' window=':Production Plan Item_XMainWindow'}
 :Production Plan Item.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Production Plan Item_XMainWindow'}
 :Production Plan Item.VirtualClusterLineEdit_ItemLineEdit	{name='VirtualClusterLineEdit' type='ItemLineEdit' visible='1' window=':Production Plan Item_XMainWindow'}
 :Production Plan Item.XDateEdit_XDateEdit	{name='XDateEdit' type='XDateEdit' visible='1' window=':Production Plan Item_XMainWindow'}
@@ -396,8 +398,8 @@
 :Run MPS by Planner Code_runMPSByPlannerCode	{name='runMPSByPlannerCode' type='XMainWindow' visible='1' windowTitle='Run MPS by Planner Code'}
 :Run MRP by Item.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':Run MRP by Item_createPlannedOrdersByItem'}
 :Run MRP by Item.Create_QPushButton	{name='_create' text='Create' type='QPushButton' visible='1' window=':Run MRP by Item_createPlannedOrdersByItem'}
+:Run MRP by Item.ItemLineEdit_ItemLineEdit	{name='ItemLineEdit' type='ItemLineEdit' visible='1' window=':Run MRP by Item_createPlannedOrdersByItem'}
 :Run MRP by Item.Site:_QLabel	{name='_warehouseLit' text='Site:' type='QLabel' visible='1' window=':Run MRP by Item_createPlannedOrdersByItem'}
-:Run MRP by Item.VirtualClusterLineEdit_ItemLineEdit	{name='VirtualClusterLineEdit' type='ItemLineEdit' visible='1' window=':Run MRP by Item_createPlannedOrdersByItem'}
 :Run MRP by Item.XDateEdit_XDateEdit	{name='XDateEdit' type='XDateEdit' visible='1' window=':Run MRP by Item_createPlannedOrdersByItem'}
 :Run MRP by Item_createPlannedOrdersByItem	{name='createPlannedOrdersByItem' type='createPlannedOrdersByItem' visible='1' windowTitle='Run MRP by Item'}
 :Run MRP by Planner Code.Create_QPushButton	{name='_create' text='Create' type='QPushButton' visible='1' window=':Run MRP by Planner Code_createPlannedOrdersByPlannerCode'}
@@ -563,6 +565,7 @@
 :_explosionGroup.Multiple Level Explosion_QRadioButton_2	{container=':_stack._explosionGroup_QGroupBox' name='_multipleLevel' text='Multiple Level Explosion' type='QRadioButton' visible='1'}
 :_explosionGroup.Single Level Explosion_QRadioButton	{container=':_stack._explosionGroup_QGroupBox' name='_singleLevel' text='Single Level Explosion' type='QRadioButton' visible='1'}
 :_filterGroup.+_QToolButton	{container=':Item Sites._filterGroup_QFrame' name='_addFilterRow' text='+' type='QToolButton' visible='1'}
+:_filterGroup.ItemLineEdit_ItemLineEdit	{container=':Item Sites._filterGroup_QFrame' name='ItemLineEdit' type='ItemLineEdit' visible='1'}
 :_filterGroup.Manage_QPushButton	{container=':Planned Orders._filterGroup_QFrame' name='_manageButton' text='Manage' type='QPushButton' visible='1'}
 :_filterGroup.VirtualClusterLineEdit_ItemLineEdit	{container=':Item Sites._filterGroup_QFrame' name='VirtualClusterLineEdit' type='ItemLineEdit' visible='1'}
 :_filterGroup.widget1_WComboBox	{container=':Item Sites._filterGroup_QFrame' name='widget1' type='WComboBox' visible='1'}
@@ -608,6 +611,12 @@
 :_itemGroup...._QPushButton_5	{container=':Bill of Materials._itemGroup_QGroupBox' name='_itemList' text='...' type='QPushButton' visible='1'}
 :_itemGroup...._QPushButton_6	{container=':Transfer Order._itemGroup_QGroupBox' name='_itemList' text='...' type='QPushButton' visible='1'}
 :_itemGroup.Buy Items Only_QCheckBox	{container=':Work Order._itemGroup_QGroupBox' name='_showBuy' text='Buy Items Only' type='QCheckBox' visible='1'}
+:_itemGroup.ItemLineEdit_ItemLineEdit	{container=':Enter Miscellaneous Adjustment._itemGroup_QGroupBox' name='ItemLineEdit' type='ItemLineEdit' visible='1'}
+:_itemGroup.ItemLineEdit_ItemLineEdit_2	{container=':Sales Order._itemGroup_QGroupBox' name='ItemLineEdit' type='ItemLineEdit' visible='1'}
+:_itemGroup.ItemLineEdit_ItemLineEdit_3	{container=':Work Order._itemGroup_QGroupBox' name='ItemLineEdit' type='ItemLineEdit' visible='1'}
+:_itemGroup.ItemLineEdit_ItemLineEdit_4	{container=':Planned Order._itemGroup_QGroupBox' name='ItemLineEdit' type='ItemLineEdit' visible='1'}
+:_itemGroup.ItemLineEdit_ItemLineEdit_5	{container=':Bill of Materials._itemGroup_QGroupBox' name='ItemLineEdit' type='ItemLineEdit' visible='1'}
+:_itemGroup.ItemLineEdit_ItemLineEdit_6	{container=':Transfer Order._itemGroup_QGroupBox' name='ItemLineEdit' type='ItemLineEdit' visible='1'}
 :_itemGroup.Items:_QLabel	{container=':Enter Miscellaneous Adjustment._itemGroup_QGroupBox' name='_itemsLit' text='Items:' type='QLabel' visible='1'}
 :_itemGroup.Items:_QLabel_2	{container=':Sales Order._itemGroup_QGroupBox' name='_itemsLit' text='Items:' type='QLabel' visible='1'}
 :_itemGroup.Items:_QLabel_3	{container=':Work Order._itemGroup_QGroupBox' name='_itemsLit' text='Items:' type='QLabel' visible='1'}
@@ -823,7 +832,6 @@
 :_warehouse.Selected:_QRadioButton_2	{container=':Run MPS by Planner Code._warehouse_WarehouseGroup' name='_selected' text='Selected:' type='QRadioButton' visible='1'}
 :_warehouse.WH1_QModelIndex	{container=':_warehouse_WComboBox_6' text='WH1' type='QModelIndex'}
 :_warehouse.WH2_QModelIndex	{container=':_warehouse_WComboBox_8' text='WH2' type='QModelIndex'}
-:_warehouse.WH2_QModelIndex_2	{container=':_warehouse_WComboBox_9' text='WH2' type='QModelIndex'}
 :_warehouse._warehouses_WComboBox	{container=':List Item Sites._warehouse_WarehouseGroup' name='_warehouses' type='WComboBox' visible='1'}
 :_warehouse_WComboBox	{buddy=':List Items.Site:  _QLabel' name='_warehouse' type='WComboBox' visible='1'}
 :_warehouse_WComboBox_2	{buddy=':List Production Plans.Site:_QLabel' name='_warehouse' type='WComboBox' visible='1'}
@@ -854,6 +862,7 @@
 :frame_2._bomitem_XTreeWidget	{container=':Bill of Materials.frame_2_QFrame' name='_bomitem' type='XTreeWidget' visible='1'}
 :groupBox_2...._QPushButton	{container=':_typeGroup.groupBox_2_QGroupBox' name='_itemList' text='...' type='QPushButton' visible='1'}
 :groupBox_2.Buy Items Only_QCheckBox	{container=':_typeGroup.groupBox_2_QGroupBox' name='_showBuy' text='Buy Items Only' type='QCheckBox' visible='1'}
+:groupBox_2.ItemLineEdit_ItemLineEdit	{container=':_typeGroup.groupBox_2_QGroupBox' name='ItemLineEdit' type='ItemLineEdit' visible='1'}
 :groupBox_2.Items:_QLabel	{container=':_typeGroup.groupBox_2_QGroupBox' name='_itemsLit' text='Items:' type='QLabel' visible='1'}
 :groupBox_2.Make Items Only_QCheckBox	{container=':_typeGroup.groupBox_2_QGroupBox' name='_showMake' text='Make Items Only' type='QCheckBox' visible='1'}
 :groupBox_2.VirtualClusterLineEdit_ItemLineEdit	{container=':_typeGroup.groupBox_2_QGroupBox' name='VirtualClusterLineEdit' type='ItemLineEdit' visible='1'}
