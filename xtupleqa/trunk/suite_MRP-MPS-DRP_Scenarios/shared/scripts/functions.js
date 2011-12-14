@@ -76,8 +76,8 @@ try
         activateItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
         waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
         activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit",item);
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit",item);
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_adjustmentTypeGroup.Absolute_QRadioButton");
@@ -118,8 +118,8 @@ try
         activateItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
         waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
         activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit",item);
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit",item);
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_warehouse_WComboBox_4");
@@ -163,8 +163,8 @@ try
         activateItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
         waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
         activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit",item);
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit",item);
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_adjustmentTypeGroup.Absolute_QRadioButton");
@@ -228,8 +228,8 @@ try
         activateItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
         waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
         activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit",item);
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit",item);
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_warehouse_WComboBox_4");
@@ -289,7 +289,7 @@ try
     function MRP(period)
     {
         //--------Run MRP---------
-   
+        
         waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
         activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
         waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
@@ -318,40 +318,40 @@ catch(e)
 
 
 try
-    {
-        function MRPbyItem(item,site,period)
-        {    
-            
-            //---------------Run MRP By Item-----------------------
-            waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
-            activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
-            waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
-            activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
-            waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "Run MRP");
-            activateItem(":xTuple ERP:*.Scheduling_QMenu", "Run MRP");
-            waitForObjectItem(":xTuple ERP:*.Run MRP_QMenu", "by Item...");
-            activateItem(":xTuple ERP:*.Run MRP_QMenu", "by Item...");
-            waitForObject(":Run MRP by Item.VirtualClusterLineEdit_ItemLineEdit");
-            type(":Run MRP by Item.VirtualClusterLineEdit_ItemLineEdit", item);
-            nativeType("<Tab>");
-            snooze(0.5);
-            waitForObject(":_warehouse_WComboBox_9");
-            clickItem(":_warehouse_WComboBox_9",site,10,10,0,Qt.LeftButton);
-            waitForObject(":Run MRP by Item.XDateEdit_XDateEdit");
-            type(":Run MRP by Item.XDateEdit_XDateEdit", period);
-            nativeType("<Tab>");
-            snooze(0.5);
-            waitForObject(":Run MRP by Item.Create_QPushButton");
-            clickButton(":Run MRP by Item.Create_QPushButton");
-            waitForObject(":Run MRP by Item.Close_QPushButton");
-            clickButton(":Run MRP by Item.Close_QPushButton");
-        }
+{
+    function MRPbyItem(item,site,period)
+    {    
         
+        //---------------Run MRP By Item-----------------------
+        waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
+        activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
+        waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
+        activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
+        waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "Run MRP");
+        activateItem(":xTuple ERP:*.Scheduling_QMenu", "Run MRP");
+        waitForObjectItem(":xTuple ERP:*.Run MRP_QMenu", "by Item...");
+        activateItem(":xTuple ERP:*.Run MRP_QMenu", "by Item...");
+        waitForObject(":Run MRP by Item.ItemLineEdit_ItemLineEdit");
+        type(":Run MRP by Item.ItemLineEdit_ItemLineEdit", item);
+        nativeType("<Tab>");
+        snooze(0.5);
+        waitForObject(":_warehouse_WComboBox_9");
+        clickItem(":_warehouse_WComboBox_9",site,10,10,0,Qt.LeftButton);
+        waitForObject(":Run MRP by Item.XDateEdit_XDateEdit");
+        type(":Run MRP by Item.XDateEdit_XDateEdit", period);
+        nativeType("<Tab>");
+        snooze(0.5);
+        waitForObject(":Run MRP by Item.Create_QPushButton");
+        clickButton(":Run MRP by Item.Create_QPushButton");
+        waitForObject(":Run MRP by Item.Close_QPushButton");
+        clickButton(":Run MRP by Item.Close_QPushButton");
     }
-    catch(e)
-    {
-        test.fail("Error in running MRP by item" + e);
-    }
+    
+}
+catch(e)
+{
+    test.fail("Error in running MRP by item" + e);
+}
 
 
 try
@@ -431,7 +431,7 @@ try
         clickItem(":_filterGroup.xcomboBox1_XComboBox","Site", 10, 10, 0, Qt.LeftButton);
         waitForObject(":_filterGroup.widget1_WComboBox");
         clickItem(":_filterGroup.widget1_WComboBox","WH1", 10, 10, 0, Qt.LeftButton);
-   
+        
         waitForObject(":Item Sites.Query_QToolButton");
         clickButton(":Item Sites.Query_QToolButton");
         
@@ -439,7 +439,7 @@ try
         doubleClickItem(":_list_XTreeWidget_11", item, 0, 0, 0, Qt.LeftButton);
         waitForObject(":Item Sites.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
-          waitForObject(":Scheduling._planningType_XComboBox_4");
+        waitForObject(":Scheduling._planningType_XComboBox_4");
         if(findObject(":Scheduling._planningType_XComboBox_4").currentText!=plng)
             clickItem(":Scheduling._planningType_XComboBox_4", plng, 0, 0, 1, Qt.LeftButton);
         waitForObject(":Item Sites.Save_QPushButton");
@@ -479,8 +479,8 @@ try
         clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
         waitForObject(":_lineItemsPage.New_QPushButton_2");
         clickButton(":_lineItemsPage.New_QPushButton_2");
-        waitForObject(":groupBox_2.VirtualClusterLineEdit_ItemLineEdit");
-        type(":groupBox_2.VirtualClusterLineEdit_ItemLineEdit", item);
+        waitForObject(":groupBox_2.ItemLineEdit_ItemLineEdit");
+        type(":groupBox_2.ItemLineEdit_ItemLineEdit", item);
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_ordered_XLineEdit");
@@ -493,6 +493,9 @@ try
         type(":_schedGroup.XDateEdit_XDateEdit_3", "<Tab>");
         waitForObject(":Purchase Order.Save_QPushButton");
         clickButton(":Purchase Order.Save_QPushButton");
+        snooze(2);
+        if(object.exists(":Purchase Order.Continue_QPushButton"))
+            clickButton(":Purchase Order.Continue_QPushButton");
         snooze(2);
         if(object.exists(":Purchase Order.Continue_QPushButton"))
             clickButton(":Purchase Order.Continue_QPushButton");
@@ -536,8 +539,8 @@ try
         clickTab(":Purchase Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
         waitForObject(":_lineItemsPage.New_QPushButton_2");
         clickButton(":_lineItemsPage.New_QPushButton_2");
-        waitForObject(":groupBox_2.VirtualClusterLineEdit_ItemLineEdit");
-        type(":groupBox_2.VirtualClusterLineEdit_ItemLineEdit", item);
+        waitForObject(":groupBox_2.ItemLineEdit_ItemLineEdit");
+        type(":groupBox_2.ItemLineEdit_ItemLineEdit", item);
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":groupBox_2._warehouse_WComboBox");
@@ -553,6 +556,9 @@ try
         type(":_schedGroup.XDateEdit_XDateEdit_3", "<Tab>");
         waitForObject(":Purchase Order.Save_QPushButton");
         clickButton(":Purchase Order.Save_QPushButton");
+        snooze(2);
+        if(object.exists(":Purchase Order.Continue_QPushButton"))
+            clickButton(":Purchase Order.Continue_QPushButton");        
         waitForObject(":Purchase Order.Save_QPushButton_2");
         clickButton(":Purchase Order.Save_QPushButton_2");
         waitForObject(":Purchase Order.Cancel_QPushButton");
@@ -632,7 +638,7 @@ try
         
         
         //---Check in the Item site if the Item is Saleable from the site---
-         waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
+        waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
         activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
         waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
         activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -644,7 +650,7 @@ try
         clickItem(":_filterGroup.xcomboBox1_XComboBox","Site", 10, 10, 0, Qt.LeftButton);
         waitForObject(":_filterGroup.widget1_WComboBox");
         clickItem(":_filterGroup.widget1_WComboBox","WH1", 10, 10, 0, Qt.LeftButton);
-   
+        
         waitForObject(":Item Sites.Query_QToolButton");
         clickButton(":Item Sites.Query_QToolButton");
         
@@ -691,9 +697,8 @@ try
         clickTab(":Sales Order.qt_tabwidget_tabbar_QTabBar", "Line Items");
         waitForObject(":_lineItemsPage.New_QPushButton");
         clickButton(":_lineItemsPage.New_QPushButton");
-        
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3", item);
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_2");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_2", item);
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_qtyOrdered_XLineEdit");
@@ -748,8 +753,8 @@ try
         waitForObject(":_lineItemsPage.New_QPushButton");
         clickButton(":_lineItemsPage.New_QPushButton");
         
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3", item);
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_2");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_2", item);
         nativeType("<Tab>");
         snooze(0.5);
         waitForObjectItem(":_warehouse_WComboBox_5", Wh);
@@ -869,8 +874,8 @@ try
         waitForObjectItem(":xTuple ERP:*.Work Order_QMenu", "New...");
         activateItem(":xTuple ERP:*.Work Order_QMenu", "New...");
         
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2",item);
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_3");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_3",item);
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_qtyGroup._qty_XLineEdit");
@@ -906,8 +911,8 @@ try
         waitForObjectItem(":xTuple ERP:*.Work Order_QMenu", "New...");
         activateItem(":xTuple ERP:*.Work Order_QMenu", "New...");
         
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_2",item);
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_3");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_3",item);
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_qtyGroup._qty_XLineEdit");
@@ -947,9 +952,9 @@ try
         type(":xTuple ERP:*.Manufacture_QMenu", "<Down>");
         type(":xTuple ERP:*.Manufacture_QMenu", "<Right>");
         
-           waitForObject(":xTuple ERP:*.Reports_QMenu_2");
-           type(":xTuple ERP:*.Reports_QMenu_2", "<Return>");
-
+        waitForObject(":xTuple ERP:*.Reports_QMenu_2");
+        type(":xTuple ERP:*.Reports_QMenu_2", "<Return>");
+        
         waitForObject(":Work Order Schedule.Query_QToolButton");
         clickButton(":Work Order Schedule.Query_QToolButton");
         waitForObject(":_list_XTreeWidget_9");
@@ -1083,8 +1088,8 @@ try
         waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
         activateItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
         
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_4");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_4",item);
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_4");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_4",item);
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_typeGroup.Work Order_QRadioButton");

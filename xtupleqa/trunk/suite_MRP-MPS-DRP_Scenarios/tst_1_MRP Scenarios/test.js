@@ -195,12 +195,33 @@ function main()
         test.fail("Error in setting up  Item Site of TBOX1" + e);
     } 
     
-    
-    MRPbyItem("TBOX1","WH1","+99");
 //    MRP("+99");
-  
+    MRPbyItem("TBOX1","WH1","+99");
     
-   
+    
+    //--------View Planned Orders----        
+    try
+    {
+        waitForObjectItem(":xTuple ERP:*_QMenuBar", "Schedule");
+        activateItem(":xTuple ERP:*_QMenuBar", "Schedule");
+        waitForObjectItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
+        activateItem(":xTuple ERP:*.Schedule_QMenu", "Reports");
+        waitForObjectItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders...");
+        activateItem(":xTuple ERP:*.Reports_QMenu", "Planned Orders...");
+        waitForObject(":Planned Orders.Query_QToolButton");
+        clickButton(":Planned Orders.Query_QToolButton");      
+        waitForObject(":_list_XTreeWidget_10");
+        if((findObject(":_list_XTreeWidget_10").topLevelItemCount)==0)
+            test.pass("No Planned Order generated");
+        else test.fail("Planned Order generated");
+        waitForObject(":Planned Orders.Close_QToolButton");
+        clickButton(":Planned Orders.Close_QToolButton");
+    }
+    catch(e)
+    {
+        test.fail("Error in viewing planned orders" + e);
+    }
+    
     //MRP REORDER POINT TEST   
     test.log("MRP REORDER POINT TEST");
     
@@ -265,8 +286,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     } 
     
+//    MRP("+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -379,8 +400,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
-    MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
+     MRPbyItem("TBOX1","WH1","+99");
+//    MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -491,8 +512,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
+//    MRP("+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -600,8 +621,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
+//    MRP("+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -721,8 +742,9 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
+//    MRP("+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
+    
     
     //--------Verify generated Planned Orders-----
     try
@@ -832,8 +854,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
+//    MRP("+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -943,8 +965,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
+//    MRP("+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -1048,8 +1070,8 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
+//    MRP("+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
     
     //--------Verify generated Planned Orders-----
     try
@@ -1116,7 +1138,7 @@ function main()
         
         waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_4");
         if(findObject(":_planningTab.Enforce Order Parameters_QGroupBox_4").checked)
-          type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
+            type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
         
         findObject(":Scheduling._safetyStock_XLineEdit_4").clear();
         type(":Scheduling._safetyStock_XLineEdit_4", "0");
@@ -1139,8 +1161,8 @@ function main()
         test.fail("Error in setting  up Item Site of TBOX1 " + e);
     }
     
+//    MRP("+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
     
     
     //--------Verify generated Planned Orders-----
@@ -1227,8 +1249,8 @@ function main()
         test.fail("Error in setting  up Item Site of TBOX1 " + e);
     }
     
+//    MRP("+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
     
     
     //--------Verify generated Planned Orders-----
@@ -1287,9 +1309,9 @@ function main()
     
     newPO("TBOX1",50,0)
             
-         //----Setup Item site------
-         try
-        {
+            //----Setup Item site------
+            try
+    {
         waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
         activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
         waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -1313,8 +1335,8 @@ function main()
         clickTab(":Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
         
         waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_4");
-       if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_4").checked)
-          type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
+        if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_4").checked)
+            type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
         waitForObject(":_reorderLevel_XLineEdit_4");
         findObject(":_reorderLevel_XLineEdit_4").clear();
         type(":_reorderLevel_XLineEdit_4", "100");
@@ -1347,8 +1369,8 @@ function main()
         test.fail("Error in setting  up Item Site of TBOX1 " + e);
     }
     
+//    MRP("+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
     
     //--------View Planned Orders----        
     try
@@ -1460,8 +1482,8 @@ function main()
         test.fail("Error in setting  up Item Site of TBOX1 " + e);
     }
     
+//    MRP("+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
     
     //--------View Planned Orders----        
     try
@@ -1542,7 +1564,7 @@ function main()
         clickTab(":Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
         waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_4");
         if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_4").checked)
-        type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
+            type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
         
         waitForObject(":_reorderLevel_XLineEdit_4");
         findObject(":_reorderLevel_XLineEdit_4").clear();
@@ -1583,7 +1605,7 @@ function main()
         clickTab(":Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
         waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_4");
         if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_4").checked)
-        type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
+            type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
         
         waitForObject(":_reorderLevel_XLineEdit_4");
         findObject(":_reorderLevel_XLineEdit_4").clear();
@@ -1619,9 +1641,10 @@ function main()
     
     NewWO("TSUB1",300,0,0)
             
+            
+//    MRP("+99");
     MRPbyItem("TSUB1","WH1","+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
     
     //------Verify generated Planned Orders-----
     try
@@ -1704,7 +1727,7 @@ function main()
         clickTab(":Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
         waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_4");
         if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_4").checked)
-        type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
+            type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
         
         waitForObject(":_reorderLevel_XLineEdit_4");
         findObject(":_reorderLevel_XLineEdit_4").clear();
@@ -1745,7 +1768,7 @@ function main()
         clickTab(":Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
         waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_4");
         if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_4").checked)
-        type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
+            type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
         
         waitForObject(":_reorderLevel_XLineEdit_4");
         findObject(":_reorderLevel_XLineEdit_4").clear();
@@ -1781,9 +1804,9 @@ function main()
     
     NewWO("TSUB1",350,0,0);
     
+//    MRP("+99");
     MRPbyItem("TSUB1","WH1","+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
     
     //------Verify generated Planned Orders-----
     try
@@ -1924,12 +1947,12 @@ function main()
     }
     
     
-    NewWO("TSUB1",300,0,0)
+    NewWO("TSUB1",300,0,0);
             
             
-            //----Setup Item site------
+       //----Setup Item site------
             try
-    {
+       {
         waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
         activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
         waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
@@ -1993,8 +2016,8 @@ function main()
         waitForObject(":Item Sites.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Item Sites.qt_tabwidget_tabbar_QTabBar", "Planning");
         waitForObject(":_planningTab.Enforce Order Parameters_QGroupBox_4");
-         if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_4").checked)
-        type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
+        if(!findObject(":_planningTab.Enforce Order Parameters_QGroupBox_4").checked)
+            type(":_planningTab.Enforce Order Parameters_QGroupBox_4"," ");
         
         waitForObject(":_reorderLevel_XLineEdit_4");
         findObject(":_reorderLevel_XLineEdit_4").clear();
@@ -2027,10 +2050,10 @@ function main()
         test.fail("Error in setting up Item Site of TBOX1" + e);
     }
     
+//    MRP("+99");
     
     MRPbyItem("TSUB1","WH1","+99");
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
     
     //------Verify generated Planned Orders-----
     try
@@ -2185,7 +2208,7 @@ function main()
     NewScheduledWO("TSUB1",200,"+10",0);
     FirmPlndOrder();
     MRPbyItem("TBOX1","WH1","+99");
-    //MRP("+99");
+//    MRP("+99");
     
     //------Verify generated Planned Orders-----
     try
@@ -2685,14 +2708,14 @@ function main()
         
         waitForObject(":Bills of Materials.New_QPushButton");
         clickButton(":Bills of Materials.New_QPushButton");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_5");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_5", "TSUB4");
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_5");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_5", "TSUB4");
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Bill of Materials.VirtualClusterLineEdit_ItemLineEdit", "TSUB5");
+        waitForObject(":Bill of Materials.ItemLineEdit_ItemLineEdit");
+        type(":Bill of Materials.ItemLineEdit_ItemLineEdit", "TSUB5");
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_qtyPer_XLineEdit");
@@ -2707,14 +2730,14 @@ function main()
         
         waitForObject(":Bills of Materials.New_QPushButton");
         clickButton(":Bills of Materials.New_QPushButton");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_5");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_5", "TSUB3");
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_5");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_5", "TSUB3");
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Bill of Materials.VirtualClusterLineEdit_ItemLineEdit", "TSUB4");
+        waitForObject(":Bill of Materials.ItemLineEdit_ItemLineEdit");
+        type(":Bill of Materials.ItemLineEdit_ItemLineEdit", "TSUB4");
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_qtyPer_XLineEdit");
@@ -2729,14 +2752,14 @@ function main()
         
         waitForObject(":Bills of Materials.New_QPushButton");
         clickButton(":Bills of Materials.New_QPushButton");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_5");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_5", "TSUB1");
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_5");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_5", "TSUB1");
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":frame_2.New_QPushButton");
         clickButton(":frame_2.New_QPushButton");
-        waitForObject(":Bill of Materials.VirtualClusterLineEdit_ItemLineEdit");
-        type(":Bill of Materials.VirtualClusterLineEdit_ItemLineEdit", "TSUB3");
+        waitForObject(":Bill of Materials.ItemLineEdit_ItemLineEdit");
+        type(":Bill of Materials.ItemLineEdit_ItemLineEdit", "TSUB3");
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_qtyPer_XLineEdit");
@@ -2779,8 +2802,8 @@ function main()
         waitForObject(":_lineItemsPage.New_QPushButton");
         clickButton(":_lineItemsPage.New_QPushButton");
         
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3", "YTRUCK1");
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_2");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_2", "YTRUCK1");
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":_qtyOrdered_XLineEdit");
