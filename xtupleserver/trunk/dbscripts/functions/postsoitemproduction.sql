@@ -42,10 +42,11 @@ BEGIN
   END IF;
 
   IF (pQty > 0) THEN
-    SELECT COALESCE(postProduction(wo_id, pQty, true, 0, pGlDistTS),-1) INTO _itemlocSeries
-    FROM wo
+    SELECT COALESCE(postProduction(wo_id, (pQty * coitem_qty_invuomratio), true, 0, pGlDistTS),-1) INTO _itemlocSeries
+    FROM wo, coitem
     WHERE ((wo_ordid=pSoItemid)
-     AND (wo_ordtype='S'));
+     AND (wo_ordtype='S')
+     AND (coitem_id=pSoItemid));
     
     UPDATE wo SET wo_status = 'C'
     WHERE ((wo_ordid=pSoItemid)
