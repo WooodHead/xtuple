@@ -1,8 +1,8 @@
 -- Group: desktop
 -- Name:  purchHist
 -- Notes: Summarized Purchase History for Desktop
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
--- See www.xtuple.com/CPAL for the full text of the software license.
+--        Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+--        See www.xtuple.com/CPAL for the full text of the software license.
 
 --------- VARIANCES -----------
 <? if exists("variances") ?> 
@@ -57,9 +57,8 @@ FROM (
          recv_qty AS qty
   FROM recv
     JOIN vendinfo ON (vend_id=recv_vend_id)
-    LEFT OUTER JOIN (
-      itemsite JOIN item ON (itemsite_item_id=item_id) )
-      ON (recv_itemsite_id=itemsite_id)
+    LEFT OUTER JOIN itemsite ON (recv_itemsite_id=itemsite_id)
+    LEFT OUTER JOIN item     ON (itemsite_item_id=item_id)
     JOIN poitem ON (recv_orderitem_id=poitem_id)
     JOIN pohead ON (poitem_pohead_id=pohead_id)
     LEFT OUTER JOIN usr ON (pohead_agent_username=usr_username)
