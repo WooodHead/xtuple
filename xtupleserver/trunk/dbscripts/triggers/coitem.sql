@@ -390,13 +390,6 @@ BEGIN
        AND  (charass_target_id=NEW.coitem_id));
   END IF;
    
-  -- Create Purchase Request if flagged to do so
-  IF ((NEW.coitem_order_type='R') AND (NEW.coitem_order_id=-1)) THEN
-    SELECT createpr(CAST(cohead_number AS INTEGER), 'S', NEW.coitem_id) INTO NEW.coitem_order_id
-    FROM cohead
-    WHERE (cohead_id=NEW.coitem_cohead_id);
-  END IF;
-
   IF (TG_OP = 'UPDATE') THEN
 --  Update P/R date if applicable
 
@@ -646,6 +639,13 @@ BEGIN
   END IF;
 
   IF (TG_OP = 'INSERT') THEN
+    -- Create Purchase Request if flagged to do so
+    IF ((NEW.coitem_order_type='R') AND (NEW.coitem_order_id=-1)) THEN
+      SELECT createpr(CAST(cohead_number AS INTEGER), 'S', NEW.coitem_id) INTO NEW.coitem_order_id
+      FROM cohead
+      WHERE (cohead_id=NEW.coitem_cohead_id);
+    END IF;
+
     -- Create Purchase Order if flagged to do so
     IF ((NEW.coitem_order_type='P') AND (NEW.coitem_order_id=-1)) THEN
       SELECT itemsrc_id INTO _itemsrcid
