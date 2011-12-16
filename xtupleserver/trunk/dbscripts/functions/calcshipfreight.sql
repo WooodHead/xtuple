@@ -68,7 +68,7 @@ BEGIN
     END IF;
 
     IF (NOT _order.cohead_calcfreight) THEN
-      SELECT noNeg( _shipment.shiphead_freight -
+      SELECT noNeg( _order.cohead_freight -
                     COALESCE((SELECT SUM(shiphead_freight)
                               FROM shiphead
                               WHERE (shiphead_order_id = _shipment.shiphead_order_id)
