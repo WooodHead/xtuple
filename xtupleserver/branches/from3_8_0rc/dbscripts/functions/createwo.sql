@@ -182,9 +182,12 @@ BEGIN
     END IF;
   END IF;
 
---  Check to see if the site calendar metric is set, and if so adjust the start date
+--  Check to see if the site calendar metric is set, and if so adjust the start date if necessary
   IF (fetchmetricbool('UseSiteCalendar')) THEN
-    _startDate := calculatenextworkingdate(_itemsite.itemsite_warehous_id, pDueDate, -_itemsite.itemsite_leadtime);
+    _startDate := calculatenextworkingdate(_itemsite.itemsite_warehous_id, pStartDate, 0);
+    IF (_startDate != pStartDate) THEN
+      _startDate := calculatenextworkingdate(_itemsite.itemsite_warehous_id, pDueDate, -_itemsite.itemsite_leadtime);
+    END IF;
   ELSE
     _startDate := pStartDate;
   END IF;
