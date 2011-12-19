@@ -92,7 +92,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
       WHEN (NOT OLD.create_order AND NEW.create_order AND (item_type = 'P')) THEN
         'R'     
     END,
-    coitem_substitute_item_id=getItemsiteId(NEW.sold_from_site,NEW.item_number),
+    coitem_substitute_item_id = getitemid(NEW.substitute_for),
     coitem_prcost=NEW.overwrite_po_price,
     coitem_taxtype_id=
     CASE

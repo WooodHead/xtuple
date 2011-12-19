@@ -89,7 +89,7 @@ BEGIN
            ((pNEW.create_order IS NULL) AND _r.itemsite_createsopo)) THEN
         'P'
     END,
-    getItemsiteId(_r.warehous_code,pNEW.substitute_for),
+    getitemid(pNEW.substitute_for),
     pNEW.overwrite_po_price,
     COALESCE(getTaxTypeId(pNEW.tax_type), getItemTaxType(_r.itemsite_item_id, _r.cohead_taxzone_id)),
     pNEW.warranty,
