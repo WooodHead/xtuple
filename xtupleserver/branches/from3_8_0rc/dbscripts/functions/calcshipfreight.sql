@@ -17,7 +17,7 @@ DECLARE
   _debug BOOLEAN := false;
 BEGIN
   --Get shipment
-  SELECT shiphead_order_id, shiphead_order_type 
+  SELECT shiphead_order_id, shiphead_order_type, shiphead_freight 
   INTO _shipment
   FROM shiphead
   WHERE (shiphead_id=pShipheadId);
@@ -68,7 +68,7 @@ BEGIN
     END IF;
 
     IF (NOT _order.cohead_calcfreight) THEN
-      SELECT noNeg( _order.cohead_freight -
+      SELECT noNeg( _shipment.shiphead_freight -
                     COALESCE((SELECT SUM(shiphead_freight)
                               FROM shiphead
                               WHERE (shiphead_order_id = _shipment.shiphead_order_id)
