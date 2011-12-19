@@ -619,6 +619,14 @@ BEGIN
             AND (coitem_subnumber > 0));
         END IF;
       END IF;
+      IF (NEW.coitem_scheddate <> OLD.coitem_scheddate) THEN
+  -- Update kit line item Schedule Date
+        UPDATE coitem
+        SET coitem_scheddate = NEW.coitem_scheddate
+        WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
+          AND (coitem_linenumber = NEW.coitem_linenumber)
+          AND (coitem_subnumber > 0));
+      END IF;
     END IF;
     IF (TG_OP = 'DELETE') THEN
   -- Delete Sub Lines for Kit Components
