@@ -118,6 +118,19 @@ BEGIN
 	EXIT WHEN (_qtyToBill <= 0.0);
       END LOOP;
 
+  --  Check to see if all of the cobills have been deleted for this cobmisc
+      IF (EXISTS(SELECT cobmisc_id
+                 FROM cobmisc JOIN cobill ON (cobill_cobmisc_id=cobmisc_id)
+                 WHERE (cobmisc_cohead_id=_shiphead.shiphead_order_id AND NOT cobmisc_posted))) THEN
+  --  Lines exist, update the freight
+        UPDATE cobmisc SET cobmisc_freight = (cobmisc_freight - _shiphead.shiphead_freight)
+        WHERE (cobmisc_cohead_id=_shiphead.shiphead_order_id AND NOT cobmisc_posted);
+      ELSE
+  --  No lines exist, delete the cobmisc
+        DELETE FROM cobmisc
+        WHERE (cobmisc_cohead_id=_shiphead.shiphead_order_id AND NOT cobmisc_posted);
+      END IF;
+
   --  Distribute to G/L, debit Shipping Asset, credit COS
       IF (_co.itemsite_controlmethod != 'N') THEN
         PERFORM insertGLTransaction( 'S/R', _shiphead.shiphead_order_type,
