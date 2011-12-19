@@ -18,6 +18,11 @@ DECLARE
 
 BEGIN
 
+  --  Fetch cohead
+  SELECT * INTO _cohead
+  FROM cohead
+  WHERE (cohead_id=pSoheadid);
+
   --  Check for an existing cobmisc
   SELECT cobmisc_id INTO _cobmiscid
   FROM cobmisc
@@ -25,12 +30,24 @@ BEGIN
    AND (cobmisc_cohead_id=pSoheadid) );
 
   IF (FOUND) THEN
+  --  Find a Shipping-Entered freight charge
+    SELECT SUM(currToCurr(shiphead_freight_curr_id, _cohead.cohead_curr_id,
+                          shiphead_freight, CURRENT_DATE))
+	   shiphead_shipvia INTO _freight, _shipVia
+    FROM shiphead, shipitem
+    WHERE ((shipitem_shiphead_id=shiphead_id)
+      AND  (NOT shipitem_invoiced)
+      AND  (shiphead_order_type='SO')
+      AND  (shiphead_order_id=pSoheadid) )
+    GROUP BY shiphead_shipvia;
+
+    IF (_freight IS NOT NULL) THEN
+      UPDATE cobmisc SET cobmisc_freight = _freight
+      WHERE (cobmisc_id=_cobmiscid);
+    END IF;
+
     RETURN _cobmiscid;
   END IF;
-
-  SELECT * INTO _cohead
-  FROM cohead
-  WHERE (cohead_id=pSoheadid);
 
   --  Find misc charges that have already been applied for the S/O
   SELECT COALESCE(SUM(cobmisc_misc), 0.0) INTO _miscApplied
