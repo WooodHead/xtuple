@@ -3,10 +3,10 @@ CREATE OR REPLACE FUNCTION thawItemSite(INTEGER) RETURNS INTEGER AS $$
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemsiteid ALIAS FOR $1;
-  _qoh NUMERIC;
-  _netable_qoh NUMERIC;
-  _nonnetable_qoh NUMERIC;
-  _value NUMERIC;
+  _qoh            NUMERIC := 0;
+  _netable_qoh    NUMERIC := 0;
+  _nonnetable_qoh NUMERIC := 0;
+  _value          NUMERIC := 0;
   _itemlocid INTEGER;
   _itemloc RECORD;
   _invhist RECORD;
@@ -57,6 +57,11 @@ BEGIN
          AND (COALESCE(itemloc_expiration,endOfTime())=COALESCE(_coarse.invdetail_expiration,endOfTime()))
          AND (COALESCE(itemloc_warrpurc,endOfTime())=COALESCE(_coarse.invdetail_warrpurc,endOfTime())) );
 
+        -- initialize to ensure they aren't null at update
+        _qoh := 0.0;
+        _netable_qoh := 0.0;
+        _nonnetable_qoh := 0.0;
+
 --  If the itemloc in question cannot be found, create it
         IF (NOT FOUND) THEN
           SELECT NEXTVAL('itemloc_itemloc_id_seq') INTO _itemlocid;
@@ -68,10 +73,6 @@ BEGIN
           ( _itemlocid, pItemsiteid,
             _coarse.invdetail_location_id, _coarse.invdetail_ls_id,
             0, endOfTime() );
-
-          _qoh := 0.0;
-          _netable_qoh := 0.0;
-          _nonnetable_qoh := 0.0;
 
         ELSE
           _itemlocid := _itemloc.itemloc_id;
