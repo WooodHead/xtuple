@@ -27,7 +27,7 @@ FROM (
       SELECT invcnt_id, -1 AS cntslip_id, invcnt_priority,
              COALESCE(invcnt_tagnumber, 'Misc.') AS tagnumber,
              invcnt_tagdate AS tagdate,
-             item_number, warehous_code,
+             item_number, (item_descrip1 || item_descrip2) AS item_descrip, warehous_code,
 	     CASE WHEN (location_id IS NOT NULL) THEN
                location_name
                ELSE <? value("all") ?> END AS loc_specific,
@@ -58,7 +58,7 @@ FROM (
                   WHEN (((itemsite_qtyonhand + itemsite_nnqoh) = 0) AND (invcnt_qoh_after = 0)) THEN 0
                ELSE ((1 - (invcnt_qoh_after / (itemsite_qtyonhand + itemsite_nnqoh))) * -1)
              END AS varianceprcnt,
-             (stdcost(item_id) * (invcnt_qoh_after - (itemsite_qtyonhand + itemsite_nnqoh))) AS variancecost,
+             (itemCost(itemsite_id) * (invcnt_qoh_after - (itemsite_qtyonhand + itemsite_nnqoh))) AS variancecost,
              item_number AS orderby,
              0 AS xtindentrole
       FROM invcnt LEFT OUTER JOIN location ON (invcnt_location_id=location_id),
@@ -88,6 +88,7 @@ FROM (
              CASE WHEN (cntslip_posted) THEN <? value("posted") ?>
                ELSE <? value("unposted") ?>
              END AS item_number,
+             '' AS item_descrip,
              '' AS warehous_code,
              '' AS loc_specific,
              NULL AS qoh,
