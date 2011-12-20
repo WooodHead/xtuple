@@ -5,7 +5,7 @@
 -- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT invcnt_id, invcnt_tagnumber, warehous_code,
-       item_number,
+       item_number, (item_descrip1 || item_descrip2) AS item_descrip,
        invcnt_tagdate,
        CASE WHEN invcnt_tagdate IS NOT NULL THEN invcnt_tag_username
        END AS creator,
