@@ -24,10 +24,12 @@ macx: LIBS += -lz
 
 win32-msvc* {
   PRE_TARGETDEPS += ../lib/updatercommon.lib          \
+                    ../$${XTUPLE_BLD}/lib/xtuplecommon.lib \
                     ../$${OPENRPT_BLD}/lib/common.lib \
                     ../$${OPENRPT_BLD}/lib/renderer.lib
 } else {
   PRE_TARGETDEPS += ../lib/libupdatercommon.a          \
+                    ../$${XTUPLE_BLD}/lib/libxtuplecommon.a \
                     ../$${OPENRPT_BLD}/lib/libcommon.a \
                     ../$${OPENRPT_BLD}/lib/librenderer.a
 }
