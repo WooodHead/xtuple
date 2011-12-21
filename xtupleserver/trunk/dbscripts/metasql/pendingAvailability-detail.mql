@@ -36,7 +36,7 @@ SELECT itemsite_id, reorderlevel,
                      ELSE 0.0
                      END AS reorderlevel,
                 ib.*,
-                ((bomdata_qtyfxd::NUMERIC + bomdata_qtyper::NUMERIC * <? value("buildQty") ?>) * (1 + bomdata_scrap::NUMERIC)) AS pendalloc,
+                ((bomdata_qtyreq::NUMERIC * <? value("buildQty") ?>) * (1 + bomdata_scrap::NUMERIC)) AS pendalloc,
                 qtyAllocated(itemsite_id, DATE(<? value("buildDate") ?>)) AS totalalloc,
                 noNeg(itemsite_qtyonhand) AS qoh,
                 qtyOrdered(itemsite_id, DATE(<? value("buildDate") ?>)) AS ordered
