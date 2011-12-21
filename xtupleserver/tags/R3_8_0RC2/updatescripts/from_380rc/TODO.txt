@@ -1,0 +1,6 @@
+When building 3.8.0(final):
+- package ALL report definitions that have changed since 3.8.0alpha? 3.7.x?
+- have an initscript that sets docass_docass_id_seq to
+  greatest(nextval('docass_docass_id_seq'), nextval('imageass_imageass_id_seq'))
+  to deal with upgrade bug 16566
+
