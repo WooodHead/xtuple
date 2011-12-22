@@ -88,6 +88,7 @@ WHERE ( <? if exists("byHistory") ?>
           <? endif ?> 
           <? if exists("onlyShowDiffCosts") ?>
             AND (scost != acost) 
+            AND (ABS(scost - acost) > 10 ^ (-1 * <? value("costscale") ?>))
           <? endif ?>
         <? elseif exists("bySummrey") ?>
           (itemcost_costelem_id=costelem_id)
