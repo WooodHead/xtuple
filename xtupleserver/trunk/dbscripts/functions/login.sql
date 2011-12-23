@@ -34,9 +34,17 @@ BEGIN
       RETURN -3;
     END IF;
     RETURN -2;
-  ELSE
-    RETURN 1;
   END IF;
+
+  IF EXISTS(SELECT 1
+              FROM pg_proc
+              JOIN pg_namespace ON (pronamespace=pg_namespace.oid)
+             WHERE nspname='public'
+               AND proname='buildsearchpath') THEN
+    EXECUTE 'SET SEARCH_PATH TO ' || public.buildSearchPath();
+  END IF;
+
+  RETURN 1;
 
 END;
 $$ LANGUAGE 'plpgsql';
