@@ -5,7 +5,7 @@ select
   docass_source_id as url_source_id,
   docass_source_type as url_source,
   file_title as url_title,
-  file_title as url_url,
+  file_descrip as url_url,
   file_stream as url_stream
 from file
   join docass on ( docass_target_id = file_id ) and ( docass_target_type = 'FILE' )
@@ -59,7 +59,7 @@ create or replace rule "_INSERT_FILE" as on insert to url
     coalesce(new.url_id,nextval('docass_docass_id_seq')),
     new.url_source_id,
     new.url_source,
-    createFile(new.url_title, new.url_stream),
+    createFile(new.url_title, new.url_url, new.url_stream),
     'FILE',
     'S' );
 

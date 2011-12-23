@@ -1,6 +1,6 @@
 -- Incident File
 
-SELECT dropifexists('VIEW', 'incidentfile','API');
+SELECT dropifexists('VIEW', 'incidentfile','API'); 
 CREATE VIEW api.incidentfile
 AS 
    SELECT 
