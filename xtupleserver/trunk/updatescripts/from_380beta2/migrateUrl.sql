@@ -15,7 +15,8 @@ grant all on urlinfo to xtrole;
 create table file (
  file_id serial primary key,
  file_title text not null,
- file_stream bytea
+ file_stream bytea,
+ file_descrip text not null
 );
 
 grant all on file to xtrole;
@@ -39,7 +40,7 @@ begin
     select * from url where url_stream is not null
   loop
     _id := nextval('file_file_id_seq');
-    insert into file (file_id, file_title, file_stream) values (_id, _x.url_title, _x.url_stream);
+    insert into file (file_id, file_title, file_descrip, file_stream) values (_id, _x.url_title, _x.url_url, _x.url_stream);
     insert into docass (docass_source_id, docass_source_type, docass_target_id, docass_target_type, docass_purpose)
     values (_x.url_source_id, _x.url_source, _id, 'FILE', 'S');
   end loop;
