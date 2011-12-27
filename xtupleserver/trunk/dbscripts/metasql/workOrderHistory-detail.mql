@@ -30,7 +30,9 @@ SELECT
        formatDate(wo_duedate) AS f_wo_duedate,
        formatQty(wo_qtyord) AS f_wo_qtyord,
        formatQty(wo_qtyrcv) AS f_wo_qtyrcv,
+     <? if exists("showCosts") ?>
        formatCost(wo_postedvalue) AS f_wo_postedvalue,
+     <? endif ?>
        'qty' AS wo_qtyord_xtnumericrole,
        'qty' AS wo_qtyrcv_xtnumericrole,
        'cost' AS wo_postedvalue_xtnumericrole
