@@ -56,19 +56,19 @@ _dtTimer.start();
 
 // Set the desktop
 _desktopStack = toolbox.createWidget("QStackedWidget", mainwindow, "_desktopStack");
+var _desktopParent;
+
+// if this handleNewWindow overload exists then GUIClient is a QMdiArea
 if (mainwindow.showTopLevel())
+  _desktopParent = mainwindow;
+else if ("handleNewWindow(QWidget*,Qt::WindowModality,bool)" in mainwindow)
+  _desktopParent = toolbox.openWindow("desktop", mainwindow);
+
+if (_desktopParent)
 {
-  mainwindow.setCentralWidget(_desktopStack);
-  _vToolBar = new QToolBar(mainwindow);
-  mainwindow.addToolBar(Qt.LeftToolBarArea, _vToolBar);
-}
-else 
-{
-  var win = toolbox.openWindow("desktop", mainwindow);
-  win.setCentralWidget(_desktopStack);
-  _vToolBar = new QToolBar(win);
-  win.addToolBar(Qt.LeftToolBarArea, _vToolBar);
-}
+_desktopParent.setCentralWidget(_desktopStack);
+_vToolBar = new QToolBar(_desktopParent);
+_desktopParent.addToolBar(Qt.LeftToolBarArea, _vToolBar);
 
 // Intialize the left toolbar
 _vToolBar.objectName = "_vToolBar";
@@ -136,6 +136,12 @@ if (metrics.boolean("MultiWhs"))
   var button = mainwindow.findChild("_sites");
   button.label = qsTr("Sites");
   button.actionName = "im.warehouses";
+}
+}
+else
+{
+  if (!preferences.boolean("NoDesktopNotice"))
+    toolbox.openWindow("desktopNotice",mainwindow, Qt.WindowModal, Qt.Dialog);
 }
 
 /*!
