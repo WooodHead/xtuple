@@ -549,13 +549,18 @@ xtte.timeExpenseSheets.printReport = function()
 
 xtte.timeExpenseSheets.populateEmployees = function()
 {
-  currSql = "SELECT crmacct_emp_id "
-          + "FROM  crmacct "
-          + "WHERE crmacct_usr_username = getEffectiveXtUser();";
+  // getEffectiveXtUser and crmacct_emp_id were created in the same release
+  var q = toolbox.executeQuery("SELECT crmacct_emp_id AS emp_id"
+                             + "  FROM crmacct "
+                             + " WHERE crmacct_usr_username = getEffectiveXtUser();");
+  // if they don't exist, try the older relationship maintained in the emp table
+  if (q.lastError().type != QSqlError.NoError)
+      q = toolbox.executeQuery("SELECT emp_id "
+                             + "  FROM emp "
+                             + " WHERE emp_username = CURRENT_USER;");
 
-  q = toolbox.executeQuery(currSql);
   if (q.first()) 
-    _employee.setId(q.value("crmacct_emp_id"));
+    _employee.setId(q.value("emp_id"));
 
   if (privileges.check("MaintainTimeExpenseOthers"))
     _showAllEmployees.visible = true;
