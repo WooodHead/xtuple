@@ -11,7 +11,7 @@ BEGIN
 
 --  Post the G/L transaction
   SELECT insertGLTransaction( fetchJournalNumber('GL-MISC'), 'G/L', 'AD',
-                              bankadj_docnumber, bankadjtype_name,
+                              bankadj_docnumber, (bankadjtype_name || '-' || bankadj_notes),
                               bankadjtype_accnt_id, bankaccnt_accnt_id, bankadj_id,
                               round(currToBase(bankaccnt_curr_id,
                                          CASE WHEN(bankadjtype_iscredit) THEN
