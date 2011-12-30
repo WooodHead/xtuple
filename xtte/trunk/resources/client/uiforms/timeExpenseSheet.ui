@@ -273,6 +273,20 @@ to be bound by its terms.</comment>
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="_sheetDocumentsPage">
+      <attribute name="title">
+       <string>Documents</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="Documents" name="_documents">
+         <property name="type">
+          <enum>Documents::TimeExpense</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
    <item row="2" column="0">
@@ -292,6 +306,11 @@ to be bound by its terms.</comment>
    <extends>QWidget</extends>
    <header>datecluster.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Documents</class>
+   <extends>QWidget</extends>
+   <header>documents.h</header>
   </customwidget>
   <customwidget>
    <class>EmpCluster</class>

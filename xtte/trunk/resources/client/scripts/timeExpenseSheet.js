@@ -13,21 +13,22 @@ include("xtte");
 // Define Variables
 xtte.timeExpenseSheet = new Object;
 
-var _all		= mywindow.findChild("_all");
-var _buttonBox 	= mywindow.findChild("_buttonBox");
-var _edit 		= mywindow.findChild("_edit");
-var _new		= mywindow.findChild("_new");
-var _delete		= mywindow.findChild("_delete");
-var _view		= mywindow.findChild("_view");
-var _print 		= mywindow.findChild("_print");
-var _printSheet	= mywindow.findChild("_printSheet");
-var _lines		= mywindow.findChild("_lines");
-var _selected	= mywindow.findChild("_selected");
-var _weekending	= mywindow.findChild("_weekending");
-var _employee	= mywindow.findChild("_employee");
-var _sheetNumberExtra  = mywindow.findChild("_sheetNumberExtra");
-var _site		= mywindow.findChild("_site");
-var _orderComments     = mywindow.findChild("_orderComments");
+var _all                = mywindow.findChild("_all");
+var _buttonBox 	        = mywindow.findChild("_buttonBox");
+var _edit               = mywindow.findChild("_edit");
+var _new                = mywindow.findChild("_new");
+var _delete             = mywindow.findChild("_delete");
+var _view               = mywindow.findChild("_view");
+var _print              = mywindow.findChild("_print");
+var _printSheet	        = mywindow.findChild("_printSheet");
+var _lines              = mywindow.findChild("_lines");
+var _selected	        = mywindow.findChild("_selected");
+var _weekending	        = mywindow.findChild("_weekending");
+var _employee	        = mywindow.findChild("_employee");
+var _sheetNumberExtra   = mywindow.findChild("_sheetNumberExtra");
+var _site               = mywindow.findChild("_site");
+var _orderComments      = mywindow.findChild("_orderComments");
+var _documents          = mywindow.findChild("_documents");
 
 var _sheet;
 var _id = -1;
@@ -35,29 +36,29 @@ var _type;
 var _admin;
 
 //add logic to determine the next Sunday date and populate both start and end with it
-_lines.addColumn(qsTr("Line #"),		XTreeWidget.seqColumn,  Qt.AlignLeft,    true, "teitem_linenumber");
-_lines.addColumn(qsTr("Sheet Date"),	XTreeWidget.dateColumn, Qt.AlignLeft,    false, "tehead_weekending");
-_lines.addColumn(qsTr("Work Date"),	XTreeWidget.dateColumn, Qt.AlignLeft,    true, "teitem_workdate");
-_lines.addColumn(qsTr("Project#"),		XTreeWidget.orderColumn,Qt.AlignLeft,    true, "prj_number");
-_lines.addColumn(qsTr("Project Name"),	-1,		 Qt.AlignLeft,    false,"prj_name");
-_lines.addColumn(qsTr("Task#"),		XTreeWidget.orderColumn,Qt.AlignLeft,    true, "prjtask_number");
-_lines.addColumn(qsTr("Task Name"),	-1,		 Qt.AlignLeft,    false,"prjtask_name");
-_lines.addColumn(qsTr("Cust.#"),		XTreeWidget.orderColumn,Qt.AlignLeft,    false, "cust_number");
-_lines.addColumn(qsTr("Cust. Name"),	-1,		 Qt.AlignLeft,    false, "cust_name");
-_lines.addColumn(qsTr("PO"),		XTreeWidget.orderColumn,Qt.AlignLeft,    false, "teitem_po");
-_lines.addColumn(qsTr("Item"),		XTreeWidget.itemColumn, Qt.AlignLeft,    true, "item_number");
-_lines.addColumn(qsTr("Description"),	-1,  		 Qt.AlignLeft,    true, "item_descrip1");
-_lines.addColumn(qsTr("Hours"), 		XTreeWidget.qtyColumn,  Qt.AlignRight,   true, "hours");
-_lines.addColumn(qsTr("Expense"), 		XTreeWidget.qtyColumn,  Qt.AlignRight,   true, "expense");
-_lines.addColumn(qsTr("Notes"), 		XTreeWidget.qtyColumn,  Qt.AlignRight,   false, "f_notes");
+_lines.addColumn(qsTr("Line #"),        XTreeWidget.seqColumn,    Qt.AlignLeft,    true,   "teitem_linenumber");
+_lines.addColumn(qsTr("Sheet Date"),    XTreeWidget.dateColumn,   Qt.AlignLeft,    false,  "tehead_weekending");
+_lines.addColumn(qsTr("Work Date"),     XTreeWidget.dateColumn,   Qt.AlignLeft,    true,   "teitem_workdate");
+_lines.addColumn(qsTr("Project#"),      XTreeWidget.orderColumn,  Qt.AlignLeft,    true,   "prj_number");
+_lines.addColumn(qsTr("Project Name"),  -1,                       Qt.AlignLeft,    false,  "prj_name");
+_lines.addColumn(qsTr("Task#"),         XTreeWidget.orderColumn,  Qt.AlignLeft,    true,   "prjtask_number");
+_lines.addColumn(qsTr("Task Name"),     -1,                       Qt.AlignLeft,    false,  "prjtask_name");
+_lines.addColumn(qsTr("Cust.#"),        XTreeWidget.orderColumn,  Qt.AlignLeft,    false,  "cust_number");
+_lines.addColumn(qsTr("Cust. Name"),    -1,                       Qt.AlignLeft,    false,  "cust_name");
+_lines.addColumn(qsTr("PO"),            XTreeWidget.orderColumn,  Qt.AlignLeft,    false,  "teitem_po");
+_lines.addColumn(qsTr("Item"),          XTreeWidget.itemColumn,   Qt.AlignLeft,    true,   "item_number");
+_lines.addColumn(qsTr("Description"),   -1,                       Qt.AlignLeft,    true,   "item_descrip1");
+_lines.addColumn(qsTr("Hours"),         XTreeWidget.qtyColumn,    Qt.AlignRight,   true,   "hours");
+_lines.addColumn(qsTr("Expense"),       XTreeWidget.qtyColumn,    Qt.AlignRight,   true,   "expense");
+_lines.addColumn(qsTr("Notes"),         XTreeWidget.qtyColumn,    Qt.AlignRight,   false,  "f_notes");
 
 if (privileges.check("CanViewRates"))
 {
-  _lines.addColumn(qsTr("Billable"),	XTreeWidget.ynColumn, Qt.AlignLeft,    true, "teitem_billable");
-  _lines.addColumn(qsTr("Rate"),		XTreeWidget.priceColumn, Qt.AlignRight,   false, "teitem_rate");
-  _lines.addColumn(qsTr("Extended"),	XTreeWidget.moneyColumn, Qt.AlignRight,   false, "teitem_total");
+  _lines.addColumn(qsTr("Billable"),    XTreeWidget.ynColumn,     Qt.AlignLeft,    true,   "teitem_billable");
+  _lines.addColumn(qsTr("Rate"),        XTreeWidget.priceColumn,  Qt.AlignRight,   false,  "teitem_rate");
+  _lines.addColumn(qsTr("Extended"),    XTreeWidget.moneyColumn,  Qt.AlignRight,   false,  "teitem_total");
 }
-_lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,  Qt.AlignLeft,    false, "teitem_type");
+_lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,Qt.AlignLeft,    false,  "teitem_type");
 
 set = function(input)
 {
@@ -67,7 +68,10 @@ set = function(input)
     _employee.setId(input.emp_id);
 
   if ("tehead_id" in input)
+  {
     _id = input.tehead_id;
+    _documents.setId(_id);
+  }
 
   if("mode" in input)
   {
@@ -240,6 +244,7 @@ xtte.timeExpenseSheet.save = function()
   if (q.first())
   {
     _id = q.value("tehead_id");
+    _documents.setId(_id);
     _sheetNumberExtra.text = q.value("tehead_number");
   }
   else if (!xtte.errorCheck(q))
