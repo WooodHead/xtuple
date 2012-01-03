@@ -14,8 +14,9 @@ AS
    AND (comment_source_id=item_id)
    AND (comment_cmnttype_id=cmnttype_id));
 
-GRANT ALL ON TABLE api.salesordercomment TO xtrole;
-COMMENT ON VIEW api.salesordercomment IS 'Item Comments';
+GRANT ALL ON TABLE api.itemcomment TO admin;
+GRANT ALL ON TABLE api.itemcomment TO xtrole;
+COMMENT ON VIEW api.itemcomment IS 'Item Comments';
 
 --Rules
 
