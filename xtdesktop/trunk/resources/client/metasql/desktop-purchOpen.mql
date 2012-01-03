@@ -20,7 +20,7 @@ SELECT pohead_id, pohead_number, vend_number, vend_name, pohead_shipvia,
   min(poitem_duedate)  AS duedate, pohead_status AS status,
   CASE WHEN (pohead_status = 'O') THEN <? value("open") ?>
   ELSE <? value("unreleased") ?> END AS status_qtdisplayrole,
-  SUM(round((noNeg(poitem_qty_ordered - poitem_qty_received + poitem_qty_returned) * poitem_invvenduomratio) *            
+  SUM(round(noNeg(poitem_qty_ordered - poitem_qty_received + poitem_qty_returned) *            
         currToBase(pohead_curr_id, poitem_unitprice, pohead_orderdate), 2) ) AS amount,
   CASE WHEN (min(poitem_duedate) <= current_date) THEN 'error' 
   ELSE 'emphasis' END AS duedate_qtforegroundrole,
