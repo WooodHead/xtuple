@@ -4,7 +4,7 @@ $BODY$
 -- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pCosmiscid ALIAS FOR $1;
+  pShipheadid ALIAS FOR $1;
   _cobmiscid INTEGER;
   _r RECORD;
   _cobillid INTEGER;
@@ -12,22 +12,22 @@ DECLARE
 
 BEGIN
 
---  Grab all of the uninvoiced coship records
-  FOR _r IN SELECT cohead_id, coitem_id, SUM(coship_qty) AS qty,
+--  Grab all of the uninvoiced shipitem records
+  FOR _r IN SELECT cohead_id, coitem_id, SUM(shipitem_qty) AS qty,
                    coitem_price, coitem_price_invuomratio AS invpricerat, coitem_qty_invuomratio, item_id,
                    ( ((coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) <= 0)
                     OR (NOT cust_partialship) ) AS toclose, coitem_taxtype_id
-            FROM cosmisc, coship, coitem, cohead, custinfo, itemsite, item
-            WHERE ( (coship_cosmisc_id=cosmisc_id)
-             AND (coship_coitem_id=coitem_id)
+            FROM shiphead, shipitem, coitem, cohead, custinfo, itemsite, item
+            WHERE ( (shipitem_shiphead_id=shiphead_id)
+             AND (shipitem_orderitem_id=coitem_id)
              AND (coitem_cohead_id=cohead_id)
-             AND (cosmisc_shipped)
-             AND (NOT coship_invoiced)
+             AND (shiphead_shipped)
+             AND (NOT shipitem_invoiced)
              AND (coitem_itemsite_id=itemsite_id)
              AND (itemsite_item_id=item_id)
              AND (cohead_cust_id=cust_id)
              AND (item_type != 'K')
-             AND (cosmisc_id=pCosmiscid) )
+             AND (shiphead_id=pShipheadid) )
             GROUP BY cohead_id, coitem_id, cust_partialship, coitem_taxtype_id,
                      coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
                      coitem_price, invpricerat, coitem_qty_invuomratio, item_id
@@ -35,16 +35,16 @@ BEGIN
             SELECT cohead_id, coitem_id, coitem_qtyord AS qty,
                    coitem_price, coitem_price_invuomratio AS invpricerat, coitem_qty_invuomratio, item_id,
                    true AS toclose, coitem_taxtype_id
-              FROM cosmisc, cohead, custinfo, itemsite, item, coitem AS kit
-             WHERE((cosmisc_cohead_id=cohead_id)
+              FROM shiphead, cohead, custinfo, itemsite, item, coitem AS kit
+             WHERE((shiphead_order_id=cohead_id)
                AND (coitem_cohead_id=cohead_id)
                AND (coitem_status='O')
-               AND (cosmisc_shipped)
+               AND (shiphead_shipped)
                AND (coitem_itemsite_id=itemsite_id)
                AND (itemsite_item_id=item_id)
                AND (cohead_cust_id=cust_id)
                AND (item_type = 'K')
-               AND (cosmisc_id=pCosmiscid)
+               AND (shiphead_id=pShipheadid)
                AND (coitem_linenumber NOT IN  
                       (SELECT sub.coitem_linenumber
                        FROM coitem AS sub 

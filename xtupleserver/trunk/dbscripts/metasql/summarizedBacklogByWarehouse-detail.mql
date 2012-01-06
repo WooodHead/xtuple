@@ -25,8 +25,8 @@ SELECT * FROM (
    'curr' AS sales_xtnumericrole,
    'curr' AS cost_xtnumericrole,
    'curr' AS margin_xtnumericrole,
-    NULL AS cosmisc_id, 
-    NULL AS cosmisc_number, 
+    NULL AS shiphead_id, 
+    NULL AS shiphead_number, 
     NULL AS shipstatus,
     NULL AS shipvia,
     CASE WHEN (pack_head_id IS NOT NULL) THEN TRUE
@@ -74,7 +74,7 @@ SELECT * FROM (
    CASE WHEN (shiphead_shipped) THEN <? value("yes") ?>         
    ELSE <? value("no") ?>       
    END AS f_holdtype,  MIN(coitem_scheddate), NULL, NULL, NULL, NULL, NULL, NULL, NULL,        
-   formatShipmentNumber(shiphead_id) AS cosmisc_number,        
+   formatShipmentNumber(shiphead_id) AS shiphead_number,        
    NULL,       
    COALESCE(shiphead_shipvia, '') AS shipvia           
    <? if exists("showPrices") ?> 

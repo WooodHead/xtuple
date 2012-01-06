@@ -59,13 +59,14 @@ BEGIN
 
 -- check to make sure the qty to bill for is not less than
 -- the total un-invoiced shipped amount
-  IF ((SELECT (pQty < SUM(coship_qty))
-       FROM coship, cosmisc, coitem
-       WHERE ( (coship_cosmisc_id=cosmisc_id)
-       AND (cosmisc_cohead_id=coitem_cohead_id)
-       AND (coship_coitem_id=coitem_id)
-       AND (cosmisc_shipped)
-       AND (NOT coship_invoiced)
+  IF ((SELECT (pQty < SUM(shipitem_qty))
+       FROM shipitem, shiphead, coitem
+       WHERE ( (shipitem_shiphead_id=shiphead_id)
+       AND (shiphead_order_type='SO')
+       AND (shiphead_order_id=coitem_cohead_id)
+       AND (shipitem_orderitem_id=coitem_id)
+       AND (shiphead_shipped)
+       AND (NOT shipitem_invoiced)
        AND (coitem_id=pSoitemid) ) ) ) THEN
     RETURN -1;
   END IF;
