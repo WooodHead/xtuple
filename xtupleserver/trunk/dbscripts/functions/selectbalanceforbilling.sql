@@ -14,13 +14,13 @@ BEGIN
     -- Get the shipments for this SO.  Kits are not shipped
     SELECT cust_partialship, coitem_id,
            coitem_linenumber, 'NOTK' AS item_type,
-           SUM(coship_qty) AS qty,
-           ( (SUM(coship_qty) >= (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned + SUM(coship_qty))) OR
+           SUM(shipitem_qty) AS qty,
+           ( (SUM(shipitem_qty) >= (coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned + SUM(shipitem_qty))) OR
              (NOT cust_partialship) ) AS toclose
     FROM cohead JOIN custinfo ON (cust_id=cohead_cust_id)
                 JOIN coitem ON (coitem_cohead_id=cohead_id)
-                JOIN coship ON ( (coship_coitem_id=coitem_id) AND (NOT coship_invoiced) )
-                JOIN cosmisc ON ( (cosmisc_id=coship_cosmisc_id) AND (cosmisc_shipped) )
+                JOIN shipitem ON ( (shipitem_orderitem_id=coitem_id) AND (NOT shipitem_invoiced) )
+                JOIN shiphead ON ( (shiphead_id=shipitem_shiphead_id) AND (shiphead_order_type='SO') AND (shiphead_shipped) )
     WHERE (cohead_id=pSoheadid)
     GROUP BY cust_partialship, coitem_id, item_type,
              coitem_linenumber, coitem_qtyord,

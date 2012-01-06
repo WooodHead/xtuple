@@ -23,9 +23,9 @@ BEGIN
   END IF;
 
 -- Cannot delete if issued to shipping
-  SELECT coship_id INTO _result
-  FROM coship
-  WHERE (coship_coitem_id=pSoitemid)
+  SELECT shipitem_id INTO _result
+  FROM shipitem JOIN shiphead ON (shiphead_id=shipitem_shiphead_id AND shiphead_order_type='SO')
+  WHERE (shipitem_orderitem_id=pSoitemid)
   LIMIT 1;
   IF (FOUND) THEN
     RETURN -102;

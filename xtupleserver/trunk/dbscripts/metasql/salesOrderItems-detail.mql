@@ -187,9 +187,9 @@ FROM (
          item_number, item_descrip1, (item_descrip1 || ' ' || item_descrip2) AS itemdescription,
          uom_name,
          warehous_code,
-         ( SELECT SUM(coship_qty)
-             FROM coship JOIN cosmisc ON ( (coship_cosmisc_id=cosmisc_id) AND (NOT cosmisc_shipped) )
-            WHERE (coship_coitem_id=coitem_id) ) AS qtyatshipping,
+         ( SELECT SUM(shipitem_qty)
+             FROM shipitem JOIN shiphead ON ( (shipitem_shiphead_id=shiphead_id) AND (shiphead_order_type='SO') AND (NOT shiphead_shipped) )
+            WHERE (shipitem_orderitem_id=coitem_id) ) AS qtyatshipping,
          qtyAvailable(itemsite_id, coitem_scheddate) AS qtyavailable,
          (qtyAvailable(itemsite_id, coitem_scheddate) < 0.0) AS stockout,
          CASE WHEN (itemsite_useparams) THEN (qtyAvailable(itemsite_id, coitem_scheddate) <= itemsite_reorderlevel)

@@ -41,12 +41,13 @@ BEGIN
   IF(_kit AND _rec.coitem_status <> 'C' AND _rec.coitem_status <> 'X') THEN
     SELECT coitem_id
       INTO _tmp
-      FROM coitem LEFT OUTER JOIN coship ON (coship_coitem_id=coitem_id)
+      FROM coitem JOIN shipitem ON (shipitem_orderitem_id=coitem_id)
+                  JOIN shiphead ON (shiphead_id=shipitem_shiphead_id AND shiphead_order_type='SO')
      WHERE((coitem_cohead_id=_rec.coitem_cohead_id)
        AND (coitem_linenumber=_rec.coitem_linenumber)
        AND (coitem_subnumber > 0))
      GROUP BY coitem_id
-    HAVING (SUM(coship_qty) > 0)
+    HAVING (SUM(shipitem_qty) > 0)
      LIMIT 1;
     IF (FOUND) THEN
       _shipped := true;
@@ -55,10 +56,7 @@ BEGIN
   
   IF (TG_OP ='UPDATE') THEN
     IF ((OLD.coitem_status <> 'C') AND (NEW.coitem_status = 'C')) THEN
-      SELECT (COALESCE(SUM(coship_qty), 0) - coitem_qtyshipped) INTO _atShipping
-      FROM coitem LEFT OUTER JOIN coship ON (coship_coitem_id=coitem_id)
-      WHERE (coitem_id=NEW.coitem_id)
-      GROUP BY coitem_qtyshipped;
+      SELECT qtyAtShipping(NEW.coitem_id) INTO _atShipping;
       IF (_atShipping > 0) THEN
         RAISE EXCEPTION 'Line % cannot be Closed at this time as there is inventory at shipping.',NEW.coitem_linenumber;
       END IF;
