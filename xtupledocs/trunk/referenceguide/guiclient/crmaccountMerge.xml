@@ -6,103 +6,104 @@
   <title><indexterm significance="normal">
       <primary>crm accounts</primary>
       <secondary>merging</secondary>
-    </indexterm> <indexterm significance="normal">
-      <primary>crm accounts</primary>
-      <secondary>managing</secondary>
-    </indexterm>Merge CRM Accounts</title>
-  <para>If you are importing Contact information—either through the xTuple web
-  Portal or xTuple Email Integration or some other feature—it's likely you
-  will encounter duplicate Contact records. The Contact Merge utility is
-  designed to help you resolve this scenario. Using the Contact Merge utility,
-  you can easily locate duplicate records and merge them into one single
-  Contact record. In this way you can also preserve multiple email addresses
-  for your Contacts.</para>
+    </indexterm> Merge CRM Accounts</title>
+  <para>If you are importing Customer or Vendor or any other CRM Account
+  information—either through the xTuple web Portal or or some other
+  feature—it's possible you will encounter duplicate CRM Account records. It's
+  also possible to create overlapping or duplicate CRM Account records
+  manually by mistake. The Merge CRM Accounts utility is a wizard designed to
+  help you resolve this scenario. Using the Merge CRM Accounts utility, you
+  can easily locate duplicate records and merge them into one single CRM
+  Account record.</para>
   <tip>
-    <para>How-to information about using the Contact Merge utility is
-    available on our community website here: <ulink
-    url="http://www.xtuple.org/contactmerge">www.xtuple.org/contactmerge</ulink>.</para>
+    <para>For practical information about how the Merge CRM Accounts utility
+    can be used during an upgrade process, please see the following article
+    posted on our community website here: <ulink
+    url="http://www.xtuple.org/node/4479">http://www.xtuple.org/node/4479</ulink>.</para>
   </tip>
-  <para>To begin using the Contact Merge utility, select the "Contact Merge"
-  option. The following screen will appear:</para>
+  <para>To begin using the Merge CRM Accounts utility, select the "Merge CRM
+  Accounts" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/crmaccountMergePickTaskPage.png" />
         </imageobject>
-        <caption>Contact Merge Utility</caption>
+        <caption>Identify Merge Tasks</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When using the Contact Merge utility, you are presented with the
-  following options:</para>
+  <para>Upon first opening the Merge CRM Accounts utility, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Mode</term>
+      <term>Start a new merge</term>
       <listitem>
-        <para>Select one of the following modes to expedite processing:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Merge</term>
-            <listitem>
-              <para>Allows the user to query Contacts using the specified
-              search criteria. Merges all source Contact selections when
-              "Merge" is clicked.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Purge</term>
-            <listitem>
-              <para>Displays all merged Contacts. Purges all merged Contacts
-              at once when "Purge" is clicked.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Merge and Purge</term>
-            <listitem>
-              <para>Allows the user to query Contacts using the specified
-              search criteria. Merges and purges source Contacts in one step
-              when "Merge and Purge" is clicked.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Restore</term>
-            <listitem>
-              <para>Displays all merged Contacts. Restores all merged Contacts
-              at once when "Restore" is clicked.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        <para>Select to begin a new merge process.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Search for:</term>
+      <term>Continue an existing merge</term>
       <listitem>
-        <para>Enter search terms or patterns to locate the Contact records you
-        are looking for.</para>
+        <para>Select to continue working on a merge that you have already
+        started by not yet completed. Because you may have multiple merges in
+        process at the same time, be sure to select the correct merge from the
+        drop-down list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Search Through</term>
+      <term>Revert a completed merge</term>
       <listitem>
-        <para>Specify which of the search filters you want to be included when
-        you are searching for Contact records.</para>
+        <para>Select to reverse a merge that has already been completed.
+        Again, be sure to select the correct merge from the drop-down
+        list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Find duplicates with matching criteria</term>
+      <term>Purge old records</term>
       <listitem>
-        <para>Select if you want the Contact Merge utility to automatically
-        locate duplicate records using search criteria you specify with your
-        selections.</para>
+        <para>Select to purge old records which have been marked for purging
+        during merge processes you have performed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>After specifying a task to perform, select the NEXT button to reach
+  the next screen for the task. The following screenshot shows a new merge
+  being started:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/crmaccountMergePickAccountsPage.png" />
+        </imageobject>
+        <caption>Select CRM Accounts to be Merged</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When starting a new merge, you first need to specify which CRM
+  Accounts you want to merge. You are presented with the following
+  options:</para>
+  <variablelist>
+    <xi:include href="../widgets/parameterwidget.xml"
+                xpointer="parameterwidget"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <varlistentry>
+      <term>Accounts to Merge</term>
+      <listitem>
+        <para>Using your mouse, select the CRM Accounts you want to
+        merge.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Contacts</term>
+      <term>Destination Account</term>
       <listitem>
-        <para>Display lists Contact records matching the search criteria you
-        specified. In this display you mark Contacts you want to merge as
-        either "source" or "target" Contacts. When merging Contact records,
-        source Contacts are merged into target Contacts—leaving behind only
-        the target Contact record.</para>
+        <para>After the CRM Accounts have been selected, specify which of the
+        Accounts is the target or destination Account. Information from the
+        other selected Account(s) will be merged into the destination
+        Account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to refresh the CRM Account data after filters have been
+        changed.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -116,7 +117,7 @@
         <imageobject>
           <imagedata fileref="images/crmaccountMergePickDataPage.png" />
         </imageobject>
-        <caption>Selected Contacts</caption>
+        <caption>Select Data to be Merged</caption>
       </mediaobject>
     </screenshot></para>
   <para>When merging specific data elements for selected Contacts, you are
@@ -140,4 +141,23 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para></para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/crmaccountMergeResultPage.png" />
+      </imageobject>
+      <caption>Results of CRM Account Merge</caption>
+    </mediaobject>
+  </screenshot>
+  <para></para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/crmaccountMergePurgePage.png" />
+      </imageobject>
+      <caption>Purge CRM Accounts</caption>
+    </mediaobject>
+  </screenshot>
+  <para></para>
 </section>
