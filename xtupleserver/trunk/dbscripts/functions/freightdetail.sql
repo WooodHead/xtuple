@@ -191,7 +191,8 @@ BEGIN
     AND   ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=_order.shipzone_id))
     AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=_order.shipvia))
     AND   (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
-    AND   (ipsass_cust_id=_order.cust_id)
+-- ipsass_cust_id not populated when shipto assignment
+--    AND   (ipsass_cust_id=_order.cust_id)
     AND   (ipsass_shipto_id != -1)
     AND   (ipsass_shipto_id=_order.shipto_id) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
