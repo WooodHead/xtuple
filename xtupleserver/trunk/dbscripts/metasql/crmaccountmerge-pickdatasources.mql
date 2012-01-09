@@ -42,8 +42,7 @@ SELECT c.crmacct_id,
                            ELSE <? value('na') ?> END AS crmacct_type_qtdisplayrole,
        CASE WHEN COALESCE(TRIM(firstline(c.crmacct_notes)), '') = '' THEN <? value('na') ?> END AS notes_qtdisplayrole,
 
-       CASE WHEN crmacctsel_src_crmacct_id=crmacctsel_dest_crmacct_id THEN 'emphasis'
-       END AS crmacct_number_qtforegroundrole,
+       CASE WHEN crmacctsel_mrg_crmacct_number         THEN 'emphasis' END AS crmacct_number_qtforegroundrole,
        CASE WHEN crmacctsel_mrg_crmacct_active         THEN 'emphasis' END AS crmacct_active_qtforegroundrole,
        CASE WHEN crmacctsel_mrg_crmacct_cntct_id_1     THEN 'emphasis' END AS primary_qtforegroundrole,
        CASE WHEN crmacctsel_mrg_crmacct_cntct_id_2     THEN 'emphasis' END AS secondary_qtforegroundrole,
