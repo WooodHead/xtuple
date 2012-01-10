@@ -22,7 +22,7 @@
     </screenshot></para>
   <tip>
     <para>To work on a Bank Reconciliation over several sessions, simply
-    select the SAVE button. You work will be saved and ready when you
+    select the SAVE button. Your work will be saved and ready when you
     return.</para>
   </tip>
   <para>When reconciling a Bank Account, you are presented with the following
@@ -49,15 +49,28 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Exchange Rate Edit</term>
+      <listitem>
+        <para>Select if you want the ability to edit the Exchange Rate for any
+        posted deposits or payments. Editing Exchange Rates for Bank
+        Reconciliation purposes does not impact the General Ledger. When this
+        option is selected, simply double-click on a record to edit its
+        Exchange Rate―then select the UPDATE button to finalize the edit. You
+        must select the UPDATE button for the new Exchange Rate to be
+        recognized. If this option is not selected, you may not edit Exchange
+        Rates. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Start Date</term>
       <listitem>
         <para>By default the start date field will be pre-populated based on
-        the end date of your most recent Bank Reconciliation&mdash;if it
-        exists. The date used will be one day after the previous Bank
-        Reconciliation end date. If you want to use a different start date,
-        simply edit the date to your preferred date. Keep in mind that once a
-        date range has been reconciled, it's not possible to re-reconcile the
-        same range twice. You must select new date range.</para>
+        the end date of your most recent Bank Reconciliation—if it exists. The
+        date used will be one day after the previous Bank Reconciliation end
+        date. If you want to use a different start date, simply edit the date
+        to your preferred date. Keep in mind that once a date range has been
+        reconciled, it's not possible to re-reconcile the same range twice.
+        You must select new date range.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -74,7 +87,7 @@
       <term>Opening Balance</term>
       <listitem>
         <para>By default the opening balance field will be pre-populated with
-        the ending balance of your most recent Bank Reconciliation&mdash;if it
+        the ending balance of your most recent Bank Reconciliation—if it
         exists. If you want to use a different opening balance, simply edit
         the amount to your preferred amount.</para>
       </listitem>
@@ -106,7 +119,7 @@
         or Deposit that may be expanded to lower levels. By clicking your
         mouse on a plus sign, you reveal lower levels of information related
         to the group. Double-click on a Deposit line to mark the Document as
-        "Cleared" and to save any edits made to the Exchange Rate. </para>
+        "Cleared" and to save any edits made to the Exchange Rate.</para>
       </listitem>
     </varlistentry>
   </variablelist>
