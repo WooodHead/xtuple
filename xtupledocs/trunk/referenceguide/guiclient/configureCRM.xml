@@ -95,9 +95,9 @@
               <para>Select to enable the features related to the Project
               Accounting package. When Project Accounting is enabled, all G/L
               Accounts are eligible to have transactions performed against
-              them&mdash;and to have an extra dynamic segment for the Project
-              number appended to the G/L Account Number. Project Accounts are
-              created on the fly as transactions are performed against them,
+              them—and to have an extra dynamic segment for the Project number
+              appended to the G/L Account Number. Project Accounts are created
+              on the fly as transactions are performed against them,
               eliminating the need for users having to create G/L Accounts for
               every possible G/L Account and Project combination. Financial
               statement and transaction reporting will display
@@ -112,8 +112,7 @@
               <para>Enter a G/L Account to be used when approving Time Sheets
               for Employees who record time against Projects. For this Account
               to be used, the Employee must have a rate defined on their
-              Employee record&mdash;and they must also not be a
-              contractor.</para>
+              Employee record—and they must also not be a contractor.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -310,37 +309,34 @@
     <varlistentry>
       <term>Default Country for Addresses</term>
       <listitem>
-        <para>When new addresses are created, set the Country in those new
-        addresses to the value selected here unless the user overrides the
-        selection when creating the address.</para>
+        <para>Select if you want a default Country (e.g., United States) to be
+        used whenever new Addresses are created. While a default Address will
+        be set, the choice can be overridden manually when creating or editing
+        Addresses. If not selected, users will need to manually select a
+        Country when entering Addresses.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Enforce Valid Country Names</term>
       <listitem>
-        <para>If this option is not checked, users can select from a list of
-        Countries or type Country names that are not in the list. When this
-        box is checked, users must select from a list of valid Countries when
-        creating or editing addresses; the application will warn you to fix
-        the Country before it will save an Address with an invalid
-        Country.</para>
+        <para>If selected, users will be required to select from a list of
+        valid Countries when creating or editing Addresses. Once this box is
+        checked and you save the configuration, it will be disabled and you
+        cannot uncheck it. If not selected, users will be permitted to enter
+        ad hoc Country names.</para>
         <warning>
-          <para>When you click in this box to turn on the Enforce Valid
-          Country Names feature, the application warns you if you have any
-          addresses with invalid Country names. This includes Addresses, Sales
-          Orders, Invoices, and other data. The warning message refers to a
-          fixCountry.gz extension package. You can download this free package
-          from the <ulink url="???">xTuple xChange</ulink>.</para>
+          <para>When you select this option, the application will warn you if
+          it finds you have Addresses with invalid Country names. This
+          includes Addresses themselves and also documents which use
+          Addresses―namely, Sales Orders, Invoices, etc. The warning message
+          refers to a <literal>fixCountry.gz</literal> extension package,
+          which can be downloaded for free from the <ulink
+          url="http://www.xtuple.com/xchange">xTuple xChange</ulink>.</para>
         </warning>
-        <warning>
-          <para>Once this box is checked and you save the configuration, it
-          will be disabled and you cannot uncheck it.</para>
-        </warning>
-        <note>
-          <para>You can edit the list of Countries by navigating to System
-          &gt; Master Information &gt; Countries. To learn more, see <xref
-          linkend="Section972122" />.</para>
-        </note>
+        <tip>
+          <para>To learn more about editing the list of Country names, please
+          see <xref linkend="Section972122" />.</para>
+        </tip>
       </listitem>
     </varlistentry>
   </variablelist>
