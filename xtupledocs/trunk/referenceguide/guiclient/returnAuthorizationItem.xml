@@ -128,9 +128,8 @@
               handled on the new Sales Order. When there are line items on the
               Return Authorization having the disposition "Ship" and the
               timing is "Upon Receipt," then all the "Ship" disposition line
-              items will be created on the new Sales Order at the same
-              time&mdash;at the moment when the return is first
-              received.</para>
+              items will be created on the new Sales Order at the same time—at
+              the moment when the return is first received.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -162,6 +161,21 @@
         on the return Line Item, so you can manually or programmatically
         change the value to whatever makes sense for your business
         practice.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer P/N</term>
+      <listitem>
+        <para>Displays the Customer Part Number (i.e., Item Alias) that
+        corresponds to the Item Number entered in the Item Number field. The
+        Customer Part Number will display only if you enter an Item Alias in
+        the Item Number field―or if an Alias was used on the original Sales
+        Order. To enter an Item Alias, place the cursor in the Item Number
+        field and then use the keyboard shortcut "CTRL + A". After you have
+        entered a valid Item Alias, hit the TAB key. A list of Items that use
+        the specified Item Alias will be displayed. Select the desired Item
+        from the list. The Item Alias will display as the Customer Part
+        Number. Item Aliases are defined on the Item master.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -275,13 +289,13 @@
               <para>If your Pricing Schedule has multiple Units of Measure
               (UOM) on it (or if several Pricing Schedules share the same
               level of Price specificity, but they have different UOMs) then
-              the UOM which matches the selected UOM will be chosen&mdash;that
-              is, as long as the quantity break does not exceed the quantity
-              being priced. If no entry matches the UOM with a quantity break
-              less than the quantity being priced, then the lowest value Price
-              for any UOM will be chosen. To make sure a specific UOM is
-              always chosen at the desired level of Price specificity, then
-              your Pricing Schedules should include at least one UOM with a
+              the UOM which matches the selected UOM will be chosen—that is,
+              as long as the quantity break does not exceed the quantity being
+              priced. If no entry matches the UOM with a quantity break less
+              than the quantity being priced, then the lowest value Price for
+              any UOM will be chosen. To make sure a specific UOM is always
+              chosen at the desired level of Price specificity, then your
+              Pricing Schedules should include at least one UOM with a
               quantity break of 0.</para>
               <note>
                 <para>The Price controls will be automatically disabled for
@@ -344,16 +358,16 @@
               located to the right of the field leads to a Price List
               screen.</para>
               <para>If your Pricing Schedule has multiple Units of Measure
-              (UOM) on it&mdash;or if several Pricing Schedules share the same
-              level of Price specificity, but they have different
-              UOMs&mdash;then the UOM which matches the selected UOM will be
-              chosen&mdash;that is, as long as the quantity break does not
-              exceed the quantity being priced. If no entry matches the UOM
-              with a quantity break less than the quantity being priced, then
-              the lowest value Price for any UOM will be chosen. To make sure
-              a specific UOM is always chosen at the desired level of Price
-              specificity, then your Pricing Schedules should include at least
-              one UOM with a quantity break of 0.</para>
+              (UOM) on it—or if several Pricing Schedules share the same level
+              of Price specificity, but they have different UOMs—then the UOM
+              which matches the selected UOM will be chosen—that is, as long
+              as the quantity break does not exceed the quantity being priced.
+              If no entry matches the UOM with a quantity break less than the
+              quantity being priced, then the lowest value Price for any UOM
+              will be chosen. To make sure a specific UOM is always chosen at
+              the desired level of Price specificity, then your Pricing
+              Schedules should include at least one UOM with a quantity break
+              of 0.</para>
               <note>
                 <para>The Price controls will be automatically disabled for
                 Line Items if a credit method has not been specified or for
@@ -448,12 +462,11 @@
               <para>Displays the quantity allocated to current Sales Orders
               and/or Work Orders in the system. An Item is considered
               allocated to a Sales Order if a Sales Order Line Item exists for
-              the Item&mdash;and that Line Item has not yet been issued to
-              Shipping. An Item is considered allocated to a Work Order if the
-              Item is a material requirement&mdash;and the material has not
-              yet been issued to the Work Order. Once the current Line Item is
-              saved, the "Allocated" value will increase by the quantity
-              ordered.</para>
+              the Item—and that Line Item has not yet been issued to Shipping.
+              An Item is considered allocated to a Work Order if the Item is a
+              material requirement—and the material has not yet been issued to
+              the Work Order. Once the current Line Item is saved, the
+              "Allocated" value will increase by the quantity ordered.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -515,8 +528,8 @@
         Demand" flag on the Item Site master is selected. A Work Order created
         automatically from a Return Authorization Line Item will assume the
         same Order Number as the new Sales Order the Return Authorization Line
-        Item is associated with&mdash;even if that Order Number has already
-        been used by a previous Work Order.</para>
+        Item is associated with—even if that Order Number has already been
+        used by a previous Work Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
