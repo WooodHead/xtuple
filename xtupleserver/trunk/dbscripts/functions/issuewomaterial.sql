@@ -76,11 +76,20 @@ $$ LANGUAGE 'plpgsql';
 CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
+BEGIN
+  RETURN issueWoMaterial($1, $2, $3, $4, NULL);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION issueWoMaterial(INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE, INTEGER) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pWomatlid ALIAS FOR $1;
   pQty ALIAS FOR $2;
   pItemlocSeries ALIAS FOR $3;
   pGlDistTS ALIAS FOR $4;
+  pInvhistid ALIAS FOR $5;
   _p RECORD;
   _invhistid INTEGER;
   _itemlocSeries INTEGER;
@@ -94,16 +103,17 @@ BEGIN
          womatl_wo_id, womatl_qtyreq, itemsite_item_id, womatl_uom_id, wo_prj_id,
          roundQty(item_fractional, itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)) AS qty,
          formatWoNumber(wo_id) AS woNumber,
-         CASE WHEN(itemsite_costmethod IN ('A','J')) THEN avgcost(itemsite_id)
+         CASE WHEN(itemsite_costmethod='J' AND item_type='P' AND poitem_id IS NOT NULL) THEN poitem_unitprice
+              WHEN(itemsite_costmethod IN ('A','J')) THEN avgcost(itemsite_id)
               WHEN(itemsite_costmethod='S') THEN stdcost(itemsite_item_id)
               ELSE 0.0
          END AS cost,
          womatl_issuemethod AS issueMethod INTO _p
-  FROM wo, womatl, itemsite, item
-  WHERE ( (womatl_wo_id=wo_id)
-   AND (womatl_itemsite_id=itemsite_id)
-   AND (itemsite_item_id=item_id)
-   AND (womatl_id=pWomatlid) );
+  FROM womatl JOIN wo ON (wo_id=womatl_wo_id)
+              JOIN itemsite ON (itemsite_id=womatl_itemsite_id)
+              JOIN item ON (item_id=itemsite_item_id)
+              LEFT OUTER JOIN poitem ON (poitem_order_id=womatl_id AND poitem_order_type='W')
+  WHERE (womatl_id=pWomatlid);
 
   IF (pQty < 0) THEN
     RETURN pItemlocSeries;
@@ -115,8 +125,11 @@ BEGIN
     SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
   END IF;
   SELECT postInvTrans( ci.itemsite_id, 'IM', _p.qty,
-                      'W/O', 'WO', _p.woNumber, '', ('Material ' || item_number || ' Issue to Work Order'),
-                      getPrjAccntId(_p.wo_prj_id, pc.costcat_wip_accnt_id), cc.costcat_asset_accnt_id, _itemlocSeries, pGlDistTS ) INTO _invhistid
+                      'W/O', 'WO', _p.woNumber, '',
+                      ('Material ' || item_number || ' Issue to Work Order'),
+                      getPrjAccntId(_p.wo_prj_id, pc.costcat_wip_accnt_id),
+                      cc.costcat_asset_accnt_id, _itemlocSeries, pGlDistTS,
+                      NULL, pInvhistid ) INTO _invhistid
   FROM itemsite AS ci, itemsite AS pi,
        costcat AS cc, costcat AS pc,
        item

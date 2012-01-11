@@ -22,8 +22,8 @@
     poitem_comments AS notes,
     formatRevNumber('BOM',poitem_bom_rev_id) AS bill_of_materials_revision,
     formatRevNumber('BOO',poitem_boo_rev_id) AS bill_of_operations_revision,
-    (cohead_number || '-' || coitem_linenumber) AS sales_order_number,
-    (wo_number || '-' || wo_subnumber) AS work_order_number
+    formatSoNumber(coitem_id) AS sales_order_number,
+    formatWoNumber(womatl_wo_id) AS work_order_number
   FROM pohead
     JOIN poitem ON (pohead_id=poitem_pohead_id)
     LEFT OUTER JOIN prj ON (poitem_prj_id=prj_id)
@@ -31,9 +31,8 @@
     LEFT OUTER JOIN itemsite ON (poitem_itemsite_id=itemsite_id)
     LEFT OUTER JOIN item ON (itemsite_item_id=item_id)
     LEFT OUTER JOIN whsinfo ON (itemsite_warehous_id=warehous_id)
-    LEFT OUTER JOIN (coitem JOIN cohead ON (coitem_cohead_id=cohead_id))
-      ON (coitem_order_type='P' AND poitem_id=coitem_order_id)
-    LEFT OUTER JOIN wo ON (poitem_wohead_id=wo_id)
+    LEFT OUTER JOIN coitem ON (coitem_id=poitem_order_id AND poitem_order_type='S')
+    LEFT OUTER JOIN womatl ON (womatl_id=poitem_order_id AND poitem_order_type='W')
   ORDER BY pohead_number,poitem_linenumber;
 --TODO add label to expense category
 GRANT ALL ON TABLE api.purchaseline TO xtrole;
