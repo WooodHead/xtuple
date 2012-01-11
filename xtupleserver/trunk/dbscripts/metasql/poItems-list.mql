@@ -12,12 +12,12 @@ SELECT poitem.*,
             WHEN(poitem_status='O') THEN <? value("open") ?>
             ELSE poitem_status
        END AS poitemstatus,
-       CASE WHEN (COALESCE(pohead_cohead_id, -1) != -1) THEN <? value("so") ?>
-            WHEN (COALESCE(poitem_wohead_id, -1) != -1) THEN <? value("wo") ?>
+       CASE WHEN (poitem_order_type='S') THEN <? value("so") ?>
+            WHEN (poitem_order_type='W') THEN <? value("wo") ?>
             ELSE ''
        END AS demand_type,
-       CASE WHEN (COALESCE(pohead_cohead_id, -1) != -1) THEN cohead_number || '-' || coitem_linenumber
-            WHEN (COALESCE(poitem_wohead_id, -1) != -1) THEN formatwonumber(poitem_wohead_id)
+       CASE WHEN (poitem_order_type='S') THEN formatSoNumber(coitem_id)
+            WHEN (poitem_order_type='W') THEN formatWoNumber(womatl_wo_id)
             ELSE ''
        END AS order_number,
        CASE WHEN (itemsite_id IS NULL) THEN poitem_vend_item_number
@@ -41,7 +41,7 @@ SELECT poitem.*,
 FROM pohead JOIN poitem  ON (poitem_pohead_id=pohead_id)
             LEFT OUTER JOIN itemsite ON (poitem_itemsite_id=itemsite_id)
             LEFT OUTER JOIN item     ON (itemsite_item_id=item_id)
-            LEFT OUTER JOIN coitem   ON (poitem_soitem_id = coitem_id)
-            LEFT OUTER JOIN cohead   ON (cohead_id = coitem_cohead_id)
+            LEFT OUTER JOIN coitem   ON (poitem_order_type='S' AND poitem_order_id = coitem_id)
+            LEFT OUTER JOIN womatl   ON (poitem_order_type='W' AND poitem_order_id = womatl_id)
 WHERE (poitem_pohead_id=<? value("pohead_id") ?>)
 ORDER BY poitem_linenumber;
