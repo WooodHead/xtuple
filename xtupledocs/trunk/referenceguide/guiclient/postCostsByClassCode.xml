@@ -23,9 +23,10 @@
   and Actual Costs may diverge, posting Actual Costs to Standard is the way
   you bring the two costs into alignment.</para>
   <tip>
-    <para id="Para645935">For best results, you should run this utility by All
-    Class Codes. This will ensure your Costs are updated properly for any
-    Items which cross Class Code lines.</para>
+    <para>For best performance and results, you should run this utility by all
+    Class Codes―and don't select the "Roll Up" option. This will ensure your
+    Costs are updated properly for any Items which cross Class Code
+    lines.</para>
   </tip>
   <para>To post Actual Costs by Class Code, select the "Post Actual Costs by
   Item" option. The following screen will appear:</para>
@@ -48,7 +49,9 @@
       <term id="Para616958">All Class Codes</term>
       <listitem>
         <para>Select to post Actual Costs for all Class Codes. Running the
-        utility by all Class Codes is the preferred method.</para>
+        utility by all Class Codes is the preferred method. You should not use
+        the "Roll Up" option when updating costs by all Class Codes, since
+        that is redundant and can hurt performance.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -77,14 +80,16 @@
           <secondary>rolling up of</secondary>
         </indexterm>Roll Up Standard Costs</term>
       <listitem>
-        <para>Select to roll up Standard Costs. When this option is specified,
-        all selected Costs will be added together to establish a revised total
-        Standard Cost for the Item. This revised total goes into effect after
-        the POST button is selected. If all Costs are selected, all Costs will
-        be rolled up. If a subset of all Costs is selected, only the subset
-        will be rolled up. If the Roll Up Standard Costs option is not
-        specified, the selected Cost postings will not be valid above their
-        current level.</para>
+        <para>Select this option if you are updating a selected Class Code or
+        Class Code pattern. Do not use this option if you are updating by all
+        Class Codes, since that is redundant and can hurt performance. When
+        this option is specified, all selected Costs will be added together to
+        establish a revised total Standard Cost for the Item. This revised
+        total goes into effect after the POST button is selected. If all Costs
+        are selected, all Costs will be rolled up. If a subset of all Costs is
+        selected, only the subset will be rolled up. If the Roll Up Standard
+        Costs option is not specified, the selected Cost postings will not be
+        valid above their current level.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

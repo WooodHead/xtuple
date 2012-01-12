@@ -21,9 +21,10 @@
   production between Standard Cost updates, you may want to roll up existing
   Standard Costs into the cost of your new manufactured Items.</para>
   <tip>
-    <para>For best results, you should run this utility by All Class Codes.
-    This will ensure your Costs are updated properly for any Items which cross
-    Class Code lines.</para>
+    <para>For best performance and results, you should run this utility by all
+    Class Codes―and don't select the "Roll Up" option. This will ensure your
+    Costs are updated properly for any Items which cross Class Code
+    lines.</para>
   </tip>
   <para>To update Standard Costs by Class Code, select the "Update Standard
   Costs by Class Code" option. The following screen will appear:</para>
@@ -71,14 +72,16 @@
           <secondary>rolling up of</secondary>
         </indexterm>Roll Up Standard Costs</term>
       <listitem>
-        <para>Select to roll up Standard Costs. When this option is specified,
-        all selected Costs will be added together to establish a revised total
-        Standard Cost for the Item. This revised total goes into effect after
-        the UPDATE button is selected. If all Costs are selected, all Costs
-        will be rolled up. If a subset of all Costs is selected, only the
-        subset will be rolled up. If the Roll Up Standard Costs option is not
-        specified, the selected Cost updates will not be valid above their
-        current level.</para>
+        <para>Select this option if you are updating a selected Class Code or
+        Class Code pattern. Do not use this option if you are updating by all
+        Class Codes, since that is redundant and can hurt performance. When
+        this option is specified, all selected Costs will be added together to
+        establish a revised total Standard Cost for the Item. This revised
+        total goes into effect after the UPDATE button is selected. If all
+        Costs are selected, all Costs will be rolled up. If a subset of all
+        Costs is selected, only the subset will be rolled up. If the Roll Up
+        Standard Costs option is not specified, the selected Cost updates will
+        not be valid above their current level.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
