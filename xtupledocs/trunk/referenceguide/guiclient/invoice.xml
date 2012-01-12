@@ -13,10 +13,10 @@
   <para>When you post a Sales Order that has been selected for billing, an
   Invoice is created for that Order. This is the standard flow for creating
   Invoices tied to Sales Orders. However, you also have the option of creating
-  miscellaneous Invoices&mdash;that is, Invoices which are not tied to Sales
-  Orders. For example, you might use a miscellaneous Invoice to bill for
-  non-Inventory Items you have sold. To create a miscellaneous Invoice, select
-  the "Create Invoice" option. The following screen will appear:</para>
+  miscellaneous Invoices—that is, Invoices which are not tied to Sales Orders.
+  For example, you might use a miscellaneous Invoice to bill for non-Inventory
+  Items you have sold. To create a miscellaneous Invoice, select the "Create
+  Invoice" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -205,14 +205,14 @@
       <listitem>
         <para>If your system is configured to use Projects, select a Project
         Number to associate with the Invoice. If the Invoice was created from
-        a Sales Order&mdash;and the Sales Order had a Project Number
-        associated with it&mdash;then the Project Number from the originating
-        Sales Order will automatically be entered here.</para>
+        a Sales Order—and the Sales Order had a Project Number associated with
+        it—then the Project Number from the originating Sales Order will
+        automatically be entered here.</para>
         <para role="xtprjaccnt">When you have the xTuple Project Accounting
-        package installed&mdash;and you link a Project to the Invoice (or it
-        was linked from the original Sales Order)&mdash;the Project Number
-        will be added as the final segment of affected G/L Account Numbers
-        when the Invoice is posted.</para>
+        package installed—and you link a Project to the Invoice (or it was
+        linked from the original Sales Order)—the Project Number will be added
+        as the final segment of affected G/L Account Numbers when the Invoice
+        is posted.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -325,8 +325,8 @@
       <term>Tax</term>
       <listitem>
         <para>Tax is not calculated automatically when creating a
-        miscellaneous Invoice&mdash;as it is when an Invoice is generated from
-        a Sales Order. You must manually enter a Tax amount if you want to add
+        miscellaneous Invoice—as it is when an Invoice is generated from a
+        Sales Order. You must manually enter a Tax amount if you want to add
         Tax to a miscellaneous Invoice. To get a detailed view of the Tax
         calculation, click on the Tax link using your mouse.</para>
       </listitem>
@@ -346,7 +346,7 @@
     </varlistentry>
   </variablelist>
   <xi:include href="../widgets/allocateARCreditMemo.xml"
-              xpointer="documentsWidget"
+              xpointer="allocateARCMs"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>To add Notes to an Invoice, select the "Notes" tab at the top of the
   "Invoice" screen. If the Invoice was created from a Sales Order, any Sales
