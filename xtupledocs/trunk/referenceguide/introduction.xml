@@ -13,10 +13,10 @@
       <para>xTuple ERP: PostBooks Edition</para>
     </listitem>
     <listitem>
-      <para>xTuple ERP: Project Edition</para>
+      <para>xTuple ERP: Standard Edition</para>
     </listitem>
     <listitem>
-      <para>xTuple ERP: Standard Edition</para>
+      <para>xTuple ERP: Project Edition</para>
     </listitem>
     <listitem>
       <para>xTuple ERP: Manufacturing Edition</para>
@@ -33,9 +33,10 @@
   <para>Since all three applications share a common code base, it makes sense
   that they also share a Reference Guide. To highlight the differences between
   editions, we've placed colored bars in the margins. A blue line indicates
-  the feature is Manufacturing Edition only. An orange line means the feature
-  is found in Standard or Manufacturing Edition. And no line (or a black line)
-  indicates the feature is part of the PostBooks core.</para>
+  the feature is Manufacturing or Enterprise Edition only. An orange line
+  means the feature is found in the Standard, Project, Manufacturing, or
+  Enterprise Edition. And no line (or a black line) indicates the feature is
+  part of the PostBooks core.</para>
   <para>For more information on the differences between the xTuple ERP
   Editions, including licensing options, please visit <ulink
   url="http://www.xtuple.com/comparison">www.xtuple.com/comparison</ulink>.</para>
@@ -48,9 +49,7 @@
   material for the xTuple Connect extension package. You can learn more about
   this extension in the xTuple Connect Product Guide, which you can find on
   <ulink url="http://www.xtuple.org/docs/reference-guide">xTuple's product
-  guide web page</ulink>. Aspects of the application which are part of
-  proprietary extension packages such as xTuple Connect are also highlighted
-  with a blue line in the margin.</para>
+  guide web page</ulink>.</para>
   <section id="Section468080">
     <title>Getting Started</title>
     <para>The goal of this chapter is to orient you to some of the basic
@@ -210,7 +209,7 @@
           <listitem>
             <para>Select to see a list of databases you have connected to
             recently. To reconnect to one of those databases, simply select a
-            database connection from the list&mdash;then log in using the
+            database connection from the list—then log in using the
             appropriate username/password combination. This feature bypasses
             the need to enter connection options manually, as long as those
             options have been entered recently. To clear the list of recent
@@ -325,10 +324,10 @@
     <section>
       <title>xTuple Desktop</title>
       <para>Once you have logged in, the main application desktop will appear.
-      There are two different desktop options&mdash;and the one you see
-      depends on the user preference settings you have defined on the
-      "Preferences" screen. If you choose the "Show windows as free-floating"
-      preference, you will see the most popular desktop option:</para>
+      There are two different desktop options—and the one you see depends on
+      the user preference settings you have defined on the "Preferences"
+      screen. If you choose the "Show windows as free-floating" preference,
+      you will see the most popular desktop option:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
@@ -591,10 +590,10 @@
             <secondary>explained</secondary>
           </indexterm>Search Filters</title>
         <para>On several screens throughout xTuple ERP you are able to
-        create&mdash;and save&mdash;custom search filters for getting at the
-        data you really need. This search capability can be found, for
-        example, on the Incident Workbench in the CRM Module. The following
-        graphic shows the basic features of the search filter:</para>
+        create—and save—custom search filters for getting at the data you
+        really need. This search capability can be found, for example, on the
+        Incident Workbench in the CRM Module. The following graphic shows the
+        basic features of the search filter:</para>
         <para><screenshot>
             <mediaobject>
               <imageobject>
@@ -607,22 +606,22 @@
         add new search parameters. (There's no limit to the number of
         parameters you can add.) And use the "-" button to remove those
         parameters you don't want.</para>
-        <para>Search filters can be saved&mdash;and also shared with other
-        users. And when you're done building a query, simply save it. When
-        saving you will have the option to share the filter, or not, depending
-        on your preference.</para>
+        <para>Search filters can be saved—and also shared with other users.
+        And when you're done building a query, simply save it. When saving you
+        will have the option to share the filter, or not, depending on your
+        preference.</para>
         <tip>
           <para>Some parameter lists allow you to select multiple options from
           the same list. Look for drop-down lists that remain expanded after
           you select them. This indicates you may choose more than one
           parameter from the list of available options.</para>
         </tip>
-        <para>The MANAGE button brings you to the list of saved
-        filters&mdash;both your private ones and any others that are shared
-        across your organization. When managing your filters you can choose to
-        either share them or remove them from the list. If a filter appears in
-        the "Apply Filter" drop-down list, that means it's a saved filter.
-        Only saved filters will appear in that list.</para>
+        <para>The MANAGE button brings you to the list of saved filters—both
+        your private ones and any others that are shared across your
+        organization. When managing your filters you can choose to either
+        share them or remove them from the list. If a filter appears in the
+        "Apply Filter" drop-down list, that means it's a saved filter. Only
+        saved filters will appear in that list.</para>
         <caution>
           <para>Think twice before deleting a shared filter. Other people may
           be using it.</para>
@@ -634,9 +633,9 @@
             <term>Absolute dates</term>
             <listitem>
               <para>An absolute date is always the date that you entered. For
-              example, it you enter a date using the calendar tool&mdash;or
-              manually type in 04/05/2010&mdash;the filter will honor that
-              date always.</para>
+              example, it you enter a date using the calendar tool—or manually
+              type in 04/05/2010—the filter will honor that date
+              always.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -670,10 +669,9 @@
           <primary>keyboard shortcuts</primary>
           <secondary>using instead of mouse</secondary>
         </indexterm>Keyboard Shortcuts</title>
-      <para>Many people prefer to use keyboard shortcuts&mdash;instead of a
-      mouse&mdash;when navigating within a software application. xTuple ERP
-      features a number of keyboard shortcuts designed just for this
-      purpose.</para>
+      <para>Many people prefer to use keyboard shortcuts—instead of a
+      mouse—when navigating within a software application. xTuple ERP features
+      a number of keyboard shortcuts designed just for this purpose.</para>
       <para>For example, keyboard shortcuts are universally available
       throughout the application for each of the following actions:</para>
       <itemizedlist>
@@ -752,16 +750,16 @@
           </indexterm>TAB Key</title>
         <para>The TAB key on your keyboard may be used to move the cursor from
         one field to the next within any given data-entry screen. Simply place
-        the cursor in the first field you want to enter data into&mdash;and
-        when you"re done entering data, hit the TAB key to move the cursor to
-        the next field.</para>
+        the cursor in the first field you want to enter data into—and when
+        you"re done entering data, hit the TAB key to move the cursor to the
+        next field.</para>
         <para>Also use the TAB key as a shortcut for converting date field
         entries to the proper format for your system. For example, in a "Start
         Date" field you might enter the numbers "022503". Then, with the
         cursor still blinking in the field, hit the TAB key. The date will be
-        converted to "02/25/03"&mdash;or whatever the proper date format is
-        for your system. For more information on keyboard shortcuts related to
-        dates, see the <xref linkend="Section474757" />.</para>
+        converted to "02/25/03"—or whatever the proper date format is for your
+        system. For more information on keyboard shortcuts related to dates,
+        see the <xref linkend="Section474757" />.</para>
         <note>
           <para>Date formats are controlled by Locale settings.</para>
         </note>
@@ -850,12 +848,11 @@
             <secondary>ALT key</secondary>
           </indexterm>ALT Key</title>
         <para>You will notice throughout the application that several
-        characters&mdash;or individual letters within words&mdash;are
-        underlined. In the sample Bill of Materials screen, for example, the
-        SAVE button has the first letter, "S", underlined. The first letter,
-        "C", in the CANCEL button is also underlined. Alternately, notice that
-        the MOVE DOWN button has the "W" underlined. The list could go
-        on.</para>
+        characters—or individual letters within words—are underlined. In the
+        sample Bill of Materials screen, for example, the SAVE button has the
+        first letter, "S", underlined. The first letter, "C", in the CANCEL
+        button is also underlined. Alternately, notice that the MOVE DOWN
+        button has the "W" underlined. The list could go on.</para>
         <para>If you depress the ALT key on your keyboard in combination with
         any of these underlined letters, the effect is the same as if you had
         used the mouse to select that button or field. For example, the
@@ -958,9 +955,9 @@
         </table>
         <tip>
           <para>Some date fields support time-periods represented by
-          words&mdash;such as "Earliest" and "Latest". Keep in mind that these
-          words are case-sensitive. They will not work unless the first letter
-          of the word is capitalized.</para>
+          words—such as "Earliest" and "Latest". Keep in mind that these words
+          are case-sensitive. They will not work unless the first letter of
+          the word is capitalized.</para>
         </tip>
       </section>
       <section>
@@ -978,8 +975,8 @@
           </mediaobject>The calendar functionality is simple to use. All you
         do is open the calendar, then select the date you want to be entered
         into the field. To change a date, simply reopen the calendar and
-        select a new date. You can easily navigate between months&mdash;and
-        even between years.</para>
+        select a new date. You can easily navigate between months—and even
+        between years.</para>
         <tip>
           <para>The calendar can be used interchangeably with manually entered
           dates and date shortcuts. You don't have to use one or the
@@ -1019,7 +1016,7 @@
           </screenshot></para>
         <para>To access the function described by a button, simply select the
         button using your mouse. Toolbar buttons function in the same way
-        drop-down menu selections do&mdash;they simply provide a convenient
+        drop-down menu selections do—they simply provide a convenient
         shortcut. The complete list of available toolbar buttons is shown in
         the following table:</para>
         <table>
@@ -1515,10 +1512,10 @@
       </note>
       <para>xTuple ERP is full of displays similar to our sample Bill of
       Materials example. Display screens feature parameter settings at the top
-      of the screen&mdash;and a main display area located toward the bottom of
-      the screen. Whenever you encounter a display like this, you can
-      right-click on a line in the display to reveal a host of additional
-      options, as shown in the following screen:</para>
+      of the screen—and a main display area located toward the bottom of the
+      screen. Whenever you encounter a display like this, you can right-click
+      on a line in the display to reveal a host of additional options, as
+      shown in the following screen:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
@@ -1600,7 +1597,7 @@
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>Right-click options will vary from screen to screen&mdash;and from
+      <para>Right-click options will vary from screen to screen—and from
       edition to edition. In our sample Bill of Materials example, the
       right-click options basically mirror the functionality of buttons
       already available within the screen. This will not always be the case,
@@ -1616,10 +1613,10 @@
           <secondary>for columns</secondary>
         </indexterm>Column Memory</title>
       <para>The system gives you the ability to customize the column layout of
-      screens&mdash;and once customized, the columns will remember your
-      preferences the next time you visit. To customize the column layout of a
-      screen which supports this feature, simply right-click on any column
-      header, as shown below:</para>
+      screens—and once customized, the columns will remember your preferences
+      the next time you visit. To customize the column layout of a screen
+      which supports this feature, simply right-click on any column header, as
+      shown below:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
@@ -1711,8 +1708,8 @@
         </screenshot></para>
       <note>
         <para>Unless you specify otherwise, the system will always remember
-        the size of all Window screens&mdash;and also the position where the
-        screen was located&mdash;when you last used it.</para>
+        the size of all Window screens—and also the position where the screen
+        was located—when you last used it.</para>
       </note>
       <para>When opening the Windows menu to set your screen position or size,
       you are presented with the following options:</para>
@@ -1723,9 +1720,8 @@
             <para>Select to have the system remember the position of the
             specified screen. If selected, the system will remember the
             position of the screen where it was last located. Un-selecting
-            this option means the screen position will not be
-            remembered&mdash;and the default position will be used
-            instead.</para>
+            this option means the screen position will not be remembered—and
+            the default position will be used instead.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -1734,8 +1730,8 @@
             <para>Select to have the system remember the size of the specified
             screen. If selected, the system will remember the size of the
             screen where it was last located. Un-selecting this option means
-            the screen size will not be remembered&mdash;and the default size
-            will be used instead.</para>
+            the screen size will not be remembered—and the default size will
+            be used instead.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1886,8 +1882,8 @@
       languages are also available for download from many sites on the
       Internet.</para>
       <para>The spell checking feature has been designed to operate with a
-      user's Locale settings&mdash;which means that if you are using a Locale
-      other than English (and you have the correct Hunspell dictionary files
+      user's Locale settings—which means that if you are using a Locale other
+      than English (and you have the correct Hunspell dictionary files
       installed) the spell checker should work in your specified
       language.</para>
     </section>
