@@ -70,10 +70,8 @@
         shown. This option will not be visible if Sales Order reservations are
         not enabled at your site.</para>
         <tip>
-          <para>To manipulate Sales Order Reservations by Line Item, see the
-          options available in the right-click menu. These options will not be
-          visible if Sales Order Reservations are not enabled at your
-          site.</para>
+          <para>To manipulate Sales Order Reservations by Line Item, use the
+          right-click options found on this screen.</para>
         </tip>
       </listitem>
     </varlistentry>
@@ -93,32 +91,28 @@
         color orange, this means the actual or projected Quantity on Hand is
         at or below the Reorder Level. If the color is red, the current or
         projected Quantity on Hand is below 0.</para>
-        <note>
-          <para>The display features additional color-coding to help easily
-          identify the Sales Order Reservation status of individual Orders and
-          also Line Items. The following color conventions are used:</para>
-          <itemizedlist>
-            <listitem>
-              <para>Green (Line Item level): Line Item quantity is
-              fully-reserved.</para>
-            </listitem>
-            <listitem>
-              <para>Green (Header level): Sales Order has been added to the
-              Packing List Batch</para>
-            </listitem>
-            <listitem>
-              <para>Blue: Line Item quantity is partially-reserved.</para>
-            </listitem>
-            <listitem>
-              <para>Black: Line Item has no Sales Order reservations.</para>
-            </listitem>
-          </itemizedlist>
-        </note>
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="reserveSalesOrderItem.xml" xpointer="element(/1)"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <xi:include href="dspReservations.xml" xpointer="element(/1)"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <note>
+    <para>The display features additional color-coding to help easily identify
+    the Sales Order Reservation status of individual Orders and also Line
+    Items. The following color conventions are used:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Green (Line Item level): Line Item quantity is
+        fully-reserved.</para>
+      </listitem>
+      <listitem>
+        <para>Green (Header level): Sales Order has been added to the Packing
+        List Batch</para>
+      </listitem>
+      <listitem>
+        <para>Blue: Line Item quantity is partially-reserved.</para>
+      </listitem>
+      <listitem>
+        <para>Black: Line Item has no Sales Order reservations.</para>
+      </listitem>
+    </itemizedlist>
+  </note>
 </section>
