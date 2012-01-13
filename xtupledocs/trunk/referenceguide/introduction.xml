@@ -7,7 +7,7 @@
   xreflabel="23250: ChapterTitleNoNumber: Introduction" />Introduction</title>
   <para>Welcome to the Reference Guide for xTuple Enterprise Resource
   Planning! This Reference Guide is designed as a screen-by-screen reference
-  for anyone using any of the following xTuple ERP applications:</para>
+  for anyone using any of the following xTuple ERP Editions:</para>
   <itemizedlist>
     <listitem>
       <para>xTuple ERP: PostBooks Edition</para>
@@ -27,29 +27,50 @@
   </itemizedlist>
   <note>
     <para>If you are looking for more detailed user or developer
-    documentation, you can find that and more on xTuple's <ulink
-    url="http://www.xtuple.org">community website</ulink>.</para>
+    documentation, you can find that and more on xTuple's community website
+    here: <ulink url="http://www.xtuple.org">www.xtuple.org</ulink>.</para>
   </note>
-  <para>Since all three applications share a common code base, it makes sense
-  that they also share a Reference Guide. To highlight the differences between
-  editions, we've placed colored bars in the margins. A blue line indicates
-  the feature is Manufacturing or Enterprise Edition only. An orange line
-  means the feature is found in the Standard, Project, Manufacturing, or
-  Enterprise Edition. And no line (or a black line) indicates the feature is
-  part of the PostBooks core.</para>
-  <para>For more information on the differences between the xTuple ERP
-  Editions, including licensing options, please visit <ulink
-  url="http://www.xtuple.com/comparison">www.xtuple.com/comparison</ulink>.</para>
+  <para>Since all five editions share a common code base, it makes sense that
+  they also share a Reference Guide. To highlight the differences between
+  editions―and also several extension packages―we've placed colored bars in
+  the margins of the text. If no colored bar exists, the feature is shared by
+  all editions. The following color codes are used: </para>
+  <variablelist>
+    <varlistentry role="standard">
+      <term>Orange</term>
+      <listitem>
+        <para>Indicates the feature is part of the base Standard Edition
+        functionality shared by all commercial editions of xTuple ERP.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="manufacturing">
+      <term>Blue</term>
+      <listitem>
+        <para>Indicates the feature is found in a commercial package built
+        upon the base Standard Edition. This includes the Project,
+        Manufacturing, and Enterprise Editions, as well as the xTuple Connect
+        package. Connect can also be added to the free and open source
+        PostBooks Edition.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="xtpos">
+      <term>Green</term>
+      <listitem>
+        <para>Indicates the feature is part of a non-commercial,
+        freely-available extension package, such as Point of Sale or Time
+        &amp; Expense.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>For more information on the differences between the xTuple ERP
+    Editions, including licensing options, please visit <ulink
+    url="http://www.xtuple.com/comparison">www.xtuple.com/comparison</ulink>.</para>
+  </note>
   <para>The screenshots and examples used throughout this Reference Guide are
-  taken from the Manufacturing Edition Client for Windows, running on Windows
-  XP. There is no functional difference between the Windows, Mac, or Linux
-  Clients. You will find only minor graphical user interface differences. The
-  same holds true for the xTuple ERP products.</para>
-  <para role="xtconnect">This Reference Guide also includes screen reference
-  material for the xTuple Connect extension package. You can learn more about
-  this extension in the xTuple Connect Product Guide, which you can find on
-  <ulink url="http://www.xtuple.org/docs/reference-guide">xTuple's product
-  guide web page</ulink>.</para>
+  taken from the Enterprise Edition for Windows. However, there is no
+  functional difference between the Windows, Mac, or Linux versions. You will
+  only find minor graphical user interface differences.</para>
   <section id="Section468080">
     <title>Getting Started</title>
     <para>The goal of this chapter is to orient you to some of the basic

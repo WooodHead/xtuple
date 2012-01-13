@@ -116,15 +116,20 @@
             <listitem>
               <para>Select to download the latest translation file to match
               the language defined on your user's Locale. Translation files
-              are downloaded from the <ulink
-              url="http://www.xtuple.org/translate">xTuple Translation
-              Portal</ulink>—and they are stored on your local file system in
-              a standard location where other application support files would
-              generally be stored. Once the translation file is downloaded,
-              the xTuple ERP interface will automatically appear as translated
-              using the most current translation file available. A message
-              will alert you if no translation is available for your
-              language.</para>
+              are downloaded from the xTuple Translation Portal (<ulink
+              url="http://www.xtuple.org/translate">www.xtuple.org/translate)</ulink>—and
+              they are stored on your local file system in a standard location
+              where other application support files would generally be stored.
+              For example, on Windows the translation files are stored
+              here:</para>
+              <para><literal>C:\Documents and Settings\User Name\Local
+              Settings\Application Data\xTuple\xTuple</literal></para>
+              <para>Once a translation file is downloaded, the xTuple ERP
+              interface will automatically appear as translated using the most
+              current translation file available. A message will alert you if
+              no translation is available for your language. To learn more
+              about defining a language in your Locale settings, please see
+              <xref linkend="locale" />.</para>
             </listitem>
           </varlistentry>
           <varlistentry>

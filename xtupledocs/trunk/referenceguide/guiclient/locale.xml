@@ -18,11 +18,11 @@
   </tip>
   <para>The xTuple Locale functionality is designed to coordinate with the
   settings in your local operating system. Because of this, it should only be
-  necessary to specify the "Default" language and country value—and xTuple
-  ERP will follow your operating system settings. For example, let's say you
-  are located in China, running an operating system configured for China. In
-  that scenario, using the default xTuple Locale values should result in
-  xTuple ERP being formatted appropriately for China.</para>
+  necessary to specify the "Default" language and country value—and xTuple ERP
+  will follow your operating system settings. For example, let's say you are
+  located in China, running an operating system configured for China. In that
+  scenario, using the default xTuple Locale values should result in xTuple ERP
+  being formatted appropriately for China.</para>
   <para>While in most cases using the default values will work, you may have
   the need to modify your Locale settings for specific cases. To create a new
   Locale, select the NEW button. The following screen will appear:</para>
@@ -65,18 +65,18 @@
         </indexterm>Language</term>
       <listitem>
         <para>Select a language from the list of languages—or specify
-        "Default" to indicate you want your operating system to define
+        "Default" to indicate you want your operating system to define the
         language option for you. The language selection impacts date and time
         formatting. It also tells the system which language translation file
-        to load (if any). xTuple ERP supports multi-language translations of
-        the product interface through the use of .qm files. If a .qm
-        translation file is installed next to your xTuple ERP executable file,
-        then the system will load the translation file at run
-        time—automatically translating the application into your desired
-        language. As long as your .qm file follows the standard ISO-derived
-        naming convention (e.g., <filename>xTuple.cn.qm</filename> = Chinese
-        and <filename>xTuple.es.qm</filename> = Spanish), then the system will
-        successfully find it based on your Locale language selection.</para>
+        it should use. You can automatically download the latest translation
+        file for your language by using the GET TRANSLATIONS button on the
+        "User Preferences" screen. To learn more about this feature, please
+        see <xref linkend="Section941111" />. </para>
+        <para>xTuple ERP supports multi-language translations of the product
+        interface through the use of .qm files. To learn more about xTuple
+        translation and how you can get involved translating the interface for
+        your language, please visit the Translation Portal here: <ulink
+        url="http://www.xtuple.org/translate">www.xtuple.org/translate</ulink>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
