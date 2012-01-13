@@ -26,11 +26,13 @@ BEGIN
 
   IF (_type IN ('M', 'F', 'B', 'T')) THEN
     FOR _bomitem IN SELECT DISTINCT costelem_type
-                    FROM ( SELECT costelem_type
+                    FROM ( SELECT COALESCE(bc.costelem_type, ic.costelem_type) AS costelem_type
                            FROM bomitem(pItemid)
                              JOIN item ON (item_id=bomitem_item_id AND item_type <> 'T')
                              JOIN itemcost ON (itemcost_item_id=bomitem_item_id)
-                             JOIN costelem ON (costelem_id=itemcost_costelem_id AND NOT costelem_sys)
+                             JOIN costelem ic ON (ic.costelem_id=itemcost_costelem_id AND NOT ic.costelem_sys)
+                             LEFT OUTER JOIN bomitemcost ON (bomitemcost_bomitem_id=bomitem_id)
+                             LEFT OUTER JOIN costelem bc ON (bc.costelem_id=bomitemcost_costelem_id AND NOT bc.costelem_sys)
                            WHERE ( CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1) )
 
                            UNION SELECT costelem_type

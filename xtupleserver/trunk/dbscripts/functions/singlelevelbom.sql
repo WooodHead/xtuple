@@ -58,13 +58,13 @@ BEGIN
                CASE WHEN (bomitem_effective > CURRENT_DATE) THEN TRUE
                  ELSE FALSE
                END AS future,
-               actcost(bomitem_item_id) AS actunitcost,
-               stdcost(bomitem_item_id) AS stdunitcost,
+               actcost(bomitem_item_id, bomitem_id) AS actunitcost,
+               stdcost(bomitem_item_id, bomitem_id) AS stdunitcost,
                CASE WHEN item_type NOT IN ('R','T') THEN
-                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * actcost(bomitem_item_id)
+                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * actcost(bomitem_item_id, bomitem_id)
                ELSE 0 END AS actextendedcost,
                CASE WHEN item_type NOT IN ('R','T') THEN
-                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * stdcost(bomitem_item_id)
+                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * stdcost(bomitem_item_id, bomitem_id)
                ELSE 0 END AS stdextendedcost,
                bomitem_char_id, bomitem_value, bomitem_notes, bomitem_ref 
        FROM bomitem(pItemid,pRevisionid), item, uom 

@@ -40,8 +40,8 @@ BEGIN
                                 bomitem_qtyfxd) AS qtyfxd,
                    itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
                                 bomitem_qtyper) AS qtyper,
-                   stdcost(item_id) AS standardcost,
-                   actcost(item_id) AS actualcost
+                   stdcost(item_id, bomitem_id) AS standardcost,
+                   actcost(item_id, bomitem_id) AS actualcost
   FROM bomitem(pItemId, pRevisionid), item
   WHERE ( (bomitem_item_id=item_id) ) LOOP
 

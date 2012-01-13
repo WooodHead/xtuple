@@ -51,7 +51,7 @@ BEGIN
                    CASE WHEN (_p.bomwork_expires < bomitem_expires) THEN _p.bomwork_expires
                         ELSE bomitem_expires
                    END AS expires,
-                   stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost
+                   stdcost(item_id, bomitem_id) AS standardcost, actcost(item_id, bomitem_id) AS actualcost
   FROM bomitem(pItemid, pRevisionid), item
   WHERE ( (bomitem_item_id=item_id)
   AND (bomitem_expires > _p.bomwork_effective) ) LOOP
