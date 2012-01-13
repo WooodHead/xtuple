@@ -85,9 +85,9 @@ SELECT * FROM (
   AND (crmacct_id =<? value("crmacct_id") ?>)
 <? endif ?>
 <? if exists("completedonly") ?>
-  AND (NOT todoitem_active)			
+  AND (todoitem_status = 'C')			
 <? elseif not exists("completed") ?>
-  AND (todoitem_active)			
+  AND (todoitem_status != 'C')			
 <? endif ?>
 <? if exists("username") ?>
   AND (<? value("username") ?> IN (todoitem_username, todoitem_owner_username))
