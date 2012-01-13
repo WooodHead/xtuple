@@ -68,9 +68,8 @@ BEGIN
 
     -- Check for average cost items going negative
     IF ( SELECT ( (itemsite_costmethod='A') AND
-                  ((itemsite_qtyonhand - roundQty(item_fractional, pQty * coitem_qty_invuomratio)) < 0.0) )
+                  ((itemsite_qtyonhand - round(pQty * coitem_qty_invuomratio, 6)) < 0.0) )
          FROM coitem JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
-                     JOIN item ON (item_id=itemsite_item_id)
          WHERE (coitem_id=pitemid) ) THEN
       RETURN -20;
     END IF;
@@ -156,7 +155,7 @@ BEGIN
     END IF;
 
     -- Handle g/l transaction
-    SELECT postInvTrans( itemsite_id, 'SH', roundQty(item_fractional, pQty * coitem_qty_invuomratio),
+    SELECT postInvTrans( itemsite_id, 'SH', (pQty * coitem_qty_invuomratio),
 			   'S/R', porderType,
 			   formatSoNumber(coitem_id), shiphead_number,
                            ('Issue ' || item_number || ' to Shipping for customer ' || cohead_billtoname),
