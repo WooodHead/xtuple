@@ -45,12 +45,18 @@ BEGIN
   IF (_type IN ('M', 'F', 'B', 'T')) THEN
 
     IF (pActual) THEN
-      SELECT SUM( round(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE),6) * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) )
+      SELECT SUM( CASE WHEN (bomitemcost_id IS NOT NULL AND bc.costelem_id IS NOT NULL) THEN
+                  round(currToBase(bomitemcost_curr_id, bomitemcost_actcost, CURRENT_DATE),6) * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap))
+                  ELSE
+                  round(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE),6) * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap))
+                  END )
 	  INTO _cost
       FROM bomitem(pItemid)
         JOIN item ON (item_id=bomitem_item_id AND item_type <> 'T')
         JOIN itemcost ON (itemcost_item_id=bomitem_item_id)
-        JOIN costelem ON (costelem_id=itemcost_costelem_id AND costelem_type=pCosttype)
+        JOIN costelem ic ON (ic.costelem_id=itemcost_costelem_id AND ic.costelem_type=pCosttype)
+        LEFT OUTER JOIN bomitemcost ON (bomitemcost_bomitem_id=bomitem_id)
+        LEFT OUTER JOIN costelem bc ON (bc.costelem_id=bomitemcost_costelem_id AND bc.costelem_type=pCosttype)
       WHERE ( CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1) );
     ELSE
       SELECT SUM( itemcost_stdcost * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) )
