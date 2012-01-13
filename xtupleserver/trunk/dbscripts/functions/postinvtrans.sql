@@ -136,7 +136,7 @@ BEGIN
       _sense := 1;
     END IF;
 
-    IF((_r.itemsite_costmethod='A') AND (_r.itemsite_qtyonhand + (_sense * pQty)) < 0) THEN
+    IF((_r.itemsite_costmethod='A') AND (_r.itemsite_qtyonhand + round(_sense * pQty, 6)) < 0) THEN
       -- Can not let average costed itemsites go negative
       RAISE EXCEPTION 'This transaction will cause an Average Costed item to go negative which is not allowed.';
       RETURN -2;
