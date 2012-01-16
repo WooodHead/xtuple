@@ -85,7 +85,7 @@ BEGIN
 				text(_p.checkhead_number),
 				_credit_glaccnt,
 				round(_p.checkhead_amount_base, 2),
-				pVoidDate, _gltransNote);
+				pVoidDate, _gltransNote, pCheckid);
 
     _amount_base := _p.checkhead_amount_base;
 
@@ -137,13 +137,13 @@ BEGIN
 				      'DS', _r.apopen_docnumber,
                                       findAPDiscountAccount(_p.checkhead_recip_id),
                                       round(_r.checkitem_discount / _r.apopen_curr_rate, 2) * -1,
-                                      pVoidDate, _gltransNote);
+                                      pVoidDate, _gltransNote, pCheckid);
 
           PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
 				      'DS', _r.apopen_docnumber,
                                       findAPAccount(_p.checkhead_recip_id),
                                       round(_r.checkitem_discount / _r.apopen_curr_rate, 2),
-                                      pVoidDate, _gltransNote);
+                                      pVoidDate, _gltransNote, pCheckid);
 
 	  --  Post the application
           INSERT INTO apapply
@@ -221,13 +221,13 @@ BEGIN
 				  'CK', text(_p.checkhead_number),
                                   _p.checkrecip_accnt_id,
                                   round(_r.checkitem_amount_base, 2),
-                                  pVoidDate, _gltransNote);
+                                  pVoidDate, _gltransNote, pCheckid);
       IF (_exchGainTmp <> 0) THEN
           PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
 				      'CK', text(_p.checkhead_number),
 				      getGainLossAccntId(_p.checkrecip_accnt_id),
 				      round(_exchGainTmp, 2) * -1,
-				      pVoidDate, _gltransNote);
+				      pVoidDate, _gltransNote, pCheckid);
       END IF;
 
       _amount_check := (_amount_check + _r.amount_check);
@@ -249,7 +249,7 @@ BEGIN
 				    (round(_amount_base, 2) -
 				     round(_exchGain, 2) -
 				     round(_p.checkhead_amount_base, 2)) * -1,
-				    pVoidDate, _gltransNote);
+				    pVoidDate, _gltransNote, pCheckid);
       ELSE
 	RAISE EXCEPTION 'checkhead_id % does not balance (% - % <> %)', pCheckid,
 	      _amount_base, _exchGain, _p.checkhead_amount_base;
@@ -261,7 +261,7 @@ BEGIN
 			      text(_p.checkhead_number),
                               _p.bankaccntid,
 			      round(_p.checkhead_amount_base, 2) * -1,
-                              pVoidDate, _gltransNote);
+                              pVoidDate, _gltransNote, pCheckid);
 
   PERFORM postGLSeries(_sequence, pJournalNumber);
 
