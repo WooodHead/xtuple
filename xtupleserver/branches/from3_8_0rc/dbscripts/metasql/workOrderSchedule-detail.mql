@@ -35,6 +35,11 @@ WHERE ( (wo_itemsite_id=itemsite_id)
   AND (itemsite_item_id=item_id)
   AND (item_inv_uom_id=uom_id)
   AND (itemsite_warehous_id=warehous_id)
+<? if exists("search_pattern") ?>
+  AND ( (wo_number::TEXT ~* <? value("search_pattern") ?>)
+    OR  (item_number ~* <? value("search_pattern") ?>)
+    OR  (item_descrip1 || item_descrip2 ~* <? value("search_pattern") ?>) )
+<? endif ?>
 <? if exists("woSoStatus") ?>
   AND (coitem_status <> 'X')
 <? elseif exists("woSoStatusMismatch") ?>
