@@ -57,11 +57,6 @@ BEGIN
          AND (COALESCE(itemloc_expiration,endOfTime())=COALESCE(_coarse.invdetail_expiration,endOfTime()))
          AND (COALESCE(itemloc_warrpurc,endOfTime())=COALESCE(_coarse.invdetail_warrpurc,endOfTime())) );
 
-        -- initialize to ensure they aren't null at update
-        _qoh := 0.0;
-        _netable_qoh := 0.0;
-        _nonnetable_qoh := 0.0;
-
 --  If the itemloc in question cannot be found, create it
         IF (NOT FOUND) THEN
           SELECT NEXTVAL('itemloc_itemloc_id_seq') INTO _itemlocid;
@@ -73,6 +68,10 @@ BEGIN
           ( _itemlocid, pItemsiteid,
             _coarse.invdetail_location_id, _coarse.invdetail_ls_id,
             0, endOfTime() );
+
+        _qoh := 0.0;
+        _netable_qoh := 0.0;
+        _nonnetable_qoh := 0.0;
 
         ELSE
           _itemlocid := _itemloc.itemloc_id;
@@ -167,8 +166,9 @@ BEGIN
 
     END LOOP;
 
+-- _qoh can be used for the netable qoh because of the negative NN transactions
     UPDATE itemsite
-       SET itemsite_qtyonhand = _netable_qoh,
+       SET itemsite_qtyonhand = _qoh,
            itemsite_nnqoh = _nonnetable_qoh,
            itemsite_value = CASE WHEN ((itemsite_costmethod='A') AND (_value < 0.0)) THEN 0.0
                                  ELSE _value END
