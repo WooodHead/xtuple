@@ -153,12 +153,21 @@ BEGIN
        bomwork_expires,
        bomwork_effective > CURRENT_DATE AS future,
        bomwork_expires  <= CURRENT_DATE AS expired
-       FROM bomwork, item, uom 
-       WHERE ( (bomwork_item_id=item_id)
-       AND (item_inv_uom_id=uom_id)
-       AND (bomwork_set_id=_bomworksetid) )
-       AND (bomwork_expires > (CURRENT_DATE - pExpiredDays))
-       AND (bomwork_effective <= (CURRENT_DATE + pFutureDays))
+       FROM ( SELECT item_number, item_type, uom_name,
+                     item_descrip1, item_descrip2,
+                     bomwork_qtyreq, bomwork_qtyfxd,
+                     bomwork_qtyper, bomwork_scrap,
+                     bomwork_actunitcost, bomwork_stdunitcost,
+                     CASE WHEN (bomwork_effective > CURRENT_DATE) THEN (CURRENT_DATE + 1)
+                          ELSE CURRENT_DATE END AS bomwork_effective,
+                     CASE WHEN (bomwork_expires <= CURRENT_DATE) THEN (CURRENT_DATE - 1)
+                          ELSE (CURRENT_DATE + 1) END AS bomwork_expires
+                     FROM bomwork, item, uom 
+                     WHERE ( (bomwork_item_id=item_id)
+                       AND (item_inv_uom_id=uom_id)
+                       AND (bomwork_set_id=_bomworksetid) )
+                       AND (bomwork_expires > (CURRENT_DATE - pExpiredDays))
+                       AND (bomwork_effective <= (CURRENT_DATE + pFutureDays)) ) AS data
        GROUP BY item_number, uom_name, item_type,
                 item_descrip1, item_descrip2,
                 bomwork_effective, bomwork_expires
