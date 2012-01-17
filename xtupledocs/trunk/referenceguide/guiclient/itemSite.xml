@@ -4,7 +4,7 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518694">
   <title><indexterm significance="normal">
-      <primary>item sites</primary>
+      <primary>fitem sites</primary>
       <secondary>creating new</secondary>
     </indexterm>Enter Item Site</title>
   <para>An Item Site identifies and defines the methods and controls used when
@@ -72,7 +72,7 @@
               <note>
                 <para>Work Orders created, as specified above, to meet Sales
                 Order demand will be created regardless of an Item's
-                Availability&mdash;and also regardless of whether Material
+                Availability—and also regardless of whether Material
                 Requirements Planning (MRP) is being run in parallel.</para>
               </note>
             </listitem>
@@ -98,7 +98,7 @@
               <note>
                 <para>Purchase Requests created to meet Work Order or Sales
                 Order demand will be created regardless of Item
-                Availability&mdash;and also regardless of whether Material
+                Availability—and also regardless of whether Material
                 Requirements Planning (MRP) is being run in parallel.</para>
               </note>
             </listitem>
@@ -387,7 +387,7 @@
               </indexterm>Event Fence</term>
             <listitem>
               <para>Select a number using the arrow buttons, or manually enter
-              a value up to a maximum of 99. Specify the period of time,
+              a value up to a maximum of 999. Specify the period of time,
               measured in days, within which relevant Event notifications
               should be issued. If an Event affecting the Item Site occurs
               within the Event Fence, then the system will issue a
@@ -433,9 +433,9 @@
               shipped, a value up to the proportional value of the total
               quantity shipped will be charged to Cost of Sales. For example,
               if 3 Items are to be shipped on a Job Work Order and all the
-              material has been issued&mdash;and if only 1 of the 3 is
-              shipped&mdash;then 1/3 of the value charged to WIP at that point
-              will be charged to Cost of Sales.</para>
+              material has been issued—and if only 1 of the 3 is shipped—then
+              1/3 of the value charged to WIP at that point will be charged to
+              Cost of Sales.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -457,11 +457,11 @@
           assigned Lot/Serial Number, the automatically incremented number
           will not be rolled back or reused. This is because there is no way
           to ensure number issuance integrity in an environment where multiple
-          users are posting simultaneously&mdash;other than to issue new
-          unused numbers during every transaction. The system will, however,
-          check each number it attempts to issue. If it finds any existing
-          matches already in the database for the given Item, it will skip
-          past them until it finds a previously unused number.</para>
+          users are posting simultaneously—other than to issue new unused
+          numbers during every transaction. The system will, however, check
+          each number it attempts to issue. If it finds any existing matches
+          already in the database for the given Item, it will skip past them
+          until it finds a previously unused number.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -609,8 +609,8 @@
         <note>
           <para>Running Material Requirements Planning (MRP) on your system
           consists entirely of running the Create Planned Replenishment Orders
-          screens&mdash;either by Item or by Planner Code. As MRP runs, the
-          Planned Replenishment Orders are generated automatically.</para>
+          screens—either by Item or by Planner Code. As MRP runs, the Planned
+          Replenishment Orders are generated automatically.</para>
         </note>
         <variablelist>
           <varlistentry>
@@ -623,7 +623,7 @@
               Requirements Planning (MRP) is run. The Replenishment Order
               quantity will be equal to the quantity required to return
               Planned Availability to either the Reorder Level or the Order Up
-              To quantity&mdash;whichever is greater.</para>
+              To quantity—whichever is greater.</para>
               <note>
                 <para>Planned Availability differs from Quantity on Hand
                 (QOH). The difference is that Planned Availability considers
@@ -669,11 +669,11 @@
               quantity for Planned Replenishment Orders when MRP is run. The
               setting does not apply to manual Orders, but to Planned Orders
               only. When a maximum Order quantity is specified, MRP will
-              ignore Order multiples and minimum Order
-              specifications&mdash;focusing instead solely on the maximum
-              Order setting. For example, if the maximum Order quantity is set
-              to 10 and there is demand for 17, then Planned Orders of 10 and
-              7 would be generated when MRP is run.</para>
+              ignore Order multiples and minimum Order specifications—focusing
+              instead solely on the maximum Order setting. For example, if the
+              maximum Order quantity is set to 10 and there is demand for 17,
+              then Planned Orders of 10 and 7 would be generated when MRP is
+              run.</para>
               <tip>
                 <para>Setting the maximum order quantity too low has been
                 shown to slow performance when MRP is run. Unless you have
@@ -771,19 +771,19 @@
           <varlistentry role="standard">
             <term>Group MPS/MRP Orders Every</term>
             <listitem>
-              <para>Specify the length of a period&mdash;measured in
-              days&mdash;within which MPS or MRP Planned Orders will be
-              grouped together (i.e, consolidated) to meet demand for the
-              period. The minimum possible number of days is one. This
-              functionality serves to limit the total number of Planned
-              Orders, thereby simplifying order processing. For example, to
-              consolidate demand for an Item Site into 30-day buckets, set the
-              value to "30." When MRP is run, the system will automatically
-              consolidate all demand falling within the 30-day horizon into a
-              single Planned Purchase Order or Planned Work Order. The
-              grouping of Planned Orders moves forward in time, meaning the
-              system will create as many buckets as will fit within the cutoff
-              date specified when MRP is run.</para>
+              <para>Specify the length of a period—measured in days—within
+              which MPS or MRP Planned Orders will be grouped together (i.e,
+              consolidated) to meet demand for the period. The minimum
+              possible number of days is one. This functionality serves to
+              limit the total number of Planned Orders, thereby simplifying
+              order processing. For example, to consolidate demand for an Item
+              Site into 30-day buckets, set the value to "30." When MRP is
+              run, the system will automatically consolidate all demand
+              falling within the 30-day horizon into a single Planned Purchase
+              Order or Planned Work Order. The grouping of Planned Orders
+              moves forward in time, meaning the system will create as many
+              buckets as will fit within the cutoff date specified when MRP is
+              run.</para>
               <para>The initial grouping of Planned Orders is handled
               differently than subsequent buckets. The following formula
               specifies how the date range for the initial period is
@@ -834,10 +834,10 @@
               used by the Master Production Scheduling (MPS) system to
               evaluate when forecasted demand (i.e., from Production Plans)
               should be used in place of actual demand (i.e., from Sales
-              Orders)&mdash;and vice versa. Measured in days, the Demand Time
-              Fence is the period of time extending from the current day to
-              the number of days into the future as specified in this field.
-              The Demand Time Fence option applies only to those Items which
+              Orders)—and vice versa. Measured in days, the Demand Time Fence
+              is the period of time extending from the current day to the
+              number of days into the future as specified in this field. The
+              Demand Time Fence option applies only to those Items which
               currently appear on a released Production Plan. If demand for
               these Items falls within the Demand Time Fence period, then the
               Forecast will be ignored. If demand falls outside the Demand
