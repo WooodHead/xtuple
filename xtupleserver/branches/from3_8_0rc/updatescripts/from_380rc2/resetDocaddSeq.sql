@@ -11,3 +11,7 @@ BEGIN
   RETURN 1;
 END;
 $$ LANGUAGE 'plpgsql';
+
+SELECT upgradeResetDocAssIdSeq();
+
+SELECT dropIfExists('FUNCTION', 'upgradeResetDocAssIdSeq()');
