@@ -14,7 +14,8 @@ BEGIN
   SELECT COALESCE(SUM(ROUND((coitem_qtyord * coitem_qty_invuomratio) *
                             (coitem_price / coitem_price_invuomratio), 2)), 0) INTO _subtotal
   FROM coitem
-  WHERE (coitem_cohead_id=pCoheadid);
+  WHERE (coitem_cohead_id=pCoheadid)
+    AND (coitem_status != 'X');
 
   SELECT COALESCE(SUM(tax), 0) INTO _tax
   FROM ( SELECT ROUND(SUM(taxdetail_tax), 2) AS tax
