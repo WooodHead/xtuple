@@ -148,16 +148,14 @@ DECLARE
   _woid INTEGER;
   _result INTEGER;
   _parentType char(1);
+  _parentId INTEGER;
   _cosmethod char(1);
   _itemsite RECORD;
   
 BEGIN
   
-  IF (pParentType IS NULL) THEN
-    _parentType := ' ';
-  ELSE
-    _parentType := pParentType;
-  END IF;
+  _parentType := COALESCE(pParentType, ' ');
+  _parentId   := COALESCE(pParentId, -1);
 
   SELECT * INTO _itemsite FROM itemsite WHERE itemsite_id = pItemsiteid;
 
@@ -172,8 +170,8 @@ BEGIN
     _cosmethod := pCosMethod;
   ELSE
     IF (_itemsite.itemsite_costmethod = 'J') THEN
-      IF (_parentType != 'S') THEN
-        RAISE EXCEPTION 'Work Orders for Item Sites that are Job cost must be created from a sales order';
+      IF (_parentType = ' ' OR _parentId = -1) THEN
+        RAISE EXCEPTION 'Work Orders for Item Sites that are Job cost must have a parent order.';
       ELSE
         SELECT COALESCE(itemsite_cosdefault,fetchmetrictext('JobItemCosDefault'),'D') INTO _cosmethod FROM itemsite WHERE itemsite_id=pItemsiteid;
       END IF;
