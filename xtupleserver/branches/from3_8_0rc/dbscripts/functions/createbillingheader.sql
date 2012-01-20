@@ -32,14 +32,13 @@ BEGIN
   IF (FOUND) THEN
   --  Find a Shipping-Entered freight charge
     SELECT SUM(currToCurr(shiphead_freight_curr_id, _cohead.cohead_curr_id,
-                          shiphead_freight, CURRENT_DATE))
-	   shiphead_shipvia INTO _freight, _shipVia
+                          shiphead_freight, CURRENT_DATE)) INTO _freight
     FROM (
-    SELECT shiphead_id, shiphead_shipvia, shiphead_freight_curr_id, shiphead_freight
+    SELECT shiphead_id, shiphead_freight_curr_id, shiphead_freight
     FROM shiphead JOIN shipitem ON (shipitem_shiphead_id=shiphead_id AND NOT shipitem_invoiced)
     WHERE ((shiphead_order_type='SO')
       AND  (shiphead_order_id=pSoheadid))
-    GROUP BY shiphead_id, shiphead_shipvia, shiphead_freight_curr_id, shiphead_freight) AS data;
+    GROUP BY shiphead_id, shiphead_freight_curr_id, shiphead_freight) AS data;
 
     IF (_freight IS NOT NULL) THEN
       UPDATE cobmisc SET cobmisc_freight = _freight
