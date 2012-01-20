@@ -16,7 +16,7 @@ SELECT DISTINCT cohead.*,
                    JOIN coitem ON (coitem_cohead_id=cohead_id) 
                    JOIN itemsite ON (coitem_itemsite_id=itemsite_id) 
                    JOIN site() ON (itemsite_warehous_id=warehous_id) 
-               <? else ?> 
+               <? elseif  exists("warehous_id") ?> 
                    LEFT OUTER JOIN coitem ON (coitem_cohead_id=cohead_id) 
                    LEFT OUTER JOIN itemsite ON (coitem_itemsite_id=itemsite_id) 
                    LEFT OUTER JOIN whsinfo ON (itemsite_warehous_id=warehous_id) 
@@ -34,8 +34,11 @@ SELECT DISTINCT cohead.*,
               <? if exists("poNumber") ?>
                  AND  (cohead_custponumber~*<? value("poNumber") ?>)
                <? endif ?>
+               <? if exists("startDate") ?>
+                 AND (cohead_orderdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+               <? endif ?>
                <? if not exists("showClosed") ?> 
-                 AND ((coitem_status = 'O') OR (coitem_status IS NULL)) 
+                 AND (cohead_status='O')
                <? endif ?>
                <? if  exists("warehous_id") ?>
                  AND (warehous_id=<? value("warehous_id") ?>)
