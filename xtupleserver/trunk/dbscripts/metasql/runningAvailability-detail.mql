@@ -187,7 +187,7 @@ SELECT pohead_id AS orderid, poitem_id AS altorderid,
       poitem_duedate AS duedate,
       (poitem_duedate < CURRENT_DATE) AS late,
       (poitem_qty_ordered * poitem_invvenduomratio) AS qtyordered,
-      (poitem_qty_received * poitem_invvenduomratio) AS qtyreceived,
+      (NoNeg(poitem_qty_received - poitem_qty_returned) * poitem_invvenduomratio) AS qtyreceived,
       (noNeg(poitem_qty_ordered - poitem_qty_received) * poitem_invvenduomratio) AS balance
 FROM pohead, poitem, itemsite, item
 WHERE ((poitem_pohead_id=pohead_id)
