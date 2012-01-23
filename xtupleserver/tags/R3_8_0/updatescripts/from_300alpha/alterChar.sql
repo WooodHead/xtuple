@@ -1,0 +1,3 @@
+BEGIN;
+ALTER TABLE char ADD COLUMN char_employees BOOLEAN DEFAULT false;
+COMMIT;

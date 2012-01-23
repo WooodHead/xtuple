@@ -1,0 +1,40 @@
+-- Group: pendingAvailability
+-- Name: detail
+-- Notes: used by dspPendingAvailability
+
+SELECT itemsite_id, bomitem_seqnumber, item_number, item_descrip, uom_name,
+       pendalloc, (totalalloc + pendalloc) AS totalalloc,
+       qoh, (qoh + ordered - (totalalloc + pendalloc)) AS totalavail,
+       reorderlevel,
+       'qty' AS pendalloc_xtnumericrole,
+       'qty' AS totalalloc_xtnumericrole,
+       'qty' AS qoh_xtnumericrole,
+       'qty' AS totalavail_xtnumericrole,
+       CASE WHEN (qoh < pendalloc) THEN 'error' END AS qoh_qtforegroundrole,
+       CASE WHEN ((qoh + ordered - (totalalloc + pendalloc)) < reorderlevel) THEN 'error'
+            WHEN ((qoh + ordered - (totalalloc + pendalloc)) = reorderlevel) THEN 'warning'
+       END AS totalavail_qtforegroundrole
+FROM ( SELECT itemsite_id, bomitem_seqnumber, item_number,
+              (item_descrip1 || ' ' || item_descrip2) AS item_descrip, uom_name,
+              ((itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
+                            (bomitem_qtyfxd + bomitem_qtyper * <? value("buildQty") ?>) * (1 + bomitem_scrap)))) AS pendalloc,
+              qtyAllocated(itemsite_id, DATE(<? value("buildDate") ?>)) AS totalalloc,
+              noNeg(itemsite_qtyonhand) AS qoh,
+              qtyOrdered(itemsite_id, DATE(<? value("buildDate") ?>)) AS ordered,
+              CASE WHEN(itemsite_useparams) THEN itemsite_reorderlevel ELSE 0.0 END AS reorderlevel
+       FROM itemsite, item, bomitem(<? value("item_id") ?>), uom
+       WHERE ( (bomitem_item_id=itemsite_item_id)
+           AND (itemsite_item_id=item_id)
+           AND (item_inv_uom_id=uom_id)
+           AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+       <? if not exists("effective") ?>
+           AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires-1))
+       <? else ?>
+           AND (<? value("effective") ?> BETWEEN bomitem_effective AND (bomitem_expires-1))
+       <? endif ?>
+             )
+     ) AS data
+<? if exists("showShortages") ?>
+  WHERE ((qoh + ordered - (totalalloc + pendalloc)) < 0)
+<? endif ?>   
+ORDER BY bomitem_seqnumber;
