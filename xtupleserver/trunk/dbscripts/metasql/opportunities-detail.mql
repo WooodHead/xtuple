@@ -6,8 +6,8 @@
 
 SELECT DISTINCT ON (incdtpriority_order, ophead_target_date, ophead_name, ophead_id) 
        ophead_id AS id,
+       CASE WHEN (ophead_active) THEN 0 ELSE 1 END AS altId,
        ophead_number,
-       CASE WHEN (ophead_active) THEN 0 ELSE 1 END,
        ophead_name,
        ophead_active,
        crmacct_number,
