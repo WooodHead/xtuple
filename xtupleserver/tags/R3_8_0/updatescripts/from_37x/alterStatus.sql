@@ -1,0 +1,1 @@
+ALTER TABLE status ADD PRIMARY KEY (status_id);
