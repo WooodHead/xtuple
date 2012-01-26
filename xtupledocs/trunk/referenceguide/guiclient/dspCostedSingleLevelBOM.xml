@@ -63,19 +63,19 @@
       <listitem>
         <para>Select to display Standard Costs for the specified Item. Both
         the Unit Cost and Extended Cost for each component Item, expressed in
-        terms of Standard Cost, will display&mdash;assuming Standard Costs
-        have been defined for each component Item.</para>
+        terms of Standard Cost, will display—assuming Standard Costs have been
+        defined for each component Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
     <para>When Labor and Overhead are posted to the General Ledger, they are
     posted using their Actual Cost. This is a departure from the rule which
-    governs materials&mdash;namely, that materials are always posted using
-    their Standard Cost. Differences between Actual and Standard Labor and
-    Overhead Costs will be reflected in Inventory Cost Variances when Work
-    Order Production or Operations are posted. You can address these variances
-    if and when they occur by posting your Actual Costs to Standard.</para>
+    governs materials—namely, that materials are always posted using their
+    Standard Cost. Differences between Actual and Standard Labor and Overhead
+    Costs will be reflected in Inventory Cost Variances when Work Order
+    Production or Operations are posted. You can address these variances if
+    and when they occur by posting your Actual Costs to Standard.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -83,8 +83,8 @@
       <listitem>
         <para>Select to display Actual Costs for the specified Item. Both the
         Unit Cost and Extended Cost for each component Item, expressed in
-        terms of Actual Cost, will display&mdash;assuming Actual Costs have
-        been defined for each component Item.</para>
+        terms of Actual Cost, will display—assuming Actual Costs have been
+        defined for each component Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -94,9 +94,11 @@
       <varlistentry>
         <term>Total Cost</term>
         <listitem>
-          <para>This total is pulled from the Extended Cost column. The total
-          may vary, depending on whether "Use Standard Costs" or "Use Actual
-          Costs" is selected.</para>
+          <para>This total is pulled from the Extended Cost column―and
+          reflects the real time total Cost for the specified Item. The total
+          Cost may differ from the Actual or Standard totals in cases where
+          real time Cost updates have not yet been rolled up into the
+          specified parent Item.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
