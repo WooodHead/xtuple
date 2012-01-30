@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   RAISE NOTICE 'called deprecated function postCCcashReceipt(integer, integer)';
@@ -8,7 +8,7 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER, TEXT) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   RETURN postCCCashReceipt($1, $2, $3, NULL);
@@ -17,7 +17,7 @@ $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER, TEXT, NUMERIC) RETURNS INTEGER AS
 $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pCCpay        ALIAS FOR $1;

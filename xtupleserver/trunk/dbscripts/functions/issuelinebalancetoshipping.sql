@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION issueLineBalanceToShipping(INTEGER) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   RETURN issueLineBalanceToShipping('SO', $1, NULL);
@@ -7,7 +7,7 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION issueLineBalanceToShipping(TEXT, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   RETURN issueLineBalanceToShipping($1, $2, $3, 0, NULL);
@@ -15,7 +15,7 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION issueLineBalanceToShipping(TEXT, INTEGER, TIMESTAMP WITH TIME ZONE, INTEGER, INTEGER) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pordertype		ALIAS FOR $1;

@@ -1,6 +1,6 @@
 
 CREATE OR REPLACE FUNCTION freightDetail(text,integer,integer,integer,date,text,integer) RETURNS SETOF freightData AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pOrderType ALIAS FOR $1;

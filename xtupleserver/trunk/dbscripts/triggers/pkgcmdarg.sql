@@ -2,7 +2,7 @@
 
 SELECT dropIfExists('TRIGGER', 'pkgcmdargbeforetrigger');
 CREATE OR REPLACE FUNCTION _pkgcmdargbeforetrigger() RETURNS "trigger" AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmdargid     INTEGER;
@@ -24,7 +24,7 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgcmdargalterTrigger() RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (pkgMayBeModified(TG_TABLE_SCHEMA)) THEN
@@ -52,7 +52,7 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION _pkgcmdargaftertrigger() RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (TG_OP = 'DELETE') THEN

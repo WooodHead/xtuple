@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION _itemsrcTrigger () RETURNS TRIGGER AS '
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
 
@@ -24,7 +24,7 @@ SELECT dropifexists('TRIGGER', 'itemsrcTrigger');
 CREATE TRIGGER itemsrcTrigger BEFORE INSERT OR UPDATE ON itemsrc FOR EACH ROW EXECUTE PROCEDURE _itemsrcTrigger();
 
 CREATE OR REPLACE FUNCTION _itemsrcAfterTrigger () RETURNS TRIGGER AS '
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
 

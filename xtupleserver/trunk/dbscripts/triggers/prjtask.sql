@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION _prjtaskTrigger () RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
 
@@ -24,7 +24,7 @@ SELECT dropIfExists('TRIGGER', 'prjtaskTrigger');
 CREATE TRIGGER prjtaskTrigger BEFORE INSERT OR UPDATE ON prjtask FOR EACH ROW EXECUTE PROCEDURE _prjtaskTrigger();
 
 CREATE OR REPLACE FUNCTION _prjtaskAfterTrigger () RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid INTEGER;

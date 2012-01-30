@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION updatePrice(INTEGER, NUMERIC) RETURNS NUMERIC AS '
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pIpsitemid ALIAS FOR $1;
@@ -14,7 +14,7 @@ END;
 ' LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION updatePrice(INTEGER, CHAR, NUMERIC) RETURNS NUMERIC AS '
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pIpsitemid ALIAS FOR $1;

@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION sufficientInventoryToShipItem(TEXT, INTEGER) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pordertype    ALIAS FOR $1;
@@ -11,7 +11,7 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION sufficientInventoryToShipItem(TEXT, INTEGER, NUMERIC) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pordertype		ALIAS FOR $1;

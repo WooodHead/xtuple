@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION _poheadTrigger() RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid 	INTEGER;
@@ -76,7 +76,7 @@ DROP TRIGGER poheadTrigger ON pohead;
 CREATE TRIGGER poheadTrigger BEFORE INSERT OR UPDATE OR DELETE ON pohead FOR EACH ROW EXECUTE PROCEDURE _poheadTrigger();
 
 CREATE OR REPLACE FUNCTION _poheadTriggerAfter() RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (COALESCE(NEW.pohead_taxzone_id,-1) <> COALESCE(OLD.pohead_taxzone_id,-1)) THEN
