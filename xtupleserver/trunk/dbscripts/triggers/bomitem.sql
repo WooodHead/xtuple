@@ -2,7 +2,7 @@ SELECT dropIfExists('TRIGGER','bomitemTrigger');
 SELECT dropIfExists('FUNCTION','_bomitemTrigger()');
 
 CREATE OR REPLACE FUNCTION _bomitemBeforeTrigger() RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _bomworksetid INTEGER;
@@ -149,7 +149,7 @@ CREATE TRIGGER bomitemBeforeTrigger BEFORE INSERT OR UPDATE ON bomitem FOR EACH 
 
 
 CREATE OR REPLACE FUNCTION _bomitemAfterTrigger() RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid INTEGER;
@@ -251,7 +251,7 @@ CREATE TRIGGER bomitemAfterTrigger AFTER INSERT OR UPDATE ON bomitem FOR EACH RO
 
 
 CREATE OR REPLACE FUNCTION _bomitemBeforeDeleteTrigger() RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
 BEGIN

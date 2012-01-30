@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION _sltransInsertTrigger() RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _reqNotes BOOLEAN;
@@ -21,7 +21,7 @@ SELECT dropIfExists('TRIGGER', 'sltransInsertTrigger');
 CREATE TRIGGER sltransInsertTrigger BEFORE INSERT ON sltrans FOR EACH ROW EXECUTE PROCEDURE _sltransInsertTrigger();
 
 CREATE OR REPLACE FUNCTION _sltransAlterTrigger() RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _externalCompany      BOOLEAN := false;

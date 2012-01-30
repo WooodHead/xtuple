@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION _prospectTrigger() RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
 
@@ -28,7 +28,7 @@ CREATE TRIGGER prospectTrigger BEFORE INSERT OR UPDATE OR DELETE ON prospect
        FOR EACH ROW EXECUTE PROCEDURE _prospectTrigger();
 
 CREATE OR REPLACE FUNCTION _prospectAfterTrigger () RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid   INTEGER;
