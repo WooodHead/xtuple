@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519256">
+  <title>Maintain Work Order Operations</title>
+  <para>To maintain Work Order Operations, select the "Maintain Work Order
+  Operations" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/workOrderOperations.png" />
+        </imageobject>
+        <caption>Maintain Work Order Operations</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When maintaining Work Order Operations, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Work Order #</term>
+      <listitem>
+        <para>Enter the Work Order Number of the Work Order whose Operations
+        you want to maintain.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Displays Site code automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays Item Number automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Displays Work Order Status automatically when Work Order Number
+        is entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Operations</term>
+      <listitem>
+        <para>Display lists Operations associated with specified Work
+        Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <tip>
+    <para>Use the edit feature to make temporary adjustments to the original
+    Operation found in the specified Item's Bill of Operations. Any changes
+    made here are valid for the life of the Work Order only. The original Bill
+    of Operations is not affected.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>MOVE UP</term>
+      <listitem>
+        <para>Moves an Operation sequence up the Work Order Operations list.
+        Moving an Operation up or down the Work Order Operations list
+        constitutes a production override. Changes made here do not affect the
+        original Bill of Operations sequence. Sequence numbers, which are
+        incremented in multiples of ten, are automatically adjusted to reflect
+        the change in position.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>MOVE DOWN</term>
+      <listitem>
+        <para>Moves an Operation sequence down the Work Order Operations list.
+        Moving an Operation up or down the Work Order Operations list
+        constitutes a production override. Changes made here do not affect the
+        original Bill of Operations sequence. Sequence numbers, which are
+        incremented in multiples of ten, are automatically adjusted to reflect
+        the change in position.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

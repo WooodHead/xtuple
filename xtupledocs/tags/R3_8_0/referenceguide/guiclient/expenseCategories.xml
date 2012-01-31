@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section677901">
+  <title>
+<indexterm significance="normal">
+      <primary>expense categories</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Expense Categories</title>
+  <para>Expense Categories are used to identify the General Ledger (G/L)
+  Accounts to be used when processing the following:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Non-Inventory Purchase Order Items</para>
+    </listitem>
+    <listitem>
+      <para>Miscellaneous Vouchers</para>
+    </listitem>
+    <listitem>
+      <para>Miscellaneous Payables Checks</para>
+    </listitem>
+    <listitem>
+      <para>Expense Transactions</para>
+    </listitem>
+  </itemizedlist>
+  <para>For example, when entering a Purchase Order for a non-Inventory Item,
+  you must select an Expense Category&mdash;thereby identifying the G/L Accounts
+  the purchasing transaction will be distributed to. To access the master list
+  of Expense Categories, select the "Expense Categories" option. The following
+  screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/expenseCategories.png"/>
+        </imageobject>
+        <caption>Expense Categories Master List</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>The "Expense Categories" screen displays information on all existing
+  Expense Categories, including Expense Category code and Expense Category
+  description.</para>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="expenseCategory.xml" xpointer="element(/1)"/>
+</section>

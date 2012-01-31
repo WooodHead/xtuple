@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section605037">
+  <title><indexterm significance="normal">
+      <primary>sales orders</primary>
+      <secondary>list open</secondary>
+    </indexterm>Open Sales Orders</title>
+  <para>The "Open Sales Orders" screen lists all your open Sales Orders. In
+  addition to providing the list of Sales Orders, this screen can also be used
+  to build Sales Order reports. Use the search filter options to sort the
+  information into categories you want to look at.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>A Sales Order appears on the Open Sales Orders screen if one or
+      more of its Line Items remains open. Once all Line Items for a Sales
+      Order have been closed, the Sales Order will no longer appear on the
+      list.</para>
+    </listitem>
+    <listitem>
+      <para>Sales Order Line Items are generally closed when the Order is
+      selected for billing.</para>
+    </listitem>
+    <listitem>
+      <para>To copy a Sales Order, use the "Copy" option in the right-click
+      menu.</para>
+    </listitem>
+    <listitem>
+      <para>You can issue Stock to Shipping from the right-click menu.</para>
+    </listitem>
+    <listitem>
+      <para>If a Sales Order was converted from a Quote, you can see this
+      history on the Sales Order "Relationship" tab.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Open Sales Orders" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/openSalesOrders.png" />
+        </imageobject>
+        <caption>Open Sales Orders</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Open Sales Orders" screen shows all open
+  Sales Orders. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

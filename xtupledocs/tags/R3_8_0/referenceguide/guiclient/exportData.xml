@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>Export Data</title>
+  <para>Use the Export Data window to export data from the xTuple ERP database
+  into XML files.</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/exportData.png" />
+        </imageobject>
+        <caption><para>Export Data screen</para></caption>
+      </mediaobject>
+    </screenshot>When you open the Export Data window, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Destination Format</term>
+      <listitem>
+        <para>You can choose to export the data either in the default xTuple
+        format or transform that xTuple format using XSLT.</para>
+        <variablelist>
+          <varlistentry>
+            <term>xTuple XML</term>
+            <listitem>
+              <para>Choosing this option will export the data in the default
+              xTuple format. The XML element names in the output file follow
+              the query names and columns in the query set selected.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Alternate XML</term>
+            <listitem>
+              <para>This option lets you choose an XSLT transformation from
+              the list of XSLT export filters defined on the <xref
+              linkend="configureIE" /> screen.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Query Set</term>
+      <listitem>
+        <para>A Query Set is a collection of database queries that are run in
+        sequence. The Query Set you choose defines the data that will be
+        exported. See <xref linkend="queryset" /> for details.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>[ MetaSQL parameter list ]</term>
+      <listitem>
+        <para>Once you select a Query Set from the list, the third table on
+        the screen shows the list of MetaSQL parameters used by that Query
+        Set. You can edit individual parameters to make them active and give
+        them particular values that will be used to control the execution of
+        the individual queries in the Query Set. See <xref
+        linkend="parameteredit" /> for details.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Export</term>
+      <listitem>
+        <para>Run the database queries in the Query Set to create the XML
+        file.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>List</term>
+      <listitem>
+        <para>Edit the value of MetaSQL parameters which have the Type
+        QVariantList.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/queryset.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="../widgets/parameteredit.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

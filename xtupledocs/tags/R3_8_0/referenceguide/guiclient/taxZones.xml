@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="taxZones">
+  <title><indexterm significance="normal">
+      <primary>tax zones</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm>Tax Zones</title>
+
+  <para>Tax Zones are geographic areas that have a specific tax jurisdiction
+  and tax assignment. Tax Assignments are assigned on a Tax Zone and Tax Type
+  basis to determine what tax structure to apply to a given item. To access
+  the master list of Tax Zones, select the "Tax Zones" option. The following
+  screen will appear:</para>
+
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/taxZones.png" />
+        </imageobject>
+
+        <caption>Tax Zones Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para>The "Tax Zones" screen displays information on all existing Tax Zones,
+  including Tax Zone area and Tax Zone description.</para>
+  <xi:include href="taxZone.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
