@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION fetchWelcomeHtml() RETURNS TEXT IMMUTABLE AS $$
+CREATE OR REPLACE FUNCTION xtdesktop.fetchWelcomeHtml() RETURNS TEXT IMMUTABLE AS $$
 -- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
