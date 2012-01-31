@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="apCreditMemoApplication">
+  <title>
+<indexterm significance="normal">
+      <primary>credit memos</primary>
+      <secondary>applying unapplied</secondary>
+    </indexterm>
+<indexterm significance="normal">
+      <primary>debit memos</primary>
+      <secondary>applying unapplied</secondary>
+    </indexterm>Apply Credit Memo Amount</title>
+  <para>To apply a Credit Memo amount to an open payable,
+  select the APPLY button. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/apCreditMemoApplication.png"/>
+        </imageobject>
+        <caption>Apply Credit Memo Amount to Open
+        Payable</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <para>When applying a Credit Memo amount to an open payable, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Vendor #</term>
+      <listitem>
+        <para>Displays the Vendor number of the Vendor whose open payable the
+        amount is being applied to. The Vendor name will also display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Number</term>
+      <listitem>
+        <para>Displays the Document Number associated with the open payable.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Type</term>
+      <listitem>
+        <para>Displays the Document Type of the Document.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Doc. Date</term>
+      <listitem>
+        <para>Displays the Document's origination date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Displays the date the Document is due.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Amount</term>
+      <listitem>
+        <para>Displays the original amount due for the selected
+        Document.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Paid</term>
+      <listitem>
+        <para>Displays the amount paid to date toward the original Document
+        amount.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Balance</term>
+      <listitem>
+        <para>Displays the remaining balance due.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Amount Available to Apply</term>
+      <listitem>
+        <para>Displays the amount of the referring Credit Memo available to be
+        applied.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Amount to Apply</term>
+      <listitem>
+        <para>Specify the amount to apply to the open payable.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

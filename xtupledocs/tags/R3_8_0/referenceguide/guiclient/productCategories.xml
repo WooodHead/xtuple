@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518621">
+  <title><indexterm significance="normal">
+      <primary>product categories</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Product Categories</title>
+  <para>Items that are sold are assigned a Product Category. To access the
+  master list of Product Categories, select the "Product Category" option. The
+  following screen will appear.</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/productCategories.png" />
+        </imageobject>
+        <caption>Product Categories Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Product Categories" screen displays information on all existing
+  Product Categories, including Product Category and Product Category
+  description.</para>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>DELETE UNUSED</term>
+      <listitem>
+        <para>Select to delete all unused Product Categories.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="productCategory.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

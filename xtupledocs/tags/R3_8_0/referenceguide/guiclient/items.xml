@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section609374">
+  <title><indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>master list of</secondary>
+    </indexterm>List Items</title>
+  <para>The "Items" screen lists all your company's Items. In addition to
+  providing the complete Items list, this screen can also be used to build
+  detailed Item reports. Use the search filter options to sort the information
+  into Item categories you want to look at.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Be sure to enable the full range of column headers on the screen
+      so you will have the maximum detail when building Item reports with the
+      search filter.</para>
+    </listitem>
+    <listitem>
+      <para>Sort the information by clicking on the column header you want to
+      sort by.</para>
+    </listitem>
+    <listitem>
+      <para>The search filter supports reporting by individual
+      Characteristics.</para>
+    </listitem>
+    <listitem>
+      <para>To show inactive Items, select the search filter option for
+      that.</para>
+    </listitem>
+    <listitem>
+      <para>If you have Item Characteristics defined, you can search and
+      report on these Characteristics using the search filter options and also
+      the column headers.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Items" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/items.png" />
+        </imageobject>
+        <caption>Items Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Items" screen shows all active Items. You
+  can build your own search criteria using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

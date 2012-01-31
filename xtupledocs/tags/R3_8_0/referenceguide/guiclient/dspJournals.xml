@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="dspJournals">
+  <title><indexterm significance="normal">
+      <primary>journals</primary>
+      <secondary>viewing transactions in</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>transactions</primary>
+      <secondary>viewing in journals</secondary>
+    </indexterm>Journals</title>
+  <para>If your site is configured to post transactions to an intermediate
+  Journal instead of directly to the General Ledger, this Journals screen will
+  be visible to you. To learn more about this configuration option, please see
+  <xref linkend="Section942568" />. When Journals are in use, all transactions
+  and their full transaction detail are posted in real time to intermediate
+  Journals (sometimes also referred to as "day books"). From the Journals,
+  transactions are later posted to the General Ledger&mdash;in summary form. In this
+  way, transaction detail remains in the Journals, with the summarized version
+  of that detail residing in the General Ledger.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use the right-click menu to drill down into the details of
+      individual transactions.</para>
+    </listitem>
+    <listitem>
+      <para>If your transaction records are displaying a "No" value in the
+      "Posted" column, this means the transactions have not yet been posted to
+      the General Ledger. Until they are posted to the General Ledger, Journal
+      transactions will not appear in the Trial Balance or other financial
+      reports.</para>
+    </listitem>
+    <listitem>
+      <para>You can post Journals to the General Ledger on a daily, monthly,
+      or weekly basis. It's up to you how you want to implement this
+      feature.</para>
+    </listitem>
+    <listitem>
+      <para>Keep in mind that the trial balance and other financial reports
+      are based solely on General Ledger transactions. This means that Journal
+      transactions are not included in financial reports&mdash;that is, until they
+      are posted over to the General Ledger. To learn more about posting
+      Journals to the General Ledger, please see <xref
+      linkend="postJournals" />.</para>
+    </listitem>
+    <listitem>
+      <para>When Project Accounting enabled, there is a search parameter
+      designed to show Accounts with a Project Number as the last segment. If
+      the "Show Project Detail" option is not used, balances will roll up into
+      the parent Account total.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Journals" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspJournals.png" />
+        </imageobject>
+        <caption>Journals</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Journals" screen shows all transactions for
+  the current day. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section role="manufacturing">
+  <title><indexterm significance="normal">
+      <primary>work centers</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Work Centers</title>
+  <para>Work Centers are collections of machines or labor that perform a
+  specific task when building a manufactured Item. Work Centers are used by
+  Bills of Operations to determine the amount of available and required
+  manufacturing Capacity to produce the manufactured Item. Work Centers also
+  determine the Cost, in direct labor, overhead, and, optionally, machine
+  overhead, of such production. A single Site may contain multiple Work
+  Centers. To access the master list of Work Centers, select the "Work
+  Centers" option. The following screen will appear.</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/workCenters.png" />
+        </imageobject>
+        <caption>Work Centers Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Work Centers" screen displays information on all existing Work
+  Centers, including Site Location, Work Center name, number of machines, and
+  Work Center description.</para>
+  <tip>
+    <para>At least one Site must be entered into the system before a Work
+    Center may be added.</para>
+  </tip>
+  <xi:include href="workCenter.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

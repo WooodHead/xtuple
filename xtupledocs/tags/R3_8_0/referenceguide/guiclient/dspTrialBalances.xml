@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section571902">
+  <title><indexterm significance="normal">
+      <primary>trial balances</primary>
+      <secondary>reporting on</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>financial reports</primary>
+      <secondary>trial balances</secondary>
+    </indexterm>View Trial Balances</title>
+  <para>The "Trial Balances" screen provides a mechanism for viewing the
+  detailed financial information which underlies xTuple Financial Reports. The
+  sequence of events is as follows: Transactions are posted to the General
+  Ledger, these transactions update the Trial Balance, and Financial Reports
+  use the Trial Balance when calculating their results.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use the right-click menu to view the underlying G/L transactions
+      which support the Trial Balance values.</para>
+    </listitem>
+    <listitem>
+      <para>If G/L transactions are not posted, they will not appear in the
+      Trial Balance. G/L transactions may be unposted if they were posted into
+      a closed or non-existent Accounting Period.</para>
+    </listitem>
+    <listitem>
+      <para>Trial Balances will be automatically forward-updated unless your
+      system is configured to manually forward-update Trial Balances. Ending
+      balances cannot be forward-updated into future Periods. For more
+      information see <xref linkend="Section942568" />.</para>
+    </listitem>
+    <listitem>
+      <para>Ending balances will display in orange type if either of the
+      following conditions is true: 1) The ending balance has not been
+      forward-updated, or 2) the ending balance has been forward-updated, but
+      the account in question has no activity during the specified
+      Period.</para>
+    </listitem>
+    <listitem>
+      <para>For Fiscal Year closings, the system will automatically reset the
+      beginning balances for Revenue and Expense Accounts to $0 at the start
+      of a new Fiscal Year. However, for the Year-End Equity Account, the
+      beginning balance for the first Period of the Fiscal Year will be equal
+      to the ending balance for the previous year.</para>
+    </listitem>
+    <listitem>
+      <para>A "CR" may display after the following columns: Beg. Bal.,
+      Difference, and End. Bal. The "CR" indicates the balance is a Credit
+      balance. If no "CR" appears, then the balance is a Debit balance.</para>
+    </listitem>
+    <listitem>
+      <para>The Trial Balance query builder includes an option for displaying
+      Accounts having a zero balance. If not selected, zero-balance Trial
+      Balances will be hidden&mdash;unless a specific Account is specified, in
+      which case the balance will be shown regardless of whether it is
+      zero.</para>
+    </listitem>
+    <listitem>
+      <para>Also included is an option for showing Accounts with a Project
+      Number as the last segment. If the "Show Project Detail" option is not
+      used, balances will roll up into the parent Account total.</para>
+    </listitem>
+    <listitem>
+      <para>If you are synchronizing the Trial Balances of multiple external
+      Companies, you may get a warning message if Exchange Rates covering the
+      imported Accounting Periods were changed after the fact. For more
+      information, please see <xref linkend="syncCompanies" />.</para>
+    </listitem>
+    <listitem>
+      <para>The option "Exclude Child Accounts" is available on the "G/L
+      Transactions" screen whenever you are drilling down to view G/L
+      transaction details. This option is used to show or hide the child
+      transactions which may be associated with a G/L Account when Project
+      Accounting is enabled.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Trial Balances" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspTrialBalances.png" />
+        </imageobject>
+        <caption>View Trial Balances</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Trial Balances" screen shows all Trial
+  Balances for the current Accounting Period. You can build your own search
+  criteria using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2008 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>inventory history</primary>
+      <secondary>reporting for</secondary>
+    </indexterm>Inventory History</title>
+  <para>The "Inventory History" screen provides the complete record of all
+  Inventory movement in the system. As a result, this is the perfect screen
+  for analyzing and troubleshooting Inventory issues. And the search filter
+  gives you multiple ways to narrow your searches down so you can quickly find
+  the records you are looking for.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>If a line displays in orange, this means the Item Site in question
+      is frozen. Accurate Quantity on Hand information will not be shown until
+      the Item Site is thawed.</para>
+    </listitem>
+    <listitem>
+      <para>You can narrow your searches by transaction type, date range, and
+      order type to simplify the process of locating records.</para>
+    </listitem>
+    <listitem>
+      <para>The system prefixes Order Numbers with letters indicating the
+      Order type. For example, Work Orders are prefixed with "WO", Purchase
+      Orders with "PO", and Sales Orders with "SO". These letters are for
+      display purposes only and are not considered part of the Order
+      Number.</para>
+    </listitem>
+    <listitem>
+      <para>Use the right-click menu to examine the details of any transaction
+      in the list.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Inventory History" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspInventoryHistory.png" />
+        </imageobject>
+        <caption>Inventory History</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Inventory History" screen shows all
+  Inventory transactions for the current day. You can build your own search
+  criteria using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

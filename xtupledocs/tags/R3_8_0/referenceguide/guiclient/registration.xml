@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="registration" role="standard">
+  <title><indexterm significance="normal">
+      <primary>databases</primary>
+      <secondary>registration for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>registration</primary>
+      <secondary>commercial versions and</secondary>
+    </indexterm>Registration</title>
+  <para>Users of the commercial editions of xTuple ERP are required to enter a
+  license key to verify their registration of the software. This requirement
+  does not apply to users of the PostBooks edition. To register your
+  commercial installation, select the "Registration" option. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/registration.png" />
+        </imageobject>
+        <caption>Registration Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When registering your commercial installation, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Registration Key</term>
+      <listitem>
+        <para>Enter the license key you received from xTuple&mdash;or from
+        your authorized xTuple solution provider. Once a valid license key has
+        been entered, the following information will be displayed:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Customer</term>
+            <listitem>
+              <para>Displays the name of your company.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Expiration Date</term>
+            <listitem>
+              <para>Displays the date when your registration expires. Expired
+              license keys can be renewed for another term either by
+              contacting xTuple or your authorized xTuple solution
+              provider.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Max Concurrent Users</term>
+            <listitem>
+              <para>Displays the maximum number of concurrent xTuple client
+              connections you are licensed to have, as per the terms of your
+              xTuple license agreement. Included in this total are concurrent
+              connections made from xTuple ERP, xTuple Connect, and/or any
+              other xTuple-branded client software. If you are exceeding your
+              maximum number of licensed users, you should arrange to purchase
+              more licenses either by contacting xTuple or your authorized
+              xTuple solution provider. For non-xTuple client connections
+              (e.g., pgAdmin, web interfaces, etc.), you are allowed up to
+              double your number of licensed users. For example, if you have
+              10 licensed users, then you would be allowed up to 20 non-xTuple
+              client connections. Additional external connections are allowed
+              for sites where the xTuple Web Portal is installed. To get an
+              accurate view of all your current connections, use the following
+              menu path from the graphical xTuple Desktop: <guimenu>Window
+              &gt; Desktop &gt; Users Online</guimenu>.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

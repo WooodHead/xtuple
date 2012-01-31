@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section631687">
+  <title><indexterm significance="normal">
+      <primary>costing elements</primary>
+      <secondary>user-defined</secondary>
+    </indexterm>User-Defined Costing Elements</title>
+  <para>If you need to establish Costing Elements above and beyond the default
+  Costing Elements defined by the system, you have the ability to do so in
+  this section. Costing Elements you add here will be available to you when
+  you define Costs for Items, as described in <xref
+  linkend="Section607081" />. To create user-defined Costing Elements, select
+  the "User-Defined Costing Elements" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/costingElements.png" />
+        </imageobject>
+        <caption>User-Defined Costing Elements Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The user-defined Costing Elements master list displays an alphabetical
+  list of all user-defined Costing Elements.</para>
+  <note>
+    <para>By default, the system provides the following Costing Elements for
+    manufactured Items:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Direct Labor</para>
+      </listitem>
+      <listitem>
+        <para>Machine Overhead</para>
+      </listitem>
+      <listitem>
+        <para>Overhead</para>
+      </listitem>
+    </itemizedlist>
+    <para>For purchased Items, this default Costing Elements is
+    provided:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Material</para>
+      </listitem>
+    </itemizedlist>
+  </note>
+  <xi:include href="userCostingElement.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
