@@ -1,7 +1,15 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <comment>This file is part of the xTuple ERP: PostBooks Edition, a free and
+open source Enterprise Resource Planning software suite,
+Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+It is licensed to you under the Common Public Attribution License
+version 1.0, the full text of which (including xTuple-specific Exhibits)
+is available at www.xtuple.com/CPAL.  By using this software, you agree
+to be bound by its terms.</comment>
  <class>addressCoordinates</class>
- <widget class="QWidget" name="addressCoordinates" >
-  <property name="geometry" >
+ <widget class="QWidget" name="addressCoordinates">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,55 +17,55 @@
     <height>186</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>GPS Coordinates for Address</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout" >
-   <item row="0" column="0" colspan="3" >
-    <widget class="AddressCluster" name="_addr" />
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="3">
+    <widget class="AddressCluster" name="_addr"/>
    </item>
-   <item row="1" column="0" >
-    <layout class="QHBoxLayout" name="horizontalLayout" >
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QLabel" name="_latitude" >
-       <property name="text" >
+      <widget class="QLabel" name="_latitude">
+       <property name="text">
         <string>Latitude</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="_latDir" >
-       <property name="text" >
+      <widget class="QLabel" name="_latDir">
+       <property name="text">
         <string>E</string>
        </property>
       </widget>
      </item>
     </layout>
    </item>
-   <item row="1" column="1" >
-    <layout class="QHBoxLayout" name="horizontalLayout_2" >
+   <item row="1" column="1">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QLabel" name="_longitude" >
-       <property name="text" >
+      <widget class="QLabel" name="_longitude">
+       <property name="text">
         <string>Longitude</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="_longDir" >
-       <property name="text" >
+      <widget class="QLabel" name="_longDir">
+       <property name="text">
         <string>N</string>
        </property>
       </widget>
      </item>
     </layout>
    </item>
-   <item row="1" column="2" >
-    <spacer name="horizontalSpacer" >
-     <property name="orientation" >
+   <item row="1" column="2">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="sizeHint" stdset="0" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>343</width>
        <height>20</height>
@@ -65,27 +73,27 @@
      </property>
     </spacer>
    </item>
-   <item row="0" column="3" >
-    <layout class="QVBoxLayout" name="verticalLayout" >
-     <property name="leftMargin" >
+   <item row="0" column="3">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="leftMargin">
       <number>5</number>
      </property>
-     <property name="rightMargin" >
+     <property name="rightMargin">
       <number>5</number>
      </property>
      <item>
-      <widget class="QPushButton" name="_close" >
-       <property name="text" >
+      <widget class="QPushButton" name="_close">
+       <property name="text">
         <string>Close</string>
        </property>
       </widget>
      </item>
      <item>
-      <spacer name="verticalSpacer" >
-       <property name="orientation" >
+      <spacer name="verticalSpacer">
+       <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
          <height>40</height>
