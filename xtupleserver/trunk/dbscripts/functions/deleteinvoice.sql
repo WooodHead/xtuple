@@ -32,6 +32,10 @@ BEGIN
 		     cobmisc_posted=FALSE
   WHERE (cobmisc_invchead_id=pInvcheadid);
 
+  DELETE FROM aropenalloc
+  WHERE (aropenalloc_doctype='I')
+    AND (aropenalloc_doc_id=pInvcheadid);
+
   DELETE FROM invcitem
   WHERE (invcitem_invchead_id=pInvcheadid);
 
