@@ -4,6 +4,9 @@
 --        Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
 --        See www.xtuple.com/CPAL for the full text of the software license.
 
+SELECT DISTINCT *
+FROM (
+-- G/L Transactions
 SELECT DISTINCT
        -1 AS gltrans_id, -1 AS altId,
        gltrans_date,  '' AS gltrans_source,
@@ -23,6 +26,29 @@ WHERE ((gltrans_doctype IN ('IN', 'CM', 'DM', 'CD'))
    AND (gltrans_accnt_id=<? value("accnt_id") ?>)
 <? endif ?>
       )
+
+UNION
+-- Journals
+SELECT DISTINCT
+       -1 AS gltrans_id, -1 AS altId,
+       sltrans_date AS gltrans_date,  '' AS gltrans_source,
+       '' AS doctype, '' AS gltrans_docnumber,
+       '' AS notes,   '' AS account,
+       CAST(NULL AS NUMERIC) AS debit,
+       CAST(NULL AS NUMERIC) AS credit,
+       'curr' AS debit_xtnumericrole,
+       'curr' AS credit_xtnumericrole,
+       0 AS xtindentrole,
+       sltrans_date AS transdate
+FROM sltrans
+WHERE ((sltrans_doctype IN ('IN', 'CM', 'DM', 'CD'))
+   AND (sltrans_source = 'A/R')
+   AND (sltrans_date BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+<? if exists("accnt_id") ?>
+   AND (sltrans_accnt_id=<? value("accnt_id") ?>)
+<? endif ?>
+      )
+) AS data
 
 UNION
 -- G/L Transactions
@@ -81,14 +107,14 @@ SELECT sltrans_id,
             WHEN(sltrans_doctype='CD') THEN 4
          ELSE -1
        END AS altId,
-       sltrans_date, sltrans_source,
+       sltrans_date AS gltrans_date, sltrans_source AS gltrans_date,
        CASE WHEN(sltrans_doctype='IN') THEN <? value("invoice") ?>
             WHEN(sltrans_doctype='CM') THEN <? value("creditmemo") ?>
             WHEN(sltrans_doctype='DM') THEN <? value("debitmemo") ?>
             WHEN(sltrans_doctype='CD') THEN <? value("cashdeposit") ?>
          ELSE sltrans_doctype
        END AS doctype,
-       sltrans_docnumber,
+       sltrans_docnumber AS gltrans_docnumber,
        CASE WHEN(sltrans_doctype='IN') THEN
                  (SELECT invchead_shipto_name
                   FROM aropen LEFT OUTER JOIN
