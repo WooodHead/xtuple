@@ -14,18 +14,18 @@ SELECT id, item.item_id, seqnumber, item_number,
 FROM uom, item, (
 <? if exists("useBOM") ?>
      SELECT bomitem_id AS id, bomitem_seqnumber AS seqnumber,
-            itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper,
+            (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyper) AS qtyper,
             bomitem_scrap AS scrap,
             bomitem_item_id AS item_id,
   <? if exists("standardCost") ?>
             itemcost_stdcost AS cost,
-            (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
-                          bomitem_qtyper * (1 + bomitem_scrap)) *
+            (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) *
+                          bomitem_qtyper * (1 + bomitem_scrap) *
              itemcost_stdcost) AS extendedcost 
   <? elseif exists("actualCost") ?>
             currToBase(itemcost_curr_id, itemcost_actcost, NULL) AS cost,
-            (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
-                          bomitem_qtyper * (1 + bomitem_scrap)) *
+            (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) *
+                          bomitem_qtyper * (1 + bomitem_scrap) *
              currToBase(itemcost_curr_id, itemcost_actcost, NULL)) AS extendedcost 
   <? endif ?>
     FROM bomitem

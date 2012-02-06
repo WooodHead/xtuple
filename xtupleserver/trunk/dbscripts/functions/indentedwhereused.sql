@@ -25,8 +25,8 @@ BEGIN
   SELECT _indexid, -1,
          1, bomitem_seqnumber,
          item_id, item_type, bomitem_createwo,
-         itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyfxd),
-         itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper),
+         (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyfxd),
+         (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyper),
          bomitem_scrap, bomitem_issuemethod,
          bomitem_effective, bomitem_expires, 'U',
          stdcost(item_id), actcost(item_id)
@@ -55,8 +55,8 @@ BEGIN
     SELECT _indexid, bomwork_id,
            _level, bomitem_seqnumber,
            item_id, item_type, bomitem_createwo,
-           (bomwork_qtyper * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyfxd)),
-           (bomwork_qtyper * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper)),
+           (bomwork_qtyper * (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyfxd)),
+           (bomwork_qtyper * (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyper)),
            bomitem_scrap, bomitem_issuemethod,
            CASE WHEN bomitem_effective < bomwork_effective THEN
              bomwork_effective

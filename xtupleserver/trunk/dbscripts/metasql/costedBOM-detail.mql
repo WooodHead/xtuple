@@ -32,19 +32,11 @@ SELECT
        bomdata_actextendedcost AS extendedcost,
 <? endif ?>
 
-<? if exists("singleLevelBOM") ?>
        'qty' AS bomdata_batchsize_xtnumericrole,
        'qty' AS bomdata_qtyfxd_xtnumericrole,
        'qtyper' AS bomdata_qtyper_xtnumericrole,
        'percent' AS bomdata_scrap_xtnumericrole,
-<? else ?>
        'qtyper' AS bomdata_qtyreq_xtnumericrole,
-<? endif ?>
-
-<? if exists("indentedBOM") ?>
-       'percent' AS bomdata_scrap_xtnumericrole,
-<? endif ?>
-
        'cost' AS unitcost_xtnumericrole,
        'cost' AS extendedcost_xtnumericrole,
        CASE WHEN COALESCE(bomdata_effective, startOfTime()) <= startOfTime() THEN <? value("always") ?>
