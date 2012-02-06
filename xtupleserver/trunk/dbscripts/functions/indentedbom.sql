@@ -36,10 +36,10 @@ BEGIN
 --  Step through all of the components of the passed pItemid
   FOR _r IN SELECT bomitem.*,
                    item_id,
-                   itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
-                                bomitem_qtyfxd) AS qtyfxd,
-                   itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
-                                bomitem_qtyper) AS qtyper,
+                   (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL)
+                               * bomitem_qtyfxd) AS qtyfxd,
+                   (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL)
+                               * bomitem_qtyper) AS qtyper,
                    stdcost(item_id, bomitem_id) AS standardcost,
                    actcost(item_id, bomitem_id) AS actualcost
   FROM bomitem(pItemId, pRevisionid), item
@@ -135,10 +135,10 @@ BEGIN
        bomwork_actunitcost AS actunitcost,
        bomwork_stdunitcost AS stdunitcost,
        CASE WHEN item_type NOT IN ('R','T') THEN
-         itemuomtouom(item_id, item_inv_uom_id, NULL,(bomwork_qtyfxd/_batchsize + bomwork_qtyper) * (1 + bomwork_scrap)) * bomwork_actunitcost
+         itemuomtouomratio(item_id, item_inv_uom_id, NULL) * (bomwork_qtyfxd/_batchsize + bomwork_qtyper) * (1 + bomwork_scrap) * bomwork_actunitcost
        ELSE 0 END AS actextendedcost,
        CASE WHEN item_type NOT IN ('R','T') THEN
-         itemuomtouom(item_id, item_inv_uom_id, NULL,(bomwork_qtyfxd/_batchsize + bomwork_qtyper) * (1 + bomwork_scrap)) * bomwork_stdunitcost
+         itemuomtouomratio(item_id, item_inv_uom_id, NULL) * (bomwork_qtyfxd/_batchsize + bomwork_qtyper) * (1 + bomwork_scrap) * bomwork_stdunitcost
        ELSE 0 END AS stdextendedcost,
        bomwork_char_id,
        bomwork_value, bomwork_notes, bomwork_ref,

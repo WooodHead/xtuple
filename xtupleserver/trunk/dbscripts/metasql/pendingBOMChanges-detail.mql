@@ -14,8 +14,8 @@ SELECT bomitem_id, actiondate, action,
 FROM (SELECT bomitem_id, <? value("effective") ?> AS action,
              bomitem_seqnumber, item_number, (item_descrip1 || ' ' || item_descrip2) AS description,
              uom_name,
-             itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyfxd) AS qtyfxd,
-             itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper,
+             (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyfxd) AS qtyfxd,
+             (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyper) AS qtyper,
              bomitem_scrap, bomitem_effective AS actiondate 
       FROM bomitem(<? value("item_id") ?>,<? value("revision_id") ?>), item, uom 
       WHERE ((bomitem_item_id=item_id)
@@ -25,8 +25,8 @@ FROM (SELECT bomitem_id, <? value("effective") ?> AS action,
       SELECT bomitem_id, <? value("expires") ?> AS action, 
              bomitem_seqnumber, item_number, (item_descrip1 || ' ' || item_descrip2) AS description,
              uom_name,
-             itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyfxd) AS qtyfxd,
-             itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper,
+             (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyfxd) AS qtyfxd,
+             (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyper) AS qtyper,
              bomitem_scrap, bomitem_expires AS actiondate 
       FROM bomitem(<? value("item_id") ?>,<? value("revision_id") ?>), item, uom 
       WHERE ((bomitem_item_id=item_id)

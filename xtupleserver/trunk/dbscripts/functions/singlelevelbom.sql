@@ -41,10 +41,8 @@ BEGIN
                item_id, item_number, uom_name,
                item_descrip1, item_descrip2,
                (item_descrip1 || ' ' || item_descrip2) AS itemdescription,
-               itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
-                            bomitem_qtyfxd) AS qtyfxd,
-               itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
-                            bomitem_qtyper) AS qtyper,
+               (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyfxd) AS qtyfxd,
+               (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyper) AS qtyper,
                bomitem_scrap, bomitem_createwo,
                CASE WHEN (bomitem_issuemethod='S') THEN 'Push'
                  WHEN (bomitem_issuemethod='L') THEN 'Pull'
@@ -61,10 +59,12 @@ BEGIN
                actcost(bomitem_item_id, bomitem_id) AS actunitcost,
                stdcost(bomitem_item_id, bomitem_id) AS stdunitcost,
                CASE WHEN item_type NOT IN ('R','T') THEN
-                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * actcost(bomitem_item_id, bomitem_id)
+                 (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) *
+                  (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * actcost(bomitem_item_id, bomitem_id)
                ELSE 0 END AS actextendedcost,
                CASE WHEN item_type NOT IN ('R','T') THEN
-                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * stdcost(bomitem_item_id, bomitem_id)
+                 (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) *
+                  (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * stdcost(bomitem_item_id, bomitem_id)
                ELSE 0 END AS stdextendedcost,
                bomitem_char_id, bomitem_value, bomitem_notes, bomitem_ref 
        FROM bomitem(pItemid,pRevisionid), item, uom 
@@ -130,8 +130,8 @@ BEGIN
                item_id, item_number, uom_name,
                item_descrip1, item_descrip2,
                (item_descrip1 || ' ' || item_descrip2) AS itemdescription,
-               itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyfxd) AS qtyfxd,
-               itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper,
+               (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyfxd) AS qtyfxd,
+               (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyper) AS qtyper,
                bomitem_scrap, bomitem_createwo,
                CASE WHEN (bomitem_issuemethod='S') THEN 'Push'
                  WHEN (bomitem_issuemethod='L') THEN 'Pull'
@@ -148,10 +148,12 @@ BEGIN
                actcost(bomitem_item_id) AS actunitcost,
                stdcost(bomitem_item_id) AS stdunitcost,
                CASE WHEN item_type NOT IN ('R','T') THEN
-                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * actcost(bomitem_item_id)
+                 (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) *
+                  (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * actcost(bomitem_item_id)
                ELSE 0 END AS actextendedcost,
                CASE WHEN item_type NOT IN ('R','T') THEN
-                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * stdcost(bomitem_item_id)
+                 (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) *
+                  (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * stdcost(bomitem_item_id)
                ELSE 0 END AS stdextendedcost,
                bomitem_char_id, bomitem_value, bomitem_notes, bomitem_ref 
        FROM bomitem(pItemid,pRevisionid), item, uom 
