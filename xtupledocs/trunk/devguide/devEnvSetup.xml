@@ -157,7 +157,7 @@ specific configurations:
   <section>
     <title>Get and install Subversion</title>
     <para os="windows">You can find binary packages of Subversion at <ulink
-    url="http://subversion.tigris.org/project_packages.html">http://subversion.tigris.org/project_packages.html</ulink>.</para>
+    url="http://subversion.tigris.org/project_packages.html">http://subversion.apache.org/project_packages.html</ulink>.</para>
     <para os="macosx">The command line utilities for Subversion are installed
     with Xcode.</para>
     <para os="linux">Most Linux distributions have packages available for
@@ -287,6 +287,11 @@ specific configurations:
     distributes binary packages of PostgreSQL built with MinGW. According to
     the PostgreSQL documentation you will have to build PostgreSQL from
     source.</para>
+    <para condition="msvc" os="windows" userlevel="installfromsrc">The
+    PostgreSQL community recommends using binary distributions for Windows.
+    However, if you do want to builds PostgreSQL from source, see the <ulink
+    url="http://www.postgresql.org/docs/9.1/interactive/install-windows.html">PostgreSQL
+    documentation</ulink> for instructions.</para>
     <para condition="msvc" os="windows" userlevel="installfrompkg">Install the
     PostgreSQL binary distribution using the one-click installer from
     Enterprise DB:</para>
@@ -643,14 +648,14 @@ $ su
               </tbody>
             </entrytbl>
             <entry>4.6.3 or Qt SDK 2010.04</entry>
-            <entry userlevel="installfromsrc">-prefix-install -prefix
-            /where/you/want/qt -plugin-sql-psql -plugin-sql-odbc
-            -plugin-sql-sqlite -qt-zlib -qt-gif -qt-libtiff -qt-libpng
-            -qt-libmng -qt-libjpeg -I/path/to/postgresql/include
+            <entry userlevel="installfromsrc">-plugin-sql-psql
+            -plugin-sql-odbc -plugin-sql-sqlite -qt-zlib -qt-gif -qt-libtiff
+            -qt-libpng -qt-libmng -qt-libjpeg -I/path/to/postgresql/include
             -L/path/to/postgresql/lib<para os="windows"
             userlevel="installfromsrc">-qt-style-windowsxp</para><para
-            os="macosx" userlevel="installfromsrc">-no-framework
-            -universal</para></entry>
+            os="linux">-prefix-install -prefix /where/you/want/qt </para><para
+            os="macosx" userlevel="installfromsrc">-prefix-install -prefix
+            /where/you/want/qt -no-framework -universal</para></entry>
           </row>
           <row>
             <entrytbl cols="2">
@@ -689,7 +694,7 @@ $ su
     prebuilt package for Qt using MinGW can be downloaded from <ulink
     url="http://qt.nokia.com/downloads/sdk-windows-cpp">http://qt.nokia.com/downloads/sdk-windows-cpp</ulink>.
     Install the Qt SDK, accepting the default options. This will create a
-    C:\Qt folder containing 2009.04.</para>
+    C:\QtSDK folder.</para>
     <para os="macosx">If you are going to build xTuple application binaries
     for release on OS X, xTuple currently recommends building Qt from source.
     Different Qt binary releases are built for different hardware
@@ -859,16 +864,19 @@ INCLUDE=/opt/include:/opt/qt/Qt-version/include
 LD_LIBRARY_PATH=/opt/lib:/opt/qt/Qt-version/lib</programlisting>
   </section>
   <section condition="mingw" os="windows" userlevel="installfrompkg">
-    <title>Add PostgreSQL support to older Qt binary packages with
-    MinGW</title>
-    <para>If you installed Qt from an older binary package, like Qt SDK
-    2009.03, you may need to build and install the Qt plugin for PostgreSQL
-    and the sqldrivers. This isn't necessary with Qt SDK 2009.04.</para>
-    <para>From the Start menu, select Programs -&gt; Qt SDK -&gt; Qt Command
-    Prompt</para>
+    <title>Add PostgreSQL Support to Some Qt Binary Packages</title>
+    <para>If you installed Qt from a package, you may need to build and
+    install the Qt plugin for PostgreSQL. Qt is inconsistent about including
+    the PostgreSQL plugin from release to release.</para>
+    <para condition="msvc">From the Start menu, select Programs -&gt; Qt SDK
+    -&gt; Desktop -&gt; Qt <replaceable>4.7.4</replaceable> for Desktop
+    (Visual Studio)</para>
+    <para condition="mingw">From the Start menu, select Programs -&gt; Qt SDK
+    -&gt; Desktop -&gt; Qt <replaceable>4.7.4</replaceable> for Desktop
+    (MinGW)</para>
     <para>In the cmd window that appears, execute the following
     commands:</para>
-    <programlisting>&gt; cd src\plugins\sqldrivers\psql
+    <programlisting>&gt; cd \QtSDK\QtSources\4.7.4\src\sql\drivers\psql
 &gt; qmake "INCLUDEPATH+=C:\\Qt\\pgsql\\include" "LIBS+=C:\\Qt\\pgsql\\lib\\libpq.a"
 &gt; mingw32-make</programlisting>
     <para>We must now build QT to include the sqldrivers. First remove two
