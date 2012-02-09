@@ -31,6 +31,7 @@ the following steps will get you started:
    (see Starter Databases below), for example:
    $ pg_restore -U admin -d production quickstart.backup -v
 
+
 PostgreSQL Considerations
 -------------------------
 
@@ -52,6 +53,7 @@ NOTE: The xTuple applications require the PostgreSQL pgcrypto module.
       pgcrypto module when installing PostgreSQL.  If you do not,
       you will encounter errors when running the xTuple ERP
       application.
+
 
 init.sql: Creating the admin user and xtrole group
 --------------------------------------------------
