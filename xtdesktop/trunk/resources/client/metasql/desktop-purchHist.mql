@@ -15,24 +15,25 @@ SELECT <? literal("group_id") ?>, <? literal("group_number") ?>,  <? literal("gr
 FROM (
 SELECT vend_id, vend_number, vend_name,
        pohead_agent_username, usr_propername,
-       COALESCE(item_id,-2) AS item_id, COALESCE(item_number,<? value("nonInv") ?>) AS item_number,
+       COALESCE(item_id,-2) AS item_id,
+       COALESCE(item_number,<? value("nonInv") ?>) AS item_number,
        item_descrip1,
-       porecv_qty AS qty, 
-       currToBase(vohead_curr_id, sum(vodist_amount) / sum(vodist_qty), vohead_distdate) * porecv_qty - porecv_value AS amount
-FROM porecv
-  JOIN vendinfo ON (porecv_vend_id=vend_id)
-  LEFT OUTER JOIN (
-    itemsite JOIN item ON (itemsite_item_id=item_id) )
-    ON (porecv_itemsite_id=itemsite_id)
-  JOIN vodist ON ((vodist_poitem_id=porecv_poitem_id) 
-              AND (vodist_vohead_id=porecv_vohead_id))
+       recv_qty AS qty, 
+       currToBase(vohead_curr_id, sum(vodist_amount) / sum(vodist_qty), vohead_distdate) * recv_qty - recv_value AS amount
+FROM recv
+  JOIN vendinfo ON (recv_vend_id=vend_id)
+  LEFT OUTER JOIN itemsite ON (recv_itemsite_id=itemsite_id)
+  LEFT OUTER JOIN item     ON (itemsite_item_id=item_id)
+  JOIN vodist ON ((vodist_poitem_id=recv_orderitem_id) 
+              AND (vodist_vohead_id=recv_vohead_id))
   JOIN vohead ON ((vodist_vohead_id=vohead_id) 
               AND (vohead_posted))
-  JOIN poitem ON (porecv_poitem_id=poitem_id)
+  JOIN poitem ON (recv_orderitem_id=poitem_id)
   JOIN pohead ON (poitem_pohead_id=pohead_id)
   LEFT OUTER JOIN usr ON (pohead_agent_username=usr_username)
-WHERE (vohead_distdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
-GROUP BY porecv_qty, porecv_value, vohead_curr_id, vohead_distdate,
+WHERE (vohead_distdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>
+   AND (recv_order_type='PO'))
+GROUP BY recv_qty, recv_value, vohead_curr_id, vohead_distdate,
   vend_id, vend_number, vend_name,
   pohead_agent_username, usr_propername,
   item_id, item_number, item_descrip1
