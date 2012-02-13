@@ -5,6 +5,26 @@
 -- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT 1 AS dummy,
+-- Columns added to match columns of Printed Report
+<? foreach("groupLitList") ?>
+  <? literal("groupLitList") ?>
+  <? if not isLast("groupLitList") ?>
+  || E'\n' || 
+  <? endif ?>
+<? endforeach ?> AS groupsLit,
+<? foreach("groupList") ?>
+  substring(<? literal("groupList") ?> from 1 for 15) 
+  <? if not isLast("groupList") ?>
+  || E'\n' || 
+  <? endif ?>
+<? endforeach ?> AS groups,
+<? foreach("groupDescripList") ?>
+  substring(<? literal("groupDescripList") ?> from 1 for 30) 
+  <? if not isLast("groupDescripList") ?>
+  || E'\n' || 
+  <? endif ?>
+<? endforeach ?> AS groupsDescrip,
+-- End of columns for printed report
        <? if exists("byCustomer") ?>
          cust_number, cohist_cust_id AS cust_number_xtidrole, cust_name,
        <? endif ?> 
@@ -57,7 +77,7 @@ SELECT 1 AS dummy,
          0 AS totalunits_xttotalrole, 
          0 AS totalsales_xttotalrole 
 FROM saleshistory 
-WHERE (true
+WHERE (cohist_doctype NOT IN ('C')
 <? if exists("startDate") ?>
  AND (cohist_invcdate >= <? value("startDate") ?>)
 <? endif ?>
