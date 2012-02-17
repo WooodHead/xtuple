@@ -19,39 +19,45 @@ function initDockTodo()
   _dockMytodo = mainwindow.findChild("_dockMytodo");
   _todoList = mainwindow.findChild("_todoList");
 
-  // Set columns on list
-  _todoList.addColumn(qsTr("Type"), XTreeWidget.userColumn, Qt.AlignCenter, true, "type");
-  _todoList.addColumn(qsTr("Priority"), XTreeWidget.userColumn, Qt.AlignLeft, false, "priority");
-  _todoList.addColumn(qsTr("Assigned To"), XTreeWidget.userColumn, Qt.AlignLeft, false, "usr");
-  _todoList.addColumn(qsTr("Name"), -1, Qt.AlignLeft, true, "name");
-  _todoList.addColumn(qsTr("Description"), -1, Qt.AlignLeft,   true, "descrip");
-  _todoList.addColumn(qsTr("Status"), XTreeWidget.statusColumn, Qt.AlignLeft, false, "status");
-  _todoList.addColumn(qsTr("Start Date"), XTreeWidget.dateColumn, Qt.AlignLeft, true, "start");
-  _todoList.addColumn(qsTr("Due Date"), XTreeWidget.dateColumn, Qt.AlignLeft, true, "due");
-  _todoList.addColumn(qsTr("Parent#"), XTreeWidget.orderColumn, Qt.AlignLeft, false, "number");
-  _todoList.addColumn(qsTr("Customer#"), XTreeWidget.orderColumn, Qt.AlignLeft, false, "cust");
-  _todoList.addColumn(qsTr("Account#"), XTreeWidget.orderColumn, Qt.AlignLeft, true, "crmacct_number");
-  _todoList.addColumn(qsTr("Account Name"), 100, Qt.AlignLeft, false, "crmacct_name");
-  _todoList.addColumn(qsTr("Owner"), XTreeWidget.userColumn, Qt.AlignLeft, false,"owner");
+  if (_todoList)
+  {
+    // Set columns on list
+    _todoList.addColumn(qsTr("Type"), XTreeWidget.userColumn, Qt.AlignCenter, true, "type");
+    _todoList.addColumn(qsTr("Priority"), XTreeWidget.userColumn, Qt.AlignLeft, false, "priority");
+    _todoList.addColumn(qsTr("Assigned To"), XTreeWidget.userColumn, Qt.AlignLeft, false, "usr");
+    _todoList.addColumn(qsTr("Name"), -1, Qt.AlignLeft, true, "name");
+    _todoList.addColumn(qsTr("Description"), -1, Qt.AlignLeft,   true, "descrip");
+    _todoList.addColumn(qsTr("Status"), XTreeWidget.statusColumn, Qt.AlignLeft, false, "status");
+    _todoList.addColumn(qsTr("Start Date"), XTreeWidget.dateColumn, Qt.AlignLeft, true, "start");
+    _todoList.addColumn(qsTr("Due Date"), XTreeWidget.dateColumn, Qt.AlignLeft, true, "due");
+    _todoList.addColumn(qsTr("Parent#"), XTreeWidget.orderColumn, Qt.AlignLeft, false, "number");
+    _todoList.addColumn(qsTr("Customer#"), XTreeWidget.orderColumn, Qt.AlignLeft, false, "cust");
+    _todoList.addColumn(qsTr("Account#"), XTreeWidget.orderColumn, Qt.AlignLeft, true, "crmacct_number");
+    _todoList.addColumn(qsTr("Account Name"), 100, Qt.AlignLeft, false, "crmacct_name");
+    _todoList.addColumn(qsTr("Owner"), XTreeWidget.userColumn, Qt.AlignLeft, false,"owner");
+
+    _todoList.itemSelected.connect(openWindowToDo);
+    _todoList["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
+      .connect(populateMenuToDo);
+  }
 
 
   // Connect signals and slots
   _dtTimer.timeout.connect(fillListSalesAct);
 
-  _todoList.itemSelected.connect(openWindowToDo);
-  _todoList["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
-    .connect(populateMenuToDo);
-
-  _dockMytodo.visibilityChanged.connect(fillListToDo);
-
-  // Handle privilge control
-  var act = _dockMytodo.toggleViewAction();
-
-  // Don't show if no privs
-  if (!privileges.check("ViewTodoDock"))
+  if (_dockMytodo)
   {
-    _dockMytodo.hide();
-    act.enabled = false;
+    _dockMytodo.visibilityChanged.connect(fillListToDo);
+
+    // Handle privilge control
+    var act = _dockMytodo.toggleViewAction();
+
+    // Don't show if no privs
+    if (!privileges.check("ViewTodoDock"))
+    {
+      _dockMytodo.hide();
+      act.enabled = false;
+    }
   }
 
   // Allow rescan to let them show if privs granted
@@ -89,7 +95,7 @@ function fillListToDo()
   _dockMytodo = mainwindow.findChild("_dockMytodo");
   _todoList = mainwindow.findChild("_todoList");
 
-  if (!_dockMytodo.visible)
+  if (!_dockMytodo || !_dockMytodo.visible || !_todoList)
     return;
 
   params = new Object;
