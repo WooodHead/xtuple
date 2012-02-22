@@ -630,7 +630,9 @@ BEGIN
       LOOP
         SELECT deleteSoItem(_coitemid) INTO _result;
         IF (_result < 0) THEN
-           RAISE EXCEPTION 'Error deleting kit components: deleteSoItem(integer) Error:%', _result;
+          IF NOT (_po AND (_result = -10 OR _result = -20)) THEN
+            RAISE EXCEPTION 'Error deleting kit components: deleteSoItem(integer) Error:%', _result;
+          END IF;
         END IF;
       END LOOP;
     END IF;

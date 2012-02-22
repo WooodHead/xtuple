@@ -19,6 +19,7 @@ DECLARE
   _r            RECORD;
   _coitemid     INTEGER;
   _result       INTEGER;
+  _poStatus     INTEGER := 0;
 
 BEGIN
 -- Get cohead
@@ -55,8 +56,12 @@ BEGIN
 
     SELECT deleteSoItem(_coitemid) INTO _result;
     IF (_result < 0) THEN
-      RETURN _result;
-     END IF;
+      IF (_result = -20) THEN
+        _poStatus := _poStatus - 1;
+      ELSE
+        RETURN _result;
+      END IF;
+    END IF;
 
   END LOOP;
 
@@ -80,7 +85,11 @@ BEGIN
     _result = releaseSoNumber(_r.cohead_number);
   END IF;
 
-  RETURN 0;
+  IF (_poStatus < 0) THEN
+    RETURN -20;
+  ELSE
+    RETURN 0;
+  END IF;
 
 END;
 $$ LANGUAGE 'plpgsql';
