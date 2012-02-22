@@ -6,7 +6,11 @@ DECLARE
   pSoitemid	ALIAS FOR $1;
 
   _r            RECORD;
+  _s            RECORD;
   _result       INTEGER;
+  _deletePO     INTEGER := 0;
+  _recvId       INTEGER := -1;
+  _poStatus     TEXT;
   _jobItem      BOOLEAN;
 
 BEGIN
@@ -53,6 +57,35 @@ BEGIN
     RETURN -105;
   END IF;
 
+-- If Kit, check deletion of component items
+  FOR _s IN
+    SELECT a.*
+    FROM coitem a, (SELECT DISTINCT coitem_cohead_id,
+                           coitem_linenumber
+                    FROM coitem
+                    WHERE coitem_id = pSoitemid) b
+    WHERE ((a.coitem_cohead_id = b.coitem_cohead_id)
+       AND (a.coitem_linenumber = b.coitem_linenumber)
+       AND (a.coitem_subnumber > 0))
+  LOOP
+    IF ((COALESCE(_s.coitem_order_id, -1) > 0)
+     AND (_s.coitem_order_type = 'P')) THEN
+      SELECT poitem_status, COALESCE(recv_id, -1)
+        INTO _poStatus, _recvId
+      FROM poitem LEFT OUTER JOIN recv
+             ON ((recv_orderitem_id=poitem_id)
+               AND (recv_order_type='PO'))
+      WHERE (poitem_id = _s.coitem_order_id);
+
+      IF ((_recvId > 0) OR (_poStatus = 'C')) THEN
+        RETURN -10;
+      ELSIF ((_recvId = -1) AND (_poStatus = 'O')) THEN
+        _deletePO := _deletePO - 1;
+      END IF;
+    END IF;
+  END LOOP;
+
+
   SELECT (itemsite_costmethod='J') INTO _jobItem
   FROM coitem JOIN itemsite ON (itemsite_id=coitem_itemsite_id)
   WHERE (coitem_id=pSoitemid);
@@ -78,19 +111,10 @@ BEGIN
   IF (_r.coitem_order_type='P') THEN
 -- Delete associated Purchase Order Item
     SELECT deletepoitem(_r.coitem_order_id) INTO _result;
-    -- TODO not sure why??
-    --IF (_result = -10) THEN
-    --  RETURN -10;
-    --ELSE
-    --  IF (_result = -20) THEN
-    --    DELETE FROM coitem
-    --    WHERE (coitem_id=pSoitemid);
-
-    --    RETURN -20;
-    --  END IF;
-    --END IF;
-    IF (_result < 0) THEN
+    IF ((_result < 0) AND (_result <> -20)) THEN
       RETURN _result;
+    ELSIF (_result = -20) THEN
+      _deletePO := _deletePO - 1;
     END IF;
   END IF;
 
@@ -98,7 +122,11 @@ BEGIN
   DELETE FROM coitem
   WHERE (coitem_id=pSoitemid);
 
-  RETURN 0;
+  IF (_deletePO < 0) THEN
+    RETURN -20;
+  ELSE
+    RETURN 0;
+  END IF;
 
 END;
 $$ LANGUAGE 'plpgsql';
