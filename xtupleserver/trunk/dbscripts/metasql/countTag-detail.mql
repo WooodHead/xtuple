@@ -47,10 +47,18 @@ FROM (
                        AND  (NOT location_netable)))
                ELSE itemsite_nnqoh
              END AS nnqoh,
-             COALESCE(invcnt_qoh_after, (SELECT SUM(cntslip_qty)
-                                         FROM cntslip
-                                         WHERE (cntslip_cnttag_id=invcnt_id))
-                     ) AS qohafter,
+      <? if exists("showSlips") ?>
+             calcTotalSlipQty(invcnt_id) AS qohafter,
+             (calcTotalSlipQty(invcnt_id) - (itemsite_qtyonhand + itemsite_nnqoh)) AS variance,
+             CASE WHEN (calcTotalSlipQty(invcnt_id) IS NULL) THEN NULL
+                  WHEN (((itemsite_qtyonhand + itemsite_nnqoh) = 0) AND (calcTotalSlipQty(invcnt_id) > 0)) THEN 1
+                  WHEN (((itemsite_qtyonhand + itemsite_nnqoh) = 0) AND (calcTotalSlipQty(invcnt_id) < 0)) THEN -1
+                  WHEN (((itemsite_qtyonhand + itemsite_nnqoh) = 0) AND (calcTotalSlipQty(invcnt_id) = 0)) THEN 0
+               ELSE ((1 - (calcTotalSlipQty(invcnt_id) / (itemsite_qtyonhand + itemsite_nnqoh))) * -1)
+             END AS varianceprcnt,
+             (itemCost(itemsite_id) * (calcTotalSlipQty(invcnt_id) - (itemsite_qtyonhand + itemsite_nnqoh))) AS variancecost,
+      <? else ?>
+             COALESCE(invcnt_qoh_after, 0.0) AS qohafter,
              (invcnt_qoh_after - (itemsite_qtyonhand + itemsite_nnqoh)) AS variance,
              CASE WHEN (invcnt_qoh_after IS NULL) THEN NULL
                   WHEN (((itemsite_qtyonhand + itemsite_nnqoh) = 0) AND (invcnt_qoh_after > 0)) THEN 1
@@ -59,6 +67,7 @@ FROM (
                ELSE ((1 - (invcnt_qoh_after / (itemsite_qtyonhand + itemsite_nnqoh))) * -1)
              END AS varianceprcnt,
              (itemCost(itemsite_id) * (invcnt_qoh_after - (itemsite_qtyonhand + itemsite_nnqoh))) AS variancecost,
+      <? endif ?>
              item_number AS orderby,
              0 AS xtindentrole
       FROM invcnt LEFT OUTER JOIN location ON (invcnt_location_id=location_id),
