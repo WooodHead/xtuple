@@ -34,8 +34,7 @@ SELECT gltrans_id, gltrans_date, formatDate(gltrans_date) AS f_date,
 
                               AND (bankrecitem_source_id=gltrans_id))
    LEFT OUTER JOIN bankrec actrec ON (actrec.bankrec_id = bankrecitem_bankrec_id)
-   LEFT OUTER JOIN checkhead ON ((gltrans_source IN ('A/P', 'A/R'))
-                             AND (gltrans_doctype='CK')
+   LEFT OUTER JOIN checkhead ON ((gltrans_doctype='CK')
                              AND (gltrans_misc_id=checkhead_id))
 <? if exists("showUnreconciled") ?>
  WHERE ((COALESCE(actrec.bankrec_postdate,endoftime()) > COALESCE(selrec.bankrec_postdate,now()))
@@ -78,8 +77,7 @@ SELECT sltrans_id, sltrans_date, formatDate(sltrans_date) AS f_date,
 
                               AND (bankrecitem_source_id=sltrans_id))
    LEFT OUTER JOIN bankrec actrec ON (actrec.bankrec_id = bankrecitem_bankrec_id)
-   LEFT OUTER JOIN checkhead ON ((sltrans_source IN ('A/P', 'A/R'))
-                             AND (sltrans_doctype='CK')
+   LEFT OUTER JOIN checkhead ON ((sltrans_doctype='CK')
                              AND (sltrans_misc_id=checkhead_id))
 <? if exists("showUnreconciled") ?>
  WHERE ((COALESCE(actrec.bankrec_postdate,endoftime()) > COALESCE(selrec.bankrec_postdate,now()))
