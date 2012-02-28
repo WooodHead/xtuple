@@ -22,7 +22,9 @@ BEGIN
       JOIN whsinfo ON (itemsite_warehous_id=warehous_id)
     WHERE (itemsite_id=pItemsiteId);
     
-    RAISE EXCEPTION 'Unposted inventory transactions exist for % at %', _r.item_number, _r.warhous_code;
+    RAISE EXCEPTION 'Unposted inventory transactions exist for % at % [xtuple: buildInvBal, -1, %, %]',
+                    _r.item_number, _r.warehous_code,
+                    _r.item_number, _r.warehous_code;
   END IF;
 
   -- Remove any old records
