@@ -18,17 +18,17 @@ BEGIN
 			      pohead_orderdate) AS poitem_unitprice_base,
                    COALESCE(itemsite_id, -1) AS itemsiteid, poitem_invvenduomratio,
                    SUM(poreject_qty) AS totalqty,
-                   itemsite_item_id, itemsite_costmethod
+                   itemsite_item_id, itemsite_costmethod, itemsite_controlmethod
             FROM poreject, pohead, poitem 
 		LEFT OUTER JOIN itemsite ON (poitem_itemsite_id=itemsite_id)
             WHERE ( (poreject_poitem_id=poitem_id)
              AND (poitem_pohead_id=pohead_id)
              AND (pohead_id=pPoheadid)
              AND (NOT poreject_posted) )
-            GROUP BY poreject_id, pohead_number, poreject_poitem_id, poitem_id,
+            GROUP BY poreject_id, pohead_number, poreject_poitem_id, poitem_id, poitem_prj_id,
 		     poitem_expcat_id, poitem_linenumber, poitem_unitprice, pohead_curr_id,
 		     pohead_orderdate, itemsite_id, poitem_invvenduomratio,
-                    itemsite_item_id, itemsite_costmethod, poitem_prj_id LOOP
+                    itemsite_item_id, itemsite_costmethod, itemsite_controlmethod LOOP
 
     IF (_p.itemsiteid = -1) THEN
         SELECT insertGLTransaction( 'S/R', 'PO', _p.pohead_number, 'Return Non-Inventory to P/O',
@@ -43,6 +43,18 @@ BEGIN
         SET poreject_posted=TRUE, poreject_value= round(_p.poitem_unitprice_base * _p.totalqty, 2)
         WHERE (poreject_id=_p.poreject_id);
 
+    ELSEIF (_p.itemsite_controlmethod='N') THEN
+      SELECT insertGLTransaction('S/R', 'PO', _p.pohead_number, 'Return Non-Controlled Inventory from PO',
+                                 costcat_liability_accnt_id,
+                                 getPrjAccntId(_p.poitem_prj_id, costcat_exp_accnt_id), -1,
+                                 round((_p.poitem_unitprice_base * _p.totalqty * -1), 2),
+                                 CURRENT_DATE ) INTO _returnval
+      FROM itemsite, costcat
+      WHERE((itemsite_costcat_id=costcat_id)
+        AND (itemsite_id=_p.itemsiteid));
+      IF (_returnval = -3) THEN -- zero value transaction
+        _returnval := 0;
+      END IF;
     ELSE
       IF (_itemlocSeries = 0) THEN
         SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
