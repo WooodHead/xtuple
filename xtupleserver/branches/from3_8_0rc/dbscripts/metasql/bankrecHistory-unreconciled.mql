@@ -41,6 +41,7 @@ SELECT gltrans_id, gltrans_date, formatDate(gltrans_date) AS f_date,
  WHERE ((COALESCE(actrec.bankrec_postdate,endoftime()) > COALESCE(selrec.bankrec_postdate,now()))
   AND (NOT gltrans_deleted)
   AND (NOT COALESCE(checkhead_void, false)))
+  AND (gltrans_doctype != 'JP')
 <? else ?>
  WHERE (false)
 <? endif ?>

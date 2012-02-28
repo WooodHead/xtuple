@@ -17,6 +17,7 @@ SELECT COALESCE(SUM(amount),0.0) AS cleared_amount
             AND (NOT gltrans_deleted)
             AND (NOT gltrans_rec)
             AND (gltrans_amount < 0)
+            AND (gltrans_doctype != 'JP')
             AND (bankaccnt_id=<? value("bankaccntid") ?>) )
           UNION ALL
          SELECT COALESCE( bankrecitem_amount,
@@ -78,6 +79,7 @@ SELECT gltrans_id AS id, 1 AS altid,
    AND (NOT gltrans_rec)
    AND (NOT COALESCE(checkhead_void, false))
    AND (gltrans_amount < 0)
+   AND (gltrans_doctype != 'JP')
    AND (bankaccnt_id=<? value("bankaccntid") ?>) )
  UNION ALL
 SELECT sltrans_id AS id, 2 AS altid,
