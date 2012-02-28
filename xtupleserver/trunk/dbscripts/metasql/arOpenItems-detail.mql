@@ -214,10 +214,8 @@ SELECT aropen_id AS id,
        END AS doctype_qtforegroundrole,
        aropen_amount AS amount,
        aropen_amount/aropen_curr_rate AS base_amount,
-       (aropen_paid + (COALESCE(SUM(arapply_target_paid),0)) *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE -1 END) AS paid,
-       (aropen_paid + (COALESCE(SUM(arapply_target_paid),0))/aropen_curr_rate *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE -1 END) AS base_paid,
+       (aropen_paid - (COALESCE(SUM(arapply_target_paid),0))) AS paid,
+       (aropen_paid - (COALESCE(SUM(arapply_target_paid),0))/aropen_curr_rate) AS base_paid,
         (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0))) *
         CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) AS balance,
        currConcat(aropen_curr_id) AS currAbbr,
