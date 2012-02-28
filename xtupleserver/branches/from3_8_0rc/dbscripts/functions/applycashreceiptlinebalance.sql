@@ -14,7 +14,6 @@ DECLARE
   _docDate DATE;
   _r RECORD;
   _doctype CHAR(1);
-  _debug BOOLEAN := false;
 
 BEGIN
 
@@ -39,10 +38,7 @@ BEGIN
   FROM aropen
   WHERE (aropen_id=pAropenId);
   
-  IF (_debug) THEN 
-    RAISE NOTICE 'Amount (%)', _amount;
-    RAISE NOTICE 'DocType (%)', _doctype;
-  END IF;
+  RAISE DEBUG 'Amount (%) DocType (%)', _amount, _doctype;
 
   IF (_amount <= 0 AND _doctype IN ('I','D')) THEN
     RETURN 0;
@@ -63,9 +59,7 @@ BEGIN
            WHERE ((aropen_id=pAropenId)
            AND (cashrcpt_id=pCashrcptId));
 
-  IF (_debug) THEN 
-    RAISE NOTICE 'Balance (%)', _balance;
-  END IF;
+  RAISE DEBUG 'Balance (%)', _balance;
             
 --  If Invoice or Debit Memo, determine Max Discount as per Terms
   IF (_doctype IN ('I','D')) THEN
@@ -90,7 +84,7 @@ BEGIN
       _discount := round((_amount / (1 - _discprct)) - _amount, 2);
       _applyAmount := _amount;
     END IF;
-  ELSIF (_balance <= _amount) THEN
+  ELSIF (_doctype IN ('C', 'R')) THEN
   -- Handle Credits, discounts don't apply here
     _applyAmount := _balance * -1;
   ELSE
