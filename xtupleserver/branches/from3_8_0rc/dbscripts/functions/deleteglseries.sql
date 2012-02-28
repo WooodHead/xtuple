@@ -81,10 +81,12 @@ BEGIN
 
     ELSIF (_r.period_freeze) THEN
         RAISE EXCEPTION 'Can not delete a G/L Transaction in a frozen period';
-    ELSIF ((_r.period_closed) OR (NOT _r.accnt_closedpost)) THEN
-        RAISE EXCEPTION 'Can not delete a G/L Transaction on account % in a closed period', formatGlAccount(gltrans_accnt_id);
+    ELSIF (_r.period_closed) THEN
+        RAISE EXCEPTION 'Can not delete a G/L Transaction on account % in a closed period', formatGlAccount(_r.gltrans_accnt_id);
     ELSIF (_r.gltrans_rec) THEN
         RAISE EXCEPTION 'Can not delete a G/L Transaction that has been reconciled';
+    ELSIF (NOT _r.gltrans_posted) THEN
+        RAISE EXCEPTION 'Can not delete a G/L Transaction that has not been posted to Trial Balance';
     END IF;
 
   END LOOP;
