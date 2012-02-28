@@ -17,7 +17,7 @@ SELECT aropen_id, applyid,
        type AS xtindentrole
   FROM (
     SELECT 0 AS type, aropen_id, -1 AS applyid,
-           aropen_docdate AS sortdate, aropen_docnumber AS sortnumber,
+           aropen_docdate AS sortdate, (aropen_docnumber || aropen_doctype) AS sortnumber,
            aropen_docnumber AS docnumber,
            aropen_open AS open,
            CASE WHEN (aropen_doctype='I') THEN <? value("invoice") ?>
@@ -43,7 +43,7 @@ SELECT aropen_id, applyid,
 
     UNION
     SELECT 1 AS type, -1 AS aropen_id, arapply_source_aropen_id AS applyid,
-           aropen_docdate AS sortdate, aropen_docnumber AS sortnumber,
+           aropen_docdate AS sortdate, (aropen_docnumber || aropen_doctype) AS sortnumber,
            CASE WHEN (arapply_source_doctype IN ('C','R')) THEN arapply_source_docnumber
                 WHEN (arapply_source_doctype='K') THEN arapply_refnumber
                 ELSE <? value("error") ?>
@@ -81,7 +81,7 @@ SELECT aropen_id, applyid,
 
     UNION
     SELECT 2 AS type, -1 AS aropen_id, arapply_target_aropen_id AS applyid,
-           aropen_docdate AS sortdate, aropen_docnumber AS sortnumber,
+           aropen_docdate AS sortdate, (aropen_docnumber || aropen_doctype) AS sortnumber,
            arapply_target_docnumber AS docnumber,
            NULL AS open,
            CASE WHEN (arapply_target_doctype='I') THEN <? value("invoice") ?>
@@ -105,7 +105,7 @@ SELECT aropen_id, applyid,
 
     UNION
     SELECT 0 AS type, -1 AS aropen_id, -1 AS applyid,
-           invchead_invcdate AS sortdate, invchead_invcnumber AS sortnumber,
+           invchead_invcdate AS sortdate, (invchead_invcnumber || 'I') AS sortnumber,
            invchead_invcnumber AS docnumber,
            false AS open,
            <? value("zeroinvoice") ?> AS documenttype,
