@@ -6,6 +6,7 @@ DECLARE
   _glSequence INTEGER := 0;
   _glJournal INTEGER := 0;
   _itemlocSeries INTEGER := 0;
+  _aropenid INTEGER := 0;
   _invhistid INTEGER := 0;
   _amount NUMERIC;
   _roundedBase NUMERIC;
@@ -30,6 +31,7 @@ BEGIN
   SELECT invchead.*,
          findFreightAccount(invchead_cust_id) AS freightaccntid,
          findARAccount(invchead_cust_id) AS araccntid,
+         aropen_id,
          ( SELECT COALESCE(SUM(taxhist_tax), 0)
            FROM invcheadtax
            WHERE ( (taxhist_parent_id = invchead_id)
@@ -39,7 +41,7 @@ BEGIN
            WHERE ( (taxhist_parent_id = invchead_id)
              AND   (taxhist_taxtype_id = getAdjustmentTaxtypeId()) ) ) AS adjtax
        INTO _p 
-  FROM invchead
+  FROM invchead JOIN aropen ON (aropen_doctype='I' AND aropen_docnumber=invchead_invcnumber)
   WHERE (invchead_id=pInvcheadid);
   IF (NOT FOUND) THEN
     RAISE EXCEPTION 'Cannot Void Invoice as invchead not found';
@@ -165,6 +167,11 @@ BEGIN
                                  (_roundedBase * -1.0),
                                  _glDate, ('Void-' || _p.invchead_billto_name) ) INTO _test;
 
+      IF (_test < 0) THEN
+        PERFORM deleteGLSeries(_glSequence);
+        RETURN _test;
+      END IF;
+
       _totalAmount := (_totalAmount + _amount);
       _totalRoundedBase :=  _totalRoundedBase + _roundedBase;
       _commissionDue := (_commissionDue + (_amount * _p.invchead_commission));
@@ -261,9 +268,49 @@ BEGIN
   DELETE FROM cohist
   WHERE (cohist_doctype='I' AND cohist_invcnumber=_p.invchead_invcnumber);
 
---  Delete the Invoice aropen item
-  DELETE FROM aropen
-  WHERE (aropen_doctype='I' AND aropen_docnumber=_p.invchead_invcnumber);
+--  Create the Credit aropen item
+  SELECT nextval('aropen_aropen_id_seq') INTO _aropenid;
+  INSERT INTO aropen
+  ( aropen_id, aropen_username, aropen_journalnumber,
+    aropen_open, aropen_posted,
+    aropen_cust_id, aropen_ponumber,
+    aropen_docnumber, aropen_applyto, aropen_doctype,
+    aropen_docdate, aropen_duedate, aropen_distdate, aropen_terms_id,
+    aropen_amount, aropen_paid,
+    aropen_salesrep_id, aropen_commission_due, aropen_commission_paid,
+    aropen_ordernumber, aropen_notes, aropen_cobmisc_id,
+    aropen_curr_id )
+  VALUES
+  ( _aropenid, getEffectiveXtUser(), _glJournal,
+    TRUE, FALSE,
+    _p.invchead_cust_id, _p.invchead_ponumber,
+    _p.invchead_invcnumber, _p.invchead_invcnumber, 'C',
+    _p.invchead_invcdate, determineDueDate(_p.invchead_terms_id, _p.invchead_invcdate), _glDate, _p.invchead_terms_id,
+    round(_totalAmount, 2), round(_totalAmount, 2), 
+    _p.invchead_salesrep_id, _commissionDue, FALSE,
+    _p.invchead_ordernumber::text, _p.invchead_notes, pInvcheadid,
+    _p.invchead_curr_id );
+
+--  Alter the Invoice A/R Open Item to reflect the application
+    UPDATE aropen
+    SET aropen_paid = round(_totalAmount, 2)
+    WHERE (aropen_id=_p.aropen_id);
+
+--  Record the application
+    INSERT INTO arapply
+    ( arapply_cust_id,
+      arapply_source_aropen_id, arapply_source_doctype, arapply_source_docnumber,
+      arapply_target_aropen_id, arapply_target_doctype, arapply_target_docnumber,
+      arapply_fundstype, arapply_refnumber,
+      arapply_applied, arapply_closed,
+      arapply_postdate, arapply_distdate, arapply_journalnumber, arapply_curr_id )
+    VALUES
+    ( _p.invchead_cust_id,
+      _aropenid, 'C', _p.invchead_invcnumber,
+      _p.aropen_id, 'I', _p.invchead_invcnumber,
+      '', '',
+      round(_totalAmount, 2), TRUE,
+      CURRENT_DATE, _p.invchead_invcdate, 0, _p.invchead_curr_id );
 
 -- Handle the Inventory and G/L Transactions for any billed Inventory where invcitem_updateinv is true (reverse sense)
   FOR _r IN SELECT itemsite_id AS itemsite_id, invcitem_id,
