@@ -55,6 +55,9 @@ BEGIN
       IF (_returnval = -3) THEN -- zero value transaction
         _returnval := 0;
       END IF;
+      UPDATE poreject
+      SET poreject_posted=TRUE, poreject_value= round(_p.poitem_unitprice_base * _p.totalqty, 2)
+      WHERE (poreject_id=_p.poreject_id);
     ELSE
       IF (_itemlocSeries = 0) THEN
         SELECT NEXTVAL('itemloc_series_seq') INTO _itemlocSeries;
