@@ -1,0 +1,1 @@
+ALTER TABLE quitem ADD COLUMN quitem_itemsrc_id INTEGER REFERENCES itemsrc (itemsrc_id);
