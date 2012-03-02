@@ -1,8 +1,8 @@
 -- Group: invoices
 -- Name: detail
 -- Notes: used by reprintInvoices, unpostedInvoices, dspRecurringInvoices
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
--- See www.xtuple.com/CPAL for the full text of the software license.
+--        Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+--        See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT invchead_id, cust_id,
        invchead.*,
@@ -25,6 +25,10 @@ SELECT invchead_id, cust_id,
             ELSE <? value("none") ?>
        END AS recur_period_qtdisplayrole,
        recur_end,
+       <? if exists('getForm') ?>
+         invchead_invcnumber AS docnumber,
+         findCustomerForm(cust_id, 'I') AS reportname,
+       <? endif ?>
        'curr' AS extprice_xtnumericrole,
        'curr' AS balance_xtnumericrole,
        CASE WHEN (aropen_id IS NULL) THEN 'Unposted' END AS balance_qtdisplayrole
