@@ -29,12 +29,9 @@ BEGIN
      pSourceid, _cleared,
      pCurrrate, pAmount);
   ELSE
-    _cleared := (NOT _r.bankrecitem_cleared);
-    UPDATE bankrecitem
-       SET bankrecitem_cleared=_cleared,
-           bankrecitem_curr_rate=pCurrrate,
-           bankrecitem_amount=pAmount
-     WHERE (bankrecitem_id=_r.bankrecitem_id);
+    _cleared := FALSE;
+    DELETE FROM bankrecitem 
+    WHERE bankrecitem_id = _r.bankrecitem_id;
   END IF;
 
   RETURN _cleared;
