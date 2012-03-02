@@ -25,10 +25,6 @@ BEGIN
   	  RAISE EXCEPTION 'You must supply a valid Sales Rep ID.';
     END IF;
 
-    IF (NEW.cust_shipform_id IS NULL) THEN
-	  RAISE EXCEPTION 'You must supply a valid Ship Form ID.';
-    END IF;
-
     IF (NEW.cust_terms_id IS NULL) THEN
 	  RAISE EXCEPTION 'You must supply a valid Terms Code ID.';
     END IF;
