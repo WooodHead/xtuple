@@ -1,8 +1,22 @@
-CREATE OR REPLACE FUNCTION distributeToDefault(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION distributeToDefault(INTEGER) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemlocdistid ALIAS FOR $1;
+
+BEGIN
+
+  RETURN distributeToDefault(pItemlocdistid, 'O');
+
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION distributeToDefault(INTEGER, TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+DECLARE
+  pItemlocdistid ALIAS FOR $1;
+  pTranstype ALIAS FOR $2;
   _locationid INTEGER;
   _itemlocdistid INTEGER;
   _qty NUMERIC;
@@ -10,7 +24,10 @@ DECLARE
 BEGIN
 
 --  Make sure that the itemsite in question has a default location
-  SELECT itemsite_location_id INTO _locationid
+  SELECT CASE WHEN (pTranstype='R') THEN itemsite_recvlocation_id
+              WHEN (pTranstype='I') THEN itemsite_issuelocation_id
+              ELSE itemsite_location_id
+         END INTO _locationid
   FROM itemlocdist, itemsite
   WHERE ( (itemlocdist_itemsite_id=itemsite_id)
    AND (itemlocdist_id=pItemlocdistid) );
@@ -25,13 +42,13 @@ BEGIN
   GROUP BY p.itemlocdist_qty;
 
   IF (_qty = 0) THEN
-    RETURN -1;
+    RETURN -2;
   END IF;
 
 --  Check to see if an itemlocdist with the correct location/lotserial/expiration already exists
   SELECT target.itemlocdist_id INTO _itemlocdistid
   FROM itemlocdist AS source, itemlocdist AS target, itemloc, itemsite
-  WHERE ( (target.itemlocdist_source_type=''L'')
+  WHERE ( (target.itemlocdist_source_type='L')
    AND (target.itemlocdist_source_id=_locationid)
    AND (target.itemlocdist_itemsite_id=source.itemlocdist_itemsite_id)
    AND (COALESCE(target.itemlocdist_ls_id)=COALESCE(source.itemlocdist_ls_id))
@@ -49,13 +66,13 @@ BEGIN
   END IF;
 
 --  Create a new itemlocdist
-  SELECT NEXTVAL(''itemlocdist_itemlocdist_id_seq'') INTO _itemlocdistid;
+  SELECT NEXTVAL('itemlocdist_itemlocdist_id_seq') INTO _itemlocdistid;
 
   INSERT INTO itemlocdist
   ( itemlocdist_id, itemlocdist_itemlocdist_id, itemlocdist_source_type,
     itemlocdist_ls_id, itemlocdist_expiration,
     itemlocdist_source_id, itemlocdist_itemsite_id, itemlocdist_qty )
-  SELECT _itemlocdistid, pItemlocdistid, ''L'',
+  SELECT _itemlocdistid, pItemlocdistid, 'L',
          itemlocdist_ls_id, itemlocdist_expiration,
          _locationid, itemlocdist_itemsite_id, _qty
   FROM itemlocdist
@@ -64,4 +81,4 @@ BEGIN
   RETURN _itemlocdistid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
