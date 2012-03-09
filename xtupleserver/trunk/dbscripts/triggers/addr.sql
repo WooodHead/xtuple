@@ -5,10 +5,16 @@ CREATE OR REPLACE FUNCTION _addrtrigger() RETURNS "trigger" AS $$
     _uses	INTEGER	:= 0;
 
   BEGIN
-    SELECT count(*) INTO _uses
-    FROM cntct
-    WHERE ((cntct_addr_id=OLD.addr_id)
-      AND   cntct_active);
+
+    IF (TG_OP = 'INSERT') THEN
+      --- clear the number from the issue cache
+      PERFORM clearNumberIssue('AddressNumber', NEW.addr_number::INTEGER);
+    ELSE
+      SELECT count(*) INTO _uses
+      FROM cntct
+      WHERE ((cntct_addr_id=OLD.addr_id)
+        AND   cntct_active);
+    END IF;
 
     IF (TG_OP = 'UPDATE') THEN
       IF (OLD.addr_active AND NOT NEW.addr_active AND _uses > 0) THEN
@@ -34,7 +40,7 @@ $$ LANGUAGE 'plpgsql';
 
 DROP TRIGGER addrtrigger ON addr;
 CREATE TRIGGER addrtrigger
-  BEFORE  -- INSERT OR
+  BEFORE  INSERT OR
 	  UPDATE OR DELETE
   ON addr
   FOR EACH ROW

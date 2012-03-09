@@ -46,6 +46,9 @@ BEGIN
     IF (FOUND) THEN
       RAISE EXCEPTION 'This Document Type/Number already exists. You may not enter a duplicate A/R Memo.';
     END IF;
+
+    --- clear the number from the issue cache if applicable
+    PERFORM clearNumberIssue('ARMemoNumber', NEW.aropen_docnumber::INTEGER);
   END IF;
 
 -- Determine the number of late invoices
