@@ -29,6 +29,9 @@ BEGIN
     IF (NEW.incdt_number IS NULL) THEN
       SELECT fetchIncidentNumber() INTO NEW.incdt_number;
     END IF;
+
+    --- clear the number from the issue cache
+    PERFORM clearNumberIssue('IncidentNumber', NEW.incdt_number);
   END IF;
 
   -- Description is required

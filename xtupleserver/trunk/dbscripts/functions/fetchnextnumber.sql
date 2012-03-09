@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION fetchNextNumber(TEXT) RETURNS TEXT AS '
+CREATE OR REPLACE FUNCTION fetchNextNumber(TEXT) RETURNS TEXT AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -8,35 +8,59 @@ DECLARE
   _select	TEXT;
   _table	TEXT;
   _test		TEXT;
+  _nextnum	INTEGER;
+  _seqiss       seqiss;
+  __seqiss      seqiss[];
+  _not_issued       BOOLEAN;
 
 BEGIN
+  SELECT CAST(orderseq_number AS text), orderseq_number, orderseq_table, orderseq_numcol, COALESCE(orderseq_seqiss, ARRAY[]::seqiss[])
+    INTO _number, _nextnum, _table, _numcol, __seqiss
+  FROM orderseq
+  WHERE (orderseq_name=psequence);
+
+  IF (NOT FOUND) THEN
+    RAISE EXCEPTION 'Invalid orderseq_name %', psequence;
+  END IF;
+  
   LOOP
-    SELECT CAST(orderseq_number AS text), orderseq_table, orderseq_numcol
-	INTO _number, _table, _numcol
-    FROM orderseq
-    WHERE (orderseq_name=psequence);
-    IF (NOT FOUND) THEN
-      RAISE EXCEPTION ''Invalid orderseq_name %'', psequence;
+
+    _seqiss := (_nextnum, now());
+
+    SELECT count(*) = 0 INTO _not_issued
+    FROM (SELECT UNNEST(__seqiss) AS issued) data
+    WHERE (issued).seqiss_number = _nextnum;
+
+    _nextnum := _nextnum + 1;
+
+    -- Test if the number has been issued, but not committed
+    IF (_not_issued) THEN
+
+      -- Test if the number has been committed
+      _select := 'SELECT ' || quote_ident(_numcol) ||
+	         ' FROM '  || quote_ident(_table) ||
+	         ' WHERE (' || quote_ident(_numcol) || '=' ||
+                 quote_literal(_number) || ');';
+
+      EXECUTE _select INTO _test;
+
+      IF (_test IS NULL OR NOT FOUND) THEN
+        EXIT;
+      END IF;
+
     END IF;
 
-    _select := ''SELECT '' || quote_ident(_numcol) ||
-	       '' FROM ''  || quote_ident(_table) ||
-	       '' WHERE ('' || quote_ident(_numcol) || ''='' ||
-               quote_literal(_number) || '');'';
-
-    UPDATE orderseq
-    SET orderseq_number = (orderseq_number + 1)
-    WHERE (orderseq_name=psequence);
-
-    EXECUTE _select INTO _test;
-
-    IF (_test IS NULL OR NOT FOUND) THEN
-      EXIT;
-    END IF;
+    -- Number in use, try again
+    _number = _nextnum::text;
 
   END LOOP;
 
-RETURN _number;
+  UPDATE orderseq SET 
+    orderseq_number = _nextnum,
+    orderseq_seqiss = orderseq_seqiss || _seqiss
+  WHERE (orderseq_name=psequence);
+
+  RETURN _number;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

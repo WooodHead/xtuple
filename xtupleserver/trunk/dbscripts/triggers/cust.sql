@@ -29,6 +29,11 @@ BEGIN
 	  RAISE EXCEPTION 'You must supply a valid Terms Code ID.';
     END IF;
 
+    IF (TG_OP = 'INSERT' AND fetchMetricText('CRMAccountNumberGeneration') IN ('A','O') AND isNumeric(NEW.cust_number)) THEN
+      --- clear the number from the issue cache
+      PERFORM clearNumberIssue('CRMAccountNumber', NEW.cust_number::INTEGER);
+    END IF;
+
   ELSIF (TG_OP = 'DELETE') THEN
     UPDATE crmacct SET crmacct_cust_id = NULL
      WHERE crmacct_cust_id = OLD.cust_id;
