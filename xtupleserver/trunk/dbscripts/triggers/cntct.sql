@@ -6,6 +6,11 @@ BEGIN
 
   NEW.cntct_name := formatCntctName(NULL, NEW.cntct_first_name, NEW.cntct_middle, NEW.cntct_last_name, NEW.cntct_suffix);
   NEW.cntct_email := lower(NEW.cntct_email);
+
+  IF (TG_OP = 'INSERT') THEN
+    --- clear the number from the issue cache
+    PERFORM clearNumberIssue('ContactNumber', NEW.cntct_number::INTEGER);
+  END IF;
   
   RETURN NEW;
 END;

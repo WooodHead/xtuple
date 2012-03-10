@@ -16,6 +16,11 @@ BEGIN
       RAISE EXCEPTION 'You must supply a Commission Rate for this Sales Rep.';
     END IF;
 
+    IF (TG_OP = 'INSERT' AND fetchMetricText('CRMAccountNumberGeneration') IN ('A','O') AND isNumeric(NEW.salesrep_number)) THEN
+      --- clear the number from the issue cache
+      PERFORM clearNumberIssue('CRMAccountNumber', NEW.salesrep_number::INTEGER);
+    END IF;
+
     NEW.salesrep_number = UPPER(NEW.salesrep_number);
 
     -- deprecated column salesrep_emp_id
