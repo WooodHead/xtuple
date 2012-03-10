@@ -30,6 +30,9 @@ BEGIN
   -- Currency must be same as Bank Currency
   IF (TG_OP = 'INSERT') THEN
     _currId = COALESCE(NEW.cashrcpt_curr_id, basecurrid());
+
+     --- clear the number from the issue cache
+    PERFORM clearNumberIssue('CashRcptNumber', NEW.cashrcpt_number::INTEGER);
   ELSE
     _currId = NEW.cashrcpt_curr_id;
   END IF;

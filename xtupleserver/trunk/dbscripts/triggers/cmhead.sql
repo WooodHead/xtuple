@@ -37,6 +37,14 @@ BEGIN
     IF (FOUND) THEN
       RAISE EXCEPTION 'The Memo # is already in use.';
     END IF;
+
+    IF (fetchMetricText('CMNumberGeneration') IN ('A','O')) THEN
+      --- clear the number from the issue cache
+      PERFORM clearNumberIssue('CmNumber', NEW.cmhead_number::INTEGER);
+    ELSIF (fetchMetricText('CMNumberGeneration') = 'S') THEN
+      --- clear the number from the issue cache
+      PERFORM clearNumberIssue('SoNumber', NEW.cmhead_number::INTEGER);
+    END IF;
   END IF;
 
   IF (NEW.cmhead_cust_id IS NOT NULL) THEN

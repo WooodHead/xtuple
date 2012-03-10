@@ -28,6 +28,11 @@ BEGIN
     RAISE EXCEPTION 'You do not have privileges to alter a Purchase Order.';
   END IF;
 
+  IF (TG_OP = 'INSERT') THEN
+    --- clear the number from the issue cache
+    PERFORM clearNumberIssue('PoNumber', NEW.pohead_number::INTEGER);
+  END IF;
+
   IF ( (TG_OP = 'INSERT') OR (TG_op = 'UPDATE') ) THEN
     IF (NOT ISNUMERIC(NEW.pohead_number) AND NEW.pohead_saved) THEN
       RAISE EXCEPTION 'Purchase Order Number must be numeric.';

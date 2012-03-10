@@ -48,6 +48,11 @@ BEGIN
         END IF;
       END IF;
     END IF;
+
+    IF (fetchMetricText('CONumberGeneration') IN ('A','O')) THEN
+      --- clear the number from the issue cache
+      PERFORM clearNumberIssue('SoNumber', NEW.cohead_number::INTEGER);
+    END IF;
   ELSE
     IF (TG_OP = 'UPDATE') THEN
       IF (NEW.cohead_number <> OLD.cohead_number) THEN

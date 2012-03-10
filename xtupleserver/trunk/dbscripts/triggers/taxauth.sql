@@ -12,6 +12,11 @@ BEGIN
       RAISE EXCEPTION 'You must supply a Tax Authority Code.';
     END IF;
 
+    IF (TG_OP = 'INSERT' AND fetchMetricText('CRMAccountNumberGeneration') IN ('A','O') AND isNumeric(NEW.taxauth_code)) THEN
+      --- clear the number from the issue cache
+      PERFORM clearNumberIssue('CRMAccountNumber', NEW.taxauth_code::INTEGER);
+    END IF;
+
   ELSIF (TG_OP = 'DELETE') THEN
     UPDATE crmacct SET crmacct_taxauth_id = NULL
      WHERE crmacct_taxauth_id = OLD.taxauth_id;

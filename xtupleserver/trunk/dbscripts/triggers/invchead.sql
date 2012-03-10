@@ -86,6 +86,9 @@ BEGIN
                                 NEW.invchead_curr_id,
                                 NEW.invchead_freight );
     END IF;
+
+    --- clear the number from the issue cache
+    PERFORM clearNumberIssue('InvcNumber', NEW.invchead_invcnumber::INTEGER);
   END IF;
 
 -- Update row
