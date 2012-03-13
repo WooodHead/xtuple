@@ -57,6 +57,8 @@ BEGIN
       IF (TG_OP = 'INSERT') THEN
         PERFORM postComment(_cmnttypeid, 'OPP', NEW.ophead_id, 'Created');
 
+        --- clear the number from the issue cache
+        PERFORM clearNumberIssue('OpportunityNumber', NEW.ophead_number::INTEGER);
       ELSIF (TG_OP = 'UPDATE') THEN
         IF (OLD.ophead_active <> NEW.ophead_active) THEN
           IF (NEW.ophead_active) THEN
