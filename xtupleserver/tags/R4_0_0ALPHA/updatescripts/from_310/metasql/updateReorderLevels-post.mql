@@ -1,0 +1,7 @@
+-- Group: updateReorderLevels
+-- Name:  post
+-- Notes: itemsite with new reorder level
+
+UPDATE itemsite SET
+  itemsite_reorderlevel=CAST(<? value("itemsite_reorderlevel") ?> AS numeric)
+WHERE (itemsite_id=<? value("itemsite_id") ?>)
