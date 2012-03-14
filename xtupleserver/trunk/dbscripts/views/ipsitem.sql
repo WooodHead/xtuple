@@ -1,3 +1,7 @@
+-- SELECT dropIfExists('VIEW', 'pricingscheduleitem',     'api');
+-- SELECT dropIfExists('VIEW', 'pricingscheduleitemchar', 'api');
+-- SELECT dropIfExists('VIEW', 'ipsprice', 'public');
+
 SELECT dropIfExists('VIEW', 'ipsitem', 'public');
 
 CREATE OR REPLACE VIEW ipsitem AS
