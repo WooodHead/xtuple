@@ -5,3 +5,6 @@ WHERE aropen_doctype IN ('D', 'C', 'R')
 UNION  
 SELECT cmhead_id, cmhead_number
 FROM cmhead;
+
+REVOKE ALL ON TABLE apmemo FROM PUBLIC;
+GRANT  ALL ON TABLE apmemo TO xtrole;
