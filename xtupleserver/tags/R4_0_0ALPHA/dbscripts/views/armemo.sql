@@ -6,5 +6,5 @@ UNION
 SELECT cmhead_id, cmhead_number
 FROM cmhead;
 
-REVOKE ALL ON TABLE apmemo FROM PUBLIC;
-GRANT  ALL ON TABLE apmemo TO xtrole;
+REVOKE ALL ON TABLE armemo FROM PUBLIC;
+GRANT  ALL ON TABLE armemo TO xtrole;
