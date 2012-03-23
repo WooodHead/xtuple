@@ -7,9 +7,8 @@ DECLARE
 BEGIN
   -- disallow reusing crmacct_numbers
   IF (TG_OP IN ('INSERT', 'UPDATE')) THEN
-    IF (TG_OP = 'INSERT' AND fetchMetricText('CRMAccountNumberGeneration') IN ('A','O') AND isNumeric(NEW.crmacct_number)) THEN
-      --- clear the number from the issue cache
-      PERFORM clearNumberIssue('CRMAccountNumber', NEW.crmacct_number::INTEGER);
+    IF (TG_OP = 'INSERT' AND fetchMetricText('CRMAccountNumberGeneration') IN ('A','O')) THEN
+      PERFORM clearNumberIssue('CRMAccountNumber', NEW.crmacct_number);
     END IF;
 
     NEW.crmacct_usr_username := LOWER(TRIM(NEW.crmacct_usr_username));

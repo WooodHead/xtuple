@@ -1,9 +1,7 @@
-CREATE OR REPLACE FUNCTION clearNumberIssue(TEXT, INTEGER) RETURNS BOOLEAN AS $$
+CREATE OR REPLACE FUNCTION clearNumberIssue(psequence TEXT, pnumber INTEGER) RETURNS BOOLEAN AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  psequence	ALIAS FOR $1;
-  pnumber 	ALIAS FOR $2;
   __seqiss	seqiss[];
   __newiss	seqiss[] := ARRAY[]::seqiss[];
   _i		INTEGER;
@@ -54,5 +52,27 @@ BEGIN
   END IF;
   
   RETURN _result;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION clearNumberIssue(psequence TEXT, pnumber TEXT) RETURNS BOOLEAN AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+DECLARE
+  _castpnumber  INTEGER;
+BEGIN
+  -- for now, order numbers in the database are text but usually
+  -- string representations of integers. allow for the occasional non-integer.
+  BEGIN
+    _castpnumber  := CAST(pnumber AS INTEGER);
+  EXCEPTION WHEN cannot_coerce OR
+                 invalid_text_representation
+  THEN
+    RAISE DEBUG 'clearNumberIssue(%, %) received an unexpected pnumber',
+                  psequence, pnumber;
+    RETURN FALSE;
+  END;
+
+  RETURN clearNumberIssue(psequence, _castpnumber);
 END;
 $$ LANGUAGE 'plpgsql';
