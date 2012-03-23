@@ -30,7 +30,7 @@ BEGIN
 
   IF (TG_OP = 'INSERT') THEN
     --- clear the number from the issue cache
-    PERFORM clearNumberIssue('PoNumber', NEW.pohead_number::INTEGER);
+    PERFORM clearNumberIssue('PoNumber', NEW.pohead_number);
   END IF;
 
   IF ( (TG_OP = 'INSERT') OR (TG_op = 'UPDATE') ) THEN

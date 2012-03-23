@@ -8,7 +8,7 @@ CREATE OR REPLACE FUNCTION _addrtrigger() RETURNS "trigger" AS $$
 
     IF (TG_OP = 'INSERT') THEN
       --- clear the number from the issue cache
-      PERFORM clearNumberIssue('AddressNumber', NEW.addr_number::INTEGER);
+      PERFORM clearNumberIssue('AddressNumber', NEW.addr_number);
     ELSE
       SELECT count(*) INTO _uses
       FROM cntct

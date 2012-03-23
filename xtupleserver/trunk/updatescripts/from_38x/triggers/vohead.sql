@@ -73,7 +73,7 @@ BEGIN
   END IF;
 
   IF (TG_OP = 'INSERT') THEN
-    PERFORM clearNumberIssue('VcNumber', NEW.vohead_number::INTEGER);
+    PERFORM clearNumberIssue('VcNumber', NEW.vohead_number);
     RETURN NEW;
   END IF;
 

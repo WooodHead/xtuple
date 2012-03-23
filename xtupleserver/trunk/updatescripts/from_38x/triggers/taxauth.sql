@@ -14,7 +14,7 @@ BEGIN
 
     IF (TG_OP = 'INSERT' AND fetchMetricText('CRMAccountNumberGeneration') IN ('A','O') AND isNumeric(NEW.taxauth_code)) THEN
       --- clear the number from the issue cache
-      PERFORM clearNumberIssue('CRMAccountNumber', NEW.taxauth_code::INTEGER);
+      PERFORM clearNumberIssue('CRMAccountNumber', NEW.taxauth_code);
     END IF;
 
   ELSIF (TG_OP = 'DELETE') THEN

@@ -25,9 +25,8 @@ BEGIN
       NEW.emp_name = COALESCE(formatCntctName(emp_cntct_id), emp_number);
     END IF;
 
-    IF (TG_OP = 'INSERT' AND fetchMetricText('CRMAccountNumberGeneration') IN ('A','O') AND isNumeric(NEW.emp_number)) THEN
-      --- clear the number from the issue cache
-      PERFORM clearNumberIssue('CRMAccountNumber', NEW.emp_number::INTEGER);
+    IF (TG_OP = 'INSERT' AND fetchMetricText('CRMAccountNumberGeneration') IN ('A','O')) THEN
+      PERFORM clearNumberIssue('CRMAccountNumber', NEW.emp_number);
     END IF;
 
     NEW.emp_code := UPPER(NEW.emp_code);

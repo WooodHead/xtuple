@@ -228,9 +228,17 @@ FROM (
                              AND (itemgrp_name ~ <? value("itemgrp_pattern") ?>))))
   <? endif ?>
   <? if exists("showPositive") ?>
+    <? if exists("asOf") ?>
+       AND (COALESCE(invbal_qoh_ending,0) > 0)
+    <? else ?>
        AND (itemsite_qtyonhand > 0)
+    <? endif ?>
   <? elseif exists("showNegative") ?>
+    <? if exists("asOf") ?>
+       AND (COALESCE(invbal_qoh_ending,0) < 0)
+    <? else ?>
        AND (itemsite_qtyonhand < 0)
+    <? endif ?>
   <? endif ?>
   <? if exists("warehous_id") ?>
          AND (itemsite_warehous_id=<? value("warehous_id") ?>)
