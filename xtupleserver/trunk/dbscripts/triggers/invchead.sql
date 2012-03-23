@@ -88,7 +88,7 @@ BEGIN
     END IF;
 
     --- clear the number from the issue cache
-    PERFORM clearNumberIssue('InvcNumber', NEW.invchead_invcnumber::INTEGER);
+    PERFORM clearNumberIssue('InvcNumber', NEW.invchead_invcnumber);
   END IF;
 
 -- Update row

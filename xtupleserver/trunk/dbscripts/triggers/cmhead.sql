@@ -40,10 +40,10 @@ BEGIN
 
     IF (fetchMetricText('CMNumberGeneration') IN ('A','O')) THEN
       --- clear the number from the issue cache
-      PERFORM clearNumberIssue('CmNumber', NEW.cmhead_number::INTEGER);
+      PERFORM clearNumberIssue('CmNumber', NEW.cmhead_number);
     ELSIF (fetchMetricText('CMNumberGeneration') = 'S') THEN
       --- clear the number from the issue cache
-      PERFORM clearNumberIssue('SoNumber', NEW.cmhead_number::INTEGER);
+      PERFORM clearNumberIssue('SoNumber', NEW.cmhead_number);
     END IF;
   END IF;
 

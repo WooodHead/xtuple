@@ -48,7 +48,7 @@ BEGIN
     END IF;
 
     --- clear the number from the issue cache if applicable
-    PERFORM clearNumberIssue('ARMemoNumber', NEW.aropen_docnumber::INTEGER);
+    PERFORM clearNumberIssue('ARMemoNumber', NEW.aropen_docnumber);
   END IF;
 
 -- Determine the number of late invoices

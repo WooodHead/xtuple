@@ -18,7 +18,7 @@ BEGIN
 
     IF (TG_OP = 'INSERT' AND fetchMetricText('CRMAccountNumberGeneration') IN ('A','O') AND isNumeric(NEW.salesrep_number)) THEN
       --- clear the number from the issue cache
-      PERFORM clearNumberIssue('CRMAccountNumber', NEW.salesrep_number::INTEGER);
+      PERFORM clearNumberIssue('CRMAccountNumber', NEW.salesrep_number);
     END IF;
 
     NEW.salesrep_number = UPPER(NEW.salesrep_number);

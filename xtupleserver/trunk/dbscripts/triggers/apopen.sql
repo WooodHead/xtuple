@@ -30,7 +30,7 @@ BEGIN
     END IF;
 
      --- clear the number from the issue cache
-    PERFORM clearNumberIssue('APMemoNumber', NEW.apopen_docnumber::INTEGER);
+    PERFORM clearNumberIssue('APMemoNumber', NEW.apopen_docnumber);
   END IF;
   
   IF (TG_OP = 'UPDATE') THEN
