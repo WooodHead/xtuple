@@ -9,7 +9,7 @@ BEGIN
 
   IF (TG_OP = 'INSERT') THEN
     --- clear the number from the issue cache
-    PERFORM clearNumberIssue('ContactNumber', NEW.cntct_number::INTEGER);
+    PERFORM clearNumberIssue('ContactNumber', NEW.cntct_number);
   END IF;
   
   RETURN NEW;

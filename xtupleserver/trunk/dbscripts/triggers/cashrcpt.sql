@@ -32,7 +32,7 @@ BEGIN
     _currId = COALESCE(NEW.cashrcpt_curr_id, basecurrid());
 
      --- clear the number from the issue cache
-    PERFORM clearNumberIssue('CashRcptNumber', NEW.cashrcpt_number::INTEGER);
+    PERFORM clearNumberIssue('CashRcptNumber', NEW.cashrcpt_number);
   ELSE
     _currId = NEW.cashrcpt_curr_id;
   END IF;

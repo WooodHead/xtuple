@@ -45,10 +45,10 @@ BEGIN
     
     IF (fetchMetricText('QUNumberGeneration') IN ('A','O')) THEN
       --- clear the number from the issue cache
-      PERFORM clearNumberIssue('QuNumber', NEW.quhead_number::INTEGER);
+      PERFORM clearNumberIssue('QuNumber', NEW.quhead_number);
     ELSIF (fetchMetricText('QUNumberGeneration') = 'S') THEN
       --- clear the number from the issue cache
-      PERFORM clearNumberIssue('SoNumber', NEW.quhead_number::INTEGER);
+      PERFORM clearNumberIssue('SoNumber', NEW.quhead_number);
     END IF;
     
   ELSE
