@@ -1,0 +1,1 @@
+ALTER TABLE ccpay ADD COLUMN ccpay_ccpay_id integer;
