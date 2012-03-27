@@ -157,7 +157,7 @@ specific configurations:
   <section>
     <title>Get and install Subversion</title>
     <para os="windows">You can find binary packages of Subversion at <ulink
-    url="http://subversion.tigris.org/project_packages.html">http://subversion.apache.org/project_packages.html</ulink>.</para>
+    url="http://subversion.tigris.org/project_packages.html">http://subversion.apache.org/download</ulink>.</para>
     <para os="macosx">The command line utilities for Subversion are installed
     with Xcode.</para>
     <para os="linux">Most Linux distributions have packages available for
@@ -173,17 +173,22 @@ specific configurations:
     <para>Git is a version control system used by some of xTuple's development
     partners. You will need it to build the email integration portions of
     xTuple Connect.</para>
-    <para userlevel="installfrompkg">Go to <ulink
+    <para os="linux macosx" userlevel="installfrompkg">Go to <ulink
     url="???">http://git-scm.com/</ulink> and click Download. Click on the
     link for your operating system. Click on the link for your particular work
     environment. Run the downloaded executable or open the .dmg.</para>
     <para os="linux">Most Linux distributions have a git package, typically
     called "git". If yours does not, you will have to build git from
     source.</para>
-    <para userlevel="installfromsrc">To build Git from sources, go to
-    http://www.kernel.org/pub/software/scm/git/ and click on the link for a
-    recent <literal>git-version.tar.gz</literal> to download it. Then follow
-    the steps in the INSTALL file.</para>
+    <para os="linux" userlevel="installfromsrc">To build Git from sources, go
+    to <ulink
+    url="http://www.kernel.org/pub/software/scm/git/">http://www.kernel.org/pub/software/scm/git/</ulink>
+    and click on the link for a recent <literal>git-version.tar.gz</literal>
+    to download it. Then follow the steps in the INSTALL file.</para>
+    <para os="windows">For installation on Windows, go to <ulink
+    url="http://help.github.com/win-set-up-git/"><link
+    linkend="???">http://help.github.com/win-set-up-git/</link></ulink>.
+    Follow the instructions and accept the default values.</para>
   </section>
   <section>
     <title>Get and install PostgreSQL</title>
@@ -195,9 +200,9 @@ specific configurations:
     <table>
       <title>PostgreSQL compatibility</title>
       <tgroup cols="3">
-        <colspec colnum="1" colwidth="1*" />
-        <colspec colnum="2" colwidth="1*" />
-        <colspec colnum="3" colwidth="2*" />
+        <colspec colnum="1" colwidth="1*"/>
+        <colspec colnum="2" colwidth="1*"/>
+        <colspec colnum="3" colwidth="2*"/>
         <tbody>
           <row>
             <entry>xTuple ERP</entry>
@@ -222,7 +227,7 @@ specific configurations:
                 </row>
               </tbody>
             </entrytbl>
-            <entry></entry>
+            <entry/>
           </row>
           <row>
             <entrytbl cols="2">
@@ -238,7 +243,7 @@ specific configurations:
                 <row>
                   <entry>8.0</entry>
                   <entry>8.3</entry>
-                  <entry></entry>
+                  <entry/>
                 </row>
               </tbody>
             </entrytbl>
@@ -376,7 +381,7 @@ $ bin/psql -d template1 -f share/postgresql/contrib/pgcrypto.sql </programlistin
     <para userlevel="installfromsrc">To build PostgreSQL from source, first
     download the source code from <ulink
     url="www.postgresql.org">www.postgresql.org</ulink>:</para>
-    <orderedlist userlevel="installfromsrc">
+    <orderedlist os="linux" userlevel="installfromsrc">
       <listitem>
         <para>Click DOWNLOADS</para>
       </listitem>
@@ -415,9 +420,7 @@ $ bin/psql -d template1 -f share/postgresql/contrib/pgcrypto.sql </programlistin
     from source code</ulink>.</para>
     <para condition="msvc" os="windows" userlevel="installfromsrc">If you plan
     to build Qt from source, you will need to build the client-side library
-    for PostgreSQL from source. Microsoft Visual C++ Express is not supported
-    by PostgreSQL and you cannot build the entire database server with it but
-    you can still build the pieces you need.<orderedlist>
+    for PostgreSQL from source.<orderedlist>
         <listitem>
           <para>Extract the contents of the archive to C:\postgresql</para>
         </listitem>
@@ -521,9 +524,9 @@ $ su
       <title>Qt versions required to build various releases of xTuple
       ERP</title>
       <tgroup cols="3">
-        <colspec colnum="1" colwidth="1*" />
-        <colspec colnum="2" colwidth="1*" />
-        <colspec colnum="3" colwidth="3*" />
+        <colspec colnum="1" colwidth="1*"/>
+        <colspec colnum="2" colwidth="1*"/>
+        <colspec colnum="3" colwidth="3*"/>
         <tbody>
           <row>
             <entry>xTuple ERP</entry>
@@ -539,8 +542,8 @@ $ su
                 </row>
               </tbody>
             </entrytbl>
-            <entry></entry>
-            <entry userlevel="installfromsrc"></entry>
+            <entry/>
+            <entry userlevel="installfromsrc"/>
           </row>
           <row>
             <entrytbl cols="2">
@@ -662,7 +665,7 @@ $ su
               <tbody>
                 <row>
                   <entry>3.8.1???</entry>
-                  <entry></entry>
+                  <entry/>
                 </row>
               </tbody>
             </entrytbl>
@@ -840,24 +843,32 @@ set PATH=%PATH%;C:\Qt\2009.03\qt</programlisting></para>
     you are setting the value in the System Properties window, you won't have
     to type the VARIABLE=. Make sure you use the 8.3 file names, not the long
     filenames, when setting these environment variables. For example, you may
-    need to type C:\PROGRA~1 instead of C:\Program Files.<programlisting>PATH=C:\Program Files\Microsoft Visual Studio 8\VC\bin;
-   C:\Program Files\Microsoft Visual Studio 8\Common\IDE;
-   C:\Program Files\Microsoft Platform SDK for Windows Server 2003 R2\Bin;
-   C:\postgresql\postgresql-version\src\interfaces\libpq\Release;
+    need to type C:\PROGRA~1 instead of C:\Program Files.<programlisting>PATH=C:\Program Files\Microsoft Visual Studio 10.0\VC\bin;
+   C:\Program Files\Microsoft Visual Studio 10.0\Common\IDE;
+   C:\Program Files\Microsoft SDKs\Windows\v7.0A\Bin;
+   C:\postgresql\postgresql-version\include\libpq;
    C:\qt\qt-everywhere-opensource-src-4.8.0\bin
+   C:\Windows\system32;
+
 INCLUDE=C:\Program Files\Microsoft Visual Studio 8\VC\include;
-      C:\Program Files\Microsoft Platform SDK for Windows Server 2003 R2\Include;
-      C:\postgresql\postgresql-version\src\include;
-      C:\postgresql\postgresql-version\src\interfaces\libpq;
+      C:\Program Files\Microsoft SDKs\Windows\V7.0A\Include;
+      C:\postgresql\postgresql-version\include;
+      C:\postgresql\postgresql-version\include\libpq;
       C:\qt\qt-everywhere-opensource-src-4.8.0\include
-LIB=C:\Program Files\Microsoft Platform SDK for Windows Server 2003 R2\Lib;
-  C:\postgresql\postgresql-version\src\interfaces\libpq\Release;
+LIB=C:\Program Files\Microsoft SDKs\Windows\V7.0A\Lib;
+  C:\postgresql\postgresql-version\Lib\libpq;
   C:\qt\qt-everywhere-opensource-src-4.8.0\lib</programlisting>In addition to
     the normal Windows environment settings, Qt has a special Qt Command
     Prompt command which overrides the PATH set in the System Properties. You
     will need to edit C:\Qt\2009.04\bin\qtenv.bat with a text editor to change
     the PATH set in that .bat file. Add the following lines:<programlisting>set PATH=%PATH%;C:\Qt\pgsql\bin
 set PATH=%PATH%;C:\Qt\2009.03\qt</programlisting></para>
+    <note condition="msvc" os="windows">
+      <para>Make sure to double check that the path to the file is correct,
+      different systems and versions may have different paths to the file(s).
+      Setting an incorrect value may cause programs to behave
+      incorrectly.</para>
+    </note>
     <programlisting os="macosx">PATH=/opt/postgresql/pg-version/bin:/opt/qt/qt-version/bin</programlisting>
     <programlisting os="linux">PATH=/opt/bin:/opt/qt/Qt-version/bin
 INCLUDE=/opt/include:/opt/qt/Qt-version/include
@@ -923,6 +934,8 @@ $ cd postbooks-checkout-area
 $ svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtuple/trunk xtuple
 $ svn co https://openrpt.svn.sourceforge.net/svnroot/openrpt/openrpt/trunk openrpt
 $ svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/csvimp/trunk csvimp</programlisting>
+    <para>Note: Make sure to copy the link exactly listed, the name after the
+    hyperlink designates the file and location on your local computer.</para>
     <para>Here is an example using RapidSVN on Windows. It places the source
     files in C:\Qt\xTuple-src.</para>
     <orderedlist>
@@ -931,8 +944,8 @@ $ svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/csvimp/trunk cs
       </listitem>
       <listitem>
         <para>In RapidSVN click REPOSITORY - CHECKOUT. Enter the URL and
-        destination directory. Do this four times with the following
-        URL/Directory combinations:<programlisting>https://openrpt.svn.sourceforge.net/svnroot/openrpt/openrpt/trunk C:\Qt\xTuple-src\openrpt
+        destination directory. Do this three times with the following
+        URL/Directory combinations:<programlisting>https://postbooks.svn.sourceforge.net/svnroot/postbooks/openrpt/trunk C:\Qt\xTuple-src\openrpt
 https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtuple/trunk C:\Qt\xTuple-src\xtuple 
 https://postbooks.svn.sourceforge.net/svnroot/postbooks/csvimp/trunk C:\Qt\xTuple-src\csvimp</programlisting></para>
         <para>Accept a security key for each host when you connect. Once the
@@ -943,6 +956,8 @@ https://postbooks.svn.sourceforge.net/svnroot/postbooks/csvimp/trunk C:\Qt\xTupl
   <section>
     <title>Build OpenRPT</title>
     <para>Next build OpenRPT:</para>
+    <para os="windows">Using the Qt command prompt use the following commands
+    in order to compile the downloaded source code.</para>
     <programlisting condition="mingw" os="windows">&gt; cd OpenRPT-checkout-dir
 &gt; qmake
 &gt; mingw32-make</programlisting>
@@ -983,6 +998,16 @@ $ make</programlisting>
     <title>Build CSVImp</title>
     <para>Next build CSVImp. Follow exactly the same steps as for OpenRPT,
     only change to the CSVImp checkout directory first.</para>
+    <warning condition="msvc" os="windows">
+      <para>Sometimes people get a build error at this point. If nmake
+      complains with <code><literal>fatal error U1073 don't know how to make
+      '..\..\openrpt\lib\common.lib'</literal></code> then you may have to
+      change the configuration in OpenRPT and rebuild there before continuing.
+      Edit <filename>openrpt/global.pri</filename> or
+      <filename>openrpt/win32.pri</filename> and turn off debugging in the
+      configuration (either add a line <code>CONFIG -= debug</code> or simply
+      remove the word debug if it's already there.</para>
+    </warning>
   </section>
   <section>
     <title>Build the main xTuple application</title>
