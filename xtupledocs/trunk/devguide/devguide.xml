@@ -7,24 +7,25 @@
   <titleabbrev>xTuple Developer Guide</titleabbrev>
   <bookinfo>
     <copyright>
-      <year>1998-2011</year>
+      <year>1998-2012</year>
       <holder>xTuple</holder>
     </copyright>
-    <pubdate>August 2011</pubdate>
-    <releaseinfo>Version 3.8alpha</releaseinfo>
+    <pubdate>March 2012</pubdate>
+    <releaseinfo>Version 4.0.0alpha</releaseinfo>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/splashXTuple.png" />
       </imageobject>
     </mediaobject>
   </bookinfo>
-  <chapter>
+  <part>
     <title>Development Environment Setup</title>
-    <section>
+    <preface>
       <title>Overview</title>
-      <para>This chapter describes the tools you need and the steps you must
-      follow to create a software environment to contribute to the open source
-      xTuple software projects:</para>
+      <para>This part of the <citetitle>xTuple Developer Guide</citetitle>
+      describes the tools you need and the steps you must follow to create a
+      software environment to contribute to the open source xTuple software
+      projects:</para>
       <itemizedlist>
         <listitem>
           <para>OpenRPT</para>
@@ -46,8 +47,12 @@
       and have worked with tools similar to those described below. This
       chapter does not describe the only way to do things, just those we have
       tried with success.</para>
+      <para>It covers specific steps and details required to create a C++
+      development environment. People who simply want to create xTuple ERP
+      application scripts and scripted packages, or people who want to write
+      reports, can skip the next few chapters.</para>
       <tip>
-        <para>Read the section for your build environment in its entirety
+        <para>Read the chapter for your build environment in its entirety
         before attempting this process.</para>
       </tip>
       <para>The following tools all have to be present to successfully create
@@ -105,36 +110,7 @@
           xTuple packages</para>
         </listitem>
       </itemizedlist>
-      <para>See <xref linkend="devenvsetup.otherthings" /> for some other
-      tools you might find handy.</para>
-    </section>
-    <xi:include href="devEnvSetup_windows_installfromsrc_msvc.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="devEnvSetup_windows_installfrompkg_msvc.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="devEnvSetup_windows_installfromsrc_mingw.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="devEnvSetup_windows_installfrompkg_mingw.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="devEnvSetup_macosx_installfromsrc_.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="devEnvSetup_macosx_installfrompkg_.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="devEnvSetup_linux_installfromsrc_.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="devEnvSetup_linux_installfrompkg_.xml"
-                xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="devenvsetup.otherthings">
-      <title>Other things you may need</title>
-      <para>You might also need the following tools, depending on what your
+      <para>You might also want the following tools, depending on what your
       role is in the development effort:</para>
       <variablelist>
         <varlistentry>
@@ -183,7 +159,41 @@
           </listitem>
         </varlistentry>
       </variablelist>
-    </section>
-  </chapter>
+    </preface>
+    <xi:include href="devEnvSetup_windows_installfromsrc_msvc.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_windows_installfrompkg_msvc.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_windows_installfromsrc_mingw.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_windows_installfrompkg_mingw.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_macosx_installfromsrc_.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_macosx_installfrompkg_.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_linux_installfromsrc_.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="devEnvSetup_linux_installfrompkg_.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </part>
+  <part>
+    <title></title>
+    <chapter>
+      <title></title>
+      <section>
+        <title></title>
+        <para></para>
+      </section>
+    </chapter>
+  </part>
   <index></index>
 </book>
