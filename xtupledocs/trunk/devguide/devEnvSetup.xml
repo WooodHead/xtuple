@@ -17,11 +17,6 @@ specific configurations:
   os        windows, linux, macosx     platform-specific
   condition mingw, msvc                compiler-specific, only use when os=windows
   userlevel installfromsrc, installfrompkg-->
-  <para>This chapter is intended for use by experienced software developers
-  who need to modify the xTuple ERP source code. It covers specific steps and
-  details required to create a C++ development environment. People who simply
-  want to create xTuple ERP application scripts and scripted packages, or
-  people who want to write reports, can skip this chapter.</para>
   <section>
     <title>Operating System and Basic Development Tools</title>
     <para os="windows">xTuple recommends using MinGW for developing on Windows
@@ -200,9 +195,9 @@ specific configurations:
     <table>
       <title>PostgreSQL compatibility</title>
       <tgroup cols="3">
-        <colspec colnum="1" colwidth="1*"/>
-        <colspec colnum="2" colwidth="1*"/>
-        <colspec colnum="3" colwidth="2*"/>
+        <colspec colnum="1" colwidth="1*" />
+        <colspec colnum="2" colwidth="1*" />
+        <colspec colnum="3" colwidth="2*" />
         <tbody>
           <row>
             <entry>xTuple ERP</entry>
@@ -227,30 +222,7 @@ specific configurations:
                 </row>
               </tbody>
             </entrytbl>
-            <entry/>
-          </row>
-          <row>
-            <entrytbl cols="2">
-              <tbody>
-                <row>
-                  <entry>3.0</entry>
-                  <entry>3.1.0</entry>
-                </row>
-              </tbody>
-            </entrytbl>
-            <entrytbl cols="3">
-              <tbody>
-                <row>
-                  <entry>8.0</entry>
-                  <entry>8.3</entry>
-                  <entry/>
-                </row>
-              </tbody>
-            </entrytbl>
-            <entry userlevel="installfromsrc">--without-openssl
-            --prefix=/dir/where/you/want/to/install/postgresql<para
-            os="macosx"
-            userlevel="installfromsrc">--with-bonjour</para></entry>
+            <entry></entry>
           </row>
           <row>
             <entrytbl cols="2">
@@ -260,8 +232,11 @@ specific configurations:
                   <entry>3.7.3</entry>
                 </row>
                 <row>
-                  <entry>3.7.4, 3.8.0</entry>
-                  <entry>?</entry>
+                  <entry>3.7.4</entry>
+                  <entry></entry>
+                </row>
+                <row>
+                  <entry>3.8.0</entry>
                 </row>
               </tbody>
             </entrytbl>
@@ -276,6 +251,9 @@ specific configurations:
                   <entry>8.2</entry>
                   <entry>9.0.4</entry>
                   <entry>9.0.4</entry>
+                </row>
+                <row>
+                  <entry>8.4</entry>
                 </row>
               </tbody>
             </entrytbl>
@@ -524,9 +502,9 @@ $ su
       <title>Qt versions required to build various releases of xTuple
       ERP</title>
       <tgroup cols="3">
-        <colspec colnum="1" colwidth="1*"/>
-        <colspec colnum="2" colwidth="1*"/>
-        <colspec colnum="3" colwidth="3*"/>
+        <colspec colnum="1" colwidth="1*" />
+        <colspec colnum="2" colwidth="1*" />
+        <colspec colnum="3" colwidth="3*" />
         <tbody>
           <row>
             <entry>xTuple ERP</entry>
@@ -542,111 +520,15 @@ $ su
                 </row>
               </tbody>
             </entrytbl>
-            <entry/>
-            <entry userlevel="installfromsrc"/>
-          </row>
-          <row>
-            <entrytbl cols="2">
-              <tbody>
-                <row>
-                  <entry>??</entry>
-                  <entry>??</entry>
-                </row>
-              </tbody>
-            </entrytbl>
-            <entrytbl cols="1">
-              <tbody>
-                <row>
-                  <entry>4.1</entry>
-                </row>
-              </tbody>
-            </entrytbl>
-            <entry userlevel="installfromsrc">-plugin-sql-psql -qt-gif
-            -I/path/to/postgresql/include-L/path/to/postgresql/lib<para
-            os="windows"
-            userlevel="installfromsrc">-qt-style-windowsxp</para><para
-            os="macosx"
-            userlevel="installfromsrc">-no-framework</para></entry>
-          </row>
-          <row>
-            <entrytbl cols="2">
-              <tbody>
-                <row>
-                  <entry>2.1.0</entry>
-                  <entry>2.2.1</entry>
-                </row>
-              </tbody>
-            </entrytbl>
-            <entry>4.2.3</entry>
-            <entry
-            userlevel="installfromsrc">-shared-release-qt-sql-psql-qt-sql-odbc-qt-zlib
-            -qt-gif -qt-libpng-qt-libjpeg
-            -I/path/to/postgresql/include-L/path/to/postgresql/lib<para
-            os="windows"
-            userlevel="installfromsrc">-qt-style-windowsxp</para><para
-            os="macosx" userlevel="installfromsrc">-no-framework
-            -universal</para></entry>
-          </row>
-          <row>
-            <entrytbl cols="2">
-              <tbody>
-                <row>
-                  <entry>2.3.0</entry>
-                  <entry>3.1.0</entry>
-                </row>
-              </tbody>
-            </entrytbl>
-            <entry>4.3.2</entry>
-            <entry userlevel="installfromsrc">-shared -release -qt-sql-psql
-            -qt-sql-odbc -qt-zlib -qt-gif -qt-libpng -qt-libjpeg
-            -I/path/to/postgresql/include -L/path/to/postgresql/lib<para
-            os="windows"
-            userlevel="installfromsrc">-qt-style-windowsxp</para><para
-            os="macosx" userlevel="installfromsrc">-no-framework
-            -universal</para></entry>
-          </row>
-          <row>
-            <entrytbl cols="2">
-              <tbody>
-                <row>
-                  <entry>3.2.0</entry>
-                  <entry>3.2.2</entry>
-                </row>
-              </tbody>
-            </entrytbl>
-            <entry>4.4.3</entry>
-            <entry userlevel="installfromsrc">-plugin-sql-psql
-            -plugin-sql-odbc -plugin-sql-sqlite -qt-zlib -qt-gif -qt-libtiff
-            -qt-libpng -qt-libmng -qt-libjpeg -I/path/to/postgresql/include
-            -L/path/to/postgresql/lib<para os="windows"
-            userlevel="installfromsrc">-qt-style-windowsxp</para><para
-            os="macosx" userlevel="installfromsrc">-no-framework
-            -universal</para></entry>
-          </row>
-          <row>
-            <entrytbl cols="2">
-              <tbody>
-                <row>
-                  <entry>3.3.0</entry>
-                  <entry>3.5.x</entry>
-                </row>
-              </tbody>
-            </entrytbl>
-            <entry>4.5.1 or Qt SDK 2009.04</entry>
-            <entry userlevel="installfromsrc">-plugin-sql-psql
-            -plugin-sql-odbc -plugin-sql-sqlite -qt-zlib -qt-gif -qt-libtiff
-            -qt-libpng -qt-libmng -qt-libjpeg -I/path/to/postgresql/include
-            -L/path/to/postgresql/lib<para os="windows"
-            userlevel="installfromsrc">-qt-style-windowsxp</para><para
-            os="macosx" userlevel="installfromsrc">-no-framework
-            -universal</para></entry>
+            <entry></entry>
+            <entry userlevel="installfromsrc"></entry>
           </row>
           <row>
             <entrytbl cols="2">
               <tbody>
                 <row>
                   <entry>3.6.0</entry>
-                  <entry>3.8.0</entry>
+                  <entry>3.8.1</entry>
                 </row>
               </tbody>
             </entrytbl>
@@ -664,8 +546,8 @@ $ su
             <entrytbl cols="2">
               <tbody>
                 <row>
-                  <entry>3.8.1???</entry>
-                  <entry/>
+                  <entry>4.0.0???</entry>
+                  <entry></entry>
                 </row>
               </tbody>
             </entrytbl>
@@ -932,7 +814,7 @@ LD_LIBRARY_PATH=/opt/lib:/opt/qt/Qt-version/lib</programlisting>
     <programlisting>$ mkdir postbooks-checkout-area
 $ cd postbooks-checkout-area
 $ svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtuple/trunk xtuple
-$ svn co https://openrpt.svn.sourceforge.net/svnroot/openrpt/openrpt/trunk openrpt
+$ svn co https://postbooks.svn.sourceforge.net/svnroot/openrpt/openrpt/trunk openrpt
 $ svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/csvimp/trunk csvimp</programlisting>
     <para>Note: Make sure to copy the link exactly listed, the name after the
     hyperlink designates the file and location on your local computer.</para>
