@@ -6,8 +6,9 @@ March 30, 2012
 
 This is the alpha release of version 4.0.0. This release includes
 several new features and bug fixes. As always, we are looking for
-feedback from alpha testers. But please do not use alpha software
-in production.
+feedback from alpha testers. However, if you do test the alpha, 
+please be reminded alpha software should not be used in live
+production.
 
 Information about compatibility issues related to this software
 version can be found on the xTuple Compatibility Matrix at the
@@ -15,12 +16,18 @@ following address: www.xtuple.org/compatibility-matrix.
 
 Here's an overview of notable new features in this release:
 
-Enter feature here
-  * Added feature details.
+Added tabs to desktop
+  * Converted "inside the desktop" view to use tabs for every 
+    open screen 
 
-Enter feature here
-  * Added feature details.
+Enhanced Job Costing functionality 
+  * Purchase-to-Job
+  * Automatic issue of Purchased Items to Work Orders
+  * Job Costing for child Work Orders
 
+Multiple Project updates
+  * Ability to copy Projects
+  * And more
 
 ==================================
 
@@ -30,7 +37,31 @@ may be found on our community website under the Issue Tracker.
 
 New Features:
 
-*
+* Change Workspace mode to used tabbed MDI Area [16319]
+* Update Unposted Invoices to use display class [16383]
+* Posting Bank Adjustment [16571]
+* Enhance Operation Buffer Status report [16602]
+* Add Purchase-to-Job and automatic issue capability for purchased items [16604]
+* Add Costing over-ride on the Bill of Materials [16605]
+* Add job costing capability for child work orders [16606]
+* Incidents should be enhanced to be filterable on Item and Lot/Serial numbers [16607]
+* CRM Account and Contact should be added as standard associations for Project [16609]
+* Add additional filters to Project List [16610]
+* The assigned date should automatically populate on a Project or Project Task when the document is assigned [16611]
+* The completed date should automatically populate on a Project or Project Task when the document status is changed to completed [16612]
+* Project and Project Task should be modified to be able to keep track of date changes by whom and when [16613]
+* A/R Credit Memo does not release number [11573]
+* schema_path search [13211]
+* Config option on license manager [15451]
+* Add WEIGHTSCALE to format options [15851]
+* Add costs and BOM data on the item master window [16315]
+* Add the ability to copy Projects [16615]
+* Add support for recursive lot tracing for items posted through Misc. Production Posting [16616]
+* Make gltrans and sltrans share the same id sequence [17083]
+* Make ship form not mandatory in the application [17085]
+* Toggle of bankrecitem to uncleared should delete the bankrecitem [17086]
+* Create additional transaction type default locations with automatic distribution [17112]
+* Reimplement order sequence numbering to prevent number gaps and collisions [17119]
 
 
 Bug Fixes:
