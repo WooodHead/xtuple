@@ -22,6 +22,7 @@
  FROM (
  SELECT planord_id, planord_itemsite_id,
         planord.*,
+        (select plancode_code from plancode where plancode_id = itemsite.itemsite_plancode_id) as plancode,
         formatPloNumber(planord_id) AS ordernum,
         CASE WHEN (planord_type='P') THEN 'P/O'
              WHEN (planord_type='W') THEN 'W/O'
@@ -38,6 +39,7 @@
         (item_descrip1 || ' ' || item_descrip2) AS item_descrip,
         firstline(planord_comments) AS comments,
         uom_name,
+        classcode_descrip,
  <? if exists("useActualCost") ?>
         (actcost(item_id) * planord_qty)
  <? elseif exists("useStandardCost") ?>
@@ -84,11 +86,15 @@
               JOIN whsinfo ON (itemsite.itemsite_warehous_id=whsinfo.warehous_id)
               JOIN item ON (itemsite.itemsite_item_id=item_id)
               JOIN uom ON (item_inv_uom_id=uom_id)
+              LEFT OUTER JOIN classcode ON ( classcode_id = item_classcode_id)
               LEFT OUTER JOIN itemsite supplyitemsite ON (planord_supply_itemsite_id=supplyitemsite.itemsite_id)
               LEFT OUTER JOIN whsinfo supplywhsinfo ON (supplyitemsite.itemsite_warehous_id=supplywhsinfo.warehous_id)
  WHERE (TRUE
  <? if exists("item_id") ?>
     AND (itemsite.itemsite_item_id=<? value("item_id") ?>)
+ <? endif ?>
+ <? if exists("classcode_id") ?>
+    AND (item.item_classcode_id=<? value("classcode_id") ?>)
  <? endif ?>
  <? if exists("plancode_id") ?>
     AND (itemsite.itemsite_plancode_id=<? value("plancode_id") ?>)
