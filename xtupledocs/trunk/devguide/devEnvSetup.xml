@@ -566,8 +566,21 @@ $ su
     <para userlevel="installfrompkg">Get and install Nokia's Qt. You can
     download it from <ulink
     url="http://qt.nokia.com/downloads/">http://qt.nokia.com/downloads/</ulink>.
-    Click on the LGPL tab, then select the Download Qt SDK for your
-    platform.</para>
+    Click on the LGPL tab, then select the Download Qt SDK for your platform.
+    When installing the QtSDK package, make sure you click install
+    QtSources.</para>
+    <para>Additional configuration is required after installing QtSDK and
+    PostgreSQL:</para>
+    <programlisting>%cd /where/qt/is/installed/QtSDK/QtSources/version/src/plugins/sqldrivers/psql</programlisting>
+    <programlisting>%qmake "INCLUDEPATH+=/where/qt/is/installed/QtSDK/QtSources/version/src/plugins/sqldrivers/psql" 
+"LIBS+=-L/where/postgreSQL/is/installed/PostgreSQL/version/include -lpq" psql.pro 
+%make</programlisting>
+    <para>This builds the postgreSQL driver necessary to run the xtuple
+    application the next step is to copy that driver into your QtSDK
+    directory:</para>
+    <programlisting>%cd /where/qt/is/installed/QtSDK/Simulator/Qt/gcc/lib
+%cp /where/qt/is/installed/QtSDK/QtSources/version/src/plugins/sqldrivers/psql/libqsqlpsql.so .</programlisting>
+    <para/>
     <para condition="msvc" os="windows" userlevel="installfrompkg">The
     prebuilt package for Qt using MSVC can be downloaded from <ulink
     url="http://qt.nokia.com/downloads/windows-cpp-vs2008">http://qt.nokia.com/downloads/windows-cpp-vs2008</ulink>.
@@ -814,7 +827,7 @@ LD_LIBRARY_PATH=/opt/lib:/opt/qt/Qt-version/lib</programlisting>
     <programlisting>$ mkdir postbooks-checkout-area
 $ cd postbooks-checkout-area
 $ svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/xtuple/trunk xtuple
-$ svn co https://postbooks.svn.sourceforge.net/svnroot/openrpt/openrpt/trunk openrpt
+$ svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/openrpt/trunk openrpt
 $ svn co https://postbooks.svn.sourceforge.net/svnroot/postbooks/csvimp/trunk csvimp</programlisting>
     <para>Note: Make sure to copy the link exactly listed, the name after the
     hyperlink designates the file and location on your local computer.</para>
