@@ -140,7 +140,7 @@ specific configurations:
         <para>unixodbc-dev</para>
       </listitem>
       <listitem>
-        <para>zlib1g-dev</para>
+        <para>zlib-devel</para>
       </listitem>
     </itemizedlist>
     <note os="linux">
@@ -195,9 +195,9 @@ specific configurations:
     <table>
       <title>PostgreSQL compatibility</title>
       <tgroup cols="3">
-        <colspec colnum="1" colwidth="1*" />
-        <colspec colnum="2" colwidth="1*" />
-        <colspec colnum="3" colwidth="2*" />
+        <colspec colnum="1" colwidth="1*"/>
+        <colspec colnum="2" colwidth="1*"/>
+        <colspec colnum="3" colwidth="2*"/>
         <tbody>
           <row>
             <entry>xTuple ERP</entry>
@@ -222,7 +222,7 @@ specific configurations:
                 </row>
               </tbody>
             </entrytbl>
-            <entry></entry>
+            <entry/>
           </row>
           <row>
             <entrytbl cols="2">
@@ -233,7 +233,7 @@ specific configurations:
                 </row>
                 <row>
                   <entry>3.7.4</entry>
-                  <entry></entry>
+                  <entry/>
                 </row>
                 <row>
                   <entry>3.8.0</entry>
@@ -502,9 +502,9 @@ $ su
       <title>Qt versions required to build various releases of xTuple
       ERP</title>
       <tgroup cols="3">
-        <colspec colnum="1" colwidth="1*" />
-        <colspec colnum="2" colwidth="1*" />
-        <colspec colnum="3" colwidth="3*" />
+        <colspec colnum="1" colwidth="1*"/>
+        <colspec colnum="2" colwidth="1*"/>
+        <colspec colnum="3" colwidth="3*"/>
         <tbody>
           <row>
             <entry>xTuple ERP</entry>
@@ -520,8 +520,8 @@ $ su
                 </row>
               </tbody>
             </entrytbl>
-            <entry></entry>
-            <entry userlevel="installfromsrc"></entry>
+            <entry/>
+            <entry userlevel="installfromsrc"/>
           </row>
           <row>
             <entrytbl cols="2">
@@ -547,7 +547,7 @@ $ su
               <tbody>
                 <row>
                   <entry>4.0.0???</entry>
-                  <entry></entry>
+                  <entry/>
                 </row>
               </tbody>
             </entrytbl>
@@ -571,15 +571,15 @@ $ su
     QtSources.</para>
     <para>Additional configuration is required after installing QtSDK and
     PostgreSQL:</para>
-    <programlisting>%cd /where/qt/is/installed/QtSDK/QtSources/version/src/plugins/sqldrivers/psql</programlisting>
-    <programlisting>%qmake "INCLUDEPATH+=/where/qt/is/installed/QtSDK/QtSources/version/src/plugins/sqldrivers/psql" 
+    <programlisting>$cd /where/qt/is/installed/QtSDK/QtSources/version/src/plugins/sqldrivers/psql</programlisting>
+    <programlisting>$qmake "INCLUDEPATH+=/where/qt/is/installed/QtSDK/QtSources/version/src/plugins/sqldrivers/psql" 
 "LIBS+=-L/where/postgreSQL/is/installed/PostgreSQL/version/include -lpq" psql.pro 
-%make</programlisting>
+$make</programlisting>
     <para>This builds the postgreSQL driver necessary to run the xtuple
     application the next step is to copy that driver into your QtSDK
     directory:</para>
-    <programlisting>%cd /where/qt/is/installed/QtSDK/Simulator/Qt/gcc/lib
-%cp /where/qt/is/installed/QtSDK/QtSources/version/src/plugins/sqldrivers/psql/libqsqlpsql.so .</programlisting>
+    <programlisting>$cd /where/qt/is/installed/QtSDK/Simulator/Qt/gcc/lib
+$cp /where/qt/is/installed/QtSDK/QtSources/version/src/plugins/sqldrivers/psql/libqsqlpsql.so .</programlisting>
     <para/>
     <para condition="msvc" os="windows" userlevel="installfrompkg">The
     prebuilt package for Qt using MSVC can be downloaded from <ulink
