@@ -100,7 +100,7 @@ BEGIN
     END IF;
 
     IF (NEW.crmacct_prospect_id IS NOT NULL) THEN
-      _gotpriv := grantPriv(getEffectiveXtUser(), 'MaintaiProspectMasters');
+      _gotpriv := grantPriv(getEffectiveXtUser(), 'MaintainProspectMasters');
       UPDATE prospect SET prospect_number = NEW.crmacct_number
       WHERE ((prospect_id=NEW.crmacct_prospect_id)
         AND  (prospect_number!=NEW.crmacct_number));
