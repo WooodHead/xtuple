@@ -76,6 +76,13 @@ BEGIN
       RETURN -4;        -- remove raise exception when all callers check return code
     END IF;
 
+-- refuse to accept postings into nonexistent periods
+    IF NOT EXISTS(SELECT period_id
+                  FROM period
+                  WHERE (_glseries.glseries_distdate BETWEEN period_start AND period_end)) THEN
+      RAISE EXCEPTION 'Cannot post to nonexistent period (%).', pDistDate;
+    END IF;
+
     IF (fetchMetricBool('UseJournals')) THEN
       INSERT INTO sltrans
       ( sltrans_posted, sltrans_created, sltrans_date, sltrans_misc_id,

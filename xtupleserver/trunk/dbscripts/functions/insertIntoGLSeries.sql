@@ -105,6 +105,13 @@ BEGIN
     RETURN -4;  -- remove raise exception when all callers check return code
   END IF;
 
+-- refuse to accept postings into nonexistent periods
+  IF NOT EXISTS(SELECT period_id
+                FROM period
+                WHERE (pDistDate BETWEEN period_start AND period_end)) THEN
+    RAISE EXCEPTION 'Cannot post to nonexistent period (%).', pDistDate;
+  END IF;
+
 -- Insert into the glseries
   SELECT NEXTVAL('glseries_glseries_id_seq') INTO _glseriesid;
   INSERT INTO glseries
