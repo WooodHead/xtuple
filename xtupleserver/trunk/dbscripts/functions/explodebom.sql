@@ -43,8 +43,8 @@ BEGIN
 --  Step through all of the components of the parent component
   FOR _r IN SELECT bomitem.*,
                    item_id,
-                   itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyfxd) AS qtyfxd,
-                   itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper,
+                   (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyfxd) AS qtyfxd,
+                   (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) * bomitem_qtyper) AS qtyper,
                    CASE WHEN (_p.bomwork_effective > bomitem_effective) THEN _p.bomwork_effective
                         ELSE bomitem_effective
                    END AS effective,
