@@ -222,4 +222,3 @@ CREATE OR REPLACE RULE "_DELETE" AS
 		WHERE invchead_invcnumber=OLD.invoice_number
 			AND invchead_posted = FALSE
 	);
-
