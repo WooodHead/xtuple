@@ -7,6 +7,10 @@ DECLARE
 
 BEGIN
 
+  IF (NOT fetchMetricBool('InterfaceAPToGL')) THEN
+    RETURN 0;
+  END IF;
+
 --  Check for a Vendor Type specific Account
   SELECT apaccnt_prepaid_accnt_id INTO _accntid
   FROM apaccnt, vend
