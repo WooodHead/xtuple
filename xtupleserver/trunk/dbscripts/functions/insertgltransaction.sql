@@ -134,6 +134,12 @@ BEGIN
   IF (fetchMetricBool('InterfaceToGL') = false AND pSource IN ('I/M', 'P/D', 'S/R', 'W/O')) THEN
     RETURN 0;
   END IF;
+  IF (fetchMetricBool('InterfaceAPToGL') = false AND pSource = 'A/P') THEN
+    RETURN 0;
+  END IF;
+  IF (fetchMetricBool('InterfaceARToGL') = false AND pSource IN ('A/R', 'S/O', 'S/R')) THEN
+    RETURN 0;
+  END IF;
 
 --  Is there anything to post?
 --  ToDo - 2 should really be the scale of the base currency

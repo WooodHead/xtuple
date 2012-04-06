@@ -7,6 +7,10 @@ DECLARE
 
 BEGIN
 
+  IF (NOT fetchMetricBool('InterfaceARToGL')) THEN
+    RETURN 0;
+  END IF;
+
 --  Check for a Customer Type specific Account
   SELECT araccnt_ar_accnt_id INTO _accntid
   FROM araccnt, custinfo
