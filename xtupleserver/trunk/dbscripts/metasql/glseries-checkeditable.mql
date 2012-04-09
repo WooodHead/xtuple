@@ -10,7 +10,7 @@ FROM accnt, gltrans
 WHERE ( (gltrans_accnt_id=accnt_id) 
   AND (gltrans_sequence=<? value("glSequence") ?>) 
   AND ( (gltrans_deleted) 
-     OR (period_freeze) 
+     OR (period_closed) 
      OR (gltrans_rec) 
-     OR (period_closed AND NOT accnt_closedpost) ) )
+     OR (period_freeze AND NOT checkPrivilege('PostFrozenPeriod')) ) )
 LIMIT 1;

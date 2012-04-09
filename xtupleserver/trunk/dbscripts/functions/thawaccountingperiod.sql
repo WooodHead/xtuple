@@ -8,11 +8,18 @@ DECLARE
 
 BEGIN
 
---  Check to make use that the period is frozen
+--  Check to make sure that the period is frozen
   IF ( ( SELECT (NOT period_freeze)
          FROM period
          WHERE (period_id=pPeriodid) ) ) THEN
     RETURN -2;
+  END IF;
+
+--  Check to make sure that the period is not closed
+  IF ( ( SELECT (NOT period_close)
+         FROM period
+         WHERE (period_id=pPeriodid) ) ) THEN
+    RETURN -1;
   END IF;
 
 --  Reset the period_freeze flag
@@ -25,7 +32,6 @@ BEGIN
             FROM gltrans, accnt, period
             WHERE ( (gltrans_accnt_id=accnt_id)
              AND (NOT gltrans_posted)
-             AND (accnt_closedpost)
              AND (gltrans_date BETWEEN period_start AND period_end)
              AND (period_id=pPeriodid) ) LOOP
     PERFORM postIntoTrialBalance(_r.gltrans_sequence);

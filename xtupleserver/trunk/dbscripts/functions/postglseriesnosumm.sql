@@ -66,13 +66,22 @@ BEGIN
                     WHERE ((glseries_amount<>0.0)
                       AND  (glseries_sequence=pSequence)) LOOP
 
--- refuse to accept postings into closed periods if any of the accounts disallow it
-    IF (SELECT NOT BOOL_AND(accnt_closedpost) AND
-               BOOL_AND(COALESCE(period_closed, FALSE))
+-- refuse to accept postings into closed periods
+    IF (SELECT BOOL_AND(COALESCE(period_closed, FALSE))
         FROM accnt LEFT OUTER JOIN
              period ON (_glseries.glseries_distdate BETWEEN period_start AND period_end)
         WHERE (accnt_id = _glseries.glseries_accnt_id)) THEN
       RAISE EXCEPTION 'Cannot post to closed period (%).', _glseries.glseries_distdate;
+      RETURN -4;        -- remove raise exception when all callers check return code
+    END IF;
+
+-- refuse to accept postings into frozen periods without proper priv
+    IF (SELECT NOT BOOL_AND(checkPrivilege('PostFrozenPeriod')) AND
+               BOOL_AND(COALESCE(period_freeze, FALSE))
+        FROM accnt LEFT OUTER JOIN
+             period ON (_glseries.glseries_distdate BETWEEN period_start AND period_end)
+        WHERE (accnt_id = _glseries.glseries_accnt_id)) THEN
+      RAISE EXCEPTION 'Cannot post to frozen period (%).', _glseries.glseries_distdate;
       RETURN -4;        -- remove raise exception when all callers check return code
     END IF;
 

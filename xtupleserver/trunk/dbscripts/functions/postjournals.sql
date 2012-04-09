@@ -26,13 +26,22 @@ BEGIN
                       AND  (sltrans_sequence=pSequence))
                     GROUP BY sltrans_source, sltrans_accnt_id LOOP
 
--- refuse to accept postings into closed periods if any of the accounts disallow it
-    IF (SELECT NOT BOOL_AND(accnt_closedpost) AND
-               BOOL_AND(COALESCE(period_closed, FALSE))
+-- refuse to accept postings into closed periods
+    IF (SELECT BOOL_AND(COALESCE(period_closed, FALSE))
         FROM accnt LEFT OUTER JOIN
              period ON (CURRENT_DATE BETWEEN period_start AND period_end)
         WHERE (accnt_id = _sltrans.sltrans_accnt_id)) THEN
       RAISE EXCEPTION 'Cannot post to closed period (%).', _sltrans.sltrans_distdate;
+      RETURN -4;        -- remove raise exception when all callers check return code
+    END IF;
+
+-- refuse to accept postings into frozen periods without proper priv
+    IF (SELECT NOT BOOL_AND(checkPrivilege('PostFrozenPeriod')) AND
+               BOOL_AND(COALESCE(period_freeze, FALSE))
+        FROM accnt LEFT OUTER JOIN
+             period ON (CURRENT_DATE BETWEEN period_start AND period_end)
+        WHERE (accnt_id = _sltrans.sltrans_accnt_id)) THEN
+      RAISE EXCEPTION 'Cannot post to frozen period (%).', _sltrans.sltrans_distdate;
       RETURN -4;        -- remove raise exception when all callers check return code
     END IF;
 
@@ -116,13 +125,13 @@ BEGIN
                       AND  (sltrans_date BETWEEN pStartDate AND pEndDate))
                     GROUP BY sltrans_source, sltrans_accnt_id LOOP
 
--- refuse to accept postings into closed periods if any of the accounts disallow it
-    IF (SELECT NOT BOOL_AND(accnt_closedpost) AND
-               BOOL_AND(COALESCE(period_closed, FALSE))
+-- refuse to accept postings into frozen periods if any of the accounts disallow it
+    IF (SELECT NOT BOOL_AND(checkPrivilege('PostFrozenPeriod')) AND
+               BOOL_AND(COALESCE(period_freeze, FALSE))
         FROM accnt LEFT OUTER JOIN
              period ON (pDistDate BETWEEN period_start AND period_end)
         WHERE (accnt_id = _sltrans.sltrans_accnt_id)) THEN
-      RAISE EXCEPTION 'Cannot post to closed period (%).', _sltrans.sltrans_distdate;
+      RAISE EXCEPTION 'Cannot post to frozen period (%).', _sltrans.sltrans_distdate;
       RETURN -4;        -- remove raise exception when all callers check return code
     END IF;
 

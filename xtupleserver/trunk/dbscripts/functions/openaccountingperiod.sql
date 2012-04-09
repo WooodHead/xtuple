@@ -15,13 +15,6 @@ BEGIN
     RETURN -1;
   END IF;
 
---  Check to make use that the period is not frozen
-  IF ( ( SELECT period_freeze
-         FROM period
-         WHERE (period_id=pPeriodid) ) ) THEN
-    RETURN -2;
-  END IF;
-
   IF ( ( SELECT (count(period_id) > 0)
            FROM period
           WHERE ((period_end > (
