@@ -19,7 +19,6 @@ SELECT
     ELSE '?'
   END AS type,
   accnt_subaccnttype_code AS sub_type,
-  accnt_closedpost AS allow_posting_to_closed_periods,
   accnt_forwardupdate AS forward_update_trial_balances,
   accnt_comments AS notes
 FROM
@@ -43,7 +42,6 @@ INSERT INTO accnt (
   accnt_type,
   accnt_extref,
   accnt_company,
-  accnt_closedpost,
   accnt_forwardupdate,
   accnt_subaccnttype_code )
 VALUES (
@@ -62,7 +60,6 @@ VALUES (
   END,
   COALESCE(NEW.ext_reference, ''),
   NEW.company,
-  COALESCE(NEW.allow_posting_to_closed_periods, false),
   COALESCE(NEW.forward_update_trial_balances, false),
   COALESCE(NEW.sub_type, '') );
 
@@ -85,7 +82,6 @@ UPDATE accnt SET
              END,
   accnt_extref=NEW.ext_reference,
   accnt_company=NEW.company,
-  accnt_closedpost=NEW.allow_posting_to_closed_periods,
   accnt_forwardupdate=NEW.forward_update_trial_balances,
   accnt_subaccnttype_code=NEW.sub_type
 WHERE accnt.accnt_id = getglaccntid(old.company::text,old.profit_center::text,old.account_number::text,old.sub_account::text);

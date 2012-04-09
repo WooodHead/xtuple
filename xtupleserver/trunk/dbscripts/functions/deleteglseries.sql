@@ -12,15 +12,15 @@ BEGIN
 
 --  March through all of the G/L Transactions for the passed sequence
   FOR _r IN SELECT gltrans_id, gltrans_date, gltrans_accnt_id, gltrans_amount, gltrans_posted, gltrans_rec,
-                   accnt_closedpost, accnt_forwardupdate, period_id, period_closed, period_freeze
+                   accnt_forwardupdate, period_id, period_closed, period_freeze
             FROM accnt, gltrans LEFT OUTER JOIN period ON (gltrans_date BETWEEN period_start AND period_end)
             WHERE ( (gltrans_accnt_id=accnt_id)
              AND (NOT gltrans_deleted)
              AND (gltrans_sequence=pSequence) ) LOOP
 
 --  If we can post into a Trial Balance, do so
-    IF ( (NOT _r.period_freeze) AND 
-       ( (NOT _r.period_closed) OR (_r.accnt_closedpost) ) AND
+    IF ( (NOT _r.period_closed) AND 
+       ( (NOT _r.period_freeze) OR (checkPrivilege('PostFrozenPeriod')) ) AND
        (  NOT _r.gltrans_rec) AND
        ( _r.gltrans_posted ) ) THEN
 

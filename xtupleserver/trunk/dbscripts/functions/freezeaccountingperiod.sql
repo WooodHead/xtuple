@@ -7,13 +7,6 @@ DECLARE
 
 BEGIN
 
---  Check to make use that the period is closed
-  IF ( ( SELECT (NOT period_closed)
-         FROM period
-         WHERE (period_id=pPeriodid) ) ) THEN
-    RETURN -1;
-  END IF;
-
 --  Check to make use that the period is not already frozen
   IF ( ( SELECT period_freeze
          FROM period
