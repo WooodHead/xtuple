@@ -88,7 +88,7 @@ BEGIN
       -- Don't issue more than should have already been consumed at this point
       IF (pQty > 0) THEN
         IF (noNeg(_r.expected - _r.consumed) > 0) THEN
-          SELECT issueWoMaterial(_r.womatl_id, noNeg(_r.expected - _r.consumed), _itemlocSeries) INTO _itemlocSeries;
+          SELECT issueWoMaterial(_r.womatl_id, noNeg(_r.expected - _r.consumed), _itemlocSeries, pGlDistTS) INTO _itemlocSeries;
         END IF;
       ELSE
         -- Used by postMiscProduction of disassembly
