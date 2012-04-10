@@ -73,6 +73,7 @@ CREATE OR REPLACE FUNCTION _cntctTriggerAfter() RETURNS "trigger" AS $$
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cntctemlid INTEGER;
+  _cmnttypeid INTEGER;
   _rows INTEGER;
 BEGIN
   IF (TG_OP = 'INSERT') THEN
@@ -81,6 +82,13 @@ BEGIN
         cntcteml_cntct_id, cntcteml_primary, cntcteml_email )
       VALUES (
         NEW.cntct_id, true, NEW.cntct_email );
+    END IF;
+    SELECT cmnttype_id INTO _cmnttypeid
+      FROM cmnttype
+     WHERE (cmnttype_name='ChangeLog');
+    IF (_cmnttypeid IS NOT NULL) THEN
+      PERFORM postComment(_cmnttypeid, 'T', NEW.cntct_id,
+                          ('Created by ' || getEffectiveXtUser()));
     END IF;
   ELSIF (TG_OP = 'UPDATE') THEN
     IF (OLD.cntct_email != NEW.cntct_email) THEN
