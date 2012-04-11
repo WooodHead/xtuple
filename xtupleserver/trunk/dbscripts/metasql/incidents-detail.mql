@@ -20,7 +20,10 @@ END,
 incdt_assigned_username, incdt_owner_username,
 incdt_summary, cntct_name, incdt_updated::date AS incdt_updated,
 prj_number, incdt_public,
-item_number, ls_number,
+item_number,
+<? if exists("lspattern") ?>
+ls_number,
+<? endif ?>
 status_color AS qtbackgroundrole 
 <? foreach("char_id_text_list") ?>
   , charass_alias<? literal("char_id_text_list") ?>.charass_value AS char<? literal("char_id_text_list") ?>
@@ -38,7 +41,9 @@ FROM crmacct, status, incdt()
   LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=incdt_incdtpriority_id) 
   LEFT OUTER JOIN prj ON (incdt_prj_id=prj_id)
   LEFT OUTER JOIN item ON (item_id=incdt_item_id)
+<? if exists("lspattern") ?>
   LEFT OUTER JOIN ls ON (ls_id=incdt_ls_id)
+<? endif ?>
 <? foreach("char_id_text_list") ?>
   LEFT OUTER JOIN charass charass_alias<? literal("char_id_text_list") ?> ON ((charass_alias<? literal("char_id_text_list") ?>.charass_target_type='INCDT') 
                                                                     AND  (charass_alias<? literal("char_id_text_list") ?>.charass_target_id=incdt_id)
