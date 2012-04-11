@@ -38,15 +38,17 @@ BEGIN
   END IF;
 
 -- get the base exchange rate for the dist date
-  SELECT curr_rate INTO _currrate
-  FROM curr_rate
-  WHERE ( (NEW.cashrcpt_curr_id=curr_id)
-    AND ( NEW.cashrcpt_distdate BETWEEN curr_effective 
+  IF (NEW.cashrcpt_curr_rate IS NULL) THEN
+    SELECT curr_rate INTO _currrate
+    FROM curr_rate
+    WHERE ( (NEW.cashrcpt_curr_id=curr_id)
+      AND ( NEW.cashrcpt_distdate BETWEEN curr_effective 
                                  AND curr_expires) );
-  IF (FOUND) THEN
-    NEW.cashrcpt_curr_rate := _currrate;
-  ELSE
-    RAISE EXCEPTION 'Currency exchange rate not found';
+    IF (FOUND) THEN
+      NEW.cashrcpt_curr_rate := _currrate;
+    ELSE
+      RAISE EXCEPTION 'Currency exchange rate not found';
+    END IF;
   END IF;
 
   -- Create CashReceiptPosted Event
