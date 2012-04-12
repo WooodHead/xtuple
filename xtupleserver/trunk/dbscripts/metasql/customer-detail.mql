@@ -7,7 +7,7 @@
 <? if exists("hasCharacteristic") ?>
   SELECT cust_id, charass_id, cust_active,
          cust_number, cust_name, char_name, charass_value
-  FROM cust, charass, char
+  FROM custinfo, charass, char
   WHERE ((charass_target_type='C')
      AND (charass_target_id=cust_id)
      AND (charass_char_id=char_id)
@@ -19,8 +19,10 @@
    <? endif ?>
 <? elseif exists("byCustType") ?>
   SELECT cust_id, cust_custtype_id,custtype_code,
-         cust_active, cust_number, cust_name, cust_address1
-  FROM cust, custtype
+         cust_active, cust_number, cust_name, addr_line1 AS cust_address1
+  FROM custinfo, custtype
+  LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
+  LEFT OUTER JOIN addr ON (cntct_addr_id=addr_id)
   WHERE ((cust_custtype_id=custtype_id)
    <? if exists("custtype_id") ?>
      AND (custtype_id=<? value("custtype_id") ?>)
@@ -30,7 +32,7 @@
 <? else ?>
   SELECT cust_id, -1, cust_active,
          cust_number, cust_name, char_name, '' AS charass_value
-  FROM cust, char
+  FROM custinfo, char
   WHERE ((cust_id NOT IN (SELECT charass_target_id
                           FROM charass
                           WHERE ((charass_target_type='C')

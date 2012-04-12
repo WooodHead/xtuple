@@ -6,7 +6,7 @@
 
 SELECT COUNT(cohead_id) AS totalorders 
 		     FROM ( SELECT DISTINCT cohead_id 
-		            FROM cohead, coitem, itemsite, cust 
+                FROM cohead, coitem, itemsite, custinfo
 		            WHERE ( (coitem_cohead_id=cohead_id)
 		             AND (coitem_itemsite_id=itemsite_id)
 		             AND (cohead_cust_id=cust_id)

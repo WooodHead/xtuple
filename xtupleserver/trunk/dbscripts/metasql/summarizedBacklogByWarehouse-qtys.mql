@@ -5,7 +5,7 @@
 -- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT formatQty(COALESCE(SUM(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned), 0)) AS f_totalqty 
-		     FROM cohead, coitem, itemsite, item, cust 
+         FROM cohead, coitem, itemsite, item, custinfo
 		     WHERE ( (coitem_cohead_id=cohead_id)
 		      AND (coitem_itemsite_id=itemsite_id)
 		      AND (itemsite_item_id=item_id)

@@ -66,7 +66,7 @@ FROM ( SELECT 1 AS sourcecode,
                     ipsprice_discountpercent AS discountpercent,
                     ipsprice_discountfixed AS discountfixed,
                     ipshead_curr_id AS curr_id
-       FROM ipsass, ipshead, cust, ipsprice
+       FROM ipsass, ipshead, custinfo, ipsprice
        WHERE ((ipsass_ipshead_id=ipshead_id)
           AND (ipsprice_ipshead_id=ipshead_id)
           AND (ipsprice_item_id=<? value('item_id') ?>)
@@ -90,7 +90,7 @@ FROM ( SELECT 1 AS sourcecode,
                     ipsprice_discountpercent AS discountpercent,
                     ipsprice_discountfixed AS discountfixed,
                     ipshead_curr_id AS curr_id
-       FROM ipsass, ipshead, custtype, cust, ipsprice
+       FROM ipsass, ipshead, custtype, custinfo, ipsprice
        WHERE ((ipsass_ipshead_id=ipshead_id)
           AND (ipsprice_ipshead_id=ipshead_id)
           AND (ipsprice_item_id=<? value('item_id') ?>)
@@ -186,7 +186,7 @@ FROM ( SELECT 1 AS sourcecode,
               cust_discntprcnt  AS discountpercent,
               NULL              AS discountfixed,
               baseCurrId() AS curr_id
-       FROM item, cust
+       FROM item, custinfo
        WHERE (item_sold
           AND (NOT item_exclusive)
           AND (item_id=<? value('item_id') ?>)

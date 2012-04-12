@@ -144,7 +144,7 @@ UNION ALL
          FROM incdt()
 <? endif ?>
            LEFT OUTER JOIN crmacct ON (crmacct_id=incdt_crmacct_id) 
-           LEFT OUTER JOIN cust ON (cust_id=crmacct_cust_id) 
+           LEFT OUTER JOIN custinfo ON (cust_id=crmacct_cust_id)
            LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=incdt_incdtpriority_id) 
 <? if not exists("incidents")?>
     WHERE false

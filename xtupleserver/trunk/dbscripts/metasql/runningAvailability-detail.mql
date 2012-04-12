@@ -208,7 +208,7 @@ SELECT cohead_id AS orderid, coitem_id AS altorderid,
        (coitem_qtyord * coitem_qty_invuomratio) AS qtyordered,
        (coitem_qty_invuomratio * (coitem_qtyshipped - coitem_qtyreturned + qtyAtShipping(coitem_id))) AS qtyreceived,
        (coitem_qty_invuomratio * noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned - qtyAtShipping(coitem_id)) * -1) AS balance
-FROM coitem, cohead, cust, itemsite, item
+FROM coitem, cohead, custinfo, itemsite, item
 WHERE ((coitem_status='O')
   AND  (cohead_cust_id=cust_id)
   AND  (coitem_cohead_id=cohead_id)

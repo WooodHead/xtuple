@@ -32,7 +32,7 @@ SELECT CASE WHEN (cohead_holdtype IN ('P', 'C', 'R')) THEN -1
        <? else ?>
          0 AS extprice_base_xttotalrole 
        <? endif ?>
-FROM cohead, itemsite, item, cust, coitem 
+FROM cohead, itemsite, item, custinfo, coitem
 WHERE ( (coitem_cohead_id=cohead_id)
     AND (cohead_cust_id=cust_id)
     AND (coitem_itemsite_id=itemsite_id)
