@@ -23,7 +23,10 @@ AS
 		COALESCE(taxtype_name, 'None') AS tax_type,
 		COALESCE(qty_uom.uom_name, 'None') AS qty_uom,
 		COALESCE(price_uom.uom_name, 'None') AS price_uom,
-		invcitem_notes AS notes
+		invcitem_notes AS notes,
+                CASE WHEN (invcitem_rev_accnt_id IS NOT NULL) THEN formatglaccount(invcitem_rev_accnt_id)
+                     ELSE NULL::text
+                END AS alternate_rev_account
 	FROM invcitem
 		LEFT OUTER JOIN invchead ON (invcitem_invchead_id=invchead_id)
 		LEFT OUTER JOIN item ON (item_id=invcitem_item_id)
@@ -67,7 +70,8 @@ BEGIN
 		invcitem_qty_uom_id,
 		invcitem_qty_invuomratio,
 		invcitem_price_uom_id,
-		invcitem_price_invuomratio
+		invcitem_price_invuomratio,
+                invcitem_rev_accnt_id
 	) SELECT
 		invchead_id,
 		COALESCE(pNew.line_number,(
@@ -117,7 +121,8 @@ BEGIN
 					item_price_uom_id
 				)
 			ELSE 1
-		END
+		END,
+                getGlAccntId(alternate_rev_account)
 	FROM invchead
 		LEFT OUTER JOIN item ON (item_id=getItemId(pNew.item_number))
 		LEFT OUTER JOIN taxtype ON (taxtype_id=CASE
@@ -184,7 +189,8 @@ BEGIN
 					item_price_uom_id
 				)
 			ELSE 1
-		END
+		END,
+                invcitem_rev_accnt_id=getGlAccntId(alternate_rev_account)
 	FROM invchead
 		LEFT OUTER JOIN item ON (item_id=getItemId(pNew.item_number))
 		LEFT OUTER JOIN taxtype ON (taxtype_id=CASE

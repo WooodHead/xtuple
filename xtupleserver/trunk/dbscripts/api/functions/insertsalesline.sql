@@ -55,7 +55,8 @@ BEGIN
     coitem_prcost,
     coitem_taxtype_id,
     coitem_warranty,
-    coitem_cos_accnt_id)
+    coitem_cos_accnt_id,
+    coitem_rev_accnt_id)
   VALUES (
     _r.cohead_id,
     pNEW.line_number::INTEGER,
@@ -93,7 +94,8 @@ BEGIN
     pNEW.overwrite_po_price,
     COALESCE(getTaxTypeId(pNEW.tax_type), getItemTaxType(_r.itemsite_item_id, _r.cohead_taxzone_id)),
     pNEW.warranty,
-    getGlAccntId(pNEW.alternate_cos_account)
+    getGlAccntId(pNEW.alternate_cos_account),
+    getGlAccntId(pNEW.alternate_rev_account)
     );
 
   RETURN TRUE;
