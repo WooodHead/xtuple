@@ -67,7 +67,7 @@ FROM (SELECT ipsfreight_id AS itemid, 1 AS sourcetype,
            JOIN ipshead ON (ipshead_id=ipsass_ipshead_id)
            JOIN ipsfreight ON (ipsfreight_ipshead_id=ipshead_id)
 <? if exists("byCust") ?>
-           JOIN cust ON (cust_custtype_id=ipsass_custtype_id)
+           JOIN custinfo ON (cust_custtype_id=ipsass_custtype_id)
 <? endif ?>
            LEFT OUTER JOIN whsinfo ON (warehous_id=ipsfreight_warehous_id)
            LEFT OUTER JOIN shipzone ON (shipzone_id=ipsfreight_shipzone_id)
@@ -100,7 +100,7 @@ FROM (SELECT ipsfreight_id AS itemid, 1 AS sourcetype,
              warehous_code, shipzone_name, freightclass_code, ipsfreight_shipvia
       FROM
 <? if exists("byCust") ?>
-           cust JOIN custtype ON (custtype_id=cust_custtype_id)
+           custinfo JOIN custtype ON (custtype_id=cust_custtype_id)
                 JOIN ipsass ON ((coalesce(length(ipsass_custtype_pattern), 0) > 0) AND
                                 (custtype_code ~ ipsass_custtype_pattern))
                 JOIN ipshead ON (ipshead_id=ipsass_ipshead_id)

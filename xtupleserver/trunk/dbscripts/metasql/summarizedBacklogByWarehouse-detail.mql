@@ -36,7 +36,7 @@ SELECT * FROM (
     , 0 AS sales_xttotalrole, 0 AS cost_xttotalrole, 0 AS margin_xttotalrole 
    <? endif ?>,
    cohead_number AS seq
-   FROM coitem, itemsite, item, cust, cohead 
+   FROM coitem, itemsite, item, custinfo, cohead
      LEFT OUTER JOIN pack ON (cohead_id = pack_head_id), salesrep 
    WHERE ( (coitem_cohead_id=cohead_id)
     AND (salesrep_id = cohead_salesrep_id) 
@@ -82,7 +82,7 @@ SELECT * FROM (
    <? endif ?>
    , NULL,
    cohead_number AS seq 
-   FROM coitem, itemsite, item, cust, cohead   
+   FROM coitem, itemsite, item, custinfo, cohead
    LEFT OUTER JOIN shiphead ON ((shiphead_order_id=cohead_id)   
                             AND (shiphead_order_type='SO'))
    LEFT OUTER JOIN (SELECT DISTINCT cobmisc_cohead_id FROM cobmisc) AS cobmisc ON (cobmisc_cohead_id=cohead_id)   

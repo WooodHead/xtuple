@@ -5,7 +5,7 @@
 -- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT COUNT(coitem.*) AS totalitems 
-		     FROM cohead, coitem, itemsite, cust 
+         FROM cohead, coitem, itemsite, custinfo
 		     WHERE ( (coitem_cohead_id=cohead_id)
 		      AND (coitem_itemsite_id=itemsite_id)
 		      AND (cohead_cust_id=cust_id)

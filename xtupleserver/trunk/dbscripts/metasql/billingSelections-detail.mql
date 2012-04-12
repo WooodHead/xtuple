@@ -17,7 +17,7 @@ SELECT cobmisc_id, cohead_id,
        'curr' AS cobmisc_freight_xtnumericrole,
        'curr' AS cobmisc_tax_xtnumericrole,
        'curr' AS cobmisc_payment_xtnumericrole
-FROM cobmisc, cohead, cust, coitem, cobill
+FROM cobmisc, cohead, custinfo, coitem, cobill
 WHERE ((cobmisc_cohead_id=cohead_id)
    AND (cohead_cust_id=cust_id)
    AND (coitem_cohead_id=cohead_id)

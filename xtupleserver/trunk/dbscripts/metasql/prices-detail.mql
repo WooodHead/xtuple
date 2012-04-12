@@ -60,7 +60,7 @@ FROM (
   <? if exists("byCustomer") ?>
            uom
   <? else ?>
-          cust
+          custinfo
   <? endif ?>
       WHERE ((ipsass_ipshead_id=ipshead_id)
          AND (ipsprice_ipshead_id=ipshead_id)
@@ -130,7 +130,7 @@ FROM (
            uom
 <? endif ?>
 <? if exists("byCustomer") ?>
-           , cust
+           , custinfo
 <? endif ?>
       WHERE ((ipsass_ipshead_id=ipshead_id)
          AND (ipsprice_ipshead_id=ipshead_id)
@@ -201,7 +201,7 @@ FROM (
            , uom
 <? endif ?>
 <? if exists("byCustomer") ?>
-           , cust
+           , custinfo
 <? endif ?>
       WHERE ((ipsass_ipshead_id=ipshead_id)
          AND (ipsprice_ipshead_id=ipshead_id)
@@ -303,7 +303,7 @@ FROM (
              ipshead_name AS schedulename, <? value("shipTo") ?> AS type,
              (cust_name || '-' || shipto_num) AS typename,
              ipsprice_qtybreak AS qtybreak, ipsprice_price AS price, ipshead_curr_id AS curr_id
-      FROM ipsass, ipshead, ipsprice, cust, shipto, item
+      FROM ipsass, ipshead, ipsprice, custinfo, shipto, item
       WHERE ((ipsass_ipshead_id=ipshead_id)
          AND (ipsprice_ipshead_id=ipshead_id)
          AND (ipsass_shipto_id=shipto_id)
@@ -324,7 +324,7 @@ FROM (
              ipshead_name AS schedulename, <? value("shipToPattern") ?> AS type,
              (cust_name || '-' || shipto_num) AS typename,
              ipsprice_qtybreak AS qtybreak, ipsprice_price AS price, ipshead_curr_id AS curr_id
-      FROM ipsass, ipshead, ipsprice, cust, shipto, item
+      FROM ipsass, ipshead, ipsprice, custinfo, shipto, item
       WHERE ((ipsass_ipshead_id=ipshead_id)
          AND (ipsprice_ipshead_id=ipshead_id)
          AND (COALESCE(LENGTH(ipsass_shipto_pattern),0) > 0)
@@ -372,7 +372,7 @@ FROM (
 <? if exists("byCustomerType") ?>
       FROM item JOIN uom ON (item_price_uom_id=uom_id)
 <? elseif exists("byCustomer") ?>
-      FROM cust, item JOIN uom ON (item_price_uom_id=uom_id)
+      FROM custinfo, item JOIN uom ON (item_price_uom_id=uom_id)
 <? else ?>
       FROM item
 <? endif ?>

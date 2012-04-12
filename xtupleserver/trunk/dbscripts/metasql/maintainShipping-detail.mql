@@ -27,7 +27,7 @@ SELECT shiphead_id AS parent_id, cohead_id AS child_id,
        0 AS shipvalue_xttotalrole,
        0 AS xtindentrole,
        CAST(shiphead_id AS TEXT) AS sort
-FROM shiphead, cust, cohead
+FROM shiphead, custinfo, cohead
  <? if exists("warehous_id") ?>
       JOIN coitem ON (coitem_cohead_id=cohead_id)
       JOIN itemsite ON ((coitem_itemsite_id=itemsite_id)

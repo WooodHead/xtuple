@@ -51,7 +51,7 @@ SELECT shiphead_id, -1 AS lineitem_id, cohead_number AS sortkey1, shiphead_numbe
        '' AS warehous_code,
        0 AS qtyord,
        0 AS qtyshipped
-FROM shiphead, cohead, cust 
+FROM shiphead, cohead, custinfo
 WHERE ( (shiphead_order_id=cohead_id)
  AND (cohead_cust_id=cust_id)
  AND (shiphead_shipped)
@@ -81,7 +81,7 @@ SELECT shiphead_id, coitem_id AS lineitem_id, cohead_number AS sortkey1, shiphea
        warehous_code,
        coitem_qtyord AS qtyord,
        SUM(shipitem_qty) AS qtyshipped
-FROM shipitem, shiphead, coitem, cohead, cust, itemsite, item, warehous 
+FROM shipitem, shiphead, coitem, cohead, custinfo, itemsite, item, warehous
 WHERE ( (shipitem_shiphead_id=shiphead_id)
  AND (shipitem_orderitem_id=coitem_id)
  AND (coitem_itemsite_id=itemsite_id)

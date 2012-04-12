@@ -30,7 +30,7 @@ SELECT cohead_id, cust_id,
                                 AND (coitem_cohead_id=cohead_id))) > 0) ) THEN <? value("open") ?>
          ELSE <? value("partial") ?>
        END AS order_status
-FROM cohead JOIN cust ON (cust_id=cohead_cust_id)
+FROM cohead JOIN custinfo ON (cust_id=cohead_cust_id)
 WHERE ( (1=1)
 <? if exists("cust_id") ?>
   AND  (cohead_cust_id=<? value("cust_id") ?>)

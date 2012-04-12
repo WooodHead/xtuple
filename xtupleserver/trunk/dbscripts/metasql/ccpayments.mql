@@ -40,7 +40,7 @@ SELECT ccpay_id AS id,
   FROM ccpay LEFT OUTER JOIN 
        (payco JOIN cohead ON (payco_cohead_id=cohead_id))
          ON (payco_ccpay_id=ccpay_id)
-      JOIN cust ON (ccpay_cust_id=cust_id)
+      JOIN custinfo ON (ccpay_cust_id=cust_id)
       JOIN custtype ON (cust_custtype_id=custtype_id)
       LEFT OUTER JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
   WHERE ((true)

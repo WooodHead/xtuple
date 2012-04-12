@@ -42,7 +42,7 @@ SELECT cohist.*,
        0 AS baseextprice_xttotalrole,
        0 AS extcost_xttotalrole,
        0 AS basecommission_xttotalrole
-  FROM cohist JOIN cust ON (cust_id=cohist_cust_id)
+  FROM cohist JOIN custinfo ON (cust_id=cohist_cust_id)
               JOIN salesrep ON (salesrep_id=cohist_salesrep_id)
 <? if exists("includeMisc") ?>
               LEFT OUTER JOIN itemsite ON (itemsite_id=cohist_itemsite_id)

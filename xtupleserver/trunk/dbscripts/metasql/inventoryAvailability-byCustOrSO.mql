@@ -121,7 +121,7 @@ FROM (
                  ELSE 0.0 END AS reorderlevel,
             1 AS xtindentrole
      FROM cohead
-<? if not exists("sohead_id") ?> JOIN cust ON (cohead_cust_id=cust_id)<? endif ?>
+<? if not exists("sohead_id") ?> JOIN custinfo ON (cohead_cust_id=cust_id)<? endif ?>
           , itemsite, item, uom, site(), coitem
      WHERE ((coitem_cohead_id=cohead_id)
         AND (coitem_itemsite_id=itemsite_id)
@@ -161,7 +161,7 @@ FROM (
                  ELSE 0.0 END AS reorderlevel,
             2 AS xtindentrole
      FROM cohead
-<? if not exists("sohead_id") ?> JOIN cust ON (cohead_cust_id=cust_id)<? endif ?>
+<? if not exists("sohead_id") ?> JOIN custinfo ON (cohead_cust_id=cust_id)<? endif ?>
           , itemsite, item, uom, site(), coitem
           LEFT OUTER JOIN wo
            ON ((coitem_itemsite_id=wo_itemsite_id)
