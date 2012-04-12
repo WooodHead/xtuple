@@ -42,11 +42,12 @@ AS
      END AS create_po,
      coitem_prcost AS overwrite_po_price,
      coitem_memo AS notes,
-     CASE WHEN (coitem_cos_accnt_id IS NOT NULL) THEN
-       formatglaccount(coitem_cos_accnt_id) 
-     ELSE
-       NULL
-     END AS alternate_cos_account
+     CASE WHEN (coitem_cos_accnt_id IS NOT NULL) THEN formatglaccount(coitem_cos_accnt_id) 
+          ELSE NULL::text
+     END AS alternate_cos_account,
+     CASE WHEN (coitem_rev_accnt_id IS NOT NULL) THEN formatglaccount(coitem_rev_accnt_id)
+          ELSE NULL::text
+     END AS alternate_rev_account
   FROM cohead, coitem
     LEFT OUTER JOIN itemsite isb ON (coitem_substitute_item_id=isb.itemsite_id)
     LEFT OUTER JOIN item s ON (isb.itemsite_item_id=s.item_id)
@@ -101,7 +102,8 @@ CREATE OR REPLACE RULE "_UPDATE" AS
       ELSE getTaxTypeId(NEW.tax_type)
     END,
     coitem_warranty=NEW.warranty,
-    coitem_cos_accnt_id=getGlAccntId(NEW.alternate_cos_account)
+    coitem_cos_accnt_id=getGlAccntId(NEW.alternate_cos_account),
+    coitem_rev_accnt_id=getGlAccntId(NEW.alternate_rev_account)
    FROM item JOIN itemsite ON (item_id=itemsite_item_id)
    WHERE ((item_number=OLD.item_number)
    AND (coitem_cohead_id=getCoheadId(OLD.order_number))

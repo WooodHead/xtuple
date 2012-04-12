@@ -71,7 +71,7 @@ BEGIN
                    coitem_qty_uom_id, coitem_qty_invuomratio,
                    coitem_custprice, coitem_price,
                    coitem_price_uom_id, coitem_price_invuomratio,
-                   coitem_memo,
+                   coitem_memo, coitem_rev_accnt_id,
                    itemsite_item_id, itemsite_warehous_id,
                    cobill_taxtype_id,
                    formatSoItemNumber(coitem_id) AS ordnumber
@@ -90,9 +90,8 @@ BEGIN
       invcitem_qty_uom_id, invcitem_qty_invuomratio,
       invcitem_custprice, invcitem_price,
       invcitem_price_uom_id, invcitem_price_invuomratio,
-      invcitem_notes,
-      invcitem_taxtype_id,
-      invcitem_coitem_id )
+      invcitem_notes, invcitem_taxtype_id,
+      invcitem_coitem_id, invcitem_rev_accnt_id )
     VALUES
     ( _invcitemid, _invcheadid,
       _lastlinenumber,
@@ -102,9 +101,8 @@ BEGIN
       _r.coitem_qty_uom_id, _r.coitem_qty_invuomratio,
       _r.coitem_custprice, _r.coitem_price,
       _r.coitem_price_uom_id, _r.coitem_price_invuomratio,
-      _r.coitem_memo,
-      _r.cobill_taxtype_id,
-      _r.coitem_id );
+      _r.coitem_memo, _r.cobill_taxtype_id,
+      _r.coitem_id, _r.coitem_rev_accnt_id );
 
 --  Find and mark any Lot/Serial invdetail records associated with this bill
     UPDATE invdetail SET invdetail_invcitem_id = _invcitemid

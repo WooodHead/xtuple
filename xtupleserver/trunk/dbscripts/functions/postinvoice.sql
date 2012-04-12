@@ -163,7 +163,10 @@ BEGIN
 
     IF (_amount > 0) THEN
 --  Credit the Sales Account for the invcitem item
-      IF (_r.itemsite_id IS NULL) THEN
+      IF (_r.invcitem_rev_accnt_id IS NOT NULL) THEN
+        SELECT getPrjAccntId(_p.invchead_prj_id, _r.invcitem_rev_accnt_id)
+	INTO _tmpAccntId;
+      ELSEIF (_r.itemsite_id IS NULL) THEN
 	SELECT getPrjAccntId(_p.invchead_prj_id, salesaccnt_sales_accnt_id) 
 	INTO _tmpAccntId
 	FROM salesaccnt
@@ -260,7 +263,7 @@ BEGIN
       _roundedBase = round(currToBase(_p.invchead_curr_id, _amount,
                                       _firstExchDate), 2);
       SELECT insertIntoGLSeries( _p.sequence, 'A/R', 'IN', _p.invchead_invcnumber,
-                                 getPrjAccntId(_p.invchead_prj_id, _r.salescat_sales_accnt_id), 
+                                 getPrjAccntId(_p.invchead_prj_id, COALESCE(_r.invcitem_rev_accnt_id, _r.salescat_sales_accnt_id)), 
                                  _roundedBase,
                                  _glDate, _p.invchead_billto_name ) INTO _test;
       IF (_test < 0) THEN
