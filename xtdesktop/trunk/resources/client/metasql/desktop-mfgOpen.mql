@@ -32,7 +32,7 @@ SELECT wo_id,
        CASE WHEN (wo_duedate<=CURRENT_DATE) THEN 'error' END AS condition_qtforegroundrole
 FROM wo
   JOIN itemsite ON (wo_itemsite_id=itemsite_id)
-  JOIN warehous ON (itemsite_warehous_id=warehous_id)
+  JOIN whsinfo ON (itemsite_warehous_id=warehous_id)
   JOIN item ON (itemsite_item_id=item_id)
   JOIN uom ON (item_inv_uom_id=uom_id)
 WHERE (wo_status != 'C')
