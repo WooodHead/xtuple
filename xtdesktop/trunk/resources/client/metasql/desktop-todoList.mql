@@ -23,7 +23,7 @@
          END AS due_qtforegroundrole 
     FROM todoitem LEFT OUTER JOIN incdt ON (incdt_id=todoitem_incdt_id) 
                   LEFT OUTER JOIN crmacct ON (crmacct_id=todoitem_crmacct_id) 
-                  LEFT OUTER JOIN cust ON (cust_id=crmacct_cust_id) 
+                  LEFT OUTER JOIN custinfo ON (cust_id=crmacct_cust_id) 
                   LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=todoitem_priority_id) 
    WHERE ((todoitem_active)
       AND (todoitem_status != 'C')
@@ -43,7 +43,7 @@
          cust_number AS cust, 
          NULL AS due_qtforegroundrole 
     FROM incdt LEFT OUTER JOIN crmacct ON (crmacct_id=incdt_crmacct_id) 
-               LEFT OUTER JOIN cust ON (cust_id=crmacct_cust_id) 
+               LEFT OUTER JOIN custinfo ON (cust_id=crmacct_cust_id) 
                LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=incdt_incdtpriority_id) 
    WHERE ((incdt_status != 'L')
       AND ((incdt_owner_username=<? value("owner_username") ?>) 	  
