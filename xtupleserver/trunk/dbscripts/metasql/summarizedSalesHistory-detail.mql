@@ -166,7 +166,7 @@ GROUP BY dummy
  , cohist_cust_id, cust_number, cust_name
 <? endif ?>
 <? if exists("byCustomerType") ?>
- , cust_custtype_id, custtype_code
+ , cust_custtype_id, custtype_code, custtype_descrip
 <? endif ?>
 <? if exists("byItem") ?>
  , item_id, item_number, itemdescription
