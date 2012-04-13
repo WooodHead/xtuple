@@ -16,7 +16,7 @@ BEGIN
   WHERE (aropen_id=paropenid);
 
   SELECT SUM(currToCurr(cashrcpt_curr_id, _aropencurrid,
-                        cashrcptitem_amount + cashrcptitem_discount, CURRENT_DATE)) * _sense INTO _cashrcptsum
+                        cashrcptitem_amount + cashrcptitem_discount, coalesce(cashrcpt_applydate, cashrcpt_distdate))) * _sense INTO _cashrcptsum
   FROM cashrcptitem, cashrcpt
   WHERE ((cashrcptitem_cashrcpt_id=cashrcpt_id)
     AND  (NOT cashrcpt_posted)
