@@ -55,7 +55,7 @@ WHERE (checkQuoteSitePrivs(quhead_id, <? value("warehous_id") ?>))
   AND  (quhead_quotedate <= <? value("endDate") ?>)
 <? endif ?>
 <? if exists("salesrep_id") ?>
-  AND  (quhead_salesrep_id = <? value("salesrep_id") ?>
+  AND  (quhead_salesrep_id = <? value("salesrep_id") ?>)
 <? endif ?>
 <? if exists("id") ?>
   AND  (quhead_id = <? value("id") ?>)
