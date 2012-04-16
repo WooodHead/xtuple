@@ -177,7 +177,8 @@ BEGIN
                         JOIN item ON (item_id=itemsite_item_id)
                         LEFT OUTER JOIN itemsrc ON ( (itemsrc_item_id=item_id) AND
                                                      (itemsrc_default) )
-            WHERE (quhead_id=pQuheadid) LOOP
+            WHERE (quhead_id=pQuheadid)
+            ORDER BY quitem_linenumber LOOP
 
     SELECT NEXTVAL('coitem_coitem_id_seq') INTO _soitemid;
 
