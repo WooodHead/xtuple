@@ -215,8 +215,7 @@ WHERE ((coitem_status='O')
   AND  (coitem_itemsite_id=itemsite_id)
   AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
   AND  (itemsite_item_id=item_id)
-  AND  (item_id=<? value("item_id") ?>)
-  AND  item_sold )
+  AND  (item_id=<? value("item_id") ?>))
 
 <? if exists("showPlanned") ?>
 <? if exists("showMRPplan") ?>
