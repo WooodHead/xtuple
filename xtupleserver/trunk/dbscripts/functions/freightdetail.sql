@@ -1,6 +1,6 @@
 
 CREATE OR REPLACE FUNCTION freightDetail(text,integer,integer,integer,date,text,integer) RETURNS SETOF freightData AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pOrderType ALIAS FOR $1;
@@ -109,7 +109,7 @@ BEGIN
     _asof := _order.orderdate;
   ELSE
     _asof := CURRENT_DATE;
-  END IF;  
+  END IF;
 
   --Get a list of aggregated weights from sites and
   --freight classes used on order lines
@@ -128,13 +128,13 @@ BEGIN
     _qry := _qry || 'JOIN raitem ON ((orderitem_id=raitem_id)
 				AND  (raitem_disposition IN (''C'',''R'',''P''))) ';
   END IF;
-  
+
   _qry := _qry || '
     WHERE ( (orderitem_orderhead_type=' || quote_literal(pOrderType) || ')
       AND   (orderitem_orderhead_id=' || quote_literal(pOrderId) || ')
       AND   (orderitem_status <> ''X'') )
     GROUP BY itemsite_warehous_id, item_freightclass_id;';
-  
+
   FOR _weights IN
     EXECUTE _qry LOOP
 
@@ -147,8 +147,8 @@ BEGIN
     RAISE NOTICE '_weights.item_freightclass_id = %', _weights.item_freightclass_id;
   END IF;
 
--- First get a sales price if any so we when we find other prices
--- we can determine if we want that price or this price.
+-- First get a sales price if any so when we find other prices
+-- we can determine if we want that price or this sales price.
 --  Check for a Sale Price
   SELECT ipsfreight_id,
          CASE WHEN (ipsfreight_type='F') THEN currToCurr(ipshead_curr_id, _order.curr_id,
@@ -324,7 +324,7 @@ BEGIN
 
   END IF;
 
-  -- Select the lowest price  
+  -- Select the lowest price
   IF ( (_price.price IS NOT NULL) AND ((_sales.price IS NULL) OR (_price.price < _sales.price)) ) THEN
     _freightid := _price.ipsfreight_id;
     _totalprice := _price.price;
