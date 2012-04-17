@@ -367,6 +367,26 @@ xtte.timeExpenseSheetItem.typeChanged = function()
     _prepaid.visible = true;
     _rate.enabled = true;
     _rate.localValue = 0;
+
+     var params = new Object();
+     params.emp_id = _employee.id();
+
+      var qry = toolbox.executeQuery("SELECT COALESCE (crmacct_vend_id,-1) AS crmacct_vend_id FROM crmacct WHERE crmacct_emp_id= <? value('emp_id')?>;",params);
+      if (qry.first())
+    {
+       var vend_id= qry.value("crmacct_vend_id");
+       if(vend_id ==-1)
+       {
+           var msg = qsTr("The Employee is not a Vendor, this expense cannot be vouchered.  "
+                   +      "Do you want to continue?")
+           if (QMessageBox.question( mywindow, mywindow.windowTitle, msg,
+               QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.No)
+           {
+             _type.code= "T";
+             return false;
+           }
+       }
+     }
   }
 
   xtte.timeExpenseSheetItem.getPrice();
