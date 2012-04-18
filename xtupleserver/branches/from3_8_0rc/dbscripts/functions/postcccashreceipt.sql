@@ -2,11 +2,20 @@ CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER) RETURNS INTEGER A
 -- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
-  RETURN postCCCashReceipt($1, NULL, NULL);
+  RAISE NOTICE 'called deprecated function postCCcashReceipt(integer, integer)';
+  RETURN postCCCashReceipt($1, NULL, NULL, NULL);
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER, TEXT) RETURNS INTEGER AS
+CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER, TEXT) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+BEGIN
+  RETURN postCCCashReceipt($1, $2, $3, NULL);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER, TEXT, NUMERIC) RETURNS INTEGER AS
 $$
 -- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
@@ -14,10 +23,10 @@ DECLARE
   pCCpay        ALIAS FOR $1;
   pdocid        ALIAS FOR $2;
   pdoctype      ALIAS FOR $3;
+  pamount       ALIAS FOR $4;
   _aropenid     INTEGER;
   _bankaccnt_id INTEGER;
   _c            RECORD;
-  _cashrcptid   INTEGER;
   _ccOrderDesc  TEXT;
   _realaccnt    INTEGER;
   _return       INTEGER := 0;
@@ -30,15 +39,21 @@ BEGIN
        AND   (ccpay_cust_id = cust_id) );
 
   IF (NOT FOUND) THEN
-    RETURN -11;
+    RAISE EXCEPTION 'Cannot find the Credit Card transaction information [xtuple: postCCcashReceipt, -11, %]',
+                    pCCpay;
+  END IF;
+
+  IF (pamount IS NOT NULL) THEN
+    _c.ccpay_amount = pamount;
   END IF;
 
   SELECT bankaccnt_id, bankaccnt_accnt_id INTO _bankaccnt_id, _realaccnt
   FROM ccbank JOIN bankaccnt ON (ccbank_bankaccnt_id=bankaccnt_id)
   WHERE (ccbank_ccard_type=_c.ccard_type);
 
-  IF (NOT FOUND) THEN
-    RETURN -10;
+  IF (_bankaccnt_id IS NULL) THEN
+    RAISE EXCEPTION 'Cannot find the default Bank Account for this Credit Card [xtuple: postCCcredit, -1, %]',
+                    _c.ccard_type;
   END IF;
 
   _ccOrderDesc := (_c.ccard_type || '-' || _c.ccpay_order_number::TEXT ||
@@ -46,16 +61,17 @@ BEGIN
 
   IF (pdoctype = 'cashrcpt') THEN
     IF (COALESCE(pdocid, -1) < 0) THEN
-      _cashrcptid := NEXTVAL('cashrcpt_cashrcpt_id_seq');
       INSERT INTO cashrcpt (
-        cashrcpt_id, cashrcpt_cust_id,   cashrcpt_amount,     cashrcpt_curr_id,
+        cashrcpt_cust_id,   cashrcpt_amount,     cashrcpt_curr_id,
         cashrcpt_fundstype, cashrcpt_docnumber,  cashrcpt_notes,
-        cashrcpt_distdate,  cashrcpt_bankaccnt_id
+        cashrcpt_distdate,  cashrcpt_bankaccnt_id,
+        cashrcpt_usecustdeposit
       ) VALUES (
-        _cashrcptid, _c.ccpay_cust_id,   _c.ccpay_amount,     _c.ccpay_curr_id,
+        _c.ccpay_cust_id,   _c.ccpay_amount,     _c.ccpay_curr_id,
         _c.ccard_type,      _c.ccpay_r_ordernum, _ccOrderDesc,
-        CURRENT_DATE,       _bankaccnt_id);
-      _return := _cashrcptid;
+        CURRENT_DATE,       _bankaccnt_id,
+        fetchMetricBool('EnableCustomerDeposits'))
+      RETURNING cashrcpt_id INTO _return;
     ELSE
       UPDATE cashrcpt
       SET cashrcpt_cust_id=_c.ccpay_cust_id,
@@ -75,7 +91,7 @@ BEGIN
                                     '', CURRENT_DATE, _c.ccpay_amount,
                                     'Unapplied from ' || _ccOrderDesc );
     IF (_aropenid < 0) THEN
-      RETURN _aropenid;
+      RAISE EXCEPTION '[xtuple: createARCreditMemo, %]', _aropenid;
     END IF;
 
     INSERT INTO payaropen (payaropen_ccpay_id, payaropen_aropen_id,
