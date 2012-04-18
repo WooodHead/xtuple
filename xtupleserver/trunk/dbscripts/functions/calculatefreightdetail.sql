@@ -23,7 +23,6 @@ DECLARE
   _sales RECORD;
   _freightid INTEGER;
   _totalprice NUMERIC;
-  _freight RECORD;
   _asof DATE;
   _debug BOOLEAN := FALSE;
 
@@ -49,21 +48,22 @@ BEGIN
 -- we can determine if we want that price or this sales price.
 --  Check for a Sale Price
   SELECT ipsfreight_id,
-         CASE WHEN (ipsfreight_type='F') THEN currToCurr(ipshead_curr_id, pCurrId,
-                                                         ipsfreight_price, pOrderDate)
-              ELSE currToCurr(ipshead_curr_id, pCurrId,
-                              (pWeight * ipsfreight_price), pOrderDate)
-         END AS price
-         INTO _sales
-  FROM ipsfreight JOIN ipshead ON (ipshead_id=ipsfreight_ipshead_id)
-                  JOIN sale ON (sale_ipshead_id=ipshead_id)
+    CASE WHEN (ipsfreight_type='F') THEN currToCurr(ipshead_curr_id, pCurrId,
+        ipsfreight_price, pOrderDate)
+      ELSE currToCurr(ipshead_curr_id, pCurrId,
+        (pWeight * ipsfreight_price), pOrderDate)
+    END AS price
+  INTO _sales
+  FROM ipsfreight
+  JOIN ipshead ON (ipshead_id=ipsfreight_ipshead_id)
+  JOIN sale ON (sale_ipshead_id=ipshead_id)
   WHERE ( (ipsfreight_qtybreak <= pWeight)
-    AND   ((ipsfreight_warehous_id IS NULL) OR (ipsfreight_warehous_id=pItemSiteWhsId))
-    AND   ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=pItemFreightclassId))
-    AND   ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=pShipZoneId))
-    AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=pShipVia))
-    AND   (_asof BETWEEN sale_startdate AND sale_enddate)
-    AND   (pCustId IS NOT NULL) )
+    AND ((ipsfreight_warehous_id IS NULL) OR (ipsfreight_warehous_id=pItemSiteWhsId))
+    AND ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=pItemFreightclassId))
+    AND ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=pShipZoneId))
+    AND ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=pShipVia))
+    AND (_asof BETWEEN sale_startdate AND sale_enddate)
+    AND (pCustId IS NOT NULL) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
 
@@ -75,22 +75,21 @@ BEGIN
 
 --  Check for a Customer Shipto Price
   SELECT ipsfreight_id,
-         CASE WHEN (ipsfreight_type='F') THEN currToCurr(ipshead_curr_id, pCurrId,
-                                                         ipsfreight_price, pOrderDate)
-              ELSE currToCurr(ipshead_curr_id, pCurrId,
-                              (pWeight * ipsfreight_price), pOrderDate)
-         END AS price
-         INTO _price
-  FROM ipsfreight JOIN ipshead ON (ipshead_id=ipsfreight_ipshead_id)
-                  JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
+    CASE WHEN (ipsfreight_type='F') THEN currToCurr(ipshead_curr_id, pCurrId,
+        ipsfreight_price, pOrderDate)
+      ELSE currToCurr(ipshead_curr_id, pCurrId,
+        (pWeight * ipsfreight_price), pOrderDate)
+    END AS price
+  INTO _price
+  FROM ipsfreight
+  JOIN ipshead ON (ipshead_id=ipsfreight_ipshead_id)
+  JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
   WHERE ( (ipsfreight_qtybreak <= pWeight)
-    AND   ((ipsfreight_warehous_id IS NULL) OR (ipsfreight_warehous_id=pItemSiteWhsId))
-    AND   ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=pItemFreightclassId))
-    AND   ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=pShipZoneId))
-    AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=pShipVia))
-    AND   (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
--- ipsass_cust_id not populated when shipto assignment
---    AND   (ipsass_cust_id=pCustId)
+    AND ((ipsfreight_warehous_id IS NULL) OR (ipsfreight_warehous_id=pItemSiteWhsId))
+    AND ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=pItemFreightclassId))
+    AND ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=pShipZoneId))
+    AND ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=pShipVia))
+    AND (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
     AND   (ipsass_shipto_id != -1)
     AND   (ipsass_shipto_id=pShiptoId) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
@@ -105,23 +104,24 @@ BEGIN
   IF (_price.price IS NULL) THEN
 --  Check for a Customer Shipto Pattern Price
   SELECT ipsfreight_id,
-         CASE WHEN (ipsfreight_type='F') THEN currToCurr(ipshead_curr_id, pCurrId,
-                                                         ipsfreight_price, pOrderDate)
-              ELSE currToCurr(ipshead_curr_id, pCurrId,
-                              (pWeight * ipsfreight_price), pOrderDate)
-         END AS price
-         INTO _price
-  FROM ipsfreight JOIN ipshead ON (ipshead_id=ipsfreight_ipshead_id)
-                  JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
+    CASE WHEN (ipsfreight_type='F') THEN currToCurr(ipshead_curr_id, pCurrId,
+        ipsfreight_price, pOrderDate)
+      ELSE currToCurr(ipshead_curr_id, pCurrId,
+        (pWeight * ipsfreight_price), pOrderDate)
+    END AS price
+  INTO _price
+  FROM ipsfreight
+  JOIN ipshead ON (ipshead_id=ipsfreight_ipshead_id)
+  JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
   WHERE ( (ipsfreight_qtybreak <= pWeight)
-    AND   (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
-    AND   (ipsass_cust_id=pCustId)
-    AND   (COALESCE(LENGTH(ipsass_shipto_pattern), 0) > 0)
-    AND   (pShiptoNum ~ ipsass_shipto_pattern)
-    AND   ((ipsfreight_warehous_id IS NULL) OR (ipsfreight_warehous_id=pItemSiteWhsId))
-    AND   ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=pItemFreightclassId))
-    AND   ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=pShipZoneId))
-    AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=pShipVia)) )
+    AND (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
+    AND (ipsass_cust_id=pCustId)
+    AND (COALESCE(LENGTH(ipsass_shipto_pattern), 0) > 0)
+    AND (pShiptoNum ~ ipsass_shipto_pattern)
+    AND ((ipsfreight_warehous_id IS NULL) OR (ipsfreight_warehous_id=pItemSiteWhsId))
+    AND ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=pItemFreightclassId))
+    AND ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=pShipZoneId))
+    AND ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=pShipVia)) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
 
@@ -136,22 +136,23 @@ BEGIN
   IF (_price.price IS NULL) THEN
 --  Check for a Customer Price
   SELECT ipsfreight_id,
-         CASE WHEN (ipsfreight_type='F') THEN currToCurr(ipshead_curr_id, pCurrId,
-                                                         ipsfreight_price, pOrderDate)
-              ELSE currToCurr(ipshead_curr_id, pCurrId,
-                              (pWeight * ipsfreight_price), pOrderDate)
-         END AS price
-         INTO _price
-  FROM ipsfreight JOIN ipshead ON (ipshead_id=ipsfreight_ipshead_id)
-                  JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
+    CASE WHEN (ipsfreight_type='F') THEN currToCurr(ipshead_curr_id, pCurrId,
+        ipsfreight_price, pOrderDate)
+      ELSE currToCurr(ipshead_curr_id, pCurrId,
+        (pWeight * ipsfreight_price), pOrderDate)
+    END AS price
+  INTO _price
+  FROM ipsfreight
+  JOIN ipshead ON (ipshead_id=ipsfreight_ipshead_id)
+  JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
   WHERE ( (ipsfreight_qtybreak <= pWeight)
-    AND   ((ipsfreight_warehous_id IS NULL) OR (ipsfreight_warehous_id=pItemSiteWhsId))
-    AND   ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=pItemFreightclassId))
-    AND   ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=pShipZoneId))
-    AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=pShipVia))
-    AND   (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
-    AND   (ipsass_cust_id=pCustId)
-    AND   (COALESCE(LENGTH(ipsass_shipto_pattern), 0) = 0) )
+    AND((ipsfreight_warehous_id IS NULL) OR (ipsfreight_warehous_id=pItemSiteWhsId))
+    AND ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=pItemFreightclassId))
+    AND ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=pShipZoneId))
+    AND ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=pShipVia))
+    AND (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
+    AND (ipsass_cust_id=pCustId)
+    AND (COALESCE(LENGTH(ipsass_shipto_pattern), 0) = 0) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
 
@@ -166,21 +167,21 @@ BEGIN
   IF (_price.price IS NULL) THEN
 --  Check for a Customer Type Price
   SELECT ipsfreight_id,
-         CASE WHEN (ipsfreight_type='F') THEN currToCurr(ipshead_curr_id, pCurrId,
-                                                         ipsfreight_price, pOrderDate)
-              ELSE currToCurr(ipshead_curr_id, pCurrId,
-                              (pWeight * ipsfreight_price), pOrderDate)
-         END AS price
-         INTO _price
+    CASE WHEN (ipsfreight_type='F') THEN currToCurr(ipshead_curr_id, pCurrId,
+        ipsfreight_price, pOrderDate)
+      ELSE currToCurr(ipshead_curr_id, pCurrId,
+        (pWeight * ipsfreight_price), pOrderDate)
+    END AS price
+  INTO _price
   FROM ipsfreight JOIN ipshead ON (ipshead_id=ipsfreight_ipshead_id)
                   JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
   WHERE ( (ipsfreight_qtybreak <= pWeight)
-    AND   ((ipsfreight_warehous_id IS NULL) OR (ipsfreight_warehous_id=pItemSiteWhsId))
-    AND   ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=pItemFreightclassId))
-    AND   ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=pShipZoneId))
-    AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=pShipVia))
-    AND   (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
-    AND   (ipsass_custtype_id=pCustTypeId) )
+    AND ((ipsfreight_warehous_id IS NULL) OR (ipsfreight_warehous_id=pItemSiteWhsId))
+    AND ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=pItemFreightclassId))
+    AND ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=pShipZoneId))
+    AND ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=pShipVia))
+    AND (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
+    AND (ipsass_custtype_id=pCustTypeId) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
 
@@ -195,22 +196,22 @@ BEGIN
   IF (_price.price IS NULL) THEN
 --  Check for a Customer Type Pattern Price
   SELECT ipsfreight_id,
-         CASE WHEN (ipsfreight_type='F') THEN currToCurr(ipshead_curr_id, pCurrId,
-                                                         ipsfreight_price, pOrderDate)
-              ELSE currToCurr(ipshead_curr_id, pCurrId,
-                              (pWeight * ipsfreight_price), pOrderDate)
-         END AS price
-         INTO _price
+    CASE WHEN (ipsfreight_type='F') THEN currToCurr(ipshead_curr_id, pCurrId,
+        ipsfreight_price, pOrderDate)
+      ELSE currToCurr(ipshead_curr_id, pCurrId,
+        (pWeight * ipsfreight_price), pOrderDate)
+    END AS price
+  INTO _price
   FROM ipsfreight JOIN ipshead ON (ipshead_id=ipsfreight_ipshead_id)
                   JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
   WHERE ( (ipsfreight_qtybreak <= pWeight)
-    AND   ((ipsfreight_warehous_id IS NULL) OR (ipsfreight_warehous_id=pItemSiteWhsId))
-    AND   ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=pItemFreightclassId))
-    AND   ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=pShipZoneId))
-    AND   ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=pShipVia))
-    AND   (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
-    AND   (COALESCE(LENGTH(ipsass_custtype_pattern), 0) > 0)
-    AND   (pCustTypeCode ~ ipsass_custtype_pattern) )
+    AND ((ipsfreight_warehous_id IS NULL) OR (ipsfreight_warehous_id=pItemSiteWhsId))
+    AND ((ipsfreight_freightclass_id IS NULL) OR (ipsfreight_freightclass_id=pItemFreightclassId))
+    AND ((ipsfreight_shipzone_id IS NULL) OR (ipsfreight_shipzone_id=pShipZoneId))
+    AND ((ipsfreight_shipvia IS NULL) OR (ipsfreight_shipvia=pShipVia))
+    AND (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))
+    AND (COALESCE(LENGTH(ipsass_custtype_pattern), 0) > 0)
+    AND (pCustTypeCode ~ ipsass_custtype_pattern) )
   ORDER BY ipsfreight_qtybreak DESC, price ASC
   LIMIT 1;
 
@@ -255,24 +256,25 @@ BEGIN
     RETURN NEXT _row;
   ELSE
     SELECT ipshead_name AS freightdata_schedule,
-           COALESCE(warehous_code, 'Any') AS freightdata_from,
-           COALESCE(shipzone_name, 'Any') AS freightdata_to,
-           COALESCE(ipsfreight_shipvia, 'Any') AS freightdata_shipvia,
-           COALESCE(freightclass_code, 'Any') AS freightdata_freightclass,
-           pWeight AS freightdata_weight,
-           uom_name AS freightdata_uom,
-           currToCurr(ipshead_curr_id, pCurrId, ipsfreight_price, pOrderDate) AS freightdata_price,
-           CASE WHEN (ipsfreight_type='F') THEN 'Flat Rate'
-                ELSE 'Per UOM'
-           END AS freightdata_type,
-           _totalprice AS freightdata_total,
-           pCurrAbbr AS freightdata_currency
+      COALESCE(warehous_code, 'Any') AS freightdata_from,
+      COALESCE(shipzone_name, 'Any') AS freightdata_to,
+      COALESCE(ipsfreight_shipvia, 'Any') AS freightdata_shipvia,
+      COALESCE(freightclass_code, 'Any') AS freightdata_freightclass,
+      pWeight AS freightdata_weight,
+      uom_name AS freightdata_uom,
+      currToCurr(ipshead_curr_id, pCurrId, ipsfreight_price, pOrderDate) AS freightdata_price,
+      CASE WHEN (ipsfreight_type='F') THEN 'Flat Rate'
+        ELSE 'Per UOM'
+      END AS freightdata_type,
+      _totalprice AS freightdata_total,
+      pCurrAbbr AS freightdata_currency
     INTO _row
-    FROM ipsfreight JOIN ipshead ON (ipshead_id=ipsfreight_ipshead_id)
-                    LEFT OUTER JOIN uom ON (uom_item_weight)
-                    LEFT OUTER JOIN whsinfo ON (warehous_id=ipsfreight_warehous_id)
-                    LEFT OUTER JOIN shipzone ON (shipzone_id=ipsfreight_shipzone_id)
-                    LEFT OUTER JOIN freightclass ON (freightclass_id=ipsfreight_freightclass_id)
+    FROM ipsfreight
+      JOIN ipshead ON (ipshead_id=ipsfreight_ipshead_id)
+      LEFT OUTER JOIN uom ON (uom_item_weight)
+      LEFT OUTER JOIN whsinfo ON (warehous_id=ipsfreight_warehous_id)
+      LEFT OUTER JOIN shipzone ON (shipzone_id=ipsfreight_shipzone_id)
+      LEFT OUTER JOIN freightclass ON (freightclass_id=ipsfreight_freightclass_id)
     WHERE (ipsfreight_id=_freightid);
 
     RETURN NEXT _row;
