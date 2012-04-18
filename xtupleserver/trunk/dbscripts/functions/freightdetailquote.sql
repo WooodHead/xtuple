@@ -268,7 +268,7 @@ BEGIN
         itemsite_warehous_id,
         COALESCE(item_freightclass_id, -1) AS item_freightclass_id
       FROM
-        -- Create item_id -> qty record from array.
+        -- Create itemsite_id -> qty record from array.
         (SELECT
           unnest((SELECT pItemsiteIdQty[1:array_upper(pItemsiteIdQty,1)][1]))::integer AS itemsite_id,
           unnest((SELECT pItemsiteIdQty[1:array_upper(pItemsiteIdQty,1)][2:array_ndims(pItemsiteIdQty)]))::numeric AS qty
