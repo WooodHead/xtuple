@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION freightDetailQuote(integer,text,integer,text,date,text,text[][],text[][],text[][])
+CREATE OR REPLACE FUNCTION freightDetailQuote(integer,text,integer,text,date,text,text,text[][])
   RETURNS SETOF freightData AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
 -- See www.xtuple.com/CPAL for the full text of the software license.
@@ -10,9 +10,11 @@ DECLARE
   pShiptoNum ALIAS FOR $4;
   pOrderDate ALIAS FOR $5;
   pShipVia ALIAS FOR $6;
-  pItemIdsQty ALIAS FOR $7; -- Array format = ARRAY[['300','3'],['310','50']]
-  pItemNumsQty ALIAS FOR $8; -- Array format = ARRAY[['YTRUCK1','3'],['RTRUCK1','50']]
-  pItemsiteIdQty ALIAS FOR $9; -- Array format = ARRAY[['293','3'],['302','50']]
+  pItemArrayType ALIAS FOR $7;
+  pItemQty ALIAS FOR $8;
+    -- Array item_id format = ARRAY[['300','3'],['310','50']]
+    -- Array item_number format = ARRAY[['YTRUCK1','3'],['RTRUCK1','50']]
+    -- Array itemsite_id format = ARRAY[['293','3'],['302','50']]
 
   _cust RECORD;
   _shipto RECORD;
@@ -147,18 +149,12 @@ BEGIN
   -- Determine if package weight should be included in freight calculation.
   SELECT fetchMetricBool('IncludePackageWeight') INTO _includepkgweight;
 
-  -- Check pItemIdsQty, pItemNumsQty and pItemsiteIdQty.
-  IF ( -- All are NULL.
-    (pItemIdsQty IS NULL OR array_upper(pItemIdsQty,1) IS NULL)
-    AND (pItemNumsQty IS NULL OR array_upper(pItemNumsQty,1) IS NULL)
-    AND (pItemsiteIdQty IS NULL OR array_upper(pItemsiteIdQty,1) IS NULL)
-  ) THEN
+  -- Check pItemQty.
+  IF (pItemQty IS NULL OR array_upper(pItemQty,1) IS NULL) THEN
+    -- Item Array is NULL.
     RAISE EXCEPTION 'You must specify an Item ID, Item Number or Itemsite ID to get a freight quote.';
-  ELSIF ( -- Use pItemNumsQty.
-    (pItemIdsQty IS NULL OR array_upper(pItemIdsQty,1) IS NULL)
-    AND (array_upper(pItemNumsQty,1) > 0)
-    AND (pItemsiteIdQty IS NULL OR array_upper(pItemsiteIdQty,1) IS NULL)
-  ) THEN
+  ELSIF (pItemArrayType = 'item_number' AND (array_upper(pItemQty,1) > 0)) THEN
+    -- Using item_number.
     FOR _weights IN
       -- Get a list of aggregated weights from sites and freight classes for items.
       SELECT
@@ -172,8 +168,8 @@ BEGIN
       FROM
         -- Create item_number -> qty record from array.
         (SELECT
-          unnest((SELECT pItemNumsQty[1:array_upper(pItemNumsQty,1)][1])) AS item_number,
-          unnest((SELECT pItemNumsQty[1:array_upper(pItemNumsQty,1)][2:array_ndims(pItemNumsQty)]))::numeric AS qty
+          unnest((SELECT pItemQty[1:array_upper(pItemQty,1)][1])) AS item_number,
+          unnest((SELECT pItemQty[1:array_upper(pItemQty,1)][2:array_ndims(pItemQty)]))::numeric AS qty
         ) AS itemnum_qty
         JOIN item USING (item_number)
         JOIN itemsite ON item_id=itemsite_item_id
@@ -203,12 +199,8 @@ BEGIN
       RETURN NEXT _row;
     END LOOP;
 
-  ELSIF ( -- Use pItemIdsQty.
-    (array_upper(pItemIdsQty,1) > 0)
-    AND (pItemNumsQty IS NULL OR array_upper(pItemNumsQty,1) IS NULL)
-    AND (pItemsiteIdQty IS NULL OR array_upper(pItemsiteIdQty,1) IS NULL)
-  ) THEN
-
+  ELSIF (pItemArrayType = 'item_id' AND (array_upper(pItemQty,1) > 0)) THEN
+    -- Using item_id.
     FOR _weights IN
       -- Get a list of aggregated weights from sites and freight classes for items.
       SELECT
@@ -222,8 +214,8 @@ BEGIN
       FROM
         -- Create item_id -> qty record from array.
         (SELECT
-          unnest((SELECT pItemIdsQty[1:array_upper(pItemIdsQty,1)][1]))::integer AS item_id,
-          unnest((SELECT pItemIdsQty[1:array_upper(pItemIdsQty,1)][2:array_ndims(pItemIdsQty)]))::numeric AS qty
+          unnest((SELECT pItemQty[1:array_upper(pItemQty,1)][1]))::integer AS item_id,
+          unnest((SELECT pItemQty[1:array_upper(pItemQty,1)][2:array_ndims(pItemQty)]))::numeric AS qty
         ) AS itemid_qty
         JOIN item USING (item_id)
         JOIN itemsite ON item_id=itemsite_item_id
@@ -252,11 +244,8 @@ BEGIN
 
       RETURN NEXT _row;
     END LOOP;
-  ELSIF ( -- Use pItemsiteIdQty.
-    (pItemIdsQty IS NULL OR array_upper(pItemIdsQty,1) IS NULL)
-    AND (pItemNumsQty IS NULL OR array_upper(pItemNumsQty,1) IS NULL)
-    AND (array_upper(pItemsiteIdQty,1) > 0)
-  ) THEN
+  ELSIF (pItemArrayType = 'itemsite_id' AND (array_upper(pItemQty,1) > 0)) THEN
+    -- Using itemsite_id.
     FOR _weights IN
       -- Get a list of aggregated weights from sites and freight classes for items.
       SELECT
@@ -270,8 +259,8 @@ BEGIN
       FROM
         -- Create itemsite_id -> qty record from array.
         (SELECT
-          unnest((SELECT pItemsiteIdQty[1:array_upper(pItemsiteIdQty,1)][1]))::integer AS itemsite_id,
-          unnest((SELECT pItemsiteIdQty[1:array_upper(pItemsiteIdQty,1)][2:array_ndims(pItemsiteIdQty)]))::numeric AS qty
+          unnest((SELECT pItemQty[1:array_upper(pItemQty,1)][1]))::integer AS itemsite_id,
+          unnest((SELECT pItemQty[1:array_upper(pItemQty,1)][2:array_ndims(pItemQty)]))::numeric AS qty
         ) AS itemsiteid_qty
         JOIN itemsite USING (itemsite_id)
         JOIN item ON item_id=itemsite_item_id
@@ -299,7 +288,7 @@ BEGIN
 
       RETURN NEXT _row;
     END LOOP;
-  ELSE -- No item array provided.
+  ELSE -- The item array provided is invalid.
     RAISE EXCEPTION 'The Item/Itemsite array provided when trying to get a freight quote is invalid.';
   END IF;
 
