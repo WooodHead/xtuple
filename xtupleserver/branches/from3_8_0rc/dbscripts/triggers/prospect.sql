@@ -3,8 +3,7 @@ CREATE OR REPLACE FUNCTION _prospectTrigger() RETURNS TRIGGER AS $$
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
 
-  IF (NOT checkPrivilege('MaintainProspectMasters') AND
-      NOT checkPrivilege('MaintainProspects')) THEN
+  IF (NOT checkPrivilege('MaintainProspectMasters')) THEN
     RAISE EXCEPTION 'You do not have privileges to maintain Prospects.';
   END IF;
 
