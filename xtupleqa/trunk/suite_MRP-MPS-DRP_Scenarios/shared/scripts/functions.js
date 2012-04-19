@@ -73,6 +73,7 @@ try
         waitForObjectItem(":xTuple ERP:*_QMenuBar", "Inventory");
         activateItem(":xTuple ERP:*_QMenuBar", "Inventory");
         waitForObjectItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
+        snooze(1);
         activateItem(":xTuple ERP:*.Inventory_QMenu", "Transactions");
         waitForObjectItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
         activateItem(":xTuple ERP:*.Transactions_QMenu", "Adjustment...");
@@ -122,9 +123,11 @@ try
         type(":_itemGroup.ItemLineEdit_ItemLineEdit",item);
         nativeType("<Tab>");
         snooze(0.5);
-        waitForObject(":_warehouse_WComboBox_4");
-        if(findObject(":_warehouse_WComboBox_4").currentText!=wh)
-            type(":_warehouse_WComboBox_4",wh);
+        
+       
+        waitForObject(":_itemGroup._warehouse_WComboBox");
+        if(findObject(":_itemGroup._warehouse_WComboBox").currentText!=wh)
+            type(":_itemGroup._warehouse_WComboBox",wh);
         waitForObject(":_adjustmentTypeGroup.Absolute_QRadioButton");
         clickButton(":_adjustmentTypeGroup.Absolute_QRadioButton");
         waitForObject(":_qtyGroup.*_XLabel");
@@ -232,8 +235,8 @@ try
         type(":_itemGroup.ItemLineEdit_ItemLineEdit",item);
         nativeType("<Tab>");
         snooze(0.5);
-        waitForObject(":_warehouse_WComboBox_4");
-        clickItem(":_warehouse_WComboBox_4", wh, 0, 0, 1, Qt.LeftButton);
+        waitForObject(":_itemGroup._warehouse_WComboBox");
+        clickItem(":_itemGroup._warehouse_WComboBox", wh, 0, 0, 1, Qt.LeftButton);
         waitForObject(":_adjustmentTypeGroup.Absolute_QRadioButton");
         clickButton(":_adjustmentTypeGroup.Absolute_QRadioButton");
         waitForObject(":_qtyGroup.*_XLabel");
@@ -425,8 +428,11 @@ try
         activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
         waitForObjectItem(":_QMenu", "List...");
         activateItem(":_QMenu", "List...");
+        if(!object.exists(":_filterGroup.Manage_QPushButton"))
+        {
         waitForObject(":Item Sites.More_QToolButton");
         clickButton(":Item Sites.More_QToolButton");
+        }
         waitForObject(":_filterGroup.xcomboBox1_XComboBox");
         clickItem(":_filterGroup.xcomboBox1_XComboBox","Site", 10, 10, 0, Qt.LeftButton);
         waitForObject(":_filterGroup.widget1_WComboBox");
@@ -463,6 +469,7 @@ try
         waitForObjectItem(":xTuple ERP:*_QMenuBar", "Purchase");
         activateItem(":xTuple ERP:*_QMenuBar", "Purchase");
         waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
+        snooze(1);
         activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
         waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
         activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
@@ -523,6 +530,7 @@ try
         waitForObjectItem(":xTuple ERP:*_QMenuBar", "Purchase");
         activateItem(":xTuple ERP:*_QMenuBar", "Purchase");
         waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
+        snooze(1);
         activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
         waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
         activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
@@ -582,6 +590,7 @@ try
         waitForObjectItem(":xTuple ERP:*_QMenuBar", "Purchase");
         activateItem(":xTuple ERP:*_QMenuBar", "Purchase");
         waitForObjectItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
+        snooze(1);
         activateItem(":xTuple ERP:*.Purchase_QMenu", "Purchase Order");
         waitForObjectItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
         activateItem(":xTuple ERP:*.Purchase Order_QMenu", "List Open...");
@@ -591,7 +600,7 @@ try
         clickButton(":Open Purchase Orders.Query_QToolButton");
         while(findObject(":_list_XTreeWidget_4").topLevelItemCount > 0)
         {
-            openContextMenu(":_list_XTreeWidget_4", 0, 0, 0);
+            openContextMenu(":_list_XTreeWidget_4", 5, 5, 0);
             waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Delete...");
             activateItem(":xTuple ERP:*._menu_QMenu", "Delete...");
             waitForObject(":Open Purchase Orders.Yes_QPushButton");
@@ -620,6 +629,7 @@ try
         activateItem(":xTuple ERP:*_QMenuBar", "Products");
         waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Item");
         activateItem(":xTuple ERP:*.Products_QMenu", "Item");
+        snooze(1);
         waitForObjectItem(":xTuple ERP:*.Item_QMenu", "List...");
         activateItem(":xTuple ERP:*.Item_QMenu", "List...");
         waitForObject(":Items.Query_QToolButton");
@@ -644,8 +654,11 @@ try
         activateItem(":xTuple ERP:*.Inventory_QMenu", "Item Site");
         waitForObjectItem(":_QMenu", "List...");
         activateItem(":_QMenu", "List...");
+        if(!object.exists(":_filterGroup.Manage_QPushButton"))
+        {
         waitForObject(":Item Sites.More_QToolButton");
         clickButton(":Item Sites.More_QToolButton");
+        }
         waitForObject(":_filterGroup.xcomboBox1_XComboBox");
         clickItem(":_filterGroup.xcomboBox1_XComboBox","Site", 10, 10, 0, Qt.LeftButton);
         waitForObject(":_filterGroup.widget1_WComboBox");
@@ -681,6 +694,7 @@ try
         waitForObjectItem(":xTuple ERP:*_QMenuBar", "Sales");
         activateItem(":xTuple ERP:*_QMenuBar", "Sales");
         waitForObjectItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
+        snooze(2);
         activateItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
         waitForObjectItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
         activateItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
@@ -736,6 +750,7 @@ try
         waitForObjectItem(":xTuple ERP:*_QMenuBar", "Sales");
         activateItem(":xTuple ERP:*_QMenuBar", "Sales");
         waitForObjectItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
+        snooze(2);
         activateItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
         waitForObjectItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
         activateItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
@@ -792,6 +807,7 @@ try
         waitForObjectItem(":xTuple ERP:*_QMenuBar", "Sales");
         activateItem(":xTuple ERP:*_QMenuBar", "Sales");
         waitForObjectItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
+        snooze(1);
         activateItem(":xTuple ERP:*.Sales_QMenu", "Sales Order");
         waitForObjectItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
         activateItem(":xTuple ERP:*.Sales Order_QMenu", "List Open...");
@@ -947,6 +963,7 @@ try
         type(":xTuple ERP:*.Manufacture_QMenu", "<Down>");
         type(":xTuple ERP:*.Manufacture_QMenu", "<Down>");
         type(":xTuple ERP:*.Manufacture_QMenu", "<Down>");
+        snooze(0.5);
         type(":xTuple ERP:*.Manufacture_QMenu", "<Down>");
         type(":xTuple ERP:*.Manufacture_QMenu", "<Down>");
         type(":xTuple ERP:*.Manufacture_QMenu", "<Down>");
@@ -955,6 +972,13 @@ try
         waitForObject(":xTuple ERP:*.Reports_QMenu_2");
         type(":xTuple ERP:*.Reports_QMenu_2", "<Return>");
         
+//         
+//    waitForObjectItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
+//    activateItem(":xTuple ERP:*.Manufacture_QMenu", "Reports");
+//    snooze(0.5);
+//    waitForObjectItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
+//    activateItem(":xTuple ERP:*.Reports_QMenu_2", "Work Order Schedule");
+//        
         waitForObject(":Work Order Schedule.Query_QToolButton");
         clickButton(":Work Order Schedule.Query_QToolButton");
         waitForObject(":_list_XTreeWidget_9");

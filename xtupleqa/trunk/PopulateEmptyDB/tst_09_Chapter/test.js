@@ -7,6 +7,7 @@ function main()
     loginAppl("RUNREGISTER");     
     waitForObject(":Cancel.Yes_QPushButton");
     clickButton(":Cancel.Yes_QPushButton");
+    
     var appEdition = findApplicationEdition();
     
     //---------Define: Incident Categories----------------

@@ -1,0 +1,10 @@
+The functions.js file placed in shared folder has the common code libraries required for all test suites except PopulateEmptyDB,Batch manager Submissions and MRP-MPS-DRP scenarios
+
+The functions.js can be shared across multiple test suites 
+
+Please find the instructions below for configuring the global scripts
+
+1. This feature is available from squish  4.1.1 build
+2. Ensure that java is installed in the machine and environment variables are set 
+3. Create a folder in the machine and place the functions.js file in the folder
+4. Create a user environment variable with the name 'SQUISH_SCRIPT_DIR' and set the path(file location) of the functions.js  as the value

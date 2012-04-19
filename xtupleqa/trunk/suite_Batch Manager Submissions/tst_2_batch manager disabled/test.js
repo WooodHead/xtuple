@@ -84,6 +84,11 @@ function main()
     {
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
         activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
+        if(OS.name=="Linux")
+        {
+        waitForObjectItem(":xTuple ERP: *_QMenuBar", "Inventory");
+        activateItem(":xTuple ERP: *_QMenuBar", "Inventory");
+    }
         waitForObjectItem(":*.Inventory_QMenu", "Reports");
         activateItem(":*.Inventory_QMenu", "Reports");
         waitForObjectItem(":*.Reports_QMenu_2", "Valid Locations by Item...");

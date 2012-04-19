@@ -1552,8 +1552,11 @@ function main()
      //-----Post Standard Journal-----
     try
     {
+     if(OS.name!="Linux")
+        {
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
         activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
+    }
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
         activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
         waitForObjectItem(":*.Accounting_QMenu", "General Ledger");
@@ -1578,7 +1581,8 @@ function main()
     
     //-----Post Standard Journal Group-----
     try
-    {
+    {	
+        
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
         activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
         waitForObjectItem(":*.Accounting_QMenu", "General Ledger");
@@ -1624,7 +1628,7 @@ function main()
         test.fail("Error in Updating Late Customer Credit Status " + e);
     }
 
-    //-----Print Statement by Customer-----
+   //-----Print Statement by Customer-----
     try
     {
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
@@ -1642,7 +1646,19 @@ function main()
         snooze(0.5);
         waitForObject(":Print Statement by Customer.Print_QPushButton");
         clickButton(":Print Statement by Customer.Print_QPushButton");
-        
+        if(OS.name=="Linux")
+        {
+        snooze(1);
+        nativeType("<Tab>"); 
+        nativeType("<Tab>");
+        nativeType("<Tab>"); 
+        nativeType("<Tab>"); 
+        nativeType("<Tab>"); 
+        snooze(1);
+        nativeType("<Return>");
+    }
+        else
+        {
         snooze(1);
         nativeType("<Tab>"); 
         nativeType("<Tab>");
@@ -1652,6 +1668,7 @@ function main()
         nativeType("<Tab>"); 
         nativeType("<Tab>"); 
         nativeType("<Return>");
+    }
         snooze(1);
         if(object.exists(":Review EDI Before Sending.Accept_QPushButton"))
             test.fail("Schedule button exists in Print Statement by Customer screen");
@@ -1664,7 +1681,6 @@ function main()
     {
         test.fail("Error in printing statement by customer " + e);
     }
-    
     
     //-----Operation Buffer Status-----
     try
@@ -2074,9 +2090,7 @@ function main()
         test.fail("Exception in item cost History"+ e);
     }
     
-    
-
-    
+   
     //-----Post Invoices(AR)-----
     try
     {

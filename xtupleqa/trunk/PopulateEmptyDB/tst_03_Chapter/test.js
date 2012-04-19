@@ -13,31 +13,31 @@ function main()
     snooze(1);
     var appEdition = findApplicationEdition();
     
-    //-----------Chart Of Accounts-------------------------------
-    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");  
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-    
-    COA("01","01","4050","01","State Sales Tax Revenue","Revenue","SO");
-    
-    
-    waitForObject(":Chart of Accounts.Close_QPushButton_2");
-    clickButton(":Chart of Accounts.Close_QPushButton_2");
-    
-    
-    //-----Define Taxation------
-    defineTaxAuth("TAX-AUTH1");
-    defineTaxCode("TAXAUTH1-GM");
-    defineTaxType("GM","General Merchandise");
-    defineTaxType("EDU","Educational Material");
-    defineTaxZone("TZONE1","Tax Zone1");
-    assignTax("TZONE1","EDU","TAXAUTH1-EDU");
-    assignTax("TZONE1","GM","TAXAUTH1-GM");
-    RegTax("TZONE1","tax reg1");
-    
+//    //-----------Chart Of Accounts-------------------------------
+//    waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+//    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");  
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+//    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+//    activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+//    
+//    COA("01","01","4050","01","State Sales Tax Revenue","Revenue","SO");
+//    
+//    
+//    waitForObject(":Chart of Accounts.Close_QPushButton_2");
+//    clickButton(":Chart of Accounts.Close_QPushButton_2");
+//    
+//    
+//    //-----Define Taxation------
+//    defineTaxAuth("TAX-AUTH1");
+//    defineTaxCode("TAXAUTH1-GM");
+//    defineTaxType("GM","General Merchandise");
+//    defineTaxType("EDU","Educational Material");
+//    defineTaxZone("TZONE1","Tax Zone1");
+//    assignTax("TZONE1","EDU","TAXAUTH1-EDU");
+//    assignTax("TZONE1","GM","TAXAUTH1-GM");
+//    RegTax("TZONE1","tax reg1");
+//    
     
     //----------Create Items---------------------
     try{

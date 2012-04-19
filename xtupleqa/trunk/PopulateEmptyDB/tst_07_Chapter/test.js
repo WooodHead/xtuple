@@ -8,6 +8,7 @@ function main()
     loginAppl("RUNREGISTER");  
     waitForObject(":Cancel.Yes_QPushButton");
     clickButton(":Cancel.Yes_QPushButton");
+    
     var appEdition = findApplicationEdition();
   
     //--------Configure: Purchase Module-------------------
@@ -322,7 +323,7 @@ function main()
         
         waitForObject(":_number_XLineEdit_4");
         findObject(":_number_XLineEdit_4").clear();
-        type(":_number_XLineEdit_4", "TPARTS");
+        type(":_number_XLineEdit_4", "TPARTS1");
         if(findObject(":_vendtype_XComboBox").currentText!="STANDARD-Standard Vendor")
             clickItem(":_vendtype_XComboBox", "STANDARD-Standard Vendor",0,0,1,Qt.LeftButton);
         type(":_name_XLineEdit_8", "Toy Parts Inc");
@@ -334,10 +335,10 @@ function main()
             clickButton(":_settingsGroup.Sells Purchase Order Items_QCheckBox");
         if(findObject(":_settingsGroup.Qualified_QCheckBox").checked)
             clickButton(":_settingsGroup.Qualified_QCheckBox");
-        if(!findObject(":_settingsGroup.Check for matching Voucher and Purchase Order amounts_QCheckBox").checked)
-            clickButton(":_settingsGroup.Check for matching Voucher and Purchase Order amounts_QCheckBox");
-        if(findObject(":_settingsGroup.May only Sell Items defined by an Item Source_QCheckBox").checked)
-            clickButton(":_settingsGroup.May only Sell Items defined by an Item Source_QCheckBox");
+        if(!findObject(":_settingsGroup.*amounts_QCheckBox").checked)
+            clickButton(":_settingsGroup.*amounts_QCheckBox");
+        if(findObject(":_settingsGroup.*Item Source_QCheckBox").checked)
+            clickButton(":_settingsGroup.*Item Source_QCheckBox");
         clickTab(":Vendor.qt_tabwidget_tabbar_QTabBar", "Order Notes");
         waitForObject(":ponotesTab._poComments_QTextEdit");
         type(":ponotesTab._poComments_QTextEdit", "Default Vendor Notes From Vendor Master");
@@ -366,21 +367,21 @@ function main()
         clickButton(":Tax Authorities.Close_QToolButton");
     }catch(e){test.fail("Exception in creating Vendor:"+e);}
     
-         
-  //------------Create Item Sources------------------
-  try{
-      waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
-      waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-      activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
-      waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
-      activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
-      
+    
+    //------------Create Item Sources------------------
+    try{
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Purchase");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+        activateItem(":xTuple ERP: OpenMFG Edition.Purchase_QMenu", "Item Source");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Item Source_QMenu", "List...");
+        
         //----Item source for TBOX1--------------
         
         waitForObject(":Tax Authorities.New_QToolButton");
         clickButton(":Tax Authorities.New_QToolButton");
-                
+        
         waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
         type(":Item Sites.ItemLineEdit_ItemLineEdit", "TBOX1");
         nativeType("<Tab>");

@@ -90,8 +90,8 @@ function findApplicationEdition()
         if(!(findObject(":_stack.Use toolbars on displays when available_QCheckBox").checked))
             clickButton(":_stack.Use toolbars on displays when available_QCheckBox");
     }
-    waitForObject(":xTuple ERP: *_QPushButton");
-    clickButton(":xTuple ERP: *_QPushButton");
+    waitForObject(":List Departments.Save_QPushButton");
+    clickButton(":List Departments.Save_QPushButton");
     test.log("Application Edition: " + appEdition);
     
     return appEdition;
@@ -118,11 +118,11 @@ function assignAllPrivileges(userrole)
     waitForObject(":xTuple ERP: OpenMFG Edition.System_QMenu");
     activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
     
-    waitForObject(":List Users._usr_XTreeWidget_2");
+    waitForObject(":xTuple ERP: *._usr_XTreeWidget");
     
-    mouseClick("{column='0' container=':List Users._usr_XTreeWidget_2' text='"+username+"' type='QModelIndex'}",10,10,0,Qt.LeftButton);
-    waitForObject(":List Users.Edit_QPushButton_2");
-    clickButton(":List Users.Edit_QPushButton_2");
+    mouseClick("{column='0' container=':xTuple ERP: *._usr_XTreeWidget' text='"+username+"' type='QModelIndex'}",10,10,0,Qt.LeftButton);
+    waitForObject(":*.Edit_QPushButton");
+    clickButton(":*.Edit_QPushButton");
     waitForObject(":_privTab.Add All->>_QPushButton_2");   
     clickButton(":_privTab.Add All->>_QPushButton_2");   
     var iNumberOfModules=12;
@@ -133,10 +133,10 @@ function assignAllPrivileges(userrole)
         waitForObject(":_privTab.Add All->>_QPushButton_2");
         clickButton(":_privTab.Add All->>_QPushButton_2");
     }    
-    waitForObject(":List Users.Save_QPushButton_2");
-    clickButton(":List Users.Save_QPushButton_2");
-    waitForObject(":List Users.Close_QPushButton_2");
-    clickButton(":List Users.Close_QPushButton_2");
+    waitForObject(":Work Center.Save_QPushButton");
+    clickButton(":Work Center.Save_QPushButton");
+    waitForObject(":List Work Centers.Close_QPushButton");
+    clickButton(":List Work Centers.Close_QPushButton");
     test.log("Admin User assigned with all Privileges");
     
     //---Restarting Application--
@@ -155,8 +155,8 @@ function assignAllPrivileges(userrole)
     snooze(2);
     
     loginAppl("CONFIGURE"); 
-//    waitForObject(":Cancel.Yes_QPushButton");
-//    clickButton(":Cancel.Yes_QPushButton");
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
 }
 
 //--------------Create New Dept----------------------
@@ -366,6 +366,23 @@ function createRole(GrpName, GrpDesc)
         
         waitForObject(":List Work Centers.New_QPushButton");
         clickButton(":List Work Centers.New_QPushButton");
+//    
+//        waitForObject(":_name_XLineEdit_33");
+//    mouseClick(":_name_XLineEdit_33", 94, 14, 0, Qt.LeftButton);
+//    waitForObject(":_name_XLineEdit_33");
+//    mouseClick(":_name_XLineEdit_33", 94, 14, 0, Qt.LeftButton);
+//    waitForObject(":_name_XLineEdit_33");
+//    type(":_name_XLineEdit_33", "name");
+//    waitForObject(":_name_XLineEdit_33");
+//    type(":_name_XLineEdit_33", "<Tab>");
+//    waitForObject(":Work Center._description_XLineEdit");
+//    type(":Work Center._description_XLineEdit", "s");
+//    waitForObject(":Work Center._description_XLineEdit");
+//    type(":Work Center._description_XLineEdit", "<Backspace>");
+//    waitForObject(":Work Center._description_XLineEdit");
+//    type(":Work Center._description_XLineEdit", "desc");
+//    waitForObject(":List Groups.Save_QPushButton");
+//    clickButton(":List Groups.Save_QPushButton");
         waitForObject(":_name_XLineEdit");
         type(":_name_XLineEdit", GrpName);
         type(":_description_XLineEdit_2", GrpDesc);
@@ -410,7 +427,7 @@ function createRole(GrpName, GrpDesc)
 function createUserByRole(userrole)
 {
     try{
-    //----Read the new User data from login.tsv based on role---
+        //----Read the new User data from login.tsv based on role---
         var set = testData.dataset("login.tsv");
         var realname,username,role,pwd;
         role=realname=username=pwd="";
@@ -462,7 +479,7 @@ function createUserByRole(userrole)
         clickButton(":Employee.Save_QPushButton");
         waitForObject(":List Work Centers.Close_QPushButton");
         clickButton(":List Work Centers.Close_QPushButton");
-   
+        
         
         snooze(1);
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -470,7 +487,7 @@ function createUserByRole(userrole)
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
         waitForObject(":List Users.New_QPushButton")
-        clickButton(":List Users.New_QPushButton");
+                clickButton(":List Users.New_QPushButton");
         waitForObject(":_username_XLineEdit");
         type(":_username_XLineEdit", username);
         waitForObject(":_initials_XLineEdit");
@@ -503,8 +520,8 @@ function createUserByRole(userrole)
         clickItem(":_groupTab._availableGroup_XTreeWidget","SUPER",0,0,1,Qt.LeftButton);
         waitForObject(":_groupTab.Add->_QPushButton");
         clickButton(":_groupTab.Add->_QPushButton");
-        waitForObject(":List Users.Save_QPushButton_2");
-        clickButton(":List Users.Save_QPushButton_2");
+        waitForObject(":List Sites.Save_QPushButton");
+        clickButton(":List Sites.Save_QPushButton");
         
         
         snooze(2);
@@ -512,7 +529,7 @@ function createUserByRole(userrole)
         if(object.exists("{column='0' container=':List Users._usr_XTreeWidget_2' text='"+username+"' type='QModelIndex'}"))
             test.pass("User created:"+username);
         else test.fail("User not created:"+username);
-       
+        
         waitForObject(":List Users.Close_QPushButton_2");
         clickButton(":List Users.Close_QPushButton_2");
     }
@@ -844,21 +861,26 @@ function assignTax(zone,ttype,tcode)
         
         waitForObject(":_frame.New_QPushButton_4");
         clickButton(":_frame.New_QPushButton_4");
-        waitForObject(":Tax Assignment._taxZone_XComboBox");
-        type(":Tax Assignment._taxZone_XComboBox", zone);
-        waitForObject(":Tax Assignment._taxType_XComboBox");
-        type(":Tax Assignment._taxType_XComboBox", ttype);
-        waitForObject(":_frame._taxCodeOption_XTreeWidget_2");
-        clickItem(":_frame._taxCodeOption_XTreeWidget_2", tcode, 0, 0, 1, Qt.LeftButton);
-        while(!findObject(":_frame.Add->_QPushButton_2").enabled)
+        
+    
+        waitForObject(":Tax Assignment._taxZone_XComboBox_2");
+        type(":Tax Assignment._taxZone_XComboBox_2", zone);
+        waitForObject(":Tax Assignment._taxType_XComboBox_2");
+        type(":Tax Assignment._taxType_XComboBox_2", ttype);
+        waitForObject(":_frame._taxCodeOption_XTreeWidget_3"); 
+        
+        clickItem(":_frame._taxCodeOption_XTreeWidget_3", tcode, 0, 0, 1, Qt.LeftButton);
+        
+   
+        while(!findObject(":_frame.Add->_QPushButton_3").enabled)
             snooze(0.1);
-        waitForObject(":_frame.Add->_QPushButton_2");
-        clickButton(":_frame.Add->_QPushButton_2");
+        waitForObject(":_frame.Add->_QPushButton_3");
+        clickButton(":_frame.Add->_QPushButton_3");
+        waitForObject(":List Pricing Schedule Assignments.Close_QPushButton_2");
+        clickButton(":List Pricing Schedule Assignments.Close_QPushButton_2");
         waitForObject(":Tax Assignment.Close_QPushButton");
         clickButton(":Tax Assignment.Close_QPushButton");
         
-        waitForObject(":List Tax Assignments.Close_QPushButton_3");
-        clickButton(":List Tax Assignments.Close_QPushButton_3");
     }
     catch(e){test.fail("Exception in assigning Tax:"+e);}
 }
@@ -997,8 +1019,8 @@ function maintainItemCosts(Item,cost)
         type(":Item Sites.ItemLineEdit_ItemLineEdit",Item);
         waitForObject(":_QTreeView");
         type(":_QTreeView", "<Tab>");
-        waitForObject(":Maintain Item Costs.New Cost_QPushButton");
-        clickButton(":Maintain Item Costs.New Cost_QPushButton");
+        waitForObject(":_zonesTab.New_QPushButton");
+        clickButton(":_zonesTab.New_QPushButton");
         waitForObject(":Create Item Cost._costelem_XComboBox");
         if(findObject(":Create Item Cost._costelem_XComboBox").currentText!="Material")
             clickItem(":Create Item Cost._costelem_XComboBox", "Material",0,0,1,Qt.LeftButton);
@@ -1008,8 +1030,8 @@ function maintainItemCosts(Item,cost)
         clickButton(":Create Item Cost.Post Cost to Standard_QCheckBox");
         clickButton(":Create Item Cost.Save_QPushButton");
         test.log("Material cost for "+Item+" defined");  
-        waitForObject(":Maintain Item Costs.Close_QPushButton");
-        clickButton(":Maintain Item Costs.Close_QPushButton"); 
+        waitForObject(":Tax Assignment.Close_QPushButton");
+        clickButton(":Tax Assignment.Close_QPushButton"); 
     }
     catch(e){test.fail("Exception in defining material cost for "+Item+" :"+e);}
 }
@@ -1017,7 +1039,7 @@ function maintainItemCosts(Item,cost)
 function createUserByRole2(userrole)
 { 
     try{
-    //----Read the new User data from login.tsv based on role---
+        //----Read the new User data from login.tsv based on role---
         var set = testData.dataset("login.tsv");
         var realname,username,role,pwd;
         role=realname=username=pwd="";
@@ -1069,7 +1091,7 @@ function createUserByRole2(userrole)
         clickButton(":Employee.Save_QPushButton");
         waitForObject(":List Work Centers.Close_QPushButton");
         clickButton(":List Work Centers.Close_QPushButton");
-   
+        
         
         snooze(1);
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -1077,12 +1099,12 @@ function createUserByRole2(userrole)
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
         waitForObject(":List Users.New_QPushButton")
-        clickButton(":List Users.New_QPushButton");
+                clickButton(":List Users.New_QPushButton");
         waitForObject(":_username_XLineEdit");
         type(":_username_XLineEdit", username);
         waitForObject(":List Users.Active_QCheckBox");
         if(!findObject(":List Users.Active_QCheckBox").checked)
-        clickButton(":List Users.Active_QCheckBox");
+            clickButton(":List Users.Active_QCheckBox");
         waitForObject(":_initials_XLineEdit");
         findObject(":_initials_XLineEdit").clear();
         type(":_initials_XLineEdit","JS");
@@ -1121,7 +1143,7 @@ function createUserByRole2(userrole)
         if(object.exists("{column='0' container=':List Users._usr_XTreeWidget_2' text='"+username+"' type='QModelIndex'}"))
             test.pass("User created:"+username);
         else test.fail("User not created:"+username);
-       
+        
         waitForObject(":List Users.Close_QPushButton_2");
         clickButton(":List Users.Close_QPushButton_2");
     }

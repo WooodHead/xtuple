@@ -8,7 +8,7 @@ function main()
     clickButton(":Cancel.Yes_QPushButton");
     var appEdition = findApplicationEdition();
     
-  
+    
     
     //---------Define: User defined costing element----------------
     try{
@@ -26,12 +26,12 @@ function main()
         clickButton(":User Costing Element.Accept P/O Distributions_QCheckBox");
         clickButton(":User Costing Element.Save_QPushButton");
         waitForObject(":List User-Defined Costing Elements._costelem_XTreeWidget");
-        if(object.exists(":_costelem.Special Handling_QModelIndex"))
+        if(object.exists(":_costelem.Special Handling_QModelIndex_2"))
             test.pass("Costing Element Created: Special Handling");
         else test.fail("Costing Element not Created: Special Handling");
         
-        waitForObject(":List User-Defined Costing Elements.Close_QPushButton");
-        clickButton(":List User-Defined Costing Elements.Close_QPushButton");
+        waitForObject(":Tax Assignment.Close_QPushButton");
+        clickButton(":Tax Assignment.Close_QPushButton");
     }catch(e){test.fail("Exception in creating User defined Costing:"+e)}
     
     
@@ -97,7 +97,7 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Reports_QMenu", "Costed BOM");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Costed BOM_QMenu", "Indented...");
         activateItem(":xTuple ERP: OpenMFG Edition.Costed BOM_QMenu", "Indented...");
-      
+        
         waitForObject(":Item Sites.ItemLineEdit_ItemLineEdit");
         type(":Item Sites.ItemLineEdit_ItemLineEdit", "YTRUCK1");
         nativeType("<Tab>");

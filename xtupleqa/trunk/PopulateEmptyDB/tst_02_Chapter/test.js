@@ -1,4 +1,4 @@
-               
+
 function main()
 {
     
@@ -9,7 +9,7 @@ function main()
     loginAppl("RUNREGISTER"); 
     waitForObject(":Cancel.Yes_QPushButton");
     clickButton(":Cancel.Yes_QPushButton");
-    
+ 
     snooze(2);
     
     if(object.exists(":Notice.Remind me about this again._QCheckBox"))
@@ -24,7 +24,7 @@ function main()
     
     var appEdition = findApplicationEdition();
     
-    
+  
     //-----------Chart Of Accounts------------------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -871,7 +871,7 @@ function main()
     defineChartcs("ADR-ROUTE","Delivery Route","address");
     defineChartcs("CTC-BDAY","Birthday","contact");
     defineChartcs("LOT-QA-TEST1","QA Results for Test Type 1","lot");
-  
+    
     
     if(appEdition=="Manufacturing")
         
@@ -938,10 +938,10 @@ function main()
             clickItem(":Setup._modules_QComboBox","Schedule",10,10, 0, Qt.LeftButton);
             waitForObject(":Master Information.Site Week_QModelIndex");
             mouseClick(":Master Information.Site Week_QModelIndex", 50, 5, 0, Qt.LeftButton);
-//            waitForObject(":_warehouse.Selected:_QRadioButton_8");
-//            clickButton(":_warehouse.Selected:_QRadioButton_8");
-//            waitForObject(":_warehouse._warehouses_WComboBox_9");
-//            clickItem(":_warehouse._warehouses_WComboBox_9", "WH1", 0, 0, 1, Qt.LeftButton);
+            //            waitForObject(":_warehouse.Selected:_QRadioButton_8");
+            //            clickButton(":_warehouse.Selected:_QRadioButton_8");
+            //            waitForObject(":_warehouse._warehouses_WComboBox_9");
+            //            clickItem(":_warehouse._warehouses_WComboBox_9", "WH1", 0, 0, 1, Qt.LeftButton);
             
             waitForObject(":_stack.Sunday_QCheckBox");
             if(findObject(":_stack.Sunday_QCheckBox").checked)
@@ -998,7 +998,7 @@ function main()
             waitForObject(":List Employees.Save_QPushButton_2");
             clickButton(":List Employees.Save_QPushButton_2");
             snooze(2);
-            if(object.exists(":_whsecal.Christmas 2010_QModelIndex"))
+            if(object.exists(":_whsecal.Christmas 2012_QModelIndex"))
                 test.pass("Calendar Exception: Christmas "+CurrentYearFull+" created");            
             else test.fail("Calendar Expceptin: Christmas "+CurrentYearFull+" not created");
             waitForObject(":List Employees.Save_QPushButton_2");
@@ -1017,7 +1017,7 @@ function main()
             if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+ appEdition);
             else test.pass(menuItem+"not found in "+appEdition);
         }catch(e){test.fail("Exception in verifying Schedule Menu");}
-        
+      
     }
     
     if(appEdition=="PostBooks"||appEdition=="Standard")
