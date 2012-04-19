@@ -53,7 +53,7 @@ SELECT pohead_id, pohead_number,
             ELSE poitem_status
        END AS f_status
 -- End Report formatting
-  FROM vend, poitem,
+  FROM vendinfo, poitem,
 <? if exists("byReceiptDate") ?>
        porecv,
 <? endif ?>

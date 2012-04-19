@@ -48,7 +48,7 @@ SELECT recv_id, 1 AS altid, recv_order_number AS ponumber,
         <? value("na") ?>     AS duedate_xtnullrole,
         <? value("na") ?>     AS purchcost_xtnullrole,
         <? value("na") ?>     AS recvcost_xtnullrole
-FROM vend, recv LEFT OUTER JOIN
+FROM vendinfo, recv LEFT OUTER JOIN
     (itemsite JOIN
      item ON (itemsite_item_id=item_id)) ON (recv_itemsite_id=itemsite_id)
 WHERE ( (recv_vend_id=vend_id)
@@ -104,7 +104,7 @@ SELECT poreject_id, 2, poreject_ponumber,
         <? value("na") ?>     AS duedate_xtnullrole,
         <? value("na") ?>     AS purchcost_xtnullrole,
         <? value("na") ?>     AS recvcost_xtnullrole
-FROM vend, poreject LEFT OUTER JOIN
+FROM vendinfo, poreject LEFT OUTER JOIN
     (itemsite JOIN
      item ON (itemsite_item_id=item_id)) ON (poreject_itemsite_id=itemsite_id)
 WHERE ( (poreject_vend_id=vend_id)

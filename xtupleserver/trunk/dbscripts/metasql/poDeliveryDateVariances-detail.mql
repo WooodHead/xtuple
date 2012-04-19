@@ -45,7 +45,7 @@ SELECT <? if exists("byItem") ?>
          'qty' AS porecv_qty_xtnumericrole
        <? endif ?>
 
-FROM vend,
+FROM vendinfo,
     <? if exists("byItem") ?>
       itemsite, recv LEFT OUTER JOIN pohead ON (recv_order_number = pohead_number)
     <? elseif exists("byVendor") ?>
