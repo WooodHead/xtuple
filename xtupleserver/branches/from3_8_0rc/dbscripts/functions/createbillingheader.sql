@@ -93,13 +93,14 @@ BEGIN
 
   --  Find a Shipping-Entered freight charge
   SELECT SUM(currToCurr(shiphead_freight_curr_id, _cohead.cohead_curr_id,
-			shiphead_freight, CURRENT_DATE)),
-	 shiphead_shipvia INTO _freight, _shipVia
-  FROM shiphead, shipitem
-  WHERE ((shipitem_shiphead_id=shiphead_id)
-    AND  (NOT shipitem_invoiced)
-    AND  (shiphead_order_type='SO')
-    AND  (shiphead_order_id=pSoheadid) )
+                        shiphead_freight, CURRENT_DATE)), shiphead_shipvia
+         INTO _freight, _shipVia
+  FROM (
+  SELECT shiphead_id, shiphead_freight_curr_id, shiphead_freight, shiphead_shipvia
+  FROM shiphead JOIN shipitem ON (shipitem_shiphead_id=shiphead_id AND NOT shipitem_invoiced)
+  WHERE ((shiphead_order_type='SO')
+    AND  (shiphead_order_id=pSoheadid))
+  GROUP BY shiphead_id, shiphead_freight_curr_id, shiphead_freight, shiphead_shipvia) AS data
   GROUP BY shiphead_shipvia;
 
   --  Nope, use the cohead freight charge
