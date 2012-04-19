@@ -31,12 +31,11 @@
     <title>MetaSQL</title>
     <para>MetaSQL is a scripting language developed by xTuple for use by the
     report writer. The language is designed to handle dynamic database
-    queries. MetaSQL statements are embedded within standard SQL&mdash;for
-    example, within the query source of a report definition. When a report is
-    run, a parsing engine interprets the MetaSQL using a list of named
-    parameters. The parsed result is standard SQL, which in turn is sent to
-    the target database. The following diagram illustrates this
-    process:</para>
+    queries. MetaSQL statements are embedded within standard SQL—for example,
+    within the query source of a report definition. When a report is run, a
+    parsing engine interprets the MetaSQL using a list of named parameters.
+    The parsed result is standard SQL, which in turn is sent to the target
+    database. The following diagram illustrates this process:</para>
     <para><screenshot>
         <mediaobject>
           <imageobject>
@@ -47,11 +46,11 @@
       </screenshot></para>
     <para>Dynamic queries are queries which contain conditional statements.
     Query results will vary depending on how the conditions are satisfied. For
-    example, a report may return one result if a user makes one
-    selection&mdash;or a different result if the user makes a different
-    selection. The report results are conditional upon choices made by the
-    user. The MetaSQL scripting language enables you to allow for and
-    incorporate this conditionality into your report definitions.</para>
+    example, a report may return one result if a user makes one selection—or a
+    different result if the user makes a different selection. The report
+    results are conditional upon choices made by the user. The MetaSQL
+    scripting language enables you to allow for and incorporate this
+    conditionality into your report definitions.</para>
     <section>
       <title>MetaSQL in Practice</title>
       <para>To illustrate how dynamic, conditional queries are handled using
@@ -155,11 +154,11 @@
             <literal>showInactive</literal>. The
             <literal>showInactive</literal> parameter originates from within
             the source code of the application utilizing the report writer. In
-            this case, that application is xTuple&mdash;and the parameter is
+            this case, that application is xTuple—and the parameter is
             included in the source code for the Users Master List screen. When
             an xTuple user sends a print request from the Users Master List
             screen, the MetaSQL parser interprets the existing
-            conditions&mdash;namely, is the <literal>showInactive</literal>
+            conditions—namely, is the <literal>showInactive</literal>
             parameter being used, or not? The parser then uses this
             information to produce standard SQL meeting the specified
             conditions. This standard SQL, which has been stripped of its
@@ -257,19 +256,14 @@ ORDER BY usr_username;
             <term>if</term>
             <listitem>
               <para>Use the <literal>if</literal> statement to begin a
-              conditional control block. One or more tokens (i.e., single
-              elements) should follow this opening statement. Individual
-              tokens may be separated from each other using the
-              <literal>and</literal> and <literal>or</literal> tokens.
-              Explicit token groups should be enclosed within parentheses
-              <literal>( )</literal>. You can reverse the boolean result of a
-              token group by placing a <literal>not</literal> token directly
-              proceeding the token group. If the aggregate sum of all the
-              token groups in a control block is a true value, then the
+              conditional control block. One token should follow this opening
+              statement. You can reverse the boolean result of a token by
+              placing a <literal>not</literal> token directly proceeding the
+              token. If the token is a <literal>true</literal> value, then the
               contents of the <literal>if</literal> block will be executed. If
-              the condition is false, then the next following
-              <literal>elseif</literal> condition will be evaluated, assuming
-              one exists.</para>
+              the condition is <literal>false</literal>, then the next
+              following <literal>elseif</literal> condition will be evaluated,
+              assuming one exists.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -367,9 +361,9 @@ ORDER BY usr_username;
               <literal>foreach</literal> block and the parameter represents a
               list, the function will return true if the item returned by the
               call would be the first item in the list. If the parameter is
-              called outside a <literal>foreach</literal> block&mdash;or if
-              the parameter specified does not represent a list but does
-              exist&mdash;then the function will return true. In all other
+              called outside a <literal>foreach</literal> block—or if the
+              parameter specified does not represent a list but does
+              exist—then the function will return true. In all other
               situations, the function will return false.</para>
             </listitem>
           </varlistentry>
@@ -386,7 +380,7 @@ ORDER BY usr_username;
               if the list contains one item. In all cases, the function will
               return true if the parameter does not represent a list, but
               instead represents a single parameter. If the parameter does not
-              exist&mdash;or in any other case&mdash;this function will return
+              exist—or in any other case—this function will return
               false.</para>
             </listitem>
           </varlistentry>
@@ -492,10 +486,10 @@ ORDER BY usr_username;
       exercise is to leave you with an understanding of fundamental MetaSQL
       Editor mechanics. You are free to perform more complex and extensive
       testing on your own.</para>
-      <para>Now that we are connected to a database&mdash;in this case, an
-      xTuple database&mdash;we can write a simple query and then test the
-      results. To enter a query, simply type in the MetaSQL Editor’s main text
-      field, as shown in the following screen:</para>
+      <para>Now that we are connected to a database—in this case, an xTuple
+      database—we can write a simple query and then test the results. To enter
+      a query, simply type in the MetaSQL Editor’s main text field, as shown
+      in the following screen:</para>
       <para id="i570586"><screenshot>
           <mediaobject>
             <imageobject>
@@ -516,7 +510,7 @@ ORDER BY usr_username;
       specified <literal>item_code</literal>. The term
       <literal>item_code</literal> is a parameter. We can set different values
       for the <literal>item_code</literal> parameter using the MetaSQL
-      Editor&mdash;and then run the query to test the results.</para>
+      Editor—and then run the query to test the results.</para>
       <para>However, before we run the query, we must first define the
       parameter <literal>item_code</literal> and assign it a value.</para>
     </section>
@@ -527,7 +521,7 @@ ORDER BY usr_username;
       users. The MetaSQL Editor enables you to simulate these dynamic
       conditions, by defining parameters and assigning values to them.</para>
       <para>Let’s assign a value to the parameter we entered in our MetaSQL
-      example&mdash;namely, the parameter <literal>item_code</literal>. In our
+      example—namely, the parameter <literal>item_code</literal>. In our
       example, we are simulating a situation in which an xTuple user inputs an
       <literal>item_code</literal>. The <literal>item_code</literal>, in turn,
       corresponds to an <literal>item_number</literal> in the
@@ -577,9 +571,9 @@ ORDER BY usr_username;
           <term>Type</term>
           <listitem>
             <para>Select the appropriate data type from the list of available
-            data types. Data types are defined on the database&mdash;and may
-            vary from column to column. To be successful, your selection must
-            match the data type for the target column in the database. In our
+            data types. Data types are defined on the database—and may vary
+            from column to column. To be successful, your selection must match
+            the data type for the target column in the database. In our
             example, the target column is <literal>item_number</literal>. The
             data type for this column is <literal>text</literal> in the
             MetaSQL Editor. The <literal>text</literal> data type corresponds
@@ -716,13 +710,13 @@ ORDER BY usr_username;
     well.</para>
     <tip>
       <para>The standalone report renderer can be used by xTuple users to
-      generate custom reports&mdash;that is, reports which are not available
-      using the xTuple menu structure. This flexibility enables users to
-      extend the reporting capabilities of xTuple.</para>
+      generate custom reports—that is, reports which are not available using
+      the xTuple menu structure. This flexibility enables users to extend the
+      reporting capabilities of xTuple.</para>
     </tip>
     <para>In this section, we will focus on the standalone report renderer.
     The standalone version gives users the ability to connect to multiple
-    databases&mdash;and generate custom reports from those databases.</para>
+    databases—and generate custom reports from those databases.</para>
     <section>
       <title>Connecting to a Database</title>
       <para>To open the report renderer, locate the renderer application file
@@ -801,10 +795,10 @@ ORDER BY usr_username;
           </mediaobject>
         </screenshot></para>
       <para>As you can see, no report definition has been loaded yet. Once a
-      report definition is loaded&mdash;and parameters defined, if
-      necessary&mdash;we can run the report and print the results.</para>
+      report definition is loaded—and parameters defined, if necessary—we can
+      run the report and print the results.</para>
       <para>In the next section, we will look at a sample report
-      definition&mdash;and later we will load this sample into the report
+      definition—and later we will load this sample into the report
       renderer.</para>
     </section>
     <section>
@@ -814,8 +808,8 @@ ORDER BY usr_username;
       report renderer’s miscellaneous or “ad hoc” reporting capability also
       extends to xTuple databases, which run on PostgreSQL. For xTuple users,
       this means you can use the report renderer to generate your own
-      reports&mdash;thereby extending your reporting capability beyond the
-      range of standard reports included with the xTuple application.</para>
+      reports—thereby extending your reporting capability beyond the range of
+      standard reports included with the xTuple application.</para>
       <tip>
         <para>The report renderer enables xTuple users to extend their
         reporting capabilities. Use the report renderer to generate ad hoc, or
