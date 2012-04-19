@@ -94,6 +94,10 @@ WHERE (
    AND (gltrans_source=<? value("source") ?>)
 <? endif ?>
 ) 
-ORDER BY gltrans_created
-<? if not exists("beginningBalance") ?> DESC <? endif ?>,
+ORDER BY
+<? if exists("beginningBalance") ?>
+   gltrans_date,
+<? else ?>
+   gltrans_created DESC,
+<? endif ?>
    gltrans_sequence, gltrans_amount;
