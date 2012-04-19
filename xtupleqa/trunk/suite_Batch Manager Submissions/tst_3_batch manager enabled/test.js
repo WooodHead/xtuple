@@ -643,7 +643,7 @@ function main()
         test.pass("Batch Manager Submitted for Unposted Purchase Order");
     
     else test.fail("Batch Manager not responding");
-    
+  
     //-----Print Purchase Order-----
     try
     {
@@ -760,7 +760,7 @@ function main()
     {
         test.fail("Error in sending electronic acknowledgement of sales order" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -878,7 +878,7 @@ function main()
     {
         test.fail("Error in sending electronic quote" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -985,7 +985,7 @@ function main()
     {
         test.fail("Error in creating planned order" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -993,7 +993,7 @@ function main()
         test.pass("Batch Manager Submitted for creating Planned orders by planner code");
     
     else test.fail("Batch Manager not responding");
-    
+  
     //----------Verify Planned orders-----------
     try
     {
@@ -1049,7 +1049,7 @@ function main()
     {
         test.fail("Exception in scheduling planned orders report" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -1090,7 +1090,7 @@ function main()
     {
         test.fail("Error in releasing planned order" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -1130,7 +1130,7 @@ function main()
         test.fail("Error in Creating Buffer Status by Planner code" + e);
     }
     
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -1169,7 +1169,7 @@ function main()
     {
         test.fail("Error in Creating Buffer Status by Item" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -1271,7 +1271,7 @@ function main()
     }
     
     
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -1466,7 +1466,7 @@ function main()
     {
         test.fail("Error in Releasing Planned Transfer Order " + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -1516,7 +1516,7 @@ function main()
     {
         test.fail("Error in submitting Time Phased Demand by Planner Code " + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -3409,55 +3409,55 @@ function main()
     {
         test.fail("Error in Print Statement by Customer " + e);
     }
+
+    //-----Verify the submission in Batch Manager-----
+    var result = batchmanager();
     
-    //    //-----Verify the submission in Batch Manager-----
-    //    var result = batchmanager();
-    //    
-    //    if(result == true)
-    //        test.pass("Batch Manager Submitted for Printing Statement by Customer");
-    //    
-    //    else test.fail("Batch Manager not responding");
+    if(result == true)
+        test.pass("Batch Manager Submitted for Printing Statement by Customer");
     
-    //    //-----Print Statement by Customer Type-----
-    //  try
-    //  {
-    //      waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
-    //      activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
-    //      waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
-    //      activateItem(":*.Accounting_QMenu", "Accounts Receivable");
-    //      waitForObjectItem(":*.Accounts Receivable_QMenu", "Forms");
-    //      activateItem(":*.Accounts Receivable_QMenu", "Forms");
-    //      waitForObjectItem(":*.Forms_QMenu_4", "Print Statements by Customer Type...");
-    //      activateItem(":*.Forms_QMenu_4", "Print Statements by Customer Type...");
-    //      
-    //      waitForObject(":_customerTypes.All Customer Types_QRadioButton");
-    //      clickButton(":_customerTypes.All Customer Types_QRadioButton");
-    //      waitForObject(":Print Statements by Customer Type.Print_QPushButton");
-    //      clickButton(":Print Statements by Customer Type.Print_QPushButton"); 
-    //      snooze(1);	  
-    //      nativeType("<Return>");
-    //      waitForObject(":Review EDI Before Sending.OK_QPushButton");
-    //      clickButton(":Review EDI Before Sending.OK_QPushButton");  
-    //
-    //      
-    //      waitForObject(":Print Statements by Customer Type.Close_QPushButton");
-    //      clickButton(":Print Statements by Customer Type.Close_QPushButton");
-    //  }
-    //  catch(e)
-    //  {
-    //      test.fail("Error in Print Statement by Customer Type " + e);
-    //  }
-    //  
-    //
-    //    //-----Verify the submission in Batch Manager-----
-    //    var result = batchmanager();
-    //    
-    //    if(result == true)
-    //        test.pass("Batch Manager Submitted for Printing Statement by Customer Type");
-    //    
-    //    else test.fail("Batch Manager not responding");
+    else test.fail("Batch Manager not responding");
+
+    //-----Print Statement by Customer Type-----
+  try
+  {
+      waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
+      activateItem(":xTuple ERP: *_QMenuBar", "Accounting");
+      waitForObjectItem(":*.Accounting_QMenu", "Accounts Receivable");
+      activateItem(":*.Accounting_QMenu", "Accounts Receivable");
+      waitForObjectItem(":*.Accounts Receivable_QMenu", "Forms");
+      activateItem(":*.Accounts Receivable_QMenu", "Forms");
+      waitForObjectItem(":*.Forms_QMenu_4", "Print Statements by Customer Type...");
+      activateItem(":*.Forms_QMenu_4", "Print Statements by Customer Type...");
+      
+      waitForObject(":_customerTypes.All Customer Types_QRadioButton");
+      clickButton(":_customerTypes.All Customer Types_QRadioButton");
+      waitForObject(":Print Statements by Customer Type.Print_QPushButton");
+      clickButton(":Print Statements by Customer Type.Print_QPushButton"); 
+      snooze(1);	  
+      nativeType("<Return>");
+      waitForObject(":Review EDI Before Sending.OK_QPushButton");
+      clickButton(":Review EDI Before Sending.OK_QPushButton");  
+
+      
+      waitForObject(":Print Statements by Customer Type.Close_QPushButton");
+      clickButton(":Print Statements by Customer Type.Close_QPushButton");
+  }
+  catch(e)
+  {
+      test.fail("Error in Print Statement by Customer Type " + e);
+  }
+  
+
+    //-----Verify the submission in Batch Manager-----
+    var result = batchmanager();
     
+    if(result == true)
+        test.pass("Batch Manager Submitted for Printing Statement by Customer Type");
     
+    else test.fail("Batch Manager not responding");
+
+  
     //-----Operation Buffer Status-----
     try
     {
@@ -3813,16 +3813,16 @@ function main()
     {
         test.fail("Exception in scheduling Single Level Bill of Materials Screen");
     }
+
+    //-----Verify the submission in Batch Manager-----
     
-    //    //-----Verify the submission in Batch Manager-----
-    //    
-    //    var result = batchmanager();
-    //    
-    //    if(result == true)
-    //        test.pass("Batch Manager Submitted for Single Level Bill of Materials ");
-    //    
-    //    else test.fail("Batch Manager not responding");
+    var result = batchmanager();
     
+    if(result == true)
+        test.pass("Batch Manager Submitted for Single Level Bill of Materials ");
+    
+    else test.fail("Batch Manager not responding");
+
     //----- Indented Bill of Materials Screen -----
     
     try

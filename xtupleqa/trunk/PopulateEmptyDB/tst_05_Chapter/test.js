@@ -529,11 +529,11 @@ function main()
             
             waitForObject(":_list_XTreeWidget");
             snooze(1);
-            if(!clickItem(":_list_XTreeWidget", "COLLECTORS-LINE-PLAN", 5, 5, 1, Qt.LeftButton))
-                test.pass("Production Plan Created: COLLECTORS-LINE-PLAN");
+            if(!clickItem(":_list_XTreeWidget", "COLLECTORS-LINE", 5, 5, 1, Qt.LeftButton))
+                test.pass("Production Plan Created: COLLECTORS-LINE");
             waitForObject(":List Production Plans.Close_QPushButton");
             clickButton(":List Production Plans.Close_QPushButton");
-        }catch(e){test.fail("Exception in creating COLLECTORS-LINE-PLAN:"+e);}
+        }catch(e){test.fail("Exception in creating COLLECTORS-LINE:"+e);}
         
     }
     else if(appEdition=="PostBooks")

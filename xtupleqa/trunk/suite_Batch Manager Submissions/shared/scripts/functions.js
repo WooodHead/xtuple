@@ -31,8 +31,8 @@ function loginAppl(userrole)
     }
     
     
-    waitForObject(":Log In.Options..._QPushButton");
-    clickButton(":Log In.Options..._QPushButton");
+    waitForObject(":Log In.Options..._QPushButton_2");
+    clickButton(":Log In.Options..._QPushButton_2");
     waitForObject(":_server_QLineEdit");
     if(findObject(":_server_QLineEdit").text!= url)
     {
@@ -49,7 +49,7 @@ function loginAppl(userrole)
         findObject(":_port_QLineEdit").text=port;
         test.log("Port Changed to:" + port);
     }
-    clickButton(":Login Options.Save_QPushButton");
+    clickButton(":Login Options.Save_QPushButton_2");
     waitForObject(":_username_QLineEdit");    
     type(":_username_QLineEdit", username);
     waitForObject(":_username_QLineEdit");
@@ -74,23 +74,25 @@ try
 function batchmanager( )
 {
     
-    waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
+     waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
     activateItem(":xTuple ERP: *_QMenuBar", "System");
-    waitForObjectItem(":xTuple ERP: *.System_QMenu", "Batch Manager...");
-    activateItem(":xTuple ERP: *.System_QMenu", "Batch Manager...");
+    waitForObjectItem(":xTuple ERP: *.System_QMenu", "xTuple Connect Console...");
+    activateItem(":xTuple ERP: *.System_QMenu", "xTuple Connect Console...");
+    waitForObject(":Submitted By:.Current User_QRadioButton_2");
+    clickButton(":Submitted By:.Current User_QRadioButton_2");
     
-    waitForObject(":Submitted By:.Current User_QRadioButton");
-    clickButton(":Submitted By:.Current User_QRadioButton");
-    if(!findObject(":_frame.Automatically Update_QCheckBox").checked)
-        clickButton(":_frame.Automatically Update_QCheckBox");
-    if(findObject(":Batch Manager.Show Completed Actions_QCheckBox").checked)
-        clickButton(":Batch Manager.Show Completed Actions_QCheckBox");
+    if(!findObject(":_frame.Automatically Update_QCheckBox_2").checked)
+       clickButton(":_frame.Automatically Update_QCheckBox_2");
+    
+    if(findObject(":xTuple Connect Console.Show Completed Actions_QCheckBox").checked)
+        clickButton(":xTuple Connect Console.Show Completed Actions_QCheckBox");
+    
     var _delay=0;
-    while(findObject(":_frame._batch_XTreeWidget").topLevelItemCount!=0)
+    while(findObject(":_frame._batch_XTreeWidget_2").topLevelItemCount!=0)
     {
         snooze(1);
         _delay=_delay+1;
-        if(_delay==1800 && findObject(":_frame._batch_XTreeWidget").topLevelItemCount!=0)
+        if(_delay==1800 && findObject(":_frame._batch_XTreeWidget_2").topLevelItemCount!=0)
         {
             test.fail("Waited for 30 minutes, Job not Done - Switching to next Job..");
             return false;
@@ -98,20 +100,20 @@ function batchmanager( )
         
     }
    
-    if(!findObject(":Batch Manager.Show Completed Actions_QCheckBox").checked)
-        clickButton(":Batch Manager.Show Completed Actions_QCheckBox");
+    if(!findObject(":xTuple Connect Console.Show Completed Actions_QCheckBox").checked)
+        clickButton(":xTuple Connect Console.Show Completed Actions_QCheckBox");
     
-    waitForObject(":_frame._batch_XTreeWidget");
-    var sWidgetTreeControl = ":_frame._batch_XTreeWidget";
+    waitForObject(":_frame._batch_XTreeWidget_2");
+    var sWidgetTreeControl = ":_frame._batch_XTreeWidget_2";
     waitForObject(sWidgetTreeControl);
     var obj_TreeWidget = findObject(sWidgetTreeControl);
     var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
     var iNumberOfRootItems = obj_TreeRootItem.childCount();
     obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-    type(":_frame._batch_XTreeWidget","<Ctrl+End>");
+    type(":_frame._batch_XTreeWidget_2","<Ctrl+End>");
     
     var allDoneStatus = true;
-    for(var loop=0; loop<findObject(":_frame._batch_XTreeWidget").topLevelItemCount;loop++)
+    for(var loop=0; loop<findObject(":_frame._batch_XTreeWidget_2").topLevelItemCount;loop++)
     {
        
         obj_TreeTopLevelItem = obj_TreeRootItem.child(loop);
@@ -124,8 +126,8 @@ function batchmanager( )
        
     }
     
-    waitForObject(":Batch Manager.Close_QPushButton");
-    clickButton(":Batch Manager.Close_QPushButton");
+    waitForObject(":xTuple Connect Console.Close_QPushButton_2");
+    clickButton(":xTuple Connect Console.Close_QPushButton_2");
     
     test.log("Time Taken for this submission:"+_delay+" sec");
     return allDoneStatus;

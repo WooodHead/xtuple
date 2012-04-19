@@ -8,9 +8,10 @@ function main()
     loginAppl("RUNREGISTER");       
     waitForObject(":Cancel.Yes_QPushButton");
     clickButton(":Cancel.Yes_QPushButton");
+   
     var appEdition = findApplicationEdition();
-
-
+    
+    
     //----------Create Customer Type------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -735,34 +736,34 @@ function main()
     
     //----Define Sales Rep---
     try{
-      
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
-    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Setup...");
-    activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Setup...");
-    
-    waitForObjectItem(":Setup._tree_XTreeWidget", "Master Information.Sales Reps");
-    clickItem(":Setup._tree_XTreeWidget", "Master Information.Sales Reps", 24, 5, 0, Qt.LeftButton);
-    waitForObject(":List Sales Representatives.New_QPushButton");
-    clickButton(":List Sales Representatives.New_QPushButton");
-    waitForObject(":_number_XLineEdit_5");
-    type(":_number_XLineEdit_5", "usge");
-    waitForObject(":_name_XLineEdit_9");
-    type(":_name_XLineEdit_9", "usge");
-    waitForObject(":_commPrcnt_XLineEdit")
-    type(":_commPrcnt_XLineEdit", "7.5");
-    if(!findObject(":_stack.Active_QCheckBox"))
-        clickButton(":_stack.Active_QCheckBox");
-    waitForObject(":List Employees.Save_QPushButton_2");
-    clickButton(":List Employees.Save_QPushButton_2");
-    
-    waitForObject(":Setup.Save_QPushButton");
-    clickButton(":Setup.Save_QPushButton");
-
-    
+        
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Sales");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Sales_QMenu", "Setup...");
+        
+        waitForObjectItem(":Setup._tree_XTreeWidget", "Master Information.Sales Reps");
+        clickItem(":Setup._tree_XTreeWidget", "Master Information.Sales Reps", 24, 5, 0, Qt.LeftButton);
+        waitForObject(":List Sales Representatives.New_QPushButton");
+        clickButton(":List Sales Representatives.New_QPushButton");
+        waitForObject(":_number_XLineEdit_5");
+        type(":_number_XLineEdit_5", "usge");
+        waitForObject(":_name_XLineEdit_9");
+        type(":_name_XLineEdit_9", "usge");
+        waitForObject(":_commPrcnt_XLineEdit")
+                type(":_commPrcnt_XLineEdit", "7.5");
+        if(!findObject(":_stack.Active_QCheckBox"))
+            clickButton(":_stack.Active_QCheckBox");
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
+        
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
+        
+        
     }
     catch(e){test.fail("Exception in creating Sales Rep.:"+e);}
-  
+    
     //----------------Create new Customer---------------
     try{
         
@@ -835,11 +836,11 @@ function main()
         snooze(2);
         if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
             clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);
-         waitForObject(":_shipToNumber_XLineEdit");
-         mouseClick(":_shipToNumber_XLineEdit",55, 7, 0, Qt.LeftButton);
-         snooze(1);
-         nativeType("<Tab>");
-         snooze(2);
+        waitForObject(":_shipToNumber_XLineEdit");
+        mouseClick(":_shipToNumber_XLineEdit",55, 7, 0, Qt.LeftButton);
+        snooze(1);
+        nativeType("<Tab>");
+        snooze(2);
         clickButton(":Ship-To.Save_QPushButton");
         snooze(2);
         waitForObject(":_addressStack.New_QPushButton_2");
@@ -868,11 +869,11 @@ function main()
         if(findObject(":Defaults:._shipchrg_XComboBox")!="ADDCHARGE-Add Shipping Charges to Order")
             clickItem(":Defaults:._shipchrg_XComboBox", "ADDCHARGE-Add Shipping Charges to Order",0,0,1,Qt.LeftButton);	
         snooze(2);
-  
-          waitForObject(":_shipToNumber_XLineEdit");
-          mouseClick(":_shipToNumber_XLineEdit",55, 7, 0, Qt.LeftButton);
-          snooze(1);
-          nativeType("<Tab>");
+        
+        waitForObject(":_shipToNumber_XLineEdit");
+        mouseClick(":_shipToNumber_XLineEdit",55, 7, 0, Qt.LeftButton);
+        snooze(1);
+        nativeType("<Tab>");
         waitForObject(":Ship-To.Save_QPushButton");
         clickButton(":Ship-To.Save_QPushButton");
         snooze(2);
@@ -883,8 +884,8 @@ function main()
         test.log("Customer: TTOYS created");
         snooze(1);
     }catch(e){test.fail("Exception in creating Customer:"+e);} 
-  
-
+    
+    
     //----------------Create Customer Group---------------
     try{
         

@@ -12,12 +12,40 @@ function main()
     
     //---login Application--------
     loginAppl("CONFIGURE"); 
-  
-  
+    
+    
     waitForObject(":Cancel.Yes_QPushButton");
     clickButton(":Cancel.Yes_QPushButton");
+    
+  
     snooze(1);
-
+  
+     
+    //----------Create Base Currency-----------------------
+    
+    if(object.exists(":List Work Centers.New_QPushButton"))
+    {
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+        waitForObject(":Currency._currName_QLineEdit");
+        type(":Currency._currName_QLineEdit", "US Dollars");
+        waitForObject(":Currency._currSymbol_QLineEdit");
+        type(":Currency._currSymbol_QLineEdit", "$");
+        waitForObject(":Currency._currAbbr_QLineEdit");
+        type(":Currency._currAbbr_QLineEdit",  "USD");         
+        waitForObject(":Currency.Base Currency_QCheckBox");
+        clickButton(":Currency.Base Currency_QCheckBox");
+        snooze(0.1);
+        waitForObject(":List Employees.Save_QPushButton_2");
+        clickButton(":List Employees.Save_QPushButton_2");
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+        waitForObject(":List Work Centers.Close_QPushButton");
+        clickButton(":List Work Centers.Close_QPushButton");
+        test.log("Currencies are created");
+        
+    }
+    
     //-----Editing the preferences----
     
     if(OS.name=="Darwin")
@@ -28,7 +56,7 @@ function main()
         waitForObjectItem("{ title='Products' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient'}","Preferences...");
         
         activateItem("{ title='Products' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient'}","Preferences...");
-   } 
+    } 
     else
     {
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -38,10 +66,11 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Preferences...");
     }
     
-    waitForObject(":Interface Options.Show windows inside workspace_QRadioButton");
+  
+    waitForObject(":Interface Options.Tabbed Windows_QRadioButton");
     snooze(1);
-    if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
-        clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
+    if(!findObject(":Interface Options.Tabbed Windows_QRadioButton").checked)
+        clickButton(":Interface Options.Tabbed Windows_QRadioButton");
     snooze(1);
     if(object.exists(":Notice.Remind me about this again._QCheckBox"))
     {  
@@ -131,7 +160,7 @@ function main()
         {
             type(":Encryption Configuration_FileLineEdit_2", "<Right>");
             type(":Encryption Configuration_FileLineEdit_2", "<Ctrl+Backspace>");
-            type(":Encryption Configuration_FileLineEdit_2", "//home//crypto");
+            type(":Encryption Configuration_FileLineEdit_2", "//home//administrator//crypto");
             test.log("Encryption: Linux location changed");
         }
         if(findObject(":Encryption Configuration_FileLineEdit_3").text!="/Users/crypto")
@@ -146,7 +175,7 @@ function main()
         test.log("Encryption defined");
     }catch(e){test.fail("Exception in defining Encryption:"+e);}
     
-  
+    
     //---Restarting Application--
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -161,19 +190,19 @@ function main()
         startApplication("xtuple");
     
     snooze(2);
-  
-  loginAppl("CONFIGURE"); 
-//  waitForObject(":Cancel.Yes_QPushButton");
-//  clickButton(":Cancel.Yes_QPushButton");
-   
+    
+    loginAppl("CONFIGURE"); 
+    waitForObject(":Cancel.Yes_QPushButton");
+    clickButton(":Cancel.Yes_QPushButton");
+    
   var appEdition = findApplicationEdition(); 
-
-
+  
+    
     //-----create Entities-------
     createDept("MFG","Manufacturing");
     assignAllPrivileges("CONFIGURE");
- 
-    var appEdition = findApplicationEdition();
+
+var appEdition = findApplicationEdition();
     if(appEdition=="Manufacturing")
         createShift("1ST","First");
     else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
@@ -269,15 +298,15 @@ function main()
         
         waitForObject(":Meaning of Currency Exchange Rates:.Foreign × Exchange Rate = Base_QRadioButton_2");
         clickButton(":Meaning of Currency Exchange Rates:.Foreign × Exchange Rate = Base_QRadioButton_2");
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");
+           waitForObject(":List Departments.Save_QPushButton");
+           clickButton(":List Departments.Save_QPushButton");
         snooze(0.5);
         if(object.exists(":Company ID Correct?.Yes_QPushButton"))
             clickButton(":Company ID Correct?.Yes_QPushButton");
         test.log("Acconting Module Configured");
     }
     catch(e){test.fail("Exception in configuring Accounting:"+e);}
-//    
+    
     //-------Create Company: Prodiem---------
     createCompany("01","Prodiem");
     
@@ -290,26 +319,7 @@ function main()
         waitForObject(":Master Information.Currencies_QModelIndex");
         mouseClick(":Master Information.Currencies_QModelIndex", 34, 2, 0, Qt.LeftButton);
         
-//        //----------Create Base Currency-----------------------
-//        waitForObject(":List Work Centers.New_QPushButton");
-//        clickButton(":List Work Centers.New_QPushButton");
-//        waitForObject(":_stack._currName_QLineEdit");
-//        type(":_stack._currName_QLineEdit", "US Dollars");
-//        waitForObject(":_stack._currSymbol_QLineEdit");
-//        type(":_stack._currSymbol_QLineEdit", "$");
-//        waitForObject(":_stack._currAbbr_QLineEdit");
-//        type(":_stack._currAbbr_QLineEdit",  "USD");         
-//        waitForObject(":_stack.Base Currency_QCheckBox");
-//        clickButton(":_stack.Base Currency_QCheckBox");
-//        snooze(0.1);
-//        waitForObject(":Cancel.Yes_QPushButton");
-//        clickButton(":Cancel.Yes_QPushButton");
-//        waitForObject(":xTuple ERP: *_QPushButton");
-//        clickButton(":xTuple ERP: *_QPushButton");
-//        waitForObject(":Cancel.Yes_QPushButton");
-//        clickButton(":Cancel.Yes_QPushButton");
-//        
-//        
+        
         //----------Create Foreign currency - EUR------------
         waitForObject(":List Work Centers.New_QPushButton");
         clickButton(":List Work Centers.New_QPushButton");
@@ -319,8 +329,8 @@ function main()
         type(":_stack._currSymbol_QLineEdit", "EUR");
         waitForObject(":_stack._currAbbr_QLineEdit");
         type(":_stack._currAbbr_QLineEdit",  "EUR"); 
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");               
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");               
         snooze(2);
         
         waitForObject(":_stack._curr_XTreeWidget");
@@ -334,7 +344,7 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-         test.log("Currencies are created");
+        test.log("Currencies are created");
     }
     catch(e){test.fail("Exception caught in creating Currencies");
     }
@@ -364,7 +374,7 @@ function main()
         else test.fail("Exchange Rate of EUR not created");
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-         test.log("Exchange Rate for the currency is created");
+        test.log("Exchange Rate for the currency is created");
     }
     catch(e){test.fail("Exception in creating Exchange Rates:"+e);
     }
@@ -395,7 +405,7 @@ function main()
             test.fail("Profit Center Number: 01 not created");
         waitForObject(":List Profit Centers.Close_QPushButton");
         clickButton(":List Profit Centers.Close_QPushButton");
-         test.log("Profit Center is created");
+        test.log("Profit Center is created");
     }
     catch(e){test.fail("Exception in defining Profit Centers:"+e);}
     
@@ -422,7 +432,7 @@ function main()
             test.fail("Profit Center Number: 01 not created");
         waitForObject(":List Subaccounts.Close_QPushButton");
         clickButton(":List Subaccounts.Close_QPushButton");
-         test.log("Sub Account Number is created");
+        test.log("Sub Account Number is created");
     }
     catch(e){test.fail("Exception in defining Subaccount Numbers"+e);}
     
@@ -439,37 +449,38 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Subaccount Types...");
         
         
-        //--SubAccount Types: SO-Revenue-Other Revenue--
-        waitForObject(":List G/L Subaccount Types.New_QPushButton");
-        clickButton(":List G/L Subaccount Types.New_QPushButton");
-        waitForObject(":List G/L Subaccount Types._code_XLineEdit");
-        type(":List G/L Subaccount Types._code_XLineEdit", "SO");
-        clickItem(":List G/L Subaccount Types._type_XComboBox", "Revenue", 0, 0, 1, Qt.LeftButton);
-        type(":List G/L Subaccount Types._description_XLineEdit", "Other Revenue");
-        waitForObject(":List G/L Subaccount Types.Save_QPushButton");
-        clickButton(":List G/L Subaccount Types.Save_QPushButton");
+          //--SubAccount Types: SO-Revenue-Other Revenue--
+  
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+        waitForObject(":Work Center._code_XLineEdit");
+        type(":Work Center._code_XLineEdit", "SO");
+        clickItem(":Subaccount Type._type_XComboBox", "Revenue", 0, 0, 1, Qt.LeftButton);
+        type(":Work Center._description_XLineEdit", "Other Revenue");
+        waitForObject(":Work Center.Save_QPushButton");
+        clickButton(":Work Center.Save_QPushButton");
         test.log("SubAccount: SO-Revenue-Other Revenue created");
         
         //--SubAccount Types: DXP-Expenses-Depreciation Expense--
-        waitForObject(":List G/L Subaccount Types.New_QPushButton");
-        clickButton(":List G/L Subaccount Types.New_QPushButton");
-        waitForObject(":List G/L Subaccount Types._code_XLineEdit");
-        type(":List G/L Subaccount Types._code_XLineEdit", "DXP");
-        clickItem(":List G/L Subaccount Types._type_XComboBox", "Expense", 0, 0, 1, Qt.LeftButton);
-        type(":List G/L Subaccount Types._description_XLineEdit", "Depreciation Expense");
-        waitForObject(":List G/L Subaccount Types.Save_QPushButton");
-        clickButton(":List G/L Subaccount Types.Save_QPushButton");
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+        waitForObject(":Work Center._code_XLineEdit");
+        type(":Work Center._code_XLineEdit", "DXP");
+        clickItem(":Subaccount Type._type_XComboBox", "Expense", 0, 0, 1, Qt.LeftButton);
+        type(":Work Center._description_XLineEdit", "Depreciation Expense");
+        waitForObject(":Work Center.Save_QPushButton");
+        clickButton(":Work Center.Save_QPushButton");
         
         
         //--SubAccount Types: OI-Revenue-Other Income--
-        waitForObject(":List G/L Subaccount Types.New_QPushButton");
-        clickButton(":List G/L Subaccount Types.New_QPushButton");
-        waitForObject(":List G/L Subaccount Types._code_XLineEdit");
-        type(":List G/L Subaccount Types._code_XLineEdit", "OI");
-        clickItem(":List G/L Subaccount Types._type_XComboBox", "Revenue", 0, 0, 1, Qt.LeftButton);
-        type(":List G/L Subaccount Types._description_XLineEdit", "Other Income");
-        waitForObject(":List G/L Subaccount Types.Save_QPushButton");
-        clickButton(":List G/L Subaccount Types.Save_QPushButton");
+        waitForObject(":List Work Centers.New_QPushButton");
+        clickButton(":List Work Centers.New_QPushButton");
+        waitForObject(":Work Center._code_XLineEdit");
+        type(":Work Center._code_XLineEdit", "OI");
+        clickItem(":Subaccount Type._type_XComboBox", "Revenue", 0, 0, 1, Qt.LeftButton);
+        type(":Work Center._description_XLineEdit", "Other Income");
+        waitForObject(":Work Center.Save_QPushButton");
+        clickButton(":Work Center.Save_QPushButton");
         
         snooze(1);
         waitForObject(":List G/L Subaccount Types.Close_QPushButton");
@@ -483,10 +494,15 @@ function main()
             test.pass("SubAccount: DXP Expense created");
         else
             test.fail("SubAccount: DXP Expense not created");
+        
+        if(object.exists(":_subaccnttypes.OI_QModelIndex_2"))
+            test.pass("SubAccount: OI Expense created");
+        else
+            test.fail("SubAccount: OI Expense not created");
         snooze(0.1);
         
-        waitForObject(":List G/L Subaccount Types.Close_QPushButton");
-        clickButton(":List G/L Subaccount Types.Close_QPushButton");
+        waitForObject(":List Work Centers.Close_QPushButton");
+        clickButton(":List Work Centers.Close_QPushButton");
     }
     catch(e){test.fail("Exception in creating Subaccounts:"+e);}
     
@@ -637,10 +653,10 @@ function main()
         findObject(":Remit-To Address.XLineEdit_XLineEdit_3").clear();
         type(":Remit-To Address.XLineEdit_XLineEdit_3", "Norfolk");
         waitForObject(":Remit-To Address._state_XComboBox");
-            
+        
         
         while(findObject(":Remit-To Address._country_XComboBox").currentText!="United States")
-           type(":Remit-To Address._country_XComboBox","<Down>");
+            type(":Remit-To Address._country_XComboBox","<Down>");
         snooze(1);
         waitForObject(":Remit-To Address._phone_XLineEdit");
         findObject(":Remit-To Address._phone_XLineEdit").clear();
@@ -661,7 +677,7 @@ function main()
         snooze(1);
         waitForObject(":List Employees.Save_QPushButton_2");
         clickButton(":List Employees.Save_QPushButton_2");
-         test.log("Accounting Module is configured");
+        test.log("Accounting Module is configured");
     }
     catch(e){
         test.fail("Exception in configuring Accounting module:"+e);
@@ -688,13 +704,13 @@ function main()
         }
         waitForObject(":List Employees.Save_QPushButton_2");
         clickButton(":List Employees.Save_QPushButton_2");
-         test.log("Manufacture Module is configured");
+        test.log("Manufacture Module is configured");
         
     }
     catch(e){
         test.fail("Exception in configuring Manufacture module:"+e);
     }
-  
+    
     
     //------------Configure CRM Module----------------
     try{
@@ -718,8 +734,8 @@ function main()
         
         waitForObject(":_country_XComboBox_3");
         while(findObject(":_country_XComboBox_3").currentText!="United States")
-         type(":_country_XComboBox_3","<Down>");
-         snooze(1);
+            type(":_country_XComboBox_3","<Down>");
+        snooze(1);
         
         if(findObject(":_stack.Enforce Valid Country Names_XCheckBox").active)
         {
@@ -734,7 +750,7 @@ function main()
     catch(e){
         test.fail("Exception in configuring CRM module:"+e);
     }
-  
+    
     //-----------create new calendar---------------
     try{
         
@@ -885,10 +901,10 @@ function main()
     {test.fail("Exception in Creating Site Type:"+e);
     }
   
-  //---find Application Edition---
-  var appEdition = findApplicationEdition();
+//---find Application Edition---
+var appEdition = findApplicationEdition();
   
-      //-------------------Assigning Accounts to Company-------------------
+    //-------------------Assigning Accounts to Company-------------------
     if(appEdition=="Manufacturing"||appEdition=="Standard")
     {
         try
@@ -959,11 +975,11 @@ function main()
     
     
     
-    //-----------Create Inventory Site: WH1-----------------
+  //-----------Create Inventory Site: WH1-----------------
     try{
         if(appEdition=="Manufacturing"|| appEdition=="Standard")
         {
-            
+           
             waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
             activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");           
             waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
@@ -982,13 +998,13 @@ function main()
             type(":_addressGroup.XLineEdit_XLineEdit_2", "street addr line2");
             type(":_addressGroup.XLineEdit_XLineEdit_3", "street addr line3");
             type(":_addressGroup.XLineEdit_XLineEdit_4", "city1");
-             type(":_addressGroup.XLineEdit_XLineEdit_5", "23234324");
+            type(":_addressGroup.XLineEdit_XLineEdit_5", "23234324");
             clickItem(":_addressGroup._country_XComboBox_2", "United States", 0, 0, 1, Qt.LeftButton);
             snooze(1);
             waitForObject(":_addressGroup._state_XComboBox_4");
             clickItem(":_addressGroup._state_XComboBox_4","VA",0, 0, 1, Qt.LeftButton);
             snooze(1);
-           
+            
             waitForObject(":_accountGroup.VirtualClusterLineEdit_GLClusterLineEdit");
             waitForObject(":_accountGroup_QLabel");
             sendEvent("QMouseEvent", ":_accountGroup_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
@@ -1025,21 +1041,23 @@ function main()
             clickButton(":Enforce ARBL Naming Convention.Allow Alpha Characters_QCheckBox_4");
             clickTab(":List Sites.qt_tabwidget_tabbar_QTabBar", "Site Zones");
             snooze(1);
-            clickButton(":_zonesTab.New_QPushButton");
+            
+            waitForObject(":List Calendars.New_QPushButton_2");
+            clickButton(":List Calendars.New_QPushButton_2");
             waitForObject(":_name_XLineEdit_32");
             type(":_name_XLineEdit_32", "FG1");
-            type(":_description_XLineEdit_6", "Finished Goods Zone1");
+            type(":_description_XLineEdit_43", "Finished Goods Zone1");
             clickButton(":List Sites.Save_QPushButton");
             snooze(1);
-            clickButton(":_zonesTab.New_QPushButton");
+            clickButton(":List Calendars.New_QPushButton_2");
             waitForObject(":_name_XLineEdit_32");
             type(":_name_XLineEdit_32", "RM1");
-            type(":_description_XLineEdit_6", "Raw Materials Zone1");
+            type(":_description_XLineEdit_43", "Raw Materials Zone1");
             clickButton(":List Sites.Save_QPushButton");
             waitForObject(":Save_QPushButton");
             clickButton(":Save_QPushButton");
             waitForObject(":List Sites._warehouse_XTreeWidget");
-            if(object.exists(":_warehouse.WH1_QModelIndex"))
+            if(object.exists("{column='0' container=':List Sites._warehouse_XTreeWidget' text='WH1' type='QModelIndex'}"))
                 test.pass("Site: Prodiem Toys Site1 created ");
             else test.fail("Site: Prodiem Toys Site1 not created ");
             
@@ -1099,18 +1117,20 @@ function main()
             snooze(1);
             clickTab(":Site.qt_tabwidget_tabbar_QTabBar", "Site Zones");
             snooze(1);
-            clickButton(":_zonesTab.New_QPushButton_2");
+
+              waitForObject(":List Calendars.New_QPushButton_2");
+            clickButton(":List Calendars.New_QPushButton_2");
             waitForObject(":_name_XLineEdit_31");
             type(":_name_XLineEdit_31", "FG1");
-            type(":_description_XLineEdit_38", "Finished Goods Zone1");
+            type(":_description_XLineEdit_43", "Finished Goods Zone1");
             clickButton(":Site Zone.Save_QPushButton");
             
             snooze(1);
-            clickButton(":_zonesTab.New_QPushButton_2");
+            clickButton(":List Calendars.New_QPushButton_2_2");
             waitForObject(":_name_XLineEdit_31");
             
             type(":_name_XLineEdit_31", "RM1");
-            type(":_description_XLineEdit_38", "Raw Materials Zone1");
+            type(":_description_XLineEdit_43", "Raw Materials Zone1");
             clickButton(":Site Zone.Save_QPushButton");
             
             waitForObject(":Save_QPushButton_2");
@@ -1141,7 +1161,7 @@ function main()
             waitForObject(":_addressGroup._state_XComboBox_4");
             clickItem(":_addressGroup._state_XComboBox_4","VA",0, 0, 1, Qt.LeftButton);
             snooze(1);
-
+            
             waitForObject(":_accountGroup.VirtualClusterLineEdit_GLClusterLineEdit");
             waitForObject(":_accountGroup_QLabel");
             sendEvent("QMouseEvent", ":_accountGroup_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
@@ -1172,18 +1192,20 @@ function main()
             snooze(1);
             clickTab(":Site.qt_tabwidget_tabbar_QTabBar", "Site Zones");
             snooze(1);
-            clickButton(":_zonesTab.New_QPushButton_2");
+
+              waitForObject(":List Calendars.New_QPushButton_2");
+            clickButton(":List Calendars.New_QPushButton_2");
             waitForObject(":_name_XLineEdit_31");
             type(":_name_XLineEdit_31", "FG1");
-            type(":_description_XLineEdit_38", "Finished Goods Zone1");
+            type(":_description_XLineEdit_43", "Finished Goods Zone1");
             clickButton(":Site Zone.Save_QPushButton");
             
             snooze(1);
-            clickButton(":_zonesTab.New_QPushButton_2");
+            clickButton(":List Calendars.New_QPushButton_2");
             waitForObject(":_name_XLineEdit_31");
             
             type(":_name_XLineEdit_31", "RM1");
-            type(":_description_XLineEdit_38", "Raw Materials Zone1");
+            type(":_description_XLineEdit_43", "Raw Materials Zone1");
             clickButton(":Site Zone.Save_QPushButton");
             
             
@@ -1221,6 +1243,8 @@ function main()
     
     //----------Configure: Inventory Module-----------------
     try{
+
+        
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
@@ -1271,7 +1295,7 @@ function main()
     }catch(e){test.fail("Exception in configuring Inventory module"+ e);}
     
   
-    
+
     //---Create User by Role--
     createUserByRole("RUNREGISTER");
     
@@ -1315,10 +1339,10 @@ function main()
         clickButton(":_userGroup.Selected User:_QRadioButton");
         waitForObject(":_userGroup._user_XComboBox");
         clickItem(":_userGroup._user_XComboBox", username, 0, 0, 1, Qt.LeftButton);
-        waitForObject(":Interface Options.Show windows inside workspace_QRadioButton");
+        waitForObject(":Interface Options.Tabbed Windows_QRadioButton");
         
-        if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
-            clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
+        if(!findObject(":Interface Options.Tabbed Windows_QRadioButton").checked)
+            clickButton(":Interface Options.Tabbed Windows_QRadioButton");
         snooze(1);
         if(object.exists(":Notice.Remind me about this again._QCheckBox"))
         {
@@ -1428,8 +1452,8 @@ function main()
         clickButton(":Default Actions.Event_XCheckBox");
         clickButton(":Default Actions.System Message_XCheckBox");
         
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");
         snooze(1);
         test.log("User Preferences of "+username +":saved");
     }catch(e){test.fail("Exception in defining User Preferences:"+e);}

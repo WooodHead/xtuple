@@ -6,9 +6,7 @@ function main()
     
     //-----login Application-----
     loginAppl("CONFIGURE"); 
-    waitForObject(":*.Yes_QPushButton");
-    clickButton(":*.Yes_QPushButton");
-    
+  
     
     //-----Edit the preferences-----
     try
@@ -19,10 +17,10 @@ function main()
         activateItem(":xTuple ERP:*_QMenuBar_2", "System");
         waitForObjectItem(":xTuple ERP:*.System_QMenu", "Preferences...");
         activateItem(":xTuple ERP:*.System_QMenu", "Preferences...");
-        if(object.exists(":Interface Options.Show windows inside workspace_QRadioButton"))
+        if(object.exists(":Interface Options.Tabbed Windows_QRadioButton"))
         {
-            if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
-                clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
+            if(!findObject(":Interface Options.Tabbed Windows_QRadioButton").checked)
+                clickButton(":Interface Options.Tabbed Windows_QRadioButton");
             
             
             if(object.exists(":Notice.Notice_QDialog"))
@@ -64,8 +62,7 @@ function main()
     snooze(2);
     
     loginAppl("CONFIGURE"); 
-    waitForObject(":*.Yes_QPushButton");
-    clickButton(":*.Yes_QPushButton");
+
     
     //---------------Enabling the database options--------- 
     try
@@ -1218,8 +1215,8 @@ function main()
         activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
         waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
         activateItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3","YTRUCK1"); 
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_5");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_5","YTRUCK1"); 
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":Planned Order._qty_XLineEdit");
@@ -1250,8 +1247,8 @@ function main()
         activateItem(":xTuple ERP:*.Schedule_QMenu", "Scheduling");
         waitForObjectItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
         activateItem(":xTuple ERP:*.Scheduling_QMenu", "New Planned Order...");
-        waitForObject(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3");
-        type(":_itemGroup.VirtualClusterLineEdit_ItemLineEdit_3","TBODY1"); 
+        waitForObject(":_itemGroup.ItemLineEdit_ItemLineEdit_5");
+        type(":_itemGroup.ItemLineEdit_ItemLineEdit_5","TBODY1"); 
         nativeType("<Tab>");
         snooze(0.5);
         waitForObject(":Planned Order._qty_XLineEdit");
@@ -2013,10 +2010,10 @@ function main()
         clickButton(":_frame.Receive All_QPushButton");
         waitForObject(":_frame._orderitem_XTreeWidget");
         clickItem(":_frame._orderitem_XTreeWidget", "TBOX1", 5, 5, 1, Qt.LeftButton);
-        waitForObject(":Enter Order Receipts.Post_QPushButton");
-        clickButton(":Enter Order Receipts.Post_QPushButton");
-        waitForObject(":Enter Order Receipts.Close_QPushButton");
-        clickButton(":Enter Order Receipts.Close_QPushButton");
+        waitForObject(":W/O Schedule by Planner Code.Post_QPushButton_2");
+        clickButton(":W/O Schedule by Planner Code.Post_QPushButton_2");
+        waitForObject(":W/O Schedule by Planner Code.Close_QPushButton_2");
+        clickButton(":W/O Schedule by Planner Code.Close_QPushButton_2");
         test.log("Receive Order for PO:" + PONUM);
         waitForObject(":List Unposted Receipts.Close_QPushButton");
         clickButton(":List Unposted Receipts.Close_QPushButton");
@@ -2045,11 +2042,11 @@ function main()
         clickButton(":_frame.Receive All_QPushButton");
         waitForObject(":_frame._orderitem_XTreeWidget");
         clickItem(":_frame._orderitem_XTreeWidget", "TBOX1", 5, 5, 1, Qt.LeftButton);
-        waitForObject(":Enter Order Receipts.Post_QPushButton");
-        clickButton(":Enter Order Receipts.Post_QPushButton");
+        waitForObject(":W/O Schedule by Planner Code.Post_QPushButton_2");
+        clickButton(":W/O Schedule by Planner Code.Post_QPushButton_2");
         test.log("Receive Order for PO:" + PONUM);
-        waitForObject(":Enter Order Receipts.Close_QPushButton");
-        clickButton(":Enter Order Receipts.Close_QPushButton");
+        waitForObject(":W/O Schedule by Planner Code.Close_QPushButton_2");
+        clickButton(":W/O Schedule by Planner Code.Close_QPushButton_2");
         waitForObject(":List Unposted Receipts.Close_QPushButton");
         clickButton(":List Unposted Receipts.Close_QPushButton");
     }
@@ -2076,16 +2073,26 @@ function main()
         
         try
         {
-            waitForObject(":_invchead_XTreeWidget");
-            openItemContextMenu(":_invchead_XTreeWidget", INNUM, 5, 5, 0);
+            waitForObject(":_list_XTreeWidget");
+            openItemContextMenu(":_list_XTreeWidget", INNUM, 5, 5, 0);
             waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post...");
             activateItem(":xTuple ERP:*._menu_QMenu", "Post...");
             waitForObject(":List Unposted Invoices.Alternate Date:_QRadioButton");
             clickButton(":List Unposted Invoices.Alternate Date:_QRadioButton");
             waitForObject(":List Unposted Invoices.Continue_QPushButton");
             clickButton(":List Unposted Invoices.Continue_QPushButton");
-            waitForObject(":List Unposted Invoices.Close_QPushButton");
-            clickButton(":List Unposted Invoices.Close_QPushButton");
+//            
+//    waitForObject(":Work Order Schedule.Query_QToolButton");
+//    clickButton(":Work Order Schedule.Query_QToolButton");
+//    waitForObject(":Tax Authorities.New_QToolButton");
+//    clickButton(":Tax Authorities.New_QToolButton");
+//    waitForObject(":Work Order.Close_QPushButton");
+//    clickButton(":Work Order.Close_QPushButton");
+//    waitForObject(":Work Order Schedule.Close_QToolButton");
+//    clickButton(":Work Order Schedule.Close_QToolButton");
+//    
+            waitForObject(":Work Order Schedule.Close_QToolButton");
+            clickButton(":Work Order Schedule.Close_QToolButton");
             test.log("Post Invoice:" + INNUM);
         }
         catch(e)
@@ -2119,8 +2126,8 @@ function main()
         
         try
         {
-            waitForObject(":List Unposted Invoices.New_QPushButton");
-            clickButton(":List Unposted Invoices.New_QPushButton");
+            waitForObject(":Tax Authorities.New_QToolButton");
+            clickButton(":Tax Authorities.New_QToolButton");
             waitForObject(":_billtoFrame.VirtualClusterLineEdit_CLineEdit");
             type(":_billtoFrame.VirtualClusterLineEdit_CLineEdit", "TTOYS");
             nativeType("<Tab>");
@@ -2142,8 +2149,8 @@ function main()
             clickButton(":Invoice.Save_QPushButton");
             waitForObject(":Invoice.Save_QPushButton_2");
             clickButton(":Invoice.Save_QPushButton_2");
-            waitForObject(":_invchead_XTreeWidget");
-            if(!clickItem(":_invchead_XTreeWidget", INNUM, 5, 5, 1, Qt.LeftButton))
+            waitForObject(":_list_XTreeWidget");
+            if(!clickItem(":_list_XTreeWidget", INNUM, 5, 5, 1, Qt.LeftButton))
                 test.pass("Invoice created:" + INNUM);
         }
         catch(e)
@@ -2154,8 +2161,8 @@ function main()
         try
         {
             INNUM++;
-            waitForObject(":List Unposted Invoices.New_QPushButton");
-            clickButton(":List Unposted Invoices.New_QPushButton");
+            waitForObject(":Tax Authorities.New_QToolButton");
+            clickButton(":Tax Authorities.New_QToolButton");
             waitForObject(":_billtoFrame.VirtualClusterLineEdit_CLineEdit");
             type(":_billtoFrame.VirtualClusterLineEdit_CLineEdit", "TTOYS");
             nativeType("<Tab>");
@@ -2177,8 +2184,8 @@ function main()
             clickButton(":Invoice.Save_QPushButton");
             waitForObject(":Invoice.Save_QPushButton_2");
             clickButton(":Invoice.Save_QPushButton_2");
-            waitForObject(":_invchead_XTreeWidget");
-            if(!clickItem(":_invchead_XTreeWidget", INNUM, 5, 5, 1, Qt.LeftButton))
+            waitForObject(":_list_XTreeWidget");
+            if(!clickItem(":_list_XTreeWidget", INNUM, 5, 5, 1, Qt.LeftButton))
                 test.pass("Invoice created:" + INNUM);
         }
         catch(e)
@@ -2190,8 +2197,8 @@ function main()
         try
         {
             INNUM++;
-            waitForObject(":List Unposted Invoices.New_QPushButton");
-            clickButton(":List Unposted Invoices.New_QPushButton");
+            waitForObject(":Tax Authorities.New_QToolButton");
+            clickButton(":Tax Authorities.New_QToolButton");
             waitForObject(":_billtoFrame.VirtualClusterLineEdit_CLineEdit");
             type(":_billtoFrame.VirtualClusterLineEdit_CLineEdit", "TTOYS");
             nativeType("<Tab>");
@@ -2213,8 +2220,8 @@ function main()
             clickButton(":Invoice.Save_QPushButton");
             waitForObject(":Invoice.Save_QPushButton_2");
             clickButton(":Invoice.Save_QPushButton_2");
-            waitForObject(":_invchead_XTreeWidget");
-            if(!clickItem(":_invchead_XTreeWidget", INNUM, 5, 5, 1, Qt.LeftButton))
+            waitForObject(":_list_XTreeWidget");
+            if(!clickItem(":_list_XTreeWidget", INNUM, 5, 5, 1, Qt.LeftButton))
                 test.pass("Invoice created:" + INNUM);
         }
         catch(e)
@@ -2228,8 +2235,8 @@ function main()
         //-----Post Invoice--------
         try
         {
-            waitForObject(":_invchead_XTreeWidget");
-            openItemContextMenu(":_invchead_XTreeWidget", INNUM, 5, 5, 0);
+            waitForObject(":_list_XTreeWidget");
+            openItemContextMenu(":_list_XTreeWidget", INNUM, 5, 5, 0);
             waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post...");
             activateItem(":xTuple ERP:*._menu_QMenu", "Post...");
             waitForObject(":List Unposted Invoices.Alternate Date:_QRadioButton");
@@ -2248,8 +2255,8 @@ function main()
         try
         {
             INNUM--;
-            waitForObject(":_invchead_XTreeWidget");
-            openItemContextMenu(":_invchead_XTreeWidget", INNUM, 5, 5, 0);
+            waitForObject(":_list_XTreeWidget");
+            openItemContextMenu(":_list_XTreeWidget", INNUM, 5, 5, 0);
             waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post...");
             activateItem(":xTuple ERP:*._menu_QMenu", "Post...");
             waitForObject(":List Unposted Invoices.Alternate Date:_QRadioButton");
@@ -2262,8 +2269,8 @@ function main()
         {
             test.fail("Error in posting invoice" + e);
         }
-        waitForObject(":List Unposted Invoices.Close_QPushButton");
-        clickButton(":List Unposted Invoices.Close_QPushButton");
+        waitForObject(":Work Order Schedule.Close_QToolButton");
+        clickButton(":Work Order Schedule.Close_QToolButton");
         test.log("Posted Invoice:" + INNUM);
     }
     catch(e)
@@ -2335,8 +2342,8 @@ function main()
         snooze(0.5);
         waitForObject(":_amountGroup.XLineEdit_XLineEdit");
         type(":_amountGroup.XLineEdit_XLineEdit", "34");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_groupButton.Expense Category_QRadioButton");
         clickButton(":_groupButton.Expense Category_QRadioButton");
         waitForObject(":_expenseGroup.VirtualClusterLineEdit_ExpenseLineEdit");
@@ -2384,8 +2391,8 @@ function main()
         snooze(0.5);
         waitForObject(":_amountGroup.XLineEdit_XLineEdit");
         type(":_amountGroup.XLineEdit_XLineEdit", "34");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_groupButton.Expense Category_QRadioButton");
         clickButton(":_groupButton.Expense Category_QRadioButton");
         waitForObject(":_groupButton._expcat_ExpenseCluster");
@@ -2439,8 +2446,8 @@ function main()
         snooze(0.5);
         waitForObject(":_amountGroup.XLineEdit_XLineEdit");
         type(":_amountGroup.XLineEdit_XLineEdit", "34");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_groupButton.Expense Category_QRadioButton");
         clickButton(":_groupButton.Expense Category_QRadioButton");
         waitForObject(":_groupButton._expcat_ExpenseCluster");
@@ -2504,8 +2511,8 @@ function main()
         clickButton(":*.Split_QPushButton");
         waitForObject(":_uninvoiced.Receiving_QModelIndex");
         doubleClick(":_uninvoiced.Receiving_QModelIndex", 5, 5, 0, Qt.LeftButton);
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":*.Save_QPushButton_2");
         clickButton(":*.Save_QPushButton_2");
         waitForObject(":*.Save_QPushButton_3");
@@ -2554,14 +2561,14 @@ function main()
         
         try
         {
-            waitForObject(":List Open Vouchers._vohead_XTreeWidget");
-            openItemContextMenu(":List Open Vouchers._vohead_XTreeWidget", VONUM, 5, 5, 0);
+            waitForObject(":List Unposted Vouchers._vohead_XTreeWidget");
+            openItemContextMenu(":List Unposted Vouchers._vohead_XTreeWidget", VONUM, 5, 5, 0);
             waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
             activateItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
-            waitForObject(":List Open Vouchers.Alternate Date:_QRadioButton");
-            clickButton(":List Open Vouchers.Alternate Date:_QRadioButton");
-            waitForObject(":List Open Vouchers.Continue_QPushButton");
-            clickButton(":List Open Vouchers.Continue_QPushButton");
+            waitForObject(":List Unposted Invoices.Alternate Date:_QRadioButton");
+            clickButton(":List Unposted Invoices.Alternate Date:_QRadioButton");
+            waitForObject(":List Unposted Invoices.Continue_QPushButton");
+            clickButton(":List Unposted Invoices.Continue_QPushButton");
             test.log("Posted Voucher:" + VONUM);
         }
         catch(e)
@@ -2572,14 +2579,14 @@ function main()
         try
         {
             VONUM++;
-            waitForObject(":List Open Vouchers._vohead_XTreeWidget");
-            openItemContextMenu(":List Open Vouchers._vohead_XTreeWidget", VONUM, 5, 5, 0);
+            waitForObject(":List Unposted Vouchers._vohead_XTreeWidget");
+            openItemContextMenu(":List Unposted Vouchers._vohead_XTreeWidget", VONUM, 5, 5, 0);
             waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
             activateItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
-            waitForObject(":List Open Vouchers.Alternate Date:_QRadioButton");
-            clickButton(":List Open Vouchers.Alternate Date:_QRadioButton");
-            waitForObject(":List Open Vouchers.Continue_QPushButton");
-            clickButton(":List Open Vouchers.Continue_QPushButton");
+            waitForObject(":List Unposted Invoices.Alternate Date:_QRadioButton");
+            clickButton(":List Unposted Invoices.Alternate Date:_QRadioButton");
+            waitForObject(":List Unposted Invoices.Continue_QPushButton");
+            clickButton(":List Unposted Invoices.Continue_QPushButton");
             test.log("Posted Voucher:" + VONUM);
         }
         catch(e)
@@ -2590,14 +2597,14 @@ function main()
         try
         {
             VONUM++;
-            waitForObject(":List Open Vouchers._vohead_XTreeWidget");
-            openItemContextMenu(":List Open Vouchers._vohead_XTreeWidget", VONUM, 5, 5, 0);
+            waitForObject(":List Unposted Vouchers._vohead_XTreeWidget");
+            openItemContextMenu(":List Unposted Vouchers._vohead_XTreeWidget", VONUM, 5, 5, 0);
             waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
             activateItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
-            waitForObject(":List Open Vouchers.Alternate Date:_QRadioButton");
-            clickButton(":List Open Vouchers.Alternate Date:_QRadioButton");
-            waitForObject(":List Open Vouchers.Continue_QPushButton");
-            clickButton(":List Open Vouchers.Continue_QPushButton");
+            waitForObject(":List Unposted Invoices.Alternate Date:_QRadioButton");
+            clickButton(":List Unposted Invoices.Alternate Date:_QRadioButton");
+            waitForObject(":List Unposted Invoices.Continue_QPushButton");
+            clickButton(":List Unposted Invoices.Continue_QPushButton");
             test.log("Posted Voucher:" + VONUM);
         }
         catch(e)
@@ -2605,8 +2612,8 @@ function main()
             test.fail("Error in posting voucher" + e);
         }
         
-        waitForObject(":List Open Vouchers.Close_QPushButton");
-        clickButton(":List Open Vouchers.Close_QPushButton");
+        waitForObject(":List Unposted Invoices.Close_QPushButton");
+        clickButton(":List Unposted Invoices.Close_QPushButton");
     }
     catch(e)
     {
@@ -2732,8 +2739,8 @@ function main()
         if(object.exists(":View Check Run.Yes_QPushButton_2"))    
             clickButton(":View Check Run.Yes_QPushButton_2");     
         
-        waitForObject(":*.Yes_QPushButton");
-        clickButton(":*.Yes_QPushButton");     
+//        waitForObject(":*.Yes_QPushButton");
+//        clickButton(":*.Yes_QPushButton");     
         waitForObject(":ACH File OK?.Yes_QPushButton");
         clickButton(":ACH File OK?.Yes_QPushButton");    
         
@@ -2761,6 +2768,7 @@ function main()
     try
     {
         VONUM=VONUM-2;
+    
         waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
         activateItem(":xTuple ERP:*_QMenuBar_2", "Accounting");
         waitForObjectItem(":xTuple ERP:*.Accounting_QMenu", "Accounts Payable");
@@ -2772,22 +2780,22 @@ function main()
         
         try
         {
-            waitForObject(":List Open Vouchers._vohead_XTreeWidget");
-            openItemContextMenu(":List Open Vouchers._vohead_XTreeWidget",VONUM,5,5,0);
+            waitForObject(":List Unposted Vouchers._vohead_XTreeWidget");
+            openItemContextMenu(":List Unposted Vouchers._vohead_XTreeWidget",VONUM,5,5,0);
             waitForObjectItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
             activateItem(":xTuple ERP:*._menu_QMenu", "Post Voucher...");
-            waitForObject(":List Open Vouchers.Alternate Date:_QRadioButton");
-            clickButton(":List Open Vouchers.Alternate Date:_QRadioButton");
-            waitForObject(":List Open Vouchers.Continue_QPushButton");
-            clickButton(":List Open Vouchers.Continue_QPushButton");
+            waitForObject(":List Unposted Invoices.Alternate Date:_QRadioButton");
+            clickButton(":List Unposted Invoices.Alternate Date:_QRadioButton");
+            waitForObject(":List Unposted Invoices.Continue_QPushButton");
+            clickButton(":List Unposted Invoices.Continue_QPushButton");
             test.log("Posted Voucher:"+ VONUM);
         }
         catch(e)
         {
             test.fail("Error in posting voucher" + e);
         }
-        waitForObject(":List Open Vouchers.Close_QPushButton");
-        clickButton(":List Open Vouchers.Close_QPushButton"); 
+        waitForObject(":List Unposted Invoices.Close_QPushButton");
+        clickButton(":List Unposted Invoices.Close_QPushButton"); 
     }
     catch(e)
     {
@@ -2864,8 +2872,8 @@ function main()
         activateItem(":xTuple ERP:*.General Ledger_QMenu", "Standard Journals");
         waitForObjectItem(":xTuple ERP:*.Standard Journals_QMenu", "List...");
         activateItem(":xTuple ERP:*.Standard Journals_QMenu", "List...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":Standard Journal_standardJournal");
         waitForObject(":*._name_XLineEdit");
         type(":*._name_XLineEdit", "STD journal");
@@ -2902,6 +2910,8 @@ function main()
         mouseClick(":Sense.Credit_QRadioButton", 5, 5, 0, Qt.LeftButton);
         waitForObject(":*.Save_QPushButton_3");
         clickButton(":*.Save_QPushButton_3");
+        waitForObject(":Standard Journal._notes_XTextEdit");
+        type(":Standard Journal._notes_XTextEdit", "notes");
         waitForObject(":*.Save_QPushButton");
         clickButton(":*.Save_QPushButton");
         waitForObject(":_stdjrnl.standard journal_QModelIndex");
@@ -3204,8 +3214,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Zones...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Zones...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_taxZone_XLineEdit");
         type(":_taxZone_XLineEdit", "ZONE5");
         waitForObject(":_description_XLineEdit");
@@ -3229,8 +3239,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Classes...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Classes...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_taxClass_XLineEdit");
         type(":_taxClass_XLineEdit", "Class5");
         waitForObject(":_description_XLineEdit");
@@ -3255,8 +3265,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Codes...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Codes...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_code_XLineEdit");
         type(":_code_XLineEdit", "Code5");
         waitForObject(":_description_XLineEdit");
@@ -3302,8 +3312,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Types...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Types...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":*._name_XLineEdit");
         type(":*._name_XLineEdit", "Type 5");
         waitForObject(":*._description_XLineEdit");
@@ -3328,8 +3338,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Assignments...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Assignments...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":*._taxZone_XComboBox");
         mouseClick(":*._taxZone_XComboBox", 5, 5, 0, Qt.LeftButton);
         waitForObject(":_taxZone.ZONE5-Tax Zone 5_QModelIndex");
@@ -3433,6 +3443,22 @@ function main()
         type(":Customer.VirtualClusterLineEdit_CLineEdit", "Customer 5");
         waitForObject(":*._name_XLineEdit");
         type(":*._name_XLineEdit", "Customer with tax 5");
+        
+        
+       waitForObject(":*.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":*.qt_tabwidget_tabbar_QTabBar", "Settings");
+        waitForObject(":_defaultGroup._salesrep_XComboBox");
+        if(findObject(":_defaultGroup._salesrep_XComboBox").currentText!= "1000-Sam Masters")
+            clickItem(":_defaultGroup._salesrep_XComboBox","1000-Sam Masters",0,0,1,Qt.LeftButton);
+        waitForObject(":_settingsTab.Tax_QRadioButton");
+        clickButton(":_settingsTab.Tax_QRadioButton");
+        waitForObject(":_settingsStack._taxzone_XComboBox");
+        mouseClick(":_settingsStack._taxzone_XComboBox", 55, 16, 0, Qt.LeftButton);
+        waitForObject(":_taxzone.ZONE5-Tax Zone 5_QModelIndex_2");
+        mouseClick(":_taxzone.ZONE5-Tax Zone 5_QModelIndex_2", 50, 2, 0, Qt.LeftButton);
+        waitForObject(":*.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":*.qt_tabwidget_tabbar_QTabBar", "Addresses");
+        
         waitForObject(":_addressTab.Ship To_QRadioButton");
         clickButton(":_addressTab.Ship To_QRadioButton");
         waitForObject(":_addressStack.New_QPushButton");
@@ -3448,15 +3474,6 @@ function main()
         waitForObject(":*.Save_QPushButton_3");
         clickButton(":*.Save_QPushButton_3");
         
-        
-        waitForObject(":*.qt_tabwidget_tabbar_QTabBar");
-        clickTab(":*.qt_tabwidget_tabbar_QTabBar", "Settings");
-        waitForObject(":_settingsTab.Tax_QRadioButton");
-        clickButton(":_settingsTab.Tax_QRadioButton");
-        waitForObject(":_settingsStack._taxzone_XComboBox");
-        mouseClick(":_settingsStack._taxzone_XComboBox", 55, 16, 0, Qt.LeftButton);
-        waitForObject(":_taxzone.ZONE5-Tax Zone 5_QModelIndex_2");
-        mouseClick(":_taxzone.ZONE5-Tax Zone 5_QModelIndex_2", 50, 2, 0, Qt.LeftButton);
         waitForObject(":*.Save_QPushButton");
         clickButton(":*.Save_QPushButton");
         waitForObject(":Miscellaneous Voucher.Cancel_QPushButton_2");
@@ -3577,8 +3594,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Zones...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Zones...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_taxZone_XLineEdit");
         type(":_taxZone_XLineEdit", "ZONE10");
         waitForObject(":_description_XLineEdit");
@@ -3602,8 +3619,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Classes...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Classes...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_taxClass_XLineEdit");
         type(":_taxClass_XLineEdit", "Class10");
         waitForObject(":_description_XLineEdit");
@@ -3627,8 +3644,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Codes...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Codes...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_code_XLineEdit");
         type(":_code_XLineEdit", "Code10");
         waitForObject(":_description_XLineEdit");
@@ -3675,8 +3692,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Types...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Types...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":*._name_XLineEdit");
         type(":*._name_XLineEdit", "Type 10");
         waitForObject(":*._description_XLineEdit");
@@ -3700,8 +3717,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Assignments...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Assignments...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":*._taxZone_XComboBox");
         mouseClick(":*._taxZone_XComboBox",5,5,0,Qt.LeftButton);
         waitForObject(":_taxZone.ZONE10-Tax Zone 10_QModelIndex");
@@ -3807,10 +3824,31 @@ function main()
         type(":Customer.VirtualClusterLineEdit_CLineEdit", "Customer 10");
         waitForObject(":*._name_XLineEdit");
         type(":*._name_XLineEdit", "Customer with tax 10");
+        
+        
+        
+          waitForObject(":*.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":*.qt_tabwidget_tabbar_QTabBar", "Settings");
+        waitForObject(":_defaultGroup._salesrep_XComboBox");
+        if(findObject(":_defaultGroup._salesrep_XComboBox").currentText!= "1000-Sam Masters")
+            clickItem(":_defaultGroup._salesrep_XComboBox","1000-Sam Masters",0,0,1,Qt.LeftButton);
+        waitForObject(":_settingsTab.Tax_QRadioButton");
+        clickButton(":_settingsTab.Tax_QRadioButton");
+        waitForObject(":_settingsStack._taxzone_XComboBox");
+        mouseClick(":_settingsStack._taxzone_XComboBox", 55, 16, 0, Qt.LeftButton);
+         waitForObject(":_taxzone.ZONE10-Tax Zone 10_QModelIndex_3");
+        mouseClick(":_taxzone.ZONE10-Tax Zone 10_QModelIndex_3",5, 5, 0, Qt.LeftButton);
+        waitForObject(":*.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":*.qt_tabwidget_tabbar_QTabBar", "Addresses");
+        
+        
         waitForObject(":_addressTab.Ship To_QRadioButton");
         clickButton(":_addressTab.Ship To_QRadioButton");
         waitForObject(":_addressStack.New_QPushButton");
         clickButton(":_addressStack.New_QPushButton");
+        
+        
+        
         waitForObject(":_shipToNumber_XLineEdit");
         type(":_shipToNumber_XLineEdit", "Store1");
         waitForObject(":_name_XLineEdit");
@@ -3821,14 +3859,6 @@ function main()
         mouseClick(":_taxzone.ZONE10-Tax Zone 10_QModelIndex_2", 5, 5, 0, Qt.LeftButton);
         waitForObject(":*.Save_QPushButton_3");
         clickButton(":*.Save_QPushButton_3");
-        waitForObject(":*.qt_tabwidget_tabbar_QTabBar");
-        clickTab(":*.qt_tabwidget_tabbar_QTabBar", "Settings");
-        waitForObject(":_settingsTab.Tax_QRadioButton");
-        clickButton(":_settingsTab.Tax_QRadioButton");
-        waitForObject(":_settingsStack._taxzone_XComboBox");
-        mouseClick(":_settingsStack._taxzone_XComboBox", 5, 5, 0, Qt.LeftButton);
-        waitForObject(":_taxzone.ZONE10-Tax Zone 10_QModelIndex_3");
-        mouseClick(":_taxzone.ZONE10-Tax Zone 10_QModelIndex_3",5, 5, 0, Qt.LeftButton);
         waitForObject(":*.Save_QPushButton");
         clickButton(":*.Save_QPushButton");
         waitForObject(":Miscellaneous Voucher.Cancel_QPushButton_2");
@@ -3952,8 +3982,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Zones...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Zones...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_taxZone_XLineEdit");
         type(":_taxZone_XLineEdit", "ZONE15");
         waitForObject(":_description_XLineEdit");
@@ -3977,8 +4007,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Classes...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Classes...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_taxClass_XLineEdit");
         type(":_taxClass_XLineEdit", "Class15");
         waitForObject(":_description_XLineEdit");
@@ -4002,8 +4032,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Codes...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Codes...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_code_XLineEdit");
         type(":_code_XLineEdit", "Code15");
         waitForObject(":_description_XLineEdit");
@@ -4050,8 +4080,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Types...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Types...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":*._name_XLineEdit");
         type(":*._name_XLineEdit", "Type 15");
         waitForObject(":*._description_XLineEdit");
@@ -4076,8 +4106,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Assignments...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Assignments...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":*._taxZone_XComboBox");
         mouseClick(":*._taxZone_XComboBox",5,5,0,Qt.LeftButton);
         waitForObject(":_taxZone.ZONE15-Tax Zone 15_QModelIndex");
@@ -4188,6 +4218,22 @@ function main()
         type(":Customer.VirtualClusterLineEdit_CLineEdit", "Customer 15");
         waitForObject(":*._name_XLineEdit");
         type(":*._name_XLineEdit", "Customer with tax 15");
+        
+        
+            waitForObject(":*.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":*.qt_tabwidget_tabbar_QTabBar", "Settings");
+        waitForObject(":_defaultGroup._salesrep_XComboBox");
+        if(findObject(":_defaultGroup._salesrep_XComboBox").currentText!= "1000-Sam Masters")
+            clickItem(":_defaultGroup._salesrep_XComboBox","1000-Sam Masters",0,0,1,Qt.LeftButton);
+        waitForObject(":_settingsTab.Tax_QRadioButton");
+        clickButton(":_settingsTab.Tax_QRadioButton");
+        waitForObject(":_settingsStack._taxzone_XComboBox");
+        mouseClick(":_settingsStack._taxzone_XComboBox", 55, 16, 0, Qt.LeftButton);
+         waitForObject(":_taxzone.ZONE15-Tax Zone 15_QModelIndex_3");
+        mouseClick(":_taxzone.ZONE15-Tax Zone 15_QModelIndex_3",5, 5, 0, Qt.LeftButton);
+        waitForObject(":*.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":*.qt_tabwidget_tabbar_QTabBar", "Addresses");
+                               
         waitForObject(":_addressTab.Ship To_QRadioButton");
         clickButton(":_addressTab.Ship To_QRadioButton");
         waitForObject(":_addressStack.New_QPushButton");
@@ -4202,14 +4248,7 @@ function main()
         mouseClick(":_taxzone.ZONE15-Tax Zone 15_QModelIndex_2", 5, 5, 0, Qt.LeftButton);
         waitForObject(":*.Save_QPushButton_3");
         clickButton(":*.Save_QPushButton_3");
-        waitForObject(":*.qt_tabwidget_tabbar_QTabBar");
-        clickTab(":*.qt_tabwidget_tabbar_QTabBar", "Settings");
-        waitForObject(":_settingsTab.Tax_QRadioButton");
-        clickButton(":_settingsTab.Tax_QRadioButton");
-        waitForObject(":_settingsStack._taxzone_XComboBox");
-        mouseClick(":_settingsStack._taxzone_XComboBox", 5, 5, 0, Qt.LeftButton);
-        waitForObject(":_taxzone.ZONE15-Tax Zone 15_QModelIndex_3");
-        mouseClick(":_taxzone.ZONE15-Tax Zone 15_QModelIndex_3", 5, 5, 0, Qt.LeftButton);
+        
         waitForObject(":*.Save_QPushButton");
         clickButton(":*.Save_QPushButton");
         waitForObject(":Miscellaneous Voucher.Cancel_QPushButton_2");
@@ -4333,8 +4372,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Zones...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Zones...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_taxZone_XLineEdit");
         type(":_taxZone_XLineEdit", "ZONE NESTED");
         waitForObject(":_description_XLineEdit");
@@ -4359,8 +4398,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Classes...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Classes...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_taxClass_XLineEdit");
         type(":_taxClass_XLineEdit", "Class Sequence 2");
         waitForObject(":_description_XLineEdit");
@@ -4388,8 +4427,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Classes...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Classes...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_taxClass_XLineEdit");
         type(":_taxClass_XLineEdit", "Class Sequence 3");
         waitForObject(":_description_XLineEdit");
@@ -4418,8 +4457,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Codes...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Codes...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_code_XLineEdit");
         type(":_code_XLineEdit", "Code Sequence 2");
         waitForObject(":_description_XLineEdit");
@@ -4465,8 +4504,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Codes...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Codes...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":_code_XLineEdit");
         type(":_code_XLineEdit", "Code Sequence 3");
         waitForObject(":_description_XLineEdit");
@@ -4485,8 +4524,8 @@ function main()
         clickItem(":*._taxClass_XComboBox", "Class Sequence 3-Tax Class Sequence 3", 5, 5, 1, Qt.LeftButton);
         waitForObject(":*._taxauth_XComboBox");
         mouseClick(":*._taxauth_XComboBox",0,0,0,Qt.LeftButton);
-        waitForObjectItem(":*._taxauth_XComboBox", "AuthorityNested");
-        clickItem(":*._taxauth_XComboBox", "AuthorityNested", 5, 5, 1, Qt.LeftButton);
+        waitForObjectItem(":*._taxauth_XComboBox", "AUTHORITYNESTED");
+        clickItem(":*._taxauth_XComboBox", "AUTHORITYNESTED", 5, 5, 1, Qt.LeftButton);
         waitForObject(":*.New_QPushButton");
         clickButton(":*.New_QPushButton");
         waitForObject(":_rateGroup._percent_XLineEdit");
@@ -4512,8 +4551,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Types...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Types...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":*._name_XLineEdit");
         type(":*._name_XLineEdit", "Type Nested");
         waitForObject(":*._description_XLineEdit");
@@ -4538,8 +4577,8 @@ function main()
         activateItem(":xTuple ERP:*.Accounting_QMenu", "Tax");
         waitForObjectItem(":xTuple ERP:*.Tax_QMenu", "Tax Assignments...");
         activateItem(":xTuple ERP:*.Tax_QMenu", "Tax Assignments...");
-        waitForObject(":List Unposted Invoices.New_QPushButton");
-        clickButton(":List Unposted Invoices.New_QPushButton");
+        waitForObject(":List Unposted Receipts.New_QPushButton");
+        clickButton(":List Unposted Receipts.New_QPushButton");
         waitForObject(":*._taxZone_XComboBox");
         mouseClick(":*._taxZone_XComboBox",5,5,0,Qt.LeftButton);
         waitForObjectItem(":*._taxZone_XComboBox","ZONE NESTED-Tax Zone Nested");
@@ -4644,6 +4683,22 @@ function main()
         type(":Customer.VirtualClusterLineEdit_CLineEdit", "Customer Nested");
         waitForObject(":*._name_XLineEdit");
         type(":*._name_XLineEdit", "Customer with Nested Tax");
+        
+            waitForObject(":*.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":*.qt_tabwidget_tabbar_QTabBar", "Settings");
+        waitForObject(":_defaultGroup._salesrep_XComboBox");
+        if(findObject(":_defaultGroup._salesrep_XComboBox").currentText!= "1000-Sam Masters")
+            clickItem(":_defaultGroup._salesrep_XComboBox","1000-Sam Masters",0,0,1,Qt.LeftButton);
+        waitForObject(":_settingsTab.Tax_QRadioButton");
+        clickButton(":_settingsTab.Tax_QRadioButton");
+        waitForObject(":_settingsStack._taxzone_XComboBox");
+        mouseClick(":_settingsStack._taxzone_XComboBox", 55, 16, 0, Qt.LeftButton);
+         waitForObject(":_taxzone.ZONE NESTED-Tax Zone Nested_QModelIndex_3");
+        mouseClick(":_taxzone.ZONE NESTED-Tax Zone Nested_QModelIndex_3",5, 5, 0, Qt.LeftButton);
+        waitForObject(":*.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":*.qt_tabwidget_tabbar_QTabBar", "Addresses");
+        
+        
         waitForObject(":_addressTab.Ship To_QRadioButton");
         clickButton(":_addressTab.Ship To_QRadioButton");
         waitForObject(":_addressStack.New_QPushButton");
@@ -4658,14 +4713,6 @@ function main()
         mouseClick(":_taxzone.ZONE NESTED-Tax Zone Nested_QModelIndex_2", 87, 7, 0, Qt.LeftButton);
         waitForObject(":*.Save_QPushButton_3");
         clickButton(":*.Save_QPushButton_3");
-        waitForObject(":*.qt_tabwidget_tabbar_QTabBar");
-        clickTab(":*.qt_tabwidget_tabbar_QTabBar", "Settings");
-        waitForObject(":_settingsTab.Tax_QRadioButton");
-        clickButton(":_settingsTab.Tax_QRadioButton");
-        waitForObject(":_settingsStack._taxzone_XComboBox");
-        mouseClick(":_settingsStack._taxzone_XComboBox", 5, 5, 0, Qt.LeftButton);
-        waitForObject(":_taxzone.ZONE NESTED-Tax Zone Nested_QModelIndex_3");
-        mouseClick(":_taxzone.ZONE NESTED-Tax Zone Nested_QModelIndex_3", 78, 0, 0, Qt.LeftButton);
         waitForObject(":*.Save_QPushButton");
         clickButton(":*.Save_QPushButton");
         waitForObject(":Miscellaneous Voucher.Cancel_QPushButton_2");

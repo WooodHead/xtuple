@@ -24,7 +24,7 @@ function main()
         toemail=testData.field(set[records],"TO EMAIL");
         role=testData.field(set[records],"ROLE")
              if(role=="CONFIGURE") break;     
-    }
+  }
     
     //---------------Capacity UOM by Product Category----------
     try
@@ -72,7 +72,7 @@ function main()
     else test.fail("Batch Manager not responding");
     
     
-    
+  
     //---------------Capacity UOM by Class Code----------
     try
     {
@@ -108,7 +108,7 @@ function main()
         test.fail("Exception in scheduling Capacity UOM by class code"+ e);
     }
     
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -149,7 +149,7 @@ function main()
         test.fail("Exception in scheduling item list"+ e);
     }
     
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
@@ -197,12 +197,12 @@ function main()
     {
         test.fail("Exception in costed single level BOM"+ e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for costed single level BOM" + e);
+        test.pass("Batch Manager Submitted for costed single level BOM");
     
     else test.fail("Batch Manager not responding");
     
@@ -247,12 +247,12 @@ function main()
     {
         test.fail("Exception in costed indented level BOM"+ e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for costed indented level BOM" + e);
+        test.pass("Batch Manager Submitted for costed indented level BOM");
     
     else test.fail("Batch Manager not responding");
     
@@ -297,15 +297,15 @@ function main()
         test.fail("Exception in costed summarized level BOM"+ e);
     }
     
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for costed summarized level BOM" + e);
+        test.pass("Batch Manager Submitted for costed summarized level BOM");
     
     else test.fail("Batch Manager not responding");
-    
+  
     
     //------------Item Cost by class code----------
     try
@@ -347,7 +347,7 @@ function main()
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for item cost by class code" + e);
+        test.pass("Batch Manager Submitted for item cost by class code");
     
     else test.fail("Batch Manager not responding");
     
@@ -397,7 +397,7 @@ function main()
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for item costs by summary" + e);
+        test.pass("Batch Manager Submitted for item costs by summary");
     
     else test.fail("Batch Manager not responding");
     
@@ -447,7 +447,7 @@ function main()
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for item cost history" + e);
+        test.pass("Batch Manager Submitted for item cost history");
     
     else test.fail("Batch Manager not responding");
     
@@ -485,7 +485,7 @@ function main()
     }
     catch(e)
     {
-        test.fail("Exception in scheduling valid location by item"+ e);
+        test.fail("Exception in scheduling valid location by item"+e);
     }
     
     //-----Verify the submission in Batch Manager-----
@@ -493,7 +493,7 @@ function main()
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for valid location by item screen" + e);
+        test.pass("Batch Manager Submitted for valid location by item screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -535,7 +535,7 @@ function main()
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for Quantity on hand screen" + e);
+        test.pass("Batch Manager Submitted for Quantity on hand screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -579,7 +579,7 @@ function main()
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted QOH by location screen" + e);
+        test.pass("Batch Manager Submitted QOH by location screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -625,7 +625,7 @@ function main()
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for location detail screen" + e);
+        test.pass("Batch Manager Submitted for location detail screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -667,7 +667,7 @@ function main()
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for Usage Statistics screen" + e);
+        test.pass("Batch Manager Submitted for Usage Statistics screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -716,7 +716,7 @@ function main()
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted Time Phased Usage Statistics" + e);
+        test.pass("Batch Manager Submitted Time Phased Usage Statistics");
     
     else test.fail("Batch Manager not responding");
     
@@ -761,10 +761,10 @@ function main()
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for inventory history by lot/serial screen" + e);
+        test.pass("Batch Manager Submitted for inventory history by lot/serial screen");
     
     else test.fail("Batch Manager not responding");
-    
+  
     
     
     //------------Inventory History by location----------
@@ -803,9 +803,12 @@ function main()
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted Inventory History by location screen" + e);
+        
+        test.pass("Batch Manager Submitted Inventory History by location screen");
     
-    else test.fail("Batch Manager not responding");
+    else
+        
+        test.fail("Batch Manager not responding");
     
     
     //------------Location Detail----------
@@ -844,12 +847,12 @@ function main()
         test.fail("Exception in submitting location details"+ e);
     }
     
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for location detail screen" + e);
+        test.pass("Batch Manager Submitted for location detail screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -884,15 +887,15 @@ function main()
     {
         test.fail("Exception in scheduling inventory availability"+ e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for inventory availability screen" + e);
+        test.pass("Batch Manager Submitted for inventory availability screen");
     
     else test.fail("Batch Manager not responding");
-    
+  
     
     
     //------------Substitute Availability----------
@@ -935,7 +938,7 @@ function main()
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for substitute availability screen" + e);
+        test.pass("Batch Manager Submitted for substitute availability screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -975,12 +978,12 @@ function main()
         test.fail("Exception in submitting slow moving inventory "+ e);
     }
     
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for slow moving inventory screen" + e);
+        test.pass("Batch Manager Submitted for slow moving inventory screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1018,12 +1021,12 @@ function main()
         test.fail("Exception in submitting expired inventory "+ e);
     }
     
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for expired inventory screen" + e);
+        test.pass("Batch Manager Submitted for expired inventory screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1063,13 +1066,13 @@ function main()
     {
         test.fail("Exception in submitting Item Sites "+ e);
     }
-    
-    
+  
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for Item Sites screen" + e);
+        test.pass("Batch Manager Submitted for Item Sites screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1113,12 +1116,12 @@ function main()
     {
         test.fail("Exception in scheduling Detailed Inventory History" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for Detailed inventory History screen" + e);
+        test.pass("Batch Manager Submitted for Detailed inventory History screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1159,13 +1162,13 @@ function main()
     {
         test.fail("Exception in scheduling Running Availability screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for Running Availabality(Schedule) screen" + e);
+        test.pass("Batch Manager Submitted for Running Availabality(Schedule) screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1206,7 +1209,7 @@ function main()
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for Purchase Requests by Planner code screen" + e);
+        test.pass("Batch Manager Submitted for Purchase Requests by Planner code screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1245,13 +1248,13 @@ function main()
     {
         test.fail("Exception in scheduling Running Availability screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for Purchase Requests by Item screen" + e);
+        test.pass("Batch Manager Submitted for Purchase Requests by Item screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1293,13 +1296,13 @@ function main()
     {
         test.fail("Exception in scheduling Purchase Orders by Vendor screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for Purchase Orders by Vendor screen" + e);
+        test.pass("Batch Manager Submitted for Purchase Orders by Vendor screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1339,13 +1342,13 @@ function main()
     {
         test.fail("Exception in scheduling Purchase Orders by Date screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for Purchase orders by date screen" + e);
+        test.pass("Batch Manager Submitted for Purchase orders by date screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1379,13 +1382,13 @@ function main()
     {
         test.fail("Exception in scheduling Purchase Order Items by Vendor");
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for Purchase order Items by Vendor screen" + e);
+        test.pass("Batch Manager Submitted for Purchase order Items by Vendor screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1418,14 +1421,14 @@ function main()
     catch(e)
     {
         test.fail("Exception in scheduling Purchase Order Items by Date");
-    }
-    
+  }
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
-        test.pass("Batch Manager Submitted for Purchase Order Items by Date screen" + e);
+        test.pass("Batch Manager Submitted for Purchase Order Items by Date screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1462,17 +1465,17 @@ function main()
     {
         test.fail("Exception in scheduling Purchase Order Items by Item");
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Purchase Order Items by Item screen" + e);
+        test.pass("Batch Manager Submitted for Purchase Order Items by Item screen");
     
     else test.fail("Batch Manager not responding");
-    
+  
     
     //-------- Purchase Order History------------
     try
@@ -1508,14 +1511,14 @@ function main()
         test.fail("Exception in scheduling Purchase Order History screen" + e);
     }
     
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Purchase Order History screen" + e);
+        test.pass("Batch Manager Submitted for Purchase Order History screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1556,14 +1559,14 @@ function main()
     {
         test.fail("Exception in scheduling Receipts and Returns by Vendor" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Receipts and Returns by Vendor screen" + e);
+        test.pass("Batch Manager Submitted for Receipts and Returns by Vendor screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1610,7 +1613,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Receipts and Returns by Date screen" + e);
+        test.pass("Batch Manager Submitted for Receipts and Returns by Date screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1651,14 +1654,14 @@ function main()
     {
         test.fail("Exception in scheduling Receipts and Returns by Item screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Receipts and Returns by Item screen" + e);
+        test.pass("Batch Manager Submitted for Receipts and Returns by Item screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1697,14 +1700,14 @@ function main()
     {
         test.fail("exception in scheduling Purchase Price Variances by Vendor");
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Purchase Price Variances by Vendor screen" + e);
+        test.pass("Batch Manager Submitted for Purchase Price Variances by Vendor screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1743,14 +1746,14 @@ function main()
     {
         test.fail("Exception in Scheduling Purchase Price Variances by Item");
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Purchase Price Variances by Item screen" + e);
+        test.pass("Batch Manager Submitted for Purchase Price Variances by Item screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1787,15 +1790,15 @@ function main()
     catch(e)
     {
         test.fail("Exception in Scheduling Delivery Date Variances by Vendor" + e);
-    }
-    
+  }
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Delivery Date Variances by Vendor screen" + e);
+        test.pass("Batch Manager Submitted for Delivery Date Variances by Vendor screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1832,15 +1835,15 @@ function main()
     catch(e)
     {
         test.fail("Excepiton in Scheduling Delivery Date Variances by Item screen" + e);
-    }
-    
+  }
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Delivery Date Variances by Item screen" + e);
+        test.pass("Batch Manager Submitted for Delivery Date Variances by Item screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1870,8 +1873,8 @@ function main()
         clickButton(":Enter Purchase Order Returns.Post_QPushButton");
         waitForObject(":Enter Purchase Order Returns.Yes_QPushButton");
         clickButton(":Enter Purchase Order Returns.Yes_QPushButton");
-        waitForObject(":Enter Purchase Order Returns.Post_QPushButton_2")
-                clickButton(":Enter Purchase Order Returns.Post_QPushButton_2");
+        waitForObject(":Enter Purchase Order Returns.Post_QPushButton_2");
+        clickButton(":Enter Purchase Order Returns.Post_QPushButton_2");
     }
     catch(e)
     {
@@ -1912,14 +1915,14 @@ function main()
     {
         test.fail("Exception in scheduling Rejected Material by Vendor screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Rejected Material by vendor screen" + e);
+        test.pass("Batch Manager Submitted for Rejected Material by vendor screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1959,7 +1962,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Vendors List screen" + e);
+        test.pass("Batch Manager Submitted for Vendors List screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -1991,14 +1994,14 @@ function main()
     {
         test.fail("Exception in scheduling Vendors List screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Work Order Schedule screen" + e);
+        test.pass("Batch Manager Submitted for Work Order Schedule screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -2037,14 +2040,14 @@ function main()
     {
         test.fail("Exception in scheduling Work Order Material Requirements by Component Item screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Work Order Material Requirements By Component Item screen" + e);
+        test.pass("Batch Manager Submitted for Work Order Material Requirements By Component Item screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -2081,14 +2084,14 @@ function main()
     {
         test.fail("Exception in scheduling Pending W/O Material Availability screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Pending W/O Material Availability screen" + e);
+        test.pass("Batch Manager Submitted for Pending W/O Material Availability screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -2123,14 +2126,14 @@ function main()
     {
         test.fail("Exception in scheduling Work Order History by Class Code screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Work Order History by Class Code screen" + e);
+        test.pass("Batch Manager Submitted for Work Order History by Class Code screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -2167,14 +2170,14 @@ function main()
     {
         test.fail("Exception in scheduling Work Order History by Item screen");
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Work Order History by Item screen" + e);
+        test.pass("Batch Manager Submitted for Work Order History by Item screen");
     
     else test.fail("Batch Manager not responding");
     
@@ -2211,14 +2214,14 @@ function main()
     {
         test.fail("Exception in scheduling Work Order History by W/O Number screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Work Order History by W/O Number screen" + e);
+        test.pass("Batch Manager Submitted for Work Order History by W/O Number screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2259,14 +2262,14 @@ function main()
     {
         test.fail("Exception in Material Usage Variance by Site screen:" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Material Usage Variance by Site screen" + e);
+        test.pass("Batch Manager Submitted for Material Usage Variance by Site screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2307,14 +2310,14 @@ function main()
         test.fail("Exception in Material Usage Variance by Item screen:" + e);
     }
     
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Material Usage Variance by Item screen" + e);
+        test.pass("Batch Manager Submitted for Material Usage Variance by Item screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2351,14 +2354,14 @@ function main()
     {
         test.fail("Exception in Material Usage Variance by BOM Item screen:" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Material Usage Variance by BOM Item screen" + e);
+        test.pass("Batch Manager Submitted for Material Usage Variance by BOM Item screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2403,7 +2406,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Material Usage Variance by Component Item screen" + e);
+        test.pass("Batch Manager Submitted for Material Usage Variance by Component Item screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2440,14 +2443,14 @@ function main()
     {
         test.fail("Exception in scheduling Material Usage Variance by Work Order screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Material Usage Variance by Work Order screen" + e);
+        test.pass("Batch Manager Submitted for Material Usage Variance by Work Order screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2479,14 +2482,14 @@ function main()
     {
         test.fail("Exception in scheduling Incident List screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Incident List screen" + e);
+        test.pass("Batch Manager Submitted for Incident List screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2521,7 +2524,7 @@ function main()
     }
     catch(e)
     {
-        test.fail("Exception in creating To-Do List Item");
+        test.fail("Exception in creating To-Do List Item" + e);
     }
     //------------To-Do List screen------
     try
@@ -2551,14 +2554,14 @@ function main()
     {
         test.fail("Exception in scheduling To-Do List screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for To-Do List screen" + e);
+        test.pass("Batch Manager Submitted for To-Do List screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2589,16 +2592,16 @@ function main()
     }
     catch(e)
     {
-        test.fail("Exception in scheduling Opportunities screen");
+        test.fail("Exception in scheduling Opportunities screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Opportunity List screen" + e);
+        test.pass("Batch Manager Submitted for Opportunity List screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2630,16 +2633,16 @@ function main()
     }
     catch(e)
     {
-        test.fail("Exception in scheduling Order Activity by Project screen");
+        test.fail("Exception in scheduling Order Activity by Project screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Order Activity by Project screen" + e);
+        test.pass("Batch Manager Submitted for Order Activity by Project screen" );
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2669,16 +2672,16 @@ function main()
     }
     catch(e)
     {
-        test.fail("Exception in scheduling Incidents by CRM Account screen");
-    } 
-    
+        test.fail("Exception in scheduling Incidents by CRM Account screen" + e);
+  } 
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Incidents by CRM Account screen" + e);
+        test.pass("Batch Manager Submitted for Incidents by CRM Account screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2711,15 +2714,15 @@ function main()
     {
         test.fail("Exception in scheduling To-Do List Items by User and Incident screen" + e);
     }
-    
-    
+  
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for To-Do List Items by User and Incident screen" + e);
+        test.pass("Batch Manager Submitted for To-Do List Items by User and Incident screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2751,14 +2754,14 @@ function main()
     {
         test.fail("Exception in scheduling Accounts List screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Accounts List screen" + e);
+        test.pass("Batch Manager Submitted for Accounts List screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2790,14 +2793,14 @@ function main()
     {
         test.fail("Exception in scheduling Contacts List screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Contacts List screen" + e);
+        test.pass("Batch Manager Submitted for Contacts List screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2829,14 +2832,14 @@ function main()
     {
         test.fail("Exception in scheduling Address List screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Address List screen" + e);
+        test.pass("Batch Manager Submitted for Address List screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2868,14 +2871,14 @@ function main()
     {
         test.fail("Exception in scheduling Sales Order list screen");
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Sales Order list screen" + e);
+        test.pass("Batch Manager Submitted for Sales Order list screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2910,14 +2913,14 @@ function main()
     {
         test.fail("Exception in scheduling Sales Order status screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Sales Order status screen" + e);
+        test.pass("Batch Manager Submitted for Sales Order status screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2956,7 +2959,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Summarized backlog screen" + e);
+        test.pass("Batch Manager Submitted for Summarized backlog screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -2989,14 +2992,14 @@ function main()
     {
         test.fail("Exception in scheduling Inventory Availability by Customer Type screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Inventory Availability by Customer Type screen" + e);
+        test.pass("Batch Manager Submitted for Inventory Availability by Customer Type screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3029,14 +3032,14 @@ function main()
     {
         test.fail("Exception in scheduling Earned Commissions screen" +  e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Earned Commissions screen" + e);
+        test.pass("Batch Manager Submitted for Earned Commissions screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3073,16 +3076,16 @@ function main()
     {
         test.fail("Exception in scheduling Summarized backlog screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Summarized backlog screen" + e);
+        test.pass("Batch Manager Submitted for Summarized backlog screen");
     
-    else test.fail("Batch Manager not responding"); 
+    else test.failc("Batch Manager not responding"); 
     
     
     //-------------Sales Bookings ----------
@@ -3122,14 +3125,14 @@ function main()
     {
         test.fail("exception in scheduling Bookings screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Bookings screen" + e);
+        test.pass("Batch Manager Submitted for Bookings screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3163,14 +3166,14 @@ function main()
     {
         test.fail("exception in scheduling Item Prices by Cutomer Type screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Item Prices by Cutomer Type screen" + e);
+        test.pass("Batch Manager Submitted for Item Prices by Cutomer Type screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3214,7 +3217,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Item Prices by Customer screen" + e);
+        test.pass("Batch Manager Submitted for Item Prices by Customer screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3258,7 +3261,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Item Prices by Item screen" + e);
+        test.pass("Batch Manager Submitted for Item Prices by Item screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3292,15 +3295,15 @@ function main()
     {
         test.fail("exception in scheduling Freight Prices by Cutomer Type screen" + e);
     }
-    
-    
+  
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Freight Prices by Cutomer Type screen" + e);
+        test.pass("Batch Manager Submitted for Freight Prices by Cutomer Type screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3338,14 +3341,14 @@ function main()
     {
         test.fail("Exception in scheduling Freight Prices by Customer screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Freight Prices by Customer screen" + e);
+        test.pass("Batch Manager Submitted for Freight Prices by Customer screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3386,7 +3389,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Open Payables screen" + e);
+        test.pass("Batch Manager Submitted for Open Payables screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3420,14 +3423,14 @@ function main()
     {
         test.fail("Exception in scheduling Voucher Register screen");
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Voucher Register screen" + e);
+        test.pass("Batch Manager Submitted for Voucher Register screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3465,15 +3468,15 @@ function main()
     catch(e)
     {
         test.fail("exception in scheduling A/P Applications screen" + e);
-    }
-    
+  }
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for A/P Applications screen" + e);
+        test.pass("Batch Manager Submitted for A/P Applications screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3514,14 +3517,14 @@ function main()
     {
         test.fail("exception in scheduling Vendor History screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Vendor History screen" + e);
+        test.pass("Batch Manager Submitted for Vendor History screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3558,7 +3561,7 @@ function main()
     catch(e)
     {
         test.fail("exception in scheduling Invoice Register screen" + e);
-    }
+  }
     
     //-----Verify the submission in Batch Manager-----
     
@@ -3566,7 +3569,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Invoice Register screen" + e);
+        test.pass("Batch Manager Submitted for Invoice Register screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3607,10 +3610,10 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Cash Receipts screen" + e);
+        test.pass("Batch Manager Submitted for Cash Receipts screen");
     
     else test.fail("Batch Manager not responding"); 
-    
+  
     //-------A/R Application--------
     try
     {
@@ -3653,7 +3656,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for A/R Applications screen" + e);
+        test.pass("Batch Manager Submitted for A/R Applications screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3698,11 +3701,40 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Deposits Register screen" + e);
+        test.pass("Batch Manager Submitted for Deposits Register screen");
     
     else test.fail("Batch Manager not responding"); 
     
-    //--------Customer History---------
+    
+     //-----Exit the Application-----
+   if(OS.name=="Linux")
+    {
+    try
+    {
+        waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
+        activateItem(":xTuple ERP: *_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: *.System_QMenu", "Exit xTuple ERP...");
+        activateItem(":xTuple ERP: *.System_QMenu", "Exit xTuple ERP...");
+    }
+    catch(e)
+    {
+        test.fail("Error in exiting the application" + e);
+    }
+    snooze(5);
+    
+    if(OS.name=="Linux")
+        startApplication("xtuple.bin");
+    
+    else
+        startApplication("xtuple");
+    
+    snooze(2);
+    //-----login Application-----
+    loginAppl("CONFIGURE"); 
+    waitForObject(":Registration Key.Yes_QPushButton");
+    clickButton(":Registration Key.Yes_QPushButton");
+}
+   //--------Customer History---------
     try
     {
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");
@@ -3746,7 +3778,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Customer History screen" + e);
+        test.pass("Batch Manager Submitted for Customer History screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3787,7 +3819,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for General Ledger Transactions screen" + e);
+        test.pass("Batch Manager Submitted for General Ledger Transactions screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3832,7 +3864,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Summarized General Ledger Transactions screen" + e);
+        test.pass("Batch Manager Submitted for Summarized General Ledger Transactions screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3877,7 +3909,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Journal Series screen" + e);
+        test.pass("Batch Manager Submitted for Journal Series screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3922,7 +3954,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Standard Journal History screen" + e);
+        test.pass("Batch Manager Submitted for Standard Journal History screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3963,7 +3995,7 @@ function main()
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Summarized Bank Reconciliation History screen" + e);
+        test.pass("Batch Manager Submitted for Summarized Bank Reconciliation History screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -3995,14 +4027,14 @@ function main()
     {
         test.fail("Exception in scheduling View Trial Balances screen");
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Trial Balances screen" + e);
+        test.pass("Batch Manager Submitted for Trial Balances screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -4040,14 +4072,14 @@ function main()
     {
         test.fail("Exception in scheduling View Financial Report screen");
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Financial Report screen" + e);
+        test.pass("Batch Manager Submitted for Financial Report screen");
     
     else test.fail("Batch Manager not responding"); 
     
@@ -4080,14 +4112,14 @@ function main()
     {
         test.fail("Exception in scheduling Tax Authorites screen" + e);
     }
-    
+  
     //-----Verify the submission in Batch Manager-----
     
     var result = batchmanager();
     
     if(result == true)
         
-        test.pass("Batch Manager Submitted for Tax Authorites screen" + e);
+        test.pass("Batch Manager Submitted for Tax Authorites screen");
     
     else test.fail("Batch Manager not responding"); 
 }

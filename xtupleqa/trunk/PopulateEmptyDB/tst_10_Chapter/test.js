@@ -69,38 +69,38 @@ function main()
     
     
     
-          
-        //---------------Configure ACH in Accounting-------------
-        try{
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-            activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-            waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
-            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
-            waitForObject(":Setup._modules_QComboBox");
-            clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
-            waitForObject(":Configure.Accounting_QModelIndex");
-            mouseClick(":Configure.Accounting_QModelIndex", 43, 5, 0, Qt.LeftButton);
-            
-            waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
-            clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
-            
-            
-            waitForObject(":tab.Enable EFT Check Printing_QGroupBox");
-            type(":tab.Enable EFT Check Printing_QGroupBox"," ");
-            
-            waitForObject(":_nextACHBatchNumber_XLineEdit_2");
-            type(":_nextACHBatchNumber_XLineEdit_2", "<Ctrl+A>");
-            type(":_nextACHBatchNumber_XLineEdit_2", "<Del>");
-            type(":_nextACHBatchNumber_XLineEdit_2", "10000");
-            type(":_companyId_XLineEdit_2", "<Ctrl+A>");
-            type(":_companyId_XLineEdit_2", "<Del>");
-            type(":_companyId_XLineEdit_2", "987654");
-            clickButton(":Enable EFT Check Printing.Other_QRadioButton");
-            type(":_companyName_XLineEdit_2", "ProDiem Inc.");
-            clickButton(":Setup.Save_QPushButton");
-            test.log("Accounting for ACH configured");
-        }catch(e){test.fail("Exception in configuring Accounting" + e);}
-          
+    
+    //---------------Configure ACH in Accounting-------------
+    try{
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
+        waitForObject(":Configure.Accounting_QModelIndex");
+        mouseClick(":Configure.Accounting_QModelIndex", 43, 5, 0, Qt.LeftButton);
+        
+        waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
+        
+        
+        waitForObject(":tab.Enable EFT Check Printing_QGroupBox");
+        type(":tab.Enable EFT Check Printing_QGroupBox"," ");
+        
+        waitForObject(":_nextACHBatchNumber_XLineEdit_2");
+        type(":_nextACHBatchNumber_XLineEdit_2", "<Ctrl+A>");
+        type(":_nextACHBatchNumber_XLineEdit_2", "<Del>");
+        type(":_nextACHBatchNumber_XLineEdit_2", "10000");
+        type(":_companyId_XLineEdit_2", "<Ctrl+A>");
+        type(":_companyId_XLineEdit_2", "<Del>");
+        type(":_companyId_XLineEdit_2", "987654");
+        clickButton(":Enable EFT Check Printing.Other_QRadioButton");
+        type(":_companyName_XLineEdit_2", "ProDiem Inc.");
+        clickButton(":Setup.Save_QPushButton");
+        test.log("Accounting for ACH configured");
+    }catch(e){test.fail("Exception in configuring Accounting" + e);}
+    
     if(object.exists(":No_QPushButton"))
         clickButton(":No_QPushButton");
     
@@ -273,7 +273,7 @@ function main()
         clickButton(":List Fiscal Years.Close_QPushButton");
     }catch(e){test.fail("Exception in creating Fiscal Year");}
     
-  
+    
     //-------------Define: Fiscal Calendar--------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -285,7 +285,7 @@ function main()
         
         for(loop=0;loop<2; loop++,CurrentYearFull++) //for two years
         {
-//            var CurrentYear = CurrentYearFull.toString().slice(2);
+            //            var CurrentYear = CurrentYearFull.toString().slice(2);
             var CurrentYear = CurrentYearFull.toString();
             i=CurrentYear;
             if(IsLeapYear(CurrentYearFull)) //find whether the current year is leap year
