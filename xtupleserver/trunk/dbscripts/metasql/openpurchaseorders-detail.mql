@@ -10,7 +10,7 @@ SELECT pohead_id, COALESCE(pohead_cohead_id, -1) AS pohead_cohead_id,
                       pohead_status, pohead_printed,
                       vend_number, vendtype_code, pohead_agent_username
                FROM pohead 
-                 JOIN vend ON (pohead_vend_id=vend_id)
+                 JOIN vendinfo ON (pohead_vend_id=vend_id)
                  JOIN vendtype ON (vend_vendtype_id=vendtype_id)
                <? if exists("pohead_agent_usr_id") ?>
                  JOIN usr ON (pohead_agent_username=usr_username)

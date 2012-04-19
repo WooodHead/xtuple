@@ -9,7 +9,7 @@ SELECT poreject_id, poreject_ponumber, vend_name,
        poreject_vend_item_number, poreject_vend_item_descrip,
        rjctcode_code,
        'qty' AS poreject_qty_xtnumericrole 
-FROM poreject, vend, itemsite, rjctcode
+FROM poreject, vendinfo, itemsite, rjctcode
 WHERE ((poreject_posted)
    AND (poreject_vend_id=vend_id)
    AND (poreject_rjctcode_id=rjctcode_id)

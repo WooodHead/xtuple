@@ -140,7 +140,7 @@ FROM ( SELECT 1 AS sourcecode,
                     ipsprice_discountpercent AS discountpercent,
                     ipsprice_discountfixed AS discountfixed,
                     ipshead_curr_id AS curr_id
-       FROM ipsass, ipshead, shipto, ipsprice
+       FROM ipsass, ipshead, shiptoinfo, ipsprice
        WHERE ( (ipsass_ipshead_id=ipshead_id)
         AND (ipsprice_ipshead_id=ipshead_id)
         AND (ipsprice_item_id=<? value('item_id') ?>)

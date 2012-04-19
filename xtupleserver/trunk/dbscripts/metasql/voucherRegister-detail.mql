@@ -17,7 +17,7 @@ SELECT gltrans_id, gltrans_date,
        gltrans_username,
        'curr' AS debit_xtnumericrole,
        'curr' AS credit_xtnumericrole
-FROM accnt, gltrans LEFT OUTER JOIN vohead JOIN vend
+FROM accnt, gltrans LEFT OUTER JOIN vohead JOIN vendinfo
                                ON (vohead_vend_id=vend_id)
                     ON (gltrans_doctype='VO' and gltrans_docnumber=vohead_number)
 WHERE ((gltrans_accnt_id=accnt_id)

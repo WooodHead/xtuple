@@ -303,7 +303,7 @@ FROM (
              ipshead_name AS schedulename, <? value("shipTo") ?> AS type,
              (cust_name || '-' || shipto_num) AS typename,
              ipsprice_qtybreak AS qtybreak, ipsprice_price AS price, ipshead_curr_id AS curr_id
-      FROM ipsass, ipshead, ipsprice, custinfo, shipto, item
+      FROM ipsass, ipshead, ipsprice, custinfo, shiptoinfo, item
       WHERE ((ipsass_ipshead_id=ipshead_id)
          AND (ipsprice_ipshead_id=ipshead_id)
          AND (ipsass_shipto_id=shipto_id)
@@ -324,7 +324,7 @@ FROM (
              ipshead_name AS schedulename, <? value("shipToPattern") ?> AS type,
              (cust_name || '-' || shipto_num) AS typename,
              ipsprice_qtybreak AS qtybreak, ipsprice_price AS price, ipshead_curr_id AS curr_id
-      FROM ipsass, ipshead, ipsprice, custinfo, shipto, item
+      FROM ipsass, ipshead, ipsprice, custinfo, shiptoinfo, item
       WHERE ((ipsass_ipshead_id=ipshead_id)
          AND (ipsprice_ipshead_id=ipshead_id)
          AND (COALESCE(LENGTH(ipsass_shipto_pattern),0) > 0)
