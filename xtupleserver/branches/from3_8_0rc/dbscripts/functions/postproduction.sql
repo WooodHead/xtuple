@@ -87,7 +87,7 @@ BEGIN
 		AND  (itemsite_item_id=item_id)) LOOP
       -- Don't issue more than should have already been consumed at this point
       IF (noNeg(_r.expected - _r.consumed) > 0) THEN
-        SELECT issueWoMaterial(_r.womatl_id, noNeg(_r.expected - _r.consumed), _itemlocSeries) INTO _itemlocSeries;
+        SELECT issueWoMaterial(_r.womatl_id, noNeg(_r.expected - _r.consumed), _itemlocSeries, pGLDistTS) INTO _itemlocSeries;
       END IF;
 
       UPDATE womatl
