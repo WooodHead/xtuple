@@ -14,7 +14,7 @@ SELECT itemsite_id, warehous_code, item_number,
        'qty' AS detailedqoh_xtnumericrole,
        'qty' AS itemsite_nnqoh_xtnumericrole,
        'qty' AS detailednnqoh_xtnumericrole
-FROM warehous, item, itemsite, uom
+FROM whsinfo, item, itemsite, uom
 WHERE ( (itemsite_item_id=item_id)
     AND (item_inv_uom_id=uom_id)
     AND (itemsite_warehous_id=warehous_id)

@@ -32,7 +32,7 @@ FROM (SELECT itemloc_id, 1 AS type, warehous_code,
              CASE WHEN (itemsite_warrpurc) THEN itemloc_warrpurc
              END AS warranty,
              itemloc_qty AS qoh
-      FROM itemsite, warehous,
+      FROM itemsite, whsinfo,
            itemloc LEFT OUTER JOIN location ON (itemloc_location_id=location_id)
       WHERE ((itemsite_loccntrl OR (itemsite_controlmethod IN ('L', 'S')))
          AND (itemloc_itemsite_id=itemsite_id)
@@ -52,7 +52,7 @@ FROM (SELECT itemloc_id, 1 AS type, warehous_code,
              NULL AS expiration,
              NULL AS warranty,
              itemsite_qtyonhand AS qoh
-      FROM itemsite, warehous
+      FROM itemsite, whsinfo
       WHERE ((NOT itemsite_loccntrl)
          AND (itemsite_controlmethod NOT IN ('L', 'S'))
          AND (itemsite_warehous_id=warehous_id)
