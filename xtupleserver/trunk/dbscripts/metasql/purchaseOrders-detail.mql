@@ -29,7 +29,7 @@ SELECT pohead_id, pohead_number,
        vend_number,
 <? endif ?>
 <? if exists("byReceiptDate") ?>
-       MIN(date(recv_date)) AS sortDate, recv_order_type,
+       MIN(date(recv_date)) AS sortDate,
 <? elseif exists("byDueDate") ?>
        MIN(poitem_duedate) AS sortDate,
 <? else ?>
