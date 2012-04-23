@@ -47,13 +47,13 @@ SELECT recv_id, recv_order_number, recv_date, recv_order_type,
   COALESCE(SUM(vodist_amount) / CASE WHEN (SUM(vodist_qty) <> 0.0) THEN SUM(vodist_qty) ELSE 1.0 END * recv_qty - currToLocal(vohead_curr_id, recv_value, vohead_distdate), 0.0) AS variance,
   CASE WHEN (COALESCE(recv_value, 0.0) <> 0.0) THEN
     ((SUM(vodist_amount) / CASE WHEN (SUM(vodist_qty) <> 0.0) THEN SUM(vodist_qty) ELSE 1.0 END *
-     porecv_qty / currToLocal(vohead_curr_id, recv_value, vohead_distdate)) -1.0) * 100.0
+     recv_qty / currToLocal(vohead_curr_id, recv_value, vohead_distdate)) -1.0) * 100.0
        ELSE 100.0 END AS varprcnt,       
   currConcat(vohead_curr_id) AS currAbbr,
 <? endif ?>
   'qty' AS recv_qty_xtnumericrole,
   'purchprice' AS recv_purchcost_xtnumericrole,
-  'curr' AS porecv_value_xtnumericrole,
+  'curr' AS recv_value_xtnumericrole,
   'purchprice' AS vouchercost_xtnumericrole,
   'curr' AS  voucher_value_xtnumericrole,
   'cost' AS recv_recvcost_xtnumericrole,
