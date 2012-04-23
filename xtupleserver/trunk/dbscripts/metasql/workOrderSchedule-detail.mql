@@ -26,7 +26,7 @@ SELECT wo_id,
             ELSE 'On Time'
        END AS condition,
        CASE WHEN (wo_duedate<=CURRENT_DATE) THEN 'error' END AS condition_qtforegroundrole
-FROM itemsite, warehous, item, uom, wo 
+FROM itemsite, whsinfo, item, uom, wo
 <? if reExists("woSoStatus") ?>
  JOIN coitem ON ((coitem_order_id=wo_id)
              AND (coitem_order_type='W'))

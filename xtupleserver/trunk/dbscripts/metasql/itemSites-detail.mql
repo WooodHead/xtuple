@@ -32,7 +32,7 @@ SELECT itemsite_id,warehous_code,itemsite_qtyonhand, itemsite_active,
         <? value("na") ?> AS soldranking_xtnullrole,
         <? value("never") ?> AS datelastused_xtnullrole,
         <? value("never") ?> AS datelastcount_xtnullrole             
-FROM item, uom, itemsite, warehous 
+FROM item, uom, itemsite, whsinfo
 WHERE ((itemsite_warehous_id=warehous_id)
          AND (itemsite_item_id=item_id)
          AND(item_inv_uom_id=uom_id)

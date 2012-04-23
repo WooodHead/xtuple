@@ -1,7 +1,7 @@
 -- Group: qoh
 -- Name: detail
 -- Notes: 
---  Quanity on Hand By Location
+-- Quantity on Hand By Location
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
 -- See www.xtuple.com/CPAL for the full text of the software license.
 
@@ -22,7 +22,7 @@ FROM (
   <? else ?>
              0 AS reservedqty
   <? endif ?>
-      FROM itemloc, itemsite, warehous, item, uom
+      FROM itemloc, itemsite, whsinfo, item, uom
       WHERE ((itemloc_itemsite_id=itemsite_id)
          AND (itemsite_item_id=item_id)
          AND (item_inv_uom_id=uom_id)
@@ -34,7 +34,7 @@ FROM (
              <? value("na") ?> AS f_lotserial, uom_name,
              itemsite_qtyonhand AS qoh,
              0 AS reservedqty
-      FROM itemsite, warehous, item, uom
+      FROM itemsite, whsinfo, item, uom
       WHERE ((itemsite_item_id=item_id)
          AND (item_inv_uom_id=uom_id)
          AND (itemsite_warehous_id=warehous_id)
@@ -61,7 +61,7 @@ ORDER BY
 SELECT forwardupdateinvbalance(invbal_id)
 FROM (
       SELECT DISTINCT ON (itemsite_id) invbal_id
-      FROM invbal, itemsite, item, warehous, classcode, uom, costcat, period
+      FROM invbal, itemsite, item, whsinfo, classcode, uom, costcat, period
       WHERE ((invbal_dirty)
          AND (invbal_period_id=period_id)
          AND (itemsite_item_id=item_id)
@@ -186,7 +186,7 @@ FROM (
                                     ELSE (itemsite_qtyonhand + itemsite_nnqoh) END) AS cost
     <? endif ?>
   <? endif ?>
-      FROM item, warehous, classcode, uom, costcat, itemsite
+      FROM item, whsinfo, classcode, uom, costcat, itemsite
   <? if exists("asOf") ?>
         LEFT OUTER JOIN invbal ON ((itemsite_id=invbal_itemsite_id)
                                AND (invbal_period_id=<? value("asOf") ?>))

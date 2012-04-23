@@ -23,7 +23,7 @@ FROM ( SELECT itemsite_id, warehous_code, item_number,
             <? else ?>
               stdcost(itemsite_item_id) 
             <? endif ?> AS cost 
-       FROM itemsite, item, warehous, uom 
+       FROM itemsite, item, whsinfo, uom
        WHERE ((itemsite_item_id=item_id)
           AND (item_inv_uom_id=uom_id)
           AND (itemsite_warehous_id=warehous_id)
