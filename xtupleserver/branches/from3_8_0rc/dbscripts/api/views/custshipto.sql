@@ -2,8 +2,8 @@
 
 SELECT dropIfExists('VIEW', 'custshipto', 'api', true);
 CREATE VIEW api.custshipto
-AS 
-   SELECT 
+AS
+   SELECT
      cust_number::varchar AS customer_number,
      shipto_num::varchar AS shipto_number,
      shipto_active AS active,
@@ -28,15 +28,15 @@ AS
      cntct_phone AS phone,
      cntct_fax AS fax,
      cntct_email AS email,
-     (''::text) AS contact_change,    
-     salesrep_number AS sales_rep,
+     (''::text) AS contact_change,
+     COALESCE(shipto_salesrep.salesrep_number, cust_salesrep.salesrep_number) AS sales_rep,
      (shipto_commission * 100.0) AS commission,
      shipzone_name AS zone,
      taxzone_code AS tax_zone,
      shipto_shipvia AS ship_via,
      shipform_name AS ship_form,
      shipchrg_name AS shipping_charges,
-     CASE 
+     CASE
        WHEN shipto_ediprofile_id = -1 THEN
          'No EDI'
        WHEN shipto_ediprofile_id = -2 THEN
@@ -47,14 +47,15 @@ AS
      shipto_comments AS general_notes,
      shipto_shipcomments AS shipping_notes
      FROM custinfo, shiptoinfo
-	LEFT OUTER JOIN shipchrg ON (shipto_shipchrg_id=shipchrg_id)
-	LEFT OUTER JOIN cntct ON (shipto_cntct_id=cntct_id)
-	LEFT OUTER JOIN addr ON (shipto_addr_id=addr_id)
-        LEFT OUTER JOIN taxzone ON (shipto_taxzone_id=taxzone_id)
-        LEFT OUTER JOIN shipzone ON (shipto_shipzone_id=shipzone_id)
-	,salesrep,shipform
+  LEFT OUTER JOIN shipchrg ON (shipto_shipchrg_id=shipchrg_id)
+  LEFT OUTER JOIN cntct ON (shipto_cntct_id=cntct_id)
+  LEFT OUTER JOIN addr ON (shipto_addr_id=addr_id)
+  LEFT OUTER JOIN taxzone ON (shipto_taxzone_id=taxzone_id)
+  LEFT OUTER JOIN shipzone ON (shipto_shipzone_id=shipzone_id)
+  LEFT OUTER JOIN salesrep AS shipto_salesrep ON (shiptoinfo.shipto_salesrep_id = shipto_salesrep.salesrep_id)
+  ,salesrep AS cust_salesrep, shipform
      WHERE ((cust_id=shipto_cust_id)
-     AND (cust_salesrep_id=salesrep_id)
+     AND (cust_salesrep_id=cust_salesrep.salesrep_id)
      AND (cust_shipform_id=shipform_id));
 
 GRANT ALL ON TABLE api.custshipto TO xtrole;
@@ -110,7 +111,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     COALESCE(NEW.active,true),
     COALESCE(NEW.default_flag,false),
     COALESCE(NEW.shipto_number,CAST((
-      SELECT (COALESCE(MAX(CAST(shipto_num AS INTEGER)), 0) + 1) 
+      SELECT (COALESCE(MAX(CAST(shipto_num AS INTEGER)), 0) + 1)
       FROM shiptoinfo
       WHERE (shipto_cust_id=getCustId(NEW.customer_number))
       AND  (shipto_num~'^[0-9]*$')) AS TEXT)),
@@ -154,7 +155,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
       FROM custinfo
       WHERE (cust_id=getCustId(NEW.customer_number)))));
 
-CREATE OR REPLACE RULE "_UPDATE" AS 
+CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO api.custshipto DO INSTEAD
 
   UPDATE shiptoinfo SET
@@ -207,10 +208,10 @@ CREATE OR REPLACE RULE "_UPDATE" AS
       NEW.postal_code,
       NEW.country,
       NEW.address_change),
-    shipto_taxzone_id=getTaxZoneId(NEW.tax_zone)      
+    shipto_taxzone_id=getTaxZoneId(NEW.tax_zone)
   WHERE  (shipto_id=getShiptoId(OLD.customer_number,OLD.shipto_number));
-           
-CREATE OR REPLACE RULE "_DELETE" AS 
+
+CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.custshipto DO INSTEAD
 
   SELECT deleteShipto(getShiptoId(OLD.customer_number,OLD.shipto_number));
