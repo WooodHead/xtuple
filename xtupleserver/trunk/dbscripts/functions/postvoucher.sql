@@ -85,7 +85,7 @@ BEGIN
       FROM recv
       WHERE (recv_vohead_id = pVoheadid);
 
-  SELECT SUM(amount) INTO _tmpTotal
+  SELECT round(SUM(amount),4) INTO _tmpTotal
   FROM (
   SELECT SUM(vodist_amount) AS amount
     FROM vodist
