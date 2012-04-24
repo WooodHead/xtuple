@@ -29,7 +29,7 @@ AS
      cntct_fax AS fax,
      cntct_email AS email,
      (''::text) AS contact_change,
-     COALESCE(shipto_salesrep.salesrep_number, cust_salesrep.salesrep_number) AS sales_rep,
+     salesrep_number AS sales_rep,
      (shipto_commission * 100.0) AS commission,
      shipzone_name AS zone,
      taxzone_code AS tax_zone,
@@ -52,10 +52,9 @@ AS
   LEFT OUTER JOIN addr ON (shipto_addr_id=addr_id)
   LEFT OUTER JOIN taxzone ON (shipto_taxzone_id=taxzone_id)
   LEFT OUTER JOIN shipzone ON (shipto_shipzone_id=shipzone_id)
-  LEFT OUTER JOIN salesrep AS shipto_salesrep ON (shiptoinfo.shipto_salesrep_id = shipto_salesrep.salesrep_id)
-  ,salesrep AS cust_salesrep, shipform
+  LEFT OUTER JOIN salesrep ON (shiptoinfo.shipto_salesrep_id = salesrep_id)
+  ,shipform
      WHERE ((cust_id=shipto_cust_id)
-     AND (cust_salesrep_id=cust_salesrep.salesrep_id)
      AND (cust_shipform_id=shipform_id));
 
 GRANT ALL ON TABLE api.custshipto TO xtrole;
