@@ -1,0 +1,97 @@
+-- Group: itemSites
+-- Name: detail
+-- Notes: used by dspItemSitesByItem, dspItemSitesByParameterList
+
+SELECT itemsite_id,warehous_code,itemsite_qtyonhand,
+       CASE WHEN itemsite_controlmethod='R' THEN <? value("regular") ?>
+                           WHEN itemsite_controlmethod='N' THEN <? value("none") ?>
+                           WHEN itemsite_controlmethod='L' THEN <? value("lot") ?>
+                           WHEN itemsite_controlmethod='S' THEN <? value("serial") ?>
+                      END AS controlmethod,
+       <? if exists("byItem") ?>
+         CASE WHEN ( (itemsite_loccntrl) OR
+                   (itemsite_controlmethod IN ('L', 'S')) ) THEN 1
+           ELSE 0
+         END,
+         itemsite_loccntrl,
+         CASE WHEN (itemsite_sold) THEN itemsite_soldranking
+         END AS soldranking,itemsite_datelastcount,
+         itemsite_datelastused,
+         <? value("na") ?> AS soldranking_xtnullrole,
+         <? value("never") ?> AS itemsite_datelastused_xtnullrole,
+         <? value("never") ?> AS itemsite_datelastused_xtnullrole, 
+       <? elseif exists("byParameterList") ?>
+         item_number,
+         (item_descrip1 || ' ' || item_descrip2) AS description, 
+         uom_name,
+         CASE WHEN (itemsite_sold) THEN TEXT(itemsite_soldranking)
+           ELSE <? value("na") ?>
+         END AS soldranking,
+         CASE WHEN (itemsite_datelastcount=startOfTime()) THEN NULL
+           ELSE itemsite_datelastcount
+         END AS datelastcount,
+         CASE WHEN (itemsite_datelastused=startOfTime()) THEN NULL
+           ELSE itemsite_datelastused
+         END AS datelastused,
+         itemsite_abcclass, itemsite_cyclecountfreq,
+         'qty' AS itemsite_qtyonhand_xtnumericrole,
+         'Never' AS datelastcount_xtnullrole,
+         'Never' AS datelastused_xtnullrole,  
+       <? endif ?>        
+       'qty' AS itemsite_qtyonhand_xtnumericrole              
+FROM <? if exists("byParameterList") ?>
+       item, uom,
+     <? endif ?>
+     itemsite, warehous 
+WHERE ((itemsite_warehous_id=warehous_id)
+       <? if exists("byItem") ?>
+         AND (itemsite_item_id=<? value("item_id") ?>)
+       <? elseif exists("byParameterList") ?>
+         AND (itemsite_item_id=item_id)
+       <? endif ?>
+   <? if exists("byParameterList") ?>
+     AND(item_inv_uom_id=uom_id)
+     <? if exists("byParameterId") ?>
+       <? if exists("classcode_id") ?>
+         AND (item_classcode_id=<? value("classcode_id") ?>)
+       <? elseif exists("itemgrp_id") ?>
+         AND (item_id IN (SELECT itemgrpitem_item_id 
+                          FROM itemgrpitem 
+                          WHERE (itemgrpitem_itemgrp_id=<? value("itemgrp_id") ?>)))
+       <? elseif exists("plancode_id") ?>
+         AND (itemsite_plancode_id=<? value("plancode_id") ?>)
+       <? elseif exists("costcat_id") ?>
+         AND (itemsite_costcat_id=<? value("costcat_id") ?>)
+       <? endif ?>
+     <? elseif exists("byParameterPattern") ?>
+       <? if exists("classcode_pattern") ?>
+         AND (item_classcode_id IN (SELECT classcode_id 
+                                    FROM classcode 
+                                    WHERE (classcode_code ~ <? value("classcode_pattern") ?>)))
+       <? elseif exists("itemgrp_pattern") ?>
+         AND (item_id IN (SELECT itemgrpitem_item_id 
+                          FROM itemgrpitem, itemgrp 
+                          WHERE ( (itemgrpitem_itemgrp_id=itemgrp_id) 
+                              AND (itemgrp_name ~ <? value("itemgrp_pattern") ?>) ) ))
+       <? elseif exists("plancode_pattern") ?>
+         AND (itemsite_plancode_id IN (SELECT plancode_id 
+                                       FROM plancode 
+                                       WHERE (plancode_code ~ <? value("plancode_pattern") ?>)))
+       <? elseif exists("costcat_pattern") ?>
+         AND (itemsite_costcat_id IN (SELECT costcat_id 
+                                      FROM costcat 
+                                      WHERE (costcat_code ~ <? value("costcat_pattern") ?>)))
+       <? endif ?>
+     <? endif ?>
+     <? if exists("warehous_id") ?>
+       AND (warehous_id=<? value("warehous_id") ?>)
+     <? endif ?>
+   <? endif ?>
+   <? if not exists("showInactive") ?>
+     AND (itemsite_active)
+   <? endif ?>
+       )
+ORDER BY <? if exists("byItem") ?>
+           warehous_code;
+         <? elseif exists("byParameterList") ?>
+           item_number;
