@@ -1,4 +1,10 @@
-CREATE OR REPLACE FUNCTION postReceipt(INTEGER, INTEGER) RETURNS INTEGER AS $$
+-- Function: postreceipt(integer, integer)
+
+-- DROP FUNCTION postreceipt(integer, integer);
+
+CREATE OR REPLACE FUNCTION postreceipt(integer, integer)
+  RETURNS integer AS
+$BODY$
 -- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -62,7 +68,7 @@ BEGIN
       AND  (recv_id=precvid));
   ELSIF (_r.recv_order_type ='RA') THEN
     _ordertypeabbr := 'R/A for item ' || _r.item_number;
-
+    
     SELECT rahead_id AS orderhead_id, rahead_number AS orderhead_number, raitem_id AS orderitem_id,
            raitem_linenumber AS orderitem_linenumber,
 	   currToBase(rahead_curr_id, raitem_unitprice,
@@ -111,7 +117,8 @@ BEGIN
 
   IF (_r.itemsite_id = -1 OR _r.itemsite_id IS NULL OR _r.itemsite_controlmethod = 'N') THEN
     IF (_r.recv_order_type != 'PO') THEN
-      RETURN -14;	-- otherwise how to we get the accounts?
+    RAISE NOTICE 'itemsite controlmethod is %, cannot post receipt.', _r.itemsite_controlmethod;
+      RETURN -14;	-- otherwise how do we get the accounts?
     END IF;
 
     IF (_r.itemsite_id IS NOT NULL) THEN
@@ -146,6 +153,7 @@ BEGIN
       -- Posting to trial balance is deferred to prevent locking
       INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
       VALUES ( _tmp, _itemlocSeries );
+      
     END IF;
 
     SELECT insertGLTransaction( fetchJournalNumber('GL-MISC'),
@@ -264,10 +272,9 @@ BEGIN
 
     ELSIF (_r.recv_order_type = 'RA') THEN
       SELECT rahead.*, raitem.* INTO _ra
-	FROM rahead, raitem
-      WHERE ((rahead_id=raitem_rahead_id)
+	    FROM rahead, raitem
+        WHERE ((rahead_id=raitem_rahead_id)
         AND  (raitem_id=_r.recv_orderitem_id));
-
       SELECT postInvTrans(_r.itemsite_id, 'RR',
 			  (_r.recv_qty * _o.invvenduomratio),
 			  'S/R',
@@ -287,24 +294,24 @@ BEGIN
        AND (itemsite_id=_r.itemsite_id) );
 
       IF (NOT FOUND) THEN
-	RAISE EXCEPTION 'Could not post inventory transaction: no cost category found for itemsite_id %',
-	  _r.itemsite_id;
+	    RAISE EXCEPTION 'Could not post inventory transaction: no cost category found for itemsite_id %', _r.itemsite_id;
       ELSIF (_tmp < -1) THEN -- less than -1 because -1 means it is a none controlled item
-	IF(_tmp = -3) THEN
-	  RETURN -12; -- The GL trans value was 0 which means we likely do not have a std cost
-	END IF;
-	RETURN _tmp;
+	    IF(_tmp = -3) THEN
+	    RAISE NOTICE 'The GL trans value was 0 which means we likely do not have a std cost';
+	    RETURN -12; -- The GL trans value was 0 which means we likely do not have a std cost
+	    END IF;
+      RETURN _tmp;
       END IF;
 
       INSERT INTO rahist (rahist_itemsite_id, rahist_date,
 			  rahist_descrip,
 			  rahist_qty, rahist_uom_id,
 			  rahist_source, rahist_source_id, rahist_rahead_id
-	) VALUES (_r.itemsite_id, _glDate,
-		  'Receive Inventory from ' || _ordertypeabbr,
-		  _r.recv_qty * _o.invvenduomratio, _r.item_inv_uom_id,
-		  'RR', _r.recv_id, _ra.rahead_id
-	);
+	  ) VALUES (_r.itemsite_id, _glDate,
+		      'Receive Inventory from ' || _ordertypeabbr,
+		      _r.recv_qty * _o.invvenduomratio, _r.item_inv_uom_id,
+		      'RR', _r.recv_id, _ra.rahead_id
+	          );
 
       SELECT insertGLTransaction(fetchJournalNumber('GL-MISC'),
 				  'S/R', _r.recv_order_type, _o.orderhead_number,
@@ -318,7 +325,7 @@ BEGIN
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_r.itemsite_id) );
       IF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
-	RETURN _tmp;
+	    RETURN _tmp;
       ELSE
         -- Posting to trial balance is deferred to prevent locking
         INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
@@ -329,16 +336,17 @@ BEGIN
 			  rahist_source, rahist_source_id,
 			  rahist_curr_id, rahist_amount,
 			  rahist_rahead_id
-	) VALUES (_glDate, 'Receive Inventory Freight from ' || _ordertypeabbr,
+	  ) VALUES (_glDate, 'Receive Inventory Freight from ' || _ordertypeabbr,
 		  'RR', _r.recv_id, _r.recv_freight_curr_id, _r.recv_freight,
 		  _ra.rahead_id
-	);
+	  );
 
       UPDATE raitem
       SET raitem_qtyreceived = (raitem_qtyreceived + _r.recv_qty)
       WHERE (raitem_id=_o.orderitem_id);
-
-      -- Expire date doesn't mean anything once the RA is received
+      
+-- Expire date doesn't mean anything once the RA is received 
+-- WARNING: INSERTING 'NULL' MIGHT CAUSE PROBLEMS!!
       UPDATE rahead
       SET rahead_expiredate = NULL
       WHERE (rahead_id=_o.orderhead_id);
@@ -357,7 +365,9 @@ BEGIN
           (_ra.raitem_new_coitem_id IS NULL) AND
           (_ra.raitem_qtyauthorized > 0)))) THEN
 
-          IF (_ra.rahead_new_cohead_id IS NULL) THEN
+          IF (_ra.rahead_new_cohead_id IS NOT NULL) THEN
+            _coheadid = _ra.rahead_new_cohead_id;
+          ELSE  
 --  No header, so create a Sales Order header first.
             SELECT nextval('cohead_cohead_id_seq') INTO _coheadid;
 
@@ -408,8 +418,9 @@ BEGIN
             WHERE (rahead_id=_ra.rahead_id);
 
             UPDATE rahead SET rahead_new_cohead_id=_coheadid WHERE rahead_id=_ra.rahead_id;
-        END IF;
-
+            
+          END IF;
+                  
 -- Now enter the line item(s)
         IF (_ra.raitem_disposition IN ('P','V')) AND
            (_ra.raitem_new_coitem_id IS NULL) AND
@@ -477,7 +488,7 @@ BEGIN
             FROM raitem
               JOIN itemsite ON (itemsite_id=raitem_itemsite_id)
             WHERE (raitem_id=_i.raitem_id);
-
+                        
             UPDATE raitem SET raitem_new_coitem_id=_coitemid WHERE (raitem_id=_i.raitem_id);
 
           END LOOP;
@@ -494,7 +505,7 @@ BEGIN
         AND  (toitem_id=_r.recv_orderitem_id));     
 
       IF (_tmp < 0) THEN
-	RETURN _tmp;
+	    RETURN _tmp;
       END IF;
 
       SELECT insertGLTransaction(fetchJournalNumber('GL-MISC'), 
@@ -509,7 +520,7 @@ BEGIN
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_r.itemsite_id) );
       IF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
-	RETURN _tmp;
+	    RETURN _tmp;
       ELSE
         -- Posting to trial balance is deferred to prevent locking
         INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
@@ -525,7 +536,6 @@ BEGIN
       WHERE (toitem_id=_o.orderitem_id);
 
     END IF;
-
     IF(_r.itemsite_costmethod='A') THEN
       _recvvalue := ROUND((_o.item_unitprice_base * _r.recv_qty),2);
     ELSIF (fetchMetricBool('RecordPPVonReceipt')) THEN
@@ -538,7 +548,7 @@ BEGIN
   UPDATE recv
   SET recv_value=_recvvalue, recv_recvcost=_recvvalue / recv_qty, recv_posted=TRUE, recv_gldistdate=_glDate::DATE
   WHERE (recv_id=precvid);
-
+  
   IF (_r.recv_order_type = 'PO') THEN
     -- If this is a drop-shipped PO, then Issue the item to Shipping and Ship the item
     IF (_o.pohead_dropship = TRUE) THEN
@@ -563,8 +573,11 @@ BEGIN
 
     END IF;
   END IF;
-
   RETURN _itemlocSeries;
 
 END;
-$$ LANGUAGE 'plpgsql';
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION postreceipt(integer, integer)
+  OWNER TO admin;
