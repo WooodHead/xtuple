@@ -45,7 +45,7 @@ SELECT apopen_id, apopen_ponumber, apopen_docnumber,
                                        OR (apopen_id=apapply_source_apopen_id)) 
                                        AND (apapply_postdate > <? value("asofDate") ?>)) 
               WHERE ( (COALESCE(apopen_closedate,date <? value("asofDate") ?> + integer '1')><? value("asofDate") ?>) 
-                AND   (apopen_docdate<=<? value("asofDate") ?>)
+                AND   (CASE WHEN (<? value("useDocDate") ?>) THEN apopen_docdate ELSE apopen_distdate END<=<? value("asofDate") ?>)
 <? if exists("vend_id") ?>
                 AND   (apopen_vend_id=<? value("vend_id") ?>)
 <? endif ?>
