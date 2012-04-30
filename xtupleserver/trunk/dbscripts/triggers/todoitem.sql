@@ -4,6 +4,7 @@ CREATE OR REPLACE FUNCTION _todoitemTrigger () RETURNS TRIGGER AS $$
 DECLARE
   _recurid     INTEGER;
   _newparentid INTEGER;
+
 BEGIN
   IF (TG_OP = 'DELETE') THEN
     SELECT recur_id INTO _recurid

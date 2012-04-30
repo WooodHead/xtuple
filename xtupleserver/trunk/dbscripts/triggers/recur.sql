@@ -18,5 +18,5 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-SELECT dropIfExists('TRIGGER', 'todoitemTrigger');
-CREATE TRIGGER todoitemTrigger AFTER DELETE ON recur FOR EACH ROW EXECUTE PROCEDURE _recurAfterTrigger();
+SELECT dropIfExists('TRIGGER', 'recurAfterTrigger');
+CREATE TRIGGER recurAfterTrigger AFTER DELETE ON recur FOR EACH ROW EXECUTE PROCEDURE _recurAfterTrigger();
