@@ -21,7 +21,11 @@ SELECT id, type, locationname, defaultlocation,
 		 <? if exists("cNoIncludeLotSerial") ?>
 		 SELECT location_id AS id, <? value("locationType") ?> AS type,
 		        formatLocationName(location_id) AS locationname,
-		        (location_id=itemsite_location_id) AS defaultlocation,
+		        CASE WHEN (<? value("transtype") ?> = 'R' AND location_id=itemsite_recvlocation_id) THEN TRUE
+		             WHEN (<? value("transtype") ?> = 'I' AND location_id=itemsite_issuelocation_id) THEN TRUE
+		             WHEN (<? value("transtype") ?> = 'O' AND location_id=itemsite_location_id) THEN TRUE
+                             ELSE FALSE
+                        END AS defaultlocation,
 		        location_netable,
 		        TEXT('') AS lotserial,
 		        TEXT(<? value("na") ?>) AS f_expiration, FALSE AS expired,
@@ -37,8 +41,12 @@ SELECT id, type, locationname, defaultlocation,
 		 SELECT itemloc_id AS id, <? value("itemlocType") ?> AS type,
 		        COALESCE(formatLocationName(location_id),
 		                 <? value("undefined") ?>) AS locationname,
-		        (location_id IS NOT NULL
-		         AND location_id=itemsite_location_id) AS defaultlocation,
+		        (location_id IS NOT NULL AND
+		         CASE WHEN (<? value("transtype") ?> = 'R' AND location_id=itemsite_recvlocation_id) THEN TRUE
+		              WHEN (<? value("transtype") ?> = 'I' AND location_id=itemsite_issuelocation_id) THEN TRUE
+   		              WHEN (<? value("transtype") ?> = 'O' AND location_id=itemsite_location_id) THEN TRUE
+                              ELSE FALSE
+                         END) AS defaultlocation,
 		        COALESCE(location_netable, false) AS location_netable,
 		        ls_number AS lotserial,
 		        CASE WHEN (itemsite_perishable) THEN formatDate(itemloc_expiration)
@@ -62,7 +70,11 @@ SELECT id, type, locationname, defaultlocation,
 		  UNION 
 		 SELECT location_id AS id, <? value("locationType") ?> AS type,
 		        formatLocationName(location_id) AS locationname,
-		        (location_id=itemsite_location_id) AS defaultlocation,
+		        CASE WHEN (<? value("transtype") ?> = 'R' AND location_id=itemsite_recvlocation_id) THEN TRUE
+		             WHEN (<? value("transtype") ?> = 'I' AND location_id=itemsite_issuelocation_id) THEN TRUE
+		             WHEN (<? value("transtype") ?> = 'O' AND location_id=itemsite_location_id) THEN TRUE
+                             ELSE FALSE
+                        END AS defaultlocation,
 		        location_netable,
 		        TEXT('') AS lotserial,
 		        TEXT(<? value("na") ?>) AS f_expiration, FALSE AS expired,
