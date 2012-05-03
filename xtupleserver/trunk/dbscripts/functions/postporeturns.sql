@@ -14,21 +14,22 @@ BEGIN
 
   FOR _p IN SELECT pohead_number, pohead_curr_id, poreject_id, poitem_prj_id,
 		   poreject_poitem_id, poitem_id, poitem_expcat_id, poitem_linenumber,
-		   currToBase(pohead_curr_id, poitem_unitprice,
+		   currToBase(COALESCE(recv_purchcost_curr_id, pohead_curr_id),
+                              COALESCE(recv_purchcost, poitem_unitprice),
 			      pohead_orderdate) AS poitem_unitprice_base,
                    COALESCE(itemsite_id, -1) AS itemsiteid, poitem_invvenduomratio,
                    SUM(poreject_qty) AS totalqty,
                    itemsite_item_id, itemsite_costmethod, itemsite_controlmethod
-            FROM poreject, pohead, poitem 
-		LEFT OUTER JOIN itemsite ON (poitem_itemsite_id=itemsite_id)
-            WHERE ( (poreject_poitem_id=poitem_id)
-             AND (poitem_pohead_id=pohead_id)
-             AND (pohead_id=pPoheadid)
-             AND (NOT poreject_posted) )
+            FROM pohead JOIN poitem ON (poitem_pohead_id=pohead_id)
+                        JOIN poreject ON (poreject_poitem_id=poitem_id AND NOT poreject_posted) 
+                        LEFT OUTER JOIN itemsite ON (poitem_itemsite_id=itemsite_id)
+                        LEFT OUTER JOIN recv ON (recv_id=poreject_recv_id)
+            WHERE (pohead_id=pPoheadid)
             GROUP BY poreject_id, pohead_number, poreject_poitem_id, poitem_id, poitem_prj_id,
 		     poitem_expcat_id, poitem_linenumber, poitem_unitprice, pohead_curr_id,
 		     pohead_orderdate, itemsite_id, poitem_invvenduomratio,
-                    itemsite_item_id, itemsite_costmethod, itemsite_controlmethod LOOP
+                     itemsite_item_id, itemsite_costmethod, itemsite_controlmethod,
+                     recv_purchcost_curr_id, recv_purchcost LOOP
 
     IF (_p.itemsiteid = -1) THEN
         SELECT insertGLTransaction( 'S/R', 'PO', _p.pohead_number, 'Return Non-Inventory to P/O',
@@ -65,7 +66,9 @@ BEGIN
 
       SELECT postInvTrans( itemsite_id, 'RP', (_p.totalqty * _p.poitem_invvenduomratio * -1),
                            'S/R', 'PO', (_p.pohead_number || '-' || _p.poitem_linenumber::TEXT), '', 'Return Inventory to P/O',
-                           costcat_asset_accnt_id, costcat_liability_accnt_id, _itemlocSeries, CURRENT_TIMESTAMP) INTO _returnval
+                           costcat_asset_accnt_id, costcat_liability_accnt_id, _itemlocSeries, CURRENT_TIMESTAMP,
+                           round((_p.poitem_unitprice_base * _p.totalqty),2) -- always passing this in since it is ignored if it is not average costed item
+) INTO _returnval
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_p.itemsiteid) );

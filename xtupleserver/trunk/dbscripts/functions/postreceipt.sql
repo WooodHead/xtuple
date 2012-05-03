@@ -56,8 +56,9 @@ BEGIN
 
     SELECT pohead_number AS orderhead_number, poitem_id AS orderitem_id,
            poitem_linenumber AS orderitem_linenumber,
-	   currToBase(pohead_curr_id, poitem_unitprice,
-		    recv_date::DATE) AS item_unitprice_base,
+	   currToBase(pohead_curr_id,
+                      COALESCE(recv_purchcost, poitem_unitprice),
+		      recv_date::DATE) AS item_unitprice_base,
 	   poitem_invvenduomratio AS invvenduomratio,
 	   pohead_orderdate AS orderdate, pohead_dropship,
 	   poitem_prj_id AS prj_id INTO _o
