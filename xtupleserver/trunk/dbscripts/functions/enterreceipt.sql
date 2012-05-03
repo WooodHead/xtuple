@@ -1,6 +1,14 @@
 CREATE OR REPLACE FUNCTION enterReceipt(TEXT, INTEGER, NUMERIC, NUMERIC, TEXT, INTEGER, DATE) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
+BEGIN
+  RETURN enterReceipt($1, $2, $3, $4, $5, $6, $7, NULL);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION enterReceipt(TEXT, INTEGER, NUMERIC, NUMERIC, TEXT, INTEGER, DATE, NUMERIC) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pordertype	ALIAS FOR $1;
   porderitemid	ALIAS FOR $2;
@@ -9,10 +17,12 @@ DECLARE
   pNotes	ALIAS FOR $5;
   pcurrid	ALIAS FOR $6;	-- NULL is handled by SELECT ... INTO _o
   precvdate	ALIAS FOR $7;	-- NULL is handled by INSERT INTO recv
+  pRecvCost	ALIAS FOR $8;
   _timestamp    TIMESTAMP;
   _o		RECORD;
   _recvid	INTEGER;
   _warehouseid 	INTEGER;
+  _recvcost	NUMERIC;
 
 BEGIN
   IF(precvdate IS NULL OR precvdate = CURRENT_DATE) THEN
@@ -114,6 +124,13 @@ BEGIN
       RETURN -1;
     END IF;
 
+    -- default to orderitem_unitcost if recv_purchcost is not specified
+    IF(pRecvCost IS NULL) THEN
+      _recvcost := _o.orderitem_unitcost;
+    ELSE
+      _recvcost := pRecvCost;
+    END IF;
+
     INSERT INTO recv
     ( recv_id, recv_date,
       recv_order_number, recv_order_type, recv_orderitem_id,
@@ -128,7 +145,7 @@ BEGIN
       getEffectiveXtUser(), _o.orderhead_agent_username, _o.itemsite_id::INTEGER,
       _o.vend_id::INTEGER, _o.vend_item_number, _o.vend_item_descrip,
       _o.vend_uom, pQty, _o.duedate,
-      _o.orderitem_unitcost, _o.orderitem_unitcost_curr_id::INTEGER,
+      _recvcost, _o.orderitem_unitcost_curr_id::INTEGER,
       pNotes, pFreight, _o.freight_curr_id::INTEGER, _o.rlsd_duedate);
   END IF;
 

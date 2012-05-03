@@ -77,29 +77,28 @@ BEGIN
                 SELECT  recv_qty AS qty_received,
                         0 AS qty_rejected,
                         0 AS qty_vouchered,
-                        (recv_qty * poitem_unitprice) AS balance,
+                        (recv_qty * COALESCE(recv_purchcost, poitem_unitprice)) AS balance,
                         recv_freight AS freight
-                FROM recv, poitem
+                FROM poitem JOIN recv ON ((recv_orderitem_id=poitem_id) AND
+                                          (recv_order_type='PO'))
                 WHERE ( (recv_vohead_id IS NULL)
-                        AND (poitem_id=recv_orderitem_id)
                         AND (NOT recv_invoiced)
                         AND (recv_posted)
-			AND (recv_order_type='PO')
-                        AND (recv_orderitem_id=pPoitemId) )
+                        AND (poitem_id=pPoitemId) )
 
                 UNION ALL
 
                 SELECT  0 AS qty_received,
                         (poreject_qty) AS qty_rejected,
                         0 AS qty_vouchered,
-                        (poreject_qty * -1 * poitem_unitprice) AS balance,
+                        (poreject_qty * -1 * COALESCE(recv_purchcost, poitem_unitprice)) AS balance,
                         0 AS freight
-                FROM poreject, poitem
+                FROM poitem JOIN poreject ON (poreject_poitem_id=poitem_id)
+                            LEFT OUTER JOIN recv ON (recv_id=poreject_recv_id)
                 WHERE ( (poreject_posted)
                         AND (poreject_vohead_id IS NULL)
                         AND (NOT poreject_invoiced)
-                        AND (poitem_id=poreject_poitem_id)
-                        AND (poreject_poitem_id=pPoitemId) )
+                        AND (poitem_id=pPoitemId) )
 
                 UNION ALL
 

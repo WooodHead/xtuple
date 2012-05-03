@@ -1,4 +1,10 @@
 CREATE OR REPLACE FUNCTION correctReceipt(INTEGER, NUMERIC, NUMERIC, INTEGER, INTEGER, DATE) RETURNS INTEGER AS $$
+BEGIN
+  RETURN correctReceipt($1, $2, $3, $4, $5, $6, NULL);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION correctReceipt(INTEGER, NUMERIC, NUMERIC, INTEGER, INTEGER, DATE, NUMERIC) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -8,11 +14,13 @@ DECLARE
   _itemlocSeries	INTEGER := $4;
   _currid		INTEGER := $5;
   pEffective		ALIAS FOR $6;
+  pRecvCost		ALIAS FOR $7;
   _freight		NUMERIC;
   _qty			NUMERIC;
   _invhistid		INTEGER;
   _o			RECORD;
   _r			RECORD;
+  _recvcost		NUMERIC; 
 
 BEGIN
   SELECT recv_qty, recv_date::DATE AS recv_date, recv_freight_curr_id,
@@ -58,6 +66,16 @@ BEGIN
     RETURN _itemlocSeries;
   END IF;
 
+  -- Default to _o.orderitem_unitcost if recv_purchcost is not supplied
+  -- Note: this should never happen, a value is always supplied
+  if (pRecvCost IS NULL) THEN
+    _recvcost := _o.orderitem_unitcost;
+  ELSE
+    -- Note: if the receipt has already been posted, pRecvCost will always 
+    --       equal the original recv_purchcost (cannot be modified in GUI)
+    _recvcost := pRecvCost; 
+  END IF;
+
   IF (_r.recv_posted) THEN
     _qty := (pQty - _r.recv_qty);
     IF (_qty <> 0) THEN
@@ -94,7 +112,7 @@ BEGIN
 			     costcat_asset_accnt_id,
 			     costcat_liability_accnt_id,
 			     _itemlocSeries, pEffective,
-                             ROUND(_o.unitprice_base * _qty, 2) -- alway passing since it is ignored if not average costed item
+                             ROUND(_recvcost * _qty, 2) -- alway passing since it is ignored if not average costed item
                            ) INTO _invhistid
 	FROM itemsite, costcat
 	WHERE ((itemsite_costcat_id=costcat_id)
@@ -103,7 +121,7 @@ BEGIN
         IF(_r.itemsite_costmethod='A') THEN
 	  UPDATE recv
 	     SET recv_qty=pQty,
-	         recv_value=(recv_value + _o.unitprice_base * _qty * _o.orderitem_qty_invuomratio),
+	         recv_value=(recv_value + _recvcost * _qty * _o.orderitem_qty_invuomratio),
                  recv_date = pEffective
 	   WHERE(recv_id=precvid);
         ELSE
@@ -189,7 +207,7 @@ BEGIN
   ELSE
 
 -- Receipt not posted yet
-    UPDATE recv SET recv_qty=pQty, recv_freight=pFreight WHERE recv_id=precvid;
+    UPDATE recv SET recv_qty=pQty, recv_freight=pFreight, recv_purchcost=_recvcost WHERE recv_id=precvid;
   END IF;
 
 RETURN _itemlocSeries;
