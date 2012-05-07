@@ -48,7 +48,7 @@ WHERE ( (wo_itemsite_id=itemsite_id)
 <? if exists("startDate") ?>
   AND (wo_startdate >= <? value("startDate") ?>)
 <? endif ?>
-<? if exists("startDate") ?>
+<? if exists("endDate") ?>
   AND (wo_startdate <= <? value("endDate") ?>)
 <? endif ?>
 <? if exists("warehous_id") ?>
