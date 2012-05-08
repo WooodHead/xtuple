@@ -50,7 +50,7 @@ BEGIN
          accnt_id AS prepaid_accnt_id,
          cashrcpt_usecustdeposit,
          cashrcpt_curr_id, cashrcpt_curr_rate INTO _p
-  FROM accnt, cashrcpt LEFT OUTER JOIN cust ON (cashrcpt_cust_id=cust_id)
+  FROM accnt, cashrcpt LEFT OUTER JOIN custinfo ON (cashrcpt_cust_id=cust_id)
   WHERE ( (findPrepaidAccount(cashrcpt_cust_id)=accnt_id)
    AND (cashrcpt_id=pCashrcptid) );
   IF (NOT FOUND) THEN

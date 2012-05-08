@@ -155,7 +155,7 @@ BEGIN
     AND (ipsitemchar_value=pCharValue)
     AND (ipsitemchar_ipsitem_id=ipsitem_id))
        ) AS
-        ipsprice, ipshead, ipsass, shipto
+        ipsprice, ipshead, ipsass, shiptoinfo
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
    AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))

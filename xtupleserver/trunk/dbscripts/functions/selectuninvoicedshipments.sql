@@ -49,7 +49,7 @@ BEGIN
 
 --  Grab all of the uninvoiced shipitem records
   FOR _r IN SELECT DISTINCT shiphead_id
-            FROM shiphead, shipitem, coitem, itemsite, cohead, cust
+            FROM shiphead, shipitem, coitem, itemsite, cohead, custinfo
             WHERE ( (shiphead_order_type='SO')
              AND (shipitem_shiphead_id=shiphead_id)
              AND (shipitem_orderitem_id=coitem_id)
@@ -91,7 +91,7 @@ BEGIN
 
 --  Grab all of the uninvoiced shipitem records
   FOR _r IN SELECT DISTINCT shiphead_id
-            FROM shiphead, shipitem, coitem, itemsite, cohead, cust, custtype
+            FROM shiphead, shipitem, coitem, itemsite, cohead, custinfo, custtype
             WHERE ( (shiphead_order_type='SO')
              AND (shipitem_shiphead_id=shiphead_id)
              AND (shipitem_orderitem_id=coitem_id)

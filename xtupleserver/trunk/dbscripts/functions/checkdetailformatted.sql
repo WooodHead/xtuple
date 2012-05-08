@@ -34,7 +34,7 @@ BEGIN
                                                      WHERE taxauth_id=checkhead_recip_id)
               WHEN checkhead_recip_type = 'V' THEN
                                   COALESCE((SELECT vendaddr_name
-                                              FROM vendaddr
+                                              FROM vendaddrinfo
                                              WHERE((UPPER(vendaddr_code)='REMIT')
                                                AND (vendaddr_vend_id=checkhead_recip_id))),
                                            (SELECT vend_name

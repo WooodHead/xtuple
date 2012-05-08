@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION getVendAddrId(text, text) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION getVendAddrId(text, text) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -11,15 +11,16 @@ BEGIN
   END IF;
 
   SELECT vendaddr_id INTO _returnVal
-  FROM vendaddr, vendinfo
+    FROM vendaddrinfo
+    JOIN vendinfo ON (vend_id=vendaddr_vend_id)
   WHERE ( (vendaddr_code=pVendAddrCode)
-    AND   (vend_id=vendaddr_vend_id)
     AND   (vend_number=pVendNumber) );
 
   IF (_returnVal IS NULL) THEN
-	RAISE EXCEPTION ''Vendor Number % Address % not found.'', pVendNumber, pVendAddrCode;
+    RAISE EXCEPTION 'Vendor Number % Address % not found.',
+    pVendNumber, pVendAddrCode;
   END IF;
 
   RETURN _returnVal;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

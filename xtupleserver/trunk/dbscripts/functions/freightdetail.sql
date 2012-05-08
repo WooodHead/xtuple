@@ -47,9 +47,10 @@ BEGIN
       COALESCE(pCurrId, cohead_curr_id) AS curr_id,
       currConcat(COALESCE(pCurrId, cohead_curr_id)) AS currAbbr
     INTO _order
-    FROM cohead JOIN cust ON (cust_id=COALESCE(pCustId, cohead_cust_id))
+      FROM cohead
+      JOIN custinfo ON (cust_id=COALESCE(pCustId, cohead_cust_id))
       JOIN custtype ON (custtype_id=cust_custtype_id)
-      LEFT OUTER JOIN shipto ON (shipto_id=COALESCE(pShiptoId, cohead_shipto_id))
+      LEFT OUTER JOIN shiptoinfo ON (shipto_id=COALESCE(pShiptoId, cohead_shipto_id))
     WHERE (cohead_id=pOrderId);
 
   ELSIF (pOrderType = 'QU') THEN
@@ -65,9 +66,10 @@ BEGIN
       quhead_curr_id AS curr_id,
       currConcat(quhead_curr_id) AS currAbbr
     INTO _order
-    FROM quhead JOIN cust ON (cust_id=quhead_cust_id)
+      FROM quhead
+      JOIN custinfo ON (cust_id=quhead_cust_id)
       JOIN custtype ON (custtype_id=cust_custtype_id)
-      LEFT OUTER JOIN shipto ON (shipto_id=quhead_shipto_id)
+      LEFT OUTER JOIN shiptoinfo ON (shipto_id=quhead_shipto_id)
     WHERE (quhead_id=pOrderId);
 
   ELSIF (pOrderType = 'RA') THEN
@@ -83,9 +85,10 @@ BEGIN
       COALESCE(pCurrId, rahead_curr_id) AS curr_id,
       currConcat(COALESCE(pCurrId, rahead_curr_id)) AS currAbbr
     INTO _order
-    FROM rahead JOIN cust ON (cust_id=COALESCE(pCustId, rahead_cust_id))
+      FROM rahead
+      JOIN custinfo ON (cust_id=COALESCE(pCustId, rahead_cust_id))
       JOIN custtype ON (custtype_id=cust_custtype_id)
-      LEFT OUTER JOIN shipto ON (shipto_id=COALESCE(pShiptoId, rahead_shipto_id))
+      LEFT OUTER JOIN shiptoinfo ON (shipto_id=COALESCE(pShiptoId, rahead_shipto_id))
     WHERE (rahead_id=pOrderId);
 
   ELSE
