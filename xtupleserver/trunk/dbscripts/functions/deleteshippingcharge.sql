@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION deleteShippingCharge(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION deleteShippingCharge(INTEGER) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -7,21 +7,17 @@ DECLARE
 
 BEGIN
 
---  Check to see if the passed shipchrg is used as a default for any customers
-  PERFORM cust_id
-  FROM cust
-  WHERE (cust_shipchrg_id=pShipchrgid)
-  LIMIT 1;
-  IF (FOUND) THEN
+  IF EXISTS(SELECT 1
+              FROM custinfo
+             WHERE (cust_shipchrg_id=pShipchrgid)) THEN
     RETURN -1;
   END IF;
 
---  Delete the passed shipchrg
   DELETE FROM shipchrg
   WHERE (shipchrg_id=pShipchrgid);
 
   RETURN pShipchrgid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

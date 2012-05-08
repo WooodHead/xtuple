@@ -160,7 +160,7 @@ BEGIN
          (item_price_uom_id=COALESCE(pPriceUOM,-1)) AS uommatched
     FROM ipsprodcat JOIN item ON (ipsprodcat_prodcat_id=item_prodcat_id)
    WHERE(item_id=pItemid)  ) AS
-        ipsprice, ipshead, ipsass, shipto
+        ipsprice, ipshead, ipsass, shiptoinfo
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
    AND (_asof BETWEEN ipshead_effective AND (ipshead_expires - 1))

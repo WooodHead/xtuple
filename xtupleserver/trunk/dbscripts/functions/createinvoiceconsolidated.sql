@@ -23,7 +23,7 @@ BEGIN
                    cohead_billtoname, cohead_billtoaddress1,
                    cohead_billtoaddress2, cohead_billtoaddress3,
                    cohead_billtocity, cohead_billtostate,
-                   cohead_billtozipcode, cust_phone,
+                   cohead_billtozipcode, cntct_phone AS cust_phone,
                    cohead_billtocountry,
                    cohead_salesrep_id, cohead_commission,
                    cohead_terms_id,
@@ -41,10 +41,11 @@ BEGIN
                    SUM(cobmisc_misc) AS cobmisc_misc,
                    SUM(cobmisc_payment) AS cobmisc_payment
                    
-              FROM cobmisc, cohead, cust
-             WHERE((cobmisc_cohead_id=cohead_id)
-               AND (cohead_cust_id=cust_id)
-               AND (NOT cobmisc_posted)
+              FROM cobmisc
+              JOIN cohead   ON (cobmisc_cohead_id=cohead_id)
+              JOIN custinfo ON (cohead_cust_id=cust_id)
+              LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
+             WHERE(NOT cobmisc_posted
                AND (cohead_cust_id=pCustid)
                )
           GROUP BY cohead_billtoname, cohead_billtoaddress1,
@@ -116,10 +117,11 @@ BEGIN
  
     _lastlinenumber := 1;
     FOR _i IN SELECT cobmisc_id
-                FROM cobmisc, cohead, cust
-               WHERE((cobmisc_cohead_id=cohead_id)
-                 AND (cohead_cust_id=cust_id)
-                 AND (NOT cobmisc_posted)
+                FROM cobmisc
+                JOIN cohead   ON (cobmisc_cohead_id=cohead_id)
+                JOIN custinfo ON (cohead_cust_id=cust_id)
+                LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
+               WHERE(NOT cobmisc_posted
                  AND (cohead_cust_id=pCustid)
                  AND (COALESCE(cohead_billtoname,'')         = COALESCE(_c.cohead_billtoname,''))
                  AND (COALESCE(cohead_billtoaddress1,'')     = COALESCE(_c.cohead_billtoaddress1,''))
@@ -128,7 +130,7 @@ BEGIN
                  AND (COALESCE(cohead_billtocity,'')         = COALESCE(_c.cohead_billtocity,''))
                  AND (COALESCE(cohead_billtostate,'')        = COALESCE(_c.cohead_billtostate,''))
                  AND (COALESCE(cohead_billtozipcode,'')      = COALESCE(_c.cohead_billtozipcode,''))
-                 AND (COALESCE(cust_phone,'')                = COALESCE(_c.cust_phone,''))
+                 AND (COALESCE(cntct_phone,'')               = COALESCE(_c.cust_phone,''))
                  AND (COALESCE(cohead_billtocountry,'')      = COALESCE(_c.cohead_billtocountry,''))
                  AND (COALESCE(cohead_salesrep_id, 0)        = COALESCE(_c.cohead_salesrep_id, 0))
                  AND (COALESCE(cohead_commission, 0)         = COALESCE(_c.cohead_commission, 0))

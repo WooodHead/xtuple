@@ -58,9 +58,10 @@ BEGIN
          cashrcpt_usecustdeposit,
          COALESCE(cashrcpt_applydate, cashrcpt_distdate) AS applydate,
          cashrcpt_curr_id, cashrcpt_curr_rate, cashrcpt_posted, cashrcpt_void INTO _p
-  FROM accnt, cashrcpt LEFT OUTER JOIN cust ON (cashrcpt_cust_id=cust_id)
+  FROM accnt, cashrcpt
+  LEFT OUTER JOIN custinfo ON (cashrcpt_cust_id=cust_id)
   WHERE ( (findPrepaidAccount(cashrcpt_cust_id)=accnt_id)
-   AND (cashrcpt_id=pCashrcptid) );
+     AND (cashrcpt_id=pCashrcptid) );
   IF (NOT FOUND) THEN
     RETURN -7;
   END IF;

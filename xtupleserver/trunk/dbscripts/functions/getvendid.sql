@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION getVendId(text) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION getVendId(text) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -10,13 +10,13 @@ BEGIN
   END IF;
 
   SELECT vend_id INTO _returnVal
-  FROM vend
-  WHERE (vend_number=pVendNumber);
+    FROM vendinfo
+   WHERE (vend_number=pVendNumber);
 
   IF (_returnVal IS NULL) THEN
-	RAISE EXCEPTION ''Vendor Number % not found.'', pVendNumber;
+    RAISE EXCEPTION 'Vendor Number % not found.', pVendNumber;
   END IF;
 
   RETURN _returnVal;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

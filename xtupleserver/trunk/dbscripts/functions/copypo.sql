@@ -92,7 +92,7 @@ BEGIN
 
   IF (pRecheckVendinfo) THEN
     SELECT vend_restrictpurch INTO _vend_restrictpurch
-    FROM vend WHERE (vend_id = pVendid);
+      FROM vendinfo WHERE (vend_id = pVendid);
 
     FOR _lineitem IN SELECT *
 		  FROM poitem 

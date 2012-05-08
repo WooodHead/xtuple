@@ -46,13 +46,14 @@ BEGIN
 	FALSE,FALSE,cobmisc_invcnumber,cobmisc_invcdate,cobmisc_shipdate,
 	cohead_custponumber,cobmisc_shipvia,cohead_fob,cohead_billtoname,cohead_billtoaddress1,
 	cohead_billtoaddress2,cohead_billtoaddress3,cohead_billtocity,cohead_billtostate,cohead_billtozipcode,
-	cust_phone,cohead_billtocountry,cohead_shiptoname,cohead_shiptoaddress1,cohead_shiptoaddress2,
+	cntct_phone AS cust_phone,cohead_billtocountry,cohead_shiptoname,cohead_shiptoaddress1,cohead_shiptoaddress2,
 	cohead_shiptoaddress3,cohead_shiptocity,cohead_shiptostate,cohead_shiptozipcode,cohead_shipto_cntct_phone,
 	cohead_shiptocountry,cohead_salesrep_id,COALESCE(cohead_commission,0),cohead_terms_id,cobmisc_freight,
 	COALESCE(cobmisc_misc, 0.00),cobmisc_misc_descrip,cobmisc_misc_accnt_id,cobmisc_payment,
 	cobmisc_paymentref,cobmisc_notes,cohead_prj_id,cobmisc_curr_id,
 	cobmisc_taxzone_id, cohead_shipchrg_id  
-	FROM cobmisc, cohead, cust
+    FROM cobmisc, cohead, custinfo
+    LEFT OUTER JOIN cntct ON (custinfo_cntct_id=cntct_id)
   WHERE ( (cobmisc_cohead_id=cohead_id)
    AND (cohead_cust_id=cust_id)
    AND (cobmisc_id=pCobmiscid) );

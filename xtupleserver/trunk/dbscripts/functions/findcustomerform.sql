@@ -11,20 +11,20 @@ BEGIN
 
 --  Check for a Customer Type specific Form
   SELECT custform.* INTO _f
-  FROM custform, cust
-  WHERE ( (custform_custtype_id=cust_custtype_id)
-   AND (cust_id=pCustid) );
+    FROM custform
+    JOIN custinfo ON (custform_custtype_id=cust_custtype_id)
+  WHERE (cust_id=pCustid);
 
   IF (FOUND) THEN
     _found := TRUE;
   ELSE
 --  Check for a Customer Type pattern
     SELECT custform.* INTO _f
-    FROM custform, cust, custtype
-    WHERE ( (custform_custtype_id=-1)
-     AND (custtype_code ~ custform_custtype)
-     AND (cust_custtype_id=custtype_id)
-     AND (cust_id=pCustid) );
+      FROM custform
+      JOIN custtype ON (custtype_code ~ custform_custtype)
+      JOIN custinfo ON (cust_custtype_id=custtype_id)
+    WHERE ((custform_custtype_id=-1)
+       AND (cust_id=pCustid));
 
     IF (FOUND) THEN
       _found := TRUE;
@@ -52,7 +52,6 @@ BEGIN
     ELSIF ( (pFormType = 'L') AND (_f.custform_sopicklist_report_name IS NOT NULL) ) THEN
       RETURN _f.custform_sopicklist_report_name;
     END IF;
-
 
   END IF;
 

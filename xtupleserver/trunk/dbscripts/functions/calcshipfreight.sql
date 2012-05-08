@@ -44,9 +44,9 @@ BEGIN
            cohead_freight
     INTO _order
     FROM cohead 
-      JOIN cust ON (cust_id=cohead_cust_id)
+      JOIN custinfo ON (cust_id=cohead_cust_id)
       JOIN custtype ON (custtype_id=cust_custtype_id)
-        LEFT OUTER JOIN shipto ON (shipto_id=cohead_shipto_id)
+      LEFT OUTER JOIN shiptoinfo ON (shipto_id=cohead_shipto_id)
     WHERE (cohead_id=_shipment.shiphead_order_id);
 
     IF (NOT FOUND) THEN

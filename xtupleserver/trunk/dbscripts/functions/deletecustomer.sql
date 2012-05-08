@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FUNCTION deleteCustomer(INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION deleteCustomer(INTEGER) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -8,7 +8,7 @@ DECLARE
 BEGIN
 
   PERFORM shipto_id
-  FROM shipto
+  FROM shiptoinfo
   WHERE (shipto_cust_id=pCustid)
   LIMIT 1;
   IF (FOUND) THEN
@@ -50,7 +50,7 @@ BEGIN
   PERFORM checkhead_recip_id
     FROM checkhead
    WHERE ((checkhead_recip_id=pCustid)
-     AND  (checkhead_recip_type=''C''))
+     AND  (checkhead_recip_type='C'))
    LIMIT 1;
    IF (FOUND) THEN
      RETURN -6;
@@ -73,7 +73,7 @@ BEGIN
   END IF;
 
   DELETE FROM taxreg
-   WHERE ((taxreg_rel_type=''C'')
+   WHERE ((taxreg_rel_type='C')
      AND  (taxreg_rel_id=pCustid));
 
   DELETE FROM ipsass
@@ -88,5 +88,5 @@ BEGIN
   RETURN 0;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
