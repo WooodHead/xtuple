@@ -38,8 +38,8 @@ AS
 	
 GRANT ALL ON TABLE api.invoiceline TO xtrole;
 COMMENT ON VIEW api.invoiceline IS '
-This view can be used as an interface to import Invioce Line Items data directly  
-into the system.  Required fields will be checked and default values will be 
+This view can be used as an interface to import Invoice Line Items data directly
+into the system.  Required fields will be checked and default values will be
 populated';
 
 

@@ -1,10 +1,3 @@
-CREATE OR REPLACE RULE "_INSERT" AS
-	ON INSERT TO api.invoiceline DO INSTEAD NOTHING;
-CREATE OR REPLACE RULE "_UPDATE" AS
-	ON UPDATE TO api.invoiceline DO INSTEAD NOTHING;
-SELECT dropIfExists('FUNCTION', 'insertInvoiceLineItem(api.invoiceline)');
-SELECT dropIfExists('FUNCTION', 'updateInvoiceLineItem(api.invoiceline, api.invoiceline)');
-SELECT dropIfExists('VIEW', 'invoiceline', 'api');
 CREATE OR REPLACE VIEW api.invoiceline
 AS
 	SELECT
@@ -38,7 +31,7 @@ AS
 	
 GRANT ALL ON TABLE api.invoiceline TO xtrole;
 COMMENT ON VIEW api.invoiceline IS '
-This view can be used as an interface to import Invioce Line Items data directly  
+This view can be used as an interface to import Invoice Line Items data directly
 into the system.  Required fields will be checked and default values will be 
 populated';
 
