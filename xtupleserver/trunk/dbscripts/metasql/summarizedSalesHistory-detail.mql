@@ -160,7 +160,7 @@ GROUP BY dummy
  , cohist_salesrep_id, salesrep_number, salesrep_name
 <? endif ?>
 <? if exists("byShippingZone") ?>
- , shipzone_id, shipzone_name
+ , shipzone_id, shipzone_name, shipzone_descrip
 <? endif ?>
 <? if exists("byCustomer") ?>
  , cohist_cust_id, cust_number, cust_name
@@ -172,7 +172,7 @@ GROUP BY dummy
  , item_id, item_number, itemdescription
 <? endif ?>
 <? if exists("bySite") ?>
- , itemsite_warehous_id, warehous_code
+ , itemsite_warehous_id, warehous_code, warehous_descrip
 <? endif ?>
 <? if exists("byCurrency") ?>
  , cust_curr_id, currAbbr
