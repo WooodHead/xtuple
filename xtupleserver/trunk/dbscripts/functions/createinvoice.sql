@@ -53,7 +53,7 @@ BEGIN
 	cobmisc_paymentref,cobmisc_notes,cohead_prj_id,cobmisc_curr_id,
 	cobmisc_taxzone_id, cohead_shipchrg_id  
     FROM cobmisc, cohead, custinfo
-    LEFT OUTER JOIN cntct ON (custinfo_cntct_id=cntct_id)
+    LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
   WHERE ( (cobmisc_cohead_id=cohead_id)
    AND (cohead_cust_id=cust_id)
    AND (cobmisc_id=pCobmiscid) );
