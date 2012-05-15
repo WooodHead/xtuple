@@ -1,6 +1,6 @@
 Release Notes
 xTuple ERP
-Version 4.0.0Betaa
+Version 4.0.0Beta
 May 18, 2012
 ==================================
 
@@ -32,30 +32,30 @@ Multiple Project updates
 ==================================
 
 The following features and bug fixes have been added to the
-applications since 4.0.0Alpha. Additional detail for each item 
-listed below may be found on our community website under the 
+applications since 4.0.0Alpha. Additional detail for each item
+listed below may be found on our community website under the
 Issue Tracker.
 
 New Features:
 
 * Item Source UOM [17016]
-* Time of Receiving Cost Override (Items Costed at Average) 
+* Time of Receiving Cost Override (Items Costed at Average)
 [12124]
 * Planned Orders Screen Enhancement [15057]
-* Allow entry of an Alternate Revenue Account for a Sales Order 
+* Allow entry of an Alternate Revenue Account for a Sales Order
 Line Item [15444]
-* Incidents should be enhanced to be filterable on Item and 
+* Incidents should be enhanced to be filterable on Item and
 Lot/Serial numbers [16607]
-* Planned Orders screen needs Class Code as filter option 
+* Planned Orders screen needs Class Code as filter option
 [16841]
 * Make posting into closed periods a privilege [16955]
 * 380 installer - deal with legacy postgres installs [17173]
-* 380 installer - signal to user that pg install takes time 
+* 380 installer - signal to user that pg install takes time
 [17174]
 * 380 installer - move Windows uninstaller warning [17177]
-* Add the ability to "turn off" G/L postings from Accounts 
+* Add the ability to "turn off" G/L postings from Accounts
 Receivable [17184]
-* Add the ability to "turn off" G/L postings from Accounts 
+* Add the ability to "turn off" G/L postings from Accounts
 Payable [17185]
 * Production Plan [17250]
 * Remove hardwired cloud features for 4.0 [17426]
@@ -65,106 +65,106 @@ Payable [17185]
 Bug Fixes:
 
 * Slow MLC performance with thousands of locations [17405]
-* External shipping maintenance screen should require 
+* External shipping maintenance screen should require
 information [7513]
-* user has to enter xml-related import/export config even if 
+* user has to enter xml-related import/export config even if
 only doing csv imports [11504]
 * Saving a sale displays an irrelevant dialog [14133]
 * Selecting an Address displays irrelevant dialog [14299]
 * Unable to create recurring To-Do items [15786]
-* "Credit card" tab is not available on opening a Cash 
+* "Credit card" tab is not available on opening a Cash
 receipt in View mode [15815]
-* cancelling bom creation gives "required total Qty. Per" 
+* cancelling bom creation gives "required total Qty. Per"
 error [15827]
-* error when processing a live credit card through 
+* error when processing a live credit card through
 cybersource [16314]
-* Un-expected behavior is observed on selecting a non-working 
+* Un-expected behavior is observed on selecting a non-working
 day as the schedule date for a sales order line item [16535]
 * Loophole in priv apply AP credits [16685]
-* DB log error is generated on selecting to print Time-Phased 
+* DB log error is generated on selecting to print Time-Phased
 Bookings screen [16719]
-* Inventory Value Adjustment does not create an Inventory 
+* Inventory Value Adjustment does not create an Inventory
 History Record [16721]
 * Due dates changes wipe characteristics [16739]
 * Able to reserve qty. with no QOH [16770]
 * Qty rounding issue [16853]
 * WO Value not set properly [16939]
 * Item Types filter not working [16990]
-* Crm record clusters should only return "personal" results 
+* Crm record clusters should only return "personal" results
 when "all" privileges not granted [17030]
 * Production Plan [17099]
-* Ship-to Address Line not Visible in Customer Workbench 
+* Ship-to Address Line not Visible in Customer Workbench
 [17128]
 * Backlog Report sorting [17134]
-* 380 Installer - Mac Installer only works if run from desktop 
+* 380 Installer - Mac Installer only works if run from desktop
 [17169]
-* 380 installer - Windows uninstaller should remove desktop 
+* 380 installer - Windows uninstaller should remove desktop
 shortcuts [17180]
 * two different source files create todoitemTrigger [17186]
-* Selecting to save a new item displays irrelevant dialog 
+* Selecting to save a new item displays irrelevant dialog
 [17204]
 * Sales Rep not defaulting on new customer [17208]
 * Customer on Credit Hold locks new Sales Order [17217]
 * QWebView widget not supported in scripting [17218]
 * Scale in Costed BOM wrong [17234]
 * Able to deactivate site in use... [17244]
-* Irrelevant behavior is observed in Bill of Materials screen 
+* Irrelevant behavior is observed in Bill of Materials screen
 [17248]
-* Can't turn off companies, profit centers or subaccounts 
+* Can't turn off companies, profit centers or subaccounts
 after upgrading to V 3.8 [17288]
-* Double clicking on an invoice in unposted invoices does 
+* Double clicking on an invoice in unposted invoices does
 not open the item [17295]
 * Freight weight is not functional on invoice [17297]
-* Commission paid field on aropen window is not functional 
+* Commission paid field on aropen window is not functional
 [17308]
-* Viewing Open Items from AP Aging, when using Distribution 
-Date, results in items not showing on the Open Payables 
+* Viewing Open Items from AP Aging, when using Distribution
+Date, results in items not showing on the Open Payables
 screen [17337]
-* Selecting to add an Item substitution for an item 
+* Selecting to add an Item substitution for an item
 generates DB log error [17339]
-* Filter By Sales Rep on Quotes screen throws SQL Error 
+* Filter By Sales Rep on Quotes screen throws SQL Error
 [17373]
 * Patch for wooper_detail [17378]
-* Irrelevant dialog is displayed on selecting to convert 
+* Irrelevant dialog is displayed on selecting to convert
 a quote created for a prospect [17381]
 * Unable to edit a purchase order due date [17383]
 * Edits needed on RA warning messages [17384]
-* Observation:- Drop ship: Selecting to receive the purchase 
+* Observation:- Drop ship: Selecting to receive the purchase
 order quantity doesn't ships the sales order [17387]
-* Drop ship POs that result from converted quote in reverse 
+* Drop ship POs that result from converted quote in reverse
 sequence [17391]
-* Selecting to delete a sales order doesn't deletes the 
+* Selecting to delete a sales order doesn't deletes the
 Purchase Request linked to the sales order line item [17396]
-* Selecting to print "Inventory Availability by Customer Type" 
+* Selecting to print "Inventory Availability by Customer Type"
 screen generates DB log error [17397]
-* Selecting to Query the "Summarized Sales" screen generates 
+* Selecting to Query the "Summarized Sales" screen generates
 DB log error [17398]
-* Revoking "Item is Sold" from item prevents open sales orders 
+* Revoking "Item is Sold" from item prevents open sales orders
 for the item from appearing in Running Availability [17407]
 * Distribution Date Changes [17408]
-* Incorrect amount is displayed for un-posted invoices in 
+* Incorrect amount is displayed for un-posted invoices in
 Open Receivables print report [17416]
-* MaintainLicenseKey privilege missing in 3.8 postbooks to 
+* MaintainLicenseKey privilege missing in 3.8 postbooks to
 standard upgrade script [17425]
-* Selecting to upgrade Postbooks 380 Demo db to Standard 
+* Selecting to upgrade Postbooks 380 Demo db to Standard
 displays an error message [17460]
-* Incorrect Default location is displayed in "Distribute 
+* Incorrect Default location is displayed in "Distribute
 Stock To/From Site Locations" screen [17482]
-* Observation: Inventory is not distributed automatically from 
+* Observation: Inventory is not distributed automatically from
 the default Stock location for a MLC enabled item [17483]
-* It is possible to edit a cash receipt opened in view mode 
+* It is possible to edit a cash receipt opened in view mode
 [17507]
-* postvoucher function needs to round number to 4 decimals 
+* postvoucher function needs to round number to 4 decimals
 before testing value [17515]
 * Work Order Schedule filter by Start Date and End Date [17519]
 * Misc voucher - French-Bug [17537]
-* DB log error is generated on selecting to create invoices 
+* DB log error is generated on selecting to create invoices
 [17580]
-* "Change Characteristic" dialog is displayed irrelevently 
+* "Change Characteristic" dialog is displayed irrelevently
 on selecting to save the SO line item opened in edit mode [17581]
-* It is not possible to save a Sales Account Assignment in 
+* It is not possible to save a Sales Account Assignment in
 PostBooks edition [17583]
-* Linked Work Order is not created on selecting to save a 
+* Linked Work Order is not created on selecting to save a
 Return Authorization of type "Service" [17596]
 
 
