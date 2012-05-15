@@ -15,6 +15,7 @@ DECLARE
   _sense         TEXT;
   _wipPost       NUMERIC;
   _woNumber      TEXT;
+  _ucost         NUMERIC;
 
 BEGIN
 
@@ -144,18 +145,17 @@ BEGIN
    AND (wo_id=pWoid));
 
 --  ROB Increase this W/O's WIP value for custom costing
+  SELECT SUM(itemcost_stdcost * _parentQty) INTO _ucost 
+  FROM wo JOIN itemsite ON (itemsite_id=wo_itemsite_id)
+          JOIN itemcost ON (itemcost_item_id=itemsite_item_id)
+          JOIN costelem ON ((costelem_id=itemcost_costelem_id) AND
+                            (costelem_exp_accnt_id IS NOT NULL) AND
+                            (NOT costelem_sys))
+  WHERE (wo_id=pWoid);
+
   UPDATE wo
-  SET wo_wipvalue = (wo_wipvalue + (itemcost_stdcost * _parentQty)) 
-FROM costelem, itemcost, costcat, itemsite, item
-WHERE 
-  ((wo_id=pWoid) AND
-  (wo_itemsite_id=itemsite_id) AND
-  (itemsite_item_id=item_id) AND
-  (costelem_id = itemcost_costelem_id) AND
-  (itemcost_item_id = itemsite_item_id) AND
-  (itemsite_costcat_id = costcat_id) AND
-  (costelem_exp_accnt_id) IS NOT NULL  AND 
-  (costelem_sys = false));
+  SET wo_wipvalue = (wo_wipvalue + _ucost)
+  WHERE (wo_id=pWoid);
 
 --  ROB Distribute to G/L - create Cost Variance, debit WIP
   PERFORM insertGLTransaction( 'W/O', 'WO', _woNumber,
