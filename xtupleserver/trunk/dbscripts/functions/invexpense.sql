@@ -1,36 +1,21 @@
-CREATE OR REPLACE FUNCTION invExpense(INTEGER, NUMERIC, INTEGER, TEXT, TEXT) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
--- See www.xtuple.com/CPAL for the full text of the software license.
-BEGIN
- RETURN invExpense($1, $2, $3, $4, $5, CURRENT_TIMESTAMP);
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION invExpense(INTEGER, NUMERIC, INTEGER, TEXT, TEXT, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
--- See www.xtuple.com/CPAL for the full text of the software license.
-BEGIN
- RETURN invExpense($1, $2, $3, $4, $5, CURRENT_TIMESTAMP, NULL);
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION invExpense(INTEGER, NUMERIC, INTEGER, TEXT, TEXT, TIMESTAMP WITH TIME ZONE, INTEGER) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION invExpense(pItemsiteid     INTEGER,
+                                      pQty            NUMERIC,
+                                      pExpcatid       INTEGER,
+                                      pDocumentNumber TEXT,
+                                      pComments       TEXT,
+                                      pGlDistTS       TIMESTAMP WITH TIME ZONE
+                                                      DEFAULT CURRENT_TIMESTAMP,
+                                      pPrjid          INTEGER DEFAULT NULL)
+  RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pItemsiteid ALIAS FOR $1;
-  pQty ALIAS FOR $2;
-  pExpcatid ALIAS FOR $3;
-  pDocumentNumber ALIAS FOR $4;
-  pComments ALIAS FOR $5;
-  pGlDistTS ALIAS FOR $6;
-  pPrjid ALIAS FOR $7;
   _invhistid INTEGER;
   _itemlocSeries INTEGER;
 
 BEGIN
 
---  Make sure the passed itemsite points to a real item
+  --  Make sure the passed itemsite points to a real item
   IF ( ( SELECT (item_type IN ('R', 'F') OR itemsite_costmethod = 'J')
          FROM itemsite, item
          WHERE ( (itemsite_item_id=item_id)
@@ -51,6 +36,9 @@ BEGIN
    AND (itemsite_costcat_id=costcat_id)
    AND (itemsite_id=pItemsiteid)
    AND (expcat_id=pExpcatid) );
+
+  INSERT INTO invhistexpcat (invhistexpcat_invhist_id, invhistexpcat_expcat_id)
+                     VALUES (_invhistid,               pExpcatid);
 
   RETURN _itemlocSeries;
 
