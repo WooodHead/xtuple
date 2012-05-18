@@ -233,12 +233,12 @@ BEGIN
                         _p.vohead_number, _p.vohead_number;
       END IF;
     ELSE
-      SELECT getPrjAccntId(_g.poitem_prj_id, pp.accnt_id) AS pp_accnt_id,
-             lb.accnt_id AS lb_accnt_id INTO _a
-      FROM costcat, accnt AS pp, accnt AS lb
-      WHERE ( (costcat_purchprice_accnt_id=pp.accnt_id)
-       AND (costcat_liability_accnt_id=lb.accnt_id)
-       AND (costcat_id=_g.costcatid) );
+      SELECT getPrjAccntId(_g.poitem_prj_id, costcat_purchprice_accnt_id) AS pp_accnt_id,
+             getPrjAccntId(_g.poitem_prj_id, costcat_liability_accnt_id) AS lb_accnt_id,
+             getPrjAccntId(_g.poitem_prj_id, costcat_freight_accnt_id) AS freight_accnt_id
+      INTO _a
+      FROM costcat
+      WHERE (costcat_id=_g.costcatid);
       IF (NOT FOUND) THEN
         RAISE EXCEPTION 'Cannot Post Voucher #% due to unassigned G/L Accounts [xtuple: postVoucher, -8, %]',
                         _p.vohead_number, _p.vohead_number;
@@ -319,7 +319,7 @@ BEGIN
     IF (round(_g.voitem_freight_base + _exchGainFreight, 2) <> round(_g.vouchered_freight_base, 2)) THEN
       _tmpTotal := round(_g.voitem_freight_base + _exchGainFreight, 2) - round(_g.vouchered_freight_base, 2);
       PERFORM insertIntoGLSeries( _sequence, 'A/P', 'VO', text(_p.vohead_number),
-	      _a.pp_accnt_id,
+        _a.freight_accnt_id,
 	      _tmpTotal * -1,
 	      _glDate, _p.glnotes );
     END IF;
