@@ -22,7 +22,7 @@ BEGIN
 
     -- ERROR:  cannot use column references in default expression
     IF (NEW.emp_name IS NULL) THEN
-      NEW.emp_name = COALESCE(formatCntctName(emp_cntct_id), emp_number);
+      NEW.emp_name = COALESCE(formatCntctName(NEW.emp_cntct_id), NEW.emp_number);
     END IF;
 
     IF (TG_OP = 'INSERT' AND fetchMetricText('CRMAccountNumberGeneration') IN ('A','O')) THEN
