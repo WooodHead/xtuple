@@ -19,12 +19,15 @@ DECLARE
   deleteForce ALIAS FOR $3;
   woStatus CHAR(1);
   itemType CHAR(1);
+  ordtype CHAR(1);
+  ordid INTEGER;
   returnCode INTEGER;
   _wotcCnt	INTEGER;
   _routings BOOLEAN;
 
 BEGIN
-  SELECT wo_status, item_type INTO woStatus, itemType
+  SELECT wo_status, wo_ordtype, wo_ordid, item_type
+  INTO   woStatus, ordtype, ordid, itemType
   FROM wo JOIN itemsite ON (itemsite_id=wo_itemsite_id)
           JOIN item ON (item_id=itemsite_item_id)
   WHERE (wo_id=pWoid);
@@ -77,6 +80,11 @@ BEGIN
     IF _routings THEN
       DELETE FROM xtmfg.wooper
       WHERE (wooper_wo_id=pWoid);
+    END IF;
+
+    IF (ordtype = 'S') THEN
+      UPDATE coitem SET coitem_order_type=NULL, coitem_order_id=NULL
+      WHERE coitem_id=ordid;
     END IF;
 
     DELETE FROM wo
