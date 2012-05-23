@@ -220,6 +220,14 @@ BEGIN
       _r.quitem_price_uom_id, _r.quitem_price_invuomratio,
       _r.quitem_custpn, _r.quitem_memo, _r.quitem_taxtype_id );
 
+    IF (fetchMetricBool('enablextcommissionission')) THEN
+      PERFORM xtcommission.getSalesReps(quhead_cust_id, quhead_shipto_id,
+                                        _r.itemsite_item_id, _r.quitem_price,
+                                        _iitemid, 'InvoiceItem')
+      FROM quhead
+      WHERE (quhead_id=pQuheadid);
+    END IF;
+
 -- Chracteristics not supported on Invoice but leaving in for future use:
 
 /*

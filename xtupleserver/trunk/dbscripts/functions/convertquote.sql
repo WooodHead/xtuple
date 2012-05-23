@@ -201,6 +201,14 @@ BEGIN
       stdcost(_r.itemsite_item_id), _r.quitem_prcost,
       _r.quitem_custpn, _r.quitem_memo, _r.quitem_taxtype_id, -1 );
 
+    IF (fetchMetricBool('enablextcommissionission')) THEN
+      PERFORM xtcommission.getSalesReps(quhead_cust_id, quhead_shipto_id,
+                                        _r.itemsite_item_id, _r.quitem_price,
+                                        _soitemid, 'SalesItem')
+      FROM quhead
+      WHERE (quhead_id=pQuheadid);
+    END IF;
+
     INSERT INTO charass
           (charass_target_type, charass_target_id, charass_char_id, charass_value, charass_default, charass_price)
     SELECT 'SI', _soitemid, charass_char_id, charass_value, charass_default, charass_price
