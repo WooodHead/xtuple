@@ -52,7 +52,15 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="itemPricingSchedule.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>DELETE EXPIRED</term>
+      <listitem>
+        <para>Select to delete expired Pricing Schedules.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="itemPricingSchedule.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

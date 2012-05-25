@@ -78,10 +78,10 @@
       <term>Billing Contact</term>
       <listitem>
         <para>Select to manually enter billing Contact information in the
-        fields below&mdash;or use the lookup feature to select pre-existing
-        Contact information. If a new Contact is manually entered here, that
-        Contact will be added automatically to the master list of Contacts.
-        For additional documentation related to creating Contacts, see <xref
+        fields below—or use the lookup feature to select pre-existing Contact
+        information. If a new Contact is manually entered here, that Contact
+        will be added automatically to the master list of Contacts. For
+        additional documentation related to creating Contacts, see <xref
         linkend="contactTitle" />.</para>
       </listitem>
     </varlistentry>
@@ -89,13 +89,13 @@
       <term>Correspondence Contact</term>
       <listitem>
         <para>Select to manually enter non-billing-related Contact information
-        in the fields below&mdash;or use the lookup feature to select
-        pre-existing Contact information. Examples of non-billing-related
-        correspondence might include Price updates, holiday cards, etc. You
-        may also enter additional contact information. If a new Contact is
-        manually entered here, that Contact will be added automatically to the
-        master list of Contacts. For additional documentation related to
-        creating Contacts, see <xref linkend="contactTitle" />.</para>
+        in the fields below—or use the lookup feature to select pre-existing
+        Contact information. Examples of non-billing-related correspondence
+        might include Price updates, holiday cards, etc. You may also enter
+        additional contact information. If a new Contact is manually entered
+        here, that Contact will be added automatically to the master list of
+        Contacts. For additional documentation related to creating Contacts,
+        see <xref linkend="contactTitle" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -123,12 +123,12 @@
     </screenshot></para>
   <tip>
     <para>The Ship-To Address screen shares many common fields with the
-    Customer master&mdash;for example, shipping defaults, Sales
-    Representative, etc. By default, the Customer master values will be
-    pre-filled on the Ship-To Address screen. However, you can easily change
-    these Customer defaults for each Ship-To Address. The specific Ship-To
-    Address information will be used when the Ship-To Address is selected at
-    the point of Sales Order entry.</para>
+    Customer master—for example, shipping defaults, Sales Representative, etc.
+    By default, the Customer master values will be pre-filled on the Ship-To
+    Address screen. However, you can easily change these Customer defaults for
+    each Ship-To Address. The specific Ship-To Address information will be
+    used when the Ship-To Address is selected at the point of Sales Order
+    entry.</para>
   </tip>
   <para>When creating a new Ship-To Address, you are presented with the
   following options:</para>
@@ -171,7 +171,7 @@
       <term>Address</term>
       <listitem>
         <para>Manually enter delivery Address information in the fields
-        below&mdash;or use the lookup feature to select pre-existing Address
+        below—or use the lookup feature to select pre-existing Address
         information. If a new Address is manually entered here, that Address
         will be added automatically to the master list of Addresses. For
         additional documentation related to creating Addresses, see <xref
@@ -185,7 +185,7 @@
         </indexterm>Contact</term>
       <listitem>
         <para>Manually enter delivery Contact information in the fields
-        below&mdash;or use the lookup feature to select pre-existing Contact
+        below—or use the lookup feature to select pre-existing Contact
         information. This field should not to be confused with the "Name"
         field that appears on the Ship-To Address label. If a new Contact is
         manually entered here, that Contact will be added automatically to the
@@ -209,15 +209,14 @@
           <varlistentry>
             <term>Commission</term>
             <listitem>
-              <para>When you first associate a Sales Rep with a
-              Customer&mdash;or with a Ship To Address&mdash;the system will
-              copy in the commission from the Sales Rep record as a
-              convenience. This commission may be changed locally at the
-              Customer record level, but any changes will not be inherited by
-              the Sales Rep record. Similarly, if you update the commission
-              percentage on a Sales Rep record, that update will not
-              recursively update all the commission records wherever that
-              Sales Rep is used.</para>
+              <para>When you first associate a Sales Rep with a Customer—or
+              with a Ship To Address—the system will copy in the commission
+              from the Sales Rep record as a convenience. This commission may
+              be changed locally at the Customer record level, but any changes
+              will not be inherited by the Sales Rep record. Similarly, if you
+              update the commission percentage on a Sales Rep record, that
+              update will not recursively update all the commission records
+              wherever that Sales Rep is used.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -287,9 +286,9 @@
       <listitem>
         <para>Select the "Transmission" tab to associate EDI Profiles with the
         Ship-To Address. EDI Profiles are used for transmitting Orders and
-        Invoices to Customers electronically&mdash;via email or FTP.
-        Associating an EDI Profile with a Ship-To Address overrides the
-        association of an EDI Profile with the Customer.</para>
+        Invoices to Customers electronically—via email or FTP. Associating an
+        EDI Profile with a Ship-To Address overrides the association of an EDI
+        Profile with the Customer.</para>
         <note>
           <para role="xtconnect">The buttons on the "Transmission" tab are
           disabled when creating a new Ship-To Address. If you want to set up
@@ -360,14 +359,14 @@
     <varlistentry>
       <term>Commission</term>
       <listitem>
-        <para>When you first associate a Sales Rep with a Customer&mdash;or
-        with a Ship To Address&mdash;the system will copy in the commission
-        from the Sales Rep record as a convenience. This commission may be
-        changed locally at the Customer record level, but any changes will not
-        be inherited by the Sales Rep record. Similarly, if you update the
-        commission percentage on a Sales Rep record, that update will not
-        recursively update all the commission records wherever that Sales Rep
-        is used.</para>
+        <para>When you first associate a Sales Rep with a Customer—or with a
+        Ship To Address—the system will copy in the commission from the Sales
+        Rep record as a convenience. This commission may be changed locally at
+        the Customer record level, but any changes will not be inherited by
+        the Sales Rep record. Similarly, if you update the commission
+        percentage on a Sales Rep record, that update will not recursively
+        update all the commission records wherever that Sales Rep is
+        used.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -478,7 +477,7 @@
         setting. If a preferred Site is selected, then this Site will be used
         when entering Sales Orders for the Customer. At Sales Order entry, the
         preferred Site will be the default Shipping Site for the Sales
-        Order&mdash;as well as the default selling Site for Sales Order
+        Order—as well as the default selling Site for Sales Order
         Items.</para>
         <note>
           <para>If there are no Item Sites matching the preferred Site at the
@@ -502,6 +501,12 @@
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
+      <term>Use specified billing rate</term>
+      <listitem>
+        <para>Specify the default billing rate for the Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Terms</term>
       <listitem>
         <para>Specify the default billing Terms for the Customer.</para>
@@ -510,11 +515,11 @@
     <varlistentry>
       <term>Discount</term>
       <listitem>
-        <para>Enter the default discount&mdash;if any&mdash;which the Customer
-        should receive. Customer discounts are applied to either a) the List
-        Price for an Item if the List Price is being used or b) a specific
-        Sale if a Sale is in place which the Customer is assigned to. The
-        discount does not get applied to Pricing Schedules.</para>
+        <para>Enter the default discount—if any—which the Customer should
+        receive. Customer discounts are applied to either a) the List Price
+        for an Item if the List Price is being used or b) a specific Sale if a
+        Sale is in place which the Customer is assigned to. The discount does
+        not get applied to Pricing Schedules.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -566,8 +571,7 @@
         selected, users will be required to enter a Customer Purchase Order
         Number when entering a Sales Order. In addition, selecting the option
         will prevent users from entering duplicate Customer Purchase Order
-        Numbers&mdash;unless the Customer is marked as using Blanket
-        POs.</para>
+        Numbers—unless the Customer is marked as using Blanket POs.</para>
         <note>
           <para>If the option "Uses Purchase Orders" is not selected, the
           system will place no restrictions on Customer Purchase Order
@@ -640,10 +644,9 @@
         This option must also be selected for a Customer's open Receivables to
         be evaluated when the Update Late Customer Credit Status utility is
         run. If a Customer is on Credit Warning, Sales Orders may not be
-        entered for the Customer&mdash;except by users with override
-        privileges. Once the Customer's Receivables open balance falls below
-        their Credit Limit, Sales Orders may once again be entered for the
-        Customer.</para>
+        entered for the Customer—except by users with override privileges.
+        Once the Customer's Receivables open balance falls below their Credit
+        Limit, Sales Orders may once again be entered for the Customer.</para>
         <tip>
           <para>You must specify you want a Customer to be placed on credit
           warning to enable the late credit status utility to consider a
@@ -658,9 +661,9 @@
         <para>Select this option to place all new and existing open Sales
         Orders on Credit Hold if the Customer's Credit Limit is exceeded. The
         contents of Sales Orders placed on Credit Hold may not be issued to
-        Shipping&mdash;except by users with override privileges. Once the
-        Customer's Credit Limit is no longer exceeded, Sales Order contents
-        may be issued to Shipping.</para>
+        Shipping—except by users with override privileges. Once the Customer's
+        Credit Limit is no longer exceeded, Sales Order contents may be issued
+        to Shipping.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -711,8 +714,8 @@
       <listitem>
         <para>Specify the default Tax Zone you want to associate with the
         Customer. By default, the specified Tax Zone will be used on Sales
-        Orders and Quotes for the Customer&mdash;unless a Ship-To Address in
-        use specifies a different Tax Zone.</para>
+        Orders and Quotes for the Customer—unless a Ship-To Address in use
+        specifies a different Tax Zone.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1034,12 +1037,11 @@
       <term>Contacts</term>
       <listitem>
         <para>Select to view a list of all Contacts associated with the
-        Account. On this screen you can manage an Account's
-        Contacts&mdash;either by adding new Contacts or attaching/detaching
-        Contacts from the Account. Any changes made here also update the CRM
-        Account record. For additional documentation related to managing a
-        Contacts associated with a CRM Account, see <xref
-        linkend="Section560293" />.</para>
+        Account. On this screen you can manage an Account's Contacts—either by
+        adding new Contacts or attaching/detaching Contacts from the Account.
+        Any changes made here also update the CRM Account record. For
+        additional documentation related to managing a Contacts associated
+        with a CRM Account, see <xref linkend="Section560293" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1101,7 +1103,7 @@
       <term>Returns</term>
       <listitem>
         <para>Select to manage Returns associated with the Customer. On this
-        screen you can manage most aspects of the Returns process&mdash;from
+        screen you can manage most aspects of the Returns process—from
         creating new Return Authorizations to processing Credit Memos. For
         additional documentation related to managing Return Authorizations,
         please see <xref linkend="returnAuthorization" />.</para>
@@ -1126,10 +1128,10 @@
       <listitem>
         <para>Select to view information related to the Customer's open
         Receivables. On this screen you can manage most aspects of the
-        Receivables process&mdash;from creating new Receivable documents
-        (e.g., Invoices, Credit Memos, etc.) to printing out Customer
-        statements. For additional documentation related to managing Customer
-        Receivables, see <xref linkend="Section556338" />.</para>
+        Receivables process—from creating new Receivable documents (e.g.,
+        Invoices, Credit Memos, etc.) to printing out Customer statements. For
+        additional documentation related to managing Customer Receivables, see
+        <xref linkend="Section556338" />.</para>
         <tip>
           <para>You can also void posted Invoices and Sales Order Credit Memos
           (not miscellaneous A/R Credit Memos) on the open receivables

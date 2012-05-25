@@ -40,7 +40,14 @@
         specified Unit of Measure.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Item weight unit of measure</term>
+      <listitem>
+        <para>Select this check box if the Unit of Measure represents the
+        default Item weight.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-  <xi:include href="uomConv.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="uomConv.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
