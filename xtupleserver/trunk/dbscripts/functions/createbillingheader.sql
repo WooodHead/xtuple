@@ -144,7 +144,7 @@ BEGIN
 	)
 	SELECT
 	_cobmiscid,_cohead.cohead_id,_shipVia,_freight,
-        CASE WHEN (_cohead.cohead_misc - _miscApplied < 0.0) THEN 0.0
+        CASE WHEN (_cohead.cohead_misc - _miscApplied = 0.0) THEN 0.0
              ELSE (_cohead.cohead_misc - _miscApplied) END,0,
         _cohead.cohead_ordercomments,_shipDate,_invcDate,FALSE,_cohead.cohead_misc_accnt_id,
         _cohead.cohead_misc_descrip,NOT(cust_backorder),_cohead.cohead_curr_id,
