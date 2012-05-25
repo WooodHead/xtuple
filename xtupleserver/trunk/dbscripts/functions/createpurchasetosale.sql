@@ -87,14 +87,14 @@ BEGIN
     WHERE ( (COALESCE(pohead_cohead_id, -1) = _s.cohead_id)
       AND (pohead_status = 'U')
       AND (pohead_vend_id = _i.itemsrc_vend_id)
-      AND (pohead_shiptoddress_id = _s.shipto_addr_id) );
+      AND (pohead_shiptoaddress_id = _s.shipto_addr_id) );
   ELSE
     SELECT COALESCE(pohead_id, -1) INTO _temp
     FROM pohead
     WHERE ( (COALESCE(pohead_cohead_id, -1) = _s.cohead_id)
       AND (pohead_status = 'U')
       AND (pohead_vend_id = _i.itemsrc_vend_id)
-      AND (pohead_shiptoddress_id = _w.addr_id) );
+      AND (pohead_shiptoaddress_id = _w.addr_id) );
   END IF;
 
   IF (FOUND) THEN
@@ -117,7 +117,7 @@ BEGIN
           pohead_shipto_cntct_middle, pohead_shipto_cntct_last_name,
           pohead_shipto_cntct_suffix, pohead_shipto_cntct_phone,
           pohead_shipto_cntct_title, pohead_shipto_cntct_fax, 
-          pohead_shipto_cntct_email, pohead_shiptoddress_id,
+          pohead_shipto_cntct_email, pohead_shiptoaddress_id,
           pohead_shiptoaddress1,
           pohead_shiptoaddress2,
           pohead_shiptoaddress3,
@@ -168,7 +168,7 @@ BEGIN
           pohead_shipto_cntct_middle, pohead_shipto_cntct_last_name,
           pohead_shipto_cntct_suffix, pohead_shipto_cntct_phone,
           pohead_shipto_cntct_title, pohead_shipto_cntct_fax, 
-          pohead_shipto_cntct_email, pohead_shiptoddress_id,
+          pohead_shipto_cntct_email, pohead_shiptoaddress_id,
           pohead_shiptoaddress1,
           pohead_shiptoaddress2,
           pohead_shiptoaddress3,
