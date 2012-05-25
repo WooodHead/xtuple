@@ -5,8 +5,8 @@
 <section id="returnAuthWorkbenchTitle" role="standard">
   <title>Return Authorization Workbench</title>
   <para>The Return Authorization Workbench is designed to help manage and
-  process open Return Authorizations&mdash;and to process credits and refunds.
-  The Return Authorization Workbench appears as follows:</para>
+  process open Return Authorizations—and to process credits and refunds. The
+  Return Authorization Workbench appears as follows:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -20,8 +20,8 @@
     <varlistentry>
       <term>Customer</term>
       <listitem>
-        <para>Select all or specific Customers whose Receivables information you want
-        to display.</para>
+        <para>Select all or specific Customers whose Receivables information
+        you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -61,6 +61,13 @@
         <para>You may choose to include the following optional
         information:</para>
         <variablelist>
+          <varlistentry>
+            <term>Unauthorized</term>
+            <listitem>
+              <para>Select to include unauthorized Returns in the display. If
+              not selected, unauthorized Return will not be included.</para>
+            </listitem>
+          </varlistentry>
           <varlistentry>
             <term>Expired</term>
             <listitem>
@@ -187,15 +194,15 @@
       <term>PROCESS</term>
       <listitem>
         <para>Highlight a Return Authorization and then select this button to
-        create a Sales Order Credit Memo for the selected item. The Sales Order Credit
-        Memo will be added to the list of unposted Credit Memos in an
-        unprinted state. However, you may print the Credit Memo as you process
-        it by selecting the "Print Credit Memo" option. If you select the
-        "Post Credit Memos Immediately" option, then the Credit Memo will be
-        posted as soon as it is created.</para>
-        <para role="xtconnect">If the Customer specified on the Credit Memo has
-        an EDI Profile attached, you may encounter an EDI processing interface
-        when printing it.</para>
+        create a Sales Order Credit Memo for the selected item. The Sales
+        Order Credit Memo will be added to the list of unposted Credit Memos
+        in an unprinted state. However, you may print the Credit Memo as you
+        process it by selecting the "Print Credit Memo" option. If you select
+        the "Post Credit Memos Immediately" option, then the Credit Memo will
+        be posted as soon as it is created.</para>
+        <para role="xtconnect">If the Customer specified on the Credit Memo
+        has an EDI Profile attached, you may encounter an EDI processing
+        interface when printing it.</para>
       </listitem>
     </varlistentry>
   </variablelist>

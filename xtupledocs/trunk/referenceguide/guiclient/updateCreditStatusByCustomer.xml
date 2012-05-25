@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section619210">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>customers</primary>
       <secondary>updating credit status for</secondary>
     </indexterm> <indexterm significance="normal">
@@ -16,16 +16,14 @@
   Orders entered for them. To update a Customer's credit status, select the
   "Update Credit Status by Customer" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/updateCreditStatusByCustomer.png"/>
+          <imagedata fileref="images/updateCreditStatusByCustomer.png" />
         </imageobject>
         <caption>Update Credit Status by Customer</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>The credit status for a Customer may also be updated using the
     Customer master. Any updates made using this utility will be reflected in
@@ -38,10 +36,8 @@
       <term>Customer #</term>
       <listitem>
         <para>Enter the Customer Number of the Customer whose credit status
-        you want to update. The lookup feature located to the right of the
-        field leads to a searchable Customers list. You may also access this
-        list using the keyboard shortcut "CTRL + L". Once a Customer Number is
-        entered, the Customer name and billing address will display.</para>
+        you want to update. Once a Customer Number is entered, the Customer
+        name and billing address will display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

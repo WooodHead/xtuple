@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section636767">
   <title>Search for Prospect</title>
-  <para>To search for a Prospect, select the "Search for Prospect" option. The
-  following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To search for a Prospect, select the "Search for Customer or Prospect"
+  option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/searchForProspect.png"/>
+          <imagedata fileref="images/searchForProspect.png" />
         </imageobject>
-        <caption>Search for Prospects</caption>
+        <caption>Search for Customers or Prospects</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When searching to retrieve Prospect information from the database, you
   are presented with the following options:</para>
   <variablelist>
@@ -95,17 +94,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Show Inactive Prospects</term>
+      <term>Show Inactive</term>
       <listitem>
         <para>Select to show inactive Prospects as well as active Prospects.
         By default, inactive Prospects are not displayed.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>CRM Accounts</term>
-      <listitem>
-        <para>Display will show search results for Prospect Accounts, using
-        specified parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>

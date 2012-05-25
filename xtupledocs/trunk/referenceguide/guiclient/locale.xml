@@ -71,7 +71,7 @@
         it should use. You can automatically download the latest translation
         file for your language by using the GET TRANSLATIONS button on the
         "User Preferences" screen. To learn more about this feature, please
-        see <xref linkend="Section941111" />. </para>
+        see <xref linkend="Section941111" />.</para>
         <para>xTuple ERP supports multi-language translations of the product
         interface through the use of .qm files. To learn more about xTuple
         translation and how you can get involved translating the interface for
@@ -192,6 +192,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Percent</term>
+      <listitem>
+        <para>The Percent format is used to display percentages within the
+        application.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>UOM Ratio</term>
       <listitem>
         <para>The Unit of Measure Ratio format is used to display Unit of
@@ -201,57 +208,56 @@
     <varlistentry>
       <term>Color Coding</term>
       <listitem>
-        <para>Specify RGB values, or use any of the color names found in
-        the</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para>You have the ability to define the colors used by the application to
-  emphasize special cases in the data. When entering color choices, you can
-  either use standard RGB (Red, Green, Blue) values or any of the color names
-  found on the <ulink
-  url="http://www.w3.org/TR/SVG/types.html#ColorKeywords">available colors
-  list</ulink>. If you choose to enter RGB values then the format is either
-  <literal>#RGB</literal>, <literal>#RRGGBB</literal>, or
-  <literal>#RRRGGGBBB</literal>. Colors may be defined for any of the
-  following cases:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Error</term>
-      <listitem>
-        <para>Specify the color-coding for errors.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Warning</term>
-      <listitem>
-        <para>Specify the color-coding for warnings.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Emphasis</term>
-      <listitem>
-        <para>Specify the color-coding for emphasis.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Alternate</term>
-      <listitem>
-        <para>Specify the color-coding for alternate text.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Expired</term>
-      <listitem>
-        <para>Specify the color-coding to indicate the expired
-        condition.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Future</term>
-      <listitem>
-        <para>Specify the color-coding to indicate the future
-        condition.</para>
+        <para>Specify RGB values, or use color names. You have the ability to
+        define the colors used by the application to emphasize special cases
+        in the data. When entering color choices, you can either use standard
+        RGB (Red, Green, Blue) values or any of the color names found on the
+        <ulink
+        url="http://www.w3.org/TR/SVG/types.html#ColorKeywords">available
+        colors list</ulink>. If you choose to enter RGB values then the format
+        is either <literal>#RGB</literal>, <literal>#RRGGBB</literal>, or
+        <literal>#RRRGGGBBB</literal>. Colors may be defined for any of the
+        following cases:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Error</term>
+            <listitem>
+              <para>Specify the color-coding for errors.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Warning</term>
+            <listitem>
+              <para>Specify the color-coding for warnings.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Emphasis</term>
+            <listitem>
+              <para>Specify the color-coding for emphasis.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Alternate</term>
+            <listitem>
+              <para>Specify the color-coding for alternate text.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Expired</term>
+            <listitem>
+              <para>Specify the color-coding to indicate the expired
+              condition.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Future</term>
+            <listitem>
+              <para>Specify the color-coding to indicate the future
+              condition.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

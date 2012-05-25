@@ -8,9 +8,9 @@
       <secondary>controlling quantity for</secondary>
     </indexterm>Select Billing Quantity</title>
   <para>To specify billing quantities for Line Items in the "Select Order for
-  Billing" screen, double-click on a Line Item in the "Line Items"
-  display&mdash;or highlight the Line Item and select the EDIT SELECTION
-  button. The following screen will appear:</para>
+  Billing" screen, double-click on a Line Item in the "Line Items" display—or
+  highlight the Line Item and select the EDIT SELECTION button. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -80,13 +80,20 @@
       <term>Close this Line After Billing</term>
       <listitem>
         <para>Select to close the specified Line Item after billing.</para>
+        <tip>
+          <para>If you are shipping a partial quantity to a Customer, be sure
+          to leave the "Close this Line After Billing" option unchecked. This
+          will ensure the Sales Order Item remains open until the full
+          quantity has been shipped.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax Type</term>
+      <listitem>
+        <para>Select the Tax Type to be applied from the drop down
+        list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>If you are shipping a partial quantity to a Customer, be sure to
-    leave the "Close this Line After Billing" option unchecked. This will
-    ensure the Sales Order Item remains open until the full quantity has been
-    shipped.</para>
-  </tip>
 </section>
