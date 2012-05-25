@@ -79,6 +79,7 @@ BEGIN
 
     UPDATE trialbal
        SET trialbal_beginning = trialbal_beginning - trialbal_yearend + _totalProfitLoss,
+           trialbal_ending = trialbal_beginning - trialbal_yearend + _totalProfitLoss,
            trialbal_yearend = _totalProfitLoss
      WHERE trialbal_id = _trialbalid;
 
@@ -135,6 +136,7 @@ BEGIN
         -- Lets do the update for the trialbal
         UPDATE trialbal
            SET trialbal_beginning = trialbal_beginning - trialbal_yearend + _totalProfitLoss,
+               trialbal_ending = trialbal_beginning - trialbal_yearend + _totalProfitLoss,
                trialbal_yearend = _totalProfitLoss
          WHERE trialbal_id = _trialbalid;
       END IF;
