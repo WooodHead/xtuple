@@ -62,9 +62,9 @@
         series postings will not be allowed that cross Companies.</para>
         <note>
           <para>If prior to xTuple ERP 3.7.0 you were using the Company
-          segment for something other than separate Company
-          reporting&mdash;and you need to continue that usage&mdash;please
-          contact your xTuple support representative.</para>
+          segment for something other than separate Company reporting—and you
+          need to continue that usage—please contact your xTuple support
+          representative.</para>
         </note>
         <variablelist>
           <varlistentry>
@@ -129,18 +129,18 @@
               <para>Select if you want all transactions and their full
               transaction detail to be posted in real time to intermediate
               Journals (sometimes also referred to as "day books"). From the
-              Journals, transactions are later posted to the General
-              Ledger&mdash;in summary form. In this way, transaction detail
-              remains in the Journals, with the summarized version of that
-              detail residing in the General Ledger. You can post Journals to
-              the General Ledger on a daily, monthly, or weekly basis. It's up
-              to you how you want to implement this feature. Keep in mind that
-              the trial balance and other financial reports are based solely
-              on General Ledger transactions. This means that Journal
-              transactions are not included in financial reports&mdash;that
-              is, until they are posted over to the General Ledger. To learn
-              more about posting Journals to the General Ledger, please see
-              <xref linkend="postJournals" />.</para>
+              Journals, transactions are later posted to the General Ledger—in
+              summary form. In this way, transaction detail remains in the
+              Journals, with the summarized version of that detail residing in
+              the General Ledger. You can post Journals to the General Ledger
+              on a daily, monthly, or weekly basis. It's up to you how you
+              want to implement this feature. Keep in mind that the trial
+              balance and other financial reports are based solely on General
+              Ledger transactions. This means that Journal transactions are
+              not included in financial reports—that is, until they are posted
+              over to the General Ledger. To learn more about posting Journals
+              to the General Ledger, please see <xref
+              linkend="postJournals" />.</para>
               <tip>
                 <para>Be sure to give yourself the appropriate privileges to
                 use the Journal feature (i.e., <literal>PostJournals</literal>
@@ -269,8 +269,8 @@
             <listitem>
               <para>Select a valid General Ledger Account. This is an Equity
               Account. It will be credited if retained earnings are
-              positive&mdash;and debited if retained earnings are negative.
-              The retained earnings calculation occurs when a Fiscal Year is
+              positive—and debited if retained earnings are negative. The
+              retained earnings calculation occurs when a Fiscal Year is
               closed. Total Expenses for the year are subtracted from total
               Revenues, and the balance is transferred to the Year End Equity
               Account. The system then automatically resets the beginning
@@ -329,9 +329,9 @@
       <term>Next Accounts Payable Memo #</term>
       <listitem>
         <para>The next sequentially available Accounts Payable Memo Number
-        will display here. You may change the number&mdash;creating a new
-        basis for the next Payables Memo Number&mdash;by typing the new number
-        into this field.</para>
+        will display here. You may change the number—creating a new basis for
+        the next Payables Memo Number—by typing the new number into this
+        field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -483,18 +483,17 @@
       <term>Next Receivables Memo #</term>
       <listitem>
         <para>The next sequentially available Accounts Receivable Memo Number
-        will display here. You may change the number&mdash;creating a new
-        basis for the next Receivables Memo Number&mdash;by typing the new
-        number into this field.</para>
+        will display here. You may change the number—creating a new basis for
+        the next Receivables Memo Number—by typing the new number into this
+        field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Next Cash Receipt #</term>
       <listitem>
         <para>The next sequentially available Cash Receipt Number will display
-        here. You may change the number&mdash;creating a new basis for the
-        next Cash Receipt Number&mdash;by typing the new number into this
-        field.</para>
+        here. You may change the number—creating a new basis for the next Cash
+        Receipt Number—by typing the new number into this field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -643,10 +642,30 @@
             <term>Interface Inventory to General Ledger</term>
             <listitem>
               <para>If selected, all inventory transactions will be posted to
-              the General Ledger. When <emphasis>not</emphasis>
-              selected&mdash;and the G/L source is either I/M, P/D, S/R, or
-              W/O&mdash;then transactions from those G/L sources will be
-              blocked and not posted to the General Ledger.</para>
+              the General Ledger. When <emphasis>not</emphasis> selected—and
+              the G/L source is either I/M, P/D, S/R, or W/O—then transactions
+              from those G/L sources will be blocked and not posted to the
+              General Ledger.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Interface A/P to General Ledger</term>
+            <listitem>
+              <para>If selected, all Accounts Payable transactions will be
+              posted to the General Ledger. When <emphasis>not</emphasis>
+              selected—and the G/L source is either I/M, P/D, S/R, or W/O—then
+              transactions from those G/L sources will be blocked and not
+              posted to the General Ledger.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Interface A/R to General Ledger</term>
+            <listitem>
+              <para>If selected, all Accounts Receivable transactions will be
+              posted to the General Ledger. When <emphasis>not</emphasis>
+              selected—and the G/L source is either I/M, P/D, S/R, or W/O—then
+              transactions from those G/L sources will be blocked and not
+              posted to the General Ledger.</para>
             </listitem>
           </varlistentry>
         </variablelist>
