@@ -517,7 +517,43 @@
             <term>Location</term>
             <listitem>
               <para>Specify the Site Location to be used as the default
-              Location.</para>
+              Location for each of the following:</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Receive</term>
+                  <listitem>
+                    <para>The Receive default Location is used for production
+                    W/O receipts, P/O receipts, R/A receipts and miscellaneous
+                    inventory receipts.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Stock</term>
+                  <listitem>
+                    <para>The Stock default Location will be used for
+                    transaction types that does not fall under the Receive or
+                    W/O default Locations.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>W/O Issue</term>
+                  <listitem>
+                    <para>The W/O Issue default Location will be used for W/O
+                    material issues and backflushing.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Auto</term>
+            <listitem>
+              <para>If this automatic distribution checkbox is checked agains
+              a particular default Location, the Distribute Inventory window
+              will distribute inventory automatically without providing an
+              opportunity to override the default. This will effectively allow
+              the posting of inventory transactions for multi-location Items
+              without having to make any distribution decisions.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -962,7 +998,7 @@
         <imageobject>
           <imagedata fileref="images/itemSite_itemsiteSched.png" />
         </imageobject>
-        <caption>Add Item Site Comments</caption>
+        <caption>Item Site Schedule Information</caption>
       </mediaobject>
     </screenshot></para>
   <para role="manufacturing">When viewing capacity information for tooling
