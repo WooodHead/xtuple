@@ -16,7 +16,7 @@ BEGIN
   END IF;
 
 --  Check to make sure that the period is not closed
-  IF ( ( SELECT (NOT period_close)
+  IF ( ( SELECT (NOT period_closed)
          FROM period
          WHERE (period_id=pPeriodid) ) ) THEN
     RETURN -1;
