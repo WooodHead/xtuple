@@ -39,13 +39,13 @@ _netmgr.sslErrors.connect(sHandleSslError);
 _netmgr.finished.connect(sHandleResponse);
 _void.clicked.connect(sVoid);
 
-_transactions.addColumn("Cust. #",     -1, 1, true, "cust_number");
-_transactions.addColumn("Name",        -1, 1, true, "cust_name");
-_transactions.addColumn("Type",        -1, 1, true, "type");
-_transactions.addColumn("Transaction", -1, 1, true, "status");
-_transactions.addColumn("Order-Seq.",  -1, 2, true, "docnumber");
-_transactions.addColumn("Amount",      -1, 2, true, "ccpay_amount");
-_transactions.addColumn("Currency",    -1, 1, true, "ccpay_currAbbr");
+_transactions.addColumn("Cust. #",     -1, Qt.AlignLeft,  true, "cust_number");
+_transactions.addColumn("Name",        -1, Qt.AlignLeft,  true, "cust_name");
+_transactions.addColumn("Type",        -1, Qt.AlignLeft,  true, "type");
+_transactions.addColumn("Transaction", -1, Qt.AlignLeft,  true, "status");
+_transactions.addColumn("Order-Seq.",  -1, Qt.AlignRight, true, "docnumber");
+_transactions.addColumn("Amount",      -1, Qt.AlignRight, true, "ccpay_amount");
+_transactions.addColumn("Currency",    -1, Qt.AlignLeft,  true, "currAbbr");
 
 function sHandleAuthenticationRequired(reply, authenticator)
 {
@@ -127,14 +127,14 @@ function sVoid()
         + "  formatbytea(decrypt(setbytea(ccard_country),  setbytea(<? value('key' ?>),'bf')) AS ccard_country,"
         + "  formatbytea(decrypt(setbytea(ccard_month_expired),setbytea(<? value('key' ?>),'bf')) AS ccard_month_expired,"
         + "  formatbytea(decrypt(setbytea(ccard_year_expired),setbytea(<? value('key' ?>), 'bf')) AS ccard_year_expired,"
-        + "  cust.*,"
+        + "  custinfo.*,"
         + "  ccpay.*,"
         + "  curr_symbol.*"
-        + "  FROM ccard, cust, ccpay, curr_symbol "
-        + "WHERE ((ccard_cust_id=cust_id)"
-        + "  AND  (ccard_id=ccpay_ccard_id)"
-        + "  AND  (curr_id=ccpay_curr_id)"
-        + "  AND  (ccpay_id=<? value('ccpayid') ?>));",
+        + "  FROM ccard "
+        + "  JOIN custinfo ON (ccard_cust_id=cust_id)"
+        + "  JOIN ccpay    ON (ccard_id=ccpay_ccard_id)"
+        + "  JOIN curr_symbol ON (curr_id=ccpay_curr_id)"
+        + "WHERE (ccpay_id=<? value('ccpayid') ?>);",
           params);
 
     if (anq.first())
