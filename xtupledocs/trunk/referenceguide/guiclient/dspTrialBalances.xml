@@ -24,7 +24,7 @@
     <listitem>
       <para>If G/L transactions are not posted, they will not appear in the
       Trial Balance. G/L transactions may be unposted if they were posted into
-      a closed or non-existent Accounting Period.</para>
+      a non-existent Accounting Period.</para>
     </listitem>
     <listitem>
       <para>Trial Balances will be automatically forward-updated unless your
@@ -54,9 +54,8 @@
     <listitem>
       <para>The Trial Balance query builder includes an option for displaying
       Accounts having a zero balance. If not selected, zero-balance Trial
-      Balances will be hidden&mdash;unless a specific Account is specified, in
-      which case the balance will be shown regardless of whether it is
-      zero.</para>
+      Balances will be hidden—unless a specific Account is specified, in which
+      case the balance will be shown regardless of whether it is zero.</para>
     </listitem>
     <listitem>
       <para>Also included is an option for showing Accounts with a Project
