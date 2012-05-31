@@ -34,7 +34,7 @@ BEGIN
 
 
   SELECT COUNT(*) INTO _counter
-  FROM cust, shiptoinfo, addr
+  FROM custinfo, shiptoinfo, addr
   WHERE ((UPPER(cust_name)=UPPER(_custname))
     AND UPPER(shipto_name)=UPPER(_fullname)
     AND (cust_id=shipto_cust_id)
@@ -42,7 +42,7 @@ BEGIN
 
   IF (_counter = 1) THEN
     SELECT shipto_num INTO _candidate
-    FROM cust, shiptoinfo, addr
+    FROM custinfo, shiptoinfo, addr
     WHERE ((UPPER(cust_name)=UPPER(_custname))
       AND UPPER(shipto_name)=UPPER(_fullname)
       AND (cust_id=shipto_cust_id)
@@ -53,14 +53,14 @@ BEGIN
   ELSE
 
     SELECT COUNT(*) INTO _counter
-    FROM cust, shiptoinfo, addr
+    FROM custinfo, shiptoinfo, addr
     WHERE ((UPPER(cust_name)=UPPER(_custname))
       AND (cust_id=shipto_cust_id)
       AND (shipto_addr_id=addr_id));
 
     IF (_counter = 1) THEN
       SELECT shipto_num INTO _candidate
-      FROM cust, shiptoinfo, addr
+      FROM custinfo, shiptoinfo, addr
       WHERE ((UPPER(cust_name)=UPPER(_custname))
         AND (cust_id=shipto_cust_id)
         AND (shipto_addr_id=addr_id));
@@ -77,7 +77,7 @@ BEGIN
          CASE WHEN (UPPER(addr_line2) = _addr2) THEN 1 ELSE 0 END +
          CASE WHEN (UPPER(addr_line1) = _addr1) THEN 1 ELSE 0 END
          AS maxquotient INTO _candidate, _counter
-      FROM cust, shiptoinfo, addr
+      FROM custinfo, shiptoinfo, addr
       WHERE ((UPPER(cust_name)=_custname)
         AND (cust_id=shipto_cust_id)
         AND (shipto_addr_id=addr_id))
