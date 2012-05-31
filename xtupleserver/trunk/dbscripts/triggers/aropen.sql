@@ -129,7 +129,7 @@ BEGIN
 --  Only check if the customer in question has a non-zero Credit Limit
   SELECT cust_id, cust_creditlmt, cust_creditstatus,
          cust_autoupdatestatus, cust_autoholdorders INTO _p
-  FROM cust
+  FROM custinfo
   WHERE (cust_id=NEW.aropen_cust_id);
   IF (_p.cust_creditlmt > 0) THEN
     _checkLimit := true;

@@ -2,8 +2,8 @@
 -- Name:  byCustOrSO
 -- Notes: query to get item availability by either customer id/type/pattern
 --        or by cohead_id
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
--- See www.xtuple.com/CPAL for the full text of the software license.
+--        Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+--        See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT id, altid, cohead_id,
        item_number, descrip, uom_name,
@@ -78,12 +78,11 @@ FROM (
            CAST(NULL AS NUMERIC) AS reorderlevel,
            0 AS xtindentrole
      FROM cohead
-          LEFT OUTER JOIN pack
-            ON (pack_head_type='SO' AND pack_head_id=cohead_id),
-          cust, coitem JOIN itemsite ON (coitem_itemsite_id=itemsite_id)
-     WHERE ((coitem_cohead_id=cohead_id)
-        AND (cohead_cust_id=cust_id)
-        AND (coitem_status NOT IN ('C', 'X'))
+     LEFT OUTER JOIN pack ON (pack_head_type='SO' AND pack_head_id=cohead_id)
+     JOIN custinfo ON (cohead_cust_id=cust_id)
+     JOIN coitem   ON (coitem_cohead_id=cohead_id)
+     JOIN itemsite ON (coitem_itemsite_id=itemsite_id)
+     WHERE ((coitem_status NOT IN ('C', 'X'))
   <? if exists("custtype_id") ?>
         AND (cust_custtype_id=<? value("custtype_id") ?>)
   <? elseif exists("custtype_pattern") ?>
