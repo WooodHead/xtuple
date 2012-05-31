@@ -95,6 +95,14 @@
         Representative associated with it. Consequently, the name of the Sales
         Representative appearing on the Sales Order header will be the same as
         specified for the Ship-To Address being used.</para>
+        <note>
+          <para>When creating a new Sales Order, only Active Sales
+          Representatives are available for selection. For future changes to
+          an existing Sales Order, all Sales Representatives are listed to
+          ensure that the original Sales Representative will still appear
+          against the order in cases where the Sales Representative may have
+          been deleted after the creation of the Sales Order. </para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
