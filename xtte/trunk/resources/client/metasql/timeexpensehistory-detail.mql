@@ -1,8 +1,8 @@
 -- Group: timeexpensehistory
 -- Name:  detail
 -- Notes: 
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
--- See www.xtuple.com/CPAL for the full text of the software license.
+--        Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+--        See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT
   teitem.*,
@@ -46,7 +46,7 @@ FROM te.tehead
   JOIN emp ON (tehead_emp_id= emp_id)
   JOIN item ON (teitem_item_id = item_id)
   JOIN classcode ON (item_classcode_id=classcode_id)
-  LEFT OUTER JOIN cust ON (teitem_cust_id=cust_id)
+  LEFT OUTER JOIN custinfo ON (teitem_cust_id=cust_id)
 <? if exists("custtype_pattern") ?>
   JOIN custtype ON (cust_custtype_id=custtype_id)
 <? endif ?>
