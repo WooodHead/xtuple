@@ -19,9 +19,9 @@
       </mediaobject>
     </screenshot></para>
   <tip>
-    <para>You may only scrap Work Order Materials which have been specifically issued
-    to a Work Order. In other words, Material Requirements having the Push
-    issue method may be scrapped.</para>
+    <para>You may only scrap Work Order Materials which have been specifically
+    issued to a Work Order. In other words, Material Requirements having the
+    Push issue method may be scrapped.</para>
   </tip>
   <para>When scrapping Work Order Materials from a Work Order, you are
   presented with the following options:</para>
@@ -85,23 +85,30 @@
       <listitem>
         <para>Enter the quantity of top-level finished Items you want to
         scrap. You may scrap top-level Items after they have been received
-        into Inventory&mdash;or before. Keep in mind that if you scrap
-        top-level Items prior to receiving them, material requirements for
-        those Items may or may not have been issued to the Work Order yet. You
-        should make any necessary adjustments to account for those
-        requirements. For example, you may need to issue the
-        components&mdash;either manually or through a material
-        backflush&mdash;and then scrap them retroactively.</para>
+        into Inventory—or before. Keep in mind that if you scrap top-level
+        Items prior to receiving them, material requirements for those Items
+        may or may not have been issued to the Work Order yet. You should make
+        any necessary adjustments to account for those requirements. For
+        example, you may need to issue the components—either manually or
+        through a material backflush—and then scrap them retroactively.</para>
+        <tip>
+          <para>Shop Floor Workbench users should only scrap top-level Items
+          after they have posted production sufficient to cover the scrap
+          quantity. For example, if a user assembles 10 top-level Items
+          successfully but significantly damages the 11th, the user should
+          post a quantity of 11 produced and then scrap one (i.e., 11 - 1 =
+          10).</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Production receipt already posted</term>
+      <listitem>
+        <para>Select this option if a Production receipt has already been
+        posted.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>Shop Floor Workbench users should only scrap top-level Items after
-    they have posted production sufficient to cover the scrap quantity. For
-    example, if a user assembles 10 top-level Items successfully but
-    significantly damages the 11th, the user should post a quantity of 11
-    produced and then scrap one (i.e., 11 - 1 = 10).</para>
-  </tip>
   <variablelist>
     <varlistentry>
       <term>Scrap Component</term>
@@ -155,15 +162,14 @@
       <listitem>
         <para>Displays the component quantity currently issued to the Work
         Order. You may only scrap components which have already been issued to
-        a Work Order&mdash;either manually or through a material
-        backflush.</para>
+        a Work Order—either manually or through a material backflush.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty. Scrapped from WIP</term>
       <listitem>
         <para>Displays a running total of the component quantity already
-        scrapped&mdash;if any.</para>
+        scrapped—if any.</para>
         <tip>
           <para>You may not scrap the full quantity of a Work Order Material
           Requirement from a Work Order.</para>
