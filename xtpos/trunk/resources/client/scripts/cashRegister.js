@@ -105,7 +105,7 @@ if (metrics.value("MultiWhs") != "t")
 }
 
 // Check Privileges
-toolbox.tabSetTabEnabled(_tab, toolbox.tabTabIndex(_tab,_maintainTab)
+_tab.setTabEnabled( _tab.indexOf(_maintainTab)
                         ,privileges.value("MaintainCashRegisters"))
 if (privileges.value("MaintainRetailSales"))
 {
@@ -201,7 +201,7 @@ function populate()
   }
   catch (e)
   {
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+    QMessageBox.critical(mywindow, mywindow.windowTitle, e);
   }
 }
 
@@ -272,7 +272,7 @@ function post()
   catch(e)
   {
     print(e);
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+    QMessageBox.critical(mywindow, mywindow.windowTitle, e);
   }
 }
 

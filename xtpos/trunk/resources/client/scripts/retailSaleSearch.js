@@ -71,10 +71,10 @@ function close()
 
 function fillList()
 {
-  if (_dates.startDate == "" || _dates.endDate == "")
+  if (! _dates.allValid())
   {
-    var msg = "You must enter a start and end date."
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg);
+    QMessageBox.critical(mywindow, mywindow.windowTitle,
+                         qsTr("You must enter a start and end date."));
     return;
   }
 

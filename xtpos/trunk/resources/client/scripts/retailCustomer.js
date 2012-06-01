@@ -44,7 +44,7 @@ function check()
   {
     msg = "A customer with this number already exists.  "
         + "Would you like to load that customer?";
-    if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg,
+    if (QMessageBox.critical(mywindow, mywindow.windowTitle, msg,
         msgBox.Yes | msgBox.Default, msgBox.No | msgBox.Escape) == msgBox.Yes)
     {
       _customer.mode = 1; // Edit
@@ -66,7 +66,7 @@ function check()
     {
       msg = "A CRM Account with this number already exists.  "
           + "Would you like to associate this customer that CRM Account?";
-      if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg,
+      if (QMessageBox.critical(mywindow, mywindow.windowTitle, msg,
           msgBox.Yes | msgBox.Default, msgBox.No | msgBox.Escape) == msgBox.Yes)
       {
         mywindow.findChild("_name").text = crmacct.name;
@@ -143,7 +143,7 @@ function save()
   catch (e)
   {
     print(e);
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+    QMessageBox.critical(mywindow, mywindow.windowTitle, e);
   }
 }
 

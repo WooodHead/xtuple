@@ -56,7 +56,7 @@ function siteDelete()
   try
   {
     var msg = qsTr("Are you sure you want to delete this retail site?")
-    if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg,
+    if (QMessageBox.critical(mywindow, mywindow.windowTitle, msg,
         QMessageBox.Yes | QMessageBox.Escape,
         QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
     {
@@ -68,7 +68,7 @@ function siteDelete()
   {
     _sites.select();
     print(e);
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+    QMessageBox.critical(mywindow, mywindow.windowTitle, e);
   }
 }
 

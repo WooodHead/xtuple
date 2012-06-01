@@ -114,7 +114,6 @@ function calc()
 
 function charge()
 {
-  // First save the card info
   var ccardId = toolbox.saveCreditCard(mywindow,
                                     _custId,
                           _name.text,
@@ -127,9 +126,7 @@ function charge()
                           _creditCardNumber.text,
                           _fundsType.text.charAt(0),
                           _expireMonth.text,
-                          _expireYear.text,
-                          0);
-
+                          _expireYear.text);
   switch (ccardId)
   {
     case -1:
@@ -152,6 +149,7 @@ function charge()
     default:
       break;
   }
+
   if (ccardId < 0)
     return ccardId;
 
@@ -170,17 +168,18 @@ function charge()
     if (results.returnVal < 0)
     {
       print(_ccp.errorMsg());
-      toolbox.messageBox("critical", mywindow, "Credit Card Charge Error", _ccp.errorMsg());
+      QMessageBox.critical(mywindow, "Credit Card Charge Error", _ccp.errorMsg());
       return results.returnVal - 0;
     }
   }
   else // assume SALE as normal case
   {
     results = _ccp.charge(params);
+
     if (results.returnVal < 0)
     {
       print(_ccp.errorMsg());
-      toolbox.messageBox("critical", mywindow, "Credit Card Charge Error", _ccp.errorMsg());
+      QMessageBox.critical(mywindow, "Credit Card Charge Error", _ccp.errorMsg());
       return results.returnVal - 0;
     }
   }
@@ -248,7 +247,7 @@ function closeSale()
   catch (e)
   {
     print(e);
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+    QMessageBox.critical(mywindow, mywindow.windowTitle, e);
   }
 }
 
