@@ -107,11 +107,11 @@ mywindow.findChild("_close").triggered.connect(mywindow, "close");
 _layout.addWidget(_webView, 1, 0);
 
 // Create jsGantt files on local OS if they don't already exist
-var tmpdir = toolbox.getTempDir();
+var tmpdir = QDir.tempPath();
 _jsPath = tmpdir + "/jsgantt.js";
 _cssPath = tmpdir + "/jscantt.css";
 
-if (!toolbox.fileExists(_jsPath))
+if (!QFile.exists(_jsPath))
 {
   // Create jsGantt script
   qry = toolbox.executeDbQuery("projectGantt","jsgantt");

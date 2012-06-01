@@ -13,7 +13,7 @@ xtte.item = new Object;
 
 var _tab = mywindow.findChild("_tab"); 
 var _expensePage = toolbox.loadUi("teexpense", mywindow);
-toolbox.tabInsertTab(_tab, 2, _expensePage, "Project");
+_tab.insertTab(2, _expensePage, "Project");
 
 var _projectExpense = mywindow.findChild("_projectExpense");
 var _itemtype = mywindow.findChild("_itemtype");

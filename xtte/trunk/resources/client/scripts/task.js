@@ -13,7 +13,7 @@ xtte.task = new Object;
 
 var _tab = mywindow.findChild("_tab"); 
 var _tebilling = toolbox.loadUi("tebilling", mywindow);
-toolbox.tabInsertTab(_tab, 2, _tebilling, qsTr("Billing"));
+_tab.insertTab(2, _tebilling, qsTr("Billing"));
 _tab.setEnabled(2, privileges.check("CanViewRates"));
 
 var _number = mywindow.findChild("_number");

@@ -151,7 +151,7 @@ xtte.timeExpenseSheetItem.gettask = function()
     if (!qry.first())
     {
       var msg = qsTr("No task found. A default task will be added");
-      toolbox.messageBox("critical", mywindow, qsTr("task"), msg);
+      QMessageBox.critical(mywindow, qsTr("task"), msg);
       toolbox.executeDbQuery("timeexpensesheetitem","instask",params);
 
       qry = toolbox.executeDbQuery("timeexpensesheetitem", "gettask", params);
@@ -553,7 +553,7 @@ xtte.timeExpenseSheetItem.prev = function()
     if (QMessageBox.question(mywindow,
                        qsTr("Unsaved Changed"),
                        qsTr("<p>You have made some changes "
-                       + "which have not yet been saved!\n" 
+                       + "which have not yet been saved!</p><p>" 
                        + "Would you like to save them now?"),
                         QMessageBox.Save, QMessageBox.No) == QMessageBox.Save)
     {
@@ -591,7 +591,7 @@ xtte.timeExpenseSheetItem.next = function()
   if (_modified)
   {
 
-    if (toolbox.messageBox("question", mywindow,
+    if (QMessageBox.question(mywindow,
                        qsTr("Unsaved Changed"),
                        qsTr("<p>You have made some changes "
                        + "which have not yet been saved!\n" 

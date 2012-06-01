@@ -18,11 +18,11 @@
   <prerequisite type="Query"
                 name="xTuple ERP version">
     <query>
-      SELECT (fetchMetricText('ServerVersion') >= '3.6.0');
+      SELECT (fetchMetricText('ServerVersion') >= '4.0.0');
     </query>
     <message>
       This version of the te package only works with xTuple ERP
-      versions 3.6.0 and greater.
+      versions 4.0.0 and greater.
     </message>
   </prerequisite>
 
