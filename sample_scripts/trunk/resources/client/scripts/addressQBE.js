@@ -76,13 +76,13 @@ function sFillList()
 // passing parameters that affect how the QDialog behaves
 function sOpenDialog(mode)
 {
-  // pass NonModal and Window, both of which should be modified by the toolbox for a QDialog
-  var childwnd = toolbox.openWindow("addressDialog", mywindow, 0, 1);
+  // NonModal and Window should be modified by the toolbox for a QDialog
+  var childwnd = toolbox.openWindow("addressDialog", mywindow, Qt.NonModal, Qt.Window);
 
   // create a ParameterList to set the address id and whether the dialog
   // should open for editing or viewing
   var params = new Object;
-  params.addr_id = _found.id;
+  params.addr_id = _found.id();
   params.mode    = mode;
 
   // pass the parameters to the dialog. note the use of lastWindow()
@@ -104,22 +104,26 @@ function sOpenDialog(mode)
 // passing parameters that affect how the QMainWindow behaves
 function sOpenWindow(mode)
 {
-  // pass NonModal and Window, both of which are honored. you can pass other 
-  // values and they should be honored as well.
-  var childwnd = toolbox.openWindow("addressWindow", mywindow, 0, 1);
+  try {
+    var childwnd = toolbox.openWindow("addressWindow", mywindow, Qt.NonModal, Qt.Window);
 
-  // create a ParameterList to set the address id and whether the window
-  // should open for editing or viewing
-  var params = new Object;
-  params.addr_id = _found.id;
-  params.mode    = mode;
+    // create a ParameterList to set the address id and whether the window
+    // should open for editing or viewing
+    var params = new Object;
+    params.addr_id = _found.id();
+    params.mode    = mode;
 
-  // unlike the QDialog case, we can pass the parameters directly
-  // to the window.
-  var tmp = childwnd.set(params);
+    // unlike the QDialog case, we can pass the parameters directly
+    // to the window.
+    var tmp = childwnd.set(params);
 
-  // there's no point in calling sFillList because the QMainWindow may
-  // remain open for a long time
+    // there's no point in calling sFillList because the QMainWindow may
+    // remain open for a long time
+  }
+  catch(e)
+  {
+    QMessageBox.critical(mywindow, tr("Processing Error"), e.message);
+  }
 }
 
 // different slot functions corresponding to the different buttons.
@@ -152,11 +156,10 @@ function sViewAddrW()
 // script and screen do their thing.
 function sCoords()
 {
-  // 0 => NonModal, but you can change that
-  var childwnd = toolbox.openWindow("addressCoordinates", mywindow, 0, 3);
+  var childwnd = toolbox.openWindow("addressCoordinates", mywindow, Qt.NonModal, Qt.Dialog);
 
   var addr = childwnd.findChild("_addr");
-  addr.id = _found.id;
+  addr.setId(_found.id());
 
   // there's no point in calling sFillList because the QWidget may
   // remain open for a long time.

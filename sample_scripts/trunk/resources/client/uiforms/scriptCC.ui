@@ -14,16 +14,13 @@ to be bound by its terms.</comment>
     <x>0</x>
     <y>0</y>
     <width>589</width>
-    <height>502</height>
+    <height>541</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0" rowspan="2">
-    <widget class="CustInfo" name="_cust" native="true"/>
-   </item>
    <item row="0" column="3" rowspan="2">
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
@@ -257,6 +254,9 @@ to be bound by its terms.</comment>
      </property>
     </spacer>
    </item>
+   <item row="0" column="0">
+    <widget class="CustCluster" name="_cust"/>
+   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -271,14 +271,14 @@ to be bound by its terms.</comment>
    <header>currcluster.h</header>
   </customwidget>
   <customwidget>
+   <class>CustCluster</class>
+   <extends>QWidget</extends>
+   <header>custcluster.h</header>
+  </customwidget>
+  <customwidget>
    <class>XTreeWidget</class>
    <extends>QTreeWidget</extends>
    <header>xtreewidget.h</header>
-  </customwidget>
-  <customwidget>
-   <class>CustInfo</class>
-   <extends>QWidget</extends>
-   <header>custcluster.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
@@ -296,22 +296,6 @@ to be bound by its terms.</comment>
     <hint type="destinationlabel">
      <x>141</x>
      <y>263</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>_cust</sender>
-   <signal>valid(bool)</signal>
-   <receiver>groupBox</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>78</x>
-     <y>22</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>62</x>
-     <y>76</y>
     </hint>
    </hints>
   </connection>

@@ -15,13 +15,13 @@ var googleapikey = "test";
 function getCoords(input)
 {
   var url = "http://maps.google.com/maps/geo?"
-          + "q=" + _addr.line1() // q (required) — The address that you want to geocode.
+          + "q=" + _addr.line1() // q (required) â The address that you want to geocode.
           + ",+" + _addr.city()
           + ",+" + _addr.state()
-          + "&key=" + googleapikey  // key (required) — Your API key.
-          + "&sensor=false"         // sensor (required) — Indicates whether or not the geocoding request comes from a device with a location sensor. This value must be either true or false.
-          + "&output=csv"           // output (required) — The format in which the output should be generated. The options are xml, kml, csv, or (default) json.
-                                    // gl (optional) — The country code ... as a ... two-character value.
+          + "&key=" + googleapikey  // key (required) â Your API key.
+          + "&sensor=false"         // sensor (required) â Indicates whether or not the geocoding request comes from a device with a location sensor. This value must be either true or false.
+          + "&output=csv"           // output (required) â The format in which the output should be generated. The options are xml, kml, csv, or (default) json.
+                                    // gl (optional) â The country code ... as a ... two-character value.
           ;
 
   url = url.replace(/( )+/g, "+");
@@ -36,4 +36,4 @@ function getCoords(input)
   mywindow.findChild("_longDir").text = (coords[3] < 0) ? "W" : "E";
 }
 
-_addr.newId.connect(getCoords);
+_addr["newId(int)"].connect(getCoords);

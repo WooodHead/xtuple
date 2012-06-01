@@ -7,21 +7,26 @@
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
  * to be bound by its terms.
  */
+
 // Script: postOperations
 // This script will prevent users from posting more qty than the balance
 // remaining on the selected operation. This takes advantage of the
 // _balance dynamic property set by the postOperations screen as of 3.0.0RC
+
+var _post = mywindow.findChild("_post");
+var _qty = mywindow.findChild("_qty");
+
 function checkQty()
 {
-  if(mywindow.findChild("_qty").text > mywindow._balance)
+  if(_qty.toDouble() > _balance)
   {
-    mywindow.findChild("_post").enabled=false;
-    toolbox.messageBox("error", mywindow, "Cannot Over Post",
-      "You may not over post qty. Please correct this situation.");
+    _post.enabled=false;
+    QMessageBox.warning(mywindow, qsTr("Cannot Over Post"),
+                        qsTr("<p>You may not overpost qty. "
+                         + "Either reduce the quantity or cancel."));
   }
   else
-    mywindow.findChild("_post").enabled=true;
+    _post.enabled=true;
 }
 
-var qty = mywindow.findChild("_qty");
-qty.editingFinished.connect(checkQty);
+_qty.editingFinished.connect(checkQty);
