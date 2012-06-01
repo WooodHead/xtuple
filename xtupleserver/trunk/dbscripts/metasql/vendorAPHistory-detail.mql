@@ -39,7 +39,7 @@ WHERE ( (apopen_vend_id=<? value("vend_id") ?>)
     AND (apopen_docdate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>) ) 
 
 UNION 
-SELECT apopen_id, apapply_target_apopen_id AS applyid, 1 AS type,
+SELECT apopen_id, apapply_source_apopen_id AS applyid, 1 AS type,
        apopen_docdate AS sortdate, apopen_docnumber AS sortnumber,
        apapply_source_docnumber AS docnumber,
        '' AS f_open,
