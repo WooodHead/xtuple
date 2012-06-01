@@ -164,7 +164,7 @@ function save()
   {
     _site["newID(int)"].connect(check);
     toolbox.executeRollback();
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+    QMessageBox.critical(mywindow, mywindow.windowTitle, e);
 
     return false;
   }

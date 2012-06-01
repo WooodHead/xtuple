@@ -10,9 +10,9 @@
 
 //  Insert Retail Tab
 var _tab 	= mywindow.findChild("_tab");
-var idx	= toolbox.tabCount(_tab) + 1;
+var idx	= _tab.count + 1;
 var page	= toolbox.loadUi("configureRetail", mywindow);
-toolbox.tabInsertTab(_tab,idx,page, "Retail");
+_tab.insertTab(idx, page, "Retail");
 
 //  Define variables
 var _retailCust	= page.findChild("_retailCust");
@@ -28,7 +28,7 @@ _retailCust["valid(bool)"].connect(sHandleRetailOnlyDefaultCust);
 mywindow.saving.connect(save);
 
 //  Misc. Defaults
-_retailSaleNumber.setValidator(toolbox.qtyVal());
+_retailSaleNumber.setValidator(mainwindow.qtyVal());
 populate();
 
 function custGroupToggled(checked)

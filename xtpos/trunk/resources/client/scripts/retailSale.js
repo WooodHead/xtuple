@@ -142,7 +142,7 @@ if (metrics.value("MultiWhs") != "t")
   _siteLit.hide();
 }
 if (metrics.value("RetailOnlyUseInternalCust") == "t")
-  toolbox.tabRemoveTab(_tab, _custTab);
+  _tab.removeTab( _custTab);
 
 // Check Privileges
 if (privileges.value("MaintainCustomerMasters"))
@@ -169,7 +169,7 @@ with (_type)
 // Disable until we have a line item to work with
 _itemGroup.enabled = false;
 // Set precision
-_qty.setValidator(toolbox.qtyVal());
+_qty.setValidator(mainwindow.qtyVal());
 
 // Misc Defaults
 handleItem();
@@ -235,7 +235,7 @@ function customerNew()
   {
     var msg = e + " must be set in Sales configuration to create customers "
             + "from here.  Please see your administrator."
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg);
+    QMessageBox.critical(mywindow, mywindow.windowTitle, msg);
     return;
   }
 
@@ -313,7 +313,7 @@ function extension()
   catch (e)
   {
     print(e);
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+    QMessageBox.critical(mywindow, mywindow.windowTitle, e);
   }
 }
 
@@ -369,7 +369,7 @@ function itemPrice()
   var params = new Object;
   params.item_id = _item.id();
   params.cust_id = _cust.id();
-  params.qty     = _qty.text;
+  params.qty     = _qty.toDouble();
 
   try
   {
@@ -387,7 +387,7 @@ function itemPrice()
   catch (e)
   {
     print(e);
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+    QMessageBox.critical(mywindow, mywindow.windowTitle, e);
   }
 }
 
@@ -432,7 +432,7 @@ function payment()
   catch (e)
   {
     print(e);
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+    QMessageBox.critical(mywindow, mywindow.windowTitle, e);
     return;
   }
 
@@ -468,7 +468,7 @@ function payment()
   {
     toolbox.executeRollback();
     print(e);
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+    QMessageBox.critical(mywindow, mywindow.windowTitle, e);
   }
   finally
   {
@@ -530,7 +530,7 @@ function populate()
   {
     var msg = "The Sales Rep number on this order is not your Sales Rep number.  "
             + "Do you want to change it to your number?"
-    if (toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg,
+    if (QMessageBox.critical(mywindow, mywindow.windowTitle, msg,
         QMessageBox.Yes | QMessageBox.Default,
         QMessageBox.No | QMessageBox.Escape) == QMessageBox.Yes)
       _salesrep.code = _salesrepCache;
@@ -571,7 +571,7 @@ function populateItems()
   catch(e)
   {
     print(e);
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+    QMessageBox.critical(mywindow, mywindow.windowTitle, e);
   }
 }
 
@@ -616,7 +616,7 @@ function prepare()
   if (metrics.value("RetailUseInternalCust") == "t")
   {
     _cust.setId(metrics.value("RetailCustId"));
-    _tab.setCurrentIndex(toolbox.tabTabIndex(_tab, _itemsTab));
+    _tab.setCurrentIndex(_tab.indexOf( _itemsTab));
     _item.setFocus();
   }
   else
@@ -633,7 +633,7 @@ function receiptSearch()
   {
     var msg = qsTr("This action will delete all listed items.  "
             + "Are you sure you want to do this?")
-    if (toolbox.messageBox("warning", mywindow, mywindow.windowTitle, msg,
+    if (QMessageBox.warning(mywindow, mywindow.windowTitle, msg,
           QMessageBox.Yes | QMessageBox.Escape,
           QMessageBox.No | QMessageBox.Default) == QMessageBox.No)
       return;
@@ -745,14 +745,14 @@ function rowSelected(row)
     {
       _saleitems.selectRow(currentRow);
       var msg = "You must select an item or remove the current line."
-      toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg);
+      QMessageBox.critical(mywindow, mywindow.windowTitle, msg);
       return;
     }
     else if (_qty.text.length == 0)
     {
       _saleitems.selectRow(currentRow);
       var msg = "You must enter a valid quantity or remove the current line."
-      toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg);
+      QMessageBox.critical(mywindow, mywindow.windowTitle, msg);
       return;
     }
   }
@@ -793,7 +793,7 @@ function save()
   {
     toolbox.executeRollback();
     print(e);
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, e);
+    QMessageBox.critical(mywindow, mywindow.windowTitle, e);
   }
   finally
   {

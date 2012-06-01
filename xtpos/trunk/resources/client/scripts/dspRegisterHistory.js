@@ -36,12 +36,6 @@ with (_detail)
   addColumn("Journal #" ,80 , 1, true ,"f_journalnumber");      
 }
 
-// Define Connections
-_printList.clicked.connect(printList);
-_printReceipt.clicked.connect(printReceipt);
-_query.clicked.connect(fillList);
-_close.clicked.connect(mywindow, "close");
-
 function fillList()
 {
   var params = new Object();
@@ -75,10 +69,10 @@ function printReceipt()
 
 function setParams(params)
 {
-  if (_dates.startDate == "" || _dates.endDate == "")
+  if (! _dates.allValid())
   {
-    var msg = "You must specify a valid date range."
-    toolbox.messageBox("critical", mywindow, mywindow.windowTitle, msg);
+    QMessageBox.critical(mywindow, mywindow.windowTitle,
+                         qsTr("You must specify a valid date range."));
     return false;
   }
 
@@ -90,3 +84,8 @@ function setParams(params)
 
   return true;
 }
+
+_printList.clicked.connect(printList);
+_printReceipt.clicked.connect(printReceipt);
+_query.clicked.connect(fillList);
+_close.clicked.connect(mywindow, "close");
