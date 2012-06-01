@@ -191,16 +191,16 @@ function populateMenuToDo(pMenu)
   var act = toDoAct(_todoList.altId());
   var menuItem;
 
-  var enable = privilegeCheckToDo(act);
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = privilegeCheckToDo(act);
   
-  menuItem = toolbox.menuAddAction(pMenu, _open, enable);
   menuItem.triggered.connect(openWindowToDo);
 
   if (act == "D")
   {
-    menuItem = toolbox.menuAddAction(pMenu, qsTr("Delete"),
-                                     privileges.check("MaintainAllToDoItems") || 
-                                     privileges.check("MaintainPersonalToDoItems"));
+    menuItem = pMenu.addAction(qsTr("Delete"));
+    menuItem.enabled = privileges.check("MaintainAllToDoItems") || 
+                       privileges.check("MaintainPersonalToDoItems");
     menuItem.triggered.connect(deleteToDo);
   }
 }

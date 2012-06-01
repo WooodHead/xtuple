@@ -107,7 +107,8 @@ function populateMenuMyAccts(pMenu)
 {
   var menuItem;
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, privilegeCheckMyAccts());
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = privilegeCheckMyAccts();
   menuItem.triggered.connect(openWindowMyAccts);
 }
 

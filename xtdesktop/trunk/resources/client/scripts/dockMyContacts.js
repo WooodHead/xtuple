@@ -101,7 +101,8 @@ function populateMenuMyCntcts(pMenu)
 {
   var menuItem;
 
-  menuItem = toolbox.menuAddAction(pMenu, _open, privilegeCheckMyCntcts());
+  menuItem = pMenu.addAction(_open);
+  menuItem.enabled = privilegeCheckMyCntcts();
   menuItem.triggered.connect(openWindowMyCntcts);
 }
 
