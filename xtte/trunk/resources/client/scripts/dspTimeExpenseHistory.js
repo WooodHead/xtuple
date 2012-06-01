@@ -11,30 +11,32 @@
 include("xtte");
 xtte.dspTimeExpenseHistory = new Object;
 
-var _close       	= mywindow.findChild("_close");
-var _print       	= mywindow.findChild("_print");
-var _query      	= mywindow.findChild("_query");
-var _list     	= mywindow.findChild("_list");
-var _parameterWidget 	= mywindow.findChild("_parameterWidget");
+var _close           = mywindow.findChild("_close");
+var _print           = mywindow.findChild("_print");
+var _query           = mywindow.findChild("_query");
+var _list            = mywindow.findChild("_list");
+var _parameterWidget = mywindow.findChild("_parameterWidget");
 
-_list.addColumn(qsTr("Sheet #"),		XTreeWidget.orderColumn,Qt.AlignLeft,    true, "f_sheet_number");
-_list.addColumn(qsTr("Employee #"),	XTreeWidget.orderColumn,Qt.AlignLeft,    true, "emp_code");
-_list.addColumn(qsTr("Work Date"),		XTreeWidget.dateColumn, Qt.AlignLeft,    true, "teitem_workdate");
-_list.addColumn(qsTr("Type"),		XTreeWidget.dateColumn, Qt.AlignLeft,    true, "teitem_type");
-_list.addColumn(qsTr("Status"),		XTreeWidget.dateColumn, Qt.AlignLeft,    true, "tehead_status");
-_list.addColumn(qsTr("Project#"),		XTreeWidget.orderColumn,Qt.AlignLeft,    true, "prj_number");
-_list.addColumn(qsTr("Project Name"),	-1,		 Qt.AlignLeft,    false,"prj_name");
-_list.addColumn(qsTr("Task#"),		XTreeWidget.orderColumn,Qt.AlignLeft,    false, "prjtask_number");
-_list.addColumn(qsTr("Task Name"),		-1,		 Qt.AlignLeft,    false,"prjtask_name");
-_list.addColumn(qsTr("Cust.#"),		XTreeWidget.orderColumn,Qt.AlignLeft,    false, "cust_number");
-_list.addColumn(qsTr("Cust. Name"),	-1,		 Qt.AlignLeft,    false, "cust_name");
-_list.addColumn(qsTr("PO"),		XTreeWidget.orderColumn,Qt.AlignLeft,    false, "teitem_po");
-_list.addColumn(qsTr("Item"),		XTreeWidget.itemColumn, Qt.AlignLeft,    true, "item_number");
-_list.addColumn(qsTr("Description"),	-1,  		 Qt.AlignLeft,    true, "item_descrip1");
-_list.addColumn(qsTr("Qty"), 		XTreeWidget.qtyColumn,  Qt.AlignRight,   true, "teitem_qty");
-_list.addColumn(qsTr("Billable"), 		XTreeWidget.qtyColumn,  Qt.AlignRight,   false, "teitem_billable");
-privileges.check("CanViewRates")
-  _list.addColumn(qsTr("Ext."), 		XTreeWidget.moneyColumn,  Qt.AlignRight,   true, "teitem_total");
+_list.addColumn(qsTr("Sheet #"),      XTreeWidget.orderColumn, Qt.AlignLeft,  true,  "f_sheet_number");
+_list.addColumn(qsTr("Employee #"),   XTreeWidget.orderColumn, Qt.AlignLeft,  true,  "emp_code");
+_list.addColumn(qsTr("Work Date"),    XTreeWidget.dateColumn,  Qt.AlignLeft,  true,  "teitem_workdate");
+_list.addColumn(qsTr("Type"),         XTreeWidget.dateColumn,  Qt.AlignLeft,  true,  "teitem_type");
+_list.addColumn(qsTr("Status"),       XTreeWidget.dateColumn,  Qt.AlignLeft,  true,  "tehead_status");
+_list.addColumn(qsTr("Project#"),     XTreeWidget.orderColumn, Qt.AlignLeft,  true,  "prj_number");
+_list.addColumn(qsTr("Project Name"), -1,                      Qt.AlignLeft,  false, "prj_name");
+_list.addColumn(qsTr("Task#"),        XTreeWidget.orderColumn, Qt.AlignLeft,  false, "prjtask_number");
+_list.addColumn(qsTr("Task Name"),    -1,                      Qt.AlignLeft,  false, "prjtask_name");
+_list.addColumn(qsTr("Cust.#"),       XTreeWidget.orderColumn, Qt.AlignLeft,  false, "cust_number");
+_list.addColumn(qsTr("Cust. Name"),   -1,                      Qt.AlignLeft,  false, "cust_name");
+_list.addColumn(qsTr("PO"),           XTreeWidget.orderColumn, Qt.AlignLeft,  false, "teitem_po");
+_list.addColumn(qsTr("Item"),         XTreeWidget.itemColumn,  Qt.AlignLeft,  true,  "item_number");
+_list.addColumn(qsTr("Description"),  -1,                      Qt.AlignLeft,  true,  "item_descrip1");
+_list.addColumn(qsTr("Qty"),          XTreeWidget.qtyColumn,   Qt.AlignRight, true,  "teitem_qty");
+if (privileges.check("CanViewRates"))
+{
+  _list.addColumn(qsTr("Billable"),   XTreeWidget.qtyColumn,   Qt.AlignRight, false, "teitem_billable");
+  _list.addColumn(qsTr("Ext."),       XTreeWidget.moneyColumn, Qt.AlignRight, true,  "teitem_total");
+}
 
 var teSql = "SELECT 1,'" + qsTr("Time") + "','T' "
           + "UNION "
@@ -68,12 +70,12 @@ xtte.dspTimeExpenseHistory.populateMenu = function(pMenu, pItem, pCol)
 
   if(pMenu != null)
   {
-    var editAct = toolbox.menuAddAction(pMenu, qsTr("Edit..."), true);
+    var editAct = pMenu.addAction(qsTr("Edit..."));
     editAct.triggered.connect(xtte.dspTimeExpenseHistory.editItem);
     editAct.enabled = (privileges.check("MaintainTimeExpense") &&
                        pItem.rawValue("tehead_status") == 'O');
 
-    var viewAct = toolbox.menuAddAction(pMenu, qsTr("View..."), true);
+    var viewAct = pMenu.addAction(qsTr("View..."));
     viewAct.triggered.connect(xtte.dspTimeExpenseHistory.viewItem);
   }
 }

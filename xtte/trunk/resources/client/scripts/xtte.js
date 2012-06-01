@@ -26,7 +26,7 @@ xtte.errorCheck = function (q)
 {
   if (q.lastError().type != QSqlError.NoError)
   {
-    toolbox.messageBox("critical", mywindow,
+    QMessageBox.critical(mywindow,
                         qsTr("Database Error"), q.lastError().text);
     return false;
   }

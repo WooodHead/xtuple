@@ -13,25 +13,25 @@ include("xtte");
 // Define Variables
 xtte.timeExpenseSheets = new Object;
 
-var _all		= mywindow.findChild("_all");
-var _close 		= mywindow.findChild("_close");
-var _query		= mywindow.findChild("_query");
-var _new		= mywindow.findChild("_new");
-var _print 		= mywindow.findChild("_print");
-var _sheets		= mywindow.findChild("_sheets");
-var _selected	= mywindow.findChild("_selected");
-var _approve  	= mywindow.findChild("_approve");
-var _process           = mywindow.findChild("_process");
-var _weekending  	= mywindow.findChild("_weekending");
-var _showAllEmployees  = mywindow.findChild("_showAllEmployees");
-var _employee	= mywindow.findChild("_employee");
-var _selected	= mywindow.findChild("_selected");
-var _open              = mywindow.findChild("_open");
-var _approved          = mywindow.findChild("_approved");
-var _closed            = mywindow.findChild("_closed");
-var _invoice           = mywindow.findChild("_invoice");
-var _voucher           = mywindow.findChild("_voucher");
-var _post              = mywindow.findChild("_post");
+var _all              = mywindow.findChild("_all");
+var _close            = mywindow.findChild("_close");
+var _query            = mywindow.findChild("_query");
+var _new              = mywindow.findChild("_new");
+var _print            = mywindow.findChild("_print");
+var _sheets           = mywindow.findChild("_sheets");
+var _selected         = mywindow.findChild("_selected");
+var _approve          = mywindow.findChild("_approve");
+var _process          = mywindow.findChild("_process");
+var _weekending       = mywindow.findChild("_weekending");
+var _showAllEmployees = mywindow.findChild("_showAllEmployees");
+var _employee         = mywindow.findChild("_employee");
+var _selected         = mywindow.findChild("_selected");
+var _open             = mywindow.findChild("_open");
+var _approved         = mywindow.findChild("_approved");
+var _closed           = mywindow.findChild("_closed");
+var _invoice          = mywindow.findChild("_invoice");
+var _voucher          = mywindow.findChild("_voucher");
+var _post             = mywindow.findChild("_post");
 
 // Set up columns
 _sheets.addColumn(qsTr("Sheet#"), XTreeWidget.orderColumn, Qt.AlignLeft,    true, "tehead_number");
@@ -62,19 +62,19 @@ xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
       {
         var status = currentItem.rawValue("tehead_status");
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("Print"), true);
+        tmpact = pMenu.addAction(qsTr("Print"));
         tmpact.triggered.connect(xtte.timeExpenseSheets.printSheet);
 
         pMenu.addSeparator();
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit..."), true);
+        tmpact = pMenu.addAction(qsTr("Edit..."));
         tmpact.triggered.connect(xtte.timeExpenseSheets.editSheet);
         tmpact.enabled = (status == 'O' && privileges.check("MaintainTimeExpense"));
  
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View..."), true);
+        tmpact = pMenu.addAction(qsTr("View..."));
         tmpact.triggered.connect(xtte.timeExpenseSheets.viewSheet);
   
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("Delete"), true);
+        tmpact = pMenu.addAction(qsTr("Delete"));
         tmpact.triggered.connect(xtte.timeExpenseSheets.deleteSheet);
         tmpact.enabled = (status == 'O' && privileges.check("MaintainTimeExpense"));
       }
@@ -82,22 +82,22 @@ xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
       if (xtte.timeExpenseSheets.canApprove(selected))
       {
         pMenu.addSeparator();
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("Approve"), 
-                                       privileges.check("CanApprove"));
+        tmpact = pMenu.addAction(qsTr("Approve"));
+        tmpact.enabled = privileges.check("CanApprove");
         tmpact.triggered.connect(xtte.timeExpenseSheets.approveSheets);
       }
       else if (xtte.timeExpenseSheets.canUnapprove(selected))
       {
         pMenu.addSeparator();
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("Unapprove"), 
-                                       privileges.check("CanApprove"));
+        tmpact = pMenu.addAction(qsTr("Unapprove"));
+        tmpact.enabled = privileges.check("CanApprove");
         tmpact.triggered.connect(xtte.timeExpenseSheets.unapproveSheets);
       }
 
       if (status == 'A' || status == 'O')
       {
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("Close"), 
-                                       privileges.check("MaintainTimeExpense"));
+        tmpact = pMenu.addAction(qsTr("Close"));
+        tmpact.enabled = privileges.check("MaintainTimeExpense");
         tmpact.triggered.connect(xtte.timeExpenseSheets.closeSheet);
       }
 
@@ -108,23 +108,23 @@ xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
 
       if (xtte.timeExpenseSheets.canProcess("invoiced", selected))
       {
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("Invoice"), true);
+        tmpact = pMenu.addAction(qsTr("Invoice"));
         tmpact.triggered.connect(xtte.timeExpenseSheets.invoiceSheets);
-        tmpact.enabled = (privileges.check("allowInvoicing"));
+        tmpact.enabled = privileges.check("allowInvoicing");
       }
 
       if (xtte.timeExpenseSheets.canProcess("vouchered", selected))
       {
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("Voucher"),true);
+        tmpact = pMenu.addAction(qsTr("Voucher"));
         tmpact.triggered.connect(xtte.timeExpenseSheets.voucherSheets);
-        tmpact.enabled = (privileges.check("allowVouchering"));
+        tmpact.enabled = privileges.check("allowVouchering");
       }
 
       if (xtte.timeExpenseSheets.canProcess("posted", selected))
       {
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("Post Time"), true);
+        tmpact = pMenu.addAction(qsTr("Post Time"));
         tmpact.triggered.connect(xtte.timeExpenseSheets.postSheets);
-        tmpact.enabled = (privileges.check("PostTimeSheets"));
+        tmpact.enabled = privileges.check("PostTimeSheets");
       }
     }
   }
@@ -196,7 +196,7 @@ xtte.timeExpenseSheets.approveSheets = function()
     var params   = new Object();
     params.tehead_id = selected[i].id();    
 
-    q = toolbox.executeDbQuery("timeexpensesheets", "approve", params );	
+    q = toolbox.executeDbQuery("timeexpensesheets", "approve", params );        
     if (!xtte.errorCheck(q))
     {
       toolbox.executeRollback();
@@ -216,7 +216,7 @@ xtte.timeExpenseSheets.unapproveSheets = function()
     var params   = new Object();
     params.tehead_id = selected[i].id();    
 
-    q = toolbox.executeDbQuery("timeexpensesheets", "unapprove", params );	
+    q = toolbox.executeDbQuery("timeexpensesheets", "unapprove", params );      
     if (!xtte.errorCheck(q))
     {
       toolbox.executeRollback();
@@ -264,7 +264,7 @@ xtte.timeExpenseSheets.process = function()
       var params   = new Object();
       params.tehead_ids = ids;    
 
-      q = toolbox.executeDbQuery("timeexpensesheets", "invoice", params );	
+      q = toolbox.executeDbQuery("timeexpensesheets", "invoice", params );      
       if (!xtte.errorCheck(q))
       {
         toolbox.executeRollback();
@@ -284,7 +284,7 @@ xtte.timeExpenseSheets.process = function()
         (item.rawValue("tehead_status") == 'A') &&
         (item.rawValue("vouchered") == 0))
     {
-      q = toolbox.executeDbQuery("timeexpensesheets", "voucher", params );	
+      q = toolbox.executeDbQuery("timeexpensesheets", "voucher", params );      
       if (!xtte.errorCheck(q))
       {
         toolbox.executeRollback();
@@ -309,7 +309,7 @@ xtte.timeExpenseSheets.process = function()
       params.phrase1 = qsTr("Post Time Sheet for ");
       params.phrase2 = qsTr(" to Project");
 
-      q = toolbox.executeDbQuery("timeexpensesheets", "post", params );	  
+      q = toolbox.executeDbQuery("timeexpensesheets", "post", params );   
       if (!xtte.errorCheck(q))
       {
         toolbox.executeRollback();
@@ -345,7 +345,7 @@ xtte.timeExpenseSheets.processSheets = function(selected, invoice, voucher, post
     var params   = new Object();
     params.tehead_ids = ids;    
 
-    q = toolbox.executeDbQuery("timeexpensesheets", "invoice", params );	
+    q = toolbox.executeDbQuery("timeexpensesheets", "invoice", params );        
     if (!xtte.errorCheck(q))
     {
       toolbox.executeRollback();
@@ -360,7 +360,7 @@ xtte.timeExpenseSheets.processSheets = function(selected, invoice, voucher, post
 
     if (voucher)
     {
-      q = toolbox.executeDbQuery("timeexpensesheets", "voucher", params );	
+      q = toolbox.executeDbQuery("timeexpensesheets", "voucher", params );      
       if (!xtte.errorCheck(q))
       {
         toolbox.executeRollback();
@@ -383,7 +383,7 @@ xtte.timeExpenseSheets.processSheets = function(selected, invoice, voucher, post
       params.phrase1 = qsTr("Post Time Sheet for ");
       params.phrase2 = qsTr(" to Project");
 
-      q = toolbox.executeDbQuery("timeexpensesheets", "post", params );	  
+      q = toolbox.executeDbQuery("timeexpensesheets", "post", params );   
       if (!xtte.errorCheck(q))
       {
         toolbox.executeRollback();   
@@ -432,7 +432,7 @@ xtte.timeExpenseSheets.closeSheet = function()
     var params   = new Object();
     params.tehead_id = _sheets.id();    
 
-    q = toolbox.executeDbQuery("timeexpensesheets", "close", params );	
+    q = toolbox.executeDbQuery("timeexpensesheets", "close", params );  
     if (xtte.errorCheck(q))
       xtte.timeExpenseSheets.fillList(); 
   }

@@ -131,14 +131,14 @@ xtte.timeExpenseSheet.populateMenu = function(pMenu, pItem, pCol)
     var currentItem  = _lines.currentItem();
     if (currentItem != null)
     {
-      tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit..."), true);
+      tmpact = pMenu.addAction(qsTr("Edit..."));
       tmpact.triggered.connect(xtte.timeExpenseSheet.editItem);
       tmpact.enabled = (_mode != "view" && privileges.check("MaintainTimeExpense"));
 
-      tmpact = toolbox.menuAddAction(pMenu, qsTr("View..."), true);
+      tmpact = pMenu.addAction(qsTr("View..."));
       tmpact.triggered.connect(xtte.timeExpenseSheet.viewItem);
 
-      tmpact = toolbox.menuAddAction(pMenu, qsTr("Delete..."), true);
+      tmpact = pMenu.addAction(qsTr("Delete..."));
       tmpact.triggered.connect(xtte.timeExpenseSheet.deleteItem);
       tmpact.enabled = (_mode != "view" && privileges.check("MaintainTimeExpense"));
     }
