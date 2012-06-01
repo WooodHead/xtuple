@@ -82,12 +82,40 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Backflush</term>
+      <term>Backflush Materials</term>
       <listitem>
         <para>Select to indicate that the material requirements indicated by
         the associated Work Order Material Requirement record should be issued
         to the selected Work Order regardless of the issue method associated
         with these requirements.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Backflush Operations</term>
+      <listitem>
+        <para>Select to indicate that the amount of time and labor indicated
+        by the associated Work Order Operation record will be issued to the
+        selected Work Order.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Setup By</term>
+            <listitem>
+              <para>Enter the name of the user who performed the set
+              up.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Run By</term>
+            <listitem>
+              <para>Enter the name of the user who performed the production
+              run.</para>
+              <note>
+                <para>If the "Backflush Operations" option is not selected,
+                the setup and run time options will be disabled.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
