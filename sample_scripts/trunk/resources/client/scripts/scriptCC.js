@@ -21,9 +21,9 @@ var _prior    = mywindow.findChild("_prior");
 
 var _ccptest = _ccp.testConfiguration();
 if (_ccptest < 0)
-  toolbox.messageBox("critical", mainwindow, "Configuration Error",   _ccp.errorMsg());
+  QMessageBox.critical(mainwindow, qsTr("Configuration Error"),   _ccp.errorMsg());
 else if (_ccptest > 0)
-  toolbox.messageBox("warning",  mainwindow, "Configuration Warning", _ccp.errorMsg());
+  QMessageBox.warning( mainwindow, qsTr("Configuration Warning"), _ccp.errorMsg());
 
 _card.addColumn("Card Number", -1, 1, true, "f_number");
 _card.addColumn("Card Type",   -1, 1, true, "type");
@@ -82,14 +82,14 @@ function populatePrior()
 
   if (_cust.id() > 0)
     params.cust_id      = _cust.id();
-  params.preauth        = "Preauthorization";
-  params.charge         = "Charge";
-  params.refund         = "Refund/Credit";
-  params.authorized     = "Authorized";
-  params.approved       = "Approved";
-  params.declined       = "Declined/Denied";
-  params.voided         = "Voided";
-  params.noapproval     = "Not Approved";
+  params.preauth        = qsTr("Preauthorization");
+  params.charge         = qsTr("Charge");
+  params.refund         = qsTr("Refund/Credit");
+  params.authorized     = qsTr("Authorized");
+  params.approved       = qsTr("Approved");
+  params.declined       = qsTr("Declined/Denied");
+  params.voided         = qsTr("Voided");
+  params.noapproval     = qsTr("Not Approved");
   if (metrics.value("CCValidDays") > 0)
     params.ccValidDays  = metrics.value("CCValidDays");
   else
@@ -109,7 +109,8 @@ function authorize()
 
   var results     = _ccp.authorize(params);
   if (results.returnVal < 0)
-    toolbox.messageBox("critical", mywindow, "Credit Card Preauth Error", _ccp.errorMsg());
+    QMessageBox.critical(mywindow, qsTr("Credit Card Preauth Error"),
+                         _ccp.errorMsg());
   else
     populatePrior();
 }
@@ -125,7 +126,8 @@ function charge()
 
   var results     = _ccp.charge(params);
   if (results.returnVal < 0)
-    toolbox.messageBox("critical", mywindow, "Credit Card Charge Error", _ccp.errorMsg());
+    QMessageBox.critical(mywindow, qsTr("Credit Card Charge Error"),
+                         _ccp.errorMsg());
   else
     populatePrior();
 }
@@ -142,7 +144,8 @@ function credit()
   var results     = _ccp.charge(params);
 debugProperties(results);
   if (result < 0)
-    toolbox.messageBox("critical", mywindow, "Credit Card Credit Error", _ccp.errorMsg());
+    QMessageBox.critical(mywindow, qsTr("Credit Card Credit Error"),
+                         _ccp.errorMsg());
   else
     populatePrior();
 }
@@ -156,7 +159,8 @@ function chargePreauth()
 
   var results     = _ccp.chargePreauthorized(params);
   if (results.returnVal + 0 < 0)
-    toolbox.messageBox("critical", mywindow, "Credit Card Charge Preauth Error", _ccp.errorMsg());
+    QMessageBox.critical(mywindow, qsTr("Credit Card Charge Preauth Error"),
+                         _ccp.errorMsg());
   else
     populatePrior();
 }
@@ -168,7 +172,8 @@ function voidPrevious()
 
   var results     = _ccp.voidPrevious(params);
   if (results.returnVal < 0)
-    toolbox.messageBox("critical", mywindow, "Credit Card Charge Preauth Error", _ccp.errorMsg());
+    QMessageBox.critical(mywindow, qsTr("Credit Card Charge Preauth Error"),
+                         _ccp.errorMsg());
   else
     populatePrior();
 }

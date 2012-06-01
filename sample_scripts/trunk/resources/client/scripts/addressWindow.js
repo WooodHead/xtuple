@@ -42,20 +42,20 @@ function sSave()
   var result = _addr.save("CHECK");
   if (result == -2)
   {
-    var choice = toolbox.messageBox("question", mywindow, "Conflict",
-                                    "<p>This address is shared. Would you like "
+    var choice = QMessageBox.question(mywindow, qsTr("Conflict"),
+                               qsTr("<p>This address is shared. Would you like "
                                   + "to save the changes as a new address or "
-                                  + "save the changes to all uses of this address?",
-                                  0x1000, 0x800);
-    if (choice == 0x800)
+                                  + "save the changes to all uses of this address?"),
+                                  QMessageBox.SaveAll, QMessageBox.Save);
+    if (choice == QMessageBox.Save)
       result = _addr.save(1);
-    else if (choice == 0x1000)
+    else if (choice == QMessageBox.SaveAll)
       result = _addr.save(2);                                    
   }
   // not else-if
   if (result < 0)
-    toolbox.messageBox("critical", mywindow, "Save Error",
-                       "There was an error saving the address");
+    QMessageBox.critical(mywindow, qsTr("Save Error"),
+                         qsTr("There was an error saving the address"));
   else
     mywindow.close();
 }
