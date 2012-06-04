@@ -61,10 +61,10 @@
               <para>The system enables you to specify when a component can be
               used in a Bill of Materials. For example, the company's
               engineering department may be working on a new design for an
-              existing Item&mdash;but that new design will not be available
-              for use until a given date in the future. In this case, you can
-              specify a future "effective" date to indicate when the component
-              will be available for use.</para>
+              existing Item—but that new design will not be available for use
+              until a given date in the future. In this case, you can specify
+              a future "effective" date to indicate when the component will be
+              available for use.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -74,12 +74,12 @@
               planned to be obsoleted from (i.e., no longer used in) a Bill of
               Materials. As mentioned above, the company's engineering
               department may be working on a new design for an existing
-              Item&mdash;but that new design will not be available for use
-              until a given date in the future. In this case, the old
-              component Item must be marked for "expiration" on the date when
-              the new Item becomes effective. Setting this parameter will
-              instruct the system to stop using the specified component on the
-              date entered into this field.</para>
+              Item—but that new design will not be available for use until a
+              given date in the future. In this case, the old component Item
+              must be marked for "expiration" on the date when the new Item
+              becomes effective. Setting this parameter will instruct the
+              system to stop using the specified component on the date entered
+              into this field.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -145,9 +145,9 @@
         manufactured component when the parent Item is exploded. The impact on
         Work Order numbers will be visible. For example, a "-1" will be
         appended to the parent level Work Order and a "-2" to the child level
-        Work Order&mdash;as in, #1061-1 and #1061-2. If this option is not
-        selected, a child Work Order will not be created when the parent Item
-        is exploded.</para>
+        Work Order—as in, #1061-1 and #1061-2. If this option is not selected,
+        a child Work Order will not be created when the parent Item is
+        exploded.</para>
         <note>
           <para>The "Create Child W/O at Parent W/O Explosion" option will
           cause the creation of lower level Work Orders BOTH at Work Order
@@ -220,9 +220,9 @@
             <term>Mixed</term>
             <listitem>
               <para>Select if you want the component Item to take upon itself
-              the issue method applied to it initially&mdash;that is, either
-              "Pull" or "Push." Assigning the "Mixed" issue method to a
-              component Item gives you the flexibility of deciding on a
+              the issue method applied to it initially—that is, either "Pull"
+              or "Push." Assigning the "Mixed" issue method to a component
+              Item gives you the flexibility of deciding on a
               Work-Order-by-Work-Order basis whether you want to assign the
               "Pull" or "Push" method to the component Item.</para>
             </listitem>
@@ -263,9 +263,9 @@
         Operation with an Execution Day = 5. This means the Operation is
         scheduled to begin five days after the start date of the Work Order.
         Components scheduled with this Operation are due the day before the
-        Operation starts&mdash;that is, on day four after the Work Order start
-        date&mdash;to ensure they will be available when the Operation is
-        scheduled to begin. If this option is not selected, then the component
+        Operation starts—that is, on day four after the Work Order start
+        date—to ensure they will be available when the Operation is scheduled
+        to begin. If this option is not selected, then the component
         scheduling will be governed by the start and due dates set on the Work
         Order header.</para>
       </listitem>
@@ -279,8 +279,8 @@
           <see>engineering change notices</see>
         </indexterm>ECN #</term>
       <listitem>
-        <para>Enter the Engineering Change Notice Number&mdash;if
-        applicable&mdash;for the specified component Item.</para>
+        <para>Enter the Engineering Change Notice Number—if applicable—for the
+        specified component Item.</para>
         <note>
           <para>BOM-defined Substitutions are the only Substitutes which may
           be implemented during Work Order processing. To substitute a
@@ -427,6 +427,40 @@
     </screenshot></para>
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para>To view or maintain the current standard costs for the selected item,
+  select the "Costs" tab at the bottom of the "Bill of Materials Item" screen.
+  The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/bomItem_costsTab.png" />
+      </imageobject>
+      <caption>BOM Item Costs</caption>
+    </mediaobject>
+  </screenshot>
+  <para>When opening the Bill of Materials item Costs, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Costs are specific to this Bill of Material Item</term>
+      <listitem>
+        <para>Select this option to manually edit the current standard costs
+        of the item. If this option is not selected, a read only list of the
+        current standard costs for the item is displayed.</para>
+        <note>
+          <para>If this option is unchecked after the costs have been changed,
+          the list will revert to displaying standard costs.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Costing Elements</term>
+      <listitem>
+        <para>A list of the costing elements with current standard cost of the
+        Bill of Material item is displayed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To <indexterm significance="normal">
       <primary>bills of materials</primary>
       <secondary>linking to BOOs</secondary>
@@ -497,7 +531,7 @@
   the BOM Item, then that means the BOM Item will be included as a material
   requirement whenever Orders call for the "Glossy" version of the parent
   Item. If no Characteristic association is made at the BOM Item level, then
-  the BOM Item will always appear on Work Orders&mdash;regardless of the
+  the BOM Item will always appear on Work Orders—regardless of the
   parent-level configuration selection. To associate Characteristics with a
   BOM Item, select the "Configuration" tab. The following screen will
   appear:</para>
