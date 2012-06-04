@@ -45,6 +45,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>CRM Account</term>
+      <listitem>
+        <para>Enter the CRM account that is related to the Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Status</term>
       <listitem>
         <para>Specify one of the following statuses to characterize the
@@ -115,6 +121,20 @@
       <term>Completed</term>
       <listitem>
         <para>Date Project was actually completed.</para>
+        <note>
+          <para>Subsequent changes to the above dates are being tracked under
+          the Comments tab as change log comments that include the user and
+          time of the change.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Use the lookup feature to add a new Contact or to select a
+        pre-existing Contact linked to the CRM Account that the project is
+        related to. Related Contact information will display below the
+        name.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -148,27 +168,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>The following buttons are unique to this screen:</para>
+  <para>The following button is unique to this screen:</para>
   <variablelist>
-    <varlistentry role="xtprjaccnt">
-      <term>BUDGET</term>
-      <listitem>
-        <para>Select to open the "Maintain Budgets" screen, where the Project
-        Budget will be shown. If you have not already created a Budget for the
-        Project, you can create one after selecting this button. For more
-        information about creating Budgets, please see <xref
-        linkend="Section572294" />.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="xtprjaccnt">
-      <term>FINANCIALS</term>
-      <listitem>
-        <para>Select to open the "View Financial Reports" screen, where you
-        can run Financial Reports by Project. For more information about
-        running Financial Reports, please see <xref
-        linkend="Section600352" />.</para>
-      </listitem>
-    </varlistentry>
     <varlistentry role="xtte">
       <term>GANTT</term>
       <listitem>
@@ -177,6 +178,112 @@
         line in a graphical format.</para>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Tasks</term>
+      <listitem>
+        <para>Displays any Tasks associated with the Project.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view additional information for the Project, select the
+  "Additional" tab. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/project_additional.png" />
+      </imageobject>
+      <caption>Additional Project Information</caption>
+    </mediaobject>
+  </screenshot>
+  <para>When viewing the additional information for a Project, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Assignable Orders</term>
+      <listitem>
+        <para>Specify which of the following Order types can be linked to the
+        Project.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Sales Orders</term>
+            <listitem>
+              <para>Select to indicate Sales Orders may be linked to the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Work Orders</term>
+            <listitem>
+              <para>Select to indicate Work Orders may be linked to the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Purchase Orders</term>
+            <listitem>
+              <para>Select to indicate Purchase Orders may be linked to the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Summary</term>
+      <listitem>
+        <para>When viewing the time and expenses summary for a Project, you
+        are presented with the following information:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Total Hours Budgeted</term>
+            <listitem>
+              <para>Displays the total Task hours budgeted for the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Total Hours Actual</term>
+            <listitem>
+              <para>Displays the actual Task hours used for the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Balance</term>
+            <listitem>
+              <para>Displays the balance difference between budgeted and
+              actual Task hours for the Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Total Expenses Budgeted</term>
+            <listitem>
+              <para>Displays the total Task expenses budgeted for the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Total Expenses Actual</term>
+            <listitem>
+              <para>Displays the actual Task expenses used for the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Balance</term>
+            <listitem>
+              <para>Displays the balance difference between budgeted and
+              actual Task expenses for the Project.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following button is unique to this screen:</para>
+  <variablelist>
     <varlistentry>
       <term>ACTIVITY</term>
       <listitem>
@@ -186,63 +293,9 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To view a time and expenses summary of the Project, select the
-  "Summary" tab. The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/project_tab.png" />
-        </imageobject>
-        <caption>Project Summary</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>When viewing the time and expenses summary for a Project, you are
-  presented with the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Total Hours Budgeted</term>
-      <listitem>
-        <para>Displays the total Task hours budgeted for the Project.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Total Hours Actual</term>
-      <listitem>
-        <para>Displays the actual Task hours used for the Project.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Balance</term>
-      <listitem>
-        <para>Displays the balance difference between budgeted and actual Task
-        hours for the Project.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Total Expenses Budgeted</term>
-      <listitem>
-        <para>Displays the total Task expenses budgeted for the
-        Project.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Total Expenses Actual</term>
-      <listitem>
-        <para>Displays the actual Task expenses used for the Project.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Balance</term>
-      <listitem>
-        <para>Displays the balance difference between budgeted and actual Task
-        expenses for the Project.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para role="xtte">With the Time and Expense package installed, you can
-  specify Customer and billing rate information by Project. To specify the
-  Customer and billing rate information, select the "Billing" tab. The
-  following screen will appear:</para>
+  <para role="xtte">You can specify Customer and billing rate information by
+  Project. To specify the Customer and billing rate information, select the
+  "Billing" tab. The following screen will appear:</para>
   <screenshot role="xtte">
     <mediaobject>
       <imageobject>
@@ -279,24 +332,16 @@
         </listitem>
       </varlistentry>
     </variablelist></para>
-  <para>To add Tasks related to a Project, select the "Tasks" tab. The
+  <para>To add Notes related to a Project, select the "Notes" tab. The
   following screen will appear:</para>
-  <screenshot>
-    <mediaobject>
-      <imageobject>
-        <imagedata fileref="images/project_tasksTab.png" />
-      </imageobject>
-      <caption>Tasks Added to Project</caption>
-    </mediaobject>
-  </screenshot>
-  <variablelist>
-    <varlistentry>
-      <term>Tasks</term>
-      <listitem>
-        <para>Displays any Tasks associated with the Project.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/project_notes.png" />
+        </imageobject>
+        <caption>Notes Added to Project</caption>
+      </mediaobject>
+    </screenshot></para>
   <para>To add Comments related to a Project, select the "Comments" tab. The
   following screen will appear:</para>
   <para><screenshot>
