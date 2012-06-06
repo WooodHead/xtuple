@@ -13,8 +13,8 @@ CREATE OR REPLACE VIEW ipsprice AS
          t.ipsitem_price_uom_id AS ipsprice_uomprice_uom_id,
          t.ipsitem_discntprcnt AS ipsprice_discountpercent,
          t.ipsitem_fixedamtdiscount AS ipsprice_discountfixed
-    FROM ipsiteminfo t
-      JOIN ipsiteminfo v ON (v.ipsitem_id=t.ipsitem_id)
+    FROM ipsitem t
+      JOIN ipsitem v ON (v.ipsitem_id=t.ipsitem_id)
    UNION
   SELECT ipsprodcat_id AS ipsprice_id,
          'P' AS ipsprice_source,
