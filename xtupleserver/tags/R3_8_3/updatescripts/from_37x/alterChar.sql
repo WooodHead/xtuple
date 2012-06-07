@@ -1,0 +1,1 @@
+alter table char add column char_search boolean default true not null;
