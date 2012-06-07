@@ -7,7 +7,7 @@ DECLARE
   _returnVal INTEGER;
 BEGIN
   IF (fetchMetricValue('GLCompanySize') = 0) THEN
-    _returnVal := fetchMetricValue('YearEndEquityAccount')::integer;
+    _returnVal := fetchMetricValue('CurrencyGainLossAccount')::integer;
   ELSE
     SELECT company_gainloss_accnt_id INTO _returnVal
     FROM company
@@ -16,7 +16,7 @@ BEGIN
   END IF;
 
   IF (_returnVal IS NULL) THEN
-    RAISE EXCEPTION 'Year End Retained Earnings Account not found for %', formatGlAccountLong(pAccntId);
+    RAISE EXCEPTION 'Currency Gain/Loss Account not found for %', formatGlAccountLong(pAccntId);
   END IF;
 
   RETURN _returnVal;
