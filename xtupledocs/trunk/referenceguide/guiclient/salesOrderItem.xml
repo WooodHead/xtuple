@@ -130,9 +130,8 @@
   <tip>
     <para>If a preferred Selling Site is specified for the Customer, then that
     Site will be selected here by default. If the preferred Selling Site is
-    not selected&mdash;and you think it should be&mdash;verify that the Item
-    Site master for the Line Item in question is marked as a "Sold from"
-    Site.</para>
+    not selected—and you think it should be—verify that the Item Site master
+    for the Line Item in question is marked as a "Sold from" Site.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -198,13 +197,13 @@
         <para>If your Pricing Schedule has multiple Units of Measure (UOM) on
         it (or if several Pricing Schedules share the same level of Price
         specificity, but they have different UOMs) then the UOM which matches
-        the selected UOM will be chosen&mdash;that is, as long as the quantity
-        break does not exceed the quantity being priced. If no entry matches
-        the UOM with a quantity break less than the quantity being priced,
-        then the lowest value Price for any UOM will be chosen. To make sure a
-        specific UOM is always chosen at the desired level of Price
-        specificity, then your Pricing Schedules should include at least one
-        UOM with a quantity break of 0.</para>
+        the selected UOM will be chosen—that is, as long as the quantity break
+        does not exceed the quantity being priced. If no entry matches the UOM
+        with a quantity break less than the quantity being priced, then the
+        lowest value Price for any UOM will be chosen. To make sure a specific
+        UOM is always chosen at the desired level of Price specificity, then
+        your Pricing Schedules should include at least one UOM with a quantity
+        break of 0.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -297,12 +296,12 @@
               <para>Displays the quantity allocated to current Sales Orders
               and/or Work Orders in the system. An Item is considered
               allocated to a Sales Order if a Sales Order Line Item exists for
-              the Item&mdash;and that Line Item has not yet been issued to
-              Shipping. An Item is considered allocated to a Work Order if the
-              Item is a material requirement&mdash;and the material has not
-              yet been issued to the Work Order. Once the current Sales Order
-              Line Item is saved, the "Allocated" value will increase by the
-              quantity ordered.</para>
+              the Item—and that Line Item has not yet been issued to Shipping.
+              An Item is considered allocated to a Work Order if the Item is a
+              material requirement—and the material has not yet been issued to
+              the Work Order. Once the current Sales Order Line Item is saved,
+              the "Allocated" value will increase by the quantity
+              ordered.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -369,8 +368,8 @@
         as make-to-order if the "Stocked at" flag on the Item Site master is
         not selected. A Work Order created automatically from a Sales Order
         Line Item will assume the same Order Number as the Sales Order the
-        Line Item is associated with&mdash;even if that Order Number has
-        already been used by a previous Work Order.</para>
+        Line Item is associated with—even if that Order Number has already
+        been used by a previous Work Order.</para>
         <note>
           <para>For purchased Items, two different options may appear,
           depending on how the Item Site for the Item is set up:</para>
@@ -389,10 +388,10 @@
           flag will also be shown for linked Purchase Orders. The drop ship
           function will search for an existing Purchase Order linked to the
           Sales Order with a matching Ship-To Address and add the Line Item to
-          that Order&mdash;or create a new Order if none exists. Drop ship
-          Purchase Orders inherit the Ship-To Address and Contact information
-          from the Sales Order. Item Sources must be defined for drop ship
-          Items&mdash;including each component of a Kit Item.</para>
+          that Order—or create a new Order if none exists. Drop ship Purchase
+          Orders inherit the Ship-To Address and Contact information from the
+          Sales Order. Item Sources must be defined for drop ship
+          Items—including each component of a Kit Item.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -667,15 +666,24 @@
         <caption>Sales Order Line Item Accounting</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When defining an alternate Cost of Sales Account for a Sales Order
-  Line Item, you are presented with the following options:</para>
+  <para>When defining an alternate Cost of Sales Account or alternate Revenue
+  Account for a Sales Order Line Item which will be , you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Alternate Cost of Sales Account</term>
       <listitem>
         <para>Specify an alternate Account to be used for the Cost of Sales.
-        The Account you specify will be used instead of the typical Account
-        pre-defined in the Sales Account Assignments.</para>
+        This Account will be used instead of the typical Account pre-defined
+        in the Sales Accounts Assignments.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Alternate Revenue Account</term>
+      <listitem>
+        <para>Specify an alternate Account to be used the Revenue Account.
+        This Account will be used instead of the typical Account predefined in
+        the Receivables Assignments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
