@@ -4,7 +4,7 @@
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
 -- See www.xtuple.com/CPAL for the full text of the software license.
 
-SELECT source_id, type, order_type, order_number, duedate,
+SELECT source_id, type, order_type, order_status, order_number, duedate,
        totalqty, relievedqty, balanceqty, balanceqty AS runningbalanceqty,
        'qty' AS totalqty_xtnumericrole,
        'qty' AS relievedqty_xtnumericrole,
@@ -14,6 +14,7 @@ SELECT source_id, type, order_type, order_number, duedate,
 FROM
 (
 SELECT poitem_id AS source_id, 1 AS type, TEXT('P/O') AS order_type,
+       pohead_status AS order_status,
        TEXT(pohead_number) AS order_number,
        poitem_qty_ordered AS totalqty,
        poitem_qty_received AS relievedqty,
@@ -39,6 +40,7 @@ WHERE ((poitem_pohead_id=pohead_id)
 
 UNION
 SELECT wo_id AS source_id, 2 AS type, TEXT('W/O') AS order_type,
+       wo_status AS order_status,
        formatWONumber(wo_id) AS order_number,
        wo_qtyord AS totalqty,
        wo_qtyrcv AS relievedqty,
@@ -65,6 +67,7 @@ WHERE ((wo_status<>'C')
 -- Tooling is also supply on Work Orders
 UNION
 SELECT wo_id AS source_id, 2 AS type, TEXT('W/O') AS order_type,
+       wo_status AS order_status,
        formatWONumber(wo_id) AS order_number,
        womatl_qtyreq AS totalqty,
        COALESCE(sum(abs(invhist_invqty)),0) AS relievedqty,
@@ -92,11 +95,12 @@ WHERE ((wo_status<>'C')
   AND  (wo_duedate BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
 <? endif ?>
       )
-GROUP BY wo_id, womatl_qtyreq, wo_duedate
+GROUP BY wo_id, wo_status, womatl_qtyreq, wo_duedate
 
 <? if exists("Manufacturing") ?>
 UNION
 SELECT wo_id AS source_id, 2 AS type, TEXT('W/O') AS order_type,
+       wo_status AS order_status,
        formatWONumber(wo_id) AS order_number,
        wo_qtyord AS totalqty,
        wo_qtyrcv AS relievedqty,
@@ -125,6 +129,7 @@ WHERE ((brddist_wo_id=wo_id)
 <? if exists("Standard") ?>
 UNION
 SELECT toitem_id AS source_id, 3 AS type, TEXT('T/O') AS order_type,
+       tohead_status AS order_status,
        TEXT(tohead_number) AS order_number,
        toitem_qty_ordered AS totalqty,
        toitem_qty_received AS relievedqty,
