@@ -6,8 +6,8 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");  
-    waitForObject(":Cancel.Yes_QPushButton");
-    clickButton(":Cancel.Yes_QPushButton");
+//    waitForObject(":Cancel.Yes_QPushButton");
+//    clickButton(":Cancel.Yes_QPushButton");
     
     var appEdition = findApplicationEdition();
   
@@ -35,10 +35,7 @@ function main()
         type(":_nextPrNumber_XLineEdit", "<Ctrl+A>");
         type(":_nextPrNumber_XLineEdit", "<Del>");
         type(":_nextPrNumber_XLineEdit", "10000");
-        if(!findObject(":Default Purchase Order Copies:.Vendor_QCheckBox").checked)
-            clickButton(":Default Purchase Order Copies:.Vendor_QCheckBox");
-        if(findObject(":Default Purchase Order Copies:.Internal_QCheckBox").checked)
-            clickButton(":Default Purchase Order Copies:.Internal_QCheckBox");
+
         if(!findObject(":Purchase Configuration.Post Purchase Order Changes to the Change Log_QCheckBox").checked)
             clickButton(":Purchase Configuration.Post Purchase Order Changes to the Change Log_QCheckBox");
         if(!findObject(":Purchase Configuration.Post Vendor Changes to the Change Log_QCheckBox").checked)
@@ -66,7 +63,7 @@ function main()
         test.log("Purchase Module Configured");
     }catch(e){test.fail("Exception in configuring Purchase Module:"+e);}
     
-    
+  
     //-------------Configure: Inventory Module---------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -89,22 +86,24 @@ function main()
         findObject(":_tolerance_QLineEdit").clear();
         type(":_tolerance_QLineEdit", "5");
         
-        findObject(":_shipformNumOfCopies_QSpinBox").clear();
-        type(":_shipformNumOfCopies_QSpinBox", "2");
+      
+        findObject(":Default Shipping Form Copies:._numOfCopies_QSpinBox").clear();
+        type(":Default Shipping Form Copies:._numOfCopies_QSpinBox", "2");
         snooze(2);
-        doubleClickItem(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget", "Copy #1",5,5,0,Qt.LeftButton);
-        waitForObject(":Invoice/Credit Memo Watermark._watermark_XLineEdit");
-        type(":Invoice/Credit Memo Watermark._watermark_XLineEdit", "Customer");
-        if(!findObject(":Invoice/Credit Memo Watermark.Show Prices_QCheckBox").checked)
-            clickButton(":Invoice/Credit Memo Watermark.Show Prices_QCheckBox");
-        clickButton(":Invoice/Credit Memo Watermark.Save_QPushButton");
-        waitForObject(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget");
-        doubleClickItem(":Default Shipping Form Copies:._shipformWatermarks_XTreeWidget", "Copy #2",5,5,0,Qt.LeftButton);
-        waitForObject(":Invoice/Credit Memo Watermark._watermark_XLineEdit");
-        type(":Invoice/Credit Memo Watermark._watermark_XLineEdit", "Internal");
-        if(!findObject(":Invoice/Credit Memo Watermark.Show Prices_QCheckBox"))
-            clickButton(":Invoice/Credit Memo Watermark.Show Prices_QCheckBox");
-        clickButton(":Invoice/Credit Memo Watermark.Save_QPushButton");
+        waitForObject(":Default Shipping Form Copies:._watermarks_XTreeWidget");
+        doubleClickItem(":Default Shipping Form Copies:._watermarks_XTreeWidget", "Copy #1",5,5,0,Qt.LeftButton);
+        waitForObject(":tab_2._watermark_XLineEdit");
+        type(":tab_2._watermark_XLineEdit", "Customer");
+        if(!findObject(":tab_2.Show Prices_QCheckBox").checked)
+            clickButton(":tab_2.Show Prices_QCheckBox");
+        clickButton(":Inventory Configuration.Save_QPushButton");
+        waitForObject(":Default Shipping Form Copies:._watermarks_XTreeWidget");
+        doubleClickItem(":Default Shipping Form Copies:._watermarks_XTreeWidget", "Copy #2",5,5,0,Qt.LeftButton);
+        waitForObject(":tab_2._watermark_XLineEdit");
+        type(":tab_2._watermark_XLineEdit", "Internal");
+        if(!findObject(":tab_2.Show Prices_QCheckBox"))
+            clickButton(":tab_2.Show Prices_QCheckBox");
+        clickButton(":Inventory Configuration.Save_QPushButton");
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
