@@ -1,210 +1,37 @@
-
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION createARCreditMemo(pId            INTEGER,
+                                              pCustid        INTEGER,
+                                              pDocNumber     TEXT,
+                                              pOrderNumber   TEXT,
+                                              pDocDate       DATE,
+                                              pAmount        NUMERIC,
+                                              pNotes         TEXT,
+                                              pRsncodeid     INTEGER,
+                                              pSalescatid    INTEGER,
+                                              pAccntid       INTEGER,
+                                              pDueDate       DATE,
+                                              pTermsid       INTEGER,
+                                              pSalesrepid    INTEGER,
+                                              pCommissiondue NUMERIC = 0,
+                                              pJournalNumber INTEGER = NULL,
+                                              pCurrId        INTEGER = baseCurrId(),
+                                              pArAccntid     INTEGER = NULL,
+                                              pCoCcpayId     INTEGER = NULL) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pCustid ALIAS FOR $1;
-  pDocNumber ALIAS FOR $2;
-  pOrderNumber ALIAS FOR $3;
-  pDocDate ALIAS FOR $4;
-  pAmount ALIAS FOR $5;
-  pNotes ALIAS FOR $6;
-BEGIN
-  RETURN createARCreditMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, -1, -1, -1, pDocDate, -1, NULL, 0, NULL, baseCurrId() );
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER)
-RETURNS INTEGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
--- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  pCustid ALIAS FOR $1;
-  pDocNumber ALIAS FOR $2;
-  pOrderNumber ALIAS FOR $3;
-  pDocDate ALIAS FOR $4;
-  pAmount ALIAS FOR $5;
-  pNotes ALIAS FOR $6;
-  pCurrId ALIAS FOR $7;
-BEGIN
-  RETURN createARCreditMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, -1, -1, -1, pDocDate, -1, NULL, 0, NULL, pCurrId);
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
--- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  pCustid ALIAS FOR $1;
-  pDocNumber ALIAS FOR $2;
-  pOrderNumber ALIAS FOR $3;
-  pDocDate ALIAS FOR $4;
-  pAmount ALIAS FOR $5;
-  pNotes ALIAS FOR $6;
-  pRsncodeid ALIAS FOR $7;
-  pSalescatid ALIAS FOR $8;
-  pAccntid ALIAS FOR $9;
-BEGIN
-  RETURN createARCreditMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDocDate, -1, NULL, 0, NULL, baseCurrId() );
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
--- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  pCustid ALIAS FOR $1;
-  pDocNumber ALIAS FOR $2;
-  pOrderNumber ALIAS FOR $3;
-  pDocDate ALIAS FOR $4;
-  pAmount ALIAS FOR $5;
-  pNotes ALIAS FOR $6;
-  pRsncodeid ALIAS FOR $7;
-  pSalescatid ALIAS FOR $8;
-  pAccntid ALIAS FOR $9;
-  pDueDate ALIAS FOR $10;
-  pTermsid ALIAS FOR $11;
-  pSalesrepid ALIAS FOR $12;
-  pCommissiondue ALIAS FOR $13;
-
-BEGIN
-  RETURN createARCreditMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, NULL, baseCurrId() );
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
--- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  pCustid ALIAS FOR $1;
-  pDocNumber ALIAS FOR $2;
-  pOrderNumber ALIAS FOR $3;
-  pDocDate ALIAS FOR $4;
-  pAmount ALIAS FOR $5;
-  pNotes ALIAS FOR $6;
-  pRsncodeid ALIAS FOR $7;
-  pSalescatid ALIAS FOR $8;
-  pAccntid ALIAS FOR $9;
-  pDueDate ALIAS FOR $10;
-  pTermsid ALIAS FOR $11;
-  pSalesrepid ALIAS FOR $12;
-  pCommissiondue ALIAS FOR $13;
-  pCurrId ALIAS FOR $14;
-
-BEGIN
-  RETURN createARCreditMemo(pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, NULL, pCurrId );
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
--- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  pId ALIAS FOR $1;
-  pCustid ALIAS FOR $2;
-  pDocNumber ALIAS FOR $3;
-  pOrderNumber ALIAS FOR $4;
-  pDocDate ALIAS FOR $5;
-  pAmount ALIAS FOR $6;
-  pNotes ALIAS FOR $7;
-  pRsncodeid ALIAS FOR $8;
-  pSalescatid ALIAS FOR $9;
-  pAccntid ALIAS FOR $10;
-  pDueDate ALIAS FOR $11;
-  pTermsid ALIAS FOR $12;
-  pSalesrepid ALIAS FOR $13;
-  pCommissiondue ALIAS FOR $14;
-  pCurrId ALIAS FOR $15;
-
-BEGIN
-  RETURN createARCreditMemo(pId, pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, NULL, pCurrId, NULL );
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER, INTEGER) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
--- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  pCustid ALIAS FOR $1;
-  pDocNumber ALIAS FOR $2;
-  pOrderNumber ALIAS FOR $3;
-  pDocDate ALIAS FOR $4;
-  pAmount ALIAS FOR $5;
-  pNotes ALIAS FOR $6;
-  pRsncodeid ALIAS FOR $7;
-  pSalescatid ALIAS FOR $8;
-  pAccntid ALIAS FOR $9;
-  pDueDate ALIAS FOR $10;
-  pTermsid ALIAS FOR $11;
-  pSalesrepid ALIAS FOR $12;
-  pCommissiondue ALIAS FOR $13;
-  pJournalNumber ALIAS FOR $14;
-  pCurrId ALIAS FOR $15;
-
-BEGIN
-  RETURN createARCreditMemo(NULL, pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, pJournalNumber, pCurrId, NULL );
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
--- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  pCustid ALIAS FOR $1;
-  pDocNumber ALIAS FOR $2;
-  pOrderNumber ALIAS FOR $3;
-  pDocDate ALIAS FOR $4;
-  pAmount ALIAS FOR $5;
-  pNotes ALIAS FOR $6;
-  pRsncodeid ALIAS FOR $7;
-  pSalescatid ALIAS FOR $8;
-  pAccntid ALIAS FOR $9;
-  pDueDate ALIAS FOR $10;
-  pTermsid ALIAS FOR $11;
-  pSalesrepid ALIAS FOR $12;
-  pCommissiondue ALIAS FOR $13;
-  pJournalNumber ALIAS FOR $14;
-  pCurrId ALIAS FOR $15;
-  pARAccntId ALIAS FOR $16;
-
-BEGIN
-  RETURN createARCreditMemo(NULL, pCustid, pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, pJournalNumber, pCurrId, pARAccntId );
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION createARCreditMemo(INTEGER, INTEGER, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
--- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  pId ALIAS FOR $1;
-  pCustid ALIAS FOR $2;
-  pDocNumber ALIAS FOR $3;
-  pOrderNumber ALIAS FOR $4;
-  pDocDate ALIAS FOR $5;
-  pAmount ALIAS FOR $6;
-  pNotes ALIAS FOR $7;
-  pRsncodeid ALIAS FOR $8;
-  pSalescatid ALIAS FOR $9;
-  pAccntid ALIAS FOR $10;
-  pDueDate ALIAS FOR $11;
-  pTermsid ALIAS FOR $12;
-  pSalesrepid ALIAS FOR $13;
-  pCommissiondue ALIAS FOR $14;
-  pJournalNumber ALIAS FOR $15;
-  pCurrId ALIAS FOR $16;
-  pARAccntid ALIAS FOR $17;
-  _custName TEXT;
-  _arAccntid INTEGER;
+  _accntid        INTEGER;
+  _arAccntid      INTEGER;
+  _aropenid       INTEGER;
+  _cohistid       INTEGER;
+  _custName       TEXT;
+  _duedate        DATE    := COALESCE(pDueDate, pDocDate);
+  _glSequence     INTEGER;
+  _journalNumber  INTEGER;
   _prepaidAccntid INTEGER;
-  _salescatid INTEGER;
-  _accntid INTEGER;
-  _glSequence INTEGER;
-  _journalNumber INTEGER;
-  _aropenid INTEGER;
-  _tmp INTEGER;
-  _cohistid INTEGER;
-  _test INTEGER;
-  _taxBaseValue NUMERIC;
+  _salescatid     INTEGER;
+  _taxBaseValue   NUMERIC;
+  _test           INTEGER;
+  _tmp            INTEGER;
 
 BEGIN
 
@@ -215,7 +42,7 @@ BEGIN
   END IF;
 
   _arAccntid := COALESCE(pARAccntid, findARAccount(pCustid));
-  SELECT findPrepaidAccount(pCustid) INTO _prepaidAccntid;
+  _prepaidAccntid := findPrepaidAccount(pCustid);
 
   _accntid := pAccntid;
   _salescatid := pSalescatid;
@@ -224,10 +51,7 @@ BEGIN
   FROM custinfo
   WHERE (cust_id=pCustid);
 
-  PERFORM accnt_id
-     FROM accnt
-    WHERE (accnt_id=_accntid);
-  IF (FOUND) THEN
+  IF EXISTS(SELECT 1 FROM accnt WHERE (accnt_id=_accntid)) THEN
     _prepaidAccntid := _accntid;
   ELSE
     _accntid := -1;
@@ -250,14 +74,14 @@ BEGIN
     _journalNumber := pJournalNumber;
   END IF;
 
-  SELECT fetchGLSequence() INTO _glSequence;
+  _glSequence := fetchGLSequence();
 
   -- CreatelUpdate aropen for full amount
   IF (_aropenid IS NOT NULL) THEN
     UPDATE aropen SET
       aropen_username=getEffectiveXtUser(), aropen_journalnumber=_journalNumber,
       aropen_cust_id=pCustid, aropen_docnumber=pDocNumber, aropen_doctype='C',
-      aropen_ordernumber=pOrderNumber,aropen_docdate=pDocDate, aropen_duedate=pDueDate,
+      aropen_ordernumber=pOrderNumber,aropen_docdate=pDocDate, aropen_duedate=_duedate,
       aropen_distdate=pDocDate, aropen_terms_id=pTermsid,
       aropen_salesrep_id=pSalesrepid, aropen_amount=round(pAmount, 2), aropen_paid=0,
       aropen_commission_due=pCommissiondue, aropen_commission_paid=FALSE,
@@ -278,7 +102,7 @@ BEGIN
     VALUES
     ( _aropenid, getEffectiveXtUser(), _journalNumber,
       pCustid, pDocNumber, 'C', pOrderNumber,
-      pDocDate, pDueDate, pDocDate, pTermsid, pSalesrepid,
+      pDocDate, _duedate, pDocDate, pTermsid, pSalesrepid,
       round(pAmount, 2), 0, pCommissiondue, FALSE,
       '', '', -1,
       TRUE, pNotes, pRsncodeid,
@@ -327,18 +151,18 @@ BEGIN
     cohist_qtyshipped, cohist_unitprice, cohist_unitcost,
     cohist_salesrep_id,
     cohist_commission, cohist_commissionpaid,
-    cohist_curr_id, cohist_sequence )
+    cohist_curr_id, cohist_sequence, cohist_cohead_ccpay_id)
   VALUES
   (CASE WHEN pCustid < 0 THEN NULL ELSE pCustid END,
    -1, -1,
     'M', 'A/R Misc Credit Memo',
     pDocDate, '',
-    '', '', pDocDate,
+    pOrderNumber, '', pDocDate,
     'C', pDocNumber, pDocDate,
     1, (pAmount - _taxBaseValue) * -1, 0,
     CASE WHEN pSalesrepid < 0 THEN NULL ELSE pSalesrepid END,
     (pCommissiondue * -1.0), FALSE,
-    pCurrId, _glSequence )
+    pCurrId, _glSequence, pCoCcpayId)
   RETURNING cohist_id INTO _cohistid;
 
   INSERT INTO cohisttax
