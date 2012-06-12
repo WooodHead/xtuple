@@ -16,14 +16,13 @@ function main()
     
     waitForObject(":Cancel.Yes_QPushButton");
     clickButton(":Cancel.Yes_QPushButton");
-    
+  
   
     snooze(1);
   
      
     //----------Create Base Currency-----------------------
-    
-    if(object.exists(":List Work Centers.New_QPushButton"))
+    try
     {
         waitForObject(":List Work Centers.New_QPushButton");
         clickButton(":List Work Centers.New_QPushButton");
@@ -44,6 +43,10 @@ function main()
         clickButton(":List Work Centers.Close_QPushButton");
         test.log("Currencies are created");
         
+    }
+    catch(e)
+    {
+        test.fail("Exception in creating base currency" + e);
     }
     
     //-----Editing the preferences----
@@ -192,6 +195,7 @@ function main()
     snooze(2);
     
     loginAppl("CONFIGURE"); 
+    
     waitForObject(":Cancel.Yes_QPushButton");
     clickButton(":Cancel.Yes_QPushButton");
     
@@ -973,7 +977,7 @@ var appEdition = findApplicationEdition();
         }
     }
     
-    
+  
     
   //-----------Create Inventory Site: WH1-----------------
     try{
@@ -1118,20 +1122,36 @@ var appEdition = findApplicationEdition();
             clickTab(":Site.qt_tabwidget_tabbar_QTabBar", "Site Zones");
             snooze(1);
 
-              waitForObject(":List Calendars.New_QPushButton_2");
-            clickButton(":List Calendars.New_QPushButton_2");
-            waitForObject(":_name_XLineEdit_31");
-            type(":_name_XLineEdit_31", "FG1");
+//    waitForObject(":_zonesTab.New_QPushButton");
+//    clickButton(":_zonesTab.New_QPushButton");
+//    waitForObject(":_name_XLineEdit_32");
+//    mouseClick(":_name_XLineEdit_32", 85, 9, 0, Qt.LeftButton);
+//    waitForObject(":_name_XLineEdit_32");
+//    type(":_name_XLineEdit_32", "FG1");
+//    waitForObject(":_name_XLineEdit_32");
+//    type(":_name_XLineEdit_32", "<Tab>");
+//    waitForObject(":_description_XLineEdit_43");
+//    type(":_description_XLineEdit_43", "f");
+//    waitForObject(":_description_XLineEdit_43");
+//    type(":_description_XLineEdit_43", "<Backspace>");
+//    waitForObject(":_description_XLineEdit_43");
+//    type(":_description_XLineEdit_43", "Finished Goods 1");
+//    waitForObject(":List Sites.Save_QPushButton");
+//    clickButton(":List Sites.Save_QPushButton");
+              waitForObject(":_zonesTab.New_QPushButton");
+            clickButton(":_zonesTab.New_QPushButton");
+            waitForObject(":_name_XLineEdit_32");
+            type(":_name_XLineEdit_32", "FG1");
             type(":_description_XLineEdit_43", "Finished Goods Zone1");
-            clickButton(":Site Zone.Save_QPushButton");
+            clickButton(":List Sites.Save_QPushButton");
             
             snooze(1);
-            clickButton(":List Calendars.New_QPushButton_2_2");
-            waitForObject(":_name_XLineEdit_31");
+            clickButton(":_zonesTab.New_QPushButton");
+            waitForObject(":_name_XLineEdit_32");
             
-            type(":_name_XLineEdit_31", "RM1");
+            type(":_name_XLineEdit_32", "RM1");
             type(":_description_XLineEdit_43", "Raw Materials Zone1");
-            clickButton(":Site Zone.Save_QPushButton");
+            clickButton(":List Sites.Save_QPushButton");
             
             waitForObject(":Save_QPushButton_2");
             clickButton(":Save_QPushButton_2");
