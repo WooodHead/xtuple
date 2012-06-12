@@ -1,33 +1,16 @@
-CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
--- See www.xtuple.com/CPAL for the full text of the software license.
-BEGIN
-  RAISE NOTICE 'called deprecated function postCCcashReceipt(integer, integer)';
-  RETURN postCCCashReceipt($1, NULL, NULL, NULL);
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER, TEXT) RETURNS INTEGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
--- See www.xtuple.com/CPAL for the full text of the software license.
-BEGIN
-  RETURN postCCCashReceipt($1, $2, $3, NULL);
-END;
-$$ LANGUAGE 'plpgsql';
-
-CREATE OR REPLACE FUNCTION postCCcashReceipt(INTEGER, INTEGER, TEXT, NUMERIC) RETURNS INTEGER AS
+CREATE OR REPLACE FUNCTION postCCcashReceipt(pCCpay   INTEGER,
+                                             pdocid   INTEGER,
+                                             pdoctype TEXT    DEFAULT NULL,
+                                             pamount  NUMERIC DEFAULT NULL) RETURNS INTEGER AS
 $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pCCpay        ALIAS FOR $1;
-  pdocid        ALIAS FOR $2;
-  pdoctype      ALIAS FOR $3;
-  pamount       ALIAS FOR $4;
   _aropenid     INTEGER;
   _bankaccnt_id INTEGER;
   _c            RECORD;
   _ccOrderDesc  TEXT;
+  _journal      INTEGER;
   _realaccnt    INTEGER;
   _return       INTEGER := 0;
 
@@ -59,6 +42,8 @@ BEGIN
   _ccOrderDesc := (_c.ccard_type || '-' || _c.ccpay_order_number::TEXT ||
 		   '-' || _c.ccpay_order_number_seq::TEXT);
 
+  _journal := fetchJournalNumber('C/R');
+
   IF (pdoctype = 'cashrcpt') THEN
     IF (COALESCE(pdocid, -1) < 0) THEN
       INSERT INTO cashrcpt (
@@ -87,10 +72,18 @@ BEGIN
     END IF;
 
   ELSIF (pdoctype = 'cohead') THEN
-    _aropenid := createARCreditMemo(_c.ccpay_cust_id, fetchArMemoNumber(),
-                                    '', CURRENT_DATE, _c.ccpay_amount,
-                                    'Unapplied from ' || _ccOrderDesc );
-    IF (_aropenid < 0) THEN
+    SELECT createARCreditMemo(NULL,               _c.ccpay_cust_id,
+                             fetchArMemoNumber(), cohead_number,
+                             CURRENT_DATE,        _c.ccpay_amount,
+                             'Unapplied from ' || _ccOrderDesc,
+                             NULL,                NULL, NULL,
+                             CURRENT_DATE,        NULL,
+                             cohead_salesrep_id,  NULL,
+                             _journal,            _c.ccpay_curr_id,
+                             NULL,                pCCpay) INTO _aropenid
+      FROM cohead
+     WHERE cohead_id = pdocid;
+    IF (COALESCE(_aropenid, -1) < 0) THEN       -- coalesce handles not-found case
       RAISE EXCEPTION '[xtuple: createARCreditMemo, %]', _aropenid;
     END IF;
 
@@ -105,8 +98,7 @@ BEGIN
     _return := _aropenid;
   END IF;
 
-  PERFORM insertGLTransaction(fetchJournalNumber('C/R'), 'A/R', 'CR',
-                              _ccOrderDesc, 
+  PERFORM insertGLTransaction(_journal, 'A/R', 'CR', _ccOrderDesc, 
                               ('Cash Receipt from Credit Card ' || _c.cust_name),
                               findPrepaidAccount(_c.ccpay_cust_id),
                               _realaccnt,

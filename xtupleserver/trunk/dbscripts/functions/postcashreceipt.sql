@@ -1,9 +1,8 @@
-CREATE OR REPLACE FUNCTION postCashReceipt(INTEGER, INTEGER) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION postCashReceipt(pCashrcptid    INTEGER,
+                                           pJournalNumber INTEGER) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pCashrcptid ALIAS FOR $1;
-  pJournalNumber ALIAS FOR $2;
   _ccpayid  INTEGER;
   _cctype TEXT;
   _p RECORD;
@@ -302,10 +301,10 @@ BEGIN
                                  _comment, pJournalNumber, _p.cashrcpt_curr_id) INTO _aropenid;
     ELSE
       -- Post A/R Credit Memo
-      SELECT createARCreditMemo(_p.cashrcpt_cust_id, _arMemoNumber, '',
+      _aropenid := createARCreditMemo(NULL, _p.cashrcpt_cust_id, _arMemoNumber, '',
                                 _p.cashrcpt_distdate, (_p.cashrcpt_amount - _posted),
                                 _comment, -1, -1, -1, _p.cashrcpt_distdate, -1, NULL, 0,
-                                pJournalNumber, _p.cashrcpt_curr_id, _arAccntid) INTO _aropenid;
+                                pJournalNumber, _p.cashrcpt_curr_id, _arAccntid);
     END IF;
 
     IF (_ccpayid IS NOT NULL) THEN
