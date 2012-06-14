@@ -59,11 +59,11 @@
             <term>Next #</term>
             <listitem>
               <para>The next sequentially available Purchase Order Number will
-              display here. You may change the number&mdash;creating a new
-              basis for the next Purchase Order Number&mdash;by typing the new
-              number into this field. Any changes you make here will be
-              reflected the next time a new Purchase Order is created in the
-              Purchase module.</para>
+              display here. You may change the number—creating a new basis for
+              the next Purchase Order Number—by typing the new number into
+              this field. Any changes you make here will be reflected the next
+              time a new Purchase Order is created in the Purchase
+              module.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -82,10 +82,10 @@
             <term>Next #</term>
             <listitem>
               <para>The next sequentially available Voucher Number will
-              display here. You may change the number&mdash;creating a new
-              basis for the next Voucher Number&mdash;by typing the new number
-              into this field. Any changes you make here will be reflected the
-              next time a new Voucher is created in the Purchase module.</para>
+              display here. You may change the number—creating a new basis for
+              the next Voucher Number—by typing the new number into this
+              field. Any changes you make here will be reflected the next time
+              a new Voucher is created in the Purchase module.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -130,11 +130,11 @@
             <term>Next #</term>
             <listitem>
               <para>The next sequentially available Purchase Request Number
-              will display here. You may change the number&mdash;creating a
-              new basis for the next Purchase Request Number&mdash;by typing
-              the new number into this field. Any changes you make here will
-              be reflected the next time you issue a new Purchase Request
-              within the Purchase module.</para>
+              will display here. You may change the number—creating a new
+              basis for the next Purchase Request Number—by typing the new
+              number into this field. Any changes you make here will be
+              reflected the next time you issue a new Purchase Request within
+              the Purchase module.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -206,9 +206,9 @@
         <para>Select to use Item Source Earliest Available dates as the
         default due date when entering manual Purchase Order Line Items. If
         not selected, the due date field will be left blank when entering
-        Purchase Order Line Items&mdash;requiring users to enter the date
-        manually. Earliest Available dates are determined by adding Item
-        Source Lead Times to the current date.</para>
+        Purchase Order Line Items—requiring users to enter the date manually.
+        Earliest Available dates are determined by adding Item Source Lead
+        Times to the current date.</para>
         <note>
           <para>The "Use Earliest Avail." option applies only to Purchase
           Orders entered manually. This option does not impact the scheduling
@@ -241,6 +241,13 @@
         </indexterm>Enable Drop Shipments</term>
       <listitem>
         <para>Select to enable drop ship functionality in the system.</para>
+        <tip>
+          <para>These drop ship configuration settings will be disabled if
+          there are unfinished drop ship transactions in the system. To
+          re-enable these options so you can modify the configuration, you
+          must first complete all pending drop ship transactions. For example,
+          all drop ship purchase receipts must be fully vouchered.</para>
+        </tip>
         <variablelist>
           <varlistentry>
             <term>Select Drop Shipped Orders for Billing on Receipt</term>
