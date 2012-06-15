@@ -20,7 +20,7 @@
                <? foreach("char_id_date_list") ?>
                       charass_alias<? literal("char_id_date_list") ?>.charass_value::date AS char<? literal("char_id_date_list") ?>,
                <? endforeach ?>
-                      (item_descrip1 || ' ' || item_descrip2) as item_descrip,
+                      (COALESCE(item_descrip1,'') || ' ' || COALESCE(item_descrip2,'')) as item_descrip,
                       CASE WHEN (item_type='P') THEN text(<? value("purchased") ?>)
                            WHEN (item_type='M') THEN text(<? value("manufactured") ?>)
                            WHEN (item_type='F') THEN text(<? value("phantom") ?>)
@@ -72,7 +72,7 @@
                WHERE ( true
                <? if exists("search_pattern") ?>
                 AND ( (item_number ~* <? value("search_pattern") ?>)
-                      OR  (item_descrip1 || item_descrip2 ~* <? value("search_pattern") ?>) )
+                      OR  (COALESCE(item_descrip1,'') || COALESCE(item_descrip2,'') ~* <? value("search_pattern") ?>) )
                <? endif ?>
                <? if exists("showPurchased") ?>
                 AND (item_type IN ('P', 'O'))
@@ -103,7 +103,7 @@
                 AND (item_number ~* <? value("item_number_pattern") ?>)
                <? endif ?>
                <? if exists("item_descrip_pattern") ?>
-                AND (item_descrip1 || item_descrip2 ~* <? value("item_descrip_pattern") ?>)
+                AND (COALESCE(item_descrip1,'') || COALESCE(item_descrip2,'') ~* <? value("item_descrip_pattern") ?>)
                <? endif ?>
                <? if exists("classcode_pattern") ?>
                 AND (classcode_code ~* <? value("classcode_pattern") ?>)
