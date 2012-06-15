@@ -16,6 +16,7 @@ SELECT orderid, altorderid, ordertype, ordernumber, sequence, item_number,
        1 AS runningavail_xtrunningrole,
        <? value("qoh") ?> AS runningavail_xtrunninginit,
        CASE WHEN late THEN 'error' END AS duedate_qtforegroundrole,
+       CASE WHEN duedate = startOfTime() THEN '' END AS duedate_qtdisplayrole,
        CASE WHEN ordertype ~ <? value("plannedPo") ?> OR
                  ordertype ~ <? value("plannedWo") ?> OR
                  ordertype ~ <? value("plannedTo") ?> THEN
@@ -24,6 +25,18 @@ SELECT orderid, altorderid, ordertype, ordernumber, sequence, item_number,
       'qty' AS qtyreceived_xtnumericrole,
       'qty' AS balance_xtnumericrole
 FROM (
+<? if exists("includeFormatted") ?>
+SELECT -1 AS orderid, -1 AS altorderid, 'QOH' AS ordertype,
+       NULL AS ordernumber,
+       0 AS sequence,
+       '' AS item_number,
+       startOfTime() AS duedate,
+       FALSE AS late,
+       0 AS qtyordered,
+       0 AS qtyreceived,
+       <? value("qoh") ?> AS balance
+UNION
+<? endif ?>
 <? if exists("MultiWhs") ?>
 SELECT tohead_id AS orderid, toitem_id AS altorderid, 'T/O' AS ordertype,
        TEXT(tohead_number) AS ordernumber,
