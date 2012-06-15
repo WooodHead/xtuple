@@ -18,7 +18,7 @@ SELECT womatlvar_id, posted,
             ELSE ((1 - (actqtyper / projqtyper)) * -1)
        END AS qtypervarpercent,
        womatlvar_notes, womatlvar_ref,
-<? if exists("includeFormatted") ?>
+<? if exists("isReport") ?>
        formatDate(posted) AS f_posted,
        formatQty(ordered) AS f_ordered,
        formatQty(received) AS f_received,

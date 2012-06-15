@@ -25,7 +25,7 @@ SELECT recv_id, 1 AS altid, recv_order_number AS ponumber,
        recv_value             AS value,
        recv_invoiced          AS invoiced,
        recv_date              AS sortdate,
-<? if exists("includeFormatted") ?>
+<? if exists("isReport") ?>
        formatDate(recv_duedate)       AS f_duedate,
        formatDate(recv_date)          AS f_recvdate,
        formatQty(recv_qty)            AS f_qty,
@@ -89,7 +89,7 @@ SELECT poreject_id, 2, poreject_ponumber,
        poreject_value,
        poreject_invoiced,
        poreject_date,
-<? if exists("includeFormatted") ?>
+<? if exists("isReport") ?>
        NULL                           AS f_duedate,
        formatDate(poreject_date)      AS f_recvdate,
        formatQty(poreject_qty)        AS f_qty,
