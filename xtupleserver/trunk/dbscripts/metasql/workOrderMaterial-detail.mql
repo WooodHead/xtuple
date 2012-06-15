@@ -16,7 +16,7 @@ SELECT womatl.*, formatWONumber(wo_id) AS wonumber, item_number,
        END AS issuemethod,
        uom_name,
        noNeg(womatl_qtyreq - womatl_qtyiss) AS balance,
-<? if exists("includeFormatted") ?>
+<? if exists("isReport") ?>
        formatDate(womatl_duedate) AS f_duedate,
        formatQty(womatl_qtyfxd) AS f_qtyfxd,
        formatQtyPer(womatl_qtyper) AS f_qtyper,

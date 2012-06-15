@@ -7,7 +7,7 @@
 SELECT orderid, altorderid, ordertype, ordernumber, sequence, item_number,
        duedate, qtyordered,  qtyreceived, balance,
        balance AS runningavail,
-<? if exists("includeFormatted") ?>
+<? if exists("isReport") ?>
        formatDate(duedate) AS f_duedate,
        formatQty(qtyordered) AS f_qtyordered,
        formatQty(qtyreceived) AS f_qtyreceived,
@@ -25,7 +25,7 @@ SELECT orderid, altorderid, ordertype, ordernumber, sequence, item_number,
       'qty' AS qtyreceived_xtnumericrole,
       'qty' AS balance_xtnumericrole
 FROM (
-<? if exists("includeFormatted") ?>
+<? if exists("isReport") ?>
 SELECT -1 AS orderid, -1 AS altorderid, 'QOH' AS ordertype,
        NULL AS ordernumber,
        0 AS sequence,

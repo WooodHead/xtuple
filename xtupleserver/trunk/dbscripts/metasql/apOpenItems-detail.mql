@@ -13,7 +13,7 @@ SELECT apopen_id, apopen_ponumber, apopen_docnumber,
                     vend_number, vend_name,
                     apopen_invcnumber AS invoicenumber,
                     apopen_docdate, apopen_duedate, apopen_amount, apopen_status, 
-<? if exists("includeFormatted") ?>
+<? if exists("isReport") ?>
                     formatDate(apopen_docdate) AS f_docdate, 
                     formatDate(apopen_duedate) AS f_duedate, 
                     formatMoney(apopen_amount) AS f_amount,

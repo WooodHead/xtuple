@@ -17,7 +17,7 @@ SELECT cohist.*,
        round((cohist_qtyshipped * currtobase(cohist_curr_id, cohist_unitprice, cohist_invcdate)), 2) AS baseextprice,
        round((cohist_qtyshipped * cohist_unitcost), 4) AS extcost,
        currtobase(cohist_curr_id, cohist_commission, cohist_invcdate) AS basecommission,
-<? if exists("includeFormatted") ?>
+<? if exists("isReport") ?>
        formatDate(cohist_invcdate) AS f_invcdate,
        formatQty(cohist_qtyshipped) AS f_qtyshipped,
        formatBoolYN(cohist_commissionpaid) AS f_commissionpaid,
