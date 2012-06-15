@@ -38,7 +38,7 @@ WHERE ((itemsite_warehous_id=warehous_id)
          AND(item_inv_uom_id=uom_id)
        <? if exists("search_pattern") ?>
          AND ((item_number ~* <? value("search_pattern") ?>)
-           OR (item_descrip1 || ' ' || item_descrip2 ~* <? value("search_pattern") ?>)
+           OR (COALESCE(item_descrip1,'') || ' ' || COALESCE(item_descrip2,'') ~* <? value("search_pattern") ?>)
            OR (warehous_code ~* <? value("search_pattern") ?>))
        <? endif ?>
        <? if exists("item_id") ?>
