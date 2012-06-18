@@ -38,8 +38,8 @@ BEGIN
     AND  (cashrcpt_id=pCashrcptid));
   IF (NOT FOUND) THEN
     SELECT accnt_id INTO _arAccntid
-    FROM cashrcpt, accnt
-    WHERE ( (findARAccount(cashrcpt_cust_id)=accnt_id)
+    FROM cashrcpt LEFT OUTER JOIN accnt ON (accnt_id=findARAccount(cashrcpt_cust_id))
+    WHERE ( (findARAccount(cashrcpt_cust_id)=0 OR accnt_id > 0) -- G/L interface might be disabled
      AND (cashrcpt_id=pCashrcptid) );
     IF (NOT FOUND) THEN
       RETURN -5;
@@ -57,9 +57,9 @@ BEGIN
          cashrcpt_usecustdeposit,
          COALESCE(cashrcpt_applydate, cashrcpt_distdate) AS applydate,
          cashrcpt_curr_id, cashrcpt_curr_rate, cashrcpt_posted, cashrcpt_void INTO _p
-  FROM accnt, cashrcpt
-  LEFT OUTER JOIN custinfo ON (cashrcpt_cust_id=cust_id)
-  WHERE ( (findPrepaidAccount(cashrcpt_cust_id)=accnt_id)
+  FROM cashrcpt LEFT OUTER JOIN custinfo ON (cashrcpt_cust_id=cust_id)
+                LEFT OUTER JOIN accnt ON (accnt_id=findPrepaidAccount(cashrcpt_cust_id))
+  WHERE ( (findPrepaidAccount(cashrcpt_cust_id)=0 OR accnt_id > 0) -- G/L interface might be disabled
      AND (cashrcpt_id=pCashrcptid) );
   IF (NOT FOUND) THEN
     RETURN -7;
