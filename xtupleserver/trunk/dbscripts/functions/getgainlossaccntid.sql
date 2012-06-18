@@ -6,6 +6,10 @@ DECLARE
   pAccntId ALIAS FOR $1;
   _returnVal INTEGER;
 BEGIN
+  IF (pAccntId IS NULL) THEN
+	RETURN NULL;
+  END IF;
+
   IF (fetchMetricValue('GLCompanySize') = 0) THEN
     _returnVal := fetchMetricValue('CurrencyGainLossAccount')::integer;
   ELSE
