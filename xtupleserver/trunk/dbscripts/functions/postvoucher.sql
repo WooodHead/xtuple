@@ -399,8 +399,8 @@ BEGIN
   SELECT insertIntoGLSeries( _sequence, 'A/P', 'VO', text(vohead_number),
                              accnt_id, round(_totalAmount_base, 2),
 			     _glDate, _p.glnotes ) INTO _test
-  FROM vohead, accnt
-  WHERE ( (findAPAccount(vohead_vend_id)=accnt_id)
+  FROM vohead LEFT OUTER JOIN accnt ON (accnt_id=findAPAccount(vohead_vend_id))
+  WHERE ( (findAPAccount(vohead_vend_id)=0 OR accnt_id > 0) -- G/L interface might be disabled
     AND (vohead_id=pVoheadid) );
   IF (NOT FOUND) THEN
     RAISE EXCEPTION 'Cannot Post Voucher #% due to an unassigned A/P Account [xtuple: postVoucher, -9, %]',
