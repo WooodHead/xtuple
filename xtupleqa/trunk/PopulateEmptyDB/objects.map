@@ -1783,6 +1783,7 @@
 :Planner Code.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Planner Code_plannerCode'}
 :Planner Code._explosionGroup_QGroupBox	{name='_explosionGroup' type='QGroupBox' visible='1' window=':Planner Code_plannerCode'}
 :Planner Code_plannerCode	{name='plannerCode' type='plannerCode' visible='1' windowTitle='Planner Code'}
+:Please select a base currency for this database._QLabel	{text='Please select a base currency for this database.' type='QLabel' unnamed='1' visible='1' window=':_currenciesDialog'}
 :Post Actual Costs by Class Code.Post_QPushButton	{name='_post' text='Post' type='QPushButton' visible='1' window=':Post Actual Costs by Class Code_postCostsByClassCode'}
 :Post Actual Costs by Class Code.Roll Up Standard Costs_QCheckBox	{name='_rollUp' text='Roll Up Standard Costs' type='QCheckBox' visible='1' window=':Post Actual Costs by Class Code_postCostsByClassCode'}
 :Post Actual Costs by Class Code.Select all Costs_QPushButton	{name='_selectAll' text='Select all Costs' type='QPushButton' visible='1' window=':Post Actual Costs by Class Code_postCostsByClassCode'}
@@ -2729,6 +2730,7 @@
 :_curr.US Dollars_QModelIndex	{column='1' container=':_stack._curr_XTreeWidget' text='US Dollars' type='QModelIndex'}
 :_curr.USD_QModelIndex	{column='3' container=':List Currencies._curr_XTreeWidget' text='USD' type='QModelIndex'}
 :_curr.qw_QModelIndex	{column='1' container=':_stack._curr_XTreeWidget' text='qw' type='QModelIndex'}
+:_currenciesDialog	{type='currenciesDialog' unnamed='1' visible='1'}
 :_currency.sd - s_QModelIndex	{container=':_stack._currency_XComboBox' text='sd - s' type='QModelIndex'}
 :_currencyScale_QSpinBox	{buddy=':List Locales.Currency:_QLabel' name='_currencyScale' type='QSpinBox' visible='1'}
 :_currencyScale_QSpinBox_2	{buddy=':_stack.Currency:_QLabel' name='_currencyScale' type='QSpinBox' visible='1'}

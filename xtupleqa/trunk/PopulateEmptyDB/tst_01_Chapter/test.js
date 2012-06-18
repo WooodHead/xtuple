@@ -14,18 +14,20 @@ function main()
     loginAppl("CONFIGURE"); 
     
     
-    waitForObject(":Cancel.Yes_QPushButton");
-    clickButton(":Cancel.Yes_QPushButton");
-  
+    if(object.exists(":Cancel.Yes_QPushButton"))
+    {
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+    }
   
     snooze(1);
   
-     
+  
     //----------Create Base Currency-----------------------
     try
     {
-        waitForObject(":List Work Centers.New_QPushButton");
-        clickButton(":List Work Centers.New_QPushButton");
+        waitForObject(":_zonesTab.New_QPushButton");
+        clickButton(":_zonesTab.New_QPushButton");
         waitForObject(":Currency._currName_QLineEdit");
         type(":Currency._currName_QLineEdit", "US Dollars");
         waitForObject(":Currency._currSymbol_QLineEdit");
@@ -34,13 +36,13 @@ function main()
         type(":Currency._currAbbr_QLineEdit",  "USD");         
         waitForObject(":Currency.Base Currency_QCheckBox");
         clickButton(":Currency.Base Currency_QCheckBox");
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");
         snooze(0.1);
-        waitForObject(":List Employees.Save_QPushButton_2");
-        clickButton(":List Employees.Save_QPushButton_2");
         waitForObject(":Cancel.Yes_QPushButton");
         clickButton(":Cancel.Yes_QPushButton");
-        waitForObject(":List Work Centers.Close_QPushButton");
-        clickButton(":List Work Centers.Close_QPushButton");
+        waitForObject(":Tax Assignment.Close_QPushButton");
+        clickButton(":Tax Assignment.Close_QPushButton");
         test.log("Currencies are created");
         
     }
@@ -195,10 +197,12 @@ function main()
     snooze(2);
     
     loginAppl("CONFIGURE"); 
-    
-    waitForObject(":Cancel.Yes_QPushButton");
-    clickButton(":Cancel.Yes_QPushButton");
-    
+    if(object.exists(":Cancel.Yes_QPushButton"))
+    {
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+    }
+  
   var appEdition = findApplicationEdition(); 
   
     
