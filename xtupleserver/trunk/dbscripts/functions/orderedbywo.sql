@@ -42,7 +42,7 @@ BEGIN
      AND (brddist_wo_id=wo_id)
      AND (brddist_itemsite_id=pItemsiteid)
      AND (wo_duedate BETWEEN pStartDate AND pEndDate) );
-  ELSIF (_itemType = 'T') THEN -- Tooling:  Determine quantity already returned
+  ELSIF (_itemType = 'T' AND fetchMetricBool('Routings')) THEN -- Tooling:  Determine quantity already returned
     SELECT
       -- Qty Required
       COALESCE(SUM(noNeg(womatl_qtyreq)),0)  - 
@@ -63,6 +63,28 @@ BEGIN
       JOIN womatl ON (womatl_wo_id=wo_id)
       LEFT OUTER JOIN xtmfg.wooper ON (womatl_wooper_id=wooper_id)
     WHERE ( NOT (COALESCE(wooper_rncomplete,wo_status = 'C'))
+     AND (womatl_itemsite_id=pItemsiteid)
+     AND (wo_duedate BETWEEN pStartDate AND pEndDate) )
+    GROUP BY womatl_qtyreq;   
+  ELSIF (_itemType = 'T') THEN -- Tooling:  Determine quantity already returned
+    SELECT
+      -- Qty Required
+      COALESCE(SUM(noNeg(womatl_qtyreq)),0)  - 
+      -- Qty Returned
+     (SELECT COALESCE(SUM(abs(invhist_invqty)),0) 
+      FROM wo
+        JOIN womatl ON (womatl_wo_id=wo_id)
+        JOIN womatlpost ON (womatl_id=womatlpost_womatl_id)
+        JOIN invhist ON ((womatlpost_invhist_id=invhist_id)
+                     AND (invhist_invqty < 0))
+    WHERE ( NOT (wo_status = 'C')
+     AND (womatl_itemsite_id=pItemsiteid)
+     AND (wo_duedate BETWEEN pStartDate AND pEndDate) )
+       )
+   INTO _qty
+    FROM wo
+      JOIN womatl ON (womatl_wo_id=wo_id)
+    WHERE ( NOT (wo_status = 'C')
      AND (womatl_itemsite_id=pItemsiteid)
      AND (wo_duedate BETWEEN pStartDate AND pEndDate) )
     GROUP BY womatl_qtyreq;   
