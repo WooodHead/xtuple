@@ -1,0 +1,11 @@
+-- Group: desktop
+-- Name:  sendMessageToUser
+-- Notes: User Message query.
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+SELECT 
+postmessage(
+( SELECT usr_username FROM usr WHERE usr_id = <? value("usr_id") ?>),
+ <? value("message") ?>
+            );

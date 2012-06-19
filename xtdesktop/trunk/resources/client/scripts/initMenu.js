@@ -10,8 +10,10 @@
 
 // Import code from related scripts
 include("dockBankBal");
+include("dockCommentConsole");
 include("dockExtensions");
-include("dockGLAccounts")
+include("dockGLAccounts");
+include("dockMessageHistory");
 include("dockMfgActive");
 include("dockMfgHist");
 include("dockMfgOpen");
@@ -26,6 +28,7 @@ include("dockReceivables");
 include("dockSalesActive");
 include("dockSalesHistory");
 include("dockSalesOpen");
+include("dockSendMessage");
 include("dockUserOnline");
 
 var _desktopStack;
@@ -117,6 +120,12 @@ addDesktop("desktopManufacture", "industry_32", "ViewManufactureDesktop");
 initDockMfgAct();
 initDockMfgHist();
 initDockMfgOpen();
+
+addDesktop("desktopSocial", "social", "viewSocialDesktop");
+initDockCommentConsole();
+initDockUserOnline();
+initDockMessageHistory();
+initDockSendMessage();
 
 var maintWin = addDesktop("desktopMaintenance", "gear_32", "ViewMaintenanceDesktop");
 initDockExtensions();
@@ -237,6 +246,10 @@ function prepareWindowMenu()
   _dockMfgOpen.toggleViewAction().visible = (idx == 5);
   _dockExtensions.toggleViewAction().visible = (idx == 6);
   _dockUserOnline.toggleViewAction().visible = (idx == 6);
+  _dockCommentConsole.toggleViewAction().visible = (idx == 7);
+  _dockSendMessage.toggleViewAction().visible = (idx == 7);
+  _dockMessageHistory.toggleViewAction().visible = (idx == 7);
+  _dockUserOnline.toggleViewAction().visible = (idx == 7);
   _menuWindow.addSeparator();
   _menuWindow.addMenu(_menuDesktop);
 }
