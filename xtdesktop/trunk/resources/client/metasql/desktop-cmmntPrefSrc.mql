@@ -1,0 +1,92 @@
+-- Group:desktop
+-- Name:cmmntPrefSrc
+-- Notes: 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+SELECT A.id AS id, A.cmntsource_name AS cmntsource_name, A.cmntsource_fullname AS cmntsource_fullname
+FROM (SELECT 1 AS id, '' AS cmntsource_name, 'All Sources' AS cmntsource_fullname
+      UNION
+      SELECT 2, 'ADDR', 'Address'
+      <? if exists("xtmfg_exist") ?>
+        UNION
+        SELECT 3, 'BBH', 'BBOMHead'
+        UNION
+        SELECT 4, 'BBI', 'BBOMItem'
+      <? endif ?>
+      UNION
+      SELECT 5, 'BMH', 'BOMHead'
+      UNION
+      SELECT 6, 'BMI', 'BOMItem'
+      <? if exists("xtmfg_exist") ?>
+        UNION
+        SELECT 7, 'BOH', 'BOOHead'
+        UNION
+        SELECT 8, 'BOI', 'BOOItem'
+        UNION
+        SELECT 9, 'CRMA', 'CRMAccount'
+      <? endif ?>
+      UNION
+      SELECT 10, 'T', 'Contact'
+      UNION
+      SELECT 11, 'C', 'Customer'
+      UNION
+      SELECT 12, 'EMP', 'Employee'
+      UNION
+      SELECT 13, 'INCDT', 'Incident'
+      UNION
+      SELECT 14, 'I', 'Item'
+      UNION
+      SELECT 15, 'IS', 'ItemSite'
+      UNION
+      SELECT 16, 'IR', 'ItemSource'
+      UNION
+      SELECT 17, 'L', 'Location'
+      <? if exists("xtmfg_exist") ?>
+        UNION
+        SELECT 18, 'LS', 'LotSerial'
+      <? endif ?>
+      UNION
+      SELECT 19, 'OPP', 'Opportunity'
+      UNION
+      SELECT 20, 'J', 'Project'
+      UNION
+      SELECT 21, 'P', 'PurchaseOrder'
+      UNION
+      SELECT 22, 'PI', 'PurchaseOrderItem'
+      <? if exists("xtmfg_exist") ?>
+        UNION
+        SELECT 23, 'RA', 'ReturnAuth'
+      <? endif ?>
+      UNION
+      SELECT 24, 'RI', 'ReturnAuthItem'
+      UNION
+      SELECT 25, 'Q', 'Quote'
+      UNION
+      SELECT 26, 'QI', 'QuoteItem'
+      UNION
+      SELECT 27, 'S', 'SalesOrder'
+      UNION
+      SELECT 28, 'SI', 'SalesOrderItem'
+      UNION
+      SELECT 29, 'TA', 'Task'
+      UNION
+      SELECT 30, 'TD', 'TodoItem'
+      <? if exists("xtmfg_exist") ?>
+        UNION
+        SELECT 31, 'TO', 'TransferOrder'
+        UNION
+        SELECT 32, 'TI', 'TransferOrderItem'
+      <? endif ?>
+      UNION
+      SELECT 33, 'V', 'Vendor'
+      UNION
+      SELECT 34, 'WH', 'Warehouse'
+      UNION
+      SELECT 35, 'W', 'WorkOrder') AS A
+WHERE ((true)
+<? if exists("sourceidlist") ?>
+   AND (A.id IN (<? literal("sourceidlist") ?>))
+<? endif ?>
+      )
+ORDER BY A.id;

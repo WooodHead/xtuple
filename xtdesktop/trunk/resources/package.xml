@@ -33,6 +33,9 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
     </message>
   </prerequisite>
   
+ <loadpriv      name="AccessAdditionalUser" module="Desktop">
+   Controls access to additional Users
+ </loadpriv>
  <loadpriv      name="ViewBankAccountsDock" module="Desktop">
    Allows the user to view the Bank Accounts dock widget on the Desktop
  </loadpriv>
@@ -106,12 +109,27 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
  <loadpriv      name="ViewMaintenanceDesktop" module="Desktop">
    Allows the user to view the Maintenance Desktop page
  </loadpriv>
+
+ <loadpriv      name="viewSocialDesktop" module="Desktop">
+   Allows the user to view the Social Desktop page
+ </loadpriv>
+ <loadpriv      name="viewCommentsDock" module="Desktop">
+   Allows the user to view the Comments Console dock widget on the Desktop
+ </loadpriv>
+ <loadpriv      name="viewMsgHistoryDock" module="Desktop">
+   Allows the user to view the Message History dock widget on the Desktop
+ </loadpriv>
+ <loadpriv      name="viewSendMsgDock" module="Desktop">
+   Allows the user to view the Sed Message dock widget on the Desktop
+ </loadpriv>
   
   <loadappscript  file="client/scripts/contact.js" name="contact" order="0"/>
   <loadappscript  file="client/scripts/desktopNotice.js" name="desktopNotice" order="0"/>
   <loadappscript  file="client/scripts/dockBankBal.js" name="dockBankBal" order="0"/>
+  <loadappscript  file="client/scripts/dockCommentConsole.js" name="dockCommentConsole" order="0"/>
   <loadappscript  file="client/scripts/dockExtensions.js" name="dockExtensions" order="0"/>
   <loadappscript  file="client/scripts/dockGLAccounts.js" name="dockGLAccounts" order="0"/>
+  <loadappscript  file="client/scripts/dockMessageHistory.js" name="dockMessageHistory" order="0"/>
   <loadappscript  file="client/scripts/dockMfgActive.js" name="dockMfgActive" order="0"/>
   <loadappscript  file="client/scripts/dockMfgHist.js" name="dockMfgHist" order="0"/>
   <loadappscript  file="client/scripts/dockMfgOpen.js" name="dockMfgOpen" order="0"/>
@@ -126,12 +144,17 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
   <loadappscript  file="client/scripts/dockSalesActive.js" name="dockSalesActive" order="0"/>
   <loadappscript  file="client/scripts/dockSalesHistory.js" name="dockSalesHistory" order="0"/>
   <loadappscript  file="client/scripts/dockSalesOpen.js" name="dockSalesOpen" order="0"/>
+  <loadappscript  file="client/scripts/dockSendMessage.js" name="dockSendMessage" order="0"/>
   <loadappscript  file="client/scripts/dockUserOnline.js" name="dockUserOnline" order="0"/>
   <loadappscript  file="client/scripts/incident.js" name="incident" order="0"/>
   <loadappscript  file="client/scripts/initMenu.js" name="initMenu" order="1"/>
+  <loadappscript  file="client/scripts/preferencesComment.js" name="preferencesComment" order="0"/>
   <loadappscript  file="client/scripts/preferencesHistory.js" name="preferencesHistory" order="0"/>
+  <loadappscript  file="client/scripts/preferencesNumber.js" name="preferencesNumber" order="0"/>
   <loadappscript  file="client/scripts/preferencesSelections.js" name="preferencesSelections" order="0"/>
   <loadappscript  file="client/scripts/project.js" name="project" order="0"/>
+  <loadappscript  file="client/scripts/sendMessageToUser.js" name="sendMessageToUser" order="0"/>
+  <loadappscript  file="client/scripts/systemMessage.js" name="systemMessage" order="0"/>
   <loadappscript  file="client/scripts/task.js" name="task" order="0"/>
   <loadappscript  file="client/scripts/todoItem.js" name="todoItem" order="0"/>
   <loadappscript  file="client/scripts/userPreferences.js" name="userPreferences" order="0"/>
@@ -143,16 +166,25 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
   <loadappui      file="client/uiforms/desktopNotice.ui" />
   <loadappui      file="client/uiforms/desktopPurchase.ui" />
   <loadappui      file="client/uiforms/desktopSales.ui" />
+  <loadappui      file="client/uiforms/desktopSocial.ui" />
+  <loadappui      file="client/uiforms/preferencesComment.ui" />
   <loadappui      file="client/uiforms/preferencesHistory.ui" />
+  <loadappui      file="client/uiforms/preferencesNumber.ui" />
   <loadappui      file="client/uiforms/preferencesSelections.ui" />
+  <loadappui      file="client/uiforms/sendMessageToUser.ui" />
   
   <loadmetasql file="client/metasql/desktop-bankBal.mql" />
+  <loadmetasql file="client/metasql/desktop-cmmntPrefSrc.mql" />
+  <loadmetasql file="client/metasql/desktop-cmmntPrefType.mql" />
+  <loadmetasql file="client/metasql/desktop-cmmntPrefUser.mql" />
+  <loadmetasql file="client/metasql/desktop-commentConsole.mql" />
   <loadmetasql file="client/metasql/desktop-contacts.mql" />
   <loadmetasql file="client/metasql/desktop-crmaccounts.mql" />
   <loadmetasql file="client/metasql/desktop-getDates.mql" />
   <loadmetasql file="client/metasql/desktop-glaccountBal.mql" />
   <loadmetasql file="client/metasql/desktop-glaccounts.mql" />  
   <loadmetasql file="client/metasql/desktop-glforwardupdate.mql" />
+  <loadmetasql file="client/metasql/desktop-messageHistory.mql" />
   <loadmetasql file="client/metasql/desktop-mfgAct.mql" />
   <loadmetasql file="client/metasql/desktop-mfgHist.mql" />
   <loadmetasql file="client/metasql/desktop-mfgOpen.mql" />
@@ -165,6 +197,7 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
   <loadmetasql file="client/metasql/desktop-salesAct.mql" />
   <loadmetasql file="client/metasql/desktop-salesHist.mql" />
   <loadmetasql file="client/metasql/desktop-salesOpen.mql" />
+  <loadmetasql file="client/metasql/desktop-sendMessageToUser.mql" />
   <loadmetasql file="client/metasql/desktop-todoDelete.mql" />
   <loadmetasql file="client/metasql/desktop-todoList.mql" />
   <loadmetasql file="client/metasql/desktop-userOnline.mql" />
@@ -221,6 +254,7 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
   <loadimage      file="client/images/customers_zoom_48.png" name="customers_zoom_48"/>
   <loadimage      file="client/images/dispatch_order_ok_48.png" name="dispatch_order_ok_48"/>
   <loadimage      file="client/images/dispatch_order_zoom_48.png" name="dispatch_order_zoom_48"/>
+  <loadimage      file="client/images/events-option.png" name="events-option"/>
   <loadimage      file="client/images/execute_48.png" name="execute_48"/>
   <loadimage      file="client/images/export_database_write_48.png" name="export_database_write_48"/>
   <loadimage      file="client/images/group_48.png" name="group_48"/>
@@ -250,6 +284,7 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
   <loadimage      file="client/images/reward_clock_48.png" name="reward_clock_48"/>
   <loadimage      file="client/images/reward_write_48.png" name="reward_write_48"/>
   <loadimage      file="client/images/script_write_48.png" name="script_write_48"/>
+  <loadimage      file="client/images/social.png" name="social"/>
   <loadimage      file="client/images/spreadsheet_48.png" name="spreadsheet_48"/>
   <loadimage      file="client/images/spreadsheet_write_48.png" name="spreadsheet_write_48"/>
   <loadimage      file="client/images/spreadsheet_zoom_48.png" name="spreadsheet_zoom_48"/>
@@ -264,6 +299,8 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
   <loadimage      file="client/images/trash_ok_48.png" name="trash_ok_48"/>
   <loadimage      file="client/images/user_48.png" name="user_48"/>
   <loadimage      file="client/images/window_write_48.png" name="window_write_48"/>
+  <loadimage      file="client/images/xtuple-connect.png" name="xtuple-connect"/>
+  <loadimage      file="client/images/xtuple-preferences.png" name="xtuple-preferences"/>
 
 
 </package>
