@@ -13,16 +13,6 @@ BEGIN
     _rec := NEW;
   END IF;
 
-  --  Checks
-  IF (_rec.ophead_username=getEffectiveXtUser()) THEN
-    SELECT (checkPrivilege('MaintainAllOpportunities') OR checkPrivilege('MaintainPersonalOpportunities')) INTO _check;
-  ELSE
-    SELECT checkPrivilege('MaintainAllOpportunities') INTO _check;
-  END IF;
-  IF NOT (_check) THEN
-    RAISE EXCEPTION 'You do not have privileges to maintain Opportunities.';
-  END IF;
-
   --  Auto inactivate
   IF (TG_OP = 'UPDATE') THEN
     IF ( (NEW.ophead_opstage_id != OLD.ophead_opstage_id) AND
