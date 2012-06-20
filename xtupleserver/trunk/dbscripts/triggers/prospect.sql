@@ -1,33 +1,27 @@
 CREATE OR REPLACE FUNCTION _prospectTrigger() RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
-
   IF (NOT checkPrivilege('MaintainProspectMasters')) THEN
     RAISE EXCEPTION 'You do not have privileges to maintain Prospects.';
   END IF;
 
-  IF (TG_OP IN ('INSERT', 'UPDATE')) THEN
-    IF (NEW.prospect_number IS NULL) THEN
-      RAISE EXCEPTION 'You must supply a valid Prospect Number.';
-    END IF;
-
-  ELSIF (TG_OP = 'DELETE') THEN
-    UPDATE crmacct SET crmacct_prospect_id = NULL
-     WHERE crmacct_prospect_id = OLD.prospect_id;
-    RETURN OLD;
+  IF (NEW.prospect_number IS NULL) THEN
+    RAISE EXCEPTION 'You must supply a valid Prospect Number.';
   END IF;
+
+  NEW.prospect_number := UPPER(NEW.prospect_number);
 
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('trigger', 'prospectTrigger');
-CREATE TRIGGER prospectTrigger BEFORE INSERT OR UPDATE OR DELETE ON prospect
+CREATE TRIGGER prospectTrigger BEFORE INSERT OR UPDATE ON prospect
        FOR EACH ROW EXECUTE PROCEDURE _prospectTrigger();
 
 CREATE OR REPLACE FUNCTION _prospectAfterTrigger () RETURNS TRIGGER AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid   INTEGER;
@@ -82,16 +76,6 @@ BEGIN
     WHERE ((crmacct_prospect_id=NEW.prospect_id)
       AND  (crmacct_name!=NEW.prospect_name));
 
-  ELSIF (TG_OP = 'DELETE') THEN
-    -- handle transitory state when converting prospect to customer
-    IF EXISTS(SELECT quhead_id
-                FROM quhead
-               WHERE quhead_cust_id = OLD.prospect_id) AND
-        NOT EXISTS (SELECT cust_id
-                      FROM custinfo
-                     WHERE cust_id = OLD.prospect_id) THEN
-      RAISE EXCEPTION '[xtuple: deleteProspect, -1]';
-    END IF;
   END IF;
 
   IF (fetchMetricBool('ProspectChangeLog')) THEN
@@ -102,10 +86,6 @@ BEGIN
     IF (_cmnttypeid IS NOT NULL) THEN
       IF (TG_OP = 'INSERT') THEN
         PERFORM postComment(_cmnttypeid, 'PSPCT', NEW.prospect_id, 'Created');
-
-      ELSIF (TG_OP = 'DELETE') THEN
-        PERFORM postComment(_cmnttypeid, 'PSPCT', OLD.prospect_id,
-                            'Deleted "' || OLD.prospect_number || '"');
 
       ELSIF (TG_OP = 'UPDATE') THEN
         IF (OLD.prospect_active <> NEW.prospect_active) THEN
@@ -176,13 +156,53 @@ BEGIN
     END IF;
   END IF;
 
-  IF (TG_OP = 'DELETE') THEN
-    RETURN OLD;
-  END IF;
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'prospectAfterTrigger');
-CREATE TRIGGER prospectAfterTrigger AFTER INSERT OR UPDATE OR DELETE ON prospect
+CREATE TRIGGER prospectAfterTrigger AFTER INSERT OR UPDATE ON prospect
        FOR EACH ROW EXECUTE PROCEDURE _prospectAfterTrigger();
+
+CREATE OR REPLACE FUNCTION _prospectBeforeDeleteTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+BEGIN
+  IF (NOT checkPrivilege('MaintainProspectMasters')) THEN
+    RAISE EXCEPTION 'You do not have privileges to maintain Prospects.';
+  END IF;
+
+  UPDATE crmacct SET crmacct_prospect_id = NULL
+   WHERE crmacct_prospect_id = OLD.prospect_id;
+
+  RETURN OLD;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('trigger', 'prospectBeforeDeleteTrigger');
+CREATE TRIGGER prospectBeforeDeleteTrigger BEFORE DELETE ON prospect
+       FOR EACH ROW EXECUTE PROCEDURE _prospectBeforeDeleteTrigger();
+
+CREATE OR REPLACE FUNCTION _prospectAfterDeleteTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+BEGIN
+  IF EXISTS(SELECT 1 FROM quhead WHERE quhead_cust_id = OLD.prospect_id) AND
+     NOT EXISTS (SELECT 1 FROM custinfo WHERE cust_id = OLD.prospect_id) THEN
+    RAISE EXCEPTION '[xtuple: deleteProspect, -1]';
+  END IF;
+
+  IF (fetchMetricBool('ProspectChangeLog')) THEN
+    PERFORM postComment(cmnttype_id, 'PSPCT', OLD.prospect_id,
+                        'Deleted "' || OLD.prospect_number || '"')
+      FROM cmnttype
+     WHERE (cmnttype_name='ChangeLog');
+  END IF;
+
+  RETURN OLD;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'prospectAfterDeleteTrigger');
+CREATE TRIGGER prospectAfterDeleteTrigger AFTER DELETE ON prospect
+       FOR EACH ROW EXECUTE PROCEDURE _prospectAfterDeleteTrigger();

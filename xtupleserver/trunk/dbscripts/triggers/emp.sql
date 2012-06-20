@@ -7,56 +7,45 @@ BEGIN
     RAISE EXCEPTION 'You do not have privileges to maintain Employees.';
   END IF;
 
-  IF (TG_OP IN ('INSERT', 'UPDATE')) THEN
-    IF (NEW.emp_code IS NULL) THEN
-      RAISE EXCEPTION 'You must supply a valid Employee Code.';
-    END IF;
-
-    IF (NEW.emp_number IS NULL) THEN
-      RAISE EXCEPTION 'You must supply a valid Employee Number.';
-    END IF;
-
-    IF (NEW.emp_id = NEW.emp_mgr_emp_id) THEN
-      RAISE EXCEPTION 'An Employee may not be his or her own Manager.';
-    END IF;
-
-    -- ERROR:  cannot use column references in default expression
-    IF (NEW.emp_name IS NULL) THEN
-      NEW.emp_name = COALESCE(formatCntctName(NEW.emp_cntct_id), NEW.emp_number);
-    END IF;
-
-    IF (TG_OP = 'INSERT' AND fetchMetricText('CRMAccountNumberGeneration') IN ('A','O')) THEN
-      PERFORM clearNumberIssue('CRMAccountNumber', NEW.emp_number);
-    END IF;
-
-    NEW.emp_code := UPPER(NEW.emp_code);
-
-    -- deprecated column emp_username
-    IF (TG_OP = 'UPDATE' AND
-        LOWER(NEW.emp_username) != LOWER(NEW.emp_code) AND
-        EXISTS(SELECT 1
-                 FROM crmacct
-                WHERE crmacct_emp_id = NEW.emp_id
-                  AND crmacct_usr_username IS NOT NULL)) THEN
-      NEW.emp_username = LOWER(NEW.emp_code);
-    END IF;
-
-  ELSIF (TG_OP = 'DELETE') THEN
-    UPDATE crmacct SET crmacct_emp_id = NULL
-     WHERE crmacct_emp_id = OLD.emp_id;
-
-    UPDATE salesrep SET salesrep_emp_id = NULL
-     WHERE salesrep_emp_id = OLD.emp_id;
-
-    RETURN OLD;
+  IF (NEW.emp_code IS NULL) THEN
+    RAISE EXCEPTION 'You must supply a valid Employee Code.';
   END IF;
-  
+
+  IF (NEW.emp_number IS NULL) THEN
+    RAISE EXCEPTION 'You must supply a valid Employee Number.';
+  END IF;
+
+  IF (NEW.emp_id = NEW.emp_mgr_emp_id) THEN
+    RAISE EXCEPTION 'An Employee may not be his or her own Manager.';
+  END IF;
+
+  -- ERROR:  cannot use column references in default expression
+  IF (NEW.emp_name IS NULL) THEN
+    NEW.emp_name = COALESCE(formatCntctName(NEW.emp_cntct_id), NEW.emp_number);
+  END IF;
+
+  IF (TG_OP = 'INSERT' AND fetchMetricText('CRMAccountNumberGeneration') IN ('A','O')) THEN
+    PERFORM clearNumberIssue('CRMAccountNumber', NEW.emp_number);
+  END IF;
+
+  NEW.emp_code := UPPER(NEW.emp_code);
+
+  -- deprecated column emp_username
+  IF (TG_OP = 'UPDATE' AND
+      LOWER(NEW.emp_username) != LOWER(NEW.emp_code) AND
+      EXISTS(SELECT 1
+               FROM crmacct
+              WHERE crmacct_emp_id = NEW.emp_id
+                AND crmacct_usr_username IS NOT NULL)) THEN
+    NEW.emp_username = LOWER(NEW.emp_code);
+  END IF;
+
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'empBeforeTrigger');
-CREATE TRIGGER empBeforeTrigger BEFORE INSERT OR UPDATE OR DELETE ON emp
+CREATE TRIGGER empBeforeTrigger BEFORE INSERT OR UPDATE ON emp
        FOR EACH ROW EXECUTE PROCEDURE _empBeforeTrigger();
 
 CREATE OR REPLACE FUNCTION _empAfterTrigger () RETURNS TRIGGER AS $$
@@ -109,10 +98,6 @@ BEGIN
       IF (TG_OP = 'INSERT') THEN
         PERFORM postComment(_cmnttypeid, 'EMP', NEW.emp_id, 'Created');
 
-      ELSIF (TG_OP = 'DELETE') THEN
-	PERFORM postComment(_cmnttypeid, 'EMP', OLD.emp_id,
-                            ('Deleted "' || OLD.emp_code || '"'));
-
       ELSIF (TG_OP = 'UPDATE') THEN
 
         IF (OLD.emp_number <> NEW.emp_number) THEN
@@ -157,13 +142,51 @@ BEGIN
     END IF;
   END IF;
 
-  IF (TG_OP = 'DELETE') THEN
-    RETURN OLD;
-  END IF;
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'empAfterTrigger');
-CREATE TRIGGER empAfterTrigger AFTER INSERT OR UPDATE OR DELETE ON emp
+CREATE TRIGGER empAfterTrigger AFTER INSERT OR UPDATE ON emp
        FOR EACH ROW EXECUTE PROCEDURE _empAfterTrigger();
+
+CREATE OR REPLACE FUNCTION _empBeforeDeleteTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+BEGIN
+  IF NOT (checkPrivilege('MaintainEmployees')) THEN
+    RAISE EXCEPTION 'You do not have privileges to maintain Employees.';
+  END IF;
+
+  UPDATE crmacct SET crmacct_emp_id = NULL
+   WHERE crmacct_emp_id = OLD.emp_id;
+
+  UPDATE salesrep SET salesrep_emp_id = NULL
+   WHERE salesrep_emp_id = OLD.emp_id;
+
+  RETURN OLD;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'empBeforeDeleteTrigger');
+CREATE TRIGGER empBeforeDeleteTrigger BEFORE DELETE ON emp
+       FOR EACH ROW EXECUTE PROCEDURE _empBeforeDeleteTrigger();
+
+CREATE OR REPLACE FUNCTION _empAfterDeleteTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+BEGIN
+  IF (fetchMetricBool('EmployeeChangeLog')) THEN
+    PERFORM postComment(cmnttype_id, 'EMP', OLD.emp_id,
+                        ('Deleted "' || OLD.emp_code || '"'))
+      FROM cmnttype
+     WHERE (cmnttype_name='ChangeLog');
+  END IF;
+
+  RETURN OLD;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'empAfterDeleteTrigger');
+CREATE TRIGGER empAfterDeleteTrigger AFTER DELETE ON emp
+       FOR EACH ROW EXECUTE PROCEDURE _empAfterDeleteTrigger();
