@@ -2,33 +2,27 @@ CREATE OR REPLACE FUNCTION _taxauthBeforeTrigger() RETURNS TRIGGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
-
   IF (NOT checkPrivilege('MaintainTaxAuthorities')) THEN
     RAISE EXCEPTION 'You do not have privileges to maintain Tax Authorities.';
   END IF;
 
-  IF (TG_OP IN ('INSERT', 'UPDATE')) THEN
-    IF (NEW.taxauth_code IS NULL) THEN
-      RAISE EXCEPTION 'You must supply a Tax Authority Code.';
-    END IF;
-
-    IF (TG_OP = 'INSERT' AND fetchMetricText('CRMAccountNumberGeneration') IN ('A','O') AND isNumeric(NEW.taxauth_code)) THEN
-      --- clear the number from the issue cache
-      PERFORM clearNumberIssue('CRMAccountNumber', NEW.taxauth_code);
-    END IF;
-
-  ELSIF (TG_OP = 'DELETE') THEN
-    UPDATE crmacct SET crmacct_taxauth_id = NULL
-     WHERE crmacct_taxauth_id = OLD.taxauth_id;
-    RETURN OLD;
+  IF (NEW.taxauth_code IS NULL) THEN
+    RAISE EXCEPTION 'You must supply a Tax Authority Code.';
   END IF;
+
+  IF (TG_OP = 'INSERT' AND
+      fetchMetricText('CRMAccountNumberGeneration') IN ('A','O')) THEN
+    PERFORM clearNumberIssue('CRMAccountNumber', NEW.taxauth_code);
+  END IF;
+
+  NEW.taxauth_code := UPPER(NEW.taxauth_code);
 
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('trigger', 'taxauthBeforeTrigger');
-CREATE TRIGGER taxauthBeforeTrigger BEFORE INSERT OR UPDATE OR DELETE ON taxauth
+CREATE TRIGGER taxauthBeforeTrigger BEFORE INSERT OR UPDATE ON taxauth
        FOR EACH ROW EXECUTE PROCEDURE _taxauthBeforeTrigger();
 
 CREATE OR REPLACE FUNCTION _taxauthAfterTrigger () RETURNS TRIGGER AS $$
@@ -38,7 +32,6 @@ DECLARE
   _cmnttypeid INTEGER;
 
 BEGIN
-
   IF (TG_OP = 'INSERT') THEN
     -- http://www.postgresql.org/docs/current/static/plpgsql-control-structures.html#PLPGSQL-UPSERT-EXAMPLE
     LOOP
@@ -70,14 +63,6 @@ BEGIN
     WHERE ((crmacct_taxauth_id=NEW.taxauth_id)
       AND  (crmacct_name!=NEW.taxauth_name));
 
-  ELSIF (TG_OP = 'DELETE') THEN
-    IF (EXISTS(SELECT checkhead_id
-                 FROM checkhead
-                WHERE checkhead_recip_id = OLD.taxauth_id
-                  AND checkhead_recip_type='T')) THEN
-      RAISE EXCEPTION '[xtuple: deleteTaxAuthority, -7]';
-    END IF;
-
   END IF;
 
   IF (fetchMetricBool('TaxAuthChangeLog')) THEN
@@ -89,12 +74,7 @@ BEGIN
       IF (TG_OP = 'INSERT') THEN
         PERFORM postComment(_cmnttypeid, 'TAXAUTH', NEW.taxauth_id, 'Created');
 
-      ELSIF (TG_OP = 'DELETE') THEN
-        PERFORM postComment(_cmnttypeid, 'TAXAUTH', OLD.taxauth_id,
-                            'Deleted "' || OLD.taxauth_number || '"');
-
       ELSIF (TG_OP = 'UPDATE') THEN
-
         IF (OLD.taxauth_code <> NEW.taxauth_code) THEN
           PERFORM postComment(_cmnttypeid, 'TAXAUTH', NEW.taxauth_id,
                               'Code changed from "' || OLD.taxauth_code ||
@@ -143,13 +123,55 @@ BEGIN
     END IF;
   END IF;
 
-  IF (TG_OP = 'DELETE') THEN
-    RETURN OLD;
-  END IF;
   RETURN NEW;
 END;
 $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('trigger', 'taxauthAfterTrigger');
-CREATE TRIGGER taxauthAfterTrigger AFTER INSERT OR UPDATE OR DELETE ON taxauth
+CREATE TRIGGER taxauthAfterTrigger AFTER INSERT OR UPDATE ON taxauth
        FOR EACH ROW EXECUTE PROCEDURE _taxauthAfterTrigger();
+
+CREATE OR REPLACE FUNCTION _taxauthBeforeDeleteTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+BEGIN
+  IF (NOT checkPrivilege('MaintainTaxAuthorities')) THEN
+    RAISE EXCEPTION 'You do not have privileges to maintain Tax Authorities.';
+  END IF;
+
+  UPDATE crmacct SET crmacct_taxauth_id = NULL
+   WHERE crmacct_taxauth_id = OLD.taxauth_id;
+
+  RETURN OLD;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('trigger', 'taxauthBeforeDeleteTrigger');
+CREATE TRIGGER taxauthBeforeDeleteTrigger BEFORE DELETE ON taxauth
+       FOR EACH ROW EXECUTE PROCEDURE _taxauthBeforeDeleteTrigger();
+
+CREATE OR REPLACE FUNCTION _taxauthAfterDeleteTrigger () RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+BEGIN
+  IF (EXISTS(SELECT 1
+               FROM checkhead
+              WHERE checkhead_recip_id = OLD.taxauth_id
+                AND checkhead_recip_type='T')) THEN
+    RAISE EXCEPTION '[xtuple: deleteTaxAuthority, -7]';
+  END IF;
+
+  IF (fetchMetricBool('TaxAuthChangeLog')) THEN
+    PERFORM postComment(cmnttype_id, 'TAXAUTH', OLD.taxauth_id,
+                        'Deleted "' || OLD.taxauth_number || '"')
+      FROM cmnttype
+     WHERE (cmnttype_name='ChangeLog');
+  END IF;
+
+  RETURN OLD;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('trigger', 'taxauthAfterDeleteTrigger');
+CREATE TRIGGER taxauthAfterDeleteTrigger AFTER DELETE ON taxauth
+       FOR EACH ROW EXECUTE PROCEDURE _taxauthAfterDeleteTrigger();
