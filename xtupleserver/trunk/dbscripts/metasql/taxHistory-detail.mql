@@ -38,12 +38,7 @@ SELECT
   COALESCE(taxclass_code,<? value("none") ?>) AS taxclass, taxclass_descrip,
   COALESCE(taxauth_code,<? value("none") ?>) AS taxauth, taxauth_name AS taxauth_descrip,
   COALESCE(taxzone_code,<? value("none") ?>) AS taxzone, taxzone_descrip, curr_abbr, 
-  CASE
-    WHEN (cohist_doctype != 'C') THEN
-      cohist_invcnumber
-    ELSE
-      cohist_ordernumber
-  END AS docnumber, 
+  cohist_invcnumber AS docnumber, 
   <? value("sales") ?> AS source,
   CASE
     WHEN (cohist_doctype='I') THEN
