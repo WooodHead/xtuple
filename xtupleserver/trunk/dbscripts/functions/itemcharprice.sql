@@ -83,6 +83,11 @@ DECLARE
   _iteminvpricerat NUMERIC;
 
 BEGIN
+-- If the charass_value passed in is NULL, we can skip this function
+  IF (pCharValue IS NULL) THEN 
+    RETURN 0;
+  END IF;
+
 -- Return the itemCharPrice in the currency passed in as pCurrid
 
 -- Get a value here so we do not have to call the function several times
