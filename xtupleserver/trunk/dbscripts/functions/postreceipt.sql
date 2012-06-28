@@ -116,11 +116,8 @@ BEGIN
 
   _glDate := COALESCE(_r.recv_gldistdate, _r.recv_date);
 
-  IF (_r.itemsite_id = -1 OR _r.itemsite_id IS NULL OR _r.itemsite_controlmethod = 'N') THEN
-    IF (_r.recv_order_type != 'PO') THEN
-    RAISE NOTICE 'itemsite controlmethod is %, cannot post receipt.', _r.itemsite_controlmethod;
-      RETURN -14;	-- otherwise how do we get the accounts?
-    END IF;
+  IF ( (_r.recv_order_type = 'PO') AND
+        (_r.itemsite_id = -1 OR _r.itemsite_id IS NULL OR _r.itemsite_controlmethod = 'N') ) THEN
 
     IF (_r.itemsite_id IS NOT NULL) THEN
       SELECT insertGLTransaction( fetchJournalNumber('GL-MISC'), 
@@ -183,6 +180,16 @@ BEGIN
     SET poitem_qty_received = (poitem_qty_received + _r.recv_qty),
 	poitem_freight_received = (poitem_freight_received + _r.recv_freight_base)
     WHERE (poitem_id=_o.orderitem_id);
+
+  ELSEIF ( (_r.recv_order_type = 'RA') AND
+           (_r.itemsite_id = -1 OR _r.itemsite_id IS NULL OR _r.itemsite_controlmethod = 'N') ) THEN
+    RAISE NOTICE 'itemsite controlmethod is %, cannot post receipt.', _r.itemsite_controlmethod;
+    RETURN -14;	-- otherwise how do we get the accounts?
+
+  ELSEIF ( (_r.recv_order_type = 'TO') AND
+           (_r.itemsite_id = -1 OR _r.itemsite_id IS NULL) ) THEN
+    RAISE NOTICE 'itemsite missing';
+    RETURN -14;	-- otherwise how do we get the accounts?
 
   ELSE	-- not ELSIF: some code is shared between diff order types
     IF (_r.recv_order_type = 'PO') THEN
