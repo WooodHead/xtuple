@@ -17,9 +17,13 @@ BEGIN
           (checkPrivilege('MaintainPreferencesSelf'))) THEN
     -- 2 IFs because plpgsql doesn't always evaluate boolean exprs left-to-right
     IF (TG_OP = 'DELETE') THEN
-      RAISE EXCEPTION 'You do not have privileges to change this User Preference.';
+      IF NOT (OLD.usrpref_name LIKE '%/checked' OR OLD.usrpref_name LIKE '%/columnsShown') THEN
+        RAISE EXCEPTION 'You do not have privileges to change this User Preference.';
+      END IF;
     ELSIF (NEW.usrpref_username = getEffectiveXtUser()) THEN
-      RAISE EXCEPTION 'You do not have privileges to change this User Preference.';
+      IF NOT (NEW.usrpref_name LIKE '%/checked' OR NEW.usrpref_name LIKE '%/columnsShown') THEN
+        RAISE EXCEPTION 'You do not have privileges to change this User Preference.';
+      END IF;
     END IF;
   END IF;
 
