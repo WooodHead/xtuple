@@ -42,6 +42,8 @@ function initDockMessageHistory()
     .connect(populateMenuMessageHistory);
   _messageHistory["itemDoubleClicked(QTreeWidgetItem*, int)"].connect(myOpen);
 
+  mainwindow["tick()"].connect(refreshMessageHistory);
+
   // Don't show if no privs
   var act = _dockMessageHistory.toggleViewAction();
   if (!privileges.check("viewMsgHistoryDock"))

@@ -10,7 +10,6 @@
 
 // Import code from related scripts
 include("dockBankBal");
-include("dockCommentConsole");
 include("dockExtensions");
 include("dockGLAccounts");
 include("dockMessageHistory");
@@ -122,7 +121,6 @@ initDockMfgHist();
 initDockMfgOpen();
 
 addDesktop("desktopSocial", "social", "viewSocialDesktop");
-initDockCommentConsole();
 initDockUserOnline();
 initDockMessageHistory();
 initDockSendMessage();
@@ -246,7 +244,6 @@ function prepareWindowMenu()
   _dockMfgOpen.toggleViewAction().visible = (idx == 5);
   _dockExtensions.toggleViewAction().visible = (idx == 6);
   _dockUserOnline.toggleViewAction().visible = (idx == 6);
-  _dockCommentConsole.toggleViewAction().visible = (idx == 7);
   _dockSendMessage.toggleViewAction().visible = (idx == 7);
   _dockMessageHistory.toggleViewAction().visible = (idx == 7);
   _dockUserOnline.toggleViewAction().visible = (idx == 7);

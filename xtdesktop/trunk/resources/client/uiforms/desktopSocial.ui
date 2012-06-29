@@ -6,81 +6,105 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>928</width>
-    <height>552</height>
+    <width>996</width>
+    <height>666</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Social</string>
   </property>
-  <property name="documentMode">
-   <bool>true</bool>
-  </property>
-  <property name="dockNestingEnabled">
-   <bool>true</bool>
-  </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_6">
+   <layout class="QGridLayout" name="gridLayout_5">
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="desktopSociallit">
-        <property name="font">
-         <font>
-          <pointsize>15</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Social</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="desktopSociallit">
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Social</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QGroupBox" name="groupBox">
+       <widget class="QGroupBox" name="_commentConsoleGrp">
         <property name="title">
-         <string/>
+         <string>Comment Console</string>
         </property>
-        <layout class="QGridLayout" name="gridLayout_5">
+        <layout class="QGridLayout" name="gridLayout">
          <item row="0" column="0">
-          <widget class="MenuButton" name="_preferences" native="true">
-           <property name="image" stdset="0">
-            <string>xtuple-preferences</string>
-           </property>
-           <property name="label" stdset="0">
-            <string>Preferenses</string>
-           </property>
-           <property name="actionName" stdset="0">
-            <string>sys.preferences</string>
-           </property>
-          </widget>
+          <widget class="XTreeWidget" name="_commentConsole"/>
          </item>
          <item row="1" column="0">
-          <widget class="MenuButton" name="_events" native="true">
-           <property name="image" stdset="0">
-            <string>events-option</string>
-           </property>
-           <property name="label" stdset="0">
-            <string>Events</string>
-           </property>
-           <property name="actionName" stdset="0">
-            <string>sys.eventManager</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="MenuButton" name="_connectConsole" native="true">
-           <property name="image" stdset="0">
-            <string>xtuple-connect</string>
-           </property>
-           <property name="label" stdset="0">
-            <string>Connect Console</string>
-           </property>
-           <property name="actionName" stdset="0">
-            <string>xtConnect.batchManagerAction</string>
-           </property>
-          </widget>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="_button1">
+             <property name="maximumSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>b</string>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="_button2">
+             <property name="maximumSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>b</string>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>
@@ -90,11 +114,14 @@
    </layout>
   </widget>
   <widget class="QDockWidget" name="_dockSendMessage">
+   <property name="allowedAreas">
+    <set>Qt::BottomDockWidgetArea|Qt::RightDockWidgetArea|Qt::TopDockWidgetArea</set>
+   </property>
    <property name="windowTitle">
     <string>Send Message</string>
    </property>
    <attribute name="dockWidgetArea">
-    <number>2</number>
+    <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
     <layout class="QGridLayout" name="gridLayout_2">
@@ -123,7 +150,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <spacer name="horizontalSpacer_2">
+      <spacer name="horizontalSpacer_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -157,11 +184,14 @@
    </widget>
   </widget>
   <widget class="QDockWidget" name="_dockMessageHistory">
+   <property name="allowedAreas">
+    <set>Qt::BottomDockWidgetArea|Qt::RightDockWidgetArea|Qt::TopDockWidgetArea</set>
+   </property>
    <property name="windowTitle">
     <string>Message History</string>
    </property>
    <attribute name="dockWidgetArea">
-    <number>2</number>
+    <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_2">
     <layout class="QGridLayout" name="gridLayout_4">
@@ -169,7 +199,7 @@
       <widget class="XTreeWidget" name="_messageHistory"/>
      </item>
      <item row="1" column="0">
-      <spacer name="horizontalSpacer_3">
+      <spacer name="horizontalSpacer_4">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -216,72 +246,15 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QDockWidget" name="_dockCommentConsole">
-   <property name="windowTitle">
-    <string>Comment Console</string>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>1</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents_3">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0" colspan="3">
-      <widget class="XTreeWidget" name="_commentConsole"/>
-     </item>
-     <item row="1" column="0">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>179</width>
-         <height>13</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="1" column="1">
-      <widget class="QPushButton" name="_button1">
-       <property name="maximumSize">
-        <size>
-         <width>16</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>b</string>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
-      <widget class="QPushButton" name="_button2">
-       <property name="maximumSize">
-        <size>
-         <width>16</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>b</string>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
   <widget class="QDockWidget" name="_dockUserOnline">
+   <property name="allowedAreas">
+    <set>Qt::BottomDockWidgetArea|Qt::RightDockWidgetArea|Qt::TopDockWidgetArea</set>
+   </property>
    <property name="windowTitle">
     <string>Users Online</string>
    </property>
    <attribute name="dockWidgetArea">
-    <number>8</number>
+    <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_4">
     <layout class="QGridLayout" name="gridLayout_3">
@@ -298,20 +271,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>MenuButton</class>
+   <class>UsernameCluster</class>
    <extends>QWidget</extends>
-   <header>menubutton.h</header>
+   <header>usernamecluster.h</header>
   </customwidget>
   <customwidget>
    <class>XTreeWidget</class>
    <extends>QTreeWidget</extends>
    <header>xtreewidget.h</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>UsernameCluster</class>
-   <extends>QWidget</extends>
-   <header>usernamecluster.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
