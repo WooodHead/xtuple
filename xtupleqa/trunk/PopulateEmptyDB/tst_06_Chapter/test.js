@@ -4,8 +4,13 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");   
-    waitForObject(":Cancel.Yes_QPushButton");
-    clickButton(":Cancel.Yes_QPushButton");
+    try
+    {
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+    }
+    catch(e)
+    {test.log("No language dialog found");}
     var appEdition = findApplicationEdition();
     
     

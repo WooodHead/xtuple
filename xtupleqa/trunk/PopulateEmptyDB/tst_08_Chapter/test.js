@@ -6,8 +6,13 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");       
-    waitForObject(":Cancel.Yes_QPushButton");
-    clickButton(":Cancel.Yes_QPushButton");
+    try
+    {
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+    }
+    catch(e)
+    {test.log("No language dialog found");}
    
     var appEdition = findApplicationEdition();
     
@@ -784,8 +789,8 @@ function main()
         clickTab(":Customer.qt_tabwidget_tabbar_QTabBar", "Settings");
         
         waitForObject(":_defaultGroup._salesrep_XComboBox");
-        if(findObject(":_defaultGroup._salesrep_XComboBox").currentText!= "USGE-"+username)
-            clickItem(":_defaultGroup._salesrep_XComboBox","USGE-"+username,0,0,1,Qt.LeftButton);
+        if(findObject(":_defaultGroup._salesrep_XComboBox").currentText!= "USGE-usge")
+            clickItem(":_defaultGroup._salesrep_XComboBox","USGE-usge",0,0,1,Qt.LeftButton);
         waitForObject(":_defaultGroup._shipform_XComboBox");
         clickItem(":_defaultGroup._shipform_XComboBox","STANDARD-PACKING-LIST",10, 10, 0, Qt.LeftButton); 
         waitForObject(":_settingsTab.Terms_QRadioButton");
