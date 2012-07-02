@@ -5,8 +5,13 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");     
-    waitForObject(":Cancel.Yes_QPushButton");
-    clickButton(":Cancel.Yes_QPushButton");
+    try
+    {
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+    }
+    catch(e)
+    {test.log("No language dialog found");}
     var appEdition = findApplicationEdition();
     
     try{
@@ -1667,7 +1672,7 @@ function main()
         clickButton(":Show Custom Column.Use Difference_QRadioButton");
         clickButton(":List Financial Reports.Save_QPushButton");
         
-        waitForObject(":frame._layout_XTreeWidget");
+        /* waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "REVENUE.Sales", 5, 5, 1, Qt.LeftButton);
         snooze(1);
         waitForObject(":frame.Add Account_QPushButton");
@@ -1709,7 +1714,7 @@ function main()
         if(!findObject(":Show Custom Column.Show % of Group Total_QCheckBox").checked)
             clickButton(":Show Custom Column.Show % of Group Total_QCheckBox");
         clickButton(":Show Custom Column.Use Difference_QRadioButton");
-        clickButton(":List Financial Reports.Save_QPushButton");
+        clickButton(":List Financial Reports.Save_QPushButton"); */
         
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "REVENUE.Sales", 5, 5, 1, Qt.LeftButton);
@@ -3947,7 +3952,7 @@ function main()
         clickButton(":List Financial Reports.Save_QPushButton");
         
         
-        waitForObject(":frame._layout_XTreeWidget");
+        /* waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "LIABILITIES AND OWNERS EQUITY.OWNERS EQUITY.Year To Date Net Income", 5, 5, 1, Qt.LeftButton);
         snooze(1);
         waitForObject(":frame.Add Account_QPushButton");
@@ -3994,7 +3999,7 @@ function main()
         waitForObject(":Show Custom Column.Use Difference_QRadioButton");
         clickButton(":Show Custom Column.Use Difference_QRadioButton");
         waitForObject(":List Financial Reports.Save_QPushButton");
-        clickButton(":List Financial Reports.Save_QPushButton");
+        clickButton(":List Financial Reports.Save_QPushButton"); */
         
         
         waitForObject(":frame._layout_XTreeWidget");

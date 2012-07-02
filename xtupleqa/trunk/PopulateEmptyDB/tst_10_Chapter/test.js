@@ -7,8 +7,13 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");     
-    waitForObject(":Cancel.Yes_QPushButton");
-    clickButton(":Cancel.Yes_QPushButton");
+    try
+    {
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+    }
+    catch(e)
+    {test.log("No language dialog found");}
     var appEdition = findApplicationEdition();
     
     
@@ -101,8 +106,10 @@ function main()
         test.log("Accounting for ACH configured");
     }catch(e){test.fail("Exception in configuring Accounting" + e);}
     
-    if(object.exists(":No_QPushButton"))
+    try {
+        waitForObject(":No_QPushButton");
         clickButton(":No_QPushButton");
+    }catch(e){test.log("Encryption appears to be set");}
     
     
     
@@ -180,7 +187,12 @@ function main()
         nativeType("<Tab>");
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-        snooze(1);
+        
+        try {
+            waitForObject(":No_QPushButton");
+            clickButton(":No_QPushButton");
+        }catch(e){test.log("Encryption appears to be set.");}
+
         waitForObject(":List Bank Accounts._bankaccnt_XTreeWidget");
         if(object.exists(":_bankaccnt.EURBANK_QModelIndex"))
             test.pass("Bank Account created: EURBANK");
@@ -223,6 +235,12 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
+        
+        try {
+            waitForObject(":No_QPushButton");
+            clickButton(":No_QPushButton");
+        }catch(e){test.log("Encryption appears to be set.");}
+
     }catch(e){test.fail("Exception in defining Adjustment types:"+e);}
     
     
@@ -245,7 +263,7 @@ function main()
         findObject(":Fiscal Year.XDateEdit_XDateEdit").clear();
         type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+CurrentYearFull);
         findObject(":Fiscal Year.XDateEdit_XDateEdit_2").clear();
-        type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+CurrentYearFull);
+        type(":Fiscal Year.XDateEdit_XDateEdit_2", "31/12/"+CurrentYearFull);
         waitForObject(":List Employees.Save_QPushButton_2");
         clickButton(":List Employees.Save_QPushButton_2");
         
@@ -257,7 +275,7 @@ function main()
         findObject(":Fiscal Year.XDateEdit_XDateEdit").clear();
         type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+NxtYear);
         findObject(":Fiscal Year.XDateEdit_XDateEdit_2").clear();
-        type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+NxtYear);
+        type(":Fiscal Year.XDateEdit_XDateEdit_2", "31/12/"+NxtYear);
         waitForObject(":List Employees.Save_QPushButton_2");
         clickButton(":List Employees.Save_QPushButton_2");
         waitForObject(":List Fiscal Years._period_XTreeWidget");
@@ -305,12 +323,12 @@ function main()
                 
                 waitForObject(":Accounting Period.XDateEdit_XDateEdit");
                 findObject(":Accounting Period.XDateEdit_XDateEdit").clear();
-                type(":Accounting Period.XDateEdit_XDateEdit", j+"/1/"+i);
+                type(":Accounting Period.XDateEdit_XDateEdit", "1/"+j+"/"+i);
                 waitForObject(":Accounting Period.XDateEdit_XDateEdit_2");
                 findObject(":Accounting Period.XDateEdit_XDateEdit_2").clear();        
-                type(":Accounting Period.XDateEdit_XDateEdit_2", j+"/"+YearSet[j-1]+"/"+i);
+                type(":Accounting Period.XDateEdit_XDateEdit_2", YearSet[j-1]+"/"+j+"/"+i);
                 type(":Accounting Period.XDateEdit_XDateEdit_2", "<Tab>");
-                if(findObject(":Accounting Period.XDateEdit_XDateEdit_2").text!=j+"/"+YearSet[j-1]+"/"+i)
+                if(findObject(":Accounting Period.XDateEdit_XDateEdit_2").text!=YearSet[j-1]+"/"+j+"/"+i)
                     snooze(0.1);
                 
                 waitForObject(":_name_QLineEdit");

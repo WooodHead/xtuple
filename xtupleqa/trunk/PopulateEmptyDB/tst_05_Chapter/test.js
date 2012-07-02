@@ -6,8 +6,13 @@ function main()
     //---login Application--------
     loginAppl("RUNREGISTER"); 
   
-    waitForObject(":Cancel.Yes_QPushButton");
-    clickButton(":Cancel.Yes_QPushButton");
+    try
+    {
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+    }
+    catch(e)
+    {test.log("No language dialog found");}
     var appEdition = findApplicationEdition();
     
   
@@ -82,12 +87,12 @@ function main()
         clickButton(":_taxtypesTab.New_QPushButton_10");
         
         waitForObject(":_taxzone_XComboBox");
-        clickItem(":_taxzone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
-        while(findObject(":_taxzone_XComboBox").currentText!="TZONE1-Tax Zone1")
+        clickItem(":_taxzone_XComboBox", "Any", 0, 0, 1, Qt.LeftButton);
+        while(findObject(":_taxzone_XComboBox").currentText!="Any")
             snooze(0.5);
         waitForObject(":_taxtype_XComboBox_4");
-        clickItem(":_taxtype_XComboBox_4", "GM",0,0,1,Qt.LeftButton);
-        while(findObject(":_taxtype_XComboBox_4").currentText!="GM")
+        clickItem(":_taxtype_XComboBox_4", "Adjustment",0,0,1,Qt.LeftButton);
+        while(findObject(":_taxtype_XComboBox_4").currentText!="Adjustment")
             snooze(1);
         waitForObject(":Item Tax.Save_QPushButton");
         clickButton(":Item Tax.Save_QPushButton");
@@ -184,12 +189,12 @@ function main()
         waitForObject(":_taxtypesTab.New_QPushButton_10");
         clickButton(":_taxtypesTab.New_QPushButton_10");
         waitForObject(":_taxzone_XComboBox");
-        clickItem(":_taxzone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
-        while(findObject(":_taxzone_XComboBox").currentText!="TZONE1-Tax Zone1")
+        clickItem(":_taxzone_XComboBox", "Any", 0, 0, 1, Qt.LeftButton);
+        while(findObject(":_taxzone_XComboBox").currentText!="Any")
             snooze(0.1);
         waitForObject(":_taxtype_XComboBox_4");
-        clickItem(":_taxtype_XComboBox_4", "GM",0,0,1,Qt.LeftButton);
-        while(findObject(":_taxtype_XComboBox_4").currentText!="GM")
+        clickItem(":_taxtype_XComboBox_4", "Adjustment",0,0,1,Qt.LeftButton);
+        while(findObject(":_taxtype_XComboBox_4").currentText!="Adjustment")
             snooze(0.1);
         waitForObject(":Item Tax.Save_QPushButton");
         clickButton(":Item Tax.Save_QPushButton");
@@ -287,12 +292,12 @@ function main()
         waitForObject(":_taxtypesTab.New_QPushButton_10",5);
         clickButton(":_taxtypesTab.New_QPushButton_10");
         waitForObject(":_taxzone_XComboBox");
-        clickItem(":_taxzone_XComboBox", "TZONE1-Tax Zone1", 0, 0, 1, Qt.LeftButton);
-        while(findObject(":_taxzone_XComboBox").currentText!="TZONE1-Tax Zone1")
+        clickItem(":_taxzone_XComboBox", "Any", 0, 0, 1, Qt.LeftButton);
+        while(findObject(":_taxzone_XComboBox").currentText!="Any")
             snooze(0.1);
         waitForObject(":_taxtype_XComboBox_4");
-        clickItem(":_taxtype_XComboBox_4", "GM",0,0,1,Qt.LeftButton);
-        while(findObject(":_taxtype_XComboBox_4").currentText!="GM")
+        clickItem(":_taxtype_XComboBox_4", "Adjustment",0,0,1,Qt.LeftButton);
+        while(findObject(":_taxtype_XComboBox_4").currentText!="Adjustment")
             snooze(0.1);
         waitForObject(":Item Tax.Save_QPushButton");
         clickButton(":Item Tax.Save_QPushButton");

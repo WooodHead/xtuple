@@ -6,8 +6,13 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");  
-//    waitForObject(":Cancel.Yes_QPushButton");
-//    clickButton(":Cancel.Yes_QPushButton");
+    try
+    {
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+    }
+    catch(e)
+    {test.log("No language dialog found");}
     
     var appEdition = findApplicationEdition();
   
@@ -393,7 +398,7 @@ function main()
         
         waitForObject(":_venditemGroup._vendorItemNumber_XLineEdit_2");
         type(":_venditemGroup._vendorItemNumber_XLineEdit_2", "TPBOX01");
-        type(":_vendorUOM_XLineEdit", "PCS");
+        type(":_vendorUOM_XComboBox", "EA");
         type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
         type(":_venditemGroup._minOrderQty_XLineEdit", "0");
         type(":_multOrderQty_XLineEdit", "1");
@@ -446,7 +451,7 @@ function main()
         
         waitForObject(":_venditemGroup._vendorItemNumber_XLineEdit");
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPBODY01");
-        type(":_vendorUOM_XLineEdit", "PCS");
+        type(":_vendorUOM_XComboBox", "EA");
         type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
         type(":_venditemGroup._minOrderQty_XLineEdit", "0");
         type(":_multOrderQty_XLineEdit", "1");
@@ -491,7 +496,7 @@ function main()
         snooze(0.5);
         
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPINSERT01");
-        type(":_vendorUOM_XLineEdit", "PCS");
+        type(":_vendorUOM_XComboBox", "EA");
         type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
         type(":_venditemGroup._minOrderQty_XLineEdit", "0");
         type(":_multOrderQty_XLineEdit", "1");
@@ -540,7 +545,7 @@ function main()
         
         
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPWHEEL01");
-        type(":_vendorUOM_XLineEdit", "PCS");
+        type(":_vendorUOM_XComboBox", "EA");
         type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
         type(":_venditemGroup._minOrderQty_XLineEdit", "0");
         type(":_multOrderQty_XLineEdit", "1");
@@ -583,7 +588,7 @@ function main()
         
         
         type(":_venditemGroup._vendorItemNumber_XLineEdit", "TPPAINT01");
-        type(":_vendorUOM_XLineEdit", "PCS");
+        type(":_vendorUOM_XComboBox", "EA");
         type(":_venditemGroup._invVendorUOMRatio_XLineEdit", "1");
         type(":_venditemGroup._minOrderQty_XLineEdit", "0");
         type(":_multOrderQty_XLineEdit", "1");

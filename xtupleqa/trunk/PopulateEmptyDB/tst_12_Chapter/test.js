@@ -5,8 +5,13 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");   
-    waitForObject(":Cancel.Yes_QPushButton");
-    clickButton(":Cancel.Yes_QPushButton");
+    try
+    {
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+    }
+    catch(e)
+    {test.log("No language dialog found");}
     var appEdition = findApplicationEdition();
     
     //---------Assign Tax Authority for Customer----------
@@ -29,7 +34,7 @@ function main()
         waitForObject(":_addressStack._shipto_XTreeWidget_3");
         doubleClickItem(":_addressStack._shipto_XTreeWidget_3", "Old Towne Store 1", 5, 5, 0, Qt.LeftButton);
         waitForObject(":Ship-To._taxzone_XComboBox");
-        clickItem(":Ship-To._taxzone_XComboBox", "TZONE1-Tax Zone1",0,0,1,Qt.LeftButton);
+        clickItem(":Ship-To._taxzone_XComboBox", "VA-SALES-TAX-ZONE-Virginia Sales Tax Zone",0,0,1,Qt.LeftButton);
         snooze(1);
         
         waitForObject(":Ship-To.Save_QPushButton");
@@ -37,7 +42,7 @@ function main()
         waitForObject(":_addressStack._shipto_XTreeWidget_3");
         doubleClickItem(":_addressStack._shipto_XTreeWidget_3", "Old Towne Store 2", 5, 5, 0, Qt.LeftButton);
         waitForObject(":Ship-To._taxzone_XComboBox");
-        clickItem(":Ship-To._taxzone_XComboBox", "TZONE1-Tax Zone1",0,0,1,Qt.LeftButton);
+        clickItem(":Ship-To._taxzone_XComboBox", "VA-SALES-TAX-ZONE-Virginia Sales Tax Zone",0,0,1,Qt.LeftButton);
         snooze(1);
         waitForObject(":Ship-To.Save_QPushButton");
         clickButton(":Ship-To.Save_QPushButton");

@@ -112,7 +112,7 @@ function assignAllPrivileges(userrole)
         if(role==userrole) break;
     }
     
-    
+    snooze(1.0);
     waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
     activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
     waitForObject(":xTuple ERP: OpenMFG Edition.System_QMenu");
@@ -155,8 +155,13 @@ function assignAllPrivileges(userrole)
     snooze(2);
     
     loginAppl("CONFIGURE"); 
-    waitForObject(":Cancel.Yes_QPushButton");
-    clickButton(":Cancel.Yes_QPushButton");
+    try
+    {
+        waitForObject(":Cancel.Yes_QPushButton");
+        clickButton(":Cancel.Yes_QPushButton");
+    }
+    catch (e)
+    {test.log("No Language dialog found");}
 }
 
 //--------------Create New Dept----------------------
@@ -188,10 +193,10 @@ function createDept(DeptNum, DeptName)
         type(":_stack._number_XLineEdit", DeptNum);
         waitForObject(":_stack._name_XLineEdit");
         type(":_stack._name_XLineEdit", DeptName);
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");
         test.log("New Department:"+ DeptNum + " created");
     }
     catch(e)
@@ -326,8 +331,8 @@ function createLocale(LocaleCode,LocaleDesc)
         type(":_alternate_QLineEdit_2", "blue");
         type(":_future_QLineEdit_2", "green");
         type(":_comments_QTextEdit_4", "My Locale for Class");
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");
         waitForObject(":_stack._locale_XTreeWidget");
         if(!clickItem(":_stack._locale_XTreeWidget","MYLOCALE", 5, 5, 1, Qt.LeftButton))
             test.pass("Locale created: MYLOCALE");
@@ -343,10 +348,10 @@ function createLocale(LocaleCode,LocaleDesc)
             type(":_stack._percentScale_QSpinBox","2");
         }
         
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");          
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");          
     }
     catch(e)
     {test.fail("Locale:"+LocaleCode+" not created:"+e);}
@@ -721,8 +726,8 @@ function defineTaxCode(tc)
         waitForObject(":_rateGroup._percent_XLineEdit");
         type(":_rateGroup._percent_XLineEdit", "10");
         clickButton(":Tax Code Rate.Save_QPushButton");
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");
     }
     catch(e){test.fail("exception caught in creating Tax Code");}
     
@@ -740,8 +745,8 @@ function defineTaxCode(tc)
         test.compare(parseInt(findObject(":_rateGroup._percent_XLineEdit").text), "10");
         waitForObject(":Tax Code Rate.Save_QPushButton");
         clickButton(":Tax Code Rate.Save_QPushButton");
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");
         if(object.exists("{column='0' container=':List Tax Codes._tax_XTreeWidget' text='TAXAUTH1-GM' type='QModelIndex'}"))
             test.pass("Tax Code created:TAXAUTH1-GM");
     } catch (e) { test.fail("caught exception " + e + " looking for tax code TAXAUTH1-GM"); }
@@ -763,8 +768,8 @@ function defineTaxCode(tc)
         waitForObject(":_rateGroup._percent_XLineEdit");
         type(":_rateGroup._percent_XLineEdit", "1");
         clickButton(":Tax Code Rate.Save_QPushButton");
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");
     }
     catch(e){test.fail("Exception in defining Tax Code:"+e);}
     
@@ -781,8 +786,8 @@ function defineTaxCode(tc)
         test.compare(parseInt(findObject(":_rateGroup._percent_XLineEdit").text), "1");
         waitForObject(":Tax Code Rate.Save_QPushButton");
         clickButton(":Tax Code Rate.Save_QPushButton");
-        waitForObject(":xTuple ERP: *_QPushButton");
-        clickButton(":xTuple ERP: *_QPushButton");
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");
         if(object.exists("{column='0' container=':List Tax Codes._tax_XTreeWidget' text='TAXAUTH1-EDU' type='QModelIndex'}"))
             test.pass("Tax Code created:TAXAUTH1-EDU");
     } catch (e) { test.fail("caught exception " + e + " looking for tax code TAXAUTH1-EDU"); }
