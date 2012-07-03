@@ -46,6 +46,7 @@ CREATE OR REPLACE FUNCTION _custAfterTrigger () RETURNS TRIGGER AS $$
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _cmnttypeid INTEGER;
+  _whsId      INTEGER := -1;
 
 BEGIN
 
@@ -89,6 +90,23 @@ BEGIN
     UPDATE crmacct SET crmacct_name = NEW.cust_name
     WHERE ((crmacct_cust_id=NEW.cust_id)
       AND  (crmacct_name!=NEW.cust_name));
+  END IF;
+
+  IF (TG_OP = 'INSERT') THEN
+  -- find the warehouse for which to create evntlog entries
+    SELECT usrpref_value  INTO _whsId
+    FROM usrpref
+    WHERE usrpref_username = getEffectiveXtUser()
+      AND usrpref_name = 'PreferredWarehouse';
+
+    INSERT INTO evntlog (evntlog_evnttime, evntlog_username,
+                         evntlog_evnttype_id, evntlog_ordtype,
+                         evntlog_ord_id, evntlog_warehous_id, evntlog_number)
+    SELECT DISTINCT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
+                    'C', NEW.cust_id, _whsId, NEW.cust_number
+    FROM evntnot, evnttype
+    WHERE ((evntnot_evnttype_id=evnttype_id)
+      AND  (evnttype_name='NewCustomer'));
   END IF;
 
   IF (fetchMetricBool('CustomerChangeLog')) THEN
