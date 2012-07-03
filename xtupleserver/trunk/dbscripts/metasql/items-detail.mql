@@ -35,6 +35,21 @@
                            WHEN (item_type='L') THEN text(<? value("planning") ?>)
                            WHEN (item_type='K') THEN text(<? value("kit") ?>)
                            ELSE text(<? value("error") ?>)
+                      END AS f_item_type,
+                      CASE WHEN (item_type='P') THEN text(<? value("purchased") ?>)
+                           WHEN (item_type='M') THEN text(<? value("manufactured") ?>)
+                           WHEN (item_type='F') THEN text(<? value("phantom") ?>)
+                           WHEN (item_type='B') THEN text(<? value("breeder") ?>)
+                           WHEN (item_type='C') THEN text(<? value("coProduct") ?>)
+                           WHEN (item_type='Y') THEN text(<? value("byProduct") ?>)
+                           WHEN (item_type='R') THEN text(<? value("reference") ?>)
+                           WHEN (item_type='S') THEN text(<? value("costing") ?>)
+                           WHEN (item_type='T') THEN text(<? value("tooling") ?>)
+                           WHEN (item_type='A') THEN text(<? value("assortment") ?>)
+                           WHEN (item_type='O') THEN text(<? value("outside") ?>)
+                           WHEN (item_type='L') THEN text(<? value("planning") ?>)
+                           WHEN (item_type='K') THEN text(<? value("kit") ?>)
+                           ELSE text(<? value("error") ?>)
                       END AS item_type_qtdisplayrole
                FROM item
                  JOIN classcode ON (item_classcode_id=classcode_id)
