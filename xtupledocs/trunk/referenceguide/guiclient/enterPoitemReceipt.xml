@@ -119,6 +119,23 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Unit Purchase Cost</term>
+      <listitem>
+        <para>Allows the override of the default unit price or currency.<note>
+            <para>This is possible when the Allow Inventory Receipt Cost
+            Override is selected in Inventory setup where the Average costing
+            method is used.</para>
+          </note></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Extended Purchase Cost</term>
+      <listitem>
+        <para>Displays the extension of the entered receiving quantity by the
+        value of the Unit Purchase Cost entered or displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Freight</term>
       <listitem>
         <para>If Line Item freight charges were specified when the Line Item
