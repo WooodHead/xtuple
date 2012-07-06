@@ -197,7 +197,7 @@ BEGIN
 --  Distribute Misc. Applications
   FOR _r IN SELECT cashrcptmisc_id, cashrcptmisc_accnt_id, cashrcptmisc_amount,
                    (cashrcptmisc_amount / _p.cashrcpt_curr_rate) AS cashrcptmisc_amount_base,
-                   cashrcptmisc_notes, _p.cashrcpt_curr_id
+                   cashrcptmisc_notes
             FROM cashrcptmisc
             WHERE (cashrcptmisc_cashrcpt_id=pCashrcptid)  LOOP
 
@@ -221,7 +221,7 @@ BEGIN
       _p.cashrcpt_fundstype, _p.cashrcpt_docnumber,
       (round(_r.cashrcptmisc_amount, 2) * -1.0), TRUE,
       CURRENT_DATE, _p.cashrcpt_distdate, pJournalNumber, getEffectiveXtUser(), 
-      _r.cashrcpt_curr_id, 'CRD', _r.cashrcptmisc_id );
+      _p.cashrcpt_curr_id, 'CRD', _r.cashrcptmisc_id );
 
     PERFORM insertIntoGLSeries( _sequence, 'A/R', 'CR', _r.cashrcptmisc_notes,
                                 _r.cashrcptmisc_accnt_id,
