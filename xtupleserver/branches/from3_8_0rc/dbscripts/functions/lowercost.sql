@@ -39,7 +39,7 @@ BEGIN
     SELECT bomhead_batchsize
     FROM bomhead
     WHERE ((bomhead_item_id=pItemId)
-     AND  (bomhead_rev_id=getActiveRevId('BOM',pItemId)))), 1);
+     AND  (bomhead_rev_id=getActiveRevId('BOM',pItemId))) LIMIT 1), 1);
 
   -- find the lowercost in the base currency at the current conversion rate
   IF (_type IN ('M', 'F', 'B', 'T')) THEN
