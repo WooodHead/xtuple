@@ -6,6 +6,7 @@ DECLARE
   pJournalNumber	ALIAS FOR $2;
   pVoidDate		ALIAS FOR $3;
   _amount_base		NUMERIC := 0;
+  _result               INTEGER;
   _apopenid		INTEGER;
   _credit_glaccnt	INTEGER;
   _docnumber		TEXT;
@@ -38,6 +39,23 @@ BEGIN
 
   IF (_p.checkrecip_id IS NULL) THEN	-- outer join failed
     RETURN -11;
+  END IF;
+
+  -- Cannot void if already reconciled
+  SELECT trans_id INTO _result
+  FROM ( SELECT gltrans_id AS trans_id
+         FROM gltrans
+         WHERE ((gltrans_doctype='CK')
+           AND  (gltrans_misc_id=_p.checkhead_id)
+           AND  (gltrans_rec))
+         UNION ALL
+         SELECT sltrans_id AS trans_id
+         FROM sltrans
+         WHERE ((sltrans_doctype='CK')
+           AND  (sltrans_misc_id=_p.checkhead_id)
+           AND  (sltrans_rec)) ) AS data;
+  IF (FOUND) THEN
+    RETURN -14;
   END IF;
 
   _gltransNote := 'Void Posted Check #' || _p.checkhead_number || ' ' ||
