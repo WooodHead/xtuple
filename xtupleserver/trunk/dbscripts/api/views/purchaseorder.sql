@@ -62,7 +62,7 @@
   FROM pohead
     LEFT OUTER JOIN cntct vc ON (pohead_vend_cntct_id=vc.cntct_id)
     LEFT OUTER JOIN cntct sc ON (pohead_shipto_cntct_id=sc.cntct_id)
-    LEFT OUTER JOIN addr     ON (pohead_shiptoddress_id=addr_id)
+    LEFT OUTER JOIN addr     ON (pohead_shiptoaddress_id=addr_id)
     LEFT OUTER JOIN terms ON (pohead_terms_id=terms_id)
     LEFT OUTER JOIN taxzone ON (pohead_taxzone_id=taxzone_id)
     LEFT OUTER JOIN whsinfo ON (pohead_warehous_id=warehous_id)
@@ -123,7 +123,7 @@ COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
     pohead_shipto_cntct_title,
     pohead_shipto_cntct_fax,
     pohead_shipto_cntct_email,
-    pohead_shiptoddress_id,
+    pohead_shiptoaddress_id,
     pohead_shiptoaddress1,
     pohead_shiptoaddress2,
     pohead_shiptoaddress3,
@@ -239,7 +239,7 @@ COMMENT ON VIEW api.purchaseorder IS 'Purchase Order';
     pohead_shipto_cntct_title=NEW.shipto_cntct_title,
     pohead_shipto_cntct_fax=NEW.shipto_cntct_fax,
     pohead_shipto_cntct_email=NEW.shipto_cntct_email,
-    pohead_shiptoddress_id=getAddrId(NEW.shiptoaddress_number),
+    pohead_shiptoaddress_id=getAddrId(NEW.shiptoaddress_number),
     pohead_shiptoaddress1=NEW.shiptoaddress1,
     pohead_shiptoaddress2=NEW.shiptoaddress2,
     pohead_shiptoaddress3=NEW.shiptoaddress3,
