@@ -5,7 +5,7 @@ DECLARE
   precvid		ALIAS FOR $1;
   pQty			ALIAS FOR $2;
   pFreight		ALIAS FOR $3;
-  _itemlocSeries	INTEGER := $4;
+  _itemlocSeries	INTEGER := COALESCE($4, 0);
   _currid		INTEGER := $5;
   pEffective		ALIAS FOR $6;
   _freight		NUMERIC;
@@ -13,6 +13,10 @@ DECLARE
   _invhistid		INTEGER;
   _o			RECORD;
   _r			RECORD;
+  _recvcost             NUMERIC;
+  _tmp                  INTEGER;
+  _pricevar             NUMERIC := 0.0;
+  _journalNumber        INTEGER := fetchJournalNumber('GL-MISC');
 
 BEGIN
   SELECT recv_qty, recv_date::DATE AS recv_date, recv_freight_curr_id,
@@ -62,7 +66,7 @@ BEGIN
     _qty := (pQty - _r.recv_qty);
     IF (_qty <> 0) THEN
       IF (_r.itemsiteid = -1) THEN
-	PERFORM insertGLTransaction( 'S/R', _r.recv_order_type,
+  PERFORM insertGLTransaction( _journalNumber,'S/R', _r.recv_order_type,
 				      _o.orderhead_number,
 				      'Receive Non-Inventory from ' ||
 							    _r.recv_order_type,
@@ -86,7 +90,7 @@ BEGIN
 	  _itemlocSeries := NEXTVAL('itemloc_series_seq');
 	END IF;
 
-	SELECT postInvTrans( itemsite_id, 'RP',
+  SELECT postInvTrans( itemsite_id, 'RP',
 			     (_qty * _o.orderitem_qty_invuomratio),
 			     'S/R', _r.recv_order_type,
 			     _o.orderhead_number::TEXT || '-' || _o.orderitem_linenumber::TEXT, '',
@@ -113,8 +117,7 @@ BEGIN
                  recv_date = pEffective
 	   WHERE(recv_id=precvid);
         END IF;
-
-      END IF;
+    END IF;
 
       IF (_r.recv_order_type = 'PO') THEN
 	UPDATE poitem
@@ -132,14 +135,54 @@ BEGIN
 
     END IF;
 
+       IF (fetchMetricBool('RecordPPVonReceipt')) THEN -- If the 'Purchase Price Variance on Receipt' option is true
+         _invhistid := _tmp;
+         -- Find the difference in the purchase price value expected from the P/O and the value of the transaction
+         SELECT (((currToBase(pohead_curr_id,
+         COALESCE(recv_purchcost, poitem_unitprice),
+         recv_date::DATE)) * _qty) - (invhist_value_after - invhist_value_before)) INTO _pricevar
+         FROM invhist, recv, pohead, poitem
+         WHERE ((recv_orderitem_id=poitem_id)
+           AND  (poitem_pohead_id=pohead_id)
+           AND  (recv_id=precvid)
+           AND  (invhist_id = _invhistid));
+
+         -- If difference exists then
+         IF (_pricevar <> 0.00) THEN
+           -- Record an additional GL Transaction for the purchase price variance
+           SELECT insertGLTransaction( _journalNumber,
+                'S/R', _r.recv_order_type, _o.orderhead_number,
+                                       'Purchase price variance adjusted for P/O ' || _o.orderhead_number || ' for item ' || _o.orderitem_linenumber::TEXT,
+                                       costcat_liability_accnt_id,
+                                       getPrjAccntId(poitem_prj_id, costcat_purchprice_accnt_id), -1,
+                                       _pricevar,
+                                       pEffective, false ) INTO _tmp
+           FROM itemsite, costcat, poitem, recv
+           WHERE ((itemsite_costcat_id=costcat_id)
+              AND (recv_id=precvid)
+              AND (recv_orderitem_id=poitem_id)
+              AND (itemsite_id=recv_itemsite_id) );
+           IF (NOT FOUND) THEN
+             RAISE EXCEPTION 'Could not insert G/L transaction: no cost category found for itemsite_id %',
+             _r.itemsite_id;
+           ELSIF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
+             RETURN _tmp;
+           ELSE
+             -- Posting to trial balance is deferred to prevent locking
+             INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
+             VALUES ( _tmp, _itemlocSeries );
+           END IF;
+         END IF;
+       END IF;
+
     _freight := (pFreight - _r.recv_freight);
     IF (_freight <> 0) THEN
 
       IF (_r.itemsiteid = -1) THEN
-	PERFORM insertGLTransaction( 'S/R', _r.recv_order_type,
+  PERFORM insertGLTransaction( _journalNumber,'S/R', _r.recv_order_type,
 				     _o.orderhead_number,
 				    'Receive Non-Inventory Freight from ' || _r.recv_order_type,
-				     expcat_liability_accnt_id, getPrjAccntId(poitem_prj_id, expcat_freight_accnt_id), -1,
+             expcat_liability_accnt_id, getPrjAccntId(poitem_prj_id, expcat_freight_accnt_id), -1,
 				      ROUND(currToBase(_currid, _freight,
 						    pEffective), 2),
 				     pEffective )
@@ -148,7 +191,7 @@ BEGIN
 	  AND  (poitem_id=_r.recv_orderitem_id)
 	  AND  (_r.recv_order_type='PO'));
       ELSE
-	PERFORM insertGLTransaction('S/R', _r.recv_order_type,
+  PERFORM insertGLTransaction(_journalNumber,'S/R', _r.recv_order_type,
 				    _o.orderhead_number, 
 				    'Receive Non-Inventory Freight from ' ||
 							    _r.recv_order_type,
