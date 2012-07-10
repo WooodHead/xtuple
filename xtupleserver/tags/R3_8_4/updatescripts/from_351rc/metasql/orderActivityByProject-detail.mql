@@ -1,0 +1,63 @@
+-- Group: orderActivityByProject
+-- Name: detail
+-- Notes: used by dspOrderActivityByProject
+
+<? if exists("showSo") ?>
+SELECT cohead_id AS id, 1 AS typeid,
+       text(<? value("so") ?>) AS type, text(cohead_number) AS ordernumber,
+       text('') AS status,
+       0 AS qty,
+       'qty' AS qty_xtnumericrole 
+FROM cohead 
+WHERE (cohead_prj_id=<? value("prj_id") ?>)
+UNION
+SELECT quhead_id AS id, 2 AS typeid,
+       text(<? value("quote") ?>) AS type, text(quhead_number) AS ordernumber,
+       text('') AS status,
+       0 AS qty,
+       'qty' AS qty_xtnumericrole 
+FROM quhead 
+WHERE (quhead_prj_id=<? value("prj_id") ?>)
+UNION 
+SELECT invchead_id AS id, 3 AS typeid,
+       text(<? value("invoice") ?>) AS type, text(invchead_invcnumber) AS ordernumber,
+       text('') AS status,
+       0 AS qty,
+       'qty' AS qty_xtnumericrole 
+FROM invchead 
+WHERE (invchead_prj_id=<? value("prj_id") ?>)
+<? endif ?>
+<? if exists("showWo") ?>
+  <? if exists("showSo") ?>
+    UNION
+  <? endif ?>
+  SELECT wo_id AS id, 4 AS typeid,
+         text(<? value("wo") ?>) AS type, formatWoNumber(wo_id) AS ordernumber,
+         wo_status AS status,
+         wo_qtyord AS qty,
+         'qty' AS qty_xtnumericrole 
+  FROM wo 
+  WHERE (wo_prj_id=<? value("prj_id") ?>)
+<? endif ?>
+<? if exists("showPo") ?>
+  <? if exists("showPo") or exists("showSo") ?>
+    UNION
+  <? endif ?>
+  SELECT poitem_id AS id, 5 AS typeid,
+         text(<? value("po") ?>) AS type, (text(pohead_number) || '-' || text(poitem_linenumber)) AS ordernumber,
+         poitem_status AS status,
+         poitem_qty_ordered AS qty,
+         'qty' AS qty_xtnumericrole 
+  FROM pohead, poitem 
+  WHERE ((poitem_pohead_id=pohead_id) 
+    AND  (poitem_prj_id=<? value("prj_id") ?>))
+  UNION
+  SELECT pr_id AS id, 6 AS typeid,
+         text(<? value("pr") ?>) AS type, text(pr_number) AS ordernumber,
+         pr_status AS status,
+         pr_qtyreq AS qty,
+         'qty' AS qty_xtnumericrole 
+  FROM pr 
+  WHERE (pr_prj_id=<? value("prj_id") ?>)
+<? endif ?>
+ORDER BY ordernumber;

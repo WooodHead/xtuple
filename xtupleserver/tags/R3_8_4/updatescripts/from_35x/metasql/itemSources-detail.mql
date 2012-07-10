@@ -1,0 +1,29 @@
+-- Group: itemSources
+-- Name: detail
+-- Notes: used by dspItemSourcesByItem, dspItemSourcesByVendor
+
+SELECT itemsrc_id, 
+       <? if exists("byItem") ?>
+         vend_name, 
+       <? elseif exists("byVendor") ?>
+         item_number,
+         (item_descrip1 || ' ' || item_descrip2) AS itemdescrip,
+         uom_name,
+       <? endif ?>
+       itemsrc_vend_item_number, itemsrc_vend_uom,
+       itemsrc_invvendoruomratio, 'qty' AS itemsrc_invvendoruomratio_xtnumericrole 
+FROM itemsrc, 
+     <? if exists("byItem") ?>
+       vend 
+     <? elseif exists("byVendor") ?>
+       item, uom 
+     <? endif ?>
+WHERE ( <? if exists("byItem") ?>
+          (itemsrc_vend_id=vend_id)
+      AND (itemsrc_item_id=<? value("item_id") ?>) )
+        <? elseif exists("byVendor") ?>
+          (itemsrc_item_id=item_id)
+      AND (item_inv_uom_id=uom_id)
+      AND (itemsrc_vend_id=<? value("vend_id") ?>) )
+      ORDER By item_number;
+        <? endif ?>
