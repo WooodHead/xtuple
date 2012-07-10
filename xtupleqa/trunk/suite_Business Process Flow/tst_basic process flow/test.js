@@ -48,8 +48,8 @@
                     clickButton(":Notice.OK_QPushButton");            
                 }
             }
-            waitForObject(":User Preferences.Save_QPushButton");
-            clickButton(":User Preferences.Save_QPushButton");
+            waitForObject(":View Check Run.Save_QPushButton");
+            clickButton(":View Check Run.Save_QPushButton");
             
             waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
             activateItem(":xTuple ERP:*_QMenuBar_2", "System");
@@ -271,9 +271,17 @@
             waitForObject(":Sales Order.Save_QPushButton_2");
             clickButton(":Sales Order.Save_QPushButton_2");
             snooze(0.5);
+            /*try {
+                waitForObject(":OK_QPushButton");
+                clickButton(":OK_QPushButton");
+            }catch(e){}*/
             waitForObject(":Sales Order.Cancel_QPushButton_3");
             clickButton(":Sales Order.Cancel_QPushButton_3");
-            
+            /*
+            try {
+                waitForObject(":View Check Run.Yes_QPushButton_2");
+                clickButton(":View Check Run.Yes_QPushButton_2");
+            }catch(e){}*/
             
             waitForObject(":_list_XTreeWidget_11");
             if(object.exists("{column='0' container=':_list_XTreeWidget_11' text='"+sonumber+"' type='QModelIndex'}"))
@@ -330,10 +338,11 @@
                 mouseClick(":Accounting Mappings.Bank Accounts_QModelIndex", 38, 6, 0, Qt.LeftButton);
                 waitForObject(":_stack._bankaccnt_XTreeWidget");
                 doubleClickItem(":_stack._bankaccnt_XTreeWidget","EBANK", 5, 5, 0, Qt.LeftButton);    
-                waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar_3");
-                clickTab(":Quote.qt_tabwidget_tabbar_QTabBar_3", "Transmission");   
+                waitForObject(":qt_tabwidget_tabbar.Transmission_TabItem");
+                mouseClick(":qt_tabwidget_tabbar.Transmission_TabItem", 5, 5, 0, Qt.LeftButton);   
                 waitForObject(":_transmitTab.Enable EFT Check Printing_QGroupBox");
-                mouseClick(":_transmitTab.Enable EFT Check Printing_QGroupBox", 18, 7, 0, Qt.LeftButton);
+                if (!findObject(":_transmitTab.Enable EFT Check Printing_QGroupBox").checked)
+                    mouseClick(":_transmitTab.Enable EFT Check Printing_QGroupBox", 18, 7, 0, Qt.LeftButton);
                 waitForObject(":_routing_XLineEdit");
                 findObject(":_routing_XLineEdit").clear();
                 type(":_routing_XLineEdit", "123456789");
@@ -361,7 +370,7 @@
                 waitForObject(":Vendors.Query_QToolButton_3");
                 clickButton(":Vendors.Query_QToolButton_3");
                 waitForObject(":_list_XTreeWidget_8");
-                doubleClickItem(":_list_XTreeWidget_8","TPARTS", 5, 5, 0, Qt.LeftButton); 
+                doubleClickItem(":_list_XTreeWidget_13","TPARTS1", 5, 5, 0, Qt.LeftButton); 
                 waitForObject(":Quote.qt_tabwidget_tabbar_QTabBar_3");
                 clickTab(":Quote.qt_tabwidget_tabbar_QTabBar_3", "Transmission");
                 waitForObject(":_transmitStack.Enable EFT Check Printing_QGroupBox");
@@ -1663,8 +1672,10 @@
             {   
                 waitForObject(":_woGroup.VirtualClusterLineEdit_WoLineEdit");
                 type(":_woGroup.VirtualClusterLineEdit_WoLineEdit",sonumber + "-1");
-                waitForObject(":_QTreeView");
-                type(":_QTreeView", "<Enter>");
+                snooze(0.5);
+                nativeType("<Tab>");
+                //waitForObject(":_frame._womatl_XTreeWidget");
+                //type(":_frame._womatl_XTreeWidget", "<Enter>");
                 snooze(0.5);
                 
                 if(appEdition=="Standard")
@@ -1897,10 +1908,11 @@
             var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
             var sNameOfRootItem2 = obj_TreeTopLevelItem.text(8); 
             
-            var result = replaceSubstring(sNameOfRootItem1.latin1(), ",","");
+            //var result = replaceSubstring(sNameOfRootItem1, ",","");
+            var result = sNameOfRootItem1;
             
-            var qoh = replaceSubstring(sNameOfRootItem2.latin1(),",","");
-            
+            //var qoh = replaceSubstring(sNameOfRootItem2,",","");
+            var qoh = sNameOfRootItem2;
             var sum = (parseInt(woquantity.toString()) + parseInt(result.toString()));
             
             if(parseInt(qoh.toString()) == parseInt(sum.toString())) 
@@ -1939,8 +1951,8 @@
             waitForObject(":_filterGroup.XDateEdit_XDateEdit_2");
             findObject(":_filterGroup.XDateEdit_XDateEdit_2").clear();
             type(":_filterGroup.XDateEdit_XDateEdit_2","0");
-            waitForObject(":_filterGroup.+_QToolButton");
-            clickButton(":_filterGroup.+_QToolButton"); 
+            waitForObject(":_filterGroup.+_QToolButton_2");
+            clickButton(":_filterGroup.+_QToolButton_2"); 
             waitForObject(":_filterGroup.xcomboBox3_XComboBox");
             clickItem(":_filterGroup.xcomboBox3_XComboBox","Source", 80, 9, 0, Qt.LeftButton);
             waitForObject(":_filterGroup.widget3_XComboBox");
@@ -2349,10 +2361,10 @@
             var obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
             var sNameOfRootItem2 = obj_TreeTopLevelItem.text(8); 
             
-            var result = replaceSubstring(sNameOfRootItem1.latin1(), ",","");
-            
-            var qoh = replaceSubstring(sNameOfRootItem2.latin1(),",","");
-            
+            //var result = replaceSubstring(sNameOfRootItem1.latin1(), ",","");
+            var result = sNameOfRootItem1;
+            //var qoh = replaceSubstring(sNameOfRootItem2.latin1(),",","");
+            var qoh = sNameOfRootItem2;
             var sum = (parseInt(result.toString()) -  parseInt(soquantity.toString()));
             
             if(parseInt(qoh.toString()) == parseInt(sum.toString()))   
@@ -2387,13 +2399,13 @@
             nativeType("<Tab>");
             waitForObject(":_lineitemsTab._soitem_XTreeWidget");
             doubleClickItem(":_lineitemsTab._soitem_XTreeWidget", "EA", 5, 5, 0, Qt.LeftButton);
-            waitForObject(":Select Order for Billing.Save_QPushButton");
-            clickButton(":Select Order for Billing.Save_QPushButton");
-            waitForObject(":Select Order for Billing.Save_QPushButton_2");
-            clickButton(":Select Order for Billing.Save_QPushButton_2");
+            waitForObject(":Quote.Save_QPushButton");
+            clickButton(":Quote.Save_QPushButton");
+            waitForObject(":[*]Voucher.Save_QPushButton_3");
+            clickButton(":[*]Voucher.Save_QPushButton_3");
             
-            waitForObject(":Select Order for Billing.Close_QPushButton");
-            clickButton(":Select Order for Billing.Close_QPushButton");
+            waitForObject(":View Check Run.Close_QPushButton");
+            clickButton(":View Check Run.Close_QPushButton");
             
             test.log("Sales order Selected for Billing");  
         }

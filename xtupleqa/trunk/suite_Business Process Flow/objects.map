@@ -1296,7 +1296,9 @@
 :_showGroup.Only Show Negative Quantities_QRadioButton	{container=':Quantities on Hand._showGroup_QGroupBox' name='_showNegative' text='Only Show Negative Quantities' type='QRadioButton' visible='1'}
 :_so.50203_QModelIndex	{column='0' container=':frame._so_XTreeWidget' text='50203' type='QModelIndex'}
 :_soitem.100.00_QModelIndex	{column='7' container=':_frame._soitem_XTreeWidget' text='100.00' type='QModelIndex'}
+:_soitem.EA_QModelIndex	{column='3' container=':_lineitemsTab._soitem_XTreeWidget' text='EA' type='QModelIndex'}
 :_soitem.YTRUCK1_QModelIndex	{column='1' container=':_frame._soitem_XTreeWidget' text='YTRUCK1' type='QModelIndex'}
+:_soitem.YTRUCK1_QModelIndex_2	{column='1' container=':_lineitemsTab._soitem_XTreeWidget' text='YTRUCK1' type='QModelIndex'}
 :_source.W/O_QModelIndex	{container=':_sourceGroup._source_XComboBox' text='W/O' type='QModelIndex'}
 :_sourceGroup.All Sources_QRadioButton	{container=':Summarized General Ledger Transactions._sourceGroup_QGroupBox' name='_allSources' text='All Sources' type='QRadioButton' visible='1'}
 :_sourceGroup.Selected Source:_QRadioButton	{container=':General Ledger Transactions._sourceGroup_QGroupBox' name='_selectedSource' text='Selected Source:' type='QRadioButton' visible='1'}
@@ -1304,6 +1306,7 @@
 :_stack.Use toolbars on displays when available_QCheckBox	{container=':Setup._stack_QStackedWidget' name='_useToolbars' text='Use toolbars on displays when available' type='QCheckBox' visible='1'}
 :_stack._bankaccnt_XTreeWidget	{container=':Setup._stack_QStackedWidget' name='_bankaccnt' type='XTreeWidget' visible='1'}
 :_stack.qt_tabwidget_stackedwidget_QStackedWidget	{container=':Setup._stack_QStackedWidget' name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
+:_stack.qt_tabwidget_tabbar_QTabBar	{container=':Setup._stack_QStackedWidget' name='qt_tabwidget_tabbar' type='QTabBar' visible='1'}
 :_stackedWidget.VirtualClusterLineEdit_OrderLineEdit	{container=':_clusterGroup._stackedWidget_QStackedWidget' name='VirtualClusterLineEdit' type='OrderLineEdit' visible='1'}
 :_taxauth_XComboBox	{buddy=':Prospect.Tax Authority:_QLabel' name='_taxauth' type='XComboBox' visible='1'}
 :_terms_XComboBox	{buddy=':_dateGroup.Terms:_QLabel' name='_terms' type='XComboBox' visible='1'}
@@ -1443,6 +1446,7 @@
 :qt_tabwidget_stackedwidget.supplyTab_QWidget	{container=':Sales Order.qt_tabwidget_stackedwidget_QStackedWidget_2' name='supplyTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.tab_QWidget	{container=':Work Order.qt_tabwidget_stackedwidget_QStackedWidget' name='tab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget.tab_QWidget_2	{container=':_stack.qt_tabwidget_stackedwidget_QStackedWidget' name='tab' type='QWidget' visible='1'}
+:qt_tabwidget_tabbar.Transmission_TabItem	{container=':_stack.qt_tabwidget_tabbar_QTabBar' text='Transmission' type='TabItem'}
 :splitter.frame_QFrame	{container=':View Check Run.splitter_QSplitter' name='frame' type='QFrame' visible='1'}
 :stackedWidget.listView_QListView	{container=':frame.stackedWidget_QStackedWidget' name='listView' type='QListView' visible='1'}
 :supplyTab._availabilityStack_QStackedWidget	{container=':qt_tabwidget_stackedwidget.supplyTab_QWidget' name='_availabilityStack' type='QStackedWidget' visible='1'}
