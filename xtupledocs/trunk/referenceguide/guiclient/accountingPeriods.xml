@@ -7,6 +7,21 @@
       <primary>accounting periods</primary>
       <secondary>master list of</secondary>
     </indexterm>Accounting Periods</title>
+  <para>Accounting Periods contain transactional activity within clearly
+  defined time periods―usually months. You will typically find twelve
+  Accounting Periods within a Fiscal Year. An Accounting Period must be
+  defined in order to post transactions to the General Ledger. If no
+  Accounting Period exists, transactions cannot be posted. It is likewise not
+  possible to post transactions into closed Accounting Periods. You may only
+  post into open Accounting Periods. Privileged users may post into frozen
+  Periods, but the frozen Period must be open in order for the posting to
+  succeed.</para>
+  <note>
+    <para>The privilege <literal>PostFrozenPeriod</literal> allows users who
+    are granted this privilege to post transactions into frozen Accounting
+    Periods. For transactions to post successfully, frozen Periods must also
+    be open.</para>
+  </note>
   <para>To access the master list of Accounting Periods, select the
   "Accounting Periods" option. The following screen will appear:</para>
   <para><screenshot>
@@ -17,10 +32,6 @@
         <caption>Accounting Periods Master List</caption>
       </mediaobject>
     </screenshot></para>
-  <note>
-    <para>Users will be prevented from posting transactions into closed
-    Accounting Periods.</para>
-  </note>
   <para>The "Accounting Periods" screen displays information on all existing
   Accounting Periods, including Period name, Period start date, Period end
   date, Period Number, Period Qtr, Period Year, closed status and frozen
@@ -31,14 +42,17 @@
       <term>CLOSE PERIOD</term>
       <listitem>
         <para>Highlight an Accounting Period and then select this button to
-        close the Period.</para>
+        close the Period. Transactions may not be posted into closed Periods.
+        To post transactions to a closed Period, you must reopen the
+        Period.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>FREEZE PERIOD</term>
       <listitem id="accountingPeriodsFREEZEPERIOD">
         <para>Highlight an Accounting Period and then select this button to
-        freeze the Period.</para>
+        freeze the Period. Privileged users may post transactions into frozen
+        Periods, as long as the frozen Period is open.</para>
       </listitem>
     </varlistentry>
   </variablelist>

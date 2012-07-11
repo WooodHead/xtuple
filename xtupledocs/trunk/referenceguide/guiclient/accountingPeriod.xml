@@ -26,9 +26,9 @@
         <para>Enter a name to describe the Accounting Period. This name will
         be used as the Period's column header text when a Financial Report is
         generated. If not specified, then the Period's start and end dates
-        will be used as the column header text. When a new period is added,
+        will be used as the column header text. When a new Period is added,
         the beginning and end dates default to the next logical month. Dates
-        are not editable on periods with adjacent periods or when trial
+        are not editable on Periods with adjacent Periods or when trial
         balance activity exists.</para>
       </listitem>
     </varlistentry>
@@ -36,7 +36,7 @@
       <term>Start Date</term>
       <listitem>
         <para>Specify the start date for the Accounting Period. The start date
-        is only editable if all periods are open—and the date must fall before
+        is only editable if all Periods are open—and the date must fall before
         the end date.</para>
       </listitem>
     </varlistentry>
@@ -44,7 +44,7 @@
       <term>End Date</term>
       <listitem>
         <para>Specify the end date for the Accounting Period. The end date is
-        only editable on a period when it is the last period and there is no
+        only editable on a Period when it is the last Period and there is no
         trial balance activity in it.</para>
       </listitem>
     </varlistentry>
@@ -80,8 +80,8 @@
       <listitem>
         <para>Select to indicate the Accounting Period is closed. You may not
         close an Accounting Period until a subsequent Period has been created.
-        If an Accounting Period is closed, Trial Balances for the Period may
-        not be updated.</para>
+        One a Period is closed, transactions cannot be posted into it―unless
+        the Period is reopened first.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -97,7 +97,7 @@
       <listitem>
         <para>Select to indicate the Accounting Period is frozen. Trial
         Balances may not be updated for Accounting Periods which are frozen
-        except where the permission to post to frozen periods is granted. This
+        except where the permission to post to frozen Periods is granted. This
         restriction applies to all Accounts. If this option is not selected,
         the Accounting Period is considered not frozen.</para>
       </listitem>
