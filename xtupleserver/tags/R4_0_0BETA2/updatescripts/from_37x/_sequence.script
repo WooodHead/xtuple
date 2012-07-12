@@ -1,0 +1,38 @@
+BEGIN;
+\i       updatescripts/from_37x/alterCrmacct.sql
+\i       updatescripts/from_37x/alterEmp.sql
+\i       updatescripts/from_37x/alterProspect.sql
+
+\i       dbscripts/api/views/account.sql
+\i       dbscripts/api/views/customer.sql
+\i       dbscripts/api/views/employee.sql
+\i       dbscripts/api/views/prospect.sql
+\i       dbscripts/api/views/vendor.sql
+
+\i       updatescripts/from_37x/addSources.sql
+\i       updatescripts/from_37x/alterApapply.sql
+\i       updatescripts/from_37x/alterApopen.sql
+\i       updatescripts/from_37x/alterAropen.sql
+\i       updatescripts/from_37x/alterCmhead.sql
+\i       updatescripts/from_37x/alterCohist.sql
+\i       updatescripts/from_37x/alterPoreject.sql
+\i       updatescripts/from_37x/alterSalesrep.sql
+\i       updatescripts/from_37x/alterVohead.sql
+
+\i       updatescripts/from_37x/createCrmaccounts.sql
+\i       updatescripts/from_37x/dropCrmAccountFunctions.sql
+
+\i       dbscripts/triggers/vend.sql
+\i       dbscripts/triggers/prospect.sql
+\i       dbscripts/triggers/cust.sql
+\i       dbscripts/triggers/salesrep.sql
+\i       dbscripts/triggers/emp.sql
+\i       dbscripts/triggers/taxauth.sql
+\i       dbscripts/triggers/usrpref.sql
+\i       dbscripts/triggers/crmacct.sql
+\i       dbscripts/functions/revokepriv.sql
+\i       dbscripts/functions/convertprospecttocustomer.sql
+\i       dbscripts/functions/grantpriv.sql
+\i       dbscripts/functions/fetchcrmaccountnumber.sql
+\i       dbscripts/functions/convertcustomertoprospect.sql
+ROLLBACK;
