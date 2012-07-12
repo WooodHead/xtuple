@@ -1,0 +1,11 @@
+-- Group: sale
+-- Name: fetchsalesrep
+-- Notes:
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+SELECT salesrep_number 
+FROM salesrep
+  JOIN emp ON (emp_id=salesrep_emp_id)
+  JOIN usr ON (usr_username=emp_username)
+WHERE (usr_username=CURRENT_USER);

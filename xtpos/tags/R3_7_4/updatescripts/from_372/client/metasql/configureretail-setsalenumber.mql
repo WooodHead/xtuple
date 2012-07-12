@@ -1,0 +1,7 @@
+-- Group: configureretail
+-- Name: setsalenumber
+-- Notes: Set next sale number.
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+SELECT setval('sale_number_seq', <? value("sale_number") ?>-1);
