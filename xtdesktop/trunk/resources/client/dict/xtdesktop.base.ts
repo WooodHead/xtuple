@@ -4,120 +4,120 @@
 <context>
     <name>desktopAccounting</name>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="14"/>
-        <location filename="../uiforms/desktopAccounting.ui" line="34"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="21"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="41"/>
         <source>Accounting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="41"/>
-        <location filename="../uiforms/desktopAccounting.ui" line="448"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="48"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="455"/>
         <source>Payables</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="56"/>
-        <location filename="../uiforms/desktopAccounting.ui" line="134"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="63"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="141"/>
         <source>Aging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="78"/>
-        <location filename="../uiforms/desktopAccounting.ui" line="156"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="85"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="163"/>
         <source>Workbench</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="84"/>
-        <location filename="../uiforms/desktopAccounting.ui" line="162"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="91"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="169"/>
         <source>dspBillingSelections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="97"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="104"/>
         <source>Vendor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="119"/>
-        <location filename="../uiforms/desktopAccounting.ui" line="470"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="126"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="477"/>
         <source>Receivables</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="175"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="182"/>
         <source>Customer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="197"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="204"/>
         <source>General Ledger</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="212"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="219"/>
         <source>Chart of Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="234"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="241"/>
         <source>Budget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="250"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="257"/>
         <source>Standard Journal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="272"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="279"/>
         <source>Journal Series</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="291"/>
-        <location filename="../uiforms/desktopAccounting.ui" line="426"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="298"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="433"/>
         <source>Bank Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="306"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="313"/>
         <source>Adjustment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="328"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="335"/>
         <source>Reconcile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="347"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="354"/>
         <source>Reporting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="362"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="369"/>
         <source>Financial Statements</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="381"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="388"/>
         <source>Trial Balance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="403"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="410"/>
         <source>Transactions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="492"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="499"/>
         <source>Monitored Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopAccounting.ui" line="530"/>
-        <location filename="../uiforms/desktopAccounting.ui" line="546"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="537"/>
+        <location filename="../uiforms/desktopAccounting.ui" line="553"/>
         <source>b</source>
         <translation type="unfinished"></translation>
     </message>
@@ -125,132 +125,132 @@
 <context>
     <name>desktopCRM</name>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="14"/>
+        <location filename="../uiforms/desktopCRM.ui" line="21"/>
         <source>CRM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="34"/>
+        <location filename="../uiforms/desktopCRM.ui" line="41"/>
         <source>Corporate Relationship Management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="41"/>
+        <location filename="../uiforms/desktopCRM.ui" line="48"/>
         <source>Personal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="56"/>
+        <location filename="../uiforms/desktopCRM.ui" line="63"/>
         <source>Event Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="78"/>
+        <location filename="../uiforms/desktopCRM.ui" line="85"/>
         <source>To Do Calendar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="97"/>
+        <location filename="../uiforms/desktopCRM.ui" line="104"/>
         <source>To Do List</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="119"/>
+        <location filename="../uiforms/desktopCRM.ui" line="126"/>
         <source>Corporate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="134"/>
+        <location filename="../uiforms/desktopCRM.ui" line="141"/>
         <source>Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="156"/>
+        <location filename="../uiforms/desktopCRM.ui" line="163"/>
         <source>Contacts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="175"/>
+        <location filename="../uiforms/desktopCRM.ui" line="182"/>
         <source>Address Book</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="197"/>
+        <location filename="../uiforms/desktopCRM.ui" line="204"/>
         <source>Pre-Sales</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="212"/>
+        <location filename="../uiforms/desktopCRM.ui" line="219"/>
         <source>Prospects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="231"/>
+        <location filename="../uiforms/desktopCRM.ui" line="238"/>
         <source>Quotes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="247"/>
+        <location filename="../uiforms/desktopCRM.ui" line="254"/>
         <source>Quotes by Item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="269"/>
+        <location filename="../uiforms/desktopCRM.ui" line="276"/>
         <source>Opportunities</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="275"/>
+        <location filename="../uiforms/desktopCRM.ui" line="282"/>
         <source>dspBillingSelections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="288"/>
+        <location filename="../uiforms/desktopCRM.ui" line="295"/>
         <source>Project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="303"/>
+        <location filename="../uiforms/desktopCRM.ui" line="310"/>
         <source>Projects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="325"/>
+        <location filename="../uiforms/desktopCRM.ui" line="332"/>
         <source>Time &amp; Expense</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="344"/>
+        <location filename="../uiforms/desktopCRM.ui" line="351"/>
         <source>Project Orders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="366"/>
+        <location filename="../uiforms/desktopCRM.ui" line="373"/>
         <source>Account Management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="381"/>
+        <location filename="../uiforms/desktopCRM.ui" line="388"/>
         <source>Customer Workbench</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="403"/>
+        <location filename="../uiforms/desktopCRM.ui" line="410"/>
         <source>Incidents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="426"/>
+        <location filename="../uiforms/desktopCRM.ui" line="433"/>
         <source>To Do</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="448"/>
+        <location filename="../uiforms/desktopCRM.ui" line="455"/>
         <source>My Contacts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopCRM.ui" line="470"/>
+        <location filename="../uiforms/desktopCRM.ui" line="477"/>
         <source>My Accounts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -258,138 +258,138 @@
 <context>
     <name>desktopMaintenance</name>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="14"/>
-        <location filename="../uiforms/desktopMaintenance.ui" line="34"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="21"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="41"/>
         <source>Maintenance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="41"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="48"/>
         <source>Products</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="56"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="63"/>
         <source>Items</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="78"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="85"/>
         <source>Bill of Materials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="134"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="141"/>
         <source>Inventory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="149"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="156"/>
         <source>Site</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="171"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="178"/>
         <source>Locations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="177"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="184"/>
         <source>dspBillingSelections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="227"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="234"/>
         <source>Pricing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="242"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="249"/>
         <source>Schedules</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="264"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="271"/>
         <source>Assignments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="320"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="327"/>
         <source>Security</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="335"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="342"/>
         <source>Users</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="357"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="364"/>
         <source>Roles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="413"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="420"/>
         <source>Currency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="428"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="435"/>
         <source>Currencies</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="447"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="454"/>
         <source>coin_clock_48</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="450"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="457"/>
         <source>Exchange Rates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="506"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="513"/>
         <source>Design</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="521"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="528"/>
         <source>Commands</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="540"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="547"/>
         <source>Scripts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="562"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="569"/>
         <source>Screens</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="584"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="591"/>
         <source>Reports</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="606"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="613"/>
         <source>MetaSQL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="629"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="636"/>
         <source>Extensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="651"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="658"/>
         <source>Users Online</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopMaintenance.ui" line="685"/>
+        <location filename="../uiforms/desktopMaintenance.ui" line="692"/>
         <source>toolBar</source>
         <translation type="unfinished"></translation>
     </message>
@@ -397,119 +397,119 @@
 <context>
     <name>desktopManufacture</name>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="14"/>
-        <location filename="../uiforms/desktopManufacture.ui" line="34"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="21"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="41"/>
         <source>Manufacture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="41"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="48"/>
         <source>Plan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="56"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="63"/>
         <source>Inventory Availability</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="88"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="95"/>
         <source>Create Work Order</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="120"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="127"/>
         <source>Material Requirements</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="152"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="159"/>
         <source>Release</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="171"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="178"/>
         <source>Print</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="203"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="210"/>
         <source>Process</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="244"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="251"/>
         <source>Issue Material</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="260"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="267"/>
         <source>Close Work Order</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="279"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="286"/>
         <source>Return Material</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="324"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="331"/>
         <source>Costing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="343"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="350"/>
         <source>History</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="362"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="369"/>
         <source>Post Production</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="381"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="388"/>
         <source>Post Scrap</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="400"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="407"/>
         <source>Order Schedule</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="422"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="429"/>
         <source>Material Availability</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="441"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="448"/>
         <source>Correct Production</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="464"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="471"/>
         <source>Manufacture Activities</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="486"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="493"/>
         <source>Manufacture History</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="524"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="531"/>
         <source>label</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="540"/>
-        <location filename="../uiforms/desktopManufacture.ui" line="556"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="547"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="563"/>
         <source>b</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopManufacture.ui" line="571"/>
+        <location filename="../uiforms/desktopManufacture.ui" line="578"/>
         <source>Work Orders</source>
         <translation type="unfinished"></translation>
     </message>
@@ -517,17 +517,17 @@
 <context>
     <name>desktopNotice</name>
     <message>
-        <location filename="../uiforms/desktopNotice.ui" line="14"/>
+        <location filename="../uiforms/desktopNotice.ui" line="21"/>
         <source>Notice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopNotice.ui" line="26"/>
+        <location filename="../uiforms/desktopNotice.ui" line="33"/>
         <source>Note: The xTuple Desktop is only available when user preferences are set to show windows as free-floating.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopNotice.ui" line="36"/>
+        <location filename="../uiforms/desktopNotice.ui" line="43"/>
         <source>Remind me about this again.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -535,134 +535,134 @@
 <context>
     <name>desktopPurchase</name>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="14"/>
-        <location filename="../uiforms/desktopPurchase.ui" line="34"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="21"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="41"/>
         <source>Purchase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="41"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="48"/>
         <source>Order</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="56"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="63"/>
         <source>Purchase Requests</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="75"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="82"/>
         <source>Create Purchase Order</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="97"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="104"/>
         <source>Print</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="116"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="123"/>
         <source>Inventory Availability</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="174"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="181"/>
         <source>Release</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="206"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="213"/>
         <source>Receive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="221"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="228"/>
         <source>Enter Receipts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="240"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="247"/>
         <source>Unposted Receipts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="259"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="266"/>
         <source>Payment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="274"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="281"/>
         <source>Vouchers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="296"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="303"/>
         <source>Select for Payment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="315"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="322"/>
         <source>Selected Payments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="334"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="341"/>
         <source>Check Register</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="353"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="360"/>
         <source>Check Run</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="372"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="379"/>
         <source>Aging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="378"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="385"/>
         <source>dspTimePhasedOpenAPItems</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="381"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="388"/>
         <source>ViewAPOpenItems</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="391"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="398"/>
         <source>Uninvoiced Receipts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="413"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="420"/>
         <source>Open Items</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="475"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="482"/>
         <source>Purchase Activities</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="497"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="504"/>
         <source>Purchase History</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="535"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="542"/>
         <source>label</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="551"/>
-        <location filename="../uiforms/desktopPurchase.ui" line="567"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="558"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="574"/>
         <source>b</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopPurchase.ui" line="582"/>
+        <location filename="../uiforms/desktopPurchase.ui" line="589"/>
         <source>Purchase Orders</source>
         <translation type="unfinished"></translation>
     </message>
@@ -670,125 +670,125 @@
 <context>
     <name>desktopSales</name>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="14"/>
-        <location filename="../uiforms/desktopSales.ui" line="34"/>
+        <location filename="../uiforms/desktopSales.ui" line="21"/>
+        <location filename="../uiforms/desktopSales.ui" line="41"/>
         <source>Sales</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="41"/>
+        <location filename="../uiforms/desktopSales.ui" line="48"/>
         <source>Order</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="56"/>
+        <location filename="../uiforms/desktopSales.ui" line="63"/>
         <source>Prospects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="91"/>
+        <location filename="../uiforms/desktopSales.ui" line="98"/>
         <source>New Customer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="113"/>
+        <location filename="../uiforms/desktopSales.ui" line="120"/>
         <source>Quotes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="148"/>
+        <location filename="../uiforms/desktopSales.ui" line="155"/>
         <source>New Sales Order</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="170"/>
-        <location filename="../uiforms/desktopSales.ui" line="249"/>
+        <location filename="../uiforms/desktopSales.ui" line="177"/>
+        <location filename="../uiforms/desktopSales.ui" line="256"/>
         <source>Ship</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="185"/>
+        <location filename="../uiforms/desktopSales.ui" line="192"/>
         <source>Print Packing Lists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="220"/>
+        <location filename="../uiforms/desktopSales.ui" line="227"/>
         <source>Issue To Shipping</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="268"/>
+        <location filename="../uiforms/desktopSales.ui" line="275"/>
         <source>Maintain Shipping</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="290"/>
+        <location filename="../uiforms/desktopSales.ui" line="297"/>
         <source>Inventory Availability</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="309"/>
+        <location filename="../uiforms/desktopSales.ui" line="316"/>
         <source>Backlog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="331"/>
+        <location filename="../uiforms/desktopSales.ui" line="338"/>
         <source>Bill</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="346"/>
+        <location filename="../uiforms/desktopSales.ui" line="353"/>
         <source>Select for Billing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="365"/>
+        <location filename="../uiforms/desktopSales.ui" line="372"/>
         <source>Create Invoices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="371"/>
+        <location filename="../uiforms/desktopSales.ui" line="378"/>
         <source>dspBillingSelections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="384"/>
+        <location filename="../uiforms/desktopSales.ui" line="391"/>
         <source>Post Invoices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="403"/>
+        <location filename="../uiforms/desktopSales.ui" line="410"/>
         <source>Aging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="422"/>
+        <location filename="../uiforms/desktopSales.ui" line="429"/>
         <source>Cash Receipts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="497"/>
+        <location filename="../uiforms/desktopSales.ui" line="504"/>
         <source>Sales Activities</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="519"/>
+        <location filename="../uiforms/desktopSales.ui" line="526"/>
         <source>Sales History</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="557"/>
+        <location filename="../uiforms/desktopSales.ui" line="564"/>
         <source>label</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="573"/>
-        <location filename="../uiforms/desktopSales.ui" line="589"/>
+        <location filename="../uiforms/desktopSales.ui" line="580"/>
+        <location filename="../uiforms/desktopSales.ui" line="596"/>
         <source>b</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/desktopSales.ui" line="601"/>
+        <location filename="../uiforms/desktopSales.ui" line="608"/>
         <source>Sales Orders</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1277,102 +1277,102 @@
 <context>
     <name>dockMyTodo</name>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="23"/>
+        <location filename="../scripts/dockMyTodo.js" line="25"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="24"/>
+        <location filename="../scripts/dockMyTodo.js" line="26"/>
         <source>Priority</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="25"/>
+        <location filename="../scripts/dockMyTodo.js" line="27"/>
         <source>Assigned To</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="26"/>
+        <location filename="../scripts/dockMyTodo.js" line="28"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="27"/>
+        <location filename="../scripts/dockMyTodo.js" line="29"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="28"/>
+        <location filename="../scripts/dockMyTodo.js" line="30"/>
         <source>Status</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="29"/>
+        <location filename="../scripts/dockMyTodo.js" line="31"/>
         <source>Start Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="30"/>
+        <location filename="../scripts/dockMyTodo.js" line="32"/>
         <source>Due Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="31"/>
+        <location filename="../scripts/dockMyTodo.js" line="33"/>
         <source>Parent#</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="32"/>
+        <location filename="../scripts/dockMyTodo.js" line="34"/>
         <source>Customer#</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="33"/>
+        <location filename="../scripts/dockMyTodo.js" line="35"/>
         <source>Account#</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="34"/>
+        <location filename="../scripts/dockMyTodo.js" line="36"/>
         <source>Account Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="35"/>
+        <location filename="../scripts/dockMyTodo.js" line="37"/>
         <source>Owner</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="70"/>
+        <location filename="../scripts/dockMyTodo.js" line="76"/>
         <source>Delete To Do?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="71"/>
+        <location filename="../scripts/dockMyTodo.js" line="77"/>
         <source>This will permenantly delete the To Do item.  Are you sure?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="96"/>
+        <location filename="../scripts/dockMyTodo.js" line="102"/>
         <source>To-do</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="97"/>
+        <location filename="../scripts/dockMyTodo.js" line="103"/>
         <source>Incident</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="98"/>
+        <location filename="../scripts/dockMyTodo.js" line="104"/>
         <source>Task</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="99"/>
+        <location filename="../scripts/dockMyTodo.js" line="105"/>
         <source>Project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dockMyTodo.js" line="195"/>
+        <location filename="../scripts/dockMyTodo.js" line="201"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1924,27 +1924,27 @@
 <context>
     <name>initMenu</name>
     <message>
-        <location filename="../scripts/initMenu.js" line="32"/>
+        <location filename="../scripts/initMenu.js" line="34"/>
         <source>Open...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/initMenu.js" line="41"/>
+        <location filename="../scripts/initMenu.js" line="43"/>
         <source>Desktop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/initMenu.js" line="46"/>
+        <location filename="../scripts/initMenu.js" line="48"/>
         <source>Setup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/initMenu.js" line="88"/>
+        <location filename="../scripts/initMenu.js" line="93"/>
         <source>Welcome</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/initMenu.js" line="135"/>
+        <location filename="../scripts/initMenu.js" line="144"/>
         <source>Sites</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2049,22 +2049,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/preferencesHistory.ui" line="20"/>
+        <location filename="../uiforms/preferencesHistory.ui" line="27"/>
         <source>History Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/preferencesHistory.ui" line="26"/>
+        <location filename="../uiforms/preferencesHistory.ui" line="33"/>
         <source>Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/preferencesHistory.ui" line="56"/>
+        <location filename="../uiforms/preferencesHistory.ui" line="63"/>
         <source>Group By:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/preferencesHistory.ui" line="76"/>
+        <location filename="../uiforms/preferencesHistory.ui" line="83"/>
         <source>Time Frame:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2072,52 +2072,52 @@
 <context>
     <name>preferencesSelections</name>
     <message>
-        <location filename="../scripts/preferencesSelections.js" line="4"/>
+        <location filename="../scripts/preferencesSelections.js" line="13"/>
         <source>Account#</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/preferencesSelections.js" line="5"/>
+        <location filename="../scripts/preferencesSelections.js" line="14"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/preferencesSelections.js" line="6"/>
+        <location filename="../scripts/preferencesSelections.js" line="15"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/preferencesSelections.js" line="9"/>
+        <location filename="../scripts/preferencesSelections.js" line="18"/>
         <source>Asset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/preferencesSelections.js" line="10"/>
+        <location filename="../scripts/preferencesSelections.js" line="19"/>
         <source>Liability</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/preferencesSelections.js" line="11"/>
+        <location filename="../scripts/preferencesSelections.js" line="20"/>
         <source>Revenue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/preferencesSelections.js" line="12"/>
+        <location filename="../scripts/preferencesSelections.js" line="21"/>
         <source>Expense</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/preferencesSelections.js" line="13"/>
+        <location filename="../scripts/preferencesSelections.js" line="22"/>
         <source>Equity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/preferencesSelections.ui" line="14"/>
+        <location filename="../uiforms/preferencesSelections.ui" line="21"/>
         <source>Selection Preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/preferencesSelections.ui" line="37"/>
+        <location filename="../uiforms/preferencesSelections.ui" line="44"/>
         <source>Select Accounts to monitor:</source>
         <translation type="unfinished"></translation>
     </message>
