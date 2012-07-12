@@ -2,7 +2,7 @@
          name="te"
          developer="xTuple"
          descrip="Time and Expense System"
-         version="2.0.5"
+         version="2.0.6"
          updater="2.2.4">
   <pkgnotes>Time and Expense System add-on package for xTuple ERP.
 
@@ -189,4 +189,6 @@
   <loadreport file="client/reports/TimeExpenseHistory.xml">Time and Expense package</loadreport>
   <loadreport file="client/reports/TimeExpenseSheet.xml">Time and Expense package</loadreport>
   <loadreport file="client/reports/TimeExpenseSheets.xml">Time and Expense package</loadreport>
+
+  <finalscript file="database/indexes/teitem.sql" />
 </package>
