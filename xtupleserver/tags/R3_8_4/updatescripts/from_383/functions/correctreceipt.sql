@@ -99,7 +99,7 @@ BEGIN
 			     costcat_liability_accnt_id,
 			     _itemlocSeries, pEffective,
                              ROUND(_o.unitprice_base * _qty, 2) -- alway passing since it is ignored if not average costed item
-                           ) INTO _invhistid
+                           ) INTO _tmp
 	FROM itemsite, costcat
 	WHERE ((itemsite_costcat_id=costcat_id)
 	  AND  (itemsite_id=_r.itemsiteid) );
