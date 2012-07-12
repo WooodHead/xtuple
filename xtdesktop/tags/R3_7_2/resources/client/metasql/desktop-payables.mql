@@ -1,0 +1,13 @@
+-- Group: desktop
+-- Name:  payables
+-- Notes: 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+SELECT formatMoney(sum(apaging_cur_val)) AS cur_val,
+  formatMoney(sum(apaging_thirty_val)) AS thirty_val,
+  formatMoney(sum(apaging_sixty_val)) AS sixty_val,
+  formatMoney(sum(apaging_ninety_val)) AS ninety_val,
+  formatMoney(sum(apaging_plus_val)) AS plus_val,
+  formatMoney(sum(apaging_total_val)) AS total_val  
+FROM apaging(current_date, false);

@@ -1,0 +1,34 @@
+-- Group: desktop
+-- Name:  messageHistory
+-- Notes:
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+SELECT 
+  msg_id, 
+  msg_posted AS sent,
+  CASE WHEN (msg_username = geteffectivextuser()) THEN 'me'
+       ELSE msg_username END AS from,
+  msg_text AS message,
+  CASE WHEN msguser_username = geteffectivextuser() THEN 'me'
+       ELSE msguser_username END AS to
+FROM msg a
+LEFT OUTER JOIN msguser ab ON a.msg_id = ab.msguser_msg_id
+WHERE (a.msg_username = geteffectivextuser())
+
+UNION
+
+SELECT 
+  msg_id, 
+  msg_posted AS sent,
+  CASE WHEN (msg_username = geteffectivextuser()) THEN 'me'
+       ELSE msg_username END AS from,
+  msg_text AS message,
+  CASE WHEN msguser_username = geteffectivextuser() THEN 'me'
+       ELSE msguser_username END AS to
+FROM msg c
+LEFT OUTER JOIN msguser cd ON c.msg_id = cd.msguser_msg_id
+WHERE (cd.msguser_username = geteffectivextuser())
+
+ORDER BY msg_id DESC
+LIMIT <? value("limit") ?>

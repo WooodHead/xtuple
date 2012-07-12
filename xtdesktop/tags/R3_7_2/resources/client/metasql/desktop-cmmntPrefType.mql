@@ -1,0 +1,13 @@
+-- Group:desktop
+-- Name:cmmntPrefType
+-- Notes: 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+SELECT 0 AS id, 'All Types' AS commenttype_name
+UNION
+SELECT cmnttype_id AS id, cmnttype_name AS commenttype_name
+FROM cmnttype 
+ORDER BY commenttype_name;
+
+
