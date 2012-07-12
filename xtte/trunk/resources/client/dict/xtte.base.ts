@@ -28,7 +28,7 @@
     </message>
     <message>
         <location filename="../scripts/dspTimeExpenseHistory.js" line="23"/>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="49"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="51"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
@@ -74,7 +74,7 @@
     </message>
     <message>
         <location filename="../scripts/dspTimeExpenseHistory.js" line="32"/>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="57"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="59"/>
         <source>Item</source>
         <translation type="unfinished"></translation>
     </message>
@@ -89,109 +89,109 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="35"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="37"/>
         <source>Billable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="37"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="38"/>
         <source>Ext.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="39"/>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="87"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="41"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="89"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="41"/>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="88"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="43"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="90"/>
         <source>Expense</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="47"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="49"/>
         <source>Start Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="48"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="50"/>
         <source>End Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="50"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="52"/>
         <source>Employee</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="51"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="53"/>
         <source>Employee Group</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="52"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="54"/>
         <source>Project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="53"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="55"/>
         <source>Customer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="54"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="56"/>
         <source>Customer Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="55"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="57"/>
         <source>Customer Type Pattern</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="56"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="58"/>
         <source>Customer Group</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="58"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="60"/>
         <source>Item Group</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="59"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="61"/>
         <source>Class Code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="60"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="62"/>
         <source>Class Code Pattern</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="71"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="73"/>
         <source>Edit...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="76"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="78"/>
         <source>View...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="84"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="86"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="85"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="87"/>
         <source>Approved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/dspTimeExpenseHistory.js" line="86"/>
+        <location filename="../scripts/dspTimeExpenseHistory.js" line="88"/>
         <source>Closed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -232,32 +232,12 @@
 <context>
     <name>initMenu</name>
     <message>
-        <location filename="../scripts/initMenu.js" line="17"/>
-        <source>Initialize te failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../scripts/initMenu.js" line="18"/>
-        <source>Failed to initialize the te package. This functionality may not work correctly. </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/initMenu.js" line="34"/>
-        <source>Initialize xtmfg failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/initMenu.js" line="35"/>
-        <source>Failed to initialize the te package. This functionality may not work correctly. %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/initMenu.js" line="45"/>
         <source>Time and Expense...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/initMenu.js" line="53"/>
+        <location filename="../scripts/initMenu.js" line="26"/>
         <source>Time and Expense History</source>
         <translation type="unfinished"></translation>
     </message>
@@ -391,168 +371,168 @@
 <context>
     <name>timeExpenseSheet</name>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="38"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="39"/>
         <source>Line #</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="39"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="40"/>
         <source>Sheet Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="40"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="41"/>
         <source>Work Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="41"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="42"/>
         <source>Project#</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="42"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="43"/>
         <source>Project Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="43"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="44"/>
         <source>Task#</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="44"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="45"/>
         <source>Task Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="45"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="46"/>
         <source>Cust.#</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="46"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="47"/>
         <source>Cust. Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="47"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="48"/>
         <source>PO</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="48"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="49"/>
         <source>Item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="49"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="50"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="56"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="57"/>
         <source>Billable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="57"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="58"/>
         <source>Rate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="58"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="59"/>
         <source>Extended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="60"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="61"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="130"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="134"/>
         <source>Edit...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="134"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="138"/>
         <source>View...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="137"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="141"/>
         <source>Delete...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="146"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="150"/>
         <source>Are you sure you want to delete this line?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="214"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="218"/>
         <source>Employee Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="217"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="221"/>
         <source>Site Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="220"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="224"/>
         <source>Week Ending Date Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="224"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="228"/>
         <source>Processing Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="296"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="301"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="51"/>
-        <location filename="../scripts/timeExpenseSheet.js" line="297"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="52"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="302"/>
         <source>Expense</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="50"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="51"/>
         <source>Hours</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="298"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="303"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="311"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="316"/>
         <source>Approved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="312"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="317"/>
         <source>Closed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="313"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="318"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="323"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="328"/>
         <source>Delete Sheet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="324"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="329"/>
         <source>&lt;p&gt;Are you sure you want to cancel this sheet and discard all your changes?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -612,13 +592,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="52"/>
+        <location filename="../uiforms/timeExpenseSheet.ui" line="278"/>
+        <source>Documents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/timeExpenseSheet.js" line="53"/>
         <location filename="../uiforms/timeExpenseSheet.ui" line="264"/>
         <source>Notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../uiforms/timeExpenseSheet.ui" line="281"/>
+        <location filename="../uiforms/timeExpenseSheet.ui" line="295"/>
         <source>Print on Save</source>
         <translation type="unfinished"></translation>
     </message>
@@ -663,7 +648,7 @@
     </message>
     <message>
         <location filename="../scripts/timeExpenseSheetItem.js" line="255"/>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="652"/>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="672"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
@@ -725,25 +710,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="534"/>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="575"/>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="380"/>
+        <source>The Employee is not a Vendor, this expense cannot be vouchered.  Do you want to continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="554"/>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="595"/>
         <source>Unsaved Changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="535"/>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="576"/>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="555"/>
+        <source>&lt;p&gt;You have made some changes which have not yet been saved!&lt;/p&gt;&lt;p&gt;Would you like to save them now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="596"/>
         <source>&lt;p&gt;You have made some changes which have not yet been saved!
 Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="696"/>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="716"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="697"/>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="717"/>
         <source>Expense</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1042,27 +1036,27 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheets.js" line="570"/>
+        <location filename="../scripts/timeExpenseSheets.js" line="575"/>
         <source>It appears that your current user isn&apos;t an active employee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheets.js" line="574"/>
+        <location filename="../scripts/timeExpenseSheets.js" line="579"/>
         <source>Permissions Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheets.js" line="575"/>
+        <location filename="../scripts/timeExpenseSheets.js" line="580"/>
         <source>You do not have permissions to maintain time and expense entries</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheets.js" line="585"/>
+        <location filename="../scripts/timeExpenseSheets.js" line="590"/>
         <source>Earliest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheets.js" line="586"/>
+        <location filename="../scripts/timeExpenseSheets.js" line="591"/>
         <source>Latest</source>
         <translation type="unfinished"></translation>
     </message>
