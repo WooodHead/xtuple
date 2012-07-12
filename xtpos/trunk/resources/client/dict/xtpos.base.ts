@@ -490,35 +490,49 @@
         <source>Print</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../scripts/dspRegisterHistory.js" line="75"/>
+        <source>You must specify a valid date range.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>initMenu</name>
     <message>
         <location filename="../scripts/initMenu.js" line="14"/>
-        <location filename="../scripts/initMenu.js" line="31"/>
-        <source>Initialize xtpos failed</source>
+        <source>Retail</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/initMenu.js" line="15"/>
-        <source>Failed to initialize the xtpos package. This functionality may not work correctly. </source>
+        <location filename="../scripts/initMenu.js" line="20"/>
+        <source>Cash Registers...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/initMenu.js" line="32"/>
-        <source>Failed to initialize the xtpos package. This functionality may not work correctly. %1</source>
+        <location filename="../scripts/initMenu.js" line="27"/>
+        <source>Retail Sale Search...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/initMenu.js" line="34"/>
+        <source>Register History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/initMenu.js" line="38"/>
+        <source>Detailed Register History</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>payment</name>
     <message>
-        <location filename="../scripts/payment.js" line="291"/>
+        <location filename="../scripts/payment.js" line="290"/>
         <source>Database Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/payment.js" line="292"/>
+        <location filename="../scripts/payment.js" line="291"/>
         <source>Could not initialize printing system.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1042,6 +1056,11 @@
     <message>
         <location filename="../uiforms/retailSaleSearch.ui" line="267"/>
         <source>View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/retailSaleSearch.js" line="77"/>
+        <source>You must enter a start and end date.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
