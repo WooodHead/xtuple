@@ -82,7 +82,7 @@ function populateMenuMessageHistory(pMenu)
 {
   try
   {
-  	var menuItem = toolbox.menuAddAction(pMenu, qsTr("Open..."), true);
+    var menuItem = pMenu.addAction(qsTr("Open..."));
     menuItem.triggered.connect(myOpen);
   }
   catch (e)
