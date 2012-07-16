@@ -161,8 +161,8 @@ function fillListCommentConsole()
 
   var params = new Object;
 
-  //Checkinfg whether xtmfg package exists in the database or not
-  var checkxtmfg = "SELECT pkghead_id AS xtmfg_exist "
+  //Checking whether xtmfg package exists in the database or not
+  var checkxtmfg = "SELECT pkghead_id "
                  + "FROM pkghead "
                  + "WHERE (pkghead_name = 'xtmfg');";
   var datacheckxtmfg = toolbox.executeQuery(checkxtmfg, params);
@@ -175,7 +175,7 @@ function fillListCommentConsole()
     return;
   }
 
-  var getDate = "SELECT CURRENT_DATE + CAST(<? literal(\"offSet\") ?> AS INTEGER) AS datevalue;";
+  var getDate = "SELECT CURRENT_DATE + CAST(<? literal('offSet') ?> AS INTEGER) AS datevalue;";
 
   params.offSet = ((preferences.value("MonitoredCommentStrtDate") != '')?preferences.value("MonitoredCommentStrtDate"):-1);
   var data = toolbox.executeQuery(getDate, params);
@@ -232,397 +232,396 @@ function populateMenuCommentConsole(pMenu, pItem, pCol)
       pMenu = _commentConsole.findChild("_menu");
     if(pMenu != null)
     {
+      var tmpact;
       if(pItem.text(3) == "ADDR")//Address
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Address..."),
-                                           privileges.check("MaintainAddresses"));
+        tmpact = pMenu.addAction(qsTr("Edit Address..."));
+        tmpact.enabled = privileges.check("MaintainAddresses");
         tmpact.triggered.connect(editaddr);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Address..."),
-                                           privileges.check("MaintainAddresses") ||
-                                           privileges.check("ViewAddresses"));
+        tmpact = pMenu.addAction(qsTr("View Address..."));
+        tmpact.enabled = privileges.check("MaintainAddresses") ||
+                         privileges.check("ViewAddresses");
         tmpact.triggered.connect(viewaddr);
       }
       else if(pItem.text(3) == "BBH")//BBomhead
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Breeder Bill of Material..."),
-                                           privileges.check("MaintainBBOMs"));
+        tmpact = pMenu.addAction(qsTr("Edit Breeder Bill of Material..."));
+        tmpact.enabled = (privileges.check("MaintainBBOMs"));
         tmpact.triggered.connect(editbbh);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Breeder Bill of Material..."),
-                                           privileges.check("MaintainBBOMs") ||
-                                           privileges.check("ViewBBOMs"));
+        tmpact = pMenu.addAction(qsTr("View Breeder Bill of Material..."));
+        tmpact.enabled = (privileges.check("MaintainBBOMs") ||
+                          privileges.check("ViewBBOMs"));
         tmpact.triggered.connect(viewbbh);
       }
       else if(pItem.text(3) == "BBI")//BBOMItem
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Breeder Bill of Material Item..."),
-                                           privileges.check("MaintainBBOMs"));
+        tmpact = pMenu.addAction(qsTr("Edit Breeder Bill of Material Item..."));
+        tmpact.enabled = (privileges.check("MaintainBBOMs"));
         tmpact.triggered.connect(editbbi);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Breeder Bill of Material Item..."),
-                                           privileges.check("MaintainBBOMs") ||
-                                           privileges.check("ViewBBOMs"));
+        tmpact = pMenu.addAction(qsTr("View Breeder Bill of Material Item..."));
+        tmpact.enabled = (privileges.check("MaintainBBOMs") ||
+                          privileges.check("ViewBBOMs"));
         tmpact.triggered.connect(viewbbi);
       }
       else if(pItem.text(3) == "BMH")//BOMHead
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Bill of Material..."),
-                                           privileges.check("MaintainBOMs"));
+        tmpact = pMenu.addAction(qsTr("Edit Bill of Material..."));
+        tmpact.enabled = (privileges.check("MaintainBOMs"));
         tmpact.triggered.connect(editbmh);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Bill of Material..."),
-                                           privileges.check("MaintainBOMs") ||
-                                           privileges.check("ViewBOMs"));
+        tmpact = pMenu.addAction(qsTr("View Bill of Material..."));
+        tmpact.enabled = (privileges.check("MaintainBOMs") ||
+                          privileges.check("ViewBOMs"));
         tmpact.triggered.connect(viewbmh);
       }
       else if(pItem.text(3) == "BMI")//BOM Item
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit BOM Item..."),
-                                           privileges.check("MaintainBOMs"));
+        tmpact = pMenu.addAction(qsTr("Edit BOM Item..."));
+        tmpact.enabled = (privileges.check("MaintainBOMs"));
         tmpact.triggered.connect(editbomitem);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View BOM Item..."),
-                                           privileges.check("MaintainBOMs") ||
-                                           privileges.check("ViewBOMs"));
+        tmpact = pMenu.addAction(qsTr("View BOM Item..."));
+        tmpact.enabled = (privileges.check("MaintainBOMs") ||
+                          privileges.check("ViewBOMs"));
         tmpact.triggered.connect(viewbomitem);
       }
       else if(pItem.text(3) == "BOH")//BOO Head
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit BOO Head..."),
-                                           privileges.check("MaintainBOOs"));
+        tmpact = pMenu.addAction(qsTr("Edit BOO Head..."));
+        tmpact.enabled = (privileges.check("MaintainBOOs"));
         tmpact.triggered.connect(editboh);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View BOO Head..."),
-                                          privileges.check("MaintainBOOs") ||
-                                           privileges.check("ViewBOOs"));
+        tmpact = pMenu.addAction(qsTr("View BOO Head..."));
+        tmpact.enabled = (privileges.check("MaintainBOOs") ||
+                          privileges.check("ViewBOOs"));
         tmpact.triggered.connect(viewboh);
       }
       else if(pItem.text(3) == "BOI")//BOO Item
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit BOO Item..."),
-                                           privileges.check("MaintainBOOs"));
+        tmpact = pMenu.addAction(qsTr("Edit BOO Item..."));
+        tmpact.enabled = (privileges.check("MaintainBOOs"));
         tmpact.triggered.connect(editboi);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View BOO Item..."),
-                                          privileges.check("MaintainBOOs") ||
-                                           privileges.check("ViewBOOs"));
+        tmpact = pMenu.addAction(qsTr("View BOO Item..."));
+        tmpact.enabled = (privileges.check("MaintainBOOs") ||
+                          privileges.check("ViewBOOs"));
         tmpact.triggered.connect(viewboi);
       }
       else if(pItem.text(3) == "CRMA")//CRMAccount
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit CRM Account..."),
-                                          privileges.check("MaintainPersonalCRMAccounts") ||
-                                           privileges.check("MaintainAllCRMAccounts"));
+        tmpact = pMenu.addAction(qsTr("Edit CRM Account..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalCRMAccounts") ||
+                          privileges.check("MaintainAllCRMAccounts"));
         tmpact.triggered.connect(editcrma);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View CRM Account..."),
-                                          privileges.check("MaintainPersonalCRMAccounts") ||
-                                          privileges.check("ViewPersonalCRMAccounts")||
-                                          privileges.check("MaintainPersonalCRMAccounts") ||
-                                          privileges.check("ViewAllCRMAccounts"));
+        tmpact = pMenu.addAction(qsTr("View CRM Account..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalCRMAccounts") ||
+                          privileges.check("ViewPersonalCRMAccounts")||
+                          privileges.check("MaintainPersonalCRMAccounts") ||
+                          privileges.check("ViewAllCRMAccounts"));
         tmpact.triggered.connect(viewcrma);
       }
       else if(pItem.text(3) == "T-Contact")//Contact
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Contact..."),
-                                          privileges.check("MaintainPersonalContacts") ||
-                                           privileges.check("MaintainAllContacts"));
+        tmpact = pMenu.addAction(qsTr("Edit Contact..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalContacts") ||
+                          privileges.check("MaintainAllContacts"));
         tmpact.triggered.connect(editcntct);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Contact..."),
-                                          privileges.check("MaintainPersonalContacts") ||
-                                          privileges.check("ViewPersonalContacts")||
-                                          privileges.check("MaintainAllContacts") ||
-                                          privileges.check("ViewAllContacts"));
+        tmpact = pMenu.addAction(qsTr("View Contact..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalContacts") ||
+                          privileges.check("ViewPersonalContacts")||
+                          privileges.check("MaintainAllContacts") ||
+                          privileges.check("ViewAllContacts"));
         tmpact.triggered.connect(viewcntct);
       }
       else if(pItem.text(3) == "C")//Customer
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Customer..."),
-                                           privileges.check("MaintainCustomerMasters"));
+        tmpact = pMenu.addAction(qsTr("Edit Customer..."));
+        tmpact.enabled = (privileges.check("MaintainCustomerMasters"));
         tmpact.triggered.connect(editcustomer);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Customer..."),
-                                          privileges.check("MaintainCustomerMasters") ||
-                                          privileges.check("ViewCustomerMasters"));
+        tmpact = pMenu.addAction(qsTr("View Customer..."));
+        tmpact.enabled = (privileges.check("MaintainCustomerMasters") ||
+                          privileges.check("ViewCustomerMasters"));
         tmpact.triggered.connect(viewcustomer);
       }
       else if(pItem.text(3) == "EMP")//Employee
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Employee..."),
-                                           privileges.check("MaintainEmployees"));
+        tmpact = pMenu.addAction(qsTr("Edit Employee..."));
+        tmpact.enabled = (privileges.check("MaintainEmployees"));
         tmpact.triggered.connect(editemp);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Employee..."),
-                                          privileges.check("MaintainEmployees") ||
-                                          privileges.check("ViewEmployees"));
+        tmpact = pMenu.addAction(qsTr("View Employee..."));
+        tmpact.enabled = (privileges.check("MaintainEmployees") ||
+                          privileges.check("ViewEmployees"));
         tmpact.triggered.connect(viewemp);
       }
       else if(pItem.text(3) == "INCDT")//Incident
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Incident..."),
-                                           privileges.check("MaintainPersonalIncidents") ||
-                                           privileges.check("MaintainAllIncidents"));
+        tmpact = pMenu.addAction(qsTr("Edit Incident..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalIncidents") ||
+                          privileges.check("MaintainAllIncidents"));
         tmpact.triggered.connect(editincdt);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Incident..."),
-                                          privileges.check("MaintainPersonalIncidents") ||
-                                          privileges.check("ViewPersonalIncidents")||
-                                          privileges.check("MaintainAllIncidents") ||
-                                          privileges.check("ViewAllIncidents"));
+        tmpact = pMenu.addAction(qsTr("View Incident..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalIncidents") ||
+                          privileges.check("ViewPersonalIncidents")||
+                          privileges.check("MaintainAllIncidents") ||
+                          privileges.check("ViewAllIncidents"));
         tmpact.triggered.connect(viewincdt);
       }
       else if(pItem.text(3) == "I")//Item
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Item..."),
-                                           privileges.check("MaintainItemMasters"));
+        tmpact = pMenu.addAction(qsTr("Edit Item..."));
+        tmpact.enabled = (privileges.check("MaintainItemMasters"));
         tmpact.triggered.connect(edititem);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Item..."),
-                                          privileges.check("MaintainItemMasters") ||
-                                          privileges.check("ViewItemMasters"));
+        tmpact = pMenu.addAction(qsTr("View Item..."));
+        tmpact.enabled = (privileges.check("MaintainItemMasters") ||
+                          privileges.check("ViewItemMasters"));
         tmpact.triggered.connect(viewitem);
       }
       else if(pItem.text(3) == "IS")//ItemSite
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit ItemSite..."),
-                                           privileges.check("MaintainItemSites"));
+        tmpact = pMenu.addAction(qsTr("Edit ItemSite..."));
+        tmpact.enabled = (privileges.check("MaintainItemSites"));
         tmpact.triggered.connect(edititemsite);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View ItemSite..."),
-                                          privileges.check("MaintainItemSites") ||
-                                          privileges.check("ViewItemSites"));
+        tmpact = pMenu.addAction(qsTr("View ItemSite..."));
+        tmpact.enabled = (privileges.check("MaintainItemSites") ||
+                          privileges.check("ViewItemSites"));
         tmpact.triggered.connect(viewitemsite);
       }
       else if(pItem.text(3) == "IR")//ItemSource
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit ItemSource..."),
-                                           privileges.check("MaintainItemSources"));
+        tmpact = pMenu.addAction(qsTr("Edit ItemSource..."));
+        tmpact.enabled = (privileges.check("MaintainItemSources"));
         tmpact.triggered.connect(edititemsource);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View ItemSource..."),
-                                          privileges.check("MaintainItemSources") ||
-                                          privileges.check("ViewItemSources"));
+        tmpact = pMenu.addAction(qsTr("View ItemSource..."));
+        tmpact.enabled = (privileges.check("MaintainItemSources") ||
+                          privileges.check("ViewItemSources"));
         tmpact.triggered.connect(viewitemsource);
       }
       else if(pItem.text(3) == "L")//Location
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Location..."),
-                                           privileges.check("MaintainLocations"));
+        tmpact = pMenu.addAction(qsTr("Edit Location..."));
+        tmpact.enabled = (privileges.check("MaintainLocations"));
         tmpact.triggered.connect(editlocation);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Location..."),
-                                          privileges.check("MaintainLocations") ||
-                                          privileges.check("ViewLocations"));
+        tmpact = pMenu.addAction(qsTr("View Location..."));
+        tmpact.enabled = (privileges.check("MaintainLocations") ||
+                          privileges.check("ViewLocations"));
         tmpact.triggered.connect(viewlocation);
       }
       else if(pItem.text(3) == "LS")//LotSerial
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit LotSerial..."),
-                                           true);
+        tmpact = pMenu.addAction(qsTr("Edit LotSerial..."));
         tmpact.triggered.connect(editlotserial);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View LotSerial..."),
-                                           true);
+        tmpact = pMenu.addAction(qsTr("View LotSerial..."));
         tmpact.triggered.connect(viewlotserial);
       }
       else if(pItem.text(3) == "OPP-Opportunity")//Opportunity
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Opportunity..."),
-                                           privileges.check("MaintainPersonalOpportunities") ||
-                                           privileges.check("MaintainAllOpportunities"));
+        tmpact = pMenu.addAction(qsTr("Edit Opportunity..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalOpportunities") ||
+                          privileges.check("MaintainAllOpportunities"));
         tmpact.triggered.connect(editopp);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Opportunity..."),
-                                           privileges.check("MaintainPersonalOpportunities") ||
-                                           privileges.check("ViewPersonalOpportunities")||
-                                           privileges.check("MaintainAllOpportunities") ||
-                                           privileges.check("ViewAllOpportunities"));
+        tmpact = pMenu.addAction(qsTr("View Opportunity..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalOpportunities") ||
+                          privileges.check("ViewPersonalOpportunities")||
+                          privileges.check("MaintainAllOpportunities") ||
+                          privileges.check("ViewAllOpportunities"));
         tmpact.triggered.connect(viewopp);
       }
       else if(pItem.text(3) == "J")//Project
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Project..."),
-                                           privileges.check("MaintainPersonalProjects") ||
-                                           privileges.check("MaintainAllProjects"));
+        tmpact = pMenu.addAction(qsTr("Edit Project..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalProjects") ||
+                          privileges.check("MaintainAllProjects"));
         tmpact.triggered.connect(editprj);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Project..."),
-                                           privileges.check("MaintainPersonalProjects") ||
-                                           privileges.check("ViewPersonalProjects")||
-                                           privileges.check("MaintainAllProjects") ||
-                                           privileges.check("ViewAllProjects"));
+        tmpact = pMenu.addAction(qsTr("View Project..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalProjects") ||
+                          privileges.check("ViewPersonalProjects")||
+                          privileges.check("MaintainAllProjects") ||
+                          privileges.check("ViewAllProjects"));
         tmpact.triggered.connect(viewprj);
       }
       else if(pItem.text(3) == "P")//Purchase Order
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Purchase Order..."),
-                                           privileges.check("MaintainPurchaseOrders"));
+        tmpact = pMenu.addAction(qsTr("Edit Purchase Order..."));
+        tmpact.enabled = (privileges.check("MaintainPurchaseOrders"));
         tmpact.triggered.connect(editpo);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Purchase Order..."),
-                                          privileges.check("MaintainPurchaseOrders") ||
-                                          privileges.check("ViewPurchaseOrders"));
+        tmpact = pMenu.addAction(qsTr("View Purchase Order..."));
+        tmpact.enabled = (privileges.check("MaintainPurchaseOrders") ||
+                          privileges.check("ViewPurchaseOrders"));
         tmpact.triggered.connect(viewpo);
       }
       else if(pItem.text(3) == "PI")//Purchase Order Item
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Purchase Order Item..."),
-                                           privileges.check("MaintainPurchaseOrders"));
+        tmpact = pMenu.addAction(qsTr("Edit Purchase Order Item..."));
+        tmpact.enabled = (privileges.check("MaintainPurchaseOrders"));
         tmpact.triggered.connect(editpoitem);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Purchase Order Item..."),
-                                          privileges.check("MaintainPurchaseOrders") ||
-                                          privileges.check("ViewPurchaseOrders"));
+        tmpact = pMenu.addAction(qsTr("View Purchase Order Item..."));
+        tmpact.enabled = (privileges.check("MaintainPurchaseOrders") ||
+                          privileges.check("ViewPurchaseOrders"));
         tmpact.triggered.connect(viewpoitem);
       }
       else if(pItem.text(3) == "RA")//Return Authorisation
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Return Authorisation..."),
-                                           privileges.check("MaintainReturns"));
+        tmpact = pMenu.addAction(qsTr("Edit Return Authorisation..."));
+        tmpact.enabled = (privileges.check("MaintainReturns"));
         tmpact.triggered.connect(editreturnauth);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Return Authorisation..."),
-                                          privileges.check("MaintainReturns") ||
-                                          privileges.check("ViewReturns"));
+        tmpact = pMenu.addAction(qsTr("View Return Authorisation..."));
+        tmpact.enabled = (privileges.check("MaintainReturns") ||
+                          privileges.check("ViewReturns"));
         tmpact.triggered.connect(viewreturnauth);
       }
       else if(pItem.text(3) == "RI")//Return Authorisation Item
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Return Authorisation Item..."),
-                                           privileges.check("MaintainReturns"));
+        tmpact = pMenu.addAction(qsTr("Edit Return Authorisation Item..."));
+        tmpact.enabled = (privileges.check("MaintainReturns"));
         tmpact.triggered.connect(editreturnauthitem);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Return Authorisation Item..."),
-                                          privileges.check("MaintainReturns") ||
-                                          privileges.check("ViewReturns"));
+        tmpact = pMenu.addAction(qsTr("View Return Authorisation Item..."));
+        tmpact.enabled = (privileges.check("MaintainReturns") ||
+                          privileges.check("ViewReturns"));
         tmpact.triggered.connect(viewreturnauthitem);
       }
       else if(pItem.text(3) == "Q")//Quote
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Quote..."),
-                                           privileges.check("MaintainQuotes"));
+        tmpact = pMenu.addAction(qsTr("Edit Quote..."));
+        tmpact.enabled = (privileges.check("MaintainQuotes"));
         tmpact.triggered.connect(editquote);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Quote..."),
-                                          privileges.check("MaintainQuotes") ||
-                                          privileges.check("ViewQuotes"));
+        tmpact = pMenu.addAction(qsTr("View Quote..."));
+        tmpact.enabled = (privileges.check("MaintainQuotes") ||
+                          privileges.check("ViewQuotes"));
         tmpact.triggered.connect(viewquote);
       }
       else if(pItem.text(3) == "QI")//Quote Item
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Quote Item..."),
-                                           privileges.check("MaintainQuotes"));
+        tmpact = pMenu.addAction(qsTr("Edit Quote Item..."));
+        tmpact.enabled = (privileges.check("MaintainQuotes"));
         tmpact.triggered.connect(editquoteitem);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Quote Item..."),
-                                          privileges.check("MaintainQuotes") ||
-                                          privileges.check("ViewQuotes"));
+        tmpact = pMenu.addAction(qsTr("View Quote Item..."));
+        tmpact.enabled = (privileges.check("MaintainQuotes") ||
+                          privileges.check("ViewQuotes"));
         tmpact.triggered.connect(viewquoteitem);
       }
       else if(pItem.text(3) == "S")//Sales Order
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Sales Order..."),
-                                           privileges.check("MaintainSalesOrders"));
+        tmpact = pMenu.addAction(qsTr("Edit Sales Order..."));
+        tmpact.enabled = (privileges.check("MaintainSalesOrders"));
         tmpact.triggered.connect(editso);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Sales Order..."),
-                                          privileges.check("MaintainSalesOrders") ||
-                                          privileges.check("ViewSalesOrders"));
+        tmpact = pMenu.addAction(qsTr("View Sales Order..."));
+        tmpact.enabled = (privileges.check("MaintainSalesOrders") ||
+                          privileges.check("ViewSalesOrders"));
         tmpact.triggered.connect(viewso);
       }
       else if(pItem.text(3) == "SI")//Sales Order Item
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Sales Order Item..."),
-                                           privileges.check("MaintainSalesOrders"));
+        tmpact = pMenu.addAction(qsTr("Edit Sales Order Item..."));
+        tmpact.enabled = (privileges.check("MaintainSalesOrders"));
         tmpact.triggered.connect(editsoitem);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Sales Order Item..."),
-                                          privileges.check("MaintainSalesOrders") ||
-                                          privileges.check("ViewSalesOrders"));
+        tmpact = pMenu.addAction(qsTr("View Sales Order Item..."));
+        tmpact.enabled = (privileges.check("MaintainSalesOrders") ||
+                          privileges.check("ViewSalesOrders"));
         tmpact.triggered.connect(viewsoitem);
       }
       else if(pItem.text(3) == "TA")//Task
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Task..."),
-                                           privileges.check("MaintainPersonalProjects") ||
-                                           privileges.check("MaintainAllProjects"));
+        tmpact = pMenu.addAction(qsTr("Edit Task..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalProjects") ||
+                          privileges.check("MaintainAllProjects"));
         tmpact.triggered.connect(edittask);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Task..."),
-                                           privileges.check("MaintainPersonalProjects") ||
-                                           privileges.check("ViewPersonalProjects")||
-                                           privileges.check("MaintainAllProjects") ||
-                                           privileges.check("ViewAllProjects"));
+        tmpact = pMenu.addAction(qsTr("View Task..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalProjects") ||
+                          privileges.check("ViewPersonalProjects")||
+                          privileges.check("MaintainAllProjects") ||
+                          privileges.check("ViewAllProjects"));
         tmpact.triggered.connect(viewtask);
       }
       else if(pItem.text(3) == "TD")//TodoItem
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit TodoItem..."),
-                                           privileges.check("MaintainPersonalToDoItems") ||
-                                           privileges.check("MaintainAllToDoItems"));
+        tmpact = pMenu.addAction(qsTr("Edit TodoItem..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalToDoItems") ||
+                          privileges.check("MaintainAllToDoItems"));
         tmpact.triggered.connect(edittodoitem);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View TodoItem..."),
-                                           privileges.check("MaintainPersonalToDoItems") ||
-                                           privileges.check("ViewPersonalToDoItems")||
-                                           privileges.check("MaintainAllToDoItems") ||
-                                           privileges.check("ViewAllToDoItems"));
+        tmpact = pMenu.addAction(qsTr("View TodoItem..."));
+        tmpact.enabled = (privileges.check("MaintainPersonalToDoItems") ||
+                          privileges.check("ViewPersonalToDoItems")||
+                          privileges.check("MaintainAllToDoItems") ||
+                          privileges.check("ViewAllToDoItems"));
         tmpact.triggered.connect(viewtodoitem);
       }
       else if(pItem.text(3) == "TO")//Transfer Order
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Transfer Order..."),
-                                           privileges.check("MaintainTransferOrders"));
+        tmpact = pMenu.addAction(qsTr("Edit Transfer Order..."));
+        tmpact.enabled = (privileges.check("MaintainTransferOrders"));
         tmpact.triggered.connect(editto);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Transfer Order..."),
-                                          privileges.check("MaintainTransferOrders") ||
-                                          privileges.check("ViewTransferOrders"));
+        tmpact = pMenu.addAction(qsTr("View Transfer Order..."));
+        tmpact.enabled = (privileges.check("MaintainTransferOrders") ||
+                          privileges.check("ViewTransferOrders"));
         tmpact.triggered.connect(viewto);
       }
       else if(pItem.text(3) == "TI")//Transfer Order Item
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Transfer Order Item..."),
-                                           privileges.check("MaintainTransferOrders"));
+        tmpact = pMenu.addAction(qsTr("Edit Transfer Order Item..."));
+        tmpact.enabled = (privileges.check("MaintainTransferOrders"));
         tmpact.triggered.connect(edittoitem);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Transfer Order Item..."),
-                                          privileges.check("MaintainTransferOrders") ||
-                                          privileges.check("ViewTransferOrders"));
+        tmpact = pMenu.addAction(qsTr("View Transfer Order Item..."));
+        tmpact.enabled = (privileges.check("MaintainTransferOrders") ||
+                          privileges.check("ViewTransferOrders"));
         tmpact.triggered.connect(viewtoitem);
       }
       else if(pItem.text(3) == "V")//Vendor
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Vendor..."),
-                                           privileges.check("MaintainVendors"));
+        tmpact = pMenu.addAction(qsTr("Edit Vendor..."));
+        tmpact.enabled = (privileges.check("MaintainVendors"));
         tmpact.triggered.connect(editvend);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Vendor..."),
-                                          privileges.check("MaintainVendors") ||
-                                          privileges.check("ViewVendors"));
+        tmpact = pMenu.addAction(qsTr("View Vendor..."));
+        tmpact.enabled = (privileges.check("MaintainVendors") ||
+                          privileges.check("ViewVendors"));
         tmpact.triggered.connect(viewvend);
       }
       else if(pItem.text(3) == "WH")//WareHouse
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit WareHouse..."),
-                                           privileges.check("MaintainWarehouses"));
+        tmpact = pMenu.addAction(qsTr("Edit WareHouse..."));
+        tmpact.enabled = (privileges.check("MaintainWarehouses"));
         tmpact.triggered.connect(editwh);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View WareHouse..."),
-                                          privileges.check("MaintainWarehouses") ||
-                                          privileges.check("ViewWarehouses"));
+        tmpact = pMenu.addAction(qsTr("View WareHouse..."));
+        tmpact.enabled = (privileges.check("MaintainWarehouses") ||
+                          privileges.check("ViewWarehouses"));
         tmpact.triggered.connect(viewwh);
       }
       else if(pItem.text(3) == "W")//Work Order
       {
-        var tmpact = toolbox.menuAddAction(pMenu, qsTr("Edit Work Order..."),
-                                           privileges.check("MaintainWorkOrders"));
+        tmpact = pMenu.addAction(qsTr("Edit Work Order..."));
+        tmpact.enabled = (privileges.check("MaintainWorkOrders"));
         tmpact.triggered.connect(editwo);
 
-        tmpact = toolbox.menuAddAction(pMenu, qsTr("View Work Order..."),
-                                           privileges.check("MaintainWorkOrders"));
+        tmpact = pMenu.addAction(qsTr("View Work Order..."));
+        tmpact.enabled = (privileges.check("MaintainWorkOrders"));
         tmpact.triggered.connect(viewwo);
       }
     }

@@ -6,7 +6,7 @@ var _user  = mywindow.findChild("_user");
 
 var _reply = toolbox.createWidget("QPushButton", mywindow, "_reply");
 _reply.text = qsTr("Reply");
-toolbox.layoutBoxInsertWidget(layout, 0, _reply);
+layout.insertWidget(0, _reply);
 
 _reply.clicked.connect(sendReply);
 
