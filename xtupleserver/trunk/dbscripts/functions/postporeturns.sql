@@ -66,9 +66,7 @@ BEGIN
 
       SELECT postInvTrans( itemsite_id, 'RP', (_p.totalqty * _p.poitem_invvenduomratio * -1),
                            'S/R', 'PO', (_p.pohead_number || '-' || _p.poitem_linenumber::TEXT), '', 'Return Inventory to P/O',
-                           costcat_asset_accnt_id, costcat_liability_accnt_id, _itemlocSeries, CURRENT_TIMESTAMP,
-                           round((_p.poitem_unitprice_base * _p.totalqty),2) -- always passing this in since it is ignored if it is not average costed item
-) INTO _returnval
+                           costcat_asset_accnt_id, costcat_liability_accnt_id, _itemlocSeries, CURRENT_TIMESTAMP) INTO _returnval
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_p.itemsiteid) );
