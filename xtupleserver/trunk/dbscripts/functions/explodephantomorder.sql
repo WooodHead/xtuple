@@ -10,7 +10,7 @@ DECLARE
 
 BEGIN
   FOR _b IN SELECT planord_number, c.itemsite_id AS componentsiteid,
-                   (planord_startdate - c.itemsite_leadtime) AS startdate,
+                   calculatenextworkingdate(c.itemsite_warehous_id, planord_startdate, (c.itemsite_leadtime * -1)) AS startdate,
                    planord_startdate AS duedate,
                    bomitem_createwo, c.itemsite_planning_type AS planningtype,
                    (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, (bomitem_qtyfxd + pQty * bomitem_qtyper) * (1 + bomitem_scrap))) AS qtyreq,
