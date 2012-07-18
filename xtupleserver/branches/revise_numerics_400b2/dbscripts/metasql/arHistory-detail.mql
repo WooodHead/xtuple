@@ -65,8 +65,8 @@ SELECT aropen_id, applyid,
            COALESCE(cashrcpt_docdate, arapply_postdate) AS docdate,
            arapply_distdate AS duedate,
            arapply_applied AS amount,
-           0 AS balance,
-           0 AS base_balance,
+           xmoney(0) AS balance,
+           xmoney(0) AS base_balance,
            currConcat(arapply_curr_id) AS currAbbr
      FROM arapply JOIN aropen ON (arapply_target_aropen_id=aropen_id)
                   LEFT OUTER JOIN cashrcptitem ON ( (arapply_reftype='CR') AND
@@ -91,8 +91,8 @@ SELECT aropen_id, applyid,
            arapply_postdate AS docdate,
            arapply_distdate AS duedate,
            arapply_applied AS amount,
-           0 AS balance,
-           0 AS base_balance,
+           xmoney(0) AS balance,
+           xmoney(0) AS base_balance,
            currConcat(arapply_curr_id) AS currAbbr
      FROM arapply, aropen
     WHERE ( (arapply_source_doctype IN ('K', 'C', 'R'))
@@ -111,9 +111,9 @@ SELECT aropen_id, applyid,
            <? value("zeroinvoice") ?> AS documenttype,
            invchead_invcdate AS docdate,
            invchead_invcdate AS duedate,
-           0 AS amount,
-           0 AS balance,
-           0 AS base_balance,
+           xmoney(0) AS amount,
+           xmoney(0) AS balance,
+           xmoney(0) AS base_balance,
            currConcat(invchead_curr_id) AS currAbbr
      FROM invchead
     WHERE ( (invchead_cust_id=<? value("cust_id") ?>) 
@@ -123,6 +123,6 @@ SELECT aropen_id, applyid,
       AND   (invchead_posted)
       AND   ((SELECT SUM(invcitem_price)
               FROM invcitem
-             WHERE (invcitem_invchead_id=invchead_id))=0) )
+             WHERE (invcitem_invchead_id=invchead_id))=xsalep(0)) )
   ) AS data
   ORDER BY sortdate, sortnumber, type;

@@ -17,8 +17,8 @@ SELECT accnt_id, gltrans_id,
        'curr' AS credit_xtnumericrole,
        0 AS debit_xtnumericrole,
        0 AS credit_xtnumericrole,
-       CASE WHEN (debit=0) THEN '' END AS debit_qtdisplayrole,
-       CASE WHEN (credit=0) THEN '' END AS credit_qtdisplayrole,
+       CASE WHEN (debit=xmoney(0)) THEN '' END AS debit_qtdisplayrole,
+       CASE WHEN (credit=xmoney(0)) THEN '' END AS credit_qtdisplayrole,
        level AS xtindentrole 
 FROM ( 
 SELECT DISTINCT accnt_id, -1 AS gltrans_id, 0 AS level,
@@ -26,11 +26,11 @@ SELECT DISTINCT accnt_id, -1 AS gltrans_id, 0 AS level,
       formatGLAccount(accnt_id) AS account, accnt_descrip,
        CAST(NULL AS DATE) AS gltrans_date, '' AS gltrans_source, '' AS gltrans_doctype, '' AS gltrans_docnumber,
          '' AS f_notes,
-       SUM( CASE WHEN (gltrans_amount < 0) THEN (gltrans_amount * -1) 
-                        ELSE 0 
+       SUM( CASE WHEN (gltrans_amount < xmoney(0)) THEN (gltrans_amount * -1) 
+                        ELSE xmoney(0) 
                    END ) AS debit, 
-       SUM( CASE WHEN (gltrans_amount > 0) THEN gltrans_amount 
-                       ELSE 0 
+       SUM( CASE WHEN (gltrans_amount > xmoney(0)) THEN gltrans_amount 
+                       ELSE xmoney(0) 
                   END ) AS credit, 
        '' AS gltrans_username, CAST(NULL AS TIMESTAMP) AS gltrans_created 
 FROM gltrans, accnt 
@@ -55,11 +55,11 @@ WHERE ( (gltrans_accnt_id=accnt_id)
                       '' AS account, '' AS accnt_descrip,
                       gltrans_date, gltrans_source, gltrans_doctype, gltrans_docnumber,
                       firstLine(gltrans_notes) AS f_notes,
-                      CASE WHEN (gltrans_amount < 0) THEN (gltrans_amount * -1)
-                           ELSE 0
+                      CASE WHEN (gltrans_amount < xmoney(0)) THEN (gltrans_amount * -1)
+                           ELSE xmoney(0)
                       END AS debit,
-                      CASE WHEN (gltrans_amount > 0) THEN gltrans_amount
-                           ELSE 0
+                      CASE WHEN (gltrans_amount > xmoney(0)) THEN gltrans_amount
+                           ELSE xmoney(0)
                       END AS credit,
                       gltrans_username, gltrans_created 
                FROM gltrans, accnt 

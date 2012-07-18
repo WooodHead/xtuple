@@ -5,7 +5,7 @@
 -- See www.xtuple.com/CPAL for the full text of the software license.
 
 <? if exists("summary") ?>
-SELECT COALESCE(SUM(amount),0.0) AS cleared_amount
+SELECT COALESCE(SUM(amount),xmoney(0)) AS cleared_amount
   FROM ( SELECT COALESCE( bankrecitem_amount,
                           (currToLocal(bankaccnt_curr_id, gltrans_amount, gltrans_date) * -1.0) ) AS amount
            FROM (bankaccnt CROSS JOIN gltrans)
@@ -16,7 +16,7 @@ SELECT COALESCE(SUM(amount),0.0) AS cleared_amount
           WHERE ((gltrans_accnt_id=bankaccnt_accnt_id)
             AND (NOT gltrans_deleted)
             AND (NOT gltrans_rec)
-            AND (gltrans_amount < 0)
+            AND (gltrans_amount < xmoney(0))
             AND (gltrans_doctype != 'JP')
             AND (bankaccnt_id=<? value("bankaccntid") ?>) )
           UNION ALL
@@ -29,7 +29,7 @@ SELECT COALESCE(SUM(amount),0.0) AS cleared_amount
                                        AND (bankrecitem_cleared))
           WHERE ((sltrans_accnt_id=bankaccnt_accnt_id)
             AND (NOT sltrans_rec)
-            AND (sltrans_amount < 0)
+            AND (sltrans_amount < xmoney(0))
             AND (bankaccnt_id=<? value("bankaccntid") ?>) )
           UNION ALL
          SELECT CASE WHEN(bankadjtype_iscredit=true) THEN (bankadj_amount * -1) ELSE bankadj_amount END AS amount
@@ -40,7 +40,7 @@ SELECT COALESCE(SUM(amount),0.0) AS cleared_amount
             AND (bankrecitem_cleared)
             AND (bankadj_bankadjtype_id=bankadjtype_id)
             AND (NOT bankadj_posted)
-            AND (((bankadjtype_iscredit=false) AND (bankadj_amount > 0)) OR (bankadjtype_iscredit=true AND (bankadj_amount < 0)))
+            AND (((bankadjtype_iscredit=false) AND (bankadj_amount > xmoney(0))) OR (bankadjtype_iscredit=true AND (bankadj_amount < xmoney(0))))
             AND (bankadj_bankaccnt_id=<? value("bankaccntid") ?>) ) ) AS data;
 <? else ?>
 SELECT gltrans_id AS id, 1 AS altid,
@@ -77,7 +77,7 @@ SELECT gltrans_id AS id, 1 AS altid,
  WHERE ((NOT gltrans_deleted)
    AND (NOT gltrans_rec)
    AND (NOT COALESCE(checkhead_void, false))
-   AND (gltrans_amount < 0)
+   AND (gltrans_amount < xmoney(0))
    AND (gltrans_doctype != 'JP')
    AND (bankaccnt_id=<? value("bankaccntid") ?>) )
  UNION ALL
@@ -114,7 +114,7 @@ SELECT sltrans_id AS id, 2 AS altid,
                             AND (sltrans_misc_id=checkhead_id))
  WHERE ((NOT sltrans_rec)
    AND (NOT COALESCE(checkhead_void, false))
-   AND (sltrans_amount < 0)
+   AND (sltrans_amount < xmoney(0))
    AND (bankaccnt_id=<? value("bankaccntid") ?>) )
  UNION ALL
 SELECT bankadj_id AS id, 3 AS altid,
@@ -137,7 +137,7 @@ SELECT bankadj_id AS id, 3 AS altid,
                LEFT OUTER JOIN bankrecitem ON ((bankrecitem_source='AD')
                                            AND (bankrecitem_source_id=bankadj_id)
                                            AND (bankrecitem_bankrec_id=<? value("bankrecid") ?>))
- WHERE ( (((bankadjtype_iscredit=false) AND (bankadj_amount > 0)) OR ((bankadjtype_iscredit=true) AND (bankadj_amount < 0)))
+ WHERE ( (((bankadjtype_iscredit=false) AND (bankadj_amount > xmoney(0))) OR ((bankadjtype_iscredit=true) AND (bankadj_amount < xmoney(0))))
    AND (bankadj_bankadjtype_id=bankadjtype_id)
    AND (NOT bankadj_posted)
    AND (bankadj_bankaccnt_id=<? value("bankaccntid") ?>) )

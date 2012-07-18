@@ -43,8 +43,8 @@ FROM (
          NULL::TEXT    AS coitem_status,    coitem_scheddate,
          getSoSchedDate(cohead_id) AS sort_scheddate,
          NULL::DATE    AS coitem_promdate,  NULL::NUMERIC AS coitem_qtyord,
-         NULL::NUMERIC AS coitem_unitcost,  NULL::NUMERIC AS coitem_price,
-         NULL::NUMERIC AS coitem_custprice, NULL::NUMERIC AS coitem_qtyshipped,
+         NULL::xcost   AS coitem_unitcost,  NULL::xsalep  AS coitem_price,
+         NULL::xsalep  AS coitem_custprice, NULL::NUMERIC AS coitem_qtyshipped,
          NULL::INTEGER AS coitem_order_id,  NULL::TEXT    AS coitem_memo,
          NULL::BOOLEAN AS coitem_imported,  NULL::NUMERIC AS coitem_qtyreturned,
          NULL::TIMESTAMP AS coitem_closedate, NULL::BOOLEAN AS coitem_firm,
@@ -53,7 +53,7 @@ FROM (
          NULL::TIMESTAMP AS coitem_lastupdated,
          NULL::INTEGER AS coitem_substitute_item_id,
          NULL::TIMESTAMP AS coitem_created, NULL::TEXT    AS coitem_creator,
-         NULL::NUMERIC AS coitem_prcost,
+         NULL::xcost   AS coitem_prcost,
          NULL::INTEGER AS coitem_qty_uom_id,
          NULL::NUMERIC AS coitem_qty_invuomratio,
          NULL::INTEGER AS coitem_price_uom_id,
@@ -69,11 +69,11 @@ FROM (
          NULL::TEXT AS uom_name,
          NULL::TEXT AS warehous_code,
          noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) AS qtybalance,
-         NULL::NUMERIC AS baseunitprice,
-         NULL::NUMERIC AS extprice,
-         NULL::NUMERIC AS baseextprice,
-         NULL::NUMERIC AS extpricebalance,
-         NULL::NUMERIC AS baseextpricebalance
+         NULL::xsalep  AS baseunitprice,
+         NULL::xmoney  AS extprice,
+         NULL::xmoney  AS baseextprice,
+         NULL::xmoney  AS extpricebalance,
+         NULL::xmoney  AS baseextpricebalance
 
   FROM coitem JOIN cohead ON (cohead_id=coitem_cohead_id)
               JOIN custinfo ON (cust_id=cohead_cust_id)
@@ -187,14 +187,16 @@ FROM (
          warehous_code,
          noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) AS qtybalance,
          currtobase(cohead_curr_id, coitem_price, cohead_orderdate) AS baseunitprice,
-         round((coitem_qtyord * coitem_qty_invuomratio) *
-                     (coitem_price / coitem_price_invuomratio), 2) AS extprice,
-         round((coitem_qtyord * coitem_qty_invuomratio) *
-                     (currtobase(cohead_curr_id, coitem_price, cohead_orderdate) / coitem_price_invuomratio), 2) AS baseextprice,
-         round((noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) * coitem_qty_invuomratio) *
-                     (coitem_price / coitem_price_invuomratio), 2) AS extpricebalance,
-         round((noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) * coitem_qty_invuomratio) *
-                     (currtobase(cohead_curr_id, coitem_price, cohead_orderdate) / coitem_price_invuomratio), 2) AS baseextpricebalance
+         coitem_qtyord * coitem_qty_invuomratio *
+           (coitem_price / coitem_price_invuomratio) AS extprice,
+         coitem_qtyord * coitem_qty_invuomratio *
+           (currtobase(cohead_curr_id, coitem_price, cohead_orderdate) / coitem_price_invuomratio) AS baseextprice,
+         noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) *
+           coitem_qty_invuomratio *
+           (coitem_price / coitem_price_invuomratio) AS extpricebalance,
+         noNeg(coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) *
+           coitem_qty_invuomratio *
+           (currtobase(cohead_curr_id, coitem_price, cohead_orderdate) / coitem_price_invuomratio) AS baseextpricebalance
 
   FROM coitem JOIN cohead ON (cohead_id=coitem_cohead_id)
               JOIN custinfo ON (cust_id=cohead_cust_id)

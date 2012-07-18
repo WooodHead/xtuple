@@ -103,7 +103,7 @@ FROM (
              NULL AS qoh,
              NULL AS nnqoh,
              cntslip_qty AS qohafter,
-             NULL AS variance, NULL AS varianceprcnt, 0 AS variancecost,
+             NULL AS variance, NULL AS varianceprcnt, xcost(0) AS variancecost,
              item_number AS orderby,
              1 AS xtindentrole
       FROM cntslip, invcnt, itemsite, item
