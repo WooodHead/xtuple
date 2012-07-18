@@ -4,8 +4,55 @@
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
 -- See www.xtuple.com/CPAL for the full text of the software license.
 
-SELECT gltrans_id, gltrans_accnt_id,gltrans_date,gltrans_source,
-       gltrans_doctype,gltrans_journalnumber,gltrans_posted,gltrans_username,
+<? if exists("beginningBalance") ?>
+SELECT -1   AS gltrans_id,        -1 AS gltrans_accnt_id, <? value("startDate") ?> AS gltrans_date,
+       ''   AS gltrans_source,    <? value("startDate") ?> AS gltrans_created,
+       -1   AS gltrans_sequence,  ''   AS gltrans_doctype, '' AS gltrans_journalnumber,
+       NULL AS gltrans_posted,    NULL AS gltrans_username,
+       ''   AS gltrans_docnumber, ''   AS invhist_docnumber,
+       ''   AS docnumber,
+       'Beginning Balance' AS notes,
+       (formatGLAccount(accnt_id) || ' - ' || accnt_descrip) AS account,
+       <? value("beginningBalance") ?> AS gltrans_amount,
+       CASE WHEN (<? value("beginningBalance") ?> < 0) THEN
+                     (ABS(<? value("beginningBalance") ?>))
+            ELSE xmoney(0)
+       END AS debit,
+       CASE WHEN (<? value("beginningBalance") ?> > 0) THEN
+                     ABS(<? value("beginningBalance") ?>)
+            ELSE xmoney(0)
+       END AS credit,
+       <? value("beginningBalance") ?> AS running,
+<? if exists('isReport') ?>
+       formatDate(<? value("startDate") ?>) AS transdate,
+       CASE WHEN (<? value("beginningBalance") ?> < 0) THEN
+                     formatMoney(ABS(<? value("beginningBalance") ?>))
+            ELSE ''
+       END AS f_debit,
+       CASE WHEN (<? value("beginningBalance") ?> > 0) THEN
+                     formatMoney(ABS(<? value("beginningBalance") ?>))
+            ELSE ''
+       END AS f_credit,
+       <? value("beginningBalance") ?> * -1 AS balance,
+       NULL AS f_posted,
+       NULL AS f_deleted,
+<? endif ?>
+       'curr' AS debit_xtnumericrole,
+       'curr' AS credit_xtnumericrole,
+       'curr' AS running_xtnumericrole,
+       0 AS running_xtrunningrole,
+       gltrans_deleted AS xtdeletedrole,
+       <? value("beginningBalance") ?> AS running_xtrunninginit 
+ FROM accnt
+ WHERE (accnt_id=<? value("accnt_id") ?>)
+UNION
+<? endif ?>
+
+SELECT gltrans_id, gltrans_accnt_id, gltrans_date,
+       gltrans_source,    gltrans_created,
+       gltrans_sequence,  gltrans_doctype, gltrans_journalnumber,
+       gltrans_posted,    gltrans_username,
+       gltrans_docnumber, invhist_docnumber,
        CASE WHEN(gltrans_docnumber='Misc.' AND
               invhist_docnumber IS NOT NULL) THEN
               (gltrans_docnumber || ' - ' || invhist_docnumber)
@@ -13,23 +60,38 @@ SELECT gltrans_id, gltrans_accnt_id,gltrans_date,gltrans_source,
        END AS docnumber,
        firstLine(gltrans_notes) AS notes,
        (formatGLAccount(accnt_id) || ' - ' || accnt_descrip) AS account,
+       gltrans_amount,
        CASE WHEN (gltrans_amount < 0) THEN ABS(gltrans_amount)
             ELSE NULL
        END AS debit,
        CASE WHEN (gltrans_amount > 0) THEN gltrans_amount
             ELSE NULL
        END AS credit,
-       CASE WHEN accnt_type IN ('A','E') THEN 
-         gltrans_amount * -1 
-       ELSE gltrans_amount END AS running,
+       CASE WHEN accnt_type IN ('A','E') AND NOT gltrans_deleted THEN gltrans_amount * -1 
+            WHEN (NOT gltrans_deleted) THEN gltrans_amount
+            ELSE xmoney(0) END AS running,
+<? if exists('isReport') ?>
+       formatDate(gltrans_date) AS transdate,
+       CASE WHEN (gltrans_amount < 0) THEN formatMoney(ABS(gltrans_amount))
+            ELSE ''
+       END AS f_debit,
+       CASE WHEN (gltrans_amount > 0) THEN formatMoney(gltrans_amount)
+            ELSE ''
+       END AS f_credit,
+       CASE WHEN (NOT gltrans_deleted) THEN gltrans_amount * -1
+            ELSE xmoney(0)
+       END AS balance,
+       formatBoolYN(gltrans_posted)  AS f_posted,
+       formatBoolYN(gltrans_deleted) AS f_deleted,
+<? endif ?>
        'curr' AS debit_xtnumericrole,
        'curr' AS credit_xtnumericrole,
        'curr' AS running_xtnumericrole,
        0 AS running_xtrunningrole,
        gltrans_deleted AS xtdeletedrole,
-<? value("beginningBalance") ?> AS running_xtrunninginit 
-FROM gltrans JOIN accnt ON (gltrans_accnt_id=accnt_id) 
-     LEFT OUTER JOIN invhist ON (gltrans_misc_id=invhist_id
+       <? value("beginningBalance") ?> AS running_xtrunninginit 
+  FROM gltrans JOIN accnt ON (gltrans_accnt_id=accnt_id) 
+  LEFT OUTER JOIN invhist ON (gltrans_misc_id=invhist_id
                             AND gltrans_docnumber='Misc.') 
 <? if exists("company_id") ?>
      JOIN company ON (accnt_company=company_number) 
