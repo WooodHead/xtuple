@@ -1,35 +1,19 @@
-CREATE OR REPLACE FUNCTION currConcat(VARCHAR(3), VARCHAR(9))
-	RETURNS VARCHAR(15) AS $$
+DROP FUNCTION IF EXISTS currConcat(TEXT, TEXT);
+DROP FUNCTION IF EXISTS currConcat(INTEGER);
+
+CREATE OR REPLACE FUNCTION currConcat(pAbbr TEXT, pSymbol TEXT) RETURNS TEXT AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
 -- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  curr_abbr   ALIAS FOR $1;
-  curr_symbol ALIAS FOR $2;
-  returnVal   VARCHAR(15) := '';
-BEGIN
-  IF length(trim(curr_abbr)) > 0 AND length(trim(curr_symbol)) > 0 THEN
-      returnVal := trim(curr_abbr) || ' - ' || trim(curr_symbol);
+  SELECT CASE WHEN LENGTH(TRIM($1)) > 0 AND LENGTH(TRIM($2)) > 0 
+                                        THEN TRIM($1) || ' - ' || TRIM($2)
+              WHEN LENGTH(TRIM($1)) > 0 THEN $1
+              WHEN LENGTH(TRIM($2)) > 0 THEN $2
+          END;
+$$ LANGUAGE SQL IMMUTABLE;
 
-  ELSIF length(trim(curr_abbr)) > 0 THEN
-      returnVal := curr_abbr;
-
-  ELSIF length(trim(curr_symbol)) > 0 THEN
-      returnVal := curr_symbol;
-  END IF;
-
-  RETURN returnVal;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE OR REPLACE FUNCTION currConcat(INTEGER) RETURNS VARCHAR(15) AS $$
+CREATE OR REPLACE FUNCTION currConcat(pCurrid INTEGER) RETURNS TEXT AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
 -- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  id ALIAS FOR $1;
-  returnVal   VARCHAR(15) := '';
-BEGIN
-  SELECT currConcat(curr_abbr, curr_symbol) INTO returnVal
-      FROM curr_symbol WHERE curr_id = id;
-  RETURN returnVal;
-END;
-$$ LANGUAGE plpgsql;
+  SELECT currConcat(curr_abbr, curr_symbol)
+    FROM curr_symbol WHERE curr_id = $1;
+$$ LANGUAGE SQL STABLE;

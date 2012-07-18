@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION formatNumeric(NUMERIC, TEXT) RETURNS TEXT IMMUTABLE AS $$
+CREATE OR REPLACE FUNCTION formatNumeric(NUMERIC, TEXT) RETURNS TEXT AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -12,8 +12,7 @@ DECLARE
   _decimal      TEXT;
   _group        TEXT;
   _string       TEXT;
-  _debug        BOOL := false;
-  _r            RECORD;
+  _exampleFmt   TEXT;
 
 BEGIN
   -- If the value passed in is NULL then we want to pass back an empty string
@@ -21,36 +20,29 @@ BEGIN
     RETURN '';
   END IF;
 
-  SELECT * INTO _r
-  FROM locale, usr
-  WHERE ((usr_locale_id=locale_id)
-     AND (usr_username=getEffectiveXtUser()));
+  SELECT locale_qtyformat INTO _exampleFmt
+  FROM locale
+  JOIN usr ON (usr_locale_id=locale_id)
+  WHERE (usr_username=getEffectiveXtUser());
 
-  _decimal := COALESCE(SUBSTRING(_r.locale_qtyformat FROM 1 FOR 1), '.');
-  _neg     := COALESCE(SUBSTRING(_r.locale_qtyformat FROM 2 FOR 1), '-');
-  _group   := COALESCE(SUBSTRING(_r.locale_qtyformat FROM 3 FOR 1), ',');
+  _decimal := COALESCE(SUBSTRING(_exampleFmt FROM 1 FOR 1), '.');
+  _neg     := COALESCE(SUBSTRING(_exampleFmt FROM 2 FOR 1), '-');
+  _group   := COALESCE(SUBSTRING(_exampleFmt FROM 3 FOR 1), ',');
 
-  _scale   := CASE WHEN _type = 'cost'       THEN _r.locale_cost_scale
-                   WHEN _type = 'extprice'   THEN _r.locale_extprice_scale
-                   WHEN _type = 'percent'    THEN _r.locale_percent_scale
-                   WHEN _type = 'purchprice' THEN _r.locale_purchprice_scale
-                   WHEN _type = 'qty'        THEN _r.locale_qty_scale
-                   WHEN _type = 'qtyper'     THEN _r.locale_qtyper_scale
-                   WHEN _type = 'salesprice' THEN _r.locale_salesprice_scale
-                   WHEN _type = 'uomratio'   THEN _r.locale_uomratio_scale
-                   WHEN _type = 'weight'     THEN _r.locale_weight_scale
-                   WHEN SUBSTRING(_type FOR 4) = 'curr' THEN _r.locale_curr_scale
-                   ELSE 2
+  -- explicitly handle just those cases that differ from what getNumScale knows
+  _scale   := CASE WHEN SUBSTRING(_type FOR 4) = 'curr' THEN getNumScale('MONEY')
+                   WHEN _type = 'extprice'   THEN getNumScale('MONEY')
+                   WHEN _type = 'purchprice' THEN getNumScale('PURCHP')
+                   WHEN _type = 'salesprice' THEN getNumScale('SALEP')
+                   ELSE getNumScale(_type)
               END;
 
   _value        := round(_value, _scale);
   _abs          := ABS(_value);
   _magnitudecnt := TRUNC(_abs / 10);
 
-  IF (_debug) THEN
-    RAISE NOTICE '_value % _abs % _scale % _neg % _decimal % _group % ',
-                 _value, _abs, _scale, _decimal, _group, _scale;
-  END IF;
+  RAISE DEBUG '_value % _abs % _scale % _neg % _decimal % _group % ',
+               _value, _abs, _scale, _decimal, _group, _scale;
 
   IF (_value < 0) THEN
     _string := _neg;
@@ -76,5 +68,5 @@ BEGIN
   _string := _string || to_char(_abs, _wholefmt);
 
   RETURN _string;
-END;$$
-LANGUAGE 'plpgsql';
+END;
+$$ LANGUAGE PLPGSQL IMMUTABLE;

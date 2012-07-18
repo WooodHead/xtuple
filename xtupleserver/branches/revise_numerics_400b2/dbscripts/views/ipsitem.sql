@@ -23,7 +23,8 @@ CREATE OR REPLACE VIEW ipsitem AS
          ipsitem_ipshead_id,
          ipsitem_item_id,
          ipsitem_qtybreak,
-         noNeg(CAST((item_listprice - (item_listprice * ipsitem_discntprcnt) - ipsitem_fixedamtdiscount) AS NUMERIC(16,4))) AS ipsitem_price,
+         noNeg(item_listprice - (item_listprice * ipsitem_discntprcnt) -
+               xsalep(ipsitem_fixedamtdiscount)) AS ipsitem_price,
          ipsitem_qty_uom_id,
          ipsitem_price_uom_id,
          ipsitem_discntprcnt,

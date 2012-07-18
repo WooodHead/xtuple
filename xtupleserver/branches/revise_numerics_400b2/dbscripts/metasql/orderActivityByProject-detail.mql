@@ -7,7 +7,7 @@
 SELECT *, 
   formatQty(qty) AS f_qty,
   formatMoney(value) AS f_value,
-  'curr' AS qty_xtnumericrole,
+  'qty' AS qty_xtnumericrole,
   'curr' AS value_xtnumericrole
 FROM (
 <? if exists("showSo") ?>
@@ -23,7 +23,7 @@ SELECT DISTINCT -1 AS id,
        NULL::text AS descrip,
        NULL::numeric AS qty,
        NULL::text AS uom,
-       NULL::numeric AS value,
+       NULL::xmoney AS value,
        0 AS xtindentrole
   FROM quhead
 <? if exists("owner_username") ?>
@@ -174,7 +174,7 @@ SELECT DISTINCT -1 AS id,
        NULL::text AS descrip,
        NULL::numeric AS qty,
        NULL::text AS uom,
-       NULL::numeric AS value,
+       NULL::xmoney AS value,
        0 AS xtindentrole
   FROM cohead
 <? if exists("owner_username") ?>

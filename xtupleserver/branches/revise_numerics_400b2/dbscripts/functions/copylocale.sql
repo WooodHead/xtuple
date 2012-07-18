@@ -1,18 +1,8 @@
-
-CREATE OR REPLACE FUNCTION copyLocale(INTEGER) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION copyLocale(pLocaleid INTEGER) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  pLocaleid ALIAS FOR $1;
-  _localeid INTEGER;
-
-BEGIN
-
-  SELECT NEXTVAL('locale_locale_id_seq') INTO _localeid;
-
   INSERT INTO locale
-        (locale_id, locale_code, locale_descrip,
-         locale_lang_file,
+        (locale_lang_file,
          locale_dateformat,
          locale_currformat,
          locale_qtyformat,
@@ -34,17 +24,8 @@ BEGIN
          locale_emphasis_color,
          locale_altemphasis_color,
          locale_expired_color,
-         locale_future_color,
-         locale_curr_scale,
-         locale_salesprice_scale,
-         locale_purchprice_scale,
-         locale_extprice_scale,
-         locale_cost_scale,
-         locale_qty_scale,
-         locale_qtyper_scale,
-         locale_uomratio_scale)
-  SELECT _localeid, '', '',
-         locale_lang_file,
+         locale_future_color)
+  SELECT locale_lang_file,
          locale_dateformat,
          locale_currformat,
          locale_qtyformat,
@@ -66,20 +47,9 @@ BEGIN
          locale_emphasis_color,
          locale_altemphasis_color,
          locale_expired_color,
-         locale_future_color,
-         locale_curr_scale,
-         locale_salesprice_scale,
-         locale_purchprice_scale,
-         locale_extprice_scale,
-         locale_cost_scale,
-         locale_qty_scale,
-         locale_qtyper_scale,
-         locale_uomratio_scale
+         locale_future_color
     FROM locale
-   WHERE(locale_id=pLocaleid);
-
-  RETURN _localeid;
-
-END;
-$$ LANGUAGE 'plpgsql';
+   WHERE(locale_id=$1)
+  RETURNING locale_id;
+$$ LANGUAGE SQL;
 

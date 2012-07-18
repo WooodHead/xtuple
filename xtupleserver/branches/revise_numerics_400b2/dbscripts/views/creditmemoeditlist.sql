@@ -114,9 +114,9 @@ UNION SELECT cmhead_id AS orderid, cmitem_id AS itemid,
              cmitem_linenumber AS linenumber,
              item_number AS item, item_descrip1 AS itemdescrip, uom_name AS iteminvuom,
              formatQty(COALESCE((cmitem_qtycredit * cmitem_qty_invuomratio), 0)) AS qtytobill,
-             formatPrice(COALESCE((cmitem_unitprice / cmitem_price_invuomratio), 0)) AS price,
-             formatMoney(COALESCE(round((cmitem_qtycredit * cmitem_qty_invuomratio) *
-                                        (cmitem_unitprice / cmitem_price_invuomratio), 2), 0)) AS extprice,
+             formatPrice(COALESCE((cmitem_unitprice / cmitem_price_invuomratio), xsalep(0))) AS price,
+             formatMoney(COALESCE((cmitem_qtycredit * cmitem_qty_invuomratio) *
+                                  (cmitem_unitprice / cmitem_price_invuomratio), xsalep(0))) AS extprice,
              'Debit' AS sence,
              COALESCE( ( SELECT formatGLAccountLong(accnt_id)
                          FROM accnt, salesaccnt

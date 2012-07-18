@@ -21,8 +21,8 @@ SELECT cmhead_id, -1 AS altid,
        cmhead_billtoname AS namedescrip,
        CAST(NULL AS TEXT) AS uom_name,
        CAST(NULL AS NUMERIC) AS qtytobill,
-       CAST(NULL AS NUMERIC) AS price,
-       CAST(NULL AS NUMERIC) AS extprice,
+       CAST(NULL AS xsalep) AS price,
+       CAST(NULL AS xmoney) AS extprice,
        cmhead_curr_id AS curr_id,
        0 AS cmitem_linenumber, 0 AS xtindentrole, 0 AS seq
 FROM cmhead JOIN custinfo ON (cmhead_cust_id=cust_id)
@@ -137,8 +137,8 @@ SELECT cmhead_id, -1,
        SUM((cmitem_qtycredit * cmitem_qty_invuomratio) *
            (cmitem_unitprice / cmitem_price_invuomratio)) +
            cmhead_freight + cmhead_misc +
-           (SELECT COALESCE(SUM(taxhist_tax * -1.0), 0.0) FROM cmheadtax WHERE (taxhist_parent_id=cmhead_id)) +
-           (SELECT COALESCE(SUM(taxhist_tax * -1.0), 0.0) FROM cmitem JOIN cmitemtax ON (taxhist_parent_id=cmitem_id)
+           (SELECT COALESCE(SUM(taxhist_tax * -1.0), xmoney(0)) FROM cmheadtax WHERE (taxhist_parent_id=cmhead_id)) +
+           (SELECT COALESCE(SUM(taxhist_tax * -1.0), xmoney(0)) FROM cmitem JOIN cmitemtax ON (taxhist_parent_id=cmitem_id)
                                     WHERE (cmitem_cmhead_id=cmhead_id))
             AS extprice,
        cmhead_curr_id AS curr_id,

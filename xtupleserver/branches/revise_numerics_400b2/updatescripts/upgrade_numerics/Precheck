@@ -1,0 +1,3 @@
+-- approximate ensuring all of the currency abbreviations are iso std
+SELECT BOOL_AND(EXISTS(SELECT 1 FROM country WHERE country_curr_abbr=curr_abbr))
+  FROM curr_symbol;

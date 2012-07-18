@@ -40,20 +40,20 @@ FROM (SELECT
        (CASE WHEN aropen_doctype IN ('C','R') THEN -1 ELSE 1 END ) AS balance,
        aropen_curr_id AS balance_curr,
 <? if exists("cashrcpt_id") ?>
-       (SELECT COALESCE(SUM(p.cashrcptitem_amount), 0)
+       (SELECT COALESCE(SUM(p.cashrcptitem_amount), xmoney(0))
                       FROM cashrcptitem p
                      WHERE (p.cashrcptitem_aropen_id=aropen_id)
                      AND (p.cashrcptitem_cashrcpt_id=<? value("cashrcpt_id") ?>))
                    AS applied,
-       (SELECT COALESCE(SUM(p.cashrcptitem_discount), 0)
+       (SELECT COALESCE(SUM(p.cashrcptitem_discount), xmoney(0))
                       FROM cashrcptitem p
                      WHERE (p.cashrcptitem_aropen_id=aropen_id)
                      AND (p.cashrcptitem_cashrcpt_id=<? value("cashrcpt_id") ?>))
                    AS discount,
        currConcat(cashrcpt_curr_id) AS applied_curr,
 <? elseif exists("source_aropen_id") ?>
-       COALESCE(arcreditapply_amount, 0) AS applied,
-       0 AS discount,
+       COALESCE(arcreditapply_amount, xmoney(0)) AS applied,
+       xmoney(0) AS discount,
        currConcat(arcreditapply_curr_id) AS applied_curr,
 <? endif ?>
        calcpendingarapplications(aropen_id) AS pending,

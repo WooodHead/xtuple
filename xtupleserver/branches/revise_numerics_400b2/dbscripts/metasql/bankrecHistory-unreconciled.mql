@@ -17,13 +17,13 @@ SELECT gltrans_id, gltrans_date, formatDate(gltrans_date) AS f_date,
       formatMoney(currtolocal(bankaccnt_curr_id,gltrans_amount,gltrans_date) * -1) AS f_amount,
       CASE WHEN gltrans_doctype = 'CK' THEN 
         currtolocal(bankaccnt_curr_id,gltrans_amount,gltrans_date) * -1
-      ELSE 0 END AS rtcheck,
+      ELSE xmoney(0) END AS rtcheck,
       CASE WHEN gltrans_doctype = 'CR' THEN 
         currtolocal(bankaccnt_curr_id,gltrans_amount,gltrans_date) * -1
-      ELSE 0 END AS rtdep,
+      ELSE xmoney(0) END AS rtdep,
       CASE WHEN gltrans_doctype NOT IN ('CK','CR') THEN 
         currtolocal(bankaccnt_curr_id,gltrans_amount,gltrans_date) * -1
-      ELSE 0 END AS rtadj,
+      ELSE xmoney(0) END AS rtadj,
       'curr' AS amount_xtnumericrole,
       1 AS xtindentrole
  FROM gltrans
@@ -60,13 +60,13 @@ SELECT sltrans_id, sltrans_date, formatDate(sltrans_date) AS f_date,
       formatMoney(currtolocal(bankaccnt_curr_id,sltrans_amount,sltrans_date) * -1) AS f_amount,
       CASE WHEN sltrans_doctype = 'CK' THEN 
         currtolocal(bankaccnt_curr_id,sltrans_amount,sltrans_date) * -1
-      ELSE 0 END AS rtcheck,
+      ELSE xmoney(0) END AS rtcheck,
       CASE WHEN sltrans_doctype = 'CR' THEN 
         currtolocal(bankaccnt_curr_id,sltrans_amount,sltrans_date) * -1
-      ELSE 0 END AS rtdep,
+      ELSE xmoney(0) END AS rtdep,
       CASE WHEN sltrans_doctype NOT IN ('CK','CR') THEN 
         currtolocal(bankaccnt_curr_id,sltrans_amount,sltrans_date) * -1
-      ELSE 0 END AS rtadj,
+      ELSE xmoney(0) END AS rtadj,
       'curr' AS amount_xtnumericrole,
       1 AS xtindentrole
  FROM sltrans

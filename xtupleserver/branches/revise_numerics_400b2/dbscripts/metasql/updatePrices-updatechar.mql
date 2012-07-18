@@ -9,7 +9,7 @@ UPDATE ipsitemchar SET
 <? if exists("updateByValue") ?>
   ipsitemchar_price + <? value("updateBy") ?>
 <? else ?>
-  roundSale(ipsitemchar_price * (1.0 + (<? value("updateBy") ?> / 100.0)))
+  ipsitemchar_price * (1.0 + (<? value("updateBy") ?> / 100.0))
 <? endif ?>
 FROM selsched, ipsitem, item
 <? if reExists("itemgrp") ?>

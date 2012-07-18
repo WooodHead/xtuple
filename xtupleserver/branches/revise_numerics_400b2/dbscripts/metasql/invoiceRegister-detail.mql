@@ -12,8 +12,8 @@ SELECT DISTINCT
        gltrans_date,  '' AS gltrans_source,
        '' AS doctype, '' AS gltrans_docnumber,
        '' AS notes,   '' AS account,
-       CAST(NULL AS NUMERIC) AS debit,
-       CAST(NULL AS NUMERIC) AS credit,
+       CAST(NULL AS xmoney) AS debit,
+       CAST(NULL AS xmoney) AS credit,
        'curr' AS debit_xtnumericrole,
        'curr' AS credit_xtnumericrole,
        0 AS xtindentrole,
@@ -34,8 +34,8 @@ SELECT DISTINCT
        sltrans_date AS gltrans_date,  '' AS gltrans_source,
        '' AS doctype, '' AS gltrans_docnumber,
        '' AS notes,   '' AS account,
-       CAST(NULL AS NUMERIC) AS debit,
-       CAST(NULL AS NUMERIC) AS credit,
+       CAST(NULL AS xmoney) AS debit,
+       CAST(NULL AS xmoney) AS credit,
        'curr' AS debit_xtnumericrole,
        'curr' AS credit_xtnumericrole,
        0 AS xtindentrole,
@@ -78,11 +78,11 @@ SELECT gltrans_id,
          ELSE firstLine(gltrans_notes)
        END AS f_notes,
        (formatGLAccount(accnt_id) || ' - ' || accnt_descrip) AS f_accnt,
-       CASE WHEN (gltrans_amount < 0) THEN ABS(gltrans_amount)
-         ELSE 0
+       CASE WHEN (gltrans_amount < xmoney(0)) THEN ABS(gltrans_amount)
+         ELSE xmoney(0)
        END AS debit,
-       CASE WHEN (gltrans_amount > 0) THEN gltrans_amount
-         ELSE 0
+       CASE WHEN (gltrans_amount > xmoney(0)) THEN gltrans_amount
+         ELSE xmoney(0)
        END AS credit,
        'curr' AS debit_xtnumericrole,
        'curr' AS credit_xtnumericrole,
@@ -126,11 +126,11 @@ SELECT sltrans_id,
          ELSE firstLine(sltrans_notes)
        END AS f_notes,
        (formatGLAccount(accnt_id) || ' - ' || accnt_descrip) AS f_accnt,
-       CASE WHEN (sltrans_amount < 0) THEN ABS(sltrans_amount)
-         ELSE 0
+       CASE WHEN (sltrans_amount < xmoney(0)) THEN ABS(sltrans_amount)
+         ELSE xmoney(0)
        END AS debit,
-       CASE WHEN (sltrans_amount > 0) THEN sltrans_amount
-         ELSE 0
+       CASE WHEN (sltrans_amount > xmoney(0)) THEN sltrans_amount
+         ELSE xmoney(0)
        END AS credit,
        'curr' AS debit_xtnumericrole,
        'curr' AS credit_xtnumericrole,

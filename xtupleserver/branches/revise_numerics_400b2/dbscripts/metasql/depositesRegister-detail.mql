@@ -11,14 +11,14 @@ SELECT trans_id, trans_date, trans_source,
        END AS doctype,
        trans_docnumber, firstLine(trans_notes) AS f_notes,
        (formatGLAccount(accnt_id) || ' - ' || accnt_descrip) AS f_accnt,
-       CASE WHEN (trans_amount < 0) THEN formatMoney(ABS(trans_amount))
+       CASE WHEN (trans_amount < xmoney(0)) THEN formatMoney(ABS(trans_amount))
          ELSE ''
        END AS f_debit,
-       CASE WHEN (trans_amount < 0) THEN ABS(trans_amount)
-         ELSE 0
+       CASE WHEN (trans_amount < xmoney(0)) THEN ABS(trans_amount)
+         ELSE xmoney(0)
        END AS debit,
-       CASE WHEN (trans_amount > 0) THEN trans_amount
-         ELSE 0
+       CASE WHEN (trans_amount > xmoney(0)) THEN trans_amount
+         ELSE xmoney(0)
        END AS credit,
        (aropen_amount - aropen_paid) AS balance,
        currtobase(aropen_curr_id,(aropen_amount - aropen_paid),aropen_docdate) AS base_balance,

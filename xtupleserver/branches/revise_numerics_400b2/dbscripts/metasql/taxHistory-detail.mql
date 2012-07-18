@@ -11,7 +11,7 @@ SELECT <? literal("groupBy") ?>,
   <? literal("groupBy") ?>_descrip AS description, 
   SUM(salesbase) AS salesbase,
   SUM(freightbase) AS freightbase, 
-  CASE WHEN (SUM(freighttax) > 0) THEN true ELSE false END AS freighttax, 
+  CASE WHEN (SUM(freighttax) > xmoney(0)) THEN true ELSE false END AS freighttax, 
   SUM(salestaxbase) AS salestaxbase,
   SUM(purchasebase) AS purchasebase,
   SUM(purchasetaxbase) * -1 AS purchasetaxbase, 
@@ -61,23 +61,23 @@ SELECT
   CASE
     WHEN (cohist_misc_type IS NULL OR cohist_misc_type IN ('M','F')) THEN
       currToBase(cohist_curr_id, cohist_qtyshipped * cohist_unitprice, cohist_invcdate) 
-    ELSE 0
+    ELSE xmoney(0)
   END AS salesbase,
   CASE
     WHEN (cohist_misc_type = 'F') THEN
       currToBase(cohist_curr_id, cohist_qtyshipped * cohist_unitprice, cohist_invcdate) 
-    ELSE 0
+    ELSE xmoney(0)
   END AS freightbase,
   CASE
     WHEN (cohist_misc_type = 'F') THEN
       taxhist_tax / taxhist_curr_rate
-    ELSE 0
+    ELSE xmoney(0)
   END AS freighttax,
-  0 AS purchasebase,
+  xmoney(0) AS purchasebase,
   taxhist_tax AS taxlocal,
   taxhist_tax / taxhist_curr_rate AS taxbase,
   taxhist_tax / taxhist_curr_rate AS salestaxbase,
-  0 AS purchasetaxbase,
+  xmoney(0) AS purchasetaxbase,
   'qty' AS qty_xtnumericrole,
   'saleprice' AS unitprice_xtnumericrole,
   'extprice' AS amount_xtnumericrole,
@@ -150,13 +150,13 @@ SELECT
   vend_name AS name, 
   1 AS qty, 
   apopen_amount AS unitprice, apopen_amount AS amount,
-  0 AS salesbase,
-  0 AS freightbase,
-  0 AS freighttax,
+  xmoney(0) AS salesbase,
+  xmoney(0) AS freightbase,
+  xmoney(0) AS freighttax,
   apopen_amount / apopen_curr_rate AS purchasebase,
   taxhist_tax AS taxlocal,
   taxhist_tax / taxhist_curr_rate AS taxbase,
-  0 AS salestaxbase,
+  xmoney(0) AS salestaxbase,
   taxhist_tax / taxhist_curr_rate AS purchasetaxbase,
   'qty' AS qty_xtnumericrole,
   'purchaseprice' AS unitprice_xtnumericrole,
@@ -212,14 +212,14 @@ SELECT
   pohead_number AS ordernumber, vohead_docdate AS docdate,
   vend_name AS name, 
   1 AS qty, 
-  0 AS unitprice, 0 AS amount,
-  0 AS salesbase,
-  0 AS freightbase,
-  0 AS freighttax,
-  0 AS purchasebase,
+  0 AS unitprice, xmoney(0) AS amount,
+  xmoney(0) AS salesbase,
+  xmoney(0) AS freightbase,
+  xmoney(0) AS freighttax,
+  xmoney(0) AS purchasebase,
   taxhist_tax AS taxlocal,
   taxhist_tax / taxhist_curr_rate AS taxbase,
-  0 AS salestaxbase,
+  xmoney(0) AS salestaxbase,
   taxhist_tax / taxhist_curr_rate AS purchasetaxbase,
   'qty' AS qty_xtnumericrole,
   'purchaseprice' AS unitprice_xtnumericrole,
@@ -277,14 +277,14 @@ SELECT
   pohead_number AS ordernumber, vohead_docdate AS docdate,
   vend_name AS name, 
   voitem_qty AS qty, 
-  COALESCE(SUM(vodist_amount),0)/voitem_qty AS unitprice, COALESCE(SUM(vodist_amount),0) AS amount,
-  0 AS salesbase,
-  0 AS freightbase,
-  0 AS freighttax,
-  currToBase(vohead_curr_id, COALESCE(SUM(vodist_amount),0), vohead_distdate)  AS purchasebase,
+  COALESCE(SUM(vodist_amount),xmoney(0))/voitem_qty AS unitprice, COALESCE(SUM(vodist_amount),xmoney(0)) AS amount,
+  xmoney(0) AS salesbase,
+  xmoney(0) AS freightbase,
+  xmoney(0) AS freighttax,
+  currToBase(vohead_curr_id, COALESCE(SUM(vodist_amount),xmoney(0)), vohead_distdate)  AS purchasebase,
   taxhist_tax AS taxlocal,
   taxhist_tax / taxhist_curr_rate AS taxbase,
-  0 AS salestaxbase,
+  xmoney(0) AS salestaxbase,
   taxhist_tax / taxhist_curr_rate AS purchasetaxbase,
   'qty' AS qty_xtnumericrole,
   'purchaseprice' AS unitprice_xtnumericrole,
