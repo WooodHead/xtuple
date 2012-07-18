@@ -6,7 +6,7 @@ DECLARE
   pTrialbalid ALIAS FOR $1;
   _p RECORD;
   _r RECORD;
-  _ending NUMERIC;
+  _ending   xmoney;
   _prevYear INTEGER;
   _currYear INTEGER;
   _prevYearClosed BOOLEAN;
@@ -52,7 +52,7 @@ BEGIN
     END IF;
 
     IF (_p.revexp AND _currYear != _prevYear) THEN
-      _ending := 0;
+      _ending := xmoney(0);
       IF (_prevYearClosed) THEN
         SELECT updateRetainedEarnings(_prevYear) INTO _result;
         IF (_result < 0) THEN
