@@ -50,7 +50,7 @@ _lines.addColumn(qsTr("Item"),          XTreeWidget.itemColumn,   Qt.AlignLeft, 
 _lines.addColumn(qsTr("Description"),   -1,                       Qt.AlignLeft,    true,   "item_descrip1");
 _lines.addColumn(qsTr("Hours"),         XTreeWidget.qtyColumn,    Qt.AlignRight,   true,   "hours");
 _lines.addColumn(qsTr("Expense"),       XTreeWidget.qtyColumn,    Qt.AlignRight,   true,   "expense");
-_lines.addColumn(qsTr("Notes"),         XTreeWidget.qtyColumn,    Qt.AlignRight,   false,  "f_notes");
+_lines.addColumn(qsTr("Notes"),         XTreeWidget.qtyColumn,    Qt.AlignLeft,    false,  "f_notes");
 
 if (privileges.check("CanViewRates"))
 {
