@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.0/docbookx.dtd">
+<article>
+  <title>3.3.0 ChangeLog</title>
+
+  <para><itemizedlist>
+      <title>Feature Additions</title>
+
+      <listitem>
+        <para>Allow borders for all items [16695]</para>
+      </listitem>
+
+      <listitem>
+        <para>Web links in pdf [17748]</para>
+      </listitem>
+    </itemizedlist></para>
+
+  <para><itemizedlist>
+      <title>Bug Fixes</title>
+
+      <listitem>
+        <para>"page x of y" in invoice report def - "y" doesn't work
+        [16067]</para>
+      </listitem>
+
+      <listitem>
+        <para>Bug in datamatrix [17148]</para>
+      </listitem>
+
+      <listitem>
+        <para>Memory leak in xml parser [17148]</para>
+      </listitem>
+
+      <listitem>
+        <para>Fields referencing page_count of Context Query are blank
+        [17811]</para>
+      </listitem>
+
+      <listitem>
+        <para></para>
+      </listitem>
+    </itemizedlist></para>
+</article>
