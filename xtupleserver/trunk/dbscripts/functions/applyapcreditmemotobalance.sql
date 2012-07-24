@@ -43,9 +43,14 @@ BEGIN
 --  Loop through the apopen items in order of due date
   FOR _r IN SELECT target.apopen_id AS apopenid,
                    currToCurr(target.apopen_curr_id,source.apopen_curr_id, 
-                     target.apopen_amount - target.apopen_paid - COALESCE(prepared,0.0) - COALESCE(selected,0.0),
+                     target.apopen_amount - target.apopen_paid - COALESCE(prepared,0.0) - COALESCE(selected,0.0) - COALESCE(applied,0.0),
                      current_date) AS balance
            FROM apopen AS source, apopen AS target
+             LEFT OUTER JOIN (SELECT apcreditapply_target_apopen_id AS applied_apopen_id,
+                                     SUM(currToCurr(apcreditapply_curr_id, apopen_curr_id, apcreditapply_amount, apopen_docdate)) AS applied
+                              FROM apcreditapply JOIN apopen ON (apopen_id=apcreditapply_source_apopen_id)
+                              GROUP BY apcreditapply_target_apopen_id) AS sub3
+                              ON (target.apopen_id=applied_apopen_id)
              LEFT OUTER JOIN (SELECT apopen_id AS selected_apopen_id,
                                 SUM(currToCurr(apselect_curr_id, apopen_curr_id, apselect_amount + apselect_discount, apselect_date)) AS selected
                                     FROM apselect JOIN apopen ON (apselect_apopen_id=apopen_id)
@@ -66,7 +71,9 @@ BEGIN
             ORDER BY target.apopen_duedate, (target.apopen_amount - target.apopen_paid) LOOP
 
 --  Determine the amount to apply
-    IF (_r.balance > _amount) THEN
+    IF (_r.balance <= 0.0) THEN
+      CONTINUE;
+    ELSEIF (_r.balance > _amount) THEN
       _applyAmount := _amount;
     ELSE
       _applyAmount := _r.balance;
