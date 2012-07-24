@@ -129,7 +129,7 @@ BEGIN
    WHERE ( (vodist_poitem_id=poitem_id)
      AND   (voitem_poitem_id=poitem_id)
      AND   (voitem_vohead_id=vodist_vohead_id)
-     AND   ((poitem_qty_received - poitem_qty_returned - poitem_qty_vouchered) = 0)
+     AND   ((poitem_qty_received - poitem_qty_vouchered) = 0)
      AND   (vodist_vohead_id=pVoheadid) )
    LIMIT 1;
   IF (FOUND) THEN
@@ -205,10 +205,10 @@ BEGIN
                                 WHERE (poreject_voitem_id=voitem_id)) as data)
                            AS value_base,
 			   (poitem_freight_received - poitem_freight_vouchered) /
-			       (poitem_qty_received - poitem_qty_returned - poitem_qty_vouchered) * voitem_qty AS vouchered_freight,
+			       (poitem_qty_received - poitem_qty_vouchered) * voitem_qty AS vouchered_freight,
                             currToBase(_p.pohead_curr_id,
 				       (poitem_freight_received - poitem_freight_vouchered) /
-				       (poitem_qty_received - poitem_qty_returned - poitem_qty_vouchered) * voitem_qty,
+				       (poitem_qty_received - poitem_qty_vouchered) * voitem_qty,
 				        _firstExchDateFreight ) AS vouchered_freight_base,
 			    voitem_freight,
 			    currToBase(_p.vohead_curr_id, voitem_freight,
