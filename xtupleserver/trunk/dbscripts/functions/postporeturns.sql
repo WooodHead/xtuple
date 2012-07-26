@@ -7,6 +7,10 @@ DECLARE
   _itemlocSeries INTEGER;
   _p RECORD;
   _returnval	INTEGER;
+  _tmp        INTEGER;
+  _pricevar   NUMERIC := 0.00;
+  _invhistid		INTEGER;
+  _journalNumber INTEGER := fetchJournalNumber('GL-MISC');
 
 BEGIN
 
@@ -19,7 +23,7 @@ BEGIN
 			      pohead_orderdate) AS poitem_unitprice_base,
                    COALESCE(itemsite_id, -1) AS itemsiteid, poitem_invvenduomratio,
                    SUM(poreject_qty) AS totalqty,
-                   itemsite_item_id, itemsite_costmethod, itemsite_controlmethod
+                   itemsite_item_id, itemsite_costmethod, itemsite_controlmethod, recv_date
             FROM pohead JOIN poitem ON (poitem_pohead_id=pohead_id)
                         JOIN poreject ON (poreject_poitem_id=poitem_id AND NOT poreject_posted) 
                         LEFT OUTER JOIN itemsite ON (poitem_itemsite_id=itemsite_id)
@@ -28,7 +32,7 @@ BEGIN
             GROUP BY poreject_id, pohead_number, poreject_poitem_id, poitem_id, poitem_prj_id,
 		     poitem_expcat_id, poitem_linenumber, poitem_unitprice, pohead_curr_id,
 		     pohead_orderdate, itemsite_id, poitem_invvenduomratio,
-                     itemsite_item_id, itemsite_costmethod, itemsite_controlmethod,
+                     itemsite_item_id, itemsite_costmethod, itemsite_controlmethod, recv_date,
                      recv_purchcost_curr_id, recv_purchcost LOOP
 
     IF (_p.itemsiteid = -1) THEN
@@ -88,6 +92,40 @@ BEGIN
     SET poitem_qty_returned=(poitem_qty_returned + _p.totalqty),
 	poitem_status='O'
     WHERE (poitem_id=_p.poitem_id);
+
+      IF (fetchMetricBool('RecordPPVonReceipt')) THEN -- If the 'Purchase Price Variance on Receipt' option is true
+         _invhistid := _returnval;
+         -- Find the difference in the purchase price value expected from the P/O and the value of the transaction
+         SELECT ((_p.poitem_unitprice_base * poitem_qty_returned) - (invhist_value_after - invhist_value_before)) INTO _pricevar
+         FROM invhist, poitem
+         WHERE ((invhist_id = _invhistid)
+           AND  (poitem_id=_p.poitem_id));
+
+         -- If difference exists then
+         IF (_pricevar <> 0.00) THEN
+           -- Record an additional GL Transaction for the purchase price variance
+           SELECT insertGLTransaction( _journalNumber,
+                'S/R', 'PO', _p.pohead_number,
+                                       'Purchase price variance adjusted for P/O ' || _p.pohead_number || ' for item ' || _p.poitem_linenumber::TEXT,
+                                       costcat_liability_accnt_id,
+                                       getPrjAccntId(_p.poitem_prj_id, costcat_purchprice_accnt_id), -1,
+                                       _pricevar,
+                                       CURRENT_DATE, false ) INTO _tmp
+           FROM itemsite, costcat, poitem
+           WHERE ((itemsite_costcat_id=costcat_id)
+              AND (itemsite_id=poitem_itemsite_id) );
+           IF (NOT FOUND) THEN
+             RAISE EXCEPTION 'Could not insert G/L transaction: no cost category found for itemsite_id %',
+             _p.itemsiteid;
+           ELSIF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
+             RETURN _tmp;
+           ELSE
+             -- Posting to trial balance is deferred to prevent locking
+             INSERT INTO itemlocpost ( itemlocpost_glseq, itemlocpost_itemlocseries)
+             VALUES ( _tmp, _itemlocSeries );
+           END IF;
+         END IF;
+       END IF;
 
     IF (pCreateMemo) THEN
 	SELECT postPoReturnCreditMemo(_p.poreject_id) INTO _returnval;
