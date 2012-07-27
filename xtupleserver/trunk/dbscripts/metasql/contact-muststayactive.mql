@@ -27,7 +27,7 @@ SELECT EXISTS(
   WHERE (shipto_active AND (shipto_cntct_id=<? value("id") ?>))
  UNION SELECT 9
    FROM vendaddrinfo
-   JOIN vendinfo ON (vendaddrinfo_vend_id=vend_id)
+   JOIN vendinfo ON (vendaddr_vend_id=vend_id)
   WHERE (vend_active AND (vendaddr_cntct_id=<? value("id") ?>))
  UNION SELECT 10
    FROM whsinfo
