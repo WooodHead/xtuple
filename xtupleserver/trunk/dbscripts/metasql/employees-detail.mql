@@ -40,7 +40,7 @@ WHERE (true)
 <? if exists("warehous_id") ?>
   AND (warehous_id=<? value("warehous_id") ?>)
 <? endif ?>
-<? if not exists("showInactive") ?> 
+<? if exists("activeOnly") ?> 
   AND emp_active 
 <? endif ?>
 <? if exists("search_pattern") ?>
