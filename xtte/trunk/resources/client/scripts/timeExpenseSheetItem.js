@@ -548,7 +548,7 @@ xtte.timeExpenseSheetItem.empTotals = function()
 
 xtte.timeExpenseSheetItem.prev = function()
 {
-  if (_modified)
+  if ( (_modified) && (_mode != xtte.viewMode) )
   {
     if (QMessageBox.question(mywindow,
                        qsTr("Unsaved Changed"),
@@ -588,7 +588,7 @@ xtte.timeExpenseSheetItem.prev = function()
 
 xtte.timeExpenseSheetItem.next = function()
 {
-  if (_modified)
+  if ( (_modified) && (_mode != xtte.viewMode) )
   {
 
     if (QMessageBox.question(mywindow,
