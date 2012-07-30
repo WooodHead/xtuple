@@ -129,7 +129,7 @@ BEGIN
 
 --  Check to see if the passed accnt is used in a Warehouse
   SELECT warehous_id INTO _check
-  FROM warehous
+  FROM whsinfo
   WHERE (warehous_default_accnt_id=OLD.accnt_id)
   LIMIT 1;
   IF (FOUND) THEN

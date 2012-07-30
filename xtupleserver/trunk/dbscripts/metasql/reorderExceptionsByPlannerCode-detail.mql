@@ -1,8 +1,8 @@
 -- Group: reorderExceptionsByPlannerCode
 -- Name: detail
 -- Notes: used by dspReorderExceptionsByPlannerCode
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
--- See www.xtuple.com/CPAL for the full text of the software license.
+--        Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+--        See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT itemsite_id, itemtype, warehous_code, item_number,
        (item_descrip1 || ' ' || item_descrip2) AS itemdescrip,
@@ -41,7 +41,7 @@ FROM (SELECT itemsite_id,
                                              WHERE (plancode_code ~ <? value("plancode_pattern") ?>)))
             <? endif ?>
                   )
-           ) AS itemsitedata, item, warehous
+           ) AS itemsitedata, item, whsinfo
       WHERE ((itemsite_item_id=item_id)
          AND (itemsite_warehous_id=warehous_id))
      ) AS data

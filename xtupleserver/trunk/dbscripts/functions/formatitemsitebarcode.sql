@@ -1,4 +1,3 @@
-
 CREATE OR REPLACE FUNCTION formatItemSiteBarcode(INTEGER) RETURNS TEXT IMMUTABLE AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
@@ -10,7 +9,7 @@ BEGIN
   SELECT ( E'\138ISXX' ||
            LTRIM(TO_CHAR(LENGTH(item_number), '00')) || LENGTH(warehous_code)::TEXT ||
            item_number || warehous_code ) INTO _barcode
-  FROM itemsite, item, warehous
+  FROM itemsite, item, whsinfo
   WHERE ( (itemsite_item_id=item_id)
    AND (itemsite_warehous_id=warehous_id)
    AND (itemsite_id=pItemsiteid) );

@@ -113,7 +113,7 @@ BEGIN
     RAISE EXCEPTION 'This transaction will cause an Average Costed item to go negative which is not allowed [xtuple: postinvtrans, -2]';
   END IF;
 
-  IF(!_r.nocontrol)
+  IF (NOT _r.nocontrol) THEN
     INSERT INTO invhist
     ( invhist_id, invhist_itemsite_id, invhist_transtype, invhist_transdate,
         invhist_invqty, invhist_qoh_before,
@@ -139,7 +139,7 @@ BEGIN
     _creditid = pCreditid;
   ELSE
     SELECT warehous_default_accnt_id INTO _creditid
-    FROM itemsite, warehous
+    FROM itemsite, whsinfo
     WHERE ( (itemsite_warehous_id=warehous_id)
       AND  (itemsite_id=pItemsiteid) );
   END IF;
@@ -148,7 +148,7 @@ BEGIN
     _debitid = pDebitid;
   ELSE
     SELECT warehous_default_accnt_id INTO _debitid
-    FROM itemsite, warehous
+    FROM itemsite, whsinfo
     WHERE ( (itemsite_warehous_id=warehous_id)
       AND  (itemsite_id=pItemsiteid) );
   END IF;
