@@ -81,6 +81,7 @@ CREATE OR REPLACE FUNCTION _accntDeleteTrigger () RETURNS TRIGGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
+  _accntnum     TEXT := formatGLAccount(OLD.accnt_id);
   _check INTEGER;
 BEGIN
 -- This trigger is to protect against accounts that are in use
@@ -237,10 +238,18 @@ BEGIN
     RAISE EXCEPTION 'Can not delete, used in Cash Receipt Misc. Application';
   END IF;
 
+  -- TODO: everything above here should be replaced by fkeys
+  IF (OLD.accnt_id = fetchMetricValue('DefaultAPAccount')) THEN
+    RAISE EXCEPTION 'Cannot delete the default A/P Account [xtuple: accnt, -1, %]',
+                    _accntnum;
+  ELSIF (OLD.accnt_id = fetchMetricValue('DefaultARAccount')) THEN
+    RAISE EXCEPTION 'Cannot delete the default A/R Account [xtuple: accnt, -2, %]',
+                    _accntnum;
+  END IF;
+
   RETURN OLD;
 END;
 $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'accntDeleteTrigger');
 CREATE TRIGGER accntDeleteTrigger BEFORE DELETE ON accnt FOR EACH ROW EXECUTE PROCEDURE _accntDeleteTrigger();
-
