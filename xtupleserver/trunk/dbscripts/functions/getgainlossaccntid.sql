@@ -6,8 +6,8 @@ DECLARE
   pAccntId ALIAS FOR $1;
   _returnVal INTEGER;
 BEGIN
-  IF (pAccntId IS NULL) THEN
-	RETURN NULL;
+  IF ( (pAccntId = 0) OR (pAccntId IS NULL) ) THEN
+	RETURN 0;
   END IF;
 
   IF (fetchMetricValue('GLCompanySize') = 0) THEN
