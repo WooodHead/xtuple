@@ -52,11 +52,9 @@ BEGIN
   END IF;
 
 --  Check to see if the passed accnt is used in a Warehouse
-  SELECT warehous_id INTO _check
-  FROM warehous
-  WHERE (warehous_default_accnt_id=pAccntid)
-  LIMIT 1;
-  IF (FOUND) THEN
+  IF EXISTS (SELECT 1
+               FROM whsinfo
+              WHERE (warehous_default_accnt_id=pAccntid)) THEN
     RETURN -4;
   END IF;
 

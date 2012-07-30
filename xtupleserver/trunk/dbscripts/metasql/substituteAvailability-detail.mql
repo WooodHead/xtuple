@@ -1,8 +1,8 @@
 -- Group: substituteAvailability
 -- Name: detail
 -- Notes: used by dspSubstituteAvailabilityByItem
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
--- See www.xtuple.com/CPAL for the full text of the software license.
+--        Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+--        See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT s_itemsite_id, warehous_code, item_number, itemdescrip,
        qtyonhand, reorderlevel, leadtime, itemsub_rank,
@@ -68,7 +68,7 @@ FROM (SELECT sub.itemsite_id AS s_itemsite_id,
              (<? value("date") ?> - CURRENT_DATE)) - qtyAllocated(sub.itemsite_id, (<? value("date") ?> - CURRENT_DATE))) AS available
   <? endif ?>
 <? endif ?>
-      FROM item, itemsite AS sub, itemsite AS root, warehous, itemsub
+      FROM item, itemsite AS sub, itemsite AS root, whsinfo, itemsub
       WHERE ((sub.itemsite_item_id=item_id)
          AND (root.itemsite_item_id=itemsub_parent_item_id)
          AND (sub.itemsite_item_id=itemsub_sub_item_id)

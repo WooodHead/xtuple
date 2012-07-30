@@ -37,7 +37,7 @@ BEGIN
         SELECT CURRENT_TIMESTAMP, evntnot_username, evnttype_id,
                'I', NEW.itemsite_id, warehous_id,
                (item_number || '/' || warehous_code)
-        FROM evntnot, evnttype, item, warehous
+        FROM evntnot, evnttype, item, whsinfo
         WHERE ( (evntnot_evnttype_id=evnttype_id)
          AND (evntnot_warehous_id=NEW.itemsite_warehous_id)
          AND (NEW.itemsite_item_id=item_id)
