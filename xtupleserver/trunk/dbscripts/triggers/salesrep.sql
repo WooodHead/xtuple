@@ -94,10 +94,6 @@ BEGIN
       IF (TG_OP = 'INSERT') THEN
         PERFORM postComment(_cmnttypeid, 'SR', NEW.salesrep_id, 'Created');
 
-      ELSIF (TG_OP = 'DELETE') THEN
-        PERFORM postComment(_cmnttypeid, 'SR', OLD.salesrep_id,
-                            'Deleted "' || OLD.salesrep_number || '"');
-
       ELSIF (TG_OP = 'UPDATE') THEN
         IF (OLD.salesrep_active <> NEW.salesrep_active) THEN
           PERFORM postComment(_cmnttypeid, 'SR', NEW.salesrep_id,
@@ -138,5 +134,23 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'salesrepAfterTrigger');
-CREATE TRIGGER salesrepAfterTrigger AFTER INSERT OR UPDATE OR DELETE ON salesrep
+CREATE TRIGGER salesrepAfterTrigger AFTER INSERT OR UPDATE ON salesrep
        FOR EACH ROW EXECUTE PROCEDURE _salesrepAfterTrigger();
+
+CREATE OR REPLACE FUNCTION _salesrepAfterDeleteTrigger() RETURNS TRIGGER AS $$
+BEGIN
+  IF (SELECT fetchMetricValue('DefaultSalesRep') = OLD.salesrep_id) THEN
+    RAISE EXCEPTION 'Cannot delete the default Sales Rep [xtuple: salesrep, -1, %]',
+                    OLD.salesrep_number;
+  END IF;
+
+  PERFORM postComment(_cmnttypeid, 'SR', OLD.salesrep_id,
+                      'Deleted "' || OLD.salesrep_number || '"');
+
+  RETURN OLD;
+END;
+$$ LANGUAGE PLPGSQL;
+
+DROP TRIGGER IF EXISTS salesrepAfterDeleteTrigger ON salesrep;
+CREATE TRIGGER salesrepAfterDeleteTrigger AFTER DELETE ON salesrep
+       FOR EACH ROW EXECUTE PROCEDURE _salesrepAfterDeleteTrigger();

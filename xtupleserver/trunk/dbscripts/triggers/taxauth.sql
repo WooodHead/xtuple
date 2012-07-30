@@ -158,7 +158,13 @@ BEGIN
                FROM checkhead
               WHERE checkhead_recip_id = OLD.taxauth_id
                 AND checkhead_recip_type='T')) THEN
-    RAISE EXCEPTION '[xtuple: deleteTaxAuthority, -7]';
+    RAISE EXCEPTION 'Cannot delete the tax authority % because checks have been written to it [xtuple: deleteTaxAuthority, -7, %]',
+                    OLD.taxauth_number, OLD.taxauth_number;
+  END IF;
+
+  IF (fetchMetricValue('DefaultTaxAuthority') = OLD.taxauth_id) THEN
+    RAISE EXCEPTION 'Cannot delete the default Tax Authority [xtuple: deleteTaxAuthority, -8, %]',
+                    OLD.taxauth_code;
   END IF;
 
   IF (fetchMetricBool('TaxAuthChangeLog')) THEN
