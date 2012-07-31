@@ -134,7 +134,6 @@ function send()
   var params = getParams();
   var qry = toolbox.executeDbQuery("desktop", "sendMessageToUser", params);
   QMessageBox.information(mainwindow,'Sent','Message Sent');
-  mainwindow.sSystemMessageAdded();
   clear();
 }
 
