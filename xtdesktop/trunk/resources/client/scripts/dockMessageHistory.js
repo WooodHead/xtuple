@@ -42,10 +42,7 @@ function initDockMessageHistory()
     .connect(populateMenuMessageHistory);
   _messageHistory["itemDoubleClicked(QTreeWidgetItem*, int)"].connect(myOpen);
 
-  //old version of message refresh based on clock.
-  //  the new version uses signal/slot
-  //mainwindow["tick()"].connect(refreshMessageHistory);
-  mainwindow.systemMessageAdded.connect(refreshMessageHistory);
+  mainwindow["tick()"].connect(refreshMessageHistory);
 
   // Don't show if no privs
   var act = _dockMessageHistory.toggleViewAction();
