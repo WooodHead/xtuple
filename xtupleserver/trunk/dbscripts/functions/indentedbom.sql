@@ -110,7 +110,7 @@ BEGIN
     SELECT bomhead_batchsize
     FROM bomhead
     WHERE ((bomhead_item_id=pItemId)
-    AND (bomhead_rev_id=pRevisionid))),1) INTO _batchsize;
+    AND (bomhead_rev_id=pRevisionid)) LIMIT 1),1) INTO _batchsize;
  
   IF NOT (_inactive) THEN
 
