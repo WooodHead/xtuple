@@ -1,9 +1,8 @@
-CREATE OR REPLACE FUNCTION copyBOM(INTEGER, INTEGER) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION copyBOM(pSItemid       INTEGER,
+                                   pTItemid       INTEGER) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pSItemid ALIAS FOR $1;
-  pTItemid ALIAS FOR $2;
   _result INTEGER;
 
 BEGIN
@@ -15,14 +14,15 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION copyBOM(INTEGER, INTEGER, BOOLEAN) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION copyBOM(pSItemid       INTEGER,
+                                   pTItemid       INTEGER,
+                                   pCopyUsedAt    BOOLEAN) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pSItemid ALIAS FOR $1;
-  pTItemid ALIAS FOR $2;
-  pCopyUsedAt ALIAS FOR $3;
-  _r RECORD;
+  _bh RECORD;
+  _bi RECORD;
+  _bomheadid INTEGER;
   _bomitemid INTEGER;
   _bomworksetid INTEGER;
   _temp INTEGER;
@@ -30,6 +30,38 @@ DECLARE
   _booitemseqid INTEGER;
 
 BEGIN
+
+--  Cache source bomhead
+  SELECT * INTO _bh
+  FROM bomhead
+  WHERE ((bomhead_item_id=pSItemid)
+    AND  (bomhead_rev_id=getActiveRevID('BOM', pSItemid)));
+
+  IF (NOT FOUND) THEN
+    RETURN -1;
+  END IF;
+
+--  Make sure that source bomitems exist
+  SELECT bomitem_id INTO _bomitemid
+  FROM bomitem
+  WHERE ((bomitem_parent_item_id=_bh.bomhead_item_id)
+    AND  (bomitem_rev_id=_bh.bomhead_rev_id))
+  LIMIT 1;
+
+  IF (NOT FOUND) THEN
+    RETURN -2;
+  END IF;
+
+--  Make sure that target bomitems do not exist
+  SELECT bomitem_id INTO _bomitemid
+  FROM bomitem
+  WHERE ((bomitem_parent_item_id=pTItemid)
+    AND  (bomitem_rev_id= -1))
+  LIMIT 1;
+
+  IF (FOUND) THEN
+    RETURN -3;
+  END IF;
 
 --  Make sure that the parent is not used in the component at some level
   IF ( SELECT (item_type IN ('M', 'F'))
@@ -43,29 +75,35 @@ BEGIN
     LIMIT 1;
     IF (FOUND) THEN
       PERFORM deleteBOMWorkset(_bomworksetid);
-      RETURN -1;
+      RETURN -4;
     END IF;
     PERFORM deleteBOMWorkset(_bomworksetid);
   END IF;
 
-  INSERT INTO bomhead
-  ( bomhead_item_id, bomhead_serial, bomhead_docnum,
-    bomhead_batchsize, bomhead_requiredqtyper )
-  SELECT pTItemid, bomhead_serial, bomhead_docnum,
-         bomhead_batchsize, bomhead_requiredqtyper
+--  Check for existing target bomhead
+  SELECT bomhead_id INTO _bomheadid
   FROM bomhead
-  WHERE ((bomhead_item_id=pSItemid)
-    AND  (bomhead_rev_id=getActiveRevID('BOM', pSItemid)));
+  WHERE ((bomhead_item_id=pTItemid)
+    AND  (bomhead_rev_id= -1));
 
-  FOR _r IN SELECT bomitem.*
-            FROM bomitem(pSItemid) 
-            WHERE (bomitem_expires>CURRENT_DATE) LOOP
+  IF (NOT FOUND) THEN
+    INSERT INTO bomhead
+    ( bomhead_item_id, bomhead_serial, bomhead_docnum,
+      bomhead_batchsize, bomhead_requiredqtyper )
+    VALUES
+    ( pTItemid, _bh.bomhead_serial, _bh.bomhead_docnum,
+      _bh.bomhead_batchsize, _bh.bomhead_requiredqtyper );
+  END IF;
+
+  FOR _bi IN SELECT bomitem.*
+             FROM bomitem(pSItemid) 
+             WHERE (bomitem_expires>CURRENT_DATE) LOOP
 
     SELECT NEXTVAL('bomitem_bomitem_id_seq') INTO _bomitemid;
 
     IF (pCopyUsedAt) THEN
-      _schedatwooper := _r.bomitem_schedatwooper;
-      _booitemseqid := _r.bomitem_booitem_seq_id;
+      _schedatwooper := _bi.bomitem_schedatwooper;
+      _booitemseqid := _bi.bomitem_booitem_seq_id;
     ELSE
       _schedatwooper := FALSE;
       _booitemseqid := -1;
@@ -79,12 +117,12 @@ BEGIN
       bomitem_createwo, bomitem_issuemethod, bomitem_moddate, bomitem_subtype,
       bomitem_notes, bomitem_ref )
     VALUES
-    ( _bomitemid, pTItemid, _r.bomitem_seqnumber, _r.bomitem_item_id,
-      _r.bomitem_uom_id, _r.bomitem_qtyfxd, _r.bomitem_qtyper, _r.bomitem_scrap, _schedatwooper,
+    ( _bomitemid, pTItemid, _bi.bomitem_seqnumber, _bi.bomitem_item_id,
+      _bi.bomitem_uom_id, _bi.bomitem_qtyfxd, _bi.bomitem_qtyper, _bi.bomitem_scrap, _schedatwooper,
       _booitemseqid,
-      CURRENT_DATE, _r.bomitem_expires, _r.bomitem_ecn,
-      _r.bomitem_createwo, _r.bomitem_issuemethod, CURRENT_DATE, _r.bomitem_subtype,
-      _r.bomitem_notes, _r.bomitem_ref );
+      CURRENT_DATE, _bi.bomitem_expires, _bi.bomitem_ecn,
+      _bi.bomitem_createwo, _bi.bomitem_issuemethod, CURRENT_DATE, _bi.bomitem_subtype,
+      _bi.bomitem_notes, _bi.bomitem_ref );
 
     INSERT INTO bomitemsub
     ( bomitemsub_bomitem_id, bomitemsub_item_id,
@@ -92,7 +130,7 @@ BEGIN
     SELECT _bomitemid, bomitemsub_item_id,
            bomitemsub_uomratio, bomitemsub_rank
     FROM bomitemsub
-    WHERE (bomitemsub_bomitem_id=_r.bomitem_id);
+    WHERE (bomitemsub_bomitem_id=_bi.bomitem_id);
 
   END LOOP;
 
