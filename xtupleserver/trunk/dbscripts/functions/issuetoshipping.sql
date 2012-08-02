@@ -42,6 +42,7 @@ DECLARE
   _value                NUMERIC;
   _warehouseid		INTEGER;
   _shipitemid     	INTEGER;
+  _freight              NUMERIC;
 
 BEGIN
 
@@ -202,8 +203,12 @@ BEGIN
       UPDATE coitem
         SET coitem_qtyreserved = noNeg(coitem_qtyreserved - pQty)
       WHERE(coitem_id=pitemid);
-
     END IF;
+
+    -- Calculate shipment freight
+    SELECT calcShipFreight(_shipheadid) INTO _freight;
+    UPDATE shiphead SET shiphead_freight=_freight
+    WHERE (shiphead_id=_shipheadid);
 
   ELSEIF (pordertype = 'TO') THEN
 
