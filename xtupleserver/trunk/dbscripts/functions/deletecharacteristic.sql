@@ -35,6 +35,8 @@ BEGIN
       RETURN -5;
     ELSIF (_r.charass_target_type = 'INCDT	') THEN
       RETURN -6;
+    ELSIF (_r.charass_target_type = 'EMP') THEN
+      RETURN -7;
     ELSE
       RETURN -99;
     END IF;
