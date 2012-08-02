@@ -1,26 +1,21 @@
-CREATE OR REPLACE FUNCTION openAPItemsValue(INTEGER, INTEGER) RETURNS NUMERIC AS $$
+CREATE OR REPLACE FUNCTION openAPItemsValue(pVendid    INTEGER,
+                                            pPeriodid  INTEGER) RETURNS NUMERIC AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pVendid ALIAS FOR $1;
-  pPeriodid ALIAS FOR $2;
   _value NUMERIC;
 
 BEGIN
 
-  SELECT SUM( CASE WHEN (apopen_doctype='C') THEN ((apopen_amount - apopen_paid) * -1)
-                   ELSE (apopen_amount - apopen_paid)
-              END )  INTO _value
+  SELECT SUM( (apopen_amount - apopen_paid) / apopen_curr_rate *
+               CASE WHEN (apopen_doctype IN ('D', 'V')) THEN 1 ELSE -1 END )
+               INTO _value
   FROM apopen
   WHERE ( (apopen_open)
-   AND (apopen_vend_id=pVendid)
-   AND (apopen_duedate BETWEEN findPeriodStart(pPeriodid) AND findPeriodEnd(pPeriodid) ) );
+    AND   (apopen_vend_id=pVendid)
+    AND   (apopen_duedate BETWEEN findPeriodStart(pPeriodid) AND findPeriodEnd(pPeriodid)) );
 
-  IF (_value IS NULL) THEN
-    _value := 0;
-  END IF;
-
-  RETURN _value;
+  RETURN COALESCE(_value, 0.0);
 
 END;
 $$ LANGUAGE 'plpgsql';
