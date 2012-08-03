@@ -26,11 +26,8 @@ BEGIN
     END IF;
   END IF;
 
-  IF(TG_OP = 'DELETE') THEN
-    _rec := OLD;
-  ELSE
-    _rec := NEW;
-  END IF;
+  _rec := NEW;
+
   SELECT COALESCE(item_type,'')='K'
     INTO _kit
     FROM itemsite, item
@@ -113,48 +110,6 @@ BEGIN
     END IF;
 
     RETURN NEW;
-
-  ELSIF (TG_OP = 'DELETE') THEN
-
-      IF(_kit) THEN
-        IF(_shipped) THEN
-          RAISE EXCEPTION 'You can not delete this Sales Order Line as it has several sub components that have already been shipped.';
-        END IF;
-      END IF;
-
-      DELETE FROM comment
-      WHERE ( (comment_source='SI')
-       AND (comment_source_id=OLD.coitem_id) );
-
-      DELETE FROM charass
-       WHERE ((charass_target_type='SI')
-         AND  (charass_target_id=OLD.coitem_id));
- 
-      IF ((OLD.coitem_order_type = 'W') AND
-	  (SELECT wo_status IN ('O', 'E')
-	    FROM wo
-	    WHERE (wo_id=OLD.coitem_order_id))) THEN
-        PERFORM deleteWo(OLD.coitem_order_id, TRUE);
-
-      ELSIF (OLD.coitem_order_type = 'R') THEN 
-        PERFORM deletePr(OLD.coitem_order_id);
-      END IF;
-
-    INSERT INTO evntlog ( evntlog_evnttime, evntlog_username,
-			  evntlog_evnttype_id, evntlog_ordtype,
-			  evntlog_ord_id, evntlog_warehous_id, evntlog_number )
-    SELECT CURRENT_TIMESTAMP, evntnot_username,
-	   evnttype_id, 'S',
-	   OLD.coitem_id, itemsite_warehous_id,
-	   (cohead_number || '-' || OLD.coitem_linenumber)
-    FROM evntnot, evnttype, itemsite, item, cohead
-    WHERE ( (evntnot_evnttype_id=evnttype_id)
-     AND (evntnot_warehous_id=itemsite_warehous_id)
-     AND (itemsite_id=OLD.coitem_itemsite_id)
-     AND (itemsite_item_id=item_id)
-     AND (OLD.coitem_cohead_id=cohead_id)
-     AND (OLD.coitem_scheddate <= (CURRENT_DATE + itemsite_eventfence))
-     AND (evnttype_name='SoitemCancelled') );
 
   ELSIF (TG_OP = 'UPDATE') THEN
     IF (NEW.coitem_qtyord <> OLD.coitem_qtyord) THEN
@@ -274,29 +229,9 @@ BEGIN
 
   END IF;
 
-  IF (TG_OP = 'DELETE') THEN
-    RETURN OLD;
-  END IF;
-
   NEW.coitem_lastupdated = CURRENT_TIMESTAMP;
 
   -- Handle status for header
-  IF (TG_OP = 'DELETE') THEN
-    IF (OLD.coitem_status = 'O') THEN
-      IF ( (SELECT (count(*) < 1)
-              FROM coitem
-             WHERE ((coitem_cohead_id=OLD.coitem_cohead_id)
-               AND  (coitem_id != OLD.coitem_id)
-               AND  (coitem_status = 'O')) ) ) THEN
-        UPDATE cohead SET cohead_status = 'C'
-         WHERE ((cohead_id=OLD.coitem_pohead_id)
-           AND  (cohead_status='O'));
-      END IF;
-    END IF;
-
-    RETURN OLD;
-  END IF;
-
   IF (TG_OP = 'UPDATE') THEN
     IF (OLD.coitem_status <> NEW.coitem_status) THEN
       IF ( (SELECT (count(*) < 1)
@@ -320,8 +255,8 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-DROP TRIGGER soitemTrigger ON coitem;
-CREATE TRIGGER soitemTrigger BEFORE INSERT OR UPDATE OR DELETE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemTrigger();
+SELECT dropIfExists('TRIGGER', 'soitemTrigger');
+CREATE TRIGGER soitemTrigger BEFORE INSERT OR UPDATE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemTrigger();
 
 CREATE OR REPLACE FUNCTION _soitemBeforeTrigger() RETURNS TRIGGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
@@ -503,7 +438,7 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-DROP TRIGGER soitemBeforeTrigger ON coitem;
+SELECT dropIfExists('TRIGGER', 'soitemBeforeTrigger');
 CREATE TRIGGER soitemBeforeTrigger BEFORE INSERT OR UPDATE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemBeforeTrigger();
 -- TODO: there are two BEFORE triggers. should these be merged?
 
@@ -528,11 +463,7 @@ DECLARE
 
 BEGIN
 
-  IF(TG_OP = 'DELETE') THEN
-    _rec := OLD;
-  ELSE
-    _rec := NEW;
-  END IF;
+  _rec := NEW;
 
   --Cache some information
   SELECT cohead_cust_id INTO _custID
@@ -619,23 +550,6 @@ BEGIN
           AND (coitem_linenumber = NEW.coitem_linenumber)
           AND (coitem_subnumber > 0));
       END IF;
-    END IF;
-    IF (TG_OP = 'DELETE') THEN
-  -- Delete Sub Lines for Kit Components
-     FOR _coitemid IN
-        SELECT coitem_id
-        FROM coitem
-        WHERE ( (coitem_cohead_id=OLD.coitem_cohead_id)
-          AND   (coitem_linenumber=OLD.coitem_linenumber)
-          AND   (coitem_subnumber > 0) )
-      LOOP
-        SELECT deleteSoItem(_coitemid) INTO _result;
-        IF (_result < 0) THEN
-          IF NOT (_po AND (_result = -10 OR _result = -20)) THEN
-            RAISE EXCEPTION 'Error deleting kit components: deleteSoItem(integer) Error:%', _result;
-          END IF;
-        END IF;
-      END LOOP;
     END IF;
   END IF;
 
@@ -800,10 +714,6 @@ BEGIN
        AND (coitem_subnumber = 0));
   END IF;
 
-  IF(TG_OP = 'DELETE') THEN
-    RETURN OLD;
-  END IF;
-
   --If auto calculate freight, recalculate cohead_freight
   IF (SELECT cohead_calcfreight FROM cohead WHERE (cohead_id=NEW.coitem_cohead_id)) THEN
     UPDATE cohead SET cohead_freight = COALESCE(
@@ -822,4 +732,120 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'soitemAfterTrigger');
-CREATE TRIGGER soitemAfterTrigger AFTER INSERT OR UPDATE OR DELETE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemAfterTrigger();
+CREATE TRIGGER soitemAfterTrigger AFTER INSERT OR UPDATE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemAfterTrigger();
+
+CREATE OR REPLACE FUNCTION _soitemBeforeDeleteTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+DECLARE
+
+  _r              RECORD;
+  _kit            BOOLEAN := FALSE;
+  _shipped        BOOLEAN := FALSE;
+  _coitemid       INTEGER := 0;
+  _result         INTEGER := 0;
+
+BEGIN
+
+  -- Check Priv
+  IF NOT (checkPrivilege('MaintainSalesOrders')) THEN
+    RAISE EXCEPTION 'You do not have privileges to alter a Sales Order.';
+  END IF;
+
+  -- Cache some information
+  SELECT * INTO _r
+    FROM cohead, itemsite, item
+   WHERE ( (cohead_id=OLD.coitem_cohead_id)
+     AND   (itemsite_id=OLD.coitem_itemsite_id)
+     AND   (item_id=itemsite_item_id) );
+
+  _kit := (COALESCE(_r.item_type,'')='K');
+
+  -- Check for shipped kit components
+  IF(_kit AND OLD.coitem_status <> 'C' AND OLD.coitem_status <> 'X') THEN
+    IF (EXISTS (SELECT coitem_id
+                  FROM coitem JOIN shipitem ON (shipitem_orderitem_id=coitem_id)
+                              JOIN shiphead ON (shiphead_id=shipitem_shiphead_id AND shiphead_order_type='SO')
+                 WHERE ((coitem_cohead_id=OLD.coitem_cohead_id)
+                   AND  (coitem_linenumber=OLD.coitem_linenumber)
+                   AND (coitem_subnumber > 0))
+              GROUP BY coitem_id
+                HAVING (SUM(shipitem_qty) > 0)
+                 LIMIT 1) ) THEN
+      _shipped := TRUE;
+    END IF;
+  END IF;
+
+  IF(_kit AND _shipped) THEN
+    RAISE EXCEPTION 'You can not delete this Sales Order Line as it has several sub components that have already been shipped.';
+  END IF;
+
+  DELETE FROM comment
+   WHERE ( (comment_source='SI')
+     AND   (comment_source_id=OLD.coitem_id) );
+
+  DELETE FROM charass
+   WHERE ((charass_target_type='SI')
+     AND  (charass_target_id=OLD.coitem_id));
+
+  -- Delete Sub Lines for Kit Components
+  FOR _coitemid IN
+    SELECT coitem_id
+      FROM coitem
+     WHERE ( (coitem_cohead_id=OLD.coitem_cohead_id)
+       AND   (coitem_linenumber=OLD.coitem_linenumber)
+       AND   (coitem_subnumber > 0) )
+    LOOP
+    SELECT deleteSoItem(_coitemid) INTO _result;
+    IF (_result < 0) THEN
+      IF NOT (_r.itemsite_createsopo AND (_result = -10 OR _result = -20)) THEN
+        RAISE EXCEPTION 'Error deleting kit components: deleteSoItem(integer) Error:%', _result;
+      END IF;
+    END IF;
+  END LOOP;
+
+  INSERT INTO evntlog ( evntlog_evnttime, evntlog_username,
+                        evntlog_evnttype_id, evntlog_ordtype,
+                        evntlog_ord_id, evntlog_warehous_id, evntlog_number )
+  SELECT CURRENT_TIMESTAMP, evntnot_username,
+	   evnttype_id, 'S',
+	   OLD.coitem_id, _r.itemsite_warehous_id,
+	   (_r.cohead_number || '-' || OLD.coitem_linenumber)
+    FROM evntnot, evnttype
+   WHERE ( (evntnot_evnttype_id=evnttype_id)
+     AND   (evntnot_warehous_id=_r.itemsite_warehous_id)
+     AND   (OLD.coitem_scheddate <= (CURRENT_DATE + _r.itemsite_eventfence))
+     AND   (evnttype_name='SoitemCancelled') );
+
+  RETURN OLD;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'soitemBeforeDeleteTrigger');
+CREATE TRIGGER soitemBeforeDeleteTrigger BEFORE DELETE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemBeforeDeleteTrigger();
+
+CREATE OR REPLACE FUNCTION _soitemAfterDeleteTrigger() RETURNS TRIGGER AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+DECLARE
+
+BEGIN
+
+  IF (OLD.coitem_status = 'O') THEN
+    IF ( (SELECT (count(*) < 1)
+            FROM coitem
+           WHERE ((coitem_cohead_id=OLD.coitem_cohead_id)
+             AND  (coitem_id != OLD.coitem_id)
+             AND  (coitem_status = 'O')) ) ) THEN
+      UPDATE cohead SET cohead_status = 'C'
+       WHERE ((cohead_id=OLD.coitem_cohead_id)
+         AND  (cohead_status='O'));
+    END IF;
+  END IF;
+
+  RETURN OLD;
+END;
+$$ LANGUAGE 'plpgsql';
+
+SELECT dropIfExists('TRIGGER', 'soitemAfterDeleteTrigger');
+CREATE TRIGGER soitemAfterDeleteTrigger AFTER DELETE ON coitem FOR EACH ROW EXECUTE PROCEDURE _soitemAfterDeleteTrigger();
