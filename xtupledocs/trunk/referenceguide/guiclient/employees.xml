@@ -7,8 +7,26 @@
       <primary>employees</primary>
       <secondary>master list of</secondary>
     </indexterm>List Employees</title>
-  <para>To access the master list of Employees, select the "Employees" option.
-  The following screen will appear:</para>
+  <para>The "Employees" screen displays information on all existing Employees.
+  Using the search feature, you can quickly locate the Employee records you're
+  looking for. And with the right-click menu you can drill down into
+  individual records to examine them more closely.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use portions of Employee names in the search field to narrow your
+      search results.</para>
+    </listitem>
+    <listitem>
+      <para>Look up inactive Employees simply by adding that option to your
+      search criteria.</para>
+    </listitem>
+    <listitem>
+      <para>You can also use the search builder to query the Employee list on
+      a Site-by-Site basis.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Employees" screen:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -17,36 +35,9 @@
         <caption>Employees Master List</caption>
       </mediaobject>
     </screenshot></para>
-  <para>The "Employees" screen displays information on all existing Employees,
-  including Employee code and Employee number.</para>
-  <variablelist>
-    <varlistentry role="standard">
-      <term>All Sites</term>
-      <listitem>
-        <para>Select to show Employees who have permissions for all
-        sites.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Selected</term>
-      <listitem>
-        <para>Select to show Employees who have permissions for site specified
-        from drop down list.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Employees</term>
-      <listitem>
-        <para>Display lists your Employees, using the specified
-        parameters.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Show Inactive Employees</term>
-      <listitem>
-        <para>Select to include Inactive Employees. If this option remains
-        unchecked, only Active Employees will display.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para>The default filter on the "Employees" screen shows quantities for all
+  Items. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
