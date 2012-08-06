@@ -8,13 +8,12 @@
  * to be bound by its terms.
 */
 
-// Variables
 var _adjust             = mywindow.findChild("_adjust");
 var _asset              = mywindow.findChild("_asset");
-var _bnkacct    = mywindow.findChild("_bnkacct");
+var _bnkacct            = mywindow.findChild("_bnkacct");
 var _bnkacctGroup       = mywindow.findChild("_bnkacctGroup");
 var _bnkacctName        = mywindow.findChild("_bnkacctName");
-var _bnkaccts   = mywindow.findChild("_bnkaccts");
+var _bnkaccts           = mywindow.findChild("_bnkaccts");
 var _cancel             = mywindow.findChild("_cancel");
 var _checkClearing      = mywindow.findChild("_checkClearing");
 var _expire             = mywindow.findChild("_expire");
@@ -22,13 +21,12 @@ var _insertBankAcct     = mywindow.findChild("_insertBankAcct");
 var _removeBankAcct     = mywindow.findChild("_removeBankAcct");
 var _insertTerminal     = mywindow.findChild("_insertTerminal");
 var _removeTerminal     = mywindow.findChild("_removeTerminal");
-var _retailSite = mywindow.findChild("_retailSite");
+var _retailSite         = mywindow.findChild("_retailSite");
 var _save               = mywindow.findChild("_save");
 var _site               = mywindow.findChild("_site");
-var _siteLit    = mywindow.findChild("_siteLit");
-var _terminals  = mywindow.findChild("_terminals");
+var _siteLit            = mywindow.findChild("_siteLit");
+var _terminals          = mywindow.findChild("_terminals");
 
-// Define local functions
 function cancel()
 {
   _retailSite.select();
@@ -40,7 +38,6 @@ function check()
   if (_retailSite.mode) // Not New
     return;
 
-  _site.updateMapperData(); // Issue 9563 - can remove after 3.3.1
   params = new Object();
   params.site = _site.code;
 
@@ -67,8 +64,7 @@ function checkBankAccts()
       var data = toolbox.executeDbQuery("retailsite","getbankaccnt",params);
       if (!data.first())
       {
-        var msg = qsTr("Bank Account ") + params.name + qsTr(" is invalid.");
-        throw msg;
+        throw Error(qsTr("Bank Account %1 is invalid.").arg(params.name));
       }
     }
   }
@@ -84,12 +80,16 @@ function checkTerminals()
     if (!_terminals.isRowHidden(row))
     {
       params.terminal = _terminals.value(row,1);
+      if (! params.terminal)
+      {
+        _terminals.setFocus();
+        throw Error(qsTr("Please give this terminal a name."));
+      }
       var data = toolbox.executeDbQuery("retailsite","getapi_retailsiteterminal",params);
       if (data.first())
       {
-        var msg = qsTr("Terminal ") + params.terminal + qsTr(" already exists on site ")
-                + data.value("site") + "."
-        throw msg;
+        throw Error(qsTr("Terminal %1 already exists on site %2.")
+                      .arg(params.terminal).arg(data.value("site")));
       }
     }
   }
@@ -129,44 +129,42 @@ function save()
   try
   {
     _site["newID(int)"].disconnect(check);
-    toolbox.executeBegin();
 
-    if (_site.id() == -1)
-      throw  qsTr("You must select a site.");
+    var errs = [
+      { c: _site.id() == -1,               w: _site,          m: qsTr("Please select a site.")                  },
+      { c: ! _asset.isValid(),             w: _asset,         m: qsTr("Please select an Asset account.")        },
+      { c: ! _adjust.isValid(),            w: _adjust,        m: qsTr("Please select an Adjustment account.")   },
+      { c: ! _checkClearing.isValid(),     w: _checkClearing, m: qsTr("Please select a Check Clearing account.")},
+      { c: ! _bnkaccts.rowCountVisible(),  w: _bnkaccts,      m: qsTr("Please add at least one bank account.")  },
+      { c: ! _terminals.rowCountVisible(), w: _terminals,     m: qsTr("Please add at least one terminal.")      }
+    ];
 
-    if (!_asset.isValid())
-      throw  qsTr("You must select a valid Asset account.");
-
-    if (!_adjust.isValid())
-      throw  qsTr("You must select a valid Adjustment account.");
-
-    if (!_checkClearing.isValid())
-      throw qsTr("You must select a valid Check Clearing account.");
-
-    if(!_bnkaccts.rowCountVisible())
-      throw qsTr("You must add at least one bank account.");
-
-    if(!_terminals.rowCountVisible())
-      throw qsTr("You must add at least one terminal.");
+    for (var i = 0; i < errs.length; i++)
+      if (errs[i].c)
+      {
+        errs[i].w.setFocus();
+        throw Error(errs[i].m);
+      }
 
     checkBankAccts();
     checkTerminals();
 
-    var model = new XSqlTableModel();
-    model = _retailSite.model();
+    /* no transaction here; the models don't mark themselves dirty after a
+       rollback so resubmit doesn't replay the transaction as it was run before.
+    */
     _retailSite.submit();
     _bnkaccts.save();
     _terminals.save();
-    toolbox.executeCommit();
     mywindow.close();
   }
   catch (e)
   {
-    _site["newID(int)"].connect(check);
-    toolbox.executeRollback();
-    QMessageBox.critical(mywindow, mywindow.windowTitle, e);
-
+    QMessageBox.critical(mywindow, qsTr("Processing Error"), e.message);
     return false;
+  }
+  finally
+  {
+    _site["newID(int)"].connect(check);
   }
 
   return true;
