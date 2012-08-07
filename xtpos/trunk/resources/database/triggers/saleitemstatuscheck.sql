@@ -15,7 +15,7 @@ BEGIN
   IF (SELECT (salehead_closed)
       FROM xtpos.salehead
       WHERE (salehead_id=_saleheadid)) THEN
-    RAISE NOTICE 'Closed sale may not be edited or deleted';
+    RAISE EXCEPTION 'Closed sale may not be edited or deleted';
     RETURN OLD;
   END IF;
 
