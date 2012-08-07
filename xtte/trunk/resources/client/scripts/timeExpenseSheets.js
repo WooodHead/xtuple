@@ -38,8 +38,10 @@ _sheets.addColumn(qsTr("Sheet#"), XTreeWidget.orderColumn, Qt.AlignLeft,    true
 _sheets.addColumn(qsTr("Date"),   XTreeWidget.dateColumn, Qt.AlignLeft,    true, "tehead_weekending");
 _sheets.addColumn(qsTr("Employee"),   -1, Qt.AlignLeft,    true, "emp_code");
 _sheets.addColumn(qsTr("Status"),     XTreeWidget.bigMoneyColumn, Qt.AlignCenter, true, "tehead_status");
-if (privileges.check("CanViewRates"))
-  _sheets.addColumn(qsTr("Extended"),   XTreeWidget.bigMoneyColumn, Qt.AlignRight,    true, "total");
+if (privileges.check("CanViewRates")) {
+  _sheets.addColumn(qsTr("To Invoice"),   XTreeWidget.bigMoneyColumn, Qt.AlignLeft,    true, "total_i");
+  _sheets.addColumn(qsTr("To Voucher"),   XTreeWidget.bigMoneyColumn, Qt.AlignLeft,    true, "total_e");
+}
 _sheets.addColumn(qsTr("Invoiced"), XTreeWidget.dateColumn, Qt.AlignLeft, true, "invoiced");
 _sheets.addColumn(qsTr("Vouchered"),XTreeWidget.dateColumn, Qt.AlignLeft, true, "vouchered");
 _sheets.addColumn(qsTr("Posted"),   XTreeWidget.dateColumn, Qt.AlignLeft, true, "posted");
