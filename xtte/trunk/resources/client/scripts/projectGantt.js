@@ -66,7 +66,7 @@ xtte.projectGantt.populate = function()
     _gantt = _gantt + "g.setDateInputFormat('dd/mm/yyyy');";
     _gantt = _gantt + "g.setCaptionType('Resource');";
     _gantt = _gantt + "if (g) {";
-    _gantt = _gantt + "g.AddTaskItem(new JSGantt.TaskItem(" + _prjid + ", '" + _prjName + "', '" + _startDate + "', '" + _dueDate + "', '000000', '', 0, '', 0, 1, 0, 1));";
+    _gantt = _gantt + "g.AddTaskItem(new JSGantt.TaskItem(" + _prjid + ", \"" + _prjName + "\", '" + _startDate + "', '" + _dueDate + "', '000000', '', 0, '', 0, 1, 0, 1));";
 
     var j = 0;
     
