@@ -160,29 +160,31 @@ BEGIN
 
 -- Check Lot/Serial Registration
 
--- Registration associated with Sales Order must be expired
-    SELECT lsreg_id INTO _result
-      FROM lsreg
-     WHERE ( (lsreg_cohead_id=_r.ordship_id)
-       AND   (lsreg_expiredate > CURRENT_DATE) );
-    IF (FOUND) THEN
-      RETURN 'Shipped Sales Order Lot/Serial Registration not closed';
-    END IF;
-    SELECT lsreg_id INTO _result
-      FROM lsreg
-     WHERE ( (lsreg_cohead_id=_r.ordinv_id)
-       AND   (lsreg_expiredate > CURRENT_DATE) );
-    IF (FOUND) THEN
-      RETURN 'Invoiced Sales Order Lot/Serial Registration not closed';
-    END IF;
+    IF (fetchMetricBool('MultiWhs')) THEN
+  -- Registration associated with Sales Order must be expired
+      SELECT lsreg_id INTO _result
+        FROM lsreg
+       WHERE ( (lsreg_cohead_id=_r.ordship_id)
+         AND   (lsreg_expiredate > CURRENT_DATE) );
+      IF (FOUND) THEN
+        RETURN 'Shipped Sales Order Lot/Serial Registration not closed';
+      END IF;
+      SELECT lsreg_id INTO _result
+        FROM lsreg
+       WHERE ( (lsreg_cohead_id=_r.ordinv_id)
+         AND   (lsreg_expiredate > CURRENT_DATE) );
+      IF (FOUND) THEN
+        RETURN 'Invoiced Sales Order Lot/Serial Registration not closed';
+      END IF;
 
--- Registration associated with Shipping must be expired
-    SELECT lsreg_id INTO _result
-      FROM lsreg
-     WHERE ( (lsreg_cohead_id=_r.shiphead_id)
-       AND   (lsreg_expiredate > CURRENT_DATE) );
-    IF (FOUND) THEN
-      RETURN 'Shipper Lot/Serial Registration not closed';
+  -- Registration associated with Shipping must be expired
+      SELECT lsreg_id INTO _result
+        FROM lsreg
+       WHERE ( (lsreg_cohead_id=_r.shiphead_id)
+         AND   (lsreg_expiredate > CURRENT_DATE) );
+      IF (FOUND) THEN
+        RETURN 'Shipper Lot/Serial Registration not closed';
+      END IF;
     END IF;
 
     IF (fetchMetricBool('MultiWhs')) THEN
@@ -320,12 +322,14 @@ BEGIN
       END LOOP;
     END IF;
 
-    IF (_debug) THEN
-      RAISE NOTICE 'Deleting Lot/Serial Registrations';
+    IF (fetchMetricBool('MultiWhs')) THEN
+      IF (_debug) THEN
+        RAISE NOTICE 'Deleting Lot/Serial Registrations';
+      END IF;
+      DELETE FROM lsreg WHERE (lsreg_cohead_id=_r.ordship_id);
+      DELETE FROM lsreg WHERE (lsreg_cohead_id=_r.ordinv_id);
+      DELETE FROM lsreg WHERE (lsreg_shiphead_id=_r.shiphead_id);
     END IF;
-    DELETE FROM lsreg WHERE (lsreg_cohead_id=_r.ordship_id);
-    DELETE FROM lsreg WHERE (lsreg_cohead_id=_r.ordinv_id);
-    DELETE FROM lsreg WHERE (lsreg_shiphead_id=_r.shiphead_id);
 
     IF (_debug) THEN
       RAISE NOTICE 'Deleting Shipped Sales Order head id %', _r.ordship_id;
