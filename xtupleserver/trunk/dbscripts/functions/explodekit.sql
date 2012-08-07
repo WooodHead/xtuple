@@ -146,7 +146,7 @@ BEGIN
         IF (_count > 0) THEN
           PERFORM createPurchaseToSale(_coitemid, _itemsrcid, _item.itemsite_dropship);
         ELSE
-          RAISE EXCEPTION 'Could not explode kit.  One or more items are flagged as purchase-to-order for this site, but no default item source is defined.';
+          RAISE WARNING 'One or more Kit items are flagged as purchase-to-order for this site, but no default item source is defined.';
         END IF;
       END IF;
      
