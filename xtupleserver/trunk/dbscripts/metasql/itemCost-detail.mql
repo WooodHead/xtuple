@@ -22,7 +22,7 @@ SELECT
         'cost' AS costhist_oldcost_xtnumericrole,
         'cost' AS costhist_newcost_xtnumericrole
       <? elseif exists("byClassCode") ?>
-        item_id, item_number, description, 
+        item_id, item_number, description, item_active, 
         uom_name, scost, acost, 
         CASE WHEN (scost = 0) THEN NULL  
           ELSE ((acost - scost) / scost)      
@@ -61,7 +61,7 @@ SELECT
         END AS itemcost_updated_qtdisplayrole
       <? endif ?>
 FROM <? if exists("byClassCode") ?>
-       (SELECT item_id, item_number, 
+       (SELECT item_id, item_number, item_active,
                (item_descrip1 || ' ' || item_descrip2) AS description,
                uom_name, stdcost(item_id) AS scost, actcost(item_id) AS acost
         FROM item, classcode, uom
@@ -90,6 +90,9 @@ WHERE ( <? if exists("byHistory") ?>
             AND (scost != acost) 
             AND (ABS(scost - acost) > 10 ^ (-1 * <? value("costscale") ?>))
           <? endif ?>
+          <? if exists("onlyShowActive") ?>
+            AND (item_active) 
+          <? endif ?> 
         <? elseif exists("bySummrey") ?>
           (itemcost_costelem_id=costelem_id)
       AND (itemcost_item_id=<? value("item_id") ?>)
