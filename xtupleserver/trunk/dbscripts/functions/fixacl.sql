@@ -5,22 +5,28 @@ CREATE OR REPLACE FUNCTION fixACL() RETURNS INTEGER AS $$
 DECLARE
   _r     RECORD;
   _count INTEGER := 0;
-  _name  TEXT;
   _oldgrp BOOLEAN := false;
+  _objtype  TEXT;
 
 BEGIN
-  SELECT groname INTO _name FROM pg_group WHERE groname = 'openmfg';
-  IF (FOUND) THEN
+  IF EXISTS(SELECT 1 FROM pg_group WHERE groname = 'openmfg') THEN
     _oldgrp := true;
   END IF;
   
-  FOR _r IN SELECT relname, nspname
+  FOR _r IN SELECT relname, nspname, relkind,
+                   CASE relkind WHEN 'r' THEN 1
+                                WHEN 'v' THEN 2
+                                WHEN 'S' THEN 3
+                                ELSE 4
+                   END AS seq
             FROM pg_catalog.pg_class c, pg_namespace n
             WHERE ((n.oid=c.relnamespace)
               AND  (nspname in ('public', 'api'))
-              AND  (relkind in ('S', 'r', 'v'))) LOOP
+              AND  (relkind in ('S', 'r', 'v')))
+            ORDER BY seq
+  LOOP
 
-    RAISE NOTICE '%.%', _r.nspname, _r.relname;
+    RAISE DEBUG '%.%', _r.nspname, _r.relname;
     
     IF (_oldgrp) THEN
       EXECUTE 'REVOKE ALL ON ' || _r.nspname || '.' || _r.relname || ' FROM openmfg;';
@@ -28,6 +34,20 @@ BEGIN
     EXECUTE 'REVOKE ALL ON ' || _r.nspname || '.' || _r.relname || ' FROM PUBLIC;';
     EXECUTE 'GRANT ALL ON '  || _r.nspname || '.' || _r.relname || ' TO GROUP xtrole;';
     _count := _count + 1;
+
+    _objtype := CASE _r.relkind WHEN 'S' THEN 'SEQUENCE'
+                                WHEN 'r' THEN 'TABLE'
+                                WHEN 'v' THEN 'VIEW'
+                                ELSE NULL
+                END;
+    IF (_objtype IS NOT NULL) THEN
+      BEGIN
+        EXECUTE 'ALTER ' || _objtype || ' ' || _r.nspname || '.' || _r.relname || ' OWNER TO admin';
+      EXCEPTION WHEN OTHERS THEN
+        RAISE WARNING 'Could not change ownership of %.% to admin',
+                      _r.nspname, _r.relname;
+      END;
+    END IF;
 
   END LOOP;
 
