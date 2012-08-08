@@ -155,6 +155,9 @@ This package is an extension for xTuple ERP: PostBooks Edition, a free and open 
   <loadappscript  file="client/scripts/todoItem.js" name="todoItem" order="0"/>
   <loadappscript  file="client/scripts/userPreferences.js" name="userPreferences" order="0"/>
   
+  <loadappui      file="client/uiforms/desktop.ui" >
+    container ui for the desktop webview
+  </loadappui>
   <loadappui      file="client/uiforms/desktopAccounting.ui" />
   <loadappui      file="client/uiforms/desktopCRM.ui" />
   <loadappui      file="client/uiforms/desktopMaintenance.ui" />
