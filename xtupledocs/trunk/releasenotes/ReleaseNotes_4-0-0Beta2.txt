@@ -1,7 +1,7 @@
 Release Notes
 xTuple ERP
 Version 4.0.0Beta2
-August 9, 2012
+August 10, 2012
 ==================================
 
 This is the second beta release of version 4.0.0. This release 
@@ -12,10 +12,19 @@ in live production.
 
 PLEASE NOTE: Any testers with 4.0.0Alpha or 4.0.0Beta databases
 may experience errors when upgrading to 4.0.0Beta2, due to an 
-issue (#18078) with one of the commercial upgrade scripts. If you
-encounter this problem, the solution is to start fresh with a 
-new instance of your 4.0.0Alpha database--and then migrate that
-forward to 4.0.0Beta2.
+issue (#18078) with the upgrade scripts. If you encounter this
+problem, the solution is to start fresh with a new instance of
+your 4.0.0Alpha database--and then migrate that forward to
+4.0.0Beta2. You should download a new version of the
+pb400alphato400beta.gz or std400alphato400beta.gz upgrade script
+before upgrading, as these files have been updated since the
+official release date.
+
+PLEASE NOTE: If you are starting with a 3.8.2, 3.8.3, or 3.8.4
+database, you may hit issue #18077. In this case, change the
+'ServerVersion' metric to '3.8.0' in your database and try
+upgrading again. This problem will be fixed in the upgrade
+packages from 3.8.x to 4.0.0RC and 4.0.0(final).
 
 Information about compatibility issues related to this software
 version can be found on the xTuple Compatibility Matrix at the
