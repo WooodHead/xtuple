@@ -336,57 +336,67 @@
       <para>Once you have logged in, the main application desktop will appear.
       There are two different desktop options—and the one you see depends on
       the user preference settings you have defined on the "Preferences"
-      screen. If you choose the "Show windows as free-floating" preference,
-      you will see the most popular desktop option:</para>
+      screen. If you choose the "Free Floating Windows" preference, you will
+      see the most popular desktop option:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
               <imagedata fileref="images/INTRO_mainDesktop.png" />
             </imageobject>
-            <caption>xTuple Desktop: Free-Floating</caption>
+            <caption>Free-Floating Interface</caption>
           </mediaobject>
         </screenshot></para>
+      <para>A "window" is another name for a screen. When in free-floating
+      mode, you can move screens outside the xTuple desktop area to any
+      location you wish on your monitor.</para>
       <tip>
         <para>The free-floating desktop enables you to take advantage of the
         <ulink
         url="http://www.xtuple.com/xchange/product/quickstart-wizard">QuickStart
         Wizard</ulink> package.</para>
       </tip>
-      <para>By contrast, if you choose the "Tabbed windows" preference, the
-      windows will appear inside the desktop space and multiple windows are
-      tabbed by default. Your desktop will look as follows:</para>
+      <para>By contrast, if you choose the "Show windows inside workspace"
+      mode, screens you open will be forced to remain inside the borders of
+      the main xTuple application window. Here is how the desktop looks when
+      the "inside workspace" option is chosen:</para>
       <para><screenshot>
           <mediaobject>
             <imageobject>
               <imagedata fileref="images/INTRO_appDesktop.png" />
             </imageobject>
-            <caption>xTuple Desktop: Tabbed Windows</caption>
+            <caption>Inside the Desktop Interface</caption>
           </mediaobject>
         </screenshot></para>
-      <para>Of course, regardless of the desktop you choose, the available
-      options may vary from user to user, depending on your granted
-      privileges, preference settings, and the xTuple ERP edition you are
-      on.</para>
-      <para>As a general rule, each of the main menu options corresponds to a
-      different module. There are three exceptions to that rule:</para>
+      <para>While the inside workspace method contains xTuple screens in a
+      defined space, you do get access to the tabbed windows option in this
+      mode. The tabbed windows feature can be used to organize open screens in
+      tabs across the top of the workspace. Go to the
+      <guimenuitem>Window</guimenuitem> menu to specify tabbed mode.</para>
       <variablelist>
         <varlistentry>
           <term>Window</term>
           <listitem>
-            <para>The following options appear under the "Window" menu:</para>
+            <para>The following options appear under this menu:</para>
             <variablelist>
               <varlistentry>
                 <term>Cascade</term>
                 <listitem>
-                  <para>Select to arrange open screens in a cascading
-                  pattern.</para>
+                  <para>Select if you want open screens to be stacked on top
+                  of one another within the workspace.</para>
                 </listitem>
               </varlistentry>
               <varlistentry>
                 <term>Tile</term>
                 <listitem>
-                  <para>Select to arrange open screens in a tiled
-                  pattern.</para>
+                  <para>Select if you want open screens to be expanded or
+                  narrowed to form a tile pattern within the workspace.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Tab View</term>
+                <listitem>
+                  <para>Select if you want open screens to be presented as
+                  tabs running across the top of the workspace.</para>
                 </listitem>
               </varlistentry>
               <varlistentry>
