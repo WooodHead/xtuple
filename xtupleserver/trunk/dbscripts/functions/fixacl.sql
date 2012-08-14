@@ -21,7 +21,8 @@ BEGIN
                    END AS seq
             FROM pg_catalog.pg_class c, pg_namespace n
             WHERE ((n.oid=c.relnamespace)
-              AND  (nspname in ('public', 'api'))
+              AND  (nspname in ('public', 'api') OR
+                    nspname in (SELECT pkghead_name FROM pkghead))
               AND  (relkind in ('S', 'r', 'v')))
             ORDER BY seq
   LOOP
