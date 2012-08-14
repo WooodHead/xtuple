@@ -48,7 +48,7 @@ BEGIN
                AND (coitem_linenumber NOT IN  
                       (SELECT sub.coitem_linenumber
                        FROM coitem AS sub 
-                       WHERE sub.coitem_cohead_id=kit.coitem_cohead_id
+                       WHERE sub.coitem_cohead_id=cohead_id     -- cohead for kit
                         AND sub.coitem_linenumber=kit.coitem_linenumber 
                         AND sub.coitem_subnumber > 0 
                         AND ((sub.coitem_qtyord - sub.coitem_qtyshipped + sub.coitem_qtyreturned) > 0)
