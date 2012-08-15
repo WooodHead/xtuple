@@ -1,18 +1,26 @@
-CREATE OR REPLACE FUNCTION selectuninvoicedshipment(integer)
-  RETURNS integer AS
+CREATE OR REPLACE FUNCTION selectuninvoicedshipment(INTEGER) RETURNS INTEGER AS
 $BODY$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pShipheadid ALIAS FOR $1;
   _cobmiscid INTEGER;
+  _coheadid  INTEGER;
   _r RECORD;
   _cobillid INTEGER;
-  _taxtypeid INTEGER := NULL;
 
 BEGIN
 
---  Grab all of the uninvoiced shipitem records
+  -- make a cobmisc head if it doesn't already exist for this cohead
+  SELECT shiphead_order_id, createBillingHeader(shiphead_order_id)
+    INTO _coheadid, _cobmiscid
+    FROM shiphead
+    JOIN shipitem ON (shipitem_shiphead_id=shiphead_id)
+   WHERE (shiphead_shipped
+      AND NOT shipitem_invoiced
+      AND (shiphead_id=pShipheadid));
+
+  --  Grab all of the uninvoiced shipitem records
   FOR _r IN SELECT cohead_id, coitem_id, SUM(shipitem_qty) AS qty,
                    coitem_price, coitem_price_invuomratio AS invpricerat, coitem_qty_invuomratio, item_id,
                    ( ((coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) <= 0)
@@ -27,6 +35,7 @@ BEGIN
              AND (itemsite_item_id=item_id)
              AND (cohead_cust_id=cust_id)
              AND (item_type != 'K')
+             AND (cohead_id=_coheadid)
              AND (shiphead_id=pShipheadid) )
             GROUP BY cohead_id, coitem_id, cust_partialship, coitem_taxtype_id,
                      coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
@@ -44,22 +53,21 @@ BEGIN
                AND (itemsite_item_id=item_id)
                AND (cohead_cust_id=cust_id)
                AND (item_type = 'K')
+               AND (cohead_id=_coheadid)
                AND (shiphead_id=pShipheadid)
-               AND (coitem_linenumber NOT IN  
+               AND (coitem_linenumber NOT IN
                       (SELECT sub.coitem_linenumber
-                       FROM coitem AS sub 
+                       FROM coitem AS sub
                        WHERE sub.coitem_cohead_id=cohead_id     -- cohead for kit
-                        AND sub.coitem_linenumber=kit.coitem_linenumber 
-                        AND sub.coitem_subnumber > 0 
+                        AND sub.coitem_linenumber=kit.coitem_linenumber
+                        AND sub.coitem_subnumber > 0
                         AND ((sub.coitem_qtyord - sub.coitem_qtyshipped + sub.coitem_qtyreturned) > 0)
                         LIMIT 1)
                ))
              GROUP BY cohead_id, coitem_id, cust_partialship, coitem_taxtype_id,
                       coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
-                      coitem_price, invpricerat, coitem_qty_invuomratio, item_id, coitem_linenumber LOOP
-
---  Check to see if a cobmisc head exists for this cohead
-    SELECT createBillingHeader(_r.cohead_id) INTO _cobmiscid;
+                      coitem_price, invpricerat, coitem_qty_invuomratio, item_id, coitem_linenumber
+  LOOP
 
     SELECT cobill_id INTO _cobillid
       FROM cobill, cobmisc, coitem
@@ -70,7 +78,7 @@ BEGIN
        AND  (cobill_cobmisc_id=_cobmiscid)
        AND  (coitem_id=_r.coitem_id))
      LIMIT 1;
-     
+
     IF (FOUND) THEN
       UPDATE cobill
          SET cobill_selectdate = CURRENT_DATE,
@@ -91,7 +99,7 @@ BEGIN
         CURRENT_DATE, getEffectiveXtUser(),
         _r.qty, _r.toclose,
          _r.coitem_taxtype_id );
-     END IF;      
+     END IF;
 
   END LOOP;
 
