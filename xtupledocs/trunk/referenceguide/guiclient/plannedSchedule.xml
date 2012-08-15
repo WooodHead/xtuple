@@ -138,67 +138,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para><indexterm significance="normal">
-      <primary>production plans</primary>
-      <secondary>creating new</secondary>
-    </indexterm>To create a new Production Plan Item, select the NEW button.
-  The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/plannedScheduleItem.png" />
-        </imageobject>
-        <caption>New Production Plan Item</caption>
-      </mediaobject>
-    </screenshot></para>
-  <tip>
-    <para>You can reduce clutter (and simplify) your Production Plans by
-    taking advantage of the Planning Item Type. A Planning Item is an Item
-    whose Bill of Materials (BOM) groups together other Items so that a
-    Production Plan may be defined for the Planning Item—and then exploded
-    down to the lower level Items during a Master Production Scheduling (MPS)
-    run. Planning Items are frequently used to group together product families
-    or product lines of MPS Items.</para>
-  </tip>
-  <para>When creating a new Production Plan Item, you are presented with the
-  following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Item Number</term>
-      <listitem>
-        <para>Enter the Item Number of the Item you want to add to the
-        Production Plan. You may only add Items which are specifically
-        associated with the MPS Planning system. Items may be associated with
-        a planning system (i.e., MRP, MPS, or None) on the Item master. Use
-        the lookup feature located to the right of the field to reach a
-        searchable MPS Items list.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>UOM</term>
-      <listitem>
-        <para>Inventory Unit of Measure.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Planned Date</term>
-      <listitem>
-        <para>Enter the date when the specified Item quantity will be
-        required. When MPS is run, the system will look at the planned date
-        for Production Plan Items. If a planned date falls within the cutoff
-        date for the MPS run, the system will plan for the demand accordingly.
-        If the planned date falls beyond the cutoff date, the demand will be
-        ignored.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Qty.</term>
-      <listitem>
-        <para>Specify the demand quantity for the Production Plan Item. In the
-        case of a Planning Item, the quantity entered here will have a ripple
-        effect on any component Items listed on the Planning Item's Bill of
-        Materials.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <xi:include href="plannedScheduleItem.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
