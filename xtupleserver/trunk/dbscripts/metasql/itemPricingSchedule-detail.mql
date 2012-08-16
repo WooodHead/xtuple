@@ -39,6 +39,7 @@ SELECT ipsitem_id AS id, 1 AS altid, <? value("item") ?> AS type, item_number AS
          END
        END AS method,
        'qty' AS qtybreak_xtnumericrole,
+       'salesprice' AS discounted_prc_xtnumericrole,
        'salesprice' AS price_xtnumericrole
 FROM ipsiteminfo, item, uom AS qty, uom AS price
 WHERE ( (ipsitem_item_id=item_id)
@@ -60,6 +61,7 @@ SELECT ipsprodcat_id AS id, 2 AS altid,
        NULL AS discounted_prc,
        NULL AS method,
        'qty' AS qtybreak_xtnumericrole,
+       'salesprice' AS discounted_prc_xtnumericrole,
        'percent' AS price_xtnumericrole
 FROM ipsprodcat, prodcat
 WHERE ( (ipsprodcat_prodcat_id=prodcat_id)
@@ -80,6 +82,7 @@ SELECT ipsfreight_id AS id, 3 AS altid, <? value("freight") ?> AS type,
        NULL AS discounted_prc,
        NULL AS method,
        'weight' AS qtybreak_xtnumericrole,
+       'salesprice' AS discounted_prc_xtnumericrole,
        'curr' AS price_xtnumericrole
 FROM ipsfreight LEFT OUTER JOIN uom ON (uom_item_weight)
                 LEFT OUTER JOIN whsinfo ON (warehous_id=ipsfreight_warehous_id)
