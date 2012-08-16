@@ -51,7 +51,7 @@ QString ReportPrinter::getParam(QString key) const
 }
 
 
-ReportPrinter::ReportPrinter(ReportPrinter::type type, PrinterMode mode) : QPrinter(mode), m_paintEngine(NULL), m_printEngine(NULL), m_printerType(Standard), m_printToBuffer(false)
+ReportPrinter::ReportPrinter(PrinterMode mode, ReportPrinter::type type) : QPrinter(mode), m_paintEngine(NULL), m_printEngine(NULL), m_printerType(Standard), m_printToBuffer(false)
 {
   setPrinterType(type);
 }
