@@ -37,12 +37,15 @@ class ORODocument;
 //
 class ORPreRender {
   public:
+
+    enum destination {ToPrinter, ToPdf, ToPreview};
+
     ORPreRender(QSqlDatabase = QSqlDatabase());
     ORPreRender(const QDomDocument &, QSqlDatabase = QSqlDatabase());
     ORPreRender(const QDomDocument &, const ParameterList &, QSqlDatabase = QSqlDatabase());
     virtual ~ORPreRender();
 
-    ORODocument * generate();
+    ORODocument * generate(destination to);
 
     void setDatabase(QSqlDatabase);
     QSqlDatabase database() const;

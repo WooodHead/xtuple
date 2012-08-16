@@ -49,6 +49,7 @@
 #include <../renderer/renderobjects.h>
 #include <../renderer/orprerender.h>
 #include <../renderer/orprintrender.h>
+#include <../renderer/reportprinter.h>
 
 // qt
 #include <QApplication>
@@ -1638,14 +1639,11 @@ void ReportHandler::print(bool showPreview)
       return;
 
   pre.setParamList(paramEdit.getParameterList());
-  ORODocument * doc = pre.generate();
+  ORODocument * doc = pre.generate(ORPreRender::ToPrinter);
 
   if(doc)
   {
-    QPrinter printer(QPrinter::HighResolution);
-
-    ORPrintRender render;
-    render.setupPrinter(doc, &printer);
+    ReportPrinter printer;
 
     if(showPreview) 
     {
@@ -1657,7 +1655,7 @@ void ReportHandler::print(bool showPreview)
         }
       }
 
-      PreviewDialog preview (doc, &printer, mw);
+      PreviewDialog preview (&pre, &printer, mw);
       if (preview.exec() == QDialog::Rejected) 
         return;
     }
@@ -1666,8 +1664,8 @@ void ReportHandler::print(bool showPreview)
     pd.setMinMax(1, doc->pages());
     if(pd.exec() == QDialog::Accepted)
     {
-      render.setPrinter(&printer);
-      render.render(doc);
+      ORPrintRender render;
+      render.render(&printer, doc);
     }
     delete doc;
   }
@@ -1708,7 +1706,7 @@ void ReportHandler::filePrintToPDF(QWidget *wnd, const QDomDocument & doc, QStri
   ORPreRender pre;
   pre.setDom(doc);
   pre.setParamList(paramEdit.getParameterList());
-  ORODocument *odoc = pre.generate();
+  ORODocument *odoc = pre.generate(ORPreRender::ToPdf);
   if (odoc) {
       ORPrintRender::exportToPDF(odoc, pdfFileName );
       delete odoc;

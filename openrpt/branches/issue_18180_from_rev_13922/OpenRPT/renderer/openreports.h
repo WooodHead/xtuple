@@ -29,6 +29,7 @@
 class orReportPrivate;
 class QWidget;
 class ParameterList;
+class ReportPrinter;
 
 #include <QDomDocument>
 #include <QFont>
@@ -44,7 +45,7 @@ class orReport {
     void constructor(const QString &);
 
     orReportPrivate *_internal;
-    static QPrinter* multiPrinter;
+    static ReportPrinter* multiPrinter;
     static QPainter* multiPainter;
 
   public:
@@ -55,13 +56,13 @@ class orReport {
     orReport(const QString &, const ParameterList &, QSqlDatabase = QSqlDatabase());
     ~orReport();
 
-    bool    render(QPainter *, QPrinter * = 0);
-    bool    print(QPrinter *prtThis = 0, bool boolSetupPrinter = TRUE, bool showPreview = false, QWidget *parent = 0);
+    bool    render(QPainter *, ReportPrinter * = 0);
+    bool    print(ReportPrinter *prtThis = 0, bool boolSetupPrinter = TRUE, bool showPreview = false, QWidget *parent = 0);
     bool    exportToPDF( const QString& fileName );
 
-    static bool    beginMultiPrint(QPrinter *);
-    static bool    beginMultiPrint(QPrinter *, bool & userCanceled);
-    static bool    endMultiPrint(QPrinter *);
+    static bool    beginMultiPrint(ReportPrinter *);
+    static bool    beginMultiPrint(ReportPrinter *, bool & userCanceled);
+    static bool    endMultiPrint(ReportPrinter *);
 
     void    setWatermarkText(const QString &);
     void    setWatermarkFont(const QFont &);

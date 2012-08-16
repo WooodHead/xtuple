@@ -45,7 +45,6 @@ void printRR(OROPage *page,ORBarcodeData *bc,const QRectF &qrect)
       rect->setRotationAxis(qrect.topLeft());
       page->addPrimitive(rect);
 
-      //delete rect;
       rect = new ORORect(bc);
       rect->setBrush(brush);
       rect->setRect(QRectF(   Xo + ((y + 1)%2 + 1 + t*4)*pas,
@@ -54,7 +53,6 @@ void printRR(OROPage *page,ORBarcodeData *bc,const QRectF &qrect)
                               pas));
       rect->setRotationAxis(qrect.topLeft());
       page->addPrimitive(rect);
-      //delete rect;
     }
   }
 }

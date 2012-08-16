@@ -37,6 +37,8 @@
 class PreviewWidget;
 class QAbstractScrollArea;
 class ORODocument;
+class ORPreRender;
+class ReportPrinter;
 
 ///////////////////////////////////////////////////////////////////////////////
 /// \class PreviewDialog
@@ -49,8 +51,8 @@ class PreviewDialog : public QDialog
     Q_OBJECT
 public:
     /// Construct a PreviewDialog dialog
-    PreviewDialog(ORODocument *document,
-                  QPrinter *pPrinter,
+    PreviewDialog(ORPreRender *pre,
+                  ReportPrinter *pPrinter,
                   QWidget *parent=0);
     /// Destructor
     virtual ~PreviewDialog();
@@ -64,8 +66,8 @@ class PreviewWidget : public QAbstractScrollArea
 {
     Q_OBJECT
 public:
-    PreviewWidget(ORODocument *document,
-                  QPrinter *pPrinter,
+    PreviewWidget(ORPreRender *pre,
+                  ReportPrinter *pPrinter,
                   QWidget *parent=0);
     virtual ~PreviewWidget();
     void updateView();

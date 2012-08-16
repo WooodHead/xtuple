@@ -40,6 +40,7 @@
 #include <renderobjects.h>
 #include <orprerender.h>
 #include <orprintrender.h>
+#include <reportprinter.h>
 
 #include <parameterproperties.h>
 
@@ -291,11 +292,11 @@ void RenderWindow::print(bool showPreview, int numCopies )
   ORPreRender pre;
   pre.setDom(_doc);
   pre.setParamList(getParameterList());
-  ORODocument * doc = pre.generate();
+  ORODocument * doc = pre.generate(ORPreRender::ToPrinter);
 
   if(doc)
   {
-    QPrinter printer(QPrinter::HighResolution);
+    ReportPrinter printer;
 #if QT_VERSION < 0x040700 // if qt < 4.7.0 then use the old function call.
     printer.setNumCopies( numCopies );
 #else
@@ -307,9 +308,6 @@ void RenderWindow::print(bool showPreview, int numCopies )
       _printerName = QString::null;
     }
 
-    ORPrintRender render;
-    render.setupPrinter(doc, &printer);
-
     if(showPreview) 
     {
       if(printer.printerName().isEmpty())
@@ -320,15 +318,16 @@ void RenderWindow::print(bool showPreview, int numCopies )
           return; // no printer, can't preview
         }
       }
-      PreviewDialog preview (doc, &printer, this);
+      PreviewDialog preview (&pre, &printer, this);
       if (preview.exec() == QDialog::Rejected) 
         return;
     }
 
+    ORPrintRender render;
+
     if(_autoPrint)
     {
-      render.setPrinter(&printer);
-      render.render(doc);
+      render.render(&printer, doc);
     }
     else
     {
@@ -336,8 +335,7 @@ void RenderWindow::print(bool showPreview, int numCopies )
       pd.setMinMax(1, doc->pages());
       if(pd.exec() == QDialog::Accepted)
       {
-        render.setPrinter(&printer);
-        render.render(doc);
+        render.render(&printer, doc);
       }
     }
     delete doc;
@@ -372,7 +370,7 @@ void RenderWindow::filePrintToPDF( QString & pdfFileName)
   ORPreRender pre;
   pre.setDom(_doc);
   pre.setParamList(getParameterList());
-  ORODocument *doc = pre.generate();
+  ORODocument *doc = pre.generate(ORPreRender::ToPdf);
   if (doc) {
       ORPrintRender::exportToPDF(doc, pdfFileName);
       delete doc;

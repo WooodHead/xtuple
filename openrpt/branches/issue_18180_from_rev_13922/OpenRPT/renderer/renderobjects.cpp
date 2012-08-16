@@ -26,8 +26,8 @@
 //
 // ORODocument
 //
-ORODocument::ORODocument(const QString & pTitle)
-  : _title(pTitle)
+ORODocument::ORODocument(const QString & title, ReportPrinter::type printerType)
+  : _title(title), _type(printerType)
 {
 }
 
@@ -41,10 +41,17 @@ ORODocument::~ORODocument()
   }
 }
 
-void ORODocument::setTitle(const QString & pTitle)
+void ORODocument::setupPrinter(ReportPrinter *pPrinter)
 {
-  _title = pTitle;
+  pPrinter->setPrinterType(printerType());
+  pPrinter->setFullPage(true);
+  pPrinter->setOrientation((pageOptions().isPortrait() ? QPrinter::Portrait : QPrinter::Landscape));
+  pPrinter->setPageOrder(QPrinter::FirstPageFirst);
+  pPrinter->setCreator("OpenRPT Print Renderer");
+  pPrinter->setDocName(title());
+  pPrinter->setParams(_printerParams);
 }
+
 
 OROPage* ORODocument::page(int pnum)
 {

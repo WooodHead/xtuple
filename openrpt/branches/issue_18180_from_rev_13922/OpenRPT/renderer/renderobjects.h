@@ -29,7 +29,8 @@
 #include <QPen>
 #include <QBrush>
 
-#include <reportpageoptions.h>
+#include "../../common/reportpageoptions.h"
+#include "reportprinter.h"
 
 class ORObject;
 class ORODocument;
@@ -48,11 +49,13 @@ class ORODocument
   friend class OROPage;
 
   public:
-    ORODocument(const QString & = QString());
+    ORODocument(const QString & title, ReportPrinter::type printerType);
     virtual ~ORODocument();
 
     QString title() const { return _title; };
-    void setTitle(const QString &);
+    ReportPrinter::type printerType() const { return _type; };
+
+    void setupPrinter(ReportPrinter *pPrinter);
 
     int pages() const { return _pages.count(); };
     OROPage* page(int);
@@ -61,10 +64,14 @@ class ORODocument
     void setPageOptions(const ReportPageOptions &);
     ReportPageOptions pageOptions() const { return _pageOptions; };
 
-  protected:
+    void setPrinterParams(QList<QPair<QString,QString> > params) { _printerParams = params; }
+
+  private:
     QString _title;
+    ReportPrinter::type _type;
     QList<OROPage*> _pages;
     ReportPageOptions _pageOptions;
+    QList<QPair<QString,QString> >  _printerParams;
 };
 
 //

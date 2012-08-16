@@ -24,6 +24,7 @@
 #include <QPainter>
 
 class ORODocument;
+class ReportPrinter;
 
 class ORPrintRender
 {
@@ -31,20 +32,15 @@ class ORPrintRender
     ORPrintRender();
     virtual ~ORPrintRender();
 
-    void setPrinter(QPrinter *);
-    QPrinter * printer() { return _printer; }
-
     void setPainter(QPainter *);
     QPainter * painter() { return _painter; }
 
-    bool setupPrinter(ORODocument *, QPrinter *);
-    bool render(ORODocument *);
+    bool render(ReportPrinter * pPrinter, ORODocument *pDocument);
 
     static void renderPage(ORODocument * pDocument, int pageNb, QPainter *painter, qreal xDpi, qreal yDpi, QSize margins, int printResolution);
     static bool exportToPDF(ORODocument * pDocument, QString pdfFileName);
 
   protected:
-    QPrinter* _printer;
     QPainter* _painter;
 };
 

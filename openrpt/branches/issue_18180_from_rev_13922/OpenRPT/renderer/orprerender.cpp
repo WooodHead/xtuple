@@ -26,6 +26,7 @@
 #include "barcodes.h"
 #include "graph.h"
 #include "crosstab.h"
+#include "reportprinter.h"
 
 #include <QPrinter>
 #include <QFontMetrics>
@@ -116,6 +117,7 @@ class ORPreRenderPrivate {
 
     void renderDetailSection(ORDetailSectionData &);
     qreal renderSection(const ORSectionData &);
+    void addTextPrimitive(ORObject *&element, QPointF pos, QSizeF size, int align, QString text, QFont font = QFont());
     QString evaluateField(ORFieldData* f);
     qreal renderSectionSize(const ORSectionData &, bool = false);
 
@@ -125,6 +127,9 @@ class ORPreRenderPrivate {
     double getNearestSubTotalCheckPoint(const ORDataData &);
 
     XSqlQuery *_detailQuery;
+    ReportPrinter::type             _printerType;
+    QList<QPair<QString,QString> >  _printerParams;
+    ORPreRender::destination        _printTo;
 };
 
 ORPreRenderPrivate::ORPreRenderPrivate()
@@ -160,6 +165,7 @@ ORPreRenderPrivate::ORPreRenderPrivate()
   _subtotContextPageFooter = false;
 
   _detailQuery = 0;
+  _printerType = ReportPrinter::Standard;
 }
 
 ORPreRenderPrivate::~ORPreRenderPrivate()
@@ -731,6 +737,14 @@ qreal ORPreRenderPrivate::renderSection(const ORSectionData & sectionData)
   for(int it = 0; it < sectionData.objects.size(); ++it)
   {
     elemThis = sectionData.objects.at(it);
+
+    bool recallMask = !ReportPrinter::getRecallMask(_printerParams).isEmpty();
+    bool storeMask = !ReportPrinter::getStoreMask(_printerParams).isEmpty();
+    if((storeMask && !elemThis->isStatic()) || (recallMask && elemThis->isStatic()))
+    {
+      continue; // ignore element
+    }
+
     if (elemThis->isLabel())
     {
       ORLabelData * l = elemThis->toLabel();
@@ -740,14 +754,7 @@ qreal ORPreRenderPrivate::renderSection(const ORSectionData & sectionData)
       pos += QPointF(_leftMargin, _yOffset);
       size /= 100.0;
 
-      OROTextBox * tb = new OROTextBox(elemThis);
-      tb->setPosition(pos);
-      tb->setSize(size);
-      tb->setFont(l->font);
-      tb->setText(qApp->translate(_reportData->name.toUtf8().data(), l->string.toUtf8().data(), 0, QCoreApplication::UnicodeUTF8));;
-      tb->setFlags(l->align);
-      tb->setRotation(l->rotation());
-      _page->addPrimitive(tb);
+      addTextPrimitive(elemThis, pos, size, l->align, qApp->translate(_reportData->name.toUtf8().data(), l->string.toUtf8().data(), 0, QCoreApplication::UnicodeUTF8), l->font);
     }
     else if (elemThis->isField())
     {
@@ -791,29 +798,19 @@ qreal ORPreRenderPrivate::renderSection(const ORSectionData & sectionData)
 
         foreach(cell, cellLst) {
 
-          OROTextBox * tb = new OROTextBox(elemThis);
-
           qreal x = startX +  cell.first*(size.width() + xSpacing);
           qreal y = startY + cell.second*(size.height() + ySpacing);
-          tb->setPosition(QPointF(x, y));
-          tb->setSize(size);
-          tb->setFont(f->font);
-          tb->setFlags(f->align);
+		  XSqlQuery * xqry = getQuerySource(f->data.query)->getQuery();
+          if (!xqry)
+            break;
 
-          QString  str = evaluateField(elemThis->toField());
-          tb->setText(str);
-
-          if(str == "page_count") {
-            _postProcText.append(tb);
-          }
-
-          _page->addPrimitive(tb);
+		  if (xqry->isValid() || (nbOfCol == 1 && nbOfLines == 1))
+			addTextPrimitive(elemThis, QPointF(x, y), size, f->align, evaluateField(elemThis->toField()), f->font);
+		  else 
+			break;
 
           if(nbOfCol > 1 || nbOfLines > 1 || triggerPageBreak) {
-            XSqlQuery * xqry = getQuerySource(f->data.query)->getQuery();
-            if(xqry) {
-              hasNext = xqry->next();
-            }
+            hasNext = xqry->next();
           }
 
           if(!hasNext) {
@@ -862,27 +859,35 @@ qreal ORPreRenderPrivate::renderSection(const ORSectionData & sectionData)
 
       populateData(bc->data, dataThis);
 
-      if(bc->format == "3of9")
-        render3of9(_page, rect, dataThis.getValue(), bc);
-      else if(bc->format == "3of9+")
-        renderExtended3of9(_page, rect, dataThis.getValue(), bc);
-      else if(bc->format == "i2of5")
-        renderI2of5(_page, rect, dataThis.getValue(), bc);
-      else if(bc->format == "128")
-        renderCode128(_page, rect, dataThis.getValue(), bc);
-      else if(bc->format == "ean13")
-        renderCodeEAN13(_page, rect, dataThis.getValue(), bc);
-      else if(bc->format == "ean8")
-        renderCodeEAN8(_page, rect, dataThis.getValue(), bc);
-      else if(bc->format == "upc-a")
-        renderCodeUPCA(_page, rect, dataThis.getValue(), bc);
-      else if(bc->format == "upc-e")
-        renderCodeUPCE(_page, rect, dataThis.getValue(), bc);
-      else if(bc->format.contains("datamatrix",Qt::CaseInsensitive))
-        renderCodeDatamatrix(_page, rect, dataThis.getValue(), bc);
+      if(_printTo != ORPreRender::ToPrinter || _printerType == ReportPrinter::Standard)
+      {
+        if(bc->format == "3of9")
+          render3of9(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "3of9+")
+          renderExtended3of9(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "i2of5")
+          renderI2of5(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "128")
+          renderCode128(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "ean13")
+          renderCodeEAN13(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "ean8")
+          renderCodeEAN8(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "upc-a")
+          renderCodeUPCA(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "upc-e")
+          renderCodeUPCE(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format.contains("datamatrix"))
+          renderCodeDatamatrix(_page, rect, dataThis.getValue(), bc);
+        else
+        {
+          addTextPrimitive(elemThis, pos, size, bc->align, "[" + bc->format + "] " + dataThis.getValue());
+        }
+      }
       else
       {
-        //logMessage("Encountered unknown barcode format: %s",bc->format.toLatin1().data());
+        QString text = ReportPrinter::barcodePrefix() + QString("%1;%2;%3;%4").arg(bc->format).arg(size.height()).arg(bc->narrowBarWidth).arg(dataThis.getValue());
+        addTextPrimitive(elemThis, pos, size, bc->align, text);
       }
     }
     else if (elemThis->isImage())
@@ -1177,15 +1182,7 @@ qreal ORPreRenderPrivate::renderSection(const ORSectionData & sectionData)
                 rect.setTop(intBaseTop + (intLineCounter * intRectHeight));
                 rect.setBottom(rect.top() + intRectHeight);
 
-                OROTextBox * tb = new OROTextBox(elemThis);
-                tb->setPosition(rect.topLeft());
-                tb->setSize(rect.size());
-                tb->setFont(t->font);
-                tb->setText(line);
-                tb->setFlags(t->align);
-                tb->setRotation(t->rotation());
-                _page->addPrimitive(tb);
-
+                addTextPrimitive(elemThis, rect.topLeft(), rect.size(), t->align, line, t->font);
 
                 intStretch += intRectHeight;
                 intLineCounter++;
@@ -1200,14 +1197,7 @@ qreal ORPreRenderPrivate::renderSection(const ORSectionData & sectionData)
               rect.setTop(intBaseTop + (intLineCounter * intRectHeight));
               rect.setBottom(rect.top() + intRectHeight);
 
-              OROTextBox * tb = new OROTextBox(elemThis);
-              tb->setPosition(rect.topLeft());
-              tb->setSize(rect.size());
-              tb->setFont(t->font);
-              tb->setText(line);
-              tb->setFlags(t->align);
-              tb->setRotation(t->rotation());
-              _page->addPrimitive(tb);
+              addTextPrimitive(elemThis, rect.topLeft(), rect.size(), t->align, line, t->font);
 
               intStretch += intRectHeight;
               intLineCounter++;
@@ -1230,6 +1220,23 @@ qreal ORPreRenderPrivate::renderSection(const ORSectionData & sectionData)
   }
 
   return intHeight;
+}
+
+
+void ORPreRenderPrivate::addTextPrimitive(ORObject *&element, QPointF pos, QSizeF size, int align, QString text, QFont font)
+{
+  OROTextBox * tb = new OROTextBox(element);
+  tb->setPosition(pos);
+  tb->setSize(size);
+  tb->setFont(font);
+  tb->setText(text);
+  tb->setFlags(align);
+  tb->setRotation(element->rotation());
+  _page->addPrimitive(tb);
+
+  if(text == "page_count") {
+    _postProcText.append(tb);
+  }
 }
 
 
@@ -1388,7 +1395,7 @@ ORPreRender::~ORPreRender()
   }
 }
 
-ORODocument* ORPreRender::generate()
+ORODocument* ORPreRender::generate(destination to)
 {
 
   if (_internal == 0 || !_internal->_valid || _internal->_reportData == 0)
@@ -1402,7 +1409,10 @@ ORODocument* ORPreRender::generate()
       return 0;
   }
 
-  _internal->_document = new ORODocument(_internal->_reportData->title);
+  _internal->_printTo = to;
+  ReportPrinter::type  printerType = (to == ORPreRender::ToPrinter ? _internal->_printerType : ReportPrinter::Standard);
+  _internal->_document = new ORODocument(_internal->_reportData->title, printerType);
+  _internal->_document->setPrinterParams(_internal->_printerParams );
 
   _internal->_pageCounter  = 0;
   _internal->_yOffset      = 0.0;
@@ -1474,6 +1484,8 @@ ORODocument* ORPreRender::generate()
       ParameterList(), true, _internal->_database ));
 
   QString tQuery = getSqlFromTag("fmt01",_internal->_database.driverName() );	// MANU
+  if(_internal->_database.driverName()== "QOCI")
+	  tQuery.replace("from dual","");
 
   QString val = QString::null;
   QRegExp re("'");
@@ -1482,8 +1494,10 @@ ORODocument* ORPreRender::generate()
     Parameter p = _internal->_lstParameters[t];
     val = p.value().toString();
     val = val.replace(re, "''");
-    if (_internal->_database.driverName() == "QMYSQL" )
+    if (_internal->_database.driverName() == "QMYSQL")
       tQuery += QString().sprintf(", \"%s\" AS \"%d\"", val.toLatin1().data(), t + 1);
+	else if (_internal->_database.driverName() == "QOCI")
+		tQuery += QString().sprintf(", '%s' AS \"%d\"", val.toLatin1().data(), t + 1);
     else
       tQuery += QString().sprintf(", text('%s') AS \"%d\"", val.toLatin1().data(), t + 1);
 
@@ -1491,10 +1505,15 @@ ORODocument* ORPreRender::generate()
     {
       if (_internal->_database.driverName() == "QMYSQL" )
         tQuery += QString().sprintf(", \"%s\" AS \"%s\"", val.toLatin1().data(), p.name().toLatin1().data());
+	  else if ( _internal->_database.driverName() == "QOCI")
+		  tQuery += QString().sprintf(", '%s' AS \"%s\"", val.toLatin1().data(), p.name().toLatin1().data());
       else
         tQuery += QString().sprintf(", text('%s') AS \"%s\"", val.toLatin1().data(), p.name().toLatin1().data());
     }
   }
+  if(_internal->_database.driverName() == "QOCI")
+	tQuery.push_back(" from dual");
+
   _internal->_lstQueries.append(new orQuery("Parameter Query", tQuery, ParameterList(), true, _internal->_database));
   
   QuerySource * qs = 0;
@@ -1654,6 +1673,17 @@ bool ORPreRender::setDom(const QDomDocument & docReport)
     {
       _internal->_valid = true;
 
+      QList<ORParameter> vSATO = _internal->_reportData->definedParams.values("$SATO");
+      QList<ORParameter> vZEBRA = _internal->_reportData->definedParams.values("$ZEBRA");
+      if(!vSATO.isEmpty()) {
+        _internal->_printerType = ReportPrinter::Sato;
+        _internal->_printerParams = vSATO.first().values;
+      }
+      else if(!vZEBRA.isEmpty()) {
+        _internal->_printerType = ReportPrinter::Zebra;
+        _internal->_printerParams = vZEBRA.first().values;
+      }
+
       // make sure all the watermark values are at their defaults
       _internal->_wmStatic = true;
       _internal->_wmText = QString::null;
@@ -1724,8 +1754,9 @@ bool ORPreRender::setDom(const QDomDocument & docReport)
 
 void ORPreRender::setParamList(const ParameterList & pParams)
 {
-  if(_internal != 0)
+  if(_internal != 0) {
     _internal->_lstParameters = pParams;
+  }
 }
 
 ParameterList ORPreRender::paramList() const
