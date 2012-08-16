@@ -23,11 +23,12 @@
       </mediaobject>
     </screenshot></para>
   <note>
-    <para>When the buffer status for an Item hits 66 or higher, the status
+    <para>When the buffer status for an Item hits 66% or higher, the status
     number will become red. By highlighting Items which are "red hot," the
     system is informing you which Items should be acted on immediately. The
     best remedy for red hot Item Sites is to expedite any associated Work
-    Orders or Purchase Orders.</para>
+    Orders or Purchase Orders. Records will display in yellow type when the
+    buffer penetration is in the 33%-66% range.</para>
   </note>
   <para>When displaying Work Order Operation buffer statuses by Work Center,
   you are presented with the following options:</para>
@@ -58,6 +59,18 @@
       <listitem>
         <para>Select to only show Work Order Operations with quantity
         available in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Only Show W/O Operations with Matl. Issued</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Clock In/Out User</term>
+      <listitem>
+        <para></para>
       </listitem>
     </varlistentry>
     <varlistentry>
