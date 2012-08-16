@@ -41,6 +41,9 @@ HEADERS = openreports.h \
           orprintrender.h \
           renderobjects.h \
           previewdialog.h \
+          satopaintengine.h \
+          satoprintengine.h \
+          reportprinter.h \
           ../../MetaSQL/metasql.h \
           ../../MetaSQL/metasqlqueryparser.h \
           ../common/builtinformatfunctions.h \
@@ -60,6 +63,9 @@ SOURCES = openreports.cpp \
           orprintrender.cpp \
           renderobjects.cpp \
           previewdialog.cpp \ 
+          satopaintengine.cpp \
+          satoprintengine.cpp \
+          reportprinter.cpp \
           ../../MetaSQL/metasql.cpp \
           ../../MetaSQL/metasqlqueryparser.cpp \
           ../../MetaSQL/regex/regex.c \
@@ -72,7 +78,7 @@ SOURCES = openreports.cpp \
 INCLUDEPATH += ../common ../../common
 
 
-QT += xml sql gui
+QT += xml sql gui network
 
 TRANSLATIONS    = renderer_fr.ts renderer_it.ts renderer_ru.ts renderer_es.ts
 
