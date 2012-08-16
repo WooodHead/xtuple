@@ -35,10 +35,8 @@ class ReportPrinter;
 #include <QFont>
 #include <QImage>
 #include <QPainter>
-#include <QPrinter>
 #include <QSqlDatabase>
 #include <QStringList>
-
 
 class orReport {
   private:
