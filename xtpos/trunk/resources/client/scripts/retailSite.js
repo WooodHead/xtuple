@@ -85,11 +85,6 @@ function checkTerminals()
         _terminals.setFocus();
         throw Error(qsTr("Please give this terminal a name."));
       }
-      if (! params.terminal.match(/^[0-9a-z]+$/))
-      {
-        _terminals.setFocus();
-        throw Error(qsTr("Please use alphanumeric characters for the terminal name."));
-      }
       var data = toolbox.executeDbQuery("retailsite","getapi_retailsiteterminal",params);
       if (data.first())
       {
