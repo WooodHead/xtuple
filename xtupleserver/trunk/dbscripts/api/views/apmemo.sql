@@ -1,9 +1,20 @@
 CREATE OR REPLACE VIEW api.apmemo AS 
- SELECT vendinfo.vend_number AS vendor_number, apopen.apopen_docdate AS document_date, apopen.apopen_duedate AS due_date, 
+ SELECT vendinfo.vend_number AS vendor_number,
+        apopen.apopen_docdate AS document_date,
+        apopen.apopen_duedate AS due_date, 
         CASE
             WHEN apopen.apopen_doctype = 'C'::bpchar THEN 'Credit Memo'::text
             ELSE 'Debit Memo'::text
-        END AS document_type, apopen.apopen_docnumber AS document_number, apopen.apopen_ponumber AS po_number, apopen.apopen_journalnumber AS journal_number, terms.terms_code AS terms, curr.curr_abbr AS currency, apopen.apopen_amount AS amount, apopen.apopen_paid AS paid, apopen.apopen_amount - apopen.apopen_paid AS balance, apopen.apopen_notes AS notes, 
+        END AS document_type,
+        apopen.apopen_docnumber AS document_number,
+        apopen.apopen_ponumber AS po_number,
+        apopen.apopen_journalnumber AS journal_number,
+        terms.terms_code AS terms,
+        curr.curr_abbr AS currency,
+        apopen.apopen_amount AS amount,
+        apopen.apopen_paid AS paid,
+        apopen.apopen_amount - apopen.apopen_paid AS balance,
+        apopen.apopen_notes AS notes, 
         CASE
             WHEN apopen.apopen_accnt_id = (-1) THEN NULL::text
             ELSE formatglaccount(apopen.apopen_accnt_id)
