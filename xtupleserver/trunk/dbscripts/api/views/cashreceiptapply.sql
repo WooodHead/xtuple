@@ -2,27 +2,16 @@ SELECT dropIfExists('VIEW', 'cashreceiptapply', 'api');
 CREATE OR REPLACE VIEW api.cashreceiptapply AS
   SELECT
     cust_number::VARCHAR AS customer_number,
-    CASE
-      WHEN cashrcpt_fundstype='C' THEN
-        'Check'::VARCHAR
-      WHEN cashrcpt_fundstype='T' THEN
-        'Certified Check'::VARCHAR
-      WHEN cashrcpt_fundstype='M' THEN
-        'Master Card'::VARCHAR
-      WHEN cashrcpt_fundstype='V' THEN
-        'Visa'::VARCHAR
-      WHEN cashrcpt_fundstype='A' THEN
-        'American Express'::VARCHAR
-      WHEN cashrcpt_fundstype='D' THEN
-        'Discover Card'::VARCHAR
-      WHEN cashrcpt_fundstype='R' THEN
-        'Other Credit Card'::VARCHAR
-      WHEN cashrcpt_fundstype='K' THEN
-        'Cash'::VARCHAR
-      WHEN cashrcpt_fundstype='W' THEN
-        'Wire Transfer'::VARCHAR
-      WHEN cashrcpt_fundstype='O' THEN
-        'Other'::VARCHAR
+    CASE WHEN cashrcpt_fundstype='C' THEN 'Check'::VARCHAR
+         WHEN cashrcpt_fundstype='T' THEN 'Certified Check'::VARCHAR
+         WHEN cashrcpt_fundstype='M' THEN 'Master Card'::VARCHAR
+         WHEN cashrcpt_fundstype='V' THEN 'Visa'::VARCHAR
+         WHEN cashrcpt_fundstype='A' THEN 'American Express'::VARCHAR
+         WHEN cashrcpt_fundstype='D' THEN 'Discover Card'::VARCHAR
+         WHEN cashrcpt_fundstype='R' THEN 'Other Credit Card'::VARCHAR
+         WHEN cashrcpt_fundstype='K' THEN 'Cash'::VARCHAR
+         WHEN cashrcpt_fundstype='W' THEN 'Wire Transfer'::VARCHAR
+         WHEN cashrcpt_fundstype='O' THEN 'Other'::VARCHAR
     END AS funds_type,
     cashrcpt_docnumber::VARCHAR AS check_document_number,
     aropen_doctype::VARCHAR AS doc_type,
@@ -63,26 +52,16 @@ CREATE OR REPLACE RULE "_INSERT" AS
   VALUES (
     getCashrcptId(NEW.customer_number,
                   CASE
-                    WHEN NEW.funds_type='Check' THEN
-                      'C'
-                    WHEN NEW.funds_type='Certified Check' THEN
-                      'T'
-                    WHEN NEW.funds_type='Master Card' THEN
-                      'M'
-                    WHEN NEW.funds_type='Visa' THEN
-                      'V'
-                    WHEN NEW.funds_type='American Express' THEN
-                      'A'
-                    WHEN NEW.funds_type='Discover Card' THEN
-                      'D'
-                    WHEN NEW.funds_type='Other Credit Card' THEN
-                      'R'
-                    WHEN NEW.funds_type='Cash' THEN
-                      'K'
-                    WHEN NEW.funds_type='Wire Transfer' THEN
-                      'W'
-                    ELSE
-                      'O'
+                    WHEN NEW.funds_type='Check' THEN 'C'
+                    WHEN NEW.funds_type='Certified Check' THEN 'T'
+                    WHEN NEW.funds_type='Master Card' THEN 'M'
+                    WHEN NEW.funds_type='Visa' THEN 'V'
+                    WHEN NEW.funds_type='American Express' THEN 'A'
+                    WHEN NEW.funds_type='Discover Card' THEN 'D'
+                    WHEN NEW.funds_type='Other Credit Card' THEN 'R'
+                    WHEN NEW.funds_type='Cash' THEN 'K'
+                    WHEN NEW.funds_type='Wire Transfer' THEN 'W'
+                    ELSE 'O'
                   END,
                   NEW.check_document_number),
     getAropenId(NEW.customer_number,
@@ -101,26 +80,16 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     WHERE ( (cashrcptitem_cashrcpt_id=getCashrcptId(
                        OLD.customer_number,
                        CASE
-                         WHEN OLD.funds_type='Check' THEN
-                           'C'
-                         WHEN OLD.funds_type='Certified Check' THEN
-                           'T'
-                         WHEN OLD.funds_type='Master Card' THEN
-                           'M'
-                         WHEN OLD.funds_type='Visa' THEN
-                           'V'
-                         WHEN OLD.funds_type='American Express' THEN
-                           'A'
-                         WHEN OLD.funds_type='Discover Card' THEN
-                           'D'
-                         WHEN OLD.funds_type='Other Credit Card' THEN
-                           'R'
-                         WHEN OLD.funds_type='Cash' THEN
-                           'K'
-                         WHEN OLD.funds_type='Wire Transfer' THEN
-                           'W'
-                         ELSE
-                           'O'
+                         WHEN OLD.funds_type='Check' THEN 'C'
+                         WHEN OLD.funds_type='Certified Check' THEN 'T'
+                         WHEN OLD.funds_type='Master Card' THEN 'M'
+                         WHEN OLD.funds_type='Visa' THEN 'V'
+                         WHEN OLD.funds_type='American Express' THEN 'A'
+                         WHEN OLD.funds_type='Discover Card' THEN 'D'
+                         WHEN OLD.funds_type='Other Credit Card' THEN 'R'
+                         WHEN OLD.funds_type='Cash' THEN 'K'
+                         WHEN OLD.funds_type='Wire Transfer' THEN 'W'
+                         ELSE 'O'
                        END,
                        OLD.check_document_number))
       AND   (cashrcptitem_aropen_id=getAropenId(
@@ -135,26 +104,16 @@ CREATE OR REPLACE RULE "_DELETE" AS
     WHERE ( (cashrcptitem_cashrcpt_id=getCashrcptId(
                        OLD.customer_number,
                        CASE
-                         WHEN OLD.funds_type='Check' THEN
-                           'C'
-                         WHEN OLD.funds_type='Certified Check' THEN
-                           'T'
-                         WHEN OLD.funds_type='Master Card' THEN
-                           'M'
-                         WHEN OLD.funds_type='Visa' THEN
-                           'V'
-                         WHEN OLD.funds_type='American Express' THEN
-                           'A'
-                         WHEN OLD.funds_type='Discover Card' THEN
-                           'D'
-                         WHEN OLD.funds_type='Other Credit Card' THEN
-                           'R'
-                         WHEN OLD.funds_type='Cash' THEN
-                           'K'
-                         WHEN OLD.funds_type='Wire Transfer' THEN
-                           'W'
-                         ELSE
-                           'O'
+                         WHEN OLD.funds_type='Check' THEN 'C'
+                         WHEN OLD.funds_type='Certified Check' THEN 'T'
+                         WHEN OLD.funds_type='Master Card' THEN 'M'
+                         WHEN OLD.funds_type='Visa' THEN 'V'
+                         WHEN OLD.funds_type='American Express' THEN 'A'
+                         WHEN OLD.funds_type='Discover Card' THEN 'D'
+                         WHEN OLD.funds_type='Other Credit Card' THEN 'R'
+                         WHEN OLD.funds_type='Cash' THEN 'K'
+                         WHEN OLD.funds_type='Wire Transfer' THEN 'W'
+                         ELSE 'O'
                        END,
                        OLD.check_document_number))
       AND   (cashrcptitem_aropen_id=getAropenId(

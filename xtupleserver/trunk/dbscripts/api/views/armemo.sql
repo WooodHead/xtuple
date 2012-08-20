@@ -1,35 +1,35 @@
-   CREATE OR REPLACE VIEW api.armemo AS
-    SELECT cust_number AS customer_number,
-           aropen_docdate AS document_date,
-           aropen_duedate AS due_date,
-           CASE WHEN (aropen_doctype='C') THEN 'Credit Memo'
-                ELSE 'Debit Memo'
-           END AS document_type,
-           aropen_docnumber AS document_number,
-           aropen_applyto AS order_number,
-           aropen_journalnumber AS journal_number,
-           rsncode_code AS reason_code,
-           terms_code AS terms,
-           salesrep_number AS sales_rep,
-           curr.curr_abbr AS currency,
-           aropen_amount AS amount,
-           aropen_paid AS paid,
-           (aropen_amount - aropen_paid) AS balance,
-           aropen_commission_due AS commission_due,
-           aropen_commission_paid AS commission_paid,
-           aropen_notes AS notes,
-           salescat_name AS alternate_prepaid_sales_category,
-           CASE WHEN (aropen_accnt_id=-1) THEN NULL
-                ELSE formatglaccount(aropen_accnt_id)
-           END AS alternate_prepaid_account
-    FROM aropen
-           LEFT OUTER JOIN custinfo ON (cust_id=aropen_cust_id)
-           LEFT OUTER JOIN curr_symbol AS curr ON (curr.curr_id=aropen_curr_id)
-           LEFT OUTER JOIN salesrep ON (salesrep_id=aropen_salesrep_id)
-           LEFT OUTER JOIN terms ON (terms_id=aropen_terms_id)
-           LEFT OUTER JOIN salescat ON (salescat_id=aropen_salescat_id)
-           LEFT OUTER JOIN rsncode ON (rsncode_id=aropen_rsncode_id)
-    WHERE (aropen_doctype IN ('C', 'D'));
+CREATE OR REPLACE VIEW api.armemo AS
+  SELECT cust_number AS customer_number,
+         aropen_docdate AS document_date,
+         aropen_duedate AS due_date,
+         CASE WHEN (aropen_doctype='C') THEN 'Credit Memo'
+              ELSE 'Debit Memo'
+         END AS document_type,
+         aropen_docnumber AS document_number,
+         aropen_applyto AS order_number,
+         aropen_journalnumber AS journal_number,
+         rsncode_code AS reason_code,
+         terms_code AS terms,
+         salesrep_number AS sales_rep,
+         curr.curr_abbr AS currency,
+         aropen_amount AS amount,
+         aropen_paid AS paid,
+         (aropen_amount - aropen_paid) AS balance,
+         aropen_commission_due AS commission_due,
+         aropen_commission_paid AS commission_paid,
+         aropen_notes AS notes,
+         salescat_name AS alternate_prepaid_sales_category,
+         CASE WHEN (aropen_accnt_id=-1) THEN NULL
+              ELSE formatglaccount(aropen_accnt_id)
+         END AS alternate_prepaid_account
+  FROM aropen
+         LEFT OUTER JOIN custinfo ON (cust_id=aropen_cust_id)
+         LEFT OUTER JOIN curr_symbol AS curr ON (curr.curr_id=aropen_curr_id)
+         LEFT OUTER JOIN salesrep ON (salesrep_id=aropen_salesrep_id)
+         LEFT OUTER JOIN terms ON (terms_id=aropen_terms_id)
+         LEFT OUTER JOIN salescat ON (salescat_id=aropen_salescat_id)
+         LEFT OUTER JOIN rsncode ON (rsncode_id=aropen_rsncode_id)
+  WHERE (aropen_doctype IN ('C', 'D'));
 	
 GRANT ALL ON TABLE api.armemo TO xtrole;
 COMMENT ON VIEW api.armemo IS 'A/R Credit and Debit Memo';

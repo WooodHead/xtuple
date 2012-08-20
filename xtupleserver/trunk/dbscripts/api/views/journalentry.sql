@@ -1,7 +1,6 @@
 -- Simple Journal Entry
 SELECT dropIfExists('VIEW', 'journalentry', 'api');
-CREATE VIEW api.journalentry
-AS 
+CREATE VIEW api.journalentry AS 
    SELECT  
      curr_abbr AS currency,
      c.gltrans_amount AS amount,
