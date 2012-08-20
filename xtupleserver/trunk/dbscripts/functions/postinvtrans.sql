@@ -45,10 +45,10 @@ BEGIN
   FROM itemsite JOIN item ON (item_id=itemsite_item_id)
   WHERE (itemsite_id=pItemsiteid);
 
-  --  Post the Inventory Transactions
-  --IF (_r.nocontrol) THEN
-    --RETURN -1; -- non-fatal error so dont throw an exception?
-  --END IF;
+  --Post the Inventory Transactions
+  IF (_r.nocontrol) THEN
+    RETURN -1; -- non-fatal error so dont throw an exception?
+  END IF;
 
   IF (COALESCE(pItemlocSeries,0) = 0) THEN
     RAISE EXCEPTION 'Transaction series must be provided';
@@ -113,27 +113,25 @@ BEGIN
     RAISE EXCEPTION 'This transaction will cause an Average Costed item to go negative which is not allowed [xtuple: postinvtrans, -2]';
   END IF;
 
-  IF (NOT _r.nocontrol) THEN
-    INSERT INTO invhist
-    ( invhist_id, invhist_itemsite_id, invhist_transtype, invhist_transdate,
-        invhist_invqty, invhist_qoh_before,
-        invhist_qoh_after,
-        invhist_costmethod, invhist_value_before, invhist_value_after,
-        invhist_ordtype, invhist_ordnumber, invhist_docnumber, invhist_comments,
-        invhist_invuom, invhist_unitcost, invhist_xfer_warehous_id, invhist_posted,
-        invhist_series )
-    SELECT
-      _invhistid, itemsite_id, pTransType, _timestamp,
-      pQty, itemsite_qtyonhand,
-      (itemsite_qtyonhand + (_sense * pQty)),
-      itemsite_costmethod, itemsite_value, itemsite_value + (_r.cost * _sense * pQty),
-      pOrderType, pOrderNumber, pDocNumber, pComments,
-      uom_name, _r.cost, _xferwhsid, FALSE, pItemlocSeries
-    FROM itemsite, item, uom
-    WHERE ( (itemsite_item_id=item_id)
-     AND (item_inv_uom_id=uom_id)
-     AND (itemsite_id=pItemsiteid) );
-  END IF;
+  INSERT INTO invhist
+  ( invhist_id, invhist_itemsite_id, invhist_transtype, invhist_transdate,
+      invhist_invqty, invhist_qoh_before,
+      invhist_qoh_after,
+      invhist_costmethod, invhist_value_before, invhist_value_after,
+      invhist_ordtype, invhist_ordnumber, invhist_docnumber, invhist_comments,
+      invhist_invuom, invhist_unitcost, invhist_xfer_warehous_id, invhist_posted,
+      invhist_series )
+  SELECT
+    _invhistid, itemsite_id, pTransType, _timestamp,
+    pQty, itemsite_qtyonhand,
+    (itemsite_qtyonhand + (_sense * pQty)),
+    itemsite_costmethod, itemsite_value, itemsite_value + (_r.cost * _sense * pQty),
+    pOrderType, pOrderNumber, pDocNumber, pComments,
+    uom_name, _r.cost, _xferwhsid, FALSE, pItemlocSeries
+  FROM itemsite, item, uom
+  WHERE ( (itemsite_item_id=item_id)
+   AND (item_inv_uom_id=uom_id)
+   AND (itemsite_id=pItemsiteid) );
 
   IF (pCreditid IN (SELECT accnt_id FROM accnt)) THEN
     _creditid = pCreditid;
