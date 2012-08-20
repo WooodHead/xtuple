@@ -1,12 +1,13 @@
-
 CREATE OR REPLACE FUNCTION fixACL() RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  _r     RECORD;
-  _count INTEGER := 0;
-  _oldgrp BOOLEAN := false;
+  _r        RECORD;
+  _count    INTEGER := 0;
+  _oldgrp   BOOLEAN := false;
   _objtype  TEXT;
+  _table    TEXT;
+  _schema   TEXT;
 
 BEGIN
   IF EXISTS(SELECT 1 FROM pg_group WHERE groname = 'openmfg') THEN
@@ -26,14 +27,16 @@ BEGIN
               AND  (relkind in ('S', 'r', 'v')))
             ORDER BY seq
   LOOP
+    _schema := quote_ident(_r.nspname);
+    _table  := quote_ident(_r.relname);
 
-    RAISE DEBUG '%.%', _r.nspname, _r.relname;
+    RAISE DEBUG '%.%', _schema, _table;
     
     IF (_oldgrp) THEN
-      EXECUTE 'REVOKE ALL ON ' || _r.nspname || '.' || _r.relname || ' FROM openmfg;';
+      EXECUTE 'REVOKE ALL ON ' || _schema || '.' || _table || ' FROM openmfg;';
     END IF;
-    EXECUTE 'REVOKE ALL ON ' || _r.nspname || '.' || _r.relname || ' FROM PUBLIC;';
-    EXECUTE 'GRANT ALL ON '  || _r.nspname || '.' || _r.relname || ' TO GROUP xtrole;';
+    EXECUTE 'REVOKE ALL ON ' || _schema || '.' || _table || ' FROM PUBLIC;';
+    EXECUTE 'GRANT ALL ON '  || _schema || '.' || _table || ' TO GROUP xtrole;';
     _count := _count + 1;
 
     _objtype := CASE _r.relkind WHEN 'S' THEN 'SEQUENCE'
@@ -43,10 +46,11 @@ BEGIN
                 END;
     IF (_objtype IS NOT NULL) THEN
       BEGIN
-        EXECUTE 'ALTER ' || _objtype || ' ' || _r.nspname || '.' || _r.relname || ' OWNER TO admin';
+        EXECUTE 'ALTER ' || _objtype || ' ' ||
+                _schema || '.' || _table || ' OWNER TO admin;';
       EXCEPTION WHEN OTHERS THEN
         RAISE WARNING 'Could not change ownership of %.% to admin',
-                      _r.nspname, _r.relname;
+                      _schema, _table;
       END;
     END IF;
 
