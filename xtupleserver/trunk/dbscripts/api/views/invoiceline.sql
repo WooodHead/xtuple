@@ -122,7 +122,7 @@ BEGIN
 				)
 			ELSE 1
 		END,
-                getGlAccntId(alternate_rev_account)
+                getGlAccntId(pNew.alternate_rev_account)
 	FROM invchead
 		LEFT OUTER JOIN item ON (item_id=getItemId(pNew.item_number))
 		LEFT OUTER JOIN taxtype ON (taxtype_id=CASE
