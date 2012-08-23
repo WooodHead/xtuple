@@ -44,7 +44,8 @@ DECLARE
 
 BEGIN
   IF (pNew.document_type = 'Credit Memo') THEN
-    SELECT createARCreditMemo( getCustId(pNew.customer_number),
+    SELECT createARCreditMemo( NULL,
+                               getCustId(pNew.customer_number),
                                pNew.document_number,
                                pNew.order_number,
                                pNew.document_date,
