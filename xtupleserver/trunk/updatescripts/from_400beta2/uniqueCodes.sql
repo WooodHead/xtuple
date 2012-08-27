@@ -92,6 +92,7 @@ ALTER TABLE subaccnt        ALTER subaccnt_number       SET NOT NULL, ADD CHECK 
 ALTER TABLE tax             ALTER tax_code              SET NOT NULL, ADD CHECK (tax_code            != '');
 ALTER TABLE taxauth         ALTER taxauth_code          SET NOT NULL, ADD CHECK (taxauth_code        != '');
 ALTER TABLE taxclass        ALTER taxclass_code         SET NOT NULL, ADD CHECK (taxclass_code       != ''), ADD CONSTRAINT taxclass_taxclass_code_key       UNIQUE (taxclass_code);
+ALTER TABLE taxreg          ALTER taxreg_number         SET NOT NULL, ADD CHECK (taxreg_number       != '');
 ALTER TABLE taxtype         ALTER taxtype_name          SET NOT NULL, ADD CHECK (taxtype_name        != '');
 ALTER TABLE taxzone         ALTER taxzone_code          SET NOT NULL, ADD CHECK (taxzone_code        != ''), ADD CONSTRAINT taxzone_taxzone_code_key         UNIQUE (taxzone_code);
 ALTER TABLE terms           ALTER terms_code            SET NOT NULL, ADD CHECK (terms_code          != '');
