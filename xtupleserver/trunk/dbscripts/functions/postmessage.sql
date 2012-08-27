@@ -22,6 +22,8 @@ BEGIN
   VALUES
   ( _msgid, pUsername );
 
+  NOTIFY "messagePosted";
+
   RETURN _msgid;
 
 END;
@@ -50,6 +52,8 @@ BEGIN
   FROM usr
   WHERE (usr_username <> getEffectiveXtUser());
 
+  NOTIFY "messagePosted";
+
   RETURN _msgid;
 
 END;
@@ -76,6 +80,8 @@ BEGIN
   ( msguser_msg_id, msguser_username )
   VALUES
   ( _msgid, pUsername );
+
+  NOTIFY "messagePosted";
 
   RETURN _msgid;
 
