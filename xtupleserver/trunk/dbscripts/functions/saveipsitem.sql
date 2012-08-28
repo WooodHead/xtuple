@@ -1,26 +1,28 @@
 
-CREATE OR REPLACE FUNCTION saveIpsItem(INTEGER,INTEGER,INTEGER,NUMERIC,NUMERIC,INTEGER,INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION saveIpsItem(pIpsItemId INTEGER,
+                                       pIpsHeadId INTEGER,
+                                       pItemId INTEGER,
+                                       pQtyBreak NUMERIC,
+                                       pPrice NUMERIC,
+                                       pQtyUomId INTEGER,
+                                       pPriceUomId INTEGER,
+                                       pPercent NUMERIC,
+                                       pFixedAmt NUMERIC,
+                                       pType TEXT) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pIpsItemId	ALIAS FOR $1;
-  pIpsHeadId	ALIAS FOR $2;
-  pItemId	ALIAS FOR $3;
-  pQtyBreak	ALIAS FOR $4;
-  pPrice	ALIAS FOR $5;
-  pQtyUomId	ALIAS FOR $6;
-  pPriceUomId	ALIAS FOR $7;
   _ipsitemid	INTEGER;
   _new		BOOLEAN;
 BEGIN
 
   -- Validation
   IF (SELECT COUNT(item_id)=0 FROM item WHERE (item_id=pItemId)) THEN
-    RAISE EXCEPTION ''You must provide a valid Item'';
+    RAISE EXCEPTION 'You must provide a valid Item';
   ELSIF (COALESCE(pQtyBreak,0) < 0) THEN
-    RAISE EXCEPTION ''Quantity can not be a negative value'';
+    RAISE EXCEPTION 'Quantity can not be a negative value';
   ELSIF (COALESCE(pPrice,0) < 0) THEN
-    RAISE EXCEPTION ''Price must be a negative value'';
+    RAISE EXCEPTION 'Price must be a negative value';
   ELSIF ((pQtyUomId IS NOT NULL) AND (SELECT COUNT(item_id)=0 FROM
         (SELECT item_id
          FROM item
@@ -34,7 +36,7 @@ BEGIN
            AND (itemuomconv_from_uom_id=pQtyUomId)
            AND (itemuom_itemuomconv_id=itemuomconv_id)
            AND (itemuom_uomtype_id=uomtype_id)
-           AND (uomtype_name=''Selling''))
+           AND (uomtype_name='Selling'))
          UNION
          SELECT item_id
          FROM item,itemuomconv,itemuom,uomtype
@@ -43,8 +45,8 @@ BEGIN
            AND (itemuomconv_to_uom_id=pQtyUomId)
            AND (itemuom_itemuomconv_id=itemuomconv_id)
            AND (itemuom_uomtype_id=uomtype_id)
-           AND (uomtype_name=''Selling''))) AS data)) THEN
-    RAISE EXCEPTION ''Qty UOM Must be a valid Selling UOM for the Item'';
+           AND (uomtype_name='Selling'))) AS data)) THEN
+    RAISE EXCEPTION 'Qty UOM Must be a valid Selling UOM for the Item';
   ELSIF ((pPriceUomId IS NOT NULL) AND (SELECT COUNT(item_id)=0 FROM
         (SELECT item_id
          FROM item
@@ -58,7 +60,7 @@ BEGIN
            AND (itemuomconv_from_uom_id=pPriceUomId)
            AND (itemuom_itemuomconv_id=itemuomconv_id)
            AND (itemuom_uomtype_id=uomtype_id)
-           AND (uomtype_name=''Selling''))
+           AND (uomtype_name='Selling'))
          UNION
          SELECT item_id
          FROM item,itemuomconv,itemuom,uomtype
@@ -67,8 +69,8 @@ BEGIN
            AND (itemuomconv_to_uom_id=pPriceUomId)
            AND (itemuom_itemuomconv_id=itemuomconv_id)
            AND (itemuom_uomtype_id=uomtype_id)
-           AND (uomtype_name=''Selling''))) AS data)) THEN
-    RAISE EXCEPTION ''Price UOM Must be a valid Selling UOM for the Item'';
+           AND (uomtype_name='Selling'))) AS data)) THEN
+    RAISE EXCEPTION 'Price UOM Must be a valid Selling UOM for the Item';
   END IF;
 
   _new := TRUE;
@@ -81,7 +83,7 @@ BEGIN
     IF (FOUND) THEN
       _new := FALSE;
     ELSE
-      RAISE EXCEPTION ''Pricing Schedule Item not found.'';
+      RAISE EXCEPTION 'Pricing Schedule Item not found.';
     END IF;
   ELSE
     SELECT ipsitem_id INTO _ipsitemid
@@ -102,7 +104,7 @@ BEGIN
   IF (FOUND) THEN
     _new := false;
   ELSE
-    _ipsitemid := nextval(''ipsitem_ipsitem_id_seq'');
+    _ipsitemid := nextval('ipsitem_ipsitem_id_seq');
   END IF;
   
   IF (_new) THEN
@@ -115,7 +117,8 @@ BEGIN
       ipsitem_qty_uom_id, 
       ipsitem_price_uom_id,
       ipsitem_discntprcnt,
-      ipsitem_fixedamtdiscount) 
+      ipsitem_fixedamtdiscount,
+      ipsitem_type) 
     VALUES (
       _ipsitemid,
       pIpsheadId,
@@ -129,8 +132,9 @@ BEGIN
         ELSE
           COALESCE(pQtyUomId,(SELECT item_inv_uom_id FROM item WHERE item_id = pItemId))
       END,
-      0.0,
-      0.0);
+      pPercent,
+      pFixedAmt,
+      pType);
   ELSE 
     UPDATE ipsitem SET 
       ipsitem_qtybreak = pQtyBreak, 
@@ -142,12 +146,15 @@ BEGIN
           COALESCE(pPriceUomId,pQtyUomId,(SELECT item_inv_uom_id FROM item WHERE item_id = pItemId))
         ELSE
           COALESCE(pQtyUomId,(SELECT item_inv_uom_id FROM item WHERE item_id = pItemId))
-      END
+      END,
+      ipsitem_discntprcnt=pPercent,
+      ipsitem_fixedamtdiscount=pFixedAmt,
+      ipsitem_type=pType
     WHERE (ipsitem_id=_ipsitemid);
    END IF;
 
    RETURN _ipsitemid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

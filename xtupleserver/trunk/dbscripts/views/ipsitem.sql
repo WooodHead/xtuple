@@ -9,29 +9,18 @@ CREATE OR REPLACE VIEW ipsitem AS
          ipsitem_ipshead_id,
          ipsitem_item_id,
          ipsitem_qtybreak,
-         ipsitem_price,
+         CASE WHEN (ipsitem_type='N') THEN ipsitem_price
+              WHEN (ipsitem_type='D') THEN noNeg(CAST((item_listprice - (item_listprice * ipsitem_discntprcnt) - ipsitem_fixedamtdiscount) AS NUMERIC(16,4)))
+              WHEN (ipsitem_type='M') THEN noNeg(CAST((item_maxcost + (item_maxcost * ipsitem_discntprcnt) + ipsitem_fixedamtdiscount) AS NUMERIC(16,4)))
+         END AS ipsitem_price,
          ipsitem_qty_uom_id,
          ipsitem_price_uom_id,
          ipsitem_discntprcnt,
-         ipsitem_fixedamtdiscount
+         ipsitem_fixedamtdiscount,
+         ipsitem_type,
+         ipsitem_warehous_id
     FROM ipsiteminfo
-      JOIN item ON (ipsitem_item_id=item_id)
-    WHERE ((ipsitem_discntprcnt=0.00)
-       AND (ipsitem_fixedamtdiscount=0.00))
-   UNION
-  SELECT ipsitem_id,
-         ipsitem_ipshead_id,
-         ipsitem_item_id,
-         ipsitem_qtybreak,
-         noNeg(CAST((item_listprice - (item_listprice * ipsitem_discntprcnt) - ipsitem_fixedamtdiscount) AS NUMERIC(16,4))) AS ipsitem_price,
-         ipsitem_qty_uom_id,
-         ipsitem_price_uom_id,
-         ipsitem_discntprcnt,
-         ipsitem_fixedamtdiscount
-    FROM ipsiteminfo
-      JOIN item ON (ipsitem_item_id=item_id)
-    WHERE ((ipsitem_discntprcnt<>0.00)
-       OR  (ipsitem_fixedamtdiscount<>0.00));
+      JOIN item ON (ipsitem_item_id=item_id);
 
 REVOKE ALL ON TABLE ipsitem FROM PUBLIC;
 GRANT ALL ON TABLE ipsitem TO GROUP xtrole;
@@ -50,7 +39,9 @@ INSERT INTO ipsiteminfo (
   ipsitem_qty_uom_id,
   ipsitem_price_uom_id,
   ipsitem_discntprcnt,
-  ipsitem_fixedamtdiscount) 
+  ipsitem_fixedamtdiscount,
+  ipsitem_type,
+  ipsitem_warehous_id) 
   VALUES (
   new.ipsitem_id,
   new.ipsitem_ipshead_id,
@@ -60,7 +51,9 @@ INSERT INTO ipsiteminfo (
   new.ipsitem_qty_uom_id,
   new.ipsitem_price_uom_id,
   new.ipsitem_discntprcnt,
-  new.ipsitem_fixedamtdiscount );
+  new.ipsitem_fixedamtdiscount,
+  new.ipsitem_type,
+  new.ipsitem_warehous_id );
 
 CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO ipsitem DO INSTEAD
@@ -72,7 +65,9 @@ UPDATE ipsiteminfo SET
   ipsitem_qty_uom_id=new.ipsitem_qty_uom_id,
   ipsitem_price_uom_id=new.ipsitem_price_uom_id,
   ipsitem_discntprcnt=new.ipsitem_discntprcnt,
-  ipsitem_fixedamtdiscount=new.ipsitem_fixedamtdiscount
+  ipsitem_fixedamtdiscount=new.ipsitem_fixedamtdiscount,
+  ipsitem_type=new.ipsitem_type,
+  ipsitem_warehous_id=new.ipsitem_warehous_id
 WHERE (ipsitem_id=old.ipsitem_id);
 
 CREATE OR REPLACE RULE "_DELETE" AS
