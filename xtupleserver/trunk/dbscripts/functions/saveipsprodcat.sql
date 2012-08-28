@@ -1,5 +1,11 @@
 
-CREATE OR REPLACE FUNCTION saveIpsProdcat(INTEGER,INTEGER,INTEGER,NUMERIC,NUMERIC,NUMERIC) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION saveIpsProdcat(pIpsProdcatId INTEGER,
+                                          pIpsHeadId INTEGER,
+                                          pProdCatId INTEGER,
+                                          pQtyBreak NUMERIC,
+                                          pDiscount NUMERIC,
+                                          pFixedAmtDiscount NUMERIC,
+                                          pType TEXT) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -16,11 +22,11 @@ BEGIN
 
   -- Validation
   IF (SELECT COUNT(*)=0 FROM prodcat WHERE (prodcat_id=pProdcatId)) THEN
-    RAISE EXCEPTION ''You must provide a valid Product Category'';
+    RAISE EXCEPTION 'You must provide a valid Product Category';
   ELSIF (COALESCE(pQtyBreak,0) < 0) THEN
-    RAISE EXCEPTION ''Quantity can not be a negative value'';
+    RAISE EXCEPTION 'Quantity can not be a negative value';
   ELSIF (COALESCE(pDiscount,0) < 0) THEN
-    RAISE EXCEPTION ''Discount must be a negative value'';
+    RAISE EXCEPTION 'Discount must be a negative value';
   END IF;
     
   _new := TRUE;
@@ -33,7 +39,7 @@ BEGIN
     IF (FOUND) THEN
       _new := FALSE;
     ELSE
-      RAISE EXCEPTION ''Pricing Schedule Product Category not found'';
+      RAISE EXCEPTION 'Pricing Schedule Product Category not found';
     END IF;
   ELSE
     SELECT ipsprodcat_id INTO _ipsprodcatid
@@ -45,7 +51,7 @@ BEGIN
     IF (FOUND) THEN
       _new := false;
     ELSE
-      _ipsprodcatid := nextval(''ipsprodcat_ipsprodcat_id_seq'');
+      _ipsprodcatid := nextval('ipsprodcat_ipsprodcat_id_seq');
     END IF;
   END IF;
   
@@ -56,23 +62,26 @@ BEGIN
       ipsprodcat_prodcat_id, 
       ipsprodcat_qtybreak, 
       ipsprodcat_discntprcnt,
-      ipsprodcat_fixedamtdiscount)  
+      ipsprodcat_fixedamtdiscount,
+      ipsprodcat_type)  
     VALUES (
       _ipsprodcatid,
       pIpsheadId,
       pProdcatId,
       pQtyBreak, 
       pDiscount * .01,
-      pFixedAmtDiscount);
+      pFixedAmtDiscount,
+      pType);
   ELSE 
     UPDATE ipsprodcat SET 
       ipsprodcat_qtybreak = pQtyBreak, 
       ipsprodcat_discntprcnt = pDiscount * .01,
-      ipsprodcat_fixedamtdiscount = pFixedAmtDiscount 
+      ipsprodcat_fixedamtdiscount = pFixedAmtDiscount,
+      ipsprodcat_type = pType 
     WHERE (ipsprodcat_id=_ipsprodcatid);
   END IF;
 
   RETURN _ipsprodcatid;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

@@ -5,38 +5,27 @@
 -- See www.xtuple.com/CPAL for the full text of the software license.
 
 
-SELECT ipsitem_id AS id, 1 AS altid, <? value("item") ?> AS type, item_number AS number,
+SELECT ipsitem_id AS id, 1 AS altid, <? value("item") ?> AS target, item_number AS number,
        (item_descrip1 || ' ' || item_descrip2) AS descrip,
        qty.uom_name AS qtyuom, ipsitem_qtybreak AS qtybreak,
        price.uom_name AS priceuom,
        ((COALESCE(ipsitem_discntprcnt, 0.0) * 100) + ipsitem_price) AS price,
-       (COALESCE(ipsitem_fixedamtdiscount, 0.0) + 0.00) AS fixedAmtDiscount,
-       noNeg(CASE WHEN ((COALESCE(ipsitem_discntprcnt, 0.0)=0.0)
-                    AND (COALESCE(ipsitem_fixedamtdiscount, 0.0)=0.0))
-               THEN ipsitem_price
-               ELSE CASE WHEN ((COALESCE(ipsitem_discntprcnt, 0.0)=0.0)
-                           AND (COALESCE(ipsitem_fixedamtdiscount, 0.0)<>0.0))
-                 THEN (item_listprice - ipsitem_fixedamtdiscount)
-                 ELSE CASE WHEN ((COALESCE(ipsitem_discntprcnt, 0.0)<>0.0)
-                             AND (COALESCE(ipsitem_fixedamtdiscount, 0.0)=0.0))
-                   THEN ROUND((item_listprice - (item_listprice * ipsitem_discntprcnt)),4)
-                   ELSE ROUND((item_listprice - (item_listprice * ipsitem_discntprcnt)
-                               - ipsitem_fixedamtdiscount), 4)
-                 END
-               END
-             END) AS discounted_prc,
-       CASE WHEN ((COALESCE(ipsitem_discntprcnt, 0.0)=0.0)
-              AND (COALESCE(ipsitem_fixedamtdiscount, 0.0)=0.0))
-         THEN 'Price'
-         ELSE CASE WHEN ((COALESCE(ipsitem_discntprcnt, 0.0)=0.0)
-                     AND (COALESCE(ipsitem_fixedamtdiscount, 0.0)<>0.0))
-           THEN 'Fixed'
-           ELSE CASE WHEN ((COALESCE(ipsitem_discntprcnt, 0.0)<>0.0)
-                       AND (COALESCE(ipsitem_fixedamtdiscount, 0.0)=0.0))
-             THEN 'Percent'
-             ELSE 'Mixed'
-           END
-         END
+       (COALESCE(ipsitem_fixedamtdiscount, 0.0) + 0.00) AS fixedAmt,
+       noNeg(CASE WHEN (ipsitem_type='N') THEN ipsitem_price
+                  WHEN (ipsitem_type='D') THEN (item_listprice - (item_listprice * COALESCE(ipsitem_discntprcnt, 0.0)) - COALESCE(ipsitem_fixedamtdiscount, 0.0))
+                  WHEN (ipsitem_type='M') THEN (item_maxcost + (item_maxcost * COALESCE(ipsitem_discntprcnt, 0.0)) + COALESCE(ipsitem_fixedamtdiscount, 0.0))
+                  ELSE 0.0
+             END) AS netPrice,
+       CASE WHEN (ipsitem_type='N') THEN <? value("nominal") ?>
+            WHEN (ipsitem_type='D') THEN <? value("discount") ?>
+            WHEN (ipsitem_type='M') THEN <? value("markup") ?>
+            ELSE 'error'
+       END AS type,
+       CASE WHEN (ipsitem_type='N') THEN <? value("price") ?>
+            WHEN ((ipsitem_type IN ('D', 'M')) AND (COALESCE(ipsitem_discntprcnt, 0.0)=0.0) AND (COALESCE(ipsitem_fixedamtdiscount, 0.0)<>0.0)) THEN <? value("fixed") ?>
+            WHEN ((ipsitem_type IN ('D', 'M')) AND (COALESCE(ipsitem_discntprcnt, 0.0)<>0.0) AND (COALESCE(ipsitem_fixedamtdiscount, 0.0)=0.0)) THEN <? value("percent") ?>
+            WHEN (ipsitem_type IN ('D', 'M')) THEN <? value("mixed") ?>
+            ELSE 'error'
        END AS method,
        'qty' AS qtybreak_xtnumericrole,
        'salesprice' AS discounted_prc_xtnumericrole,
@@ -49,17 +38,22 @@ WHERE ( (ipsitem_item_id=item_id)
 
 UNION
 
-SELECT ipsprodcat_id AS id, 2 AS altid,
-       <? value("prodcat") ?> AS type,
-       prodcat_code AS number,
+SELECT ipsprodcat_id AS id, 2 AS altid, <? value("prodcat") ?> AS target,  prodcat_code AS number,
        prodcat_descrip AS descrip,
-       '' AS qtyuom,
-       ipsprodcat_qtybreak AS qtybreak,
+       '' AS qtyuom, ipsprodcat_qtybreak AS qtybreak,
        '' AS priceuom,
        ipsprodcat_discntprcnt AS price,
-       ipsprodcat_fixedamtdiscount AS fixedAmtDiscount,
-       NULL AS discounted_prc,
-       NULL AS method,
+       ipsprodcat_fixedamtdiscount AS fixedAmt,
+       NULL AS netPrice,
+       CASE WHEN (ipsprodcat_type='D') THEN <? value("discount") ?>
+            WHEN (ipsprodcat_type='M') THEN <? value("markup") ?>
+            ELSE 'error'
+       END AS type,
+       CASE WHEN ((ipsprodcat_type IN ('D', 'M')) AND (COALESCE(ipsprodcat_discntprcnt, 0.0)=0.0) AND (COALESCE(ipsprodcat_fixedamtdiscount, 0.0)<>0.0)) THEN <? value("fixed") ?>
+            WHEN ((ipsprodcat_type IN ('D', 'M')) AND (COALESCE(ipsprodcat_discntprcnt, 0.0)<>0.0) AND (COALESCE(ipsprodcat_fixedamtdiscount, 0.0)=0.0)) THEN <? value("percent") ?>
+            WHEN (ipsprodcat_type IN ('D', 'M')) THEN <? value("mixed") ?>
+            ELSE 'error'
+       END AS method,
        'qty' AS qtybreak_xtnumericrole,
        'salesprice' AS discounted_prc_xtnumericrole,
        'percent' AS price_xtnumericrole
@@ -71,15 +65,15 @@ UNION
 
 SELECT ipsfreight_id AS id, 3 AS altid, <? value("freight") ?> AS type,
        CASE WHEN (ipsfreight_type='F') THEN <? value("flatrate") ?>
-         ELSE <? value("peruom") ?>
+            ELSE <? value("peruom") ?>
        END AS number,
-       ('From ' || COALESCE(warehous_code, 'All Sites') || ' To ' ||
-         COALESCE(shipzone_name, 'All Shipping Zones')) AS descrip,
+       ('From ' || COALESCE(warehous_code, 'All Sites') || ' To ' || COALESCE(shipzone_name, 'All Shipping Zones')) AS descrip,
        CASE WHEN (ipsfreight_type='P') THEN uom_name END AS qtyuom,
        CASE WHEN (ipsfreight_type='P') THEN ipsfreight_qtybreak END AS qtybreak,
        uom_name AS priceuom, ipsfreight_price AS price,
-       0.00 AS fixedAmtDiscount,
-       NULL AS discounted_prc,
+       0.00 AS fixedAmt,
+       NULL AS netPrice,
+       NULL AS type,
        NULL AS method,
        'weight' AS qtybreak_xtnumericrole,
        'salesprice' AS discounted_prc_xtnumericrole,

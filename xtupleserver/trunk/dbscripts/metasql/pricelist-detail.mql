@@ -23,6 +23,10 @@ SELECT sourcecode + CASE WHEN ipsprice_source='P' THEN 10 ELSE 0 END AS source,
                   price,   <? value('effective') ?>) AS base_price,
        discountpercent,
        discountfixed,
+       CASE WHEN (price_type='N') THEN <? value('nominal') ?>
+            WHEN (price_type='D') THEN <? value('discount') ?>
+            WHEN (price_type='M') THEN <? value('markup') ?>
+       END AS price_type,
        'qty'        AS qty_break_xtnumericrole,
        'salesprice' AS price_xtnumericrole,
        'salesprice' AS base_price_xtnumericrole,
@@ -41,7 +45,8 @@ FROM ( SELECT 1 AS sourcecode,
               ipsprice_uomprice_uom_id AS price_uom_id,
               ipsprice_discountpercent AS discountpercent,
               ipsprice_discountfixed AS discountfixed,
-              ipshead_curr_id AS curr_id
+              ipshead_curr_id AS curr_id,
+              ipsprice_type AS price_type
        FROM ipsass, ipshead, ipsprice
        WHERE ((ipsass_ipshead_id=ipshead_id)
           AND (ipsprice_ipshead_id=ipshead_id)
@@ -65,7 +70,8 @@ FROM ( SELECT 1 AS sourcecode,
                     ipsprice_uomprice_uom_id AS price_uom_id,
                     ipsprice_discountpercent AS discountpercent,
                     ipsprice_discountfixed AS discountfixed,
-                    ipshead_curr_id AS curr_id
+                    ipshead_curr_id AS curr_id,
+                    ipsprice_type AS price_type
        FROM ipsass, ipshead, custinfo, ipsprice
        WHERE ((ipsass_ipshead_id=ipshead_id)
           AND (ipsprice_ipshead_id=ipshead_id)
@@ -89,7 +95,8 @@ FROM ( SELECT 1 AS sourcecode,
                     ipsprice_uomprice_uom_id AS price_uom_id,
                     ipsprice_discountpercent AS discountpercent,
                     ipsprice_discountfixed AS discountfixed,
-                    ipshead_curr_id AS curr_id
+                    ipshead_curr_id AS curr_id,
+                    ipsprice_type AS price_type
        FROM ipsass, ipshead, custtype, custinfo, ipsprice
        WHERE ((ipsass_ipshead_id=ipshead_id)
           AND (ipsprice_ipshead_id=ipshead_id)
@@ -115,7 +122,8 @@ FROM ( SELECT 1 AS sourcecode,
                     ipsprice_uomprice_uom_id AS price_uom_id,
                     ipsprice_discountpercent AS discountpercent,
                     ipsprice_discountfixed AS discountfixed,
-                    ipshead_curr_id AS curr_id
+                    ipshead_curr_id AS curr_id,
+                    ipsprice_type AS price_type
        FROM ipsass, ipshead, ipsprice
        WHERE ((ipsass_ipshead_id=ipshead_id)
           AND (ipsprice_ipshead_id=ipshead_id)
@@ -139,7 +147,8 @@ FROM ( SELECT 1 AS sourcecode,
                     ipsprice_uomprice_uom_id AS price_uom_id,
                     ipsprice_discountpercent AS discountpercent,
                     ipsprice_discountfixed AS discountfixed,
-                    ipshead_curr_id AS curr_id
+                    ipshead_curr_id AS curr_id,
+                    ipsprice_type AS price_type
        FROM ipsass, ipshead, shiptoinfo, ipsprice
        WHERE ( (ipsass_ipshead_id=ipshead_id)
         AND (ipsprice_ipshead_id=ipshead_id)
@@ -165,7 +174,8 @@ FROM ( SELECT 1 AS sourcecode,
                     ipsprice_uomprice_uom_id AS price_uom_id,
                     ipsprice_discountpercent AS discountpercent,
                     ipsprice_discountfixed AS discountfixed,
-                    ipshead_curr_id AS curr_id
+                    ipshead_curr_id AS curr_id,
+                    ipsprice_type AS price_type
        FROM sale, ipshead, ipsprice
        WHERE ((sale_ipshead_id=ipshead_id)
           AND (ipsprice_ipshead_id=ipshead_id)
@@ -185,7 +195,8 @@ FROM ( SELECT 1 AS sourcecode,
               item_price_uom_id AS price_uom_id,
               cust_discntprcnt  AS discountpercent,
               NULL              AS discountfixed,
-              baseCurrId() AS curr_id
+              baseCurrId() AS curr_id,
+              NULL AS price_type
        FROM item, custinfo
        WHERE (item_sold
           AND (NOT item_exclusive)
