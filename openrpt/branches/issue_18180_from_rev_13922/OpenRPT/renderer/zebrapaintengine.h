@@ -18,16 +18,16 @@
  * Please contact info@openmfg.com with any questions on this license.
  */
 
-#ifndef SATOPAINTENGINE_H
-#define SATOPAINTENGINE_H
+#ifndef ZEBRAPAINTENGINE_H
+#define ZEBRAPAINTENGINE_H
 
 #include "labelpaintengine.h"
 #include "reportprinter.h"
 
-class SatoPaintEngine : public LabelPaintEngine
+class ZebraPaintEngine : public LabelPaintEngine
 {
 public:
-  SatoPaintEngine(ReportPrinter *parentPrinter);
+  ZebraPaintEngine(ReportPrinter *parentPrinter);
 
   virtual bool 	begin ( QPaintDevice * pdev );
 
@@ -41,16 +41,13 @@ public:
 protected:
   virtual void  drawBarcode ( const QPointF & p, const QString &text );
   virtual void  drawText ( const QPointF &p, const QString & text, const QFont &font = QFont());
-  virtual QString rotation0Cmd() const { return "N"; }
-  virtual QString rotation90Cmd() const { return "R"; }
-  virtual QString rotation180Cmd() const { return "I"; }
-  virtual QString rotation270Cmd() const { return "B"; }
-
+  virtual QString rotation0Cmd() const { return "%0"; }
+  virtual QString rotation90Cmd() const { return "%3"; }
+  virtual QString rotation180Cmd() const { return "%2"; }
+  virtual QString rotation270Cmd() const { return "%1"; }
 
 private:
-
-  QList<QRect> m_ReverseZones;
-
+  int m_Offset;
 };
 
-#endif // SATOPAINTENGINE_H
+#endif // ZEBRAPAINTENGINE_H

@@ -25,7 +25,7 @@
 #include <QPair>
 
 
-class SatoPaintEngine;
+class LabelPaintEngine;
 
 class ReportPrinter : public QPrinter
 {
@@ -53,7 +53,7 @@ public:
   static   QString getStoreMask(QList<QPair<QString,QString> > params);
 
 private:
-  SatoPaintEngine*      m_paintEngine;
+  LabelPaintEngine*     m_paintEngine;
   QPrintEngine*         m_printEngine;
   type                  m_printerType;
   bool					m_printToBuffer;

@@ -19,8 +19,11 @@
  */
 
 #include "reportprinter.h"
+#include "labelpaintengine.h"
 #include "satopaintengine.h"
 #include "satoprintengine.h"
+#include "zebrapaintengine.h"
+#include "zebraprintengine.h"
 
 
 static QString getParamValue(QString key, QList<QPair<QString,QString> > list)
@@ -93,19 +96,24 @@ void ReportPrinter::setPrinterType(type type)
   releaseEngines();
 
   switch (type) {
-    case Sato:
-      m_paintEngine = new SatoPaintEngine(this);
-      if (m_printToBuffer)
-          m_paintEngine->setPrintToBuffer();
+  case Sato:
+    m_paintEngine = new SatoPaintEngine(this);
+    if (m_printToBuffer)
+      m_paintEngine->setPrintToBuffer();
 
-      m_printEngine = new SatoPrintEngine(m_paintEngine, this);
-      break;
+    m_printEngine = new SatoPrintEngine(m_paintEngine, this);
+    break;
 
-    case Zebra:
-      break;
+  case Zebra:
+    m_paintEngine = new ZebraPaintEngine(this);
+    if (m_printToBuffer)
+      m_paintEngine->setPrintToBuffer();
 
-    default:
-      break;
+    m_printEngine = new ZebraPrintEngine(m_paintEngine, this);
+    break;
+
+  default:
+    break;
   }
 
   if(m_paintEngine && m_printEngine) {

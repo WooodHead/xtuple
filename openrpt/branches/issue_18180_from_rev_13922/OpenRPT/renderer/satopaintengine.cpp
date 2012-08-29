@@ -27,8 +27,6 @@
 #include "satopaintengine.h"
 
 
-const int defaultDensity = 8;
-
 
 // numericStretch: returns the number of digits from the beginning of the string
 static int numericStretch (const QString &s, int pos=0)
@@ -81,53 +79,10 @@ static QString addCode128Subset(const QString &s)
 }
 
 
-QString SatoPaintEngine::transformRotationCmd()
+SatoPaintEngine::SatoPaintEngine(ReportPrinter *parentPrinter) : LabelPaintEngine(parentPrinter, "\x1B")
 {
-  QString rotation = rotation0Cmd();
-  QTransform transform = painter()->transform();
-  if(transform.isRotating()) {
-    if(transform.m21()==m_Rotation90.m21() && transform.m12()==m_Rotation90.m12()) {
-      rotation = rotation90Cmd();
-    }
-    else if(transform.m21()==m_Rotation180.m21() && transform.m12()==m_Rotation180.m12()) {
-      rotation = rotation180Cmd();
-    }
-    else if(transform.m21()==m_Rotation270.m21() && transform.m12()==m_Rotation270.m12()) {
-      rotation = rotation270Cmd() ;
-    }
-  }
-
-  return rotation;
 }
 
-
-SatoPaintEngine::SatoPaintEngine(ReportPrinter *parentPrinter) : QPaintEngine(QPaintEngine::AllFeatures), m_parentPrinter(parentPrinter), m_printToBuffer(false)
-{
-  m_Rotation90.rotate(90);
-  m_Rotation180.rotate(180);
-  m_Rotation270.rotate(270);
-  m_CmdPrefix = "\x1B";
-}
-
-
-void SatoPaintEngine::drawTextItem ( const QPointF & p, const QTextItem & textItem )
-{
-  if(textItem.text().startsWith(ReportPrinter::barcodePrefix())) {
-    drawBarcode(p, textItem.text());
-  }
-  else {
-    drawText(p, textItem.text(), textItem.font());
-  }
-
-
-}
-
-
-bool SatoPaintEngine::isProportionnal ( const QFont &font ) const
-{
-  QFontMetrics fm(font);
-  return fm.width("i") < fm.width("w");
-}
 
 void SatoPaintEngine::drawText ( const QPointF &p, const QString & text, const QFont &font )
 {
@@ -137,7 +92,7 @@ void SatoPaintEngine::drawText ( const QPointF &p, const QString & text, const Q
   int yInDots = (int)(transform.dy());
 
   // 1 font point = 1/72 inches
-  int fontSizeInPixels = (font.pointSize() * m_parentPrinter->resolution()) / 72;
+  int fontSizeInPixels = (font.pointSize() * resolution()) / 72;
   const int vectorFontSizeMin = 22;
   const int vectorFontSizeMinPrintable = 24;
 
@@ -199,11 +154,9 @@ void SatoPaintEngine::drawBarcode ( const QPointF &p, const QString & text )
     drawText(p, "ERR: " + format);
   }
 
-  qreal resolution = (qreal)m_parentPrinter->resolution();
+  int	height =  (int) (textElts.value(1).toDouble() * resolution());
 
-  int	height =  (int) (textElts.value(1).toDouble() * resolution);
-
-  int	narrowBar = (int) (textElts.value(2).toDouble() * resolution);
+  int	narrowBar = (int) (textElts.value(2).toDouble() * resolution());
   if (narrowBar <=1) narrowBar = 2;
 
   QTransform transform = painter()->worldTransform();
@@ -226,16 +179,11 @@ void SatoPaintEngine::drawBarcode ( const QPointF &p, const QString & text )
 
 bool 	SatoPaintEngine::begin ( QPaintDevice * pdev )
 {
-  qreal resolution = (qreal)m_parentPrinter->resolution();
-  int height = m_parentPrinter->paperRect().height() * (resolution/72.0); // ?? doc says that paperRect() is in device coordinates, but we get it in PS points
-  int width = m_parentPrinter->paperRect().width() * (resolution/72.0);
+  Q_UNUSED(pdev);
 
-  QString cmdPrefix = m_parentPrinter->getParam("cmdprefix");
-  if(!cmdPrefix.isEmpty()) {
-    m_CmdPrefix = cmdPrefix;
-  }
+  int height = m_parentPrinter->paperRect().height() * (resolution()/72.0); // ?? doc says that paperRect() is in device coordinates, but we get it in PS points
+  int width = m_parentPrinter->paperRect().width() * (resolution()/72.0);
 
-  QRect pageRect = m_parentPrinter->paperRect();
   QString init = m_CmdPrefix + "A";
   if (height > 1780 || width > 1780) {
       init += m_CmdPrefix + "AX"; // big size
@@ -244,6 +192,10 @@ bool 	SatoPaintEngine::begin ( QPaintDevice * pdev )
       init += m_CmdPrefix + "AR"; // standard size
   }
   init += "\n";
+
+  if(!customInitString().isEmpty()) {
+    init += customInitString() + "\n";
+  }
 
   init += m_CmdPrefix + QString("A1%1%2\n").arg(height, 4, 10, QLatin1Char('0')).arg(width, 4, 10, QLatin1Char('0'));
 
@@ -263,7 +215,7 @@ bool 	SatoPaintEngine::begin ( QPaintDevice * pdev )
 }
 
 
-bool 	SatoPaintEngine::end ()
+void 	SatoPaintEngine::addEndMessage ()
 {
   // white on black areas
   foreach(QRect r, m_ReverseZones) {
@@ -290,39 +242,8 @@ bool 	SatoPaintEngine::end ()
 
   output += QString(m_CmdPrefix + "Z");
   m_printBuffer.append(output);
-
-  if (m_printToBuffer)
-	  return true;
-
-  QString printerName = m_parentPrinter->printerName();
-  #ifdef Q_WS_WIN
-  if(!printerName.startsWith("\\")) {
-    printerName = "\\\\" + QHostInfo::localHostName() + "\\"+ printerName.remove("/");
-  }
-  #endif
-  QFile f(printerName);
-  bool ok = f.open(QIODevice::WriteOnly);
-  if(!ok) {
-    qWarning() << "Invalid printer name:" << f.fileName();
-    return false;
-  }
-  qint64 bytesWritten = f.write(m_printBuffer);
-  if(bytesWritten==0) {
-    qWarning() << "Failed to print to:" << f.fileName();
-    return false;
-  }
-
-  return true;
 }
 
-void 	SatoPaintEngine::drawEllipse ( const QRectF & rect )
-{
-}
-
-
-void 	SatoPaintEngine::drawEllipse ( const QRect & rect )
-{
-}
 
 
 void SatoPaintEngine::drawImage ( const QRectF & rectangle, const QImage & image, const QRectF & sr, Qt::ImageConversionFlags flags )
@@ -372,11 +293,6 @@ void SatoPaintEngine::drawImage ( const QRectF & rectangle, const QImage & image
 }
 
 
-void 	SatoPaintEngine::drawPixmap ( const QRectF & r, const QPixmap & pm, const QRectF & sr )
-{
-}
-
-
 void 	SatoPaintEngine::drawLines ( const QLineF * lines, int lineCount )
 {
   for (int i=0; i< lineCount; i++) {
@@ -415,31 +331,6 @@ void 	SatoPaintEngine::drawLines ( const QLineF * lines, int lineCount )
 }
 
 
-void 	SatoPaintEngine::drawPath ( const QPainterPath & path )
-{
-}
-
-
-void 	SatoPaintEngine::drawPoints ( const QPointF * points, int pointCount )
-{
-}
-
-
-void 	SatoPaintEngine::drawPoints ( const QPoint * points, int pointCount )
-{
-}
-
-
-void 	SatoPaintEngine::drawPolygon ( const QPointF * points, int pointCount, PolygonDrawMode mode )
-{
-}
-
-
-void 	SatoPaintEngine::drawPolygon ( const QPoint * points, int pointCount, PolygonDrawMode mode )
-{
-}
-
-
 void 	SatoPaintEngine::drawRects ( const QRectF * rects, int rectCount )
 {
   for (int i=0; i< rectCount; i++) {
@@ -471,21 +362,4 @@ void 	SatoPaintEngine::drawRects ( const QRectF * rects, int rectCount )
 }
 
 
-void 	SatoPaintEngine::drawTiledPixmap ( const QRectF & rect, const QPixmap & pixmap, const QPointF & p )
-{
-}
 
-
-QPaintEngine::Type 	SatoPaintEngine::type () const
-{
-    return QPaintEngine::User;
-}
-
-void 	SatoPaintEngine::updateState ( const QPaintEngineState & state )
-{
-}
-
-bool	SatoPaintEngine::newPage ()
-{
-    return true;
-}

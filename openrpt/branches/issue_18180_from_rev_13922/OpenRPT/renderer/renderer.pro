@@ -41,8 +41,12 @@ HEADERS = openreports.h \
           orprintrender.h \
           renderobjects.h \
           previewdialog.h \
+          labelpaintengine.h \
+          labelprintengine.h \
           satopaintengine.h \
           satoprintengine.h \
+          zebrapaintengine.h \
+          zebraprintengine.h \
           reportprinter.h \
           ../../MetaSQL/metasql.h \
           ../../MetaSQL/metasqlqueryparser.h \
@@ -63,8 +67,12 @@ SOURCES = openreports.cpp \
           orprintrender.cpp \
           renderobjects.cpp \
           previewdialog.cpp \ 
+          labelpaintengine.cpp \
+          labelprintengine.cpp \
           satopaintengine.cpp \
           satoprintengine.cpp \
+          zebrapaintengine.cpp \
+          zebraprintengine.cpp \
           reportprinter.cpp \
           ../../MetaSQL/metasql.cpp \
           ../../MetaSQL/metasqlqueryparser.cpp \
