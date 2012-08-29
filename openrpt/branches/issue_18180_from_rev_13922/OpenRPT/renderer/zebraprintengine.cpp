@@ -19,9 +19,9 @@
  */
 
 #include "reportprinter.h"
-#include "satoprintengine.h"
-#include "satopaintengine.h"
+#include "zebraprintengine.h"
+#include "zebrapaintengine.h"
 
-SatoPrintEngine::SatoPrintEngine(LabelPaintEngine *paintEngine, ReportPrinter *printer) : LabelPrintEngine (paintEngine, printer, 203)
+ZebraPrintEngine::ZebraPrintEngine(LabelPaintEngine *paintEngine, ReportPrinter *printer) : LabelPrintEngine (paintEngine, printer, 203)
 {
 }

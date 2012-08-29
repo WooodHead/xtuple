@@ -18,10 +18,18 @@
  * Please contact info@openmfg.com with any questions on this license.
  */
 
-#include "reportprinter.h"
-#include "satoprintengine.h"
-#include "satopaintengine.h"
+#ifndef ZEBRAPRINTENGINE_H
+#define ZEBRAPRINTENGINE_H
 
-SatoPrintEngine::SatoPrintEngine(LabelPaintEngine *paintEngine, ReportPrinter *printer) : LabelPrintEngine (paintEngine, printer, 203)
+#include "labelprintengine.h"
+
+class LabelPaintEngine;
+class ReportPrinter;
+
+class ZebraPrintEngine : public LabelPrintEngine
 {
-}
+public:
+  ZebraPrintEngine(LabelPaintEngine *paintEngine, ReportPrinter *printer);
+};
+
+#endif // ZEBRAPRINTENGINE_H

@@ -18,10 +18,34 @@
  * Please contact info@openmfg.com with any questions on this license.
  */
 
-#include "reportprinter.h"
-#include "satoprintengine.h"
-#include "satopaintengine.h"
+#ifndef LABELPRINTENGINE_H
+#define LABELPRINTENGINE_H
 
-SatoPrintEngine::SatoPrintEngine(LabelPaintEngine *paintEngine, ReportPrinter *printer) : LabelPrintEngine (paintEngine, printer, 203)
+#include <QPrintEngine>
+
+class LabelPaintEngine;
+class ReportPrinter;
+
+class LabelPrintEngine : public QPrintEngine
 {
-}
+public:
+  LabelPrintEngine(LabelPaintEngine *paintEngine, ReportPrinter *printer, int resolution);
+
+  virtual bool	abort () { return true; }
+  virtual int	metric ( QPaintDevice::PaintDeviceMetric id ) const;
+  virtual bool	newPage ();
+  virtual QPrinter::PrinterState	printerState () const;
+  virtual QVariant	property ( PrintEnginePropertyKey key ) const;
+  virtual void	setProperty ( PrintEnginePropertyKey key, const QVariant & value );
+
+private:
+  LabelPaintEngine *m_paintEngine;
+  ReportPrinter   *m_printer;
+  QString       m_printerName;
+  QString       m_docName;
+  QSizeF        m_paperSize;
+  QRect         m_paperRect;
+  int           m_resolution;
+};
+
+#endif // LABELPRINTENGINE_H

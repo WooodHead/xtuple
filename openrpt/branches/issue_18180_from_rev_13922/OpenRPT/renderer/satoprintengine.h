@@ -21,31 +21,15 @@
 #ifndef SATOPRINTENGINE_H
 #define SATOPRINTENGINE_H
 
-#include <QPrintEngine>
+#include "labelprintengine.h"
 
-class SatoPaintEngine;
+class LabelPaintEngine;
 class ReportPrinter;
 
-class SatoPrintEngine : public QPrintEngine
+class SatoPrintEngine : public LabelPrintEngine
 {
 public:
-  SatoPrintEngine(SatoPaintEngine *paintEngine, ReportPrinter *printer);
-
-  virtual bool	abort () { return true; }
-  virtual int	metric ( QPaintDevice::PaintDeviceMetric id ) const;
-  virtual bool	newPage ();
-  virtual QPrinter::PrinterState	printerState () const;
-  virtual QVariant	property ( PrintEnginePropertyKey key ) const;
-  virtual void	setProperty ( PrintEnginePropertyKey key, const QVariant & value );
-
-private:
-  SatoPaintEngine *m_paintEngine;
-  ReportPrinter   *m_printer;
-  QString       m_printerName;
-  QString       m_docName;
-  QSizeF        m_paperSize;
-  QRect         m_paperRect;
-  int           m_resolution;
+  SatoPrintEngine(LabelPaintEngine *paintEngine, ReportPrinter *printer);
 };
 
 #endif // SATOPRINTENGINE_H
