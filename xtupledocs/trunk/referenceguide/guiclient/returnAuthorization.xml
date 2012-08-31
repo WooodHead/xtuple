@@ -68,12 +68,11 @@
       <listitem>
         <para>Specify the Sales Representative associated with the Return
         Authorization. Sales Representatives are linked to a Customer on the
-        Customer master&mdash;either by a default setting or through the
-        assignment of Ship-To Addresses. Each Ship-To Address may have a
-        different Sales Representative associated with it. Consequently, the
-        name of the Sales Representative appearing on the Return Authorization
-        header will be the same as specified for the Ship-To Address being
-        used.</para>
+        Customer master—either by a default setting or through the assignment
+        of Ship-To Addresses. Each Ship-To Address may have a different Sales
+        Representative associated with it. Consequently, the name of the Sales
+        Representative appearing on the Return Authorization header will be
+        the same as specified for the Ship-To Address being used.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -236,7 +235,7 @@
               Check. If selected, a Customer Check will be queued up for
               processing on the Return Authorizations Workbench. When the
               Check is processed, a sales Credit Memo will be created
-              automatically&mdash;and the Check will be applied to it.</para>
+              automatically—and the Check will be applied to it.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -245,11 +244,10 @@
               <para>Select to credit the return with a refund to the
               Customer's Credit Card. If selected, the payment will be queued
               up for processing on the Return Authorizations Workbench. A
-              Credit Memo will be posted when the refund is
-              processed&mdash;and the refund charges will be applied to it. If
-              the timing of the credit is immediately, then you may issue the
-              refund directly from the Line Items tab of the Return
-              Authorization.</para>
+              Credit Memo will be posted when the refund is processed—and the
+              refund charges will be applied to it. If the timing of the
+              credit is immediately, then you may issue the refund directly
+              from the Line Items tab of the Return Authorization.</para>
               <note>
                 <para>The Credit Card functionality must be enabled at your
                 site for the Credit Card method to function properly.</para>
@@ -293,10 +291,10 @@
       <listitem>
         <para>For Return Authorizations having either Replace, Service, or
         Substitute dispositions, the system will automatically generate a new
-        Sales Order for shipping purposes once any Line Item quantity has been
-        authorized. Authorized Line Item quantities are added automatically to
-        the new Sales Order, enabling you to ship the quantity at the
-        appropriate time.</para>
+        Sales order for shipping purposes when the line item is received and
+        posted. Authorized Line Item quantities are added automatically to the
+        new Sales Order, enabling you to ship the quantity at the appropriate
+        time.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -309,9 +307,9 @@
         the right of the field enables you to select from a list of available
         Projects.</para>
         <para role="xtprjaccnt">When you have the xTuple Project Accounting
-        package installed&mdash;and you link a Project to the Return
-        Authorization&mdash;transactions related to the Return Authorization
-        will include the Project Number as the final segment of affected G/L
+        package installed—and you link a Project to the Return
+        Authorization—transactions related to the Return Authorization will
+        include the Project Number as the final segment of affected G/L
         Account Numbers. Account Numbers related to the following transactions
         will include Project Number as the final segment: Issue to Shipping,
         Return Stock, Ship Shipment, Recall Shipment, and Post Invoice.</para>
@@ -361,12 +359,11 @@
       <term>Address</term>
       <listitem>
         <para>Displays the Customer's Bill-To Address. You may manually
-        override the displayed Address information in the fields
-        below&mdash;or use the lookup feature to select another Address. If a
-        new Address is manually entered here, that Address will be added
-        automatically to the master list of Addresses. For additional
-        documentation related to creating Addresses, see <xref
-        linkend="Section560316" />.</para>
+        override the displayed Address information in the fields below—or use
+        the lookup feature to select another Address. If a new Address is
+        manually entered here, that Address will be added automatically to the
+        master list of Addresses. For additional documentation related to
+        creating Addresses, see <xref linkend="Section560316" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -407,12 +404,11 @@
       <term>Address</term>
       <listitem>
         <para>Displays the specified Ship-To Address. You may manually
-        override the displayed Address information in the fields
-        below&mdash;or use the lookup feature to select another Address. If a
-        new Address is manually entered here, that Address will be added
-        automatically to the master list of Addresses. For additional
-        documentation related to creating Addresses, see <xref
-        linkend="Section560316" />.</para>
+        override the displayed Address information in the fields below—or use
+        the lookup feature to select another Address. If a new Address is
+        manually entered here, that Address will be added automatically to the
+        master list of Addresses. For additional documentation related to
+        creating Addresses, see <xref linkend="Section560316" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -521,9 +517,9 @@
         the total for all Line Items. To get a detailed view of the freight
         calculation, click on the Freight link using your mouse. Freight
         charges may be entered during the creation or modification of a Return
-        Authorization&mdash;or at the time of shipment. The system can be
-        configured to automatically calculate freight amounts per quantity and
-        Shipment. To learn more about freight configuration, see <xref
+        Authorization—or at the time of shipment. The system can be configured
+        to automatically calculate freight amounts per quantity and Shipment.
+        To learn more about freight configuration, see <xref
         linkend="configureSO_freightPricing" />.</para>
         <note>
           <para>If you are manually entering freight, all freight charges will
@@ -572,8 +568,8 @@
       <listitem>
         <para>Highlight a Return Authorization Line Item and then select this
         button to authorize the Line Item quantity. This option is available
-        only when an imported original Sales Order is being used&mdash;and
-        then, the original Line Item quantity must be shipped before it may be
+        only when an imported original Sales Order is being used—and then, the
+        original Line Item quantity must be shipped before it may be
         authorized.</para>
       </listitem>
     </varlistentry>
@@ -590,8 +586,8 @@
       <listitem>
         <para>Select to authorize the full quantity for all unauthorized Line
         Items. This option is available only when an imported original Sales
-        Order is being used&mdash;and then, the original Line Item quantity
-        must be shipped before it may be authorized.</para>
+        Order is being used—and then, the original Line Item quantity must be
+        shipped before it may be authorized.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
