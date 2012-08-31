@@ -84,99 +84,6 @@ SatoPaintEngine::SatoPaintEngine(ReportPrinter *parentPrinter) : LabelPaintEngin
 }
 
 
-void SatoPaintEngine::drawText ( const QPointF &p, const QString & text, const QFont &font )
-{
-  QTransform transform = painter()->worldTransform();
-
-  int xInDots = (int)(transform.dx());
-  int yInDots = (int)(transform.dy());
-
-  // 1 font point = 1/72 inches
-  int fontSizeInPixels = (font.pointSize() * resolution()) / 72;
-  const int vectorFontSizeMin = 22;
-  const int vectorFontSizeMinPrintable = 24;
-
-  bool nonProportional = !isProportionnal(font);
-  bool narrow = nonProportional || font.family().contains("narrow", Qt::CaseInsensitive);
-  QString satoFont;
-  if(fontSizeInPixels < vectorFontSizeMin) {
-    QString fC = fontSizeInPixels<12 ? "U" : "S";
-    satoFont = nonProportional ? fC : ("P" + fC + m_CmdPrefix + "X" + fC);
-  }
-  else {
-    if(fontSizeInPixels < vectorFontSizeMinPrintable) {
-      fontSizeInPixels = vectorFontSizeMinPrintable;
-    }
-    char fontType = nonProportional ? 'B' : 'A';
-    int variation = font.italic() ? 8 : 0;
-    satoFont = QString().sprintf("$%c,%03d,%03d,%d", fontType, fontSizeInPixels, fontSizeInPixels, variation) + m_CmdPrefix + "$=";
-  }
-
-  int pitch = (narrow | nonProportional) ? 2 : fontSizeInPixels/8;
-  QString pitchCmd = pitch<=3 ? "" : m_CmdPrefix + QString().sprintf("P%02d", pitch);
-  m_printBuffer.append(pitchCmd);
-
-  QString output = QString(m_CmdPrefix + "V%1" + m_CmdPrefix + "H%2" + m_CmdPrefix + "%3" + m_CmdPrefix + "%4" + "%5\n")
-                        .arg(QString::number(yInDots), QString::number(xInDots), transformRotationCmd(), satoFont, text);
-
-  QTextCodec *codec = QTextCodec::codecForName("IBM 850");
-  m_printBuffer.append(codec->fromUnicode(output));
-}
-
-
-void SatoPaintEngine::drawBarcode ( const QPointF &p, const QString & text )
-{
-  QStringList textElts = text.mid(ReportPrinter::barcodePrefix().length()).split(';');
-
-  QString barcodeData = textElts.value(3);
-
-  QString barcodeFont;
-  QString format = textElts.value(0);
-  if(format == "3of9" || format == "3of9+") {
-    barcodeFont = "B1";
-    if(!barcodeData.startsWith('*')) {
-      barcodeData = "*" + barcodeData + "*";
-    }
-  }
-  else if(format == "128") {
-    barcodeFont = "BG";
-    barcodeData = addCode128Subset(barcodeData);
-  }
-  else if(format == "ean13" || format == "upc-a")
-    barcodeFont = "BD3";
-  else if(format == "ean8")
-    barcodeFont = "BD4";
-  else if(format == "upc-e")
-    barcodeFont = "BD3";
-  else if(format == "i2of5")
-    barcodeFont = "BD2";
-  else {
-    drawText(p, "ERR: " + format);
-  }
-
-  int	height =  (int) (textElts.value(1).toDouble() * resolution());
-
-  int	narrowBar = (int) (textElts.value(2).toDouble() * resolution());
-  if (narrowBar <=1) narrowBar = 2;
-
-  QTransform transform = painter()->worldTransform();
-
-  int xInDots = (int)(transform.dx());
-  int yInDots = (int)(transform.dy());
-
-
-  QString barcodeFontCmd = barcodeFont + QString().sprintf("%02d%03d", narrowBar, height);
-
-  //  codeBarre = retireAccents(codeBarre);
-
-  QString output = QString(m_CmdPrefix + "V%1" + m_CmdPrefix + "H%2" + m_CmdPrefix + "%3" + m_CmdPrefix + "%4" + "%5\n")
-                        .arg(QString::number(yInDots), QString::number(xInDots), transformRotationCmd(), barcodeFontCmd, barcodeData);
-  m_printBuffer.append(output);
-
-
-//  sprintf(... BarFontTable[font].toStdString().c_str(), narrowBar, heigth, codeBarre.toStdString().c_str());
-}
-
 bool 	SatoPaintEngine::begin ( QPaintDevice * pdev )
 {
   Q_UNUSED(pdev);
@@ -244,6 +151,85 @@ void 	SatoPaintEngine::addEndMessage ()
   m_printBuffer.append(output);
 }
 
+void SatoPaintEngine::drawText ( const QPointF &p, const QString & text, const QFont &font, int width )
+{
+  Q_UNUSED(width);
+
+  QTransform transform = painter()->worldTransform();
+
+  int xInDots = (int)(transform.dx());
+  int yInDots = (int)(transform.dy());
+
+  // 1 font point = 1/72 inches
+  int fontSizeInPixels = (font.pointSize() * resolution()) / 72;
+  const int vectorFontSizeMin = 22;
+  const int vectorFontSizeMinPrintable = 24;
+
+  bool nonProportional = !isProportionnal(font);
+  bool narrow = nonProportional || font.family().contains("narrow", Qt::CaseInsensitive);
+  QString satoFont;
+  if(fontSizeInPixels < vectorFontSizeMin) {
+    QString fC = fontSizeInPixels<12 ? "U" : "S";
+    satoFont = nonProportional ? fC : ("P" + fC + m_CmdPrefix + "X" + fC);
+  }
+  else {
+    if(fontSizeInPixels < vectorFontSizeMinPrintable) {
+      fontSizeInPixels = vectorFontSizeMinPrintable;
+    }
+    char fontType = nonProportional ? 'B' : 'A';
+    int variation = font.italic() ? 8 : 0;
+    satoFont = QString().sprintf("$%c,%03d,%03d,%d", fontType, fontSizeInPixels, fontSizeInPixels, variation) + m_CmdPrefix + "$=";
+  }
+
+  int pitch = (narrow | nonProportional) ? 2 : fontSizeInPixels/8;
+  QString pitchCmd = pitch<=3 ? "" : m_CmdPrefix + QString().sprintf("P%02d", pitch);
+  m_printBuffer.append(pitchCmd);
+
+  QString output = QString(m_CmdPrefix + "V%1" + m_CmdPrefix + "H%2" + m_CmdPrefix + "%3" + m_CmdPrefix + "%4" + "%5\n")
+                        .arg(QString::number(yInDots), QString::number(xInDots), transformRotationCmd(), satoFont, text);
+
+  QTextCodec *codec = QTextCodec::codecForName("IBM 850");
+  m_printBuffer.append(codec->fromUnicode(output));
+}
+
+
+void SatoPaintEngine::drawBarcode ( const QPointF & p, const QString &format, int height, int narrowBar, QString barcodeData )
+{
+  QString barcodeFont;
+  if(format == "3of9" || format == "3of9+") {
+    barcodeFont = "B1";
+    if(!barcodeData.startsWith('*')) {
+      barcodeData = "*" + barcodeData + "*";
+    }
+  }
+  else if(format == "128") {
+    barcodeFont = "BG";
+    barcodeData = addCode128Subset(barcodeData);
+  }
+  else if(format == "ean13" || format == "upc-a")
+    barcodeFont = "BD3";
+  else if(format == "ean8")
+    barcodeFont = "BD4";
+  else if(format == "upc-e")
+    barcodeFont = "BD3";
+  else if(format == "i2of5")
+    barcodeFont = "BD2";
+  else {
+    drawText(p, "ERR: " + format);
+  }
+
+  QTransform transform = painter()->worldTransform();
+
+  int xInDots = (int)(transform.dx());
+  int yInDots = (int)(transform.dy());
+
+
+  QString barcodeFontCmd = barcodeFont + QString().sprintf("%02d%03d", narrowBar, height);
+
+  QString output = QString(m_CmdPrefix + "V%1" + m_CmdPrefix + "H%2" + m_CmdPrefix + "%3" + m_CmdPrefix + "%4" + "%5\n")
+                        .arg(QString::number(yInDots), QString::number(xInDots), transformRotationCmd(), barcodeFontCmd, barcodeData);
+  m_printBuffer.append(output);
+}
 
 
 void SatoPaintEngine::drawImage ( const QRectF & rectangle, const QImage & image, const QRectF & sr, Qt::ImageConversionFlags flags )

@@ -57,8 +57,8 @@ public:
   QByteArray	getBuffer() const {return m_printBuffer;}
 
 protected:
-  virtual void  drawBarcode ( const QPointF & p, const QString &text ) = 0;
-  virtual void  drawText ( const QPointF &p, const QString & text, const QFont &font = QFont()) = 0;
+  virtual void  drawBarcode ( const QPointF & p, const QString &format, int height, int narrowBar, QString barcodeData ) = 0;
+  virtual void  drawText ( const QPointF &p, const QString & text, const QFont &font = QFont(), int width = 0 ) = 0;
   virtual QString rotation0Cmd() const  = 0;
   virtual QString rotation90Cmd() const = 0;
   virtual QString rotation180Cmd() const  = 0;
@@ -70,10 +70,10 @@ protected:
   int     density() const { return (int) (m_Resolution / 25.4); }  // density in points per mm
   QString customInitString() const { return m_CustomInitString; }
 
-  QString   m_CmdPrefix;
   ReportPrinter *m_parentPrinter;
   QByteArray m_printBuffer;
   bool		m_printToBuffer;
+  QString   m_CmdPrefix;
 
 private:
 
@@ -82,6 +82,7 @@ private:
   QTransform m_Rotation90;
   QTransform m_Rotation180;
   QTransform m_Rotation270;
+  QString   m_OutputFile;
 };
 
 #endif // LABELPAINTENGINE_H

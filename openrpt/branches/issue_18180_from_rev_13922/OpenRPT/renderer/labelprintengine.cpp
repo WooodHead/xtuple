@@ -31,6 +31,10 @@
 
 LabelPrintEngine::LabelPrintEngine(LabelPaintEngine *paintEngine, ReportPrinter *printer, int resolution) : m_paintEngine(paintEngine), m_printer(printer), m_resolution(resolution)
 {
+  QString customResolution = printer->getParam("dpi");
+  if(customResolution.toInt() > 0) {
+    m_resolution = customResolution.toInt();
+  }
 }
 
 

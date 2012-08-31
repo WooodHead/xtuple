@@ -44,6 +44,7 @@ LabelPaintEngine::LabelPaintEngine(ReportPrinter *parentPrinter, QString cmdPref
   }
 
   m_CustomInitString = m_parentPrinter->getParam("init");
+  m_OutputFile =  m_parentPrinter->getParam("tofile");
 }
 
 QString LabelPaintEngine::transformRotationCmd()
@@ -68,10 +69,18 @@ QString LabelPaintEngine::transformRotationCmd()
 void LabelPaintEngine::drawTextItem ( const QPointF & p, const QTextItem & textItem )
 {
   if(textItem.text().startsWith(ReportPrinter::barcodePrefix())) {
-    drawBarcode(p, textItem.text());
+
+    QStringList textElts = textItem.text().mid(ReportPrinter::barcodePrefix().length()).split(';');
+    QString format = textElts.value(0);
+    int	height =  (int) (textElts.value(1).toDouble() * resolution());
+    int	narrowBar = (int) (textElts.value(2).toDouble() * resolution());
+    if (narrowBar <=1) narrowBar = 2;
+    QString barcodeData = textElts.value(3);
+
+    drawBarcode(p, format, height, narrowBar, barcodeData);
   }
   else {
-    drawText(p, textItem.text(), textItem.font());
+    drawText(p, textItem.text(), textItem.font(), textItem.width());
   }
 }
 
@@ -106,20 +115,29 @@ bool 	LabelPaintEngine::end ()
   addEndMessage();
 
   if (m_printToBuffer)
-      return true;
+    return true;
 
-  QString printerName = m_parentPrinter->printerName();
-  #ifdef Q_WS_WIN
-  if(!printerName.startsWith("\\")) {
-    printerName = "\\\\" + QHostInfo::localHostName() + "\\"+ printerName.remove("/");
+  QString outPutName;
+
+  if(!m_OutputFile.isEmpty()) {
+    outPutName = m_OutputFile;
   }
-  #endif
-  QFile f(printerName);
+  else {
+    outPutName = m_parentPrinter->printerName();
+#ifdef Q_WS_WIN
+    if(!outPutName.startsWith("\\")) {
+      outPutName = "\\\\" + QHostInfo::localHostName() + "\\"+ outPutName.remove("/");
+    }
+#endif
+  }
+
+  QFile f(outPutName);
   bool ok = f.open(QIODevice::WriteOnly);
   if(!ok) {
     qWarning() << "Invalid printer name:" << f.fileName();
     return false;
   }
+
   qint64 bytesWritten = f.write(m_printBuffer);
   if(bytesWritten==0) {
     qWarning() << "Failed to print to:" << f.fileName();
