@@ -22,6 +22,8 @@ BEGIN
   VALUES
   ( pUsername, pPrivid );
 
+  NOTIFY "usrprivUpdated";
+
   RETURN TRUE;
 
 END;
@@ -52,6 +54,8 @@ BEGIN
   SELECT pUsername, priv_id
     FROM priv
    WHERE (priv_name=pPrivname);
+
+  NOTIFY "usrprivUpdated";
 
   RETURN TRUE;
 
