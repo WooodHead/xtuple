@@ -130,7 +130,8 @@ function refreshMessageHistory()
 {
   try
   {
-  	_messageHistoryIsDirty = true;
+    mainwindow.sSystemMessageAdded();
+    messageHistoryIsDirty = true;
     fillListMessageHistory();
   }
   catch (e)
