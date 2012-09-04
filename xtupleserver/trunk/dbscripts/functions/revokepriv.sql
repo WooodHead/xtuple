@@ -12,6 +12,8 @@ BEGIN
   WHERE ( (usrpriv_username=pUsername)
    AND (usrpriv_priv_id=pPrivid) );
 
+  NOTIFY "usrprivUpdated";
+
   RETURN TRUE;
 
 END;
@@ -32,6 +34,8 @@ BEGIN
    AND (usrpriv_priv_id IN (SELECT priv_id
                               FROM priv
                              WHERE priv_name=pPrivname) ));
+
+  NOTIFY "usrprivUpdated";
 
   RETURN TRUE;
 
