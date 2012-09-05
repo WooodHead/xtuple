@@ -68,7 +68,7 @@ BEGIN
   DELETE FROM itemgrpitem
   WHERE (itemgrpitem_item_id=pItemid);
 
-  DELETE FROM ipsitem
+  DELETE FROM ipsiteminfo
   WHERE (ipsitem_item_id=pItemid);
 
   DELETE FROM imageass
