@@ -1,9 +1,8 @@
 
-CREATE OR REPLACE FUNCTION copypricingschedule(INTEGER) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION copypricingschedule(pIpsheadId INTEGER) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pIpsheadId ALIAS FOR $1;
   _ipsheadid INTEGER;
   _ipsitemid INTEGER;
   _ipsfreightid INTEGER;
@@ -25,20 +24,22 @@ BEGIN
   WHERE (orig.ipshead_id=pIpsheadId);
 
   FOR _x IN
-    SELECT ipsitem_id FROM ipsitem WHERE (ipsitem_ipshead_id=pIpsheadid)
+    SELECT ipsitem_id FROM ipsiteminfo WHERE (ipsitem_ipshead_id=pIpsheadid)
   LOOP 
-      _ipsitemid := nextval('ipsitem_ipsitem_id_seq');
-      INSERT INTO ipsitem 
-          (ipsitem_id, ipsitem_ipshead_id, ipsitem_item_id, 
+      INSERT INTO ipsiteminfo 
+          (ipsitem_ipshead_id, ipsitem_item_id, ipsitem_prodcat_id,
            ipsitem_qtybreak, ipsitem_price,
            ipsitem_qty_uom_id, ipsitem_price_uom_id,
-           ipsitem_discntprcnt, ipsitem_fixedamtdiscount) 
-      SELECT _ipsitemid, _ipsheadid, ipsitem_item_id, 
+           ipsitem_discntprcnt, ipsitem_fixedamtdiscount,
+           ipsitem_type, ipsitem_warehous_id) 
+      SELECT _ipsheadid, ipsitem_item_id, ipsitem_prodcat_id,
            ipsitem_qtybreak, ipsitem_price,
            ipsitem_qty_uom_id, ipsitem_price_uom_id,
-           ipsitem_discntprcnt, ipsitem_fixedamtdiscount
-      FROM ipsitem 
-      WHERE (ipsitem_id=_x.ipsitem_id); 
+           ipsitem_discntprcnt, ipsitem_fixedamtdiscount,
+           ipsitem_type, ipsitem_warehous_id
+      FROM ipsiteminfo 
+      WHERE (ipsitem_id=_x.ipsitem_id)
+      RETURNING ipsitem_id INTO _ipsitemid; 
 
       INSERT INTO ipsitemchar
         ( ipsitemchar_ipsitem_id, ipsitemchar_char_id,
@@ -67,15 +68,6 @@ BEGIN
       WHERE (ipsfreight_id=_x.ipsfreight_id); 
 
   END LOOP;
-
-
-  INSERT INTO ipsprodcat 
-        (ipsprodcat_ipshead_id, ipsprodcat_prodcat_id, 
-         ipsprodcat_qtybreak, ipsprodcat_discntprcnt, ipsprodcat_fixedamtdiscount) 
-  SELECT _ipsheadid, ipsprodcat_prodcat_id, 
-         ipsprodcat_qtybreak, ipsprodcat_discntprcnt, ipsprodcat_fixedamtdiscount 
-  FROM ipsprodcat 
-  WHERE (ipsprodcat_ipshead_id=pIpsheadId);
 
   RETURN _ipsheadid;
 

@@ -13,12 +13,10 @@ BEGIN
 
     DELETE FROM ipsass
       WHERE (ipsass_ipshead_id=_r.ipshead_id);
-    DELETE FROM ipsitem
+    DELETE FROM ipsiteminfo
       WHERE (ipsitem_ipshead_id=_r.ipshead_id);
     DELETE FROM ipsfreight
       WHERE (ipsfreight_ipshead_id=_r.ipshead_id);
-    DELETE FROM ipsprodcat
-      WHERE (ipsprodcat_ipshead_id=_r.ipshead_id);
     DELETE FROM ipshead
       WHERE (ipshead_id=_r.ipshead_id);
   END LOOP;

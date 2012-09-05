@@ -67,7 +67,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     ipshead_curr_id=
     CASE
       WHEN (SELECT (COUNT(ipsitem_id) =0)
-            FROM ipsitem
+            FROM ipsiteminfo
             WHERE (ipsitem_ipshead_id=getIpsHeadId(old.name))) THEN
          COALESCE(getCurrId(new.currency),basecurrid())
       ELSE

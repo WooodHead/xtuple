@@ -41,11 +41,11 @@ BEGIN
                 WHERE ((invcitem_item_id=pitemid))
                 UNION 
                 SELECT ipsitem_qty_uom_id 
-                FROM ipsitem 
+                FROM ipsiteminfo 
                 WHERE (ipsitem_item_id=pitemid)
                 UNION 
                 SELECT ipsitem_price_uom_id 
-                FROM ipsitem 
+                FROM ipsiteminfo 
                 WHERE (ipsitem_item_id=pitemid)
                 UNION 
                 SELECT quitem_qty_uom_id 

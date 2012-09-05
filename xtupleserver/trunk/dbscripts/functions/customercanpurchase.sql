@@ -56,7 +56,7 @@ BEGIN
   IF(pShiptoid != -1) THEN
 --  Check for a shipto Assigned Price
     SELECT ipsitem_id INTO _id
-      FROM ipsitem, ipshead, ipsass
+      FROM ipsiteminfo, ipshead, ipsass
      WHERE((ipsitem_ipshead_id=ipshead_id)
        AND (ipsass_ipshead_id=ipshead_id)
        AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
@@ -67,10 +67,10 @@ BEGIN
     IF (FOUND) THEN
       RETURN TRUE;
     END IF;
-    SELECT ipsprodcat_id INTO _id
-      FROM ipsprodcat, item, ipshead, ipsass
-     WHERE((ipsprodcat_ipshead_id=ipshead_id)
-       AND (ipsprodcat_prodcat_id = item_prodcat_id)
+    SELECT ipsitem_id INTO _id
+      FROM ipsiteminfo, item, ipshead, ipsass
+     WHERE((ipsitem_ipshead_id=ipshead_id)
+       AND (ipsitem_prodcat_id = item_prodcat_id)
        AND (ipsass_ipshead_id=ipshead_id)
        AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
        AND (item_id=pItemid)
@@ -83,7 +83,7 @@ BEGIN
 
 --  Check for a Shipto Pattern Assigned Price
     SELECT ipsitem_id INTO _id
-      FROM ipsitem, ipshead, ipsass, shiptoinfo
+      FROM ipsiteminfo, ipshead, ipsass, shiptoinfo
      WHERE((ipsitem_ipshead_id=ipshead_id)
        AND (ipsass_ipshead_id=ipshead_id)
        AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
@@ -96,10 +96,10 @@ BEGIN
     IF (FOUND) THEN
       RETURN TRUE;
     END IF;
-    SELECT ipsprodcat_id INTO _id
-      FROM ipsprodcat, item, ipshead, ipsass, shiptoinfo
-     WHERE((ipsprodcat_ipshead_id=ipshead_id)
-       AND (ipsprodcat_prodcat_id = item_prodcat_id)
+    SELECT ipsitem_id INTO _id
+      FROM ipsiteminfo, item, ipshead, ipsass, shiptoinfo
+     WHERE((ipsitem_ipshead_id=ipshead_id)
+       AND (ipsitem_prodcat_id = item_prodcat_id)
        AND (ipsass_ipshead_id=ipshead_id)
        AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
        AND (COALESCE(length(ipsass_shipto_pattern), 0) > 0)
@@ -115,7 +115,7 @@ BEGIN
 
 --  Check for a Customer Assigned Price
   SELECT ipsitem_id INTO _id
-    FROM ipsitem, ipshead, ipsass
+    FROM ipsiteminfo, ipshead, ipsass
    WHERE((ipsitem_ipshead_id=ipshead_id)
      AND (ipsass_ipshead_id=ipshead_id)
      AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
@@ -126,10 +126,10 @@ BEGIN
   IF (FOUND) THEN
     RETURN TRUE;
   END IF;
-  SELECT ipsprodcat_id INTO _id
-    FROM ipsprodcat, item, ipshead, ipsass
-   WHERE((ipsprodcat_ipshead_id=ipshead_id)
-     AND (ipsprodcat_prodcat_id = item_prodcat_id)
+  SELECT ipsitem_id INTO _id
+    FROM ipsiteminfo, item, ipshead, ipsass
+   WHERE((ipsitem_ipshead_id=ipshead_id)
+     AND (ipsitem_prodcat_id = item_prodcat_id)
      AND (ipsass_ipshead_id=ipshead_id)
      AND (pAsOf BETWEEN ipshead_effective AND (ipshead_expires - 1))
      AND (item_id=pItemid)
@@ -142,7 +142,7 @@ BEGIN
 
 --  Check for a Customer Type Assigned Price
   SELECT ipsitem_id INTO _id
-    FROM ipsitem, ipshead, ipsass, custinfo
+    FROM ipsiteminfo, ipshead, ipsass, custinfo
    WHERE( (ipsitem_ipshead_id=ipshead_id)
      AND  (ipsass_ipshead_id=ipshead_id)
      AND  (ipsass_custtype_id != -1)
@@ -154,10 +154,10 @@ BEGIN
   IF (FOUND) THEN
     RETURN TRUE;
   END IF;
-  SELECT ipsprodcat_id INTO _id
-    FROM ipsprodcat, item, ipshead, ipsass, custinfo
-   WHERE( (ipsprodcat_ipshead_id=ipshead_id)
-     AND  (ipsprodcat_prodcat_id = item_prodcat_id)
+  SELECT ipsitem_id INTO _id
+    FROM ipsiteminfo, item, ipshead, ipsass, custinfo
+   WHERE( (ipsitem_ipshead_id=ipshead_id)
+     AND  (ipsitem_prodcat_id = item_prodcat_id)
      AND  (ipsass_ipshead_id=ipshead_id)
      AND  (ipsass_custtype_id != -1)
      AND  (cust_custtype_id = ipsass_custtype_id)
@@ -171,7 +171,7 @@ BEGIN
 
 --  Check for a Customer Type Pattern Assigned Price
   SELECT ipsitem_id INTO _id
-    FROM ipsitem, ipshead, ipsass, custtype, custinfo
+    FROM ipsiteminfo, ipshead, ipsass, custtype, custinfo
    WHERE((ipsitem_ipshead_id=ipshead_id)
      AND (ipsass_ipshead_id=ipshead_id)
      AND (coalesce(length(ipsass_custtype_pattern), 0) > 0)
@@ -184,10 +184,10 @@ BEGIN
   IF (FOUND) THEN
     RETURN TRUE;
   END IF;
-  SELECT ipsprodcat_id INTO _id
-    FROM ipsprodcat, item, ipshead, ipsass, custtype, custinfo
-   WHERE((ipsprodcat_ipshead_id=ipshead_id)
-     AND (ipsprodcat_prodcat_id = item_prodcat_id)
+  SELECT ipsitem_id INTO _id
+    FROM ipsiteminfo, item, ipshead, ipsass, custtype, custinfo
+   WHERE((ipsitem_ipshead_id=ipshead_id)
+     AND (ipsitem_prodcat_id = item_prodcat_id)
      AND (ipsass_ipshead_id=ipshead_id)
      AND (coalesce(length(ipsass_custtype_pattern), 0) > 0)
      AND (custtype_code ~ ipsass_custtype_pattern)
