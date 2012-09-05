@@ -46,7 +46,7 @@ SELECT ipsfreight_id AS id, 2 AS altid, <? value("freight") ?> AS type,
        CASE WHEN (ipsfreight_type='F') THEN <? value("flatrate") ?>
             ELSE <? value("peruom") ?>
        END AS number,
-       ('From ' || COALESCE(warehous_code, 'All Sites') || ' To ' || COALESCE(shipzone_name, 'All Shipping Zones')) AS descrip,
+       ('From ' || COALESCE(warehous_code, <? value("allsites") ?>) || ' To ' || COALESCE(shipzone_name, <? value("allzones") ?>)) AS descrip,
        CASE WHEN (ipsfreight_type='P') THEN uom_name END AS qtyuom,
        CASE WHEN (ipsfreight_type='P') THEN ipsfreight_qtybreak END AS qtybreak,
        uom_name AS priceuom, ipsfreight_price AS price,

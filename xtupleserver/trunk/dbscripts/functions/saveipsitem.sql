@@ -102,13 +102,10 @@ BEGIN
   
   IF (FOUND) THEN
     _new := false;
-  ELSE
-    _ipsitemid := nextval('ipsitem_ipsitem_id_seq');
   END IF;
   
   IF (_new) THEN
     INSERT INTO ipsiteminfo (
-      ipsitem_id,
       ipsitem_ipshead_id, 
       ipsitem_item_id, 
       ipsitem_qtybreak, 
@@ -119,7 +116,6 @@ BEGIN
       ipsitem_fixedamtdiscount,
       ipsitem_type) 
     VALUES (
-      _ipsitemid,
       pIpsheadId,
       pItemId,
       pQtyBreak, 
@@ -133,7 +129,8 @@ BEGIN
       END,
       pPercent,
       pFixedAmt,
-      pType);
+      pType)
+    RETURNING ipsitem_id INTO _ipsitemid;
   ELSE 
     UPDATE ipsiteminfo SET 
       ipsitem_qtybreak = pQtyBreak, 

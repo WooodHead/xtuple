@@ -88,7 +88,6 @@ DECLARE
   _iteminvpricerat NUMERIC;
   _qty NUMERIC;
   _asof DATE;
-  _debug BOOLEAN := true;
 
 BEGIN
 -- Return the itemPrice in the currency passed in as pCurrid
@@ -180,22 +179,16 @@ BEGIN
  
   IF (_r.rightprice IS NOT NULL) THEN
     IF ((_sales IS NOT NULL) AND (_sales < _r.rightprice)) THEN
-      IF(_debug) THEN
-        raise notice 'itemprice, item=%, cust=%, shipto=%, sale price= %', pItemid, pCustid, pShiptoid, _sales;
-      END IF;
+      RAISE DEBUG 'itemprice, item=%, cust=%, shipto=%, sale price= %', pItemid, pCustid, pShiptoid, _sales;
       RETURN _sales;
     END IF;
-    IF(_debug) THEN
-      raise notice 'itemprice, item=%, cust=%, shipto=%, schedule price= %', pItemid, pCustid, pShiptoid, _r.rightprice;
-    END IF;
+    RAISE DEBUG 'itemprice, item=%, cust=%, shipto=%, schedule price= %', pItemid, pCustid, pShiptoid, _r.rightprice;
     RETURN _r.rightprice;
   END IF;
 
 --  If item is exclusive then list list price does not apply
   IF (_item.item_exclusive) THEN
-    IF(_debug) THEN
-      raise notice 'itemprice, item=%, cust=%, shipto=%, item exclusive, price=-9999', pItemid, pCustid, pShiptoid;
-    END IF;
+    RAISE DEBUG 'itemprice, item=%, cust=%, shipto=%, item exclusive, price=-9999', pItemid, pCustid, pShiptoid;
     RETURN -9999.0;
   END IF;
 
@@ -203,9 +196,7 @@ BEGIN
   _price := noNeg(dToLocal(pCurrid, _item.item_listprice - (_item.item_listprice * COALESCE(_cust.cust_discntprcnt, 0.0)), pEffective)
                   * itemuomtouomratio(pItemid, pPriceUOM, _item.item_price_uom_id));
 
-  IF(_debug) THEN
-    raise notice 'itemprice, item=%, cust=%, shipto=%, list price= %', pItemid, pCustid, pShiptoid, _price;
-  END IF;
+  RAISE DEBUG 'itemprice, item=%, cust=%, shipto=%, list price= %', pItemid, pCustid, pShiptoid, _price;
 
   RETURN _price;
 
