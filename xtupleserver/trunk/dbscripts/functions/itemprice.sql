@@ -122,23 +122,15 @@ BEGIN
   SELECT ipsitem_ipshead_id AS ipsprice_ipshead_id,
          CASE WHEN ipsitem_type = 'N' THEN (ipsitem_price * itemuomtouomratio(ipsitem_item_id, NULL, ipsitem_price_uom_id)) * _iteminvpricerat
               WHEN ipsitem_type = 'D' THEN noNeg(_item.item_listprice - (_item.item_listprice * ipsitem_discntprcnt) - ipsitem_fixedamtdiscount)
-              WHEN ipsitem_type = 'M' THEN (_item.item_maxcost + (_item.item_maxcost * ipsitem_discntprcnt) + ipsitem_fixedamtdiscount)
+              WHEN ipsitem_type = 'M' THEN (_item.item_listcost + (_item.item_listcost * ipsitem_discntprcnt) + ipsitem_fixedamtdiscount)
               ELSE 0.00
          END AS ipsprice_price,
-         itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak) AS ipsprice_qtybreak,
+         CASE WHEN (ipsitem_item_id=_item.item_id) THEN itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak)
+              ELSE ipsitem_qtybreak
+         END AS ipsprice_qtybreak,
          (ipsitem_price_uom_id=COALESCE(pPriceUOM,-1)) AS uommatched
     FROM ipsiteminfo
-   WHERE(ipsitem_item_id=pItemid)
-   UNION
-  SELECT ipsprodcat_ipshead_id AS ipsprice_ipshead_id,
-         CASE WHEN ipsprodcat_type = 'D' THEN noNeg(_item.item_listprice - (_item.item_listprice * ipsprodcat_discntprcnt) - ipsprodcat_fixedamtdiscount)
-              WHEN ipsprodcat_type = 'M' THEN (_item.item_maxcost + (_item.item_maxcost * ipsprodcat_discntprcnt) + ipsprodcat_fixedamtdiscount)
-              ELSE 0.00
-         END AS ipsprice_price,
-         ipsprodcat_qtybreak AS ipsprice_qtybreak,
-         (_item.item_price_uom_id=COALESCE(pPriceUOM,-1)) AS uommatched
-    FROM ipsprodcat
-   WHERE(ipsprodcat_prodcat_id=_item.item_prodcat_id)  ) AS
+   WHERE(ipsitem_item_id=_item.item_id) OR (ipsitem_prodcat_id=_item.item_prodcat_id) ) AS
         ipsprice, ipshead, sale
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
     AND   (sale_ipshead_id=ipsprice_ipshead_id)
@@ -150,28 +142,36 @@ BEGIN
 -- Find the best Price Schedule Price
  
   SELECT INTO _r
-    *, currToCurr(currid, pCurrid, protoprice, pEffective) AS rightprice
+    *, currToCurr(ipshead_curr_id, pCurrid, protoprice, pEffective) AS rightprice
   
   FROM (
     SELECT *,
-           CASE WHEN pricetype = 'N' THEN (price * itemuomtouomratio(_item.item_id, NULL, priceuomid)) * _iteminvpricerat
-                WHEN pricetype = 'D' THEN noNeg(_item.item_listprice - (_item.item_listprice * percent) - fixedamt)
-                WHEN pricetype = 'M' THEN (_item.item_maxcost + (_item.item_maxcost * percent) + fixedamt)
+           CASE WHEN (COALESCE(ipsass_shipto_id, -1) > 0) THEN 1
+             WHEN (COALESCE(LENGTH(ipsass_shipto_pattern), 0) > 0) THEN 2
+             WHEN (COALESCE(ipsass_cust_id, -1) > 0) THEN 3
+             WHEN (COALESCE(ipsass_custtype_id, -1) > 0) THEN 4
+             WHEN (COALESCE(LENGTH(ipsass_custtype_pattern), 0) > 0) THEN 5
+             ELSE 99
+           END AS assignseq,
+           CASE WHEN ipsitem_type = 'N' THEN (ipsitem_price * itemuomtouomratio(_item.item_id, NULL, ipsitem_price_uom_id)) * _iteminvpricerat
+                WHEN ipsitem_type = 'D' THEN noNeg(_item.item_listprice - (_item.item_listprice * ipsitem_discntprcnt) - ipsitem_fixedamtdiscount)
+                WHEN ipsitem_type = 'M' THEN (_item.item_listcost + (_item.item_listcost * ipsitem_discntprcnt) + ipsitem_fixedamtdiscount)
                 ELSE 0.00
            END AS protoprice,
-           CASE WHEN (itemid=_item.item_id) THEN itemuomtouom(itemid, qtyuomid, NULL, qtybreak)
-                ELSE qtybreak
+           CASE WHEN (ipsitem_item_id=_item.item_id) THEN itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak)
+                ELSE ipsitem_qtybreak
            END AS protoqtybreak,
-           (COALESCE(priceuomid, -1)=COALESCE(pPriceUOM, -1)) AS uommatched
-    FROM itemprices
-    WHERE ((itemid=_item.item_id) OR (prodcatid=_item.item_prodcat_id))
-      AND (_asof BETWEEN effective AND expires)
-      AND ((siteid = pSiteid) OR (pSiteid IS NULL))
-      AND ( (shiptoid=_shipto.shipto_id)
-       OR   ((COALESCE(LENGTH(shiptopattern), 0) > 0) AND (_shipto.shipto_num ~ shiptopattern))
-       OR   (custid=_cust.cust_id)
-       OR   (custtypeid=_cust.cust_custtype_id)
-       OR   ((COALESCE(LENGTH(custtypepattern), 0) > 0) AND (_cust.custtype_code ~ custtypepattern))
+           (COALESCE(ipsitem_price_uom_id, -1)=COALESCE(pPriceUOM, -1)) AS uommatched
+    FROM ipsass JOIN ipshead ON (ipshead_id=ipsass_ipshead_id)
+                JOIN ipsiteminfo ON (ipsitem_ipshead_id=ipshead_id)
+    WHERE ((ipsitem_item_id=_item.item_id) OR (ipsitem_prodcat_id=_item.item_prodcat_id))
+      AND (_asof BETWEEN ipshead_effective AND ipshead_expires)
+      AND ((ipsitem_warehous_id=pSiteid) OR (pSiteid IS NULL))
+      AND ( (ipsass_shipto_id=_shipto.shipto_id)
+       OR   ((COALESCE(LENGTH(ipsass_shipto_pattern), 0) > 0) AND (_shipto.shipto_num ~ ipsass_shipto_pattern))
+       OR   (ipsass_cust_id=_cust.cust_id)
+       OR   (ipsass_custtype_id=_cust.cust_custtype_id)
+       OR   ((COALESCE(LENGTH(ipsass_custtype_pattern), 0) > 0) AND (_cust.custtype_code ~ ipsass_custtype_pattern))
           )
   ) AS proto
   WHERE (protoqtybreak <= pQty)
@@ -200,7 +200,7 @@ BEGIN
   END IF;
 
 --  Check for a list price
-  _price := noNeg(currToLocal(pCurrid, _item.item_listprice - (_item.item_listprice * COALESCE(_cust.cust_discntprcnt, 0.0)), pEffective)
+  _price := noNeg(dToLocal(pCurrid, _item.item_listprice - (_item.item_listprice * COALESCE(_cust.cust_discntprcnt, 0.0)), pEffective)
                   * itemuomtouomratio(pItemid, pPriceUOM, _item.item_price_uom_id));
 
   IF(_debug) THEN

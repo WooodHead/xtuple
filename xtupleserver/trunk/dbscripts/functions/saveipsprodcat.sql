@@ -1,4 +1,3 @@
-
 CREATE OR REPLACE FUNCTION saveIpsProdcat(pIpsProdcatId INTEGER,
                                           pIpsHeadId INTEGER,
                                           pProdCatId INTEGER,
@@ -15,7 +14,7 @@ DECLARE
   pQtyBreak	    ALIAS FOR $4;
   pDiscount	    ALIAS FOR $5;
   pFixedAmtDiscount ALIAS FOR $6;
-  _ipsprodcatid	INTEGER;
+  _ipsitemid	INTEGER;
   _new		BOOLEAN;
   
 BEGIN
@@ -32,9 +31,9 @@ BEGIN
   _new := TRUE;
 
   IF (pIpsProdcatId IS NOT NULL) THEN
-    SELECT ipsprodcat_id INTO _ipsprodcatid
-    FROM ipsprodcat
-    WHERE (ipsprodcat_id=pIpsprodcatId);
+    SELECT ipsitem_id INTO _ipsitemid
+    FROM ipsiteminfo
+    WHERE (ipsitem_id=pIpsprodcatId);
 
     IF (FOUND) THEN
       _new := FALSE;
@@ -42,46 +41,48 @@ BEGIN
       RAISE EXCEPTION 'Pricing Schedule Product Category not found';
     END IF;
   ELSE
-    SELECT ipsprodcat_id INTO _ipsprodcatid
-    FROM ipsprodcat
-    WHERE ((ipsprodcat_ipshead_id=pIpsheadId)
-      AND (ipsprodcat_prodcat_id=pProdcatId)
-      AND (ipsprodcat_qtybreak=pQtyBreak));
+    SELECT ipsitem_id INTO _ipsitemid
+    FROM ipsiteminfo
+    WHERE ((ipsitem_ipshead_id=pIpsheadId)
+      AND (ipsitem_prodcat_id=pProdcatId)
+      AND (ipsitem_qtybreak=pQtyBreak));
 
     IF (FOUND) THEN
       _new := false;
     ELSE
-      _ipsprodcatid := nextval('ipsprodcat_ipsprodcat_id_seq');
+      _ipsitemid := nextval('ipsitem_ipsitem_id_seq');
     END IF;
   END IF;
   
   IF (_new) THEN
-    INSERT INTO ipsprodcat (
-      ipsprodcat_id,
-      ipsprodcat_ipshead_id, 
-      ipsprodcat_prodcat_id, 
-      ipsprodcat_qtybreak, 
-      ipsprodcat_discntprcnt,
-      ipsprodcat_fixedamtdiscount,
-      ipsprodcat_type)  
+    INSERT INTO ipsiteminfo (
+      ipsitem_id,
+      ipsitem_ipshead_id, 
+      ipsitem_prodcat_id, 
+      ipsitem_qtybreak,
+      ipsitem_price, 
+      ipsitem_discntprcnt,
+      ipsitem_fixedamtdiscount,
+      ipsitem_type)  
     VALUES (
-      _ipsprodcatid,
+      _ipsitemid,
       pIpsheadId,
       pProdcatId,
       pQtyBreak, 
+      0.0,
       pDiscount * .01,
       pFixedAmtDiscount,
       pType);
   ELSE 
-    UPDATE ipsprodcat SET 
-      ipsprodcat_qtybreak = pQtyBreak, 
-      ipsprodcat_discntprcnt = pDiscount * .01,
-      ipsprodcat_fixedamtdiscount = pFixedAmtDiscount,
-      ipsprodcat_type = pType 
-    WHERE (ipsprodcat_id=_ipsprodcatid);
+    UPDATE ipsiteminfo SET 
+      ipsitem_qtybreak = pQtyBreak, 
+      ipsitem_discntprcnt = pDiscount * .01,
+      ipsitem_fixedamtdiscount = pFixedAmtDiscount,
+      ipsitem_type = pType 
+    WHERE (ipsitem_id=_ipsitemid);
   END IF;
 
-  RETURN _ipsprodcatid;
+  RETURN _ipsitemid;
 END;
 $$ LANGUAGE 'plpgsql';
 

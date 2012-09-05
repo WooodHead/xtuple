@@ -1,12 +1,11 @@
-CREATE OR REPLACE FUNCTION getIpsitemId(text,text,numeric,text,text) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION getIpsitemId(pIpsName TEXT,
+                                        pItemNumber TEXT,
+                                        pQtyBreak NUMERIC,
+                                        pQtyUom TEXT,
+                                        pPriceUom TEXT) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pIpsName 	ALIAS FOR $1;
-  pItemNumber 	ALIAS FOR $2;
-  pQtyBreak	ALIAS FOR $3;
-  pQtyUom	ALIAS FOR $4;
-  pPriceUom	ALIAS FOR $5;
   _returnVal INTEGER;
   
 BEGIN
@@ -15,7 +14,7 @@ BEGIN
   END IF;
 
   SELECT ipsitem_id INTO _returnVal
-  FROM ipsitem
+  FROM ipsiteminfo
   WHERE ((ipsitem_ipshead_id=getIpsheadId(pIpsName))
   AND (ipsitem_item_id=getItemId(pItemNumber))
   AND (ipsitem_qtybreak=pQtyBreak)
@@ -23,10 +22,10 @@ BEGIN
   AND (ipsitem_price_uom_id=getUomId(pPriceUom)));
 
   IF (_returnVal IS NULL) THEN
-	RAISE EXCEPTION ''Pricing Schedule Item for Schedule %, Item %,Qt Break %,Qty UOM %, Price UOM % not found.'', 
+	RAISE EXCEPTION 'Pricing Schedule Item for Schedule %, Item %,Qt Break %,Qty UOM %, Price UOM % not found.', 
 	pIpsName, pItemNumber, pQtyBreak, pQtyUom, pPriceUom;
   END IF;
 
   RETURN _returnVal;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
