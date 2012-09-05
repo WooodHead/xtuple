@@ -104,7 +104,7 @@ BEGIN
   SELECT ipsitem_ipshead_id AS ipsprice_ipshead_id,
          itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak) AS ipsprice_qtybreak,
          (ipsitemchar_price * itemuomtouomratio(ipsitem_item_id, NULL, ipsitem_price_uom_id)) * _iteminvpricerat AS ipsprice_price
-    FROM ipsitem,ipsitemchar
+    FROM ipsiteminfo,ipsitemchar
    WHERE((ipsitem_item_id=pItemid)
     AND (ipsitemchar_char_id=pCharid)
     AND (ipsitemchar_value=pCharValue)
@@ -125,7 +125,7 @@ BEGIN
   SELECT ipsitem_ipshead_id AS ipsprice_ipshead_id,
          itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak) AS ipsprice_qtybreak,
          (ipsitemchar_price * itemuomtouomratio(ipsitem_item_id, NULL, ipsitem_price_uom_id)) * _iteminvpricerat AS ipsprice_price
-    FROM ipsitem,ipsitemchar
+    FROM ipsiteminfo,ipsitemchar
    WHERE ((ipsitem_item_id=pItemid)
     AND (ipsitemchar_char_id=pCharid)
     AND (ipsitemchar_value=pCharValue)
@@ -154,7 +154,7 @@ BEGIN
   SELECT ipsitem_ipshead_id AS ipsprice_ipshead_id,
          itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak) AS ipsprice_qtybreak,
          (ipsitemchar_price * itemuomtouomratio(ipsitem_item_id, NULL, ipsitem_price_uom_id)) * _iteminvpricerat AS ipsprice_price
-    FROM ipsitem,ipsitemchar
+    FROM ipsiteminfo,ipsitemchar
    WHERE ((ipsitem_item_id=pItemid)
     AND (ipsitemchar_char_id=pCharid)
     AND (ipsitemchar_value=pCharValue)
@@ -185,7 +185,7 @@ BEGIN
   SELECT ipsitem_ipshead_id AS ipsprice_ipshead_id,
          itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak) AS ipsprice_qtybreak,
          (ipsitemchar_price * itemuomtouomratio(ipsitem_item_id, NULL, ipsitem_price_uom_id)) * _iteminvpricerat AS ipsprice_price
-    FROM ipsitem,ipsitemchar
+    FROM ipsiteminfo,ipsitemchar
    WHERE ((ipsitem_item_id=pItemid)
     AND (ipsitemchar_char_id=pCharid)
     AND (ipsitemchar_value=pCharValue)
@@ -214,7 +214,7 @@ BEGIN
   SELECT ipsitem_ipshead_id AS ipsprice_ipshead_id,
          itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak) AS ipsprice_qtybreak,
          (ipsitemchar_price * itemuomtouomratio(ipsitem_item_id, NULL, ipsitem_price_uom_id)) * _iteminvpricerat AS ipsprice_price
-    FROM ipsitem,ipsitemchar
+    FROM ipsiteminfo,ipsitemchar
    WHERE((ipsitem_item_id=pItemid)
     AND (ipsitemchar_char_id=pCharid)
     AND (ipsitemchar_value=pCharValue)
@@ -243,7 +243,7 @@ BEGIN
   SELECT ipsitem_ipshead_id AS ipsprice_ipshead_id,
          itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak) AS ipsprice_qtybreak,
          (ipsitemchar_price * itemuomtouomratio(ipsitem_item_id, NULL, ipsitem_price_uom_id)) * _iteminvpricerat AS ipsprice_price
-    FROM ipsitem,ipsitemchar
+    FROM ipsiteminfo,ipsitemchar
    WHERE ((ipsitem_item_id=pItemid)
     AND (ipsitemchar_char_id=pCharid)
     AND (ipsitemchar_value=pCharValue)

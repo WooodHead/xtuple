@@ -11,7 +11,7 @@ CREATE OR REPLACE FUNCTION custitem(cust_id INTEGER, shipto_id INTEGER DEFAULT -
   -- Exclusive, Shipto match
   SELECT item_id
   FROM item
-    JOIN ipsitem ON (ipsitem_item_id=item_id)
+    JOIN ipsiteminfo ON (ipsitem_item_id=item_id)
     JOIN ipshead ON (ipshead_id=ipsitem_ipshead_id)
     JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
   WHERE (item_exclusive)
@@ -22,8 +22,8 @@ CREATE OR REPLACE FUNCTION custitem(cust_id INTEGER, shipto_id INTEGER DEFAULT -
   UNION
   SELECT item_id
   FROM item
-    JOIN ipsprodcat ON (ipsprodcat_prodcat_id=item_prodcat_id)
-    JOIN ipshead ON (ipshead_id=ipsprodcat_ipshead_id)
+    JOIN ipsiteminfo ON (ipsitem_prodcat_id=item_prodcat_id)
+    JOIN ipshead ON (ipshead_id=ipsitem_ipshead_id)
     JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
   WHERE (item_exclusive)
    AND (item_sold)
@@ -34,7 +34,7 @@ CREATE OR REPLACE FUNCTION custitem(cust_id INTEGER, shipto_id INTEGER DEFAULT -
    -- Exclusive, Shipto pattern match
   SELECT item_id
   FROM item
-    JOIN ipsitem ON (ipsitem_item_id=item_id)
+    JOIN ipsiteminfo ON (ipsitem_item_id=item_id)
     JOIN ipshead ON (ipshead_id=ipsitem_ipshead_id)
     JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
     JOIN shiptoinfo ON (shipto_num ~ ipsass_shipto_pattern)
@@ -48,8 +48,8 @@ CREATE OR REPLACE FUNCTION custitem(cust_id INTEGER, shipto_id INTEGER DEFAULT -
   UNION
   SELECT item_id
   FROM item
-    JOIN ipsprodcat ON (ipsprodcat_prodcat_id=item_prodcat_id)
-    JOIN ipshead ON (ipshead_id=ipsprodcat_ipshead_id)
+    JOIN ipsiteminfo ON (ipsitem_prodcat_id=item_prodcat_id)
+    JOIN ipshead ON (ipshead_id=ipsitem_ipshead_id)
     JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
     JOIN shiptoinfo ON (shipto_num ~ ipsass_shipto_pattern)
   WHERE (item_exclusive)
@@ -63,7 +63,7 @@ CREATE OR REPLACE FUNCTION custitem(cust_id INTEGER, shipto_id INTEGER DEFAULT -
    -- Exclusive, Customer match
   SELECT item_id
   FROM item
-    JOIN ipsitem ON (ipsitem_item_id=item_id)
+    JOIN ipsiteminfo ON (ipsitem_item_id=item_id)
     JOIN ipshead ON (ipshead_id=ipsitem_ipshead_id)
     JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
   WHERE (item_exclusive)
@@ -77,8 +77,8 @@ CREATE OR REPLACE FUNCTION custitem(cust_id INTEGER, shipto_id INTEGER DEFAULT -
   UNION
   SELECT item_id
   FROM item
-    JOIN ipsprodcat ON (ipsprodcat_prodcat_id=item_prodcat_id)
-    JOIN ipshead ON (ipshead_id=ipsprodcat_ipshead_id)
+    JOIN ipsiteminfo ON (ipsitem_prodcat_id=item_prodcat_id)
+    JOIN ipshead ON (ipshead_id=ipsitem_ipshead_id)
     JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
   WHERE (item_exclusive)
    AND (item_sold)
@@ -92,7 +92,7 @@ CREATE OR REPLACE FUNCTION custitem(cust_id INTEGER, shipto_id INTEGER DEFAULT -
   -- Exclusive, Customer Type match
   SELECT item_id
   FROM item
-    JOIN ipsitem ON (ipsitem_item_id=item_id)
+    JOIN ipsiteminfo ON (ipsitem_item_id=item_id)
     JOIN ipshead ON (ipshead_id=ipsitem_ipshead_id)
     JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
     JOIN custinfo ON (ipsass_custtype_id=cust_custtype_id)
@@ -103,8 +103,8 @@ CREATE OR REPLACE FUNCTION custitem(cust_id INTEGER, shipto_id INTEGER DEFAULT -
   UNION
   SELECT item_id
   FROM item
-    JOIN ipsprodcat ON (ipsprodcat_prodcat_id=item_prodcat_id)
-    JOIN ipshead ON (ipshead_id=ipsprodcat_ipshead_id)
+    JOIN ipsiteminfo ON (ipsitem_prodcat_id=item_prodcat_id)
+    JOIN ipshead ON (ipshead_id=ipsitem_ipshead_id)
     JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
     JOIN custinfo ON (ipsass_custtype_id=cust_custtype_id)
   WHERE (item_exclusive)
@@ -115,7 +115,7 @@ CREATE OR REPLACE FUNCTION custitem(cust_id INTEGER, shipto_id INTEGER DEFAULT -
   -- Exclusive, Customer Type pattern match
   SELECT item_id
   FROM item
-    JOIN ipsitem ON (ipsitem_item_id=item_id)
+    JOIN ipsiteminfo ON (ipsitem_item_id=item_id)
     JOIN ipshead ON (ipshead_id=ipsitem_ipshead_id)
     JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
     JOIN custtype ON (custtype_code ~ ipsass_custtype_pattern)
@@ -128,8 +128,8 @@ CREATE OR REPLACE FUNCTION custitem(cust_id INTEGER, shipto_id INTEGER DEFAULT -
   UNION
   SELECT item_id
   FROM item
-    JOIN ipsprodcat ON (ipsprodcat_prodcat_id=item_prodcat_id)
-    JOIN ipshead ON (ipshead_id=ipsprodcat_ipshead_id)
+    JOIN ipsiteminfo ON (ipsitem_prodcat_id=item_prodcat_id)
+    JOIN ipshead ON (ipshead_id=ipsitem_ipshead_id)
     JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
     JOIN custtype ON (custtype_code ~ ipsass_custtype_pattern)
     JOIN custinfo ON (cust_custtype_id=custtype_id)

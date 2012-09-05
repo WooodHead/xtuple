@@ -1,4 +1,3 @@
-
 CREATE OR REPLACE FUNCTION saveIpsItem(pIpsItemId INTEGER,
                                        pIpsHeadId INTEGER,
                                        pItemId INTEGER,
@@ -77,7 +76,7 @@ BEGIN
 
   IF (pIpsItemId IS NOT NULL) THEN
     SELECT ipsitem_id INTO _ipsitemid
-    FROM ipsitem
+    FROM ipsiteminfo
     WHERE (ipsitem_id=pIpsItemId);
 
     IF (FOUND) THEN
@@ -87,7 +86,7 @@ BEGIN
     END IF;
   ELSE
     SELECT ipsitem_id INTO _ipsitemid
-    FROM ipsitem
+    FROM ipsiteminfo
     WHERE ((ipsitem_ipshead_id	= pIpsheadId)
       AND (ipsitem_item_id 	= pItemId)
       AND (ipsitem_qtybreak 	= pQtyBreak)
@@ -108,7 +107,7 @@ BEGIN
   END IF;
   
   IF (_new) THEN
-    INSERT INTO ipsitem (
+    INSERT INTO ipsiteminfo (
       ipsitem_id,
       ipsitem_ipshead_id, 
       ipsitem_item_id, 
@@ -136,7 +135,7 @@ BEGIN
       pFixedAmt,
       pType);
   ELSE 
-    UPDATE ipsitem SET 
+    UPDATE ipsiteminfo SET 
       ipsitem_qtybreak = pQtyBreak, 
       ipsitem_price = pPrice, 
       ipsitem_qty_uom_id = COALESCE(pQtyUomId,(SELECT item_inv_uom_id FROM item WHERE item_id = pItemId)), 
