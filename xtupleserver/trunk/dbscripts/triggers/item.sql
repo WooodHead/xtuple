@@ -224,6 +224,11 @@ BEGIN
           PERFORM postComment( _cmnttypeid, 'I', NEW.item_id,
                                ( 'Maximum Desired Cost Changed from "' || formatCost(OLD.item_maxcost) ||
                                  '" to "' || formatCost(NEW.item_maxcost) || '"' ) );
+
+        IF (OLD.item_listcost <> NEW.item_listcost) THEN
+          PERFORM postComment( _cmnttypeid, 'I', NEW.item_id,
+                               ( 'List Cost Changed from "' || formatCost(OLD.item_listcost) ||
+                                 '" to "' || formatCost(NEW.item_listcost) || '"' ) );
         END IF;
 -- End changes
 
