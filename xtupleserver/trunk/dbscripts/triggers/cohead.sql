@@ -20,7 +20,8 @@ BEGIN
   -- Checks
   -- Start with privileges
   IF (TG_OP = 'INSERT') THEN
-    IF (NOT checkPrivilege('MaintainSalesOrders')) THEN
+    IF ( (NOT checkPrivilege('MaintainSalesOrders')) AND
+       (NOT checkPrivilege('EnterReceipts')) ) THEN
       RAISE EXCEPTION 'You do not have privileges to create a Sales Order.';
     END IF;
   ELSIF (TG_OP = 'UPDATE') THEN
