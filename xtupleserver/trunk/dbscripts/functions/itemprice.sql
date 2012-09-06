@@ -193,7 +193,7 @@ BEGIN
   END IF;
 
 --  Check for a list price
-  _price := noNeg(dToLocal(pCurrid, _item.item_listprice - (_item.item_listprice * COALESCE(_cust.cust_discntprcnt, 0.0)), pEffective)
+  _price := noNeg(currToLocal(pCurrid, _item.item_listprice - (_item.item_listprice * COALESCE(_cust.cust_discntprcnt, 0.0)), pEffective)
                   * itemuomtouomratio(pItemid, pPriceUOM, _item.item_price_uom_id));
 
   RAISE DEBUG 'itemprice, item=%, cust=%, shipto=%, list price= %', pItemid, pCustid, pShiptoid, _price;
