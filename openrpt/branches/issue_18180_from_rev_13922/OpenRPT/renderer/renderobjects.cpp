@@ -43,13 +43,13 @@ ORODocument::~ORODocument()
 
 void ORODocument::setupPrinter(ReportPrinter *pPrinter)
 {
-  pPrinter->setPrinterType(printerType());
   pPrinter->setFullPage(true);
   pPrinter->setOrientation((pageOptions().isPortrait() ? QPrinter::Portrait : QPrinter::Landscape));
   pPrinter->setPageOrder(QPrinter::FirstPageFirst);
   pPrinter->setCreator("OpenRPT Print Renderer");
   pPrinter->setDocName(title());
   pPrinter->setParams(_printerParams);
+  pPrinter->setPrinterType(printerType());
 }
 
 

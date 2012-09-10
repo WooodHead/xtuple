@@ -734,12 +734,13 @@ qreal ORPreRenderPrivate::renderSection(const ORSectionData & sectionData)
   bool foundTextArea = false;
   bool newPageRequested = false;
 
+  bool recallMask = !ReportPrinter::getRecallMask(_printerParams).isEmpty();
+  bool storeMask = !ReportPrinter::getStoreMask(_printerParams).isEmpty();
+
   for(int it = 0; it < sectionData.objects.size(); ++it)
   {
     elemThis = sectionData.objects.at(it);
 
-    bool recallMask = !ReportPrinter::getRecallMask(_printerParams).isEmpty();
-    bool storeMask = !ReportPrinter::getStoreMask(_printerParams).isEmpty();
     if((storeMask && !elemThis->isStatic()) || (recallMask && elemThis->isStatic()))
     {
       continue; // ignore element
