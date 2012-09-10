@@ -14,6 +14,8 @@ BEGIN
                           AND (usrpriv_username=pUsername)
                           AND (priv_module=pModuleName) ) ) );
 
+  NOTIFY "usrprivUpdated";
+
   RETURN 1;
 
 END;
