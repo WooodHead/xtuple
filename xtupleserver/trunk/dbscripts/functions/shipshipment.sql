@@ -1,10 +1,8 @@
 CREATE OR REPLACE FUNCTION shipShipment(INTEGER) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
-BEGIN
-  RETURN shipShipment($1, CURRENT_TIMESTAMP);
-END;
-$$ LANGUAGE 'plpgsql';
+  SELECT shipShipment($1, CURRENT_TIMESTAMP);
+$$ LANGUAGE SQL;
 
 CREATE OR REPLACE FUNCTION shipShipment(INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
@@ -19,12 +17,12 @@ DECLARE
   _gldate		DATE;
   _invhistid		INTEGER;
   _itemlocSeries	INTEGER;
+  _lineitemsToClose     INTEGER[];
   _newQty		NUMERIC;
   _result		INTEGER;
   _s			RECORD;
   _shipcomplete		BOOLEAN;
   _shiphead		RECORD;
-  _stdcost		NUMERIC;
   _ti			RECORD;
   _to			RECORD;
   _variance           	NUMERIC;
@@ -188,10 +186,8 @@ BEGIN
 
 	    IF (_billedQty >= _s.shipitem_qty) THEN
 	      UPDATE shipitem SET shipitem_invoiced=TRUE WHERE shipitem_id=_s.shipitem_id;
-              -- Close coitem where fully shipped and invoiced
-              UPDATE coitem SET coitem_status='C'
-              WHERE ( (coitem_id=_c.coitem_id)
-                AND   (coitem_qtyshipped >= coitem_qtyord) );
+              -- must wait to close coitems until after shiphead_shipped -> true
+              _lineitemsToClose := _lineitemsToClose || _c.coitem_id;
 	    ELSE
 	      _newQty := _s.shipitem_qty - _billedQty;
 	      UPDATE shipitem SET shipitem_invoiced=TRUE, shipitem_qty=_billedQty WHERE shipitem_id=_s.shipitem_id;
@@ -208,8 +204,8 @@ BEGIN
 	    _billedQty := _billedQty - _s.shipitem_qty;
 	  END IF;
 	END LOOP;
-      END IF;
 
+      END IF;
     END LOOP;
 
   ELSEIF (_shiphead.shiphead_order_type = 'TO') THEN
@@ -333,6 +329,13 @@ BEGIN
   UPDATE shiphead
   SET shiphead_shipped=TRUE, shiphead_shipdate=_gldate
   WHERE (shiphead_id=pshipheadid);
+
+  -- now try to close line items that are fully shipped and invoiced
+  IF (_shiphead.shiphead_order_type = 'SO') THEN
+    UPDATE coitem SET coitem_status='C'
+    WHERE ((coitem_id = ANY (_lineitemsToClose))
+      AND  (coitem_qtyshipped >= coitem_qtyord));
+  END IF;
 
   RETURN _itemlocSeries;
 
