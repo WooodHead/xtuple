@@ -39,15 +39,12 @@ public:
 
 
 protected:
-  virtual void  drawBarcode ( const QPointF & p, const QString &format, int height, int narrowBar, QString barcodeData );
-  virtual void  drawText ( const QPointF &p, const QString & text, const QFont &font = QFont(), int width = 0);
+  virtual void  drawBarcode ( const QPointF & p, const QString &format, int height, int width, int narrowBar, QString barcodeData );
+  virtual void  drawText ( const QPointF &p, const QString & text, const QFont &font = QFont());
   virtual QString rotation0Cmd() const { return "N"; }
   virtual QString rotation90Cmd() const { return "R"; }
   virtual QString rotation180Cmd() const { return "I"; }
   virtual QString rotation270Cmd() const { return "B"; }
-
-private:
-  int m_Offset;
 };
 
 #endif // ZEBRAPAINTENGINE_H

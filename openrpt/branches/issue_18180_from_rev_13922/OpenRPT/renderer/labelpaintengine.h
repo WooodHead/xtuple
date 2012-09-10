@@ -57,8 +57,8 @@ public:
   QByteArray	getBuffer() const {return m_printBuffer;}
 
 protected:
-  virtual void  drawBarcode ( const QPointF & p, const QString &format, int height, int narrowBar, QString barcodeData ) = 0;
-  virtual void  drawText ( const QPointF &p, const QString & text, const QFont &font = QFont(), int width = 0 ) = 0;
+  virtual void  drawBarcode ( const QPointF & p, const QString &format, int height, int width, int narrowBar, QString barcodeData ) = 0;
+  virtual void  drawText ( const QPointF &p, const QString & text, const QFont &font = QFont()) = 0;
   virtual QString rotation0Cmd() const  = 0;
   virtual QString rotation90Cmd() const = 0;
   virtual QString rotation180Cmd() const  = 0;
@@ -66,8 +66,8 @@ protected:
 
   bool    isProportionnal ( const QFont &font ) const;
   QString transformRotationCmd();
-  int     resolution() const { return m_Resolution; }  // resolution in points per inches
-  int     density() const { return (int) (m_Resolution / 25.4); }  // density in points per mm
+  int     resolution() const { return (qreal)m_parentPrinter->resolution(); }  // resolution in points per inches
+  int     density() const { return qRound (resolution() / 25.4); }  // density in points per mm
   QString customInitString() const { return m_CustomInitString; }
 
   ReportPrinter *m_parentPrinter;
@@ -77,7 +77,6 @@ protected:
 
 private:
 
-  int       m_Resolution;
   QString   m_CustomInitString;
   QTransform m_Rotation90;
   QTransform m_Rotation180;

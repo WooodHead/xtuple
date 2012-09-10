@@ -151,10 +151,8 @@ void 	SatoPaintEngine::addEndMessage ()
   m_printBuffer.append(output);
 }
 
-void SatoPaintEngine::drawText ( const QPointF &p, const QString & text, const QFont &font, int width )
+void SatoPaintEngine::drawText ( const QPointF &p, const QString & text, const QFont &font )
 {
-  Q_UNUSED(width);
-
   QTransform transform = painter()->worldTransform();
 
   int xInDots = (int)(transform.dx());
@@ -193,8 +191,10 @@ void SatoPaintEngine::drawText ( const QPointF &p, const QString & text, const Q
 }
 
 
-void SatoPaintEngine::drawBarcode ( const QPointF & p, const QString &format, int height, int narrowBar, QString barcodeData )
+void SatoPaintEngine::drawBarcode ( const QPointF & p, const QString &format, int height, int width, int narrowBar, QString barcodeData )
 {
+  Q_UNUSED(width);
+
   QString barcodeFont;
   if(format == "3of9" || format == "3of9+") {
     barcodeFont = "B1";

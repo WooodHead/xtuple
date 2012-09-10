@@ -39,8 +39,8 @@ public:
 
 
 protected:
-  virtual void  drawBarcode ( const QPointF & p, const QString &format, int height, int narrowBar, QString barcodeData );
-  virtual void  drawText ( const QPointF &p, const QString & text, const QFont &font = QFont(), int width = 0);
+  virtual void  drawBarcode ( const QPointF & p, const QString &format, int height, int width, int narrowBar, QString barcodeData );
+  virtual void  drawText ( const QPointF &p, const QString & text, const QFont &font = QFont());
   virtual QString rotation0Cmd() const { return "%0"; }
   virtual QString rotation90Cmd() const { return "%3"; }
   virtual QString rotation180Cmd() const { return "%2"; }

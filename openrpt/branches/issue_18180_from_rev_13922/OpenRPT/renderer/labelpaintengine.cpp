@@ -36,8 +36,6 @@ LabelPaintEngine::LabelPaintEngine(ReportPrinter *parentPrinter, QString cmdPref
   m_Rotation180.rotate(180);
   m_Rotation270.rotate(270);
 
-  m_Resolution = (qreal)m_parentPrinter->resolution();
-
   QString customCmdPrefix = m_parentPrinter->getParam("cmdprefix");
   if(!customCmdPrefix.isEmpty()) {
     m_CmdPrefix = customCmdPrefix;
@@ -51,16 +49,14 @@ QString LabelPaintEngine::transformRotationCmd()
 {
   QString rotation = rotation0Cmd();
   QTransform transform = painter()->transform();
-  if(transform.isRotating()) {
-    if(transform.m21()==m_Rotation90.m21() && transform.m12()==m_Rotation90.m12()) {
-      rotation = rotation90Cmd();
-    }
-    else if(transform.m21()==m_Rotation180.m21() && transform.m12()==m_Rotation180.m12()) {
-      rotation = rotation180Cmd();
-    }
-    else if(transform.m21()==m_Rotation270.m21() && transform.m12()==m_Rotation270.m12()) {
-      rotation = rotation270Cmd() ;
-    }
+  if(transform.m21()==m_Rotation90.m21() && transform.m12()==m_Rotation90.m12()) {
+    rotation = rotation90Cmd();
+  }
+  else if(transform.m11()==m_Rotation180.m11() && transform.m22()==m_Rotation180.m22()) {
+    rotation = rotation180Cmd();
+  }
+  else if(transform.m21()==m_Rotation270.m21() && transform.m12()==m_Rotation270.m12()) {
+    rotation = rotation270Cmd() ;
   }
 
   return rotation;
@@ -77,10 +73,10 @@ void LabelPaintEngine::drawTextItem ( const QPointF & p, const QTextItem & textI
     if (narrowBar <=1) narrowBar = 2;
     QString barcodeData = textElts.value(3);
 
-    drawBarcode(p, format, height, narrowBar, barcodeData);
+    drawBarcode(p, format, height, textItem.width(), narrowBar, barcodeData);
   }
   else {
-    drawText(p, textItem.text(), textItem.font(), textItem.width());
+    drawText(p, textItem.text(), textItem.font());
   }
 }
 

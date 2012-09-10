@@ -28,25 +28,51 @@
 #include "zebrapaintengine.h"
 
 
+static QByteArray compressedHexa(const QByteArray &in)
+{
+  const int maxOccurrences = 400;
+  QByteArray out;
+  for (int pos=0; pos<in.length(); pos++) {
+    int occurrences = 1;
+    while(pos+occurrences < in.length() && in.at(pos+occurrences) == in.at(pos)) {
+      occurrences++;
+      if(occurrences >= maxOccurrences) {
+        break;
+      }
+    }
+    if(occurrences>1) {
+      if(occurrences / 20 > 0) {
+        char c = 'f' + (occurrences / 20);
+        out.append(c);
+      }
+      if(occurrences % 20 > 0) {
+        char c = 'F' + (occurrences % 20);
+        out.append(c);
+      }
+      pos += (occurrences-1);
+    }
+    out.append(in.at(pos));
+  }
+  return out;
+}
 
-ZebraPaintEngine::ZebraPaintEngine(ReportPrinter *parentPrinter) : LabelPaintEngine(parentPrinter, "^"), m_Offset(0)
+
+ZebraPaintEngine::ZebraPaintEngine(ReportPrinter *parentPrinter) : LabelPaintEngine(parentPrinter, "^")
 {
 }
 
 
 bool 	ZebraPaintEngine::begin ( QPaintDevice * pdev )
 {
-  int height = m_parentPrinter->paperRect().height() * (resolution()/72.0); // ?? doc says that paperRect() is in device coordinates, but we get it in PS points
-
-  m_Offset = height * density();
-
-  QString init = m_CmdPrefix + "XA";
+  QString init = m_CmdPrefix + "XA" + m_CmdPrefix + "LRY";
 
   if(!customInitString().isEmpty()) {
     init += customInitString();
   }
   else {
-    init += QString("%1LL%2,0%3CI8").arg(m_CmdPrefix).arg(m_Offset).arg(m_CmdPrefix);
+    int height = m_parentPrinter->paperRect().height() * (resolution()/72.0); // ?? doc says that paperRect() is in device coordinates, but we get it in PS points
+    int width = m_parentPrinter->paperRect().width() * (resolution()/72.0);
+    init += QString(m_CmdPrefix + "LL%1" + m_CmdPrefix + "PW%2" + m_CmdPrefix + "CI8").arg(height).arg(width);
   }
 
   init += "\n";
@@ -62,36 +88,53 @@ void 	ZebraPaintEngine::addEndMessage ()
   if(printMode.isEmpty()) {
     printMode = "T";
   }
-  m_printBuffer += QString("%1MM%2").arg(m_CmdPrefix).arg(printMode);
-  m_printBuffer += QString("%1PQ%2%3").arg(m_CmdPrefix).arg(m_parentPrinter->copyCount()).arg(m_parentPrinter->getParam("printqty_options"));
-  m_printBuffer += QString("%1XZ\n").arg(m_CmdPrefix);
+  m_printBuffer += QString(m_CmdPrefix + "MM%1").arg(printMode);
+  m_printBuffer += QString(m_CmdPrefix + "PQ%1%2").arg(m_parentPrinter->copyCount()).arg(m_parentPrinter->getParam("printqty_options"));
+  m_printBuffer += QString(m_CmdPrefix + "XZ\n");
 }
 
 
-void ZebraPaintEngine::drawText ( const QPointF &p, const QString & text, const QFont &font, int width )
+void ZebraPaintEngine::drawText ( const QPointF &p, const QString & text, const QFont &font )
 {
   QTransform transform = painter()->worldTransform();
 
-  int xInDots = (int)(transform.dy());
-  int yInDots = m_Offset - (int)(transform.dx());
+  int xInDots = (int)(transform.dx());
+  int yInDots = (int)(transform.dy());
 
-  int averageCarWidth = width / text.length();
+  int carHeight = (font.pointSize() * resolution()) / 72;
+  const int minSize = 10;
+  if(carHeight < minSize) {
+    carHeight = minSize;
+  }
+  int carWidth = qRound((carHeight * 15.0) / 28.0); // fixed width/height ratio for the scalable A0 font
 
-  QString output = QString(m_CmdPrefix + "FO%1,%2" + m_CmdPrefix + "FW%3").arg(xInDots).arg(yInDots).arg(transformRotationCmd());
-  output += QString(m_CmdPrefix + "A0,0,%4" + m_CmdPrefix + "FD" + text + m_CmdPrefix + "FS\n").arg(averageCarWidth);
+  QString rotation = transformRotationCmd();
+  if(rotation == rotation90Cmd()) {
+    xInDots -= carHeight;
+  }
+  else if(rotation == rotation180Cmd()) {
+    yInDots -= carHeight;
+    xInDots -= (carWidth * text.length());
+  }
+  else if(rotation == rotation270Cmd()) {
+    yInDots -= (carWidth * text.length());
+  }
+
+  QString output = QString(m_CmdPrefix + "FO%1,%2" + m_CmdPrefix + "FW%3").arg(xInDots).arg(yInDots).arg(rotation);
+  output += QString(m_CmdPrefix + "A0,%1,0" + m_CmdPrefix + "FD" + text + m_CmdPrefix + "FS\n").arg(carHeight);
 
   QTextCodec *codec = QTextCodec::codecForName("IBM 850");
   m_printBuffer.append(codec->fromUnicode(output));
 }
 
 
-void ZebraPaintEngine::drawBarcode ( const QPointF & p, const QString &format, int height, int narrowBar, QString barcodeData )
+void ZebraPaintEngine::drawBarcode ( const QPointF & p, const QString &format, int height, int width, int narrowBar, QString barcodeData )
 {
   QString barcodeFont;
   if(format == "3of9" || format == "3of9+")
     barcodeFont = "B3";
   else if(format == "128")
-    barcodeFont = "BC";
+    barcodeFont = "BC,,N,N,N,A";
   else if(format == "ean13" || format == "upc-a")
     barcodeFont = "B8";
   else if(format == "ean8")
@@ -106,8 +149,22 @@ void ZebraPaintEngine::drawBarcode ( const QPointF & p, const QString &format, i
 
   QTransform transform = painter()->worldTransform();
 
-  int yInDots = m_Offset - (int)(transform.dx());
-  int xInDots = (int)(transform.dy());
+  int yInDots = (int)(transform.dy());
+  int xInDots = (int)(transform.dx());
+
+  QString rotation = transformRotationCmd();
+  if(rotation == rotation90Cmd()) {
+    xInDots -= height;
+  }
+  else if(rotation == rotation180Cmd()) {
+    yInDots -= height;
+    // we can't calculate the printed barcode width, so we can't print 180° and 270° correctly! Well done Zebra!
+    // we use the TextItem's width instead as a fallback
+    xInDots -= width;
+  }
+  else if(rotation == rotation270Cmd()) {
+    yInDots -= width;
+  }
 
   qreal narrowWidthRatio = 2.5;
 
@@ -118,29 +175,58 @@ void ZebraPaintEngine::drawBarcode ( const QPointF & p, const QString &format, i
 
 void ZebraPaintEngine::drawImage ( const QRectF & rectangle, const QImage & image, const QRectF & sr, Qt::ImageConversionFlags flags )
 {
-  QTransform transform = painter()->worldTransform();
-
-  int xInDots = (int)(rectangle.top() + transform.dy());
-  int yInDots = m_Offset - (int)(rectangle.left() + transform.dx());
-
   QImage monoImage = image.convertToFormat(QImage::Format_Mono);
-
-  m_printBuffer += QString("%1DYIMAGE,P,G,%2,0,:Z64:").arg(m_CmdPrefix).arg(monoImage.byteCount());
+/*
+  //PNG encoding (untested)
   QByteArray encodedImage;
   QBuffer buffer(&encodedImage);
   buffer.open(QIODevice::Append);
   monoImage.save(&buffer, "PNG");
+
+  // Hexa-encoded PNG
+  m_printBuffer += QString("~DYR:IMG,P,G,%1,0,").arg(encodedImage.size());
+  for(int i=0; i<encodedImage.size(); i++) {
+    m_printBuffer.append(QString().sprintf("%02X",(unsigned char)encodedImage.at(i)).toUpper());
+  }
+  // OR: B64-encoded PNG
+  m_printBuffer += QString("~DYR:IMG,P,G,%1,0,:B64:").arg(encodedImage.size());
   encodedImage = encodedImage.toBase64();
   m_printBuffer.append(encodedImage);
 
-  qint16 icrc = qChecksum(encodedImage.data(), encodedImage.length());
-  char crc[sizeof(icrc)];
-  memcpy (crc, &icrc, sizeof(icrc));
+  quint16 icrc = qChecksum(encodedImage.data(), encodedImage.length());
   m_printBuffer += ":";
-  m_printBuffer.append(crc,sizeof(icrc));
+  m_printBuffer.append(QString().sprintf("%02X",icrc));
+  // end of B64 encoding
+*/
+  int width = monoImage.width();
+  int nbOfLines = monoImage.height();
+
+  QByteArray grfImage;
+
+  for(int line=0; line < nbOfLines; line++) {
+    for (int x=0; x<width; x+=8) {
+      uchar imageByte = monoImage.scanLine(line)[x/8];
+      int validPix = width-x;
+      if(validPix<8) { // set out-of-bounds pixels to zero
+        imageByte >>= 8-validPix;
+        imageByte <<= 8-validPix;
+      }
+      grfImage.append(QString().sprintf("%02X",imageByte));
+    }
+  }
+
+  int bytesPerLine = (width+7)/8;
+  m_printBuffer += QString("~DGR:IMG.GRF,%1,%2,").arg(bytesPerLine*nbOfLines).arg(bytesPerLine);
+  m_printBuffer += compressedHexa(grfImage);
+
   m_printBuffer += "\n";
 
-  m_printBuffer += QString(m_CmdPrefix + "FO%1,%2" + m_CmdPrefix + "XGR:IMAGE.GRF,1,1," + m_CmdPrefix + "FS\n").arg(xInDots).arg(yInDots);
+  QTransform transform = painter()->worldTransform();
+
+  int xInDots = (int)(rectangle.top() + transform.dx());
+  int yInDots = (int)(rectangle.left() + transform.dy());
+
+  m_printBuffer += QString(m_CmdPrefix + "FO%1,%2" + m_CmdPrefix + "XGR:IMG.GRF,1,1" + m_CmdPrefix + "FS\n").arg(xInDots).arg(yInDots);
 }
 
 
@@ -151,7 +237,7 @@ void 	ZebraPaintEngine::drawLines ( const QLineF * lines, int lineCount )
     QTransform transform = painter()->worldTransform();
 
     int xInDots = (int)(lines[i].x1() + transform.dx());
-    int yInDots = m_Offset - (int)(lines[i].y1() + transform.dy());
+    int yInDots = (int)(lines[i].y1() + transform.dy());
 
     int length = (int) lines[i].length();
     int widthInDots = 0;
@@ -165,6 +251,7 @@ void 	ZebraPaintEngine::drawLines ( const QLineF * lines, int lineCount )
     else if(angle<=90) {
       widthInDots = 0;
       heightInDots = length;
+      yInDots -= length;
     }
     else if(angle<=180) {
       widthInDots = length;
@@ -174,7 +261,6 @@ void 	ZebraPaintEngine::drawLines ( const QLineF * lines, int lineCount )
     else {
       widthInDots = 0;
       heightInDots = length;
-      yInDots += length;
     }
 
     int thickness = painter()->pen().width();
@@ -195,7 +281,7 @@ void 	ZebraPaintEngine::drawRects ( const QRectF * rects, int rectCount )
     QTransform transform = painter()->worldTransform();
 
     int xInDots = (int)(rects[i].left() + transform.dx());
-    int yInDots = m_Offset - (int)(rects[i].top() + transform.dy());
+    int yInDots = (int)(rects[i].top() + transform.dy());
 
     int width = (int)(rects[i].width());
     int height = (int)(rects[i].height());
