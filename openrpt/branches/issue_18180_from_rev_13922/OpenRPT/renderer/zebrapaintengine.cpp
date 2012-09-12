@@ -143,6 +143,8 @@ void ZebraPaintEngine::drawBarcode ( const QPointF & p, const QString &format, i
     barcodeFont = "B9";
   else if(format == "i2of5")
     barcodeFont = "BI";
+  else if(format.contains("datamatrix"))
+    barcodeFont = "BX,10,200";
   else {
     drawText(p, "ERR: " + format);
   }
