@@ -22,7 +22,7 @@ class XAbstractMessageHandler;
 class CSVToolWindow : public QMainWindow, public Ui::CSVToolWindow
 {
   Q_OBJECT
-    
+
   public:
     CSVToolWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0);
     ~CSVToolWindow();
@@ -46,6 +46,7 @@ class CSVToolWindow : public QMainWindow, public Ui::CSVToolWindow
     void mapEdit();
     void sFirstRowHeader(bool yes);
     void sImportViewLog();
+    QChar sNewDelimiter(QString delim);
     void setDir(QString dirname);
     void timerEvent(QTimerEvent *e);
 
@@ -62,6 +63,7 @@ class CSVToolWindow : public QMainWindow, public Ui::CSVToolWindow
     LogWindow      *_log;
     XAbstractMessageHandler *_msghandler;
     bool            _stopped;
+    void populate();
 };
 
 #endif

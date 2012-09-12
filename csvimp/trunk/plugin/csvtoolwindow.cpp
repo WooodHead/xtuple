@@ -56,7 +56,8 @@ CSVToolWindow::CSVToolWindow(QWidget *parent, Qt::WindowFlags flags)
   _currentDir  = QString::null;
   _msghandler  = new InteractiveMessageHandler(this);
 
-  connect(_atlasWindow, SIGNAL(destroyed(QObject*)), this, SLOT(cleanup(QObject*)));
+  connect(_atlasWindow, SIGNAL(destroyed(QObject*)),      this, SLOT(cleanup(QObject*)));
+  connect(_delim,       SIGNAL(editTextChanged(QString)), this, SLOT(sNewDelimiter(QString)));
 }
 
 CSVToolWindow::~CSVToolWindow()
@@ -102,56 +103,69 @@ void CSVToolWindow::fileOpen(QString filename)
     statusBar()->showMessage(tr("Loading %1...").arg(filename));
 
     if (_data != 0)
+    {
       delete _data;
-    _data = new CSVData(this);
+      _data = 0; // must 0 because sNewDelimiter refers to _data
+    }
+    _data = new CSVData(this, 0, sNewDelimiter(_delim->currentText()));
 
     _data->load(filename, this);
     _data->setFirstRowHeaders(_firstRowHeader->isChecked());
-    int rows = _data->rows();
-    int cols = _data->columns();
-    _table->setColumnCount(cols);
-    _table->setRowCount(rows);
 
-    if(_firstRowHeader->isChecked())
-    {
-      QString header;
-      for(int h = 0; h < cols; h++)
-      {
-        QString header = _data->header(h);
-        if(header.isEmpty())
-          header = QString(h + 1);
-        else
-          header = QString("%1 (%2)").arg(h+1).arg(header);
-        _table->setHorizontalHeaderItem(h, new QTableWidgetItem(header));
-      }
-    }
-    QString progresstext(tr("Displaying Record %1 of %2"));
-    QProgressDialog *progress = new QProgressDialog(progresstext.arg(0).arg(rows),
-                                                    tr("Stop"), 0, rows, this);
-    connect(progress, SIGNAL(canceled()), this, SLOT(sUserCanceled()));
-    _stopped = false;
-    progress->setWindowModality(Qt::WindowModal);
-
-    QString v = QString::null;
-    for (int r = 0; r < rows && ! _stopped; r++)
-    {
-      if (! (r % 100))
-        progress->setLabelText(progresstext.arg(r).arg(rows));
-
-      for(int c = 0; c < cols; c++)
-      {
-        v = _data->value(r, c);
-        if(QString::null == v)
-          v = tr("(NULL)");
-        _table->setItem(r, c, new QTableWidgetItem(v));
-      }
-      progress->setValue(r);
-    }
-    progress->setValue(rows);
+    populate();
     statusBar()->showMessage(tr("Done loading %1").arg(filename));
   }
-  _firstRowHeader->setEnabled(TRUE);
-  fileOpenAction->setEnabled(TRUE);
+
+  _firstRowHeader->setEnabled(true);
+  fileOpenAction->setEnabled(true);
+}
+
+void CSVToolWindow::populate()
+{
+  if (! _data)
+    return;
+
+  int rows = _data->rows();
+  int cols = _data->columns();
+  _table->setColumnCount(cols);
+  _table->setRowCount(rows);
+
+  if(_firstRowHeader->isChecked())
+  {
+    QString header;
+    for(int h = 0; h < cols; h++)
+    {
+      QString header = _data->header(h);
+      if(header.isEmpty())
+        header = QString(h + 1);
+      else
+        header = QString("%1 (%2)").arg(h+1).arg(header);
+      _table->setHorizontalHeaderItem(h, new QTableWidgetItem(header));
+    }
+  }
+  QString progresstext(tr("Displaying Record %1 of %2"));
+  QProgressDialog progress(progresstext.arg(0).arg(rows),
+                           tr("Stop"), 0, rows, this);
+  connect(&progress, SIGNAL(canceled()), this, SLOT(sUserCanceled()));
+  _stopped = false;
+  progress.setWindowModality(Qt::WindowModal);
+
+  QString v = QString::null;
+  for (int r = 0; r < rows && ! _stopped; r++)
+  {
+    if (! (r % 100))
+      progress.setLabelText(progresstext.arg(r).arg(rows));
+
+    for(int c = 0; c < cols; c++)
+    {
+      v = _data->value(r, c);
+      if(QString::null == v)
+        v = tr("(NULL)");
+      _table->setItem(r, c, new QTableWidgetItem(v));
+    }
+    progress.setValue(r);
+  }
+  progress.setValue(rows);
 }
 
 void CSVToolWindow::fileSave()
@@ -293,6 +307,24 @@ void CSVToolWindow::sFirstRowHeader( bool firstisheader )
   }
 }
 
+QChar CSVToolWindow::sNewDelimiter(QString delim)
+{
+  QChar newdelim = ',';
+  if (delim == tr("{ tab }"))
+    newdelim = '\t';
+  else if (! delim.isNull())
+    newdelim = delim.at(0);
+
+  if (_data)
+  {
+    _data->setDelimiter(newdelim);
+    populate();
+    statusBar()->showMessage(tr("Done reloading"));
+  }
+
+  return newdelim;
+}
+
 bool CSVToolWindow::importStart()
 {
   QString mapname = atlasWindow()->map();
@@ -305,7 +337,7 @@ bool CSVToolWindow::importStart()
     if(mList.isEmpty())
     {
       _msghandler->message(QtWarningMsg, tr("No Maps Loaded"),
-                           tr("<p>There are no maps loaded to select from."
+                           tr("<p>There are no maps loaded to select from. "
                               "Either load an atlas that contains maps or "
                               "create a new one before continuing."));
       return false;
