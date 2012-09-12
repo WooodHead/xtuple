@@ -15,6 +15,7 @@
 #include <QString>
 #include <QStringList>
 
+class CSVDataPrivate;
 class QWidget;
 class XAbstractMessageHandler;
 
@@ -23,32 +24,32 @@ class CSVData : public QObject
   Q_OBJECT
 
   public:
-    CSVData(QObject * = 0, const char * = 0);
+    CSVData(QObject    *parent = 0,
+            const char *name   = 0,
+            const QChar delim  = ',');
     virtual ~CSVData();
 
-    unsigned int columns() { return _numColumns; }
-    QString      header(int);
-    bool         firstRowHeaders() { return _firstRowHeaders; }
-    bool         load(QString, QWidget* = 0);
-    XAbstractMessageHandler *messageHandler() const;
-    void         setFirstRowHeaders(bool);
+    unsigned int             columns();
+    QChar                    delimiter()       const;
+    bool                     firstRowHeaders() const;
+    QString                  header(int);
+    bool                     load(QString filename, QWidget *parent = 0);
+    XAbstractMessageHandler *messageHandler()  const;
+    void         setDelimiter(const QChar delim);
+    void         setFirstRowHeaders(bool y);
     void         setMessageHandler(XAbstractMessageHandler *handler);
     unsigned int rows();
-    QString      value(int, int);
+    QString      value(int row, int column);
 
   protected slots:
     void sUserCanceled();
 
   protected:
+    CSVDataPrivate          *_data;
+    QChar                    _delimiter;
+    bool                     _firstRowHeaders;
     XAbstractMessageHandler *_msghandler;
     bool                     _stopped;
-
-  private:
-    bool _firstRowHeaders;
-   // unsigned int _numColumns;
-    int _numColumns;
-
-    QList<QStringList> _rows;
 };
 
 #endif
