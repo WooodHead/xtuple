@@ -53,7 +53,7 @@ class CSVMapField
       UseAlternateColumn
     };
     void setIfNullAction(IfNull);
-    IfNull ifNullAction() const { return _ifNullAction; } 
+    IfNull ifNullAction() const { return _ifNullAction; }
     void setIfNullActionAlt(IfNull);
     IfNull ifNullActionAlt() const { return _ifNullActionAlt; }
 
@@ -93,6 +93,8 @@ class CSVMapField
 class CSVMap
 {
   public:
+    static QString DefaultDelimiter;
+
     CSVMap(const QString & name = QString::null);
     CSVMap(const QDomElement &);
     virtual ~CSVMap();
@@ -103,6 +105,8 @@ class CSVMap
     QString table() const { return _table; }
     void setDescription(const QString &);
     QString description() const { return _description; }
+    void setDelimiter(const QString &delim);
+    QString delimiter()   const { return _delimiter; }
     enum Action { Insert, Update, Append };
     void setAction(Action);
     Action action() const { return _action; }
@@ -140,6 +144,7 @@ class CSVMap
     QString _table;
     Action _action;
     QString _description;
+    QString _delimiter;
 };
 
 #endif

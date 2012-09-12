@@ -25,8 +25,8 @@
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
-        <property name="wordWrap">
-         <bool>false</bool>
+        <property name="buddy">
+         <cstring>_map</cstring>
         </property>
        </widget>
       </item>
@@ -47,9 +47,6 @@
        <widget class="QPushButton" name="_rename">
         <property name="text">
          <string>Rename</string>
-        </property>
-        <property name="shortcut">
-         <string/>
         </property>
        </widget>
       </item>
@@ -80,16 +77,16 @@
       <layout class="QVBoxLayout">
        <item>
         <widget class="QTabWidget" name="_tabs">
-         <widget class="QWidget" name="tab">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="_propertiesTab">
           <attribute name="title">
            <string>Properties</string>
           </attribute>
           <layout class="QVBoxLayout">
            <item>
             <layout class="QGridLayout">
-             <item row="1" column="1">
-              <widget class="QTextEdit" name="_description"/>
-             </item>
              <item row="0" column="0">
               <widget class="QLabel" name="_lblAction">
                <property name="text">
@@ -98,51 +95,12 @@
                <property name="alignment">
                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
-               <property name="wordWrap">
-                <bool>false</bool>
+               <property name="buddy">
+                <cstring>_action</cstring>
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
-              <layout class="QHBoxLayout">
-               <item>
-                <widget class="QComboBox" name="_action">
-                 <item>
-                  <property name="text">
-                   <string>Insert</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Update</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Append</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item>
-                <spacer name="spacer6">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Expanding</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
-             </item>
-             <item row="1" column="0">
+             <item row="3" column="0">
               <widget class="QLabel" name="_lblDescription">
                <property name="text">
                 <string>Description:</string>
@@ -150,16 +108,90 @@
                <property name="alignment">
                 <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
                </property>
-               <property name="wordWrap">
-                <bool>false</bool>
+               <property name="buddy">
+                <cstring>_description</cstring>
                </property>
               </widget>
+             </item>
+             <item row="3" column="1" colspan="2">
+              <widget class="QTextEdit" name="_description"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="_delimiterLit">
+               <property name="text">
+                <string>Delimiter:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <property name="buddy">
+                <cstring>_delimiter</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="_action">
+               <item>
+                <property name="text">
+                 <string>Insert</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Update</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Append</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QComboBox" name="_delimiter">
+               <property name="editable">
+                <bool>true</bool>
+               </property>
+               <item>
+                <property name="text">
+                 <string notr="true">,</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string notr="true">.</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string notr="true">{ tab }</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string notr="true">;</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string notr="true">:</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <spacer name="spacer6">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </spacer>
              </item>
             </layout>
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="tab2">
+         <widget class="QWidget" name="_preSqlTab">
           <attribute name="title">
            <string>Pre SQL</string>
           </attribute>
@@ -182,7 +214,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="TabPage">
+         <widget class="QWidget" name="_postSqlTab">
           <attribute name="title">
            <string>Post SQL</string>
           </attribute>
@@ -205,8 +237,8 @@
          <property name="text">
           <string>Field Mappings:</string>
          </property>
-         <property name="wordWrap">
-          <bool>false</bool>
+         <property name="buddy">
+          <cstring>_fields</cstring>
          </property>
         </widget>
        </item>
@@ -471,11 +503,12 @@
   <tabstop>_delete</tabstop>
   <tabstop>_tabs</tabstop>
   <tabstop>_action</tabstop>
+  <tabstop>_delimiter</tabstop>
   <tabstop>_description</tabstop>
+  <tabstop>_fields</tabstop>
   <tabstop>_preSql</tabstop>
   <tabstop>_sqlPreContinueOnError</tabstop>
   <tabstop>_postSql</tabstop>
-  <tabstop>_fields</tabstop>
  </tabstops>
  <resources/>
  <connections>

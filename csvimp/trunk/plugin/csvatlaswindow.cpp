@@ -48,6 +48,7 @@ CSVAtlasWindow::CSVAtlasWindow(QWidget *parent) : QMainWindow(parent)
 
   MetaSQLHighlighter *tmp = new MetaSQLHighlighter(_preSql);
                       tmp = new MetaSQLHighlighter(_postSql);
+  connect(_delimiter, SIGNAL(editTextChanged(QString)), this, SIGNAL(delimiterChanged(QString)));
 }
 
 CSVAtlasWindow::~CSVAtlasWindow()
@@ -115,7 +116,7 @@ void CSVAtlasWindow::fileOpen(QString filename)
   QString errMsg;
   int errLine, errCol;
   if(doc.setContent(&file, &errMsg, &errLine, &errCol))
-  {  
+  {
     _atlas = new CSVAtlas(doc.documentElement());
     _map->addItems(_atlas->mapList());
     sMapChanged(0);
@@ -268,7 +269,7 @@ void CSVAtlasWindow::sAddMap()
                                 "exists. Please enter in a unique map name."));
         continue;
       }
-      
+
       break;
     }
 
@@ -314,6 +315,7 @@ void CSVAtlasWindow::sMapChanged( int )
       map.setAction(CSVMap::Update);
     else if(tr("Append") == _action->currentText())
       map.setAction(CSVMap::Append);
+    map.setDelimiter(_delimiter->currentText());
     map.setDescription(_description->toPlainText());
     map.setSqlPre(_preSql->toPlainText().trimmed());
     map.setSqlPreContinueOnError(_sqlPreContinueOnError->isChecked());
@@ -361,7 +363,7 @@ void CSVAtlasWindow::sMapChanged( int )
     map.simplify();
     _atlas->setMap(map);
   }
- 
+
   QSqlDatabase db = QSqlDatabase::database();
   if (db.isValid())
   {
@@ -377,6 +379,15 @@ void CSVAtlasWindow::sMapChanged( int )
 
       _action->setCurrentIndex(map.action());
       _description->setText(map.description());
+
+      int delimidx = _delimiter->findText(map.delimiter());
+      if (delimidx >= 0)
+        _delimiter->setCurrentIndex(delimidx);
+      else if (! map.delimiter().isEmpty())
+        _delimiter->addItem(map.delimiter());
+      else
+        _delimiter->setCurrentIndex(0);
+
       _preSql->setText(map.sqlPre());
       _sqlPreContinueOnError->setChecked(map.sqlPreContinueOnError());
       _postSql->setText(map.sqlPost());
