@@ -14,6 +14,8 @@
 #include <QDomElement>
 #include <QList>
 
+QString CSVMap::DefaultDelimiter = QString(",");
+
 CSVMap::CSVMap(const QString & name)
 {
   _name = name;
@@ -28,6 +30,7 @@ CSVMap::CSVMap(const QDomElement & elem)
 {
   _name = QString::null;
   _description = QString::null;
+  _delimiter   = QString::null;
   _action = Insert;
   _sqlPre = QString::null;
   _sqlPreContinueOnError = false;
@@ -45,6 +48,8 @@ CSVMap::CSVMap(const QDomElement & elem)
       setAction(nameToAction(elemThis.text()));
     else if(elemThis.tagName() == "Description")
       setDescription(elemThis.text());
+    else if (elemThis.tagName() == "Delimiter")
+      setDelimiter(elemThis.text());
     else if(elemThis.tagName() == "PreSQL")
     {
       setSqlPre(elemThis.text());
@@ -94,6 +99,13 @@ QDomElement CSVMap::createElement(QDomDocument & doc)
     elem.appendChild(elemThis);
   }
 
+  if (!_delimiter.isEmpty() && _delimiter != DefaultDelimiter)
+  {
+    elemThis = doc.createElement("Delimiter");
+    elemThis.appendChild(doc.createTextNode(_delimiter));
+    elem.appendChild(elemThis);
+  }
+
   if(!_sqlPre.isEmpty())
   {
     elemThis = doc.createElement("PreSQL");
@@ -128,6 +140,11 @@ void CSVMap::setName(const QString & name)
 void CSVMap::setTable(const QString & table)
 {
   _table = table;
+}
+
+void CSVMap::setDelimiter(const QString & delim)
+{
+  _delimiter = delim;
 }
 
 void CSVMap::setDescription(const QString & desc)

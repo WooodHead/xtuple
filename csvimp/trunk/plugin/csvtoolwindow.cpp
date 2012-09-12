@@ -41,14 +41,15 @@
 static const bool usetransaction = false;
 
 CSVToolWindow::CSVToolWindow(QWidget *parent, Qt::WindowFlags flags)
-  : QMainWindow(parent, flags)
+  : QMainWindow(parent, flags),
+  _atlasWindow(0)
 {
   setupUi(this);
   if (objectName().isEmpty())
     setObjectName("CSVToolWindow");
 
   setWindowIcon(QPixmap(CSVimpIcon));
-  _atlasWindow = new CSVAtlasWindow(this);
+  (void)atlasWindow(); // initializes _atlasWindow
   _log         = new LogWindow(this);
   _data        = 0;
   _dbTimerId   = startTimer(60000);
@@ -62,6 +63,11 @@ CSVToolWindow::CSVToolWindow(QWidget *parent, Qt::WindowFlags flags)
 
 CSVToolWindow::~CSVToolWindow()
 {
+  if (_atlasWindow)
+  {
+    delete _atlasWindow;
+    _atlasWindow = 0;
+  }
 }
 
 void CSVToolWindow::languageChange()
@@ -72,7 +78,10 @@ void CSVToolWindow::languageChange()
 CSVAtlasWindow *CSVToolWindow::atlasWindow()
 {
   if(!_atlasWindow)
+  {
     _atlasWindow = new CSVAtlasWindow(this);
+    connect(_atlasWindow, SIGNAL(delimiterChanged(QString)), _delim, SLOT(setEditText(QString)));
+  }
   return _atlasWindow;
 }
 
@@ -132,7 +141,6 @@ void CSVToolWindow::populate()
 
   if(_firstRowHeader->isChecked())
   {
-    QString header;
     for(int h = 0; h < cols; h++)
     {
       QString header = _data->header(h);
@@ -192,7 +200,7 @@ void CSVToolWindow::filePrint()
     QTextDocument    textdoc(_table);
     QTextCursor      cursor(&textdoc);
     QTextTableFormat tblfmt;
-    
+
     // to avoid attempting to access text from an empty
     // element (pointer)
     QTableWidgetItem *cell;
@@ -214,7 +222,7 @@ void CSVToolWindow::filePrint()
         cursor.movePosition(QTextCursor::NextCell);
       }
     }
-  
+
     for (int row = 0; row < _table->rowCount(); row++)
       for (int col = 0; col < _table->columnCount(); col++)
       {
@@ -223,7 +231,7 @@ void CSVToolWindow::filePrint()
           cursor.insertText(cell->text());
         cursor.movePosition(QTextCursor::NextCell);
       }
-    
+
     QPrinter printer(QPrinter::HighResolution);
     printer.setOrientation(QPrinter::Landscape);
     QPrintDialog printdlg(&printer, this);
@@ -261,7 +269,7 @@ void CSVToolWindow::helpAbout()
 void CSVToolWindow::mapEdit()
 {
   if (! _atlasWindow)
-    _atlasWindow = new CSVAtlasWindow(this);
+    atlasWindow(); // initializes _atlasWindow
 
   _atlasWindow->show();
 }
@@ -314,6 +322,17 @@ QChar CSVToolWindow::sNewDelimiter(QString delim)
     newdelim = '\t';
   else if (! delim.isNull())
     newdelim = delim.at(0);
+
+  if (_delim->currentText() != delim)
+  {
+    int delimidx = _delim->findText(delim);
+    if (delimidx >= 0)
+      _delim->setCurrentIndex(delimidx);
+    else if (! delim.isEmpty())
+      _delim->addItem(delim);
+    else
+      _delim->setCurrentIndex(0);
+  }
 
   if (_data)
   {
@@ -434,7 +453,7 @@ bool CSVToolWindow::importStart()
   QVariant var;
 
   QStringList errorList;
-  
+
   for(current = 0; current < total && ! _stopped; ++current)
   {
     if(! (current % 100))
@@ -549,7 +568,7 @@ bool CSVToolWindow::importStart()
       query += front + back;
       QSqlQuery qry;
       qry.prepare(query);
-      
+
       QMap<QString,QVariant>::iterator vit;
       for(vit = values.begin(); vit != values.end(); ++vit)
         qry.bindValue(vit.key(), vit.value());

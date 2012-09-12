@@ -46,6 +46,9 @@ class CSVAtlasWindow : public QMainWindow, public Ui::CSVAtlasWindow
     virtual bool        setMap(const QString mapname);
     virtual void        setMessageHandler(XAbstractMessageHandler *handler);
 
+  signals:
+    void delimiterChanged(QString);
+
   protected slots:
     virtual void languageChange();
 
