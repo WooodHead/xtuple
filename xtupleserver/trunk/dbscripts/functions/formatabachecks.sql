@@ -175,7 +175,7 @@ BEGIN
       || LPAD(formatbytea(_check.vend_ach_accntnumber), 9)              -- vendor account no.
       ||' '                                                             -- withholding tax indicator
       ||'50'                                                            -- transaction code, this should be calculated.
-      || LPAD(to_char(_check.checkhead_amount,'FM9999V99'),10,'0')      -- amount
+      || LPAD(to_char(_check.checkhead_amount,'FM99999999V99'),10,'0')  -- amount
       || RPAD(_vendname,   32)                                          -- vendor name
       || RPAD('Deposit',8) || RPAD('#'  , 2) || LPAD (_filenum,8,' ')   -- Lodgement Reference
       || _bank.bankaccnt_routing                                        -- BSB #
