@@ -443,7 +443,6 @@ bool CSVToolWindow::importStart()
   QProgressDialog *progress = new QProgressDialog(progresstext
                                         .arg(map.name()).arg(0).arg(expected),
                                         tr("Cancel"), 0, expected, this);
-  connect(progress, SIGNAL(canceled()), this, SLOT(sUserCanceled()));
   progress->setWindowModality(Qt::WindowModal);
   bool userCanceled = false;
 
