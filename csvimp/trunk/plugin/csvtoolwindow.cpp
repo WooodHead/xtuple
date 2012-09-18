@@ -116,12 +116,16 @@ void CSVToolWindow::fileOpen(QString filename)
       _data = 0; // must 0 because sNewDelimiter refers to _data
     }
     _data = new CSVData(this, 0, sNewDelimiter(_delim->currentText()));
+    if (_msghandler)
+      _data->setMessageHandler(_msghandler);
 
-    _data->load(filename, this);
-    _data->setFirstRowHeaders(_firstRowHeader->isChecked());
+    if (_data->load(filename, this))
+    {
+      _data->setFirstRowHeaders(_firstRowHeader->isChecked());
 
-    populate();
-    statusBar()->showMessage(tr("Done loading %1").arg(filename));
+      populate();
+      statusBar()->showMessage(tr("Done loading %1").arg(filename));
+    }
   }
 
   _firstRowHeader->setEnabled(true);
@@ -670,7 +674,11 @@ void CSVToolWindow::setDir(QString dirname)
 void CSVToolWindow::setMessageHandler(XAbstractMessageHandler *handler)
 {
   if (handler != _msghandler)
+  {
     _msghandler = handler;
+    if (_data)
+      _data->setMessageHandler(handler);
+  }
 }
 
 void CSVToolWindow::timerEvent( QTimerEvent * e )
