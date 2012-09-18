@@ -76,7 +76,6 @@ class CSVDataPrivate
         {
           if (_parent->delimiter() == c || '\r' == c || '\n' == c)
           {
-qDebug() << *field;
             record.append(field->trimmed());
             col++;
 
