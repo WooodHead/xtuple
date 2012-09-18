@@ -52,7 +52,6 @@ class CSVToolWindow : public QMainWindow, public Ui::CSVToolWindow
 
   protected slots:
     void languageChange();
-    void sUserCanceled();
     void cleanup(QObject *deadobj);
 
   protected:
@@ -62,7 +61,6 @@ class CSVToolWindow : public QMainWindow, public Ui::CSVToolWindow
     int             _dbTimerId;
     LogWindow      *_log;
     XAbstractMessageHandler *_msghandler;
-    bool            _stopped;
     void populate();
 };
 

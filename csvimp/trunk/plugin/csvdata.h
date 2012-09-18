@@ -41,15 +41,11 @@ class CSVData : public QObject
     unsigned int rows();
     QString      value(int row, int column);
 
-  protected slots:
-    void sUserCanceled();
-
   protected:
     CSVDataPrivate          *_data;
     QChar                    _delimiter;
     bool                     _firstRowHeaders;
     XAbstractMessageHandler *_msghandler;
-    bool                     _stopped;
 };
 
 #endif

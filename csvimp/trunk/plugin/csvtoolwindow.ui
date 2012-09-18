@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>622</width>
-    <height>479</height>
+    <width>593</width>
+    <height>407</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -59,14 +59,14 @@
       </item>
      </widget>
     </item>
-    <item row="0" column="3">
+    <item row="0" column="6">
      <widget class="QCheckBox" name="_firstRowHeader">
       <property name="text">
        <string>Treat first row as header information</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="0" colspan="4">
+    <item row="1" column="0" colspan="7">
      <widget class="QTableWidget" name="_table">
       <row>
        <property name="text">
@@ -100,8 +100,41 @@
       </column>
      </widget>
     </item>
-    <item row="0" column="2">
+    <item row="0" column="5">
      <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="4">
+     <widget class="QSpinBox" name="_preview">
+      <property name="specialValueText">
+       <string>All</string>
+      </property>
+      <property name="maximum">
+       <number>10000</number>
+      </property>
+      <property name="value">
+       <number>100</number>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QLabel" name="_previewLit">
+      <property name="text">
+       <string>Preview:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <spacer name="horizontalSpacer_2">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -129,7 +162,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>622</width>
+     <width>593</width>
      <height>22</height>
     </rect>
    </property>
@@ -353,6 +386,12 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>_delim</tabstop>
+  <tabstop>_preview</tabstop>
+  <tabstop>_firstRowHeader</tabstop>
+  <tabstop>_table</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
