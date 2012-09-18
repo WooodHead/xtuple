@@ -53,7 +53,6 @@ CSVToolWindow::CSVToolWindow(QWidget *parent, Qt::WindowFlags flags)
   _log         = new LogWindow(this);
   _data        = 0;
   _dbTimerId   = startTimer(60000);
-  _stopped     = false;
   _currentDir  = QString::null;
   _msghandler  = new InteractiveMessageHandler(this);
 
@@ -134,7 +133,8 @@ void CSVToolWindow::populate()
   if (! _data)
     return;
 
-  int rows = _data->rows();
+  // limit the preview to just the first N rows, or ALL rows if N == 0
+  int rows = (_preview->value() > 0) ? _preview->value() : _data->rows();
   int cols = _data->columns();
   _table->setColumnCount(cols);
   _table->setRowCount(rows);
@@ -154,15 +154,13 @@ void CSVToolWindow::populate()
   QString progresstext(tr("Displaying Record %1 of %2"));
   QProgressDialog progress(progresstext.arg(0).arg(rows),
                            tr("Stop"), 0, rows, this);
-  connect(&progress, SIGNAL(canceled()), this, SLOT(sUserCanceled()));
-  _stopped = false;
   progress.setWindowModality(Qt::WindowModal);
 
   QString v = QString::null;
-  for (int r = 0; r < rows && ! _stopped; r++)
+  for (int r = 0; r < rows; r++)
   {
-    if (! (r % 100))
-      progress.setLabelText(progresstext.arg(r).arg(rows));
+    if (progress.wasCanceled())
+      break;
 
     for(int c = 0; c < cols; c++)
     {
@@ -171,7 +169,11 @@ void CSVToolWindow::populate()
         v = tr("(NULL)");
       _table->setItem(r, c, new QTableWidgetItem(v));
     }
-    progress.setValue(r);
+    if ((r % 1000) == 0)
+    {
+      progress.setLabelText(progresstext.arg(r).arg(rows));
+      progress.setValue(r);
+    }
   }
   progress.setValue(rows);
 }
@@ -442,8 +444,8 @@ bool CSVToolWindow::importStart()
                                         .arg(map.name()).arg(0).arg(expected),
                                         tr("Cancel"), 0, expected, this);
   connect(progress, SIGNAL(canceled()), this, SLOT(sUserCanceled()));
-  _stopped = false;
   progress->setWindowModality(Qt::WindowModal);
+  bool userCanceled = false;
 
   QString query;
   QString front;
@@ -454,11 +456,8 @@ bool CSVToolWindow::importStart()
 
   QStringList errorList;
 
-  for(current = 0; current < total && ! _stopped; ++current)
+  for(current = 0; current < total; ++current)
   {
-    if(! (current % 100))
-      progress->setLabelText(progresstext.arg(map.name()).arg(current).arg(expected));
-
     if(usetransaction) QSqlQuery savepoint("SAVEPOINT csvinsert;");
     if(action == CSVMap::Insert)
     {
@@ -581,11 +580,20 @@ bool CSVToolWindow::importStart()
         errorList.append(errMsg);
       }
     }
-    progress->setValue(current);
+    if (progress->wasCanceled())
+    {
+      userCanceled = true;
+      break;
+    }
+    if(! (current % 1000))
+    {
+      progress->setLabelText(progresstext.arg(map.name()).arg(current).arg(expected));
+      progress->setValue(current);
+    }
   }
   progress->setValue(total);
 
-  if (error || ignored)
+  if (error || ignored || userCanceled)
   {
     _log->_log->append(tr("Map: %1\n"
                           "Table: %2\n"
@@ -609,7 +617,7 @@ bool CSVToolWindow::importStart()
                            _log->_log->toPlainText());
   }
 
-  if (! _stopped && ! map.sqlPost().trimmed().isEmpty())
+  if (! userCanceled && ! map.sqlPost().trimmed().isEmpty())
   {
     QSqlQuery post;
     if(!post.exec(map.sqlPost()))
@@ -628,7 +636,7 @@ bool CSVToolWindow::importStart()
     }
   }
 
-  if (_stopped)
+  if (userCanceled)
   {
     if(usetransaction) QSqlQuery rollback("ROLLBACK;");
     _log->_log->append(tr("\n\nImport canceled by user. Changes were rolled back."));
@@ -677,11 +685,6 @@ void CSVToolWindow::timerEvent( QTimerEvent * e )
     }
     // if we are not connected then we have some problems!
   }
-}
-
-void CSVToolWindow::sUserCanceled()
-{
-  _stopped = true;
 }
 
 void CSVToolWindow::cleanup(QObject *deadobj)

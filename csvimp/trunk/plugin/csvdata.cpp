@@ -10,12 +10,15 @@
 
 #include "csvdata.h"
 
+#include <QDebug>
 #include <QFile>
 #include <QProgressDialog>
 
 #include "interactivemessagehandler.h"
 
-class  CSVDataPrivate
+#define INPUTBUFSIZE 1024
+
+class CSVDataPrivate
 {
   public:
     CSVDataPrivate(CSVData *parent)
@@ -23,78 +26,127 @@ class  CSVDataPrivate
     {
     }
 
-    void append(QString theline)
+    // parser variables
+    bool    inQuote;
+    QByteArray *field;
+    bool    haveText;
+    int     row;
+    int     col;
+    int     maxcols;
+    QStringList record;
+
+    bool parseInit()
     {
-      _line.append(theline);
+      inQuote  = false;
+      field    = new QByteArray(INPUTBUFSIZE, '\0');
+      field->clear(); // without this, sometimes the value(0,0) is empty
+      haveText = false;
+      row = 0;
+      col = 0;
+      maxcols = 0;
+      record = QStringList();
+
+      _model.clear();
+      _header.clear();
+
+      return true;
     }
 
-    QStringList parse(QString line)
+    bool parse(QByteArray &line)
     {
-      QStringList result;
-      bool    inQuote  = false;
-      QString field    = QString::null;
-      bool    haveText = false;
-
-      // handle everything differently inside double-quotes
       for (int i = 0; i < line.length(); i++)
       {
-        QChar c = line.at(i);
-        if (inQuote)
+        char c = line.at(i);
+        if (inQuote) // handle everything differently inside double-quotes
         {
           if('"' == c && '"' == line.at(i + 1))
           {
-            field += c;
+            field->append(c);
             i++;
           }
           else if ('"' == c)
             inQuote = false;
           else
-            field += c;
+          {
+            field->append(c);
+            haveText = true;
+          }
         }
         else
         {
           if (_parent->delimiter() == c || '\r' == c || '\n' == c)
           {
-            if(!field.isNull() && haveText)
-              field = field.trimmed();
-            result.append(field);
+qDebug() << *field;
+            record.append(field->trimmed());
+            col++;
 
-            field    = QString::null;
+            field->clear();
             inQuote  = false;
             haveText = false;
 
+            // TODO: did Qt strip out the \r's when reading the file?
             if (('\r' == c && '\n' == line.at(i + 1)) ||
                 ('\n' == c && '\r' == line.at(i + 1)))
               c = line.at(++i);
+
+            if ('\r' == c || '\n' == c)
+            {
+              _model.append(record);
+              record = QStringList();
+              row++;
+              if (col > maxcols)
+                maxcols = col;
+              col = 0;
+            }
           }
           else if('"' == c)
           {
             inQuote = true;
-            if(field.isNull())
-              field = QString("");
+            field->clear();
           }
-          else if(c.isSpace() && haveText)
-            field += c;
+          else if (haveText && QChar(c).isSpace())
+            field->append(c);
           else
           {
             haveText = true;
-            field += c;
+            field->append(c);
           }
         }
       }
 
-      return result;
+      return true;
     }
 
-    QStringList _line;
-    CSVData    *_parent;
+    bool parseCleanup()
+    {
+      if (haveText)
+      {
+        record.append(field->trimmed());
+        _model.append(record);
+      }
+
+      if (_parent->firstRowHeaders() && ! _model.isEmpty())
+      {
+        _header = _model.at(0);
+        _model.takeFirst();
+      }
+
+      delete field;
+
+      return true;
+    }
+
+    QStringList         _line;
+    QString             _filename;
+    QStringList         _header;
+    QList<QStringList>  _model;
+    CSVData            *_parent;
 };
 
 CSVData::CSVData(QObject *parent, const char *name, const QChar delim)
   : QObject(parent),
     _data(0),
-    _firstRowHeaders(false),
-    _stopped(false)
+    _firstRowHeaders(false)
 {
   _data = new CSVDataPrivate(this);
   setObjectName(name ? name : "_CSVData");
@@ -113,8 +165,8 @@ CSVData::~CSVData() {
 unsigned int CSVData::columns()
 {
   unsigned int n = 0;
-  if (_data && _data->_line.count() > 0)
-    n = _data->parse(_data->_line[0]).size();
+  if (_data)
+    n = _data->maxcols;
 
   return n;
 }
@@ -126,7 +178,13 @@ QChar CSVData::delimiter() const
 
 void CSVData::setDelimiter(const QChar delim)
 {
-  _delimiter = delim.isNull() ? ',' : delim;
+  QChar newdelim = delim.isNull() ? ',' : delim;
+  if (newdelim != _delimiter)
+  {
+    _delimiter = newdelim;
+    if (_data && ! _data->_filename.isEmpty())
+      load(_data->_filename, qobject_cast<QWidget*>(parent()));
+  }
 }
 
 bool CSVData::firstRowHeaders() const
@@ -137,23 +195,35 @@ bool CSVData::firstRowHeaders() const
 void CSVData::setFirstRowHeaders(bool y)
 {
   if (_firstRowHeaders != y)
+  {
     _firstRowHeaders = y;
+    if (_data)
+    {
+      if (y && ! _data->_model.isEmpty())
+      {
+        _data->_header = _data->_model.at(0);
+        _data->_model.takeFirst();
+      }
+      else if (! y && ! _data->_header.isEmpty())
+      {
+        _data->_model.prepend(_data->_header);
+        _data->_header.clear();
+      }
+    }
+  }
 }
 
 QString CSVData::header(int column)
 {
-  if (_firstRowHeaders && _data->_line.count() > 0)
-  {
-     QStringList header = _data->parse(_data->_line[0]);
-     if (column < header.count())
-        return header[column];
-  }
+  if (_firstRowHeaders && _data && _data->_header.size() >= column)
+    return _data->_header.at(column);
 
   return QString::null;
 }
 
 bool CSVData::load(QString filename, QWidget *parent)
 {
+  _data->_filename = filename;
   QFile file(filename);
 
   if(!file.open(QIODevice::ReadOnly))
@@ -164,47 +234,73 @@ bool CSVData::load(QString filename, QWidget *parent)
     return false;
   }
 
-  QString          progresstext(tr("Loading %1: %2 bytes out of %3, %4 lines"));
+  QString          progresstext(tr("Loading %1: line %2"));
   QProgressDialog *progress = 0;
+  qint64           bytes    = 0;
   int              expected = file.size();
-  _stopped = false;
+  bool             result   = true;
 
   if (parent)
   {
-    progress = new QProgressDialog(progresstext
-                                     .arg(filename).arg(0).arg(expected).arg(0),
-                                   tr("Stop"), 0, expected, parent);
+    progress = new QProgressDialog(progresstext.arg(filename).arg(0),
+                                   tr("Stop"), bytes, expected, parent);
     progress->setWindowModality(Qt::WindowModal);
-    connect(progress, SIGNAL(canceled()), this, SLOT(sUserCanceled()));
+    progress->setValue(0);
   }
 
-  for (qint64 bytes = 0, lines = 0; ! file.atEnd() && ! _stopped; bytes++, lines++)
+  _data->parseInit();
+  char   buf[INPUTBUFSIZE];
+
+  for (qint64 lines = 0; ! file.atEnd(); lines++)
   {
-    char   buf[1024];
     qint64 lineLength = file.readLine(buf, sizeof(buf));
     if (lineLength == -1)
     {
       _msghandler->message(QtWarningMsg, tr("Read Error"),
                            tr("<p>Error Reading %1: %2")
                              .arg(filename, file.errorString()));
-      return false;
+      if (progress)
+        progress->cancel();
+      result = false;
+      break;
     }
 
-    bytes += lineLength;
-    _data->append(QString(buf));
+    QByteArray ba(buf);
+    if (! _data->parse(ba))
+    {
+      _msghandler->message(QtWarningMsg, tr("Parsing Error"),
+                           tr("<p>Error parsing the data from %1 (delimiter %2).")
+                             .arg(filename).arg(_delimiter));
+      if (progress)
+        progress->cancel();
+      result = false;
+      break;
+    }
 
     if (progress)
     {
-      progress->setValue(bytes);
-      progress->setLabelText(progresstext
-                   .arg(filename).arg(bytes).arg(expected).arg(lines));
+      if (progress->wasCanceled())
+      {
+        result = false;
+        break;
+      }
+      bytes += lineLength;
+      if ((lines % 10000) == 0)
+      {
+        progress->setValue(bytes);
+        progress->setLabelText(progresstext.arg(filename).arg(lines));
+      }
     }
   }
+
+  _data->parseCleanup();
+
+  file.close();
 
   if (progress)
     progress->setValue(expected);
 
-  return true;
+  return result;
 }
 
 XAbstractMessageHandler *CSVData::messageHandler() const
@@ -219,31 +315,20 @@ void CSVData::setMessageHandler(XAbstractMessageHandler *handler)
 
 unsigned int CSVData::rows()
 {
-  int n = _data ? _data->_line.count() : 0;
-  if (_firstRowHeaders)
-    --n;
-  if(n < 0)
-    n = 0;
+  int n = 0;
+  if (_data)
+    n = _data->_model.size();
 
   return n;
 }
 
 QString CSVData::value(int row, int column)
 {
-  if (_firstRowHeaders)
-    ++row;
+  QString result = QString::null;
 
-  if(row < _data->_line.count())
-  {
-    QStringList line = _data->parse(_data->_line[row]);
-    if (column < line.count())
-      return line[column];
-  }
+  if (_data &&
+      row < _data->_model.size() && column < _data->_model.at(row).size())
+    result = _data->_model.at(row).at(column);
 
-  return QString::null;
-}
-
-void CSVData::sUserCanceled()
-{
-  _stopped = true;
+  return result;
 }
