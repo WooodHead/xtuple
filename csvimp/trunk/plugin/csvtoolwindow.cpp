@@ -438,7 +438,7 @@ bool CSVToolWindow::importStart()
     }
   }
 
-  QString progresstext(tr("Loading %1: %2 rows out of %3"));
+  QString progresstext(tr("Importing %1: %2 rows out of %3"));
   int expected = total;
   QProgressDialog *progress = new QProgressDialog(progresstext
                                         .arg(map.name()).arg(0).arg(expected),
