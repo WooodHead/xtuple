@@ -221,7 +221,10 @@ void CSVAtlasWindow::setDir(QString dirname)
 bool CSVAtlasWindow::setMap(const QString mapname)
 {
   _map->setCurrentIndex(_map->findText(mapname));
-  return (_map->currentIndex() >= 0);
+  int mapidx = _map->currentIndex();
+  if (mapidx >= 0)
+    sMapChanged(mapidx);
+  return (mapidx >= 0);
 }
 
 void CSVAtlasWindow::setMessageHandler(XAbstractMessageHandler *handler)
