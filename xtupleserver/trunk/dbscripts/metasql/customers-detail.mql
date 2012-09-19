@@ -131,5 +131,8 @@ WHERE true
   AND (COALESCE(bill_addr.addr_country,'') ~* <? value("addr_country_pattern") ?>
    OR  COALESCE(corr_addr.addr_country,'') ~* <? value("addr_country_pattern") ?>)
 <? endif ?>
+<? if exists("salesrep_id") ?>
+  AND (cust_salesrep_id = <? value("salesrep_id") ?>)
+<? endif ?>
 <? literal("charClause") ?>
 ORDER BY cust_number; 
