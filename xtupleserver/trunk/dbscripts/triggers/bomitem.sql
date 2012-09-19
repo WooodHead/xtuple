@@ -152,85 +152,78 @@ CREATE OR REPLACE FUNCTION _bomitemAfterTrigger() RETURNS TRIGGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  _cmnttypeid INTEGER;
+
 BEGIN
 
   IF ( SELECT fetchMetricBool('ItemChangeLog') ) THEN
+    IF (TG_OP = 'INSERT') THEN
+      PERFORM postComment('ChangeLog', 'BMI', NEW.bomitem_id, ('Created BOM Item Sequence ' || NEW.bomitem_seqnumber::TEXT));
 
-    --  Cache the cmnttype_id for ChangeLog
-    SELECT cmnttype_id INTO _cmnttypeid
-    FROM cmnttype
-    WHERE (cmnttype_name='ChangeLog');
-    IF (FOUND) THEN
-      IF (TG_OP = 'INSERT') THEN
-        PERFORM postComment(_cmnttypeid, 'BMI', NEW.bomitem_id, ('Created BOM Item Sequence ' || NEW.bomitem_seqnumber::TEXT));
-
-      ELSIF (TG_OP = 'UPDATE') THEN
-        IF (NEW.bomitem_effective <> OLD.bomitem_effective) THEN
-          PERFORM postComment( _cmnttypeid, 'BMI', NEW.bomitem_id,
-                               ( 'Effective Date Changed from ' || formatDate(OLD.bomitem_effective, 'Always') ||
-                                 ' to ' || formatDate(NEW.bomitem_effective, 'Always' ) ) );
-        END IF;
-
-        IF (NEW.bomitem_expires <> OLD.bomitem_expires) THEN
-          PERFORM postComment( _cmnttypeid, 'BMI', NEW.bomitem_id,
-                               ( 'Expiration Date Changed from ' || formatDate(OLD.bomitem_expires, 'Never') ||
-                                 ' to ' || formatDate(NEW.bomitem_expires, 'Never' ) ) );
-        END IF;
-
-        IF (NEW.bomitem_qtyfxd <> OLD.bomitem_qtyfxd) THEN
-          PERFORM postComment( _cmnttypeid, 'BMI', NEW.bomitem_id,
-                               ( 'Fixed Qty. Changed from ' || formatQtyPer(OLD.bomitem_qtyfxd) ||
-                                 ' to ' || formatQtyPer(NEW.bomitem_qtyfxd ) ) );
-        END IF;
-
-        IF (NEW.bomitem_qtyper <> OLD.bomitem_qtyper) THEN
-          PERFORM postComment( _cmnttypeid, 'BMI', NEW.bomitem_id,
-                               ( 'Qty. Per Changed from ' || formatQtyPer(OLD.bomitem_qtyper) ||
-                                 ' to ' || formatQtyPer(NEW.bomitem_qtyper ) ) );
-        END IF;
-
-        IF (NEW.bomitem_scrap <> OLD.bomitem_scrap) THEN
-          PERFORM postComment( _cmnttypeid, 'BMI', NEW.bomitem_id,
-                               ( 'Scrap % Changed from ' || formatPrcnt(OLD.bomitem_scrap) ||
-                                 ' to ' || formatPrcnt(NEW.bomitem_scrap ) ) );
-        END IF;
-
-        IF (NEW.bomitem_issuemethod <> OLD.bomitem_issuemethod) THEN
-          PERFORM postComment( _cmnttypeid, 'BMI', NEW.bomitem_id,
-                               ( 'Issue Method Changed from ' || (CASE WHEN(OLD.bomitem_issuemethod='S') THEN 'Push'
-                                                                         WHEN(OLD.bomitem_issuemethod='L') THEN 'Pull'
-                                                                         WHEN(OLD.bomitem_issuemethod='M') THEN 'Mixed'
-                                                                         ELSE OLD.bomitem_issuemethod END) ||
-                                 ' to ' || (CASE WHEN(NEW.bomitem_issuemethod='S') THEN 'Push'
-                                                   WHEN(NEW.bomitem_issuemethod='L') THEN 'Pull'
-                                                   WHEN(NEW.bomitem_issuemethod='M') THEN 'Mixed'
-                                                   ELSE NEW.bomitem_issuemethod END) ) );
-        END IF;
-
-        IF (NEW.bomitem_ecn <> OLD.bomitem_ecn) THEN
-          PERFORM postComment( _cmnttypeid, 'BMI', NEW.bomitem_id,
-                               ( 'ECN Changed from ' || OLD.bomitem_ecn ||
-                                 ' to ' || NEW.bomitem_ecn ) );
-        END IF;
-
-        IF (OLD.bomitem_createwo <> NEW.bomitem_createwo) THEN
-          IF (NEW.bomitem_createwo) THEN
-            PERFORM postComment(_cmnttypeid, 'BMI', NEW.bomitem_id, 'Create Child W/O activated');
-          ELSE
-            PERFORM postComment(_cmnttypeid, 'BMI', NEW.bomitem_id, 'Create Child W/O deactivated');
-          END IF;
-        END IF;
-
-        IF (OLD.bomitem_issuewo <> NEW.bomitem_issuewo) THEN
-          IF (NEW.bomitem_issuewo) THEN
-            PERFORM postComment(_cmnttypeid, 'BMI', NEW.bomitem_id, 'Issue Child W/O activated');
-          ELSE
-            PERFORM postComment(_cmnttypeid, 'BMI', NEW.bomitem_id, 'Issue Child W/O deactivated');
-          END IF;
-        END IF;
-
+    ELSIF (TG_OP = 'UPDATE') THEN
+      IF (NEW.bomitem_effective <> OLD.bomitem_effective) THEN
+        PERFORM postComment( 'ChangeLog', 'BMI', NEW.bomitem_id,
+                             ( 'Effective Date Changed from ' || formatDate(OLD.bomitem_effective, 'Always') ||
+                               ' to ' || formatDate(NEW.bomitem_effective, 'Always' ) ) );
       END IF;
+
+      IF (NEW.bomitem_expires <> OLD.bomitem_expires) THEN
+        PERFORM postComment( 'ChangeLog', 'BMI', NEW.bomitem_id,
+                             ( 'Expiration Date Changed from ' || formatDate(OLD.bomitem_expires, 'Never') ||
+                               ' to ' || formatDate(NEW.bomitem_expires, 'Never' ) ) );
+      END IF;
+
+      IF (NEW.bomitem_qtyfxd <> OLD.bomitem_qtyfxd) THEN
+        PERFORM postComment( 'ChangeLog', 'BMI', NEW.bomitem_id,
+                             ( 'Fixed Qty. Changed from ' || formatQtyPer(OLD.bomitem_qtyfxd) ||
+                               ' to ' || formatQtyPer(NEW.bomitem_qtyfxd ) ) );
+      END IF;
+
+      IF (NEW.bomitem_qtyper <> OLD.bomitem_qtyper) THEN
+        PERFORM postComment( 'ChangeLog', 'BMI', NEW.bomitem_id,
+                             ( 'Qty. Per Changed from ' || formatQtyPer(OLD.bomitem_qtyper) ||
+                               ' to ' || formatQtyPer(NEW.bomitem_qtyper ) ) );
+      END IF;
+
+      IF (NEW.bomitem_scrap <> OLD.bomitem_scrap) THEN
+        PERFORM postComment( 'ChangeLog', 'BMI', NEW.bomitem_id,
+                             ( 'Scrap % Changed from ' || formatPrcnt(OLD.bomitem_scrap) ||
+                               ' to ' || formatPrcnt(NEW.bomitem_scrap ) ) );
+      END IF;
+
+      IF (NEW.bomitem_issuemethod <> OLD.bomitem_issuemethod) THEN
+        PERFORM postComment( 'ChangeLog', 'BMI', NEW.bomitem_id,
+                             ( 'Issue Method Changed from ' || (CASE WHEN(OLD.bomitem_issuemethod='S') THEN 'Push'
+                                                                     WHEN(OLD.bomitem_issuemethod='L') THEN 'Pull'
+                                                                     WHEN(OLD.bomitem_issuemethod='M') THEN 'Mixed'
+                                                                     ELSE OLD.bomitem_issuemethod END) ||
+                               ' to ' || (CASE WHEN(NEW.bomitem_issuemethod='S') THEN 'Push'
+                                               WHEN(NEW.bomitem_issuemethod='L') THEN 'Pull'
+                                               WHEN(NEW.bomitem_issuemethod='M') THEN 'Mixed'
+                                               ELSE NEW.bomitem_issuemethod END) ) );
+      END IF;
+
+      IF (NEW.bomitem_ecn <> OLD.bomitem_ecn) THEN
+        PERFORM postComment( 'ChangeLog', 'BMI', NEW.bomitem_id,
+                             ( 'ECN Changed from ' || OLD.bomitem_ecn ||
+                               ' to ' || NEW.bomitem_ecn ) );
+      END IF;
+
+      IF (OLD.bomitem_createwo <> NEW.bomitem_createwo) THEN
+        IF (NEW.bomitem_createwo) THEN
+          PERFORM postComment('ChangeLog', 'BMI', NEW.bomitem_id, 'Create Child W/O activated');
+        ELSE
+          PERFORM postComment('ChangeLog', 'BMI', NEW.bomitem_id, 'Create Child W/O deactivated');
+        END IF;
+      END IF;
+
+      IF (OLD.bomitem_issuewo <> NEW.bomitem_issuewo) THEN
+        IF (NEW.bomitem_issuewo) THEN
+          PERFORM postComment('ChangeLog', 'BMI', NEW.bomitem_id, 'Issue Child W/O activated');
+        ELSE
+          PERFORM postComment('ChangeLog', 'BMI', NEW.bomitem_id, 'Issue Child W/O deactivated');
+        END IF;
+      END IF;
+
     END IF;
   END IF;
 
