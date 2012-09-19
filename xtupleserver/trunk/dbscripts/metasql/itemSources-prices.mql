@@ -9,10 +9,8 @@ SELECT itemsrcp_id, itemsrc_id,
        currConcat(vend_curr_id) AS vend_curr,
        item_number,
        (item_descrip1 || ' ' || item_descrip2) AS item_descrip,
-       uom_name,
+       warehous_code, uom_name,
        contrct_number,
-       COALESCE(contrct_effective, itemsrc_effective) AS effective,
-       COALESCE(contrct_expires, itemsrc_expires) AS expires,
        itemsrc.*,
        (itemsrc_vend_item_number || '/' || itemsrc_manuf_item_number) AS itemsrc_descrip,
        itemsrcp.*,
@@ -42,14 +40,19 @@ SELECT itemsrcp_id, itemsrc_id,
        'purchprice' AS price_local_xtnumericrole,
        'purchprice' AS price_base_xtnumericrole,
        'percent' AS itemsrcp_discntprcnt_xtnumericrole,
-       CASE WHEN COALESCE(contrct_effective, itemsrc_effective, startOfTime()) <=
+       CASE WHEN (warehous_code IS NULL) THEN <? value("all") ?>
+       END AS warehous_code_qtdisplayrole,
+       CASE WHEN (itemsrcp_dropship) THEN <? value("dropship") ?>
+            ELSE <? value("stock") ?>
+       END AS itemsrcp_dropship_qtdisplayrole,
+       CASE WHEN COALESCE(itemsrc_effective, startOfTime()) <=
                  startOfTime() THEN <? value("always") ?>
        END AS effective_qtdisplayrole,
-       CASE WHEN COALESCE(contrct_expires, itemsrc_expires, endOfTime()) >=
+       CASE WHEN COALESCE(itemsrc_expires, endOfTime()) >=
                  endOfTime() THEN <? value("never") ?>
        END AS expires_qtdisplayrole,
-       CASE WHEN (COALESCE(contrct_expires, itemsrc_expires, endOfTime()) < CURRENT_DATE) THEN 'expired'
-            WHEN (COALESCE(contrct_effective, itemsrc_effective, startOfTime()) > CURRENT_DATE) THEN 'future'
+       CASE WHEN (COALESCE(itemsrc_expires, endOfTime()) < CURRENT_DATE) THEN 'expired'
+            WHEN (COALESCE(itemsrc_effective, startOfTime()) > CURRENT_DATE) THEN 'future'
        END AS qtforegroundrole
 FROM itemsrc JOIN vendinfo ON (vend_id=itemsrc_vend_id AND vend_active)
              JOIN item ON (item_id=itemsrc_item_id)
@@ -57,9 +60,10 @@ FROM itemsrc JOIN vendinfo ON (vend_id=itemsrc_vend_id AND vend_active)
              JOIN itemsrcp ON (itemsrcp_itemsrc_id=itemsrc_id)
              LEFT OUTER JOIN contrct ON (contrct_vend_id=vend_id AND
                                         (CURRENT_DATE BETWEEN contrct_effective AND contrct_expires))
+             LEFT OUTER JOIN whsinfo ON (warehous_id=itemsrcp_warehous_id)
 WHERE ((true)
-<? if exists("onlyShowActive") ?>
-  AND (itemsrc_active)
+<? if not exists("showInactive") ?>
+   AND (itemsrc_active)
 <? endif ?>
 <? if exists("item_id") ?>
   AND (itemsrc_item_id=<? value("item_id") ?>)
@@ -69,6 +73,12 @@ WHERE ((true)
 <? endif ?>
 <? if exists("itemsrc_id") ?>
   AND (itemsrc_id=<? value("itemsrc_id") ?>)
+<? endif ?>
+<? if exists("warehous_id") ?>
+  AND (itemsrcp_warehous_id=<? value("warehous_id") ?>)
+<? endif ?>
+<? if exists("showDropShip") ?>
+   AND (itemsrcp_dropship)
 <? endif ?>
 <? if exists("search_pattern") ?>
   AND ( (item_number ~* <? value("search_pattern") ?>)
