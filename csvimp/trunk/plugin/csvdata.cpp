@@ -100,8 +100,16 @@ class CSVDataPrivate
           }
           else if('"' == c)
           {
-            inQuote = true;
-            field->clear();
+            if (line.at(i + 1) == '"')
+            {
+              field->append(c);
+              i++;
+            }
+            else
+            {
+              inQuote = true;
+              field->clear();
+            }
           }
           else if (haveText && QChar(c).isSpace())
             field->append(c);

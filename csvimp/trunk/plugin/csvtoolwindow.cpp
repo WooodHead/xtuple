@@ -138,8 +138,10 @@ void CSVToolWindow::populate()
     return;
 
   // limit the preview to just the first N rows, or ALL rows if N == 0
-  int rows = (_preview->value() > 0) ? _preview->value() : _data->rows();
   int cols = _data->columns();
+  int rows = _preview->value();
+  if (_preview->value() == 0 || _data->rows() < _preview->value())
+    rows = _data->rows();
   _table->setColumnCount(cols);
   _table->setRowCount(rows);
 
