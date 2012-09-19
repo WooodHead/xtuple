@@ -7,6 +7,26 @@ CREATE OR REPLACE FUNCTION itemsrcPrice(pItemsrcid INTEGER,
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _price NUMERIC := 0.0;
+
+BEGIN
+
+  SELECT itemsrcPrice(pItemsrcid, -1, FALSE, pQty, pCurrid, pEffective) INTO _price;
+
+  RETURN _price;
+
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION itemsrcPrice(pItemsrcid INTEGER,
+                                        pSiteid INTEGER,
+                                        pDropship BOOLEAN,
+                                        pQty NUMERIC,
+                                        pCurrid INTEGER,
+                                        pEffective DATE) RETURNS NUMERIC AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+DECLARE
+  _price NUMERIC := 0.0;
   _r RECORD;
   _effective DATE;
 
@@ -33,6 +53,8 @@ BEGIN
            END AS price
     FROM itemsrcp
     WHERE ( (itemsrcp_itemsrc_id=_r.itemsrc_id)
+      AND   ((itemsrcp_warehous_id=pSiteid) OR (itemsrcp_warehous_id=-1))
+      AND   ((itemsrcp_dropship=pDropship) OR (NOT itemsrcp_dropship))
       AND   (itemsrcp_qtybreak <= pQty) )
     ORDER BY itemsrcp_qtybreak DESC
     LIMIT 1
