@@ -5,7 +5,7 @@ DECLARE
 
 BEGIN
 
-  DELETE FROM ipsiteminfo WHERE ipsprodcat_id=pIpsItemId;
+  DELETE FROM ipsiteminfo WHERE ipsitem_id=pIpsItemId;
   
   RETURN 1;
 END;

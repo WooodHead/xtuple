@@ -2,6 +2,10 @@ ALTER TABLE itemsrc ADD COLUMN itemsrc_effective DATE;
 ALTER TABLE itemsrc ADD COLUMN itemsrc_expires DATE;
 ALTER TABLE itemsrc ADD COLUMN itemsrc_contrct_id INTEGER REFERENCES contrct(contrct_id);
 
+COMMENT ON COLUMN itemsrc.itemsrc_effective IS 'Effective date for item source.  Constraint for overlap.';
+COMMENT ON COLUMN itemsrc.itemsrc_expires IS 'Expiration date for item source.  Constraint for overlap.';
+COMMENT ON COLUMN itemsrc.itemsrc_contrct_id IS 'Associated contract for item source.  Inherits effective, expiration dates.';
+
 UPDATE itemsrc SET itemsrc_effective=startOfTime(), itemsrc_expires=endOfTime();
 
 ALTER TABLE itemsrc ALTER COLUMN itemsrc_effective SET NOT NULL;

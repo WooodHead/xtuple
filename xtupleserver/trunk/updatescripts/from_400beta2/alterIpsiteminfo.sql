@@ -9,7 +9,7 @@ COMMENT ON COLUMN ipsiteminfo.ipsitem_type IS 'Pricing type for pricing schedule
 COMMENT ON COLUMN ipsiteminfo.ipsitem_warehous_id IS 'Site for pricing schedule item which enables pricing by site.';
 
 ALTER TABLE ipsiteminfo DROP CONSTRAINT ipsitem_ipsitem_ipshead_id_key;
-CREATE UNIQUE INDEX ipsitem_ipsitem_ipshead_id_key ON ipsiteminfo USING btree
+ALTER TABLE ipsiteminfo ADD CONSTRAINT ipsitem_ipsitem_ipshead_id_key UNIQUE
   (ipsitem_ipshead_id, ipsitem_item_id, ipsitem_prodcat_id,
    ipsitem_qtybreak, ipsitem_qty_uom_id, ipsitem_price_uom_id);
 
@@ -30,8 +30,8 @@ INSERT INTO ipsiteminfo
    ipsitem_type)
 SELECT
    ipsprodcat_ipshead_id, ipsprodcat_prodcat_id,
-   ipsprodcat_qtybreak, 0.0,
-   -1, -1,
+   ipsprodcat_qtybreak, NULL,
+   NULL, NULL,
    ipsprodcat_discntprcnt, ipsprodcat_fixedamtdiscount,
    'D'
 FROM ipsprodcat;
