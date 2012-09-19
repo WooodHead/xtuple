@@ -6,6 +6,12 @@ ALTER TABLE itemsrcp ADD COLUMN itemsrcp_type CHAR(1);
 ALTER TABLE itemsrcp ADD COLUMN itemsrcp_discntprcnt NUMERIC(16,6);
 ALTER TABLE itemsrcp ADD COLUMN itemsrcp_fixedamtdiscount NUMERIC(16,6);
 
+COMMENT ON COLUMN itemsrcp.itemsrcp_dropship IS 'Used to determine if item source price applies only to drop ship purchase orders.';
+COMMENT ON COLUMN itemsrcp.itemsrcp_warehous_id IS 'Used to determine if item source price applies only to specific site on purchase orders.';
+COMMENT ON COLUMN itemsrcp.itemsrcp_type IS 'Pricing type for item source price.  Valid values are N-nominal and D-discount.';
+COMMENT ON COLUMN itemsrcp.itemsrcp_discntprcnt IS 'Discount percent for item source price.';
+COMMENT ON COLUMN itemsrcp.itemsrcp_fixedamtdiscount IS 'Fixed amount discount for item source price.';
+
 UPDATE itemsrcp SET itemsrcp_warehous_id=-1;
 UPDATE itemsrcp SET itemsrcp_dropship=FALSE;
 UPDATE itemsrcp SET itemsrcp_type='N';

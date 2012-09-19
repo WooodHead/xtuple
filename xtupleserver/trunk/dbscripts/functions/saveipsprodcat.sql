@@ -8,12 +8,6 @@ CREATE OR REPLACE FUNCTION saveIpsProdcat(pIpsProdcatId INTEGER,
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pIpsProdcatId	    ALIAS FOR $1;
-  pIpsHeadId	    ALIAS FOR $2;
-  pProdCatId	    ALIAS FOR $3;
-  pQtyBreak	    ALIAS FOR $4;
-  pDiscount	    ALIAS FOR $5;
-  pFixedAmtDiscount ALIAS FOR $6;
   _ipsitemid	INTEGER;
   _new		BOOLEAN;
   
@@ -33,7 +27,7 @@ BEGIN
   IF (pIpsProdcatId IS NOT NULL) THEN
     SELECT ipsitem_id INTO _ipsitemid
     FROM ipsiteminfo
-    WHERE (ipsitem_id=pIpsprodcatId);
+    WHERE (ipsprodcat_id=pIpsprodcatId);
 
     IF (FOUND) THEN
       _new := FALSE;
