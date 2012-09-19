@@ -2,7 +2,7 @@ CREATE OR REPLACE FUNCTION _soitemTrigger() RETURNS TRIGGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  _cmnttypeid INTEGER;
+  _changelog BOOLEAN := FALSE;
   _check BOOLEAN;
   _kit BOOLEAN;
   _shipped BOOLEAN;
@@ -14,6 +14,10 @@ BEGIN
   SELECT checkPrivilege('MaintainSalesOrders') OR checkPrivilege('ShipOrders') OR checkPrivilege('IssueStockToShipping') INTO _check;
   IF NOT (_check) THEN
     RAISE EXCEPTION 'You do not have privileges to alter a Sales Order.';
+  END IF;
+
+  IF ( SELECT fetchMetricBool('SalesOrderChangeLog') ) THEN
+    _changelog := TRUE;
   END IF;
 
   IF (TG_OP IN ('INSERT','UPDATE')) THEN
@@ -60,17 +64,6 @@ BEGIN
     END IF;
   END IF;
 
-  IF ( SELECT (metric_value='t')
-       FROM metric
-       WHERE (metric_name='SalesOrderChangeLog') ) THEN
---  Cache the cmnttype_id for ChangeLog
-    SELECT cmnttype_id INTO _cmnttypeid
-    FROM cmnttype
-    WHERE (cmnttype_name='ChangeLog');
-  ELSE
-    _cmnttypeid := -1;
-  END IF;
-
   IF (TG_OP = 'INSERT') THEN
     INSERT INTO evntlog ( evntlog_evnttime, evntlog_username, evntlog_evnttype_id,
                           evntlog_ordtype, evntlog_ord_id, evntlog_warehous_id, evntlog_number )
@@ -85,8 +78,8 @@ BEGIN
      AND (NEW.coitem_scheddate <= (CURRENT_DATE + itemsite_eventfence))
      AND (evnttype_name='SoitemCreated') );
 
-    IF (_cmnttypeid <> -1) THEN
-      PERFORM postComment(_cmnttypeid, 'SI', NEW.coitem_id, 'Created');
+    IF (_changelog) THEN
+      PERFORM postComment('ChangeLog', 'SI', NEW.coitem_id, 'Created');
     END IF;
 
     --Set defaults if no values passed
@@ -134,8 +127,8 @@ BEGIN
 	OR   (OLD.coitem_scheddate <= (CURRENT_DATE + itemsite_eventfence)) )
        AND (evnttype_name='SoitemQtyChanged') );
 
-      IF (_cmnttypeid <> -1) THEN
-	PERFORM postComment( _cmnttypeid, 'SI', NEW.coitem_id,
+      IF (_changelog) THEN
+	PERFORM postComment( 'ChangeLog', 'SI', NEW.coitem_id,
 			     ( 'Changed Qty. Ordered from ' || formatQty(OLD.coitem_qtyord) ||
 			       ' to ' || formatQty(NEW.coitem_qtyord) ) );
       END IF;
@@ -159,8 +152,8 @@ BEGIN
 	OR   (OLD.coitem_scheddate <= (CURRENT_DATE + itemsite_eventfence)) )
        AND (evnttype_name='SoitemSchedDateChanged') );
 
-      IF (_cmnttypeid <> -1) THEN
-	PERFORM postComment( _cmnttypeid, 'SI', NEW.coitem_id,
+      IF (_changelog) THEN
+	PERFORM postComment( 'ChangeLog', 'SI', NEW.coitem_id,
 			     ( 'Changed Sched. Date from ' || formatDate(OLD.coitem_scheddate) ||
 			       ' to ' || formatDate(NEW.coitem_scheddate)) );
       END IF;
@@ -172,8 +165,8 @@ BEGIN
       NEW.coitem_close_username = getEffectiveXtUser();
       NEW.coitem_qtyreserved := 0;
 
-      IF (_cmnttypeid <> -1) THEN
-	PERFORM postComment(_cmnttypeid, 'SI', NEW.coitem_id, 'Closed');
+      IF (_changelog) THEN
+	PERFORM postComment('ChangeLog', 'SI', NEW.coitem_id, 'Closed');
       END IF;
     END IF;
 
@@ -181,8 +174,8 @@ BEGIN
       NEW.coitem_closedate = NULL;
       NEW.coitem_close_username = NULL;
 
-      IF (_cmnttypeid <> -1) THEN
-	PERFORM postComment(_cmnttypeid, 'SI', NEW.coitem_id, 'Reopened');
+      IF (_changelog) THEN
+	PERFORM postComment('ChangeLog', 'SI', NEW.coitem_id, 'Reopened');
       END IF;
     END IF;
 
@@ -200,9 +193,9 @@ BEGIN
 
       NEW.coitem_qtyreserved := 0;
 
-      IF (_cmnttypeid <> -1) THEN
-	PERFORM postComment(_cmnttypeid, 'SI', NEW.coitem_id, 'Canceled');
-	PERFORM postComment(_cmnttypeid, 'S', NEW.coitem_cohead_id, 'Line # '|| NEW.coitem_linenumber ||' Canceled');
+      IF (_changelog) THEN
+	PERFORM postComment('ChangeLog', 'SI', NEW.coitem_id, 'Canceled');
+	PERFORM postComment('ChangeLog', 'S', NEW.coitem_cohead_id, 'Line # '|| NEW.coitem_linenumber ||' Canceled');
       END IF;
 
       INSERT INTO evntlog ( evntlog_evnttime, evntlog_username,
@@ -223,8 +216,8 @@ BEGIN
 
     END IF;
 
-    IF ((NEW.coitem_qtyreserved <> OLD.coitem_qtyreserved) AND (_cmnttypeid <> -1)) THEN
-      PERFORM postComment(_cmnttypeid, 'SI', NEW.coitem_id, 'Changed Qty Reserved to '|| NEW.coitem_qtyreserved);
+    IF ((NEW.coitem_qtyreserved <> OLD.coitem_qtyreserved) AND (_changelog)) THEN
+      PERFORM postComment('ChangeLog', 'SI', NEW.coitem_id, 'Changed Qty Reserved to '|| NEW.coitem_qtyreserved);
     END IF;
 
   END IF;

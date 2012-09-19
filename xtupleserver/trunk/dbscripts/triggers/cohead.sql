@@ -3,9 +3,6 @@ CREATE OR REPLACE FUNCTION _soheadTrigger() RETURNS TRIGGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  _cmnttypeid INTEGER;
-  _oldHoldType TEXT;
-  _newHoldType TEXT;
   _p RECORD;
   _a RECORD;
   _w RECORD;
@@ -415,63 +412,41 @@ BEGIN
        FROM metric
        WHERE (metric_name='SalesOrderChangeLog') ) THEN
 
---  Cache the cmnttype_id for ChangeLog
-    SELECT cmnttype_id INTO _cmnttypeid
-    FROM cmnttype
-    WHERE (cmnttype_name='ChangeLog');
-    IF (FOUND) THEN
-      IF (TG_OP = 'INSERT') THEN
-        PERFORM postComment(_cmnttypeid, 'S', NEW.cohead_id, 'Created');
+    IF (TG_OP = 'INSERT') THEN
+      PERFORM postComment('ChangeLog', 'S', NEW.cohead_id, 'Created');
 
-      ELSIF (TG_OP = 'UPDATE') THEN
+    ELSIF (TG_OP = 'UPDATE') THEN
 
-        IF (OLD.cohead_terms_id <> NEW.cohead_terms_id) THEN
-          PERFORM postComment( _cmnttypeid, 'S', NEW.cohead_id,
-                               ('Terms Changed from "' || oldterms.terms_code || '" to "' || newterms.terms_code || '"') )
-          FROM terms AS oldterms, terms AS newterms
-          WHERE ( (oldterms.terms_id=OLD.cohead_terms_id)
-           AND (newterms.terms_id=NEW.cohead_terms_id) );
-        END IF;
-
-	IF (OLD.cohead_shipvia <> NEW.cohead_shipvia) THEN
-           PERFORM postComment (_cmnttypeid, 'S', New.cohead_id, ('Shipvia Changed from "' || OLD.cohead_shipvia || '" to "' || NEW.cohead_shipvia || '"'));
-        END IF;
-
-        IF (OLD.cohead_holdtype <> NEW.cohead_holdtype) THEN
-
-          IF (OLD.cohead_holdtype = 'N') THEN
-            _oldHoldType := 'No Hold';
-          ELSIF (OLD.cohead_holdtype = 'C') THEN
-            _oldHoldType := 'Credit Hold';
-          ELSIF (OLD.cohead_holdtype = 'P') THEN
-            _oldHoldType := 'Packing Hold';
-          ELSIF (OLD.cohead_holdtype = 'S') THEN
-            _oldHoldType := 'Shipping Hold';
-          ELSE
-            _oldHoldType := 'Unknown/Error';
-          END IF;
-
-          IF (NEW.cohead_holdtype = 'N') THEN
-            _newHoldType := 'No Hold';
-          ELSIF (NEW.cohead_holdtype = 'C') THEN
-            _newHoldType := 'Credit Hold';
-          ELSIF (NEW.cohead_holdtype = 'P') THEN
-            _newHoldType := 'Packing Hold';
-          ELSIF (NEW.cohead_holdtype = 'S') THEN
-            _newHoldType := 'Shipping Hold';
-          ELSE
-            _newHoldType := 'Unknown/Error';
-          END IF;
-
-          PERFORM postComment( _cmnttypeid, 'S', NEW.cohead_id,
-                               ('Hold Type Changed from "' || _oldHoldType || '" to "' || _newHoldType || '"') );
-        END IF;
-
-      ELSIF (TG_OP = 'DELETE') THEN
-        DELETE FROM comment
-        WHERE ( (comment_source='S')
-         AND (comment_source_id=OLD.cohead_id) );
+      IF (OLD.cohead_terms_id <> NEW.cohead_terms_id) THEN
+        PERFORM postComment( 'ChangeLog', 'S', NEW.cohead_id,
+                             ('Terms Changed from "' || oldterms.terms_code || '" to "' || newterms.terms_code || '"') )
+        FROM terms AS oldterms, terms AS newterms
+        WHERE ( (oldterms.terms_id=OLD.cohead_terms_id)
+         AND (newterms.terms_id=NEW.cohead_terms_id) );
       END IF;
+
+      IF (OLD.cohead_shipvia <> NEW.cohead_shipvia) THEN
+        PERFORM postComment ('ChangeLog', 'S', New.cohead_id, ('Shipvia Changed from "' || OLD.cohead_shipvia || '" to "' || NEW.cohead_shipvia || '"'));
+      END IF;
+
+      IF (OLD.cohead_holdtype <> NEW.cohead_holdtype) THEN
+        PERFORM postComment( 'ChangeLog', 'S', NEW.cohead_id,
+                             ( 'Hold Type Changed from ' || (CASE OLD.cohead_holdtype WHEN('N') THEN 'No Hold'
+                                                                                      WHEN('C') THEN 'Credit Hold'
+                                                                                      WHEN('P') THEN 'Packing Hold'
+                                                                                      WHEN('S') THEN 'Shipping Hold'
+                                                                                      ELSE 'Unknown/Error' END) ||
+                               ' to ' || (CASE NEW.cohead_holdtype WHEN('N') THEN 'No Hold'
+                                                                   WHEN('C') THEN 'Credit Hold'
+                                                                   WHEN('P') THEN 'Packing Hold'
+                                                                   WHEN('S') THEN 'Shipping Hold'
+                                                                   ELSE 'Unknown/Error' END) ) );
+      END IF;
+
+    ELSIF (TG_OP = 'DELETE') THEN
+      DELETE FROM comment
+      WHERE ( (comment_source='S')
+       AND (comment_source_id=OLD.cohead_id) );
     END IF;
   END IF;
 
