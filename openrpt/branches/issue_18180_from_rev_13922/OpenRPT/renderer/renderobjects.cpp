@@ -354,4 +354,40 @@ void ORORect::setRect(const QRectF & r)
 }
 
 
+//
+// OROBarcode
+//
+const int OROBarcode::Barcode = 5;
+
+OROBarcode::OROBarcode(ORObject *o)
+  : OROPrimitive(o, OROBarcode::Barcode)
+{
+}
+
+OROBarcode::~OROBarcode()
+{
+}
+
+void OROBarcode::setSize(const QSizeF & s)
+{
+  _size = s;
+}
+
+void OROBarcode:: setData(const QString &d)
+{
+  _data = d;
+}
+
+void OROBarcode::setFormat(const QString &f)
+{
+  _format = f;
+}
+
+void OROBarcode::setNarrowBarWidth(double v)
+{
+  _narrowBarWidth = v;
+}
+
+
+
 

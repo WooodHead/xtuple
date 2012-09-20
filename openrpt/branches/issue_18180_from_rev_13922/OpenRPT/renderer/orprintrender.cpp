@@ -21,13 +21,17 @@
 #include "orprintrender.h"
 #include "renderobjects.h"
 #include "pagesizeinfo.h"
-#include "reportprinter.h"
+
+#include <QTextDocument>
+#include <QTextCursor>
+#include <QPaintEngine>
 
 static void renderBackground(QImage &, const QImage &, const QRect &, bool, Qt::AspectRatioMode, int, unsigned int);
 static void renderWatermark(QImage &, const QString &, const QFont &, const unsigned int, double, double, double, double);
 
 ORPrintRender::ORPrintRender()
 {
+  _printer = 0;
   _painter = 0;
 }
 
@@ -35,17 +39,26 @@ ORPrintRender::~ORPrintRender()
 {
 }
 
+void ORPrintRender::setPrinter(QPrinter * pPrinter)
+{
+  _printer = pPrinter;
+}
+
 void ORPrintRender::setPainter(QPainter * pPainter)
 {
   _painter = pPainter;
 }
 
-bool ORPrintRender::render(ReportPrinter * pPrinter, ORODocument * pDocument)
+bool ORPrintRender::setupPrinter(ORODocument * pDocument, QPrinter * pPrinter)
 {
   if(pDocument == 0 || pPrinter == 0)
     return false;
 
-  pDocument->setupPrinter(pPrinter);
+  pPrinter->setCreator("OpenRPT Print Renderer");
+  pPrinter->setDocName(pDocument->title());
+  pPrinter->setFullPage(true);
+  pPrinter->setOrientation((pDocument->pageOptions().isPortrait() ? QPrinter::Portrait : QPrinter::Landscape));
+  pPrinter->setPageOrder(QPrinter::FirstPageFirst);
 
   PageSizeInfo psi = PageSizeInfo::getByName(pDocument->pageOptions().getPageSize());
   if(psi.isNull())
@@ -58,9 +71,20 @@ bool ORPrintRender::render(ReportPrinter * pPrinter, ORODocument * pDocument)
     //  pPrinter->setPageSize((QPrinter::PageSize)psi.qpValue());
     pPrinter->setPaperSize(QSizeF(pDocument->pageOptions().getCustomWidth(), pDocument->pageOptions().getCustomHeight()), QPrinter::Inch);
   }
-  else {
+  else 
+  {
     pPrinter->setPaperSize(QSizeF(psi.width()/100,psi.height()/100), QPrinter::Inch);
   }
+
+  return true;
+}
+
+bool ORPrintRender::render(ORODocument * pDocument)
+{
+  if(pDocument == 0 || _printer == 0)
+    return false;
+
+  _printer->setFullPage(true);
 
   bool deleteWhenComplete = false;
   bool endWhenComplete = false;
@@ -75,33 +99,33 @@ bool ORPrintRender::render(ReportPrinter * pPrinter, ORODocument * pDocument)
   if(!_painter->isActive())
   {
     endWhenComplete = true;
-    if(!_painter->begin(pPrinter))
+    if(!_painter->begin(_printer))
       return false;
   }
 
-  qreal xDpi = pPrinter->logicalDpiX();
-  qreal yDpi = pPrinter->logicalDpiY();
+  qreal xDpi = _printer->logicalDpiX();
+  qreal yDpi = _printer->logicalDpiY();
 
-  int fromPage = pPrinter->fromPage();
+  int fromPage = _printer->fromPage();
   if(fromPage > 0)
     fromPage -= 1;
-  int toPage = pPrinter->toPage();
+  int toPage = _printer->toPage();
   if(toPage == 0 || toPage > pDocument->pages())
     toPage = pDocument->pages();
 
-  for(int copy = 0; copy < pPrinter->numCopies(); copy++)
+  for(int copy = 0; copy < _printer->numCopies(); copy++)
   {
     for(int page = fromPage; page < toPage; page++)
     {
       if(page > 0)
-        pPrinter->newPage();
+        _printer->newPage();
 
       int pageToPrint = page;
-      if(pPrinter->pageOrder() == QPrinter::LastPageFirst)
+      if(_printer->pageOrder() == QPrinter::LastPageFirst)
         pageToPrint = toPage - 1 - page;
 
-      QSize margins(pPrinter->paperRect().left() - pPrinter->pageRect().left(), pPrinter->paperRect().top() - pPrinter->pageRect().top());
-      renderPage(pDocument, pageToPrint, _painter, xDpi, yDpi, margins, pPrinter->resolution());
+      QSize margins(_printer->paperRect().left() - _printer->pageRect().left(), _printer->paperRect().top() - _printer->pageRect().top());
+      renderPage(pDocument, pageToPrint, _painter, xDpi, yDpi, margins, _printer->resolution());
     }
   }
 
@@ -324,11 +348,13 @@ void ORPrintRender::renderPage(ORODocument * pDocument, int pageNb, QPainter *pa
     painter->setBrush(prim->brush());
 
 	QPointF ps = prim->position();
-	if(prim->rotationAxis().isNull()) {
+    if(prim->rotationAxis().isNull())
+    {
 		painter->translate(ps.x() * xDpi, ps.y() * yDpi); 
 		painter->rotate(prim->rotation()); // rotation around the origin of the primitive (not the center)
 	}
-	else { // rotation around the defined axis
+    else
+    { // rotation around the defined axis
 		qreal xRot = prim->rotationAxis().x();
 		qreal yRot = prim->rotationAxis().y();
 		painter->translate(xRot * xDpi, yRot * yDpi); 
@@ -346,14 +372,79 @@ void ORPrintRender::renderPage(ORODocument * pDocument, int pageNb, QPainter *pa
       prim->drawRect(rc, painter, printResolution);
 
 	  painter->setFont(tb->font());
-      painter->drawText(rc, tb->flags(), tb->text());
+      QString text = tb->text();
+      QString url;
+
+      if(tb->text().startsWith("<http"))
+      {
+          int endOfUrl = tb->text().indexOf('>');
+          if(endOfUrl > 0)
+          {
+              url = tb->text().mid(1, endOfUrl-1);
+              text = tb->text().mid(endOfUrl+1);
+              if(text.isEmpty()) text = url;
+          }
+      }
+
+      bool toPdf = painter->paintEngine()->type() == QPaintEngine::Pdf;
+      if(toPdf && !url.isEmpty())
+      {
+          QTextDocument doc;
+          QTextCursor cursor(&doc);
+          QTextCharFormat format;
+          format.setFont(tb->font());
+          format.setFontPointSize(tb->font().pointSizeF()*printResolution/100.0);
+          format.setAnchor(true);
+          format.setAnchorHref(url);
+          cursor.insertText(text, format);
+          doc.drawContents(painter);
+      }
+      else
+      {
+          painter->drawText(rc, tb->flags(), text);
+      }
+
+    }
+    else if(prim->type() == OROBarcode::Barcode)
+    {
+      OROBarcode * bc = (OROBarcode*)prim;
+
+      QSizeF sz = bc->size();
+      QRectF rc = QRectF(0, 0, sz.width() * xDpi, sz.height() * yDpi);
+
+/*
+      if(_printTo != ORPreRender::ToPrinter || _printerType == ReportPrinter::Standard)
+      {
+        if(bc->format == "3of9")
+          render3of9(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "3of9+")
+          renderExtended3of9(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "i2of5")
+          renderI2of5(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "128")
+          renderCode128(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "ean13")
+          renderCodeEAN13(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "ean8")
+          renderCodeEAN8(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "upc-a")
+          renderCodeUPCA(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format == "upc-e")
+          renderCodeUPCE(_page, rect, dataThis.getValue(), bc);
+        else if(bc->format.contains("datamatrix"))
+          renderCodeDatamatrix(_page, rect, dataThis.getValue(), bc);
+        else*/
+        {
+          QString encodedData = ReportPrinter::barcodePrefix() + QString("%1;%2;%3;%4").arg(bc->format()).arg(sz.height()).arg(bc->narrowBarWidth()).arg(bc->data());
+          painter->drawText(rc, 0, encodedData);
+        }
     }
     else if(prim->type() == OROLine::Line)
     {
         OROLine * ln = (OROLine*)prim;
 		QPointF s = ln->startPoint();
 		QPointF e = ln->endPoint();
-        pen.setWidthF((pen.widthF() / 100) * printResolution);
+        pen.setWidthF((pen.widthF() / 100.0) * printResolution);
 		painter->setPen(pen);
 		painter->drawLine(QLineF(0, 0, (e.x()-s.x()) * xDpi, (e.y()-s.y()) * yDpi));
     }
@@ -393,7 +484,7 @@ bool ORPrintRender::exportToPDF(ORODocument * pDocument, QString pdfFileName)
   if(!pDocument)
     return false;
 
-  ReportPrinter printer;
+  QPrinter printer(QPrinter::ScreenResolution);
   printer.setResolution(300);
 
 #ifdef Q_WS_MAC
@@ -405,6 +496,8 @@ bool ORPrintRender::exportToPDF(ORODocument * pDocument, QString pdfFileName)
   printer.setOutputFileName( pdfFileName );
 
   ORPrintRender render;
-  return render.render(&printer, pDocument);
+  render.setupPrinter(pDocument, &printer);
+  render.setPrinter(&printer);
+  return render.render(pDocument);
 }
 

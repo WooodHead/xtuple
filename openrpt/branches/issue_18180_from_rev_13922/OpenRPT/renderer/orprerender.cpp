@@ -129,7 +129,6 @@ class ORPreRenderPrivate {
     XSqlQuery *_detailQuery;
     ReportPrinter::type             _printerType;
     QList<QPair<QString,QString> >  _printerParams;
-    ORPreRender::destination        _printTo;
 };
 
 ORPreRenderPrivate::ORPreRenderPrivate()
@@ -848,7 +847,7 @@ qreal ORPreRenderPrivate::renderSection(const ORSectionData & sectionData)
     else if (elemThis->isBarcode())
     {
       ORBarcodeData * bc = elemThis->toBarcode();
-      orData       dataThis;
+      OROBarcode* bcPrimitive = new OROBarcode(elemThis);
 
       QPointF pos = bc->rect.topLeft();
       QSizeF size = bc->rect.size();
@@ -856,40 +855,15 @@ qreal ORPreRenderPrivate::renderSection(const ORSectionData & sectionData)
       pos += QPointF(_leftMargin, _yOffset);
       size /= 100.0;
 
-      QRectF rect = QRectF(pos, size);
-
+      orData       dataThis;
       populateData(bc->data, dataThis);
 
-      if(_printTo != ORPreRender::ToPrinter || _printerType == ReportPrinter::Standard)
-      {
-        if(bc->format == "3of9")
-          render3of9(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "3of9+")
-          renderExtended3of9(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "i2of5")
-          renderI2of5(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "128")
-          renderCode128(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "ean13")
-          renderCodeEAN13(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "ean8")
-          renderCodeEAN8(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "upc-a")
-          renderCodeUPCA(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "upc-e")
-          renderCodeUPCE(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format.contains("datamatrix"))
-          renderCodeDatamatrix(_page, rect, dataThis.getValue(), bc);
-        else
-        {
-          addTextPrimitive(elemThis, pos, size, bc->align, "[" + bc->format + "] " + dataThis.getValue());
-        }
-      }
-      else
-      {
-        QString text = ReportPrinter::barcodePrefix() + QString("%1;%2;%3;%4").arg(bc->format).arg(size.height()).arg(bc->narrowBarWidth).arg(dataThis.getValue());
-        addTextPrimitive(elemThis, pos, size, bc->align, text);
-      }
+      bcPrimitive->setPosition(pos);
+      bcPrimitive->setSize(size);
+      bcPrimitive->setData(dataThis.getValue());
+      bcPrimitive->setFormat(bc->format);
+      bcPrimitive->setNarrowBarWidth(bc->narrowBarWidth);
+      _page->addPrimitive(bcPrimitive);
     }
     else if (elemThis->isImage())
     {
@@ -1396,7 +1370,7 @@ ORPreRender::~ORPreRender()
   }
 }
 
-ORODocument* ORPreRender::generate(destination to)
+ORODocument* ORPreRender::generate()
 {
 
   if (_internal == 0 || !_internal->_valid || _internal->_reportData == 0)
@@ -1410,9 +1384,7 @@ ORODocument* ORPreRender::generate(destination to)
       return 0;
   }
 
-  _internal->_printTo = to;
-  ReportPrinter::type  printerType = (to == ORPreRender::ToPrinter ? _internal->_printerType : ReportPrinter::Standard);
-  _internal->_document = new ORODocument(_internal->_reportData->title, printerType);
+  _internal->_document = new ORODocument(_internal->_reportData->title, _internal->_printerType);
   _internal->_document->setPrinterParams(_internal->_printerParams );
 
   _internal->_pageCounter  = 0;

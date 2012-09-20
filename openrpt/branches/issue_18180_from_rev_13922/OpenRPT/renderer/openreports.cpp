@@ -24,7 +24,6 @@
 #include "renderobjects.h"
 #include "builtinSqlFunctions.h"
 #include "previewdialog.h"
-#include "reportprinter.h"
 
 #include <QString>
 #include <QVariant>
@@ -158,10 +157,10 @@ orReport::~orReport()
   }
 }
 
-ReportPrinter* orReport::multiPrinter = 0;
+QPrinter* orReport::multiPrinter = 0;
 QPainter* orReport::multiPainter = 0;
 
-bool orReport::beginMultiPrint(ReportPrinter *pPrinter)
+bool orReport::beginMultiPrint(QPrinter *pPrinter)
 {
   if (pPrinter == 0)
     return false;
@@ -174,7 +173,7 @@ bool orReport::beginMultiPrint(ReportPrinter *pPrinter)
   return true;
 }
 
-bool orReport::beginMultiPrint(ReportPrinter *pPrinter, bool & userCanceled)
+bool orReport::beginMultiPrint(QPrinter *pPrinter, bool & userCanceled)
 {
   userCanceled = false;
   if (pPrinter == 0)
@@ -195,7 +194,7 @@ bool orReport::beginMultiPrint(ReportPrinter *pPrinter, bool & userCanceled)
   return true;
 }
 
-bool orReport::print(ReportPrinter *prtThis, bool boolSetupPrinter, bool showPreview, QWidget *parent)
+bool orReport::print(QPrinter *prtThis, bool boolSetupPrinter, bool showPreview, QWidget *parent)
 {
 // TODO: Figure out how all this is supposed to be with the new engine
   bool retval = false;
@@ -205,9 +204,11 @@ bool orReport::print(ReportPrinter *prtThis, bool boolSetupPrinter, bool showPre
   {
     if(_internal->_prerenderer.isValid())
     {
-      _internal->_genDoc = _internal->_prerenderer.generate(ORPreRender::ToPrinter);
+      _internal->_genDoc = _internal->_prerenderer.generate();
       if(_internal->_genDoc)
       {
+        ORPrintRender prender;
+        prender.setupPrinter(_internal->_genDoc, prtThis);
         if (boolSetupPrinter)     // 1st call
         {
           retval = multiPainter->begin(multiPrinter);
@@ -234,20 +235,22 @@ bool orReport::print(ReportPrinter *prtThis, bool boolSetupPrinter, bool showPre
     {
       if (prtThis == 0)
       {
-        prtThis = new ReportPrinter();
+        prtThis = new ReportPrinter(QPrinter::HighResolution);
         localPrinter = true;
       }
 
       if(_internal->_prerenderer.isValid())
       {
-        _internal->_genDoc = _internal->_prerenderer.generate(ORPreRender::ToPrinter);
+        _internal->_genDoc = _internal->_prerenderer.generate();
         if(_internal->_genDoc)
         {
           retval = true;
+          ORPrintRender prender;
+          prender.setupPrinter(_internal->_genDoc, prtThis);
 
           if (showPreview)
           {
-            PreviewDialog preview(&_internal->_prerenderer, prtThis, parent);
+            PreviewDialog preview(_internal->_genDoc, prtThis, parent);
             if (preview.exec() == QDialog::Rejected)
               return false;
           }
@@ -275,7 +278,7 @@ bool orReport::print(ReportPrinter *prtThis, bool boolSetupPrinter, bool showPre
   return retval;
 }
 
-bool orReport::endMultiPrint(ReportPrinter *pPrinter)
+bool orReport::endMultiPrint(QPrinter *pPrinter)
 {
   if (pPrinter != multiPrinter || pPrinter == 0)
     return false;
@@ -294,7 +297,7 @@ bool orReport::endMultiPrint(ReportPrinter *pPrinter)
 }
 
 
-bool orReport::render(QPainter *pPainter, ReportPrinter *pPrinter)
+bool orReport::render(QPainter *pPainter, QPrinter *pPrinter)
 {
   QApplication::setOverrideCursor( Qt::WaitCursor );
   bool retval = false;
@@ -304,7 +307,7 @@ bool orReport::render(QPainter *pPainter, ReportPrinter *pPrinter)
     bool localAlloc = false;
     if(_internal->_genDoc == 0)
     {
-      _internal->_genDoc = _internal->_prerenderer.generate(ORPreRender::ToPrinter);
+      _internal->_genDoc = _internal->_prerenderer.generate();
       localAlloc = true;
     }
 
@@ -312,8 +315,9 @@ bool orReport::render(QPainter *pPainter, ReportPrinter *pPrinter)
     {
       ORPrintRender render;
   
+      render.setPrinter(pPrinter);
       render.setPainter(pPainter);
-      retval = render.render(pPrinter, _internal->_genDoc);
+      retval = render.render(_internal->_genDoc);
 
       if (localAlloc)
       {
@@ -338,13 +342,13 @@ bool orReport::exportToPDF( const QString& fileName )
   if ( !isValid() )
     return false;
 
-  ORODocument * doc = _internal->_prerenderer.generate(ORPreRender::ToPdf);
+  ORODocument * doc = _internal->_prerenderer.generate();
 
   if(doc)
   {
     QString localFileName = fileName;
 
-    ReportPrinter printer;
+    QPrinter printer( QPrinter::HighResolution );
     if (! localFileName.endsWith(".pdf", Qt::CaseInsensitive))
       localFileName.append(".pdf");
     printer.setOutputFileName( localFileName );
@@ -355,7 +359,9 @@ bool orReport::exportToPDF( const QString& fileName )
 #endif
 
     ORPrintRender render;
-    bool res = render.render(&printer, doc);
+    render.setupPrinter(doc, &printer);
+    render.setPrinter(&printer);
+    bool res = render.render(doc);
     delete doc;
     return res;
   }

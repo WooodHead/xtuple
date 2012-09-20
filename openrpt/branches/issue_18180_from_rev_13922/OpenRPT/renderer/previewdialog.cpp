@@ -38,15 +38,15 @@ const int spacing = 30;
 /// Construct a PreviewDialog object. 
 ///////////////////////////////////////////////////////////////////////////////
 
-PreviewDialog::PreviewDialog(ORPreRender *pre,
-                             ReportPrinter *pPrinter,
+PreviewDialog::PreviewDialog(ORODocument *document,
+                             QPrinter *pPrinter,
                              QWidget *parent)
   : QDialog(parent, Qt::Window), _view(0)
 {
     setWindowTitle(tr("Print Preview"));
 
     // widgets
-    _view = new PreviewWidget(pre, pPrinter, this);
+    _view = new PreviewWidget(document, pPrinter, this);
 
     QToolButton *zoominbutton = new QToolButton(this);
     zoominbutton->setText(tr("Zoom in"));
@@ -60,6 +60,7 @@ PreviewDialog::PreviewDialog(ORPreRender *pre,
 
     QDialogButtonBox *buttonbox = new QDialogButtonBox(this);
     buttonbox->setOrientation(Qt::Horizontal);
+    QString test = tr("Print");
     buttonbox->addButton(tr("Print"), QDialogButtonBox::AcceptRole);
     buttonbox->addButton(tr("Cancel"), QDialogButtonBox::RejectRole);
 
@@ -105,15 +106,12 @@ PreviewDialog::~PreviewDialog()
 // PreviewWidget() ////////////////////////////////////////////////////////////
 // constructor
 
-PreviewWidget::PreviewWidget(ORPreRender *pre,
-                             ReportPrinter *pPrinter,
+PreviewWidget::PreviewWidget(ORODocument *document,
+                             QPrinter *pPrinter,
                              QWidget *parent)
     : QAbstractScrollArea(parent),
-      _pPrinter(pPrinter), _zoom(1.0), mousepos(), scrollpos()
+      _doc(document), _pPrinter(pPrinter), _zoom(1.0), mousepos(), scrollpos()
 {
-    _doc = pre->generate(ORPreRender::ToPreview);
-    _doc->setupPrinter(pPrinter);
-
     viewport()->setBackgroundRole(QPalette::Dark);
     verticalScrollBar()->setSingleStep(25);
     horizontalScrollBar()->setSingleStep(25);
@@ -124,7 +122,6 @@ PreviewWidget::PreviewWidget(ORPreRender *pre,
 
 PreviewWidget::~PreviewWidget()
 {
-  delete _doc;
 }
 
 // updateView() ///////////////////////////////////////////////////////////////
