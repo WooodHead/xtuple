@@ -39,6 +39,7 @@ class OROPrimitive;
 class OROTextBox;
 class OROLine;
 class OROImage;
+class OROBarcode;
 
 //
 // ORODocument
@@ -219,6 +220,37 @@ class OROTextBox : public OROPrimitive
     QString _text;
     QFont _font;
     int _flags; // Qt::AlignmentFlag and Qt::TextFlag OR'd
+};
+
+//
+// OROBarcode
+// This is a barcode primitive
+//
+class OROBarcode : public OROPrimitive
+{
+  public:
+    OROBarcode(ORObject *o);
+    virtual ~OROBarcode();
+
+    QSizeF size() const { return _size; };
+    void setSize(const QSizeF &);
+
+    QString data() const { return _data; };
+    void setData(const QString &);
+
+    QString format() const { return _format; };
+    void setFormat(const QString &);
+
+    double narrowBarWidth() const { return _narrowBarWidth; };
+    void setNarrowBarWidth(double);
+
+    static const int Barcode;
+
+  protected:
+    QSizeF _size;
+    QString _data;
+    QString _format;
+    double _narrowBarWidth;
 };
 
 //
