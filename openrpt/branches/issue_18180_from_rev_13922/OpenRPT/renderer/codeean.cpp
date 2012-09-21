@@ -82,7 +82,7 @@ static int _upcparenc[10][2][6] = {
 };
 
 
-void renderCodeEAN13(OROPage * page, const QRectF & r, const QString & _str, ORBarcodeData * bc)
+void renderCodeEAN13(QPainter *painter, int dpi, const QRectF & r, const QString & _str, OROBarcode * bc)
 {
   int val[13];
   int i = 0;
@@ -122,7 +122,7 @@ void renderCodeEAN13(OROPage * page, const QRectF & r, const QString & _str, ORB
 
 
   // lets determine some core attributes about this barcode
-  qreal bar_width = bc->narrowBarWidth; 
+  qreal bar_width = bc->narrowBarWidth() * dpi;
 
   // this is are mandatory minimum quiet zone
   qreal quiet_zone = bar_width * 10;
@@ -151,13 +151,13 @@ void renderCodeEAN13(OROPage * page, const QRectF & r, const QString & _str, ORB
   //
   // calculate the starting position based on the alignment option
   // for left align we don't need to do anything as the values are already setup for it
-  if(bc->align == 1) // center
+  if(bc->align() == 1) // center
   {
     qreal nqz = (draw_width - L) / 2;
     if(nqz > quiet_zone)
       quiet_zone = nqz;
   }
-  else if(bc->align > 1) // right
+  else if(bc->align() > 1) // right
     quiet_zone = draw_width - (L + quiet_zone);
   // else if(align < 1) {} // left : do nothing
 
@@ -167,27 +167,17 @@ void renderCodeEAN13(OROPage * page, const QRectF & r, const QString & _str, ORB
 
   QPen pen(Qt::NoPen);
   QBrush brush(QColor("black"));
+  painter->save();
+  painter->setPen(pen);
+  painter->setBrush(brush);
 
   int b = 0;
   int w = 0;
 
   // render open guard
-  ORORect * rect = new ORORect(bc);
-  rect->setPen(pen);
-  rect->setBrush(brush);
-  rect->setRect(QRectF(pos,top, bar_width,draw_height));
-  rect->setRotationAxis(r.topLeft());
-  page->addPrimitive(rect);
-
+  painter->drawRect(QRectF(pos,top, bar_width,draw_height));
   pos += (bar_width * 2.0);
-
-  rect = new ORORect(bc);
-  rect->setPen(pen);
-  rect->setBrush(brush);
-  rect->setRect(QRectF(pos,top, bar_width,draw_height));
-  rect->setRotationAxis(r.topLeft());
-  page->addPrimitive(rect);
-
+  painter->drawRect(QRectF(pos,top, bar_width,draw_height));
   pos += bar_width;
 
   // render first set
@@ -198,12 +188,7 @@ void renderCodeEAN13(OROPage * page, const QRectF & r, const QString & _str, ORB
     {
       if(_encodings[b][_parity[val[0]][i]][w])
       {
-        rect = new ORORect(bc);
-        rect->setPen(pen);
-        rect->setBrush(brush);
-        rect->setRect(QRectF(pos,top, bar_width,draw_height-0.07));
-		rect->setRotationAxis(r.topLeft());
-        page->addPrimitive(rect);
+        painter->drawRect(QRectF(pos,top, bar_width,draw_height-(0.07*dpi)));
       }
       pos += bar_width;
     }
@@ -211,23 +196,9 @@ void renderCodeEAN13(OROPage * page, const QRectF & r, const QString & _str, ORB
 
   // render center guard
   pos += bar_width;
-
-  rect = new ORORect(bc);
-  rect->setPen(pen);
-  rect->setBrush(brush);
-  rect->setRect(QRectF(pos,top, bar_width,draw_height));
-  rect->setRotationAxis(r.topLeft());
-  page->addPrimitive(rect);
-
+  painter->drawRect(QRectF(pos,top, bar_width,draw_height));
   pos += (bar_width * 2.0);
-
-  rect = new ORORect(bc);
-  rect->setPen(pen);
-  rect->setBrush(brush);
-  rect->setRect(QRectF(pos,top, bar_width,draw_height));
-  rect->setRotationAxis(r.topLeft());
-  page->addPrimitive(rect);
-
+  painter->drawRect(QRectF(pos,top, bar_width,draw_height));
   pos += (bar_width * 2.0);
 
   // render last set
@@ -238,68 +209,37 @@ void renderCodeEAN13(OROPage * page, const QRectF & r, const QString & _str, ORB
     {
       if(_encodings[b][RIGHTHAND][w])
       {
-        rect = new ORORect(bc);
-        rect->setPen(pen);
-        rect->setBrush(brush);
-        rect->setRect(QRectF(pos,top, bar_width,draw_height-0.07));
-		rect->setRotationAxis(r.topLeft());
-        page->addPrimitive(rect);
+        painter->drawRect(QRectF(pos,top, bar_width,draw_height-(0.07*dpi)));
       }
       pos += bar_width;
     }
   }
 
   // render close guard
-  rect = new ORORect(bc);
-  rect->setPen(pen);
-  rect->setBrush(brush);
-  rect->setRect(QRectF(pos,top, bar_width,draw_height));
-  rect->setRotationAxis(r.topLeft());
-  page->addPrimitive(rect);
-
+  painter->drawRect(QRectF(pos,top, bar_width,draw_height));
   pos += (bar_width * 2.0);
-
-  rect = new ORORect(bc);
-  rect->setPen(pen);
-  rect->setBrush(brush);
-  rect->setRect(QRectF(pos,top, bar_width,draw_height));
-  rect->setRotationAxis(r.topLeft());
-  page->addPrimitive(rect);
+  painter->drawRect(QRectF(pos,top, bar_width,draw_height));
 
   QString parstr = QString("%1").arg(val[0]);
   QString leftstr = QString().sprintf("%d%d%d%d%d%d",
                      val[1], val[2], val[3], val[4], val[5], val[6]);
   QString rightstr = QString().sprintf("%d%d%d%d%d%d",
                      val[7], val[8], val[9], val[10], val[11], val[12]);
-  QFont font("Arial", 6);
 
-  OROTextBox * tb = new OROTextBox(bc);
-  tb->setPosition(QPointF(r.left(), r.top() + draw_height - 0.12));
-  tb->setSize(QSizeF(quiet_zone - 0.02, 0.12));
-  tb->setFont(font);
-  tb->setText(parstr);
-  tb->setFlags(Qt::AlignRight | Qt::AlignTop);
-  tb->setRotationAxis(r.topLeft());
-  page->addPrimitive(tb);
-                     
-  tb = new OROTextBox(bc);
-  tb->setPosition(QPointF(r.left() + quiet_zone + bar_width*3, (r.top() + draw_height) - 0.07));
-  tb->setSize(QSizeF(bar_width*40, 0.1));
-  tb->setFont(font);
-  tb->setText(leftstr);
-  tb->setFlags(Qt::AlignHCenter | Qt::AlignTop);
-  tb->setRotationAxis(r.topLeft());
-  page->addPrimitive(tb);
+  painter->setFont(QFont("Arial", 6));
 
-  tb = new OROTextBox(bc);
-  tb->setPosition(QPointF(r.left() + quiet_zone + bar_width*50, (r.top() + draw_height) - 0.07));
-  tb->setSize(QSizeF(bar_width*40, 0.1));
-  tb->setFont(font);
-  tb->setText(rightstr);
-  tb->setFlags(Qt::AlignHCenter | Qt::AlignTop);
-  tb->setRotationAxis(r.topLeft());
-  page->addPrimitive(tb);
+  QRectF textRect;
 
+  textRect = QRectF(QPointF(r.left(), r.top() + draw_height - (0.12*dpi)), QSizeF(quiet_zone - (0.02*dpi), (0.12*dpi)));
+  painter->drawText(textRect, Qt::AlignRight | Qt::AlignTop, parstr);
+
+  textRect = QRectF(QPointF(r.left() + quiet_zone + bar_width*3, (r.top() + draw_height) - (0.07*dpi)), QSizeF(bar_width*40, (0.1*dpi)));
+  painter->drawText(textRect, Qt::AlignHCenter | Qt::AlignTop, leftstr);
+
+  textRect = QRectF(QPointF(r.left() + quiet_zone + bar_width*50, (r.top() + draw_height) - (0.07*dpi)), QSizeF(bar_width*40, (0.1*dpi)));
+  painter->drawText(textRect, Qt::AlignHCenter | Qt::AlignTop, rightstr);
+
+  painter->restore();
   return;
 } 
 

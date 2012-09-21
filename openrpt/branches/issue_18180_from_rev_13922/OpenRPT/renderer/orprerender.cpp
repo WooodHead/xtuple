@@ -23,7 +23,6 @@
 #include "orprerender.h"
 #include "renderobjects.h"
 #include "orutils.h"
-#include "barcodes.h"
 #include "graph.h"
 #include "crosstab.h"
 #include "reportprinter.h"
@@ -863,6 +862,8 @@ qreal ORPreRenderPrivate::renderSection(const ORSectionData & sectionData)
       bcPrimitive->setData(dataThis.getValue());
       bcPrimitive->setFormat(bc->format);
       bcPrimitive->setNarrowBarWidth(bc->narrowBarWidth);
+      bcPrimitive->setAlign(bc->align);
+      bcPrimitive->setRotation(bc->rotation());
       _page->addPrimitive(bcPrimitive);
     }
     else if (elemThis->isImage())

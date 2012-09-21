@@ -377,5 +377,11 @@ void OROBarcode::setNarrowBarWidth(double v)
 }
 
 
+void OROBarcode::setAlign(int v)
+{
+  _align = v;
+}
+
+
 
 

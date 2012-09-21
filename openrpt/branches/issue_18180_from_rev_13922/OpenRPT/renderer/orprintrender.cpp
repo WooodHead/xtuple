@@ -21,6 +21,7 @@
 #include "orprintrender.h"
 #include "renderobjects.h"
 #include "pagesizeinfo.h"
+#include "barcodes.h"
 
 #include <QTextDocument>
 #include <QTextCursor>
@@ -85,7 +86,7 @@ bool ORPrintRender::render(ORODocument * pDocument, ReportPrinter *printer)
   printer->setParams(pDocument->getPrinterParams());
   printer->setPrinterType(pDocument->printerType());
   setupPrinter(pDocument, printer);
-  render(pDocument);
+  return render(pDocument);
 }
 
 bool ORPrintRender::render(ORODocument * pDocument)
@@ -421,32 +422,38 @@ void ORPrintRender::renderPage(ORODocument * pDocument, int pageNb, QPainter *pa
       QSizeF sz = bc->size();
       QRectF rc = QRectF(0, 0, sz.width() * xDpi, sz.height() * yDpi);
 
-/*
-      if(_printTo != ORPreRender::ToPrinter || _printerType == ReportPrinter::Standard)
+
+      if(painter->paintEngine()->type() == QPaintEngine::User)
       {
-        if(bc->format == "3of9")
-          render3of9(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "3of9+")
-          renderExtended3of9(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "i2of5")
-          renderI2of5(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "128")
-          renderCode128(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "ean13")
-          renderCodeEAN13(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "ean8")
-          renderCodeEAN8(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "upc-a")
-          renderCodeUPCA(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format == "upc-e")
-          renderCodeUPCE(_page, rect, dataThis.getValue(), bc);
-        else if(bc->format.contains("datamatrix"))
-          renderCodeDatamatrix(_page, rect, dataThis.getValue(), bc);
-        else*/
+        // label paint engine: the barcode parameters are encoded in a text item
+        QString encodedData = ReportPrinter::barcodePrefix() + QString("%1;%2;%3;%4").arg(bc->format()).arg(sz.height()).arg(bc->narrowBarWidth()).arg(bc->data());
+        painter->drawText(rc, 0, encodedData);
+      }
+      else
+      {
+        if(bc->format() == "3of9")
+          render3of9(painter, xDpi, rc, bc->data(), bc);
+        else if(bc->format() == "3of9+")
+          renderExtended3of9(painter, xDpi, rc, bc->data(), bc);
+        else if(bc->format() == "128")
+          renderCode128(painter, xDpi, rc, bc->data(), bc);
+        else if(bc->format() == "i2of5")
+          renderI2of5(painter, xDpi, rc, bc->data(), bc);
+        else if(bc->format() == "ean13")
+          renderCodeEAN13(painter, printResolution, rc, bc->data(), bc); /*
+        else if(bc->format() == "ean8")
+          renderCodeEAN8(painter, printResolution, rc, bc->data(), bc);
+        else if(bc->format() == "upc-a")
+          renderCodeUPCA(painter, printResolution, rc, bc->data(), bc);
+        else if(bc->format() == "upc-e")
+          renderCodeUPCE(painter, printResolution, rc, bc->data(), bc);
+        else if(bc->format().contains("datamatrix"))
+          renderCodeDatamatrix(painter, printResolution, rc, bc->data(), bc);*/
+        else
         {
-          QString encodedData = ReportPrinter::barcodePrefix() + QString("%1;%2;%3;%4").arg(bc->format()).arg(sz.height()).arg(bc->narrowBarWidth()).arg(bc->data());
-          painter->drawText(rc, 0, encodedData);
+          painter->drawText(rc, 0, "ERR: [" + bc->format() + "]" + bc->data());
         }
+      }
     }
     else if(prim->type() == OROLine::Line)
     {
