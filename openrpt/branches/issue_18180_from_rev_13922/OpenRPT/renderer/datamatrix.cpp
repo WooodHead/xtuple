@@ -12,7 +12,8 @@
 #include "dmtx.h"
 #include "stdexcept"
 
-void printRR(OROPage *page,ORBarcodeData *bc,const QRectF &qrect)
+
+static void printRR(OROPage *page,ORBarcodeData *bc,const QRectF &qrect)
 {
   ORORect * rect = NULL;
 
