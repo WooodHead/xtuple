@@ -42,6 +42,9 @@ var _sheetLit 	 = mywindow.findChild("_sheetLit");
 var _dayHrs		 = mywindow.findChild("_dayHrs");
 var _weekHrs            = mywindow.findChild("_weekHrs");
 
+var _empcostLit			= mywindow.findChild("_empcostLit");
+var _empcost			= mywindow.findChild("_empcost");
+
 var _cancel = _buttonBox.button(QDialogButtonBox.Cancel);
 var _prev = _buttonBox.addButton(qsTr("Prev"), QDialogButtonBox.ActionRole);
 var _next = _buttonBox.addButton(qsTr("Next"), QDialogButtonBox.ActionRole);
@@ -56,6 +59,7 @@ var _mode = xtte.newMode;
 var _modified = false;
 var _populating = false;
 var _last = true;
+
 
 set = function(input)
 {
@@ -78,8 +82,11 @@ set = function(input)
   {
     _mode = input.mode;
 
-    if (input.mode == xtte.newMode)
+    if (input.mode == xtte.newMode) {
       xtte.timeExpenseSheetItem.clear();
+      _empcost.enabled = true;
+     
+    }
     else 
     { 
       if (input.mode == xtte.viewMode)
@@ -105,11 +112,13 @@ set = function(input)
         _task.enabled = false;
         _notes.enabled = false;
         _billable.enabled = false; 
+        _empcost.enabled = false;
       }
       else if (input.mode == xtte.editMode)
       {
         _project.enabled = false;
         _task.enabled = false;
+        _empcost.enabled = true;
       }
 
       xtte.timeExpenseSheetItem.populate();
@@ -180,18 +189,21 @@ xtte.timeExpenseSheetItem.getPrice = function()
   {
     _rate.localValue = 0;
     _rate.enabled = false;
+    _empcost.localValue = 0
+    _empcost.enabled = false;
     return;
   }
   else if (_mode == xtte.editMode)
   {
     if (QMessageBox.question(mywindow,
-                       qsTr("Upate Rate?"),
+                       qsTr("Update Rate?"),
                        qsTr("<p>Would you like to update the existing rate?"),
                         QMessageBox.Ok, QMessageBox.Cancel) == QMessageBox.Cancel)
-      return;
+    return;
   }
-
+  
   _rate.enabled = true;
+  _empcost.enabled = true;
 
   var params = new Object();
   params.item_id = _items.id();
@@ -208,6 +220,13 @@ xtte.timeExpenseSheetItem.getPrice = function()
     _rate.setBaseValue(qry.value("rate"));
   else
     xtte.errorCheck(qry);
+    
+  var qry2 = toolbox.executeQuery("SELECT te.calcRate(emp_wage, emp_wage_period) as cost "
+                                + "FROM emp WHERE emp_id = <? value('emp_id') ?>", params);
+  if (qry2.first())
+    _empcost.setBaseValue(qry2.value("cost"));
+  else
+    xtte.errorCheck(qry2);
 
   xtte.timeExpenseSheetItem.modified();
 }
@@ -249,6 +268,7 @@ xtte.timeExpenseSheetItem.populate = function()
     _billable.checked = qry.value("teitem_billable");
     _prepaid.checked = qry.value("teitem_prepaid")
     _notes.plainText = qry.value("teitem_notes");
+    _empcost.localValue = qry.value("teitem_hrlycost");
 
     _last = qry.value("ismax");
     if (_last && _mode == xtte.editMode)
@@ -331,6 +351,7 @@ xtte.timeExpenseSheetItem.save = function()
   params.teitem_notes          = _notes.plainText;
   params.teitem_id             = _teitemid;
   params.teitem_curr_id        = _rate.id();
+  params.teitem_empcost		   = _empcost.localValue;
 
   var query = "updteitem";
   if (_teitemid < 0)
@@ -371,7 +392,7 @@ xtte.timeExpenseSheetItem.typeChanged = function()
      var params = new Object();
      params.emp_id = _employee.id();
 
-      var qry = toolbox.executeQuery("SELECT COALESCE (crmacct_vend_id,-1) AS crmacct_vend_id FROM crmacct WHERE crmacct_emp_id= <? value('emp_id')?>;",params);
+       var qry = toolbox.executeQuery("SELECT COALESCE (crmacct_vend_id,-1) AS crmacct_vend_id FROM crmacct WHERE crmacct_emp_id= <? value('emp_id')?>;",params);
       if (qry.first())
     {
        var vend_id= qry.value("crmacct_vend_id");
@@ -553,7 +574,7 @@ xtte.timeExpenseSheetItem.prev = function()
     if (QMessageBox.question(mywindow,
                        qsTr("Unsaved Changed"),
                        qsTr("<p>You have made some changes "
-                       + "which have not yet been saved!</p><p>" 
+                       + "which have not yet been saved!</p><p>"
                        + "Would you like to save them now?"),
                         QMessageBox.Save, QMessageBox.No) == QMessageBox.Save)
     {
@@ -694,6 +715,29 @@ xtte.timeExpenseSheetItem.setSecurity = function()
     _rateLit.visible = false;
     _totalLit.visible = false;
   }
+  if ( ( privileges.check("MaintainEmpCostSelf") && xtte.timeExpenseSheetItem.testCurrEmpId()) || privileges.check("MaintainEmpCostAll") ) 
+  {
+    _empcostLit.visible = true;
+    _empcost.visible = true;
+  } else {
+    _empcostLit.visible = false;
+    _empcost.visible = false;
+  }	
+}
+
+xtte.timeExpenseSheetItem.testCurrEmpId = function()
+{
+  var params = new Object;
+  params.emp_id = _employee.id();
+  qry = toolbox.executeQuery("SELECT crmacct_emp_id = <? value('emp_id') ?>::integer AS test "
+                     + "FROM  crmacct "
+                     + "WHERE crmacct_usr_username = getEffectiveXtUser();", params);
+  if (qry.first()) {
+    return qry.value("test");
+  }
+  else 
+    QMessageBox.information(mywindow, "Database Error", qry.lastError().text);
+  return false;
 }
 
 // Initialize default states
@@ -744,4 +788,4 @@ _prepaid.toggled.connect(xtte.timeExpenseSheetItem.modified);
 _notes.textChanged.connect(xtte.timeExpenseSheetItem.modified);
 
 xtte.timeExpenseSheetItem.getPrice();
-xtte.timeExpenseSheetItem.setSecurity();
+_employee["newId(int)"].connect(xtte.timeExpenseSheetItem.setSecurity);

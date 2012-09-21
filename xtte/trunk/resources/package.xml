@@ -69,6 +69,14 @@
    Allowed to view rates in the Time Entries
   </loadpriv>
   
+  <loadpriv name="MaintainEmpCostAll" module="TE">
+   Allowed to maintain employee costs for all users
+  </loadpriv>
+  
+  <loadpriv name="MaintainEmpCostSelf" module="TE">
+   Allowed to maintain own employee costs
+  </loadpriv>
+  
   <loadpriv name="CanApprove" module="TE">
    Allowed to Approve Time/Exp Sheets
   </loadpriv>
