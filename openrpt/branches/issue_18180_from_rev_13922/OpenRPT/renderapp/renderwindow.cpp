@@ -327,8 +327,7 @@ void RenderWindow::print(bool showPreview, int numCopies )
 
     if(_autoPrint)
     {
-      render.setPrinter(&printer);
-      render.render(doc);
+      render.render(doc, &printer);
     }
     else
     {
@@ -336,8 +335,7 @@ void RenderWindow::print(bool showPreview, int numCopies )
       pd.setMinMax(1, doc->pages());
       if(pd.exec() == QDialog::Accepted)
       {
-        render.setPrinter(&printer);
-        render.render(doc);
+        render.render(doc, &printer);
       }
     }
     delete doc;

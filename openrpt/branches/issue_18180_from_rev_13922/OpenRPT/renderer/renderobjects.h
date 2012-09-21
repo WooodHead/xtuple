@@ -56,8 +56,6 @@ class ORODocument
     QString title() const { return _title; };
     ReportPrinter::type printerType() const { return _type; };
 
-    void setupPrinter(ReportPrinter *pPrinter);
-
     int pages() const { return _pages.count(); };
     OROPage* page(int);
     void addPage(OROPage*);
@@ -66,6 +64,7 @@ class ORODocument
     ReportPageOptions pageOptions() const { return _pageOptions; };
 
     void setPrinterParams(QList<QPair<QString,QString> > params) { _printerParams = params; }
+    QList<QPair<QString,QString> > getPrinterParams() const { return _printerParams; }
 
   private:
     QString _title;
