@@ -79,6 +79,15 @@ bool ORPrintRender::setupPrinter(ORODocument * pDocument, QPrinter * pPrinter)
   return true;
 }
 
+bool ORPrintRender::render(ORODocument * pDocument, ReportPrinter *printer)
+{
+  setPrinter(printer);
+  printer->setParams(pDocument->getPrinterParams());
+  printer->setPrinterType(pDocument->printerType());
+  setupPrinter(pDocument, printer);
+  render(pDocument);
+}
+
 bool ORPrintRender::render(ORODocument * pDocument)
 {
   if(pDocument == 0 || _printer == 0)
@@ -484,7 +493,7 @@ bool ORPrintRender::exportToPDF(ORODocument * pDocument, QString pdfFileName)
   if(!pDocument)
     return false;
 
-  QPrinter printer(QPrinter::ScreenResolution);
+  ReportPrinter printer(QPrinter::ScreenResolution);
   printer.setResolution(300);
 
 #ifdef Q_WS_MAC
@@ -496,8 +505,6 @@ bool ORPrintRender::exportToPDF(ORODocument * pDocument, QString pdfFileName)
   printer.setOutputFileName( pdfFileName );
 
   ORPrintRender render;
-  render.setupPrinter(pDocument, &printer);
-  render.setPrinter(&printer);
-  return render.render(pDocument);
+  return render.render(pDocument, &printer);
 }
 

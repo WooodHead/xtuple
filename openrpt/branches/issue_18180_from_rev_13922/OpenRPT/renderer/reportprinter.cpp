@@ -85,6 +85,10 @@ void ReportPrinter::setPrintToBuffer() {
 
 void ReportPrinter::setPrinterType(type type)
 {
+  if(outputFormat() != QPrinter::NativeFormat) {
+    type = Standard;
+  }
+
   if(type == m_printerType) {
     return;
   }
