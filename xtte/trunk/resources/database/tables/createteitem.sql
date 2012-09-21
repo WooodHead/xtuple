@@ -35,7 +35,8 @@ BEGIN
       teitem_uom_id integer,
       teitem_invcitem_id integer REFERENCES invcitem (invcitem_id) ON DELETE SET NULL,
       teitem_vodist_id integer  REFERENCES vodist (vodist_id)  ON DELETE SET NULL,
-      teitem_postedvalue numeric NOT NULL DEFAULT 0
+      teitem_postedvalue numeric NOT NULL DEFAULT 0,
+      teitem_empcost numeric
     );
 
      GRANT ALL ON TABLE te.teitem TO xtrole;

@@ -19,7 +19,8 @@ BEGIN
     SELECT DISTINCT
            tehead_id, tehead_number,   tehead_weekending,          tehead_notes,
            teitem_curr_id,
-           emp_wage,  te.calcRate(emp_wage, emp_wage_period) AS rate,
+           emp_wage, 
+           COALESCE(teitem_empcost, te.calcRate(emp_wage, emp_wage_period)) AS rate, -- coalesce teitem_cost and calcRate AS rate
            vend_id,   vend_taxzone_id, vend_terms_id, vend_number, vend_1099,
            COALESCE(teemp_contractor, false) AS isContractor
       FROM te.tehead

@@ -20,7 +20,8 @@ UPDATE te.teitem SET
   teitem_billable=<? value("teitem_billable") ?>,
   teitem_prepaid=<? value("teitem_prepaid") ?>, 
   teitem_notes=<? value("teitem_notes") ?>,
-  teitem_curr_id=<? value("teitem_curr_id") ?>
+  teitem_curr_id=<? value("teitem_curr_id") ?>,
+  teitem_empcost=<? value("teitem_empcost") ?>
 FROM item
 WHERE ((teitem_id=<? value("teitem_id") ?>)
  AND (teitem_item_id=item_id))

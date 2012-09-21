@@ -20,7 +20,8 @@ INSERT INTO te.teitem (
   teitem_billable,
   teitem_prepaid, 
   teitem_notes,
-  teitem_curr_id )
+  teitem_curr_id, 
+  teitem_empcost )
 SELECT
   <? value("teitem_tehead_id") ?>,
   <? value("teitem_linenumber") ?>,
@@ -37,7 +38,8 @@ SELECT
   <? value("teitem_billable") ?>,
   <? value("teitem_prepaid") ?>,
   <? value("teitem_notes") ?>,
-  <? value("teitem_curr_id") ?>
+  <? value("teitem_curr_id") ?>,
+  <? value("teitem_empcost") ?>
 FROM item
 WHERE (item_id=<? value("teitem_item_id") ?>)
 RETURNING *;
