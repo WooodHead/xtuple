@@ -440,15 +440,15 @@ void ORPrintRender::renderPage(ORODocument * pDocument, int pageNb, QPainter *pa
         else if(bc->format() == "i2of5")
           renderI2of5(painter, xDpi, rc, bc->data(), bc);
         else if(bc->format() == "ean13")
-          renderCodeEAN13(painter, printResolution, rc, bc->data(), bc); /*
+          renderCodeEAN13(painter, xDpi, rc, bc->data(), bc);
         else if(bc->format() == "ean8")
-          renderCodeEAN8(painter, printResolution, rc, bc->data(), bc);
+          renderCodeEAN8(painter, xDpi, rc, bc->data(), bc);
         else if(bc->format() == "upc-a")
-          renderCodeUPCA(painter, printResolution, rc, bc->data(), bc);
+          renderCodeUPCA(painter, xDpi, rc, bc->data(), bc);
         else if(bc->format() == "upc-e")
-          renderCodeUPCE(painter, printResolution, rc, bc->data(), bc);
+          renderCodeUPCE(painter, xDpi, rc, bc->data(), bc);
         else if(bc->format().contains("datamatrix"))
-          renderCodeDatamatrix(painter, printResolution, rc, bc->data(), bc);*/
+          renderCodeDatamatrix(painter, rc, bc->data(), bc);
         else
         {
           painter->drawText(rc, 0, "ERR: [" + bc->format() + "]" + bc->data());

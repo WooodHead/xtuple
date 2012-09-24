@@ -52,15 +52,15 @@ void renderCode128(QPainter *, int, const QRectF &r, const QString &_str, OROBar
 // Code EAN/UPC
 //
 void renderCodeEAN13(QPainter *, int, const QRectF &, const QString &, OROBarcode * bc);
-void renderCodeEAN8(OROPage *, const QRectF &, const QString &, ORBarcodeData * bc);
-void renderCodeUPCA(OROPage *, const QRectF &, const QString &, ORBarcodeData * bc);
-void renderCodeUPCE(OROPage *, const QRectF &, const QString &, ORBarcodeData * bc);
+void renderCodeEAN8(QPainter *, int, const QRectF &, const QString &, OROBarcode * bc);
+void renderCodeUPCA(QPainter *, int, const QRectF &, const QString &, OROBarcode * bc);
+void renderCodeUPCE(QPainter *, int, const QRectF &, const QString &, OROBarcode * bc);
 
 //
 // CodeDataMatrix
 //
 
-void renderCodeDatamatrix(OROPage *, const QRectF &, const QString &, ORBarcodeData * bc);
+void renderCodeDatamatrix(QPainter *, const QRectF &, const QString &, OROBarcode * bc);
 
 #endif
 
