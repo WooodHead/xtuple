@@ -1,19 +1,13 @@
-CREATE OR REPLACE FUNCTION setuserCanCreateUsers(TEXT, BOOLEAN) RETURNS BOOLEAN AS '
+DROP FUNCTION IF EXISTS setuserCanCreateUsers(TEXT, BOOLEAN);
+CREATE OR REPLACE FUNCTION setuserCanCreateUsers(pUsername TEXT, pCreateUser BOOLEAN) RETURNS BOOLEAN AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  pUsername ALIAS FOR $1;
-  pCreateUser ALIAS FOR $2;
-
 BEGIN
-
   IF (pCreateUser) THEN
-    EXECUTE ''ALTER USER '' || pUsername || '' CREATEUSER;'';
+    EXECUTE 'ALTER USER ' || pUsername || ' CREATEROLE;';
   ELSE
-    EXECUTE ''ALTER USER '' || pUsername || '' NOCREATEUSER;'';
+    EXECUTE 'ALTER USER ' || pUsername || ' NOCREATEROLE;';
   END IF;
-
   RETURN TRUE;
-
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE PLPGSQL;
