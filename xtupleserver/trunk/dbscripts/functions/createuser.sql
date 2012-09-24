@@ -1,26 +1,13 @@
-CREATE OR REPLACE FUNCTION createUser(TEXT, BOOLEAN) RETURNS INTEGER AS '
+DROP FUNCTION IF EXISTS createUser(TEXT, BOOLEAN);
+CREATE OR REPLACE FUNCTION createUser(pUsername TEXT, pCreateUsers BOOLEAN) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  pUsername ALIAS FOR $1;
-  pCreateUsers ALIAS FOR $2;
-  _sql TEXT;
-
 BEGIN
-
-  _sql := ''CREATE USER '' || pUsername;
-
   IF (pCreateUsers) THEN
-    _sql := _sql || '' CREATEUSER '';
+    EXECUTE 'CREATE USER ' || pUsername || ' CREATEROLE   IN GROUP xtrole;';
   ELSE
-    _sql := _sql || '' NOCREATEUSER '';
+    EXECUTE 'CREATE USER ' || pUsername || ' NOCREATEROLE IN GROUP xtrole;';
   END IF;
-
-  _sql := _sql || ''IN GROUP xtrole;'';
-
-  EXECUTE _sql;
-
   RETURN 1;
-
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE PLPGSQL;

@@ -17,19 +17,15 @@ CREATE TRIGGER metasqlTrigger BEFORE INSERT OR UPDATE ON metasql FOR EACH ROW EX
 CREATE OR REPLACE FUNCTION _metasqlalterTrigger() RETURNS TRIGGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-  _isdba BOOLEAN := false;
 BEGIN
-  SELECT rolsuper INTO _isdba FROM pg_roles WHERE (rolname=getEffectiveXtUser());
-
-  IF (NOT (_isdba OR checkPrivilege('MaintainMetaSQL'))) THEN
-    RAISE EXCEPTION '% does not have privileges to maintain MetaSQL statements in %.% (DBA=%)',
-                getEffectiveXtUser(), TG_TABLE_SCHEMA, TG_TABLE_NAME, _isdba;
+  IF (NOT (isDBA() OR checkPrivilege('MaintainMetaSQL'))) THEN
+    RAISE EXCEPTION '% does not have privileges to maintain MetaSQL statements in %.%',
+                getEffectiveXtUser(), TG_TABLE_SCHEMA, TG_TABLE_NAME;
   END IF;
 
   IF ((TG_OP = 'UPDATE' OR TG_OP = 'DELETE')
       AND NEW.metasql_grade <= 0
-      AND NOT _isdba) THEN
+      AND NOT isDBA()) THEN
     RAISE EXCEPTION 'You may not alter grade 0 metasql queries except using the xTuple Updater utility';
   END IF;
 
