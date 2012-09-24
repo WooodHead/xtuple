@@ -240,7 +240,7 @@ class OROBarcode : public OROPrimitive
     QString format() const { return _format; };
     void setFormat(const QString &);
 
-    double narrowBarWidth() const { return _narrowBarWidth; };
+    qreal narrowBarWidth() const { return _narrowBarWidth; };
     void setNarrowBarWidth(double);
 
     int align() const { return _align; };
@@ -249,11 +249,11 @@ class OROBarcode : public OROPrimitive
     static const int Barcode;
 
   protected:
-    QSizeF _size;
+    QSizeF  _size;
     QString _data;
     QString _format;
-    double _narrowBarWidth;
-    int    _align;
+    qreal   _narrowBarWidth;
+    int     _align;
 };
 
 //
