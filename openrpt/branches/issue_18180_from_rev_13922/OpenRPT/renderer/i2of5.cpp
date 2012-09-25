@@ -68,7 +68,7 @@ static QPointF addSpace(QPainter *painter, const QRectF &r, QPointF startPos, qr
 void renderI2of5(QPainter *painter, int dpi, const QRectF &r, const QString & _str, OROBarcode * bc)
 {
   QString str = _str;
-  qreal narrow_bar = bc->narrowBarWidth();
+  qreal narrow_bar = bc->narrowBarWidth() * dpi;
   qreal bar_width_mult = 2.5; // the wide bar width multiple of the narrow bar
   qreal wide_bar = narrow_bar * bar_width_mult;
 
@@ -79,8 +79,8 @@ void renderI2of5(QPainter *painter, int dpi, const QRectF &r, const QString & _s
 
   // this is our mandatory minimum quiet zone
   qreal quiet_zone = narrow_bar * 10;
-  if(quiet_zone < 0.1)
-    quiet_zone = 0.1;
+  if(quiet_zone < 0.1*dpi)
+    quiet_zone = 0.1*dpi;
 
   // what kind of area do we have to work with
   qreal draw_width = r.width();
@@ -143,7 +143,7 @@ void renderI2of5(QPainter *painter, int dpi, const QRectF &r, const QString & _s
         }
         int iChar = c.digitValue();
         qreal width = _i2of5charmap[iChar][iElt] == 'W' ? wide_bar : narrow_bar;
-        pos = addElement(painter, r, pos, width*dpi, offset==1);
+        pos = addElement(painter, r, pos, width, offset==1);
       }
     }
   }

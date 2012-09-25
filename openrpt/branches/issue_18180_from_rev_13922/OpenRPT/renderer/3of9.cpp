@@ -102,14 +102,14 @@ void render3of9(QPainter *painter, int dpi, const QRectF &r, const QString &_str
 {
   QString str = _str;
   // lets determine some core attributes about this barcode
-  double narrow_bar = bc->narrowBarWidth();
+  double narrow_bar = bc->narrowBarWidth()*dpi;
   qreal interchange_gap = narrow_bar; // the space between each 'set' of bars
   int bar_width_mult = 2; // the wide bar width multiple of the narrow bar
 
   // this is our mandatory minimum quiet zone
   qreal quiet_zone = narrow_bar * 10;
-  if(quiet_zone < 0.1)
-    quiet_zone = 0.1;
+  if(quiet_zone < 0.1*dpi)
+    quiet_zone = 0.1*dpi;
 
   // what kind of area do we have to work with
   qreal draw_width = r.width();
@@ -178,7 +178,7 @@ void render3of9(QPainter *painter, int dpi, const QRectF &r, const QString &_str
     bool space = false;
     for(int b = 0; b < 9; b++, space = !space)
     {
-      qreal w = dpi * (_3of9codes[idx].values[b] == 1 ?narrow_bar*bar_width_mult:narrow_bar);
+      qreal w = _3of9codes[idx].values[b] == 1 ?narrow_bar*bar_width_mult:narrow_bar;
       if(!space)
       {
         painter->drawRect(QRectF(pos,top, w,draw_height));
