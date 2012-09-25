@@ -9,7 +9,7 @@ SELECT *,
   FROM te.teitem maxte
   WHERE ((maxte.teitem_tehead_id=tehead_id)
    AND (maxte.teitem_linenumber > curr.teitem_linenumber))) AS ismax,
- COALESCE(curr.teitem_empcost, te.calcRate(emp_wage, emp_wage_period)) AS teitem_cost
+ COALESCE(curr.teitem_empcost, te.calcRate(emp_wage, emp_wage_period)) AS teitem_hrlycost
 FROM te.tehead
   JOIN te.teitem curr ON (tehead_id = curr.teitem_tehead_id) 
   JOIN prjtask ON (prjtask_id=curr.teitem_prjtask_id)
