@@ -1,0 +1,18 @@
+-- Group: timeexpensesheetitem
+-- Name:  detail
+-- Notes: 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+SELECT *,
+ (SELECT (COUNT(teitem_id) = 0)
+  FROM te.teitem maxte
+  WHERE ((maxte.teitem_tehead_id=tehead_id)
+   AND (maxte.teitem_linenumber > curr.teitem_linenumber))) AS ismax,
+ COALESCE(curr.teitem_empcost, te.calcRate(emp_wage, emp_wage_period)) AS teitem_cost
+FROM te.tehead
+  JOIN te.teitem curr ON (tehead_id = curr.teitem_tehead_id) 
+  JOIN prjtask ON (prjtask_id=curr.teitem_prjtask_id)
+  JOIN prj ON (prj_id=prjtask_prj_id)		
+  LEFT JOIN emp ON (tehead_emp_id = emp_id)
+WHERE (curr.teitem_id=<? value("teitem_id") ?>);
