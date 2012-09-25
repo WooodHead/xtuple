@@ -54,8 +54,49 @@
     </message>
   </prerequisite>
 
-  <loadpriv       name="MaintainEmpCostAll" module="te">Allowed to view and edit employee costs for TE items for all employees</loadpriv>
-  <loadpriv       name="MaintainEmpCostSelf" module="te">Allowed to view and edit employee costs for TE items for self</loadpriv>
+  <loadpriv name="MaintainTimeExpenseOthers" module="TE">
+   Allowed to Maintain Time/Exp Sheets for all users
+  </loadpriv>
+
+  <loadpriv name="MaintainTimeExpenseSelf" module="TE">
+   Allowed to Maintain Time/Exp Sheets
+  </loadpriv>
+
+  <loadpriv name="MaintainTimeExpense" module="TE">
+   Allowed to Maintain Time/Exp Sheets
+  </loadpriv>
+
+  <loadpriv name="CanViewRates" module="TE">
+   Allowed to view rates in the Time Entries
+  </loadpriv>
+  
+  <loadpriv name="MaintainEmpCostAll" module="TE">
+   Allowed to maintain employee costs for all users
+  </loadpriv>
+  
+  <loadpriv name="MaintainEmpCostSelf" module="TE">
+   Allowed to maintain own employee costs
+  </loadpriv>
+  
+  <loadpriv name="CanApprove" module="TE">
+   Allowed to Approve Time/Exp Sheets
+  </loadpriv>
+    
+  <loadpriv name="allowInvoicing" module="TE">
+   Allowed to Invoice Time/Exp Sheets
+  </loadpriv>
+    
+  <loadpriv name="allowVouchering" module="TE">
+   Allowed to Voucher Time/Exp Sheets
+  </loadpriv>
+
+  <loadpriv name="PostTimeSheets" module="TE">
+   Allowed to Post Time Sheets
+  </loadpriv>
+
+  <loadpriv name="ViewTimeExpenseHistory" module="TE">
+   Allowed to view Time Expense Sheet history
+  </loadpriv>
   
   <createfunction file="database/functions/calcrate.sql"    name="calcrate">Time and Expense package</createfunction>
   <createfunction file="database/functions/copyitem.sql"    name="copyitem">Time and Expense package</createfunction>
