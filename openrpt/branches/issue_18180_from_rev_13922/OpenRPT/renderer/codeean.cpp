@@ -126,12 +126,12 @@ void renderCodeEAN13(QPainter *painter, int dpi, const QRectF & r, const QString
 
   // this is are mandatory minimum quiet zone
   qreal quiet_zone = bar_width * 10;
-  if(quiet_zone < 0.1)
-    quiet_zone = 0.1;
+  if(quiet_zone < 0.1*dpi)
+    quiet_zone = 0.1*dpi;
 
   // what kind of area do we have to work with
   qreal draw_width = r.width();
-  qreal draw_height = r.height() - 0.02;
+  qreal draw_height = r.height() - 0.02*dpi;
 
   // L = 95X
   // L length of barcode (excluding quite zone) in units same as X and I
@@ -285,15 +285,15 @@ void renderCodeUPCA(QPainter *painter, int dpi, const QRectF & r, const QString 
 
 
   // lets determine some core attributes about this barcode
-  qreal bar_width = bc->narrowBarWidth(); // the width of the base unit bar
+  qreal bar_width = bc->narrowBarWidth() * dpi; // the width of the base unit bar
 
   // this is are mandatory minimum quiet zone
   qreal quiet_zone = bar_width * 10;
-  if(quiet_zone < 0.1) quiet_zone = 0.1;
+  if(quiet_zone < 0.1*dpi) quiet_zone = 0.1*dpi;
 
   // what kind of area do we have to work with
   qreal draw_width = r.width();
-  qreal draw_height = r.height() - 0.02;
+  qreal draw_height = r.height() - 0.02*dpi;
 
   // L = 95X
   // L length of barcode (excluding quite zone) in units same as X and I
@@ -419,7 +419,7 @@ void renderCodeEAN8(QPainter *painter, int dpi, const QRectF & r, const QString 
     val[i] = -1;
 
   // verify that the passed in string is valid
-  // if it's not either twelve or thirteen characters
+  // if it's not either seven or eight characters
   // then it must be invalid to begin with
   if(_str.length() != 7 && _str.length() != 8)
     return;
@@ -449,7 +449,7 @@ void renderCodeEAN8(QPainter *painter, int dpi, const QRectF & r, const QString 
 
 
   // lets determine some core attributes about this barcode
-  qreal bar_width = bc->narrowBarWidth(); // the width of the base unit bar
+  qreal bar_width = bc->narrowBarWidth() * dpi; // the width of the base unit bar
 
   // this is are mandatory minimum quiet zone
   qreal quiet_zone = bar_width * 10;
@@ -599,16 +599,16 @@ void renderCodeUPCE(QPainter *painter, int dpi, const QRectF & r, const QString 
     return;
 
   // lets determine some core attributes about this barcode
-  qreal bar_width = bc->narrowBarWidth(); // the width of the base unit bar
+  qreal bar_width = bc->narrowBarWidth() * dpi; // the width of the base unit bar
 
   // this is are mandatory minimum quiet zone
   qreal quiet_zone = bar_width * 0.10;
-  if(quiet_zone < 0.10)
-    quiet_zone = 0.10;
+  if(quiet_zone < 0.10*dpi)
+    quiet_zone = 0.10*dpi;
 
   // what kind of area do we have to work with
   qreal draw_width = r.width();
-  qreal draw_height = r.height() - 0.02;
+  qreal draw_height = r.height() - 0.02*dpi;
 
   // L = 51X
   // L length of barcode (excluding quite zone) in units same as X and I
