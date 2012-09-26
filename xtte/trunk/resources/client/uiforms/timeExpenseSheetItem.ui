@@ -483,7 +483,7 @@ to be bound by its terms.</comment>
                 </item>
                </layout>
               </item>
-              <item row="5" column="1">
+              <item row="7" column="1">
                <widget class="QCheckBox" name="_prepaid">
                 <property name="focusPolicy">
                  <enum>Qt::StrongFocus</enum>
@@ -493,17 +493,17 @@ to be bound by its terms.</comment>
                 </property>
                </widget>
               </item>
-              <item row="4" column="0">
+              <item row="5" column="0">
                <widget class="QLabel" name="_empcostLit">
                 <property name="text">
-                 <string>Cost:</string>
+                 <string>Hourly Cost:</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                 </property>
                </widget>
               </item>
-              <item row="4" column="1">
+              <item row="5" column="1">
                <layout class="QHBoxLayout" name="horizontalLayout_12">
                 <item>
                  <widget class="CurrCluster" name="_empcost">
@@ -514,6 +514,40 @@ to be bound by its terms.</comment>
                 </item>
                 <item>
                  <spacer name="horizontalSpacer_11">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="_totCostLit">
+                <property name="text">
+                 <string>Total Cost:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_13">
+                <item>
+                 <widget class="CurrCluster" name="_totCost">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_13">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
@@ -799,60 +833,55 @@ to be bound by its terms.</comment>
  <customwidgets>
   <customwidget>
    <class>CurrCluster</class>
-   <extends>CurrDisplay</extends>
-   <header>currcluster.h</header>
-  </customwidget>
-  <customwidget>
-   <class>CurrDisplay</class>
-   <extends>QWidget</extends>
+   <extends></extends>
    <header>currcluster.h</header>
   </customwidget>
   <customwidget>
    <class>CustCluster</class>
-   <extends>QWidget</extends>
+   <extends></extends>
    <header>custcluster.h</header>
   </customwidget>
   <customwidget>
    <class>DLineEdit</class>
-   <extends>QWidget</extends>
+   <extends></extends>
    <header>datecluster.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>EmpCluster</class>
-   <extends>QWidget</extends>
+   <extends></extends>
    <header>empcluster.h</header>
   </customwidget>
   <customwidget>
    <class>ItemCluster</class>
-   <extends>QWidget</extends>
+   <extends></extends>
    <header>itemcluster.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>ProjectCluster</class>
-   <extends>QWidget</extends>
+   <extends></extends>
    <header>projectcluster.h</header>
   </customwidget>
   <customwidget>
    <class>XComboBox</class>
-   <extends>QComboBox</extends>
+   <extends></extends>
    <header>xcombobox.h</header>
   </customwidget>
   <customwidget>
    <class>XLabel</class>
-   <extends>QLabel</extends>
+   <extends></extends>
    <header>xlabel.h</header>
   </customwidget>
   <customwidget>
    <class>XLineEdit</class>
-   <extends>QLineEdit</extends>
+   <extends></extends>
    <header>xlineedit.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>XTextEdit</class>
-   <extends>QTextEdit</extends>
+   <extends></extends>
    <header>xtextedit.h</header>
   </customwidget>
  </customwidgets>

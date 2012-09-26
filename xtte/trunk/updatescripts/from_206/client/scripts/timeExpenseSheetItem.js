@@ -44,6 +44,8 @@ var _weekHrs            = mywindow.findChild("_weekHrs");
 
 var _empcostLit			= mywindow.findChild("_empcostLit");
 var _empcost			= mywindow.findChild("_empcost");
+var _totCostLit	= mywindow.findChild("_totCostLit");
+var _totCost	= mywindow.findChild("_totCost");
 
 var _cancel = _buttonBox.button(QDialogButtonBox.Cancel);
 var _prev = _buttonBox.addButton(qsTr("Prev"), QDialogButtonBox.ActionRole);
@@ -131,6 +133,8 @@ set = function(input)
 xtte.timeExpenseSheetItem.extension = function()
 {
   _total.localValue = (_hours.toDouble() * _rate.localValue);
+  //if (_empcost.locaValue)
+  _totCost.localValue = (_hours.toDouble() * _empcost.localValue);
   if (_type.code == 'T')
     xtte.timeExpenseSheetItem.empTotals();
   xtte.timeExpenseSheetItem.modified();
@@ -223,8 +227,10 @@ xtte.timeExpenseSheetItem.getPrice = function()
     
   var qry2 = toolbox.executeQuery("SELECT te.calcRate(emp_wage, emp_wage_period) as cost "
                                 + "FROM emp WHERE emp_id = <? value('emp_id') ?>", params);
-  if (qry2.first())
+  if (qry2.first()) {
     _empcost.setBaseValue(qry2.value("cost"));
+    _totCost.setBaseValue(qry2.value("cost") * _hours.toDouble());
+  }
   else
     xtte.errorCheck(qry2);
 
@@ -269,6 +275,7 @@ xtte.timeExpenseSheetItem.populate = function()
     _prepaid.checked = qry.value("teitem_prepaid")
     _notes.plainText = qry.value("teitem_notes");
     _empcost.localValue = qry.value("teitem_hrlycost");
+    _totCost.localValue = qry.value("teitem_hrlycost")*qry.value("teitem_qty");
 
     _last = qry.value("ismax");
     if (_last && _mode == xtte.editMode)
@@ -351,7 +358,7 @@ xtte.timeExpenseSheetItem.save = function()
   params.teitem_notes          = _notes.plainText;
   params.teitem_id             = _teitemid;
   params.teitem_curr_id        = _rate.id();
-  params.teitem_empcost		   = _empcost.localValue;
+  params.teitem_empcost        = _empcost.localValue;
 
   var query = "updteitem";
   if (_teitemid < 0)
@@ -680,6 +687,7 @@ xtte.timeExpenseSheetItem.clear = function()
   _hours.text = "0.0";
   _hours.enabled = true;
   _rate.localValue = 0;
+  _empcost.localValue = 0;
   _items.enabled = true;
   _items.setId(-1);
   _employee.enabled = false;
@@ -719,9 +727,13 @@ xtte.timeExpenseSheetItem.setSecurity = function()
   {
     _empcostLit.visible = true;
     _empcost.visible = true;
+    _totCostLit.visible = true;
+    _totCost.visible = true;
   } else {
     _empcostLit.visible = false;
     _empcost.visible = false;
+    _totCostLit.visible = false;
+    _totCost.visible = false;
   }	
 }
 
@@ -774,6 +786,7 @@ _task.newID.connect(xtte.timeExpenseSheetItem.taskChanged);
 _rate.valueChanged.connect(xtte.timeExpenseSheetItem.extension);
 _workdate.newDate.connect(xtte.timeExpenseSheetItem.empTotals);
 _hours.textChanged.connect(xtte.timeExpenseSheetItem.extension);
+_empcost.valueChanged.connect(xtte.timeExpenseSheetItem.extension);
 _hours.editingFinished.connect(xtte.timeExpenseSheetItem.actTotals);
 _rate.valueChanged.connect(xtte.timeExpenseSheetItem.actTotals);
 _type.newID.connect(xtte.timeExpenseSheetItem.typeChanged);
