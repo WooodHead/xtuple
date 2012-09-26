@@ -34,6 +34,7 @@ class ParameterList;
 #include <QFont>
 #include <QImage>
 #include <QPainter>
+#include <QPrinter>
 #include <QSqlDatabase>
 #include <QStringList>
 

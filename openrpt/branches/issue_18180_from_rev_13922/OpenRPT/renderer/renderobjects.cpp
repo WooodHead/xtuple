@@ -41,6 +41,11 @@ ORODocument::~ORODocument()
   }
 }
 
+void ORODocument::setTitle(const QString & pTitle)
+{
+  _title = pTitle;
+}
+
 OROPage* ORODocument::page(int pnum)
 {
   return _pages.at(pnum);

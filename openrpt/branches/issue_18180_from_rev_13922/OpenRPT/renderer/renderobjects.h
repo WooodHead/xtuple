@@ -50,10 +50,11 @@ class ORODocument
   friend class OROPage;
 
   public:
-    ORODocument(const QString & title, ReportPrinter::type printerType);
+  ORODocument(const QString & title = QString(), ReportPrinter::type printerType = ReportPrinter::Standard);
     virtual ~ORODocument();
 
     QString title() const { return _title; };
+    void setTitle(const QString & pTitle);
     ReportPrinter::type printerType() const { return _type; };
 
     int pages() const { return _pages.count(); };
