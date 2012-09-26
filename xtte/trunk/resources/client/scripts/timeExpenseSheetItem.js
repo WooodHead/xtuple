@@ -86,8 +86,11 @@ set = function(input)
 
     if (input.mode == xtte.newMode) {
       xtte.timeExpenseSheetItem.clear();
+      var qry2 = toolbox.executeQuery("SELECT te.calcRate(emp_wage, emp_wage_period) as cost "
+                                + "FROM emp WHERE emp_id = " + input.emp_id);
+      if (qry2.first()) 
+      _empcost.setBaseValue(qry2.value("cost"));
       _empcost.enabled = true;
-     
     }
     else 
     { 
@@ -193,8 +196,6 @@ xtte.timeExpenseSheetItem.getPrice = function()
   {
     _rate.localValue = 0;
     _rate.enabled = false;
-    _empcost.localValue = 0
-    _empcost.enabled = false;
     return;
   }
   else if (_mode == xtte.editMode)
