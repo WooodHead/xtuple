@@ -9,6 +9,7 @@
 #include "parsexmlutils.h"
 #include "renderobjects.h"
 
+#include "barcodes.h"
 #include "dmtx.h"
 #include "stdexcept"
 
@@ -40,7 +41,7 @@ static void printRR(QPainter *painter, const QRectF &qrect)
   }
 }
 
-void datamatrixGeometry(QString &inFormat, const QRectF &inQrect,DmtxImage *inImg, qreal *outXo, qreal *outYo, qreal *outPas)
+static void datamatrixGeometry(QString &inFormat, const QRectF &inQrect,DmtxImage *inImg, qreal *outXo, qreal *outYo, qreal *outPas)
 {
   *outPas =  std::min(inQrect.width()/inImg->width, inQrect.height()/inImg->height);
   *outYo = inQrect.bottom();
@@ -65,16 +66,67 @@ void datamatrixGeometry(QString &inFormat, const QRectF &inQrect,DmtxImage *inIm
   }
 }
 
+
+DmtxInfos extractInfosDtmx(const QString &s)
+{
+  const int sizes[][2] = {
+      {10,10},
+      {12,12},
+      {14,14},
+      {16,16},
+      {18,18},
+      {20,20},
+      {22,22},
+      {24,24},
+      {26,26},
+      {32,32},
+      {36,36},
+      {40,40},
+      {44,44},
+      {48,48},
+      {52,52},
+      {64,64},
+      {72,72},
+      {80,80},
+      {88,88},
+      {96,96},
+      {104,104},
+      {120,120},
+      {132,132},
+      {144,144},
+      {8,18},
+      {18,32},
+      {12,26},
+      {12,36},
+      {16,36},
+      {16,48}
+  };
+
+  int nbNsizes = sizeof(sizes)/sizeof(sizes[0]);
+
+  DmtxInfos res;
+
+  QRegExp regex("[a-zA-Z]{10}_([0-9]{1,2})_([LCR]{1})");
+  regex.indexIn(s);
+  res.type = regex.cap(1).toInt();
+  res.align = regex.cap(2);
+  if(res.type>0 && res.type<nbNsizes ) {
+    res.ySize = sizes[res.type][0];
+    res.xSize = sizes[res.type][1];
+  }
+  else {
+    res.xSize = res.ySize = 1;
+  }
+
+  return res;
+}
+
+
 void renderCodeDatamatrix(QPainter *painter, const QRectF &qrect, const QString &qstr, OROBarcode * bc)
 {
 
-	//5 pixel par carré
-  //qreal pix = 5;
   //lecture du type de datamatrix
-  QRegExp regex("[a-zA-Z]{10}_([0-9]{1,2})_([LCR]{1})");
-  regex.indexIn(bc->format());
-  int type = regex.cap(1).toInt();
-  QString align = regex.cap(2);
+  DmtxInfos dmtxInfos = extractInfosDtmx(bc->format());
 
   size_t          width, height, bytesPerPixel;
 
@@ -88,7 +140,7 @@ void renderCodeDatamatrix(QPainter *painter, const QRectF &qrect, const QString 
   enc = dmtxEncodeCreate();
 
   //see DmtxSymbolSize in dmtx.h for more details
-  enc->sizeIdxRequest = type;
+  enc->sizeIdxRequest = dmtxInfos.type;
   enc->marginSize = 0;
   //number of pixel for one square
   enc->moduleSize = 1;
@@ -129,7 +181,7 @@ void renderCodeDatamatrix(QPainter *painter, const QRectF &qrect, const QString 
     //length of square
     qreal pas = 0;
 
-    datamatrixGeometry(align,qrect,img,&Xo,&Yo,&pas);
+    datamatrixGeometry(dmtxInfos.align,qrect,img,&Xo,&Yo,&pas);
 
     //draw the datamatrix
     for(int y = 0; y < img->height; y++)
