@@ -13,9 +13,7 @@ var _debug = false;
 include("xtte");
 
 try
-
 {
-
   if (_debug)
     print("xtte.timeExpenseSheet script entered");
 
@@ -44,7 +42,7 @@ try
   var _type;
   var _admin;
 
-<<<<<<< .mine
+
 if (privileges.check("CanViewRates"))
 {
   _lines.addColumn(qsTr("Billable"),    XTreeWidget.ynColumn,     Qt.AlignLeft,    true,   "teitem_billable");
@@ -52,8 +50,8 @@ if (privileges.check("CanViewRates"))
   _lines.addColumn(qsTr("Extended"),    XTreeWidget.moneyColumn,  Qt.AlignRight,   false,  "teitem_total");
 }
 
-_lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,Qt.AlignLeft,    false,  "teitem_type");
-=======
+  _lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,Qt.AlignLeft,    false,  "teitem_type");
+
   //add logic to determine the next Sunday date and populate both start and end with it
   _lines.addColumn(qsTr("Line #"),        XTreeWidget.seqColumn,    Qt.AlignLeft,    true,   "teitem_linenumber");
   _lines.addColumn(qsTr("Sheet Date"),    XTreeWidget.dateColumn,   Qt.AlignLeft,    false,  "tehead_weekending");
@@ -70,7 +68,7 @@ _lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,Qt.AlignLeft,    false
   _lines.addColumn(qsTr("Hours"),         XTreeWidget.qtyColumn,    Qt.AlignRight,   true,   "hours");
   _lines.addColumn(qsTr("Expense"),       XTreeWidget.qtyColumn,    Qt.AlignRight,   true,   "expense");
   _lines.addColumn(qsTr("Notes"),         XTreeWidget.qtyColumn,    Qt.AlignLeft,    false,  "f_notes");
->>>>>>> .r14107
+
 
   if (privileges.check("CanViewRates"))
   {
@@ -99,14 +97,13 @@ set = function(input)
     if (_debug)
       print("xtte.timeExpenseSheet.set entered");
 
-<<<<<<< .mine
-  if("emp_id" in input)
-    _employee.setId(input.emp_id); 
-    
-=======
-    _sheet = input.sheet;
 
->>>>>>> .r14107
+  if("emp_id" in input)
+  {
+    _employee.setId(input.emp_id); 
+    _sheet = input.sheet;
+  }
+
     if("emp_id" in input)
       _employee.setId(input.emp_id);
   
@@ -163,13 +160,9 @@ set = function(input)
     
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                          qsTr("set exception: ") + e);
-
   }
 }
 
