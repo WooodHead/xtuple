@@ -76,7 +76,11 @@ class CSVDataPrivate
         {
           if (_parent->delimiter() == c || '\r' == c || '\n' == c)
           {
-            record.append(field->trimmed());
+            if (! field->isNull() && haveText)
+              record.append(field->trimmed());
+            else
+              record.append(QString::null);
+
             col++;
 
             field->clear();
