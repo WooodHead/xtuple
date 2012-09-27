@@ -13,7 +13,9 @@ var _debug = false;
 include("xtte");
 
 try
+
 {
+
   if (_debug)
     print("xtte.timeExpenseSheet script entered");
 
@@ -50,7 +52,7 @@ if (privileges.check("CanViewRates"))
   _lines.addColumn(qsTr("Extended"),    XTreeWidget.moneyColumn,  Qt.AlignRight,   false,  "teitem_total");
 }
 
-  _lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,Qt.AlignLeft,    false,  "teitem_type");
+_lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,Qt.AlignLeft,    false,  "teitem_type");
 
   //add logic to determine the next Sunday date and populate both start and end with it
   _lines.addColumn(qsTr("Line #"),        XTreeWidget.seqColumn,    Qt.AlignLeft,    true,   "teitem_linenumber");
@@ -99,14 +101,15 @@ set = function(input)
 
 
   if("emp_id" in input)
-  {
-    _employee.setId(input.emp_id); 
+    _employee.setId(input.emp_id);
+
+
     _sheet = input.sheet;
-  }
+
 
     if("emp_id" in input)
       _employee.setId(input.emp_id);
-  
+
     if ("tehead_id" in input)
     {
       _id = input.tehead_id;
@@ -157,12 +160,16 @@ set = function(input)
     }
 
     return mainwindow.NoError;
-    
+
   }
   catch (e)
+
   {
+
     QMessageBox.critical(mywindow, "timeExpenseSheet",
+
                          qsTr("set exception: ") + e);
+
   }
 }
 
@@ -215,12 +222,12 @@ xtte.timeExpenseSheet.deleteItem = function()
       print("xtte.timeExpenseSheet.deleteItem entered");
 
     var msg = qsTr("Are you sure you want to delete this line?");
-    if (QMessageBox.question(mywindow, mywindow.windowTitle, msg, 
-          QMessageBox.Yes | QMessageBox.Escape, 
+    if (QMessageBox.question(mywindow, mywindow.windowTitle, msg,
+          QMessageBox.Yes | QMessageBox.Escape,
           QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
     {
       var params   = new Object();
-      params.teitem_id = _lines.id();  
+      params.teitem_id = _lines.id();
 
       q = toolbox.executeDbQuery("timeexpensesheet","delteitem", params );
       xtte.errorCheck(q);
@@ -248,7 +255,7 @@ xtte.timeExpenseSheet.newItem = function()
     if (!xtte.timeExpenseSheet.save())
       return;
 
-    xtte.timeExpenseSheet.openItem(xtte.newMode);  
+    xtte.timeExpenseSheet.openItem(xtte.newMode);
   }
   catch (e)
 
@@ -304,7 +311,7 @@ xtte.timeExpenseSheet.viewItem = function()
 
 
 xtte.timeExpenseSheet.openItem = function(mode)
-{  
+{
   try
   {
     if (_debug)
@@ -419,7 +426,7 @@ xtte.timeExpenseSheet.handleNewButton = function()
     if (_debug)
       print("xtte.timeExpenseSheet.handleNewButton entered");
 
-    _new.enabled = (_weekending.isValid() && 
+    _new.enabled = (_weekending.isValid() &&
                     _employee.isValid() &&
                     _mode != "view");
   }
@@ -449,7 +456,7 @@ xtte.timeExpenseSheet.populate = function()
     q = toolbox.executeDbQuery("timeexpensesheet", "header", params);
 
     if (q.first())
-    {    
+    {
       _weekending.date = q.value("tehead_weekending");
       _sheetNumberExtra.text = q.value("tehead_number");
       _employee.setId(q.value("tehead_emp_id"));
@@ -489,7 +496,7 @@ xtte.timeExpenseSheet.testCurrEmpId = function()
   if (qry.first()) {
     return qry.value("test");
   }
-  else 
+  else
     QMessageBox.information(mywindow, "Database Error", qry.lastError().text);
   return false;
 }
@@ -502,8 +509,11 @@ xtte.timeExpenseSheet.fillList = function()
     if (_debug)
       print("xtte.timeExpenseSheet.fillList entered");
 
-    if ( ( privileges.check("MaintainEmpCostSelf") && xtte.timeExpenseSheet.testCurrEmpId()) || privileges.check("MaintainEmpCostAll") ) 
-      _lines.addColumn(qsTr("Hourly Cost"),   XTreeWidget.priceColumn,  Qt.AlignRight,   false,  "teitem_empcost");
+    if ( ( privileges.check("MaintainEmpCostSelf") && xtte.timeExpenseSheet.testCurrEmpId()) || privileges.check("MaintainEmpCostAll") )
+{
+      _lines.addColumn(qsTr("Hourly Cost"),   XTreeWidget.priceColumn,  Qt.AlignRight,   false,  "teitem_hrlycost");
+      _lines.addColumn(qsTr("Total Cost"),   XTreeWidget.priceColumn,  Qt.AlignRight,   false,  "teitem_totalcost");
+}
 
     var params = new Object;
     params.tehead_id = _id;
