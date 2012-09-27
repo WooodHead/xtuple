@@ -25,7 +25,9 @@
 #include <QtDebug>
 #include <QHostInfo>
 #include <QTextCodec>
+
 #include "zebrapaintengine.h"
+#include "barcodes.h"
 
 
 static QByteArray compressedHexa(const QByteArray &in)
@@ -144,7 +146,11 @@ void ZebraPaintEngine::drawBarcode ( const QPointF & p, const QString &format, i
   else if(format == "i2of5")
     barcodeFont = "BI";
   else if(format.contains("datamatrix"))
-    barcodeFont = "BX,10,200";
+  {
+    DmtxInfos dmtxInfos = extractInfosDtmx(format);
+    int eltSize = qRound (qBound(2.0, (qreal)height / (qreal)dmtxInfos.ySize, 20.0));
+    barcodeFont = QString("BX,%1,200,%2,%3").arg(eltSize).arg(dmtxInfos.xSize).arg(dmtxInfos.ySize);
+  }
   else {
     drawText(p, "ERR: " + format);
   }
