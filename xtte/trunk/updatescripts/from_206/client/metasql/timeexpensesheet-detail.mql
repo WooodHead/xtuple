@@ -1,6 +1,6 @@
 -- Group: timeexpensesheet
 -- Name:  detail
--- Notes: 
+-- Notes:
 --        Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
 --        See www.xtuple.com/CPAL for the full text of the software license.
 
@@ -17,6 +17,12 @@ SELECT
   tehead.*, emp_code,
   prj_number, prj_name,
   prjtask_number, prjtask_name,
+  CASE WHEN teitem_type='E' THEN 0
+       ELSE COALESCE(teitem_empcost, te.calcRate(emp_wage, emp_wage_period))
+       END AS teitem_hrlycost,
+  CASE WHEN teitem_type='E' THEN 0
+       ELSE COALESCE(teitem_empcost, te.calcRate(emp_wage, emp_wage_period))
+       * teitem_qty END AS teitem_totalcost,
   CASE WHEN (teitem_type='T') THEN
     <? value("time") ?>
        WHEN (teitem_type='E') THEN

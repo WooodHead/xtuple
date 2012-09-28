@@ -13,9 +13,7 @@ var _debug = false;
 include("xtte");
 
 try
-
 {
-
   if (_debug)
     print("xtte.timeExpenseSheet script entered");
 
@@ -44,15 +42,7 @@ try
   var _type;
   var _admin;
 
-
-if (privileges.check("CanViewRates"))
-{
-  _lines.addColumn(qsTr("Billable"),    XTreeWidget.ynColumn,     Qt.AlignLeft,    true,   "teitem_billable");
-  _lines.addColumn(qsTr("Rate"),        XTreeWidget.priceColumn,  Qt.AlignRight,   false,  "teitem_rate");
-  _lines.addColumn(qsTr("Extended"),    XTreeWidget.moneyColumn,  Qt.AlignRight,   false,  "teitem_total");
-}
-
-_lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,Qt.AlignLeft,    false,  "teitem_type");
+  _lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,Qt.AlignLeft,    false,  "teitem_type");
 
   //add logic to determine the next Sunday date and populate both start and end with it
   _lines.addColumn(qsTr("Line #"),        XTreeWidget.seqColumn,    Qt.AlignLeft,    true,   "teitem_linenumber");
@@ -69,7 +59,7 @@ _lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,Qt.AlignLeft,    false
   _lines.addColumn(qsTr("Description"),   -1,                       Qt.AlignLeft,    true,   "item_descrip1");
   _lines.addColumn(qsTr("Hours"),         XTreeWidget.qtyColumn,    Qt.AlignRight,   true,   "hours");
   _lines.addColumn(qsTr("Expense"),       XTreeWidget.qtyColumn,    Qt.AlignRight,   true,   "expense");
-  _lines.addColumn(qsTr("Notes"),         XTreeWidget.qtyColumn,    Qt.AlignLeft,    false,  "f_notes");
+  _lines.addColumn(qsTr("Notes"),         -1,    Qt.AlignLeft,    false,  "f_notes");
 
 
   if (privileges.check("CanViewRates"))
@@ -78,19 +68,14 @@ _lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,Qt.AlignLeft,    false
     _lines.addColumn(qsTr("Rate"),        XTreeWidget.priceColumn,  Qt.AlignRight,   false,  "teitem_rate");
     _lines.addColumn(qsTr("Extended"),    XTreeWidget.moneyColumn,  Qt.AlignRight,   false,  "teitem_total");
   }
-  _lines.addColumn(qsTr("Type"),          XTreeWidget.docTypeColumn,Qt.AlignLeft,    false,  "teitem_type");
+
 }
 
 catch (e)
-
 {
-
   QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                        qsTr("timeExpenseSheet.js exception: ") + e);
-
 }
-
 
 set = function(input)
 {
@@ -99,16 +84,11 @@ set = function(input)
     if (_debug)
       print("xtte.timeExpenseSheet.set entered");
 
-
-  if("emp_id" in input)
-    _employee.setId(input.emp_id);
-
-
-    _sheet = input.sheet;
-
-
     if("emp_id" in input)
-      _employee.setId(input.emp_id);
+      _employee.setId(input.emp_id); 
+    
+    if("sheet" in input)  
+      _sheet = input.sheet;
 
     if ("tehead_id" in input)
     {
@@ -158,18 +138,12 @@ set = function(input)
         xtte.timeExpenseSheet.populate();
       }
     }
-
     return mainwindow.NoError;
-
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                          qsTr("set exception: ") + e);
-
   }
 }
 
@@ -204,13 +178,9 @@ xtte.timeExpenseSheet.populateMenu = function(pMenu, pItem, pCol)
     }
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                          qsTr("populateMenu exception: ") + e);
-
   }
 }
 
@@ -235,13 +205,9 @@ xtte.timeExpenseSheet.deleteItem = function()
     }
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                          qsTr("deleteItem exception: ") + e);
-
   }
 }
 
@@ -258,13 +224,9 @@ xtte.timeExpenseSheet.newItem = function()
     xtte.timeExpenseSheet.openItem(xtte.newMode);
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                          qsTr("newItem exception: ") + e);
-
   }
 }
 
@@ -278,16 +240,11 @@ xtte.timeExpenseSheet.editItem = function()
     xtte.timeExpenseSheet.openItem(xtte.editMode);
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                          qsTr("editItem exception: ") + e);
-
   }
 }
-
 
 xtte.timeExpenseSheet.viewItem = function()
 {
@@ -299,16 +256,11 @@ xtte.timeExpenseSheet.viewItem = function()
     xtte.timeExpenseSheet.openItem(xtte.viewMode);
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                          qsTr("viewItem exception: ") + e);
-
   }
 }
-
 
 xtte.timeExpenseSheet.openItem = function(mode)
 {
@@ -333,13 +285,9 @@ xtte.timeExpenseSheet.openItem = function(mode)
     xtte.timeExpenseSheet.fillList();
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                          qsTr("openItem exception: ") + e);
-
   }
 }
 
@@ -359,13 +307,9 @@ xtte.timeExpenseSheet.accepted = function()
     mywindow.close();
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                          qsTr("accepted exception: ") + e);
-
   }
 }
 
@@ -431,13 +375,9 @@ xtte.timeExpenseSheet.handleNewButton = function()
                     _mode != "view");
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
-                         qsTr("handleNewButton exception: ") + e);
-
+                        qsTr("handleNewButton exception: ") + e);
   }
 }
 
@@ -476,13 +416,9 @@ xtte.timeExpenseSheet.populate = function()
     xtte.timeExpenseSheet.fillList();
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                          qsTr("populate exception: ") + e);
-
   }
 }
 
@@ -503,17 +439,16 @@ xtte.timeExpenseSheet.testCurrEmpId = function()
 
 xtte.timeExpenseSheet.fillList = function()
 {
-
   try
   {
     if (_debug)
       print("xtte.timeExpenseSheet.fillList entered");
 
     if ( ( privileges.check("MaintainEmpCostSelf") && xtte.timeExpenseSheet.testCurrEmpId()) || privileges.check("MaintainEmpCostAll") )
-{
+    {
       _lines.addColumn(qsTr("Hourly Cost"),   XTreeWidget.priceColumn,  Qt.AlignRight,   false,  "teitem_hrlycost");
       _lines.addColumn(qsTr("Total Cost"),   XTreeWidget.priceColumn,  Qt.AlignRight,   false,  "teitem_totalcost");
-}
+    }
 
     var params = new Object;
     params.tehead_id = _id;
@@ -528,13 +463,9 @@ xtte.timeExpenseSheet.fillList = function()
     xtte.errorCheck(q);
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                          qsTr("fillList exception: ") + e);
-
   }
 }
 
@@ -554,13 +485,9 @@ xtte.timeExpenseSheet.printSheet = function()
     toolbox.printReport("TimeExpenseSheet", params);
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                          qsTr("printSheet exception: ") + e);
-
   }
 }
 
@@ -591,13 +518,9 @@ xtte.timeExpenseSheet.close = function()
     mywindow.close();
   }
   catch (e)
-
   {
-
     QMessageBox.critical(mywindow, "timeExpenseSheet",
-
                          qsTr("close exception: ") + e);
-
   }
 }
 

@@ -131,7 +131,7 @@ xtte.timeExpenseSheetItem.extension = function()
   _total.localValue = (_hours.toDouble() * _rate.localValue);
   _totCost.localValue = (_hours.toDouble() * _empcost.localValue);
   if (_type.code == 'T')
-  xtte.timeExpenseSheetItem.empTotals();
+    xtte.timeExpenseSheetItem.empTotals();
   xtte.timeExpenseSheetItem.modified();
 }
 
@@ -377,7 +377,7 @@ xtte.timeExpenseSheetItem.save = function()
 
 xtte.timeExpenseSheetItem.typeChanged = function()
 {
-  if (_type.code == 'T')
+  if (_type.code == "T")
   {
     _qtyLabel.text = qsTr("Hours:");
     _rateLit.text = qsTr("Rate:");
@@ -403,23 +403,22 @@ xtte.timeExpenseSheetItem.typeChanged = function()
 
      var qry = toolbox.executeQuery("SELECT COALESCE (crmacct_vend_id,-1) AS crmacct_vend_id FROM crmacct WHERE crmacct_emp_id= <? value('emp_id')?>;",params);
 
-      if (qry.first())
-        {
+     if (qry.first())
+     {
        var vend_id= qry.value("crmacct_vend_id");
        if(vend_id ==-1)
        {
-           var msg = qsTr("The Employee is not a Vendor, this expense cannot be vouchered.  "
+         var msg = qsTr("The Employee is not a Vendor, this expense cannot be vouchered.  "
                    +      "Do you want to continue?")
-           if (QMessageBox.question( mywindow, mywindow.windowTitle, msg,
+         if (QMessageBox.question( mywindow, mywindow.windowTitle, msg,
                QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.No)
-           {
-             _type.code= "T";
-             return false;
-           }
+         {
+           _type.code= "T";
+           return false;
+         }
        }
      }
   }
-
   xtte.timeExpenseSheetItem.getPrice();
   xtte.timeExpenseSheetItem.empTotals();
   xtte.timeExpenseSheetItem.modified();
