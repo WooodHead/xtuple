@@ -7,221 +7,213 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER"); 
-    try
-    {
-        waitForObject(":Cancel.Yes_QPushButton");
-        clickButton(":Cancel.Yes_QPushButton");
-    }
-    catch (e)
-    {test.log("No language dialog found");}
- 
-    snooze(2);
-    
-    if(object.exists(":Notice.Remind me about this again._QCheckBox"))
-    {
-        waitForObject(":Notice.Remind me about this again._QCheckBox");
-        if(findObject(":Notice.Remind me about this again._QCheckBox").checked)
-            clickButton(":Notice.Remind me about this again._QCheckBox");
-        snooze(0.1);
-        waitForObject(":Notice.OK_QPushButton");
-        clickButton(":Notice.OK_QPushButton");
-    }
+  
+//    
+//    if(object.exists(":Notice.Remind me about this again._QCheckBox"))
+//    {
+//        waitForObject(":Notice.Remind me about this again._QCheckBox");
+//        if(findObject(":Notice.Remind me about this again._QCheckBox").checked)
+//            clickButton(":Notice.Remind me about this again._QCheckBox");
+//        snooze(0.1);
+//        waitForObject(":Notice.OK_QPushButton");
+//        clickButton(":Notice.OK_QPushButton");
+//    }
     
     var appEdition = findApplicationEdition();
     
   
     //-----------Chart Of Accounts------------------------
-    try{
-        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-        activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-        activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-        
-        COA("01","01","1250","01","Warehouse 1 Asset","Asset","IN");
-        COA("01","01","1252","01","Intransit Asset","Asset","IN");
-        COA("01","01","1254","01","Warehouse 2 Asset","Asset","IN");
-        COA("01","01","1210","01","WIP Asset","Asset","IN");
-        COA("01","01","1620","01","Inventory Cost Variance","Asset","IN");
-        COA("01","01","1470","01","Material Usage Variance","Asset","IN");
-        COA("01","01","1930","01","Transform Clearing","Asset","IN");  
-        COA("01","01","1460","01","Purchase Price Variance","Asset","IN");
-        COA("01","01","8910","01","Inventory Adjustment","Expense","EXP");   
-        COA("01","01","8920","01","Inventory Scrap","Expense","EXP"); 
-        COA("01","01","8930","01","OpenMFG Scrap","Expense","EXP");  
-        COA("01","01","8980","01","Purchase Expense Variance","Expense","EXP");
-        COA("01","01","2320","01","Labor and Overhead Costs Accrued","Liability","CL");
-        COA("01","01","2490","01","P/O Liability Clearing","Liability","CL");
-        COA("01","01","2510","01","Sales Tax Liability","Liability","CL");   
-        COA("01","01","1260","01","Shipping Asset","Asset","IN");
-        COA("01","01","6000","01","Office Supplies","Expense","EXP");  
-        COA("01","01","6550","01","P/O Line Freight Expense","Expense","EXP");
-        COA("01","01","2480","01","Transfer Order Liability Clearing","Liability","CL");	  
-        COA("01","01","6050","01","State Sales Tax Expense","Expense","EXP");  
-        COA("01","01","6060","01","Shipping Charge Expense","Expense","EXP");  
-        
-        waitForObject(":Chart of Accounts.Close_QPushButton_2");
-        clickButton(":Chart of Accounts.Close_QPushButton_2");
-    }catch(e){test.fail("Exception while creating Chart of Accounts:"+e);}
-    
-    
-    //---------------Create Inventory - new Cost Catergory------------
-    try{
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
-        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
-        waitForObject(":Setup._modules_QComboBox");
-        clickItem(":Setup._modules_QComboBox","Inventory", 74, 11, 0, Qt.LeftButton);
-        waitForObject(":Accounting Mappings.Cost Categories_QModelIndex");
-        mouseClick(":Accounting Mappings.Cost Categories_QModelIndex", 58, 7, 0, Qt.LeftButton);
-        
-        waitForObject(":List Cost Categories.New_QPushButton_2");
-        clickButton(":List Cost Categories.New_QPushButton_2");
-        waitForObject(":Cost Category._category_XLineEdit");
-        type(":Cost Category._category_XLineEdit", "CCWH1");
-        type(":Cost Category._description_XLineEdit", "Warehouse 1");        
-        
-        
-        if(appEdition=="Manufacturing" || appEdition=="Standard")
-        {
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1250-01");
-            nativeType("<Tab>");
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8980-01");
-            nativeType("<Tab>");
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-1210-01");
-            nativeType("<Tab>");
-            
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-1620-01");
-            nativeType("<Tab>");
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5","01-01-1930-01");
-            nativeType("<Tab>");  
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6","01-01-1460-01");
-            nativeType("<Tab>");
-            
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7","01-01-8910-01");
-            nativeType("<Tab>");
-            
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8","01-01-8920-01");
-            nativeType("<Tab>");
-            
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9","01-01-8930-01");
-            nativeType("<Tab>");
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10","01-01-2490-01");
-            nativeType("<Tab>");
-            
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11","01-01-1260-01");
-            nativeType("<Tab>");
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_12");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_12","01-01-6550-01");
-            nativeType("<Tab>");
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_13");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_13","01-01-2480-01");
-            nativeType("<Tab>");
-            
-            if(object.exists(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_14")) 
-            {
-                waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_14");
-                type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_14","01-01-2320-01");
-                nativeType("<Tab>");
-            }
-            
-        }
-        
-        
-        if(appEdition=="PostBooks")
-            
-        {
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1250-01");
-            nativeType("<Tab>");
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8980-01");
-            nativeType("<Tab>");
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-1210-01");
-            nativeType("<Tab>");
-            
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-1620-01");
-            nativeType("<Tab>");
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5","01-01-1460-01");
-            nativeType("<Tab>");  
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6","01-01-8910-01");
-            nativeType("<Tab>");
-            
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7","01-01-8920-01");
-            nativeType("<Tab>");
-            
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8","01-01-8930-01");
-            nativeType("<Tab>");
-            
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9","01-01-2490-01");
-            nativeType("<Tab>");
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10","01-01-1260-01");
-            nativeType("<Tab>");
-            
-            
-            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11");
-            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11","01-01-6550-01");
-            nativeType("<Tab>");
-            
-            
-        }  
-        waitForObject(":Setup.Save_QPushButton");
-        clickButton(":Setup.Save_QPushButton");        
-        waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
-        snooze(1);
-        if(object.exists(":_costcat.CCWH1_QModelIndex"))
-            test.pass("Cost Category: CCWH1 created");
-        else test.fail("Cost Category: CCWH1 not created");
-        
-        waitForObject(":Setup.Save_QPushButton");
-        clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in creating new Cost category:"+e);}
-    
-    
+//    try{
+//        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+//        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+//        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+//        activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+//        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+//        activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+//        
+//        COA("01","01","1250","01","Warehouse 1 Asset","Asset","IN");
+//        COA("01","01","1252","01","Intransit Asset","Asset","IN");
+//        COA("01","01","1254","01","Warehouse 2 Asset","Asset","IN");
+//        COA("01","01","1210","01","WIP Asset","Asset","IN");
+//        COA("01","01","1620","01","Inventory Cost Variance","Asset","IN");
+//        COA("01","01","1470","01","Material Usage Variance","Asset","IN");
+//        COA("01","01","1930","01","Transform Clearing","Asset","IN");  
+//        COA("01","01","1460","01","Purchase Price Variance","Asset","IN");
+//        COA("01","01","8910","01","Inventory Adjustment","Expense","EXP");   
+//        COA("01","01","8920","01","Inventory Scrap","Expense","EXP"); 
+//        COA("01","01","8930","01","OpenMFG Scrap","Expense","EXP");  
+//        COA("01","01","8980","01","Purchase Expense Variance","Expense","EXP");
+//        COA("01","01","2320","01","Labor and Overhead Costs Accrued","Liability","CL");
+//        COA("01","01","2490","01","P/O Liability Clearing","Liability","CL");
+//        COA("01","01","2510","01","Sales Tax Liability","Liability","CL");   
+//        COA("01","01","1260","01","Shipping Asset","Asset","IN");
+//        COA("01","01","6000","01","Office Supplies","Expense","EXP");  
+//        COA("01","01","6550","01","P/O Line Freight Expense","Expense","EXP");
+//        COA("01","01","2480","01","Transfer Order Liability Clearing","Liability","CL");	  
+//        COA("01","01","6050","01","State Sales Tax Expense","Expense","EXP");  
+//        COA("01","01","6060","01","Shipping Charge Expense","Expense","EXP");  
+//        
+//        waitForObject(":Chart of Accounts.Close_QPushButton_2");
+//        clickButton(":Chart of Accounts.Close_QPushButton_2");
+//    }catch(e){test.fail("Exception while creating Chart of Accounts:"+e);}
+//    
+//    
+//    //---------------Create Inventory - new Cost Catergory------------
+//    try{
+//        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+//        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+//        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+//        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+//        waitForObject(":Setup._modules_QComboBox");
+//        clickItem(":Setup._modules_QComboBox","Inventory", 74, 11, 0, Qt.LeftButton);
+//        waitForObject(":Accounting Mappings.Cost Categories_QModelIndex");
+//        mouseClick(":Accounting Mappings.Cost Categories_QModelIndex", 58, 7, 0, Qt.LeftButton);
+//        
+//        waitForObject(":List Cost Categories.New_QPushButton_2");
+//        clickButton(":List Cost Categories.New_QPushButton_2");
+//        waitForObject(":Cost Category._category_XLineEdit");
+//        type(":Cost Category._category_XLineEdit", "CCWH1");
+//        type(":Cost Category._description_XLineEdit", "Warehouse 1");        
+//        
+//        
+//        if(appEdition=="Manufacturing" || appEdition=="Standard")
+//        {
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1250-01");
+//            nativeType("<Tab>");
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8980-01");
+//            nativeType("<Tab>");
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-1210-01");
+//            nativeType("<Tab>");
+//            
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-1620-01");
+//            nativeType("<Tab>");
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5","01-01-1930-01");
+//            nativeType("<Tab>");  
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6","01-01-1460-01");
+//            nativeType("<Tab>");
+//            
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7","01-01-8910-01");
+//            nativeType("<Tab>");
+//            
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8","01-01-8920-01");
+//            nativeType("<Tab>");
+//            
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9","01-01-8930-01");
+//            nativeType("<Tab>");
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10","01-01-2490-01");
+//            nativeType("<Tab>");
+//            
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11","01-01-1260-01");
+//            nativeType("<Tab>");
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_12");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_12","01-01-6550-01");
+//            nativeType("<Tab>");
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_13");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_13","01-01-2480-01");
+//            nativeType("<Tab>");
+//            
+//            if(object.exists(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_14")) 
+//            {
+//                waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_14");
+//                type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_14","01-01-2320-01");
+//                nativeType("<Tab>");
+//            }
+//            
+//        }
+//        
+//        
+//        if(appEdition=="PostBooks")
+//            
+//        {
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit","01-01-1250-01");
+//            nativeType("<Tab>");
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_2","01-01-8980-01");
+//            nativeType("<Tab>");
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_3","01-01-1210-01");
+//            nativeType("<Tab>");
+//            
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_4","01-01-1620-01");
+//            nativeType("<Tab>");
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_5","01-01-1460-01");
+//            nativeType("<Tab>");  
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_6","01-01-8910-01");
+//            nativeType("<Tab>");
+//            
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_7","01-01-8920-01");
+//            nativeType("<Tab>");
+//            
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_8","01-01-8930-01");
+//            nativeType("<Tab>");
+//            
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_9","01-01-2490-01");
+//            nativeType("<Tab>");
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_10","01-01-1260-01");
+//            nativeType("<Tab>");
+//            
+//            
+//            waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11");
+//            type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit_11","01-01-6550-01");
+//            nativeType("<Tab>");
+//            
+//            
+//        }  
+//        waitForObject(":Setup.Save_QPushButton");
+//        clickButton(":Setup.Save_QPushButton");        
+//        waitForObject(":List Cost Categories._costcat_XTreeWidget_2");
+//        snooze(1);
+//        if(object.exists(":_costcat.CCWH1_QModelIndex"))
+//            test.pass("Cost Category: CCWH1 created");
+//        else test.fail("Cost Category: CCWH1 not created");
+//        
+//        waitForObject(":Setup.Save_QPushButton");
+//        clickButton(":Setup.Save_QPushButton");
+//    }catch(e){test.fail("Exception in creating new Cost category:"+e);}
+//    
+//    
     
     //----------Inventory-Cost Categories: copy and create for INTRAN------
     try{
@@ -248,13 +240,15 @@ function main()
         type(":Cost Category._description_XLineEdit", "Intransit Warehouse");
         
         
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
-        waitForObject(":_stack_QLabel");
-        sendEvent("QMouseEvent", ":_stack_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
-        waitForObjectItem(":_QMenu", "List...");
-        activateItem(":_QMenu", "List...");
-        waitForObject(":_listTab_XTreeWidget_10");
-        doubleClickItem(":_listTab_XTreeWidget_10","1252",10,10,0,Qt.LeftButton);
+        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit").clear();
+         type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit", "01-01-1252-01");
+         nativeType("<Tab>");
+//        waitForObject(":_stack_QLabel");
+//        sendEvent("QMouseEvent", ":_stack_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+//        waitForObjectItem(":_QMenu", "List...");
+//        activateItem(":_QMenu", "List...");
+//        waitForObject(":_listTab_XTreeWidget_10");
+//        doubleClickItem(":_listTab_XTreeWidget_10","1252",10,10,0,Qt.LeftButton);
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
@@ -943,11 +937,7 @@ function main()
             clickItem(":Setup._modules_QComboBox","Schedule",10,10, 0, Qt.LeftButton);
             waitForObject(":Master Information.Site Week_QModelIndex");
             mouseClick(":Master Information.Site Week_QModelIndex", 50, 5, 0, Qt.LeftButton);
-            //            waitForObject(":_warehouse.Selected:_QRadioButton_8");
-            //            clickButton(":_warehouse.Selected:_QRadioButton_8");
-            //            waitForObject(":_warehouse._warehouses_WComboBox_9");
-            //            clickItem(":_warehouse._warehouses_WComboBox_9", "WH1", 0, 0, 1, Qt.LeftButton);
-            
+                        
             waitForObject(":_stack.Sunday_QCheckBox");
             if(findObject(":_stack.Sunday_QCheckBox").checked)
                 clickButton(":_stack.Sunday_QCheckBox");
