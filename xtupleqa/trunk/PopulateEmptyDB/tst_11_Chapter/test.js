@@ -5,13 +5,7 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");     
-    try
-    {
-        waitForObject(":Cancel.Yes_QPushButton");
-        clickButton(":Cancel.Yes_QPushButton");
-    }
-    catch(e)
-    {test.log("No language dialog found");}
+   
     var appEdition = findApplicationEdition();
     
     try{
@@ -364,9 +358,7 @@ function main()
         clickItem(":_options._group_XComboBox", "Sales",0,0,1,Qt.LeftButton);
         waitForObject(":List Financial Reports.Save_QPushButton");         
         clickButton(":List Financial Reports.Save_QPushButton");
-        
-        
-        
+ 
         snooze(1);
         waitForObject(":frame._layout_XTreeWidget");
         clickItem(":frame._layout_XTreeWidget", "EXPENSES.General Expenses", 5, 5, 1, Qt.LeftButton);

@@ -6,13 +6,7 @@ function main()
     
     //---login Application--------
     loginAppl("RUNREGISTER");       
-    try
-    {
-        waitForObject(":Cancel.Yes_QPushButton");
-        clickButton(":Cancel.Yes_QPushButton");
-    }
-    catch(e)
-    {test.log("No language dialog found");}
+    
    
     var appEdition = findApplicationEdition();
     
@@ -1113,6 +1107,7 @@ function main()
         clickItem(":_ipshead_XComboBox", "FREIGHT-TTOYS-BULK - Freight Pricing for Bulk Toys",0,0,1,Qt.LeftButton);
         snooze(1);
         clickButton(":List Employees.Save_QPushButton_2");
+        snooze(2);
         waitForObject(":List Pricing Schedule Assignments._ipsass_XTreeWidget");
         if(object.exists(":_ipsass.FREIGHT-TTOYS-BULK_QModelIndex"))
             test.pass("Pricing Schedule Assignment created: FREIGHT-TTOYS-BULK");
