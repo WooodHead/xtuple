@@ -3,7 +3,7 @@
  <title>Time Expense Sheet</title>
  <name>TimeExpenseSheet</name>
  <description></description>
- <parameter default="211" active="true" listtype="dynamic" type="string" name="tehead_id">
+ <parameter default="2000" active="true" listtype="dynamic" type="string" name="tehead_id">
   <description></description>
   <query>SELECT tehead_id, tehead_number || '-' || tehead_username FROM tehead ORDER By tehead_number DESC;</query>
  </parameter>
@@ -115,7 +115,34 @@ ORDER BY teitem_workdate, teitem_linenumber;</sql>
   teitem_tehead_id,
   prj_number,
   SUM(teitem_qty) AS total_hours,
-  SUM(teitem_total) AS billing_total
+  SUM(teitem_total) AS billing_total,
+CASE WHEN (
+            (checkprivilege('MaintainEmpCostAll') 
+              OR 
+              (checkprivilege('MaintainEmpCostSelf') 
+               AND 
+               current_user = (SELECT tehead_username 
+                              FROM te.tehead 
+                              WHERE teitem_tehead_id = tehead_id)
+              ) 
+            )
+          )
+           THEN SUM(teitem_empcost * teitem_qty)
+           ELSE 0 END AS cost_total,
+CASE WHEN (
+            (checkprivilege('MaintainEmpCostAll') 
+              OR
+              (checkprivilege('MaintainEmpCostSelf')
+               AND 
+               current_user = (SELECT tehead_username 
+                               FROM te.tehead 
+                               WHERE teitem_tehead_id = tehead_id)
+              )
+            )
+           )
+           THEN 'Cost'
+           ELSE 'No Priv' END AS title
+
 FROM te.teitem
   JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
   JOIN prj ON (prjtask_prj_id=prj_id)
@@ -333,212 +360,29 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
     <column>f_status</column>
    </data>
   </field>
+  <label>
+   <rect>
+    <x>5</x>
+    <y>115</y>
+    <width>450</width>
+    <height>22</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>12</size>
+    <weight>bold</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <string>Time</string>
+  </label>
  </rpthead>
  <pghead>
   <firstpage/>
   <height>6</height>
  </pghead>
  <pghead>
-  <height>44</height>
-  <label>
-   <rect>
-    <x>200</x>
-    <y>9</y>
-    <width>90</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <left/>
-   <vcenter/>
-   <string>Name</string>
-  </label>
-  <label>
-   <rect>
-    <x>110</x>
-    <y>9</y>
-    <width>75</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <left/>
-   <vcenter/>
-   <string>Project #</string>
-  </label>
-  <line>
-   <xstart>6.33333</xstart>
-   <ystart>39.3333</ystart>
-   <xend>746.333</xend>
-   <yend>39.3333</yend>
-   <weight>2</weight>
-  </line>
-  <label>
-   <rect>
-    <x>10</x>
-    <y>9</y>
-    <width>95</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <left/>
-   <vcenter/>
-   <string>Work Date</string>
-  </label>
-  <label>
-   <rect>
-    <x>385</x>
-    <y>24</y>
-    <width>90</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <left/>
-   <vcenter/>
-   <string>Description</string>
-  </label>
-  <label>
-   <rect>
-    <x>485</x>
-    <y>9</y>
-    <width>75</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <right/>
-   <vcenter/>
-   <string>Hours</string>
-  </label>
-  <label>
-   <rect>
-    <x>570</x>
-    <y>9</y>
-    <width>50</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <hcenter/>
-   <vcenter/>
-   <string>Billable</string>
-  </label>
-  <label>
-   <rect>
-    <x>305</x>
-    <y>24</y>
-    <width>75</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <left/>
-   <vcenter/>
-   <string>Item #</string>
-  </label>
-  <label>
-   <rect>
-    <x>300</x>
-    <y>9</y>
-    <width>75</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <left/>
-   <vcenter/>
-   <string>Task #</string>
-  </label>
-  <label>
-   <rect>
-    <x>385</x>
-    <y>9</y>
-    <width>90</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <left/>
-   <vcenter/>
-   <string>Name</string>
-  </label>
-  <label>
-   <rect>
-    <x>650</x>
-    <y>9</y>
-    <width>90</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <right/>
-   <vcenter/>
-   <string>Extended</string>
-  </label>
-  <label>
-   <rect>
-    <x>110</x>
-    <y>24</y>
-    <width>75</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <left/>
-   <vcenter/>
-   <string>Customer #:</string>
-  </label>
-  <label>
-   <rect>
-    <x>200</x>
-    <y>24</y>
-    <width>90</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <left/>
-   <vcenter/>
-   <string>Name</string>
-  </label>
+  <height>14</height>
  </pghead>
  <section>
   <name>time</name>
@@ -746,22 +590,6 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
      <yend>61.333</yend>
      <weight>2</weight>
     </line>
-    <label>
-     <rect>
-      <x>5</x>
-      <y>5</y>
-      <width>450</width>
-      <height>22</height>
-     </rect>
-     <font>
-      <face>Arial</face>
-      <size>12</size>
-      <weight>bold</weight>
-     </font>
-     <left/>
-     <vcenter/>
-     <string>Time</string>
-    </label>
    </head>
    <foot>
     <height>15</height>
@@ -1024,11 +852,29 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
  </section>
  <section>
   <name>projsum</name>
+  <pagebreak when="at end"/>
   <group>
    <name>prj_sum</name>
    <column>teitem_tehead_id</column>
+   <pagebreak when="after foot"/>
    <head>
     <height>50</height>
+    <label>
+     <rect>
+      <x>5</x>
+      <y>10</y>
+      <width>190</width>
+      <height>22</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>12</size>
+      <weight>bold</weight>
+     </font>
+     <left/>
+     <vcenter/>
+     <string>Project Time Summary</string>
+    </label>
     <label>
      <rect>
       <x>380</x>
@@ -1084,22 +930,25 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
      <yend>46.333</yend>
      <weight>2</weight>
     </line>
-    <label>
+    <field>
      <rect>
-      <x>5</x>
-      <y>5</y>
-      <width>190</width>
-      <height>22</height>
+      <x>615</x>
+      <y>30</y>
+      <width>50</width>
+      <height>15</height>
      </rect>
      <font>
       <face>Arial</face>
-      <size>12</size>
-      <weight>bold</weight>
+      <size>8</size>
+      <weight>normal</weight>
      </font>
-     <left/>
+     <right/>
      <vcenter/>
-     <string>Project Time Summary</string>
-    </label>
+     <data>
+      <query>prjsum</query>
+      <column>title</column>
+     </data>
+    </field>
    </head>
    <foot>
     <height>30</height>
@@ -1159,33 +1008,34 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
      <yend>5</yend>
      <weight>0</weight>
     </line>
+    <field>
+     <rect>
+      <x>615</x>
+      <y>5</y>
+      <width>50</width>
+      <height>15</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>8</size>
+      <weight>bold</weight>
+     </font>
+     <right/>
+     <vcenter/>
+     <data>
+      <query>prjsum</query>
+      <column>cost_total</column>
+     </data>
+     <format builtin="true">money</format>
+     <tracktotal subtotal="true"/>
+    </field>
    </foot>
   </group>
   <detail>
    <key>
     <query>prjsum</query>
    </key>
-   <height>20</height>
-   <field>
-    <rect>
-     <x>505</x>
-     <y>5</y>
-     <width>50</width>
-     <height>15</height>
-    </rect>
-    <font>
-     <face>Arial</face>
-     <size>8</size>
-     <weight>bold</weight>
-    </font>
-    <right/>
-    <vcenter/>
-    <data>
-     <query>prjsum</query>
-     <column>total_hours</column>
-    </data>
-    <format builtin="true">qty</format>
-   </field>
+   <height>25</height>
    <field>
     <rect>
      <x>695</x>
@@ -1208,6 +1058,26 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
    </field>
    <field>
     <rect>
+     <x>615</x>
+     <y>5</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
+    </font>
+    <right/>
+    <vcenter/>
+    <data>
+     <query>prjsum</query>
+     <column>cost_total</column>
+    </data>
+    <format builtin="true">money</format>
+   </field>
+   <field>
+    <rect>
      <x>380</x>
      <y>5</y>
      <width>115</width>
@@ -1224,6 +1094,26 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
      <query>prjsum</query>
      <column>prj_number</column>
     </data>
+   </field>
+   <field>
+    <rect>
+     <x>505</x>
+     <y>5</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+    <font>
+     <face>Arial</face>
+     <size>8</size>
+     <weight>bold</weight>
+    </font>
+    <right/>
+    <vcenter/>
+    <data>
+     <query>prjsum</query>
+     <column>total_hours</column>
+    </data>
+    <format builtin="true">qty</format>
    </field>
   </detail>
  </section>
@@ -1313,6 +1203,22 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
      <left/>
      <vcenter/>
      <string>Work Date</string>
+    </label>
+    <label>
+     <rect>
+      <x>5</x>
+      <y>5</y>
+      <width>450</width>
+      <height>22</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>12</size>
+      <weight>bold</weight>
+     </font>
+     <left/>
+     <vcenter/>
+     <string>Expenses</string>
     </label>
     <label>
      <rect>
@@ -1441,22 +1347,6 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
      <right/>
      <vcenter/>
      <string>Total</string>
-    </label>
-    <label>
-     <rect>
-      <x>5</x>
-      <y>5</y>
-      <width>450</width>
-      <height>22</height>
-     </rect>
-     <font>
-      <face>Arial</face>
-      <size>12</size>
-      <weight>bold</weight>
-     </font>
-     <left/>
-     <vcenter/>
-     <string>Expenses</string>
     </label>
    </head>
    <foot>
@@ -1811,6 +1701,22 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
     <height>60</height>
     <label>
      <rect>
+      <x>5</x>
+      <y>5</y>
+      <width>230</width>
+      <height>22</height>
+     </rect>
+     <font>
+      <face>Arial</face>
+      <size>12</size>
+      <weight>bold</weight>
+     </font>
+     <left/>
+     <vcenter/>
+     <string>Project Expense Summary</string>
+    </label>
+    <label>
+     <rect>
       <x>685</x>
       <y>35</y>
       <width>60</width>
@@ -1848,22 +1754,6 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
      <yend>53.1454</yend>
      <weight>2</weight>
     </line>
-    <label>
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>230</width>
-      <height>22</height>
-     </rect>
-     <font>
-      <face>Arial</face>
-      <size>12</size>
-      <weight>bold</weight>
-     </font>
-     <left/>
-     <vcenter/>
-     <string>Project Expense Summary</string>
-    </label>
    </head>
    <foot>
     <height>40</height>
@@ -1944,11 +1834,30 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
   </detail>
  </section>
  <pgfoot>
-  <height>16</height>
+  <height>25</height>
+  <field>
+   <rect>
+    <x>680</x>
+    <y>5</y>
+    <width>15</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>bold</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <data>
+    <query>Context Query</query>
+    <column>page_number</column>
+   </data>
+  </field>
   <field>
    <rect>
     <x>90</x>
-    <y>0</y>
+    <y>5</y>
     <width>100</width>
     <height>15</height>
    </rect>
@@ -1966,43 +1875,8 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
   </field>
   <label>
    <rect>
-    <x>615</x>
-    <y>0</y>
-    <width>85</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>normal</weight>
-   </font>
-   <right/>
-   <vcenter/>
-   <string>Page:</string>
-  </label>
-  <field>
-   <rect>
-    <x>705</x>
-    <y>0</y>
-    <width>40</width>
-    <height>15</height>
-   </rect>
-   <font>
-    <face>Arial</face>
-    <size>8</size>
-    <weight>bold</weight>
-   </font>
-   <left/>
-   <vcenter/>
-   <data>
-    <query>Context Query</query>
-    <column>page_number</column>
-   </data>
-  </field>
-  <label>
-   <rect>
     <x>0</x>
-    <y>0</y>
+    <y>5</y>
     <width>85</width>
     <height>15</height>
    </rect>
@@ -2015,6 +1889,57 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
    <vcenter/>
    <string>Report Date:</string>
   </label>
+  <label>
+   <rect>
+    <x>630</x>
+    <y>5</y>
+    <width>45</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <right/>
+   <vcenter/>
+   <string>Page:</string>
+  </label>
+  <label>
+   <rect>
+    <x>690</x>
+    <y>5</y>
+    <width>15</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>normal</weight>
+   </font>
+   <right/>
+   <vcenter/>
+   <string>of</string>
+  </label>
+  <field>
+   <rect>
+    <x>710</x>
+    <y>5</y>
+    <width>20</width>
+    <height>15</height>
+   </rect>
+   <font>
+    <face>Arial</face>
+    <size>8</size>
+    <weight>bold</weight>
+   </font>
+   <left/>
+   <vcenter/>
+   <data>
+    <query>Context Query</query>
+    <column>page_count</column>
+   </data>
+  </field>
  </pgfoot>
  <rptfoot>
   <height>30</height>
