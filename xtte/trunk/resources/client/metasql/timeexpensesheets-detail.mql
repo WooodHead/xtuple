@@ -50,7 +50,7 @@ SELECT
   END AS tehead_status_qtforegroundrole
 
 <? if exists("includeFormatted") ?> ,
-  formatMoney(SUM(teitem_total)) AS f_total,
+  formatMoney(SUM(toinvoice)) AS f_total,
   formatDate(tehead_weekending) AS f_weekending
 <? endif ?>
 
@@ -68,11 +68,12 @@ FROM (
          ELSE 0 
     END as tovoucher,
          
-    CASE WHEN (teitem_billable=TRUE) 
-            THEN teitem_total
-         ELSE 0 
-    END AS toinvoice,
-    
+    --CASE WHEN (teitem_billable=TRUE) 
+    --        THEN teitem_total
+    --     ELSE 0 
+    --END AS toinvoice,
+    teitem_total AS toinvoice,
+
     te.sheetstate(tehead_id, 'I') AS invoiced,
     te.sheetstate(tehead_id, 'V') AS vouchered,
     te.sheetstate(tehead_id, 'P') AS posted
