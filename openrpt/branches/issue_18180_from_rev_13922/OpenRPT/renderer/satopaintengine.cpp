@@ -24,7 +24,9 @@
 #include <QtDebug>
 #include <QHostInfo>
 #include <QTextCodec>
+
 #include "satopaintengine.h"
+#include "barcodes.h"
 
 
 
@@ -195,6 +197,8 @@ void SatoPaintEngine::drawBarcode ( const QPointF & p, const QString &format, in
 {
   Q_UNUSED(width);
 
+  QString barcodeFontCmd = QString().sprintf("%02d%03d", narrowBar, height);
+
   QString barcodeFont;
   if(format == "3of9" || format == "3of9+") {
     barcodeFont = "B1";
@@ -214,6 +218,19 @@ void SatoPaintEngine::drawBarcode ( const QPointF & p, const QString &format, in
     barcodeFont = "BD3";
   else if(format == "i2of5")
     barcodeFont = "BD2";
+  else if(format.contains("datamatrix"))
+  {
+    DmtxInfos dmtxInfos = extractInfosDtmx(format);
+    int eltSize = qRound (qBound(2.0, (qreal)height / (qreal)dmtxInfos.ySize, 20.0));
+    barcodeFont = QString("BX0620%1%2%3%4")
+        .arg(eltSize,2,10,QLatin1Char('0'))
+        .arg(eltSize,2,10,QLatin1Char('0'))
+        .arg(dmtxInfos.xSize,3,10,QLatin1Char('0'))
+        .arg(dmtxInfos.ySize,3,10,QLatin1Char('0'))
+        + "001";
+
+    barcodeFontCmd = m_CmdPrefix + "DC";
+  }
   else {
     drawText(p, "ERR: " + format);
   }
@@ -223,11 +240,8 @@ void SatoPaintEngine::drawBarcode ( const QPointF & p, const QString &format, in
   int xInDots = (int)(transform.dx());
   int yInDots = (int)(transform.dy());
 
-
-  QString barcodeFontCmd = barcodeFont + QString().sprintf("%02d%03d", narrowBar, height);
-
   QString output = QString(m_CmdPrefix + "V%1" + m_CmdPrefix + "H%2" + m_CmdPrefix + "%3" + m_CmdPrefix + "%4" + "%5\n")
-                        .arg(QString::number(yInDots), QString::number(xInDots), transformRotationCmd(), barcodeFontCmd, barcodeData);
+                        .arg(QString::number(yInDots), QString::number(xInDots), transformRotationCmd(), barcodeFont+barcodeFontCmd, barcodeData);
   m_printBuffer.append(output);
 }
 
