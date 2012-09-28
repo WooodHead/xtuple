@@ -705,8 +705,8 @@ function defineTaxAuth(ta)
 
 function defineTaxCode(tc)
 {
-//    try{
-//        //----------Create: Tax Codes---------------
+    try{
+       //----------Create: Tax Codes---------------
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");
@@ -715,73 +715,73 @@ function defineTaxCode(tc)
         activateItem(":xTuple ERP: *.Tax_QMenu", "Tax Codes...");
         
         
-//        waitForObject(":List Tax Codes.New_QPushButton");
-//        clickButton(":List Tax Codes.New_QPushButton");
-//        waitForObject(":_code_XLineEdit_12");
-//        type(":_code_XLineEdit_12", tc);
-//        type(":_description_XLineEdit_23", "Tax Authority 1 General Merchandise");
-//        
-//        waitForObject(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit");
-//        type(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit","01-01-4050-01");
-//        nativeType("<Tab>");
-//        waitForObject(":Tax Code._taxClass_XComboBox");
-//        clickItem(":Tax Code._taxClass_XComboBox","1-Legacy Class 1",1,0,0,Qt.LeftButton);
-//        snooze(0.5);
-//        waitForObject(":Tax Code._taxauth_XComboBox");
-//        clickItem(":Tax Code._taxauth_XComboBox","TAX-AUTH1",1,0,0,Qt.LeftButton);
-//        snooze(0.5);
-//        waitForObject(":_frame.New_QPushButton_2");
-//        clickButton(":_frame.New_QPushButton_2");
-//        waitForObject(":_rateGroup._percent_XLineEdit");
-//        type(":_rateGroup._percent_XLineEdit", "10");
-//        clickButton(":Tax Code Rate.Save_QPushButton");
-//        waitForObject(":List Departments.Save_QPushButton");
-//        clickButton(":List Departments.Save_QPushButton");
-//    }
-//    catch(e){test.fail("exception caught in creating Tax Code");}
-//    
-//    
-//    //-------verify saved Tax Code-----
-//    try {
-//        waitForObject(":List Tax Codes._tax_XTreeWidget");
-//        doubleClickItem(":List Tax Codes._tax_XTreeWidget","TAXAUTH1-GM",0,0,0,Qt.LeftButton);
-//        waitForObject(":Tax Code_taxCode");
-//        test.compare(findObject(":Tax Code._taxClass_XComboBox").currentText,"1-Legacy Class 1");
-//        test.compare(findObject(":Tax Code._taxauth_XComboBox").currentText,"TAX-AUTH1");
-//        waitForObject(":_frame._taxitems_XTreeWidget");
-//        doubleClickItem(":_frame._taxitems_XTreeWidget","Always",0,0,0,Qt.LeftButton);
-//        waitForObject(":_rateGroup._percent_XLineEdit");
-//        test.compare(parseInt(findObject(":_rateGroup._percent_XLineEdit").text), "10");
-//        waitForObject(":Tax Code Rate.Save_QPushButton");
-//        clickButton(":Tax Code Rate.Save_QPushButton");
-//        waitForObject(":List Departments.Save_QPushButton");
-//        clickButton(":List Departments.Save_QPushButton");
-//        if(object.exists("{column='0' container=':List Tax Codes._tax_XTreeWidget' text='TAXAUTH1-GM' type='QModelIndex'}"))
-//            test.pass("Tax Code created:TAXAUTH1-GM");
-//    } catch (e) { test.fail("caught exception " + e + " looking for tax code TAXAUTH1-GM"); }
-//    
-//    try{
-//        waitForObject(":List Tax Codes.New_QPushButton");
-//        clickButton(":List Tax Codes.New_QPushButton");
-//        waitForObject(":_code_XLineEdit_12");
-//        type(":_code_XLineEdit_12", "TAXAUTH1-EDU");
-//        type(":_description_XLineEdit_23", "Tax Authority 1 Educational Merchandise");
-//        waitForObject(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit");
-//        type(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit","01-01-4050-01");
-//        nativeType("<Tab>");
-//        waitForObject(":Tax Code._taxClass_XComboBox");
-//        clickItem(":Tax Code._taxClass_XComboBox","1-Legacy Class 1",1,0,0,Qt.LeftButton);
-//        waitForObject(":Tax Code._taxauth_XComboBox");
-//        clickItem(":Tax Code._taxauth_XComboBox","TAX-AUTH1",1,0,0,Qt.LeftButton);
-//        clickButton(":_frame.New_QPushButton_2");
-//        waitForObject(":_rateGroup._percent_XLineEdit");
-//        type(":_rateGroup._percent_XLineEdit", "1");
-//        clickButton(":Tax Code Rate.Save_QPushButton");
-//        waitForObject(":List Departments.Save_QPushButton");
-//        clickButton(":List Departments.Save_QPushButton");
-//    }
-//    catch(e){test.fail("Exception in defining Tax Code:"+e);}
-//    
+        waitForObject(":List Tax Codes.New_QPushButton");
+        clickButton(":List Tax Codes.New_QPushButton");
+        waitForObject(":_code_XLineEdit_12");
+        type(":_code_XLineEdit_12", tc);
+        type(":_description_XLineEdit_23", "Tax Authority 1 General Merchandise");
+        
+        waitForObject(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit");
+        type(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit","01-01-4050-01");
+        nativeType("<Tab>");
+        waitForObject(":Tax Code._taxClass_XComboBox");
+        clickItem(":Tax Code._taxClass_XComboBox","1-Legacy Class 1",1,0,0,Qt.LeftButton);
+        snooze(0.5);
+        waitForObject(":Tax Code._taxauth_XComboBox");
+        clickItem(":Tax Code._taxauth_XComboBox","TAX-AUTH1",1,0,0,Qt.LeftButton);
+        snooze(0.5);
+        waitForObject(":_frame.New_QPushButton_2");
+        clickButton(":_frame.New_QPushButton_2");
+        waitForObject(":_rateGroup._percent_XLineEdit");
+        type(":_rateGroup._percent_XLineEdit", "10");
+        clickButton(":Tax Code Rate.Save_QPushButton");
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");
+    }
+    catch(e){test.fail("exception caught in creating Tax Code");}
+    
+    
+    //-------verify saved Tax Code-----
+    try {
+        waitForObject(":List Tax Codes._tax_XTreeWidget");
+        doubleClickItem(":List Tax Codes._tax_XTreeWidget","TAXAUTH1-GM",0,0,0,Qt.LeftButton);
+        waitForObject(":Tax Code_taxCode");
+        test.compare(findObject(":Tax Code._taxClass_XComboBox").currentText,"1-Legacy Class 1");
+        test.compare(findObject(":Tax Code._taxauth_XComboBox").currentText,"TAX-AUTH1");
+        waitForObject(":_frame._taxitems_XTreeWidget");
+        doubleClickItem(":_frame._taxitems_XTreeWidget","Always",0,0,0,Qt.LeftButton);
+        waitForObject(":_rateGroup._percent_XLineEdit");
+        test.compare(parseInt(findObject(":_rateGroup._percent_XLineEdit").text), "10");
+        waitForObject(":Tax Code Rate.Save_QPushButton");
+        clickButton(":Tax Code Rate.Save_QPushButton");
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");
+        if(object.exists("{column='0' container=':List Tax Codes._tax_XTreeWidget' text='TAXAUTH1-GM' type='QModelIndex'}"))
+            test.pass("Tax Code created:TAXAUTH1-GM");
+    } catch (e) { test.fail("caught exception " + e + " looking for tax code TAXAUTH1-GM"); }
+    
+    try{
+        waitForObject(":List Tax Codes.New_QPushButton");
+        clickButton(":List Tax Codes.New_QPushButton");
+        waitForObject(":_code_XLineEdit_12");
+        type(":_code_XLineEdit_12", "TAXAUTH1-EDU");
+        type(":_description_XLineEdit_23", "Tax Authority 1 Educational Merchandise");
+        waitForObject(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit");
+        type(":List Tax Codes.VirtualClusterLineEdit_GLClusterLineEdit","01-01-4050-01");
+        nativeType("<Tab>");
+        waitForObject(":Tax Code._taxClass_XComboBox");
+        clickItem(":Tax Code._taxClass_XComboBox","1-Legacy Class 1",1,0,0,Qt.LeftButton);
+        waitForObject(":Tax Code._taxauth_XComboBox");
+        clickItem(":Tax Code._taxauth_XComboBox","TAX-AUTH1",1,0,0,Qt.LeftButton);
+        clickButton(":_frame.New_QPushButton_2");
+        waitForObject(":_rateGroup._percent_XLineEdit");
+        type(":_rateGroup._percent_XLineEdit", "1");
+        clickButton(":Tax Code Rate.Save_QPushButton");
+        waitForObject(":List Departments.Save_QPushButton");
+        clickButton(":List Departments.Save_QPushButton");
+    }
+    catch(e){test.fail("Exception in defining Tax Code:"+e);}
+    
     //-------verify saved Tax Code-----
     try {
         waitForObject(":List Tax Codes._tax_XTreeWidget");

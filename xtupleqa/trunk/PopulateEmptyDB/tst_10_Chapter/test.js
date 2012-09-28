@@ -10,102 +10,102 @@ function main()
    
     var appEdition = findApplicationEdition();
     
-//    
-//    //--------------Define: Check Formats-------------------
-//    try{
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-//        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
-//        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
-//        waitForObject(":Setup._modules_QComboBox");
-//        clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
-//        waitForObject(":Master Information.Check Formats_QModelIndex");
-//        mouseClick(":Master Information.Check Formats_QModelIndex", 63, 2, 0, Qt.LeftButton);
-//        waitForObject(":List Check Formats.New_QPushButton");
-//        clickButton(":List Check Formats.New_QPushButton");
-//        waitForObject(":_name_XLineEdit_17");
-//        type(":_name_XLineEdit_17", "GENERIC-CHECK");
-//        type(":Check Format._descrip_XLineEdit", "Generic Check Format");
-//        waitForObject(":_report_XComboBox_3");
-//        if(findObject(":_report_XComboBox_3").currentText!="APCheck")        
-//            clickItem(":_report_XComboBox_3", "APCheck",0,0,1,Qt.LeftButton); 
-//        snooze(2);
-//        waitForObject(":Setup.Save_QPushButton");
-//        clickButton(":Setup.Save_QPushButton");
-//        waitForObject(":List Check Formats._form_XTreeWidget");
-//        if(object.exists(":_form.GENERIC-CHECK_QModelIndex"))
-//            test.pass("Check Format created: GENERIC-CHECK");
-//        else test.fail("Check Format not created: GENERIC-CHECK");
-//        waitForObject(":Setup.Save_QPushButton");
-//        clickButton(":Setup.Save_QPushButton");
-//    }catch(e){test.fail("Exception in creating Check Format:"+e);}
-//    
-//    
-//    //------------------Chart Of Accounts------------------------
-//    try{
-//        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
-//        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-//        activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-//        activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
-//        
-//        COA("01","01","1000","01","Cash at eBank","Asset","CA"); 
-//        
-//        COA("01","01","1010","01","Cash at EuroBank","Asset","CA"); 
-//        
-//        COA("01","01","6750","01","Finance Fees and Expenses","Expense","EXP"); 
-//        
-//        COA("01","01","1500","01","Fixed Assets","Asset","FA");
-//        
-//        COA("01","01","6400","01","Depreciation Expense","Expense","DXP");
-//        
-//        COA("01","01","3010","01","Paid-In Capital","Equity","EDC");
-//        
-//        waitForObject(":Chart of Accounts.Close_QPushButton_2");
-//        clickButton(":Chart of Accounts.Close_QPushButton_2");
-//    }catch(e){test.fail("Exception in creating Chart of Accounts");}
-//    
-//    
-//    
-//    
-//    //---------------Configure ACH in Accounting-------------
-//    try{
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-//        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
-//        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
-//        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
-//        waitForObject(":Setup._modules_QComboBox");
-//        clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
-//        waitForObject(":Configure.Accounting_QModelIndex");
-//        mouseClick(":Configure.Accounting_QModelIndex", 43, 5, 0, Qt.LeftButton);
-//        
-//        waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
-//        clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
-//        
-//        nativeType("<Tab>");
-//        waitForObject(":tab.Enable EFT Check Printing_QGroupBox");
-//        type(":tab.Enable EFT Check Printing_QGroupBox"," ");
-//        
-//        waitForObject(":_nextACHBatchNumber_XLineEdit_2");
-//        type(":_nextACHBatchNumber_XLineEdit_2", "<Ctrl+A>");
-//        type(":_nextACHBatchNumber_XLineEdit_2", "<Del>");
-//        type(":_nextACHBatchNumber_XLineEdit_2", "10000");
-//        type(":_companyId_XLineEdit_2", "<Ctrl+A>");
-//        type(":_companyId_XLineEdit_2", "<Del>");
-//        type(":_companyId_XLineEdit_2", "987654");
-//        clickButton(":Enable EFT Check Printing.Other_QRadioButton");
-//        type(":_companyName_XLineEdit_2", "ProDiem Inc.");
-//        clickButton(":Setup.Save_QPushButton");
-//        test.log("Accounting for ACH configured");
-//    }catch(e){test.fail("Exception in configuring Accounting" + e);}
-//    
-//   if(findObject(":No_QPushButton"))
-//       clickButton(":No_QPushButton");
-//   else
-//    test.log("Encryption appears to be set");
-//    
-//  
+    
+    //--------------Define: Check Formats-------------------
+    try{
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
+        waitForObject(":Master Information.Check Formats_QModelIndex");
+        mouseClick(":Master Information.Check Formats_QModelIndex", 63, 2, 0, Qt.LeftButton);
+        waitForObject(":List Check Formats.New_QPushButton");
+        clickButton(":List Check Formats.New_QPushButton");
+        waitForObject(":_name_XLineEdit_17");
+        type(":_name_XLineEdit_17", "GENERIC-CHECK");
+        type(":Check Format._descrip_XLineEdit", "Generic Check Format");
+        waitForObject(":_report_XComboBox_3");
+        if(findObject(":_report_XComboBox_3").currentText!="APCheck")        
+            clickItem(":_report_XComboBox_3", "APCheck",0,0,1,Qt.LeftButton); 
+        snooze(2);
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
+        waitForObject(":List Check Formats._form_XTreeWidget");
+        if(object.exists(":_form.GENERIC-CHECK_QModelIndex"))
+            test.pass("Check Format created: GENERIC-CHECK");
+        else test.fail("Check Format not created: GENERIC-CHECK");
+        waitForObject(":Setup.Save_QPushButton");
+        clickButton(":Setup.Save_QPushButton");
+    }catch(e){test.fail("Exception in creating Check Format:"+e);}
+    
+    
+    //------------------Chart Of Accounts------------------------
+    try{
+        waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+        activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+        activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Chart of Accounts...");
+        
+        COA("01","01","1000","01","Cash at eBank","Asset","CA"); 
+        
+        COA("01","01","1010","01","Cash at EuroBank","Asset","CA"); 
+        
+        COA("01","01","6750","01","Finance Fees and Expenses","Expense","EXP"); 
+        
+        COA("01","01","1500","01","Fixed Assets","Asset","FA");
+        
+        COA("01","01","6400","01","Depreciation Expense","Expense","DXP");
+        
+        COA("01","01","3010","01","Paid-In Capital","Equity","EDC");
+        
+        waitForObject(":Chart of Accounts.Close_QPushButton_2");
+        clickButton(":Chart of Accounts.Close_QPushButton_2");
+    }catch(e){test.fail("Exception in creating Chart of Accounts");}
+    
+    
+    
+    
+    //---------------Configure ACH in Accounting-------------
+    try{
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
+        waitForObject(":Setup._modules_QComboBox");
+        clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
+        waitForObject(":Configure.Accounting_QModelIndex");
+        mouseClick(":Configure.Accounting_QModelIndex", 43, 5, 0, Qt.LeftButton);
+        
+        waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
+        clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
+        
+        nativeType("<Tab>");
+        waitForObject(":tab.Enable EFT Check Printing_QGroupBox");
+        type(":tab.Enable EFT Check Printing_QGroupBox"," ");
+        
+        waitForObject(":_nextACHBatchNumber_XLineEdit_2");
+        type(":_nextACHBatchNumber_XLineEdit_2", "<Ctrl+A>");
+        type(":_nextACHBatchNumber_XLineEdit_2", "<Del>");
+        type(":_nextACHBatchNumber_XLineEdit_2", "10000");
+        type(":_companyId_XLineEdit_2", "<Ctrl+A>");
+        type(":_companyId_XLineEdit_2", "<Del>");
+        type(":_companyId_XLineEdit_2", "987654");
+        clickButton(":Enable EFT Check Printing.Other_QRadioButton");
+        type(":_companyName_XLineEdit_2", "ProDiem Inc.");
+        clickButton(":Setup.Save_QPushButton");
+        test.log("Accounting for ACH configured");
+    }catch(e){test.fail("Exception in configuring Accounting" + e);}
+    
+   if(findObject(":No_QPushButton"))
+       clickButton(":No_QPushButton");
+   else
+    test.log("Encryption appears to be set");
+    
+  
   
     
     //---------------Define: Bank Accounts------------------

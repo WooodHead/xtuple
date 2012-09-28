@@ -5,6 +5,8 @@ function main()
     
     loginAppl("CONFIGURE");
     
+    waitForObject(":Registration Key.Yes_QPushButton");
+    clickButton(":Registration Key.Yes_QPushButton");
   
     DelAllWO();
     DelAllSO();
@@ -165,7 +167,7 @@ function main()
         type(":Enforce ARBL Naming Convention._locationSize_QSpinBox", "2");
         waitForObject(":Save_QPushButton");
         clickButton(":Save_QPushButton");
-        
+          snooze(1);
         waitForObject(":List Sites.Close_QPushButton");
         clickButton(":List Sites.Close_QPushButton");
         test.log("Warehouse WH3 created");
@@ -670,14 +672,14 @@ function main()
             {
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(10)=="100.00" && obj_TreeTopLevelItem.text(9)==getForwardDate(3) && obj_TreeTopLevelItem.text(8)==getForwardDate(0))
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(10)=="100.00" && obj_TreeTopLevelItem.text(9)==getForwardDate(3) && obj_TreeTopLevelItem.text(8)==getForwardDate(0))
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
@@ -808,14 +810,14 @@ function main()
             {
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(10)=="100.00" && obj_TreeTopLevelItem.text(9)==getForwardDate(3) && obj_TreeTopLevelItem.text(8)==getForwardDate(0))
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="1,000.00" && obj_TreeTopLevelItem.text(8)==getForwardDate(3) && obj_TreeTopLevelItem.text(7)==getForwardDate(0))
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(10)=="1,000.00" && obj_TreeTopLevelItem.text(9)==getForwardDate(3) && obj_TreeTopLevelItem.text(8)==getForwardDate(0))
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
@@ -826,9 +828,9 @@ function main()
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
-                
+                  snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(3);
-                if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(1)=="P/O")
+       if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(1)=="P/O")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
@@ -945,21 +947,21 @@ function main()
             {
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00")
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(10)=="100.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="200.00")
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(10)=="200.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="1,000.00")
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(10)=="1,000.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
@@ -971,9 +973,9 @@ function main()
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
-                
+                  snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(4);
-                if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(1)=="P/O")
+        if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(1)=="P/O")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
@@ -1082,27 +1084,29 @@ function main()
         var obj_TreeWidget = findObject(sWidgetTreeControl);
         var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
         var iNumberOfRootItems = obj_TreeRootItem.childCount();
+          snooze(1);
         if(iNumberOfRootItems>0)
-        {
+        {  snooze(1);
             if(iNumberOfRootItems==5)
             {
-                
+                  snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00")
-                    test.pass("Expected Planned Order generated");
+                  snooze(1);
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(10)=="100.00")
+                        test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
-                
+                  snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="200.00")
+  if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(10)=="200.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="300.00")
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(10)=="300.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
@@ -1230,26 +1234,27 @@ function main()
         var obj_TreeRootItem=obj_TreeWidget.invisibleRootItem();
         var iNumberOfRootItems = obj_TreeRootItem.childCount();
         if(iNumberOfRootItems>0)
-        {
+        {  snooze(1);
             if(iNumberOfRootItems==5)
             {
-                
+                  snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="50.00")
+                  snooze(1);
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(10)=="50.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
-                
+                  snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="150.00")
+      if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(10)=="150.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="200.00")
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(10)=="200.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");

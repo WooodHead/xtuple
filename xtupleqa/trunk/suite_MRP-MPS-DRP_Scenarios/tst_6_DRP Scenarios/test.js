@@ -7,6 +7,8 @@ function main()
     
     loginAppl("CONFIGURE");
     
+    waitForObject(":Registration Key.Yes_QPushButton");
+    clickButton(":Registration Key.Yes_QPushButton");
     
     //DRP S/O DEMAND AGREGATING TEST
     
@@ -140,7 +142,7 @@ function main()
     {
         test.fail("Error in setting up Item site of DTRUCK2" + e);
     }
-    
+  
     NewSOWh("DTRUCK2",150,"WH2");
     NewSOWh("DTRUCK2",100,"WH3");
     
@@ -171,23 +173,26 @@ function main()
         {
             if(iNumberOfRootItems==5)
             {
-                
+                snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="150.00")
+                  snooze(1);
+                if((obj_TreeTopLevelItem.text(4)=="DTRUCK2") && (obj_TreeTopLevelItem.text(1)=="T/O") && (obj_TreeTopLevelItem.text(10)=="150.00"))
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
-                
+                  snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00")
+                  snooze(1);
+                if((obj_TreeTopLevelItem.text(4)=="DTRUCK2") && (obj_TreeTopLevelItem.text(1)=="T/O") && (obj_TreeTopLevelItem.text(10)=="100.00"))
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
-                
+                  snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="250.00")
+                  snooze(1);
+                if((obj_TreeTopLevelItem.text(4)=="DTRUCK2") && (obj_TreeTopLevelItem.text(1)=="W/O") && (obj_TreeTopLevelItem.text(10)=="250.00"))
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
@@ -195,13 +200,13 @@ function main()
                 
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(3);
-                if(obj_TreeTopLevelItem.text(4)=="TSUB1" && obj_TreeTopLevelItem.text(1)=="W/O")
+                if((obj_TreeTopLevelItem.text(4)=="TSUB1") && (obj_TreeTopLevelItem.text(1)=="W/O"))
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(4);
-                if(obj_TreeTopLevelItem.text(4)=="TBOX1" && obj_TreeTopLevelItem.text(1)=="P/O")
+                if((obj_TreeTopLevelItem.text(1)=="P/O") && (obj_TreeTopLevelItem.text(4)=="TBOX1"))
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
@@ -324,18 +329,21 @@ function main()
         var iNumberOfRootItems = obj_TreeRootItem.childCount();
         if(iNumberOfRootItems>0)
         {
+              snooze(1);
             if(iNumberOfRootItems==5)
             {
-                
+                  snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="125.00")
+                  snooze(1);
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(10)=="125.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
-                
+                  snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00")
+                  snooze(1);
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(10)=="100.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
@@ -343,7 +351,7 @@ function main()
                 
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="225.00")
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(10)=="225.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
@@ -682,7 +690,7 @@ function main()
             {
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="42.00")
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(10)=="42.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
@@ -691,7 +699,7 @@ function main()
                 
                 
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="42.00")
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(10)=="42.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
@@ -831,24 +839,28 @@ function main()
         {
             if(iNumberOfRootItems==5)
             {
-                
+             
+                  snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(0);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="42.00")
+                  snooze(1);
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(10)=="42.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
-                
+                  snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(1);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(9)=="100.00")
+                  snooze(1);
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="T/O" && obj_TreeTopLevelItem.text(10)=="100.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
                 
                 
-                
+                  snooze(1);
                 obj_TreeTopLevelItem = obj_TreeRootItem.child(2);
-                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(9)=="42.00")
+                  snooze(1);
+                if(obj_TreeTopLevelItem.text(4)=="DTRUCK2" && obj_TreeTopLevelItem.text(1)=="W/O" && obj_TreeTopLevelItem.text(10)=="42.00")
                     test.pass("Expected Planned Order generated");
                 else 
                     test.fail("Incorrect Planned Order generated");
