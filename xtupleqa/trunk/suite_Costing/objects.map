@@ -1,4 +1,5 @@
 :*.PostBooks_QLabel	{name='_application' text='PostBooks' type='QLabel' visible='1' window=':Database Information_databaseInformation'}
+:<p>The Registration key installed for this system does not appear to be valid.\n<p>Would you like to continue anyway?_QLabel	{name='qt_msgbox_label' text='<p>The Registration key installed for this system does not appear to be valid.\n<p>Would you like to continue anyway?' type='QLabel' visible='1' window=':_QMessageBox'}
 :Assign Lot/Serial #._itemlocdist_XTreeWidget	{name='_itemlocdist' type='XTreeWidget' visible='1' window=':Assign Lot/Serial #_assignLotSerial'}
 :Assign Lot/Serial #_assignLotSerial	{name='assignLotSerial' type='assignLotSerial' visible='1' windowTitle='Assign Lot/Serial #'}
 :Bill-To.CLineEdit_CLineEdit	{container=':_headerPage.Bill-To_QGroupBox_3' name='CLineEdit' type='CLineEdit' visible='1'}
@@ -86,7 +87,7 @@
 :Distribute Stock To/From Site Locations_distributeInventory	{name='distributeInventory' type='distributeInventory' visible='1' windowTitle='Distribute Stock To/From Site Locations'}
 :Document Date Range.XDateEdit_XDateEdit	{container=':Customer History.Document Date Range_QGroupBox' name='XDateEdit' type='XDateEdit' visible='1'}
 :Document Date Range.XDateEdit_XDateEdit_2	{container=':Customer History.Document Date Range_QGroupBox' name='XDateEdit' occurrence='2' type='XDateEdit' visible='1'}
-:Enter Actual Cost.Post Cost to Standard_QCheckBox	{name='_postCost' text='Post Cost to Standard' type='QCheckBox' visible='1' window=':Enter Actual Cost_itemCost'}
+:Enter Actual Cost.Post Cost to Standard_QCheckBox	{text='Post Cost to Standard' type='QCheckBox' visible='1'}
 :Enter Actual Cost.XLineEdit_XLineEdit	{name='XLineEdit' type='XLineEdit' visible='1' window=':Enter Actual Cost_itemCost'}
 :Enter Actual Cost_itemCost	{name='itemCost' type='itemCost' visible='1' windowTitle='Enter Actual Cost'}
 :Enter Miscellaneous Adjustment.Assign_QPushButton	{container=':xTuple ERP:*.Enter Miscellaneous Adjustment_QWorkspaceChild' name='_assign' text='Assign' type='QPushButton' visible='1'}
@@ -153,12 +154,14 @@
 :Items.No_QPushButton	{container=':xTuple ERP:*.Items_QWorkspaceChild' text='No' type='QPushButton' unnamed='1' visible='1'}
 :Items.Query_QToolButton	{name='_queryBtn' text='Query' type='QToolButton' visible='1'}
 :Items.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1'}
+:Items.Search for:_QLabel	{name='_searchLit' text='Search for:' type='QLabel' visible='1' window=':Items_itemList'}
 :Items.Site can manufacture this Item_QGroupBox	{name='_woSupply' title='Site can manufacture this Item' type='QGroupBox' visible='1'}
 :Items.Site:  _QLabel	{name='_warehouseLit' text='Site:  ' type='QLabel' visible='1'}
 :Items.Target Item Number:_QLabel	{name='_targetItemNumberLit' text='Target Item Number:' type='QLabel' visible='1'}
 :Items.Yes_QPushButton	{text='Yes' type='QPushButton' unnamed='1' visible='1'}
 :Items._listLabelFrame_QFrame	{container=':xTuple ERP:*.Items_QWorkspaceChild' name='_listLabelFrame' type='QFrame' visible='0'}
 :Items.qt_tabwidget_stackedwidget_QStackedWidget	{name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
+:Items_itemList	{name='itemList' type='itemList' visible='1' windowTitle='Items'}
 :List Customers.Close_QPushButton	{container=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin.List Customers_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
 :List Customers.List Customers_QWorkspaceTitleBar	{container=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin.List Customers_QWorkspaceChild' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='List Customers'}
 :List Customers._cust_XTreeWidget	{container=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin.List Customers_QWorkspaceChild' name='_cust' type='XTreeWidget' visible='1'}
@@ -235,7 +238,11 @@
 :Post Actual Costs by Class Code.Select all Costs_QPushButton	{name='_selectAll' text='Select all Costs' type='QPushButton' visible='1' window=':Post Actual Costs by Class Code_postCostsByClassCode'}
 :Post Actual Costs by Class Code._classCode_ParameterGroup	{name='_classCode' type='ParameterGroup' visible='1' window=':Post Actual Costs by Class Code_postCostsByClassCode'}
 :Post Actual Costs by Class Code_postCostsByClassCode	{name='postCostsByClassCode' type='postCostsByClassCode' visible='1' windowTitle='Post Actual Costs by Class Code'}
+:Post Actual Costs by Item.Post Material Costs_QCheckBox	{name='_material' text='Post Material Costs' type='QCheckBox' visible='1' window=':Post Actual Costs by Item_postCostsByItem'}
+:Post Actual Costs by Item.Roll Up Standard Costs_QCheckBox	{name='_rollUp' text='Roll Up Standard Costs' type='QCheckBox' visible='1' window=':Post Actual Costs by Item_postCostsByItem'}
 :Post Actual Costs by Item.Select all Costs_QPushButton	{name='_selectAll' text='Select all Costs' type='QPushButton' visible='1' window=':Post Actual Costs by Item_postCostsByItem'}
+:Post Actual Costs by Item._item_ItemCluster	{name='_item' type='ItemCluster' visible='1' window=':Post Actual Costs by Item_postCostsByItem'}
+:Post Actual Costs by Item_QLabel	{type='QLabel' unnamed='1' visible='1' window=':Post Actual Costs by Item_postCostsByItem'}
 :Post Actual Costs by Item_postCostsByItem	{name='postCostsByItem' type='postCostsByItem' visible='1' windowTitle='Post Actual Costs by Item'}
 :Prospect...._QPushButton	{container=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin.Prospect_QWorkspaceChild' name='_list' text='...' type='QPushButton' visible='1'}
 :Prospect...._QPushButton_2	{container=':xTuple ERP: Manufacturing Edition 3.3.0 - Practice Database on 192.168.1.61/1demo330-mfg AS admin.Prospect_QWorkspaceChild' name='_list' occurrence='2' text='...' type='QPushButton' visible='1'}
@@ -305,7 +312,7 @@
 :Receivables Workbench.qt_tabwidget_tabbar_QTabBar	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1'}
 :Registration Key.No_QPushButton	{text='No' type='QPushButton' unnamed='1' visible='1' window=':Registration Key_QMessageBox'}
 :Registration Key.OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1' window=':Registration Key_QMessageBox'}
-:Registration Key.Yes_QPushButton	{text='Yes' type='QPushButton' unnamed='1' visible='1' window=':Registration Key_QMessageBox'}
+:Registration Key.Yes_QPushButton	{text='Yes' type='QPushButton' unnamed='1' visible='1'}
 :Registration Key_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Registration Key'}
 :STRUCK1_QModelIndex	{column='1' container=':_QTreeView' text='STRUCK1' type='QModelIndex'}
 :Sales Order Item_salesOrderItem	{name='salesOrderItem' type='salesOrderItem' visible='1' windowTitle='Sales Order Item'}
@@ -366,8 +373,11 @@
 :Update Actual Costs by Class Code.Update_QPushButton	{name='_update' text='Update' type='QPushButton' visible='1' window=':Update Actual Costs by Class Code_updateActualCostsByClassCode'}
 :Update Actual Costs by Class Code._classCode_ParameterGroup	{name='_classCode' type='ParameterGroup' visible='1' window=':Update Actual Costs by Class Code_updateActualCostsByClassCode'}
 :Update Actual Costs by Class Code_updateActualCostsByClassCode	{name='updateActualCostsByClassCode' type='updateActualCostsByClassCode' visible='1' windowTitle='Update Actual Costs by Class Code'}
+:Update Actual Costs by Item.Roll Up Actual Costs_QCheckBox	{name='_rollUp' text='Roll Up Actual Costs' type='QCheckBox' visible='1' window=':Update Actual Costs by Item_updateActualCostsByItem'}
 :Update Actual Costs by Item.Select all Costs_QPushButton	{name='_selectAll' text='Select all Costs' type='QPushButton' visible='1' window=':Update Actual Costs by Item_updateActualCostsByItem'}
+:Update Actual Costs by Item.Update Lower Level Material Costs_QCheckBox	{name='_lowerMaterial' text='Update Lower Level Material Costs' type='QCheckBox' visible='1' window=':Update Actual Costs by Item_updateActualCostsByItem'}
 :Update Actual Costs by Item.Update_QPushButton	{name='_update' text='Update' type='QPushButton' visible='1' window=':Update Actual Costs by Item_updateActualCostsByItem'}
+:Update Actual Costs by Item_QLabel	{type='QLabel' unnamed='1' visible='1' window=':Update Actual Costs by Item_updateActualCostsByItem'}
 :Update Actual Costs by Item_updateActualCostsByItem	{name='updateActualCostsByItem' type='updateActualCostsByItem' visible='1' windowTitle='Update Actual Costs by Item'}
 :Update Price?_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='Update Price?'}
 :Update Standard Costs By Class Code.Roll Up Standard Costs_QCheckBox	{name='_rollUp' text='Roll Up Standard Costs' type='QCheckBox' visible='1' window=':Update Standard Costs By Class Code_updateActualCostsByClassCode'}
@@ -375,8 +385,11 @@
 :Update Standard Costs By Class Code.Update_QPushButton	{name='_update' text='Update' type='QPushButton' visible='1' window=':Update Standard Costs By Class Code_updateActualCostsByClassCode'}
 :Update Standard Costs By Class Code._classCode_ParameterGroup	{name='_classCode' type='ParameterGroup' visible='1' window=':Update Standard Costs By Class Code_updateActualCostsByClassCode'}
 :Update Standard Costs By Class Code_updateActualCostsByClassCode	{name='updateActualCostsByClassCode' type='updateActualCostsByClassCode' visible='1' windowTitle='Update Standard Costs By Class Code'}
+:Update Standard Costs By Item.Roll Up Standard Costs_QCheckBox	{name='_rollUp' text='Roll Up Standard Costs' type='QCheckBox' visible='1' window=':Update Standard Costs By Item_updateActualCostsByItem'}
 :Update Standard Costs By Item.Select all Costs_QPushButton	{name='_selectAll' text='Select all Costs' type='QPushButton' visible='1' window=':Update Standard Costs By Item_updateActualCostsByItem'}
+:Update Standard Costs By Item.Update Lower Level Material Costs_QCheckBox	{name='_lowerMaterial' text='Update Lower Level Material Costs' type='QCheckBox' visible='1' window=':Update Standard Costs By Item_updateActualCostsByItem'}
 :Update Standard Costs By Item.Update_QPushButton	{name='_update' text='Update' type='QPushButton' visible='1' window=':Update Standard Costs By Item_updateActualCostsByItem'}
+:Update Standard Costs By Item_QLabel	{type='QLabel' unnamed='1' visible='1' window=':Update Standard Costs By Item_updateActualCostsByItem'}
 :Update Standard Costs By Item_updateActualCostsByItem	{name='updateActualCostsByItem' type='updateActualCostsByItem' visible='1' windowTitle='Update Standard Costs By Item'}
 :User Preferences.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':User Preferences_userPreferences'}
 :User Preferences.Save_QPushButton_2	{text='Save' type='QPushButton' unnamed='1' visible='1' window=':User Preferences_userPreferences'}
@@ -387,6 +400,7 @@
 :YTRUCK6_QModelIndex	{column='1' container=':_QTreeView' text='YTRUCK6' type='QModelIndex'}
 :Yellow Tough Truck Truck Type 1_QModelIndex	{column='2' container=':_QTreeView' text='Yellow Tough Truck Truck Type 1' type='QModelIndex'}
 :_QMenu	{type='QMenu' unnamed='1' visible='1'}
+:_QMessageBox	{type='QMessageBox' unnamed='1' visible='1'}
 :_QSplashScreen	{type='QSplashScreen' unnamed='1' visible='1'}
 :_QTreeView	{type='QTreeView' unnamed='1' visible='1'}
 :_accountGroup.All Accounts_QRadioButton	{container=':General Ledger Transactions._accountGroup_QGroupBox' name='_allAccounts' text='All Accounts' type='QRadioButton' visible='1'}
@@ -702,6 +716,7 @@
 :_schedGroup.XDateEdit_XDateEdit	{container=':Quote._schedGroup_QGroupBox' name='XDateEdit' type='XDateEdit' visible='1'}
 :_schedGroup.XDateEdit_XDateEdit_2	{container=':Sales Order._schedGroup_QGroupBox' name='XDateEdit' type='XDateEdit' visible='1'}
 :_schedGroup.XDateEdit_XDateEdit_3	{container=':Sales Order._schedGroup_QGroupBox' name='XDateEdit' occurrence='2' type='XDateEdit' visible='1'}
+:_search_QLineEdit	{buddy=':Items.Search for:_QLabel' name='_search' type='QLineEdit' visible='1'}
 :_server_QLineEdit	{buddy=':Login Options.Server:_QLabel' name='_server' type='QLineEdit' visible='1'}
 :_ship.50246_QModelIndex	{column='2' container=':_ship_XTreeWidget' text='50246' type='QModelIndex'}
 :_ship.99017_QModelIndex	{column='2' container=':_ship_XTreeWidget' text='99017' type='QModelIndex'}
@@ -787,6 +802,7 @@
 :groupBox.Select for Billing_QCheckBox	{container=':Issue to Shipping.groupBox_QGroupBox' name='_select' text='Select for Billing' type='QCheckBox' visible='1'}
 :groupBox.Tax Zone:_QLabel	{container=':Prospect.groupBox_QGroupBox' name='_taxzoneLit' text='Tax Zone:' type='QLabel' visible='1'}
 :headerTab.Invoice #:_QLabel	{container=':qt_tabwidget_stackedwidget.headerTab_QWidget' name='_invoiceNumberLit' text='Invoice #:' type='QLabel' visible='1'}
+:qt_msgboxex_icon_label_QLabel	{name='qt_msgboxex_icon_label' type='QLabel' visible='1' window=':_QMessageBox'}
 :qt_tabwidget_stackedwidget._application_QWidget	{container=':User Preferences.qt_tabwidget_stackedwidget_QStackedWidget' name='_application' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._applicationsTab_QWidget	{container=':Cash Receipt.qt_tabwidget_stackedwidget_QStackedWidget' name='_applicationsTab' type='QWidget' visible='1'}
 :qt_tabwidget_stackedwidget._applicationsTab_QWidget_2	{container=':xTuple ERP:*.qt_tabwidget_stackedwidget_QStackedWidget' name='_applicationsTab' type='QWidget' visible='1'}

@@ -6,7 +6,9 @@ function main()
     
     //-----login Application-----
     loginAppl("CONFIGURE"); 
-  
+    waitForObject(":*.Yes_QPushButton");
+    clickButton(":*.Yes_QPushButton");
+    
     
     //-----Edit the preferences-----
     try
@@ -62,7 +64,8 @@ function main()
     snooze(2);
     
     loginAppl("CONFIGURE"); 
-
+//    waitForObject(":*.Yes_QPushButton");
+//    clickButton(":*.Yes_QPushButton");
     
     //---------------Enabling the database options--------- 
     try

@@ -4,6 +4,8 @@
 :ACH Output File.Yes_QPushButton	{text='Yes' type='QPushButton' unnamed='1' visible='1' window=':ACH Output File_QMessageBox'}
 :ACH Output File_QFileDialog	{name='QFileDialog' type='QFileDialog' visible='1' windowTitle='ACH Output File'}
 :ACH Output File_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='ACH Output File'}
+:Active Items.Items_QLabel	{name='_titleLit' text='Items' type='QLabel' visible='1' window=':Active Items_itemList'}
+:Active Items_itemList	{name='itemList' type='itemList' visible='1' windowTitle='Active Items'}
 :Bill of Materials Item_bomItem	{name='bomItem' type='bomItem' visible='1'}
 :Bill of Materials...._QPushButton	{name='_itemList' occurrence='2' text='...' type='QPushButton' visible='1'}
 :Bill of Materials...._QPushButton_2	{name='_itemList' text='...' type='QPushButton' visible='1'}
@@ -110,6 +112,7 @@
 :Explode Work Order.Level_QGroupBox	{name='_levelGroup' title='Level' type='QGroupBox' visible='1' window=':Explode Work Order_explodeWo'}
 :Explode Work Order_QLabel	{type='QLabel' unnamed='1' visible='1' window=':Explode Work Order_explodeWo'}
 :Explode Work Order_explodeWo	{name='explodeWo' type='explodeWo' visible='1' windowTitle='Explode Work Order'}
+:From Site_HeaderViewItem	{container=':_planord_QHeaderView' text='From Site' type='HeaderViewItem'}
 :Implode Work Order...._QPushButton	{name='_woList' text='...' type='QPushButton' visible='1' window=':Implode Work Order_implodeWo'}
 :Implode Work Order.Implode_QPushButton	{name='_implode' text='Implode' type='QPushButton' visible='1' window=':Implode Work Order_implodeWo'}
 :Implode Work Order_QLabel	{type='QLabel' unnamed='1' visible='1' window=':Implode Work Order_implodeWo'}
@@ -303,6 +306,7 @@
 :Open Sales Orders.Query_QToolButton	{name='_queryBtn' text='Query' type='QToolButton' visible='1'}
 :Open Sales Orders.Yes_QPushButton	{text='Yes' type='QPushButton' unnamed='1' visible='1'}
 :Open Sales Orders._listLabelFrame_QFrame	{name='_listLabelFrame' type='QFrame' visible='0'}
+:Open Sales Orders_openSalesOrders	{name='openSalesOrders' type='openSalesOrders' visible='1' windowTitle='Open Sales Orders'}
 :Order #_HeaderViewItem	{container=':_planord_QHeaderView' text='Order #' type='HeaderViewItem'}
 :Planned Order.Close_QPushButton	{name='_close' text='Close' type='QPushButton' visible='1' window=':Planned Order_plannedOrder'}
 :Planned Order.Save_QPushButton	{name='_create' text='Save' type='QPushButton' visible='1' window=':Planned Order_plannedOrder'}
@@ -349,6 +353,7 @@
 :Production Plan Item.VirtualClusterLineEdit_ItemLineEdit	{name='VirtualClusterLineEdit' type='ItemLineEdit' visible='1' window=':Production Plan Item_XMainWindow'}
 :Production Plan Item.XDateEdit_XDateEdit	{name='XDateEdit' type='XDateEdit' visible='1' window=':Production Plan Item_XMainWindow'}
 :Production Plan Item._qty_XLineEdit	{name='_qty' type='XLineEdit' visible='1' window=':Production Plan Item_XMainWindow'}
+:Production Plan Item_QLabel	{type='QLabel' unnamed='1' visible='1' window=':Production Plan Item_XMainWindow'}
 :Production Plan Item_XMainWindow	{name='plannedScheduleItem' type='XMainWindow' visible='1' windowTitle='Production Plan Item'}
 :Production Plan.Cancel_QPushButton	{name='_cancel' text='Cancel' type='QPushButton' visible='1' window=':Production Plan_XMainWindow'}
 :Production Plan.Description:_QLabel	{name='_descripLit' text='Description:' type='QLabel' visible='1' window=':Production Plan_XMainWindow'}
@@ -467,6 +472,7 @@
 :Show Order Types.Transfer_XCheckBox	{container=':Planned Orders by Planner Code.Show Order Types_QGroupBox' name='_transfer' text='Transfer' type='XCheckBox' visible='1'}
 :Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox	{container=':List Item Sites.Site can manufacture this Item_QGroupBox' name='_createWo' text='Create Work Orders linked to Sales Orders' type='QCheckBox' visible='1'}
 :Site can manufacture this Item.Create Work Orders linked to Sales Orders_QCheckBox_2	{container=':Item Sites.Site can manufacture this Item_QGroupBox' name='_createWo' text='Create Work Orders linked to Sales Orders' type='QCheckBox' visible='1'}
+:Site_HeaderViewItem	{container=':_planord_QHeaderView' text='Site' type='HeaderViewItem'}
 :Site_warehouse	{name='warehouse' type='warehouse' visible='1' windowTitle='Site'}
 :Source Site:.All Sites_QRadioButton	{container=':List Open Transfer Orders.Source Site:_WarehouseGroup' name='_all' text='All Sites' type='QRadioButton' visible='1'}
 :Supply Rules.Create Work Orders linked to Sales Orders_QCheckBox	{container=':List Item Sites.Supply Rules_QGroupBox' name='_createWo' text='Create Work Orders linked to Sales Orders' type='QCheckBox' visible='1'}
@@ -485,6 +491,7 @@
 :Transfer Order._itemGroup_QGroupBox	{name='_itemGroup' type='QGroupBox' visible='1'}
 :Transfer Order.qt_tabwidget_stackedwidget_QStackedWidget	{name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1'}
 :Transfer Order.qt_tabwidget_tabbar_QTabBar	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1'}
+:Type_HeaderViewItem	{container=':_planord_QHeaderView' text='Type' type='HeaderViewItem'}
 :User Preferences.Cancel_QPushButton	{text='Cancel' type='QPushButton' unnamed='1' visible='1' window=':User Preferences_userPreferences'}
 :User Preferences.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':User Preferences_userPreferences'}
 :User Preferences.Save_QPushButton_2	{text='Save' type='QPushButton' unnamed='1' visible='1' window=':User Preferences_userPreferences'}
@@ -703,6 +710,7 @@
 :_listTab_XTreeWidget_5	{buddy=':_addressGroup._titleLit_QLabel' name='_listTab' type='XTreeWidget' visible='1'}
 :_listTab_XTreeWidget_6	{buddy=':Work Orders.Work Orders_QLabel' name='_listTab' type='XTreeWidget' visible='1'}
 :_listTab_XTreeWidget_7	{buddy=':_accountGroup.Chart of Accounts_QLabel' name='_listTab' type='XTreeWidget' visible='1'}
+:_listTab_XTreeWidget_8	{buddy=':Active Items.Items_QLabel' name='_listTab' type='XTreeWidget' visible='1'}
 :_list_QHeaderView	{container=':_list_XTreeWidget' type='QHeaderView' unnamed='1' visible='1'}
 :_list_QScrollBar	{container=':_list_XTreeWidget_2' type='QScrollBar' unnamed='1' visible='1'}
 :_list_XTreeWidget	{buddy=':frame.Planned Items:_QLabel' name='_list' type='XTreeWidget' visible='1'}
