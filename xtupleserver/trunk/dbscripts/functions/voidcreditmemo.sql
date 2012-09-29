@@ -99,7 +99,8 @@ BEGIN
                                  _roundedBase,
                                  _glDate, ('Void-' || _p.cmhead_billtoname) ) INTO _test
       FROM salesaccnt
-      WHERE (salesaccnt_id=findSalesAccnt(_r.cmitem_itemsite_id, _p.cmhead_cust_id));
+      WHERE (salesaccnt_id=findSalesAccnt(_r.cmitem_itemsite_id, 'IS', _p.cmhead_cust_id,
+                                          _p.cmhead_saletype_id, _p.cmhead_shipzone_id));
       IF (NOT FOUND) THEN
         PERFORM deleteGLSeries(_glSequence);
         RETURN -11;
@@ -192,7 +193,8 @@ BEGIN
   FOR _r IN SELECT cmitem_itemsite_id AS itemsite_id, cmitem_id,
                    (cmitem_qtyreturned * cmitem_qty_invuomratio) AS qty,
                    cmhead_number, cmhead_cust_id AS cust_id, item_number,
-                   cmhead_prj_id
+                   cmhead_prj_id AS prj_id, cmhead_saletype_id AS saletype_id,
+                   cmhead_shipzone_id AS shipzone_id
             FROM cmhead, cmitem, itemsite, item
             WHERE ( (cmitem_cmhead_id=cmhead_id)
              AND (cmitem_itemsite_id=itemsite_id)
@@ -208,7 +210,8 @@ BEGIN
     SELECT postInvTrans( itemsite_id, 'RS', (_r.qty * -1),
                          'S/O', 'CM', _r.cmhead_number, '',
                          ('Credit Voided ' || _r.item_number),
-                         costcat_asset_accnt_id, getPrjAccntId(_r.cmhead_prj_id, resolveCOSAccount(itemsite_id, _r.cust_id)),  
+                         costcat_asset_accnt_id,
+                         getPrjAccntId(_r.prj_id, resolveCOSAccount(itemsite_id, _r.cust_id, _r.saletype_id, _r.shipzone_id)),  
                          _itemlocSeries, _glDate) INTO _invhistid
     FROM itemsite, costcat
     WHERE ( (itemsite_costcat_id=costcat_id)

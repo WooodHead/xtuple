@@ -47,7 +47,8 @@ BEGIN
          invchead_billto_country, invchead_shipto_country,
          invchead_prj_id, invchead_curr_id,
          invchead_taxzone_id,
-         invchead_recurring_invchead_id)
+         invchead_recurring_invchead_id,
+         invchead_saletype_id, invchead_shipzone_id)
   VALUES(_invcheadid,
          _i.invchead_cust_id, _i.invchead_shipto_id,
          _i.invchead_ordernumber, _i.invchead_orderdate,
@@ -72,7 +73,8 @@ BEGIN
          _i.invchead_billto_country, _i.invchead_shipto_country,
          _i.invchead_prj_id, _i.invchead_curr_id,
          _i.invchead_taxzone_id,
-         _i.invchead_recurring_invchead_id);
+         _i.invchead_recurring_invchead_id,
+         _i.invchead_saletype_id, _i.invchead_shipzone_id);
 
   FOR _l IN SELECT *
             FROM invcitem

@@ -88,7 +88,9 @@ BEGIN
     cohead_taxzone_id,
     cohead_taxtype_id,
     cohead_ophead_id,
-    cohead_status )
+    cohead_status,
+    cohead_saletype_id,
+    cohead_shipzone_id )
   SELECT
     _soheadid,
     fetchSoNumber(),
@@ -167,7 +169,9 @@ BEGIN
     cohead_taxzone_id,
     cohead_taxtype_id,
     cohead_ophead_id,
-    cohead_status
+    cohead_status,
+    cohead_saletype_id,
+    cohead_shipzone_id
   FROM cohead
   WHERE (cohead_id=pSoheadid);
 

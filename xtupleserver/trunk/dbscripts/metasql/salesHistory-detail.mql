@@ -9,6 +9,7 @@ SELECT cohist.*,
             ELSE cohist_invcnumber
        END AS invoicenumber,
        cust_number, cust_name, salesrep_name,
+       saletype_code, shipzone_name,
        item_id, COALESCE(item_number, cohist_misc_descrip) AS item_number,
        item_descrip1, (item_descrip1 || ' ' || item_descrip2) AS itemdescription,
        warehous_code,
@@ -44,6 +45,8 @@ SELECT cohist.*,
        0 AS basecommission_xttotalrole
   FROM cohist JOIN custinfo ON (cust_id=cohist_cust_id)
               JOIN salesrep ON (salesrep_id=cohist_salesrep_id)
+              LEFT OUTER JOIN saletype ON (saletype_id=cohist_saletype_id)
+              LEFT OUTER JOIN shipzone ON (shipzone_id=cohist_shipzone_id)
 <? if exists("includeMisc") ?>
               LEFT OUTER JOIN itemsite ON (itemsite_id=cohist_itemsite_id)
               LEFT OUTER JOIN site() ON (warehous_id=itemsite_warehous_id)
@@ -52,10 +55,6 @@ SELECT cohist.*,
               JOIN itemsite ON (itemsite_id=cohist_itemsite_id)
               JOIN site() ON (warehous_id=itemsite_warehous_id)
               JOIN item ON (item_id=itemsite_item_id)
-<? endif ?>
-<? if exists("shipzone_id") ?>
-              JOIN shiptoinfo ON (shipto_id=cohist_shipto_id)
-              JOIN shipzone ON (shipzone_id=shipto_shipzone_id)
 <? endif ?>
 <? if exists("cohead_id") ?>
               JOIN cohead ON (cohead_number=cohist_ordernumber)
@@ -128,7 +127,10 @@ WHERE ( (true)
   AND  (itemsite_warehous_id=<? value("warehous_id") ?>)
 <? endif ?>
 <? if exists("shipzone_id") ?>
-  AND (shipzone_id=<? value("shipzone_id") ?>)
+  AND (cohist_shipzone_id=<? value("shipzone_id") ?>)
+<? endif ?>
+<? if exists("saletype_id") ?>
+  AND (cohist_saletype_id=<? value("saletype_id") ?>)
 <? endif ?>
 <? if exists("cohead_id") ?>
   AND (cohead_id=<? value("cohead_id") ?>)

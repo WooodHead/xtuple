@@ -293,8 +293,8 @@ BEGIN
                           CASE WHEN(COALESCE(_ra.raitem_cos_accnt_id, -1) != -1) THEN 
 				 getPrjAccntId(_o.prj_id, _ra.raitem_cos_accnt_id)
 				WHEN (_ra.raitem_warranty) THEN 
-			         getPrjAccntId(_o.prj_id, resolveCOWAccount(_r.itemsite_id,_ra.rahead_cust_id))
-			       ELSE getPrjAccntId(_o.prj_id, resolveCORAccount(_r.itemsite_id,_ra.rahead_cust_id))
+			         getPrjAccntId(_o.prj_id, resolveCOWAccount(_r.itemsite_id, _ra.rahead_cust_id, _ra.rahead_saletype_id, _ra.rahead_shipzone_id))
+			       ELSE getPrjAccntId(_o.prj_id, resolveCORAccount(_r.itemsite_id, _ra.rahead_cust_id, _ra.rahead_saletype_id, _ra.rahead_shipzone_id))
 			  END,
 			  _itemlocSeries, _glDate, COALESCE(_o.unitcost,stdcost(itemsite_item_id)) * _r.recv_qty * _o.invvenduomratio) INTO _tmp
       FROM itemsite, costcat
@@ -396,7 +396,7 @@ BEGIN
               cohead_billtocity,cohead_billtostate,cohead_billtozipcode,
               cohead_billtocountry,cohead_misc_accnt_id,cohead_misc_descrip,
               cohead_commission,cohead_holdtype,cohead_prj_id,cohead_shipcomplete,
-              cohead_curr_id,cohead_taxzone_id)
+              cohead_curr_id,cohead_taxzone_id,cohead_saletype_id,cohead_shipzone_id)
             SELECT _coheadid,fetchsonumber(),rahead_cust_id,rahead_custponumber,
               'C',current_date,rahead_salesrep_id,COALESCE(cohead_terms_id,cust_terms_id),
               COALESCE(cohead_shipvia,cust_shipvia),rahead_shipto_id,rahead_shipto_name,
@@ -417,7 +417,7 @@ BEGIN
                 CASE WHEN cust_partialship THEN 
                   false 
                 ELSE true
-                END),rahead_curr_id,rahead_taxzone_id
+                END),rahead_curr_id,rahead_taxzone_id,rahead_saletype_id,rahead_shipzone_id
             FROM rahead
               JOIN custinfo ON (rahead_cust_id=cust_id)
               LEFT OUTER JOIN cohead ON (rahead_orig_cohead_id=cohead_id)

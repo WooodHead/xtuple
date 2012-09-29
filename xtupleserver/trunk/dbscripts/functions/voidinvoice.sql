@@ -117,14 +117,14 @@ BEGIN
 	SELECT getPrjAccntId(_p.invchead_prj_id, salesaccnt_sales_accnt_id) 
 	INTO _tmpAccntId
 	FROM salesaccnt
-	WHERE (salesaccnt_id=findSalesAccnt(_r.invcitem_item_id, 'I',
-					    _p.invchead_cust_id));
+	WHERE (salesaccnt_id=findSalesAccnt(_r.invcitem_item_id, 'I', _p.invchead_cust_id,
+                                            _p.invchead_saletype_id, _p.invchead_shipzone_id));
       ELSE
 	SELECT getPrjAccntId(_p.invchead_prj_id, salesaccnt_sales_accnt_id) 
 	INTO _tmpAccntId
 	FROM salesaccnt
-	WHERE (salesaccnt_id=findSalesAccnt(_r.itemsite_id, 'IS',
-					    _p.invchead_cust_id));
+	WHERE (salesaccnt_id=findSalesAccnt(_r.itemsite_id, 'IS', _p.invchead_cust_id,
+                                            _p.invchead_saletype_id, _p.invchead_shipzone_id));
       END IF;
 
 --  If the Sales Account Assignment was not found then punt
@@ -316,7 +316,8 @@ BEGIN
   FOR _r IN SELECT itemsite_id AS itemsite_id, invcitem_id,
                    (invcitem_billed * invcitem_qty_invuomratio) AS qty,
                    invchead_invcnumber, invchead_cust_id AS cust_id, item_number,
-                   invchead_prj_id
+                   invchead_prj_id AS prj_id, invchead_saletype_id AS saletype_id,
+                   invchead_shipzone_id AS shipzone_id
             FROM invchead JOIN invcitem ON ( (invcitem_invchead_id=invchead_id) AND
                                              (invcitem_billed <> 0) AND
                                              (invcitem_updateinv) )
@@ -332,8 +333,8 @@ BEGIN
     SELECT postInvTrans( itemsite_id, 'SH', (_r.qty * -1.0),
                          'S/O', 'IN', _r.invchead_invcnumber, '',
                          ('Invoice Voided ' || _r.item_number),
-                         getPrjAccntId(_r.invchead_prj_id, resolveCOSAccount(itemsite_id, _r.cust_id)), costcat_asset_accnt_id, 
-                         _itemlocSeries, _glDate) INTO _invhistid
+                         getPrjAccntId(_r.prj_id, resolveCOSAccount(itemsite_id, _r.cust_id, _r.saletype_id, _r.shipzone_id)),
+                         costcat_asset_accnt_id, _itemlocSeries, _glDate) INTO _invhistid
     FROM itemsite, costcat
     WHERE ( (itemsite_costcat_id=costcat_id)
      AND (itemsite_id=_r.itemsite_id) );

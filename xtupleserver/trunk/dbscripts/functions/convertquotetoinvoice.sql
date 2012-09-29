@@ -117,7 +117,8 @@ BEGIN
     invchead_notes, invchead_freight, 
     invchead_misc_amount, invchead_misc_accnt_id, invchead_misc_descrip,
     invchead_prj_id, invchead_curr_id, invchead_taxzone_id,
-    invchead_posted, invchead_printed, invchead_invcdate
+    invchead_posted, invchead_printed, invchead_invcdate,
+    invchead_saletype_id, invchead_shipzone_id
     --invchead_taxtype_id,
     --invchead_shipto_cntct_id, invchead_shipto_cntct_honorific, invchead_shipto_cntct_first_name,
     --invchead_shipto_cntct_middle, invchead_shipto_cntct_last_name, invchead_shipto_cntct_suffix,
@@ -144,7 +145,8 @@ BEGIN
          quhead_ordercomments,  quhead_freight,
          quhead_misc, quhead_misc_accnt_id, quhead_misc_descrip,
          quhead_prj_id, quhead_curr_id, quhead_taxzone_id,
-         'f','f',current_date
+         'f','f',current_date,
+         quhead_saletype_id, quhead_shipzone_id
          --quhead_shipto_cntct_id, quhead_shipto_cntct_honorific,
 	 --quhead_shipto_cntct_first_name, quhead_shipto_cntct_middle, quhead_shipto_cntct_last_name,
 	 --quhead_shipto_cntct_suffix, quhead_shipto_cntct_phone, quhead_shipto_cntct_title,

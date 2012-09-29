@@ -121,7 +121,8 @@ UNION SELECT cmhead_id AS orderid, cmitem_id AS itemid,
              COALESCE( ( SELECT formatGLAccountLong(accnt_id)
                          FROM accnt, salesaccnt
                          WHERE ((salesaccnt_sales_accnt_id=accnt_id)
-                          AND (salesaccnt_id=findSalesAccnt(cmitem_itemsite_id, cmhead_cust_id)))), 'Not Assigned') AS account
+                          AND (salesaccnt_id=findSalesAccnt(cmitem_itemsite_id, 'IS', cmhead_cust_id,
+                                                            cmhead_saletype_id, cmhead_shipzone_id)))), 'Not Assigned') AS account
 FROM item, itemsite, cmhead, cmitem, uom
 WHERE ( (cmitem_cmhead_id=cmhead_id)
  AND (cmitem_itemsite_id=itemsite_id)
