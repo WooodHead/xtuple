@@ -42,7 +42,8 @@ BEGIN
   END IF;
 
   IF (_shiphead.shiphead_order_type = 'SO') THEN
-    SELECT cohead_number AS head_number, cohead_cust_id AS cust_id, cohead_prj_id INTO _h
+    SELECT cohead_number AS head_number, cohead_cust_id AS cust_id, cohead_prj_id AS prj_id,
+           cohead_saletype_id AS saletype_id, cohead_shipzone_id AS shipzone_id INTO _h
       FROM cohead
      WHERE (cohead_id=_shiphead.shiphead_order_id);
     IF (NOT FOUND) THEN
@@ -135,11 +136,13 @@ BEGIN
       IF (_co.itemsite_controlmethod != 'N') THEN
         PERFORM insertGLTransaction( 'S/R', _shiphead.shiphead_order_type,
 	  			   _h.head_number::TEXT, 'Recall Shipment',
-                                   CASE WHEN(COALESCE(_co.coitem_cos_accnt_id, -1) != -1) THEN getPrjAccntId(_h.cohead_prj_id, _co.coitem_cos_accnt_id)
-                                        WHEN(_co.coitem_warranty = TRUE) THEN getPrjAccntId(_h.cohead_prj_id, resolveCOWAccount(itemsite_id, _h.cust_id))
-				        ELSE getPrjAccntId(_h.cohead_prj_id, resolveCOSAccount(itemsite_id, _h.cust_id))
+                                   CASE WHEN(COALESCE(_co.coitem_cos_accnt_id, -1) != -1)
+                                          THEN getPrjAccntId(_h.prj_id, _co.coitem_cos_accnt_id)
+                                        WHEN(_co.coitem_warranty = TRUE)
+                                          THEN getPrjAccntId(_h.prj_id, resolveCOWAccount(itemsite_id, _h.cust_id, _h.saletype_id, _h.shipzone_id))
+				        ELSE getPrjAccntId(_h.prj_id, resolveCOSAccount(itemsite_id, _h.cust_id, _h.saletype_id, _h.shipzone_id))
                                    END,
-                                   getPrjAccntId(_h.cohead_prj_id,costcat_shipasset_accnt_id), -1,
+                                   getPrjAccntId(_h.prj_id,costcat_shipasset_accnt_id), -1,
 				   _value,
 				   _timestamp::DATE )
         FROM itemsite, costcat

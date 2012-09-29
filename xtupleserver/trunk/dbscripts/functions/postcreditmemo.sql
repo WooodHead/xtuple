@@ -134,7 +134,8 @@ BEGIN
                                                 _p.cmhead_docdate), 2),
                                  _glDate, _p.cmhead_billtoname) INTO _test
       FROM salesaccnt
-      WHERE (salesaccnt_id=findSalesAccnt(_r.cmitem_itemsite_id, _p.cmhead_cust_id));
+      WHERE (salesaccnt_id=findSalesAccnt(_r.cmitem_itemsite_id, 'IS', _p.cmhead_cust_id,
+                                          _p.cmhead_saletype_id, _p.cmhead_shipzone_id));
       IF (NOT FOUND) THEN
         PERFORM deleteGLSeries(_sequence);
         RETURN -12;
@@ -156,7 +157,8 @@ BEGIN
       cohist_shiptoname, cohist_shiptoaddress1,
       cohist_shiptoaddress2, cohist_shiptoaddress3,
       cohist_shiptocity, cohist_shiptostate, cohist_shiptozip,
-      cohist_curr_id, cohist_taxtype_id, cohist_taxzone_id )
+      cohist_curr_id, cohist_taxtype_id, cohist_taxzone_id,
+      cohist_shipzone_id, cohist_saletype_id )
     VALUES
     ( _cohistid, _p.cmhead_cust_id, _r.cmitem_itemsite_id, _p.cmhead_shipto_id,
       _p.cmhead_docdate, '',
@@ -170,7 +172,8 @@ BEGIN
       _p.cmhead_shipto_name, _p.cmhead_shipto_address1,
       _p.cmhead_shipto_address2, _p.cmhead_shipto_address3,
       _p.cmhead_shipto_city, _p.cmhead_shipto_state, _p.cmhead_shipto_zipcode,
-      _p.cmhead_curr_id,	_r.cmitem_taxtype_id, _p.cmhead_taxzone_id );
+      _p.cmhead_curr_id, _r.cmitem_taxtype_id, _p.cmhead_taxzone_id,
+      _p.cmhead_shipzone_id, _p.cmhead_saletype_id );
     INSERT INTO cohisttax
     ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
       taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -220,7 +223,8 @@ BEGIN
       cohist_shiptoname, cohist_shiptoaddress1,
       cohist_shiptoaddress2, cohist_shiptoaddress3,
       cohist_shiptocity, cohist_shiptostate, cohist_shiptozip,
-      cohist_curr_id )
+      cohist_curr_id,
+      cohist_shipzone_id, cohist_saletype_id )
     VALUES
     ( _p.cmhead_cust_id, -1, _p.cmhead_shipto_id,
       'M', _p.cmhead_misc_descrip, _p.cmhead_misc_accnt_id,
@@ -235,7 +239,8 @@ BEGIN
       _p.cmhead_shipto_name, _p.cmhead_shipto_address1,
       _p.cmhead_shipto_address2, _p.cmhead_shipto_address3,
       _p.cmhead_shipto_city, _p.cmhead_shipto_state, _p.cmhead_shipto_zipcode,
-      _p.cmhead_curr_id );
+      _p.cmhead_curr_id,
+      _p.cmhead_shipzone_id, _p.cmhead_saletype_id );
 
 --  Cache the Misc. Amount distributed
     _totalAmount := _totalAmount + _p.cmhead_misc;
@@ -259,7 +264,8 @@ BEGIN
       cohist_shiptoname, cohist_shiptoaddress1,
       cohist_shiptoaddress2, cohist_shiptoaddress3,
       cohist_shiptocity, cohist_shiptostate, cohist_shiptozip,
-      cohist_curr_id,	cohist_taxtype_id, cohist_taxzone_id )
+      cohist_curr_id, cohist_taxtype_id, cohist_taxzone_id,
+      cohist_shipzone_id, cohist_saletype_id )
     VALUES
     ( _cohistid, _p.cmhead_cust_id, -1, _p.cmhead_shipto_id,
       'T', 'Misc Tax Adjustment',
@@ -274,7 +280,8 @@ BEGIN
       _p.cmhead_shipto_name, _p.cmhead_shipto_address1,
       _p.cmhead_shipto_address2, _p.cmhead_shipto_address3,
       _p.cmhead_shipto_city, _p.cmhead_shipto_state, _p.cmhead_shipto_zipcode,
-      _p.cmhead_curr_id, getAdjustmentTaxtypeId(), _p.cmhead_taxzone_id );
+      _p.cmhead_curr_id, getAdjustmentTaxtypeId(), _p.cmhead_taxzone_id,
+      _p.cmhead_shipzone_id, _p.cmhead_saletype_id );
     INSERT INTO cohisttax
     ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
       taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -328,7 +335,8 @@ BEGIN
       cohist_shiptoname, cohist_shiptoaddress1,
       cohist_shiptoaddress2, cohist_shiptoaddress3,
       cohist_shiptocity, cohist_shiptostate, cohist_shiptozip,
-      cohist_curr_id, cohist_taxtype_id, cohist_taxzone_id )
+      cohist_curr_id, cohist_taxtype_id, cohist_taxzone_id,
+      cohist_shipzone_id, cohist_saletype_id )
     VALUES
     ( _cohistid, _p.cmhead_cust_id, -1, _p.cmhead_shipto_id,
       'F', 'Freight Charge',
@@ -343,7 +351,8 @@ BEGIN
       _p.cmhead_shipto_name, _p.cmhead_shipto_address1,
       _p.cmhead_shipto_address2, _p.cmhead_shipto_address3,
       _p.cmhead_shipto_city, _p.cmhead_shipto_state, _p.cmhead_shipto_zipcode,
-      _p.cmhead_curr_id, getFreightTaxtypeId(), _p.cmhead_taxzone_id );
+      _p.cmhead_curr_id, getFreightTaxtypeId(), _p.cmhead_taxzone_id,
+      _p.cmhead_shipzone_id, _p.cmhead_saletype_id );
     INSERT INTO cohisttax
     ( taxhist_parent_id, taxhist_taxtype_id, taxhist_tax_id,
       taxhist_basis, taxhist_basis_tax_id, taxhist_sequence,
@@ -414,6 +423,7 @@ BEGIN
   FOR _r IN SELECT cmitem_itemsite_id AS itemsite_id, cmitem_id,
                    (cmitem_qtyreturned * cmitem_qty_invuomratio) AS qty,
                    cmhead_number, cmhead_cust_id AS cust_id, item_number,
+                   cmhead_saletype_id AS saletype_id, cmhead_shipzone_id AS shipzone_id,
                    stdCost(item_id) AS std_cost, cmhead_prj_id,
                    itemsite_costmethod
             FROM cmhead, cmitem, itemsite, item
@@ -432,7 +442,8 @@ BEGIN
       SELECT postInvTrans(itemsite_id, 'RS', _r.qty,
                          'S/O', 'CM', _r.cmhead_number, '',
                          ('Credit Return ' || _r.item_number),
-                         costcat_asset_accnt_id, getPrjAccntId(_r.cmhead_prj_id, resolveCOSAccount(itemsite_id, _r.cust_id)), 
+                         costcat_asset_accnt_id,
+                         getPrjAccntId(_r.cmhead_prj_id, resolveCOSAccount(itemsite_id, _r.cust_id, _r.saletype_id, _r.shipzone_id)), 
                          _itemlocSeries, _glDate, _r.std_cost) INTO _invhistid
         FROM itemsite, costcat
        WHERE ((itemsite_costcat_id=costcat_id)

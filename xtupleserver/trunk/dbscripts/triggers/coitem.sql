@@ -340,12 +340,14 @@ BEGIN
         IF (_r.wo_wipvalue > 0) THEN
         --  Distribute to G/L, debit Cost of Sales, credit WIP
           PERFORM MIN(insertGLTransaction( 'W/O', 'WO', formatWoNumber(NEW.coitem_order_id), 'Job Closed Incomplete',
-                                       costcat_wip_accnt_id,
-				        CASE WHEN(COALESCE(NEW.coitem_cos_accnt_id, -1) != -1) THEN NEW.coitem_cos_accnt_id
-                                          WHEN(NEW.coitem_warranty=TRUE) THEN resolveCOWAccount(itemsite_id, cohead_cust_id)
-                                          ELSE resolveCOSAccount(itemsite_id, cohead_cust_id)
-                                       END,
-                                       -1,  _r.wo_wipvalue, current_date ))
+                                           costcat_wip_accnt_id,
+                                           CASE WHEN (COALESCE(NEW.coitem_cos_accnt_id, -1) != -1)
+                                                  THEN NEW.coitem_cos_accnt_id
+                                                WHEN (NEW.coitem_warranty=TRUE)
+                                                  THEN resolveCOWAccount(itemsite_id, cohead_cust_id, cohead_saletype_id, cohead_shipzone_id)
+                                                ELSE resolveCOSAccount(itemsite_id, cohead_cust_id, cohead_saletype_id, cohead_shipzone_id)
+                                           END,
+                                           -1,  _r.wo_wipvalue, current_date ))
           FROM itemsite, costcat, cohead
           WHERE ((itemsite_id=NEW.coitem_itemsite_id)
            AND (itemsite_costcat_id=costcat_id)
@@ -441,7 +443,7 @@ CREATE OR REPLACE FUNCTION _soitemAfterTrigger() RETURNS TRIGGER AS $$
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _check NUMERIC;
-  _custID INTEGER;
+  _r RECORD;
   _po BOOLEAN;
   _kit BOOLEAN;
   _fractional BOOLEAN;
@@ -459,7 +461,7 @@ BEGIN
   _rec := NEW;
 
   --Cache some information
-  SELECT cohead_cust_id INTO _custID
+  SELECT * INTO _r
   FROM cohead
   WHERE (cohead_id=_rec.coitem_cohead_id);
 
@@ -493,9 +495,11 @@ BEGIN
       IF (fetchMetricBool('KitComponentInheritCOS')) THEN
   -- Update kit line item COS
         UPDATE coitem
-        SET coitem_cos_accnt_id = CASE WHEN (COALESCE(NEW.coitem_cos_accnt_id, -1) != -1) THEN NEW.coitem_cos_accnt_id
-                                       WHEN (NEW.coitem_warranty) THEN resolveCOWAccount(NEW.coitem_itemsite_id, _custID)
-                                       ELSE resolveCOSAccount(NEW.coitem_itemsite_id, _custID)
+        SET coitem_cos_accnt_id = CASE WHEN (COALESCE(NEW.coitem_cos_accnt_id, -1) != -1)
+                                         THEN NEW.coitem_cos_accnt_id
+                                       WHEN (NEW.coitem_warranty)
+                                         THEN resolveCOWAccount(NEW.coitem_itemsite_id, _r.cohead_cust_id, _r.cohead_saletype_id, _r.cohead_shipzone_id)
+                                       ELSE resolveCOSAccount(NEW.coitem_itemsite_id, _r.cohead_cust_id, _r.cohead_saletype_id, _r.cohead_shipzone_id)
                                   END
         WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
           AND (coitem_linenumber = NEW.coitem_linenumber)
@@ -526,9 +530,11 @@ BEGIN
         IF (fetchMetricBool('KitComponentInheritCOS')) THEN
   -- Update kit line item COS
           UPDATE coitem
-          SET coitem_cos_accnt_id = CASE WHEN (COALESCE(NEW.coitem_cos_accnt_id, -1) != -1) THEN NEW.coitem_cos_accnt_id
-                                         WHEN (NEW.coitem_warranty) THEN resolveCOWAccount(NEW.coitem_itemsite_id, _custID)
-                                         ELSE resolveCOSAccount(NEW.coitem_itemsite_id, _custID)
+          SET coitem_cos_accnt_id = CASE WHEN (COALESCE(NEW.coitem_cos_accnt_id, -1) != -1)
+                                           THEN NEW.coitem_cos_accnt_id
+                                         WHEN (NEW.coitem_warranty)
+                                           THEN resolveCOWAccount(NEW.coitem_itemsite_id, _r.cohead_cust_id, _r.cohead_saletype_id, _r.cohead_shipzone_id)
+                                         ELSE resolveCOSAccount(NEW.coitem_itemsite_id, _r.cohead_cust_id, _r.cohead_saletype_id, _r.cohead_shipzone_id)
                                     END
           WHERE((coitem_cohead_id=NEW.coitem_cohead_id)
             AND (coitem_linenumber = NEW.coitem_linenumber)

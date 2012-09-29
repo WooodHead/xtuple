@@ -9,6 +9,7 @@ AS
 		invchead_invcdate AS invoice_date,
 		invchead_shipdate AS ship_date,
 		invchead_orderdate AS order_date,
+                saletype_code AS sale_type,
 		salesrep_number as sales_rep,
 		invchead_commission AS commission,
 		COALESCE(taxzone_code, 'None') AS tax_zone,
@@ -32,6 +33,7 @@ AS
 		invchead_shipto_state AS shipto_state,
 		invchead_shipto_zipcode AS shipto_postal_code,
 		invchead_shipto_country AS shipto_country,
+                shipzone_name AS shipto_shipzone,
 		invchead_shipto_phone AS shipto_phone,
 		invchead_ponumber AS po_number,
 		invchead_shipvia AS ship_via,
@@ -54,7 +56,10 @@ AS
 		LEFT OUTER JOIN curr_symbol AS curr ON (curr.curr_id=invchead_curr_id)
 		LEFT OUTER JOIN salesrep ON (salesrep_id=invchead_salesrep_id)
 		LEFT OUTER JOIN terms ON (terms_id=invchead_terms_id)
-		LEFT OUTER JOIN taxzone ON (taxzone_id=invchead_taxzone_id);
+		LEFT OUTER JOIN taxzone ON (taxzone_id=invchead_taxzone_id)
+                LEFT OUTER JOIN saletype ON (invchead_saletype_id=saletype_id)
+                LEFT OUTER JOIN shipzone ON (invchead_shipzone_id=shipzone_id)
+;
 	
 GRANT ALL ON TABLE api.invoice TO xtrole;
 COMMENT ON VIEW api.invoice IS '
@@ -115,7 +120,9 @@ BEGIN
 		invchead_freight,
 		invchead_curr_id,
 		invchead_payment,
-		invchead_notes
+		invchead_notes,
+                invchead_saletype_id,
+                invchead_shipzone_id
 	) SELECT
 		(CASE -- use a case here so we don't unnecessarily fetch a new invoice number
 			WHEN pNew.invoice_number IS NULL THEN CAST(fetchInvcNumber() AS TEXT)
@@ -178,7 +185,9 @@ BEGIN
 			WHERE (cust_id=(SELECT getCustId(pNew.customer_number)))
 		),basecurrid()),
 		COALESCE(pNew.payment,0),
-		COALESCE(pNew.notes,'')
+		COALESCE(pNew.notes,''),
+                getSaleTypeId(pNew.sale_type),
+                getShipZoneId(pNew.shipto_shipzone)
 	FROM custinfo
 		LEFT OUTER JOIN shiptoinfo ON (shipto_id=(SELECT CASE
 			WHEN getShiptoId(pNew.customer_number,pNew.shipto_number) IS NOT NULL
@@ -244,7 +253,9 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 		invchead_freight=NEW.freight,
 		invchead_curr_id=COALESCE(getCurrId(NEW.currency),-1),
 		invchead_payment=NEW.payment,
-		invchead_notes=NEW.notes
+		invchead_notes=NEW.notes,
+                invchead_saletype_id=getSaleTypeId(NEW.sale_type),
+                invchead_shipzone_id=getShipZoneId(NEW.shipto_shipzone)
 	WHERE (invchead_invcnumber=OLD.invoice_number)
 		AND (invchead_posted = FALSE);
 

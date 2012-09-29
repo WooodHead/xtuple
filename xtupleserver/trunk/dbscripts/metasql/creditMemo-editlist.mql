@@ -52,8 +52,8 @@ SELECT cmhead_id, -1,
        COALESCE((SELECT formatGLAccountLong(accnt_id)
                  FROM accnt, salesaccnt
                  WHERE ((salesaccnt_sales_accnt_id=accnt_id)
-                    AND (salesaccnt_id=findSalesAccnt(itemsite_id,
-                               cmhead_cust_id)))), <? value("notassigned") ?>),
+                    AND (salesaccnt_id=findSalesAccnt(itemsite_id, 'IS', cmhead_cust_id,
+                                                      cmhead_saletype_id, cmhead_shipzone_id)))), <? value("notassigned") ?>),
        NULL, NULL, NULL,
        cmitem_qtycredit * cmitem_qty_invuomratio * cmitem_unitprice / cmitem_price_invuomratio,
        cmhead_curr_id AS curr_id,

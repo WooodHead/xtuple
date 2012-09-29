@@ -1,15 +1,16 @@
-CREATE OR REPLACE FUNCTION resolveCOWAccount(INTEGER, INTEGER) RETURNS INTEGER AS '
+CREATE OR REPLACE FUNCTION resolveCOWAccount(pItemsiteid INTEGER,
+                                             pCustid INTEGER,
+                                             pSaletypeid INTEGER,
+                                             pShipzoneid INTEGER) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pItemsiteid ALIAS FOR $1;
-  pCustid ALIAS FOR $2;
   _salesaccntid INTEGER;
   _accntid INTEGER;
 
 BEGIN
 
-  SELECT findSalesAccnt(pItemsiteid, pCustid) INTO _salesaccntid;
+  SELECT findSalesAccnt(pItemsiteid, 'IS', pCustid, pSaletypeid, pShipzoneid) INTO _salesaccntid;
   IF (_salesaccntid = -1) THEN
     SELECT getUnassignedAccntId() INTO _accntid;
   ELSE
@@ -21,4 +22,4 @@ BEGIN
   RETURN _accntid;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

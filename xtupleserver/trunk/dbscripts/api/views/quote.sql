@@ -18,6 +18,7 @@ AS
        ELSE
          'Error'
      END AS originated_by,
+     saletype_code AS sale_type,
      salesrep_number AS sales_rep,
      quhead_commission AS commission,
      taxzone_code AS tax_zone,
@@ -43,6 +44,7 @@ AS
      quhead_shiptostate AS shipto_state,
      quhead_shiptozipcode AS shipto_postal_code,
      quhead_shiptocountry AS shipto_country,
+     shipzone_name AS shipto_shipzone,
      quhead_custponumber AS cust_po_number,
      quhead_fob AS fob,
      quhead_shipvia AS ship_via,
@@ -76,6 +78,8 @@ AS
      LEFT OUTER JOIN prospect ON (quhead_cust_id=prospect_id)
      LEFT OUTER JOIN salesrep ON (quhead_salesrep_id=salesrep_id)
      LEFT OUTER JOIN terms ON (quhead_terms_id=terms_id)
+     LEFT OUTER JOIN saletype ON (quhead_saletype_id=saletype_id)
+     LEFT OUTER JOIN shipzone ON (quhead_shipzone_id=shipzone_id)
    WHERE (quhead_curr_id=curr_id);
 
 GRANT ALL ON TABLE api.quote TO xtrole;
@@ -129,7 +133,9 @@ CREATE OR REPLACE RULE "_INSERT" AS
     quhead_taxtype_id,
     quhead_imported,
     quhead_expire,
-    quhead_status
+    quhead_status,
+    quhead_saletype_id,
+    quhead_shipzone_id
     )
   VALUES (
     NEW.quote_number,
@@ -186,7 +192,9 @@ CREATE OR REPLACE RULE "_INSERT" AS
         'C'
       ELSE
         'O'
-    END
+    END,
+    getSaleTypeId(NEW.sale_type),
+    getShipZoneId(NEW.shipto_shipzone)
 );
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
@@ -241,7 +249,9 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     quhead_curr_id=getCurrId(NEW.currency),
     quhead_taxzone_id=getTaxZoneId(NEW.tax_zone),
     quhead_taxtype_id=getTaxTypeId(NEW.tax_type),
-    quhead_expire=NEW.expire_date
+    quhead_expire=NEW.expire_date,
+    quhead_saletype_id=getSaleTypeId(NEW.sale_type),
+    quhead_shipzone_id=getShipZoneId(NEW.shipto_shipzone)
   WHERE (quhead_number=OLD.quote_number);
            
 CREATE OR REPLACE RULE "_DELETE" AS 

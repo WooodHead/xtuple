@@ -18,6 +18,7 @@ AS
        ELSE
          'Error'
      END AS originated_by,
+     saletype_code AS sale_type,
      salesrep_number AS sales_rep,
      cohead_commission AS commission,
      COALESCE(taxzone_code,'None') AS tax_zone,
@@ -62,6 +63,7 @@ AS
      cohead_shiptostate AS shipto_state,
      cohead_shiptozipcode AS shipto_postal_code,
      cohead_shiptocountry AS shipto_country,
+     shipzone_name AS shipto_shipzone,
      cohead_custponumber AS cust_po_number,
      cohead_fob AS fob,
      cohead_shipvia AS ship_via,
@@ -103,7 +105,9 @@ AS
      LEFT OUTER JOIN prj ON (cohead_prj_id=prj_id)
      LEFT OUTER JOIN shiptoinfo ON (cohead_shipto_id=shipto_id)
      LEFT OUTER JOIN shipchrg ON (cohead_shipchrg_id=shipchrg_id)
-     LEFT OUTER JOIN taxzone ON (cohead_taxzone_id=taxzone_id),
+     LEFT OUTER JOIN taxzone ON (cohead_taxzone_id=taxzone_id)
+     LEFT OUTER JOIN saletype ON (cohead_saletype_id=saletype_id)
+     LEFT OUTER JOIN shipzone ON (cohead_shipzone_id=shipzone_id),
      custinfo,shipform,salesrep,terms,curr_symbol
    WHERE ((cohead_cust_id=cust_id)
    AND (cohead_shipform_id=shipform_id)
@@ -184,7 +188,9 @@ CREATE OR REPLACE RULE "_INSERT" AS
     cohead_billto_cntct_phone,
     cohead_billto_cntct_title,
     cohead_billto_cntct_fax,
-    cohead_billto_cntct_email
+    cohead_billto_cntct_email,
+    cohead_saletype_id,
+    cohead_shipzone_id
     )
   SELECT
     NEW.order_number,
@@ -275,7 +281,9 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.billto_contact_phone,
     NEW.billto_contact_title,
     NEW.billto_contct_fax,
-    NEW.billto_contact_email
+    NEW.billto_contact_email,
+    getSaleTypeId(NEW.sale_type),
+    getShipZoneId(NEW.shipto_shipzone)
    FROM custinfo
    WHERE (cust_number=NEW.customer_number);
 
@@ -376,7 +384,9 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     cohead_billto_cntct_phone = NEW.billto_contact_phone,
     cohead_billto_cntct_title = NEW.billto_contact_title,
     cohead_billto_cntct_fax = NEW.billto_contct_fax,
-    cohead_billto_cntct_email = NEW.billto_contact_email
+    cohead_billto_cntct_email = NEW.billto_contact_email,
+    cohead_saletype_id=getSaleTypeId(NEW.sale_type),
+    cohead_shipzone_id=getShipZoneId(NEW.shipto_shipzone)
   WHERE (cohead_number=OLD.order_number);
            
 CREATE OR REPLACE RULE "_DELETE" AS 
