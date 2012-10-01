@@ -68,11 +68,10 @@ FROM (
          ELSE 0 
     END as tovoucher,
          
-    --CASE WHEN (teitem_billable=TRUE) 
-    --        THEN teitem_total
-    --     ELSE 0 
-    --END AS toinvoice,
-    teitem_total AS toinvoice,
+    CASE WHEN (teitem_billable=TRUE) 
+            THEN teitem_total
+         ELSE 0 
+    END AS toinvoice,
 
     te.sheetstate(tehead_id, 'I') AS invoiced,
     te.sheetstate(tehead_id, 'V') AS vouchered,

@@ -19,8 +19,7 @@ BEGIN
     SELECT DISTINCT
            tehead_id, tehead_number,   tehead_weekending,          tehead_notes,
            teitem_curr_id,
-           emp_wage, 
-           COALESCE(teitem_empcost, te.calcRate(emp_wage, emp_wage_period)) AS rate, -- coalesce teitem_cost and calcRate AS rate
+           emp_wage, emp_wage_period,
            vend_id,   vend_taxzone_id, vend_terms_id, vend_number, vend_1099,
            COALESCE(teemp_contractor, false) AS isContractor
       FROM te.tehead
@@ -31,8 +30,7 @@ BEGIN
     WHERE ((tehead_id      = pHeadID)
        AND (teitem_prepaid = false)
        AND (teitem_vodist_id IS NULL)
-       AND (teitem_type = 'E' OR (COALESCE(teemp_contractor,false) AND emp_wage > 0 )))
-  LOOP
+       AND (teitem_type = 'E' OR (COALESCE(teemp_contractor,false) AND (teitem_empcost > 0 OR emp_wage > 0 ))))  LOOP
 
      INSERT INTO vohead (vohead_id,        vohead_number,     vohead_vend_id,
                          vohead_distdate,  vohead_docdate,
@@ -53,6 +51,10 @@ BEGIN
      FOR _s IN
        SELECT teitem_id,       teitem_linenumber, teitem_workdate, teitem_type,
               item_number,     teitem_item_id,    teitem_qty,      prjtask_prj_id,
+              CASE
+                WHEN teitem_empcost > 0 THEN teitem_empcost
+                ELSE te.calcRate(_v.emp_wage, _v.emp_wage_period)
+              END AS rate,
               teitem_total,    teitem_type,
               teexp_expcat_id, teexp_accnt_id
          FROM te.teitem
@@ -63,7 +65,8 @@ BEGIN
            AND (teitem_curr_id   = _v.teitem_curr_id)
            AND (teitem_prepaid   = false)
            AND (teitem_vodist_id IS NULL)
-           AND (teitem_type = 'E' OR (_v.isContractor AND _v.emp_wage > 0 )))
+           AND (teitem_type = 'E' OR (_v.isContractor AND (teitem_empcost > 0 OR _v.emp_wage > 0 )))) 
+
 
        -- Loop thru records and create vouchers by supplier for the provided headid
      LOOP
@@ -82,7 +85,7 @@ BEGIN
         IF (_s.teitem_type = 'T') THEN -- Time sheet record
           _notes := formatdate(_s.teitem_workdate) || E'\t' || _s.item_number ||
                     E'\t' || formatQty(_s.teitem_qty) || ' hours' || E'\t';
-          _distamt := _v.rate * _s.teitem_qty;
+          _distamt := _s.rate * _s.teitem_qty;
         ELSE -- Expense record
           _notes := formatdate(_s.teitem_workdate) || E'\t' || _s.item_number ||
                     E'\t' || E'\t';
