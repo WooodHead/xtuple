@@ -380,23 +380,7 @@ function createRole(GrpName, GrpDesc)
         
         waitForObject(":List Work Centers.New_QPushButton");
         clickButton(":List Work Centers.New_QPushButton");
-//    
-//        waitForObject(":_name_XLineEdit_33");
-//    mouseClick(":_name_XLineEdit_33", 94, 14, 0, Qt.LeftButton);
-//    waitForObject(":_name_XLineEdit_33");
-//    mouseClick(":_name_XLineEdit_33", 94, 14, 0, Qt.LeftButton);
-//    waitForObject(":_name_XLineEdit_33");
-//    type(":_name_XLineEdit_33", "name");
-//    waitForObject(":_name_XLineEdit_33");
-//    type(":_name_XLineEdit_33", "<Tab>");
-//    waitForObject(":Work Center._description_XLineEdit");
-//    type(":Work Center._description_XLineEdit", "s");
-//    waitForObject(":Work Center._description_XLineEdit");
-//    type(":Work Center._description_XLineEdit", "<Backspace>");
-//    waitForObject(":Work Center._description_XLineEdit");
-//    type(":Work Center._description_XLineEdit", "desc");
-//    waitForObject(":List Groups.Save_QPushButton");
-//    clickButton(":List Groups.Save_QPushButton");
+
         waitForObject(":_name_XLineEdit");
         type(":_name_XLineEdit", GrpName);
         type(":_description_XLineEdit_2", GrpDesc);
@@ -468,13 +452,15 @@ function createUserByRole(userrole)
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Employees");
         waitForObjectItem(":xTuple ERP: *.Employees_QMenu", "List...");
         activateItem(":xTuple ERP: *.Employees_QMenu", "List...");
-        
-        waitForObject(":_frame.New_QPushButton_5");
-        clickButton(":_frame.New_QPushButton_5");
+        clickButton(waitForObject(":Tax Authorities.Query_QToolButton"));
+        snooze(0.5);
+        waitForObject(":Tax Authorities.New_QToolButton");
+        clickButton(":Tax Authorities.New_QToolButton");
         waitForObject(":_code_XLineEdit_16");
         type(":_code_XLineEdit_16", username);
         waitForObject(":List Employees._number_XLineEdit");
         type(":List Employees._number_XLineEdit", username);
+        snooze(0.5);
         waitForObject(":_contactTab._honorific_XComboBox");
         type(":_contactTab._honorific_XComboBox", "MR");
         waitForObject(":_contactTab._honorific_XLineEdit");
@@ -484,15 +470,16 @@ function createUserByRole(userrole)
         waitForObject(":_contactTab_XLineEdit_2");
         type(":_contactTab_XLineEdit_2", "Misra");
         waitForObject(":Employee.qt_tabwidget_tabbar_QTabBar");
-        snooze(1);
+        snooze(0.5);
         clickTab(":Employee.qt_tabwidget_tabbar_QTabBar", "Detail");
-        snooze(1);
+        snooze(0.5);
         waitForObject(":_memberGroup._site_WComboBox");
         clickItem(":_memberGroup._site_WComboBox", "WH1", 0, 0, 1, Qt.LeftButton);
+      snooze(0.5);
         waitForObject(":Employee.Save_QPushButton");
         clickButton(":Employee.Save_QPushButton");
-        waitForObject(":List Work Centers.Close_QPushButton");
-        clickButton(":List Work Centers.Close_QPushButton");
+        waitForObject(":Tax Authorities.Close_QToolButton");
+        clickButton(":Tax Authorities.Close_QToolButton");
         
         
         snooze(1);
@@ -501,7 +488,7 @@ function createUserByRole(userrole)
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Maintain Users...");
         waitForObject(":List Users.New_QPushButton")
-                clickButton(":List Users.New_QPushButton");
+        clickButton(":List Users.New_QPushButton");
         waitForObject(":_username_XLineEdit");
         type(":_username_XLineEdit", username);
         waitForObject(":_initials_XLineEdit");
@@ -518,10 +505,13 @@ function createUserByRole(userrole)
         findObject(":_verify_XLineEdit").clear();
         findObject(":_verify_XLineEdit");
         type(":_verify_XLineEdit", pwd);
+        snooze(0.5);
         if(!findObject(":List Users.Active_QCheckBox").checked)
             clickButton(":List Users.Active_QCheckBox");
+        snooze(0.5);
         if(!findObject(":List Users.Purchasing Agent_QCheckBox").checked)
             clickButton(":List Users.Purchasing Agent_QCheckBox");
+        snooze(0.5);
         if(!findObject(":List Users.Can Create System Users_QCheckBox").checked)
             clickButton(":List Users.Can Create System Users_QCheckBox");  
         
@@ -562,6 +552,7 @@ function createCompany(CompNum, CompDesc)
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Account");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Companies...");
         activateItem(":xTuple ERP: OpenMFG Edition.Account_QMenu", "Companies...");
+        snooze(0.5);
         waitForObject(":List Companies.New_QPushButton");
         clickButton(":List Companies.New_QPushButton");
         waitForObject(":_number_XLineEdit");
@@ -573,8 +564,7 @@ function createCompany(CompNum, CompDesc)
         clickButton(":List Employees.Save_QPushButton_2");
         waitForObject(":OK_QPushButton");
         clickButton(":OK_QPushButton");
-        //        waitForObject(":List Companies.Save_QPushButton");
-        //        clickButton(":List Companies.Save_QPushButton");
+        
         snooze(1);
         var sWidgetTreeControl = ":List Companies._company_XTreeWidget";
         if(findObject(":_company.01_QModelIndex").text == "01")
@@ -706,7 +696,7 @@ function defineTaxAuth(ta)
 function defineTaxCode(tc)
 {
     try{
-       //----------Create: Tax Codes---------------
+        //----------Create: Tax Codes---------------
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Tax");

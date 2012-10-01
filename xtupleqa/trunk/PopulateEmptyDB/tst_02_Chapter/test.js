@@ -1,14 +1,15 @@
 
 function main()
 {
-    
-    
+     
+    //-----declarations------
     source(findFile("scripts","functions.js"));
     
     //---login Application--------
-    loginAppl("RUNREGISTER"); 
-  
+    loginAppl("CONFIGURE"); 
     
+    snooze(1);
+    snooze(3);
     if(object.exists(":Notice.Remind me about this again._QCheckBox"))
     {
         waitForObject(":Notice.Remind me about this again._QCheckBox");
@@ -18,11 +19,11 @@ function main()
         waitForObject(":Notice.OK_QPushButton");
         clickButton(":Notice.OK_QPushButton");
     }
-    
+  
     var appEdition = findApplicationEdition();
     
   
-    //-----------Chart Of Accounts------------------------
+  //-----------Chart Of Accounts------------------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Accounting");
@@ -58,7 +59,7 @@ function main()
     }catch(e){test.fail("Exception while creating Chart of Accounts:"+e);}
     
     
-    //---------------Create Inventory - new Cost Catergory------------
+  //---------------Create Inventory - new Cost Catergory------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
         activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -238,12 +239,13 @@ function main()
         type(":Cost Category._category_XLineEdit", "CCINTRAN");
         findObject(":Cost Category._description_XLineEdit").clear();
         type(":Cost Category._description_XLineEdit", "Intransit Warehouse");
-        
-        
-        waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit").clear();
-         type(":_stack.VirtualClusterLineEdit_GLClusterLineEdit", "01-01-1252-01");
-         nativeType("<Tab>");
-
+    waitForObject(":_stack.VirtualClusterLineEdit_GLClusterLineEdit");
+        waitForObject(":_stack_QLabel");
+        sendEvent("QMouseEvent", ":_stack_QLabel", QEvent.MouseButtonPress, 0, 0, Qt.LeftButton, 0);
+        waitForObjectItem(":_QMenu", "List...");
+        activateItem(":_QMenu", "List...");
+        waitForObject(":_listTab_XTreeWidget_10");
+        doubleClickItem(":_listTab_XTreeWidget_10","1252",10,10,0,Qt.LeftButton);
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
@@ -255,7 +257,7 @@ function main()
         
         waitForObject(":Setup.Save_QPushButton");
         clickButton(":Setup.Save_QPushButton");
-    }catch(e){test.fail("Exception in creating Cost Category");}
+    }catch(e){test.fail("Exception in creating Cost Category" + e);}
     
     
     
@@ -302,7 +304,7 @@ function main()
         clickButton(":Setup.Save_QPushButton");
     }catch(e){test.fail("Exception in Creating Cost Categories:"+e);}
     
-    
+  
     //------------Inventory: create Expense Categories---------------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -456,11 +458,13 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Site");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Locations...");
         activateItem(":xTuple ERP: OpenMFG Edition.Site_QMenu", "Locations...");
-        
+        snooze(2);
         waitForObject(":List Site Locations.New_QPushButton_2");
+        test.log(appEdition);
         if(appEdition=="Manufacturing"||appEdition=="Standard")
         {
-            if(findObject(":_warehouse._warehouses_WComboBox_3").currentText!= "WH1")
+            clickButton(waitForObject(":_warehouse.Selected:_QRadioButton_5"));
+             if(findObject(":_warehouse._warehouses_WComboBox_3").currentText!= "WH1")
             {    
                 clickItem(":_warehouse._warehouses_WComboBox_3", "WH1", 0, 0, 1, Qt.LeftButton);    
             }
@@ -588,7 +592,7 @@ function main()
         waitForObject(":List Site Locations.Close_QPushButton_2");
         clickButton(":List Site Locations.Close_QPushButton_2");
         test.log("Inventory Site Locations created");
-    }catch(e){test.fail("Exception in creating Site locations");}
+    }catch(e){test.fail("Exception in creating Site locations"+e);}
     
     
     
@@ -706,7 +710,7 @@ function main()
     }catch(e){test.fail("Exception in defining Unit of Measure:"+e);}
     
     
-    
+  
     //----------Define: Class Codes------------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");

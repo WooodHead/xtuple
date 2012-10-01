@@ -117,8 +117,8 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
         waitForObject(":Setup._modules_QComboBox");
         clickItem(":Setup._modules_QComboBox","Accounting", 75, 11, 0, Qt.LeftButton);
-        waitForObject(":Configure.Accounting_QModelIndex");
-        mouseClick(":Configure.Accounting_QModelIndex", 53, 7, 0, Qt.LeftButton);
+//        waitForObject(":Configure.Accounting_QModelIndex");
+//        mouseClick(":Configure.Accounting_QModelIndex", 53, 7, 0, Qt.LeftButton);
         waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
         waitForObject(":_nextAPMemoNumber_XLineEdit");
@@ -141,6 +141,7 @@ function main()
         clickItem(":Setup._modules_QComboBox","Purchase", 76, 8, 0, Qt.LeftButton);
         waitForObject(":Master Information.Vendor Types_QModelIndex");
         mouseClick(":Master Information.Vendor Types_QModelIndex", 41, 6, 0, Qt.LeftButton);
+        snooze(0.5);
         waitForObject(":List Vendor Types.New_QPushButton");
         clickButton(":List Vendor Types.New_QPushButton");
         waitForObject(":_code_XLineEdit_8");
@@ -209,7 +210,7 @@ function main()
         clickItem(":Setup._modules_QComboBox","Purchase", 76, 8, 0, Qt.LeftButton);
         waitForObject(":Master Information.Reject Codes_QModelIndex");
         mouseClick(":Master Information.Reject Codes_QModelIndex", 55, 4, 0, Qt.LeftButton);
-        
+        snooze(0.5);
         
         waitForObject(":List Reject Codes.New_QPushButton");
         clickButton(":List Reject Codes.New_QPushButton");
@@ -262,7 +263,7 @@ function main()
         clickButton(":Chart of Accounts.Close_QPushButton_2");
     }catch(e){test.fail("Exception in defining Chart of Accounts:"+e);}
     
-    
+  
     //----------Purchase: A/P Account Assignments-----------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -273,7 +274,7 @@ function main()
         clickItem(":Setup._modules_QComboBox","Purchase", 76, 8, 0, Qt.LeftButton);
         waitForObject(":Accounting Mappings.Payables Assignments_QModelIndex");
         mouseClick(":Accounting Mappings.Payables Assignments_QModelIndex", 89, 6, 0, Qt.LeftButton);
-        
+        snooze(0.5);
         waitForObject(":List Work Centers.New_QPushButton");
         clickButton(":List Work Centers.New_QPushButton");
         waitForObject(":_vendorTypeGroup.All Vendor Types:_QRadioButton_2");

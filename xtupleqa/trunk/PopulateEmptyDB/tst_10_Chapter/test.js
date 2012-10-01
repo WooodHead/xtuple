@@ -77,8 +77,8 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
         waitForObject(":Setup._modules_QComboBox");
         clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
-        waitForObject(":Configure.Accounting_QModelIndex");
-        mouseClick(":Configure.Accounting_QModelIndex", 43, 5, 0, Qt.LeftButton);
+//        waitForObject(":Configure.Accounting_QModelIndex");
+//        mouseClick(":Configure.Accounting_QModelIndex", 43, 5, 0, Qt.LeftButton);
         
         waitForObject(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar");
         clickTab(":Accounting Configuration.qt_tabwidget_tabbar_QTabBar", "Accounts Payable");
@@ -100,13 +100,21 @@ function main()
         test.log("Accounting for ACH configured");
     }catch(e){test.fail("Exception in configuring Accounting" + e);}
     
+    
+    snooze(1);
+    try{
+    {
    if(findObject(":No_QPushButton"))
        clickButton(":No_QPushButton");
-   else
+}
+  catch(e)
+        {
     test.log("Encryption appears to be set");
+}
+}
     
-  
-  
+
+
     
     //---------------Define: Bank Accounts------------------
     
@@ -117,11 +125,12 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
         waitForObject(":Setup._modules_QComboBox");
         clickItem(":Setup._modules_QComboBox","Accounting", 0, 0, 5, Qt.LeftButton);
-        waitForObject(":Accounting Mappings.Bank Accounts_QModelIndex");
-        mouseClick(":Accounting Mappings.Bank Accounts_QModelIndex", 0, 0, 0, Qt.LeftButton);
-        
-        waitForObject(":List Bank Accounts.New_QPushButton");
-        clickButton(":List Bank Accounts.New_QPushButton");
+        snooze(0.5);
+        waitForObjectItem(":Setup._tree_XTreeWidget", "Accounting Mappings.Bank Accounts");
+        clickItem(":Setup._tree_XTreeWidget", "Accounting Mappings.Bank Accounts", 60, 7, 0, Qt.LeftButton);
+        snooze(0.5);
+        waitForObject(":_zonesTab.New_QPushButton");
+        clickButton(":_zonesTab.New_QPushButton");
         waitForObject(":_name_XLineEdit_18");
         type(":_name_XLineEdit_18", "EBANK");
         type(":_description_XLineEdit_27", "eBank Checking Account");
@@ -129,16 +138,20 @@ function main()
         type(":_accountNumber_XLineEdit_2", "123456");
         if(!findObject(":_currency_XComboBox").currentText!= "USD -$");
         type(":_currency_XComboBox","USD");
+        snooze(0.5);
         waitForObject(":_type_XComboBox");
         if(findObject(":_type_XComboBox").currentText!="Checking")
             type(":_type_XComboBox","Checking");
+        snooze(0.5);
         if(!findObject(":_useGroup.Used in Accounts Payable_QCheckBox").checked)
             clickButton(":_useGroup.Used in Accounts Payable_QCheckBox");
         waitForObject(":_useGroup._nextCheckNum_XLineEdit");
         type(":_useGroup._nextCheckNum_XLineEdit", "3000");
+        snooze(0.5);
         waitForObject(":_useGroup._form_XComboBox_2");
         if(!findObject(":_useGroup._form_XComboBox_2").currentText!= "GENERIC-CHECK")
             clickItem(":_useGroup._form_XComboBox_2","GENERIC-CHECK",0,0,1,Qt.LeftButton);
+        snooze(0.5);
         waitForObject(":_useGroup.Used in Accounts Receivable_QCheckBox");
         if(!findObject(":_useGroup.Used in Accounts Receivable_QCheckBox").checked)
             clickButton(":_useGroup.Used in Accounts Receivable_QCheckBox");       
@@ -154,9 +167,9 @@ function main()
         if(object.exists(":_bankaccnt.EBANK_QModelIndex"))
             test.pass("Bank Account created: EBANK");
         else test.fail("Bank Account not created: EBANK");
-        
-        waitForObject(":List Bank Accounts.New_QPushButton");
-        clickButton(":List Bank Accounts.New_QPushButton");
+        snooze(0.5);
+        waitForObject(":_zonesTab.New_QPushButton");
+        clickButton(":_zonesTab.New_QPushButton");
         waitForObject(":_name_XLineEdit_18");
         type(":_name_XLineEdit_18", "EURBANK");
         type(":_description_XLineEdit_27", "Euro Bank Checking");
@@ -207,6 +220,7 @@ function main()
         clickItem(":Setup._modules_QComboBox","Accounting", 82, 7, 0, Qt.LeftButton);
         waitForObject(":Accounting Mappings.Bank Adjustment Types_QModelIndex");
         mouseClick(":Accounting Mappings.Bank Adjustment Types_QModelIndex", 0,0, 0, Qt.LeftButton);
+        snooze(0.5);
         waitForObject(":List Adjustment Types.New_QPushButton");
         clickButton(":List Adjustment Types.New_QPushButton");
         waitForObject(":_name_XLineEdit_19");
@@ -238,7 +252,7 @@ function main()
     }catch(e){test.fail("Exception in defining Adjustment types:"+e);}
     
     
-    
+  
     //------------Define: Fiscal Year----------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -251,17 +265,20 @@ function main()
         waitForObject(":List Fiscal Years.New_QPushButton");
         clickButton(":List Fiscal Years.New_QPushButton");
         waitForObject(":Fiscal Year.XDateEdit_XDateEdit");
-        var d = new Date();
-        var CurrentYearFull = d.getFullYear();
-        var CurrentYear = CurrentYearFull.toString().slice(2);
+      var d = new Date();
+      var CurrentYearFull = d.getFullYear();
+      var CurrentYear = CurrentYearFull.toString().slice(2);
         findObject(":Fiscal Year.XDateEdit_XDateEdit").clear();
         type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+CurrentYearFull);
+        snooze(0.5);
         findObject(":Fiscal Year.XDateEdit_XDateEdit_2").clear();
-        type(":Fiscal Year.XDateEdit_XDateEdit_2", "31/12/"+CurrentYearFull);
+        type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+CurrentYearFull);
+        snooze(0.5);
+        nativeType("<Tab>");
         waitForObject(":List Employees.Save_QPushButton_2");
         clickButton(":List Employees.Save_QPushButton_2");
         
-        var NxtYear = CurrentYearFull+1;
+      var NxtYear = CurrentYearFull+1;
         snooze(0.5);
         waitForObject(":List Fiscal Years.New_QPushButton");
         clickButton(":List Fiscal Years.New_QPushButton");
@@ -269,7 +286,7 @@ function main()
         findObject(":Fiscal Year.XDateEdit_XDateEdit").clear();
         type(":Fiscal Year.XDateEdit_XDateEdit","1/1/"+NxtYear);
         findObject(":Fiscal Year.XDateEdit_XDateEdit_2").clear();
-        type(":Fiscal Year.XDateEdit_XDateEdit_2", "31/12/"+NxtYear);
+        type(":Fiscal Year.XDateEdit_XDateEdit_2", "12/31/"+NxtYear);
         waitForObject(":List Employees.Save_QPushButton_2");
         clickButton(":List Employees.Save_QPushButton_2");
         waitForObject(":List Fiscal Years._period_XTreeWidget");
@@ -285,7 +302,7 @@ function main()
         clickButton(":List Fiscal Years.Close_QPushButton");
     }catch(e){test.fail("Exception in creating Fiscal Year");}
     
-    
+  
     //-------------Define: Fiscal Calendar--------------
     try{
         waitForObject(":xTuple ERP: OpenMFG Edition_QMenuBar");
@@ -294,10 +311,10 @@ function main()
         activateItem(":xTuple ERP: OpenMFG Edition.Accounting_QMenu", "Fiscal Calendar");
         waitForObjectItem(":xTuple ERP: OpenMFG Edition.Fiscal Calendar_QMenu", "Accounting Periods...");
         activateItem(":xTuple ERP: OpenMFG Edition.Fiscal Calendar_QMenu", "Accounting Periods...");
-        
+        snooze(0.5);
         for(loop=0;loop<2; loop++,CurrentYearFull++) //for two years
         {
-            //            var CurrentYear = CurrentYearFull.toString().slice(2);
+                        var CurrentYear = CurrentYearFull.toString().slice(2);
             var CurrentYear = CurrentYearFull.toString();
             i=CurrentYear;
             if(IsLeapYear(CurrentYearFull)) //find whether the current year is leap year
@@ -317,13 +334,13 @@ function main()
                 
                 waitForObject(":Accounting Period.XDateEdit_XDateEdit");
                 findObject(":Accounting Period.XDateEdit_XDateEdit").clear();
-                type(":Accounting Period.XDateEdit_XDateEdit", "1/"+j+"/"+i);
+                type(":Accounting Period.XDateEdit_XDateEdit", j+"/"+"1/"+i);
                 waitForObject(":Accounting Period.XDateEdit_XDateEdit_2");
                 findObject(":Accounting Period.XDateEdit_XDateEdit_2").clear();        
-                type(":Accounting Period.XDateEdit_XDateEdit_2", YearSet[j-1]+"/"+j+"/"+i);
+                type(":Accounting Period.XDateEdit_XDateEdit_2", j+"/"+YearSet[j-1]+"/"+i);
                 type(":Accounting Period.XDateEdit_XDateEdit_2", "<Tab>");
-                if(findObject(":Accounting Period.XDateEdit_XDateEdit_2").text!=YearSet[j-1]+"/"+j+"/"+i)
-                    snooze(0.1);
+              
+                    snooze(1);
                 
                 waitForObject(":_name_QLineEdit");
                 findObject(":_name_QLineEdit").clear();
