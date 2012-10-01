@@ -47,7 +47,7 @@
 :Accounting Period.Quarter:_QLabel	{name='_quarterLit' text='Quarter:' type='QLabel' visible='1' window=':Accounting Period_accountingPeriod'}
 :Accounting Period.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Accounting Period_accountingPeriod'}
 :Accounting Period.XDateEdit_XDateEdit	{name='XDateEdit' type='XDateEdit' visible='1' window=':Accounting Period_accountingPeriod'}
-:Accounting Period.XDateEdit_XDateEdit_2	{name='XDateEdit' occurrence='2' type='XDateEdit' visible='1' window=':Accounting Period_accountingPeriod'}
+:Accounting Period.XDateEdit_XDateEdit_2	{name='XDateEdit' occurrence='2' type='XDateEdit' visible='1'}
 :Accounting Period.qt_spinbox_lineedit_QLineEdit	{name='qt_spinbox_lineedit' type='QLineEdit' visible='1' window=':Accounting Period_accountingPeriod'}
 :Accounting Period_accountingPeriod	{name='accountingPeriod' type='accountingPeriod' visible='1' windowTitle='Accounting Period'}
 :Active Items.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Active Items_itemList'}
@@ -329,8 +329,9 @@
 :Credit Warn Customers when Late._graceDays_QSpinBox	{container=':_ar.Credit Warn Customers when Late_QGroupBox' name='_graceDays' type='QSpinBox' visible='1'}
 :Credit Warn Customers when Late.qt_spinbox_lineedit_QLineEdit	{container=':_ar.Credit Warn Customers when Late_QGroupBox' name='qt_spinbox_lineedit' type='QLineEdit' visible='1'}
 :Currency.Base Currency_QCheckBox	{name='_currBase' text='Base Currency' type='QCheckBox' visible='1' window=':Currency_currency'}
+:Currency.Select_QPushButton	{text='Select' type='QPushButton' unnamed='1' visible='1' window=':Currency_currency'}
 :Currency._currAbbr_QLineEdit	{name='_currAbbr' type='QLineEdit' visible='1' window=':Currency_currency'}
-:Currency._currName_QLineEdit	{name='_currName' type='QLineEdit' visible='1' window=':Currency_currency'}
+:Currency._currName_QLineEdit	{name='_currName' type='QLineEdit' visible='1'}
 :Currency._currSymbol_QLineEdit	{name='_currSymbol' type='QLineEdit' visible='1' window=':Currency_currency'}
 :Currency_currency	{name='currency' type='currency' visible='1' windowTitle='Currency'}
 :Customer Characteristic.Characteristic:_QLabel	{name='_characteristicLit' text='Characteristic:' type='QLabel' visible='1' window=':Customer Characteristic_characteristicAssignment'}
@@ -532,6 +533,7 @@
 :Financial Report.qt_tabwidget_stackedwidget_QStackedWidget	{name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1' window=':Financial Report_financialLayout'}
 :Financial Report.qt_tabwidget_tabbar_QTabBar	{name='qt_tabwidget_tabbar' type='QTabBar' visible='1' window=':Financial Report_financialLayout'}
 :Financial Report_financialLayout	{name='financialLayout' type='financialLayout' visible='1' windowTitle='Financial Report'}
+:Fiscal Year.Closed_QCheckBox	{name='_closed' text='Closed' type='QCheckBox' visible='1' window=':Fiscal Year_accountingYearPeriod'}
 :Fiscal Year.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1' window=':Fiscal Year_accountingYearPeriod'}
 :Fiscal Year.XDateEdit_QPushButton	{leftWidget=':Fiscal Year.XDateEdit_XDateEdit' type='QPushButton' unnamed='1' visible='1' window=':Fiscal Year_accountingYearPeriod'}
 :Fiscal Year.XDateEdit_XDateEdit	{name='XDateEdit' type='XDateEdit' visible='1' window=':Fiscal Year_accountingYearPeriod'}
@@ -583,6 +585,7 @@
 :Incident Severity._order_QSpinBox	{name='_order' type='QSpinBox' visible='1' window=':Incident Severity_incidentSeverity'}
 :Incident Severity_incidentSeverity	{name='incidentSeverity' type='incidentSeverity' visible='1' windowTitle='Incident Severity'}
 :Incident Workbench.Close_QPushButton	{container=':xTuple ERP: *.Incident Workbench_QWorkspaceChild' name='_close' text='Close' type='QPushButton' visible='1'}
+:Interface Options.Free Floating Windows_QRadioButton	{container=':_application.Interface Options_QGroupBox' name='_interfaceTopLevel' text='Free Floating Windows' type='QRadioButton' visible='1'}
 :Interface Options.Idle Timeout:_QLabel	{container=':_application.Interface Options_QGroupBox' name='_idleTimeoutLit' text='Idle Timeout:' type='QLabel' visible='1'}
 :Interface Options.Ignore Missing Translations_QCheckBox	{container=':_application.Interface Options_QGroupBox' name='_ignoreTranslation' text='Ignore Missing Translations' type='QCheckBox' visible='1'}
 :Interface Options.Remember Check Box Settings_QCheckBox	{container=':_application.Interface Options_QGroupBox' name='_rememberCheckBoxes' text='Remember Check Box Settings' type='QCheckBox' visible='1'}
@@ -901,6 +904,7 @@
 :List Companies.VirtualClusterLineEdit_GLClusterLineEdit_2	{name='VirtualClusterLineEdit' occurrence='3' type='GLClusterLineEdit' visible='1'}
 :List Companies.VirtualClusterLineEdit_GLClusterLineEdit_3	{name='VirtualClusterLineEdit' occurrence='4' type='GLClusterLineEdit' visible='1'}
 :List Companies._company_XTreeWidget	{name='_company' type='XTreeWidget' visible='1'}
+:List Contacts.Show Active Contacts Only_XCheckBox	{container=':xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg3 AS admin.List Contacts_QFrame' name='_activeOnly' text='Show Active Contacts Only' type='XCheckBox' visible='1'}
 :List Cost Categories...._QPushButton	{name='_list' occurrence='2' text='...' type='QPushButton' visible='1'}
 :List Cost Categories.Cancel_QPushButton	{name='_close' occurrence='2' text='Cancel' type='QPushButton' visible='1'}
 :List Cost Categories.Cancel_QPushButton_2	{name='_close' text='Cancel' type='QPushButton' visible='1'}
@@ -1622,6 +1626,7 @@
 :Log In.Recent_QPushButton_2	{text='Recent' type='QPushButton' unnamed='1' visible='1' window=':Log In_login2'}
 :Log In.Version 3.1.0_QLabel	{name='_versionLit' text='Version 3.1.0' type='QLabel' visible='1' window=':Log In_login2'}
 :Log In._frame_QFrame	{name='_frame' type='QFrame' visible='1' window=':Log In_login2'}
+:Log In._logo_QLabel	{name='_logo' type='QLabel' visible='1' window=':Log In_login2'}
 :Log In._nameLit_QLabel	{name='_nameLit' type='QLabel' visible='1' window=':Log In_login2'}
 :Log In_login2	{name='login2' type='login2' visible='1' windowTitle='Log In'}
 :Login Options.Cancel_QPushButton	{name='_close' text='Cancel' type='QPushButton' visible='1' window=':Login Options_login2Options'}
@@ -1737,7 +1742,7 @@
 :Multiple Sites.Transfer Order # Generation:_QLabel	{container=':_inventory.Multiple Sites_QGroupBox' name='_toNumGenerationLit' text='Transfer Order # Generation:' type='QLabel' visible='1'}
 :Multiple Sites_QComboBoxListView	{container=':_inventory.Multiple Sites_QGroupBox' type='QComboBoxListView' unnamed='1' visible='1'}
 :New Calendar Type?_QMessageBox	{type='QMessageBox' unnamed='1' visible='1' windowTitle='New Calendar Type?'}
-:No_QPushButton	{text='No' type='QPushButton' unnamed='1' visible='1' window=':_QMessageBox_2'}
+:No_QPushButton	{text='No' type='QPushButton' unnamed='1' visible='1'}
 :Notice.OK_QPushButton	{text='OK' type='QPushButton' unnamed='1' visible='1'}
 :Notice.Remind me about this again._QCheckBox	{name='_remind' text='Remind me about this again.' type='QCheckBox' visible='1'}
 :Notice_XMainWindow	{name='desktopNotice' type='XMainWindow' visible='1' windowTitle='Notice'}
@@ -2370,7 +2375,7 @@
 :Weight.Product:_QLabel_2	{container=':Item.Weight_QGroupBox_2' name='_prodWeightLit' text='Product:' type='QLabel' visible='1'}
 :Weight.Product:_QLabel_3	{container=':Item.Weight_QGroupBox_3' name='_prodWeightLit' text='Product:' type='QLabel' visible='1'}
 :When Count Tag Qty. exceeds Slip Qty..Do Not Post Count Tag_QRadioButton	{container=':_inventory.When Count Tag Qty. exceeds Slip Qty._QGroupBox' name='_doNotPost' text='Do Not Post Count Tag' type='QRadioButton' visible='1'}
-:Work Center.Save_QPushButton	{Window=':Work Center_workCenter' name='_save' text='Save' type='QPushButton' visible='1'}
+:Work Center.Save_QPushButton	{name='_save' text='Save' type='QPushButton' visible='1'}
 :Work Center.Save_QPushButton_2	{name='_save' text='Save' type='QPushButton' visible='1' window=':Work Center_workCenter'}
 :Work Center.Work Center_QWorkspaceTitleBar	{Window='' type='QWorkspaceTitleBar' unnamed='1' visible='1' windowTitle='Work Center'}
 :Work Center._code_XLineEdit	{Window=':Work Center_workCenter' name='_code' type='XLineEdit' visible='1'}
@@ -2392,6 +2397,7 @@
 :Work Center_XMainWindow	{name='workCenter' type='XMainWindow' visible='1' windowTitle='Work Center'}
 :Work Center_workCenter	{name='workCenter' type='XMainWindow' visible='1' windowTitle='Work Center'}
 :Yellow Tough Truck Truck Type 1_QModelIndex	{column='2' container=':_QTreeView' text='Yellow Tough Truck Truck Type 1' type='QModelIndex'}
+:You cannot change the base currency after it is set.  Are you sure you want US Dollar to be the base currency?_QLabel	{name='qt_msgbox_label' text='You cannot change the base currency after it is set.  Are you sure you want US Dollar to be the base currency?' type='QLabel' visible='1' window=':Tax Authority Already Exists_QMessageBox'}
 :_DCalendarPopup	{type='DCalendarPopup' unnamed='1' visible='1'}
 :_QMenu	{type='QMenu' unnamed='1' visible='1'}
 :_QMessageBox	{WindowTitle?='*' type='QMessageBox' unnamed='1' visible='1'}
@@ -4155,6 +4161,7 @@
 :xTuple ERP: *.Tax_QMenu	{name='menu.accnt.tax.taxreports' title='Tax' type='QMenu' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: *.View Financial Report_QToolButton	{text='View Financial Report' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: *.View Trial Balances_QToolButton	{text='View Trial Balances' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
+:xTuple ERP: *.Window_QMenu	{title='Window' type='QMenu' visible='1'}
 :xTuple ERP: *.Workbench_QToolButton	{text='Workbench' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: *.Workbench_QToolButton_2	{occurrence='2' text='Workbench' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
 :xTuple ERP: *.Workbench_QToolButton_3	{occurrence='3' text='Workbench' type='QToolButton' unnamed='1' visible='1' window=':xTuple ERP: OpenMFG Edition_GUIClient_2'}
@@ -4227,6 +4234,13 @@
 :xTuple ERP: Manufacturing Edition 3.8.0Beta2 - Empty Database on 192.168.0.42/PopE-win-380b2-mfg AS admin_GUIClient	{type='GUIClient' unnamed='1' visible='1' windowTitle='xTuple ERP: Manufacturing Edition 3.8.0Beta2 - Empty Database on 192.168.0.42/PopE-win-380b2-mfg AS admin'}
 :xTuple ERP: Manufacturing Edition 3.8.0RC - Empty Database on 192.168.0.42/PopE-win-380rc-mfg AS usge.Bill of Materials_QWorkspaceChild	{name='qt_workspacechild' type='QWorkspaceChild' visible='1' window=':xTuple ERP: Manufacturing Edition 3.8.0RC - Empty Database on 192.168.0.42/PopE-win-380rc-mfg AS usge_GUIClient' windowTitle='Bill of Materials'}
 :xTuple ERP: Manufacturing Edition 3.8.0RC - Empty Database on 192.168.0.42/PopE-win-380rc-mfg AS usge_GUIClient	{type='GUIClient' unnamed='1' visible='1' windowTitle='xTuple ERP: Manufacturing Edition 3.8.0RC - Empty Database on 192.168.0.42/PopE-win-380rc-mfg AS usge'}
+:xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg2 AS admin.Quote_QMenu	{name='menu.sales.quotes' title='Quote' type='QMenu' visible='1' window=':xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg2 AS admin_GUIClient'}
+:xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg2 AS admin_GUIClient	{type='GUIClient' unnamed='1' visible='1' windowTitle='xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg2 AS admin'}
+:xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg3 AS admin.Contact_QMenu	{name='menu.crm.contacts' title='Contact' type='QMenu' visible='1' window=':xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg3 AS admin_GUIClient'}
+:xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg3 AS admin.List Contacts_QFrame	{name='_optionsFrame' type='QFrame' visible='1' window=':xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg3 AS admin_GUIClient' windowTitle='List Contacts'}
+:xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg3 AS admin.New_QToolButton	{name='_newBtn' occurrence='2' text='New' type='QToolButton' visible='1' window=':xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg3 AS admin_GUIClient'}
+:xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg3 AS admin.Query_QToolButton	{name='_queryBtn' occurrence='2' text='Query' type='QToolButton' visible='1' window=':xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg3 AS admin_GUIClient'}
+:xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg3 AS admin_GUIClient	{type='GUIClient' unnamed='1' visible='1' windowTitle='xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.104/PopE-Mac-400b2-mfg3 AS admin'}
 :xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.43/PopE-Mac-400b2-mfg AS admin.qt_tabwidget_stackedwidget_QStackedWidget	{name='qt_tabwidget_stackedwidget' type='QStackedWidget' visible='1' window=':xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.43/PopE-Mac-400b2-mfg AS admin_GUIClient'}
 :xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.43/PopE-Mac-400b2-mfg AS admin_GUIClient	{type='GUIClient' unnamed='1' visible='1' windowTitle='xTuple ERP: Manufacturing Edition 4.0.0Beta2 - Empty Database on 192.168.0.43/PopE-Mac-400b2-mfg AS admin'}
 :xTuple ERP: Manufacturing Edition Build13142 - Empty Database on 192.168.0.42/Empty380rc2 AS admin._subaccnttypes_XTreeWidget	{name='_subaccnttypes' type='XTreeWidget' visible='1' window=':xTuple ERP: Manufacturing Edition Build13142 - Empty Database on 192.168.0.42/Empty380rc2 AS admin_GUIClient'}

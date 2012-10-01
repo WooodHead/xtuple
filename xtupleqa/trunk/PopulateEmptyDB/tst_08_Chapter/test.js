@@ -1030,14 +1030,18 @@ function main()
         
         clickButton(":_shipViaFreightGroup.All Ship Vias_QRadioButton_2");
         clickButton(":To.All Shipping Zones_QRadioButton_2");
+        snooze(0.5);
         clickButton(":_freightClassGroup.Selected:_QRadioButton_2");
         clickItem(":_freightClassGroup._freightClass_XComboBox_2", "BULK-Bulk Freight",0,0,1,Qt.LeftButton);
+        snooze(0.5);
         waitForObject(":List Employees.Save_QPushButton_2");
         clickButton(":List Employees.Save_QPushButton_2"); 
         
         waitForObject(":GroupBox1.Save_QPushButton_2");
         clickButton(":GroupBox1.Save_QPushButton_2");
+        snooze(0.5);
         waitForObject(":_ipshead_XTreeWidget");
+        
         if(object.exists(":_ipshead.FREIGHT-BULK_QModelIndex"))
             test.pass("Pricing Schedule created:FREIGHT-BULK");
         else test.fail("Pricing Schedule not created:FREIGHT-BULK");

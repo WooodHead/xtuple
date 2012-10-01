@@ -175,10 +175,11 @@ function main()
             clickItem(":Setup Labor Rate._stdSetupRate_XComboBox_4","Assembly",0,0,0,Qt.LeftButton);
             clickButton(":Run Labor Rate.Select Standard Rate:_QRadioButton");
             clickItem(":Run Labor Rate._stdRunRate_XComboBox_3","SETUP",0,0,0,Qt.LeftButton);
-            
+            snooze(0.5);
             waitForObject(":Work Center.qt_tabwidget_tabbar_QTabBar");
             clickTab(":Work Center.qt_tabwidget_tabbar_QTabBar", "Scheduling");
-            snooze(1);
+            nativeType("<Tab>");
+            snooze(3);
             waitForObject(":Department.VirtualClusterLineEdit_DeptClusterLineEdit");
             type(":Department.VirtualClusterLineEdit_DeptClusterLineEdit", "mfg");
             

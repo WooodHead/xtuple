@@ -302,9 +302,9 @@ function main()
     }catch(e){test.fail("Exception in creating CRM priorities");} 
     
     
+
     
-    
-    //--------------------------------- we are getting Exception error here cross check once again--------
+    //------------ we are getting Exception error here cross check once again--------
     //-------------CRM Characteristics-----------
     try{
         waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "System");
@@ -315,7 +315,7 @@ function main()
         clickItem(":Setup._modules_QComboBox","CRM",10,10, 0, Qt.LeftButton);
         waitForObject(":Master Information.Characteristics_QModelIndex");
         mouseClick(":Master Information.Characteristics_QModelIndex", 60, 5, 0, Qt.LeftButton);
-        
+        snooze(0.5);
         waitForObject(":List Characteristics.New_QPushButton_2");
         clickButton(":List Characteristics.New_QPushButton_2");
         waitForObject(":_name_XLineEdit_6");
@@ -329,7 +329,7 @@ function main()
         
         waitForObject(":xTuple ERP: *_QPushButton");
         clickButton(":xTuple ERP: *_QPushButton");
-        
+        snooze(0.5);
         waitForObject(":List Characteristics.New_QPushButton_2");
         clickButton(":List Characteristics.New_QPushButton_2");
         waitForObject(":_name_XLineEdit_6");
@@ -342,9 +342,11 @@ function main()
         type(":_descripPage._description_QTextEdit","Employee Start Date");
         waitForObject(":xTuple ERP: *_QPushButton");
         clickButton(":xTuple ERP: *_QPushButton");
+        snooze(0.5);
         if(object.exists(":_char.I-COLOR_QModelIndex"))
             test.pass("Characteristics: START created");
         else test.fail("Characteristics: START not created");
+        snooze(0.5);
         if(object.exists(":_char.I-COLOR_QModelIndex"))
             test.pass("Characteristics: I-COLOR created");
         else test.fail("Characteristics: I-COLOR not created");

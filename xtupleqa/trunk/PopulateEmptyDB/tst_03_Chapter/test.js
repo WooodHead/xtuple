@@ -24,9 +24,9 @@ function main()
     
     waitForObject(":Chart of Accounts.Close_QPushButton_2");
     clickButton(":Chart of Accounts.Close_QPushButton_2");
-    
-    
-    //-----Define Taxation------
+  
+  
+  //-----Define Taxation------
     defineTaxAuth("TAX-AUTH1");
     defineTaxCode("TAXAUTH1-GM");
     defineTaxType("GM","General Merchandise");
@@ -335,19 +335,19 @@ function main()
         clickButton(":Tax Authorities.Close_QToolButton");
     }catch(e){test.fail("Exception in creating item: TINSERT1")}
     
+  
+  
+  //---------------Create Item sites------------------------------
+  try{
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
+    waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+    activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
+    waitForObjectItem(":_QMenu", "List...");
+    activateItem(":_QMenu", "List...");
+    waitForObject(":Items.Query_QToolButton");
+    clickButton(":Items.Query_QToolButton");
     
-    
-    //---------------Create Item sites------------------------------
-    try{
-      waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-      activateItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Inventory");
-      waitForObjectItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-      activateItem(":xTuple ERP: OpenMFG Edition.Inventory_QMenu", "Item Site");
-      waitForObjectItem(":_QMenu", "List...");
-      activateItem(":_QMenu", "List...");
-      waitForObject(":Items.Query_QToolButton");
-      clickButton(":Items.Query_QToolButton");
-      
         //---------Item site: YTRUCK1----------------------
         
         waitForObject(":Tax Authorities.New_QToolButton");
@@ -789,13 +789,14 @@ function main()
         }
         waitForObject(":Items.Query_QToolButton");
         clickButton(":Items.Query_QToolButton");
+        snooze(0.5);
         waitForObject(":_list_XTreeWidget_3");
         if(object.exists("{column='0' container=':_list_XTreeWidget_3' text='TSUB1' type='QModelIndex'}"))
             test.pass("Item Site Created: TSUB1");
     }catch(e){test.fail("Exception in creating Item site for TSUB1:"+e);}
     
-    snooze(1);
-    
+  snooze(1);
+  
     //---------Item site: TBOX1----------------------
     try{
         waitForObject(":Tax Authorities.New_QToolButton");
@@ -872,6 +873,7 @@ function main()
         }
         waitForObject(":Items.Query_QToolButton");
         clickButton(":Items.Query_QToolButton");
+        snooze(0.5);
         waitForObject(":_list_XTreeWidget_3");
         if(object.exists("{column='1' container=':_list_XTreeWidget_3' text='TBOX1' type='QModelIndex'}"))
             test.pass("Item Site Created: TBOX1");
@@ -969,6 +971,7 @@ function main()
         }
         waitForObject(":Items.Query_QToolButton");
         clickButton(":Items.Query_QToolButton");
+        snooze(0.5);
         waitForObject(":_list_XTreeWidget_3");
         if(object.exists("{column='1' container=':_list_XTreeWidget_3' text='YPAINT1' type='QModelIndex'}"))
             test.pass("Item Site Created: YPAINT1");
