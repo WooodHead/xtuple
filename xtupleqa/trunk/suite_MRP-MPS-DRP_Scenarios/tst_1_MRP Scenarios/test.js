@@ -22,15 +22,14 @@ function main()
         activateItem(":xTuple ERP:*_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP:*.System_QMenu", "Preferences...");
         activateItem(":xTuple ERP:*.System_QMenu", "Preferences...");
-        if(!(findObject(":Interface Options.Tabbed Windows_QRadioButton").checked))
-        {
-            clickButton(":Interface Options.Tabbed Windows_QRadioButton");
-            if((findObject(":Notice.Remind me about this again._QCheckBox").checked))
-                clickButton(":Notice.Remind me about this again._QCheckBox");
-            snooze(0.5);
+        waitForObject(":Interface Options.Show windows inside workspace_QRadioButton");
+            snooze(1);
+            if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
+                clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
+                snooze(0.3);
             waitForObject(":Notice.OK_QPushButton");
             clickButton(":Notice.OK_QPushButton");
-        }
+    
         waitForObject(":_idleTimeout_QSpinBox");
         findObject(":_idleTimeout_QSpinBox").clear();
         type(":_idleTimeout_QSpinBox", "0");
