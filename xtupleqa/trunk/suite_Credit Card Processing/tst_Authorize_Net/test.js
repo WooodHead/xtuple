@@ -17,11 +17,11 @@ function main()
         activateItem(":xTuple ERP: *_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: *._System_QMenu", "Preferences...");
         activateItem(":xTuple ERP: *._System_QMenu", "Preferences...");
-        if(object.exists(":Interface Options.Tabbed Windows_QRadioButton"))
-        {
-            if(!findObject(":Interface Options.Tabbed Windows_QRadioButton").checked)
-                clickButton(":Interface Options.Tabbed Windows_QRadioButton");
-        }
+        waitForObject(":Interface Options.Show windows inside workspace_QRadioButton");
+            snooze(1);
+            if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
+                clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
+                snooze(0.3);
         
         if(object.exists(":Notice.Notice_QDialog"))
         {
