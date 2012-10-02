@@ -8,16 +8,25 @@ function main()
     loginAppl("CONFIGURE"); 
    
     
-    //------Editing the preferences---
-    try
-    {
+    //-----Editing of preferences----
+        try
+        {
+            if(OS.name == "Darwin")
+            {
+               activateItem(waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "Products"));
+               activateItem(waitForObjectItem(":xTuple ERP: *.Products_QMenu", "Preferences..."));
+            }
+            else
+            {
+
         waitForObjectItem(":xTuple ERP: *_QMenuBar_3", "System");
         activateItem(":xTuple ERP: *_QMenuBar_3", "System");
         waitForObjectItem(":xTuple ERP: *.System_QMenu_2", "Preferences...");
         activateItem(":xTuple ERP: *.System_QMenu_2", "Preferences...");
-        
+    }
+             snooze(0.5);
         waitForObject(":Interface Options.Show windows inside workspace_QRadioButton");
-            snooze(1);
+           
             if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
                 clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
                 snooze(0.3);
@@ -129,6 +138,9 @@ function main()
     {
         test.fail("Error in setting the encryption configuration" + e);
     }
+    //--------------- Set the window to Tab view mode -------------
+
+    tabView();
     
     //--------Set the desired cost of TBOX1 to 0.25-------------------
     

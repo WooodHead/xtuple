@@ -9,16 +9,23 @@ function main()
     waitForObject(":*.Yes_QPushButton");
     clickButton(":*.Yes_QPushButton");
     
-    
-    //-----Edit the preferences-----
-    try
-    {
-        
-        
+    //-----Editing of preferences----
+        try
+        {
+            if(OS.name == "Darwin")
+            {
+                activateItem(waitForObjectItem(":xTuple ERP:*_QMenuBar", "Products"));
+                activateItem(waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Preferences..."));
+            }
+            else
+            {
+
         waitForObjectItem(":xTuple ERP:*_QMenuBar_2", "System");
         activateItem(":xTuple ERP:*_QMenuBar_2", "System");
         waitForObjectItem(":xTuple ERP:*.System_QMenu", "Preferences...");
         activateItem(":xTuple ERP:*.System_QMenu", "Preferences...");
+    }
+            snooze(0.5);
         if(object.exists(":Interface Options.Tabbed Windows_QRadioButton"))
         {
             if(!findObject(":Interface Options.Tabbed Windows_QRadioButton").checked)
@@ -187,7 +194,27 @@ function main()
     {
         test.fail("Error in capturing planned order numbers" + e);
     }
-    
+    //--------------- Set the window to Tab view mode -------------
+    try
+    {
+    activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products"));
+    activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item"));
+    activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List..."));
+    if(object.exists(":Tax Authorities.Close_QToolButton"))
+    {
+        test.log("item screen opened");
+        activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Window"));
+        if(waitForObjectItem(":xTuple ERP: *.Window_QMenu", "Tab View"))
+        {
+        activateItem(waitForObjectItem(":xTuple ERP: *.Window_QMenu", "Tab View"));
+        }
+        clickButton(waitForObject(":Tax Authorities.Close_QToolButton"));
+    }
+    }
+    catch(e)
+    {
+        test.fail("exception in changing to Tab view mode" + e);
+    }
     
     //-------Create Quote----
     try

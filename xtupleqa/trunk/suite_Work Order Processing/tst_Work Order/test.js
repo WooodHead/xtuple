@@ -7,15 +7,22 @@ function main()
     //-----login Application-----
     loginAppl("CONFIGURE"); 
     
-  
-    //-----Editing of preferences----
-    try
-    {
-        
+  //-----Editing of preferences----
+        try
+        {
+            if(OS.name == "Darwin")
+            {
+                activateItem(waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products"));
+                activateItem(waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Preferences..."));
+            }
+            else
+            {
+
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
         activateItem(":xTuple ERP: *_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: *._System_QMenu", "Preferences...");
         activateItem(":xTuple ERP: *._System_QMenu", "Preferences...");
+    }
         waitForObject(":Interface Options.Show windows inside workspace_QRadioButton");
             snooze(1);
             if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
@@ -109,6 +116,9 @@ function main()
         test.fail("Error in identifying the application edition" + e);       
         
     }
+    //--------------- Set the window to Tab view mode -------------
+    tabView();
+    
   
     //------Creating a Tooling item------
     try
