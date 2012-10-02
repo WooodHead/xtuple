@@ -77,7 +77,7 @@ FROM (
     te.sheetstate(tehead_id, 'V') AS vouchered,
     te.sheetstate(tehead_id, 'P') AS posted
   FROM te.tehead
-    JOIN te.teitem ON (tehead_id=teitem_tehead_id)
+    LEFT OUTER JOIN te.teitem ON (tehead_id=teitem_tehead_id)
     JOIN emp ON (tehead_emp_id=emp_id)
     LEFT OUTER JOIN te.teemp ON (tehead_emp_id=teemp_emp_id)
   WHERE (
