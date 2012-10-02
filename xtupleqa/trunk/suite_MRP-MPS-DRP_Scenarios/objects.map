@@ -121,6 +121,7 @@
 :Include Status.In-Process_XCheckBox	{container=':Work Order Schedule.Include Status_QGroupBox' name='_inprocess' text='In-Process' type='XCheckBox' visible='1'}
 :Include Status.Open_XCheckBox	{container=':Work Order Schedule.Include Status_QGroupBox' name='_open' text='Open' type='XCheckBox' visible='1'}
 :Include Status.Released_XCheckBox	{container=':Work Order Schedule.Include Status_QGroupBox' name='_released' text='Released' type='XCheckBox' visible='1'}
+:Interface Options.Free Floating Windows_QRadioButton	{container=':_application.Interface Options_QGroupBox' name='_interfaceTopLevel' text='Free Floating Windows' type='QRadioButton' visible='1'}
 :Interface Options.Idle Timeout:_QLabel	{container=':_application.Interface Options_QGroupBox' name='_idleTimeoutLit' text='Idle Timeout:' type='QLabel' visible='1'}
 :Interface Options.Show windows inside workspace_QRadioButton	{container=':_application.Interface Options_QGroupBox' name='_interfaceWorkspace' text='Show windows inside workspace' type='QRadioButton' visible='1'}
 :Interface Options.Tabbed Windows_QRadioButton	{container=':_application.Interface Options_QGroupBox' name='_interfaceWorkspace' text='Tabbed Windows' type='QRadioButton' visible='1'}

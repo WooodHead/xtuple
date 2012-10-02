@@ -147,7 +147,9 @@
             test.fail("Error in setting the encryption key" + e);
         } 
       
-      
+      //--------------- Set the window to Tab view mode -------------
+
+        tabView();
         
         //-----Indented Bill of Materials-----
         try

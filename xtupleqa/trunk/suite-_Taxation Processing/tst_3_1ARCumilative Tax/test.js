@@ -48,7 +48,9 @@ function main()
         test.fail("Error in identifying the application edition" + e);       
         
     }
-  
+  //--------------- Set the window to Tab view mode -------------
+    tabView();
+    
     //-------New  Chart of Account for Tax Liablities -------
     try{
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "Accounting");

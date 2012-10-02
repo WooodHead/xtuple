@@ -9,15 +9,24 @@ function main()
     loginAppl("CONFIGURE"); 
     
   
-    //-----Editing of preferences----
-    try
-    {
+   //-----Editing of preferences----
+        try
+        {
+            if(OS.name == "Darwin")
+            {
+                 activateItem(waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products"));
+                 activateItem(waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Preferences..."));
+            }
+            else
+            {
+
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
         activateItem(":xTuple ERP: *_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: *._System_QMenu", "Preferences...");
         activateItem(":xTuple ERP: *._System_QMenu", "Preferences...");
+    }
          waitForObject(":Interface Options.Show windows inside workspace_QRadioButton");
-            snooze(1);
+            snooze(0.5);
             if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
                 clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
                 snooze(0.3);
@@ -128,7 +137,11 @@ function main()
         test.fail("failed to create exchange rates for GBP - £" + e);
     }
   
-    //------------creating sales order for foreign customer-------------
+  
+    //--------------- Set the window to Tab view mode -------------
+
+    tabView();
+      //------------creating sales order for foreign customer-------------
     snooze(3);
     var sonumber = createSalesOrder1("YTRUCK1", "100","XTRM");
     

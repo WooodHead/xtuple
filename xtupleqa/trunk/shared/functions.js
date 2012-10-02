@@ -165,7 +165,33 @@ function findApplicationEdition()
     
     return appEdition;
 }
+//--------------- Set the window to Tab view mode -------------
 
+function tabView()
+{
+    try
+    {
+        activateItem(waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products"));
+    activateItem(waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Item"));
+    activateItem(waitForObjectItem(":xTuple ERP:*.Item_QMenu", "List..."));
+    snooze(.5);
+    if(object.exists(":Quotes.Close_QToolButton"))
+    {
+        test.log("item screen opened");
+     activateItem(waitForObjectItem(":xTuple ERP: *_QMenuBar", "Window"));
+     snooze(.5);
+        if(waitForObjectItem(":xTuple ERP:*.Window_QMenu", "Tab View"))
+        {
+         activateItem(waitForObjectItem(":xTuple ERP:*.Window_QMenu", "Tab View"));
+        }
+        clickButton(waitForObject(":Quotes.Close_QToolButton"));
+    }
+    }
+    catch(e)
+    {
+        test.fail("exception in changing to Tab view mode" + e);
+    }
+}
 //-----------------To verify the QOH by item-------------
 
 

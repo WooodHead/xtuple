@@ -22,14 +22,22 @@ function main()
              if(role=="CONFIGURE") break;     
     }
     
-    //-----System Preferences-----
-    try
-    {
+    //-----Editing of preferences----
+        try
+        {
+            if(OS.name == "Darwin")
+            {
+                activateItem(waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products"));
+                activateItem(waitForObjectItem(":*.Products_QMenu", "Preferences..."));
+            }
+            else
+            {
+
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
         activateItem(":xTuple ERP: *_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: *.System_QMenu", "Preferences...");
         activateItem(":xTuple ERP: *.System_QMenu", "Preferences...");
-        
+    }
         waitForObject(":Interface Options.Show windows inside workspace_QRadioButton");
         if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
             clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
@@ -228,7 +236,27 @@ function main()
     if(actions.at(i).text==menuItem) test.fail(menuItem+"present in "+appEdition);
     else test.pass(menuItem+"not found in "+appEdition);
     
-    
+    //--------------- Set the window to Tab view mode -------------
+    try
+    {
+    activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products"));
+    activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item"));
+    activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List..."));
+    if(object.exists(":Tax Authorities.Close_QToolButton"))
+    {
+        test.log("item screen opened");
+        activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Window"));
+        if(waitForObjectItem(":xTuple ERP: *.Window_QMenu", "Tab View"))
+        {
+        activateItem(waitForObjectItem(":xTuple ERP: *.Window_QMenu", "Tab View"));
+        }
+        clickButton(waitForObject(":Tax Authorities.Close_QToolButton"));
+    }
+    }
+    catch(e)
+    {
+        test.fail("exception in changing to Tab view mode" + e);
+    }
     
     //-----Purchase Order-----
     try
