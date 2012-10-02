@@ -192,14 +192,35 @@ function main()
     loginAppl("CONFIGURE"); 
  
   
-var appEdition = findApplicationEdition(); 
+    var appEdition = findApplicationEdition(); 
 
+       //--------------- Set the window to Tab view mode -------------
+    try
+    {
+    activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Products"));
+    activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Products_QMenu", "Item"));
+    activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition.Item_QMenu", "List..."));
+    if(object.exists(":Tax Authorities.Close_QToolButton"))
+    {
+        test.log("item screen opened");
+        activateItem(waitForObjectItem(":xTuple ERP: OpenMFG Edition_QMenuBar", "Window"));
+        if(waitForObjectItem(":xTuple ERP: *.Window_QMenu", "Tab View"))
+        {
+        activateItem(waitForObjectItem(":xTuple ERP: *.Window_QMenu", "Tab View"));
+        }
+        clickButton(waitForObject(":Tax Authorities.Close_QToolButton"));
+    }
+    }
+    catch(e)
+    {
+        test.fail("exception in changing to Tab view mode" + e);
+    }
     
     //-----create Entities-------
     createDept("MFG","Manufacturing");
     assignAllPrivileges("CONFIGURE");
 
-var appEdition = findApplicationEdition();
+    var appEdition = findApplicationEdition();
     if(appEdition=="Manufacturing")
         createShift("1ST","First");
     else if(appEdition=="PostBooks" || appEdition=="xTupleERP")
@@ -234,8 +255,8 @@ var appEdition = findApplicationEdition();
         activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Setup...");
         waitForObject(":Setup._modules_QComboBox");
         clickItem(":Setup._modules_QComboBox", "Accounting",10, 10, 0, Qt.LeftButton);
-////        waitForObject(":Configure.Accounting_QModelIndex");
-////        mouseClick(":Configure.Accounting_QModelIndex", 42, 6, 0, Qt.LeftButton);  
+//        waitForObject(":Configure.Accounting_QModelIndex");
+//        mouseClick(":Configure.Accounting_QModelIndex", 42, 6, 0, Qt.LeftButton);  
         snooze(0.5);
         if(findObject(":_mainSize_QSpinBox").currentText!="4")
         {
