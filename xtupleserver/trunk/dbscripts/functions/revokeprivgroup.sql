@@ -11,6 +11,8 @@ BEGIN
   WHERE ( (grppriv_grp_id=pGrpid)
    AND (grppriv_priv_id=pPrivid) );
 
+  NOTIFY "usrprivUpdated";
+
   RETURN TRUE;
 
 END;
