@@ -1,4 +1,4 @@
-
+DROP VIEW     IF EXISTS usr;
 DROP FUNCTION IF EXISTS userCanLogin(TEXT);
 CREATE OR REPLACE FUNCTION userCanLogin(pUsername TEXT) RETURNS BOOLEAN AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 

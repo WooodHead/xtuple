@@ -1,4 +1,5 @@
 SELECT dropIfExists('FUNCTION', 'financialreport(integer,integer,boolean,boolean)');
+SELECT dropIfExists('FUNCTION', 'financialreport(integer,integer,boolean,boolean,integer)');
 SELECT dropIfExists('TYPE', 'flstmtitem');
 
 CREATE TYPE flstmtitem AS (
