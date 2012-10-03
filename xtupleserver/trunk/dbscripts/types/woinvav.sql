@@ -1,4 +1,6 @@
-
+SELECT dropIfExists('FUNCTION', 'woinvavail(integer,boolean,boolean,boolean,boolean)', 'public');
+SELECT dropIfExists('FUNCTION', 'woinvavail(integer,integer,boolean,boolean)',         'public');
+SELECT dropIfExists('FUNCTION', 'woinvavailmatl(integer,integer,boolean,boolean)',     'public');
 SELECT dropIfExists('TYPE', 'woinvav');
 
 CREATE TYPE woinvav AS

@@ -28,6 +28,52 @@ CREATE OR REPLACE VIEW api.apmemo AS
 GRANT ALL ON TABLE api.apmemo TO xtrole;
 COMMENT ON VIEW api.apmemo IS 'A/P Credit and Debit Memo';
 
+CREATE OR REPLACE FUNCTION insertapmemo(api.apmemo) RETURNS boolean AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+DECLARE
+  pNew ALIAS FOR $1;
+  _result INTEGER;
+
+BEGIN
+  IF (pNew.document_type = 'Credit Memo') THEN
+    SELECT createAPCreditMemo( getVendId(pNew.vendor_number),
+                               pNew.document_number,
+                               pNew.po_number,
+                               pNew.document_date,
+                               pNew.amount,
+                               pNew.notes,
+                               getGLAccntId(pNew.alternate_prepaid_account),
+                               pNew.due_date,
+                               getTermsId(pNew.terms) ) INTO _result;
+    IF (_result <= 0) THEN
+      RAISE EXCEPTION 'Function createAPCreditMemo failed with result = %', _result;
+    END IF;
+  ELSE
+    IF (pNew.document_type = 'Debit Memo') THEN
+      SELECT createAPDebitMemo( null, getVendId(pNew.vendor_number),
+                                pNew.journal_number,
+                                pNew.document_number,
+                                pNew.po_number,
+                                pNew.document_date,
+                                pNew.amount,
+                                pNew.notes,
+                                getGLAccntId(pNew.alternate_prepaid_account),
+                                pNew.due_date,
+                                getTermsId(pNew.terms),
+                                COALESCE(getCurrId(pNew.currency), baseCurrId()) ) INTO _result;
+      IF (_result <= 0) THEN
+        RAISE EXCEPTION 'Function createAPDebitMemo failed with result = %', _result;
+      END IF;
+    ELSE
+      RAISE EXCEPTION 'Function insertAPMemo failed, invalid Document Type';
+    END IF;
+  END IF;
+
+  RETURN TRUE;
+END;
+$$ LANGUAGE 'plpgsql';
+
 
 CREATE OR REPLACE RULE "_INSERT" AS
     ON INSERT TO api.apmemo DO INSTEAD  SELECT insertapmemo(new.*) AS insertapmemo;
