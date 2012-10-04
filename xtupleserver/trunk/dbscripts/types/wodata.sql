@@ -3,7 +3,7 @@ SELECT dropIfExists('FUNCTION', 'indentedwo(integer, boolean, boolean, boolean)'
 SELECT dropIfExists('FUNCTION', 'indentedwo(integer, boolean, boolean)');
 SELECT dropIfExists('FUNCTION', 'indentedwomatl(integer, integer, integer)');
 SELECT dropIfExists('FUNCTION', 'indentedwomatl(integer, integer)');
-SELECT dropIfExists('FUNCTION', 'indentedwoops(integer, integer);');
+SELECT dropIfExists('FUNCTION', 'indentedwoops(integer, integer);', 'xtmfg');
 SELECT dropIfExists('TYPE', 'wodata');
 
 CREATE TYPE wodata AS
