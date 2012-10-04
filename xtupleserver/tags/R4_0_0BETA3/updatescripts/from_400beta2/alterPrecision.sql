@@ -1,0 +1,13 @@
+drop view api.journalentry cascade;
+drop view api.apmemo cascade;
+drop view api.armemo cascade;
+drop view api.cashreceiptapply cascade;
+alter table glseries alter column glseries_amount type numeric(20,2);
+alter table gltrans alter column gltrans_amount type numeric(20,2);
+alter table sltrans alter column sltrans_amount type numeric(20,2);
+alter table apopen alter column apopen_amount type numeric(20,2);
+alter table apopen alter column apopen_paid type numeric(20,2);
+alter table apopen alter column apopen_discountable_amount type numeric(20,2);
+alter table aropen alter column aropen_amount type numeric(20,2);
+alter table aropen alter column aropen_paid type numeric(20,2);
+alter table aropen alter column aropen_commission_due type numeric(20,2);
