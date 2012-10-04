@@ -88,7 +88,7 @@ BEGIN
                                    (LOWER(pObject));
     BEGIN
       EXECUTE _query;
-    EXCEPTION WHEN undefined_function THEN
+    EXCEPTION WHEN undefined_object OR undefined_function OR invalid_schema_name THEN
 		RETURN 0;
 	      WHEN OTHERS THEN RAISE EXCEPTION '% %', SQLSTATE, SQLERRM;
     END;
@@ -139,7 +139,7 @@ BEGIN
     
     BEGIN
       EXECUTE _query;
-    EXCEPTION WHEN undefined_object THEN
+    EXCEPTION WHEN undefined_object OR invalid_schema_name THEN
                 RETURN 0;
               WHEN OTHERS THEN RAISE EXCEPTION '% %', SQLSTATE, SQLERRM;
     END;
