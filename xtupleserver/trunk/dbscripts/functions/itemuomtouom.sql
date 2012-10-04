@@ -1,4 +1,16 @@
-CREATE OR REPLACE FUNCTION itemuomtouom(INTEGER, INTEGER, INTEGER, NUMERIC) RETURNS NUMERIC STABLE AS '
+CREATE OR REPLACE FUNCTION itemuomtouom(INTEGER, INTEGER, INTEGER, NUMERIC) RETURNS NUMERIC STABLE AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+BEGIN
+  RETURN itemuomtouom($1, $2, $3, $4, 'qty');
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION itemuomtouom(pItemid INTEGER,
+                                        pUomidFrom INTEGER,
+                                        pUomidTo INTEGER,
+                                        pQtyFrom NUMERIC,
+                                        pLocale TEXT) RETURNS NUMERIC STABLE AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -21,7 +33,7 @@ BEGIN
     FROM item
    WHERE(item_id=pItemid);
   IF(NOT FOUND) THEN
-    RAISE EXCEPTION ''No item record was found for item id %'', pItemid;
+    RAISE EXCEPTION 'No item record was found for item id %', pItemid;
   END IF;
 
   _uomidFrom := COALESCE(pUomidFrom, _item.item_inv_uom_id);
@@ -37,11 +49,11 @@ BEGIN
     ELSE
       _frac := true;
     END IF;
-    RETURN roundQty(_frac, pQtyFrom);
+    RETURN roundLocale(_frac, pQtyFrom, pLocale);
   END IF;
 
   IF(_uomidFrom != _item.item_inv_uom_id AND _uomidTo != _item.item_inv_uom_id) THEN
-    RAISE EXCEPTION ''Converting from/to a UOM where one is not the inventory UOM is currently not supported'';
+    RAISE EXCEPTION 'Converting from/to a UOM where one is not the inventory UOM is currently not supported';
   END IF;
 
   SELECT itemuomconv_from_uom_id, itemuomconv_from_value,
@@ -53,7 +65,7 @@ BEGIN
        OR (itemuomconv_from_uom_id=_uomidTo AND itemuomconv_to_uom_id=_uomidFrom))
      AND (itemuomconv_item_id=pItemid));
   IF(NOT FOUND) THEN
-    RAISE EXCEPTION ''A conversion for item_id % from uom_id % to uom_id % was not found.'', pItemid, _uomidFrom, _uomidTo;
+    RAISE EXCEPTION 'A conversion for item_id % from uom_id % to uom_id % was not found.', pItemid, _uomidFrom, _uomidTo;
   END IF;
 
   IF(_conv.itemuomconv_from_uom_id=_uomidFrom) THEN
@@ -72,7 +84,7 @@ BEGIN
     _frac := _conv.itemuomconv_fractional;
   END IF;
 
-  RETURN roundQty(_frac, ((_valueTo/_valueFrom) * pQtyFrom));
+  RETURN roundLocale(_frac, ((_valueTo/_valueFrom) * pQtyFrom), pLocale);
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

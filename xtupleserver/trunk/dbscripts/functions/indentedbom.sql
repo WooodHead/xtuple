@@ -135,11 +135,11 @@ BEGIN
        bomwork_actunitcost AS actunitcost,
        bomwork_stdunitcost AS stdunitcost,
        CASE WHEN item_type NOT IN ('R','T') THEN
-         itemuomtouomratio(item_id, item_inv_uom_id, NULL) * (bomwork_qtyfxd/_batchsize + bomwork_qtyper) * (1 + bomwork_scrap) * bomwork_actunitcost
-       ELSE 0 END AS actextendedcost,
+         itemuomtouom(item_id, item_inv_uom_id, NULL, (bomwork_qtyfxd/_batchsize + bomwork_qtyper) * (1 + bomwork_scrap), 'qtyper') * bomwork_actunitcost
+       ELSE 0.0 END AS actextendedcost,
        CASE WHEN item_type NOT IN ('R','T') THEN
-         itemuomtouomratio(item_id, item_inv_uom_id, NULL) * (bomwork_qtyfxd/_batchsize + bomwork_qtyper) * (1 + bomwork_scrap) * bomwork_stdunitcost
-       ELSE 0 END AS stdextendedcost,
+         itemuomtouom(item_id, item_inv_uom_id, NULL, (bomwork_qtyfxd/_batchsize + bomwork_qtyper) * (1 + bomwork_scrap), 'qtyper') * bomwork_stdunitcost
+       ELSE 0.0 END AS stdextendedcost,
        bomwork_char_id,
        bomwork_value, bomwork_notes, bomwork_ref,
        bomwork_bomitem_id, bomwork_ecn

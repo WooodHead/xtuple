@@ -36,10 +36,10 @@ BEGIN
 --  Step through all of the components of the passed pItemid
   FOR _r IN SELECT bomitem.*,
                    item_id,
-                   itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
-                                bomitem_qtyfxd) AS qtyfxd,
-                   itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
-                                bomitem_qtyper) AS qtyper,
+                   (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL)
+                              * bomitem_qtyfxd) AS qtyfxd,
+                   (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL)
+                              * bomitem_qtyper) AS qtyper,
                    stdcost(item_id, bomitem_id) AS standardcost,
                    actcost(item_id, bomitem_id) AS actualcost
   FROM bomitem(pItemid, pRevisionid), item
