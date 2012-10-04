@@ -59,13 +59,13 @@ BEGIN
                actcost(bomitem_item_id, bomitem_id) AS actunitcost,
                stdcost(bomitem_item_id, bomitem_id) AS stdunitcost,
                CASE WHEN item_type NOT IN ('R','T') THEN
-                 (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) *
-                  (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * actcost(bomitem_item_id, bomitem_id)
-               ELSE 0 END AS actextendedcost,
+                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
+                              (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap), 'qtyper') * actcost(bomitem_item_id, bomitem_id)
+               ELSE 0.0 END AS actextendedcost,
                CASE WHEN item_type NOT IN ('R','T') THEN
-                 (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) *
-                  (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * stdcost(bomitem_item_id, bomitem_id)
-               ELSE 0 END AS stdextendedcost,
+                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
+                              (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap), 'qtyper') * stdcost(bomitem_item_id, bomitem_id)
+               ELSE 0.0 END AS stdextendedcost,
                bomitem_char_id, bomitem_value, bomitem_notes, bomitem_ref 
        FROM bomitem(pItemid,pRevisionid), item, uom 
        WHERE ( (item_inv_uom_id=uom_id)
@@ -148,13 +148,13 @@ BEGIN
                actcost(bomitem_item_id) AS actunitcost,
                stdcost(bomitem_item_id) AS stdunitcost,
                CASE WHEN item_type NOT IN ('R','T') THEN
-                 (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) *
-                  (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * actcost(bomitem_item_id)
-               ELSE 0 END AS actextendedcost,
+                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
+                              (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap), 'qtyper') * actcost(bomitem_item_id)
+               ELSE 0.0 END AS actextendedcost,
                CASE WHEN item_type NOT IN ('R','T') THEN
-                 (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) *
-                  (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap)) * stdcost(bomitem_item_id)
-               ELSE 0 END AS stdextendedcost,
+                 itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
+                              (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap), 'qtyper') * stdcost(bomitem_item_id)
+               ELSE 0.0 END AS stdextendedcost,
                bomitem_char_id, bomitem_value, bomitem_notes, bomitem_ref 
        FROM bomitem(pItemid,pRevisionid), item, uom 
        WHERE ( (item_inv_uom_id=uom_id)

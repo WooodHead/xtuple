@@ -19,13 +19,12 @@ FROM uom, item, (
             bomitem_item_id AS item_id,
   <? if exists("standardCost") ?>
             itemcost_stdcost AS cost,
-            (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) *
-                          bomitem_qtyper * (1 + bomitem_scrap) *
-             itemcost_stdcost) AS extendedcost 
+            (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
+                          (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap), 'qtyper') * itemcost_stdcost) AS extendedcost
   <? elseif exists("actualCost") ?>
             currToBase(itemcost_curr_id, itemcost_actcost, NULL) AS cost,
-            (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL) *
-                          bomitem_qtyper * (1 + bomitem_scrap) *
+            (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
+                          (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap), 'qtyper') *
              currToBase(itemcost_curr_id, itemcost_actcost, NULL)) AS extendedcost 
   <? endif ?>
     FROM bomitem
