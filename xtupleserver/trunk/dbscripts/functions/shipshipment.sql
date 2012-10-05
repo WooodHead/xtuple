@@ -128,7 +128,7 @@ BEGIN
 	       AND (NOT shiphead_shipped)
 	       AND (shiphead_id=pshipheadid) )
 	      GROUP BY coitem_id, coitem_qty_invuomratio, cohead_number, cohead_cust_id, cohead_billtoname,
-		       itemsite_id, itemsite_item_id, coitem_warranty, coitem_cos_accnt_id, cohead_prj_id
+           itemsite_id, itemsite_item_id, coitem_warranty, coitem_cos_accnt_id, cohead_prj_id, cohead_saletype_id, cohead_shipzone_id
     LOOP
 
       IF _c._value > 0 THEN
