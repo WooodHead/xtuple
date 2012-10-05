@@ -36,49 +36,6 @@ BEGIN
 
   FOR _x IN
         SELECT
-        --report uses currtobase to convert all amounts to base based on aropen_docdate to ensure the same exchange rate
-
-        --today and greater base:
-        CASE WHEN((aropen_duedate >= DATE(_asOfDate))) 
-        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/
-        CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS cur_val,
-
-        --0 to 30 base
-        CASE WHEN((aropen_duedate >= DATE(_asOfDate)-30) AND (aropen_duedate < DATE(_asOfDate)))
-        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/
-        CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS thirty_val,
-
-        --30-60 base
-        CASE WHEN((aropen_duedate >= DATE(_asOfDate)-60) AND (aropen_duedate < DATE(_asOfDate) - 30 ))
-        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/
-        CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS sixty_val,
-
-        --60-90 base
-        CASE WHEN((aropen_duedate >= DATE(_asOfDate)-90) AND (aropen_duedate < DATE(_asOfDate) - 60))
-        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/
-        CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS ninety_val,
-
-        --greater than 90 base:
-        CASE WHEN((aropen_duedate > DATE(_asOfDate)-10000) AND (aropen_duedate < DATE(_asOfDate) - 90))
-        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/
-        CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS plus_val,
-
-        --total amount base:
-        CASE WHEN((aropen_duedate > DATE(_asOfDate)-10000)) 
-        THEN (((aropen_amount-aropen_paid+COALESCE(SUM(arapply_target_paid),0)))/
-        CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END *
-        CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1 ELSE 1 END) ELSE 0 END AS total_val,
-
-        --AR Open Amount base
-        CASE WHEN aropen_doctype IN ('C', 'R') 
-        THEN (aropen_amount * -1) / CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END
-        ELSE aropen_amount / CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate ELSE 1.0 END END AS aropen_amount,
-
         aropen_docdate,
         aropen_duedate,
         aropen_ponumber,
@@ -89,22 +46,80 @@ BEGIN
         cust_number,
         cust_custtype_id,
         custtype_code,
-        COALESCE(arterms.terms_descrip, custterms.terms_descrip, '') AS terms_descrip
+        terms_descrip,
 
-        FROM aropen
-          JOIN custinfo ON (cust_id=aropen_cust_id)
-          JOIN custtype ON (custtype_id=cust_custtype_id)
-          LEFT OUTER JOIN terms arterms ON (arterms.terms_id=aropen_terms_id)
-          LEFT OUTER JOIN terms custterms ON (custterms.terms_id=cust_terms_id)
-          LEFT OUTER JOIN arapply ON (((aropen_id=arapply_target_aropen_id)
-                                    OR (aropen_id=arapply_source_aropen_id))
-                                   AND (arapply_distdate>_asOfDate))
-        WHERE ( (CASE WHEN (pUseDocDate) THEN aropen_docdate ELSE aropen_distdate END <= _asOfDate)
-        AND (COALESCE(aropen_closedate,_asOfDate+1)>_asOfDate) )
-        GROUP BY aropen_id,aropen_docdate,aropen_duedate,aropen_ponumber,aropen_docnumber,aropen_doctype,aropen_paid,
-                 aropen_curr_id,aropen_amount,cust_id,cust_name,cust_number,cust_custtype_id,custtype_code,
-                 arterms.terms_descrip,custterms.terms_descrip, aropen_curr_rate
-        ORDER BY cust_number, aropen_duedate
+        --if pConvBaseCurr is true then use currtobase to convert all amounts to base based on aropen_docdate to ensure the same exchange rate
+        --otherwise use currtocurr to convert all amounts to customer's currency based on aropen_docdate to ensure the same exchange rate
+
+        --today and greater:
+        CASE WHEN((aropen_duedate >= DATE(_asOfDate))) THEN balance
+             ELSE 0.0 END AS cur_val,
+
+        --0 to 30
+        CASE WHEN((aropen_duedate >= DATE(_asOfDate)-30) AND (aropen_duedate < DATE(_asOfDate))) THEN balance
+             ELSE 0.0 END AS thirty_val,
+
+        --30-60
+        CASE WHEN((aropen_duedate >= DATE(_asOfDate)-60) AND (aropen_duedate < DATE(_asOfDate) - 30 )) THEN balance
+             ELSE 0.0 END AS sixty_val,
+
+        --60-90
+        CASE WHEN((aropen_duedate >= DATE(_asOfDate)-90) AND (aropen_duedate < DATE(_asOfDate) - 60)) THEN balance
+             ELSE 0.0 END AS ninety_val,
+
+        --greater than 90:
+        CASE WHEN((aropen_duedate > DATE(_asOfDate)-10000) AND (aropen_duedate < DATE(_asOfDate) - 90)) THEN balance
+             ELSE 0.0 END AS plus_val,
+
+        --total amount:
+        CASE WHEN((aropen_duedate > DATE(_asOfDate)-10000)) THEN balance
+             ELSE 0.0 END AS total_val,
+
+        --AR Open Amount base
+        aropen_amount
+
+        FROM (
+          SELECT
+          (((aropen_amount - aropen_paid + COALESCE(SUM(arapply_target_paid),0))) /
+             CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate
+                  ELSE currRate(aropen_curr_id, cust_curr_id, aropen_docdate)
+             END *
+             CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1.0
+                  ELSE 1.0
+             END) AS balance,
+          ((aropen_amount) /
+             CASE WHEN (pConvBaseCurr) THEN aropen_curr_rate
+                  ELSE currRate(aropen_curr_id, cust_curr_id, aropen_docdate)
+             END *
+             CASE WHEN (aropen_doctype IN ('C', 'R')) THEN -1.0
+                  ELSE 1.0
+             END) AS aropen_amount,
+          aropen_docdate,
+          aropen_duedate,
+          aropen_ponumber,
+          aropen_docnumber,
+          aropen_doctype,
+          cust_id,
+          cust_name,
+          cust_number,
+          cust_custtype_id,
+          custtype_code,
+          COALESCE(arterms.terms_descrip, custterms.terms_descrip, '') AS terms_descrip
+
+          FROM aropen
+            JOIN custinfo ON (cust_id=aropen_cust_id)
+            JOIN custtype ON (custtype_id=cust_custtype_id)
+            LEFT OUTER JOIN terms arterms ON (arterms.terms_id=aropen_terms_id)
+            LEFT OUTER JOIN terms custterms ON (custterms.terms_id=cust_terms_id)
+            LEFT OUTER JOIN arapply ON (((aropen_id=arapply_target_aropen_id)
+                                      OR (aropen_id=arapply_source_aropen_id))
+                                     AND (arapply_distdate>_asOfDate))
+          WHERE ( (CASE WHEN (pUseDocDate) THEN aropen_docdate ELSE aropen_distdate END <= _asOfDate)
+          AND (COALESCE(aropen_closedate,_asOfDate+1)>_asOfDate) )
+          GROUP BY aropen_id,aropen_docdate,aropen_duedate,aropen_ponumber,aropen_docnumber,aropen_doctype,aropen_paid,
+                   aropen_curr_id,aropen_amount,cust_id,cust_name,cust_number,cust_custtype_id,custtype_code,
+                   arterms.terms_descrip,custterms.terms_descrip, aropen_curr_rate, aropen_curr_id, cust_curr_id
+          ORDER BY cust_number, aropen_duedate ) AS data
   LOOP
         _row.araging_docdate := _x.aropen_docdate;
         _row.araging_duedate := _x.aropen_duedate;
