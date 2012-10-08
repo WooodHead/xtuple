@@ -1,0 +1,9 @@
+-- Group: customer
+-- Name:  seltecustrate
+-- Notes: Select Default Customer Project Info
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+SELECT *
+FROM te.tecustrate
+WHERE (tecustrate_cust_id=<? value("cust_id") ?>);
