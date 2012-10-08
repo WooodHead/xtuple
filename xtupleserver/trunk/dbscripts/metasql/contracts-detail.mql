@@ -7,7 +7,7 @@
 SELECT contrct_id, 
        vend_number, vend_name, 
        contrct.*,
-       (SELECT count(*) FROM itemsrc WHERE (itemsrc_vend_id=vend_id)) AS item_count 
+       (SELECT count(*) FROM itemsrc WHERE (itemsrc_contrct_id=contrct_id)) AS item_count 
 FROM contrct JOIN vendinfo ON (vend_id=contrct_vend_id)
 WHERE ((true)
 <? if exists("vend_id") ?>
