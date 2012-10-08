@@ -58,8 +58,7 @@ FROM itemsrc JOIN vendinfo ON (vend_id=itemsrc_vend_id AND vend_active)
              JOIN item ON (item_id=itemsrc_item_id)
              JOIN uom ON (uom_id=item_inv_uom_id)
              JOIN itemsrcp ON (itemsrcp_itemsrc_id=itemsrc_id)
-             LEFT OUTER JOIN contrct ON (contrct_vend_id=vend_id AND
-                                        (CURRENT_DATE BETWEEN contrct_effective AND contrct_expires))
+             LEFT OUTER JOIN contrct ON (contrct_id=itemsrc_contrct_id)
              LEFT OUTER JOIN whsinfo ON (warehous_id=itemsrcp_warehous_id)
 WHERE ((true)
 <? if not exists("showInactive") ?>
@@ -89,6 +88,9 @@ WHERE ((true)
 <? endif ?>
 <? if exists("item_descrip_pattern") ?>
   AND (COALESCE(item_descrip1,'') || COALESCE(item_descrip2,'') ~* <? value("item_descrip_pattern") ?>)
+<? endif ?>
+<? if exists("contrct_id") ?>
+  AND (itemsrc_contrct_id=<? value("contrct_id") ?>)
 <? endif ?>
 <? if exists("contract_number_pattern") ?>
   AND (contrct_number ~* <? value("contract_number_pattern") ?>)
