@@ -1,0 +1,13 @@
+-- Group: task
+-- Name:  selteprjtask
+-- Notes: Select Default Task Time Expense Info
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+SELECT 
+  COALESCE(teprjtask_cust_id,-1) AS cust_id,
+  COALESCE(teprjtask_curr_id,-1) AS curr_id,
+  COALESCE(teprjtask_item_id,-1) AS item_id,
+  *
+FROM te.teprjtask
+WHERE (teprjtask_prjtask_id=<? value("prjtask_id") ?>);

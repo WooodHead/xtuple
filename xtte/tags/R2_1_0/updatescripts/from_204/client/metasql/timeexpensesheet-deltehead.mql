@@ -1,0 +1,7 @@
+-- Group: timeexpensesheet
+-- Name:  deltehead
+-- Notes: Delete Time Expense Sheet
+-- Copyright (c) 1999-2011 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+DELETE FROM te.tehead WHERE (tehead_id=<? value("tehead_id") ?>);
