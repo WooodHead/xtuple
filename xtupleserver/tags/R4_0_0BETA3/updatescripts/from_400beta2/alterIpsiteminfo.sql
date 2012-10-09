@@ -30,7 +30,7 @@ INSERT INTO ipsiteminfo
    ipsitem_type)
 SELECT
    ipsprodcat_ipshead_id, ipsprodcat_prodcat_id,
-   ipsprodcat_qtybreak, NULL,
+   ipsprodcat_qtybreak, 0,
    NULL, NULL,
    ipsprodcat_discntprcnt, ipsprodcat_fixedamtdiscount,
    'D'
