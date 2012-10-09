@@ -1,3 +1,13 @@
+CREATE OR REPLACE FUNCTION resolveSalesAccount(INTEGER, INTEGER) RETURNS INTEGER STABLE AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+BEGIN
+
+  RETURN resolveSalesAccount($1, $2, -1, -1);
+
+END;
+$$ LANGUAGE 'plpgsql';
+
 CREATE OR REPLACE FUNCTION resolveSalesAccount(pItemsiteid INTEGER,
                                                pCustid INTEGER,
                                                pSaletypeid INTEGER,

@@ -19,7 +19,7 @@ BEGIN
 
   INSERT INTO quhead
   ( quhead_id, quhead_number, quhead_cust_id, quhead_prj_id,
-    quhead_quotedate, quhead_packdate, quhead_origin, quhead_fob,
+    quhead_quotedate, quhead_packdate, quhead_fob,
     quhead_warehous_id, quhead_terms_id, quhead_salesrep_id,
     quhead_custponumber, quhead_shipvia,
     quhead_shipto_id, quhead_shiptoname, quhead_shiptoaddress1, quhead_shiptoaddress2, quhead_shiptoaddress3,
@@ -35,7 +35,7 @@ BEGIN
     quhead_billto_cntct_first_name, quhead_billto_cntct_middle, quhead_billto_cntct_last_name, quhead_billto_cntct_suffix,
     quhead_billto_cntct_phone, quhead_billto_cntct_title, quhead_billto_cntct_fax, quhead_billto_cntct_email )
   SELECT _quheadid, _qunumber, quhead_cust_id, quhead_prj_id,
-         CURRENT_DATE, COALESCE(pSchedDate, quhead_packdate), quhead_origin, quhead_fob,
+         CURRENT_DATE, COALESCE(pSchedDate, quhead_packdate), quhead_fob,
          quhead_warehous_id, quhead_terms_id, quhead_salesrep_id,
          quhead_custponumber, quhead_shipvia,
          quhead_shipto_id, quhead_shiptoname, quhead_shiptoaddress1, quhead_shiptoaddress2, quhead_shiptoaddress3,

@@ -22,14 +22,14 @@
       saletype_descr,
       saletype_active )
   VALUES
-    ( <? value("saletype_code") ?>,
+    ( UPPER(<? value("saletype_code") ?>),
       <? value("saletype_descr") ?>,
       <? value("saletype_active") ?> )
   RETURNING saletype_id;
 
 <? elseif exists("EditMode") ?>
   UPDATE saletype
-    SET saletype_code=<? value("saletype_code") ?>,
+    SET saletype_code=UPPER(<? value("saletype_code") ?>),
         saletype_descr=<? value("saletype_descr") ?>,
         saletype_active=<? value("saletype_active") ?>
   WHERE (saletype_id=<? value("saletype_id") ?>);
