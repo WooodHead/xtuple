@@ -10,7 +10,7 @@ BEGIN
 
   SELECT saletype_id INTO _returnVal
   FROM saletype
-  WHERE (saletype_code=pSaleType);
+  WHERE (saletype_code=UPPER(pSaleType));
 
   IF (_returnVal IS NULL) THEN
     RAISE EXCEPTION 'Sale Type % not found.', pSaleType;

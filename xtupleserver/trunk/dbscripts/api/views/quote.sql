@@ -8,16 +8,6 @@ AS
      warehous_code AS site,
      quhead_quotedate AS quote_date,
      quhead_packdate AS pack_date,
-     CASE
-       WHEN quhead_origin='C' THEN
-         'Customer'
-       WHEN quhead_origin='I' THEN
-         'Internet'
-       WHEN quhead_origin='S' THEN
-         'Sales Rep.'
-       ELSE
-         'Error'
-     END AS originated_by,
      saletype_code AS sale_type,
      salesrep_number AS sales_rep,
      quhead_commission AS commission,
@@ -103,7 +93,6 @@ CREATE OR REPLACE RULE "_INSERT" AS
     quhead_shiptoaddress3,
     quhead_salesrep_id,
     quhead_terms_id,
-    quhead_origin,
     quhead_fob,
     quhead_shipvia,
     quhead_shiptocity,
@@ -150,14 +139,6 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.shipto_address3,
     getSalesRepId(NEW.sales_rep),
     getTermsId(NEW.terms),
-    CASE
-      WHEN NEW.originated_by = 'Internet' THEN
-        'I'
-      WHEN NEW.originated_by = 'Sales Rep' THEN
-        'S'
-      ELSE
-        'C'
-    END,
     NEW.fob,
     NEW.ship_via,
     NEW.shipto_city,
@@ -213,15 +194,6 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     quhead_shiptoaddress3=NEW.shipto_address3,
     quhead_salesrep_id=getSalesRepId(NEW.sales_rep),
     quhead_terms_id=getTermsId(NEW.terms),
-    quhead_origin=
-    CASE
-      WHEN NEW.originated_by = 'Internet' THEN
-        'I'
-      WHEN NEW.originated_by = 'Sales Rep' THEN
-        'S'
-      ELSE
-        'C'
-    END,
     quhead_fob=NEW.fob,
     quhead_shipvia=NEW.ship_via,
     quhead_shiptocity=NEW.shipto_city,

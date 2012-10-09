@@ -29,10 +29,11 @@ BEGIN
   IF (pidType = 'I') THEN
     --  Check for a custtype specific rule
     SELECT salesaccnt_id,
-           CASE WHEN (salesaccnt_custtype_id<>-1) THEN 1 ELSE 0 END +
-           CASE WHEN (salesaccnt_prodcat_id<>-1) THEN 1 ELSE 0 END +
-           CASE WHEN (salesaccnt_saletype_id<>-1) THEN 1 ELSE 0 END +
-           CASE WHEN (salesaccnt_shipzone_id<>-1) THEN 1 ELSE 0 END AS orderby
+           CASE WHEN (salesaccnt_warehous_id<>-1) THEN 1 ELSE 0 END +
+           CASE WHEN (salesaccnt_custtype_id<>-1) THEN 2 ELSE 0 END +
+           CASE WHEN (salesaccnt_prodcat_id<>-1) THEN 3 ELSE 0 END +
+           CASE WHEN (salesaccnt_shipzone_id<>-1) THEN 4 ELSE 0 END +
+           CASE WHEN (salesaccnt_saletype_id<>-1) THEN 5 ELSE 0 END AS orderby
     INTO _s
     FROM salesaccnt, item, prodcat, custinfo, custtype
     WHERE ( (salesaccnt_warehous_id=-1)
@@ -54,7 +55,7 @@ BEGIN
 	     (salesaccnt_saletype_id=pSaletypeid) )
       AND (item_id=pid)
       AND (cust_id=pCustid) )
-    ORDER BY orderby, salesaccnt_custtype DESC, salesaccnt_prodcat DESC,
+    ORDER BY orderby DESC, salesaccnt_custtype DESC, salesaccnt_prodcat DESC,
              salesaccnt_saletype_id DESC, salesaccnt_shipzone_id DESC
      LIMIT 1;
 
@@ -62,10 +63,10 @@ BEGIN
     --  Check for a custtype specific rule
     SELECT salesaccnt_id,
            CASE WHEN (salesaccnt_warehous_id<>-1) THEN 1 ELSE 0 END +
-           CASE WHEN (salesaccnt_custtype_id<>-1) THEN 1 ELSE 0 END +
-           CASE WHEN (salesaccnt_prodcat_id<>-1) THEN 1 ELSE 0 END +
-           CASE WHEN (salesaccnt_saletype_id<>-1) THEN 1 ELSE 0 END +
-           CASE WHEN (salesaccnt_shipzone_id<>-1) THEN 1 ELSE 0 END AS orderby
+           CASE WHEN (salesaccnt_custtype_id<>-1) THEN 2 ELSE 0 END +
+           CASE WHEN (salesaccnt_prodcat_id<>-1) THEN 3 ELSE 0 END +
+           CASE WHEN (salesaccnt_shipzone_id<>-1) THEN 4 ELSE 0 END +
+           CASE WHEN (salesaccnt_saletype_id<>-1) THEN 5 ELSE 0 END AS orderby
     INTO _s
     FROM salesaccnt, itemsite, item, prodcat, custinfo, custtype
     WHERE ( ( (salesaccnt_warehous_id=-1) OR

@@ -8,16 +8,6 @@ AS
      warehous_code AS site,
      cohead_orderdate AS order_date,
      cohead_packdate AS pack_date,
-     CASE
-       WHEN cohead_origin='C' THEN
-         'Customer'
-       WHEN cohead_origin='I' THEN
-         'Internet'
-       WHEN cohead_origin='S' THEN
-         'Sales Rep.'
-       ELSE
-         'Error'
-     END AS originated_by,
      saletype_code AS sale_type,
      salesrep_number AS sales_rep,
      cohead_commission AS commission,
@@ -136,7 +126,6 @@ CREATE OR REPLACE RULE "_INSERT" AS
     cohead_shiptoaddress3,
     cohead_salesrep_id,
     cohead_terms_id,
-    cohead_origin,
     cohead_fob,
     cohead_shipvia,
     cohead_shiptocity,
@@ -205,14 +194,6 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.shipto_address3,
     getSalesRepId(NEW.sales_rep),
     getTermsId(NEW.terms),
-    CASE
-      WHEN NEW.originated_by = 'Internet' THEN
-        'I'
-      WHEN NEW.originated_by = 'Sales Rep' THEN
-        'S'
-      ELSE
-        'C'
-    END,
     NEW.fob,
     NEW.ship_via,
     NEW.shipto_city,
@@ -303,15 +284,6 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     cohead_shiptoaddress3=NEW.shipto_address3,
     cohead_salesrep_id=getSalesRepId(NEW.sales_rep),
     cohead_terms_id=getTermsId(NEW.terms),
-    cohead_origin=
-    CASE
-      WHEN NEW.originated_by = 'Internet' THEN
-        'I'
-      WHEN NEW.originated_by = 'Sales Rep' THEN
-        'S'
-      ELSE
-        'C'
-    END,
     cohead_fob=NEW.fob,
     cohead_shipvia=NEW.ship_via,
     cohead_shiptocity=NEW.shipto_city,

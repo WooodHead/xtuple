@@ -381,7 +381,7 @@ BEGIN
 
             INSERT INTO cohead (
               cohead_id,cohead_number,cohead_cust_id,cohead_custponumber,
-              cohead_origin,cohead_orderdate,cohead_salesrep_id,cohead_terms_id,
+              cohead_orderdate,cohead_salesrep_id,cohead_terms_id,
               cohead_shipvia,cohead_shipto_id,cohead_shiptoname,
               cohead_shiptoaddress1,cohead_shiptoaddress2,cohead_shiptoaddress3,
               cohead_shiptocity,cohead_shiptostate,cohead_shiptozipcode,
@@ -398,7 +398,7 @@ BEGIN
               cohead_commission,cohead_holdtype,cohead_prj_id,cohead_shipcomplete,
               cohead_curr_id,cohead_taxzone_id,cohead_saletype_id,cohead_shipzone_id)
             SELECT _coheadid,fetchsonumber(),rahead_cust_id,rahead_custponumber,
-              'C',current_date,rahead_salesrep_id,COALESCE(cohead_terms_id,cust_terms_id),
+              current_date,rahead_salesrep_id,COALESCE(cohead_terms_id,cust_terms_id),
               COALESCE(cohead_shipvia,cust_shipvia),rahead_shipto_id,rahead_shipto_name,
               rahead_shipto_address1,rahead_shipto_address2,rahead_shipto_address3,
               rahead_shipto_city,rahead_shipto_state,rahead_shipto_zipcode,
