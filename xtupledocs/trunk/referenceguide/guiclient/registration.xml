@@ -53,20 +53,24 @@
             <listitem>
               <para>Displays the maximum number of concurrent xTuple client
               connections you are licensed to have, as per the terms of your
-              xTuple license agreement. Included in this total are concurrent
+              xTuple license agreement. xTuple client connections are
               connections made from xTuple ERP, xTuple Connect, and/or any
-              other xTuple-branded client software. If you are exceeding your
-              maximum number of licensed users, you should arrange to purchase
-              more licenses either by contacting xTuple or your authorized
-              xTuple solution provider. For non-xTuple client connections
-              (e.g., pgAdmin, web interfaces, etc.), you are allowed up to
-              double your number of licensed users. For example, if you have
-              10 licensed users, then you would be allowed up to 20 non-xTuple
-              client connections. Additional external connections are allowed
-              for sites where the xTuple Web Portal is installed. To get an
-              accurate view of all your current connections, use the following
-              menu path from the graphical xTuple Desktop: <guimenu>Window
-              &gt; Desktop &gt; Users Online</guimenu>.</para>
+              other xTuple-branded client software. Allowance is also made for
+              an equal number of external connections made by non-xTuple
+              clients (e.g., pgAdmin, etc.). For example, if you have 10
+              licensed users, then you may have at any one time a maximum of
+              20 total connections (i.e., 10 xTuple client connections + 10
+              external connections). Additional external connections are
+              allowed for sites where the xTuple Web Portal is installed. To
+              get an accurate view of all your current connections, use the
+              following menu path from the graphical xTuple Desktop:
+              <guimenu>Window &gt; Desktop &gt; Users Online</guimenu>.</para>
+              <important>
+                <para>If you are exceeding your maximum number of licensed
+                connections, you should arrange to purchase more licenses
+                either by contacting xTuple or your authorized xTuple solution
+                provider.</para>
+              </important>
             </listitem>
           </varlistentry>
         </variablelist>
