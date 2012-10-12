@@ -96,7 +96,7 @@ BEGIN
       IF (fetchMetricBool('RecordPPVonReceipt')) THEN -- If the 'Purchase Price Variance on Receipt' option is true
          _invhistid := _returnval;
          -- Find the difference in the purchase price value expected from the P/O and the value of the transaction
-         SELECT ((_p.poitem_unitprice_base * poitem_qty_returned) - (invhist_value_after - invhist_value_before)) INTO _pricevar
+         SELECT ((_p.poitem_unitprice_base * poitem_qty_returned) - (invhist_value_before - invhist_value_after)) INTO _pricevar
          FROM invhist, poitem
          WHERE ((invhist_id = _invhistid)
            AND  (poitem_id=_p.poitem_id));
