@@ -172,9 +172,9 @@ BEGIN
 
     -- cannot have fkey references to system catalogs so enforce them here
     IF (NEW.crmacct_usr_username IS NOT NULL) THEN
-      IF (NOT EXISTS(SELECT usename
-                       FROM pg_user
-                      WHERE usename=NEW.crmacct_usr_username)) THEN
+      IF (NOT EXISTS(SELECT usr_username
+                       FROM usr
+                      WHERE usr_username=NEW.crmacct_usr_username)) THEN
         RAISE EXCEPTION 'User % does not exist so this CRM Account Number is invalid.',
                         NEW.crmacct_usr_username;
       END IF;
