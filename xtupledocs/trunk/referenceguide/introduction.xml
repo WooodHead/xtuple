@@ -271,43 +271,18 @@
             Database is 5432.</para>
           </listitem>
         </varlistentry>
-        <varlistentry>
-          <term><indexterm significance="normal">
-              <primary>authentication</primary>
-              <secondary>enhanced</secondary>
-            </indexterm>Use Enhanced Authentication</term>
-          <listitem>
-            <para>Select if your site requires you to use enhanced
-            authentication. Enhanced authentication adds a layer to the
-            authentication process used to log in to xTuple ERP. When this
-            feature is turned on, user passwords are stored in the xTuple
-            Database in a modified form. The end result is that you may only
-            log in to an xTuple Database using xTuple ERP.</para>
-          </listitem>
-        </varlistentry>
       </variablelist>
-      <tip>
-        <para>Do not select the enhanced authentication option if your site
-        does not use this method. You will find you cannot connect to the
-        database.</para>
-      </tip>
-      <variablelist>
-        <varlistentry>
-          <term><indexterm significance="normal">
-              <primary>authentication</primary>
-              <secondary>requiring SSL for</secondary>
-            </indexterm>Require SSL Connection</term>
-          <listitem>
-            <para>Select if your site requires you to use a Secure Sockets
-            Layer (SSL) connection. Selecting this option guarantees you will
-            connect to your xTuple Database with an SSL connection. If your
-            xTuple Database is not configured to support SSL, you will not be
-            able to connect if this option is selected. Using SSL for
-            client-server connections adds a layer of encryption to the
-            authentication process.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+      <note>
+        <para>If you are not using a Secure Sockets Layer (SSL), you will
+        receive a message that your connection is not secure every time you
+        log into xTuple. More information on using SSL to encrypt your
+        PostgreSQL traffic is available in the <ulink
+        url="http://www.postgresql.org/docs/9.1/static/ssl-tcp.html">PostgreSQL
+        documentation</ulink> and on <ulink
+        url="http://www.xtuple.org/node/4190">xTuple's web site</ulink>.
+        xTuple will automatically connect with SSL and Enhanced Authentication
+        where required by the server.</para>
+      </note>
       <para>To the far right of the screen, the following buttons are
       available:</para>
       <variablelist>
