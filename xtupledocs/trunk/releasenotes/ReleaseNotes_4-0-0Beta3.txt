@@ -23,8 +23,10 @@ official release date.
 PLEASE NOTE: If you are starting with a 3.8.2, 3.8.3, or 3.8.4
 database, you may hit issue #18077. In this case, change the
 "ServerVersion" metric to "3.8.0" in your database and try
-upgrading again. This problem will be fixed in the upgrade
-packages from 3.8.x to 4.0.0RC and 4.0.0(final).
+upgrading again. If that doesn't work, try using the auxiliary
+pre-upgrade package attached to issue #18077. This problem will 
+be fixed in the upgrade packages from 3.8.x to 4.0.0RC and 
+4.0.0(final). 
 
 Information about compatibility issues related to this software
 version can be found on the xTuple Compatibility Matrix at the
@@ -33,13 +35,20 @@ following address: www.xtuple.org/compatibility-matrix.
 Here's an overview of notable new features in the 4.0.0 release:
 
 Added tabs to desktop
-  * Converted "inside the desktop" view to use tabs for every
-    open screen
+  * Select Cascade or Tile from the WIndows menu to convert the 
+    tabbed view to a workspace view with multiple windows that 
+    more closely resembles the previous workspace mode.
 
 Enhanced Job Costing functionality
   * Purchase-to-Job
   * Automatic issue of Purchased Items to Work Orders
   * Job Costing for child Work Orders
+
+Log in changes
+  * SSL encryption now required for login, client option removed
+  * Logins always try enhanced authentication first. If that 
+    fails then the client tries to log in without enhanced 
+    authentication.
 
 Cost Plus Pricing
 
