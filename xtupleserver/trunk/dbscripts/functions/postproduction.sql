@@ -93,7 +93,7 @@ BEGIN
         END IF;
       ELSE
         -- Used by postMiscProduction of disassembly
-        SELECT returnWoMaterial(_r.womatl_id, (_r.expected * -1.0), _itemlocSeries, CURRENT_TIMESTAMP) INTO _itemlocSeries;
+        SELECT returnWoMaterial(_r.womatl_id, (_r.expected * -1.0), _itemlocSeries, CURRENT_TIMESTAMP, true) INTO _itemlocSeries;
       END IF;
 
       UPDATE womatl
