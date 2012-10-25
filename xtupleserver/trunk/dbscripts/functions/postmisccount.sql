@@ -1,4 +1,6 @@
-CREATE OR REPLACE FUNCTION postMiscCount(INTEGER, NUMERIC, TEXT) RETURNS INTEGER AS'
+CREATE OR REPLACE FUNCTION postMiscCount(pItemsiteid INTEGER,
+                                         pQty NUMERIC,
+                                         pComments TEXT) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -10,13 +12,21 @@ DECLARE
 
 BEGIN
 
+--  Make sure the passed itemsite points to a real item
+  IF ( ( SELECT (item_type IN ('R', 'F') OR itemsite_costmethod = 'J')
+         FROM itemsite, item
+         WHERE ( (itemsite_item_id=item_id)
+          AND (itemsite_id=pItemsiteid) ) ) ) THEN
+    RETURN 0;
+  END IF;
+
   SELECT invcnt_id INTO _invcntid
   FROM invcnt
   WHERE ( (NOT invcnt_posted)
    AND (invcnt_itemsite_id=pItemsiteid) );
 
   IF (_invcntid IS NULL) THEN
-    _invcntid := NEXTVAL(''invcnt_invcnt_id_seq'');
+    _invcntid := NEXTVAL('invcnt_invcnt_id_seq');
 
     INSERT INTO invcnt
      ( invcnt_id, invcnt_itemsite_id, invcnt_tagdate,
@@ -44,4 +54,4 @@ BEGIN
   END IF;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
