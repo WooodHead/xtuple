@@ -33,7 +33,7 @@ BEGIN
          recv_freight, recv_date::DATE),2) AS recv_freight,
          recv_posted, recv_order_type,
          COALESCE(itemsite_id, -1) AS itemsiteid,
-	 itemsite_item_id, itemsite_costmethod,
+	 itemsite_item_id, itemsite_costmethod, itemsite_controlmethod,
 	 (recv_splitfrom_id IS NOT NULL
 	 OR (SELECT (count(*) > 0) 
 	     FROM recv
@@ -83,29 +83,50 @@ BEGIN
     _qty := (pQty - _r.recv_qty);
     IF (_qty <> 0) THEN
       IF (_r.itemsiteid = -1) THEN
-  PERFORM insertGLTransaction( _journalNumber,'S/R', _r.recv_order_type,
-				      _o.orderhead_number,
-				      'Receive Non-Inventory from ' ||
-							    _r.recv_order_type,
-				      expcat_liability_accnt_id,
-				      getPrjAccntId(poitem_prj_id, expcat_exp_accnt_id), -1,
-				      ROUND(_o.unitprice_base * _qty, 2),
-				      pEffective )
-	FROM poitem, expcat
-	WHERE ((poitem_expcat_id=expcat_id)
-	  AND  (poitem_id=_r.recv_orderitem_id)
-	  AND  (_o.orderitem_orderhead_type='PO'));
+        PERFORM insertGLTransaction( _journalNumber,'S/R',
+                                     _r.recv_order_type,
+                                     _o.orderhead_number,
+                                     'Receive Non-Inventory from ' || _r.recv_order_type,
+                                     expcat_liability_accnt_id,
+                                     getPrjAccntId(poitem_prj_id, expcat_exp_accnt_id),
+                                     -1,
+                                     ROUND(_o.unitprice_base * _qty, 2),
+                                     pEffective )
+        FROM poitem, expcat
+        WHERE ((poitem_expcat_id=expcat_id)
+          AND  (poitem_id=_r.recv_orderitem_id)
+          AND  (_o.orderitem_orderhead_type='PO'));
 
-	UPDATE recv
-	SET recv_qty=pQty,
-	    recv_value=(recv_value + ROUND(_o.unitprice_base * _qty, 2)),
+        UPDATE recv
+        SET recv_qty=pQty,
+            recv_value=(recv_value + ROUND(_o.unitprice_base * _qty, 2)),
             recv_date = pEffective
-	WHERE (recv_id=precvid);
+        WHERE (recv_id=precvid);
+      ELSEIF (_r.itemsite_controlmethod = 'N') THEN
+        PERFORM insertGLTransaction( _journalNumber,'S/R',
+                                     _r.recv_order_type,
+                                     _o.orderhead_number,
+                                     'Receive Non-Controlled Inventory from ' || _r.recv_order_type,
+                                     costcat_liability_accnt_id,
+                                     getPrjAccntId(poitem_prj_id, costcat_exp_accnt_id),
+                                     -1,
+                                     ROUND(_o.unitprice_base * _qty, 2),
+                                     pEffective )
+        FROM poitem, itemsite, costcat
+        WHERE ((poitem_itemsite_id=itemsite_id)
+          AND  (itemsite_costcat_id=costcat_id)
+          AND  (poitem_id=_r.recv_orderitem_id)
+          AND  (_o.orderitem_orderhead_type='PO'));
 
+        UPDATE recv
+        SET recv_qty=pQty,
+            recv_value=(recv_value + ROUND(_o.unitprice_base * _qty, 2)),
+            recv_date = pEffective
+        WHERE (recv_id=precvid);
       ELSE
-	IF (_itemlocSeries = 0 OR _itemlocSeries IS NULL) THEN
-	  _itemlocSeries := NEXTVAL('itemloc_series_seq');
-	END IF;
+        IF (_itemlocSeries = 0 OR _itemlocSeries IS NULL) THEN
+          _itemlocSeries := NEXTVAL('itemloc_series_seq');
+        END IF;
 
   SELECT postInvTrans( itemsite_id, 'RP',
 			     (_qty * _o.orderitem_qty_invuomratio),
