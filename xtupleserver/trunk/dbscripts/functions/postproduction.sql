@@ -154,7 +154,7 @@ BEGIN
   WHERE (wo_id=pWoid);
 
   UPDATE wo
-  SET wo_wipvalue = (wo_wipvalue + _ucost)
+  SET wo_wipvalue = (wo_wipvalue + coalesce(_ucost,0))
   WHERE (wo_id=pWoid);
 
 --  ROB Distribute to G/L - create Cost Variance, debit WIP
