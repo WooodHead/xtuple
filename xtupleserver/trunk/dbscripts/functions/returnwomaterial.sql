@@ -129,7 +129,8 @@ $$ LANGUAGE 'plpgsql';
 
 COMMENT ON FUNCTION returnwomaterial(integer, integer, timestamp with time zone, integer) IS 'Returns material by reversing a specific historical transaction';
 
-CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE) RETURNS INTEGER AS $$
+select dropIfExists('FUNCTION', 'returnWoMaterial(INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE)'); 
+CREATE OR REPLACE FUNCTION returnWoMaterial(INTEGER, NUMERIC, INTEGER, TIMESTAMP WITH TIME ZONE, BOOLEAN DEFAULT FALSE) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -137,6 +138,7 @@ DECLARE
   pQty ALIAS FOR $2;
   pItemlocSeries ALIAS FOR $3;
   pGlDistTS ALIAS FOR $4;
+  pReqStdCost ALIAS FOR $5;
   _woNumber TEXT;
   _invhistid INTEGER;
   _itemlocSeries INTEGER;
@@ -178,12 +180,19 @@ BEGIN
   END IF;
 
   -- Get the cost average
-  SELECT SUM(invhist_value_before - invhist_value_after) / SUM(invhist_qoh_before - invhist_qoh_after)  * _qty INTO _cost
-  FROM invhist, womatlpost, womatl 
-  WHERE((womatlpost_womatl_id=womatl_id) 
-   AND (womatlpost_invhist_id=invhist_id) 
-   AND (invhist_qoh_before > invhist_qoh_after)
-   AND (womatl_id=pWomatlId));
+  IF (pReqStdCost) THEN
+    SELECT stdcost(itemsite_item_id) INTO _cost
+    FROM womatl, itemsite
+    WHERE((womatl_itemsite_id=itemsite_id)
+      AND (womatl_id=pWomatlid));
+  ELSE
+    SELECT SUM(invhist_value_before - invhist_value_after) / SUM(invhist_qoh_before - invhist_qoh_after)  * _qty INTO _cost
+    FROM invhist, womatlpost, womatl 
+    WHERE((womatlpost_womatl_id=womatl_id) 
+     AND (womatlpost_invhist_id=invhist_id) 
+     AND (invhist_qoh_before > invhist_qoh_after)
+     AND (womatl_id=pWomatlId));
+  END IF;
 
   _cost := COALESCE(_cost, 0); -- make sure it's not a null value
 
