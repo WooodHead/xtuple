@@ -207,32 +207,30 @@ xtte.timeExpenseSheetItem.getPrice = function()
   if (_type.code == "T")
     params.time = true;
   
-  var qry = toolbox.executeDbQuery("timeexpensesheetitem", "getterate", params);
+  if(_billable.checked)
+  {
+    var qry = toolbox.executeDbQuery("timeexpensesheetitem", "getterate", params);
+    if (qry.first())
+    {
+      _rate.setBaseValue(qry.value("rate"));
+      _rate.enabled = true;
+    }
+    else
+      xtte.errorCheck(qry);
+  }  
   
-  if (qry.first())
+  if(_type.code == 'T')
   {
-    if(_billable.checked)
-    {
-    _rate.setBaseValue(qry.value("rate"));
-    _rate.enabled = true;
-    }
-  }
-  else
-    xtte.errorCheck(qry);
-    
-  var qry2 = toolbox.executeQuery("SELECT te.calcRate(emp_wage, emp_wage_period) as cost "
+    var qry2 = toolbox.executeQuery("SELECT te.calcRate(emp_wage, emp_wage_period) as cost "
                                 + "FROM emp WHERE emp_id = <? value('emp_id') ?>", params);
-  if (qry2.first())
-  {
-    if(_type.code == 'T')
+    if (qry2.first())
     {
-    _empcost.setBaseValue(qry2.value("cost"));
-    _totCost.setBaseValue(qry2.value("cost") * _hours.toDouble());
+      _empcost.setBaseValue(qry2.value("cost"));
+      _totCost.setBaseValue(qry2.value("cost") * _hours.toDouble());
     }
-  }
   else
     xtte.errorCheck(qry2);
-
+  }
   xtte.timeExpenseSheetItem.modified();
 }
 

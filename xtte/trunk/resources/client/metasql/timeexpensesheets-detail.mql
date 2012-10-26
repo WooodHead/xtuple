@@ -61,9 +61,9 @@ FROM (
     tehead_weekending,
     tehead_status,
     emp_code,  
-    CASE WHEN (teitem_type='E' AND teitem_prepaid=false) 
+    CASE WHEN (teitem_type='E' AND teitem_prepaid = FALSE) 
             THEN teitem_total
-         WHEN (teitem_type='T' AND teemp_contractor = true) 
+         WHEN (teitem_type='T' AND teemp_contractor = TRUE) 
             THEN COALESCE(teitem_empcost, te.calcRate(emp_wage, emp_wage_period))* teitem_qty
          ELSE 0 
     END as tovoucher,
@@ -81,7 +81,6 @@ FROM (
     JOIN emp ON (tehead_emp_id=emp_id)
     LEFT OUTER JOIN te.teemp ON (tehead_emp_id=teemp_emp_id)
   WHERE (
-
         (tehead_weekending >= <? value("startDate") ?> )
     AND (tehead_weekending <= <? value("endDate") ?> )
     AND (tehead_status IN (<? literal("statusList") ?>))
