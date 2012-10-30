@@ -24,6 +24,12 @@ WHERE ((true)
 <? if exists("vend_id") ?>
   AND (itemsrc_vend_id=<? value("vend_id") ?>)
 <? endif ?>
+<? if exists("contrct_id") ?>
+  AND (itemsrc_contrct_id=<? value("contrct_id") ?>)
+<? endif ?>
+<? if exists("contract_number_pattern") ?>
+  AND (contrct_number ~* <? value("contract_number_pattern") ?>)
+<? endif ?>
 <? if not exists("showExpired") ?>
   AND (itemsrc_expires > CURRENT_DATE)
 <? endif ?>
