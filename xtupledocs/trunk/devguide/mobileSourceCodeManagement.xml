@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-/OASIS//DTD DocBooks XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter id="mobile.scm">
+  <title>Mobile Web Git Usage Conventions</title>
+  <para>The following guidelines were developed over the course of a year.
+  There are many ways to use git. The following usage pattern is
+  straightforward and reliable. It minimizes the amount of conflict between
+  developers and reduces application breakage. It is predicated on the notion
+  that everyone doing development has their own fork of the code, and all
+  submissions to the xtuple master are done from those forks via pull
+  requests. It will seem a little complicated at first. In the long run it
+  grants everyone a lot of personal freedom in development and a way to commit
+  frequently without causing trouble for others on the team.</para>
+  <para>These descriptions assume you already know the basics of git.</para>
+  <para>Note that the setup and merge steps below can work with anyone else's
+  fork, not just the xTuple repository. If you want to pull and merge
+  something from someone's private fork, you can do that the same way.</para>
+  <section id="mobile.scm.setup">
+    <title>Create a GitHub Account</title>
+    <para>The xTuple mobile web code is hosted on <ulink
+    url="https://github.com/">github.com</ulink>. Create an account for
+    yourself on GitHub if you don't have one already.</para>
+    <para>Once you have an account you need to set up a trust relationship
+    with GitHub so the site will accept your code submissions. GitHub can use
+    either HTTPS or the Git protocol for pushing code and pull requests to
+    GitHub. The xTuple documentation assumes that you are using the Git
+    protocol and need to use public/private keypairs generated with SSH.
+    You'll need to either generate a new public/private keypair in each work
+    environment (workstation, laptop, virtual machine, etc.) or copy an
+    existing pair to that work environment. Use ssh-keygen to create a
+    keypair:</para>
+    <para><programlisting>xtuple$ ssh-keygen # read the ssh-keygen docs and https://help.github.com/articles/generating-ssh-keys
+# follow the prompts
+xtuple$ cat ~/.ssh/<replaceable>id</replaceable>_rsa.pub
+ssh-rsa <replaceable>AAA[...about 200 more characters]...M8n8/B</replaceable> <replaceable>myemail@xtuple.com</replaceable></programlisting></para>
+    <para>The <code>cat</code> command shows the public key that was just
+    generated. Copy this text, starting with the <literal>ssh-rsa</literal> at
+    the beginning and ending with the <literal>myemail@xtuple.com</literal> at
+    the end.</para>
+    <para>In your web browser, navigate to your home page on GitHub. Click on
+    <guibutton>Edit Your Profile</guibutton>. Select <guimenuitem>SSH
+    Keys</guimenuitem> from the list on the left. Click <guibutton>Add SSH
+    Key</guibutton>. Give this SSH key a title, such as "xTuple Mobile Dev",
+    then paste the public key into the Key field. Finally click the
+    <guibutton>Add key</guibutton> button. GitHub will verify your password
+    just to make sure it's you at the keyboard.</para>
+    <programlisting>* Fork xtuple/enyo-client from the web browser to your own account
+* Clone your fork onto your machine
+* Go to the directory where your fork is, then:
+
+// Add an xtuple remote. Using uppercase is a helpful convention to differentiate from similar branch names
+git remote add XTUPLE git@github.com:xtuple/enyo-client.git
+
+// Get up to date with XTUPLE
+git fetch XTUPLE
+
+// Make a branch "xtuple" in your directory that stays synchronized with 
+XTUPLE/master
+git checkout --track -b xtuple XTUPLE/master
+
+// Move back to your own master branch and do your work
+git checkout master</programlisting>
+  </section>
+  <section>
+    <title>Fork the xTuple Code</title>
+    <para>The normal workflow using GitHub starts with every developer having
+    his or her own fork of the source code. This fork is then cloned to a
+    development host. Changes are made on the development host, pushed to the
+    developer's GitHub fork, then pushed from there to the master repository.
+    To start this chain, fork the xTuple code repositories on GitHub:</para>
+    <orderedlist>
+      <listitem>
+        <para>Navigate to the xTuple project: <ulink
+        url="https://github.com/xtuple/">https://github.com/xtuple/</ulink></para>
+      </listitem>
+      <listitem>
+        <para>Fork the client repository:</para>
+        <orderedlist>
+          <listitem>
+            <para>Click on <guibutton>client</guibutton></para>
+          </listitem>
+          <listitem>
+            <para>Click on <guibutton>Fork</guibutton> in the upper right-hand
+            corner of the browser window</para>
+          </listitem>
+          <listitem>
+            <para>Click the <guibutton>Fork to your-username</guibutton>
+            button</para>
+          </listitem>
+        </orderedlist>
+      </listitem>
+      <listitem>
+        <para>Return to the xTuple project page and repeat the forking process
+        for the following repositories:</para>
+        <itemizedlist>
+          <listitem>
+            <para>admin</para>
+          </listitem>
+          <listitem>
+            <para>backbone-x</para>
+          </listitem>
+          <listitem>
+            <para>database</para>
+          </listitem>
+          <listitem>
+            <para>enyo-x</para>
+          </listitem>
+          <listitem>
+            <para>login</para>
+          </listitem>
+          <listitem>
+            <para>models</para>
+          </listitem>
+          <listitem>
+            <para>node-datasource</para>
+          </listitem>
+          <listitem>
+            <para>node-proxy</para>
+          </listitem>
+          <listitem>
+            <para>node-router</para>
+          </listitem>
+          <listitem>
+            <para>node-schemas</para>
+          </listitem>
+          <listitem>
+            <para>node-xt</para>
+          </listitem>
+          <listitem>
+            <para>orm</para>
+          </listitem>
+          <listitem>
+            <para>tools</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+    </orderedlist>
+    <para>Now clone each of these forked repositories to your working source
+    directory, update them, and configure them to work with the corresponding
+    xTuple master repositories:<programlisting>$ cd .../your/source/directory
+$ for REPO in admin backbone-x client database enyo-x login models node-datasource node-proxy node-router node-schemas node-xt orm tools
+&gt; do
+&gt;  git clone git@github.com:<replaceable>your-git-username</replaceable>/$REPO.git
+&gt;  git remote add XTUPLE git@github.com:xtuple/$REPO.git
+&gt;  git fetch XTUPLE
+&gt;  git checkout --track -b xtuple XTUPLE/master
+&gt;  git checkout master
+&gt;  git fetch XTUPLE
+&gt;  git checkout xtuple
+&gt;  git pull
+&gt;  git checkout master
+&gt;  git merge xtuple
+&gt;  git push
+&gt; done</programlisting></para>
+  </section>
+  <section>
+    <title>Getting the Latest from the xTuple Master</title>
+    <para>Commit your changes locally as you work. Remember that other people
+    may be working on the same files you are, so frequently update your local
+    copy to include other people's changes. Reconcile conflicts as they occur.
+    This way you'll be able to test your changes integrated with other
+    people's changes as you go instead of leaving all of the integration
+    testing until the end.</para>
+    <programlisting>$ git add ...
+$ git commit ...
+
+$ git fetch XTUPLE
+$ git checkout xtuple
+$ git pull
+$ git checkout master
+$ git merge xtuple</programlisting>
+    <para>Make sure to reconcile conflicts carefully. We have found "SmartGit"
+    to be a good tool for this.</para>
+  </section>
+  <section>
+    <title>Fixing Bugs</title>
+    <para></para>
+  </section>
+  <section>
+    <title>Adding New Features</title>
+    <para></para>
+  </section>
+  <section>
+    <title>Getting Changes into the xTuple Master</title>
+    <para>To get your code incorporated into the xTuple master, commit it
+    locally first. Then push your changes to your GitHub fork. Finally submit
+    a Git Pull Request:<programlisting>*********************
+Submit a pull request (to merge your code to xtuple)
+*********************
+
+* First commit and push up all applicable changes on your fork.
+* Go to your fork on the github web site.
+* Click "Pull Request", type in any applicable notes and submit.</programlisting></para>
+    <orderedlist>
+      <listitem>
+        <para>Go to your fork on GitHub</para>
+      </listitem>
+      <listitem>
+        <para>Click Pull Request</para>
+      </listitem>
+      <listitem>
+        <para>Fill in applicable notes describing the work, including the text
+        <literal>issue #<replaceable>XYZ</replaceable></literal> to identify
+        the bug or feature request number</para>
+      </listitem>
+    </orderedlist>
+    <note>
+      <para>Make sure all of your commits and pull requests include the text
+      <literal>issue #<replaceable>XYZ</replaceable></literal> to identify the
+      bug or feature request number <replaceable>XYZ</replaceable>. This text
+      is used to log the commits and merges automatically. Without this, it is
+      much harder for others to follow your work in both the Git history and
+      the incident log.</para>
+    </note>
+  </section>
+</chapter>
