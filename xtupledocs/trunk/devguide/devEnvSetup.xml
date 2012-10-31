@@ -3,7 +3,7 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter>
-  <title>Development Environment Setup</title>
+  <title>Desktop Development Environment Setup</title>
   <!--This chapter is designed to be split into separate subsections before rendering.
 That makes it hard to edit unless viewed in XXE with xTuple's docbook-xtuple.css.
 This CSS file labels and colors elements by OS and adds markers to distinguish
@@ -24,6 +24,11 @@ specific configurations:
     that MSVC required more work than MinGW to distribute binaries to
     non-build machines or to run the resulting binaries from file
     servers.</para>
+    <para>xTuple strongly recommends against using pre-built software packages
+    Qt. The amount of time spent tracking down and fixing the problems created
+    by using this convenience is often greater than the amount of time
+    "saved". The packages built by the Qt team often do not include the
+    PostgreSQL database driver.</para>
     <para condition="mingw" os="windows" userlevel="installfromsrc">Newer
     versions of the Qt SDK include MinGW. If you plan to build Qt from source,
     however, you will need to obtain MinGW separately.</para>
@@ -33,11 +38,12 @@ specific configurations:
         url="???">http://sourceforge.net/projects/mingw/</ulink></para>
       </listitem>
       <listitem>
-        <para>Click on Download Now</para>
+        <para>Click on the big green Download button</para>
       </listitem>
       <listitem>
         <para>If you are prompted, choose to save the
-        <literal>mingw-get-inst-version.exe</literal> file</para>
+        <literal>mingw-get-inst-<replaceable>version</replaceable>.exe</literal>
+        file</para>
       </listitem>
       <listitem>
         <para>Run the downloaded installer. When it asks which components to
@@ -181,8 +187,7 @@ specific configurations:
     and click on the link for a recent <literal>git-version.tar.gz</literal>
     to download it. Then follow the steps in the INSTALL file.</para>
     <para os="windows">For installation on Windows, go to <ulink
-    url="http://help.github.com/win-set-up-git/"><link
-    linkend="???">http://help.github.com/win-set-up-git/</link></ulink>.
+    url="http://help.github.com/win-set-up-git/">http://help.github.com/win-set-up-git/</ulink>.
     Follow the instructions and accept the default values.</para>
   </section>
   <section>
@@ -195,9 +200,9 @@ specific configurations:
     <table>
       <title>PostgreSQL compatibility</title>
       <tgroup cols="3">
-        <colspec colnum="1" colwidth="1*"/>
-        <colspec colnum="2" colwidth="1*"/>
-        <colspec colnum="3" colwidth="2*"/>
+        <colspec colnum="1" colwidth="1*" />
+        <colspec colnum="2" colwidth="1*" />
+        <colspec colnum="3" colwidth="2*" />
         <tbody>
           <row>
             <entry>xTuple ERP</entry>
@@ -222,7 +227,7 @@ specific configurations:
                 </row>
               </tbody>
             </entrytbl>
-            <entry/>
+            <entry></entry>
           </row>
           <row>
             <entrytbl cols="2">
@@ -233,7 +238,7 @@ specific configurations:
                 </row>
                 <row>
                   <entry>3.7.4</entry>
-                  <entry/>
+                  <entry></entry>
                 </row>
                 <row>
                   <entry>3.8.0</entry>
@@ -257,8 +262,8 @@ specific configurations:
                 </row>
               </tbody>
             </entrytbl>
-            <entry userlevel="installfromsrc">--with-krb5 --with-pam
-            --with-openssl --with-readline
+            <entry userlevel="installfromsrc">--with-pam --with-openssl
+            --with-readline
             --prefix=/dir/where/you/want/to/install/postgresql<para
             os="macosx" userlevel="installfromsrc">--with-bonjour
             CFLAGS="-arch i386"</para></entry>
@@ -269,10 +274,30 @@ specific configurations:
     <para condition="mingw" os="windows">The PostgreSQL community no longer
     distributes binary packages of PostgreSQL built with MinGW. According to
     the PostgreSQL documentation you will have to build PostgreSQL from
-    source.</para>
+    source. xTuple requires that the PostgreSQL libraries support SSL, so
+    you'll also have to build OpenSSL if you don't already have it. Start with
+    O penSSL:</para>
+    <orderedlist condition="mingw" os="windows">
+      <listitem>
+        <para>https://www.openssl.org/source</para>
+      </listitem>
+      <listitem>
+        <para>click on the desired version of OpenSSL sources</para>
+      </listitem>
+      <listitem>
+        <para>untar the .gz</para>
+      </listitem>
+      <listitem>
+        <para>follow the directions in INSTALL.W32 or INSTALL.W64 for building
+        with MinGW</para>
+      </listitem>
+    </orderedlist>
+    <para condition="mingw" os="windows">Then follow the directions for
+    building PostgreSQL in the PostgreSQL documentation. You may have to build
+    --without-zlib</para>
     <para condition="msvc" os="windows" userlevel="installfromsrc">The
     PostgreSQL community recommends using binary distributions for Windows.
-    However, if you do want to builds PostgreSQL from source, see the <ulink
+    However, if you do want to build PostgreSQL from source, see the <ulink
     url="http://www.postgresql.org/docs/9.1/interactive/install-windows.html">PostgreSQL
     documentation</ulink> for instructions.</para>
     <para condition="msvc" os="windows" userlevel="installfrompkg">Install the
@@ -359,21 +384,18 @@ $ bin/psql -d template1 -f share/postgresql/contrib/pgcrypto.sql </programlistin
     <para userlevel="installfromsrc">To build PostgreSQL from source, first
     download the source code from <ulink
     url="www.postgresql.org">www.postgresql.org</ulink>:</para>
-    <orderedlist os="linux" userlevel="installfromsrc">
+    <orderedlist userlevel="installfromsrc">
       <listitem>
-        <para>Click DOWNLOADS</para>
+        <para>Click <link linkend="???">Download</link></para>
       </listitem>
       <listitem>
-        <para>Click SOURCE CODE</para>
+        <para>Click <link linkend="???">file browser</link></para>
       </listitem>
       <listitem>
         <para>Click on the desired version number</para>
       </listitem>
       <listitem>
         <para>Click on <literal>postgresql-version.tar.gz</literal></para>
-      </listitem>
-      <listitem>
-        <para>Click on one of the download sites near you</para>
       </listitem>
       <listitem>
         <para>If prompted, choose to save the file</para>
@@ -502,9 +524,9 @@ $ su
       <title>Qt versions required to build various releases of xTuple
       ERP</title>
       <tgroup cols="3">
-        <colspec colnum="1" colwidth="1*"/>
-        <colspec colnum="2" colwidth="1*"/>
-        <colspec colnum="3" colwidth="3*"/>
+        <colspec colnum="1" colwidth="1*" />
+        <colspec colnum="2" colwidth="1*" />
+        <colspec colnum="3" colwidth="3*" />
         <tbody>
           <row>
             <entry>xTuple ERP</entry>
@@ -520,8 +542,8 @@ $ su
                 </row>
               </tbody>
             </entrytbl>
-            <entry/>
-            <entry userlevel="installfromsrc"/>
+            <entry></entry>
+            <entry userlevel="installfromsrc"></entry>
           </row>
           <row>
             <entrytbl cols="2">
@@ -547,15 +569,14 @@ $ su
               <tbody>
                 <row>
                   <entry>4.0.0???</entry>
-                  <entry/>
+                  <entry></entry>
                 </row>
               </tbody>
             </entrytbl>
-            <entry>4.8.0</entry>
-            <entry userlevel="installfromsrc"><para>-prefix-install -prefix
-            /where/you/want/qt -plugin-sql-psql -plugin-sql-odbc
-            -plugin-sql-sqlite -qt-zlib -qt-libtiff -qt-libpng -qt-libmng
-            -qt-libjpeg -I/path/to/postgresql/include
+            <entry>4.8.1</entry>
+            <entry userlevel="installfromsrc"><para>-plugin-sql-psql
+            -plugin-sql-odbc -plugin-sql-sqlite -qt-zlib -qt-libtiff
+            -qt-libpng -qt-libmng -qt-libjpeg -I/path/to/postgresql/include
             -L/path/to/postgresql/lib -nomake examples -nomake
             demos</para><para os="macosx" userlevel="installfromsrc">-arch
             x86</para></entry>
@@ -580,7 +601,7 @@ $make</programlisting>
     directory:</para>
     <programlisting>$cd /where/qt/is/installed/QtSDK/Simulator/Qt/gcc/lib
 $cp /where/qt/is/installed/QtSDK/QtSources/version/src/plugins/sqldrivers/psql/libqsqlpsql.so .</programlisting>
-    <para/>
+    <para></para>
     <para condition="msvc" os="windows" userlevel="installfrompkg">The
     prebuilt package for Qt using MSVC can be downloaded from <ulink
     url="http://qt.nokia.com/downloads/windows-cpp-vs2008">http://qt.nokia.com/downloads/windows-cpp-vs2008</ulink>.
@@ -662,12 +683,9 @@ $ tar xzf wherever-the-tarball-is/qt-everywhere-opensource-src-4.8.0.tar.gz
 $ cd qt-everywhere-opensource-src-4.8.0
 $ ./configure # Configuration Parameters from above
 $ make
-$ sudo make install</programlisting>The<literal> -no-framework</literal>
-    argument in the table above has been selected to reduce the risk of
-    conflict between binary and source installations of Qt. The -I and
-    <literal>-L</literal> options are not necessary if you installed
-    PostgreSQL in <literal>/usr</literal>, which is the default for many
-    PostgreSQL binary installers.<caution>
+$ sudo make install</programlisting>The -I and <literal>-L</literal> options
+    are not necessary if you installed PostgreSQL in <literal>/usr</literal>,
+    which is the default for many PostgreSQL binary installers.<caution>
         <para>Make sure you give yourself permissions to write to the folder
         <literal>/where/you/put/qt/plugins/designer</literal>. When xTuple is
         compiled it will need to create a library here for xTuple widget
