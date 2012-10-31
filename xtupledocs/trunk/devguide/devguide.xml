@@ -10,8 +10,8 @@
       <year>1998-2012</year>
       <holder>xTuple</holder>
     </copyright>
-    <pubdate>March 2012</pubdate>
-    <releaseinfo>Version 4.0.0alpha</releaseinfo>
+    <pubdate>October 2012</pubdate>
+    <releaseinfo>Version 4.0.0Beta3</releaseinfo>
     <mediaobject>
       <imageobject>
         <imagedata fileref="images/splashXTuple.png" />
@@ -25,14 +25,29 @@
       <para>This part of the <citetitle>xTuple Developer Guide</citetitle>
       describes the tools you need and the steps you must follow to create a
       software environment to contribute to the open source xTuple software
-      projects:</para>
+      projects. There are two very different environments. The xTuple Mobile
+      Web environment is described in one chapter. A set of chapters is
+      devoted to different build environments for the xTuple ERP desktop
+      client.</para>
+      <para>All of these chapters assume that you have a software development
+      background, are familiar with the operating system you will be working
+      on, are comfortable downloading software and source code bundles from
+      the Web, and have worked with tools similar to those described. These
+      are not the only way to do things, just the ways we have tried with
+      success.</para>
+      <para>The Mobile Web client runs in web browsers on a number of
+      different platforms. The software stack to develop for it and run it
+      includes PostgreSQL, the V8 JavaScript engine, Enyo, node.js, Git,
+      SubVersion, and MongoDB. The browser-side JavaScript code consists of a
+      base library of functionality and a number of extension packages.</para>
+      <para>The desktop client is written primarily in C++. It has the
+      following components written by xTuple</para>
       <itemizedlist>
         <listitem>
           <para>OpenRPT</para>
         </listitem>
         <listitem>
-          <para>xTuple ERP core, including xtlib for underlying business logic
-          and the xTuple ERP GUI</para>
+          <para>xTuple ERP core</para>
         </listitem>
         <listitem>
           <para>CSVImp</para>
@@ -41,64 +56,13 @@
           <para>Updater</para>
         </listitem>
       </itemizedlist>
-      <para>It assumes that you have a software development background, are
-      familiar with the operating system you will be working on, are
-      comfortable downloading software and source code bundles from the Web,
-      and have worked with tools similar to those described below. This
-      chapter does not describe the only way to do things, just those we have
-      tried with success.</para>
-      <para>It covers specific steps and details required to create a C++
-      development environment. People who simply want to create xTuple ERP
-      application scripts and scripted packages, or people who want to write
-      reports, can skip the next few chapters.</para>
-      <tip>
-        <para>Read the chapter for your build environment in its entirety
-        before attempting this process.</para>
-      </tip>
-      <para>The following tools all have to be present to successfully create
-      a binary version of the xTuple ERP application.</para>
-      <variablelist>
-        <varlistentry>
-          <term>Subversion</term>
-          <listitem>
-            <para>The source code management tool xTuple uses for version
-            control.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Software Development Environment</term>
-          <listitem>
-            <para>The particular development tools that xTuple uses or
-            recommends are described below. In general, however, the
-            development environment must include a C++ compiler and an
-            application build tool similar to make.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Qt</term>
-          <listitem>
-            <para>This is the Graphical User Interface toolkit used to build
-            the xTuple ERP, and OpenRPT applications. Qt is available with a
-            free LGPL license.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>PostgreSQL</term>
-          <listitem>
-            <para>PostgreSQL is an open-source database engine at the heart of
-            the xTuple ERP applications. Most of the logic of the application
-            is written in PL/pgSQL, the PostgreSQL stored procedure
-            language.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry role="xtconnect">
-          <term>Git</term>
-          <listitem>
-            <para>Another source code management tool used by some of our
-            development partners.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+      <para>The software stack to develop the desktop client includes
+      PostgreSQL and its PL/PGSQL procedure language, C++ and supporting
+      development tools, SubVersion, and Qt.</para>
+      <para>The core application can be modified by customizing reports and
+      writing JavaScript extensions. People who simply want to create xTuple
+      ERP application scripts and scripted packages, or people who want to
+      write reports, can skip this Part of the Developer Guide.</para>
       <para>In addition to the information below, you may need the following
       information from xTuple before you begin:</para>
       <itemizedlist>
@@ -159,7 +123,13 @@
           </listitem>
         </varlistentry>
       </variablelist>
+      <tip>
+        <para>Read the chapter for your build environment in its entirety
+        before you start.</para>
+      </tip>
     </preface>
+    <xi:include href="mobileDevEnvSetup.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="devEnvSetup_windows_installfromsrc_msvc.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -186,14 +156,21 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </part>
   <part>
-    <title></title>
-    <chapter>
-      <title></title>
-      <section>
-        <title></title>
-        <para></para>
-      </section>
-    </chapter>
+    <title>Development Standards and Guidelines</title>
+    <preface>
+      <title>Overview</title>
+      <para>This part of the xTuple Developer Guide describes the xTuple
+      development standards. This includes what tools we use and how we use
+      them as well as other conventions.</para>
+    </preface>
+    <xi:include href="mobileSourceCodeManagement.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </part>
+  <part>
+    <title>Infrequent But Important Tasks</title>
+    <xi:include href="../../docs/developer_guide/crossCompiling.xml"
+                xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </part>
   <index></index>
 </book>
