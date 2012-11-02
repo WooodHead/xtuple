@@ -9,28 +9,19 @@ function main()
     loginAppl("CONFIGURE"); 
   
     //-----Editing of preferences----
-        try
-        {
-            if(OS.name == "Darwin")
-            {
-                activateItem(waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products"));
-                activateItem(waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Preferences..."));
-            }
-            else
-            {
-            waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
-            activateItem(":xTuple ERP: *_QMenuBar", "System");
-            waitForObjectItem(":xTuple ERP: *._System_QMenu", "Preferences...");
-            activateItem(":xTuple ERP: *._System_QMenu", "Preferences..."); 
-            activateItem(":xTuple ERP: OpenMFG Edition.System_QMenu", "Preferences...");
-            }
-            snooze(0.5);
-            if(object.exists(":Interface Options.Show windows inside workspace_QRadioButton"))
-           {
-                if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
-                    clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
-            }
-            snooze(0.3);
+    try
+    {
+        
+        waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
+        activateItem(":xTuple ERP: *_QMenuBar", "System");
+        waitForObjectItem(":xTuple ERP: *._System_QMenu", "Preferences...");
+        activateItem(":xTuple ERP: *._System_QMenu", "Preferences...");
+        waitForObject(":Interface Options.Show windows inside workspace_QRadioButton");
+            snooze(1);
+            if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
+                clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
+                snooze(0.3);
+        
         if(object.exists(":Notice.Notice_QDialog"))
         {
             if(findObject(":Notice.Remind me about this again._QCheckBox").checked)
@@ -70,7 +61,6 @@ function main()
     
     loginAppl("CONFIGURE"); 
     
-//   
   //---find Application Edition------
   try
   {
@@ -145,9 +135,7 @@ function main()
     {
         test.fail("Error in setting the encryption configuration" + e);
     }
-    //--------------- Set the window to Tab view mode -------------
 
-    tabView();
   
     //------- G/L entry for Debit ----
     try
@@ -242,7 +230,7 @@ function main()
         for(var y=0;y<totalcount;y++)
         {
             var obj_TreeTopLevelItem = obj_GlTree.topLevelItem(y);
-            runtotal[y] = obj_TreeTopLevelItem.text(11);
+            runtotal[y] = obj_TreeTopLevelItem.text(12);
         }
         var begbal = replaceSubsting(bal);      
         var debittotal = replaceSubsting(runtotal[0]);
@@ -1205,8 +1193,8 @@ function main()
         var qTree = findObject(":_list_XTreeWidget_3");
         var row1 = qTree.topLevelItem(0);
         var row2 = qTree.topLevelItem(1);
-        var dvalue = row1.text(7);
-        var cvalue = row2.text(8);
+        var dvalue = row1.text(8);
+        var cvalue = row2.text(9);
         if(dvalue == cvalue)
         {
             test.pass("voucher amount balanced on voiding");    
@@ -1492,8 +1480,8 @@ function main()
         var qTree = findObject(":_list_XTreeWidget_3");
         var row1 = qTree.topLevelItem(0);
         var row2 = qTree.topLevelItem(1);
-        var dvalue = row1.text(8);
-        var cvalue = row2.text(7);
+        var dvalue = row1.text(9);
+        var cvalue = row2.text(8);
         if(dvalue == cvalue)
         {
             test.pass("voucher amount for Misc. dist. account balanced on voiding");    
@@ -1508,8 +1496,8 @@ function main()
         var qTree = findObject(":_list_XTreeWidget_3");
         var row1 = qTree.topLevelItem(0);
         var row2 = qTree.topLevelItem(1);
-        var dvalue = row1.text(8);
-        var cvalue = row2.text(7);
+        var dvalue = row1.text(9);
+        var cvalue = row2.text(8);
         if(dvalue == cvalue)
         {
             test.pass("voucher amount for Tax code balanced on voiding");    
@@ -1524,8 +1512,8 @@ function main()
         var qTree = findObject(":_list_XTreeWidget_3");
         var row1 = qTree.topLevelItem(0);
         var row2 = qTree.topLevelItem(1);
-        var dvalue = row1.text(8);
-        var cvalue = row2.text(7);
+        var dvalue = row1.text(9);
+        var cvalue = row2.text(8);
         if(dvalue == cvalue)
         {
             test.pass("voucher amount for Expense category balanced on voiding");    
@@ -1651,6 +1639,7 @@ function main()
  }
     
      //-----Extracting OS Name-----
+     var linuxPath, winPath;
     try
     {
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
@@ -1688,31 +1677,8 @@ function main()
     {
         test.fail("Error in extracting OS name" + e);
     }
-//    var linuxPath, winPath;
-//    try
-//    {
-//   
-//        waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
-//        activateItem(":xTuple ERP: *_QMenuBar", "System");
-//        waitForObjectItem(":xTuple ERP: *._System_QMenu", "Setup...")
-//        activateItem(":xTuple ERP: *._System_QMenu", "Setup...");
-//        waitForObjectItem(":Setup._tree_XTreeWidget", "Configure.Encryption");
-//        clickItem(":Setup._tree_XTreeWidget", "Configure.Encryption", 46, 9, 0, Qt.LeftButton);
-//        
-//       
-//        waitForObject(":_stack_FileLineEdit_2");
-//        linuxPath = findObject(":_stack_FileLineEdit_2").text;
-//        waitForObject(":_stack_FileLineEdit");
-//        winPath = findObject(":_stack_FileLineEdit").text;
-//        
-//        waitForObject(":Setup.Save_QPushButton");
-//        clickButton(":Setup.Save_QPushButton");
-//    }
-//    catch(e)
-//    {
-//        test.fail("Error in extracting OS name" + e);
-//    }
- 
+   
+
 
     //------------ Re-Select voucher for payment ---------
     try

@@ -1357,7 +1357,7 @@ function main()
             for(i=0;i<obj;i++)
             {
                 row = obj_TreeWidget.topLevelItem(i);
-                account1 = row.text(6);
+                account1 = row.text(7);
                 bool = account[j].test(account1);
                 if(bool)
                 {
