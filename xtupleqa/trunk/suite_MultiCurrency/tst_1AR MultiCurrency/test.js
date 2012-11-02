@@ -9,24 +9,15 @@ function main()
     loginAppl("CONFIGURE"); 
     
   
-   //-----Editing of preferences----
-        try
-        {
-            if(OS.name == "Darwin")
-            {
-                 activateItem(waitForObjectItem(":xTuple ERP: *_QMenuBar", "Products"));
-                 activateItem(waitForObjectItem(":xTuple ERP:*.Products_QMenu", "Preferences..."));
-            }
-            else
-            {
-
+    //-----Editing of preferences----
+    try
+    {
         waitForObjectItem(":xTuple ERP: *_QMenuBar", "System");
         activateItem(":xTuple ERP: *_QMenuBar", "System");
         waitForObjectItem(":xTuple ERP: *._System_QMenu", "Preferences...");
         activateItem(":xTuple ERP: *._System_QMenu", "Preferences...");
-    }
          waitForObject(":Interface Options.Show windows inside workspace_QRadioButton");
-            snooze(0.5);
+            snooze(1);
             if(!findObject(":Interface Options.Show windows inside workspace_QRadioButton").checked)
                 clickButton(":Interface Options.Show windows inside workspace_QRadioButton");
                 snooze(0.3);
@@ -137,11 +128,7 @@ function main()
         test.fail("failed to create exchange rates for GBP - £" + e);
     }
   
-  
-    //--------------- Set the window to Tab view mode -------------
-
-    tabView();
-      //------------creating sales order for foreign customer-------------
+    //------------creating sales order for foreign customer-------------
     snooze(3);
     var sonumber = createSalesOrder1("YTRUCK1", "100","XTRM");
     
@@ -261,7 +248,7 @@ function main()
         var obj = obj_TreeWidget.topLevelItemCount;
        
         var obj_treeItem = obj_TreeWidget.topLevelItem(obj-3);
-        var result = obj_treeItem.text(7);
+        var result = obj_treeItem.text(8);
         result = replaceSubsting(result);
         test.log(result);
         
@@ -376,7 +363,7 @@ function main()
         clickButton(":Quotes.Query_QToolButton");
         snooze(0.5);
         waitForObject(":_list_XTreeWidget_3");
-        if(object.exists("{column='4' container=':_list_XTreeWidget_3' text='XTRM-Xtreme Toys LTD' type='QModelIndex'}"))		
+        if(object.exists("{column='5' container=':_list_XTreeWidget_3' text='XTRM-Xtreme Toys LTD' type='QModelIndex'}"))		
             test.pass("Posting cash Receipt has a GL entry");
         else
             test.fail("Posting cash Receipt doesn't  has a GL entry");
@@ -385,7 +372,7 @@ function main()
         var obj = obj_TreeWidget.topLevelItemCount;
         test.log(obj);
         var obj_treeItem = obj_TreeWidget.topLevelItem(obj-1);
-        var result = obj_treeItem.text(7);
+        var result = obj_treeItem.text(8);
         result = replaceSubsting(result);
         test.log(result);
         var result1 = roundNumber((soamount*rate),2);
@@ -704,7 +691,7 @@ function main()
         waitForObject(":Quotes.Query_QToolButton");
         clickButton(":Quotes.Query_QToolButton");
         waitForObject(":_list_XTreeWidget_3");
-        if(object.exists("{column='4' container=':_list_XTreeWidget_3' text='XTRM-Xtreme Toys LTD' type='QModelIndex'}"))		
+        if(object.exists("{column='5' container=':_list_XTreeWidget_3' text='XTRM-Xtreme Toys LTD' type='QModelIndex'}"))		
             test.pass("Posting cash Receipt has a GL entry");
         else
             test.fail("Posting cash Receipt doesn't  has a GL entry");
@@ -713,7 +700,7 @@ function main()
         var obj = obj_TreeWidget.topLevelItemCount;
        
         var obj_treeItem = obj_TreeWidget.topLevelItem(obj-1);
-        var result = obj_treeItem.text(7);
+        var result = obj_treeItem.text(8);
         result = replaceSubsting(result);
        
         var result1 = (recve_amt*newRate);
@@ -1063,7 +1050,7 @@ function main()
         test.log(obj);
         
         var obj_treeItem = obj_TreeWidget.topLevelItem(obj-2);
-        var result = obj_treeItem.text(7);
+        var result = obj_treeItem.text(8);
         result = replaceSubsting(result);
         test.log(result);
         
