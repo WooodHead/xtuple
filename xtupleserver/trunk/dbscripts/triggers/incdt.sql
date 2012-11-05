@@ -14,16 +14,6 @@ BEGIN
     _rec := NEW;
   END IF;
 
-  --  Checks
-  IF (_rec.incdt_owner_username=getEffectiveXtUser()) THEN
-    SELECT (checkPrivilege('MaintainAllIncidents') OR checkPrivilege('MaintainPersonalIncidents')) INTO _check;
-  ELSE
-    SELECT checkPrivilege('MaintainAllIncidents') INTO _check;
-  END IF;
-  IF NOT (_check) THEN
-    RAISE EXCEPTION 'You do not have privileges to maintain Incidents.';
-  END IF;
-
   -- Set the incident number if blank
   IF (TG_OP = 'INSERT') THEN
     IF (NEW.incdt_number IS NULL) THEN
