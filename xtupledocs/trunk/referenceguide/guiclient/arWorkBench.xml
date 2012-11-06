@@ -34,8 +34,8 @@
     <varlistentry>
       <term>Customer</term>
       <listitem>
-        <para>Select all or specific Customers whose Receivables information you want
-        to display.</para>
+        <para>Select all or specific Customers whose Receivables information
+        you want to display.</para>
         <tip>
           <para>To generate results in the display you first have to select
           the QUERY button. If you are not seeing any results, this is
@@ -133,8 +133,8 @@
       <term>APPLY</term>
       <listitem id="arWorkBenchAPPLYCM1">
         <para>Highlight a Credit Memo in the list and then select this button
-        to apply the Credit Memo to an open Receivables amount, as described in <xref
-        linkend="Section524414" />.</para>
+        to apply the Credit Memo to an open Receivables amount, as described
+        in <xref linkend="Section524414" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -221,9 +221,11 @@
       <term>POST</term>
       <listitem>
         <para>Highlight a pre-authorized Credit Card charge amount and then
-        select this button to post-authorize the charge. When a
-        pre-authorization is post-authorized, an unposted Cash Receipt is
-        created in the specified post-authorization amount.</para>
+        select this button to authorize the charge. When a pre-authorization
+        is authorized, a Cash Receipt in the authorized amount will be
+        created, posted, and automatically applied to a Credit Memo or
+        Customer Deposit (if Customer Deposits are enabled at your
+        site).</para>
         <tip>
           <para>You only get one chance to post a Credit Card
           pre-authorization. Once a pre-authorization is post-authorized, it
