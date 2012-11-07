@@ -1,0 +1,104 @@
+-- pkg? ALTER TABLE image   ALTER image_name            SET NOT NULL, ADD CHECK (image_name          != ''), ADD CONSTRAINT image_image_name_key             UNIQUE (image_name);
+-- pkg? ALTER TABLE priv    ALTER priv_name             SET NOT NULL, ADD CHECK (priv_name           != ''), ADD CONSTRAINT priv_priv_name_key               UNIQUE (priv_name);
+-- the columns without "add constraint ... unique" should already be marked unique in the db
+ALTER TABLE "char"          ALTER char_name             SET NOT NULL, ADD CHECK (char_name           != '');
+ALTER TABLE addr            ALTER addr_number           SET NOT NULL, ADD CHECK (addr_number         != '');
+ALTER TABLE atlasmap        ALTER atlasmap_name         SET NOT NULL, ADD CHECK (atlasmap_name       != '');
+ALTER TABLE bankaccnt       ALTER bankaccnt_name        SET NOT NULL, ADD CHECK (bankaccnt_name      != '');
+ALTER TABLE bankadjtype     ALTER bankadjtype_name      SET NOT NULL, ADD CHECK (bankadjtype_name    != '');
+ALTER TABLE budghead        ALTER budghead_name         SET NOT NULL, ADD CHECK (budghead_name       != '');
+ALTER TABLE calhead         ALTER calhead_name          SET NOT NULL, ADD CHECK (calhead_name        != '');
+ALTER TABLE cashrcpt        ALTER cashrcpt_number       SET NOT NULL, ADD CHECK (cashrcpt_number     != '');
+ALTER TABLE classcode       ALTER classcode_code        SET NOT NULL, ADD CHECK (classcode_code      != ''), ADD CONSTRAINT classcode_classcode_code_key     UNIQUE (classcode_code);
+ALTER TABLE cmhead          ALTER cmhead_number         SET NOT NULL, ADD CHECK (cmhead_number       != ''), ADD CONSTRAINT cmhead_cmhead_number_key         UNIQUE (cmhead_number);
+ALTER TABLE cmnttype        ALTER cmnttype_name         SET NOT NULL, ADD CHECK (cmnttype_name       != '');
+ALTER TABLE cohead          ALTER cohead_number         SET NOT NULL, ADD CHECK (cohead_number       != '');
+ALTER TABLE company         ALTER company_number        SET NOT NULL, ADD CHECK (company_number      != '');
+ALTER TABLE costcat         ALTER costcat_code          SET NOT NULL, ADD CHECK (costcat_code        != ''), ADD CONSTRAINT costcat_costcat_code_key         UNIQUE (costcat_code);
+ALTER TABLE costelem        ALTER costelem_type         SET NOT NULL, ADD CHECK (costelem_type       != ''), ADD CONSTRAINT costelem_costelem_type_key       UNIQUE (costelem_type);
+ALTER TABLE country                                                   ADD CHECK (country_abbr        != '');
+ALTER TABLE country                                                   ADD CHECK (country_name        != '');
+ALTER TABLE crmacct         ALTER crmacct_number        SET NOT NULL, ADD CHECK (crmacct_number      != '');
+ALTER TABLE custgrp         ALTER custgrp_name          SET NOT NULL, ADD CHECK (custgrp_name        != '');
+ALTER TABLE custinfo        ALTER cust_number           SET NOT NULL, ADD CHECK (cust_number         != '');
+ALTER TABLE custtype        ALTER custtype_code         SET NOT NULL, ADD CHECK (custtype_code       != '');
+ALTER TABLE dept            ALTER dept_number           SET NOT NULL, ADD CHECK (dept_number         != '');
+ALTER TABLE emp             ALTER emp_code              SET NOT NULL, ADD CHECK (emp_code            != '');
+ALTER TABLE emp             ALTER emp_number            SET NOT NULL, ADD CHECK (emp_number          != '');
+ALTER TABLE empgrp          ALTER empgrp_name           SET NOT NULL, ADD CHECK (empgrp_name         != '');
+
+DROP INDEX IF EXISTS evnttype_name_idx; -- this will be enforced by the _key constraint created next
+ALTER TABLE evnttype        ALTER evnttype_name         SET NOT NULL, ADD CHECK (evnttype_name       != ''), ADD CONSTRAINT evnttype_evnttype_name_key       UNIQUE (evnttype_name);
+
+ALTER TABLE expcat          ALTER expcat_code           SET NOT NULL, ADD CHECK (expcat_code         != '');
+ALTER TABLE flhead          ALTER flhead_name           SET NOT NULL, ADD CHECK (flhead_name         != '');
+ALTER TABLE form            ALTER form_name             SET NOT NULL, ADD CHECK (form_name           != ''), ADD CONSTRAINT form_form_name_key               UNIQUE (form_name);
+ALTER TABLE freightclass    ALTER freightclass_code     SET NOT NULL, ADD CHECK (freightclass_code   != '');
+ALTER TABLE grp             ALTER grp_name              SET NOT NULL, ADD CHECK (grp_name            != '');
+ALTER TABLE hnfc            ALTER hnfc_code             SET NOT NULL, ADD CHECK (hnfc_code           != ''), ADD CONSTRAINT hnfc_hnfc_code_key               UNIQUE (hnfc_code);
+ALTER TABLE incdtcat        ALTER incdtcat_name         SET NOT NULL, ADD CHECK (incdtcat_name       != '');
+ALTER TABLE incdtpriority   ALTER incdtpriority_name    SET NOT NULL, ADD CHECK (incdtpriority_name  != '');
+ALTER TABLE incdtresolution ALTER incdtresolution_name  SET NOT NULL, ADD CHECK (incdtresolution_name!= '');
+ALTER TABLE incdtseverity   ALTER incdtseverity_name    SET NOT NULL, ADD CHECK (incdtseverity_name  != '');
+ALTER TABLE invchead        ALTER invchead_invcnumber   SET NOT NULL, ADD CHECK (invchead_invcnumber != '');
+ALTER TABLE ipshead         ALTER ipshead_name          SET NOT NULL, ADD CHECK (ipshead_name        != '');
+ALTER TABLE item            ALTER item_number           SET NOT NULL, ADD CHECK (item_number         != '');
+ALTER TABLE itemalias       ALTER itemalias_number      SET NOT NULL, ADD CHECK (itemalias_number    != '');
+ALTER TABLE itemgrp         ALTER itemgrp_name          SET NOT NULL, ADD CHECK (itemgrp_name        != ''), ADD CONSTRAINT itemgrp_itemgrp_name_key         UNIQUE (itemgrp_name);
+ALTER TABLE labelform       ALTER labelform_name        SET NOT NULL, ADD CHECK (labelform_name      != ''), ADD CONSTRAINT labelform_labelform_name_key     UNIQUE (labelform_name);
+ALTER TABLE locale          ALTER locale_code           SET NOT NULL, ADD CHECK (locale_code         != ''), ADD CONSTRAINT locale_locale_code_key           UNIQUE (locale_code);
+
+DROP INDEX IF EXISTS metric_name_key;
+ALTER TABLE metric          ALTER metric_name           SET NOT NULL, ADD CHECK (metric_name         != ''), ADD CONSTRAINT metric_metric_name_key           UNIQUE (metric_name);
+
+DROP INDEX IF EXISTS metricenc_name_key;
+ALTER TABLE metricenc       ALTER metricenc_name        SET NOT NULL, ADD CHECK (metricenc_name      != ''), ADD CONSTRAINT metricenc_metricenc_name_key     UNIQUE (metricenc_name);
+
+ALTER TABLE ophead          ALTER ophead_number         SET NOT NULL, ADD CHECK (ophead_number       != '');
+ALTER TABLE opsource        ALTER opsource_name         SET NOT NULL, ADD CHECK (opsource_name       != '');
+ALTER TABLE opstage         ALTER opstage_name          SET NOT NULL, ADD CHECK (opstage_name        != '');
+ALTER TABLE optype          ALTER optype_name           SET NOT NULL, ADD CHECK (optype_name         != '');
+ALTER TABLE orderseq        ALTER orderseq_name         SET NOT NULL, ADD CHECK (orderseq_name       != ''), ADD CONSTRAINT orderseq_orderseq_name_key       UNIQUE (orderseq_name);
+
+SELECT dropIfExists('CONSTRAINT', 'pkghead_pkghead_name_check', 'public');
+ALTER TABLE pkghead         ALTER pkghead_name          SET NOT NULL, ADD CHECK (pkghead_name        != '');
+
+ALTER TABLE plancode        ALTER plancode_code         SET NOT NULL, ADD CHECK (plancode_code       != '');
+ALTER TABLE pohead          ALTER pohead_number         SET NOT NULL, ADD CHECK (pohead_number       != '');
+ALTER TABLE prftcntr        ALTER prftcntr_number       SET NOT NULL, ADD CHECK (prftcntr_number     != '');
+ALTER TABLE prj             ALTER prj_number            SET NOT NULL, ADD CHECK (prj_number          != '');
+ALTER TABLE prodcat         ALTER prodcat_code          SET NOT NULL, ADD CHECK (prodcat_code        != ''), ADD CONSTRAINT prodcat_prodcat_code_key       UNIQUE (prodcat_code);
+ALTER TABLE prospect        ALTER prospect_number       SET NOT NULL, ADD CHECK (prospect_number     != '');
+ALTER TABLE qryhead         ALTER qryhead_name          SET NOT NULL, ADD CHECK (qryhead_name        != '');
+ALTER TABLE quhead          ALTER quhead_number         SET NOT NULL, ADD CHECK (quhead_number       != '');
+ALTER TABLE rjctcode        ALTER rjctcode_code         SET NOT NULL, ADD CHECK (rjctcode_code       != '');
+ALTER TABLE rsncode         ALTER rsncode_code          SET NOT NULL, ADD CHECK (rsncode_code        != ''), ADD CONSTRAINT rsncode_rsncode_code_key         UNIQUE (rsncode_code);
+ALTER TABLE sale            ALTER sale_name             SET NOT NULL, ADD CHECK (sale_name           != ''), ADD CONSTRAINT sale_sale_name_key               UNIQUE (sale_name);
+ALTER TABLE salescat        ALTER salescat_name         SET NOT NULL, ADD CHECK (salescat_name       != ''), ADD CONSTRAINT salescat_salescat_name_key       UNIQUE (salescat_name);
+ALTER TABLE salesrep        ALTER salesrep_number       SET NOT NULL, ADD CHECK (salesrep_number     != '');
+ALTER TABLE schemaord       ALTER schemaord_name        SET NOT NULL, ADD CHECK (schemaord_name      != '');
+ALTER TABLE shift           ALTER shift_number          SET NOT NULL, ADD CHECK (shift_number        != '');
+ALTER TABLE shipchrg        ALTER shipchrg_name         SET NOT NULL, ADD CHECK (shipchrg_name       != '');
+ALTER TABLE shipform        ALTER shipform_name         SET NOT NULL, ADD CHECK (shipform_name       != '');
+ALTER TABLE shiphead        ALTER shiphead_number       SET NOT NULL, ADD CHECK (shiphead_number     != '');
+ALTER TABLE shipvia         ALTER shipvia_code          SET NOT NULL, ADD CHECK (shipvia_code        != ''), ADD CONSTRAINT shipvia_shipvia_code_key         UNIQUE (shipvia_code);
+ALTER TABLE shipzone        ALTER shipzone_name         SET NOT NULL, ADD CHECK (shipzone_name       != ''), ADD CONSTRAINT shipzone_shipzone_name_key       UNIQUE(shipzone_name);
+ALTER TABLE sitetype        ALTER sitetype_name         SET NOT NULL, ADD CHECK (sitetype_name       != '');
+ALTER TABLE source          ALTER source_name           SET NOT NULL, ADD CHECK (source_name         != '');
+ALTER TABLE state           ALTER state_name            SET NOT NULL, ADD CHECK (state_name          != '');
+ALTER TABLE stdjrnl         ALTER stdjrnl_name          SET NOT NULL, ADD CHECK (stdjrnl_name        != ''), ADD CONSTRAINT stdjrnl_stdjrnl_name_key         UNIQUE (stdjrnl_name);
+ALTER TABLE stdjrnlgrp      ALTER stdjrnlgrp_name       SET NOT NULL, ADD CHECK (stdjrnlgrp_name     != ''), ADD CONSTRAINT stdjrnlgrp_stdjrnlgrp_name_key   UNIQUE (stdjrnlgrp_name);
+ALTER TABLE subaccnt        ALTER subaccnt_number       SET NOT NULL, ADD CHECK (subaccnt_number     != '');
+ALTER TABLE tax             ALTER tax_code              SET NOT NULL, ADD CHECK (tax_code            != '');
+ALTER TABLE taxauth         ALTER taxauth_code          SET NOT NULL, ADD CHECK (taxauth_code        != '');
+ALTER TABLE taxclass        ALTER taxclass_code         SET NOT NULL, ADD CHECK (taxclass_code       != ''), ADD CONSTRAINT taxclass_taxclass_code_key       UNIQUE (taxclass_code);
+ALTER TABLE taxreg          ALTER taxreg_number         SET NOT NULL, ADD CHECK (taxreg_number       != '');
+ALTER TABLE taxtype         ALTER taxtype_name          SET NOT NULL, ADD CHECK (taxtype_name        != '');
+ALTER TABLE taxzone         ALTER taxzone_code          SET NOT NULL, ADD CHECK (taxzone_code        != ''), ADD CONSTRAINT taxzone_taxzone_code_key         UNIQUE (taxzone_code);
+ALTER TABLE terms           ALTER terms_code            SET NOT NULL, ADD CHECK (terms_code          != '');
+ALTER TABLE uom             ALTER uom_name              SET NOT NULL, ADD CHECK (uom_name            != '');
+ALTER TABLE uomtype         ALTER uomtype_name          SET NOT NULL, ADD CHECK (uomtype_name        != '');
+ALTER TABLE vendinfo        ALTER vend_number           SET NOT NULL, ADD CHECK (vend_number         != '');
+ALTER TABLE vendtype        ALTER vendtype_code         SET NOT NULL, ADD CHECK (vendtype_code       != ''), ADD CONSTRAINT vendtype_vendtype_code_key       UNIQUE (vendtype_code);
+ALTER TABLE vohead          ALTER vohead_number         SET NOT NULL, ADD CHECK (vohead_number       != '');
+ALTER TABLE whsinfo         ALTER warehous_code         SET NOT NULL, ADD CHECK (warehous_code       != '');

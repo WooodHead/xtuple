@@ -1,0 +1,1 @@
+ALTER TABLE cmhead ADD COLUMN cmhead_prj_id integer REFERENCES prj (prj_id);
