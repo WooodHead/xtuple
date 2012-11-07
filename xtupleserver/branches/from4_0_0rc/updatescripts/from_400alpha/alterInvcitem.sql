@@ -1,0 +1,1 @@
+alter table invcitem alter column invcitem_warehous_id set default -1;
