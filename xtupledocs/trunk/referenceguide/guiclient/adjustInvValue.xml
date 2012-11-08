@@ -31,7 +31,10 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item you want to create an
-        adjustment for.</para>
+        adjustment for. Only average cost Items having a Quantity on Hand
+        (QOH) &gt; 0 will be available for selection. If an average cost Item
+        does not appear as available to select, this likely means the Item's
+        QOH = 0.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
