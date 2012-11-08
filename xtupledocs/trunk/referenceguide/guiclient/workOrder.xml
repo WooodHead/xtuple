@@ -10,8 +10,8 @@
   <para>Work Orders define requirements for the production of manufactured
   Items. You may also create Work Orders for purchased items that you normally
   purchase, but you occasionally manufacture. These Items may have a Bill of
-  Materials (BOM)&mdash;or not. The system supports both BOM-based and
-  non-BOM-based Work Orders.</para>
+  Materials (BOM)—or not. The system supports both BOM-based and non-BOM-based
+  Work Orders.</para>
   <variablelist>
     <varlistentry>
       <term>BOM-based</term>
@@ -25,9 +25,9 @@
       <term>Non-BOM-based</term>
       <listitem>
         <para>Ideal for labor-only Work Orders having a Bill of Operations
-        (BOO) but no BOM&mdash;for example, service Work Orders which require
-        labor Operations only. Also good for Items or Jobs where the Material
-        Requirements are not-known&mdash;but must be added on an ad-hoc
+        (BOO) but no BOM—for example, service Work Orders which require labor
+        Operations only. Also good for Items or Jobs where the Material
+        Requirements are not-known—but must be added on an ad-hoc
         basis.</para>
       </listitem>
     </varlistentry>
@@ -117,6 +117,11 @@
         <para>Select to identify the Work Order as a disassembly order. When
         disassembling Items, the system will not enforce order parameters
         defined at the Item Site level.</para>
+        <note>
+          <para>If there are Average Cost Items on a disassembly order, those
+          components will be returned to inventory using Standard Cost when
+          they are backflushed.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -180,13 +185,13 @@
       <listitem>
         <para>If your system is configured to use Projects, select a Project
         Number to associate with the Work Order. If the Work Order was created
-        from Sales Order demand&mdash;and the parent Sales Order had a Project
-        Number associated with it&mdash;then the Project Number from the
-        parent Sales Order will automatically be entered here. In this way,
-        Sales Orders and Work Orders may be linked to the same Project.</para>
+        from Sales Order demand—and the parent Sales Order had a Project
+        Number associated with it—then the Project Number from the parent
+        Sales Order will automatically be entered here. In this way, Sales
+        Orders and Work Orders may be linked to the same Project.</para>
         <para role="xtprjaccnt">When you have the xTuple Project Accounting
-        package installed&mdash;and you link a Project to the Work
-        Order&mdash;transactions related to the Work Order will include the Project
+        package installed—and you link a Project to the Work
+        Order—transactions related to the Work Order will include the Project
         Number as the final segment of affected G/L Account Numbers. Account
         Numbers related to the following transactions will include the Project
         Number as the final segment: Issue Materials, Post Operations, Post
@@ -338,10 +343,10 @@
   </note>
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <para>Once a Work Order is in process&mdash;that is, either Materials have
-  been issued or Production or Operations have been posted&mdash;you can begin
-  to view Costing information for the Work Order. To view Costing information
-  for the Work Order, select the "Costing" tab. The following screen will
+  <para>Once a Work Order is in process—that is, either Materials have been
+  issued or Production or Operations have been posted—you can begin to view
+  Costing information for the Work Order. To view Costing information for the
+  Work Order, select the "Costing" tab. The following screen will
   appear:</para>
   <para><tip>
       <para>The Costing tab will not be visible until after a Work Order has

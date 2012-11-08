@@ -56,6 +56,11 @@
       <term>Disassembly</term>
       <listitem>
         <para>Select to identify Work Order as Disassembly order.</para>
+        <note>
+          <para>If there are Average Cost Items on a disassembly order, those
+          components will be returned to inventory using Standard Cost when
+          they are backflushed.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
