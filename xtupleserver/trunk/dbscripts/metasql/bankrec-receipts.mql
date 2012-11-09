@@ -54,9 +54,14 @@ SELECT gltrans_id AS id, 1 AS altid,
        currConcat(COALESCE(cashrcpt_curr_id, baseCurrId())) AS doc_curr,
        COALESCE(bankrecitem_curr_rate, cashrcpt_curr_rate, currRate(bankaccnt_curr_id, gltrans_date)) AS doc_exchrate,
        (gltrans_amount * -1.0) AS base_amount,
-       COALESCE( bankrecitem_amount,
-                 cashrcpt_amount,
-                 (currToLocal(bankaccnt_curr_id, gltrans_amount, gltrans_date) * -1.0) ) AS amount,
+       CASE WHEN (bankaccnt_curr_id=cashrcpt_curr_id) THEN
+         COALESCE( bankrecitem_amount,
+                   cashrcpt_amount,
+                   (currToLocal(bankaccnt_curr_id, gltrans_amount, gltrans_date) * -1.0) )
+            ELSE
+         COALESCE( bankrecitem_amount,
+                   (currToLocal(bankaccnt_curr_id, gltrans_amount, gltrans_date) * -1.0) )
+       END AS amount,
        COALESCE(date(jrnluse_date), gltrans_date) AS jrnldate,
        gltrans_date AS sortdate,
        'uomratio' AS doc_exchrate_xtnumericrole,
@@ -92,9 +97,14 @@ SELECT sltrans_id AS id, 2 AS altid,
        currConcat(COALESCE(cashrcpt_curr_id, baseCurrId())) AS doc_curr,
        COALESCE(bankrecitem_curr_rate, cashrcpt_curr_rate, currRate(bankaccnt_curr_id, sltrans_date)) AS doc_exchrate,
        (sltrans_amount * -1.0) AS base_amount,
-       COALESCE( bankrecitem_amount,
-                 cashrcpt_amount,
-                 (currToLocal(bankaccnt_curr_id, sltrans_amount, sltrans_date) * -1.0) ) AS amount,
+       CASE WHEN (bankaccnt_curr_id=cashrcpt_curr_id) THEN
+         COALESCE( bankrecitem_amount,
+                   cashrcpt_amount,
+                   (currToLocal(bankaccnt_curr_id, sltrans_amount, sltrans_date) * -1.0) )
+            ELSE
+         COALESCE( bankrecitem_amount,
+                   (currToLocal(bankaccnt_curr_id, sltrans_amount, sltrans_date) * -1.0) )
+       END AS amount,
        COALESCE(date(jrnluse_date), sltrans_date) AS jrnldate,
        sltrans_date AS sortdate,
        'uomratio' AS doc_exchrate_xtnumericrole,
