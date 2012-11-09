@@ -61,6 +61,9 @@ BEGIN
         END IF;
 
       ELSIF (TG_OP = 'DELETE') THEN
+        DELETE FROM docass WHERE docass_source_id = OLD.pohead_id AND docass_source_type = 'P';
+        DELETE FROM docass WHERE docass_target_id = OLD.pohead_id AND docass_target_type = 'P';
+        
         DELETE FROM comment
         WHERE ( (comment_source='P')
          AND (comment_source_id=OLD.pohead_id) );

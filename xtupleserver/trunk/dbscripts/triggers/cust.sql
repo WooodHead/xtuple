@@ -260,6 +260,9 @@ BEGIN
   DELETE FROM ipsass
    WHERE (ipsass_cust_id=OLD.cust_id);
 
+  DELETE FROM docass WHERE docass_source_id = OLD.cust_id AND docass_source_type = 'C';
+  DELETE FROM docass WHERE docass_target_id = OLD.cust_id AND docass_target_type = 'C';
+
   IF (fetchMetricBool('CustomerChangeLog')) THEN
     PERFORM postComment(cmnttype_id, 'C', OLD.cust_id,
                         ('Deleted "' || OLD.cust_number || '"'))

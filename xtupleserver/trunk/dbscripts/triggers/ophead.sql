@@ -35,7 +35,11 @@ CREATE OR REPLACE FUNCTION _opheadAfterTrigger () RETURNS TRIGGER AS $$
 DECLARE
   _cmnttypeid INTEGER;
 BEGIN
-
+  IF (TG_OP = 'DELETE') THEN
+    DELETE FROM docass WHERE docass_source_id = OLD.ophead_id AND docass_source_type = 'OPP';
+    DELETE FROM docass WHERE docass_target_id = OLD.ophead_id AND docass_target_type = 'OPP';
+  END IF;
+  
   --  Comments
   IF ( SELECT (metric_value='t') FROM metric WHERE (metric_name='OpportunityChangeLog') ) THEN
 
@@ -153,5 +157,5 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 SELECT dropIfExists('TRIGGER', 'opheadAfterTrigger');
-CREATE TRIGGER opheadAfterTrigger AFTER INSERT OR UPDATE ON ophead 
+CREATE TRIGGER opheadAfterTrigger AFTER INSERT OR UPDATE OR DELETE ON ophead 
 FOR EACH ROW EXECUTE PROCEDURE _opheadAfterTrigger();

@@ -138,6 +138,9 @@ BEGIN
 
   DELETE FROM vendaddrinfo WHERE (vendaddr_vend_id=OLD.vend_id);
 
+  DELETE FROM docass WHERE docass_source_id = OLD.vend_id AND docass_source_type = 'V';
+  DELETE FROM docass WHERE docass_target_id = OLD.vend_id AND docass_target_type = 'V';
+
   UPDATE crmacct SET crmacct_vend_id = NULL
    WHERE crmacct_vend_id = OLD.vend_id;
   RETURN OLD;
