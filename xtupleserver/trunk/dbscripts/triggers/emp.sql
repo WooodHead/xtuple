@@ -164,6 +164,9 @@ BEGIN
   UPDATE salesrep SET salesrep_emp_id = NULL
    WHERE salesrep_emp_id = OLD.emp_id;
 
+  DELETE FROM docass WHERE docass_source_id = OLD.emp_id AND docass_source_type = 'EMP';
+  DELETE FROM docass WHERE docass_target_id = OLD.emp_id AND docass_target_type = 'EMP';
+
   RETURN OLD;
 END;
 $$ LANGUAGE 'plpgsql';

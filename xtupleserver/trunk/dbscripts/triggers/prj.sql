@@ -7,6 +7,9 @@ DECLARE
 BEGIN
 
   IF (TG_OP = 'DELETE') THEN
+    DELETE FROM docass WHERE docass_source_id = OLD.prj_id AND docass_source_type = 'J';
+    DELETE FROM docass WHERE docass_target_id = OLD.prj_id AND docass_target_type = 'J';
+    
     SELECT recur_id INTO _recurid
       FROM recur
      WHERE ((recur_parent_id=OLD.prj_id)
@@ -59,7 +62,6 @@ BEGIN
 
   IF (TG_OP = 'INSERT') THEN
     PERFORM postComment(_cmnttypeid, 'J', NEW.prj_id, 'Created');
-
   ELSIF (TG_OP = 'UPDATE') THEN
     IF (OLD.prj_start_date <> NEW.prj_start_date) THEN
       PERFORM postComment( _cmnttypeid, 'J', NEW.prj_id,

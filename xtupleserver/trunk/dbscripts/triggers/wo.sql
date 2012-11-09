@@ -55,6 +55,9 @@ BEGIN
        AND (OLD.wo_duedate <= (CURRENT_DATE + itemsite_eventfence))
        AND (evnttype_name='WoCancelled') );
 
+      DELETE FROM docass WHERE docass_source_id = OLD.wo_id AND docass_source_type = 'W';
+      DELETE FROM docass WHERE docass_target_id = OLD.wo_id AND docass_target_type = 'W';
+
       DELETE FROM comment
       WHERE ( (comment_source='W')
        AND (comment_source_id=OLD.wo_id) );

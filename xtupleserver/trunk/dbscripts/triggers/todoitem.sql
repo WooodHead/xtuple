@@ -43,6 +43,9 @@ BEGIN
      WHERE ((alarm_source='TODO')
         AND (alarm_source_id=OLD.todoitem_id));
 
+    DELETE FROM docass WHERE docass_source_id = OLD.todoitem_id AND docass_source_type = 'TODO';
+    DELETE FROM docass WHERE docass_target_id = OLD.todoitem_id AND docass_target_type = 'TODO';
+
     RETURN OLD;
   END IF;
 

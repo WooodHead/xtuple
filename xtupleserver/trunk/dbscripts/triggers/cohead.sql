@@ -444,6 +444,9 @@ BEGIN
       END IF;
 
     ELSIF (TG_OP = 'DELETE') THEN
+      DELETE FROM docass WHERE docass_source_id = OLD.cohead_id AND docass_source_type = 'S';
+      DELETE FROM docass WHERE docass_target_id = OLD.cohead_id AND docass_target_type = 'S';
+      
       DELETE FROM comment
       WHERE ( (comment_source='S')
        AND (comment_source_id=OLD.cohead_id) );

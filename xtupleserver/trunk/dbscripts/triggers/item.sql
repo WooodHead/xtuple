@@ -240,6 +240,8 @@ BEGIN
   IF (TG_OP = 'DELETE') THEN
     DELETE FROM imageass WHERE ((imageass_source_id=OLD.item_id) AND (imageass_source='I'));
     DELETE FROM url WHERE ((url_source_id=OLD.item_id) AND (url_source='I'));
+    DELETE FROM docass WHERE docass_source_id = OLD.item_id AND docass_source_type = 'I';
+    DELETE FROM docass WHERE docass_target_id = OLD.item_id AND docass_target_type = 'I';
 
     RETURN OLD;
   END IF;

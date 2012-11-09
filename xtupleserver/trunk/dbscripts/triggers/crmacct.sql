@@ -44,6 +44,9 @@ BEGIN
     UPDATE cntct SET cntct_crmacct_id = NULL
      WHERE cntct_crmacct_id = OLD.crmacct_id;
 
+    DELETE FROM docass WHERE docass_source_id = OLD.crmacct_id AND docass_source_type = 'CRMA';
+    DELETE FROM docass WHERE docass_target_id = OLD.crmacct_id AND docass_target_type = 'CRMA';
+
     GET DIAGNOSTICS _count = ROW_COUNT;
     RAISE DEBUG 'updated % contacts', _count;
 
