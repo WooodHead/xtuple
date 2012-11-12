@@ -115,6 +115,33 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Effectivity</term>
+      <listitem>
+        <variablelist>
+          <varlistentry>
+            <term>Contract #</term>
+            <listitem>
+              <para>Select the Contract number if a Contract exists for this
+              Item Source.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Effective</term>
+            <listitem>
+              <para>The date on which the relevant Contract takes
+              effect.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Expires</term>
+            <listitem>
+              <para>The date on which the relevant Contract expires.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Minimum Order</term>
       <listitem>
         <para>Indicate the minimum Order allowed for the specified Item. A
@@ -172,6 +199,14 @@
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Item Source.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term></term>
+      <listitem>
+        <para></para>
       </listitem>
     </varlistentry>
   </variablelist>
