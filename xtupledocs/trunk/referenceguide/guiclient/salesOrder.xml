@@ -101,7 +101,7 @@
           an existing Sales Order, all Sales Representatives are listed to
           ensure that the original Sales Representative will still appear
           against the order in cases where the Sales Representative may have
-          been deleted after the creation of the Sales Order. </para>
+          been deleted after the creation of the Sales Order.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -188,6 +188,16 @@
             </listitem>
           </varlistentry>
         </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Type</term>
+      <listitem>
+        <para>Select the Sales Type. Sales Types and the Account Assignments
+        are maintained in Sales Orders Setup.<note>
+            <para>In order to view or maintain the Sales Type, the User needs
+            to have the appropriate privileges.</para>
+          </note></para>
       </listitem>
     </varlistentry>
     <varlistentry>
