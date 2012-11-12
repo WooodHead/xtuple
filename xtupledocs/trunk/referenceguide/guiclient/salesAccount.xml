@@ -83,6 +83,22 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Shipping Zone</term>
+      <listitem>
+        <para>Select a Shipping Zone that the Sales assignment will be
+        associated with. Select Any for the Sales assignment to be assigned
+        regardless of the shipping zone.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Type</term>
+      <listitem>
+        <para>Select a Sales Type to which this Sales Assignment will be
+        applied. Select Any to use the Sales assignment to be assigned to all
+        Sales Types.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Sales Account</term>
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
@@ -104,7 +120,7 @@
         <para>Identify a General Ledger (G/L) Account to assign as the default
         Cost of Sales Account. This is an Expense Account. It will be debited
         when Sales Order Items are shipped. It will be credited when Sales
-        Order Items are returned to Stock&mdash;either through Shipping or the
+        Order Items are returned to Stock—either through Shipping or the
         processing of a Sales Order Credit Memo.</para>
       </listitem>
     </varlistentry>
