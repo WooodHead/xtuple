@@ -7,6 +7,15 @@
 SELECT contrct_id, 
        vend_number, vend_name, 
        contrct.*,
+       CASE WHEN COALESCE(contrct_effective, startOfTime()) <=
+                 startOfTime() THEN <? value("always") ?>
+       END AS contrct_effective_qtdisplayrole,
+       CASE WHEN COALESCE(contrct_expires, endOfTime()) >=
+                 endOfTime() THEN <? value("never") ?>
+       END AS contrct_expires_qtdisplayrole,
+       CASE WHEN (COALESCE(contrct_expires, endOfTime()) < CURRENT_DATE) THEN 'expired'
+            WHEN (COALESCE(contrct_effective, startOfTime()) > CURRENT_DATE) THEN 'future'
+       END AS qtforegroundrole,
        (SELECT count(*) FROM itemsrc WHERE (itemsrc_contrct_id=contrct_id)) AS item_count 
 FROM contrct JOIN vendinfo ON (vend_id=contrct_vend_id)
 WHERE ((true)

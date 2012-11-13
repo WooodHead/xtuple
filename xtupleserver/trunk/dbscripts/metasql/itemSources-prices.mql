@@ -47,10 +47,10 @@ SELECT itemsrcp_id, itemsrc_id,
        END AS itemsrcp_dropship_qtdisplayrole,
        CASE WHEN COALESCE(itemsrc_effective, startOfTime()) <=
                  startOfTime() THEN <? value("always") ?>
-       END AS effective_qtdisplayrole,
+       END AS itemsrc_effective_qtdisplayrole,
        CASE WHEN COALESCE(itemsrc_expires, endOfTime()) >=
                  endOfTime() THEN <? value("never") ?>
-       END AS expires_qtdisplayrole,
+       END AS itemsrc_expires_qtdisplayrole,
        CASE WHEN (COALESCE(itemsrc_expires, endOfTime()) < CURRENT_DATE) THEN 'expired'
             WHEN (COALESCE(itemsrc_effective, startOfTime()) > CURRENT_DATE) THEN 'future'
        END AS qtforegroundrole

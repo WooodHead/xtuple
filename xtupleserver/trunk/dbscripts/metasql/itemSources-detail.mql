@@ -9,7 +9,17 @@ SELECT itemsrc_id,
        item_number, uom_name,
        (item_descrip1 || ' ' || item_descrip2) AS item_descrip,
        contrct_number,
-       itemsrc.*, 'qty' AS itemsrc_invvendoruomratio_xtnumericrole 
+       itemsrc.*,
+       'qty' AS itemsrc_invvendoruomratio_xtnumericrole,
+       CASE WHEN COALESCE(itemsrc_effective, startOfTime()) <=
+                 startOfTime() THEN <? value("always") ?>
+       END AS itemsrc_effective_qtdisplayrole,
+       CASE WHEN COALESCE(itemsrc_expires, endOfTime()) >=
+                 endOfTime() THEN <? value("never") ?>
+       END AS itemsrc_expires_qtdisplayrole,
+       CASE WHEN (COALESCE(itemsrc_expires, endOfTime()) < CURRENT_DATE) THEN 'expired'
+            WHEN (COALESCE(itemsrc_effective, startOfTime()) > CURRENT_DATE) THEN 'future'
+       END AS qtforegroundrole
 FROM itemsrc JOIN vendinfo ON (vend_id=itemsrc_vend_id AND vend_active)
              JOIN item ON (item_id=itemsrc_item_id)
              JOIN uom ON (uom_id=item_inv_uom_id)
