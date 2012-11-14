@@ -204,7 +204,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/itemPricingScheduleItem_discountSelected_prodCat.png" />
+          <imagedata fileref="images/itemPricingScheduleItem_discountSelected_item.png" />
         </imageobject>
         <caption>Item Discounts</caption>
       </mediaobject>
@@ -256,7 +256,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/itemPricingScheduleItem_discountSelected.png" />
+          <imagedata fileref="images/itemPricingScheduleItem_discountSelected_prodCat.png" />
         </imageobject>
         <caption>Product Category Discounts</caption>
       </mediaobject>
@@ -316,6 +316,82 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>Select the "Markup" option to calculate the Price as a markup on the
+  List Cost. When the "Markup" option is selected, you will be presented with
+  the following choices:</para>
+  <para><mediaobject>
+      <imageobject>
+        <imagedata fileref="images/itemPricingScheduleItem_markupSelected.png" />
+      </imageobject>
+      <caption>Markup</caption>
+    </mediaobject></para>
+  <variablelist>
+    <varlistentry>
+      <term>Markup By</term>
+      <listitem>
+        <variablelist>
+          <varlistentry>
+            <term>Item</term>
+            <listitem>
+              <para>Select this option if the Markup depends on the Item that
+              is selected. You will be prompted for the Item Number.</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Item Number</term>
+                  <listitem>
+                    <para>Enter the Item Number to which this Pricing Schedule
+                    Item will be applied.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Product Category</term>
+            <listitem>
+              <para>Select this option if the Markup depends on the Product
+              Category that is selected. You will be prompted for the Product
+              Category.</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Product Category</term>
+                  <listitem>
+                    <para>Enter the Product Category to which this Pricing
+                    Schedule Item will be applied.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. Break (Inventory UOM)</term>
+      <listitem>
+        <para>Enter the lowest quantity that must be purchased for the
+        specified markup to be applied.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Markup Percent (List Cost)</term>
+      <listitem>
+        <para>Enter the Markup Percent that need to be added to the List
+        Cost.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Markup By Fixed Amount</term>
+      <listitem>
+        <para>Enter the Fixed Amount by which the List Cost will be
+        increased.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The List Cost will be increased with the sum of the Markup Percent
+    and the Fixed Amount.</para>
+  </note>
   <para>Select the "Freight" option to create Price breaks for Freight. When
   the "Freight" option is selected, you will be presented with the following
   choices:</para>
@@ -347,8 +423,8 @@
       <term>Flat Rate</term>
       <listitem>
         <para>Select if the Pricing Schedule Item is a flat rate. If selected,
-        you will not need to enter a quantity break&mdash;only the flat rate
-        Price amount.</para>
+        you will not need to enter a quantity break—only the flat rate Price
+        amount.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
