@@ -138,16 +138,16 @@ BEGIN
        SELECT item_number, uom_name,
                item_descrip1, item_descrip2,
                (item_descrip1 || ' ' || item_descrip2) AS itemdescription,
-               SUM(bomwork_qtyreq * (1 + bomwork_scrap)) AS qtyreq,
+               SUM(bomwork_qtyreq) AS qtyreq,
                SUM(bomwork_qtyfxd * (1 + bomwork_scrap)) AS qtyfxd,
                SUM(bomwork_qtyper * (1 + bomwork_scrap)) AS qtyper,
        MAX(bomwork_actunitcost) AS actunitcost,
        MAX(bomwork_stdunitcost) AS stdunitcost,
        CASE WHEN item_type NOT IN ('R','T') THEN
-         SUM(bomwork_actunitcost * (bomwork_qtyfxd/_batchsize + bomwork_qtyper * (1 + bomwork_scrap)))
+         SUM(bomwork_actunitcost * bomwork_qtyreq)
        ELSE 0 END AS actextendedcost,
        CASE WHEN item_type NOT IN ('R','T') THEN
-         SUM(bomwork_stdunitcost * (bomwork_qtyfxd/_batchsize + bomwork_qtyper * (1 + bomwork_scrap)))
+         SUM(bomwork_stdunitcost * bomwork_qtyreq)
        ELSE 0 END AS stdextendedcost,
        bomwork_effective,
        bomwork_expires,

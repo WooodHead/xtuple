@@ -24,9 +24,17 @@ DECLARE
   _bomworkid INTEGER;
   _indexid INTEGER;
   _r RECORD;
+  _batchsize NUMERIC;
 
 BEGIN
 
+  -- Get the batch quantity
+  SELECT COALESCE( (
+    SELECT bomhead_batchsize
+    FROM bomhead
+    WHERE ((bomhead_item_id=pItemId)
+    AND (bomhead_rev_id=pRevisionid)) LIMIT 1),1) INTO _batchsize;
+ 
 --  Check on the temporary workspace
 --  PERFORM maintainBOMWorkspace();
 
@@ -36,6 +44,7 @@ BEGIN
 --  Step through all of the components of the passed pItemid
   FOR _r IN SELECT bomitem.*,
                    item_id,
+                   itemuomtouom(item_id, item_inv_uom_id, NULL, (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap), 'qtyper') AS qtyreq,
                    (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL)
                                * bomitem_qtyfxd) AS qtyfxd,
                    (itemuomtouomratio(bomitem_item_id, bomitem_uom_id, NULL)
@@ -59,7 +68,7 @@ BEGIN
     VALUES
     ( _bomworkid, _indexid, -1, 1,
       0, _r.bomitem_seqnumber,
-      _r.item_id, _r.bomitem_createwo, (_r.qtyfxd + _r.qtyper),
+      _r.item_id, _r.bomitem_createwo, _r.qtyreq,
       _r.qtyfxd, _r.qtyper, _r.bomitem_scrap, _r.bomitem_issuemethod,
       _r.bomitem_effective, _r.bomitem_expires,
       _r.standardcost, _r.actualcost,
