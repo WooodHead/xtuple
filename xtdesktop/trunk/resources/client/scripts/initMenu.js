@@ -127,7 +127,7 @@ initDockSendMessage();
 
 var maintWin = addDesktop("desktopMaintenance", "gear_32", "ViewMaintenanceDesktop");
 initDockExtensions();
-initDockUserOnline();
+//initDockUserOnline();
 
 // Hack to fix icon size problem until next core release
 var maintToolbar = maintWin.findChild("_toolbar");
@@ -242,11 +242,11 @@ function prepareWindowMenu()
   _dockMfgAct.toggleViewAction().visible = (idx == 5);
   _dockMfgHist.toggleViewAction().visible = (idx == 5);
   _dockMfgOpen.toggleViewAction().visible = (idx == 5);
-  _dockExtensions.toggleViewAction().visible = (idx == 6);
+  _dockSendMessage.toggleViewAction().visible = (idx == 6);
+  _dockMessageHistory.toggleViewAction().visible = (idx == 6);
   _dockUserOnline.toggleViewAction().visible = (idx == 6);
-  _dockSendMessage.toggleViewAction().visible = (idx == 7);
-  _dockMessageHistory.toggleViewAction().visible = (idx == 7);
-  _dockUserOnline.toggleViewAction().visible = (idx == 7);
+  _dockExtensions.toggleViewAction().visible = (idx == 7);
+//  _dockUserOnline.toggleViewAction().visible = (idx == 7);
   _menuWindow.addSeparator();
   _menuWindow.addMenu(_menuDesktop);
 }
