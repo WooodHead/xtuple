@@ -5,16 +5,16 @@ DECLARE
   pApopenid ALIAS FOR $1;
   _src RECORD;
   _r RECORD;
-  _totalAmount NUMERIC := 0;
-  _exchGain NUMERIC;
+  _totalAmount NUMERIC := 0.0;
+  _exchGain NUMERIC := 0.0;
   _apaccntid INTEGER;
 
 BEGIN
 
   SELECT apopen_docnumber, (apopen_amount - apopen_paid) AS balance,
-         SUM(currtocurr(apcreditapply_curr_id, apopen_curr_id,
-				 apcreditapply_amount, CURRENT_DATE)) AS toApply,
-	 SUM(apcreditapply_amount) AS junk,
+--         SUM(currtocurr(apcreditapply_curr_id, apopen_curr_id,
+--				 apcreditapply_amount, CURRENT_DATE)) AS toApply,
+	 SUM(apcreditapply_amount) AS toApply,
 	 apopen_curr_rate INTO _src
   FROM apopen, apcreditapply
   WHERE ( (apcreditapply_source_apopen_id=apopen_id)
@@ -27,8 +27,8 @@ BEGIN
     RETURN -2;
   ELSIF (_src.toApply > _src.balance) THEN
     RETURN -3;
-  ELSIF (_src.toApply IS NULL AND _src.junk IS NOT NULL) THEN
-    RETURN -4;		-- missing exchange rate
+--  ELSIF (_src.toApply IS NULL AND _src.junk IS NOT NULL) THEN
+--    RETURN -4;		-- missing exchange rate
   ELSIF (_src.toApply IS NULL) THEN
     RETURN -6;		-- amount to apply is NULL for some unknown reason
   END IF;
@@ -45,7 +45,7 @@ BEGIN
 		   apcreditapply_amount AS apply_amountSource,
                    currToCurr(apcreditapply_curr_id, apopen_curr_id,
                               apcreditapply_amount, CURRENT_DATE) AS apply_amountTarget,
-                   apopen_id, apopen_doctype, apopen_docnumber, apopen_curr_rate, apopen_docdate
+                   apopen_id, apopen_doctype, apopen_docnumber, apopen_curr_id, apopen_curr_rate, apopen_docdate
             FROM apcreditapply, apopen
             WHERE ( (apcreditapply_source_apopen_id=pApopenid)
              AND (apcreditapply_target_apopen_id=apopen_id) ) LOOP
@@ -101,10 +101,12 @@ BEGIN
   WHERE ( (apopen_id=pApopenid)
     AND (apopen_amount <= apopen_paid) );
 
-  IF (_r.apopen_docdate > _src.apopen_docdate) THEN
-    _exchGain := (_totalAmount / _r.apopen_curr_rate - _totalAmount / _src.apopen_curr_rate) * -1;
-  ELSE
-    _exchGain := _totalAmount / _src.apopen_curr_rate - _totalAmount / _r.apopen_curr_rate;
+  IF (_r.apopen_curr_id = _src.apopen_curr_id) THEN
+    IF (_r.apopen_docdate > _src.apopen_docdate) THEN
+      _exchGain := (_totalAmount / _r.apopen_curr_rate - _totalAmount / _src.apopen_curr_rate) * -1;
+    ELSE
+      _exchGain := _totalAmount / _src.apopen_curr_rate - _totalAmount / _r.apopen_curr_rate;
+    END IF;
   END IF;
 
   IF (_src.apopen_accnt_id > -1) THEN
