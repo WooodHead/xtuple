@@ -63,7 +63,7 @@ to be bound by its terms.</comment>
           <string>Items</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">pd.listItems</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -85,7 +85,7 @@ to be bound by its terms.</comment>
           <string>Bill of Materials</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">pd.listBOMs</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -156,7 +156,7 @@ to be bound by its terms.</comment>
           <string>Site</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">im.warehouse</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -178,7 +178,7 @@ to be bound by its terms.</comment>
           <string>Locations</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">im.warehousesLocations</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string>dspBillingSelections</string>
@@ -249,7 +249,7 @@ to be bound by its terms.</comment>
           <string>Schedules</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">so.pricingSchedules</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -271,7 +271,7 @@ to be bound by its terms.</comment>
           <string>Assignments</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">so.pricingScheduleAssignments</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -342,7 +342,7 @@ to be bound by its terms.</comment>
           <string>Users</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">sys.maintainUsers</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -364,7 +364,7 @@ to be bound by its terms.</comment>
           <string>Roles</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">sys.maintainGroups</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -435,7 +435,7 @@ to be bound by its terms.</comment>
           <string>Currencies</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">sys.currencies</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -457,7 +457,7 @@ to be bound by its terms.</comment>
           <string>Exchange Rates</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">sys.exchangeRates</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -528,7 +528,7 @@ to be bound by its terms.</comment>
           <string>Commands</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">sys.customCommands</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -547,7 +547,7 @@ to be bound by its terms.</comment>
           <string>Scripts</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">sys.scripts</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -569,7 +569,7 @@ to be bound by its terms.</comment>
           <string>Screens</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">sys.uiforms</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -591,7 +591,7 @@ to be bound by its terms.</comment>
           <string>Reports</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">sys.reports</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -613,7 +613,7 @@ to be bound by its terms.</comment>
           <string>MetaSQL</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true">sys.metasqls</string>
+          <string notr="true"/>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -645,40 +645,6 @@ to be bound by its terms.</comment>
      </property>
      <item row="0" column="0">
       <widget class="XTreeWidget" name="_extensions">
-       <property name="populateLinear">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QDockWidget" name="_dockUserOnline">
-   <property name="windowTitle">
-    <string>Users Online</string>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>8</number>
-   </attribute>
-   <widget class="QWidget" name="_dockUserOnlineContents">
-    <layout class="QGridLayout" name="gridLayout_10">
-     <property name="leftMargin">
-      <number>0</number>
-     </property>
-     <property name="topMargin">
-      <number>0</number>
-     </property>
-     <property name="rightMargin">
-      <number>0</number>
-     </property>
-     <property name="bottomMargin">
-      <number>3</number>
-     </property>
-     <property name="verticalSpacing">
-      <number>3</number>
-     </property>
-     <item row="0" column="0" colspan="2">
-      <widget class="XTreeWidget" name="_userOnline">
        <property name="populateLinear">
         <bool>false</bool>
        </property>
@@ -720,6 +686,7 @@ to be bound by its terms.</comment>
    <class>XTreeWidget</class>
    <extends>QTreeWidget</extends>
    <header>xtreewidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>
