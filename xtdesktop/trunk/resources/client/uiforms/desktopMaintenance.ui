@@ -63,7 +63,7 @@ to be bound by its terms.</comment>
           <string>Items</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">pd.listItems</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -85,7 +85,7 @@ to be bound by its terms.</comment>
           <string>Bill of Materials</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">pd.listBOMs</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -156,7 +156,7 @@ to be bound by its terms.</comment>
           <string>Site</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">im.warehouse</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -178,7 +178,7 @@ to be bound by its terms.</comment>
           <string>Locations</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">im.warehousesLocations</string>
          </property>
          <property name="ui" stdset="0">
           <string>dspBillingSelections</string>
@@ -249,7 +249,7 @@ to be bound by its terms.</comment>
           <string>Schedules</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">so.pricingSchedules</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -271,7 +271,7 @@ to be bound by its terms.</comment>
           <string>Assignments</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">so.pricingScheduleAssignments</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -342,7 +342,7 @@ to be bound by its terms.</comment>
           <string>Users</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">sys.maintainUsers</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -364,7 +364,7 @@ to be bound by its terms.</comment>
           <string>Roles</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">sys.maintainGroups</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -435,7 +435,7 @@ to be bound by its terms.</comment>
           <string>Currencies</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">sys.currencies</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -457,7 +457,7 @@ to be bound by its terms.</comment>
           <string>Exchange Rates</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">sys.exchangeRates</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -528,7 +528,7 @@ to be bound by its terms.</comment>
           <string>Commands</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">sys.customCommands</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -547,7 +547,7 @@ to be bound by its terms.</comment>
           <string>Scripts</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">sys.scripts</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -569,7 +569,7 @@ to be bound by its terms.</comment>
           <string>Screens</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">sys.uiforms</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -591,7 +591,7 @@ to be bound by its terms.</comment>
           <string>Reports</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">sys.reports</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -613,7 +613,7 @@ to be bound by its terms.</comment>
           <string>MetaSQL</string>
          </property>
          <property name="actionName" stdset="0">
-          <string notr="true"/>
+          <string notr="true">sys.metasqls</string>
          </property>
          <property name="ui" stdset="0">
           <string/>
@@ -686,7 +686,6 @@ to be bound by its terms.</comment>
    <class>XTreeWidget</class>
    <extends>QTreeWidget</extends>
    <header>xtreewidget.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>
