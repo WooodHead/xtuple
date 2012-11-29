@@ -181,7 +181,7 @@ BEGIN
 
   -- Get the cost average
   IF (pReqStdCost) THEN
-    SELECT stdcost(itemsite_item_id) INTO _cost
+    SELECT stdcost(itemsite_item_id) * _qty INTO _cost
     FROM womatl, itemsite
     WHERE((womatl_itemsite_id=itemsite_id)
       AND (womatl_id=pWomatlid));
