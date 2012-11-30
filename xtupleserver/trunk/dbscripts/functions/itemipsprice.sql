@@ -100,7 +100,7 @@ BEGIN
                 JOIN ipsiteminfo ON (ipsitem_ipshead_id=ipshead_id)
     WHERE ((ipsitem_item_id=_item.item_id) OR (ipsitem_prodcat_id=_item.item_prodcat_id))
       AND (_asof BETWEEN ipshead_effective AND ipshead_expires)
-      AND ((ipsitem_warehous_id=pSiteid) OR (pSiteid IS NULL))
+      AND ((ipsitem_warehous_id=pSiteid) OR (ipsitem_warehous_id IS NULL))
       AND ( (ipsass_shipto_id=_shipto.shipto_id)
        OR   ((COALESCE(LENGTH(ipsass_shipto_pattern), 0) > 0) AND (_shipto.shipto_num ~ ipsass_shipto_pattern))
        OR   (ipsass_cust_id=_cust.cust_id)
