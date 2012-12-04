@@ -102,7 +102,7 @@ class CSVDataPrivate
               col = 0;
             }
           }
-          else if('"' == c)
+          else if(('"' == c) && (_parent->delimiter() != '\t'))
           {
             if (line.at(i + 1) == '"')
             {
