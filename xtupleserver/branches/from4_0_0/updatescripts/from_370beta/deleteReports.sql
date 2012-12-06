@@ -1,0 +1,1 @@
+delete from report where report_name='ItemSitesByParameterList' and report_grade=0;

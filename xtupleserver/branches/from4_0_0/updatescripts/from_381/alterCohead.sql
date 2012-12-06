@@ -1,0 +1,1 @@
+alter table cohead alter column cohead_shipform_id drop not null;
