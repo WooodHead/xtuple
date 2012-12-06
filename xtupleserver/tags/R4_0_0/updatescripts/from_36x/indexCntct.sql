@@ -1,0 +1,1 @@
+CREATE INDEX cntct_email_idx ON cntct USING btree (cntct_email);
