@@ -1,0 +1,5 @@
+BEGIN;
+
+ALTER TABLE vendinfo ADD COLUMN vend_ediemailhtml BOOLEAN DEFAULT false NOT NULL;
+
+COMMIT;

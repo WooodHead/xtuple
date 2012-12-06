@@ -1,0 +1,11 @@
+-- Group: updateReorderLevels
+-- Name:  post
+-- Notes: itemsite with new reorder level
+
+UPDATE itemsite SET
+  itemsite_reorderlevel=CAST(<? value("itemsite_reorderlevel") ?> AS numeric),
+  itemsite_stocked=CASE WHEN (CAST(<? value("itemsite_reorderlevel") ?> AS numeric) = 0) THEN false
+                        ELSE itemsite_stocked END,
+  itemsite_useparams=CASE WHEN (CAST(<? value("itemsite_reorderlevel") ?> AS numeric) = 0) THEN false
+                          ELSE itemsite_useparams END
+WHERE (itemsite_id=<? value("itemsite_id") ?>)

@@ -1,0 +1,1 @@
+ALTER TABLE cashrcptitem ADD COLUMN cashrcptitem_discount NUMERIC(20, 2) NOT NULL DEFAULT 0.00;

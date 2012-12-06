@@ -1,0 +1,6 @@
+BEGIN;
+
+ALTER TABLE url ADD COLUMN url_stream bytea;
+ALTER TABLE url ALTER COLUMN url_stream SET STORAGE EXTENDED;
+
+COMMIT;
