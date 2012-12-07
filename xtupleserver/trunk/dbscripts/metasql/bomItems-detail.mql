@@ -37,8 +37,8 @@ SELECT bomitem_id, item_id, *,
             ELSE bomitem_expires END AS expires,
        <? value("always") ?> AS effective_xtnullrole,
        <? value("never") ?>  AS expires_xtnullrole,
-       CASE WHEN (bomitem_expires < CURRENT_DATE) THEN 'expired'
-            WHEN (bomitem_effective >= CURRENT_DATE) THEN 'future'
+       CASE WHEN (bomitem_expires <= CURRENT_DATE) THEN 'expired'
+            WHEN (bomitem_effective > CURRENT_DATE) THEN 'future'
             WHEN (item_type='M') THEN 'altemphasis'
        END AS qtforegroundrole
 <? if exists("booitem_id") ?>
