@@ -8,7 +8,8 @@ SELECT orderid, altorderid, ordertype, ordernumber, sequence, item_number,
        duedate, qtyordered,  qtyreceived, balance,
        balance AS runningavail,
 <? if exists("isReport") ?>
-       formatDate(duedate) AS f_duedate,
+       CASE WHEN duedate = startOfTime() THEN ''
+            ELSE formatDate(duedate) END AS f_duedate,
        formatQty(qtyordered) AS f_qtyordered,
        formatQty(qtyreceived) AS f_qtyreceived,
        formatQty(balance) AS f_balance,
