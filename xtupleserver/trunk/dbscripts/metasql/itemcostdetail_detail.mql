@@ -20,16 +20,17 @@ FROM uom, item, (
   <? if exists("standardCost") ?>
             itemcost_stdcost AS cost,
             (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
-                          (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap), 'qtyper') * itemcost_stdcost) AS extendedcost
+                          (bomitem_qtyfxd/bomhead_batchsize + bomitem_qtyper) * (1 + bomitem_scrap), 'qtyper') * itemcost_stdcost) AS extendedcost
   <? elseif exists("actualCost") ?>
             currToBase(itemcost_curr_id, itemcost_actcost, NULL) AS cost,
             (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL,
-                          (bomitem_qtyfxd/_batchsize + bomitem_qtyper) * (1 + bomitem_scrap), 'qtyper') *
+                          (bomitem_qtyfxd/bomhead_batchsize + bomitem_qtyper) * (1 + bomitem_scrap), 'qtyper') *
              currToBase(itemcost_curr_id, itemcost_actcost, NULL)) AS extendedcost 
   <? endif ?>
     FROM bomitem
          JOIN itemcost ON (itemcost_item_id=bomitem_item_id)
          JOIN costelem ON (itemcost_costelem_id=costelem_id)
+         JOIN bomhead ON (bomhead_item_id=bomitem_parent_item_id AND bomhead_rev_id=bomitem_rev_id)
   <? if exists("includeRevisionControl") ?>
     LEFT OUTER JOIN rev ON ((bomitem_rev_id=rev_id) AND (COALESCE(rev_status, 'A')='A')) 
   <? endif ?>
