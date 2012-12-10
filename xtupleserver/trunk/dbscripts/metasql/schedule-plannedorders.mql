@@ -116,5 +116,12 @@
  <? if exists("soldOnly") ?>
     AND (item_sold)
  <? endif ?>
+ <? if exists("type_list") ?>
+    AND (
+   <? foreach("type_list") ?>
+    (planord_type=<? value("type_list") ?>) OR
+   <? endforeach ?>
+    FALSE )
+ <? endif ?>
   ) ) AS data
  ORDER BY planord_duedate, item_number;
