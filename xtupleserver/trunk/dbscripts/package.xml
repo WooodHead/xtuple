@@ -1677,6 +1677,7 @@
   <createtrigger file="triggers/coitem.sql"       name="soitemtrigger" />
   <createtrigger file="triggers/comment.sql"      name="commenttrigger" />
   <createtrigger file="triggers/company.sql"      name="companytrigger" />
+  <createtrigger file="triggers/contrct.sql"      name="contrctaftertrigger" />
   <createtrigger file="triggers/crmacct.sql"      name="crmacctbeforetrigger" />
   <createtrigger file="triggers/curr_rate.sql"    name="currexchangecheckoverlap" />
   <createtrigger file="triggers/curr_symbol.sql"  name="curronebase" />
@@ -1731,6 +1732,7 @@
   <createtrigger file="triggers/recur.sql"        name="recuraftertrigger" />
   <createtrigger file="triggers/report.sql"       name="reporttrigger" />
   <createtrigger file="triggers/salesrep.sql"     name="salesrepbeforetrigger" />
+  <createtrigger file="triggers/saletype.sql"     name="saletypebeforedeletetrigger" />
   <createtrigger file="triggers/shipdata.sql"     name="shipdatatrigger" />
   <createtrigger file="triggers/shipdatasum.sql"  name="shipdatasumtrigger" />
   <createtrigger file="triggers/shipform.sql"     name="shipformafterdeletetrigger" />
@@ -1830,6 +1832,7 @@
   <loadreport file="reports/CheckRegister.xml" />
   <loadreport file="reports/ClassCodesMasterList.xml" />
   <loadreport file="reports/ContactsMasterList.xml" />
+  <loadreport file="reports/Contracts.xml" />
   <loadreport file="reports/CostCategoriesMasterList.xml" />
   <loadreport file="reports/CostedIndentedBOM.xml" />
   <loadreport file="reports/CostedSingleLevelBOM.xml" />
@@ -1976,6 +1979,7 @@
   <loadreport file="reports/SalesOrderAcknowledgement.xml" />
   <loadreport file="reports/SalesOrderStatus.xml" />
   <loadreport file="reports/SalesRepsMasterList.xml" />
+  <loadreport file="reports/SaleTypesMasterList.xml" />
   <loadreport file="reports/SelectPaymentsList.xml" />
   <loadreport file="reports/SelectedPaymentsList.xml" />
   <loadreport file="reports/ShipToMasterList.xml" />
