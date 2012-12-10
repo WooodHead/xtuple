@@ -13,7 +13,10 @@ BEGIN
   BEGIN
   FOR _bomitem IN SELECT bomitem_parent_item_id
                     FROM bomitem
-                   WHERE (bomitem_item_id=pItemid) LOOP
+                   WHERE ((bomitem_item_id=pItemid)
+                     AND  (bomitem_rev_id=getActiveRevId('BOM',bomitem_parent_item_id))
+                     AND  (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1)))
+  LOOP
     SELECT bomLevelByItem(_bomitem.bomitem_parent_item_id) + 1 INTO _result;
     IF (_result > _cnt) THEN
       _cnt := _result;
@@ -44,7 +47,9 @@ BEGIN
   FOR _bomitem IN SELECT bomitem_parent_item_id
                     FROM bomitem
                    WHERE ((bomitem_item_id=pItemid)
-                     AND  (bomitem_rev_id=pBomrevid)) LOOP
+                     AND  (bomitem_rev_id=pBomrevid)
+                     AND  (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1)))
+  LOOP
     SELECT bomLevelByItem(_bomitem.bomitem_parent_item_id, pBomrevid) + 1 INTO _result;
     IF (_result > _cnt) THEN
       _cnt := _result;
