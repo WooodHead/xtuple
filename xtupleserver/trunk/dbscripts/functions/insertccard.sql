@@ -24,7 +24,7 @@ DECLARE
 
 BEGIN
   --Initialize
-  _number = pNumber;
+  _number = CAST(encode(pNumber, 'escape') AS text);
   _month = CAST(encode(pMonth, 'escape') AS integer);
   _year = CAST(encode(pYear, 'escape') AS integer);
 
@@ -53,7 +53,7 @@ BEGIN
   IF (_month < 1 OR _month > 12) THEN
       RAISE EXCEPTION 'Valid Expiration Months are 01 through 12';
   END IF;
-  IF (LENGTH(pYear) <> 4) THEN
+  IF (LENGTH(_year::text) <> 4) THEN
       RAISE EXCEPTION 'Valid Expiration Years are CCYY in format';
   END IF;
   IF (_year < 1970 OR _year > 2100) THEN
