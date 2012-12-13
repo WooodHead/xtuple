@@ -35,7 +35,7 @@
   WHERE (saletype_id=<? value("saletype_id") ?>);
 
 <? elseif exists("DeleteMode") ?>
-  SELECT deleteSaleType(<? value("saletype_id") ?>) AS result;
+  DELETE FROM saletype WHERE saletype_id=<? value("saletype_id") ?>;
 
 <? elseif exists("DeleteUnusedMode") ?>
   SELECT deleteUnusedSaleTypes() AS result;
