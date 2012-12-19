@@ -26,14 +26,18 @@ Enhanced Job Costing functionality
   * Job Costing for child Work Orders
 
 Log in changes
-  * SSL encryption now required for login, client option removed
-  * Logins always try enhanced authentication first. If that 
-    fails then the client tries to log in without enhanced 
-    authentication.
+  * SSL encryption now the default mode for log in
 
 Multiple Project updates
   * Ability to copy Projects
   * And more ...
+
+NOTE: System adminstrators and other implementers should also be 
+aware that the database views and script toolbox methods we warned 
+you were going to be removed have been restored and will continue 
+to be available in the 4.0 Final release—as they were in 3.8.x and 
+prior. This means your custom scripts and reports do not need to be 
+revised to match the new method.
 
 ==================================
 The following features and bug fixes have been added to the 
