@@ -104,8 +104,8 @@ BEGIN
     END LOOP;
   END IF;
 
-  SELECT CASE WHEN (pQty < 0 AND itemsite_costmethod='S') THEN stdcost(itemsite_item_id)
-              WHEN (pQty < 0) THEN avgcost(itemsite_id)
+  SELECT CASE WHEN (pQty < 0 AND itemsite_costmethod='S') THEN stdcost(itemsite_item_id) * pQty
+              WHEN (pQty < 0) THEN avgcost(itemsite_id) * pQty
               WHEN (wo_cosmethod = 'D') THEN wo_wipvalue
               ELSE  round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord -
                     CASE WHEN (wo_qtyord < wo_qtyrcv + pQty) THEN wo_qtyord
