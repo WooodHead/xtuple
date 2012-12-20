@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section528735">
+  <title><indexterm significance="normal">
+      <primary>sales history</primary>
+      <secondary>reporting on</secondary>
+    </indexterm> Sales History</title>
+  <para>The "Sales History" screen offers a wide range of options for locating
+  and analyzing sales history information. Here are some tips for using this
+  screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Be sure to enable all the column headers you want to see in order
+      to take full advantage of the data available on this screen.</para>
+    </listitem>
+    <listitem>
+      <para>Isolate the sales information you're looking for by building a
+      custom search filter.</para>
+    </listitem>
+    <listitem>
+      <para>Don't forget to save your custom search filters so you and others
+      in your organization can use them for future searches.</para>
+    </listitem>
+    <listitem>
+      <para>Prices are normalized to the Base Currency using the Currency
+      Exchange Rate effective on the Invoice Date.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Sales History" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspSalesHistory.png" />
+        </imageobject>
+        <caption>Sales History</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Sales History" screen shows all
+  transactions for the current day. You can build your own search criteria
+  using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="salesHistoryInformation.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

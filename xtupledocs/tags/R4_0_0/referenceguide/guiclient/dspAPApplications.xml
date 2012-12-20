@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>checks</primary>
+      <secondary>application of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>credit memos</primary>
+      <secondary>application of</secondary>
+    </indexterm>Payables Applications</title>
+  <para>To view details concerning the application of Checks and Credit Memos
+  to open Payables, select the "Payables Applications" option. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspAPApplications.png" />
+        </imageobject>
+        <caption>Payables Applications</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing Payables application details, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Vendor</term>
+      <listitem>
+        <para>Select all or specific Vendors whose Payables Applications you would
+        like to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Payables applications made on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Payables applications made on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Checks</term>
+      <listitem>
+        <para>Select to display only Check application details.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Credit Memos</term>
+      <listitem>
+        <para>Select to display only Credit Memo application details.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Accounts Payable Applications</term>
+      <listitem>
+        <para>Display lists Payables application details, using the specified
+        parameters. The amount of each Payables Application is displayed in the
+        document's Currency. The total amount of all applications during the
+        period will display, normalized to the Base Currency using the
+        Currency Exchange Rate effective on the document's Posting Date, at
+        the bottom of the screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

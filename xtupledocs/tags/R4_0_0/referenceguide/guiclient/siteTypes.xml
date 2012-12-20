@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="siteTypesTitle">
+  <title><indexterm significance="normal">
+      <primary>site types</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Site Types</title>
+  <para>Because Sites may serve multiple purposes&mdash;as warehouses, stores,
+  etc.&mdash;the concept of Site Types allows you to categorize how Sites are used.
+  To access the master list of Site Types, select the "Site Types" option. The
+  following screen will appear.</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/siteTypes.png" />
+        </imageobject>
+        <caption>Site Types Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The Site Types screen displays information on all existing Site Types,
+  including Site Type code and Site Type description.</para>
+  <xi:include href="siteType.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

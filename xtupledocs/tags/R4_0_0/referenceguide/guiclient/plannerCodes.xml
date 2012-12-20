@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section555000">
+  <title><indexterm significance="normal">
+      <primary>planner codes</primary>
+      <secondary>in master scheduling</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>planner codes</primary>
+      <secondary>master list of</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>planners</primary>
+      <secondary>codes for</secondary>
+    </indexterm>Planner Codes</title>
+  <para>Planner Codes are used to identify Items that fall under the
+  jurisdiction of planners&mdash;that is, Employees responsible for planning,
+  scheduling, or procurement. Here are some tips for creating and managing
+  your Planner Codes:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Create your Planner Codes using a logical, hierarchical structure.
+      This will make it easier to retrieve Planner Code information in the
+      future.</para>
+    </listitem>
+    <listitem>
+      <para role="standard">If you want requirements to be created for Planned
+      Work Orders, the option "Automatically Explode Planned Orders" must be
+      selected. If not selected, Planned Work Orders will not be exploded.
+      This means that Planned Orders for lower level material requirements
+      will not be generated when MRP is run.</para>
+    </listitem>
+    <listitem>
+      <para role="standard">If you are running MRP by Planner Code, the
+      explosion level setting may not make a difference&mdash;depending on how
+      your Planner Codes are assigned. For example, if all your Items fall
+      within the same Planner Code, Planned Orders will be generated for all
+      levels of requirements&mdash;regardless of whether single or multiple
+      level explosion is set. The same does not hold true when running MRP by
+      Item.</para>
+    </listitem>
+  </itemizedlist>
+  <para>To access the master list of Planner Codes, select the "Planner Codes"
+  option. The following screen will appear:</para>
+  <para><screenshot id="Figure555004">
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/plannerCodes.png" />
+        </imageobject>
+        <caption><para>Planner Codes Master List</para></caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Planner Codes" screen displays information on all existing
+  Planner Codes, including Planner Code and Planner Code description.</para>
+  <xi:include href="plannerCode.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section role="manufacturing">
+  <title><indexterm significance="normal">
+      <primary>lead times</primary>
+      <secondary>analysis of</secondary>
+    </indexterm> Lead Time Analysis</title>
+  <para>The "Lead Time Analysis" screen helps you get a better picture of the
+  Lead Times&mdash;both cumulative and individual&mdash;for complex Bills of
+  Materials. To analyze your Lead Times, select the "Lead Time Analysis"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/ltanalysis.png" />
+        </imageobject>
+        <caption>Lead Time Analysis</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When analyzing Lead Times, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose Lead Times you want to
+        analyze.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Lead Times</term>
+      <listitem>
+        <para>Display lists Lead Times for the specified Item and its
+        underlying components. This display is a nested list, with a plus
+        ("+") sign located to the far left of the display next to each
+        manufactured Item. By clicking your mouse on a plus sign, you reveal
+        lower levels of information related to the Item. Rows of information
+        are color-coded for ease of use. Subassemblies are green, purchased
+        Items are blue, and Items having the maximum Lead Time are red.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

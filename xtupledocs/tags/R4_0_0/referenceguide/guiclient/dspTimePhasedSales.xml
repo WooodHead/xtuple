@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519194">
+  <title><indexterm significance="normal">
+      <primary>sales history</primary>
+      <secondary>time-phased reporting</secondary>
+    </indexterm> Time-Phased Sales History</title>
+  <para>The "Time-Phased Sales History" screen provides a time-phased
+  perspective on your historical sales activity. Here are some tips for using
+  this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>When selecting a Calendar from the list, make sure to also select
+      corresponding periods.</para>
+    </listitem>
+    <listitem>
+      <para>The type of Calendar and number of Calendar periods you choose to
+      display may have an impact on response time. The data may take longer to
+      display, depending on the time frame requested.</para>
+    </listitem>
+    <listitem>
+      <para>Calendars are defined under the System module setup screen.</para>
+    </listitem>
+    <listitem>
+      <para>Prices are normalized to the Base Currency using the Currency
+      Exchange Rate effective on the Order Date.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Time-Phased Sales History"
+  screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspTimePhasedSales.png" />
+        </imageobject>
+        <caption>Time-Phased Sales History</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The following options on this screen are a supplement to the choices
+  available under the search filter:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Group By</term>
+      <listitem>
+        <para>Specify how you want the information grouped: by Customer,
+        Product Category, or Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Units</term>
+      <listitem>
+        <para>Specify the units you want to see the results sorted by: Sales
+        Dollars, Inventory, Capacity, Alternate Capacity</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Calendar</term>
+      <listitem>
+        <para>Select the Calendar you want to use for the report. Associated
+        Calendar periods will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name/Selected Periods</term>
+      <listitem>
+        <para>Select as many periods as you want to display. Selected periods
+        correspond to Calendar specified in the "Calendar" field. Select
+        individual periods or groups of periods together. To select an
+        individual period, highlight the period using your mouse button. The
+        period is now selected. To select a sequence of periods, highlight the
+        first in the sequence using your mouse button. Then, holding down the
+        SHIFT key on your keyboard, highlight the last period in the sequence.
+        The entire sequence is now selected. To select periods that are out of
+        sequence (e.g., January, April, July, October), highlight the first
+        period in the group. Then, holding down the CTRL key on your keyboard,
+        highlight the next period you want to select. Continue highlighting
+        periods with the CTRL key depressed until all desired periods are
+        selected. The entire group is now selected.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The default filter on the "Time-Phased Sales" screen shows all sales
+  for the specified Calendar period(s). You can build your own search criteria
+  using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

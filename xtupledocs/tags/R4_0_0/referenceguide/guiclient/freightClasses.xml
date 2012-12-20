@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>freight classes</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Freight Classes</title>
+  <para>To access the master list of Freight Classes, select the "Freight
+  Classes" option. The following screen will appear.</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/freightClasses.png" />
+        </imageobject>
+        <caption>Freight Classes Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The Freight Classes screen displays information on all existing
+  Freight Classes, including Freight Class and Freight Class
+  description.</para>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>DELETE UNUSED</term>
+      <listitem>
+        <para>Select to delete all unused Freight Classes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="freightClass.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

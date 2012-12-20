@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter id="mobile.dev.setup">
+  <chapterinfo>
+    <corpauthor>xTuple</corpauthor>
+    <copyright>
+      <year>OpenMFG, LLC d/b/a xTuple</year>
+    </copyright>
+  </chapterinfo>
+  <title>Mobile Web Development Environment Setup</title>
+  <para>xTuple's Mobile Web application is very different from the xTuple ERP
+  desktop client. They have different software architectures, use different
+  tools and development languages, and have different run-time environments.
+  This chapter outlines how to set up a development environment for
+  contributing to the xTuple Mobile Web application development effort.</para>
+  <para>For the time being these instructions are limited to creating an
+  Ubuntu Linux work environment. This gives us a consistent platform on which
+  to develop, test, and otherwise collaborate. Future versions might expand
+  the description to other environments.</para>
+  <para>We strongly encourage everybody to work in a virtual machine rather
+  than directly in a workstation host environment. This will isolate your
+  xTuple mobile web development environment from your other work, allowing you
+  to start and stop daemons, reboot your development environment, have
+  completely isolated development environments, test multi-host interactions,
+  etc.</para>
+  <para>The xTuple Mobile Web development team will try to maintain a baseline
+  working virtual machine (VM) that can be used by anybody who wants to start
+  development. The following instructions are split into three main sections:
+  setting yourself up to work with the master Git repositories on GitHub (very
+  short), creating the baseline VM, and personalizing the VM for use by an
+  individual developer.</para>
+  <para>This chapter puts all of the source code in <filename>~/src</filename>
+  (<literal>~</literal> stands for your home directory). There are lots of
+  ways to organize your files. However you choose to do so, pick a scheme and
+  stick with it. Make sure your scheme plans for the future. It should allow
+  you to work on multiple releases simultaneously, switch database versions
+  with little effort, work on different projects (e.g. mobile and desktop),
+  etc., all without forcing any particular directory to get too broad.
+  <quote>A foolish consistency is the hobgoblin of little minds...</quote>
+  (Emerson) but a smart consistency will save you time and effort.</para>
+  <note>
+    <para>Version numbers of various components that we use will change over
+    time. This chapter uses <literal>XYZ</literal> in file and directory names
+    to represent the version number of the applicable software. If directions
+    need to refer to two different components, the first will be
+    <literal>XYZ</literal> and the second <literal>UVW</literal>. For example,
+    the section below describing PostgreSQL refers to a directory
+    <literal>pgXYZ</literal>. For PostgreSQL 9.1.6 this means you should type
+    <filename>pg916</filename>.</para>
+  </note>
+  <section>
+    <title>Set Up on GitHub</title>
+    <note>
+      <para>This section is only required once per person. If you have already
+      set yourself up as a GitHub user and forked the xTuple project code,
+      skip ahead to the next section.</para>
+    </note>
+    <para>The xTuple mobile web client files are maintained on <ulink
+    url="https://github.com">github.com</ulink>. If this is your first time
+    working on this project, set yourself up as described in <xref
+    linkend="mobile.scm.setup" />. To summarize the process:</para>
+    <orderedlist>
+      <listitem>
+        <para>Log in to <ulink
+        url="https://github.com">github.com</ulink></para>
+      </listitem>
+      <listitem>
+        <para>Navigate to the xTuple project: <ulink
+        url="https://github.com/xtuple/">https://github.com/xtuple/</ulink></para>
+      </listitem>
+      <listitem>
+        <para>Fork the client repository:</para>
+        <orderedlist>
+          <listitem>
+            <para>Click on <guibutton>client</guibutton></para>
+          </listitem>
+          <listitem>
+            <para>Click on <guibutton>Fork</guibutton> in the upper right-hand
+            corner of the browser window</para>
+          </listitem>
+          <listitem>
+            <para>Click the <guibutton>Fork to your-username</guibutton>
+            button</para>
+          </listitem>
+        </orderedlist>
+      </listitem>
+      <listitem>
+        <para>Return to the xTuple project and repeat the forking process for
+        the other xTuple code repositories.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+  <section>
+    <title>Creating a Baseline Virtual Machine</title>
+    <para></para>
+    <section>
+      <title>Create a Virtual Machine</title>
+      <para>Download and install Oracle VirtualBox. If you already run Linux
+      on your workstation, your distribution may have VirtualBox packages
+      which you can install with your package manager. Otherwise you can get
+      VirtualBox from its website:</para>
+      <orderedlist>
+        <listitem>
+          <para>Go to <ulink
+          url="https://www.virtualbox.org/">www.virtualbox.org</ulink></para>
+        </listitem>
+        <listitem>
+          <para>Click <guibutton>Downloads</guibutton></para>
+        </listitem>
+        <listitem>
+          <para>Click on the link for the VirtualBox platform package for your
+          workstation environment</para>
+        </listitem>
+        <listitem>
+          <para>Install VirtualBox from the downloaded file as app</para>
+        </listitem>
+      </orderedlist>
+      <para>Now get an Ubuntu 12.x distribution to set up your VM:</para>
+      <orderedlist>
+        <listitem>
+          <para>Go to <ulink
+          url="http://www.ubuntu.com/download/">www.ubuntu.com/download</ulink></para>
+        </listitem>
+        <listitem>
+          <para>Click on <guibutton>Ubuntu Desktop</guibutton></para>
+        </listitem>
+        <listitem>
+          <para>For "Choose your flavour", select 64 bit unless your
+          workstation has a 32 bit CPU</para>
+        </listitem>
+        <listitem>
+          <para>Click on <guibutton>Get Ubuntu 12.04 LTS</guibutton></para>
+        </listitem>
+        <listitem>
+          <para>If the website asks for a donation, decide whether to
+          contribute or <guibutton>Not now, take me to the
+          download</guibutton></para>
+        </listitem>
+        <listitem>
+          <para>Remember where the download process puts the Ubuntu .iso
+          file</para>
+        </listitem>
+      </orderedlist>
+      <para>Start VirtualBox to create the new VM. You'll need to mount the
+      Ubuntu .iso file as the boot device when the VM first starts up. Along
+      the way, VirtualBox will ask you to set some basic parameters for the
+      VM. Make sure to allocate enough disk space, as this is harder to adjust
+      later than some of the other features of the VM. Take the following
+      steps after VirtualBox starts:</para>
+      <orderedlist>
+        <listitem>
+          <para>Click the <guibutton>New</guibutton> button in the
+          toolbar</para>
+        </listitem>
+        <listitem>
+          <para>Go through the Create Virtual Machine wizard and use the
+          following settings:</para>
+          <variablelist>
+            <varlistentry>
+              <term>Name</term>
+              <listitem>
+                <para>Pick a name that will help you distinguish this VM from
+                others like it</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Type</term>
+              <listitem>
+                <para>Linux</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Version</term>
+              <listitem>
+                <para>Ubuntu</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Memory</term>
+              <listitem>
+                <para>1024 MB if your workstation can spare that much</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Create a virtual hard drive</term>
+              <listitem>
+                <para>Select the VDI file type and make it Dynamically
+                allocated</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>File location and size</term>
+              <listitem>
+                <para>Leave the default file location but expand the file
+                virtual hard drive to about 20GB</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+        <listitem>
+          <para>Select the new VM from the main VirtualBox Manager window and
+          click the <guibutton>Start</guibutton> button in the toolbar</para>
+        </listitem>
+        <listitem>
+          <para>VirtualBox will ask you to select a start-up disk. Click the
+          folder-shaped browse icon and select the Ubuntu .iso file you just
+          downloaded, then click the <guibutton>Start</guibutton> button. This
+          will boot the new VM using the .iso file as the boot disk.</para>
+        </listitem>
+        <listitem>
+          <para>Click <guibutton>Install Ubuntu</guibutton></para>
+        </listitem>
+        <listitem>
+          <para>If the installer asks, select "Erase disk and install Ubuntu",
+          and <guibutton>Continue</guibutton>. The next window should show you
+          the size of the virtual hard disk. If this isn't the ~20 GB set
+          above, <guibutton>Quit</guibutton> and check your VM again.
+          Otherwise <guibutton>Install Now</guibutton>.</para>
+          <para>Answer whatever questions the Ubuntu installer asks. Since
+          this isn't expected to be a secure production environment and the VM
+          is intended to be shared, set the username/password pair to
+          xtuple/xtuple and select "Log in automatically". Individual
+          developers can change the password later if necessary.</para>
+          <para>Wait until the installer finishes.</para>
+        </listitem>
+        <listitem>
+          <para>When the installer asks you to reboot, do so. The rebooting
+          process may ask you to eject the disk from the CD/DVD drive. Hover
+          over the circular disk icon near the lower-right-hand edge of the VM
+          window. If it reports the drive as Empty, just click on the window
+          and hit the Enter key. If the drive is not empty, right click on the
+          icon, eject the .iso file from the virtual drive, then click in the
+          window and hit the Enter key.</para>
+        </listitem>
+        <listitem>
+          <para>After the VM reboots let the Update Manager upgrade the
+          software that's installed and reboot again if necessary</para>
+        </listitem>
+        <listitem>
+          <para>Install the VirtualBox Guest Additions: From the VirtualBox
+          menu system, select <guimenu>Devices</guimenu> &gt;
+          <guimenuitem>Install Guest Additions</guimenuitem>. Inside the
+          Ubuntu VM, click <guibutton>Run</guibutton> in the dialog box that
+          appears. When the process is done, eject the VirtualBox Additions
+          disk image.</para>
+        </listitem>
+        <listitem>
+          <para>Right-click on the gear icon in the upper right corner of the
+          Linux desktop &gt; <guimenuitem>System Settings</guimenuitem> &gt;
+          <guimenuitem>Brightness and Lock</guimenuitem>. Turn off Lock, turn
+          off the screen saver, and turn off requiring your password when
+          waking from suspend. The defaults are all reasonable for your VM's
+          host; having any of these turned on in your VM, too, is just
+          annoying.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+    <section>
+      <title>Install Tools, Utilities, and Libraries</title>
+      <para>Now that you have a virtual machine up and running, it's time to
+      install some basic software. The rest of these instructions assume you
+      are working from a command line even though many of these tasks can also
+      be performed with GUI tools.</para>
+      <para>First let's open a Terminal window and make it easy to do so again
+      in the future:<orderedlist>
+          <listitem>
+            <para>Click on the <guiicon>Dash Home</guiicon> icon</para>
+          </listitem>
+          <listitem>
+            <para>At the bottom of the VM's window click on the 3-column icon
+            next to the Home icon</para>
+          </listitem>
+          <listitem>
+            <para>In the Installed list click "See 78 more results"</para>
+          </listitem>
+          <listitem>
+            <para>Scroll down and click the Terminal icon to open a Terminal
+            window</para>
+          </listitem>
+          <listitem>
+            <para>Permanently add Terminal to the Launcher by right-clicking
+            on the icon that just appeared there and select <guimenuitem>Lock
+            to Launcher</guimenuitem></para>
+          </listitem>
+        </orderedlist></para>
+      <para>Next you need a text editor. You can use whichever editor you wish
+      for your own work but please make sure that there is some version of vi
+      installed. You will need an editor that runs in a Terminal window at
+      some point and vi is one of these editors that most of the senior
+      developers are familiar with. Without vi it'll be hard for you to get
+      help. Install vi:<programlisting>root# apt-get install vim</programlisting></para>
+      <para>If you want a GUI version of vi, get vim-gnome. After apt-get
+      resolves dependencies, both GUI and command line versions of vi will be
+      installed.</para>
+      <note>
+        <para>A long-standing tradition in the UNIX world, inherited by
+        GNU/Linux, is that shell prompts end with <literal>$</literal> for
+        most users (<literal>&gt;</literal> if you use csh), and
+        <literal>#</literal> for superusers. That means that the
+        <literal>apt-get</literal> command above needs to be run as a
+        superuser. Either <literal>sudo apt-get ...</literal> to run that one
+        command as a superuser or <literal>sudo su</literal> to start a
+        subshell for a series of commands. If you choose to start a subshell,
+        either <literal>exit</literal> or <literal>^D</literal> will quit that
+        subshell.</para>
+        <para>Unfortunately, <literal>#</literal> is also the shell comment
+        character. Read the commands carefully to distinguish between the two
+        uses of <literal>#</literal>.</para>
+      </note>
+      <para>We currently use MongoDB for storing some user information. The
+      following instructions are based on <ulink
+      url="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/">MongoDB's
+      Ubuntu installation instructions</ulink>. To allow retrieving the right
+      version of MongoDB, edit the master list of locations where apt-get
+      looks for packages:<programlisting>root# cd /etc/apt
+root# mv sources.list sources.list.orig # this preserves the date on the original
+root# cp sources.list.orig sources.list      # this makes a copy for you to edit
+root# vi sources.list                        # add the following line at the end of the file
+deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen</programlisting>Then
+      tell the package manager that it can trust packages signed with 10gen's
+      encryption key (10gen maintains the MongoDB packages),update the package
+      manager database, and install MongoDB:<programlisting>root# apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+root# apt-get update
+root# apt-get install mongodb-10gen</programlisting></para>
+      <para>We need to a full C/C++ software development environment to build
+      some of the infrastructure from source and to work with the mobile web
+      client code repositories. Install these basic tools: Git, Subversion,
+      the Package Configuration utilities, C and C++ compilers and supporting
+      tools, and libraries and headers to build programs that use
+      SSL:<programlisting>root# apt-get install git
+root# apt-get install subversion
+root# apt-get install pkg-config
+root# apt-get install build-essential
+root# apt-get install libssl-dev
+root# apt-get install libreadline-dev
+root# apt-get install openssh-server
+root# apt-get install samba</programlisting></para>
+    </section>
+    <section>
+      <title>Build and Install PostgreSQL</title>
+      <para>The first piece of software to build from source is the PostgreSQL
+      database server. Do not use the PostgreSQL packages installed by the
+      package manager. Those are subject to unintended upgrades which can
+      cause all kinds of trouble. Point your browser to <ulink
+      url="www.postgresql.org">www.postgresql.org</ulink> and click on
+      <guibutton>Download</guibutton>. Scroll down to Source code and click on
+      <guibutton>file browser</guibutton>. Click on the latest 9.1.x link.
+      Click on either the .tar.bz2 or tar.gz file to download the sources.
+      <emphasis>Save</emphasis> the file if the browser asks; don't open
+      it.</para>
+      <para>Unpack, configure, and install the PostgreSQL
+      software:<programlisting>xtuple$ cd ~/src
+xtuple$ mkdir postgresql
+xtuple$ cd postgresql
+xtuple$ tar xzf .../your/download/dir/postgresql-XYZ.tar.gz  # if you downloaded the tar.gz
+xtuple$ tar xjf .../your/download/dir/postgresql-XYZ.tar.bz2 # if you downloaded the tar.bz2
+xtuple$ cd postgresql-XYZ
+xtuple$ ./configure --with-openssl --with-readline --prefix=/usr/local/pgsql/pgXYZ
+xtuple$ make
+xtuple$ make check
+xtuple$ sudo make install
+xtuple$ cd contrib/pgcrypto
+xtuple$ make
+xtuple$ sudo make install</programlisting></para>
+      <para>Create a PostgreSQL superuser and data directory for
+      PostgreSQL:<programlisting>root# adduser postgres
+Enter new UNIX password: postgres
+Retype new UNIX password: postgres
+root# cd /usr/local
+root# mkdir pgdata
+root# chown postgres pgdata
+root# su postgres
+postgres$ vi /home/postgres/.bashrc # add the following to the end of the file
+PATH=/usr/local/psql/pgXYZ/bin:$PATH
+export PATH
+
+postgres$ . ~postgres/.bashrc
+postgres$ initdb /usr/local/pgdata/pgXYZ</programlisting></para>
+      <para>Configure the PostgreSQL runtime environment. Edit the database
+      server configuration file
+      <filename>/usr/local/pgdata/pgXYZ/postgresql.conf</filename>. Find the
+      lines that start with the following parameter names, remove the comment
+      character (<literal>#</literal>) at the beginning, and set the values
+      listed:</para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry align="center">Parameter Name</entry>
+              <entry align="center">Value</entry>
+              <entry align="center">Notes</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>listen_addresses</entry>
+              <entry><literal>'*'</literal></entry>
+              <entry>The database server should accept connections from all
+              hosts.</entry>
+            </row>
+            <row>
+              <entry>custom_variable_classes</entry>
+              <entry><literal>'plv8'</literal></entry>
+              <entry></entry>
+            </row>
+            <row>
+              <entry>logging_collector</entry>
+              <entry><literal>on</literal></entry>
+              <entry>Optional but recommended to help debug database
+              interaction.</entry>
+            </row>
+            <row>
+              <entry>log_statement</entry>
+              <entry><literal>'all'</literal></entry>
+              <entry>Also optional but highly recommended to help debug
+              database interaction.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para>Open up PostgreSQL runtime security &mdash; this is a development
+      environment for use on a secure network with demo data, not a production
+      environment. Look at
+      <filename>/usr/local/pgdata/pgXYZ/pg_hba.conf</filename> and make sure
+      the METHOD column contains <literal>trust</literal> for the local host
+      and for addresses on the local network.</para>
+      <para>Start the server for the first time, download some files from
+      xTuple's SourceForge site, create some xTuple roles, and create your
+      first database:<programlisting>postgres$ pg_ctl -D /usr/local/pgdata/pgXYZ start
+postgres$ cd
+postgres$ mkdir xtupleUVW
+postgres$ cd xtupleUVW
+postgres$ wget http://downloads.sourceforge.net/project/postbooks/03%20PostBooks-databases/U.V.W/init.sql
+postgres$ wget http://downloads.sourceforge.net/project/postbooks/03%20PostBooks-databases/U.V.W/postbooks_demo-U.V.W.backup
+postgres$ psql -U postgres -f init.sql
+postgres$ createdb -U postgres -O admin pbUVW
+postgres$ pg_restore -U postgres -d pbUVS postbooks_demo-U.V.W.backup
+postgres$ exit # to quit the subshell and return to being root</programlisting></para>
+      <para>Now set the VM to start PostgreSQL on reboot. There are several
+      ways to do this. The easiest is to edit
+      <filename>/etc/rc.local</filename>:<programlisting>root# cd /etc
+root# vi rc.local # add the following line *before* the exit 0 at the end of the file
+sudo -u postgres nohup /usr/local/pgsql/pgXYZ/bin/postgres -D /usr/local/pgdata/pgXYZ
+
+root# exit # to quit the subshell and return to being xtuple</programlisting></para>
+      <para>As the last step for getting PostgreSQL up and running, set your
+      own PATH to include the PostgreSQL programs:<programlisting>xtuple$ vi ~/.bashrc # add the following to the end of the file
+PATH=/usr/local/psql/pgXYZ/bin:$PATH
+export PATH
+
+xtuple$ . ~/.bashrc</programlisting></para>
+    </section>
+    <section>
+      <title>Get the Node.js Server</title>
+      <para>Node.js provides several services for xTuple's mobile web client.
+      Build the Node.js server from a stable version of the source
+      code:<programlisting>xtuple$ cd ~/src
+xtuple$ git clone https://github.com/joyent/node.git
+xtuple$ cd node
+xtuple$ git checkout v0.6.9
+xtuple$ ./configure 
+xtuple$ make
+xtuple$ sudo make install</programlisting></para>
+      <para><note>
+          <para>Do we want to <code>./configure --prefix
+          /usr/local/node/node069</code>?</para>
+          <para>Should we create version-specific node source
+          directories?</para>
+        </note>Later on we will start several distinct Node.js servers with
+      different configurations.</para>
+    </section>
+    <section>
+      <title>Get and Build the V8 JavaScript Engine</title>
+      <para>Another critical piece of xTuple mobile web infrastructure is
+      Google's V8 JavaScript engine. This is integrated into the PostgreSQL
+      database server to allow writing stored procedures in the JavaScript
+      language. To make this work we need to build and install both V8 itself
+      and the PLV8JS integration:<programlisting>xtuple$ cd ~/src
+xtuple$ git clone git://github.com/v8/v8.git
+xtuple$ cd v8
+xtuple$ make dependencies
+xtuple$ make library=shared
+xtuple$ sudo cp out/x64.release/lib.target/libv8.so /usr/local/lib # or ia32.release or whatever.release
+xtuple$ cd ..
+xtuple$ git clone https://code.google.com/p/plv8js/
+xtuple$ cd plv8js
+xtuple$ make V8_SRCDIR=../v8
+xtuple$ sudo su
+root# make install
+root# exit
+xtuple$ psql -U postgres
+postgres=# create extension plv8;
+postgres=# \q</programlisting><note>
+          <para>Should we create version-specific V8 and PLV8 source
+          directories?</para>
+          <para>When building V8 itself, <code>make library=shared
+          x64.release</code> didn't work for me: <code>#error Target
+          architecture x64 is only supported on x64 host</code> so I tried
+          <code>make library=shared</code> but that builds way too much. Then
+          I had to copy from the ia32.release subdirectory instead of
+          x64.release.</para>
+          <para>Cloning PLV8JS with the git protocol hangs so we have to use
+          the https protocol.</para>
+          <para>If <code>make</code> in the plv8js dir fails with a complaint
+          about pg_config, make sure that
+          <filename>/usr/local/pgsql/pgXYZ/bin</filename> is in the PATH.
+          That's also why the <code>make install</code> in plv8js requires
+          <code>sudo su</code> first - to avoid path problems. This might have
+          been fixed by tweaks to the PATH variable settings after the pass
+          through this step.</para>
+        </note></para>
+    </section>
+  </section>
+  <section>
+    <title>Customizing the Baseline Virtual Machine</title>
+    <para></para>
+    <section id="mobile.setup.vm-github">
+      <title>Set Up the VM for GitHub Interaction</title>
+      <warning>
+        <para>Stop here if you are setting up a VM for distribution. From this
+        point on, all changes to the VM are particular to a single person. If
+        you distribute a VM after passing this point in these instructions,
+        you run the risk that anyone who gets a copy of that VM can
+        impersonate you.</para>
+      </warning>
+      <para>Create an SSH keypair so GitHub can authenticate your push
+      requests. If you have a public/private encryption keypair you like to
+      use, copy the appropriate files to the .ssh subdirectory of your home
+      directory on this VM. Otherwise generate a new keypair:<programlisting>xtuple$ ssh-keygen # this isn't extremely secure but it'll do
+xtuple$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAA[...about 200 more characters]...M8n8/B xtuple@mobiledevvm</programlisting></para>
+      <para>The <code>cat</code> command shows the public key that was just
+      generated. Copy this text, starting with the <literal>ssh-rsa</literal>
+      at the beginning and ending with the
+      <literal>xtuple@mobiledevvm</literal> at the end (select and either
+      right-click &gt; <guimenuitem>Copy</guimenuitem> or
+      <command>Control-Shift-C</command> in the Linux Terminal window).</para>
+      <para>In your web browser, navigate to your home page on GitHub. Click
+      on <guibutton>Edit Your Profile</guibutton>. Select <guimenuitem>SSH
+      Keys</guimenuitem> from the list on the left. Click <guibutton>Add SSH
+      Key</guibutton>. Give this SSH key a title, such as "xTuple Mobile Dev
+      VM", then paste the public key into the Key field. Finally click the
+      <guibutton>Add key</guibutton> button. GitHub will verify your password
+      just to make sure it's you at the keyboard.</para>
+      <para>Return to your Terminal window. Bring a copy of the main xTuple
+      mobile web client code to your VM. This involves cloning your forks of
+      the database, client, login, node-datasource, node-proxy, node-router,
+      and node-xt repositories, then linking these to the original xTuple
+      repositories:<programlisting>xtuple$ mkdir ~/src/xtuple
+xtuple$ cd ~/src/xtuple
+xtuple$ for REPO in client database login node-datasource node-proxy node-router node-xt ; do
+&gt; git clone git://github.com/your-gituser/$REPO.git
+&gt; cd $REPO
+&gt; git remote add XTUPLE git://github.com/xtuple/$REPO.git
+&gt; cd -
+&gt; done</programlisting></para>
+      <para id="mobile.setup.git.submodules">The mobile web project uses Git's
+      concept of submodules in some places to import code from other projects.
+      In other places the project uses symbolic links to share code. The
+      general guideline is that xTuple code shared by different repositories
+      is symbolically linked while non-xTuple code is incorporated as
+      submodules. Import the various submodules:<programlisting>xtuple$ cd ~/src/xtuple
+xtuple$ cd database
+xtuple$ git submodule update --init --recursive
+xtuple$ sudo npm install -g node-gyp
+xtuple$ cd client/source
+xtuple$ psql -U postgres -d pbUVW -f init_script.sql
+xtuple$ cd ../../orm/installer
+xtuple$ sudo npm install
+
+xtuple$ cd ~/src/xtuple/node-xt
+xtuple$ rm -rf node_modules
+xtuple$ sudo npm install -g node-gyp --force
+xtuple$ sudo npm install
+
+xtuple$ cd ~/src/xtuple/node-datasource
+xtuple$ mkdir node_modules
+xtuple$ cd node_modules
+xtuple$ ln -s ../../node-xt xt
+xtuple$ cd ..
+xtuple$ git submodule update --init --recursive
+xtuple$ sudo npm install
+
+xtuple$ cd ~/src/xtuple/database/orm/installer
+xtuple$ ./installer.js -cli -h localhost -d pbUVW -u admin -p 5432 -P admin --path ../../client/orm</programlisting></para>
+    </section>
+    <section>
+      <title></title>
+      <para></para>
+    </section>
+    <section>
+      <title></title>
+      <para></para>
+      <programlisting>
+xtuple$ cd ~/src/xtuple/node-datasource/lib/private
+
+openssl genrsa -des3 -out server.key 1024       # xtuple
+openssl rsa -in server.key -out server.pem
+openssl req -new -key server.pem -out server.csr
+openssl x509 -req -days 365 -in server.csr -signkey server.pem -out server.crt
+cd ../..
+cp config.js config_local.js
+#edit config_local.js - exactly what changes here?
+#change the port
+#add the ssl files
+#bind address
+#edit description etal
+cd ../node-router
+mkdir node_modules
+cd node_modules
+ln -s ../../node-xt xt
+cd ..        # node-router
+git submodule update --init --recursive
+npm install
+cp config.js config_local.js
+nohup node main.js -c config_local.js &gt; out.log 2&gt;&amp;1 &amp;
+cd ../node-proxy
+git submodule update --init --recursive
+#link in xt as above
+npm install
+cp config.js config_local.js
+# edit config_local.js
+# set keyFile to ../node-datasource/lib/private/server.pem
+# set certFile to ../node-datasource/lib/private/server.crt
+nohup node main.js -c config_local.js &gt; out.log 2&gt;&amp;1 &amp;
+cd ../client
+git submodule update --init --recursive
+cd ../login
+git submodule update --init --recursive
+
+    </programlisting>
+    </section>
+  </section>
+</chapter>

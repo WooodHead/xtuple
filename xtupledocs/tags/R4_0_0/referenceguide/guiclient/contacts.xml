@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section566062">
+  <title><indexterm significance="normal">
+      <primary>contacts</primary>
+      <secondary>master list of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customer relationship management</primary>
+      <secondary>contacts and</secondary>
+    </indexterm>List Contacts</title>
+  <para>Contacts are the people you do business with. They are linked to CRM
+  Accounts, Incidents, Customer records, Vendor records, and more. You can
+  create Contact records from this screen using the NEW button. Or you can
+  create Contacts right on the screens where they are used. For example, if
+  you are entering an Incident for a new Contact at an Account, you can create
+  the Contact record on the Incident screen. That Contact will be added to the
+  master list of Contacts.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>If you have a long Contacts list, don't hit the QUERY button as
+      soon as the screen opens. By default, the screen will display all your
+      active Contacts&mdash;unless you specify otherwise.</para>
+    </listitem>
+    <listitem>
+      <para>Enter Contact names or other details in the Search window, then
+      select the QUERY button. This will narrow the list for you.</para>
+    </listitem>
+    <listitem>
+      <para>When you edit a Contact on this screen, the Contact record will be
+      updated wherever it is used.</para>
+    </listitem>
+    <listitem>
+      <para>If you have Contact Characteristics defined, you can search and
+      report on these Characteristics using the search filter options and also
+      the column headers.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "List Contacts" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/contacts.png" />
+        </imageobject>
+        <caption>Contacts List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Contacts" screen shows all active Contacts.
+  You can build your own search criteria using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
