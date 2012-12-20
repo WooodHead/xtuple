@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>User Costing Element</title>
+  <para><indexterm significance="normal">
+      <primary>costing elements</primary>
+      <secondary>creating user-defined</secondary>
+    </indexterm>To create a new user-defined Costing Element, select the NEW
+  button. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/userCostingElement.png" />
+        </imageobject>
+        <caption>Create New User-Defined Costing Element</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new user-defined Costing Element, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Element Name</term>
+      <listitem>
+        <para>Specify a name to describe the Costing Element.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Active</term>
+      <listitem>
+        <para>Select to make the user-defined Costing Element active.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Accept P/O Distributions</term>
+      <listitem>
+        <para>Select if you want the Costing Element to be used for
+        distributing Costs related to Purchase Order Vouchers. If selected,
+        the Costing Element will be included as one of the available Costing
+        Elements when Voucher Item Costs are distributed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Costing Item for Cost Source</term>
+      <listitem>
+        <para>Select if you want to associate the Costing Element with a
+        Costing Item, for the purpose of tracking Item Costs. A Costing Item
+        kind of pseudo-Item used solely to provide a costed value for a
+        Costing Element. When a user-defined Costing Element is linked to a
+        Costing Item, the Costing Element assumes the Costs associated with
+        the Costing Item.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item Number</term>
+            <listitem>
+              <para>Enter the Item Number of the Costing Item you would like
+              to assign to the Costing Element.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>UOM</term>
+            <listitem>
+              <para>Inventory Unit of Measure.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expense Account</term>
+      <listitem>
+        <para>The G/L Account specified here will be used for tracking costs
+        for the Costing Element when production is posted for Work Orders
+        which consume the Costing Element. This feature applies to Work Order
+        costing only and may not be used in conjunction with Purchase Order
+        distributions.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657386">
+  <title><indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>account assignments for</secondary>
+    </indexterm>Receivables Assignments</title>
+  <para>Receivables assignments represent the default General Ledger (G/L)
+  Accounts used by the system when processing the following:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Invoices</para>
+    </listitem>
+    <listitem>
+      <para>Cash Receipts</para>
+    </listitem>
+    <listitem>
+      <para>Sales Order Credit Memos</para>
+    </listitem>
+    <listitem>
+      <para>Miscellaneous Receivables Credit Memos</para>
+    </listitem>
+    <listitem>
+      <para>Miscellaneous Receivables Debit Memos</para>
+    </listitem>
+  </itemizedlist>
+  <para>The Account assignments are made by Customer Type. This means that
+  transactions involving a Customer will follow the assignments established
+  for the Customer Type&mdash;unless otherwise specified. To access the
+  Receivables assignments master list, select the "Receivables Assignments"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/arAccountAssignments.png" />
+        </imageobject>
+        <caption>Receivables Assignments Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Receivables Assignments" screen displays information on existing
+  Receivables assignments.</para>
+  <xi:include href="arAccountAssignment.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

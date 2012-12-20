@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section596113">
+  <title>
+<indexterm significance="normal">
+      <primary>sales</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Sales</title>
+  <para>Sales offer the opportunity for discounting Items and Product
+  Categories across all Customer Types. Unlike Pricing Schedule Assignments,
+  Sales cannot be limited to certain Customers or Customer Types. Instead, all
+  Customers benefit from Sales during the period of time when a Sale is in
+  effect. To create a Sale tied to a Pricing Schedule, select the "Sales"
+  option. The following screen will appear:</para>
+  <para>
+<screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/sales.png"/>
+        </imageobject>
+        <caption>Sales Master List</caption>
+      </mediaobject>
+    </screenshot>
+</para>
+  <note>
+    <para>If a Sale is in effect and the Sale Price is lower than the most
+    specific Customer Price, then the Customer will be given the Sale
+    Price.</para>
+  </note>
+  <para>When defining and maintaining Sale information, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Sales</term>
+      <listitem>
+        <para>Display lists any and all Sales.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sale.xml" xpointer="element(/1)"/>
+</section>

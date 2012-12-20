@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="glSeriesItem">
+  <title><indexterm significance="normal">
+      <primary>series</primary>
+      <secondary>adding transactions to</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>general ledger</primary>
+      <secondary>adding to series in</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>transactions</primary>
+      <secondary>adding to g/l series</secondary>
+    </indexterm>Series Journal Entry Item</title>
+  <para>To add a new G/L transaction to the series, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/glSeriesItem.png" />
+        </imageobject>
+        <caption>Add Transaction to Series</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding a new G/L transaction item to the series, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Amount</term>
+      <listitem>
+        <para>Specify the monetary value of the transaction item.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Debit</term>
+            <listitem>
+              <para>Select if the amount debits the specified Account.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit</term>
+            <listitem>
+              <para>Select if the amount credits the specified Account.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Account</term>
+      <listitem>
+        <para>Specify the Account to be used for the transaction item
+        record.</para>
+        <variablelist>
+          <varlistentry role="xtprjaccnt">
+            <term>Project</term>
+            <listitem>
+              <para>Select a Project to associate with the transaction. The
+              Project Number will be added as the final segment of the G/L
+              Account Number.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

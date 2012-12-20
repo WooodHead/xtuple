@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>mrp</primary>
+      <secondary>creating exceptions for</secondary>
+    </indexterm> Create MRP Exceptions</title>
+  <para>To generate MRP Exceptions, select the CREATE button on the "MRP
+  Exceptions" screen. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/runMRPException.png" />
+        </imageobject>
+        <caption>Create MRP Exceptions</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When generating MRP Exceptions, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Planner Codes</term>
+      <listitem>
+        <para>Select to generate MRP Exceptions for all Planner Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Planner Code you want to generate MRP Exceptions
+        for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Planner Code pattern to select a range of Planner Codes.
+        Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to generate MRP Exceptions by Planner Code for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site MRP Exceptions should be generated for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cutoff Date</term>
+      <listitem>
+        <para>Specify how far into the future the MRP Exceptions utility
+        should look for exceptions.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2011 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519415">
+  <title><indexterm significance="normal">
+      <primary>bills of materials</primary>
+      <secondary>master list of</secondary>
+    </indexterm>List Bills of Materials</title>
+  <para>To access the master list of Bills of Materials (BOM), select the
+  "List Bills of Materials" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/bomList.png" />
+        </imageobject>
+        <caption>Bills of Materials Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>At the top of the screen is a "Search For" field. To search for an
+  Item, begin typing in the search field. As you type, the "Bills of
+  Materials" list will automatically scroll toward the Item Number you are
+  typing. You can also search for Items manually by using the scroll bar to
+  the right of the "Bills of Materials" list. The following additional options
+  are also available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Show BOMs for Inactive Items</term>
+      <listitem>
+        <para>Select to include BOMs for Items which are inactive in the
+        display. If not selected, only active Items will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>BOMs with Component Items</term>
+      <listitem>
+        <para>Select to include only BOMs with BOM Items in the display. If
+        not selected, all BOMs will be shown&mdash;regardless of whether the BOM has
+        components, or not.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip role="standard">
+    <para>You may not delete a Bill of Materials (BOM) if the Item in question
+    has any Revision history. You must make the BOM inactive instead</para>
+  </tip>
+</section>
