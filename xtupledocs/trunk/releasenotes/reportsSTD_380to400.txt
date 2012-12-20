@@ -1,0 +1,371 @@
+====================================================================
+CHANGED REPORTS:
+ExpediteExceptionsByPlannerCode
+ListOpenReturnAuthorizations
+LocationLotSerialNumberDetail
+MRPDetail
+PlannedRevenueExpensesByPlannerCode
+ReturnAuthorizationForm
+WarehouseLocationMasterList
+
+ 
+ ====================================================================
+ REPORT: ExpediteExceptionsByPlannerCode
+ QUERY: head
+ SELECT <? if exists("plancode_id") ?>
+          ( SELECT (plancode_code || '-' || plancode_name)
+              FROM plancode
+             WHERE (plancode_id=<? value("plancode_id") ?>) )
+        <? elseif exists("plancode_pattern") ?>
+          text(<? value("plancode_pattern") ?>)
+        <? else ?>
+          text('All Planner Codes')
+        <? endif ?>
+        AS plannercode,
+        <? if exists("warehous_id") ?>
+          ( SELECT warehous_code
+-             FROM warehous
++             FROM whsinfo
+             WHERE (warehous_id=<? value("warehous_id") ?>) )
+        <? else ?>
+          text('All Sites')
+        <? endif ?>
+        AS warehouse;
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ == MetaSQL statement schedule-expedite
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: ListOpenReturnAuthorizations
+ QUERY: head
+ SELECT <? if exists("warehous_id") ?>
+          ( SELECT warehous_code
+-             FROM warehous
++             FROM whsinfo
+             WHERE (warehous_id=<? value("warehous_id") ?>) )
+        <? else ?>
+          text('All Warehouses')
+        <? endif ?>
+        AS warehouse;
+ 
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+-SELECT DISTINCT rahead_id, rahead_number,
+-       COALESCE(cust_number, 'Undefined') AS custnumber,
+-       rahead_billtoname,
+-       CASE
+-       WHEN rahead_disposition = 'C' THEN
+-         'Credit'
+-       WHEN rahead_disposition = 'R' THEN
+-         'Return'
+-       WHEN rahead_disposition = 'P' THEN
+-         'Replace'
+-       WHEN rahead_disposition = 'V' THEN
+-         'Service'
+-       WHEN rahead_disposition = 'M' THEN
+-         'Substitute'
+-       END AS disposition,
+-       formatDate(rahead_authdate) AS f_authorized,
+-       formatDate(rahead_expiredate) AS f_expires
+-  FROM rahead LEFT OUTER JOIN cust ON (rahead_cust_id=cust_id)
+-              LEFT OUTER JOIN raitem JOIN itemsite ON (raitem_itemsite_id=itemsite_id)
+-           ON (raitem_rahead_id=rahead_id)
+- WHERE (((raitem_status = 'O') OR (raitem_status IS NULL))
+-<? if not exists("showExpired") ?>
+-   AND (COALESCE(rahead_expiredate,CURRENT_DATE) >= CURRENT_DATE)
+-<? endif ?>
+-<? if exists("warehous_id") ?>
+-   AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+-<? endif ?>
+-      )
+- GROUP BY rahead_id, rahead_number, cust_number, rahead_billtoname,
+-          rahead_disposition, rahead_authdate, rahead_expiredate
+- ORDER BY rahead_number
++== MetaSQL statement returnAuthorizations-detail
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: LocationLotSerialNumberDetail
+ QUERY: head
+ SELECT item_number,
+        item_descrip1,
+        item_descrip2,
+        <? if exists("warehous_id") ?>
+          (SELECT warehous_code
+-            FROM warehous
++            FROM whsinfo
+            WHERE (warehous_id=<? value("warehous_id") ?>) )
+        <? else ?>
+          text('All Warehouses')
+        <? endif ?>
+        AS warehouse
+   FROM item
+  WHERE (item_id=<? value("item_id") ?>);
+ 
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ SELECT itemloc_id,
+        1 as type,
+        warehous_code,
+        CASE WHEN (location_id IS NULL) THEN text('N/A')
+             ELSE formatLocationName(location_id)
+        END AS locationname,
+        CASE WHEN (location_id IS NULL) THEN text('')
+             ELSE firstLine(location_descrip)
+        END AS f_descrip,
+        CASE WHEN (itemsite_controlmethod NOT IN ('L', 'S')) THEN text('N/A')
+             ELSE formatlotserialnumber(itemloc_ls_id)
+        END AS lotserial,
+        formatQty(itemloc_qty) AS f_qty,
+        CASE WHEN (location_id IS NULL) THEN text('N/A')
+             WHEN (location_netable) THEN text('Yes')
+             ELSE text('No')
+        END AS f_netable,
+        CASE WHEN (itemsite_perishable) THEN formatDate(itemloc_expiration)
+             ELSE text('N/A')
+        END AS f_expiration
+-  FROM itemsite, warehous,
++  FROM itemsite, whsinfo,
+        itemloc LEFT OUTER JOIN location ON (itemloc_location_id=location_id)
+  WHERE ( ( (itemsite_loccntrl) OR (itemsite_controlmethod IN ('L', 'S')) )
+    AND (itemloc_itemsite_id=itemsite_id)
+    AND (itemsite_warehous_id=warehous_id)
+    AND (itemsite_item_id=<? value("item_id") ?>)
+ <? if exists("warehous_id") ?>
+    AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+ <? endif ?>
+ <? if NOT exists("showZeroLevel") ?>
+    AND (itemsite_qtyonhand <> 0)
+ <? endif ?>
+ )
+ UNION
+ SELECT itemsite_id,
+        2 as type,
+        warehous_code,
+        text('N/A') AS locationname,
+        text('') AS f_descrip,
+        text('N/A') AS lotserial,
+        formatQty(itemsite_qtyonhand) AS f_qty,
+        text('N/A') AS f_netable,
+        text('N/A') AS f_expiration
+-  FROM itemsite, warehous
++  FROM itemsite, whsinfo
+  WHERE ((NOT itemsite_loccntrl)
+    AND (itemsite_controlmethod NOT IN ('L', 'S'))
+    AND (itemsite_warehous_id=warehous_id)
+    AND (itemsite_item_id=<? value("item_id") ?>)
+ <? if exists("warehous_id") ?>
+    AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+ <? endif ?>
+ <? if NOT exists("showZeroLevel") ?>
+    AND (itemsite_qtyonhand <> 0)
+ <? endif ?>
+ )
+ ORDER BY warehous_code, locationname, lotserial;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: MRPDetail
+ QUERY: head
+ SELECT item_number,
+        item_descrip1, item_descrip2,
+        warehous_code
+-  FROM item, warehous, itemsite
++  FROM item, whsinfo, itemsite
+  WHERE ((itemsite_id=<? value("itemsite_id") ?>)
+    AND (itemsite_item_id=item_id)
+    AND (itemsite_warehous_id=warehous_id) );
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ SELECT formatDate(mpsmrpwork_startdate) || '-' || formatDate(mpsmrpwork_enddate) as period,
+        formatQty(mpsmrpwork_qoh) as f_qoh,
+        formatQty(mpsmrpwork_allocations) as f_allocations,
+        formatQty(mpsmrpwork_orders) as f_orders,
+        formatQty(mpsmrpwork_availability) as f_availability,
+        formatQty(mpsmrpwork_firmed) as f_firmed,
+        formatQty(mpsmrpwork_firmedavailability) as f_firmedavailability
+   FROM mpsmrpwork
+  WHERE (mpsmrpwork_set_id=<? value("workset_id") ?>)
+ ORDER BY mpsmrpwork_order;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: PlannedRevenueExpensesByPlannerCode
+ QUERY: head
+ SELECT <? if exists("plancode_id") ?>
+          ( SELECT (plancode_code || '-' || plancode_name)
+              FROM plancode
+             WHERE (plancode_id=<? value("plancode_id") ?>) )
+        <? elseif exists("plancode_pattern") ?>
+          text(<? value("plancode_pattern") ?>)
+        <? else ?>
+          text('All Planner Codes')
+        <? endif ?>
+        AS plannercode,
+        <? if exists("warehous_id") ?>
+          ( SELECT warehous_code
+-             FROM warehous
++             FROM whsinfo
+             WHERE (warehous_id=<? value("warehous_id") ?>) )
+        <? else ?>
+          text('All Warehouses')
+        <? endif ?>
+        AS warehouse,
+        <? if exists("useActualCost") ?>
+          text('Actual Cost')
+        <? else ?>
+          text('Standard Cost')
+        <? endif ?>
+        AS costs,
+        <? if exists("useAveragePrice") ?>
+          text('Average Price from ')||formatDate(<? value("startEvalDate") ?>)||text(' to ')||formatDate(<? value("endEvalDate") ?>)
+        <? else ?>
+          text('List Price')
+        <? endif ?>
+        AS salesprice,
+        formatDate(<? value("startDate") ?>) AS startdate,
+        formatDate(<? value("endDate") ?>) AS enddate;
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ == MetaSQL statement schedule-plannedorders
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: ReturnAuthorizationForm
+ QUERY: GroupHead
+ SELECT remitto.*,
+        TEXT(rahead_number) AS number,
+        formatDate(rahead_authdate) AS f_authdate,
+        cust_number,
+        rahead_billtoname,
+        formatAddr(rahead_billtoaddress1, rahead_billtoaddress2, rahead_billtoaddress3, ( rahead_billtocity || '  ' || rahead_billtostate || '  ' || rahead_billtozip ), rahead_billtocountry) AS f_billtoaddress,
+        rahead_shipto_name,
+        formatAddr(rahead_shipto_address1, rahead_shipto_address2, rahead_shipto_address3, ( rahead_shipto_city || '  ' || rahead_shipto_state || ' ' || rahead_shipto_zipcode ), rahead_shipto_country) AS f_shiptoaddress
+-FROM remitto, cust, rahead
++FROM remitto, custinfo, rahead
+ WHERE ( (rahead_cust_id=cust_id)
+  AND (rahead_id=<? value("rahead_id") ?>) );
+ --------------------------------------------------------------------
+   
+ QUERY: Detail
+ SELECT raitem_linenumber,
+        formatQty(raitem_qtyauthorized) AS f_qtyauthorized,
+        uom_name AS invuom,
+        item_number,
+        item_descrip1,
+        item_descrip2,
+        CASE
+          WHEN raitem_disposition='C' THEN
+            'Credit'
+          WHEN raitem_disposition='R' THEN
+            'Return'
+          WHEN raitem_disposition='P' THEN
+            'Replace'
+          WHEN raitem_disposition='V' THEN
+            'Service'
+          WHEN raitem_disposition='S' THEN
+            'Ship'
+        END AS f_disposition,
+        formatPrice(raitem_unitprice / COALESCE(raitem_price_invuomratio,1)) AS f_unitprice,
+        formatMoney(round((raitem_qtyauthorized * raitem_qty_invuomratio) * (raitem_unitprice / COALESCE(raitem_price_invuomratio,1)),2)) AS f_extprice,
+        raitem_notes
+ FROM raitem, itemsite, item, uom
+ WHERE ((raitem_rahead_id=<? value("rahead_id") ?>)
+   AND (raitem_itemsite_id=itemsite_id)
+   AND (itemsite_item_id=item_id)
+   AND (raitem_qty_uom_id=uom_id))
+ ORDER BY raitem_linenumber;
+ --------------------------------------------------------------------
+   
+ QUERY: foot
+ SELECT formatMoney(SUM(round((raitem_qtyauthorized * raitem_qty_invuomratio) * (raitem_unitprice / COALESCE(raitem_price_invuomratio,1)),2))) AS f_extprice
+ FROM raitem
+ WHERE (raitem_rahead_id=<? value("rahead_id") ?>);
+ --------------------------------------------------------------------
+   
+ QUERY: GroupExtended
+ SELECT formatMoney(calcRaAmt(<? value("rahead_id") ?>)) AS f_totalcredit,
+        formatMoney(rahead_misc) AS f_misc,
+        formatMoney(calcRaTaxAmt(<? value("rahead_id") ?>)) AS f_tax,
+        formatMoney(rahead_freight) AS f_freight,
+        rahead_notes,
+        rahead_misc_descrip
+ FROM rahead
+ WHERE (rahead_id=<? value("rahead_id") ?>);
+ --------------------------------------------------------------------
+   
+ QUERY: currency
+ SELECT
+  curr_symbol
+ FROM
+     rahead,
+     curr_symbol
+ WHERE (rahead_id = <? value("rahead_id") ?>) AND
+       rahead_curr_id = curr_id;
+ --------------------------------------------------------------------
+   
+ QUERY: logo
+ SELECT image_data 
+ FROM image 
+ WHERE ((image_name='logo'));
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: WarehouseLocationMasterList
+ QUERY: detail
+ SELECT (warehous_code || ' ' || location_name) AS whs_bin,
+        warehous_code,
+        formatLocationName(location_id) AS locationname,
+        location_descrip,
+        formatBoolYN(location_netable) AS f_netable,
+        formatBoolYN(location_restrict) AS f_restrict,
+        item_number,
+        (item_descrip1 || ' ' || item_descrip2) AS itemdesc
+   FROM location LEFT OUTER JOIN
+        (SELECT locitem_location_id,
+                item_number,
+                item_descrip1,
+                item_descrip2
+           FROM locitem, item
+          WHERE locitem_item_id=item_id) AS itemlocation
+-       ON (locitem_location_id=location_id and location_restrict=true), warehous
++       ON (locitem_location_id=location_id and location_restrict=true), whsinfo
+  WHERE ((location_warehous_id=warehous_id)
+ <? if exists("warehous_id") ?>
+    AND (warehous_id=<? value("warehous_id") ?>)
+ <? endif ?>
+ ) ORDER BY warehous_code, location_name;
+ --------------------------------------------------------------------
+   
+ QUERY: head
+ SELECT <? if exists("warehous_id") ?>
+          text('Warehouse:') AS f_text,
+          ( SELECT warehous_code
+-             FROM warehous
++             FROM whsinfo
+             WHERE (warehous_id=<? value("warehous_id") ?>) ) AS f_value
+        <? else ?>
+          text('') AS f_text,
+          text('') AS f_value
+        <? endif ?>
+ --------------------------------------------------------------------
+   
+\ No newline at end of file

@@ -1,0 +1,1197 @@
+====================================================================
+CHANGED REPORTS:
+ExpediteExceptionsByPlannerCode
+LaborVarianceByBOOItem
+LaborVarianceByItem
+ListOpenReturnAuthorizations
+LocationLotSerialNumberDetail
+MPSDetail
+MRPDetail
+POLineItemsByBufferStatus
+PlannedOrdersByItem
+PlannedOrdersByPlannerCode
+PlannedRevenueExpensesByPlannerCode
+PlannedSchedulesMasterList
+ReturnAuthorizationForm
+RoughCutCapacityPlanByWorkCenter
+Routing
+RoutingAndPickList
+WOBufferStatusByParameterList
+WOOperationsByWorkCenter
+WarehouseCalendarExceptionsMasterList
+WarehouseLocationMasterList
+
+ 
+ ====================================================================
+ REPORT: ExpediteExceptionsByPlannerCode
+ QUERY: head
+ SELECT <? if exists("plancode_id") ?>
+          ( SELECT (plancode_code || '-' || plancode_name)
+              FROM plancode
+             WHERE (plancode_id=<? value("plancode_id") ?>) )
+        <? elseif exists("plancode_pattern") ?>
+          text(<? value("plancode_pattern") ?>)
+        <? else ?>
+          text('All Planner Codes')
+        <? endif ?>
+        AS plannercode,
+        <? if exists("warehous_id") ?>
+          ( SELECT warehous_code
+-             FROM warehous
++             FROM whsinfo
+             WHERE (warehous_id=<? value("warehous_id") ?>) )
+        <? else ?>
+          text('All Sites')
+        <? endif ?>
+        AS warehouse;
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ == MetaSQL statement schedule-expedite
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: LaborVarianceByBOOItem
+ QUERY: head
+ SELECT item_number,
+        uom_name AS iteminvuom,
+        item_descrip1,
+        item_descrip2,
+        booitem_seqnumber,
+        booitem_descrip1,
+        booitem_descrip2,
+        <? if exists("warehous_id") ?>
+-         (SELECT warehous_code FROM warehous WHERE warehous_id=<? value("warehous_id") ?>)
++         (SELECT warehous_code FROM whsinfo WHERE warehous_id=<? value("warehous_id") ?>)
+        <? else ?>
+          text('All Warehouses')
+        <? endif ?>
+        AS warehouse,
+        formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
+        formatDate(<? value("endDate") ?>, 'Latest') AS enddate
+   FROM item JOIN xtmfg.booitem ON (booitem_item_id=item_id)
+             JOIN uom ON (item_inv_uom_id=uom_id)
+  WHERE ((item_id=<? value("item_id") ?>)
+    AND (booitem_id=<? value("booitem_id") ?>) );
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ SELECT formatDate(woopervar_posted) AS f_posted,
+        formatQty(woopervar_qtyord) AS f_ordered,
+        formatQty(woopervar_qtyrcv) AS f_produced,
+        formatTime(woopervar_stdsutime) AS f_projsetup,
+        formatTime(woopervar_stdrntime) AS f_projrun,
+        formatTime(woopervar_sutime) AS f_actsetup,
+        formatTime(woopervar_rntime) AS f_actrun,
+        formattime(woopervar_sutime - woopervar_stdsutime) AS f_setupvar,
+        formattime(woopervar_rntime - woopervar_stdrntime) AS f_runvar
+ FROM xtmfg.woopervar, itemsite 
+ WHERE ( (woopervar_parent_itemsite_id=itemsite_id)
+  AND (woopervar_booitem_id=<? value("booitem_id") ?>)
+  AND (woopervar_posted BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+ <? if exists("warehous_id") ?>
+  AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+ <? endif ?>
+      )
+ ORDER BY woopervar_posted DESC;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: LaborVarianceByItem
+ QUERY: head
+ SELECT item_number,
+        uom_name AS iteminvuom,
+        item_descrip1,
+        item_descrip2,
+        <? if exists("warehous_id") ?>
+          (SELECT warehous_code
+-            FROM warehous
++            FROM whsinfo
+            WHERE (warehous_id=<? value("warehous_id") ?>) )
+        <? else ?>
+          text('All Warehouses')
+        <? endif ?>
+        AS warehouse,
+        formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
+        formatDate(<? value("endDate") ?>, 'Latest') AS enddate
+   FROM item JOIN uom ON (item_inv_uom_id=uom_id)
+   <? if exists("item_id") ?>
+   WHERE (item_id=<? value("item_id") ?>)
+   <? endif ?>
+   ;
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ == MetaSQL statement manufacture-laborvariance
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: ListOpenReturnAuthorizations
+ QUERY: head
+ SELECT <? if exists("warehous_id") ?>
+          ( SELECT warehous_code
+-             FROM warehous
++             FROM whsinfo
+             WHERE (warehous_id=<? value("warehous_id") ?>) )
+        <? else ?>
+          text('All Warehouses')
+        <? endif ?>
+        AS warehouse;
+ 
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+-SELECT DISTINCT rahead_id, rahead_number,
+-       COALESCE(cust_number, 'Undefined') AS custnumber,
+-       rahead_billtoname,
+-       CASE
+-       WHEN rahead_disposition = 'C' THEN
+-         'Credit'
+-       WHEN rahead_disposition = 'R' THEN
+-         'Return'
+-       WHEN rahead_disposition = 'P' THEN
+-         'Replace'
+-       WHEN rahead_disposition = 'V' THEN
+-         'Service'
+-       WHEN rahead_disposition = 'M' THEN
+-         'Substitute'
+-       END AS disposition,
+-       formatDate(rahead_authdate) AS f_authorized,
+-       formatDate(rahead_expiredate) AS f_expires
+-  FROM rahead LEFT OUTER JOIN cust ON (rahead_cust_id=cust_id)
+-              LEFT OUTER JOIN raitem JOIN itemsite ON (raitem_itemsite_id=itemsite_id)
+-           ON (raitem_rahead_id=rahead_id)
+- WHERE (((raitem_status = 'O') OR (raitem_status IS NULL))
+-<? if not exists("showExpired") ?>
+-   AND (COALESCE(rahead_expiredate,CURRENT_DATE) >= CURRENT_DATE)
+-<? endif ?>
+-<? if exists("warehous_id") ?>
+-   AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+-<? endif ?>
+-      )
+- GROUP BY rahead_id, rahead_number, cust_number, rahead_billtoname,
+-          rahead_disposition, rahead_authdate, rahead_expiredate
+- ORDER BY rahead_number
++== MetaSQL statement returnAuthorizations-detail
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: LocationLotSerialNumberDetail
+ QUERY: head
+ SELECT item_number,
+        item_descrip1,
+        item_descrip2,
+        <? if exists("warehous_id") ?>
+          (SELECT warehous_code
+-            FROM warehous
++            FROM whsinfo
+            WHERE (warehous_id=<? value("warehous_id") ?>) )
+        <? else ?>
+          text('All Warehouses')
+        <? endif ?>
+        AS warehouse
+   FROM item
+  WHERE (item_id=<? value("item_id") ?>);
+ 
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ SELECT itemloc_id,
+        1 as type,
+        warehous_code,
+        CASE WHEN (location_id IS NULL) THEN text('N/A')
+             ELSE formatLocationName(location_id)
+        END AS locationname,
+        CASE WHEN (location_id IS NULL) THEN text('')
+             ELSE firstLine(location_descrip)
+        END AS f_descrip,
+        CASE WHEN (itemsite_controlmethod NOT IN ('L', 'S')) THEN text('N/A')
+             ELSE formatlotserialnumber(itemloc_ls_id)
+        END AS lotserial,
+        formatQty(itemloc_qty) AS f_qty,
+        CASE WHEN (location_id IS NULL) THEN text('N/A')
+             WHEN (location_netable) THEN text('Yes')
+             ELSE text('No')
+        END AS f_netable,
+        CASE WHEN (itemsite_perishable) THEN formatDate(itemloc_expiration)
+             ELSE text('N/A')
+        END AS f_expiration
+-  FROM itemsite, warehous,
++  FROM itemsite, whsinfo,
+        itemloc LEFT OUTER JOIN location ON (itemloc_location_id=location_id)
+  WHERE ( ( (itemsite_loccntrl) OR (itemsite_controlmethod IN ('L', 'S')) )
+    AND (itemloc_itemsite_id=itemsite_id)
+    AND (itemsite_warehous_id=warehous_id)
+    AND (itemsite_item_id=<? value("item_id") ?>)
+ <? if exists("warehous_id") ?>
+    AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+ <? endif ?>
+ <? if NOT exists("showZeroLevel") ?>
+    AND (itemsite_qtyonhand <> 0)
+ <? endif ?>
+ )
+ UNION
+ SELECT itemsite_id,
+        2 as type,
+        warehous_code,
+        text('N/A') AS locationname,
+        text('') AS f_descrip,
+        text('N/A') AS lotserial,
+        formatQty(itemsite_qtyonhand) AS f_qty,
+        text('N/A') AS f_netable,
+        text('N/A') AS f_expiration
+-  FROM itemsite, warehous
++  FROM itemsite, whsinfo
+  WHERE ((NOT itemsite_loccntrl)
+    AND (itemsite_controlmethod NOT IN ('L', 'S'))
+    AND (itemsite_warehous_id=warehous_id)
+    AND (itemsite_item_id=<? value("item_id") ?>)
+ <? if exists("warehous_id") ?>
+    AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+ <? endif ?>
+ <? if NOT exists("showZeroLevel") ?>
+    AND (itemsite_qtyonhand <> 0)
+ <? endif ?>
+ )
+ ORDER BY warehous_code, locationname, lotserial;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: MPSDetail
+ QUERY: head
+ SELECT item_number,
+        item_descrip1,
+        item_descrip2,
+        warehous_code,
+        formatQty(itemsite_safetystock) as f_safetystock
+-  FROM item, warehous, itemsite
++  FROM item, whsinfo, itemsite
+  WHERE ((itemsite_id=<? value("itemsite_id") ?>)
+    AND (itemsite_item_id=item_id)
+    AND (itemsite_warehous_id=warehous_id) );
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ SELECT formatDate(mpsmrpwork_startdate) || '-' || formatDate(mpsmrpwork_enddate) as period,
++       formatQty(mpsmrpwork_firmed) as f_forecast,
+        formatQty(mpsmrpwork_qoh) as f_qoh,
+        formatQty(mpsmrpwork_allocations) as f_allocations,
+        formatQty(mpsmrpwork_orders) as f_orders,
+        formatQty(mpsmrpwork_availability) as f_availability,
+        formatQty(mpsmrpwork_planned) as f_planned,
+        formatQty(mpsmrpwork_plannedavailability) as f_plannedavailability,
+        formatQty(mpsmrpwork_available) as f_available
+   FROM mpsmrpwork
+  WHERE (mpsmrpwork_set_id=<? value("workset_id") ?>)
+ ORDER BY mpsmrpwork_order;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: MRPDetail
+ QUERY: head
+ SELECT item_number,
+        item_descrip1, item_descrip2,
+        warehous_code
+-  FROM item, warehous, itemsite
++  FROM item, whsinfo, itemsite
+  WHERE ((itemsite_id=<? value("itemsite_id") ?>)
+    AND (itemsite_item_id=item_id)
+    AND (itemsite_warehous_id=warehous_id) );
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ SELECT formatDate(mpsmrpwork_startdate) || '-' || formatDate(mpsmrpwork_enddate) as period,
+        formatQty(mpsmrpwork_qoh) as f_qoh,
+        formatQty(mpsmrpwork_allocations) as f_allocations,
+        formatQty(mpsmrpwork_orders) as f_orders,
+        formatQty(mpsmrpwork_availability) as f_availability,
+        formatQty(mpsmrpwork_firmed) as f_firmed,
+        formatQty(mpsmrpwork_firmedavailability) as f_firmedavailability
+   FROM mpsmrpwork
+  WHERE (mpsmrpwork_set_id=<? value("workset_id") ?>)
+ ORDER BY mpsmrpwork_order;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: POLineItemsByBufferStatus
+ QUERY: head
+ SELECT <? if exists("warehous_id") ?>
+          (select warehous_code FROM whsinfo  where warehous_id=<? value("warehous_id") ?>)
+        <? else ?>
+          text('All Warehouses')
+        <? endif ?>
+        AS warehouse,
+        <? if exists("agentUsername") ?>
+        TEXT(<? value("agentUsername" ?>)
+        <? else ?>
+        TEXT('All Agents')
+        <? endif ?>
+        AS agentUsername
+ 
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+-SELECT ( SELECT warehous_code
+-                   FROM whsinfo
+-                   WHERE (itemsite_warehous_id=warehous_id) )
+-       AS warehousecode,
+-       bufrsts_status,
+-       CASE WHEN (bufrsts_type='T') THEN 'Time'
+-       ELSE 'Stock'
+-       END AS bufrststype,
+-       pohead_number as f_ponumber,
+-       poitem_linenumber as f_linenumber,
+-       vend_name,
+-       formatDate(poitem_duedate) as f_duedate,
+-       item_number,
+-       item_descrip1,
+-       uom_name AS iteminvuom,
+-       formatQty(poitem_qty_ordered) as f_ordered,
+-       formatQty(poitem_qty_received) as f_received,
+-       formatQty(poitem_qty_returned) as f_returned
+-  FROM pohead,poitem, vend,itemsite,item, xtmfg.bufrsts, uom
+- WHERE ((poitem_pohead_id=pohead_id)
+-   AND (itemsite_item_id=item_id)
+-   AND (item_inv_uom_id=uom_id)
+-   AND (poitem_itemsite_id=itemsite_id)
+-   AND (pohead_vend_id=vend_id)
+-   AND (poitem_status='O')
+-   AND (bufrsts_target_type='P')
+-   AND (bufrsts_target_id=poitem_id)
+-   AND (bufrsts_date=current_date)
+-<? if exists("warehous_id") ?>
+-   AND ( (itemsite_warehous_id=<? value("warehous_id") ?>) )
+-<? endif ?>
+-<? if exists("agentUsername") ?>
+-   AND (pohead_agent_username=<? value("agentUsername") ?>)
+-<? endif ?>
+-)
+-ORDER BY bufrsts_status DESC, poitem_duedate;
++== MetaSQL statement poitemsbybufferstatus-detail
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: PlannedOrdersByItem
+ QUERY: head
+ SELECT item_number,
+        item_descrip1,
+        item_descrip2,
+        <? if exists("warehous_id") ?>
+          ( SELECT warehous_code
+-             FROM warehous
++             FROM whsinfo
+             WHERE (warehous_id=<? value("warehous_id") ?>) )
+        <? else ?>
+          text('All Warehouses')
+        <? endif ?>
+        AS warehouse
+   FROM item
+  WHERE (item_id=<? value("item_id") ?>);
+ 
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ == MetaSQL statement schedule-plannedorders
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: PlannedOrdersByPlannerCode
+ QUERY: head
+ SELECT <? if exists("plancode_id") ?>
+          ( SELECT (plancode_code || '-' || plancode_name)
+              FROM plancode
+             WHERE (plancode_id=<? value("plancode_id") ?>) )
+        <? elseif exists("plancode_pattern") ?>
+          text(<? value("plancode_pattern") ?>)
+        <? else ?>
+          text('All Planner Codes')
+        <? endif ?>
+        AS plannercode,
+        <? if exists("warehous_id") ?>
+          ( SELECT warehous_code
+-             FROM warehous
++             FROM whsinfo
+             WHERE (warehous_id=<? value("warehous_id") ?>) )
+        <? else ?>
+          text('All Warehouses')
+        <? endif ?>
+        AS warehouse;
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ == MetaSQL statement schedule-plannedorders
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: PlannedRevenueExpensesByPlannerCode
+ QUERY: head
+ SELECT <? if exists("plancode_id") ?>
+          ( SELECT (plancode_code || '-' || plancode_name)
+              FROM plancode
+             WHERE (plancode_id=<? value("plancode_id") ?>) )
+        <? elseif exists("plancode_pattern") ?>
+          text(<? value("plancode_pattern") ?>)
+        <? else ?>
+          text('All Planner Codes')
+        <? endif ?>
+        AS plannercode,
+        <? if exists("warehous_id") ?>
+          ( SELECT warehous_code
+-             FROM warehous
++             FROM whsinfo
+             WHERE (warehous_id=<? value("warehous_id") ?>) )
+        <? else ?>
+          text('All Warehouses')
+        <? endif ?>
+        AS warehouse,
+        <? if exists("useActualCost") ?>
+          text('Actual Cost')
+        <? else ?>
+          text('Standard Cost')
+        <? endif ?>
+        AS costs,
+        <? if exists("useAveragePrice") ?>
+          text('Average Price from ')||formatDate(<? value("startEvalDate") ?>)||text(' to ')||formatDate(<? value("endEvalDate") ?>)
+        <? else ?>
+          text('List Price')
+        <? endif ?>
+        AS salesprice,
+        formatDate(<? value("startDate") ?>) AS startdate,
+        formatDate(<? value("endDate") ?>) AS enddate;
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ == MetaSQL statement schedule-plannedorders
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: PlannedSchedulesMasterList
+ QUERY: detail
+ SELECT 
+      pschhead_number,
+      CASE WHEN (pschhead_type = 'N')    THEN text('3-Forecast Netted to MPS') 
+           WHEN (pschhead_type = 'F')    THEN text('1-Forecast Reporting') 
+           WHEN (pschhead_type = 'P')    THEN text('2-Cumulative MPS') 
+      END as sched_type,
+      pschhead_descrip,
+      formatdate(pschhead_start_date) AS pschhead_start_date,
+      formatdate(pschhead_end_date)   AS pschhead_end_date,
+      pschhead_status ,
+      formatdate(pschhead_created)    AS pschhead_created,
+      pschhead_creator,
+ 
+      text(pschitem_linenumber)       AS pschitem_linenumber,
+      text(pschitem_scheddate)        AS  pschitem_scheddate,
+      text(pschitem_qty)              AS  pschitem_qty,
+      pschitem_status,
+      text(formatdate(pschitem_created))   AS pschitem_created,
+      pschitem_creator,
+ 
+      item_number,
+      item_descrip1,
+      item_descrip2,
+ 
+      warehous_code
+  
+ FROM 
+      item,
+      itemsite,
+-     warehous,
++     whsinfo,
+      xtmfg.pschhead LEFT OUTER JOIN xtmfg.pschitem ON pschhead_id = pschitem_pschhead_id 
+ WHERE 
+      pschitem_itemsite_id = itemsite_id
+      AND itemsite_item_id = item_id
+      AND itemsite_warehous_id = warehous_id
+ ----------------------
+ UNION
+ ----------------------
+ SELECT 
+      pschhead_number,
+      CASE WHEN (pschhead_type = 'N')    THEN text('3-Forecast Netted to MPS') 
+           WHEN (pschhead_type = 'F')    THEN text('1-Forecast Reporting') 
+           WHEN (pschhead_type = 'P')    THEN text('2-Cumulative MPS') 
+      END as sched_type,
+      pschhead_descrip,
+      formatdate(pschhead_start_date)   AS  pschhead_start_date,
+       formatdate(pschhead_end_date)    AS pschhead_end_date,
+      pschhead_status ,
+      formatdate(pschhead_created)     AS pschhead_created,
+      pschhead_creator,
+ 
+      text(' ')        AS      pschitem_linenumber,
+      text(' ')        AS      line_date,
+      text(' ')        AS      pschitem_qty,
+      text(' ')        AS      pschitem_status,
+      text(' ')        AS      pschitem_created,
+      text(' ')        AS      pschitem_creator,
+ 
+      text('No Items Assigned')        AS      item_number,
+      text(' ')        AS      item_descrip1,
+      text(' ')        AS      item_descrip2,
+ 
+      warehous_code
+  
+ FROM 
+-       warehous,
++       whsinfo,
+        xtmfg.pschhead LEFT OUTER JOIN xtmfg.pschitem ON pschhead_id = pschitem_pschhead_id 
+ WHERE 
+        pschitem_pschhead_id IS NULL
+        AND pschhead_warehous_id = warehous_id
+ 
+ ORDER BY warehous_code, sched_type, pschhead_status DESC, pschhead_number, item_number, pschitem_scheddate ;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: ReturnAuthorizationForm
+ QUERY: GroupHead
+ SELECT remitto.*,
+        TEXT(rahead_number) AS number,
+        formatDate(rahead_authdate) AS f_authdate,
+        cust_number,
+        rahead_billtoname,
+        formatAddr(rahead_billtoaddress1, rahead_billtoaddress2, rahead_billtoaddress3, ( rahead_billtocity || '  ' || rahead_billtostate || '  ' || rahead_billtozip ), rahead_billtocountry) AS f_billtoaddress,
+        rahead_shipto_name,
+        formatAddr(rahead_shipto_address1, rahead_shipto_address2, rahead_shipto_address3, ( rahead_shipto_city || '  ' || rahead_shipto_state || ' ' || rahead_shipto_zipcode ), rahead_shipto_country) AS f_shiptoaddress
+-FROM remitto, cust, rahead
++FROM remitto, custinfo, rahead
+ WHERE ( (rahead_cust_id=cust_id)
+  AND (rahead_id=<? value("rahead_id") ?>) );
+ --------------------------------------------------------------------
+   
+ QUERY: Detail
+ SELECT raitem_linenumber,
+        formatQty(raitem_qtyauthorized) AS f_qtyauthorized,
+        uom_name AS invuom,
+        item_number,
+        item_descrip1,
+        item_descrip2,
+        CASE
+          WHEN raitem_disposition='C' THEN
+            'Credit'
+          WHEN raitem_disposition='R' THEN
+            'Return'
+          WHEN raitem_disposition='P' THEN
+            'Replace'
+          WHEN raitem_disposition='V' THEN
+            'Service'
+          WHEN raitem_disposition='S' THEN
+            'Ship'
+        END AS f_disposition,
+        formatPrice(raitem_unitprice / COALESCE(raitem_price_invuomratio,1)) AS f_unitprice,
+        formatMoney(round((raitem_qtyauthorized * raitem_qty_invuomratio) * (raitem_unitprice / COALESCE(raitem_price_invuomratio,1)),2)) AS f_extprice,
+        raitem_notes
+ FROM raitem, itemsite, item, uom
+ WHERE ((raitem_rahead_id=<? value("rahead_id") ?>)
+   AND (raitem_itemsite_id=itemsite_id)
+   AND (itemsite_item_id=item_id)
+   AND (raitem_qty_uom_id=uom_id))
+ ORDER BY raitem_linenumber;
+ --------------------------------------------------------------------
+   
+ QUERY: foot
+ SELECT formatMoney(SUM(round((raitem_qtyauthorized * raitem_qty_invuomratio) * (raitem_unitprice / COALESCE(raitem_price_invuomratio,1)),2))) AS f_extprice
+ FROM raitem
+ WHERE (raitem_rahead_id=<? value("rahead_id") ?>);
+ --------------------------------------------------------------------
+   
+ QUERY: GroupExtended
+ SELECT formatMoney(calcRaAmt(<? value("rahead_id") ?>)) AS f_totalcredit,
+        formatMoney(rahead_misc) AS f_misc,
+        formatMoney(calcRaTaxAmt(<? value("rahead_id") ?>)) AS f_tax,
+        formatMoney(rahead_freight) AS f_freight,
+        rahead_notes,
+        rahead_misc_descrip
+ FROM rahead
+ WHERE (rahead_id=<? value("rahead_id") ?>);
+ --------------------------------------------------------------------
+   
+ QUERY: currency
+ SELECT
+  curr_symbol
+ FROM
+     rahead,
+     curr_symbol
+ WHERE (rahead_id = <? value("rahead_id") ?>) AND
+       rahead_curr_id = curr_id;
+ --------------------------------------------------------------------
+   
+ QUERY: logo
+ SELECT image_data 
+ FROM image 
+ WHERE ((image_name='logo'));
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: RoughCutCapacityPlanByWorkCenter
+ QUERY: head
+ SELECT <? if not exists("showWorkCenters") ?>
+           text('No Work Centers')
+        <? elseif exists("wrkcnt_id") ?>
+          (SELECT wrkcnt_code || '-' || wrkcnt_descrip
+             FROM xtmfg.wrkcnt
+            WHERE (wrkcnt_id=<? value("wrkcnt_id") ?>))
+        <? else ?>
+          text('All Work Centers')
+        <? endif ?>
+        AS wrkcnt,
+        <? if not exists("showTooling") ?>
+           text('No Tooling')
+        <? elseif exists("item_id") ?>
+          (SELECT item_number || '-' || item_descrip1
+             FROM item
+            WHERE (item_id=<? value("item_id") ?>))
+        <? else ?>
+          text('All Tooling')
+        <? endif ?>
+        AS tooling,
+        <? if exists("warehous_id") ?>
+-         (SELECT warehous_code FROM warehous WHERE warehous_id=<? value("warehous_id") ?>)
++         (SELECT warehous_code FROM whsinfo WHERE warehous_id=<? value("warehous_id") ?>)
+        <? else ?>
+          text('All Warehouses')
+        <? endif ?>
+        AS warehouse,
+        formatDate(<? value("startDate") ?>) AS startdate,
+        formatDate(<? value("endDate") ?>) AS enddate;
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+ == MetaSQL statement roughcutcapacity-detail
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: Routing
+ QUERY: Head
+ SELECT formatWoBarcode(wo_id) AS barcode,
+        formatWoNumber(wo_id) AS wonumber,
+        item_number,
+        uom_name AS iteminvuom,
+        item_descrip1,
+        item_descrip2,
+        warehous_code,
+        wo_status,
+        formatQty(wo_qtyord) AS qtyord,
+        formatQty(wo_qtyrcv) AS qtyrcv,
+        formatDate(wo_startdate) AS startdate,
+        formatDate(wo_duedate) AS duedate
+-  FROM wo, itemsite, item, warehous, uom
++  FROM wo, itemsite, item, whsinfo, uom
+  WHERE ((wo_itemsite_id=itemsite_id)
+    AND (itemsite_item_id=item_id)
+    AND (item_inv_uom_id=uom_id)
+    AND (itemsite_warehous_id=warehous_id)
+    AND (wo_id=<? value("wo_id") ?>)
+ );
+     
+ --------------------------------------------------------------------
+   
+ QUERY: Detail
+ SELECT wooper_id,
+        xtmfg.formatWoOperBarcode(wooper_id) AS barcode,
+        wooper_seqnumber,
+        wrkcnt_code,
+        COALESCE(stdopn_number, 'None') AS stdopn,
+        wooper_descrip1,
+        wooper_descrip2,
+        wooper_toolref,
+        wooper_instruc,
+        formatTime(wooper_sutime) AS f_sutime,
+        CASE WHEN (wooper_sucomplete) THEN (formatTime(noNeg(wooper_sutime - wooper_suconsumed)) || '/' || text('Complete'))
+             ELSE formatTime(noNeg(wooper_sutime - wooper_suconsumed))
+        END AS f_suremain,
+        formatTime(wooper_rntime) AS f_rntime,
+        CASE WHEN (wooper_rncomplete) THEN (formatTime(noNeg(wooper_rntime - wooper_rnconsumed)) || '/' || text('Complete'))
+             ELSE formatTime(noNeg(wooper_rntime - wooper_rnconsumed))
+        END AS f_rnremain
+   FROM xtmfg.wrkcnt,
+        xtmfg.wooper LEFT OUTER JOIN xtmfg.stdopn ON (wooper_stdopn_id=stdopn_id)
+  WHERE ( (wooper_wrkcnt_id=wrkcnt_id)
+    AND (wooper_wo_id=<? value("wo_id") ?>)
+ )
+ ORDER BY wooper_seqnumber;
+ --------------------------------------------------------------------
+   
+ QUERY: Params
+ SELECT 
+   wo_number, 
+   char_name, 
+   charass_value 
+ FROM 
+   charass, 
+   char, 
+   wo 
+ WHERE 
+   charass_target_id = <? value("wo_id") ?> 
+   AND wo_id = <? value("wo_id") ?>
+   AND charass_char_id = char_id;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: RoutingAndPickList
+ QUERY: Head
+ SELECT 
+        formatwobarcode(wo_id) AS wobarcode,
+        formatWoNumber(wo_id) AS wonumber,
+        item_number,
+        uom_name AS iteminvuom,
+        item_descrip1,
+        item_descrip2,
+        warehous_code,
+        wo_status,
+        formatQty(wo_qtyord) AS qtyord,
+        formatQty(wo_qtyrcv) AS qtyrcv,
+        formatDate(wo_startdate) AS startdate,
+        formatDate(wo_duedate) AS duedate,
+ (SELECT image_data FROM image WHERE ((image_name=item_number)))AS item_image
+-  FROM wo, itemsite, item, warehous, uom
++  FROM wo, itemsite, item, whsinfo, uom
+  WHERE ((wo_itemsite_id=itemsite_id)
+    AND (itemsite_item_id=item_id)
+    AND (item_inv_uom_id=uom_id)
+    AND (itemsite_warehous_id=warehous_id)
+    AND (wo_id=<? value("wo_id") ?>)
+ );
+     
+ --------------------------------------------------------------------
+   
+ QUERY: Detail
+ SELECT 
+        image_data,
+        formatwooperbarcode(wooper_id) AS wooperbarcode,
+        wooper_id,
+        wooper_seqnumber,
+        wrkcnt_code,
+       COALESCE(stdopn_number, 'None') AS stdopn,
+        wooper_descrip1,
+        wooper_descrip2,
+        wooper_toolref,
+        wooper_instruc,
+        formatTime(wooper_sutime) AS f_sutime,
+        CASE WHEN (wooper_sucomplete) THEN (formatTime(noNeg(wooper_sutime - wooper_suconsumed)) || '/' || text('Complete'))
+             ELSE formatTime(noNeg(wooper_sutime - wooper_suconsumed))
+        END AS f_suremain,
+        formatTime(wooper_rntime) AS f_rntime,
+        CASE WHEN (wooper_rncomplete) THEN (formatTime(noNeg(wooper_rntime - wooper_rnconsumed)) || '/' || text('Complete'))
+             ELSE formatTime(noNeg(wooper_rntime - wooper_rnconsumed))
+        END AS f_rnremain,
+ ---NEW ITEM INFO
+        item_number,
+        formatitemsitebarcode(itemsite_id) AS itembarcode,
+        item_descrip1,
+        item_descrip2,
+        uom_name,
+ --Material Issue
+        womatl_qtyreq,
+        womatl_qtyiss
+ 
+   FROM xtmfg.wrkcnt,
+        womatl,
+        uom,
+        itemsite,
+        item,
+        xtmfg.wooper LEFT OUTER JOIN xtmfg.stdopn ON wooper_stdopn_id=stdopn_id
+ -----
+      left outer join xtmfg.booitem on (wooper_booitem_id = booitem_id)
+      LEFT OUTER JOIN xtmfg.booimage ON (booimage_booitem_id = booitem_id AND booimage_purpose='E')
+      left outer join image on (booimage_image_id = image_id)
+ -----
+ 
+  
+  WHERE ( (wooper_wrkcnt_id=wrkcnt_id)
+    AND (womatl_uom_id=uom_id)
+    AND (wooper_wo_id=  <? value("wo_id") ?>)
+ 
+ --below is the join required to show the operation
+ --unfortunately it needs to be an outer or inner join
+ --note that currenlty it shows duplicates for each match
+ --note also that it also does not show operations that have not materials linked to them
+ 
+  AND (womatl_wooper_id = wooper_id)
+ 
+ --the joins below get the item number and description from a join off off item_site to item
+ 
+   AND (womatl_itemsite_id = itemsite_id)
+    AND (itemsite_item_id = item_id) 
+ )
+ 
+ ----------------
+ 
+ UNION
+ 
+ ----------------
+ 
+ SELECT 
+        image_data,
+        xtmfg.formatwooperbarcode(wooper_id) AS wooperbarcode,
+        wooper_id,
+        wooper_seqnumber,
+        wrkcnt_code,
+        text('') AS stdopn,
+        wooper_descrip1,
+        wooper_descrip2,
+        wooper_toolref,
+        wooper_instruc,
+        formatTime(wooper_sutime) AS f_sutime,
+        CASE WHEN (wooper_sucomplete) THEN (formatTime(noNeg(wooper_sutime - wooper_suconsumed)) || '/' || text('Complete'))
+             ELSE formatTime(noNeg(wooper_sutime - wooper_suconsumed))
+        END AS f_suremain,
+        formatTime(wooper_rntime) AS f_rntime,
+        CASE WHEN (wooper_rncomplete) THEN (formatTime(noNeg(wooper_rntime - wooper_rnconsumed)) || '/' || text('Complete'))
+             ELSE formatTime(noNeg(wooper_rntime - wooper_rnconsumed))
+        END AS f_rnremain,
+     --NO ITEM INFO
+        text('No Items Linked to Operation') AS item_number,
+        text('') AS itembarcode,
+        text('') AS item_descrip1,
+        text('') AS  item_descrip2,
+        uom_name,
+ --Material Issue
+        womatl_qtyreq,
+        womatl_qtyiss
+ 
+   FROM 
+        xtmfg.wrkcnt,
+        xtmfg.wooper left outer join (womatl JOIN uom ON (womatl_uom_id=uom_id)) on (womatl_wooper_id = wooper_id)
+        left outer join xtmfg.booitem on (wooper_booitem_id = booitem_id)
+        LEFT OUTER JOIN xtmfg.booimage ON (booimage_booitem_id = booitem_id AND booimage_purpose='P')
+        left outer join image on (booimage_image_id = image_id)
+ 
+  
+  WHERE ( 
+       (wooper_wrkcnt_id=wrkcnt_id)
+        AND (wooper_wo_id=  <? value("wo_id") ?>)
+        AND (womatl_wo_id IS NULL)
+                                  )
+ 
+ 
+ ORDER BY wooper_seqnumber;
+ --------------------------------------------------------------------
+   
+ QUERY: Params
+ SELECT 
+   wo_number, 
+   char_name, 
+   charass_value 
+ FROM 
+   charass, 
+   char, 
+   wo 
+ WHERE 
+   charass_target_id = <? value("wo_id") ?> 
+   AND wo_id = <? value("wo_id") ?>
+   AND charass_char_id = char_id;
+ --------------------------------------------------------------------
+   
+ QUERY: NoOpItems
+ SELECT item_number,
+        item_descrip1,
+        item_descrip2,
+        uom_name,
+        formatQty(womatl_qtyreq) AS qtyreq,
+        formatQty(womatl_qtyiss) AS qtyiss,
+        formatQty(noNeg(womatl_qtyreq - womatl_qtyiss)) AS qtybalance,
+        itemsite_location_comments,
+        formatitemsitebarcode(itemsite_id) AS itembarcode,
+        CASE WHEN (womatl_issuemethod='S') THEN text('Push')
+             WHEN (womatl_issuemethod='L') THEN text('Pull')
+             WHEN (womatl_issuemethod='M') THEN text('Mixed')
+             ELSE text(womatl_issuemethod)
+        END AS f_issuemethod
+   FROM womatl, itemsite, item, uom
+  WHERE 
+        (womatl_itemsite_id=itemsite_id)
+    AND (itemsite_item_id=item_id)
+    AND (womatl_uom_id=uom_id)
+    AND (womatl_wo_id= (<? value("wo_id") ?> )
+    AND (womatl_wooper_id = '-1'))
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: WOBufferStatusByParameterList
+ QUERY: Detail
+ SELECT formatWONumber(wo_id) AS wonumber,
+        wo_status, warehous_code, item_number, item_descrip1, item_descrip2, uom_name AS iteminvuom,
+        formatQty(wo_qtyord) AS ordered,
+        formatQty(wo_qtyrcv) AS received,
+        CASE WHEN (bufrsts_type = 'T') THEN 'Time'
+ 	ELSE 'Stock'
+ 	END AS bufrststype,
+        bufrsts_status
+-FROM wo, itemsite, warehous, item, xtmfg.bufrsts, uom
++FROM wo, itemsite, whsinfo, item, xtmfg.bufrsts, uom
+ WHERE ( (wo_itemsite_id=itemsite_id)
+  AND (itemsite_item_id=item_id)
+  AND (item_inv_uom_id=uom_id)
+  AND (itemsite_warehous_id=warehous_id)
+  AND (bufrsts_target_type='W')
+  AND (bufrsts_target_id=wo_id)
+  AND (bufrsts_date=current_date)
+ 
+ <? if exists("showOnlyRI") ?>
+  AND (wo_status IN ('R', 'I'))
+ <? else ?>
+  AND (wo_status <> 'C')
+ <? endif ?>
+ 
+ <? if exists("showOnlyTopLevel") ?>
+  AND (wo_ordtype<>'W')
+ <? endif ?>
+ 
+ <? if exists("warehous_id") ?>
+  AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+ <? endif ?>
+ 
+ <? if exists("item_id") ?>
+  AND (itemsite_item_id=<? value("item_id") ?>)
+ <? endif ?>
+ 
+ <? if exists("plancode_id") ?>
+  AND (itemsite_plancode_id=<? value("plancode_id") ?>)
+ <? elseif exists("plancode_pattern") ?>
+  AND (itemsite_plancode_id IN (SELECT plancode_id FROM plancode WHERE (plancode_code ~ <? value("plancode_pattern") ?>)))
+ <? endif ?>
+ 
+ <? if exists("classcode_id") ?>
+  AND (item_classcode_id=<? value("classcode_id") ?>)
+ <? elseif exists("classcode_pattern") ?>
+  AND (item_classcode_id IN (SELECT classcode_id FROM classcode WHERE (classcode_code ~ <? value("classcode_pattern") ?>)))
+ <? endif ?>
+ 
+ <? if exists("itemgrp_id") ?>
+  AND (item_id IN (SELECT itemgrpitem_item_id FROM itemgrpitem WHERE (itemgrpitem_itemgrp_id=<? value("itemgrp_id") ?>)))
+ <? elseif exists("itemgrp_pattern") ?>
+  AND (item_id IN (SELECT itemgrpitem_item_id FROM itemgrpitem, itemgrp WHERE ( (itemgrpitem_itemgrp_id=itemgrp_id) AND (itemgrp_name ~ <? value("itemgrp_pattern") ?>) )))
+ <? elseif exists("itemgrp") ?>
+  AND (item_id IN (SELECT DISTINCT itemgrpitem_item_id FROM itemgrpitem))
+ <? endif ?>
+ 
+  )
+ ORDER BY
+ 
+ <? if exists("sortByItemNumber") ?>
+   item_number,
+ <? endif ?>
+ 
+   bufrsts_status DESC, wo_number, wo_subnumber;
+     
+ --------------------------------------------------------------------
+   
+ QUERY: Head
+ SELECT <? if exists("warehous_id") ?>
+        warehous_code
+ FROM whsinfo
+ WHERE (warehous_id=<? value("warehous_id") ?>);
+ <? else ?>
+        TEXT('All Warehouses') AS warehous_code;
+ <? endif ?>
+ 
+ --------------------------------------------------------------------
+   
+ QUERY: ClassCodeParam
+ SELECT
+ <? if exists("classcode_id") ?>
+   TEXT('Class Code:') AS type,
+   classcode_code AS code
+ FROM classcode
+ WHERE (classcode_id=<? value("classcode_id") ?>);
+ <? elseif exists("classcode_pattern") ?>
+   TEXT('Class Code Pattern:') AS type,
+   TEXT(<? value("classcode_pattern") ?>) AS code;
+ <? else ?>
+   TEXT('Class Codes:') AS type,
+   TEXT('All') AS code;
+ <? endif ?>
+ 
+ --------------------------------------------------------------------
+   
+ QUERY: PlannerCodeParam
+ SELECT
+ <? if exists("plancode_id") ?>
+   TEXT('Planner Code:') AS type,
+   plancode_code AS code
+ FROM plancode
+ WHERE (plancode_id=<? value("plancode_id") ?>);
+ <? elseif exists("plancode_pattern") ?>
+   TEXT('Planner Code Pattern:') AS type,
+   TEXT(<? value("plancode_pattern") ?>) AS code;
+ <? else ?>
+   TEXT('Planner Codes:') AS type,
+   TEXT('All') AS code;
+ <? endif ?>
+ 
+ --------------------------------------------------------------------
+   
+ QUERY: ItemGroupParam
+ SELECT
+ <? if exists("itemgrp_id") ?>
+   TEXT('Item Group:') AS type,
+   itemgrp_name AS code
+ FROM itemgrp
+ WHERE (itemgrp_id=<? value("itemgrp_id") ?>);
+ <? elseif exists("itemgrp_pattern") ?>
+   TEXT('Item Group Pattern:') AS type,
+   TEXT(<? value("itemgrp_pattern") ?>) AS code;
+ <? else ?>
+   TEXT('Item Groups:') AS type,
+   TEXT('All') AS code;
+ <? endif ?>
+ 
+ --------------------------------------------------------------------
+   
+ QUERY: ItemParameter
+ SELECT
+ <? if exists("item_id") ?>
+   item_number
+ FROM item
+ WHERE (item_id=<? value("item_id") ?>);
+ <? else ?>
+   TEXT('All') AS item_number;
+ <? endif ?>
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: WOOperationsByWorkCenter
+ QUERY: head
+ SELECT wrkcnt_code,
+        wrkcnt_descrip,
+        warehous_code,
+        <? if exists("loadOnly") ?>
+          text('Only Show W/O Operations with Load')
+        <? else ?>
+          text('')
+        <? endif ?>
+        AS lbl_withload,
+        formatDate(<? value("startDate") ?>, 'Earliest') AS startdate,
+        formatDate(<? value("endDate") ?>, 'Latest') AS enddate
+-  FROM xtmfg.wrkcnt, warehous
++  FROM xtmfg.wrkcnt, whsinfo
+  WHERE ((wrkcnt_warehous_id=warehous_id)
+    AND (wrkcnt_id=<? value("wrkcnt_id") ?>));
+     
+ --------------------------------------------------------------------
+   
+ QUERY: detail
+-SELECT formatWoNumber(wo_id) as wonumber,
+-       formatDate(wooper_scheduled) AS duedate,
+-       item_number, item_descrip1, item_descrip2, uom_name AS iteminvuom,
+-       wooper_seqnumber,
+-       CASE WHEN (wooper_stdopn_id <> -1) THEN ( SELECT stdopn_number FROM xtmfg.stdopn WHERE (stdopn_id=wooper_stdopn_id) )
+-            ELSE ''
+-       END AS stdoperation,
+-       wooper_descrip1, wooper_descrip2,
+-       CASE WHEN (wooper_sucomplete) THEN text('Complete')
+-            ELSE formatTime(noNeg(wooper_sutime - wooper_suconsumed))
+-       END AS setupremain,
+-       CASE WHEN (wooper_rncomplete) THEN text('Complete')
+-            ELSE formatTime(noNeg(wooper_rntime - wooper_rnconsumed))
+-       END AS runremain,
+-       formatQty(noNeg(wo_qtyord - wooper_qtyrcv)) AS qtyremain
+-  FROM xtmfg.wooper, wo, itemsite, item, uom
+- WHERE ((wooper_wo_id=wo_id)
+-   AND (wo_itemsite_id=itemsite_id)
+-   AND (itemsite_item_id=item_id)
+-   AND (item_inv_uom_id=uom_id)
+-   AND (date(wooper_scheduled) BETWEEN <? value("startDate") ?> AND <? value("endDate") ?>)
+-   AND (wooper_wrkcnt_id=<? value("wrkcnt_id") ?>)
+-<? if exists("loadOnly") ?>
+-   AND (((wooper_sutime - wooper_suconsumed) > 0) OR ((wooper_rntime - wooper_rnconsumed) > 0))
+-<? endif ?>
+- )
+-ORDER BY wooper_scheduled, wo_number, wo_subnumber, wooper_seqnumber;
++== MetaSQL statement wooper-detail
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: WarehouseCalendarExceptionsMasterList
+ QUERY: detail
+ SELECT whsecal_id,
+        COALESCE(warehous_code, 'Any') AS whsecode,
+        whsecal_descrip
+-  FROM whsecal LEFT OUTER JOIN warehous ON (whsecal_warehous_id=warehous_id)
++  FROM whsecal LEFT OUTER JOIN whsinfo ON (whsecal_warehous_id=warehous_id)
+  ORDER BY warehous_code,
+           whsecal_effective,
+           whsecal_expires;
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
+ 
+ ====================================================================
+ REPORT: WarehouseLocationMasterList
+ QUERY: detail
+ SELECT (warehous_code || ' ' || location_name) AS whs_bin,
+        warehous_code,
+        formatLocationName(location_id) AS locationname,
+        location_descrip,
+        formatBoolYN(location_netable) AS f_netable,
+        formatBoolYN(location_restrict) AS f_restrict,
+        item_number,
+        (item_descrip1 || ' ' || item_descrip2) AS itemdesc
+   FROM location LEFT OUTER JOIN
+        (SELECT locitem_location_id,
+                item_number,
+                item_descrip1,
+                item_descrip2
+           FROM locitem, item
+          WHERE locitem_item_id=item_id) AS itemlocation
+-       ON (locitem_location_id=location_id and location_restrict=true), warehous
++       ON (locitem_location_id=location_id and location_restrict=true), whsinfo
+  WHERE ((location_warehous_id=warehous_id)
+ <? if exists("warehous_id") ?>
+    AND (warehous_id=<? value("warehous_id") ?>)
+ <? endif ?>
+ ) ORDER BY warehous_code, location_name;
+ --------------------------------------------------------------------
+   
+ QUERY: head
+ SELECT <? if exists("warehous_id") ?>
+          text('Warehouse:') AS f_text,
+          ( SELECT warehous_code
+-             FROM warehous
++             FROM whsinfo
+             WHERE (warehous_id=<? value("warehous_id") ?>) ) AS f_value
+        <? else ?>
+          text('') AS f_text,
+          text('') AS f_value
+        <? endif ?>
+ --------------------------------------------------------------------
+   
+\ No newline at end of file
