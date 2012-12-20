@@ -31,13 +31,6 @@ WarehouseLocationMasterList
           text('All Sites')
         <? endif ?>
         AS warehouse;
- --------------------------------------------------------------------
-   
- QUERY: detail
- == MetaSQL statement schedule-expedite
- --------------------------------------------------------------------
-   
-\ No newline at end of file
  
  ====================================================================
  REPORT: ListOpenReturnAuthorizations
@@ -87,9 +80,6 @@ WarehouseLocationMasterList
 -          rahead_disposition, rahead_authdate, rahead_expiredate
 - ORDER BY rahead_number
 +== MetaSQL statement returnAuthorizations-detail
- --------------------------------------------------------------------
-   
-\ No newline at end of file
  
  ====================================================================
  REPORT: LocationLotSerialNumberDetail
@@ -170,9 +160,6 @@ WarehouseLocationMasterList
  <? endif ?>
  )
  ORDER BY warehous_code, locationname, lotserial;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
  
  ====================================================================
  REPORT: MRPDetail
@@ -185,22 +172,6 @@ WarehouseLocationMasterList
   WHERE ((itemsite_id=<? value("itemsite_id") ?>)
     AND (itemsite_item_id=item_id)
     AND (itemsite_warehous_id=warehous_id) );
- --------------------------------------------------------------------
-   
- QUERY: detail
- SELECT formatDate(mpsmrpwork_startdate) || '-' || formatDate(mpsmrpwork_enddate) as period,
-        formatQty(mpsmrpwork_qoh) as f_qoh,
-        formatQty(mpsmrpwork_allocations) as f_allocations,
-        formatQty(mpsmrpwork_orders) as f_orders,
-        formatQty(mpsmrpwork_availability) as f_availability,
-        formatQty(mpsmrpwork_firmed) as f_firmed,
-        formatQty(mpsmrpwork_firmedavailability) as f_firmedavailability
-   FROM mpsmrpwork
-  WHERE (mpsmrpwork_set_id=<? value("workset_id") ?>)
- ORDER BY mpsmrpwork_order;
- --------------------------------------------------------------------
-   
-\ No newline at end of file
  
  ====================================================================
  REPORT: PlannedRevenueExpensesByPlannerCode
@@ -238,13 +209,6 @@ WarehouseLocationMasterList
         AS salesprice,
         formatDate(<? value("startDate") ?>) AS startdate,
         formatDate(<? value("endDate") ?>) AS enddate;
- --------------------------------------------------------------------
-   
- QUERY: detail
- == MetaSQL statement schedule-plannedorders
- --------------------------------------------------------------------
-   
-\ No newline at end of file
  
  ====================================================================
  REPORT: ReturnAuthorizationForm
@@ -261,72 +225,6 @@ WarehouseLocationMasterList
 +FROM remitto, custinfo, rahead
  WHERE ( (rahead_cust_id=cust_id)
   AND (rahead_id=<? value("rahead_id") ?>) );
- --------------------------------------------------------------------
-   
- QUERY: Detail
- SELECT raitem_linenumber,
-        formatQty(raitem_qtyauthorized) AS f_qtyauthorized,
-        uom_name AS invuom,
-        item_number,
-        item_descrip1,
-        item_descrip2,
-        CASE
-          WHEN raitem_disposition='C' THEN
-            'Credit'
-          WHEN raitem_disposition='R' THEN
-            'Return'
-          WHEN raitem_disposition='P' THEN
-            'Replace'
-          WHEN raitem_disposition='V' THEN
-            'Service'
-          WHEN raitem_disposition='S' THEN
-            'Ship'
-        END AS f_disposition,
-        formatPrice(raitem_unitprice / COALESCE(raitem_price_invuomratio,1)) AS f_unitprice,
-        formatMoney(round((raitem_qtyauthorized * raitem_qty_invuomratio) * (raitem_unitprice / COALESCE(raitem_price_invuomratio,1)),2)) AS f_extprice,
-        raitem_notes
- FROM raitem, itemsite, item, uom
- WHERE ((raitem_rahead_id=<? value("rahead_id") ?>)
-   AND (raitem_itemsite_id=itemsite_id)
-   AND (itemsite_item_id=item_id)
-   AND (raitem_qty_uom_id=uom_id))
- ORDER BY raitem_linenumber;
- --------------------------------------------------------------------
-   
- QUERY: foot
- SELECT formatMoney(SUM(round((raitem_qtyauthorized * raitem_qty_invuomratio) * (raitem_unitprice / COALESCE(raitem_price_invuomratio,1)),2))) AS f_extprice
- FROM raitem
- WHERE (raitem_rahead_id=<? value("rahead_id") ?>);
- --------------------------------------------------------------------
-   
- QUERY: GroupExtended
- SELECT formatMoney(calcRaAmt(<? value("rahead_id") ?>)) AS f_totalcredit,
-        formatMoney(rahead_misc) AS f_misc,
-        formatMoney(calcRaTaxAmt(<? value("rahead_id") ?>)) AS f_tax,
-        formatMoney(rahead_freight) AS f_freight,
-        rahead_notes,
-        rahead_misc_descrip
- FROM rahead
- WHERE (rahead_id=<? value("rahead_id") ?>);
- --------------------------------------------------------------------
-   
- QUERY: currency
- SELECT
-  curr_symbol
- FROM
-     rahead,
-     curr_symbol
- WHERE (rahead_id = <? value("rahead_id") ?>) AND
-       rahead_curr_id = curr_id;
- --------------------------------------------------------------------
-   
- QUERY: logo
- SELECT image_data 
- FROM image 
- WHERE ((image_name='logo'));
- --------------------------------------------------------------------
-   
-\ No newline at end of file
  
  ====================================================================
  REPORT: WarehouseLocationMasterList
@@ -366,6 +264,3 @@ WarehouseLocationMasterList
           text('') AS f_text,
           text('') AS f_value
         <? endif ?>
- --------------------------------------------------------------------
-   
-\ No newline at end of file
