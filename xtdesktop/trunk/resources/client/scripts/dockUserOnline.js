@@ -37,7 +37,7 @@ function initDockUserOnline()
   _userOnline["populateMenu(QMenu*,XTreeWidgetItem*,int)"]
     .connect(populateMenuUserOnline);
 
-  _dockUserOnline.visibilityChanged.connect(fillListUserOnline);
+  _dockUserOnline.visibilityChanged.connect(refreshUserOnline);
 
   // Handle privilge control
   var act = _dockUserOnline.toggleViewAction();
