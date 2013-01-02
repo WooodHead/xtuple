@@ -335,6 +335,8 @@ BEGIN
       RAISE NOTICE 'Deleting Shipped Sales Order head id %', _r.ordship_id;
     END IF;
     DELETE FROM payco WHERE (payco_cohead_id=_r.ordship_id);
+    -- Delete kit components first
+    DELETE FROM coitem WHERE (coitem_cohead_id=_r.ordship_id AND coitem_subnumber > 0);
     DELETE FROM coitem WHERE (coitem_cohead_id=_r.ordship_id);
     DELETE FROM cohead WHERE (cohead_id=_r.ordship_id);
 
@@ -342,6 +344,8 @@ BEGIN
       RAISE NOTICE 'Deleting Sales Order head id %', _r.ordinv_id;
     END IF;
     DELETE FROM payco WHERE (payco_cohead_id=_r.ordinv_id);
+    -- Delete kit components first
+    DELETE FROM coitem WHERE (coitem_cohead_id=_r.ordinv_id AND coitem_subnumber > 0);
     DELETE FROM coitem WHERE (coitem_cohead_id=_r.ordinv_id);
     DELETE FROM cohead WHERE (cohead_id=_r.ordinv_id);
 
