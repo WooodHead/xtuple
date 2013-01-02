@@ -130,7 +130,11 @@ BEGIN
   ELSE
     SELECT NEXTVAL('addr_addr_id_seq') INTO _addrId;
 
-    _addrNumber := COALESCE(pNumber::text,fetchNextNumber('AddressNumber'));
+    IF (_flag = 'CHANGEONE') THEN
+      _addrNumber := fetchNextNumber('AddressNumber');
+    ELSE
+      _addrNumber := COALESCE(pNumber::text,fetchNextNumber('AddressNumber'));
+    END IF;
 
     INSERT INTO addr ( addr_id, addr_number,
     addr_line1, addr_line2, addr_line3, 
