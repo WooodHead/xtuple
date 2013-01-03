@@ -84,15 +84,13 @@ BEGIN
   IF (pDropShip) THEN
     SELECT COALESCE(pohead_id, -1) INTO _temp
     FROM pohead
-    WHERE ( (COALESCE(pohead_cohead_id, -1) = _s.cohead_id)
-      AND (pohead_status = 'U')
+    WHERE ( (pohead_status = 'U')
       AND (pohead_vend_id = _i.itemsrc_vend_id)
       AND (pohead_shiptoaddress_id = _s.shipto_addr_id) );
   ELSE
     SELECT COALESCE(pohead_id, -1) INTO _temp
     FROM pohead
-    WHERE ( (COALESCE(pohead_cohead_id, -1) = _s.cohead_id)
-      AND (pohead_status = 'U')
+    WHERE ( (pohead_status = 'U')
       AND (pohead_vend_id = _i.itemsrc_vend_id)
       AND (pohead_shiptoaddress_id = _w.addr_id) );
   END IF;
