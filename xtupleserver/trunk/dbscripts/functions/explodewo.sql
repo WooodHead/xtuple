@@ -44,7 +44,6 @@ BEGIN
            AND (bomitem_item_id=component.itemsite_item_id)
            AND (woEffectiveDate(wo_startdate) BETWEEN bomitem_effective AND (bomitem_expires - 1))
            AND (component.itemsite_active)
-           AND (component.itemsite_costmethod <> 'J')
            AND (component.itemsite_warehous_id=parent.itemsite_warehous_id) ) ) ) )
   LIMIT 1;
   IF (FOUND) THEN
