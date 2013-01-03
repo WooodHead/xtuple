@@ -18,6 +18,7 @@ FROM bankaccnt
  JOIN (SELECT period_id
        FROM period
        JOIN yearperiod ON (period_yearperiod_id=yearperiod_id)
+       JOIN trialbal ON (trialbal_period_id=period_id)
        WHERE (period_start <= current_date)
        ORDER BY yearperiod_end desc, period_number desc
        LIMIT 1) data
