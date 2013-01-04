@@ -32,6 +32,15 @@ SELECT
   vend_match AS matching_vo_po_amounts,
   vend_1099 AS receives_1099,
   taxzone_code AS default_tax_zone,
+  CASE WHEN (accnt_id IS NULL) THEN 'N/A'
+       ELSE formatGLAccount(accnt_id)
+  END AS default_dist_gl_account,
+  CASE WHEN (expcat_id IS NULL) THEN 'N/A'
+       ELSE expcat_code
+  END AS default_dist_expense_category,
+  CASE WHEN (tax_id IS NULL) THEN 'N/A'
+       ELSE tax_code
+  END AS default_dist_tax_code,
   c1.cntct_number AS contact1_number,
   c1.cntct_honorific AS contact1_honorific,
   c1.cntct_first_name AS contact1_first,
@@ -75,6 +84,9 @@ FROM
     LEFT OUTER JOIN curr_symbol ON (vend_curr_id=curr_id)
     LEFT OUTER JOIN terms ON (vend_terms_id=terms_id)
     LEFT OUTER JOIN vendtype ON (vend_vendtype_id=vendtype_id)
+    LEFT OUTER JOIN accnt ON (vend_accnt_id=accnt_id)
+    LEFT OUTER JOIN expcat ON (vend_expcat_id=expcat_id)
+    LEFT OUTER JOIN tax ON (vend_tax_id=tax_id)
 ORDER BY vend_number;
 
 GRANT ALL ON TABLE api.vendor TO xtrole;
@@ -116,7 +128,10 @@ INSERT INTO vendinfo (
   vend_match,
   vend_taxzone_id,
   vend_ach_routingnumber,
-  vend_ach_accntnumber )
+  vend_ach_accntnumber,
+  vend_accnt_id,
+  vend_expcat_id,
+  vend_tax_id )
 VALUES (
   COALESCE(NEW.vendor_name, ''),
   NULL,
@@ -195,7 +210,11 @@ VALUES (
   COALESCE(NEW.matching_vo_po_amounts, false),
   getTaxZoneId(NEW.default_tax_zone),
             '',
-            '');
+            '',
+  COALESCE(getGLAccntId(NEW.default_dist_gl_account), -1),
+  COALESCE(getExpCatId(NEW.default_dist_expense_category), -1),
+  COALESCE(getTaxId(NEW.default_dist_tax_code), -1)
+);
 
 CREATE OR REPLACE RULE "_UPDATE" AS
     ON UPDATE TO api.vendor DO INSTEAD
@@ -280,7 +299,10 @@ UPDATE vendinfo SET
             NEW.country,
             NEW.address_change ),
   vend_match=NEW.matching_vo_po_amounts,
-  vend_taxzone_id=getTaxZoneId(NEW.default_tax_zone)
+  vend_taxzone_id=getTaxZoneId(NEW.default_tax_zone),
+  vend_accnt_id=COALESCE(getGLAccntId(NEW.default_dist_gl_account), -1),
+  vend_expcat_id=COALESCE(getExpCatId(NEW.default_dist_expense_category), -1),
+  vend_tax_id=COALESCE(getTaxId(NEW.default_dist_tax_code), -1)
 WHERE vend_id=getVendId(OLD.vendor_number);
 
 CREATE OR REPLACE RULE "_DELETE" AS
