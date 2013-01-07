@@ -1,0 +1,5 @@
+BEGIN;
+
+ALTER TABLE locale ADD COLUMN locale_percent_scale INTEGER DEFAULT 2;
+
+COMMIT;
