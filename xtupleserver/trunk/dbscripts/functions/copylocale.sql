@@ -43,7 +43,7 @@ BEGIN
          locale_qty_scale,
          locale_qtyper_scale,
          locale_uomratio_scale)
-  SELECT _localeid, '', '',
+  SELECT _localeid, locale_code || '-COPY', '',
          locale_lang_file,
          locale_dateformat,
          locale_currformat,
