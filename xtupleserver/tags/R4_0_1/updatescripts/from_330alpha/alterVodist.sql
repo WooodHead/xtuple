@@ -1,0 +1,1 @@
+ALTER TABLE vodist ADD COLUMN vodist_tax_id INTEGER DEFAULT (-1);

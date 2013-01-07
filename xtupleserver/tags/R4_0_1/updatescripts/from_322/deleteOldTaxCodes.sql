@@ -1,0 +1,5 @@
+BEGIN;
+
+DELETE FROM tax WHERE tax_taxclass_id IS NULL;
+
+COMMIT;
