@@ -49,7 +49,6 @@ CREATE OR REPLACE FUNCTION _salesrepAfterTrigger() RETURNS TRIGGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  _cmnttypeid INTEGER;
 
 BEGIN
 
@@ -86,46 +85,40 @@ BEGIN
   END IF;
 
   IF (fetchMetricBool('SalesRepChangeLog')) THEN
-    SELECT cmnttype_id INTO _cmnttypeid
-      FROM cmnttype
-     WHERE (cmnttype_name='ChangeLog');
-
-    IF (_cmnttypeid IS NOT NULL) THEN
       IF (TG_OP = 'INSERT') THEN
-        PERFORM postComment(_cmnttypeid, 'SR', NEW.salesrep_id, 'Created');
+        PERFORM postComment('ChangeLog', 'SR', NEW.salesrep_id, 'Created');
 
       ELSIF (TG_OP = 'UPDATE') THEN
         IF (OLD.salesrep_active <> NEW.salesrep_active) THEN
-          PERFORM postComment(_cmnttypeid, 'SR', NEW.salesrep_id,
+          PERFORM postComment('ChangeLog', 'SR', NEW.salesrep_id,
                               CASE WHEN NEW.salesrep_active THEN 'Activated'
                                    ELSE 'Deactivated' END);
         END IF;
 
         IF (OLD.salesrep_number <> NEW.salesrep_number) THEN
-          PERFORM postComment(_cmnttypeid, 'SR', NEW.salesrep_id,
+          PERFORM postComment('ChangeLog', 'SR', NEW.salesrep_id,
                               'Number changed from "' || OLD.salesrep_number ||
                               '" to "' || NEW.salesrep_number || '"');
         END IF;
 
         IF (OLD.salesrep_name <> NEW.salesrep_name) THEN
-          PERFORM postComment(_cmnttypeid, 'SR', NEW.salesrep_id,
+          PERFORM postComment('ChangeLog', 'SR', NEW.salesrep_id,
                               'Name changed from "' || OLD.salesrep_name ||
                               '" to "' || NEW.salesrep_name || '"');
         END IF;
 
         IF (OLD.salesrep_commission <> NEW.salesrep_commission) THEN
-          PERFORM postComment(_cmnttypeid, 'SR', NEW.salesrep_id,
+          PERFORM postComment('ChangeLog', 'SR', NEW.salesrep_id,
                               'Commission changed from "' || OLD.salesrep_commission ||
                               '" to "' || NEW.salesrep_commission || '"');
         END IF;
 
         IF (OLD.salesrep_method <> NEW.salesrep_method) THEN
-          PERFORM postComment(_cmnttypeid, 'SR', NEW.salesrep_id,
+          PERFORM postComment('ChangeLog', 'SR', NEW.salesrep_id,
                               'Method changed from "' || OLD.salesrep_method ||
                               '" to "' || NEW.salesrep_method || '"');
         END IF;
 
-      END IF;
     END IF;
   END IF;
 
@@ -144,7 +137,7 @@ BEGIN
                     OLD.salesrep_number;
   END IF;
 
-  PERFORM postComment(_cmnttypeid, 'SR', OLD.salesrep_id,
+  PERFORM postComment('ChangeLog', 'SR', OLD.salesrep_id,
                       'Deleted "' || OLD.salesrep_number || '"');
 
   RETURN OLD;
