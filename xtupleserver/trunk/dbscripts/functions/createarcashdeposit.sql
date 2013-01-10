@@ -11,6 +11,8 @@ DECLARE
   pNotes ALIAS FOR $6;
   pJournalNumber ALIAS FOR $7;
   pCurrId ALIAS FOR $8;
+  _prepaidaccntid INTEGER;
+  _deferredaccntid INTEGER;
   _glSequence INTEGER;
   _aropenid INTEGER;
 
@@ -20,19 +22,23 @@ BEGIN
     RETURN 0;
   END IF;
 
+  _prepaidaccntid := findPrepaidAccount(pCustid);
+  IF (_prepaidaccntid = -1) THEN
+    RAISE EXCEPTION 'There was an error creating the Customer Deposit GL Transactions. No Prepaid Account is assigned.';
+  END IF;
+
+  _deferredaccntid := findDeferredAccount(pCustid);
+  IF (_deferredaccntid = -1) THEN
+    RAISE EXCEPTION 'There was an error creating the Customer Deposit GL Transactions. No Deferred Account is assigned.';
+  END IF;
+
   SELECT NEXTVAL('aropen_aropen_id_seq') INTO _aropenid;
 
   SELECT insertGLTransaction( pJournalNumber, 'A/R', 'CD',
-                              pDocNumber, pNotes, cr.accnt_id, db.accnt_id,
+                              pDocNumber, pNotes, _deferredaccntid, _prepaidaccntid,
                               _aropenid,
                               round(currToBase(pCurrId, pAmount, pDocDate), 2),
-                              pDocDate) INTO _glSequence
-  FROM accnt AS db, accnt AS cr
-  WHERE ( (db.accnt_id = findPrepaidAccount(pCustid))
-   AND (cr.accnt_id = findDeferredAccount(pCustid)) );
-  IF (NOT FOUND) THEN
-    RAISE EXCEPTION 'There was an error creating the Customer Deposit GL Transactions. No Deferred Revenue Account is assigned.';
-  END IF;
+                              pDocDate) INTO _glSequence;
 
   INSERT INTO aropen
   ( aropen_id, aropen_username, aropen_journalnumber,
