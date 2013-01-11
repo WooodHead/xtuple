@@ -63,8 +63,9 @@ var _desktopParent;
 // if this handleNewWindow overload exists then GUIClient is a QMdiArea
 if (mainwindow.showTopLevel())
   _desktopParent = mainwindow;
-else if ("handleNewWindow(QWidget*,Qt::WindowModality,bool)" in mainwindow)
-  _desktopParent = toolbox.openWindow("desktop", mainwindow);
+// disable desktop when inside workspace mode
+//else if ("handleNewWindow(QWidget*,Qt::WindowModality,bool)" in mainwindow)
+//  _desktopParent = toolbox.openWindow("desktop", mainwindow);
 
 if (_desktopParent)
 {
