@@ -478,6 +478,7 @@
 
 
   <createfunction file="api/functions/getcustnumberfrominfo.sql"      name="getcustnumberfrominfo"	schema="api" />
+  <createfunction file="api/functions/insertphysinvcount.sql"         name="insertphysinvcount"	        schema="api" />
   <createfunction file="api/functions/insertsalesline.sql"            name="insertsalesline"	        schema="api" />
   <createfunction file="functions/acknowledgemessage.sql"             name="acknowledgemessage" />
   <createfunction file="functions/actcost.sql"                        name="actcost" />
@@ -1393,6 +1394,7 @@
   <createview file="api/views/journalentry.sql"                 name="journalentry"	schema="api" />
   <createview file="api/views/location.sql"                     name="location"	schema="api" />
   <createview file="api/views/misccounttag.sql"                 name="misccounttag"	schema="api" />
+  <createview file="api/views/physinvcount.sql"                 name="physinvcount"	schema="api" />
   <createview file="api/views/pricingschedule.sql"              name="pricingschedule"	schema="api" />
   <createview file="api/views/pricingscheduleassign.sql"        name="pricingscheduleassign"	schema="api" />
   <createview file="api/views/pricingscheduleitem.sql"          name="pricingscheduleitem"	schema="api" />
