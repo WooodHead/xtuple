@@ -182,7 +182,23 @@ xtte.timeExpenseSheetItem.modified = function()
 
 xtte.timeExpenseSheetItem.getPrice = function()
 {
-  if (_populating || !_clients.isValid())
+  if (_populating)
+    return;
+  var params = new Object();
+  params.emp_id = _employee.id();
+  if(_type.code == 'T')
+  {
+    var qry2 = toolbox.executeQuery("SELECT te.calcRate(emp_wage, emp_wage_period) as cost "
+                                + "FROM emp WHERE emp_id = <? value('emp_id') ?>", params);
+    if (qry2.first())
+    {
+      _empcost.setBaseValue(qry2.value("cost"));
+      _totCost.setBaseValue(qry2.value("cost") * _hours.toDouble());
+    }
+  else
+    xtte.errorCheck(qry2);
+  }
+  if (!_clients.isValid())
     return;
   if (_type.code == 'T' && !_billable.checked)
   {
@@ -198,12 +214,10 @@ xtte.timeExpenseSheetItem.getPrice = function()
     return;
   }
 
-  var params = new Object();
   params.item_id = _items.id();
   params.task_id = _task.id();
   params.prj_id = _project.id();
   params.cust_id = _clients.id();
-  params.emp_id = _employee.id();
   if (_type.code == "T")
     params.time = true;
   
@@ -219,18 +233,6 @@ xtte.timeExpenseSheetItem.getPrice = function()
       xtte.errorCheck(qry);
   }  
   
-  if(_type.code == 'T')
-  {
-    var qry2 = toolbox.executeQuery("SELECT te.calcRate(emp_wage, emp_wage_period) as cost "
-                                + "FROM emp WHERE emp_id = <? value('emp_id') ?>", params);
-    if (qry2.first())
-    {
-      _empcost.setBaseValue(qry2.value("cost"));
-      _totCost.setBaseValue(qry2.value("cost") * _hours.toDouble());
-    }
-  else
-    xtte.errorCheck(qry2);
-  }
   xtte.timeExpenseSheetItem.modified();
 }
 
