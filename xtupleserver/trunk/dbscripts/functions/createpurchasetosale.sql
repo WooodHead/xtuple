@@ -9,20 +9,22 @@ DECLARE
 
 BEGIN
 
-  RETURN createPurchaseToSale(pCoitemId, pItemSourceId, pDropShip, NULL);
+  RETURN createPurchaseToSale(pCoitemId, pItemSourceId, pDropShip, NULL, NULL, NULL);
 
 END;
 $$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION createPurchaseToSale(INTEGER, INTEGER, BOOLEAN, NUMERIC) RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION createPurchaseToSale(INTEGER, INTEGER, BOOLEAN, NUMERIC, DATE, NUMERIC) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pCoitemId ALIAS FOR $1;
   pItemSourceId ALIAS FOR $2;
   pDropShip ALIAS FOR $3;
-  pPrice ALIAS FOR $4;
+  pQty ALIAS FOR $4;
+  pDueDate ALIAS FOR $5;
+  pPrice ALIAS FOR $6;
 
   _s RECORD;
   _w RECORD;
@@ -219,16 +221,13 @@ BEGIN
   FROM itemtax
   WHERE (itemtax_item_id = _i.itemsrc_item_id);
 
-  IF (pPrice = NULL) THEN
-    SELECT currToCurr(itemsrcp_curr_id, _i.vend_curr_id, itemsrcp_price, CURRENT_DATE) INTO _price
-    FROM itemsrcp
-    WHERE ( (itemsrcp_itemsrc_id = pItemSourceId)
-      AND (itemsrcp_qtybreak <= _s.orderqty) )
-    ORDER BY itemsrcp_qtybreak DESC
-    LIMIT 1;
+  IF (pPrice IS NULL) THEN
+    SELECT itemsrcPrice(pItemSourceId, COALESCE(_s.cohead_warehous_id, -1), pDropShip,
+                        COALESCE(pQty, _s.orderqty), _i.vend_curr_id, CURRENT_DATE) INTO _price;
   ELSE
     _price := pPrice;
   END IF;
+  raise notice '_price=%', _price;
 
   IF (pDropShip) THEN
     INSERT INTO poitem
@@ -242,9 +241,9 @@ BEGIN
         poitem_manuf_item_descrip, poitem_taxtype_id, poitem_comments )
     VALUES
       ( _poitemid, 'U', _poheadid, _polinenumber,
-        _s.coitem_scheddate, _s.coitem_itemsite_id,
+        COALESCE(pDueDate, _s.coitem_scheddate), _s.coitem_itemsite_id,
         COALESCE(_i.itemsrc_vend_item_descrip, TEXT('')), COALESCE(_i.itemsrc_vend_uom, TEXT('')),
-        COALESCE(_i.itemsrc_invvendoruomratio, 1.00), (_s.orderqty / COALESCE(_i.itemsrc_invvendoruomratio, 1.00)),
+        COALESCE(_i.itemsrc_invvendoruomratio, 1.00), (COALESCE(pQty, _s.orderqty) / COALESCE(_i.itemsrc_invvendoruomratio, 1.00)),
         _price, COALESCE(_i.itemsrc_vend_item_number, TEXT('')),
         pItemSourceId, pCoitemId, 'S', _s.cohead_prj_id, stdcost(_i.itemsrc_item_id),
         COALESCE(_i.itemsrc_manuf_name, TEXT('')), COALESCE(_i.itemsrc_manuf_item_number, TEXT('')),
@@ -262,9 +261,9 @@ BEGIN
         poitem_manuf_item_descrip, poitem_taxtype_id )
     VALUES
       ( _poitemid, 'U', _poheadid, _polinenumber,
-        _s.coitem_scheddate, _s.coitem_itemsite_id,
+        COALESCE(pDueDate, _s.coitem_scheddate), _s.coitem_itemsite_id,
         COALESCE(_i.itemsrc_vend_item_descrip, TEXT('')), COALESCE(_i.itemsrc_vend_uom, TEXT('')),
-        COALESCE(_i.itemsrc_invvendoruomratio, 1.00), (_s.orderqty / COALESCE(_i.itemsrc_invvendoruomratio, 1.00)),
+        COALESCE(_i.itemsrc_invvendoruomratio, 1.00), (COALESCE(pQty, _s.orderqty) / COALESCE(_i.itemsrc_invvendoruomratio, 1.00)),
         _price, COALESCE(_i.itemsrc_vend_item_number, TEXT('')),
         pItemSourceId, pCoitemId, 'S', _s.cohead_prj_id, stdcost(_i.itemsrc_item_id),
         COALESCE(_i.itemsrc_manuf_name, TEXT('')), COALESCE(_i.itemsrc_manuf_item_number, TEXT('')),
