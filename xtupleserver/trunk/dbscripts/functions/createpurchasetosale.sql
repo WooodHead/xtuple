@@ -1,3 +1,6 @@
+SELECT dropIfExists('FUNCTION', 'createPurchaseToSale(integer, integer, boolean)', 'fixcountry');
+SELECT dropIfExists('FUNCTION', 'createPurchaseToSale(integer, integer, boolean, numeric)', 'fixcountry');
+SELECT dropIfExists('FUNCTION', 'createPurchaseToSale(integer, integer, boolean, numeric, date, numeric)', 'fixcountry');
 
 CREATE OR REPLACE FUNCTION createPurchaseToSale(INTEGER, INTEGER, BOOLEAN) RETURNS INTEGER AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
@@ -10,6 +13,23 @@ DECLARE
 BEGIN
 
   RETURN createPurchaseToSale(pCoitemId, pItemSourceId, pDropShip, NULL, NULL, NULL);
+
+END;
+$$ LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION createPurchaseToSale(INTEGER, INTEGER, BOOLEAN, NUMERIC) RETURNS INTEGER AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+DECLARE
+  pCoitemId ALIAS FOR $1;
+  pItemSourceId ALIAS FOR $2;
+  pDropShip ALIAS FOR $3;
+  pPrice ALIAS FOR $4;
+
+BEGIN
+
+  RETURN createPurchaseToSale(pCoitemId, pItemSourceId, pDropShip, NULL, NULL, pPrice);
 
 END;
 $$ LANGUAGE 'plpgsql';
@@ -223,7 +243,7 @@ BEGIN
 
   IF (pPrice IS NULL) THEN
     SELECT itemsrcPrice(pItemSourceId, COALESCE(_s.cohead_warehous_id, -1), pDropShip,
-                        COALESCE(pQty, _s.orderqty), _i.vend_curr_id, CURRENT_DATE) INTO _price;
+                        COALESCE(pQty, _s.orderqty), COALESCE(_i.vend_curr_id, baseCurrId()), CURRENT_DATE) INTO _price;
   ELSE
     _price := pPrice;
   END IF;
