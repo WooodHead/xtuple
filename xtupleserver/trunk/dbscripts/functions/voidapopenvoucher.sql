@@ -339,6 +339,11 @@ BEGIN
   SET pohead_status='O'
   WHERE (pohead_id=_p.vohead_pohead_id);
 
+--  Mark as voided
+  UPDATE apopen
+  SET apopen_void=TRUE
+  WHERE (apopen_id=_n.apopen_id);
+
   RETURN pJournalNumber;
 
 END;
