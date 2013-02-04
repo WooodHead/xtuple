@@ -12,7 +12,8 @@ FROM
         (currToBase(quhead_curr_id, quitem_price, quhead_quotedate) / quitem_price_invuomratio), 2) ) AS amount
      FROM quitem
        JOIN quhead ON (quitem_quhead_id=quhead_id)
-     WHERE ( COALESCE(quhead_expire,current_date + 1) > current_date  )
+     WHERE ( COALESCE(quhead_expire,current_date + 1) > current_date
+       AND   quhead_status != 'C'  )
    GROUP BY quhead_id) data
 HAVING (COUNT(quhead_id) > 0)
 UNION 
