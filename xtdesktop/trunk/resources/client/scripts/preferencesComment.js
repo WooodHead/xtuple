@@ -122,22 +122,37 @@ function populate()
 function save()
 {
   var typList = new Array();
+  var emptyList = new Array();
   var selectedTyp = _type.selectedItems();
   for (var i = 0; i < selectedTyp.length; i++)
   {
     if (selectedTyp[i].id() != 0)
+    {
       typList[i] = selectedTyp[i].id();
+      preferences.set("MonitoredCommentTypes",  typList.join(","));
+    }
+    else
+    {
+      preferences.set("MonitoredCommentTypes",  emptyList.join(","));
+      break;
+    }
   }
-  preferences.set("MonitoredCommentTypes",  typList.join(","));
 
   var srcList = new Array();
   var selectedSrc = _source.selectedItems();
   for (var i = 0; i < selectedSrc.length; i++)
   {
     if (selectedSrc[i].id() != 1)
+    {
       srcList[i] = selectedSrc[i].id();
+      preferences.set("MonitoredCommentSrcs",  srcList.join(","));
+    }
+    else
+    {
+      preferences.set("MonitoredCommentSrcs",  emptyList.join(","));
+      break;
+    }
   }
-  preferences.set("MonitoredCommentSrcs",  srcList.join(","));
 
   if (privileges.check("AccessAdditionalUser"))
   {
