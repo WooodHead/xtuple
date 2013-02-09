@@ -100,12 +100,12 @@
       LEFT OUTER JOIN addr m ON (mc.cntct_addr_id=m.addr_id)
       LEFT OUTER JOIN cntct cc ON (cust_corrcntct_id=cc.cntct_id)
       LEFT OUTER JOIN addr c ON (cc.cntct_addr_id=c.addr_id)
-      LEFT OUTER JOIN taxzone ON (cust_taxzone_id=taxzone_id),
-    custtype,salesrep,shipform,
+      LEFT OUTER JOIN taxzone ON (cust_taxzone_id=taxzone_id)
+      LEFT OUTER JOIN shipform ON (cust_shipform_id=shipform_id),
+    custtype,salesrep,
     curr_symbol dc, curr_symbol clc, terms
   WHERE ((cust_custtype_id=custtype_id)
   AND (cust_salesrep_id=salesrep_id)
-  AND (cust_shipform_id=shipform_id)
   AND (cust_curr_id=dc.curr_id)
   AND (cust_creditlmt_curr_id=clc.curr_id)
   AND (cust_terms_id=terms_id))
