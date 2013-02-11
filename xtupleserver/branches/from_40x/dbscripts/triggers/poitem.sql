@@ -125,13 +125,11 @@ BEGIN
     NEW.poitem_vend_item_number 	:= COALESCE(NEW.poitem_vend_item_number,'');
     NEW.poitem_vend_item_descrip   	:= COALESCE(NEW.poitem_vend_item_descrip,'');
     NEW.poitem_unitprice       	:= COALESCE(NEW.poitem_unitprice,(
-						SELECT currToCurr(itemsrcp_curr_id, pohead_curr_id, itemsrcp_price, pohead_orderdate)
-						FROM itemsrcp, pohead
-						WHERE ( (itemsrcp_itemsrc_id=NEW.poitem_itemsrc_id)
-						AND (itemsrcp_qtybreak <= NEW.poitem_qty_ordered)
-						AND (pohead_id=NEW.poitem_pohead_id) ) 
-						ORDER BY itemsrcp_qtybreak DESC
-						LIMIT 1), 0);
+                                                SELECT itemsrcPrice(NEW.poitem_itemsrc_id, COALESCE(itemsite_warehous_id, -1), pohead_dropship,
+                                                       NEW.poitem_qty_ordered, pohead_curr_id, CURRENT_DATE)
+                                                FROM itemsite, pohead
+                                                WHERE ( (itemsite_id=NEW.poitem_itemsite_id)
+                                                AND (pohead_id=NEW.poitem_pohead_id) )), 0.0);
     NEW.poitem_stdcost			:= COALESCE(NEW.poitem_stdcost,(
 						SELECT stdcost(itemsite_item_id)
 						FROM itemsite

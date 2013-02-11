@@ -129,13 +129,8 @@ BEGIN
       IF (_itemsrc.itemsrc_id IS NULL) THEN
 	_unitprice = _lineitem.poitem_unitprice;
       ELSE
-	SELECT currToCurr(itemsrcp_curr_id, _head.pohead_curr_id,
-			  itemsrcp_price, _orderdate) INTO _unitprice
-	FROM itemsrcp
-	WHERE ((itemsrcp_itemsrc_id = _itemsrc.itemsrc_id)
-	  AND  (itemsrcp_qtybreak <= _lineitem.poitem_qty_ordered))
-	ORDER BY itemsrcp_qtybreak DESC
-	LIMIT 1;
+        SELECT itemsrcPrice(_itemsrc.itemsrc_id, _head.pohead_warehous_id, _head.pohead_dropship,
+                            _lineitem.poitem_qty_ordered, _head.pohead_curr_id, CURRENT_DATE) INTO _unitprice;
 	IF (_unitprice IS NULL) THEN
 	  RETURN -4;
 	END IF;
