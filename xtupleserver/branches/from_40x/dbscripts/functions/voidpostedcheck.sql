@@ -223,12 +223,21 @@ BEGIN
 
 --  calculate currency gain/loss
       IF (_r.apopen_id IS NOT NULL) THEN
-      	IF (_r.apopen_docdate > _p.checkhead_checkdate) THEN
-	  _exchGainTmp := ((_r.checkitem_amount/_p.checkhead_currrate) - (_r.checkitem_amount / _r.apopen_curr_rate)) * -1;
-	ELSE
-          _exchGainTmp := ((_r.checkitem_amount / _r.apopen_curr_rate) - (_r.checkitem_amount/_p.checkhead_curr_rate));
-	END IF;
-      ELSIF (_r.aropen_id IS NOT NULL) THEN
+        IF (_p.checkhead_curr_id = _r.checkitem_curr_id) THEN
+          IF (_r.apopen_docdate > _p.checkhead_checkdate) THEN
+            _exchGainTmp := ((_r.checkitem_amount/_p.checkhead_curr_rate) - (_r.checkitem_amount / _r.apopen_curr_rate)) * -1;
+          ELSE
+            _exchGainTmp := ((_r.checkitem_amount / _r.apopen_curr_rate) - (_r.checkitem_amount/_p.checkhead_curr_rate));
+          END IF;
+        ELSE
+          -- unusual condition where bank overridden and different currency from voucher
+          IF (_r.apopen_docdate > _p.checkhead_checkdate) THEN
+            _exchGainTmp := ((_r.checkitem_amount/_r.checkitem_curr_rate) - (_r.checkitem_amount / _r.apopen_curr_rate)) * -1;
+          ELSE
+            _exchGainTmp := ((_r.checkitem_amount / _r.apopen_curr_rate) - (_r.checkitem_amount/_r.checkitem_curr_rate));
+          END IF;
+        END IF;
+      ELSE
         SELECT arCurrGain(_r.aropen_id,_r.checkitem_curr_id, _r.checkitem_amount,
                         _p.checkhead_checkdate)
               INTO _exchGainTmp;
