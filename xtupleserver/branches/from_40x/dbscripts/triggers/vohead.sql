@@ -10,6 +10,11 @@ DECLARE
 
 BEGIN
   IF (TG_OP = 'DELETE') THEN
+    IF (OLD.vohead_posted) THEN
+      -- Cannot delete a posted voucher
+      RAISE EXCEPTION 'Cannot delete a posted voucher';
+    END IF;
+
     /* TODO: is setting recv_invoiced and poreject_invoiced to FALSE correct?
              this behavior is inherited from the now-defunct deleteVoucher.
      */
