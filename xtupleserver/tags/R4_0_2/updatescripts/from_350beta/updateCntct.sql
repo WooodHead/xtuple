@@ -1,0 +1,1 @@
+UPDATE cntct SET cntct_name = '';

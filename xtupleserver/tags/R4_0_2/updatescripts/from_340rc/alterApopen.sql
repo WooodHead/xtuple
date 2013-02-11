@@ -1,0 +1,2 @@
+ALTER TABLE apopen ADD COLUMN apopen_status text;
+ALTER TABLE apopen ADD CONSTRAINT apopen_apopen_status_check CHECK (apopen_status = 'O'::text OR apopen_status = 'H'::text OR apopen_status = 'C'::text);
