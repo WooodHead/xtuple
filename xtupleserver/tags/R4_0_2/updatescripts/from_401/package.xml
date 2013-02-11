@@ -1,0 +1,42 @@
+<package id        = "from_401"
+         version   = "4.0.2"
+         developer = "xTuple"
+         descrip   = "patch 4.0.2"
+         updater   = "2.2.4" >
+
+  <prerequisite type = "query"
+                name = "Checking xTuple Edition" >
+    <query>SELECT fetchMetricText('Application') = 'PostBooks';</query>
+    <message>This package must be applied to a PostBooks database.</message>
+  </prerequisite>
+
+  <prerequisite type = "query"
+                name = "Checking xTuple ERP database version" >
+    <query>SELECT fetchMetricText('ServerVersion') IN ('4.0.1',
+                                                       '.4.0.1-4.0.2');
+    </query>
+    <message>This package must be applied to a 4.0.1 PostBooks database.
+    </message>
+  </prerequisite>
+
+  <initscript file = "initUpgrade.sql" />
+
+  <createfunction file="functions/copypo.sql"                 name="copypo" />
+  <createfunction file="functions/copyso.sql"                 name="copyso" />
+  <createfunction file="functions/createpurchasetosale.sql"   name="createpurchasetosale" />
+  <createfunction file="functions/voidapopenvoucher.sql"      name="voidapopenvoucher" />
+  <createfunction file="functions/voidpostedcheck.sql"        name="voidpostedcheck" />
+
+  <loadmetasql file="metasql/poItems-list.mql" />
+
+  <createtrigger file="triggers/poitem.sql"     name="poitemtrigger" />
+  <createtrigger file="triggers/salesrep.sql"   name="salesrepbeforetrigger" />
+  <createtrigger file="triggers/vohead.sql"     name="voheadbeforetrigger" />
+
+  <loadreport file="reports/Contracts.xml" />
+  <loadreport file="reports/GLTransactions.xml" />
+  <loadreport file="reports/SaleTypesMasterList.xml" />
+
+  <finalscript file = "setVersion.sql" />
+
+</package>

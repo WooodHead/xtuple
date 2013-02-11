@@ -1,0 +1,7 @@
+-- if CCANMD5Hash is stored in the metric table then it will be wiped out by the
+-- upgrade. tell the user to save its value, clear it out, and re-enter it in the
+-- credit card configuration window after the upgrade. The new version will
+-- store it encrypted in the metricenc table.
+SELECT COUNT(*) = 0
+FROM metric
+WHERE (COALESCE(fetchMetricText('CCANMD5Hash'), '') != '');

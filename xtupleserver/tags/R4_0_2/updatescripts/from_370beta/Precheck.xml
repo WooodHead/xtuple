@@ -1,0 +1,4 @@
+ <prerequisite type="Query" name="Check for no Contact Merge Package" >
+  <query>select (count(*) = 0) from pkghead where pkghead_name='xpmerge';</query>
+  <message>The existing Contact Merge package must be removed before upgrading.</message>
+ </prerequisite>
