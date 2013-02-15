@@ -1,8 +1,22 @@
 
-CREATE OR REPLACE FUNCTION login() RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION public.login() RETURNS integer AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE 
+  _p RECORD;
+
+BEGIN
+
+  RETURN login(false);
+
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION public.login(boolean) RETURNS integer AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+DECLARE 
+  _setSearchPath ALIAS FOR $1;
   _p RECORD;
 
 BEGIN
@@ -36,12 +50,14 @@ BEGIN
     RETURN -2;
   END IF;
 
-  IF EXISTS(SELECT 1
-              FROM pg_proc
-              JOIN pg_namespace ON (pronamespace=pg_namespace.oid)
-             WHERE nspname='public'
-               AND proname='buildsearchpath') THEN
-    EXECUTE 'SET SEARCH_PATH TO ' || public.buildSearchPath();
+  IF (_setSearchPath) THEN
+    IF EXISTS(SELECT 1
+                FROM pg_proc
+                JOIN pg_namespace ON (pronamespace=pg_namespace.oid)
+               WHERE nspname='public'
+                 AND proname='buildsearchpath') THEN
+      EXECUTE 'SET SEARCH_PATH TO ' || public.buildSearchPath();
+    END IF;
   END IF;
 
   RETURN 1;
