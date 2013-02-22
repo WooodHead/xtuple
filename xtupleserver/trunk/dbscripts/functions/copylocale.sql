@@ -4,9 +4,24 @@ CREATE OR REPLACE FUNCTION copyLocale(INTEGER) RETURNS INTEGER AS $$
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pLocaleid ALIAS FOR $1;
+  _localecode TEXT;
   _localeid INTEGER;
 
 BEGIN
+
+  SELECT locale_code INTO _localecode
+  FROM locale
+  WHERE (locale_id=pLocaleid);
+
+  IF (NOT FOUND) THEN
+    RAISE EXCEPTION 'Attempt to copy a non-existent locale-id.';
+  END IF;
+
+  IF (EXISTS(SELECT locale_id
+             FROM locale
+             WHERE (locale_code = (_localecode || '-COPY')))) THEN
+    RAISE EXCEPTION 'Attempt to copy a Locale Code that already exists.';
+  END IF;
 
   SELECT NEXTVAL('locale_locale_id_seq') INTO _localeid;
 
