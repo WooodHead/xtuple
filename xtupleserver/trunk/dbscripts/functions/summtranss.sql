@@ -1,20 +1,20 @@
-CREATE OR REPLACE FUNCTION summTransS (INTEGER, DATE, DATE) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION summTransS (pItemsiteid INTEGER,
+                                       pStartDate DATE,
+                                       pEndDate DATE) RETURNS NUMERIC AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  pItemsiteid ALIAS FOR $1;
-  pStartDate ALIAS FOR $2;
-  pEndDate ALIAS FOR $3;
   _value NUMERIC;
 
 BEGIN
 
-  SELECT SUM( CASE WHEN (invhist_transtype = ''RS'') THEN (invhist_invqty * -1)
+  SELECT SUM( CASE WHEN (invhist_transtype = 'RS') THEN (invhist_invqty * -1)
                    ELSE (invhist_invqty)
               END ) INTO _value
   FROM invhist
   WHERE ( (invhist_transdate::DATE BETWEEN pStartDate AND pEndDate)
-   AND (invhist_transtype IN (''SC'', ''SH'', ''SV'', ''RS''))
+   AND (invhist_transtype IN ('SC', 'SH', 'SV', 'RS'))
+   AND (invhist_ordtype != 'TO')
    AND (invhist_itemsite_id=pItemsiteid) );
 
   IF (_value IS NULL) THEN
@@ -24,10 +24,11 @@ BEGIN
   RETURN _value;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION summTransS(INTEGER, INTEGER) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION summTransS(pItemsiteid INTEGER,
+                                      pCalitemid INTEGER) RETURNS NUMERIC AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -42,4 +43,4 @@ BEGIN
   RETURN _value;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
