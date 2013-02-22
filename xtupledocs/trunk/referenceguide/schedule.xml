@@ -37,7 +37,7 @@
         <para>Planner Codes</para>
       </listitem>
     </itemizedlist></para>
-  <section id="Section539566" role="manufacturing">
+  <section id="scheduleProductionPlan" role="manufacturing">
     <title>Production Plan</title>
     <para>The Master Production Scheduling (MPS) system serves several
     important purposes:</para>
@@ -69,7 +69,7 @@
     <xi:include href="guiclient/plannedSchedules.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section518545" role="standard">
+  <section id="scheduleScheduling" role="standard">
     <title>Scheduling</title>
     <para>Planned Orders are a scheduling mechanism used by the two planning
     systems&mdash;Master Production Scheduling (MPS) and Material Requirements
@@ -104,7 +104,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section539268" role="manufacturing">
+  <section id="scheduleConstraintManagement" role="manufacturing">
     <title>Constraint Management</title>
     <para role="manufacturing">Manufacturing managers frequently look for
     tools and methods to help them identify actions requiring immediate
@@ -194,17 +194,17 @@
       <title>Time-Phased Production</title>
       <para>Time-Phased Production section.</para>
       <xi:include href="guiclient/dspTimePhasedProductionByPlannerCode.xml"
-                  xpointer="element(Section518753)"
+                  xpointer="element(dspTimePhasedProductionByPlannerCode)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspTimePhasedProductionByItem.xml"
-                  xpointer="element(Section518748)"
+                  xpointer="element(dspTimePhasedProductionByItem)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <xi:include href="guiclient/dspTimePhasedDemandByPlannerCode.xml"
-                xpointer="element(Section518743)"
+                xpointer="element(dspTimePhasedDemandByPlannerCode)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/dspCapacityBufferStatusByWorkCenter.xml"
-                xpointer="element(Section530193)"
+                xpointer="element(dspCapacityBufferStatusByWorkCenter)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>

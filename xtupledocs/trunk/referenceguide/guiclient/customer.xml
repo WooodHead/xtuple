@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section656540">
+<section id="customer">
   <title><indexterm significance="normal">
       <primary>customers</primary>
       <secondary>creating new</secondary>
@@ -175,7 +175,7 @@
         information. If a new Address is manually entered here, that Address
         will be added automatically to the master list of Addresses. For
         additional documentation related to creating Addresses, see <xref
-        linkend="Section560316" />.</para>
+        linkend="address" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -672,7 +672,7 @@
         <para>Select to specify an alternate number of grace days for the
         Customer, to override the global grace period defined at the system
         level in the Accounting configuration. To learn more about configuring
-        grace days, see <xref linkend="Section942568" />.</para>
+        grace days, see <xref linkend="configureGL" />.</para>
         <variablelist>
           <varlistentry>
             <term>Grace Days</term>
@@ -920,7 +920,7 @@
         However, you may specify an alternate billing address for the Credit
         Card record using the Address lookup feature located in the lower
         right-hand corner of the screen. For additional documentation related
-        to creating Addresses, see <xref linkend="Section560316" />.</para>
+        to creating Addresses, see <xref linkend="address" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1041,7 +1041,7 @@
         adding new Contacts or attaching/detaching Contacts from the Account.
         Any changes made here also update the CRM Account record. For
         additional documentation related to managing a Contacts associated
-        with a CRM Account, see <xref linkend="Section560293" />.</para>
+        with a CRM Account, see <xref linkend="crmaccount" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1051,7 +1051,7 @@
         this screen you can manage all of the To-Dos, Opportunities, and
         Incidents related to the Account. Any changes made here also update
         the main To-Do List. For additional documentation related to managing
-        the To-Do List, see <xref linkend="Section560390" />.</para>
+        the To-Do List, see <xref linkend="todoList" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -1086,7 +1086,7 @@
         may also view historical Quotes converted to Sales Orders or Invoices
         if your Sales Module is configured to allow this. For additional
         documentation related to entering Quotes for Customers, please see
-        <xref linkend="Section528866" />.</para>
+        <xref linkend="quote" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1096,7 +1096,7 @@
         Customer. On this screen you can create new Sales Orders or edit
         existing ones. For additional documentation related to entering Sales
         Orders for Customers, please see <xref
-        linkend="Section519027" />.</para>
+        linkend="salesOrder" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -1131,7 +1131,7 @@
         Receivables process—from creating new Receivable documents (e.g.,
         Invoices, Credit Memos, etc.) to printing out Customer statements. For
         additional documentation related to managing Customer Receivables, see
-        <xref linkend="Section556338" />.</para>
+        <xref linkend="dspAROpenItems" />.</para>
         <tip>
           <para>You can also void posted Invoices and Sales Order Credit Memos
           (not miscellaneous A/R Credit Memos) on the open receivables
@@ -1146,9 +1146,9 @@
         Customer. On this screen you can view Cash Receipt and cash
         application history, as well as enter new Cash Receipts for the
         Customer. For additional documentation related to Cash Receipt
-        history, see <xref linkend="Section553315" />. And for detailed
+        history, see <xref linkend="dspCashReceipts" />. And for detailed
         information about entering Cash Receipts, see <xref
-        linkend="Section524311" />.</para>
+        linkend="cashReceipt" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1159,7 +1159,7 @@
         transaction history, authorize Credit Card pre-authorizations, and
         print Credit Card receipts. For additional documentation related to
         Credit Card history and the method for processing pre-authorizations,
-        see <xref linkend="Section570079" />.</para>
+        see <xref linkend="arWorkBench" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>

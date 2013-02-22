@@ -5,7 +5,7 @@
 <chapter id="Chapter658670">
   <title>Products Module</title>
   <para>In this chapter, we describe the Products module.</para>
-  <section id="Section520254">
+  <section id="productsReports">
     <title>Reports</title>
     <para>Product Reports section.</para>
     <section id="boms">
@@ -51,7 +51,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="Section518881">
+  <section id="productsItems">
     <title>Item</title>
     <para>Items section.</para>
     <xi:include href="guiclient/item.xml" xpointer="element(/1)"
@@ -68,7 +68,7 @@
     <xi:include href="guiclient/itemImages.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section519278">
+  <section id="productsBillOfMaterials">
     <title><indexterm significance="normal">
         <primary>BOM</primary>
         <see>bills of materials</see>
@@ -89,7 +89,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section519479" role="manufacturing">
+  <section id="productsBillOfOperations" role="manufacturing">
     <title>Bill of Operations</title>
     <para>A Bill of Operations (BOO) is a sequential list of Operations
     required to manufacture an Item. In this section we describe the features
@@ -101,7 +101,7 @@
     <xi:include href="guiclient/copyBOO.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section519671" role="manufacturing">
+  <section id="productsBreederBoms" role="manufacturing">
     <title>Breeder Bill of Materials</title>
     <para>A Breeder Item is an Item from which other Items—or by-products—are
     produced. In this section we describe the features of Breeder Bills of
@@ -111,7 +111,7 @@
     <xi:include href="guiclient/bboms.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section519762">
+  <section id="productsCosting">
     <title>Costing</title>
     <para>The maintenance and posting of Costs associated with Items occurs
     within the Costing section.</para>
@@ -146,7 +146,7 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="Section519980">
+    <section id="productsReports2">
       <title>Reports</title>
       <para>Costing reports are found in this section.</para>
       <section>
@@ -181,7 +181,7 @@
   </section>
   <xi:include href="guiclient/lotSerial.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <section id="Section662694">
+  <section id="productsUtilities">
     <title><indexterm significance="normal">
         <primary>utilities</primary>
         <secondary>in products module</secondary>
@@ -221,7 +221,7 @@
       <xi:include href="guiclient/configurePD.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="Section518577">
+    <section id="productsMasterInformation">
       <title><indexterm significance="normal">
           <primary>master information</primary>
           <secondary>for products module</secondary>
