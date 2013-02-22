@@ -88,21 +88,21 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspAPOpenItemsByVendor.xml"
-                  xpointer="element(Section531012)"
+                  xpointer="element(dspAPOpenItemsByVendor)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspTimePhasedOpenAPItems.xml"
-                  xpointer="element(Section549958)"
+                  xpointer="element(dspTimePhasedOpenAPItems)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspCheckRegister.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspVoucherRegister.xml"
-                  xpointer="element(Section550404)"
+                  xpointer="element(dspVoucherRegister)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspAPApplications.xml"
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspVendorAPHistory.xml"
-                  xpointer="element(Section564729)"
+                  xpointer="element(dspVendorAPHistory)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
     <xi:include href="guiclient/vendors.xml" xpointer="element(/1)"
@@ -159,7 +159,7 @@
                     xmlns:xi="http://www.w3.org/2001/XInclude" />
       </section>
     </section>
-    <section id="Section524296">
+    <section id="accountingReceivablesMemos">
       <title>Receivables Memos</title>
       <para>Receivables Memos section.</para>
       <xi:include href="guiclient/arOpenItemCredit.xml" xpointer="element(/1)"
@@ -170,7 +170,7 @@
       <xi:include href="guiclient/arOpenItemDebit.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="Section572894">
+    <section id="accountingCashReceipts">
       <title>Cash Receipt</title>
       <para>Cash Receipts section.</para>
       <xi:include href="guiclient/cashReceipt.xml" xpointer="element(/1)"
@@ -239,7 +239,7 @@
       <xi:include href="guiclient/unpostedGlSeries.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="Section524378">
+    <section id="accountingJournals">
       <title><indexterm significance="normal">
           <primary>journals</primary>
           <secondary>standard</secondary>
@@ -265,22 +265,22 @@
       <title>G/L Reports</title>
       <para>G/L Reports section.</para>
       <xi:include href="guiclient/dspGLTransactions.xml"
-                  xpointer="element(Section524434)"
+                  xpointer="element(dspGLTransactions)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspSummarizedGLTransactions.xml"
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspGLSeries.xml"
-                  xpointer="element(Section531394)"
+                  xpointer="element(dspGLSeries)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspStandardJournalHistory.xml"
-                  xpointer="element(Section563769)"
+                  xpointer="element(dspStandardJournalHistory)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspJournals.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="Section563094">
+  <section id="accountingBankReconciliation">
     <title>Bank Reconciliation</title>
     <para>The Bank Reconciliation section is where Bank statements are
     reconciled against Deposits and Payments posted in the system.</para>
@@ -296,14 +296,14 @@
       <title>Bank Rec Reports</title>
       <para>Bank Reconciliation reports section.</para>
       <xi:include href="guiclient/dspBankrecHistory.xml"
-                  xpointer="element(Section563468)"
+                  xpointer="element(dspBankrecHistory)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspSummarizedBankrecHistory.xml"
-                  xpointer="element(Section563489)"
+                  xpointer="element(dspSummarizedBankrecHistory)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="Section536775">
+  <section id="accountingFinancialReports">
     <title><indexterm significance="normal">
         <primary>financial reports</primary>
         <secondary>previewing of</secondary>
@@ -341,7 +341,7 @@
     <xi:include href="guiclient/subAccntTypes.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section572061">
+  <section id="accountingBudget">
     <title>Budget</title>
     <para>Budget section.</para>
     <xi:include href="guiclient/maintainBudget.xml" xpointer="element(/1)"
@@ -373,7 +373,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="Section538920">
+  <section id="accountingUtilities">
     <title><indexterm significance="normal">
         <primary>utilities</primary>
         <secondary>in accounting module</secondary>

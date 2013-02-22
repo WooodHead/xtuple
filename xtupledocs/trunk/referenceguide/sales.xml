@@ -35,7 +35,7 @@
     <xi:include href="guiclient/quotes.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section604404">
+  <section id="salesSalesOrders">
     <title><indexterm significance="normal">
         <primary>sales orders</primary>
         <secondary>customer relations and</secondary>
@@ -46,10 +46,10 @@
     <xi:include href="guiclient/openSalesOrders.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section528858">
+  <section id="salesBilling">
     <title>Billing</title>
     <para>Billing section.</para>
-    <section id="Section568790">
+    <section id="salesInvoices">
       <title><indexterm significance="normal">
           <primary>invoices</primary>
           <secondary>as billing tool</secondary>
@@ -74,7 +74,7 @@
       <xi:include href="guiclient/postInvoices.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="Section655862">
+    <section id="salesCreditMemos">
       <title>Credit Memo</title>
       <para>Sales Order Credit Memos are used to issue credit for sold
       Inventory. They differ from Receivables Credit Memos, which are issued
@@ -229,7 +229,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="Section519901">
+  <section id="salesReports">
     <title>Reports</title>
     <para>Sales Reports section.</para>
     <xi:include href="guiclient/dspSummarizedBacklogByWarehouse.xml"
@@ -265,7 +265,7 @@
     <xi:include href="guiclient/dspTaxHistory.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section518499">
+  <section id="salesAnalysis">
     <title>Analysis</title>
     <para>Sales Analysis section.</para>
     <xi:include href="guiclient/dspBookings.xml" xpointer="element(/1)"
@@ -304,12 +304,12 @@
       <title>Customer Workbench</title>
       <para>The Customer Workbench is the same screen as the screen used for
       creating new Customers. For more information, please see <xref
-      linkend="Section656540" />.</para>
+      linkend="customer" />.</para>
     </section>
     <xi:include href="guiclient/customerGroups.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="Section519563">
+  <section id="salesItems">
     <title><indexterm significance="normal">
         <primary>items</primary>
         <secondary>pricing for</secondary>
@@ -330,7 +330,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/sales.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="Section519777">
+    <section id="salesReports2">
       <title>Reports</title>
       <para>Item Pricing Reports section.</para>
       <xi:include href="guiclient/dspPricesByCustomerType.xml"
@@ -349,7 +349,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="Section520435">
+  <section id="salesUtilities">
     <title><indexterm significance="normal">
         <primary>utilities</primary>
         <secondary>in sales module</secondary>
@@ -407,7 +407,7 @@
       <xi:include href="guiclient/salesCategories.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="Section518497">
+    <section id="salesMasterInformation">
       <title><indexterm significance="normal">
           <primary>master information</primary>
           <secondary>for sales module</secondary>
