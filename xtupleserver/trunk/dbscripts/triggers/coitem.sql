@@ -788,20 +788,22 @@ BEGIN
      AND  (charass_target_id=OLD.coitem_id));
 
   -- Delete Sub Lines for Kit Components
-  FOR _coitemid IN
-    SELECT coitem_id
-      FROM coitem
-     WHERE ( (coitem_cohead_id=OLD.coitem_cohead_id)
-       AND   (coitem_linenumber=OLD.coitem_linenumber)
-       AND   (coitem_subnumber > 0) )
-    LOOP
-    SELECT deleteSoItem(_coitemid) INTO _result;
-    IF (_result < 0) THEN
-      IF NOT (_r.itemsite_createsopo AND (_result = -10 OR _result = -20)) THEN
-        RAISE EXCEPTION 'Error deleting kit components: deleteSoItem(integer) Error:%', _result;
+  IF (OLD.coitem_subnumber = 0) THEN
+    FOR _coitemid IN
+      SELECT coitem_id
+        FROM coitem
+       WHERE ( (coitem_cohead_id=OLD.coitem_cohead_id)
+         AND   (coitem_linenumber=OLD.coitem_linenumber)
+         AND   (coitem_subnumber > 0) )
+      LOOP
+      SELECT deleteSoItem(_coitemid) INTO _result;
+      IF (_result < 0) THEN
+        IF NOT (_r.itemsite_createsopo AND (_result = -10 OR _result = -20)) THEN
+          RAISE EXCEPTION 'Error deleting kit components: deleteSoItem(integer) Error:%', _result;
+        END IF;
       END IF;
-    END IF;
-  END LOOP;
+    END LOOP;
+  END IF;
 
   INSERT INTO evntlog ( evntlog_evnttime, evntlog_username,
                         evntlog_evnttype_id, evntlog_ordtype,
