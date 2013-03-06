@@ -10,7 +10,10 @@ DECLARE
   _controlmethod TEXT;
   _loccntrl BOOLEAN;
   _locationid INTEGER;
+  _lsid INTEGER;
   _invcntid INTEGER;
+  _cntslipid INTEGER;
+  _result INTEGER;
 
 BEGIN
 
@@ -47,8 +50,20 @@ BEGIN
   IF (NOT FOUND) THEN
     RAISE EXCEPTION 'Function insertPhysInvCount failed because Itemsite %, % not found', pNEW.site, pNEW.item_number;
   END IF;
-  IF (_controlmethod != 'R') THEN
-    RAISE EXCEPTION 'Function insertPhysInvCount failed because Itemsite %, % not regular control method', pNEW.site, pNEW.item_number;
+  IF (_controlmethod = 'N') THEN
+    RAISE EXCEPTION 'Function insertPhysInvCount failed because Itemsite %, % not inventory control method', pNEW.site, pNEW.item_number;
+  END IF;
+  IF (_controlmethod IN ('L', 'S') AND COALESCE(pNEW.lotserial, '') = '') THEN
+    RAISE EXCEPTION 'Function insertPhysInvCount failed because Itemsite %, % lot/serial controlled and lotserial not provided', pNEW.site, pNEW.item_number;
+  END IF;
+  IF (_controlmethod = 'S') THEN
+    -- Check for unique serial id
+    SELECT ls_id INTO _lsid
+    FROM ls
+    WHERE (ls_number=pNEW.lotserial);
+    IF (FOUND) THEN
+      RAISE EXCEPTION 'Function insertPhysInvCount failed because Serial %, %, % not unique', pNEW.site, pNEW.item_number, pNEW.lotserial;
+    END IF;
   END IF;
   IF (_loccntrl) THEN
     IF (pNEW.location IS NULL) THEN
@@ -83,10 +98,17 @@ BEGIN
   ( _invcntid,
     getEffectiveXtUser(), CURRENT_TIMESTAMP, FALSE,
     'N/A', pNEW.quantity,
-    _locationid, pNEW.lotserial,
+    COALESCE(_locationid, -1), pNEW.lotserial,
     NULL,
     NULL,
-    pNEW.comment );
+    pNEW.comment )
+  RETURNING cntslip_id INTO _cntslipid;
+
+  -- Post Count Slip
+  SELECT postCountSlip(_cntslipid) INTO _result;
+  IF (_result < 0) THEN
+    RAISE EXCEPTION 'Function insertPhysInvCount failed because postCountSlip failed for Itemsite %, %, %', pNEW.site, pNEW.item_number, _result;
+  END IF;
 
   RETURN TRUE;
 END;
