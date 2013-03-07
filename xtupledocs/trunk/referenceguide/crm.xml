@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="Chapter574636">
+<chapter id="chapterCrm">
   <title>CRM Module</title>
   <para>The CRM Module organizes all of your contacts in one central location.
   This ideal setup eliminates the need for duplicate entries when an account
@@ -76,7 +76,7 @@
     <xi:include href="guiclient/incidentWorkbench.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="crmTodoLists">
+  <section id="crmTodos">
     <title><indexterm significance="normal">
         <primary>to-do lists</primary>
         <secondary>management of</secondary>
@@ -107,7 +107,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/copyProject.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section role="xtte">
+    <section id="crm_project_timeAndExpense" role="xtte">
       <title>Time and Expense</title>
       <para>The Time and Expense package is a free xTuple ERP extension
       package designed to provide service billing and expense reporting
@@ -126,14 +126,14 @@
     <xi:include href="guiclient/opportunityList.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section>
+  <section id="crmReports">
     <title>Reports</title>
     <para>Reports for the module are stored here.</para>
     <xi:include href="guiclient/dspOrderActivityByProject.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section>
+  <section id="crmAccounts">
     <title>Account</title>
     <para>CRM Account section.</para>
     <xi:include href="guiclient/crmaccount.xml" xpointer="element(/1)"
@@ -141,7 +141,7 @@
     <xi:include href="guiclient/crmaccounts.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section>
+  <section id="crmContact">
     <title>Contact</title>
     <para>CRM Contact section.</para>
     <xi:include href="guiclient/contact.xml" xpointer="element(/1)"
@@ -149,7 +149,7 @@
     <xi:include href="guiclient/contacts.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section>
+  <section id="crmAddress">
     <title>Address</title>
     <para>CRM Address section.</para>
     <xi:include href="guiclient/address.xml" xpointer="element(/1)"
@@ -157,7 +157,7 @@
     <xi:include href="guiclient/addresses.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section>
+  <section id="crmUtilities">
     <title>Utilities</title>
     <para>This section includes information about utilities used by the CRM
     module.</para>
@@ -173,7 +173,7 @@
     <xi:include href="guiclient/fixCountries.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section>
+  <section id="crmSetup">
     <title>Setup</title>
     <para>This is the setup section for the CRM module. The following CRM
     module setup tasks are described in this section:</para>
@@ -185,7 +185,7 @@
         <para>Master Information</para>
       </listitem>
     </itemizedlist>
-    <section>
+    <section id="crm_setup_configure">
       <title>Configure</title>
       <para>CRM module configuration section.</para>
       <xi:include href="guiclient/configureCRM.xml" xpointer="element(/1)"

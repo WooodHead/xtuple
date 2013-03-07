@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
+<section id="conifgureCC">
   <title><indexterm significance="normal">
       <primary>configuration</primary>
       <secondary>for credit cards</secondary>
@@ -32,10 +32,10 @@
         <para>Select to indicate the system is configured to accept Credit
         Card Payments. If selected, the Credit Card processing functionality
         will be enabled throughout the system. For example, users will be able
-        to store Customer Credit Card information on the Customer
-        master&mdash;and receive Credit Card payments when processing Sales
-        Orders. If this option is not selected, Credit Card functionality will
-        be disabled.</para>
+        to store Customer Credit Card information on the Customer master—and
+        receive Credit Card payments when processing Sales Orders. If this
+        option is not selected, Credit Card functionality will be
+        disabled.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -101,11 +101,11 @@
             <listitem>
               <para>Select if you will be using tools outside of xTuple ERP to
               communicate with your Credit Card company. If selected, you may
-              still process Credit Card transactions in xTuple ERP&mdash;and
-              this information will be stored in your xTuple database.
-              However, no information will be sent to outside Credit Card
-              processors. You can learn more about the interface used to
-              collect external Credit Card transactions in <xref
+              still process Credit Card transactions in xTuple ERP—and this
+              information will be stored in your xTuple database. However, no
+              information will be sent to outside Credit Card processors. You
+              can learn more about the interface used to collect external
+              Credit Card transactions in <xref
               linkend="externalCCTransactionTitle" />.</para>
             </listitem>
           </varlistentry>
@@ -846,7 +846,7 @@
   </tip>
   <note>
     <para>The encryption key information may be entered on this screen, or on
-    the Encryption screen&mdash;and vice versa.</para>
+    the Encryption screen—and vice versa.</para>
   </note>
   <para>When establishing the key file settings for your Credit Card
   configuration, you are presented with the following options:</para>

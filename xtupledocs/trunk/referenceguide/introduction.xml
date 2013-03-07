@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<preface id="Chapter464102">
+<preface id="chapterIntroduction">
   <title><anchor id="Anchor23250" role="Cross-Ref"
   xreflabel="23250: ChapterTitleNoNumber: Introduction" />Introduction</title>
   <para>Welcome to the Reference Guide for xTuple Enterprise Resource
@@ -303,7 +303,7 @@
         </varlistentry>
       </variablelist>
     </section>
-    <section>
+    <section id="introductionXtupleDesktop">
       <title>xTuple Desktop</title>
       <para>Once you have logged in, the main application desktop will appear.
       There are two different desktop options—and the one you see depends on
@@ -535,7 +535,7 @@
     <para>xTuple ERP contains a number of fundamental features designed to
     simplify your use of the software. In this section, we describe those
     fundamentals in an effort to familiarize you with their use.</para>
-    <section>
+    <section id="introductionSearchingForInformation">
       <title>Searching for Information</title>
       <para>Every time you look up an Order or a Customer or an Item, you are
       using search navigation. In this section, we'll discuss some of the
@@ -1673,7 +1673,7 @@
       screen will remember your sort preference the next time you visit the
       screen.</para>
     </section>
-    <section>
+    <section id="introductionScreenPositionSizeMemory">
       <title><indexterm significance="normal">
           <primary>screens</primary>
           <secondary>size remembered for</secondary>
@@ -1729,7 +1729,7 @@
         </varlistentry>
       </variablelist>
     </section>
-    <section>
+    <section id="introductionCheckBoxMemory">
       <title><indexterm significance="normal">
           <primary>check boxes</primary>
           <secondary>setting for remembered</secondary>
@@ -1861,7 +1861,7 @@
         </varlistentry>
       </variablelist>
     </section>
-    <section>
+    <section id="introductionSpellChecking">
       <title>Spell Checking</title>
       <para>There is a user preference option to enable spell checking in
       comment and text areas for users who want to enable that functionality.
