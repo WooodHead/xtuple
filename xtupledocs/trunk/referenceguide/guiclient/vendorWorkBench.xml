@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
+<section id="vendorWorkBench">
   <title><indexterm significance="normal">
       <primary>vendor workbench</primary>
     </indexterm> <indexterm significance="normal">
@@ -276,8 +276,8 @@
     <varlistentry>
       <term>Open Items</term>
       <listitem>
-        <para>Display lists open Payables. If a Document is past due, the
-        line for that Document will display in red type.</para>
+        <para>Display lists open Payables. If a Document is past due, the line
+        for that Document will display in red type.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -286,10 +286,10 @@
     <varlistentry>
       <term>SELECT</term>
       <listitem>
-        <para>Highlight an open Payable and then click this button to
-        manually review and select the Item for payment. This option brings
-        you to the individual Select Payment screen, where you will find the
-        full range of payment options.</para>
+        <para>Highlight an open Payable and then click this button to manually
+        review and select the Item for payment. This option brings you to the
+        individual Select Payment screen, where you will find the full range
+        of payment options.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -311,9 +311,9 @@
     <varlistentry>
       <term>SELECT ALL DUE</term>
       <listitem>
-        <para>Select this button to select for payment all open Payables
-        whose Payment Date is due or past due and whose Currency is the same
-        as the Bank Account's Currency.</para>
+        <para>Select this button to select for payment all open Payables whose
+        Payment Date is due or past due and whose Currency is the same as the
+        Bank Account's Currency.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -365,8 +365,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To view purchasing history with the Vendor, select the "Payables History"
-  tab. The following screen will appear:</para>
+  <para>To view purchasing history with the Vendor, select the "Payables
+  History" tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>

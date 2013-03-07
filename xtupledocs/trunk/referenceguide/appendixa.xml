@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<appendix id="Appendix461495">
+<appendix id="appendixA">
   <title>Additional References</title>
   <para>This Appendix contains reference information that applies to many of
   the modules found within xTuple ERP. The following topics are referenced in
@@ -584,7 +584,7 @@
     <para>This section contains explanations for the full range of right-click
     menu options found throughout the xTuple applications. The information is
     organized by functional area.</para>
-    <section>
+    <section id="appendixA_rightClickMenuOptions_all">
       <title>All</title>
       <para>The following options are used wherever right-click menus are
       found:</para>
@@ -592,7 +592,7 @@
                   xpointer="xtreewidget.menu.exportcontents"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section>
+    <section id="appendixA_rightClickMenuOptions_general">
       <title>General</title>
       <para>These generic right-click options may appear in any functional
       area of the application:</para>
@@ -629,7 +629,7 @@
         </varlistentry>
       </variablelist>
     </section>
-    <section>
+    <section id="appendixA_rightClickMenuOptions_manufacturing">
       <title>Manufacturing</title>
       <variablelist>
         <varlistentry>
@@ -857,7 +857,7 @@
         </varlistentry>
       </variablelist>
     </section>
-    <section>
+    <section id="appendixA_rightClickMenuOptions_planning">
       <title>Planning Systems</title>
       <variablelist>
         <varlistentry>
@@ -936,7 +936,7 @@
       </variablelist>
     </section>
     <section>
-      <title>Shipping</title>
+      <title id="appendixA_rightClickMenuOptions_shipping">Shipping</title>
       <variablelist>
         <varlistentry>
           <term>Issue Line Balance</term>

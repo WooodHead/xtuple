@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
+<section id="users">
   <title>Maintain Users</title>
   <para>The Maintain Users section enables <anchor id="Anchor971279"
   role="Index" xreflabel="xtuple administrators:privileges maintained by" />
@@ -12,8 +12,7 @@
     </indexterm>system administrators to set up and maintain user accounts,
   passwords, and associated application privileges. This section can only be
   accessed by users who have been granted the "MaintainUsers" system
-  privilege&mdash;a privilege typically reserved for system
-  administrators.</para>
+  privilege—a privilege typically reserved for system administrators.</para>
   <para>By default, all xTuple ERP user records are integrated with the user
   records on the PostgreSQL server instance where the xTuple ERP database is
   running. This integration makes for flexible system administration. Several

@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
+<section id="metasqls">
   <title><indexterm significance="normal">
       <primary>metasql</primary>
       <secondary>statements master list</secondary>
@@ -39,10 +39,10 @@
     </screenshot></para>
   <para>The "MetaSQL Statements" screen displays information on all existing
   MetaSQL Statements, including Group, Name and Notes. If the MetaSQL is part
-  of a larger package, the name of the parent package will be
-  displayed&mdash;with all the child MetaSQL statements appearing in a nested
-  list below it. Select the "Organize By Package" option to see an indented
-  view of the MetaSQL statements and the package they belong to.</para>
+  of a larger package, the name of the parent package will be displayed—with
+  all the child MetaSQL statements appearing in a nested list below it. Select
+  the "Organize By Package" option to see an indented view of the MetaSQL
+  statements and the package they belong to.</para>
   <xi:include href="metasqlEditor.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

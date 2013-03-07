@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="Chapter658670">
+<chapter id="chapterProducts">
   <title>Products Module</title>
   <para>In this chapter, we describe the Products module.</para>
   <section id="productsReports">
@@ -21,7 +21,7 @@
       <xi:include href="guiclient/dspSequencedBOM.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section>
+    <section id="productsWhereUsed">
       <title>Where Used</title>
       <para>Where used Reports section.</para>
       <xi:include href="guiclient/dspSingleLevelWhereUsed.xml"
@@ -40,7 +40,7 @@
     <xi:include href="guiclient/dspStandardOperationsByWorkCenter.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section>
+    <section id="productsCapacityUoms">
       <title>Capacity UOMs</title>
       <para>Capacity Units of Measure Reports section.</para>
       <xi:include href="guiclient/dspCapacityUOMsByClassCode.xml"
@@ -117,7 +117,7 @@
     within the Costing section.</para>
     <xi:include href="guiclient/maintainItemCosts.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section>
+    <section id="productsUpdateActualCosts">
       <title>Update Actual Costs</title>
       <para>Update Actual Costs section.</para>
       <xi:include href="guiclient/updateActualCostsByItem.xml"
@@ -127,7 +127,7 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section>
+    <section id="productsPostActualCosts">
       <title>Post Actual Costs</title>
       <para>Post Actual Costs section.</para>
       <xi:include href="guiclient/postCostsByItem.xml" xpointer="element(/1)"
@@ -136,8 +136,8 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section>
-      <title>Post Standard Costs</title>
+    <section id="productsPostStandardCosts">
+      <title id="productsPostStandardCosts">Post Standard Costs</title>
       <para>Post Standard Costs section.</para>
       <xi:include href="guiclient/postStandCostsByItem.xml"
                   xpointer="element(/1)"
@@ -203,7 +203,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section>
+  <section id="productsSetup">
     <title>Setup</title>
     <para>This is the setup section for the Products module. The following
     Product module setup tasks are described in this section:</para>
@@ -215,7 +215,7 @@
         <para>Master Information</para>
       </listitem>
     </itemizedlist>
-    <section>
+    <section id="productsConfigure">
       <title>Configure</title>
       <para>Products module configuration section.</para>
       <xi:include href="guiclient/configurePD.xml" xpointer="element(/1)"

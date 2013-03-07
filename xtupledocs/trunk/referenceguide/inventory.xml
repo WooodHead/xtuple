@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="Chapter658560">
+<chapter id="chapterInventory">
   <title><anchor id="Anchor27334" role="Cross-Ref"
   xreflabel="27334: ChapterTitle: Inventory  Module" />Inventory
   Module</title>
@@ -38,7 +38,7 @@
   <para>The module is also responsible for generating General Ledger (G/L)
   transactions that record and track Physical Inventory movements throughout
   the production environment.</para>
-  <section>
+  <section id="inventoryTransferOrder">
     <title>Transfer Order</title>
     <para>Transfer Order section.</para>
     <xi:include href="guiclient/transferOrder.xml" xpointer="element(/1)"
@@ -55,7 +55,7 @@
         <secondary>management of</secondary>
       </indexterm>Physical Inventory</title>
     <para>Physical Inventory section.</para>
-    <section>
+    <section id="inventory_physicalInventory_createCountTags">
       <title>Create Count Tags</title>
       <para>Count Tags section.</para>
       <xi:include href="guiclient/createCountTagsByPlannerCode.xml"
@@ -92,7 +92,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/purgePostedCounts.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="inventoryReports">
+    <section id="inventory_physicalInventory_reports">
       <title>Reports</title>
       <para>The Physical Inventory area contains its own reports
       section.</para>
@@ -138,7 +138,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/enterPoReturn.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section>
+    <section id="inventory_receiving_forms">
       <title>Forms</title>
       <para>Receiving Forms section.</para>
       <xi:include href="guiclient/printLabelsByOrder.xml"
@@ -157,7 +157,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/recallOrders.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="inventoryForms">
+    <section id="inventory_shipping_forms">
       <title><indexterm significance="normal">
           <primary>forms</primary>
           <secondary>for shipping</secondary>
@@ -193,7 +193,7 @@
                     xmlns:xi="http://www.w3.org/2001/XInclude" />
       </section>
     </section>
-    <section>
+    <section id="inventory_shipping_reports">
       <title>Reports</title>
       <para>Shipping Reports section.</para>
       <xi:include href="guiclient/dspBacklog.xml" xpointer="element(/1)"
@@ -240,14 +240,14 @@
     <xi:include href="guiclient/relocateInventory.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section>
+  <section id="inventoryForms">
     <title>Forms</title>
     <para>Inventory Forms section.</para>
     <xi:include href="guiclient/printItemLabelsByClassCode.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="inventoryReports2">
+  <section id="inventoryReports3">
     <title>Reports</title>
     <para>Inventory Reports section.</para>
     <xi:include href="guiclient/dspValidLocationsByItem.xml"
@@ -272,7 +272,7 @@
     <xi:include href="guiclient/dspSubstituteAvailabilityByItem.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section>
+    <section id="inventoryInventoryStatus">
       <title>Inventory Status</title>
       <para>Inventory Buffer Status Reports section.</para>
       <xi:include href="guiclient/dspInventoryBufferStatusByPlannerCode.xml"
@@ -300,7 +300,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section>
+  <section id="inventorySites">
     <title>Site</title>
     <para>Site section.</para>
     <xi:include href="guiclient/warehouses.xml" xpointer="element(/1)"
@@ -344,7 +344,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/adjustInvValue.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="inventoryItemControls">
+    <section id="inventory_utilities_updateItemControls">
       <title><indexterm significance="normal">
           <primary>item controls</primary>
           <secondary>updating of</secondary>
@@ -401,7 +401,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section>
+  <section id="inventorySetup">
     <title>Setup</title>
     <para>This is the setup section for the Inventory module. The following
     Inventory module setup tasks are described in this section:</para>
@@ -416,13 +416,13 @@
         <para>Master Information</para>
       </listitem>
     </itemizedlist>
-    <section>
+    <section id="inventory_setup_configure">
       <title>Configure</title>
       <para>Inventory module configuration section.</para>
       <xi:include href="guiclient/configureIM.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section>
+    <section id="inventory_setup_accountingMappings">
       <title>Accounting Mappings</title>
       <para>Inventory module Account mappings section.</para>
       <xi:include href="guiclient/costCategories.xml" xpointer="element(/1)"
@@ -431,7 +431,7 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="inventoryMasterInformation">
+    <section id="inventory_setup_masterInformation">
       <title><indexterm significance="normal">
           <primary>master information</primary>
           <secondary>for inventory module</secondary>

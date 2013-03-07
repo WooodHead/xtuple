@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
+<section id="apWorkBench">
   <title><indexterm significance="normal">
       <primary>payables workbench</primary>
     </indexterm><indexterm significance="normal">
@@ -14,9 +14,9 @@
     </indexterm> Payables Workbench</title>
   <para>The Payables Workbench groups together in one location a range of
   current Payables information, giving you the option to sort this information
-  by individual Vendor&mdash;or by all Vendors or smaller subsets of Vendors.
-  To access the Payables Workbench, select the "Workbench" option. The
-  following screen will appear:<screenshot>
+  by individual Vendor—or by all Vendors or smaller subsets of Vendors. To
+  access the Payables Workbench, select the "Workbench" option. The following
+  screen will appear:<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/apWorkBench.png" />
@@ -56,14 +56,14 @@
     <varlistentry>
       <term>POST</term>
       <listitem>
-        <para>Highlight one&mdash;or multiple&mdash;Vouchers, then select this
-        button to post the selected Voucher(s). By default, Vouchers post to
-        the General Ledger (G/L) on their distribution date. However, users
-        with the appropriate privilege may change the G/L distribution date to
-        an alternate date during the Voucher posting process. If used,
-        Vouchers will post on the alternate date. The ability privileged users
-        have to change the distribution date applies to the posting of both
-        individual and also batches of Vouchers from this screen.</para>
+        <para>Highlight one—or multiple—Vouchers, then select this button to
+        post the selected Voucher(s). By default, Vouchers post to the General
+        Ledger (G/L) on their distribution date. However, users with the
+        appropriate privilege may change the G/L distribution date to an
+        alternate date during the Voucher posting process. If used, Vouchers
+        will post on the alternate date. The ability privileged users have to
+        change the distribution date applies to the posting of both individual
+        and also batches of Vouchers from this screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -76,8 +76,8 @@
   </variablelist>
   <tip>
     <para>You may select multiple Vouchers for posting by highlighting them
-    using your mouse&mdash;or a combination of your mouse and either the SHIFT
-    or CTRL keys.</para>
+    using your mouse—or a combination of your mouse and either the SHIFT or
+    CTRL keys.</para>
   </tip>
   <para>To view the list of open Payables, select the "Payables" tab. The
   following screen will appear:</para>
@@ -107,18 +107,18 @@
     </varlistentry>
   </variablelist>
   <para><note>
-      <para>Open items may be placed on hold&mdash;or reopened&mdash; using
-      the right-click menu on this screen. When on hold, open items may not be
+      <para>Open items may be placed on hold—or reopened— using the
+      right-click menu on this screen. When on hold, open items may not be
       selected for payment.</para>
     </note>The following buttons are unique to this screen:</para>
   <variablelist>
     <varlistentry>
       <term>SELECT</term>
       <listitem>
-        <para>Highlight an open payable and then click this button to
-        manually review and select the Item for payment. This option brings
-        you to the individual Select Payment screen, where you will find the
-        full range of payment options.</para>
+        <para>Highlight an open payable and then click this button to manually
+        review and select the Item for payment. This option brings you to the
+        individual Select Payment screen, where you will find the full range
+        of payment options.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -140,9 +140,9 @@
     <varlistentry>
       <term>SELECT ALL DUE</term>
       <listitem>
-        <para>Select this button to select for payment all open Payables
-        whose Payment Date is due or past due and whose Currency is the same
-        as the Bank Account's Currency.</para>
+        <para>Select this button to select for payment all open Payables whose
+        Payment Date is due or past due and whose Currency is the same as the
+        Bank Account's Currency.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -168,7 +168,7 @@
         <para>When selected, the application will start with the oldest open
         and unapplied Credit Memo (based on its due date) and apply it to the
         oldest open items (i.e., Vouchers and Debit Memos) until the credit is
-        fully applied&mdash;or until there are no more open items for the credit to
+        fully applied—or until there are no more open items for the credit to
         be applied against. This process continues applying all available
         Credit Memos based on their due date.</para>
       </listitem>
