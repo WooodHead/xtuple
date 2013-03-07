@@ -199,7 +199,7 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section>
+    <section id="manufacture_reports_materialRequirements">
       <title>Material Requirements</title>
       <para>Work Order Material Requirements Reports section.</para>
       <xi:include href="guiclient/dspWoMaterialsByWorkOrder.xml"
@@ -308,7 +308,7 @@
         <para>Configuration</para>
       </listitem>
     </itemizedlist>
-    <section>
+    <section id="manufacture_setup_configure">
       <title id="manufacture_setup_configure">Configure</title>
       <para>Manufacture module configuration section.</para>
       <xi:include href="guiclient/configureWO.xml" xpointer="element(/1)"
