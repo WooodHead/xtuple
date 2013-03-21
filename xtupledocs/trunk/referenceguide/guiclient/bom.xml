@@ -111,7 +111,7 @@
             <term>Inactive</term>
             <listitem>
               <para>This is a formerly active Revision. Inactive Revisions
-              cannot be modified&mdash;only viewed. They are stored to provide
+              cannot be modified—only viewed. They are stored to provide
               historical, point-in-time build information, which may be used
               for various purposes throughout the application. For example,
               privileged users may select inactive Revisions when processing
@@ -138,7 +138,18 @@
     <varlistentry>
       <term>Batch Size</term>
       <listitem>
-        <para>Specify the Batch size.</para>
+        <para>The batch size is used to determine per unit setup cost when
+        costing Manufactured Items which have Bills of Operations. For
+        example, if you have $100 in setup costs and a batch size of 100, then
+        your per unit setup cost would be $1. Batch size also impacts material
+        costs when component Items are specified as using fixed quantities on
+        a Bill of Materials (BOM). For example, let's say you have a BOM
+        component listed as having a fixed quantity of 10 and the batch size
+        for the Manufactured Item is 100. Dividing the batch size by the fixed
+        qty. (100/10) gives you a material requirement of 10 component items.
+        This material requirement is added to the qty. per requirement for the
+        component Item, thus having an impact on the material cost of the
+        assembly.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -198,9 +209,8 @@
       <listitem>
         <para>Displays the maximum desired Cost for the component Items. The
         maximum desired Cost is defined on the Item master. It provides a
-        visual guide to help determine whether component Item
-        Costs&mdash;either Standard or Actual&mdash;have exceeded the maximum
-        desired Cost.</para>
+        visual guide to help determine whether component Item Costs—either
+        Standard or Actual—have exceeded the maximum desired Cost.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
