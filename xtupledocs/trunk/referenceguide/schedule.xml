@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="chapterSchedule">
+<chapter id="Schedule">
   <title>Schedule Module</title>
   <para role="manufacturing">In this chapter, we describe the Schedule module.
   This module enables you to develop your <indexterm significance="normal">
@@ -37,7 +37,7 @@
         <para>Planner Codes</para>
       </listitem>
     </itemizedlist></para>
-  <section id="scheduleProductionPlan" role="manufacturing">
+  <section id="Section539566" role="manufacturing">
     <title>Production Plan</title>
     <para>The Master Production Scheduling (MPS) system serves several
     important purposes:</para>
@@ -69,7 +69,7 @@
     <xi:include href="guiclient/plannedSchedules.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="scheduleScheduling" role="standard">
+  <section id="Section518545" role="standard">
     <title>Scheduling</title>
     <para>Planned Orders are a scheduling mechanism used by the two planning
     systems—Master Production Scheduling (MPS) and Material Requirements
@@ -82,7 +82,7 @@
     <xi:include href="guiclient/runMPSByPlannerCode.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="schedule_scheduling_RunMrp">
+    <section>
       <title>Run MRP</title>
       <para>Run MRP section.</para>
       <xi:include href="guiclient/createPlannedOrdersByPlannerCode.xml"
@@ -104,7 +104,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="scheduleConstraintManagement" role="manufacturing">
+  <section id="Section539268" role="manufacturing">
     <title>Constraint Management</title>
     <para role="manufacturing">Manufacturing managers frequently look for
     tools and methods to help them identify actions requiring immediate
@@ -132,7 +132,7 @@
           that resource.</para>
         </listitem>
       </itemizedlist></para>
-    <section id="schedule_constraintManagement_update" role="manufacturing">
+    <section role="manufacturing">
       <title>Update</title>
       <para>Update Buffer Status section.</para>
       <xi:include href="guiclient/createBufferStatusByPlannerCode.xml"
@@ -142,7 +142,7 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="schedule_constraintManagement_inventory">
+    <section>
       <title>Inventory</title>
       <para role="manufacturing">Inventory Buffer Status section.</para>
       <xi:include href="guiclient/dspInventoryBufferStatusByPlannerCode.xml"
@@ -158,7 +158,7 @@
     <xi:include href="guiclient/dspPoItemsByBufferStatus.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="schedule_constraintManagement_workOrder">
+    <section>
       <title>Work Order</title>
       <para role="manufacturing">Work Order Buffer Status section.</para>
       <xi:include href="guiclient/dspWoBufferStatusByPlannerCode.xml"
@@ -178,7 +178,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="scheduleCapacityPlanning" role="manufacturing">
+  <section role="manufacturing">
     <title>Capacity Planning</title>
     <para>Capacity Planning section.</para>
     <xi:include href="guiclient/dspTimePhasedCapacityByWorkCenter.xml"
@@ -190,7 +190,7 @@
     <xi:include href="guiclient/dspTimePhasedAvailableCapacityByWorkCenter.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="schedule_capacityPlanning_timePhasedProduction_">
+    <section>
       <title>Time-Phased Production</title>
       <para>Time-Phased Production section.</para>
       <xi:include href="guiclient/dspTimePhasedProductionByPlannerCode.xml"
@@ -207,7 +207,7 @@
                 xpointer="element(dspCapacityBufferStatusByWorkCenter)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="scheduleReports">
+  <section>
     <title>Reports</title>
     <para role="standard">Schedule Reports section.</para>
     <xi:include href="guiclient/dspPlannedOrders.xml" xpointer="element(/1)"
@@ -245,7 +245,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="scheduleSetup">
+  <section>
     <title>Setup</title>
     <para role="standard">This is the setup section for the Schedule module.
     The following Schedule module setup tasks are described in this
@@ -258,13 +258,13 @@
           <para>Master Information</para>
         </listitem>
       </itemizedlist></para>
-    <section id="scheduleConfigure">
+    <section>
       <title>Configure</title>
       <para role="standard">Schedule module configuration section.</para>
       <xi:include href="guiclient/configureMS.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="scheduleMasterInformation">
+    <section>
       <title>Master Information</title>
       <para role="standard">Schedule module Master Information section.</para>
       <xi:include href="guiclient/plannerCodes.xml" xpointer="element(/1)"

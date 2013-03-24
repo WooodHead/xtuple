@@ -2,12 +2,12 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="chapterAccounting">
+<chapter id="accounting">
   <title>Accounting Module</title>
-  <section id="accountingAccoutsPayable">
+  <section>
     <title>Accounts Payable</title>
     <para>Accounts Payables section.</para>
-    <section id="accounting_accountsPayable_purchaseOrder">
+    <section>
       <title>Purchase Order</title>
       <para>Purchase Order section.</para>
       <xi:include href="guiclient/purchaseOrder.xml" xpointer="element(/1)"
@@ -19,7 +19,7 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="accounting_accountsPayable_Voucher">
+    <section>
       <title>Voucher</title>
       <para>Voucher section.</para>
       <xi:include href="guiclient/voucher.xml" xpointer="element(/1)"
@@ -31,7 +31,7 @@
       <xi:include href="guiclient/postVouchers.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="accounting_accountsPayable_payablesMemos">
+    <section>
       <title>Payables Memos</title>
       <para>Payables Memos section.</para>
       <xi:include href="guiclient/apOpenItemCredit.xml" xpointer="element(/1)"
@@ -42,7 +42,7 @@
       <xi:include href="guiclient/apOpenItemDebit.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="accounting_accountsPayable_payments">
+    <section>
       <title>Payments</title>
       <para><indexterm significance="normal">
           <primary>payments</primary>
@@ -70,7 +70,7 @@
     </section>
     <xi:include href="guiclient/apWorkBench.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="accounting_accountsPayable_forms">
+    <section>
       <title>Forms</title>
       <para>Payables Forms.</para>
       <xi:include href="guiclient/printPurchaseOrder.xml"
@@ -81,7 +81,7 @@
       <xi:include href="guiclient/printChecks.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="accounting_accountsPayable_payablesReports">
+    <section>
       <title>Payables Reports</title>
       <para>Payables Reports section.</para>
       <xi:include href="guiclient/dspUninvoicedReceivings.xml"
@@ -108,10 +108,10 @@
     <xi:include href="guiclient/vendors.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="accountingAcountsReceivable">
+  <section>
     <title>Accounts Receivable</title>
     <para>Accounts Receivable section.</para>
-    <section id="accounting_accounts_Receivables_invoice">
+    <section>
       <title>Invoice</title>
       <para>Invoice section.</para>
       <xi:include href="guiclient/invoice.xml" xpointer="element(/1)"
@@ -159,7 +159,7 @@
                     xmlns:xi="http://www.w3.org/2001/XInclude" />
       </section>
     </section>
-    <section id="accountingReceivablesMemos">
+    <section id="Section524296">
       <title>Receivables Memos</title>
       <para>Receivables Memos section.</para>
       <xi:include href="guiclient/arOpenItemCredit.xml" xpointer="element(/1)"
@@ -170,7 +170,7 @@
       <xi:include href="guiclient/arOpenItemDebit.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="accountingCashReceipts">
+    <section id="Section572894">
       <title>Cash Receipt</title>
       <para>Cash Receipts section.</para>
       <xi:include href="guiclient/cashReceipt.xml" xpointer="element(/1)"
@@ -183,7 +183,7 @@
     </section>
     <xi:include href="guiclient/arWorkBench.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="accounting_accountsReceivables_forms">
+    <section>
       <title>Forms</title>
       <para>Receivables Forms section.</para>
       <xi:include href="guiclient/printInvoices.xml" xpointer="element(/1)"
@@ -197,7 +197,7 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="accounting_accountsReceivable_receivablesReports">
+    <section>
       <title>Receivables Reports</title>
       <para>Receivables Reports section.</para>
       <xi:include href="guiclient/dspInvoiceInformation.xml"
@@ -226,10 +226,10 @@
     <xi:include href="guiclient/customers.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="accountingGeneralLedger">
+  <section>
     <title>General Ledger</title>
     <para>General Ledger section.</para>
-    <section id="accounting_generalLedger_journalEntry">
+    <section>
       <title>Journal Entry</title>
       <para>Journal Entry section.</para>
       <xi:include href="guiclient/glTransaction.xml" xpointer="element(/1)"
@@ -239,7 +239,7 @@
       <xi:include href="guiclient/unpostedGlSeries.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="accountingJournals">
+    <section id="Section524378">
       <title><indexterm significance="normal">
           <primary>journals</primary>
           <secondary>standard</secondary>
@@ -261,7 +261,7 @@
     </section>
     <xi:include href="guiclient/postJournals.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="accounting_generalLedger_glReports">
+    <section>
       <title>G/L Reports</title>
       <para>G/L Reports section.</para>
       <xi:include href="guiclient/dspGLTransactions.xml"
@@ -280,7 +280,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="accountingBankReconciliation">
+  <section id="Section563094">
     <title>Bank Reconciliation</title>
     <para>The Bank Reconciliation section is where Bank statements are
     reconciled against Deposits and Payments posted in the system.</para>
@@ -292,7 +292,7 @@
     <xi:include href="guiclient/bankAdjustmentEditList.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="accounting_bankReconciliation_bankRecReports">
+    <section>
       <title>Bank Rec Reports</title>
       <para>Bank Reconciliation reports section.</para>
       <xi:include href="guiclient/dspBankrecHistory.xml"
@@ -303,7 +303,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="accountingFinancialStatements">
+  <section id="Section536775">
     <title><indexterm significance="normal">
         <primary>financial reports</primary>
         <secondary>previewing of</secondary>
@@ -318,7 +318,7 @@
     <xi:include href="guiclient/dspFinancialReport.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="accountingFiscalCalendar">
+  <section>
     <title>Fiscal Calendar</title>
     <para>Fiscal Calendar section.</para>
     <xi:include href="guiclient/accountingYearPeriods.xml"
@@ -327,7 +327,7 @@
     <xi:include href="guiclient/accountingPeriods.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="accountingAccounts">
+  <section>
     <title>Account</title>
     <para>Account section.</para>
     <xi:include href="guiclient/accountNumbers.xml" xpointer="element(/1)"
@@ -341,15 +341,15 @@
     <xi:include href="guiclient/subAccntTypes.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="accountingBudget">
-    <title id="accountingBudget">Budget</title>
+  <section id="Section572061">
+    <title>Budget</title>
     <para>Budget section.</para>
     <xi:include href="guiclient/maintainBudget.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/budgets.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="accountingTax">
+  <section>
     <title>Tax</title>
     <para>Tax section.</para>
     <xi:include href="guiclient/taxAuthorities.xml" xpointer="element(/1)"
@@ -366,14 +366,14 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/taxRegistrations.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="accounting_tax_taxReports">
+    <section>
       <title>Tax Reports</title>
       <para>Tax reports section.</para>
       <xi:include href="guiclient/dspTaxHistory.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="accountingUtilities">
+  <section id="Section538920">
     <title><indexterm significance="normal">
         <primary>utilities</primary>
         <secondary>in accounting module</secondary>
@@ -393,7 +393,7 @@
     <xi:include href="guiclient/syncCompanies.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="accountingSetup">
+  <section>
     <title>Setup</title>
     <para>This is the setup section for the Accounting module. The following
     Accounting module setup tasks are described in this section:</para>
@@ -408,13 +408,13 @@
         <para>Master Information</para>
       </listitem>
     </itemizedlist>
-    <section id="accounting_setup_configure">
+    <section>
       <title>Configure</title>
       <para>Accounting module configuration section.</para>
       <xi:include href="guiclient/configureGL.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="accounting_setup_accountingMappings">
+    <section>
       <title>Accounting Mappings</title>
       <para>Accounting module Account mappings section.</para>
       <xi:include href="guiclient/apAccountAssignments.xml"
@@ -438,7 +438,7 @@
       <xi:include href="guiclient/salesCategories.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="accounting_setup_masterInformation">
+    <section>
       <title>Master Information</title>
       <para>Accounting module Master Information section.</para>
       <xi:include href="guiclient/characteristics.xml" xpointer="element(/1)"

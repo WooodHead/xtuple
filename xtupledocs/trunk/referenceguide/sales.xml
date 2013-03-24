@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="chapterSales">
+<chapter id="sales">
   <title>Sales Module</title>
   <para>In this chapter, we describe the Sales module. This module is
   responsible for defining and maintaining the following key sales and
@@ -27,7 +27,7 @@
       <para>Sales Commissions</para>
     </listitem>
   </itemizedlist>
-  <section id="salesQuote">
+  <section>
     <title>Quote</title>
     <para>Quote section.</para>
     <xi:include href="guiclient/quote.xml" xpointer="element(/1)"
@@ -35,7 +35,7 @@
     <xi:include href="guiclient/quotes.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="salesSalesOrders">
+  <section id="Section604404">
     <title><indexterm significance="normal">
         <primary>sales orders</primary>
         <secondary>customer relations and</secondary>
@@ -46,10 +46,10 @@
     <xi:include href="guiclient/openSalesOrders.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="salesBilling">
+  <section id="Section528858">
     <title>Billing</title>
     <para>Billing section.</para>
-    <section id="salesInvoices">
+    <section id="Section568790">
       <title><indexterm significance="normal">
           <primary>invoices</primary>
           <secondary>as billing tool</secondary>
@@ -74,7 +74,7 @@
       <xi:include href="guiclient/postInvoices.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="salesCreditMemos">
+    <section id="Section655862">
       <title>Credit Memo</title>
       <para>Sales Order Credit Memos are used to issue credit for sold
       Inventory. They differ from Receivables Credit Memos, which are issued
@@ -91,7 +91,7 @@
       <xi:include href="guiclient/postCreditMemos.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="sales_billing_forms">
+    <section>
       <title>Forms</title>
       <para>Billing Forms section.</para>
       <xi:include href="guiclient/printInvoices.xml" xpointer="element(/1)"
@@ -107,7 +107,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="salesReturn">
+  <section>
     <title>Return</title>
     <para role="standard">Return Authorization section.</para>
     <xi:include href="guiclient/returnAuthorization.xml"
@@ -120,10 +120,10 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="salesLookup">
+  <section>
     <title>Lookup</title>
     <para>Sales lookup section.</para>
-    <section id="sales_lookup_quote">
+    <section>
       <title>Quote</title>
       <para>Quote lookup section.</para>
       <xi:include href="guiclient/dspQuotesByCustomer.xml"
@@ -132,7 +132,7 @@
       <xi:include href="guiclient/dspQuotesByItem.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="sales_lookup_salesOrder">
+    <section>
       <title>Sales Order</title>
       <para>Sales Order lookup section</para>
       <xi:include href="guiclient/dspSalesOrdersByCustomerType.xml"
@@ -152,7 +152,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="formsSection">
+  <section>
     <title>Forms</title>
     <para>Sales Forms section.</para>
     <xi:include href="guiclient/printSoForm.xml" xpointer="element(/1)"
@@ -163,7 +163,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/printPackingList.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="sales_forms_sendElectronicSalesOrderForm" role="xtconnect">
+    <section role="xtconnect">
       <title><indexterm>
           <primary>sales orders</primary>
           <secondary>electronic delivery of</secondary>
@@ -196,7 +196,7 @@
       <xi:include href="guiclient/submitEDI.xml" xpointer="submitEDI"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="sales_forms_sendElectronicQuote" role="xtconnect">
+    <section role="xtconnect">
       <title><indexterm>
           <primary>quotes</primary>
           <secondary>electronic delivery of</secondary>
@@ -229,7 +229,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="salesReports">
+  <section id="Section519901">
     <title>Reports</title>
     <para>Sales Reports section.</para>
     <xi:include href="guiclient/dspSummarizedBacklogByWarehouse.xml"
@@ -265,7 +265,7 @@
     <xi:include href="guiclient/dspTaxHistory.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="salesAnalysis">
+  <section id="Section518499">
     <title>Analysis</title>
     <para>Sales Analysis section.</para>
     <xi:include href="guiclient/dspBookings.xml" xpointer="element(/1)"
@@ -283,7 +283,7 @@
     <xi:include href="guiclient/dspTimePhasedSales.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="salesProspects">
+  <section>
     <title>Prospect</title>
     <para>Prospect section.</para>
     <xi:include href="guiclient/prospect.xml" xpointer="element(/1)"
@@ -293,14 +293,14 @@
     <xi:include href="guiclient/searchForProspect.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="salesCustomers">
+  <section>
     <title>Customer</title>
     <para>Customer section.</para>
     <xi:include href="guiclient/customer.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/customers.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="sales_customer_customerWorkbench">
+    <section>
       <title>Customer Workbench</title>
       <para>The Customer Workbench is the same screen as the screen used for
       creating new Customers. For more information, please see <xref
@@ -309,7 +309,7 @@
     <xi:include href="guiclient/customerGroups.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="salesPricing">
+  <section id="Section519563">
     <title><indexterm significance="normal">
         <primary>items</primary>
         <secondary>pricing for</secondary>
@@ -330,7 +330,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/sales.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="salesReports2">
+    <section id="Section519777">
       <title>Reports</title>
       <para>Item Pricing Reports section.</para>
       <xi:include href="guiclient/dspPricesByCustomerType.xml"
@@ -349,7 +349,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="salesUtilities">
+  <section id="Section520435">
     <title><indexterm significance="normal">
         <primary>utilities</primary>
         <secondary>in sales module</secondary>
@@ -375,7 +375,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="salesSetup">
+  <section>
     <title>Setup</title>
     <para>This is the setup section for the Sales module. The following Sales
     module setup tasks are described in this section:</para>
@@ -390,13 +390,13 @@
         <para>Master Information</para>
       </listitem>
     </itemizedlist>
-    <section id="sales_setup_configure">
+    <section>
       <title>Configure</title>
       <para>Sales module configuration section.</para>
       <xi:include href="guiclient/configureSO.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="sales_setup_accountingMappings">
+    <section>
       <title>Accounting Mappings</title>
       <para>Sales module Account mappings section.</para>
       <xi:include href="guiclient/arAccountAssignments.xml"
@@ -407,7 +407,7 @@
       <xi:include href="guiclient/salesCategories.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="salesMasterInformation">
+    <section id="Section518497">
       <title><indexterm significance="normal">
           <primary>master information</primary>
           <secondary>for sales module</secondary>

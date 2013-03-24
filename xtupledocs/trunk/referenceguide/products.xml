@@ -2,10 +2,10 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="chapterProducts">
+<chapter id="Products">
   <title>Products Module</title>
   <para>In this chapter, we describe the Products module.</para>
-  <section id="productsReports">
+  <section id="Section520254">
     <title>Reports</title>
     <para>Product Reports section.</para>
     <section id="boms">
@@ -21,7 +21,7 @@
       <xi:include href="guiclient/dspSequencedBOM.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="productsWhereUsed">
+    <section>
       <title>Where Used</title>
       <para>Where used Reports section.</para>
       <xi:include href="guiclient/dspSingleLevelWhereUsed.xml"
@@ -40,7 +40,7 @@
     <xi:include href="guiclient/dspStandardOperationsByWorkCenter.xml"
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="productsCapacityUoms">
+    <section>
       <title>Capacity UOMs</title>
       <para>Capacity Units of Measure Reports section.</para>
       <xi:include href="guiclient/dspCapacityUOMsByClassCode.xml"
@@ -51,7 +51,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="productsItems">
+  <section id="Section518881">
     <title>Item</title>
     <para>Items section.</para>
     <xi:include href="guiclient/item.xml" xpointer="element(/1)"
@@ -68,7 +68,7 @@
     <xi:include href="guiclient/itemImages.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="productsBillOfMaterials">
+  <section id="Section519278">
     <title><indexterm significance="normal">
         <primary>BOM</primary>
         <see>bills of materials</see>
@@ -89,7 +89,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="productsBillOfOperations" role="manufacturing">
+  <section id="Section519479" role="manufacturing">
     <title>Bill of Operations</title>
     <para>A Bill of Operations (BOO) is a sequential list of Operations
     required to manufacture an Item. In this section we describe the features
@@ -101,7 +101,7 @@
     <xi:include href="guiclient/copyBOO.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="productsBreederBoms" role="manufacturing">
+  <section id="Section519671" role="manufacturing">
     <title>Breeder Bill of Materials</title>
     <para>A Breeder Item is an Item from which other Items—or by-products—are
     produced. In this section we describe the features of Breeder Bills of
@@ -111,13 +111,13 @@
     <xi:include href="guiclient/bboms.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="productsCosting">
+  <section id="Section519762">
     <title>Costing</title>
     <para>The maintenance and posting of Costs associated with Items occurs
     within the Costing section.</para>
     <xi:include href="guiclient/maintainItemCosts.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="productsUpdateActualCosts">
+    <section>
       <title>Update Actual Costs</title>
       <para>Update Actual Costs section.</para>
       <xi:include href="guiclient/updateActualCostsByItem.xml"
@@ -127,7 +127,7 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="productsPostActualCosts">
+    <section>
       <title>Post Actual Costs</title>
       <para>Post Actual Costs section.</para>
       <xi:include href="guiclient/postCostsByItem.xml" xpointer="element(/1)"
@@ -136,8 +136,8 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="productsPostStandardCosts">
-      <title id="productsPostStandardCosts">Post Standard Costs</title>
+    <section>
+      <title>Post Standard Costs</title>
       <para>Post Standard Costs section.</para>
       <xi:include href="guiclient/postStandCostsByItem.xml"
                   xpointer="element(/1)"
@@ -146,7 +146,7 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="productsReports2">
+    <section id="Section519980">
       <title>Reports</title>
       <para>Costing reports are found in this section.</para>
       <section>
@@ -181,7 +181,7 @@
   </section>
   <xi:include href="guiclient/lotSerial.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <section id="productsUtilities">
+  <section id="Section662694">
     <title><indexterm significance="normal">
         <primary>utilities</primary>
         <secondary>in products module</secondary>
@@ -203,7 +203,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="productsSetup">
+  <section>
     <title>Setup</title>
     <para>This is the setup section for the Products module. The following
     Product module setup tasks are described in this section:</para>
@@ -215,13 +215,13 @@
         <para>Master Information</para>
       </listitem>
     </itemizedlist>
-    <section id="productsConfigure">
+    <section>
       <title>Configure</title>
       <para>Products module configuration section.</para>
       <xi:include href="guiclient/configurePD.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="productsMasterInformation">
+    <section id="Section518577">
       <title><indexterm significance="normal">
           <primary>master information</primary>
           <secondary>for products module</secondary>

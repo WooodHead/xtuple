@@ -3,7 +3,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="reports">
-  <title id="reports"><indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>reports</primary>
       <secondary>master list of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -16,8 +16,8 @@
   of zero ("0"). Anyone who customizes an xTuple report should know that the
   stock xTuple reports may be updated during database upgrades. Because of
   this, you should be sure to assign a grade greater than zero to any custom
-  reports you create—to clearly distinguish them from stock xTuple reports.
-  Doing so will ensure your custom reports are not overwritten during
+  reports you create&mdash;to clearly distinguish them from stock xTuple
+  reports. Doing so will ensure your custom reports are not overwritten during
   upgrades. A report definition may have multiple grades. By default, the
   application uses the report definition with the highest grade.</para>
   <tip>
@@ -40,8 +40,8 @@
   <para>The report definitions master list displays information on all stored
   reports, including report name, report grade, and report description. If the
   report is part of a larger package, the name of the parent package will be
-  displayed—with all the child reports appearing in a nested list below it.
-  Select the "Organize By Package" option to see an indented view of the
+  displayed&mdash;with all the child reports appearing in a nested list below
+  it. Select the "Organize By Package" option to see an indented view of the
   reports and the package they belong to.</para>
   <xi:include href="report.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
