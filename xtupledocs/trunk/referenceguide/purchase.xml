@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="chapterPurchase">
+<chapter id="Purchase">
   <title>Purchase Module</title>
   <para>In this chapter, we describe the Purchase module. This module is
   responsible for the following key functions:</para>
@@ -23,7 +23,7 @@
       <para>Receipts/Returns</para>
     </listitem>
   </itemizedlist>
-  <section id="purchasePurchaseRequest">
+  <section>
     <title>Purchase Request</title>
     <para>Purchase Request section.</para>
     <xi:include href="guiclient/dspPurchaseReqsByPlannerCode.xml"
@@ -33,7 +33,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="purchasePurchaseOrders">
+  <section id="Section971640">
     <title><indexterm significance="normal">
         <primary>purchase orders</primary>
         <secondary>vendor relations and</secondary>
@@ -94,7 +94,7 @@
                 xpointer="element(closePurchaseOrder)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/reschedulePoitem.xml"
-                xpointer="element(reschedulePoitem)"
+                xpointer="element(Section940909)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/changePoitemQty.xml"
                 xpointer="element(changePoitemQty)"
@@ -102,7 +102,7 @@
     <xi:include href="guiclient/addPoComment.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="purchaseVouchers">
+  <section id="Section972014">
     <title><indexterm significance="normal">
         <primary>vouchers</primary>
         <secondary>vendor relations and</secondary>
@@ -122,7 +122,7 @@
                 xpointer="element(postVouchers)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="purchaseForms">
+  <section>
     <title>Forms</title>
     <para>Purchase Forms section.</para>
     <xi:include href="guiclient/printPurchaseOrder.xml"
@@ -137,7 +137,7 @@
     <xi:include href="guiclient/printVendorForm.xml"
                 xpointer="element(printVendorForm)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="purchase_forms_sendElectronicPurchaseOrder" role="xtconnect">
+    <section role="xtconnect">
       <title><indexterm>
           <primary>Purchase Orders</primary>
           <secondary>electronic delivery of</secondary>
@@ -169,14 +169,14 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="purchaseReports">
+  <section id="Section518907">
     <title>Reports</title>
     <para>Purchase Reports section.</para>
-    <xi:include href="guiclient/ItemSites.xml" xpointer="element(/1)"
+    <xi:include href="guiclient/itemSites.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/buyCard.xml" xpointer="element(buyCard)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="purchase_reports_purchaseRequests">
+    <section>
       <title>Purchase Requests</title>
       <para>Purchase Request Reports section.</para>
       <xi:include href="guiclient/dspPurchaseReqsByPlannerCode.xml"
@@ -186,7 +186,7 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="purchase_reports_purcaseOrders">
+    <section>
       <title>Purchase Orders</title>
       <para>Purchase Orders Reports section.</para>
       <xi:include href="guiclient/dspPOsByVendor.xml"
@@ -196,7 +196,7 @@
                   xpointer="element(dspPOsByDate)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="purchase_reports_purchaseOrderItems">
+    <section>
       <title>Purchase Order Items</title>
       <para>Purchase Order Items Reports section.</para>
       <xi:include href="guiclient/dspPoItemsByVendor.xml"
@@ -215,7 +215,7 @@
     <xi:include href="guiclient/dspPoHistory.xml"
                 xpointer="element(dspPoHistory)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="purchase_reports_receiptsAndReturns">
+    <section>
       <title>Receipts and Returns</title>
       <para>Receipts and Returns Reports section.</para>
       <xi:include href="guiclient/dspPoItemReceivingsByVendor.xml"
@@ -231,7 +231,7 @@
     <xi:include href="guiclient/dspUninvoicedReceivings.xml"
                 xpointer="element(dspUninvoicedReceivings)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="purchase_reports_priceVariances">
+    <section>
       <title>Price Variances</title>
       <para>Price Variances Reports section.</para>
       <xi:include href="guiclient/dspPoPriceVariancesByVendor.xml"
@@ -241,7 +241,7 @@
                   xpointer="element(dspPoPriceVariancesByItem)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="purchase_reports_deliveryVariances">
+    <section>
       <title>Delivery Date Variances</title>
       <para>Deliver Date Variances section.</para>
       <xi:include href="guiclient/dspPoDeliveryDateVariancesByVendor.xml"
@@ -258,7 +258,7 @@
                 xpointer="element(openVouchers)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="purchaseVendors">
+  <section>
     <title>Vendor</title>
     <para>Vendor section.</para>
     <xi:include href="guiclient/vendor.xml" xpointer="element(/1)"
@@ -272,7 +272,7 @@
     <xi:include href="guiclient/vendorTypes.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="purchaseItemSources">
+  <section id="Section959109">
     <title>Item Source</title>
     <para>Item Sources identify the relationship between Items and the Vendors
     who supply them. In this section we describe the features of Item
@@ -282,7 +282,7 @@
     <xi:include href="guiclient/itemSources.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="purchaseUtilities">
+  <section id="Section951811">
     <title><indexterm significance="normal">
         <primary>utilities</primary>
         <secondary>in purchase module</secondary>
@@ -298,7 +298,7 @@
                 xpointer="element(assignClassCodeToPlannerCode)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="purchaseSetup">
+  <section>
     <title>Setup</title>
     <para>This is the setup section for the Purchase module. The following
     Purchase module setup tasks are described in this section:</para>
@@ -313,13 +313,13 @@
         <para>Master Information</para>
       </listitem>
     </itemizedlist>
-    <section id="purchase_setup_configure">
+    <section>
       <title>Configure</title>
       <para>Products module configuration section.</para>
       <xi:include href="guiclient/configurePO.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="purchase_setup_accountingMappings">
+    <section>
       <title>Accounting Mappings</title>
       <para>Purchase module Account mappings section.</para>
       <xi:include href="guiclient/apAccountAssignments.xml"
@@ -329,7 +329,7 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="purchaseMasterInformation">
+    <section id="Section518524">
       <title><indexterm significance="normal">
           <primary>master information</primary>
           <secondary>for purchase module</secondary>

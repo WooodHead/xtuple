@@ -2,9 +2,9 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section role="xtconnect">
+<section id="submitEDI" role="xtconnect">
   <title>Send Document Electronically</title>
-  <para id="submitEDI"><informalexample>
+  <para><informalexample>
       <para>You may be presented with one of two screens, depending on whether
       the document will be sent by email or by FTP. If you do not see either
       screen, the EDI Profile has been set to disable review before sending
@@ -78,16 +78,16 @@
         <varlistentry>
           <term>Cc</term>
           <listitem>
-            <para>This is the carbon copy (i.e., Cc:) email address&mdash;a
-            copy of the email will be sent to this address.</para>
+            <para>This is the carbon copy (i.e., Cc:) email address—a copy of
+            the email will be sent to this address.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>Bcc</term>
           <listitem>
-            <para>This is the blind carbon copy (i.e., Bcc:) email
-            address&mdash;a copy of the email will be sent to this address but
-            none of the recipients will see this address.</para>
+            <para>This is the blind carbon copy (i.e., Bcc:) email address—a
+            copy of the email will be sent to this address but none of the
+            recipients will see this address.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -148,7 +148,7 @@
                   Profile will be run. The results will be used to build a
                   file with the fields delimited by the character selected in
                   the drop-down list that appears when "Delimited Text" is
-                  selected. </para>
+                  selected.</para>
                   <para>Pre-defined characters include the comma (",") and
                   tab. If you need to change the delimiter, select "[ not
                   delimited ]" from the drop-down menu, then replace that text

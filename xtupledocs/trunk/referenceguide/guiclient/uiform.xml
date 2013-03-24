@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
+<section id="uiform">
   <title><indexterm significance="normal">
       <primary>screens</primary>
       <secondary>designing new</secondary>
@@ -21,7 +21,7 @@
   following options:</para>
   <note>
     <para>You can read more about creating scripts in <xref
-    linkend="scriptsTitle" />.</para>
+    linkend="scripts" />.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -107,14 +107,13 @@
         they are imported using this option, they are stored in the database
         and associated with the specified screen definition. If you ever want
         or need to edit the UI file and do not have a copy stored locally, you
-        can simply export the UI file to your file system&mdash;and then
-        re-import it when you are done editing. Whenever you import a UI file,
-        it automatically replaces whatever UI file was in place before
-        it.</para>
+        can simply export the UI file to your file system—and then re-import
+        it when you are done editing. Whenever you import a UI file, it
+        automatically replaces whatever UI file was in place before it.</para>
         <warning>
           <para>Every time you import a UI file, the new UI file replaces
-          whatever UI file was imported previously&mdash;regardless of the
-          name of the file(s).</para>
+          whatever UI file was imported previously—regardless of the name of
+          the file(s).</para>
         </warning>
       </listitem>
     </varlistentry>
@@ -124,8 +123,8 @@
         <para>Select to export the UI file associated with the screen. You
         would use this option if you need or want to edit the UI file and do
         not have a copy stored locally on your system. Once exported, the UI
-        can be edited using Qt Designer&mdash;and then re-imported into the
-        database using the import option. Whenever you import a UI file, it
+        can be edited using Qt Designer—and then re-imported into the database
+        using the import option. Whenever you import a UI file, it
         automatically replaces whatever UI file was in place before it.</para>
       </listitem>
     </varlistentry>

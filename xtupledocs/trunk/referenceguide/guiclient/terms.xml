@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
+<section id="terms">
   <title><indexterm>
       <primary>terms</primary>
       <secondary>creating new</secondary>
@@ -122,11 +122,10 @@
         <para>Specify the day of the month on or after which the due date will
         advance to the next month. Putting "0" in this field will enable
         documents that use Proximo Terms to calculate properly on the first of
-        the next month. If you put any value other than "0" in this
-        field&mdash;and you are using Proximo Terms&mdash;then the due date
-        and the discount date may fall within the current month, depending on
-        where the document date falls in relation to the cut-off day in the
-        current month.</para>
+        the next month. If you put any value other than "0" in this field—and
+        you are using Proximo Terms—then the due date and the discount date
+        may fall within the current month, depending on where the document
+        date falls in relation to the cut-off day in the current month.</para>
       </listitem>
     </varlistentry>
   </variablelist>

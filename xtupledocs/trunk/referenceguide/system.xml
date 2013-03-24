@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="chapterSystem">
+<chapter id="system">
   <title><anchor id="Anchor30917" role="Cross-Ref"
   xreflabel="30917: ChapterTitle: System Module" />System Module</title>
   <para>In this chapter, we describe the System module. The System module is
@@ -63,7 +63,7 @@
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <xi:include href="guiclient/userPreferences.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <section id="systemRescanPrivileges">
+  <section id="Section955801">
     <title><indexterm significance="normal">
         <primary>rescan privileges</primary>
       </indexterm> <indexterm significance="normal">
@@ -81,7 +81,7 @@
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <xi:include href="guiclient/groups.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <section id="systemEmployees">
+  <section>
     <title>Employees</title>
     <para>Information on Employees is contained in this section.</para>
     <xi:include href="guiclient/employee.xml" xpointer="element(/1)"
@@ -93,7 +93,7 @@
     <xi:include href="guiclient/empGroups.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="systemCheckForUpdates">
+  <section>
     <title>Check for Updates</title>
     <para>This option is available to system administrators and/or any users
     who have the privilege to create new users. When you select this option,
@@ -102,7 +102,7 @@
     the updates for you. Instead, it simply identifies updates that may be
     available to you.</para>
   </section>
-  <section id="systemDesign">
+  <section>
     <title>Design</title>
     <para>System Design section.</para>
     <xi:include href="guiclient/reports.xml" xpointer="element(/1)"
@@ -118,10 +118,10 @@
     <xi:include href="guiclient/packages.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="systemUtilities">
+  <section id="Section975141">
     <title>Utilities</title>
     <para>System Utilities section.</para>
-    <section id="systemMaintainCsvAtlases">
+    <section>
       <title>Maintain CSV Atlases</title>
       <para>The xTuple data import tool CSVimp has been added as a plug-in to
       xTuple ERP. For more information on using CSVimp, please consult the
@@ -136,7 +136,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/exportData.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section id="systemPrintAlignment">
+    <section id="Section519476">
       <title>Print Alignment Page</title>
       <para>The alignment page utility prints out a formatted grid template,
       which you can use to align pre-printed forms (e.g., Invoices, Bills of
@@ -150,7 +150,7 @@
                 xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
-  <section id="systemSetup">
+  <section>
     <title>Setup</title>
     <para>This is the setup section for the System module. The following
     System module setup tasks are described in this section:</para>
@@ -162,7 +162,7 @@
         <para>Master Information</para>
       </listitem>
     </itemizedlist>
-    <section id="systemConfigure">
+    <section>
       <title>Configure</title>
       <para>System module configuration section.</para>
       <xi:include href="guiclient/configureCC.xml" xpointer="element(/1)"
@@ -184,7 +184,7 @@
       <xi:include href="guiclient/registration.xml" xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section id="systemMasterInformation">
+    <section id="Section518496">
       <title><indexterm significance="normal">
           <primary>master information</primary>
           <secondary>for system module</secondary>
@@ -217,7 +217,7 @@
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
   </section>
-  <section id="systemExiting">
+  <section id="Section973211">
     <title><indexterm significance="normal">
         <primary>exiting</primary>
         <secondary>how to</secondary>

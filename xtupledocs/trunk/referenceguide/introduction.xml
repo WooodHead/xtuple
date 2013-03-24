@@ -2,7 +2,7 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<preface id="chapterIntroduction">
+<preface id="introduction">
   <title><anchor id="Anchor23250" role="Cross-Ref"
   xreflabel="23250: ChapterTitleNoNumber: Introduction" />Introduction</title>
   <para>Welcome to the Reference Guide for xTuple Enterprise Resource
@@ -68,7 +68,7 @@
   taken from the Enterprise Edition for Windows. However, there is no
   functional difference between the Windows, Mac, or Linux versions. You will
   only find minor graphical user interface differences.</para>
-  <section id="introductionGettingStarted">
+  <section id="Section468080">
     <title>Getting Started</title>
     <para>The goal of this chapter is to orient you to some of the basic
     features of xTuple ERP. As you will see, these fundamentals appear
@@ -78,7 +78,7 @@
     <para>The next sections describe the steps required to log in to and exit
     xTuple ERP. In some cases, you may need to ask your system administrator
     for information concerning site-specific settings.</para>
-    <section id="introductionLogInOptions">
+    <section id="Section466744">
       <title>Log In Options<indexterm significance="normal">
           <primary>linux</primary>
           <secondary>client log in procedure</secondary>
@@ -303,7 +303,7 @@
         </varlistentry>
       </variablelist>
     </section>
-    <section id="introductionXtupleDesktop">
+    <section>
       <title>xTuple Desktop</title>
       <para>Once you have logged in, the main application desktop will appear.
       There are two different desktop options—and the one you see depends on
@@ -503,7 +503,7 @@
         </varlistentry>
       </variablelist>
     </section>
-    <section id="introductionExit">
+    <section id="Section474320">
       <title><indexterm significance="normal">
           <primary>exiting</primary>
           <secondary>how to</secondary>
@@ -528,14 +528,14 @@
       </tip>
     </section>
   </section>
-  <section id="introductionApplicationFundamentals">
+  <section id="Section482543">
     <title><indexterm significance="normal">
         <primary>application fundamentals</primary>
       </indexterm>Application Fundamentals</title>
     <para>xTuple ERP contains a number of fundamental features designed to
     simplify your use of the software. In this section, we describe those
     fundamentals in an effort to familiarize you with their use.</para>
-    <section id="introductionSearchingForInformation">
+    <section>
       <title>Searching for Information</title>
       <para>Every time you look up an Order or a Customer or an Item, you are
       using search navigation. In this section, we'll discuss some of the
@@ -642,7 +642,7 @@
               the date will be tomorrow's date. And so on, with the current
               date always being used by that parameter. To learn more about
               the full range of date shortcuts available for entering relative
-              dates, please see <xref linkend="introductionFormats" />.</para>
+              dates, please see <xref linkend="Section474757" />.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -657,7 +657,7 @@
         </note>
       </section>
     </section>
-    <section id="introductionKeyboardShortcuts">
+    <section id="Section456222">
       <title><indexterm significance="normal">
           <primary>keyboard shortcuts</primary>
           <secondary>using instead of mouse</secondary>
@@ -734,7 +734,7 @@
       brought to the Class Codes master list. Now we can add or edit Class
       Codes, before returning to the report where the Class Codes are
       used.</para>
-      <section id="introductionTabKey">
+      <section id="Section456225">
         <title><indexterm significance="normal">
             <primary>TAB key</primary>
           </indexterm> <indexterm significance="normal">
@@ -752,12 +752,12 @@
         cursor still blinking in the field, hit the TAB key. The date will be
         converted to "02/25/03"—or whatever the proper date format is for your
         system. For more information on keyboard shortcuts related to dates,
-        see the <xref linkend="introductionFormats" />.</para>
+        see the <xref linkend="Section474757" />.</para>
         <note>
           <para>Date formats are controlled by Locale settings.</para>
         </note>
       </section>
-      <section id="introductionCtrlKey">
+      <section id="Section456228">
         <title><indexterm significance="normal">
             <primary>CTRL key</primary>
           </indexterm> <indexterm significance="normal">
@@ -833,7 +833,7 @@
           </varlistentry>
         </variablelist>
       </section>
-      <section id="introductionAltKey">
+      <section id="Section456240">
         <title><indexterm significance="normal">
             <primary>ALT key</primary>
           </indexterm> <indexterm significance="normal">
@@ -866,7 +866,7 @@
         the ENTER key after typing a search string into a "Search" field is
         just like hitting the QUERY button.</para>
       </section>
-      <section id="introductionFormats">
+      <section id="Section474757">
         <title><indexterm significance="normal">
             <primary>formats</primary>
             <secondary>related to dates</secondary>
@@ -976,7 +976,7 @@
           other.</para>
         </tip>
       </section>
-      <section id="introductionKeyboardShortcuts2">
+      <section id="Section476479">
         <title><indexterm significance="normal">
             <primary>keyboard shortcuts</primary>
             <secondary>for toolbar buttons</secondary>
@@ -1487,7 +1487,7 @@
         </tip>
       </section>
     </section>
-    <section id="introductionRightClick">
+    <section id="Section456208">
       <title><indexterm significance="normal">
           <primary>right-click</primary>
         </indexterm><indexterm significance="normal">
@@ -1597,7 +1597,7 @@
       though. Often, the right-click feature reveals important and useful
       functionality not to be found on the main display screen.</para>
     </section>
-    <section id="introductionColumns">
+    <section id="Section486620">
       <title><indexterm significance="normal">
           <primary>columns</primary>
           <secondary>size remembered for</secondary>
@@ -1673,7 +1673,7 @@
       screen will remember your sort preference the next time you visit the
       screen.</para>
     </section>
-    <section id="introductionScreenPositionSizeMemory">
+    <section>
       <title><indexterm significance="normal">
           <primary>screens</primary>
           <secondary>size remembered for</secondary>
@@ -1729,7 +1729,7 @@
         </varlistentry>
       </variablelist>
     </section>
-    <section id="introductionCheckBoxMemory">
+    <section>
       <title><indexterm significance="normal">
           <primary>check boxes</primary>
           <secondary>setting for remembered</secondary>
@@ -1763,7 +1763,7 @@
         from view.</para>
       </tip>
     </section>
-    <section id="introductionCommonApplicationButtons">
+    <section id="Section456244">
       <title><indexterm significance="normal">
           <primary>common application buttons</primary>
         </indexterm>Common Application Buttons</title>
@@ -1861,7 +1861,7 @@
         </varlistentry>
       </variablelist>
     </section>
-    <section id="introductionSpellChecking">
+    <section>
       <title>Spell Checking</title>
       <para>There is a user preference option to enable spell checking in
       comment and text areas for users who want to enable that functionality.
