@@ -32,11 +32,6 @@ BEGIN
     RAISE EXCEPTION ''You must supply a valid Site Type.'';
   END IF;
 
-  -- GL Account is required
-  IF (NEW.warehous_default_accnt_id IS NULL) THEN
-    RAISE EXCEPTION ''You must supply a valid Default GL Account.'';
-  END IF;
-
   -- Cost Category is required for Transit types
   IF ((NEW.warehous_transit) AND (NEW.warehous_costcat_id IS NULL)) THEN
     RAISE EXCEPTION ''You must supply a valid Cost Category for Transit Sites.'';
