@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION allocatedForSo(INTEGER, INTEGER) RETURNS numeric AS '
+CREATE OR REPLACE FUNCTION allocatedForSo(INTEGER, INTEGER) RETURNS NUMERIC STABLE AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -10,10 +10,10 @@ BEGIN
   RETURN allocatedForSo(pItemsiteid, startOfTime(), (CURRENT_DATE + pDate));
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION allocatedForSo(INTEGER, DATE) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION allocatedForSo(INTEGER, DATE) RETURNS NUMERIC STABLE AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -25,10 +25,10 @@ BEGIN
   RETURN allocatedForSo(pItemsiteid, startOfTime(), pDate);
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION allocatedForSo(INTEGER, DATE, DATE) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION allocatedForSo(INTEGER, DATE, DATE) RETURNS NUMERIC STABLE AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -43,11 +43,11 @@ BEGIN
   FROM coitem, itemsite, item
   WHERE ( (coitem_itemsite_id=itemsite_id)
     AND (itemsite_item_id=item_id)
-    AND (coitem_status=''O'')
+    AND (coitem_status='O')
     AND (coitem_itemsite_id=pItemsiteid)
     AND (coitem_scheddate BETWEEN pStartDate AND pEndDate) );
 
   RETURN _qty;
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';

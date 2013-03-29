@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION allocatedForWo(INTEGER, INTEGER) RETURNS NUMERIC AS $$
+CREATE OR REPLACE FUNCTION allocatedForWo(INTEGER, INTEGER) RETURNS NUMERIC STABLE AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -13,7 +13,7 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION allocatedForWo(INTEGER, DATE) RETURNS NUMERIC AS $$
+CREATE OR REPLACE FUNCTION allocatedForWo(INTEGER, DATE) RETURNS NUMERIC STABLE AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -28,21 +28,31 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION allocatedForWo(INTEGER, DATE, DATE) RETURNS NUMERIC AS $$
+CREATE OR REPLACE FUNCTION allocatedForWo(INTEGER, DATE, DATE) RETURNS NUMERIC STABLE AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pItemsiteid ALIAS FOR $1;
   pStartDate ALIAS FOR $2;
   pEndDate ALIAS FOR $3;
+  _itemtype TEXT;
   _qty NUMERIC;
 
 BEGIN
 
-  SELECT
-    CASE WHEN (item_type != 'T') THEN
-      COALESCE(SUM(noNeg(itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq - womatl_qtyiss))), 0.0)
-    ELSE -- Special handling for tooling
+  SELECT item_type INTO _itemtype
+  FROM itemsite JOIN item ON (item_id=itemsite_item_id)
+  WHERE (itemsite_id=pItemsiteid);
+
+  IF (_itemtype != 'T') THEN
+    SELECT
+      COALESCE(SUM(noNeg(itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq - womatl_qtyiss))), 0.0) INTO _qty
+    FROM womatl JOIN wo ON (wo_id=womatl_wo_id AND wo_status IN ('E','I','R'))
+                JOIN itemsite ON (itemsite_id=womatl_itemsite_id)
+    WHERE (womatl_itemsite_id=pItemsiteid)
+      AND (womatl_duedate BETWEEN pStartDate AND pEndDate);
+  ELSE
+    SELECT
       COALESCE(SUM(noNeg(itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq))), 0.0)  -
 	(
 		SELECT COALESCE(SUM(invhist_invqty),0) 
@@ -56,16 +66,12 @@ BEGIN
 		AND (womatl_duedate BETWEEN pStartDate AND pEndDate) 
 		AND (wo_id=womatl_wo_id)
 		AND (wo_status IN ('E','I','R')) )
-	) 
-    END INTO _qty
-  FROM wo, womatl, itemsite, item
-  WHERE ( (womatl_itemsite_id=pItemsiteid)
-   AND (womatl_itemsite_id=itemsite_id)
-   AND (itemsite_item_id=item_id)
-   AND (womatl_duedate BETWEEN pStartDate AND pEndDate) 
-   AND (wo_id=womatl_wo_id)
-   AND (wo_status IN ('E','I','R')) )
-  GROUP BY item_type;
+	) INTO _qty
+    FROM womatl JOIN wo ON (wo_id=womatl_wo_id AND wo_status IN ('E','I','R'))
+                JOIN itemsite ON (itemsite_id=womatl_itemsite_id)
+    WHERE (womatl_itemsite_id=pItemsiteid)
+      AND (womatl_duedate BETWEEN pStartDate AND pEndDate);
+  END IF;
 
   RETURN COALESCE(_qty,0);
 

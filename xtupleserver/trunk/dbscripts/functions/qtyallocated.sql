@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION qtyAllocated(INTEGER, INTEGER) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION qtyAllocated(INTEGER, INTEGER) RETURNS NUMERIC AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -10,10 +10,10 @@ BEGIN
   RETURN qtyAllocated(pItemsiteid, startOfTime(), (CURRENT_DATE + pLookAheadDays));
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION qtyAllocated(INTEGER, DATE) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION qtyAllocated(INTEGER, DATE) RETURNS NUMERIC AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -25,10 +25,10 @@ BEGIN
   RETURN qtyAllocated(pItemsiteid, startOfTime(), pDate);
 
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 
 
-CREATE OR REPLACE FUNCTION qtyAllocated(INTEGER, DATE, DATE) RETURNS numeric AS '
+CREATE OR REPLACE FUNCTION qtyAllocated(INTEGER, DATE, DATE) RETURNS NUMERIC STABLE AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
@@ -38,10 +38,7 @@ DECLARE
 
 BEGIN
  
-  IF ( SELECT metric_value
-	FROM metric
-	WHERE ((metric_name = ''MultiWhs'')
-	AND (metric_value = ''t''))) THEN
+  IF ( fetchMetricBool('MultiWhs')) THEN
     IF ( SELECT item_sold
          FROM itemsite, item
          WHERE ((itemsite_item_id=item_id)
@@ -65,4 +62,4 @@ BEGIN
     END IF;
   END IF;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
