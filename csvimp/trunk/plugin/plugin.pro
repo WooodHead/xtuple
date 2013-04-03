@@ -14,7 +14,7 @@ TARGET          = $$qtLibraryTarget(csvimpplugin)
 DESTDIR         = ../plugins
 
 # TODO: why is shared not implied by plugin on mac win32-x-g++?
-win32-x-g++ {
+win32-g++-4.6 {
   CONFIG += shared
 }
 
