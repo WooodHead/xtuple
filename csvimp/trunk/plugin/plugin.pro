@@ -17,6 +17,9 @@ DESTDIR         = ../plugins
 win32-g++-4.6 {
   CONFIG += shared
 }
+win32-x-g++ {
+  CONFIG += shared
+}
 
 QT += sql xml xmlpatterns
 
