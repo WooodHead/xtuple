@@ -181,7 +181,7 @@ BEGIN
     END IF;
 
     FOR _ti IN SELECT toitem_id, toitem_item_id,
-		      toitem_qty_received, toitem_qty_ordered, SUM(shipitem_qty) AS qty
+		      toitem_qty_received, toitem_qty_ordered, SUM(shipitem_qty) AS qty, SUM(shipitem_value) AS value
 	      FROM toitem, shipitem
 	      WHERE ((toitem_id=shipitem_orderitem_id)
 		AND  (shipitem_shiphead_id=pshipheadid))
@@ -190,13 +190,14 @@ BEGIN
 
       _itemlocSeries := NEXTVAL('itemloc_series_seq');
       
-      SELECT postInvTrans(si.itemsite_id, 'TS', (_ti.qty * -1.0), 'I/M',
+      SELECT postInvTrans(ti.itemsite_id, 'TS', (_ti.qty * -1.0), 'I/M',
 			  _shiphead.shiphead_order_type, formatToNumber(_ti.toitem_id),
 			  _to.tohead_number,
-			  'Recall Shipment from Transit To Src Warehouse',
+			  'Recall TO Shipment To Src Warehouse',
 			  sc.costcat_asset_accnt_id,
 			  tc.costcat_shipasset_accnt_id,
-			  _itemlocSeries, _timestamp) INTO _invhistid
+			  _itemlocSeries, _timestamp,
+                          (_ti.value * -1.0)) INTO _invhistid
       FROM itemsite AS ti, costcat AS tc,
 	   itemsite AS si, costcat AS sc
       WHERE ( (ti.itemsite_costcat_id=tc.costcat_id)
@@ -218,16 +219,15 @@ BEGIN
       SELECT postInvTrans(ti.itemsite_id, 'TR', (_ti.qty * -1.0), 'I/M',
 			  _shiphead.shiphead_order_type, formatToNumber(_ti.toitem_id),
 			  _to.tohead_number,
-			  'Recall Shipment from Transit To Src Warehouse',
+			  'Recall TO Shipment From Transit Warehouse',
 			  tc.costcat_asset_accnt_id,
 			  tc.costcat_asset_accnt_id,
 			  _itemlocSeries, _timestamp,
-			  (invhist_invqty * invhist_unitcost)) INTO _invhistid
-      FROM itemsite AS ti, costcat AS tc, invhist
+			  (_ti.value * -1.0)) INTO _invhistid
+      FROM itemsite AS ti, costcat AS tc
       WHERE ((ti.itemsite_costcat_id=tc.costcat_id)
         AND  (ti.itemsite_item_id=_ti.toitem_item_id)
-        AND  (ti.itemsite_warehous_id=_to.tohead_trns_warehous_id)
-        AND  (invhist_id=_invhistid));
+        AND  (ti.itemsite_warehous_id=_to.tohead_trns_warehous_id));
 
       IF (_invhistid < 0) THEN
 	RETURN _invhistid;
