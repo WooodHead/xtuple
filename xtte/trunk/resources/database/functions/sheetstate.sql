@@ -26,7 +26,7 @@ BEGIN
         JOIN emp ON (tehead_emp_id=emp_id)
         LEFT OUTER JOIN te.teemp ON (emp_id=teemp_emp_id)
         LEFT OUTER JOIN te.teitem ON (teitem_tehead_id=tehead_id)
-        LEFT OUTER JOIN vendinfo ON (UPPER(emp_number)=UPPER(vend_number))
+        LEFT OUTER JOIN vendinfo ON (UPPER(emp_code)=UPPER(vend_number))
       WHERE ((teitem_tehead_id=pTeheadId)
          AND ((teitem_type = 'E' AND NOT teitem_prepaid) 
            OR (teitem_type = 'T' AND COALESCE(teemp_contractor,false)))
