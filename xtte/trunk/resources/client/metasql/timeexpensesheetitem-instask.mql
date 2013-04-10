@@ -6,7 +6,7 @@
 
 INSERT INTO prjtask
 SELECT
-  nextval('invchead_invchead_id_seq'),
+  nextval('prjtask_prjtask_id_seq'),
   <? value("name") ?>,
   <? value("name") ?>,
   <? value("name") ?>,
