@@ -25,7 +25,7 @@ BEGIN
       FROM te.tehead
       JOIN te.teitem ON (teitem_tehead_id=tehead_id)
       JOIN emp       ON (tehead_emp_id=emp_id)
-      JOIN vendinfo  ON (UPPER(emp_number)=UPPER(vend_number))
+      JOIN vendinfo  ON (UPPER(emp_code)=UPPER(vend_number))
       LEFT OUTER JOIN te.teemp ON (emp_id=teemp_emp_id)
     WHERE ((tehead_id      = pHeadID)
        AND (teitem_prepaid = false)
