@@ -79,7 +79,7 @@ BEGIN
 
     UPDATE trialbal
        SET trialbal_beginning = trialbal_beginning - trialbal_yearend + _totalProfitLoss,
-           trialbal_ending = trialbal_beginning - trialbal_yearend + _totalProfitLoss,
+           trialbal_ending = trialbal_beginning - trialbal_yearend - trialbal_debits + trialbal_credits + _totalProfitLoss,
            trialbal_yearend = _totalProfitLoss
      WHERE trialbal_id = _trialbalid;
 
