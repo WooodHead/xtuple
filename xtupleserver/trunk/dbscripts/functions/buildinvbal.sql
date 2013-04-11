@@ -31,8 +31,8 @@ BEGIN
   DELETE FROM invbal WHERE invbal_itemsite_id=pItemsiteId;
 
   FOR _r IN 
-    SELECT invhist_id, invhist_created, invhist_invqty, invhist_transtype,
-      invhist_costmethod, itemsite_item_id, invhistSense(invhist_id) AS sense,
+    SELECT invhist.*,
+      itemsite_item_id, invhistSense(invhist_id) AS sense,
       item_number, warehous_code
     FROM invhist
       JOIN itemsite ON (itemsite_id=invhist_itemsite_id)
@@ -41,7 +41,7 @@ BEGIN
     WHERE (invhist_itemsite_id=pItemsiteId)
     ORDER BY invhist_created, invhist_id
   LOOP
-    RAISE NOTICE 'Calculating balances for Item % at Site % against transaction %', _r.item_number, _r.warehous_code, _r.invhist_id;
+    RAISE NOTICE 'Calculating balances for Item % at Site % against transaction %, transtype %, sense %, qty %, %', _r.item_number, _r.warehous_code, _r.invhist_id, _r.invhist_transtype, _r.sense, _r.invhist_invqty, _r.invhist_comments;
     -- Update balances changed by any standard cost update between transactions
     IF (_prevCostmethod = 'S' AND _runningQty != 0) THEN
       PERFORM postValueintoInvBalance(pItemsiteid, costhist_date::date, _runningQty, _runningNn, costhist_oldcost, costhist_newcost )
