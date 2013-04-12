@@ -21,7 +21,7 @@ incdt_assigned_username, incdt_owner_username,
 incdt_summary, cntct_name, incdt_updated::date AS incdt_updated,
 prj_number, incdt_public,
 item_number,
-<? if exists("lspattern") ?>
+<? if exists("LotSerialControl") ?>
 ls_number,
 <? endif ?>
 status_color AS qtbackgroundrole 
@@ -41,7 +41,7 @@ FROM crmacct, status, incdt()
   LEFT OUTER JOIN incdtpriority ON (incdtpriority_id=incdt_incdtpriority_id) 
   LEFT OUTER JOIN prj ON (incdt_prj_id=prj_id)
   LEFT OUTER JOIN item ON (item_id=incdt_item_id)
-<? if exists("lspattern") ?>
+<? if exists("LotSerialControl") ?>
   LEFT OUTER JOIN ls ON (ls_id=incdt_ls_id)
 <? endif ?>
 <? foreach("char_id_text_list") ?>
