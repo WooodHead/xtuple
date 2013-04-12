@@ -55,8 +55,8 @@ BEGIN
   FROM (
   SELECT ipsitem_ipshead_id AS ipsprice_ipshead_id, ipsitem_type,
          CASE WHEN ipsitem_type = 'N' THEN (ipsitem_price * itemuomtouomratio(ipsitem_item_id, NULL, ipsitem_price_uom_id)) * _iteminvpricerat
-              WHEN ipsitem_type = 'D' THEN noNeg(_item.item_listprice - (_item.item_listprice * ipsitem_discntprcnt) - ipsitem_fixedamtdiscount)
-              WHEN ipsitem_type = 'M' THEN (_item.item_listcost + (_item.item_listcost * ipsitem_discntprcnt) + ipsitem_fixedamtdiscount)
+              WHEN ipsitem_type = 'D' THEN noNeg(_item.item_listprice - (_item.item_listprice * ipsitem_discntprcnt) - ipsitem_fixedamtdiscount) * _iteminvpricerat
+              WHEN ipsitem_type = 'M' THEN (_item.item_listcost + (_item.item_listcost * ipsitem_discntprcnt) + ipsitem_fixedamtdiscount) * _iteminvpricerat
               ELSE 0.00
          END AS ipsprice_price,
          CASE WHEN (ipsitem_item_id=_item.item_id) THEN itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak)
@@ -88,8 +88,8 @@ BEGIN
              ELSE 99
            END AS assignseq,
            CASE WHEN ipsitem_type = 'N' THEN (ipsitem_price * itemuomtouomratio(_item.item_id, NULL, ipsitem_price_uom_id)) * _iteminvpricerat
-                WHEN ipsitem_type = 'D' THEN noNeg(_item.item_listprice - (_item.item_listprice * ipsitem_discntprcnt) - ipsitem_fixedamtdiscount)
-                WHEN ipsitem_type = 'M' THEN (_item.item_listcost + (_item.item_listcost * ipsitem_discntprcnt) + ipsitem_fixedamtdiscount)
+                WHEN ipsitem_type = 'D' THEN noNeg(_item.item_listprice - (_item.item_listprice * ipsitem_discntprcnt) - ipsitem_fixedamtdiscount) * _iteminvpricerat
+                WHEN ipsitem_type = 'M' THEN (_item.item_listcost + (_item.item_listcost * ipsitem_discntprcnt) + ipsitem_fixedamtdiscount) * _iteminvpricerat
                 ELSE 0.00
            END AS protoprice,
            CASE WHEN (ipsitem_item_id=_item.item_id) THEN itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak)
