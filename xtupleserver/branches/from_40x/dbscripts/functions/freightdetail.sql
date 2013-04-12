@@ -111,9 +111,9 @@ BEGIN
   --freight classes used on order lines
 
   IF (_includePkgWeight) THEN
-    _qry := 'SELECT SUM(orderitem_qty_ordered * (item_prodweight + item_packweight)) AS weight, ';
+    _qry := 'SELECT SUM(orderitem_qty_ordered * orderitem_qty_invuomratio * (item_prodweight + item_packweight)) AS weight, ';
   ELSE
-    _qry := 'SELECT SUM(orderitem_qty_ordered * item_prodweight) AS weight, ';
+    _qry := 'SELECT SUM(orderitem_qty_ordered * orderitem_qty_invuomratio * item_prodweight) AS weight, ';
   END IF;
 
   _qry := _qry || 'itemsite_warehous_id, COALESCE(item_freightclass_id, -1) AS item_freightclass_id
